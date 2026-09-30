@@ -57,6 +57,11 @@ def main() -> None:
             page.locator("button.nk-library-row").nth(1).click()
             page.wait_for_function("() => document.querySelectorAll('.option-list button').length===4", timeout=5000)
 
+            stem = page.locator(".question-text").inner_text()
+            for restored in ("1. Bulbus cordis", "2. Sinus venosus", "3. Primitive atrium", "4. Primitive ventricle"):
+                if restored not in stem:
+                    raise SystemExit(f"{STABLE_ID} pre-answer reconstructed list missing {restored!r}")
+
             page.locator(".option-list button").nth(3).click()
             page.wait_for_timeout(120)
             support = page.locator(".nk-study-support").inner_text()
@@ -67,7 +72,8 @@ def main() -> None:
                 "primitive ventricle",
                 "primitive atrium",
                 "sinus venosus",
-                "must not be invented",
+                "contextual reconstruction",
+                "not a transcription",
             ):
                 if marker not in support_lc:
                     raise SystemExit(f"{STABLE_ID} learner explanation missing {marker!r}")
@@ -81,7 +87,7 @@ def main() -> None:
             browser.close()
         server.shutdown()
 
-    print(f"MARROW_ANATOMY_CH06_Q002_BROWSER_OK stable_id={STABLE_ID} rationales=3 reconstruction=safe")
+    print(f"MARROW_ANATOMY_CH06_Q002_BROWSER_OK stable_id={STABLE_ID} rationales=3 reconstruction=contextual_source_reviewed")
 
 
 if __name__ == "__main__":

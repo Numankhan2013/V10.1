@@ -326,6 +326,52 @@ def main():
         else:
             raise AssertionError(f'Unsafe continuation review accepted: {field}')
 
+    # A real question image can be entirely absent from imported metadata.
+    import json
+    q = {'id': 'discovered-question', 'subject': 'Biochemistry', 'question': 'Identify the marked structure.',
+         'options': [{'letter': 'A', 'text': 'Alpha'}, {'letter': 'B', 'text': 'Beta'}],
+         'correctOption': 1, 'sourcePage': 33, 'sourceQuestionId': 'original-owner'}
+    fingerprint = sha(json.dumps({key: q.get(key) for key in (
+        'id', 'question', 'options', 'correctOption', 'sourcePage', 'sourceQuestionId')},
+        ensure_ascii=False, sort_keys=True, separators=(',', ':')).encode())
+    discovered = {'schemaVersion': 1, 'entries': [{
+        'id': q['id'] + ':figure:1', 'questionId': q['id'], 'subject': q['subject'],
+        'role': 'question', 'order': 1, 'sourcePages': [34],
+        'canonicalSourceFingerprint': fingerprint,
+        'source': {'file': 'biochemistryed8.pdf', 'sha256': 'a' * 64},
+        'reason': 'Required marker diagram is on the continuation page.',
+        'evidence': 'Question and native marked diagram directly source-compared.',
+    }]}
+    empty_audit = {'bindings': [], 'sources': continuation_audit['sources']}
+    kwargs = {'discovery_reviews': discovered, 'source_questions': {q['id']: q}}
+    missing = build_coverage(empty_audit, {'assets': []}, **kwargs)
+    assert missing['sourceVisuals'][0]['coverageStatus'] == 'UNTRACKED_SOURCE_VISUAL'
+    discovered_registry = {'assets': [{
+        'id': 'real-discovered-image', 'status': 'PASS', 'source': {'page': 34},
+        'bindings': [{'questionId': q['id'], 'role': 'question', 'order': 1}],
+    }]}
+    complete = build_coverage(empty_audit, discovered_registry, **kwargs)
+    assert complete['sourceVisuals'][0]['released']
+    assert complete['summary']['Biochemistry']['additionalCompletenessReviewVisualReferences'] == 1
+    for field, value in [('canonicalSourceFingerprint', 'b' * 64), ('sourcePages', [41]),
+                         ('source', {'file': 'wrong.pdf', 'sha256': 'a' * 64}), ('role', 'unknown')]:
+        changed = deepcopy(discovered)
+        changed['entries'][0][field] = value
+        try:
+            build_coverage(empty_audit, discovered_registry, discovery_reviews=changed, source_questions={q['id']: q})
+        except AssertionError:
+            pass
+        else:
+            raise AssertionError('Unsafe discovered reference accepted: ' + field)
+    duplicate = deepcopy(discovered)
+    duplicate['entries'] *= 2
+    try:
+        build_coverage(empty_audit, discovered_registry, discovery_reviews=duplicate, source_questions={q['id']: q})
+    except AssertionError:
+        pass
+    else:
+        raise AssertionError('Duplicate discovered references inflated coverage')
+
     print('MARROW_IMAGE_COVERAGE_TEST_OK')
 
 

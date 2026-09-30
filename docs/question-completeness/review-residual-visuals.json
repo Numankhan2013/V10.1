@@ -1,0 +1,753 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "completeness_batch_3",
+  "scope": "Eight residual Marrow visual-cue candidates; source-present native/role repairs and verified false positives.",
+  "counts": {
+    "VISUAL_OWNED_COMPLETE": 5,
+    "EXACT_SOURCE_REPAIR": 2,
+    "COMPLETE/FALSE_POSITIVE": 1
+  },
+  "items": [
+    {
+      "id": "marrow__ANAT_CH13_Q010",
+      "canonicalSourceFingerprint": "7208b5897088c6c49de2d12b78bc7eafc745002453da52181ccbc9e0c1babbe2",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePages": [
+        233,
+        234
+      ],
+      "reviewMethod": "Direct Poppler rendered question and continuation-page inspection; compare current full registry and generated MARROW_VISUALS role metadata. Native image stream inspected for new Anatomy45Q23 discovery. Historical preview not used; current full-browser certification remains parent-owned.",
+      "currentBindings": [
+        {
+          "assetId": "anatomy-f7654e8977c2b5cf",
+          "assetStatus": "PASS",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 242,
+            "xref": 651,
+            "region": [
+              162.0,
+              433.0,
+              450.0,
+              649.0
+            ]
+          },
+          "original": {
+            "path": "data/marrow/images/originals/f7654e8977c2b5cf1d48f1979407131899c931cc791d1acfb767103ba8ede2a8.jpg",
+            "sha256": "f7654e8977c2b5cf1d48f1979407131899c931cc791d1acfb767103ba8ede2a8",
+            "width": 562,
+            "height": 470
+          },
+          "production": {
+            "path": "data/marrow/images/originals/f7654e8977c2b5cf1d48f1979407131899c931cc791d1acfb767103ba8ede2a8.jpg",
+            "sha256": "f7654e8977c2b5cf1d48f1979407131899c931cc791d1acfb767103ba8ede2a8",
+            "width": 562,
+            "height": 470
+          },
+          "binding": {
+            "questionId": "marrow__ANAT_CH13_Q010",
+            "role": "explanation",
+            "order": 2,
+            "alt": "Thyroid C-cells",
+            "status": "PASS",
+            "reviewBatch": "manual-wave2-anatomy-ch01-26",
+            "source": {
+              "page": 242,
+              "xref": 651,
+              "region": [
+                162.0,
+                433.0,
+                450.0,
+                649.0
+              ]
+            },
+            "qa": {
+              "sourceCompared": true,
+              "notes": "CI-rendered source context confirms the Thyroid C-cells figure and explanation role."
+            }
+          }
+        },
+        {
+          "assetId": "anatomy-9879b520aadadbc5",
+          "assetStatus": "PASS",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 234,
+            "xref": 627,
+            "region": [
+              162.0,
+              56.0,
+              450.0,
+              272.0
+            ]
+          },
+          "original": {
+            "path": "data/marrow/images/originals/9879b520aadadbc5f71b469e14b1e94042a3b4fe63df074cbb3c026e79469c93.jpg",
+            "sha256": "9879b520aadadbc5f71b469e14b1e94042a3b4fe63df074cbb3c026e79469c93",
+            "width": 720,
+            "height": 628
+          },
+          "production": {
+            "path": "data/marrow/images/originals/9879b520aadadbc5f71b469e14b1e94042a3b4fe63df074cbb3c026e79469c93.jpg",
+            "sha256": "9879b520aadadbc5f71b469e14b1e94042a3b4fe63df074cbb3c026e79469c93",
+            "width": 720,
+            "height": 628
+          },
+          "binding": {
+            "questionId": "marrow__ANAT_CH13_Q010",
+            "role": "question",
+            "order": 1,
+            "alt": "Source question figure",
+            "status": "PASS",
+            "reviewBatch": "manual-wave2-anatomy-ch01-26",
+            "source": {
+              "page": 234,
+              "xref": 627,
+              "region": [
+                162.0,
+                56.0,
+                450.0,
+                272.0
+              ]
+            },
+            "qa": {
+              "sourceCompared": true,
+              "notes": "Page 234, xref 627 follows the question prompt and shows Thyroid histology marked X; role is question."
+            }
+          }
+        }
+      ],
+      "currentRuntimeVisuals": [
+        {
+          "id": "anatomy-9879b520aadadbc5",
+          "role": "question",
+          "order": 1,
+          "src": "marrow_visuals/9879b520aadadbc5f71b469e14b1e94042a3b4fe63df074cbb3c026e79469c93.jpg",
+          "alt": "Source question figure",
+          "status": "PASS",
+          "width": 720,
+          "height": 628
+        },
+        {
+          "id": "anatomy-f7654e8977c2b5cf",
+          "role": "explanation",
+          "order": 2,
+          "src": "marrow_visuals/f7654e8977c2b5cf1d48f1979407131899c931cc791d1acfb767103ba8ede2a8.jpg",
+          "alt": "Thyroid C-cells",
+          "status": "PASS",
+          "width": 562,
+          "height": 470
+        }
+      ],
+      "correctOption": 2,
+      "optionsUnchanged": true,
+      "correctOptionUnchanged": true,
+      "outcome": "VISUAL_OWNED_COMPLETE",
+      "evidence": "Direct continuation-page inspection confirms the needed original marked/clinical/histological image immediately preceding this question’s options. Current released registry and MARROW_VISUALS contain the exact owner with QUESTION role. SourcePage points to preceding stem page; stem-page-only heuristic falsely reports absence. No new extraction, textual guess or gate is required."
+    },
+    {
+      "id": "marrow__ANAT_CH17_Q018",
+      "canonicalSourceFingerprint": "93f3d5e94f255a924a44715c6b88b6497ff15160669d5f22e04781109ba9a1b7",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePages": [
+        310,
+        311
+      ],
+      "reviewMethod": "Direct Poppler rendered question and continuation-page inspection; compare current full registry and generated MARROW_VISUALS role metadata. Native image stream inspected for new Anatomy45Q23 discovery. Historical preview not used; current full-browser certification remains parent-owned.",
+      "currentBindings": [
+        {
+          "assetId": "anatomy-c4447216f5052633",
+          "assetStatus": "PASS",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 324,
+            "xref": 894,
+            "region": [
+              162.0,
+              110.0,
+              450.0,
+              326.0
+            ]
+          },
+          "original": {
+            "path": "data/marrow/images/originals/c4447216f5052633e62bdd1b687582620778e4474538aa47e92813100cdaf294.jpg",
+            "sha256": "c4447216f5052633e62bdd1b687582620778e4474538aa47e92813100cdaf294",
+            "width": 576,
+            "height": 696
+          },
+          "production": {
+            "path": "data/marrow/images/originals/c4447216f5052633e62bdd1b687582620778e4474538aa47e92813100cdaf294.jpg",
+            "sha256": "c4447216f5052633e62bdd1b687582620778e4474538aa47e92813100cdaf294",
+            "width": 576,
+            "height": 696
+          },
+          "binding": {
+            "questionId": "marrow__ANAT_CH17_Q018",
+            "role": "explanation",
+            "order": 2,
+            "alt": "Oculomotor nerve course diagram",
+            "status": "PASS",
+            "reviewBatch": "manual-wave2-anatomy-ch01-26",
+            "source": {
+              "page": 324,
+              "xref": 894,
+              "region": [
+                162.0,
+                110.0,
+                450.0,
+                326.0
+              ]
+            },
+            "qa": {
+              "sourceCompared": true,
+              "notes": "CI-rendered source context confirms the Oculomotor nerve course diagram figure and explanation role."
+            }
+          }
+        },
+        {
+          "assetId": "anatomy-2e629c1e08fcdb49",
+          "assetStatus": "PASS",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 311,
+            "xref": 3610,
+            "region": [
+              162.0,
+              520.0,
+              450.0,
+              736.0
+            ]
+          },
+          "original": {
+            "path": "data/marrow/images/originals/2e629c1e08fcdb49c5293a3ce1bf35f7e051e47f25dfa5d8c6230df95951ec77.jpg",
+            "sha256": "2e629c1e08fcdb49c5293a3ce1bf35f7e051e47f25dfa5d8c6230df95951ec77",
+            "width": 720,
+            "height": 430
+          },
+          "production": {
+            "path": "data/marrow/images/originals/2e629c1e08fcdb49c5293a3ce1bf35f7e051e47f25dfa5d8c6230df95951ec77.jpg",
+            "sha256": "2e629c1e08fcdb49c5293a3ce1bf35f7e051e47f25dfa5d8c6230df95951ec77",
+            "width": 720,
+            "height": 430
+          },
+          "binding": {
+            "questionId": "marrow__ANAT_CH17_Q018",
+            "role": "question",
+            "order": 1,
+            "alt": "Source question figure",
+            "status": "PASS",
+            "reviewBatch": "manual-wave2-anatomy-ch01-26",
+            "source": {
+              "page": 311,
+              "xref": 3610,
+              "region": [
+                162.0,
+                520.0,
+                450.0,
+                736.0
+              ]
+            },
+            "qa": {
+              "sourceCompared": true,
+              "notes": "Page 311, xref 3610 follows the question prompt and shows Clinical image of oculomotor palsy; role is question."
+            }
+          }
+        }
+      ],
+      "currentRuntimeVisuals": [
+        {
+          "id": "anatomy-2e629c1e08fcdb49",
+          "role": "question",
+          "order": 1,
+          "src": "marrow_visuals/2e629c1e08fcdb49c5293a3ce1bf35f7e051e47f25dfa5d8c6230df95951ec77.jpg",
+          "alt": "Source question figure",
+          "status": "PASS",
+          "width": 720,
+          "height": 430
+        },
+        {
+          "id": "anatomy-c4447216f5052633",
+          "role": "explanation",
+          "order": 2,
+          "src": "marrow_visuals/c4447216f5052633e62bdd1b687582620778e4474538aa47e92813100cdaf294.jpg",
+          "alt": "Oculomotor nerve course diagram",
+          "status": "PASS",
+          "width": 576,
+          "height": 696
+        }
+      ],
+      "correctOption": 4,
+      "optionsUnchanged": true,
+      "correctOptionUnchanged": true,
+      "outcome": "VISUAL_OWNED_COMPLETE",
+      "evidence": "Direct continuation-page inspection confirms the needed original marked/clinical/histological image immediately preceding this question’s options. Current released registry and MARROW_VISUALS contain the exact owner with QUESTION role. SourcePage points to preceding stem page; stem-page-only heuristic falsely reports absence. No new extraction, textual guess or gate is required."
+    },
+    {
+      "id": "marrow__ANAT_CH23_Q009",
+      "canonicalSourceFingerprint": "52fec64dc82831681e0e8c462e30a83eea1631c799ceec82bc8687d3b45e8c5a",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePages": [
+        394,
+        395
+      ],
+      "reviewMethod": "Direct Poppler rendered question and continuation-page inspection; compare current full registry and generated MARROW_VISUALS role metadata. Native image stream inspected for new Anatomy45Q23 discovery. Historical preview not used; current full-browser certification remains parent-owned.",
+      "currentBindings": [
+        {
+          "assetId": "anatomy-ch23-q009-corrected-mri",
+          "assetStatus": "PASS",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 395,
+            "xref": 1104,
+            "region": [
+              162,
+              56,
+              450,
+              272
+            ]
+          },
+          "original": {
+            "path": "data/marrow/images/originals/b914ed97d9f0fac6a1489e1b537e869ebb391ef39f20ffe521ae928975aff1c8.jpg",
+            "sha256": "b914ed97d9f0fac6a1489e1b537e869ebb391ef39f20ffe521ae928975aff1c8",
+            "width": 131035,
+            "height": 12910604
+          },
+          "production": {
+            "path": "data/marrow/images/originals/b914ed97d9f0fac6a1489e1b537e869ebb391ef39f20ffe521ae928975aff1c8.jpg",
+            "sha256": "b914ed97d9f0fac6a1489e1b537e869ebb391ef39f20ffe521ae928975aff1c8",
+            "width": 131035,
+            "height": 12910604
+          },
+          "binding": {
+            "questionId": "marrow__ANAT_CH23_Q009",
+            "role": "question",
+            "order": 1,
+            "alt": "Source question image",
+            "status": "PASS",
+            "source": {
+              "file": "Anatomy_ed8.pdf",
+              "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+              "page": 395,
+              "xref": 1104,
+              "region": [
+                162,
+                56,
+                450,
+                272
+              ]
+            },
+            "qa": {
+              "sourceCompared": true,
+              "notes": "Exact coronal MRI with thalamus marked, on the continuation page p395. Unmarked/incorrect page metadata p394 is separately adjudicated invalid; native JPEG source bytes retained.",
+              "evidence": "Native image xref 1104 verified on Anatomy_ed8.pdf page 395; SHA-256 7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f."
+            }
+          }
+        }
+      ],
+      "currentRuntimeVisuals": [
+        {
+          "id": "anatomy-ch23-q009-corrected-mri",
+          "role": "question",
+          "order": 1,
+          "src": "marrow_visuals/b914ed97d9f0fac6a1489e1b537e869ebb391ef39f20ffe521ae928975aff1c8.jpg",
+          "alt": "Source question image",
+          "status": "PASS",
+          "width": 131035,
+          "height": 12910604
+        }
+      ],
+      "correctOption": 3,
+      "optionsUnchanged": true,
+      "correctOptionUnchanged": true,
+      "outcome": "VISUAL_OWNED_COMPLETE",
+      "evidence": "Direct continuation-page inspection confirms the needed original marked/clinical/histological image immediately preceding this question’s options. Current released registry and MARROW_VISUALS contain the exact owner with QUESTION role. SourcePage points to preceding stem page; stem-page-only heuristic falsely reports absence. No new extraction, textual guess or gate is required."
+    },
+    {
+      "id": "marrow__ANAT_CH24_Q010",
+      "canonicalSourceFingerprint": "d49122ca7117181ec1d8a57a5b2879da37689e780e25ca63e1f5e907447d62f2",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePages": [
+        406,
+        407
+      ],
+      "reviewMethod": "Direct Poppler rendered question and continuation-page inspection; compare current full registry and generated MARROW_VISUALS role metadata. Native image stream inspected for new Anatomy45Q23 discovery. Historical preview not used; current full-browser certification remains parent-owned.",
+      "currentBindings": [
+        {
+          "assetId": "anatomy-6409cf12d25b3744",
+          "assetStatus": "PASS",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 416,
+            "xref": 1159,
+            "region": [
+              162.0,
+              253.0,
+              450.0,
+              469.0
+            ]
+          },
+          "original": {
+            "path": "data/marrow/images/originals/6409cf12d25b37445916af7384a6454e8db0fbb84ff873dab636cc49068ac526.jpg",
+            "sha256": "6409cf12d25b37445916af7384a6454e8db0fbb84ff873dab636cc49068ac526",
+            "width": 575,
+            "height": 811
+          },
+          "production": {
+            "path": "data/marrow/images/originals/6409cf12d25b37445916af7384a6454e8db0fbb84ff873dab636cc49068ac526.jpg",
+            "sha256": "6409cf12d25b37445916af7384a6454e8db0fbb84ff873dab636cc49068ac526",
+            "width": 575,
+            "height": 811
+          },
+          "binding": {
+            "questionId": "marrow__ANAT_CH24_Q010",
+            "role": "explanation",
+            "order": 1,
+            "alt": "External medulla/brainstem diagram",
+            "status": "PASS",
+            "reviewBatch": "manual-wave2-anatomy-ch01-26",
+            "source": {
+              "page": 416,
+              "xref": 1159,
+              "region": [
+                162.0,
+                253.0,
+                450.0,
+                469.0
+              ]
+            },
+            "qa": {
+              "sourceCompared": true,
+              "notes": "Rendered source context and native JPEG confirm the figure identity, crop, and explanation/question role."
+            }
+          }
+        },
+        {
+          "assetId": "anatomy-e86674b659da4404",
+          "assetStatus": "PASS",
+          "source": {
+            "file": "Anatomy_ed8.pdf",
+            "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+            "page": 407,
+            "xref": 1135,
+            "region": [
+              162.0,
+              520.0,
+              450.0,
+              736.0
+            ]
+          },
+          "original": {
+            "path": "data/marrow/images/originals/e86674b659da44043981279362e2b94a67da295b25e5449bbeb66c9f8a11b8ea.jpg",
+            "sha256": "e86674b659da44043981279362e2b94a67da295b25e5449bbeb66c9f8a11b8ea",
+            "width": 720,
+            "height": 587
+          },
+          "production": {
+            "path": "data/marrow/images/originals/e86674b659da44043981279362e2b94a67da295b25e5449bbeb66c9f8a11b8ea.jpg",
+            "sha256": "e86674b659da44043981279362e2b94a67da295b25e5449bbeb66c9f8a11b8ea",
+            "width": 720,
+            "height": 587
+          },
+          "binding": {
+            "questionId": "marrow__ANAT_CH24_Q010",
+            "role": "question",
+            "order": 2,
+            "alt": "Source question figure",
+            "status": "PASS",
+            "reviewBatch": "manual-wave2-anatomy-ch01-26",
+            "source": {
+              "page": 407,
+              "xref": 1135,
+              "region": [
+                162.0,
+                520.0,
+                450.0,
+                736.0
+              ]
+            },
+            "qa": {
+              "sourceCompared": true,
+              "notes": "Compared native JPEG with Ubuntu-rendered source context for reference marrow__ANAT_CH24_Q010:figure:2; figure boundaries, identity, and question role are consistent."
+            }
+          }
+        }
+      ],
+      "currentRuntimeVisuals": [
+        {
+          "id": "anatomy-6409cf12d25b3744",
+          "role": "explanation",
+          "order": 1,
+          "src": "marrow_visuals/6409cf12d25b37445916af7384a6454e8db0fbb84ff873dab636cc49068ac526.jpg",
+          "alt": "External medulla/brainstem diagram",
+          "status": "PASS",
+          "width": 575,
+          "height": 811
+        },
+        {
+          "id": "anatomy-e86674b659da4404",
+          "role": "question",
+          "order": 2,
+          "src": "marrow_visuals/e86674b659da44043981279362e2b94a67da295b25e5449bbeb66c9f8a11b8ea.jpg",
+          "alt": "Source question figure",
+          "status": "PASS",
+          "width": 720,
+          "height": 587
+        }
+      ],
+      "correctOption": 3,
+      "optionsUnchanged": true,
+      "correctOptionUnchanged": true,
+      "outcome": "VISUAL_OWNED_COMPLETE",
+      "evidence": "Direct continuation-page inspection confirms the needed original marked/clinical/histological image immediately preceding this question’s options. Current released registry and MARROW_VISUALS contain the exact owner with QUESTION role. SourcePage points to preceding stem page; stem-page-only heuristic falsely reports absence. No new extraction, textual guess or gate is required."
+    },
+    {
+      "id": "marrow__ANAT_CH45_Q023",
+      "canonicalSourceFingerprint": "fc19a853f3c1e433593558ca34ed022f3fbd29a9c06e08bb9d773fe5ea4c5773",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePages": [
+        821
+      ],
+      "reviewMethod": "Direct Poppler rendered question and continuation-page inspection; compare current full registry and generated MARROW_VISUALS role metadata. Native image stream inspected for new Anatomy45Q23 discovery. Historical preview not used; current full-browser certification remains parent-owned.",
+      "currentBindings": [],
+      "currentRuntimeVisuals": [],
+      "correctOption": 1,
+      "optionsUnchanged": true,
+      "correctOptionUnchanged": true,
+      "outcome": "EXACT_SOURCE_REPAIR",
+      "evidence": "Page821 has the complete native heart diagram with blue dotted triangular outline. Labelled valve of inferior vena cava, tendon of Todaro, atrioventricular node, coronary sinus and septal leaflet of tricuspid valve. No released registry or current runtime binding exists for this owner. Source-present question visual must be added without new answer-identifying caption.",
+      "questionVisualDiscovery": {
+        "id": "marrow__ANAT_CH45_Q023:figure:1",
+        "questionId": "marrow__ANAT_CH45_Q023",
+        "subject": "Anatomy",
+        "role": "question",
+        "order": 1,
+        "sourcePages": [
+          821
+        ],
+        "source": {
+          "file": "Anatomy_ed8.pdf",
+          "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f"
+        },
+        "canonicalSourceFingerprint": "fc19a853f3c1e433593558ca34ed022f3fbd29a9c06e08bb9d773fe5ea4c5773",
+        "xref": 2297,
+        "region": [
+          162,
+          516,
+          450,
+          732
+        ],
+        "expectedStreamSha256": "cb78fd25f43988c9f080ae0ded10a143a5e372481e1b0ac8054013c9e6eb9c25",
+        "width": 720,
+        "height": 1132,
+        "kind": "diagram",
+        "reason": "Source-present blue dotted question region has no recorded owner binding.",
+        "evidence": "Direct original page821 and native object2297 visual comparison confirms complete source labels and blue dotted boundary; retain original native pixels."
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH03_Q016",
+      "canonicalSourceFingerprint": "dd9b67f0d6f28e4252ff32e129cd61c28ebd23ae7c9c8fb723a3ae693b718f0d",
+      "sourcePdf": "data/marrow/source_pdfs/biochemistryed8.pdf",
+      "sourcePdfSha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+      "sourcePages": [
+        48,
+        49
+      ],
+      "reviewMethod": "Direct Poppler rendered question and continuation-page inspection; compare current full registry and generated MARROW_VISUALS role metadata. Native image stream inspected for new Anatomy45Q23 discovery. Historical preview not used; current full-browser certification remains parent-owned.",
+      "currentBindings": [
+        {
+          "assetId": "biochemistry-562d98b72d026d82",
+          "assetStatus": "PASS",
+          "source": {
+            "file": "biochemistryed8.pdf",
+            "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+            "page": 49,
+            "xref": 111,
+            "region": [
+              162.0,
+              82.0,
+              450.0,
+              298.0
+            ]
+          },
+          "original": {
+            "path": "data/marrow/images/originals/562d98b72d026d82450de44d811c60dde53a90d74df25b7bcb44392bc95b88e3.jpg",
+            "sha256": "562d98b72d026d82450de44d811c60dde53a90d74df25b7bcb44392bc95b88e3",
+            "width": 720,
+            "height": 534
+          },
+          "production": {
+            "path": "data/marrow/images/originals/562d98b72d026d82450de44d811c60dde53a90d74df25b7bcb44392bc95b88e3.jpg",
+            "sha256": "562d98b72d026d82450de44d811c60dde53a90d74df25b7bcb44392bc95b88e3",
+            "width": 720,
+            "height": 534
+          },
+          "binding": {
+            "questionId": "marrow__BIOCHEM_CH03_Q016",
+            "role": "question",
+            "order": 1,
+            "alt": "Source muscle-biopsy microscopy image"
+          }
+        }
+      ],
+      "currentRuntimeVisuals": [
+        {
+          "id": "biochemistry-562d98b72d026d82",
+          "role": "question",
+          "order": 1,
+          "src": "marrow_visuals/562d98b72d026d82450de44d811c60dde53a90d74df25b7bcb44392bc95b88e3.jpg",
+          "alt": "Source muscle-biopsy microscopy image",
+          "status": "PASS",
+          "width": 720,
+          "height": 534
+        }
+      ],
+      "correctOption": 2,
+      "optionsUnchanged": true,
+      "correctOptionUnchanged": true,
+      "outcome": "VISUAL_OWNED_COMPLETE",
+      "evidence": "Direct continuation-page inspection confirms the needed original marked/clinical/histological image immediately preceding this question’s options. Current released registry and MARROW_VISUALS contain the exact owner with QUESTION role. SourcePage points to preceding stem page; stem-page-only heuristic falsely reports absence. No new extraction, textual guess or gate is required."
+    },
+    {
+      "id": "marrow__PHYS_CH05_Q028",
+      "canonicalSourceFingerprint": "d7fcef48a78b66c56c66c74a6292a57c2f177d9e4158e3509eddd11cd109689b",
+      "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+      "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+      "sourcePages": [
+        76
+      ],
+      "reviewMethod": "Direct Poppler rendered question and continuation-page inspection; compare current full registry and generated MARROW_VISUALS role metadata. Native image stream inspected for new Anatomy45Q23 discovery. Historical preview not used; current full-browser certification remains parent-owned.",
+      "currentBindings": [],
+      "currentRuntimeVisuals": [],
+      "correctOption": 1,
+      "optionsUnchanged": true,
+      "correctOptionUnchanged": true,
+      "outcome": "COMPLETE/FALSE_POSITIVE",
+      "evidence": "Page76 contains a text-only I-125 labelled albumin tracer question, four options and then answer key. Labelled describes radioactive labelling, not a missing picture label. No visual is required. Raw OCR noise is a separate content-hygiene issue; this visual cue is false positive."
+    },
+    {
+      "id": "marrow__PHYSIO_CH37_Q009",
+      "canonicalSourceFingerprint": "88047d7f864e8c4dc306aa55ef5438b2586b270233a951e0729cf4c4cb86677e",
+      "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+      "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+      "sourcePages": [
+        697
+      ],
+      "reviewMethod": "Direct Poppler rendered question and continuation-page inspection; compare current full registry and generated MARROW_VISUALS role metadata. Native image stream inspected for new Anatomy45Q23 discovery. Historical preview not used; current full-browser certification remains parent-owned.",
+      "currentBindings": [
+        {
+          "assetId": "physiology-region-dabc1ea500dd691e",
+          "assetStatus": "SOURCE_LIMITED",
+          "source": {
+            "file": "physiologyed8.pdf",
+            "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+            "page": 697,
+            "xref": 1775,
+            "xrefs": [
+              1775
+            ],
+            "region": [
+              150.0,
+              172.0,
+              462.0,
+              444.0
+            ]
+          },
+          "original": {
+            "path": "data/marrow/images/originals/dabc1ea500dd691e2ff075243baf42a13a34b831f11a04fd23070c567d6a2796.png",
+            "sha256": "dabc1ea500dd691e2ff075243baf42a13a34b831f11a04fd23070c567d6a2796",
+            "width": 1300,
+            "height": 1134
+          },
+          "production": {
+            "path": "data/marrow/images/originals/dabc1ea500dd691e2ff075243baf42a13a34b831f11a04fd23070c567d6a2796.png",
+            "sha256": "dabc1ea500dd691e2ff075243baf42a13a34b831f11a04fd23070c567d6a2796",
+            "width": 1300,
+            "height": 1134
+          },
+          "binding": {
+            "questionId": "marrow__PHYSIO_CH37_Q009",
+            "role": "explanation",
+            "order": 1,
+            "alt": "Source diagram",
+            "status": "PASS",
+            "reviewBatch": "manual-wave2-biochem-physiology",
+            "source": {
+              "page": 697,
+              "xref": 1775,
+              "xrefs": [
+                1775
+              ],
+              "region": [
+                150.0,
+                172.0,
+                462.0,
+                444.0
+              ]
+            },
+            "qa": {
+              "sourceCompared": true,
+              "notes": "Hormone-secretion graph labels sleep and exercise-associated peaks, matching the fluctuation pattern. Original source-render pixels retained unchanged.",
+              "evidence": "Ubuntu run 36437795978, marrow-wave2-regions crop/manifest; source PDF SHA verified."
+            }
+          }
+        }
+      ],
+      "currentRuntimeVisuals": [
+        {
+          "id": "physiology-region-dabc1ea500dd691e",
+          "role": "explanation",
+          "order": 1,
+          "src": "marrow_visuals/dabc1ea500dd691e2ff075243baf42a13a34b831f11a04fd23070c567d6a2796.png",
+          "alt": "Source diagram",
+          "status": "SOURCE_LIMITED",
+          "width": 1300,
+          "height": 1134
+        }
+      ],
+      "correctOption": 2,
+      "optionsUnchanged": true,
+      "correctOptionUnchanged": true,
+      "outcome": "EXACT_SOURCE_REPAIR",
+      "evidence": "Question9 on page697 explicitly requires the graph printed immediately below its stem and above its options. Graph labels strenuous exercise and sleep with pulsatile peaks. Registry already releases the source-region image but binds it only as explanation; current runtime likewise has explanation only. Add question-role binding to that existing asset; retain explanation binding and unchanged pixels.",
+      "proposedImageBinding": {
+        "assetId": "physiology-region-dabc1ea500dd691e",
+        "questionId": "marrow__PHYSIO_CH37_Q009",
+        "role": "question",
+        "order": 1,
+        "status": "PASS",
+        "alt": "Source hormone fluctuation graph",
+        "source": {
+          "page": 697,
+          "xref": 1775,
+          "xrefs": [
+            1775
+          ],
+          "region": [
+            150.0,
+            172.0,
+            462.0,
+            444.0
+          ]
+        },
+        "expectedAssetSha256": "dabc1ea500dd691e2ff075243baf42a13a34b831f11a04fd23070c567d6a2796",
+        "nativeStreamSha256": "a1feb57e42dde562d6fa17c13064cee5b62b19c54287fd0d8bcd12d3a2d508f0",
+        "qa": {
+          "sourceCompared": true,
+          "notes": "Rendered source697 establishes question role; preserve existing source-render pixels and explanation binding."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "scope": "Two final visual-gap candidates",
+  "summary": {
+    "EXACT_SOURCE_REPAIR": 2
+  },
+  "questions": [
+    {
+      "questionId": "marrow__PHYSIO_CH35_Q012",
+      "id": "marrow__PHYSIO_CH35_Q012",
+      "subject": "Physiology",
+      "outcome": "EXACT_SOURCE_REPAIR",
+      "decision": "EXACT_SOURCE_REPAIR",
+      "canonicalSourceFingerprint": "387cb872411b21a02103e0225cfbd0260b5284b4799dc0116819cbb237340dac",
+      "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+      "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+      "sourcePagesReviewed": [
+        654,
+        655,
+        656
+      ],
+      "sourceReviewMethod": "Poppler rendered-page visual review; native JPEG pixel review; pypdf XObject raw-stream hash and content-matrix inspection; registry bindings inspected",
+      "evidence": "Poppler rendered PDF pages654-656 visually inspected; original native stream and existing registry region pixels compared. Page655 content uses /Im1 xref1672, DCTDecode, no mask; native image excludes choice text present at bottom of existing region. The labelled PAH graph belongs to the question continuation before its four matching choices; labels A-D are essential to selecting B.",
+      "affectedFields": [
+        "imageBindings.question"
+      ],
+      "proposedOverride": null,
+      "proposedRepair": {
+        "action": "add-native-question-binding",
+        "preserveExistingExplanationBinding": true,
+        "replaceExistingQuestionBindings": false
+      },
+      "existingExplanationAsset": {
+        "id": "physiology-region-a9b081f1a7319c20",
+        "source": {
+          "file": "physiologyed8.pdf",
+          "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+          "page": 655,
+          "xref": 1672,
+          "xrefs": [
+            1672
+          ],
+          "region": [
+            150.0,
+            28.0,
+            462.0,
+            300.0
+          ]
+        },
+        "original": {
+          "path": "data/marrow/images/originals/a9b081f1a7319c20d1731e179201d8481779041c2ddaaff8c0934c843466d52a.png",
+          "sha256": "a9b081f1a7319c20d1731e179201d8481779041c2ddaaff8c0934c843466d52a",
+          "width": 1300,
+          "height": 1134
+        }
+      },
+      "questionVisualDiscovery": {
+        "questionId": "marrow__PHYSIO_CH35_Q012",
+        "subject": "Physiology",
+        "role": "question",
+        "order": 1,
+        "kind": "graph",
+        "source": {
+          "file": "physiologyed8.pdf",
+          "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+        },
+        "sourcePages": [
+          655
+        ],
+        "xref": 1672,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ],
+        "coordinateSystem": "PDF points top-left x0,y0,x1,y1",
+        "expectedStreamSha256": "2a3bdffb6433baeaed405c5c70800631823bc4942e6e0c0800c3be16c4f39684",
+        "nativeWidth": 720,
+        "nativeHeight": 728,
+        "reason": "The labelled PAH graph belongs to the question continuation before its four matching choices; labels A-D are essential to selecting B.",
+        "evidence": "Poppler rendered PDF pages654-656 visually inspected; original native stream and existing registry region pixels compared. Page655 content uses /Im1 xref1672, DCTDecode, no mask; native image excludes choice text present at bottom of existing region. The labelled PAH graph belongs to the question continuation before its four matching choices; labels A-D are essential to selecting B."
+      },
+      "answerConsistency": {
+        "correctOption": 2,
+        "changeCorrectOption": false,
+        "evidence": "The labelled PAH graph belongs to the question continuation before its four matching choices; labels A-D are essential to selecting B."
+      },
+      "limitations": [
+        "Native stored aspect ratio differs from PDF placement aspect ratio; stream remains byte-identical to source. Runtime integration verification is parent-owned."
+      ]
+    },
+    {
+      "questionId": "marrow__PHYSIO_CH35_Q014",
+      "id": "marrow__PHYSIO_CH35_Q014",
+      "subject": "Physiology",
+      "outcome": "EXACT_SOURCE_REPAIR",
+      "decision": "EXACT_SOURCE_REPAIR",
+      "canonicalSourceFingerprint": "033bd670a83420c2cb9f47171a2c1e84abd3f390f05bbcafaef64bd747dfed08",
+      "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+      "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+      "sourcePagesReviewed": [
+        654,
+        655,
+        656
+      ],
+      "sourceReviewMethod": "Poppler rendered-page visual review; native JPEG pixel review; pypdf XObject raw-stream hash and content-matrix inspection; registry bindings inspected",
+      "evidence": "Poppler rendered PDF pages654-656 visually inspected; original native stream and existing registry region pixels compared. Page656 content uses /Im1 xref1675, DCTDecode, no mask; native image excludes choice text present at bottom of existing region. The glucose graph belongs to the question continuation before its choices and supplies transport maximum 150 mg/min, necessary for 180-150=30 mg/min (D).",
+      "affectedFields": [
+        "imageBindings.question"
+      ],
+      "proposedOverride": null,
+      "proposedRepair": {
+        "action": "add-native-question-binding",
+        "preserveExistingExplanationBinding": true,
+        "replaceExistingQuestionBindings": false
+      },
+      "existingExplanationAsset": {
+        "id": "physiology-region-48981f5d3f48c73f",
+        "source": {
+          "file": "physiologyed8.pdf",
+          "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+          "page": 656,
+          "xref": 1675,
+          "xrefs": [
+            1675
+          ],
+          "region": [
+            150.0,
+            28.0,
+            462.0,
+            300.0
+          ]
+        },
+        "original": {
+          "path": "data/marrow/images/originals/48981f5d3f48c73f0c15f3471231bc0d08b77e5e7433a2e8a1343782b3172dda.png",
+          "sha256": "48981f5d3f48c73f0c15f3471231bc0d08b77e5e7433a2e8a1343782b3172dda",
+          "width": 1300,
+          "height": 1134
+        }
+      },
+      "questionVisualDiscovery": {
+        "questionId": "marrow__PHYSIO_CH35_Q014",
+        "subject": "Physiology",
+        "role": "question",
+        "order": 1,
+        "kind": "graph",
+        "source": {
+          "file": "physiologyed8.pdf",
+          "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe"
+        },
+        "sourcePages": [
+          656
+        ],
+        "xref": 1675,
+        "region": [
+          162.0,
+          56.0,
+          450.0,
+          272.0
+        ],
+        "coordinateSystem": "PDF points top-left x0,y0,x1,y1",
+        "expectedStreamSha256": "947f83a1a0044f6977f86019ecdd635563788b0f3b07544194378b7ea5b346a4",
+        "nativeWidth": 720,
+        "nativeHeight": 486,
+        "reason": "The glucose graph belongs to the question continuation before its choices and supplies transport maximum 150 mg/min, necessary for 180-150=30 mg/min (D).",
+        "evidence": "Poppler rendered PDF pages654-656 visually inspected; original native stream and existing registry region pixels compared. Page656 content uses /Im1 xref1675, DCTDecode, no mask; native image excludes choice text present at bottom of existing region. The glucose graph belongs to the question continuation before its choices and supplies transport maximum 150 mg/min, necessary for 180-150=30 mg/min (D)."
+      },
+      "answerConsistency": {
+        "correctOption": 4,
+        "changeCorrectOption": false,
+        "evidence": "The glucose graph belongs to the question continuation before its choices and supplies transport maximum 150 mg/min, necessary for 180-150=30 mg/min (D)."
+      },
+      "limitations": [
+        "Native stored aspect ratio differs from PDF placement aspect ratio; stream remains byte-identical to source. Runtime integration verification is parent-owned."
+      ]
+    }
+  ]
+}

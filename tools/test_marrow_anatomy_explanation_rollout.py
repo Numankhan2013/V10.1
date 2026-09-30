@@ -52,9 +52,9 @@ def validate_batch(canonical_by_id: dict, legacy_by_id: dict, filename: str, cha
         assert all(str(reason).strip() for reason in cfg["rationales"].values())
 
 
-def validate_reconstruction(questions: dict, canonical_by_id: dict, qid: str) -> None:
+def validate_reconstruction(questions: dict, canonical_by_id: dict, qid: str, status: str = "needs_manual_review") -> None:
     reconstruction = questions[qid].get("reconstruction", {})
-    assert reconstruction.get("status") == "needs_manual_review"
+    assert reconstruction.get("status") == status
     for key in ("sourceProblem", "reconstructedContent", "evidenceBasis", "reviewNote"):
         assert str(reconstruction.get(key, "")).strip()
     assert canonical_by_id[qid].get("reviewStatus") == "needs_manual_review"
@@ -72,13 +72,30 @@ def main() -> None:
 
     q1_7 = json.loads((DATA / BATCHES[0][0]).read_text(encoding="utf-8"))["questions"]
     q19_25 = json.loads((DATA / BATCHES[2][0]).read_text(encoding="utf-8"))["questions"]
-    validate_reconstruction(q1_7, canonical_by_id, "marrow__ANAT_CH06_Q002")
-    validate_reconstruction(q19_25, canonical_by_id, "marrow__ANAT_CH06_Q024")
+    validate_reconstruction(q1_7, canonical_by_id, "marrow__ANAT_CH06_Q002", "resolved_reconstruction")
+    heart = q1_7["marrow__ANAT_CH06_Q002"]
+    assert "contextual reconstruction" in heart["displayText"]
+    assert "1 = bulbus cordis, 2 = sinus venosus, 3 = primitive atrium, and 4 = primitive ventricle" in heart["displayText"]
+    assert "not a transcription" in heart["displayText"]
+    assert canonical_by_id["marrow__ANAT_CH06_Q002"]["correctOption"] == 4
+    nephron = json.loads((DATA / "explanation_anatomy_ch10_q001_q004_v1.json").read_text())["questions"]["marrow__ANAT_CH10_Q004"]
+    validate_reconstruction({"marrow__ANAT_CH10_Q004": nephron}, canonical_by_id, "marrow__ANAT_CH10_Q004", "resolved_reconstruction")
+    assert "blastema stage → vesicle stage → comma-shaped (C-shaped) stage → S-shaped stage" in nephron["displayText"]
+    assert "1 = blastema stage, 2 = comma-shaped stage, 3 = S-shaped stage, and 4 = vesicle stage" in nephron["displayText"]
+    assert canonical_by_id["marrow__ANAT_CH10_Q004"]["correctOption"] == 3
+    assert set(nephron["rationales"]) == {"a", "b", "d"}
+    assert all(anchor in nephron["displayText"] for anchor in nephron["emphasis"])
+    q24 = q19_25["marrow__ANAT_CH06_Q024"]
+    assert q24["reconstruction"]["status"] == "contextually_reconstructed"
+    assert "1 = saccular, 2 = embryonic, 3 = canalicular and 4 = pseudoglandular" in q24["displayText"]
+    assert "contextual reconstruction" in q24["displayText"]
+    assert "2-4-3-1" in q24["displayText"]
+    assert canonical_by_id["marrow__ANAT_CH06_Q024"]["reviewStatus"] == "needs_manual_review"
 
     print(
         "MARROW_ANATOMY_EXPLANATION_ROLLOUT_TEST_OK "
         "chapter6=1-25 chapter7=1-21 count=46 canonical_source=pinned "
-        "legacy_equivalence=pinned q2=needs_manual_review q24=needs_manual_review"
+        "legacy_equivalence=pinned q2=contextual_reconstruction q24=contextually_reconstructed nephron=source_sequence_repaired"
     )
 
 

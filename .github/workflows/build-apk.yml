@@ -12,6 +12,11 @@ on:
         description: Exact full commit SHA required when promoting production
         required: false
         type: string
+      render_review_regions:
+        description: Regenerate archival source-region review sheets (not required for packaging)
+        required: false
+        type: boolean
+        default: false
   push:
     branches: [main, 'consolidation/**', v11-source-visuals, v11-home-polish, v11.1-engineering-foundation, v11.2-study-clarity, v11.3-question-experience, v11.4-whole-app-vision, v11.5-custom-study-modules, v11.6-content-quality, v11.7-cross-device-pwa-sync, 'feature/home-*', 'feature/marrow-*']
 
@@ -94,6 +99,18 @@ jobs:
         run: python3 tools/verify_product_contract.py --stage source
       - name: Verify deterministic build pipeline
         run: python3 tools/verify_build_pipeline.py
+      - name: Test reviewed question completeness and source fingerprints
+        run: python3 tools/test_question_completeness_reviews.py
+      - name: Screen the banks for unreviewed source completeness gaps
+        run: |
+          python3 tools/audit_question_structure.py
+          python3 tools/queue_question_completeness.py --require-reviewed
+      - name: Upload source completeness screening evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: question-completeness-screening
+          path: build/question-fidelity/
       - name: Apply deterministic Review Solutions fix
         run: python3 tools/fix_review_build.py
       - name: Harden Review Solutions renderer
@@ -105,7 +122,7 @@ jobs:
       - name: Install PDF mapping dependency
         run: python3 -m pip install --disable-pip-version-check PyMuPDF Pillow
       - name: Render claimed Biochemistry batch regions on Ubuntu
-        if: ${{ hashFiles('data/marrow/images/recovery_checkpoints/manual_biochem_ch25_28_20260928.json') != '' }}
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.render_review_regions && hashFiles('data/marrow/images/recovery_checkpoints/manual_biochem_ch25_28_20260928.json') != '' }}
         run: >-
           python3 tools/render_marrow_manual_batch_regions.py
           --checkpoint data/marrow/images/recovery_checkpoints/manual_biochem_ch25_28_20260928.json
@@ -118,6 +135,7 @@ jobs:
           path: build/marrow-manual-region-review/
           retention-days: 14
       - name: Render claimed Wave 2 source regions on Ubuntu
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.render_review_regions }}
         shell: bash
         run: |
           shopt -s nullglob
@@ -129,7 +147,7 @@ jobs:
               --output "build/marrow-wave2-region-review/$batch"
           done
       - name: Upload claimed Wave 2 source-region review
-        if: ${{ always() && hashFiles('data/marrow/images/recovery_checkpoints/manual_wave2_*.json') != '' }}
+        if: ${{ always() && hashFiles('build/marrow-wave2-region-review/**/manifest.json') != '' }}
         uses: actions/upload-artifact@v4
         with:
           name: marrow-wave2-regions
@@ -385,6 +403,8 @@ jobs:
         run: python3 tools/verify_marrow_structured_table_browser.py
       - name: Verify PrepLadder matching question presentation in browser
         run: python3 tools/verify_question_presentation_browser.py
+      - name: Verify reviewed question completeness on phone and tablet
+        run: python3 tools/verify_question_completeness_browser.py
       - name: Verify Continue Practice controls and pause resume in browser
         run: python3 tools/verify_continue_practice_browser.py
       - name: Verify question interaction integrity on phone and tablet

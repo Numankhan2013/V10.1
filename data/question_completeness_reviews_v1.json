@@ -1,0 +1,4171 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Primary accepted source-completeness display repairs and exact source-omission gates; raw transport immutable; contextual reconstructions explicitly adjudicated in evidence files.",
+  "canonicalShardSha256": {
+    "anatomy_ch001_063": "f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387",
+    "biochemistry_ch001_028": "919f0709b2eb833e302c6f7524b6dd2bd13bfaed638009375b5062135d3795b1",
+    "physiology_ch001_043": "f3cd6b9dccb2092743fa86de4b0bef682d61c83762e9f00fa3b04d0a355d89d6"
+  },
+  "reviewedCount": 254,
+  "reviewOutcomeCounts": {
+    "CONTEXTUAL_RECONSTRUCTION": 74,
+    "SOURCE_OMISSION": 33,
+    "COMPLETE/FALSE_POSITIVE": 53,
+    "VISUAL_OWNED_COMPLETE": 79,
+    "EXACT_SOURCE_REPAIR": 15
+  },
+  "entries": [
+    {
+      "id": "marrow__ANAT_CH06_Q002",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "98f55a67fbf93430c78bec5ac147688605b82f989219ce3ac80f360c9bde7cec",
+      "source": {
+        "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "pages": [
+          87,
+          94,
+          96
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "display": {
+        "question": "Arrange the following structures of the primitive heart tube in cranial to caudal order.\n\n1. Bulbus cordis\n2. Sinus venosus\n3. Primitive atrium\n4. Primitive ventricle",
+        "table": {
+          "prompt": "Arrange the following structures of the primitive heart tube in cranial to caudal order.",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Bulbus cordis"
+              },
+              {
+                "label": "2",
+                "value": "Sinus venosus"
+              },
+              {
+                "label": "3",
+                "value": "Primitive atrium"
+              },
+              {
+                "label": "4",
+                "value": "Primitive ventricle"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH10_Q004",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "991808c22d55587e0c805dde682bd4c4567cc56e492c1e23c90c40a1bd2dd9d1",
+      "source": {
+        "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "pages": [
+          164,
+          169,
+          171,
+          172
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "display": {
+        "question": "Arrange the following stages of nephron development in order from the earlier stage to the later stage.\n\n1. Blastema stage\n2. Comma-shaped (C-shaped) stage\n3. S-shaped stage\n4. Vesicle stage",
+        "explanationFirstParagraph": "The correct order of the stages of development of the nephron from earlier to later is blastema stage → vesicle stage → comma-shaped (C-shaped) stage → S-shaped stage.",
+        "table": {
+          "prompt": "Arrange the following stages of nephron development in order from the earlier stage to the later stage.",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Blastema stage"
+              },
+              {
+                "label": "2",
+                "value": "Comma-shaped (C-shaped) stage"
+              },
+              {
+                "label": "3",
+                "value": "S-shaped stage"
+              },
+              {
+                "label": "4",
+                "value": "Vesicle stage"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH15_Q014",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "SOURCE_OMISSION",
+      "canonicalSourceFingerprint": "6468cc5294ce29ed342ab7d68123bd8d1643f152943241e37254dea99f9dcaf3",
+      "source": {
+        "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "pages": [
+          265
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "display": {
+        "blocked": true
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH35_Q003",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "SOURCE_OMISSION",
+      "canonicalSourceFingerprint": "a3be11fb2f49aaccc2cde58b5ec8245db56fb2c5ccd3311080a9d9ec7cb71481",
+      "source": {
+        "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "pages": [
+          619
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "display": {
+        "blocked": true
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH48_Q005",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "SOURCE_OMISSION",
+      "canonicalSourceFingerprint": "774564e5fa9cf9a121baa9ad0397e479c023dc49162c1716df45c2a3856a6a0f",
+      "source": {
+        "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "pages": [
+          880
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "display": {
+        "blocked": true
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH52_Q009",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "SOURCE_OMISSION",
+      "canonicalSourceFingerprint": "ea54f3b495d0ed84f2841b8ef09e5fc39bb2f0cfa209306d3525a9d9b60c8f52",
+      "source": {
+        "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "pages": [
+          975
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "display": {
+        "blocked": true
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH62_Q010",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "SOURCE_OMISSION",
+      "canonicalSourceFingerprint": "d0c0380077c98b57ccac7918903ded227dafc33b58a6de36556173733debd251",
+      "source": {
+        "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "pages": [
+          1189
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "display": {
+        "blocked": true
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH13_Q020",
+      "bank": "Marrow",
+      "subject": "Biochemistry",
+      "decision": "SOURCE_OMISSION",
+      "canonicalSourceFingerprint": "5591a1a4825280bdd79c329509b684e68c1ac52bfd81207c54e11130059c6b64",
+      "source": {
+        "file": "data/marrow/source_pdfs/biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "pages": [
+          201
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "display": {
+        "blocked": true
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH14_Q018",
+      "bank": "Marrow",
+      "subject": "Biochemistry",
+      "decision": "SOURCE_OMISSION",
+      "canonicalSourceFingerprint": "c70d3b22e51f5da2e1deef8ade2db23d63087f5e87439658f2bcee6ebcbe089a",
+      "source": {
+        "file": "data/marrow/source_pdfs/biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "pages": [
+          215
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "display": {
+        "blocked": true
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH17_Q011",
+      "bank": "Marrow",
+      "subject": "Biochemistry",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "1403d5ae5538f32c6010c95c002b7e87e92cb6d60540c3c536a2694eba2c85a7",
+      "source": {
+        "file": "data/marrow/source_pdfs/biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "pages": [
+          264,
+          276
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "display": {
+        "question": "A 50-year-old man presents with a history of fatigue, dark-coloured urine and photosensitivity. He consumes alcohol regularly. On examination, hyperpigmentation and scarring are present on the face and dorsum of the hand. Laboratory finding: elevated urinary uroporphyrin. Which of the following is the most likely diagnosis?"
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH22_Q006",
+      "bank": "Marrow",
+      "subject": "Biochemistry",
+      "decision": "SOURCE_OMISSION",
+      "canonicalSourceFingerprint": "d0d6e3b4960a381b3f85eccb678c691c0b6a72a98b1f9a9ab2e3dbced41478a3",
+      "source": {
+        "file": "data/marrow/source_pdfs/biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "pages": [
+          347
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "display": {
+        "blocked": true
+      }
+    },
+    {
+      "id": "marrow__PHYS_CH15_Q016",
+      "bank": "Marrow",
+      "subject": "Physiology",
+      "decision": "SOURCE_OMISSION",
+      "canonicalSourceFingerprint": "08e07f42250aad5bedef32359f8e73737fc6e5740913a9e56cf1e43245cae8d1",
+      "source": {
+        "file": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "pages": [
+          294
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "display": {
+        "blocked": true
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH13_Q005",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "0a9ebabcce8c45e865fb6339f1abde046f056c1e1f512ad33f04672d1f42485a",
+      "source": {
+        "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "pages": [
+          232,
+          235,
+          238,
+          239
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "display": {
+        "question": "Match the marked structures to the correct layers of the cerebellar cortex.\n\n1. White matter\n2. Molecular layer\n3. Purkinje layer\n4. Granular layer",
+        "table": {
+          "prompt": "Match the marked structures to the correct layers of the cerebellar cortex.",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "White matter"
+              },
+              {
+                "label": "2",
+                "value": "Molecular layer"
+              },
+              {
+                "label": "3",
+                "value": "Purkinje layer"
+              },
+              {
+                "label": "4",
+                "value": "Granular layer"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH43_Q005",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "EXACT_SOURCE_REPAIR",
+      "canonicalSourceFingerprint": "26721c03293653c97ae9c9dbe85d9a91d200dee5e650cf1bc616a6e718e747c8",
+      "source": {
+        "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "pages": [
+          793,
+          798
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "display": {
+        "question": "Match the following structures and their locations.\n\nStructures:\nA. Left subclavian artery\nB. Hemiazygos vein\nC. Phrenic nerve\nD. Sternopericardial ligaments\n\nLocations:\n1. Anterior mediastinum\n2. Superior mediastinum\n3. Posterior mediastinum\n4. Middle mediastinum",
+        "table": {
+          "prompt": "Match the following structures and their locations.",
+          "headers": [
+            "Structures",
+            "Locations"
+          ],
+          "groups": [
+            [
+              {
+                "label": "A",
+                "value": "Left subclavian artery"
+              },
+              {
+                "label": "B",
+                "value": "Hemiazygos vein"
+              },
+              {
+                "label": "C",
+                "value": "Phrenic nerve"
+              },
+              {
+                "label": "D",
+                "value": "Sternopericardial ligaments"
+              }
+            ],
+            [
+              {
+                "label": "1",
+                "value": "Anterior mediastinum"
+              },
+              {
+                "label": "2",
+                "value": "Superior mediastinum"
+              },
+              {
+                "label": "3",
+                "value": "Posterior mediastinum"
+              },
+              {
+                "label": "4",
+                "value": "Middle mediastinum"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q034",
+      "bank": "Marrow",
+      "subject": "Physiology",
+      "decision": "SOURCE_OMISSION",
+      "canonicalSourceFingerprint": "fa140124332e84c794e967adf491791f967caa4bfddef0ce77ce8006788773e8",
+      "source": {
+        "file": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "pages": [
+          134,
+          135
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "display": {
+        "blocked": true
+      }
+    },
+    {
+      "id": "anatomy-6-43",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "2b21e0c597956c3e1d82fb90a7a507a6178cde81719130ba3c749f91f9e1361b",
+      "source": {
+        "file": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+        "sha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+        "pages": [
+          204,
+          250,
+          251
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "display": {
+        "question": "Arrange the neural columns in medial-to-lateral order in the floor of fourth ventricle 1. Special somatic afferent 2. Special visceral afferent 3. General somatic afferent 4. General visceral afferent"
+      }
+    },
+    {
+      "id": "anatomy-13-3",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "5d439ae48e3dc3e8c8fbfe35938f34d4c5f42116a358acd2836922ab8fbf2355",
+      "source": {
+        "file": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+        "sha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+        "pages": [
+          486
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "display": {
+        "question": "Which of the following structures of the larynx have seromucous glands?\n\n1. False vocal cord\n2. True vocal cord\n3. Ventricle\n4. Saccule",
+        "table": {
+          "prompt": "Which of the following structures of the larynx have seromucous glands?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "False vocal cord"
+              },
+              {
+                "label": "2",
+                "value": "True vocal cord"
+              },
+              {
+                "label": "3",
+                "value": "Ventricle"
+              },
+              {
+                "label": "4",
+                "value": "Saccule"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "anatomy-23-8",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "d0c6fb1bdbbffea6d8cf5c7c6ae92b2f0754daeded169b290a8986ceaaa7fd71",
+      "source": {
+        "file": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+        "sha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+        "pages": [
+          945
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "display": {
+        "question": "Which of the following is the correct statement regarding the ligaments of the hip joint?\n\n1. The fibrous capsule is made up of outer fibres which are longitudinal and inner circular fibres which are called zona orbicularis.\n2. Ligamentum teres femoris transmits the arteries to the head of femur.\n3. Iliofemoral ligament is an inverted Y-shaped ligament.\n4. The acetabular labrum helps in holding the femur in position.",
+        "table": {
+          "prompt": "Which of the following is the correct statement regarding the ligaments of the hip joint?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "The fibrous capsule is made up of outer fibres which are longitudinal and inner circular fibres which are called zona orbicularis."
+              },
+              {
+                "label": "2",
+                "value": "Ligamentum teres femoris transmits the arteries to the head of femur."
+              },
+              {
+                "label": "3",
+                "value": "Iliofemoral ligament is an inverted Y-shaped ligament."
+              },
+              {
+                "label": "4",
+                "value": "The acetabular labrum helps in holding the femur in position."
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "anatomy-40-2",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "fbd557c227379994b81c672e707d99b38b2911a8a8f0b91f56fffaa3abbe17a3",
+      "source": {
+        "file": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+        "sha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+        "pages": [
+          1590
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "display": {
+        "question": "From the muscles given below, choose the muscles forming the pelvic diaphragm.\n\n1. Levator ani\n2. Coccygeus\n3. Bulbospongiosus\n4. Ischiocavernosus\n5. Superficial transverse perineal muscle\n6. Deep transverse perineal muscle",
+        "table": {
+          "prompt": "From the muscles given below, choose the muscles forming the pelvic diaphragm.",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Levator ani"
+              },
+              {
+                "label": "2",
+                "value": "Coccygeus"
+              },
+              {
+                "label": "3",
+                "value": "Bulbospongiosus"
+              },
+              {
+                "label": "4",
+                "value": "Ischiocavernosus"
+              },
+              {
+                "label": "5",
+                "value": "Superficial transverse perineal muscle"
+              },
+              {
+                "label": "6",
+                "value": "Deep transverse perineal muscle"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "anatomy-45-28",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "e6a6520decf201c1791d1e4712d778e3de768aca85762469893996a648063a68",
+      "source": {
+        "file": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+        "sha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+        "pages": [
+          1747
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "display": {
+        "question": "Arrange the cells according to their positions from the basal layer towards the lumen in the seminiferous tubules.\n\n1. Spermatogonia\n2. Primary spermatocyte\n3. Spermatid\n4. Spermatozoa\n5. Myoepithelial cell",
+        "table": {
+          "prompt": "Arrange the cells according to their positions from the basal layer towards the lumen in the seminiferous tubules.",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Spermatogonia"
+              },
+              {
+                "label": "2",
+                "value": "Primary spermatocyte"
+              },
+              {
+                "label": "3",
+                "value": "Spermatid"
+              },
+              {
+                "label": "4",
+                "value": "Spermatozoa"
+              },
+              {
+                "label": "5",
+                "value": "Myoepithelial cell"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "anatomy-47-2",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "EXACT_SOURCE_REPAIR",
+      "canonicalSourceFingerprint": "5be10da8ad24f8ea359a8caf060aac24a26438bc6db1676c9d776284f26c6539",
+      "source": {
+        "file": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+        "sha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+        "pages": [
+          1811,
+          1812,
+          1813
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "display": {
+        "question": "Match the following organs to the histology images shown below.\n\n1. Cervix\n2. Fallopian tube\n3. Ovary\n4. Uterus\n5. Vagina\n\nHistology labels (source image order):\na. Source figure 1\nb. Source figure 2\nc. Source figure 3\nd. Source figure 4\ne. Source figure 5",
+        "table": {
+          "prompt": "Match the following organs to the histology images shown below.",
+          "headers": [
+            "Statements",
+            "Histology labels (source image order)"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Cervix"
+              },
+              {
+                "label": "2",
+                "value": "Fallopian tube"
+              },
+              {
+                "label": "3",
+                "value": "Ovary"
+              },
+              {
+                "label": "4",
+                "value": "Uterus"
+              },
+              {
+                "label": "5",
+                "value": "Vagina"
+              }
+            ],
+            [
+              {
+                "label": "a",
+                "value": "Source figure 1"
+              },
+              {
+                "label": "b",
+                "value": "Source figure 2"
+              },
+              {
+                "label": "c",
+                "value": "Source figure 3"
+              },
+              {
+                "label": "d",
+                "value": "Source figure 4"
+              },
+              {
+                "label": "e",
+                "value": "Source figure 5"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "5-10",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "e1ad6fc9ae26afcb7d2c25d4c58fda6367501a00ca1a5c0d1f8be96aa97101b2",
+      "source": {
+        "file": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+        "sha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+        "pages": [
+          101
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "display": {
+        "question": "Which of the following statements is true on the structure of glycogen?\n\n1. Arranged in 12 concentric layers\n2. Glucose residues are connected by α-1,4 linkage\n3. Branching points formed by α-1,6 linkage",
+        "table": {
+          "prompt": "Which of the following statements is true on the structure of glycogen?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Arranged in 12 concentric layers"
+              },
+              {
+                "label": "2",
+                "value": "Glucose residues are connected by α-1,4 linkage"
+              },
+              {
+                "label": "3",
+                "value": "Branching points formed by α-1,6 linkage"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "7-10",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "f2562d6465ec7f745b38c9206655daf3c97dee74fde4b31354d15152e76c216c",
+      "source": {
+        "file": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+        "sha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+        "pages": [
+          158
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "display": {
+        "question": "Ketosis is common in type 1 DM due to:\n\n1. Decreased beta-oxidation of fatty acids\n2. Increased mobilization of fat from the adipose cell\n3. Decreased acetyl CoA in TCA cycle\n4. Increased beta-hydroxy butyryl synthase",
+        "table": {
+          "prompt": "Ketosis is common in type 1 DM due to:",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Decreased beta-oxidation of fatty acids"
+              },
+              {
+                "label": "2",
+                "value": "Increased mobilization of fat from the adipose cell"
+              },
+              {
+                "label": "3",
+                "value": "Decreased acetyl CoA in TCA cycle"
+              },
+              {
+                "label": "4",
+                "value": "Increased beta-hydroxy butyryl synthase"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "10-18",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "963b2747c1f89aabf48ac6e9eb85f3f57e62c130f70949c0358854f6b0e10ccf",
+      "source": {
+        "file": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+        "sha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+        "pages": [
+          280
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "display": {
+        "question": "Which of the following is true regarding bile acid synthesis regulation?\n\n1. 7α-hydroxylation is the step which is suppressed\n2. Cholic acid suppresses the synthesis\n3. Farnesoid X receptor is activated\n4. Transcription of the CYP7A1 gene is suppressed",
+        "table": {
+          "prompt": "Which of the following is true regarding bile acid synthesis regulation?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "7α-hydroxylation is the step which is suppressed"
+              },
+              {
+                "label": "2",
+                "value": "Cholic acid suppresses the synthesis"
+              },
+              {
+                "label": "3",
+                "value": "Farnesoid X receptor is activated"
+              },
+              {
+                "label": "4",
+                "value": "Transcription of the CYP7A1 gene is suppressed"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "20-4",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "4a092573a80e8af35d715773a7bdb5e7171e74b0951b94a2db0cf9869e1daf8b",
+      "source": {
+        "file": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+        "sha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+        "pages": [
+          614
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "display": {
+        "question": "In their CRISPR-Cas9 experiment with a mammalian cell line, the research team observes the repair of DNA double-strand breaks. Which repair mechanisms are they most likely observing?\n\n1. Non-Homologous End Joining (NHEJ)\n2. Homologous End Joining (HEJ)\n3. Nucleotide Excision Repair (NER)\n4. Base Excision Repair (BER)",
+        "table": {
+          "prompt": "In their CRISPR-Cas9 experiment with a mammalian cell line, the research team observes the repair of DNA double-strand breaks. Which repair mechanisms are they most likely observing?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Non-Homologous End Joining (NHEJ)"
+              },
+              {
+                "label": "2",
+                "value": "Homologous End Joining (HEJ)"
+              },
+              {
+                "label": "3",
+                "value": "Nucleotide Excision Repair (NER)"
+              },
+              {
+                "label": "4",
+                "value": "Base Excision Repair (BER)"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "27-5",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "41cdd49e561dbdf65f081579b932190b5751eb0fe15648fe622987e079cd8c46",
+      "source": {
+        "file": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+        "sha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+        "pages": [
+          889
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "display": {
+        "question": "Features of Korsakoff psychosis are all except:\n\n1. Amnesia\n2. Confabulation\n3. Ophthalmoplegia\n4. Polyneuropathy",
+        "table": {
+          "prompt": "Features of Korsakoff psychosis are all except:",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Amnesia"
+              },
+              {
+                "label": "2",
+                "value": "Confabulation"
+              },
+              {
+                "label": "3",
+                "value": "Ophthalmoplegia"
+              },
+              {
+                "label": "4",
+                "value": "Polyneuropathy"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "physiology-12-2",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "b12730a7b2b5c085d0f4edf0cc854f5305809958d82f2336277534d1958dc711",
+      "source": {
+        "file": "app/src/main/assets/Physiology_QBank_Source.pdf",
+        "sha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+        "pages": [
+          354
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "display": {
+        "question": "Sequence the events in neuromuscular action potential conduction:\n\n1. Sodium channels open in the end plate\n2. Calcium enters at the nerve end plate\n3. Release of acetylcholine",
+        "table": {
+          "prompt": "Sequence the events in neuromuscular action potential conduction:",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Sodium channels open in the end plate"
+              },
+              {
+                "label": "2",
+                "value": "Calcium enters at the nerve end plate"
+              },
+              {
+                "label": "3",
+                "value": "Release of acetylcholine"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "physiology-26-11",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "05e07388b00e0e7d9778f9f2e1a5501faf7a28a0b1802c0162ce905d4bf53382",
+      "source": {
+        "file": "app/src/main/assets/Physiology_QBank_Source.pdf",
+        "sha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+        "pages": [
+          745
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "display": {
+        "question": "Select the correct statements from the following:\n\n1. The binding of one oxygen molecule to Hb decreases the affinity of the remaining heme groups for oxygen.\n2. Hb shifts from the Tense (T) state to the Relaxed (R) state upon oxygen binding, increasing oxygen affinity.\n3. At low PO2, small changes in PO2 lead to large changes in oxygen saturation.\n4. At moderate PO2, the dissociation curve is steep, meaning small increases in PO2 result in a large increase in oxygen saturation.",
+        "table": {
+          "prompt": "Select the correct statements from the following:",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "The binding of one oxygen molecule to Hb decreases the affinity of the remaining heme groups for oxygen."
+              },
+              {
+                "label": "2",
+                "value": "Hb shifts from the Tense (T) state to the Relaxed (R) state upon oxygen binding, increasing oxygen affinity."
+              },
+              {
+                "label": "3",
+                "value": "At low PO2, small changes in PO2 lead to large changes in oxygen saturation."
+              },
+              {
+                "label": "4",
+                "value": "At moderate PO2, the dissociation curve is steep, meaning small increases in PO2 result in a large increase in oxygen saturation."
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "physiology-32-26",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "1b64779a107f1bdd12e7564bf769718e3fb018bc7b89a923e4424d1c81ef86eb",
+      "source": {
+        "file": "app/src/main/assets/Physiology_QBank_Source.pdf",
+        "sha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+        "pages": [
+          917
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "display": {
+        "question": "The correct sequence of events during vomiting is:\n\n1. Relaxation of lower esophageal sphincter\n2. Strong contractions in the stomach\n3. Inspiration against a closed glottis\n4. Relaxation of the pyloric sphincter\n5. Relaxation of upper esophageal sphincter\n6. Reverse peristalsis in the small intestine",
+        "table": {
+          "prompt": "The correct sequence of events during vomiting is:",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Relaxation of lower esophageal sphincter"
+              },
+              {
+                "label": "2",
+                "value": "Strong contractions in the stomach"
+              },
+              {
+                "label": "3",
+                "value": "Inspiration against a closed glottis"
+              },
+              {
+                "label": "4",
+                "value": "Relaxation of the pyloric sphincter"
+              },
+              {
+                "label": "5",
+                "value": "Relaxation of upper esophageal sphincter"
+              },
+              {
+                "label": "6",
+                "value": "Reverse peristalsis in the small intestine"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "14-9",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "f9c223df9273b13c391b39b2e8f1bc6c70c4b6e5f36434d330b111f45f3ac2d8",
+      "source": {
+        "file": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+        "sha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+        "pages": [
+          394
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "display": {
+        "question": "Which of the following diseases is caused by deficiency of ALA synthase?"
+      }
+    },
+    {
+      "id": "physiology-9-18",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "a3797e0664741eefa1da1574589efd5b8339a46870c2a64fa7f014d1ca5cd4d7",
+      "source": {
+        "file": "app/src/main/assets/Physiology_QBank_Source.pdf",
+        "sha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+        "pages": [
+          258
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-1.json",
+      "display": {
+        "question": "A 25-year-old woman presents with symptoms of confusion and lethargy. Her blood test shows a serum sodium level of 120 mEq/L. The intracellular concentration of sodium ([Na+]i) is 12 mEq/L. What is the equilibrium potential for sodium (in mV)?"
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH06_Q024",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "98feeca24e54c7e0c22f5506c7154b73d7c3445ad4e1445f0d202b8258e9672c",
+      "source": {
+        "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "pages": [
+          94,
+          95,
+          108
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "display": {
+        "question": "Arrange the following phases of lung development and maturation in order, from the earlier phase to the later phase.\n\n1. Saccular phase\n2. Embryonic phase\n3. Canalicular phase\n4. Pseudoglandular phase",
+        "table": {
+          "prompt": "Arrange the following phases of lung development and maturation in order, from the earlier phase to the later phase.",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Saccular phase"
+              },
+              {
+                "label": "2",
+                "value": "Embryonic phase"
+              },
+              {
+                "label": "3",
+                "value": "Canalicular phase"
+              },
+              {
+                "label": "4",
+                "value": "Pseudoglandular phase"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH13_Q006",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "762460a286a506000c1b4b2f5871e5e6ef0cf690d9fb827ccc0a6a139f9e7b60",
+      "source": {
+        "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "pages": [
+          232,
+          233,
+          239
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "display": {
+        "question": "Arrange the following layers of the cerebral cortex in the correct order from superficial to deep.\n\n1. Molecular (plexiform) layer\n2. External pyramidal layer\n3. Internal granular layer\n4. External granular layer\n5. Multiform (polymorphic cell) layer\n6. Ganglionic (internal pyramidal) layer",
+        "table": {
+          "prompt": "Arrange the following layers of the cerebral cortex in the correct order from superficial to deep.",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Molecular (plexiform) layer"
+              },
+              {
+                "label": "2",
+                "value": "External pyramidal layer"
+              },
+              {
+                "label": "3",
+                "value": "Internal granular layer"
+              },
+              {
+                "label": "4",
+                "value": "External granular layer"
+              },
+              {
+                "label": "5",
+                "value": "Multiform (polymorphic cell) layer"
+              },
+              {
+                "label": "6",
+                "value": "Ganglionic (internal pyramidal) layer"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH28_Q023",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "SOURCE_OMISSION",
+      "canonicalSourceFingerprint": "d01d57024936915d50b48a9f272345aeed903d21f75d0763b6d284de4ba3426f",
+      "source": {
+        "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "pages": [
+          480,
+          481
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "display": {
+        "blocked": true
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH45_Q009",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "SOURCE_OMISSION",
+      "canonicalSourceFingerprint": "82706d525fb194f966521d621fea1b51094a45f89e566c6e21bd9a9ff1db9f56",
+      "source": {
+        "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "pages": [
+          817,
+          818
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "display": {
+        "blocked": true
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH48_Q007",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "SOURCE_OMISSION",
+      "canonicalSourceFingerprint": "d49d6f2b38471205577c72b75634bbc38674ef000fddee10fcd151c1bb057bc0",
+      "source": {
+        "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "pages": [
+          881,
+          882
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "display": {
+        "blocked": true
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH55_Q018",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "SOURCE_OMISSION",
+      "canonicalSourceFingerprint": "9a711afe0ccc75bd2c276e9d4f7fff73cb8f66a7f47d2cb1d3c1f15d9587d34b",
+      "source": {
+        "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "pages": [
+          1046,
+          1047
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "display": {
+        "blocked": true
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH63_Q001",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "440b07e89df3da03b5b7ceb702abd037ab4304636c763d9c619881e8d3f2af08",
+      "source": {
+        "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "pages": [
+          1205,
+          1206,
+          1210
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "display": {
+        "question": "Which of the following is the correct order of layers of epidermis from deep to superficial?\n\n1. Stratum granulosum\n2. Stratum corneum\n3. Stratum basale\n4. Stratum spinosum",
+        "table": {
+          "prompt": "Which of the following is the correct order of layers of epidermis from deep to superficial?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Stratum granulosum"
+              },
+              {
+                "label": "2",
+                "value": "Stratum corneum"
+              },
+              {
+                "label": "3",
+                "value": "Stratum basale"
+              },
+              {
+                "label": "4",
+                "value": "Stratum spinosum"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH14_Q012",
+      "bank": "Marrow",
+      "subject": "Biochemistry",
+      "decision": "SOURCE_OMISSION",
+      "canonicalSourceFingerprint": "ca735d56f11a85c62ed63284ec6fee4548f022c8dc8199abc3cde52c8a9ebff1",
+      "source": {
+        "file": "data/marrow/source_pdfs/biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "pages": [
+          213,
+          214
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "display": {
+        "blocked": true
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH15_Q003",
+      "bank": "Marrow",
+      "subject": "Biochemistry",
+      "decision": "SOURCE_OMISSION",
+      "canonicalSourceFingerprint": "2d82ee96442e12112e814a846217936a082b4514fab1844a97eca14a6b7de497",
+      "source": {
+        "file": "data/marrow/source_pdfs/biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "pages": [
+          229,
+          230
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "display": {
+        "blocked": true
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH17_Q012",
+      "bank": "Marrow",
+      "subject": "Biochemistry",
+      "decision": "SOURCE_OMISSION",
+      "canonicalSourceFingerprint": "d1e89f3e1646ac2d3e9d0a73ae40cc7f62507d2531437466a915bde81f3197f0",
+      "source": {
+        "file": "data/marrow/source_pdfs/biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "pages": [
+          265,
+          266
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "display": {
+        "blocked": true
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH27_Q012",
+      "bank": "Marrow",
+      "subject": "Biochemistry",
+      "decision": "SOURCE_OMISSION",
+      "canonicalSourceFingerprint": "94db814f880050b6d0e485156fe59837413a3fbf07caa686651ef646655403c8",
+      "source": {
+        "file": "data/marrow/source_pdfs/biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "pages": [
+          422,
+          423
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "display": {
+        "blocked": true
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH23_Q017",
+      "bank": "Marrow",
+      "subject": "Physiology",
+      "decision": "SOURCE_OMISSION",
+      "canonicalSourceFingerprint": "920d7494631f596be731bbce466b880583274773b9451d0bbdf93da82420e8c6",
+      "source": {
+        "file": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "pages": [
+          422,
+          423
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "display": {
+        "blocked": true
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH14_Q004",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "e6235b2312555532647da66a131669dcb6a4e7b3d7227099ec554dec4f6c07a5",
+      "source": {
+        "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "pages": [
+          247,
+          248,
+          255
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "display": {
+        "question": "Match the following marked structures to the correct areas of the lymph node.\n\nA. Germinal centre\nB. Lymphoid nodule\nC. Trabeculae\nD. Subcapsular sinus\nE. Capsule",
+        "table": {
+          "prompt": "Match the following marked structures to the correct areas of the lymph node.",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "A",
+                "value": "Germinal centre"
+              },
+              {
+                "label": "B",
+                "value": "Lymphoid nodule"
+              },
+              {
+                "label": "C",
+                "value": "Trabeculae"
+              },
+              {
+                "label": "D",
+                "value": "Subcapsular sinus"
+              },
+              {
+                "label": "E",
+                "value": "Capsule"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "marrow__PHYS_CH06_Q010",
+      "bank": "Marrow",
+      "subject": "Physiology",
+      "decision": "SOURCE_OMISSION",
+      "canonicalSourceFingerprint": "58b0b90a69b7d0b8bf512585deed6e98e9d7b2c91d130a5d45e3a198f966cd39",
+      "source": {
+        "file": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "pages": [
+          96,
+          97
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "display": {
+        "blocked": true
+      }
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q035",
+      "bank": "Marrow",
+      "subject": "Physiology",
+      "decision": "SOURCE_OMISSION",
+      "canonicalSourceFingerprint": "b1fd29029aee4a86c82fbcb253cd9cbff6548d3a29f1ffebea380fbce2f58840",
+      "source": {
+        "file": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "pages": [
+          135,
+          136
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "display": {
+        "blocked": true
+      }
+    },
+    {
+      "id": "anatomy-6-36",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "bec259bbdb0d44533b04e7a377033bdad073ebf8f504dc687388935871a24a87",
+      "source": {
+        "file": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+        "sha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+        "pages": [
+          201,
+          202
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "display": {
+        "question": "Arrange in sequence the structures involved in the direct pathway of the basal ganglia:\n\n1. Striatum\n2. Globus pallidus\n3. Substantia nigra\n4. Thalamus\n5. Cortex",
+        "options": [
+          {
+            "letter": "A",
+            "text": "1,2,3,4,5"
+          },
+          {
+            "letter": "B",
+            "text": "5,4,2,3,1"
+          },
+          {
+            "letter": "C",
+            "text": "5,1,2,3,4"
+          },
+          {
+            "letter": "D",
+            "text": "1,3,4,2,5"
+          }
+        ],
+        "table": {
+          "prompt": "Arrange in sequence the structures involved in the direct pathway of the basal ganglia:",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Striatum"
+              },
+              {
+                "label": "2",
+                "value": "Globus pallidus"
+              },
+              {
+                "label": "3",
+                "value": "Substantia nigra"
+              },
+              {
+                "label": "4",
+                "value": "Thalamus"
+              },
+              {
+                "label": "5",
+                "value": "Cortex"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "anatomy-7-1",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "34b88e7d0bf7709facf9cdff85ec61b84355bbb4e6c8f9c560b03097b4a480eb",
+      "source": {
+        "file": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+        "sha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+        "pages": [
+          264,
+          265
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "display": {
+        "question": "Which among the following are skeletal derivatives of the 3rd pharyngeal arch?\n\n1. Greater cornu of hyoid\n2. Stylohyoid ligament\n3. Lesser cornu of hyoid\n4. Upper half of body of hyoid\n5. Lower half of body of hyoid",
+        "table": {
+          "prompt": "Which among the following are skeletal derivatives of the 3rd pharyngeal arch?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Greater cornu of hyoid"
+              },
+              {
+                "label": "2",
+                "value": "Stylohyoid ligament"
+              },
+              {
+                "label": "3",
+                "value": "Lesser cornu of hyoid"
+              },
+              {
+                "label": "4",
+                "value": "Upper half of body of hyoid"
+              },
+              {
+                "label": "5",
+                "value": "Lower half of body of hyoid"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "anatomy-15-63",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "842a5208acfda773d902587d229af24fe3c14308af03530d3f43bcf6ec9859c5",
+      "source": {
+        "file": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+        "sha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+        "pages": [
+          584,
+          585
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "display": {
+        "question": "Inferior thyroid artery supplies which of the following structures?\n\n1. Thyroid\n2. Parathyroid\n3. Esophagus\n4. Thymus",
+        "table": {
+          "prompt": "Inferior thyroid artery supplies which of the following structures?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Thyroid"
+              },
+              {
+                "label": "2",
+                "value": "Parathyroid"
+              },
+              {
+                "label": "3",
+                "value": "Esophagus"
+              },
+              {
+                "label": "4",
+                "value": "Thymus"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "anatomy-22-4",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "SOURCE_OMISSION",
+      "canonicalSourceFingerprint": "40fba0af5fa590ec0fdd5d92346153dffc8c604f731d7c0858549de7f773bc9e",
+      "source": {
+        "file": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+        "sha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+        "pages": [
+          888,
+          889
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "display": {
+        "blocked": true
+      }
+    },
+    {
+      "id": "anatomy-36-38",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "2ef2f5fdc34e139b9b2d832c84417a13b78b84b56b9ae8cb94200449d81722c2",
+      "source": {
+        "file": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+        "sha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+        "pages": [
+          1478,
+          1479
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "display": {
+        "question": "Which of the following are branches of the anterior division of the internal iliac artery?\n\n1. Superior gluteal artery\n2. Inferior gluteal artery\n3. Superior vesical artery\n4. Middle rectal artery\n5. Inferior vesical artery\n6. Vaginal artery",
+        "table": {
+          "prompt": "Which of the following are branches of the anterior division of the internal iliac artery?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Superior gluteal artery"
+              },
+              {
+                "label": "2",
+                "value": "Inferior gluteal artery"
+              },
+              {
+                "label": "3",
+                "value": "Superior vesical artery"
+              },
+              {
+                "label": "4",
+                "value": "Middle rectal artery"
+              },
+              {
+                "label": "5",
+                "value": "Inferior vesical artery"
+              },
+              {
+                "label": "6",
+                "value": "Vaginal artery"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "anatomy-40-10",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "SOURCE_OMISSION",
+      "canonicalSourceFingerprint": "ca7c49f5ce983f56418e6f8d1fe2da17113073d8019bb4fff2bafffed2c12374",
+      "source": {
+        "file": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+        "sha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+        "pages": [
+          1593,
+          1594
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "display": {
+        "blocked": true
+      }
+    },
+    {
+      "id": "anatomy-43-7",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "7a926ce740f62f33ce5a8e1ce1c8ba089744c3309c031c64f0f653fef77ab70f",
+      "source": {
+        "file": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+        "sha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+        "pages": [
+          1667,
+          1668
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "display": {
+        "question": "What structure forms at the surface of the epiblast to initiate gastrulation?\n\n1. Prechordal plate\n2. Primitive pit\n3. Primitive node\n4. Primitive streak/groove",
+        "table": {
+          "prompt": "What structure forms at the surface of the epiblast to initiate gastrulation?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Prechordal plate"
+              },
+              {
+                "label": "2",
+                "value": "Primitive pit"
+              },
+              {
+                "label": "3",
+                "value": "Primitive node"
+              },
+              {
+                "label": "4",
+                "value": "Primitive streak/groove"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "6-17",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "5c21e0a73f96e9f53d8c0aabbeda1cce1f3ddd5a97ca4fb0e415c9989c84c6da",
+      "source": {
+        "file": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+        "sha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+        "pages": [
+          131,
+          132
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "display": {
+        "question": "Which of the following steps in the Citric acid cycle involves oxidative phosphorylation and decarboxylation?\n\n1. Isocitrate → α-Ketoglutarate\n2. Succinate → Fumarate\n3. Malate → Oxaloacetate\n4. α-Ketoglutarate → Succinyl-CoA",
+        "table": {
+          "prompt": "Which of the following steps in the Citric acid cycle involves oxidative phosphorylation and decarboxylation?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Isocitrate → α-Ketoglutarate"
+              },
+              {
+                "label": "2",
+                "value": "Succinate → Fumarate"
+              },
+              {
+                "label": "3",
+                "value": "Malate → Oxaloacetate"
+              },
+              {
+                "label": "4",
+                "value": "α-Ketoglutarate → Succinyl-CoA"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "7-53",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "decision": "EXACT_SOURCE_REPAIR",
+      "canonicalSourceFingerprint": "c60d898f2e5bc42f872a882dca4a39967697f6e4b308302acbb682f2f085f470",
+      "source": {
+        "file": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+        "sha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+        "pages": [
+          173,
+          174
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "display": {
+        "table": {
+          "prompt": "Which of the following diagnostic markers is/are not correctly matched?",
+          "headers": [
+            "Diagnostic marker",
+            "Disease"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Beta glucocerebrosidase"
+              },
+              {
+                "label": "2",
+                "value": "Lipase"
+              },
+              {
+                "label": "3",
+                "value": "Ceruloplasmin"
+              },
+              {
+                "label": "4",
+                "value": "High LDH1: LDH2 ratio"
+              }
+            ],
+            [
+              {
+                "label": "1",
+                "value": "Von Gierke disease"
+              },
+              {
+                "label": "2",
+                "value": "Acute pancreatitis"
+              },
+              {
+                "label": "3",
+                "value": "Hepatolenticular degeneration"
+              },
+              {
+                "label": "4",
+                "value": "Myocardial infarction"
+              }
+            ]
+          ],
+          "pairedRows": true
+        }
+      }
+    },
+    {
+      "id": "10-19",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "3e75b1f7c4c1e5c2f0144d7d82eed2079e13abc172d4a9063a93fc5f5523188b",
+      "source": {
+        "file": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+        "sha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+        "pages": [
+          281,
+          282
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "display": {
+        "question": "Which of the following statements is true regarding the fate of cholesterol?\n\n1. Chenodeoxycholic acid and cholic acid are the primary bile acids\n2. Glycine-taurine conjugation happens in liver peroxisomes\n3. Intestinal bacteria produce secondary bile acids",
+        "table": {
+          "prompt": "Which of the following statements is true regarding the fate of cholesterol?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Chenodeoxycholic acid and cholic acid are the primary bile acids"
+              },
+              {
+                "label": "2",
+                "value": "Glycine-taurine conjugation happens in liver peroxisomes"
+              },
+              {
+                "label": "3",
+                "value": "Intestinal bacteria produce secondary bile acids"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "21-54",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "df45f49316990f5574d10196de72d1d148715a1b7d7a76df1503919b1457302d",
+      "source": {
+        "file": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+        "sha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+        "pages": [
+          657,
+          658
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "display": {
+        "question": "What is the accurate order of steps involved in extracting a desired protein using recombinant DNA technology?\n\n1. Expression of protein and lysis of the bacterial cell\n2. Incorporation of genes into bacteria\n3. SDS PAGE\n4. Protein elution\n5. Hybridization",
+        "table": {
+          "prompt": "What is the accurate order of steps involved in extracting a desired protein using recombinant DNA technology?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Expression of protein and lysis of the bacterial cell"
+              },
+              {
+                "label": "2",
+                "value": "Incorporation of genes into bacteria"
+              },
+              {
+                "label": "3",
+                "value": "SDS PAGE"
+              },
+              {
+                "label": "4",
+                "value": "Protein elution"
+              },
+              {
+                "label": "5",
+                "value": "Hybridization"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "22-13",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "5d25cf5b86e3fd7e38b3a448ab3829bee5418045506cc1830736fe721a44eec3",
+      "source": {
+        "file": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+        "sha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+        "pages": [
+          723,
+          724
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "display": {
+        "question": "Which of the following statements is false?\n\n1. Increase in enzyme concentration increases the rate of reaction\n2. Increase in substrate concentration increases the rate of reaction\n3. Increase in product concentration increases the rate of reaction",
+        "table": {
+          "prompt": "Which of the following statements is false?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Increase in enzyme concentration increases the rate of reaction"
+              },
+              {
+                "label": "2",
+                "value": "Increase in substrate concentration increases the rate of reaction"
+              },
+              {
+                "label": "3",
+                "value": "Increase in product concentration increases the rate of reaction"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "27-21",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "ca14ab3a5c8569966cf78cfbab64c5ccae0efb7b0494c45c7a2dcb9b702e79a8",
+      "source": {
+        "file": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+        "sha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+        "pages": [
+          894,
+          895
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "display": {
+        "question": "Which enzymes listed below depend on vitamin B12?\n\n1. Methyl malonyl CoA isomerase\n2. Homocysteine synthase\n3. Folate reductase\n4. Methionine synthase",
+        "table": {
+          "prompt": "Which enzymes listed below depend on vitamin B12?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Methyl malonyl CoA isomerase"
+              },
+              {
+                "label": "2",
+                "value": "Homocysteine synthase"
+              },
+              {
+                "label": "3",
+                "value": "Folate reductase"
+              },
+              {
+                "label": "4",
+                "value": "Methionine synthase"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "physiology-7-26",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "33e348ae50e2ddb718d2e5afd1b14f065407df61a654009bf0c1d5ae36b97635",
+      "source": {
+        "file": "app/src/main/assets/Physiology_QBank_Source.pdf",
+        "sha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+        "pages": [
+          177,
+          178
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "display": {
+        "question": "Which of the following statements are examples of feed-forward control systems in physiology?\n\n1. The clotting cascade rapidly amplifies clot formation after vascular injury.\n2. Muscles adjust in advance for standing or moving.\n3. Increased heart rate before starting of physical activity.\n4. Sweating in response to increased body temperature.\n5. The smell of food triggers digestive enzyme secretion.",
+        "table": {
+          "prompt": "Which of the following statements are examples of feed-forward control systems in physiology?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "The clotting cascade rapidly amplifies clot formation after vascular injury."
+              },
+              {
+                "label": "2",
+                "value": "Muscles adjust in advance for standing or moving."
+              },
+              {
+                "label": "3",
+                "value": "Increased heart rate before starting of physical activity."
+              },
+              {
+                "label": "4",
+                "value": "Sweating in response to increased body temperature."
+              },
+              {
+                "label": "5",
+                "value": "The smell of food triggers digestive enzyme secretion."
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "physiology-24-6",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "SOURCE_OMISSION",
+      "canonicalSourceFingerprint": "984cf9a6e2885678f11be2366fa0b28e01fe8728d2af49640e7ca59e17182183",
+      "source": {
+        "file": "app/src/main/assets/Physiology_QBank_Source.pdf",
+        "sha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+        "pages": [
+          690,
+          691
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "display": {
+        "blocked": true
+      }
+    },
+    {
+      "id": "physiology-26-24",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "f2d677ac208bd885b711ce0ac6c0b4ac051b7e5bdfabb7441e45500ea1cee293",
+      "source": {
+        "file": "app/src/main/assets/Physiology_QBank_Source.pdf",
+        "sha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+        "pages": [
+          750,
+          751
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "display": {
+        "question": "Which of the following factors does NOT affect the rate of diffusion in the lung according to Fick's Law?\n\n1. Thickness of the alveolar-capillary membrane\n2. Diameter of the bronchiole\n3. Surface area of the alveolar-capillary membrane\n4. Partial pressure gradient of the gases\n5. Temperature\n6. Solubility of the Gas",
+        "table": {
+          "prompt": "Which of the following factors does NOT affect the rate of diffusion in the lung according to Fick's Law?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Thickness of the alveolar-capillary membrane"
+              },
+              {
+                "label": "2",
+                "value": "Diameter of the bronchiole"
+              },
+              {
+                "label": "3",
+                "value": "Surface area of the alveolar-capillary membrane"
+              },
+              {
+                "label": "4",
+                "value": "Partial pressure gradient of the gases"
+              },
+              {
+                "label": "5",
+                "value": "Temperature"
+              },
+              {
+                "label": "6",
+                "value": "Solubility of the Gas"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "physiology-29-14",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "a30b1b6cb66da6d1ed09e1a74a656723ff69c2c108374c1e608a2360549c42df",
+      "source": {
+        "file": "app/src/main/assets/Physiology_QBank_Source.pdf",
+        "sha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+        "pages": [
+          825,
+          826
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "display": {
+        "question": "Which among the following statements best describes the appropriate mechanism involved in coughing?\n\n1. Forceful expiration against a closed glottis\n2. Expiration against an open glottis\n3. Normal inspiration\n4. Removing harmful substances.",
+        "table": {
+          "prompt": "Which among the following statements best describes the appropriate mechanism involved in coughing?",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Forceful expiration against a closed glottis"
+              },
+              {
+                "label": "2",
+                "value": "Expiration against an open glottis"
+              },
+              {
+                "label": "3",
+                "value": "Normal inspiration"
+              },
+              {
+                "label": "4",
+                "value": "Removing harmful substances."
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "physiology-33-25",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "dc521b387e0e21feeaf3c33652f5376f24859324831c5f3b2324785ebf4efb81",
+      "source": {
+        "file": "app/src/main/assets/Physiology_QBank_Source.pdf",
+        "sha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+        "pages": [
+          942,
+          943
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "display": {
+        "question": "Which of the following are typically associated with Lower Motor Neuron (LMN) lesions? Select all that apply.\n\n1. Atrophy\n2. Fasciculations\n3. DTR increased\n4. Rigidity",
+        "table": {
+          "prompt": "Which of the following are typically associated with Lower Motor Neuron (LMN) lesions? Select all that apply.",
+          "headers": [
+            "Statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Atrophy"
+              },
+              {
+                "label": "2",
+                "value": "Fasciculations"
+              },
+              {
+                "label": "3",
+                "value": "DTR increased"
+              },
+              {
+                "label": "4",
+                "value": "Rigidity"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "physiology-20-7",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "86253ac25f205a932dd6d2fcdf1b3542df317ef02ed74ff1f8172e39708de9d9",
+      "source": {
+        "file": "app/src/main/assets/Physiology_QBank_Source.pdf",
+        "sha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+        "pages": [
+          558
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "display": {
+        "question": "Which of the following statements about \"free water clearance\" (CH2O) is correct? Free water clearance = CH2O Urine osmolality = Uosm Plasma osmolality = Posm Urine flow rate = V (urine flow rate)",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Free water clearance is positive when the urine is hypotonic and negative when the urine is hypertonic."
+          },
+          {
+            "letter": "B",
+            "text": "Free water clearance is the same as urine flow rate (V)."
+          },
+          {
+            "letter": "C",
+            "text": "Free water clearance is calculated using C H2O = U osm (V)/ P osm."
+          },
+          {
+            "letter": "D",
+            "text": "Free water clearance is positive when the urine is hypertonic and negative when the urine is hypotonic."
+          }
+        ]
+      }
+    },
+    {
+      "id": "physiology-23-11",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "69148b9fb54f11ce994b9a50c22d105d1504ed253c0dfeb67ee73da45978d9ac",
+      "source": {
+        "file": "app/src/main/assets/Physiology_QBank_Source.pdf",
+        "sha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+        "pages": [
+          640
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-2.json",
+      "display": {
+        "question": "What renal function is represented by the formula (U × V) / P, where U is urine concentration of a substance, V is urine flow rate, and P is its plasma concentration?"
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH08_Q008",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "3f37c5cd096ce59ce11e7e1b7de55210420e1f888040e5c40022ab4cb2fe2236",
+      "source": {
+        "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "pages": [
+          134,
+          142
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "question": "Arrange the following structures formed during the development of the eye in their order of appearance.\n1. Optic vesicle\n2. Optic stalk\n3. Optic cup\n4. Optic sulcus",
+        "table": {
+          "prompt": "Arrange the following structures formed during the development of the eye in their order of appearance.",
+          "headers": [
+            "Structures / statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Optic vesicle"
+              },
+              {
+                "label": "2",
+                "value": "Optic stalk"
+              },
+              {
+                "label": "3",
+                "value": "Optic cup"
+              },
+              {
+                "label": "4",
+                "value": "Optic sulcus"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH13_Q013",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "SOURCE_OMISSION",
+      "canonicalSourceFingerprint": "8d573e718e214f222a0eefe711a7a65112952c851b645c049181e6f65c2ee5fa",
+      "source": {
+        "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "pages": [
+          235
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "blocked": true
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH31_Q005",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "SOURCE_OMISSION",
+      "canonicalSourceFingerprint": "8faffd973a79a2bf9a4e6caed2b36fd9c4ea9d9bb059724fd2029b960e3d8c66",
+      "source": {
+        "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "pages": [
+          557
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "blocked": true
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH48_Q002",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "SOURCE_OMISSION",
+      "canonicalSourceFingerprint": "a4b0840c852651be1010b1e844e9a7413715e3d5d24741504846a5fde3df370d",
+      "source": {
+        "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "pages": [
+          878
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "blocked": true
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH51_Q003",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "ab0ea9d235a13d9ace3c78983c62f66d46189c840a246b10428596a430b6070a",
+      "source": {
+        "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "pages": [
+          941,
+          952
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "question": "Arrange the coverings of the kidney from within outwards:\n1. Renal fascia\n2. True or fibrous capsule\n3. Paranephric fat\n4. Perinephric fat (adipose capsule)",
+        "table": {
+          "prompt": "Arrange the coverings of the kidney from within outwards:",
+          "headers": [
+            "Structures / statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Renal fascia"
+              },
+              {
+                "label": "2",
+                "value": "True or fibrous capsule"
+              },
+              {
+                "label": "3",
+                "value": "Paranephric fat"
+              },
+              {
+                "label": "4",
+                "value": "Perinephric fat (adipose capsule)"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH62_Q006",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "SOURCE_OMISSION",
+      "canonicalSourceFingerprint": "2c8c374ed7dfd5c5707d640e6a19eb166e042958629688ce174ffe4cc42fb4fc",
+      "source": {
+        "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "pages": [
+          1188
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "blocked": true
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH12_Q007",
+      "bank": "Marrow",
+      "subject": "Biochemistry",
+      "decision": "SOURCE_OMISSION",
+      "canonicalSourceFingerprint": "c1a2c037661a35b14a113271ebf3c428d69687f6c47997e310deeeba447b48c8",
+      "source": {
+        "file": "data/marrow/source_pdfs/biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "pages": [
+          187
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "blocked": true
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH14_Q013",
+      "bank": "Marrow",
+      "subject": "Biochemistry",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "c9ebc8a1bb8e8667016dbe8d82bcea83e0f9794deb5db4cf2e3fbe12a2ad3010",
+      "source": {
+        "file": "data/marrow/source_pdfs/biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "pages": [
+          214,
+          222
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "question": "Stearic acid is converted into which of the following fatty acids by the enzyme Δ9 desaturase?",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Linoleic acid"
+          },
+          {
+            "letter": "B",
+            "text": "Oleic acid"
+          },
+          {
+            "letter": "C",
+            "text": "Linolenic acid"
+          },
+          {
+            "letter": "D",
+            "text": "Arachidonic acid"
+          }
+        ],
+        "explanation": "Stearic acid is converted to oleic acid by the enzyme Δ9 desaturase.\n\nΔ9 desaturase is present in the endoplasmic reticulum. It catalyzes the synthesis of monounsaturated fatty acids (Eg: Oleic acid) from saturated fatty acids (Eg: Stearic acid).\nΔ9 desaturase is a mixed-function oxidase, requiring NADPH and O2. The first double bond is always introduced in the Δ9 positions. Humans cannot introduce double bonds beyond Δ9 positions (between C-10 and terminal methyl group). Hence, linoleic acid (Δ9,12) and linolenic acid (Δ9,12,15) are considered essential fatty acids and should be included in the diet.",
+        "structuredExplanationText": "Stearic acid is converted to oleic acid by the enzyme Δ9 desaturase.\n\nΔ9 desaturase is present in the endoplasmic reticulum. It catalyzes the synthesis of monounsaturated fatty acids (Eg: Oleic acid) from saturated fatty acids (Eg: Stearic acid).\nΔ9 desaturase is a mixed-function oxidase, requiring NADPH and O2. The first double bond is always introduced in the Δ9 positions. Humans cannot introduce double bonds beyond Δ9 positions (between C-10 and terminal methyl group). Hence, linoleic acid (Δ9,12) and linolenic acid (Δ9,12,15) are considered essential fatty acids and should be included in the diet.",
+        "structuredExplanationBlocks": [
+          {
+            "type": "paragraph",
+            "text": "Stearic acid is converted to oleic acid by the enzyme Δ9 desaturase.",
+            "source_page": 222
+          },
+          {
+            "type": "paragraph",
+            "text": "Δ9 desaturase is present in the endoplasmic reticulum. It catalyzes the synthesis of monounsaturated fatty acids (Eg: Oleic acid) from saturated fatty acids (Eg: Stearic acid).",
+            "source_page": 222
+          },
+          {
+            "type": "paragraph",
+            "text": "Δ9 desaturase is a mixed-function oxidase, requiring NADPH and O2. The first double bond is always introduced in the Δ9 positions. Humans cannot introduce double bonds beyond Δ9 positions (between C-10 and terminal methyl group). Hence, linoleic acid (Δ9,12) and linolenic acid (Δ9,12,15) are considered essential fatty acids and should be included in the diet.",
+            "source_page": 222
+          }
+        ]
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH16_Q014",
+      "bank": "Marrow",
+      "subject": "Biochemistry",
+      "decision": "SOURCE_OMISSION",
+      "canonicalSourceFingerprint": "67148a5c3f5b73b2406a530690cbd3d00bb91cac57e9025c439074eb85223b74",
+      "source": {
+        "file": "data/marrow/source_pdfs/biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "pages": [
+          250
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "blocked": true
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH17_Q022",
+      "bank": "Marrow",
+      "subject": "Biochemistry",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "2520a9e9cc3df3f585f9d55b23bf8bfd0adaa5ea76f8f1bc4011c54ddcade57d",
+      "source": {
+        "file": "data/marrow/source_pdfs/biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "pages": [
+          268,
+          281
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "question": "An adult male patient presents with yellow discolouration of the sclera. There was a history of recurrent mild jaundice since childhood. A liver biopsy was performed which revealed normal liver architecture with coarse granular black pigmentation. The mutation of which protein is involved in the following condition?",
+        "options": [
+          {
+            "letter": "A",
+            "text": "OATP1B1"
+          },
+          {
+            "letter": "B",
+            "text": "BSEP"
+          },
+          {
+            "letter": "C",
+            "text": "MRP-3"
+          },
+          {
+            "letter": "D",
+            "text": "MRP-2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH28_Q009",
+      "bank": "Marrow",
+      "subject": "Biochemistry",
+      "decision": "SOURCE_OMISSION",
+      "canonicalSourceFingerprint": "14ca6de0ddcc345bebf1b6794096e43a4318572d1f066552915786afff8b49b5",
+      "source": {
+        "file": "data/marrow/source_pdfs/biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "pages": [
+          433
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "blocked": true
+      }
+    },
+    {
+      "id": "marrow__PHYSIO_CH28_Q026",
+      "bank": "Marrow",
+      "subject": "Physiology",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "8a7fd08c078016acd61b66e886dbe6381e910ad70612adcf41a64b8f57bb6baf",
+      "source": {
+        "file": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "pages": [
+          504,
+          517
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "question": "Arrange the following events in the sequence in which they occur after the P wave in ECG:\n1. a wave in JVP\n2. First heart sound\n3. Rapid filling of ventricles\n4. T wave in ECG",
+        "table": {
+          "prompt": "Arrange the following events in the sequence in which they occur after the P wave in ECG:",
+          "headers": [
+            "Structures / statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "a wave in JVP"
+              },
+              {
+                "label": "2",
+                "value": "First heart sound"
+              },
+              {
+                "label": "3",
+                "value": "Rapid filling of ventricles"
+              },
+              {
+                "label": "4",
+                "value": "T wave in ECG"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH16_Q001",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "d1cbbaa062a98286c5194aabcbe4a29336d3fc89e7d01f7c2cd1512dedfac30f",
+      "source": {
+        "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "pages": [
+          286,
+          294
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "question": "Match the marked structures A–D in the image to the following layers of the epidermis:\n1. Stratum granulosum\n2. Stratum corneum\n3. Stratum spinosum\n4. Stratum basale",
+        "table": {
+          "prompt": "Match the marked structures A–D in the image to the following layers of the epidermis:",
+          "headers": [
+            "Structures / statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Stratum granulosum"
+              },
+              {
+                "label": "2",
+                "value": "Stratum corneum"
+              },
+              {
+                "label": "3",
+                "value": "Stratum spinosum"
+              },
+              {
+                "label": "4",
+                "value": "Stratum basale"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "marrow__PHYS_CH09_Q001",
+      "bank": "Marrow",
+      "subject": "Physiology",
+      "decision": "SOURCE_OMISSION",
+      "canonicalSourceFingerprint": "cb74b5dff0c6653b6b3237b611066bf46d0cac199e0c431cf1c5538de1a0574e",
+      "source": {
+        "file": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "pages": [
+          173
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "blocked": true
+      }
+    },
+    {
+      "id": "anatomy-5-22",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "29e5756281a6e0c685c15d4380c98316fd679e1c5fe2d844b339e505be95e2c1",
+      "source": {
+        "file": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+        "sha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+        "pages": [
+          138
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "question": "Which of the following statements about prevertebral/paravertebral ganglia is/are true?\nI. Prevertebral ganglia are also known as collateral ganglia.\nII. Prevertebral ganglia are a part of the parasympathetic nervous system.\nIII. Paravertebral ganglia supply the abdominal viscera.\nIV. The celiac ganglion is a paravertebral ganglion.",
+        "table": {
+          "prompt": "Which of the following statements about prevertebral/paravertebral ganglia is/are true?",
+          "headers": [
+            "Structures / statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "I",
+                "value": "Prevertebral ganglia are also known as collateral ganglia."
+              },
+              {
+                "label": "II",
+                "value": "Prevertebral ganglia are a part of the parasympathetic nervous system."
+              },
+              {
+                "label": "III",
+                "value": "Paravertebral ganglia supply the abdominal viscera."
+              },
+              {
+                "label": "IV",
+                "value": "The celiac ganglion is a paravertebral ganglion."
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "anatomy-6-39",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "6b48ac39fd199eb51973938734df33aac9f2cb6f05c759782e3fe4c6e52785dd",
+      "source": {
+        "file": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+        "sha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+        "pages": [
+          203
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "question": "Which of the following structures are included in the limbic system?\n1. Amygdala\n2. Hippocampus\n3. Thalamus",
+        "table": {
+          "prompt": "Which of the following structures are included in the limbic system?",
+          "headers": [
+            "Structures / statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Amygdala"
+              },
+              {
+                "label": "2",
+                "value": "Hippocampus"
+              },
+              {
+                "label": "3",
+                "value": "Thalamus"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "anatomy-7-2",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "37f7e68414966f2737f12790c34f7f949bc1b2bdec791449149a8f79ea48a21b",
+      "source": {
+        "file": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+        "sha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+        "pages": [
+          264
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "question": "Arrange the events in the development of the thyroid gland in the correct sequence:\n1. Fusion with caudal pharyngeal complex\n2. Formation of pharyngeal arches\n3. Thyroglossal duct formation\n4. Tuberculum impar is formed",
+        "table": {
+          "prompt": "Arrange the events in the development of the thyroid gland in the correct sequence:",
+          "headers": [
+            "Structures / statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Fusion with caudal pharyngeal complex"
+              },
+              {
+                "label": "2",
+                "value": "Formation of pharyngeal arches"
+              },
+              {
+                "label": "3",
+                "value": "Thyroglossal duct formation"
+              },
+              {
+                "label": "4",
+                "value": "Tuberculum impar is formed"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "anatomy-9-1",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "EXACT_SOURCE_REPAIR",
+      "canonicalSourceFingerprint": "1ba8d70b0c43b84be2c09c87740d6bd7cc6bb7665398e72dc39675b556ade492",
+      "source": {
+        "file": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+        "sha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+        "pages": [
+          306,
+          307
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "question": "Match each type of haemorrhage with its corresponding source of bleeding and location. Which of the following combinations is correct? The location references i–iv correspond to source figures 1–4 in the order shown.",
+        "table": {
+          "prompt": "Match each type of haemorrhage with its corresponding source of bleeding and location. Which of the following combinations is correct? The location references i–iv correspond to source figures 1–4 in the order shown.",
+          "headers": [
+            "Type of Hemorrhage",
+            "Source of Bleeding",
+            "Location / source figure"
+          ],
+          "groups": [
+            [
+              {
+                "label": "a",
+                "value": "Epidural Hemorrhage"
+              },
+              {
+                "label": "b",
+                "value": "Subdural Hemorrhage"
+              },
+              {
+                "label": "c",
+                "value": "Subarachnoid Hemorrhage"
+              },
+              {
+                "label": "d",
+                "value": "Intracerebral Hemorrhage"
+              }
+            ],
+            [
+              {
+                "label": "1",
+                "value": "Middle meningeal artery"
+              },
+              {
+                "label": "2",
+                "value": "Bridging veins"
+              },
+              {
+                "label": "3",
+                "value": "Cerebral arteries"
+              },
+              {
+                "label": "4",
+                "value": "Ruptured cerebral aneurysm"
+              }
+            ],
+            [
+              {
+                "label": "i",
+                "value": "Source figure 1"
+              },
+              {
+                "label": "ii",
+                "value": "Source figure 2"
+              },
+              {
+                "label": "iii",
+                "value": "Source figure 3"
+              },
+              {
+                "label": "iv",
+                "value": "Source figure 4"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              {
+                "label": "a",
+                "value": "Epidural Hemorrhage"
+              },
+              {
+                "label": "1",
+                "value": "Middle meningeal artery"
+              },
+              {
+                "label": "i",
+                "value": "Source figure 1"
+              }
+            ],
+            [
+              {
+                "label": "b",
+                "value": "Subdural Hemorrhage"
+              },
+              {
+                "label": "2",
+                "value": "Bridging veins"
+              },
+              {
+                "label": "ii",
+                "value": "Source figure 2"
+              }
+            ],
+            [
+              {
+                "label": "c",
+                "value": "Subarachnoid Hemorrhage"
+              },
+              {
+                "label": "3",
+                "value": "Cerebral arteries"
+              },
+              {
+                "label": "iii",
+                "value": "Source figure 3"
+              }
+            ],
+            [
+              {
+                "label": "d",
+                "value": "Intracerebral Hemorrhage"
+              },
+              {
+                "label": "4",
+                "value": "Ruptured cerebral aneurysm"
+              },
+              {
+                "label": "iv",
+                "value": "Source figure 4"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "anatomy-14-5",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "SOURCE_OMISSION",
+      "canonicalSourceFingerprint": "b33de8935938c89513276983d9edd9f035c05dd9725191dc36af48b783624df7",
+      "source": {
+        "file": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+        "sha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+        "pages": [
+          528
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "blocked": true
+      }
+    },
+    {
+      "id": "anatomy-23-2",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "a5660698b69b2c7d900de50029259fa0cadb2369baaee6a3f2c67a97ca46d151",
+      "source": {
+        "file": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+        "sha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+        "pages": [
+          943
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "question": "Which of the following statements regarding sustentaculum tali is correct?\n1. It is a shelf-like projection, projecting from posterior surface of calcaneus.\n2. Superior surface of sustentaculum tali bears a facet for talus.\n3. Inferior surface of sustentaculum tali bears a groove for the tendon of flexor hallucis longus.\n4. The medial surface of sustentaculum tali provides attachment to spring ligament and superficial fibres of deltoid ligament.",
+        "table": {
+          "prompt": "Which of the following statements regarding sustentaculum tali is correct?",
+          "headers": [
+            "Structures / statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "It is a shelf-like projection, projecting from posterior surface of calcaneus."
+              },
+              {
+                "label": "2",
+                "value": "Superior surface of sustentaculum tali bears a facet for talus."
+              },
+              {
+                "label": "3",
+                "value": "Inferior surface of sustentaculum tali bears a groove for the tendon of flexor hallucis longus."
+              },
+              {
+                "label": "4",
+                "value": "The medial surface of sustentaculum tali provides attachment to spring ligament and superficial fibres of deltoid ligament."
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "anatomy-29-29",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "67f327b03836e7d17ed73a00c586122a52ab37a21b415bea43b5de67e10d1002",
+      "source": {
+        "file": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+        "sha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+        "pages": [
+          1228
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "question": "Arrange lung hilar structures from anterior to posterior:\n1. Primary bronchus\n2. Bronchial artery\n3. Pulmonary vein\n4. Pulmonary artery",
+        "table": {
+          "prompt": "Arrange lung hilar structures from anterior to posterior:",
+          "headers": [
+            "Structures / statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Primary bronchus"
+              },
+              {
+                "label": "2",
+                "value": "Bronchial artery"
+              },
+              {
+                "label": "3",
+                "value": "Pulmonary vein"
+              },
+              {
+                "label": "4",
+                "value": "Pulmonary artery"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "anatomy-38-5",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "60b9d01d864f433567e10a37547c812c2875e9f7e7e8a41a8121864ef374d811",
+      "source": {
+        "file": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+        "sha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+        "pages": [
+          1543
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "question": "A 46-year-old female reports intermittent rectal bleeding and a feeling of fullness during bowel movements. She has a history of constipation and obesity. Examination reveals internal haemorrhoids. Which of the following options correctly describes their characteristics concerning location and nerve supply?\n1. Presence of a visible thrombus in the anal region.\n2. Ability to manually reduce the mass.\n3. Located below the dentate line, covered by anoderm.\n4. Innervated by pelvic splanchnic nerves; generally painless.",
+        "table": {
+          "prompt": "A 46-year-old female reports intermittent rectal bleeding and a feeling of fullness during bowel movements. She has a history of constipation and obesity. Examination reveals internal haemorrhoids. Which of the following options correctly describes their characteristics concerning location and nerve supply?",
+          "headers": [
+            "Structures / statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Presence of a visible thrombus in the anal region."
+              },
+              {
+                "label": "2",
+                "value": "Ability to manually reduce the mass."
+              },
+              {
+                "label": "3",
+                "value": "Located below the dentate line, covered by anoderm."
+              },
+              {
+                "label": "4",
+                "value": "Innervated by pelvic splanchnic nerves; generally painless."
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "anatomy-45-27",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "3a5305e4f64d55883b7456d6b5e35bdbe74817107bf521bedc93172420dc3487",
+      "source": {
+        "file": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+        "sha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+        "pages": [
+          1747
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "question": "What are the derivatives of the marked cells?\n1. Odontoblasts\n2. Sympathetic chain\n3. Melanocytes\n4. Nephrogenic cord\n5. Bulbus cordis\n6. Conotruncal septum",
+        "table": {
+          "prompt": "What are the derivatives of the marked cells?",
+          "headers": [
+            "Structures / statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Odontoblasts"
+              },
+              {
+                "label": "2",
+                "value": "Sympathetic chain"
+              },
+              {
+                "label": "3",
+                "value": "Melanocytes"
+              },
+              {
+                "label": "4",
+                "value": "Nephrogenic cord"
+              },
+              {
+                "label": "5",
+                "value": "Bulbus cordis"
+              },
+              {
+                "label": "6",
+                "value": "Conotruncal septum"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "anatomy-46-12",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "ac8bd12d22e48b938ca04d2939735f71ecea8ae4a9537e64097f25039ea3b97c",
+      "source": {
+        "file": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+        "sha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+        "pages": [
+          1776
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "question": "Which two of the following statements about serous, mucinous, and mixed glands are correct?\n1. Serous glands produce a proteinaceous, enzyme-rich watery fluid, while mucinous glands secrete mucopolysaccharides that form a thick, viscous mucus.\n2. Cells of serous acini are triangular with centrally placed rounded nuclei, whereas cells of mucous acini are tall with flat nuclei at their bases.\n3. The pancreas is an example of a mixed gland, containing both serous and mucous secreting acini.\n4. The lumen of mucous acini is typically smaller than that of serous acini.",
+        "table": {
+          "prompt": "Which two of the following statements about serous, mucinous, and mixed glands are correct?",
+          "headers": [
+            "Structures / statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Serous glands produce a proteinaceous, enzyme-rich watery fluid, while mucinous glands secrete mucopolysaccharides that form a thick, viscous mucus."
+              },
+              {
+                "label": "2",
+                "value": "Cells of serous acini are triangular with centrally placed rounded nuclei, whereas cells of mucous acini are tall with flat nuclei at their bases."
+              },
+              {
+                "label": "3",
+                "value": "The pancreas is an example of a mixed gland, containing both serous and mucous secreting acini."
+              },
+              {
+                "label": "4",
+                "value": "The lumen of mucous acini is typically smaller than that of serous acini."
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "7-7",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "decision": "EXACT_SOURCE_REPAIR",
+      "canonicalSourceFingerprint": "c82de10925f68cd6c10b5713a0b7d3f9286fdc7d9df14291ddb7965aee733a3b",
+      "source": {
+        "file": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+        "sha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+        "pages": [
+          156,
+          157
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "question": "Which of the following enzymes are involved in gluconeogenesis?\nA. Pyruvate carboxylase\nB. Phosphoenol pyruvate kinase\nC. Hexokinase\nD. Pyruvate kinase\nE. Glucose 6 phosphatase",
+        "table": {
+          "prompt": "Which of the following enzymes are involved in gluconeogenesis?",
+          "headers": [
+            "Structures / statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "A",
+                "value": "Pyruvate carboxylase"
+              },
+              {
+                "label": "B",
+                "value": "Phosphoenol pyruvate kinase"
+              },
+              {
+                "label": "C",
+                "value": "Hexokinase"
+              },
+              {
+                "label": "D",
+                "value": "Pyruvate kinase"
+              },
+              {
+                "label": "E",
+                "value": "Glucose 6 phosphatase"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "10-11",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "2de0566b63f4021cc080b58d08714cbebfc3fc7bc82d6064a1e801f51c2365d6",
+      "source": {
+        "file": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+        "sha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+        "pages": [
+          278
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "question": "Following are the substrates of cholesterol synthesis. Arrange them in order of appearance in the cholesterol synthesis pathway.\n1. Mevalonate\n2. Squalene\n3. Lanosterol\n4. Zymosterol\n5. Desmosterol",
+        "table": {
+          "prompt": "Following are the substrates of cholesterol synthesis. Arrange them in order of appearance in the cholesterol synthesis pathway.",
+          "headers": [
+            "Structures / statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Mevalonate"
+              },
+              {
+                "label": "2",
+                "value": "Squalene"
+              },
+              {
+                "label": "3",
+                "value": "Lanosterol"
+              },
+              {
+                "label": "4",
+                "value": "Zymosterol"
+              },
+              {
+                "label": "5",
+                "value": "Desmosterol"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "18-12",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "d1cff90c048d7d5d0b4389d3ef42862929ad298551c4e43f0f8a5e9267eabf8a",
+      "source": {
+        "file": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+        "sha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+        "pages": [
+          569
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "question": "Which of the following statements are true regarding codons?\n1. A, G, T, C are RNA nucleotides\n2. A, G, T, C are DNA nucleotides\n3. A, G, U, C are RNA nucleotides\n4. A, G, U, C are DNA nucleotides",
+        "table": {
+          "prompt": "Which of the following statements are true regarding codons?",
+          "headers": [
+            "Structures / statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "A, G, T, C are RNA nucleotides"
+              },
+              {
+                "label": "2",
+                "value": "A, G, T, C are DNA nucleotides"
+              },
+              {
+                "label": "3",
+                "value": "A, G, U, C are RNA nucleotides"
+              },
+              {
+                "label": "4",
+                "value": "A, G, U, C are DNA nucleotides"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "21-74",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "d721b96aa0643fc53de21fdd05c923ae740e6dd58f5ea801daf207439f635a84",
+      "source": {
+        "file": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+        "sha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+        "pages": [
+          663
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "question": "Which of the following statements are true regarding mitochondrial DNA?\n1. Higher rate of mutations as compared to the nuclear genome\n2. Double-stranded circular DNA with about 16,000 base pairs\n3. A slight change in nucleotide sequence as compared to cellular DNA\n4. Encodes all electron transport chain proteins",
+        "table": {
+          "prompt": "Which of the following statements are true regarding mitochondrial DNA?",
+          "headers": [
+            "Structures / statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Higher rate of mutations as compared to the nuclear genome"
+              },
+              {
+                "label": "2",
+                "value": "Double-stranded circular DNA with about 16,000 base pairs"
+              },
+              {
+                "label": "3",
+                "value": "A slight change in nucleotide sequence as compared to cellular DNA"
+              },
+              {
+                "label": "4",
+                "value": "Encodes all electron transport chain proteins"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "22-14",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "24d81444a8e1676ee123d9b8c09072558591499bb8fbf1e4890ce257da49cfa6",
+      "source": {
+        "file": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+        "sha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+        "pages": [
+          724
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "question": "Which of the following statements is/are true regarding the mechanisms of action of enzymes?\n1. Enzymes that act by altering the strain of substrates catalyze lytic reactions\n2. Enzymes forming covalent bonds are seen commonly in group transfer reactions\n3. When the functional groups of aminoacyl side chains of enzymes act as an acid or base, the rate of reaction increases",
+        "table": {
+          "prompt": "Which of the following statements is/are true regarding the mechanisms of action of enzymes?",
+          "headers": [
+            "Structures / statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Enzymes that act by altering the strain of substrates catalyze lytic reactions"
+              },
+              {
+                "label": "2",
+                "value": "Enzymes forming covalent bonds are seen commonly in group transfer reactions"
+              },
+              {
+                "label": "3",
+                "value": "When the functional groups of aminoacyl side chains of enzymes act as an acid or base, the rate of reaction increases"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "physiology-10-7",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "acba84431d478f3c25d5fc7d1dcc798a8f235261013d37a3eaa442b1d13c24db",
+      "source": {
+        "file": "app/src/main/assets/Physiology_QBank_Source.pdf",
+        "sha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+        "pages": [
+          303
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "question": "Arrange the following steps in the correct sequence to describe the molecular mechanism of muscle contraction:\n1. Cross-bridge formation between myosin and actin\n2. Release of calcium ions from the sarcoplasmic reticulum\n3. Binding of calcium ions to troponin C\n4. Detachment of the myosin head from actin\n5. Hydrolysis of ATP to ADP and Pi, re-cocking the myosin head\n6. Power stroke, moving the myosin head from 90 degrees to 45 degrees",
+        "table": {
+          "prompt": "Arrange the following steps in the correct sequence to describe the molecular mechanism of muscle contraction:",
+          "headers": [
+            "Structures / statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Cross-bridge formation between myosin and actin"
+              },
+              {
+                "label": "2",
+                "value": "Release of calcium ions from the sarcoplasmic reticulum"
+              },
+              {
+                "label": "3",
+                "value": "Binding of calcium ions to troponin C"
+              },
+              {
+                "label": "4",
+                "value": "Detachment of the myosin head from actin"
+              },
+              {
+                "label": "5",
+                "value": "Hydrolysis of ATP to ADP and Pi, re-cocking the myosin head"
+              },
+              {
+                "label": "6",
+                "value": "Power stroke, moving the myosin head from 90 degrees to 45 degrees"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "physiology-12-31",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "dd4eda676e64c96bc06395b8a169653acdb2f72132908c8820a0fbe8f73d4f73",
+      "source": {
+        "file": "app/src/main/assets/Physiology_QBank_Source.pdf",
+        "sha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+        "pages": [
+          364
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "question": "Which of the following statements accurately describes the mechanisms involved in depolarization, repolarization, and hyperpolarization during a skeletal muscle action potential?\n1. Depolarization due to influx of Na+ through voltage-gated channels\n2. Depolarization due to influx of Na+ through ligand-gated channels\n3. Repolarization due to efflux of K+ through a voltage-gated channel\n4. Repolarization due to efflux of K+ through a ligand-gated channel\n5. Hyperpolarisation due to efflux of K+",
+        "table": {
+          "prompt": "Which of the following statements accurately describes the mechanisms involved in depolarization, repolarization, and hyperpolarization during a skeletal muscle action potential?",
+          "headers": [
+            "Structures / statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Depolarization due to influx of Na+ through voltage-gated channels"
+              },
+              {
+                "label": "2",
+                "value": "Depolarization due to influx of Na+ through ligand-gated channels"
+              },
+              {
+                "label": "3",
+                "value": "Repolarization due to efflux of K+ through a voltage-gated channel"
+              },
+              {
+                "label": "4",
+                "value": "Repolarization due to efflux of K+ through a ligand-gated channel"
+              },
+              {
+                "label": "5",
+                "value": "Hyperpolarisation due to efflux of K+"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "physiology-17-7",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "5d834194f40594e76538b2dabe8017022ce17e37bde9792855d1145f7e2dd165",
+      "source": {
+        "file": "app/src/main/assets/Physiology_QBank_Source.pdf",
+        "sha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+        "pages": [
+          482
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "question": "Which of the following are properties of ventricular cardiac muscle?\n1. All or none law\n2. Length tension relationship\n3. Long refractory period\n4. Can be tetanized",
+        "table": {
+          "prompt": "Which of the following are properties of ventricular cardiac muscle?",
+          "headers": [
+            "Structures / statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "All or none law"
+              },
+              {
+                "label": "2",
+                "value": "Length tension relationship"
+              },
+              {
+                "label": "3",
+                "value": "Long refractory period"
+              },
+              {
+                "label": "4",
+                "value": "Can be tetanized"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "physiology-23-38",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "EXACT_SOURCE_REPAIR",
+      "canonicalSourceFingerprint": "057240d81bcf7a4c92a61ccf260034e6a8dff5b4be59e967e4c2c89e2fb51da9",
+      "source": {
+        "file": "app/src/main/assets/Physiology_QBank_Source.pdf",
+        "sha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+        "pages": [
+          649,
+          680
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "question": "Which sensory receptors are accountable for tactile discrimination among the options provided?\n1. Merkel disc\n2. Ruffini end organ\n3. Pacinian corpuscle\n4. Meissner’s corpuscle",
+        "options": [
+          {
+            "letter": "A",
+            "text": "1 and 4 are correct"
+          },
+          {
+            "letter": "B",
+            "text": "2 is correct"
+          },
+          {
+            "letter": "C",
+            "text": "3 is correct"
+          },
+          {
+            "letter": "D",
+            "text": "None are correct."
+          },
+          {
+            "letter": "E",
+            "text": "Both A & D"
+          }
+        ],
+        "correctOption": 1,
+        "table": {
+          "prompt": "Which sensory receptors are accountable for tactile discrimination among the options provided?",
+          "headers": [
+            "Receptors"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Merkel disc"
+              },
+              {
+                "label": "2",
+                "value": "Ruffini end organ"
+              },
+              {
+                "label": "3",
+                "value": "Pacinian corpuscle"
+              },
+              {
+                "label": "4",
+                "value": "Meissner’s corpuscle"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "physiology-27-7",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "13a3f54d6a17ee1709fb7895a70b3fdd468dcd822c617c8a305d7b0e65e75841",
+      "source": {
+        "file": "app/src/main/assets/Physiology_QBank_Source.pdf",
+        "sha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+        "pages": [
+          773
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "question": "Arrange the following in the correct sequence regarding the mechanism of action of a glomus cell:\n1. Depolarisation\n2. Calcium influx\n3. Reduced K+ conductance\n4. Increased ventilation\n5. Dopamine release",
+        "table": {
+          "prompt": "Arrange the following in the correct sequence regarding the mechanism of action of a glomus cell:",
+          "headers": [
+            "Structures / statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Depolarisation"
+              },
+              {
+                "label": "2",
+                "value": "Calcium influx"
+              },
+              {
+                "label": "3",
+                "value": "Reduced K+ conductance"
+              },
+              {
+                "label": "4",
+                "value": "Increased ventilation"
+              },
+              {
+                "label": "5",
+                "value": "Dopamine release"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "physiology-29-33",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "73990b9e5807eeba37fff00f68980f287f9eab1ef41386ab93c7f8050a33ec11",
+      "source": {
+        "file": "app/src/main/assets/Physiology_QBank_Source.pdf",
+        "sha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+        "pages": [
+          831
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "question": "Which of the subsequent factors experiences an elevation in chronic obstructive pulmonary disease (COPD)?\n1. FRC\n2. TLC\n3. VC\n4. FEV1/FVC",
+        "table": {
+          "prompt": "Which of the subsequent factors experiences an elevation in chronic obstructive pulmonary disease (COPD)?",
+          "headers": [
+            "Structures / statements"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "FRC"
+              },
+              {
+                "label": "2",
+                "value": "TLC"
+              },
+              {
+                "label": "3",
+                "value": "VC"
+              },
+              {
+                "label": "4",
+                "value": "FEV1/FVC"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "physiology-33-33",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "EXACT_SOURCE_REPAIR",
+      "canonicalSourceFingerprint": "7df1374d831f43d1c9a1ace72631e771af536037919e627ab3dd7e7e80a67cd3",
+      "source": {
+        "file": "app/src/main/assets/Physiology_QBank_Source.pdf",
+        "sha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+        "pages": [
+          944,
+          976
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "question": "Which sensory receptors are accountable for tactile discrimination among the options provided?\n1. Merkel disc\n2. Ruffini end organ\n3. Pacinian corpuscle\n4. Meissner’s corpuscle",
+        "options": [
+          {
+            "letter": "A",
+            "text": "1 and 4 are correct"
+          },
+          {
+            "letter": "B",
+            "text": "2 is correct"
+          },
+          {
+            "letter": "C",
+            "text": "3 is correct"
+          },
+          {
+            "letter": "D",
+            "text": "None are correct."
+          },
+          {
+            "letter": "E",
+            "text": "Both A & D"
+          }
+        ],
+        "correctOption": 1,
+        "table": {
+          "prompt": "Which sensory receptors are accountable for tactile discrimination among the options provided?",
+          "headers": [
+            "Receptors"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Merkel disc"
+              },
+              {
+                "label": "2",
+                "value": "Ruffini end organ"
+              },
+              {
+                "label": "3",
+                "value": "Pacinian corpuscle"
+              },
+              {
+                "label": "4",
+                "value": "Meissner’s corpuscle"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "physiology-26-20",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "9a204b472cd4d1cc780b3d3f5cf1a04e46470b8f803a1b5e39c69c44647adffa",
+      "source": {
+        "file": "app/src/main/assets/Physiology_QBank_Source.pdf",
+        "sha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+        "pages": [
+          748,
+          749,
+          766
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "question": "During a pulmonary function test, it is noted that the diffusion equilibrium for oxygen is reached at one third of the transit time in the pulmonary capillary. Based on the information provided in the diagram, at what point during the red blood cell's transit through the pulmonary capillary is diffusion equilibrium for oxygen reached?",
+        "explanation": "Diffusion equilibrium for oxygen and carbon dioxide will be reached at 0.25 seconds. • Transit time: The total time the RBC takes to travel the whole pulmonary capillary = 0.75 seconds. • Air inspiration is diffused from the alveolus to the pulmonary capillary. • Diffusion equilibrium of oxygen and carbon dioxide will be reached when RBC has reached one third of transit time = (1/3) × 0.75 = 0.25 seconds. • No diffusion occurs in the remaining two thirds of the transit time."
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH17_Q008",
+      "bank": "Marrow",
+      "subject": "Biochemistry",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "58b2484a04a8cb075bfdab1a94b9a197383ee5552262dd62108194529db9c16d",
+      "source": {
+        "file": "data/marrow/source_pdfs/biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "pages": [
+          264,
+          274
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-batch-3.json",
+      "display": {
+        "question": "What is the by-product of the reaction catalyzed by cytosolic hydroxymethylbilane synthase in heme synthesis?"
+      }
+    },
+    {
+      "id": "marrow__ANAT_CH45_Q004",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "5faa5bcc68140ac10e1f0cd9ab9c5ee09a5079b1fb636e40f7599b7f4f806947",
+      "source": {
+        "file": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+        "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+        "pages": [
+          815,
+          816,
+          827,
+          828
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-visual-gap-3.json",
+      "display": {
+        "question": "A laterally convex line extends from the third to the sixth right costal cartilage, approximately 1–2 cm lateral to the sternal edge. This surface marking corresponds to which of the following structures?"
+      }
+    },
+    {
+      "id": "marrow__BIOCHEM_CH17_Q014",
+      "bank": "Marrow",
+      "subject": "Biochemistry",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "ad8bc45a3da25050823d4c2d4e4357b95a92f19d69c175cadeb6b0627a20737d",
+      "source": {
+        "file": "data/marrow/source_pdfs/biochemistryed8.pdf",
+        "sha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+        "pages": [
+          265,
+          277
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-visual-gap-3.json",
+      "display": {
+        "question": "An infant presented with delayed eruption of her teeth. Her teeth show reddish-brown discoloration. She also has history of blisters over the face, hands and feet on exposure to sunlight since the first week of birth. What is the most likely diagnosis?"
+      }
+    },
+    {
+      "id": "28-3",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "9dc45b9d467c7d5c413d6a657861f5a13f1978bbc56559bbde612a34b8e2636e",
+      "source": {
+        "file": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+        "sha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+        "pages": [
+          961
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-residual-notation.json",
+      "display": {
+        "question": "A patient presents with a history of vomiting. Arterial blood gas analysis reveals\nthe following: pH: 7.5 pCO2: 48 mm Hg HCO3−: 30 mEq/L What is the most likely\nacid-base abnormality?"
+      }
+    },
+    {
+      "id": "physiology-1-2",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "39a686c0da1d71205ad661b1bacd941d7496a6a927aa2fb5753d1a671a951c31",
+      "source": {
+        "file": "app/src/main/assets/Physiology_QBank_Source.pdf",
+        "sha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+        "pages": [
+          5
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-residual-notation.json",
+      "display": {
+        "question": "As illustrated below, in examining the effects of presynaptic inhibition and facilitation on action potentials, Ca²+ currents, and EPSPs (excitatory postsynaptic potential) ,which statement regarding the dashed line recordings is false? (solid lines for controls; dashed lines for inhibition/facilitation)"
+      }
+    },
+    {
+      "id": "physiology-7-12",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "e8209eccd01b2444a1db70aeacfbe755f417eade13576c8bfda58521e241b882",
+      "source": {
+        "file": "app/src/main/assets/Physiology_QBank_Source.pdf",
+        "sha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+        "pages": [
+          172
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-residual-notation.json",
+      "display": {
+        "question": "Which of the following statements about the Na+-K+ ATPase is false?",
+        "options": [
+          {
+            "letter": "A",
+            "text": "It is an electrogenic pump with a coupling ratio of 3Na+:2K+"
+          },
+          {
+            "letter": "B",
+            "text": "The α subunit has intracellular Na+ and ATP-binding sites"
+          },
+          {
+            "letter": "C",
+            "text": "The α subunit contains the phosphorylation site at Asp 376"
+          },
+          {
+            "letter": "D",
+            "text": "Its activity is enhanced by ouabain and digitalis glycosides"
+          }
+        ]
+      }
+    },
+    {
+      "id": "physiology-22-2",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "866e36a37be8e02214c25e3b7764c3ae2fa8b21dbed05c52d3877dd726c6d069",
+      "source": {
+        "file": "app/src/main/assets/Physiology_QBank_Source.pdf",
+        "sha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+        "pages": [
+          619
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-residual-notation.json",
+      "display": {
+        "question": "How does the excretion of ammonium (NH4+) contribute to bicarbonate (HCO3−) regulation in the kidneys?",
+        "options": [
+          {
+            "letter": "A",
+            "text": "It directly increases the concentration of HCO3− in the urine."
+          },
+          {
+            "letter": "B",
+            "text": "It generates HCO3− , which is released into the bloodstream."
+          },
+          {
+            "letter": "C",
+            "text": "It decreases the overall HCO3− reabsorption in the kidneys."
+          },
+          {
+            "letter": "D",
+            "text": "It prevents the secretion of H+ in the renal tubules."
+          }
+        ]
+      }
+    },
+    {
+      "id": "physiology-22-3",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "89e0db0d0aa116182f215f84844ee0c82cd0d9b99c7de7d3e10a9a58065dc075",
+      "source": {
+        "file": "app/src/main/assets/Physiology_QBank_Source.pdf",
+        "sha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+        "pages": [
+          619
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-residual-notation.json",
+      "display": {
+        "question": "Which transport mechanism is primarily responsible for bicarbonate (HCO3−) reabsorption in the proximal convoluted tubule (PCT)?",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Na+-K+ ATPase pump"
+          },
+          {
+            "letter": "B",
+            "text": "Na+-H+ antiporter"
+          },
+          {
+            "letter": "C",
+            "text": "Cl−-HCO3− antiporter"
+          },
+          {
+            "letter": "D",
+            "text": "H+-ATPase pump"
+          }
+        ]
+      }
+    },
+    {
+      "id": "physiology-22-5",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "fd6834b47aac534f21e5ca9b1beb57fb84649bc413e93863c7900dab6be0df8b",
+      "source": {
+        "file": "app/src/main/assets/Physiology_QBank_Source.pdf",
+        "sha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+        "pages": [
+          620
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-residual-notation.json",
+      "display": {
+        "question": "What triggers the formation of ammonium ions (NH4+) and bicarbonate (HCO3−) in the ammonia buffer system?"
+      }
+    },
+    {
+      "id": "physiology-24-12",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "c519211b7874fb10fc636d0cdacc13ef73cbc2507453282a0eba0d24f8a744e3",
+      "source": {
+        "file": "app/src/main/assets/Physiology_QBank_Source.pdf",
+        "sha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+        "pages": [
+          692,
+          693
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-residual-notation.json",
+      "display": {
+        "question": "A 65-year-old male patient with a history of shortness of breath on exertion presents to the OPD. During the examination, it is noted that his ventilation-perfusion (V/Q) ratio varies significantly in different regions of the lungs. What are the expected partial pressures of oxygen (pO2) and carbon dioxide (pCO2) at the apex, middle, and base of the lungs in the upright position?",
+        "options": [
+          {
+            "letter": "A",
+            "text": "At the apex: pO2 is lowest and pCO2 is highest."
+          },
+          {
+            "letter": "B",
+            "text": "At the base: pO2 is highest and pCO2 is lowest."
+          },
+          {
+            "letter": "C",
+            "text": "At the middle: pO2 is highest and pCO2 is lowest."
+          },
+          {
+            "letter": "D",
+            "text": "At the base: pO2 is lowest and pCO2 is highest."
+          }
+        ]
+      }
+    },
+    {
+      "id": "physiology-24-18",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "canonicalSourceFingerprint": "35c38550bcd3822596ae511f72ae3ca2fc729ce471212eae294f3f0e76b7530c",
+      "source": {
+        "file": "app/src/main/assets/Physiology_QBank_Source.pdf",
+        "sha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+        "pages": [
+          695
+        ]
+      },
+      "evidenceFile": "docs/question-completeness/review-residual-notation.json",
+      "display": {
+        "question": "A 55-year-old woman with a history of asthma presents to the emergency department with severe dyspnea. On examination, she is using accessory muscles to breathe and her oxygen saturation is reduced. Arterial blood gas analysis shows a high level of carbon dioxide (PaCO2) despite increased ventilation. A bedside pulmonary function test reveals that her physiological dead space has increased compared to her last visit. Which of the following is the most likely explanation for the increase in physiological dead space in this patient?"
+      }
+    }
+  ]
+}

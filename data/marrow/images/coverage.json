@@ -3,12 +3,13 @@
   "definition": "Coverage denominator is source-recorded visual references from the Marrow audit. A reference is resolved only by a released binding or an exact evidence-backed SOURCE_METADATA_INVALID adjudication.",
   "summary": {
     "Anatomy": {
-      "sourceVisualReferences": 1028,
-      "effectiveLearnerVisualReferences": 1013,
+      "sourceVisualReferences": 1032,
+      "effectiveLearnerVisualReferences": 1017,
       "additionalCueDerivedVisualReferences": 0,
-      "releasedSourceVisualReferences": 1012,
+      "additionalCompletenessReviewVisualReferences": 4,
+      "releasedSourceVisualReferences": 1016,
       "invalidSourceMetadataReferences": 15,
-      "resolvedSourceVisualReferences": 1027,
+      "resolvedSourceVisualReferences": 1031,
       "trackedButUnreleasedReferences": 1,
       "untrackedSourceVisualReferences": 0,
       "textCueReviewItems": 0,
@@ -19,6 +20,7 @@
       "sourceVisualReferences": 138,
       "effectiveLearnerVisualReferences": 133,
       "additionalCueDerivedVisualReferences": 28,
+      "additionalCompletenessReviewVisualReferences": 0,
       "releasedSourceVisualReferences": 133,
       "invalidSourceMetadataReferences": 5,
       "resolvedSourceVisualReferences": 138,
@@ -29,12 +31,13 @@
       "humanCompletenessClaimAllowed": true
     },
     "Physiology": {
-      "sourceVisualReferences": 328,
-      "effectiveLearnerVisualReferences": 269,
+      "sourceVisualReferences": 332,
+      "effectiveLearnerVisualReferences": 273,
       "additionalCueDerivedVisualReferences": 34,
-      "releasedSourceVisualReferences": 268,
+      "additionalCompletenessReviewVisualReferences": 4,
+      "releasedSourceVisualReferences": 272,
       "invalidSourceMetadataReferences": 59,
-      "resolvedSourceVisualReferences": 327,
+      "resolvedSourceVisualReferences": 331,
       "trackedButUnreleasedReferences": 0,
       "untrackedSourceVisualReferences": 1,
       "textCueReviewItems": 0,
@@ -5868,8 +5871,8 @@
       "nativeCandidateCount": 0,
       "coverageStatus": "SOURCE_METADATA_INVALID",
       "released": false,
-      "adjudicationReason": "The complete source question page 392 ends with Question 3 prompt text and contains no brain section image or image object; the cited question visual is absent from the authoritative source page.",
-      "adjudicationEvidence": "Ubuntu-rendered full source page 392 inspected: Questions 1\u20133 are visible; Q3 requests a brain section, but no section image appears anywhere on the cited page."
+      "adjudicationReason": "Canonical question visual metadata cites p392, where only the question prompt occurs. The marked brain section continues on p393 and is independently released as question figure2 with exact native stream and truthful p393 citation. The original page assignment is invalid.",
+      "adjudicationEvidence": "Ubuntu-rendered full source page 392 inspected: Questions 1\u20133 are visible; Q3 requests a brain section, but no section image appears anywhere on the cited page. Final completeness review found the owning continuation page393 and native xref1099; see docs/question-completeness/review-visual-gap-1.json and source_visual_discoveries.json. This adjudication concerns the original page citation, not absence of the source question image."
     },
     {
       "id": "marrow__ANAT_CH23_Q003:figure:2",
@@ -12615,8 +12618,8 @@
       "nativeCandidateCount": 0,
       "coverageStatus": "SOURCE_METADATA_INVALID",
       "released": false,
-      "adjudicationReason": "Canonical metadata assigns a right atrial triangle of Koch image to page 822, but the authoritative full-page rendering of page 822 contains question text and answer choices only, with no visual. No neighboring image is substituted.",
-      "adjudicationEvidence": "Ubuntu GitHub Actions run 36431980518; full-page render [0,0,612,792] at 300 dpi, SHA-256 66a17e6f605d0a06f2a7f7bf896f9af2203b566651f2570a8230daf1a57e309a; compared against the exact Anatomy PDF hash and Q23 source metadata."
+      "adjudicationReason": "Original metadata cites page822, which contains text/options and no triangle image. Direct question/continuation review locates the exact question-owned blue dotted heart diagram on page821; released separately as completeness figure2. The original page822 citation remains invalid.",
+      "adjudicationEvidence": "Ubuntu GitHub Actions run 36431980518; full-page render [0,0,612,792] at 300 dpi, SHA-256 66a17e6f605d0a06f2a7f7bf896f9af2203b566651f2570a8230daf1a57e309a; compared against the exact Anatomy PDF hash and Q23 source metadata. Later direct source review: docs/question-completeness/review-residual-visuals.json; original native page821 object2297 inspected by parallel reviewer and primary integrator, exact source stream released as question figure2."
     },
     {
       "id": "marrow__ANAT_CH45_Q024:figure:1",
@@ -24298,6 +24301,150 @@
       "assetStatus": "SOURCE_LIMITED",
       "released": true,
       "registryPage": 816,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__ANAT_CH26_Q014:figure:2",
+      "questionId": "marrow__ANAT_CH26_Q014",
+      "subject": "Anatomy",
+      "role": "question",
+      "order": 2,
+      "sourcePages": [
+        440
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "QUESTION_COMPLETENESS_REVIEW",
+      "assetId": "anatomy-701280912266f39b",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 440,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH24_Q010:figure:1",
+      "questionId": "marrow__PHYSIO_CH24_Q010",
+      "subject": "Physiology",
+      "role": "question",
+      "order": 1,
+      "sourcePages": [
+        437
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "QUESTION_COMPLETENESS_REVIEW",
+      "assetId": "physiology-8b5028334b50f4c8",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 437,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__ANAT_CH20_Q006:figure:2",
+      "questionId": "marrow__ANAT_CH20_Q006",
+      "subject": "Anatomy",
+      "role": "question",
+      "order": 2,
+      "sourcePages": [
+        363
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "QUESTION_COMPLETENESS_REVIEW",
+      "assetId": "anatomy-8280481774eeebc1",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 363,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__ANAT_CH23_Q003:figure:3",
+      "questionId": "marrow__ANAT_CH23_Q003",
+      "subject": "Anatomy",
+      "role": "question",
+      "order": 3,
+      "sourcePages": [
+        393
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "QUESTION_COMPLETENESS_REVIEW",
+      "assetId": "anatomy-ccb57f90387dfed0",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 393,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH35_Q012:figure:2",
+      "questionId": "marrow__PHYSIO_CH35_Q012",
+      "subject": "Physiology",
+      "role": "question",
+      "order": 2,
+      "sourcePages": [
+        655
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "QUESTION_COMPLETENESS_REVIEW",
+      "assetId": "physiology-2a3bdffb6433baea",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 655,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH35_Q014:figure:2",
+      "questionId": "marrow__PHYSIO_CH35_Q014",
+      "subject": "Physiology",
+      "role": "question",
+      "order": 2,
+      "sourcePages": [
+        656
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "QUESTION_COMPLETENESS_REVIEW",
+      "assetId": "physiology-947f83a1a0044f69",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 656,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__ANAT_CH45_Q023:figure:2",
+      "questionId": "marrow__ANAT_CH45_Q023",
+      "subject": "Anatomy",
+      "role": "question",
+      "order": 2,
+      "sourcePages": [
+        821
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "QUESTION_COMPLETENESS_REVIEW",
+      "assetId": "anatomy-cb78fd25f43988c9",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 821,
+      "coverageStatus": "RELEASED"
+    },
+    {
+      "id": "marrow__PHYSIO_CH37_Q009:figure:2",
+      "questionId": "marrow__PHYSIO_CH37_Q009",
+      "subject": "Physiology",
+      "role": "question",
+      "order": 2,
+      "sourcePages": [
+        697
+      ],
+      "nativeCandidateCount": 0,
+      "sourceOrigin": "QUESTION_COMPLETENESS_REVIEW",
+      "assetId": "physiology-a1feb57e42dde562",
+      "bindingStatus": "PASS",
+      "assetStatus": "PASS",
+      "released": true,
+      "registryPage": 697,
       "coverageStatus": "RELEASED"
     },
     {

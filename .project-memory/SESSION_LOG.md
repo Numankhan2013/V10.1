@@ -1227,3 +1227,39 @@ All 51 local checks passed, with the single stale-progress failure corrected
 and the image invariant test rerun successfully. New phone/tablet learner
 checks cover every freshly reviewed question and question/explanation timing.
 Full combined canonical CI/preview remains pending; no production promotion.
+
+## 2026-09-30 — Final bounded question-completeness pass
+
+Parallel source review disposed of 238 unique IDs from the 5,397-question structural
+scan (226 initial plus 12 supplements): 66 contextual reconstructions, 13 exact source
+repairs, 126 already complete (52 ordinary/74 owned visual), and 33 underdetermined
+source omissions. Integrated 79 repairs: 73 text/table/key contracts and six native
+question images. Omission gates include ANAT62Q6. Source-backed text replacements
+recover missing visual clues without fabricated pictures or diagnosis/answer leakage.
+The accepted pinned ledger/compiler targets the shared presentation core; raw imports
+remain immutable. Final missing-question-visual screening supplements the structural
+queue. Gold explanation disclaimers were aligned with supported reconstructions.
+
+Image ledger: 1,500 references / 1,419 released / 79 invalid / two archival holds /
+zero unresolved cues; runtime 1,486 bindings / 1,306 assets / 1,128 questions.
+Ordinary builds now skip optional archival source-region sheets (roughly 1 GB),
+with explicit workflow input retaining regeneration. Prior checkpoint 7f326e61 full
+run 36695040994 failed an ambiguous Muscle Physiology I locator matching II; exact
+chapter selection is fixed. Final combined CI/preview remains pending; no production
+promotion or new physical-device/user acceptance is claimed.
+
+### Final residual review supplement — 2026-09-30
+
+Eight additional visual-cue source checks and eight notation/glyph source checks
+bring the bounded pass to 254 source-reviewed questions: 74 contextual/15 exact
+repairs (89 total: 81 display contracts and eight native question images), 132
+already complete (53 ordinary/79 visual), and 33 source-omission gates. The 114
+compiled display entries pass source checks across four variants. Current CI queue
+combines structure/glyph/runtime-question-visual scans and requires reviewed
+dispositions; all 197 remaining heuristic candidates have review evidence, zero
+unreviewed. Anatomy45Q23 and Physiology37Q9 add native question owners; the latter
+uses complete graph JPEG object1775 instead of the explanation crop containing
+clipped neighboring prose. Existing explanation PNG is preserved. Expected image
+coverage becomes 1,502 references/1,421 released/79 invalid/two archival holds/zero
+cues, subject to final regeneration confirmation. Prior local52checks passed before
+these residual additions; final combined CI remains pending. No production claim.

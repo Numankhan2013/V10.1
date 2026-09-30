@@ -16,13 +16,14 @@ import json
 from pathlib import Path
 import re
 
-from marrow_images import DATA, ROOT, binding_is_released, validate
+from marrow_images import DATA, ROOT, binding_is_released, questions, validate
 
 AUDIT_PATH = ROOT / 'build/marrow-images/audit.json'
 DEFAULT_OUTPUT = DATA / 'images/coverage.json'
 DEFAULT_ADJUDICATIONS = DATA / 'images/source_reference_adjudications.json'
 DEFAULT_PAGE_REVIEWS = DATA / 'images/source_reference_page_reviews.json'
 DEFAULT_CUE_REVIEWS = DATA / 'images/source_text_cue_reviews.json'
+DEFAULT_DISCOVERY_REVIEWS = DATA / 'images/source_visual_discoveries.json'
 SUBJECTS = ('Anatomy', 'Biochemistry', 'Physiology')
 ADJUDICATION_STATUS = 'SOURCE_METADATA_INVALID'
 
@@ -186,7 +187,36 @@ def reviewed_reference(expected, audit, page_reviews):
     return {**expected, 'metadata': {**expected['metadata'], 'source_pages': pages}}
 
 
-def build_coverage(audit, registry, adjudications=None, cue_reviews=None, page_reviews=None):
+def discovery_references(audit, reviews, source_questions):
+    """Register visually proven references absent from imported figure metadata."""
+    from marrow_images import sha
+    references = []
+    seen = {binding['id'] for binding in audit.get('bindings', [])}
+    for entry in reviews.get('entries', []):
+        assert entry['id'] not in seen, 'Duplicate discovered source reference'
+        seen.add(entry['id'])
+        q = source_questions[entry['questionId']]
+        assert q['subject'] == entry['subject']
+        fingerprint = sha(json.dumps({key: q.get(key) for key in (
+            'id', 'question', 'options', 'correctOption', 'sourcePage', 'sourceQuestionId')},
+            ensure_ascii=False, sort_keys=True, separators=(',', ':')).encode())
+        assert fingerprint == entry['canonicalSourceFingerprint'], 'Discovered question changed'
+        source = audit['sources'][entry['subject']]
+        assert entry['source'] == {key: source[key] for key in ('file', 'sha256')}
+        assert entry['role'] in {'question', 'explanation'}
+        assert entry['reason'] and entry['evidence']
+        assert entry['id'] == entry['questionId'] + ':figure:' + str(entry['order'])
+        pages = entry['sourcePages']
+        assert pages and pages == sorted(set(pages))
+        assert all(isinstance(page, int) and 0 < page <= len(source['pages']) for page in pages)
+        references.append({'id': entry['id'], 'questionId': entry['questionId'],
+            'subject': entry['subject'], 'metadata': {'role': entry['role'], 'source_pages': pages},
+            'candidateImages': [], 'sourceOrigin': 'QUESTION_COMPLETENESS_REVIEW'})
+    return references
+
+
+def build_coverage(audit, registry, adjudications=None, cue_reviews=None, page_reviews=None,
+                   discovery_reviews=None, source_questions=None):
     adjudications = adjudications or {'schemaVersion': 1, 'entries': []}
     cue_reviews = cue_reviews or {'schemaVersion': 1, 'entries': []}
     page_reviews = page_reviews or {'schemaVersion': 1, 'entries': []}
@@ -202,6 +232,8 @@ def build_coverage(audit, registry, adjudications=None, cue_reviews=None, page_r
     matched_cue_reviews = set()
     cue_visual_links = {}
     audit_bindings = list(audit.get('bindings', []))
+    audit_bindings.extend(discovery_references(audit, discovery_reviews or {'entries': []},
+                                              source_questions or {}))
     for entry in cue_reviews.get('entries', []):
         for reference in entry.get('visualReferences', []):
             allowed_pages = set(entry['sourcePages']) | set(entry.get('reviewedVisualPages', []))
@@ -355,6 +387,7 @@ def build_coverage(audit, registry, adjudications=None, cue_reviews=None, page_r
             'sourceVisualReferences': len(subject_rows),
             'effectiveLearnerVisualReferences': len(subject_rows) - invalid,
             'additionalCueDerivedVisualReferences': sum(row.get('sourceOrigin') == 'TEXT_CUE_REVIEW' for row in subject_rows),
+            'additionalCompletenessReviewVisualReferences': sum(row.get('sourceOrigin') == 'QUESTION_COMPLETENESS_REVIEW' for row in subject_rows),
             'releasedSourceVisualReferences': released,
             'invalidSourceMetadataReferences': invalid,
             'resolvedSourceVisualReferences': resolved,
@@ -393,7 +426,9 @@ def main():
     adjudications = load_adjudications(args.adjudications)
     cue_reviews = load_cue_reviews(args.cue_reviews)
     coverage = build_coverage(audit, registry, adjudications, cue_reviews,
-                              load_page_reviews(DEFAULT_PAGE_REVIEWS))
+                              load_page_reviews(DEFAULT_PAGE_REVIEWS),
+                              load_page_reviews(DEFAULT_DISCOVERY_REVIEWS),
+                              questions())
     rendered = json.dumps(coverage, indent=2, sort_keys=False) + '\n'
 
     if args.check:

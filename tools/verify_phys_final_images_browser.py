@@ -41,8 +41,10 @@ def main():
                     page.goto(f'http://127.0.0.1:{server.server_address[1]}/index.html', wait_until='networkidle')
                     page.evaluate("window.QB.nkOpenSubjectLibrary('Physiology')")
                     page.locator('button.nk-bank-card').filter(has_text='Marrow').click()
-                    # Source title, rather than screen position, identifies the chapter.
-                    page.locator('button.nk-topic-row').filter(has_text=q['chapter']).click()
+                    # Exact chapter identity avoids the I / II title prefix collision.
+                    chapter = str(q['chapterId'])
+                    assert chapter.isdigit()
+                    page.locator(f'button.nk-topic-row[onclick="window.QB.openChapter(\'{chapter}\')"]').click()
                     page.locator('button.nk-library-row').nth(int(q['questionNumber']) - 1).click()
                     page.locator(f'[data-marrow-question="{qid}"]').wait_for(state='visible')
                     expected_question = [row['src'] for row in metadata[qid] if row['role'] == 'question']

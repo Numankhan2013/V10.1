@@ -31,6 +31,7 @@ function openSessionReview(){}function submitExam(){}function nkPausePractice(){
 function nkStorageError(){}function nkStateClone(v){return JSON.parse(JSON.stringify(v));}
 function startSession(){}function nkStartSessionReliably(){}function nkResolvePracticeReplacement(){}function nkResolveTimedSession(){}
 function nkPracticeResumeQuestion(id){return BY_ID[id];}
+function nkQuestionPresentationFor(q){return {valid:!q.incomplete};}
 function reset(mode='practice'){
  state={attempts:{},reviews:{},bookmarks:{},tests:[],fsrsPreferences:null,activeSession:{id:'session',mode,context:'normal',questionIds:['q1','q2','q3'],index:0,answers:{},submitted:{},questionTimes:{},pendingRating:{}}};
  failed=false;writes=0;renders=0;saveState();
@@ -38,6 +39,9 @@ function reset(mode='practice'){
 ''' + handlers + '\n' + fsrs + '\n' + (integrity.read_text() if integrity.exists() else '') + r'''
 let failures=[];function check(name,test){reset();try{test();console.log('PASS '+name)}catch(e){failures.push(name+': '+e.message);}}
 check('stale question selection cannot write another question',()=>{state.activeSession.index=1;selectPractice('q1',2);assert.deepEqual(state.activeSession.answers,{});});
+check('incomplete source cannot record a Practice answer',()=>{questions[0].incomplete=true;try{const before=JSON.stringify(state);assert.equal(selectPractice('q1',1),false);assert.equal(JSON.stringify(state),before);}finally{delete questions[0].incomplete;}});
+check('incomplete source cannot record a CBT answer',()=>{reset('exam');questions[0].incomplete=true;try{const before=JSON.stringify(state);assert.equal(selectExam(1),false);assert.equal(JSON.stringify(state),before);}finally{delete questions[0].incomplete;}});
+check('incomplete source cannot submit an old selected answer',()=>{state.activeSession.answers.q1=1;questions[0].incomplete=true;try{const before=JSON.stringify(state);assert.equal(submitPractice(),false);assert.equal(JSON.stringify(state),before);}finally{delete questions[0].incomplete;}});
 check('out-of-range option rejected',()=>{selectPractice('q1',99);assert.deepEqual(state.activeSession.answers,{});});
 check('old-session option callback rejected',()=>{selectPractice('q1',2,'old-session');assert.deepEqual(state.activeSession.answers,{});});
 check('stale CBT option callback rejected',()=>{reset('exam');state.activeSession.index=1;selectExam(2,'q1','session');assert.deepEqual(state.activeSession.answers,{});});

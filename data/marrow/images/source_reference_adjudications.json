@@ -142,8 +142,8 @@
         "file": "Anatomy_ed8.pdf",
         "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f"
       },
-      "reason": "Canonical metadata assigns a right atrial triangle of Koch image to page 822, but the authoritative full-page rendering of page 822 contains question text and answer choices only, with no visual. No neighboring image is substituted.",
-      "evidence": "Ubuntu GitHub Actions run 36431980518; full-page render [0,0,612,792] at 300 dpi, SHA-256 66a17e6f605d0a06f2a7f7bf896f9af2203b566651f2570a8230daf1a57e309a; compared against the exact Anatomy PDF hash and Q23 source metadata."
+      "reason": "Original metadata cites page822, which contains text/options and no triangle image. Direct question/continuation review locates the exact question-owned blue dotted heart diagram on page821; released separately as completeness figure2. The original page822 citation remains invalid.",
+      "evidence": "Ubuntu GitHub Actions run 36431980518; full-page render [0,0,612,792] at 300 dpi, SHA-256 66a17e6f605d0a06f2a7f7bf896f9af2203b566651f2570a8230daf1a57e309a; compared against the exact Anatomy PDF hash and Q23 source metadata. Later direct source review: docs/question-completeness/review-residual-visuals.json; original native page821 object2297 inspected by parallel reviewer and primary integrator, exact source stream released as question figure2."
     },
     {
       "id": "marrow__ANAT_CH13_Q003:figure:1",
@@ -286,8 +286,8 @@
         "file": "Anatomy_ed8.pdf",
         "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f"
       },
-      "reason": "The complete source question page 392 ends with Question 3 prompt text and contains no brain section image or image object; the cited question visual is absent from the authoritative source page.",
-      "evidence": "Ubuntu-rendered full source page 392 inspected: Questions 1–3 are visible; Q3 requests a brain section, but no section image appears anywhere on the cited page."
+      "reason": "Canonical question visual metadata cites p392, where only the question prompt occurs. The marked brain section continues on p393 and is independently released as question figure2 with exact native stream and truthful p393 citation. The original page assignment is invalid.",
+      "evidence": "Ubuntu-rendered full source page 392 inspected: Questions 1–3 are visible; Q3 requests a brain section, but no section image appears anywhere on the cited page. Final completeness review found the owning continuation page393 and native xref1099; see docs/question-completeness/review-visual-gap-1.json and source_visual_discoveries.json. This adjudication concerns the original page citation, not absence of the source question image."
     },
     {
       "id": "marrow__ANAT_CH62_Q008:figure:1",

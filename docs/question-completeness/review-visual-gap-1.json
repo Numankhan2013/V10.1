@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "scope": "Two bounded supplemental missing question-visual owners",
+  "summary": {
+    "EXACT_SOURCE_REPAIR": 2
+  },
+  "questions": [
+    {
+      "id": "marrow__ANAT_CH20_Q006",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "EXACT_SOURCE_REPAIR",
+      "canonicalSourceFingerprint": "0b46017701cd6b3d5405af7359ea9dcb1858ae1d94a009f225c3c61897b5b790",
+      "canonicalRawRecordSha256": "205b528a26c916c5215ad4d9f7cb5c9945b96962b8dbb363b016c3f1929fcbf1",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        362,
+        363
+      ],
+      "sourceReviewMethod": "Poppler rendered question and continuation pages visually inspected; pypdf native DCT /Im1 stream extracted to temporary file and visually compared, including marker; no PyMuPDF generation",
+      "evidence": [
+        "Owning question stem on preceding page continues with its actual marked question image and choices on page363. Native image contains complete marker without overlaid vector extraction needed.",
+        "Existing explanation role bindings are distinct images; do not repurpose explanation asset or substitute its labels into stem."
+      ],
+      "affectedFields": [
+        "question.image"
+      ],
+      "proposedImageBinding": {
+        "questionId": "marrow__ANAT_CH20_Q006",
+        "role": "question",
+        "order": 1,
+        "alt": "Question figure",
+        "source": {
+          "file": "Anatomy_ed8.pdf",
+          "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+          "page": 363,
+          "xref": 1010,
+          "resourceName": "/Im1",
+          "region": [
+            162.0,
+            56.0,
+            450.0,
+            272.0
+          ]
+        },
+        "nativeOriginalDataSha256": "8280481774eeebc10d0d7f4b52f384e817eee4a743e41a7399d8b6b8a61476a8",
+        "filter": "/DCTDecode",
+        "width": 720,
+        "height": 835,
+        "method": "native-jpeg-stream",
+        "status": "PASS",
+        "qa": {
+          "sourceCompared": true,
+          "markersPreserved": true,
+          "nativeFullFrameReviewed": true,
+          "notes": "Native JPEG exact source bytes visually compared to owning continuation page; arrow/X visible and complete. Neutral alt avoids answer disclosure."
+        }
+      },
+      "existingNativeAssetMatches": [],
+      "answerConsistency": "Source choices and keyed answer unchanged; question requires this original marker image before answering."
+    },
+    {
+      "id": "marrow__ANAT_CH23_Q003",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "decision": "EXACT_SOURCE_REPAIR",
+      "canonicalSourceFingerprint": "c1389081a37e2c504ee1902a1475dc1dd7f7fe1417819a2996150d5799f7fe6d",
+      "canonicalRawRecordSha256": "2baee42f4df60662afc4b210fd8c1b34fa4006b57997b160d0146f6bc31fc72f",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        392,
+        393
+      ],
+      "sourceReviewMethod": "Poppler rendered question and continuation pages visually inspected; pypdf native DCT /Im1 stream extracted to temporary file and visually compared, including marker; no PyMuPDF generation",
+      "evidence": [
+        "Owning question stem on preceding page continues with its actual marked question image and choices on page393. Native image contains complete marker without overlaid vector extraction needed.",
+        "Existing explanation role bindings are distinct images; do not repurpose explanation asset or substitute its labels into stem."
+      ],
+      "affectedFields": [
+        "question.image"
+      ],
+      "proposedImageBinding": {
+        "questionId": "marrow__ANAT_CH23_Q003",
+        "role": "question",
+        "order": 1,
+        "alt": "Question figure",
+        "source": {
+          "file": "Anatomy_ed8.pdf",
+          "sha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+          "page": 393,
+          "xref": 1099,
+          "resourceName": "/Im1",
+          "region": [
+            162.0,
+            56.0,
+            450.0,
+            272.0
+          ]
+        },
+        "nativeOriginalDataSha256": "ccb57f90387dfed09cffb0a99ae635c9eb4f004c3644386f86e91199e9ae048d",
+        "filter": "/DCTDecode",
+        "width": 720,
+        "height": 592,
+        "method": "native-jpeg-stream",
+        "status": "PASS",
+        "qa": {
+          "sourceCompared": true,
+          "markersPreserved": true,
+          "nativeFullFrameReviewed": true,
+          "notes": "Native JPEG exact source bytes visually compared to owning continuation page; arrow/X visible and complete. Neutral alt avoids answer disclosure."
+        }
+      },
+      "existingNativeAssetMatches": [],
+      "answerConsistency": "Source choices and keyed answer unchanged; question requires this original marker image before answering."
+    }
+  ]
+}

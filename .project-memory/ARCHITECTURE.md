@@ -362,3 +362,30 @@ original stable source reference, owner/role/pages and PDF hash; coverage
 retains original pages in its report and matches only explicitly reviewed
 replacement pages. Imported bundles remain immutable. A page correction is
 not an image release and cannot silently substitute a neighboring figure.
+
+## Reviewed question-completeness contracts — 2026-09-30
+
+Individual review evidence lives in `docs/question-completeness/`; accepted display
+contracts live in `data/question_completeness_reviews_v1.json`.
+`tools/build_question_completeness_reviews.py` verifies raw question fingerprints,
+canonical shard hashes and source PDF hashes/pages, then compiles bounded contracts
+into the shared `tools/question_presentation_core.js`. Raw imports remain immutable.
+Runtime contracts fail closed on fingerprint drift; demonstrated source omissions
+receive explicit incomplete-source presentation and scored-answer gates through the
+shared presentation/interaction path. Heuristic flags alone do not gate questions.
+Exact source-key display restoration is restricted to the two reviewed five-choice
+PrepLadder tactile-receptor questions whose raw key is null; all five choices remain.
+Native question images retain source-stream fingerprints and stable owner bindings.
+
+The Android/PWA workflow's optional `render_review_regions` input regenerates
+archival source-region review sheets. Ordinary builds skip those roughly 1 GB of
+review artifacts while retaining PDF generation and downstream package validation.
+Source-only review/compiler verification does not establish full build verification.
+
+The completeness queue additionally scans whole-bank glyph artifacts and explicit
+question-visual cues against generated runtime owner roles, merges review evidence,
+and uses `--require-reviewed` in CI to reject any new unreviewed candidate. A small
+queue report is retained as an artifact. Current compilation contains 114 bounded
+display entries. Native source pixels may replace a previously released region crop
+for QUESTION ownership when that crop includes neighboring prose; existing
+explanation ownership remains intact (Physiology37Q9 is the concrete example).

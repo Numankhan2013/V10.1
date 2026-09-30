@@ -1,0 +1,4443 @@
+{
+  "schemaVersion": 1,
+  "batch": 2,
+  "inputHead": "7f326e611dea794a89411b68e27250f9725c448c",
+  "scope": "75 assigned candidates plus2 requested supplemental notation candidates; source-question essentials only",
+  "summary": {
+    "CONTEXTUAL_RECONSTRUCTION": 20,
+    "SOURCE_OMISSION": 14,
+    "COMPLETE/FALSE_POSITIVE": 15,
+    "VISUAL_OWNED_COMPLETE": 27,
+    "EXACT_SOURCE_REPAIR": 1
+  },
+  "limitations": [
+    "No exhaustive scientific correctness audit. Source review is distinct from current final-browser verification. Contextual reconstructions are explicitly inferred and must remain separate from immutable source.",
+    "Source PDF SHA and canonical source fingerprint pin proposed repairs; recheck fingerprints before integration."
+  ],
+  "questions": [
+    {
+      "id": "marrow__ANAT_CH06_Q024",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "priority": 1,
+      "canonicalSourceFingerprint": "98feeca24e54c7e0c22f5506c7154b73d7c3445ad4e1445f0d202b8258e9672c",
+      "sourcePage": 94,
+      "sourceFile": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourceSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "outcome": "CONTEXTUAL_RECONSTRUCTION",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        94,
+        95,
+        108
+      ],
+      "evidence": [
+        "Source question p94 lacks the entire numbered list. Rendered explanation p108 explicitly supplies embryonic → pseudoglandular → canalicular → saccular; printed answer D is 2-4-3-1. Assuming the four phase names in that explanation are the four candidates, the complete numbering is uniquely constrained; no phase/distractor invented."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedRepair": {
+        "question": "Arrange the following phases of lung development and maturation in order, from the earlier phase to the later phase.\n\n1. Saccular phase\n2. Embryonic phase\n3. Canalicular phase\n4. Pseudoglandular phase",
+        "preserveOptions": true,
+        "preserveCorrectOption": true,
+        "reconstructionNote": "Numbered candidate labels recovered from the available source context; raw canonical source remains immutable."
+      },
+      "answerConsistency": {
+        "correctOption": 4,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        94,
+        108
+      ],
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        94,
+        95,
+        108
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": {
+        "question": "Arrange the following phases of lung development and maturation in order, from the earlier phase to the later phase.\n\n1. Saccular phase\n2. Embryonic phase\n3. Canalicular phase\n4. Pseudoglandular phase"
+      },
+      "alternatives": "Unique conditional on preserved printed key and explicit source explanation/phrase order; contextual label required."
+    },
+    {
+      "id": "marrow__ANAT_CH13_Q006",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "priority": 1,
+      "canonicalSourceFingerprint": "762460a286a506000c1b4b2f5871e5e6ef0cf690d9fb827ccc0a6a139f9e7b60",
+      "sourcePage": 232,
+      "sourceFile": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourceSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "outcome": "CONTEXTUAL_RECONSTRUCTION",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        232,
+        233,
+        239
+      ],
+      "evidence": [
+        "Source question p232 lacks the six numbered layers. Rendered explanation p239 names all six in superficial-to-deep order; printed answer C is 1-4-2-3-6-5. Assuming those six named layers are the six intended candidates yields the proposed unique numbering; transparent contextual reconstruction, not recovered question transcription."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedRepair": {
+        "question": "Arrange the following layers of the cerebral cortex in the correct order from superficial to deep.\n\n1. Molecular (plexiform) layer\n2. External pyramidal layer\n3. Internal granular layer\n4. External granular layer\n5. Multiform (polymorphic cell) layer\n6. Ganglionic (internal pyramidal) layer",
+        "preserveOptions": true,
+        "preserveCorrectOption": true,
+        "reconstructionNote": "Numbered candidate labels recovered from the available source context; raw canonical source remains immutable."
+      },
+      "answerConsistency": {
+        "correctOption": 3,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        232,
+        239
+      ],
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        232,
+        233,
+        239
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": {
+        "question": "Arrange the following layers of the cerebral cortex in the correct order from superficial to deep.\n\n1. Molecular (plexiform) layer\n2. External pyramidal layer\n3. Internal granular layer\n4. External granular layer\n5. Multiform (polymorphic cell) layer\n6. Ganglionic (internal pyramidal) layer"
+      },
+      "alternatives": "Unique conditional on preserved printed key and explicit source explanation/phrase order; contextual label required."
+    },
+    {
+      "id": "marrow__ANAT_CH28_Q023",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "priority": 1,
+      "canonicalSourceFingerprint": "d01d57024936915d50b48a9f272345aeed903d21f75d0763b6d284de4ba3426f",
+      "sourcePage": 480,
+      "sourceFile": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourceSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "outcome": "SOURCE_OMISSION",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        480,
+        481
+      ],
+      "evidence": [
+        "Entire muscle 1–5 and action A–E lists absent; explanation lists TEN muscle/action examples and does not identify which FIVE or their arbitrary numbering/lettering. Many distinct mappings satisfy answer C."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 3,
+        "changeCorrectOption": false,
+        "status": "Printed key retained; cannot certify a complete assessment from absent candidate content."
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        480
+      ],
+      "decision": "SOURCE_OMISSION",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        480,
+        481
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "Missing original candidates underdetermined; no wholesale invented assessment."
+    },
+    {
+      "id": "marrow__ANAT_CH45_Q009",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "priority": 1,
+      "canonicalSourceFingerprint": "82706d525fb194f966521d621fea1b51094a45f89e566c6e21bd9a9ff1db9f56",
+      "sourcePage": 817,
+      "sourceFile": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourceSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "outcome": "SOURCE_OMISSION",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        817,
+        818
+      ],
+      "evidence": [
+        "Five numbered SA-node statements absent. Explanation supplies anatomical location but cannot recover five original statement identities or assignment; three selected positions alone do not constrain omitted statements."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 4,
+        "changeCorrectOption": false,
+        "status": "Printed key retained; cannot certify a complete assessment from absent candidate content."
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        817
+      ],
+      "decision": "SOURCE_OMISSION",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        817,
+        818
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "Missing original candidates underdetermined; no wholesale invented assessment."
+    },
+    {
+      "id": "marrow__ANAT_CH48_Q007",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "priority": 1,
+      "canonicalSourceFingerprint": "d49d6f2b38471205577c72b75634bbc38674ef000fddee10fcd151c1bb057bc0",
+      "sourcePage": 881,
+      "sourceFile": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourceSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "outcome": "SOURCE_OMISSION",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        881,
+        882
+      ],
+      "evidence": [
+        "Four matched pairs absent. Explanation gives only sigmoid-mesocolon vessels; it cannot recover the three distractor pairs or numbering."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 4,
+        "changeCorrectOption": false,
+        "status": "Printed key retained; cannot certify a complete assessment from absent candidate content."
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        881
+      ],
+      "decision": "SOURCE_OMISSION",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        881,
+        882
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "Missing original candidates underdetermined; no wholesale invented assessment."
+    },
+    {
+      "id": "marrow__ANAT_CH55_Q018",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "priority": 1,
+      "canonicalSourceFingerprint": "9a711afe0ccc75bd2c276e9d4f7fff73cb8f66a7f47d2cb1d3c1f15d9587d34b",
+      "sourcePage": 1046,
+      "sourceFile": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourceSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "outcome": "SOURCE_OMISSION",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        1046,
+        1047
+      ],
+      "evidence": [
+        "Five numbered joints absent. Explanation names calcaneocuboid and calcaneonavicular, but correct option 1 and3 cannot fix which joint is1/3 nor the other three distractors."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 4,
+        "changeCorrectOption": false,
+        "status": "Printed key retained; cannot certify a complete assessment from absent candidate content."
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        1046
+      ],
+      "decision": "SOURCE_OMISSION",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        1046,
+        1047
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "Missing original candidates underdetermined; no wholesale invented assessment."
+    },
+    {
+      "id": "marrow__ANAT_CH63_Q001",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "priority": 1,
+      "canonicalSourceFingerprint": "440b07e89df3da03b5b7ceb702abd037ab4304636c763d9c619881e8d3f2af08",
+      "sourcePage": 1205,
+      "sourceFile": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourceSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "outcome": "CONTEXTUAL_RECONSTRUCTION",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        1205,
+        1206,
+        1210
+      ],
+      "evidence": [
+        "Source question p1205 lacks numbered layer definitions. Rendered explanation p1210 explicitly lists deep-to-superficial basale → spinosum → granulosum → corneum. Printed answer B is 3-4-1-2. Four listed layers plus answer permutation uniquely constrain numbering; lucidum is correctly excluded from this four-layer thin-skin list."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedRepair": {
+        "question": "Which of the following is the correct order of layers of epidermis from deep to superficial?\n\n1. Stratum granulosum\n2. Stratum corneum\n3. Stratum basale\n4. Stratum spinosum",
+        "preserveOptions": true,
+        "preserveCorrectOption": true,
+        "reconstructionNote": "Numbered candidate labels recovered from the available source context; raw canonical source remains immutable."
+      },
+      "answerConsistency": {
+        "correctOption": 2,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        1205,
+        1210
+      ],
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        1205,
+        1206,
+        1210
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": {
+        "question": "Which of the following is the correct order of layers of epidermis from deep to superficial?\n\n1. Stratum granulosum\n2. Stratum corneum\n3. Stratum basale\n4. Stratum spinosum"
+      },
+      "alternatives": "Unique conditional on preserved printed key and explicit source explanation/phrase order; contextual label required."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH14_Q012",
+      "bank": "Marrow",
+      "subject": "Biochemistry",
+      "priority": 1,
+      "canonicalSourceFingerprint": "ca735d56f11a85c62ed63284ec6fee4548f022c8dc8199abc3cde52c8a9ebff1",
+      "sourcePage": 213,
+      "sourceFile": "data/marrow/source_pdfs/biochemistryed8.pdf",
+      "sourceSha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+      "outcome": "SOURCE_OMISSION",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        213,
+        214
+      ],
+      "evidence": [
+        "Numbered organelle1–5 list absent. Explanation fixes1=endoplasmic reticulum and3=mitochondria only;2/4/5 have no identities."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 4,
+        "changeCorrectOption": false,
+        "status": "Printed key retained; cannot certify a complete assessment from absent candidate content."
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        213
+      ],
+      "decision": "SOURCE_OMISSION",
+      "sourcePdf": "data/marrow/source_pdfs/biochemistryed8.pdf",
+      "sourcePdfSha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+      "sourcePagesReviewed": [
+        213,
+        214
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "Missing original candidates underdetermined; no wholesale invented assessment."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH15_Q003",
+      "bank": "Marrow",
+      "subject": "Biochemistry",
+      "priority": 1,
+      "canonicalSourceFingerprint": "2d82ee96442e12112e814a846217936a082b4514fab1844a97eca14a6b7de497",
+      "sourcePage": 229,
+      "sourceFile": "data/marrow/source_pdfs/biochemistryed8.pdf",
+      "sourceSha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+      "outcome": "SOURCE_OMISSION",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        229,
+        230
+      ],
+      "evidence": [
+        "Five numbered organ identities absent. Explanation names five glycerol-kinase-positive tissues plus white adipose exclusion; correct selected1/2/3/5 does not uniquely fix all identities or even the selected subset."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 2,
+        "changeCorrectOption": false,
+        "status": "Printed key retained; cannot certify a complete assessment from absent candidate content."
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        229
+      ],
+      "decision": "SOURCE_OMISSION",
+      "sourcePdf": "data/marrow/source_pdfs/biochemistryed8.pdf",
+      "sourcePdfSha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+      "sourcePagesReviewed": [
+        229,
+        230
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "Missing original candidates underdetermined; no wholesale invented assessment."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH17_Q012",
+      "bank": "Marrow",
+      "subject": "Biochemistry",
+      "priority": 1,
+      "canonicalSourceFingerprint": null,
+      "sourcePage": 265,
+      "sourceFile": "data/marrow/source_pdfs/biochemistryed8.pdf",
+      "sourceSha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+      "outcome": "SOURCE_OMISSION",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        265,
+        266
+      ],
+      "evidence": [
+        "Vitals and lab values promised in stem are entirely absent on rendered p265. No lab panel or corroborating raw explanation. Acute intermittent porphyria is keyed, but clinical text alone does not uniquely exclude hereditary coproporphyria or variegate porphyria without skin/lab findings."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 2,
+        "changeCorrectOption": false,
+        "status": "Printed key retained; cannot certify a complete assessment from absent candidate content."
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        265
+      ],
+      "decision": "SOURCE_OMISSION",
+      "sourcePdf": "data/marrow/source_pdfs/biochemistryed8.pdf",
+      "sourcePdfSha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+      "sourcePagesReviewed": [
+        265,
+        266
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "Missing original candidates underdetermined; no wholesale invented assessment."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH27_Q012",
+      "bank": "Marrow",
+      "subject": "Biochemistry",
+      "priority": 1,
+      "canonicalSourceFingerprint": "94db814f880050b6d0e485156fe59837413a3fbf07caa686651ef646655403c8",
+      "sourcePage": 422,
+      "sourceFile": "data/marrow/source_pdfs/biochemistryed8.pdf",
+      "sourceSha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+      "outcome": "SOURCE_OMISSION",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        422,
+        423
+      ],
+      "evidence": [
+        "Four numbered mechanisms absent. Explanation fixes2=RNA splicing and4=base-pair excision repair but cannot uniquely recover1 and3 or their wording."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 4,
+        "changeCorrectOption": false,
+        "status": "Printed key retained; cannot certify a complete assessment from absent candidate content."
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        422
+      ],
+      "decision": "SOURCE_OMISSION",
+      "sourcePdf": "data/marrow/source_pdfs/biochemistryed8.pdf",
+      "sourcePdfSha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+      "sourcePagesReviewed": [
+        422,
+        423
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "Missing original candidates underdetermined; no wholesale invented assessment."
+    },
+    {
+      "id": "marrow__PHYSIO_CH23_Q017",
+      "bank": "Marrow",
+      "subject": "Physiology",
+      "priority": 1,
+      "canonicalSourceFingerprint": "920d7494631f596be731bbce466b880583274773b9451d0bbdf93da82420e8c6",
+      "sourcePage": 422,
+      "sourceFile": "data/marrow/source_pdfs/physiologyed8.pdf",
+      "sourceSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+      "outcome": "SOURCE_OMISSION",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        422,
+        423
+      ],
+      "evidence": [
+        "Four numbered lung-function measures absent. Explanation discusses FRC and TLC increase plus FEV1/FVC decrease; neither unknown3/4 nor exact1/2 identities can be recovered uniquely."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 4,
+        "changeCorrectOption": false,
+        "status": "Printed key retained; cannot certify a complete assessment from absent candidate content."
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        422
+      ],
+      "decision": "SOURCE_OMISSION",
+      "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+      "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+      "sourcePagesReviewed": [
+        422,
+        423
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "Missing original candidates underdetermined; no wholesale invented assessment."
+    },
+    {
+      "id": "marrow__ANAT_CH03_Q004",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "32a7d97bc5fc394c31376d493d4a10647824c9739396806fdcf4066f5c4fcabd",
+      "sourcePage": 30,
+      "sourceFile": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourceSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "outcome": "COMPLETE/FALSE_POSITIVE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        30,
+        31
+      ],
+      "evidence": [
+        "Raw/current stem already contains all four numbered notochord stages. Existing accepted pilot reconstruction explicitly documented in reviewNotes; the old source omission flag is historical, not a current completeness defect."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 3,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        30
+      ],
+      "decision": "COMPLETE/FALSE_POSITIVE",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        30,
+        31
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "marrow__ANAT_CH05_Q018",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "15733c40aded35a1ae54a999170d22e8f89e19074983d5476d32f97265e7d7d1",
+      "sourcePage": 68,
+      "sourceFile": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourceSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "outcome": "VISUAL_OWNED_COMPLETE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        68,
+        69
+      ],
+      "evidence": [
+        "Question-critical labelled visual exists on owning source page; current stem and choices retain required labels; no missing semantic table/list found."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 3,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        68
+      ],
+      "visualCoverage": [
+        {
+          "id": "marrow__ANAT_CH05_Q018:figure:1",
+          "role": "question",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            68
+          ],
+          "reviewedSourcePages": null
+        },
+        {
+          "id": "marrow__ANAT_CH05_Q018:figure:2",
+          "role": "explanation",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            83
+          ],
+          "reviewedSourcePages": null
+        }
+      ],
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        68,
+        69
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "marrow__ANAT_CH14_Q004",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "e6235b2312555532647da66a131669dcb6a4e7b3d7227099ec554dec4f6c07a5",
+      "sourcePage": 247,
+      "sourceFile": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourceSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "outcome": "CONTEXTUAL_RECONSTRUCTION",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        247,
+        248,
+        255
+      ],
+      "evidence": [
+        "Rendered question p247 has image labels 1–5 but no A–E candidate definitions. Rendered explanation p255 explicitly names 1 Capsule,2 Subcapsular sinus,3 Germinal centre,4 Lymphoid nodule,5 Trabeculae. Existing answer C maps 1-E,2-D,3-A,4-B,5-C, uniquely constraining the candidate letter assignments. Restore an unordered candidate list; retain original image and all answer permutations."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedRepair": {
+        "question": "Match the following marked structures to the correct areas of the lymph node.\n\nA. Germinal centre\nB. Lymphoid nodule\nC. Trabeculae\nD. Subcapsular sinus\nE. Capsule",
+        "preserveOptions": true,
+        "preserveCorrectOption": true,
+        "reconstructionNote": "Candidate letter assignments inferred from explicit source label definitions and the printed key; not originally visible on question page."
+      },
+      "answerConsistency": {
+        "correctOption": 3,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        247,
+        255
+      ],
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        247,
+        248,
+        255
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": {
+        "question": "Match the following marked structures to the correct areas of the lymph node.\n\nA. Germinal centre\nB. Lymphoid nodule\nC. Trabeculae\nD. Subcapsular sinus\nE. Capsule"
+      },
+      "alternatives": "Unique conditional on preserved printed key and explicit source explanation/phrase order; contextual label required."
+    },
+    {
+      "id": "marrow__ANAT_CH17_Q021",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "dd332f564a1cb77e954e6a3024463b0b97217023ea83883ff3b3b6861c67e16b",
+      "sourcePage": 312,
+      "sourceFile": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourceSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "outcome": "VISUAL_OWNED_COMPLETE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        312,
+        313
+      ],
+      "evidence": [
+        "Question-critical labelled visual exists on owning source page; current stem and choices retain required labels; no missing semantic table/list found."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 1,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        312
+      ],
+      "visualCoverage": [
+        {
+          "id": "marrow__ANAT_CH17_Q021:figure:1",
+          "role": "question",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            312
+          ],
+          "reviewedSourcePages": null
+        },
+        {
+          "id": "marrow__ANAT_CH17_Q021:figure:2",
+          "role": "explanation",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            326
+          ],
+          "reviewedSourcePages": null
+        }
+      ],
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        312,
+        313
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "marrow__ANAT_CH23_Q012",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "85f8f0313ccdaa3d43239506d62e8042e1c8bfded4f39b150dae1ebcf9da362a",
+      "sourcePage": 396,
+      "sourceFile": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourceSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "outcome": "VISUAL_OWNED_COMPLETE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        396,
+        397
+      ],
+      "evidence": [
+        "Question-critical labelled visual exists on owning source page; current stem and choices retain required labels; no missing semantic table/list found."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 2,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        396
+      ],
+      "visualCoverage": [
+        {
+          "id": "marrow__ANAT_CH23_Q012:figure:1",
+          "role": "question",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            396
+          ],
+          "reviewedSourcePages": null
+        },
+        {
+          "id": "marrow__ANAT_CH23_Q012:figure:2",
+          "role": "explanation",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            402
+          ],
+          "reviewedSourcePages": null
+        },
+        {
+          "id": "marrow__ANAT_CH23_Q012:figure:3",
+          "role": "explanation",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            403
+          ],
+          "reviewedSourcePages": null
+        }
+      ],
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        396,
+        397
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "marrow__ANAT_CH28_Q005",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "f10ba0d082bf7a08d87ced72997c1a882d664449aa72e23838c4754108bbd68c",
+      "sourcePage": 472,
+      "sourceFile": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourceSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "outcome": "VISUAL_OWNED_COMPLETE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        472,
+        473
+      ],
+      "evidence": [
+        "Question-critical labelled visual exists on owning source page; current stem and choices retain required labels; no missing semantic table/list found."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 1,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        472
+      ],
+      "visualCoverage": [
+        {
+          "id": "marrow__ANAT_CH28_Q005:figure:1",
+          "role": "question",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            472,
+            473
+          ],
+          "reviewedSourcePages": null
+        }
+      ],
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        472,
+        473
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "marrow__ANAT_CH29_Q015",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "67530821a2268fad12abb70195a7d302c5f482e3e4604df946f5952196b73ed1",
+      "sourcePage": 507,
+      "sourceFile": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourceSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "outcome": "VISUAL_OWNED_COMPLETE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        507,
+        508
+      ],
+      "evidence": [
+        "Question-critical labelled visual exists on owning source page; current stem and choices retain required labels; no missing semantic table/list found."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 2,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        507
+      ],
+      "visualCoverage": [
+        {
+          "id": "marrow__ANAT_CH29_Q015:figure:1",
+          "role": "question",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            507
+          ],
+          "reviewedSourcePages": null
+        }
+      ],
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        507,
+        508
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "marrow__ANAT_CH30_Q014",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "0c4e27b8fb8039216ea5cf05c3351a72bcfe343709e86c36a3aacb6ab63f4c9b",
+      "sourcePage": 528,
+      "sourceFile": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourceSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "outcome": "VISUAL_OWNED_COMPLETE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        528,
+        529
+      ],
+      "evidence": [
+        "Question-critical labelled visual exists on owning source page; current stem and choices retain required labels; no missing semantic table/list found."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 3,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        528,
+        529
+      ],
+      "visualCoverage": [
+        {
+          "id": "marrow__ANAT_CH30_Q014:figure:1",
+          "role": "question",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            528
+          ],
+          "reviewedSourcePages": null
+        },
+        {
+          "id": "marrow__ANAT_CH30_Q014:figure:2",
+          "role": "explanation",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            547
+          ],
+          "reviewedSourcePages": null
+        }
+      ],
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        528,
+        529
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "marrow__ANAT_CH34_Q011",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "a9f7a3d2b07ad98b397b0b6b43c461fe660f41853cf2d69a8f05d3e1ab7f4bb4",
+      "sourcePage": 605,
+      "sourceFile": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourceSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "outcome": "VISUAL_OWNED_COMPLETE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        605,
+        606
+      ],
+      "evidence": [
+        "Question-critical labelled visual exists on owning source page; current stem and choices retain required labels; no missing semantic table/list found."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 3,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        605
+      ],
+      "visualCoverage": [
+        {
+          "id": "marrow__ANAT_CH34_Q011:figure:1",
+          "role": "question",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            605
+          ],
+          "reviewedSourcePages": null
+        },
+        {
+          "id": "marrow__ANAT_CH34_Q011:figure:2",
+          "role": "explanation",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            614
+          ],
+          "reviewedSourcePages": null
+        }
+      ],
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        605,
+        606
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "marrow__ANAT_CH41_Q010",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "55352c690f9283af07f93b434ac5291469a06f119bfb3e2fa1c1c4c1f7cfe333",
+      "sourcePage": 756,
+      "sourceFile": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourceSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "outcome": "VISUAL_OWNED_COMPLETE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        756,
+        757
+      ],
+      "evidence": [
+        "Question-critical labelled visual exists on owning source page; current stem and choices retain required labels; no missing semantic table/list found."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 3,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        756
+      ],
+      "visualCoverage": [
+        {
+          "id": "marrow__ANAT_CH41_Q010:figure:1",
+          "role": "question",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            756
+          ],
+          "reviewedSourcePages": null
+        },
+        {
+          "id": "marrow__ANAT_CH41_Q010:figure:2",
+          "role": "explanation",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            765
+          ],
+          "reviewedSourcePages": null
+        }
+      ],
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        756,
+        757
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "marrow__ANAT_CH44_Q003",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "1b61894201e415c053ce01cc989f9aed534450ade5a538bb72cf08235211fad8",
+      "sourcePage": 806,
+      "sourceFile": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourceSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "outcome": "VISUAL_OWNED_COMPLETE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        806,
+        807
+      ],
+      "evidence": [
+        "Question-critical labelled visual exists on owning source page; current stem and choices retain required labels; no missing semantic table/list found."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 3,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        806,
+        807
+      ],
+      "visualCoverage": [
+        {
+          "id": "marrow__ANAT_CH44_Q003:figure:1",
+          "role": "question",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            807
+          ],
+          "reviewedSourcePages": null
+        },
+        {
+          "id": "marrow__ANAT_CH44_Q003:figure:2",
+          "role": "explanation",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            811
+          ],
+          "reviewedSourcePages": null
+        }
+      ],
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        806,
+        807
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "marrow__ANAT_CH49_Q013",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "67b1bdeb6e80a94e04f5ac0b17f5e0334a1a855476b29162f2bd9f55be94ca9d",
+      "sourcePage": 895,
+      "sourceFile": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourceSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "outcome": "VISUAL_OWNED_COMPLETE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        895,
+        896
+      ],
+      "evidence": [
+        "Question-critical labelled visual exists on owning source page; current stem and choices retain required labels; no missing semantic table/list found."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 2,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        895,
+        896
+      ],
+      "visualCoverage": [
+        {
+          "id": "marrow__ANAT_CH49_Q013:figure:1",
+          "role": "question",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            896
+          ],
+          "reviewedSourcePages": null
+        },
+        {
+          "id": "marrow__ANAT_CH49_Q013:figure:2",
+          "role": "explanation",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            909
+          ],
+          "reviewedSourcePages": null
+        }
+      ],
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        895,
+        896
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "marrow__ANAT_CH50_Q019",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "d3c09f3d719890546b73d279a4b8cd730945f199721ddf539b8581259e4f67d4",
+      "sourcePage": 920,
+      "sourceFile": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourceSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "outcome": "VISUAL_OWNED_COMPLETE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        920,
+        921
+      ],
+      "evidence": [
+        "Question-critical labelled visual exists on owning source page; current stem and choices retain required labels; no missing semantic table/list found."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 1,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        920
+      ],
+      "visualCoverage": [
+        {
+          "id": "marrow__ANAT_CH50_Q019:figure:1",
+          "role": "question",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            920
+          ],
+          "reviewedSourcePages": null
+        },
+        {
+          "id": "marrow__ANAT_CH50_Q019:figure:2",
+          "role": "explanation",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            935
+          ],
+          "reviewedSourcePages": null
+        }
+      ],
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        920,
+        921
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "marrow__ANAT_CH51_Q008",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "19f98312926674b7ffa3f821ea802d4b9665b45155fe66d9f1cc3dca7009628d",
+      "sourcePage": 943,
+      "sourceFile": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourceSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "outcome": "VISUAL_OWNED_COMPLETE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        943,
+        944
+      ],
+      "evidence": [
+        "Question-critical labelled visual exists on owning source page; current stem and choices retain required labels; no missing semantic table/list found."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 1,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        943,
+        944
+      ],
+      "visualCoverage": [
+        {
+          "id": "marrow__ANAT_CH51_Q008:figure:1",
+          "role": "question",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            943
+          ],
+          "reviewedSourcePages": null
+        },
+        {
+          "id": "marrow__ANAT_CH51_Q008:figure:2",
+          "role": "explanation",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            957
+          ],
+          "reviewedSourcePages": null
+        }
+      ],
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        943,
+        944
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "marrow__ANAT_CH52_Q006",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "e6cef308d521c4d845ae941fd8616fee88c7b43bd5dc1a66fb85dd158f6b897b",
+      "sourcePage": 974,
+      "sourceFile": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourceSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "outcome": "VISUAL_OWNED_COMPLETE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        974,
+        975
+      ],
+      "evidence": [
+        "Question-critical labelled visual exists on owning source page; current stem and choices retain required labels; no missing semantic table/list found."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 1,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        974
+      ],
+      "visualCoverage": [
+        {
+          "id": "marrow__ANAT_CH52_Q006:figure:1",
+          "role": "question",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            974
+          ],
+          "reviewedSourcePages": null
+        },
+        {
+          "id": "marrow__ANAT_CH52_Q006:figure:2",
+          "role": "explanation",
+          "coverageStatus": "RELEASED",
+          "released": true,
+          "sourcePages": [
+            984
+          ],
+          "reviewedSourcePages": null
+        }
+      ],
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        974,
+        975
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "marrow__ANAT_CH54_Q013",
+      "bank": "Marrow",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "2753378b645a9511f495beb0c2a3122288e3e92066eef216bb08cd57a7534e3a",
+      "sourcePage": 1025,
+      "sourceFile": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourceSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "outcome": "COMPLETE/FALSE_POSITIVE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        1025,
+        1026
+      ],
+      "evidence": [
+        "Numeric choices are literal counts of fibular ossification centres, not labels for missing rows."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 2,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        1025
+      ],
+      "decision": "COMPLETE/FALSE_POSITIVE",
+      "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+      "sourcePdfSha256": "7525590f8733d0769aa33f5af589c20c1eab914e9ee8d6d6fd49b291e0401d4f",
+      "sourcePagesReviewed": [
+        1025,
+        1026
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH12_Q005",
+      "bank": "Marrow",
+      "subject": "Biochemistry",
+      "priority": 2,
+      "canonicalSourceFingerprint": "63cd29d2189f1d1753959fd4b957d087738ce5d2c40e4514519d56d312e90443",
+      "sourcePage": 187,
+      "sourceFile": "data/marrow/source_pdfs/biochemistryed8.pdf",
+      "sourceSha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+      "outcome": "COMPLETE/FALSE_POSITIVE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        187,
+        188
+      ],
+      "evidence": [
+        "Numeric choices are literal counts of arachidonic-acid double bonds, not labels for missing rows."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 4,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        187
+      ],
+      "decision": "COMPLETE/FALSE_POSITIVE",
+      "sourcePdf": "data/marrow/source_pdfs/biochemistryed8.pdf",
+      "sourcePdfSha256": "463cb586aa18b702243d2467b4ad1f7fb24537d7ae73388607421516660643eb",
+      "sourcePagesReviewed": [
+        187,
+        188
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "marrow__PHYS_CH05_Q003",
+      "bank": "Marrow",
+      "subject": "Physiology",
+      "priority": 2,
+      "canonicalSourceFingerprint": "1a0cb3c2540edeeb07580f842e4c30b372c4f8aefc39b23270d149894ab28eed",
+      "sourcePage": 68,
+      "sourceFile": "data/marrow/source_pdfs/physiologyed8.pdf",
+      "sourceSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+      "outcome": "COMPLETE/FALSE_POSITIVE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        68,
+        69
+      ],
+      "evidence": [
+        "All givens are present: 60kg, haematocrit40%, plasma volume3L. Choices4/5/6/7 are blood volume values, not missing list labels; 3/(1−0.4)=5 confirms B."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 2,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        68
+      ],
+      "decision": "COMPLETE/FALSE_POSITIVE",
+      "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+      "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+      "sourcePagesReviewed": [
+        68,
+        69
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "marrow__PHYS_CH06_Q010",
+      "bank": "Marrow",
+      "subject": "Physiology",
+      "priority": 2,
+      "canonicalSourceFingerprint": "58b0b90a69b7d0b8bf512585deed6e98e9d7b2c91d130a5d45e3a198f966cd39",
+      "sourcePage": 96,
+      "sourceFile": "data/marrow/source_pdfs/physiologyed8.pdf",
+      "sourceSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+      "outcome": "SOURCE_OMISSION",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        96,
+        97
+      ],
+      "evidence": [
+        "Four matched action-potential pairs absent on p96. Released explanation graphs do not supply missing question pairs; cannot invent distractor pairs."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 1,
+        "changeCorrectOption": false,
+        "status": "Printed key retained; cannot certify a complete assessment from absent candidate content."
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        96
+      ],
+      "decision": "SOURCE_OMISSION",
+      "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+      "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+      "sourcePagesReviewed": [
+        96,
+        97
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "Missing original candidates underdetermined; no wholesale invented assessment."
+    },
+    {
+      "id": "marrow__PHYS_CH07_Q035",
+      "bank": "Marrow",
+      "subject": "Physiology",
+      "priority": 2,
+      "canonicalSourceFingerprint": "b1fd29029aee4a86c82fbcb253cd9cbff6548d3a29f1ffebea380fbce2f58840",
+      "sourcePage": 135,
+      "sourceFile": "data/marrow/source_pdfs/physiologyed8.pdf",
+      "sourceSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+      "outcome": "SOURCE_OMISSION",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        135,
+        136
+      ],
+      "evidence": [
+        "Four contraction statements absent on p135. Explanation gives statement3 SR calcium release and criticisms of1/2/4, but their original assertions, qualifiers and polarity are not fully determined."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 2,
+        "changeCorrectOption": false,
+        "status": "Printed key retained; cannot certify a complete assessment from absent candidate content."
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        135
+      ],
+      "decision": "SOURCE_OMISSION",
+      "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+      "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+      "sourcePagesReviewed": [
+        135,
+        136
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "Missing original candidates underdetermined; no wholesale invented assessment."
+    },
+    {
+      "id": "marrow__PHYS_CH14_Q032",
+      "bank": "Marrow",
+      "subject": "Physiology",
+      "priority": 2,
+      "canonicalSourceFingerprint": "346439075f8b91375fb4b48787afd69512a07dc61d9af294b48411b52e6516e7",
+      "sourcePage": 265,
+      "sourceFile": "data/marrow/source_pdfs/physiologyed8.pdf",
+      "sourceSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+      "outcome": "COMPLETE/FALSE_POSITIVE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        265,
+        266
+      ],
+      "evidence": [
+        "Choice numbers are Brodmann area identifiers; no missing candidate definitions needed."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 1,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        265
+      ],
+      "decision": "COMPLETE/FALSE_POSITIVE",
+      "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+      "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+      "sourcePagesReviewed": [
+        265,
+        266
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "marrow__PHYSIO_CH24_Q009",
+      "bank": "Marrow",
+      "subject": "Physiology",
+      "priority": 2,
+      "canonicalSourceFingerprint": "f402c3076ac3da1102fa729219646d5ce90d8d3800bb38528897cba4bf89110b",
+      "sourcePage": 436,
+      "sourceFile": "data/marrow/source_pdfs/physiologyed8.pdf",
+      "sourceSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+      "outcome": "VISUAL_OWNED_COMPLETE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        436,
+        437
+      ],
+      "evidence": [
+        "Question-critical labelled visual exists on owning source page; current stem and choices retain required labels; no missing semantic table/list found."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 3,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        436,
+        437
+      ],
+      "visualCoverage": [],
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+      "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+      "sourcePagesReviewed": [
+        436,
+        437
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "marrow__PHYSIO_CH36_Q017",
+      "bank": "Marrow",
+      "subject": "Physiology",
+      "priority": 2,
+      "canonicalSourceFingerprint": "03468cd745ef1766f6f3d754261b634c3a47d9f4dc4829e51aed14d108ec8d99",
+      "sourcePage": 682,
+      "sourceFile": "data/marrow/source_pdfs/physiologyed8.pdf",
+      "sourceSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+      "outcome": "COMPLETE/FALSE_POSITIVE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        682,
+        683
+      ],
+      "evidence": [
+        "Choice numbers identify aquaporin channel isoforms directly; no missing numbered list."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 2,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        682
+      ],
+      "decision": "COMPLETE/FALSE_POSITIVE",
+      "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+      "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+      "sourcePagesReviewed": [
+        682,
+        683
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "marrow__PHYSIO_CH38_Q016",
+      "bank": "Marrow",
+      "subject": "Physiology",
+      "priority": 2,
+      "canonicalSourceFingerprint": "274a1a0aedadf76d19c8c1f554981e4db3a24d4d205af5ae7ec7a0022a2f13e6",
+      "sourcePage": 714,
+      "sourceFile": "data/marrow/source_pdfs/physiologyed8.pdf",
+      "sourceSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+      "outcome": "COMPLETE/FALSE_POSITIVE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        714,
+        715
+      ],
+      "evidence": [
+        "Choice numbers are literal receptor subunit counts."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 4,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        714
+      ],
+      "decision": "COMPLETE/FALSE_POSITIVE",
+      "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+      "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+      "sourcePagesReviewed": [
+        714,
+        715
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "anatomy-6-36",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "bec259bbdb0d44533b04e7a377033bdad073ebf8f504dc687388935871a24a87",
+      "sourcePage": 201,
+      "sourceFile": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourceSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "outcome": "CONTEXTUAL_RECONSTRUCTION",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "reviewedPages": [
+        201,
+        202
+      ],
+      "evidence": [
+        "Every candidate phrase is present verbatim and in this order in source text/current raw stem. Explicit numbers omitted in source prose although answer combinations refer to numbers. Candidate segmentation/order is unambiguous; add ordinal labels and line breaks only. This is contextual formatting recovery, not new scientific content.",
+        "Source optionB is5,4,2,31: five named candidates and other five-element permutations uniquely constrain31 to the adjacent labels3,1; insert missing comma only, retaining optionB index and printed key."
+      ],
+      "affectedFields": [
+        "question",
+        "options.B"
+      ],
+      "proposedRepair": {
+        "question": "Arrange in sequence the structures involved in the direct pathway of the basal ganglia:\n\n1. Striatum\n2. Globus pallidus\n3. Substantia nigra\n4. Thalamus\n5. Cortex",
+        "preserveOptions": false,
+        "preserveCorrectOption": true,
+        "reconstructionNote": "Numbers follow existing source phrase order; no candidates or distractors added.",
+        "options": [
+          {
+            "letter": "A",
+            "text": "1,2,3,4,5"
+          },
+          {
+            "letter": "B",
+            "text": "5,4,2,3,1"
+          },
+          {
+            "letter": "C",
+            "text": "5,1,2,3,4"
+          },
+          {
+            "letter": "D",
+            "text": "1,3,4,2,5"
+          }
+        ]
+      },
+      "answerConsistency": {
+        "correctOption": 3,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        201,
+        202
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "proposedOverride": {
+        "question": "Arrange in sequence the structures involved in the direct pathway of the basal ganglia:\n\n1. Striatum\n2. Globus pallidus\n3. Substantia nigra\n4. Thalamus\n5. Cortex",
+        "options": [
+          {
+            "letter": "A",
+            "text": "1,2,3,4,5"
+          },
+          {
+            "letter": "B",
+            "text": "5,4,2,3,1"
+          },
+          {
+            "letter": "C",
+            "text": "5,1,2,3,4"
+          },
+          {
+            "letter": "D",
+            "text": "1,3,4,2,5"
+          }
+        ]
+      },
+      "alternatives": "Unique conditional on preserved printed key and explicit source explanation/phrase order; contextual label required."
+    },
+    {
+      "id": "anatomy-6-53",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "58abe2da6499757a1edf1beee0ccc183c8b940e2be84541f6e7c8350652e9331",
+      "sourcePage": 209,
+      "sourceFile": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourceSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "outcome": "VISUAL_OWNED_COMPLETE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        209,
+        210
+      ],
+      "evidence": [
+        "Question-critical labelled visual exists on owning source page; current stem and choices retain required labels; no missing semantic table/list found."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 2,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review.",
+        "Prep visual binding checked against historical build-verified metadata; current combined build must verify runtime bytes and rendering."
+      ],
+      "visuallyInspectedPages": [
+        209,
+        210
+      ],
+      "historicalVisualBinding": {
+        "checkpoint": "356cce4",
+        "preview": "1b9fe4f4.nk-qbank.pages.dev",
+        "visuals": [
+          {
+            "type": "asset",
+            "source": "source_visuals/anatomy/d32518dc7865030d75568dc1.png",
+            "fit": "contain",
+            "nativeWidth": 216,
+            "nativeHeight": 216,
+            "outputWidth": 1008,
+            "outputHeight": 1009,
+            "cropPdf": {
+              "left": 198,
+              "top": 92.4,
+              "right": 414,
+              "bottom": 308.4
+            },
+            "extractionMethod": "pdf-region-288dpi",
+            "productionSha256": "d32518dc7865030d75568dc18366499ae1624153434c66892882b22789d0b5e6",
+            "safetyPadPixels": 72,
+            "safetyPadX": 72,
+            "safetyPadY": 72,
+            "fullNativeFrame": false,
+            "auditId": "31850afae60d5444a2c1",
+            "sourcePdf": "Anatomy_QBank_Source.pdf",
+            "sourcePage": 210,
+            "sourceXref": 588,
+            "sourceSmask": 587,
+            "sourcePlacement": {
+              "left": 198,
+              "top": 92.4,
+              "right": 414,
+              "bottom": 308.4
+            },
+            "sourceComparisonCrop": {
+              "left": 198,
+              "top": 92.4,
+              "right": 414,
+              "bottom": 308.4
+            },
+            "riskFlags": [
+              "pdf-vector-text-region"
+            ],
+            "highRisk": true
+          }
+        ]
+      },
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        209,
+        210
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "anatomy-7-1",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "34b88e7d0bf7709facf9cdff85ec61b84355bbb4e6c8f9c560b03097b4a480eb",
+      "sourcePage": 264,
+      "sourceFile": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourceSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "outcome": "CONTEXTUAL_RECONSTRUCTION",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "reviewedPages": [
+        264,
+        265
+      ],
+      "evidence": [
+        "Every candidate phrase is present verbatim and in this order in source text/current raw stem. Explicit numbers omitted in source prose although answer combinations refer to numbers. Candidate segmentation/order is unambiguous; add ordinal labels and line breaks only. This is contextual formatting recovery, not new scientific content."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedRepair": {
+        "question": "Which among the following are skeletal derivatives of the 3rd pharyngeal arch?\n\n1. Greater cornu of hyoid\n2. Stylohyoid ligament\n3. Lesser cornu of hyoid\n4. Upper half of body of hyoid\n5. Lower half of body of hyoid",
+        "preserveOptions": true,
+        "preserveCorrectOption": true,
+        "reconstructionNote": "Numbers follow existing source phrase order; no candidates or distractors added."
+      },
+      "answerConsistency": {
+        "correctOption": 4,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        264,
+        265
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "proposedOverride": {
+        "question": "Which among the following are skeletal derivatives of the 3rd pharyngeal arch?\n\n1. Greater cornu of hyoid\n2. Stylohyoid ligament\n3. Lesser cornu of hyoid\n4. Upper half of body of hyoid\n5. Lower half of body of hyoid"
+      },
+      "alternatives": "Unique conditional on preserved printed key and explicit source explanation/phrase order; contextual label required."
+    },
+    {
+      "id": "anatomy-8-3",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "bf51448b8bb5dcda2453078fa2f033aca9d35ded7000c4489135d0cec1ee6b54",
+      "sourcePage": 283,
+      "sourceFile": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourceSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "outcome": "VISUAL_OWNED_COMPLETE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        283,
+        284
+      ],
+      "evidence": [
+        "Question-critical labelled visual exists on owning source page; current stem and choices retain required labels; no missing semantic table/list found."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 1,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review.",
+        "Prep visual binding checked against historical build-verified metadata; current combined build must verify runtime bytes and rendering."
+      ],
+      "visuallyInspectedPages": [
+        283,
+        284
+      ],
+      "historicalVisualBinding": {
+        "checkpoint": "356cce4",
+        "preview": "1b9fe4f4.nk-qbank.pages.dev",
+        "visuals": [
+          {
+            "type": "asset",
+            "source": "source_visuals/anatomy/f921f367a66e81be9dc1e71b.jpg",
+            "fit": "contain",
+            "nativeWidth": 450,
+            "nativeHeight": 450,
+            "outputWidth": 450,
+            "outputHeight": 450,
+            "cropPixels": {
+              "left": 0,
+              "top": 0,
+              "right": 450,
+              "bottom": 450
+            },
+            "extractionMethod": "native-jpeg-byte-copy",
+            "sourceSha256": "f921f367a66e81be9dc1e71b641f4ec175f1117ed99c3b05cb7ef50e797900f1",
+            "productionSha256": "f921f367a66e81be9dc1e71b641f4ec175f1117ed99c3b05cb7ef50e797900f1",
+            "safetyPadPixels": 0,
+            "fullNativeFrame": true,
+            "auditId": "c98f936c5dbec076ccda",
+            "sourcePdf": "Anatomy_QBank_Source.pdf",
+            "sourcePage": 284,
+            "sourceXref": 775,
+            "sourceSmask": null,
+            "sourcePlacement": {
+              "left": 198,
+              "top": 92.4,
+              "right": 414,
+              "bottom": 308.4
+            },
+            "sourceComparisonCrop": {
+              "left": 180,
+              "top": 74.4,
+              "right": 432,
+              "bottom": 326.4
+            },
+            "riskFlags": [
+              "small-source"
+            ],
+            "highRisk": true
+          }
+        ]
+      },
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        283,
+        284
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "anatomy-12-4",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "db6cd2da7d77e83ddc55e0da96450feb27877432d148765730762dec4c1136d4",
+      "sourcePage": 455,
+      "sourceFile": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourceSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "outcome": "VISUAL_OWNED_COMPLETE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "reviewedPages": [
+        455,
+        456
+      ],
+      "evidence": [
+        "Question-critical labelled visual exists on owning source page; current stem and choices retain required labels; no missing semantic table/list found."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 3,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review.",
+        "Prep visual binding checked against historical build-verified metadata; current combined build must verify runtime bytes and rendering."
+      ],
+      "historicalVisualBinding": {
+        "checkpoint": "356cce4",
+        "preview": "1b9fe4f4.nk-qbank.pages.dev",
+        "visuals": [
+          {
+            "type": "asset",
+            "source": "source_visuals/anatomy/a1a8eab499b20c8c66eab26b.png",
+            "fit": "contain",
+            "nativeWidth": 216,
+            "nativeHeight": 216,
+            "outputWidth": 1008,
+            "outputHeight": 1009,
+            "cropPdf": {
+              "left": 198,
+              "top": 180.4,
+              "right": 414,
+              "bottom": 396.4
+            },
+            "extractionMethod": "pdf-region-288dpi",
+            "productionSha256": "a1a8eab499b20c8c66eab26bb4a7f579424ec0116702ce9597e16c3e5b6617f1",
+            "safetyPadPixels": 72,
+            "safetyPadX": 72,
+            "safetyPadY": 72,
+            "fullNativeFrame": false,
+            "auditId": "edd87ea5f8fa9f8b5375",
+            "sourcePdf": "Anatomy_QBank_Source.pdf",
+            "sourcePage": 455,
+            "sourceXref": 1259,
+            "sourceSmask": 1258,
+            "sourcePlacement": {
+              "left": 198,
+              "top": 180.4,
+              "right": 414,
+              "bottom": 396.4
+            },
+            "sourceComparisonCrop": {
+              "left": 198,
+              "top": 180.4,
+              "right": 414,
+              "bottom": 396.4
+            },
+            "riskFlags": [
+              "text-labels-arrows-scales-panels",
+              "diagram-illustration",
+              "pdf-vector-text-region"
+            ],
+            "highRisk": true
+          }
+        ]
+      },
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        455,
+        456
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "anatomy-13-8",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "db81b4474b952618fd990fae65c39fd6f5406834ad3ed00615fbd3d37e8c6bf9",
+      "sourcePage": 489,
+      "sourceFile": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourceSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "outcome": "VISUAL_OWNED_COMPLETE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "reviewedPages": [
+        489,
+        490
+      ],
+      "evidence": [
+        "Question-critical labelled visual exists on owning source page; current stem and choices retain required labels; no missing semantic table/list found."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 4,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review.",
+        "Prep visual binding checked against historical build-verified metadata; current combined build must verify runtime bytes and rendering."
+      ],
+      "historicalVisualBinding": {
+        "checkpoint": "356cce4",
+        "preview": "1b9fe4f4.nk-qbank.pages.dev",
+        "visuals": [
+          {
+            "type": "asset",
+            "source": "source_visuals/anatomy/b76c7ac3cd74a0a7f5bc72c9.png",
+            "fit": "contain",
+            "nativeWidth": 216,
+            "nativeHeight": 216,
+            "outputWidth": 1008,
+            "outputHeight": 1009,
+            "cropPdf": {
+              "left": 198,
+              "top": 243.3,
+              "right": 414,
+              "bottom": 459.3
+            },
+            "extractionMethod": "pdf-region-288dpi",
+            "productionSha256": "b76c7ac3cd74a0a7f5bc72c9fccfd4bc617f59d401ec645d02b817c7f39a2766",
+            "safetyPadPixels": 72,
+            "safetyPadX": 72,
+            "safetyPadY": 72,
+            "fullNativeFrame": false,
+            "auditId": "ebf65960829811b8851b",
+            "sourcePdf": "Anatomy_QBank_Source.pdf",
+            "sourcePage": 489,
+            "sourceXref": 1358,
+            "sourceSmask": 1357,
+            "sourcePlacement": {
+              "left": 198,
+              "top": 243.3,
+              "right": 414,
+              "bottom": 459.3
+            },
+            "sourceComparisonCrop": {
+              "left": 198,
+              "top": 243.3,
+              "right": 414,
+              "bottom": 459.3
+            },
+            "riskFlags": [
+              "text-labels-arrows-scales-panels",
+              "diagram-illustration",
+              "pdf-vector-text-region"
+            ],
+            "highRisk": true
+          }
+        ]
+      },
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        489,
+        490
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "anatomy-15-16",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "83b252bbec836c78afdc635ff99149bdf1896aba9e6a32300563bcd9c65aed48",
+      "sourcePage": 562,
+      "sourceFile": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourceSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "outcome": "VISUAL_OWNED_COMPLETE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        562,
+        563
+      ],
+      "evidence": [
+        "Question-critical labelled visual exists on owning source page; current stem and choices retain required labels; no missing semantic table/list found."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 1,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review.",
+        "Prep visual binding checked against historical build-verified metadata; current combined build must verify runtime bytes and rendering."
+      ],
+      "visuallyInspectedPages": [
+        562,
+        563
+      ],
+      "historicalVisualBinding": {
+        "checkpoint": "356cce4",
+        "preview": "1b9fe4f4.nk-qbank.pages.dev",
+        "visuals": [
+          {
+            "type": "asset",
+            "source": "source_visuals/anatomy/2483c6335258414617fcd77b.png",
+            "fit": "contain",
+            "nativeWidth": 216,
+            "nativeHeight": 216,
+            "outputWidth": 1008,
+            "outputHeight": 1009,
+            "cropPdf": {
+              "left": 198,
+              "top": 92.4,
+              "right": 414,
+              "bottom": 308.4
+            },
+            "extractionMethod": "pdf-region-288dpi",
+            "productionSha256": "2483c6335258414617fcd77bd944b67e97122cde266b423c71784bc43620b124",
+            "safetyPadPixels": 72,
+            "safetyPadX": 72,
+            "safetyPadY": 72,
+            "fullNativeFrame": false,
+            "auditId": "c27c5db1a177a021739f",
+            "sourcePdf": "Anatomy_QBank_Source.pdf",
+            "sourcePage": 563,
+            "sourceXref": 1573,
+            "sourceSmask": 1572,
+            "sourcePlacement": {
+              "left": 198,
+              "top": 92.4,
+              "right": 414,
+              "bottom": 308.4
+            },
+            "sourceComparisonCrop": {
+              "left": 198,
+              "top": 92.4,
+              "right": 414,
+              "bottom": 308.4
+            },
+            "riskFlags": [
+              "diagram-illustration",
+              "pdf-vector-text-region"
+            ],
+            "highRisk": true
+          }
+        ]
+      },
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        562,
+        563
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "anatomy-15-63",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "842a5208acfda773d902587d229af24fe3c14308af03530d3f43bcf6ec9859c5",
+      "sourcePage": 584,
+      "sourceFile": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourceSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "outcome": "CONTEXTUAL_RECONSTRUCTION",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "reviewedPages": [
+        584,
+        585
+      ],
+      "evidence": [
+        "Every candidate phrase is present verbatim and in this order in source text/current raw stem. Explicit numbers omitted in source prose although answer combinations refer to numbers. Candidate segmentation/order is unambiguous; add ordinal labels and line breaks only. This is contextual formatting recovery, not new scientific content."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedRepair": {
+        "question": "Inferior thyroid artery supplies which of the following structures?\n\n1. Thyroid\n2. Parathyroid\n3. Esophagus\n4. Thymus",
+        "preserveOptions": true,
+        "preserveCorrectOption": true,
+        "reconstructionNote": "Numbers follow existing source phrase order; no candidates or distractors added."
+      },
+      "answerConsistency": {
+        "correctOption": 1,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        584,
+        585
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "proposedOverride": {
+        "question": "Inferior thyroid artery supplies which of the following structures?\n\n1. Thyroid\n2. Parathyroid\n3. Esophagus\n4. Thymus"
+      },
+      "alternatives": "Unique conditional on preserved printed key and explicit source explanation/phrase order; contextual label required."
+    },
+    {
+      "id": "anatomy-21-29",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "8827a1f432c2c2c4764367f30b91e1847214944568204790d8dca7a62e6b6338",
+      "sourcePage": 818,
+      "sourceFile": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourceSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "outcome": "VISUAL_OWNED_COMPLETE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        818,
+        819
+      ],
+      "evidence": [
+        "Question-critical labelled visual exists on owning source page; current stem and choices retain required labels; no missing semantic table/list found."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 1,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review.",
+        "Prep visual binding checked against historical build-verified metadata; current combined build must verify runtime bytes and rendering."
+      ],
+      "visuallyInspectedPages": [
+        818
+      ],
+      "historicalVisualBinding": {
+        "checkpoint": "356cce4",
+        "preview": "1b9fe4f4.nk-qbank.pages.dev",
+        "visuals": [
+          {
+            "type": "asset",
+            "source": "source_visuals/anatomy/8268a1bcf7ff3a63282a4ec1.png",
+            "fit": "contain",
+            "nativeWidth": 621,
+            "nativeHeight": 621,
+            "outputWidth": 659,
+            "outputHeight": 659,
+            "cropPixels": {
+              "left": 0,
+              "top": 0,
+              "right": 621,
+              "bottom": 621
+            },
+            "extractionMethod": "native-raster-lossless-png-full-frame",
+            "sourceSha256": "33a1fd475836b0b9a32cb1817aa244fc979a5fc132ead57c8c82a90fc0103561",
+            "productionSha256": "8268a1bcf7ff3a63282a4ec13903fc2086cc209aca099c85174a14df8afa239c",
+            "safetyPadPixels": 19,
+            "safetyPadX": 19,
+            "safetyPadY": 19,
+            "fullNativeFrame": true,
+            "auditId": "2ffcfd977837665613de",
+            "sourcePdf": "Anatomy_QBank_Source.pdf",
+            "sourcePage": 818,
+            "sourceXref": 2282,
+            "sourceSmask": 2281,
+            "sourcePlacement": {
+              "left": 198,
+              "top": 148.4,
+              "right": 414,
+              "bottom": 364.4
+            },
+            "sourceComparisonCrop": {
+              "left": 180,
+              "top": 130.4,
+              "right": 432,
+              "bottom": 382.4
+            },
+            "riskFlags": [],
+            "highRisk": false
+          }
+        ]
+      },
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        818,
+        819
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "anatomy-22-4",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "40fba0af5fa590ec0fdd5d92346153dffc8c604f731d7c0858549de7f773bc9e",
+      "sourcePage": 888,
+      "sourceFile": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourceSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "outcome": "SOURCE_OMISSION",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        888,
+        889
+      ],
+      "evidence": [
+        "Rendered source p888 contains empty A–D; original candidate muscle names/images are absent. Current last option contains answer-key leakage. Short head of biceps femoris may be intended B, but inventing A/C/D would create a new assessment."
+      ],
+      "affectedFields": [
+        "options"
+      ],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 2,
+        "changeCorrectOption": false,
+        "status": "Printed key retained; cannot certify a complete assessment from absent candidate content."
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        888
+      ],
+      "decision": "SOURCE_OMISSION",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        888,
+        889
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "Missing original candidates underdetermined; no wholesale invented assessment."
+    },
+    {
+      "id": "anatomy-25-14",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "67b39b0047cd0cc8bdbd117e02f498b84adbc73a31c40ba094d899e3c63c7522",
+      "sourcePage": 1033,
+      "sourceFile": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourceSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "outcome": "VISUAL_OWNED_COMPLETE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        1033,
+        1034
+      ],
+      "evidence": [
+        "Question-critical labelled visual exists on owning source page; current stem and choices retain required labels; no missing semantic table/list found."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 2,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review.",
+        "Prep visual binding checked against historical build-verified metadata; current combined build must verify runtime bytes and rendering."
+      ],
+      "visuallyInspectedPages": [
+        1033,
+        1034
+      ],
+      "historicalVisualBinding": {
+        "checkpoint": "356cce4",
+        "preview": "1b9fe4f4.nk-qbank.pages.dev",
+        "visuals": [
+          {
+            "type": "asset",
+            "source": "source_visuals/anatomy/8b22dd42c2db894b8576724a.jpg",
+            "fit": "contain",
+            "nativeWidth": 451,
+            "nativeHeight": 450,
+            "outputWidth": 451,
+            "outputHeight": 450,
+            "cropPixels": {
+              "left": 0,
+              "top": 0,
+              "right": 451,
+              "bottom": 450
+            },
+            "extractionMethod": "native-jpeg-byte-copy",
+            "sourceSha256": "8b22dd42c2db894b8576724aa15062c670d33e9744e93d5e713441156cbc149b",
+            "productionSha256": "8b22dd42c2db894b8576724aa15062c670d33e9744e93d5e713441156cbc149b",
+            "safetyPadPixels": 0,
+            "fullNativeFrame": true,
+            "auditId": "4ef028d9c1c3c891e8b2",
+            "sourcePdf": "Anatomy_QBank_Source.pdf",
+            "sourcePage": 1034,
+            "sourceXref": 2905,
+            "sourceSmask": null,
+            "sourcePlacement": {
+              "left": 198,
+              "top": 92.4,
+              "right": 414,
+              "bottom": 308.4
+            },
+            "sourceComparisonCrop": {
+              "left": 180,
+              "top": 74.4,
+              "right": 432,
+              "bottom": 326.4
+            },
+            "riskFlags": [
+              "small-source"
+            ],
+            "highRisk": true
+          }
+        ]
+      },
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        1033,
+        1034
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "anatomy-25-36",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "acef52f69f9974250b4a403a0c39e78f4569a51d80f1de9207bab7d38af7e64f",
+      "sourcePage": 1045,
+      "sourceFile": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourceSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "outcome": "VISUAL_OWNED_COMPLETE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        1045,
+        1046
+      ],
+      "evidence": [
+        "Question-critical labelled visual exists on owning source page; current stem and choices retain required labels; no missing semantic table/list found."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 2,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review.",
+        "Prep visual binding checked against historical build-verified metadata; current combined build must verify runtime bytes and rendering."
+      ],
+      "visuallyInspectedPages": [
+        1045,
+        1046
+      ],
+      "historicalVisualBinding": {
+        "checkpoint": "356cce4",
+        "preview": "1b9fe4f4.nk-qbank.pages.dev",
+        "visuals": [
+          {
+            "type": "asset",
+            "source": "source_visuals/anatomy/e66caa6a0586733f3d152982.png",
+            "fit": "contain",
+            "nativeWidth": 216,
+            "nativeHeight": 216,
+            "outputWidth": 1008,
+            "outputHeight": 1009,
+            "cropPdf": {
+              "left": 198,
+              "top": 92.4,
+              "right": 414,
+              "bottom": 308.4
+            },
+            "extractionMethod": "pdf-region-288dpi",
+            "productionSha256": "e66caa6a0586733f3d15298202c6651ef604335b41a304f71f6a104327822f43",
+            "safetyPadPixels": 72,
+            "safetyPadX": 72,
+            "safetyPadY": 72,
+            "fullNativeFrame": false,
+            "auditId": "3f3df721bb914f01f976",
+            "sourcePdf": "Anatomy_QBank_Source.pdf",
+            "sourcePage": 1046,
+            "sourceXref": 2947,
+            "sourceSmask": 2946,
+            "sourcePlacement": {
+              "left": 198,
+              "top": 92.4,
+              "right": 414,
+              "bottom": 308.4
+            },
+            "sourceComparisonCrop": {
+              "left": 198,
+              "top": 92.4,
+              "right": 414,
+              "bottom": 308.4
+            },
+            "riskFlags": [
+              "pdf-vector-text-region"
+            ],
+            "highRisk": true
+          }
+        ]
+      },
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        1045,
+        1046
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "anatomy-29-16",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "f9a649a0a85c1310ad05f44f0f44b588bca4c90deb233acd5b2f53fbde413fb4",
+      "sourcePage": 1219,
+      "sourceFile": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourceSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "outcome": "VISUAL_OWNED_COMPLETE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        1219,
+        1220
+      ],
+      "evidence": [
+        "Question-critical labelled visual exists on owning source page; current stem and choices retain required labels; no missing semantic table/list found."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 3,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review.",
+        "Prep visual binding checked against historical build-verified metadata; current combined build must verify runtime bytes and rendering."
+      ],
+      "visuallyInspectedPages": [
+        1219,
+        1220
+      ],
+      "historicalVisualBinding": {
+        "checkpoint": "356cce4",
+        "preview": "1b9fe4f4.nk-qbank.pages.dev",
+        "visuals": [
+          {
+            "type": "asset",
+            "source": "source_visuals/anatomy/862d1d25bcdeca907fedaab2.png",
+            "fit": "contain",
+            "nativeWidth": 479,
+            "nativeHeight": 479,
+            "outputWidth": 507,
+            "outputHeight": 507,
+            "cropPixels": {
+              "left": 0,
+              "top": 0,
+              "right": 479,
+              "bottom": 479
+            },
+            "extractionMethod": "native-raster-lossless-png-full-frame",
+            "sourceSha256": "4fb8b56182a221ab8d7fab205fcb90d525b345e26353f05794b5c7000faef15d",
+            "productionSha256": "862d1d25bcdeca907fedaab25f782b99008cd06ad60708ab221d4675cc6717f5",
+            "safetyPadPixels": 14,
+            "safetyPadX": 14,
+            "safetyPadY": 14,
+            "fullNativeFrame": true,
+            "auditId": "dcdcaaa87834ecd8b198",
+            "sourcePdf": "Anatomy_QBank_Source.pdf",
+            "sourcePage": 1220,
+            "sourceXref": 3446,
+            "sourceSmask": 3445,
+            "sourcePlacement": {
+              "left": 198,
+              "top": 92.4,
+              "right": 414,
+              "bottom": 308.4
+            },
+            "sourceComparisonCrop": {
+              "left": 180,
+              "top": 74.4,
+              "right": 432,
+              "bottom": 326.4
+            },
+            "riskFlags": [
+              "text-labels-arrows-scales-panels",
+              "diagnostic-medical-image"
+            ],
+            "highRisk": true
+          }
+        ]
+      },
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        1219,
+        1220
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "anatomy-32-2",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "0332d3138f77a85e4defa714b0e5286aeda28fbe600debb19503ed750bae17b3",
+      "sourcePage": 1366,
+      "sourceFile": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourceSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "outcome": "COMPLETE/FALSE_POSITIVE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "reviewedPages": [
+        1366,
+        1367
+      ],
+      "evidence": [
+        "Choice numbers are literal Houston-valve counts."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 2,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "decision": "COMPLETE/FALSE_POSITIVE",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        1366,
+        1367
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "anatomy-36-38",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "2ef2f5fdc34e139b9b2d832c84417a13b78b84b56b9ae8cb94200449d81722c2",
+      "sourcePage": 1478,
+      "sourceFile": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourceSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "outcome": "CONTEXTUAL_RECONSTRUCTION",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "reviewedPages": [
+        1478,
+        1479
+      ],
+      "evidence": [
+        "Every candidate phrase is present verbatim and in this order in source text/current raw stem. Explicit numbers omitted in source prose although answer combinations refer to numbers. Candidate segmentation/order is unambiguous; add ordinal labels and line breaks only. This is contextual formatting recovery, not new scientific content."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedRepair": {
+        "question": "Which of the following are branches of the anterior division of the internal iliac artery?\n\n1. Superior gluteal artery\n2. Inferior gluteal artery\n3. Superior vesical artery\n4. Middle rectal artery\n5. Inferior vesical artery\n6. Vaginal artery",
+        "preserveOptions": true,
+        "preserveCorrectOption": true,
+        "reconstructionNote": "Numbers follow existing source phrase order; no candidates or distractors added."
+      },
+      "answerConsistency": {
+        "correctOption": 3,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        1478,
+        1479
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "proposedOverride": {
+        "question": "Which of the following are branches of the anterior division of the internal iliac artery?\n\n1. Superior gluteal artery\n2. Inferior gluteal artery\n3. Superior vesical artery\n4. Middle rectal artery\n5. Inferior vesical artery\n6. Vaginal artery"
+      },
+      "alternatives": "Unique conditional on preserved printed key and explicit source explanation/phrase order; contextual label required."
+    },
+    {
+      "id": "anatomy-40-10",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "ca7c49f5ce983f56418e6f8d1fe2da17113073d8019bb4fff2bafffed2c12374",
+      "sourcePage": 1593,
+      "sourceFile": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourceSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "outcome": "SOURCE_OMISSION",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        1593,
+        1594
+      ],
+      "evidence": [
+        "Source p1593 has the two-column candidate table, but no referenced numbered vessel image. Restore semantic table if desired; it will not by itself recover the original matching assessment."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 4,
+        "changeCorrectOption": false,
+        "status": "Printed key retained; cannot certify a complete assessment from absent candidate content."
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        1593
+      ],
+      "decision": "SOURCE_OMISSION",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        1593,
+        1594
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "Missing original candidates underdetermined; no wholesale invented assessment."
+    },
+    {
+      "id": "anatomy-43-7",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "7a926ce740f62f33ce5a8e1ce1c8ba089744c3309c031c64f0f653fef77ab70f",
+      "sourcePage": 1667,
+      "sourceFile": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourceSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "outcome": "CONTEXTUAL_RECONSTRUCTION",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        1667,
+        1668
+      ],
+      "evidence": [
+        "Rendered question p1667 has an unnumbered gastrulation figure despite numeric options. Raw source explanation explicitly defines markings1–4 and keys primitive streak/groove (structure4), matching current optionC. Restore named numbered candidates from those explicit definitions; preserve source image and original numeric choices."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedRepair": {
+        "question": "What structure forms at the surface of the epiblast to initiate gastrulation?\n\n1. Prechordal plate\n2. Primitive pit\n3. Primitive node\n4. Primitive streak/groove",
+        "preserveOptions": true,
+        "preserveCorrectOption": true,
+        "reconstructionNote": "Named number definitions recovered from source explanation; the current question image lacks visible numeric marks."
+      },
+      "answerConsistency": {
+        "correctOption": 3,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        1667
+      ],
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        1667,
+        1668
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": {
+        "question": "What structure forms at the surface of the epiblast to initiate gastrulation?\n\n1. Prechordal plate\n2. Primitive pit\n3. Primitive node\n4. Primitive streak/groove"
+      },
+      "alternatives": "Unique conditional on preserved printed key and explicit source explanation/phrase order; contextual label required."
+    },
+    {
+      "id": "anatomy-45-8",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "e20d44428105181b9a96e277b4a4c9fb4516c8593283af769e3e30833a537e2a",
+      "sourcePage": 1739,
+      "sourceFile": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourceSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "outcome": "VISUAL_OWNED_COMPLETE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        1739,
+        1740
+      ],
+      "evidence": [
+        "Question-critical labelled visual exists on owning source page; current stem and choices retain required labels; no missing semantic table/list found."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 1,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review.",
+        "Prep visual binding checked against historical build-verified metadata; current combined build must verify runtime bytes and rendering."
+      ],
+      "visuallyInspectedPages": [
+        1739
+      ],
+      "historicalVisualBinding": {
+        "checkpoint": "356cce4",
+        "preview": "1b9fe4f4.nk-qbank.pages.dev",
+        "visuals": [
+          {
+            "type": "asset",
+            "source": "source_visuals/anatomy/a13fd2378e2ba52beed57f96.png",
+            "fit": "contain",
+            "nativeWidth": 216,
+            "nativeHeight": 216,
+            "outputWidth": 1008,
+            "outputHeight": 1009,
+            "cropPdf": {
+              "left": 198,
+              "top": 401.2,
+              "right": 414,
+              "bottom": 617.2
+            },
+            "extractionMethod": "pdf-region-288dpi",
+            "productionSha256": "a13fd2378e2ba52beed57f96ce6fee7a137b915983bc571be4c2e280ac71818b",
+            "safetyPadPixels": 72,
+            "safetyPadX": 72,
+            "safetyPadY": 72,
+            "fullNativeFrame": false,
+            "auditId": "b68fca645e52338380aa",
+            "sourcePdf": "Anatomy_QBank_Source.pdf",
+            "sourcePage": 1739,
+            "sourceXref": 4897,
+            "sourceSmask": 4896,
+            "sourcePlacement": {
+              "left": 198,
+              "top": 401.2,
+              "right": 414,
+              "bottom": 617.2
+            },
+            "sourceComparisonCrop": {
+              "left": 198,
+              "top": 401.2,
+              "right": 414,
+              "bottom": 617.2
+            },
+            "riskFlags": [
+              "text-labels-arrows-scales-panels",
+              "pdf-vector-text-region"
+            ],
+            "highRisk": true
+          }
+        ]
+      },
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        1739,
+        1740
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "anatomy-45-29",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "064f5706b8978933dfd0bc29f47e4f787746b8721603c4610e30af1f7a3ad60b",
+      "sourcePage": 1748,
+      "sourceFile": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourceSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "outcome": "VISUAL_OWNED_COMPLETE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        1748,
+        1749
+      ],
+      "evidence": [
+        "Question-critical labelled visual exists on owning source page; current stem and choices retain required labels; no missing semantic table/list found."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 3,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review.",
+        "Prep visual binding checked against historical build-verified metadata; current combined build must verify runtime bytes and rendering."
+      ],
+      "visuallyInspectedPages": [
+        1748
+      ],
+      "historicalVisualBinding": {
+        "checkpoint": "356cce4",
+        "preview": "1b9fe4f4.nk-qbank.pages.dev",
+        "visuals": [
+          {
+            "type": "asset",
+            "source": "source_visuals/anatomy/2ccafa7549bb0dcfa3f8f19f.png",
+            "fit": "contain",
+            "nativeWidth": 216,
+            "nativeHeight": 216,
+            "outputWidth": 1008,
+            "outputHeight": 1009,
+            "cropPdf": {
+              "left": 198,
+              "top": 273.3,
+              "right": 414,
+              "bottom": 489.3
+            },
+            "extractionMethod": "pdf-region-288dpi",
+            "productionSha256": "2ccafa7549bb0dcfa3f8f19f811fd543a950521c608d38e047bdb3c8ad8ac862",
+            "safetyPadPixels": 72,
+            "safetyPadX": 72,
+            "safetyPadY": 72,
+            "fullNativeFrame": false,
+            "auditId": "7959abf5563d859ce22d",
+            "sourcePdf": "Anatomy_QBank_Source.pdf",
+            "sourcePage": 1748,
+            "sourceXref": 4927,
+            "sourceSmask": 4926,
+            "sourcePlacement": {
+              "left": 198,
+              "top": 273.3,
+              "right": 414,
+              "bottom": 489.3
+            },
+            "sourceComparisonCrop": {
+              "left": 198,
+              "top": 273.3,
+              "right": 414,
+              "bottom": 489.3
+            },
+            "riskFlags": [
+              "text-labels-arrows-scales-panels",
+              "pdf-vector-text-region"
+            ],
+            "highRisk": true
+          }
+        ]
+      },
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        1748,
+        1749
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "anatomy-48-18",
+      "bank": "PrepLadder",
+      "subject": "Anatomy",
+      "priority": 2,
+      "canonicalSourceFingerprint": "fb0ed181098680241cefd3a595acc4d89f3dc060abdc2fd3881fcdf18149a761",
+      "sourcePage": 1858,
+      "sourceFile": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourceSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "outcome": "VISUAL_OWNED_COMPLETE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        1858,
+        1859
+      ],
+      "evidence": [
+        "Question-critical labelled visual exists on owning source page; current stem and choices retain required labels; no missing semantic table/list found."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 2,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review.",
+        "Prep visual binding checked against historical build-verified metadata; current combined build must verify runtime bytes and rendering."
+      ],
+      "visuallyInspectedPages": [
+        1858,
+        1859
+      ],
+      "historicalVisualBinding": {
+        "checkpoint": "356cce4",
+        "preview": "1b9fe4f4.nk-qbank.pages.dev",
+        "visuals": [
+          {
+            "type": "asset",
+            "source": "source_visuals/anatomy/f5ae06d15625501937c10d38.png",
+            "fit": "contain",
+            "nativeWidth": 216,
+            "nativeHeight": 216,
+            "outputWidth": 1008,
+            "outputHeight": 1009,
+            "cropPdf": {
+              "left": 198,
+              "top": 92.4,
+              "right": 414,
+              "bottom": 308.4
+            },
+            "extractionMethod": "pdf-region-288dpi",
+            "productionSha256": "f5ae06d15625501937c10d3839088905f217a9c8f4fa8abf2dae9b3ed1a2be04",
+            "safetyPadPixels": 72,
+            "safetyPadX": 72,
+            "safetyPadY": 72,
+            "fullNativeFrame": false,
+            "auditId": "fc3fa5b1d2d5af25035d",
+            "sourcePdf": "Anatomy_QBank_Source.pdf",
+            "sourcePage": 1859,
+            "sourceXref": 5257,
+            "sourceSmask": 5256,
+            "sourcePlacement": {
+              "left": 198,
+              "top": 92.4,
+              "right": 414,
+              "bottom": 308.4
+            },
+            "sourceComparisonCrop": {
+              "left": 198,
+              "top": 92.4,
+              "right": 414,
+              "bottom": 308.4
+            },
+            "riskFlags": [
+              "diagram-illustration",
+              "pdf-vector-text-region"
+            ],
+            "highRisk": true
+          }
+        ]
+      },
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "app/src/main/assets/Anatomy_QBank_Source.pdf",
+      "sourcePdfSha256": "33c60bcd819552708e554b5927e8876ef263924d5f05fc73ec9ec7dde6375efb",
+      "sourcePagesReviewed": [
+        1858,
+        1859
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "3-11",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "priority": 2,
+      "canonicalSourceFingerprint": "faa0f8bd0e80ec4bae7c0cc4de03ff7df84e678db67f80e19e220031f285b819",
+      "sourcePage": 62,
+      "sourceFile": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+      "sourceSha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+      "outcome": "VISUAL_OWNED_COMPLETE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        62,
+        63
+      ],
+      "evidence": [
+        "Question-critical labelled visual exists on owning source page; current stem and choices retain required labels; no missing semantic table/list found."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 4,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review.",
+        "Prep visual binding checked against historical build-verified metadata; current combined build must verify runtime bytes and rendering."
+      ],
+      "visuallyInspectedPages": [
+        62
+      ],
+      "historicalVisualBinding": {
+        "checkpoint": "356cce4",
+        "preview": "1b9fe4f4.nk-qbank.pages.dev",
+        "visuals": [
+          {
+            "type": "asset",
+            "source": "source_visuals/biochemistry/5ea7c9b5e5404cd57fcd7344.png",
+            "fit": "contain",
+            "nativeWidth": 1217,
+            "nativeHeight": 515,
+            "outputWidth": 1291,
+            "outputHeight": 545,
+            "cropPixels": {
+              "left": 0,
+              "top": 0,
+              "right": 1217,
+              "bottom": 515
+            },
+            "extractionMethod": "native-raster-lossless-png-full-frame",
+            "sourceSha256": "a84aafa89ac0a3cbeed44bfef72363b5b7c1ebb5668c8fff97470369a638b04a",
+            "productionSha256": "5ea7c9b5e5404cd57fcd734461b3923e8595637cff0e451fd6551052a2995167",
+            "safetyPadPixels": 15,
+            "safetyPadX": 37,
+            "safetyPadY": 15,
+            "fullNativeFrame": true,
+            "auditId": "a1a99b8ce03d5318c316",
+            "sourcePdf": "Biochemistry_QBank_Source.pdf",
+            "sourcePage": 62,
+            "sourceXref": 159,
+            "sourceSmask": 158,
+            "sourcePlacement": {
+              "left": 198,
+              "top": 426.5,
+              "right": 414,
+              "bottom": 642.5
+            },
+            "sourceComparisonCrop": {
+              "left": 180,
+              "top": 408.5,
+              "right": 432,
+              "bottom": 660.5
+            },
+            "riskFlags": [
+              "text-labels-arrows-scales-panels",
+              "diagram-illustration"
+            ],
+            "highRisk": true
+          }
+        ]
+      },
+      "decision": "VISUAL_OWNED_COMPLETE",
+      "sourcePdf": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+      "sourcePdfSha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+      "sourcePagesReviewed": [
+        62,
+        63
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "6-17",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "priority": 2,
+      "canonicalSourceFingerprint": "5c21e0a73f96e9f53d8c0aabbeda1cce1f3ddd5a97ca4fb0e415c9989c84c6da",
+      "sourcePage": 131,
+      "sourceFile": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+      "sourceSha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+      "outcome": "CONTEXTUAL_RECONSTRUCTION",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "reviewedPages": [
+        131,
+        132
+      ],
+      "evidence": [
+        "Every candidate phrase is present verbatim and in this order in source text/current raw stem. Explicit numbers omitted in source prose although answer combinations refer to numbers. Candidate segmentation/order is unambiguous; add ordinal labels and line breaks only. This is contextual formatting recovery, not new scientific content."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedRepair": {
+        "question": "Which of the following steps in the Citric acid cycle involves oxidative phosphorylation and decarboxylation?\n\n1. Isocitrate → α-Ketoglutarate\n2. Succinate → Fumarate\n3. Malate → Oxaloacetate\n4. α-Ketoglutarate → Succinyl-CoA",
+        "preserveOptions": true,
+        "preserveCorrectOption": true,
+        "reconstructionNote": "Numbers follow existing source phrase order; no candidates or distractors added."
+      },
+      "answerConsistency": {
+        "correctOption": 1,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review.",
+        "Source phrase oxidative phosphorylation appears biologically inconsistent with oxidative decarboxylation context; numbering repair preserves source wording. Scientific wording correction requires separate adjudication."
+      ],
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+      "sourcePdfSha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+      "sourcePagesReviewed": [
+        131,
+        132
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "proposedOverride": {
+        "question": "Which of the following steps in the Citric acid cycle involves oxidative phosphorylation and decarboxylation?\n\n1. Isocitrate → α-Ketoglutarate\n2. Succinate → Fumarate\n3. Malate → Oxaloacetate\n4. α-Ketoglutarate → Succinyl-CoA"
+      },
+      "alternatives": "Unique conditional on preserved printed key and explicit source explanation/phrase order; contextual label required."
+    },
+    {
+      "id": "7-53",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "priority": 2,
+      "canonicalSourceFingerprint": "c60d898f2e5bc42f872a882dca4a39967697f6e4b308302acbb682f2f085f470",
+      "sourcePage": 173,
+      "sourceFile": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+      "sourceSha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+      "outcome": "EXACT_SOURCE_REPAIR",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "reviewedPages": [
+        173,
+        174
+      ],
+      "evidence": [
+        "Source p173 contains an actual4-row2-column diagnostic-marker table; current normalized prose retains all cells but no semantic table. Exact cells and numbering transcribed from pdftotext layout; table formatting can be restored without altering pair content or option key."
+      ],
+      "affectedFields": [
+        "questionPresentation.table"
+      ],
+      "proposedRepair": {
+        "presentationTable": {
+          "prompt": "Which of the following diagnostic markers is/are not correctly matched?",
+          "headers": [
+            "Diagnostic marker",
+            "Disease"
+          ],
+          "groups": [
+            [
+              {
+                "label": "1",
+                "value": "Beta glucocerebrosidase"
+              },
+              {
+                "label": "2",
+                "value": "Lipase"
+              },
+              {
+                "label": "3",
+                "value": "Ceruloplasmin"
+              },
+              {
+                "label": "4",
+                "value": "High LDH1: LDH2 ratio"
+              }
+            ],
+            [
+              {
+                "label": "1",
+                "value": "Von Gierke disease"
+              },
+              {
+                "label": "2",
+                "value": "Acute pancreatitis"
+              },
+              {
+                "label": "3",
+                "value": "Hepatolenticular degeneration"
+              },
+              {
+                "label": "4",
+                "value": "Myocardial infarction"
+              }
+            ]
+          ],
+          "pairedRows": true
+        },
+        "preserveOptions": true,
+        "preserveCorrectOption": true
+      },
+      "answerConsistency": {
+        "correctOption": 1,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "decision": "EXACT_SOURCE_REPAIR",
+      "sourcePdf": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+      "sourcePdfSha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+      "sourcePagesReviewed": [
+        173,
+        174
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "proposedOverride": null,
+      "proposedPresentationOverride": {
+        "prompt": "Which of the following diagnostic markers is/are not correctly matched?",
+        "headers": [
+          "Diagnostic marker",
+          "Disease"
+        ],
+        "groups": [
+          [
+            {
+              "label": "1",
+              "value": "Beta glucocerebrosidase"
+            },
+            {
+              "label": "2",
+              "value": "Lipase"
+            },
+            {
+              "label": "3",
+              "value": "Ceruloplasmin"
+            },
+            {
+              "label": "4",
+              "value": "High LDH1: LDH2 ratio"
+            }
+          ],
+          [
+            {
+              "label": "1",
+              "value": "Von Gierke disease"
+            },
+            {
+              "label": "2",
+              "value": "Acute pancreatitis"
+            },
+            {
+              "label": "3",
+              "value": "Hepatolenticular degeneration"
+            },
+            {
+              "label": "4",
+              "value": "Myocardial infarction"
+            }
+          ]
+        ],
+        "pairedRows": true
+      },
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "10-19",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "priority": 2,
+      "canonicalSourceFingerprint": "3e75b1f7c4c1e5c2f0144d7d82eed2079e13abc172d4a9063a93fc5f5523188b",
+      "sourcePage": 281,
+      "sourceFile": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+      "sourceSha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+      "outcome": "CONTEXTUAL_RECONSTRUCTION",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "reviewedPages": [
+        281,
+        282
+      ],
+      "evidence": [
+        "Every candidate phrase is present verbatim and in this order in source text/current raw stem. Explicit numbers omitted in source prose although answer combinations refer to numbers. Candidate segmentation/order is unambiguous; add ordinal labels and line breaks only. This is contextual formatting recovery, not new scientific content."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedRepair": {
+        "question": "Which of the following statements is true regarding the fate of cholesterol?\n\n1. Chenodeoxycholic acid and cholic acid are the primary bile acids\n2. Glycine-taurine conjugation happens in liver peroxisomes\n3. Intestinal bacteria produce secondary bile acids",
+        "preserveOptions": true,
+        "preserveCorrectOption": true,
+        "reconstructionNote": "Numbers follow existing source phrase order; no candidates or distractors added."
+      },
+      "answerConsistency": {
+        "correctOption": 2,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review.",
+        "Potential source/key scientific inconsistency (glycine-taurine conjugation/peroxisomes); preserve facts/answer contract in this structural pass."
+      ],
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+      "sourcePdfSha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+      "sourcePagesReviewed": [
+        281,
+        282
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "proposedOverride": {
+        "question": "Which of the following statements is true regarding the fate of cholesterol?\n\n1. Chenodeoxycholic acid and cholic acid are the primary bile acids\n2. Glycine-taurine conjugation happens in liver peroxisomes\n3. Intestinal bacteria produce secondary bile acids"
+      },
+      "alternatives": "Unique conditional on preserved printed key and explicit source explanation/phrase order; contextual label required."
+    },
+    {
+      "id": "18-5",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "priority": 2,
+      "canonicalSourceFingerprint": "58b11d0ae5e8052892a03c3d0310c5392e8e888ed269591f4600f7cb3513ddff",
+      "sourcePage": 567,
+      "sourceFile": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+      "sourceSha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+      "outcome": "COMPLETE/FALSE_POSITIVE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "reviewedPages": [
+        567,
+        568
+      ],
+      "evidence": [
+        "Choice numbers are literal ATP counts."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 2,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "decision": "COMPLETE/FALSE_POSITIVE",
+      "sourcePdf": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+      "sourcePdfSha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+      "sourcePagesReviewed": [
+        567,
+        568
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "21-54",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "priority": 2,
+      "canonicalSourceFingerprint": "df45f49316990f5574d10196de72d1d148715a1b7d7a76df1503919b1457302d",
+      "sourcePage": 657,
+      "sourceFile": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+      "sourceSha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+      "outcome": "CONTEXTUAL_RECONSTRUCTION",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "reviewedPages": [
+        657,
+        658
+      ],
+      "evidence": [
+        "Every candidate phrase is present verbatim and in this order in source text/current raw stem. Explicit numbers omitted in source prose although answer combinations refer to numbers. Candidate segmentation/order is unambiguous; add ordinal labels and line breaks only. This is contextual formatting recovery, not new scientific content."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedRepair": {
+        "question": "What is the accurate order of steps involved in extracting a desired protein using recombinant DNA technology?\n\n1. Expression of protein and lysis of the bacterial cell\n2. Incorporation of genes into bacteria\n3. SDS PAGE\n4. Protein elution\n5. Hybridization",
+        "preserveOptions": true,
+        "preserveCorrectOption": true,
+        "reconstructionNote": "Numbers follow existing source phrase order; no candidates or distractors added."
+      },
+      "answerConsistency": {
+        "correctOption": 1,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+      "sourcePdfSha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+      "sourcePagesReviewed": [
+        657,
+        658
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "proposedOverride": {
+        "question": "What is the accurate order of steps involved in extracting a desired protein using recombinant DNA technology?\n\n1. Expression of protein and lysis of the bacterial cell\n2. Incorporation of genes into bacteria\n3. SDS PAGE\n4. Protein elution\n5. Hybridization"
+      },
+      "alternatives": "Unique conditional on preserved printed key and explicit source explanation/phrase order; contextual label required."
+    },
+    {
+      "id": "22-13",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "priority": 2,
+      "canonicalSourceFingerprint": "5d25cf5b86e3fd7e38b3a448ab3829bee5418045506cc1830736fe721a44eec3",
+      "sourcePage": 723,
+      "sourceFile": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+      "sourceSha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+      "outcome": "CONTEXTUAL_RECONSTRUCTION",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "reviewedPages": [
+        723,
+        724
+      ],
+      "evidence": [
+        "Every candidate phrase is present verbatim and in this order in source text/current raw stem. Explicit numbers omitted in source prose although answer combinations refer to numbers. Candidate segmentation/order is unambiguous; add ordinal labels and line breaks only. This is contextual formatting recovery, not new scientific content."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedRepair": {
+        "question": "Which of the following statements is false?\n\n1. Increase in enzyme concentration increases the rate of reaction\n2. Increase in substrate concentration increases the rate of reaction\n3. Increase in product concentration increases the rate of reaction",
+        "preserveOptions": true,
+        "preserveCorrectOption": true,
+        "reconstructionNote": "Numbers follow existing source phrase order; no candidates or distractors added."
+      },
+      "answerConsistency": {
+        "correctOption": 2,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+      "sourcePdfSha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+      "sourcePagesReviewed": [
+        723,
+        724
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "proposedOverride": {
+        "question": "Which of the following statements is false?\n\n1. Increase in enzyme concentration increases the rate of reaction\n2. Increase in substrate concentration increases the rate of reaction\n3. Increase in product concentration increases the rate of reaction"
+      },
+      "alternatives": "Unique conditional on preserved printed key and explicit source explanation/phrase order; contextual label required."
+    },
+    {
+      "id": "24-9",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "priority": 2,
+      "canonicalSourceFingerprint": "a21b4a421e6352ab8b2c56faa85ea4fb89f82c4cb4643ad9ff4e00e82a8a05e6",
+      "sourcePage": 799,
+      "sourceFile": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+      "sourceSha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+      "outcome": "COMPLETE/FALSE_POSITIVE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "reviewedPages": [
+        799,
+        800
+      ],
+      "evidence": [
+        "Current semantic table includes all4 disorders and all3 manifestation groups. Unequal group lengths intentional; blank fourth paired cell is not a lost manifestation."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 1,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "decision": "COMPLETE/FALSE_POSITIVE",
+      "sourcePdf": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+      "sourcePdfSha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+      "sourcePagesReviewed": [
+        799,
+        800
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "27-21",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "priority": 2,
+      "canonicalSourceFingerprint": "ca14ab3a5c8569966cf78cfbab64c5ccae0efb7b0494c45c7a2dcb9b702e79a8",
+      "sourcePage": 894,
+      "sourceFile": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+      "sourceSha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+      "outcome": "CONTEXTUAL_RECONSTRUCTION",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "reviewedPages": [
+        894,
+        895
+      ],
+      "evidence": [
+        "Every candidate phrase is present verbatim and in this order in source text/current raw stem. Explicit numbers omitted in source prose although answer combinations refer to numbers. Candidate segmentation/order is unambiguous; add ordinal labels and line breaks only. This is contextual formatting recovery, not new scientific content."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedRepair": {
+        "question": "Which enzymes listed below depend on vitamin B12?\n\n1. Methyl malonyl CoA isomerase\n2. Homocysteine synthase\n3. Folate reductase\n4. Methionine synthase",
+        "preserveOptions": true,
+        "preserveCorrectOption": true,
+        "reconstructionNote": "Numbers follow existing source phrase order; no candidates or distractors added."
+      },
+      "answerConsistency": {
+        "correctOption": 2,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+      "sourcePdfSha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+      "sourcePagesReviewed": [
+        894,
+        895
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "proposedOverride": {
+        "question": "Which enzymes listed below depend on vitamin B12?\n\n1. Methyl malonyl CoA isomerase\n2. Homocysteine synthase\n3. Folate reductase\n4. Methionine synthase"
+      },
+      "alternatives": "Unique conditional on preserved printed key and explicit source explanation/phrase order; contextual label required."
+    },
+    {
+      "id": "physiology-7-26",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "priority": 2,
+      "canonicalSourceFingerprint": "33e348ae50e2ddb718d2e5afd1b14f065407df61a654009bf0c1d5ae36b97635",
+      "sourcePage": 177,
+      "sourceFile": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourceSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "outcome": "CONTEXTUAL_RECONSTRUCTION",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "reviewedPages": [
+        177,
+        178
+      ],
+      "evidence": [
+        "Every candidate phrase is present verbatim and in this order in source text/current raw stem. Explicit numbers omitted in source prose although answer combinations refer to numbers. Candidate segmentation/order is unambiguous; add ordinal labels and line breaks only. This is contextual formatting recovery, not new scientific content."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedRepair": {
+        "question": "Which of the following statements are examples of feed-forward control systems in physiology?\n\n1. The clotting cascade rapidly amplifies clot formation after vascular injury.\n2. Muscles adjust in advance for standing or moving.\n3. Increased heart rate before starting of physical activity.\n4. Sweating in response to increased body temperature.\n5. The smell of food triggers digestive enzyme secretion.",
+        "preserveOptions": true,
+        "preserveCorrectOption": true,
+        "reconstructionNote": "Numbers follow existing source phrase order; no candidates or distractors added."
+      },
+      "answerConsistency": {
+        "correctOption": 2,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourcePdfSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "sourcePagesReviewed": [
+        177,
+        178
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "proposedOverride": {
+        "question": "Which of the following statements are examples of feed-forward control systems in physiology?\n\n1. The clotting cascade rapidly amplifies clot formation after vascular injury.\n2. Muscles adjust in advance for standing or moving.\n3. Increased heart rate before starting of physical activity.\n4. Sweating in response to increased body temperature.\n5. The smell of food triggers digestive enzyme secretion."
+      },
+      "alternatives": "Unique conditional on preserved printed key and explicit source explanation/phrase order; contextual label required."
+    },
+    {
+      "id": "physiology-12-24",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "priority": 2,
+      "canonicalSourceFingerprint": "6fc67a3ac2527382ccb33e423062d150f931d2e2b1bf98ea6a70784319d6ea17",
+      "sourcePage": 361,
+      "sourceFile": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourceSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "outcome": "COMPLETE/FALSE_POSITIVE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "reviewedPages": [
+        361,
+        362
+      ],
+      "evidence": [
+        "Four source-numbered sarcomere elements already present; semantic table unnecessary for sequence selection."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 1,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "decision": "COMPLETE/FALSE_POSITIVE",
+      "sourcePdf": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourcePdfSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "sourcePagesReviewed": [
+        361,
+        362
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "physiology-17-1",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "priority": 2,
+      "canonicalSourceFingerprint": "2d81d2a9b608ab53da35da0a48475d5a0c7a53190d9200d059849c21fca501bf",
+      "sourcePage": 480,
+      "sourceFile": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourceSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "outcome": "COMPLETE/FALSE_POSITIVE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "reviewedPages": [
+        480,
+        481
+      ],
+      "evidence": [
+        "ESV/EDV definitions are present in stem; four prose choices complete, no essential table missing."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 2,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "decision": "COMPLETE/FALSE_POSITIVE",
+      "sourcePdf": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourcePdfSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "sourcePagesReviewed": [
+        480,
+        481
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "physiology-17-26",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "priority": 2,
+      "canonicalSourceFingerprint": "1abb61e5a68526b55f0663dc366bd3622a6b9736efcaeb43c51bcf61de264fac",
+      "sourcePage": 488,
+      "sourceFile": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourceSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "outcome": "COMPLETE/FALSE_POSITIVE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "reviewedPages": [
+        488,
+        489
+      ],
+      "evidence": [
+        "Source wording and current question-critical content compared; structural heuristic alone is not a defect."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 4,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "decision": "COMPLETE/FALSE_POSITIVE",
+      "sourcePdf": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourcePdfSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "sourcePagesReviewed": [
+        488,
+        489
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "physiology-23-13",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "priority": 2,
+      "canonicalSourceFingerprint": "45bcf9c13286d379595299568891df614a48dcd4374f2f998fd3f38b0d14d983",
+      "sourcePage": 640,
+      "sourceFile": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourceSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "outcome": "COMPLETE/FALSE_POSITIVE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "reviewedPages": [
+        640,
+        641
+      ],
+      "evidence": [
+        "Source wording and current question-critical content compared; structural heuristic alone is not a defect."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 4,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "decision": "COMPLETE/FALSE_POSITIVE",
+      "sourcePdf": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourcePdfSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "sourcePagesReviewed": [
+        640,
+        641
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "physiology-24-6",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "priority": 2,
+      "canonicalSourceFingerprint": "984cf9a6e2885678f11be2366fa0b28e01fe8728d2af49640e7ca59e17182183",
+      "sourcePage": 690,
+      "sourceFile": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourceSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "outcome": "SOURCE_OMISSION",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "reviewedPages": [
+        690,
+        691
+      ],
+      "evidence": [
+        "Rendered source p690 has empty A/C/D and literal {{caption_text}} at B; no four compliance graph options. Hysteresis principle cannot reconstruct four arbitrary graph distractors."
+      ],
+      "affectedFields": [
+        "options"
+      ],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 4,
+        "changeCorrectOption": false,
+        "status": "Printed key retained; cannot certify a complete assessment from absent candidate content."
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "visuallyInspectedPages": [
+        690
+      ],
+      "decision": "SOURCE_OMISSION",
+      "sourcePdf": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourcePdfSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "sourcePagesReviewed": [
+        690,
+        691
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table; Poppler rendered cited page visually inspected",
+      "proposedOverride": null,
+      "alternatives": "Missing original candidates underdetermined; no wholesale invented assessment."
+    },
+    {
+      "id": "physiology-26-24",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "priority": 2,
+      "canonicalSourceFingerprint": "f2d677ac208bd885b711ce0ac6c0b4ac051b7e5bdfabb7441e45500ea1cee293",
+      "sourcePage": 750,
+      "sourceFile": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourceSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "outcome": "CONTEXTUAL_RECONSTRUCTION",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "reviewedPages": [
+        750,
+        751
+      ],
+      "evidence": [
+        "Every candidate phrase is present verbatim and in this order in source text/current raw stem. Explicit numbers omitted in source prose although answer combinations refer to numbers. Candidate segmentation/order is unambiguous; add ordinal labels and line breaks only. This is contextual formatting recovery, not new scientific content."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedRepair": {
+        "question": "Which of the following factors does NOT affect the rate of diffusion in the lung according to Fick's Law?\n\n1. Thickness of the alveolar-capillary membrane\n2. Diameter of the bronchiole\n3. Surface area of the alveolar-capillary membrane\n4. Partial pressure gradient of the gases\n5. Temperature\n6. Solubility of the Gas",
+        "preserveOptions": true,
+        "preserveCorrectOption": true,
+        "reconstructionNote": "Numbers follow existing source phrase order; no candidates or distractors added."
+      },
+      "answerConsistency": {
+        "correctOption": 4,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourcePdfSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "sourcePagesReviewed": [
+        750,
+        751
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "proposedOverride": {
+        "question": "Which of the following factors does NOT affect the rate of diffusion in the lung according to Fick's Law?\n\n1. Thickness of the alveolar-capillary membrane\n2. Diameter of the bronchiole\n3. Surface area of the alveolar-capillary membrane\n4. Partial pressure gradient of the gases\n5. Temperature\n6. Solubility of the Gas"
+      },
+      "alternatives": "Unique conditional on preserved printed key and explicit source explanation/phrase order; contextual label required."
+    },
+    {
+      "id": "physiology-29-14",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "priority": 2,
+      "canonicalSourceFingerprint": "a30b1b6cb66da6d1ed09e1a74a656723ff69c2c108374c1e608a2360549c42df",
+      "sourcePage": 825,
+      "sourceFile": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourceSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "outcome": "CONTEXTUAL_RECONSTRUCTION",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "reviewedPages": [
+        825,
+        826
+      ],
+      "evidence": [
+        "Every candidate phrase is present verbatim and in this order in source text/current raw stem. Explicit numbers omitted in source prose although answer combinations refer to numbers. Candidate segmentation/order is unambiguous; add ordinal labels and line breaks only. This is contextual formatting recovery, not new scientific content."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedRepair": {
+        "question": "Which among the following statements best describes the appropriate mechanism involved in coughing?\n\n1. Forceful expiration against a closed glottis\n2. Expiration against an open glottis\n3. Normal inspiration\n4. Removing harmful substances.",
+        "preserveOptions": true,
+        "preserveCorrectOption": true,
+        "reconstructionNote": "Numbers follow existing source phrase order; no candidates or distractors added."
+      },
+      "answerConsistency": {
+        "correctOption": 1,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourcePdfSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "sourcePagesReviewed": [
+        825,
+        826
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "proposedOverride": {
+        "question": "Which among the following statements best describes the appropriate mechanism involved in coughing?\n\n1. Forceful expiration against a closed glottis\n2. Expiration against an open glottis\n3. Normal inspiration\n4. Removing harmful substances."
+      },
+      "alternatives": "Unique conditional on preserved printed key and explicit source explanation/phrase order; contextual label required."
+    },
+    {
+      "id": "physiology-33-25",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "priority": 2,
+      "canonicalSourceFingerprint": "dc521b387e0e21feeaf3c33652f5376f24859324831c5f3b2324785ebf4efb81",
+      "sourcePage": 942,
+      "sourceFile": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourceSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "outcome": "CONTEXTUAL_RECONSTRUCTION",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "reviewedPages": [
+        942,
+        943
+      ],
+      "evidence": [
+        "Every candidate phrase is present verbatim and in this order in source text/current raw stem. Explicit numbers omitted in source prose although answer combinations refer to numbers. Candidate segmentation/order is unambiguous; add ordinal labels and line breaks only. This is contextual formatting recovery, not new scientific content."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedRepair": {
+        "question": "Which of the following are typically associated with Lower Motor Neuron (LMN) lesions? Select all that apply.\n\n1. Atrophy\n2. Fasciculations\n3. DTR increased\n4. Rigidity",
+        "preserveOptions": true,
+        "preserveCorrectOption": true,
+        "reconstructionNote": "Numbers follow existing source phrase order; no candidates or distractors added."
+      },
+      "answerConsistency": {
+        "correctOption": 1,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourcePdfSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "sourcePagesReviewed": [
+        942,
+        943
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "proposedOverride": {
+        "question": "Which of the following are typically associated with Lower Motor Neuron (LMN) lesions? Select all that apply.\n\n1. Atrophy\n2. Fasciculations\n3. DTR increased\n4. Rigidity"
+      },
+      "alternatives": "Unique conditional on preserved printed key and explicit source explanation/phrase order; contextual label required."
+    },
+    {
+      "id": "physiology-36-7",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "priority": 2,
+      "canonicalSourceFingerprint": "e26f50567a7980d5a517750fcb4b340d33ff38df4344cace6d96649ad91d73cf",
+      "sourcePage": 1045,
+      "sourceFile": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourceSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "outcome": "COMPLETE/FALSE_POSITIVE",
+      "reviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "reviewedPages": [
+        1045,
+        1046
+      ],
+      "evidence": [
+        "Current semantic table includes all7 insulin actions and both categories. Unequal group lengths intentional;5 empty alignment cells do not mean5 lost source rows."
+      ],
+      "affectedFields": [],
+      "proposedRepair": null,
+      "answerConsistency": {
+        "correctOption": 4,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "No physical-device or final deployed-browser verification in this source review."
+      ],
+      "decision": "COMPLETE/FALSE_POSITIVE",
+      "sourcePdf": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourcePdfSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "sourcePagesReviewed": [
+        1045,
+        1046
+      ],
+      "sourceReviewMethod": "Poppler pdftotext -layout; raw canonical versus shared normalized stem/options/table",
+      "proposedOverride": null,
+      "alternatives": "No new assessment content proposed."
+    },
+    {
+      "id": "physiology-20-7",
+      "supplemental": true,
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "priority": 1,
+      "canonicalSourceFingerprint": "86253ac25f205a932dd6d2fcdf1b3542df317ef02ed74ff1f8172e39708de9d9",
+      "sourcePage": 558,
+      "sourceFile": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourceSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "outcome": "CONTEXTUAL_RECONSTRUCTION",
+      "reviewMethod": "Raw canonical + source explanation context; Poppler rendered question page visually inspected",
+      "reviewedPages": [
+        558
+      ],
+      "visuallyInspectedPages": [
+        558
+      ],
+      "affectedFields": [
+        "question",
+        "options"
+      ],
+      "answerConsistency": {
+        "correctOption": 1,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "Source PDF itself renders solid missing-glyph box; reconstruction must be recorded as contextual."
+      ],
+      "evidence": [
+        "Rendered source p558 shows V■ in stem and choices B/C. Stem explicitly defines V as urine flow rate. Missing rate notation is contextual, not recoverable glyph transcription; normalize to V (urine flow rate), preserving the deliberately incorrect optionC formula without adding missing V− term. A remains uniquely correct."
+      ],
+      "proposedRepair": {
+        "question": "Which of the following statements about \"free water clearance\" (CH2O) is correct? Free water clearance = CH2O Urine osmolality = Uosm Plasma osmolality = Posm Urine flow rate = V (urine flow rate)",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Free water clearance is positive when the urine is hypotonic and negative when the urine is hypertonic."
+          },
+          {
+            "letter": "B",
+            "text": "Free water clearance is the same as urine flow rate (V)."
+          },
+          {
+            "letter": "C",
+            "text": "Free water clearance is calculated using C H2O = U osm (V)/ P osm."
+          },
+          {
+            "letter": "D",
+            "text": "Free water clearance is positive when the urine is hypertonic and negative when the urine is hypotonic."
+          }
+        ],
+        "preserveCorrectOption": true
+      },
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourcePdfSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "sourcePagesReviewed": [
+        558
+      ],
+      "sourceReviewMethod": "Raw canonical + source explanation context; Poppler rendered question page visually inspected",
+      "proposedOverride": {
+        "question": "Which of the following statements about \"free water clearance\" (CH2O) is correct? Free water clearance = CH2O Urine osmolality = Uosm Plasma osmolality = Posm Urine flow rate = V (urine flow rate)",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Free water clearance is positive when the urine is hypotonic and negative when the urine is hypertonic."
+          },
+          {
+            "letter": "B",
+            "text": "Free water clearance is the same as urine flow rate (V)."
+          },
+          {
+            "letter": "C",
+            "text": "Free water clearance is calculated using C H2O = U osm (V)/ P osm."
+          },
+          {
+            "letter": "D",
+            "text": "Free water clearance is positive when the urine is hypertonic and negative when the urine is hypotonic."
+          }
+        ]
+      },
+      "alternatives": "Unique conditional on preserved printed key and explicit source explanation/phrase order; contextual label required."
+    },
+    {
+      "id": "physiology-23-11",
+      "supplemental": true,
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "priority": 1,
+      "canonicalSourceFingerprint": "69148b9fb54f11ce994b9a50c22d105d1504ed253c0dfeb67ee73da45978d9ac",
+      "sourcePage": 640,
+      "sourceFile": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourceSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "outcome": "CONTEXTUAL_RECONSTRUCTION",
+      "reviewMethod": "Raw canonical + source explanation context; Poppler rendered question page visually inspected",
+      "reviewedPages": [
+        640
+      ],
+      "visuallyInspectedPages": [
+        640
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "answerConsistency": {
+        "correctOption": 4,
+        "changeCorrectOption": false
+      },
+      "limitations": [
+        "Source PDF itself renders solid missing-glyph box; reconstruction must be recorded as contextual."
+      ],
+      "evidence": [
+        "Rendered source p640 shows UV/P followed by a solid missing-glyph box. U,V,P and complete ratio are legible; raw explanation independently defines U urine concentration,V urine flow rate,P plasma concentration and names clearance. No additional operand justified; normalize redundant box away and add variable definitions to remove ambiguity. D retained."
+      ],
+      "proposedRepair": {
+        "question": "What renal function is represented by the formula (U × V) / P, where U is urine concentration of a substance, V is urine flow rate, and P is its plasma concentration?",
+        "preserveOptions": true,
+        "preserveCorrectOption": true
+      },
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourcePdfSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "sourcePagesReviewed": [
+        640
+      ],
+      "sourceReviewMethod": "Raw canonical + source explanation context; Poppler rendered question page visually inspected",
+      "proposedOverride": {
+        "question": "What renal function is represented by the formula (U × V) / P, where U is urine concentration of a substance, V is urine flow rate, and P is its plasma concentration?"
+      },
+      "alternatives": "Unique conditional on preserved printed key and explicit source explanation/phrase order; contextual label required."
+    }
+  ]
+}

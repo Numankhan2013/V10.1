@@ -1,0 +1,429 @@
+{
+  "schemaVersion": 1,
+  "summary": {
+    "CONTEXTUAL_RECONSTRUCTION": 8
+  },
+  "questions": [
+    {
+      "id": "28-3",
+      "questionId": "28-3",
+      "bank": "PrepLadder",
+      "subject": "Biochemistry",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "outcome": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Biochemistry_QBank_Source.pdf",
+      "sourcePdfSha256": "b500494dda371d6d38367e08f8d388468b3fb7a9648bfdda783ff82916a865ec",
+      "canonicalSourceFingerprint": "9dc45b9d467c7d5c413d6a657861f5a13f1978bbc56559bbde612a34b8e2636e",
+      "sourcePagesReviewed": [
+        961
+      ],
+      "sourceReviewMethod": "Poppler pdftotext layout for cited source question pages, compared raw question/options and full raw source explanation/correctAnswerText; no rendered-page visual review",
+      "evidence": [
+        "ABG stem identifies pCO (carbon dioxide partial pressure) and HCO (bicarbonate); source explanation explicitly names bicarbonate and CO2 compensation. Missing digits/charge are constrained to pCO2 and HCO3−. The source explanation explicitly gives bicarbonate 30 mEq/L, corroborating contextual correction of the original stem’s invalid bicarbonate unit 30 mm Hg to 30 mEq/L; this is not literal stem transcription. pCO2 remains 48 mm Hg.",
+        "Source text extraction reproduces the same unreadable square glyphs, so this is contextually constrained normalization rather than literal source transcription."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedOverride": {
+        "question": "A patient presents with a history of vomiting. Arterial blood gas analysis reveals\nthe following: pH: 7.5 pCO2: 48 mm Hg HCO3−: 30 mEq/L What is the most likely\nacid-base abnormality?"
+      },
+      "proposedRepair": {
+        "question": "A patient presents with a history of vomiting. Arterial blood gas analysis reveals\nthe following: pH: 7.5 pCO2: 48 mm Hg HCO3−: 30 mEq/L What is the most likely\nacid-base abnormality?"
+      },
+      "answerConsistency": {
+        "correctOption": 1,
+        "changeCorrectOption": false,
+        "choiceOrderPreserved": true,
+        "evidence": "Chemically constrained notation and the bicarbonate unit explicitly supplied by the source explanation are restored; pCO2 pressure unit remains mm Hg. All four choices, their order, and keyed answer A remain unchanged."
+      }
+    },
+    {
+      "id": "physiology-1-2",
+      "questionId": "physiology-1-2",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "outcome": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourcePdfSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "canonicalSourceFingerprint": "39a686c0da1d71205ad661b1bacd941d7496a6a927aa2fb5753d1a671a951c31",
+      "sourcePagesReviewed": [
+        5
+      ],
+      "sourceReviewMethod": "Poppler pdftotext layout for cited source question pages, compared raw question/options and full raw source explanation/correctAnswerText; no rendered-page visual review",
+      "evidence": [
+        "Calcium currents in the stem and intact option B Ca2+ constrain Ca²■ to Ca²+.",
+        "Source text extraction reproduces the same unreadable square glyphs, so this is contextually constrained normalization rather than literal source transcription."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedOverride": {
+        "question": "As illustrated below, in examining the effects of presynaptic inhibition and facilitation on action potentials, Ca²+ currents, and EPSPs (excitatory postsynaptic potential) ,which statement regarding the dashed line recordings is false? (solid lines for controls; dashed lines for inhibition/facilitation)"
+      },
+      "proposedRepair": {
+        "question": "As illustrated below, in examining the effects of presynaptic inhibition and facilitation on action potentials, Ca²+ currents, and EPSPs (excitatory postsynaptic potential) ,which statement regarding the dashed line recordings is false? (solid lines for controls; dashed lines for inhibition/facilitation)"
+      },
+      "answerConsistency": {
+        "correctOption": 2,
+        "changeCorrectOption": false,
+        "choiceOrderPreserved": true,
+        "evidence": "Only chemically constrained notation replaced; all four choices and their factual assertions remain in original order."
+      }
+    },
+    {
+      "id": "physiology-7-12",
+      "questionId": "physiology-7-12",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "outcome": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourcePdfSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "canonicalSourceFingerprint": "e8209eccd01b2444a1db70aeacfbe755f417eade13576c8bfda58521e241b882",
+      "sourcePagesReviewed": [
+        172
+      ],
+      "sourceReviewMethod": "Poppler pdftotext layout for cited source question pages, compared raw question/options and full raw source explanation/correctAnswerText; no rendered-page visual review",
+      "evidence": [
+        "Intact choice A 3Na+:2K+ and source answer prose describing Na+ extrusion/K+ entry constrain stem Na■-K■ and option B Na■ to positive-ion notation.",
+        "Source text extraction reproduces the same unreadable square glyphs, so this is contextually constrained normalization rather than literal source transcription."
+      ],
+      "affectedFields": [
+        "question",
+        "options"
+      ],
+      "proposedOverride": {
+        "question": "Which of the following statements about the Na+-K+ ATPase is false?",
+        "options": [
+          {
+            "letter": "A",
+            "text": "It is an electrogenic pump with a coupling ratio of 3Na+:2K+"
+          },
+          {
+            "letter": "B",
+            "text": "The α subunit has intracellular Na+ and ATP-binding sites"
+          },
+          {
+            "letter": "C",
+            "text": "The α subunit contains the phosphorylation site at Asp 376"
+          },
+          {
+            "letter": "D",
+            "text": "Its activity is enhanced by ouabain and digitalis glycosides"
+          }
+        ]
+      },
+      "proposedRepair": {
+        "question": "Which of the following statements about the Na+-K+ ATPase is false?",
+        "options": [
+          {
+            "letter": "A",
+            "text": "It is an electrogenic pump with a coupling ratio of 3Na+:2K+"
+          },
+          {
+            "letter": "B",
+            "text": "The α subunit has intracellular Na+ and ATP-binding sites"
+          },
+          {
+            "letter": "C",
+            "text": "The α subunit contains the phosphorylation site at Asp 376"
+          },
+          {
+            "letter": "D",
+            "text": "Its activity is enhanced by ouabain and digitalis glycosides"
+          }
+        ]
+      },
+      "answerConsistency": {
+        "correctOption": 4,
+        "changeCorrectOption": false,
+        "choiceOrderPreserved": true,
+        "evidence": "Only chemically constrained notation replaced; all four choices and their factual assertions remain in original order."
+      }
+    },
+    {
+      "id": "physiology-22-2",
+      "questionId": "physiology-22-2",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "outcome": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourcePdfSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "canonicalSourceFingerprint": "866e36a37be8e02214c25e3b7764c3ae2fa8b21dbed05c52d3877dd726c6d069",
+      "sourcePagesReviewed": [
+        619
+      ],
+      "sourceReviewMethod": "Poppler pdftotext layout for cited source question pages, compared raw question/options and full raw source explanation/correctAnswerText; no rendered-page visual review",
+      "evidence": [
+        "Stem explicitly names bicarbonate; explanation contains an intact HCO3- reference. HCO3■ denotes HCO3− in stem and choices.",
+        "Source text extraction reproduces the same unreadable square glyphs, so this is contextually constrained normalization rather than literal source transcription."
+      ],
+      "affectedFields": [
+        "question",
+        "options"
+      ],
+      "proposedOverride": {
+        "question": "How does the excretion of ammonium (NH4+) contribute to bicarbonate (HCO3−) regulation in the kidneys?",
+        "options": [
+          {
+            "letter": "A",
+            "text": "It directly increases the concentration of HCO3− in the urine."
+          },
+          {
+            "letter": "B",
+            "text": "It generates HCO3− , which is released into the bloodstream."
+          },
+          {
+            "letter": "C",
+            "text": "It decreases the overall HCO3− reabsorption in the kidneys."
+          },
+          {
+            "letter": "D",
+            "text": "It prevents the secretion of H+ in the renal tubules."
+          }
+        ]
+      },
+      "proposedRepair": {
+        "question": "How does the excretion of ammonium (NH4+) contribute to bicarbonate (HCO3−) regulation in the kidneys?",
+        "options": [
+          {
+            "letter": "A",
+            "text": "It directly increases the concentration of HCO3− in the urine."
+          },
+          {
+            "letter": "B",
+            "text": "It generates HCO3− , which is released into the bloodstream."
+          },
+          {
+            "letter": "C",
+            "text": "It decreases the overall HCO3− reabsorption in the kidneys."
+          },
+          {
+            "letter": "D",
+            "text": "It prevents the secretion of H+ in the renal tubules."
+          }
+        ]
+      },
+      "answerConsistency": {
+        "correctOption": 2,
+        "changeCorrectOption": false,
+        "choiceOrderPreserved": true,
+        "evidence": "Only chemically constrained notation replaced; all four choices and their factual assertions remain in original order."
+      }
+    },
+    {
+      "id": "physiology-22-3",
+      "questionId": "physiology-22-3",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "outcome": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourcePdfSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "canonicalSourceFingerprint": "89e0db0d0aa116182f215f84844ee0c82cd0d9b99c7de7d3e10a9a58065dc075",
+      "sourcePagesReviewed": [
+        619
+      ],
+      "sourceReviewMethod": "Poppler pdftotext layout for cited source question pages, compared raw question/options and full raw source explanation/correctAnswerText; no rendered-page visual review",
+      "evidence": [
+        "Source explanation retains intact Na+ and K+ Exchange and HCO3-; named proton secretion and chloride-bicarbonate exchange constrain H+/Cl−. Only charge glyphs repaired in stem and options.",
+        "Source text extraction reproduces the same unreadable square glyphs, so this is contextually constrained normalization rather than literal source transcription."
+      ],
+      "affectedFields": [
+        "question",
+        "options"
+      ],
+      "proposedOverride": {
+        "question": "Which transport mechanism is primarily responsible for bicarbonate (HCO3−) reabsorption in the proximal convoluted tubule (PCT)?",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Na+-K+ ATPase pump"
+          },
+          {
+            "letter": "B",
+            "text": "Na+-H+ antiporter"
+          },
+          {
+            "letter": "C",
+            "text": "Cl−-HCO3− antiporter"
+          },
+          {
+            "letter": "D",
+            "text": "H+-ATPase pump"
+          }
+        ]
+      },
+      "proposedRepair": {
+        "question": "Which transport mechanism is primarily responsible for bicarbonate (HCO3−) reabsorption in the proximal convoluted tubule (PCT)?",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Na+-K+ ATPase pump"
+          },
+          {
+            "letter": "B",
+            "text": "Na+-H+ antiporter"
+          },
+          {
+            "letter": "C",
+            "text": "Cl−-HCO3− antiporter"
+          },
+          {
+            "letter": "D",
+            "text": "H+-ATPase pump"
+          }
+        ]
+      },
+      "answerConsistency": {
+        "correctOption": 2,
+        "changeCorrectOption": false,
+        "choiceOrderPreserved": true,
+        "evidence": "Only chemically constrained notation replaced; all four choices and their factual assertions remain in original order."
+      }
+    },
+    {
+      "id": "physiology-22-5",
+      "questionId": "physiology-22-5",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "outcome": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourcePdfSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "canonicalSourceFingerprint": "fd6834b47aac534f21e5ca9b1beb57fb84649bc413e93863c7900dab6be0df8b",
+      "sourcePagesReviewed": [
+        620
+      ],
+      "sourceReviewMethod": "Poppler pdftotext layout for cited source question pages, compared raw question/options and full raw source explanation/correctAnswerText; no rendered-page visual review",
+      "evidence": [
+        "Stem names ammonium and bicarbonate. Raw explanation retains 2HCO3−, while adjacent question2 explicitly uses NH4+. Charges uniquely constrained to NH4+ and HCO3−.",
+        "Source text extraction reproduces the same unreadable square glyphs, so this is contextually constrained normalization rather than literal source transcription."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedOverride": {
+        "question": "What triggers the formation of ammonium ions (NH4+) and bicarbonate (HCO3−) in the ammonia buffer system?"
+      },
+      "proposedRepair": {
+        "question": "What triggers the formation of ammonium ions (NH4+) and bicarbonate (HCO3−) in the ammonia buffer system?"
+      },
+      "answerConsistency": {
+        "correctOption": 3,
+        "changeCorrectOption": false,
+        "choiceOrderPreserved": true,
+        "evidence": "Only chemically constrained notation replaced; all four choices and their factual assertions remain in original order."
+      }
+    },
+    {
+      "id": "physiology-24-12",
+      "questionId": "physiology-24-12",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "outcome": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourcePdfSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "canonicalSourceFingerprint": "c519211b7874fb10fc636d0cdacc13ef73cbc2507453282a0eba0d24f8a744e3",
+      "sourcePagesReviewed": [
+        692,
+        693
+      ],
+      "sourceReviewMethod": "Poppler pdftotext layout for cited source question pages, compared raw question/options and full raw source explanation/correctAnswerText; no rendered-page visual review",
+      "evidence": [
+        "Stem explicitly identifies partial pressures of oxygen and carbon dioxide; raw explanation uses intact PO2 and PCO2 and supplies pressure values. Trailing squares are artifacts, not an ionic charge. Remove them while preserving numeral2 and every high/low distractor.",
+        "Source text extraction reproduces the same unreadable square glyphs, so this is contextually constrained normalization rather than literal source transcription."
+      ],
+      "affectedFields": [
+        "question",
+        "options"
+      ],
+      "proposedOverride": {
+        "question": "A 65-year-old male patient with a history of shortness of breath on exertion presents to the OPD. During the examination, it is noted that his ventilation-perfusion (V/Q) ratio varies significantly in different regions of the lungs. What are the expected partial pressures of oxygen (pO2) and carbon dioxide (pCO2) at the apex, middle, and base of the lungs in the upright position?",
+        "options": [
+          {
+            "letter": "A",
+            "text": "At the apex: pO2 is lowest and pCO2 is highest."
+          },
+          {
+            "letter": "B",
+            "text": "At the base: pO2 is highest and pCO2 is lowest."
+          },
+          {
+            "letter": "C",
+            "text": "At the middle: pO2 is highest and pCO2 is lowest."
+          },
+          {
+            "letter": "D",
+            "text": "At the base: pO2 is lowest and pCO2 is highest."
+          }
+        ]
+      },
+      "proposedRepair": {
+        "question": "A 65-year-old male patient with a history of shortness of breath on exertion presents to the OPD. During the examination, it is noted that his ventilation-perfusion (V/Q) ratio varies significantly in different regions of the lungs. What are the expected partial pressures of oxygen (pO2) and carbon dioxide (pCO2) at the apex, middle, and base of the lungs in the upright position?",
+        "options": [
+          {
+            "letter": "A",
+            "text": "At the apex: pO2 is lowest and pCO2 is highest."
+          },
+          {
+            "letter": "B",
+            "text": "At the base: pO2 is highest and pCO2 is lowest."
+          },
+          {
+            "letter": "C",
+            "text": "At the middle: pO2 is highest and pCO2 is lowest."
+          },
+          {
+            "letter": "D",
+            "text": "At the base: pO2 is lowest and pCO2 is highest."
+          }
+        ]
+      },
+      "answerConsistency": {
+        "correctOption": 4,
+        "changeCorrectOption": false,
+        "choiceOrderPreserved": true,
+        "evidence": "Only chemically constrained notation replaced; all four choices and their factual assertions remain in original order."
+      }
+    },
+    {
+      "id": "physiology-24-18",
+      "questionId": "physiology-24-18",
+      "bank": "PrepLadder",
+      "subject": "Physiology",
+      "decision": "CONTEXTUAL_RECONSTRUCTION",
+      "outcome": "CONTEXTUAL_RECONSTRUCTION",
+      "sourcePdf": "app/src/main/assets/Physiology_QBank_Source.pdf",
+      "sourcePdfSha256": "520149259760ec5ac009322d8698a2edb386338888d855b23c346143704c8575",
+      "canonicalSourceFingerprint": "35c38550bcd3822596ae511f72ae3ca2fc729ce471212eae294f3f0e76b7530c",
+      "sourcePagesReviewed": [
+        695
+      ],
+      "sourceReviewMethod": "Poppler pdftotext layout for cited source question pages, compared raw question/options and full raw source explanation/correctAnswerText; no rendered-page visual review",
+      "evidence": [
+        "Stem explicitly names arterial carbon dioxide level in blood gas analysis. PaCO■ therefore denotes PaCO2; no clinical scenario or answer change.",
+        "Source text extraction reproduces the same unreadable square glyphs, so this is contextually constrained normalization rather than literal source transcription."
+      ],
+      "affectedFields": [
+        "question"
+      ],
+      "proposedOverride": {
+        "question": "A 55-year-old woman with a history of asthma presents to the emergency department with severe dyspnea. On examination, she is using accessory muscles to breathe and her oxygen saturation is reduced. Arterial blood gas analysis shows a high level of carbon dioxide (PaCO2) despite increased ventilation. A bedside pulmonary function test reveals that her physiological dead space has increased compared to her last visit. Which of the following is the most likely explanation for the increase in physiological dead space in this patient?"
+      },
+      "proposedRepair": {
+        "question": "A 55-year-old woman with a history of asthma presents to the emergency department with severe dyspnea. On examination, she is using accessory muscles to breathe and her oxygen saturation is reduced. Arterial blood gas analysis shows a high level of carbon dioxide (PaCO2) despite increased ventilation. A bedside pulmonary function test reveals that her physiological dead space has increased compared to her last visit. Which of the following is the most likely explanation for the increase in physiological dead space in this patient?"
+      },
+      "answerConsistency": {
+        "correctOption": 3,
+        "changeCorrectOption": false,
+        "choiceOrderPreserved": true,
+        "evidence": "Only chemically constrained notation replaced; all four choices and their factual assertions remain in original order."
+      }
+    }
+  ]
+}
