@@ -174,6 +174,38 @@ def main():
     pending_q2 = next(row for row in pending_cue['textCueReview'] if row['questionId'].endswith('Q002'))
     assert pending_q2['status'] == 'VISUAL_REFERENCE_REQUIRED'
 
+    # A source-reviewed adjacent continuation page can bind a cue visual while
+    # retaining the immutable question/explanation provenance union. Unlisted
+    # pages remain rejected at coverage construction.
+    continuation_audit = {'bindings': [{
+        'id': 'marrow__PHYSIO_CH20_Q018:unmapped',
+        'questionId': 'marrow__PHYSIO_CH20_Q018', 'subject': 'Physiology',
+        'status': 'REVIEW_REQUIRED', 'reason': 'Text cue without figure metadata',
+        'provenance': {'questionPages': [370], 'explanationPages': [382]},
+    }]}
+    continuation_review = {'schemaVersion': 1, 'entries': [{
+        'id': 'marrow__PHYSIO_CH20_Q018:unmapped',
+        'questionId': 'marrow__PHYSIO_CH20_Q018', 'subject': 'Physiology',
+        'sourcePages': [370, 382], 'reviewedVisualPages': [371],
+        'source': {'file': SOURCES['Physiology'][1],
+                   'sha256': sha((DATA / 'source_pdfs' / SOURCES['Physiology'][1]).read_bytes())},
+        'status': 'VISUAL_REFERENCE_REQUIRED', 'reason': 'Stem continues to following-page figure.',
+        'evidence': 'Inspected source pages 370–371; page 371 is the visual continuation of the prompt on 370.',
+        'visualReferences': [{'id': 'marrow__PHYSIO_CH20_Q018:figure:1',
+                              'role': 'question', 'sourcePages': [371]}],
+    }]}
+    continuation = build_coverage(continuation_audit, {'assets': []}, cue_reviews=continuation_review)
+    assert continuation['sourceVisuals'][0]['sourcePages'] == [371]
+    unlisted_review = {'schemaVersion': 1, 'entries': [{
+        **continuation_review['entries'][0], 'reviewedVisualPages': [],
+    }]}
+    try:
+        build_coverage(continuation_audit, {'assets': []}, cue_reviews=unlisted_review)
+    except AssertionError as exc:
+        assert 'exceed cue provenance' in str(exc)
+    else:
+        raise AssertionError('Unlisted continuation pages must fail closed')
+
     q11 = [row for row in coverage['sourceVisuals'] if row['questionId'] == 'marrow__BIOCHEM_CH19_Q011']
     assert len(q11) == 2
     assert {row['coverageStatus'] for row in q11} == {'UNTRACKED_SOURCE_VISUAL', 'UNRELEASED_TRACKED'}

@@ -113,6 +113,11 @@ def load_cue_reviews(path):
         assert entry.get('status') in {'NO_SOURCE_VISUAL', 'VISUAL_REFERENCE_REQUIRED'}
         pages = entry.get('sourcePages')
         assert isinstance(pages, list) and all(isinstance(page, int) and page > 0 for page in pages)
+        reviewed_visual_pages = entry.get('reviewedVisualPages', [])
+        assert isinstance(reviewed_visual_pages, list)
+        assert reviewed_visual_pages == sorted(set(reviewed_visual_pages))
+        assert all(isinstance(page, int) and page > 0 for page in reviewed_visual_pages)
+        assert entry.get('evidence'), 'Out-of-provenance visual pages require source-review evidence'
         assert entry.get('source') and entry['source'].get('file')
         assert re.fullmatch(r'[0-9a-f]{64}', str(entry['source'].get('sha256', '')))
         assert entry.get('reason') and entry.get('evidence')
@@ -167,7 +172,8 @@ def build_coverage(audit, registry, adjudications=None, cue_reviews=None):
     audit_bindings = list(audit.get('bindings', []))
     for entry in cue_reviews.get('entries', []):
         for reference in entry.get('visualReferences', []):
-            assert set(reference['sourcePages']).issubset(set(entry['sourcePages'])), \
+            allowed_pages = set(entry['sourcePages']) | set(entry.get('reviewedVisualPages', []))
+            assert set(reference['sourcePages']).issubset(allowed_pages), \
                 f"Visual reference pages exceed cue provenance: {reference['id']}"
             audit_bindings.append({
                 'id': reference['id'], 'questionId': entry['questionId'],
@@ -214,7 +220,8 @@ def build_coverage(audit, registry, adjudications=None, cue_reviews=None):
                         role = expected_role(linked)
                         pages = expected_pages(linked)
                         assert role in {'question', 'explanation'}
-                        assert pages and set(pages).issubset(set(cue_source_pages))
+                        allowed_pages = set(cue_source_pages) | set(entry.get('reviewedVisualPages', []))
+                        assert pages and set(pages).issubset(allowed_pages)
                     cue_visual_links[entry['id']] = visual_reference_ids
                 cue_row.update({
                     'status': ('SOURCE_REVIEWED_NO_VISUAL' if entry['status'] == 'NO_SOURCE_VISUAL'
