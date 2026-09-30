@@ -1263,3 +1263,8 @@ clipped neighboring prose. Existing explanation PNG is preserved. Expected image
 coverage becomes 1,502 references/1,421 released/79 invalid/two archival holds/zero
 cues, subject to final regeneration confirmation. Prior local52checks passed before
 these residual additions; final combined CI remains pending. No production claim.
+
+### 2026-09-30 — Combined completeness browser follow-up
+
+- Product commit `abf68b0607ee78667621a049ef557df5d55b0ad4`: Engineering Gate `36727678337` passed. Full run `36727677940` passed source/generation checks, then failed the older final-image browser verifier because it attempted to answer now-gated Physiology Ch6 Q10.
+- Adapted that verifier to assert the exact source-omission notice, absence of answer buttons, retained released bindings, and package checks for gated owners. Ordinary image owners retain before/after-answer and viewer checks. Added new completeness browser evidence directory to artifact collection. Rerun required before preview/build verification claims.

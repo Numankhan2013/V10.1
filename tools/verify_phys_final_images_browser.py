@@ -22,6 +22,8 @@ def main():
     qmap = questions()
     request = json.loads((DATA / 'images/review_requests/FINAL_PHYS_SOURCE_REVIEW_20260930.json').read_text())
     owners = sorted({entry['questionId'] for entry in request['entries']})
+    completeness = json.loads((ROOT / 'data/question_completeness_reviews_v1.json').read_text())
+    blocked = {entry['id'] for entry in completeness['entries'] if entry['display'].get('blocked')}
     metadata = json.loads((WEB / 'marrow_visual_metadata.js').read_text().split('=', 1)[1].rstrip(';\n'))
     OUT.mkdir(parents=True, exist_ok=True)
     handler = functools.partial(Quiet, directory=str(WEB))
@@ -33,6 +35,7 @@ def main():
             for size, viewport in [('phone', {'width': 390, 'height': 844}),
                                    ('tablet', {'width': 820, 'height': 1180})]:
                 for qid in owners:
+                    print('FINAL_IMAGE_BROWSER_CASE', size, qid, flush=True)
                     q = qmap[qid]
                     context = browser.new_context(viewport=viewport)
                     page = context.new_page()
@@ -57,6 +60,20 @@ def main():
                         page.wait_for_function('Array.from(document.querySelectorAll(".nk-marrow-figure-button img")).every(i=>i.complete&&i.naturalWidth>0)')
                         assert all(alt == 'Source figure' for alt in images.evaluate_all(r'(nodes)=>nodes.map(n=>n.alt)')), f'{qid}: question alt text is identifying'
                         page.screenshot(path=str(OUT / f'final-images-{size}-{qid}-unanswered.png'), full_page=True)
+                    for e in [e for e in request['entries'] if e['questionId'] == qid]:
+                        assert any(row['role'] == e['role'] and row['order'] == e['order'] for row in metadata[qid]), f'{e["referenceId"]}: reviewed binding absent'
+                    if qid in blocked:
+                        assert page.locator('.option-list button').count() == 0, f'{qid}: incomplete question is answerable'
+                        assert 'Question content incomplete' in page.locator('.nk-question-unavailable').inner_text()
+                        assert not errors, f'{qid}: browser errors {errors}'
+                        page.screenshot(path=str(OUT / f'final-images-{size}-{qid}-source-omission.png'), full_page=True)
+                        results.append({'questionId': qid, 'viewport': size,
+                                        'questionFigures': len(expected_question),
+                                        'explanationFigures': len(expected_explanation),
+                                        'status': 'SOURCE_OMISSION_GATE',
+                                        'explanationEvidence': 'Released binding and offline package verified; unavailable question cannot be answered'})
+                        context.close()
+                        continue
                     page.locator('.option-list button').nth(int(q['correctOption']) - 1).click()
                     page.locator(f'[data-marrow-explanation="{qid}"]').wait_for(state='visible')
                     for i in range(images.count()):
