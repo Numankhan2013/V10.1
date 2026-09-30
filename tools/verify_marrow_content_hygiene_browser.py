@@ -15,7 +15,11 @@ from playwright.sync_api import sync_playwright
 ROOT = Path(__file__).resolve().parents[1]
 WEB = ROOT / "build/web"
 OUT = ROOT / "build/marrow-ui-checks"
-OVERRIDES = ROOT / "data/marrow/content_hygiene_overrides_v1.json"
+OVERRIDE_PATHS = (
+    ROOT / "data/marrow/content_hygiene_overrides_v1.json",
+    ROOT / "data/marrow/content_hygiene_nerve_ch6_q01_17_v1.json",
+    ROOT / "data/marrow/content_hygiene_nerve_ch6_q18_34_v1.json",
+)
 LEAK_MARKERS = (
     "[object Object]",
     '{"text"',
@@ -57,7 +61,12 @@ def main() -> None:
                         "button", name="Discard and start new", exact=True
                     ).click()
 
-            expected_overrides = json.loads(OVERRIDES.read_text(encoding="utf-8"))["questions"]
+            expected_overrides = {}
+            for path in OVERRIDE_PATHS:
+                questions = json.loads(path.read_text(encoding="utf-8"))["questions"]
+                if set(expected_overrides) & set(questions):
+                    raise SystemExit(f"Duplicate browser content override IDs: {path.name}")
+                expected_overrides.update(questions)
             for qid, expected_content in expected_overrides.items():
                 open_practice_question(qid)
                 page.wait_for_function(
@@ -149,7 +158,7 @@ def main() -> None:
         server.shutdown()
     print(
         "MARROW_CONTENT_HYGIENE_BROWSER_OK "
-        "physiology=Ch5_Q1-Q28,Ch7_Q1-Q35 "
+        "physiology=Ch5_Q1-Q28,Ch6_Q1-Q34,Ch7_Q1-Q35 "
         "rendered=Ch5_Q1,Ch7_Q1,Q2,Q35 fields=question,options,takeaway,explanation,rationales"
     )
 

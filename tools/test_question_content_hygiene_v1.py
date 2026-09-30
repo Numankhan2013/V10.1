@@ -92,48 +92,67 @@ console.log('QUESTION_CONTENT_HYGIENE_BEHAVIOR_OK');
         )
         marrow_records.append(json.loads(raw.decode("utf-8")))
 
-    overrides = json.loads(
-        (ROOT / "data/marrow/content_hygiene_overrides_v1.json").read_text(encoding="utf-8")
+    override_paths = (
+        ROOT / "data/marrow/content_hygiene_overrides_v1.json",
+        ROOT / "data/marrow/content_hygiene_nerve_ch6_q01_17_v1.json",
+        ROOT / "data/marrow/content_hygiene_nerve_ch6_q18_34_v1.json",
     )
     source_by_id = {
         str(question.get("id", "")): question
         for record in marrow_records
         for question in record.get("questions", [])
     }
-    override_questions = overrides.get("questions", {})
-    if len(override_questions) != 63 or not set(override_questions).issubset(source_by_id):
-        raise SystemExit("Expected exactly 63 stable-ID Physiology Ch5/Ch7 display overrides")
-    source_payload = [
-        {
-            "id": qid,
-            "question": source_by_id[qid].get("question"),
-            "options": [option.get("text") for option in source_by_id[qid].get("options", [])],
-        }
-        for qid in sorted(override_questions)
-    ]
-    fingerprint = hashlib.sha256(
-        json.dumps(source_payload, ensure_ascii=False, separators=(",", ":"), sort_keys=True).encode("utf-8")
-    ).hexdigest()
-    if fingerprint != overrides.get("sourceFingerprint"):
-        raise SystemExit("Physiology content override source fingerprint changed")
-    for qid, override in override_questions.items():
-        source_question = source_by_id[qid]
-        if source_question.get("subject") != "Physiology" or str(source_question.get("chapterId")) not in {"5", "7"}:
-            raise SystemExit(f"Content override escaped reviewed scope: {qid}")
-        values = [override.get("question"), *(override.get("options") or [])]
-        if len(values) != 5 or any(not isinstance(value, str) or not value.strip() for value in values):
-            raise SystemExit(f"Content override has an empty/non-string learner value: {qid}")
-        forbidden = ("[object Object]", '{"text"', '{"type"', '"content":', "```")
-        if any(marker in value for value in values for marker in forbidden):
-            raise SystemExit(f"Content override still contains serialized/code leakage: {qid}")
-        source_question["question"] = override["question"].strip()
-        for option, value in zip(source_question.get("options", []), override["options"]):
-            option["text"] = value.strip()
-        correct = int(source_question.get("correctOption", 0))
-        source_question["correctAnswerText"] = override["options"][correct - 1].strip()
+    applied_ids = set()
+    for path in override_paths:
+        overrides = json.loads(path.read_text(encoding="utf-8"))
+        override_questions = overrides.get("questions", {})
+        expected_count = 63 if path.name == "content_hygiene_overrides_v1.json" else 17
+        if len(override_questions) != expected_count or not set(override_questions).issubset(source_by_id):
+            raise SystemExit(f"Expected {expected_count} source-backed Physiology overrides in {path.name}")
+        if expected_count == 17:
+            start, end = (1, 17) if "q01_17" in path.name else (18, 34)
+            expected_ids = {f"marrow__PHYS_CH06_Q{number:03d}" for number in range(start, end + 1)}
+            if set(override_questions) != expected_ids or not overrides.get("sourcePdfSha256"):
+                raise SystemExit(f"Physiology Ch6 override range/source identity mismatch: {path.name}")
+        if applied_ids & set(override_questions):
+            raise SystemExit(f"Duplicate content override IDs in {path.name}")
+        source_payload = [
+            {
+                "id": qid,
+                "question": source_by_id[qid].get("question"),
+                "options": [option.get("text") for option in source_by_id[qid].get("options", [])],
+            }
+            for qid in sorted(override_questions)
+        ]
+        fingerprint = hashlib.sha256(
+            json.dumps(source_payload, ensure_ascii=False, separators=(",", ":"), sort_keys=True).encode("utf-8")
+        ).hexdigest()
+        if fingerprint != overrides.get("sourceFingerprint"):
+            raise SystemExit(f"Physiology content override source fingerprint changed: {path.name}")
+        if overrides.get("sourcePdfSha256"):
+            pdf = ROOT / "data/marrow/source_pdfs/physiologyed8.pdf"
+            if hashlib.sha256(pdf.read_bytes()).hexdigest() != overrides["sourcePdfSha256"]:
+                raise SystemExit(f"Physiology source PDF changed: {path.name}")
+        for qid, override in override_questions.items():
+            source_question = source_by_id[qid]
+            allowed_chapters = {"5", "7"} if expected_count == 63 else {"6"}
+            if source_question.get("subject") != "Physiology" or str(source_question.get("chapterId")) not in allowed_chapters:
+                raise SystemExit(f"Content override escaped reviewed scope: {qid}")
+            values = [override.get("question"), *(override.get("options") or [])]
+            if len(values) != 5 or any(not isinstance(value, str) or not value.strip() for value in values):
+                raise SystemExit(f"Content override has an empty/non-string learner value: {qid}")
+            forbidden = ("[object Object]", '{"text"', '{"type"', '"content":', "```")
+            if any(marker in value for value in values for marker in forbidden):
+                raise SystemExit(f"Content override still contains serialized/code leakage: {qid}")
+            source_question["question"] = override["question"].strip()
+            for option, value in zip(source_question.get("options", []), override["options"]):
+                option["text"] = value.strip()
+            correct = int(source_question.get("correctOption", 0))
+            source_question["correctAnswerText"] = override["options"][correct - 1].strip()
+        applied_ids.update(override_questions)
     print(
         "MARROW_REVIEWED_CONTENT_OVERRIDES_OK "
-        f"questions={len(override_questions)} source={fingerprint[:12]}"
+        f"questions={len(applied_ids)} manifests={len(override_paths)}"
     )
     corpus_behavior = (
         CORE.read_text(encoding="utf-8")

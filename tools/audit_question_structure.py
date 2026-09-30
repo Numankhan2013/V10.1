@@ -154,7 +154,7 @@ def main() -> None:
     raw_marrow = [copy.deepcopy(q) for record in records for q in record["questions"]]
     owner_path = ROOT / "tools/apply_marrow_bank_pilot.py"
     owner = owner_path.read_text()
-    start = owner.index('CONTENT_OVERRIDES_PATH=')
+    start = owner.index('CONTENT_OVERRIDE_PATHS=')
     end = owner.index('expanded_ids=', start)
     namespace = {"DATA": ROOT / "data/marrow", "json": json, "hashlib": hashlib, "expanded_records": records}
     with contextlib.redirect_stdout(io.StringIO()) as captured:
@@ -179,9 +179,15 @@ def main() -> None:
     assets = args.generated_dir or ROOT / "app/src/main/assets"
     files = [assets / "qbank_data.js", assets / "subjects_qbank_data.js"]
     core_paths = [ROOT / "tools/question_presentation_core.js", ROOT / "tools/question_content_hygiene_core.js"]
-    tracked_inputs = files + core_paths + [owner_path, ROOT / "data/marrow/content_hygiene_overrides_v1.json", Path(__file__)]
+    tracked_inputs = files + core_paths + [
+        owner_path,
+        ROOT / "data/marrow/content_hygiene_overrides_v1.json",
+        ROOT / "data/marrow/content_hygiene_nerve_ch6_q01_17_v1.json",
+        ROOT / "data/marrow/content_hygiene_nerve_ch6_q18_34_v1.json",
+        Path(__file__),
+    ]
     input_hashes = {str(path.relative_to(ROOT)) if path.is_relative_to(ROOT) else str(path): sha(path.read_bytes()) for path in tracked_inputs}
-    payload = {"prepFiles": [str(path) for path in files], "core": core_paths[0].read_text(), "hygiene": core_paths[1].read_text(), "rawMarrow": raw_marrow, "marrow": marrow, "displayOverrideIds": sorted(namespace["override_questions"])}
+    payload = {"prepFiles": [str(path) for path in files], "core": core_paths[0].read_text(), "hygiene": core_paths[1].read_text(), "rawMarrow": raw_marrow, "marrow": marrow, "displayOverrideIds": sorted(namespace["applied_content_ids"])}
     result = subprocess.run(["node", "-e", NODE], input=json.dumps(payload), text=True, capture_output=True, check=True, cwd=ROOT)
     evaluated = json.loads(result.stdout)
     all_rows = evaluated["records"]

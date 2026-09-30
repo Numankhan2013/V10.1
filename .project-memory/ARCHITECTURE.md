@@ -228,6 +228,10 @@ generated-app/package checks remain mandatory there. See `docs/LOCAL_DEVELOPMENT
 - The earlier Anatomy 62-question and Physiology 80-question pilot bundles remain
   compatibility/regression subsets. Expanded records replace the learner-facing
   Marrow envelope; approved augmentation IDs remain subsets of the expanded banks.
+- Learner stem/option OCR repairs are applied only at Marrow bank generation from
+  stable-ID display override manifests. Each manifest pins the immutable bundle
+  question/options fingerprint; source-reviewed Physiology manifests also pin the
+  ED8 PDF hash. The answer index and raw compressed source are never rewritten.
 - Explanation architecture is layered and non-destructive: all Marrow uses native
   structured source text/tables. The enhanced runtime layer includes only
   `approved-reference` and `approved-rollout` batches; `candidate-rollout`

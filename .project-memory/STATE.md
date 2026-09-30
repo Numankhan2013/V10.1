@@ -83,7 +83,7 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 - Whole-corpus serialized JSON/code sanitizer candidate `45f6539fff535fadc6aaa6970894f9ff123422fa` passed Engineering `34738522874` and full run `34738530102` over **2,711 questions / 27,898 learner-facing fields**; raw ED8 source is unchanged.
 - User preview review found residual OCR debris in Physiology Ch5/Ch7; verified follow-up `55d7ac8a89c2bbf6a01db5d305b8c975c344c1f3` added source-fingerprinted stable-ID display overrides for those two chapters. Engineering `34740460617` and full run `34740465004` passed; production skipped.
-- Do not generalize Ch5/Ch7 cleanliness to unreviewed chapters; use the same source-fingerprinted override workflow for future OCR cleanup.
+- Current candidate extends source-fingerprinted learner display overrides to Marrow Physiology Ch6 Q1–Q34; raw ED8 and answer indices stay unchanged. Local checks pass; full CI/preview pending. Ch9–12 remain source-review candidates; do not strip OCR symbols globally.
 
 ## Explanation lane
 
