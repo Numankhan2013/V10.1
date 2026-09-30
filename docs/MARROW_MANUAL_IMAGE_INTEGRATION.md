@@ -38,7 +38,7 @@ not establish canonical preview deployment. Production remains deferred.
 | Batch | Owner | Exclusive source scope | Starting backlog | Status | Working branch and base |
 | --- | --- | --- | --- | --- | --- |
 | `manual-biochem-ch25-28-20260928` | Codex, this user thread | Biochemistry Chapters 25–28, all source visuals and visual text cues | 22 references across 21 questions: Ch25 2, Ch26 5, Ch27 7, Ch28 8; 0 text-cue items | **COMPLETE / CANONICAL VERIFIED** | `feature/marrow-manual-images-20260928` from `e6fb3f813eb2c49a5220eec774ae60e551a7169f` |
-| `manual-physiology-ch03-07-20260928` | ChatGPT manual lane, this user thread | Physiology Chapters 3–7, all source visuals and visual text cues | 49 unresolved references across 39 questions: Ch3 5, Ch4 2, Ch5 2, Ch6 7, Ch7 33; 0 text-cue items | **CLAIMED / IN PROGRESS** | `manual/physiology-images-ch03-07-20260928` from the canonical claim commit; refresh registry/progress/coverage from live canonical after Biochemistry integration before shared-state writes |
+| `manual-physiology-ch03-07-20260928` | ChatGPT manual lane, this user thread | Physiology Chapters 3–7, all source visuals and visual text cues | 49 unresolved references across 39 questions: Ch3 5, Ch4 2, Ch5 2, Ch6 7, Ch7 33; 0 text-cue items | **SOURCE REVIEW COMPLETE / COMBINED FULL CI PENDING** | `integration/remaining-source-images-20260930` from the canonical claim commit; refresh registry/progress/coverage from live canonical after Biochemistry integration before shared-state writes |
 | `manual-wave2-anatomy-ch01-26` | Worker 1, Luna 6 medium | Anatomy Chapters 1–26, every source visual and visual text cue | 332 unresolved source references; 0 text cues | **PAUSED AT USAGE LIMIT / VALIDATED CHECKPOINT IN CANONICAL** | `manual/wave2-anatomy-ch01-26` at `b4ad582e`; five crop decisions remain |
 | `manual-wave2-anatomy-ch27-44` | Worker 2, Luna 6 medium | Anatomy Chapters 27–44, every source visual and visual text cue | 321 unresolved source references; 0 text cues | **PAUSED AT USAGE LIMIT / VALIDATED CHECKPOINT IN CANONICAL** | `manual/wave2-anatomy-ch27-44` at `1ae26e10`; four union crops and one ambiguous duplicate remain |
 | `manual-wave2-anatomy-ch45-55` | Worker 3, Luna 6 medium | Anatomy Chapters 45–55, every source visual and visual text cue | Original Ch45–63 claim narrowed after Ch52 checkpoint; 196 references in Ch45–55, 0 text cues | **COMPLETED / INTEGRATED** | `manual/wave2-anatomy-ch45-63` at `05fc781f`; 194 released, one held, one invalid |
@@ -355,3 +355,21 @@ The batch has not yet passed full preview/package CI; canonical integration
 and preview certification are pending. One combined full build is intended
 after source extraction and local checks, rather than a build per image batch.
 Production is not part of this task.
+
+Source extraction and deterministic registry/progress/coverage checks passed
+Ubuntu runs `36693009335` and crop refinement `36694166456`. The seven
+composite/masked/Flate source crops were visually inspected after generation.
+Q3 Q13's crop was widened to retain its complete source heading. The complete
+backlog now has **1,413 released / 79 invalid / 2 source-held / 1,494 references**,
+with zero unresolved text cues. Physiology is **268 released / 59 invalid / 1
+source hold of 328**. The original 49-reference claim is accounted for: 27
+released, 21 invalid, 1 held; Q5 Q6's cue adds two released source panels.
+
+Local verification: all 51 checks pass across the initial local suite plus the
+failed stale-progress image check rerun after derived-state regeneration.
+Six continuation-page corrections have fail-closed ownership/page/hash tests.
+The new browser regression checks every freshly reviewed question on phone
+and tablet, before and after answering, with fullscreen/zoom representatives.
+Full canonical browser/PWA/APK/Android certification remains pending.
+The user requested combined integration and one full preview build; source
+review/extraction and local validation precede that combined canonical run.

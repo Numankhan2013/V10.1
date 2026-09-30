@@ -49,16 +49,19 @@ def main():
                     expected_explanation = [row['src'] for row in metadata[qid] if row['role'] == 'explanation']
                     images = page.locator('.nk-marrow-figure-button img')
                     assert images.count() == len(expected_question), f'{qid}: explanation figure leaked before answering'
-                    actual = images.evaluate_all('(nodes)=>nodes.map(n=>n.getAttribute("src").replace(/^\.\//,""))')
+                    actual = images.evaluate_all(r'(nodes)=>nodes.map(n=>n.getAttribute("src").replace(/^\.\//,""))')
                     assert sorted(actual) == sorted(expected_question), f'{qid}: wrong question source image'
                     if expected_question:
                         page.wait_for_function('Array.from(document.querySelectorAll(".nk-marrow-figure-button img")).every(i=>i.complete&&i.naturalWidth>0)')
-                        assert all(alt == 'Source figure' for alt in images.evaluate_all('(nodes)=>nodes.map(n=>n.alt)')), f'{qid}: question alt text is identifying'
+                        assert all(alt == 'Source figure' for alt in images.evaluate_all(r'(nodes)=>nodes.map(n=>n.alt)')), f'{qid}: question alt text is identifying'
                         page.screenshot(path=str(OUT / f'final-images-{size}-{qid}-unanswered.png'), full_page=True)
                     page.locator('.option-list button').nth(int(q['correctOption']) - 1).click()
                     page.locator(f'[data-marrow-explanation="{qid}"]').wait_for(state='visible')
+                    for i in range(images.count()):
+                        images.nth(i).scroll_into_view_if_needed()
+                        page.wait_for_function('(i)=>{const image=document.querySelectorAll(".nk-marrow-figure-button img")[i];return image?.complete&&image.naturalWidth>0}', arg=i)
                     page.wait_for_function('Array.from(document.querySelectorAll(".nk-marrow-figure-button img")).every(i=>i.complete&&i.naturalWidth>0)')
-                    actual = images.evaluate_all('(nodes)=>nodes.map(n=>n.getAttribute("src").replace(/^\.\//,""))')
+                    actual = images.evaluate_all(r'(nodes)=>nodes.map(n=>n.getAttribute("src").replace(/^\.\//,""))')
                     assert sorted(actual) == sorted(expected_question + expected_explanation), f'{qid}: missing/wrong answered source image'
                     for e in [e for e in request['entries'] if e['questionId'] == qid]:
                         assert any(row['role'] == e['role'] and row['order'] == e['order'] for row in metadata[qid]), f'{e["referenceId"]}: reviewed binding absent'

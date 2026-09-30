@@ -1213,3 +1213,17 @@ continuation-page corrections remain outside immutable imported source.
 Q6 Q10's numbered question image is missing from source and remains held.
 Ubuntu source extraction and the combined full preview/package build are
 pending; no canonical or production release is claimed at this checkpoint.
+
+Final source reconciliation: 34 historical references were accepted with exact
+identity/provenance/stream checks; the excluded Q20 proposal was corrected by
+direct source ownership review. Twelve of fourteen ambiguous references are
+released, one duplicates an already released Q11 image, and Q6 Q10 is missing
+its source question diagram and remains held. Q5 Q6 adds two exact native
+source panels. Six metadata page errors have exact reviewed correction entries.
+Source extraction runs 36693009335 and 36694166456 passed. All seven generated
+composite/masked/Flate crops were inspected; Q3 Q13 was widened for its heading.
+Totals: 1,413 released / 79 invalid / 2 held of 1,494; unresolved cues=0.
+All 51 local checks passed, with the single stale-progress failure corrected
+and the image invariant test rerun successfully. New phone/tablet learner
+checks cover every freshly reviewed question and question/explanation timing.
+Full combined canonical CI/preview remains pending; no production promotion.
