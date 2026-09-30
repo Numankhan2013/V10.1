@@ -21,6 +21,7 @@ from marrow_images import DATA, ROOT, binding_is_released, validate
 AUDIT_PATH = ROOT / 'build/marrow-images/audit.json'
 DEFAULT_OUTPUT = DATA / 'images/coverage.json'
 DEFAULT_ADJUDICATIONS = DATA / 'images/source_reference_adjudications.json'
+DEFAULT_CUE_REVIEWS = DATA / 'images/source_text_cue_reviews.json'
 SUBJECTS = ('Anatomy', 'Biochemistry', 'Physiology')
 ADJUDICATION_STATUS = 'SOURCE_METADATA_INVALID'
 
@@ -99,6 +100,27 @@ def load_adjudications(path):
     return value
 
 
+def load_cue_reviews(path):
+    """Load exact, source-fingerprinted reviews for metadata-free text cues."""
+    if not path.exists():
+        return {'schemaVersion': 1, 'entries': []}
+    value = json.loads(path.read_text())
+    assert value.get('schemaVersion') == 1, 'Unsupported text-cue review schema'
+    seen = set()
+    for entry in value.get('entries', []):
+        assert entry.get('id') and entry.get('questionId')
+        assert entry.get('subject') in SUBJECTS
+        assert entry.get('status') in {'NO_SOURCE_VISUAL', 'VISUAL_REFERENCE_REQUIRED'}
+        pages = entry.get('sourcePages')
+        assert isinstance(pages, list) and all(isinstance(page, int) and page > 0 for page in pages)
+        assert entry.get('source') and entry['source'].get('file')
+        assert re.fullmatch(r'[0-9a-f]{64}', str(entry['source'].get('sha256', '')))
+        assert entry.get('reason') and entry.get('evidence')
+        assert entry['id'] not in seen, f"Duplicate text-cue review: {entry['id']}"
+        seen.add(entry['id'])
+    return value
+
+
 def adjudication_for(expected, adjudications):
     matches = []
     for entry in adjudications.get('entries', []):
@@ -117,8 +139,9 @@ def adjudication_for(expected, adjudications):
     return matches[0] if matches else None
 
 
-def build_coverage(audit, registry, adjudications=None):
+def build_coverage(audit, registry, adjudications=None, cue_reviews=None):
     adjudications = adjudications or {'schemaVersion': 1, 'entries': []}
+    cue_reviews = cue_reviews or {'schemaVersion': 1, 'entries': []}
     actual_by_question = defaultdict(list)
     for asset in registry['assets']:
         for binding in asset.get('bindings', []):
@@ -128,15 +151,40 @@ def build_coverage(audit, registry, adjudications=None):
     rows = []
     cue_rows = []
     matched_adjudications = set()
+    matched_cue_reviews = set()
     for expected in audit.get('bindings', []):
         if not expected.get('metadata'):
-            cue_rows.append({
+            cue_row = {
                 'id': expected.get('id'),
                 'questionId': expected.get('questionId'),
                 'subject': expected.get('subject'),
                 'status': 'TEXT_CUE_REVIEW_REQUIRED',
                 'reason': expected.get('reason', 'Text cue without source visual metadata'),
-            })
+            }
+            matches = [entry for entry in cue_reviews.get('entries', [])
+                       if entry.get('id') == expected.get('id')
+                       and entry.get('questionId') == expected.get('questionId')
+                       and entry.get('subject') == expected.get('subject')]
+            assert len(matches) <= 1, f"Ambiguous text-cue review: {expected.get('id')}"
+            if matches:
+                entry = matches[0]
+                provenance = expected.get('provenance') or {}
+                cue_source_pages = sorted(set((provenance.get('questionPages') or []) +
+                                              (provenance.get('explanationPages') or [])))
+                from marrow_images import SOURCES, sha
+                source_file = SOURCES[expected['subject']][1]
+                source_hash = sha((DATA / 'source_pdfs' / source_file).read_bytes())
+                assert entry.get('sourcePages') == cue_source_pages, f"Text-cue pages changed: {expected.get('id')}"
+                assert entry['source'] == {'file': source_file, 'sha256': source_hash}, f"Text-cue source changed: {expected.get('id')}"
+                matched_cue_reviews.add(entry['id'])
+                cue_row.update({
+                    'status': ('SOURCE_REVIEWED_NO_VISUAL' if entry['status'] == 'NO_SOURCE_VISUAL'
+                               else 'VISUAL_REFERENCE_REQUIRED'),
+                    'sourcePages': cue_source_pages,
+                    'reviewReason': entry['reason'],
+                    'reviewEvidence': entry['evidence'],
+                })
+            cue_rows.append(cue_row)
             continue
 
         row = {
@@ -193,11 +241,16 @@ def build_coverage(audit, registry, adjudications=None):
     unmatched_adjudications = sorted(declared_adjudications - matched_adjudications)
     if unmatched_adjudications:
         raise AssertionError('Source-reference adjudication no longer matches audit: ' + ', '.join(unmatched_adjudications))
+    declared_cue_reviews = {entry['id'] for entry in cue_reviews.get('entries', [])}
+    unmatched_cue_reviews = sorted(declared_cue_reviews - matched_cue_reviews)
+    if unmatched_cue_reviews:
+        raise AssertionError('Text-cue review no longer matches audit: ' + ', '.join(unmatched_cue_reviews))
 
     subject_summary = {}
     for subject in SUBJECTS:
         subject_rows = [row for row in rows if row.get('subject') == subject]
-        subject_cues = [row for row in cue_rows if row.get('subject') == subject]
+        subject_cues = [row for row in cue_rows if row.get('subject') == subject
+                        and row['status'] != 'SOURCE_REVIEWED_NO_VISUAL']
         released = sum(row['coverageStatus'] == 'RELEASED' for row in subject_rows)
         invalid = sum(row['coverageStatus'] == ADJUDICATION_STATUS for row in subject_rows)
         tracked_unreleased = sum(row['coverageStatus'] == 'UNRELEASED_TRACKED' for row in subject_rows)
@@ -230,6 +283,7 @@ def main():
     parser.add_argument('--audit', type=Path, default=AUDIT_PATH)
     parser.add_argument('--registry', type=Path, default=DATA / 'images/registry.json')
     parser.add_argument('--adjudications', type=Path, default=DEFAULT_ADJUDICATIONS)
+    parser.add_argument('--cue-reviews', type=Path, default=DEFAULT_CUE_REVIEWS)
     parser.add_argument('--output', type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument('--check', action='store_true')
     parser.add_argument('--subject', choices=SUBJECTS)
@@ -241,7 +295,8 @@ def main():
     audit = json.loads(args.audit.read_text())
     registry = validate(args.registry)
     adjudications = load_adjudications(args.adjudications)
-    coverage = build_coverage(audit, registry, adjudications)
+    cue_reviews = load_cue_reviews(args.cue_reviews)
+    coverage = build_coverage(audit, registry, adjudications, cue_reviews)
     rendered = json.dumps(coverage, indent=2, sort_keys=False) + '\n'
 
     if args.check:

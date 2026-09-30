@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Regression tests for source-reference image coverage accounting."""
 from marrow_image_coverage import ADJUDICATION_STATUS, build_coverage
+from marrow_images import DATA, SOURCES, sha
 
 
 def main():
@@ -40,6 +41,15 @@ def main():
                 'subject': 'Biochemistry',
                 'status': 'REVIEW_REQUIRED',
                 'reason': 'Text cue without figure metadata',
+                'provenance': {'questionPages': [500], 'explanationPages': [501]},
+            },
+            {
+                'id': 'marrow__BIOCHEM_CH20_Q002:unmapped',
+                'questionId': 'marrow__BIOCHEM_CH20_Q002',
+                'subject': 'Biochemistry',
+                'status': 'REVIEW_REQUIRED',
+                'reason': 'Text cue without figure metadata',
+                'provenance': {'questionPages': [502], 'explanationPages': [503]},
             },
         ]
     }
@@ -74,7 +84,25 @@ def main():
             },
         ]
     }
-    coverage = build_coverage(audit, registry)
+    bio_file = SOURCES['Biochemistry'][1]
+    bio_hash = sha((DATA / 'source_pdfs' / bio_file).read_bytes())
+    cue_reviews = {'schemaVersion': 1, 'entries': [
+        {
+            'id': 'marrow__BIOCHEM_CH20_Q001:unmapped',
+            'questionId': 'marrow__BIOCHEM_CH20_Q001', 'subject': 'Biochemistry',
+            'sourcePages': [500, 501], 'source': {'file': bio_file, 'sha256': bio_hash},
+            'status': 'NO_SOURCE_VISUAL', 'reason': 'No additional figure is present on the cited question or explanation pages.',
+            'evidence': 'Reviewed source pages 500 and 501 against the question and explanation text.',
+        },
+        {
+            'id': 'marrow__BIOCHEM_CH20_Q002:unmapped',
+            'questionId': 'marrow__BIOCHEM_CH20_Q002', 'subject': 'Biochemistry',
+            'sourcePages': [502, 503], 'source': {'file': bio_file, 'sha256': bio_hash},
+            'status': 'VISUAL_REFERENCE_REQUIRED', 'reason': 'The source page contains an untracked question-time figure.',
+            'evidence': 'Reviewed the exact source page and confirmed the figure matches the question prompt.',
+        },
+    ]}
+    coverage = build_coverage(audit, registry, cue_reviews=cue_reviews)
     summary = coverage['summary']['Biochemistry']
     assert summary['sourceVisualReferences'] == 4
     assert summary['effectiveLearnerVisualReferences'] == 4
@@ -86,6 +114,8 @@ def main():
     assert summary['textCueReviewItems'] == 1
     assert summary['sourceVisualCoverageComplete'] is False
     assert summary['humanCompletenessClaimAllowed'] is False
+    cue_rows = coverage['textCueReview']
+    assert {row['status'] for row in cue_rows} == {'SOURCE_REVIEWED_NO_VISUAL', 'VISUAL_REFERENCE_REQUIRED'}
 
     q11 = [row for row in coverage['sourceVisuals'] if row['questionId'] == 'marrow__BIOCHEM_CH19_Q011']
     assert len(q11) == 2
@@ -101,6 +131,26 @@ def main():
     assert dup_summary['sourceVisualReferences'] == 2
     assert dup_summary['releasedSourceVisualReferences'] == 1
     assert dup_summary['untrackedSourceVisualReferences'] == 1
+
+    # A reviewed false-positive cue clears only with exact source pages and PDF
+    # fingerprint. New or changed cues stay visible and fail closed.
+    stale_cue_reviews = {'schemaVersion': 1, 'entries': [dict(cue_reviews['entries'][0])]}
+    stale_cue_reviews['entries'][0]['sourcePages'] = [500]
+    try:
+        build_coverage(audit, registry, cue_reviews=stale_cue_reviews)
+    except AssertionError as exc:
+        assert 'Text-cue pages changed' in str(exc)
+    else:
+        raise AssertionError('A source-page change must invalidate text-cue review')
+
+    unmatched_cue_reviews = {'schemaVersion': 1, 'entries': [dict(cue_reviews['entries'][0])]}
+    unmatched_cue_reviews['entries'][0]['id'] = 'marrow__BIOCHEM_CH20_Q099:unmapped'
+    try:
+        build_coverage(audit, registry, cue_reviews=unmatched_cue_reviews)
+    except AssertionError as exc:
+        assert 'no longer matches audit' in str(exc)
+    else:
+        raise AssertionError('Orphaned text-cue reviews must fail closed')
 
     # A demonstrably false source-reference record is resolved only through an
     # exact evidence-backed adjudication. It remains visible in the raw source
