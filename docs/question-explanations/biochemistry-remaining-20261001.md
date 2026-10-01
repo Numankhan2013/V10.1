@@ -1,6 +1,6 @@
 # Biochemistry remaining explanations audit — 2026-10-01
 
-**Scope:** canonical Biochemistry source SHA-256 `919f0709b2eb833e302c6f7524b6dd2bd13bfaed638009375b5062135d3795b1`; authored against base `d4abce86068b4221e61e541c34dd29258de61cca` on `work/luna-biochem-remaining`. This checkpoint covers 64 of the 263 actionable pending IDs. Eight source-gated IDs remain excluded and untouched: CH13 Q020, CH14 Q012/Q018, CH15 Q003, CH16 Q014, CH17 Q012, CH27 Q012, CH28 Q009.
+**Scope:** canonical Biochemistry source SHA-256 `919f0709b2eb833e302c6f7524b6dd2bd13bfaed638009375b5062135d3795b1`; authored against base `d4abce86068b4221e61e541c34dd29258de61cca` on `work/luna-biochem-remaining`. This checkpoint covers 101 of the 263 actionable pending IDs. The authored-and-validated count is separate from deployment; no runtime wiring or preview build is included in this worktree. Eight source-gated IDs remain excluded and untouched: CH13 Q020, CH14 Q012/Q018, CH15 Q003, CH16 Q014, CH17 Q012, CH27 Q012, CH28 Q009.
 
 ## Batches
 
@@ -12,6 +12,9 @@
 | `explanation_biochem_ch16_q015_q021_v1.json` | 7 | Q015, Q016, Q017, Q018, Q019, Q020, Q021 |
 | `explanation_biochem_ch17_q001_q010_v1.json` | 10 | Q001, Q002, Q003, Q004, Q005, Q006, Q007, Q008, Q009, Q010 |
 | `explanation_biochem_ch17_q013_q024_v1.json` | 12 | Q013, Q014, Q015, Q016, Q017, Q018, Q019, Q020, Q021, Q022, Q023, Q024 |
+| `explanation_biochem_ch18_q001_q019_v1.json` | 18 | Q001–Q008, Q010–Q019 |
+| `explanation_biochem_ch19_q001_q010_v1.json` | 10 | Q001–Q010 |
+| `explanation_biochem_ch19_q011_q020_v1.json` | 9 | Q011–Q018, Q020 |
 
 ## Source review and flags
 
@@ -110,3 +113,88 @@ Page references below are from immutable `provenance.questionPages` / `provenanc
   - Flag: missing lab values referenced in stem; display uses biopsy finding and source explanation only.
 - `marrow__BIOCHEM_CH17_Q023` — key C; question p. 268, explanation p. 281; reconstruction review.
 - `marrow__BIOCHEM_CH17_Q024` — key B; question p. 269, explanation p. 282; reconstruction review.
+
+## Additional question references — checkpoint 101 of 263
+
+
+### `explanation_biochem_ch18_q001_q019_v1.json`
+
+- `marrow__BIOCHEM_CH18_Q001` — key D; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+- `marrow__BIOCHEM_CH18_Q002` — key D; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+- `marrow__BIOCHEM_CH18_Q003` — key A; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+- `marrow__BIOCHEM_CH18_Q004` — key A; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+- `marrow__BIOCHEM_CH18_Q005` — key D; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+- `marrow__BIOCHEM_CH18_Q006` — key D; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+- `marrow__BIOCHEM_CH18_Q007` — key B; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+- `marrow__BIOCHEM_CH18_Q008` — key A; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+- `marrow__BIOCHEM_CH18_Q010` — key A; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+- `marrow__BIOCHEM_CH18_Q011` — key B; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+- `marrow__BIOCHEM_CH18_Q012` — key A; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+- `marrow__BIOCHEM_CH18_Q013` — key B; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+- `marrow__BIOCHEM_CH18_Q014` — key D; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+- `marrow__BIOCHEM_CH18_Q015` — key A; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+- `marrow__BIOCHEM_CH18_Q016` — key C; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+- `marrow__BIOCHEM_CH18_Q017` — key A; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+- `marrow__BIOCHEM_CH18_Q018` — key B; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+- `marrow__BIOCHEM_CH18_Q019` — key D; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+
+### `explanation_biochem_ch19_q001_q010_v1.json`
+
+- `marrow__BIOCHEM_CH19_Q001` — key B; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+- `marrow__BIOCHEM_CH19_Q002` — key C; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+- `marrow__BIOCHEM_CH19_Q003` — key B; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+- `marrow__BIOCHEM_CH19_Q004` — key D; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+- `marrow__BIOCHEM_CH19_Q005` — key D; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+- `marrow__BIOCHEM_CH19_Q006` — key A; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+- `marrow__BIOCHEM_CH19_Q007` — key C; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+- `marrow__BIOCHEM_CH19_Q008` — key C; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+- `marrow__BIOCHEM_CH19_Q009` — key C; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+- `marrow__BIOCHEM_CH19_Q010` — key B; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+
+### `explanation_biochem_ch19_q011_q020_v1.json`
+
+- `marrow__BIOCHEM_CH19_Q011` — key A; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+- `marrow__BIOCHEM_CH19_Q012` — key D; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+- `marrow__BIOCHEM_CH19_Q013` — key D; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+- `marrow__BIOCHEM_CH19_Q014` — key A; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+- `marrow__BIOCHEM_CH19_Q015` — key A; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+- `marrow__BIOCHEM_CH19_Q016` — key A; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+- `marrow__BIOCHEM_CH19_Q017` — key D; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+- `marrow__BIOCHEM_CH19_Q018` — key B; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+- `marrow__BIOCHEM_CH19_Q020` — key C; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
