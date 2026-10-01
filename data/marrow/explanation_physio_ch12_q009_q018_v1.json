@@ -1,0 +1,274 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Marrow ED8 Physiology Chapter 12 explanation rollout; raw imported source remains immutable.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "12",
+    "chapterTitle": "Somatosensory Pathways",
+    "questionStart": 9,
+    "questionEnd": 18,
+    "questions": 10,
+    "status": "approved-rollout",
+    "workloadScore": 14,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 753,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__PHYS_CH12_Q009": {
+      "takeaway": "A lesion in the right lateral postcentral gyrus impairs contralateral facial sensation.",
+      "displayText": "The postcentral gyrus represents the opposite side of the body. Its lateral portion receives sensation from the face and neck, while the medial portion represents the trunk and lower limb. A lesion in the right lateral postcentral gyrus therefore produces sensory loss over the left face.\n\nThe arrangement is somatotopic: lower-limb representation is medial and superior; facial representation is lateral and inferior. The side of the cortical lesion determines contralaterality, while its medial–lateral position predicts which body region is affected.\n\n The source states that each hemisphere receives somatic sensory information from the opposite side of the body in the postcentral gyrus. Its lateral portion receives information from the facial and neck region; the medial portion receives information from the trunk and appendages.\n\n Thus this injury would result in loss of sensation in the left facial area.",
+      "emphasis": [
+        "opposite side of the body",
+        "lateral portion receives sensation from the face and neck",
+        "left face"
+      ],
+      "rationales": {
+        "a": "The lower limb is represented medially, not in the lateral cortical area described.",
+        "b": "The lower limb is represented medially and on the contralateral side; both region and side differ from this choice.",
+        "d": "A right-hemisphere lesion affects the left face because somatic sensory input is represented contralaterally."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanation layer contains OCR substitutions or damaged text that obscures source-specific details.",
+        "reconstructedContent": "The imported explanation is OCR-damaged.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology printed page 235, rendered from the immutable PDF with SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe, was visually reviewed for the affected explanation/figure."
+        ],
+        "reviewNote": "The imported explanation is OCR-damaged. Printed page 235 confirms the right lateral postcentral lesion produces left facial sensory loss and shows the face/neck versus trunk/appendage cortical topography.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          235
+        ]
+      }
+    },
+    "marrow__PHYS_CH12_Q010": {
+      "takeaway": "Bilateral damage to somatosensory area I chiefly impairs localization and discriminative sensory judgments.",
+      "displayText": "A bilateral lesion of primary somatosensory area I disrupts the cortical map needed to localize touch and to make discriminative sensory judgments. The source lists difficulty localizing a sensation, grading pressure, estimating an object’s weight, recognizing its shape by touch (astereognosis), and judging texture.\n\nPain and temperature may still be perceived after an S1 lesion, but they are poorly localized because their precise body map depends on this cortex. Thus the keyed deficit is localization, rather than loss of pain or temperature as modalities.\n\n The source’s full list of impaired sensory judgments after bilateral S1 lesions includes localizing different sensations in different parts of the body; judging degrees of pressure against the body; judging object weight; judging object shape (astereognosis); and judging material texture. Pain and temperature are not lost in quality or intensity, but are poorly localized because localization depends on the topographical body map in somatosensory area I.\n\n Pain and temperature are not affected in quality or intensity; they are poorly localised. The topographical map of the body in somatosensory area I is important for localizing their source.",
+      "emphasis": [
+        "localize touch",
+        "astereognosis",
+        "Pain and temperature may still be perceived"
+      ],
+      "rationales": {
+        "a": "Pain can remain detectable after an S1 lesion; its localization is impaired, so pain loss alone is not the defining answer.",
+        "c": "Temperature can also be perceived, although its location may be judged poorly.",
+        "d": "The options do not all describe the same deficit: pain and temperature perception can persist while localization is impaired."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanation layer contains OCR substitutions or damaged text that obscures source-specific details.",
+        "reconstructedContent": "The imported explanation contains OCR corruption.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology printed page 236, rendered from the immutable PDF with SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe, was visually reviewed for the affected explanation/figure."
+        ],
+        "reviewNote": "The imported explanation contains OCR corruption. Printed page 236 confirms the complete list of impaired sensory judgments and that pain and temperature remain perceptible but poorly localized after bilateral S1 lesions.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          236
+        ]
+      }
+    },
+    "marrow__PHYS_CH12_Q011": {
+      "takeaway": "Brown–Séquard hemisection causes contralateral pain and temperature loss below the lesion.",
+      "displayText": "A spinal cord hemisection produces Brown–Séquard syndrome. The spinothalamic pathway carrying pain and temperature crosses within the spinal cord, so damage on one side causes loss on the opposite side, typically beginning one or two segments below the lesion.\n\nThe same lesion interrupts ipsilateral dorsal-column fibers before they cross in the medulla, causing loss of discriminative touch, vibration, and conscious proprioception on the side of the lesion below it. Ipsilateral corticospinal damage can also cause upper-motor-neuron weakness.\n\n A spinal hemisection damages ascending sensory pathways (dorsal-column and ventrolateral spinothalamic tracts) and descending motor corticospinal pathways, producing Brown–Séquard syndrome. The lesion of fasciculus gracilis or fasciculus cuneatus produces ipsilateral loss of discriminative touch, vibration, and proprioception below the lesion; spinothalamic loss begins one or two segments below. Corticospinal damage produces weakness and spasticity on the same side.\n\n Brown–Séquard syndrome is the likely diagnosis in this patient, characterized by contralateral pain and temperature loss. Hemisection affects specific sensory and motor pathways below the level of the lesion.",
+      "emphasis": [
+        "crosses within the spinal cord",
+        "opposite side",
+        "vibration, and conscious proprioception on the side of the lesion"
+      ],
+      "rationales": {
+        "b": "Fine touch ascends ipsilaterally in the dorsal columns below a spinal hemisection; it is not lost on the opposite side.",
+        "c": "Pain and temperature loss is contralateral because spinothalamic fibers have crossed in the cord.",
+        "d": "The syndrome affects several modalities; pain loss is contralateral rather than same-sided and is accompanied by temperature loss."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanation layer contains OCR substitutions or damaged text that obscures source-specific details.",
+        "reconstructedContent": "The imported explanation contains OCR corruption.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology printed page 236, rendered from the immutable PDF with SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe, was visually reviewed for the affected explanation/figure."
+        ],
+        "reviewNote": "The imported explanation contains OCR corruption. Printed pages 236–237 confirm Brown–Séquard findings and the crossed spinothalamic versus uncrossed-below-medulla dorsal-column pattern.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          236
+        ]
+      }
+    },
+    "marrow__PHYS_CH12_Q012": {
+      "takeaway": "Below a hemisection, vibration and fine touch are lost ipsilaterally because dorsal-column fibers cross in the medulla.",
+      "displayText": "Brown–Séquard syndrome follows a spinal cord hemisection. Below the lesion, dorsal-column modalities—fine touch, two-point discrimination, vibration, and conscious proprioception—are impaired on the same side because these fibers have not yet crossed; they decussate in the medulla.\n\nSpinothalamic fibers cross shortly after entering the spinal cord, so pain, temperature, crude touch, and pressure are lost mainly on the opposite side below the lesion. Damage to the corticospinal tract causes ipsilateral upper-motor-neuron weakness and spasticity below the lesion.\n\n The source also notes common causes such as vertebral fracture-dislocation, bullet or stab wound, and expanding tumor. Clinical features are ipsilateral pyramidal weakness (an upper-motor-neuron pattern), impaired fine touch, two-point discrimination, proprioception, and vibration below the lesion; and contralateral loss of pain, temperature, crude touch, and pressure after spinothalamic fibers cross the midline in the cord.\n\n In short, the patient has an ipsilateral upper-motor-neuron type of paralysis and loss of fine touch/vibration/proprioception, with contralateral crude touch, pressure, pain, and temperature loss.",
+      "emphasis": [
+        "on the same side",
+        "decussate in the medulla",
+        "opposite side below the lesion"
+      ],
+      "rationales": {
+        "a": "Pyramidal weakness below a hemisection is ipsilateral, since corticospinal fibers crossed in the medulla before descending.",
+        "b": "Fine touch below the lesion is impaired ipsilaterally in the dorsal-column pathway, not contralaterally.",
+        "c": "Crude touch travels in the anterolateral system and is lost contralaterally below the lesion, not on the same side."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanation layer contains OCR substitutions or damaged text that obscures source-specific details.",
+        "reconstructedContent": "The imported explanation has OCR substitutions.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology printed page 237, rendered from the immutable PDF with SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe, was visually reviewed for the affected explanation/figure."
+        ],
+        "reviewNote": "The imported explanation has OCR substitutions. Printed page 237 confirms ipsilateral pyramidal and dorsal-column deficits and contralateral spinothalamic deficits below a hemisection.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          237
+        ]
+      }
+    },
+    "marrow__PHYS_CH12_Q013": {
+      "takeaway": "Itch signals ascend in the anterolateral system, with C-fiber afferents carrying much of the peripheral input.",
+      "displayText": "Pruritic input travels in the anterolateral spinothalamic system, and many itch-sensitive primary afferents are slowly conducting unmyelinated C fibers. Histamine and kinins released in injured or inflamed skin can evoke itch; repeated mechanical stimulation may also do so.\n\nScratching can relieve itch by activating large, fast Aβ touch afferents. In the dorsal horn, this non-nociceptive input recruits inhibitory circuitry and gates transmission from C-fiber pruriceptive input, analogous to touch-related pain modulation.\n\n Itch-specific fibers have been demonstrated in the anterolateral spinothalamic tract and are carried by unmyelinated C fibers. Repeated local mechanical stimulation of skin or chemical agents, including histamine and kinins released in response to tissue damage, can produce itching. Simple scratching relieves itch because large, fast-conducting Aβ afferents gate dorsal-horn transmission, analogous to inhibition of pain by stimulating similar afferents (gate-control theory).\n\n These itch-specific fibers have been demonstrated in the anterolateral tract, and scratching inhibits transmission in a manner similar to gate control of pain.",
+      "emphasis": [
+        "anterolateral spinothalamic system",
+        "unmyelinated C fibers",
+        "large, fast Aβ touch afferents"
+      ],
+      "rationales": {
+        "a": "The dorsal columns primarily carry discriminative touch, vibration, and conscious proprioception rather than the source-keyed itch pathway.",
+        "b": "Spinocerebellar pathways carry unconscious proprioceptive information to the cerebellum, not itch to conscious sensory targets.",
+        "d": "The corticospinal tract is descending motor output and does not carry pruritic sensation."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanation layer contains OCR substitutions or damaged text that obscures source-specific details.",
+        "reconstructedContent": "The imported explanation is severely OCR-damaged.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology printed page 237, rendered from the immutable PDF with SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe, was visually reviewed for the affected explanation/figure."
+        ],
+        "reviewNote": "The imported explanation is severely OCR-damaged. Printed page 237 confirms the C-fiber itch pathway, chemical/mechanical triggers, and Aβ gate-control effect of scratching.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          237
+        ]
+      }
+    },
+    "marrow__PHYS_CH12_Q014": {
+      "takeaway": "Endogenous opioids include endorphins, enkephalins, and dynorphins; dopamine is a catecholamine, not an opioid peptide.",
+      "displayText": "Endogenous opioid peptides include β-endorphin, enkephalins, and dynorphins. In descending analgesic pathways they act at opioid receptors and suppress nociceptive transmission through presynaptic and postsynaptic inhibition, reducing excitatory postsynaptic potentials. Presynaptic opioid action at primary afferent terminals reduces release of substance P.\n\nDopamine is a catecholamine neurotransmitter, not an endogenous opioid peptide, so it is the exception.\n\n These opioid neuropeptides are released from descending analgesic pathways and bind opiate receptors on afferent pain-fiber terminals. Presynaptic and postsynaptic inhibition reduces excitatory postsynaptic potential (EPSP); binding suppresses substance P release and blocks further transmission of the pain signal.\n\n Endogenous opioids are a group of neuropeptides that includes beta-endorphin, dynorphins, and enkephalins; both presynaptic and postsynaptic actions reduce excitatory post-synaptic potential.",
+      "emphasis": [
+        "β-endorphin, enkephalins, and dynorphins",
+        "presynaptic and postsynaptic inhibition",
+        "Dopamine is a catecholamine neurotransmitter"
+      ],
+      "rationales": {
+        "b": "Endorphins are endogenous opioid peptides and therefore belong to the group asked about.",
+        "c": "Enkephalins act at opioid receptors and are endogenous opioid peptides.",
+        "d": "Dynorphins are endogenous opioid peptides; they are not the exception."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanation layer contains OCR substitutions or damaged text that obscures source-specific details.",
+        "reconstructedContent": "The imported explanation contains OCR damage.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology printed page 237, rendered from the immutable PDF with SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe, was visually reviewed for the affected explanation/figure."
+        ],
+        "reviewNote": "The imported explanation contains OCR damage. Printed page 237 confirms endogenous opioid peptide families and presynaptic/post-synaptic suppression of nociceptive transmission.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          237
+        ]
+      }
+    },
+    "marrow__PHYS_CH12_Q015": {
+      "takeaway": "The source’s classical explanation for acupuncture analgesia is activation of endogenous endorphin-mediated pain modulation.",
+      "displayText": "The source keys endorphin release as the mechanism for acupuncture-related pain relief. In the classical endogenous-opioid hypothesis, acupuncture activates afferent input that engages spinal and midbrain analgesic circuits, promoting release of endogenous opioids and reducing nociceptive transmission.\n\nThis is the option tested by the item; acupuncture analgesia is not explained by one mediator in every clinical setting, and the proposed pathway should be understood as a physiological model rather than a complete account of treatment effects.\n\n The source calls the acupuncture endorphin hypothesis the primary mechanism of acupuncture analgesia: acupuncture is thought to activate afferent neurons leading to spinal-cord and midbrain centers that release endogenous opioids implicated in pain relief.",
+      "emphasis": [
+        "endorphin release",
+        "spinal and midbrain analgesic circuits",
+        "endogenous opioids"
+      ],
+      "rationales": {
+        "a": "Substance P promotes nociceptive transmission at primary afferent terminals; it is not the source-keyed analgesic mediator.",
+        "c": "Serotonin participates in descending pain modulation, but the source identifies endogenous endorphin release as the best answer here.",
+        "d": "Histamine is a peripheral inflammatory mediator and can sensitize nociceptors; it is not the source-keyed mediator of acupuncture analgesia."
+      }
+    },
+    "marrow__PHYS_CH12_Q016": {
+      "takeaway": "Fast, sharp pain ascends mainly through the neospinothalamic pathway carried by Aδ fibers.",
+      "displayText": "Fast pain is carried mainly by thinly myelinated Aδ fibers in the neospinothalamic pathway. It is relatively rapid, sharp, and well localized (epicritic pain). The pathway projects to the thalamus and somatosensory cortex, supporting prompt localization.\n\nSlow, aching or burning pain is more associated with unmyelinated C fibers and the paleospinothalamic system; it is less sharply localized and has stronger affective and autonomic associations.\n\n The source distinguishes neospinothalamic transmission of fast pain/epicritic pain by Aδ fibers from paleospinothalamic transmission of slow/protopathic pain by C fibers.\n\n Pain signals use two pathways to the brain: the neospinothalamic tract for fast epicritic pain, and the paleospinothalamic tract for slow protopathic pain.",
+      "emphasis": [
+        "Fast pain",
+        "Aδ fibers in the neospinothalamic pathway",
+        "unmyelinated C fibers"
+      ],
+      "rationales": {
+        "b": "The paleospinothalamic pathway is associated chiefly with slow, dull or burning pain carried by C fibers.",
+        "c": "Dorsal-column fibers carry fine touch, vibration, and conscious proprioception, not the principal fast-pain pathway.",
+        "d": "A defined pathway carries fast pain; the source specifically keys the neospinothalamic tract."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanation layer contains OCR substitutions or damaged text that obscures source-specific details.",
+        "reconstructedContent": "The imported explanation contains OCR substitutions.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology printed page 238, rendered from the immutable PDF with SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe, was visually reviewed for the affected explanation/figure."
+        ],
+        "reviewNote": "The imported explanation contains OCR substitutions. Printed page 238 confirms the source distinction between fast Aδ neospinothalamic pain and slow C-fiber paleospinothalamic pain.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          238
+        ]
+      }
+    },
+    "marrow__PHYS_CH12_Q017": {
+      "takeaway": "Endocannabinoid signaling contributes to stress-induced analgesia, alongside descending monoaminergic mechanisms.",
+      "displayText": "Stress-induced analgesia is reduced pain sensitivity during an acute stressful event. The source keys cannabinoids and lists endogenous endocannabinoids—2-arachidonoylglycerol (2-AG) and anandamide—as contributors. It also describes norepinephrine release from brainstem catecholaminergic neurons acting in the amygdala.\n\nThese systems can dampen nociceptive processing during stress. The option asks for the source’s cannabinoid mechanism; it does not imply that cannabinoids are the only pathway involved in stress analgesia.\n\n The source lists release of endogenous cannabinoids such as 2-arachidonoylglycerol (2-AG) and anandamide, and release of norepinephrine from brainstem catecholaminergic neurons in the amygdala.\n\n This is reduced pain sensitivity during stressful events; release of these endocannabinoids and norepinephrine contributes to the source’s stress-induced analgesia mechanism.",
+      "emphasis": [
+        "Stress-induced analgesia",
+        "2-arachidonoylglycerol (2-AG) and anandamide",
+        "norepinephrine release from brainstem catecholaminergic neurons"
+      ],
+      "rationales": {
+        "a": "Substance P facilitates nociceptive transmission rather than being the cannabinoid mediator keyed for stress-induced analgesia.",
+        "b": "Serotonin can modulate pain in descending pathways, but the source explanation for this item specifies endocannabinoids.",
+        "d": "Cortisol is a stress hormone but is not the source-keyed mediator of stress-induced analgesia; the cited mechanism is cannabinoid signaling."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanation layer contains OCR substitutions or damaged text that obscures source-specific details.",
+        "reconstructedContent": "The imported explanation is OCR-damaged.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology printed page 238, rendered from the immutable PDF with SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe, was visually reviewed for the affected explanation/figure."
+        ],
+        "reviewNote": "The imported explanation is OCR-damaged. Printed page 238 confirms the source list of endocannabinoids (2-AG and anandamide) and norepinephrine from brainstem catecholaminergic neurons in the amygdala.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          238
+        ]
+      }
+    },
+    "marrow__PHYS_CH12_Q018": {
+      "takeaway": "The tectocerebellar tract carries visual and auditory orienting input, not proprioceptive impulses.",
+      "displayText": "The tectocerebellar tract conveys visual and auditory signals from tectal centers for orienting responses; it is not a proprioceptive pathway. By contrast, spinocerebellar input carries unconscious proprioception from the limbs and trunk, while cuneocerebellar and olivocerebellar pathways also contribute proprioceptive information to the cerebellum.\n\nVestibulocerebellar fibers carry vestibular information used for balance and eye-movement control. These pathways converge on cerebellar circuits but differ in the sensory source they convey.\n\n Specifically, spinocerebellar, olivocerebellar, and cuneocerebellar tracts carry proprioceptive impulses, whereas the vestibulocerebellar tract carries vestibular impulses.\n\n The tectocerebellar tract does not carry proprioceptive impulses; its visual and auditory inputs contrast with proprioceptive input carried by spinocerebellar, olivocerebellar, and cuneocerebellar tracts. The vestibulocerebellar tract carries vestibular impulses.",
+      "emphasis": [
+        "visual and auditory signals from tectal centers",
+        "not a proprioceptive pathway",
+        "Vestibulocerebellar fibers carry vestibular information"
+      ],
+      "rationales": {
+        "a": "The olivocerebellar pathway conveys proprioceptive-related information to the cerebellum and is not the tract identified as the exception.",
+        "c": "Spinocerebellar pathways are a principal route for unconscious proprioceptive impulses.",
+        "d": "Cuneocerebellar fibers relay proprioceptive input from the upper limb and upper trunk to the cerebellum."
+      }
+    }
+  }
+}
