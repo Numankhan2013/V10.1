@@ -1322,3 +1322,5 @@ Integrated existing worker commits without reauthoring: Anatomy 59 (493639f7, 5e
 - Balanced untouched Physiology ownership: primary stops at Ch27 (332 total,120 remaining after212 complete); freed tail worker takes Ch28–33 (165) after Ch34–43, with separate middle audit. Completed work is not restarted.
 
 - 2026-10-01 checkpoint: 1,385 new validated / 2,138 candidate enhanced,550 actionable remain. Biochemistry worker completed Bio263,Anatomy-tail252,Physiology-tail261 and continues untouched middle165. Primary Anatomy397/662,Physiology212/332. Duplicate Anatomy emphasis anchor corrected; worker validator now catches duplicate anchors locally. No push/deployment before full completion.
+
+- Finished Physiology middle165 integrated; primary Physiology Ch22 added20. Rebalanced untouched AnatomyCh43–50 (137) to available tail worker; primary stops42. Primary Anatomy through38 now450/525. Authored integration1623new/2376candidate,312actions remain. Exception-only review caught false pancreatic A/D ambiguity: optionA is hypertonic, not isotonic; worker correcting rationale before release.
