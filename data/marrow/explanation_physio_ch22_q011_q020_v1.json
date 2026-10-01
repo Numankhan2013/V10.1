@@ -1,0 +1,288 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Marrow ED8 Physiology Chapter 22 explanation rollout; raw imported source remains immutable.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "22",
+    "chapterTitle": "Gas Transport in Blood",
+    "questionStart": 11,
+    "questionEnd": 20,
+    "questions": 10,
+    "status": "approved-rollout",
+    "workloadScore": 14,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 975,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__PHYSIO_CH22_Q011": {
+      "takeaway": "The normal adult P50 is approximately 27 mmHg.",
+      "displayText": "P50 is the PO₂ at which Hb is 50% saturated and indexes Hb–O₂ affinity. Normal adult Hb has a P50 of about 27 mmHg. A higher P50 means lower oxygen affinity and a right-shifted dissociation curve; a lower P50 means higher affinity and a left shift.",
+      "emphasis": [
+        "P50"
+      ],
+      "rationales": {
+        "b": "45 mmHg is not the adult Hb P50; 27 mmHg corresponds to 50% saturation.",
+        "c": "10 mmHg would indicate a much higher affinity than normal adult hemoglobin.",
+        "d": "100 mmHg is near alveolar PO₂, not the PO₂ for 50% Hb saturation."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were checked to verify shifted-curve, Haldane, chloride-shift, and blood-capacity details where imported text contained OCR damage.",
+        "reconstructedContent": "P50 is the PO₂ at which Hb is 50% saturated and indexes Hb–O₂ affinity. Normal adult Hb has a P50 of about 27 mmHg. A higher P50 means lower oxygen affinity and a right-shifted dissociation curve; a lower P50 means higher affinity and a left shift.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 409, 410 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed curve/diagram labels and numerical explanations were reviewed; OCR artifacts were corrected and keyed physiology retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          409,
+          410
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH22_Q012": {
+      "takeaway": "Lower pH reduces Hb affinity and shifts the oxygen curve right, promoting O₂ unloading.",
+      "displayText": "A decrease in pH shifts the oxygen–hemoglobin dissociation curve to the right (Bohr effect), lowering Hb affinity and helping unload O₂ to metabolically active tissue. Increased CO₂, temperature, and 2,3-DPG also shift right; hypoxia, hypercarbia, reduced pH, exercise, and increased anaerobic glycolysis are associated conditions. Growth hormone, thyroid hormone, and androgen can increase 2,3-DPG. A left shift reflects higher affinity, as with alkalosis, reduced CO₂, lower 2,3-DPG, or hypothermia.",
+      "emphasis": [
+        "pH"
+      ],
+      "rationales": {
+        "b": "A left shift increases Hb affinity and favors loading, the opposite of the effect of lower pH.",
+        "c": "Lower pH does shift the dissociation curve; it does not leave it unchanged.",
+        "d": "The source’s direction is a right shift when pH falls."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were checked to verify shifted-curve, Haldane, chloride-shift, and blood-capacity details where imported text contained OCR damage.",
+        "reconstructedContent": "A decrease in pH shifts the oxygen–hemoglobin dissociation curve to the right (Bohr effect), lowering Hb affinity and helping unload O₂ to metabolically active tissue. Increased CO₂, temperature, and 2,3-DPG also shift right; hypoxia, hypercarbia, reduced pH, exercise, and increased anaerobic glycolysis are associated conditions. Growth hormone, thyroid hormone, and androgen can increase 2,3-DPG. A left shift reflects higher affinity, as with alkalosis, reduced CO₂, lower 2,3-DPG, or hypothermia.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 410, 411 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed curve/diagram labels and numerical explanations were reviewed; OCR artifacts were corrected and keyed physiology retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          410,
+          411
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH22_Q013": {
+      "takeaway": "Each myoglobin binds one O₂, so four myoglobin molecules bind four O₂ molecules.",
+      "displayText": "Four molecules of myoglobin bind four O₂ molecules because each myoglobin molecule has one heme and binds one oxygen molecule. Myoglobin’s O₂-dissociation curve is a rectangular hyperbola and lies to the left of the sigmoid hemoglobin curve, reflecting its higher affinity and role as an O₂ store in muscle.",
+      "emphasis": [
+        "myoglobin"
+      ],
+      "rationales": {
+        "b": "Each myoglobin binds one O₂, not four; four myoglobin molecules bind four O₂.",
+        "c": "One O₂ is bound per myoglobin molecule, so four molecules bind more than one O₂ total.",
+        "d": "Sixteen would require each myoglobin molecule to bind four O₂ molecules."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were checked to verify shifted-curve, Haldane, chloride-shift, and blood-capacity details where imported text contained OCR damage.",
+        "reconstructedContent": "Four molecules of myoglobin bind four O₂ molecules because each myoglobin molecule has one heme and binds one oxygen molecule. Myoglobin’s O₂-dissociation curve is a rectangular hyperbola and lies to the left of the sigmoid hemoglobin curve, reflecting its higher affinity and role as an O₂ store in muscle.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 411 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed curve/diagram labels and numerical explanations were reviewed; OCR artifacts were corrected and keyed physiology retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          411
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH22_Q014": {
+      "takeaway": "The Bohr effect’s pH/CO₂-mediated right shift promotes tissue O₂ unloading.",
+      "displayText": "The Bohr effect facilitates O₂ delivery to tissues. Increased tissue metabolism produces CO₂, which enters blood, raises carbonic acid and H⁺, lowers pH, and reduces Hb affinity for oxygen; the O₂–Hb dissociation curve shifts right and unloads O₂. In the lungs, CO₂ leaves blood, H⁺ falls, the curve shifts left, and Hb affinity rises for O₂ loading. In the placenta, fetal blood arrives with more CO₂; CO₂ diffuses into maternal blood. Fetal CO₂ and H⁺ then fall, shifting fetal Hb left and promoting O₂ loading, while maternal CO₂ and H⁺ rise, shifting maternal Hb right and promoting O₂ release. This double Bohr effect assists transfer.",
+      "emphasis": [
+        "Bohr"
+      ],
+      "rationales": {
+        "b": "The effect described is primarily pH/CO₂ regulation of Hb oxygen affinity and unloading, not CO₂ transport itself.",
+        "c": "Chloride transport through the RBC anion exchanger is the chloride shift, not the Bohr effect.",
+        "d": "Bohr effect facilitates tissue oxygen unloading and therefore O₂ transport; “none” is incorrect."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were checked to verify shifted-curve, Haldane, chloride-shift, and blood-capacity details where imported text contained OCR damage.",
+        "reconstructedContent": "The Bohr effect facilitates O₂ delivery to tissues. Increased tissue metabolism produces CO₂, which enters blood, raises carbonic acid and H⁺, lowers pH, and reduces Hb affinity for oxygen; the O₂–Hb dissociation curve shifts right and unloads O₂. In the lungs, CO₂ leaves blood, H⁺ falls, the curve shifts left, and Hb affinity rises for O₂ loading. In the placenta, fetal blood arrives with more CO₂; CO₂ diffuses into maternal blood. Fetal CO₂ and H⁺ then fall, shifting fetal Hb left and promoting O₂ loading, while maternal CO₂ and H⁺ rise, shifting maternal Hb right and promoting O₂ release. This double Bohr effect assists transfer.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 411, 412 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed curve/diagram labels and numerical explanations were reviewed; OCR artifacts were corrected and keyed physiology retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          411,
+          412
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH22_Q015": {
+      "takeaway": "Acidosis inhibits red-cell glycolysis and decreases 2,3-DPG.",
+      "displayText": "The level of 2,3-DPG is decreased in acidosis. Acidosis inhibits red-cell glycolysis, which reduces 2,3-DPG generated from the glycolytic intermediate 3-phosphoglycerate. Since 2,3-DPG binds deoxyhemoglobin and reduces O₂ affinity, the lower concentration in acidosis shifts Hb toward greater oxygen affinity relative to high-DPG conditions. Anemia, high altitude, and exercise typically increase 2,3-DPG as an adaptation to improve tissue O₂ release.",
+      "emphasis": [
+        "The level of 2,3-DPG is decreased in acidosis."
+      ],
+      "rationales": {
+        "a": "Anemia generally raises 2,3-DPG over time to promote oxygen unloading.",
+        "c": "High altitude increases 2,3-DPG as an adaptive response to hypoxia.",
+        "d": "Exercise and increased tissue demand tend to increase 2,3-DPG, not decrease it."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were checked to verify shifted-curve, Haldane, chloride-shift, and blood-capacity details where imported text contained OCR damage.",
+        "reconstructedContent": "The level of 2,3-DPG is decreased in acidosis. Acidosis inhibits red-cell glycolysis, which reduces 2,3-DPG generated from the glycolytic intermediate 3-phosphoglycerate. Since 2,3-DPG binds deoxyhemoglobin and reduces O₂ affinity, the lower concentration in acidosis shifts Hb toward greater oxygen affinity relative to high-DPG conditions. Anemia, high altitude, and exercise typically increase 2,3-DPG as an adaptation to improve tissue O₂ release.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 412 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed curve/diagram labels and numerical explanations were reviewed; OCR artifacts were corrected and keyed physiology retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          412
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH22_Q016": {
+      "takeaway": "HbF binds 2,3-DPG weakly through its γ chains, increasing O₂ affinity.",
+      "displayText": "Increased affinity of HbF to O2 is due to weak 2,3-DPG binding by its γ chains compared with the β chains of adult HbA. Adult β chains are replaced by γ chains in fetal hemoglobin; with less 2,3-DPG bound, HbF has a left-shifted O₂ dissociation curve and lower P50. This higher affinity supports O₂ transfer from maternal blood to the fetus despite fetal PaO₂ of only about 40 mmHg.",
+      "emphasis": [
+        "Increased affinity of HbF to O2"
+      ],
+      "rationales": {
+        "b": "HbF has decreased, not increased, binding to 2,3-DPG; this underlies its higher O₂ affinity.",
+        "c": "A rise in pH is not the structural reason HbF has higher oxygen affinity.",
+        "d": "Lower hemoglobin concentration does not explain HbF’s left shift; γ-chain interaction with DPG does."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were checked to verify shifted-curve, Haldane, chloride-shift, and blood-capacity details where imported text contained OCR damage.",
+        "reconstructedContent": "Increased affinity of HbF to O2 is due to weak 2,3-DPG binding by its γ chains compared with the β chains of adult HbA. Adult β chains are replaced by γ chains in fetal hemoglobin; with less 2,3-DPG bound, HbF has a left-shifted O₂ dissociation curve and lower P50. This higher affinity supports O₂ transfer from maternal blood to the fetus despite fetal PaO₂ of only about 40 mmHg.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 412, 413 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed curve/diagram labels and numerical explanations were reviewed; OCR artifacts were corrected and keyed physiology retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          412,
+          413
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH22_Q017": {
+      "takeaway": "Oxygen binding to Hb in the lungs promotes CO₂ release: the Haldane effect.",
+      "displayText": "Binding of O2 with hemoglobin tends to displace CO2 from the blood. This Haldane effect occurs when oxygenation in the lungs makes Hb a stronger acid and promotes CO₂ release into alveoli. Conversely, deoxygenated Hb in tissues carries more CO₂ and buffers H⁺. This facilitates CO₂ transport and contributes to the leftward shift of the O₂–Hb curve in lungs.",
+      "emphasis": [
+        "Binding of O2 with hemoglobin tends to displace CO2 from the blood."
+      ],
+      "rationales": {
+        "b": "This reverses the Haldane effect; it is oxygenation of Hb that promotes CO₂ release.",
+        "c": "HCO₃⁻ leaving RBC in exchange for chloride is the chloride shift.",
+        "d": "The described O₂-dependent release of CO₂ is the Haldane effect, so this is not “none.”"
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were checked to verify shifted-curve, Haldane, chloride-shift, and blood-capacity details where imported text contained OCR damage.",
+        "reconstructedContent": "Binding of O2 with hemoglobin tends to displace CO2 from the blood. This Haldane effect occurs when oxygenation in the lungs makes Hb a stronger acid and promotes CO₂ release into alveoli. Conversely, deoxygenated Hb in tissues carries more CO₂ and buffers H⁺. This facilitates CO₂ transport and contributes to the leftward shift of the O₂–Hb curve in lungs.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 413 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed curve/diagram labels and numerical explanations were reviewed; OCR artifacts were corrected and keyed physiology retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          413
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH22_Q018": {
+      "takeaway": "Chloride shift adds osmotically active ions to venous RBCs, drawing in water and raising PCV.",
+      "displayText": "PCV is higher in venous blood: venous hematocrit/packed cell volume is about 3% higher than arterial PCV for two source-described reasons. First, the chloride shift accompanies tissue CO₂ entry: carbonic anhydrase forms H₂CO₃, which dissociates to H⁺ and HCO₃⁻; H⁺ is buffered by deoxyhemoglobin, and HCO₃⁻ exits RBCs through AE1/Band 3 in exchange for Cl⁻. The extra osmotically active anion (HCO₃⁻ or Cl⁻) draws water into RBCs, increasing their volume; venous RBC chloride content is higher. Second, a small amount of arterial fluid returns through lymphatics rather than veins, further concentrating venous blood.",
+      "emphasis": [
+        "venous blood"
+      ],
+      "rationales": {
+        "a": "The Haldane effect concerns O₂-dependent CO₂ carriage; it is not the cellular-volume mechanism asked here.",
+        "b": "The Bohr effect shifts Hb affinity with pH/CO₂; the PCV difference is explained by chloride shift and fluid return.",
+        "d": "2,3-DPG affects Hb–O₂ affinity, not the venous–arterial PCV difference."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were checked to verify shifted-curve, Haldane, chloride-shift, and blood-capacity details where imported text contained OCR damage.",
+        "reconstructedContent": "PCV is higher in venous blood: venous hematocrit/packed cell volume is about 3% higher than arterial PCV for two source-described reasons. First, the chloride shift accompanies tissue CO₂ entry: carbonic anhydrase forms H₂CO₃, which dissociates to H⁺ and HCO₃⁻; H⁺ is buffered by deoxyhemoglobin, and HCO₃⁻ exits RBCs through AE1/Band 3 in exchange for Cl⁻. The extra osmotically active anion (HCO₃⁻ or Cl⁻) draws water into RBCs, increasing their volume; venous RBC chloride content is higher. Second, a small amount of arterial fluid returns through lymphatics rather than veins, further concentrating venous blood.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 413, 414 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed curve/diagram labels and numerical explanations were reviewed; OCR artifacts were corrected and keyed physiology retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          413,
+          414
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH22_Q019": {
+      "takeaway": "CPDA’s phosphate-containing solution limits the storage-related fall in 2,3-DPG.",
+      "displayText": "The fall in 2, 3 DPG is less when the blood is stored in CPDA compared with ACD. CPDA (citrate, phosphate, dextrose, adenine) preserves 2,3-DPG better than ACD (acid citrate dextrose). Because 2,3-DPG binds deoxyhemoglobin, higher retained DPG lowers Hb oxygen affinity, raises P50, shifts the curve right, and improves O₂ release to tissues after transfusion. Stored blood still loses DPG over time, but less in phosphate-containing CPDA.",
+      "emphasis": [
+        "The fall in 2, 3 DPG is less"
+      ],
+      "rationales": {
+        "b": "Retained 2,3-DPG reduces Hb affinity and increases oxygen release; CPDA does not cause decreased release.",
+        "c": "More retained DPG raises P50 rather than lowering it.",
+        "d": "CPDA’s advantage is phosphate-mediated DPG preservation, not simply being less acidic."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were checked to verify shifted-curve, Haldane, chloride-shift, and blood-capacity details where imported text contained OCR damage.",
+        "reconstructedContent": "The fall in 2, 3 DPG is less when the blood is stored in CPDA compared with ACD. CPDA (citrate, phosphate, dextrose, adenine) preserves 2,3-DPG better than ACD (acid citrate dextrose). Because 2,3-DPG binds deoxyhemoglobin, higher retained DPG lowers Hb oxygen affinity, raises P50, shifts the curve right, and improves O₂ release to tissues after transfusion. Stored blood still loses DPG over time, but less in phosphate-containing CPDA.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 414 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed curve/diagram labels and numerical explanations were reviewed; OCR artifacts were corrected and keyed physiology retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          414
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH22_Q020": {
+      "takeaway": "Use the in-vivo Hüfner constant: 1.31 mL O₂/g × 14 g/dL ≈ 18.3 mL/dL.",
+      "displayText": "The oxygen carrying capacity of a boy with haemoglobin 14 g/dL is estimated with Hüfner’s constant: each gram of hemoglobin carries about 1.31 mL O₂ because normal blood includes inactive Hb derivatives. For Hb 14 g/dL, capacity = 1.31 × 14 = 18.34 mL O₂/dL, approximately 18. The theoretical amount for fully saturated normal Hb is about 1.39 mL/g, but the in-vivo value is lower. The O₂–Hb curve relates PO₂ to saturation; systemic arterial blood usually has PO₂ around 95 mmHg and saturation near 97%, while venous blood at PO₂ around 40 mmHg is about 75% saturated.",
+      "emphasis": [
+        "The oxygen carrying capacity"
+      ],
+      "rationales": {
+        "a": "22 mL/dL would require a larger capacity per gram than the in-vivo value of 1.31 mL/g.",
+        "b": "16 mL/dL is below 1.31 × 14 = 18.34 mL/dL.",
+        "c": "14 mL/dL incorrectly treats each gram of Hb as carrying only 1 mL O₂."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were checked to verify shifted-curve, Haldane, chloride-shift, and blood-capacity details where imported text contained OCR damage.",
+        "reconstructedContent": "The oxygen carrying capacity of a boy with haemoglobin 14 g/dL is estimated with Hüfner’s constant: each gram of hemoglobin carries about 1.31 mL O₂ because normal blood includes inactive Hb derivatives. For Hb 14 g/dL, capacity = 1.31 × 14 = 18.34 mL O₂/dL, approximately 18. The theoretical amount for fully saturated normal Hb is about 1.39 mL/g, but the in-vivo value is lower. The O₂–Hb curve relates PO₂ to saturation; systemic arterial blood usually has PO₂ around 95 mmHg and saturation near 97%, while venous blood at PO₂ around 40 mmHg is about 75% saturated.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 414, 415 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed curve/diagram labels and numerical explanations were reviewed; OCR artifacts were corrected and keyed physiology retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          414,
+          415
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,285 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Marrow ED8 Physiology Chapter 22 explanation rollout; raw imported source remains immutable.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "22",
+    "chapterTitle": "Gas Transport in Blood",
+    "questionStart": 1,
+    "questionEnd": 10,
+    "questions": 10,
+    "status": "approved-rollout",
+    "workloadScore": 12,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 965,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__PHYSIO_CH22_Q001": {
+      "takeaway": "For the ideal gas, pressure × volume equals nRT.",
+      "displayText": "Boyle’s law states that, at constant temperature, pressure multiplied by volume for a gas remains constant: PV=nRT (ideal gas law form, with n amount of gas, R the gas constant, and T absolute temperature). The source question’s correct relation is PV = nRT.",
+      "emphasis": [
+        "PV=nRT"
+      ],
+      "rationales": {
+        "a": "PT = nRV scrambles the pressure/temperature relationship and is not the gas law.",
+        "b": "V = PaRT does not contain the correct pressure–volume product and uses an undefined Pa.",
+        "c": "P = VnRT is missing the required product form PV."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were checked to verify source equations and correct imported OCR artifacts.",
+        "reconstructedContent": "Boyle’s law states that, at constant temperature, pressure multiplied by volume for a gas remains constant: PV=nRT (ideal gas law form, with n amount of gas, R the gas constant, and T absolute temperature). The source question’s correct relation is PV = nRT.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 404, 405 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed source equations and details were checked; OCR artifacts were corrected while preserving the keyed response and associated physiology.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          404,
+          405
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH22_Q002": {
+      "takeaway": "CO binds hemoglobin avidly, keeping blood PCO low so diffusion continues along the capillary.",
+      "displayText": "Carbon monoxide transport is diffusion-limited because CO binds hemoglobin with very high affinity. CO that crosses the alveolar membrane rapidly binds Hb, so dissolved CO and capillary partial pressure remain low; the alveolar-to-blood gradient persists throughout the roughly 0.75-s capillary transit. By contrast, N₂O does not bind Hb and equilibrates in about 0.1 s, so its uptake is perfusion/flow-limited. O₂ is intermediate: it binds Hb less avidly than CO and normally equilibrates with capillary blood by about 0.3 s, making uptake perfusion-limited.",
+      "emphasis": [
+        "CO"
+      ],
+      "rationales": {
+        "a": "The source attributes diffusion limitation to rapid Hb binding and persistent pressure gradient, not low membrane permeability.",
+        "c": "CO crosses the epithelial barrier; Hb binding keeps dissolved CO partial pressure low, sustaining diffusion.",
+        "d": "CO uptake is diffusion-limited, so “none” contradicts the stated mechanism."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were checked to verify source equations and correct imported OCR artifacts.",
+        "reconstructedContent": "Carbon monoxide transport is diffusion-limited because CO binds hemoglobin with very high affinity. CO that crosses the alveolar membrane rapidly binds Hb, so dissolved CO and capillary partial pressure remain low; the alveolar-to-blood gradient persists throughout the roughly 0.75-s capillary transit. By contrast, N₂O does not bind Hb and equilibrates in about 0.1 s, so its uptake is perfusion/flow-limited. O₂ is intermediate: it binds Hb less avidly than CO and normally equilibrates with capillary blood by about 0.3 s, making uptake perfusion-limited.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 405 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed source equations and details were checked; OCR artifacts were corrected while preserving the keyed response and associated physiology.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          405
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH22_Q003": {
+      "takeaway": "Approximately 97% of oxygen is bound to hemoglobin.",
+      "displayText": "Percentage of O2 carried chemically (bound to Hb) is 97%. Only a small fraction is physically dissolved in plasma. Oxygen transport therefore occurs in dissolved and Hb-bound forms. More generally, gases can be dissolved, bound (O₂ and CO to red-cell Hb; CO₂ to Hb and plasma proteins), or chemically modified; most CO₂ is carried as bicarbonate.",
+      "emphasis": [
+        "Percentage of O2 carried chemically"
+      ],
+      "rationales": {
+        "b": "Only a small portion of O₂ is physically dissolved; 3% is not the chemically Hb-bound fraction.",
+        "c": "37% is not the source value; nearly all blood O₂ is carried on Hb.",
+        "d": "66% underestimates Hb-bound transport, which is about 97%."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were checked to verify source equations and correct imported OCR artifacts.",
+        "reconstructedContent": "Percentage of O2 carried chemically (bound to Hb) is 97%. Only a small fraction is physically dissolved in plasma. Oxygen transport therefore occurs in dissolved and Hb-bound forms. More generally, gases can be dissolved, bound (O₂ and CO to red-cell Hb; CO₂ to Hb and plasma proteins), or chemically modified; most CO₂ is carried as bicarbonate.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 405, 406 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed source equations and details were checked; OCR artifacts were corrected while preserving the keyed response and associated physiology.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          405,
+          406
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH22_Q004": {
+      "takeaway": "Hemoglobin increases arterial oxygen concentration about 70-fold by carrying roughly 20 mL O₂ per 100 mL blood.",
+      "displayText": "Hemoglobin raises the O₂ content of normal arterial blood by about 70-fold compared with dissolved oxygen alone. At PO₂ ≈100 mmHg, Henry’s law gives only 0.003 mL O₂/100 mL blood per mmHg, or about 0.3 mL/100 mL dissolved. With Hb ≈15 g/100 mL and each gram binding about 1.34 mL O₂, Hb carries about 20.1 mL/100 mL. Thus 20.1/0.3 ≈70, or about 70 times. Dissolved oxygen alone would be far below the resting tissue demand of roughly 250 mL/min.",
+      "emphasis": [
+        "about 70 times"
+      ],
+      "rationales": {
+        "b": "Tenfold is too small: the source compares about 20.1 mL/100 mL bound with only 0.3 dissolved.",
+        "c": "Thirtyfold does not match the 20.1/0.3 ≈70 ratio.",
+        "d": "Fortyfold is below the source calculation of roughly 70-fold."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were checked to verify source equations and correct imported OCR artifacts.",
+        "reconstructedContent": "Hemoglobin raises the O₂ content of normal arterial blood by about 70-fold compared with dissolved oxygen alone. At PO₂ ≈100 mmHg, Henry’s law gives only 0.003 mL O₂/100 mL blood per mmHg, or about 0.3 mL/100 mL dissolved. With Hb ≈15 g/100 mL and each gram binding about 1.34 mL O₂, Hb carries about 20.1 mL/100 mL. Thus 20.1/0.3 ≈70, or about 70 times. Dissolved oxygen alone would be far below the resting tissue demand of roughly 250 mL/min.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 406 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed source equations and details were checked; OCR artifacts were corrected while preserving the keyed response and associated physiology.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          406
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH22_Q005": {
+      "takeaway": "Oxygen delivery equals cardiac output × arterial oxygen concentration; fluid type is not an input.",
+      "displayText": "Oxygen delivery is oxygen carried to the systemic vascular bed per minute: cardiac output × arterial oxygen concentration. It depends on blood oxygen-carrying capacity (including Hb), the amount of O₂ entering the lungs, O₂–CO₂ exchange, blood flow/cardiac output, Hb–O₂ affinity, and dissolved oxygen. The type of fluid administered is not a physiologic determinant in the source flow chart; fluid may alter volume or hemodynamics but is not itself part of the oxygen-delivery expression.",
+      "emphasis": [
+        "Oxygen delivery"
+      ],
+      "rationales": {
+        "b": "Hemoglobin determines oxygen-carrying capacity and therefore affects delivery.",
+        "c": "Ventilation supplies oxygen to alveoli and affects arterial oxygen content.",
+        "d": "Cardiac output is multiplied by arterial oxygen concentration in the delivery equation."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were checked to verify source equations and correct imported OCR artifacts.",
+        "reconstructedContent": "Oxygen delivery is oxygen carried to the systemic vascular bed per minute: cardiac output × arterial oxygen concentration. It depends on blood oxygen-carrying capacity (including Hb), the amount of O₂ entering the lungs, O₂–CO₂ exchange, blood flow/cardiac output, Hb–O₂ affinity, and dissolved oxygen. The type of fluid administered is not a physiologic determinant in the source flow chart; fluid may alter volume or hemodynamics but is not itself part of the oxygen-delivery expression.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 407 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed source equations and details were checked; OCR artifacts were corrected while preserving the keyed response and associated physiology.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          407
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH22_Q006": {
+      "takeaway": "Each of four heme iron atoms binds one O₂, so one Hb carries four O₂ molecules.",
+      "displayText": "Hemoglobin has 4 subunits, each with a heme group and one ferrous iron atom. Each Fe²⁺ reversibly binds one oxygen molecule; therefore one Hb molecule carries four O₂ molecules. Iron remains ferrous, so O₂ binding is oxygenation rather than oxidation.",
+      "emphasis": [
+        "Hemoglobin has 4 subunits"
+      ],
+      "rationales": {
+        "a": "Two O₂ molecules would occupy only two of the four heme sites.",
+        "c": "Each heme binds one O₂, giving four rather than eight.",
+        "d": "Hemoglobin has four heme sites, not sixteen."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were checked to verify source equations and correct imported OCR artifacts.",
+        "reconstructedContent": "Hemoglobin has 4 subunits, each with a heme group and one ferrous iron atom. Each Fe²⁺ reversibly binds one oxygen molecule; therefore one Hb molecule carries four O₂ molecules. Iron remains ferrous, so O₂ binding is oxygenation rather than oxidation.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 407 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed source equations and details were checked; OCR artifacts were corrected while preserving the keyed response and associated physiology.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          407
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH22_Q007": {
+      "takeaway": "About 70% of blood CO₂ is transported as bicarbonate.",
+      "displayText": "Most CO₂ in arterial blood is carried as bicarbonate (HCO₃⁻), about 70%. Carbamino compounds, mainly CO₂ bound to hemoglobin, account for roughly 23%, while about 7% is physically dissolved. Within red cells, carbonic anhydrase rapidly hydrates CO₂ to carbonic acid, which dissociates to H⁺ and HCO₃⁻; Bicarbonate then moves into plasma.",
+      "emphasis": [
+        "Bicarbonate"
+      ],
+      "rationales": {
+        "b": "About 23% is bound in carbamino compounds, less than bicarbonate.",
+        "c": "Carbamino compounds carry a substantial minority (~23%), not the largest share.",
+        "d": "Only about 7% is dissolved; bicarbonate is the dominant form."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were checked to verify source equations and correct imported OCR artifacts.",
+        "reconstructedContent": "Most CO₂ in arterial blood is carried as bicarbonate (HCO₃⁻), about 70%. Carbamino compounds, mainly CO₂ bound to hemoglobin, account for roughly 23%, while about 7% is physically dissolved. Within red cells, carbonic anhydrase rapidly hydrates CO₂ to carbonic acid, which dissociates to H⁺ and HCO₃⁻; Bicarbonate then moves into plasma.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 407, 408 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed source equations and details were checked; OCR artifacts were corrected while preserving the keyed response and associated physiology.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          407,
+          408
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH22_Q008": {
+      "takeaway": "The R configuration exposes Hb binding sites and favors oxygen binding.",
+      "displayText": "A relaxed (R) configuration exposes additional oxygen-binding sites. Hemoglobin’s T (tense, deoxygenated) configuration has low O₂ affinity. Binding the first O₂ loosens the inter-subunit bonds and shifts Hb toward the R (relaxed) configuration, exposing additional O₂-binding sites and raising affinity of Hb for the second and subsequent O₂ molecules (positive cooperativity; the source describes an approximately 500-fold increase). Thus R favors O₂ binding, and each Hb can carry four O₂ molecules. In tissues, the transition reverses and O₂ dissociates. Lower pH, higher 2,3-DPG, and falling O₂ favor the tense state and unloading.",
+      "emphasis": [
+        "A relaxed (R) configuration"
+      ],
+      "rationales": {
+        "a": "The T configuration is deoxygenated and has reduced affinity for oxygen, so this is true rather than false.",
+        "c": "R configuration favors O₂ binding; this is not the false statement.",
+        "d": "Each hemoglobin molecule carries four oxygen molecules, so this statement is true."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were checked to verify source equations and correct imported OCR artifacts.",
+        "reconstructedContent": "A relaxed (R) configuration exposes additional oxygen-binding sites. Hemoglobin’s T (tense, deoxygenated) configuration has low O₂ affinity. Binding the first O₂ loosens the inter-subunit bonds and shifts Hb toward the R (relaxed) configuration, exposing additional O₂-binding sites and raising affinity of Hb for the second and subsequent O₂ molecules (positive cooperativity; the source describes an approximately 500-fold increase). Thus R favors O₂ binding, and each Hb can carry four O₂ molecules. In tissues, the transition reverses and O₂ dissociates. Lower pH, higher 2,3-DPG, and falling O₂ favor the tense state and unloading.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 408 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed source equations and details were checked; OCR artifacts were corrected while preserving the keyed response and associated physiology.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          408
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH22_Q009": {
+      "takeaway": "Positive cooperativity makes each bound O₂ increase affinity for the next, producing a sigmoid curve.",
+      "displayText": "The oxygen–hemoglobin dissociation curve is sigmoid shape because Hb shows positive cooperativity: binding one O₂ molecule shifts the tetramer toward the relaxed state and increases affinity for subsequent O₂ molecules. The curve relates PO₂ to percentage Hb saturation. The initial binding is relatively difficult, then affinity rises steeply as additional sites bind, and the curve plateaus near full saturation. Bohr and Haldane effects modify the curve but do not create its sigmoid shape.",
+      "emphasis": [
+        "sigmoid shape because"
+      ],
+      "rationales": {
+        "b": "If binding one O₂ reduced affinity for later O₂, cooperativity would be negative, unlike Hb’s observed sigmoid curve.",
+        "c": "The Bohr effect is a pH/CO₂-mediated shift that promotes tissue unloading, not the sigmoid shape.",
+        "d": "The Haldane effect describes O₂-dependent CO₂ carriage and does not explain sigmoid binding."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported source bundle has an empty structured explanation for Q9. The printed answer and mechanism are present on p. 408.",
+        "reconstructedContent": "The oxygen–hemoglobin dissociation curve is sigmoid shape because Hb shows positive cooperativity: binding one O₂ molecule shifts the tetramer toward the relaxed state and increases affinity for subsequent O₂ molecules. The curve relates PO₂ to percentage Hb saturation. The initial binding is relatively difficult, then affinity rises steeply as additional sites bind, and the curve plateaus near full saturation. Bohr and Haldane effects modify the curve but do not create its sigmoid shape.",
+        "evidenceBasis": [
+          "Imported structured explanation text is empty for this record. Printed explanation page 408 was rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Reconstructed the missing imported explanation from the visually reviewed printed solution on p. 408: cooperative T-to-R transitions increase affinity for successive O₂ molecules. The stem, answer key, options, and source figure remain unchanged.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          408
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH22_Q010": {
+      "takeaway": "Hb approaches complete saturation on the dissociation-curve plateau near PO₂ 100 mmHg.",
+      "displayText": "When blood is equilibrated with 100% O2, normal hemoglobin is fully saturated; on the O₂–hemoglobin dissociation curve, its near-flat plateau is reached by PO₂ around 100 mmHg. In vivo, end-pulmonary-capillary saturation is about 97.5% at PO₂ 100 mmHg, and systemic arterial saturation about 97% after a small physiologic shunt. The curve also gives approximate values of 90% at 60 mmHg, 75% at 40 mmHg, and 50% at P50 ≈27 mmHg. The PO₂ of 760 mmHg is atmospheric pressure, not the threshold needed for full Hb saturation.",
+      "emphasis": [
+        "100%"
+      ],
+      "rationales": {
+        "a": "75 mmHg lies on the plateau but is below the source point used for essentially complete saturation.",
+        "b": "90 mmHg is close to the plateau but the source graph identifies 100 mmHg for full saturation.",
+        "d": "760 mmHg is barometric pressure, not the required oxygen partial pressure."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were checked to verify source equations and correct imported OCR artifacts.",
+        "reconstructedContent": "When blood is equilibrated with 100% O2, normal hemoglobin is fully saturated; on the O₂–hemoglobin dissociation curve, its near-flat plateau is reached by PO₂ around 100 mmHg. In vivo, end-pulmonary-capillary saturation is about 97.5% at PO₂ 100 mmHg, and systemic arterial saturation about 97% after a small physiologic shunt. The curve also gives approximate values of 90% at 60 mmHg, 75% at 40 mmHg, and 50% at P50 ≈27 mmHg. The PO₂ of 760 mmHg is atmospheric pressure, not the threshold needed for full Hb saturation.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 409 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed source equations and details were checked; OCR artifacts were corrected while preserving the keyed response and associated physiology.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          409
+        ]
+      }
+    }
+  }
+}
