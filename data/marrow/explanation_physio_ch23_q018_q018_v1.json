@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Marrow ED8 Physiology Chapter 23 explanation rollout; raw imported source remains immutable.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "23",
+    "chapterTitle": "Lung Volumes and Lung Function Tests",
+    "questionStart": 18,
+    "questionEnd": 18,
+    "questions": 1,
+    "status": "approved-rollout",
+    "workloadScore": 2,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 1001,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__PHYSIO_CH23_Q018": {
+      "takeaway": "Lactate-associated arterial H⁺ sustains ventilation after strenuous exercise.",
+      "displayText": "The stimulus to ventilation after strenuous exercise is increased mean arterial H+. Blood lactate raises arterial hydrogen-ion concentration, so respiratory rate remains elevated until the oxygen debt is repaid. Most lactate is converted to glycogen and some is converted to CO₂ and H₂O. This post-exercise acid load, rather than falling arterial oxygen or carbon dioxide, drives the source-keyed response.",
+      "emphasis": [
+        "The stimulus to ventilation after strenuous exercise is increased mean arterial H+"
+      ],
+      "rationales": {
+        "a": "Higher brain-center impulses can contribute to the rapid ventilatory rise at exercise onset, but the question asks the stimulus that persists after strenuous exercise as oxygen debt is repaid.",
+        "c": "Arterial PO₂ does not fall as the main post-exercise ventilatory stimulus in this source; elevated H⁺ from lactate is identified.",
+        "d": "Decreased PCO₂ would suppress chemoreceptor drive rather than explain the sustained post-exercise ventilation."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed explanation p. 433 was reviewed to preserve the source’s specific post-exercise lactate and oxygen-debt mechanism.",
+        "reconstructedContent": "The stimulus to ventilation after strenuous exercise is increased mean arterial H+. Blood lactate raises arterial hydrogen-ion concentration, so respiratory rate remains elevated until the oxygen debt is repaid. Most lactate is converted to glycogen and some is converted to CO₂ and H₂O. This post-exercise acid load, rather than falling arterial oxygen or carbon dioxide, drives the source-keyed response.",
+        "evidenceBasis": [
+          "Printed explanation page 433 was rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "The source distinguishes post-exercise mean arterial H⁺ from other transient exercise ventilatory stimuli; this distinction and lactate fate were retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          433
+        ]
+      }
+    }
+  }
+}

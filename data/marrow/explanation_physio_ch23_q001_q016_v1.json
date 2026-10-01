@@ -1,0 +1,445 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Marrow ED8 Physiology Chapter 23 explanation rollout; raw imported source remains immutable.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "23",
+    "chapterTitle": "Lung Volumes and Lung Function Tests",
+    "questionStart": 1,
+    "questionEnd": 16,
+    "questions": 16,
+    "status": "approved-rollout",
+    "workloadScore": 18,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 985,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__PHYSIO_CH23_Q001": {
+      "takeaway": "TV = IC − IRV.",
+      "displayText": "The tidal volume = inspiratory capacity − inspiratory reserve volume (IRV); equivalently, TV = IC − IRV. because IC includes a normal tidal inspiration plus the additional inspiratory reserve. Thus TV is the ordinary breath volume between resting expiration and inspiration.",
+      "emphasis": [
+        "The tidal volume"
+      ],
+      "rationales": {
+        "b": "TLC − RV is vital capacity, not tidal volume.",
+        "c": "FRC − RV is expiratory reserve volume.",
+        "d": "VC − ERV is inspiratory capacity, not tidal volume."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages and associated volume/flow figures were reviewed to validate calculations and correct OCR damage.",
+        "reconstructedContent": "The tidal volume = inspiratory capacity − inspiratory reserve volume (IRV); equivalently, TV = IC − IRV. because IC includes a normal tidal inspiration plus the additional inspiratory reserve. Thus TV is the ordinary breath volume between resting expiration and inspiration.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 424 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed equations, graph labels, and spirometry/flow-volume distinctions were checked; OCR and units were normalized without changing the keyed answers.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          424
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH23_Q002": {
+      "takeaway": "FRC = ERV + RV, the volume remaining after a normal expiration.",
+      "displayText": "Functional Residual Capacity (FRC) is expiratory reserve volume + residual volume (ERV + RV): the gas remaining in the lungs at the end of a normal expiration. By contrast, RV is what remains after maximal forced expiration; inspiratory capacity is the maximum inspired from end-expiration.",
+      "emphasis": [
+        "Functional Residual Capacity (FRC)"
+      ],
+      "rationales": {
+        "a": "This describes inspiratory capacity, the maximum volume inspired from end-expiration.",
+        "b": "This is residual volume, the air remaining after forced expiration, not FRC.",
+        "d": "TV + IRV is inspiratory capacity, not functional residual capacity."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages and associated volume/flow figures were reviewed to validate calculations and correct OCR damage.",
+        "reconstructedContent": "Functional Residual Capacity (FRC) is expiratory reserve volume + residual volume (ERV + RV): the gas remaining in the lungs at the end of a normal expiration. By contrast, RV is what remains after maximal forced expiration; inspiratory capacity is the maximum inspired from end-expiration.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 424 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed equations, graph labels, and spirometry/flow-volume distinctions were checked; OCR and units were normalized without changing the keyed answers.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          424
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH23_Q003": {
+      "takeaway": "Expiratory Reserve Volume = FRC − RV. With FRC 3 L and RV 1 L, ERV = 2 L.",
+      "displayText": "Expiratory Reserve Volume = Functional Residual Capacity - Residual Volume; this is ERV = FRC − RV. The figure gives FRC = 3 L and residual volume = 1 L, so ERV = 3 − 1 = 2 L. RV is the volume left after the most forceful expiration; FRC is the air remaining after a normal expiration and equals ERV + RV. ERV is the additional volume forcibly expired after a normal tidal expiration.",
+      "emphasis": [
+        "Expiratory Reserve Volume"
+      ],
+      "rationales": {
+        "b": "2.5 L does not match FRC − RV = 3 − 1 = 2 L.",
+        "c": "3 L is the FRC shown, not ERV after subtracting RV.",
+        "d": "3.5 L exceeds the total FRC shown and cannot be the ERV."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages and associated volume/flow figures were reviewed to validate calculations and correct OCR damage.",
+        "reconstructedContent": "Expiratory Reserve Volume = Functional Residual Capacity - Residual Volume; this is ERV = FRC − RV. The figure gives FRC = 3 L and residual volume = 1 L, so ERV = 3 − 1 = 2 L. RV is the volume left after the most forceful expiration; FRC is the air remaining after a normal expiration and equals ERV + RV. ERV is the additional volume forcibly expired after a normal tidal expiration.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 424, 425 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed equations, graph labels, and spirometry/flow-volume distinctions were checked; OCR and units were normalized without changing the keyed answers.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          424,
+          425
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH23_Q004": {
+      "takeaway": "Simple spirometry cannot measure residual volume (or capacities that include RV).",
+      "displayText": "The given image shows spirometry. It can measure tidal volume, vital capacity, and inspiratory reserve capacity. It cannot measure residual volume, because gas remaining after maximal expiration is not exhaled into the spirometer. FRC and TLC also include RV and therefore require indirect methods such as nitrogen washout, helium dilution, or body plethysmography.",
+      "emphasis": [
+        "The given image shows spirometry"
+      ],
+      "rationales": {
+        "a": "Tidal volume is the volume of a normal breath and is measured by spirometry.",
+        "c": "Vital capacity is the exhaled volume between maximal inspiration and expiration, so it is measurable.",
+        "d": "Inspiratory reserve volume/capacity is obtained from inspired volume and is measurable by spirometry."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages and associated volume/flow figures were reviewed to validate calculations and correct OCR damage.",
+        "reconstructedContent": "The given image shows spirometry. It can measure tidal volume, vital capacity, and inspiratory reserve capacity. It cannot measure residual volume, because gas remaining after maximal expiration is not exhaled into the spirometer. FRC and TLC also include RV and therefore require indirect methods such as nitrogen washout, helium dilution, or body plethysmography.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 425 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed equations, graph labels, and spirometry/flow-volume distinctions were checked; OCR and units were normalized without changing the keyed answers.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          425
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH23_Q005": {
+      "takeaway": "TLC depends on lung compliance.",
+      "displayText": "Total lung capacity depends on lung compliance (distensibility). Compliance reflects stretchability of lung tissue and elastic connective tissue, as well as surface tension at alveolar air–water interfaces; pulmonary surfactant reduces surface tension and helps prevent alveolar collapse. Closing volume is a different measure: the volume above RV at which dependent small airways begin to close because their transmural pressure is lower.",
+      "emphasis": [
+        "Total lung capacity depends"
+      ],
+      "rationales": {
+        "a": "Airway size affects resistance and flow, not the lung distensibility determining TLC in this item.",
+        "b": "Closing volume is the threshold above RV for dependent airway closure, not the determinant of TLC.",
+        "d": "RV contributes to measured lung volumes but TLC is determined by the distensibility/compliance of the lung."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanation text is empty for this item; its keyed mechanism/calculation was reconstructed from the printed solution.",
+        "reconstructedContent": "Total lung capacity depends on lung compliance (distensibility). Compliance reflects stretchability of lung tissue and elastic connective tissue, as well as surface tension at alveolar air–water interfaces; pulmonary surfactant reduces surface tension and helps prevent alveolar collapse. Closing volume is a different measure: the volume above RV at which dependent small airways begin to close because their transmural pressure is lower.",
+        "evidenceBasis": [
+          "Imported structured explanation text is empty for this record. Printed explanation page 425 was rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Imported explanation text is blank. Reconstructed from the visually reviewed printed solution on p. 425; source stem, options, answer key, and figure remain unchanged.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          425
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH23_Q006": {
+      "takeaway": "Fowler’s single-breath nitrogen washout measures anatomic dead space.",
+      "displayText": "Anatomical dead space can be measured by the single-breath N2 curve (Fowler’s method). This measures anatomic dead-space volume. The patient inhales a deep breath of oxygen and then exhales steadily while expired N₂ concentration is plotted against lung volume: phase I is conducting-airway dead-space gas, phase II is the transition mixture, and phase III is alveolar gas. The transition point identifies anatomic dead space. Total physiologic dead space is anatomic plus alveolar dead space and can be estimated with Bohr’s equation; FRC is measured by body plethysmography or gas dilution.",
+      "emphasis": [
+        "Anatomical dead space can be measured"
+      ],
+      "rationales": {
+        "b": "FRC is measured using body plethysmography or gas dilution, not the single-breath nitrogen curve.",
+        "c": "Tidal volume is a spirometric volume, not the purpose of Fowler’s nitrogen washout.",
+        "d": "Diffusion capacity is assessed with a gas-uptake test such as DLCO, not Fowler’s method."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages and associated volume/flow figures were reviewed to validate calculations and correct OCR damage.",
+        "reconstructedContent": "Anatomical dead space can be measured by the single-breath N2 curve (Fowler’s method). This measures anatomic dead-space volume. The patient inhales a deep breath of oxygen and then exhales steadily while expired N₂ concentration is plotted against lung volume: phase I is conducting-airway dead-space gas, phase II is the transition mixture, and phase III is alveolar gas. The transition point identifies anatomic dead space. Total physiologic dead space is anatomic plus alveolar dead space and can be estimated with Bohr’s equation; FRC is measured by body plethysmography or gas dilution.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 425, 426 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed equations, graph labels, and spirometry/flow-volume distinctions were checked; OCR and units were normalized without changing the keyed answers.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          425,
+          426
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH23_Q007": {
+      "takeaway": "VA = 10 × (600 − 150) = 4.5 L/min.",
+      "displayText": "Alveolar ventilation per minute = respiratory rate × (tidal volume − dead-space volume). For a young adult, dead space is about 150 mL. Here, VA = 10/min × (600 − 150) mL = 4,500 mL/min = 4.5 L/min. This is fresh air reaching alveoli each minute, excluding conducting-airway dead space.",
+      "emphasis": [
+        "Alveolar ventilation"
+      ],
+      "rationales": {
+        "a": "1.5 L/min is too low for 10 breaths of 450 mL alveolar gas each.",
+        "b": "3.5 L/min does not follow from the stated RR and VT after subtracting 150 mL dead space.",
+        "d": "5.0 L/min results from using the full tidal volume without subtracting dead space."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages and associated volume/flow figures were reviewed to validate calculations and correct OCR damage.",
+        "reconstructedContent": "Alveolar ventilation per minute = respiratory rate × (tidal volume − dead-space volume). For a young adult, dead space is about 150 mL. Here, VA = 10/min × (600 − 150) mL = 4,500 mL/min = 4.5 L/min. This is fresh air reaching alveoli each minute, excluding conducting-airway dead space.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 427 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed equations, graph labels, and spirometry/flow-volume distinctions were checked; OCR and units were normalized without changing the keyed answers.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          427
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH23_Q008": {
+      "takeaway": "Normal VD/VT is about 0.3.",
+      "displayText": "Normal dead-space/tidal-volume ratio is VD/VT = 150/500 = 0.3. A healthy adult typically has approximately 150 mL anatomic dead space and a resting tidal volume around 500 mL. In health alveolar dead space is negligible, so physiologic dead space is close to anatomic dead space.",
+      "emphasis": [
+        "dead space"
+      ],
+      "rationales": {
+        "a": "20 is far above the dimensionless ratio; it is neither a fraction nor a normal VD/VT.",
+        "c": "Four is not the normal ratio; 150/500 is 0.3.",
+        "d": "50 is far above the normal fraction of dead space per tidal volume."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages and associated volume/flow figures were reviewed to validate calculations and correct OCR damage.",
+        "reconstructedContent": "Normal dead-space/tidal-volume ratio is VD/VT = 150/500 = 0.3. A healthy adult typically has approximately 150 mL anatomic dead space and a resting tidal volume around 500 mL. In health alveolar dead space is negligible, so physiologic dead space is close to anatomic dead space.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 427 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed equations, graph labels, and spirometry/flow-volume distinctions were checked; OCR and units were normalized without changing the keyed answers.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          427
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH23_Q009": {
+      "takeaway": "15 × (650 − 150) = 7,500 mL/min = 7.5 L/min.",
+      "displayText": "The rate of alveolar ventilation is respiratory rate × (tidal volume − physiologic dead space). Here VA = 15/min × (650 − 150) mL = 7,500 mL/min = 7.5 L/min. FRC, ERV, and TLC are not needed for this calculation. Dead space is the portion of each breath that does not participate in gas exchange.",
+      "emphasis": [
+        "alveolar ventilation"
+      ],
+      "rationales": {
+        "a": "5 L/min omits part of the effective volume per breath; the calculation uses 500 mL × 15.",
+        "c": "6 L/min is lower than 15 × 500 mL = 7.5 L/min.",
+        "d": "9 L/min would be 15 × 600 mL and uses the wrong volume."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanation text is empty for this item; its keyed mechanism/calculation was reconstructed from the printed solution.",
+        "reconstructedContent": "The rate of alveolar ventilation is respiratory rate × (tidal volume − physiologic dead space). Here VA = 15/min × (650 − 150) mL = 7,500 mL/min = 7.5 L/min. FRC, ERV, and TLC are not needed for this calculation. Dead space is the portion of each breath that does not participate in gas exchange.",
+        "evidenceBasis": [
+          "Imported structured explanation text is empty for this record. Printed explanation page 427 was rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Imported explanation text is blank. Reconstructed from the visually reviewed printed solution on p. 427; source stem, options, answer key, and figure remain unchanged.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          427
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH23_Q010": {
+      "takeaway": "Small airways in dependent lung close at a volume above RV: closing volume.",
+      "displayText": "The closing volume (CV) is the lung volume above residual volume at which small airways in the lower, dependent lung begin to close. These regions have lower transmural pressure, making closure more likely. In young adults CV is about 10% of vital capacity; it rises with age to about 40% of VC and may equal FRC around age 65. Small-airway disease can make CV exceed FRC; in hyaline-membrane disease FRC may be below CV.",
+      "emphasis": [
+        "The closing volume (CV)"
+      ],
+      "rationales": {
+        "a": "The source places airway closure in dependent lower lung regions, not upper portions.",
+        "c": "Closing volume is above RV, not above tidal volume.",
+        "d": "It is not defined as a volume above TV or in upper lung regions."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages and associated volume/flow figures were reviewed to validate calculations and correct OCR damage.",
+        "reconstructedContent": "The closing volume (CV) is the lung volume above residual volume at which small airways in the lower, dependent lung begin to close. These regions have lower transmural pressure, making closure more likely. In young adults CV is about 10% of vital capacity; it rises with age to about 40% of VC and may equal FRC around age 65. Small-airway disease can make CV exceed FRC; in hyaline-membrane disease FRC may be below CV.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 427, 428 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed equations, graph labels, and spirometry/flow-volume distinctions were checked; OCR and units were normalized without changing the keyed answers.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          427,
+          428
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH23_Q011": {
+      "takeaway": "Fibrosis reduces compliance and tends to raise FEV₁/FVC relative to obstruction.",
+      "displayText": "Interstitial pulmonary fibrosis is restrictive: lung compliance falls, and FEV₁ and FVC are reduced, with FEV₁/FVC usually normal or increased because FVC falls at least as much. A normal adult male has FVC around 5 L and FEV₁ around 4 L (ratio about 80%). Obstructive disease instead lowers FEV₁ disproportionately and reduces FEV₁/FVC. Fibrosis, sarcoidosis, asbestosis, and radiation injury can reduce compliance.",
+      "emphasis": [
+        "Interstitial pulmonary fibrosis"
+      ],
+      "rationales": {
+        "a": "Increased compliance suggests emphysema, and increased FRC is not the restrictive pattern of fibrosis.",
+        "c": "A reduced FEV₁/FVC with increased compliance describes obstruction, not restrictive fibrosis.",
+        "d": "Compliance is decreased, not increased, in interstitial fibrosis."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages and associated volume/flow figures were reviewed to validate calculations and correct OCR damage.",
+        "reconstructedContent": "Interstitial pulmonary fibrosis is restrictive: lung compliance falls, and FEV₁ and FVC are reduced, with FEV₁/FVC usually normal or increased because FVC falls at least as much. A normal adult male has FVC around 5 L and FEV₁ around 4 L (ratio about 80%). Obstructive disease instead lowers FEV₁ disproportionately and reduces FEV₁/FVC. Fibrosis, sarcoidosis, asbestosis, and radiation injury can reduce compliance.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 428 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed equations, graph labels, and spirometry/flow-volume distinctions were checked; OCR and units were normalized without changing the keyed answers.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          428
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH23_Q012": {
+      "takeaway": "A truncated inspiratory limb with preserved expiration indicates variable extrathoracic obstruction.",
+      "displayText": "The inspiratory flow-volume curve is truncated in patients with variable extrathoracic obstructions, while expiration is nearly normal. During forced inspiration, pressure inside an extrathoracic upper airway falls below atmospheric, narrowing an unstable segment unless pharyngeal muscles maintain it. Forced expiration raises airway pressure and splints that segment open. By contrast, variable intrathoracic obstruction truncates the expiratory limb, while fixed obstruction limits both inspiration and expiration.",
+      "emphasis": [
+        "The inspiratory flow-volume curve is truncated"
+      ],
+      "rationales": {
+        "a": "A normal loop has neither inspiratory nor expiratory truncation.",
+        "b": "Variable intrathoracic obstruction truncates expiration, not the inspiratory limb shown.",
+        "d": "Fixed obstruction truncates both limbs rather than inspiration alone."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages and associated volume/flow figures were reviewed to validate calculations and correct OCR damage.",
+        "reconstructedContent": "The inspiratory flow-volume curve is truncated in patients with variable extrathoracic obstructions, while expiration is nearly normal. During forced inspiration, pressure inside an extrathoracic upper airway falls below atmospheric, narrowing an unstable segment unless pharyngeal muscles maintain it. Forced expiration raises airway pressure and splints that segment open. By contrast, variable intrathoracic obstruction truncates the expiratory limb, while fixed obstruction limits both inspiration and expiration.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 428, 429, 430 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed equations, graph labels, and spirometry/flow-volume distinctions were checked; OCR and units were normalized without changing the keyed answers.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          428,
+          429,
+          430
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH23_Q013": {
+      "takeaway": "Pneumothorax decreases lung volume while increasing thoracic volume.",
+      "displayText": "In pneumothorax, air enters the pleural space and pleural pressure approaches atmospheric. The chest wall springs outward while the elastic lung recoils inward, so lung volume decreases and thoracic-cage volume increases. Normally inward lung recoil is balanced by outward chest-wall recoil; pneumothorax removes that coupling and separates their resting positions.",
+      "emphasis": [
+        "In pneumothorax"
+      ],
+      "rationales": {
+        "a": "Both volumes do not decrease: the lung recoils inward while the chest wall springs outward.",
+        "c": "Thoracic volume increases rather than remaining unchanged when the chest wall springs outward.",
+        "d": "Lung volume decreases, not increases, because elastic recoil is unopposed."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages and associated volume/flow figures were reviewed to validate calculations and correct OCR damage.",
+        "reconstructedContent": "In pneumothorax, air enters the pleural space and pleural pressure approaches atmospheric. The chest wall springs outward while the elastic lung recoils inward, so lung volume decreases and thoracic-cage volume increases. Normally inward lung recoil is balanced by outward chest-wall recoil; pneumothorax removes that coupling and separates their resting positions.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 430 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed equations, graph labels, and spirometry/flow-volume distinctions were checked; OCR and units were normalized without changing the keyed answers.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          430
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH23_Q014": {
+      "takeaway": "FVC = TLC − RV = 5.5 − 1.0 = 4.5 L.",
+      "displayText": "The forced vital capacity of this man is 4.5 liters. Forced vital capacity (FVC) is the maximum volume expired after a maximal inspiration: FVC = TLC − RV. From the flow–volume graph, TLC is 5.5 L and RV is 1.0 L, so FVC = 5.5 − 1.0 = 4.5 L. The curve’s zero-flow volume intercepts indicate TLC and RV.",
+      "emphasis": [
+        "The forced vital capacity of this man"
+      ],
+      "rationales": {
+        "a": "1.5 L is not the graph’s TLC–RV difference.",
+        "b": "2.5 L is too small; the displayed TLC is 5.5 L and RV is 1.0 L.",
+        "c": "3.5 L still underestimates the 4.5-L difference."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages and associated volume/flow figures were reviewed to validate calculations and correct OCR damage.",
+        "reconstructedContent": "The forced vital capacity of this man is 4.5 liters. Forced vital capacity (FVC) is the maximum volume expired after a maximal inspiration: FVC = TLC − RV. From the flow–volume graph, TLC is 5.5 L and RV is 1.0 L, so FVC = 5.5 − 1.0 = 4.5 L. The curve’s zero-flow volume intercepts indicate TLC and RV.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 430, 431 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed equations, graph labels, and spirometry/flow-volume distinctions were checked; OCR and units were normalized without changing the keyed answers.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          430,
+          431
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH23_Q015": {
+      "takeaway": "Low-volume flow–volume loop with restrictive physiology is consistent with asbestosis.",
+      "displayText": "This is a case of asbestosis, a restrictive lung disease with diffuse interstitial fibrosis. Restrictive disease reduces lung volumes, so the maximum expiratory flow–volume loop begins and ends at abnormally low volumes. Obstructive disease (asthma, bronchospasm, emphysema) narrows airways or reduces radial traction, allowing premature airway closure; lung volumes are often elevated rather than uniformly low.",
+      "emphasis": [
+        "This is a case of asbestosis"
+      ],
+      "rationales": {
+        "b": "Asthma is obstructive and typically causes reduced expiratory flow with air trapping rather than uniformly low lung volumes.",
+        "c": "Bronchospasm is an obstructive process, not the restrictive low-volume loop shown.",
+        "d": "Emphysema is obstructive, often with increased lung volumes and a scooped expiratory limb."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages and associated volume/flow figures were reviewed to validate calculations and correct OCR damage.",
+        "reconstructedContent": "This is a case of asbestosis, a restrictive lung disease with diffuse interstitial fibrosis. Restrictive disease reduces lung volumes, so the maximum expiratory flow–volume loop begins and ends at abnormally low volumes. Obstructive disease (asthma, bronchospasm, emphysema) narrows airways or reduces radial traction, allowing premature airway closure; lung volumes are often elevated rather than uniformly low.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 431 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed equations, graph labels, and spirometry/flow-volume distinctions were checked; OCR and units were normalized without changing the keyed answers.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          431
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH23_Q016": {
+      "takeaway": "The high-volume, low-expiratory-flow curve with air trapping is emphysema.",
+      "displayText": "The green curve in the above image indicates emphysema. The green maximum-expiratory-flow-volume curve and dyspnea pattern show an obstructive pattern. During forceful expiration, positive intrathoracic pressure increases airway collapse; obstructed, poorly supported airways make expiration harder and markedly lower maximal expiratory flow. TLC and residual volume rise with air trapping. Restrictive diseases such as asbestosis, kyphosis, and tuberculosis limit expansion, reducing TLC and RV; their curves occur at lower volumes than normal.",
+      "emphasis": [
+        "The green curve"
+      ],
+      "rationales": {
+        "a": "Asbestosis is restrictive and shifts the flow–volume curve to lower lung volumes.",
+        "c": "Kyphosis is restrictive and lowers attainable lung volumes rather than causing this obstructive air-trapping pattern.",
+        "d": "Tuberculosis-related restrictive disease reduces lung expansion; the green obstructive curve with raised TLC/RV indicates emphysema."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages and associated volume/flow figures were reviewed to validate calculations and correct OCR damage.",
+        "reconstructedContent": "The green curve in the above image indicates emphysema. The green maximum-expiratory-flow-volume curve and dyspnea pattern show an obstructive pattern. During forceful expiration, positive intrathoracic pressure increases airway collapse; obstructed, poorly supported airways make expiration harder and markedly lower maximal expiratory flow. TLC and residual volume rise with air trapping. Restrictive diseases such as asbestosis, kyphosis, and tuberculosis limit expansion, reducing TLC and RV; their curves occur at lower volumes than normal.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 431, 432 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed equations, graph labels, and spirometry/flow-volume distinctions were checked; OCR and units were normalized without changing the keyed answers.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          431,
+          432
+        ]
+      }
+    }
+  }
+}

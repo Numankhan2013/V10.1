@@ -1,5 +1,9 @@
 # Physiology remaining-explanations audit — 2026-10-01
 
+## Ownership scope amendment
+
+After shared-worker balancing on 2026-10-01, this lane’s final scope is Physiology through Chapter 23: 249 actionable questions, with gate-held records excluded. The earlier through-Chapter-33 progress totals below are historical checkpoints from before the reassignment and should not be used as the current denominator. Chapter 23 adds the final 17 actionable records; the remaining Chapter 23 gate-held Q17 was not authored. Later chapters belong to another worker.
+
 ## Checkpoint
 
 - Canonical base: `d4abce86068b4221e61e541c34dd29258de61cca`.
@@ -125,3 +129,11 @@ Validation: the root worker batch CLI passed all six Physiology files at the ass
 - The explanations retain gas-law notation; diffusion- versus perfusion-limited gas transport; oxygen binding fractions and capacity calculations; oxygen delivery inputs; Hb subunits and T/R cooperativity; sigmoid dissociation, saturation and P50; Bohr/Haldane effects; 2,3-DPG and HbF; chloride-shift-related PCV; and CPDA storage effects.
 - Printed pages 404–415 were rendered and checked; selected curve, Hb transition, chloride-shift, and oxygen-capacity figures were visually reviewed. Chapter 22 Q9 had empty imported explanation text; the cooperative-binding mechanism was reconstructed from its printed solution on p. 408, with PDF hash and page evidence recorded per item.
 - The worker batch validator passes all 21 assigned-base Physiology files (232 questions), with exact source-keyed distractor rationales, emphasis anchors, detail retention or documented pinned reconstruction evidence, and preserved baseline/gates.
+
+
+## Chapter 23 checkpoint
+
+- Added 17 actionable Lung Volumes and Lung Function Tests items: Q1–16 and Q18. Q17 remains held by the shared queue gate and was left untouched. The 249-question final ownership scope through Chapter 23 is complete in this lane; 232 had been committed through Chapter 22 before this checkpoint.
+- The explanations retain lung-volume identities, ERV and FVC graph calculations, spirometer limits, compliance/TLC, Fowler nitrogen washout phases, alveolar ventilation equations, VD/VT, closing volume with age/disease, restrictive PFT pattern, variable extrathoracic loop mechanics, pneumothorax recoil, flow-volume distinctions in asbestosis/emphysema, and post-exercise H⁺ from lactate.
+- Rendered printed pages 424–433 and visually checked the spirogram, upper-airway flow-loop/obstruction figure, and flow-volume graphs on pp. 424, 429, 431–432; p. 433 verifies the post-exercise mechanism. Source figures/registries remain intact. Q5 and Q9 had empty imported explanation text and were reconstructed from printed pages 425 and 427 with item-specific PDF evidence recorded.
+- The worker batch validator passes all 23 assigned-base Physiology files (249 questions), with exact source-keyed distractor rationales, emphasis, detail retention or documented reconstruction, and preserved baseline/gates.
