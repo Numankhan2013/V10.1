@@ -39,6 +39,8 @@ jobs:
         run: python3 tools/test_practice_correction_v1.py
       - name: Test actionable Insights focus
         run: python3 tools/test_insights_focus_v1.py
+      - name: Test learning Insights calculations and calendar comparisons
+        run: python3 tools/test_learning_insights_v1.py
       - name: Test bank-aware timed CBT builder
         run: python3 tools/test_bank_aware_cbt_builder_v1.py
       - name: Test Home Today’s Focus command center

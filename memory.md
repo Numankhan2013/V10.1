@@ -864,3 +864,15 @@ All 1,935 actionable explanations from the initial 1,958 pending are authored an
 Initial combined full run36841656565 failed before deployment on PHYSIO_CH23_Q018 emphasis: scientific formatter converted H+ to superscript HTML while anchor matching used plain escaped text. Fixed identical scientific formatting on text/needle, and added actual-renderer regression for the exact case, escaping and all2,546 authored display-text configurations. This regression runs early in bothCI workflows; all56 local checks passed. Replacement full browser suite passed3,870 exact runtime checks and562 rendered cases across phone/tablet. Live downloaded preview matches all2,688 approved configs exactly, includes corrected renderer and three orphan table recoveries; HTML SHA-256 bdc7702f8b9b6dc68b3ae1fbd6d7cd963baf6f2b274360c2b9eb158a3751c4f2.
 
 Three enhanced items retain explicit source caveats (Bio17Q22 absent labs,Bio26Q15 capping ambiguity,Phys32Q28 fiber wording). All23 pre-existing pending source gates are deferred at user request. No actionable explanation work remains; do not restart completed workers. This final certification is docs-only with skipCI so it does not schedule another preview build.
+
+
+### 2026-10-01 — Learning Insights dashboard
+
+The user requested a comprehensive period-aware Insights dashboard from their
+phone/tablet prototypes, then removed Study Map/Topics to revisit and required
+a full-year heatmap at the top. Continuous relative count/peak shade and glow
+replace fixed thresholds; year/scope changes rescale the calendar. The new
+read-only dashboard includes period comparisons, outcomes, recorded timing,
+topic/subject performance, FSRS, mistake recovery and module progress. Source
+and active release work remain separate. See STATE.md and docs/LEARNING_INSIGHTS.md
+for certification, preview and the current candidate handoff.

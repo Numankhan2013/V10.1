@@ -108,11 +108,17 @@ closed. Raw question bundles and audit metadata remain unchanged.
   `tools/insights_focus_core.js` groups all-bank questions by exact subject,
   bank, and source topic; it reads active attempts and launches the shared
   Practice engine without persisting a second analytics model.
-  `tools/qbank_coverage_core.js` derives an Insights study map from the same
-  bank registry and active attempts. It presents one bank's source topics at
-  a time, keeps filter/search state in page memory, and opens the existing
-  `nkOpenSubjectChapter` route. No progress schema or copied question set is
-  created.
+  `tools/apply_learning_insights_v1.py` owns the final Insights renderer after
+  coverage/correction transforms. `learning_insights_core.js` derives all metrics
+  from effective answer events, saved results, current modules and FSRS schedules;
+  period/scope UI state is transient. Legacy coverage/focus functions remain
+  historical helpers, but neither section is rendered in Insights.
+  The full-year calendar uses local days and continuous count/peak shade/glow.
+  Completed results replace matched attempt timing; new result records include
+  optional `sessionId` provenance. Existing durable state and generic result sync
+  retain that additive field; no analytics collection or schema migration is added.
+  Calendar/DST/Undo/edits/scopes/timing tests run in both workflows. The generated
+  phone/tablet dashboard verifier replaces the retired coverage/focus UI journeys.
 - Attempt helpers: `qAttempts(id)`, `latestAttempt(id)`, `chapterStats(id)`,
   `chapterQuestions(id)`, `totalAttempted()`, `overallAccuracy()`,
   `pendingReviewCount()`, `dueQuestions()`, `wrongQuestions()`,

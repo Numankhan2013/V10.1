@@ -239,3 +239,14 @@ Use `docs/MARROW_TOPIC_INDEX_TAXONOMY.md`.
 The next Marrow content-quality phase is explanation fine-tuning through a
 separate augmentation/display layer while raw ED8 source text remains auditable.
 Use `docs/MARROW_EXPLANATION_FINE_TUNING.md`.
+
+
+## Period-aware Insights — 2026-10-01
+
+Insights answers how much was studied, whether performance improved, where
+accuracy is weaker, and what revision remains. Week/month/year comparisons use
+the same elapsed calendar position. No-data accuracy is unknown, not zero.
+The full-year heatmap comes first; continuous relative shade/glow distinguishes
+workload without fixed-count saturation. The user removed Study Map and Topics
+to revisit from this screen. Answer/rating metadata must not inflate counts or
+time, and recorded time must never be presented as a background activity tracker.
