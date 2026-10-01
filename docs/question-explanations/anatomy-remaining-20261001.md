@@ -42,3 +42,13 @@ Added 24 more actionable IDs across Chapters 19–20 in three bounded files:
 - Ch20 Q1–7 (`explanation_anatomy_ch20_q001_q007_v1.json`)
 
 The Chapter 19 Q17 classification ambiguity and Chapter 20 Q1 collateral/calcarine sulcus ambiguity remain explicitly flagged for subject review, with source wording and evidence preserved. Chapter 20 Q4/Q7 figure/table interpretation was checked against the source PDF. Validator passed: `MARROW_WORKER_BATCHES_OK files=18 questions=153 source_keyed=true detail_retention=true baseline_and_gates_preserved=true`. Current authored total is 153 of the 662 actionable IDs owned through Chapter 50; 509 remain in my range. Chapters 51–63 are handed off under the balancing assignment to another worker, so they are outside this author's remaining count.
+
+## Checkpoint 3
+
+Added 22 IDs in three bounded files:
+
+- Ch21 Q1–14 (`explanation_anatomy_ch21_q001_q014_v1.json`)
+- Ch21 Q15–16 (`explanation_anatomy_ch21_q015_q016_v1.json`)
+- Ch22 Q1–6 (`explanation_anatomy_ch22_q001_q006_v1.json`)
+
+The rationales preserve distinctions among association, projection, and commissural fibers, internal capsule subdivisions, and basal ganglia pathway/nomenclature details. The source explanation's classification of arcuate fasciculus and fornix is retained as written. Validator passed: `MARROW_WORKER_BATCHES_OK files=21 questions=175 source_keyed=true detail_retention=true baseline_and_gates_preserved=true`. Total authored: 175/662 in my owned range; 487 remain through Chapter 50.
