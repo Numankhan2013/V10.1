@@ -70,3 +70,7 @@ Added Chapter 26 Q1–20 in two bounded files (14 and 6 IDs). The vascular expla
 ## Checkpoint 7
 
 Added Chapter 27 Q1–15 in two bounded files (Q1–14 and Q15). Explanations retain spinal-level landmarks, rami and arterial supply, pathway crossings, Brown–Séquard findings, and conus-versus-cauda equina distinctions. Validator passed: `MARROW_WORKER_BATCHES_OK files=29 questions=250 source_keyed=true detail_retention=true baseline_and_gates_preserved=true`. Total authored is 250/662 through Chapter 50; 412 remain.
+
+## Checkpoint 8
+
+Added 26 IDs in three bounded Chapter 28 files: Q1–14, Q15–22 and Q24–27. The source-gated Q23 match item remains intentionally untouched because its numbered muscle list/action list is missing from the rendered question page. Other explanations preserve skull joints, sutures, foramina, cranial nerves, orbital/skull-base anatomy, scalp layers and facial innervation. Validator passed: `MARROW_WORKER_BATCHES_OK files=32 questions=276 source_keyed=true detail_retention=true baseline_and_gates_preserved=true`. Total authored is 276/662 through Chapter 50; 386 remain.
