@@ -75,6 +75,7 @@ def transform(source: str) -> str:
     # the exact same notation and escaping boundary.
     marrow_replacements = (
         ("let html=esc(String(text||''));", "let html=nkScientificMarkup(text);"),
+        ("const needle=esc(String(phrase||''));", "const needle=nkScientificMarkup(phrase);"),
         ("'<strong>'+esc(o.text||'')+'</strong>", "'<strong>'+nkScientificMarkup(o.text||'')+'</strong>"),
         ("esc(reason)", "nkScientificMarkup(reason)"),
     )

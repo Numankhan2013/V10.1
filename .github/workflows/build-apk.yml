@@ -282,6 +282,7 @@ jobs:
           python3 tools/test_marrow_explanation_refinement_wave.py
           python3 tools/test_marrow_table_header_alias.py
           python3 tools/test_marrow_orphan_table_recovery.py
+          python3 tools/test_marrow_scientific_emphasis.py
       - name: Validate Marrow Biochemistry explanation gold sample
         run: python3 tools/test_marrow_biochem_explanation_sample.py
       - name: Validate Marrow Biochemistry explanation rollout
