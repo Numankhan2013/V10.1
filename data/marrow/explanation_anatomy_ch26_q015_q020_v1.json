@@ -1,0 +1,219 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Anatomy Chapter 26 explanation refinement. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Anatomy",
+    "bank": "Marrow",
+    "chapterId": "26",
+    "chapterTitle": "Vascular supply of Brain",
+    "questionStart": 15,
+    "questionEnd": 20,
+    "questions": 6,
+    "status": "approved-rollout",
+    "workloadScore": 14,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 753,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__ANAT_CH26_Q015": {
+      "takeaway": "Posterior limb of internal capsule is supplied by MCA lenticulostriate, anterior choroidal and PCA posterolateral branches, not Heubner artery.",
+      "displayText": "The marked posterior limb of the internal capsule is supplied by Charcot (lenticulostriate) branches of the middle cerebral artery, anterior choroidal artery from internal carotid artery, and posterolateral branches of posterior cerebral artery. Recurrent artery of Heubner is not among these sources. The source figure labels internal-capsule regions and their arterial territories.",
+      "emphasis": [
+        "posterior limb of the internal capsule",
+        "not among these sources",
+        "Charcot (lenticulostriate)",
+        "anterior choroidal artery"
+      ],
+      "rationales": {
+        "a": "MCA lenticulostriate (Charcot) arteries supply the posterior limb, so MCA is part of its supply.",
+        "c": "Anterior choroidal artery from ICA supplies the posterior limb, so this is not the exception.",
+        "d": "Posterolateral PCA branches also contribute to posterior-limb supply; recurrent artery of Heubner does not."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The exported OCR explanation for marrow__ANAT_CH26_Q015 is partly corrupted by figure labels/character-recognition noise.",
+        "sourceFragment": "The marked structure is the posterior limb of the internal capsule and the recurrent artery of\nHeubner is not a part of its blood supply.\nThe posterior limb of internal capsule is supplied by:\n+ Charcot's artery (branch of middle cerebral artery)\n+ Anterior choroidal artery (branch of internal carotid artery)\n\n+ Posterolateral branches of posterior cerebral artery.\na f nuclowe”\nJO ys! : pe\naos Gnu of intemal\nSepsute\n7 QR 7 i — posters wopiot\n~ tntornal capauie\nCRN\nventricle — /-— Corpus\n“ L ealiosum\nAe Ss Forni\nBody of 7 \\ ey aa\nZ ee ee a Irterno!\nThelema > ae i eapsulo\nes i Extornal\nves ee 6 By capsuo\nRed ruc aes a \\\n* Substantia nigra Pane pals",
+        "reconstructedContent": "The marked posterior limb of the internal capsule is supplied by Charcot (lenticulostriate) branches of the middle cerebral artery, anterior choroidal artery from internal carotid artery, and posterolateral branches of posterior cerebral artery. Recurrent artery of Heubner is not among these sources. The source figure labels internal-capsule regions and their arterial territories.",
+        "evidenceBasis": "Anatomy ED8 explanation pages [453, 454] and the source diagram metadata were reviewed; readable text preserves the source-specific arterial and venous drainage facts.",
+        "reviewNote": "Reconstructed source-specific explanation; source figure data remains in the immutable record."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, question stem, choices, answer key and associated figure/table metadata",
+        "sourceExplanationPages": [
+          453,
+          454
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 2 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH26_Q016": {
+      "takeaway": "Putamen does not receive a direct supply from the posterior communicating artery.",
+      "displayText": "Posterior communicating artery does not supply putamen. The source image depicts the lentiform nucleus and adjacent deep structures; putamen receives striate and choroidal contributions rather than posterior communicating artery supply.",
+      "emphasis": [
+        "Posterior communicating artery does not supply putamen",
+        "putamen"
+      ],
+      "rationales": {
+        "a": "Medial striate branches contribute to deep basal-ganglia perfusion; posterior communicating artery is not a putamen supply.",
+        "b": "Lateral striate (lenticulostriate) branches of MCA supply putamen and adjacent basal ganglia.",
+        "c": "Anterior choroidal artery supplies portions of basal ganglia including posterior putamen; PCom is the excluded vessel."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The exported OCR explanation for marrow__ANAT_CH26_Q016 is partly corrupted by figure labels/character-recognition noise.",
+        "sourceFragment": "Posterior communicating artery does not supply the putamen.\n\nFinste artory—— + “\nene — sf '\nSs] Pomiives Thatamue rig }\nOS a",
+        "reconstructedContent": "Posterior communicating artery does not supply putamen. The source image depicts the lentiform nucleus and adjacent deep structures; putamen receives striate and choroidal contributions rather than posterior communicating artery supply.",
+        "evidenceBasis": "Anatomy ED8 explanation pages [454, 455] and the source diagram metadata were reviewed; readable text preserves the source-specific arterial and venous drainage facts.",
+        "reviewNote": "Reconstructed source-specific explanation; source figure data remains in the immutable record."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, question stem, choices, answer key and associated figure/table metadata",
+        "sourceExplanationPages": [
+          454,
+          455
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 1 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH26_Q017": {
+      "takeaway": "Superior cerebral (bridging) veins drain into the superior sagittal sinus.",
+      "displayText": "A crescent-shaped hyperdense collection indicates acute subdural hematoma from torn bridging cerebral veins, often superior cerebral veins. Superior cerebral veins drain into superior sagittal sinus. Superficial cerebral veins drain cortex; deep cerebral veins drain deep structures. Superior cerebral veins drain superior superolateral and medial surfaces to superior sagittal sinus. Inferior cerebral veins drain inferior hemisphere to transverse, superior petrosal, cavernous and sphenoparietal sinuses, and some to inferior sagittal sinus. Superficial middle cerebral vein drains lateral surface and empties into cavernous sinus. Internal cerebral veins begin near foramen of Monro and unite as great cerebral vein; basal veins also drain into great cerebral vein, which passes beneath corpus callosum and joins straight sinus.",
+      "emphasis": [
+        "crescent-shaped hyperdense collection",
+        "bridging cerebral veins",
+        "superior sagittal sinus",
+        "foramen of Monro"
+      ],
+      "rationales": {
+        "a": "Great cerebral vein is a deep vein formed from internal cerebral veins and drains to straight sinus, not from superficial bridging veins.",
+        "b": "Vein of Galen drains deep structures and basal veins to straight sinus.",
+        "d": "Inferior sagittal sinus receives some inferior cerebral veins but not the superior cerebral bridging veins described."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The exported OCR explanation for marrow__ANAT_CH26_Q017 is partly corrupted by figure labels/character-recognition noise.",
+        "sourceFragment": "oS «< °) i x\nCT image showing a crescent aig hyperdense lesion, is suggestive of acute subdural\nhematoma. The head injuntO s to a tear the cerebralWeins (predominantly the bridging veins\nlike the superior cerebral vein) causing'thé hematoma>The superior cerebral vein drains into the\nsuperior sagittal sinus. A & re ©\nVeins of the cerebral bemiaipeeerean be capebroed into superficial and deep. The superficial\nveins chiefly drain the cad I cortex, whilé the deep veins return blood from the deep structures\nofthe cerebrum. 6} ah\nSuperficial veins: > “\n+ Superion ie? al veins:\nThese vein$ drain the upper parts of the superolateral and medial surfaces of the cerebral\nhemisphere. They drain blood into the superior sagittal sinus.\n+ Inferior cerebral veins:\nThese veins return blood from the inferior aspect of the cerebral hemisphere into the transverse,\nsuperior petrosal, cavernous and sphenoparietal sinuses. Some also drain into the inferior sagittal\nsinus.\n+ Superficial middle cerebral vein:\nThis vein receives blood from veins on the superolateral surface. It terminates in the cavernous\nsinus.\nDeep veins:\n+ Internal cerebral veins:\nThis pair of veins originates at the foramen of Munro and eventually anastomoses to form the\ngreat vein of Galen.\n\n+ Basal veins:\nThe two basal veins are closely related to the midbrain structures and drain into the great vein of\nGalen.\n+ Great cerebral vein:\nThe two internal cerebral veins unite to form the great cerebral vein before it passes beneath the\ncorpus callosum and anastomoses with the straight sinus.\ntrternal\ncorebral vein —\n———_ oe Now\na wf coeecaven\nNK Strsiont\ntrtenor snus\nsasital sinus = “y\nAnterior \\ &\ncored —— 4) | S\nBaral vein ~< i\naD wns\nSuperior anastomotic\non (rare)\nSuperior oe\nInferior anasternotic T\nain aoe) y",
+        "reconstructedContent": "A crescent-shaped hyperdense collection indicates acute subdural hematoma from torn bridging cerebral veins, often superior cerebral veins. Superior cerebral veins drain into superior sagittal sinus. Superficial cerebral veins drain cortex; deep cerebral veins drain deep structures. Superior cerebral veins drain superior superolateral and medial surfaces to superior sagittal sinus. Inferior cerebral veins drain inferior hemisphere to transverse, superior petrosal, cavernous and sphenoparietal sinuses, and some to inferior sagittal sinus. Superficial middle cerebral vein drains lateral surface and empties into cavernous sinus. Internal cerebral veins begin near foramen of Monro and unite as great cerebral vein; basal veins also drain into great cerebral vein, which passes beneath corpus callosum and joins straight sinus.",
+        "evidenceBasis": "Anatomy ED8 explanation pages [455, 456] and the source diagram metadata were reviewed; readable text preserves the source-specific arterial and venous drainage facts.",
+        "reviewNote": "Reconstructed source-specific explanation; source figure data remains in the immutable record."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, question stem, choices, answer key and associated figure/table metadata",
+        "sourceExplanationPages": [
+          455,
+          456
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 2 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH26_Q018": {
+      "takeaway": "Superficial middle cerebral vein drains to cavernous sinus and communicates with sagittal and transverse sinuses.",
+      "displayText": "Superficial middle cerebral vein lies in lateral sulcus and drains much of lateral cerebral hemisphere. It empties into cavernous sinus. It connects to superior sagittal sinus through superior anastomotic vein of Trolard and to transverse sinus through inferior anastomotic vein of Labbé.",
+      "emphasis": [
+        "Superficial middle cerebral vein",
+        "cavernous sinus",
+        "Trolard",
+        "Labbé"
+      ],
+      "rationales": {
+        "a": "Transverse sinus is reached via inferior anastomotic vein of Labbé, not direct termination of superficial middle cerebral vein.",
+        "c": "Superior sagittal sinus connects by superior anastomotic vein of Trolard; direct drainage is cavernous sinus.",
+        "d": "Straight sinus drains deep venous system and great cerebral vein, not superficial middle cerebral vein."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The exported OCR explanation for marrow__ANAT_CH26_Q018 is partly corrupted by figure labels/character-recognition noise.",
+        "sourceFragment": "The superficial middle cerebral vein drains into the cavernous sinus.\nSuperficial middle cerebral vein lies in the lateral sulcus and drains most of the lateral surface of\nthe hemispheres. It drains into the cavernous sinus.\n\nSuperficial middle cerebral vein is connected to the superior sagittal sinus through the superior\nanastomotic vein of Trolord and to the transverse sinus through the inferior anastomotic vein of\nLabbe.",
+        "reconstructedContent": "Superficial middle cerebral vein lies in lateral sulcus and drains much of lateral cerebral hemisphere. It empties into cavernous sinus. It connects to superior sagittal sinus through superior anastomotic vein of Trolard and to transverse sinus through inferior anastomotic vein of Labbé.",
+        "evidenceBasis": "Anatomy ED8 explanation pages [456, 457] and the source diagram metadata were reviewed; readable text preserves the source-specific arterial and venous drainage facts.",
+        "reviewNote": "Reconstructed source-specific explanation; source figure data remains in the immutable record."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, question stem, choices, answer key and associated figure/table metadata",
+        "sourceExplanationPages": [
+          456,
+          457
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 1 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH26_Q019": {
+      "takeaway": "Internal cerebral veins unite to form the great cerebral vein of Galen.",
+      "displayText": "Two internal cerebral veins join below the splenium of corpus callosum to form the great cerebral vein (vein of Galen). It receives basal veins and drains into straight sinus.",
+      "emphasis": [
+        "internal cerebral veins",
+        "great cerebral vein (vein of Galen)",
+        "straight sinus"
+      ],
+      "rationales": {
+        "a": "Anterior cerebral vein is not the deep confluence formed by two internal cerebral veins.",
+        "b": "Middle cerebral veins are superficial cortical drainage; the joined deep veins form great cerebral vein.",
+        "d": "Inferior cerebral veins are superficial channels draining inferior hemisphere, not the vein formed beneath splenium."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The exported OCR explanation for marrow__ANAT_CH26_Q019 is partly corrupted by figure labels/character-recognition noise.",
+        "sourceFragment": "Two internal cerebral veins join to form the great cerebral vein of Galen beneath the splenium of\nthe corpus callosum. It receives the basal veins and drains into the straight sinus.\n_ creat\n= — Van of Gston\nfo Straight &\n\nIndoor J = pees )\n\nccata sre = a\n\nAnterior —\n\nCorte vena\n\nBasal vein =\n\nMedial surtace\noY a\nox ae",
+        "reconstructedContent": "Two internal cerebral veins join below the splenium of corpus callosum to form the great cerebral vein (vein of Galen). It receives basal veins and drains into straight sinus.",
+        "evidenceBasis": "Anatomy ED8 explanation pages [457] and the source diagram metadata were reviewed; readable text preserves the source-specific arterial and venous drainage facts.",
+        "reviewNote": "Reconstructed source-specific explanation; source figure data remains in the immutable record."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, question stem, choices, answer key and associated figure/table metadata",
+        "sourceExplanationPages": [
+          457
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 1 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH26_Q020": {
+      "takeaway": "Great cerebral vein drains into straight sinus.",
+      "displayText": "The great cerebral vein of Galen drains into the straight sinus. The source figure shows the cerebral venous drainage pattern.",
+      "emphasis": [
+        "great cerebral vein of Galen",
+        "straight sinus"
+      ],
+      "rationales": {
+        "a": "Inferior petrosal sinus drains cavernous sinus, not great cerebral vein.",
+        "c": "Sigmoid sinus receives transverse sinus and continues to internal jugular vein.",
+        "d": "Occipital sinus is a posterior dural sinus and is not the direct terminus of vein of Galen."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The exported OCR explanation for marrow__ANAT_CH26_Q020 is partly corrupted by figure labels/character-recognition noise.",
+        "sourceFragment": "The great 'erebral vein of'Galen drains into the straight sinus.\nThe image given below shows the venous drainage of cerebral veins.",
+        "reconstructedContent": "The great cerebral vein of Galen drains into the straight sinus. The source figure shows the cerebral venous drainage pattern.",
+        "evidenceBasis": "Anatomy ED8 explanation pages [457] and the source diagram metadata were reviewed; readable text preserves the source-specific arterial and venous drainage facts.",
+        "reviewNote": "Reconstructed source-specific explanation; source figure data remains in the immutable record."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, question stem, choices, answer key and associated figure/table metadata",
+        "sourceExplanationPages": [
+          457
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 1 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    }
+  },
+  "source": {
+    "bundle": "anatomy_ch001_063",
+    "sourceRawSha256": "f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387",
+    "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+    "sourcePdfPages": [
+      453,
+      454,
+      455,
+      456,
+      457
+    ]
+  }
+}
