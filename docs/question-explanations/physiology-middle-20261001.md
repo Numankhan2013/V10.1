@@ -168,7 +168,7 @@ Every item was checked against the canonical stem, options, key and full structu
 - `marrow__PHYSIO_CH32_Q025` — key option 4; question p. not supplied, key p. not supplied, explanation p. not supplied.
 - `marrow__PHYSIO_CH32_Q026` — key option 3; question p. not supplied, key p. not supplied, explanation p. not supplied.
 - `marrow__PHYSIO_CH32_Q027` — key option 1; question p. not supplied, key p. not supplied, explanation p. not supplied.
-- `marrow__PHYSIO_CH32_Q028` — key option 4; question p. not supplied, key p. not supplied, explanation p. not supplied. **Review flag:** source says all options are fiber, then chooses gums only for uncommon dietary use; stem says “not a dietary fiber.”
+- `marrow__PHYSIO_CH32_Q028` — key option 4; question p. not supplied, key p. not supplied, explanation p. not supplied. **Recorded ambiguity:** the source calls every option dietary fiber but chooses gums for uncommon intake; its wording/key conflict is documented and the key is preserved.
 - `marrow__PHYSIO_CH32_Q029` — key option 3; question p. not supplied, key p. not supplied, explanation p. not supplied.
 - `marrow__PHYSIO_CH32_Q030` — key option 2; question p. not supplied, key p. not supplied, explanation p. not supplied.
 - `marrow__PHYSIO_CH32_Q031` — key option 3; question p. not supplied, key p. not supplied, explanation p. not supplied.
@@ -203,4 +203,4 @@ Every item was checked against the canonical stem, options, key and full structu
 
 ## Release boundary
 
-These are authored candidates, not runtime-integrated or build-verified content. No source key, raw record, figure, table or gate was changed. CH32 Q028 retains a question-specific manual-review flag because the source says all listed choices are fiber while its stem asks for a non-fiber. CH28 Q011 retains the source key with its stated model scoped as a textbook mechanism.
+These are authored candidates, not runtime-integrated or build-verified content. No source key, raw record, figure, table or gate was changed. CH32 Q028 records a completed source-ambiguity finding: the source describes all listed choices as fibers while its key chooses gums based on uncommon intake; the key is preserved and the conflicting wording is explicit. CH28 Q011 retains the source key with its stated model scoped as a textbook mechanism.

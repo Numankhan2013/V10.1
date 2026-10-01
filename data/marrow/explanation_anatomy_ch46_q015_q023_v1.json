@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner-facing Marrow ED8 Anatomy Chapter 46 explanation refinement; native diagrams and tables remain unchanged.",
+  "scope": {
+    "subject": "Anatomy",
+    "bank": "Marrow",
+    "chapterId": "46",
+    "chapterTitle": "Lungs and Pleura",
+    "questionStart": 15,
+    "questionEnd": 23,
+    "questions": 9,
+    "status": "approved-rollout",
+    "workloadScore": 11,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387",
+    "auditReport": "docs/question-explanations/anatomy-middle-20261001.md"
+  },
+  "questions": {
+    "marrow__ANAT_CH46_Q015": {
+      "takeaway": "At the left lung hilum, pulmonary artery lies superior to the bronchus and pulmonary veins.",
+      "displayText": "At the left lung hilum, pulmonary artery lies superior to the bronchus and pulmonary veins.\n\nThe sequence of structures at the left hilum superior to inferior is: (Mnemonic: 'ABV') Pulmonary artery; Principal (hyparterial) bronchus; Inferior pulmonary vein.\n\nThe sequence of structures at the right hilum superior to inferior is: (Mnemonic: 'BABV') Superior lobar (eparterial) bronchus; Pulmonary artery; Principal bronchus; Inferior pulmonary vein.",
+      "emphasis": [
+        "At the left lung hilum, pulmonary artery lies superior to the bronchus and pulmonary veins"
+      ],
+      "rationales": {
+        "a": "Pulmonary veins occupy the inferior part of the hilum.",
+        "b": "Bronchial arteries are small and do not form the most superior major hilar structure.",
+        "c": "The bronchus is inferior to pulmonary artery on the left (RALS: Right artery Anterior, Left artery Superior)."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          856,
+          857
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__ANAT_CH46_Q016": {
+      "takeaway": "The inferior pulmonary vein is the lowest major structure at the right lung hilum.",
+      "displayText": "The inferior pulmonary vein is the lowest major structure at the right lung hilum.\n\nThe inferior most structure of the right hilum is the inferior pulmonary vein.\n\nThe sequence of structures at the right hilum superior to inferior is: (Mnemonic: 'BABV') Superior lobar (eparterial) bronchus; Pulmonary artery; Principal bronchus; Inferior pulmonary vein.",
+      "emphasis": [
+        "The inferior pulmonary vein is the lowest major structure at the right lung hilum"
+      ],
+      "rationales": {
+        "a": "Right atrium is a cardiac relation, not a hilar structure.",
+        "c": "Pulmonary artery lies superior to the inferior pulmonary vein.",
+        "d": "Inferior bronchial vein is small; pulmonary vein is the lowest major hilar structure."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          857
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__ANAT_CH46_Q017": {
+      "takeaway": "The lingula is a tongue-like part of the left upper lobe, not a separate lung lobe.",
+      "displayText": "The lingula is a tongue-like part of the left upper lobe, not a separate lung lobe.\n\nLingula is not a lobe. It is a small process that is usually present at the lower end of the cardiac notch of the left lung.\n\nThe right lung has 3 lobes: Superior; Middle; Inferior.\n\nThe left lung has 2 lobes: Superior; Inferior.\n\nNote: The azygos vein may sometimes course in a more lateral position, within a four-layered pleural septum within the superior lobe, creating an 'azygos lobe'. This is not a true lobe, but a separated portion of the superior lobe that lacks its own bronchi, arteries, or veins.",
+      "emphasis": [
+        "The lingula is a tongue-like part of the left upper lobe, not a separate lung lobe"
+      ],
+      "rationales": {
+        "a": "Superior lobe is a true lobe of each lung.",
+        "b": "Inferior lobe is present in both lungs.",
+        "c": "Middle lobe is a true lobe of the right lung."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          857,
+          858
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__ANAT_CH46_Q018": {
+      "takeaway": "The source counts ten bronchopulmonary segments in each lung, with some segmental fusion variants on the left.",
+      "displayText": "The source counts ten bronchopulmonary segments in each lung, with some segmental fusion variants on the left.\n\nBoth the lungs have 10 bronchopulmonary segments each.\n\nThe functionally independent unit of lung tissue is called a bronchopulmonary segment. Each segment is a separate respiratory unit.",
+      "emphasis": [
+        "The source counts ten bronchopulmonary segments in each lung, with some segmental fusion variants on the left"
+      ],
+      "rationales": {
+        "a": "Nine right and eleven left reverses the source’s usual count.",
+        "b": "Eleven right and nine left is not the standard source count.",
+        "d": "Eleven right and ten left overcounts the usual right-lung segmentation."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          858
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__ANAT_CH46_Q019": {
+      "takeaway": "An eparterial right upper-lobe bronchus supplies the apical, anterior and posterior segments of the right upper lobe.",
+      "displayText": "An eparterial right upper-lobe bronchus supplies the apical, anterior and posterior segments of the right upper lobe.\n\nThe eparterial bronchus supplies the right upper lobe, which includes the segments: apical, posterior, and anterior. Hence, these segments will have decreased airflow.",
+      "emphasis": [
+        "An eparterial right upper-lobe bronchus supplies the apical, anterior and posterior segments of the right upper lobe"
+      ],
+      "rationales": {
+        "a": "Medial segment belongs to right middle lobe, not the upper lobe supplied by eparterial bronchus.",
+        "c": "Lateral, medial and superior segments span middle and lower lobes, not right upper lobe.",
+        "d": "Basal segments belong to lower lobes, not the upper-lobe eparterial bronchus."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          858
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__ANAT_CH46_Q020": {
+      "takeaway": "Each bronchopulmonary segment is supplied by a tertiary (segmental) bronchus.",
+      "displayText": "Each bronchopulmonary segment is supplied by a tertiary (segmental) bronchus.\n\nThe bronchopulmonary segments are aerated by tertiary bronchi (3°).\n\nPrincipal bronchi (1°) → lobar bronchi (2° - right into 3, left into 2) → segmental bronchi (3°).",
+      "emphasis": [
+        "Each bronchopulmonary segment is supplied by a tertiary (segmental) bronchus"
+      ],
+      "rationales": {
+        "a": "Secondary bronchi are lobar bronchi and supply whole lobes.",
+        "c": "Terminal bronchioles are distal conducting airways within segments.",
+        "d": "Respiratory bronchioles are beyond terminal bronchioles and do not define segmental supply."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          858,
+          859
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__ANAT_CH46_Q021": {
+      "takeaway": "Pulmonary veins usually run between bronchopulmonary segments, so an independent intrasegmental venous branch is the false statement.",
+      "displayText": "Pulmonary veins usually run between bronchopulmonary segments, so an independent intrasegmental venous branch is the false statement.\n\nThe bronchopulmonary segments are not drained by an independent branch of the pulmonary vein.\n\nThe tributaries of the pulmonary vein tend to pass intersegmentally between and around the margins of segments.\n\nA bronchopulmonary segment is the area of lung supplied by a segmental bronchus and its accompanying pulmonary artery branch and can be resected surgically. It is the largest division of a lobe.",
+      "emphasis": [
+        "Pulmonary veins usually run between bronchopulmonary segments, so an independent intrasegmental venous branch is the false statement"
+      ],
+      "rationales": {
+        "a": "Segments are surgically resectable because connective-tissue septa define them.",
+        "b": "Each segment is named for the segmental bronchus that supplies it.",
+        "d": "A bronchopulmonary segment is the largest subdivision of a lobe in the standard hierarchy."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          859
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__ANAT_CH46_Q022": {
+      "takeaway": "The right principal bronchus is more vertical and the right inferior lobar bronchus continues its course, explaining foreign-body preference; the right lung’s shorter/wider shape does not.",
+      "displayText": "The right principal bronchus is more vertical and the right inferior lobar bronchus continues its course, explaining foreign-body preference; the right lung’s shorter/wider shape does not.\n\nThe right principal bronchus (not the right lung) is wider, shorter (2.5 cm), and more vertical than the left. The right inferior lobar bronchus is the continuation of the bronchus intermedius which is in the continuation of the right principal bronchus. These differences explain why inhaled foreign bodies enter the right principal bronchus more often than the left.\n\nThe left principal bronchus is narrower, longer (5 cm) and less vertical than the right principal bronchus.",
+      "emphasis": [
+        "The right principal bronchus is more vertical and the right inferior lobar bronchus continues its course, explaining foreign-body preference; the right lung’s shorter/wider shape does not"
+      ],
+      "rationales": {
+        "b": "The right main bronchus is more vertical than the left.",
+        "c": "Tracheal bifurcation geometry directs aspirated material toward the right side.",
+        "d": "The right inferior lobar bronchus aligns more directly with the principal bronchus."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          860
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__ANAT_CH46_Q023": {
+      "takeaway": "Bronchial arteries supply conducting airways as far distally as the respiratory bronchioles in the source description.",
+      "displayText": "Bronchial arteries supply conducting airways as far distally as the respiratory bronchioles in the source description.\n\nThe bronchial artery supplies the lungs up to the respiratory bronchiole.\n\nBronchial arteries are derived from the descending thoracic aorta either directly or indirectly. They travel and branch with the bronchi, and terminate around the level of the respiratory bronchioles.\n\nPulmonary arteries alone perfuse the further distal pathways including the alveolar ducts and the alveoli.",
+      "emphasis": [
+        "Bronchial arteries supply conducting airways as far distally as the respiratory bronchioles in the source description"
+      ],
+      "rationales": {
+        "a": "Tertiary bronchioles do not extend as far distally as respiratory bronchioles.",
+        "c": "Alveolar ducts are respiratory-zone structures supplied principally by pulmonary circulation.",
+        "d": "Terminal bronchioles are proximal to respiratory bronchioles and are supplied as well, but not the distal limit asked."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          860
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    }
+  }
+}
