@@ -819,5 +819,12 @@ clear the queue while FSRS/history remain. The visible Hard/Good/Easy control
 amends the same retrieval through immutable, separately stored synced rating
 events. Undo and edits retain durable rollback. Stale pending ratings cannot
 return through checkpoint merge. Saved-result follow-up excludes resolved
-misses while keeping its original score. Exact full CI and physical review
-remain pending; see STATE.md and SESSION_LOG.md for the current handoff.
+misses while keeping its original score. Certified product
+`4a14b0cfe8f231da0026fc5d621c1ebaf26fcc84` passed 75 local checks,
+Engineering `36875631994`, and full PWA/APK/Android phone+tablet
+`36875623643` (attempt 2). Preview: `https://f4e2534b.nk-qbank.pages.dev`.
+Deployed-HTML and direct live phone/tablet rating/reload/Revision/FSRS checks
+pass with no page errors. Initial Android failure was a Pixel Launcher ANR
+overlay; the identical APK passed on retry. PR #80 remains draft; production
+and main unchanged. Physical acceptance remains separate. Final documentation
+was recorded through GitHub during workspace offline; fetch before local work.

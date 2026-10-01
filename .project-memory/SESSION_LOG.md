@@ -2014,3 +2014,18 @@ these residual additions; final combined CI remains pending. No production claim
   changes, stale merge, peer revision delivery, reload, historical scores and
   a subsequent miss. Local/generated/browser checks pass on the updated
   certified baseline; full exact candidate CI remains pending.
+
+- Certified patch product `4a14b0cfe8f231da0026fc5d621c1ebaf26fcc84`:
+  75 local checks, Engineering `36875631994`, and full generated browser/
+  PWA/APK/Android phone+tablet `36875623643` (attempt 2) pass.
+  Pause/Home/Continue, persisted rating edits, correction queues, saved scores,
+  native Back, force-stop resume, source PDFs and packaged contracts pass.
+- Preview `https://f4e2534b.nk-qbank.pages.dev` passes the full deployed-HTML
+  FSRS correction regression and direct live phone/tablet rating/reload/
+  Revision/FSRS checks with zero page errors. Rating screenshots were checked.
+- Initial Android evidence showed a Pixel Launcher ANR overlay; rerunning only
+  that job with the identical APK passed both devices. No product change was
+  made for that environmental failure.
+- PR #80 stays draft; main/production unchanged. Physical acceptance remains
+  separate. Final documentation was written through GitHub while the local
+  workspace was offline; fetch the branch before subsequent local work.

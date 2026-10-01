@@ -11,9 +11,20 @@
   attempt envelopes sync these events; replay does not add repetitions or
   affect scores/streaks. Checkpoint merge respects pending-rating deletion and
   rejects already committed IDs. Saved-result follow-up excludes corrected
-  misses while preserving original scores. Targeted browser/unit checks pass;
-  full candidate CI and physical review remain pending. Next: complete checks
-  and publish the patched preview; main/production remain unchanged.
+  misses while preserving original scores. Product
+  `4a14b0cfe8f231da0026fc5d621c1ebaf26fcc84` is build-verified: 75 local
+  checks, Engineering `36875631994`, and full PWA/APK/Android phone+tablet
+  run `36875623643` (attempt 2) pass, including Pause/Home/Continue.
+  Preview: `https://f4e2534b.nk-qbank.pages.dev`. Its deployed HTML passes
+  the 24-question/three-miss correction, editable ratings, peer sync, stale
+  pending, Undo, reload and remiss regression. Direct phone/tablet live checks
+  pass rating edits, reload, Revision and FSRS with no page errors.
+  The first Android attempt hit a Pixel Launcher ANR over the app; retrying
+  only that job passed native Back, force-stop resume and both viewports
+  with the identical APK. PR #80 remains a draft; main/production unchanged.
+  Physical acceptance remains separate. Next step: user review of the patch.
+  Final documentation was recorded through GitHub while the workspace was
+  offline; fetch the preview branch before further local work.
 
 - Revision hub candidate (2026-10-01): `feature/home-revision-hub` / PR #80
   builds from combined main. Revision replaces FSRS in primary navigation;
@@ -35,7 +46,7 @@
   shows six seconds of real motion. The user accepted this preview; physical
   in-place APK verification remains separate.
   Main and production are unchanged. A documentation-only `[skip ci]` handoff
-  does not change the certified product. Next step: user review of the preview.
+  does not change the certified product. The FSRS patch above is current.
 
 - Completed image promotion (2026-09-30): main combines the finished image
   integration with every approved account/study feature (PR #79). Certified
