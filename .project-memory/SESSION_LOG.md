@@ -1324,3 +1324,7 @@ Integrated existing worker commits without reauthoring: Anatomy 59 (493639f7, 5e
 - 2026-10-01 checkpoint: 1,385 new validated / 2,138 candidate enhanced,550 actionable remain. Biochemistry worker completed Bio263,Anatomy-tail252,Physiology-tail261 and continues untouched middle165. Primary Anatomy397/662,Physiology212/332. Duplicate Anatomy emphasis anchor corrected; worker validator now catches duplicate anchors locally. No push/deployment before full completion.
 
 - Finished Physiology middle165 integrated; primary Physiology Ch22 added20. Rebalanced untouched AnatomyCh43–50 (137) to available tail worker; primary stops42. Primary Anatomy through38 now450/525. Authored integration1623new/2376candidate,312actions remain. Exception-only review caught false pancreatic A/D ambiguity: optionA is hypertonic, not isotonic; worker correcting rationale before release.
+
+- Final balancing of untouched Physiology25–27 (69) to Anatomy primary after Anatomy through42 complete; primary Physiology stops24 with31 remaining. Both acknowledged. Previously authored content remains untouched.
+
+- 2026-10-01 checkpoint1,698 new validated /2,451 candidate enhanced,237 actionable remain. Anatomy primary525complete now authors untouchedPhys25–27; primaryPhys232/263; tailworker authors Anatomy43–50. Pancreatic rationale corrected after actualoptiontext review, combinedchecks pass. One final build/push remains deferred until all authoringdone.

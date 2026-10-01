@@ -3848,12 +3848,20 @@
     "anatomy_primary": {
       "subject": "Anatomy",
       "chapterEnd": 42,
-      "actionable": 525
+      "actionable": 525,
+      "subsequentScopes": [
+        {
+          "subject": "Physiology",
+          "chapterStart": 25,
+          "chapterEnd": 27,
+          "actionable": 69
+        }
+      ]
     },
     "physiology_primary": {
       "subject": "Physiology",
-      "chapterEnd": 27,
-      "actionable": 332
+      "chapterEnd": 24,
+      "actionable": 263
     },
     "biochemistry_then_tails": {
       "initialSubject": "Biochemistry",
