@@ -1,0 +1,274 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner-facing Marrow ED8 Physiology Chapter 32 explanation refinement; native diagrams and tables remain unchanged.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "32",
+    "chapterTitle": "Digestion & Absorption",
+    "questionStart": 19,
+    "questionEnd": 32,
+    "questions": 14,
+    "status": "approved-rollout",
+    "workloadScore": 17,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "f3cd6b9dccb2092743fa86de4b0bef682d61c83762e9f00fa3b04d0a355d89d6",
+    "auditReport": "docs/question-explanations/physiology-middle-20261001.md"
+  },
+  "questions": {
+    "marrow__PHYSIO_CH32_Q019": {
+      "takeaway": "Iron itself stimulates ferritin synthesis and storage as intracellular iron rises.",
+      "displayText": "Iron itself stimulates ferritin synthesis and storage as intracellular iron rises.\n\nElemental iron stimulates ferritin synthesis.\n\nIt synthesizes ferritin by causing the release of a cytoplasmic protein that binds to a specific region in the ferritin mRNA. This disruption activates ferritin mRNA and results in its translation.\n\nHepcidin binds to ferroportin and triggers its internalization and degradation. This results in decreased iron absorption and decreased circulating iron levels which reduces ferritin synthesis.\n\nNote: Ferritin sequesters Fe2+, a potentially toxic molecule.",
+      "emphasis": [
+        "Iron itself stimulates ferritin synthesis and storage as intracellular iron rises"
+      ],
+      "rationales": {
+        "a": "Ceruloplasmin oxidizes Fe²⁺ to Fe³⁺ for transport but is not the signal for ferritin synthesis.",
+        "b": "Hepcidin inhibits iron export/absorption by degrading ferroportin.",
+        "d": "Transferrin transports circulating iron; intracellular iron availability drives ferritin production."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH32_Q020": {
+      "takeaway": "Hepcidin reduces intestinal iron absorption and macrophage iron release by degrading ferroportin.",
+      "displayText": "Hepcidin reduces intestinal iron absorption and macrophage iron release by degrading ferroportin.\n\nHepcidin inhibits iron absorption.\n\nIt is named for its originally described property as a hepatocellular protein with bactericidal activities.\n\nIron metabolism is regulated by hepcidin, a protein and acute phase reactant produced by the liver. It binds to ferroportin and degrades it. This inhibits the transfer of iron from the enterocyte to the plasma via ferroportin. As a result, iron becomes trapped within the duodenal cells (enterocytes) in the form of mucosal ferritin and is lost in feces when these cells are shed off.",
+      "emphasis": [
+        "Hepcidin reduces intestinal iron absorption and macrophage iron release by degrading ferroportin"
+      ],
+      "rationales": {
+        "a": "Cobalamin absorption depends on intrinsic factor and ileal receptors.",
+        "c": "Hepcidin regulates iron trafficking, not folate synthesis.",
+        "d": "Copper handling is not the principal hepcidin target."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH32_Q021": {
+      "takeaway": "Ascorbic acid enhances non-heme iron absorption by reducing ferric iron to the more soluble ferrous form.",
+      "displayText": "Ascorbic acid enhances non-heme iron absorption by reducing ferric iron to the more soluble ferrous form.\n\nAscorbic acid is given with iron to increase its absorption.\n\nAscorbic acid (vitamin C) forms soluble complexes with iron and reduces iron from the ferric to the ferrous state, thereby enhancing iron absorption.\n\nOption A: Milk decreases iron absorption.\n\nOption C: Gastric secretions increase iron absorption by dissolving the iron and allowing it to form soluble complexes with ascorbic and other substances. This helps in its reduction to the Fe2+ form. Antacid decreases the absorption of iron.\n\nOption D: Tannins (present in tea), phytates, phosphates, and oxalates form insoluble complexes with iron and lower its absorption.",
+      "emphasis": [
+        "Ascorbic acid enhances non-heme iron absorption by reducing ferric iron to the more soluble ferrous form"
+      ],
+      "rationales": {
+        "a": "Milk calcium can interfere with iron absorption when taken together.",
+        "c": "Antacids reduce gastric acidity and can impair iron solubilization.",
+        "d": "Tannins bind iron and decrease its absorption."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH32_Q022": {
+      "takeaway": "Hepcidin and iron stores, erythropoietic demand and dietary iron regulate uptake; daily iron loss is not directly sensed as a regulator.",
+      "displayText": "Hepcidin and iron stores, erythropoietic demand and dietary iron regulate uptake; daily iron loss is not directly sensed as a regulator.\n\nIntestinal absorption of iron is not regulated by the daily loss of iron.\n\nThe intestinal absorption of iron is regulated by three factors:\n• Recent dietary intake of iron\n• State of iron stores in the body\n• State of erythropoiesis in the bone marrow",
+      "emphasis": [
+        "Hepcidin and iron stores, erythropoietic demand and dietary iron regulate uptake; daily iron loss is not directly sensed as a regulator"
+      ],
+      "rationales": {
+        "a": "Dietary iron content influences absorption through luminal availability and systemic regulation.",
+        "c": "Body iron stores modulate hepcidin and intestinal absorption.",
+        "d": "Erythropoietic demand suppresses hepcidin to increase iron availability."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH32_Q023": {
+      "takeaway": "Colonic bacteria ferment dietary fiber to short-chain fatty acids, including butyrate.",
+      "displayText": "Colonic bacteria ferment dietary fiber to short-chain fatty acids, including butyrate.\n\nThe action of colonic bacteria on dietary fiber would give butyrate.\n\nColonic bacteria act on complex carbohydrates, resistant starches, and dietary fiber to form short-chain fatty acids such as acetate, propionate, and butyrate.\n\nSCFAs are 2-5-carbon weak acids that have an average normal concentration of about 80 mmol/L in the lumen.",
+      "emphasis": [
+        "Colonic bacteria ferment dietary fiber to short-chain fatty acids, including butyrate"
+      ],
+      "rationales": {
+        "a": "Free radicals are not the normal useful fermentation end product.",
+        "b": "Glycerol is not the principal SCFA product of fiber fermentation.",
+        "d": "Sucrose is a disaccharide, not the fermentation end product asked."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH32_Q024": {
+      "takeaway": "Orexin-producing neurons are located in the lateral hypothalamic area and promote wakefulness and feeding.",
+      "displayText": "Orexin-producing neurons are located in the lateral hypothalamic area and promote wakefulness and feeding.\n\nCell bodies of orexigenic neurons are present in the lateral hypothalamic area. Orexin stimulates food intake.\n\nRole of hypothalamus in gastrointestinal and feeding regulation:\n• Hunger center - lateral hypothalamic area\n• Satiety center - ventromedial nuclei\n• Feeding reflexes such as licking the lips and swallowing - mammillary bodies.\n\nNote: The arcuate nucleus contains at least two different types of neurons that when stimulated lead to either increased or decreased appetite.",
+      "emphasis": [
+        "Orexin-producing neurons are located in the lateral hypothalamic area and promote wakefulness and feeding"
+      ],
+      "rationales": {
+        "a": "Locus coeruleus neurons are primarily noradrenergic.",
+        "b": "Dorsal raphe neurons are primarily serotonergic.",
+        "d": "Hippocampus participates in memory, not the main orexin-cell-body location."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH32_Q025": {
+      "takeaway": "Ghrelin from the stomach rises during fasting and stimulates appetite and growth-hormone release.",
+      "displayText": "Ghrelin from the stomach rises during fasting and stimulates appetite and growth-hormone release.\n\nThe hormone secreted by the stomach that increases food intake is ghrelin.\n\nGhrelin, the hunger hormone is produced by the endocrine cells in the oxyntic glands of the stomach. It increases food intake. Its levels increase during fasting, peaks just before the beginning of food intake, or when the person is expecting a meal. The levels fall within 1 hour of the start of feeding.\n\nOption A: Orexin is synthesized from lateral hypothalamic neurons. It increases food intake.\n\nOption B: Leptin is produced by adipocytes. It decreases food intake.\n\nOption C: CCK is released from the small intestine. It decreases food intake.",
+      "emphasis": [
+        "Ghrelin from the stomach rises during fasting and stimulates appetite and growth-hormone release"
+      ],
+      "rationales": {
+        "a": "Orexin neurons are in hypothalamus, but the fasting stomach hormone is ghrelin.",
+        "b": "Leptin is produced by adipose tissue and signals energy sufficiency.",
+        "c": "CCK is released after meals and promotes satiety."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH32_Q026": {
+      "takeaway": "Ghrelin increases appetite and GH release and can stimulate gastric acid secretion; the claim that it decreases acid is false.",
+      "displayText": "Ghrelin increases appetite and GH release and can stimulate gastric acid secretion; the claim that it decreases acid is false.\n\nGhrelin increases gastric acid secretion.\n\nGhrelin is mainly produced by the endocrine cells in the oxyntic gland area of the stomach. It is also secreted by the pancreas and adrenal glands.\n\nFunctions:\n• Increases appetite/food intake (orexigenic)\n• Inhibits leptin release\n• Stimulates growth hormone secretion by directly acting on anterior pituitary (ghrelin-growth hormone-releasing peptide)\n• Increases gastric acid secretion and gastrointestinal motility to prepare the body for food intake\n• Regulates the distribution and rate of use of energy",
+      "emphasis": [
+        "Ghrelin increases appetite and GH release and can stimulate gastric acid secretion; the claim that it decreases acid is false"
+      ],
+      "rationales": {
+        "a": "Ghrelin increases appetite and food intake.",
+        "b": "Ghrelin can suppress leptin release in the source’s regulatory model.",
+        "d": "Ghrelin stimulates pituitary GH secretion."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH32_Q027": {
+      "takeaway": "Leptin concentration is generally high in obesity because adipose tissue mass and leptin production are increased.",
+      "displayText": "Leptin concentration is generally high in obesity because adipose tissue mass and leptin production are increased.\n\nA patient with a BMI of 34 kg/m2 is categorized as obese. Leptin levels are high in obesity.\n\nLeptin is an appetite-suppressing hormone synthesized from adipocytes. The larger the fat stores, the more leptin is released into the blood.\n\nLeptin resistance in obese persons may be due to its failure to cross the blood-brain barrier and reach the hypothalamus to serve its appetite-suppressing function.\n\nNote: A recent study has indicated that triglycerides which are elevated in obesity, inhibit the transport of leptin across the blood-brain barrier.",
+      "emphasis": [
+        "Leptin concentration is generally high in obesity because adipose tissue mass and leptin production are increased"
+      ],
+      "rationales": {
+        "b": "A BMI of 34 is obesity and typically raises leptin rather than leaving it normal.",
+        "c": "Low leptin is typical of severe adipose deficiency, not obesity.",
+        "d": "The expected direction is high in obesity, not merely variable low/normal."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH32_Q028": {
+      "takeaway": "The source explanation says cellulose, inulin, pectin and gums are all dietary fibers; its key selects gums only as an uncommon dietary source, so the stem’s “not a dietary fiber” wording is inconsistent.",
+      "displayText": "The source explanation says cellulose, inulin, pectin and gums are all dietary fibers; its key selects gums only as an uncommon dietary source, so the stem’s “not a dietary fiber” wording is inconsistent.\n\nGum is the best answer among the given options. Even though all of the given options are dietary fibers, the consumption of gums through diet is very low and hence, it is the best answer.\n\nDietary fibers consist of both soluble and insoluble forms and include lignin, pectin, inulin, cellulose, hemicellulose, etc.\n\nAdvantages of fibers:\n• Forms bulk of the stool and reduces stool transit time\n• Reduces incidence of carcinoma colon, DM, CAD, diverticulitis",
+      "emphasis": [
+        "The source explanation says cellulose, inulin, pectin and gums are all dietary fibers; its key selects gums only as an uncommon dietary source, so the stem’s “not a dietary fiber” wording is inconsistent"
+      ],
+      "rationales": {
+        "a": "Cellulose is explicitly a dietary fiber; therefore this option cannot support the stem’s “not a fiber” criterion.",
+        "b": "Inulin is explicitly included among dietary fibers in the source explanation, so it is not a valid exception.",
+        "c": "Pectin is explicitly listed as dietary fiber; the source itself says every option is a fiber."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata.",
+        "medicalReviewNote": "The source explanation states that all four answer choices are dietary fiber and explains the printed key only by low dietary consumption of gums. Preserve the source key with this contradiction explicit; review the item wording."
+      },
+      "status": "needs_manual_review"
+    },
+    "marrow__PHYSIO_CH32_Q029": {
+      "takeaway": "Lingual lipase begins triglyceride digestion, but its contribution in adults is small relative to pancreatic lipase, colipase and bile salts.",
+      "displayText": "Lingual lipase begins triglyceride digestion, but its contribution in adults is small relative to pancreatic lipase, colipase and bile salts.\n\nLingual lipases are of little quantitative significance for lipid digestion other than in the setting of pancreatic insufficiency.\n\nLingual lipase is secreted by Ebner glands on the dorsal surface of the tongue in some species, and the stomach also secretes lipase.\n\nDigestion of Lipids\n• Pancreatic lipase is the most important enzyme involved in lipid digestion. The main products of its action are FFA and 2-monoglycerides (2-monoacylglycerols)\n• Colipase is an accessory factor secreted in the pancreatic juice that helps to stabilize pancreatic lipase in an active conformation\n• Bile acids emulsify the insoluble lipids and make them reach the surface of the mucosal cells. Bile acids also activate another pancreatic lipase called cholesterol esterase\n• Cholesterol esterase hydrolyzes cholesterol esters, esters of fat-soluble vitamins, phospholipids, and triglycerides",
+      "emphasis": [
+        "Lingual lipase begins triglyceride digestion, but its contribution in adults is small relative to pancreatic lipase, colipase and bile salts"
+      ],
+      "rationales": {
+        "a": "Pancreatic lipase is the major intestinal triglyceride-digesting enzyme.",
+        "b": "Colipase anchors pancreatic lipase at the lipid–water interface in bile salt conditions.",
+        "d": "Bile acids emulsify lipids and support micelle formation."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH32_Q030": {
+      "takeaway": "Terminal ileal resection removes the principal vitamin B₁₂–intrinsic-factor absorption site, causing risk of B₁₂ deficiency.",
+      "displayText": "Terminal ileal resection removes the principal vitamin B₁₂–intrinsic-factor absorption site, causing risk of B₁₂ deficiency.\n\nAfter complete ileal and partial jejunal resection, the patient is likely to have vitamin B12 deficiency.\n\nVitamin B12 is absorbed in the ileum. Vitamin B12 binds to intrinsic factor, a protein secreted by the parietal cells of the stomach, and the complex is absorbed across the ileal mucosa. Hence after ileal resection, there is impaired absorption of vitamin B12.",
+      "emphasis": [
+        "Terminal ileal resection removes the principal vitamin B₁₂–intrinsic-factor absorption site, causing risk of B₁₂ deficiency"
+      ],
+      "rationales": {
+        "a": "Folate is absorbed mainly in proximal small intestine, which is partly intact.",
+        "c": "Gastric ulcer is not the expected consequence of ileal resection.",
+        "d": "Constipation is not the characteristic malabsorption effect."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH32_Q031": {
+      "takeaway": "DMT1 transports ferrous iron (Fe²⁺) across the apical enterocyte membrane.",
+      "displayText": "DMT1 transports ferrous iron (Fe²⁺) across the apical enterocyte membrane.\n\nTransport of Fe2+ into the enterocytes occurs via divalent metal transporter 1 (DMT1), through an active transport process.\n\nProtein DMT-1 (Divalent Metal Transporter-1) is expressed on the apical surface of enterocytes in the initial part of the duodenum. DMT-1 is not specific to iron &amp; transports other substances like zinc, copper, cobalt &amp; manganese.",
+      "emphasis": [
+        "DMT1 transports ferrous iron (Fe²⁺) across the apical enterocyte membrane"
+      ],
+      "rationales": {
+        "a": "Ferroportin exports iron across the basolateral membrane to plasma.",
+        "b": "Hephaestin oxidizes iron for transferrin loading after cellular export.",
+        "d": "DMT2 is not the canonical apical Fe²⁺ importer; DMT1 is."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH32_Q032": {
+      "takeaway": "Hepatic stellate (Ito) cells store vitamin A as retinyl esters in lipid droplets.",
+      "displayText": "Hepatic stellate (Ito) cells store vitamin A as retinyl esters in lipid droplets.\n\nVitamin A is stored in the liver perisinusoidal stellate (Ito) cells as retinyl ester (retinol palmitate).\n\nKupffer cells, also known as stellate macrophages and Kupffer-Borowicz cells; are specialized macrophages located in the liver that form part of the mononuclear phagocyte system. These are present, lining the walls of the sinusoids, not the perisinusoidal space (Space of Disse).",
+      "emphasis": [
+        "Hepatic stellate (Ito) cells store vitamin A as retinyl esters in lipid droplets"
+      ],
+      "rationales": {
+        "b": "Hepatocytes handle vitamin metabolism but the main vitamin A storage pool is in stellate cells.",
+        "c": "Liver sinusoidal endothelial cells line the sinusoids and do not provide the main vitamin A depot.",
+        "d": "Kupffer cells are resident macrophages, not the main vitamin A storage cells."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    }
+  }
+}

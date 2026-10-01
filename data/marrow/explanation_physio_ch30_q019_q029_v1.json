@@ -1,0 +1,218 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner-facing Marrow ED8 Physiology Chapter 30 explanation refinement; native diagrams and tables remain unchanged.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "30",
+    "chapterTitle": "Blood Pressure and Regulation",
+    "questionStart": 19,
+    "questionEnd": 29,
+    "questions": 11,
+    "status": "approved-rollout",
+    "workloadScore": 13,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "f3cd6b9dccb2092743fa86de4b0bef682d61c83762e9f00fa3b04d0a355d89d6",
+    "auditReport": "docs/question-explanations/physiology-middle-20261001.md"
+  },
+  "questions": {
+    "marrow__PHYSIO_CH30_Q019": {
+      "takeaway": "Sympathetic activation reduces venous capacitance by venoconstriction; increased venous capacitance is the exception.",
+      "displayText": "Sympathetic activation reduces venous capacitance by venoconstriction; increased venous capacitance is the exception.\n\nIncreased venous capacitance is NOT caused by sympathetic stimulation.\n\nImportant effects of increased sympathetic stimulation:\n\n• Arteriolar vasoconstriction\n• Increased stroke volume\n• Increased heart rate\n• Venoconstriction and decrease in venous capacitance\n• The increase in mean systemic filling pressure is caused mainly by venous contraction.\n\nAll these effects together bring about an increased arterial pressure.",
+      "emphasis": [
+        "Sympathetic activation reduces venous capacitance by venoconstriction; increased venous capacitance is the exception"
+      ],
+      "rationales": {
+        "a": "Sympathetic vasoconstriction raises arterial pressure.",
+        "b": "Cardiac β₁ stimulation raises heart rate.",
+        "d": "Arteriolar constriction raises total peripheral resistance."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH30_Q020": {
+      "takeaway": "Nitric oxide is made from L-arginine and activates soluble guanylyl cyclase to increase cGMP, not cAMP.",
+      "displayText": "Nitric oxide is made from L-arginine and activates soluble guanylyl cyclase to increase cGMP, not cAMP.\n\nNitric oxide acts by increasing cGMP not by increasing cAMP.\n\nNitric Oxide\n\n• Also known as Endothelium-derived relaxing factor (EDRF).\n• Synthesized in endothelial cells from arginine in a reaction catalyzed by nitric oxide synthase (NOS).\n• Mechanism of action: NO causes activation of guanylyl cyclase → ↑ cGMP → relaxation of vascular smooth muscle → vasodilation.\n• Effects of NO:\n• Vasodilation.\n• Neuromodulator in brain.\n• Antimicrobial and cytotoxic activity of various inflammatory cells.\n• In GIT, relaxation of smooth muscle.\n• Penile erection.",
+      "emphasis": [
+        "Nitric oxide is made from L-arginine and activates soluble guanylyl cyclase to increase cGMP, not cAMP"
+      ],
+      "rationales": {
+        "a": "Endothelial cells synthesize NO from arginine.",
+        "c": "NO relaxes vascular smooth muscle and is a vasodilator.",
+        "d": "L-arginine is the substrate for nitric oxide synthase."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH30_Q021": {
+      "takeaway": "Endothelin-1 is a potent vasoconstrictor and can decrease GFR; bronchodilation is not its characteristic action.",
+      "displayText": "Endothelin-1 is a potent vasoconstrictor and can decrease GFR; bronchodilation is not its characteristic action.\n\nEndothelin-1\n\n• Potent vasoconstrictor agent.\n• Produced by endothelial cells.\n• They are secreted locally and act in a paracrine fashion.\n\nActions of Endothelin-1 (ET-1)\n\n• Potent vasoconstrictor.\n• Platelet activation.\n• Inotropic effect.\n• Closure of ductus arteriosus.\n• Have a role in the pathogenesis of hypertension, myocardial infarction, and congestive heart failure.\n• In the brain, regulate the transport of substances across blood brain barrier (BBB).\n• In the kidneys, they are involved in tubuloglomerular feedback ↓ GFR.\n• In the lungs, it causes bronchoconstriction (mediated via ET-B receptors).\n• In GIT, they are involved in the migration of myenteric plexus to distal colon (failure leads to Hirschsprung’s/megacolon).\n• Deletion of both alleles of ET-1 gene-craniofacial abnormalities and respiratory failure at birth.",
+      "emphasis": [
+        "Endothelin-1 is a potent vasoconstrictor and can decrease GFR; bronchodilation is not its characteristic action"
+      ],
+      "rationales": {
+        "b": "Endothelin-1 strongly constricts vascular smooth muscle.",
+        "c": "Renal vasoconstriction can reduce glomerular filtration.",
+        "d": "Endothelin can exert positive inotropic effects on cardiac tissue."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH30_Q022": {
+      "takeaway": "Sildenafil inhibits PDE5 and prolongs NO-generated cGMP signaling in corpus cavernosum smooth muscle.",
+      "displayText": "Sildenafil inhibits PDE5 and prolongs NO-generated cGMP signaling in corpus cavernosum smooth muscle.\n\nThe action of nitric oxide would primarily be prolonged in this patient.\n\nSildenafil: It is used for the treatment of erectile dysfunction, which inhibits cGMP-specific phosphodiesterase-5 (PDE-5), an enzyme that degrades cGMP, thereby effectively prolonging the action of NO.\n\nPenile erection is produced by release of nitric oxide (NO) with consequent vasodilation and engorgement of the corpora cavernosa.",
+      "emphasis": [
+        "Sildenafil inhibits PDE5 and prolongs NO-generated cGMP signaling in corpus cavernosum smooth muscle"
+      ],
+      "rationales": {
+        "a": "Histamine is not the principal mediator prolonged by sildenafil.",
+        "b": "Endothelin is a vasoconstrictor and is not prolonged by PDE5 inhibition.",
+        "c": "Prostacyclin uses cAMP signaling; sildenafil prolongs the NO–cGMP pathway."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH30_Q023": {
+      "takeaway": "Atrial stretch triggers the Bainbridge reflex, increasing heart rate as venous return rises.",
+      "displayText": "Atrial stretch triggers the Bainbridge reflex, increasing heart rate as venous return rises.\n\nReflex responsible for tachycardia during right atrial distension is Bainbridge Reflex.\n\nThe stretch receptors of the atria that elicit the Bainbridge reflex transmit their afferent signals through the vagus nerves to the medulla of the brain. Then efferent signals are transmitted back through vagal and sympathetic nerves to increase heart rate and strength of heart contraction. Thus, this reflex helps prevent damming of blood in the veins, atria, and pulmonary circulation.\n\nOther options:\n\nOption A: Bezold-Jarisch Reflex: Activation of chemosensitive vagal C fibers in the cardiopulmonary region causes profound bradycardia, hypotension and a brief period of apnoea followed by rapid shallow breathing.\n\nOption C: Cushing Reflex: When intracranial pressure is increased, the blood supply to Rostral Ventro-Lateral Medulla (RVLM) neurons is compromised. The local hypoxia and hypercapnia cause an increase in discharge from the neurons, producing hypertension, bradycardia, and irregular respiration.\n\nOption D: J Reflex: The stimulation of the J-receptors (C receptors/juxta-pulmonary capillary receptors) causes apnea followed by rapid breathing, bradycardia, and hypotension.",
+      "emphasis": [
+        "Atrial stretch triggers the Bainbridge reflex, increasing heart rate as venous return rises"
+      ],
+      "rationales": {
+        "a": "Bezold–Jarisch reflex typically produces bradycardia and hypotension.",
+        "c": "Cushing reflex responds to raised intracranial pressure.",
+        "d": "J-receptor reflex is pulmonary and is not the atrial-stretch tachycardia reflex."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH30_Q024": {
+      "takeaway": "Raised intracranial pressure evokes the Cushing reflex, with hypertension and reflex bradycardia to preserve cerebral perfusion.",
+      "displayText": "Raised intracranial pressure evokes the Cushing reflex, with hypertension and reflex bradycardia to preserve cerebral perfusion.\n\nThe reflex responsible for elevated blood pressure (BP) in head injury patients is the Cushing reflex.\n\nWhen intracranial pressure is increased, the blood supply to rostral ventrolateral neurons is compromised, and the local hypoxia and hypercapnia increase the discharge of the central chemoreceptors. The resultant rise in systemic arterial pressure (Cushing reflex) tends to restore the blood flow to the medulla.\n\nCushing reflex causes a triad of symptoms:\n\n• Reflex bradycardia (via arterial baroreceptors)\n• Hypertension (with widened pulse pressure)\n• Irregular respiration (bradypnea)",
+      "emphasis": [
+        "Raised intracranial pressure evokes the Cushing reflex, with hypertension and reflex bradycardia to preserve cerebral perfusion"
+      ],
+      "rationales": {
+        "a": "J reflex is triggered by pulmonary receptors, not head injury.",
+        "b": "Bainbridge reflex follows atrial distension and causes tachycardia.",
+        "c": "Bezold–Jarisch reflex is a ventricular cardiopulmonary reflex causing hypotension/bradycardia."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH30_Q025": {
+      "takeaway": "The renin–angiotensin vasoconstrictor mechanism is slower than neural reflexes and is not a rapid BP control mechanism.",
+      "displayText": "The renin–angiotensin vasoconstrictor mechanism is slower than neural reflexes and is not a rapid BP control mechanism.\n\nRenin-angiotensin vasoconstrictor mechanism is not a rapidly acting pressure control mechanism, it is an intermediate-acting mechanism.\n\nRegulation of Arterial Blood Pressure:\n\n• Rapidly acting pressure control mechanisms (acting within sec or min)\n• The chemoreceptor reflex.\n• The central nervous system ischemic mechanism.\n• The baroreceptor reflex.\n• Intermediate-acting mechanisms (act after minutes)\n• The capillary fluid shift mechanism.\n• Stress-relaxation of the vasculature.\n• The renin-angiotensin vasoconstrictor mechanism.\n• Long-term mechanisms (after days)\n• Renin-angiotensin-aldosterone system (RAAS)\n\nNote:\n\n• Renin-angiotensin vasoconstrictor mechanism is an intermediate-acting mechanism, but water conservation by RAAS is a long-term mechanism in the regulation of BP.\n• Most rapidly acting: Baroreceptor reflex >> Chemoreceptor reflex",
+      "emphasis": [
+        "The renin–angiotensin vasoconstrictor mechanism is slower than neural reflexes and is not a rapid BP control mechanism"
+      ],
+      "rationales": {
+        "a": "Peripheral chemoreceptors can rapidly alter autonomic output.",
+        "b": "CNS ischemic response is a powerful rapid sympathetic mechanism.",
+        "d": "Baroreceptor reflex rapidly buffers pressure changes."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH30_Q026": {
+      "takeaway": "CVLM inhibitory neurons release GABA onto RVLM sympathetic premotor neurons.",
+      "displayText": "CVLM inhibitory neurons release GABA onto RVLM sympathetic premotor neurons.\n\nBasic Neural Pathway involved in Regulation of BP.",
+      "emphasis": [
+        "CVLM inhibitory neurons release GABA onto RVLM sympathetic premotor neurons"
+      ],
+      "rationales": {
+        "a": "CVLM output to IML is inhibitory via GABA rather than glutamate.",
+        "b": "NTS excitation of nucleus ambiguus is glutamatergic; this option’s GABA match is incorrect.",
+        "d": "CVLM projects to RVLM with GABAergic inhibition, not glutamate to NTS."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH30_Q027": {
+      "takeaway": "Peripheral chemoreceptor stimulation can cause either bradycardia or tachycardia depending on the balance of cardiac and respiratory reflexes.",
+      "displayText": "Peripheral chemoreceptor stimulation can cause either bradycardia or tachycardia depending on the balance of cardiac and respiratory reflexes.\n\nPeripheral chemoreceptors in the carotid and aortic bodies can produce variable effects on heart rate-\n\n• Direct Effect\n• vagal stimulation → bradycardia\n• Indirect effect\n• Hypoxia → peripheral chemoreceptor stimulation → hyperventilation and increased catecholamine secretion → tachycardia and increased cardiac output\n\nChemoreceptor reflex\n\n• Receptors\n• Peripheral chemoreceptors in carotid and aortic bodies\n• Central chemoreceptors in the medulla\n• Stimulus\n• decrease in PaO2\n• increase in PaCO2, H+ ion concentration\n• Afferent\n• IX (sinus nerve of Hering) and X (vagus N)\n• Center for reflex\n• Medulla\n• Efferent\n• Sympathetic and parasympathetic neurons to heart vasculature and adrenal medulla\n• Response\n• Direct effect- bradycardia\n• Indirect effect- hyperventilation, tachycardia, vasoconstriction, increased cardiac output and increased BP",
+      "emphasis": [
+        "Peripheral chemoreceptor stimulation can cause either bradycardia or tachycardia depending on the balance of cardiac and respiratory reflexes"
+      ],
+      "rationales": {
+        "a": "Bradycardia can occur with apnea, but is not the only response.",
+        "b": "Tachycardia can occur with ventilation and sympathetic activation, but is not universal.",
+        "d": "Chemoreceptor stimulation does change heart rate; neither is too absolute."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH30_Q028": {
+      "takeaway": "Serotonin can activate ventricular vagal afferents and elicit the Bezold–Jarisch bradycardia-hypotension reflex.",
+      "displayText": "Serotonin can activate ventricular vagal afferents and elicit the Bezold–Jarisch bradycardia-hypotension reflex.\n\nSerotonin can be responsible for Bezold-Jarisch reflex.\n\nActivation of chemosensitive vagal C fibers located in the cardiopulmonary region (ex: ventricles, atria, great veins, pulmonary artery, juxtacapillary region of alveoli) causes profound bradycardia, hypotension, and apnea followed by rapid shallow breathing. This response is called Bezold-Jarisch reflex.\n\nOther substances that can cause Bezold-Jarisch reflex are capsaicin, phenyl biguanide, and veratridine.",
+      "emphasis": [
+        "Serotonin can activate ventricular vagal afferents and elicit the Bezold–Jarisch bradycardia-hypotension reflex"
+      ],
+      "rationales": {
+        "b": "Histamine is not the classical trigger identified for this reflex.",
+        "c": "Prostaglandin is not the main agonist in the standard reflex pathway.",
+        "d": "Angiotensin II is a pressor hormone, not the vagal ventricular trigger."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH30_Q029": {
+      "takeaway": "Standing shifts blood to the legs and immediately reduces carotid/aortic baroreceptor firing before compensatory sympathetic responses.",
+      "displayText": "Standing shifts blood to the legs and immediately reduces carotid/aortic baroreceptor firing before compensatory sympathetic responses.\n\nThere is a decreased firing from the baroreceptors.\n\n• When a person stands up from a lying down position, it causes pooling of the blood in the legs, due to gravity. This reduces the venous return and causes a decrease in cardiac output.\n• Reduced cardiac output, leads to a fall in blood pressure, which in turn causes reduced firing from baroreceptors.\n• As a result, the vagal tone is suppressed leading to increased heart rate.",
+      "emphasis": [
+        "Standing shifts blood to the legs and immediately reduces carotid/aortic baroreceptor firing before compensatory sympathetic responses"
+      ],
+      "rationales": {
+        "b": "Vagal cardiac output falls after reduced baroreceptor firing, not increases.",
+        "c": "Mesenteric vasoconstriction is a later sympathetic response, not the immediate sensed event.",
+        "d": "Contractility rises as compensation, but baroreceptor firing falls first."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    }
+  }
+}
