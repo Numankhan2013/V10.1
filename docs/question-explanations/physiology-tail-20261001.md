@@ -1,6 +1,6 @@
 # Physiology tail explanation audit — 2026-10-01
 
-**Scope:** Chapters 34–43, canonical Physiology source bundle SHA-256 `f3cd6b9dccb2092743fa86de4b0bef682d1c83762e9f00fa3b04d0a355d89d6`, authored against `d4abce86068b4221e61e541c34dd29258de61cca`. This checkpoint contains chapters 34–38: 141 of 261 assigned actionable IDs. Source gates and raw question records are unchanged. Each batch records this report in `scope.auditReport`.
+**Scope:** Chapters 34–43, canonical Physiology source bundle SHA-256 `f3cd6b9dccb2092743fa86de4b0bef682d1c83762e9f00fa3b04d0a355d89d6`, authored against `d4abce86068b4221e61e541c34dd29258de61cca`. This checkpoint contains chapters 34–43: 261 of 261 assigned actionable IDs. Source gates and raw question records are unchanged. Each batch records this report in `scope.auditReport`.
 
 ## Batches
 
@@ -16,6 +16,15 @@
 | `explanation_physio_ch37_q019_q024_v1.json` | 6 | Q019, Q020, Q021, Q022, Q023, Q024 |
 | `explanation_physio_ch38_q001_q018_v1.json` | 18 | Q001, Q002, Q003, Q004, Q005, Q006, Q007, Q008, Q009, Q010, Q011, Q012, Q013, Q014, Q015, Q016, Q017, Q018 |
 | `explanation_physio_ch38_q019_q025_v1.json` | 7 | Q019, Q020, Q021, Q022, Q023, Q024, Q025 |
+| `explanation_physio_ch39_q001_q018_v1.json` | 18 | Q001, Q002, Q003, Q004, Q005, Q006, Q007, Q008, Q009, Q010, Q011, Q012, Q013, Q014, Q015, Q016, Q017, Q018 |
+| `explanation_physio_ch39_q019_q021_v1.json` | 3 | Q019, Q020, Q021 |
+| `explanation_physio_ch40_q001_q018_v1.json` | 18 | Q001, Q002, Q003, Q004, Q005, Q006, Q007, Q008, Q009, Q010, Q011, Q012, Q013, Q014, Q015, Q016, Q017, Q018 |
+| `explanation_physio_ch40_q019_q025_v1.json` | 7 | Q019, Q020, Q021, Q022, Q023, Q024, Q025 |
+| `explanation_physio_ch41_q001_q018_v1.json` | 18 | Q001, Q002, Q003, Q004, Q005, Q006, Q007, Q008, Q009, Q010, Q011, Q012, Q013, Q014, Q015, Q016, Q017, Q018 |
+| `explanation_physio_ch41_q019_q028_v1.json` | 10 | Q019, Q020, Q021, Q022, Q023, Q024, Q025, Q026, Q027, Q028 |
+| `explanation_physio_ch42_q001_q018_v1.json` | 18 | Q001, Q002, Q003, Q004, Q005, Q006, Q007, Q008, Q009, Q010, Q011, Q012, Q013, Q014, Q015, Q016, Q017, Q018 |
+| `explanation_physio_ch42_q019_q030_v1.json` | 12 | Q019, Q020, Q021, Q022, Q023, Q024, Q025, Q026, Q027, Q028, Q029, Q030 |
+| `explanation_physio_ch43_q001_q016_v1.json` | 16 | Q001, Q002, Q003, Q004, Q005, Q006, Q007, Q008, Q009, Q010, Q011, Q012, Q013, Q014, Q015, Q016 |
 
 ## Source review
 
@@ -172,6 +181,135 @@ Each item was checked against the canonical question, choices, key and full stru
 - `marrow__PHYSIO_CH38_Q023` — key option 1; question p. 716, key p. 717,718, explanation p. 726.
 - `marrow__PHYSIO_CH38_Q024` — key option 1; question p. 716, key p. 717,718, explanation p. 727.
 - `marrow__PHYSIO_CH38_Q025` — key option 1; question p. 717, key p. 717,718, explanation p. 727.
+### `explanation_physio_ch39_q001_q018_v1.json`
+- `marrow__PHYSIO_CH39_Q001` — key option 1; question p. 729, key p. 734,735, explanation p. 735.
+- `marrow__PHYSIO_CH39_Q002` — key option 2; question p. 729, key p. 734,735, explanation p. 735.
+- `marrow__PHYSIO_CH39_Q003` — key option 4; question p. 729, key p. 734,735, explanation p. 736.
+- `marrow__PHYSIO_CH39_Q004` — key option 4; question p. 729, key p. 734,735, explanation p. 736.
+- `marrow__PHYSIO_CH39_Q005` — key option 4; question p. 730, key p. 734,735, explanation p. 737.
+- `marrow__PHYSIO_CH39_Q006` — key option 1; question p. 730, key p. 734,735, explanation p. 737.
+- `marrow__PHYSIO_CH39_Q007` — key option 3; question p. 730, key p. 734,735, explanation p. 737.
+- `marrow__PHYSIO_CH39_Q008` — key option 1; question p. 730, key p. 734,735, explanation p. 738.
+- `marrow__PHYSIO_CH39_Q009` — key option 3; question p. 731, key p. 734,735, explanation p. 738.
+- `marrow__PHYSIO_CH39_Q010` — key option 1; question p. 731, key p. 734,735, explanation p. 738.
+- `marrow__PHYSIO_CH39_Q011` — key option 4; question p. 731, key p. 734,735, explanation p. 739.
+- `marrow__PHYSIO_CH39_Q012` — key option 1; question p. 731, key p. 734,735, explanation p. 739.
+- `marrow__PHYSIO_CH39_Q013` — key option 3; question p. 732, key p. 734,735, explanation p. 740.
+- `marrow__PHYSIO_CH39_Q014` — key option 4; question p. 732, key p. 734,735, explanation p. 741.
+- `marrow__PHYSIO_CH39_Q015` — key option 2; question p. 732, key p. 734,735, explanation p. 741.
+- `marrow__PHYSIO_CH39_Q016` — key option 4; question p. 732, key p. 734,735, explanation p. 742.
+- `marrow__PHYSIO_CH39_Q017` — key option 4; question p. 733, key p. 734,735, explanation p. 742.
+- `marrow__PHYSIO_CH39_Q018` — key option 3; question p. 733, key p. 734,735, explanation p. 743.
+### `explanation_physio_ch39_q019_q021_v1.json`
+- `marrow__PHYSIO_CH39_Q019` — key option 1; question p. 733, key p. 734,735, explanation p. 743.
+- `marrow__PHYSIO_CH39_Q020` — key option 4; question p. 733, key p. 734,735, explanation p. 744.
+- `marrow__PHYSIO_CH39_Q021` — key option 4; question p. 734, key p. 734,735, explanation p. 744.
+### `explanation_physio_ch40_q001_q018_v1.json`
+- `marrow__PHYSIO_CH40_Q001` — key option 3; question p. 745, key p. 751,752, explanation p. 752.
+- `marrow__PHYSIO_CH40_Q002` — key option 3; question p. 745, key p. 751,752, explanation p. 752.
+- `marrow__PHYSIO_CH40_Q003` — key option 4; question p. 745, key p. 751,752, explanation p. 752.
+- `marrow__PHYSIO_CH40_Q004` — key option 2; question p. 745, key p. 751,752, explanation p. 753.
+- `marrow__PHYSIO_CH40_Q005` — key option 4; question p. 746, key p. 751,752, explanation p. 753.
+- `marrow__PHYSIO_CH40_Q006` — key option 4; question p. 746, key p. 751,752, explanation p. 753.
+- `marrow__PHYSIO_CH40_Q007` — key option 2; question p. 746, key p. 751,752, explanation p. 754.
+- `marrow__PHYSIO_CH40_Q008` — key option 3; question p. 746, key p. 751,752, explanation p. 755.
+- `marrow__PHYSIO_CH40_Q009` — key option 4; question p. 747, key p. 751,752, explanation p. 756.
+- `marrow__PHYSIO_CH40_Q010` — key option 1; question p. 747, key p. 751,752, explanation p. 756.
+- `marrow__PHYSIO_CH40_Q011` — key option 1; question p. 747, key p. 751,752, explanation p. 756.
+- `marrow__PHYSIO_CH40_Q012` — key option 1; question p. 747, key p. 751,752, explanation p. 756.
+- `marrow__PHYSIO_CH40_Q013` — key option 2; question p. 748, key p. 751,752, explanation p. 757.
+- `marrow__PHYSIO_CH40_Q014` — key option 1; question p. 748, key p. 751,752, explanation p. 757.
+- `marrow__PHYSIO_CH40_Q015` — key option 4; question p. 748, key p. 751,752, explanation p. 758.
+- `marrow__PHYSIO_CH40_Q016` — key option 3; question p. 748, key p. 751,752, explanation p. 758.
+- `marrow__PHYSIO_CH40_Q017` — key option 3; question p. 749, key p. 751,752, explanation p. 759.
+- `marrow__PHYSIO_CH40_Q018` — key option 2; question p. 749, key p. 751,752, explanation p. 759.
+### `explanation_physio_ch40_q019_q025_v1.json`
+- `marrow__PHYSIO_CH40_Q019` — key option 2; question p. 749, key p. 751,752, explanation p. 760.
+- `marrow__PHYSIO_CH40_Q020` — key option 3; question p. 749, key p. 751,752, explanation p. 761.
+- `marrow__PHYSIO_CH40_Q021` — key option 4; question p. 750, key p. 751,752, explanation p. 761.
+- `marrow__PHYSIO_CH40_Q022` — key option 4; question p. 750, key p. 751,752, explanation p. 762.
+- `marrow__PHYSIO_CH40_Q023` — key option 2; question p. 750, key p. 751,752, explanation p. 762.
+- `marrow__PHYSIO_CH40_Q024` — key option 4; question p. 751, key p. 751,752, explanation p. 762.
+- `marrow__PHYSIO_CH40_Q025` — key option 1; question p. 751, key p. 751,752, explanation p. 763.
+### `explanation_physio_ch41_q001_q018_v1.json`
+- `marrow__PHYSIO_CH41_Q001` — key option 2; question p. 764, key p. 771, explanation p. 772.
+- `marrow__PHYSIO_CH41_Q002` — key option 1; question p. 764, key p. 771, explanation p. 772.
+- `marrow__PHYSIO_CH41_Q003` — key option 2; question p. 764, key p. 771, explanation p. 772.
+- `marrow__PHYSIO_CH41_Q004` — key option 3; question p. 764, key p. 771, explanation p. 773.
+- `marrow__PHYSIO_CH41_Q005` — key option 1; question p. 765, key p. 771, explanation p. 774.
+- `marrow__PHYSIO_CH41_Q006` — key option 4; question p. 765, key p. 771, explanation p. 774.
+- `marrow__PHYSIO_CH41_Q007` — key option 3; question p. 765, key p. 771, explanation p. 774.
+- `marrow__PHYSIO_CH41_Q008` — key option 2; question p. 765, key p. 771, explanation p. 775.
+- `marrow__PHYSIO_CH41_Q009` — key option 2; question p. 766, key p. 771, explanation p. 775.
+- `marrow__PHYSIO_CH41_Q010` — key option 4; question p. 766, key p. 771, explanation p. 776.
+- `marrow__PHYSIO_CH41_Q011` — key option 4; question p. 766, key p. 771, explanation p. 777.
+- `marrow__PHYSIO_CH41_Q012` — key option 2; question p. 766, key p. 771, explanation p. 777.
+- `marrow__PHYSIO_CH41_Q013` — key option 2; question p. 767, key p. 771, explanation p. 777.
+- `marrow__PHYSIO_CH41_Q014` — key option 2; question p. 767, key p. 771, explanation p. 778.
+- `marrow__PHYSIO_CH41_Q015` — key option 3; question p. 767, key p. 771, explanation p. 778.
+- `marrow__PHYSIO_CH41_Q016` — key option 2; question p. 767, key p. 771, explanation p. 779.
+- `marrow__PHYSIO_CH41_Q017` — key option 3; question p. 768, key p. 771, explanation p. 779.
+- `marrow__PHYSIO_CH41_Q018` — key option 2; question p. 768, key p. 771, explanation p. 780.
+### `explanation_physio_ch41_q019_q028_v1.json`
+- `marrow__PHYSIO_CH41_Q019` — key option 1; question p. 768, key p. 771, explanation p. 780.
+- `marrow__PHYSIO_CH41_Q020` — key option 3; question p. 768, key p. 771, explanation p. 780.
+- `marrow__PHYSIO_CH41_Q021` — key option 1; question p. 769, key p. 771, explanation p. 780.
+- `marrow__PHYSIO_CH41_Q022` — key option 4; question p. 769, key p. 771, explanation p. 781.
+- `marrow__PHYSIO_CH41_Q023` — key option 4; question p. 769, key p. 771, explanation p. 781.
+- `marrow__PHYSIO_CH41_Q024` — key option 3; question p. 769, key p. 771, explanation p. 781.
+- `marrow__PHYSIO_CH41_Q025` — key option 2; question p. 770, key p. 771, explanation p. 781.
+- `marrow__PHYSIO_CH41_Q026` — key option 4; question p. 770, key p. 771, explanation p. 781.
+- `marrow__PHYSIO_CH41_Q027` — key option 3; question p. 770, key p. 771, explanation p. 782.
+- `marrow__PHYSIO_CH41_Q028` — key option 2; question p. 770, key p. 771, explanation p. 782.
+### `explanation_physio_ch42_q001_q018_v1.json`
+- `marrow__PHYSIO_CH42_Q001` — key option 1; question p. 783, key p. 790,791, explanation p. 791.
+- `marrow__PHYSIO_CH42_Q002` — key option 1; question p. 783, key p. 790,791, explanation p. 791.
+- `marrow__PHYSIO_CH42_Q003` — key option 2; question p. 783, key p. 790,791, explanation p. 792.
+- `marrow__PHYSIO_CH42_Q004` — key option 1; question p. 783, key p. 790,791, explanation p. 792.
+- `marrow__PHYSIO_CH42_Q005` — key option 2; question p. 784, key p. 790,791, explanation p. 793.
+- `marrow__PHYSIO_CH42_Q006` — key option 2; question p. 784, key p. 790,791, explanation p. 795.
+- `marrow__PHYSIO_CH42_Q007` — key option 4; question p. 784, key p. 790,791, explanation p. 796.
+- `marrow__PHYSIO_CH42_Q008` — key option 1; question p. 784, key p. 790,791, explanation p. 796.
+- `marrow__PHYSIO_CH42_Q009` — key option 2; question p. 785, key p. 790,791, explanation p. 796.
+- `marrow__PHYSIO_CH42_Q010` — key option 4; question p. 785, key p. 790,791, explanation p. 797.
+- `marrow__PHYSIO_CH42_Q011` — key option 2; question p. 785, key p. 790,791, explanation p. 797.
+- `marrow__PHYSIO_CH42_Q012` — key option 4; question p. 785, key p. 790,791, explanation p. 798.
+- `marrow__PHYSIO_CH42_Q013` — key option 4; question p. 786, key p. 790,791, explanation p. 798.
+- `marrow__PHYSIO_CH42_Q014` — key option 4; question p. 786, key p. 790,791, explanation p. 798.
+- `marrow__PHYSIO_CH42_Q015` — key option 3; question p. 786, key p. 790,791, explanation p. 799.
+- `marrow__PHYSIO_CH42_Q016` — key option 4; question p. 787, key p. 790,791, explanation p. 799.
+- `marrow__PHYSIO_CH42_Q017` — key option 1; question p. 787, key p. 790,791, explanation p. 799.
+- `marrow__PHYSIO_CH42_Q018` — key option 1; question p. 787, key p. 790,791, explanation p. 799.
+### `explanation_physio_ch42_q019_q030_v1.json`
+- `marrow__PHYSIO_CH42_Q019` — key option 2; question p. 787, key p. 790,791, explanation p. 800.
+- `marrow__PHYSIO_CH42_Q020` — key option 2; question p. 787, key p. 790,791, explanation p. 800.
+- `marrow__PHYSIO_CH42_Q021` — key option 2; question p. 788, key p. 790,791, explanation p. 800.
+- `marrow__PHYSIO_CH42_Q022` — key option 3; question p. 788, key p. 790,791, explanation p. 801.
+- `marrow__PHYSIO_CH42_Q023` — key option 1; question p. 788, key p. 790,791, explanation p. 801.
+- `marrow__PHYSIO_CH42_Q024` — key option 2; question p. 788, key p. 790,791, explanation p. 801.
+- `marrow__PHYSIO_CH42_Q025` — key option 2; question p. 789, key p. 790,791, explanation p. 802.
+- `marrow__PHYSIO_CH42_Q026` — key option 4; question p. 789, key p. 790,791, explanation p. 802.
+- `marrow__PHYSIO_CH42_Q027` — key option 4; question p. 789, key p. 790,791, explanation p. 802.
+- `marrow__PHYSIO_CH42_Q028` — key option 1; question p. 789, key p. 790,791, explanation p. 802.
+- `marrow__PHYSIO_CH42_Q029` — key option 2; question p. 790, key p. 790,791, explanation p. 803.
+- `marrow__PHYSIO_CH42_Q030` — key option 1; question p. 790, key p. 790,791, explanation p. 803.
+### `explanation_physio_ch43_q001_q016_v1.json`
+- `marrow__PHYSIO_CH43_Q001` — key option 1; question p. 805, key p. 809, explanation p. 809.
+- `marrow__PHYSIO_CH43_Q002` — key option 2; question p. 805, key p. 809, explanation p. 810.
+- `marrow__PHYSIO_CH43_Q003` — key option 1; question p. 805, key p. 809, explanation p. 810.
+- `marrow__PHYSIO_CH43_Q004` — key option 4; question p. 805, key p. 809, explanation p. 811.
+- `marrow__PHYSIO_CH43_Q005` — key option 1; question p. 806, key p. 809, explanation p. 811.
+- `marrow__PHYSIO_CH43_Q006` — key option 1; question p. 806, key p. 809, explanation p. 812.
+- `marrow__PHYSIO_CH43_Q007` — key option 4; question p. 806, key p. 809, explanation p. 813.
+- `marrow__PHYSIO_CH43_Q008` — key option 4; question p. 807, key p. 809, explanation p. 813.
+- `marrow__PHYSIO_CH43_Q009` — key option 3; question p. 807, key p. 809, explanation p. 813.
+- `marrow__PHYSIO_CH43_Q010` — key option 1; question p. 807, key p. 809, explanation p. 814.
+- `marrow__PHYSIO_CH43_Q011` — key option 2; question p. 807, key p. 809, explanation p. 814.
+- `marrow__PHYSIO_CH43_Q012` — key option 3; question p. 808, key p. 809, explanation p. 814.
+- `marrow__PHYSIO_CH43_Q013` — key option 3; question p. 808, key p. 809, explanation p. 815.
+- `marrow__PHYSIO_CH43_Q014` — key option 1; question p. 808, key p. 809, explanation p. 816.
+- `marrow__PHYSIO_CH43_Q015` — key option 1; question p. 808, key p. 809, explanation p. 817.
+- `marrow__PHYSIO_CH43_Q016` — key option 1; question p. 809, key p. 809, explanation p. 817.
 
 ## Release boundary
 

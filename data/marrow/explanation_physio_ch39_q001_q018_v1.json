@@ -1,0 +1,380 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner-facing Marrow ED8 Physiology Chapter 39 explanation refinement; native diagrams and tables remain unchanged.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "39",
+    "chapterTitle": "The Adrenals",
+    "questionStart": 1,
+    "questionEnd": 18,
+    "questions": 18,
+    "status": "approved-rollout",
+    "workloadScore": 18,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "f3cd6b9dccb2092743fa86de4b0bef682d61c83762e9f00fa3b04d0a355d89d6",
+    "auditReport": "docs/question-explanations/physiology-tail-20261001.md"
+  },
+  "questions": {
+    "marrow__PHYSIO_CH39_Q001": {
+      "takeaway": "Zona glomerulosa is the outer adrenal cortical layer and secretes aldosterone.",
+      "displayText": "Zona glomerulosa is the outer adrenal cortical layer and secretes aldosterone.\n\nThe zona glomerulosa secretes aldosterone.\n\nThe adrenal cortex has three zones. From outer to inner, they are:\n• Zona glomerulosa: Secretes mineralocorticoids (aldosterone).\n• Zona fasciculata: Secretes glucocorticoids (cortisol and corticosterone).\n• Zona reticularis: Secretes sex steroids (dehydroepiandrosterone, androstenedione, estrogens, and glucocorticoids).\n\nThe adrenal medulla secretes catecholamines.",
+      "emphasis": [
+        "Zona glomerulosa is the outer adrenal cortical layer and secretes aldosterone"
+      ],
+      "rationales": {
+        "b": "Testosterone is not the principal product of zona glomerulosa.",
+        "c": "Cortisol is produced by zona fasciculata.",
+        "d": "Epinephrine is secreted by adrenal medullary chromaffin cells."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          735
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH39_Q002": {
+      "takeaway": "Estradiol synthesis uses androgen precursors and aromatase, but does not require adrenal 11β-hydroxylase.",
+      "displayText": "Estradiol synthesis uses androgen precursors and aromatase, but does not require adrenal 11β-hydroxylase.\n\n11β hydroxylase is not required for estradiol synthesis.\n\n11β hydroxylase is required for the conversion of 11-deoxycorticosterone to corticosterone, a compound formed in the mineralocorticoid synthesis pathway.",
+      "emphasis": [
+        "Estradiol synthesis uses androgen precursors and aromatase, but does not require adrenal 11β-hydroxylase"
+      ],
+      "rationales": {
+        "a": "The source’s steroidogenic sequence includes lyase activity in gonadal estrogen synthesis.",
+        "c": "Aromatase converts androgen precursors to estrogens.",
+        "d": "Hydroxysteroid dehydrogenases participate in steroid interconversion."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          735
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH39_Q003": {
+      "takeaway": "About 60% of aldosterone is protein-bound, so the statement that 80% is bound is false.",
+      "displayText": "About 60% of aldosterone is protein-bound, so the statement that 80% is bound is false.\n\n60% of aldosterone is bound to plasma proteins, not 80%.\n\n90% of cortisol is bound to plasma proteins. Most of it is bound to transcortin, a corticosteroid-specific α2 globulin, and the rest to albumin. This high degree of binding to plasma proteins slows the elimination of cortisol. Therefore, cortisol has a longer half-life of 60 to 90 minutes.\n\nSince only about 60% of aldosterone is in bound form, it has a relatively short half-life of about 20 minutes.",
+      "emphasis": [
+        "About 60% of aldosterone is protein-bound, so the statement that 80% is bound is false"
+      ],
+      "rationales": {
+        "a": "Approximately 90% of cortisol is protein-bound, mainly to corticosteroid-binding globulin and albumin.",
+        "b": "Cortisol’s plasma half-life is around 60–90 minutes.",
+        "c": "Aldosterone has a short half-life of about 20 minutes."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          736
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH39_Q004": {
+      "takeaway": "Cortisol suppresses T-cell proliferation and lowers T-lymphocyte numbers; it does not increase them.",
+      "displayText": "Cortisol suppresses T-cell proliferation and lowers T-lymphocyte numbers; it does not increase them.\n\nCortisol suppresses the proliferation of T-lymphocytes and decreases the number of T-lymphocytes.\n\nActions of Cortisol:\nMetabolic effects:\n• Effect on carbohydrates: Exerts an anti-insulin effect, leading to hyperglycemia.\n• Increases gluconeogenesis.\n• Increases glycogen synthesis.\n• Decreases utilization of glucose in peripheral tissues.\n• Effect on fat and appetite: promotes mobilization of fatty acids from adipose tissue in acute states. This mobilization increases the concentration of free fatty acids in the plasma, which also increases their utilization for energy, causing lipolysis. However, in chronic states cortisol increases appetite and food intake by inducing the synthesis of neuropeptide-Y which leads to an apparent lipogenic effect seen as buffalo humping and central obesity.\n• Effect on protein: Exerts a catabolic effect and causes proteolysis.\n• Effect on water and electrolytes: Sodium water retention and diuresis.\n\nAnti-inflammatory and immunosuppressive effects:\n• Induce the synthesis of lipocortin, an inhibitor of phospholipase A2.\n• Inhibit the release of histamine and serotonin.\n• Inhibit the production of IL-2 and T lymphocytes, and depress cellular immunity.\n\nMaintenance of vascular responsiveness to catecholamines:\n• Cortisol up-regulates α1 receptors on arterioles, increasing their sensitivity to the vasoconstrictor effect of norepinephrine.",
+      "emphasis": [
+        "Cortisol suppresses T-cell proliferation and lowers T-lymphocyte numbers; it does not increase them"
+      ],
+      "rationales": {
+        "a": "Cortisol stimulates hepatic gluconeogenesis.",
+        "b": "Cortisol promotes protein catabolism in peripheral tissues.",
+        "c": "Cortisol can stimulate lipolysis, particularly in permissive metabolic contexts."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          736
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH39_Q005": {
+      "takeaway": "Cortisol follows a circadian rhythm and rises with surgery, infection and other stressors; sleep is not a stress-induced rise.",
+      "displayText": "Cortisol follows a circadian rhythm and rises with surgery, infection and other stressors; sleep is not a stress-induced rise.\n\nCortisol secretion is low during sleep.\n\nAny type of stress, physical or mental, can increase cortisol release.",
+      "emphasis": [
+        "Cortisol follows a circadian rhythm and rises with surgery, infection and other stressors; sleep is not a stress-induced rise"
+      ],
+      "rationales": {
+        "a": "Surgery activates the HPA stress response and increases cortisol.",
+        "b": "Infection and inflammatory stress stimulate cortisol secretion.",
+        "c": "Heat stroke is a major physiologic stress that elevates cortisol."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          737
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH39_Q006": {
+      "takeaway": "Glucocorticoids induce annexin-1/lipocortin, suppressing phospholipase A₂ and reducing downstream inflammatory eicosanoids.",
+      "displayText": "Glucocorticoids induce annexin-1/lipocortin, suppressing phospholipase A₂ and reducing downstream inflammatory eicosanoids.\n\nInhibition of phospholipase A2 is an anti-inflammatory effect of steroids, thus being the rationale for starting steroids in this patient.\n\nPatients with severe COVID are at high risk of developing a systemic inflammatory response. Steroids help in mitigating these deleterious effects.\n\nPhospholipase A2 is a precursor of arachidonic acid. Arachidonic acid is the precursor for prostaglandins and leukotrienes, which are involved in inflammation. Steroids induce the synthesis of lipocortin, which inhibits phospholipase A2.\n\nOther anti-inflammatory and immunosuppressive effects of steroids are:\n• Inhibit the production of interleukin-2 (IL-2) and proliferation of T lymphocytes.\n• Inhibit the release of histamine and serotonin from mast cells and platelets.",
+      "emphasis": [
+        "Glucocorticoids induce annexin-1/lipocortin, suppressing phospholipase A₂ and reducing downstream inflammatory eicosanoids"
+      ],
+      "rationales": {
+        "b": "Cyclo-oxygenase is directly inhibited by NSAIDs; glucocorticoids act upstream at phospholipase A₂.",
+        "c": "Lipoprotein lipase activity is not the anti-inflammatory rationale for dexamethasone.",
+        "d": "Lipoxygenase products fall secondarily when arachidonic acid release is inhibited, rather than by direct enzyme blockade."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          737
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH39_Q007": {
+      "takeaway": "At pharmacologic/high levels, glucocorticoids suppress inflammatory and immune responses; basal levels also maintain vascular reactivity.",
+      "displayText": "At pharmacologic/high levels, glucocorticoids suppress inflammatory and immune responses; basal levels also maintain vascular reactivity.\n\nInhibition of inflammatory response requires high levels of glucocorticoids.\n\nAnti-inflammatory and anti-allergic responses (inhibition of histamine from mast cells and basophils) are produced only at high levels of glucocorticoids. These effects cannot be produced by normal circulating glucocorticoids in the body and thus require exogenous supplementation of steroids to produce them.",
+      "emphasis": [
+        "At pharmacologic/high levels, glucocorticoids suppress inflammatory and immune responses; basal levels also maintain vascular reactivity"
+      ],
+      "rationales": {
+        "a": "Maintaining normal vascular responsiveness is a permissive physiologic glucocorticoid effect.",
+        "b": "Water-load excretion is among permissive physiologic effects, not only high-dose action.",
+        "d": "Adipose differentiation is not the distinctive high-dose anti-inflammatory action asked."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          737
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH39_Q008": {
+      "takeaway": "ACTH and cortisol secretion normally peak in the early morning before waking.",
+      "displayText": "ACTH and cortisol secretion normally peak in the early morning before waking.\n\nACTH level is higher during the early morning and low during late evening. 75% of the ACTH production occurs between 4:00 AM to 10:00 AM.\n\nNote: Cortisol levels are also high in the early morning and low in the late evening.",
+      "emphasis": [
+        "ACTH and cortisol secretion normally peak in the early morning before waking"
+      ],
+      "rationales": {
+        "b": "Evening ACTH is lower than the morning circadian peak.",
+        "c": "Afternoon levels decline from the morning maximum.",
+        "d": "Night levels are generally low, with the nadir around midnight."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          738
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH39_Q009": {
+      "takeaway": "Glucocorticoids provide negative feedback to the hypothalamus and pituitary and inhibit ACTH secretion.",
+      "displayText": "Glucocorticoids provide negative feedback to the hypothalamus and pituitary and inhibit ACTH secretion.\n\nGlucocorticoids inhibit ACTH secretion by a direct negative feedback mechanism. They also inhibit CRH secretion.",
+      "emphasis": [
+        "Glucocorticoids provide negative feedback to the hypothalamus and pituitary and inhibit ACTH secretion"
+      ],
+      "rationales": {
+        "a": "Aldosterone does not provide the principal glucocorticoid feedback on ACTH.",
+        "b": "Epinephrine is not the negative-feedback hormone regulating ACTH.",
+        "d": "CRH stimulates rather than inhibits ACTH release."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          738
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH39_Q010": {
+      "takeaway": "Elevated plasma potassium directly stimulates zona glomerulosa aldosterone secretion.",
+      "displayText": "Elevated plasma potassium directly stimulates zona glomerulosa aldosterone secretion.\n\nHyperkalemia and activation of renin-angiotensin system are the most potent stimulators of aldosterone secretion.",
+      "emphasis": [
+        "Elevated plasma potassium directly stimulates zona glomerulosa aldosterone secretion"
+      ],
+      "rationales": {
+        "b": "ACTH has a modest/transient effect but is not the strongest physiologic stimulus.",
+        "c": "Hypernatremia suppresses aldosterone by reducing renin/angiotensin drive.",
+        "d": "Exogenous glucocorticoid is not the principal direct aldosterone stimulus."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          738
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH39_Q011": {
+      "takeaway": "Mineralocorticoid receptors occur in kidney, colon and hippocampus; liver is the exception in this list.",
+      "displayText": "Mineralocorticoid receptors occur in kidney, colon and hippocampus; liver is the exception in this list.\n\nMineralocorticoid receptors are not present in the liver. They are present in kidneys, colon, hippocampus, salivary glands, and sweat glands.\n\nMineralocorticoid activity increases the reabsorption of Na⁺ and potassium excretion from urine, sweat, saliva, and contents of the colon. Along with the Na⁺, there is water reabsorption and in turn ECF volume expansion.",
+      "emphasis": [
+        "Mineralocorticoid receptors occur in kidney, colon and hippocampus; liver is the exception in this list"
+      ],
+      "rationales": {
+        "a": "Hippocampal neurons express mineralocorticoid receptors involved in stress responses.",
+        "b": "Renal distal-nephron cells express mineralocorticoid receptors.",
+        "c": "Colonic epithelial cells have mineralocorticoid receptors that regulate sodium absorption."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          739
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH39_Q012": {
+      "takeaway": "Aldosterone binds intracellular mineralocorticoid receptors and increases ENaC expression/trafficking to the apical membrane.",
+      "displayText": "Aldosterone binds intracellular mineralocorticoid receptors and increases ENaC expression/trafficking to the apical membrane.\n\nAldosterone increases transport of ENaCs (epithelial sodium channels) from the cytoplasm to the cell membrane. This is a rapid effect of aldosterone.\n\nMechanism of action of aldosterone:\n• Aldosterone diffuses into the renal tubular epithelial cells and combines with a mineralocorticoid receptor (MR) in the cytoplasm.\n• The aldosterone-receptor complex diffuses into the nucleus and induces transcription.\n• The mRNA diffuses back into the cytoplasm and undergoes translation to form proteins. These have two effects - Rapid and Slow.\n• The slower effect is increase in synthesis of ENaCs.\n• The important products formed are:\n  • Na⁺-K⁺ ATPase\n  • membrane transport proteins like epithelial sodium channel.",
+      "emphasis": [
+        "Aldosterone binds intracellular mineralocorticoid receptors and increases ENaC expression/trafficking to the apical membrane"
+      ],
+      "rationales": {
+        "b": "The receptor is intracellular, but aldosterone first binds cytosolic receptor rather than directly inside the nucleus.",
+        "c": "Aldosterone does not bind ENaC itself; it alters channel abundance and activity through gene regulation.",
+        "d": "Aldosterone is a steroid and does not signal chiefly through a cell-surface GPCR."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          739
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH39_Q013": {
+      "takeaway": "Vasopressin most directly controls plasma osmolality by regulating collecting-duct water permeability.",
+      "displayText": "Vasopressin most directly controls plasma osmolality by regulating collecting-duct water permeability.\n\nVasopressin (also called ADH or anti-diuretic hormone) has the greatest effect on plasma osmolality.\n\nTwo primary systems are especially involved in regulating the concentration of sodium and osmolarity of extracellular fluid:\n• The osmoreceptor-ADH system and\n• The thirst mechanism.\n\nAlthough aldosterone decreases the rate of sodium excretion by the kidneys, the concentration of sodium in the extracellular fluid rises only by a few mEqs. The reason for this is that when sodium is reabsorbed by the tubules, simultaneous absorption of equivalent amounts of water occurs. So, aldosterone does not cause a significant change in the plasma osmolality.",
+      "emphasis": [
+        "Vasopressin most directly controls plasma osmolality by regulating collecting-duct water permeability"
+      ],
+      "rationales": {
+        "a": "Progesterone is not the dominant acute regulator of plasma osmolality.",
+        "b": "Cortisol influences metabolism but not minute-to-minute water balance.",
+        "d": "Aldosterone regulates sodium balance and volume; ADH is the main osmolality regulator."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          740
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH39_Q014": {
+      "takeaway": "Hypoaldosteronism causes sodium loss, hyperkalemia, hypotension and metabolic acidosis; alkalosis is least likely.",
+      "displayText": "Hypoaldosteronism causes sodium loss, hyperkalemia, hypotension and metabolic acidosis; alkalosis is least likely.\n\nIn a patient with hypoaldosteronism, alkalosis is least likely to be found. Hypoaldosteronism is rather responsible for causing metabolic acidosis.\n\nPatients with hypoaldosteronism have:\n• Hyponatremia - due to increased Na⁺ loss in urine.\n• Hyperkalemia - due to K⁺ retention.\n• Hypotension - due to reduced ECF volume.\n• Mild metabolic acidosis because hydrogen ions are not excreted in the urine.",
+      "emphasis": [
+        "Hypoaldosteronism causes sodium loss, hyperkalemia, hypotension and metabolic acidosis; alkalosis is least likely"
+      ],
+      "rationales": {
+        "a": "Aldosterone deficiency causes renal sodium wasting and hyponatremia.",
+        "b": "Reduced distal potassium secretion produces hyperkalemia.",
+        "c": "Sodium and volume loss can cause hypotension."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          741
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH39_Q015": {
+      "takeaway": "Conn syndrome causes hypertension, modest ECF expansion and hypokalemia, but plasma sodium rises only slightly due to pressure natriuresis.",
+      "displayText": "Conn syndrome causes hypertension, modest ECF expansion and hypokalemia, but plasma sodium rises only slightly due to pressure natriuresis.\n\nRise in plasma Na⁺ level of > 7 mEq/L than the normal value is least likely to be found in this patient.\n\nExcess secretion of aldosterone causes only a modest increase in plasma sodium, usually a rise of less than 4-6 mEq/L. When sodium gets reabsorbed, water also accompanies it, resulting in plasma sodium remaining fairly normal.\n\nConn's syndrome or primary hyperaldosteronism is due to an aldosterone-producing tumour of the zona glomerulosa, causing:\n• Loss of potassium by the kidneys leads to hypokalemia.\n• Mild metabolic alkalosis.\n• A slight increase in extracellular fluid volume and blood volume.\n• A modest increase in plasma sodium concentration.\n• Hypertension.",
+      "emphasis": [
+        "Conn syndrome causes hypertension, modest ECF expansion and hypokalemia, but plasma sodium rises only slightly due to pressure natriuresis"
+      ],
+      "rationales": {
+        "a": "Aldosterone can produce a small ECF-volume expansion.",
+        "c": "Volume expansion and vascular effects cause hypertension.",
+        "d": "Increased distal K⁺ secretion commonly causes hypokalemia."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          741
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH39_Q016": {
+      "takeaway": "Hypernatremia suppresses renin–angiotensin drive and decreases aldosterone secretion.",
+      "displayText": "Hypernatremia suppresses renin–angiotensin drive and decreases aldosterone secretion.\n\nHypernatremia decreases aldosterone secretion.",
+      "emphasis": [
+        "Hypernatremia suppresses renin–angiotensin drive and decreases aldosterone secretion"
+      ],
+      "rationales": {
+        "a": "Renin stimulates angiotensin II and aldosterone secretion.",
+        "b": "Hyperkalemia directly stimulates aldosterone release.",
+        "c": "ACTH can transiently stimulate adrenal steroid production, including aldosterone."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          742
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH39_Q017": {
+      "takeaway": "Stress raises glucocorticoids, endorphins and vasopressin; insulin is not a typical stress hormone increase.",
+      "displayText": "Stress raises glucocorticoids, endorphins and vasopressin; insulin is not a typical stress hormone increase.\n\nInsulin does not increase during stress.\n\nIn response to stress, the usual physiological functions like gluconeogenesis, lipolysis, and inhibition of insulin actions occurs, resulting in increased blood levels of fuel sources (glucose, fatty acids) needed to cope.\n\nHormones that are increased in the blood by stress are CRH, ACTH, cortisol, β-endorphin (to reduce pain), vasopressin, aldosterone, growth hormone, and glucagon.",
+      "emphasis": [
+        "Stress raises glucocorticoids, endorphins and vasopressin; insulin is not a typical stress hormone increase"
+      ],
+      "rationales": {
+        "a": "Glucocorticoids rise as part of the HPA stress response.",
+        "b": "Endorphins can rise during stress and modulate pain.",
+        "c": "Vasopressin can increase with stress and hypovolemia."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          742
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH39_Q018": {
+      "takeaway": "DHEA is the principal adrenal androgen; the zona reticularis also releases DHEA-S and androstenedione.",
+      "displayText": "DHEA is the principal adrenal androgen; the zona reticularis also releases DHEA-S and androstenedione.\n\nDehydroepiandrosterone (DHEA) is the major adrenal androgen.\n\nThe androgens secreted from the adrenal gland are dehydroepiandrosterone and androstenedione.",
+      "emphasis": [
+        "DHEA is the principal adrenal androgen; the zona reticularis also releases DHEA-S and androstenedione"
+      ],
+      "rationales": {
+        "a": "Testosterone is primarily gonadal; it is not the major adrenal androgen.",
+        "b": "Androstenedione is an adrenal androgen but DHEA is the major product asked.",
+        "d": "Cortisol is a glucocorticoid, not an androgen."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          743
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    }
+  }
+}
