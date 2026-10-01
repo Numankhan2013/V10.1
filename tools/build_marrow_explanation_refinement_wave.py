@@ -13,6 +13,9 @@ ROOT = DATA.parents[1]
 
 def build(queue_path):
     queue = json.loads(queue_path.read_text())
+    ledger_hash = hashlib.sha256((ROOT / 'data/question_completeness_reviews_v1.json').read_bytes()).hexdigest()
+    released_wave = json.loads((DATA / 'explanation_refinement_wave_20260930.json').read_text())
+    assert ledger_hash == released_wave['completenessLedgerSha256'], 'Released source omission/answer guards changed'
     baseline = set(queue['baselineEnhancedIds'])
     sources, hashes = {}, {}
     for subject, prefix in BANKS.items():
@@ -48,7 +51,7 @@ def build(queue_path):
     unprocessed = sorted(expected - new)
     return {'schemaVersion': 1, 'purpose': 'Source-pinned continuation of the verified 753-question checkpoint.',
             'canonicalBaseSha': queue['canonicalBaseSha'], 'sourceRawSha256': hashes,
-            'completenessLedgerSha256': hashlib.sha256((ROOT / 'data/question_completeness_reviews_v1.json').read_bytes()).hexdigest(),
+            'completenessLedgerSha256': ledger_hash,
             'baselineEnhancedIds': sorted(baseline), 'newEnhancedCount': len(new),
             'withheldSourceLimitedIds': deferred, 'unprocessedActionableIds': unprocessed,
             'queueFile': str(queue_path.relative_to(ROOT)), 'queueSha256': digest(queue),

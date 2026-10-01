@@ -36,6 +36,8 @@ def load_wave(manifest_path=None, *, require_complete=True):
     paths = wave_manifests()
     manifest_path = manifest_path or paths[-1]
     manifest = json.loads(manifest_path.read_text())
+    released_manifest = json.loads(paths[0].read_text())
+    assert manifest['completenessLedgerSha256'] == released_manifest['completenessLedgerSha256'], 'Released answer guards changed between waves'
     sources, hashes = {}, {}
     for subject, prefix in BANKS.items():
         bank, hashes[subject] = load_sharded(prefix)

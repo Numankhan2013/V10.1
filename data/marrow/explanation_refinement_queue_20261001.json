@@ -3843,5 +3843,35 @@
     "marrow__PHYS_CH11_Q016": "30a96f18a5b2aeb77505b963dedf37ee00fb61d5009b4db46e91f976f1879367",
     "marrow__PHYS_CH11_Q017": "31de637c50fa966ba02e1d832cce8626996d4f65993c025990611da18c7ec682",
     "marrow__PHYS_CH11_Q018": "e42be080fa1602815e9d568b331f6d1d617a0ea9c6af0256a7f856196dfc315b"
+  },
+  "workerScopes": {
+    "anatomy_primary": {
+      "subject": "Anatomy",
+      "chapterEnd": 50,
+      "actionable": 662
+    },
+    "physiology_primary": {
+      "subject": "Physiology",
+      "chapterEnd": 33,
+      "actionable": 497
+    },
+    "biochemistry_then_tails": {
+      "initialSubject": "Biochemistry",
+      "initialActionable": 263,
+      "subsequentScopes": [
+        {
+          "subject": "Anatomy",
+          "chapterStart": 51,
+          "chapterEnd": 63,
+          "actionable": 252
+        },
+        {
+          "subject": "Physiology",
+          "chapterStart": 34,
+          "chapterEnd": 43,
+          "actionable": 261
+        }
+      ]
+    }
   }
 }

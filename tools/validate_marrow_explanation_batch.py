@@ -36,8 +36,13 @@ def main():
                 assert scope['questionStart'] <= source['questionNumber'] <= scope['questionEnd'], qid
                 validate_augmented_question(qid, cfg, source, path.name)
                 validate_source_retention(qid, source, cfg)
+                reconstruction = cfg.get('reconstruction')
+                if reconstruction:
+                    assert reconstruction['status'] in {'resolved_reconstruction', 'needs_manual_review', 'contextually_reconstructed'}, qid
+                    assert all(reconstruction.get(k) for k in ('sourceProblem', 'reconstructedContent', 'evidenceBasis', 'reviewNote')), qid
                 if 'displayTables' in cfg:
                     reconstruction = cfg['reconstruction']
+                    assert reconstruction['status'] == 'resolved_reconstruction', qid
                     pdf = args.root / reconstruction['sourcePdf']
                     assert hashlib.sha256(pdf.read_bytes()).hexdigest() == reconstruction['sourcePdfSha256'], qid
                     assert all(table['source_page'] in reconstruction['sourcePages'] for table in cfg['displayTables']), qid
