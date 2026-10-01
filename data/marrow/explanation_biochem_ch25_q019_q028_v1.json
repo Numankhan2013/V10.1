@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner-facing Marrow ED8 Biochemistry Chapter 25 explanation refinement; source records and figures remain immutable.",
+  "scope": {
+    "subject": "Biochemistry",
+    "bank": "Marrow",
+    "chapterId": "25",
+    "chapter": "DNA Structure, Replication and Repair",
+    "questionStart": 19,
+    "questionEnd": 28,
+    "questions": 10,
+    "status": "approved-rollout",
+    "workloadScore": 11,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "919f0709b2eb833e302c6f7524b6dd2bd13bfaed638009375b5062135d3795b1"
+  },
+  "questions": {
+    "marrow__BIOCHEM_CH25_Q019": {
+      "takeaway": "Primase synthesizes short RNA primers that provide the 3′-OH required by DNA polymerases.",
+      "displayText": "Primase synthesizes short RNA primers that provide the 3′-OH required by DNA polymerases.\n\nDNA primase synthesizes RNA primers during replication of DNA.\nDuring DNA replication, DNA is synthesized using an ssDNA template. This is done by DNA\npolymerases in the 5' to 3' direction. However, DNA polymerases require an RNA primer, which is\na short (10 - 200bp) double stranded region consisting of RNA paired to the DNA templete. Thus,\nRNA primers serve as scaffolds to which deoxyribonucleotides are added. The RNA in the primers\nis later replaced by DNA.\nOther options:\nOption C: Okazaki fragments are lagging strands built on RNA primers by DNA polymerase 6.\nOption D: Leading strands are synthesized by DNA polymerase e. ‘ -,",
+      "emphasis": [
+        "Primase synthesizes short RNA primers that provide the 3′-OH required by DNA polymerases"
+      ],
+      "rationales": {
+        "a": "DNA polymerase extends an RNA primer with DNA; primase itself synthesizes RNA, not DNA.",
+        "c": "Okazaki fragments are DNA segments made by DNA polymerase on the lagging strand, not the direct primase product.",
+        "d": "The leading strand is synthesized by DNA polymerase; primase provides its initial RNA primer."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 385,386; explanation p. 399."
+      ]
+    },
+    "marrow__BIOCHEM_CH25_Q020": {
+      "takeaway": "Prokaryotic DNA polymerase I removes RNA primers with its 5′→3′ exonuclease and fills the resulting gaps with DNA.",
+      "displayText": "Prokaryotic DNA polymerase I removes RNA primers with its 5′→3′ exonuclease and fills the resulting gaps with DNA.\n\nYY ra\n~\" <* s\no> r »\nThe true statement is that DNA polymerase] (pol I) is foundsin prokaryotes.\nThe prokaryotic polymerases are DNA. “emer Inll, and III. DNA polymerase I recognize a\n“nick” or break in the phosphate,baekbone, and thén removes each RNA primer and fills the gaps\nwith DNA. It does this through.its'5\"°_3' exonuclease activity-Ithas DNA repair activity through\n3° 5' exonuclease activity. DNA polymerase II carries out.DNA proofreading and repair. DNA\npolymerase III is the primary enzyme for the synthesis of the leading strand of DNA.\nOption A: DNA polymerase 6 (eukaryotic polymerase) synthesizes Okazaki fragments which are\nshort, newly synthesized DNAfragments that‘are formed on the lagging template strand during\nDNA replication. They are‘complementaty to the lagging template strand.\nOption C: Primase syhthesizes RNA primers to start the replication.\n_ origin of replication\n= \\. leading strand lagging strand\nsliding clamp polymerase nn ‘SAE of replication\nsingle-stranded SS ___________ ey\nbinding protein 5\nhelicase 7 TF, leading strand continuous synthesis:\n| ~ BER 5) rimase azaki azaki azaki\nLopoomerase! 5 as WE\ngyrase RNA — —_ = ——\nprimer a eS es SS\nligase\nTTT TT THT 9 +TIT\noo &\n===== PDF PAGE 400 =====",
+      "emphasis": [
+        "Prokaryotic DNA polymerase I removes RNA primers with its 5′→3′ exonuclease and fills the resulting gaps with DNA"
+      ],
+      "rationales": {
+        "a": "Okazaki fragments are primarily synthesized by DNA polymerase III in bacteria, not by Pol I.",
+        "c": "Primase synthesizes RNA primers; Pol I removes primers and replaces them with DNA.",
+        "d": "Bacterial Pol III is the main replicative polymerase; Pol I mainly processes primers and repairs DNA."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 386; explanation p. 399,400."
+      ]
+    },
+    "marrow__BIOCHEM_CH25_Q021": {
+      "takeaway": "DNA polymerase complexes elongate/process and proofread DNA; helicase, not polymerase, unwinds the duplex.",
+      "displayText": "DNA polymerase complexes elongate/process and proofread DNA; helicase, not polymerase, unwinds the duplex.\n\nUnwinding of DNA is not a function of the DNA polymerase complex.\nA number of different DNA polymerase molecules engage in DNA replication that share three\nimportant properties: Chain elongation, processivity, and proofreading. Unwinding of DNA is\ndone by enzyme helicase.\nChromosome\nFree nucleotides DNA polymerase\nd, IAD\nh Or ~>*\nV5 x\n(Zy ~ / -_ Leading strand\nGane ~\nOriginal vA \\ | / | Helicase\n(template) = a \\ fi F\nDNA agging\nstrand, r x\nReplication ——— r r \\\nfork | |\n= Adenine\n== Thymine C [——_\n@=p Cytosine E\n@m Guanine DNA polymerase _Original (template) DNA strand\n_ «xs ~, as\n) ,_ -",
+      "emphasis": [
+        "DNA polymerase complexes elongate/process and proofread DNA; helicase, not polymerase, unwinds the duplex"
+      ],
+      "rationales": {
+        "a": "Chain elongation is a core DNA polymerase function as nucleotides are added to the growing strand.",
+        "b": "High processivity is a characteristic of replicative polymerases and their processivity factors.",
+        "c": "Proofreading exonuclease activity removes misincorporated nucleotides in many DNA polymerases."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 386; explanation p. 400."
+      ]
+    },
+    "marrow__BIOCHEM_CH25_Q022": {
+      "takeaway": "Bifunctional alkylating agents can cross-link two DNA bases, producing a two-base lesion within or between strands.",
+      "displayText": "Bifunctional alkylating agents can cross-link two DNA bases, producing a two-base lesion within or between strands.\n\nMt >\n_~ .%,\nBifunctional alkylating” agent cross-linkage is a type of two-base alteration DNA damage.\n~ iN“\nBifunctional alkylating agents, like’ cyclophosphamide and chlorambucil, are commonly used\nanti-cancer,drugs. They contain two reactive sites and thus, can cause intrastrand and interstrand\ncross-links\\between two ‘nucleotides.",
+      "emphasis": [
+        "Bifunctional alkylating agents can cross-link two DNA bases, producing a two-base lesion within or between strands"
+      ],
+      "rationales": {
+        "a": "Oxidative radicals usually modify individual bases or the sugar backbone rather than making a covalent bridge between two bases.",
+        "b": "Monofunctional alkylation generally modifies a single site; bifunctional agents can cross-link two sites.",
+        "c": "Base analogs resemble normal bases and can be incorporated during synthesis; they are not the two-base cross-link described."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 386; explanation p. 400."
+      ]
+    },
+    "marrow__BIOCHEM_CH25_Q023": {
+      "takeaway": "Lynch syndrome (HNPCC) is caused by mismatch-repair defects that allow replication errors to accumulate, especially in microsatellites.",
+      "displayText": "Lynch syndrome (HNPCC) is caused by mismatch-repair defects that allow replication errors to accumulate, especially in microsatellites.\n\nMismatch repair will be defective in a patient with multiple gastrointestinal polyps and\ncarcinoma, with a positive family history/history of hereditary non-polyposis colon carcinoma\n(HNPCC)\nMismatch repair is a DNA repair mechanism that corrects single-nucleotide mismatches,\ninsertions, and deletions introduced by the DNA polymerase during DNA replication.\nHNPCC or Lynch syndrome is an autosomal dominant genetic condition. It occurs due to defects\nin DNA mismatch repair genes like MLH1 and MSH2. The genomes of these patients show\nmicrosatellite instability. HNPCC is associated with a high risk of colon cancer. It may also be\nassociated with a risk of developing carcinomas of the endometrium, stomach, small bowel, ovary,\npancreas, and transitional cell carcinoma of the ureter and renal pelvis.\n===== PDF PAGE 401 =====\nThe diagnostic criteria for HNPCC are referred to as the Amsterdam criteria or the 3-2-1-0 rule. It\nincludes:\n¢ Three or more relatives with HNPCC-associated cancer (colorectal cancer, endometrial cancer,\ncancer of the small bowel, ureter, or renal pelvis), one of whom is a first-degree relative of the\nother two.\n+ At least two successive generations affected\n+ At least one case diagnosed before age 50 years\n¢ Familial adenomatous polyposis excluded\n¢ Tumors verified by pathologic examination.\nOther options: AN)\nOption B: Patients with xeroderma pigmentosum have a defect in the nucleotide excision repair\npathway. ww ~%\nOption C: Defect in base excision repair pathway igseen in patients-with MUTYH-associated\npolyposis. “eee oC a\nOption D: Sickle cell disease and beta-thalassemia are examples of diseaSes seen in patients with\npoint mutations. \\ ie ‘os r%\na8 “~* 4",
+      "emphasis": [
+        "Lynch syndrome (HNPCC) is caused by mismatch-repair defects that allow replication errors to accumulate, especially in microsatellites"
+      ],
+      "rationales": {
+        "b": "Nucleotide-excision repair removes bulky lesions such as UV photoproducts and is the pathway implicated in xeroderma pigmentosum.",
+        "c": "Base-excision repair removes small chemically altered bases and is not the inherited pathway underlying Lynch syndrome.",
+        "d": "A point mutation is a type of sequence change, not the DNA repair pathway defective in HNPCC."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 386,387; explanation p. 400,401."
+      ]
+    },
+    "marrow__BIOCHEM_CH25_Q024": {
+      "takeaway": "UV sensitivity, freckling and early skin cancer indicate xeroderma pigmentosum, caused by defective nucleotide-excision repair of pyrimidine dimers.",
+      "displayText": "UV sensitivity, freckling and early skin cancer indicate xeroderma pigmentosum, caused by defective nucleotide-excision repair of pyrimidine dimers.\n\n~ to 2,\nPhotosensitivity, freckling and_skin‘cancer on the face in a child aare suggestive of xeroderma\npigmentosum. It is an example of defective DNA nucleotide excision repair.\nIn xeroderma pigmentosum, there is.an inability to repair DNA pyrimidine dimers caused by UV\nexposure. It is an autoSomal recessive disease characterized by exaggerated sunburns and\npigmentary changes on exposure'to UV radiations. There is increased risk of developing\nnon-melanemaand melanoma skin cancers, and neurodegeneration. They are also more prone to\ndeveloping smoking-indu@ed lung cancers.\nDiagnosis is mainly clinical and it can be confirmed definitively by cellular tests for defective DNA\nrepair. Management includes sun avoidance and regular follow-up to assess and treat any skin\ncancers. There is no cure for xeroderma pigmentosum.",
+      "emphasis": [
+        "UV sensitivity, freckling and early skin cancer indicate xeroderma pigmentosum, caused by defective nucleotide-excision repair of pyrimidine dimers"
+      ],
+      "rationales": {
+        "b": "Base-excision repair handles small altered bases, not bulky UV-induced pyrimidine dimers.",
+        "c": "Mismatch repair corrects replication mismatches and small insertion/deletion loops, not UV lesions.",
+        "d": "Homologous repair repairs double-strand breaks using a homologous template; XP is an NER defect."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 387; explanation p. 401."
+      ]
+    },
+    "marrow__BIOCHEM_CH25_Q025": {
+      "takeaway": "Defective nonhomologous end joining can prevent V(D)J recombination and cause severe combined immunodeficiency.",
+      "displayText": "Defective nonhomologous end joining can prevent V(D)J recombination and cause severe combined immunodeficiency.\n\nSCID is associated with a defective non-homologous end-joining (NHEJ).\nNHEJ is a predominant pathway for DNA double-stranded break repair. NHEJ also functions in\nclass switch recombination, enhancing T and B cell diversity. Thus, NHEJ deficiency leads to\ncombined immunodeficiency due to a failure to carry out recombination efficiently.\nSevere combined immunodeficiency (SCID) is characterised by defects in both\nhumoral and cell-mediated immune responses. Genes involved are JAK3, RAG1, and IL-7R.\nPersons with SCID are extremely susceptible to recurrent, severe infections by a wide range of\n===== PDF PAGE 402 =====\npathogens, including Candida albicans, Pneumocystis jirovecii, Pseudomonas species,\ncytomegalovirus, varicella, and a host of other bacteria.\nX-linked SCID is the most common form, accounting for 50% to 60% of cases, is X-linked, and\nhence, SCID is more common in boys. The genetic defect is a mutation in the common y-chain (yc)\nsubunit of cytokine receptors. In these patients, the thymus contains lobules of undifferentiated\nepithelial cells, resembling fetal thymus.\nAutosomal recessive SCID is commonly caused by a deficiency of adenosine deaminase (ADA)\nenzyme. In these patients, the thymus contains remnants of Hassall’s corpuscles.",
+      "emphasis": [
+        "Defective nonhomologous end joining can prevent V(D)J recombination and cause severe combined immunodeficiency"
+      ],
+      "rationales": {
+        "a": "Mismatch repair corrects replication errors; it is not the pathway needed to join programmed double-strand breaks during V(D)J recombination.",
+        "b": "Nucleotide-excision repair removes bulky DNA adducts and UV lesions, not the double-strand breaks in V(D)J recombination.",
+        "d": "Homologous recombination is another double-strand break repair pathway but is not the NHEJ defect classically associated with this SCID question."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 387; explanation p. 401,402."
+      ]
+    },
+    "marrow__BIOCHEM_CH25_Q026": {
+      "takeaway": "After Cas9 creates a double-strand break, error-prone NHEJ is the common repair route unless a donor template supports homology-directed repair.",
+      "displayText": "After Cas9 creates a double-strand break, error-prone NHEJ is the common repair route unless a donor template supports homology-directed repair.\n\now\nNon-homologous end joining (NHEJ) is the major mechartism used by CRISPR-Caso for gene\nrepair. Nw Pith\nThe CRISPR (Clustered Regularly Interspaced Short’ Palindromi¢Repeats) are clustered\npalindromic sequences found in many bacteria..Tt is a formof-acquired immunity to infection by\nbacteriophages which complements the system of restriction endonucleases and methylases.\nCRISPR uses RNA-based targeting to bring the Casgéndonucleasetto foreign (or any\ncomplementary) DNA. Within bactéria this CRISPR-RNA-Casg complex then degrades and\ninactivates the targeted DNA.\" oN ao\nLa ™ _ ‘ ~ >.\nThe CRISPR system has been adapted for tse in eukaryotic cells for gene deletion, gene editing\nand even modulation of gene transcription. _®)\n= < AS ay\nt\nOrt ee Ut ee",
+      "emphasis": [
+        "After Cas9 creates a double-strand break, error-prone NHEJ is the common repair route unless a donor template supports homology-directed repair"
+      ],
+      "rationales": {
+        "a": "Base-excision repair removes small damaged bases and does not usually repair a Cas9-induced double-strand break.",
+        "c": "Homology-directed repair can be promoted with an appropriate donor template, but NHEJ is the major default repair mechanism asked here.",
+        "d": "Mismatch repair corrects replication mismatches, not a targeted double-strand break."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 388; explanation p. 402."
+      ]
+    },
+    "marrow__BIOCHEM_CH25_Q027": {
+      "takeaway": "After transplantation, donor and recipient genomes can coexist in recipient tissues; this genetic chimerism is used to monitor engraftment.",
+      "displayText": "After transplantation, donor and recipient genomes can coexist in recipient tissues; this genetic chimerism is used to monitor engraftment.\n\nChimeric DNA is associated with organ transplantation, especially bone-marrow transplantation.\n===== PDF PAGE 403 =====\nIn organ transplantation, chimeric DNA refers to the mixture of donor and recipient genetic\nmaterial that occurs when donor cells begin functioning within the recipient's body. It is used for\nlong-term monitoring of bone marrow transplant recipients. Detecting changes in the levels of\ndonor-derived cells can provide early warning signs of graft failure, rejection, or relapse of\nunderlying disease.\nNote: The practical applications of recombinant DNA technology include:\n¢ Gene mapping using techniques such as fluorescence in situ hybridization (FISH).\n¢ Producing proteins such as:\n¢ Interferons, tPA (tissue plasminogen activator)\n¢ Insulin, growth hormone ck oy\n+ Hepatitis B vaccine . ‘ “ae\n* Molecular analysis of disease, to detect gene variations, And mutations\n+ Restriction Fragment Length polymorphism (REDP) and single nucleotide polymorphism (SNP)\n* Microsatellite DNA polymorphisms aX ‘Oo cf >\n* Gene therapy and bone marrow transplantation i ° ~*",
+      "emphasis": [
+        "After transplantation, donor and recipient genomes can coexist in recipient tissues; this genetic chimerism is used to monitor engraftment"
+      ],
+      "rationales": {
+        "a": "Paternity testing compares inherited alleles but does not create mixed donor-recipient DNA in one person.",
+        "b": "Maternity testing likewise identifies biological relationships rather than transplant-derived chimerism.",
+        "c": "Personal identification uses a person's DNA profile; the mixed donor/recipient DNA pattern is specifically associated with transplantation."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 388; explanation p. 402,403."
+      ]
+    },
+    "marrow__BIOCHEM_CH25_Q028": {
+      "takeaway": "Telomerase is an RNA-dependent DNA polymerase that extends telomeres; it maintains chromosome ends but is not itself a DNA-repair pathway.",
+      "displayText": "Telomerase is an RNA-dependent DNA polymerase that extends telomeres; it maintains chromosome ends but is not itself a DNA-repair pathway.\n\n~~ Se.” x¢\nThe false statement is that telometase is involved iv DNA repair.\nTelomeres are the end of chrémosomal DNA’ Since prokaryotic DNA is circular, it does not have\nfree ends and hence no telomeres. Thus, telomeres are present only in eukaryotes Telomeres have\nTG- rich repeats and usually do not Cede for any proteins. With every DNA replication during cell\ndivision, telomere’shortening occurs. Once telomeres are almost negligible or non-existent in\nlength, the DNAs unable to'replicate and the cell dies. Hence, there is a limit to the number of\ntimes a céll’ean divide. .\\°\nIn stem cells and cancer cells, an enzyme telomerase having reverse transcriptase activity (RNA\ndependent DNA polymerase) adds telomeres to the chromosome ends, thereby preserving\nchromosomal length. It allows the stem cells and cancer cells to multiply a lot more number of\ntimes than a normal adult cell.",
+      "emphasis": [
+        "Telomerase is an RNA-dependent DNA polymerase that extends telomeres; it maintains chromosome ends but is not itself a DNA-repair pathway"
+      ],
+      "rationales": {
+        "a": "Telomerase has reverse-transcriptase activity, using its internal RNA template to extend telomeric DNA.",
+        "b": "Telomerase occurs in eukaryotic cells; the statement is consistent with the source's contrast with circular prokaryotic chromosomes.",
+        "c": "Telomerase counters progressive telomere shortening by adding repeat sequences; that is a central function."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 388; explanation p. 403."
+      ]
+    }
+  }
+}

@@ -1,6 +1,6 @@
 # Biochemistry remaining explanations audit — 2026-10-01
 
-**Scope:** canonical Biochemistry source SHA-256 `919f0709b2eb833e302c6f7524b6dd2bd13bfaed638009375b5062135d3795b1`; authored against base `d4abce86068b4221e61e541c34dd29258de61cca` on `work/luna-biochem-remaining`. This checkpoint covers 136 of the 263 actionable pending IDs. The authored-and-validated count is separate from deployment; no runtime wiring or preview build is included in this worktree. Eight source-gated IDs remain excluded and untouched: CH13 Q020, CH14 Q012/Q018, CH15 Q003, CH16 Q014, CH17 Q012, CH27 Q012, CH28 Q009.
+**Scope:** canonical Biochemistry source SHA-256 `919f0709b2eb833e302c6f7524b6dd2bd13bfaed638009375b5062135d3795b1`; authored against base `d4abce86068b4221e61e541c34dd29258de61cca` on `work/luna-biochem-remaining`. This checkpoint covers 226 of the 263 actionable pending IDs. The authored-and-validated count is separate from deployment; no runtime wiring or preview build is included in this worktree. Eight source-gated IDs remain excluded and untouched: CH13 Q020, CH14 Q012/Q018, CH15 Q003, CH16 Q014, CH17 Q012, CH27 Q012, CH28 Q009.
 
 ## Batches
 
@@ -18,6 +18,13 @@
 | `explanation_biochem_ch20_q001_q017_v1.json` | 16 | Q001–Q005, Q007–Q017 |
 | `explanation_biochem_ch21_q001_q011_v1.json` | 11 | Q001–Q011 |
 | `explanation_biochem_ch21_q013_q020_v1.json` | 8 | Q013–Q020 |
+| `explanation_biochem_ch22_q001_q013_v1.json` | 12 | Q001–Q005, Q007–Q013 |
+| `explanation_biochem_ch23_q001_q014_v1.json` | 13 | Q001–Q004, Q006–Q014 |
+| `explanation_biochem_ch24_q001_q017_v1.json` | 16 | Q001–Q015, Q017 |
+| `explanation_biochem_ch25_q001_q018_v1.json` | 18 | Q001–Q018 |
+| `explanation_biochem_ch25_q019_q028_v1.json` | 10 | Q019–Q028 |
+| `explanation_biochem_ch26_q001_q019_v1.json` | 18 | Q001–Q013, Q015–Q019 |
+| `explanation_biochem_ch26_q020_q022_v1.json` | 3 | Q020–Q022 |
 
 ## Source review and flags
 
@@ -205,3 +212,11 @@ Page references below are from immutable `provenance.questionPages` / `provenanc
 ### Additional question references — checkpoint 136 of 263
 
 - Chapter 20, Q001–Q005 and Q007–Q017 (16 items); chapter 21, Q001–Q011 and Q013–Q020 (19 items). Source-page citations and source-key rationale mappings are included in the corresponding augmentation records.
+
+### Additional question references — checkpoint 177 of 263
+
+- Chapter 22, Q001–Q005 and Q007–Q013 (12 items); chapter 23, Q001–Q004 and Q006–Q014 (13 items); chapter 24, Q001–Q015 and Q017 (16 items). Source-page citations and question-key rationales are included per item in the augmentation records.
+
+### Additional question references — checkpoint 226 of 263
+
+- Chapter 25, Q001–Q028 (28 items); chapter 26, Q001–Q013, Q015–Q022 (21 items). Source-page citations and keyed rationales are included per item. Chapter 26 Q015 is flagged `needs_manual_review`: its source key selects alanine tRNA, while U6 snRNA also has a specialized 5′ end rather than conventional m7G capping; the printed key and source record remain unchanged.

@@ -1,0 +1,259 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner-facing Marrow ED8 Biochemistry Chapter 24 explanation refinement; source records and figures remain immutable.",
+  "scope": {
+    "subject": "Biochemistry",
+    "bank": "Marrow",
+    "chapterId": "24",
+    "chapter": "Nucleotide Metabolism",
+    "questionStart": 1,
+    "questionEnd": 17,
+    "questions": 16,
+    "status": "approved-rollout",
+    "workloadScore": 18,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "919f0709b2eb833e302c6f7524b6dd2bd13bfaed638009375b5062135d3795b1"
+  },
+  "questions": {
+    "marrow__BIOCHEM_CH24_Q001": {
+      "takeaway": "Adenine is 6-aminopurine: its exocyclic amino group is attached at purine C6.",
+      "displayText": "Adenine is 6-aminopurine: its exocyclic amino group is attached at purine C6.\n\nAdenine has an amino (NH2) group on the 6th carbon.\n[Figure: Structure of Purines and Pyrimidines: purine and pyrimidine ring numbering with structures of adenine, guanine, cytosine, uracil and thymine.]",
+      "emphasis": [
+        "Adenine is 6-aminopurine: its exocyclic amino group is attached at purine C6"
+      ],
+      "rationales": {
+        "b": "Guanine has an exocyclic amino group at C2 and a carbonyl at C6, distinguishing it from adenine.",
+        "c": "Cytosine is a pyrimidine with an amino group at C4, not a purine C6 amino group.",
+        "d": "Thymine is a pyrimidine bearing carbonyl and methyl groups; it has no C6 amino substituent."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 368; explanation p. 373."
+      ]
+    },
+    "marrow__BIOCHEM_CH24_Q002": {
+      "takeaway": "Purine nucleosides are salvaged by phosphorylation; free purine bases, not nucleosides, undergo phosphoribosylation.",
+      "displayText": "Purine nucleosides are salvaged by phosphorylation; free purine bases, not nucleosides, undergo phosphoribosylation.\n\nPhosphoribosylation of purine nucleosides does not contribute to purine nucleotide biosynthesis.\nThe three processes that contribute to purine nucleotide biosynthesis in the order of decreasing importance are :\nSynthesis from amphibolic intermediates.\nPhosphoribosylation of purine bases.\nPhosphorylation of purine nucleosides.\nDe novo purine nucleotide synthesis doesn't occur in the brain, bone marrow, erythrocytes, and leucocytes.",
+      "emphasis": [
+        "Purine nucleosides are salvaged by phosphorylation; free purine bases, not nucleosides, undergo phosphoribosylation"
+      ],
+      "rationales": {
+        "a": "De novo synthesis assembles the purine ring on PRPP from amphibolic precursors and contributes to nucleotide synthesis.",
+        "b": "Free purine bases can be phosphoribosylated by APRT or HGPRT to form nucleotides.",
+        "c": "Purine nucleosides can be phosphorylated by kinases to their nucleotide forms; this is a salvage route."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 368; explanation p. 374."
+      ]
+    },
+    "marrow__BIOCHEM_CH24_Q003": {
+      "takeaway": "Purine ring atoms come from glycine, aspartate, glutamine, CO₂ and folate-derived one-carbon units; lysine is not a ring precursor.",
+      "displayText": "Purine ring atoms come from glycine, aspartate, glutamine, CO₂ and folate-derived one-carbon units; lysine is not a ring precursor.\n\nLysine does not contribute to the synthesis of a purine ring.\nGlycine, aspartate &amp; glutamine are the amino acids that contribute to synthesizing a purine ring. CO2, N10-Formyl-THFA and N5N10-Methenyl-THFA are the other molecules that influence the structure.\nThe image below shows the origin of the atoms in the purine ring:\n[Figure: Origin of atoms in the purine ring, with labels for HCO3−/CO2, glycine, aspartate, glutamine amide and formate from H4folate; source box maps N1, C2/C8, N3/N9, C4/C5/N7, C6.]\nNote: Glycine does not participate in pyrimidine ring synthesis.",
+      "emphasis": [
+        "Purine ring atoms come from glycine, aspartate, glutamine, CO₂ and folate-derived one-carbon units; lysine is not a ring precursor"
+      ],
+      "rationales": {
+        "a": "CO₂/bicarbonate contributes C6 of the purine ring, so it is a genuine precursor.",
+        "b": "Aspartate contributes N1 to the purine ring.",
+        "c": "Glutamine donates N3 and N9 of the purine ring, so it contributes directly."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 368; explanation p. 374."
+      ]
+    },
+    "marrow__BIOCHEM_CH24_Q004": {
+      "takeaway": "The committed, regulated step of de novo purine synthesis is PRPP amidotransferase conversion of PRPP to 5-phosphoribosylamine.",
+      "displayText": "The committed, regulated step of de novo purine synthesis is PRPP amidotransferase conversion of PRPP to 5-phosphoribosylamine.\n\nThe rate-limiting step of de novo purine synthesis is the conversion of 5-phosphoribosyl-1-pyrophosphate (PRPP) to phosphoribosylamine by PRPP Glutamyl amidotransferase.\nThe first intermediate formed in the de novo pathway for purine biosynthesis is 5-phosphoribosyl 1-pyrophosphate (PRPP). The rate-limiting enzyme is PRPP Glutamyl amidotransferase. This is the committed step in purine nucleotide biosynthesis.\nNote: PRPP Glutamyl amidotransferase is activated by PRPP and glutamine and inhibited by AMP and GMP.",
+      "emphasis": [
+        "The committed, regulated step of de novo purine synthesis is PRPP amidotransferase conversion of PRPP to 5-phosphoribosylamine"
+      ],
+      "rationales": {
+        "b": "PRPP synthetase forms PRPP from ribose-5-phosphate, but it is not the committed rate-limiting purine-specific step asked here.",
+        "c": "Ribose-5-phosphate to PRPP is catalyzed by PRPP synthetase, not the committed glutamine amidotransferase reaction.",
+        "d": "PRPP glutamine amidotransferase does not catalyze formation of PRPP from ribose-5-phosphate; it converts PRPP to phosphoribosylamine."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 368; explanation p. 374,375."
+      ]
+    },
+    "marrow__BIOCHEM_CH24_Q005": {
+      "takeaway": "IMP is the first complete purine nucleotide made de novo and branches to AMP and GMP synthesis.",
+      "displayText": "IMP is the first complete purine nucleotide made de novo and branches to AMP and GMP synthesis.\n\nInosine monophosphate (IMP) is the parent purine nucleotide made from de novo purine synthesis.\nRibose 5-phosphate is converted to inosine monophosphate (IMP) by series of reactions. The regulatory enzymes of purine synthesis are\nPRPP Synthetase\nPRPP glutamyl amidotransferase\nThe rate-limiting enzyme is PRPP glutamyl amidotransferase.\nFollowing the synthesis of IMP, separate branches lead to AMP and GMP synthesis.",
+      "emphasis": [
+        "IMP is the first complete purine nucleotide made de novo and branches to AMP and GMP synthesis"
+      ],
+      "rationales": {
+        "a": "AMP is synthesized from IMP in a downstream branch and is not the common parent nucleotide.",
+        "b": "GMP is the other downstream branch product from IMP, not the first common purine nucleotide.",
+        "d": "TMP is a pyrimidine nucleotide formed by methylation of dUMP, not the parent purine product."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 369; explanation p. 375."
+      ]
+    },
+    "marrow__BIOCHEM_CH24_Q006": {
+      "takeaway": "Rasburicase converts uric acid to the more soluble allantoin, the purine-catabolism endpoint in this treated patient.",
+      "displayText": "Rasburicase converts uric acid to the more soluble allantoin, the purine-catabolism endpoint in this treated patient.\n\nAllantoin is the end product of purine catabolism in a patient on rasburicase, a recombinant uricase enzyme.\nUric acid is the natural end product of purine catabolism in humans. So, in conditions with high cell turnover, such as leukemia, lymphomas, and other malignancies, there is increased uric acid production. To prevent hyperuricemia, medications such as rasburicase are administered prophylactically. It is a recombinant uricase enzyme that converts uric acid to a water-soluble end product, allantoin that is easily excreted by the kidneys.\nNote: In mammals other than primates, uricase is naturally occurring and allantoin is the end product of purine catabolism.",
+      "emphasis": [
+        "Rasburicase converts uric acid to the more soluble allantoin, the purine-catabolism endpoint in this treated patient"
+      ],
+      "rationales": {
+        "b": "Amino acids are released during protein breakdown, not the product formed when rasburicase degrades uric acid.",
+        "c": "Ammonia is generated in some nitrogen-catabolic reactions but is not the rasburicase product asked here.",
+        "d": "Uric acid is the natural terminal purine product in humans; rasburicase acts on it to form allantoin."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 369; explanation p. 375."
+      ]
+    },
+    "marrow__BIOCHEM_CH24_Q007": {
+      "takeaway": "Orotic aciduria reflects defective pyrimidine synthesis (UMP synthase), not purine degradation.",
+      "displayText": "Orotic aciduria reflects defective pyrimidine synthesis (UMP synthase), not purine degradation.\n\nOrotic aciduria is not associated with purine degradation.\nOrotic aciduria is an autosomal recessive disorder caused by the deficiency of orotidylate decarboxylase or UMP synthase. It is the most common metabolic error in the synthesis of pyrimidines.\nGout, severe combined immunodeficiency syndrome (SCID) and purine nucleoside phosphorylase (PNP) deficiency are associated with purine degradation.",
+      "emphasis": [
+        "Orotic aciduria reflects defective pyrimidine synthesis (UMP synthase), not purine degradation"
+      ],
+      "rationales": {
+        "a": "Gout results from urate accumulation, the terminal product of purine catabolism.",
+        "b": "Adenosine deaminase deficiency causes toxic purine-metabolite accumulation and can produce SCID.",
+        "c": "Purine nucleoside phosphorylase deficiency disrupts purine degradation and causes immunodeficiency."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 369; explanation p. 375."
+      ]
+    },
+    "marrow__BIOCHEM_CH24_Q008": {
+      "takeaway": "Human salvage phosphoribosylation recycles purine bases; uracil is a pyrimidine base and is not salvaged by APRT/HGPRT.",
+      "displayText": "Human salvage phosphoribosylation recycles purine bases; uracil is a pyrimidine base and is not salvaged by APRT/HGPRT.\n\nUracil cannot be salvaged to its corresponding nucleotide.\nPyrimidine bases cannot be salvaged to their corresponding nucleotides. Purine bases that are salvaged are adenine, hypoxanthine, and guanine.\nSalvage pathway - This pathway involves the conversion of purines to nucleosides and later to mononucleotides. It requires less energy than de novo synthesis. It usually occurs in places where de novo synthesis of purines is absent like brain, erythrocytes, etc. The enzymes that catalyze this reaction are :\nAdenine phosphoribosyltransferase (APRT)\nHypoxanthine-guanine phosphoribosyltransferase (HGPRT).",
+      "emphasis": [
+        "Human salvage phosphoribosylation recycles purine bases; uracil is a pyrimidine base and is not salvaged by APRT/HGPRT"
+      ],
+      "rationales": {
+        "b": "Adenine is recycled to AMP by adenine phosphoribosyltransferase.",
+        "c": "Hypoxanthine is salvaged to IMP by hypoxanthine-guanine phosphoribosyltransferase.",
+        "d": "Guanine is salvaged to GMP by hypoxanthine-guanine phosphoribosyltransferase."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 369; explanation p. 376."
+      ]
+    },
+    "marrow__BIOCHEM_CH24_Q009": {
+      "takeaway": "Self-mutilation, hyperuricemia and orange urate crystals indicate Lesch–Nyhan syndrome from complete HGPRT deficiency.",
+      "displayText": "Self-mutilation, hyperuricemia and orange urate crystals indicate Lesch–Nyhan syndrome from complete HGPRT deficiency.\n\nThe given clinical scenario is highly suggestive of Lesch-Nyhan syndrome. It is caused due to the complete deficiency of Hypoxanthine-guanine phosphoribosyltransferase (HGPRT).\nLesch-Nyhan syndrome is an X-linked recessive disorder. This deficiency results in an inability to salvage hypoxanthine or guanine, from which excessive amounts of uric acid is produced and excreted in urine as orange sands.\nClinical features include compulsive self-mutilation, hyperuricemia, intellectual disability, delayed milestones, dystonic movements and megaloblastic anemia.\nDiagnosis is made by deficient HGPRTase enzyme activity in the erythrocyte. Partial deficiency of HGPRTase cause Kelley-Seegmiller syndrome.\nOther options:\nOption A: Adenine phosphoribosyltransferase enzyme deficiency causes urinary calculus formation with crystalluria.\nOption C: Adenosine deaminase enzyme deficiency is one of the 2nd major cause of SCID.\nOption D: Purine nucleoside phosphorylase causes a severe deficiency of T cells but B cells are normal.",
+      "emphasis": [
+        "Self-mutilation, hyperuricemia and orange urate crystals indicate Lesch–Nyhan syndrome from complete HGPRT deficiency"
+      ],
+      "rationales": {
+        "a": "APRT deficiency causes adenine salvage defects and can cause stones, but it does not produce the classic Lesch–Nyhan self-injury syndrome.",
+        "c": "Adenosine deaminase deficiency is associated with SCID from deoxyadenosine metabolites, not the HGPRT Lesch–Nyhan phenotype.",
+        "d": "Purine nucleoside phosphorylase deficiency causes T-cell immunodeficiency rather than the classic self-mutilation syndrome."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 370; explanation p. 376."
+      ]
+    },
+    "marrow__BIOCHEM_CH24_Q010": {
+      "takeaway": "Pyrimidine rings are built from aspartate, bicarbonate/CO₂ and glutamine; glycine is used in purine-ring synthesis.",
+      "displayText": "Pyrimidine rings are built from aspartate, bicarbonate/CO₂ and glutamine; glycine is used in purine-ring synthesis.\n\nGlycine is not required for pyrimidine ring synthesis.\nThe sources of the atoms in the pyrimidine ring are glutamine, CO2, and aspartic acid. The pyrimidine ring is synthesized before being attached to ribose 5-phosphate, which is donated by PRPP.\nNote: Glycine is required in the synthesis of purine ring and not in the pyrimidine synthesis.\nThe image below shows the origin of the various atoms in the pyrimidine ring:\n[Figure: Sources of the atoms of the pyrimidine ring: glutamine via carbamoyl phosphate, CO2, aspartic acid, and ribose 5-phosphate.]",
+      "emphasis": [
+        "Pyrimidine rings are built from aspartate, bicarbonate/CO₂ and glutamine; glycine is used in purine-ring synthesis"
+      ],
+      "rationales": {
+        "a": "Aspartate contributes atoms to the pyrimidine ring and is required for its synthesis.",
+        "b": "Bicarbonate supplies the ring carbon through carbamoyl phosphate formation.",
+        "d": "Glutamine donates nitrogen to carbamoyl phosphate, so it is a pyrimidine-ring precursor."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 370; explanation p. 376,377."
+      ]
+    },
+    "marrow__BIOCHEM_CH24_Q011": {
+      "takeaway": "Dihydroorotate dehydrogenase oxidizes dihydroorotate to orotate at the inner mitochondrial membrane; most other de novo steps are cytosolic.",
+      "displayText": "Dihydroorotate dehydrogenase oxidizes dihydroorotate to orotate at the inner mitochondrial membrane; most other de novo steps are cytosolic.\n\nThe only mitochondrial step in pyrimidine synthesis is catalyzed by the enzyme dihydroorotate dehydrogenase.\nPyrimidine synthesis primarily happens in the liver in both cytoplasm and mitochondria. The conversion of dihydroorotic acid to orotic acid catalyzed by the enzyme dihydroorotate dehydrogenase is the only step that occurs in mitochondria. The rest of the reaction occurs in the cytoplasm.\nCAD enzymes are multifunctional enzymes present in a single polypeptide chain. It includes:\nCarbamoyl phosphate synthetase-2\nAspartate transcarbamoylase\nDihydroorotase",
+      "emphasis": [
+        "Dihydroorotate dehydrogenase oxidizes dihydroorotate to orotate at the inner mitochondrial membrane; most other de novo steps are cytosolic"
+      ],
+      "rationales": {
+        "a": "CPS II is part of the cytosolic CAD complex and initiates pyrimidine synthesis.",
+        "b": "Aspartate transcarbamoylase is part of the cytosolic CAD complex, not the sole mitochondrial step.",
+        "c": "Dihydroorotase is also within cytosolic CAD; it forms dihydroorotate before the mitochondrial oxidation step."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 370; explanation p. 377."
+      ]
+    },
+    "marrow__BIOCHEM_CH24_Q012": {
+      "takeaway": "Human CPS II is the regulated rate-limiting enzyme of de novo pyrimidine synthesis; it is activated by PRPP and inhibited by UTP.",
+      "displayText": "Human CPS II is the regulated rate-limiting enzyme of de novo pyrimidine synthesis; it is activated by PRPP and inhibited by UTP.\n\nIn humans, the rate-limiting enzyme for pyrimidine synthesis is carbamoyl phosphate synthetase-II (CPS-II).\nCarbamoyl phosphate synthetase II catalyzes the conversion of glutamine to carbamoyl phosphate. CPS-II is inhibited by UTP and activated by PRPP.\nOther options:\nOption A: Aspartate Transcarbamoylase is the rate-limiting enzyme for pyrimidine synthesis in bacteria(prokaryote).\nOption B: Carbamoyl Phosphate Synthetase I is the rate-limiting enzyme of the urea cycle.\nOption D: PRPP glutamyl amidotransferase is the rate-limiting enzyme of De Novo purine synthesis.\n[Figure: Carbamoyl phosphate synthetases diagram comparing mitochondrial CPS I (CO2 + NH3 → carbamoyl phosphate → urea cycle) and cytoplasmic CPS II (CO2 + glutamine → carbamoyl phosphate → pyrimidine synthesis).]",
+      "emphasis": [
+        "Human CPS II is the regulated rate-limiting enzyme of de novo pyrimidine synthesis; it is activated by PRPP and inhibited by UTP"
+      ],
+      "rationales": {
+        "a": "Aspartate transcarbamoylase is the regulated rate-limiting step in many bacteria, but in humans CPS II performs this role.",
+        "b": "CPS I makes mitochondrial carbamoyl phosphate for the urea cycle and is not the cytosolic pyrimidine enzyme.",
+        "d": "PRPP glutamine amidotransferase is the committed purine-synthesis enzyme, not the pyrimidine rate-limiting enzyme."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 370; explanation p. 377,378."
+      ]
+    },
+    "marrow__BIOCHEM_CH24_Q013": {
+      "takeaway": "UMP is the first pyrimidine nucleotide formed after orotate is converted through OMP; CTP and TMP arise later.",
+      "displayText": "UMP is the first pyrimidine nucleotide formed after orotate is converted through OMP; CTP and TMP arise later.\n\nThe first true pyrimidine nucleotide formed in pyrimidine synthesis is UMP.\nOMP formed from orotic acid by the enzyme orotate phosphoribosyltransferase (OPRTase). OMP is then immediately decarboxylated using orotidylic acid decarboxylase to produce UMP. Nucleotides CTP and TMP are then formed subsequently from UMP via CTP synthetase and thymidylate synthase.\nMethotrexate inhibits Dihydrofolate reductase (DHFR) which stops TMP synthesis. 5-Fluorouracil inhibits thymidylate synthase.\nOPRTase and orotidylic acid decarboxylase are two enzymes which are considered as a single polypeptide enzyme - UMP synthase. Deficiency of UMP synthase leads to orotic aciduria.",
+      "emphasis": [
+        "UMP is the first pyrimidine nucleotide formed after orotate is converted through OMP; CTP and TMP arise later"
+      ],
+      "rationales": {
+        "a": "UDP is made by phosphorylation of UMP and is a later pyrimidine nucleotide.",
+        "b": "CTP is synthesized downstream from UTP/UMP through additional reactions, so it is not the first nucleotide.",
+        "d": "TMP is generated later from dUMP by thymidylate synthase, not the first pyrimidine nucleotide."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 371; explanation p. 378."
+      ]
+    },
+    "marrow__BIOCHEM_CH24_Q014": {
+      "takeaway": "Uric acid is a purine-catabolism product; pyrimidines yield soluble β-alanine or β-aminoisobutyrate, CO₂ and ammonia.",
+      "displayText": "Uric acid is a purine-catabolism product; pyrimidines yield soluble β-alanine or β-aminoisobutyrate, CO₂ and ammonia.\n\nUric acid is not a product of pyrimidine catabolism, it is a product of purine catabolism. All other options are products of pyrimidine catabolism.\nUnlike the low solubility products of purine catabolism, the catabolism of the pyrimidines forms highly water-soluble products, thus pyrimidine overproduction results in few clinical features.\nCytosine and uracil form β-alanine, CO2, and NH3. Thymine forms β-amino isobutyrate, CO2,2 and NH3.",
+      "emphasis": [
+        "Uric acid is a purine-catabolism product; pyrimidines yield soluble β-alanine or β-aminoisobutyrate, CO₂ and ammonia"
+      ],
+      "rationales": {
+        "a": "Ammonia is released during pyrimidine-ring catabolism along with the corresponding β-amino acid and CO₂.",
+        "b": "Uracil and cytosine catabolism yields β-alanine, a normal pyrimidine breakdown product.",
+        "c": "Thymine catabolism yields β-aminoisobutyrate, so this is also a pyrimidine-catabolism product."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 371; explanation p. 378."
+      ]
+    },
+    "marrow__BIOCHEM_CH24_Q015": {
+      "takeaway": "Xanthinuria blocks xanthine oxidase, lowering uric acid and promoting xanthine stones; the other listed disorders can cause hyperuricemia.",
+      "displayText": "Xanthinuria blocks xanthine oxidase, lowering uric acid and promoting xanthine stones; the other listed disorders can cause hyperuricemia.\n\nHyperuricemia is not seen in xanthinuria.\nXanthinuria occurs due to a defect in the enzyme xanthine oxidase. Xanthine oxidase catalyzes the conversion of hypoxanthine to xanthine and xanthine to uric acid. It is associated with hypouricemia and xanthine lithiasis.\nLesch-Nyhan syndrome is caused by complete deficiency of HGPRTase, whereas Kelley-Seegmiller syndrome is caused by the partial deficiency of HGPRTase. Purines accumulate, causing hyperuricemia.\nIn von Gierke's disease, the oxidation of glucose-6-phosphate via the pentose phosphate pathway leads to increased production of ribose-5-phosphate which activates the de novo synthesis of purine nucleotides. Overproduction of these nucleotides leads to their degradation, which causes hyperuricemia.",
+      "emphasis": [
+        "Xanthinuria blocks xanthine oxidase, lowering uric acid and promoting xanthine stones; the other listed disorders can cause hyperuricemia"
+      ],
+      "rationales": {
+        "a": "Von Gierke disease increases purine degradation and urate production, so hyperuricemia can occur.",
+        "c": "HGPRT deficiency in Lesch–Nyhan syndrome increases purine breakdown to urate.",
+        "d": "Partial HGPRT deficiency in Kelley–Seegmiller syndrome can also produce hyperuricemia."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 371; explanation p. 379."
+      ]
+    },
+    "marrow__BIOCHEM_CH24_Q017": {
+      "takeaway": "Xeroderma pigmentosum is defective nucleotide-excision repair, which removes UV-damaged oligonucleotides and creates severe photosensitivity.",
+      "displayText": "Xeroderma pigmentosum is defective nucleotide-excision repair, which removes UV-damaged oligonucleotides and creates severe photosensitivity.\n\nThe above given clinical findings is suggestive of xeroderma pigmentosum. Defect in the removal of oligonucleotides containing the damaged bases by endonucleases is seen in xeroderma pigmentosum.\nXeroderma Pigmentosum (XP) is a rare autosomal recessive genetic disorder characterized by defective DNA repair which leads to clinical and cellular hypersensitivity to ultraviolet radiation and other carcinogenic agents.\nImportant clinical features are:\nIntense cutaneous photosensitivity, xerosis, poikiloderma, actinic keratosis, acute burning under minimal sun exposure, erythemas, hyperpigmented lentiginous macules, and malignant lesions in sun-exposed areas, including basocellular carcinoma, squamous cell carcinoma, and melanoma.\nThe final diagnosis of XP can be confirmed by special laboratory tests by examining the DNA damage repair in cells from cultures exposed to ultraviolet radiation. The most common tests are skin biopsy and culture of skin fibroblasts.\nThere is no cure for XP. Treatment consists of minimizing exposure to sunlight and regular dermatological care, as well as surgery for recurrent tumors excision. Patients should be followed up every 3 months. Genetic counseling is important in a family that has an affected child and is considering having more children.",
+      "emphasis": [
+        "Xeroderma pigmentosum is defective nucleotide-excision repair, which removes UV-damaged oligonucleotides and creates severe photosensitivity"
+      ],
+      "rationales": {
+        "a": "Mismatch repair corrects replication errors such as mismatched bases; it is not the UV photoproduct repair pathway defective in XP.",
+        "c": "Base-excision repair uses lesion-specific glycosylases to remove small altered bases, unlike the bulky UV lesions in XP.",
+        "d": "Double-strand break repair uses pathways such as homologous recombination or nonhomologous end joining, not the XP repair defect."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 372; explanation p. 379,380."
+      ]
+    }
+  }
+}
