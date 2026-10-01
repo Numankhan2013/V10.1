@@ -1,0 +1,285 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner-facing Marrow ED8 Anatomy Chapter 63 explanation refinement; source diagrams and tables remain native and unchanged.",
+  "scope": {
+    "subject": "Anatomy",
+    "bank": "Marrow",
+    "chapterId": "63",
+    "chapterTitle": "Skin, Connective Tissue and Ligaments",
+    "questionStart": 1,
+    "questionEnd": 13,
+    "questions": 13,
+    "status": "approved-rollout",
+    "workloadScore": 16,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387",
+    "auditReport": "docs/question-explanations/anatomy-tail-20261001.md"
+  },
+  "questions": {
+    "marrow__ANAT_CH63_Q001": {
+      "takeaway": "From deep to superficial, epidermal layers are basale, spinosum, granulosum and corneum; the numeric sequence shown is 3–4–1–2.",
+      "displayText": "From deep to superficial, epidermal layers are basale, spinosum, granulosum and corneum; the numeric sequence shown is 3–4–1–2.\n\nThe correct deep-to-superficial order stated in the explanation is stratum basale, stratum spinosum, stratum granulosum, stratum corneum.\n\nThin skin has four epidermal layers from superficial to deep: stratum corneum, granulosum, spinosum and basale. Thick (glabrous) skin of palms, soles and flexor surfaces of digits also includes stratum lucidum between corneum and granulosum.",
+      "emphasis": [
+        "From deep to superficial, epidermal layers are basale, spinosum, granulosum and corneum; the numeric sequence shown is 3–4–1–2"
+      ],
+      "rationales": {
+        "a": "This order puts granulosum before spinosum, reversing their deep-to-superficial sequence.",
+        "c": "This sequence places basale after granulosum, although basale is the deepest epidermal layer.",
+        "d": "This order starts with corneum, the superficial layer, rather than basale."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          1210
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__ANAT_CH63_Q002": {
+      "takeaway": "Stratum corneum consists of flattened anucleate corneocytes that form the outer barrier.",
+      "displayText": "Stratum corneum consists of flattened anucleate corneocytes that form the outer barrier.\n\nNon-nucleated cells are present in stratum corneum. Cells in this layer lack nuclei and membrane-bound organelles and contain densely packed keratin filaments, providing a barrier against microbes and fluid loss.",
+      "emphasis": [
+        "Stratum corneum consists of flattened anucleate corneocytes that form the outer barrier"
+      ],
+      "rationales": {
+        "a": "Granulosum cells are differentiating keratinocytes and generally retain nuclei as they form keratohyalin granules.",
+        "b": "Spinosum cells retain nuclei and desmosomal connections.",
+        "c": "Basal keratinocytes are nucleated, proliferative cells."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          1211
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__ANAT_CH63_Q003": {
+      "takeaway": "Skin color depends largely on melanocyte activity and melanosome production/distribution, not the number of melanocytes.",
+      "displayText": "Skin color depends largely on melanocyte activity and melanosome production/distribution, not the number of melanocytes.\n\nThe number of melanocytes does not determine human skin colour.\n\nRacial differences in skin colour depend on melanocyte morphology/activity, the number and size of melanosomes in melanocytes, and the number of melanosomes dispersed within keratinocytes. Pigmentation is influenced by constitutive genetic factors and facultative environmental/hormonal factors.",
+      "emphasis": [
+        "Skin color depends largely on melanocyte activity and melanosome production/distribution, not the number of melanocytes"
+      ],
+      "rationales": {
+        "a": "Melanocyte morphology and activity affect the amount and pattern of melanin transferred.",
+        "c": "Melanosome number and size in melanocytes influence pigmentation.",
+        "d": "Melanosome transfer to keratinocytes also contributes to visible skin color."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          1211,
+          1212
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__ANAT_CH63_Q004": {
+      "takeaway": "Melanocytes arise from neural crest and reside in the basal epidermal layer, where melanoma commonly originates.",
+      "displayText": "Melanocytes arise from neural crest and reside in the basal epidermal layer, where melanoma commonly originates.\n\nThe clinical scenario describes malignant melanoma arising from melanocytes, which are present in the stratum basale of the epidermis.\n\nMelanocytes are neural-crest derived. They produce melanin in melanosomes and transfer it through dendritic processes to keratinocytes.",
+      "emphasis": [
+        "Melanocytes arise from neural crest and reside in the basal epidermal layer, where melanoma commonly originates"
+      ],
+      "rationales": {
+        "a": "The stratum corneum contains dead keratinized cells, not melanocytes.",
+        "b": "The stratum granulosum is a keratinocyte differentiation layer above the basal melanocytes.",
+        "d": "The lesion’s epidermal melanocyte origin points to stratum basale, not dermis as the initial site."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          1212
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__ANAT_CH63_Q005": {
+      "takeaway": "Merkel cells are basal epidermal mechanoreceptors that mediate slowly adapting discriminative touch.",
+      "displayText": "Merkel cells are basal epidermal mechanoreceptors that mediate slowly adapting discriminative touch.\n\nMerkel cells act as touch receptors. They are found in the basal epidermal layer and outer root sheath of some large hair follicles.\n\nThey are slowly adapting mechanoreceptors that convey touch, detect directional deformation and hair movement, and sense sustained pressure and object edges.",
+      "emphasis": [
+        "Merkel cells are basal epidermal mechanoreceptors that mediate slowly adapting discriminative touch"
+      ],
+      "rationales": {
+        "a": "Melanocytes produce melanin and do not serve as touch receptors.",
+        "b": "Keratinocytes form the epidermal barrier and are not the named Merkel touch receptor.",
+        "c": "Langerhans cells are antigen-presenting immune cells, not touch receptors."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          1212,
+          1213
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__ANAT_CH63_Q006": {
+      "takeaway": "Meissner corpuscles are located in dermal papillae of the papillary dermis, especially in glabrous skin.",
+      "displayText": "Meissner corpuscles are located in dermal papillae of the papillary dermis, especially in glabrous skin.\n\nMeissner corpuscles are located in the dermal papillae (papillary/upper dermis).\n\nThey are rapidly adapting mechanoreceptors important for discriminatory touch, texture and shape detection, and are concentrated in sensitive glabrous regions such as fingertips.",
+      "emphasis": [
+        "Meissner corpuscles are located in dermal papillae of the papillary dermis, especially in glabrous skin"
+      ],
+      "rationales": {
+        "a": "Stratum spongiosum is not a skin layer; Meissner corpuscles lie in dermal papillae.",
+        "b": "The stratum basale is epidermis, while these corpuscles are in the superficial dermis.",
+        "c": "The deeper reticular dermis contains other structures, including Pacinian corpuscles, rather than Meissner corpuscles."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          1213,
+          1214
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__ANAT_CH63_Q007": {
+      "takeaway": "Arrector pili is involuntary smooth muscle; sympathetic contraction raises the hair and produces goosebumps.",
+      "displayText": "Arrector pili is involuntary smooth muscle; sympathetic contraction raises the hair and produces goosebumps.\n\nThe muscle responsible for goosebumps (piloerection) is arrector pili, a smooth muscle supplied by sympathetic nerves.\n\nIt connects the follicular connective-tissue sheath to the papillary dermis; contraction makes hair more vertical and dimples/elevates the overlying skin.",
+      "emphasis": [
+        "Arrector pili is involuntary smooth muscle; sympathetic contraction raises the hair and produces goosebumps"
+      ],
+      "rationales": {
+        "a": "Arrector pili is not skeletal muscle and is not under voluntary control.",
+        "c": "It is a discrete smooth muscle, not a skeletal–smooth mixture.",
+        "d": "It consists of smooth muscle, not a mixture with skeletal fibers."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          1214
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__ANAT_CH63_Q008": {
+      "takeaway": "Apocrine secretions are metabolized by skin bacteria and produce characteristic odor; eccrine glands chiefly support thermoregulation.",
+      "displayText": "Apocrine secretions are metabolized by skin bacteria and produce characteristic odor; eccrine glands chiefly support thermoregulation.\n\nApocrine sweat-gland secretions undergo bacterial decomposition and generate odour.\n\nMost sweat glands are eccrine and open through pores onto the skin surface. Apocrine glands occur in axillae, perianal skin, areolae, periumbilical skin and genitalia.",
+      "emphasis": [
+        "Apocrine secretions are metabolized by skin bacteria and produce characteristic odor; eccrine glands chiefly support thermoregulation"
+      ],
+      "rationales": {
+        "a": "Eccrine glands, not apocrine glands, provide the principal evaporative cooling for temperature control.",
+        "b": "Eccrine glands are supplied mainly by sympathetic cholinergic fibers, not adrenergic neurons.",
+        "d": "Eccrine glands function from birth; puberty is associated with maturation of apocrine activity."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          1214,
+          1215
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__ANAT_CH63_Q009": {
+      "takeaway": "Lunula is the pale crescent at the proximal nail, reflecting the visible nail matrix.",
+      "displayText": "Lunula is the pale crescent at the proximal nail, reflecting the visible nail matrix.\n\nThe white opaque crescent at the proximal nail is the lunula.\n\nThe source describes the root as the proximal hidden part buried in the nail groove, the free border as the distal free portion, and the body as the exposed portion adherent to underlying skin.",
+      "emphasis": [
+        "Lunula is the pale crescent at the proximal nail, reflecting the visible nail matrix"
+      ],
+      "rationales": {
+        "a": "The free border is the distal part of the nail extending beyond the fingertip.",
+        "b": "The root lies proximally beneath the nail fold and is not the visible crescent.",
+        "d": "The nail body is the visible nail plate; the crescent at its base is the lunula."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          1215
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__ANAT_CH63_Q010": {
+      "takeaway": "Ground substance is the nonfibrous extracellular matrix component; collagen, elastin and reticulin are fibers.",
+      "displayText": "Ground substance is the nonfibrous extracellular matrix component; collagen, elastin and reticulin are fibers.\n\nGround substance forms the non-fibrous component of extracellular matrix in connective tissue.\n\nConnective tissue contains cells plus extracellular matrix. The fibrous matrix components are collagen, elastin and reticulin; the non-fibrous component is ground substance.",
+      "emphasis": [
+        "Ground substance is the nonfibrous extracellular matrix component; collagen, elastin and reticulin are fibers"
+      ],
+      "rationales": {
+        "a": "Collagen forms fibrous bundles in connective-tissue matrix.",
+        "b": "Elastin forms elastic fibers and is a fibrous matrix component.",
+        "c": "Reticulin is type III collagen arranged as fine reticular fibers."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          1215,
+          1216
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__ANAT_CH63_Q011": {
+      "takeaway": "Ligaments are innervated and can provide proprioceptive input; saying they lack nerve supply is false.",
+      "displayText": "Ligaments are innervated and can provide proprioceptive input; saying they lack nerve supply is false.\n\nThe false statement is that ligaments are devoid of nerve supply. Ligaments have a rich nerve supply and contribute to proprioceptive/reflex monitoring of joint position and movement.\n\nMost ligaments are predominantly collagenous and relatively inelastic. Ligamenta flava and ligaments of the auditory ossicles are noted as elastin-rich exceptions. Intrinsic ligaments surround the joint; extrinsic ligaments lie away from and are independent of the joint.",
+      "emphasis": [
+        "Ligaments are innervated and can provide proprioceptive input; saying they lack nerve supply is false"
+      ],
+      "rationales": {
+        "a": "Collagen fibers are the main tensile component of most ligaments.",
+        "b": "Ligamentum flavum is rich in elastic fibers.",
+        "c": "Extrinsic ligaments can lie outside and reinforce a joint capsule, so this is accurate."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          1216
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__ANAT_CH63_Q012": {
+      "takeaway": "The interosseous membrane is a specialized deep fascia linking adjacent bones and providing muscle attachment.",
+      "displayText": "The interosseous membrane is a specialized deep fascia linking adjacent bones and providing muscle attachment.\n\nThe structure marked X is the interosseous membrane, a modified form of deep fascia found in the forearm and leg.\n\nIt helps maintain optimal distance between bones, increases surface area for muscle attachment and transmits weight from one bone to another.",
+      "emphasis": [
+        "The interosseous membrane is a specialized deep fascia linking adjacent bones and providing muscle attachment"
+      ],
+      "rationales": {
+        "a": "A ligament primarily connects bone to bone and is not the broad interosseous membrane classification asked here.",
+        "b": "A tendon connects muscle to bone; the interosseous membrane is a fascial sheet.",
+        "c": "Superficial fascia is subcutaneous tissue, not the deep fibrous membrane between bones."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          1216
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__ANAT_CH63_Q013": {
+      "takeaway": "A raphe is a linear fibrous seam formed where tendinous or aponeurotic ends interdigitate.",
+      "displayText": "A raphe is a linear fibrous seam formed where tendinous or aponeurotic ends interdigitate.\n\nA linear fibrous band formed by interdigitation of tendinous or aponeurotic muscle ends is called a raphe.\n\nThe source notes that raphes are stretchable and lists linea alba, pterygomandibular raphe, mylohyoid raphe, median pharyngeal raphe and anococcygeal raphe as examples.",
+      "emphasis": [
+        "A raphe is a linear fibrous seam formed where tendinous or aponeurotic ends interdigitate"
+      ],
+      "rationales": {
+        "a": "A ligament joins bones across a joint, rather than joining muscle tendinous ends into a seam.",
+        "b": "An interosseous membrane is a broad deep-fascial sheet between bones, not a linear raphe.",
+        "d": "Fascia is a general connective-tissue layer; raphe names the specific linear interdigitation."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          1217
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    }
+  }
+}
