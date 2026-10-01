@@ -98,3 +98,7 @@ Added Chapter 34 Q1–17 and Chapter 35 Q1–14 except source-gated Q3 (30 IDs t
 ## Checkpoint 14
 
 Added Chapter 35 Q15–22 (8 IDs). The clavicle/scapula/shoulder-girdle explanations preserve the distinctions among joint type and stability, movements and muscle actions, and nerve/vessel relationships. Corrected Q2's repeated emphasis anchor while retaining exact source phrasing. Validator passed: `MARROW_WORKER_BATCHES_OK files=44 questions=397 source_keyed=true detail_retention=true baseline_and_gates_preserved=true`. Total authored is 397/662 through Chapter 50; 265 remain.
+
+## Checkpoint 15
+
+Added Chapter 36 Q1–15 in two files. The explanations distinguish axillary sheath and clavipectoral fascia, posterior shoulder spaces, cubital-fossa roof/content, snuffbox and wrist compartments, digital extensor expansion, tendon-sheath infection, and hand-space routes. Validator passed: `MARROW_WORKER_BATCHES_OK files=46 questions=412 source_keyed=true detail_retention=true baseline_and_gates_preserved=true`. Total authored is 412/662 through Chapter 50; 250 remain.
