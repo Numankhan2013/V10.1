@@ -1,0 +1,420 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Marrow ED8 Physiology Chapter 21 explanation rollout; raw imported source remains immutable.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "21",
+    "chapterTitle": "Alveolar Gas Exchange",
+    "questionStart": 1,
+    "questionEnd": 15,
+    "questions": 15,
+    "status": "approved-rollout",
+    "workloadScore": 18,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 950,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__PHYSIO_CH21_Q001": {
+      "takeaway": "Oxygen moves down its partial-pressure gradient by passive diffusion.",
+      "displayText": "Oxygen diffuses from alveoli to blood down its partial-pressure gradient into pulmonary capillaries, a passive process that consumes no ATP. It crosses the respiratory membrane by simple diffusion. Fick’s law gives D ∝ (ΔP × A × S)/(d × √MW): diffusion rises with the pressure difference, membrane area, and gas solubility, and falls with membrane thickness and the square root of molecular weight. Thus the gas diffusion coefficient is proportional to S/√MW.",
+      "emphasis": [
+        "Oxygen diffuses"
+      ],
+      "rationales": {
+        "a": "Osmosis is water movement across a membrane; oxygen crosses the respiratory membrane as a gas by diffusion.",
+        "b": "The pressure gradient drives passive gas exchange, so ATP-dependent active transport is not required.",
+        "d": "Receptor-mediated uptake is not how oxygen crosses the alveolar-capillary membrane."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were checked to resolve source OCR and figure/quantitative wording.",
+        "reconstructedContent": "Oxygen diffuses from alveoli to blood down its partial-pressure gradient into pulmonary capillaries, a passive process that consumes no ATP. It crosses the respiratory membrane by simple diffusion. Fick’s law gives D ∝ (ΔP × A × S)/(d × √MW): diffusion rises with the pressure difference, membrane area, and gas solubility, and falls with membrane thickness and the square root of molecular weight. Thus the gas diffusion coefficient is proportional to S/√MW.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 387, 388 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed source text and relevant gas-exchange/VQ diagrams were checked; equations, values, and physiologic distinctions were retained with OCR artifacts corrected.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          387,
+          388
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH21_Q002": {
+      "takeaway": "Pulmonary capillary red-cell transit takes about 0.75 seconds at rest.",
+      "displayText": "At rest, a red cell takes about 0.75 seconds (0.75 s) to traverse the pulmonary capillary. During exercise this transit time can fall to 0.3 s or less. Normally, oxygen equilibration occurs within the available capillary transit time, leaving a reserve for exercise.",
+      "emphasis": [
+        "0.75 seconds"
+      ],
+      "rationales": {
+        "a": "One second is longer than the source’s resting transit time of about 0.75 s.",
+        "b": "0.1 s is much shorter than the normal resting passage; transit may approach 0.3 s or less during exercise.",
+        "c": "0.3 s or less describes exercise transit, not the resting value."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were checked to resolve source OCR and figure/quantitative wording.",
+        "reconstructedContent": "At rest, a red cell takes about 0.75 seconds (0.75 s) to traverse the pulmonary capillary. During exercise this transit time can fall to 0.3 s or less. Normally, oxygen equilibration occurs within the available capillary transit time, leaving a reserve for exercise.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 389 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed source text and relevant gas-exchange/VQ diagrams were checked; equations, values, and physiologic distinctions were retained with OCR artifacts corrected.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          389
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH21_Q003": {
+      "takeaway": "About 2% of cardiac output bypasses effective pulmonary oxygenation as physiologic shunt.",
+      "displayText": "The percentage of cardiac output bypassing pulmonary circulation as physiological shunt is 2%: a small fraction of mixed venous blood reaches the left side without becoming fully oxygenated. Components include a normal extrapulmonary right-to-left anatomic shunt (about 1%), true intrapulmonary shunt through unventilated or collapsed alveoli (for example edema, pneumonia, or atelectasis), and bronchial venous blood mixing with pulmonary venous blood through anatomic arteriovenous pathways. Low-V/Q regions with some ventilation but incomplete oxygenation create a “virtual shunt,” not a true shunt.",
+      "emphasis": [
+        "physiological shunt is 2%"
+      ],
+      "rationales": {
+        "a": "Five percent overestimates the normal physiologic shunt, which the source gives as 2%.",
+        "c": "Ten percent is much higher than the approximately 2% normal shunt.",
+        "d": "Fifteen percent is not the small normal shunt fraction described."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were checked to resolve source OCR and figure/quantitative wording.",
+        "reconstructedContent": "The percentage of cardiac output bypassing pulmonary circulation as physiological shunt is 2%: a small fraction of mixed venous blood reaches the left side without becoming fully oxygenated. Components include a normal extrapulmonary right-to-left anatomic shunt (about 1%), true intrapulmonary shunt through unventilated or collapsed alveoli (for example edema, pneumonia, or atelectasis), and bronchial venous blood mixing with pulmonary venous blood through anatomic arteriovenous pathways. Low-V/Q regions with some ventilation but incomplete oxygenation create a “virtual shunt,” not a true shunt.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 389 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed source text and relevant gas-exchange/VQ diagrams were checked; equations, values, and physiologic distinctions were retained with OCR artifacts corrected.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          389
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH21_Q004": {
+      "takeaway": "CO uptake is diffusion-limited, making it the test gas for lung diffusing capacity.",
+      "displayText": "The diffusing capacity for CO (DLCO) is measured using carbon monoxide because its uptake is diffusion-limited. DLCO is directly related to alveolar-capillary surface area and inversely related to membrane thickness. DLCO = CO uptake into blood ÷ (alveolar PCO − blood PCO). Normal resting DLCO is about 25 mL/min/mmHg and can rise up to threefold during exercise as capillaries dilate and more capillaries are recruited.",
+      "emphasis": [
+        "diffusing capacity for CO (DLCO)"
+      ],
+      "rationales": {
+        "b": "N₂O uptake is mainly perfusion-limited, so it does not measure diffusion capacity in the same way.",
+        "c": "CO₂ is not the standard diffusion-limited test gas used to determine DLCO.",
+        "d": "O₂ uptake under normal conditions is not diffusion-limited; CO is used for the DLCO measurement."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were checked to resolve source OCR and figure/quantitative wording.",
+        "reconstructedContent": "The diffusing capacity for CO (DLCO) is measured using carbon monoxide because its uptake is diffusion-limited. DLCO is directly related to alveolar-capillary surface area and inversely related to membrane thickness. DLCO = CO uptake into blood ÷ (alveolar PCO − blood PCO). Normal resting DLCO is about 25 mL/min/mmHg and can rise up to threefold during exercise as capillaries dilate and more capillaries are recruited.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 389, 390 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed source text and relevant gas-exchange/VQ diagrams were checked; equations, values, and physiologic distinctions were retained with OCR artifacts corrected.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          389,
+          390
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH21_Q005": {
+      "takeaway": "Water-vapor partial pressure at body temperature is 47 mmHg.",
+      "displayText": "At 37°C, water vapor exerts a partial pressure of 47 mm Hg. Dry inspired air is humidified as water molecules escape from the respiratory surface into the gas phase; at equilibrium, this vapor pressure is the partial pressure of water in the gas. Water-vapor pressure depends on temperature: the source gives about 5 mmHg at 0°C and 760 mmHg at 100°C. Higher temperature increases molecular kinetic activity and the tendency of water molecules to enter the vapor phase.",
+      "emphasis": [
+        "47 mm Hg"
+      ],
+      "rationales": {
+        "a": "21 mmHg is below the saturated water-vapor pressure at 37°C.",
+        "c": "40 mmHg is not the water-vapor pressure at normal body temperature.",
+        "d": "100 mmHg is too high; the source gives 47 mmHg at 37°C."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were checked to resolve source OCR and figure/quantitative wording.",
+        "reconstructedContent": "At 37°C, water vapor exerts a partial pressure of 47 mm Hg. Dry inspired air is humidified as water molecules escape from the respiratory surface into the gas phase; at equilibrium, this vapor pressure is the partial pressure of water in the gas. Water-vapor pressure depends on temperature: the source gives about 5 mmHg at 0°C and 760 mmHg at 100°C. Higher temperature increases molecular kinetic activity and the tendency of water molecules to enter the vapor phase.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 390 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed source text and relevant gas-exchange/VQ diagrams were checked; equations, values, and physiologic distinctions were retained with OCR artifacts corrected.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          390
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH21_Q006": {
+      "takeaway": "Alveolar oxygen partial pressure is approximately 100 mmHg.",
+      "displayText": "The partial pressure of O2 in the alveolus is 100 mmHg. The source gas-exchange diagram contrasts inspired, alveolar, and blood gas tensions: inspired air is humidified in the airways; alveolar gas equilibrates with incoming venous blood, leaving alveolar oxygen near 100 mmHg rather than the much higher dry inspired value. The same figure shows alveolar CO₂ near 40 mmHg.",
+      "emphasis": [
+        "partial pressure of O2 in the alveolus is 100 mmHg"
+      ],
+      "rationales": {
+        "b": "45 mmHg is close to mixed-venous PCO₂ or venous PO₂ ranges, not alveolar PO₂.",
+        "c": "60 mmHg is below the source’s normal alveolar oxygen value.",
+        "d": "40 mmHg is the approximate alveolar/arterial CO₂ tension, not oxygen tension."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were checked to resolve source OCR and figure/quantitative wording.",
+        "reconstructedContent": "The partial pressure of O2 in the alveolus is 100 mmHg. The source gas-exchange diagram contrasts inspired, alveolar, and blood gas tensions: inspired air is humidified in the airways; alveolar gas equilibrates with incoming venous blood, leaving alveolar oxygen near 100 mmHg rather than the much higher dry inspired value. The same figure shows alveolar CO₂ near 40 mmHg.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 391 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed source text and relevant gas-exchange/VQ diagrams were checked; equations, values, and physiologic distinctions were retained with OCR artifacts corrected.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          391
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH21_Q007": {
+      "takeaway": "Use the Enghoff ratio (45 − 30)/45 and multiply by 500 mL: about 166 mL.",
+      "displayText": "The Bohr-Enghoff equation estimates physiologic (total) dead space. Original Bohr form: VD/VT = (PACO₂ − PeCO₂)/PACO₂; Enghoff substitutes arterial PCO₂ for alveolar PCO₂: VD/VT = (PaCO₂ − PeCO₂)/PaCO₂. VD is physiologic dead-space volume, VT tidal volume, PaCO₂ arterial CO₂ tension, and PeCO₂ mean CO₂ tension in all expired gas. Here VD = [(45 − 30)/45] × 500 mL = 166.7 mL, approximately 166 mL.",
+      "emphasis": [
+        "Bohr-Enghoff equation"
+      ],
+      "rationales": {
+        "a": "150 mL is a plausible estimate but not the result of the given Enghoff calculation, which is 166.7 mL.",
+        "b": "160 mL is below the calculated 166.7 mL from the specified values.",
+        "d": "145 mL does not follow from (45−30)/45 × 500."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were checked to resolve source OCR and figure/quantitative wording.",
+        "reconstructedContent": "The Bohr-Enghoff equation estimates physiologic (total) dead space. Original Bohr form: VD/VT = (PACO₂ − PeCO₂)/PACO₂; Enghoff substitutes arterial PCO₂ for alveolar PCO₂: VD/VT = (PaCO₂ − PeCO₂)/PaCO₂. VD is physiologic dead-space volume, VT tidal volume, PaCO₂ arterial CO₂ tension, and PeCO₂ mean CO₂ tension in all expired gas. Here VD = [(45 − 30)/45] × 500 mL = 166.7 mL, approximately 166 mL.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 391, 392 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed source text and relevant gas-exchange/VQ diagrams were checked; equations, values, and physiologic distinctions were retained with OCR artifacts corrected.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          391,
+          392
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH21_Q008": {
+      "takeaway": "Healthy lungs have negligible alveolar dead space, so anatomic and physiologic dead space are nearly equal.",
+      "displayText": "In healthy individuals, anatomical dead space and physiological dead space are almost equivalent because alveolar dead space is normally negligible. Anatomic dead space is conducting-zone air that does not exchange gas; alveolar/functional dead space is ventilated gas that fails to equilibrate with blood. Total physiologic dead space = anatomic + alveolar dead space. Typical anatomic and physiologic values are each about 150 mL in health; Radford’s estimate is roughly 1 mL per pound body weight. Dead space can be measured by Fowler’s single-breath nitrogen method or Bohr’s equation.",
+      "emphasis": [
+        "anatomical dead space and physiological dead space are almost equivalent"
+      ],
+      "rationales": {
+        "a": "Physiologic dead space includes anatomic dead space plus alveolar dead space, so it is not generally greater; in health the alveolar part is near zero.",
+        "b": "In disease, alveolar dead space can make physiologic dead space greater; in a healthy individual they are almost equivalent.",
+        "d": "Physiologic dead space includes anatomic dead space and is directly related to it."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were checked to resolve source OCR and figure/quantitative wording.",
+        "reconstructedContent": "In healthy individuals, anatomical dead space and physiological dead space are almost equivalent because alveolar dead space is normally negligible. Anatomic dead space is conducting-zone air that does not exchange gas; alveolar/functional dead space is ventilated gas that fails to equilibrate with blood. Total physiologic dead space = anatomic + alveolar dead space. Typical anatomic and physiologic values are each about 150 mL in health; Radford’s estimate is roughly 1 mL per pound body weight. Dead space can be measured by Fowler’s single-breath nitrogen method or Bohr’s equation.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 393 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed source text and relevant gas-exchange/VQ diagrams were checked; equations, values, and physiologic distinctions were retained with OCR artifacts corrected.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          393
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH21_Q009": {
+      "takeaway": "V/Q ratio rises toward the apex because perfusion falls more than ventilation.",
+      "displayText": "V/Q ratio does not decrease from the base to apex of the lung; it rises because ventilation and perfusion per unit volume both decrease, but perfusion falls more steeply. It is about 0.6 at the base, averages 0.8 across the lung, and reaches roughly 3.2 at the apex. Intrapleural pressure is also more negative at the apex. Gravity produces regional V/Q variation; in the supine position, the ratio is more uniform near 0.8. V/Q approaches infinity with absent perfusion (such as pulmonary embolism) and zero with absent ventilation (such as bronchial obstruction).",
+      "emphasis": [
+        "V/Q ratio"
+      ],
+      "rationales": {
+        "a": "Pulmonary blood flow decreases toward the apex as gravity favors perfusion at the base.",
+        "b": "Ventilation per unit volume also falls from base to apex, although less than perfusion.",
+        "d": "Pleural pressure becomes more negative toward the apex, so it decreases rather than serving as the exception."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were checked to resolve source OCR and figure/quantitative wording.",
+        "reconstructedContent": "V/Q ratio does not decrease from the base to apex of the lung; it rises because ventilation and perfusion per unit volume both decrease, but perfusion falls more steeply. It is about 0.6 at the base, averages 0.8 across the lung, and reaches roughly 3.2 at the apex. Intrapleural pressure is also more negative at the apex. Gravity produces regional V/Q variation; in the supine position, the ratio is more uniform near 0.8. V/Q approaches infinity with absent perfusion (such as pulmonary embolism) and zero with absent ventilation (such as bronchial obstruction).",
+        "evidenceBasis": [
+          "Printed explanation page(s) 393, 394 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed source text and relevant gas-exchange/VQ diagrams were checked; equations, values, and physiologic distinctions were retained with OCR artifacts corrected.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          393,
+          394
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH21_Q010": {
+      "takeaway": "The waterfall effect occurs in the middle lung region when alveolar pressure limits venous outflow.",
+      "displayText": "Waterfall effect describes blood flow in the middle lung region (West zone 2), where arterial pressure exceeds alveolar pressure but alveolar pressure can exceed venous pressure. The alveolar pressure compresses the compliant venous end of the capillary, so flow depends on pulmonary arterial minus alveolar pressure (Pa − PA), not the downstream venous pressure. Flow may occur in pulses as arterial pressure builds above alveolar pressure, then drains into compliant pulmonary veins—the “waterfall” analogy.",
+      "emphasis": [
+        "Waterfall effect"
+      ],
+      "rationales": {
+        "a": "The source locates this effect in the middle lung, not the lower and middle portions together.",
+        "b": "The upper lung has absent flow when alveolar pressure exceeds arterial pressure (zone 1), rather than the zone-2 waterfall.",
+        "d": "The lower lung has continuous flow when both arterial and venous pressures exceed alveolar pressure."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were checked to resolve source OCR and figure/quantitative wording.",
+        "reconstructedContent": "Waterfall effect describes blood flow in the middle lung region (West zone 2), where arterial pressure exceeds alveolar pressure but alveolar pressure can exceed venous pressure. The alveolar pressure compresses the compliant venous end of the capillary, so flow depends on pulmonary arterial minus alveolar pressure (Pa − PA), not the downstream venous pressure. Flow may occur in pulses as arterial pressure builds above alveolar pressure, then drains into compliant pulmonary veins—the “waterfall” analogy.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 394, 395 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed source text and relevant gas-exchange/VQ diagrams were checked; equations, values, and physiologic distinctions were retained with OCR artifacts corrected.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          394,
+          395
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH21_Q011": {
+      "takeaway": "Infinite VA/Q means ventilation without perfusion: dead space, with alveolar gas approaching inspired gas.",
+      "displayText": "VA/Q = infinity when alveolar ventilation is present but perfusion is zero, so no O₂/CO₂ exchange occurs and ventilation is wasted as dead space. The alveolar gas then approaches humidified inspired air: PO₂ is about 149 mmHg and PCO₂ about 0 mmHg. A foreign-body bronchial obstruction instead gives zero ventilation and VA/Q = 0. The answer describes dead-space ventilation; the listed pressure pair of 159 mmHg O₂ and 40 mmHg CO₂ is not the source’s expected gas composition for infinite VA/Q.",
+      "emphasis": [
+        "VA/Q = infinity"
+      ],
+      "rationales": {
+        "a": "Foreign-body bronchial obstruction prevents ventilation, producing VA/Q = 0 rather than infinity.",
+        "c": "Equal ventilation and perfusion is near a normal VA/Q, not an infinite ratio.",
+        "d": "With no perfusion, alveolar gas approaches humidified inspired air (about PO₂ 149 and PCO₂ 0), not 159 and 40."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were checked to resolve source OCR and figure/quantitative wording.",
+        "reconstructedContent": "VA/Q = infinity when alveolar ventilation is present but perfusion is zero, so no O₂/CO₂ exchange occurs and ventilation is wasted as dead space. The alveolar gas then approaches humidified inspired air: PO₂ is about 149 mmHg and PCO₂ about 0 mmHg. A foreign-body bronchial obstruction instead gives zero ventilation and VA/Q = 0. The answer describes dead-space ventilation; the listed pressure pair of 159 mmHg O₂ and 40 mmHg CO₂ is not the source’s expected gas composition for infinite VA/Q.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 395 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed source text and relevant gas-exchange/VQ diagrams were checked; equations, values, and physiologic distinctions were retained with OCR artifacts corrected.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          395
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH21_Q012": {
+      "takeaway": "Lower V/Q lowers alveolar PO₂ and raises alveolar PCO₂.",
+      "displayText": "Decreased ventilation-perfusion ratio implies decreased oxygenation because ventilation has fallen relative to perfusion: alveolar PO₂ falls and PCO₂ rises toward mixed-venous values. Moving left along the normal VA/Q line in the source O₂–CO₂ diagram illustrates this change. At high V/Q (apex/zone 1), PO₂ is highest and PCO₂ lowest; at low V/Q (base/zone 3), PO₂ is lowest and PCO₂ highest; the middle region is near the average V/Q of 0.8.",
+      "emphasis": [
+        "Decreased ventilation-perfusion ratio implies decreased oxygenation"
+      ],
+      "rationales": {
+        "a": "Both gas tensions do not fall: with low V/Q, CO₂ rises as O₂ falls.",
+        "b": "This describes the opposite direction for oxygen; low V/Q decreases rather than raises alveolar PO₂.",
+        "c": "Alveolar PO₂ does change and falls as V/Q decreases."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were checked to resolve source OCR and figure/quantitative wording.",
+        "reconstructedContent": "Decreased ventilation-perfusion ratio implies decreased oxygenation because ventilation has fallen relative to perfusion: alveolar PO₂ falls and PCO₂ rises toward mixed-venous values. Moving left along the normal VA/Q line in the source O₂–CO₂ diagram illustrates this change. At high V/Q (apex/zone 1), PO₂ is highest and PCO₂ lowest; at low V/Q (base/zone 3), PO₂ is lowest and PCO₂ highest; the middle region is near the average V/Q of 0.8.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 395, 396 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed source text and relevant gas-exchange/VQ diagrams were checked; equations, values, and physiologic distinctions were retained with OCR artifacts corrected.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          395,
+          396
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH21_Q013": {
+      "takeaway": "Humidified inspired PO₂ is 356.5; subtract 40/0.8 to get alveolar PO₂ ≈306.5 mmHg.",
+      "displayText": "Alveolar gas equation is used to calculate the partial pressure of O₂ in alveolar air: PAO₂ = PIO₂ − (PACO₂/R), with the correction factor usually negligible. First calculate inspired PO₂ after humidification: PIO₂ = FIO₂(PB − PH₂O) = 0.50(760 − 47) = 356.5 mmHg. With PACO₂ ≈ 40 mmHg and respiratory quotient R = 0.8, PAO₂ = 356.5 − (40/0.8) = 306.5 mmHg, approximately 306 mmHg.",
+      "emphasis": [
+        "Alveolar gas equation"
+      ],
+      "rationales": {
+        "a": "713 mmHg is the dry pressure difference before multiplying by FIO₂; inspired PO₂ is half of that after humidification.",
+        "b": "159 mmHg is close to normal room-air alveolar PO₂, not the result when breathing 50% oxygen.",
+        "d": "365 mmHg exceeds the calculated value after subtracting alveolar CO₂ divided by R."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were checked to resolve source OCR and figure/quantitative wording.",
+        "reconstructedContent": "Alveolar gas equation is used to calculate the partial pressure of O₂ in alveolar air: PAO₂ = PIO₂ − (PACO₂/R), with the correction factor usually negligible. First calculate inspired PO₂ after humidification: PIO₂ = FIO₂(PB − PH₂O) = 0.50(760 − 47) = 356.5 mmHg. With PACO₂ ≈ 40 mmHg and respiratory quotient R = 0.8, PAO₂ = 356.5 − (40/0.8) = 306.5 mmHg, approximately 306 mmHg.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 396, 397 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed source text and relevant gas-exchange/VQ diagrams were checked; equations, values, and physiologic distinctions were retained with OCR artifacts corrected.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          396,
+          397
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH21_Q014": {
+      "takeaway": "Alveolar wall destruction in emphysema reduces diffusion surface area and DLCO.",
+      "displayText": "Emphysema destroys alveolar walls and therefore decreases alveolar-capillary diffusion area and DLCO. Alveolar PCO₂ tends to rise because expiration is impaired; cardiac output is usually normal. Pulmonary artery pressure may rise as loss of alveoli also removes surrounding capillaries, forcing blood through the remaining vascular bed. DLCO also decreases in anemia and in fibrosis or pulmonary edema (the latter from increased membrane thickness); polycythemia and pulmonary hemorrhage can increase DLCO.",
+      "emphasis": [
+        "diffusion area"
+      ],
+      "rationales": {
+        "a": "Alveolar PCO₂ tends to increase when expiration is difficult; it is not the listed decrease.",
+        "b": "The source states cardiac output is generally normal in emphysema.",
+        "d": "Pulmonary artery pressure may rise as capillary bed is lost, rather than decrease."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were checked to resolve source OCR and figure/quantitative wording.",
+        "reconstructedContent": "Emphysema destroys alveolar walls and therefore decreases alveolar-capillary diffusion area and DLCO. Alveolar PCO₂ tends to rise because expiration is impaired; cardiac output is usually normal. Pulmonary artery pressure may rise as loss of alveoli also removes surrounding capillaries, forcing blood through the remaining vascular bed. DLCO also decreases in anemia and in fibrosis or pulmonary edema (the latter from increased membrane thickness); polycythemia and pulmonary hemorrhage can increase DLCO.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 397, 398 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed source text and relevant gas-exchange/VQ diagrams were checked; equations, values, and physiologic distinctions were retained with OCR artifacts corrected.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          397,
+          398
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH21_Q015": {
+      "takeaway": "Moderate exercise preserves arterial O₂, CO₂, and pH in a healthy person.",
+      "displayText": "During moderate exercise in a healthy athlete, arterial PO₂, PCO₂, and pH remain essentially unchanged. Ventilation rises promptly at exercise onset from psychic drive and proprioceptor input from muscles, tendons, and joints, then increases gradually with factors such as temperature, plasma K⁺, and altered CO₂-control sensitivity. In strenuous exercise, when O₂ uptake reaches its maximum, lactate accumulates; buffering generates additional CO₂ and ventilation rises. This is isocapnic buffering: ventilation and CO₂ production increase together, so alveolar and arterial PCO₂ change little.",
+      "emphasis": [
+        "During moderate exercise"
+      ],
+      "rationales": {
+        "a": "This predicts falls in all three variables, but healthy moderate exercise maintains their arterial levels.",
+        "b": "CO₂ rises and pH falls in this option; the source describes compensatory ventilation preserving them in moderate exercise.",
+        "c": "The proposed rise in oxygen and pH with fall in CO₂ is not the source’s normal moderate-exercise pattern."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were checked to resolve source OCR and figure/quantitative wording.",
+        "reconstructedContent": "During moderate exercise in a healthy athlete, arterial PO₂, PCO₂, and pH remain essentially unchanged. Ventilation rises promptly at exercise onset from psychic drive and proprioceptor input from muscles, tendons, and joints, then increases gradually with factors such as temperature, plasma K⁺, and altered CO₂-control sensitivity. In strenuous exercise, when O₂ uptake reaches its maximum, lactate accumulates; buffering generates additional CO₂ and ventilation rises. This is isocapnic buffering: ventilation and CO₂ production increase together, so alveolar and arterial PCO₂ change little.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 398 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed source text and relevant gas-exchange/VQ diagrams were checked; equations, values, and physiologic distinctions were retained with OCR artifacts corrected.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          398
+        ]
+      }
+    }
+  }
+}
