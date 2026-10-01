@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner-facing Marrow ED8 Physiology Chapter 40 explanation refinement; native diagrams and tables remain unchanged.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "40",
+    "chapterTitle": "Calcium Homeostasis",
+    "questionStart": 19,
+    "questionEnd": 25,
+    "questions": 7,
+    "status": "approved-rollout",
+    "workloadScore": 8,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "f3cd6b9dccb2092743fa86de4b0bef682d61c83762e9f00fa3b04d0a355d89d6",
+    "auditReport": "docs/question-explanations/physiology-tail-20261001.md"
+  },
+  "questions": {
+    "marrow__PHYSIO_CH40_Q019": {
+      "takeaway": "Calcitonin lowers serum calcium by inhibiting osteoclast activity and bone resorption.",
+      "displayText": "Calcitonin lowers serum calcium by inhibiting osteoclast activity and bone resorption.\n\nCalcitonin has calcium-lowering effects and may cause hypocalcemia. It does so by inhibiting bone resorption (direct effect).\n\nCalcitonin is synthesized and secreted by parafollicular (clear) cells of the thyroid. Actions of calcitonin are as follows:\n• Inhibits osteoclasts, thereby decreasing bone resorption (direct effect).\n• Increases renal calcium excretion.\n• Decreases calcium absorption by the kidneys and intestines.\n\nUnder normal conditions calcitonin is more important in young individuals (compared to adults), and may play a role in skeletal development.\n\nIn addition, it may protect the bones of the mother from excess calcium loss during pregnancy. Bone formation in the infant and lactation are major drains on Ca²⁺ stores. They would cause bone loss in the mother if bone resorption were not simultaneously inhibited by an increase in the plasma calcitonin level.",
+      "emphasis": [
+        "Calcitonin lowers serum calcium by inhibiting osteoclast activity and bone resorption"
+      ],
+      "rationales": {
+        "a": "Thyroxine is not the calcium-lowering hormone in this comparison.",
+        "c": "PTH raises serum calcium through bone, renal and vitamin-D actions.",
+        "d": "Cholecalciferol/calcitriol generally increases calcium absorption and availability."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          760
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH40_Q020": {
+      "takeaway": "Calcitonin lowers calcium in part by suppressing osteoclast-mediated bone resorption, useful as a rapid adjunct in severe hypercalcemia.",
+      "displayText": "Calcitonin lowers calcium in part by suppressing osteoclast-mediated bone resorption, useful as a rapid adjunct in severe hypercalcemia.\n\nThe given clinical vignette is suggestive of hypercalcemia of malignancy, most probably due to metastatic breast cancer. Calcitonin exerts calcium-lowering effect mainly by inhibiting bone resorption and helps in the management of hypercalcemia.\n\nThis calcium lowering action of calcitonin is direct by inhibiting the activity of osteoclasts.\n\nHowever, calcitonin also increases renal calcium excretion and decreases calcium absorption by the kidneys and intestines.",
+      "emphasis": [
+        "Calcitonin lowers calcium in part by suppressing osteoclast-mediated bone resorption, useful as a rapid adjunct in severe hypercalcemia"
+      ],
+      "rationales": {
+        "a": "Calcitonin does not lower calcium by decreasing renal calcium excretion; that would retain calcium.",
+        "b": "Reduced intestinal absorption is not its main acute mechanism.",
+        "d": "Increasing renal calcium reabsorption would raise serum calcium, opposite the treatment goal."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          761
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH40_Q021": {
+      "takeaway": "Hypocalcemia after thyroidectomy raises neuronal membrane excitability by increasing sodium-channel permeability and lowering threshold.",
+      "displayText": "Hypocalcemia after thyroidectomy raises neuronal membrane excitability by increasing sodium-channel permeability and lowering threshold.\n\nThe given clinical vignette is suggestive of Chvostek sign, seen in hypocalcemia due to accidental parathyroid injury during thyroid surgery. The muscle hyperexcitability seen in hypocalcemia is due to increased permeability of cells to Na⁺.\n\nDuring thyroid surgery, parathyroid gland is prone to accidental injury due to proximity with the thyroid gland. Damage to the parathyroid gland will lead to a low PTH level and low Ca²⁺ level.\n\nWhen the ECF concentration of Ca²⁺ falls below normal, the nervous system becomes progressively more excitable. Because there is increased membrane permeability to Na⁺. This leads to easy initiation of the action potentials.\n\nThe peripheral nerve fibres become so excitable that they begin to discharge spontaneously, initiating impulses that pass to the skeletal muscles to elicit tetanic muscle contraction. Tetany occurs usually when calcium concentration falls to 6 mg/dL.",
+      "emphasis": [
+        "Hypocalcemia after thyroidectomy raises neuronal membrane excitability by increasing sodium-channel permeability and lowering threshold"
+      ],
+      "rationales": {
+        "a": "Hypocalcemia, not hypercalcemia, produces tetany and facial spasm.",
+        "b": "The mechanism is increased Na⁺ permeability, not prevention of K⁺ release.",
+        "c": "Preventing both Na⁺ and K⁺ release does not explain the increased excitability."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          761
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH40_Q022": {
+      "takeaway": "Acidosis reduces albumin binding and raises ionized calcium; therefore the statement that it decreases ionized calcium is false.",
+      "displayText": "Acidosis reduces albumin binding and raises ionized calcium; therefore the statement that it decreases ionized calcium is false.\n\nAcidosis does not cause a decrease in the ionized calcium levels. Rather, alkalosis causes a decrease in the ionized calcium levels.\n\nPlasma proteins are more ionized when the pH is high (alkalosis), providing more protein anions to bind with and sequester free Ca²⁺. This causes a decrease in ionized calcium and may trigger symptoms of hypocalcemia.\n\nOption A: Total calcium concentration is altered by variations in the serum albumin concentration as 41% of calcium is bound to plasma proteins like albumin, hence changes in albumin concentration affects the serum calcium levels. The corrected calcium levels can be calculated as:\n\nCorrected calcium (mg/dL) = measured total Ca (mg/dL) + 0.8 (4.0 − serum albumin [g/dL]), where 4.0 represents the average albumin level.\n\nOption B: Fist-clenching or forearm exercise can lead to falsely elevated ionized (free) calcium levels.\n\nOption C: A tourniquet is usually avoided while drawing blood for calcium measurements since hemoconcentration also leads to an increase in serum calcium levels.",
+      "emphasis": [
+        "Acidosis reduces albumin binding and raises ionized calcium; therefore the statement that it decreases ionized calcium is false"
+      ],
+      "rationales": {
+        "a": "Total calcium varies with albumin concentration because protein-bound calcium changes.",
+        "b": "Forearm exercise can transiently raise ionized calcium through acid-base shifts.",
+        "c": "Tourniquet-related hemoconcentration can raise measured total calcium."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          762
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH40_Q023": {
+      "takeaway": "Osteoblast-lineage cells control osteoclast formation through RANKL and osteoprotegerin signaling.",
+      "displayText": "Osteoblast-lineage cells control osteoclast formation through RANKL and osteoprotegerin signaling.\n\nOsteoblasts are involved in the initiation and control of osteoclastic activity.\n\nOsteoblasts produce receptor activator for nuclear factor κB ligand (RANKL) and macrophage colony stimulating factor (M-CSF), which are necessary for formation of mature osteoclasts and hence osteoclastic activity.\n\nSpecific receptors for parathormone are present only on the osteoblasts and not on osteoclasts.",
+      "emphasis": [
+        "Osteoblast-lineage cells control osteoclast formation through RANKL and osteoprotegerin signaling"
+      ],
+      "rationales": {
+        "a": "Osteocytes regulate remodeling but the key initiating RANKL/OPG signal is attributed to osteoblast-lineage cells here.",
+        "c": "Mononuclear precursors become osteoclasts but do not provide the primary control cue.",
+        "d": "Phagocytes are not the main cells coordinating osteoclast activation."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          762
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH40_Q024": {
+      "takeaway": "Bone-specific alkaline phosphatase is a bone-formation marker; the other listed markers indicate collagen breakdown/resorption.",
+      "displayText": "Bone-specific alkaline phosphatase is a bone-formation marker; the other listed markers indicate collagen breakdown/resorption.\n\nSerum bone specific alkaline phosphatase is a marker for bone formation.\n\nOther markers of bone formation are:\n• Serum osteocalcin\n• Serum type 1 procollagen (C-terminal/N-terminal)\n\nMarkers for bone resorption are:\n• Urinary hydroxyproline\n• Urinary total pyridinoline (PYD)\n• Urinary free deoxypyridinoline (DPD)\n• Urinary collagen type 1 cross-linked N-telopeptide (NTX)\n• Urinary or serum collagen type 1 cross-linked C-telopeptide (CTX)\n• Tartrate-resistant acid phosphatase 5b\n\nInternational Osteoporosis Foundation has proposed serum CTX and serum PINP (Procollagen 1 N-terminal peptide) to be used as reference markers of bone resorption and formation, respectively, for the assessment of fracture risk and monitoring therapy in clinical settings.",
+      "emphasis": [
+        "Bone-specific alkaline phosphatase is a bone-formation marker; the other listed markers indicate collagen breakdown/resorption"
+      ],
+      "rationales": {
+        "a": "Urine hydroxyproline reflects collagen degradation and bone resorption.",
+        "b": "Serum C-telopeptide is released during type I collagen breakdown.",
+        "c": "Urinary deoxypyridinoline crosslinks reflect bone collagen resorption."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          762
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH40_Q025": {
+      "takeaway": "A parathyroid adenoma causes primary hyperparathyroidism; secondary disease is a compensatory response to low calcium/vitamin D or renal failure.",
+      "displayText": "A parathyroid adenoma causes primary hyperparathyroidism; secondary disease is a compensatory response to low calcium/vitamin D or renal failure.\n\nParathyroid adenoma is a benign tumor of the parathyroid gland, which causes primary hyperparathyroidism (not secondary).\n\nSecondary hyperparathyroidism is characterized by high levels of parathyroid hormone, to compensate for the low levels of serum calcium, due to some other underlying condition.\n\nCauses of secondary hyperparathyroidism include:\n• Chronic kidney disease: The damaged kidneys are unable to produce sufficient amounts of the active form of vitamin D, 1,25-dihydroxycholecalciferol. This further causes hypocalcemia and triggers PTH secretion.\n• Vitamin D deficiency: Causes hypocalcemia, which triggers the increased secretion of PTH.\n• Lithium: May cause an increased set-point of calcium for parathyroid hormone suppression, which leads to parathyroid hyperplasia.",
+      "emphasis": [
+        "A parathyroid adenoma causes primary hyperparathyroidism; secondary disease is a compensatory response to low calcium/vitamin D or renal failure"
+      ],
+      "rationales": {
+        "b": "Lithium can alter calcium sensing and cause hyperparathyroidism, often considered a cause in this source context.",
+        "c": "Vitamin D deficiency lowers calcium absorption and causes secondary PTH elevation.",
+        "d": "Chronic kidney disease causes phosphate retention and reduced calcitriol, driving secondary hyperparathyroidism."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          763
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    }
+  }
+}
