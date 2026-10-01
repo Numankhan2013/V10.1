@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Anatomy Chapter 40 explanation refinement. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Anatomy",
+    "bank": "Marrow",
+    "chapterId": "40",
+    "chapterTitle": "Vessels-Upper limb",
+    "questionStart": 15,
+    "questionEnd": 16,
+    "questions": 2,
+    "status": "approved-rollout",
+    "workloadScore": 2,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 753,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__ANAT_CH40_Q015": {
+      "takeaway": "Apical axillary nodes receive efferent drainage from the other axillary groups and pass it toward supraclavicular nodes.",
+      "displayText": "The apical group receives lymphatic drainage from the remaining axillary lymph-node groups and is therefore also called the terminal axillary lymph-node group. The source summarizes drainage as anterior, posterior and lateral groups -> central group -> apical group, followed by drainage to supraclavicular nodes.",
+      "emphasis": [
+        "The apical group receives lymphatic drainage from the remaining axillary lymph-node groups and is therefore also called the terminal axillary lymph-node group",
+        "The source summarizes drainage as anterior, posterior and lateral groups -> central group -> apical group, followed by drainage to supraclavicular nodes"
+      ],
+      "rationales": {
+        "a": "Central nodes collect from anterior, posterior and lateral groups but then drain onward to apical nodes.",
+        "c": "Lateral/humeral nodes receive much of the upper-limb drainage and are upstream of central/apical groups.",
+        "d": "Posterior/subscapular nodes are one of the groups that drain toward central nodes."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          750
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Native source table/figure metadata remains in the immutable source record."
+      }
+    },
+    "marrow__ANAT_CH40_Q016": {
+      "takeaway": "The lateral (humeral) nodes lie posteromedial to the axillary vein; lateral thoracic vessels accompany the anterior (pectoral) group.",
+      "displayText": "The false statement is that the lateral group lies along the lateral thoracic vessels. The source places the lateral/humeral group posteromedial to the axillary vein, while the anterior/pectoral group lies along the lateral thoracic vessels. Axillary lymph nodes collectively drain the entire upper limb, breast and trunk above the umbilicus. The source divides them into lateral/humeral, anterior/pectoral, posterior/subscapular, central and apical groups and tabulates their locations, afferents and efferents.",
+      "emphasis": [
+        "The false statement is that the lateral group lies along the lateral thoracic vessels",
+        "The source places the lateral/humeral group posteromedial to the axillary vein, while the anterior/pectoral group lies along the lateral thoracic vessels",
+        "Axillary lymph nodes collectively drain the entire upper limb, breast and trunk above the umbilicus"
+      ],
+      "rationales": {
+        "a": "Posterior nodes are located along subscapular vessels, consistent with the source.",
+        "c": "Apical nodes lie near the axillary vessels/apex.",
+        "d": "Axillary nodes drain upper limb, breast and trunk above the umbilicus."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          750,
+          751,
+          752
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Native source table/figure metadata remains in the immutable source record."
+      }
+    }
+  }
+}
