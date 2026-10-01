@@ -1,0 +1,172 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Anatomy Chapter 22 explanation refinement. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Anatomy",
+    "bank": "Marrow",
+    "chapterId": "22",
+    "chapterTitle": "Basal Ganglia and Limbic System",
+    "questionStart": 1,
+    "questionEnd": 6,
+    "questions": 6,
+    "status": "approved-rollout",
+    "workloadScore": 14,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 753,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__ANAT_CH22_Q001": {
+      "takeaway": "Sydenham chorea affects striatal D2 neurons; the neostriatum consists of caudate nucleus and putamen.",
+      "displayText": "The scenario is suggestive of Sydenham's chorea, a complication of rheumatic fever. The choreic movements are caused by destruction of D2 neurons of the striatum. The neostriatum consists of the caudate nucleus and putamen. The source further gives the nomenclature: corpus striatum = caudate nucleus + putamen + globus pallidus; lentiform nucleus = putamen + globus pallidus; neostriatum = caudate nucleus + putamen.",
+      "emphasis": [
+        "Sydenham's chorea",
+        "D2 neurons of the striatum",
+        "neostriatum",
+        "caudate nucleus and putamen"
+      ],
+      "rationales": {
+        "a": "The caudate and globus pallidus combine a neostriatal nucleus with pallidum; the source identifies caudate plus putamen as neostriatum.",
+        "b": "Putamen with globus pallidus forms the lentiform nucleus, not neostriatum.",
+        "c": "Globus pallidus plus the lentiform nucleus double-counts pallidal tissue and omits caudate."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, including stable ID, stem, options, printed key, explanation and structured metadata",
+        "sourceExplanationPages": [
+          387
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 2 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH22_Q002": {
+      "takeaway": "The external medullary lamina separates putamen from globus pallidus; the internal medullary lamina is within pallidum.",
+      "displayText": "Putamen and globus pallidus are separated by the external medullary lamina, so the statement that they are separated by the internal medullary lamina is false. From deep to superficial, the source lists: caudate nucleus; internal capsule; globus pallidus internal; internal medullary lamina; globus pallidus external; external medullary lamina; putamen; external capsule; claustrum; extreme capsule; insular cortex.",
+      "emphasis": [
+        "external medullary lamina",
+        "internal medullary lamina",
+        "From deep to superficial"
+      ],
+      "rationales": {
+        "a": "The internal capsule does separate lentiform complex from caudate, which is a true statement.",
+        "b": "External capsule lies between putamen and claustrum, so this statement is also true.",
+        "d": "The external medullary lamina is the separator between putamen and globus pallidus; choosing internal lamina makes the statement false."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, including stable ID, stem, options, printed key, explanation and structured metadata",
+        "sourceExplanationPages": [
+          388,
+          389
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 1 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH22_Q003": {
+      "takeaway": "Wilson pencils are fibers traversing the striatum.",
+      "displayText": "Wilson's pencils are thin myelinated or unmyelinated axons that are afferents and efferents passing through the striatum. The source shows a micrograph of putamen and external globus pallidus with Wilson's pencils as blue diagonal linear structures.",
+      "emphasis": [
+        "Wilson's pencils",
+        "passing through the striatum",
+        "putamen and external globus pallidus"
+      ],
+      "rationales": {
+        "b": "Amygdala is a medial temporal limbic nucleus, while Wilson pencils traverse striatum.",
+        "c": "Hippocampus contains pyramidal fields and dentate gyrus, not the striatal fiber bundles named Wilson pencils.",
+        "d": "Dentate gyrus is part of hippocampal formation, not the site of Wilson pencils."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, including stable ID, stem, options, printed key, explanation and structured metadata",
+        "sourceExplanationPages": [
+          389,
+          390
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 1 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH22_Q004": {
+      "takeaway": "The direct basal ganglia pathway relays from cortex through striatum and globus pallidus to thalamus and premotor cortex.",
+      "displayText": "The clinical scenario is suggestive of Parkinson disease, involving destruction of the substantia nigra in the basal ganglia. The source gives the direct pathway as cortex > striatum > globus pallidus > thalamus > premotor cortex. The indirect pathway is cortex > striatum > globus pallidus externa > subthalamic nucleus > globus pallidus interna and substantia nigra reticulata > thalamus > premotor cortex. The direct pathway stimulates movement and the indirect pathway inhibits movement.",
+      "emphasis": [
+        "Parkinson disease",
+        "direct pathway",
+        "cortex > striatum > globus pallidus > thalamus > premotor cortex",
+        "indirect pathway"
+      ],
+      "rationales": {
+        "a": "This sequence inserts subthalamic nucleus and omits thalamus, describing components of the indirect pathway rather than the source direct route.",
+        "c": "This route puts cortex directly into globus pallidus and then subthalamic nucleus, not the striatal-first direct sequence.",
+        "d": "The pathway reverses the normal order by placing globus pallidus before striatum."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, including stable ID, stem, options, printed key, explanation and structured metadata",
+        "sourceExplanationPages": [
+          390
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      }
+    },
+    "marrow__ANAT_CH22_Q005": {
+      "takeaway": "A subthalamic nucleus lesion produces contralateral hemiballismus with violent proximal limb movements.",
+      "displayText": "A lesion in the subthalamic nucleus causes sudden, violent, involuntary movements on one side of the body, commonly affecting proximal extremity musculature, called hemiballismus. The movements are contralateral to the side of the lesion.",
+      "emphasis": [
+        "subthalamic nucleus",
+        "hemiballismus",
+        "contralateral to the side of the lesion"
+      ],
+      "rationales": {
+        "a": "Striatal lesions can produce choreiform movement, not the classic violent proximal flinging movements described for hemiballismus.",
+        "c": "Globus pallidus is not the structure whose lesion is identified by this hemiballismus pattern.",
+        "d": "Substantia nigra degeneration is linked to Parkinson disease, not the sudden unilateral proximal flinging described."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, including stable ID, stem, options, printed key, explanation and structured metadata",
+        "sourceExplanationPages": [
+          390
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      }
+    },
+    "marrow__ANAT_CH22_Q006": {
+      "takeaway": "The limbic system includes cingulate gyrus, amygdala and hippocampal formation; medial thalamic nuclei are excluded here.",
+      "displayText": "Medial thalamic nuclei are not part of the limbic system; the anterior nucleus of the thalamus is part of it. The limbic system controls emotional behavior and participates in conversion of short-term memory to long-term memory. It contains both grey and white matter and lies between the cerebral cortex and hypothalamus. The source diagram includes cingulate gyrus, hippocampus, amygdaloid body, hypothalamus, mammillary body, fornix and pineal region relationships.",
+      "emphasis": [
+        "Medial thalamic nuclei",
+        "anterior nucleus of the thalamus",
+        "limbic system",
+        "short-term memory to long-term memory"
+      ],
+      "rationales": {
+        "a": "Cingulate gyrus is part of the limbic system listed by the source.",
+        "b": "Amygdala is a limbic structure involved in emotional behavior.",
+        "c": "Hippocampal formation participates in limbic memory circuitry; the excluded choice is the medial thalamic nuclei."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, including stable ID, stem, options, printed key, explanation and structured metadata",
+        "sourceExplanationPages": [
+          390,
+          391
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 1 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    }
+  },
+  "source": {
+    "bundle": "anatomy_ch001_063",
+    "sourceRawSha256": "f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387",
+    "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+    "sourcePdfPages": [
+      387,
+      388,
+      389,
+      390,
+      391
+    ]
+  }
+}
