@@ -799,3 +799,13 @@ neutral future dots, more lively flame/embers and static reduced-motion mode.
 Actual six-second GIF/MP4 motion evidence is in local build/ui-checks. Local
 75 checks, generated product contract, responsive/tier/real-motion/reduced-motion
 browser checks and source-hygiene browser pass; exact latest full CI is pending.
+
+
+Final combined product `d3247ca63d3db3f99fa9310be4c399dde0dd449a` is now
+build-verified: all 75 local checks, Engineering `36838440726`, and full
+browser/PWA/APK/Android phone+tablet `36838433115` passed. Preview:
+`https://ca26da11.nk-qbank.pages.dev`. Deployed and direct live-browser checks
+passed Revision/streak/FSRS; CI Home and Android evidence was inspected.
+PR #80 is a draft; user visual review and physical acceptance remain pending.
+Main/production are unchanged; documentation-only handoff keeps certification
+at the product SHA above.

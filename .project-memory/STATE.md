@@ -4,24 +4,26 @@
 
 ## Baseline and active work
 
-- Revision hub candidate (2026-10-01): `feature/home-revision-hub` builds from
-  combined main. Revision replaces FSRS in primary navigation; Home shows
-  global due/missed counts; More retains notes/search with neutral rows.
-  Revision retains all four scoped queues and now embeds a seven-day scoped
-  forecast with links to the existing full FSRS view and settings. Color is
-  limited to counts and small icon accents. Home also has connected study-day
-  markers with a liquid blue/violet flow reaching toward the next day,
-  and a visibly animated flame/embers at 3/7/14/30 days. Reduced motion is
-  static; there are no celebration notices. The earlier amber strip was
-  rejected by the user; canonical streak counting is unchanged. No schedule, persistence, source,
-  or session-engine changes. All 75 local checks, generated product contract, Revision browser checks
-  (320/390/889px, including every streak tier and reduced motion), and the
-  multi-question Pause/Home/Continue regression pass
-  against the updated certified generated baseline. Full combined candidate CI and physical review remain pending; production
-  is unchanged. Earlier Revision-only build passed its PWA/APK build but
-  emulator capture closed during a PDF screenshot; amber-streak build hit
-  a source-gate DOM timing failure. The gate probe now awaits visibility;
-  source data/gating remains unchanged and the local hygiene browser passes.
+- Revision hub candidate (2026-10-01): `feature/home-revision-hub` / PR #80
+  builds from combined main. Revision replaces FSRS in primary navigation;
+  Home shows global due/missed counts; More retains neutral notes/search rows.
+  Revision keeps all four scoped queues, embeds a seven-day scoped forecast,
+  and links the existing FSRS graphs/settings. Color is limited to count/icon
+  accents. Home has a liquid blue/violet connected week strip reaching toward
+  the next pending day, plus animated orange flame/embers growing at
+  3/7/14/30 days. Future days stay unfilled; reduced motion is static; there
+  are no celebration notices. The earlier amber treatment was rejected.
+  Canonical streak counting, schedules, persistence, source content, and session
+  engines are unchanged. Product `d3247ca63d3db3f99fa9310be4c399dde0dd449a`
+  is build-verified: all 75 local checks, Engineering `36838440726`, and full
+  generated browser/PWA/APK/Android phone+tablet run `36838433115` pass,
+  including Pause/Home/Continue and source hygiene. Preview:
+  `https://ca26da11.nk-qbank.pages.dev`. Deployed HTML passes the full Revision/
+  streak browser suite; the live URL passes Home/Revision/FSRS navigation with
+  no page errors. CI Home and Android captures were inspected; local GIF/MP4
+  shows six seconds of real motion. Physical/user visual review remains pending.
+  Main and production are unchanged. A documentation-only `[skip ci]` handoff
+  does not change the certified product. Next step: user review of the preview.
 
 - Completed image promotion (2026-09-30): main combines the finished image
   integration with every approved account/study feature (PR #79). Certified

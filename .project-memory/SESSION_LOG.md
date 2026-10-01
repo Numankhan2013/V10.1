@@ -1976,3 +1976,19 @@ these residual additions; final combined CI remains pending. No production claim
   and content remain unchanged. Full latest candidate CI must pass before
   claiming build verification; previous emulator capture failed during a PDF
   screenshot after its underlying PWA/APK build succeeded.
+
+
+## 2026-10-01 — Certify the Revision and liquid Home streak candidate
+
+- Product `d3247ca63d3db3f99fa9310be4c399dde0dd449a` passed all 75 local
+  checks, Engineering `36838440726`, and full generated browser/PWA/packaged
+  APK/Android phone+tablet run `36838433115`. Pause/Home/Continue, source
+  hygiene, CBT, native Back, force-stop resume and source-PDF rendering passed.
+- Preview `https://ca26da11.nk-qbank.pages.dev` returned HTTP 200. Its deployed
+  HTML passed the full Revision/streak browser suite; direct live-browser checks
+  passed animated Home, Revision navigation, and FSRS graphs with no page errors.
+  Inspected full-CI Home and Android phone/tablet evidence. Local six-second
+  motion GIF/MP4 records actual rendering, using seeded demonstration days.
+- PR #80 remains a draft for user visual review. Main/production are unchanged;
+  physical-device acceptance remains separate. This documentation-only
+  `[skip ci]` handoff retains the certified product SHA above.
