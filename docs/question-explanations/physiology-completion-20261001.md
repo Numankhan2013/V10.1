@@ -39,11 +39,11 @@ Each question was checked against its canonical stem, options, key, and full str
 - `marrow__PHYSIO_CH27_Q006` — key option 3; question p. 484, key p. 488, 489, explanation p. 491, 492.
 - `marrow__PHYSIO_CH27_Q007` — key option 3; question p. 484, key p. 488, 489, explanation p. 491.
 - `marrow__PHYSIO_CH27_Q008` — key option 1; question p. 484, 485, key p. 488, 489, explanation p. 492.
-- `marrow__PHYSIO_CH27_Q009` — key option 2; question p. 485, key p. 488, 489, explanation p. 492. OCR table text is too damaged to reconstruct safely; retained the clearly legible keyed flow rate and documented the omitted table-row reconstruction in the item-level review note. The source table placeholder remains unchanged.
+- `marrow__PHYSIO_CH27_Q009` — key option 2; question p. 485, key p. 488, 489, explanation p. 492. Rendered ED8 page 492 visually confirms the source table: liver 1500, kidneys 1260, brain 750, skeletal muscle 840, and heart muscles 250 mL/min. The nearby keyed rate is 3–4 mL/min/100 g; a source-faithful learner display table now resolves the orphan block `PHYSIO_CH27_Q009_T01`.
 - `marrow__PHYSIO_CH27_Q010` — key option 3; question p. 485, key p. 488, 489, explanation p. 492.
 - `marrow__PHYSIO_CH27_Q011` — key option 2; question p. 485, key p. 488, 489, explanation p. 492, 493. Obvious OCR damage obscures the formula; the display reconstructs the standard pressure × radius relation consistent with the source’s small-radius explanation.
 - `marrow__PHYSIO_CH27_Q012` — key option 2; question p. 485, 486, key p. 488, 489, explanation p. 493, 494.
-- `marrow__PHYSIO_CH27_Q013` — key option 3; question p. 486, key p. 488, 489, explanation p. 494. Source consistency flag: the answer key says 8-fold, while the prose example says doubling radius yields 16-fold. The figure-specific ratio is not available in extracted text and is not inferred; the source key remains unchanged.
+- `marrow__PHYSIO_CH27_Q013` — key option 3; question p. 486, key p. 488, 489, explanation p. 494. Rendered question page 486 shows A with diameter 2D and length 2L and B with diameter D and length L; rendered explanation page 494 gives Poiseuille’s law and states the radius effect (16-fold) is halved by the doubled length, yielding the keyed 8-fold flow. The source answer is supported; the reconstructed display supplies the omitted geometry.
 - `marrow__PHYSIO_CH27_Q014` — key option 4; question p. 486, 487, key p. 488, 489, explanation p. 494, 495.
 - `marrow__PHYSIO_CH27_Q015` — key option 4; question p. 487, key p. 488, 489, explanation p. 495.
 - `marrow__PHYSIO_CH27_Q016` — key option 4; question p. 487, key p. 488, 489, explanation p. 495.
@@ -59,5 +59,6 @@ Each question was checked against its canonical stem, options, key, and full str
 
 - New authoring covers exactly 35 actionable IDs: Chapter 24 Q001–Q014 and Chapter 27 Q001–Q021.
 - Source raw SHA-256 and omission/answer gates were not modified.
-- Chapter 27 Q009 table-row OCR is explicitly left unreconstructed; Chapter 27 Q013’s prose/key mismatch remains explicit for review.
+- Exception-only source verification used `data/marrow/source_pdfs/physiologyed8.pdf`, SHA-256 `03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe`. Pages 486 and 494 resolve the Chapter 27 Q013 calculation; page 492 resolves the orphan Q009 table. No unresolved source ambiguity remains for these two questions.
+- Q009 source table rows were transcribed from the rendered page, without inferring additional rows. Q013 display explains the figure-specific length factor omitted from the imported text; its canonical key remains unchanged.
 - Validation: `MARROW_WORKER_BATCHES_OK files=94 questions=1113 source_keyed=true detail_retention=true baseline_and_gates_preserved=true` (combined worker worktree, including prior authored batches).
