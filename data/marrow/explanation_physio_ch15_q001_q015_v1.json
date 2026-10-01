@@ -1,0 +1,455 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Marrow ED8 Physiology Chapter 15 explanation rollout; raw imported source remains immutable.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "15",
+    "chapterTitle": "Motor Physiology - 2",
+    "questionStart": 1,
+    "questionEnd": 15,
+    "questions": 15,
+    "status": "approved-rollout",
+    "workloadScore": 16,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 838,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__PHYS_CH15_Q001": {
+      "takeaway": "Dynamic alpha–gamma coactivation increases spindle Ia firing compared with alpha activation alone.",
+      "displayText": "During dynamic alpha–gamma coactivation, contraction of intrafusal and extrafusal fibers together maintains spindle tension. Dynamic gamma drive raises Ia afferent firing relative to alpha activation alone, preserving spindle sensitivity during muscle shortening and allowing length feedback throughout contraction.",
+      "emphasis": [
+        "During dynamic alpha–gamma coactivation, contraction"
+      ],
+      "rationales": {
+        "a": "Prompt Ia inhibition would unload the spindle; gamma activation instead maintains or increases its afferent discharge.",
+        "b": "Alpha motor-neuron activation still contracts extrafusal muscle; coactivation coordinates that contraction with spindle sensitivity.",
+        "c": "The source says Ia discharge is greater with dynamic gamma coactivation than with alpha drive alone, not smaller."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded source text contains OCR substitutions and figure/table layout that can obscure pathway names or row associations.",
+        "reconstructedContent": "During dynamic alpha–gamma coactivation, contraction of intrafusal and extrafusal fibers together maintains spindle tension. Dynamic gamma drive raises Ia afferent firing relative to alpha activation alone, preserving spindle sensitivity during muscle shortening and allowing length feedback throughout contraction.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 296 were rendered and checked from immutable Physiology PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Explanation reconstructed from the checked printed source page(s), with OCR character substitutions corrected and the source-specific pathway distinctions retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          296
+        ]
+      }
+    },
+    "marrow__PHYS_CH15_Q002": {
+      "takeaway": "The delayed onset and long afterdischarge are characteristic of the crossed-extensor reflex.",
+      "displayText": "The myogram’s long latency and prolonged afterdischarge identify the crossed-extensor reflex. After painful stimulation activates ipsilateral flexor withdrawal, the opposite limb begins extending after roughly 0.2–0.5 seconds to support balance; reverberating interneuron circuits sustain its longer afterdischarge.",
+      "emphasis": [
+        "The myogram’s long latency and"
+      ],
+      "rationales": {
+        "a": "Flexor withdrawal begins promptly and has a shorter afterdischarge than the contralateral crossed-extensor response.",
+        "b": "The stretch reflex is a short-latency monosynaptic response, unlike the delayed myogram shown.",
+        "d": "The inverse stretch reflex is a tendon-tension protective circuit, not the delayed contralateral extension response."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded source text contains OCR substitutions and figure/table layout that can obscure pathway names or row associations.",
+        "reconstructedContent": "The myogram’s long latency and prolonged afterdischarge identify the crossed-extensor reflex. After painful stimulation activates ipsilateral flexor withdrawal, the opposite limb begins extending after roughly 0.2–0.5 seconds to support balance; reverberating interneuron circuits sustain its longer afterdischarge.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 297 were rendered and checked from immutable Physiology PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Explanation reconstructed from the checked printed source page(s), with OCR character substitutions corrected and the source-specific pathway distinctions retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          297
+        ]
+      }
+    },
+    "marrow__PHYS_CH15_Q003": {
+      "takeaway": "All three listed higher motor systems send input to the bulboreticular facilitatory area.",
+      "displayText": "The bulboreticular facilitatory area receives input from the cerebellum, basal ganglia, and cerebral cortex. Its descending excitation of gamma efferents contracts intrafusal ends, stretches spindle receptor regions, and increases afferent output to stabilize proximal joints during precise positioning.",
+      "emphasis": [
+        "The bulboreticular facilitatory area receives"
+      ],
+      "rationales": {
+        "a": "The cerebellum contributes input, but it is only one of the three listed sources.",
+        "b": "Basal-ganglia input is present but does not exclude cortical and cerebellar input.",
+        "c": "Cortical input is present, but cerebellum and basal ganglia also contribute."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded source text contains OCR substitutions and figure/table layout that can obscure pathway names or row associations.",
+        "reconstructedContent": "The bulboreticular facilitatory area receives input from the cerebellum, basal ganglia, and cerebral cortex. Its descending excitation of gamma efferents contracts intrafusal ends, stretches spindle receptor regions, and increases afferent output to stabilize proximal joints during precise positioning.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 297, 298 were rendered and checked from immutable Physiology PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Explanation reconstructed from the checked printed source page(s), with OCR character substitutions corrected and the source-specific pathway distinctions retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          297,
+          298
+        ]
+      }
+    },
+    "marrow__PHYS_CH15_Q004": {
+      "takeaway": "Medullary reticulospinal output reaches ventromedial motor pools for axial and proximal muscles.",
+      "displayText": "The medullary reticulospinal tract terminates on neurons in the ventromedial ventral horn that innervate axial and proximal muscles. Pontine reticulospinal output descends in the anterior column and excites medial motor pools; tectospinal fibers project to contralateral cervical cord for head and eye orientation.",
+      "emphasis": [
+        "The medullary reticulospinal tract terminates"
+      ],
+      "rationales": {
+        "a": "Pontine reticulospinal fibers descend in the anterior column and excite medial anterior-horn pools; the listed dorsomedial location is not the source’s tract description.",
+        "b": "Tectospinal fibers originate at the superior colliculus and reach contralateral cervical levels for orienting head/eye movement, not the stated dorsolateral motor-pool role.",
+        "d": "The medullary reticulospinal statement is correct: it targets ventromedial neurons for axial/proximal control."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded source text contains OCR substitutions and figure/table layout that can obscure pathway names or row associations.",
+        "reconstructedContent": "The medullary reticulospinal tract terminates on neurons in the ventromedial ventral horn that innervate axial and proximal muscles. Pontine reticulospinal output descends in the anterior column and excites medial motor pools; tectospinal fibers project to contralateral cervical cord for head and eye orientation.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 298 were rendered and checked from immutable Physiology PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Explanation reconstructed from the checked printed source page(s), with OCR character substitutions corrected and the source-specific pathway distinctions retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          298
+        ]
+      }
+    },
+    "marrow__PHYS_CH15_Q005": {
+      "takeaway": "Rubrospinal is a lateral pathway, not a medial posture pathway.",
+      "displayText": "Rubrospinal fibers belong to the lateral brainstem motor system, alongside the corticospinal tract. Reticulospinal, vestibulospinal, and tectospinal pathways form the medial system, descending mainly ipsilaterally in ventral columns to ventromedial interneurons controlling axial and proximal muscles.",
+      "emphasis": [
+        "Rubrospinal fibers belong to the"
+      ],
+      "rationales": {
+        "a": "Reticulospinal tracts are part of the medial brainstem set supporting axial and proximal postural control.",
+        "c": "Vestibulospinal tracts are medial pathways involved in balance and postural extensor activity.",
+        "d": "Tectospinal is included among medial brainstem pathways and helps orient head/neck posture."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded source text contains OCR substitutions and figure/table layout that can obscure pathway names or row associations.",
+        "reconstructedContent": "Rubrospinal fibers belong to the lateral brainstem motor system, alongside the corticospinal tract. Reticulospinal, vestibulospinal, and tectospinal pathways form the medial system, descending mainly ipsilaterally in ventral columns to ventromedial interneurons controlling axial and proximal muscles.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 298 were rendered and checked from immutable Physiology PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Explanation reconstructed from the checked printed source page(s), with OCR character substitutions corrected and the source-specific pathway distinctions retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          298
+        ]
+      }
+    },
+    "marrow__PHYS_CH15_Q006": {
+      "takeaway": "The earliest preparatory activity appears in cortical association areas.",
+      "displayText": "Before a skilled voluntary movement, activity first rises in cortical association areas where the movement idea and plan originate. Basal ganglia and lateral cerebellar hemispheres help organize it and relay through thalamus to premotor and motor cortex; corticospinal output then carries commands to the spinal cord.",
+      "emphasis": [
+        "Before a skilled voluntary movement"
+      ],
+      "rationales": {
+        "a": "Precentral motor cortex executes the command later in the planning-to-movement sequence; association areas activate first.",
+        "b": "The midbrain is not the initial cortical planning site for the skilled voluntary action described.",
+        "c": "The cerebellum contributes planning and coordination but receives and processes a plan that originates in association cortex."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded source text contains OCR substitutions and figure/table layout that can obscure pathway names or row associations.",
+        "reconstructedContent": "Before a skilled voluntary movement, activity first rises in cortical association areas where the movement idea and plan originate. Basal ganglia and lateral cerebellar hemispheres help organize it and relay through thalamus to premotor and motor cortex; corticospinal output then carries commands to the spinal cord.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 299 were rendered and checked from immutable Physiology PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Explanation reconstructed from the checked printed source page(s), with OCR character substitutions corrected and the source-specific pathway distinctions retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          299
+        ]
+      }
+    },
+    "marrow__PHYS_CH15_Q007": {
+      "takeaway": "The rubrospinal tract is the listed descending pathway for rapid skilled movement.",
+      "displayText": "Rapid skilled distal-limb movements depend on the lateral corticospinal and rubrospinal pathways. The medial descending pathways and ventral corticospinal fibers support axial muscles, gross movement, and postural adjustment; the lateral ventral horn supplies distal muscles.",
+      "emphasis": [
+        "Rapid skilled distal-limb movements depend"
+      ],
+      "rationales": {
+        "a": "The anterior/ventral corticospinal tract principally contributes to axial control and bilateral posture, not the keyed rapid skilled distal pathway.",
+        "c": "The lateral vestibulospinal tract supports balance and extensor posture, rather than fine skilled hand movement.",
+        "d": "The medullary reticulospinal tract modulates posture and tone, not the principal skilled distal-movement pathway."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded source text contains OCR substitutions and figure/table layout that can obscure pathway names or row associations.",
+        "reconstructedContent": "Rapid skilled distal-limb movements depend on the lateral corticospinal and rubrospinal pathways. The medial descending pathways and ventral corticospinal fibers support axial muscles, gross movement, and postural adjustment; the lateral ventral horn supplies distal muscles.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 299 were rendered and checked from immutable Physiology PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Explanation reconstructed from the checked printed source page(s), with OCR character substitutions corrected and the source-specific pathway distinctions retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          299
+        ]
+      }
+    },
+    "marrow__PHYS_CH15_Q008": {
+      "takeaway": "Sham rage can occur after decortication and is non-goal-directed.",
+      "displayText": "Sham rage is described in decorticate animals after removal of cortical inhibition over hypothalamic rage circuitry. The behavior can include biting, clawing, hissing, back arching, and alternating limb movements; it is non-goal-directed, may follow mild stimuli, and is abolished by hypothalamic removal.",
+      "emphasis": [
+        "Sham rage is described in"
+      ],
+      "rationales": {
+        "b": "The source emphasizes that sham rage is not goal-directed behavior.",
+        "c": "Removing the hypothalamus abolishes sham rage; it is not caused by hypothalamic removal.",
+        "d": "The response appears abruptly and is not characterized by slow onset and offset."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded source text contains OCR substitutions and figure/table layout that can obscure pathway names or row associations.",
+        "reconstructedContent": "Sham rage is described in decorticate animals after removal of cortical inhibition over hypothalamic rage circuitry. The behavior can include biting, clawing, hissing, back arching, and alternating limb movements; it is non-goal-directed, may follow mild stimuli, and is abolished by hypothalamic removal.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 300 were rendered and checked from immutable Physiology PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Explanation reconstructed from the checked printed source page(s), with OCR character substitutions corrected and the source-specific pathway distinctions retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          300
+        ]
+      }
+    },
+    "marrow__PHYS_CH15_Q009": {
+      "takeaway": "Clonus reflects increased, not decreased, gamma motor discharge.",
+      "displayText": "Clonus is a rhythmic series of contractions after sudden, sustained muscle stretch and is associated in the source with increased gamma motor-neuron discharge. It can accompany spinal cord injury that interrupts descending cortical control; interacting stretch and inverse-stretch reflex activity may contribute. Sustained clonus of five or more beats is abnormal.",
+      "emphasis": [
+        "Clonus is a rhythmic series"
+      ],
+      "rationales": {
+        "a": "The source uses five or more sustained beats as the abnormal clonus threshold.",
+        "b": "Disruption of descending corticospinal input can produce hyperreflexia and clonus.",
+        "c": "Stretch and inverse-stretch reflexes can interact in the oscillating response."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded source text contains OCR substitutions and figure/table layout that can obscure pathway names or row associations.",
+        "reconstructedContent": "Clonus is a rhythmic series of contractions after sudden, sustained muscle stretch and is associated in the source with increased gamma motor-neuron discharge. It can accompany spinal cord injury that interrupts descending cortical control; interacting stretch and inverse-stretch reflex activity may contribute. Sustained clonus of five or more beats is abnormal.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 300 were rendered and checked from immutable Physiology PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Explanation reconstructed from the checked printed source page(s), with OCR character substitutions corrected and the source-specific pathway distinctions retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          300
+        ]
+      }
+    },
+    "marrow__PHYS_CH15_Q010": {
+      "takeaway": "The Pacinian corpuscle is not involved in clasp-knife relaxation.",
+      "displayText": "The clasp-knife response occurs in hypertonic muscle: moderate passive stretch initially triggers resistance through the stretch reflex, while stronger stretch recruits the Golgi tendon organ’s inverse stretch reflex and resistance suddenly falls. This lengthening reaction is protective; Pacinian corpuscles are not part of the mechanism.",
+      "emphasis": [
+        "The clasp-knife response occurs in"
+      ],
+      "rationales": {
+        "a": "Hypertonia is present in the setting where the clasp-knife response is described.",
+        "b": "Golgi tendon-organ tension input participates in the sudden inhibitory relaxation.",
+        "c": "The lengthening reaction is the tendon-mediated reduction in resistance after stronger stretch."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded source text contains OCR substitutions and figure/table layout that can obscure pathway names or row associations.",
+        "reconstructedContent": "The clasp-knife response occurs in hypertonic muscle: moderate passive stretch initially triggers resistance through the stretch reflex, while stronger stretch recruits the Golgi tendon organ’s inverse stretch reflex and resistance suddenly falls. This lengthening reaction is protective; Pacinian corpuscles are not part of the mechanism.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 300 were rendered and checked from immutable Physiology PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Explanation reconstructed from the checked printed source page(s), with OCR character substitutions corrected and the source-specific pathway distinctions retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          300
+        ]
+      }
+    },
+    "marrow__PHYS_CH15_Q011": {
+      "takeaway": "Dentate output reaches the ventrolateral thalamus through the superior cerebellar peduncle.",
+      "displayText": "Dentate nucleus output from the cerebrocerebellum travels through the superior cerebellar peduncle and reaches the ventrolateral thalamus. Cerebellar cortex projects first to deep nuclei; their efferents continue to brainstem and thalamic targets.",
+      "emphasis": [
+        "Dentate nucleus output from the"
+      ],
+      "rationales": {
+        "a": "The ventral anterior nucleus and middle peduncle do not match the dentate-to-thalamus route; the middle peduncle chiefly carries pontocerebellar afferents.",
+        "c": "The nucleus is VL, but the middle peduncle carries mainly incoming pontine fibers rather than dentate efferents.",
+        "d": "VPM is a facial somatosensory/gustatory relay; cerebellar dentate output reaches VL via the superior peduncle."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded source text contains OCR substitutions and figure/table layout that can obscure pathway names or row associations.",
+        "reconstructedContent": "Dentate nucleus output from the cerebrocerebellum travels through the superior cerebellar peduncle and reaches the ventrolateral thalamus. Cerebellar cortex projects first to deep nuclei; their efferents continue to brainstem and thalamic targets.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 301 were rendered and checked from immutable Physiology PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Explanation reconstructed from the checked printed source page(s), with OCR character substitutions corrected and the source-specific pathway distinctions retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          301
+        ]
+      }
+    },
+    "marrow__PHYS_CH15_Q012": {
+      "takeaway": "The tectocerebellar tract carries visual and auditory signals, not proprioception.",
+      "displayText": "Tectocerebellar fibers carry auditory and visual information to the cerebellum rather than proprioception. By contrast, dorsal and ventral spinocerebellar, cuneocerebellar, and vestibulocerebellar inputs carry proprioceptive or vestibular signals; olivocerebellar climbing fibers provide another cerebellar input.",
+      "emphasis": [
+        "Tectocerebellar fibers carry auditory and"
+      ],
+      "rationales": {
+        "a": "Olivocerebellar climbing fibers arise from the inferior olive and convey sensory/motor-related cerebellar input; they are not the purely visual-auditory tract.",
+        "c": "Spinocerebellar tracts carry proprioceptive input from muscle spindles, tendon organs, and joint receptors.",
+        "d": "Cuneocerebellar fibers carry proprioceptive information from the upper limb and upper trunk."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded source text contains OCR substitutions and figure/table layout that can obscure pathway names or row associations.",
+        "reconstructedContent": "Tectocerebellar fibers carry auditory and visual information to the cerebellum rather than proprioception. By contrast, dorsal and ventral spinocerebellar, cuneocerebellar, and vestibulocerebellar inputs carry proprioceptive or vestibular signals; olivocerebellar climbing fibers provide another cerebellar input.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 301, 302 were rendered and checked from immutable Physiology PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+          "Printed p. 302 contains a native table comparing seven cerebellar afferent tracts; its rows and modalities were transcribed from the rendered page."
+        ],
+        "reviewNote": "Explanation reconstructed from the checked printed source page(s), with OCR character substitutions corrected and the source-specific pathway distinctions retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          301,
+          302
+        ]
+      },
+      "displayTables": [
+        {
+          "title": "Cerebellar afferent tracts and carried information",
+          "source_page": 302,
+          "columns": [
+            "Afferent tract",
+            "Information carried"
+          ],
+          "rows": [
+            [
+              "Vestibulocerebellar",
+              "Vestibular impulses from labyrinths relayed via vestibular nuclei"
+            ],
+            [
+              "Dorsal spinocerebellar",
+              "Proprioceptive and exteroceptive input from muscle spindles, Golgi tendon organs, and joint receptors of lower limbs and trunk"
+            ],
+            [
+              "Ventral spinocerebellar",
+              "Proprioceptive and exteroceptive input from muscle spindles, Golgi tendon organs, and joint receptors of upper and lower limbs"
+            ],
+            [
+              "Cuneocerebellar",
+              "Proprioceptive and exteroceptive input from muscle spindles, Golgi tendon organs, and joint receptors of upper limb and upper thorax"
+            ],
+            [
+              "Tectocerebellar",
+              "Auditory and visual impulses via inferior and superior colliculi, respectively"
+            ],
+            [
+              "Pontocerebellar",
+              "Impulses from motor and other areas of cerebral cortex via pontine nuclei"
+            ],
+            [
+              "Olivocerebellar",
+              "Proprioceptive input from whole body relayed in inferior olive"
+            ]
+          ]
+        }
+      ]
+    },
+    "marrow__PHYS_CH15_Q013": {
+      "takeaway": "The findings localize best to a spinocerebellar pathway lesion causing dysmetria.",
+      "displayText": "Dysmetria is impaired control of the distance, speed, and range of movement. Cerebellar or spinocerebellar-pathway lesions disrupt feedback needed to predict when a movement should stop, producing overshoot and corrective undershoot on finger–nose or heel–shin testing.",
+      "emphasis": [
+        "Dysmetria is impaired control of"
+      ],
+      "rationales": {
+        "a": "Basal-ganglia disorders more often cause initiation and scaling problems such as bradykinesia, rather than the dysmetric overshoot described.",
+        "c": "The source localizes dysmetria to cerebellum or its pathways, not to the midbrain as a general site.",
+        "d": "A pontine lesion is not the specific tract localization indicated by the coordination and range errors."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded source text contains OCR substitutions and figure/table layout that can obscure pathway names or row associations.",
+        "reconstructedContent": "Dysmetria is impaired control of the distance, speed, and range of movement. Cerebellar or spinocerebellar-pathway lesions disrupt feedback needed to predict when a movement should stop, producing overshoot and corrective undershoot on finger–nose or heel–shin testing.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 302 were rendered and checked from immutable Physiology PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Explanation reconstructed from the checked printed source page(s), with OCR character substitutions corrected and the source-specific pathway distinctions retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          302
+        ]
+      }
+    },
+    "marrow__PHYS_CH15_Q014": {
+      "takeaway": "Dysdiadochokinesia means impaired rapid alternating hand movements.",
+      "displayText": "Dysdiadochokinesia is inability to perform rapid alternating movements. Cerebellar damage disrupts prediction and timing among body parts, so successive movement components start too early or too late and become stalled or jumbled.",
+      "emphasis": [
+        "Dysdiadochokinesia is inability to perform"
+      ],
+      "rationales": {
+        "a": "Tandem gait tests balance and coordination but is not the definition of dysdiadochokinesia.",
+        "b": "Swaying with eyes open reflects postural instability, not the rapid-alternation deficit.",
+        "c": "Vestibulo-ocular reflex control is a different cerebellar/vestibular function; dysdiadochokinesia specifically affects alternating movements."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded source text contains OCR substitutions and figure/table layout that can obscure pathway names or row associations.",
+        "reconstructedContent": "Dysdiadochokinesia is inability to perform rapid alternating movements. Cerebellar damage disrupts prediction and timing among body parts, so successive movement components start too early or too late and become stalled or jumbled.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 303 were rendered and checked from immutable Physiology PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Explanation reconstructed from the checked printed source page(s), with OCR character substitutions corrected and the source-specific pathway distinctions retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          303
+        ]
+      }
+    },
+    "marrow__PHYS_CH15_Q015": {
+      "takeaway": "A flocculonodular-lobe lesion explains the ataxic, drunken gait.",
+      "displayText": "The flocculonodular lobe (vestibulocerebellum) uses vestibular connections to support equilibrium and gait. Damage can cause an unsteady, drunken gait and impaired postural responses, especially during rapid movement. Spinocerebellum compares proprioceptive feedback with the motor plan; cerebrocerebellum helps plan skilled movement.",
+      "emphasis": [
+        "The flocculonodular lobe (vestibulocerebellum) uses"
+      ],
+      "rationales": {
+        "b": "Spinocerebellum receives body proprioception and smooths ongoing movement; the vestibular gait syndrome points to flocculonodular lobe.",
+        "c": "Cerebrocerebellum plans skilled movements, but it is not the source region for equilibrium-related drunken gait.",
+        "d": "The superior vermis is part of the spinocerebellum; the strong vestibular/gait pattern implicates flocculonodular lobe."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded source text contains OCR substitutions and figure/table layout that can obscure pathway names or row associations.",
+        "reconstructedContent": "The flocculonodular lobe (vestibulocerebellum) uses vestibular connections to support equilibrium and gait. Damage can cause an unsteady, drunken gait and impaired postural responses, especially during rapid movement. Spinocerebellum compares proprioceptive feedback with the motor plan; cerebrocerebellum helps plan skilled movement.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 303 were rendered and checked from immutable Physiology PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Explanation reconstructed from the checked printed source page(s), with OCR character substitutions corrected and the source-specific pathway distinctions retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          303
+        ]
+      }
+    }
+  }
+}
