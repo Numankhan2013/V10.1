@@ -1,0 +1,497 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Marrow ED8 Physiology Chapter 20 explanation rollout; raw imported source remains immutable.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "20",
+    "chapterTitle": "Lung Mechanics",
+    "questionStart": 1,
+    "questionEnd": 18,
+    "questions": 18,
+    "status": "approved-rollout",
+    "workloadScore": 19,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 932,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__PHYSIO_CH20_Q001": {
+      "takeaway": "Forced expiration during exercise recruits internal intercostal and abdominal muscles.",
+      "displayText": "During strenuous running, expiration becomes active and recruits the internal intercostals and abdominal muscles. Internal intercostals and abdominal recti are the muscles involved, along with internal and external obliques and transversus abdominis. Quiet expiration is usually passive, driven by elastic recoil. The diaphragm is the chief inspiratory muscle, supplied by the phrenic nerve (C3–C5); sternocleidomastoid, scalenes, alae nasi, and small head/neck muscles assist inspiration. A cord transection above C3 can abolish diaphragmatic drive; injury below C5 generally spares phrenic outflow.",
+      "emphasis": [
+        "Internal intercostals"
+      ],
+      "rationales": {
+        "a": "The diaphragm is the chief muscle of inspiration; normal quiet expiration follows relaxation and recoil.",
+        "c": "The diaphragm and external intercostals expand the thorax during inspiration.",
+        "d": "The diaphragm is inspiratory; internal intercostals are recruited for forced expiration."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were visually reviewed to verify imported OCR and pressure–volume graph/figure interpretations.",
+        "reconstructedContent": "During strenuous running, expiration becomes active and recruits the internal intercostals and abdominal muscles. Internal intercostals and abdominal recti are the muscles involved, along with internal and external obliques and transversus abdominis. Quiet expiration is usually passive, driven by elastic recoil. The diaphragm is the chief inspiratory muscle, supplied by the phrenic nerve (C3–C5); sternocleidomastoid, scalenes, alae nasi, and small head/neck muscles assist inspiration. A cord transection above C3 can abolish diaphragmatic drive; injury below C5 generally spares phrenic outflow.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 372 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed pages and relevant pressure–volume/breathing-pattern figures were checked; equations, values, labels, and mechanisms were transcribed with OCR artifacts corrected.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          372
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH20_Q002": {
+      "takeaway": "Intrapleural pressure is negative at rest and may become positive during forced expiration.",
+      "displayText": "Intrapleural pressure is usually negative and becomes more negative during inspiration, and can become positive during forced expiration when expiratory muscles compress the thorax. The pleural pressure is the pressure in the thin fluid-filled space between visceral and parietal pleura. Thus it is generally negative, except during forceful expiratory effort.",
+      "emphasis": [
+        "Intrapleural pressure is usually negative"
+      ],
+      "rationales": {
+        "a": "Positive intrapleural pressure occurs during forced expiration, not at all times.",
+        "b": "It is normally negative and becomes positive only in conditions such as forced expiration.",
+        "d": "The source’s exception concerns forced expiration, not a positive pressure at the lung base."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were visually reviewed to verify imported OCR and pressure–volume graph/figure interpretations.",
+        "reconstructedContent": "Intrapleural pressure is usually negative and becomes more negative during inspiration, and can become positive during forced expiration when expiratory muscles compress the thorax. The pleural pressure is the pressure in the thin fluid-filled space between visceral and parietal pleura. Thus it is generally negative, except during forceful expiratory effort.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 372 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed pages and relevant pressure–volume/breathing-pattern figures were checked; equations, values, labels, and mechanisms were transcribed with OCR artifacts corrected.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          372
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH20_Q003": {
+      "takeaway": "Opposing lung and chest-wall recoil keeps pleural pressure subatmospheric.",
+      "displayText": "The intrapleural pressure is negative both during inspiration and expiration because the thoracic cage and lung recoil in opposite directions. The lung’s elastic recoil tends inward while the chest wall’s recoil tends outward. Their opposing pulls on the pleural space generate subatmospheric intrapleural pressure during both inspiration and expiration; lymphatic removal of excess pleural fluid also contributes. Transpulmonary pressure is alveolar minus pleural pressure and is the distending/recoil pressure across the lung. With pneumothorax, pleural pressure approaches atmospheric pressure and the lung recoils inward.",
+      "emphasis": [
+        "The intrapleural pressure is negative both during inspiration and expiration"
+      ],
+      "rationales": {
+        "a": "Alveolar pressure is near atmospheric at rest and varies slightly with airflow; its negativity does not explain pleural pressure.",
+        "c": "Transpulmonary pressure is the alveolar-to-pleural difference and distends the lung; it is not the cause of pleural negativity.",
+        "d": "Surfactant reduces alveolar surface tension but does not explain why pleural pressure is negative."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were visually reviewed to verify imported OCR and pressure–volume graph/figure interpretations.",
+        "reconstructedContent": "The intrapleural pressure is negative both during inspiration and expiration because the thoracic cage and lung recoil in opposite directions. The lung’s elastic recoil tends inward while the chest wall’s recoil tends outward. Their opposing pulls on the pleural space generate subatmospheric intrapleural pressure during both inspiration and expiration; lymphatic removal of excess pleural fluid also contributes. Transpulmonary pressure is alveolar minus pleural pressure and is the distending/recoil pressure across the lung. With pneumothorax, pleural pressure approaches atmospheric pressure and the lung recoils inward.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 373 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed pages and relevant pressure–volume/breathing-pattern figures were checked; equations, values, labels, and mechanisms were transcribed with OCR artifacts corrected.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          373
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH20_Q004": {
+      "takeaway": "Beginning-inspiration intrapleural pressure is approximately −3.4 cm H₂O.",
+      "displayText": "The normal intrapleural pressure at the beginning of inspiration is about −3.4 cm H₂O (approximately −2.5 mmHg). As the chest expands, outward thoracic movement pulls on the lungs and makes pleural pressure more negative; at peak inspiration the source gives about −8.15 cm H₂O (−5.4 mmHg). Use 1 mmHg ≈ 1.36 cm H₂O.",
+      "emphasis": [
+        "The normal intrapleural pressure at the beginning of inspiration is about"
+      ],
+      "rationales": {
+        "b": "About −2.5 mmHg is the equivalent in mmHg, not the requested value in cm H₂O.",
+        "c": "Zero is atmospheric reference pressure, not normal pleural pressure.",
+        "d": "Positive pleural pressure is not the normal beginning-inspiration value."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were visually reviewed to verify imported OCR and pressure–volume graph/figure interpretations.",
+        "reconstructedContent": "The normal intrapleural pressure at the beginning of inspiration is about −3.4 cm H₂O (approximately −2.5 mmHg). As the chest expands, outward thoracic movement pulls on the lungs and makes pleural pressure more negative; at peak inspiration the source gives about −8.15 cm H₂O (−5.4 mmHg). Use 1 mmHg ≈ 1.36 cm H₂O.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 373 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed pages and relevant pressure–volume/breathing-pattern figures were checked; equations, values, labels, and mechanisms were transcribed with OCR artifacts corrected.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          373
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH20_Q005": {
+      "takeaway": "Alveolar pressure is zero relative to atmosphere when airflow stops at end inspiration.",
+      "displayText": "At the end of inspiration, the alveolar pressure is zero with reference to the atmospheric pressure because airflow has stopped and the alveolar-to-atmospheric pressure gradient has dissipated. During inspiration, expanding thoracic volume lowers alveolar pressure; midway it is about −1 cm H₂O and air flows inward. Boyle’s law (P × V approximately constant at fixed temperature) explains the pressure decrease with increasing volume. The alveolar pressure is transiently positive during expiration and again equals atmospheric pressure when flow stops.",
+      "emphasis": [
+        "At the end of inspiration, the alveolar pressure is zero with reference to the atmospheric pressure"
+      ],
+      "rationales": {
+        "a": "Positive alveolar pressure occurs during expiration, not at the end of a normal inspiration.",
+        "c": "A negative alveolar pressure is present during inspiratory airflow, not once flow stops at end inspiration.",
+        "d": "−6 cm H₂O is not the end-inspiratory alveolar pressure; alveolar pressure returns to atmospheric."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were visually reviewed to verify imported OCR and pressure–volume graph/figure interpretations.",
+        "reconstructedContent": "At the end of inspiration, the alveolar pressure is zero with reference to the atmospheric pressure because airflow has stopped and the alveolar-to-atmospheric pressure gradient has dissipated. During inspiration, expanding thoracic volume lowers alveolar pressure; midway it is about −1 cm H₂O and air flows inward. Boyle’s law (P × V approximately constant at fixed temperature) explains the pressure decrease with increasing volume. The alveolar pressure is transiently positive during expiration and again equals atmospheric pressure when flow stops.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 374 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed pages and relevant pressure–volume/breathing-pattern figures were checked; equations, values, labels, and mechanisms were transcribed with OCR artifacts corrected.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          374
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH20_Q006": {
+      "takeaway": "Transpulmonary pressure equals alveolar pressure minus intrapleural pressure.",
+      "displayText": "Transpulmonary pressure is intra-alveolar pressure minus intrapleural pressure. In symbols, Ptp = Palv − Pip. It is the pressure difference between air in the alveoli and pressure on the outer lung surface, and represents the distending pressure balancing elastic lung recoil at each moment. For example, when Palv is 0 and Pip is −4 cm H₂O, Ptp is +4 cm H₂O.",
+      "emphasis": [
+        "Transpulmonary pressure is"
+      ],
+      "rationales": {
+        "a": "Atmospheric minus pleural pressure is not the defined transpulmonary pressure; use alveolar minus pleural.",
+        "c": "Alveolar minus atmospheric pressure is the driving pressure for airflow, not transpulmonary pressure.",
+        "d": "The transpulmonary pressure is defined by the alveolar–pleural pressure difference."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were visually reviewed to verify imported OCR and pressure–volume graph/figure interpretations.",
+        "reconstructedContent": "Transpulmonary pressure is intra-alveolar pressure minus intrapleural pressure. In symbols, Ptp = Palv − Pip. It is the pressure difference between air in the alveoli and pressure on the outer lung surface, and represents the distending pressure balancing elastic lung recoil at each moment. For example, when Palv is 0 and Pip is −4 cm H₂O, Ptp is +4 cm H₂O.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 374 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed pages and relevant pressure–volume/breathing-pattern figures were checked; equations, values, labels, and mechanisms were transcribed with OCR artifacts corrected.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          374
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH20_Q007": {
+      "takeaway": "Lung compliance is ΔV/ΔP = 1,000 mL ÷ 8 cm H₂O = 125 mL/cm H₂O.",
+      "displayText": "Compliance is change in volume per unit change in pressure: C = ΔV/ΔP. Here ΔV = 1,000 mL and pleural pressure changes from −4 to −12 cm H₂O, an 8 cm H₂O increase in the magnitude of distending pressure. Thus C = 1,000/8 = 125 mL per cm H₂O. The pressure change is written −8 cm H₂O, but compliance uses its magnitude because volume increased as pleural pressure became more negative.",
+      "emphasis": [
+        "Compliance is change in volume per unit change in pressure"
+      ],
+      "rationales": {
+        "a": "50 mL/cm H₂O would result from an incorrect pressure or volume change; the pressure magnitude changes by 8 cm H₂O.",
+        "b": "Using 10 cm H₂O rather than the observed 8 cm H₂O gives the wrong ratio.",
+        "d": "150 mL/cm H₂O does not follow from 1,000 mL divided by an 8 cm H₂O pressure change."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were visually reviewed to verify imported OCR and pressure–volume graph/figure interpretations.",
+        "reconstructedContent": "Compliance is change in volume per unit change in pressure: C = ΔV/ΔP. Here ΔV = 1,000 mL and pleural pressure changes from −4 to −12 cm H₂O, an 8 cm H₂O increase in the magnitude of distending pressure. Thus C = 1,000/8 = 125 mL per cm H₂O. The pressure change is written −8 cm H₂O, but compliance uses its magnitude because volume increased as pleural pressure became more negative.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 374, 375 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed pages and relevant pressure–volume/breathing-pattern figures were checked; equations, values, labels, and mechanisms were transcribed with OCR artifacts corrected.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          374,
+          375
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH20_Q008": {
+      "takeaway": "Initial Ptp is 9 cm H₂O; 600 mL at 200 mL/cm H₂O adds 3, giving 12.",
+      "displayText": "The transpulmonary pressure would be 12 cm H₂O at the end of this inspiration. Transpulmonary pressure is Palv − Pip. Initially it is 4 − (−5) = 9 cm H₂O. Compliance is 0.2 L/cm H₂O = 200 mL/cm H₂O, so a 600-mL inspiration raises transpulmonary pressure by ΔP = ΔV/C = 600/200 = 3 cm H₂O. At the end, Ptp = 9 + 3 = 12 cm H₂O. Equivalently, the inspiratory change increases alveolar pressure’s distending effect while pleural pressure becomes more negative; the item provides the compliance needed to calculate the pressure increment.",
+      "emphasis": [
+        "The transpulmonary pressure would be 12"
+      ],
+      "rationales": {
+        "a": "Five does not include the initial pressure difference plus the 3 cm H₂O increment.",
+        "b": "One is the pressure increment for 200 mL, not the final transpulmonary pressure after 600 mL.",
+        "d": "Ten omits part of the required 3 cm H₂O increase from the initial 9."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were visually reviewed to verify imported OCR and pressure–volume graph/figure interpretations.",
+        "reconstructedContent": "The transpulmonary pressure would be 12 cm H₂O at the end of this inspiration. Transpulmonary pressure is Palv − Pip. Initially it is 4 − (−5) = 9 cm H₂O. Compliance is 0.2 L/cm H₂O = 200 mL/cm H₂O, so a 600-mL inspiration raises transpulmonary pressure by ΔP = ΔV/C = 600/200 = 3 cm H₂O. At the end, Ptp = 9 + 3 = 12 cm H₂O. Equivalently, the inspiratory change increases alveolar pressure’s distending effect while pleural pressure becomes more negative; the item provides the compliance needed to calculate the pressure increment.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 375 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed pages and relevant pressure–volume/breathing-pattern figures were checked; equations, values, labels, and mechanisms were transcribed with OCR artifacts corrected.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          375
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH20_Q009": {
+      "takeaway": "Liquid ventilation removes the air–fluid interface, making the lung more compliant.",
+      "displayText": "A liquid-ventilated lung is more compliant compared to a gas-ventilated lung. Saline removes the alveolar air–fluid interface and its surface tension. Compliance measures distensibility; with surface-tension forces removed, the pressure–volume curve reflects tissue elasticity alone. The source notes that saline-filled lungs have no hysteresis, unlike air-filled lungs. The liquid-filled lung does not have increased residual volume; the principal difference is reduced surface tension and greater compliance.",
+      "emphasis": [
+        "A liquid-ventilated lung is more compliant compared to a gas-ventilated lung."
+      ],
+      "rationales": {
+        "a": "Liquid ventilation removes surface-tension effects but does not establish reduced airway resistance as the defining difference.",
+        "b": "The stated effect is increased compliance, not increased residual volume.",
+        "d": "Hysteresis is present in air-filled lungs; the source says it is absent in saline-filled lungs."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were visually reviewed to verify imported OCR and pressure–volume graph/figure interpretations.",
+        "reconstructedContent": "A liquid-ventilated lung is more compliant compared to a gas-ventilated lung. Saline removes the alveolar air–fluid interface and its surface tension. Compliance measures distensibility; with surface-tension forces removed, the pressure–volume curve reflects tissue elasticity alone. The source notes that saline-filled lungs have no hysteresis, unlike air-filled lungs. The liquid-filled lung does not have increased residual volume; the principal difference is reduced surface tension and greater compliance.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 376 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed pages and relevant pressure–volume/breathing-pattern figures were checked; equations, values, labels, and mechanisms were transcribed with OCR artifacts corrected.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          376
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH20_Q010": {
+      "takeaway": "Changing surfactant action at the air–water interface produces lung hysteresis.",
+      "displayText": "Surfactant is the factor responsible for hysteresis. It explains the difference between the inflation and deflation curves in the lung pressure–volume loop. the inflation and deflation curves differ because alveolar surface activity changes with lung volume. At the start of inspiration, surfactant is spread over a smaller area and surface tension is relatively high, so compliance is lower; as inspiration proceeds, surfactant density at the interface increases, surface tension falls, and compliance rises. During expiration the initially expanded lung has abundant interfacial surfactant, so less pressure is needed to keep airways/alveoli open than to reopen them after closure. Elastic recoil and pleural pressure alone do not account for this loop.",
+      "emphasis": [
+        "Surfactant is the factor responsible for hysteresis."
+      ],
+      "rationales": {
+        "a": "Elastic recoil contributes to lung mechanics but does not by itself account for the different inflation and deflation paths.",
+        "c": "Negative intrapleural pressure helps keep the lung expanded but is not the factor identified for hysteresis.",
+        "d": "The keyed mechanism is surfactant; the other listed factors are not the specific explanation for the loop."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were visually reviewed to verify imported OCR and pressure–volume graph/figure interpretations.",
+        "reconstructedContent": "Surfactant is the factor responsible for hysteresis. It explains the difference between the inflation and deflation curves in the lung pressure–volume loop. the inflation and deflation curves differ because alveolar surface activity changes with lung volume. At the start of inspiration, surfactant is spread over a smaller area and surface tension is relatively high, so compliance is lower; as inspiration proceeds, surfactant density at the interface increases, surface tension falls, and compliance rises. During expiration the initially expanded lung has abundant interfacial surfactant, so less pressure is needed to keep airways/alveoli open than to reopen them after closure. Elastic recoil and pleural pressure alone do not account for this loop.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 376, 377, 378 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed pages and relevant pressure–volume/breathing-pattern figures were checked; equations, values, labels, and mechanisms were transcribed with OCR artifacts corrected.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          376,
+          377,
+          378
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH20_Q011": {
+      "takeaway": "The steepest pressure–volume curve is most compliant: B > A > C.",
+      "displayText": "Compliance is the slope Δvolume/Δpressure of the pressure–volume curve. Curve B is steepest, so the same pressure change produces the largest volume change and B is most compliant; curve A is intermediate. The “stiffer” lung (C) has the flattest curve and is least compliant. Thus B > A > C. In emphysema, loss of elastic tissue increases compliance; fibrosis reduces it.",
+      "emphasis": [
+        "“stiffer” lung"
+      ],
+      "rationales": {
+        "a": "This order places B below A and C, although curve B has the greatest volume change per pressure change.",
+        "c": "C is the flatter, least-compliant curve, not more compliant than A.",
+        "d": "The graph shows B steepest, A intermediate, and C flattest, so C > A > B reverses the order."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were visually reviewed to verify imported OCR and pressure–volume graph/figure interpretations.",
+        "reconstructedContent": "Compliance is the slope Δvolume/Δpressure of the pressure–volume curve. Curve B is steepest, so the same pressure change produces the largest volume change and B is most compliant; curve A is intermediate. The “stiffer” lung (C) has the flattest curve and is least compliant. Thus B > A > C. In emphysema, loss of elastic tissue increases compliance; fibrosis reduces it.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 378, 379 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed pages and relevant pressure–volume/breathing-pattern figures were checked; equations, values, labels, and mechanisms were transcribed with OCR artifacts corrected.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          378,
+          379
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH20_Q012": {
+      "takeaway": "Curve B denotes lung compliance; A is chest wall and C is the combined system.",
+      "displayText": "In the given pressure-volume graph, A represents chest-wall compliance, B lung compliance, and C the combined chest-wall/lung compliance. At functional residual capacity (FRC), the chest wall’s outward recoil balances inward lung recoil; FRC is relaxation volume, the air remaining after normal expiration. At this point alveolar pressure equals atmospheric (0), while pleural pressure is about −2.5 mmHg, so Ptp = 0 − (−2.5) = +2.5 mmHg. Lung compliance is defined using transpulmonary pressure; chest-wall compliance uses pleural minus atmospheric pressure. The combined curve crosses the volume axis at FRC where airway pressure is zero.",
+      "emphasis": [
+        "In the given pressure-volume graph"
+      ],
+      "rationales": {
+        "a": "A is chest-wall compliance; lung compliance is defined by transpulmonary pressure and is curve B.",
+        "c": "C is the combined lung and chest-wall curve; B alone represents lung compliance.",
+        "d": "The graph explicitly labels B as lung compliance, with A and C assigned to the other systems."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were visually reviewed to verify imported OCR and pressure–volume graph/figure interpretations.",
+        "reconstructedContent": "In the given pressure-volume graph, A represents chest-wall compliance, B lung compliance, and C the combined chest-wall/lung compliance. At functional residual capacity (FRC), the chest wall’s outward recoil balances inward lung recoil; FRC is relaxation volume, the air remaining after normal expiration. At this point alveolar pressure equals atmospheric (0), while pleural pressure is about −2.5 mmHg, so Ptp = 0 − (−2.5) = +2.5 mmHg. Lung compliance is defined using transpulmonary pressure; chest-wall compliance uses pleural minus atmospheric pressure. The combined curve crosses the volume axis at FRC where airway pressure is zero.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 379, 380 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed pages and relevant pressure–volume/breathing-pattern figures were checked; equations, values, labels, and mechanisms were transcribed with OCR artifacts corrected.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          379,
+          380
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH20_Q013": {
+      "takeaway": "Specific compliance is lung compliance divided by FRC.",
+      "displayText": "Specific compliance is obtained by dividing compliance by functional residual capacity (FRC): specific compliance = C/FRC. This accounts for the fact that compliance changes with lung volume; it is greater at low than high lung volumes. Static compliance is measured at rest, whereas dynamic compliance is measured during breathing and includes airflow resistance/impedance (the source notes it is maximal in medium-sized bronchi). Normal total respiratory-system compliance near FRC is about 0.1 L/cm H₂O and lung compliance about 0.2 L/cm H₂O. In emphysema, overall compliance rises but specific compliance can fall because FRC is greatly elevated.",
+      "emphasis": [
+        "Specific compliance"
+      ],
+      "rationales": {
+        "b": "FRC divided by compliance reverses the definition.",
+        "c": "TLC is not the reference volume specified; the source uses FRC.",
+        "d": "Tidal volume is not used in the specific-compliance ratio."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were visually reviewed to verify imported OCR and pressure–volume graph/figure interpretations.",
+        "reconstructedContent": "Specific compliance is obtained by dividing compliance by functional residual capacity (FRC): specific compliance = C/FRC. This accounts for the fact that compliance changes with lung volume; it is greater at low than high lung volumes. Static compliance is measured at rest, whereas dynamic compliance is measured during breathing and includes airflow resistance/impedance (the source notes it is maximal in medium-sized bronchi). Normal total respiratory-system compliance near FRC is about 0.1 L/cm H₂O and lung compliance about 0.2 L/cm H₂O. In emphysema, overall compliance rises but specific compliance can fall because FRC is greatly elevated.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 380 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed pages and relevant pressure–volume/breathing-pattern figures were checked; equations, values, labels, and mechanisms were transcribed with OCR artifacts corrected.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          380
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH20_Q014": {
+      "takeaway": "Quiet breathing uses about 0.5 kg·m/min of work.",
+      "displayText": "Work done in quiet breathing is 0.5 kg-m/min. Estimates range from 0.3 to 0.8 kg·m/min. Work can be calculated from the pressure–volume curve. It rises considerably during exercise, although breathing normally accounts for less than 3% of total energy expenditure during exercise. In COPD, increased airway resistance favors slow, deep breathing; in restrictive disease, increased viscous/tissue resistance favors rapid, shallow breathing.",
+      "emphasis": [
+        "Work done in quiet breathing is 0.5 kg-m/min."
+      ],
+      "rationales": {
+        "a": "0.1 kg·m/min is below the source estimate of 0.3–0.8, centered at 0.5.",
+        "c": "10 kg·m/min is far above the quiet-breathing value and approaches strenuous work.",
+        "d": "2 kg·m/min exceeds the reported quiet-breathing range."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were visually reviewed to verify imported OCR and pressure–volume graph/figure interpretations.",
+        "reconstructedContent": "Work done in quiet breathing is 0.5 kg-m/min. Estimates range from 0.3 to 0.8 kg·m/min. Work can be calculated from the pressure–volume curve. It rises considerably during exercise, although breathing normally accounts for less than 3% of total energy expenditure during exercise. In COPD, increased airway resistance favors slow, deep breathing; in restrictive disease, increased viscous/tissue resistance favors rapid, shallow breathing.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 380, 381 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed pages and relevant pressure–volume/breathing-pattern figures were checked; equations, values, labels, and mechanisms were transcribed with OCR artifacts corrected.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          380,
+          381
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH20_Q015": {
+      "takeaway": "Surface-tension elasticity is the largest component of breathing work.",
+      "displayText": "Most breathing work is elastic/compliance work (about 65%); within that, the source assigns roughly two-thirds to surface tension and one-third to tissue elasticity. Nonelastic work is about 35%, from tissue/viscous resistance (7%) and airway resistance (28%). Quiet work is about 0.3–0.8 kg·m/min, while maximum work can reach 16 kg·m/min. Most of the work of breathing is due to surface tension elasticity. It is the largest single contributor listed.",
+      "emphasis": [
+        "Most of the work of breathing is due to surface tension elasticity."
+      ],
+      "rationales": {
+        "b": "Tissue elasticity contributes about one-third of elastic work and is less than surface-tension work.",
+        "c": "Viscous/tissue resistance is about 7% of total work, a smaller share.",
+        "d": "Airway resistance is about 28% of total work, below the surface-tension component."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were visually reviewed to verify imported OCR and pressure–volume graph/figure interpretations.",
+        "reconstructedContent": "Most breathing work is elastic/compliance work (about 65%); within that, the source assigns roughly two-thirds to surface tension and one-third to tissue elasticity. Nonelastic work is about 35%, from tissue/viscous resistance (7%) and airway resistance (28%). Quiet work is about 0.3–0.8 kg·m/min, while maximum work can reach 16 kg·m/min. Most of the work of breathing is due to surface tension elasticity. It is the largest single contributor listed.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 381 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed pages and relevant pressure–volume/breathing-pattern figures were checked; equations, values, labels, and mechanisms were transcribed with OCR artifacts corrected.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          381
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH20_Q016": {
+      "takeaway": "Without opposing chest-wall recoil, the lung recoils to its minimum volume, not zero.",
+      "displayText": "Without the chest wall, the lung’s inward elastic recoil reaches its minimum-volume point rather than the normal FRC equilibrium. In the source graph, the lung-only curve lies below FRC when pressure on the horizontal axis is zero; some residual air remains, so the volume is not zero. FRC requires opposing chest-wall expansion and lung collapse forces to balance. The minimum volume described is also less than FRC and residual volume.",
+      "emphasis": [
+        "chest wall"
+      ],
+      "rationales": {
+        "b": "Some air remains in the lung at minimum volume; the source graph does not show zero volume.",
+        "c": "FRC is the equilibrium of lung and chest-wall forces together, not the lung-only recoil point.",
+        "d": "The source distinguishes this minimum volume as less than residual volume."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were visually reviewed to verify imported OCR and pressure–volume graph/figure interpretations.",
+        "reconstructedContent": "Without the chest wall, the lung’s inward elastic recoil reaches its minimum-volume point rather than the normal FRC equilibrium. In the source graph, the lung-only curve lies below FRC when pressure on the horizontal axis is zero; some residual air remains, so the volume is not zero. FRC requires opposing chest-wall expansion and lung collapse forces to balance. The minimum volume described is also less than FRC and residual volume.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 381, 382 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed pages and relevant pressure–volume/breathing-pattern figures were checked; equations, values, labels, and mechanisms were transcribed with OCR artifacts corrected.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          381,
+          382
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH20_Q017": {
+      "takeaway": "Hysteresis reflects the greater pressure needed to reopen a surfactant-poor closed airway.",
+      "displayText": "The difference between the inflation and the deflation paths is called hysteresis. More transpulmonary pressure is needed to reopen a previously closed airway than to keep an already open airway from closing, because the air–water interface initially has less surfactant. Once an airway is open, abundant surfactant lowers surface tension and stabilizes it. This changing surfactant coverage explains the different inspiratory and expiratory trajectories.",
+      "emphasis": [
+        "The difference between the inflation and the deflation paths is called hysteresis."
+      ],
+      "rationales": {
+        "a": "Alveolar pressure changes with airflow, but the source explains the curve separation by surfactant availability at the interface.",
+        "c": "Airway resistance can affect dynamic mechanics but is not the mechanism given for this hysteresis loop.",
+        "d": "The loop persists because reopening a closed airway requires greater pressure due to less surfactant, not simply because inspiration is active."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were visually reviewed to verify imported OCR and pressure–volume graph/figure interpretations.",
+        "reconstructedContent": "The difference between the inflation and the deflation paths is called hysteresis. More transpulmonary pressure is needed to reopen a previously closed airway than to keep an already open airway from closing, because the air–water interface initially has less surfactant. Once an airway is open, abundant surfactant lowers surface tension and stabilizes it. This changing surfactant coverage explains the different inspiratory and expiratory trajectories.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 382 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed pages and relevant pressure–volume/breathing-pattern figures were checked; equations, values, labels, and mechanisms were transcribed with OCR artifacts corrected.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          382
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH20_Q018": {
+      "takeaway": "Crescendo–decrescendo ventilation followed by apnea is Cheyne–Stokes breathing.",
+      "displayText": "The pattern of breathing seen in the image is Cheyne-Stokes breathing. Respiration waxes and wanes in depth, then alternates with apnea or very shallow breathing in a repeating cycle of about a minute. It is a common periodic pattern in heart failure and uremia, and may also occur with brain disease or during normal sleep. The source model attributes it to disrupted pathways that normally inhibit respiration and an exaggerated ventilatory response to CO₂: hyperventilation lowers arterial PCO₂, apnea allows it to rise, and the respiratory controller over-responds again. This cyclical feedback produces the crescendo–decrescendo pattern.",
+      "emphasis": [
+        "The pattern of breathing seen in the image is Cheyne-Stokes breathing."
+      ],
+      "rationales": {
+        "a": "Apnea alone lacks the repeating waxing-and-waning breaths shown in the trace.",
+        "b": "Biot breathing has irregular clusters of breaths separated by apnea, without this regular crescendo–decrescendo cycle.",
+        "d": "Hyperpnea is increased depth of breathing, not the cyclic waxing, waning, and apnea pattern shown."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were visually reviewed to verify imported OCR and pressure–volume graph/figure interpretations.",
+        "reconstructedContent": "The pattern of breathing seen in the image is Cheyne-Stokes breathing. Respiration waxes and wanes in depth, then alternates with apnea or very shallow breathing in a repeating cycle of about a minute. It is a common periodic pattern in heart failure and uremia, and may also occur with brain disease or during normal sleep. The source model attributes it to disrupted pathways that normally inhibit respiration and an exaggerated ventilatory response to CO₂: hyperventilation lowers arterial PCO₂, apnea allows it to rise, and the respiratory controller over-responds again. This cyclical feedback produces the crescendo–decrescendo pattern.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 382 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed pages and relevant pressure–volume/breathing-pattern figures were checked; equations, values, labels, and mechanisms were transcribed with OCR artifacts corrected.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          382
+        ]
+      }
+    }
+  }
+}
