@@ -4,7 +4,7 @@
 from pathlib import Path
 import subprocess
 
-from apply_revision_desk_v1 import transform
+from apply_revision_desk_v1 import transform, BOTTOM_NAV, OLD_BOTTOM_NAV
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -14,7 +14,7 @@ CORE = ROOT / "tools/revision_desk_core.js"
 def main() -> None:
     rows = "${row('refresh','Wrong questions',`${fmtNum(wrong)} missed · retrieval practice`,\"window.QB.nav('wrong')\",'is-red')}${row('bookmark','Bookmarks',`${fmtNum(bm)} saved by you`,\"window.QB.nav('bookmarks')\",'is-violet')}${row('book','My notes',`${fmtNum(nkSavedQuestionNotes().length)} recall cues`,\"window.QB.nav('notes')\")}"
     fixture = (
-        '<html><head></head><script>/* NK_QUESTION_NOTES_V1_START */'
+        '<html><head></head><script>/* NK_QUESTION_NOTES_V1_START */' + OLD_BOTTOM_NAV +
         'let route={page:"notes"};function render(){let out="";if(false){} else if(route.page===\'notes\') out=nkNotesPage();}'
         'function morePage(){const bm=bookmarkedQuestions().length,wrong=wrongQuestions().length;'
         'return `<div>' + rows + '</div>`; }'
@@ -22,6 +22,8 @@ def main() -> None:
     )
     generated = transform(fixture)
     assert transform(generated) == generated
+    assert generated.count('class="bottom-nav ') == 1
+    assert "['fsrs','FSRS','refresh']" not in generated
     for marker in ('NK_REVISION_DESK_V1_START', 'nkRevisionDeskPage()', 'nkRevisionBrowsePage(route.id)',
                    'nkStartRevisionQueue', 'nkOpenRevisionQuestion',
                    "route.page==='quick-revision'", "nkOpenRevisionHub",
@@ -111,7 +113,7 @@ assert.equal(started.ids.length,20,'Quick revision keeps a mistake session to 20
 assert.equal(new Set(started.ids).size,20,'a revision sample contains unique question IDs');
 assert(started.ids.every(id=>id==='anat-wrong'||id.startsWith('wrong-')),'mistake session contains only mistake questions');
 console.log('REVISION_DESK_BEHAVIOR_OK globalPools=true skippedExcluded=true dueUsesFSRS=true');
-'''.replace("SOURCE", repr(CORE.read_text(encoding="utf-8")), 1)
+'''.replace("SOURCE", repr(CORE.read_text(encoding="utf-8") + '\n' + BOTTOM_NAV), 1)
     subprocess.run(["node", "-e", script], cwd=ROOT, check=True)
     print("REVISION_DESK_INSTALL_OK")
 

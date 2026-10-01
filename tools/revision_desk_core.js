@@ -82,13 +82,6 @@
     const max=Math.max(1,...forecast),total=forecast.reduce((n,x)=>n+x,0);
     return '<section class="nk-revision-forecast" aria-label="Spaced repetition forecast"><div class="nk-revision-forecast-head"><h2>Review forecast</h2><button type="button" onclick="window.QB.nav(\'fsrs\')">Open FSRS '+navIcon('chevron',16)+'</button></div><p>Scheduled reviews for this focus over the next seven days.</p><div class="nk-review-chart" role="img" aria-label="'+esc(forecast.map((n,i)=>(i===0?'Today':days[i].toLocaleDateString(undefined,{weekday:'short'}))+': '+n+' reviews').join('; '))+'">'+forecast.map((n,i)=>'<span><i style="height:'+(n?Math.max(4,Math.round(n/max*64)):0)+'px"></i><b>'+fmtNum(n)+'</b><small>'+(i===0?'Today':esc(days[i].toLocaleDateString(undefined,{weekday:'short'})))+'</small></span>').join('')+'</div><div class="nk-revision-forecast-foot"><small>'+(pool.length?fmtNum(total)+' scheduled · daily review limit applies':'Answer questions to build your review schedule')+'</small><button type="button" onclick="window.QB.nav(\'fsrs-settings\')">Review settings</button></div></section>';
   }
-  // Keep the existing route for saved links and mark every FSRS subpage as Revision.
-  if(typeof bottomNav==='function')bottomNav=function(active){
-    if(['fsrs','fsrs-settings','revision-browse','wrong','bookmarks','review'].includes(route.page)||['fsrs','fsrs-settings','revision-browse'].includes(active))active='quick-revision';
-    const due=nkRevisionDeskData({}).due.length;
-    const items=[['dashboard','Home','home'],['quick-revision','Revision','refresh'],['tests','Tests','test'],['analytics','Insights','chart'],['more','More','more']];
-    return '<nav class="bottom-nav nk-bottom-nav-v114" aria-label="Primary navigation">'+items.map(([id,label,icon])=>'<button class="nav-item '+(active===id?'active':'')+'" onclick="'+(id==='quick-revision'?'window.QB.nkOpenRevisionHub()':"window.QB.nav('"+id+"')")+'" aria-current="'+(active===id?'page':'false')+'"><span class="nav-icon-wrap">'+navIcon(icon,21)+'</span><span class="nav-label">'+label+(id==='quick-revision'&&due?'<span class="nk-nav-due" aria-label="'+due+' due reviews">'+fmtNum(due)+'</span>':'')+'</span></button>').join('')+'</nav>';
-  };
   if(typeof dashboard==='function'){
     const nkRevisionOriginalDashboard=dashboard;
     dashboard=function(){return nkRevisionOriginalDashboard().replace('<section class="nk-section nk-study-sets">',nkHomeRevisionSummary()+'<section class="nk-section nk-study-sets">');};

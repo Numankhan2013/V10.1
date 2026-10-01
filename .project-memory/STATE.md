@@ -10,8 +10,10 @@
   Revision retains all four scoped queues and now embeds a seven-day scoped
   forecast with links to the existing full FSRS view and settings. Color is
   limited to counts and small icon accents. No schedule, persistence, source,
-  or session-engine changes. Local and candidate CI status must be resolved
-  from the branch before promotion; physical review and production pending.
+  or session-engine changes. All 75 local checks, generated product contract, Revision browser checks
+  (320/390/889px), and multi-question Pause/Home/Continue regression pass
+  against the updated certified generated baseline. Full candidate CI and
+  physical review remain pending; production is unchanged.
 
 - Completed image promotion (2026-09-30): main combines the finished image
   integration with every approved account/study feature (PR #79). Certified

@@ -1932,5 +1932,9 @@ these residual additions; final combined CI remains pending. No production claim
 - Retained the all-bank pool logic, random 20-question samples, cap/rollover
   behavior, old route, shared Practice engine and persistence/source contracts.
 - Updated behavior/browser checks for global versus scoped counts, cap/rollover,
-  graph scope, all four launches and responsive navigation. Resolve actual
-  validation from candidate CI; no production or physical acceptance claimed.
+  graph scope, all four launches and responsive navigation. All 75 local checks and the generated product contract pass. The Revision
+  browser and required Pause/Home/Continue regression pass against an updated
+  copy of the certified main generated baseline. Full CI initially caught two
+  navigation renderer templates; the revision transform now replaces the
+  existing renderer and the single-navigation contract passes. Candidate CI
+  still establishes full APK/PWA verification; no physical acceptance claimed.

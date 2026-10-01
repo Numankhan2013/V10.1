@@ -33,6 +33,14 @@ def main() -> None:
             page.route("**/*", lambda route: route.continue_() if route.request.url.startswith(origin) else route.abort())
             page.goto(origin + "/#dashboard", wait_until="domcontentloaded")
             page.wait_for_function("window.QB && window.QB.getState")
+            page.locator('.bottom-nav button').filter(has_text='Revision').click()
+            page.get_by_role('heading',name='Revision',exact=True).wait_for()
+            assert page.locator('.nk-revision-card.is-red b').inner_text()=='0'
+            assert page.locator('.nk-revision-card.is-green b').inner_text()=='0'
+            assert page.locator('.nk-revision-card.is-green button').is_disabled()
+            assert page.locator('.nk-revision-forecast .nk-review-chart i').evaluate_all('(nodes)=>nodes.every(n=>n.getBoundingClientRect().height===0)')
+            page.wait_for_function("getComputedStyle(document.querySelector('.page')).opacity==='1'")
+            page.screenshot(path=str(output/'revision-empty-phone.png'),full_page=True)
             page.evaluate("""([wrong,bookmark]) => {
               const s=window.QB.getState(),now=Date.now();
               s.attempts[wrong]=[{id:'revision-wrong',selected:1,correct:false,at:now,reviewedAt:now,source:'practice',rating:1}];
@@ -42,7 +50,15 @@ def main() -> None:
               s.bookmarks[bookmark]={addedAt:now};
               window.QB.saveState();
             }""", [WRONG_ID, BOOKMARK_ID])
+            page.evaluate("window.QB.nav('more')")
+            page.get_by_role('heading',name='More',exact=True).wait_for()
+            assert page.get_by_role('button',name='Quick revision').count()==0
+            assert page.locator('.nk-settings-row').count()>=2
+            assert page.locator('.nk-settings-row').evaluate_all('(nodes)=>nodes.every(n=>getComputedStyle(n).backgroundColor==="rgb(255, 255, 255)")')
+            page.wait_for_function("getComputedStyle(document.querySelector('.page')).opacity==='1'")
+            page.screenshot(path=str(output/'revision-more-phone.png'),full_page=True)
             page.evaluate("window.QB.nav('dashboard')")
+            page.wait_for_function("getComputedStyle(document.querySelector('.page')).opacity==='1'")
             assert page.locator('.nk-home-revision .nk-count-due').inner_text() == '1'
             assert page.locator('.nk-home-revision .nk-count-missed').inner_text() == '1'
             for width,height,name in [(390,844,'phone'),(889,1280,'tablet')]:
@@ -51,6 +67,7 @@ def main() -> None:
             page.set_viewport_size({'width':390,'height':844})
             page.locator(".bottom-nav button").filter(has_text="Revision").click()
             page.get_by_role("heading", name="Revision", exact=True).wait_for(state="visible")
+            page.wait_for_function("getComputedStyle(document.querySelector('.page')).opacity==='1'")
             assert page.locator('.bottom-nav button[aria-current="page"]').inner_text().startswith('Revision')
             assert page.locator('.nk-revision-forecast .nk-review-chart span').count() == 7
             assert page.locator('.nk-revision-forecast [role="img"]').get_attribute('aria-label').startswith('Today: 1 reviews')
@@ -69,10 +86,13 @@ def main() -> None:
                 page.screenshot(path=str(output / ('revision-desk-'+name+'.png')),full_page=True)
             page.set_viewport_size({'width':390,'height':844})
             page.get_by_role('button',name='Open FSRS',exact=True).click()
+            page.get_by_role('heading',name='FSRS Review',exact=True).wait_for()
             assert page.locator('.nk-fsrs-page-v3 .nk-review-chart span').count()==7
             assert page.locator('.bottom-nav button[aria-current="page"]').inner_text().startswith('Revision')
             page.locator('.nk-back-link').filter(has_text='Revision').click()
+            page.get_by_role('heading',name='Revision',exact=True).wait_for()
             page.get_by_role('button',name='Review settings',exact=True).click()
+            page.get_by_role('heading',name='Your review rhythm',exact=True).wait_for()
             assert page.locator('.nk-fsrs-settings').count()==1
             assert page.locator('.bottom-nav button[aria-current="page"]').inner_text().startswith('Revision')
             page.get_by_role('button',name='Cancel',exact=True).click()
@@ -111,7 +131,8 @@ def main() -> None:
             page.wait_for_function("id => location.hash==='#practice' && window.QB.getState().activeSession?.questionIds?.includes(id)", arg=WRONG_ID)
 
             previous_session = page.evaluate("window.QB.getState().activeSession?.id")
-            page.locator(".bottom-nav button").filter(has_text="Revision").click()
+            page.evaluate("window.QB.nkOpenRevisionHub()")
+            page.get_by_role("heading",name="Revision",exact=True).wait_for()
             cards = page.locator(".nk-revision-card")
             cards.nth(0).get_by_role("button", name="Practice 1 mistakes").click()
             page.wait_for_function(
@@ -120,12 +141,14 @@ def main() -> None:
             )
             assert page.evaluate("window.QB.getState().activeSession?.originRoute") == "wrong"
 
-            page.locator(".bottom-nav button").filter(has_text="Revision").click()
+            page.evaluate("window.QB.nkOpenRevisionHub()")
+            page.get_by_role("heading",name="Revision",exact=True).wait_for()
             cards = page.locator(".nk-revision-card")
             cards.nth(1).get_by_role("button", name="Practice 1 bookmarks").click()
             page.wait_for_function("id => location.hash==='#practice' && window.QB.getState().activeSession?.questionIds?.includes(id)", arg=BOOKMARK_ID)
 
-            page.locator(".bottom-nav button").filter(has_text="Revision").click()
+            page.evaluate("window.QB.nkOpenRevisionHub()")
+            page.get_by_role("heading",name="Revision",exact=True).wait_for()
             cards = page.locator(".nk-revision-card")
             cards.nth(2).get_by_role("button", name="Practice 20 unseen").click()
             page.wait_for_function("location.hash==='#practice' && window.QB.getState().activeSession?.questionIds?.length===20")
@@ -136,7 +159,8 @@ def main() -> None:
               return ids.every(id => !(s.attempts[id]||[]).some(a=>!a.isUndo) && s.fsrsReviewEligible?.[id]?.reason!=='skipped');
             }""", unseen_ids), "Unseen queue included attempted or submitted-skipped questions"
 
-            page.locator(".bottom-nav button").filter(has_text="Revision").click()
+            page.evaluate("window.QB.nkOpenRevisionHub()")
+            page.get_by_role("heading",name="Revision",exact=True).wait_for()
             cards = page.locator(".nk-revision-card")
             cards.nth(3).get_by_role("button", name="Review 1 due").click()
             page.wait_for_function("id => location.hash==='#practice' && window.QB.getState().activeSession?.questionIds?.includes(id)", arg=WRONG_ID)

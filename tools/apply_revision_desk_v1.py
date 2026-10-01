@@ -3,11 +3,21 @@
 
 from pathlib import Path
 
+from apply_home_command_center_v1 import BOTTOM_NAV as OLD_BOTTOM_NAV
+
 
 ROOT = Path(__file__).resolve().parents[1]
 HTML = ROOT / "app/src/main/assets/index.html"
 CORE = ROOT / "tools/revision_desk_core.js"
 MARKER = "NK_REVISION_DESK_V1_START"
+
+# Replace the existing renderer, keeping exactly one primary navigation owner.
+BOTTOM_NAV = r'''function bottomNav(active){
+    if(['fsrs','fsrs-settings','revision-browse','wrong','bookmarks','review'].includes(route.page)||['fsrs','fsrs-settings','revision-browse'].includes(active))active='quick-revision';
+    const due=nkRevisionDeskData({}).due.length;
+    const items=[['dashboard','Home','home'],['quick-revision','Revision','refresh'],['tests','Tests','test'],['analytics','Insights','chart'],['more','More','more']];
+    return '<nav class="bottom-nav nk-bottom-nav-v114" aria-label="Primary navigation">'+items.map(([id,label,icon])=>'<button class="nav-item '+(active===id?'active':'')+'" onclick="'+(id==='quick-revision'?'window.QB.nkOpenRevisionHub()':"window.QB.nav('"+id+"')")+'" aria-current="'+(active===id?'page':'false')+'"><span class="nav-icon-wrap">'+navIcon(icon,21)+'</span><span class="nav-label">'+label+(id==='quick-revision'&&due?'<span class="nk-nav-due" aria-label="'+due+' due reviews">'+fmtNum(due)+'</span>':'')+'</span></button>').join('')+'</nav>';
+  }'''
 
 CSS = """<style id="nk-revision-desk-v1">
 .nk-revision-desk{padding-bottom:24px}
@@ -109,6 +119,7 @@ def transform(source: str) -> str:
         return source
     if "NK_QUESTION_NOTES_V1_START" not in source:
         raise SystemExit("Revision Desk must run after personal question notes")
+    source = replace_once(source, OLD_BOTTOM_NAV, BOTTOM_NAV, "primary Revision navigation")
     source = replace_once(source, "</head>", CSS + "\n</head>", "revision styles")
     source = replace_once(source, "const bm=bookmarkedQuestions().length,wrong=wrongQuestions().length;",
                           "", "remove redundant More counts")
