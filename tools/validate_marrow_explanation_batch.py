@@ -19,7 +19,7 @@ def main():
     sources = canonical_source_questions()
     queue = json.loads((ROOT / 'data/marrow/explanation_refinement_queue_20261001.json').read_text())
     protected = set(queue['baselineEnhancedIds']) | {qid for lane in queue['subjects'].values() for qid in lane['blockedIds']}
-    seen, paths = set(), []
+    seen, paths, errors = set(), [], []
     for path in sorted((args.root / 'data/marrow').glob('explanation*_v1.json')):
         record = json.loads(path.read_text())
         scope, questions = record.get('scope', {}), record.get('questions', {})
@@ -30,19 +30,24 @@ def main():
         assert 0 < len(questions) <= (14 if scope['subject'] == 'Anatomy' else 18), path.name
         assert set(questions).isdisjoint(protected | seen), path.name
         for qid, cfg in questions.items():
-            source = sources[qid]
-            assert source['subject'] == scope['subject'] and str(source['chapterId']) == str(scope['chapterId']), qid
-            assert scope['questionStart'] <= source['questionNumber'] <= scope['questionEnd'], qid
-            validate_augmented_question(qid, cfg, source, path.name)
-            validate_source_retention(qid, source, cfg)
-            if 'displayTables' in cfg:
-                reconstruction = cfg['reconstruction']
-                pdf = args.root / reconstruction['sourcePdf']
-                assert hashlib.sha256(pdf.read_bytes()).hexdigest() == reconstruction['sourcePdfSha256'], qid
-                assert all(table['source_page'] in reconstruction['sourcePages'] for table in cfg['displayTables']), qid
+            try:
+                source = sources[qid]
+                assert source['subject'] == scope['subject'] and str(source['chapterId']) == str(scope['chapterId']), qid
+                assert scope['questionStart'] <= source['questionNumber'] <= scope['questionEnd'], qid
+                validate_augmented_question(qid, cfg, source, path.name)
+                validate_source_retention(qid, source, cfg)
+                if 'displayTables' in cfg:
+                    reconstruction = cfg['reconstruction']
+                    pdf = args.root / reconstruction['sourcePdf']
+                    assert hashlib.sha256(pdf.read_bytes()).hexdigest() == reconstruction['sourcePdfSha256'], qid
+                    assert all(table['source_page'] in reconstruction['sourcePages'] for table in cfg['displayTables']), qid
+            except (AssertionError, KeyError, SystemExit) as error:
+                errors.append(f'{qid}: {error}')
         seen.update(questions)
         paths.append(path)
     assert paths, 'No authored batches at requested base'
+    if errors:
+        raise SystemExit('MARROW_WORKER_BATCHES_FAILED:\n' + '\n'.join(errors))
     print(f'MARROW_WORKER_BATCHES_OK files={len(paths)} questions={len(seen)} source_keyed=true detail_retention=true baseline_and_gates_preserved=true')
 
 
