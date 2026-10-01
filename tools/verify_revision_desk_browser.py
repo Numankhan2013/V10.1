@@ -57,9 +57,20 @@ def main() -> None:
                     assert card.locator('svg.nk-streak-flame-svg').is_visible()
                     page.wait_for_function("getComputedStyle(document.querySelector('.page')).opacity==='1'")
                     page.screenshot(path=str(output/f'streak-{streak}-{name}.png'),full_page=True)
+            frontier=page.locator('.nk-home-week-day.is-frontier')
+            assert frontier.count()==(0 if datetime.now().weekday()==6 else 1)
+            if frontier.count():
+                before=frontier.evaluate('(n)=>getComputedStyle(n,"::before").transform')
+                page.wait_for_timeout(350)
+                after=frontier.evaluate('(n)=>getComputedStyle(n,"::before").transform')
+                assert before!=after,'liquid edge should visibly move toward the next day'
+                assert frontier.evaluate('(n)=>!n.nextElementSibling.classList.contains("is-done")'),'motion never marks a future day studied'
+            assert page.locator('.nk-home-week-day.is-linked').first.evaluate('(n)=>getComputedStyle(n,"::after").animationName')=='nkStreakLiquidFlow'
             page.emulate_media(reduced_motion='reduce')
             assert page.locator('.nk-streak-flame-svg').evaluate('(n)=>getComputedStyle(n).animationName')=='none'
             assert page.locator('.nk-home-week-day.is-today i').evaluate('(n)=>getComputedStyle(n).animationName')=='none'
+            assert page.locator('.nk-home-week-day.is-linked').first.evaluate('(n)=>getComputedStyle(n,"::after").animationName')=='none'
+            if frontier.count():assert frontier.evaluate('(n)=>getComputedStyle(n,"::before").display')=='none'
             page.emulate_media(reduced_motion='no-preference')
             page.evaluate('(attempts)=>{window.QB.getState().attempts=attempts;window.QB.saveState();window.QB.nav("more");}',original_attempts)
             page.get_by_role('heading',name='More',exact=True).wait_for()

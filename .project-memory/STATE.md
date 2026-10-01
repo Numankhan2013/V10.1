@@ -10,13 +10,18 @@
   Revision retains all four scoped queues and now embeds a seven-day scoped
   forecast with links to the existing full FSRS view and settings. Color is
   limited to counts and small icon accents. Home also has connected study-day
-  markers and flame/glow milestones at 3/7/14/30 days with reduced-motion
-  support; canonical streak counting is unchanged. No schedule, persistence, source,
+  markers with a liquid blue/violet flow reaching toward the next day,
+  and a visibly animated flame/embers at 3/7/14/30 days. Reduced motion is
+  static; there are no celebration notices. The earlier amber strip was
+  rejected by the user; canonical streak counting is unchanged. No schedule, persistence, source,
   or session-engine changes. All 75 local checks, generated product contract, Revision browser checks
   (320/390/889px, including every streak tier and reduced motion), and the
   multi-question Pause/Home/Continue regression pass
-  against the updated certified generated baseline. Full candidate CI and
-  physical review remain pending; production is unchanged.
+  against the updated certified generated baseline. Full combined candidate CI and physical review remain pending; production
+  is unchanged. Earlier Revision-only build passed its PWA/APK build but
+  emulator capture closed during a PDF screenshot; amber-streak build hit
+  a source-gate DOM timing failure. The gate probe now awaits visibility;
+  source data/gating remains unchanged and the local hygiene browser passes.
 
 - Completed image promotion (2026-09-30): main combines the finished image
   integration with every approved account/study feature (PR #79). Certified

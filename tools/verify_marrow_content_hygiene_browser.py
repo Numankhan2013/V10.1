@@ -85,6 +85,9 @@ def main() -> None:
                 if session["questionIds"][session["index"]] != qid:
                     raise SystemExit(f"{qid} source-gate probe opened a different question")
                 notice = page.locator(".nk-question-unavailable")
+                # The session ID changes before the route finishes rendering.
+                # Await the actual source-gate notice rather than sampling stale DOM.
+                notice.wait_for(state="visible", timeout=5000)
                 if not notice.is_visible() or notice.locator("strong").inner_text().strip() != "Question content incomplete":
                     raise SystemExit(f"{qid} missing reviewed incomplete-source title")
                 if page.locator(".option-list button").count() or page.locator(".option-text").count():

@@ -96,9 +96,10 @@ HELPERS = r'''
     const dates=Array.from({length:7},(_,i)=>{const d=new Date(monday);d.setDate(monday.getDate()+i);return d;});
     const done=dates.map(d=>activeDays.has(dayKey(d))),names=['M','T','W','T','F','S','S'];
     const labels=dates.map((d,i)=>d.toLocaleDateString(undefined,{weekday:'long',month:'short',day:'numeric'})+': '+(done[i]?'studied':d>now?'upcoming':'not studied')+(dayKey(d)===dayKey(now)?', today':''));
-    const week=dates.map((d,i)=>`<span class="nk-home-week-day ${done[i]?'is-done':''} ${done[i]&&done[i+1]?'is-linked':''} ${dayKey(d)===dayKey(now)?'is-today':''}" title="${esc(labels[i])}"><i aria-hidden="true">${done[i]?navIcon('check',8):''}</i><b>${names[i]}</b></span>`).join('');
-    const flame='<svg class="nk-streak-flame-svg" viewBox="0 0 40 48" aria-hidden="true"><path class="nk-fire-outer" d="M22 3c2 11 13 13 13 26 0 10-7 16-15 16S5 39 5 30c0-9 6-13 8-20 0 7 2 10 5 11 6-5 4-12 4-18Z"/><path class="nk-fire-middle" d="M21 17c1 7 8 10 8 17 0 6-4 10-9 10s-9-4-9-10c0-4 3-7 5-10 0 4 1 6 3 7 3-4 3-8 2-14Z"/><path class="nk-fire-core" d="M20 31c2 4 4 5 4 8 0 3-2 5-4 5s-4-2-4-5c0-3 3-5 4-8Z"/></svg>';
-    return `<section class="nk-home-streak-card nk-streak-${presentation.level}" data-streak-level="${presentation.level}" aria-label="${fmtNum(streak)} day study streak"><span class="nk-home-streak-flame" aria-hidden="true">${flame}<i class="nk-fire-spark nk-fire-spark-one"></i><i class="nk-fire-spark nk-fire-spark-two"></i></span><div class="nk-home-streak-copy"><strong>${fmtNum(streak)} day streak</strong><small>${esc(presentation.copy)}</small></div><div class="nk-home-week" role="img" aria-label="${esc('Study this week. '+labels.join('; '))}">${week}</div></section>`;
+    const week=dates.map((d,i)=>`<span class="nk-home-week-day ${done[i]?'is-done':''} ${done[i]&&done[i+1]?'is-linked':''} ${done[i]&&dayKey(d)===dayKey(now)&&i<6&&!done[i+1]?'is-frontier':''} ${dayKey(d)===dayKey(now)?'is-today':''}" title="${esc(labels[i])}"><i aria-hidden="true">${done[i]?navIcon('check',8):''}</i><b>${names[i]}</b></span>`).join('');
+    const flame='<svg class="nk-streak-flame-svg" viewBox="0 0 50 64" aria-hidden="true"><path class="nk-fire-outer" d="M26 2c1 13 21 20 21 36 0 15-10 24-22 24C11 62 3 53 3 41c0-11 9-17 11-27 1 12 8 14 10 6 3-7 2-13 2-18Z"/><path class="nk-fire-side" d="M11 23c-1 10-7 13-7 21 0 7 4 13 10 16-5-12 1-17-3-37Z"/><path class="nk-fire-middle" d="M28 24c1 9 10 14 10 22 0 9-6 15-13 15-8 0-14-6-14-15 0-6 5-10 7-16 1 6 3 9 6 10 5-5 5-10 4-16Z"/><path class="nk-fire-core" d="M27 42c2 5 5 8 5 12 0 5-3 7-7 7s-7-3-7-7c0-5 6-9 9-12Z"/></svg>';
+
+    return `<section class="nk-home-streak-card nk-streak-${presentation.level}" data-streak-level="${presentation.level}" aria-label="${fmtNum(streak)} day study streak"><span class="nk-home-streak-flame" aria-hidden="true">${flame}<i class="nk-fire-spark nk-fire-spark-one"></i><i class="nk-fire-spark nk-fire-spark-two"></i><i class="nk-fire-spark nk-fire-spark-three"></i><i class="nk-fire-spark nk-fire-spark-four"></i></span><div class="nk-home-streak-copy"><strong><b class="nk-streak-number">${fmtNum(streak)}</b> day streak</strong><small>${esc(presentation.copy)}</small></div><div class="nk-home-week" role="img" aria-label="${esc('Study this week. '+labels.join('; '))}">${week}</div></section>`;
   }
 
   function nkHomeRangeStart(range){const d=new Date();d.setHours(0,0,0,0);if(range==='today')return d.getTime();if(range==='week'){d.setDate(d.getDate()-((d.getDay()+6)%7));return d.getTime();}if(range==='month'){d.setDate(1);return d.getTime();}d.setMonth(0,1);return d.getTime();}
@@ -297,44 +298,52 @@ body:has(.nk-home-approved-v1),body:has(.nk-study-library-v3),body:has(.nk-fsrs-
 .nk-home-focus-action:focus-visible,.nk-home-range select:focus-visible{outline:3px solid #f6b73c;outline-offset:3px}
 @media(max-width:360px){.nk-home-progress-copy{display:grid;gap:2px}.nk-home-progress-card{padding:4px 12px}}
 
-/* NK_HOME_STREAK_MILESTONES_V1: one connected week, progressively warmer fire. */
-.nk-home-streak-card{--streak-accent:#b96425;--streak-halo:rgba(228,129,45,.14);--streak-spread:5px;--flame-scale:.90;position:relative;gap:10px;padding:12px 14px;background:linear-gradient(105deg,#fffaf4 0%,#fff 55%);border-color:#eee4d8;box-shadow:0 5px 18px rgba(68,43,19,.045)}
+/* NK_HOME_STREAK_MILESTONES_V1: liquid violet trail and an animated fire. */
+.nk-home-streak-card{--streak-accent:#7356e9;--streak-halo:rgba(115,86,233,.22);--streak-spread:7px;--flame-scale:.90;--fire-speed:1.7s;position:relative;grid-template-columns:52px minmax(0,1fr) auto;gap:10px;min-height:84px;padding:12px 14px;background:linear-gradient(110deg,#faf9ff,#fff 70%);border-color:#e4e0f2;box-shadow:0 5px 18px rgba(46,37,91,.05)}
 .nk-home-streak-card.nk-streak-rest{--streak-accent:#8b90a5;background:#fff;border-color:#e7e8ef;box-shadow:none}
-.nk-home-streak-card.nk-streak-warm{--streak-accent:#bd6627;--streak-halo:rgba(238,142,46,.22);--streak-spread:7px;--flame-scale:1}
-.nk-home-streak-card.nk-streak-fire{--streak-accent:#c55f24;--streak-halo:rgba(245,131,35,.28);--streak-spread:10px;--flame-scale:1.08}
-.nk-home-streak-card.nk-streak-blaze{--streak-accent:#c45222;--streak-halo:rgba(241,109,28,.32);--streak-spread:13px;--flame-scale:1.16;border-color:#efd7c4}
-.nk-home-streak-card.nk-streak-radiant{--streak-accent:#b95716;--streak-halo:rgba(246,168,35,.40);--streak-spread:16px;--flame-scale:1.22;border-color:#ebd3aa}
-.nk-home-streak-card .nk-home-streak-flame{position:relative;width:44px;height:44px;border-radius:13px;background:radial-gradient(circle at 50% 65%,#fff1cd,#fff7ea);box-shadow:0 0 var(--streak-spread) var(--streak-halo);animation:none}
-.nk-streak-flame-svg{width:31px;height:38px;transform:scale(var(--flame-scale));transform-origin:50% 90%;filter:drop-shadow(0 2px 3px var(--streak-halo))}
-.nk-fire-outer{fill:#e77a32}.nk-fire-middle{fill:#ffbc4d}.nk-fire-core{fill:#fff3c1}
-.nk-streak-rest .nk-home-streak-flame{background:#f2f3f7;box-shadow:none}
-.nk-streak-rest .nk-fire-outer{fill:#b8bdcc}.nk-streak-rest .nk-fire-middle{fill:#d7dbe5}.nk-streak-rest .nk-fire-core{fill:#f5f6fa}
-.nk-streak-flame-svg .nk-fire-middle{transform-origin:50% 90%}
-.nk-home-streak-card:not(.nk-streak-rest) .nk-streak-flame-svg{animation:nkStreakFireSway 3.6s ease-in-out infinite}
-.nk-home-streak-card:not(.nk-streak-rest) .nk-fire-middle{animation:nkStreakInnerFlicker 2.8s ease-in-out infinite}
+.nk-home-streak-card.nk-streak-warm{--streak-halo:rgba(115,86,233,.28);--streak-spread:9px;--flame-scale:1;--fire-speed:1.5s}
+.nk-home-streak-card.nk-streak-fire{--streak-halo:rgba(115,86,233,.35);--streak-spread:12px;--flame-scale:1.10;--fire-speed:1.3s}
+.nk-home-streak-card.nk-streak-blaze{--streak-halo:rgba(115,86,233,.40);--streak-spread:15px;--flame-scale:1.19;--fire-speed:1.15s}
+.nk-home-streak-card.nk-streak-radiant{--streak-halo:rgba(115,86,233,.46);--streak-spread:18px;--flame-scale:1.28;--fire-speed:1s}
+.nk-home-streak-card .nk-home-streak-flame{position:relative;isolation:isolate;width:52px;height:54px;border-radius:0;background:none;box-shadow:none;animation:none;overflow:visible}
+.nk-home-streak-card .nk-home-streak-flame:before{content:"";position:absolute;z-index:-1;inset:8px 0 -1px;border-radius:50%;background:radial-gradient(ellipse,#ffc67e65,transparent 70%);filter:blur(4px);animation:nkStreakFireAura 2s ease-in-out infinite}
+.nk-streak-flame-svg{width:36px;height:47px;overflow:visible;transform:scale(var(--flame-scale));transform-origin:50% 90%;filter:drop-shadow(0 3px 3px #f6992b38)}
+.nk-fire-outer{fill:#ff882c}.nk-fire-side{fill:#f56b24}.nk-fire-middle{fill:#ffd15a;transform-origin:50% 95%}.nk-fire-core{fill:#fff7c8;transform-origin:50% 95%}
+.nk-streak-rest .nk-home-streak-flame:before{display:none}
+.nk-streak-rest .nk-fire-outer{fill:#c1c4df}.nk-streak-rest .nk-fire-side{fill:#afb4d6}.nk-streak-rest .nk-fire-middle{fill:#dbdef0}.nk-streak-rest .nk-fire-core{fill:#f5f6fb}
+.nk-streak-rest .nk-streak-flame-svg{filter:none}
+.nk-home-streak-card:not(.nk-streak-rest) .nk-streak-flame-svg{animation:nkStreakLiveFire var(--fire-speed) ease-in-out infinite}
+.nk-home-streak-card:not(.nk-streak-rest) .nk-fire-middle{animation:nkStreakInnerFire .9s ease-in-out infinite}
+.nk-home-streak-card:not(.nk-streak-rest) .nk-fire-core{animation:nkStreakCoreFire .7s ease-in-out infinite}
 .nk-home-streak-card .nk-home-streak-copy{display:grid;gap:4px;min-width:0}
-.nk-home-streak-card .nk-home-streak-copy strong{font-size:14px;color:#252742;font-variant-numeric:tabular-nums}
-.nk-home-streak-card .nk-home-streak-copy small{font-size:11px;color:#767084;line-height:1.35}
-.nk-home-streak-card .nk-home-week{display:grid;grid-template-columns:repeat(7,21px);gap:0;isolation:isolate}
-.nk-home-streak-card .nk-home-week-day{position:relative;display:grid;gap:7px;place-items:center}
-.nk-home-streak-card .nk-home-week-day:not(:last-child):after{content:"";position:absolute;z-index:-1;height:2px;top:6px;left:50%;width:100%;background:#e7e8ee;border-radius:2px}
-.nk-home-streak-card .nk-home-week-day.is-linked:after{height:3px;top:5px;background:var(--streak-accent);box-shadow:0 0 var(--streak-spread) var(--streak-halo)}
-.nk-home-streak-card .nk-home-week-day i{width:13px;height:13px;border-radius:50%;background:#e7e8ee;display:grid;place-items:center;color:#fff;box-shadow:none;outline:none}
-.nk-home-streak-card .nk-home-week-day.is-done i{background:var(--streak-accent);box-shadow:0 0 var(--streak-spread) var(--streak-halo)}
-.nk-home-streak-card .nk-home-week-day.is-today i{outline:2px solid var(--streak-accent);outline-offset:2px}
-.nk-home-streak-card .nk-home-week-day.is-done.is-today i{animation:nkStreakDayGlow 3.6s ease-in-out infinite}
+.nk-home-streak-card .nk-home-streak-copy strong{font-size:12px;line-height:1.15;font-weight:700;color:#29244d;white-space:nowrap}
+.nk-streak-number{font-size:25px;font-weight:850;letter-spacing:-.6px;vertical-align:-1px;font-variant-numeric:tabular-nums;margin-right:2px}
+.nk-home-streak-card .nk-home-streak-copy small{font-size:11px;color:#76738b;line-height:1.4;max-width:230px}
+.nk-home-streak-card .nk-home-week{display:grid;grid-template-columns:repeat(7,21px);gap:0;isolation:isolate;padding:4px 0}
+.nk-home-streak-card .nk-home-week-day{position:relative;display:grid;gap:8px;place-items:center}
+.nk-home-streak-card .nk-home-week-day:not(:last-child):after{content:"";position:absolute;z-index:-2;height:3px;top:5px;left:50%;width:100%;background:#e7e7f2;border-radius:99px}
+.nk-home-streak-card .nk-home-week-day.is-linked:after{height:5px;top:4px;background:linear-gradient(90deg,#7257e6 0%,#b9a4ff 40%,#8e74f2 60%,#7257e6 100%);background-size:200% 100%;box-shadow:0 0 var(--streak-spread) var(--streak-halo);animation:nkStreakLiquidFlow 2.4s linear infinite}
+.nk-home-streak-card .nk-home-week-day.is-frontier:before{content:"";position:absolute;z-index:-1;top:4px;left:50%;height:5px;width:90%;border-radius:99px 65% 65% 99%;background:linear-gradient(90deg,#8a6eee,#c4b2ff);box-shadow:0 0 6px #ab94f755;transform-origin:left center;animation:nkStreakLiquidReach 2.8s cubic-bezier(.4,0,.2,1) infinite}
+.nk-home-streak-card .nk-home-week-day i{position:relative;width:13px;height:13px;border-radius:50%;background:#e7e7f2;display:grid;place-items:center;color:#fff;box-shadow:none;outline:none}
+.nk-home-streak-card .nk-home-week-day.is-done i{background:linear-gradient(145deg,#9880f4,#7052e3);box-shadow:0 0 var(--streak-spread) var(--streak-halo);animation:nkStreakWaterSurface 2.8s ease-in-out infinite}
+.nk-home-streak-card .nk-home-week-day.is-today i{outline:2px solid #8468ec;outline-offset:2px}
 .nk-home-streak-card .nk-home-week-day b{font-size:8px;color:#858397}
-.nk-home-streak-card .nk-home-week-day.is-done b{color:#76563e}
-.nk-home-streak-card .nk-fire-spark{display:none;position:absolute;width:3px;height:5px;background:#f4ae42;border-radius:50%;pointer-events:none}
-.nk-streak-fire .nk-fire-spark-one,.nk-streak-blaze .nk-fire-spark-one,.nk-streak-radiant .nk-fire-spark{display:block;animation:nkStreakSparkRise 4.6s ease-out infinite}
-.nk-fire-spark-one{top:7px;left:8px}.nk-fire-spark-two{top:4px;right:8px;animation-delay:2.3s!important}
-@keyframes nkStreakFireSway{0%,100%{transform:scale(var(--flame-scale)) rotate(-1deg)}50%{transform:scale(var(--flame-scale)) rotate(1deg) translateY(-1px)}}
-@keyframes nkStreakInnerFlicker{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.94)}}
-@keyframes nkStreakDayGlow{0%,100%{box-shadow:0 0 var(--streak-spread) var(--streak-halo)}50%{box-shadow:0 0 calc(var(--streak-spread) + 3px) var(--streak-halo)}}
-@keyframes nkStreakSparkRise{0%,25%{opacity:0;transform:translateY(2px) scale(.6)}40%{opacity:.7}70%,100%{opacity:0;transform:translateY(-8px) scale(.35)}}
-@media(max-width:390px){.nk-home-streak-card{gap:8px;padding:10px}.nk-home-streak-card .nk-home-week{grid-template-columns:repeat(7,18px)}.nk-home-streak-card .nk-home-streak-copy strong{font-size:13px}.nk-home-streak-card .nk-home-streak-copy small{font-size:10px}}
-@media(max-width:360px){.nk-home-streak-card .nk-home-week{grid-template-columns:repeat(7,16px)}.nk-home-streak-card .nk-home-week-day i{width:11px;height:11px}.nk-home-streak-card .nk-home-week-day:not(:last-child):after{top:5px}.nk-home-streak-card .nk-home-week-day.is-linked:after{top:4px}}
-@media(prefers-reduced-motion:reduce){.nk-home-streak-card .nk-streak-flame-svg,.nk-home-streak-card .nk-fire-middle,.nk-home-streak-card .nk-home-week-day i,.nk-home-streak-card .nk-fire-spark{animation:none!important}.nk-home-streak-card .nk-fire-spark{display:none!important}}
+.nk-home-streak-card .nk-home-week-day.is-done b{color:#5e5188}
+.nk-home-streak-card .nk-fire-spark{display:none;position:absolute;width:3px;height:5px;background:#ffc25d;border-radius:70% 30% 60% 40%;pointer-events:none}
+.nk-home-streak-card:not(.nk-streak-rest) .nk-fire-spark-one,.nk-home-streak-card:not(.nk-streak-rest) .nk-fire-spark-two,.nk-streak-fire .nk-fire-spark-three,.nk-streak-blaze .nk-fire-spark-three,.nk-streak-radiant .nk-fire-spark{display:block;animation:nkStreakEmberLift 2.2s ease-out infinite}
+.nk-fire-spark-one{top:19px;left:10px;--ember-drift:-5px}.nk-fire-spark-two{top:15px;right:8px;--ember-drift:5px;animation-delay:-1.1s!important}
+.nk-fire-spark-three{top:12px;left:23px;--ember-drift:3px;animation-delay:-.6s!important}.nk-fire-spark-four{top:20px;left:16px;--ember-drift:-3px;animation-delay:-1.7s!important}
+@keyframes nkStreakLiveFire{0%,100%{transform:scale(var(--flame-scale)) rotate(-3deg)}35%{transform:translateY(-3px) scale(calc(var(--flame-scale) * .96),calc(var(--flame-scale) * 1.08)) rotate(2deg)}70%{transform:translateY(-1px) scale(calc(var(--flame-scale) * 1.03),calc(var(--flame-scale) * .97)) rotate(-1deg)}}
+@keyframes nkStreakInnerFire{0%,100%{transform:scale(1,1)}50%{transform:scale(.94,1.12) translateY(-1px)}}
+@keyframes nkStreakCoreFire{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.85)}}
+@keyframes nkStreakFireAura{0%,100%{opacity:.6;transform:scale(.9)}50%{opacity:1;transform:scale(1.15)}}
+@keyframes nkStreakLiquidFlow{from{background-position:200% 0}to{background-position:0 0}}
+@keyframes nkStreakLiquidReach{0%,100%{transform:scaleX(.22) scaleY(.7);opacity:.35}55%{transform:scaleX(1) scaleY(1.15);opacity:.85}75%{transform:scaleX(.86);opacity:.65}}
+@keyframes nkStreakWaterSurface{0%,100%{border-radius:50%;transform:scale(1)}50%{border-radius:45% 55% 52% 48%;transform:scale(1.035)}}
+@keyframes nkStreakEmberLift{0%{opacity:0;transform:translate(0,5px) scale(.4)}25%{opacity:.85}100%{opacity:0;transform:translate(var(--ember-drift),-17px) scale(.2)}}
+@media(max-width:390px){.nk-home-streak-card{gap:8px;padding:10px;grid-template-columns:46px minmax(0,1fr) auto}.nk-home-streak-card .nk-home-week{grid-template-columns:repeat(7,20px)}.nk-home-streak-card .nk-home-streak-flame{width:46px}.nk-home-streak-card .nk-home-streak-copy small{font-size:10px}.nk-streak-number{font-size:23px}}
+@media(max-width:360px){.nk-home-streak-card .nk-home-week{grid-template-columns:repeat(7,17px)}.nk-home-streak-card .nk-home-week-day i{width:11px;height:11px}.nk-home-streak-card .nk-home-week-day:not(:last-child):after{top:4px}.nk-home-streak-card .nk-home-week-day.is-linked:after,.nk-home-streak-card .nk-home-week-day.is-frontier:before{top:3px}.nk-home-streak-card .nk-home-streak-copy strong{font-size:10px}.nk-streak-number{font-size:22px}}
+@media(prefers-reduced-motion:reduce){.nk-home-streak-card .nk-streak-flame-svg,.nk-home-streak-card .nk-fire-middle,.nk-home-streak-card .nk-fire-core,.nk-home-streak-card .nk-home-week-day i,.nk-home-streak-card .nk-fire-spark,.nk-home-streak-card .nk-home-week-day:before,.nk-home-streak-card .nk-home-week-day:after,.nk-home-streak-card .nk-home-streak-flame:before{animation:none!important}.nk-home-streak-card .nk-fire-spark,.nk-home-streak-card .nk-home-week-day.is-frontier:before{display:none!important}}
 </style>'''
 
 

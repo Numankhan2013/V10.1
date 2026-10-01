@@ -55,7 +55,10 @@ closed. Raw question bundles and audit metadata remain unchanged.
   timed-resume core. The Home command-center owner composes `nkHomeStreakMarkup` from existing
   `currentStreak`/`studyDayKeys`, connects only adjacent studied days in the
   current local calendar week, and applies CSS-only milestone flame motion.
-  Reduced motion disables flicker/pulse and decorative sparks.
+  The violet linked rail flows continuously; today’s completed marker has
+  an animated liquid frontier that reaches toward the next neutral dot
+  without changing its studied state. Reduced motion disables trail/frontier,
+  fire flicker, aura and sparks. No new persistence or animation timers.
   Home period counts use unique answered IDs, answer
   accuracy, and study time; result score/accuracy expose their denominators.
   Result actions retain repeated-tap guards without the 900 ms delay.

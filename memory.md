@@ -791,3 +791,11 @@ shows gaps, and grows the flame/glow at 3/7/14/30 days. Reduced motion is static
 canonical streak/day counts are unchanged. All tier/responsive browser checks
 and the required Pause/Home/Continue regression pass on the updated generated
 baseline; recheck the exact combined candidate's full CI before promotion.
+
+The user rejected the amber streak preview and requested a liquid blue/violet
+week strip moving toward the next dot, with no celebratory notices. The revised
+candidate has flowing completed links, a stretching/receding frontier at today,
+neutral future dots, more lively flame/embers and static reduced-motion mode.
+Actual six-second GIF/MP4 motion evidence is in local build/ui-checks. Local
+75 checks, generated product contract, responsive/tier/real-motion/reduced-motion
+browser checks and source-hygiene browser pass; exact latest full CI is pending.

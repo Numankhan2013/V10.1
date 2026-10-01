@@ -88,7 +88,9 @@ Prefer building over narrating.
   chiseled, integrated axis, restrained motion) + week strip; Today’s Focus
   (Continue Practice, Review-Due-when-due, permanent Practice-20-Random,
   Timed CBT); Connected study-day dots, with gaps for missed days and progressive
-  flame/glow milestones at 3, 7, 14, and 30 days; gentle animation respects
+  blue/violet liquid flow reaching toward the next unfilled day and vivid
+  flame/ember milestones at 3, 7, 14, and 30 days; no celebration notices.
+  Animation respects
   reduced motion and does not alter streak calculation. Subjects library
   with accurate counts/progress; progress
   snapshot; Quick Access; Performance/Recent; clear next action.

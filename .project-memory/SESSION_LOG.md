@@ -1955,3 +1955,24 @@ these residual additions; final combined CI remains pending. No production claim
   required multi-question Pause/Home/Continue regression pass on the updated
   certified generated baseline. Candidate CI still establishes full build
   verification; physical review and production remain separate.
+
+
+## 2026-10-01 — Replace rejected amber streak with liquid violet motion
+
+- User rejected the amber treatment and clarified the week strip should feel
+  like water moving from today toward the next dot, without celebratory notices.
+- Replaced warm card/rail coloring with the app's blue/violet language, liquid
+  gradient flow across studied links and a stretching/receding frontier at today.
+  Future markers stay neutral and semantically upcoming. The larger flame has
+  independent outer/inner/core motion, aura and rising embers; milestone scale
+  and energy grow, with all motion disabled by reduced-motion preference.
+- Captured six seconds of actual rendered movement as GIF/MP4 under local
+  `build/ui-checks/`. Read Duolingo's official streak habit/milestone motion
+  posts for inspiration; retained this app's own visual theme and study model.
+- All 75 local checks, tier/responsive/real-motion/reduced-motion browser checks,
+  generated product contract, and local source-hygiene browser pass. Earlier CI
+  had a gate probe sample DOM before visibility; the probe now awaits the
+  existing source-gate notice, still failing on a missing gate. Source behavior
+  and content remain unchanged. Full latest candidate CI must pass before
+  claiming build verification; previous emulator capture failed during a PDF
+  screenshot after its underlying PWA/APK build succeeded.
