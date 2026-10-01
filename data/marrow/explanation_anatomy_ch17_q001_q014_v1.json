@@ -1,0 +1,352 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Anatomy Chapter 17 explanation refinement. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Anatomy",
+    "bank": "Marrow",
+    "chapterId": "17",
+    "chapterTitle": "Cranial Nerves",
+    "questionStart": 1,
+    "questionEnd": 14,
+    "questions": 14,
+    "status": "approved-rollout",
+    "workloadScore": 20,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 753,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__ANAT_CH17_Q001": {
+      "takeaway": "CN I (olfactory) is purely sensory and has no motor component.",
+      "displayText": "The olfactory nerve is a pure sensory cranial nerve and carries no motor fibers. The source uses the mnemonic 'Some Say Money Matters But My Brother Says Big Brains Matter More' to classify cranial nerves as sensory, motor or mixed.",
+      "emphasis": [
+        "pure sensory",
+        "no motor fibers",
+        "sensory, motor or mixed"
+      ],
+      "rationales": {
+        "b": "Trochlear nerve (CN IV) supplies the superior oblique muscle and is motor, not purely sensory.",
+        "c": "Trigeminal nerve (CN V) carries both sensory and motor fibers.",
+        "d": "Glossopharyngeal nerve (CN IX) is mixed, carrying sensory and motor/parasympathetic components."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record: stable ID, stem, options, printed answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          313
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      }
+    },
+    "marrow__ANAT_CH17_Q002": {
+      "takeaway": "The hypoglossal nucleus is a basal-plate motor nucleus, not an alar-plate derivative.",
+      "displayText": "The hypoglossal nucleus is not derived from the alar plate; it is a motor nucleus derived from the basal plate. In the developing neural tube, the basal plate forms motor nuclei and the alar plate forms sensory nuclei. The rhombic lip gives rise to the cerebellum and its nuclei.",
+      "emphasis": [
+        "alar plate",
+        "basal plate",
+        "motor nuclei",
+        "rhombic lip"
+      ],
+      "rationales": {
+        "a": "The inferior olivary nucleus is listed among alar-plate sensory derivatives in the source table.",
+        "c": "The dentate nucleus develops with the cerebellum from the rhombic lip; it is not the basal-plate motor nucleus asked for.",
+        "d": "The mesencephalic nucleus of CN V is listed as an alar-plate derivative in the source table."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record: stable ID, stem, options, printed answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          314,
+          315
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "1 native source table(s) and 0 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH17_Q003": {
+      "takeaway": "From ventral to dorsal, cranial motor columns precede visceral and somatic sensory columns.",
+      "displayText": "From ventral to dorsal, the functional columns are Somatic Efferent > Visceral Efferent > Visceral Afferent > Somatic Afferent. Motor columns lie ventrally in the basal plate and sensory columns dorsally in the alar plate, with visceral columns nearer the sulcus limitans than somatic columns.",
+      "emphasis": [
+        "ventral to dorsal",
+        "Somatic Efferent",
+        "Visceral Efferent",
+        "Somatic Afferent"
+      ],
+      "rationales": {
+        "a": "This places visceral efferent before somatic efferent; the source order begins with somatic efferent at the ventral side.",
+        "c": "This puts sensory columns ventrally and motor columns dorsally, reversing the basal/alar arrangement.",
+        "d": "This interleaves sensory and motor columns incorrectly; the order is somatic efferent, visceral efferent, visceral afferent, somatic afferent."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record: stable ID, stem, options, printed answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          315,
+          316
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 1 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH17_Q004": {
+      "takeaway": "CN VII motor neurons are SVE; GSE nuclei are III, IV, VI and XII.",
+      "displayText": "The facial nerve does not contain neurons from the general somatic efferent (GSE) column. GSE is represented by nuclei of III, IV, VI and XII. Facial nerve motor fibers belong to the special visceral efferent column, while its parasympathetic component arises from the superior salivatory nucleus in the general visceral efferent column.",
+      "emphasis": [
+        "general somatic efferent",
+        "facial nerve",
+        "special visceral efferent",
+        "superior salivatory nucleus"
+      ],
+      "rationales": {
+        "a": "CN III is a GSE nerve supplying extraocular muscle.",
+        "b": "CN IV supplies superior oblique and is in the GSE column.",
+        "c": "CN VI supplies lateral rectus and is in the GSE column; CN VII facial motor is SVE."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record: stable ID, stem, options, printed answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          316
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 1 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH17_Q005": {
+      "takeaway": "The dorsal motor nucleus of X is GVE, not SVE.",
+      "displayText": "The dorsal motor nucleus of the vagus is not part of the special visceral efferent (SVE) column. SVE supplies muscles derived from pharyngeal arches and includes the motor nucleus of V, motor nucleus of VII and nucleus ambiguus. The dorsal motor nucleus of X belongs to the general visceral efferent column.",
+      "emphasis": [
+        "special visceral efferent",
+        "pharyngeal arches",
+        "dorsal motor nucleus of X",
+        "general visceral efferent"
+      ],
+      "rationales": {
+        "a": "The motor nucleus of V supplies muscles of mastication and is a branchial-motor SVE nucleus.",
+        "b": "The motor nucleus of VII supplies facial-expression muscles and is SVE.",
+        "d": "Nucleus ambiguus supplies branchial-arch muscles and is SVE; the dorsal motor nucleus of X is GVE."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record: stable ID, stem, options, printed answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          317
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 1 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH17_Q006": {
+      "takeaway": "Nucleus ambiguus is SVE, whereas parasympathetic cranial nuclei form the GVE column.",
+      "displayText": "Nucleus ambiguus does not belong to the general visceral efferent (GVE) column; it is SVE. GVE contains parasympathetic nuclei: Edinger-Westphal (III), superior salivatory (VII), inferior salivatory (IX) and dorsal motor nucleus of vagus (X).",
+      "emphasis": [
+        "general visceral efferent",
+        "Nucleus ambiguus",
+        "Edinger-Westphal",
+        "inferior salivatory"
+      ],
+      "rationales": {
+        "a": "The dorsal motor nucleus of vagus is parasympathetic GVE.",
+        "b": "Edinger–Westphal is the parasympathetic GVE nucleus associated with CN III.",
+        "d": "The inferior salivatory nucleus supplies parasympathetic GVE fibers associated with CN IX."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record: stable ID, stem, options, printed answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          317,
+          318
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 1 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH17_Q007": {
+      "takeaway": "CN III has both GSE motor and GVE Edinger–Westphal nuclei.",
+      "displayText": "The oculomotor nerve has nuclei in both GSE and GVE columns: the oculomotor motor nucleus is GSE and the Edinger-Westphal nucleus is GVE.",
+      "emphasis": [
+        "GSE",
+        "GVE",
+        "Edinger-Westphal",
+        "oculomotor motor nucleus"
+      ],
+      "rationales": {
+        "b": "Trochlear nerve has a somatic motor nucleus but no GVE Edinger–Westphal component.",
+        "c": "Facial nerve has SVE facial motor and GVE superior salivatory components, not GSE plus GVE as in CN III.",
+        "d": "Glossopharyngeal nerve has GVE and SVE/afferent components, but not the GSE plus GVE pairing of CN III."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record: stable ID, stem, options, printed answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          318
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      }
+    },
+    "marrow__ANAT_CH17_Q008": {
+      "takeaway": "The trochlear nucleus is GSE and is not a special visceral afferent nucleus.",
+      "displayText": "The trochlear nucleus is not part of the special visceral afferent column. It is a general somatic efferent motor nucleus supplying the superior oblique muscle. SVA components are associated with taste/visceral-special sensory pathways.",
+      "emphasis": [
+        "special visceral afferent",
+        "general somatic efferent",
+        "superior oblique",
+        "taste"
+      ],
+      "rationales": {
+        "a": "Facial nerve carries taste special visceral afferents, although it also has motor components.",
+        "c": "Vagus has special visceral afferent taste fibers along with other functions.",
+        "d": "Glossopharyngeal carries taste afferents; trochlear is a somatic motor nerve."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record: stable ID, stem, options, printed answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          318,
+          319
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 1 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH17_Q009": {
+      "takeaway": "CN XII is purely motor and is not involved in olfactory sensation.",
+      "displayText": "The hypoglossal nerve is purely motor and is not involved in olfaction. The source notes contributions of trigeminal, glossopharyngeal and vagus nerves to olfactory-related sensation/modulation.",
+      "emphasis": [
+        "purely motor",
+        "not involved in olfaction",
+        "trigeminal",
+        "glossopharyngeal"
+      ],
+      "rationales": {
+        "a": "Trigeminal contributes general sensation from nasal structures but is not the nerve excluded by the source key.",
+        "b": "Vagus is described as contributing to olfactory-related sensation/modulation; CN XII is purely motor.",
+        "c": "Glossopharyngeal has a source-described sensory contribution; CN XII has no sensory role in olfaction."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record: stable ID, stem, options, printed answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          319
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      }
+    },
+    "marrow__ANAT_CH17_Q010": {
+      "takeaway": "Vagal motor fibers from nucleus ambiguus emerge from the posterolateral sulcus.",
+      "displayText": "Fibers from nucleus ambiguus emerge through the posterolateral sulcus of the brainstem. Nucleus ambiguus contains motor components associated with cranial nerves IX, X and XI. The source also summarizes vagal components: dorsal vagal nucleus for parasympathetic output, nucleus ambiguus for pharynx/larynx/palate, nucleus tractus solitarius for viscero-sensory input, and spinal trigeminal nucleus for somatic sensory input from outer ear/dura.",
+      "emphasis": [
+        "posterolateral sulcus",
+        "nucleus ambiguus",
+        "cranial nerves IX, X and XI",
+        "dorsal vagal nucleus"
+      ],
+      "rationales": {
+        "b": "Anterolateral sulcus is the exit site for hypoglossal rootlets, not nucleus-ambiguus vagal fibers.",
+        "c": "The body of the pons is not the emergence site for vagal motor fibers from nucleus ambiguus.",
+        "d": "The pontomedullary junction is where CN VI, VII and VIII emerge; vagal fibers exit the posterolateral medulla."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record: stable ID, stem, options, printed answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          319,
+          320
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "1 native source table(s) and 0 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH17_Q011": {
+      "takeaway": "CN VI emerges at the pontomedullary junction and supplies lateral rectus.",
+      "displayText": "The lateral rectus is most likely paralyzed because it is supplied by cranial nerve VI, which emerges at the pontomedullary junction. CN VI, VII and VIII arise at this junction. Superior oblique is supplied by IV; most other extraocular muscles by III.",
+      "emphasis": [
+        "lateral rectus",
+        "pontomedullary junction",
+        "CN VI",
+        "Superior oblique"
+      ],
+      "rationales": {
+        "a": "Superior oblique is supplied by CN IV, which exits dorsally rather than at the pontomedullary junction.",
+        "b": "Inferior oblique is supplied by CN III.",
+        "c": "Medial rectus is supplied by CN III; CN VI supplies lateral rectus."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record: stable ID, stem, options, printed answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          320
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      }
+    },
+    "marrow__ANAT_CH17_Q012": {
+      "takeaway": "CN IV is the only cranial nerve that exits the dorsal brainstem.",
+      "displayText": "The trochlear nerve is the only cranial nerve that exits the brainstem from its dorsal surface, so a dorsal brainstem lesion can injure it. The other listed cranial nerves exit ventrally.",
+      "emphasis": [
+        "dorsal surface",
+        "trochlear nerve",
+        "brainstem",
+        "dorsal"
+      ],
+      "rationales": {
+        "a": "Hypoglossal nerve exits the medulla ventrally between pyramid and olive.",
+        "b": "Trigeminal nerve emerges from the lateral pons, not the dorsal brainstem.",
+        "d": "Facial nerve emerges at the pontomedullary junction, not the dorsal surface."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record: stable ID, stem, options, printed answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          320
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      }
+    },
+    "marrow__ANAT_CH17_Q013": {
+      "takeaway": "CN XII exits anterior to the olive through the preolivary sulcus.",
+      "displayText": "The marked structure is the olive. The hypoglossal nerve emerges anterior to the olive through the groove between the pyramid and olive (preolivary/anterolateral sulcus).",
+      "emphasis": [
+        "olive",
+        "anterior to the olive",
+        "preolivary",
+        "anterolateral sulcus"
+      ],
+      "rationales": {
+        "a": "Glossopharyngeal rootlets emerge posterior to the olive from the postolivary sulcus.",
+        "b": "Vagus rootlets also emerge posterior to the olive.",
+        "c": "Accessory rootlets emerge posterior to the olive; the preolivary sulcus carries hypoglossal nerve."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record: stable ID, stem, options, printed answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          320
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 2 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH17_Q014": {
+      "takeaway": "CN V is the thickest cranial nerve; CN IV is the most slender.",
+      "displayText": "The trigeminal nerve is the thickest cranial nerve. The trochlear nerve is the most slender cranial nerve.",
+      "emphasis": [
+        "thickest cranial nerve",
+        "trigeminal nerve",
+        "most slender",
+        "trochlear nerve"
+      ],
+      "rationales": {
+        "b": "Facial nerve is not the thickest cranial nerve; CN V has the greatest thickness.",
+        "c": "Trochlear is the most slender cranial nerve, not the thickest.",
+        "d": "Vagus is a large mixed nerve, but the trigeminal nerve is the thickest cranial nerve."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record: stable ID, stem, options, printed answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          321
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      }
+    }
+  },
+  "source": {
+    "bundle": "anatomy_ch001_063",
+    "sourceRawSha256": "f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387"
+  }
+}

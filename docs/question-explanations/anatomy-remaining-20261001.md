@@ -6,7 +6,7 @@
 
 ## Checkpoint 1
 
-Authored 97 of the 914 pending actionable Anatomy IDs in twelve new augmentation files:
+Authored 118 of the 914 pending actionable Anatomy IDs in fourteen new augmentation files:
 
 - Ch9 Q15–18 (`explanation_anatomy_ch09_q015_q018_v1.json`)
 - Ch10 Q19 (`explanation_anatomy_ch10_q019_q019_v1.json`)
@@ -20,11 +20,13 @@ Authored 97 of the 914 pending actionable Anatomy IDs in twelve new augmentation
 - Ch15 Q16–22 (`explanation_anatomy_ch15_q016_q022_v1.json`)
 - Ch16 Q1–14 (`explanation_anatomy_ch16_q001_q014_v1.json`)
 - Ch16 Q15–17 (`explanation_anatomy_ch16_q015_q017_v1.json`)
+- Ch17 Q1–14 (`explanation_anatomy_ch17_q001_q014_v1.json`)
+- Ch17 Q15–21 (`explanation_anatomy_ch17_q015_q021_v1.json`)
 
 Each file is bounded to one chapter and 14 or fewer questions, uses the exact `approved-rollout` scope and canonical base SHA, and adds new IDs only. Every four-option SBA has exactly the three source-key-matching distractor rationales and one to four case-sensitive emphasis anchors. Display text retains source details; native table and figure data remains in the untouched source record. Ch12–14 OCR cleanup is annotated as resolved reconstruction with the raw fragment, clean reconstruction, PDF pages and question-specific review note. Ch9 Ch12 work does not change the answer key or completeness ledger.
 
 ## Validation and status
 
-The shared batch validator passed: `python3 /root/V10.1/tools/validate_marrow_explanation_batch.py --root /root/luna_anatomy_remaining --base-sha d4abce86068b4221e61e541c34dd29258de61cca` → `MARROW_WORKER_BATCHES_OK files=12 questions=97 source_keyed=true detail_retention=true baseline_and_gates_preserved=true`.
+The shared batch validator passed: `python3 /root/V10.1/tools/validate_marrow_explanation_batch.py --root /root/luna_anatomy_remaining --base-sha d4abce86068b4221e61e541c34dd29258de61cca` → `MARROW_WORKER_BATCHES_OK files=14 questions=118 source_keyed=true detail_retention=true baseline_and_gates_preserved=true`.
 
-This checkpoint is authoring/source-review validation only. It is not a combined preview, browser, CI, APK or release certification. The remaining 817 actionable IDs still require their assigned bounded files. The 13 completeness-gated IDs remain untouched.
+This checkpoint is authoring/source-review validation only. It is not a combined preview, browser, CI, APK or release certification. The remaining 796 actionable IDs still require their assigned bounded files. The 13 completeness-gated IDs remain untouched.

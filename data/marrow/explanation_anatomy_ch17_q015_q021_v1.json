@@ -1,0 +1,188 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Anatomy Chapter 17 explanation refinement. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Anatomy",
+    "bank": "Marrow",
+    "chapterId": "17",
+    "chapterTitle": "Cranial Nerves",
+    "questionStart": 15,
+    "questionEnd": 21,
+    "questions": 7,
+    "status": "approved-rollout",
+    "workloadScore": 14,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 753,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__ANAT_CH17_Q015": {
+      "takeaway": "Parasympathetic cranial outflow travels with CN III, VII, IX and X, not CN IV.",
+      "displayText": "The trochlear nerve does not carry parasympathetic fibers. Parasympathetic cranial outflow is carried with III, VII, IX and X.",
+      "emphasis": [
+        "does not carry parasympathetic fibers",
+        "III, VII, IX and X"
+      ],
+      "rationales": {
+        "b": "Facial nerve (VII) carries preganglionic parasympathetic fibers to pterygopalatine and submandibular ganglia.",
+        "c": "Oculomotor nerve (III) carries parasympathetic fibers through the ciliary ganglion to the eye.",
+        "d": "Glossopharyngeal nerve (IX) carries parasympathetic fibers to the otic ganglion and parotid."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record: stable ID, stem, options, printed answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          321
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "1 native source table(s) and 0 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH17_Q016": {
+      "takeaway": "Spinal trigeminal nucleus processes pain and temperature; proprioception relays through the mesencephalic nucleus.",
+      "displayText": "Proprioception is perceived by the mesencephalic nucleus of the trigeminal nerve, not the spinal trigeminal nucleus. The source contrasts the trigeminal nuclei: mesencephalic for proprioception, principal sensory for touch/pressure, spinal nucleus for pain and temperature (plus some touch), and motor nucleus for muscles of mastication and related first-arch muscles.",
+      "emphasis": [
+        "Proprioception",
+        "mesencephalic nucleus",
+        "spinal nucleus",
+        "pain and temperature"
+      ],
+      "rationales": {
+        "a": "Temperature is processed by the spinal trigeminal nucleus.",
+        "b": "Pain afferents from the face descend to and synapse in the spinal trigeminal nucleus.",
+        "c": "The source includes some touch in the spinal trigeminal nucleus; proprioception is assigned to the mesencephalic nucleus."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record: stable ID, stem, options, printed answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          321,
+          322
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "1 native source table(s) and 1 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH17_Q017": {
+      "takeaway": "The spinal trigeminal nucleus extends caudally to about the second cervical spinal segment.",
+      "displayText": "In trigeminal neuralgia, pain and temperature afferents relay in the spinal nucleus of the trigeminal nerve. This nucleus continues inferiorly from the chief sensory nucleus through the medulla to approximately the second cervical spinal segment.",
+      "emphasis": [
+        "spinal nucleus of the trigeminal nerve",
+        "second cervical spinal segment",
+        "pain and temperature afferents"
+      ],
+      "rationales": {
+        "a": "The spinal trigeminal nucleus extends beyond the lower medulla to about C2.",
+        "c": "The source places the caudal extent around C2, not as low as the fifth cervical spinal segment.",
+        "d": "It continues inferiorly through the medulla to the second cervical segment, not just to the medulla’s upper end."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record: stable ID, stem, options, printed answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          322,
+          323
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 1 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH17_Q018": {
+      "takeaway": "Oculomotor parasympathetic fibers to the ciliary ganglion travel with the nerve to inferior oblique, not inferior rectus.",
+      "displayText": "The image shows oculomotor palsy. The false statement is that the nerve to inferior rectus carries parasympathetic fibers to the ciliary ganglion; these fibers travel with the nerve to inferior oblique. The oculomotor nerve passes between the posterior cerebral and superior cerebellar arteries, runs in the lateral wall of cavernous sinus, divides into superior and inferior divisions and enters the orbit through the superior orbital fissure/common tendinous ring.",
+      "emphasis": [
+        "inferior rectus",
+        "inferior oblique",
+        "ciliary ganglion",
+        "posterior cerebral and superior cerebellar arteries"
+      ],
+      "rationales": {
+        "a": "Oculomotor nerve does divide into superior and inferior divisions before entering the orbit; the source does not identify this as false.",
+        "b": "The divisions enter via the superior orbital fissure; this is consistent with the source account.",
+        "c": "CN III passes between posterior cerebral and superior cerebellar arteries in the interpeduncular fossa, so this is true."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record: stable ID, stem, options, printed answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          323,
+          324
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 2 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH17_Q019": {
+      "takeaway": "CN VI traverses Dorello canal at the petrous apex.",
+      "displayText": "The abducens nerve traverses Dorello's canal and is therefore susceptible to injury in a fracture involving the petrous apex. Dorello's canal lies at the petrous apex beneath the petrosphenoidal (Gruber) ligament.",
+      "emphasis": [
+        "abducens nerve",
+        "Dorello's canal",
+        "petrous apex",
+        "petrosphenoidal (Gruber) ligament"
+      ],
+      "rationales": {
+        "a": "Vestibulocochlear nerve enters the internal acoustic meatus and is not the nerve traversing Dorello canal.",
+        "c": "Glossopharyngeal nerve exits the jugular foramen; it does not pass through Dorello canal.",
+        "d": "Trochlear nerve enters the orbit via the superior orbital fissure but does not traverse Dorello canal."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record: stable ID, stem, options, printed answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          324
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 1 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH17_Q020": {
+      "takeaway": "The inferior belly of omohyoid is not a landmark for identifying the facial nerve trunk.",
+      "displayText": "The inferior belly of omohyoid is not used to identify the facial nerve trunk. The source describes anterograde landmarks including the tragal pointer, posterior belly of digastric, squamotympanic fissure, styloid process and mastoid process, and a retrograde method tracing distal facial branches proximally.",
+      "emphasis": [
+        "inferior belly of omohyoid",
+        "tragal pointer",
+        "posterior belly of digastric",
+        "retrograde method"
+      ],
+      "rationales": {
+        "a": "Tracing a distal facial branch proximally is the described retrograde identification method.",
+        "b": "The tragal pointer is an anterograde landmark for locating the facial nerve trunk.",
+        "d": "The posterior belly of digastric is a source-listed landmark for the facial nerve trunk."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record: stable ID, stem, options, printed answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          325
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      }
+    },
+    "marrow__ANAT_CH17_Q021": {
+      "takeaway": "The optic nerve carries vision, while CN III, IV and VI move the eyeball.",
+      "displayText": "Structure A is the optic nerve (CN II), which is not involved in eyeball movement. The image labels optic (II), oculomotor (III), abducens (VI) and trochlear (IV) nerves. Extraocular movement is supplied by III, IV and VI: lateral rectus by VI, superior oblique by IV, and the remaining listed extraocular muscles by III.",
+      "emphasis": [
+        "optic nerve (CN II)",
+        "oculomotor (III)",
+        "abducens (VI)",
+        "trochlear (IV)"
+      ],
+      "rationales": {
+        "b": "The source labels B as oculomotor nerve (III), which supplies most extraocular muscles.",
+        "c": "The source labels C as abducens nerve (VI), which supplies lateral rectus.",
+        "d": "The source labels D as trochlear nerve (IV), which supplies superior oblique."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record: stable ID, stem, options, printed answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          325,
+          326
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 2 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    }
+  },
+  "source": {
+    "bundle": "anatomy_ch001_063",
+    "sourceRawSha256": "f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387"
+  }
+}
