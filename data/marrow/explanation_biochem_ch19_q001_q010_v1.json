@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner-facing Marrow ED8 Biochemistry Chapter 19 explanation refinement; source records and figures remain immutable.",
+  "scope": {
+    "subject": "Biochemistry",
+    "bank": "Marrow",
+    "chapterId": "19",
+    "chapter": "Enzyme Kinetics",
+    "questionStart": 1,
+    "questionEnd": 10,
+    "questions": 10,
+    "status": "approved-rollout",
+    "workloadScore": 11,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "919f0709b2eb833e302c6f7524b6dd2bd13bfaed638009375b5062135d3795b1"
+  },
+  "questions": {
+    "marrow__BIOCHEM_CH19_Q001": {
+      "takeaway": "Activation energy is the free-energy gap from substrate to transition state.",
+      "displayText": "Activation energy is the free-energy gap from substrate to transition state.\n\nActivation energy is the free energy difference between the substrate and transition state.\n\nActivation energy is defined as the minimum energy required to start a chemical reaction. Because\nof the high activation energy, the rates of uncatalyzed chemical reactions are often slow. In an\nenzyme-catalyzed reaction, the activation energy is reduced by forming a relatively stable\nintermediate-enzyme complex. Thus, enzymes increase the rate of chemical reactions.\n\nwithout enzyme\n\nactivation\nenergy without\nenzyme\n\nnzyme activation\n\nenergy with\n\nenzyme\n\nEnergy\n\nreactants overall energy\n\ne.g. CO. +H;,0 released during\nreaction\nproducts a\nH,CO; %\n—)\no*\nReaction coordinate\n. > { >\n~~ we\n. . - “ .%",
+      "emphasis": [
+        "Activation energy is the free-energy gap from substrate to transition state"
+      ],
+      "rationales": {
+        "a": "Substrate-to-product free-energy change is the overall reaction energy (ΔG), not the activation barrier.",
+        "c": "The transition-state-to-product segment describes the downhill part after the barrier, not the activation energy measured from substrate.",
+        "d": "Activation energy is a defined energy difference between the substrate and transition state, not the sum of unrelated intervals."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 298; explanation p. 305,306."
+      ]
+    },
+    "marrow__BIOCHEM_CH19_Q002": {
+      "takeaway": "For A + A ⇌ P, the forward elementary rate depends on [A]² and the reverse rate on [P], giving orders 2 and 1.",
+      "displayText": "For A + A ⇌ P, the forward elementary rate depends on [A]² and the reverse rate on [P], giving orders 2 and 1.\n\n+” ros a“\n2 &* >\n\nThe above reaction has 2nd order for the forward teaction and 4st order for the reverse reaction.\nThe sum of the molar ratios-of the reactants paefities the: indtic order of the reaction.\nIn the forward reaction, A+A° P, he sum of reactants i is 2. Thus,\nRate « {A}, ye or Rate oc ays\nTherefore, the reaction is aid to be second order with respect to reactant A.\nIn the reverse reactiohgP a) A _ the’ Sahn of reactants is 1. Thus,\nRate o <P]\n\nTherefore) sthe 1 reaction. is\\said to be first order with respect to reactant P.\n\nKmetic order of reactions:\n• Zero-order reaction: Rate is independent of the concentration of reactants.\n• First-order reaction: Rate is directly proportional to the concentration of one of the reactants.\n• Second-order reaction: In the simplest kind of 2nd order reaction, the rate is proportional to the\nsquare of the concentration of one reactant.",
+      "emphasis": [
+        "For A + A ⇌ P, the forward elementary rate depends on [A]² and the reverse rate on [P], giving orders 2 and 1"
+      ],
+      "rationales": {
+        "a": "The forward step consumes two A molecules, so its elementary rate is second order rather than first order.",
+        "b": "The forward step is bimolecular in A and thus second order; only the reverse step is unimolecular in P.",
+        "d": "The reverse step involves one P molecule, so it is first order, not second order."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 298; explanation p. 306."
+      ]
+    },
+    "marrow__BIOCHEM_CH19_Q003": {
+      "takeaway": "For many biological processes, a 10°C rise approximately doubles reaction rate (Q₁₀ ≈ 2) over the suitable range.",
+      "displayText": "For many biological processes, a 10°C rise approximately doubles reaction rate (Q₁₀ ≈ 2) over the suitable range.\n\nQ10 = 2 is the correct statement regarding enzyme kinetics.\n\nThe temperature coefficient (Q10) is the factor by which the rate of a biologic process increases for\na 10°C increase in temperature. The rates of most biological processes typically double for a 10°C\nrise in temperature.\n\nThus, Q10 (degree celsius rise) = 2 (double).",
+      "emphasis": [
+        "For many biological processes, a 10°C rise approximately doubles reaction rate (Q₁₀ ≈ 2) over the suitable range"
+      ],
+      "rationales": {
+        "a": "Q₁₀ is the rate ratio for a 10°C temperature increase and is typically above 1 for enzyme reactions; it is not fixed at 1.",
+        "c": "A threefold increase is not the usual approximate temperature coefficient cited for biological processes.",
+        "d": "A fourfold increase over 10°C overstates the common approximate Q₁₀ value."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 299; explanation p. 306,307."
+      ]
+    },
+    "marrow__BIOCHEM_CH19_Q004": {
+      "takeaway": "Ionization changes with pH and is noncovalent; methylation, acetylation and ADP-ribosylation are covalent regulatory modifications.",
+      "displayText": "Ionization changes with pH and is noncovalent; methylation, acetylation and ADP-ribosylation are covalent regulatory modifications.\n\nIonization is not a type of covalent modification regulating enzyme kinetics.\n\nRegulation of enzyme kinetics can be brought about by reversible covalent modifications of the\nenzyme. These include methylation, acetylation, ADP ribosylation, phosphorylation and partial\nproteolysis.",
+      "emphasis": [
+        "Ionization changes with pH and is noncovalent; methylation, acetylation and ADP-ribosylation are covalent regulatory modifications"
+      ],
+      "rationales": {
+        "a": "Methylation covalently transfers a methyl group to an enzyme residue and can alter its activity.",
+        "b": "Acetylation covalently adds an acetyl group and is a recognized mechanism for regulating enzyme function.",
+        "c": "ADP-ribosylation covalently attaches ADP-ribose to target proteins and can regulate enzyme activity."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 299; explanation p. 307."
+      ]
+    },
+    "marrow__BIOCHEM_CH19_Q005": {
+      "takeaway": "A Michaelis–Menten velocity-versus-substrate plot is hyperbolic, approaching Vmax as enzyme sites become saturated.",
+      "displayText": "A Michaelis–Menten velocity-versus-substrate plot is hyperbolic, approaching Vmax as enzyme sites become saturated.\n\nx e.\n\nThe plot of initial reaction velocity against substrate Concentrations hyperbolic, not linear.\n\nFor a typical enzyme, the velocity of a reaction Has“a hyperboli¢rélationship-Wwith the substance\nconcentration. As the substrate concentration.increases, initial velocity (Vi)-increases until it\nreaches a maximum value Vmax. After Vmax is reached; further increase in the substrate\nconcentration does not change reactign\\velocity..This i is because the enzyme is saturated with the\nsubstrate. ~\n\nThe Michaelis constant (Km) is the substrate concentration’at which Vi is half the maximal\nvelocity i.e. Vmax/2. The Michaelis- Menten equation illustrates the relationship between Vi and\nsubstrate concentration [S] mathematically i ie,\n\nVi = Vmax « [S] / Km + [S] SON ~\n\nReaction rate\n=\n=\n\nv\n\nSubstrate concentration",
+      "emphasis": [
+        "A Michaelis–Menten velocity-versus-substrate plot is hyperbolic, approaching Vmax as enzyme sites become saturated"
+      ],
+      "rationales": {
+        "a": "Initial velocity rises with substrate concentration and approaches a maximum as enzyme becomes saturated; this part is true.",
+        "b": "Km is the substrate concentration at which initial velocity is half Vmax under Michaelis–Menten conditions.",
+        "c": "The Michaelis–Menten equation is v₀ = Vmax[S]/(Km + [S]); this expression is nonlinear in [S]."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 299; explanation p. 307."
+      ]
+    },
+    "marrow__BIOCHEM_CH19_Q006": {
+      "takeaway": "Catalytic efficiency is compared by kcat/Km; a larger turnover and smaller Km increase this ratio.",
+      "displayText": "Catalytic efficiency is compared by kcat/Km; a larger turnover and smaller Km increase this ratio.\n\nThe catalytic efficiency of an enzyme is expressed as Kcat/Km.\n\nKcat is the rate constant, which is the limiting rate of an enzyme-catalyzed reaction at saturation.\nIt is given by Vmax divided by number of active sites of the enzyme. Km is the\nMichaelis-Menten constant, which is defined as the substrate concentration at which the initial\nvelocity(Vi) is half the maximum velocity (Vmax/2).\n\nFor some enzymes, when a substrate (S) binds to the active site of the enzyme (E), and forms an\nenzyme-substrate complex (ES), the product is instantaneously formed. For such enzymes, the\nreaction of E+S° ES becomes the rate-limiting step. Its rate is determined on the rate of diffusion\nof the molecules in a solution. Hence, these enzymes are called diffusion-limited or\n\ncatalytically perfect.\n\nExamples of the catalytically perfect enzymes, where the catalytic efficiency reaches the diffusion\nlimit of 108-109 M-1s-1: C\n• Triosephosphate isomerase\n• Carbonic anhydrase\n• Acetylcholinesterase\n• Adenosine deaminase wt ( >",
+      "emphasis": [
+        "Catalytic efficiency is compared by kcat/Km; a larger turnover and smaller Km increase this ratio"
+      ],
+      "rationales": {
+        "b": "Km/kcat is the inverse of the efficiency ratio, so it decreases rather than increases with better catalytic performance.",
+        "c": "Ka is not the turnover constant in the specified efficiency expression; the relevant numerator is kcat.",
+        "d": "Ka/Km omits the turnover constant kcat and therefore is not the standard catalytic-efficiency measure."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 299; explanation p. 307,308."
+      ]
+    },
+    "marrow__BIOCHEM_CH19_Q007": {
+      "takeaway": "At [S] = 1000 Km, velocity is near Vmax; reducing enzyme to one-third makes the same product amount take three times as long.",
+      "displayText": "At [S] = 1000 Km, velocity is near Vmax; reducing enzyme to one-third makes the same product amount take three times as long.\n\nics C\n\nThe time taken for the formation of the, same amount of product is 27 minutes.\n\nIn this reaction, the substrate concentration beconites 1000 times i.e much greater than the Km\nvalue. Thus, the rate of this reaction i is equal to Vmax and is thus independent of the substrate\nconcentration i.e. it follows Zero-order kinetiés. Thus, doubling the substrate concentration does\nnot change the velocity, off the reaction ie. it remains as Vmax.\n\nNo matter the substrate concentration, the rate of the reaction is directly proportional to the\nconcentration. of the enzyme. In this situation the enzyme concentration becomes 1/3rd. Thus, the\nvelocity of the reaction (Vi Tax) also becomes 1/3rd. This means that the time taken for the\nformation of the same amount of product will become tripled i.e 9 x 3 = 27 minutes.\n\nZero-order kinetics\n\nFirst-order kinetics\n\nReaction velocity (Vi) —>\n\nSubstrate concentration (S) ———>",
+      "emphasis": [
+        "At [S] = 1000 Km, velocity is near Vmax; reducing enzyme to one-third makes the same product amount take three times as long"
+      ],
+      "rationales": {
+        "a": "The substrate remains saturating even after doubling; lowering enzyme concentration to one-third slows the rate threefold, so time cannot stay unchanged.",
+        "b": "The saturated rate becomes one-third, so producing the same amount takes three times as long, not half as long.",
+        "d": "Tripling the required time follows from the one-third enzyme concentration; 13.5 minutes would be only a 1.5-fold increase."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 300; explanation p. 308."
+      ]
+    },
+    "marrow__BIOCHEM_CH19_Q008": {
+      "takeaway": "Malonate resembles succinate and competes at succinate dehydrogenase’s substrate site, producing competitive inhibition.",
+      "displayText": "Malonate resembles succinate and competes at succinate dehydrogenase’s substrate site, producing competitive inhibition.\n\nInhibition of succinate dehydrogenase reaction by malonate is an example of competitive\ninhibition.",
+      "emphasis": [
+        "Malonate resembles succinate and competes at succinate dehydrogenase’s substrate site, producing competitive inhibition"
+      ],
+      "rationales": {
+        "a": "Noncompetitive inhibitors bind away from the substrate site; malonate instead competes with succinate at the active site.",
+        "b": "Uncompetitive inhibitors bind only enzyme–substrate complex, whereas malonate is a substrate analog that competes for free enzyme.",
+        "d": "Allosteric describes regulation through a separate site; malonate’s classic mechanism is active-site competition."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 300; explanation p. 309."
+      ]
+    },
+    "marrow__BIOCHEM_CH19_Q009": {
+      "takeaway": "Competitive inhibition can be overcome at high substrate: Vmax stays the same while apparent Km increases.",
+      "displayText": "Competitive inhibition can be overcome at high substrate: Vmax stays the same while apparent Km increases.\n\nVmax remains constant in competitive inhibition.\n\nCompetitive inhibition is when the inhibitor binds reversibly.to the substrate-binding site and\ncompetes with the substrate for the active enzyme-binding site. This effect of competitive\ninhibition can be overcome by increasing the substrate’ concentration by which maximum velocity\ncan still be achieved. Therefore, Vmax (maximum velocity of the reaction) istnaltered in this type\nof inhibition. However, the concentration-of thé substrate required to achieve half of the\nmaximum velocity is increased. Therefore;Km is increased in this condition.\n\né <\n\na =",
+      "emphasis": [
+        "Competitive inhibition can be overcome at high substrate: Vmax stays the same while apparent Km increases"
+      ],
+      "rationales": {
+        "a": "A competitive inhibitor does not increase the attainable Vmax; enough substrate can outcompete it and recover the same maximum.",
+        "b": "Vmax is not lowered in pure competitive inhibition because substrate can displace inhibitor at sufficiently high concentration.",
+        "d": "Apparent Km increases, rather than decreases, because more substrate is needed to reach half-maximal velocity."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 300; explanation p. 309."
+      ]
+    },
+    "marrow__BIOCHEM_CH19_Q010": {
+      "takeaway": "Pure noncompetitive inhibition lowers Vmax while leaving Km unchanged; the statement that Km decreases is false.",
+      "displayText": "Pure noncompetitive inhibition lowers Vmax while leaving Km unchanged; the statement that Km decreases is false.\n\nKm remains constant in noncompetitive inhibition.\n\nNon-competitive inhibition of enzymes occurs by the binding of inhibitors to enzymes in locations\ndifferent from the active site. The inhibition is not overcome by increasing the concentration of\nthe substrate. Thus, noncompetitive inhibitors decrease the Vmax of the reaction.\n\nNon-competitive inhibtiors do not resemble the substrate. Thus, they do not interfere with the\nbinding of the substrate to the enzyme. Thus, Km of the enzyme does not change.\n\nEnzyme @_— onviror\nLD suvstrate\n\nInhibitor binding Substrate binding site\nsite\n\nvf\n\nCompleting the\nreaction, however,\n\ndepends on the.\n\nenzyme undergoing\n\nS\\contormational\n\nchange that\n\nStocked by the Inhibitor. ed «\n\nThe inhibitor and\nRubstrate bind)\nother. Either oF both\nmay be bound at\nany tim:\n\nTe &\n\niN ae\n\n1st\n\nCc RSraiat SR SST eae\nas :",
+      "emphasis": [
+        "Pure noncompetitive inhibition lowers Vmax while leaving Km unchanged; the statement that Km decreases is false"
+      ],
+      "rationales": {
+        "a": "Vmax decreases in pure noncompetitive inhibition because inhibitor-bound enzyme is catalytically unavailable.",
+        "c": "The inhibitor binds at a site distinct from the active site, consistent with noncompetitive inhibition.",
+        "d": "In the pure noncompetitive model, substrate binding affinity is unaffected; the inhibitor reduces catalytic capacity instead."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 300,301; explanation p. 309,310."
+      ]
+    }
+  }
+}

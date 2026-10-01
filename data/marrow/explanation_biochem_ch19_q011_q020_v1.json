@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner-facing Marrow ED8 Biochemistry Chapter 19 explanation refinement; source records and figures remain immutable.",
+  "scope": {
+    "subject": "Biochemistry",
+    "bank": "Marrow",
+    "chapterId": "19",
+    "chapter": "Enzyme Kinetics",
+    "questionStart": 11,
+    "questionEnd": 20,
+    "questions": 9,
+    "status": "approved-rollout",
+    "workloadScore": 10,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "919f0709b2eb833e302c6f7524b6dd2bd13bfaed638009375b5062135d3795b1"
+  },
+  "questions": {
+    "marrow__BIOCHEM_CH19_Q011": {
+      "takeaway": "The red curve shows competitive inhibition: it reaches the same Vmax but requires more substrate (higher apparent Km).",
+      "displayText": "The red curve shows competitive inhibition: it reaches the same Vmax but requires more substrate (higher apparent Km).\n\nThe red line indicates an enzymatic reaction taking place in the presence of a competitive\ninhibitor.\n\nThe graph represents the enzymatic reaction velocity in relation to substrate concentration. The\nblack line indicates the reaction taking place in the absence of any inhibitor.\n\nIn the presence of a competitive inhibitor, as indicated by the red line,\n• Vmax remains unchanged.\n• Km is increased.\n\nIn the presence of a non-competitive inhibitor, as indicated by the blue line,\n• Vmax is decreased\n\n• Km remains unchanged\nNote:\n\nSuicide inhibitors are specialized substrate analogs. They contain a chemical group that can be\ntransformed by the target enzyme. After binding to the active site of the enzyme, catalysis by the\nenzyme generates a highly reactive group that forms a covalent bond and blocks the function of\n\nthe enzyme.\nVmax\nNormal enzyme ‘Competitive >\ninhibition . x\nNon-competitive inhibition\n.\nt (s)\nKu",
+      "emphasis": [
+        "The red curve shows competitive inhibition: it reaches the same Vmax but requires more substrate (higher apparent Km)"
+      ],
+      "rationales": {
+        "b": "A noncompetitive inhibitor lowers Vmax without changing Km, so its curve would plateau lower rather than recover the uninhibited maximum.",
+        "c": "Suicide inhibitors irreversibly inactivate their target after enzyme-dependent activation; the red kinetic pattern described is the reversible competitive pattern.",
+        "d": "The curve’s inhibitor pattern is identified by unchanged Vmax and increased Km, which is competitive rather than no listed type."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 301; explanation p. 310,311."
+      ]
+    },
+    "marrow__BIOCHEM_CH19_Q012": {
+      "takeaway": "On a Lineweaver–Burk plot, pure noncompetitive inhibition raises 1/Vmax while preserving Km and therefore the x-intercept.",
+      "displayText": "On a Lineweaver–Burk plot, pure noncompetitive inhibition raises 1/Vmax while preserving Km and therefore the x-intercept.\n\n«~~ x\n\nThe red line in the graph represents ah enzymatic reaction with a noncompetitive inhibitor.\n\nThe above graph-is called the,‘Lineweaver-Burk plot' or ‘double reciprocal’ plot. 1/vo (vo - initial\nvelocity) is plotted versus \\i/{S] ([S] - substrate concentration) and a straight line is obtained. This\nplot can be used to calculate Km and Vmax as well as to determine the mechanism of action of\nenzyme inhibitors. The x-intercept represents -1/Km while the y-intercept represents 1/Vmax.\n\nIn non-competitive inhibition, Vmax decreases (or 1/Vmax increases) but Km is\nunchanged. Hence the graphs of inhibited and uninhibited reactions have the same x-intercepts\n(converge at the same -1/Km) but different y-intercepts.\n\nNote: An allosteric inhibitor alters the conformation of an enzyme upon binding. Enzymes\naffected by allosteric inhibitors exhibit a sigmoid, not hyperbolic, relationship between Vo and [S].\n\nLineweaver-Burk plots for enzyme inhibition\n\n— inhibitor ~ inhibitor ~ inhibitor\nWW = no ibitor W = 10 inhibitor We ¢ = np inhibitor\nSlope:ckange {a i Slope:change\nYemercept: same YVantercept: change YVeintercept: change\nW{8] 1/(s] 1i[8]\nCompetitive Uncompetitive Noncompetitive\ninhibition inhibition (Wived) inhibition\nKy increased Kyreduced Ky unaffected\nVinas unaffected Vag teduced Vinay teduced\nxw” a\nwe ay a\nae © =e\n© wee <",
+      "emphasis": [
+        "On a Lineweaver–Burk plot, pure noncompetitive inhibition raises 1/Vmax while preserving Km and therefore the x-intercept"
+      ],
+      "rationales": {
+        "a": "Competitive inhibition changes apparent Km and therefore shifts the x-intercept, while Vmax is unchanged.",
+        "b": "Allosteric inhibition is a broad regulatory mechanism and does not itself specify the noncompetitive reciprocal-plot signature asked here.",
+        "c": "Suicide inhibition is irreversible inactivation and is not the reversible Lineweaver–Burk pattern described by the keyed option."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 301,302; explanation p. 311,312."
+      ]
+    },
+    "marrow__BIOCHEM_CH19_Q013": {
+      "takeaway": "Allosteric modifiers commonly mediate feedback regulation by binding a regulatory site and changing enzyme activity.",
+      "displayText": "Allosteric modifiers commonly mediate feedback regulation by binding a regulatory site and changing enzyme activity.\n\n~ ‘oy ON\nToh \\ <O x\n\nAn allosteric modifier of an encyine usually patticipates i in feedback regulation.\n\nAllosteric regulations are anatural me\nproducts or feedforward from upstream)substrate:\n\nimportant in the cell's ability to agisst enzyme acti ity.\n\nAn allosteric modifier or cigar binds to, g.healosteri site to induce a conformational change in\n‘or effectors that enhance the protein's activity are\n\nthe catalytic or active si e.\nreferred to as alloste AS\ncalled allosteric inhibitors. ~\n\nose et\n\nctivators, whe as those that decrease the protein's activity are\n\n_\now?\n\nEnzyme Allosteric inhibitor | Allosteric activator\n1. ALA synthase Heme -\n2. Aspartate transcarbamoyla | CTP ATP\nse\n3. HMG CoA reductase Cholesterol -\n4.Phosphofructokinase Citrate, ATP AMP, F2,6P\n5. Acetyl CoA carboxylase Acyl CoA Citrate\n6. Citrate synthase ATP -\n7. Carbamoyl phosphate synt | - NAG\nhase-I\n8. Carbamoyl phosphate synt | ATP -\nhase-II\no12\n\n¥\n\npict control loops, such as feedback from downstream\nAllosteric regulation is also particularly\n\n(a) Reaction\n\n——®\n\nPi\n\nactive site\n\nallosteric site\nenzyme Substrate molecule binds with active Reaction occurs and\nBt a enzyme molecule, inducing & product molecules aro\n\ninhibitor 4\now?\n‘active site Inhibitor molecule binds ‘Substrate molecule cannot bind\nwith alostrc sit of with changed active site\nenzyme, inducing a\nShangein the cv te =\n> ,\n‘* ~~\nwo oO oa\n© < =) <",
+      "emphasis": [
+        "Allosteric modifiers commonly mediate feedback regulation by binding a regulatory site and changing enzyme activity"
+      ],
+      "rationales": {
+        "a": "An allosteric effector does not desaturate the enzyme; it alters conformation and activity through a regulatory binding site.",
+        "b": "Effectors can activate or inhibit, so their effect is not limited to speeding an enzyme.",
+        "c": "Allosteric modifiers bind a regulatory site distinct from the catalytic site, then influence catalysis indirectly."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 302; explanation p. 312,313."
+      ]
+    },
+    "marrow__BIOCHEM_CH19_Q014": {
+      "takeaway": "Allosteric enzymes may show K-type, V-type, or combined effects on apparent substrate affinity and/or Vmax.",
+      "displayText": "Allosteric enzymes may show K-type, V-type, or combined effects on apparent substrate affinity and/or Vmax.\n\nMae RS\nab KO\nAllosterically regulated enzymes s belong to est e Keres: Series or both.\nAn allosteric modifier or aon binds to'the allosteric site to induce a conformational change in\nthe catalytic or active site. The kinetic8.6f allosteri “oak dos not follow Michaelis-Menten\n\nkinetics. Hence, allosterically aise enzymegeai fall under the following categories:\n• K-series: The allosteric effeetor r raises the Ka of the enzyme without affecting Vmax i.e. similar\nto competitive inhibits\n• V-series: The allosteric effector, — the Vmax without affecting Km i.e. similar to\nnon-competitive inhibition.\n• Both: I ediate eff =n > iso be seen.\n\nOption B: Allosteric modifier noncovalently binds to a site other than the active site (Allo=other,\nsteric=space) and affects the catalysis.\n\nOption C: Induction and repression are methods of controlling the rate of enzyme synthesis, not\nregulation of activity.\n\nOption D: Allosteric modifier binds to the enzymes noncovalently.",
+      "emphasis": [
+        "Allosteric enzymes may show K-type, V-type, or combined effects on apparent substrate affinity and/or Vmax"
+      ],
+      "rationales": {
+        "b": "An allosteric effector binds a regulatory site distinct from the active site and changes conformation.",
+        "c": "Induction and repression change enzyme abundance through gene expression; they are not allosteric kinetic regulation.",
+        "d": "Allosteric modifiers generally bind noncovalently at regulatory sites; covalent attachment is a separate modification mechanism."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 302; explanation p. 313."
+      ]
+    },
+    "marrow__BIOCHEM_CH19_Q015": {
+      "takeaway": "Chymotrypsinogen is an inactive zymogen activated by selective proteolytic cleavage to chymotrypsin.",
+      "displayText": "Chymotrypsinogen is an inactive zymogen activated by selective proteolytic cleavage to chymotrypsin.\n\nChymotrypsinogen is a zymogen.\n\nSome enzymes are secreted as an inactive form called as zymogens. The zymogens are converted\nto their active functional forms by partial, or selective proteolysis. Examples of zymogens include\ntrypsinogen, chymotrypsinogen, proelastase, pepsinogen, prophospholipase A2 etc.\n\nProonzymes (zymogens) —-————» Active enzymes\n\n#\nPepsinogen ————————-» Pepsin\n\ntoropeptida\nTrypsinogen eS Typen\n\ntrypsin\n\n(Chymotrypsinogen Chymotrypsin\n\nProelastase aa Elastase\n\ntrypsin\n\nProcarboxypeptidases ———_» Carboxypepticases",
+      "emphasis": [
+        "Chymotrypsinogen is an inactive zymogen activated by selective proteolytic cleavage to chymotrypsin"
+      ],
+      "rationales": {
+        "b": "Carboxypeptidase is an active exopeptidase, not the inactive precursor form of chymotrypsin.",
+        "c": "A transaminase transfers amino groups between substrates and is unrelated to the chymotrypsin precursor state.",
+        "d": "Chymotrypsinogen is not a clot-lysing protein; it is the inactive precursor of a digestive protease."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 303; explanation p. 313,314."
+      ]
+    },
+    "marrow__BIOCHEM_CH19_Q016": {
+      "takeaway": "Low-dose aspirin irreversibly acetylates platelet COX-1, a mechanism commonly described as suicide inhibition.",
+      "displayText": "Low-dose aspirin irreversibly acetylates platelet COX-1, a mechanism commonly described as suicide inhibition.\n\nye ~\n\n| ©) a”\n\n&*%\n\nLow dose aspirin exerts its action iby irreversibly, inhibiting exchooxygenase enzyme activity in\nplatelets, which is an example\\of suicide inhibition.\n\nA suicidal enzyme is one ttt undergoe® self -destryefion 1 in order to terminate its own activity. In\nthis case, in response to irreversible inhibition by aspirin, platelet cyclooxygenase loses its ability\nto synthesize thromboxane. It undergoes self= -destruction. Unless new platelets are formed, this\n\ncyclooxygenase activity cannot be regained:",
+      "emphasis": [
+        "Low-dose aspirin irreversibly acetylates platelet COX-1, a mechanism commonly described as suicide inhibition"
+      ],
+      "rationales": {
+        "b": "Aspirin irreversibly inactivates cyclooxygenase rather than competing reversibly with arachidonic acid at equilibrium.",
+        "c": "Aspirin inhibits platelet cyclooxygenase; it does not allosterically activate the enzyme.",
+        "d": "The standard mechanism is irreversible active-site acetylation, not reversible allosteric inhibition."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 303; explanation p. 314."
+      ]
+    },
+    "marrow__BIOCHEM_CH19_Q017": {
+      "takeaway": "ATCase integrates pyrimidine and purine status: CTP inhibits it and ATP activates it.",
+      "displayText": "ATCase integrates pyrimidine and purine status: CTP inhibits it and ATP activates it.\n\n.¢\n\nY fas\n\n4\n\nBoth cytidine triphosphate and adenosine triphosphate target aspartate transcarbamoylase\n(ATCase) for feedback regulation.\n\nATCase, the catalyst for the first reaction unique to pyrimidine biosynthesis, is a target of\nfeedback regulation by two nucleotide triphosphates: cytidine triphosphate (CTP) and adenosine\ntriphosphate (ATP). CTP is an end product of the pyrimidine biosynthetic pathway. It inhibits\nATCase, whereas the purine nucleotide ATP activates it.\n\nHigh levels of ATP can overcome the inhibition by CTP, enabling synthesis of pyrimidine\n\nnucleotides to proceed even when purine nucleotide (CTP) levels are elevated.",
+      "emphasis": [
+        "ATCase integrates pyrimidine and purine status: CTP inhibits it and ATP activates it"
+      ],
+      "rationales": {
+        "a": "CTP is a pyrimidine end-product feedback inhibitor, but it is not the only nucleotide named; ATP also regulates ATCase.",
+        "b": "ATP activates ATCase and helps balance purine with pyrimidine synthesis, but CTP also acts on the enzyme.",
+        "c": "GTP is not the pair of regulators identified for ATCase in this pathway; the relevant effectors are CTP and ATP."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 303; explanation p. 314."
+      ]
+    },
+    "marrow__BIOCHEM_CH19_Q018": {
+      "takeaway": "Pure noncompetitive inhibition leaves Km constant and decreases Vmax.",
+      "displayText": "Pure noncompetitive inhibition leaves Km constant and decreases Vmax.\n\nNoncompetitive inhibition has constant Km and decreased Vmax.\n\nNoncompetitive inhibition occurs when the inhibitor binds at a site different from the\nsubstrate-binding site. The structure of the inhibitor does not resemble that of the substrate and\nthe inhibitor does not affect the binding of the substrate.\n\n@__ nivitor\n\nInhibitor binding\nshe\n\nvf",
+      "emphasis": [
+        "Pure noncompetitive inhibition leaves Km constant and decreases Vmax"
+      ],
+      "rationales": {
+        "a": "Pure noncompetitive inhibition does not increase Vmax; binding of inhibitor reduces active catalytic capacity.",
+        "c": "Km is unchanged in pure noncompetitive inhibition, so the option's decrease in Km is incorrect.",
+        "d": "Vmax falls rather than rises, and Km remains constant."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 303,304; explanation p. 314,315."
+      ]
+    },
+    "marrow__BIOCHEM_CH19_Q020": {
+      "takeaway": "Compare kcat/Km in common units: option C gives the largest ratio, 200 s⁻¹ / 2 μM = 100 μM⁻¹s⁻¹.",
+      "displayText": "Compare kcat/Km in common units: option C gives the largest ratio, 200 s⁻¹ / 2 μM = 100 μM⁻¹s⁻¹.\n\n: >\n\nThe highest tcatitic efficiencihis| seen when Km= 2 micromole and Kcat = 200 per sec.\n\nCatalytic Stiency i is caleulated as Kcat/Km, where Km is inversely proportional to the binding\naffinity of the enzyme and Kcat is the catalytic constant (Vmax divided by the total number of\nactive sites of the enzyme present). Higher values of Kcat and lower values of Km gives better\ncatalytic efficiency. Catalytic efficiency can be used to compare the performance of 2 different\nenzymes in catalyzing a reaction.\n\nStep 1: Km of each option after converting respective units to moles will be 10, 2, 2 and 4 (each\nmultiplied by 10-6) moles.\n\nStep 2: The catalytic efficiency is calculated as Kcat/Km. On substituting the values in various\noptions after converting to moles, the values come out to be 2, 25, 100 and 50 (each multiplied by\n106) M-1 s-1.\n\nSome enzymes can be so efficient that they convert the substrate to product instantaneously. They\n\nare limited only by the rate at which substrate diffuses towards the enzyme in a solution. These\nare called diffusion-limited enzymes and their catalytic efficiency is as high as 108 M-1 s-1.",
+      "emphasis": [
+        "Compare kcat/Km in common units: option C gives the largest ratio, 200 s⁻¹ / 2 μM = 100 μM⁻¹s⁻¹"
+      ],
+      "rationales": {
+        "a": "This option gives 20/10 = 2 μM⁻¹s⁻¹, far below option C after expressing Km in micromolar units.",
+        "b": "2000 nM equals 2 μM, so this option gives 50/2 = 25 μM⁻¹s⁻¹, below option C's 100.",
+        "d": "This option gives 200/4 = 50 μM⁻¹s⁻¹, half of option C's 100."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 304; explanation p. 317."
+      ]
+    }
+  }
+}
