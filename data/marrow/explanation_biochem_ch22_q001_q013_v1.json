@@ -1,0 +1,199 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner-facing Marrow ED8 Biochemistry Chapter 22 explanation refinement; source records and figures remain immutable.",
+  "scope": {
+    "subject": "Biochemistry",
+    "bank": "Marrow",
+    "chapterId": "22",
+    "chapter": "",
+    "questionStart": 1,
+    "questionEnd": 13,
+    "questions": 12,
+    "status": "approved-rollout",
+    "workloadScore": 13,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "919f0709b2eb833e302c6f7524b6dd2bd13bfaed638009375b5062135d3795b1"
+  },
+  "questions": {
+    "marrow__BIOCHEM_CH22_Q001": {
+      "takeaway": "Cobalamin (vitamin B₁₂) contains cobalt in its corrin ring; the name cobalamin reflects this metal.",
+      "displayText": "Cobalamin (vitamin B₁₂) contains cobalt in its corrin ring; the name cobalamin reflects this metal.\n\nVitamin B12 contains corrin rings with cobalt as a part of its structure, hence this group of vitamins are referred to as cobalamins.\nVitamin B12 is derived mainly from animal products such as meat, fish, eggs and fortified cereals. There are no plant sources as such for vitamin B12 / cobalamine, hence strict vegetarians are at risk of developing a nutritional deficiency of vitamin B12.\nVitamin B12 deficiency is associated with defects in RBC production leading to megaloblastic anemia.",
+      "emphasis": [
+        "Cobalamin (vitamin B₁₂) contains cobalt in its corrin ring; the name cobalamin reflects this metal"
+      ],
+      "rationales": {
+        "a": "Thiamine is a sulfur-containing vitamin that forms TPP; it has no central cobalt atom.",
+        "b": "Riboflavin contains an isoalloxazine ring and forms FMN/FAD, not a cobalt-bearing corrin ring.",
+        "c": "Pyridoxine forms PLP for amino-acid metabolism; it does not contain cobalt."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 346; explanation p. 350."
+      ]
+    },
+    "marrow__BIOCHEM_CH22_Q002": {
+      "takeaway": "Vitamin B₁₂ absorption requires intrinsic factor and an intact terminal ileum, so ileal resection places this patient at risk.",
+      "displayText": "Vitamin B₁₂ absorption requires intrinsic factor and an intact terminal ileum, so ileal resection places this patient at risk.\n\nA 30-year-old patient who got his ileum removed due to Crohn's disease is likely to develop vitamin B12 deficiency. Vitamin B12 is absorbed from the distal third of the ileum via receptors known as cubulin, which binds the intrinsic factor-vitamin B12 complex.\nDietary vitamin B12 is normally bound to proteins in food. Pepsin and gastric acid in the stomach degrade these food proteins and release vitamin B12. The free vitamin B12 then binds to a salivary glycoprotein called haptocorrin (R-binder).\nIn the alkaline pH of the duodenum, pancreatic proteases degrade the haptocorrin, and vitamin B12 is released again. It then binds tightly to intrinsic factor (IF), a glycoprotein secreted by the parietal cells of the stomach and this binding takes place in the duodenum. The IF-Vitamin B12 complex reaches the terminal ileum and attaches to a receptor on the enterocyte, from where it is absorbed. Vitamin B12 is transported in the blood bound to a carrier protein called transcobalamin II and delivered to the peripheral tissues.\nAbsorption sites:\nIron- Duodenum\nFolate- Jejunum\nVit B12- Ileum\n[Figure: Absorption of vitamin B12 diagram showing dietary B12, R-protein/haptocorrin, intrinsic factor, pancreatic proteases, ileum and transcobalamin II.]",
+      "emphasis": [
+        "Vitamin B₁₂ absorption requires intrinsic factor and an intact terminal ileum, so ileal resection places this patient at risk"
+      ],
+      "rationales": {
+        "a": "A duodenal resection alone does not remove the terminal ileal receptor site where the intrinsic-factor–B₁₂ complex is absorbed.",
+        "b": "Jejunal resection can affect nutrient absorption, but B₁₂ uptake occurs primarily in the distal ileum.",
+        "d": "The colon is not the normal site for intrinsic-factor-bound B₁₂ absorption; colectomy alone does not remove the ileal uptake mechanism."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 346; explanation p. 350,351."
+      ]
+    },
+    "marrow__BIOCHEM_CH22_Q003": {
+      "takeaway": "Methylmalonic acid rises when B₁₂-dependent methylmalonyl-CoA mutase activity falls, making it a functional marker of B₁₂ status.",
+      "displayText": "Methylmalonic acid rises when B₁₂-dependent methylmalonyl-CoA mutase activity falls, making it a functional marker of B₁₂ status.\n\nThe above scenario suggests anemia and methylmalonic acid excretion in the urine can be utilized to assess the nutritional status of vitamin B12.\nMethylmalonyl-CoA mutase is a vitamin B12-dependent enzyme. The activity of methylmalonyl CoA mutase is greatly reduced in vitamin B12 deficiency, leading to an accumulation of methylmalonic acid and its excretion in urine.\nThere are two vitamin B12-dependent enzymes:\nMethionine synthase (homocysteine methyltransferase): Catalyzes the conversion of homocysteine to methionine\nMethylmalonyl CoA mutase: methylmalonyl CoA, formed as an intermediate in the catabolism of valine, isoleucine, and propionyl CoA is converted to succinyl CoA\nNote: Urinary excretion of methylmalonic acid is also used to differentiate between megaloblastic anemia due to folate and vitamin B12 deficiency.",
+      "emphasis": [
+        "Methylmalonic acid rises when B₁₂-dependent methylmalonyl-CoA mutase activity falls, making it a functional marker of B₁₂ status"
+      ],
+      "rationales": {
+        "b": "Folate deficiency raises homocysteine but does not impair methylmalonyl-CoA mutase and therefore does not characteristically raise methylmalonic acid.",
+        "c": "Niacin deficiency affects NAD-dependent reactions and does not explain the B₁₂-specific methylmalonyl-CoA mutase marker.",
+        "d": "Iron deficiency causes microcytic anemia; it does not produce the B₁₂-dependent methylmalonic acid abnormality."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 346; explanation p. 351."
+      ]
+    },
+    "marrow__BIOCHEM_CH22_Q004": {
+      "takeaway": "B₁₂-dependent methionine synthase failure traps folate as 5-methyl-THF, reducing usable THF for nucleotide synthesis.",
+      "displayText": "B₁₂-dependent methionine synthase failure traps folate as 5-methyl-THF, reducing usable THF for nucleotide synthesis.\n\nFolate trap occurs in the deficiency of vitamin B12.\n[Figure: Methionine-Folate Cycle showing methionine synthase (vitamin B12), 5-methyl tetrahydrofolate, 5,10-methylene tetrahydrofolate, homocysteine and cystathionine β synthase (vitamin B6).]\nThe conversion of 5,10-methylene-THF into 5-methyl-THF(methyltetrahydrofolate) is an irreversible process. The major source of tetrahydrofolate for tissues is 5-methyl-THF. The only way to make further use of 5-methyl-THF and to maintain the folate cycle is by the vitamin B12-dependent remethylation of homocysteine to methionine by methionine synthase enzyme.\nDecreased activity of methionine synthase in vitamin B12 deficiency results in the accumulation of methyltetrahydrofolate that cannot be used, resulting in a folate trap. The folate cycle provides a link between the functions of folate and vitamin B12, where vitamin B12 deficiency causes a functional deficiency of folate.",
+      "emphasis": [
+        "B₁₂-dependent methionine synthase failure traps folate as 5-methyl-THF, reducing usable THF for nucleotide synthesis"
+      ],
+      "rationales": {
+        "a": "Pyridoxine supports transsulfuration and other PLP-dependent reactions; it is not the missing cofactor that creates the folate trap.",
+        "c": "Niacin is not required for methionine synthase remethylation of homocysteine, so deficiency does not cause the classic methyl-folate trap.",
+        "d": "Folate deficiency can reduce folate pools, but folate trap specifically occurs when B₁₂-dependent methionine synthase cannot regenerate THF."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 346; explanation p. 351,352."
+      ]
+    },
+    "marrow__BIOCHEM_CH22_Q005": {
+      "takeaway": "B₁₂ deficiency raises homocysteine and can cause posterior-column/corticospinal dysfunction, optic atrophy and cognitive changes; low homocysteine is the exception.",
+      "displayText": "B₁₂ deficiency raises homocysteine and can cause posterior-column/corticospinal dysfunction, optic atrophy and cognitive changes; low homocysteine is the exception.\n\nThe clinical scenario of a patient on a vegan diet now presenting with glossitis of the tongue, hyperreflexia, and numbness and tingling in the legs is suggestive of vitamin B12 deficiency. Decreased homocysteine levels are not seen in this condition. Rather, increased homocysteine levels are seen.\nVitamin B12 is a cofactor of methionine synthase and methylmalonyl CoA mutase. Methionine synthase is required for the conversion of homocysteine to methionine, which is the principal methyl donor. In vitamin B12 deficiency, defective methionine synthase leads to the following:\nIn the absence of methionine, there is decreased methylation in the CNS. This leads to defective synthesis of myelin and neurotransmitters, which results in the following symptoms :\nHomocysteine accumulates in the blood conferring an increased risk of cardiovascular disease.\nMegaloblastic anemia: The availability of 5,10-methylene THF is reduced, which is required in the conversion of deoxyuridine monophosphate (dUMP) to thymidine monophosphate (TMP) for DNA synthesis. This leads to macrocytic anemia with megaloblasts in the bone marrow.\nPosterolateral cord degeneration: It presents as loss of proprioception and vibration, positive Romberg sign, ataxia, hyperreflexia, spasticity\nDementia leading to cognitive impairment\nPeripheral neuropathy: presenting as muscle weakness, paraesthesia\nOptic atrophy\n[Figure: Methionine-Folate Cycle diagram repeated in the source.]",
+      "emphasis": [
+        "B₁₂ deficiency raises homocysteine and can cause posterior-column/corticospinal dysfunction, optic atrophy and cognitive changes; low homocysteine is the exception"
+      ],
+      "rationales": {
+        "b": "A positive Romberg sign can reflect impaired proprioception from B₁₂-related posterior-column dysfunction.",
+        "c": "Optic atrophy can occur in severe B₁₂ deficiency and is a recognized neurologic manifestation.",
+        "d": "Cognitive impairment or dementia can accompany neurologic B₁₂ deficiency; homocysteine is typically increased, not decreased."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 347; explanation p. 352,353."
+      ]
+    },
+    "marrow__BIOCHEM_CH22_Q007": {
+      "takeaway": "Folate can improve the megaloblastic blood picture while leaving B₁₂-related neurologic injury untreated; this can mask the underlying deficiency.",
+      "displayText": "Folate can improve the megaloblastic blood picture while leaving B₁₂-related neurologic injury untreated; this can mask the underlying deficiency.\n\nThe most likely cause is folate therapy which used up the B12 stores, aggravating the symptoms.\nAdministration of folic acid for patients with macrocytic anemia can partially reverse the hematologic abnormalities associated with vitamin B12 deficiency. However, the neurologic manifestations of vitamin B12 deficiency are not treated by folic acid.\nAdministration of folic acid to an individual with vitamin B12 deficiency can potentially mask untreated vitamin B12 deficiency or even worsen the neurologic complications. Hence, testing for and/or treatment of vitamin B12 deficiency is required in all patients being treated with folic acid.\n[Figure: Diagram showing folic acid, active/inactive folate, vitamin B12, methionine, homocysteine and vitamin B6; source note states supplemental folic acid can reverse macrocytic anemia while hiding B12 deficiency.]",
+      "emphasis": [
+        "Folate can improve the megaloblastic blood picture while leaving B₁₂-related neurologic injury untreated; this can mask the underlying deficiency"
+      ],
+      "rationales": {
+        "a": "Folate was given and the blood picture improved, so simple folate malabsorption does not explain the discordant neurologic worsening.",
+        "b": "Pyridoxine deficiency can cause neuropathy, but the classic risk in untreated B₁₂ deficiency is that folate corrects anemia without treating neurologic disease.",
+        "c": "The findings are not explained by isolated CNS folate-reductase deficiency; the clinical context points to cobalamin deficiency masked by folate."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 347; explanation p. 354."
+      ]
+    },
+    "marrow__BIOCHEM_CH22_Q008": {
+      "takeaway": "Tetrahydrofolate carries one-carbon units at several oxidation states for nucleotide and amino-acid synthesis.",
+      "displayText": "Tetrahydrofolate carries one-carbon units at several oxidation states for nucleotide and amino-acid synthesis.\n\nFolic acid serves as a carrier of one carbon atom.\nTetrahydrofolate receives one-carbon fragments from donors such as serine, glycine, and histidine and transfers them to intermediates in the synthesis of amino acids, purines, and pyrimidines.\nThe manifestations of folic acid deficiency includes:\nMegaloblastic anemia\nHomocystinemia\nNeural tube defect (spina bifida, anencephaly)\n[Figure: Sources and utilization of one carbon atom diagram showing folate/THF, methylene THF, methenyl THF, formyl THF, serine, glycine, histidine, tryptophan, methionine synthase/vitamin B12, DNA synthesis and purine ring.]\nNote: The major point of entry for one-carbon fragments, in one-carbon metabolism, is methylenetetrahydrofolate.",
+      "emphasis": [
+        "Tetrahydrofolate carries one-carbon units at several oxidation states for nucleotide and amino-acid synthesis"
+      ],
+      "rationales": {
+        "a": "Thiamine pyrophosphate transfers activated aldehyde fragments in select reactions, not the general one-carbon pool described here.",
+        "b": "Niacin-derived NAD participates in oxidation-reduction, not one-carbon transfer between biosynthetic intermediates.",
+        "d": "Pantothenate forms CoA for acyl-group transfer; folate carries the one-carbon units in this question."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 348; explanation p. 355."
+      ]
+    },
+    "marrow__BIOCHEM_CH22_Q009": {
+      "takeaway": "Pyridoxal phosphate, the active form of pyridoxine (B₆), is the coenzyme for aminotransferases.",
+      "displayText": "Pyridoxal phosphate, the active form of pyridoxine (B₆), is the coenzyme for aminotransferases.\n\nPyridoxal phosphate (PLP), an active form of pyridoxine serves as a coenzyme in transamination reactions.\nPyridoxal phosphate (PLP) is a coenzyme for enzymes involved in the following:\nTransamination\nDecarboxylation\nGlycogenolysis: Glycogen phosphorylase\nTranssulfuration reaction: Cystathionine β-synthase and cystathionase\nHeme synthesis: ALA synthase (deficiency causes microcytic hypochromic anemia)\nTryptophan metabolism: Kynureninase (deficiency causes pellagra-like symptoms)\nNote: Pyridoxal phosphate (PLP) serves as a coenzyme in many amino acid metabolisms, so its RDA mainly depends on daily protein intake.",
+      "emphasis": [
+        "Pyridoxal phosphate, the active form of pyridoxine (B₆), is the coenzyme for aminotransferases"
+      ],
+      "rationales": {
+        "a": "Thiamine supports decarboxylation and transketolase reactions; it is not the aminotransferase cofactor.",
+        "b": "Riboflavin forms flavin redox coenzymes FMN and FAD, not PLP for transamination.",
+        "d": "Biotin carries CO₂ in carboxylation reactions rather than amino groups in transamination."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 348; explanation p. 355,356."
+      ]
+    },
+    "marrow__BIOCHEM_CH22_Q010": {
+      "takeaway": "The TCA cycle uses TPP, FAD/FMN, NAD⁺ and CoA derivatives; pyridoxine is not the listed direct coenzyme requirement.",
+      "displayText": "The TCA cycle uses TPP, FAD/FMN, NAD⁺ and CoA derivatives; pyridoxine is not the listed direct coenzyme requirement.\n\nPyridoxine is not required in the TCA cycle.\nVitamins, in the form of their respective coenzymes, are required for the proper functioning of the TCA cycle.\nThe following vitamins are needed in the TCA cycle:\nThiamine as TPP, for decarboxylation in the α-ketoglutarate dehydrogenase reaction\nRiboflavin as FAD and FMN, for succinate dehydrogenase\nNiacin as NAD and NADH, for isocitrate dehydrogenase, α-ketoglutarate dehydrogenase, and malate dehydrogenase\nPantothenic acid as a part of Coenzyme A helps to form acetyl-CoA and succinyl-CoA\n[Figure: Citric acid cycle diagram with molecular structures, enzymes and cofactor labels.]",
+      "emphasis": [
+        "The TCA cycle uses TPP, FAD/FMN, NAD⁺ and CoA derivatives; pyridoxine is not the listed direct coenzyme requirement"
+      ],
+      "rationales": {
+        "a": "Thiamine-derived TPP is required by α-ketoglutarate dehydrogenase in the TCA cycle.",
+        "b": "Niacin-derived NAD⁺ accepts electrons in isocitrate, α-ketoglutarate and malate dehydrogenase reactions.",
+        "c": "Riboflavin-derived FAD is used by succinate dehydrogenase, and FMN is part of respiratory complex I."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 348; explanation p. 356."
+      ]
+    },
+    "marrow__BIOCHEM_CH22_Q011": {
+      "takeaway": "Chronic excess pyridoxine can cause a sensory neuronopathy with distal paresthesias and impaired proprioception.",
+      "displayText": "Chronic excess pyridoxine can cause a sensory neuronopathy with distal paresthesias and impaired proprioception.\n\nExcess pyridoxine (vitamin B6) causes sensory neuropathy. It occurs at intakes above 2 g/day.\nThere are only two B-complex vitamins that cause toxicity:\nNiacin: It is associated with:\nProstaglandin-mediated cutaneous flushing\nFulminant hepatitis (most fatal manifestation)\nGlucose intolerance\nPyridoxine: It is associated with sensory neuropathy.",
+      "emphasis": [
+        "Chronic excess pyridoxine can cause a sensory neuronopathy with distal paresthesias and impaired proprioception"
+      ],
+      "rationales": {
+        "a": "Dementia is not the characteristic dose-related toxicity of excess B₆ described in this question.",
+        "b": "Hallucinations can occur in some metabolic or drug contexts but are not the classic pyridoxine toxicity emphasized here.",
+        "d": "Nystagmus is not the characteristic manifestation; excess pyridoxine classically injures sensory neurons."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 348; explanation p. 356,357."
+      ]
+    },
+    "marrow__BIOCHEM_CH22_Q012": {
+      "takeaway": "Ascorbate reduces dietary ferric iron (Fe³⁺) to the more absorbable ferrous form (Fe²⁺).",
+      "displayText": "Ascorbate reduces dietary ferric iron (Fe³⁺) to the more absorbable ferrous form (Fe²⁺).\n\nIron absorption is enhanced by vitamin C.\nVitamin C reduces the ferric iron to its ferrous form, thereby helping in the process of absorption of dietary iron from the intestine.\nVitamin C deficiency causes\nDecreased absorption of iron leading to microcytic-hypochromic anemia\nDecreased hydroxylation of proline and lysine, which results in defective collagen synthesis and bleeding manifestations.\nConversely, vitamin C toxicity (&gt;2000 mg/ day) can lead to iron overloaded states.\nNote: Alcohol and fructose also enhance iron absorption. However, the absorption of both inorganic and heme iron is impaired by calcium. So, a glass of milk with a meal significantly reduces iron availability.",
+      "emphasis": [
+        "Ascorbate reduces dietary ferric iron (Fe³⁺) to the more absorbable ferrous form (Fe²⁺)"
+      ],
+      "rationales": {
+        "a": "Vitamin A has roles in vision and epithelial differentiation but is not the reducing agent that improves nonheme iron absorption.",
+        "c": "Thiamine is a TPP precursor and does not reduce ferric iron in the intestinal lumen.",
+        "d": "Riboflavin forms redox cofactors but the dietary enhancer of iron absorption in this item is vitamin C."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 349; explanation p. 357."
+      ]
+    },
+    "marrow__BIOCHEM_CH22_Q013": {
+      "takeaway": "Scorbutic rosary is sharp and tender, whereas describing rib beading as round and nontender is false; vitamin C deficiency also impairs collagen maturation.",
+      "displayText": "Scorbutic rosary is sharp and tender, whereas describing rib beading as round and nontender is false; vitamin C deficiency also impairs collagen maturation.\n\nThe beading of ribs in scurvy is sharp and tender.\nA deficiency state of vitamin C results in scurvy. The clinical features are:\nFatigue, irritability, loss of appetite\nLoose and spongy gums along with loose teeth\nSwollen joints\nPerifollicular hemorrhages\nBleeding into the skin - ecchymosis, purpura, petechiae\nPseudoparalysis\nMicrocytic anemia (due to decreased absorption of iron from the intestine)\nScorbutic rosary - sharp, tender beading at the costochondral junctions.\nMany of the deficiency symptoms can be attributed to deficient collagen synthesis caused due to an inability to hydroxylate the prolyl and lysyl residues of collagen.",
+      "emphasis": [
+        "Scorbutic rosary is sharp and tender, whereas describing rib beading as round and nontender is false; vitamin C deficiency also impairs collagen maturation"
+      ],
+      "rationales": {
+        "a": "Iron malabsorption from vitamin C deficiency can contribute to microcytic anemia, so this can occur.",
+        "c": "Painful pseudoparalysis can occur in severe scurvy due to subperiosteal hemorrhage and bone pain.",
+        "d": "Vitamin C is required for proline and lysine hydroxylation during collagen maturation, so connective-tissue formation is impaired."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 349; explanation p. 357."
+      ]
+    }
+  }
+}
