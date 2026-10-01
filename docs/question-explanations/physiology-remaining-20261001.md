@@ -43,7 +43,7 @@ The root worker batch validator passed these four files at the assigned base: 26
 
 ## Chapter 13 checkpoint
 
-- Added 21 source-authored explanations across two contiguous batches; cumulative worktree output is 47 questions (26 previously committed plus 21 in this checkpoint). At that checkpoint, 713 IDs remained pending, including two blocked IDs; 711 were actionable. These are authored/validated candidate files, not preview-deployed enhancements. The first Chapter 14 checkpoint brought cumulative candidate output to 65, with 695 original pending IDs remaining (693 actionable); the second Chapter 14 checkpoint raised output to 85, leaving 675 pending IDs (673 actionable). The Chapter 15 checkpoint brought output to 104, leaving 656 pending IDs (654 actionable). Chapter 16 brought output to 124, leaving 636 pending IDs (634 actionable); Chapter 17 now brings output to 137, leaving 623 pending IDs (621 actionable).
+- Added 21 source-authored explanations across two contiguous batches; cumulative worktree output is 47 questions (26 previously committed plus 21 in this checkpoint). At that checkpoint, 713 IDs remained pending, including two blocked IDs; 711 were actionable. These are authored/validated candidate files, not preview-deployed enhancements. The first Chapter 14 checkpoint brought cumulative candidate output to 65, with 695 original pending IDs remaining (693 actionable); the second Chapter 14 checkpoint raised output to 85, leaving 675 pending IDs (673 actionable). The Chapter 15 checkpoint brought output to 104, leaving 656 pending IDs (654 actionable). Chapter 16 brought output to 124, leaving 636 pending IDs (634 actionable); Chapter 17 brought output to 137, leaving 623 pending IDs (621 actionable); Chapter 18 adds 29 and leaves 594 pending IDs (592 actionable).
 
 | Batch file | IDs | Workload | Source scope |
 |---|---:|---:|---|
@@ -90,3 +90,9 @@ Validation: the root worker batch CLI passed all six Physiology files at the ass
 - Added 13 Hypothalamus and Limbic System questions (Q1–13); cumulative output is 137 and 623 original pending IDs remain, including two blocked IDs (621 actionable).
 - The explanations cover thalamic sensory relays, amygdala/Papez circuitry, reward, osmoregulation and ADH, circadian control, hypothalamic heat loss and satiety, hemispheric specialization, PAG descending analgesia, and thirst triggers. Q12’s labeled PAG cross-section was checked against printed p.329; its source figure remains in the immutable PDF.
 - Printed solution pages 325–329 were visually reviewed. Worker validation passes all 14 assigned-base Physiology files (137 questions) with source-keyed rationales and preserved baseline/gates.
+
+## Chapter 18 checkpoint
+
+- Added all 29 Higher Mental Functions questions in two contiguous files (Q1–18 and Q19–29). Cumulative output is 166; 594 original pending IDs remain, including two blocked IDs (592 actionable).
+- The explanations cover reticular arousal and sleep architecture, NREM/REM EEG and polysomnography, pineal/circadian signaling, memory systems and consolidation, synaptic plasticity, language and aphasia, face recognition, and frontal/limbic emotion. The original polysomnography and language/limbic figures remain source-owned.
+- Rendered and checked printed pages 338–351. Q21’s native state-vs-EOG/EEG/EMG table is retained in `displayTables`, pinned to p.347 and the PDF SHA-256. Worker validation passes all 16 Physiology files at the assigned base (166 questions).
