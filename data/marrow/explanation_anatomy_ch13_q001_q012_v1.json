@@ -1,0 +1,411 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Anatomy Chapter 13 explanation refinement. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Anatomy",
+    "bank": "Marrow",
+    "chapterId": "13",
+    "chapterTitle": "Nervous System & Special Senses",
+    "questionStart": 1,
+    "questionEnd": 12,
+    "questions": 12,
+    "status": "approved-rollout",
+    "workloadScore": 20,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 753,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__ANAT_CH13_Q001": {
+      "takeaway": "Neurites are neuronal processes: one axon and multiple dendrites.",
+      "displayText": "Neurites (neuronal processes) are the dendrites and the axon. They are projections arising from the cell body (soma) of a neuron.\n\n• An axon is a single, long projection that carries impulses away from the cell body. It ends by dividing into branches called axon terminals, which synapse with dendrites of another neuron, or it may end on an effector such as a muscle or gland. The axon is free of Nissl granules.\n• Dendrites are multiple, short projections that carry nerve impulses toward the neuron. Nissl granules are present in dendrites.\n\nThe neuronal cytoskeleton consists of neurofilaments and microtubules, which are abundant in the cell body, dendrites and axon. Neurofilaments are protein heteropolymers that give tensile strength to the axon; bundles of neurofilaments form a neurofibril. Microtubules assist axonal transport.",
+      "emphasis": [
+        "Neurites",
+        "dendrites and the axon",
+        "away from the cell body",
+        "toward the neuron"
+      ],
+      "rationales": {
+        "a": "Neurofibrils are cytoskeletal bundles within neuronal processes, not one of the two neurite types.",
+        "c": "Neurofibrils are cytoskeletal structures; the neurites are the axon and dendrites.",
+        "d": "This adds neurofibrils, which are cytoskeletal bundles, to the two neurite classes: axons and dendrites."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported ED8 explanation contains OCR debris or corrupted spacing/characters.",
+        "sourceFragment": "The neurites of the neurons constitute the dendrites and the axon. eC Neurites or neuronal processes refer to any projection arising from the ¢elhbody (soma) of a neuron. They are of two types: ww o* + Axon - a single, long projection arising from the'cell body that, tatries the impulse away from the cell body. The axon ends by dividing into several branches called axon terminals, which synapses with the dendrites of another neuron. An. axon may also‘énd in relation to an effector organ such as muscle or a gland. It is free of Nissl granules.. » o* aX. + Dendrites - multiple short projections arising-from the cell body, that carry the nerve impulse towards the neuron. Nissl, granules are present here. _ The neuronal cytoskeleton consists of neurofilaments and microtubules. These are abundantly seen in the cell body, dendrites and,the axon. The neurofilaments are heteropolymers of proteins that give tensile strength to the,axon. Bundles.of neurofilaments constitute a neurofibril. Microtubules assist in axonaltransport. {> CC Structure of a neuron Ni Cell body (soma) Axon Oligodendrocyte Cell membrane- J Axon hillock N@ Node of Ranvier = Myelin sheath ——/ Synaptic end bulbs",
+        "reconstructedContent": "Neurites (neuronal processes) are the dendrites and the axon. They are projections arising from the cell body (soma) of a neuron.\n\n• An axon is a single, long projection that carries impulses away from the cell body. It ends by dividing into branches called axon terminals, which synapse with dendrites of another neuron, or it may end on an effector such as a muscle or gland. The axon is free of Nissl granules.\n• Dendrites are multiple, short projections that carry nerve impulses toward the neuron. Nissl granules are present in dendrites.\n\nThe neuronal cytoskeleton consists of neurofilaments and microtubules, which are abundant in the cell body, dendrites and axon. Neurofilaments are protein heteropolymers that give tensile strength to the axon; bundles of neurofilaments form a neurofibril. Microtubules assist axonal transport.",
+        "evidenceBasis": "Direct visual review of data/marrow/source_pdfs/Anatomy_ed8.pdf, printed explanation page(s) 236; stable-ID question, answer choices, key and source image metadata cross-checked.",
+        "reviewNote": "Only legible source explanation wording was normalized. Named layers, cells, functions, sequences, stain behavior, clinical details and image ownership were checked against the PDF. No missing content or changed key was inferred."
+      },
+      "audit": {
+        "reviewedAgainst": "Anatomy ED8 source PDF visual pages 236–244 plus stable ID, stem, options, printed key and structured metadata",
+        "sourceExplanationPages": [
+          236
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 1 source figure metadata item(s) retained in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH13_Q002": {
+      "takeaway": "The axon hillock is the Nissl-free region of the neuron cell body where the axon begins.",
+      "displayText": "The Nissl-free zone from which the axon arises is the axon hillock.\n\nNissl bodies (Nissl granules) are aggregates of polyribosomes and rough endoplasmic reticulum. They are present in the cell body and large dendrites of a neuron. Under light microscopy they appear as basophilic granules because they contain abundant acidic RNA, which has affinity for basic dyes. The source image shows blue Nissl bodies in motor-neuron cytoplasm.\n\n• The initial segment is the proximal part of the axon just beyond the axon hillock. The hillock is part of the cell body; the initial segment is part of the axon.\n• The mesaxon is where the Schwann-cell plasma membrane fuses with itself as it wraps around the axon to form the myelin sheath. The Schwann-cell cytoplasm and nucleus are pushed to the periphery; the thin Schwann-cell cytoplasm surrounding the sheath is the neurilemma.\n• Each Schwann cell myelinates a short axon segment. The unmyelinated gaps between segments are nodes of Ranvier.",
+      "emphasis": [
+        "Nissl-free zone",
+        "axon hillock",
+        "initial segment",
+        "nodes of Ranvier"
+      ],
+      "rationales": {
+        "a": "The initial segment is the proximal axon beyond the hillock; the hillock itself is the Nissl-free region on the cell body.",
+        "b": "Mesaxon is the fused Schwann-cell membrane that wraps around an axon during myelination.",
+        "d": "Nodes of Ranvier are gaps between myelinated segments, not the Nissl-free origin of the axon."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported ED8 explanation contains OCR debris or corrupted spacing/characters.",
+        "sourceFragment": "The Nissl-free zone of a neuron from where an axon arises is called an axon hillock. Structure of a neuron Cell body (soma) Axon Oligodendrocyte Cell membrane- Dendrites. a Axon hillock ) Node of Ranvier 4 Myelin sheath \" # @' \"SO DE axon terminal 4 Synaptic end bulbs Bs; © > 2 > Nissl bodies or granules are aggregates of plyribosomesand rough endoplasmic reticulum. They are present in the cell body of a paueaan? in large@iphdrites. Undér light microscopy, they appear as basophilic granules. The nity towards'the basic dyes'is due to the presence of a large amount of RNA which is acigigin nature. wy? rat S > es The image below shows a photomicrograph of bluish-edloured Nissl bodies (indicated by arrows) in the cytoplasm of motor neurons. © Nissi bodies 5 wy\" é iy ee PY o eee \"gee <> ‘N [ae eo a PGs Option A: The initial segment refers to the proximal part of the axon, that lies just beyond the axon-hillock. Thus, an axon-hillock is part of the cell body while the initial segment is part of an axon. Option B: Mesaxon refers to the area where the plasma membrane of the Schwann cell fuses with itself around the axon. During the formation of the myelin sheath, the axon invaginates the Schwann cell. The plasma membrane of the Schwann cell fuses with itself and continues to wrap around the axon to form multiple layers of the plasma membrane called the myelin sheath. The cytoplasm and nucleus of the Schwann cell are pushed to the periphery. The thin layer of the cytoplasm of the Schwann cell surrounding the myelin sheath is called neurilemma. Option D: Each Schwann cell myelinates only a short segment of the axon. Hence, along the length of the axon, there are several Schwann cells myelinating it. The unmyelinated portions of the axon present in between myelinated segments are known as nodes of Ranvier.",
+        "reconstructedContent": "The Nissl-free zone from which the axon arises is the axon hillock.\n\nNissl bodies (Nissl granules) are aggregates of polyribosomes and rough endoplasmic reticulum. They are present in the cell body and large dendrites of a neuron. Under light microscopy they appear as basophilic granules because they contain abundant acidic RNA, which has affinity for basic dyes. The source image shows blue Nissl bodies in motor-neuron cytoplasm.\n\n• The initial segment is the proximal part of the axon just beyond the axon hillock. The hillock is part of the cell body; the initial segment is part of the axon.\n• The mesaxon is where the Schwann-cell plasma membrane fuses with itself as it wraps around the axon to form the myelin sheath. The Schwann-cell cytoplasm and nucleus are pushed to the periphery; the thin Schwann-cell cytoplasm surrounding the sheath is the neurilemma.\n• Each Schwann cell myelinates a short axon segment. The unmyelinated gaps between segments are nodes of Ranvier.",
+        "evidenceBasis": "Direct visual review of data/marrow/source_pdfs/Anatomy_ed8.pdf, printed explanation page(s) 236, 237, 238; stable-ID question, answer choices, key and source image metadata cross-checked.",
+        "reviewNote": "Only legible source explanation wording was normalized. Named layers, cells, functions, sequences, stain behavior, clinical details and image ownership were checked against the PDF. No missing content or changed key was inferred."
+      },
+      "audit": {
+        "reviewedAgainst": "Anatomy ED8 source PDF visual pages 236–244 plus stable ID, stem, options, printed key and structured metadata",
+        "sourceExplanationPages": [
+          236,
+          237,
+          238
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 1 source figure metadata item(s) retained in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH13_Q003": {
+      "takeaway": "Osmium tetroxide makes myelin black by reacting with unsaturated fatty acids.",
+      "displayText": "The stain used in the nerve section is osmium tetroxide. It is reduced to a black substance by unsaturated fatty acids in the myelin sheath, so myelin appears black.\n\nPure neuritic leprosy is a variant involving peripheral nerve trunks in the absence of skin lesions. Nerve biopsy is the gold-standard method for diagnosis of this form.",
+      "emphasis": [
+        "osmium tetroxide",
+        "black substance",
+        "myelin sheath",
+        "gold-standard"
+      ],
+      "rationales": {
+        "a": "Sudan Black can stain lipids, but the source identifies osmium tetroxide for this nerve section and notes that it blackens myelin.",
+        "b": "Giemsa is not the stain identified here; osmium tetroxide reacts with myelin’s unsaturated fatty acids.",
+        "d": "Silver stain is not the source-identified myelin stain in this section; osmium tetroxide renders myelin black."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported ED8 explanation contains OCR debris or corrupted spacing/characters.",
+        "sourceFragment": "The stain used in this section is osmium tetroxide.. x. Osmium tetroxide is reduced to a black substance by unsaturated fatty acids present in the myelin sheath of the nerve fibers and hence, appears black on the'séction. o~ The pure neuritic form is a variant of leprosy charagterized by the isolated involvement of peripheral nerve trunks with the absence of skin. lesions. Nerve biopsy is the gold standard method for the diagnosis of pure neuritic leprosy ov",
+        "reconstructedContent": "The stain used in the nerve section is osmium tetroxide. It is reduced to a black substance by unsaturated fatty acids in the myelin sheath, so myelin appears black.\n\nPure neuritic leprosy is a variant involving peripheral nerve trunks in the absence of skin lesions. Nerve biopsy is the gold-standard method for diagnosis of this form.",
+        "evidenceBasis": "Direct visual review of data/marrow/source_pdfs/Anatomy_ed8.pdf, printed explanation page(s) 238; stable-ID question, answer choices, key and source image metadata cross-checked.",
+        "reviewNote": "Only legible source explanation wording was normalized. Named layers, cells, functions, sequences, stain behavior, clinical details and image ownership were checked against the PDF. No missing content or changed key was inferred."
+      },
+      "audit": {
+        "reviewedAgainst": "Anatomy ED8 source PDF visual pages 236–244 plus stable ID, stem, options, printed key and structured metadata",
+        "sourceExplanationPages": [
+          238
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 1 source figure metadata item(s) retained in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH13_Q004": {
+      "takeaway": "On H&E, myelinated fibers show empty spaces where myelin was not stained; unmyelinated fibers do not.",
+      "displayText": "In the cross-sectional H&E images, image A shows an unmyelinated nerve fiber, identified by the absence of empty spaces around the fibers. Image B shows a myelinated nerve fiber, identified by empty spaces around the fibers (arrows).\n\nH&E does not color myelin, which appears as a white region or empty space around the nerve fiber. Special myelin stains such as Luxol fast blue and Sudan blue stain myelin with less intensity. Osmium tetroxide stains myelin black.",
+      "emphasis": [
+        "unmyelinated nerve",
+        "myelinated nerve",
+        "empty spaces",
+        "Osmium tetroxide"
+      ],
+      "rationales": {
+        "a": "This reverses the image findings: A is unmyelinated and B is myelinated.",
+        "c": "Image A lacks the periaxonal empty space and is unmyelinated; only B is myelinated.",
+        "d": "Image B has empty spaces around its fibers, identifying myelin; therefore both are not unmyelinated."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported ED8 explanation contains OCR debris or corrupted spacing/characters.",
+        "sourceFragment": "ow aw mre = x\". In the above-given images showing the'eross-section Of the nerve fibers stained with H & E, + Image A shows an unmyelinated nerve identified by the absent empty spaces around nerve fibers. Py as + Image B shows a myeliiated nerve identified by the empty spaces around the nerve fibers (marked with arrows)» ao Staining of myelin\" \" ° H&‘E stain - Fails to, colour the myelin (shows as white region/empty space around nerve fiber). / * Special stains for Myelin such as Luxol Fast Blue, Sudan blue can stain but with less intensity. * Osmium tetroxide stains myelin black.",
+        "reconstructedContent": "In the cross-sectional H&E images, image A shows an unmyelinated nerve fiber, identified by the absence of empty spaces around the fibers. Image B shows a myelinated nerve fiber, identified by empty spaces around the fibers (arrows).\n\nH&E does not color myelin, which appears as a white region or empty space around the nerve fiber. Special myelin stains such as Luxol fast blue and Sudan blue stain myelin with less intensity. Osmium tetroxide stains myelin black.",
+        "evidenceBasis": "Direct visual review of data/marrow/source_pdfs/Anatomy_ed8.pdf, printed explanation page(s) 238; stable-ID question, answer choices, key and source image metadata cross-checked.",
+        "reviewNote": "Only legible source explanation wording was normalized. Named layers, cells, functions, sequences, stain behavior, clinical details and image ownership were checked against the PDF. No missing content or changed key was inferred."
+      },
+      "audit": {
+        "reviewedAgainst": "Anatomy ED8 source PDF visual pages 236–244 plus stable ID, stem, options, printed key and structured metadata",
+        "sourceExplanationPages": [
+          238
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 1 source figure metadata item(s) retained in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH13_Q005": {
+      "takeaway": "The cerebellar cortex runs molecular → Purkinje → granular, with white matter deep to it.",
+      "displayText": "The labeled cerebellar structures are:\n• A — molecular layer\n• B — Purkinje layer\n• C — granular layer\n• D — white matter\n\nThe cerebellum is covered by pia mater, seen as thin connective tissue with blood vessels beneath it. It consists of outer gray matter (the cerebellar cortex) and inner white matter.",
+      "emphasis": [
+        "molecular layer",
+        "Purkinje layer",
+        "granular layer",
+        "white matter"
+      ],
+      "rationales": {
+        "a": "This mapping places B in the granular layer, but B marks the Purkinje layer; C marks the granular layer.",
+        "c": "A marks the molecular layer and B the Purkinje layer; the option swaps A and the Purkinje assignment.",
+        "d": "A is the molecular layer and B the Purkinje layer, so their labels are not as given here."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported ED8 explanation contains OCR debris or corrupted spacing/characters.",
+        "sourceFragment": "The structures marked in the given image are: A- Molecular layer B - Purkinje layer C - Granular layer D - White matter The cerebellum is covered by pia mater which is seen as thin connective tissue, with blood vessels lying under it. The cerebellum consists of an outer grey matter (cerebellar cortex) and inner white matter. Layers of cerebellar cortex °< IN Seer ane Wipes ——— Molecular layer EOE aN ee. pine we on BONS ENT Raha \"Granular layer lo ERPS eae ———— White matter = ~\\. a ws < oO 4 ~~ « Pi XC m4 So;; cO >",
+        "reconstructedContent": "The labeled cerebellar structures are:\n• A — molecular layer\n• B — Purkinje layer\n• C — granular layer\n• D — white matter\n\nThe cerebellum is covered by pia mater, seen as thin connective tissue with blood vessels beneath it. It consists of outer gray matter (the cerebellar cortex) and inner white matter.",
+        "evidenceBasis": "Direct visual review of data/marrow/source_pdfs/Anatomy_ed8.pdf, printed explanation page(s) 238, 239; stable-ID question, answer choices, key and source image metadata cross-checked.",
+        "reviewNote": "Only legible source explanation wording was normalized. Named layers, cells, functions, sequences, stain behavior, clinical details and image ownership were checked against the PDF. No missing content or changed key was inferred."
+      },
+      "audit": {
+        "reviewedAgainst": "Anatomy ED8 source PDF visual pages 236–244 plus stable ID, stem, options, printed key and structured metadata",
+        "sourceExplanationPages": [
+          238,
+          239
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 2 source figure metadata item(s) retained in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH13_Q006": {
+      "takeaway": "The six cerebral cortical layers from superficial to deep are molecular, external granular, external pyramidal, internal granular, ganglionic and multiform.",
+      "displayText": "From superficial to deep, the cerebral cortex layers are:\n1. Molecular layer (plexiform layer)\n2. External granular layer\n3. External pyramidal layer\n4. Internal granular layer, containing the outer band of Baillarger\n5. Ganglionic layer (internal pyramidal layer), containing the inner band of Baillarger\n6. Multiform layer (layer of polymorphic cells)",
+      "emphasis": [
+        "Molecular layer",
+        "External granular layer",
+        "Internal granular layer",
+        "Multiform layer"
+      ],
+      "rationales": {
+        "a": "This puts the external pyramidal layer before the external granular layer and misorders the deep layers.",
+        "b": "This places the multiform layer second, but it is the deepest layer; the external granular and pyramidal layers are also reversed.",
+        "d": "This places the multiform layer second and misorders the external and internal layers; the correct superficial-to-deep sequence is 1-4-2-3-6-5."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported ED8 explanation contains OCR debris or corrupted spacing/characters.",
+        "sourceFragment": "2s: « +, es) The correct order of the layers of,the-cerebral cortex from superficial to deep are: * Molecular layer (Plexiforny layer) > + External granular layer.» a ¢ External pyramid} layer C* + Internal geen layer - contains the outer band of Baillarger * Ganglionic layer (Internal Pyramidal layer) - contains the inner band of Baillarger * Multiform layer (Layer of Polymorphic cells)",
+        "reconstructedContent": "From superficial to deep, the cerebral cortex layers are:\n1. Molecular layer (plexiform layer)\n2. External granular layer\n3. External pyramidal layer\n4. Internal granular layer, containing the outer band of Baillarger\n5. Ganglionic layer (internal pyramidal layer), containing the inner band of Baillarger\n6. Multiform layer (layer of polymorphic cells)",
+        "evidenceBasis": "Direct visual review of data/marrow/source_pdfs/Anatomy_ed8.pdf, printed explanation page(s) 239; stable-ID question, answer choices, key and source image metadata cross-checked.",
+        "reviewNote": "Only legible source explanation wording was normalized. Named layers, cells, functions, sequences, stain behavior, clinical details and image ownership were checked against the PDF. No missing content or changed key was inferred."
+      },
+      "audit": {
+        "reviewedAgainst": "Anatomy ED8 source PDF visual pages 236–244 plus stable ID, stem, options, printed key and structured metadata",
+        "sourceExplanationPages": [
+          239
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      }
+    },
+    "marrow__ANAT_CH13_Q007": {
+      "takeaway": "The outer band of Baillarger is in layer IV (internal granular); in visual cortex it forms the stria of Gennari.",
+      "displayText": "The outer band of Baillarger is in the internal granular layer (layer IV) of the cerebral cortex.\n\nCerebral cortical nerve fibers run radially and tangentially. Tangential fibers are concentrated in the internal granular layer (outer band of Baillarger) and ganglionic layer (layer V; inner band of Baillarger). These bands are well developed in sensory areas because of the terminal parts of thalamocortical fibers. In the visual cortex, the outer band can be seen with the naked eye and is called the stria of Gennari; this gives the visual cortex the name striate cortex. The source image shows the bands of Baillarger/stria of Gennari and subcortical white matter at the bottom.",
+      "emphasis": [
+        "outer band of Baillarger",
+        "internal granular layer",
+        "stria of Gennari",
+        "striate cortex"
+      ],
+      "rationales": {
+        "a": "The external pyramidal layer is layer III, not the internal granular layer containing the outer band.",
+        "c": "The internal pyramidal (ganglionic) layer contains the inner band of Baillarger, not the outer band.",
+        "d": "The external granular layer is layer II; the outer band of Baillarger is in the internal granular layer (IV)."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported ED8 explanation contains OCR debris or corrupted spacing/characters.",
+        "sourceFragment": "The outer band of Baillarger is seen in the internal granular layer of cerebral cortex. The cerebral cortex contains nerve fibers that run radially and tangentially. The tangential fibers are concentrated in the internal granular layer (layer IV) referred to as the outer band of Baillarger and in the ganglionic layer (layer V) referred to as the inner band of Baillarger. These bands are well developed in the sensory areas because of the concentration of terminal parts of the thalamocortical fibers. In the visual cortex, the outer band of Baillarger can be seen with the naked eye and is known as the stria of Gennari. It is because of this stria that the visual cortex is also referred to as the striate cortex. The given image shows a micrograph of the visual cortex. The blue, horizontal band in the lower half of the image are the bands of Baillarger/the stria of Gennari. Subcortical white matter (predominantly blue) is seen at the very bottom of the image. Visual cortex showing bands of Baillarger — ~ ‘ >. Cc \"y",
+        "reconstructedContent": "The outer band of Baillarger is in the internal granular layer (layer IV) of the cerebral cortex.\n\nCerebral cortical nerve fibers run radially and tangentially. Tangential fibers are concentrated in the internal granular layer (outer band of Baillarger) and ganglionic layer (layer V; inner band of Baillarger). These bands are well developed in sensory areas because of the terminal parts of thalamocortical fibers. In the visual cortex, the outer band can be seen with the naked eye and is called the stria of Gennari; this gives the visual cortex the name striate cortex. The source image shows the bands of Baillarger/stria of Gennari and subcortical white matter at the bottom.",
+        "evidenceBasis": "Direct visual review of data/marrow/source_pdfs/Anatomy_ed8.pdf, printed explanation page(s) 239, 240; stable-ID question, answer choices, key and source image metadata cross-checked.",
+        "reviewNote": "Only legible source explanation wording was normalized. Named layers, cells, functions, sequences, stain behavior, clinical details and image ownership were checked against the PDF. No missing content or changed key was inferred."
+      },
+      "audit": {
+        "reviewedAgainst": "Anatomy ED8 source PDF visual pages 236–244 plus stable ID, stem, options, printed key and structured metadata",
+        "sourceExplanationPages": [
+          239,
+          240
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 1 source figure metadata item(s) retained in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH13_Q008": {
+      "takeaway": "Pituitary lactotrophs are acidophils that produce prolactin and stain pink with eosin.",
+      "displayText": "Prolactin-producing pituitary cells are acidophils and stain with eosin.\n\nThe pituitary gland has pars anterior, pars intermedia and pars posterior (pars nervosa). Pars anterior (pars distalis) contains chromophil and chromophobe cells. Chromophils have brightly staining cytoplasmic granules:\n• Acidophils (alpha cells) stain with acidic dyes such as eosin or orange G and appear pink on H&E. Somatotrophs produce growth hormone; lactotrophs produce prolactin.\n• Basophils (beta cells) stain with basic dyes such as hematoxylin and appear blue on H&E. They are PAS-positive; corticotrophs produce ACTH, thyrotrophs produce TSH, and gonadotrophs produce FSH and LH.\n• Chromophobes lack stainable granules and appear colorless on H&E.\n\nPars intermedia contains colloid-filled vesicles, remnants of Rathke’s pouch. Pars posterior contains hypothalamic neuronal fibers and supporting pituicytes.",
+      "emphasis": [
+        "Prolactin",
+        "acidophils",
+        "eosin",
+        "lactotrophs"
+      ],
+      "rationales": {
+        "a": "Thyrotrophs produce TSH and are basophils, which stain with basic dyes rather than eosin.",
+        "b": "Corticotrophs produce ACTH and are basophils, not eosin-staining acidophils.",
+        "d": "Gonadotrophs produce FSH/LH and are basophils; prolactin-producing lactotrophs are acidophils."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported ED8 explanation contains OCR debris or corrupted spacing/characters.",
+        "sourceFragment": "The cells producing prolactin from-the pituitary gland are stained by eosin. The pituitary gland is divided'inito the pars anterior, pars intermedia and pars posterior (or pars nervosa). \" at - Pituitary gland f sean Se Sasa ' Nea vauici tes tate || FAe nervoen 7 WEARS SB Sar The pars anterior (aka pars distalis) consists of chromophil cells and chromophobe cells. The chromophil cells have brightly staining granules in their cytoplasm. They include: * Acidophil cells - stain with acidic dyes like eosin or orange G and appear pink on H and E stain. They are also called alpha cells. They include: + Somatotrophs - producing growth hormone * Lactotrophs - producing prolactin +* Basophil cells - stain with basic dyes like hematoxylin and appear blue on H and E stain. These cells are also periodic acid Schiff (PAS) stain positive. They are also called beta cells. They include: * Corticotrophs - producing ACTH ¢ Thyrotrophs - producing TSH * Gonadotrophs - producing FSH and LH o The chromophobe cells do not contain granules that stain and hence appear colorless on an H and E stain. x 7 oe Pars distalis The pars intermedia contains colloid filled vesicles, which are remnants of the pouch of Rathke. The pars posterior consists of nerve fibers from the neurons of the hypothalamus and specialized supporting cells called pituicytes.",
+        "reconstructedContent": "Prolactin-producing pituitary cells are acidophils and stain with eosin.\n\nThe pituitary gland has pars anterior, pars intermedia and pars posterior (pars nervosa). Pars anterior (pars distalis) contains chromophil and chromophobe cells. Chromophils have brightly staining cytoplasmic granules:\n• Acidophils (alpha cells) stain with acidic dyes such as eosin or orange G and appear pink on H&E. Somatotrophs produce growth hormone; lactotrophs produce prolactin.\n• Basophils (beta cells) stain with basic dyes such as hematoxylin and appear blue on H&E. They are PAS-positive; corticotrophs produce ACTH, thyrotrophs produce TSH, and gonadotrophs produce FSH and LH.\n• Chromophobes lack stainable granules and appear colorless on H&E.\n\nPars intermedia contains colloid-filled vesicles, remnants of Rathke’s pouch. Pars posterior contains hypothalamic neuronal fibers and supporting pituicytes.",
+        "evidenceBasis": "Direct visual review of data/marrow/source_pdfs/Anatomy_ed8.pdf, printed explanation page(s) 240, 241; stable-ID question, answer choices, key and source image metadata cross-checked.",
+        "reviewNote": "Only legible source explanation wording was normalized. Named layers, cells, functions, sequences, stain behavior, clinical details and image ownership were checked against the PDF. No missing content or changed key was inferred."
+      },
+      "audit": {
+        "reviewedAgainst": "Anatomy ED8 source PDF visual pages 236–244 plus stable ID, stem, options, printed key and structured metadata",
+        "sourceExplanationPages": [
+          240,
+          241
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 1 source figure metadata item(s) retained in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH13_Q009": {
+      "takeaway": "Age-related pineal calcification (corpora arenacea) can appear as a radio-opacity on skull X-ray.",
+      "displayText": "The radio-opacity at the pineal gland is most likely corpora arenacea (brain sand). These structures within the pineal gland calcify increasingly with age, are visible on X-ray, and can serve as landmarks. Their deposits may contain calcium phosphate, magnesium phosphate, calcium carbonate and ammonium phosphate.\n\nPinealocytes are the gland’s cells; they produce melatonin, which works with the hypothalamus in sleep–wake regulation. Corpora amylacea are small eosinophilic inclusions reported in histologic sections of the brain, prostate, lung and uterus. The source image shows darkly stained corpora arenacea in the pineal gland.",
+      "emphasis": [
+        "corpora arenacea",
+        "brain sand",
+        "calcify increasingly with age",
+        "X-ray"
+      ],
+      "rationales": {
+        "a": "Pinealocytes are melatonin-producing cells, not the age-calcifying bodies that create the radiopacity.",
+        "c": "Nervi conarii are nerve structures associated with the pineal region, not the calcifying pineal bodies called corpora arenacea.",
+        "d": "Corpora amylacea are eosinophilic inclusions in several tissues; the source identifies pineal calcifications as corpora arenacea."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported ED8 explanation contains OCR debris or corrupted spacing/characters.",
+        "sourceFragment": "The most likely cause for the opacity at the site of the pineal gland is corpora arenacea. The pineal gland has a structure called the corpora arenacea (brain sand) located within the gland. These bodies are prone to an increase in calcification with advancing age. They are visible on x-ray and can be used as landmarks. Chemical analysis of the calcium deposits shows the different compositions, including calcium phosphate, magnesium phosphate, calcium carbonate, and ammonium phosphate. Option A: The cells of the pineal gland are called pinealocytes that produces the hormone melatonin which works with the hypothalamus to regulate sleep-wake cycles. Option D: Corpora amylacea are small eosinophilic inclusions frequently seen in histological sections of the brain, prostate, lung and uterus. The image below is a histology section of the pineal gland showing dark stained corpora arenacea within the gland. Pineal gland showing corpora arenacea et 2 SRE ieee, % z= ieee ey Sa S eer ty — Sas Ss th eee SG Sos vo as e S x ©;; s 2",
+        "reconstructedContent": "The radio-opacity at the pineal gland is most likely corpora arenacea (brain sand). These structures within the pineal gland calcify increasingly with age, are visible on X-ray, and can serve as landmarks. Their deposits may contain calcium phosphate, magnesium phosphate, calcium carbonate and ammonium phosphate.\n\nPinealocytes are the gland’s cells; they produce melatonin, which works with the hypothalamus in sleep–wake regulation. Corpora amylacea are small eosinophilic inclusions reported in histologic sections of the brain, prostate, lung and uterus. The source image shows darkly stained corpora arenacea in the pineal gland.",
+        "evidenceBasis": "Direct visual review of data/marrow/source_pdfs/Anatomy_ed8.pdf, printed explanation page(s) 241, 242; stable-ID question, answer choices, key and source image metadata cross-checked.",
+        "reviewNote": "Only legible source explanation wording was normalized. Named layers, cells, functions, sequences, stain behavior, clinical details and image ownership were checked against the PDF. No missing content or changed key was inferred."
+      },
+      "audit": {
+        "reviewedAgainst": "Anatomy ED8 source PDF visual pages 236–244 plus stable ID, stem, options, printed key and structured metadata",
+        "sourceExplanationPages": [
+          241,
+          242
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 1 source figure metadata item(s) retained in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH13_Q010": {
+      "takeaway": "Thyroid C-cells are parafollicular cells that secrete calcitonin.",
+      "displayText": "The structure marked X is a C-cell (parafollicular cell) of the thyroid. C-cells lie between follicular cells and the basement membrane or between follicles and secrete calcitonin.\n\nThe fibrous thyroid capsule sends septa that divide the gland into lobules containing follicles lined by follicular cells. Follicular cell shape varies with gland activity: cells are squamous when inactive and cuboidal to columnar when active. Follicular colloid appears pink with H&E.\n\nHürthle cells are oncocytes derived from follicular cells. They have eosinophilic granular cytoplasm and a vesicular nucleus with a large nucleolus and occur in Hashimoto thyroiditis, Hürthle-cell adenoma and carcinoma.",
+      "emphasis": [
+        "C-cells",
+        "parafollicular cell",
+        "calcitonin",
+        "Hürthle cells"
+      ],
+      "rationales": {
+        "a": "Follicular cells line thyroid follicles; the marked parafollicular cells are C-cells.",
+        "c": "Colloid fills the follicle lumen, whereas X marks cells between follicles/basement membrane.",
+        "d": "Hürthle cells are oncocytic follicular derivatives seen in specified thyroid disorders; the marked structure is a C-cell."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported ED8 explanation contains OCR debris or corrupted spacing/characters.",
+        "sourceFragment": "The structure marked X is th&C-cells or thepatafllculr cells of the thyroid gland. Sees ow os ‘ ay Re ree o = eG, # SO = a ye ~~ View A > arafolli f i, lal mE Ve piste s o > x The C-cells are present between the follicular cells and the basement membrane or between the follicles. They secrete calcitonin. The thyroid gland is covered by a fibrous capsule with septae dividing it into lobules. These lobules contain follicles lined by follicular cells. The shape of the follicular cells depends on the activity of the gland. They're squamous in the inactive state, cuboidal to columnar in the active state. The cavity of the follicle contains colloid which appears pink in H and E staining. Option D: Hürthle cells are oncocytes with eosinophilic granular cytoplasm and a vesicular nucleus with a large nucleolus found in the thyroid arising from follicular cells. They are seen in Hashimoto thyroiditis, Hürthle cell adenoma and Hürthle cell carcinoma of the thyroid.",
+        "reconstructedContent": "The structure marked X is a C-cell (parafollicular cell) of the thyroid. C-cells lie between follicular cells and the basement membrane or between follicles and secrete calcitonin.\n\nThe fibrous thyroid capsule sends septa that divide the gland into lobules containing follicles lined by follicular cells. Follicular cell shape varies with gland activity: cells are squamous when inactive and cuboidal to columnar when active. Follicular colloid appears pink with H&E.\n\nHürthle cells are oncocytes derived from follicular cells. They have eosinophilic granular cytoplasm and a vesicular nucleus with a large nucleolus and occur in Hashimoto thyroiditis, Hürthle-cell adenoma and carcinoma.",
+        "evidenceBasis": "Direct visual review of data/marrow/source_pdfs/Anatomy_ed8.pdf, printed explanation page(s) 242, 243; stable-ID question, answer choices, key and source image metadata cross-checked.",
+        "reviewNote": "Only legible source explanation wording was normalized. Named layers, cells, functions, sequences, stain behavior, clinical details and image ownership were checked against the PDF. No missing content or changed key was inferred."
+      },
+      "audit": {
+        "reviewedAgainst": "Anatomy ED8 source PDF visual pages 236–244 plus stable ID, stem, options, printed key and structured metadata",
+        "sourceExplanationPages": [
+          242,
+          243
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 2 source figure metadata item(s) retained in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH13_Q011": {
+      "takeaway": "Oxyphil cells are larger and eosinophilic; chief cells are numerous and produce parathormone.",
+      "displayText": "The marked structures are A, oxyphil cells, and B, chief cells. The clinical history and MRI findings suggest primary hyperparathyroidism due to a parathyroid adenoma.\n\nThe parathyroid gland has two cell types:\n• Chief (principal) cells are small and round, with vesicular nuclei and little cytoplasm. They are numerous and produce parathormone.\n• Oxyphil cells are fewer and scattered among chief cells. They are larger, have smaller nuclei and eosinophilic (pink) cytoplasm; their function is not known.\n\nPrimary hyperparathyroidism is usually due to a solitary parathyroid adenoma. Associated clinical signs can be recalled as “bones, stones, groans, moans, with fatigue overtones.”",
+      "emphasis": [
+        "oxyphil cells",
+        "chief cells",
+        "parathormone",
+        "function is not known"
+      ],
+      "rationales": {
+        "a": "Follicular cells are not the marked parathyroid cell pair; A is oxyphil and B is chief.",
+        "b": "B marks chief cells, not follicular cells; the gland shown is parathyroid.",
+        "d": "This reverses the structures: A is oxyphil and B is chief, not the other way around."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported ED8 explanation contains OCR debris or corrupted spacing/characters.",
+        "sourceFragment": "The structures marked are A and B are oxyphil cells and chief cells respectively. The clinical history and the MRI findings are strongly suggestive of primary hyperparathyroidjgin' secondary to a parathyroid adenoma. 2 The parathyroid gland has two cell types: oO a + chief cells (principal cells) - They are small round vit vesicular nuclei, surrounded bya small amount of cytoplasm. They are numerous.at produce parathormone, Ren gb >. * oxyphil cells - They are fewer and scattered tween the chief cells. These-are larger cells with a smaller nucleus with eosinophilic cyto; asm (pink colored). Their functi m is not known ec a Parathyroid gland Primary hyperparathyroidism is usually due to a solitary parathyroid adenoma. The clinical signs associated with it can be remembered with the mnemonic - \"bones, stones, groans, moans with fatigue overtones\".",
+        "reconstructedContent": "The marked structures are A, oxyphil cells, and B, chief cells. The clinical history and MRI findings suggest primary hyperparathyroidism due to a parathyroid adenoma.\n\nThe parathyroid gland has two cell types:\n• Chief (principal) cells are small and round, with vesicular nuclei and little cytoplasm. They are numerous and produce parathormone.\n• Oxyphil cells are fewer and scattered among chief cells. They are larger, have smaller nuclei and eosinophilic (pink) cytoplasm; their function is not known.\n\nPrimary hyperparathyroidism is usually due to a solitary parathyroid adenoma. Associated clinical signs can be recalled as “bones, stones, groans, moans, with fatigue overtones.”",
+        "evidenceBasis": "Direct visual review of data/marrow/source_pdfs/Anatomy_ed8.pdf, printed explanation page(s) 243; stable-ID question, answer choices, key and source image metadata cross-checked.",
+        "reviewNote": "Only legible source explanation wording was normalized. Named layers, cells, functions, sequences, stain behavior, clinical details and image ownership were checked against the PDF. No missing content or changed key was inferred."
+      },
+      "audit": {
+        "reviewedAgainst": "Anatomy ED8 source PDF visual pages 236–244 plus stable ID, stem, options, printed key and structured metadata",
+        "sourceExplanationPages": [
+          243
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 2 source figure metadata item(s) retained in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH13_Q012": {
+      "takeaway": "Zona fasciculata cells form straight columns separated by sinusoids.",
+      "displayText": "The cells are arranged in straight columns in the zona fasciculata. From outermost to deepest, the adrenal cortex has three layers:\n• Zona glomerulosa — small polyhedral cells arranged in inverted U-shaped formations or acinus-like groups; produces mineralocorticoids.\n• Zona fasciculata — straight columns of cells with sinusoids between them; produces glucocorticoids.\n• Zona reticularis — branching and anastomosing cell columns form a reticulum; produces sex hormones (progesterone, estrogens and androgens).",
+      "emphasis": [
+        "zona fasciculata",
+        "straight columns",
+        "sinusoids",
+        "glucocorticoids"
+      ],
+      "rationales": {
+        "b": "Zona glomerulosa cells form inverted U-shaped or acinus-like groups and produce mineralocorticoids.",
+        "c": "Zona reticularis cells branch and anastomose into a network; they do not form straight columns.",
+        "d": "The adrenal medulla is not a layer of the cortex, and the described straight columns identify zona fasciculata."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported ED8 explanation contains OCR debris or corrupted spacing/characters.",
+        "sourceFragment": "The cells are arranged in straight columns in the zona fasciculata of the adrenal cortex. The adrenal cortex is divided into three layers. From outermost to deep, they are: ¢ Zona glomerulosa - consists of small polyhedral cells arranged in inverted U-shaped formations or acinus-like groups. These cells produce mineralocorticoids + Zona fasciculata - consists of cells arranged in straight columns with sinusoids between the columns. These cells produce glucocorticoids. + Zona reticularis - It is so-called because it is made up of columns of cells that branch and anastomose with each other to form a kind of reticulum. These cells produce sex hormones - progesterone, oestrogens and androgens. Parts of adrenal gland -e i ae Layers of adrenal cortex",
+        "reconstructedContent": "The cells are arranged in straight columns in the zona fasciculata. From outermost to deepest, the adrenal cortex has three layers:\n• Zona glomerulosa — small polyhedral cells arranged in inverted U-shaped formations or acinus-like groups; produces mineralocorticoids.\n• Zona fasciculata — straight columns of cells with sinusoids between them; produces glucocorticoids.\n• Zona reticularis — branching and anastomosing cell columns form a reticulum; produces sex hormones (progesterone, estrogens and androgens).",
+        "evidenceBasis": "Direct visual review of data/marrow/source_pdfs/Anatomy_ed8.pdf, printed explanation page(s) 243, 244; stable-ID question, answer choices, key and source image metadata cross-checked.",
+        "reviewNote": "Only legible source explanation wording was normalized. Named layers, cells, functions, sequences, stain behavior, clinical details and image ownership were checked against the PDF. No missing content or changed key was inferred."
+      },
+      "audit": {
+        "reviewedAgainst": "Anatomy ED8 source PDF visual pages 236–244 plus stable ID, stem, options, printed key and structured metadata",
+        "sourceExplanationPages": [
+          243,
+          244
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 1 source figure metadata item(s) retained in unchanged source record/shared renderer."
+      }
+    }
+  },
+  "source": {
+    "bundle": "anatomy_ch001_063",
+    "sourceRawSha256": "f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387",
+    "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+    "sourcePdfPages": [
+      236,
+      244
+    ]
+  }
+}
