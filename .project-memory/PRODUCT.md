@@ -87,7 +87,10 @@ Prefer building over narrating.
 - **Home:** one cohesive surface; greeting + Home-only streak (rectangular/
   chiseled, integrated axis, restrained motion) + week strip; Today’s Focus
   (Continue Practice, Review-Due-when-due, permanent Practice-20-Random,
-  Timed CBT); Subjects library with accurate counts/progress; progress
+  Timed CBT); Connected study-day dots, with gaps for missed days and progressive
+  flame/glow milestones at 3, 7, 14, and 30 days; gentle animation respects
+  reduced motion and does not alter streak calculation. Subjects library
+  with accurate counts/progress; progress
   snapshot; Quick Access; Performance/Recent; clear next action.
 - **Topics:** compact subject selector, search/filter, accurate completion
   (attempted/total, not accuracy-gated), progress %, direct chapter entry,

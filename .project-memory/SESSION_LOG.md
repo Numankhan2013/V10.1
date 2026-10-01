@@ -1938,3 +1938,20 @@ these residual additions; final combined CI remains pending. No production claim
   navigation renderer templates; the revision transform now replaces the
   existing renderer and the single-navigation contract passes. Candidate CI
   still establishes full APK/PWA verification; no physical acceptance claimed.
+
+
+## 2026-10-01 — Add connected Home streak and milestone fire
+
+- During Revision review the user liked the screenshots and requested a more
+  motivating animated Home streak. Added the work to the same candidate/PR.
+- The existing Home owner now renders connected adjacent studied days, broken
+  colored links at gaps, a clear today ring, a custom SVG flame and soft glow
+  that intensify at 3/7/14/30 days. Empty streak is a quiet ember. Gentle sway,
+  inner flicker and milestone sparks are CSS-only; reduced motion is static.
+- Existing `currentStreak` and `studyDayKeys` remain unchanged. No new study
+  counters, stored rewards, timers, or persistence/sync model.
+- Milestone/connection unit behavior, all six visual states at 320/390/889px,
+  reduced-motion browser assertions, generated single-nav contract and the
+  required multi-question Pause/Home/Continue regression pass on the updated
+  certified generated baseline. Candidate CI still establishes full build
+  verification; physical review and production remain separate.

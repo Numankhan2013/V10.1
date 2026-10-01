@@ -52,7 +52,11 @@ closed. Raw question bundles and audit metadata remain unchanged.
   save a separate linked result, and preserve the parent through the existing
   checkpoint/sync model. Original results are immutable.
 - Timed-test recovery occupies Home Today's Focus through the existing
-  timed-resume core. Home period counts use unique answered IDs, answer
+  timed-resume core. The Home command-center owner composes `nkHomeStreakMarkup` from existing
+  `currentStreak`/`studyDayKeys`, connects only adjacent studied days in the
+  current local calendar week, and applies CSS-only milestone flame motion.
+  Reduced motion disables flicker/pulse and decorative sparks.
+  Home period counts use unique answered IDs, answer
   accuracy, and study time; result score/accuracy expose their denominators.
   Result actions retain repeated-tap guards without the 900 ms delay.
 - All-bank question finder: `tools/apply_question_search_v1.py` installs

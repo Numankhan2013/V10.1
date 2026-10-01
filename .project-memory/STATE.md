@@ -9,9 +9,12 @@
   global due/missed counts; More retains notes/search with neutral rows.
   Revision retains all four scoped queues and now embeds a seven-day scoped
   forecast with links to the existing full FSRS view and settings. Color is
-  limited to counts and small icon accents. No schedule, persistence, source,
+  limited to counts and small icon accents. Home also has connected study-day
+  markers and flame/glow milestones at 3/7/14/30 days with reduced-motion
+  support; canonical streak counting is unchanged. No schedule, persistence, source,
   or session-engine changes. All 75 local checks, generated product contract, Revision browser checks
-  (320/390/889px), and multi-question Pause/Home/Continue regression pass
+  (320/390/889px, including every streak tier and reduced motion), and the
+  multi-question Pause/Home/Continue regression pass
   against the updated certified generated baseline. Full candidate CI and
   physical review remain pending; production is unchanged.
 

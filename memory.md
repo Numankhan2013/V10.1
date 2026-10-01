@@ -784,3 +784,10 @@ embedded seven-day forecast respect the Revision focus. Existing FSRS graphs,
 settings, scheduling and all-bank session behavior are preserved. Study rows
 and cards are neutral, with semantic count/icon accents. Candidate validation,
 user review and production promotion remain distinct; consult live branch CI.
+
+The user then approved the Revision screenshots and requested an animated Home
+streak in the same candidate. The Home owner now connects adjacent studied days,
+shows gaps, and grows the flame/glow at 3/7/14/30 days. Reduced motion is static;
+canonical streak/day counts are unchanged. All tier/responsive browser checks
+and the required Pause/Home/Continue regression pass on the updated generated
+baseline; recheck the exact combined candidate's full CI before promotion.

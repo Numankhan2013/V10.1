@@ -72,7 +72,7 @@ window.QB={openStudyModuleBuilder};
     home=updated.split('function dashboard(){',1)[1].split('function bottomNav(',1)[0]
     tests=updated.split('function testsPage(){',1)[1].split('function examPage()',1)[0]
     if '<section class="nk-home-quick-grid"' in home or 'Strongest Chapters' in home or "Today's Review" in home:raise SystemExit('Home retained duplicate launch surfaces')
-    if not home.index('nk-home-streak-card') < home.index('${nkHomeFocusSection(focus,focusModule)}') < home.index('${nkStudySetsSection(focusModule?.id)}') < home.index('nk-home-subjects'):
+    if not home.index('${nkHomeStreakMarkup()}') < home.index('${nkHomeFocusSection(focus,focusModule)}') < home.index('${nkStudySetsSection(focusModule?.id)}') < home.index('nk-home-subjects'):
         raise SystemExit('Home lost its streak, Today focus, study sets, subjects hierarchy')
     if 'nk-test-mode-tabs' in tests or 'Custom Module' in tests or 'Full Question Bank' in tests:raise SystemExit('Tests retained duplicate setup paths')
     if 'Questions Attempted' in home or ' / ${fmtNum(total)}' in home or 'nk-home-progress-track' in home:
@@ -104,6 +104,25 @@ console.log('HOME_PERIOD_METRICS_OK unique=true denominator=answered time=true e
 '''.replace('SOURCE',json.dumps(stats_js),1)
     subprocess.run(['node','-e',behavior],check=True)
 
+
+    streak_helpers=updated.split('/* NK_HOME_STREAK_MILESTONES_V1 */',1)[1].split('function nkHomeRangeStart(',1)[0]
+    streak_behavior=r'''
+const assert=require('node:assert/strict'),vm=require('node:vm');
+const today=new Date('2026-10-01T12:00:00Z');
+class Clock extends Date{constructor(...args){super(...(args.length?args:[today.getTime()]));}static now(){return today.getTime();}}
+const dayKey=d=>new Date(d).toISOString().slice(0,10),days=new Set(['2026-09-28','2026-09-29','2026-10-01']);
+const context={Date:Clock,currentStreak:()=>1,studyDayKeys:()=>days,dayKey,esc:String,fmtNum:String,navIcon:()=>''};
+vm.createContext(context);vm.runInContext(SOURCE,context);
+for(const [count,level] of [[0,'rest'],[1,'spark'],[2,'spark'],[3,'warm'],[6,'warm'],[7,'fire'],[13,'fire'],[14,'blaze'],[29,'blaze'],[30,'radiant'],[100,'radiant']])assert.equal(vm.runInContext(`nkHomeStreakPresentation(${count}).level`,context),level);
+let markup=vm.runInContext('nkHomeStreakMarkup()',context);
+assert.equal((markup.match(/is-linked/g)||[]).length,1,'only consecutive studied days connect; a missed day breaks the line');
+assert(markup.includes('data-streak-level="spark"'));
+assert(markup.includes('not studied')&&markup.includes('upcoming')&&markup.includes('today'));
+assert.equal((markup.match(/is-done/g)||[]).length,3);
+assert.equal((markup.match(/is-today/g)||[]).length,1);
+console.log('HOME_STREAK_MILESTONES_OK thresholds=true connections=true gaps=true accessible=true');
+'''.replace('SOURCE',json.dumps(streak_helpers),1)
+    subprocess.run(['node','-e',streak_behavior],check=True)
     if HTML.exists():
         html=HTML.read_text(encoding='utf-8')
         if FLOW_MARKER in html:

@@ -2,6 +2,7 @@
 """Exercise the primary Revision hub, global counts, graphs and shared Practice engine."""
 
 from functools import partial
+from datetime import datetime
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 import threading
@@ -33,6 +34,38 @@ def main() -> None:
             page.route("**/*", lambda route: route.continue_() if route.request.url.startswith(origin) else route.abort())
             page.goto(origin + "/#dashboard", wait_until="domcontentloaded")
             page.wait_for_function("window.QB && window.QB.getState")
+            # Flame milestones are driven by the unchanged canonical study-day count.
+            original_attempts=page.evaluate('JSON.parse(JSON.stringify(window.QB.getState().attempts))')
+            for streak,level in [(0,'rest'),(1,'spark'),(3,'warm'),(7,'fire'),(14,'blaze'),(30,'radiant')]:
+                page.evaluate("""([count,id])=>{
+                  const s=window.QB.getState(),attempts=[];
+                  for(let i=0;i<count;i++){const d=new Date();d.setHours(12,0,0,0);d.setDate(d.getDate()-i);attempts.push({id:'streak-'+i,at:d.getTime(),correct:true,selected:1,source:'practice'});}
+                  s.attempts=count?{[id]:attempts}:{};
+                  window.QB.saveState();window.QB.nav('more');
+                }""",[streak,WRONG_ID])
+                page.get_by_role('heading',name='More',exact=True).wait_for()
+                page.locator('.bottom-nav button').filter(has_text='Home').click()
+                card=page.locator('.nk-home-streak-card')
+                card.wait_for()
+                assert card.get_attribute('data-streak-level')==level
+                assert card.locator('strong').inner_text()==f'{streak} day streak'
+                if streak>=7:
+                    assert card.locator('.is-linked').count()==datetime.now().weekday()
+                for width,height,name in [(320,844,'small-phone'),(390,844,'phone'),(889,1280,'tablet')]:
+                    page.set_viewport_size({'width':width,'height':height})
+                    assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
+                    assert card.locator('svg.nk-streak-flame-svg').is_visible()
+                    page.wait_for_function("getComputedStyle(document.querySelector('.page')).opacity==='1'")
+                    page.screenshot(path=str(output/f'streak-{streak}-{name}.png'),full_page=True)
+            page.emulate_media(reduced_motion='reduce')
+            assert page.locator('.nk-streak-flame-svg').evaluate('(n)=>getComputedStyle(n).animationName')=='none'
+            assert page.locator('.nk-home-week-day.is-today i').evaluate('(n)=>getComputedStyle(n).animationName')=='none'
+            page.emulate_media(reduced_motion='no-preference')
+            page.evaluate('(attempts)=>{window.QB.getState().attempts=attempts;window.QB.saveState();window.QB.nav("more");}',original_attempts)
+            page.get_by_role('heading',name='More',exact=True).wait_for()
+            page.locator('.bottom-nav button').filter(has_text='Home').click()
+            page.locator('.nk-home-streak-card').wait_for()
+            page.set_viewport_size({'width':390,'height':844})
             page.locator('.bottom-nav button').filter(has_text='Revision').click()
             page.get_by_role('heading',name='Revision',exact=True).wait_for()
             assert page.locator('.nk-revision-card.is-red b').inner_text()=='0'
