@@ -1,0 +1,151 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Marrow ED8 Physiology Chapter 12 explanation rollout; raw imported source remains immutable.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "12",
+    "chapterTitle": "Somatosensory Pathways",
+    "questionStart": 19,
+    "questionEnd": 23,
+    "questions": 5,
+    "status": "approved-rollout",
+    "workloadScore": 8,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 753,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__PHYS_CH12_Q019": {
+      "takeaway": "The ventral posterolateral (VPL) thalamic nucleus relays pain and temperature from the body to cortex.",
+      "displayText": "Pain and temperature from the body ascend mainly in the anterolateral spinothalamic tract and relay in the ventral posterolateral (VPL) nucleus of the thalamus before reaching somatosensory cortex. Dorsal-column signals for touch, vibration, and proprioception also relay in VPL.\n\nThe ventral posteromedial (VPM) nucleus receives somatosensory input from the face and gustatory pathways. The anterior nucleus participates in limbic circuitry, including mammillothalamic input and cingulate projections; intralaminar nuclei contribute to arousal and diffuse pain-related activation.\n\n Fibers from the anterolateral spinothalamic tract and dorsal column synapse in VPL. The VPM pathway for taste includes nucleus of the tractus solitarius in the brainstem and ventral posterior medial nucleus in the thalamus. The anterior nucleus relays hippocampal impulses, receives mammillothalamic afferents, and sends efferents to cingulate gyrus. Intralaminar nuclei participate in arousal and receive afferents from reticular formation of the brainstem.\n\n Specifically, fibers from the anterolateral spinothalamic tract and dorsal column synapse in the ventral posterolateral (VPL) nucleus of the thalamus. Option B: taste receptors synapse through the nucleus of the tractus solitarius in the brainstem and the ventral posteromedial nucleus in the thalamus. Option C: the anterior nucleus relays hippocampal impulses, receives afferents from the mammillothalamic tract, and sends efferents to the cingulate gyrus. Option D: the intralaminar nucleus participates in arousal and receives afferents from the reticular formation of the brainstem.\n\n Fibers from the anterolateral spinothalamic tract and dorsal column synapse in VPL. The VPM pathway for taste includes nucleus of the tractus solitarius in the brainstem and ventral posterior medial nucleus in the thalamus. The anterior nucleus relays hippocampal impulses, receives mammillothalamic afferents, and sends efferents to cingulate gyrus. Intralaminar nuclei participate in arousal and receive afferents from reticular formation of the brainstem.",
+      "emphasis": [
+        "ventral posterolateral (VPL) nucleus",
+        "anterolateral spinothalamic tract",
+        "face and gustatory pathways"
+      ],
+      "rationales": {
+        "b": "The ventral posteromedial nucleus serves facial somatosensation and gustatory relay; pain and temperature from the body are keyed to VPL.",
+        "c": "The anterior nucleus is a limbic relay receiving mammillothalamic input and projecting to cingulate cortex, not the body pain-temperature relay.",
+        "d": "Intralaminar nuclei are associated with arousal and reticular formation input; the item asks for the specific sensory body relay."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanation contains OCR substitutions that obscure tract or nucleus names.",
+        "reconstructedContent": "The imported explanation has OCR substitutions in VPL/VPM and the thalamic nuclei prose. Printed source pages 238–239 were inspected; they confirm the respective VPL body-sensory relay, VPM taste pathway, anterior limbic relay, and intralaminar arousal role.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology printed page 239, rendered from the immutable PDF with SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe, was visually reviewed for this item."
+        ],
+        "reviewNote": "The imported explanation has OCR substitutions in VPL/VPM and the thalamic nuclei prose. Printed source pages 238–239 were inspected; they confirm the respective VPL body-sensory relay, VPM taste pathway, anterior limbic relay, and intralaminar arousal role.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          238,
+          239
+        ]
+      }
+    },
+    "marrow__PHYS_CH12_Q020": {
+      "takeaway": "Right leg pain fibers cross in the spinal cord, so a ventrolateral cordotomy cuts the left lateral spinothalamic tract.",
+      "displayText": "Pain and temperature fibers from the right lower limb enter the cord and cross through the anterior white commissure within about one or two segments. They then ascend on the left in the lateral spinothalamic tract. A left ventrolateral cordotomy therefore interrupts pain transmission from the right leg below the lesion.\n\nThe lateral spinothalamic tract carries pain and temperature, whereas the anterior (ventral) spinothalamic pathway carries crude touch and pressure in classical descriptions. The laterality follows the tract’s crossed course, not the side of the painful limb.\n\n In the described ventrolateral cordotomy, selected pain-conducting spinal-cord fibers in the lateral spinothalamic pathway are cut, producing contralateral pain and temperature loss below the lesion. The source also describes the percutaneous approach: destruction of the lateral spinothalamic tract at C1–C2 can disrupt painful sensations beyond C4. Fibers carrying pain ascend in the lateral tract; crude-touch and pressure fibers ascend in the anterior spinothalamic tract.\n\n In the more recent percutaneous approach described in the source, destruction of the lateral spinothalamic tract at the level of C1–C2 results in contralateral disruption of painful sensations beyond C4. Note: fibers carrying pain sensation ascend in the lateral spinothalamic tract, while crude-touch and pressure fibers ascend in the anterior spinothalamic tract.\n\n In the described ventrolateral cordotomy, selected pain-conducting spinal-cord fibers in the lateral spinothalamic pathway are cut, producing contralateral pain and temperature loss below the lesion. The source also describes the percutaneous approach: destruction of the lateral spinothalamic tract at C1–C2 can disrupt painful sensations beyond C4. Fibers carrying pain ascend in the lateral tract; crude-touch and pressure fibers ascend in the anterior spinothalamic tract.",
+      "emphasis": [
+        "cross through the anterior white commissure",
+        "ascend on the left in the lateral spinothalamic tract",
+        "pain and temperature"
+      ],
+      "rationales": {
+        "a": "The ventral spinothalamic tract is associated with crude touch and pressure, not the lateral pain-temperature pathway being cut.",
+        "c": "A right-sided cut would not interrupt the already-crossed pain fibers from the right leg, which ascend on the left.",
+        "d": "The correct tract is lateral, but after crossing it lies on the left side for right-leg pain; a right lateral cut has the wrong laterality."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanation contains OCR substitutions that obscure tract or nucleus names.",
+        "reconstructedContent": "The imported explanation is OCR-damaged (“lateral spinoth ep”) and truncates source terms. Printed page 239 was inspected and restores the lateral spinothalamic tract, contralateral deficit, C1–C2 percutaneous detail, C4 level, and anterior-tract crude-touch/pressure distinction.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology printed page 239, rendered from the immutable PDF with SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe, was visually reviewed for this item."
+        ],
+        "reviewNote": "The imported explanation is OCR-damaged (“lateral spinoth ep”) and truncates source terms. Printed page 239 was inspected and restores the lateral spinothalamic tract, contralateral deficit, C1–C2 percutaneous detail, C4 level, and anterior-tract crude-touch/pressure distinction.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          238,
+          239
+        ]
+      }
+    },
+    "marrow__PHYS_CH12_Q021": {
+      "takeaway": "The lateral lemniscus carries auditory fibers from the cochlear nuclei.",
+      "displayText": "The lateral lemniscus is an ascending auditory pathway carrying fibers from cochlear nuclei toward midbrain auditory centers. This makes the statement about the lateral lemniscus and cochlear nuclei correct.\n\nThe other lemnisci carry different information: the medial lemniscus conveys dorsal-column modalities after their medullary crossing; the spinal lemniscus carries anterolateral-system signals; and trigeminal lemniscal fibers for facial pain and temperature represent the contralateral orofacial region.\n\n In this set of lemniscal pathways, fibers from cochlear nuclei travel in the lateral lemniscus; the dorsal-column nuclei feed the medial lemniscus; and the anterolateral spinothalamic tract contributes to the spinal lemniscus. Trigeminal lemniscus carries pain and temperature sensations from the contralateral orofacial region.\n\n In this set of lemniscal pathways, fibers from cochlear nuclei travel in the lateral lemniscus; the dorsal-column nuclei feed the medial lemniscus; and the anterolateral spinothalamic tract contributes to the spinal lemniscus. Trigeminal lemniscus carries pain and temperature sensations from the contralateral orofacial region.",
+      "emphasis": [
+        "lateral lemniscus",
+        "auditory pathway",
+        "contralateral orofacial region"
+      ],
+      "rationales": {
+        "a": "The spinal lemniscus carries anterolateral-system pain, temperature, and related signals, not dorsal-column fibers as stated.",
+        "b": "Trigeminal lemniscal pain and temperature fibers represent the contralateral, not ipsilateral, face.",
+        "d": "The medial lemniscus carries crossed dorsal-column input from the gracile and cuneate nuclei, not fibers from vestibular nuclei."
+      }
+    },
+    "marrow__PHYS_CH12_Q022": {
+      "takeaway": "A pontine medial-lemniscus lesion causes contralateral loss of tactile discrimination and proprioception.",
+      "displayText": "Dorsal-column primary afferents ascend ipsilaterally in the spinal cord and synapse in the gracile and cuneate nuclei of the medulla. Second-order axons cross the midline there and ascend as the medial lemniscus. By the pons, these fibers represent the opposite side of the body.\n\nA lesion of the medial lemniscus at pontine level therefore impairs tactile discrimination and proprioception contralateral to the lesion. Pain and temperature travel through the anterolateral system rather than the medial lemniscus.\n\n Fibers in the medial lemniscus ascend ipsilaterally in the dorsal columns to the medulla, where they synapse in the gracile and cuneate nuclei. Second-order neurons cross the midline and ascend to end in the contralateral ventral posterior lateral (VPL) nucleus and related specific sensory relay nuclei of the thalamus.\n\n The source explains that dorsal-column fibers ascend to the medulla and synapse in the gracile and cuneate nuclei. Their second-order neurons cross and ascend in the medial lemniscus to end in the contralateral VPL nucleus and related specific sensory relay nuclei of the thalamus.\n\n Fibers in the medial lemniscus ascend ipsilaterally in the dorsal columns to the medulla, where they synapse in the gracile and cuneate nuclei. Second-order neurons cross the midline and ascend to end in the contralateral ventral posterior lateral (VPL) nucleus and related specific sensory relay nuclei of the thalamus.",
+      "emphasis": [
+        "cross the midline there",
+        "By the pons, these fibers represent the opposite side",
+        "tactile discrimination and proprioception"
+      ],
+      "rationales": {
+        "a": "Pain and temperature are carried mainly by the anterolateral system, not the medial lemniscus.",
+        "b": "A medial-lemniscus lesion affects dorsal-column modalities after their medullary crossing, so deficits are contralateral rather than ipsilateral.",
+        "c": "Tactile and proprioceptive loss is expected, but on the opposite side because the medial lemniscus has already crossed."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanation contains OCR substitutions that obscure tract or nucleus names.",
+        "reconstructedContent": "The imported explanation contains OCR substitutions and malformed tract/nucleus spellings. Printed page 240 confirms the dorsal-column → gracile/cuneate nuclei → crossed medial lemniscus → contralateral VPL relay.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology printed page 240, rendered from the immutable PDF with SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe, was visually reviewed for this item."
+        ],
+        "reviewNote": "The imported explanation contains OCR substitutions and malformed tract/nucleus spellings. Printed page 240 confirms the dorsal-column → gracile/cuneate nuclei → crossed medial lemniscus → contralateral VPL relay.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          240
+        ]
+      }
+    },
+    "marrow__PHYS_CH12_Q023": {
+      "takeaway": "Ablation of somatosensory area I impairs tactile discrimination, including two-point discrimination, without abolishing all touch or pain.",
+      "displayText": "Ablation of primary somatosensory area I (S1) impairs fine tactile judgment, including two-point discrimination. Widespread bilateral excision causes difficulty localizing distinct sensations to precise body regions and judging pressure, weight, texture, and object shape by touch. Coarse localization can remain through brainstem, thalamic, or other cortical processing.\n\nPain is not totally lost; its quality and intensity may persist, although cortical body mapping contributes to precise localization. The source therefore keys loss of tactile and two-point discrimination rather than total loss of touch or pain.\n\n Widespread bilateral S1 excision prevents discreet localization of sensations to different body parts; coarse localization to a particular hand can remain through brainstem, thalamus, or other cerebral cortex. The person also cannot judge critical pressure, weight, or texture, consistent with impaired tactile discrimination.\n\n Widespread bilateral S1 excision prevents discreet localization of sensations to different body parts; coarse localization to a particular hand can remain through brainstem, thalamus, or other cerebral cortex. The person also cannot judge critical pressure, weight, or texture, consistent with impaired tactile discrimination.",
+      "emphasis": [
+        "two-point discrimination",
+        "difficulty localizing distinct sensations",
+        "Pain is not totally lost"
+      ],
+      "rationales": {
+        "a": "S1 lesions do not abolish pain sensation; pain quality and intensity can persist, though localization is less precise.",
+        "b": "Touch is not totally absent because other pathways and central relays retain coarse localization and sensation.",
+        "c": "The keyed effect includes impaired two-point discrimination, so the option’s claim that it is spared is incorrect."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanation contains OCR damage in its opening statement and list of sensory judgments after ablation.",
+        "reconstructedContent": "The printed source states that area I ablation impairs tactile and two-point discrimination; bilateral excision impairs detailed localization and pressure/weight/texture judgment while allowing some coarse localization by other central structures.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology printed page 230 shows the question and options; printed page 240 was visually inspected for the full explanation. PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "The damaged explanation is reconstructed from the rendered source page; the question, options, and key remain unchanged.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          230,
+          240
+        ]
+      }
+    }
+  }
+}
