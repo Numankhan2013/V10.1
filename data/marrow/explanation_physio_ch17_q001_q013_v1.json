@@ -1,0 +1,362 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Marrow ED8 Physiology Chapter 17 explanation rollout; raw imported source remains immutable.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "17",
+    "chapterTitle": "Hypothalamus and Limbic System",
+    "questionStart": 1,
+    "questionEnd": 13,
+    "questions": 13,
+    "status": "approved-rollout",
+    "workloadScore": 15,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 877,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__PHYS_CH17_Q001": {
+      "takeaway": "The thalamus is the sensory gateway/relay to cerebral cortex.",
+      "displayText": "The thalamus is the major sensory relay to cerebral cortex, although olfactory pathways are a key exception to the classic relay rule. It is a large diencephalic structure involved in sensory, motor, and limbic functions. The internal medullary lamina divides it into anterior, medial, and lateral groups; it is not the largest telencephalic structure or a motor-only gateway.",
+      "emphasis": [
+        "sensory relay"
+      ],
+      "rationales": {
+        "b": "The thalamus is part of the diencephalon; the cerebral hemispheres form the largest part of the telencephalon.",
+        "c": "The Y-shaped internal medullary lamina defines three principal nuclear groups, not four.",
+        "d": "Thalamic nuclei relay sensory as well as motor signals; describing it as a motor gateway alone is incorrect."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source explanations contain OCR/layout errors; Q12 is a figure-label item whose structures are described in the printed explanation.",
+        "reconstructedContent": "The thalamus is the major sensory relay to cerebral cortex, although olfactory pathways are a key exception to the classic relay rule. It is a large diencephalic structure involved in sensory, motor, and limbic functions. The internal medullary lamina divides it into anterior, medial, and lateral groups; it is not the largest telencephalic structure or a motor-only gateway.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 325 were rendered and visually checked in immutable PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Rendered-page wording and named structures were used to resolve OCR substitutions and preserve the source-specific explanation.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          325
+        ]
+      }
+    },
+    "marrow__PHYS_CH17_Q002": {
+      "takeaway": "The ventral posterior complex relays somatosensory pain information.",
+      "displayText": "The ventral posterior complex (VPL for body, VPM for face) is the principal thalamic relay for ascending somatosensory information, including pain. Lateral dorsal nuclei are limbic association nuclei, intralaminar nuclei project diffusely and contribute to arousal, and pulvinar participates in association functions.",
+      "emphasis": [
+        "ventral posterior complex"
+      ],
+      "rationales": {
+        "a": "The lateral dorsal nucleus is an association/limbic nucleus rather than the main ascending pain relay.",
+        "b": "Intralaminar nuclei have diffuse projections and arousal roles; the specific sensory relay is ventral posterior.",
+        "d": "Pulvinar is an association nucleus, not the principal pain/somatosensory relay."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source explanations contain OCR/layout errors; Q12 is a figure-label item whose structures are described in the printed explanation.",
+        "reconstructedContent": "The ventral posterior complex (VPL for body, VPM for face) is the principal thalamic relay for ascending somatosensory information, including pain. Lateral dorsal nuclei are limbic association nuclei, intralaminar nuclei project diffusely and contribute to arousal, and pulvinar participates in association functions.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 325 were rendered and visually checked in immutable PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Rendered-page wording and named structures were used to resolve OCR substitutions and preserve the source-specific explanation.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          325
+        ]
+      }
+    },
+    "marrow__PHYS_CH17_Q003": {
+      "takeaway": "The amygdala is the limbic system’s “window.”",
+      "displayText": "The amygdala has been called the limbic system’s “window” on the person’s place in the world. It receives input from limbic cortex and temporal, parietal, and occipital association areas, especially auditory and visual regions, linking sensory context to emotional salience.",
+      "emphasis": [
+        "amygdala"
+      ],
+      "rationales": {
+        "a": "The hypothalamus regulates autonomic and endocrine responses but is not the structure described as the limbic window.",
+        "b": "The hippocampus participates in memory and the Papez circuit; the source names the amygdala as the window.",
+        "d": "The thalamus relays information to cortex but is not the limbic structure receiving broad association-cortex signals described here."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source explanations contain OCR/layout errors; Q12 is a figure-label item whose structures are described in the printed explanation.",
+        "reconstructedContent": "The amygdala has been called the limbic system’s “window” on the person’s place in the world. It receives input from limbic cortex and temporal, parietal, and occipital association areas, especially auditory and visual regions, linking sensory context to emotional salience.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 326 were rendered and visually checked in immutable PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Rendered-page wording and named structures were used to resolve OCR substitutions and preserve the source-specific explanation.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          326
+        ]
+      }
+    },
+    "marrow__PHYS_CH17_Q004": {
+      "takeaway": "Anterior thalamus is a relay in the Papez memory circuit.",
+      "displayText": "The anterior thalamic nucleus is part of the Papez circuit, associated with memory. The loop runs from hippocampus through fornix to mammillary bodies, then via mammillothalamic tract to anterior thalamus, cingulate gyrus, and back through entorhinal cortex to hippocampus. The source mnemonic is “He Man Ate Cat.”",
+      "emphasis": [
+        "anterior thalamic nucleus"
+      ],
+      "rationales": {
+        "a": "Lateral dorsal nucleus is not the thalamic component of the classic Papez loop; that role belongs to anterior thalamus.",
+        "c": "Ventral anterior is a motor-related relay, not the anterior limbic relay in Papez circuit.",
+        "d": "Pulvinar is an association nucleus; the Papez circuit uses the anterior thalamic nucleus."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source explanations contain OCR/layout errors; Q12 is a figure-label item whose structures are described in the printed explanation.",
+        "reconstructedContent": "The anterior thalamic nucleus is part of the Papez circuit, associated with memory. The loop runs from hippocampus through fornix to mammillary bodies, then via mammillothalamic tract to anterior thalamus, cingulate gyrus, and back through entorhinal cortex to hippocampus. The source mnemonic is “He Man Ate Cat.”",
+        "evidenceBasis": [
+          "Printed explanation page(s) 326, 327 were rendered and visually checked in immutable PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Rendered-page wording and named structures were used to resolve OCR substitutions and preserve the source-specific explanation.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          326,
+          327
+        ]
+      }
+    },
+    "marrow__PHYS_CH17_Q005": {
+      "takeaway": "Medial forebrain bundle stimulation can promote reward.",
+      "displayText": "Reward sites lie along the medial forebrain bundle, especially in lateral and ventromedial hypothalamic regions. In the source’s stimulation example, weak stimulation in lateral hypothalamus can feel rewarding, whereas stronger stimulation may produce rage or punishment-like responses; intensity changes the behavioral effect.",
+      "emphasis": [
+        "medial forebrain bundle"
+      ],
+      "rationales": {
+        "a": "The insula participates in interoception and affective processing but is not the reward-path stimulation site keyed here.",
+        "b": "Putamen belongs to motor/cognitive basal-ganglia loops and is not the medial forebrain reward bundle.",
+        "d": "The aqueduct is a CSF channel, not a reward center or stimulation pathway."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source explanations contain OCR/layout errors; Q12 is a figure-label item whose structures are described in the printed explanation.",
+        "reconstructedContent": "Reward sites lie along the medial forebrain bundle, especially in lateral and ventromedial hypothalamic regions. In the source’s stimulation example, weak stimulation in lateral hypothalamus can feel rewarding, whereas stronger stimulation may produce rage or punishment-like responses; intensity changes the behavioral effect.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 327 were rendered and visually checked in immutable PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Rendered-page wording and named structures were used to resolve OCR substitutions and preserve the source-specific explanation.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          327
+        ]
+      }
+    },
+    "marrow__PHYS_CH17_Q006": {
+      "takeaway": "Anterior hypothalamic osmoreceptors detect increased plasma osmolality.",
+      "displayText": "Osmoreceptors in the anterior hypothalamus detect increases in plasma osmolality and contribute to ADH release. The resulting antidiuretic response conserves water; the other listed regions are not the source’s osmolality sensor location.",
+      "emphasis": [
+        "anterior hypothalamus"
+      ],
+      "rationales": {
+        "a": "Preoptic regions are near the hypothalamus but are not the specific osmoreceptor site named for this question.",
+        "b": "The arcuate nucleus has neuroendocrine and appetite-related roles; the source places osmoreceptors in anterior hypothalamus.",
+        "d": "Mammillary nuclei are limbic-memory structures, not the osmolality sensors controlling ADH."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source explanations contain OCR/layout errors; Q12 is a figure-label item whose structures are described in the printed explanation.",
+        "reconstructedContent": "Osmoreceptors in the anterior hypothalamus detect increases in plasma osmolality and contribute to ADH release. The resulting antidiuretic response conserves water; the other listed regions are not the source’s osmolality sensor location.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 327 were rendered and visually checked in immutable PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Rendered-page wording and named structures were used to resolve OCR substitutions and preserve the source-specific explanation.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          327
+        ]
+      }
+    },
+    "marrow__PHYS_CH17_Q007": {
+      "takeaway": "The hypothalamic suprachiasmatic nucleus is the biological clock.",
+      "displayText": "The suprachiasmatic nucleus (SCN) of the hypothalamus is the principal circadian pacemaker. Retinal input reaches it through the retinohypothalamic tract; SCN output helps regulate pineal melatonin secretion, aligning internal rhythms with light–dark cycles.",
+      "emphasis": [
+        "suprachiasmatic nucleus"
+      ],
+      "rationales": {
+        "a": "The thalamus relays sensory input but is not the central circadian pacemaker.",
+        "c": "Cerebellum coordinates movement; it does not set the body’s circadian clock.",
+        "d": "Basal ganglia organize motor and cognitive loops, not the light-entrained circadian pacemaker."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source explanations contain OCR/layout errors; Q12 is a figure-label item whose structures are described in the printed explanation.",
+        "reconstructedContent": "The suprachiasmatic nucleus (SCN) of the hypothalamus is the principal circadian pacemaker. Retinal input reaches it through the retinohypothalamic tract; SCN output helps regulate pineal melatonin secretion, aligning internal rhythms with light–dark cycles.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 327 were rendered and visually checked in immutable PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Rendered-page wording and named structures were used to resolve OCR substitutions and preserve the source-specific explanation.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          327
+        ]
+      }
+    },
+    "marrow__PHYS_CH17_Q008": {
+      "takeaway": "Anterior hypothalamic damage can cause hyperthermia by impairing heat loss.",
+      "displayText": "The anterior and preoptic hypothalamus activate heat-loss responses, including cutaneous vasodilation and sweating. A lesion removes this cooling response and can cause hyperthermia, with the source noting that severe cases may reach very high core temperatures.",
+      "emphasis": [
+        "anterior and preoptic hypothalamus"
+      ],
+      "rationales": {
+        "a": "Hyperphagia is associated with hypothalamic feeding/satiety circuitry, not the anterior heat-loss lesion described.",
+        "b": "The anterior region normally promotes cooling; destroying it impairs heat dissipation rather than causing hypothermia.",
+        "c": "Hyperglycemia is not the defining thermoregulatory consequence of anterior hypothalamic injury."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source explanations contain OCR/layout errors; Q12 is a figure-label item whose structures are described in the printed explanation.",
+        "reconstructedContent": "The anterior and preoptic hypothalamus activate heat-loss responses, including cutaneous vasodilation and sweating. A lesion removes this cooling response and can cause hyperthermia, with the source noting that severe cases may reach very high core temperatures.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 328 were rendered and visually checked in immutable PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Rendered-page wording and named structures were used to resolve OCR substitutions and preserve the source-specific explanation.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          328
+        ]
+      }
+    },
+    "marrow__PHYS_CH17_Q009": {
+      "takeaway": "The suprachiasmatic nucleus controls diurnal ACTH variation.",
+      "displayText": "The suprachiasmatic nucleus drives daily timing of ACTH/cortisol secretion. ACTH and cortisol are normally higher in the early morning and lower in the evening; changing sleep schedules can shift the circadian pattern as the SCN rhythm entrains.",
+      "emphasis": [
+        "suprachiasmatic nucleus"
+      ],
+      "rationales": {
+        "a": "Paraventricular hypothalamus participates in neuroendocrine regulation, but the daily rhythm is paced by SCN signals.",
+        "b": "Anterior hypothalamus has thermoregulatory roles; it is not the circadian timing nucleus keyed here.",
+        "c": "Lateral hypothalamus participates in feeding/reward circuits, not daily ACTH rhythm generation."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source explanations contain OCR/layout errors; Q12 is a figure-label item whose structures are described in the printed explanation.",
+        "reconstructedContent": "The suprachiasmatic nucleus drives daily timing of ACTH/cortisol secretion. ACTH and cortisol are normally higher in the early morning and lower in the evening; changing sleep schedules can shift the circadian pattern as the SCN rhythm entrains.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 328 were rendered and visually checked in immutable PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Rendered-page wording and named structures were used to resolve OCR substitutions and preserve the source-specific explanation.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          328
+        ]
+      }
+    },
+    "marrow__PHYS_CH17_Q010": {
+      "takeaway": "Music ability is the option associated with the representational rather than categorical hemisphere.",
+      "displayText": "The categorical (usually language-dominant) hemisphere specializes in sequential, analytical, logical, and verbal tasks, including language, writing, and mathematics. The representational hemisphere contributes more to visuospatial relations, artistic ability, and music; specialization varies and is not absolute for every person.",
+      "emphasis": [
+        "sequential, analytical, logical"
+      ],
+      "rationales": {
+        "a": "Mathematical ability is included among the categorical hemisphere’s analytical/sequential skills in the source.",
+        "b": "Language is a core verbal function of the categorical hemisphere.",
+        "c": "Writing uses verbal and symbolic skills associated with the categorical hemisphere."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source explanations contain OCR/layout errors; Q12 is a figure-label item whose structures are described in the printed explanation.",
+        "reconstructedContent": "The categorical (usually language-dominant) hemisphere specializes in sequential, analytical, logical, and verbal tasks, including language, writing, and mathematics. The representational hemisphere contributes more to visuospatial relations, artistic ability, and music; specialization varies and is not absolute for every person.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 328 were rendered and visually checked in immutable PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Rendered-page wording and named structures were used to resolve OCR substitutions and preserve the source-specific explanation.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          328
+        ]
+      }
+    },
+    "marrow__PHYS_CH17_Q011": {
+      "takeaway": "Ventromedial hypothalamic lesions can cause hyperphagia and rage.",
+      "displayText": "The ventromedial hypothalamic nucleus is a satiety center. Lesions can produce voracious eating and rage, whereas lesions in the upper lateral hypothalamus can cause profound loss of appetite; hypothalamic feeding effects depend on which region is damaged.",
+      "emphasis": [
+        "ventromedial hypothalamic nucleus"
+      ],
+      "rationales": {
+        "a": "Upper lateral hypothalamic lesions produce loss of appetite in the source, not voracious appetite.",
+        "b": "The mammillary region participates in limbic memory circuits and is not the satiety center keyed here.",
+        "d": "Anterior hypothalamic lesions chiefly impair heat-loss responses; the appetite/rage pattern points to ventromedial nucleus."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source explanations contain OCR/layout errors; Q12 is a figure-label item whose structures are described in the printed explanation.",
+        "reconstructedContent": "The ventromedial hypothalamic nucleus is a satiety center. Lesions can produce voracious eating and rage, whereas lesions in the upper lateral hypothalamus can cause profound loss of appetite; hypothalamic feeding effects depend on which region is damaged.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 328 were rendered and visually checked in immutable PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Rendered-page wording and named structures were used to resolve OCR substitutions and preserve the source-specific explanation.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          328
+        ]
+      }
+    },
+    "marrow__PHYS_CH17_Q012": {
+      "takeaway": "Periaqueductal gray at label A activates descending pain inhibition.",
+      "displayText": "Label A identifies periaqueductal gray (PAG) in the pons-level brainstem section. PAG descending pathways inhibit nociceptive transmission, including through a ventromedial medullary/raphe relay and endogenous opioid signaling. The other labels mark corticospinal tract, medial lemniscus, and medial longitudinal fasciculus.",
+      "emphasis": [
+        "periaqueductal gray (PAG)"
+      ],
+      "rationales": {
+        "b": "The corticospinal tract is a descending motor pathway; it is not the PAG pain-modulation site.",
+        "c": "The medial lemniscus carries ascending touch/proprioception, not descending analgesic control.",
+        "d": "The medial longitudinal fasciculus coordinates eye/head movements; label A is the PAG pain-control region."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source explanations contain OCR/layout errors; Q12 is a figure-label item whose structures are described in the printed explanation.",
+        "reconstructedContent": "Label A identifies periaqueductal gray (PAG) in the pons-level brainstem section. PAG descending pathways inhibit nociceptive transmission, including through a ventromedial medullary/raphe relay and endogenous opioid signaling. The other labels mark corticospinal tract, medial lemniscus, and medial longitudinal fasciculus.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 329 were rendered and visually checked in immutable PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+          "The Q12 marked cross-section is described on printed p. 329: A is periaqueductal gray; other labels are corticospinal tract, medial lemniscus, and medial longitudinal fasciculus."
+        ],
+        "reviewNote": "Rendered-page wording and named structures were used to resolve OCR substitutions and preserve the source-specific explanation.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          329
+        ]
+      }
+    },
+    "marrow__PHYS_CH17_Q013": {
+      "takeaway": "Dehydration, hemorrhage, and prandial drinking can all stimulate thirst.",
+      "displayText": "Dehydration raises plasma osmolality and activates anterior hypothalamic osmoreceptors. Hemorrhage lowers effective circulating volume and stimulates thirst through renin–angiotensin signaling and cardiovascular baroreceptors. Drinking with meals (prandial drinking) also contributes, partly as a learned response and through meal-related osmotic and gastrointestinal signals.",
+      "emphasis": [
+        "plasma osmolality"
+      ],
+      "rationales": {
+        "a": "Dehydration stimulates thirst through increased plasma osmolality, so this is a true contributor.",
+        "b": "Hemorrhage triggers thirst through volume-sensitive renin–angiotensin and baroreceptor pathways.",
+        "c": "Prandial drinking also increases water intake; the source notes learned and meal-related signals."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source explanations contain OCR/layout errors; Q12 is a figure-label item whose structures are described in the printed explanation.",
+        "reconstructedContent": "Dehydration raises plasma osmolality and activates anterior hypothalamic osmoreceptors. Hemorrhage lowers effective circulating volume and stimulates thirst through renin–angiotensin signaling and cardiovascular baroreceptors. Drinking with meals (prandial drinking) also contributes, partly as a learned response and through meal-related osmotic and gastrointestinal signals.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 329 were rendered and visually checked in immutable PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Rendered-page wording and named structures were used to resolve OCR substitutions and preserve the source-specific explanation.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          329
+        ]
+      }
+    }
+  }
+}
