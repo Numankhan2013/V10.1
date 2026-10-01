@@ -82,3 +82,7 @@ Added Chapter 29 Q1–15 in two files. Chapter 29 Q2 received visual source revi
 ## Checkpoint 10
 
 Added Chapter 30 Q1–24 in two files. The explanations cover mastication and TMJ mechanics, trigeminal branches, extraocular/facial muscle innervation, carotid branches and landmarks, pterygoid canal, venous pathways, facial danger zone and cervical node levels. Rationales distinguish neighboring nerve/artery routes and compartment anatomy. Validator passed: `MARROW_WORKER_BATCHES_OK files=36 questions=315 source_keyed=true detail_retention=true baseline_and_gates_preserved=true`. Total authored is 315/662 through Chapter 50; 347 remain.
+
+## Checkpoint 11
+
+Added 23 Chapter 31 IDs in two files, skipping gated Q5 (the matching question with missing source lists). These records cover parotid/otic/pterygopalatine and submandibular anatomy, thyroid levels/arteries/veins, recurrent laryngeal risk, parathyroid supply and thyroid fixation. Q24's tubarial-gland terminology is qualified with current anatomical evidence while preserving the keyed torus tubarius location. Validator passed: `MARROW_WORKER_BATCHES_OK files=38 questions=338 source_keyed=true detail_retention=true baseline_and_gates_preserved=true`. Total authored is 338/662 through Chapter 50; 324 remain.
