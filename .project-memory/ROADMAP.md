@@ -209,7 +209,7 @@ Priority 0: reproduce and restore user-reported unreadable PDF explanations. The
 
 ## Parallel explanation refinement wave — 2026-09-30
 
-- The previous 83-question wave and nine emphasis repairs are certified at d4abce86. All 1,935 actionable explanations in the resumed queue are authored and integrated, bringing the candidate to 2,688 enhanced and23 deferred Marrow source gaps. Final table presentation/local checks and one combined full release build are in progress.
-- The 753 checkpoint is certified in preview e954d103. The source-order authoring continuation is finished; validate the complete queue and existing source gates, then push one combined canonical preview build.
+- The previous 83-question wave and nine emphasis repairs are certified at d4abce86. All 1,935 actionable explanations in the resumed queue are authored and integrated, bringing the candidate to 2,688 enhanced and23 deferred Marrow source gaps. All 56 local checks and the replacement full release build passed at9d318f79; previewac2f50ca is deployed and its entire enhancement map was verified.
+- The 753 checkpoint is certified in preview e954d103. The source-order authoring continuation is finished and released. Any later content pass should target the explicitly deferred source gaps or recorded source caveats, not restart completed batches.
 - User explicitly deferred incomplete-source recovery. Known gated numbered-list items remain pending but must not repeatedly block all later actionable explanation work; preserve their gates and list them separately.
 - Keep parallel workers on disjoint content/audit files, one shared-state writer, and combine reviewed results into fewer full builds. Preserve full unique source detail and actual populated table cells.
