@@ -1,0 +1,344 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner-facing Marrow ED8 Physiology Chapter 30 explanation refinement; native diagrams and tables remain unchanged.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "30",
+    "chapterTitle": "Blood Pressure and Regulation",
+    "questionStart": 1,
+    "questionEnd": 18,
+    "questions": 18,
+    "status": "approved-rollout",
+    "workloadScore": 18,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "f3cd6b9dccb2092743fa86de4b0bef682d61c83762e9f00fa3b04d0a355d89d6",
+    "auditReport": "docs/question-explanations/physiology-middle-20261001.md"
+  },
+  "questions": {
+    "marrow__PHYSIO_CH30_Q001": {
+      "takeaway": "Mean arterial pressure is approximately cardiac output multiplied by total peripheral resistance.",
+      "displayText": "Mean arterial pressure is approximately cardiac output multiplied by total peripheral resistance.\n\nBlood pressure is defined as cardiac output X peripheral resistance.",
+      "emphasis": [
+        "Mean arterial pressure is approximately cardiac output multiplied by total peripheral resistance"
+      ],
+      "rationales": {
+        "a": "Systolic pressure times pulse rate is not the hemodynamic pressure relationship.",
+        "b": "Diastolic pressure times pulse rate does not define arterial pressure.",
+        "c": "Pulse pressure times heart rate is not the standard MAP equation."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH30_Q002": {
+      "takeaway": "The SI unit of pressure is the pascal (Pa).",
+      "displayText": "The SI unit of pressure is the pascal (Pa).\n\nThe SI unit of blood pressure is Pascal (Pa). It is conventionally expressed in mm of Hg.\n\nNote: 1 mmHg = 133 Pa.",
+      "emphasis": [
+        "The SI unit of pressure is the pascal (Pa)"
+      ],
+      "rationales": {
+        "b": "mmHg is a conventional clinical pressure unit, not the SI unit.",
+        "c": "Torr is a non-SI unit close to mmHg.",
+        "d": "psi is an imperial unit, not SI."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH30_Q003": {
+      "takeaway": "At a normal heart rate, MAP is estimated as diastolic pressure plus one-third pulse pressure.",
+      "displayText": "At a normal heart rate, MAP is estimated as diastolic pressure plus one-third pulse pressure.\n\nMean arterial pressure is diastolic + 1/3rd pulse pressure.\n\nThe mean pressure is the average pressure throughout the cardiac cycle. It is not equal to the average of systolic and diastolic pressure because, at normal heart rates, a greater fraction of the cardiac cycle is spent in diastole than in systole. The mean arterial pressure is therefore determined by about 60 percent by the diastolic pressure and 40 percent by the systolic pressure.\n\nMean BP = DBP + 1/3 Pulse pressure\n= DBP + 1/3(SBP - DBP)\n= (3DBP + SBP - DBP)/3\n= 2/3 DBP + 1/3 SBP",
+      "emphasis": [
+        "At a normal heart rate, MAP is estimated as diastolic pressure plus one-third pulse pressure"
+      ],
+      "rationales": {
+        "a": "This expression averages systolic and diastolic incorrectly.",
+        "c": "Adding one-third pulse pressure to systolic pressure exceeds MAP.",
+        "d": "This weights systolic pressure too heavily for mean pressure."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH30_Q004": {
+      "takeaway": "Korotkoff sounds arise from turbulent flow in a partially compressed artery as cuff pressure occludes it.",
+      "displayText": "Korotkoff sounds arise from turbulent flow in a partially compressed artery as cuff pressure occludes it.\n\nKorotkoffs sounds are due to arterial turbulence on occlusion of the vessel.\n\nThe streamline flow in the unconstricted artery is silent. But when the artery is narrowed, the velocity of flow through the constriction exceeds the critical velocity and turbulent flow results. Turbulent flow in the partly occluded brachial artery sets up the vibrations (oscillations) of the vessel wall which are heard through the stethoscope and are known as Korotkoffs sounds.",
+      "emphasis": [
+        "Korotkoff sounds arise from turbulent flow in a partially compressed artery as cuff pressure occludes it"
+      ],
+      "rationales": {
+        "a": "Laminar flow is silent and does not generate Korotkoff sounds.",
+        "b": "Aortic valve closure produces S2, not cuff sounds.",
+        "d": "The artery is normally silent without cuff-induced turbulent flow."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH30_Q005": {
+      "takeaway": "An auscultatory gap can make systolic pressure appear falsely low if the initial sounds are missed, unlike the other causes of spuriously high BP.",
+      "displayText": "An auscultatory gap can make systolic pressure appear falsely low if the initial sounds are missed, unlike the other causes of spuriously high BP.\n\nThe auscultatory gap may give a falsely low recording of systolic BP and overestimation of diastolic blood pressure not spuriously high BP.\n\nIn older patients with wide pulse pressure and in some hypertensive patients, the Korotkoff sounds may become inaudible between SBP and DBP, and reappear as cuff deflation continues, this is known as auscultatory gap.\n\nSmall cuff size, obesity, and thick calcified arteries can give rise to falsely high BP as in these conditions, vessels are difficult to compress and higher cuff pressure is required to compress them.",
+      "emphasis": [
+        "An auscultatory gap can make systolic pressure appear falsely low if the initial sounds are missed, unlike the other causes of spuriously high BP"
+      ],
+      "rationales": {
+        "b": "A small cuff overestimates pressure because more cuff pressure is needed to occlude the artery.",
+        "c": "Calcified noncompressible arteries can yield spuriously high readings.",
+        "d": "Obesity with an undersized cuff can produce a falsely high measurement."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH30_Q006": {
+      "takeaway": "Normal right-ventricular systolic pressure is about 25 mmHg.",
+      "displayText": "Normal right-ventricular systolic pressure is about 25 mmHg.\n\nThe systolic pressure in the right ventricle is about 25 mmHg.",
+      "emphasis": [
+        "Normal right-ventricular systolic pressure is about 25 mmHg"
+      ],
+      "rationales": {
+        "b": "85 mmHg is closer to systemic arterial pressure than RV systolic pressure.",
+        "c": "95 mmHg is much higher than normal pulmonary/right-ventricular pressure.",
+        "d": "100 mmHg is near systemic systolic pressure, not RV systole."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH30_Q007": {
+      "takeaway": "Elastic recoil of the aorta maintains arterial pressure and forward flow during diastole.",
+      "displayText": "Elastic recoil of the aorta maintains arterial pressure and forward flow during diastole.\n\nDuring diastole, the arterial pressure is maintained by the elastic recoil of aorta.\n\nThere is stretching of aorta and arteries during systole due to ejection of blood from ventricle. During diastole, the previously stretched aorta and arteries recoil. The volume of blood that is displaced by the recoil furnishes continuous capillary flow throughout diastole.",
+      "emphasis": [
+        "Elastic recoil of the aorta maintains arterial pressure and forward flow during diastole"
+      ],
+      "rationales": {
+        "a": "Arterial smooth muscle sets resistance but does not provide the main diastolic recoil.",
+        "c": "Capillary constriction is not the mechanism maintaining diastolic arterial pressure.",
+        "d": "The left ventricle relaxes during diastole, so its contraction cannot maintain pressure then."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH30_Q008": {
+      "takeaway": "Arterial pulse contour depends strongly on arterial wall expansion and elastic properties.",
+      "displayText": "Arterial pulse contour depends strongly on arterial wall expansion and elastic properties.\n\nThe shape of arterial pulse is influenced by arterial wall expansion.\n\nArterial Pulse\n\n• The blood forced into the aorta during systole not only moves the blood in the vessels forward but also sets up a pressure wave that travels along the arteries. The pressure wave expands the arterial walls as it travels and the expansion is palpable as the pulse.\n• The two major factors that influence arterial pulse are- stroke volume of the heart and distensibility (compliance) of the vessels.",
+      "emphasis": [
+        "Arterial pulse contour depends strongly on arterial wall expansion and elastic properties"
+      ],
+      "rationales": {
+        "a": "Blood viscosity affects resistance and flow, but not the primary pulse waveform factor asked.",
+        "b": "Velocity affects timing/flow, but arterial compliance shapes the pulse.",
+        "c": "Cross-sectional area influences flow but is not the main pulse-shape property here."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH30_Q009": {
+      "takeaway": "Carotid sinus baroreceptors respond especially to pulse pressure and stretch changes across the cardiac cycle.",
+      "displayText": "Carotid sinus baroreceptors respond especially to pulse pressure and stretch changes across the cardiac cycle.\n\nThe carotid sinus baroreceptor is most sensitive to pulse pressure. They fire more rapidly to a constantly changing pressure than a stationary one.\n\nBaroreceptors\n\n• Stretch receptors located in the heart and adventitia of the blood vessels\n• Types based on location\n• Carotid sinus and aortic arch receptors (high-pressure regions)\n• Cardiopulmonary receptors (low-pressure regions)\n• Afferents\n• Carotid sinus - a branch of Glossopharyngeal nerve (IX CN) - the carotid sinus nerve (sinus nerve of Hering)\n• Aortic arch receptor - a branch of the Vagus nerve (X CN) - aortic depressor nerve\n• Center for Reflex\n• Medulla (Nucleus Tractus solitarius)\n• Efferents\n• Sympathetic and parasympathetic neurons to heart and vasculature\n• Most sensitive to pulsatile pressure: They work to maintain BP in the range of mean BP, but it is the changes in the pressure they are the most sensitive to.\n• The threshold for excitation: 50 mmHg\n• Maximal activity: 180 mmHg\n• Responses when one carotid sinus is isolated and perfused and the other baroreceptors are denervated\n• Perfusion pressure <30 mm Hg: no response\n• 70-110 mm Hg: the linear relationship between perfusion pressure and the fall in systemic BP and HR\n• >150 mm Hg: no further increase in response to the degree of inhibition of the sympathetic nerve is maximal.",
+      "emphasis": [
+        "Carotid sinus baroreceptors respond especially to pulse pressure and stretch changes across the cardiac cycle"
+      ],
+      "rationales": {
+        "a": "Mean pressure affects baroreceptor firing but is not the most sensitive pulse variable in this item.",
+        "b": "Diastolic pressure alone omits the systolic stretch component.",
+        "c": "Systolic pressure is sensed, but the source identifies pulse pressure as the strongest signal."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH30_Q010": {
+      "takeaway": "Baroreceptor activation inhibits sympathetic outflow to the heart and vessels while increasing vagal tone.",
+      "displayText": "Baroreceptor activation inhibits sympathetic outflow to the heart and vessels while increasing vagal tone.\n\nBaroreceptor stimulation would result in decreased sympathetic discharge to heart.\n\nThe baroreceptors are stretch receptors in the walls of the heart and blood vessels.\n\nBaroreceptor stimulation, by distension of the structures they are located in, inhibits the tonic discharge of sympathetic nerves and excites the vagal innervation of the heart. Thus leading to:\n\n• Vasodilation and venodilation\n• Hypotension\n• Bradycardia\n• Decrease in cardiac output",
+      "emphasis": [
+        "Baroreceptor activation inhibits sympathetic outflow to the heart and vessels while increasing vagal tone"
+      ],
+      "rationales": {
+        "a": "Vagal activity increases, rather than decreases, when baroreceptors fire.",
+        "b": "Reflex heart rate falls, not rises, with increased baroreceptor firing.",
+        "d": "Vasomotor sympathetic tone falls rather than increases."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH30_Q011": {
+      "takeaway": "Carotid baroreceptors respond up to roughly 180 mmHg, with saturation at very high pressures.",
+      "displayText": "Carotid baroreceptors respond up to roughly 180 mmHg, with saturation at very high pressures.\n\nThe maximum blood pressure to which carotid baroreceptors respond is 180 mmHg (arterial pressure here and not MAP).\n\nThe blood pressure range to which carotid baroreceptors respond is 70-150 mmHg of mean arterial pressure.",
+      "emphasis": [
+        "Carotid baroreceptors respond up to roughly 180 mmHg, with saturation at very high pressures"
+      ],
+      "rationales": {
+        "b": "160 mmHg is below the approximate maximum response range.",
+        "c": "200 mmHg exceeds the cited saturation point.",
+        "d": "220 mmHg is well above the effective response range."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH30_Q012": {
+      "takeaway": "Baroreceptor input inhibits RVLM sympathetic premotor neurons through NTS–CVLM pathways.",
+      "displayText": "Baroreceptor input inhibits RVLM sympathetic premotor neurons through NTS–CVLM pathways.\n\nDischarge from Baroreceptors cause inhibition of Rostral ventrolateral medulla.\n\nThe baroreceptors are stimulated by distension of the structures in which they are located. Their afferent fibers pass via the glossopharyngeal and vagus nerves to the medulla. These fibers release glutamate to excite neurons in the nucleus of the tractus solitarius (NTS). These NTS neurons then excite neurons in the caudal ventrolateral medulla (CVLM). These CVLM neurons release the inhibitory neurotransmitter γ-aminobutyric acid (GABA) into the RVLM to reduce the firing rate of these. Thus, reducing the sympathetic outflow.",
+      "emphasis": [
+        "Baroreceptor input inhibits RVLM sympathetic premotor neurons through NTS–CVLM pathways"
+      ],
+      "rationales": {
+        "b": "CVLM neurons are activated to inhibit RVLM, not the primary inhibited structure.",
+        "c": "NTS receives baroreceptor afferents and is activated, not inhibited.",
+        "d": "Nucleus ambiguus receives increased parasympathetic drive rather than being inhibited."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH30_Q013": {
+      "takeaway": "The baroreceptor reflex is a negative-feedback system that buffers acute blood-pressure changes.",
+      "displayText": "The baroreceptor reflex is a negative-feedback system that buffers acute blood-pressure changes.\n\nBaroreceptors provide negative feedback in response to an increase in blood pressure.\n\nIncreased baroreceptor discharge inhibits the tonic discharge of sympathetic nerves and excites the vagal innervation of the heart.\n\nBaroreceptor reflex\n\n• Increased BP → stimulation of baroreceptors → stimulation of NTS → inhibition of RVLM → inhibition of sympathetic system\n• Stimulation of NTS also stimulates CVC → parasympathetic stimulation\n• Net effect = sympathetic inhibition and parasympathetic stimulation → decreased HR and BP\n\nNTS - Nucleus tractus solitarius\nCVC - Cardiovagal center\nRVLM - Rostral ventrolateral medulla\nHR - Heart rate\nBP - Blood pressure",
+      "emphasis": [
+        "The baroreceptor reflex is a negative-feedback system that buffers acute blood-pressure changes"
+      ],
+      "rationales": {
+        "b": "The response opposes the pressure change rather than amplifying it.",
+        "c": "Its primary homeostatic function is negative feedback.",
+        "d": "Feedforward control anticipates change; baroreceptors respond to sensed pressure."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH30_Q014": {
+      "takeaway": "Baroreceptor afferents from carotid sinus and aortic arch project to nucleus tractus solitarius.",
+      "displayText": "Baroreceptor afferents from carotid sinus and aortic arch project to nucleus tractus solitarius.\n\nAfferent fiber for blood pressure control goes to the Nucleus Tractus Solitarius (NTS).\n\nIncreased BP stimulates the baroreceptors which provide negative feedback in response to the increase in blood pressure.\n\nBaroreceptor reflex:\n\n• Increased BP → stimulation of baroreceptors → stimulation of NTS → excitation of CVLM → inhibition of RVLM → inhibition sympathetic system\n• Stimulation of NTS also stimulates CVC → parasympathetic stimulation\n• Net effect = sympathetic inhibition and parasympathetic stimulation → decreased HR and BP\n\nNTS - Nucleus tractus solitarius\nCVC - Cardiovagal centre\nCVLM - Caudal ventrolateral medulla\nRVLM - Rostral ventrolateral medulla\nHR - Heart rate\nBP - Blood pressure",
+      "emphasis": [
+        "Baroreceptor afferents from carotid sinus and aortic arch project to nucleus tractus solitarius"
+      ],
+      "rationales": {
+        "a": "Nucleus ambiguus receives downstream vagal output, not primary afferent input.",
+        "b": "RVLM is a sympathetic control center downstream of NTS.",
+        "d": "CVLM relays inhibitory output to RVLM; it is not the initial afferent target."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH30_Q015": {
+      "takeaway": "Low-pressure cardiopulmonary receptors respond to atrial filling and stretch during atrial systole/diastole.",
+      "displayText": "Low-pressure cardiopulmonary receptors respond to atrial filling and stretch during atrial systole/diastole.\n\nThe low-pressure receptors are stimulated by atrial systole and diastole.\n\nThe low-pressure receptors are those in the great veins, right and left atria and pulmonary vessels.\n\nAtrial stretch receptors are of two types:\n\n• Type A: discharge primarily during atrial systole\n• Type B: discharge primarily during late diastole\n\nDistension of the atrial walls → stimulation of atrial receptors → Vasodilation, fall in BP and increased heart rate.",
+      "emphasis": [
+        "Low-pressure cardiopulmonary receptors respond to atrial filling and stretch during atrial systole/diastole"
+      ],
+      "rationales": {
+        "a": "They respond to central blood volume and cardiac output changes, but the defining signal is atrial stretch.",
+        "c": "Left-ventricular contraction is sensed by arterial high-pressure receptors.",
+        "d": "Aortic pressure is detected by arterial baroreceptors, not low-pressure atrial receptors."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH30_Q016": {
+      "takeaway": "Bilateral carotid occlusion reduces baroreceptor firing and reflexly raises sympathetic tone, heart rate and blood pressure.",
+      "displayText": "Bilateral carotid occlusion reduces baroreceptor firing and reflexly raises sympathetic tone, heart rate and blood pressure.\n\nOcclusion of both common carotid arteries causes an increase in HR and BP.\n\nReduced sinus pressure → response carried to nucleus tractus solitarius via glossopharyngeal and vagus nerve → less inhibitory effect on the vasomotor center.\n\nThis leads to:\n\n• Decreased parasympathetic activity to the heart - increases heart rate\n• Increased sympathetic activity to the heart and blood vessels - increases heart rate, contractility, constricts arterioles - increases TPR, constricts veins - increases venous return\n\nNote: The carotid baroreceptors are located in the walls of the carotid sinus, which is located at or slightly above the bifurcation of the common carotid arteries. So, the occlusion of common carotid arteries is occlusion proximal to the carotid sinus.\n\nIf the occlusion is distal to the carotid sinus → increase in sinus pressure → activation of baroreceptor reflex → decrease in BP and HR.",
+      "emphasis": [
+        "Bilateral carotid occlusion reduces baroreceptor firing and reflexly raises sympathetic tone, heart rate and blood pressure"
+      ],
+      "rationales": {
+        "b": "Heart rate rises with reduced baroreceptor input rather than falling.",
+        "c": "Both pressure and heart rate rise, not fall.",
+        "d": "The reflex response is substantial, so there is not no effect."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH30_Q017": {
+      "takeaway": "Angiotensin II is a major hormonal regulator that raises blood pressure through vasoconstriction and aldosterone release.",
+      "displayText": "Angiotensin II is a major hormonal regulator that raises blood pressure through vasoconstriction and aldosterone release.\n\nThe hormone involved in the regulation of blood pressure is Angiotensin II.\n\nAngiotensin II is a powerful vasoconstrictor that increases the total peripheral resistance and decreases Na+ and H2O excretion by kidney, thereby causing an increase in arterial BP.",
+      "emphasis": [
+        "Angiotensin II is a major hormonal regulator that raises blood pressure through vasoconstriction and aldosterone release"
+      ],
+      "rationales": {
+        "a": "Serotonin can affect vessels but is not the principal systemic BP hormone here.",
+        "b": "Histamine generally promotes vasodilation and permeability, not the major pressor axis.",
+        "d": "Prostaglandins often modulate renal flow and may vasodilate rather than serve as the central pressor hormone."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH30_Q018": {
+      "takeaway": "Marey’s law states that heart rate varies inversely with arterial blood pressure through baroreflex control.",
+      "displayText": "Marey’s law states that heart rate varies inversely with arterial blood pressure through baroreflex control.\n\nMarey’s law states that the heart rate varies inversely with blood pressure.",
+      "emphasis": [
+        "Marey’s law states that heart rate varies inversely with arterial blood pressure through baroreflex control"
+      ],
+      "rationales": {
+        "a": "The relationship is inverse, not direct.",
+        "c": "Heart rate and blood pressure are reflex-linked rather than unrelated.",
+        "d": "Cardiac output equals heart rate times stroke volume; that is not Marey’s law."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    }
+  }
+}
