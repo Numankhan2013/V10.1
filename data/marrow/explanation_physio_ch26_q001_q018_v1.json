@@ -66,7 +66,7 @@
     },
     "marrow__PHYSIO_CH26_Q003": {
       "takeaway": "Veins and venules contain the largest blood-volume share; the source table allocates about 54% to the venous compartment.",
-      "displayText": "The venous compartment holds the largest share of circulating blood. The source table lists: heart 12%; pulmonary circulation 18%; aorta 2%; arteries 8%; arterioles 1%; capillaries 5%; venules, veins and venae cavae 54%.\n\nSource table: heart 12%; pulmonary circulation 18%; aorta 2%; arteries 8%; arterioles 1%; capillaries 5%; venules, veins and venae cavae 54% of total blood volume.",
+      "displayText": "The venous compartment holds the largest share of circulating blood. The source table lists: heart 12%; pulmonary circulation 18%; aorta 2%; arteries 8%; arterioles 1%; capillaries 5%; venules, veins and venae cavae 54%.",
       "emphasis": [
         "The venous compartment holds the largest share of circulating blood.",
         "The source table lists: heart 12%; pulmonary circulation 18%; aorta 2%; arteries 8%; arterioles 1%; capillaries 5%; venules, veins and venae cavae 54%."
@@ -82,7 +82,7 @@
           474
         ],
         "uniqueSourceDetailsPreserved": true,
-        "tablesAndFigures": "Source table values are retained in displayText because canonical structured table cells are absent."
+        "tablesAndFigures": "The orphan native table block is recovered in displayTables with its source ID and printed-page/hash provenance; source figures remain in the immutable PDF."
       },
       "reconstruction": {
         "status": "resolved_reconstruction",
@@ -97,8 +97,52 @@
         "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
         "sourcePages": [
           474
+        ],
+        "orphanTableIds": [
+          "PHYSIO_CH26_Q003_T01"
         ]
-      }
+      },
+      "displayTables": [
+        {
+          "table_id": "PHYSIO_CH26_Q003_T01",
+          "title": "Vessels and percentage of total blood volume",
+          "source_page": 474,
+          "columns": [
+            "Vessels",
+            "% of total blood volume"
+          ],
+          "rows": [
+            [
+              "Heart",
+              "12"
+            ],
+            [
+              "Pulmonary circulation",
+              "18"
+            ],
+            [
+              "Aorta",
+              "2"
+            ],
+            [
+              "Artery",
+              "8"
+            ],
+            [
+              "Arteriole",
+              "1"
+            ],
+            [
+              "Capillary",
+              "5"
+            ],
+            [
+              "Venule, vein, vena cava",
+              "54"
+            ]
+          ]
+        }
+      ]
     },
     "marrow__PHYSIO_CH26_Q004": {
       "takeaway": "Capillaries contain about 5% of blood volume, not 25%; they are single-cell-layer exchange vessels with the greatest aggregate area.",
