@@ -65,7 +65,7 @@ def main():
                 assert page.locator('[data-metric="Accuracy"]>b').inner_text() == '—'
                 assert page.get_by_role('heading', name='Your study map').count() == 0
                 assert page.get_by_role('heading', name='Topics to revisit').count() == 0
-                expect(page.get_by_role('heading', name='Your year in learning')).to_be_visible()
+                expect(page.get_by_role('heading', name='Activity', exact=True)).to_be_visible()
                 assert page.locator('.nk-li-year-grid button').count() >= 365
                 page.screenshot(path=str(output / f'learning-insights-empty-{width}.png'), full_page=True)
                 page.evaluate(SEED)

@@ -136,7 +136,7 @@ def main() -> None:
             page.locator('.nk-back-link').filter(has_text='Revision').click()
             page.get_by_role('heading',name='Revision',exact=True).wait_for()
             page.get_by_role('button',name='Review settings',exact=True).click()
-            page.get_by_role('heading',name='Your review rhythm',exact=True).wait_for()
+            page.get_by_role('heading',name='Review settings',exact=True).wait_for()
             assert page.locator('.nk-fsrs-settings').count()==1
             assert page.locator('.bottom-nav button[aria-current="page"]').inner_text().startswith('Revision')
             page.get_by_role('button',name='Cancel',exact=True).click()

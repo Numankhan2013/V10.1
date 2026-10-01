@@ -75,6 +75,7 @@ required_order = [
     "tools/test_practice_correction_v1.py",
     "tools/apply_learning_insights_v1.py",
     "tools/test_learning_insights_v1.py",
+    "tools/apply_app_clarity_v1.py",
     "tools/verify_product_contract.py --stage generated",
     "tools/verify_cbt_invariants.py",
 ]
@@ -93,6 +94,7 @@ for marker in ("runs-on: ubuntu-latest", "actions/setup-python@", "PyMuPDF Pillo
                "tools/verify_question_search_browser.py",
                "tools/verify_practice_correction_browser.py",
                "tools/verify_learning_insights_browser.py",
+               "tools/verify_app_clarity_browser.py",
                "tools/verify_bank_aware_cbt_builder_browser.py",
                "tools/verify_pyq_exam_journey_browser.py",
                "tools/verify_cbt_result_analysis_browser.py",

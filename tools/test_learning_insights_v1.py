@@ -61,7 +61,7 @@ assert(light(shade(40,120))>light(shade(40,60)));
 assert.equal(shade(40,60),shade(80,120),'relative intensity scales with actual workload');
 assert.equal(shade(30,30),shade(600,600),'the busiest day always anchors the scale');
 assert(!shade(0,0).includes('NaN'));
-assert(run('nkLearningYearActivity(nkLearningModel(now),now)').includes('one tile per day'));
+assert((run('nkLearningYearActivity(nkLearningModel(now),now)').match(/aria-label="[^"]+: \d+ answers"/g)||[]).length>=365, 'Calendar retains a labelled cell for every day');
 assert(!run('nkLearningYearActivity(nkLearningModel(now),now)').includes('30+'));
 
 assert.equal(run("nkLearningDelta(5,0)" ).includes('Infinity'),false);

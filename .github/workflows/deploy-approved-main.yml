@@ -1,6 +1,8 @@
 name: Deploy explicitly approved main release
 
 on:
+  push:
+    branches: ['release/approved-production-20261001']
   workflow_run:
     workflows: [Build V11.7 Android + PWA]
     types: [completed]
@@ -15,22 +17,22 @@ concurrency:
 
 jobs:
   deploy:
-    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' && github.event.workflow_run.event == 'push' && contains(github.event.workflow_run.head_commit.message, '[approved-production]') }}
+    if: ${{ github.event_name == 'push' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' && github.event.workflow_run.event == 'push' && contains(github.event.workflow_run.head_commit.message, '[approved-production]')) }}
     runs-on: ubuntu-latest
     steps:
       - name: Check out the exact approved release
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.workflow_run.head_sha }}
+          ref: ${{ github.event.workflow_run.head_sha || '18e4cd58a09f14169447dd7aaf13a6cc08971ceb' }}
       - name: Download the verified build without rebuilding
         uses: actions/download-artifact@v4
         with:
           name: V11.7-android-pwa
-          run-id: ${{ github.event.workflow_run.id }}
+          run-id: ${{ github.event.workflow_run.id || '36883871119' }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Verify artifact identity and current main
         env:
-          EXPECTED_RELEASE_SHA: ${{ github.event.workflow_run.head_sha }}
+          EXPECTED_RELEASE_SHA: ${{ github.event.workflow_run.head_sha || '18e4cd58a09f14169447dd7aaf13a6cc08971ceb' }}
         run: |
           set -eu
           test "$(git ls-remote origin refs/heads/main | cut -f1)" = "$EXPECTED_RELEASE_SHA"

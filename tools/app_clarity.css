@@ -1,0 +1,48 @@
+/* Compact navigation screens; question/explanation and exam surfaces retain their geometry. */
+.nk-app-v114 .nk-page-head,.nk-app-v114 .nk-v3-page-hero,.nk-tests-focused .nk-v3-page-hero{margin:0 0 14px;padding:0}
+.nk-app-v114 .nk-page-head h1,.nk-app-v114 .nk-v3-page-hero h1,.nk-tests-focused .nk-v3-page-hero h1{font-size:27px;line-height:1.2;margin:0;letter-spacing:-.6px}
+.nk-app-v114 .nk-section,.nk-tests-focused .nk-v3-section{margin-top:20px}
+.nk-app-v114 .nk-section-head{margin-bottom:10px;padding:0;border:0;background:none;box-shadow:none}
+.nk-app-v114 .nk-back-link{margin:0 0 8px}
+.nk-revision-focus-wrap{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.nk-revision-focus-wrap .nk-revision-scope{margin:0;flex:1;font-size:11px}
+.nk-revision-focus-wrap .nk-revision-focus-toggle{padding:0 7px;min-height:44px;font-size:12px}
+.nk-revision-focus-wrap .nk-revision-focus{flex-basis:100%}
+.nk-revision-card{padding:12px}
+.nk-revision-card-head{min-height:36px;margin-bottom:8px}
+.nk-revision-card-copy strong{font-size:14px}
+.nk-revision-card .nk-revision-actions button{min-height:44px}
+.nk-revision-list{gap:10px}
+.nk-revision-card.is-empty .nk-revision-actions{display:none}
+.nk-revision-card.is-empty{min-height:62px}
+.nk-revision-card.is-empty .nk-revision-card-head{margin-bottom:0}
+.nk-revision-forecast{margin-top:16px;padding:14px}
+.nk-home-command-center .nk-home-greeting{margin:14px 0}
+.nk-home-command-center .nk-home-greeting h1{font-size:27px;margin:0}
+.nk-home-command-center .nk-home-focus-card{padding:20px;margin-top:14px}
+.nk-home-command-center .nk-home-focus-card h2{font-size:23px;margin:8px 0 14px}
+.nk-home-command-center .nk-home-focus-heart{display:none}
+.nk-home-command-center .nk-study-set-empty{padding:14px}
+.nk-home-command-center .nk-home-revision{margin:18px 0}
+.nk-home-command-center .nk-home-revision-counts button{min-height:66px}
+.nk-fsrs-settings .nk-fsrs-settings-hero{padding:0;margin:0 0 16px;text-align:left}
+.nk-fsrs-settings .nk-fsrs-settings-mark{display:none}
+.nk-fsrs-settings .nk-fsrs-settings-hero h1{font-size:27px;margin:0}
+.nk-fsrs-settings .nk-fsrs-settings-section{padding:16px;margin-bottom:12px}
+@media(max-width:699px){
+.nk-app-v114:not(.nk-v114-session){padding-top:14px}
+.nk-tests-focused{padding-top:14px}
+.nk-app-v114 .nk-page-head h1,.nk-app-v114 .nk-v3-page-hero h1,.nk-tests-focused .nk-v3-page-hero h1{font-size:26px}
+.nk-app-v114 .nk-section-head h2,.nk-tests-focused .nk-v3-section-head h2{font-size:18px}
+.nk-app-v114.nk-learning-insights{padding-top:14px}
+}
+
+.nk-home-command-center .nk-section{margin-top:22px}
+.nk-home-command-center .nk-study-set-empty{grid-template-columns:36px minmax(0,1fr) auto;gap:10px}
+.nk-home-command-center .nk-study-set-empty button{grid-column:auto;width:auto;padding:10px;font-size:10px}
+.nk-clarity-help{font-size:12px;line-height:1.5;color:#73738b;margin:12px 0}
+.nk-clarity-help summary{min-height:44px;align-content:center;cursor:pointer}
+.nk-fsrs-settings .nk-fsrs-field{padding:0;min-height:0}
+.nk-revision-forecast .nk-review-chart{padding:12px;min-height:104px}
+
+.nk-fsrs-settings label.nk-fsrs-field{padding:0;border:0}

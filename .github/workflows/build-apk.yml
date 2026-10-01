@@ -345,6 +345,8 @@ jobs:
         run: python3 tools/apply_learning_insights_v1.py
       - name: Test learning Insights calculations and calendar comparisons
         run: python3 tools/test_learning_insights_v1.py
+      - name: Compact navigation screens and remove redundant copy
+        run: python3 tools/apply_app_clarity_v1.py
       - name: Verify final JavaScript syntax after all transformations
         run: |
           python3 - <<'PY'
@@ -488,6 +490,8 @@ jobs:
         run: python3 tools/verify_practice_correction_browser.py
       - name: Verify learning Insights on phone and tablet
         run: python3 tools/verify_learning_insights_browser.py
+      - name: Verify compact screens and visible Revision queues
+        run: python3 tools/verify_app_clarity_browser.py
       - name: Verify bank-aware timed CBT selection and exam launch
         run: python3 tools/verify_bank_aware_cbt_builder_browser.py
       - name: Verify PYQ and mixed CBT journeys on phone and tablet
