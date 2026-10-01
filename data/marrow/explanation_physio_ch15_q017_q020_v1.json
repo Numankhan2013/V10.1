@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Marrow ED8 Physiology Chapter 15 explanation rollout; raw imported source remains immutable.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "15",
+    "chapterTitle": "Motor Physiology - 2",
+    "questionStart": 17,
+    "questionEnd": 20,
+    "questions": 4,
+    "status": "approved-rollout",
+    "workloadScore": 8,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 838,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__PHYS_CH15_Q017": {
+      "takeaway": "The subthalamic nucleus excites pallidal targets using glutamate.",
+      "displayText": "The subthalamic nucleus receives inhibitory GABAergic input from external globus pallidus (GPe) and sends excitatory glutamatergic projections to both GPe and internal globus pallidus (GPi). GPi and substantia nigra pars reticulata provide major inhibitory basal-ganglia outputs to ventral anterior/lateral thalamus.",
+      "emphasis": [
+        "The subthalamic nucleus receives inhibitory"
+      ],
+      "rationales": {
+        "b": "Dopamine is released by substantia nigra pars compacta to the striatum; pars reticulata is an output nucleus, not the dopaminergic source described.",
+        "c": "Striatal projection neurons chiefly release GABA to inhibit pars reticulata; acetylcholine is not the transmitter in this pathway.",
+        "d": "GPe output is inhibitory GABAergic input to targets, not glutamate excitation of striatum."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded source text contains OCR substitutions and figure/table layout that can obscure pathway names or row associations.",
+        "reconstructedContent": "The subthalamic nucleus receives inhibitory GABAergic input from external globus pallidus (GPe) and sends excitatory glutamatergic projections to both GPe and internal globus pallidus (GPi). GPi and substantia nigra pars reticulata provide major inhibitory basal-ganglia outputs to ventral anterior/lateral thalamus.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 304 were rendered and checked from immutable Physiology PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Explanation reconstructed from the checked printed source page(s), with OCR character substitutions corrected and the source-specific pathway distinctions retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          304
+        ]
+      }
+    },
+    "marrow__PHYS_CH15_Q018": {
+      "takeaway": "The false claim is that substantia nigra pars reticulata provides striatal dopamine; pars compacta does.",
+      "displayText": "Substantia nigra pars compacta is the major dopaminergic source to the striatum; pars reticulata is primarily a GABAergic output nucleus. The putamen loop connects sensorimotor cortical regions with motor/premotor cortex, whereas the caudate loop contributes more to cognitive control of movement. Basal-ganglia activity precedes movement as part of planning and organization.",
+      "emphasis": [
+        "Substantia nigra pars compacta is"
+      ],
+      "rationales": {
+        "a": "Basal-ganglia neurons can discharge before movement as they participate in planning and organization.",
+        "b": "The putamen circuit receives sensorimotor cortical input and returns toward motor and premotor cortex.",
+        "c": "The caudate circuit contributes to cognitive control of motor activity."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded source text contains OCR substitutions and figure/table layout that can obscure pathway names or row associations.",
+        "reconstructedContent": "Substantia nigra pars compacta is the major dopaminergic source to the striatum; pars reticulata is primarily a GABAergic output nucleus. The putamen loop connects sensorimotor cortical regions with motor/premotor cortex, whereas the caudate loop contributes more to cognitive control of movement. Basal-ganglia activity precedes movement as part of planning and organization.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 305 were rendered and checked from immutable Physiology PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Explanation reconstructed from the checked printed source page(s), with OCR character substitutions corrected and the source-specific pathway distinctions retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          305
+        ]
+      }
+    },
+    "marrow__PHYS_CH15_Q019": {
+      "takeaway": "Progressive degeneration of substantia nigra dopamine neurons reduces L-dopa’s sustained benefit.",
+      "displayText": "L-dopa’s benefit can decline in Parkinson disease as dopaminergic neurons in substantia nigra pars compacta continue to degenerate. The dwindling nigrostriatal terminal population converts less administered levodopa to dopamine; symptoms generally emerge after substantial neuronal loss.",
+      "emphasis": [
+        "L-dopa’s benefit can decline in"
+      ],
+      "rationales": {
+        "a": "The source attributes waning response to neuronal loss, not development of antibodies against dopamine receptors.",
+        "b": "Frontal inhibitory pathways are not the explanation given for the progressive loss of dopaminergic benefit.",
+        "c": "Circulating alpha-synuclein is not the mechanism specified; the source points to continuing nigral dopaminergic degeneration."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded source text contains OCR substitutions and figure/table layout that can obscure pathway names or row associations.",
+        "reconstructedContent": "L-dopa’s benefit can decline in Parkinson disease as dopaminergic neurons in substantia nigra pars compacta continue to degenerate. The dwindling nigrostriatal terminal population converts less administered levodopa to dopamine; symptoms generally emerge after substantial neuronal loss.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 306 were rendered and checked from immutable Physiology PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Explanation reconstructed from the checked printed source page(s), with OCR character substitutions corrected and the source-specific pathway distinctions retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          306
+        ]
+      }
+    },
+    "marrow__PHYS_CH15_Q020": {
+      "takeaway": "The ventrolateral thalamus is the source-keyed surgical target.",
+      "displayText": "The ventrolateral thalamic nucleus is the stereotactic lesion target described for refractory Parkinson disease. GPi and substantia nigra pars reticulata inhibit VL/VA; thalamic output then excites premotor and prefrontal cortical regions, completing the basal-ganglia–thalamocortical loop.",
+      "emphasis": [
+        "The ventrolateral thalamic nucleus is"
+      ],
+      "rationales": {
+        "a": "Centromedian is not the thalamic target named by this source for Parkinson symptoms refractory to levodopa.",
+        "c": "VPL relays body somatosensation rather than the basal-ganglia motor output targeted here.",
+        "d": "The ventromedial nucleus is not the source-keyed motor-loop target; the answer is VL."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded source text contains OCR substitutions and figure/table layout that can obscure pathway names or row associations.",
+        "reconstructedContent": "The ventrolateral thalamic nucleus is the stereotactic lesion target described for refractory Parkinson disease. GPi and substantia nigra pars reticulata inhibit VL/VA; thalamic output then excites premotor and prefrontal cortical regions, completing the basal-ganglia–thalamocortical loop.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 306 were rendered and checked from immutable Physiology PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Explanation reconstructed from the checked printed source page(s), with OCR character substitutions corrected and the source-specific pathway distinctions retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          306
+        ]
+      }
+    }
+  }
+}

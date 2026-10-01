@@ -43,7 +43,7 @@ The root worker batch validator passed these four files at the assigned base: 26
 
 ## Chapter 13 checkpoint
 
-- Added 21 source-authored explanations across two contiguous batches; cumulative worktree output is 47 questions (26 previously committed plus 21 in this checkpoint). At that checkpoint, 713 IDs remained pending, including two blocked IDs; 711 were actionable. These are authored/validated candidate files, not preview-deployed enhancements. The first Chapter 14 checkpoint brought cumulative candidate output to 65, with 695 original pending IDs remaining (693 actionable); the second Chapter 14 checkpoint raises output to 85, leaving 675 pending IDs (673 actionable).
+- Added 21 source-authored explanations across two contiguous batches; cumulative worktree output is 47 questions (26 previously committed plus 21 in this checkpoint). At that checkpoint, 713 IDs remained pending, including two blocked IDs; 711 were actionable. These are authored/validated candidate files, not preview-deployed enhancements. The first Chapter 14 checkpoint brought cumulative candidate output to 65, with 695 original pending IDs remaining (693 actionable); the second Chapter 14 checkpoint raised output to 85, leaving 675 pending IDs (673 actionable). The Chapter 15 checkpoint brings output to 104, leaving 656 pending IDs (654 actionable).
 
 | Batch file | IDs | Workload | Source scope |
 |---|---:|---:|---|
@@ -70,3 +70,10 @@ Validation: the root worker batch CLI passed all six Physiology files at the ass
 - Added the remaining source-order items, Q19–38, in two contiguous files (18 and 2 questions). Cumulative Physiology candidate output is now 85 questions; 675 original pending IDs remain, including two blocked IDs (673 actionable).
 - The corticospinal / extrapyramidal, decerebrate and decorticate posture, upper motor-neuron, motor homunculus, paracentral-lobule, premotor, and spinal-mass-reflex items were checked against rendered printed pages 278–289. The original figures remain available through the pinned PDF; no figure was redrawn or replaced.
 - Worker batch validation passes all nine Physiology files at the assigned base: 85 questions, source-keyed distractor rationales, emphasis, source retention or page-pinned reconstruction, and preserved baseline/gates.
+
+## Chapter 15 checkpoint
+
+- Added all actionable items in this source chapter: Q1–15 and Q17–20 (19 questions); the ledger-gated Q16 remains untouched. Cumulative output is 104 questions; 656 original pending IDs remain, including two blocked IDs (654 actionable).
+- The items distinguish alpha–gamma coactivation, crossed extension, medial/lateral descending motor systems, movement planning, sham rage and clonus, clasp-knife responses, cerebellar outputs and afferents, coordination signs, basal-ganglia neurotransmitter loops, Parkinson disease progression, and the VL thalamic target. The chapter’s question-specific source options, keys, and three distractor rationales are preserved.
+- Rendered and checked printed pp. 296–306. CH15 Q12 restores the seven-row native cerebellar afferent-tract table from p. 302 in a pinned `displayTables` entry. The native myogram and pathway figures remain in the immutable PDF.
+- Worker batch validation passes all 11 Physiology files at the assigned base: 104 questions; baseline and gates preserved.
