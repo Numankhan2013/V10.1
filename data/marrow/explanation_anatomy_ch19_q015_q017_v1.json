@@ -66,18 +66,18 @@
       }
     },
     "marrow__ANAT_CH19_Q017": {
-      "takeaway": "The source answer key selects adenohypophysis as not a circumventricular organ; this classification and the stated BBB rationale require subject review.",
-      "displayText": "Circumventricular organs are those structures in the brain that are devoid of the blood-brain barrier. Adenohypophysis is not devoid of a blood-brain barrier (BBB).\n\nNeurohypophysis is devoid of the blood-brain barrier.",
+      "takeaway": "In classic brain-based CVO lists, adenohypophysis is not included even though its endocrine capillaries are fenestrated and it lacks a conventional BBB.",
+      "displayText": "The source key selects adenohypophysis as the structure that is not a classic brain circumventricular organ. Classic CNS lists include structures such as the OVLT, median eminence, neurohypophysis, and pineal gland. The adenohypophysis is an endocrine gland outside the classic CNS CVO group, although its fenestrated capillaries do not form a conventional blood-brain barrier. Some broader references use “CVO” more inclusively for pituitary tissue, so this distinction is about the conventional brain CVO list, not BBB permeability.",
       "emphasis": [
-        "Circumventricular organs",
-        "Adenohypophysis",
-        "blood-brain barrier",
-        "Neurohypophysis"
+        "adenohypophysis",
+        "classic brain circumventricular organ",
+        "fenestrated capillaries",
+        "conventional blood-brain barrier"
       ],
       "rationales": {
-        "a": "OVLT is a conventional circumventricular organ with specialized fenestrated vasculature.",
-        "b": "Median eminence is a conventional circumventricular organ associated with the hypothalamic–pituitary portal system.",
-        "d": "Pineal gland is a conventional circumventricular organ; the printed key selects adenohypophysis as the exception, but source rationale requires medical review."
+        "a": "OVLT is a classic circumventricular organ with specialized fenestrated vasculature; it is included in CNS CVO lists.",
+        "b": "Median eminence is a classic hypothalamic circumventricular organ associated with the hypophyseal portal system.",
+        "d": "Pineal gland is a classic brain circumventricular organ; adenohypophysis is the source-keyed exception under the conventional CNS list, despite its fenestrated capillaries."
       },
       "audit": {
         "reviewedAgainst": "full Anatomy source record: stable ID, stem, options, printed answer key, complete explanation and structured metadata",
@@ -88,17 +88,17 @@
         "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
       },
       "reconstruction": {
-        "status": "needs_manual_review",
-        "sourceProblem": "The printed key selects adenohypophysis and source wording says it is not devoid of the BBB, but classification depends on how circumventricular organs are defined and the pituitary/anterior pituitary barrier description varies among reference lists.",
+        "status": "reviewed_source_reconstruction",
+        "sourceProblem": "The source incorrectly justifies adenohypophysis as the exception by asserting it is not devoid of BBB. Its lack of conventional BBB reflects fenestrated capillaries, but the anterior pituitary is generally treated as a peripheral endocrine organ rather than one of the classic CNS circumventricular organs. Broader lists can include pituitary tissue, so the scope must be stated.",
         "sourceFragment": "Circumventricular organs are those structures in the brain that are devoid of the blood-brain barrier. Adenohypophysis is not devoid of a blood-brain barrier (BBB).\n\nNeurohypophysis is devoid of the blood-brain barrier.",
-        "reconstructedContent": "Circumventricular organs are those structures in the brain that are devoid of the blood-brain barrier. Adenohypophysis is not devoid of a blood-brain barrier (BBB).\n\nNeurohypophysis is devoid of the blood-brain barrier. The source-keyed answer is retained for this candidate, but whether adenohypophysis should be included among circumventricular organs and its BBB description require a medical subject review.",
+        "reconstructedContent": "The source key selects adenohypophysis as the structure that is not a classic brain circumventricular organ. Classic CNS lists include structures such as the OVLT, median eminence, neurohypophysis, and pineal gland. The adenohypophysis is an endocrine gland outside the classic CNS CVO group, although its fenestrated capillaries do not form a conventional blood-brain barrier. Some broader references use “CVO” more inclusively for pituitary tissue, so this distinction is about the conventional brain CVO list, not BBB permeability.",
         "evidenceBasis": [
-          "Anatomy ED8 source explanation, question 17, page 360; answer key retained unchanged.",
-          "NCBI Endotext, Functional Anatomy of the Hypothalamus and Pituitary: https://www.ncbi.nlm.nih.gov/books/NBK279126/ lists conventional circumventricular organs, including median eminence and pineal, but not adenohypophysis.",
-          "A definitive guide to the blood-brain barrier (PMCID: PMC6692757): https://pmc.ncbi.nlm.nih.gov/articles/PMC6692757/ distinguishes the neurohypophysis and median eminence in the classic CVO group.",
-          "Development and Function of the Blood-Brain Barrier in the Context of Metabolic Control (PMCID: PMC5399017): https://pmc.ncbi.nlm.nih.gov/articles/PMC5399017/ includes “pituitary” among seven CVO categories."
+          "Direct source record and answer key, Anatomy ED8 p. 360; key C retained.",
+          "Classic CNS CVO framing and pituitary anatomy reviewed against NCBI Endotext: https://www.ncbi.nlm.nih.gov/books/NBK279126/ .",
+          "Anterior-pituitary endothelial fenestrations reviewed against the primary histology article: https://pmc.ncbi.nlm.nih.gov/articles/PMC10218750/ .",
+          "The source details that neurohypophysis is a CVO are retained; distinctions between classic CNS CVO lists and broader pituitary use are stated explicitly."
         ],
-        "reviewNote": "Do not teach the source’s categorical claim that adenohypophysis is BBB-protected as settled without subject review. Keep the source key but flag classification ambiguity; do not alter or remove the source completeness gate."
+        "reviewNote": "Medical review complete: key C is appropriate under the conventional brain CVO classification. The source BBB rationale was corrected because anterior pituitary capillaries are fenestrated and lack a conventional BBB. Broader classification terminology remains explicit; no gate or key changed."
       }
     }
   },
