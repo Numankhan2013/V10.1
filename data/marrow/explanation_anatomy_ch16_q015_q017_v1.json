@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Anatomy Chapter 16 explanation refinement. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Anatomy",
+    "bank": "Marrow",
+    "chapterId": "16",
+    "chapterTitle": "Skin and Skin Appendages",
+    "questionStart": 15,
+    "questionEnd": 17,
+    "questions": 3,
+    "status": "approved-rollout",
+    "workloadScore": 6,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 753,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__ANAT_CH16_Q015": {
+      "takeaway": "From outer to inner, the listed retinal layers are retinal pigment epithelium, external limiting membrane, inner nuclear, inner plexiform and nerve-fiber layers.",
+      "displayText": "From outer to inner, the listed retinal layers are retinal pigment epithelium (A), external limiting membrane (E), inner nuclear layer (D), inner plexiform layer (B), and nerve fiber layer (C). Hence A-E-D-B-C is correct.",
+      "emphasis": [
+        "retinal pigment epithelium",
+        "external limiting membrane",
+        "inner nuclear layer",
+        "nerve fiber layer"
+      ],
+      "rationales": {
+        "a": "This order puts retinal pigment epithelium last; in the source sequence it is outermost, followed by the external limiting membrane.",
+        "b": "This order places inner plexiform and inner nuclear layers out of sequence and puts the external limiting membrane last.",
+        "d": "This places external limiting membrane before retinal pigment epithelium, reversing their outer-to-inner relationship."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record: stable ID, stem, options, printed answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          303
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      }
+    },
+    "marrow__ANAT_CH16_Q016": {
+      "takeaway": "The cochlea contains the organ of Corti and has about 2.75 turns around the modiolus.",
+      "displayText": "The histological image is the cochlea, identified by the organ of Corti. The cochlea makes about 2.75 turns around the modiolus. The vestibular and basilar membranes divide the bony labyrinth into scala vestibuli (perilymph), scala media (endolymph) and scala tympani (perilymph).",
+      "emphasis": [
+        "cochlea",
+        "organ of Corti",
+        "2.75 turns",
+        "modiolus"
+      ],
+      "rationales": {
+        "a": "The vestibule is a separate part of the inner ear; the histological image is identified by the organ of Corti in the cochlea.",
+        "b": "Semicircular canals house the cristae ampullares for angular acceleration, not the cochlear organ of Corti.",
+        "d": "The tympanic membrane is the eardrum and is not part of the inner-ear cochlear labyrinth."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record: stable ID, stem, options, printed answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          303,
+          304
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 2 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH16_Q017": {
+      "takeaway": "The cupula is the gelatinous component projecting from the crista ampullaris to the roof of the ampulla.",
+      "displayText": "The gelatinous component over the crista ampullaris is the cupula. Hair-cell stereocilia and kinocilium project into the cupula. During head rotation, lag of endolymph deflects the cupula and stimulates the hair cells, contributing to spatial orientation.",
+      "emphasis": [
+        "cupula",
+        "crista ampullaris",
+        "stereocilia and kinocilium",
+        "endolymph"
+      ],
+      "rationales": {
+        "a": "A calyx (calix) is not the gelatinous structure over the crista ampullaris.",
+        "b": "The spiral ganglion contains auditory neuron cell bodies and is unrelated to the cupula over vestibular hair cells.",
+        "d": "The spiral ligament supports the cochlear duct; it is not the gelatinous cap extending from the crista ampullaris."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record: stable ID, stem, options, printed answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          304
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 1 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    }
+  },
+  "source": {
+    "bundle": "anatomy_ch001_063",
+    "sourceRawSha256": "f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387"
+  }
+}
