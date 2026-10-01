@@ -1,0 +1,346 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Anatomy Chapter 27 explanation refinement. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Anatomy",
+    "bank": "Marrow",
+    "chapterId": "27",
+    "chapterTitle": "Spinal Cord",
+    "questionStart": 1,
+    "questionEnd": 14,
+    "questions": 14,
+    "status": "approved-rollout",
+    "workloadScore": 14,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 753,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__ANAT_CH27_Q001": {
+      "takeaway": "Filum terminale anchors the distal dural sac and extends to the first coccygeal vertebra.",
+      "displayText": "Filum terminale extends up to the 1st coccygeal vertebra. It is a filament of connective tissue descending from the apex of conus medullaris.",
+      "emphasis": [
+        "Filum terminale extends up to the 1st coccygeal vertebra",
+        "conus medullaris"
+      ],
+      "rationales": {
+        "a": "S1 is above the distal attachment; filum terminale continues below the sacral canal.",
+        "b": "S3 lies above its endpoint; the source gives the first coccygeal vertebra.",
+        "d": "Fourth coccygeal vertebra extends beyond the stated endpoint."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stable ID, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          464
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      }
+    },
+    "marrow__ANAT_CH27_Q002": {
+      "takeaway": "The lumbar cistern and subarachnoid space extend to S2, the lower end point used for lumbar puncture safety.",
+      "displayText": "The procedure shown is a lumbar puncture. The needle is introduced into the subarachnoid space, which ends at the lower border of the S2 vertebra. A lumbar puncture can be done anywhere from L1 to S2 vertebrae; beyond S2 there are only meninges. However, lumbar puncture is most commonly performed at L3 or L4.",
+      "emphasis": [
+        "lower border of the S2 vertebra",
+        "lumbar puncture",
+        "most commonly performed"
+      ],
+      "rationales": {
+        "a": "S1 is above the caudal end of the subarachnoid space; the lumbar cistern ends at S2.",
+        "c": "L4 is a common lumbar-puncture entry region, not the lower termination level.",
+        "d": "L2 approximates adult conus level, while the CSF space continues to S2."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stable ID, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          464
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 1 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH27_Q003": {
+      "takeaway": "Adult spinal cord ends at lower L1, so epidural placement below that level avoids cord injury.",
+      "displayText": "Epidural anaesthesia is given during labour and placement is usually preferred below L1 to avoid injury to the spinal cord. This is because the adult spinal cord terminates at the lower border of the L1 vertebra. In children, it usually terminates at the upper border of L3. Note: coverage from dermatomes T10 to S1 is necessary for epidural analgesia during labour. For a caesarean section, a block from T4 to S1 is needed. However, since the spinal cord ends at the lower border of L1 in most adults, epidural analgesia is given below this level.",
+      "emphasis": [
+        "below L1",
+        "lower border of the L1 vertebra",
+        "upper border of L3"
+      ],
+      "rationales": {
+        "a": "Upper L1 is above the adult conus endpoint stated in the source; epidural placement should be below the cord.",
+        "b": "Upper L3 is a pediatric cord endpoint, not the adult landmark.",
+        "d": "Lower L3 is below the requested level and is not the named adult cord termination."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stable ID, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          465
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      }
+    },
+    "marrow__ANAT_CH27_Q004": {
+      "takeaway": "There are 31 pairs of spinal nerves, distinct from the 33 vertebrae.",
+      "displayText": "There are a total of 31 pairs of spinal nerves. In contrast, the number of vertebrae is 33. Due to the difference in the number of spinal segments and vertebrae, the spinal segments do not correspond directly to the respective vertebrae. The T11 spine overlies the L3 spinal segment, and the T12 spine overlies the S1 spinal segment.",
+      "emphasis": [
+        "31 pairs",
+        "number of vertebrae is 33",
+        "spinal segments"
+      ],
+      "rationales": {
+        "a": "There are 31 spinal nerve pairs, not 30.",
+        "b": "There are 33 vertebrae, but spinal nerve pairs number 31.",
+        "c": "32 is not the source count; the stated contrast is 31 nerve pairs versus 33 vertebrae."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stable ID, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          465
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "1 native table(s) and 0 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH27_Q005": {
+      "takeaway": "Grey rami carry postganglionic sympathetic fibers, unlike white rami carrying preganglionic fibers.",
+      "displayText": "Grey rami communicantes are not preganglionic fibers; they are postganglionic fibers. Sympathetic trunks on either side of the vertebral column consist of a series of ganglia connected to spinal nerves by white and grey rami communicantes. The cell bodies of preganglionic sympathetic neurons are located in the lateral horn of the spinal grey matter. Preganglionic fibers leave the cord in the ventral roots, enter the sympathetic trunk via white rami communicantes, and synapse with postganglionic sympathetic neurons in sympathetic ganglia. Axons of postganglionic neurons return to the spinal nerve through grey rami communicantes.",
+      "emphasis": [
+        "postganglionic fibers",
+        "preganglionic sympathetic neurons",
+        "grey rami communicantes"
+      ],
+      "rationales": {
+        "a": "Grey rami carry unmyelinated postganglionic fibers, so this is true.",
+        "b": "Grey rami connect sympathetic trunk ganglia to spinal nerves, so this is also true.",
+        "d": "Grey rami lie medial to white rami communicantes; the false statement is that they carry preganglionic fibers."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stable ID, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          465,
+          466
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "1 native table(s) and 1 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH27_Q006": {
+      "takeaway": "The T10 spinal segment lies at the T7 spinous process level because lower thoracic segments sit progressively higher than their vertebrae.",
+      "displayText": "The T10 spinal segment lies at the level of the spinous process of the T7 vertebra. In the lower thoracic region, the corresponding spinal segment lies about three vertebral levels above.",
+      "emphasis": [
+        "T10 spinal segment",
+        "spinous process of the T7 vertebra",
+        "three vertebral levels above"
+      ],
+      "rationales": {
+        "a": "T7 is the vertebral spinous-process level, not the corresponding spinal segment named by the source.",
+        "b": "The lower-thoracic segment lies about three levels above its vertebra; that maps T7 vertebra to T10 segment.",
+        "c": "T9 is only two levels above and does not match the source relationship."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stable ID, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          466
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "1 native table(s) and 0 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH27_Q007": {
+      "takeaway": "Denticulates’ lowest projection reaches T12–L1 spinal nerve levels.",
+      "displayText": "The structure marked as \"?\" is ligamentum denticulatum. Its lowest projection lies at the level of the T12 and L1 spinal nerves.",
+      "emphasis": [
+        "ligamentum denticulatum",
+        "T12 and L1 spinal nerves"
+      ],
+      "rationales": {
+        "a": "T9–T10 is too high; the ligamentum denticulatum descends to T12 and L1 nerve levels.",
+        "c": "S2–S3 lies far below the lowest denticulate extension.",
+        "d": "S4–S5 is below the spinal cord roots represented by its attachment."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stable ID, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          467
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 2 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH27_Q008": {
+      "takeaway": "Denticulated ligament is a pia-mater specialization with tooth-like lateral extensions between roots.",
+      "displayText": "Ligamentum denticulatum is not a modification of arachnoid mater; it is a modification of the pia mater. It is a flat fibrous sheet on either side of the spinal cord between the ventral and dorsal spinal roots and serves as a neurosurgical landmark for hemisectioning of the spinal cord. Its medial border is continuous with the subpial connective tissue. Its lateral border forms a series of 21 triangular processes, giving it a serrated appearance.",
+      "emphasis": [
+        "modification of the pia mater",
+        "hemisectioning of the spinal cord",
+        "serrated appearance"
+      ],
+      "rationales": {
+        "b": "There is one ligament on each side with 21 triangular processes; this is a true statement.",
+        "c": "The ligament is used as a landmark for spinal-cord hemisection, so this is true.",
+        "d": "Its processes create a serrated appearance; this is true. The false statement is calling it an arachnoid modification rather than pia."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stable ID, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          467
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      }
+    },
+    "marrow__ANAT_CH27_Q009": {
+      "takeaway": "Anterior spinal artery supplies the anterior two-thirds of spinal cord.",
+      "displayText": "Thrombosis of the anterior spinal artery affects the anterior two-thirds of the spinal cord. The anterior spinal artery supplies the anterior 2/3rd of the cord; occlusion causes bilateral paraplegia below the lesion from corticospinal tract damage, bilateral thermoanaesthesia and analgesia from spinothalamic tract damage, weakness from anterior grey-horn damage in cervical or lumbar enlargements, and loss of bowel/bladder functions from descending autonomic-tract damage. Position, vibration and fine touch remain intact because the posterior white columns are supplied by the posterior spinal arteries.",
+      "emphasis": [
+        "anterior two-thirds of the spinal cord",
+        "bilateral paraplegia",
+        "spinothalamic tract"
+      ],
+      "rationales": {
+        "a": "Anterior spinal artery does not supply the entire cord; posterior spinal arteries supply the posterior third.",
+        "b": "Anterior spinal artery supplies two-thirds, not just one-third.",
+        "d": "Three-quarters overstates its territory; the source gives anterior two-thirds."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stable ID, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          468,
+          469
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      }
+    },
+    "marrow__ANAT_CH27_Q010": {
+      "takeaway": "Artery of Adamkiewicz chiefly supplies lower two-thirds of the cord.",
+      "displayText": "The artery described is the artery of Adamkiewicz, which supplies the lower two-thirds of the spinal cord. It is usually unilateral and, in the majority of people, enters the spinal cord from the left side. The anterior spinal artery also receives blood from segmental medullary arteries. The most prominent is the artery of Adamkiewicz, which originates from the aorta in the lower thoracic or upper lumbar region and supplies the lower part of the cord. Injury can lead to paraplegia and spinal-artery syndrome.",
+      "emphasis": [
+        "artery of Adamkiewicz",
+        "lower two-thirds",
+        "left side"
+      ],
+      "rationales": {
+        "a": "Adamkiewicz artery reinforces the lower, not upper, two-thirds of cord supply.",
+        "c": "Upper one-third does not describe its main long-axis supply.",
+        "d": "Lower one-third understates the source territory, which is lower two-thirds."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stable ID, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          469
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 1 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH27_Q011": {
+      "takeaway": "Lateral reticulospinal tract descends from brainstem reticular formation and facilitates motor neuron activity.",
+      "displayText": "The tract marked \"A\" is the lateral reticulospinal tract. Reticulospinal fibers originate from the reticular formation of the brain and terminate on alpha and gamma motor neurons in the spinal cord, facilitating voluntary movement.",
+      "emphasis": [
+        "lateral reticulospinal tract",
+        "reticular formation",
+        "alpha and gamma motor neurons"
+      ],
+      "rationales": {
+        "b": "Lateral corticospinal tract is a descending motor tract but the arrowed tract is reticulospinal.",
+        "c": "Lateral spinothalamic tract ascends sensory information, unlike descending reticulospinal fibers.",
+        "d": "Rubrospinal tract is a separate descending tract originating in red nucleus."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stable ID, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          469
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 1 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH27_Q012": {
+      "takeaway": "Posterior-column injury preserves pain sensation because pain ascends in anterolateral pathways.",
+      "displayText": "Pain sensation would remain intact because it is carried by the anterolateral column. Posterior white-column lesions impair position sense and vibration. Fine pressure related to discrimination is carried by the dorsal column, while ordinary touch and pressure are carried by the anterolateral system.",
+      "emphasis": [
+        "Pain sensation would remain intact",
+        "anterolateral column",
+        "Posterior white-column lesions"
+      ],
+      "rationales": {
+        "a": "Position sense travels in dorsal columns and is impaired by posterior-column infarction.",
+        "c": "Pressure discrimination can be affected through dorsal column modalities; pain is carried in anterolateral pathways and remains intact.",
+        "d": "Vibration is a dorsal-column modality and would be lost."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stable ID, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          469,
+          470
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      }
+    },
+    "marrow__ANAT_CH27_Q013": {
+      "takeaway": "Vestibulospinal tract is an uncrossed descending pathway.",
+      "displayText": "The vestibulospinal tract remains uncrossed through the medulla and throughout the length of the spinal cord in the anterior white column. Ascending tracts all cross except the dorsal and rostral spinocerebellar tracts. Among descending tracts, all cross except the reticulospinal and vestibulospinal tracts.",
+      "emphasis": [
+        "vestibulospinal tract remains uncrossed",
+        "anterior white column",
+        "throughout the length"
+      ],
+      "rationales": {
+        "a": "Tectospinal fibers cross at midbrain level; they are not the continuously uncrossed tract.",
+        "b": "Rubrospinal tract crosses in midbrain.",
+        "d": "Pyramidal/corticospinal fibers decussate in caudal medulla, unlike vestibulospinal tract."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stable ID, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          470
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      }
+    },
+    "marrow__ANAT_CH27_Q014": {
+      "takeaway": "Brown–Séquard hemisection produces ipsilateral dorsal-column deficits and contralateral pain-temperature loss; crude touch may be bilateral.",
+      "displayText": "The clinical scenario suggests Brown-Séquard syndrome, which is hemisection of the spinal cord. Ipsilateral crude-touch loss is not the characteristic finding. Dorsal-column damage causes ipsilateral loss of fine touch, vibration and proprioception below the lesion. Spinothalamic-tract damage causes contralateral loss of pain and temperature beginning one or two segments below the lesion. Corticospinal-tract damage produces ipsilateral paralysis below the lesion.",
+      "emphasis": [
+        "Brown-Séquard syndrome",
+        "Ipsilateral crude-touch loss",
+        "Dorsal-column damage",
+        "Spinothalamic-tract damage"
+      ],
+      "rationales": {
+        "a": "Hemisection is the definition of Brown–Séquard syndrome, so this is true.",
+        "b": "Ipsilateral vibration loss follows dorsal-column injury below the lesion.",
+        "d": "Ipsilateral paralysis below lesion follows corticospinal tract damage; crude-touch loss is not the characteristic unilateral finding."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stable ID, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          470
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      }
+    }
+  },
+  "source": {
+    "bundle": "anatomy_ch001_063",
+    "sourceRawSha256": "f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387",
+    "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+    "sourcePdfPages": [
+      464,
+      465,
+      466,
+      467,
+      468,
+      469,
+      470
+    ]
+  }
+}

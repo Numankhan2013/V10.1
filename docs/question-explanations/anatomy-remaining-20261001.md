@@ -66,3 +66,7 @@ Added Chapter 25 Q1–14 in `explanation_anatomy_ch25_q001_q014_v1.json`. The ch
 ## Checkpoint 6
 
 Added Chapter 26 Q1–20 in two bounded files (14 and 6 IDs). The vascular explanations preserve carotid segments and branch origins, cerebral arterial territories, circle-of-Willis composition, stroke localizations, and superficial/deep cerebral venous drainage. Corrupted OCR/figure text was reconstructed with source fragments and evidence pages recorded; source diagrams and structured metadata remain unchanged. Validator passed: `MARROW_WORKER_BATCHES_OK files=27 questions=235 source_keyed=true detail_retention=true baseline_and_gates_preserved=true`. Total authored is 235/662 through Chapter 50; 427 remain.
+
+## Checkpoint 7
+
+Added Chapter 27 Q1–15 in two bounded files (Q1–14 and Q15). Explanations retain spinal-level landmarks, rami and arterial supply, pathway crossings, Brown–Séquard findings, and conus-versus-cauda equina distinctions. Validator passed: `MARROW_WORKER_BATCHES_OK files=29 questions=250 source_keyed=true detail_retention=true baseline_and_gates_preserved=true`. Total authored is 250/662 through Chapter 50; 412 remain.
