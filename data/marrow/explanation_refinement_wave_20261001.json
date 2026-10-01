@@ -763,7 +763,7 @@
     "marrow__PHYS_CH11_Q017",
     "marrow__PHYS_CH11_Q018"
   ],
-  "newEnhancedCount": 1206,
+  "newEnhancedCount": 1227,
   "withheldSourceLimitedIds": [
     "marrow__ANAT_CH13_Q013",
     "marrow__ANAT_CH15_Q014",
@@ -790,27 +790,6 @@
     "marrow__PHYS_CH15_Q016"
   ],
   "unprocessedActionableIds": [
-    "marrow__ANAT_CH32_Q001",
-    "marrow__ANAT_CH32_Q002",
-    "marrow__ANAT_CH32_Q003",
-    "marrow__ANAT_CH32_Q004",
-    "marrow__ANAT_CH32_Q005",
-    "marrow__ANAT_CH32_Q006",
-    "marrow__ANAT_CH32_Q007",
-    "marrow__ANAT_CH32_Q008",
-    "marrow__ANAT_CH32_Q009",
-    "marrow__ANAT_CH32_Q010",
-    "marrow__ANAT_CH32_Q011",
-    "marrow__ANAT_CH32_Q012",
-    "marrow__ANAT_CH33_Q001",
-    "marrow__ANAT_CH33_Q002",
-    "marrow__ANAT_CH33_Q003",
-    "marrow__ANAT_CH33_Q004",
-    "marrow__ANAT_CH33_Q005",
-    "marrow__ANAT_CH33_Q006",
-    "marrow__ANAT_CH33_Q007",
-    "marrow__ANAT_CH33_Q008",
-    "marrow__ANAT_CH33_Q009",
     "marrow__ANAT_CH34_Q001",
     "marrow__ANAT_CH34_Q002",
     "marrow__ANAT_CH34_Q003",
@@ -1521,7 +1500,7 @@
     "marrow__PHYSIO_CH43_Q016"
   ],
   "queueFile": "data/marrow/explanation_refinement_queue_20261001.json",
-  "queueSha256": "cabf3acb2354789e80c83c06c712103def4953cd54b4221a0b400e25d17d0a75",
+  "queueSha256": "6f5e361fb64729e21992b948ece575e5ca097cf44f68dd5066025b61d0e0b6fc",
   "batches": [
     {
       "file": "explanation_anatomy_ch09_q015_q018_v1.json",
@@ -2615,6 +2594,70 @@
         "marrow__ANAT_CH31_Q024": "c7a4cb80d7de8ba104117f12cbb889786c49f4e9be3cc40393b539fa53571d5b"
       },
       "browserId": "marrow__ANAT_CH31_Q023",
+      "auditReport": "docs/question-explanations/anatomy-remaining-20261001.md"
+    },
+    {
+      "file": "explanation_anatomy_ch32_q001_q012_v1.json",
+      "count": 12,
+      "ids": [
+        "marrow__ANAT_CH32_Q001",
+        "marrow__ANAT_CH32_Q002",
+        "marrow__ANAT_CH32_Q003",
+        "marrow__ANAT_CH32_Q004",
+        "marrow__ANAT_CH32_Q005",
+        "marrow__ANAT_CH32_Q006",
+        "marrow__ANAT_CH32_Q007",
+        "marrow__ANAT_CH32_Q008",
+        "marrow__ANAT_CH32_Q009",
+        "marrow__ANAT_CH32_Q010",
+        "marrow__ANAT_CH32_Q011",
+        "marrow__ANAT_CH32_Q012"
+      ],
+      "questionsSha256": "db681573236e966a3da823f4b53ca555d56051c9a06302920b68dcad8c1fa5be",
+      "sourceQuestionSha256": {
+        "marrow__ANAT_CH32_Q001": "274831573aa40d266e09de078cbc6f5804dc002061983c90aa037c20de57678c",
+        "marrow__ANAT_CH32_Q002": "12b788a328dddfdf249c968e9603fdc9002578d751a62b8d824c8b95e50e5d05",
+        "marrow__ANAT_CH32_Q003": "fe6dba455b40d9fdf1b6cd54af7e1db065a67fb16a6185407de64d8c8bf88dc9",
+        "marrow__ANAT_CH32_Q004": "6c1d8a4b496b664ed193dc4447ac51bd998adce6151753a0a0a8b5cd3bc02c34",
+        "marrow__ANAT_CH32_Q005": "4411009acdcd41b256c02c983dcff08c628e1088f14eed7f15407d8db0c923be",
+        "marrow__ANAT_CH32_Q006": "7fce10f0e8fdb7e0200113dad7572af5b5f68ab826aa585c604c5fa4bd94537b",
+        "marrow__ANAT_CH32_Q007": "0a1c87549423f9f88c0623b63f8849b749d39a1b0d3f4e240497265751b520fc",
+        "marrow__ANAT_CH32_Q008": "85a2244ea6bc66be640f105cec2ce5d5fe2d3ec90d69febad5dcebda9ba52c4a",
+        "marrow__ANAT_CH32_Q009": "858240755ba91f5af3ffcc4eebfc1292b5f10f96518f58cc391c5db3ab577ed6",
+        "marrow__ANAT_CH32_Q010": "5206545216004946cec5930c463ea3631f4fd5721e8cc47160d67b207964a4fb",
+        "marrow__ANAT_CH32_Q011": "2a52e6aca8d761fdbde8dd6f12e52374b2e4d66e4308d9100164a321d9b3df6a",
+        "marrow__ANAT_CH32_Q012": "9606e85bfd242ef97666158519d70dc90326efe9e65470c9f41bea56468063ce"
+      },
+      "browserId": "marrow__ANAT_CH32_Q010",
+      "auditReport": "docs/question-explanations/anatomy-remaining-20261001.md"
+    },
+    {
+      "file": "explanation_anatomy_ch33_q001_q009_v1.json",
+      "count": 9,
+      "ids": [
+        "marrow__ANAT_CH33_Q001",
+        "marrow__ANAT_CH33_Q002",
+        "marrow__ANAT_CH33_Q003",
+        "marrow__ANAT_CH33_Q004",
+        "marrow__ANAT_CH33_Q005",
+        "marrow__ANAT_CH33_Q006",
+        "marrow__ANAT_CH33_Q007",
+        "marrow__ANAT_CH33_Q008",
+        "marrow__ANAT_CH33_Q009"
+      ],
+      "questionsSha256": "0df136223bbc0b887bd2e8aeb3115d1548909ff968786a67036979568fc658c4",
+      "sourceQuestionSha256": {
+        "marrow__ANAT_CH33_Q001": "fd278b507b56e467454edcbf0118e3eb2c8f0f52527ef22999e5b31b61168a52",
+        "marrow__ANAT_CH33_Q002": "53df8da4545967b269257ab20d3ba00a4b9bcf7da23516d9757551e80b326fce",
+        "marrow__ANAT_CH33_Q003": "3741a8cd7b9638e23d173a110e604f4280e78a7192be7e458622faca1a92b8d4",
+        "marrow__ANAT_CH33_Q004": "d31c605e303f9035d22b29e1ae08c1c533c105e14a206b0375a58c5ad36d0828",
+        "marrow__ANAT_CH33_Q005": "856d2e2e5674d1cb0e4e542654c15c47d5632ccc7cf147badbf577f11906a254",
+        "marrow__ANAT_CH33_Q006": "c76ac7cd173a137d55e4e9d1552339821b43758d16fce20b6dc987e4ec614f86",
+        "marrow__ANAT_CH33_Q007": "04e9fee8a856b8cab36c2e36a1e5b526ad078c3d8cea84c8aa91fb80fbf608a4",
+        "marrow__ANAT_CH33_Q008": "45b39fc3028f64e15638fa987f3384be3a357b79a53b43f1f95f41952d6bfb50",
+        "marrow__ANAT_CH33_Q009": "3ec6e4b56683a9635411b10a6892bdc8def2e5bd060333402497015c4fcd4ebf"
+      },
+      "browserId": "marrow__ANAT_CH33_Q006",
       "auditReport": "docs/question-explanations/anatomy-remaining-20261001.md"
     },
     {
@@ -4933,7 +4976,7 @@
         "marrow__PHYSIO_CH35_Q017": "a5c3077131d046a8faaeb7c2d7f359fdbb7bdbe49836da89e2241cf68aaf772c",
         "marrow__PHYSIO_CH35_Q018": "c6c87075d524010c5483bb7d9927e0f65f7d6c94a5dd87d0040b8dcfe9113cd2"
       },
-      "browserId": "marrow__PHYSIO_CH35_Q013",
+      "browserId": "marrow__PHYSIO_CH35_Q011",
       "auditReport": "docs/question-explanations/physiology-tail-20261001.md"
     },
     {
