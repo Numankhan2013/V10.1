@@ -209,7 +209,7 @@ Priority 0: reproduce and restore user-reported unreadable PDF explanations. The
 
 ## Parallel explanation refinement wave — 2026-09-30
 
-- Current combined source-validated candidate adds 83 explanations and fixes nine existing emphasis arrays; exact-head full CI/preview remains the release boundary.
+- The previous 83-question wave and nine emphasis repairs are certified at d4abce86. The resumed remaining queue has 1,935 actionable explanations and 23 deferred Marrow source gaps; bounded parallel authoring and one combined full release build are in progress.
 - The 753 checkpoint is certified in preview e954d103. Resume bounded pending source-order authoring at Anatomy Ch9 Q15, Biochemistry Ch15 Q1 and Physiology Ch11 Q19. Recompute actual approved IDs and source-limited dispositions before choosing a range.
 - User explicitly deferred incomplete-source recovery. Known gated numbered-list items remain pending but must not repeatedly block all later actionable explanation work; preserve their gates and list them separately.
 - Keep parallel workers on disjoint content/audit files, one shared-state writer, and combine reviewed results into fewer full builds. Preserve full unique source detail and actual populated table cells.

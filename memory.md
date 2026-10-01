@@ -778,3 +778,7 @@ separate.
 ### Explanation refinement candidate — 2026-09-30
 
 User-directed parallel Luna wave: 83 new explanations plus nine existing emphasis repairs, source inventory 753 enhanced / 1,958 pending. Latest released preview remains 670 until exact-head combined CI passes. Primary owns shared integration; immutable sources/omission gates are preserved. See canonical STATE.md, wave manifest and docs/question-explanations/ audits. Production is not promoted.
+
+## 2026-10-01 — Verified explanation release and continued queue
+
+Last released product d4abce86068b4221e61e541c34dd29258de61cca: 753 enhanced/1,958 pending, Engineering 36742636966 and full Android/PWA/phone-tablet 36742637191 successful, preview https://e954d103.nk-qbank.pages.dev. Production remains untouched. User requests parallel Luna refinement of all remaining actionable explanations, source self-review by workers, exception-only integrator review and one combined build. Resume queue pins existing 753 exact augmentation hashes, all immutable source hashes, 1,935 actionable IDs and 23 deferred Marrow source gates. First local source-validated integration checkpoint adds149 (59 Anatomy/64 Biochemistry/26 Physiology): candidate902 enhanced/1,809pending, 1,786 actionable remain. This candidate is unfinished and unverified by full CI; full-queue validation deliberately rejects release until complete. Consult STATE and the latest wave manifest for newer checkpoints.
