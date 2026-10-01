@@ -106,3 +106,7 @@ Added Chapter 36 Q1–15 in two files. The explanations distinguish axillary she
 ## Checkpoint 16
 
 Added Chapter 37 Q1–7 and Chapter 38 Q1–31 in four bounded files. Breast explanations distinguish direct arterial branches, lymphatic sentinel pathways, secretion mechanisms and peau d’orange; upper-limb nerve explanations cover plexus divisions and lesions, named sensory territories, entrapment patterns, reflex levels and intrinsic-hand tests. Validator passed: `MARROW_WORKER_BATCHES_OK files=50 questions=450 source_keyed=true detail_retention=true baseline_and_gates_preserved=true`. Total authored is 450/525 in the current owned range through Chapter 42; 75 remain. Chapters 43–50 have been handed off and are outside my scope.
+
+## Checkpoint 17
+
+Added Chapter 39 Q1–23 and Chapter 40 Q1–16 in four bounded files. Explanations distinguish shoulder/scapular muscle and nerve actions, intrinsic hand mechanics, arterial branching and collateral routes, dialysis access flow, venous drainage, Allen testing, and axillary node groups. Validator passed: `MARROW_WORKER_BATCHES_OK files=54 questions=489 source_keyed=true detail_retention=true baseline_and_gates_preserved=true`. Total authored is 489/525 through Chapter 42; 36 remain in Chapters 41–42.
