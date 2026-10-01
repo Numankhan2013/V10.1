@@ -110,3 +110,7 @@ Added Chapter 37 Q1–7 and Chapter 38 Q1–31 in four bounded files. Breast exp
 ## Checkpoint 17
 
 Added Chapter 39 Q1–23 and Chapter 40 Q1–16 in four bounded files. Explanations distinguish shoulder/scapular muscle and nerve actions, intrinsic hand mechanics, arterial branching and collateral routes, dialysis access flow, venous drainage, Allen testing, and axillary node groups. Validator passed: `MARROW_WORKER_BATCHES_OK files=54 questions=489 source_keyed=true detail_retention=true baseline_and_gates_preserved=true`. Total authored is 489/525 through Chapter 42; 36 remain in Chapters 41–42.
+
+## Checkpoint 18 — Anatomy scope complete
+
+Added Chapter 41 Q1–15 and Chapter 42 Q1–21 in four bounded files. These complete my revised ownership range through Chapter 42. The explanations distinguish rib and thoracic inlet articulations, first-rib neurovascular relations, Sibson fascia, intercostal nerve/artery/vein pathways, phrenic nerve course and referred pain, and thoracic venous/arterial collaterals. The first sternocostal item explicitly distinguishes the source's functional synarthrosis label from its structural synchondrosis classification. Validator passed: `MARROW_WORKER_BATCHES_OK files=58 questions=525 source_keyed=true detail_retention=true baseline_and_gates_preserved=true`. Chapters 43–50 remain assigned to the separate tail worker.

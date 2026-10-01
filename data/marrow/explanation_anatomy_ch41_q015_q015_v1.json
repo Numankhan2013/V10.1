@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Anatomy Chapter 41 explanation refinement. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Anatomy",
+    "bank": "Marrow",
+    "chapterId": "41",
+    "chapterTitle": "General Anatomy of Thorax",
+    "questionStart": 15,
+    "questionEnd": 15,
+    "questions": 1,
+    "status": "approved-rollout",
+    "workloadScore": 1,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 753,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__ANAT_CH41_Q015": {
+      "takeaway": "Sibson fascia spans the thoracic inlet and attaches posteriorly to the anterior border of the C7 transverse process.",
+      "displayText": "The stabbed lung apex is covered by Sibson's fascia (suprapleural membrane). The source states that its vertebral attachment is posteriorly to the anterior border of the transverse process of the C7 vertebra; anteriorly it attaches to the inner border of the first rib.",
+      "emphasis": [
+        "The stabbed lung apex is covered by Sibson's fascia (suprapleural membrane)",
+        "The source states that its vertebral attachment is posteriorly to the anterior border of the transverse process of the C7 vertebra; anteriorly it attaches to the inner border of the first rib"
+      ],
+      "rationales": {
+        "a": "C1 is too superior and is not the vertebral attachment of the suprapleural membrane.",
+        "b": "C2 is not its posterior attachment level.",
+        "c": "The fascia attaches at C7 rather than C5."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          768
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Native source table/figure metadata remains in the immutable source record."
+      }
+    }
+  }
+}
