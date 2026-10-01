@@ -119,12 +119,14 @@ Prefer building over narrating.
   the Android APK and website/PWA. Every answered question is scheduled;
   Pause commits only answered work, while final session submission makes all
   remaining unanswered questions eligible as skipped. Globally unseen questions stay out.
-- **Quick revision (candidate):** More offers all-subject, all-bank Mistakes,
+- **Revision hub (candidate):** The primary Revision tab offers all-subject, all-bank Mistakes,
   Bookmarks, Unseen, and Due queues. The first three start random sets of up
   to 20; Due starts up to 20 in FSRS priority order and honors the existing
   daily cap. Full searchable Mistakes and Bookmarks lists remain available.
   Subject, bank, and source-topic focus applies to all four queues and counts;
-  the default is all subjects and banks. No Home action.
+  the default is all subjects and banks. Home shows global due/missed counts and opens Revision.
+  Neutral cards retain small semantic icon/count accents; a scoped seven-day
+  review forecast links to the existing full FSRS view and review settings.
 - **Personal question notes (candidate):** one learner-written note per stable
   question ID, available after an answer and in Review Solutions; durable
   locally and account-synced. Saved notes are read-only cards with Edit/Delete;

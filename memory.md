@@ -774,3 +774,13 @@ two-paused-chapter submit, Review Solutions, and Home Continue sequence. Canonic
 handoff and promotion status are maintained in `.project-memory/STATE.md` and
 `.project-memory/SESSION_LOG.md`; production and physical in-place upgrade remain
 separate.
+
+
+### 2026-10-01 — Revision hub candidate
+
+`feature/home-revision-hub` starts from combined main. Primary Revision replaces
+FSRS; Home displays global due/missed counts, while the four queues and a new
+embedded seven-day forecast respect the Revision focus. Existing FSRS graphs,
+settings, scheduling and all-bank session behavior are preserved. Study rows
+and cards are neutral, with semantic count/icon accents. Candidate validation,
+user review and production promotion remain distinct; consult live branch CI.

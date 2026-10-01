@@ -24,7 +24,7 @@ def main() -> None:
     assert transform(generated) == generated
     for marker in ('NK_REVISION_DESK_V1_START', 'nkRevisionDeskPage()', 'nkRevisionBrowsePage(route.id)',
                    'nkStartRevisionQueue', 'nkOpenRevisionQuestion',
-                   "route.page==='quick-revision'", "window.QB.nav('quick-revision')",
+                   "route.page==='quick-revision'", "nkOpenRevisionHub",
                    'All subjects', 'All question banks', 'nkSetRevisionScope',
                    'nkToggleRevisionFocus', '20 questions per session'):
         assert marker in generated, marker
@@ -45,7 +45,9 @@ const state={attempts:{'anat-wrong':[{id:'a1',correct:false,at:1}],
  'phys-due':[{id:'a3',correct:true,at:3}]},
  bookmarks:{'bio-bookmark':{addedAt:1}},fsrsReviewEligible:{'phys-unseen':{reason:'skipped'}}};
 let started=null;
-const context={state,Math,Date,BY_ID:{},document:{querySelector:()=>null},qAttempts:id=>state.attempts[id]||[],
+const context={state,Math,Date,BY_ID:{},route:{page:"dashboard"},bottomNav:()=>"",
+ dashboard:()=>'<section class="nk-section nk-study-sets"></section>',navigate:page=>{context.route.page=page;},
+ nkReviewPool:subject=>questions.filter(q=>(!subject||q.subject===subject)&&state.attempts[q.id]?.length),document:{querySelector:()=>null},qAttempts:id=>state.attempts[id]||[],
  nkAllStudyQuestions:()=>questions,
  nkBankRecord:(subject,bank)=>({topics:questions.filter(q=>q.subject===subject&&q.bank===bank).map(q=>({id:q.chapterId,title:q.chapterId+' title'}))}),
  nkFsrsActiveAttempts:id=>(state.attempts[id]||[]).filter(a=>!a.isUndo),
@@ -79,6 +81,29 @@ assert.deepEqual(started.ids,['anat-wrong'],'Focused mistake session contains on
 call("nkSetRevisionScope('topic','A2')");
 call("nkStartRevisionQueue('due')");
 assert.deepEqual(started.ids,['anat-due'],'Focused Due session uses its filtered FSRS queue');
+// Global reminders must not inherit a focused revision queue.
+const focusedHome=call('nkHomeRevisionSummary()');
+assert(focusedHome.includes('2 due reviews')&&focusedHome.includes('1 missed questions'));
+assert(call('dashboard()').indexOf('nk-home-revision')<call('dashboard()').indexOf('nk-study-sets'));
+let nav=call('bottomNav("dashboard")');
+assert(nav.includes('Revision')&&!nav.includes('>FSRS<'));
+context.route.page='fsrs';nav=call('bottomNav("fsrs")');
+assert(nav.includes('nav-item active')&&nav.includes('nkOpenRevisionHub()'));
+const now=new Date();now.setHours(0,0,0,0);
+state.reviews={'anat-due':{due:now.getTime()-1000},'phys-due':{due:now.getTime()+86400000}};
+let chart=call('nkRevisionForecastMarkup()');
+assert(chart.includes('Today: 1 reviews')&&!chart.includes(': 2 reviews'));
+call('nkOpenRevisionHub()');
+assert.equal(context.route.page,'quick-revision');
+assert.equal(call('nkRevisionScopeLabel()'),'All subjects · All question banks');
+chart=call('nkRevisionForecastMarkup()');
+assert(chart.includes('Today: 3 reviews'),'unmigrated eligible attempts appear in today forecast');
+// The displayed due count includes rollover; the session remains capped.
+context.nkFsrsQueue=()=>({due:questions.slice(0,3),cards:[questions[0]],rolledOver:2});
+assert.equal(call('nkRevisionDeskData().due.length'),3);
+call("nkStartRevisionQueue('due')");assert.deepEqual(started.ids,['anat-wrong']);
+context.nkFsrsQueue=filters=>{const due=questions.filter(q=>['phys-due','anat-due'].includes(q.id)&&(!filters.subject||q.subject===filters.subject)&&(!filters.bank||q.bank===filters.bank)&&(!filters.topic||q.chapterId===filters.topic));return{due,cards:due,rolledOver:0};};
+
 call("nkSetRevisionScope('subject','')");
 for(let i=0;i<25;i++){const id='wrong-'+i;questions.push({id,subject:i%2?'Anatomy':'Physiology',bank:i%2?'Marrow':'PrepLadder'});state.attempts[id]=[{id:'wrong-attempt-'+i,correct:false,at:i+10}];}
 call("nkStartRevisionQueue('wrong')");

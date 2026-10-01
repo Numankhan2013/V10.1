@@ -1919,3 +1919,18 @@ these residual additions; final combined CI remains pending. No production claim
   remain excluded. No worker branch was changed/deleted or run cancelled.
   Production deployment and physical APK/data-preservation acceptance remain
   separate. Future content work must preserve the combined main runtime.
+
+
+## 2026-10-01 — Revision navigation and count-focused visual refinement
+
+- User requested calmer study cards, Anki-style visible due/missed counts,
+  Revision replacing the FSRS tab, and preserved FSRS graphs inside Revision.
+- Extended the existing revision transform/core: neutral card borders/titles,
+  small semantic icon/count colors, quiet More rows, global Home counts,
+  primary Revision destination, scoped review forecast, existing FSRS/settings
+  links, and active Revision state throughout FSRS subpages.
+- Retained the all-bank pool logic, random 20-question samples, cap/rollover
+  behavior, old route, shared Practice engine and persistence/source contracts.
+- Updated behavior/browser checks for global versus scoped counts, cap/rollover,
+  graph scope, all four launches and responsive navigation. Resolve actual
+  validation from candidate CI; no production or physical acceptance claimed.

@@ -4,6 +4,15 @@
 
 ## Baseline and active work
 
+- Revision hub candidate (2026-10-01): `feature/home-revision-hub` builds from
+  combined main. Revision replaces FSRS in primary navigation; Home shows
+  global due/missed counts; More retains notes/search with neutral rows.
+  Revision retains all four scoped queues and now embeds a seven-day scoped
+  forecast with links to the existing full FSRS view and settings. Color is
+  limited to counts and small icon accents. No schedule, persistence, source,
+  or session-engine changes. Local and candidate CI status must be resolved
+  from the branch before promotion; physical review and production pending.
+
 - Completed image promotion (2026-09-30): main combines the finished image
   integration with every approved account/study feature (PR #79). Certified
   product `a7f1be5176538cecda350511dd1d2a74b1ec9955` passed all 75 local
@@ -61,7 +70,7 @@
 ## Product architecture to preserve
 
 - Shared bank registry: `MARROW_RECORDS → MARROW_BY_SUBJECT → BANKS_BY_SUBJECT`. Reuse Practice, CBT, Review Solutions, FSRS, sync, modules, analytics, and navigation across banks; do not fork by subject.
-- Primary navigation: **Home · FSRS · Tests · Insights · More**. Subject journey: My Subjects → bank chooser → Topics → topic → Practice/Topic Test.
+- Primary navigation in the Revision candidate: **Home · Revision · Tests · Insights · More**; FSRS is nested in Revision. Subject journey: My Subjects → bank chooser → Topics → topic → Practice/Topic Test.
 - FSRS schedules answered questions. Pause commits answered work only; final submission marks remaining session IDs skipped. Globally unseen questions stay unseen.
 - Raw Marrow and PrepLadder source, stable question IDs, answer keys, source visuals, and PDF mappings remain protected.
 

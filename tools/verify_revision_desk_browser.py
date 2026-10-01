@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exercise all-bank Quick Revision from More through the Practice engine."""
+"""Exercise the primary Revision hub, global counts, graphs and shared Practice engine."""
 
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
@@ -42,9 +42,18 @@ def main() -> None:
               s.bookmarks[bookmark]={addedAt:now};
               window.QB.saveState();
             }""", [WRONG_ID, BOOKMARK_ID])
-            page.evaluate("window.QB.nav('more')")
-            page.get_by_role("button", name="Quick revision").click()
-            page.get_by_role("heading", name="Quick revision").wait_for(state="visible")
+            page.evaluate("window.QB.nav('dashboard')")
+            assert page.locator('.nk-home-revision .nk-count-due').inner_text() == '1'
+            assert page.locator('.nk-home-revision .nk-count-missed').inner_text() == '1'
+            for width,height,name in [(390,844,'phone'),(889,1280,'tablet')]:
+                page.set_viewport_size({'width':width,'height':height})
+                page.screenshot(path=str(output / ('revision-home-'+name+'.png')),full_page=True)
+            page.set_viewport_size({'width':390,'height':844})
+            page.locator(".bottom-nav button").filter(has_text="Revision").click()
+            page.get_by_role("heading", name="Revision", exact=True).wait_for(state="visible")
+            assert page.locator('.bottom-nav button[aria-current="page"]').inner_text().startswith('Revision')
+            assert page.locator('.nk-revision-forecast .nk-review-chart span').count() == 7
+            assert page.locator('.nk-revision-forecast [role="img"]').get_attribute('aria-label').startswith('Today: 1 reviews')
             cards = page.locator(".nk-revision-card")
             assert cards.count() == 4, "Revision desk should show mistakes, bookmarks, unseen, and due"
             assert cards.nth(0).locator("b").inner_text() == "1"
@@ -53,7 +62,22 @@ def main() -> None:
             assert cards.nth(3).locator("b").inner_text() == "1"
             scope = " ".join(page.locator(".nk-revision-scope").inner_text().split())
             assert scope == "All subjects · All question banks", f"Unexpected revision scope: {scope!r}"
-            page.screenshot(path=str(output / "revision-desk-phone.png"), full_page=True)
+            for width,height,name in [(390,844,'phone'),(889,1280,'tablet'),(320,740,'small-phone')]:
+                page.set_viewport_size({'width':width,'height':height})
+                assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
+                assert cards.first.evaluate('(n)=>getComputedStyle(n).borderColor') == cards.last.evaluate('(n)=>getComputedStyle(n).borderColor')
+                page.screenshot(path=str(output / ('revision-desk-'+name+'.png')),full_page=True)
+            page.set_viewport_size({'width':390,'height':844})
+            page.get_by_role('button',name='Open FSRS',exact=True).click()
+            assert page.locator('.nk-fsrs-page-v3 .nk-review-chart span').count()==7
+            assert page.locator('.bottom-nav button[aria-current="page"]').inner_text().startswith('Revision')
+            page.locator('.nk-back-link').filter(has_text='Revision').click()
+            page.get_by_role('button',name='Review settings',exact=True).click()
+            assert page.locator('.nk-fsrs-settings').count()==1
+            assert page.locator('.bottom-nav button[aria-current="page"]').inner_text().startswith('Revision')
+            page.get_by_role('button',name='Cancel',exact=True).click()
+            page.locator('.bottom-nav button').filter(has_text='Revision').click()
+
 
             page.get_by_role("button", name="Focus questions").click()
             page.locator("#nk-revision-subject").select_option("Anatomy")
@@ -69,7 +93,7 @@ def main() -> None:
             page.get_by_role("heading", name="Mistakes").wait_for(state="visible")
             assert page.locator(".nk-revision-item").count() == 1
             assert "Anatomy · Marrow" in page.locator(".nk-v3-page-hero .nk-kicker").inner_text()
-            page.get_by_role("button", name="Quick revision").click()
+            page.locator(".nk-back-link").filter(has_text="Revision").click()
             page.get_by_role("button", name="Clear focus").click()
             assert " ".join(page.locator(".nk-revision-scope").inner_text().split()) == "All subjects · All question banks"
             assert cards.nth(1).locator("b").inner_text() == "1"
@@ -87,8 +111,7 @@ def main() -> None:
             page.wait_for_function("id => location.hash==='#practice' && window.QB.getState().activeSession?.questionIds?.includes(id)", arg=WRONG_ID)
 
             previous_session = page.evaluate("window.QB.getState().activeSession?.id")
-            page.evaluate("window.QB.nav('more')")
-            page.get_by_role("button", name="Quick revision").click()
+            page.locator(".bottom-nav button").filter(has_text="Revision").click()
             cards = page.locator(".nk-revision-card")
             cards.nth(0).get_by_role("button", name="Practice 1 mistakes").click()
             page.wait_for_function(
@@ -97,14 +120,12 @@ def main() -> None:
             )
             assert page.evaluate("window.QB.getState().activeSession?.originRoute") == "wrong"
 
-            page.evaluate("window.QB.nav('more')")
-            page.get_by_role("button", name="Quick revision").click()
+            page.locator(".bottom-nav button").filter(has_text="Revision").click()
             cards = page.locator(".nk-revision-card")
             cards.nth(1).get_by_role("button", name="Practice 1 bookmarks").click()
             page.wait_for_function("id => location.hash==='#practice' && window.QB.getState().activeSession?.questionIds?.includes(id)", arg=BOOKMARK_ID)
 
-            page.evaluate("window.QB.nav('more')")
-            page.get_by_role("button", name="Quick revision").click()
+            page.locator(".bottom-nav button").filter(has_text="Revision").click()
             cards = page.locator(".nk-revision-card")
             cards.nth(2).get_by_role("button", name="Practice 20 unseen").click()
             page.wait_for_function("location.hash==='#practice' && window.QB.getState().activeSession?.questionIds?.length===20")
@@ -115,8 +136,7 @@ def main() -> None:
               return ids.every(id => !(s.attempts[id]||[]).some(a=>!a.isUndo) && s.fsrsReviewEligible?.[id]?.reason!=='skipped');
             }""", unseen_ids), "Unseen queue included attempted or submitted-skipped questions"
 
-            page.evaluate("window.QB.nav('more')")
-            page.get_by_role("button", name="Quick revision").click()
+            page.locator(".bottom-nav button").filter(has_text="Revision").click()
             cards = page.locator(".nk-revision-card")
             cards.nth(3).get_by_role("button", name="Review 1 due").click()
             page.wait_for_function("id => location.hash==='#practice' && window.QB.getState().activeSession?.questionIds?.includes(id)", arg=WRONG_ID)

@@ -1,10 +1,10 @@
   /* NK_REVISION_DESK_V1_START */
   let nkRevisionScope={subject:'',bank:'',topic:''};
   let nkRevisionFocusOpen=false;
-  function nkRevisionScopeMatches(q){
-    return (!nkRevisionScope.subject||q.subject===nkRevisionScope.subject)
-      &&(!nkRevisionScope.bank||q.bank===nkRevisionScope.bank)
-      &&(!nkRevisionScope.topic||String(q.chapterId)===nkRevisionScope.topic);
+  function nkRevisionScopeMatches(q,scope=nkRevisionScope){
+    return (!scope.subject||q.subject===scope.subject)
+      &&(!scope.bank||q.bank===scope.bank)
+      &&(!scope.topic||String(q.chapterId)===scope.topic);
   }
   function nkRevisionScopeChoices(){
     const questions=nkAllStudyQuestions();
@@ -52,26 +52,57 @@
       nkRevisionScope={...nkRevisionScope,topic:next};
     }else return;
     const header=document.querySelector('.nk-revision-focus-wrap'),list=document.querySelector('.nk-revision-list');
-    if(header&&list){header.innerHTML=nkRevisionScopeMarkup();list.innerHTML=nkRevisionCards(nkRevisionDeskData());document.getElementById('nk-revision-'+field)?.focus();}
+    if(header&&list){header.innerHTML=nkRevisionScopeMarkup();const data=nkRevisionDeskData();list.innerHTML=nkRevisionCards(data);const forecast=document.querySelector('.nk-revision-forecast');if(forecast)forecast.outerHTML=nkRevisionForecastMarkup();document.getElementById('nk-revision-'+field)?.focus();}
   }
-  function nkRevisionDeskData(){
-    const questions=nkAllStudyQuestions().filter(nkRevisionScopeMatches);
+  function nkRevisionDeskData(scope=nkRevisionScope){
+    const questions=nkAllStudyQuestions().filter(q=>nkRevisionScopeMatches(q,scope));
     const attempts=id=>typeof nkFsrsActiveAttempts==='function'?nkFsrsActiveAttempts(String(id)):
       (qAttempts(String(id))||[]).filter(a=>a&&!a.isUndo);
     const wrong=questions.filter(q=>typeof nkFsrsEligibility==='function'?
       nkFsrsEligibility(q)==='wrong':attempts(q.id).some(a=>a.correct===false));
     const bookmarked=questions.filter(q=>Boolean(state.bookmarks?.[String(q.id)]));
     const unseen=questions.filter(q=>!attempts(q.id).length&&state.fsrsReviewEligible?.[String(q.id)]?.reason!=='skipped');
-    const due=typeof nkFsrsQueue==='function'?nkFsrsQueue(nkRevisionScope):
-      (typeof nkFsrsLaunchQueue==='function'?nkFsrsLaunchQueue(nkRevisionScope.subject):{cards:[],due:[]});
+    const due=typeof nkFsrsQueue==='function'?nkFsrsQueue(scope):
+      (typeof nkFsrsLaunchQueue==='function'?nkFsrsLaunchQueue(scope.subject):{cards:[],due:[]});
     return {wrong,bookmarked,unseen,due:due.due||[],dueCards:due.cards||[],rolledOver:Number(due.rolledOver||0)};
+  }
+
+  function nkHomeRevisionSummary(){
+    const data=nkRevisionDeskData({}),due=data.due.length,missed=data.wrong.length;
+    return '<section class="nk-home-revision" aria-label="Revision overview"><div class="nk-home-revision-head"><h2>Ready to revisit</h2><button type="button" onclick="window.QB.nkOpenRevisionHub()">Revision '+navIcon('chevron',16)+'</button></div><div class="nk-home-revision-counts"><button type="button" onclick="window.QB.nkOpenRevisionHub()" aria-label="'+fmtNum(due)+' due reviews. Open Revision"><strong class="nk-count-due">'+fmtNum(due)+'</strong><span>Due review</span><small>'+(due?'Scheduled for now':'You’re up to date')+'</small></button><button type="button" onclick="window.QB.nkOpenRevisionHub()" aria-label="'+fmtNum(missed)+' missed questions. Open Revision"><strong class="nk-count-missed">'+fmtNum(missed)+'</strong><span>Mistakes</span><small>'+(missed?'Ready for another pass':'No mistakes to revisit')+'</small></button></div></section>';
+  }
+  function nkOpenRevisionHub(){nkRevisionScope={subject:'',bank:'',topic:''};nkRevisionFocusOpen=false;navigate('quick-revision');}
+  function nkRevisionForecastMarkup(){
+    const pool=typeof nkReviewPool==='function'?nkReviewPool(nkRevisionScope.subject).filter(q=>nkRevisionScopeMatches(q)):[];
+    const start=new Date();start.setHours(0,0,0,0);
+    const days=Array.from({length:7},(_,i)=>{const day=new Date(start);day.setDate(day.getDate()+i);return day;});
+    const end=new Date(days[6]);end.setDate(end.getDate()+1);
+    const forecast=Array(7).fill(0);
+    for(const q of pool){const review=state.reviews?.[q.id],at=Number(review?.nextReviewAt||review?.due||0);if(!at||at<start.getTime())forecast[0]++;else if(at<end.getTime()){const index=days.reduce((index,day,i)=>at>=day.getTime()?i:index,0);forecast[index]++;}}
+    const max=Math.max(1,...forecast),total=forecast.reduce((n,x)=>n+x,0);
+    return '<section class="nk-revision-forecast" aria-label="Spaced repetition forecast"><div class="nk-revision-forecast-head"><h2>Review forecast</h2><button type="button" onclick="window.QB.nav(\'fsrs\')">Open FSRS '+navIcon('chevron',16)+'</button></div><p>Scheduled reviews for this focus over the next seven days.</p><div class="nk-review-chart" role="img" aria-label="'+esc(forecast.map((n,i)=>(i===0?'Today':days[i].toLocaleDateString(undefined,{weekday:'short'}))+': '+n+' reviews').join('; '))+'">'+forecast.map((n,i)=>'<span><i style="height:'+(n?Math.max(4,Math.round(n/max*64)):0)+'px"></i><b>'+fmtNum(n)+'</b><small>'+(i===0?'Today':esc(days[i].toLocaleDateString(undefined,{weekday:'short'})))+'</small></span>').join('')+'</div><div class="nk-revision-forecast-foot"><small>'+(pool.length?fmtNum(total)+' scheduled · daily review limit applies':'Answer questions to build your review schedule')+'</small><button type="button" onclick="window.QB.nav(\'fsrs-settings\')">Review settings</button></div></section>';
+  }
+  // Keep the existing route for saved links and mark every FSRS subpage as Revision.
+  if(typeof bottomNav==='function')bottomNav=function(active){
+    if(['fsrs','fsrs-settings','revision-browse','wrong','bookmarks','review'].includes(route.page)||['fsrs','fsrs-settings','revision-browse'].includes(active))active='quick-revision';
+    const due=nkRevisionDeskData({}).due.length;
+    const items=[['dashboard','Home','home'],['quick-revision','Revision','refresh'],['tests','Tests','test'],['analytics','Insights','chart'],['more','More','more']];
+    return '<nav class="bottom-nav nk-bottom-nav-v114" aria-label="Primary navigation">'+items.map(([id,label,icon])=>'<button class="nav-item '+(active===id?'active':'')+'" onclick="'+(id==='quick-revision'?'window.QB.nkOpenRevisionHub()':"window.QB.nav('"+id+"')")+'" aria-current="'+(active===id?'page':'false')+'"><span class="nav-icon-wrap">'+navIcon(icon,21)+'</span><span class="nav-label">'+label+(id==='quick-revision'&&due?'<span class="nk-nav-due" aria-label="'+due+' due reviews">'+fmtNum(due)+'</span>':'')+'</span></button>').join('')+'</nav>';
+  };
+  if(typeof dashboard==='function'){
+    const nkRevisionOriginalDashboard=dashboard;
+    dashboard=function(){return nkRevisionOriginalDashboard().replace('<section class="nk-section nk-study-sets">',nkHomeRevisionSummary()+'<section class="nk-section nk-study-sets">');};
+  }
+  if(typeof nkFsrsReviewPage==='function'){
+    const nkRevisionOriginalFsrs=nkFsrsReviewPage;
+    nkFsrsReviewPage=function(){return nkRevisionOriginalFsrs().replace('<header class="nk-v3-page-hero">','<button class="nk-back-link" onclick="window.QB.nav(\'quick-revision\')">'+navIcon('back',17)+' Revision</button><header class="nk-v3-page-hero">');};
   }
 
   function nkRevisionCard(kind,title,copy,count,actionLabel,disabled=false,detail=''){
     const icon={wrong:'refresh',bookmarks:'bookmark',unseen:'search',due:'clock'}[kind]||'book';
     const tone={wrong:'is-red',bookmarks:'is-violet',unseen:'is-blue',due:'is-green'}[kind]||'is-indigo';
     const browse=!disabled&&['wrong','bookmarks'].includes(kind)?'<button type="button" class="nk-revision-view-all" aria-label="View all '+esc(title.toLowerCase())+'" onclick="window.QB.nav(\'revision-browse\',\''+kind+'\')">View all</button>':'';
-    return '<article class="nk-revision-card '+tone+'"><div class="nk-revision-card-head"><span class="nk-revision-icon">'+navIcon(icon,20)+'</span><span class="nk-revision-card-copy"><strong>'+esc(title)+'</strong><small>'+esc(copy)+'</small></span><b>'+fmtNum(count)+'</b></div>'+(detail?'<p class="nk-revision-detail">'+esc(detail)+'</p>':'')+'<div class="nk-revision-actions"><button type="button" '+(disabled?'disabled':'')+' onclick="window.QB.nkStartRevisionQueue(\''+kind+'\')">'+esc(disabled?'Nothing to review':actionLabel)+' '+(disabled?'':navIcon('chevron',16))+'</button>'+browse+'</div></article>';
+    return '<article class="nk-revision-card '+tone+(count?'':' is-empty')+'"><div class="nk-revision-card-head"><span class="nk-revision-icon">'+navIcon(icon,20)+'</span><span class="nk-revision-card-copy"><strong>'+esc(title)+'</strong><small>'+esc(copy)+'</small></span><b>'+fmtNum(count)+'</b></div>'+(detail?'<p class="nk-revision-detail">'+esc(detail)+'</p>':'')+'<div class="nk-revision-actions"><button type="button" '+(disabled?'disabled':'')+' onclick="window.QB.nkStartRevisionQueue(\''+kind+'\')">'+esc(disabled?'Nothing to review':actionLabel)+' '+(disabled?'':navIcon('chevron',16))+'</button>'+browse+'</div></article>';
   }
 
   function nkRevisionCards(data){
@@ -82,21 +113,21 @@
   }
   function nkRevisionDeskPage(){
     const data=nkRevisionDeskData();
-    return shell('<main class="nk-app-v114 nk-revision-desk"><header class="nk-v3-page-hero"><div class="nk-kicker">REVISION</div><h1>Quick revision</h1><p>Pick up missed, saved, unseen, or due questions from every subject and bank.</p></header><div class="nk-revision-focus-wrap">'+nkRevisionScopeMarkup()+'</div><section class="nk-revision-list">'
-      +nkRevisionCards(data)+'</section></main>','more');
+    return shell('<main class="nk-app-v114 nk-revision-desk"><header class="nk-v3-page-hero"><div class="nk-kicker">REVISION</div><h1>Revision</h1><p>Pick up missed, saved, unseen, or due questions from every subject and bank.</p></header><div class="nk-revision-focus-wrap">'+nkRevisionScopeMarkup()+'</div><section class="nk-revision-list">'
+      +nkRevisionCards(data)+'</section>'+nkRevisionForecastMarkup()+'</main>','quick-revision');
   }
 
   function nkRevisionBrowsePage(kind){
     if(!['wrong','bookmarks'].includes(kind))return nkRevisionDeskPage();
     const data=nkRevisionDeskData(),rows=kind==='wrong'?data.wrong:data.bookmarked;
     const title=kind==='wrong'?'Mistakes':'Bookmarks';
-    return shell('<main class="nk-app-v114 nk-revision-browse"><header class="nk-v3-page-hero"><button class="nk-back-link" onclick="window.QB.nav(\'quick-revision\')">'+navIcon('back',17)+' Quick revision</button><div class="nk-kicker">'+esc(nkRevisionScopeLabel())+'</div><h1>'+title+'</h1><p>'+fmtNum(rows.length)+' questions · search by question, subject, bank, or topic.</p></header><label class="nk-revision-search"><span aria-hidden="true">⌕</span><input type="search" aria-label="Search questions" placeholder="Search questions, subjects, banks" oninput="window.QB.nkFilterRevisionBrowse(this.value)"></label><section class="nk-revision-browse-list">'
+    return shell('<main class="nk-app-v114 nk-revision-browse"><header class="nk-v3-page-hero"><button class="nk-back-link" onclick="window.QB.nav(\'quick-revision\')">'+navIcon('back',17)+' Revision</button><div class="nk-kicker">'+esc(nkRevisionScopeLabel())+'</div><h1>'+title+'</h1><p>'+fmtNum(rows.length)+' questions · search by question, subject, bank, or topic.</p></header><label class="nk-revision-search"><span aria-hidden="true">⌕</span><input type="search" aria-label="Search questions" placeholder="Search questions, subjects, banks" oninput="window.QB.nkFilterRevisionBrowse(this.value)"></label><section class="nk-revision-browse-list">'
       +(rows.length?rows.map(q=>{
         const topic=q.chapter||q.topic||'',meta=[q.subject||'',q.bank||'',topic].filter(Boolean).join(' · ');
         const id=encodeURIComponent(String(q.id)),search=esc((meta+' '+(q.question||'')).toLowerCase());
         return '<article class="nk-revision-item" data-revision-search="'+search+'"><small>'+esc(meta)+'</small><p>'+esc(q.question||'Question text unavailable')+'</p><button type="button" onclick="window.QB.nkOpenRevisionQuestion(\''+id+'\')">Open question '+navIcon('chevron',16)+'</button></article>';
       }).join(''):nkAppEmpty(kind==='wrong'?'refresh':'bookmark',kind==='wrong'?'No mistakes to review':'No bookmarks yet',kind==='wrong'?'Incorrect answers from every subject and bank will appear here.':'Bookmarks from every subject and bank will appear here.'))
-      +'</section><p class="nk-revision-no-match" hidden>No questions match your search.</p></main>','more');
+      +'</section><p class="nk-revision-no-match" hidden>No questions match your search.</p></main>','quick-revision');
   }
 
   function nkFilterRevisionBrowse(value){

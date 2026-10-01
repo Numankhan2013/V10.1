@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Add one all-bank revision entry to More and its four existing study queues."""
+"""Install the primary Revision hub and its four existing all-bank study queues."""
 
 from pathlib import Path
 
@@ -51,27 +51,50 @@ CSS = """<style id="nk-revision-desk-v1">
 .nk-revision-item button{width:100%;min-height:44px;display:flex;justify-content:space-between;align-items:center;border:0;border-radius:9px;background:#f4f6fc;color:#3658ad;font:inherit;font-size:12px;font-weight:800}
 .nk-revision-item button:focus-visible{outline:3px solid #8ca3ed;outline-offset:2px}
 .nk-revision-no-match{padding:18px;text-align:center;color:#697592;font-size:13px}
-/* Each revision destination keeps its own identity, so a queue list reads as a set
-   of distinct actions instead of one uniform document-style list. */
-.nk-revision-card.is-red,.nk-settings-row.is-red{--nk-tone-fg:var(--nk114-red);--nk-tone-bg:#fff0f1;--nk-tone-line:#f4d3d7}
-.nk-revision-card.is-blue,.nk-settings-row.is-blue{--nk-tone-fg:var(--nk114-blue);--nk-tone-bg:#edf4ff;--nk-tone-line:#cddefa}
-.nk-revision-card.is-green,.nk-settings-row.is-green{--nk-tone-fg:var(--nk114-green);--nk-tone-bg:#eaf8f3;--nk-tone-line:#c3e8da}
-.nk-revision-card.is-violet,.nk-settings-row.is-violet{--nk-tone-fg:var(--nk114-violet);--nk-tone-bg:#f3effc;--nk-tone-line:#dcd2f7}
-.nk-revision-card.is-indigo,.nk-settings-row.is-indigo{--nk-tone-fg:var(--nk114-indigo);--nk-tone-bg:#efeff9;--nk-tone-line:#d4d4ee}
-.nk-revision-card[class*="is-"],.nk-settings-row[class*="is-"]{transition:box-shadow .18s ease,background-color .18s ease}
-.nk-revision-card[class*="is-"]{border-color:var(--nk-tone-line);box-shadow:0 1px 2px rgba(18,23,54,.05)}
-.nk-revision-card[class*="is-"]>.nk-revision-card-head>.nk-revision-icon{background:#fff;color:var(--nk-tone-fg);box-shadow:inset 0 0 0 1px var(--nk-tone-line)}
-.nk-revision-card[class*="is-"] .nk-revision-card-copy>strong{color:var(--nk-tone-fg)}
-.nk-revision-card[class*="is-"]>.nk-revision-card-head>b{color:var(--nk-tone-fg)}
-.nk-revision-card[class*="is-"]:hover{box-shadow:0 6px 16px rgba(18,23,54,.09)}
-.nk-settings-row[class*="is-"]{background:var(--nk-tone-bg);border-bottom-color:var(--nk-tone-line)}
-.nk-settings-row[class*="is-"]>.nk-settings-icon{background:#fff;color:var(--nk-tone-fg);box-shadow:inset 0 0 0 1px var(--nk-tone-line)}
-.nk-settings-row[class*="is-"]>span+span>strong{color:var(--nk-tone-fg)}
-@media(prefers-reduced-motion:reduce){.nk-revision-card[class*="is-"],.nk-settings-row[class*="is-"]{transition:none}}
+/* Color identifies counts and small icons; every destination shares a calm surface. */
+.nk-revision-card.is-red,.nk-settings-row.is-red{--nk-tone-fg:#a84454;--nk-tone-bg:#faf0f2}
+.nk-revision-card.is-blue,.nk-settings-row.is-blue{--nk-tone-fg:#3868aa;--nk-tone-bg:#eff4fa}
+.nk-revision-card.is-green,.nk-settings-row.is-green{--nk-tone-fg:#187657;--nk-tone-bg:#edf6f2}
+.nk-revision-card.is-violet,.nk-settings-row.is-violet{--nk-tone-fg:#7254a3;--nk-tone-bg:#f4f0fa}
+.nk-revision-card[class*="is-"]{border-color:var(--line);box-shadow:0 1px 3px rgba(18,23,54,.03)}
+.nk-revision-card[class*="is-"] .nk-revision-icon{background:var(--nk-tone-bg);color:var(--nk-tone-fg)}
+.nk-revision-card[class*="is-"] .nk-revision-card-copy>strong{color:var(--ink)}
+.nk-revision-card[class*="is-"]>.nk-revision-card-head>b{color:var(--nk-tone-fg);font-size:22px}
+.nk-revision-card.is-empty>.nk-revision-card-head>b{color:#697592}
+.nk-revision-card-copy small,.nk-revision-detail{font-size:12px;color:#626b80}
+.nk-revision-actions>button{color:var(--primary);background:#f3f4f8;font-size:13px}
+.nk-revision-actions>button:disabled{color:#697592}
+.nk-settings-row[class*="is-"]{background:#fff;border-bottom-color:var(--line)}
+.nk-settings-row[class*="is-"]>.nk-settings-icon{background:var(--nk-tone-bg);color:var(--nk-tone-fg);box-shadow:none}
+.nk-settings-row[class*="is-"]>span+span>strong{color:var(--ink)}
+.nk-settings-row[class*="is-"]:hover{background:#f8f9fc}
+.nk-home-revision{margin:22px 0 0}
+.nk-home-revision-head,.nk-revision-forecast-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.nk-home-revision h2,.nk-revision-forecast h2{margin:0;font-size:18px;color:var(--ink)}
+.nk-home-revision-head button,.nk-revision-forecast-head button{min-height:44px;padding:0 4px;border:0;background:transparent;color:var(--primary);font:inherit;font-size:12px;font-weight:750;display:flex;align-items:center;gap:6px}
+.nk-home-revision-counts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:8px}
+.nk-home-revision-counts button{min-height:88px;padding:15px;border:1px solid var(--line);border-radius:14px;background:#fff;display:grid;grid-template-columns:1fr auto;align-items:center;gap:6px;text-align:left;color:var(--ink);font:inherit}
+.nk-home-revision-counts strong{font-size:25px;line-height:1.2;font-variant-numeric:tabular-nums}
+.nk-home-revision-counts span{font-size:13px;font-weight:650}
+.nk-home-revision-counts small{grid-column:1/-1;font-size:11px;color:#626b80}
+.nk-count-due{color:#187657}.nk-count-missed{color:#a84454}
+.nk-home-revision-counts button:focus-visible,.nk-home-revision-head button:focus-visible,.nk-revision-forecast button:focus-visible{outline:3px solid #8ca3ed;outline-offset:3px}
+.nk-revision-forecast{margin-top:24px;padding:18px;border:1px solid var(--line);border-radius:14px;background:#fff}
+.nk-revision-forecast p{margin:4px 0 16px;color:#626b80;font-size:12px;line-height:1.5}
+.nk-revision-forecast .nk-review-chart{height:118px;margin:12px 0 16px}
+.nk-revision-forecast .nk-review-chart i{background:#8585b3;min-height:0}
+.nk-revision-forecast .nk-review-chart b{color:var(--ink)}
+.nk-revision-forecast .nk-review-chart small{color:#626b80}
+.nk-revision-forecast-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding-top:8px}
+.nk-revision-forecast-foot small{font-size:11px;color:#626b80}
+.nk-revision-forecast-foot button{min-height:44px;padding:0;border:0;background:none;color:var(--primary);font:inherit;font-size:12px;font-weight:750}
+.nk-fsrs-settings-entry{background:#fff!important;border-color:var(--line)!important;box-shadow:none!important}
+.nk-nav-due{font-size:9px;font-weight:750;background:#f0f2f6;color:#187657;border-radius:5px;padding:1px 4px;margin-left:3px;font-variant-numeric:tabular-nums}
+@media(max-width:360px){.nk-home-revision-counts button{padding:12px}.nk-home-revision-counts strong{font-size:23px}.nk-revision-forecast{padding:14px}.nk-revision-forecast-head{align-items:flex-start}.nk-nav-due{font-size:8px;margin-left:2px}}
 </style>"""
 
 OLD_MORE_ROWS = """${row('refresh','Wrong questions',`${fmtNum(wrong)} missed · retrieval practice`,\"window.QB.nav('wrong')\",'is-red')}${row('bookmark','Bookmarks',`${fmtNum(bm)} saved by you`,\"window.QB.nav('bookmarks')\",'is-violet')}${row('book','My notes',`${fmtNum(nkSavedQuestionNotes().length)} recall cues`,\"window.QB.nav('notes')\")}"""
-NEW_MORE_ROWS = """${row('refresh','Quick revision','Mistakes · bookmarks · unseen · due',\"window.QB.nav('quick-revision')\",'is-blue')}${row('book','My notes',`${fmtNum(nkSavedQuestionNotes().length)} recall cues`,\"window.QB.nav('notes')\",'is-violet')}"""
+NEW_MORE_ROWS = """${row('book','My notes',`${fmtNum(nkSavedQuestionNotes().length)} recall cues`,\"window.QB.nav('notes')\",'is-violet')}"""
 
 
 def replace_once(source: str, old: str, new: str, label: str) -> str:
@@ -95,7 +118,7 @@ def transform(source: str) -> str:
     source = replace_once(source, OLD_MORE_ROWS, NEW_MORE_ROWS, "More revision entry")
     bridge = "  window.QB={nkFilterNotes,nkOpenNotedQuestion,"
     source = replace_once(source, bridge,
-                          CORE.read_text(encoding="utf-8").rstrip() + "\n\n  window.QB={nkFilterNotes,nkOpenNotedQuestion,nkStartRevisionQueue,nkFilterRevisionBrowse,nkOpenRevisionQuestion,nkToggleRevisionFocus,nkSetRevisionScope,",
+                          CORE.read_text(encoding="utf-8").rstrip() + "\n\n  window.QB={nkFilterNotes,nkOpenNotedQuestion,nkStartRevisionQueue,nkFilterRevisionBrowse,nkOpenRevisionQuestion,nkToggleRevisionFocus,nkSetRevisionScope,nkOpenRevisionHub,",
                           "revision core and action")
     return source
 

@@ -90,9 +90,14 @@ closed. Raw question bundles and audit metadata remain unchanged.
   `studyModules` (max 100, normalized; see `docs/CUSTOM_STUDY_MODULES.md`).
   Question notes use `tools/question_notes_core.js` and one independent cloud
   envelope per question; see `docs/QUESTION_NOTES.md`.
-  Quick Revision keeps its optional subject/bank/topic focus in page memory;
+  Revision keeps its optional subject/bank/topic focus in page memory;
   `tools/revision_desk_core.js` filters question pools and passes the same
   scope to `nkFsrsQueue`, whose daily cap still counts reviews across all banks.
+  The same revision owner installs primary navigation and global Home counts;
+  `nkOpenRevisionHub` resets focus when entered from Home or primary navigation.
+  The embedded forecast uses the existing eligible review pool and saved due
+  timestamps, filters by the revision scope, and uses local calendar boundaries.
+  Full FSRS and legacy `quick-revision` links remain reachable.
   `tools/insights_focus_core.js` groups all-bank questions by exact subject,
   bank, and source topic; it reads active attempts and launches the shared
   Practice engine without persisting a second analytics model.
