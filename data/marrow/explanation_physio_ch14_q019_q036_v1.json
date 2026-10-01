@@ -1,0 +1,496 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Marrow ED8 Physiology Chapter 14 explanation rollout; raw imported source remains immutable.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "14",
+    "chapterTitle": "Motor Physiology - 1",
+    "questionStart": 19,
+    "questionEnd": 36,
+    "questions": 18,
+    "status": "approved-rollout",
+    "workloadScore": 18,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 818,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__PHYS_CH14_Q019": {
+      "takeaway": "Most corticospinal fibers cross in the medullary pyramids.",
+      "displayText": "Most corticospinal fibers cross at the pyramidal decussation in the caudal medulla and descend in the contralateral lateral corticospinal tract; the source estimates about 80% crossed and 20% uncrossed in the ventral corticospinal tract. The tract draws fibers from motor, premotor/supplementary motor, and somatosensory cortex and controls skilled limb movement.",
+      "emphasis": [
+        "Most corticospinal fibers cross at"
+      ],
+      "rationales": {
+        "b": "The corticospinal tract is not uncrossed: most fibers cross at the medullary pyramids.",
+        "c": "Crossing occurs at the caudal medulla, not at a midspinal level.",
+        "d": "Twenty percent is the approximate uncrossed ventral component; the majority, about 80%, crosses."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported solution contains OCR substitutions and/or figure-dependent text; source details were reconstructed against rendered pages.",
+        "reconstructedContent": "Most corticospinal fibers cross at the pyramidal decussation in the caudal medulla and descend in the contralateral lateral corticospinal tract; the source estimates about 80% crossed and 20% uncrossed in the ventral corticospinal tract. The tract draws fibers from motor, premotor/supplementary motor, and somatosensory cortex and controls skilled limb movement.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 278, 279 were rendered and checked from the immutable Physiology PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe)."
+        ],
+        "reviewNote": "Rendered-page text and figures were checked; the explanation preserves the source mechanism, laterality, percentages, and clinical distinctions relevant to this item.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          278,
+          279
+        ]
+      }
+    },
+    "marrow__PHYS_CH14_Q020": {
+      "takeaway": "Only about 30% of corticospinal fibers arise from primary motor cortex, not 90%.",
+      "displayText": "Corticospinal fibers arise approximately 30% from primary motor cortex, 30% from premotor and supplementary motor areas, and 40% from somatosensory cortex posterior to the central sulcus. Giant Betz cells in layer V of primary motor cortex contribute large, fast fibers but only about 3% of total corticospinal fibers.",
+      "emphasis": [
+        "Corticospinal fibers arise approximately 30%"
+      ],
+      "rationales": {
+        "a": "Betz cells do contribute corticospinal axons from layer V of primary motor cortex, so this origin statement is true.",
+        "b": "Premotor and supplementary motor areas contribute about 30%, consistent with the source distribution.",
+        "c": "Somatosensory areas posterior to the central sulcus contribute about 40%; this is not the false percentage."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported solution contains OCR substitutions and/or figure-dependent text; source details were reconstructed against rendered pages.",
+        "reconstructedContent": "Corticospinal fibers arise approximately 30% from primary motor cortex, 30% from premotor and supplementary motor areas, and 40% from somatosensory cortex posterior to the central sulcus. Giant Betz cells in layer V of primary motor cortex contribute large, fast fibers but only about 3% of total corticospinal fibers.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 279 were rendered and checked from the immutable Physiology PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe)."
+        ],
+        "reviewNote": "Rendered-page text and figures were checked; the explanation preserves the source mechanism, laterality, percentages, and clinical distinctions relevant to this item.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          279
+        ]
+      }
+    },
+    "marrow__PHYS_CH14_Q021": {
+      "takeaway": "The corticospinal tract is a pyramidal tract, not an extrapyramidal tract.",
+      "displayText": "Corticospinal fibers form the pyramidal tracts as they pass through the medullary pyramids. Reticulospinal, rubrospinal, and vestibulospinal tracts descend from brainstem nuclei outside those pyramids and are called extrapyramidal pathways.",
+      "emphasis": [
+        "Corticospinal fibers form the pyramidal"
+      ],
+      "rationales": {
+        "a": "Reticulospinal fibers arise in the brainstem and belong to the extrapyramidal group.",
+        "b": "Rubrospinal fibers are an extrapyramidal brainstem pathway.",
+        "d": "Vestibulospinal fibers descend from vestibular nuclei and are extrapyramidal."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported solution contains OCR substitutions and/or figure-dependent text; source details were reconstructed against rendered pages.",
+        "reconstructedContent": "Corticospinal fibers form the pyramidal tracts as they pass through the medullary pyramids. Reticulospinal, rubrospinal, and vestibulospinal tracts descend from brainstem nuclei outside those pyramids and are called extrapyramidal pathways.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 280 were rendered and checked from the immutable Physiology PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe)."
+        ],
+        "reviewNote": "Rendered-page text and figures were checked; the explanation preserves the source mechanism, laterality, percentages, and clinical distinctions relevant to this item.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          280
+        ]
+      }
+    },
+    "marrow__PHYS_CH14_Q022": {
+      "takeaway": "The rubrospinal tract is the pathway not assigned to posture maintenance in this classification.",
+      "displayText": "The rubrospinal tract is part of the lateral motor system and is associated more with distal limb control than postural adjustments. The source places vestibulospinal, reticulospinal, and tectospinal pathways in the medial system for axial muscles, posture, and gross movements.",
+      "emphasis": [
+        "The rubrospinal tract is part"
+      ],
+      "rationales": {
+        "a": "Reticulospinal output belongs to the medial motor system and contributes to postural control.",
+        "c": "Tectospinal pathways are grouped with medial postural/gross movement control in the source schema.",
+        "d": "Vestibulospinal pathways regulate balance and extensor posture; they are involved in maintaining posture."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported solution contains OCR substitutions and/or figure-dependent text; source details were reconstructed against rendered pages.",
+        "reconstructedContent": "The rubrospinal tract is part of the lateral motor system and is associated more with distal limb control than postural adjustments. The source places vestibulospinal, reticulospinal, and tectospinal pathways in the medial system for axial muscles, posture, and gross movements.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 280, 281 were rendered and checked from the immutable Physiology PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe)."
+        ],
+        "reviewNote": "Rendered-page text and figures were checked; the explanation preserves the source mechanism, laterality, percentages, and clinical distinctions relevant to this item.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          280,
+          281
+        ]
+      }
+    },
+    "marrow__PHYS_CH14_Q023": {
+      "takeaway": "Reticulospinal pathways mainly influence gamma motor neurons and modulate spindle-mediated tone.",
+      "displayText": "Pontine and medullary reticulospinal tracts influence posture and muscle tone, including through gamma motor neurons. Pontine output is primarily excitatory and medullary output primarily inhibitory. Gamma activation contracts intrafusal ends, stretches the spindle’s receptor region, increases Ia firing, and can indirectly recruit alpha motor neurons through a stretch-reflex loop.",
+      "emphasis": [
+        "Pontine and medullary reticulospinal tracts"
+      ],
+      "rationales": {
+        "b": "The rubrospinal tract contributes to distal limb control, but reticulospinal pathways are the source’s main influence on gamma drive and posture.",
+        "c": "Tectospinal pathways coordinate orienting movements of head and neck, not the principal gamma influence asked here.",
+        "d": "Vestibulospinal output supports balance and extensor posture; gamma motor neurons are especially influenced by reticulospinal input."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported solution contains OCR substitutions and/or figure-dependent text; source details were reconstructed against rendered pages.",
+        "reconstructedContent": "Pontine and medullary reticulospinal tracts influence posture and muscle tone, including through gamma motor neurons. Pontine output is primarily excitatory and medullary output primarily inhibitory. Gamma activation contracts intrafusal ends, stretches the spindle’s receptor region, increases Ia firing, and can indirectly recruit alpha motor neurons through a stretch-reflex loop.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 281 were rendered and checked from the immutable Physiology PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe)."
+        ],
+        "reviewNote": "Rendered-page text and figures were checked; the explanation preserves the source mechanism, laterality, percentages, and clinical distinctions relevant to this item.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          281
+        ]
+      }
+    },
+    "marrow__PHYS_CH14_Q024": {
+      "takeaway": "The false statement is that decerebrate rigidity involves every muscle of the body; it affects limb extensors.",
+      "displayText": "Decerebrate rigidity chiefly affects extensor muscles of all four limbs, not every muscle in the body. Mid-collicular brainstem transection removes cortical and red-nucleus influence while leaving excitatory and inhibitory reticulospinal pathways active; increased extensor drive and gamma-loop activity contribute. Spinal shock is a distinct transient suppression of reflexes below an acute cord lesion.",
+      "emphasis": [
+        "Decerebrate rigidity chiefly affects extensor"
+      ],
+      "rationales": {
+        "b": "The source describes increased gamma efferent activity as part of decerebrate rigidity, so this is not the exception.",
+        "c": "Enhanced excitability of the motor-neuron pool contributes to extensor hyperactivity in decerebrate rigidity.",
+        "d": "Spinal shock is a separate transient loss of reflexes after cord injury, not a decerebrate-rigidity effect."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported solution contains OCR substitutions and/or figure-dependent text; source details were reconstructed against rendered pages.",
+        "reconstructedContent": "Decerebrate rigidity chiefly affects extensor muscles of all four limbs, not every muscle in the body. Mid-collicular brainstem transection removes cortical and red-nucleus influence while leaving excitatory and inhibitory reticulospinal pathways active; increased extensor drive and gamma-loop activity contribute. Spinal shock is a distinct transient suppression of reflexes below an acute cord lesion.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 281, 282 were rendered and checked from the immutable Physiology PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe)."
+        ],
+        "reviewNote": "Rendered-page text and figures were checked; the explanation preserves the source mechanism, laterality, percentages, and clinical distinctions relevant to this item.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          281,
+          282
+        ]
+      }
+    },
+    "marrow__PHYS_CH14_Q025": {
+      "takeaway": "Decorticate posture combines flexed upper limbs with extended lower limbs.",
+      "displayText": "Decorticate rigidity follows removal of cerebral cortical influence and produces flexion at the elbows in the upper limbs with extensor hyperactivity in the lower limbs. The source attributes upper-limb flexion to rubrospinal excitation and leg extension to mechanisms also seen after mid-collicular decerebration.",
+      "emphasis": [
+        "Decorticate rigidity follows removal of"
+      ],
+      "rationales": {
+        "a": "The source attributes decorticate rigidity to cortical removal; basal-ganglia removal is not required by this definition.",
+        "b": "This reverses the characteristic limb pattern: upper limbs flex and lower limbs extend.",
+        "c": "The defining feature in the source is a particular flexor/extensor posture, not that rigidity is simply more pronounced."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported solution contains OCR substitutions and/or figure-dependent text; source details were reconstructed against rendered pages.",
+        "reconstructedContent": "Decorticate rigidity follows removal of cerebral cortical influence and produces flexion at the elbows in the upper limbs with extensor hyperactivity in the lower limbs. The source attributes upper-limb flexion to rubrospinal excitation and leg extension to mechanisms also seen after mid-collicular decerebration.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 282 were rendered and checked from the immutable Physiology PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe)."
+        ],
+        "reviewNote": "Rendered-page text and figures were checked; the explanation preserves the source mechanism, laterality, percentages, and clinical distinctions relevant to this item.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          282
+        ]
+      }
+    },
+    "marrow__PHYS_CH14_Q026": {
+      "takeaway": "Hopping and placing depend on cortical integration and are lost after decortication.",
+      "displayText": "The hopping-and-placing reflex is absent in a decorticate animal because the source locates its integration in cerebral cortex. Righting, labyrinthine, and crossed-extensor responses are integrated below the cortex and can remain present.",
+      "emphasis": [
+        "The hopping-and-placing reflex is absent"
+      ],
+      "rationales": {
+        "a": "Righting reflexes are integrated mainly in midbrain nuclei, so they are not the cortical response singled out as absent.",
+        "c": "Labyrinthine postural reflexes use brainstem vestibular circuitry below the cortex.",
+        "d": "The crossed-extensor reflex is a spinal response and does not require cortical integration."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported solution contains OCR substitutions and/or figure-dependent text; source details were reconstructed against rendered pages.",
+        "reconstructedContent": "The hopping-and-placing reflex is absent in a decorticate animal because the source locates its integration in cerebral cortex. Righting, labyrinthine, and crossed-extensor responses are integrated below the cortex and can remain present.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 282 were rendered and checked from the immutable Physiology PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe)."
+        ],
+        "reviewNote": "Rendered-page text and figures were checked; the explanation preserves the source mechanism, laterality, percentages, and clinical distinctions relevant to this item.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          282
+        ]
+      }
+    },
+    "marrow__PHYS_CH14_Q027": {
+      "takeaway": "Anterior cerebellar destruction increases rigidity through alpha motor neurons.",
+      "displayText": "Removing the anterior cerebellar lobe in a decerebrate animal exaggerates extensor hyperactivity (decerebellate rigidity). Loss of cortical inhibition of the fastigial nucleus increases vestibular-nucleus excitation; the resulting rigidity persists after dorsal-root section, indicating alpha motor-neuron activation independent of the gamma loop.",
+      "emphasis": [
+        "Removing the anterior cerebellar lobe"
+      ],
+      "rationales": {
+        "a": "The source predicts greater, not unchanged, extensor rigidity after removal of the anterior cerebellar lobe.",
+        "b": "The observed change is exaggerated extensor activity rather than increased flexor tone.",
+        "d": "Anterior-lobe destruction intensifies rigidity; it does not reduce it."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported solution contains OCR substitutions and/or figure-dependent text; source details were reconstructed against rendered pages.",
+        "reconstructedContent": "Removing the anterior cerebellar lobe in a decerebrate animal exaggerates extensor hyperactivity (decerebellate rigidity). Loss of cortical inhibition of the fastigial nucleus increases vestibular-nucleus excitation; the resulting rigidity persists after dorsal-root section, indicating alpha motor-neuron activation independent of the gamma loop.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 283 were rendered and checked from the immutable Physiology PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe)."
+        ],
+        "reviewNote": "Rendered-page text and figures were checked; the explanation preserves the source mechanism, laterality, percentages, and clinical distinctions relevant to this item.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          283
+        ]
+      }
+    },
+    "marrow__PHYS_CH14_Q028": {
+      "takeaway": "Pyramidal cortical neurons are upper motor neurons.",
+      "displayText": "Upper motor neurons include corticospinal tract neurons that influence spinal motor neurons and brainstem descending neurons that control spinal motor output. The large pyramidal Betz cells are found in primary motor cortex, but many corticospinal neurons are smaller pyramidal cells; peripheral nerves and anterior-horn cells are lower motor neurons.",
+      "emphasis": [
+        "Upper motor neurons include corticospinal"
+      ],
+      "rationales": {
+        "b": "Peripheral nerves carry lower motor-neuron axons to muscle and are not upper motor neurons.",
+        "c": "Glia support neural tissue but do not constitute the descending upper motor-neuron pathway.",
+        "d": "Anterior-horn cells are lower motor neurons whose axons directly innervate skeletal muscle."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported solution contains OCR substitutions and/or figure-dependent text; source details were reconstructed against rendered pages.",
+        "reconstructedContent": "Upper motor neurons include corticospinal tract neurons that influence spinal motor neurons and brainstem descending neurons that control spinal motor output. The large pyramidal Betz cells are found in primary motor cortex, but many corticospinal neurons are smaller pyramidal cells; peripheral nerves and anterior-horn cells are lower motor neurons.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 283 were rendered and checked from the immutable Physiology PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe)."
+        ],
+        "reviewNote": "Rendered-page text and figures were checked; the explanation preserves the source mechanism, laterality, percentages, and clinical distinctions relevant to this item.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          283
+        ]
+      }
+    },
+    "marrow__PHYS_CH14_Q029": {
+      "takeaway": "A lesion below the pyramidal crossing can produce a positive Babinski sign.",
+      "displayText": "A corticospinal lesion below the pyramidal decussation produces upper motor-neuron signs on the same side as the spinal lesion. An extensor plantar response (positive Babinski sign) is characteristic. Weakness and flaccidity may occur initially, followed over time by spasticity, hypertonia, and brisk stretch reflexes.",
+      "emphasis": [
+        "A corticospinal lesion below the"
+      ],
+      "rationales": {
+        "b": "Deep tendon reflexes are generally brisk after chronic upper motor-neuron injury, rather than lost; early spinal shock can transiently reduce them.",
+        "c": "Proprioception is carried by dorsal-column pathways, so an isolated corticospinal lesion does not directly cause its loss.",
+        "d": "Persistent flaccidity suggests lower motor-neuron injury; chronic corticospinal damage leads to spasticity after the initial phase."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported solution contains OCR substitutions and/or figure-dependent text; source details were reconstructed against rendered pages.",
+        "reconstructedContent": "A corticospinal lesion below the pyramidal decussation produces upper motor-neuron signs on the same side as the spinal lesion. An extensor plantar response (positive Babinski sign) is characteristic. Weakness and flaccidity may occur initially, followed over time by spasticity, hypertonia, and brisk stretch reflexes.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 283 were rendered and checked from the immutable Physiology PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe)."
+        ],
+        "reviewNote": "Rendered-page text and figures were checked; the explanation preserves the source mechanism, laterality, percentages, and clinical distinctions relevant to this item.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          283
+        ]
+      }
+    },
+    "marrow__PHYS_CH14_Q030": {
+      "takeaway": "Cogwheel rigidity is not a typical corticospinal-lesion sign.",
+      "displayText": "Cogwheel rigidity is associated with extrapyramidal disease, often when tremor is superimposed on increased tone, as in parkinsonism. Corticospinal upper motor-neuron lesions instead produce spasticity, extensor plantar responses, and reduced or absent superficial reflexes.",
+      "emphasis": [
+        "Cogwheel rigidity is associated with"
+      ],
+      "rationales": {
+        "b": "An extensor plantar response is a classic corticospinal upper motor-neuron sign.",
+        "c": "Spasticity is a common chronic consequence of corticospinal injury.",
+        "d": "Superficial reflexes may be diminished or absent after corticospinal tract damage."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported solution contains OCR substitutions and/or figure-dependent text; source details were reconstructed against rendered pages.",
+        "reconstructedContent": "Cogwheel rigidity is associated with extrapyramidal disease, often when tremor is superimposed on increased tone, as in parkinsonism. Corticospinal upper motor-neuron lesions instead produce spasticity, extensor plantar responses, and reduced or absent superficial reflexes.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 284 were rendered and checked from the immutable Physiology PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe)."
+        ],
+        "reviewNote": "Rendered-page text and figures were checked; the explanation preserves the source mechanism, laterality, percentages, and clinical distinctions relevant to this item.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          284
+        ]
+      }
+    },
+    "marrow__PHYS_CH14_Q031": {
+      "takeaway": "Chronic suppression is false: reflexes may be lost during acute spinal shock, then become hyperactive.",
+      "displayText": "The vignette shows an upper motor-neuron syndrome: hyperactive knee reflex and Babinski sign. Reflexes can be modified by CNS input, coordinate contraction with reciprocal relaxation, and often occur without conscious perception. After cord transection, spinal reflexes are initially depressed during spinal shock but later become exaggerated, not chronically suppressed.",
+      "emphasis": [
+        "The vignette shows an upper"
+      ],
+      "rationales": {
+        "a": "Descending and local CNS influences modulate reflex gain, so this statement is true.",
+        "b": "Reciprocal inhibition allows some muscles to contract while antagonists relax during a reflex.",
+        "d": "Many spinal reflexes proceed without conscious awareness, so this statement is true."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported solution contains OCR substitutions and/or figure-dependent text; source details were reconstructed against rendered pages.",
+        "reconstructedContent": "The vignette shows an upper motor-neuron syndrome: hyperactive knee reflex and Babinski sign. Reflexes can be modified by CNS input, coordinate contraction with reciprocal relaxation, and often occur without conscious perception. After cord transection, spinal reflexes are initially depressed during spinal shock but later become exaggerated, not chronically suppressed.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 284 were rendered and checked from the immutable Physiology PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe)."
+        ],
+        "reviewNote": "Rendered-page text and figures were checked; the explanation preserves the source mechanism, laterality, percentages, and clinical distinctions relevant to this item.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          284
+        ]
+      }
+    },
+    "marrow__PHYS_CH14_Q032": {
+      "takeaway": "The primary motor cortex is Brodmann area 4.",
+      "displayText": "Sudden right-sided weakness suggests a left-hemisphere motor lesion. The primary motor cortex (M1), corresponding to Brodmann area 4 in the precentral gyrus, is the cortical region from which movement can be elicited with relatively low electrical stimulation. Atrial fibrillation raises the possibility of an embolic stroke in this vignette.",
+      "emphasis": [
+        "Sudden right-sided weakness suggests a"
+      ],
+      "rationales": {
+        "b": "Areas 1, 2, and 3 form primary somatosensory cortex, not primary motor cortex.",
+        "c": "Areas 5 and 7 are posterior parietal association regions rather than M1.",
+        "d": "Areas 16 and 18 are not the primary motor area; area 4 is the source-keyed cortical motor region."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported solution contains OCR substitutions and/or figure-dependent text; source details were reconstructed against rendered pages.",
+        "reconstructedContent": "Sudden right-sided weakness suggests a left-hemisphere motor lesion. The primary motor cortex (M1), corresponding to Brodmann area 4 in the precentral gyrus, is the cortical region from which movement can be elicited with relatively low electrical stimulation. Atrial fibrillation raises the possibility of an embolic stroke in this vignette.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 284, 285 were rendered and checked from the immutable Physiology PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe)."
+        ],
+        "reviewNote": "Rendered-page text and figures were checked; the explanation preserves the source mechanism, laterality, percentages, and clinical distinctions relevant to this item.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          284,
+          285
+        ]
+      }
+    },
+    "marrow__PHYS_CH14_Q033": {
+      "takeaway": "Cortical association areas initiate the plan for skilled voluntary movement.",
+      "displayText": "Voluntary movement plans arise in cortical association areas. Basal ganglia and cerebellum help plan and refine movement, then feed into premotor and motor cortex through thalamic relays; corticospinal and corticobulbar pathways carry motor commands to spinal and cranial motor circuits.",
+      "emphasis": [
+        "Voluntary movement plans arise in"
+      ],
+      "rationales": {
+        "b": "Basal ganglia shape and select motor plans, but the source places command origin in cortical association areas.",
+        "c": "The cerebral cortex is broad; the specific source answer is association cortex, where movement plans originate.",
+        "d": "The cerebellum coordinates and refines movement but does not originate the voluntary motor plan."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported solution contains OCR substitutions and/or figure-dependent text; source details were reconstructed against rendered pages.",
+        "reconstructedContent": "Voluntary movement plans arise in cortical association areas. Basal ganglia and cerebellum help plan and refine movement, then feed into premotor and motor cortex through thalamic relays; corticospinal and corticobulbar pathways carry motor commands to spinal and cranial motor circuits.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 285, 286 were rendered and checked from the immutable Physiology PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe)."
+        ],
+        "reviewNote": "Rendered-page text and figures were checked; the explanation preserves the source mechanism, laterality, percentages, and clinical distinctions relevant to this item.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          285,
+          286
+        ]
+      }
+    },
+    "marrow__PHYS_CH14_Q034": {
+      "takeaway": "Greater homuncular representation corresponds to more precise movement or sensory use.",
+      "displayText": "A large cortical representation in the homunculus reflects the precision and use of the represented body region, not simply its muscle-fiber count. In the sensory homunculus, lips have the greatest area, followed by face and thumb; trunk and lower body occupy smaller areas, consistent with receptor density and functional demands.",
+      "emphasis": [
+        "A large cortical representation in"
+      ],
+      "rationales": {
+        "a": "Low control and unskilled movements do not explain a disproportionately large cortical representation.",
+        "b": "The homunculus is not a map of how many peripheral muscle fibers are present; cortical area reflects precision/use and, for sensory cortex, receptor specialization.",
+        "d": "The source gives a positive relationship between cortical representation and precision, so ‘none’ is not correct."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported solution contains OCR substitutions and/or figure-dependent text; source details were reconstructed against rendered pages.",
+        "reconstructedContent": "A large cortical representation in the homunculus reflects the precision and use of the represented body region, not simply its muscle-fiber count. In the sensory homunculus, lips have the greatest area, followed by face and thumb; trunk and lower body occupy smaller areas, consistent with receptor density and functional demands.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 286, 287 were rendered and checked from the immutable Physiology PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe)."
+        ],
+        "reviewNote": "Rendered-page text and figures were checked; the explanation preserves the source mechanism, laterality, percentages, and clinical distinctions relevant to this item.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          286,
+          287
+        ]
+      }
+    },
+    "marrow__PHYS_CH14_Q035": {
+      "takeaway": "Vocalization has the largest representation among these listed motor functions.",
+      "displayText": "Penfield and Rasmussen’s motor-cortex map places vocalization above salivation, mastication, and thumb representation in the source figure. The face is represented bilaterally, while most of the rest of the body has unilateral cortical representation.",
+      "emphasis": [
+        "Penfield and Rasmussen’s motor-cortex map"
+      ],
+      "rationales": {
+        "b": "Mastication is represented, but the source figure ranks vocalization and salivation above it.",
+        "c": "Salivation is highly represented but is below vocalization in the figure’s ordering.",
+        "d": "Thumb movement has substantial fine-motor representation but is below the listed oral/voice functions in this source map."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported solution contains OCR substitutions and/or figure-dependent text; source details were reconstructed against rendered pages.",
+        "reconstructedContent": "Penfield and Rasmussen’s motor-cortex map places vocalization above salivation, mastication, and thumb representation in the source figure. The face is represented bilaterally, while most of the rest of the body has unilateral cortical representation.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 287 were rendered and checked from the immutable Physiology PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe)."
+        ],
+        "reviewNote": "Rendered-page text and figures were checked; the explanation preserves the source mechanism, laterality, percentages, and clinical distinctions relevant to this item.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          287
+        ]
+      }
+    },
+    "marrow__PHYS_CH14_Q036": {
+      "takeaway": "Bilateral paracentral-lobule damage causes paraplegia.",
+      "displayText": "The paracentral lobule is the medial continuation of precentral and postcentral gyri and represents the contralateral lower limb. Bilateral damage therefore disrupts motor and sensory control of both legs, producing paraplegia; the region also participates in bladder and bowel control.",
+      "emphasis": [
+        "The paracentral lobule is the"
+      ],
+      "rationales": {
+        "a": "Hemiplegia affects one side of the body; bilateral medial leg-area damage affects both lower limbs.",
+        "b": "Monoplegia means paralysis of one limb, whereas this lesion affects both legs.",
+        "d": "Quadriplegia affects all four limbs; the paracentral lobules chiefly represent lower extremities."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported solution contains OCR substitutions and/or figure-dependent text; source details were reconstructed against rendered pages.",
+        "reconstructedContent": "The paracentral lobule is the medial continuation of precentral and postcentral gyri and represents the contralateral lower limb. Bilateral damage therefore disrupts motor and sensory control of both legs, producing paraplegia; the region also participates in bladder and bowel control.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 288 were rendered and checked from the immutable Physiology PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe)."
+        ],
+        "reviewNote": "Rendered-page text and figures were checked; the explanation preserves the source mechanism, laterality, percentages, and clinical distinctions relevant to this item.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          288
+        ]
+      }
+    }
+  }
+}
