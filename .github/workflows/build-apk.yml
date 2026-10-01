@@ -470,6 +470,8 @@ jobs:
         run: python3 tools/verify_question_notes_browser.py
       - name: Verify all-bank Quick Revision queues
         run: python3 tools/verify_revision_desk_browser.py
+      - name: Verify editable FSRS ratings and resolved mistakes
+        run: python3 tools/verify_fsrs_rating_revision_browser.py
       - name: Verify all-bank question search on phone and tablet
         run: python3 tools/verify_question_search_browser.py
       - name: Verify Practice correction journey on phone and tablet

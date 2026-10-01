@@ -194,6 +194,7 @@
     const revision=nkCloudRevision;
     const current={bookmarks:new Set(),modules:new Set()};
     Object.entries(state.attempts||{}).forEach(([qid,list])=>(Array.isArray(list)?list:[]).forEach(attempt=>{if(attempt?.id)nkQueueEnvelope(nkEnvelope('attempts',attempt.id,{qid:String(qid),attempt},Number(attempt.at||0)));}));
+    Object.entries(state.fsrsRatingRevisions||{}).forEach(([qid,list])=>(Array.isArray(list)?list:[]).forEach(attempt=>{if(attempt?.isRatingRevision&&attempt.id)nkQueueEnvelope(nkEnvelope('attempts',attempt.id,{qid:String(qid),attempt},Number(attempt.at||0)));}));
     Object.entries(state.bookmarks||{}).forEach(([qid,value])=>{current.bookmarks.add(String(qid));nkQueueEnvelope(nkEnvelope('bookmarks',qid,{qid:String(qid),active:true},Number(value?.updatedAt||value?.addedAt||0)));});
     Object.entries(state.questionNotes||{}).forEach(([qid,note])=>{if(!note||typeof note.text!=='string')return;nkQueueEnvelope(nkEnvelope('notes',qid,{text:note.text,deleted:Boolean(note.deleted)},Number(note.updatedAt||0)));});
     (state.tests||[]).forEach(test=>{if(test?.id)nkQueueEnvelope(nkEnvelope('tests',test.id,test,nkEntityTimestamp(test)));});
@@ -368,7 +369,8 @@
       if(preferred.answers?.[id]!=null)answers[id]=preferred.answers[id];else if(fallback.answers?.[id]!=null)answers[id]=fallback.answers[id];
       if(local.submitted?.[id]||remote.submitted?.[id])submitted[id]=true;
       questionTimes[id]=Math.max(Number(local.questionTimes?.[id]||0),Number(remote.questionTimes?.[id]||0));
-      if(preferred.pendingFsrsRatings?.[id])pendingFsrsRatings[id]=preferred.pendingFsrsRatings[id];else if(fallback.pendingFsrsRatings?.[id])pendingFsrsRatings[id]=fallback.pendingFsrsRatings[id];
+      const pending=preferred.pendingFsrsRatings?.[id]||(Number(lu.revision||0)===0&&Number(ru.revision||0)===0?fallback.pendingFsrsRatings?.[id]:null);
+      if(pending&&!(state.attempts?.[id]||[]).some(a=>!a.isUndo&&!a.isRatingRevision&&String(a.id)===String(pending.id)))pendingFsrsRatings[id]=pending;
       questionUpdates[id]=remoteNewer?ru:lu;
     });
     const localTerminal=nkSyncTerminalLifecycle(local.lifecycle),remoteTerminal=nkSyncTerminalLifecycle(remote.lifecycle),latest=Number(remote.updatedAt||0)>Number(local.updatedAt||0)?remote:local;
@@ -392,7 +394,13 @@
   function nkApplyCloudEnvelope(remote){
     const winner=['attempts','practiceSessions'].includes(remote.kind)?remote:nkChooseWinner(remote);if(winner!==remote&&nkHash(winner)!==nkHash(remote))return false;
     const payload=winner.deleted?null:nkJson(winner.payload,null),id=winner.entityId;
-    if(winner.kind==='attempts'&&payload?.attempt?.id){const qid=String(payload.qid),list=Array.isArray(state.attempts[qid])?state.attempts[qid]:[];if(!list.some(a=>String(a.id)===String(payload.attempt.id)))state.attempts[qid]=[...list,payload.attempt].sort((a,b)=>Number(a.at||0)-Number(b.at||0));}
+    if(winner.kind==='attempts'&&payload?.attempt?.id){
+      const qid=String(payload.qid),attempt=payload.attempt;
+      if(attempt.isRatingRevision&&(!attempt.ratingOf||![2,3,4].includes(Number(attempt.rating))))return false;
+      const bucket=attempt.isRatingRevision?(state.fsrsRatingRevisions=state.fsrsRatingRevisions||{}):state.attempts;
+      const list=Array.isArray(bucket[qid])?bucket[qid]:[];
+      if(!list.some(a=>String(a.id)===String(attempt.id)))bucket[qid]=[...list,attempt].sort((a,b)=>Number(a.at||0)-Number(b.at||0));
+    }
     else if(winner.kind==='bookmarks'){if(winner.deleted||!payload?.active)delete state.bookmarks[id];else state.bookmarks[id]={addedAt:Number(winner.updatedAt),updatedAt:Number(winner.updatedAt)};}
     else if(winner.kind==='notes'&&payload&&typeof payload.text==='string'){
       state.questionNotes=state.questionNotes||{};
@@ -421,6 +429,7 @@
       else if(payload)state.activeSession=payload;
     }
     else if(winner.kind==='preferences'&&payload){if(payload.activeSubject&&payload.activeSubject!==activeSubject&&typeof SUBJECT_BY_NAME!=='undefined'&&SUBJECT_BY_NAME[payload.activeSubject])applySubject(payload.activeSubject);if(payload.studyStartedAt)state.studyStartedAt=state.studyStartedAt?Math.min(Number(state.studyStartedAt),Number(payload.studyStartedAt)):Number(payload.studyStartedAt);if(payload.fsrsPreferences)state.fsrsPreferences={...(state.fsrsPreferences||{}),...payload.fsrsPreferences};nkMergeFsrsReviewEligible(payload.fsrsReviewEligible,winner.updatedAt);}
+    if(typeof nkFsrsPruneCommittedPending==='function')nkFsrsPruneCommittedPending();
     // Received revisions are already synchronized; do not echo them as new edits.
     nkSyncMeta.localHashes[nkWinnerKey(winner)]=nkHash({deleted:winner.deleted,payload:winner.payload});
     return true;

@@ -80,6 +80,37 @@ nkFsrsEditSetting('desiredRetention','86');assert.equal(state.fsrsPreferences.de
 nkFsrsSaveSettings();assert.equal(state.fsrsPreferences.desiredRetention,.86);assert(!nkFsrsDirty());
 const dueAtSave=state.reviews.q1.due;nkFsrsEditSetting('desiredRetention','999');assert.equal(nkFsrsSaveSettings(),false);assert.equal(state.fsrsPreferences.desiredRetention,.86);assert.equal(state.reviews.q1.due,dueAtSave);
 nkFsrsDraft=null;assert(!nkFsrsDirty());
+// An amendment changes the grade of one retrieval, not its count or timestamp.
+state.activeSession={{id:'rating-session',startedAt:now,mode:'practice',questionIds:['q184'],index:0,answers:{{q184:1}},submitted:{{}},questionTimes:{{q184:500}}}};
+submitPractice();nkRateCurrent(2,'q184','rating-session');
+const rated=state.attempts.q184[0],ratedAt=rated.reviewedAt;
+assert(nkFsrsRatingMarkup('q184').includes('Saved: Hard'),'saved dock remains visible');
+assert.equal(nkFsrsRating(nkFsrsActiveAttempts('q184')[0]),2);
+nkRateCurrent(3,'q184','rating-session');nkRateCurrent(4,'q184','rating-session');
+assert.equal(state.attempts.q184.length,1,'rating edits do not add attempts');
+assert.equal(state.reviews.q184.repetitions,1,'rating edits do not inflate FSRS reviews');
+assert.equal(nkFsrsActiveAttempts('q184')[0].reviewedAt,ratedAt);
+assert.equal(nkFsrsActiveAttempts('q184')[0].rating,4);
+const expected=nkFsrsEngine(rated.schedulerPreferences).next(nkFsrsCardFromReview(rated.schedulerBefore,ratedAt),new Date(ratedAt),4).card;
+assert.equal(state.reviews.q184.due,new Date(expected.due).getTime(),'amended schedule is computed from the original pre-review card');
+const revisionCount=state.fsrsRatingRevisions.q184.length;nkRateCurrent(4,'q184','rating-session');
+assert.equal(state.fsrsRatingRevisions.q184.length,revisionCount,'repeated grade is idempotent');
+const amendedDue=state.reviews.q184.due;state.fsrsRatingRevisions.q184.reverse();nkFsrsReplay('q184');
+assert.equal(state.reviews.q184.due,amendedDue,'revision arrival order cannot change replay');
+state.activeSession.pendingRating={{q184:{{id:rated.id,selected:1}}}};nkFsrsPruneCommittedPending();
+assert(!state.activeSession.pendingRating.q184,'special-session sync also removes committed pending IDs');
+nkRateCurrent(2,'other-question','rating-session');nkRateCurrent(2,'q184','other-session');
+assert.equal(state.reviews.q184.due,amendedDue,'stale rating callbacks cannot edit another question/session');
+const savedAttempts=state.attempts;state.attempts={{q184:savedAttempts.q184}};
+nkFsrsUndo();assert.equal(nkFsrsActiveAttempts('q184')[0].rating,3,'undo latest edit restores the previous grade');
+assert.equal(state.reviews.q184.repetitions,1,'undoing a grade edit retains its original retrieval');
+nkFsrsUndo();assert.equal(nkFsrsActiveAttempts('q184')[0].rating,2);state.attempts=savedAttempts;
+assert.equal(nkFsrsUnresolvedMistake('q1'),false,'a correct retry resolves an earlier miss');
+assert.equal(nkFsrsEligibility(questions[1]),'wrong','FSRS history eligibility remains independent of unresolved mistakes');
+state.attempts.q1.push({{id:'later-wrong',correct:false,at:now+100,reviewedAt:now+100}});
+assert.equal(nkFsrsUnresolvedMistake('q1'),true,'a later miss returns to Mistakes');
+const savedTest={{createdAt:now-1500}};
+assert.deepEqual(nkFsrsUnresolvedResultMisses(savedTest,['q184','q1']),['q1'],'saved-result follow-up only retains unresolved misses');
 console.log('FSRS_BEHAVIOR_OK');
 """
 

@@ -51,8 +51,13 @@ def main():
                 page.evaluate('window.scrollTo(0, document.body.scrollHeight)')
                 assert abs(dock.bounding_box()['y'] - top) < 1, 'Dock moved with content'
                 dock.get_by_role('button', name='Hard', exact=True).click()
-                assert page.locator('.nk-fsrs-rating').count() == 0
+                assert page.locator('.nk-fsrs-rating').count() == 1
                 assert page.evaluate("window.QB.getState().attempts['1-1'].at(-1).rating") == 2
+                assert dock.get_by_role('button', name='Hard', exact=True).get_attribute('aria-pressed') == 'true'
+                dock.get_by_role('button', name='Good', exact=True).click()
+                assert dock.get_by_role('button', name='Good', exact=True).get_attribute('aria-pressed') == 'true'
+                assert page.evaluate("window.QB.getState().reviews['1-1'].repetitions") == 1
+                assert page.evaluate("window.QB.getState().attempts['1-1'].length") == 1
                 context.close()
             browser.close()
     finally:

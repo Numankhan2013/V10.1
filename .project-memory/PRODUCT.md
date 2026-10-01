@@ -124,6 +124,13 @@ Prefer building over narrating.
   the Android APK and website/PWA. Every answered question is scheduled;
   Pause commits only answered work, while final session submission makes all
   remaining unanswered questions eligible as skipped. Globally unseen questions stay out.
+- **Resolved mistakes and rating amendments (candidate):** Mistakes uses the
+  latest active answer; a correct retry clears it without deleting history or
+  FSRS eligibility. Correct-answer recall controls remain visible with the saved
+  Hard/Good/Easy selection, editable within the same Practice session. An edit
+  recalculates that retrieval at its original time, never adding another review,
+  score, or study day. Saved-result follow-up shows correction status and launches
+  only unresolved original misses; the saved score and topic analysis stay historical.
 - **Revision hub (candidate):** The primary Revision tab offers all-subject, all-bank Mistakes,
   Bookmarks, Unseen, and Due queues. The first three start random sets of up
   to 20; Due starts up to 20 in FSRS priority order and honors the existing

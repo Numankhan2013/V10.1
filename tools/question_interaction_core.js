@@ -75,6 +75,7 @@
   nkFsrsCommitPending=nkQuestionAction(nkFsrsCommitPending);
   nkFsrsRecoverPending=nkQuestionAction(nkFsrsRecoverPending);
   nkRateCurrent=nkQuestionAction(nkRateCurrent,r=>[2,3,4].includes(Number(r)));
+  nkFsrsUndo=nkQuestionAction(nkFsrsUndo);
   // Pause must save its pending recall rating and checkpoint together.
   const nkIntegrityPause=nkPausePractice;
   nkPausePractice=nkQuestionAction(function(){nkFsrsRecoverPending();return nkIntegrityPause.apply(this,arguments);});

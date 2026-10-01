@@ -107,6 +107,10 @@ nkApplyCloudEnvelope({kind:'attempts',entityId:'a2',ownerDevice:'ipad',updatedAt
 assert(state.attempts.q1.length===2,'immutable attempts must merge');
 nkApplyCloudEnvelope({kind:'attempts',entityId:'a2',ownerDevice:'ipad',updatedAt:20,deleted:false,payload:JSON.stringify({qid:'q1',attempt:{id:'a2',at:20,correct:true,selected:2,timeSpent:7}}),schemaVersion:1});
 assert(state.attempts.q1.length===2,'duplicate attempt must be deduplicated');
+const ratingEvent={id:'rating-a2',isRatingRevision:true,ratingOf:'a2',rating:2,at:25,revisedAt:25};
+const ratingEnvelope={kind:'attempts',entityId:ratingEvent.id,ownerDevice:'ipad',updatedAt:25,deleted:false,payload:JSON.stringify({qid:'q1',attempt:ratingEvent}),schemaVersion:1};
+nkApplyCloudEnvelope(ratingEnvelope);nkApplyCloudEnvelope(ratingEnvelope);
+assert(state.attempts.q1.length===2&&state.fsrsRatingRevisions.q1.length===1,'rating events sync idempotently without entering answer counts');
 nkApplyCloudEnvelope({kind:'bookmarks',entityId:'q1',ownerDevice:'android',updatedAt:100,deleted:false,payload:JSON.stringify({qid:'q1',active:true}),schemaVersion:1});
 nkApplyCloudEnvelope({kind:'bookmarks',entityId:'q1',ownerDevice:'ipad',updatedAt:90,deleted:true,payload:'',schemaVersion:1});
 assert(Boolean(state.bookmarks.q1),'older bookmark tombstone must not erase newer state');
@@ -122,6 +126,16 @@ nkApplyCloudEnvelope({kind:'sessions',entityId:'active',ownerDevice:'android',up
 nkApplyCloudEnvelope({kind:'sessions',entityId:'active',ownerDevice:'ipad',updatedAt:150,deleted:false,payload:JSON.stringify({id:'old',index:1}),schemaVersion:1});
 assert(state.activeSession.id==='new'&&state.activeSession.index===4,'opening an older device must not replace newer session progress');
 const checkpoint=(id,ids,answers,submitted,updates,lifecycle='paused',updatedAt=200)=>({version:1,sessionId:id,sessionQuestionIds:ids,membershipHash:ids.join('\u001f'),context:{subject:'Anatomy',bank:'Marrow',topicId:'t1',title:'Topic'},position:{index:0,currentQuestionId:ids[0]},answers,submitted,questionTimes:{},pendingFsrsRatings:{},questionUpdates:updates,lifecycle,updatedAt});
+const pendingOld=checkpoint('rating-session',['q1'],{q1:2},{q1:true},{q1:{revision:1,updatedAt:20}},'active',20);
+pendingOld.pendingFsrsRatings.q1={id:'a2',selected:2};
+const committed=checkpoint('rating-session',['q1'],{q1:2},{q1:true},{q1:{revision:2,updatedAt:30}},'active',30);
+state.normalPracticeCheckpoints=[committed];state.normalPracticeCheckpoint=committed;
+nkMergePracticeCheckpoint(pendingOld);
+assert(!state.normalPracticeCheckpoint.pendingFsrsRatings.q1,'older pending rating cannot survive a newer explicit removal');
+const pendingNew={...pendingOld,questionUpdates:{q1:{revision:3,updatedAt:40}},updatedAt:40};
+nkMergePracticeCheckpoint(pendingNew);
+assert(!state.normalPracticeCheckpoint.pendingFsrsRatings.q1,'even a newer stale checkpoint cannot resurrect an already committed attempt ID');
+state.normalPracticeCheckpoints=[];state.normalPracticeCheckpoint=null;
 state.activeSession=null;
 state.normalPracticeCheckpoint=checkpoint('same',['q1','q2'],{q1:1},{q1:true},{q1:{revision:1,updatedAt:100}},'paused',200);
 nkApplyCloudEnvelope({kind:'practiceSessions',entityId:'normal',ownerDevice:'ipad',updatedAt:210,deleted:false,payload:JSON.stringify(checkpoint('same',['q1','q2'],{q2:2},{q2:true},{q2:{revision:1,updatedAt:210}},'active',210)),schemaVersion:1});

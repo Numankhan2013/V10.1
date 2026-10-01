@@ -809,3 +809,15 @@ passed Revision/streak/FSRS; CI Home and Android evidence was inspected.
 PR #80 is a draft; user visual review and physical acceptance remain pending.
 Main/production are unchanged; documentation-only handoff keeps certification
 at the product SHA above.
+
+
+### 2026-10-01 — FSRS correction patch
+
+The user accepted the Revision/streak preview and authorized the investigated
+FSRS patch. Unresolved mistakes now follow the latest answer; correct retries
+clear the queue while FSRS/history remain. The visible Hard/Good/Easy control
+amends the same retrieval through immutable, separately stored synced rating
+events. Undo and edits retain durable rollback. Stale pending ratings cannot
+return through checkpoint merge. Saved-result follow-up excludes resolved
+misses while keeping its original score. Exact full CI and physical review
+remain pending; see STATE.md and SESSION_LOG.md for the current handoff.

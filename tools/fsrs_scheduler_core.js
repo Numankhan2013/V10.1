@@ -27,8 +27,24 @@
   }
   function nkFsrsRating(attempt){return [1,2,3,4].includes(Number(attempt?.rating))?Number(attempt.rating):(attempt?.correct?3:1);}
   function nkFsrsActiveAttempts(qid){
-    const list=Array.isArray(state.attempts?.[qid])?state.attempts[qid]:[],undone=new Set(list.filter(a=>a?.isUndo&&a.undoOf).map(a=>String(a.undoOf)));
-    return list.filter(a=>a&&!a.isUndo&&!undone.has(String(a.id))).sort((a,b)=>Number(a.reviewedAt||a.at||0)-Number(b.reviewedAt||b.at||0)||String(a.id||'').localeCompare(String(b.id||'')));
+    const list=Array.isArray(state.attempts?.[qid])?state.attempts[qid]:[],events=[...list,...(state.fsrsRatingRevisions?.[qid]||[])],undone=new Set(events.filter(a=>a?.isUndo&&a.undoOf).map(a=>String(a.undoOf)));
+    const revisions=new Map();
+    events.filter(a=>a?.isRatingRevision&&!a.isUndo&&!undone.has(String(a.id))&&a.ratingOf&&[2,3,4].includes(Number(a.rating))).forEach(a=>{
+      const old=revisions.get(String(a.ratingOf)),time=Number(a.revisedAt||a.at||0),oldTime=Number(old?.revisedAt||old?.at||0);
+      if(!old||time>oldTime||(time===oldTime&&String(a.id)>String(old.id)))revisions.set(String(a.ratingOf),a);
+    });
+    return list.filter(a=>a&&!a.isUndo&&!a.isRatingRevision&&!undone.has(String(a.id))).map(a=>{
+      const revision=a.correct?revisions.get(String(a.id)):null;
+      return revision?{...a,rating:Number(revision.rating),ratingLabel:['','Again','Hard','Good','Easy'][Number(revision.rating)],ratingRevisionId:revision.id}:a;
+    }).sort((a,b)=>Number(a.reviewedAt||a.at||0)-Number(b.reviewedAt||b.at||0)||String(a.id||'').localeCompare(String(b.id||'')));
+  }
+  function nkFsrsUnresolvedMistake(qid){return nkFsrsActiveAttempts(String(qid)).at(-1)?.correct===false;}
+  function nkFsrsPruneCommittedPending(session=state.activeSession){
+    if(!session?.pendingRating)return;
+    Object.entries(session.pendingRating).forEach(([qid,p])=>{if((state.attempts?.[qid]||[]).some(a=>!a.isUndo&&!a.isRatingRevision&&String(a.id)===String(p.id)))delete session.pendingRating[qid];});
+  }
+  function nkFsrsUnresolvedResultMisses(test,ids){
+    return ids.filter(id=>!nkFsrsActiveAttempts(String(id)).some(a=>a.correct===true&&Number(a.reviewedAt||a.at||0)>Number(test.createdAt||0))||nkFsrsUnresolvedMistake(id));
   }
   function nkFsrsEligibility(q){
     const id=String(q?.id||''),history=nkFsrsActiveAttempts(id);
@@ -56,8 +72,13 @@
     else if(!state.fsrsMigratedAt){nkFsrsRebuildAll(true);state.fsrsMigratedAt=Date.now();saveState();}
     nkFsrsRecoverPending();
   }
-  function nkFsrsPreview(qid,now=Date.now()){
-    const card=nkFsrsCardFromReview(state.reviews[qid],now),result=nkFsrsEngine().repeat(card,new Date(now));
+  function nkFsrsPreview(qid,now=Date.now(),attemptId=''){
+    let card=nkFsrsCardFromReview(state.reviews[qid],now),preferences;
+    if(attemptId){
+      const history=nkFsrsActiveAttempts(qid),target=history.find(a=>String(a.id)===String(attemptId));
+      if(target){card=window.FSRS.createEmptyCard(new Date(Number(history[0].reviewedAt||history[0].at)));for(const a of history){if(a.id===target.id)break;card=nkFsrsEngine(a.schedulerPreferences||NK_FSRS_DEFAULTS).next(card,new Date(Number(a.reviewedAt||a.at)),nkFsrsRating(a)).card;}preferences=target.schedulerPreferences||NK_FSRS_DEFAULTS;}
+    }
+    const result=nkFsrsEngine(preferences).repeat(card,new Date(now));
     return Object.fromEntries([1,2,3,4].map(r=>[r,result[r]]));
   }
   function nkFsrsRecordAttempt(qid,selected,timeSpent,source='practice',rating,reviewedAt,attemptId){
@@ -65,22 +86,41 @@
     const correct=Number(q.correctOption)===Number(selected),grade=correct&&[2,3,4].includes(Number(rating))?Number(rating):(correct?3:1),now=Number(reviewedAt||Date.now());
     if(attemptId&&(state.attempts[qid]||[]).some(a=>a.id===attemptId))return correct;
     const before=nkFsrsCardFromReview(state.reviews[qid],now),out=nkFsrsEngine().next(before,new Date(now),grade),after=nkFsrsCardSnapshot(out.card);
-    const entry={id:attemptId||`${now}_${Math.random().toString(16).slice(2)}`,selected:Number(selected),correct,timeSpent:Math.max(0,Number(timeSpent||0)),at:now,reviewedAt:now,source,rating:grade,ratingLabel:['','Again','Hard','Good','Easy'][grade],schedulerVersion:NK_FSRS_VERSION,schedulerPreferences:{...nkFsrsPreferences()},schedulerBefore:nkFsrsCardSnapshot(before),schedulerAfter:after};
+    const entry={id:attemptId||`${now}_${Math.random().toString(16).slice(2)}`,sessionId:state.activeSession?.id||null,selected:Number(selected),correct,timeSpent:Math.max(0,Number(timeSpent||0)),at:now,reviewedAt:now,source,rating:grade,ratingLabel:['','Again','Hard','Good','Easy'][grade],schedulerVersion:NK_FSRS_VERSION,schedulerPreferences:{...nkFsrsPreferences()},schedulerBefore:nkFsrsCardSnapshot(before),schedulerAfter:after};
     if(!state.attempts[qid])state.attempts[qid]=[];state.attempts[qid].push(entry);
     state.reviews[qid]={...after,migratedAt:Number(state.reviews[qid]?.migratedAt||state.fsrsMigratedAt||now),legacyDueOverride:null,needsAttention:after.lapses>=6};saveState();return correct;
   }
   function nkFsrsFormatInterval(ms){const m=Math.max(1,Math.round(ms/60000));if(m<60)return `${m}m`;const h=Math.round(m/60);if(h<48)return `${h}h`;const d=Math.round(h/24);if(d<60)return `${d}d`;return `${Math.round(d/30)}mo`;}
   function nkFsrsRatingMarkup(qid){
-    const s=state.activeSession,p=s?.pendingRating?.[qid];if(!p)return '';
-    const previews=nkFsrsPreview(qid,p.reviewedAt||Date.now());
+    const s=state.activeSession,p=s?.pendingRating?.[qid],attempt=nkFsrsSessionRating(qid);if(!p&&!attempt)return '';
+    const reviewedAt=Number(attempt?.reviewedAt||attempt?.at||p?.reviewedAt||Date.now()),grade=attempt?nkFsrsRating(attempt):3;
+    const previews=nkFsrsPreview(qid,reviewedAt,attempt?.id);
     const brain='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5a3 3 0 0 0-5.8-1A3.5 3.5 0 0 0 3 9a4 4 0 0 0 0 6 3.5 3.5 0 0 0 3.2 5A3 3 0 0 0 12 19V5Zm0 0a3 3 0 0 1 5.8-1A3.5 3.5 0 0 1 21 9a4 4 0 0 1 0 6 3.5 3.5 0 0 1-3.2 5A3 3 0 0 1 12 19"/><path d="M7 4v4m-4 1h4l2 3m-6 3h4v5m10-16v4m4 1h-4l-2 3m6 3h-4v5"/></svg>';
-    return `<div class="nk-fsrs-rating" role="group" aria-label="Rate recall"><div class="nk-fsrs-recall-label"><span class="nk-fsrs-medallion">${brain}</span><span><strong>Rate recall</strong><small>Default: Good</small></span></div>${[2,3,4].map(r=>`<button type="button" class="nk-fsrs-pill ${r===3?'is-default':''}" aria-pressed="${r===3}" title="Review in ${nkFsrsFormatInterval(new Date(previews[r].card.due)-Number(p.reviewedAt||Date.now()))}" onclick="window.QB.nkRateCurrent(${r})">${['','','Hard','Good','Easy'][r]}</button>`).join('')}</div>`;
+    return `<div class="nk-fsrs-rating" role="group" aria-label="Rate recall"><div class="nk-fsrs-recall-label"><span class="nk-fsrs-medallion">${brain}</span><span><strong>Rate recall</strong><small>${attempt?'Saved: '+['','Again','Hard','Good','Easy'][grade]:'Default: Good'}</small></span></div>${[2,3,4].map(r=>`<button type="button" class="nk-fsrs-pill ${r===grade?'is-default':''}" aria-pressed="${r===grade}" title="Review in ${nkFsrsFormatInterval(new Date(previews[r].card.due)-reviewedAt)}" onclick="window.QB.nkRateCurrent(${r},'${esc(qid)}','${esc(String(s.id||''))}')">${['','','Hard','Good','Easy'][r]}</button>`).join('')}</div>`;
+  }
+  function nkFsrsSessionRating(qid){
+    const s=state.activeSession;if(s?.mode!=='practice'||!s.submitted?.[qid])return null;
+    return nkFsrsActiveAttempts(qid).filter(a=>a.correct&&Number(a.selected)===Number(s.answers?.[qid])&&(a.sessionId?String(a.sessionId)===String(s.id):Number(a.reviewedAt||a.at||0)>=Number(s.startedAt||Infinity))).at(-1)||null;
+  }
+  function nkFsrsReviseRating(qid,attempt,rating){
+    if(nkFsrsRating(attempt)===Number(rating))return true;
+    state.fsrsRatingRevisions=state.fsrsRatingRevisions||{};
+    const list=state.fsrsRatingRevisions[qid]||(state.fsrsRatingRevisions[qid]=[]),now=Math.max(Date.now(),...list.filter(a=>a.ratingOf===attempt.id).map(a=>Number(a.revisedAt||a.at||0)+1));
+    list.push({id:`rating_${now}_${Math.random().toString(16).slice(2)}`,isRatingRevision:true,ratingOf:attempt.id,rating:Number(rating),at:now,revisedAt:now,schedulerVersion:NK_FSRS_VERSION});
+    nkFsrsReplay(qid,false);saveState();return true;
   }
   function nkFsrsCommitPending(qid,rating=3){
     const s=state.activeSession,p=s?.pendingRating?.[qid];if(!p)return false;
     delete s.pendingRating[qid];nkFsrsRecordAttempt(qid,p.selected,p.timeSpent,p.source,rating,p.reviewedAt,p.id);saveState();return true;
   }
-  function nkRateCurrent(rating){const s=state.activeSession,qid=s?.questionIds?.[s.index];if(!qid)return;nkFsrsCommitPending(qid,rating);render();}
+  function nkRateCurrent(rating,questionId,sessionId){
+    const s=state.activeSession,qid=s?.questionIds?.[s.index];
+    if(s?.mode!=='practice'||!qid||(questionId!=null&&String(questionId)!==String(qid))||(sessionId!=null&&String(sessionId)!==String(s.id)))return false;
+    const attempt=nkFsrsSessionRating(qid);
+    if(attempt){delete s.pendingRating?.[qid];nkFsrsReviseRating(qid,attempt,rating);saveState();}
+    else if(!nkFsrsCommitPending(qid,rating))return false;
+    render();return true;
+  }
   function nkFsrsRecoverPending(){const s=state.activeSession;if(!s?.pendingRating)return;Object.keys(s.pendingRating).forEach(qid=>nkFsrsCommitPending(qid,3));}
   function nkFsrsRetrievability(review,now=Date.now()){try{return nkFsrsEngine().get_retrievability(nkFsrsCardFromReview(review,now),new Date(now),false);}catch(_){return 1;}}
   function nkFsrsQueue(filters={}){
@@ -106,8 +146,13 @@
   function nkFsrsTopicOptions(subject){const item=SUBJECTS.find(s=>s.subject===subject),select=document.getElementById('nk-fsrs-topic');if(!select)return;select.innerHTML='<option value="">All topics</option>'+((item?.topics||[]).map(t=>`<option value="${esc(t.id)}">${esc(t.title||t.name)}</option>`).join(''));}
   function nkFsrsQueueDialog(){navigate('fsrs');}
   function nkFsrsUndo(){
-    let hit=null,qid=null;Object.keys(state.attempts||{}).forEach(id=>nkFsrsActiveAttempts(id).forEach(a=>{if(!hit||Number(a.at)>Number(hit.at)){hit=a;qid=id;}}));if(!hit){showToast('Nothing to undo.');return;}
-    state.attempts[qid].push({id:`undo_${Date.now()}_${Math.random().toString(16).slice(2)}`,isUndo:true,undoOf:hit.id,at:Date.now(),schedulerVersion:NK_FSRS_VERSION});nkFsrsReplay(qid,false);saveState();showToast('Most recent rating undone.');render();
+    let hit=null,qid=null;Object.keys(state.attempts||{}).forEach(id=>{
+      const active=nkFsrsActiveAttempts(id),ids=new Set(active.map(a=>String(a.id))),edits=state.fsrsRatingRevisions?.[id]||[],undone=new Set(edits.filter(a=>a.isUndo).map(a=>String(a.undoOf)));
+      [...active,...edits.filter(a=>!a.isUndo&&!undone.has(String(a.id))&&ids.has(String(a.ratingOf)))].forEach(a=>{if(!hit||Number(a.at)>Number(hit.at)||(Number(a.at)===Number(hit.at)&&String(a.id)>String(hit.id))){hit=a;qid=id;}});
+    });if(!hit){showToast('Nothing to undo.');return;}
+    const now=Math.max(Date.now(),Number(hit.at||0)+1),event={id:`undo_${now}_${Math.random().toString(16).slice(2)}`,isUndo:true,undoOf:hit.id,at:now,schedulerVersion:NK_FSRS_VERSION};
+    if(hit.isRatingRevision)state.fsrsRatingRevisions[qid].push({...event,isRatingRevision:true,ratingOf:hit.ratingOf,rating:hit.rating,revisedAt:now});else state.attempts[qid].push(event);
+    nkFsrsReplay(qid,false);saveState();showToast('Most recent rating undone.');render();
   }
   function nkFsrsSetPreference(name,value){const p=nkFsrsPreferences(),n=Number(value),bounds={desiredRetention:[80,97],dailyCap:[20,300],maximumInterval:[30,3650]},b=bounds[name];if(!b)return;p[name]=name==='desiredRetention'?Math.min(b[1],Math.max(b[0],n))/100:Math.round(Math.min(b[1],Math.max(b[0],n)));}
   let nkFsrsDraft=null,nkFsrsPendingRoute=null;
@@ -160,5 +205,6 @@
   const nkFsrsOriginalNavigate=navigate;navigate=function(page,id){if(page==='result'){const t=state.tests.find(t=>String(t.id)===String(id));if(t){t.originRoute=state.activeSession?.originRoute||nkFsrsSessionOrigin||t.originRoute||(t.kind==='practice'?'topics':'tests');saveState();}nkFsrsSessionOrigin=null;}if(route.page==='fsrs-settings'&&page!=='fsrs-settings'&&nkFsrsDirty()){nkFsrsAskToLeave({page,id});return;}const s=state.activeSession,qid=s?.questionIds?.[s.index];if(qid)nkFsrsCommitPending(qid,3);return nkFsrsOriginalNavigate.apply(this,arguments);};
   recordAttempt=nkFsrsRecordAttempt;
   qAttempts=function(qid){return nkFsrsActiveAttempts(qid);};
+  if(typeof wrongQuestions==='function')wrongQuestions=function(){return QUESTIONS.filter(q=>nkFsrsUnresolvedMistake(q.id));};
   window.addEventListener('pagehide',()=>nkFsrsRecoverPending());
   /* NK_FSRS_V6_END */

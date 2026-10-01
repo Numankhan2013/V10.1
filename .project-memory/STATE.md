@@ -4,6 +4,17 @@
 
 ## Baseline and active work
 
+- Active FSRS correction patch (2026-10-01), on the Revision preview branch:
+  latest correct answers clear unresolved Mistakes; subsequent misses return.
+  The saved rating dock stays visible and edits amend one retrieval through
+  immutable rating events stored separately from answer attempts. Existing
+  attempt envelopes sync these events; replay does not add repetitions or
+  affect scores/streaks. Checkpoint merge respects pending-rating deletion and
+  rejects already committed IDs. Saved-result follow-up excludes corrected
+  misses while preserving original scores. Targeted browser/unit checks pass;
+  full candidate CI and physical review remain pending. Next: complete checks
+  and publish the patched preview; main/production remain unchanged.
+
 - Revision hub candidate (2026-10-01): `feature/home-revision-hub` / PR #80
   builds from combined main. Revision replaces FSRS in primary navigation;
   Home shows global due/missed counts; More retains neutral notes/search rows.
@@ -21,7 +32,8 @@
   `https://ca26da11.nk-qbank.pages.dev`. Deployed HTML passes the full Revision/
   streak browser suite; the live URL passes Home/Revision/FSRS navigation with
   no page errors. CI Home and Android captures were inspected; local GIF/MP4
-  shows six seconds of real motion. Physical/user visual review remains pending.
+  shows six seconds of real motion. The user accepted this preview; physical
+  in-place APK verification remains separate.
   Main and production are unchanged. A documentation-only `[skip ci]` handoff
   does not change the certified product. Next step: user review of the preview.
 

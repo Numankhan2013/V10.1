@@ -1992,3 +1992,25 @@ these residual additions; final combined CI remains pending. No production claim
 - PR #80 remains a draft for user visual review. Main/production are unchanged;
   physical-device acceptance remains separate. This documentation-only
   `[skip ci]` handoff retains the certified product SHA above.
+
+
+## 2026-10-01 — Patch unresolved mistakes and editable FSRS ratings
+
+- User accepted the Revision/streak preview, requested an FSRS investigation,
+  then authorized the recommended patch. Reproduced 24-question Biochemistry
+  Practice and timed CBT: successful follow-up correctly scheduled reviews,
+  but historical-wrong filtering retained resolved mistakes. One-shot ratings
+  could not be changed, and stale checkpoints restored committed pending IDs.
+- Mistakes now uses the latest active answer independently of FSRS eligibility.
+  Saved Practice/CBT follow-up excludes corrected original misses and shows
+  correction status, retaining original scores and topic analysis.
+- Correct-answer rating controls remain visible and show the saved selection.
+  Immutable amendment events replay the same retrieval at its original time;
+  they sync through existing attempt envelopes and live outside answer history
+  to avoid extra reviews, score counts or study days. Undo restores a prior
+  grade; edits/Undo retain transactional rollback on failed persistence.
+- Checkpoint merging honors explicit pending removals and rejects committed
+  IDs. New generated-runtime browser coverage exercises 24 questions, grade
+  changes, stale merge, peer revision delivery, reload, historical scores and
+  a subsequent miss. Local/generated/browser checks pass on the updated
+  certified baseline; full exact candidate CI remains pending.

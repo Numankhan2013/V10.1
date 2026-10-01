@@ -57,7 +57,7 @@ HELPERS = r'''
   function nkLatestPracticeContext(){
     const live=state.activeSession;
     if(live?.mode==='practice'&&live.questionIds?.length){const q=nkFindStudyQuestion(live.questionIds[Math.max(0,Math.min(live.index||0,live.questionIds.length-1))]);if(q)return{q,topic:nkTopicTitleForQuestion(q),subject:q.subject||activeSubject,live:true};}
-    let latest=null;for(const [qid,items] of Object.entries(state.attempts||{}))for(const a of items||[]){if(!a||a.source==='exam'||!a.at)continue;if(!latest||Number(a.at)>latest.at)latest={qid,at:Number(a.at)};}
+    let latest=null;for(const [qid,items] of Object.entries(state.attempts||{}))for(const a of items||[]){if(!a||a.isUndo||a.isRatingRevision||a.source==='exam'||!a.at)continue;if(!latest||Number(a.at)>latest.at)latest={qid,at:Number(a.at)};}
     const q=latest?nkFindStudyQuestion(latest.qid):null;return q?{q,topic:nkTopicTitleForQuestion(q),subject:q.subject||activeSubject,live:false}:null;
   }
   function nkTopicQuestionIds(q){
@@ -160,7 +160,7 @@ HELPERS = r'''
   function nkSetTestSource(source){if(['all','wrong','bookmarks'].includes(source)){nkTestSetup.source=source;render();}}
   function nkSetTestCount(count){nkTestSetup.count=[10,20,50,100].includes(Number(count))?Number(count):20;render();}
   function nkOpenCustomSource(){if(nkTestSetup.mode==='exam'){openMultiSubjectTestBuilder();return;}openStudyModuleBuilder();}
-  function nkConfiguredQueueIds(source){const all=nkAllStudyQuestions();if(source==='wrong')return all.filter(q=>qAttempts(q.id).some(a=>a.correct===false)).map(q=>q.id);if(source==='bookmarks')return all.filter(q=>state.bookmarks?.[q.id]).map(q=>q.id);return[];}
+  function nkConfiguredQueueIds(source){const all=nkAllStudyQuestions();if(source==='wrong')return all.filter(q=>qAttempts(q.id).at(-1)?.correct===false).map(q=>q.id);if(source==='bookmarks')return all.filter(q=>state.bookmarks?.[q.id]).map(q=>q.id);return[];}
   function nkStartConfiguredIds(ids,title){
     const list=[...new Set((ids||[]).map(String))];if(!list.length){showToast('No questions available for this selection.','bad');return;}for(let i=list.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[list[i],list[j]]=[list[j],list[i]];}
     const count=Math.min(nkTestSetup.count,list.length),mode=nkTestSetup.mode==='exam'?'exam':'practice';BY_ID={...BY_ID,...Object.fromEntries(nkAllStudyQuestions().map(q=>[String(q.id),q]))};startSession(list.slice(0,count),mode,title);

@@ -287,6 +287,17 @@ generated-app/package checks remain mandatory there. See `docs/LOCAL_DEVELOPMENT
   schema-v2 `state.reviews` is deterministically replayed from sorted attempts. A
   one-time local backup and per-card legacy due override preserve existing due dates
   until the first post-migration rating. Preferences sync in the existing envelope.
+- Rating edits are immutable `isRatingRevision` events keyed by `ratingOf`,
+  stored in `state.fsrsRatingRevisions` separately from answer attempts. Existing
+  `attempts` sync envelopes transport them; timestamp/ID ordering deterministically
+  selects the effective grade before FSRS replay at the original retrieval time.
+  Original answer events and scheduler snapshots remain audit history. Session IDs
+  bind the visible dock to its retrieval; stale question/session callbacks are rejected.
+  Undo of an amendment restores the preceding grade without removing the answer;
+  rating edits and Undo share the durable interaction transaction.
+  Checkpoint merge honors per-question pending removals and suppresses committed
+  pending IDs. Mistakes and saved-result follow-up read effective answer history,
+  independently of the all-answered FSRS eligibility pool.
 - The combined queue asserts globally unique IDs, prioritizes due learning/relearning,
   then low-retrievability overdue reviews, then capped new cards.
 - Eligibility is lifecycle-based: every active attempt (correct or incorrect)

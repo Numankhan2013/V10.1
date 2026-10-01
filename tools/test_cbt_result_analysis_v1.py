@@ -89,6 +89,14 @@ assert.equal(vm.runInContext('nkCbtPracticeMisses("saved1")',context),true);
 assert.deepEqual(started.ids,['p1','ph1']);assert.equal(started.mode,'practice');
 assert.equal(started.kind,'cbt-followup');
 assert.equal(context.state.attempts.p1[0].correct,true,'past attempt state stays untouched');
+context.nkFsrsUnresolvedResultMisses=(test,ids)=>ids.filter(id=>id!=='p1');
+assert.equal(vm.runInContext('nkCbtPracticeMisses("saved1")',context),true);
+assert.deepEqual(started.ids,['ph1'],'only unresolved misses enter a follow-up');
+assert(vm.runInContext('nkCbtResultSection(state.tests[0])',context).includes('1 corrected since this test'));
+context.nkFsrsUnresolvedResultMisses=()=>[];
+assert.equal(vm.runInContext('nkCbtPracticeMisses("saved1")',context),false);
+assert(vm.runInContext('nkCbtResultSection(state.tests[0])',context).includes('All original misses corrected'));
+assert.equal(test.incorrect,1,'original test score stays historical');
 console.log('CBT_RESULT_ANALYSIS_BEHAVIOR_OK sourceExact=true snapshot=true followup=true');
 '''.replace("SOURCE", repr(source), 1)
     subprocess.run(["node", "-e", script], cwd=ROOT, check=True)

@@ -49,6 +49,7 @@
     if(value.stateSchemaVersion!=null&&(!Number.isInteger(Number(value.stateSchemaVersion))||Number(value.stateSchemaVersion)>NK_STATE_SCHEMA_VERSION||Number(value.stateSchemaVersion)<1))throw new Error('unsupported state schema');
     if(value.stateRevision!=null&&(!Number.isSafeInteger(Number(value.stateRevision))||Number(value.stateRevision)<0))throw new Error('invalid state revision');
     if(value.attempts!=null&&!nkStateObject(value.attempts))throw new Error('attempts is not an object');
+    if(value.fsrsRatingRevisions!=null&&(!nkStateObject(value.fsrsRatingRevisions)||Object.values(value.fsrsRatingRevisions).some(list=>!Array.isArray(list))))throw new Error('FSRS rating revisions are invalid');
     if(value.bookmarks!=null&&!nkStateObject(value.bookmarks))throw new Error('bookmarks is not an object');
     if(value.questionNotes!=null&&!nkStateObject(value.questionNotes))throw new Error('question notes is not an object');
     if(value.reviews!=null&&!nkStateObject(value.reviews))throw new Error('reviews is not an object');

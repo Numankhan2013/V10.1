@@ -65,6 +65,13 @@ assert.deepEqual(Array.from(run('nkCorrectionMisses(state.tests[0]).unanswerable
 assert.match(run('nkCorrectionResultSection(state.tests[0])'),/lacks a reliable answer key/);
 assert.equal(run("nkCorrectionStart('first')"),true);
 assert.deepEqual(Array.from(started.ids),['marrow__ANAT_CH01_Q001','physiology-9-6'],'no-answer-key question is excluded');
+context.nkFsrsUnresolvedResultMisses=(test,ids)=>ids.filter(id=>id!=='marrow__ANAT_CH01_Q001');
+assert.equal(run("nkCorrectionStart('first')"),true);
+assert.deepEqual(Array.from(started.ids),['physiology-9-6'],'resolved misses must be excluded from another correction pass');
+assert.match(run('nkCorrectionResultSection(state.tests[0])'),/1 corrected since this result/);
+context.nkFsrsUnresolvedResultMisses=()=>[];
+assert.equal(run("nkCorrectionStart('first')"),false);
+assert.match(run('nkCorrectionResultSection(state.tests[0])'),/All 2 original misses have been corrected/);
 console.log('PRACTICE_CORRECTION_BEHAVIOR_OK exact=true linked=true repeat=true missingGuard=true');
 '''.replace('SOURCE', source, 1)
     subprocess.run(['node', '-e', script], cwd=ROOT, check=True)
