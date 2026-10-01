@@ -86,3 +86,7 @@ Added Chapter 30 Q1–24 in two files. The explanations cover mastication and TM
 ## Checkpoint 11
 
 Added 23 Chapter 31 IDs in two files, skipping gated Q5 (the matching question with missing source lists). These records cover parotid/otic/pterygopalatine and submandibular anatomy, thyroid levels/arteries/veins, recurrent laryngeal risk, parathyroid supply and thyroid fixation. Q24's tubarial-gland terminology is qualified with current anatomical evidence while preserving the keyed torus tubarius location. Validator passed: `MARROW_WORKER_BATCHES_OK files=38 questions=338 source_keyed=true detail_retention=true baseline_and_gates_preserved=true`. Total authored is 338/662 through Chapter 50; 324 remain.
+
+## Checkpoint 12
+
+Added Chapter 32 Q1–12 and Chapter 33 Q1–9 (21 IDs). This covers tongue papillae/muscles, sensory and taste routes, tongue lymph drainage, palate supply, pharyngeal regions and constrictors, and clinical diverticula. Ch32 Q11 distinguishes V2 palatine peripheral carriage from CN VII greater-petrosal central taste afferents while preserving the keyed trigeminal answer. Validator passed: `MARROW_WORKER_BATCHES_OK files=40 questions=359 source_keyed=true detail_retention=true baseline_and_gates_preserved=true`. Total authored is 359/662 through Chapter 50; 303 remain.
