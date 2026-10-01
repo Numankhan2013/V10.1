@@ -197,7 +197,7 @@
     },
     "marrow__PHYSIO_CH25_Q006": {
       "takeaway": "The ventral respiratory group is largely quiet during ordinary breathing, then joins the dorsal group for extra inspiratory and forceful expiratory drive.",
-      "displayText": "The ventral respiratory group (VRG) is recruited for respiratory overdrive. It remains nearly inactive during quiet breathing, when expiration is passive and dorsal respiratory group (DRG) activity supports the basic inspiratory rhythm. During exercise or other increased ventilatory demand, signals spill over from DRG to VRG. VRG neurons contribute to both inspiration and expiration and provide strong expiratory drive to abdominal muscles during forceful expiration. The source comparison places DRG in the nucleus tractus solitarius and VRG in the nucleus retroambiguus; DRG supplies inspiratory ramp signals, while VRG is inactive in quiet breathing and active during forced expiration.\n\nSource comparison: DRG is in the nucleus tractus solitarius of the medulla and provides inspiratory ramp signals. VRG is in the nucleus retroambiguus; it is inactive during quiet breathing and active during forced expiration.",
+      "displayText": "The ventral respiratory group (VRG) is recruited for respiratory overdrive. It remains nearly inactive during quiet breathing, when expiration is passive and dorsal respiratory group (DRG) activity supports the basic inspiratory rhythm. During exercise or other increased ventilatory demand, signals spill over from DRG to VRG. VRG neurons contribute to both inspiration and expiration and provide strong expiratory drive to abdominal muscles during forceful expiration. The source comparison places DRG in the nucleus tractus solitarius and VRG in the nucleus retroambiguus; DRG supplies inspiratory ramp signals, while VRG is inactive in quiet breathing and active during forced expiration.",
       "emphasis": [
         "ventral respiratory group (VRG) is recruited for respiratory overdrive",
         "nearly inactive during quiet breathing",
@@ -214,7 +214,7 @@
           458
         ],
         "uniqueSourceDetailsPreserved": true,
-        "tablesAndFigures": "The source page contains a table/figure reference but canonical table rows are absent; comparison details are retained in displayText and source figure in PDF."
+        "tablesAndFigures": "The orphan native table block is recovered in displayTables with its source ID and printed-page/hash provenance; source figures remain in the immutable PDF."
       },
       "reconstruction": {
         "status": "resolved_reconstruction",
@@ -229,8 +229,35 @@
         "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
         "sourcePages": [
           458
+        ],
+        "orphanTableIds": [
+          "PHYSIO_CH25_Q006_T01"
         ]
-      }
+      },
+      "displayTables": [
+        {
+          "table_id": "PHYSIO_CH25_Q006_T01",
+          "title": "Dorsal and ventral respiratory groups",
+          "source_page": 458,
+          "columns": [
+            "Feature",
+            "Dorsal respiratory group",
+            "Ventral respiratory group"
+          ],
+          "rows": [
+            [
+              "Location",
+              "Nucleus tractus solitarius in medulla",
+              "Nucleus retroambiguus in medulla"
+            ],
+            [
+              "Function",
+              "Inspiratory ramp signals stimulate inspiration",
+              "Inactive during quiet breathing; active during forced expiration"
+            ]
+          ]
+        }
+      ]
     },
     "marrow__PHYSIO_CH25_Q007": {
       "takeaway": "Apneustic-centre stimulation delays inspiratory switch-off and produces a marked increase in inspiratory activity.",
