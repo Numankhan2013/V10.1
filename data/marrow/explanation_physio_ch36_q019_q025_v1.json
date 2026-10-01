@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner-facing Marrow ED8 Physiology Chapter 36 explanation refinement; native diagrams and tables remain unchanged.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "36",
+    "chapterTitle": "Acid-Base Balance, Renal Hormones and Micturition Reflex",
+    "questionStart": 19,
+    "questionEnd": 25,
+    "questions": 7,
+    "status": "approved-rollout",
+    "workloadScore": 8,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "f3cd6b9dccb2092743fa86de4b0bef682d61c83762e9f00fa3b04d0a355d89d6",
+    "auditReport": "docs/question-explanations/physiology-tail-20261001.md"
+  },
+  "questions": {
+    "marrow__PHYSIO_CH36_Q019": {
+      "takeaway": "The first listed event in voiding is relaxation of the external perineal/sphincter muscles, allowing coordinated urine flow.",
+      "displayText": "The first listed event in voiding is relaxation of the external perineal/sphincter muscles, allowing coordinated urine flow.\n\nOne of the initial events is relaxation of the muscles of the pelvic floor, and this may cause sufficient downward tug on the detrusor muscle to initiate its contraction. Micturition is fundamentally a spinal reflex facilitated and inhibited by higher brain centers and subject to voluntary control. Stretch receptors in the bladder wall, especially posterior urethra, send signals through pelvic nerves to sacral cord and reflexively back via parasympathetic fibers. As filling continues, reflexes become more frequent and powerful. Once powerful enough, another reflex via pudendal nerves inhibits the external sphincter; urination occurs if this inhibition overcomes voluntary constrictor signals.",
+      "emphasis": [
+        "The first listed event in voiding is relaxation of the external perineal/sphincter muscles, allowing coordinated urine flow"
+      ],
+      "rationales": {
+        "a": "Trigone relaxation is not the first change identified in the reflex sequence.",
+        "b": "Detrusor contraction follows central reflex activation after outlet relaxation begins.",
+        "d": "Urethral pressure falls with sphincter relaxation, but the initiating listed event is perineal-muscle relaxation."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          691
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH36_Q020": {
+      "takeaway": "The first conscious urge to void is commonly felt at a bladder volume near 150 mL, with stronger desire at larger volumes.",
+      "displayText": "The first conscious urge to void is commonly felt at a bladder volume near 150 mL, with stronger desire at larger volumes.\n\nThe first urge to void is felt at a bladder volume of about 150 mL, and a marked sense of fullness at about 400 mL. A cystometrogram plots intravesical pressure against bladder fluid volume. The curve shows an initial slight rise in pressure with first increments (Ia), a long nearly flat segment with further increments (Ib), and a sudden sharp rise as the micturition reflex is triggered (II). The flatness of segment Ib reflects the law of Laplace: pressure in a spherical viscus equals twice wall tension divided by radius, P = 2T/R. As the bladder fills, tension and radius both increase, so pressure rises only slightly until relatively full.",
+      "emphasis": [
+        "The first conscious urge to void is commonly felt at a bladder volume near 150 mL, with stronger desire at larger volumes"
+      ],
+      "rationales": {
+        "b": "250 mL is a later filling volume than the first urge described.",
+        "c": "350 mL approaches substantial filling and is beyond the initial urge.",
+        "d": "100 mL is below the conventional first-urge volume used in this item."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          692
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH36_Q021": {
+      "takeaway": "The pH shows acidemia and elevated PCO₂ indicates respiratory acidosis; elevated bicarbonate is the compensatory metabolic response.",
+      "displayText": "The pH shows acidemia and elevated PCO₂ indicates respiratory acidosis; elevated bicarbonate is the compensatory metabolic response.\n\nThis patient has respiratory acidosis with compensatory metabolic alkalosis. pH is decreased (<7.38), so it is acidosis. CO2 is increased (>45 mmHg), in line with the change in pH, making the primary problem respiratory. HCO3- is increased (>30 mmol/L), opposite to the pH change, indicating compensatory metabolic alkalosis.",
+      "emphasis": [
+        "The pH shows acidemia and elevated PCO₂ indicates respiratory acidosis; elevated bicarbonate is the compensatory metabolic response"
+      ],
+      "rationales": {
+        "b": "The bicarbonate is elevated, so this is not uncompensated respiratory acidosis.",
+        "c": "The low pH and high CO₂ indicate acidosis, not primary respiratory alkalosis.",
+        "d": "The bicarbonate change is alkalinizing compensation, not a second metabolic acidosis."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          693
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH36_Q022": {
+      "takeaway": "Salicylate toxicity classically produces a mixed primary metabolic acidosis and respiratory alkalosis.",
+      "displayText": "Salicylate toxicity classically produces a mixed primary metabolic acidosis and respiratory alkalosis.\n\nThe acid-base disorder is a mixed disorder of metabolic acidosis and respiratory alkalosis. Step 1: pH 7.1 (<7.35) indicates acidosis. Step 2: HCO3- is 12 mmol/L (normal 22-30), indicating metabolic acidosis. Step 3: Winter’s formula: expected pCO2 = (1.5 × [HCO3-]) + 8 ± 2 = 26 ± 2 = 24-28 mmHg. Actual pCO2 is 18 mmHg, indicating overcompensation due to an additional respiratory alkalosis.",
+      "emphasis": [
+        "Salicylate toxicity classically produces a mixed primary metabolic acidosis and respiratory alkalosis"
+      ],
+      "rationales": {
+        "b": "The low bicarbonate establishes metabolic acidosis, not primary respiratory acidosis.",
+        "c": "PCO₂ is markedly low, so a respiratory alkalosis is present rather than no compensation.",
+        "d": "A low PCO₂ is alkalotic, not respiratory acidosis."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          693
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH36_Q023": {
+      "takeaway": "Hyperaldosteronism promotes renal H⁺ loss and can cause metabolic alkalosis.",
+      "displayText": "Hyperaldosteronism promotes renal H⁺ loss and can cause metabolic alkalosis.\n\nMetabolic alkalosis is seen in patients with hyperaldosteronism. Increased aldosterone causes increased H+ secretion by the distal tubule and increased reabsorption of HCO3- → metabolic alkalosis.",
+      "emphasis": [
+        "Hyperaldosteronism promotes renal H⁺ loss and can cause metabolic alkalosis"
+      ],
+      "rationales": {
+        "a": "Diarrhea causes bicarbonate loss and usually normal-anion-gap metabolic acidosis.",
+        "b": "Advanced renal failure commonly causes metabolic acidosis from reduced acid excretion.",
+        "d": "Aspirin overdose can cause respiratory alkalosis and metabolic acidosis, not the classic metabolic alkalosis."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          694
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH36_Q024": {
+      "takeaway": "In metabolic acidosis, H⁺/K⁺ shifts and renal adaptation can reduce urinary K⁺ excretion in the source’s stated response.",
+      "displayText": "In metabolic acidosis, H⁺/K⁺ shifts and renal adaptation can reduce urinary K⁺ excretion in the source’s stated response.\n\nK+ secretion into the renal tubules is decreased when H+ secretion is increased (intracellular buffering of H+). Thus in metabolic acidosis, there is decreased K+ excretion.",
+      "emphasis": [
+        "In metabolic acidosis, H⁺/K⁺ shifts and renal adaptation can reduce urinary K⁺ excretion in the source’s stated response"
+      ],
+      "rationales": {
+        "a": "The keyed physiologic change is decreased rather than increased K⁺ excretion.",
+        "c": "The source does not identify increased Na⁺ excretion as the defining response.",
+        "d": "Increased sodium reabsorption is not the stated change associated with this acidosis item."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          694
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH36_Q025": {
+      "takeaway": "Diarrhea removes bicarbonate-rich intestinal fluid and causes normal-anion-gap (hyperchloremic) metabolic acidosis.",
+      "displayText": "Diarrhea removes bicarbonate-rich intestinal fluid and causes normal-anion-gap (hyperchloremic) metabolic acidosis.\n\nDiarrhoea is a cause of normal anion gap metabolic acidosis produced as a result of increased HCO3- loss in feces. A decrease in HCO3- is replaced by an increase in Cl-, a measurable anion, so the anion gap is normal. Extra edge: Siggard-Anderson curve nomogram is used to plot the acid-base composition of blood.",
+      "emphasis": [
+        "Diarrhea removes bicarbonate-rich intestinal fluid and causes normal-anion-gap (hyperchloremic) metabolic acidosis"
+      ],
+      "rationales": {
+        "b": "Diabetic ketoacidosis generates unmeasured ketoanions and raises the anion gap.",
+        "c": "Methanol produces toxic organic acids and high-anion-gap acidosis.",
+        "d": "Acute renal failure often causes high-anion-gap acidosis from retained acids."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          694
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    }
+  }
+}

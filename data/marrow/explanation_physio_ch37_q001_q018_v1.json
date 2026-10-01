@@ -1,0 +1,380 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner-facing Marrow ED8 Physiology Chapter 37 explanation refinement; native diagrams and tables remain unchanged.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "37",
+    "chapterTitle": "Pituitary and Thyroid",
+    "questionStart": 1,
+    "questionEnd": 18,
+    "questions": 18,
+    "status": "approved-rollout",
+    "workloadScore": 18,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "f3cd6b9dccb2092743fa86de4b0bef682d61c83762e9f00fa3b04d0a355d89d6",
+    "auditReport": "docs/question-explanations/physiology-tail-20261001.md"
+  },
+  "questions": {
+    "marrow__PHYSIO_CH37_Q001": {
+      "takeaway": "Anterior pituitary acidophils secrete growth hormone and prolactin; GH is the listed acidophil product.",
+      "displayText": "Anterior pituitary acidophils secrete growth hormone and prolactin; GH is the listed acidophil product.\n\nGrowth hormone is secreted from acidophilic cells of anterior pituitary.\nAcidophilic cells secrete growth hormone and prolactin.\nBasophilic cells secrete TSH, ACTH, FSH and LH.",
+      "emphasis": [
+        "Anterior pituitary acidophils secrete growth hormone and prolactin; GH is the listed acidophil product"
+      ],
+      "rationales": {
+        "b": "TSH is produced by basophilic thyrotrophs.",
+        "c": "ACTH is secreted by basophilic corticotrophs.",
+        "d": "FSH is produced by basophilic gonadotrophs."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          702
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH37_Q002": {
+      "takeaway": "In pituitary-dependent Cushing disease, excess ACTH/POMC-derived peptides can stimulate melanocytes and cause hyperpigmentation.",
+      "displayText": "In pituitary-dependent Cushing disease, excess ACTH/POMC-derived peptides can stimulate melanocytes and cause hyperpigmentation.\n\nACTH is more responsible than MSH for the hyperpigmentation seen in a patient with Cushing syndrome due to pituitary cause (ACTH hypersecretion).\nACTH is a derivative of POMC (Pro-opiomelanocortin). POMC is the precursor of ACTH, melanocyte stimulating hormone (MSH), β lipotropin and β endorphin. Since the melanocyte-stimulating hormone is the byproduct of ACTH synthesis from POMC, any disease process which leads to ACTH overproduction will also lead to an increased level of MSH. ACTH has mild MSH activity, hence elevated levels of ACTH acts on melanotropin-1 receptors causing generalized hyperpigmentation.\nA similar manifestation will also be seen in Addison's disease where the ACTH level is high.",
+      "emphasis": [
+        "In pituitary-dependent Cushing disease, excess ACTH/POMC-derived peptides can stimulate melanocytes and cause hyperpigmentation"
+      ],
+      "rationales": {
+        "a": "TSH does not drive the characteristic ACTH-associated pigmentation.",
+        "b": "FSH is a gonadotropin and does not explain pigmentation in Cushing disease.",
+        "d": "MSH can stimulate pigmentation, but ACTH excess from the pituitary source is the key driver here."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          702
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH37_Q003": {
+      "takeaway": "Hypothalamic inhibitory control is prominent for prolactin (dopamine) and also restrains GH via somatostatin.",
+      "displayText": "Hypothalamic inhibitory control is prominent for prolactin (dopamine) and also restrains GH via somatostatin.\n\nInhibitory control by the hypothalamus is exerted mainly on prolactin and growth hormone.\nThe major hypothalamic releasing hormones are:\n• Thyrotropin releasing hormone (TRH)\n• Corticotropin releasing hormone (CRH)\n• Growth hormone releasing hormone (GHRH)\n• Gonadotropin releasing hormone (GnRH)\nThe major hypothalamic inhibitory hormones are:\n• Prolactin inhibitory hormone or dopamine\n• Growth hormone inhibitory hormone (GHIH), also called Somatostatin.",
+      "emphasis": [
+        "Hypothalamic inhibitory control is prominent for prolactin (dopamine) and also restrains GH via somatostatin"
+      ],
+      "rationales": {
+        "a": "GH is also inhibited by hypothalamic somatostatin, so prolactin alone is incomplete.",
+        "c": "Prolactin has tonic dopamine inhibition in addition to GH somatostatin control.",
+        "d": "Both hormones have hypothalamic inhibitory inputs."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          702
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH37_Q004": {
+      "takeaway": "Pituitary-stalk interruption removes hypothalamic dopamine delivery, releasing prolactin from tonic inhibition.",
+      "displayText": "Pituitary-stalk interruption removes hypothalamic dopamine delivery, releasing prolactin from tonic inhibition.\n\nThe secretion of prolactin is increased after the sectioning of the pituitary stalk.\nProlactin is unique among the pituitary hormones because the predominant central control mechanism is inhibitory, i.e., dopamine inhibits prolactin secretion. Hence, sectioning of the pituitary stalk (Ex: In head trauma or compressive skull lesions) prevents this inhibition and leads to increased secretion of prolactin.\nNote:\nIf the pituitary stalk is cut above the pituitary gland but the entire hypothalamus is left intact, the posterior pituitary hormones (ADH & Oxytocin) show a transient decrease because they are initially synthesized in the supraoptic and paraventricular nuclei of the hypothalamus and are then transported down to the nerve endings in the posterior pituitary gland, requiring several days to reach the gland.",
+      "emphasis": [
+        "Pituitary-stalk interruption removes hypothalamic dopamine delivery, releasing prolactin from tonic inhibition"
+      ],
+      "rationales": {
+        "b": "TSH secretion is not tonically inhibited by stalk dopamine in the same way.",
+        "c": "ACTH is primarily regulated by CRH and feedback, not dopamine withdrawal.",
+        "d": "FSH is regulated mainly by GnRH and gonadal feedback."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          703
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH37_Q005": {
+      "takeaway": "L-dopa increases dopaminergic tone and tends to suppress prolactin; it is not a cause of hyperprolactinemia.",
+      "displayText": "L-dopa increases dopaminergic tone and tends to suppress prolactin; it is not a cause of hyperprolactinemia.\n\nL-Dopa is not a cause of increased prolactin level, it decreases prolactin secretion by increasing the formation of dopamine (prolactin inhibitory hormone).",
+      "emphasis": [
+        "L-dopa increases dopaminergic tone and tends to suppress prolactin; it is not a cause of hyperprolactinemia"
+      ],
+      "rationales": {
+        "a": "Sleep can increase prolactin secretion.",
+        "b": "Pregnancy physiologically raises prolactin to support lactation.",
+        "c": "Stress can transiently increase prolactin."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          703
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH37_Q006": {
+      "takeaway": "Continuous GnRH causes pituitary GnRH-receptor downregulation and suppresses gonadotropin secretion after an initial flare.",
+      "displayText": "Continuous GnRH causes pituitary GnRH-receptor downregulation and suppresses gonadotropin secretion after an initial flare.\n\nContinuous GnRH administration suppresses the hypothalamic-pituitary axis.\nPulsatile GnRH stimulates the pulsatile release of LH and FSH.\nNote: Long-acting GnRH agonists are used to suppress gonadotropin levels in children with precocious puberty and in men with prostate cancer.",
+      "emphasis": [
+        "Continuous GnRH causes pituitary GnRH-receptor downregulation and suppresses gonadotropin secretion after an initial flare"
+      ],
+      "rationales": {
+        "a": "Pulsatile GnRH stimulates the axis; continuous exposure ultimately desensitizes it.",
+        "c": "The sustained effect is suppressive after the brief initial stimulation.",
+        "d": "Continuous GnRH has a strong suppressive effect, not no effect."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          703
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH37_Q007": {
+      "takeaway": "GH’s direct metabolic actions include lipolysis and insulin antagonism; IGF-1 mediates growth and anti-lipolytic effects in this source framework.",
+      "displayText": "GH’s direct metabolic actions include lipolysis and insulin antagonism; IGF-1 mediates growth and anti-lipolytic effects in this source framework.\n\nAntilipolysis is mediated by IGF-1.\nThe actions of growth hormone-mediated via IGF-1 (somatomedin-C) are the indirect effects of growth hormone and include:\n• Antilipolytic activity\n• Insulin-like activity\n• Protein synthesis\n• Epiphyseal growth\nThe direct effects of GH include:\n• Sodium retention\n• Decreased insulin sensitivity\n• Lipolysis\n• Protein synthesis\n• Epiphyseal growth",
+      "emphasis": [
+        "GH’s direct metabolic actions include lipolysis and insulin antagonism; IGF-1 mediates growth and anti-lipolytic effects in this source framework"
+      ],
+      "rationales": {
+        "a": "Lipolysis is a direct GH metabolic effect rather than the IGF-1-mediated choice.",
+        "b": "GH directly decreases insulin sensitivity; this is not the IGF-1-mediated action keyed.",
+        "d": "Sodium retention is a direct GH-related renal effect, not the IGF-1-mediated effect asked."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          703
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH37_Q008": {
+      "takeaway": "GH promotes bone growth both directly and indirectly through hepatic and local IGF-1.",
+      "displayText": "GH promotes bone growth both directly and indirectly through hepatic and local IGF-1.\n\nGrowth hormone (GH) has both direct and indirect effects on bone growth.\nGH stimulates prechondrocytes to differentiate into chondrocytes. GH strongly stimulates osteoblasts and chondrocytes causing increased deposition of proteins → bone growth. GH also increases insulin-like growth factor (IGF-I) levels, which stimulate bone growth.\nNote: The pygmies of Africa have a congenital inability to synthesize significant amounts of somatomedin C (IGF-I). Therefore, even though their plasma concentration of growth hormone is either normal or high, they have diminished amounts of IGF-I in the plasma, which accounts for the short stature. Some other dwarfs (e.g., the Levi-Lorain dwarf) also have this problem.",
+      "emphasis": [
+        "GH promotes bone growth both directly and indirectly through hepatic and local IGF-1"
+      ],
+      "rationales": {
+        "a": "Direct GH action contributes but does not account for the full growth effect.",
+        "b": "IGF-1 mediates much of GH’s growth-promoting effect, but direct action also contributes.",
+        "c": "Thyroxine supports normal growth but is not the pathway by which GH acts on bone."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          704
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH37_Q009": {
+      "takeaway": "The plotted episodic secretory pattern with prominent sleep-associated pulses corresponds to growth hormone.",
+      "displayText": "The plotted episodic secretory pattern with prominent sleep-associated pulses corresponds to growth hormone.\n\nGrowth hormone demonstrates the depicted fluctuations. Growth hormone is secreted in a pulsatile fashion, with increase during strenuous exercise and during the early period of sleep (Non-REM Sleep) as shown in the graph. It is reduced during the later stages of sleep (REM sleep).\nOther options:\nOption A: ACTH levels are high in the early morning and low in the late evening.\nOption C: TSH is secreted in pulses, but the fluctuations are less in comparison to other pituitary hormones because of the low amplitude of the pulses and the relatively long half-life of TSH.\nOption D: Prolactin is secreted in a pulsatile fashion, with the highest secretory peak between 4:00 and 6:00 a.m. (REM Sleep).",
+      "emphasis": [
+        "The plotted episodic secretory pattern with prominent sleep-associated pulses corresponds to growth hormone"
+      ],
+      "rationales": {
+        "a": "ACTH follows a circadian rhythm but does not show the characteristic large episodic GH pulses depicted.",
+        "c": "TSH has circadian variation but the pulse pattern shown is characteristic of GH.",
+        "d": "Prolactin rises during sleep, but the plotted pattern is the classic GH secretion profile."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          704
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH37_Q010": {
+      "takeaway": "GH secretion falls during REM sleep; deep slow-wave sleep, hypoglycemia, fasting and exercise can stimulate GH.",
+      "displayText": "GH secretion falls during REM sleep; deep slow-wave sleep, hypoglycemia, fasting and exercise can stimulate GH.\n\nGrowth hormone (GH) level is decreased during deep sleep. Specifically, it is reduced during REM sleep as the levels of GHRH reduces and levels of cortisol are higher compared to slow wave sleep.\nHypoglycemia, fasting, and exercise cause an increase in GH secretion. GH levels are increased during non-REM sleep.\nGH levels also decline with age and obesity.",
+      "emphasis": [
+        "GH secretion falls during REM sleep; deep slow-wave sleep, hypoglycemia, fasting and exercise can stimulate GH"
+      ],
+      "rationales": {
+        "a": "Hypoglycemia stimulates GH as a counter-regulatory response.",
+        "b": "Fasting can increase GH secretion to support lipolysis and glucose sparing.",
+        "d": "Exercise is a physiologic stimulus for GH release."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          704
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH37_Q011": {
+      "takeaway": "Adult acromegalic features with elevated age-adjusted IGF-I indicate chronic GH excess, usually from a pituitary adenoma.",
+      "displayText": "Adult acromegalic features with elevated age-adjusted IGF-I indicate chronic GH excess, usually from a pituitary adenoma.\n\nThe given clinical scenario is suggestive of acromegaly and is due to excess growth hormone (GH).\nAcromegaly occurs when excessive GH is secreted after puberty (after fusion of long bone epiphysis). Features include:\n• Prognathism (protrusion of jaw), hypertrophy of frontal bones\n• Acral enlargement in hands and feet (due to thickening of soft tissues)\n• Visceromegaly: Enlargement of most organs, especially the tongue, thyroid, salivary gland, liver, spleen, kidney, and prostate\nSerious complications include cardiomyopathy with arrhythmias, diabetes mellitus, obstructive sleep apnoea, and increased risk of colonic polyps and cancer. Age-matched IGF-I levels are elevated.",
+      "emphasis": [
+        "Adult acromegalic features with elevated age-adjusted IGF-I indicate chronic GH excess, usually from a pituitary adenoma"
+      ],
+      "rationales": {
+        "b": "GH deficiency causes impaired growth/metabolic effects, not progressive acral enlargement.",
+        "c": "Somatostatin suppresses GH; excess would not produce acromegaly.",
+        "d": "Somatostatin deficiency could affect GH regulation but the direct clinical cause is GH excess."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          705
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH37_Q012": {
+      "takeaway": "The posterior pituitary releases oxytocin and vasopressin made in hypothalamic neurons; oxytocin is the listed hormone.",
+      "displayText": "The posterior pituitary releases oxytocin and vasopressin made in hypothalamic neurons; oxytocin is the listed hormone.\n\nThe posterior pituitary or neurohypophysis releases oxytocin and anti-diuretic hormone (ADH or vasopressin).\nNote: ADH and oxytocin are synthesised by the supraoptic and paraventricular nuclei of the hypothalamus. Thereafter, they are stored and released from the posterior pituitary.",
+      "emphasis": [
+        "The posterior pituitary releases oxytocin and vasopressin made in hypothalamic neurons; oxytocin is the listed hormone"
+      ],
+      "rationales": {
+        "b": "Prolactin is secreted by anterior-pituitary lactotrophs.",
+        "c": "MSH is secreted by pars intermedia/anterior pituitary cells.",
+        "d": "ACTH is secreted by anterior-pituitary corticotrophs."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          705
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH37_Q013": {
+      "takeaway": "Vasopressin receptor subtypes are V1a vascular smooth muscle, V1b pituitary and V2 renal collecting duct; V4 is not a standard CNS receptor.",
+      "displayText": "Vasopressin receptor subtypes are V1a vascular smooth muscle, V1b pituitary and V2 renal collecting duct; V4 is not a standard CNS receptor.\n\nThe pair V4-CNS is incorrect.\nVasopressin mediates its effect via 3 kinds of receptors- V1a, V1b and V2. There is no V4.",
+      "emphasis": [
+        "Vasopressin receptor subtypes are V1a vascular smooth muscle, V1b pituitary and V2 renal collecting duct; V4 is not a standard CNS receptor"
+      ],
+      "rationales": {
+        "a": "V1a receptors mediate vascular smooth-muscle contraction.",
+        "b": "V2 receptors in collecting ducts increase water reabsorption.",
+        "c": "V1b receptors occur on anterior-pituitary corticotrophs."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          706
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH37_Q014": {
+      "takeaway": "Chronic vasopressin exposure in SIADH can cause escape through reduced aquaporin-2 expression and natriuretic adaptation.",
+      "displayText": "Chronic vasopressin exposure in SIADH can cause escape through reduced aquaporin-2 expression and natriuretic adaptation.\n\nVasopressin escape in SIADH (Syndrome of inappropriate ADH secretion) results due to downregulation of aquaporin 2 production.\nProlonged exposure to elevated levels of vasopressin (ADH) leads eventually to downregulation of aquaporin-2 receptors. This prevents excessive reabsorption of water, despite high serum ADH levels and hence maintains euvolemia. This is known as vasopressin escape. This helps prevent excessive dilutional hyponatremia in SIADH.",
+      "emphasis": [
+        "Chronic vasopressin exposure in SIADH can cause escape through reduced aquaporin-2 expression and natriuretic adaptation"
+      ],
+      "rationales": {
+        "b": "Urine osmolality may remain high under ADH; increased osmolality is not the escape mechanism.",
+        "c": "SIADH does not resolve by reducing ADH secretion; escape occurs despite persistent hormone.",
+        "d": "Aquaporin-2 upregulation would intensify water retention rather than permit escape."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          706
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH37_Q015": {
+      "takeaway": "The sodium–iodide symporter is expressed in thyroid and several extrathyroidal tissues, but not the pituitary.",
+      "displayText": "The sodium–iodide symporter is expressed in thyroid and several extrathyroidal tissues, but not the pituitary.\n\nSodium-iodide symport is absent in the pituitary.\nNa+/I− symporter is present in:\n• Basolateral membranes of thyrocytes facing the capillaries\n• Salivary glands\n• Gastric mucosa\n• Placenta\n• Ciliary body of the eye\n• Choroid plexus\n• Mammary glands",
+      "emphasis": [
+        "The sodium–iodide symporter is expressed in thyroid and several extrathyroidal tissues, but not the pituitary"
+      ],
+      "rationales": {
+        "b": "Placenta expresses NIS to concentrate iodide.",
+        "c": "Parotid salivary glands express NIS and can concentrate iodide.",
+        "d": "Thyroid follicular cells express NIS for iodide uptake."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          706
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH37_Q016": {
+      "takeaway": "Thyroid peroxidase catalyzes iodide oxidation, thyroglobulin organification and iodotyrosine coupling; iodide trapping is NIS-mediated.",
+      "displayText": "Thyroid peroxidase catalyzes iodide oxidation, thyroglobulin organification and iodotyrosine coupling; iodide trapping is NIS-mediated.\n\nIodide trapping (iodide uptake) is not catalyzed by thyroid peroxidase. Oxidation, organification, and coupling are catalyzed by it.\nSteps in synthesis and secretion of thyroid hormone:\n• Iodide uptake: The basolateral sodium-iodide symporter (NIS) actively takes up I− (iodide) from the circulation into the follicular cells. It is then transported into the colloid through a pendrin (chloride-iodide) transporter.\n• Thyroglobulin synthesis: Thyroglobulin (Tg), is a large glycoprotein rich in tyrosine residues. It is synthesized by follicular cells.\n• Iodination of thyroglobulin: This is regulated by the thyroid peroxidase (TPO) enzyme. TPO has three functions:\n  • Oxidation: TPO oxidizes I− to I2 (iodine) in the presence of H2O2\n  • Organification: TPO links tyrosine residues of thyroglobulin with iodine (I2) to form monoiodotyrosine (MIT), diiodotyrosine (DIT)\n  • Coupling reactions: TPO combines iodinated tyrosine residues to make MIT + DIT = T3 (triiodothyronine), DIT + DIT = T4 (tetraiodothyronine)\n• Storage: Thyroid hormones are bound to thyroglobulin and stored in the follicular lumen as colloids. The colloid has hormone reserves for 2-3 months.\n• Release: Iodinated thyroglobulin is taken up by the thyroid follicles via endocytosis and fuses with lysosomes. It is cleaved by lysosomal proteolytic enzymes into MIT, DIT, T3, and T4. T4 (80%) and T3 (20%) are released into the blood.\n• Peripheral T3 conversion: T4 undergoes deiodination in extrathyroidal tissue to form T3, which is the active form of the hormone.",
+      "emphasis": [
+        "Thyroid peroxidase catalyzes iodide oxidation, thyroglobulin organification and iodotyrosine coupling; iodide trapping is NIS-mediated"
+      ],
+      "rationales": {
+        "a": "TPO catalyzes coupling of MIT and DIT to form thyroid hormones.",
+        "b": "TPO oxidizes iodide at the apical follicular surface.",
+        "c": "TPO organifies iodine onto tyrosyl residues in thyroglobulin."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          706
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH37_Q017": {
+      "takeaway": "Lugol iodine acutely inhibits thyroid hormone organification and synthesis (Wolff–Chaikoff effect) before thyroidectomy.",
+      "displayText": "Lugol iodine acutely inhibits thyroid hormone organification and synthesis (Wolff–Chaikoff effect) before thyroidectomy.\n\nIntroduction of exogenous iodine in the form of Lugol's iodine solution leads to transient inhibition of organification and synthesis of thyroid hormones. This is known as the Wolff-Chaikoff effect.\nIn individuals with a normal thyroid, the gland escapes from this inhibitory effect and iodide organification resumes; but the suppressive action of high iodide may persist in patients with hyperthyroidism due to underlying autoimmune thyroid disease.\nNote: Jod-Basedow effect is iodine-induced hyperthyroidism, usually occurring after the use of an I-based contrast agent. It is often seen in the presence of pre-existing thyroid conditions like multinodular goitre.",
+      "emphasis": [
+        "Lugol iodine acutely inhibits thyroid hormone organification and synthesis (Wolff–Chaikoff effect) before thyroidectomy"
+      ],
+      "rationales": {
+        "a": "It does not primarily suppress pituitary TSH secretion.",
+        "b": "Its acute action is broader inhibition of organification/synthesis, not only MIT iodination.",
+        "c": "Deiodinase inhibition is the mechanism of PTU, not Lugol iodine’s principal action."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          707
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH37_Q018": {
+      "takeaway": "The thyroid stores several months’ supply of hormone extracellularly in follicular colloid bound to thyroglobulin.",
+      "displayText": "The thyroid stores several months’ supply of hormone extracellularly in follicular colloid bound to thyroglobulin.\n\nThyroxine is stored in the thyroid follicles for 2-3 months, bound to thyroglobulin.\nServes as a reserve of T3 and T4, thus delaying the occurrence of hypothyroidism, if thyroid secretion ceases.",
+      "emphasis": [
+        "The thyroid stores several months’ supply of hormone extracellularly in follicular colloid bound to thyroglobulin"
+      ],
+      "rationales": {
+        "a": "Two to three weeks underestimates the substantial colloid hormone reserve.",
+        "b": "Two to three days is far too short for the thyroid’s storage capacity.",
+        "d": "The follicular store lasts months, not multiple years."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          708
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    }
+  }
+}
