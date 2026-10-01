@@ -1166,3 +1166,44 @@ It is successful when each run leaves the repository in one of two states:
 
 Never trade traceability for throughput.
 
+## User-directed parallel refinement waves — 2026-09-30
+
+When the user explicitly requests parallel authoring and a combined preview build,
+assign disjoint, bounded chapter batches to workers. Workers may edit only their
+assigned augmentation files and audit reports. One integrator owns inventory,
+runtime, verification, memory, commits and release. The user-directed wave may
+combine reviewed chapter batches into one full verification build; the scheduled
+single-batch restrictions above do not prohibit this explicitly authorized mode.
+
+Use the canonical integration trunk and complete 2,711-question corpus defined
+in `MARROW_CANONICAL_AUTOMATION_POLICY.md`; historical lineage/count instructions
+above are superseded by that policy. Resolve pending work from actual approved
+stable IDs before treating an open PR as unfinished: PR76 remained open even
+though its Biochemistry Ch14 Q1–8 content was already canonical and live.
+
+Source review must compare the full original explanation, not just its answer
+sentence. Preserve unique mechanisms, enzymes/cofactors, derivatives, definitions,
+lists and classifications. Readability does not justify replacing the source
+with a generic summary. Correct medical source limitations with explicit evidence
+and provenance rather than silently omitting difficult statements.
+
+Verbatim emphasis must be checked case-sensitively. Source-PDF table placeholders
+with null columns/rows are not completed tables. Recoverable tables may use
+reviewed `displayTables` augmentation with exact source-page ownership and
+reconstruction evidence; the raw imported table remains immutable. Existing
+populated native tables remain owned by the shared compatibility renderer.
+
+The first wave is pinned by `explanation_refinement_wave_20260930.json` and
+validated by `test_marrow_explanation_refinement_wave.py`. Its browser verifier
+checks every new ID's compiled augmentation on phone/tablet and real answer,
+distractor, emphasis, FSRS and populated-table surfaces for each batch and all
+table owners. Passing source checks or setting `approved-rollout` is not a claim
+of full build verification; exact-head Engineering and full CI remain required.
+
+### Resumed full remaining queue — 2026-10-01
+
+The user authorizes subject workers to self-review all remaining explanations in bounded chapter files and trusts their medical/source authoring. The integrator reviews flagged exceptions and runs automated contracts rather than repeating every medical review. `explanation_refinement_queue_20261001.json` pins the 753 completed IDs and their exact augmentation fingerprints, immutable subject hashes, disjoint pending batch IDs, and 23 deferred Marrow source gates. Do not restart completed work.
+
+Workers can call `validate_marrow_explanation_batch.py --root <worktree> --base-sha <canonical-base>` before global inventory is regenerated. This validates options, ownership, emphasis and mechanical source-word retention; low retention requires explicit reconstruction evidence. Mechanical retention is not medical certification: each author must check source-local meaning, contamination, clinical caveats and distractor facts. Preserve populated tables with either `columns` or historical `headers` lists. The latter exposed a real empty-render defect at Physiology Ch42 Q8 and is now a generic renderer regression.
+
+The integrator pins reviewed files with `build_marrow_explanation_refinement_wave.py --require-complete`, regenerates inventory, validates every historical wave and the latest full queue, then performs a single combined full preview/package build. Historical source/config hashes remain enforced; latest-wave checks require every actionable ID accounted for and all deliberately deferred source gates unchanged.

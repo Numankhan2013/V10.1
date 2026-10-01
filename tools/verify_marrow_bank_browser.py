@@ -14,6 +14,7 @@ for name in (
     "verify_marrow_anatomy_ch07_q010_browser.py",
     "verify_marrow_anatomy_ch07_q019_browser.py",
     "verify_marrow_physio_ch11_q001_q006_browser.py",
+    "verify_marrow_explanation_refinement_browser.py",
 ):
     target = Path(__file__).with_name(name)
     result = subprocess.run([sys.executable, str(target)], cwd=target.parent.parent)

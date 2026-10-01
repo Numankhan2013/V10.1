@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Candidate learner-facing Marrow ED8 Biochemistry Chapter 13 Q17-Q19 explanation refinement. Raw imported source remains immutable.",
+  "scope": {
+    "subject": "Biochemistry",
+    "bank": "Marrow",
+    "chapterId": "13",
+    "chapter": "Fatty acid oxidation and ketogenesis",
+    "questionStart": 17,
+    "questionEnd": 19,
+    "questions": 3,
+    "status": "approved-rollout",
+    "workloadScore": 4,
+    "canonicalBaseSha": "81822e44753f5c3af7c2f2b0719d12230eed4478",
+    "sourceRawSha256": "919f0709b2eb833e302c6f7524b6dd2bd13bfaed638009375b5062135d3795b1"
+  },
+  "questions": {
+    "marrow__BIOCHEM_CH13_Q017": {
+      "takeaway": "The liver produces ketone bodies but cannot oxidize them because it lacks SCOT (thiophorase).",
+      "displayText": "The liver makes ketone bodies but cannot use them because it lacks SCOT (succinyl-CoA:3-oxoacid CoA transferase, also called thiophorase). In extrahepatic tissues, β-hydroxybutyrate is oxidized to acetoacetate by β-hydroxybutyrate dehydrogenase, producing NADH. SCOT then transfers CoA from succinyl-CoA to acetoacetate to form acetoacetyl-CoA; thiolase splits this into two acetyl-CoA molecules, which can be oxidized through the TCA cycle to CO2. Skeletal muscle, kidney, and—especially during prolonged fasting—brain can use ketone bodies. Red blood cells cannot because they lack mitochondria.",
+      "emphasis": [
+        "lacks SCOT",
+        "β-hydroxybutyrate dehydrogenase, producing NADH",
+        "two acetyl-CoA molecules",
+        "lack mitochondria"
+      ],
+      "rationales": {
+        "a": "The brain can oxidize ketone bodies, particularly during prolonged fasting; it is not excluded from ketone use like the liver.",
+        "b": "Skeletal muscle expresses the ketolytic machinery and can oxidize ketone bodies, especially during fasting and exercise.",
+        "d": "The kidney can use ketone bodies as an oxidative fuel; unlike the liver, it has SCOT."
+      },
+      "sourceNotes": [
+        "Source question and answer key: ED8 Biochemistry PDF pp. 200 and 202; source explanation pp. 209. The source explicitly states that liver lacks thiophorase and cannot utilize ketone bodies.",
+        "Medical cross-check: PMID 9380443 reports SCOT in human tissues except liver; https://pubmed.ncbi.nlm.nih.gov/9380443/ ."
+      ]
+    },
+    "marrow__BIOCHEM_CH13_Q018": {
+      "takeaway": "Rothera's nitroprusside test detects acetoacetate (and acetone), but not β-hydroxybutyrate.",
+      "displayText": "This presentation is consistent with diabetic ketoacidosis. Rothera's test uses nitroprusside to detect urinary acetoacetate (and acetone); a purple ring at the liquid interface is a positive result. It does not detect β-hydroxybutyrate. Because β-hydroxybutyrate may predominate in severe DKA, a positive Rothera result supports ketonuria, but the test can underestimate the total ketone burden and should not be used to judge DKA severity or treatment response.",
+      "emphasis": [
+        "Rothera's test uses nitroprusside",
+        "acetoacetate (and acetone)",
+        "a purple ring at the liquid interface",
+        "It does not detect β-hydroxybutyrate"
+      ],
+      "rationales": {
+        "a": "Hay's sulfur test is used to detect bile salts, not ketones.",
+        "b": "Fouchet's test detects bilirubin-related pigment; it is not a urine ketone test.",
+        "c": "Ninhydrin reacts with free amino groups, including amino acids, rather than detecting ketone bodies."
+      },
+      "sourceNotes": [
+        "Source question and answer key: ED8 Biochemistry PDF pp. 200 and 202; source explanation pp. 209-210, including the explicit β-hydroxybutyrate limitation.",
+        "Medical cross-check: Clinical Methods, NCBI Bookshelf, https://www.ncbi.nlm.nih.gov/books/NBK247/ ; the sodium nitroprusside reaction detects acetone and acetoacetate but not hydroxybutyrate."
+      ]
+    },
+    "marrow__BIOCHEM_CH13_Q019": {
+      "takeaway": "In untreated type 1 diabetes, insulin deficiency increases adipose lipolysis and fatty-acid β-oxidation, supplying more acetyl-CoA for ketogenesis.",
+      "displayText": "In inadequately treated type 1 diabetes, low insulin removes inhibition of hormone-sensitive lipase (HSL) in adipocytes, increasing lipolysis and release of free fatty acids. These fatty acids undergo hepatic β-oxidation to acetyl-CoA. With increased NADH and oxaloacetate diverted toward gluconeogenesis, TCA-cycle oxidation is constrained and more acetyl-CoA enters ketogenesis, producing acetoacetate, acetone, and β-hydroxybutyrate. This is the mechanism identified by the source key.",
+      "emphasis": [
+        "low insulin",
+        "hormone-sensitive lipase (HSL)",
+        "hepatic β-oxidation to acetyl-CoA",
+        "acetoacetate, acetone, and β-hydroxybutyrate"
+      ],
+      "rationales": {
+        "a": "Insulin deficiency does not favor muscle glycogen synthesis; low insulin reduces glucose uptake and anabolic storage in muscle.",
+        "b": "Insulin is anabolic and supports protein synthesis. Its deficiency instead promotes proteolysis and a catabolic state.",
+        "d": "The source does not establish a generalized decrease in cholesterol synthesis as the defining acute response. The keyed and directly explained change is increased fatty-acid oxidation to acetyl-CoA; option D remains a context-dependent distractor and is noted for review below."
+      },
+      "sourceNotes": [
+        "Source question and answer key: ED8 Biochemistry PDF pp. 201-202; source explanation p. 210 describes insulin deficiency, hormone-sensitive lipase, lipolysis, β-oxidation, acetyl-CoA and ketogenesis.",
+        "Medical cross-check: Biochemistry, Ketogenesis, NCBI Bookshelf, https://www.ncbi.nlm.nih.gov/books/NBK493179/ .",
+        "Review caveat: option D (decreased cholesterol synthesis) may depend on tissue, timing, and diabetes model; the source does not discuss it. The source-keyed choice C is the directly supported acute ketogenesis mechanism, but the distractor's broad wording should receive human review before approval."
+      ],
+      "reconstruction": {
+        "status": "needs_manual_review",
+        "sourceProblem": "The source asks for the most likely change but does not discuss option D (decreased cholesterol synthesis); insulin deficiency can alter cholesterol synthesis in a tissue- and time-dependent manner, so its exclusion is not established by the supplied explanation.",
+        "evidenceBasis": [
+          "The source answer key selects option C and its explanation traces insulin deficiency through hormone-sensitive lipase, lipolysis, β-oxidation, acetyl-CoA, and ketone-body formation.",
+          "The source provides no explanation for option D, so the rationale does not claim that cholesterol synthesis cannot decrease."
+        ],
+        "reviewNote": "Human source/content review is required to determine whether option D makes the single-best-answer item ambiguous.",
+        "reconstructedContent": "The display teaches only the source-keyed acute pathway from HSL disinhibition through fatty-acid β-oxidation and ketogenesis. It does not claim that the question's wording rules out every possible change in cholesterol synthesis."
+      }
+    }
+  }
+}

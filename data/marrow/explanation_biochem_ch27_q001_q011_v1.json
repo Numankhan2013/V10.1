@@ -1,0 +1,184 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner-facing Marrow ED8 Biochemistry Chapter 27 explanation refinement; source records and figures remain immutable.",
+  "scope": {
+    "subject": "Biochemistry",
+    "bank": "Marrow",
+    "chapterId": "27",
+    "chapter": "Gene Regulation",
+    "questionStart": 1,
+    "questionEnd": 11,
+    "questions": 11,
+    "status": "approved-rollout",
+    "workloadScore": 12,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "919f0709b2eb833e302c6f7524b6dd2bd13bfaed638009375b5062135d3795b1"
+  },
+  "questions": {
+    "marrow__BIOCHEM_CH27_Q001": {
+      "takeaway": "Housekeeping genes sustain basal cellular functions; β-galactosidase is an inducible enzyme used in the lac system.",
+      "displayText": "Housekeeping genes sustain basal cellular functions; β-galactosidase is an inducible enzyme used in the lac system.\n\nThe gene expressing beta-galactosidase is not a housekeeping gene.\n\nHousekeeping or constitutive genes are those which are expressed at a constant rate in almost all the cells of the body. These genes are required for the basal cellular function. Examples include genes encoding RNA polymerase, ribosomal protein, rRNA, enzymes for glycolysis, etc.\n\nIn contrast, inducible genes are those which are expressed under special circumstances. The expression of these genes increase in response to an activator or inducer, or decrease in response to a repressor.",
+      "emphasis": [
+        "Housekeeping genes sustain basal cellular functions; β-galactosidase is an inducible enzyme used in the lac system"
+      ],
+      "rationales": {
+        "a": "Ribosomal proteins are needed for ongoing translation and are a classic housekeeping-gene product.",
+        "b": "Ribosomal RNAs are required for ribosome function in essentially all cells and are housekeeping products.",
+        "d": "RNA polymerase is required for transcription and is expressed for basal cellular function."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. not assigned in source metadata; explanation p. not assigned in source metadata."
+      ]
+    },
+    "marrow__BIOCHEM_CH27_Q002": {
+      "takeaway": "A regulatory gene such as lacI encodes a repressor that binds the operator and regulates structural-gene transcription.",
+      "displayText": "A regulatory gene such as lacI encodes a repressor that binds the operator and regulates structural-gene transcription.\n\nA repressor protein is produced by a regulatory gene.\n\nIn bacterial operons, a regulatory gene, like the lac I gene, which is present upstream of a set of structural genes, codes for a repressor protein (a transacting factor). The repressor protein binds to the operator site and interferes with the progress of RNA polymerase. This blocks transcription of the structural genes and is an example of negative regulation of gene transcription.",
+      "emphasis": [
+        "A regulatory gene such as lacI encodes a repressor that binds the operator and regulates structural-gene transcription"
+      ],
+      "rationales": {
+        "a": "An operon is a DNA organization unit containing structural genes and control elements, not a protein product.",
+        "b": "An inducer is a small molecule that alters repressor activity; it is not encoded as the regulatory gene's protein product.",
+        "c": "A promoter is a DNA sequence where RNA polymerase binds, not a protein."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. not assigned in source metadata; explanation p. not assigned in source metadata."
+      ]
+    },
+    "marrow__BIOCHEM_CH27_Q003": {
+      "takeaway": "The operon model explains how bacteria coordinate transcription of functionally related genes under shared control.",
+      "displayText": "The operon model explains how bacteria coordinate transcription of functionally related genes under shared control.\n\nThe operon model attempts to explain the coordinated control of gene expression in bacteria.\n\nIn bacteria, the structural genes that code for proteins involved in a particular metabolic pathway are often found sequentially grouped on the chromosome. The cis-acting regulatory elements that determine the transcription of these genes are also grouped with the structural genes.\n\nThe transcription product of the entire operon is a single polycistronic messenger RNA (mRNA). The structural genes described above are coordinately controlled, that is, turned on or off as a unit. This entire package, of structural and regulatory genes, is referred to as an operon. An example of this is the lac operon in Escherichia coli.\n\nNote: Gene regulation in bacteria is important in order to:\n• Enable response to environmental stimuli\n• Allow cells to adjust promptly to changes in the growth medium\n• Alter biochemical capabilities appropriate for available substrate",
+      "emphasis": [
+        "The operon model explains how bacteria coordinate transcription of functionally related genes under shared control"
+      ],
+      "rationales": {
+        "b": "Antibiotic resistance can involve gene regulation but is not the central phenomenon the operon model was devised to explain.",
+        "c": "Movement between homologous DNA regions concerns recombination, not coordinated expression of operon genes.",
+        "d": "Viral attachment is a host-entry process unrelated to bacterial operon regulation."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. not assigned in source metadata; explanation p. not assigned in source metadata."
+      ]
+    },
+    "marrow__BIOCHEM_CH27_Q004": {
+      "takeaway": "Allolactose binds LacI repressor and reduces its operator affinity, allowing transcription when lactose is available.",
+      "displayText": "Allolactose binds LacI repressor and reduces its operator affinity, allowing transcription when lactose is available.\n\nIn the Lac operon model, lactose binds to the repressor protein and inactivates it, thus activating transcription.\n\nWhen lactose is present in abundance, a small amount of lactose is converted to allolactose. This compound binds to the repressor protein of the lac operon and creates a conformational change. As a result, the repressor cannot bind to the operator and transcription of the structural genes occurs. This is an example of negative regulation.\n\nThis can only occur when glucose is absent. In the absence of glucose, adenylyl cyclase is active. This generates sufficient quantities of cAMP which bind to catabolite activator protein (CAP). The cAMP-CAP trans-acting complex binds to the CAP-binding site, another regulatory region present upstream of the structural genes of the operon. This causes RNA polymerase to more efficiently initiate transcription at the promoter site. This is an example of positive regulation.",
+      "emphasis": [
+        "Allolactose binds LacI repressor and reduces its operator affinity, allowing transcription when lactose is available"
+      ],
+      "rationales": {
+        "a": "Lactose does not directly activate RNA polymerase; allolactose acts through the lac repressor.",
+        "b": "The operator is bound by the repressor; lactose does not bind there or block polymerase at the promoter.",
+        "c": "The promoter is the polymerase-binding DNA element; lactose acts by changing repressor conformation."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. not assigned in source metadata; explanation p. not assigned in source metadata."
+      ]
+    },
+    "marrow__BIOCHEM_CH27_Q005": {
+      "takeaway": "Lac operon transcription is favored by lactose (allolactose removes repression) and high cAMP when glucose is scarce.",
+      "displayText": "Lac operon transcription is favored by lactose (allolactose removes repression) and high cAMP when glucose is scarce.\n\nThe lac operon is induced only when cyclic AMP and lactose levels are both high within the cell.\n\nWhen lactose is present in abundance, a small amount of lactose is converted to allolactose. This compound binds to the repressor protein of the lac operon and creates a conformational change. As a result, the repressor cannot bind to the operator and transcription of the structural genes occurs. This is an example of negative regulation.\n\nThis can only occur when glucose is absent. In the absence of glucose, adenylyl cyclase is active. This generates sufficient quantities of cAMP which bind to catabolite activator protein (CAP). The cAMP-CAP trans-acting complex binds to the CAP-binding site, another regulatory region present upstream of the structural genes of the operon. This causes RNA polymerase to more efficiently initiate transcription at the promoter site. This is an example of positive regulation.",
+      "emphasis": [
+        "Lac operon transcription is favored by lactose (allolactose removes repression) and high cAMP when glucose is scarce"
+      ],
+      "rationales": {
+        "a": "More glucose than lactose means low cAMP and weak CAP activation, so the operon is not strongly transcribed.",
+        "b": "Low cAMP means little cAMP–CAP activation at the promoter, reducing transcription even if repression is relieved.",
+        "c": "Glucose without lactose leaves LacI bound to the operator, repressing structural-gene transcription."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. not assigned in source metadata; explanation p. not assigned in source metadata."
+      ]
+    },
+    "marrow__BIOCHEM_CH27_Q006": {
+      "takeaway": "The promoter is the DNA site recognized by RNA polymerase; a promoter mutation can alter polymerase binding and transcription initiation.",
+      "displayText": "The promoter is the DNA site recognized by RNA polymerase; a promoter mutation can alter polymerase binding and transcription initiation.\n\nA mutation in the promoter section of DNA could influence the binding of RNA polymerase to the DNA.\n\nThe regulatory portion of bacterial operon is upstream of its structural genes, and consists of the promoter (P) region where RNA polymerase binds and two additional sites, the operator (O) site and the CAP site, where regulatory proteins bind.\n\nCorepressor is a substance that facilitate the inhibition of gene expression. In prokaryotes, corepressors are small molecules whereas, in eukaryotes, corepressors are proteins. A corepressor binds to the repressors and activates the repressor transcription factor. The repressor, in turn, binds to the operator site, thereby blocking the transcription from the structural genes. A lack of corepressor would result in the inability of the cell to “turn off” genes.",
+      "emphasis": [
+        "The promoter is the DNA site recognized by RNA polymerase; a promoter mutation can alter polymerase binding and transcription initiation"
+      ],
+      "rationales": {
+        "a": "An operon is the full coordinated gene unit, not the specific polymerase docking sequence.",
+        "b": "An inducer is a small effector molecule and is not a DNA segment that binds RNA polymerase.",
+        "d": "A corepressor is a small molecule that enables repressor binding; it is not the polymerase-binding DNA region."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. not assigned in source metadata; explanation p. not assigned in source metadata."
+      ]
+    },
+    "marrow__BIOCHEM_CH27_Q007": {
+      "takeaway": "The trp operon is repressible: tryptophan acts as a corepressor, activating TrpR to shut off biosynthesis genes.",
+      "displayText": "The trp operon is repressible: tryptophan acts as a corepressor, activating TrpR to shut off biosynthesis genes.\n\nThe tryptophan operon is a repressible operon that is turned off whenever tryptophan is added to the growth medium.\n\nThe tryptophan operon contains five structural genes: trp E, trp D, trp C, trp B, trp A, which encode enzymes required for the synthesis of tryptophan. It also contains a promoter that binds to RNA polymerase. Its operator blocks transcription when it is bound to repressor protein synthesized by the repressor gene (trp R). In this, tryptophan is a corepressor i.e. it facilitates binding of the repressor protein to the operator.",
+      "emphasis": [
+        "The trp operon is repressible: tryptophan acts as a corepressor, activating TrpR to shut off biosynthesis genes"
+      ],
+      "rationales": {
+        "a": "The trp operon is not constitutively on; abundant tryptophan represses its transcription.",
+        "b": "Tryptophan presence turns the biosynthetic operon off rather than on.",
+        "c": "Glucose regulation is central to catabolite repression in lac operon, not the tryptophan corepressor switch."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. not assigned in source metadata; explanation p. not assigned in source metadata."
+      ]
+    },
+    "marrow__BIOCHEM_CH27_Q008": {
+      "takeaway": "DNA CpG methylation generally silences transcription, whereas histone acetylation loosens chromatin and can promote transcription.",
+      "displayText": "DNA CpG methylation generally silences transcription, whereas histone acetylation loosens chromatin and can promote transcription.\n\nTwo potential devices that eukaryotic cells use to regulate transcription are as follows: DNA methylation and histone acetylation.\n\nDNA methylation occurs by methyltransferases that use S-adenosyl-methionine as the methyl donor. It silences gene expression.\n\nHistone acetylation decreases the positive charge on histone proteins, thus decreasing the strength of their association with negatively charged DNA. This chromatin remodeling relaxes the nucleosome, allowing transcription factors access to specific regions on the DNA. Thus, histone acetylation improves gene expression.\n\nNote: In both eukaryotes and prokaryotes, gene expression is primarily regulated at the level of transcription.",
+      "emphasis": [
+        "DNA CpG methylation generally silences transcription, whereas histone acetylation loosens chromatin and can promote transcription"
+      ],
+      "rationales": {
+        "a": "Histone amplification is not the paired epigenetic mechanism; DNA methylation is paired with histone acetylation.",
+        "b": "DNA amplification changes copy number; histone methylation can activate or repress depending on residue and context.",
+        "c": "DNA acetylation is not the conventional chromatin modification; histone lysine acetylation is."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. not assigned in source metadata; explanation p. not assigned in source metadata."
+      ]
+    },
+    "marrow__BIOCHEM_CH27_Q009": {
+      "takeaway": "RNA interference uses small RNAs to silence complementary transcripts by translational repression or mRNA degradation.",
+      "displayText": "RNA interference uses small RNAs to silence complementary transcripts by translational repression or mRNA degradation.\n\nThe phenomenon in which RNA molecules in a cell are destroyed if they have a sequence complementary to an introduced double-stranded RNA is called RNA interference.\n\nRNA interference is a mechanism of gene silencing through decreased expression of mRNA, either by repression of translation or by increased degradation. It is thought to play a key role in such a fundamental process as cell proliferation, differentiation, and apoptosis.",
+      "emphasis": [
+        "RNA interference uses small RNAs to silence complementary transcripts by translational repression or mRNA degradation"
+      ],
+      "rationales": {
+        "b": "RNA obstruction is not the standard name for sequence-guided post-transcriptional gene silencing.",
+        "c": "RNA blocking is not the established pathway name for dsRNA-triggered target-RNA destruction.",
+        "d": "RNA targeting is a descriptive phrase, but the defined mechanism is RNA interference (RNAi)."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. not assigned in source metadata; explanation p. not assigned in source metadata."
+      ]
+    },
+    "marrow__BIOCHEM_CH27_Q010": {
+      "takeaway": "Dicer cleaves double-stranded RNA precursors into short siRNA/miRNA duplexes that load into RISC to silence targets.",
+      "displayText": "Dicer cleaves double-stranded RNA precursors into short siRNA/miRNA duplexes that load into RISC to silence targets.\n\nDicer is an endonuclease that trims small double-stranded RNA into molecules that can block translation.\n\nDicer is an enzyme that cleaves the cytosolic dsRNA encoded by the genome and generates short, double-stranded (ds) miRNA. One of the two strands (the guide or antisense strand) is selected for loading into the RNA-induced silencing complex (RISC) which is composed of one of four argonaute proteins (Ago 1–4). The RNA then forms a mature, functional 21–22 nt single-stranded miRNA.\n\nIn the RISC complex, miRNAs can modulate mRNA function by one of three mechanisms:\n1. Promoting mRNA degradation directly\n2. Stimulating CCR4/NOT complex-mediated poly(A) tail degradation\n3. Inhibition of translation by targeting the 5′-methyl cap-binding translation factor",
+      "emphasis": [
+        "Dicer cleaves double-stranded RNA precursors into short siRNA/miRNA duplexes that load into RISC to silence targets"
+      ],
+      "rationales": {
+        "a": "Dicer processes double-stranded RNA; it is not a nuclease that degrades single-stranded DNA.",
+        "b": "Dicer generates small RNAs from duplex precursors rather than directly degrading bulk single-stranded mRNA.",
+        "c": "Dicer does not recognize the presence or absence of a poly(A) tail; it cleaves structured dsRNA precursors."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. not assigned in source metadata; explanation p. not assigned in source metadata."
+      ]
+    },
+    "marrow__BIOCHEM_CH27_Q011": {
+      "takeaway": "CpG methylation is associated with gene silencing and compact chromatin, so it does not favor transcriptionally active euchromatin.",
+      "displayText": "CpG methylation is associated with gene silencing and compact chromatin, so it does not favor transcriptionally active euchromatin.\n\nMethylation does not favour euchromatin formation due to changes cytosine residues at CpG islands in DNA.\n\nThe transcriptional regulatory regions of active genes often contain a high frequency of CpG dinucleotides (referred to as CpG islands) and they are normally unmethylated. Therefore, methylation is an epigenetic modification that inactivates DNA, and hinders the formation of euchromatin (transcriptionally active chromatin). Epigenetic changes include alterations of chromatin structure by:\n• Methylation of cytosine residues in CpG dinucleotides\n• Modification of histones by acetylation or methylation\n• Changes in higher-order chromosome structure\n\nSumoylation of histones (SUMO - Small Ubiquitin-related Modifier) is associated with transcription repression. Other possible roles of posttranslationally modified histones:\n• Acetylation of core histones is associated with chromosomal assembly during DNA replication.\n• Phosphorylation of histone H1 is associated with the condensation of chromosomes during the replication cycle.\n• ADP-ribosylation of histones is associated with DNA repair.\n• Methylation of histones is correlated with activation and repression of gene transcription.\n• Acetylation of histones H3 and H4 is associated with the activation or inactivation of gene transcription.\n• Monoubiquitylation is associated with gene activation, repression, and heterochromatic gene silencing.",
+      "emphasis": [
+        "CpG methylation is associated with gene silencing and compact chromatin, so it does not favor transcriptionally active euchromatin"
+      ],
+      "rationales": {
+        "b": "Phosphorylation can modify chromatin proteins and participates in dynamic chromatin regulation; the specified repressive cytosine modification is methylation.",
+        "c": "Alkylation is not the normal epigenetic modification of CpG cytosines described; DNA methylation is the canonical mark.",
+        "d": "SUMOylation modifies proteins such as histones/transcription factors, not cytosine residues at CpG islands."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. not assigned in source metadata; explanation p. not assigned in source metadata."
+      ]
+    }
+  }
+}

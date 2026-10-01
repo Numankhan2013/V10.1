@@ -2029,3 +2029,76 @@ these residual additions; final combined CI remains pending. No production claim
 - PR #80 stays draft; main/production unchanged. Physical acceptance remains
   separate. Final documentation was written through GitHub while the local
   workspace was offline; fetch the branch before subsequent local work.
+
+
+
+## 2026-09-30 — Parallel Luna explanation refinement wave
+
+User authorized parallel Luna authoring at suitable effort and combined release verification. Three high-effort Luna workers audited disjoint batches; the primary recovered PR75 Anatomy Ch11 donors and reviewed source-detail retention. Restored omitted mechanisms/details and qualified unsupported absolute wording with provenance. PR76 Biochemistry Ch14 Q1–8 is already canonical/live and must not be double-counted.
+
+Candidate source inventory rises from 670 to 753 enhanced, pending 2,041 to 1,958: 56 Anatomy / 15 Biochemistry / 12 Physiology across 11 bounded chapter batches. Nine previously approved Biochemistry entries receive emphasis-only fixes and no count increment. Four Physiology source placeholders become populated reviewed display tables, including a transmitter-row continuation on page 220. Exact PDF/hash/page metadata pins table ownership despite inaccurate imported explanation-page associations. Raw sources and 33 omission gates stay unchanged; three missing-list Biochemistry items remain excluded from enhancement. Four medical interpretation caveats remain explicit.
+
+Added contracts for exact reviewed content/source ownership, baseline preservation, no duplicate counts, reconstruction schemas and verbatim emphasis. Browser verification compares all 92 touched runtime configs on phone/tablet and exercises representative answer/distractor/FSRS/table surfaces. Single combined full CI/preview is pending; no new build/physical acceptance or production promotion claimed at this checkpoint.
+
+Historical image handoffs removed from current STATE after final completeness release (these pending/count statements predate verified de9c415c):
+
+- Verified canonical source-reference coverage at d0e76fcc: Anatomy 1,012 released / 15 invalid / 1 held of 1,028; Biochemistry 133 released / 5 invalid / 0 unresolved of 138; Physiology 239 released / 38 invalid / 49 unresolved of 326. One reserved Physiology cue remains. Active 2026-09-30 ledger transfers paused Wave 2 ownership into four nonoverlapping resume batches (69, 52, 52, 64 items); Physiology Ch3–7 remains separately reserved.
+- Physiology Ch3–7 ownership transferred by the user on 2026-09-30 to the primary serial writer. Final source review and reconciliation from canonical `af7e0dff` are source-verified; the single combined full canonical preview/package build remains pending. Coverage is 1,413 released / 79 invalid / 2 source-held of 1,494 references; all text cues are resolved. Exact image source extraction passed Ubuntu runs `36693009335` and crop refinement `36694166456`. Biochemistry source visuals are integrated; Ch17 Q14’s promised teeth image is absent from source. Anatomy Ch45 Q4 lacks its source marker and Physiology Ch6 Q10 lacks its numbered question figure. Anatomy Ch62 Q6 is separately missing its numbered list in the original source (direct page-1188 review confirmed); no image is withheld for that question.
+
+Local verification: 53 checks executed; the sole failure was the 150-line STATE limit, corrected by moving superseded image handoff lines into history. The memory gate was rerun successfully; all other source/behavior/JS checks passed. Compiled runtime map independently reproduces all 753 approved IDs. Generated tracked bytecode was restored before committing. Full generated-app/browser/APK verification remains pending.
+
+## 2026-10-01 — Explanation release certification and resumed parallel queue
+
+Checkpoint d4abce86068b4221e61e541c34dd29258de61cca passed Engineering 36742636966 and full Android/PWA/phone-tablet run 36742637191. The 83-question wave is deployed in https://e954d103.nk-qbank.pages.dev, bringing enhancements to 753 and pending to 1,958. Earlier handoff write was blocked by environment execution/connector approval restrictions.
+
+Permissions restored for the integrator and Biochemistry/Physiology workers. No existing worker worktrees or new saved files existed, so created isolated worktrees at the verified canonical checkpoint. The Anatomy worker retained a stale runtime restriction; replacement resumes its reviewed Q15–18 source audit/draft. User requests all remaining explanations, Luna self-source review, exception-only integrator review and one combined build. The deterministic queue has 1,935 actionable IDs (914 Anatomy, 263 Biochemistry, 758 Physiology) and 23 already gated Marrow omissions. Existing 753 explanations and all source/answer guards remain protected. Additional workers are limited by available concurrent thread slots; reassign freed slots where useful. Candidate authoring/combined verification is in progress, not complete.
+
+### Resumed integration checkpoint
+
+Integrated existing worker commits without reauthoring: Anatomy 59 (493639f7, 5edf20e2, 27e61bf0), Biochemistry 64 (23461895), Physiology 26 (d0ed79f5). Source-worker validation passes all 149 newly integrated entries. Candidate inventory is 902 enhanced/1,809 pending; 1,786 actionable IDs remain plus 23 pending source gates. The latest wave manifest pins the partial checkpoint and explicitly lists unprocessed actionable IDs; its completion gate deliberately blocks full CI release until all actionable IDs are accounted for. Worker authoring continues in isolated worktrees. Existing 753 augmentation fingerprints and source/gate hashes are protected. Infrastructure passed all 54 local checks; full generated/browser/APK/preview verification has not run for this candidate. Source header-alias table normalization has a passing actual-source regression fixture.
+
+- Continued existing worker commits: current unpublished integration checkpoint has 312 new validated entries / 1065 candidate enhancements, 1623 actionable remaining plus 23 deferred gaps. Latest wave source hashes, old augmentation fingerprints and gate ledger pass checkpoint validation with explicit incomplete state; full CI still requires complete actionable coverage. Anatomy table/figure ownership is preserved, and Physiology Ch13 Q11 now has a populated source-page/hash-pinned table. No preview push/build has occurred.
+
+- User milestone reached and reported at 542 newly integrated/validated explanations (1,295 candidate enhanced). Freed Biochemistry worker reassigned to 252 Anatomy tail IDs and then 261 Physiology tail IDs with separate audits; primary workers have disjoint chapter boundaries. Subsequent merged authoring totals 647 new/1,400 candidate; checkpoint validation caught an Anatomy reconstruction status label, being corrected by its author. Exception review also caught a gonadal arterial variant explicitly supported by the retained native adrenal table; worker is correcting the rationale. No combined preview build/push yet.
+
+- 2026-10-01 continued local integration: 710 new validated explanations / 1,463 candidate enhanced; 1,225 actionable remain plus 23 existing deferred gates. Anatomy status metadata and adrenal variant rationale corrected. Released source ledger hash is now checked against the earlier certified wave even when regenerating pins. Primary Anatomy and Physiology plus reassigned Biochemistry tail worker continue; no new preview deployment yet.
+
+- Continued chapter checkpoints integrated and validated: 790 new / 1,543 candidate enhanced, 1,145 actionable remaining. User explicitly reaffirmed completing all explanations before one combined push/build. Anatomy primary through Ch27, tail through Ch55, Physiology primary through Ch19. No new preview triggered.
+
+- Checkpoint advanced to 860 new validated / 1,613 candidate enhanced, 1,075 actionable remaining. Anatomy primary through Ch28 and tail through Ch57; Physiology drafting respiratory graphs/equations in Ch20. Source ambiguity handling preserves printed keys while avoiding false anatomical explanations. All work remains local pending full actionable completion.
+
+- 2026-10-01 checkpoint: 1,027 new explanations integrated/validated / 1,780 candidate enhanced; 908 actionable remaining, 23 source gates unchanged. Biochemistry263 and Anatomy tail252 complete; reassigned worker starts Physiology tail261. Primary Anatomy315/662 and primary Physiology197/497 complete. User reaffirmed single final combined push/build, no partial deployment.
+
+- 2026-10-01 continued checkpoint: 1,206 new validated / 1,959 candidate enhanced, 729 actionable remaining plus23 source-held. Primary Anatomy338/662, primary Physiology212/497, tail Physiology141/261. Latest pins/source/gates/baseline augmentation hashes pass; no preview push/build yet.
+
+- Balanced untouched Physiology ownership: primary stops at Ch27 (332 total,120 remaining after212 complete); freed tail worker takes Ch28–33 (165) after Ch34–43, with separate middle audit. Completed work is not restarted.
+
+- 2026-10-01 checkpoint: 1,385 new validated / 2,138 candidate enhanced,550 actionable remain. Biochemistry worker completed Bio263,Anatomy-tail252,Physiology-tail261 and continues untouched middle165. Primary Anatomy397/662,Physiology212/332. Duplicate Anatomy emphasis anchor corrected; worker validator now catches duplicate anchors locally. No push/deployment before full completion.
+
+- Finished Physiology middle165 integrated; primary Physiology Ch22 added20. Rebalanced untouched AnatomyCh43–50 (137) to available tail worker; primary stops42. Primary Anatomy through38 now450/525. Authored integration1623new/2376candidate,312actions remain. Exception-only review caught false pancreatic A/D ambiguity: optionA is hypertonic, not isotonic; worker correcting rationale before release.
+
+- Final balancing of untouched Physiology25–27 (69) to Anatomy primary after Anatomy through42 complete; primary Physiology stops24 with31 remaining. Both acknowledged. Previously authored content remains untouched.
+
+- 2026-10-01 checkpoint1,698 new validated /2,451 candidate enhanced,237 actionable remain. Anatomy primary525complete now authors untouchedPhys25–27; primaryPhys232/263; tailworker authors Anatomy43–50. Pancreatic rationale corrected after actualoptiontext review, combinedchecks pass. One final build/push remains deferred until all authoringdone.
+
+- Integrated all actionableAnatomy; checkpoint1,835new/2,588enhanced validates. Final100Physiology split17Ch23primary,48Ch25–26Anatomyworker,35Ch24&27tailworker. All confirmuntouchedranges anddisjointseparateaudits. No previewpush yet.
+
+- 2026-10-01 checkpoint1,887new/2,640enhanced validates;48actions remain Ch25–26. FinalPDFexceptionreview recovered Ch27Q9 five-roworganflowtablefromp492 via existing orphan tableblock withPDFhash provenance;Ch27Q13actualfigure2D/2L vsD/L explains8x, sourcecontradiction resolved. Added narrow orphanblock/pagevalidator and regression/browserowner coverage; immutablebanks/gates unchanged. Full previewbuild awaits final48.
+
+- Final1935-actionable authoring complete:2688enhanced/23deferred/2711total,zero unprocessed IDs. All55localchecks pass; final2orphan tablesCh25Q6/Ch26Q3 now rendered displayTables withsourceIDs/pages/PDFhash,completewave revalidated aftermerge. Ten tableowners recovered in thiswave. Existing753augmentation fingerprints,rawbanks,gates unchanged. Three explicit sourcecaveats remain inenhanceditems (Bio17Q22 missinglabs,Bio26Q15capping ambiguity,Phys32Q28fiberwording). One combined canonical push/fullpreviewbuild next; no newcandidate buildverification yet.
+
+- Combined product08ded423 pushed: Engineering36841656512 passed; fullrun36841656565 failed in explanationbrowser onPHYSIO_CH23_Q018 selectiveemphasis beforedeployment. Rootcause: presentationtransform scientificformats text(H+ ->sup), but leavesanchorplainescaped. Narrowfix scientificformatsneedle identically. Actualrendererregression checksfailingH+,escaping,all2546authored displayconfigs including1935new; early inbothCIworkflows. All56localchecks pass; replacementbuild required. No source/explanationrecords changed byfix.
+
+## 2026-10-01 — Completed explanation release and scientific-emphasis regression
+
+Product `9d318f79d73d6f22a3c6f508e10f1fb243aea349` passed Engineering `36870646707` and full Android/PWA run `36870646652`, including phone/tablet Android WebView interaction, hardware Back, force-stop resume, review and FSRS checks. Preview: https://ac2f50ca.nk-qbank.pages.dev. Production was not promoted; physical acceptance is not implied.
+
+All 1,935 actionable explanations from the initial 1,958 pending are authored and integrated: 914 Anatomy,263 Biochemistry,758 Physiology. Total2,688 enhanced /23 explicitly source-held /2,711. Complete-wave checks protect old753 augmentation fingerprints,immutable raw banks and unchanged answer gates. Ten source-reviewed explanation table owners were recovered, including three omitted table objects anchored to existing table-block IDs and original explanation pages.
+
+Initial combined full run36841656565 failed before deployment on PHYSIO_CH23_Q018 emphasis: scientific formatter converted H+ to superscript HTML while anchor matching used plain escaped text. Fixed identical scientific formatting on text/needle, and added actual-renderer regression for the exact case, escaping and all2,546 authored display-text configurations. This regression runs early in bothCI workflows; all56 local checks passed. Replacement full browser suite passed3,870 exact runtime checks and562 rendered cases across phone/tablet. Live downloaded preview matches all2,688 approved configs exactly, includes corrected renderer and three orphan table recoveries; HTML SHA-256 bdc7702f8b9b6dc68b3ae1fbd6d7cd963baf6f2b274360c2b9eb158a3751c4f2.
+
+Three enhanced items retain explicit source caveats (Bio17Q22 absent labs,Bio26Q15 capping ambiguity,Phys32Q28 fiber wording). All23 pre-existing pending source gates are deferred at user request. No actionable explanation work remains; do not restart completed workers. This final certification is docs-only with skipCI so it does not schedule another preview build.
+
+## 2026-10-01 — User-approved combined main release
+
+User approved explanation previewac2f50ca and runs1375(d3247ca6 liquid streak/Revision) and1378(4a14b0cf revision/FSRS fixes);1378descends1375. Integrated latest main/home-revision-hub with complete explanation branch, preserving both feature implementations and all2688 augmentation configs. Image coverage:1421released/79invalid/twoarchival gaps/zero reviewcues; not a literal all-source-reference completion claim. Added explicit approved-production commit-marker workflow to deploy only successful full main build artifact with exact commit/currentmain/APK identity verification and Pages production_branch=main. No unapproved automatic production releases; manual exactSHA flow remains. Combined localvalidation/buildpending.

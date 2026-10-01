@@ -1,0 +1,380 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner-facing Marrow ED8 Physiology Chapter 36 explanation refinement; native diagrams and tables remain unchanged.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "36",
+    "chapterTitle": "Acid-Base Balance, Renal Hormones and Micturition Reflex",
+    "questionStart": 1,
+    "questionEnd": 18,
+    "questions": 18,
+    "status": "approved-rollout",
+    "workloadScore": 18,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "f3cd6b9dccb2092743fa86de4b0bef682d61c83762e9f00fa3b04d0a355d89d6",
+    "auditReport": "docs/question-explanations/physiology-tail-20261001.md"
+  },
+  "questions": {
+    "marrow__PHYSIO_CH36_Q001": {
+      "takeaway": "The collecting duct is the main site for final urinary acidification through α-intercalated-cell H⁺ secretion.",
+      "displayText": "The collecting duct is the main site for final urinary acidification through α-intercalated-cell H⁺ secretion.\n\nPrincipal site of acidification of urine is collecting duct. Acidification occurs in both distal tubule and collecting duct, but collecting duct is more important. The urinary pH of 4.5 (limiting pH) is normally achieved in the collecting ducts. In the late distal tubules and collecting ducts, the tubular epithelium secretes H+ by primary active transport. Primary active secretion of H+ occurs in type A intercalated cells of the late distal tubule and in the collecting tubules. H+ concentration can be increased as much as 900-fold in the collecting tubules.",
+      "emphasis": [
+        "The collecting duct is the main site for final urinary acidification through α-intercalated-cell H⁺ secretion"
+      ],
+      "rationales": {
+        "a": "The DCT contributes acid-base transport, but the collecting duct provides the major final acidification.",
+        "b": "The PCT reclaims filtered bicarbonate and secretes H⁺, but is not the principal final acidification site.",
+        "c": "The loop of Henle reabsorbs salt and establishes gradients rather than setting final urine pH."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          685
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH36_Q002": {
+      "takeaway": "Bicarbonate is the dominant extracellular buffer because the CO₂/HCO₃⁻ system is abundant and physiologically regulated.",
+      "displayText": "Bicarbonate is the dominant extracellular buffer because the CO₂/HCO₃⁻ system is abundant and physiologically regulated.\n\nThe most important extracellular buffer is bicarbonate. The source of bicarbonate is plasma by filtration. It is a noninducible buffer. Proteins are the most abundant intracellular buffer. Phosphate is a minor buffer; the source is plasma by filtration and it is noninducible. Ammonia is a minor buffer, locally produced by tubular cells. Its production increases in metabolic acidosis. It is the only inducible buffer.",
+      "emphasis": [
+        "Bicarbonate is the dominant extracellular buffer because the CO₂/HCO₃⁻ system is abundant and physiologically regulated"
+      ],
+      "rationales": {
+        "b": "Plasma proteins buffer extracellular fluid but are not its principal buffer system.",
+        "c": "Phosphate is important intracellularly and in urine, but is less abundant in extracellular fluid.",
+        "d": "Nitrate is not a major physiologic buffer."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          685
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH36_Q003": {
+      "takeaway": "Most of the normal anion gap reflects unmeasured anionic proteins, especially albumin.",
+      "displayText": "Most of the normal anion gap reflects unmeasured anionic proteins, especially albumin.\n\nNormal anion gap is mostly due to unmeasured proteins. Normally in plasma, concentrations of anions and cations are equal to maintain electrical neutrality, so no real “anion gap” exists; it is a diagnostic concept. Routinely measured ions are Na+, Cl- and HCO3-. The anion gap is the difference between unmeasured anions and unmeasured cations. Plasma anion gap = [Na+] - [Cl-] - [HCO3-]. The unmeasured cations include calcium, magnesium and potassium. The unmeasured anions include albumin, phosphate, sulphate and organic anions. This is primarily used in measurement of different causes of metabolic acidosis.",
+      "emphasis": [
+        "Most of the normal anion gap reflects unmeasured anionic proteins, especially albumin"
+      ],
+      "rationales": {
+        "b": "Sodium is routinely measured and is the principal measured cation in the calculation.",
+        "c": "Chloride is a measured anion included in the calculation, not the hidden gap.",
+        "d": "Unmeasured anions create the normal gap, so it is not absent."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          685
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH36_Q004": {
+      "takeaway": "The conventional normal anion gap is about 8–16 mEq/L, with the exact interval depending on laboratory method.",
+      "displayText": "The conventional normal anion gap is about 8–16 mEq/L, with the exact interval depending on laboratory method.\n\nThe normal anion gap ranges between 8 and 16 mEq/L. Only certain cations and anions are routinely measured. The cation normally measured is Na+, and the anions are usually Cl- and HCO3-. Plasma anion gap = [Na+] - [HCO3-] - [Cl-]. The anion gap will increase if unmeasured anions rise or if unmeasured cations fall. The most important unmeasured cations include calcium, magnesium and potassium and the major unmeasured anions are albumin, phosphate, sulfate and other organic anions. Usually the unmeasured anions exceed the unmeasured cations and the anion gap ranges between 8 and 16 mEq/L.",
+      "emphasis": [
+        "The conventional normal anion gap is about 8–16 mEq/L, with the exact interval depending on laboratory method"
+      ],
+      "rationales": {
+        "a": "4–8 mEq/L is below the standard interval used in this question.",
+        "c": "0–4 mEq/L is too low for the typical normal reference.",
+        "d": "16–20 mEq/L is above the usual normal range."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          686
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH36_Q005": {
+      "takeaway": "ANP is released by atrial myocytes; kidney endocrine functions include renin, erythropoietin and active vitamin D formation.",
+      "displayText": "ANP is released by atrial myocytes; kidney endocrine functions include renin, erythropoietin and active vitamin D formation.\n\nANP is secreted by the heart. Endocrine/paracrine functions of the kidney: Renin—granular or juxtaglomerular cells (JG cells) of the juxtaglomerular apparatus (JGA); Erythropoietin—interstitial cells in the peritubular capillary bed; Prostaglandin E2 (PGE2)—renal medullary interstitial cells (RMICs), macula densa, and cells of collecting duct; PGI2 and other prostaglandins—arterioles and glomeruli; 1,25-dihydroxycholecalciferol (calcitriol or vitamin D3)—cells of proximal tubules of the kidneys.",
+      "emphasis": [
+        "ANP is released by atrial myocytes; kidney endocrine functions include renin, erythropoietin and active vitamin D formation"
+      ],
+      "rationales": {
+        "a": "Renal interstitial cells release erythropoietin in response to hypoxia.",
+        "c": "The kidney converts 25-hydroxyvitamin D to active 1,25-dihydroxyvitamin D.",
+        "d": "JG cells release renin as part of the kidney endocrine system."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          686
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH36_Q006": {
+      "takeaway": "PGE₂ is the major prostanoid synthesized in the kidney and helps modulate renal perfusion and salt handling.",
+      "displayText": "PGE₂ is the major prostanoid synthesized in the kidney and helps modulate renal perfusion and salt handling.\n\nPGE2 is the major prostanoid synthesized in the kidney. It is secreted by RMICs (Renal Medullary Interstitial Cells), macula densa, and cells in the collecting ducts. Prostacyclin (PGI2) and other prostaglandins are secreted by the arterioles and glomeruli. Renal medullary interstitial cells (RMICs) are specialized fibroblast-like cells which are a major site of cyclooxygenase 2 (COX-2) and prostaglandin synthase (PGES) expression.",
+      "emphasis": [
+        "PGE₂ is the major prostanoid synthesized in the kidney and helps modulate renal perfusion and salt handling"
+      ],
+      "rationales": {
+        "a": "PGE₁ is not the principal renal prostanoid identified in this source.",
+        "c": "PGI₂ is produced in renal vasculature but is not the major prostanoid asked for.",
+        "d": "PGF₂α is not the predominant renal prostanoid in the source."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          687
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH36_Q007": {
+      "takeaway": "Higher NaCl delivery to macula densa suppresses renin; increased distal Na⁺ is therefore the exception to renin-stimulating conditions.",
+      "displayText": "Higher NaCl delivery to macula densa suppresses renin; increased distal Na⁺ is therefore the exception to renin-stimulating conditions.\n\nThe increased amount of Na+ and Cl- reabsorption across macula densa (DCT) is inhibitory to renin secretion. All other factors increase renin secretion. Renin leads to events through the Renin-Angiotensin-Aldosterone pathway that finally lead to salt and water retention and increased blood pressure. Thus factors that cause decreased effective volume, pressure, or sodium delivery increase renin levels and vice versa. Note: Renin is secreted by juxtaglomerular cells (granular cells), epitheloid cells located in the media of afferent arterioles of the glomerulus.",
+      "emphasis": [
+        "Higher NaCl delivery to macula densa suppresses renin; increased distal Na⁺ is therefore the exception to renin-stimulating conditions"
+      ],
+      "rationales": {
+        "a": "Renal ischemia lowers perfusion and stimulates renin release.",
+        "c": "Reduced proximal Na⁺ reabsorption can increase distal delivery and activate renin-related signaling in the source framework.",
+        "d": "Reduced afferent pressure stimulates JG renin release."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          687
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH36_Q008": {
+      "takeaway": "Angiotensin II causes vasoconstriction, thirst, aldosterone release and ADH release; vasodilation is the exception.",
+      "displayText": "Angiotensin II causes vasoconstriction, thirst, aldosterone release and ADH release; vasodilation is the exception.\n\nAngiotensin II is one of the most potent vasoconstrictors in the body. It constricts the efferent arteriole, thereby increasing filtration fraction and glomerular filtration rate when there is decreased renal blood flow.",
+      "emphasis": [
+        "Angiotensin II causes vasoconstriction, thirst, aldosterone release and ADH release; vasodilation is the exception"
+      ],
+      "rationales": {
+        "a": "Angiotensin II stimulates thirst through hypothalamic actions.",
+        "b": "It promotes aldosterone secretion from zona glomerulosa.",
+        "c": "It stimulates ADH release and supports water retention."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          687
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH36_Q009": {
+      "takeaway": "Reduced ECF volume stimulates non-osmotic vasopressin release to conserve water.",
+      "displayText": "Reduced ECF volume stimulates non-osmotic vasopressin release to conserve water.\n\nVasopressin (ADH) secretion increases in response to decreased ECF volume to bring about water retention to restore the ECF volume. ADH exerts its antidiuretic effect by acting on V2 receptors and involves insertion of aquaporin 2 (AQP2) into the apical (luminal) membranes of principal cells of the collecting ducts.",
+      "emphasis": [
+        "Reduced ECF volume stimulates non-osmotic vasopressin release to conserve water"
+      ],
+      "rationales": {
+        "a": "Alcohol suppresses ADH release and can cause dilute diuresis.",
+        "c": "Reduced oncotic pressure is not the main trigger for vasopressin secretion.",
+        "d": "Procainamide is not the physiologic volume signal described."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          687
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH36_Q010": {
+      "takeaway": "In hemorrhagic hypotension, renin–angiotensin activation is the key integrated driver of sodium and water conservation.",
+      "displayText": "In hemorrhagic hypotension, renin–angiotensin activation is the key integrated driver of sodium and water conservation.\n\nThe renin-angiotensin system plays the most important role for sodium and water retention in this patient as the patient has hypovolemia due to blood loss. The plasma concentration of renin is the rate-limiting step in the renin-angiotensin system; it is the major determinant of plasma angiotensin II concentration. Angiotensin II stimulates aldosterone and ADH secretion; it also constricts blood vessels and causes thirst, which helps in maintaining blood pressure.",
+      "emphasis": [
+        "In hemorrhagic hypotension, renin–angiotensin activation is the key integrated driver of sodium and water conservation"
+      ],
+      "rationales": {
+        "b": "ADH conserves water, but does not provide the principal sodium-retaining mechanism.",
+        "c": "Aldosterone is an effector downstream of angiotensin II, not the upstream integrated response.",
+        "d": "ANP promotes natriuresis and opposes volume retention."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          688
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH36_Q011": {
+      "takeaway": "ANP acts on collecting-duct and other nephron targets to reduce sodium reabsorption and promote natriuresis.",
+      "displayText": "ANP acts on collecting-duct and other nephron targets to reduce sodium reabsorption and promote natriuresis.\n\nANP acts on the collecting duct. ANP is secreted by the atria in response to an increase in ECF volume. It decreases Na+ reabsorption in the late distal tubule and collecting ducts and causes natriuresis. ANP causes dilation of afferent arterioles and constriction of efferent arterioles, resulting in increased RBF and increased GFR.",
+      "emphasis": [
+        "ANP acts on collecting-duct and other nephron targets to reduce sodium reabsorption and promote natriuresis"
+      ],
+      "rationales": {
+        "b": "The source identifies collecting-duct action rather than loop of Henle as the answer.",
+        "c": "Early DCT is not the main ANP target specified here.",
+        "d": "PCT is not the principal ANP site in this item."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          688
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH36_Q012": {
+      "takeaway": "Atrial stretch from increased volume raises ANP; hypovolemia lowers atrial filling and is the exception.",
+      "displayText": "Atrial stretch from increased volume raises ANP; hypovolemia lowers atrial filling and is the exception.\n\nIt is increase in ECF volume and not hypovolemia that causes increased secretion of ANP. Stimuli that increase ANP secretion: increased atrial stretch or ventricular stretch, isotonic saline administration, and increased ECF volume. Stimuli that decrease ANP secretion: rising from supine to standing position (as this decreases the central venous pressure).",
+      "emphasis": [
+        "Atrial stretch from increased volume raises ANP; hypovolemia lowers atrial filling and is the exception"
+      ],
+      "rationales": {
+        "b": "Isotonic saline expands volume and can increase atrial stretch and ANP release.",
+        "c": "Raised central venous pressure stretches atria, promoting ANP secretion.",
+        "d": "Higher blood pressure/volume is associated with increased ANP release."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          688
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH36_Q013": {
+      "takeaway": "Aldosterone acts on distal nephron and collecting-duct principal cells to increase Na⁺ reabsorption and K⁺ secretion.",
+      "displayText": "Aldosterone acts on distal nephron and collecting-duct principal cells to increase Na⁺ reabsorption and K⁺ secretion.\n\nThe combination which is correct is aldosterone in collecting ducts. Aldosterone acts on principal cells and intercalated cells present in collecting ducts. It regulates ECF volume and Na+ content. Major stimulus for aldosterone secretion is hyperkalemia. Functions include Na+ and H2O reabsorption, K+ and H+ excretion. Angiotensin II acts on efferent arteriole causing vasoconstriction, increases filtration fraction and preserves GFR when RBF falls. ADH acts on principal cells in collecting ducts and stimulates water reabsorption via Aquaporin-2. ANP is released from atria and BNP from ventricles in response to increased volume; it inhibits RAAS, relaxes mesangial cells and promotes natriuresis.",
+      "emphasis": [
+        "Aldosterone acts on distal nephron and collecting-duct principal cells to increase Na⁺ reabsorption and K⁺ secretion"
+      ],
+      "rationales": {
+        "a": "Angiotensin II can act at multiple sites but this is not the specified hormone-site pair.",
+        "c": "ADH primarily increases collecting-duct water permeability, not proximal-tubule water uptake as keyed.",
+        "d": "ANP promotes sodium excretion and is not paired with loop reabsorption in this item."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          689
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH36_Q014": {
+      "takeaway": "Micturition is coordinated by pontine centers and the medial frontal/paracentral cortical region.",
+      "displayText": "Micturition is coordinated by pontine centers and the medial frontal/paracentral cortical region.\n\nThe micturition center is located in the pons. The paracentral lobule is also associated with micturition. The micturition reflex is an autonomic spinal cord reflex, but it can be inhibited or facilitated by centers in the brain. These include strong facilitative and inhibitory centers in the brain stem, located mainly in the pons, and centers in the cerebral cortex that are mainly inhibitory but can become excitatory.",
+      "emphasis": [
+        "Micturition is coordinated by pontine centers and the medial frontal/paracentral cortical region"
+      ],
+      "rationales": {
+        "a": "The pons contains a key coordinating center, so it is involved.",
+        "b": "The paracentral lobule contributes cortical control, so it is involved.",
+        "d": "Both pons and cortex participate; “none” omits both."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          689
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH36_Q015": {
+      "takeaway": "Renal interstitial fibroblast-like cells detect hypoxia through HIF signaling and increase erythropoietin production.",
+      "displayText": "Renal interstitial fibroblast-like cells detect hypoxia through HIF signaling and increase erythropoietin production.\n\nHypoxia induced factors stimulate interstitial cells to initiate erythropoiesis. Erythropoietin is produced by interstitial cells in the peritubular capillary bed of the kidney. Erythropoietin in turn initiates erythropoiesis.",
+      "emphasis": [
+        "Renal interstitial fibroblast-like cells detect hypoxia through HIF signaling and increase erythropoietin production"
+      ],
+      "rationales": {
+        "a": "Intercalated cells regulate acid secretion and bicarbonate handling, not EPO production.",
+        "b": "Lacis cells are extraglomerular mesangial cells in the JGA.",
+        "d": "Macula densa senses distal tubular salt delivery, not oxygen tension for EPO release."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          689
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH36_Q016": {
+      "takeaway": "Angiotensin-converting enzyme converts angiotensin I to angiotensin II predominantly on pulmonary endothelial surfaces.",
+      "displayText": "Angiotensin-converting enzyme converts angiotensin I to angiotensin II predominantly on pulmonary endothelial surfaces.\n\nAngiotensin 1 → angiotensin 2 @ lungs. Cholecalciferol → 25 hydroxy vitamin D3 @ liver. 25 hydroxy vitamin D3 → 1,25 dihydroxy vitamin D3 @ kidney. Angiotensin I is converted to Angiotensin II by Angiotensin Converting Enzyme (ACE), which is expressed in the lungs.",
+      "emphasis": [
+        "Angiotensin-converting enzyme converts angiotensin I to angiotensin II predominantly on pulmonary endothelial surfaces"
+      ],
+      "rationales": {
+        "a": "Skin makes cholecalciferol from 7-dehydrocholesterol; it does not perform this vitamin-D hydroxylation step.",
+        "b": "The kidney converts 25-hydroxyvitamin D to active 1,25-dihydroxyvitamin D, not cholecalciferol to 25-hydroxy form.",
+        "c": "Liver generates angiotensinogen; ACE conversion of angiotensin I occurs chiefly in lung endothelium."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          690
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH36_Q017": {
+      "takeaway": "Vasopressin binds V₂ receptors to insert aquaporin-2 in collecting-duct apical membranes.",
+      "displayText": "Vasopressin binds V₂ receptors to insert aquaporin-2 in collecting-duct apical membranes.\n\nThe antidiuretic hormone acts through aquaporin channel 2. ADH binds to V2 receptors in the late distal tubules, collecting tubules, and collecting ducts, and stimulates movement of intracellular aquaporin-2 (AQP-2) to the luminal side of the cell membranes.",
+      "emphasis": [
+        "Vasopressin binds V₂ receptors to insert aquaporin-2 in collecting-duct apical membranes"
+      ],
+      "rationales": {
+        "a": "Aquaporin-1 is constitutively present in proximal tubule and descending thin limb, not the ADH-regulated channel.",
+        "c": "Aquaporin-3 is basolateral in collecting-duct cells, not the regulated apical channel.",
+        "d": "Aquaporin-4 is basolateral; ADH-dependent insertion is AQP2."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          690
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH36_Q018": {
+      "takeaway": "Ureteral peristalsis is generated by intrinsic pacemaker activity in smooth muscle of the renal pelvis and ureter.",
+      "displayText": "Ureteral peristalsis is generated by intrinsic pacemaker activity in smooth muscle of the renal pelvis and ureter.\n\nUrine flowing from the collecting ducts into the renal calyces stretches the calyces and increases their inherent pacemaker activity, which initiates peristaltic contractions occurring 1 to 5 times per minute that spread to the renal pelvis and then downward along the ureter, forcing urine toward the bladder. The ureters contain smooth muscle and are innervated by sympathetic and parasympathetic nerves and an intramural plexus. Peristaltic contractions are enhanced by parasympathetic stimulation and inhibited by sympathetic stimulation.",
+      "emphasis": [
+        "Ureteral peristalsis is generated by intrinsic pacemaker activity in smooth muscle of the renal pelvis and ureter"
+      ],
+      "rationales": {
+        "a": "Sympathetic innervation modulates ureteral activity but is not its primary pacemaker.",
+        "b": "Parasympathetic input can modulate activity but does not generate the basic peristaltic wave.",
+        "c": "Autonomic inputs are modulatory; intrinsic smooth-muscle pacemakers drive peristalsis."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          690
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    }
+  }
+}

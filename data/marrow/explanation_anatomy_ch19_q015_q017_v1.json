@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Anatomy Chapter 19 explanation refinement. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Anatomy",
+    "bank": "Marrow",
+    "chapterId": "19",
+    "chapterTitle": "Ventricular System and Subarachnoid Space",
+    "questionStart": 15,
+    "questionEnd": 17,
+    "questions": 3,
+    "status": "approved-rollout",
+    "workloadScore": 6,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 753,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__ANAT_CH19_Q015": {
+      "takeaway": "Pacchionian bodies are arachnoid granulations that protrude through dura into venous sinuses.",
+      "displayText": "Pacchionian bodies (arachnoid granulations) are focal pouches of arachnoid mater and subarachnoid space protruding through the walls of dural venous sinuses.\n\nOption B: Tuft of capillaries enclosed by pia mater lined by ependymal cells forms tela choroidea. It secretes CSF.\n\nOption C: Calcareous deposits in the astrocytes of the pineal gland are known as brain sand or corpora arenacea.\n\nOption D: Shrunken, yellow-brown, cystic lesions in the gyri and subarachnoid space associated with head injury are called plaque jaune.",
+      "emphasis": [
+        "Pacchionian bodies",
+        "arachnoid granulations",
+        "dural venous sinuses",
+        "plaque jaune"
+      ],
+      "rationales": {
+        "b": "Tela choroidea is the vascular pia-derived tissue that supports the choroid plexus, not an arachnoid granulation.",
+        "c": "Pineal calcifications are corpora arenacea (brain sand), not Pacchionian bodies.",
+        "d": "Plaque jaune refers to shrunken yellow-brown cystic lesions after head injury; it is not an arachnoid granulation."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record: stable ID, stem, options, printed answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          359
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      }
+    },
+    "marrow__ANAT_CH19_Q016": {
+      "takeaway": "The choroid plexus produces most CSF; ependymal and perivascular routes contribute less.",
+      "displayText": "The case suggests CSF rhinorrhea and the image shows the double-ring sign. CSF mainly forms in the choroid plexus. It is absorbed back by the arachnoid villi.\n\nFormation of CSF:\n• Major contributor - Choroid plexuses\n• Minor contributors - Ependymal cells lining the ventricles, brain substance through the perivascular spaces\n\nCSF is produced at a rate of 550 ml/day. The normal adult volume of CSF is 150 ml, and it is cycled about 3.7 times a day. The normal CSF pressure is 70-180 mm H2O.",
+      "emphasis": [
+        "CSF rhinorrhea",
+        "double-ring sign",
+        "Choroid plexuses",
+        "550 ml/day"
+      ],
+      "rationales": {
+        "a": "Ventricular ependymocytes contribute a smaller share; the choroid plexus is the major CSF source.",
+        "c": "Perivascular spaces are a minor source of CSF, not the majority contributor.",
+        "d": "Microglia are CNS immune cells and do not produce most CSF."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record: stable ID, stem, options, printed answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          359,
+          360
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 2 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH19_Q017": {
+      "takeaway": "In classic brain-based CVO lists, adenohypophysis is not included even though its endocrine capillaries are fenestrated and it lacks a conventional BBB.",
+      "displayText": "The source key selects adenohypophysis as the structure that is not a classic brain circumventricular organ. Classic CNS lists include structures such as the OVLT, median eminence, neurohypophysis, and pineal gland. The adenohypophysis is an endocrine gland outside the classic CNS CVO group, although its fenestrated capillaries do not form a conventional blood-brain barrier. Some broader references use “CVO” more inclusively for pituitary tissue, so this distinction is about the conventional brain CVO list, not BBB permeability.",
+      "emphasis": [
+        "adenohypophysis",
+        "classic brain circumventricular organ",
+        "fenestrated capillaries",
+        "conventional blood-brain barrier"
+      ],
+      "rationales": {
+        "a": "OVLT is a classic circumventricular organ with specialized fenestrated vasculature; it is included in CNS CVO lists.",
+        "b": "Median eminence is a classic hypothalamic circumventricular organ associated with the hypophyseal portal system.",
+        "d": "Pineal gland is a classic brain circumventricular organ; adenohypophysis is the source-keyed exception under the conventional CNS list, despite its fenestrated capillaries."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record: stable ID, stem, options, printed answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          360
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source incorrectly justifies adenohypophysis as the exception by asserting it is not devoid of BBB. Its lack of conventional BBB reflects fenestrated capillaries, but the anterior pituitary is generally treated as a peripheral endocrine organ rather than one of the classic CNS circumventricular organs. Broader lists can include pituitary tissue, so the scope must be stated.",
+        "sourceFragment": "Circumventricular organs are those structures in the brain that are devoid of the blood-brain barrier. Adenohypophysis is not devoid of a blood-brain barrier (BBB).\n\nNeurohypophysis is devoid of the blood-brain barrier.",
+        "reconstructedContent": "The source key selects adenohypophysis as the structure that is not a classic brain circumventricular organ. Classic CNS lists include structures such as the OVLT, median eminence, neurohypophysis, and pineal gland. The adenohypophysis is an endocrine gland outside the classic CNS CVO group, although its fenestrated capillaries do not form a conventional blood-brain barrier. Some broader references use “CVO” more inclusively for pituitary tissue, so this distinction is about the conventional brain CVO list, not BBB permeability.",
+        "evidenceBasis": [
+          "Direct source record and answer key, Anatomy ED8 p. 360; key C retained.",
+          "Classic CNS CVO framing and pituitary anatomy reviewed against NCBI Endotext: https://www.ncbi.nlm.nih.gov/books/NBK279126/ .",
+          "Anterior-pituitary endothelial fenestrations reviewed against the primary histology article: https://pmc.ncbi.nlm.nih.gov/articles/PMC10218750/ .",
+          "The source details that neurohypophysis is a CVO are retained; distinctions between classic CNS CVO lists and broader pituitary use are stated explicitly."
+        ],
+        "reviewNote": "Medical review complete: key C is appropriate under the conventional brain CVO classification. The source BBB rationale was corrected because anterior pituitary capillaries are fenestrated and lack a conventional BBB. Broader classification terminology remains explicit; no gate or key changed."
+      }
+    }
+  },
+  "source": {
+    "bundle": "anatomy_ch001_063",
+    "sourceRawSha256": "f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387"
+  }
+}

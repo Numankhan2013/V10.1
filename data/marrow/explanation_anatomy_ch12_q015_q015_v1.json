@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Anatomy Chapter 12 explanation refinement. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Anatomy",
+    "bank": "Marrow",
+    "chapterId": "12",
+    "chapterTitle": "Bone, Cartilage and Muscle Tissue",
+    "questionStart": 15,
+    "questionEnd": 15,
+    "questions": 1,
+    "status": "approved-rollout",
+    "workloadScore": 2,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 753,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__ANAT_CH12_Q015": {
+      "takeaway": "Smooth muscle is unstriated and made of spindle-shaped myocytes with a central elongated nucleus.",
+      "displayText": "Smooth muscle consists of spindle-shaped myocytes. Smooth muscles are specialized for slow, steady contraction under the influence of autonomic nerves and various hormones. They are also called visceral muscles and are a major component of blood vessels and the digestive, respiratory, urinary and reproductive tracts.\n\nOn microscopy, smooth muscle can be identified by:\n• In longitudinal section, the spindle-shaped muscle cells are elongated, tapering and unstriated, with a centrally placed elongated nucleus.\n• In transverse section, the spindle-shaped cells are cut at different places along their length and therefore appear as a group of cells with different shapes and sizes. A nucleus is seen only in cells cut through the center.",
+      "emphasis": [
+        "spindle-shaped myocytes",
+        "slow, steady contraction",
+        "autonomic nerves",
+        "centrally placed elongated nucleus"
+      ],
+      "rationales": {
+        "a": "Skeletal muscle fibers are long, cylindrical and striated, with multiple peripheral nuclei; they are not spindle-shaped myocytes.",
+        "c": "Cardiac myocytes are striated and branched, usually with a centrally placed nucleus and intercalated discs; they are not spindle-shaped smooth-muscle cells.",
+        "d": "Striated muscle includes skeletal and cardiac muscle, both of which have cross-striations; spindle-shaped unstriated myocytes identify smooth muscle."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanation contains extensive OCR debris and corrupted words.",
+        "sourceFragment": "\"\\ o > Kime: i Smooth muscles consist of spindle-shaped myocytes. & Smooth muscles are specialized for sl ahiy contractidn under the influence of autonomic nerves and various hormones. They afenlso called agwisceral muscles. They are the major component oflood vesselsidigestive, respiratory, urinary and reproductive tracts. co ee In microscopy, a cangmeentitied by: + In longitudinal ion, the spigif-shaped muscle cells are seen. They are elongated, tapering and unstriat is with a al ly placed elongated nucleus. eIn nando section, the spindle-shaped cells are cut at different places along its length and hence are seen as a group of cells with different shapes and sizes. The nucleus is seen only in those cells, which are cut through the centre.",
+        "reconstructedContent": "Smooth muscle consists of spindle-shaped myocytes. Smooth muscles are specialized for slow, steady contraction under the influence of autonomic nerves and various hormones. They are also called visceral muscles and are a major component of blood vessels and the digestive, respiratory, urinary and reproductive tracts.\n\nOn microscopy, smooth muscle can be identified by:\n• In longitudinal section, the spindle-shaped muscle cells are elongated, tapering and unstriated, with a centrally placed elongated nucleus.\n• In transverse section, the spindle-shaped cells are cut at different places along their length and therefore appear as a group of cells with different shapes and sizes. A nucleus is seen only in cells cut through the center.",
+        "evidenceBasis": "Direct visual comparison with data/marrow/source_pdfs/Anatomy_ed8.pdf, printed explanation page 229; stable-ID question, options, printed answer key and image metadata cross-checked.",
+        "reviewNote": "OCR cleanup restores legible source text, including slow steady contraction, visceral-muscle terminology, listed organ systems and longitudinal/transverse microscopy distinctions. No absent details or answer content were inferred."
+      },
+      "audit": {
+        "reviewedAgainst": "Anatomy ED8 source PDF visual page 229 plus stable ID, stem, options, printed answer key and source metadata",
+        "sourceExplanationPages": [
+          229
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No native explanation table or figure metadata was present in this record."
+      }
+    }
+  },
+  "source": {
+    "bundle": "anatomy_ch001_063",
+    "sourceRawSha256": "f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387",
+    "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+    "sourcePdfPages": [
+      229
+    ]
+  }
+}

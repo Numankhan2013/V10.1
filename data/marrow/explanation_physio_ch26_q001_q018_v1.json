@@ -1,0 +1,551 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Physiology Chapter 26 explanation refinement; raw imported source remains immutable.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "26",
+    "chapterTitle": "Vascular System and Regional Circulation I",
+    "questionStart": 1,
+    "questionEnd": 18,
+    "questions": 18,
+    "status": "approved-rollout",
+    "workloadScore": 18,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "f3cd6b9dccb2092743fa86de4b0bef682d61c83762e9f00fa3b04d0a355d89d6",
+    "auditReport": "docs/question-explanations/physiology-final-20261001.md"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 753,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__PHYSIO_CH26_Q001": {
+      "takeaway": "The windkessel effect is elastic recoil of the aorta, pulmonary artery and major elastic branches, which sustains forward flow during diastole.",
+      "displayText": "The windkessel effect is seen in large elastic vessels.\nThe aorta, the pulmonary artery, and their major branches have a large amount of elastin in their\nwalls. Hence, they have a high elastic recoil effect. This property of elastic recoil is called\nwindkessel effect (windkessel is a German word for the elastic reservoir).\nThis recoil of the vessels that have been stretched during systole helps to propel the blood forward.\nduring diastole thus maintaining a continuous flow throughout the cardiac cycle.",
+      "emphasis": [
+        "The windkessel effect is seen in large elastic vessels.",
+        "Hence, they have a high elastic recoil effect.",
+        "windkessel effect (windkessel is a German word for the elastic reservoir)."
+      ],
+      "rationales": {
+        "b": "Capacitance vessels chiefly serve as a compliant blood reservoir; the source uses windkessel for elastic recoil of large arteries.",
+        "c": "Shunts bypass exchange beds and are not the elastic reservoir effect.",
+        "d": "Capillaries have thin exchange walls and do not produce arterial windkessel recoil."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          473
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      }
+    },
+    "marrow__PHYSIO_CH26_Q002": {
+      "takeaway": "Capillaries have the greatest combined cross-sectional area because the many parallel channels greatly exceed any single large vessel.",
+      "displayText": "The greatest total cross-sectional area in the circulatory system is of the capillaries.\nThe total cross-sectional area is minimum for the aorta.",
+      "emphasis": [
+        "The greatest total cross-sectional area in the circulatory system is of the capillaries.",
+        "The total cross-sectional area is minimum for the aorta."
+      ],
+      "rationales": {
+        "a": "The aorta has the smallest total cross-sectional area in the systemic tree.",
+        "c": "Venules together have less total area than the vast capillary network.",
+        "d": "The vena cava is a large conduit and has much less combined area than all capillaries."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          473,
+          474
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      }
+    },
+    "marrow__PHYSIO_CH26_Q003": {
+      "takeaway": "Veins and venules contain the largest blood-volume share; the source table allocates about 54% to the venous compartment.",
+      "displayText": "The venous compartment holds the largest share of circulating blood. The source table lists: heart 12%; pulmonary circulation 18%; aorta 2%; arteries 8%; arterioles 1%; capillaries 5%; venules, veins and venae cavae 54%.",
+      "emphasis": [
+        "The venous compartment holds the largest share of circulating blood.",
+        "The source table lists: heart 12%; pulmonary circulation 18%; aorta 2%; arteries 8%; arterioles 1%; capillaries 5%; venules, veins and venae cavae 54%."
+      ],
+      "rationales": {
+        "a": "Arteries hold a smaller proportion; the source table lists about 8% in arteries.",
+        "b": "Capillaries contain about 5% in the source distribution, not the largest share.",
+        "d": "The heart contains about 12%, below the venous reservoir."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          474
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "The orphan native table block is recovered in displayTables with its source ID and printed-page/hash provenance; source figures remain in the immutable PDF."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source table was flattened into corrupted text and its cells were not present in the structured table metadata.",
+        "reconstructedContent": "Restored the printed blood-volume distribution table: heart 12%, pulmonary circulation 18%, aorta 2%, arteries 8%, arterioles 1%, capillaries 5%, and venules/veins/venae cavae 54%.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology source PDF, printed page 474; SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+          "Canonical source question PHYSIO_CH26_Q003 and answer key: option C."
+        ],
+        "reviewNote": "Printed table visually inspected; table cells normalized to readable percentages.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          474
+        ],
+        "orphanTableIds": [
+          "PHYSIO_CH26_Q003_T01"
+        ]
+      },
+      "displayTables": [
+        {
+          "table_id": "PHYSIO_CH26_Q003_T01",
+          "title": "Vessels and percentage of total blood volume",
+          "source_page": 474,
+          "columns": [
+            "Vessels",
+            "% of total blood volume"
+          ],
+          "rows": [
+            [
+              "Heart",
+              "12"
+            ],
+            [
+              "Pulmonary circulation",
+              "18"
+            ],
+            [
+              "Aorta",
+              "2"
+            ],
+            [
+              "Artery",
+              "8"
+            ],
+            [
+              "Arteriole",
+              "1"
+            ],
+            [
+              "Capillary",
+              "5"
+            ],
+            [
+              "Venule, vein, vena cava",
+              "54"
+            ]
+          ]
+        }
+      ]
+    },
+    "marrow__PHYSIO_CH26_Q004": {
+      "takeaway": "Capillaries contain about 5% of blood volume, not 25%; they are single-cell-layer exchange vessels with the greatest aggregate area.",
+      "displayText": "Capillaries have a single endothelial-cell layer, the greatest total cross-sectional area, and about 5% of total blood volume—far less than the venous compartment. The statement that capillaries contain 25% is therefore incorrect.",
+      "emphasis": [
+        "Capillaries have a single endothelial-cell layer, the greatest total cross-sectional area, and about 5% of total blood volume—far less than the venous compartment.",
+        "The statement that capillaries contain 25% is therefore incorrect."
+      ],
+      "rationales": {
+        "a": "A single endothelial cell layer bounds typical capillaries.",
+        "b": "Capillaries have the greatest total cross-sectional area.",
+        "c": "Capillaries contain less blood than the venous system."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          474
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported solution has OCR damage or flattened visual/table data that obscures the explanation.",
+        "reconstructedContent": "Normalized the question-specific source explanation and relevant figure/table facts into readable prose while preserving the numerical and physiological distinctions.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology source PDF, printed pages [474]; SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+          "The source-fidelity record notes visual inspection of the rendered page and OCR use as a transcription aid."
+        ],
+        "reviewNote": "The source image/text was reviewed; cleanup preserves the printed facts and answer key.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          474
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH26_Q005": {
+      "takeaway": "Blood velocity is highest in the aorta because velocity equals flow divided by total cross-sectional area, which is small there.",
+      "displayText": "Velocity is flow divided by total cross-sectional area (v = F/A). At rest the aorta has the smallest aggregate area, about 4.5 cm², while the capillary bed has the largest, about 4500 cm². Velocity is therefore highest in the aorta and lowest in capillaries.",
+      "emphasis": [
+        "Velocity is flow divided by total cross-sectional area (v = F/A).",
+        "At rest the aorta has the smallest aggregate area, about 4.",
+        "5 cm², while the capillary bed has the largest, about 4500 cm²."
+      ],
+      "rationales": {
+        "b": "Capillary beds have the largest total cross-sectional area and therefore the lowest average velocity.",
+        "c": "Venules have far more aggregate area than the aorta, so velocity is not maximal there.",
+        "d": "Vena cava is a large conduit but the source identifies aorta as the highest-velocity site."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          474,
+          475
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported solution has OCR damage or flattened visual/table data that obscures the explanation.",
+        "reconstructedContent": "Normalized the question-specific source explanation and relevant figure/table facts into readable prose while preserving the numerical and physiological distinctions.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology source PDF, printed pages [474, 475]; SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+          "The source-fidelity record notes visual inspection of the rendered page and OCR use as a transcription aid."
+        ],
+        "reviewNote": "The source image/text was reviewed; cleanup preserves the printed facts and answer key.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          474,
+          475
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH26_Q006": {
+      "takeaway": "Veins have the greatest vascular compliance; a systemic vein is about 24 times as compliant as its corresponding artery in the source comparison.",
+      "displayText": "Veins have the greatest compliance. Vascular compliance is the blood volume stored per unit pressure rise and equals distensibility multiplied by volume. A systemic vein is about 24 times as compliant as its corresponding artery because it is roughly eight times as distensible and has about three times the volume (8 × 3 = 24).",
+      "emphasis": [
+        "Veins have the greatest compliance.",
+        "Vascular compliance is the blood volume stored per unit pressure rise and equals distensibility multiplied by volume.",
+        "A systemic vein is about 24 times as compliant as its corresponding artery because it is roughly eight times as distensible and has about three times the volume (8 × 3 = 24)."
+      ],
+      "rationales": {
+        "a": "Arteries are less compliant because their walls are less distensible and operate at higher pressure.",
+        "b": "Capillaries are exchange vessels, not the main high-capacitance reservoir.",
+        "d": "Aorta is elastic but does not exceed veins in compliance."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          475
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported solution has OCR damage or flattened visual/table data that obscures the explanation.",
+        "reconstructedContent": "Normalized the question-specific source explanation and relevant figure/table facts into readable prose while preserving the numerical and physiological distinctions.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology source PDF, printed pages [475]; SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+          "The source-fidelity record notes visual inspection of the rendered page and OCR use as a transcription aid."
+        ],
+        "reviewNote": "The source image/text was reviewed; cleanup preserves the printed facts and answer key.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          475
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH26_Q007": {
+      "takeaway": "Bernoulli’s principle states that pressure energy plus kinetic energy remains constant along ideal flow; the other options describe unrelated laws.",
+      "displayText": "The Bernoulli's theorem states that in a tube or blood vessel, the sum of the kinetic energy of flow\nand pressure energy is constant.\nOther options:\n• Option B: Travelling wave theory (Theories of hearing): Low tones produce maximum\nstimulation at the apex of the cochlea.\n• Option C: Weber—Fechner law: The magnitude of sensation felt is proportional to the log of the\nintensity of the stimulus.\n• Option D: Frank—Starling law of the heart: Force of contraction is proportional to stretch of the\ncardiac muscle.",
+      "emphasis": [
+        "and pressure energy is constant.",
+        "stimulation at the apex of the cochlea.",
+        "intensity of the stimulus."
+      ],
+      "rationales": {
+        "b": "Low tones peaking at the cochlear apex describes the travelling-wave theory of hearing.",
+        "c": "Weber–Fechner relates sensation magnitude to the logarithm of stimulus intensity.",
+        "d": "Frank–Starling relates force to myocardial stretch, not fluid-flow energy."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          475,
+          476
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      }
+    },
+    "marrow__PHYSIO_CH26_Q008": {
+      "takeaway": "Vessel flow follows F = ΔP/R, so flow varies directly with the pressure difference between its ends.",
+      "displayText": "The blood flow through a vessel varies directly with pressure difference.\nThe blood flow follows Ohm's law:\nF = P/R\nWhere:\n• F = Blood flow\n• P = Pressure difference between two ends of the vessel\n• R = Resistance",
+      "emphasis": [
+        "The blood flow through a vessel varies directly with pressure difference."
+      ],
+      "rationales": {
+        "a": "Higher resistance lowers flow for a given pressure gradient.",
+        "b": "Higher viscosity raises resistance and therefore reduces flow.",
+        "d": "Greater vessel length increases resistance, lowering flow."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          476
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      }
+    },
+    "marrow__PHYSIO_CH26_Q009": {
+      "takeaway": "Reynolds number rises with vessel diameter (Re = ρvD/μ), so a wider vessel favors turbulent flow when other factors are held constant.",
+      "displayText": "Turbulence in blood flow increases with increase in diameter of blood vessel.\nThe turbulence of flow depends upon Reynold's number:\nRe = ρvD/μ\nWhere:\n• v = velocity of flow — cm/sec\n• ρ = density of blood\n• d = diameter of the vessel\n• μ = viscosity of blood in poise\nTherefore, increase in diameter increases turbulence.",
+      "emphasis": [
+        "Turbulence in blood flow increases with increase in diameter of blood vessel.",
+        "Therefore, increase in diameter increases turbulence."
+      ],
+      "rationales": {
+        "b": "Reynolds number below about 2000 favors laminar rather than turbulent flow.",
+        "c": "Lower density reduces Reynolds number and turbulence tendency.",
+        "d": "Lower velocity reduces Reynolds number and turbulence tendency."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          476,
+          477
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      }
+    },
+    "marrow__PHYSIO_CH26_Q010": {
+      "takeaway": "The aorta has the greatest tendency to turbulent flow because large diameter, high ejection velocity, pulsatility and changing caliber raise Reynolds number.",
+      "displayText": "The tendency for turbulent flow is greatest in the aorta.\nThe turbulence of flow depends upon Reynold's number:\nRe = ρvD/μ\nWhere:\n• v = velocity of flow — cm/sec\n• ρ = density of blood\n• d = diameter of the vessel\n• μ = viscosity of blood in poise\nIn the proximal portions of the aorta and pulmonary artery, Reynold's number can rise to several thousand during the rapid phase of the ejection, which causes considerable turbulence due to the following:\n• High velocity of blood flow\n• Pulsatile nature of the flow\n• Sudden change in vessel diameter\n• Large vessel diameter",
+      "emphasis": [
+        "The tendency for turbulent flow is greatest in the aorta."
+      ],
+      "rationales": {
+        "a": "Some arteries can develop turbulence, but the source specifies the proximal aorta as the greatest tendency.",
+        "b": "Capillaries have very low velocity and tiny diameter, favoring laminar flow.",
+        "c": "Veins generally have lower pressure/velocity and are less turbulence-prone than the aorta."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          477,
+          478
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      }
+    },
+    "marrow__PHYSIO_CH26_Q011": {
+      "takeaway": "Precapillary arterioles are the principal peripheral-resistance site; radius has a fourth-power effect on resistance.",
+      "displayText": "The main site of peripheral vascular resistance is precapillary arterioles.\nPoiseuille–Hagen formula explains that small changes in the calibre of vessels cause large changes in total peripheral resistance.\nR = 8ηL/(πr⁴)\nWhere:\n• R = resistance\n• η = viscosity\n• L = length of the tube\n• r = radius of the tube\nThe resistance varies inversely with the fourth power of radius.",
+      "emphasis": [
+        "The main site of peripheral vascular resistance is precapillary arterioles.",
+        "Poiseuille–Hagen formula explains that small changes in the calibre of vessels cause large changes in total peripheral resistance.",
+        "The resistance varies inversely with the fourth power of radius."
+      ],
+      "rationales": {
+        "b": "Precapillary sphincters regulate access to capillary beds but are not the main site of total peripheral resistance.",
+        "c": "Capillaries have many parallel channels and are not the primary adjustable resistance vessels.",
+        "d": "Windkessel elastic arteries buffer pulsatile flow rather than create the main peripheral resistance."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          478,
+          479
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      }
+    },
+    "marrow__PHYSIO_CH26_Q012": {
+      "takeaway": "Higher capillary hydrostatic pressure increases outward Starling filtration, especially at the arterial end of a capillary bed.",
+      "displayText": "The factor favoring filtration at the arterial end of the capillary bed is the increase in hydrostatic pressure of the capillary.\nThe rate of filtration at any point along the capillary bed depends on the balance of the Starling forces, which are responsible for fluid movement.\nNet filtration pressure = (Pc − Pi) − (πc − πi)\nWhere:\n• Pc = capillary hydrostatic pressure\n• Pi = interstitial hydrostatic pressure\n• πc = capillary colloidal osmotic pressure\n• πi = interstitial colloidal osmotic pressure\nGlomerular filtration rate = k × NFP\nWhere:\n• k = capillary filtration coefficient\n• NFP = Net filtration pressure",
+      "emphasis": [
+        "The factor favoring filtration at the arterial end of the capillary bed is the increase in hydrostatic pressure of the capillary.",
+        "The rate of filtration at any point along the capillary bed depends on the balance of the Starling forces, which are responsible for fluid movement."
+      ],
+      "rationales": {
+        "a": "Higher interstitial hydrostatic pressure opposes movement out of the capillary.",
+        "c": "Higher capillary oncotic pressure pulls water inward and opposes filtration.",
+        "d": "Lower interstitial oncotic pressure reduces an outward osmotic force and therefore does not favor filtration."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          479
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      }
+    },
+    "marrow__PHYSIO_CH26_Q013": {
+      "takeaway": "Raised capillary hydrostatic pressure increases interstitial fluid formation and pressure, which raises lymph flow if lymphatic drainage is intact.",
+      "displayText": "Lymph flow rises when interstitial fluid pressure rises, provided lymphatic vessels function. Increased capillary hydrostatic pressure, increased interstitial colloid osmotic pressure, increased capillary permeability and decreased plasma colloid osmotic pressure all increase filtration into interstitium and thereby increase lymph flow.",
+      "emphasis": [
+        "Lymph flow rises when interstitial fluid pressure rises, provided lymphatic vessels function.",
+        "Increased capillary hydrostatic pressure, increased interstitial colloid osmotic pressure, increased capillary permeability and decreased plasma colloid osmotic pressure all increase filtration into interstitium and thereby increase lymph flow."
+      ],
+      "rationales": {
+        "b": "Higher plasma oncotic pressure retains fluid in capillaries and tends to reduce interstitial fluid/lymph formation.",
+        "c": "Reduced capillary permeability lowers filtration and tends to reduce lymph production.",
+        "d": "Precapillary constriction lowers downstream capillary hydrostatic pressure, reducing filtration."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          480
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported solution has OCR damage or flattened visual/table data that obscures the explanation.",
+        "reconstructedContent": "Normalized the question-specific source explanation and relevant figure/table facts into readable prose while preserving the numerical and physiological distinctions.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology source PDF, printed pages [480]; SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+          "The source-fidelity record notes visual inspection of the rendered page and OCR use as a transcription aid."
+        ],
+        "reviewNote": "The source image/text was reviewed; cleanup preserves the printed facts and answer key.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          480
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH26_Q014": {
+      "takeaway": "Coronary arterioles dilate in response to local metabolic need; ATP breakdown to adenosine is an important vasodilator signal.",
+      "displayText": "Coronary blood flow is regulated by adenosine.\nBlood flow through the coronary system is regulated mostly by local arteriolar vasodilation in response to the nutritional needs of cardiac muscle.\n↑ local metabolism → ↓ O₂ → breakdown of ATP to form adenosine → vasodilation → ↑ local coronary blood flow.",
+      "emphasis": [
+        "Coronary blood flow is regulated by adenosine.",
+        "Blood flow through the coronary system is regulated mostly by local arteriolar vasodilation in response to the nutritional needs of cardiac muscle.",
+        "↑ local metabolism → ↓ O₂ → breakdown of ATP to form adenosine → vasodilation → ↑ local coronary blood flow."
+      ],
+      "rationales": {
+        "b": "Bradykinin can dilate vessels but is not the principal local metabolic regulator given in this coronary-flow explanation.",
+        "c": "Prostaglandins modulate vascular tone but the source singles out adenosine for coronary autoregulation.",
+        "d": "The mechanism described is local myocardial metabolism/adenosine rather than increased arterial PCO₂ as the main regulator."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          480
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      }
+    },
+    "marrow__PHYSIO_CH26_Q015": {
+      "takeaway": "Systolic myocardial compression reduces flow more in subendocardium than epicardium because intramural pressure is greatest toward the endocardium.",
+      "displayText": "The coronary blood flow in systole has a greater decrease in subendocardium than epicardium.\nThe myocardial compression in systole compresses the subendocardial vessels to a greater extent,\nand the force is sufficiently dissipated in the epicardium to permit some flow in this region\nthroughout the cardiac cycle.",
+      "emphasis": [
+        "The coronary blood flow in systole has a greater decrease in subendocardium than epicardium.",
+        "throughout the cardiac cycle."
+      ],
+      "rationales": {
+        "a": "Flow changes during systole; compression reduces it rather than leaving it unchanged.",
+        "b": "Systolic contraction compresses coronary vessels, so coronary flow does not increase overall in systole.",
+        "d": "Subendocardial vessels experience the greater compression, not epicardial vessels."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          480
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      }
+    },
+    "marrow__PHYSIO_CH26_Q016": {
+      "takeaway": "Agglutination only in the anti-Rh well, with none in anti-A or anti-B, identifies group O Rh-positive blood.",
+      "displayText": "The agglutination card shows no reaction with anti-A or anti-B and a reaction only with anti-Rh. The erythrocytes therefore lack A and B antigens but express Rh(D), giving blood group O positive.",
+      "emphasis": [
+        "The agglutination card shows no reaction with anti-A or anti-B and a reaction only with anti-Rh.",
+        "The erythrocytes therefore lack A and B antigens but express Rh(D), giving blood group O positive."
+      ],
+      "rationales": {
+        "a": "B-positive blood would agglutinate with anti-B as well as anti-Rh.",
+        "b": "A-positive blood would agglutinate with anti-A as well as anti-Rh.",
+        "d": "AB-positive blood would agglutinate in anti-A, anti-B and anti-Rh wells."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          480,
+          481
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported solution has OCR damage or flattened visual/table data that obscures the explanation.",
+        "reconstructedContent": "Normalized the question-specific source explanation and relevant figure/table facts into readable prose while preserving the numerical and physiological distinctions.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology source PDF, printed pages [480, 481]; SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+          "The source-fidelity record notes visual inspection of the rendered page and OCR use as a transcription aid."
+        ],
+        "reviewNote": "The source image/text was reviewed; cleanup preserves the printed facts and answer key.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          480,
+          481
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH26_Q017": {
+      "takeaway": "Factor II is vitamin-K-dependent; warfarin blocks vitamin K recycling and reduces γ-carboxylation of factors II, VII, IX and X.",
+      "displayText": "Factor 2 would have decreased gamma carboxyglutamate residue in a patient on warfarin therapy.\nActivation of coagulation factors II, VII, IX, X is done by carboxylation of their glutamate residues. This is done by the enzyme γ-glutamyl carboxylase with the reduced form of vitamin K as a co-factor.\nThis reduced form of vitamin K needs to be constantly recycled back from its oxidized form for the reaction to continue. This recycling is done by the enzyme vitamin K epoxide reductase. This enzyme is inhibited by warfarin.\nHence, warfarin indirectly inhibits the γ-carboxylation of vitamin K dependent clotting factors — Factors II, VII, IX, X — by directly inhibiting vitamin K epoxide reductase. Thus leading to decreased gamma carboxyglutamate residue in these factors.",
+      "emphasis": [
+        "Factor 2 would have decreased gamma carboxyglutamate residue in a patient on warfarin therapy.",
+        "Activation of coagulation factors II, VII, IX, X is done by carboxylation of their glutamate residues.",
+        "This is done by the enzyme γ-glutamyl carboxylase with the reduced form of vitamin K as a co-factor."
+      ],
+      "rationales": {
+        "b": "Factor XI is not one of the vitamin-K-dependent γ-carboxylated factors.",
+        "c": "Tissue factor is not the vitamin-K-dependent coagulation factor intended here.",
+        "d": "Factor V is not vitamin-K-dependent; it is a cofactor in prothrombinase."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          481
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      }
+    },
+    "marrow__PHYSIO_CH26_Q018": {
+      "takeaway": "Fetal blood returning from the placenta through the umbilical vein and ductus venosus gives the IVC the highest oxygen concentration among these choices.",
+      "displayText": "Inferior vena cava has the highest oxygen concentration in fetal circulation.\nThe blood gets oxygenated in the placenta and this passes to the umbilical vein. From the\numbilical vein, 50% of the blood enters the hepatic circulation and 50% bypasses the liver to enter\nthe inferior vena cava. From here, the blood enters the heart via the right atrium. The right atrium\nalso receives deoxygenated blood from the superior vena cava. This mixed blood is distributed to\nthe body via aorta. e@\nTherefore, inferior vena cava has the highest concentration of oxygen in the fetal Girculation.",
+      "emphasis": [
+        "Inferior vena cava has the highest oxygen concentration in fetal circulation.",
+        "The blood gets oxygenated in the placenta and this passes to the umbilical vein.",
+        "the inferior vena cava."
+      ],
+      "rationales": {
+        "b": "Right-atrial blood mixes oxygen-rich IVC flow with less-oxygenated SVC return.",
+        "c": "SVC carries venous return from the upper fetal body and has lower oxygen content.",
+        "d": "Ascending aortic blood is distributed after intracardiac streaming/mixing and is less oxygenated than IVC inflow."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          482
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      }
+    }
+  }
+}

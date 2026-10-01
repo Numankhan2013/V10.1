@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Anatomy Chapter 27 explanation refinement. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Anatomy",
+    "bank": "Marrow",
+    "chapterId": "27",
+    "chapterTitle": "Spinal Cord",
+    "questionStart": 15,
+    "questionEnd": 15,
+    "questions": 1,
+    "status": "approved-rollout",
+    "workloadScore": 14,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 753,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__ANAT_CH27_Q015": {
+      "takeaway": "Cauda equina syndrome often causes asymmetric lower-limb weakness, unlike symmetric conus medullaris syndrome.",
+      "displayText": "The scenario describes cauda equina syndrome. Conus medullaris syndrome typically shows symmetrical weakness of the lower limbs, whereas cauda equina syndrome typically shows asymmetrical weakness. Radicular pain, lower motor-neuron injury and urinary retention may occur in both conus medullaris and cauda equina syndromes.",
+      "emphasis": [
+        "cauda equina syndrome",
+        "symmetrical weakness of the lower limbs",
+        "asymmetrical weakness"
+      ],
+      "rationales": {
+        "a": "Radicular pain is common in cauda equina syndrome.",
+        "b": "Cauda equina lesions damage lower motor neurons.",
+        "d": "Urinary retention may occur in cauda equina syndrome; symmetric weakness is more characteristic of conus medullaris syndrome."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stable ID, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          470
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      }
+    }
+  },
+  "source": {
+    "bundle": "anatomy_ch001_063",
+    "sourceRawSha256": "f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387",
+    "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+    "sourcePdfPages": [
+      464,
+      465,
+      466,
+      467,
+      468,
+      469,
+      470
+    ]
+  }
+}

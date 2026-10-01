@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner-facing Marrow ED8 Physiology Chapter 39 explanation refinement; native diagrams and tables remain unchanged.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "39",
+    "chapterTitle": "The Adrenals",
+    "questionStart": 19,
+    "questionEnd": 21,
+    "questions": 3,
+    "status": "approved-rollout",
+    "workloadScore": 4,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "f3cd6b9dccb2092743fa86de4b0bef682d61c83762e9f00fa3b04d0a355d89d6",
+    "auditReport": "docs/question-explanations/physiology-tail-20261001.md"
+  },
+  "questions": {
+    "marrow__PHYSIO_CH39_Q019": {
+      "takeaway": "Adrenal androgen excess, especially DHEA/DHEA-S, can cause virilization and hirsutism in a female patient.",
+      "displayText": "Adrenal androgen excess, especially DHEA/DHEA-S, can cause virilization and hirsutism in a female patient.\n\nHirsutism and masculinization in a female suggest excessive androgens like dehydroepiandrosterone (DHEA).\n\nAdrenogenital syndrome is due to an adrenocortical tumor secreting excessive quantities of androgens that cause intense masculinizing effects. In boys, it presents as precocious puberty. In women, virile characteristics develop, including:\n• Growth of a beard.\n• Deeper voice.\n• Masculine distribution of hair on the body and the pubis and\n• Growth of the clitoris.\n\nThe excretion of 17-ketosteroids (which are derived from androgens) in the urine may be 10 to 15 times elevated. This finding can be used in diagnosing the disease.",
+      "emphasis": [
+        "Adrenal androgen excess, especially DHEA/DHEA-S, can cause virilization and hirsutism in a female patient"
+      ],
+      "rationales": {
+        "b": "Aldosterone excess causes mineralocorticoid effects rather than virilization.",
+        "c": "Cortisol excess causes Cushingoid features, not androgenic masculinization.",
+        "d": "Epinephrine is a catecholamine and does not cause androgenic changes."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          743
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH39_Q020": {
+      "takeaway": "ACTH stimulates adrenal cortex steroidogenesis but does not directly regulate medullary epinephrine secretion.",
+      "displayText": "ACTH stimulates adrenal cortex steroidogenesis but does not directly regulate medullary epinephrine secretion.\n\nThe secretion of the adrenal medullary hormones (epinephrine, norepinephrine, and dopamine) is not controlled directly by ACTH.",
+      "emphasis": [
+        "ACTH stimulates adrenal cortex steroidogenesis but does not directly regulate medullary epinephrine secretion"
+      ],
+      "rationales": {
+        "a": "ACTH supports glucocorticoid synthesis in zona fasciculata.",
+        "b": "ACTH stimulates adrenal androgen synthesis from zona reticularis.",
+        "c": "DHEA secretion is ACTH-dependent."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          744
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH39_Q021": {
+      "takeaway": "DHEA-S is produced by the adrenal gland and is not secreted by female ovaries, unlike ovarian sex steroids.",
+      "displayText": "DHEA-S is produced by the adrenal gland and is not secreted by female ovaries, unlike ovarian sex steroids.\n\nDHEAS is exclusively secreted from the adrenals but not by ovaries because ovaries lack the enzyme dehydroepiandrosterone-sulphotransferase needed to form DHEAS.\n\n90% of DHEA is synthesised by the adrenals and 10% comes from the ovaries.",
+      "emphasis": [
+        "DHEA-S is produced by the adrenal gland and is not secreted by female ovaries, unlike ovarian sex steroids"
+      ],
+      "rationales": {
+        "a": "Ovaries produce progesterone, especially from corpus luteum.",
+        "b": "DHEA can be produced by both adrenal and ovarian tissue.",
+        "c": "Ovaries produce estrogens."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          744
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    }
+  }
+}

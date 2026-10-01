@@ -1,0 +1,473 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Anatomy Chapter 12 explanation refinement. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Anatomy",
+    "bank": "Marrow",
+    "chapterId": "12",
+    "chapterTitle": "Bone, Cartilage and Muscle Tissue",
+    "questionStart": 1,
+    "questionEnd": 14,
+    "questions": 14,
+    "status": "approved-rollout",
+    "workloadScore": 20,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 753,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__ANAT_CH12_Q001": {
+      "takeaway": "Fetal long-bone shafts contain red marrow; yellow marrow gradually replaces it there after early childhood.",
+      "displayText": "The marrow cavity in the shaft of a fetal long bone mainly contains red marrow.\n\nBone marrow is a soft, pulpy tissue found in the marrow cavity and the spaces of spongy bone. It is mainly of two types:\n• Yellow marrow — made predominantly of fat cells and may contain a few islands of hemopoietic tissue. It is found in the shafts of the long bones in adults.\n• Red marrow — made predominantly of hemopoietic tissue. It is found throughout the skeleton of the fetus and persists until about five years of age. After that, red marrow in the shafts of long bones is gradually replaced by yellow marrow.\n\nBy around 20–25 years of age, red marrow persists in the vertebrae, sternum, ribs, clavicles, scapulae, pelvis, cranial bones, and proximal ends of the femur and humerus.\n\nGelatinous marrow is degenerated bone marrow in the cranial bones in old age. There is no white marrow.",
+      "emphasis": [
+        "red marrow",
+        "Yellow marrow",
+        "Gelatinous marrow",
+        "There is no white marrow"
+      ],
+      "rationales": {
+        "b": "Yellow marrow, rich in fat cells, predominates in adult long-bone shafts; fetal skeleton contains red marrow.",
+        "c": "Gelatinous marrow is degenerated marrow described in cranial bones in old age, not the fetal shaft marrow.",
+        "d": "The source states that there is no white marrow; the fetal shaft contains red marrow."
+      },
+      "audit": {
+        "reviewedAgainst": "Anatomy ED8 source PDF visual pages 219–229 plus stable ID, stem, options and printed answer key",
+        "sourceExplanationPages": [
+          219,
+          220
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 1 source figure metadata item(s) retained in unchanged source record/shared renderer."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported ED8 text contains OCR debris, spacing corruption, or obvious scan-transcription errors; the wording was cleaned from direct visual review while retaining the complete educational explanation.",
+        "sourceFragment": "y a aX E The marrow cavity in the shaft of, the fetal long bone mainly contains red marrow. Bone marrow is a soft, pulpy: tissue found it the marrow cavity and the spaces of spongy bone. It is mainly of two types: } Se ox * Yellow marrow - made up predominantly of fat,cells and may contain few islands of hemopoietic tissue. It is seen in the shaft of:thé long bones.of an adult. + Red marrow - It is made\"up predominantly of hemopoietic tissue. It is seen throughout the skeleton of the fetus. qt persists till about five years of age after which, the red marrow in the shaft of long bones is gradually replaced by the yellow marrow. By around 20-25 years of age, the sites where the red marrow persistsjinclude:. Vertebrae \\ « Sternum + Ribs * Clavicles * Scapulae + Pelvis * Cranial bones + Proximal ends of femur and humerus The term gelatinous marrow refers to the degenerated bone marrow in the cranial bones, seen in old age. There is no white marrow. Wyrees of Bone marrow ee ee ss SS SS SSS ee = wad 9 Se",
+        "reconstructedContent": "The marrow cavity in the shaft of a fetal long bone mainly contains red marrow.\n\nBone marrow is a soft, pulpy tissue found in the marrow cavity and the spaces of spongy bone. It is mainly of two types:\n• Yellow marrow — made predominantly of fat cells and may contain a few islands of hemopoietic tissue. It is found in the shafts of the long bones in adults.\n• Red marrow — made predominantly of hemopoietic tissue. It is found throughout the skeleton of the fetus and persists until about five years of age. After that, red marrow in the shafts of long bones is gradually replaced by yellow marrow.\n\nBy around 20–25 years of age, red marrow persists in the vertebrae, sternum, ribs, clavicles, scapulae, pelvis, cranial bones, and proximal ends of the femur and humerus.\n\nGelatinous marrow is degenerated bone marrow in the cranial bones in old age. There is no white marrow.",
+        "evidenceBasis": "Direct visual comparison with data/marrow/source_pdfs/Anatomy_ed8.pdf, printed explanation page(s) 219, 220; stable-ID answer key, figure and structured source metadata cross-checked against the immutable source record.",
+        "reviewNote": "Only legible source wording and formatting were normalized. Medical facts, named examples, sequences, numerical values, figure ownership, and answer key were checked against the pinned source PDF; no missing content was inferred."
+      }
+    },
+    "marrow__ANAT_CH12_Q002": {
+      "takeaway": "Osteoprogenitor cells are mesenchymal stem cells that give rise to osteoblasts.",
+      "displayText": "Osteoprogenitor cells give rise to osteoblasts. They are stem cells of mesenchymal origin and microscopically resemble fibroblasts. The source also illustrates the osteoprogenitor-to-osteoblast relationship and light micrographs of the two cell types.",
+      "emphasis": [
+        "Osteoprogenitor cells",
+        "osteoblasts",
+        "mesenchymal origin",
+        "fibroblasts"
+      ],
+      "rationales": {
+        "a": "Osteocytes are mature bone cells; the osteoprogenitor lineage first differentiates into osteoblasts.",
+        "c": "Chondrocytes are cartilage cells, not the bone-forming descendants of osteoprogenitor cells.",
+        "d": "Chondroblasts form cartilage matrix; osteoprogenitor cells give rise to osteoblasts."
+      },
+      "audit": {
+        "reviewedAgainst": "Anatomy ED8 source PDF visual pages 219–229 plus stable ID, stem, options and printed answer key",
+        "sourceExplanationPages": [
+          220,
+          221
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 2 source figure metadata item(s) retained in unchanged source record/shared renderer."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported ED8 text contains OCR debris, spacing corruption, or obvious scan-transcription errors; the wording was cleaned from direct visual review while retaining the complete educational explanation.",
+        "sourceFragment": "~\\ o rw \"tect cme ® re The osteoprogenitor cells give rise to osteoblasts. Osteoprogenitor cells oe ey are the'stem cells of mesenchymal igin and mi ical ble fil. origin and microscopic yrése le broblast ‘ of Types of bone cells hm, Re Gemeah (lame bane marx) (mamtas —_('80rbs Bone) bone tissue) The image below shows light micrograph of osteoprogenitor cells forming a nidus. Osteoprogenitor cells SoS) eO> A o ee = SSS ee & —Sse—«‘ SS yx ea The image below shows a light micrograph we < s, nae es x Osteoblasts < F. on, ae oe c on Ses > ta tat < Se: a ai ved ne. _ \" _~ — a\" a",
+        "reconstructedContent": "Osteoprogenitor cells give rise to osteoblasts. They are stem cells of mesenchymal origin and microscopically resemble fibroblasts. The source also illustrates the osteoprogenitor-to-osteoblast relationship and light micrographs of the two cell types.",
+        "evidenceBasis": "Direct visual comparison with data/marrow/source_pdfs/Anatomy_ed8.pdf, printed explanation page(s) 220, 221; stable-ID answer key, figure and structured source metadata cross-checked against the immutable source record.",
+        "reviewNote": "Only legible source wording and formatting were normalized. Medical facts, named examples, sequences, numerical values, figure ownership, and answer key were checked against the pinned source PDF; no missing content was inferred."
+      }
+    },
+    "marrow__ANAT_CH12_Q003": {
+      "takeaway": "Inorganic calcium hydroxyapatite is the major bone mineral; organic matrix provides toughness and tensile resistance.",
+      "displayText": "Calcium phosphate, in the form of calcium hydroxyapatite, is the major constituent of the inorganic salts in bone.\n\nBone matrix is predominantly made up of inorganic mineral salts, which account for about 60–70% of the dry weight of bone. These salts are deposited within the organic matrix.\n\n• Inorganic mineral salts make bone hard and rigid and provide resistance to compressive and impact forces, as in weight-bearing and jumping. Calcium phosphate as hydroxyapatite makes up about 85% of the total salts; calcium carbonate accounts for about 10%, with magnesium, chloride, fluoride, citrate, sodium and potassium also present.\n• Organic matrix makes bone tough and resilient (flexible) and provides resistance to tensile forces. It consists predominantly of type I collagen, glycosaminoglycans, proteoglycans and water. Osteonectin and osteocalcin are the predominant bone glycoproteins; they bind calcium and help mineralization. Other substances include chondroitin sulfates, phospholipids and phosphoproteins.\n\nBone histology may use decalcification: weak acids or chelating agents such as EDTA or citrate remove inorganic mineral salts. Decalcification causes bone to lose its rigidity.",
+      "emphasis": [
+        "calcium hydroxyapatite",
+        "60–70% of the dry weight",
+        "type I collagen",
+        "decalcification"
+      ],
+      "rationales": {
+        "a": "Inorganic mineral salts make bone hard and rigid; the organic matrix makes it tough and resilient.",
+        "b": "This reverses the roles: organic matrix resists tensile forces, while mineral salts resist compressive and impact forces.",
+        "d": "The source assigns about 60–70% of dry bone weight to inorganic salts; the organic matrix is not about 65%."
+      },
+      "audit": {
+        "reviewedAgainst": "Anatomy ED8 source PDF visual pages 219–229 plus stable ID, stem, options and printed answer key",
+        "sourceExplanationPages": [
+          221,
+          222
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported ED8 text contains OCR debris, spacing corruption, or obvious scan-transcription errors; the wording was cleaned from direct visual review while retaining the complete educational explanation.",
+        "sourceFragment": "Calcium phosphate in the form of calcium hydroxyapatite is the major constituent of the inorganic salts present in the bone. The ground substance of the bone (bone matrix) is predominantly made up of inorganic mineral salts, which constitute about 60-70% of the dry weight of the bone. These inorganic salts are deposited within the organic matrix. + Inorganic mineral salts - makes the bone hard and rigid, and thus provides resistance to the compressive and impact forces as in weight-bearing or jumping respectively. Its constituents are: * Calcium phosphate in the form of calcium hydroxyapatite (85% of total salts) * Calcium carbonate (10% of total salts), magnesium, chloride, fluoride, citrate, sodium, and potassium. * Organic matrix - makes the bone tough and resilient (flexible) and thus provides resistance to the tensile forces. Its constituents are: + Type I collagen (predominantly) * Glycosaminoglycans, proteoglycans, and water. * Osteonectin and osteocalcin - predominant glycoproteins present in bone. These bind to calcium and help in the mineralization of the bone. * Other substances include chondroitin sulfates, phospholipids, and phosphoproteins. Note: Histological preparation of bone sections involves a process called decalcification, wherein the inorganic mineral salts of the bone are removed by treating the bone witlweak acids or chelating agents such as EDTA or citrate. The decalcification-causes the-bone to lose its rigidity. Re) Re) \" wf",
+        "reconstructedContent": "Calcium phosphate, in the form of calcium hydroxyapatite, is the major constituent of the inorganic salts in bone.\n\nBone matrix is predominantly made up of inorganic mineral salts, which account for about 60–70% of the dry weight of bone. These salts are deposited within the organic matrix.\n\n• Inorganic mineral salts make bone hard and rigid and provide resistance to compressive and impact forces, as in weight-bearing and jumping. Calcium phosphate as hydroxyapatite makes up about 85% of the total salts; calcium carbonate accounts for about 10%, with magnesium, chloride, fluoride, citrate, sodium and potassium also present.\n• Organic matrix makes bone tough and resilient (flexible) and provides resistance to tensile forces. It consists predominantly of type I collagen, glycosaminoglycans, proteoglycans and water. Osteonectin and osteocalcin are the predominant bone glycoproteins; they bind calcium and help mineralization. Other substances include chondroitin sulfates, phospholipids and phosphoproteins.\n\nBone histology may use decalcification: weak acids or chelating agents such as EDTA or citrate remove inorganic mineral salts. Decalcification causes bone to lose its rigidity.",
+        "evidenceBasis": "Direct visual comparison with data/marrow/source_pdfs/Anatomy_ed8.pdf, printed explanation page(s) 221, 222; stable-ID answer key, figure and structured source metadata cross-checked against the immutable source record.",
+        "reviewNote": "Only legible source wording and formatting were normalized. Medical facts, named examples, sequences, numerical values, figure ownership, and answer key were checked against the pinned source PDF; no missing content was inferred."
+      }
+    },
+    "marrow__ANAT_CH12_Q004": {
+      "takeaway": "Osteoid is the unmineralized matrix of type I collagen and gelatinous ground substance secreted during bone formation.",
+      "displayText": "During bone formation, mesenchymal cells and osteoblasts secrete type I collagen and gelatinous (unmineralized) matrix. Together, these form osteoid. The collagen fibers swell within the gelatinous matrix and become indistinct. Under the influence of osteoblasts, calcium salts are deposited in the gelatinous matrix; this process is mineralization. The source image shows the microscopic appearance of osteoid in osteoid osteoma.",
+      "emphasis": [
+        "type I collagen",
+        "gelatinous",
+        "osteoid",
+        "mineralization"
+      ],
+      "rationales": {
+        "a": "Osteoblasts secrete the material, but osteoid is the matrix they produce rather than the cells plus fibers.",
+        "b": "Osteoid is unmineralized; inorganic mineral salts are deposited later during mineralization.",
+        "d": "Osteoid includes type I collagen and gelatinous matrix, not only the inorganic component."
+      },
+      "audit": {
+        "reviewedAgainst": "Anatomy ED8 source PDF visual pages 219–229 plus stable ID, stem, options and printed answer key",
+        "sourceExplanationPages": [
+          222
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 1 source figure metadata item(s) retained in unchanged source record/shared renderer."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported ED8 text contains OCR debris, spacing corruption, or obvious scan-transcription errors; the wording was cleaned from direct visual review while retaining the complete educational explanation.",
+        "sourceFragment": "© a? < During the formation of bone, theepeplnchymalgd ibid osteo secrete type I collagen and gelatinous matrix (anmineraligegipo e matrix), which together, s the osteoid. The collagen fibers swell up.aithin the gelatinous matrix anid become indistinct. Calcium salts are deposited into the gelatinous matrix under the influent ‘of osteoblasts and this process is called mineralization. & e\" The below image shows the nfer8scopic appearance of osteoid in a patient with osteoid osteoma. wks ™ Osteoid osteoma a Soe Wn",
+        "reconstructedContent": "During bone formation, mesenchymal cells and osteoblasts secrete type I collagen and gelatinous (unmineralized) matrix. Together, these form osteoid. The collagen fibers swell within the gelatinous matrix and become indistinct. Under the influence of osteoblasts, calcium salts are deposited in the gelatinous matrix; this process is mineralization. The source image shows the microscopic appearance of osteoid in osteoid osteoma.",
+        "evidenceBasis": "Direct visual comparison with data/marrow/source_pdfs/Anatomy_ed8.pdf, printed explanation page(s) 222; stable-ID answer key, figure and structured source metadata cross-checked against the immutable source record.",
+        "reviewNote": "Only legible source wording and formatting were normalized. Medical facts, named examples, sequences, numerical values, figure ownership, and answer key were checked against the pinned source PDF; no missing content was inferred."
+      }
+    },
+    "marrow__ANAT_CH12_Q005": {
+      "takeaway": "Volkmann’s canals are transverse perforating canals connecting Haversian canals.",
+      "displayText": "The structure marked A is Volkmann’s canal. Haversian canals communicate with one another through transverse perforating canals called Volkmann’s canals.\n\nThe Haversian system (osteon) makes up most compact bone. Each osteon has a central canal containing small blood vessels, nerves and endosteum. Multiple lamellae of calcified matrix containing type I collagen fibers surround the canal. Successive lamellae are separated by lacunae containing osteocytes. Osteocytes communicate with one another, the central canal and the osteon periphery through dendritic processes in canaliculi.\n\nParallel lamellae between osteons are interstitial lamellae; those near the periosteum are circumferential lamellae. On microscopy, osteons are identified by a Haversian canal with concentric lamellae, Volkmann’s canals, osteocytes with canaliculi, interstitial lamellae and circumferential lamellae.",
+      "emphasis": [
+        "Volkmann’s canal",
+        "Haversian canals",
+        "interstitial lamellae",
+        "circumferential lamellae"
+      ],
+      "rationales": {
+        "b": "A Haversian canal is the central longitudinal canal of an osteon; Volkmann’s canals connect these canals transversely.",
+        "c": "Interstitial lamellae lie between osteons and are not the transverse connecting canal.",
+        "d": "Circumferential lamellae lie near the periosteum; they are not Volkmann’s canals."
+      },
+      "audit": {
+        "reviewedAgainst": "Anatomy ED8 source PDF visual pages 219–229 plus stable ID, stem, options and printed answer key",
+        "sourceExplanationPages": [
+          222,
+          223,
+          224
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 3 source figure metadata item(s) retained in unchanged source record/shared renderer."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported ED8 text contains OCR debris, spacing corruption, or obvious scan-transcription errors; the wording was cleaned from direct visual review while retaining the complete educational explanation.",
+        "sourceFragment": "The structure marked as A in the above image is Volkmann's canal. The Haversian canals communicate with each other by the transverse perforating canals, which are called Volkmann's canals. The Haversian system or osteon constitute most part of the compact bone. Each Haversian system contains a central canal within which the small blood vessels, nerves, and endosteum are present. This canal is surrounded by multiple layers or lamellae of the calcified matrix containing type I collagen fibers. These canals communicate with each other by Volkmann's canal. Successive lamellae are separated from each other by lacunae containing osteocytes. These osteocytes are in communication with each other, the central canal and the periphery of the osteon via the dendritic processes present within the canaliculi. The parallel lamellae present between osteons is called interstitial lamellae and the parallel lamellae present near the periosteum are called the circumferential lamellae. se On microscopy, osteon can be identified by a a + Presence of Haversian canal with concentric lamellae around it ‘ * Volkmann's canal ~ ‘ bs * Osteocytes with canaliculi ~, ‘ + Interstitial lamellae ~ r * Circumferential lamellae ‘ c Histology of Bone at tt f. po se —™~ Per Gtr a SILT ates fs ec fae? Sane Pann Ti Pas - Compact vs Sponsy bone > _ Ostwon ( \\—VWAiess= oo ~ eB US ty yg je 7\" 4 comms ies | @ MARROW P.M eo Osteon \"ia Wy hp. a\" Sin b F r ~*~. oe a x. 1 eo Re tet > * PP 6S % ae | GR, Ae + Stee 5. a",
+        "reconstructedContent": "The structure marked A is Volkmann’s canal. Haversian canals communicate with one another through transverse perforating canals called Volkmann’s canals.\n\nThe Haversian system (osteon) makes up most compact bone. Each osteon has a central canal containing small blood vessels, nerves and endosteum. Multiple lamellae of calcified matrix containing type I collagen fibers surround the canal. Successive lamellae are separated by lacunae containing osteocytes. Osteocytes communicate with one another, the central canal and the osteon periphery through dendritic processes in canaliculi.\n\nParallel lamellae between osteons are interstitial lamellae; those near the periosteum are circumferential lamellae. On microscopy, osteons are identified by a Haversian canal with concentric lamellae, Volkmann’s canals, osteocytes with canaliculi, interstitial lamellae and circumferential lamellae.",
+        "evidenceBasis": "Direct visual comparison with data/marrow/source_pdfs/Anatomy_ed8.pdf, printed explanation page(s) 222, 223, 224; stable-ID answer key, figure and structured source metadata cross-checked against the immutable source record.",
+        "reviewNote": "Only legible source wording and formatting were normalized. Medical facts, named examples, sequences, numerical values, figure ownership, and answer key were checked against the pinned source PDF; no missing content was inferred."
+      }
+    },
+    "marrow__ANAT_CH12_Q006": {
+      "takeaway": "Membranous bones are also called dermal bones; membranocartilaginous bones develop partly from cartilage and partly from mesenchyme.",
+      "displayText": "Membranous bones (not membranocartilaginous bones) are also called dermal bones. Bones are classified by their pattern of development:\n• Membranous bones ossify from highly vascular membranes of primitive mesenchyme. At ossification centers, mesenchymal stem cells differentiate into osteoprogenitor cells, which give rise to osteoblasts. Examples include skull and facial bones.\n• Cartilaginous bones ossify from hyaline cartilage. Osteoprogenitor cells in the deeper perichondrium contribute to bone formation. Examples include bones of the limbs, vertebral column and thoracic cage.\n• Membranocartilaginous bones ossify partly from cartilage and partly from mesenchymal condensations. Examples include the clavicle, mandible, occipital, temporal and sphenoid bones.",
+      "emphasis": [
+        "Membranous bones",
+        "primitive mesenchyme",
+        "Membranocartilaginous bones",
+        "clavicle"
+      ],
+      "rationales": {
+        "a": "Membranous bones do ossify from primitive mesenchyme, so this statement is true.",
+        "b": "Cartilaginous bones develop from preformed hyaline-cartilage models, so this statement is true.",
+        "d": "The clavicle is a source-listed example of a membranocartilaginous bone, so this statement is true."
+      },
+      "audit": {
+        "reviewedAgainst": "Anatomy ED8 source PDF visual pages 219–229 plus stable ID, stem, options and printed answer key",
+        "sourceExplanationPages": [
+          224,
+          225
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported ED8 text contains OCR debris, spacing corruption, or obvious scan-transcription errors; the wording was cleaned from direct visual review while retaining the complete educational explanation.",
+        "sourceFragment": "Membranous bones (and not membranocartilagenous bones) are also known as dermal bones. The bone is classified into three categories on the basis of pattern of development as follows: * Membranous bones - These bones ossify from highly vascular membranes of primitive mesenchyme. At centres of ossification, mesenchymal stem cells differentiate into osteoprogenitor cells which give rise to osteoblasts. These osteoblasts help in the formation of bone. e.g., bones of the skull and facial bones. + Cartilaginous bones - These bones ossify from hyaline cartilage. The deeper layers of the perichondrium surrounding the cartilage contain osteoprogenitor cells which help in bone formation. e.g., bones of limbs, vertebral column and thoracic cage. + Membranocartilaginous bones - These bones ossify partly from cartilage and partly from mesenchymal condensations. e.g., clavicle, mandible, occipital, temporal and sphenoid.",
+        "reconstructedContent": "Membranous bones (not membranocartilaginous bones) are also called dermal bones. Bones are classified by their pattern of development:\n• Membranous bones ossify from highly vascular membranes of primitive mesenchyme. At ossification centers, mesenchymal stem cells differentiate into osteoprogenitor cells, which give rise to osteoblasts. Examples include skull and facial bones.\n• Cartilaginous bones ossify from hyaline cartilage. Osteoprogenitor cells in the deeper perichondrium contribute to bone formation. Examples include bones of the limbs, vertebral column and thoracic cage.\n• Membranocartilaginous bones ossify partly from cartilage and partly from mesenchymal condensations. Examples include the clavicle, mandible, occipital, temporal and sphenoid bones.",
+        "evidenceBasis": "Direct visual comparison with data/marrow/source_pdfs/Anatomy_ed8.pdf, printed explanation page(s) 224, 225; stable-ID answer key, figure and structured source metadata cross-checked against the immutable source record.",
+        "reviewNote": "Only legible source wording and formatting were normalized. Medical facts, named examples, sequences, numerical values, figure ownership, and answer key were checked against the pinned source PDF; no missing content was inferred."
+      }
+    },
+    "marrow__ANAT_CH12_Q007": {
+      "takeaway": "Bronchi contain hyaline cartilage, whose matrix has territorial and interterritorial zones.",
+      "displayText": "The cartilage shown is hyaline cartilage, which is present in bronchi.\n\nHyaline cartilage consists of chondrocytes and matrix. Chondrocytes in deeper matrix are rounded and may form groups of up to eight by mitotic division of one chondroblast; these are isogenous cell aggregates (cell nests). Important matrix components include type II collagen, aggrecan (a proteoglycan) and chondronectin (a glycoprotein). The basophilic matrix immediately around chondrocytes is territorial matrix; the paler matrix farther from the cells is interterritorial matrix.\n\nOn microscopy, hyaline cartilage is identified by chondrocytes in lacunae, isogenous cell aggregates, basophilic territorial and pale interterritorial matrix, and perichondrium with an outer fibrous and inner cellular layer.",
+      "emphasis": [
+        "hyaline cartilage",
+        "isogenous cell aggregates",
+        "territorial matrix",
+        "interterritorial matrix"
+      ],
+      "rationales": {
+        "a": "Terminal bronchioles lack cartilage; cartilage is present in bronchi.",
+        "b": "Intervertebral discs contain fibrocartilage, not hyaline cartilage.",
+        "d": "The epiglottis contains elastic cartilage, whereas bronchi contain hyaline cartilage."
+      },
+      "audit": {
+        "reviewedAgainst": "Anatomy ED8 source PDF visual pages 219–229 plus stable ID, stem, options and printed answer key",
+        "sourceExplanationPages": [
+          225
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 1 source figure metadata item(s) retained in unchanged source record/shared renderer."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported ED8 text contains OCR debris, spacing corruption, or obvious scan-transcription errors; the wording was cleaned from direct visual review while retaining the complete educational explanation.",
+        "sourceFragment": "The type of cartilage shown in the above image is hyaline cartilage and it is present in bronchi. Hyaline cartilage is made up of chondrocytes and matrix. The chondrocytes in the deeper matrix are rounded in shape and may appear in a group of eight that originate by the mitotic divisions of a single chondroblast. These groups of cells are called isogenous cell aggregates or cell nests. The important components of the matrix are type II collagen, aggrecan (proteoglycan) ‘and chondronectin (glycoprotein). The matrix which immediately surrounds the chondrocytes is basophilic and is known as the territorial matrix and the matrix which are'more distant from the cells appears pale and is known as the interterritorial matrix. ~\\ On microscopy, hyaline cartilage can be identified by: ae 7 + Presence of chondrocytes within lacunae..\\\\\\— ‘ oN E * Group of two or more chondrocytes whichare known as jsogenous: call ‘aggregates or cell nests. _ ( e + Basophilic territorial matrix and pale interterritotial matrix > + Presence of perichondrium;with outer fibrous and the inner Cellular layer = ig ~~ 5\"",
+        "reconstructedContent": "The cartilage shown is hyaline cartilage, which is present in bronchi.\n\nHyaline cartilage consists of chondrocytes and matrix. Chondrocytes in deeper matrix are rounded and may form groups of up to eight by mitotic division of one chondroblast; these are isogenous cell aggregates (cell nests). Important matrix components include type II collagen, aggrecan (a proteoglycan) and chondronectin (a glycoprotein). The basophilic matrix immediately around chondrocytes is territorial matrix; the paler matrix farther from the cells is interterritorial matrix.\n\nOn microscopy, hyaline cartilage is identified by chondrocytes in lacunae, isogenous cell aggregates, basophilic territorial and pale interterritorial matrix, and perichondrium with an outer fibrous and inner cellular layer.",
+        "evidenceBasis": "Direct visual comparison with data/marrow/source_pdfs/Anatomy_ed8.pdf, printed explanation page(s) 225; stable-ID answer key, figure and structured source metadata cross-checked against the immutable source record.",
+        "reviewNote": "Only legible source wording and formatting were normalized. Medical facts, named examples, sequences, numerical values, figure ownership, and answer key were checked against the pinned source PDF; no missing content was inferred."
+      }
+    },
+    "marrow__ANAT_CH12_Q008": {
+      "takeaway": "Elastic cartilage is the yellow cartilage because its matrix contains elastin fibers.",
+      "displayText": "Elastic cartilage is also known as yellow fibrocartilage. It resembles hyaline cartilage: individual or small groups of chondrocytes are surrounded by type II collagen fibrils. It differs because much of its interterritorial matrix consists of fine yellow elastic fibers containing elastin.\n\nOn microscopy, elastic cartilage has chondrocytes within lacunae, elastic fibers in the matrix, and perichondrium with an outer fibrous and inner cellular layer.",
+      "emphasis": [
+        "yellow fibrocartilage",
+        "type II collagen",
+        "elastic fibers",
+        "elastin"
+      ],
+      "rationales": {
+        "a": "Hyaline cartilage is not the yellow cartilage; elastic fibers give elastic cartilage its yellow appearance.",
+        "c": "Fibrocartilage is the white fibrocartilage and is rich in thick collagen bundles.",
+        "d": "The source names elastic cartilage as yellow fibrocartilage; “fibroelastic” is not the answer used here."
+      },
+      "audit": {
+        "reviewedAgainst": "Anatomy ED8 source PDF visual pages 219–229 plus stable ID, stem, options and printed answer key",
+        "sourceExplanationPages": [
+          225
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported ED8 text contains OCR debris, spacing corruption, or obvious scan-transcription errors; the wording was cleaned from direct visual review while retaining the complete educational explanation.",
+        "sourceFragment": "{ \"as The elastic cartilage igalso known as,yellow fibrocartilage. The elastic cartilage resembles thevhyaline cartilage in that it contains individual or small groups of chondrocyte§ that are surreinded by type II collagen fibrils. However, it differs from hyaline cartilage in'that, much of the interterritorial matrix consists of fine yellow elastic fibres containing elastin protein. On microscopy, elastic cartilage can be identified by: + Presence of chondrocytes within lacunae + Presence of elastic fibres in the matrix ¢ Perichondrium with outer fibrous layer and the inner cellular layer",
+        "reconstructedContent": "Elastic cartilage is also known as yellow fibrocartilage. It resembles hyaline cartilage: individual or small groups of chondrocytes are surrounded by type II collagen fibrils. It differs because much of its interterritorial matrix consists of fine yellow elastic fibers containing elastin.\n\nOn microscopy, elastic cartilage has chondrocytes within lacunae, elastic fibers in the matrix, and perichondrium with an outer fibrous and inner cellular layer.",
+        "evidenceBasis": "Direct visual comparison with data/marrow/source_pdfs/Anatomy_ed8.pdf, printed explanation page(s) 225; stable-ID answer key, figure and structured source metadata cross-checked against the immutable source record.",
+        "reviewNote": "Only legible source wording and formatting were normalized. Medical facts, named examples, sequences, numerical values, figure ownership, and answer key were checked against the pinned source PDF; no missing content was inferred."
+      }
+    },
+    "marrow__ANAT_CH12_Q009": {
+      "takeaway": "The source image shows elastic cartilage, distinguished by elastic fibers in its matrix.",
+      "displayText": "The image shows elastic cartilage. Like hyaline cartilage, elastic cartilage contains individual or small groups of chondrocytes surrounded by type II collagen fibrils. Unlike hyaline cartilage, much of its interterritorial matrix consists of fine yellow elastic fibers containing elastin.\n\nOn microscopy, elastic cartilage has chondrocytes within lacunae, elastic fibers in the matrix, and perichondrium with an outer fibrous and inner cellular layer.",
+      "emphasis": [
+        "elastic cartilage",
+        "type II collagen",
+        "interterritorial matrix",
+        "elastic fibers"
+      ],
+      "rationales": {
+        "a": "Hyaline cartilage lacks the abundant elastic fibers that distinguish the cartilage in the image.",
+        "c": "Articular cartilage is a specialized hyaline cartilage and does not have the elastic-fiber-rich matrix shown.",
+        "d": "Fibrocartilage has thick collagen bundles and rows of chondrocytes rather than the elastic fibers described."
+      },
+      "audit": {
+        "reviewedAgainst": "Anatomy ED8 source PDF visual pages 219–229 plus stable ID, stem, options and printed answer key",
+        "sourceExplanationPages": [
+          225,
+          226
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 1 source figure metadata item(s) retained in unchanged source record/shared renderer."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported ED8 text contains OCR debris, spacing corruption, or obvious scan-transcription errors; the wording was cleaned from direct visual review while retaining the complete educational explanation.",
+        "sourceFragment": "The above image shows an elastic cartilage. The elastic cartilage, like the hyaline cartilage, contains individual or small groups of chondrocytes that are surrounded by type II collagen fibrils. However, it differs from hyaline cartilage in that, much of the interterritorial matrix consists of fine yellow elastic fibres containing elastin protein. On microscopy, elastic cartilage consists of: * Chondrocytes within lacunae + Elastic fibres in the matrix + Perichondrium with outer fibrous layer and the inner cellular layer",
+        "reconstructedContent": "The image shows elastic cartilage. Like hyaline cartilage, elastic cartilage contains individual or small groups of chondrocytes surrounded by type II collagen fibrils. Unlike hyaline cartilage, much of its interterritorial matrix consists of fine yellow elastic fibers containing elastin.\n\nOn microscopy, elastic cartilage has chondrocytes within lacunae, elastic fibers in the matrix, and perichondrium with an outer fibrous and inner cellular layer.",
+        "evidenceBasis": "Direct visual comparison with data/marrow/source_pdfs/Anatomy_ed8.pdf, printed explanation page(s) 225, 226; stable-ID answer key, figure and structured source metadata cross-checked against the immutable source record.",
+        "reviewNote": "Only legible source wording and formatting were normalized. Medical facts, named examples, sequences, numerical values, figure ownership, and answer key were checked against the pinned source PDF; no missing content was inferred."
+      }
+    },
+    "marrow__ANAT_CH12_Q010": {
+      "takeaway": "Verhoeff’s stain highlights elastic fibers by staining elastin dark purple or black.",
+      "displayText": "Verhoeff’s stain is used to visualize elastic fibers in elastic cartilage. The fibers stain dark purple or black with Verhoeff’s stain, which binds to elastin, the main constituent of elastic fibers. The source image shows elastic fibers stained in this way.",
+      "emphasis": [
+        "Verhoeff’s stain",
+        "dark purple or black",
+        "elastin"
+      ],
+      "rationales": {
+        "a": "Hematoxylin and eosin is a general stain and is not the specific elastin stain identified in the source.",
+        "c": "GMS silver stain highlights fungal organisms and basement membranes, not the elastic fibers asked about.",
+        "d": "Alcian blue stains acidic mucopolysaccharides rather than specifically visualizing elastin fibers."
+      },
+      "audit": {
+        "reviewedAgainst": "Anatomy ED8 source PDF visual pages 219–229 plus stable ID, stem, options and printed answer key",
+        "sourceExplanationPages": [
+          226
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 1 source figure metadata item(s) retained in unchanged source record/shared renderer."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported ED8 text contains OCR debris, spacing corruption, or obvious scan-transcription errors; the wording was cleaned from direct visual review while retaining the complete educational explanation.",
+        "sourceFragment": "The elastic fibers present in the elastic cartilage can be visualized by Verhoeff's stain. The fibers stain dark purple/black with Verhoeff's stain. The Verhoeff's stain binds to the elastin'protein, which is the main constituent of elastic fibers. e \\? The below image shows dark purple/black coloured elastimfibres stained.with Verhoeff's stain. LA ~ Elastic cartilage rn ie SS > y 2 — ) ~ os 2 2 = he 1 ae © Lu j S86 IG 6 \"Ss GS me, SY ~ = ~ a al aS",
+        "reconstructedContent": "Verhoeff’s stain is used to visualize elastic fibers in elastic cartilage. The fibers stain dark purple or black with Verhoeff’s stain, which binds to elastin, the main constituent of elastic fibers. The source image shows elastic fibers stained in this way.",
+        "evidenceBasis": "Direct visual comparison with data/marrow/source_pdfs/Anatomy_ed8.pdf, printed explanation page(s) 226; stable-ID answer key, figure and structured source metadata cross-checked against the immutable source record.",
+        "reviewNote": "Only legible source wording and formatting were normalized. Medical facts, named examples, sequences, numerical values, figure ownership, and answer key were checked against the pinned source PDF; no missing content was inferred."
+      }
+    },
+    "marrow__ANAT_CH12_Q011": {
+      "takeaway": "Fibrocartilage contains type I and type II collagen; hyaline and elastic cartilage contain type II.",
+      "displayText": "Type I collagen is present in fibrocartilage. Fibrocartilage (white fibrocartilage) contains both type I and type II collagen. Hyaline and elastic cartilage contain only type II collagen.",
+      "emphasis": [
+        "Type I collagen",
+        "fibrocartilage",
+        "type II collagen"
+      ],
+      "rationales": {
+        "a": "Hyaline cartilage contains type II collagen, not the type I collagen characteristic of fibrocartilage.",
+        "c": "Elastic cartilage contains type II collagen; its distinguishing fibers are elastic fibers.",
+        "d": "Articular cartilage is a hyaline-cartilage type and contains type II rather than type I collagen."
+      },
+      "audit": {
+        "reviewedAgainst": "Anatomy ED8 source PDF visual pages 219–229 plus stable ID, stem, options and printed answer key",
+        "sourceExplanationPages": [
+          226
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported ED8 text contains OCR debris, spacing corruption, or obvious scan-transcription errors; the wording was cleaned from direct visual review while retaining the complete educational explanation.",
+        "sourceFragment": "Type I collagen is present in fibrocartilage. + Fibrocartilage (also known as white fibrocartilage) contains both type I and type II collagen. ¢ Hyaline and elastic cartilage contains only type II collagen",
+        "reconstructedContent": "Type I collagen is present in fibrocartilage. Fibrocartilage (white fibrocartilage) contains both type I and type II collagen. Hyaline and elastic cartilage contain only type II collagen.",
+        "evidenceBasis": "Direct visual comparison with data/marrow/source_pdfs/Anatomy_ed8.pdf, printed explanation page(s) 226; stable-ID answer key, figure and structured source metadata cross-checked against the immutable source record.",
+        "reviewNote": "Only legible source wording and formatting were normalized. Medical facts, named examples, sequences, numerical values, figure ownership, and answer key were checked against the pinned source PDF; no missing content was inferred."
+      }
+    },
+    "marrow__ANAT_CH12_Q012": {
+      "takeaway": "Fibrocartilage lacks perichondrium and has thick collagen bundles with rows of chondrocytes.",
+      "displayText": "The image shows fibrocartilage stained with trichrome. Fibrocartilage is not covered by perichondrium. It is intermediate between dense fibrous connective tissue (tendons and ligaments) and hyaline cartilage. It consists of bundles of thick type I and type II collagen fibers, with rows of chondrocytes between the bundles.\n\nOn microscopy, fibrocartilage is identified by chondrocytes and a matrix containing abundant collagen fibers. The epiphyseal plate and bronchi have hyaline cartilage. Color should not determine cartilage type because it depends largely on the stain; the tissue’s structure and organization should be considered.",
+      "emphasis": [
+        "not covered by perichondrium",
+        "type I and type II collagen fibers",
+        "rows of chondrocytes",
+        "structure and organization"
+      ],
+      "rationales": {
+        "a": "The epiphyseal plate is hyaline cartilage, not fibrocartilage.",
+        "b": "Fibrocartilage contains bundles of thick collagen fibers, not thin fibers.",
+        "d": "Bronchi contain hyaline cartilage, not fibrocartilage."
+      },
+      "audit": {
+        "reviewedAgainst": "Anatomy ED8 source PDF visual pages 219–229 plus stable ID, stem, options and printed answer key",
+        "sourceExplanationPages": [
+          226,
+          227
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 2 source figure metadata item(s) retained in unchanged source record/shared renderer."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported ED8 text contains OCR debris, spacing corruption, or obvious scan-transcription errors; the wording was cleaned from direct visual review while retaining the complete educational explanation.",
+        "sourceFragment": "The above image shows a section of fibrocartilage stained with trichrome stain. Fibrocartilage is not covered by perichondrium. The fibrocartilage is an intermediate between dense fibrous connective tissue (tendon and ligaments) and hyaline cartilage. It consists of bundles of thick collagen fibres (both type I and II) with rows of chondrocytes present between the bundles. On microscopy, fibrocartilage can be identified by: + Presence of chondrocytes * Matrix containing abundant collagen fibres Fibrocartilage eg ‘ eo - ee Options A & D: Both the epiphyseal plate atid bronchi have the hyaline type of cartilage. Note: The colour of carta Should nore @nsidered while deciding its type, as it largely depends on the type Rohe used. Instga, the structure or organisation of the cartilage tissue should be considera: < Lo > NS R\\~)",
+        "reconstructedContent": "The image shows fibrocartilage stained with trichrome. Fibrocartilage is not covered by perichondrium. It is intermediate between dense fibrous connective tissue (tendons and ligaments) and hyaline cartilage. It consists of bundles of thick type I and type II collagen fibers, with rows of chondrocytes between the bundles.\n\nOn microscopy, fibrocartilage is identified by chondrocytes and a matrix containing abundant collagen fibers. The epiphyseal plate and bronchi have hyaline cartilage. Color should not determine cartilage type because it depends largely on the stain; the tissue’s structure and organization should be considered.",
+        "evidenceBasis": "Direct visual comparison with data/marrow/source_pdfs/Anatomy_ed8.pdf, printed explanation page(s) 226, 227; stable-ID answer key, figure and structured source metadata cross-checked against the immutable source record.",
+        "reviewNote": "Only legible source wording and formatting were normalized. Medical facts, named examples, sequences, numerical values, figure ownership, and answer key were checked against the pinned source PDF; no missing content was inferred."
+      }
+    },
+    "marrow__ANAT_CH12_Q013": {
+      "takeaway": "Perimysium surrounds a fascicle, a bundle of skeletal muscle fibers.",
+      "displayText": "Each bundle of muscle fibers (a fascicle) is surrounded by perimysium.\n\nSkeletal muscle is organized as follows:\n• A muscle fiber (myocyte) contains myofibrils and several elongated nuclei near the periphery, just beneath the cell membrane. The membrane is the sarcolemma and the cytoplasm is the sarcoplasm. Each individual muscle fiber is surrounded by delicate connective tissue called endomysium.\n• A fascicle is a group of muscle fibers. Each fascicle is surrounded by perimysium, which provides a pathway for nerves and blood vessels.\n• A skeletal muscle is a group of fascicles. The entire muscle is surrounded by epimysium, which contains larger nerves, blood vessels and lymphatics.",
+      "emphasis": [
+        "perimysium",
+        "endomysium",
+        "fascicle",
+        "epimysium"
+      ],
+      "rationales": {
+        "a": "Epimysium surrounds the entire skeletal muscle, not each fascicle.",
+        "c": "Endomysium surrounds each individual muscle fiber, not the bundle of fibers that forms a fascicle.",
+        "d": "Sarcolemma is the muscle-fiber cell membrane, not connective tissue surrounding a fascicle."
+      },
+      "audit": {
+        "reviewedAgainst": "Anatomy ED8 source PDF visual pages 219–229 plus stable ID, stem, options and printed answer key",
+        "sourceExplanationPages": [
+          227,
+          228
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 1 source figure metadata item(s) retained in unchanged source record/shared renderer."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported ED8 text contains OCR debris, spacing corruption, or obvious scan-transcription errors; the wording was cleaned from direct visual review while retaining the complete educational explanation.",
+        "sourceFragment": "Each bundle of muscle fibres is surrounded by the perimysium. Organization of skeletal muscle: * Muscle fibre or myocyte - made up of myofibrils and consists of several elongated nuclei, which lie along the periphery of the fibre just under the cell membrane. The cell membrane of the muscle fibre is called the sarcolemma, while the cytoplasm is called sarcoplasm. Each muscle fibre is surrounded by a delicate connective tissue called endomysium. + Fascicle - Group of muscle fibres together form fascicle. Each fascicle is surrounded by the perimysium. The perimysium serves as a pathway for nerves and blood vessels. * Muscle - Group of fascicles together form a skeletal muscle. The entire skeletal muscle is surrounded by epimysium. Epimysium contains larger nerves, blood vessels and lymphatics of the muscle. Skeletal muscle - transverse section Nucleus perimysiom Endomysium — aaa f iS, Din, Myofibrils Lo Jo pe e@ 1 + ne esis NONRRNeNniae s- \\¥ Tendon — oN Perimysium aS Wiese ne: sey Enctomnyaiuirn",
+        "reconstructedContent": "Each bundle of muscle fibers (a fascicle) is surrounded by perimysium.\n\nSkeletal muscle is organized as follows:\n• A muscle fiber (myocyte) contains myofibrils and several elongated nuclei near the periphery, just beneath the cell membrane. The membrane is the sarcolemma and the cytoplasm is the sarcoplasm. Each individual muscle fiber is surrounded by delicate connective tissue called endomysium.\n• A fascicle is a group of muscle fibers. Each fascicle is surrounded by perimysium, which provides a pathway for nerves and blood vessels.\n• A skeletal muscle is a group of fascicles. The entire muscle is surrounded by epimysium, which contains larger nerves, blood vessels and lymphatics.",
+        "evidenceBasis": "Direct visual comparison with data/marrow/source_pdfs/Anatomy_ed8.pdf, printed explanation page(s) 227, 228; stable-ID answer key, figure and structured source metadata cross-checked against the immutable source record.",
+        "reviewNote": "Only legible source wording and formatting were normalized. Medical facts, named examples, sequences, numerical values, figure ownership, and answer key were checked against the pinned source PDF; no missing content was inferred."
+      }
+    },
+    "marrow__ANAT_CH12_Q014": {
+      "takeaway": "Cardiac muscle has central nuclei, striations, branching fibers and intercalated discs.",
+      "displayText": "The image shows a longitudinal section of cardiac muscle stained with hematoxylin and eosin. On microscopy, cardiac muscle is identified by striations similar to skeletal muscle, a single centrally placed nucleus (sometimes with a perinuclear halo), and dark transverse intercalated discs at junctions between adjoining cardiac myocytes. Cells within one fiber branch and join cells in adjacent fibers.",
+      "emphasis": [
+        "cardiac muscle",
+        "centrally placed nucleus",
+        "intercalated discs",
+        "branch and join"
+      ],
+      "rationales": {
+        "a": "Skeletal muscle has striations but typically has multiple peripheral nuclei and does not have cardiac intercalated discs.",
+        "b": "Visceral smooth muscle lacks striations and intercalated discs.",
+        "d": "Vascular smooth muscle also lacks the striations, branching myocytes and intercalated discs of cardiac muscle."
+      },
+      "audit": {
+        "reviewedAgainst": "Anatomy ED8 source PDF visual pages 219–229 plus stable ID, stem, options and printed answer key",
+        "sourceExplanationPages": [
+          228,
+          229
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 2 source figure metadata item(s) retained in unchanged source record/shared renderer."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported ED8 text contains OCR debris, spacing corruption, or obvious scan-transcription errors; the wording was cleaned from direct visual review while retaining the complete educational explanation.",
+        "sourceFragment": "The above image shows a longitudinal section of the cardiac muscle stained by hematoxylin and eosin. On microscopy, cardiac muscle can be identified by: + Presence of striations similar to the skeletal muscle. + Presence of single and centrally placed nucleus. A perinuclear halo may be seen surrounding the nucleus. ¢ The junctions between adjoining cardiac myocytes are seen as dark staining transverse lines running across the muscle fibre. These lines are called intercalated discs. * Cells within one fibre branch and join the cells in adjacent fibres. Cardiac muscle Rg g s 3: OF a?",
+        "reconstructedContent": "The image shows a longitudinal section of cardiac muscle stained with hematoxylin and eosin. On microscopy, cardiac muscle is identified by striations similar to skeletal muscle, a single centrally placed nucleus (sometimes with a perinuclear halo), and dark transverse intercalated discs at junctions between adjoining cardiac myocytes. Cells within one fiber branch and join cells in adjacent fibers.",
+        "evidenceBasis": "Direct visual comparison with data/marrow/source_pdfs/Anatomy_ed8.pdf, printed explanation page(s) 228, 229; stable-ID answer key, figure and structured source metadata cross-checked against the immutable source record.",
+        "reviewNote": "Only legible source wording and formatting were normalized. Medical facts, named examples, sequences, numerical values, figure ownership, and answer key were checked against the pinned source PDF; no missing content was inferred."
+      }
+    }
+  },
+  "source": {
+    "bundle": "anatomy_ch001_063",
+    "sourceRawSha256": "f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387",
+    "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+    "sourcePdfPages": [
+      219,
+      229
+    ]
+  }
+}

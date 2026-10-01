@@ -1,0 +1,268 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner-facing Marrow ED8 Biochemistry Chapter 17 Q1-Q10 explanations. Question-local displays repair source OCR/deck contamination; raw questions and figures are unchanged.",
+  "scope": {
+    "subject": "Biochemistry",
+    "bank": "Marrow",
+    "chapterId": "17",
+    "chapter": "Porphyrins and Bile Pigments",
+    "questionStart": 1,
+    "questionEnd": 10,
+    "questions": 10,
+    "status": "approved-rollout",
+    "workloadScore": 17,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "919f0709b2eb833e302c6f7524b6dd2bd13bfaed638009375b5062135d3795b1"
+  },
+  "questions": {
+    "marrow__BIOCHEM_CH17_Q001": {
+      "takeaway": "Heme is protoporphyrin IX complexed with ferrous iron.",
+      "displayText": "Heme is ferroprotoporphyrin: ferrous iron (Fe2+) coordinated within protoporphyrin IX. Porphyrins are cyclic tetrapyrroles made of four pyrrole rings linked by methine bridges. In the source classification, uroporphyrin is the most water-soluble, coproporphyrin is intermediate, and protoporphyrin is least water-soluble.",
+      "emphasis": [
+        "ferrous iron (Fe2+)",
+        "protoporphyrin IX",
+        "four pyrrole rings",
+        "methine bridges"
+      ],
+      "rationales": {
+        "b": "Uroporphyrin is an intermediate in heme synthesis and is highly water-soluble, but the completed heme porphyrin ring is protoporphyrin IX.",
+        "c": "Coproporphyrinogen precedes protoporphyrinogen in the pathway; coproporphyrin is not the porphyrin bound to iron in heme.",
+        "d": "Benzoporphyrin is not the porphyrin ring used to form physiological heme."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 262; explanation p. 270. Obvious diagram/OCR debris after the source's solubility list was omitted from display only; the source visual remains unchanged."
+      ],
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source explanation includes a readable heme/protoporphyrin description followed by corrupted diagram text.",
+        "reconstructedContent": "The display retains the heme composition, tetrapyrrole structure and source solubility order while removing unreadable diagram/OCR debris.",
+        "evidenceBasis": "The intact source lines state that heme is ferroprotoporphyrin with Fe2+, define porphyrins as linked pyrrole rings, and list uroporphyrin/coproprophyrin/protoporphyrin solubility order. The answer key selects protoporphyrin.",
+        "reviewNote": "Only trailing OCR and diagram artifacts were omitted; question, keyed answer and source visual are unchanged."
+      }
+    },
+    "marrow__BIOCHEM_CH17_Q002": {
+      "takeaway": "Heme synthesis occurs in erythroid precursors and hepatocytes, but mature erythrocytes cannot synthesize heme.",
+      "displayText": "Heme synthesis is most active in erythroid precursors of bone marrow (about 85% of total synthesis in the source account) and in hepatocytes. The pathway alternates between mitochondria and cytosol: ALA synthase catalyzes the initial reaction in mitochondria, intermediate reactions occur in the cytosol, and the final steps return to mitochondria. Mature erythrocytes lack mitochondria and cannot synthesize heme.",
+      "emphasis": [
+        "erythroid precursors of bone marrow",
+        "hepatocytes",
+        "Mature erythrocytes lack mitochondria"
+      ],
+      "rationales": {
+        "a": "Osteocytes are not a major heme-synthesis tissue; the source instead identifies erythroid precursors and hepatocytes as the principal sites.",
+        "b": "Hepatocytes synthesize heme for cytochromes and other hemoproteins, so liver is a site of heme biosynthesis.",
+        "c": "Erythroid precursors require abundant heme for hemoglobin and account for most heme production; they are a major synthesis site."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source explanation begins with OCR debris before the readable statement that mature erythrocytes are not a site; the subsequent pathway account contains additional OCR/diagram noise.",
+        "reconstructedContent": "The display restores the readable source facts: marrow erythroid precursors and hepatocytes synthesize heme; synthesis is split between mitochondria and cytosol; mature erythrocytes cannot synthesize it.",
+        "evidenceBasis": "The source explanation directly states the keyed answer and the approximate erythroid/hepatic contribution, then describes the mitochondrial and cytosolic pathway phases. Mature erythrocytes lack mitochondria, consistent with the keyed exclusion.",
+        "reviewNote": "Only unreadable OCR and source diagram debris were removed. No missing cell type, answer key, question option, table, or visual content was inferred or altered."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 262; explanation p. 270. Source pathway diagram remains source-owned."
+      ]
+    },
+    "marrow__BIOCHEM_CH17_Q003": {
+      "takeaway": "Mitochondrial succinyl-CoA combines with glycine to initiate heme synthesis.",
+      "displayText": "Heme synthesis begins in mitochondria when succinyl-CoA from the TCA cycle condenses with glycine. Pyridoxal-phosphate-dependent ALA synthase first forms α-amino-β-ketoadipate, which is rapidly decarboxylated to δ-aminolevulinate (ALA). Thus succinyl-CoA links the TCA cycle to porphyrin synthesis. The source pathway diagram remains the authority for the full sequence.",
+      "emphasis": [
+        "succinyl-CoA from the TCA cycle",
+        "condenses with glycine",
+        "Pyridoxal-phosphate-dependent ALA synthase",
+        "δ-aminolevulinate (ALA)"
+      ],
+      "rationales": {
+        "a": "α-Ketoglutarate is a TCA intermediate, but the committed first substrate for heme synthesis is succinyl-CoA paired with glycine.",
+        "b": "Fumarate is formed later in the TCA cycle and is not used by ALA synthase to initiate heme synthesis.",
+        "d": "Malate is a TCA-cycle intermediate but is not the carbon donor used in the first reaction of porphyrin synthesis."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 262; explanation p. 270. Surrounding OCR/diagram debris was omitted; source pathway figure is unchanged."
+      ],
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source explanation continues into diagram OCR that obscures the pathway labels.",
+        "reconstructedContent": "The display makes explicit the source-described TCA-to-heme link: mitochondrial succinyl-CoA and glycine enter the ALAS reaction.",
+        "evidenceBasis": "The readable source directly names succinyl-CoA as a TCA intermediate and states its condensation with glycine at the beginning of heme synthesis.",
+        "reviewNote": "The output removes unreadable diagram artifacts and keeps the source pathway figure unchanged."
+      }
+    },
+    "marrow__BIOCHEM_CH17_Q004": {
+      "takeaway": "ALA synthase requires pyridoxal phosphate to condense glycine with succinyl-CoA at pathway entry.",
+      "displayText": "Mitochondrial ALA synthase (ALAS) uses pyridoxal phosphate (PLP) to catalyze the first reaction of heme biosynthesis: glycine condenses with succinyl-CoA to form α-amino-β-ketoadipate, which is then decarboxylated to δ-aminolevulinate (ALA). PLP supports the amino-acid chemistry of this reaction. The source's combined option describes the initial succinyl-CoA-to-α-amino-β-ketoadipate step.",
+      "emphasis": [
+        "Mitochondrial ALA synthase (ALAS)",
+        "pyridoxal phosphate (PLP)",
+        "first reaction of heme biosynthesis",
+        "α-amino-β-ketoadipate"
+      ],
+      "rationales": {
+        "b": "The α-amino-β-ketoadipate intermediate is decarboxylated within the ALA-synthase reaction sequence; the defining PLP-dependent substrate-condensation step is the initial glycine–succinyl-CoA reaction.",
+        "c": "ALA dehydratase condenses two ALA molecules to porphobilinogen; it is downstream and does not use PLP as the cofactor tested here.",
+        "d": "Hydroxymethylbilane synthase polymerizes porphobilinogen units; this later cytosolic step is not PLP-dependent."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source explanation's reaction notation and pathway figure are OCR-corrupted, obscuring symbols in the α-amino-β-ketoadipate/ALA sequence.",
+        "reconstructedContent": "The reaction wording is normalized to the accepted ALAS reaction: glycine plus succinyl-CoA forms α-amino-β-ketoadipate, which decarboxylates to ALA; ALAS requires PLP.",
+        "evidenceBasis": "The stem, keyed option and readable source sentences all identify the initial succinyl-CoA reaction and PLP. The enzyme reaction is a standard, well-established heme-pathway step.",
+        "reviewNote": "Symbols and grammar were normalized without changing the source key or reconstructing any absent list or visual labels."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 262; explanation p. 271. Source pathway figure remains unchanged."
+      ]
+    },
+    "marrow__BIOCHEM_CH17_Q005": {
+      "takeaway": "Hepatic ALAS1 is the rate-limiting enzyme of heme synthesis and is feedback-inhibited by heme.",
+      "displayText": "The rate-limiting step in hepatic heme synthesis is catalyzed by mitochondrial ALA synthase 1 (ALAS1), which forms ALA from glycine and succinyl-CoA. Heme exerts negative feedback on hepatic ALAS1 expression and activity. Drugs that induce hepatic cytochrome P450 increase heme use and can lower the regulatory heme pool, allowing ALAS1 induction. Erythroid ALAS2 is separately regulated by iron availability and erythroid demand.",
+      "emphasis": [
+        "mitochondrial ALA synthase 1 (ALAS1)",
+        "forms ALA from glycine and succinyl-CoA",
+        "Heme exerts negative feedback",
+        "Erythroid ALAS2"
+      ],
+      "rationales": {
+        "b": "Uroporphyrinogen III synthase cyclizes hydroxymethylbilane downstream in the pathway; it is not the rate-limiting enzyme in hepatic heme synthesis.",
+        "c": "ALA dehydratase converts ALA to porphobilinogen and is inhibited by lead, but hepatic pathway regulation is chiefly at ALAS1.",
+        "d": "Ferrochelatase inserts ferrous iron into protoporphyrin IX in the final step; it is not the rate-limiting hepatic enzyme."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source explanation has severe OCR corruption in the ALAS1 regulatory paragraph and contains unrelated pathway-diagram text.",
+        "reconstructedContent": "The display states the source-supported rate-limiting enzyme, its mitochondrial location and the feedback relationship with heme; it separates hepatic ALAS1 from erythroid ALAS2.",
+        "evidenceBasis": "The legible source fragments identify mitochondrial ALA synthase, heme feedback inhibition, drug induction of hepatic ALAS1 and the separate erythroid isozyme. These facts are also established heme-pathway regulation.",
+        "reviewNote": "OCR-damaged wording was normalized and unrelated diagram labels were omitted. No source option, key, or pathway figure was changed."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 263; explanation p. 272. Source heme-pathway figure remains unchanged."
+      ]
+    },
+    "marrow__BIOCHEM_CH17_Q006": {
+      "takeaway": "Barbiturates induce CYP450, consume hepatic heme and derepress ALAS1, potentially triggering an acute porphyria attack.",
+      "displayText": "Barbiturates induce hepatic microsomal cytochrome P450, a heme-containing drug-metabolizing system. Increased heme use lowers the regulatory hepatic heme pool; reduced heme feedback then derepresses ALAS1, increasing ALA and other heme-pathway precursors. In acute intermittent porphyria, the downstream pathway is impaired, so precursor accumulation can precipitate a neurovisceral attack. Avoidance of porphyrinogenic drugs is therefore important in acute hepatic porphyrias.",
+      "emphasis": [
+        "induce hepatic microsomal cytochrome P450",
+        "lowers the regulatory hepatic heme pool",
+        "derepresses ALAS1",
+        "precipitate a neurovisceral attack"
+      ],
+      "rationales": {
+        "a": "Barbiturates reduce heme-mediated repression of ALAS1, so they derepress the enzyme; they do not repress its synthesis.",
+        "c": "Ferrochelatase inhibition is classically associated with lead toxicity and protoporphyrin accumulation, not the CYP450-induction mechanism of barbiturates.",
+        "d": "The keyed mechanism is a recognized trigger in acute intermittent porphyria; the vignette and source both specify ALAS derepression."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The Q6 source explanation is followed by unrelated solutions to Q7-Q24 and heavily OCR-damaged pathway diagrams.",
+        "reconstructedContent": "The item-local display retains the source's barbiturate–CYP450–heme-use–ALAS derepression mechanism and its relevance to acute intermittent porphyria; unrelated neighboring solutions were excluded.",
+        "evidenceBasis": "The first readable source paragraphs explicitly give the keyed mechanism and describe increased CYP450 synthesis, heme consumption and ALAS induction. The stem establishes acute intermittent porphyria.",
+        "reviewNote": "Only material clearly belonging to this question was retained. Later question explanations, option rationales, and figures remain attached to their own source records and were not moved or altered."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 263; explanation p. 273. Source CYP450/porphyria diagram remains unchanged."
+      ]
+    },
+    "marrow__BIOCHEM_CH17_Q007": {
+      "takeaway": "Lead poisoning inhibits ALA dehydratase, causing ALA and protoporphyrin accumulation.",
+      "displayText": "Ingestion of lead-based paint can cause abdominal pain and peripheral neuropathy. Lead inhibits heme synthesis, especially ALA dehydratase (porphobilinogen synthase), so ALA accumulates; it can also inhibit ferrochelatase, increasing protoporphyrin. The keyed enzyme is ALA dehydratase because it is the stronger diagnostic block in this question. Lead also disrupts heme-dependent enzymes and neuronal function.",
+      "emphasis": [
+        "Lead inhibits heme synthesis",
+        "ALA dehydratase (porphobilinogen synthase)",
+        "ALA accumulates",
+        "inhibit ferrochelatase"
+      ],
+      "rationales": {
+        "a": "ALA synthase catalyzes the first mitochondrial step from glycine and succinyl-CoA; lead primarily inhibits later enzymes rather than ALAS.",
+        "c": "Heme synthase (ferrochelatase) is also inhibited by lead, but ALA dehydratase is the specific keyed defect and a major site of lead inhibition.",
+        "d": "Coproporphyrinogen oxidase deficiency causes hereditary coproporphyria; it does not explain paint ingestion and the characteristic lead-inhibited ALA step."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source question has no learner-facing explanation text despite a readable lead-exposure vignette and source key.",
+        "reconstructedContent": "A concise lead-to-heme-pathway explanation was supplied, identifying ALA dehydratase as the source-keyed major block and noting ferrochelatase as an additional lead target.",
+        "evidenceBasis": "The stem directly identifies ingestion of paint and the keyed option is ALA dehydratase. Standard toxicology and porphyrin-pathway biochemistry establish lead inhibition of ALA dehydratase and ferrochelatase.",
+        "reviewNote": "The learner explanation reconstructs only the mechanism needed for the keyed answer. No absent numbered list, figure label, or additional symptom was invented."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 263; source explanation page p. 273 is present in provenance but no explanation text was imported."
+      ]
+    },
+    "marrow__BIOCHEM_CH17_Q008": {
+      "takeaway": "Hydroxymethylbilane synthase releases ammonia while assembling four porphobilinogen units into hydroxymethylbilane.",
+      "displayText": "Cytosolic hydroxymethylbilane synthase (also called porphobilinogen deaminase) links four porphobilinogen molecules to form hydroxymethylbilane. Deamination releases four molecules of ammonia (NH3). Hydroxymethylbilane is then cyclized by uroporphyrinogen III synthase to enter the type III porphyrin pathway; spontaneous cyclization can instead yield type I products.",
+      "emphasis": [
+        "hydroxymethylbilane synthase",
+        "four porphobilinogen molecules",
+        "four molecules of ammonia (NH3)",
+        "uroporphyrinogen III synthase"
+      ],
+      "rationales": {
+        "a": "Water is involved in pathway chemistry, but the characteristic coproduct released as four porphobilinogen units are deaminated is ammonia.",
+        "c": "Carbon dioxide is released during decarboxylation reactions, including ALA formation and later porphyrinogen processing, not during HMB-synthase polymerization.",
+        "d": "CoA-SH is released when succinyl-CoA is used by ALA synthase at pathway entry; it is not produced by cytosolic HMB synthase."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source explanation is obscured by OCR errors in the enzyme name and the reaction sentence, with unrelated diagram residue.",
+        "reconstructedContent": "The display restores the intact biochemical reaction: four porphobilinogen molecules are deaminated to hydroxymethylbilane with release of four ammonia molecules.",
+        "evidenceBasis": "The stem names HMB synthase and the source key is NH3; the readable source identifies HMB synthase/porphobilinogen deaminase and condensation of four PBG units. The reaction stoichiometry is standard pathway content.",
+        "reviewNote": "OCR symbols and diagram debris were removed while retaining the keyed coproduct and enzyme relationship."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 264; explanation p. 274. The heme-pathway figure remains source-owned."
+      ]
+    },
+    "marrow__BIOCHEM_CH17_Q009": {
+      "takeaway": "Uroporphyrinogen III synthase cyclizes hydroxymethylbilane into the physiologic type III porphyrin precursor.",
+      "displayText": "Hydroxymethylbilane is normally cyclized by uroporphyrinogen III synthase to form uroporphyrinogen III, the first cyclic porphyrinogen in heme synthesis. In the absence of the synthase, hydroxymethylbilane can cyclize spontaneously to uroporphyrinogen I, a nonphysiologic type I isomer. The distinction is important in congenital erythropoietic porphyria, where deficient enzyme activity favors type I porphyrins.",
+      "emphasis": [
+        "Hydroxymethylbilane",
+        "uroporphyrinogen III synthase",
+        "uroporphyrinogen III",
+        "cyclize spontaneously to uroporphyrinogen I"
+      ],
+      "rationales": {
+        "a": "Uroporphyrinogen I is the spontaneous type I product when cyclization is not directed by the type III synthase; it is not the enzyme that catalyzes physiologic cyclization.",
+        "b": "There is no relevant uroporphyrinogen II synthase in the canonical pathway; the source-keyed enzyme is uroporphyrinogen III synthase.",
+        "d": "Uroporphyrinogen decarboxylase acts later, removing carboxyl groups from uroporphyrinogen to form coproporphyrinogen."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The explanation is corrupted by OCR and includes unrelated solutions for multiple neighboring questions.",
+        "reconstructedContent": "The display retains the question-local source answer and clarifies enzyme-directed type III cyclization versus spontaneous type I cyclization.",
+        "evidenceBasis": "The source's readable lines identify HMB, uroporphyrinogen III synthase and spontaneous formation of uroporphyrinogen I. The keyed option is uroporphyrinogen III synthase.",
+        "reviewNote": "Only the question-specific pathway fragment was used; adjacent porphyria and bilirubin solutions were excluded."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 264; explanation p. 275. Source pathway figure remains unchanged."
+      ]
+    },
+    "marrow__BIOCHEM_CH17_Q010": {
+      "takeaway": "Erythropoietic protoporphyria is usually autosomal recessive, unlike the commonly autosomal-dominant hepatic porphyrias listed.",
+      "displayText": "The source classifies erythropoietic protoporphyria (EPP) as autosomal recessive and associates it with reduced ferrochelatase (FECH) activity. It is a common porphyria of children, who classically develop nonblistering photosensitivity. An increased ratio of free to zinc-bound protoporphyrin in erythrocytes is a hallmark, and diagnosis can be supported by FECH mutation analysis. Many hepatic porphyrias, including acute intermittent, hereditary coproporphyria and variegate porphyria, are autosomal dominant. EPP inheritance can be more complex because many patients have a FECH variant together with a low-expression allele; the source's exam contrast remains that EPP is not the dominant choice.",
+      "emphasis": [
+        "erythropoietic protoporphyria (EPP)",
+        "autosomal recessive",
+        "ferrochelatase (FECH)",
+        "nonblistering photosensitivity"
+      ],
+      "rationales": {
+        "b": "Variegate porphyria is generally autosomal dominant and can produce both acute neurovisceral attacks and cutaneous photosensitivity.",
+        "c": "Acute intermittent porphyria is an autosomal-dominant hepatic porphyria caused by HMBS deficiency, with variable penetrance.",
+        "d": "Hereditary coproporphyria is usually autosomal dominant and results from coproporphyrinogen oxidase deficiency."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 264; explanation p. 275. The source's simplified recessive inheritance is retained for the keyed exam contrast and qualified for FECH-related complexity."
+      ],
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source explanation has misspelled disease terms and a trailing corrupted porphyrin diagram.",
+        "reconstructedContent": "The display normalizes erythropoietic protoporphyria, ferrochelatase, and the source-listed free-to-zinc-bound protoporphyrin discriminator.",
+        "evidenceBasis": "The source states that EPP is the non-dominant option, is commonly recessive, involves FECH, presents in children with nonblistering photosensitivity, and increases free relative to zinc-bound erythrocyte protoporphyrin.",
+        "reviewNote": "Typos and diagram noise were cleaned; the source key is retained and inheritance complexity is qualified without changing the exam choice."
+      }
+    }
+  }
+}

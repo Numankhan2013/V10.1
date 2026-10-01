@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner-facing Marrow ED8 Physiology Chapter 27 explanation refinement; native diagrams and tables remain unchanged.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "27",
+    "chapterTitle": "Vascular System and Regional Circulation II",
+    "questionStart": 19,
+    "questionEnd": 21,
+    "questions": 3,
+    "status": "approved-rollout",
+    "workloadScore": 3,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "f3cd6b9dccb2092743fa86de4b0bef682d61c83762e9f00fa3b04d0a355d89d6",
+    "auditReport": "docs/question-explanations/physiology-completion-20261001.md"
+  },
+  "questions": {
+    "marrow__PHYSIO_CH27_Q019": {
+      "takeaway": "A healthy resting adult ejects about 60% of end-diastolic volume per beat; EF is stroke volume divided by EDV.",
+      "displayText": "A healthy resting adult ejects about 60% of end-diastolic volume per beat; EF is stroke volume divided by EDV.\n\nEjection fraction in a resting healthy man is approximately 0.6. The fraction of the end-diastolic volume that is ejected is called the ejection fraction, usually equal to about 60%.",
+      "emphasis": [
+        "A healthy resting adult ejects about 60% of end-diastolic volume per beat; EF is stroke volume divided by EDV."
+      ],
+      "rationales": {
+        "a": "An ejection fraction of 0.4 is below the approximate 0.6 value specified for a healthy resting man.",
+        "b": "An ejection fraction of 0.5 is below the source’s approximate resting value of 0.6.",
+        "d": "An ejection fraction of 0.9 is substantially above the approximate value given by the source."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          496
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source visual metadata."
+      }
+    },
+    "marrow__PHYSIO_CH27_Q020": {
+      "takeaway": "Frank–Starling relates greater end-diastolic fiber stretch to stronger cardiac contraction and increased stroke volume.",
+      "displayText": "Frank–Starling relates greater end-diastolic fiber stretch to stronger cardiac contraction and increased stroke volume.\n\nThe relation between ventricular stroke volume and end-diastolic volume is explained by Frank-Starling law. The length-tension relationship in cardiac muscle states that skeletal muscle, when stimulated to develop tension, contracts most strongly and most efficiently when there is stretch before contraction. Starling stated that energy of contraction is proportional to the initial length of the cardiac muscle fiber.",
+      "emphasis": [
+        "Frank–Starling relates greater end-diastolic fiber stretch to stronger cardiac contraction and increased stroke volume."
+      ],
+      "rationales": {
+        "b": "Laplace relates pressure, radius and wall tension; it does not describe filling-dependent stroke volume.",
+        "c": "Cushing’s reflex concerns raised intracranial pressure and cardiovascular responses, not ventricular filling and stroke volume.",
+        "d": "Poiseuille describes flow through a tube, not the cardiac length-tension relation."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          496,
+          497
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source visual metadata."
+      }
+    },
+    "marrow__PHYSIO_CH27_Q021": {
+      "takeaway": "Left ventricular end-diastolic volume is a practical index of preload because it reflects ventricular filling and stretch before systole.",
+      "displayText": "Left ventricular end-diastolic volume is a practical index of preload because it reflects ventricular filling and stretch before systole.\n\nThe best index of preload is left ventricular end diastolic volume. Preload is the left ventricular tension before systole. Left ventricular end diastolic volume is the blood remaining at the end of diastole, which distends and stretches the ventricle and thus represents preload.",
+      "emphasis": [
+        "Left ventricular end-diastolic volume is a practical index of preload because it reflects ventricular filling and stretch before systole."
+      ],
+      "rationales": {
+        "a": "Atrial compliance describes atrial distensibility, not the left ventricular filling/stretch immediately before contraction.",
+        "b": "Ventricular compliance describes the pressure-volume relation, but does not directly quantify this patient’s preload as well as LVEDV.",
+        "d": "Right ventricular EDV reflects right-sided filling; the source’s requested left ventricular preload index is LVEDV."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          489
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source visual metadata."
+      }
+    }
+  }
+}

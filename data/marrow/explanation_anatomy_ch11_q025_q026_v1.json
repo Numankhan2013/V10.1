@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Anatomy Chapter 11 explanation refinement. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Anatomy",
+    "bank": "Marrow",
+    "chapterId": "11",
+    "chapterTitle": "Cell Structure, Epithelia, Glands & Connective Tissue",
+    "questionStart": 25,
+    "questionEnd": 26,
+    "questions": 2,
+    "status": "approved-rollout",
+    "workloadScore": 4,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 753,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__ANAT_CH11_Q025": {
+      "takeaway": "Brown adipocytes are multilocular and contain numerous mitochondria.",
+      "displayText": "The cytoplasm of cells of brown adipose tissue contains numerous mitochondria. Adipose tissue is mainly of two types: yellow/white adipose tissue and brown adipose tissue (embryonic type). White adipose tissue is seen in adults, has larger cells with a single fat droplet, is also called unilocular adipose tissue, has cytoplasm and nucleus pushed to the periphery, and has few mitochondria. Brown adipose tissue is seen in newborns, has smaller cells with multiple fat droplets, is also called multilocular adipose tissue, has cytoplasm and nucleus not pushed to the periphery, and has numerous mitochondria.",
+      "emphasis": [
+        "brown adipose tissue",
+        "numerous mitochondria",
+        "single fat droplet",
+        "multiple fat droplets"
+      ],
+      "rationales": {
+        "a": "Brown adipocytes are smaller than white adipocytes; larger adipocytes with one large fat droplet describe white adipose tissue.",
+        "b": "Brown adipose tissue is multilocular, with multiple droplets; a single locule describes white adipose tissue.",
+        "d": "Brown adipocytes do not have their cytoplasm and nucleus pushed to the periphery; that is the white-adipose pattern."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record: stem, options, printed key, explanation, and structured metadata",
+        "sourceExplanationPages": [
+          210,
+          211
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "1 native source table(s) and 2 source figure metadata item(s) retained in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH11_Q026": {
+      "takeaway": "The thymus is the listed lymphoid organ without reticular fibers.",
+      "displayText": "Reticular fibres are not present in the thymus. Reticular fibres are fine, anastomosing fibres composed mainly of type III collagen. They differ from type I collagen in that they are finer and arranged in the form of a network (reticulum). They appear black with silver impregnation and, due to affinity for silver salts, are also known as argentophil fibres. Reticular fibres are mainly found in lymphoid organs such as spleen, lymph node and bone marrow (except thymus), glands, liver and kidneys, basement membrane of epithelia, smooth muscle and nerve cells.",
+      "emphasis": [
+        "thymus",
+        "type III collagen",
+        "silver impregnation",
+        "except thymus"
+      ],
+      "rationales": {
+        "b": "Lymph nodes contain reticular fibers in their supporting stroma.",
+        "c": "Bone marrow contains reticular fibers as part of its supporting connective-tissue framework.",
+        "d": "The spleen is a lymphoid organ with reticular fibers; the thymus is the exception in this list."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record: stem, options, printed key, explanation, and structured metadata",
+        "sourceExplanationPages": [
+          211,
+          212
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 1 source figure metadata item(s) retained in unchanged source record/shared renderer."
+      }
+    }
+  },
+  "source": {
+    "bundle": "anatomy_ch001_063",
+    "sourceRawSha256": "f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387",
+    "preparedFrom": "/tmp/explanation-remaining-20261001/anatomy-source.json"
+  }
+}

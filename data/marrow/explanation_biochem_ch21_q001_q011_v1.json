@@ -1,0 +1,184 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner-facing Marrow ED8 Biochemistry Chapter 21 explanation refinement; source records and figures remain immutable.",
+  "scope": {
+    "subject": "Biochemistry",
+    "bank": "Marrow",
+    "chapterId": "21",
+    "chapter": "Water-Soluble Vitamins",
+    "questionStart": 1,
+    "questionEnd": 11,
+    "questions": 11,
+    "status": "approved-rollout",
+    "workloadScore": 12,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "919f0709b2eb833e302c6f7524b6dd2bd13bfaed638009375b5062135d3795b1"
+  },
+  "questions": {
+    "marrow__BIOCHEM_CH21_Q001": {
+      "takeaway": "Isocitrate dehydrogenase uses a divalent metal cofactor, whereas the named oxidative decarboxylase complexes require TPP.",
+      "displayText": "Isocitrate dehydrogenase uses a divalent metal cofactor, whereas the named oxidative decarboxylase complexes require TPP.\n\nThiamine pyrophosphate (TPP) does not serve as the coenzyme for isocitrate dehydrogenase.\nIsocitrate dehydrogenase, an enzyme of the citric acid cycle, uses Mg2+ or Mn2+ ions as a coenzyme.\nThiamine pyrophosphate (TPP), from vitamin B1, serves as the coenzyme for three multienzyme complexes that catalyze oxidative decarboxylation reactions:\nPyruvate dehydrogenase - carbohydrate metabolism\nα-ketoglutarate dehydrogenase - citric acid cycle\nBranched-chain keto-acid dehydrogenase - metabolism of leucine, isoleucine, valine\nMost of these enzymes are involved in carbohydrate metabolism, so thiamine is required in excess during a high carbohydrate diet. TPP also serves as the cofactor for transketolase in the HMP shunt.",
+      "emphasis": [
+        "Isocitrate dehydrogenase uses a divalent metal cofactor, whereas the named oxidative decarboxylase complexes require TPP"
+      ],
+      "rationales": {
+        "a": "Pyruvate dehydrogenase uses TPP on its E1 subunit during oxidative decarboxylation of pyruvate.",
+        "b": "α-Ketoglutarate dehydrogenase is a TPP-dependent multienzyme oxidative decarboxylation complex.",
+        "c": "Branched-chain keto-acid dehydrogenase uses TPP to decarboxylate branched-chain keto acids."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 331; explanation p. 338."
+      ]
+    },
+    "marrow__BIOCHEM_CH21_Q002": {
+      "takeaway": "Thiamine-derived TPP supports pyruvate dehydrogenase; deficiency diverts pyruvate toward lactate and can cause lactic acidosis.",
+      "displayText": "Thiamine-derived TPP supports pyruvate dehydrogenase; deficiency diverts pyruvate toward lactate and can cause lactic acidosis.\n\nThiamine (Vitamin B1) deficiency makes a patient prone to lactic acidosis.\nThiamine pyrophosphate (TPP) serves as a coenzyme for the pyruvate dehydrogenase enzyme. In a state of thiamine deficiency, there is an impaired conversion of pyruvate to acetyl CoA. When the patient consumes a high carbohydrate diet, there is thus an accumulation of pyruvate. Pyruvate then gets converted into lactate by the enzyme lactate dehydrogenase. This results in increased plasma concentrations of lactate and pyruvate, leading to a state of lactic acidosis.",
+      "emphasis": [
+        "Thiamine-derived TPP supports pyruvate dehydrogenase; deficiency diverts pyruvate toward lactate and can cause lactic acidosis"
+      ],
+      "rationales": {
+        "b": "Riboflavin supplies FMN and FAD for redox enzymes; its deficiency is not the classic cause of this pyruvate-to-lactate diversion.",
+        "c": "Biotin supports carboxylases that add CO₂; it is not the coenzyme whose deficiency blocks pyruvate dehydrogenase.",
+        "d": "Niacin supplies NAD⁺/NADP⁺ for redox reactions, but TPP deficiency is the direct cause of impaired pyruvate decarboxylation here."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 331; explanation p. 338."
+      ]
+    },
+    "marrow__BIOCHEM_CH21_Q003": {
+      "takeaway": "Thiamine is required by pyruvate dehydrogenase to form acetyl-CoA and by α-ketoglutarate dehydrogenase to generate NADH in the TCA cycle.",
+      "displayText": "Thiamine is required by pyruvate dehydrogenase to form acetyl-CoA and by α-ketoglutarate dehydrogenase to generate NADH in the TCA cycle.\n\nDecreased energy production is seen in thiamine deficiency because it acts as a coenzyme for pyruvate dehydrogenase and α-ketoglutarate dehydrogenase.\nBoth pyruvate dehydrogenase and α-ketoglutarate dehydrogenase are required for the production of NADH, which is used for ATP production. In thiamine deficiency, the reaction catalyzed by pyruvate dehydrogenase cannot go forward. Hence, there is no formation of acetyl CoA, causing decreased substrate for the citric acid cycle. As a result, energy (ATP) production is grossly reduced and instead, lactic acidosis is seen.",
+      "emphasis": [
+        "Thiamine is required by pyruvate dehydrogenase to form acetyl-CoA and by α-ketoglutarate dehydrogenase to generate NADH in the TCA cycle"
+      ],
+      "rationales": {
+        "a": "Transamination uses pyridoxal phosphate (vitamin B₆), not thiamine, and does not explain the central energy deficit described.",
+        "c": "Transketolase also requires TPP, but impaired pyruvate oxidation and reduced acetyl-CoA entry into the TCA cycle directly explain the energy deficit asked here.",
+        "d": "Thiamine is not a generic cofactor for oxidative-reduction reactions; its key energy roles are in specific TPP-dependent enzymes."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 331; explanation p. 339."
+      ]
+    },
+    "marrow__BIOCHEM_CH21_Q004": {
+      "takeaway": "Thiamine deficiency in chronic alcohol use can cause wet beriberi with high-output heart failure and cardiomegaly.",
+      "displayText": "Thiamine deficiency in chronic alcohol use can cause wet beriberi with high-output heart failure and cardiomegaly.\n\nCardiac failure (orthopnea and pedal edema) and cardiomegaly in a patient with chronic alcoholism suggest a diagnosis of wet beriberi. Thiamine (vitamin B1) deficiency leads to this condition.\nChronic alcohol consumption is associated with thiamine deficiency due to inadequate dietary intake, malabsorption of thiamine from the gastrointestinal tract and impaired utilization of thiamine in the cells. This deficiency presents as:\nWet beriberi: The cardiovascular system is affected. Patients present with high output cardiac failure (orthopnea, pedal edema), dyspnea, cardiomegaly, and pulmonary edema.\nDry beriberi: Both the peripheral and central nervous systems are affected. Patients present with symmetric motor and sensory neuropathy (pain, paresthesia, loss of reflexes) especially in lower limbs. In severe cases, muscle atrophy may also be seen.",
+      "emphasis": [
+        "Thiamine deficiency in chronic alcohol use can cause wet beriberi with high-output heart failure and cardiomegaly"
+      ],
+      "rationales": {
+        "b": "Riboflavin deficiency causes mucocutaneous findings such as cheilosis and glossitis, not the classic wet-beriberi cardiac syndrome.",
+        "c": "Pantothenate deficiency is rare and may cause burning-feet symptoms, but it is not the deficiency causing this cardiomegaly pattern.",
+        "d": "Vitamin B₆ deficiency can cause neurologic and hematologic findings, not the high-output failure syndrome linked to thiamine depletion."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 331; explanation p. 339."
+      ]
+    },
+    "marrow__BIOCHEM_CH21_Q005": {
+      "takeaway": "Erythrocyte transketolase activity, which depends on TPP, is a functional assay of thiamine status.",
+      "displayText": "Erythrocyte transketolase activity, which depends on TPP, is a functional assay of thiamine status.\n\nErythrocyte transketolase activity can be measured to diagnose thiamine deficiency.\nThiamine pyrophosphate (TPP) is the cofactor of erythrocyte transketolase, which is involved in the non-oxidative phase of the HMP pathway. In thiamine or vitamin B1 deficiency, the value of erythrocyte transketolase activity will be decreased.",
+      "emphasis": [
+        "Erythrocyte transketolase activity, which depends on TPP, is a functional assay of thiamine status"
+      ],
+      "rationales": {
+        "a": "Pyruvate dehydrogenase depends on TPP but is not the standard erythrocyte activity assay for thiamine deficiency.",
+        "c": "α-Ketoglutarate dehydrogenase is thiamine dependent, but erythrocyte transketolase activity is the established functional test in this item.",
+        "d": "RBC glutathione reductase is a flavin-dependent assay used to assess riboflavin status, not thiamine."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 332; explanation p. 339."
+      ]
+    },
+    "marrow__BIOCHEM_CH21_Q006": {
+      "takeaway": "In suspected Wernicke encephalopathy, administer parenteral thiamine before carbohydrate-containing fluids to avoid worsening thiamine demand.",
+      "displayText": "In suspected Wernicke encephalopathy, administer parenteral thiamine before carbohydrate-containing fluids to avoid worsening thiamine demand.\n\nDiplopia, ataxia and confusion in a patient with chronic alcohol consumption is suggestive of Wernicke's encephalopathy. The current standard of treatment for patients with symptoms of Wernicke's encephalopathy is to give thiamine 100 mg intravenously before administering glucose-containing IV fluids.\nThiamine deficiency leads to the following:\nWernicke’s encephalopathy: It is more commonly seen in alcoholics with chronic thiamine deficiency. It is characterized by global confusion, truncal ataxia, ophthalmoplegia and horizontal nystagmus.\nKorsakoff psychosis: Symptoms in addition to those of Wernicke's encephalopathy include memory loss and confabulation\nBeriberi: It can be either -\nDry beriberi: Sensorimotor peripheral neuropathy, muscle weakness\nWet beriberi: Tachycardia, cardiomegaly, high-output cardiac failure",
+      "emphasis": [
+        "In suspected Wernicke encephalopathy, administer parenteral thiamine before carbohydrate-containing fluids to avoid worsening thiamine demand"
+      ],
+      "rationales": {
+        "b": "Giving glucose first can increase thiamine demand in a deficient patient and may precipitate or worsen neurologic injury.",
+        "c": "Glucose alone fails to treat the likely thiamine deficiency and may aggravate Wernicke encephalopathy.",
+        "d": "Thiamine is urgent, but this symptomatic patient also needs appropriate glucose-containing fluids when clinically indicated; the sequence is thiamine first."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 332; explanation p. 339,340."
+      ]
+    },
+    "marrow__BIOCHEM_CH21_Q007": {
+      "takeaway": "Riboflavin (vitamin B₂) is the precursor of flavin mononucleotide (FMN) and flavin adenine dinucleotide (FAD).",
+      "displayText": "Riboflavin (vitamin B₂) is the precursor of flavin mononucleotide (FMN) and flavin adenine dinucleotide (FAD).\n\nCoenzymes flavin mononucleotide (FMN) and flavin adenine dinucleotide (FAD) are derived from riboflavin (vitamin B2).\nFMN-coenzyme is part of complex I (also known as NADH-Q oxidoreductase, NADH dehydrogenase) in electron transport chain (ETC). It also acts as a coenzyme for L-amino acid oxidase.\nFAD-coenzyme is part of complex II in ETC. It acts as a coenzyme for succinate dehydrogenase (Kreb's cycle), acyl CoA dehydrogenase (fatty acid oxidation), D-amino acid oxidase and xanthine oxidase.",
+      "emphasis": [
+        "Riboflavin (vitamin B₂) is the precursor of flavin mononucleotide (FMN) and flavin adenine dinucleotide (FAD)"
+      ],
+      "rationales": {
+        "a": "Niacin forms NAD⁺ and NADP⁺; it is not the vitamin precursor of FMN/FAD.",
+        "b": "Vitamin B₁ forms thiamine pyrophosphate, a distinct coenzyme rather than a flavin.",
+        "d": "Pantothenic acid contributes to coenzyme A and acyl carrier protein, not FMN or FAD."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 332; explanation p. 340."
+      ]
+    },
+    "marrow__BIOCHEM_CH21_Q008": {
+      "takeaway": "Low erythrocyte glutathione reductase activity with cheilosis and glossitis supports riboflavin deficiency.",
+      "displayText": "Low erythrocyte glutathione reductase activity with cheilosis and glossitis supports riboflavin deficiency.\n\nTingling sensation of legs and hands, fissured tongue and lips, and lesions in the angle of the mouth combined with low RBC glutathione reductase activity is consistent with riboflavin (vitamin B2) deficiency.\nDeficiency state of riboflavin, a water soluble vitamin, is characterized by the following signs and symptoms:\nCheilosis: Pallor in the angle of mouth and fissuring of lips, which extends radially to skin\nGlossitis: Tongue becomes smooth, loss of papilla causing magenta-colored tongue\nEyes: Keratitis, conjunctivitis and corneal vascularisation\nOther features: Seborrheic dermatitis, anemia\nThe nutritional status of riboflavin can be assessed by measuring the activity of the RBC glutathione reductase, by FAD added in vitro. This test is specific for riboflavin deficiency.\nThe image below shows cheilosis and stomatitis due to riboflavin deficiency.\n[Figure: Clinical image showing cheilosis/stomatitis due to riboflavin deficiency.]",
+      "emphasis": [
+        "Low erythrocyte glutathione reductase activity with cheilosis and glossitis supports riboflavin deficiency"
+      ],
+      "rationales": {
+        "a": "Vitamin B₁₂ deficiency can cause neuropathy and megaloblastic anemia, but not the flavin-dependent assay abnormality given.",
+        "b": "Niacin deficiency causes pellagra; RBC glutathione reductase activity is used to assess riboflavin, not niacin, status.",
+        "c": "Niacin is another name for vitamin B₃, whereas glutathione reductase requires FAD derived from riboflavin."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 332; explanation p. 340,341."
+      ]
+    },
+    "marrow__BIOCHEM_CH21_Q009": {
+      "takeaway": "Jowar-associated niacin deficiency causes pellagra, classically photosensitive dermatitis, diarrhea and dementia (Casal necklace).",
+      "displayText": "Jowar-associated niacin deficiency causes pellagra, classically photosensitive dermatitis, diarrhea and dementia (Casal necklace).\n\nA patient with high intake of jowar and characteristic Casal’s necklace pattern rash is most likely suffering from pellagra. It is caused due to a deficiency of vitamin B3, known as niacin.\nPellagra, or niacin deficiency, presents with 3 classical Ds - dermatitis (photosensitive), diarrhea and dementia. Patients often have the Casal collar or Casal necklace. It is a clinical sign in which there is an erythematous pigmented skin rash in the distribution of a broad collar (dermatomes C3 and C4). If left untreated, pellagra leads to the 4th D of death.\nJowar (sorghum) has high leucine content. This inhibits QPRTase, an enzyme responsible for the synthesis of niacin from amino acid tryptophan. Excessive consumption of maize-based diets can also cause pellagra due to their low levels of niacin and tryptophan.",
+      "emphasis": [
+        "Jowar-associated niacin deficiency causes pellagra, classically photosensitive dermatitis, diarrhea and dementia (Casal necklace)"
+      ],
+      "rationales": {
+        "a": "Pantothenate deficiency is associated with burning-feet syndrome, not the pellagra pattern linked to a sorghum-rich diet.",
+        "b": "Thiamine deficiency causes beriberi or Wernicke encephalopathy rather than Casal necklace dermatitis.",
+        "d": "Biotin deficiency can cause dermatitis and neurologic symptoms, but the jowar/niacin pathway clue points to pellagra."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 333; explanation p. 341."
+      ]
+    },
+    "marrow__BIOCHEM_CH21_Q010": {
+      "takeaway": "Wernicke encephalopathy is due to thiamine deficiency; Hartnup disease, carcinoid syndrome and B₆ deficiency can produce pellagra-like niacin deficiency.",
+      "displayText": "Wernicke encephalopathy is due to thiamine deficiency; Hartnup disease, carcinoid syndrome and B₆ deficiency can produce pellagra-like niacin deficiency.\n\nLoose stools, depression, beefy red tongue and Casal's necklace, as seen in the image, is suggestive of pellagra. Pellagra-like symptoms are not seen in Wernicke's encephalopathy.\nPellagra is caused by niacin deficiency, either due to dietary deficiency or deficient conversion of tryptophan to niacin. Hence, pellagra-like symptoms are seen in:\nHartnup disease: It is an autosomal recessive disease caused by mutations in the SLC6A19 gene leading to defective membrane transport of tryptophan across PCT (kidney) and enterocytes (intestine). This leads to malabsorption, and hence deficiency of tryptophan.\nCarcinoid syndrome: Due to excess conversion of tryptophan to serotonin, there is a decreased level of tryptophan available for niacin synthesis\nPyridoxine deficiency: Pyridoxine is required as the co-factor of kynureninase, an enzyme in the pathway of niacin synthesis.\nMaize/corn rich diet: In these grans, niacin is in bound form (niacytin form) and is not absorbed.\nJowar diet (Sorghum): The increased leucine content inhibits QPRTase enzyme, an enzyme in the pathway of niacin synthesis.",
+      "emphasis": [
+        "Wernicke encephalopathy is due to thiamine deficiency; Hartnup disease, carcinoid syndrome and B₆ deficiency can produce pellagra-like niacin deficiency"
+      ],
+      "rationales": {
+        "a": "Hartnup disease impairs tryptophan absorption and can reduce endogenous niacin synthesis, producing pellagra-like findings.",
+        "b": "Carcinoid syndrome diverts tryptophan toward serotonin and can deplete niacin, causing pellagra-like symptoms.",
+        "d": "Pyridoxine is needed for tryptophan-to-niacin conversion; deficiency can therefore produce pellagra-like manifestations."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 333; explanation p. 341."
+      ]
+    },
+    "marrow__BIOCHEM_CH21_Q011": {
+      "takeaway": "Niacin can worsen glycemic control by increasing insulin resistance and reducing glucose-stimulated insulin secretion.",
+      "displayText": "Niacin can worsen glycemic control by increasing insulin resistance and reducing glucose-stimulated insulin secretion.\n\nNiacin should be used cautiously in diabetics as it can cause hyperglycemia.\nNiacin induces insulin resistance and also decreases glucose-stimulated insulin secretion, which may result in severe hyperglycemia. When niacin is prescribed for patients with known or suspected diabetes, blood glucose levels should be monitored at least once a week.",
+      "emphasis": [
+        "Niacin can worsen glycemic control by increasing insulin resistance and reducing glucose-stimulated insulin secretion"
+      ],
+      "rationales": {
+        "b": "Scleroderma is not the recognized reason for caution with niacin in diabetes; the concern is worsening glycemia.",
+        "c": "Niacin does not pose the stated risk by increasing oral hypoglycemic-drug metabolism; glucose may instead rise.",
+        "d": "The characteristic glycemic concern is hyperglycemia rather than niacin-induced hypoglycemia."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 334; explanation p. 342."
+      ]
+    }
+  }
+}

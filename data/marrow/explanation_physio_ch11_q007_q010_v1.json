@@ -1,0 +1,191 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Marrow ED8 Physiology Chapter 11 Sensory Receptors explanation refinement, source-order Q7–Q10. Raw source is immutable; this file contains learner-facing candidate augmentation only.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "11",
+    "chapterTitle": "Sensory Receptors",
+    "questionStart": 7,
+    "questionEnd": 10,
+    "questions": 4,
+    "status": "approved-rollout",
+    "canonicalBaseSha": "81822e44753f5c3af7c2f2b0719d12230eed4478"
+  },
+  "workload": {
+    "target": 16,
+    "max": 20,
+    "score": 17.5,
+    "notes": "Four contiguous source-order items. Q7: base 1 + source comparison table 0.5 + source page/figure dependency 1 + OCR/table cleanup 1 = 3.5. Q8: base 1 + source comparison table 0.5 + source page/figure dependency 1 + corrupted OCR in stem/explanation 1 + source-evidence reconstruction 2 = 5.5. Q9: base 1 + OCR cleanup 1 + literature check of the source's explicitly controversial potency claim 1 + source-note/table review 0.5 = 3.5. Q10: base 1 + contradictory OCR explanation 1 + reconstruction 2 + primary literature check 1 = 5.0. The Q9/Q10 table and figure metadata points are not charged because pages 220 were directly inspected and those explanations contain no table or figure content; this avoids scoring stale page-association metadata as actual visual work. No question-gate entry exists for these four IDs."
+  },
+  "questions": {
+    "marrow__PHYS_CH11_Q007": {
+      "takeaway": "Sensory-stimulus intensity is encoded by afferent firing frequency and recruitment of additional receptors.",
+      "displayText": "The source-keyed statement is that the frequency of action potentials in an afferent fiber reflects the intensity of its receptor's stimulus. Intensity is also encoded by recruiting a larger number of sensory receptors, so firing frequency and population recruitment work together.\n\nThis differs from the Weber–Fechner relationship: perceived magnitude varies with the logarithm of stimulus intensity, not in direct proportion to intensity itself.\n\nA maintained touch does not produce a constant discharge from every receptor. Adaptation reduces firing during a sustained stimulus, which is why clothing does not continue to evoke an unnecessary constant stream of touch signals. The source table below preserves its distinction between slowly adapting (tonic) receptors and rapidly adapting (phasic) receptors.",
+      "emphasis": [
+        "frequency of action potentials",
+        "recruiting a larger number of sensory receptors",
+        "logarithm of stimulus intensity",
+        "slowly adapting (tonic) receptors"
+      ],
+      "displayTables": [
+        {
+          "title": "Sensory receptor adaptation",
+          "source_page": 219,
+          "columns": [
+            "Slow-adapting (tonic) receptors",
+            "Rapidly adapting (phasic) receptors"
+          ],
+          "rows": [
+            [
+              "Merkel discs, Ruffini endings, joint-capsule receptors, muscle spindles, and Golgi tendon organs",
+              "Pacinian corpuscles, Meissner corpuscles, and hair-end organs"
+            ]
+          ]
+        }
+      ],
+      "rationales": {
+        "a": "Weber–Fechner relates perceived magnitude to the logarithm of stimulus intensity, rather than direct proportionality to intensity.",
+        "b": "A touch receptor adapts during sustained stimulation, so its afferent discharge does not remain constant.",
+        "c": "Meissner and Pacinian corpuscles are rapidly adapting; several other listed receptors, including Merkel and Ruffini endings, adapt slowly."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source explanation contains OCR damage and a two-column adaptation table whose cell text is partly corrupted in the imported transcription.",
+        "reconstructedContent": "The scanned source page confirms the table's slow-adapting group (Merkel discs, Ruffini endings, joint capsule, muscle spindle, Golgi tendon organs) and rapidly adapting group (Pacinian corpuscles, Meissner corpuscles, hair-end organs). The augmentation restores those labels and retains the source's frequency coding, receptor recruitment, Weber–Fechner contrast, and adaptation example.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology Chapter 11, printed source page 219, source PDF SHA-256 recorded in the accompanying batch report; page 219 contains the question solution and adaptation table.",
+          "Canonical source question PHYS_CH11_Q007 and answer-key page 215: option D."
+        ],
+        "reviewNote": "Reconstruction is confined to the learner-facing augmentation. The source question, key, and table/image ownership remain unchanged.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          219
+        ]
+      }
+    },
+    "marrow__PHYS_CH11_Q008": {
+      "takeaway": "Aδ fibers carry fast, relatively well-localized first pain; C fibers carry slow, diffuse pain, so Aδ fibers do not transmit slow pain.",
+      "displayText": "Aδ fibers are thinly myelinated and conduct the fast, sharp first pain that is also called epicritic pain. Their central terminals release glutamate, and their signals travel mainly through the neospinothalamic pathway.\n\nC fibers are unmyelinated, polymodal nociceptors that conduct the slower, diffuse or burning component (protopathic pain) through paleospinothalamic pathways. The source compares their slower conduction and substance P with the faster Aδ component and glutamate. It also notes that neuropathic pain may be burning, dull, and poorly localized; those descriptors can overlap with slow pain but do not make all neuropathic pain a C-fiber mechanism.\n\nThus Aδ fibers transmit fast/first/epicritic pain, not slow pain. The source comparison below preserves the listed stimuli, fiber properties, tracts, velocities, and pain components. Transmitter associations are retained in the prose above; nociceptor signaling can involve more than one transmitter and pathway.",
+      "emphasis": [
+        "Aδ fibers",
+        "fast, sharp first pain",
+        "C fibers"
+      ],
+      "displayTables": [
+        {
+          "title": "Comparison of Aδ and C pain fibers",
+          "source_page": 219,
+          "columns": [
+            "Feature",
+            "Aδ fiber",
+            "C fiber"
+          ],
+          "rows": [
+            [
+              "Stimuli",
+              "Mechanical and thermal",
+              "Polymodal"
+            ],
+            [
+              "Myelination and tract",
+              "Myelinated; neospinothalamic tract",
+              "Unmyelinated; paleospinothalamic tract"
+            ],
+            [
+              "Conduction velocity",
+              "12–30 m/s",
+              "0.5–2 m/s"
+            ],
+            [
+              "Impulse conduction",
+              "Fast component of pain",
+              "Slow component of pain"
+            ],
+            [
+              "Neurotransmitter",
+              "Glutamate",
+              "Substance P"
+            ]
+          ]
+        }
+      ],
+      "rationales": {
+        "b": "Epicritic pain is the fast, discriminative pain associated with Aδ transmission, so Aδ fibers do transmit it.",
+        "c": "Fast pain is the characteristic Aδ-mediated component, making this the opposite of the statement asked for.",
+        "d": "First pain is the rapid, sharp Aδ-mediated component; slow second pain is predominantly carried by C fibers."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported stem and options contain OCR debris around the Aδ symbol, and the detailed explanation's Aδ-versus-C fiber comparison is garbled in the text extraction.",
+        "reconstructedContent": "The source PDF clearly reads “Aδ fibers do not transmit ____” and gives option A, Slow pain, in the answer key. The comparison is restored from the scanned source explanation while preserving the source's exam-level tract, speed, stimulus, pain-quality, and transmitter distinctions.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology Chapter 11, printed source page 212 (question stem/options), page 215 (answer key), and page 219 (solution and Aδ/C comparison table); source PDF SHA-256 recorded in the accompanying batch report.",
+          "Canonical source question PHYS_CH11_Q008 and answer-key page 215: option A.",
+          "Parent independently inspected printed source page220: the continuation contains the Neurotransmitter row (Glutamate / Substance P), now retained in the same source-page219 table. Raw provenance stays immutable; continuation ownership is recorded here."
+        ],
+        "reviewNote": "The original source is visually legible, so the damaged text extraction is recoverable. No raw stem, option, answer key, or source table is rewritten.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          219,
+          220
+        ]
+      }
+    },
+    "marrow__PHYS_CH11_Q009": {
+      "takeaway": "Bradykinin is the source-keyed answer among these algogens, but the source itself flags the claim that it is universally the “most potent” as controversial.",
+      "displayText": "The source-keyed answer is bradykinin. It is an endogenous algogen released in tissue injury and can directly excite nociceptors. Other listed or source-named algogenic mediators include serotonin, histamine, potassium ions, acids, acetylcholine, and proteolytic enzymes.\n\nKeep the source's qualification: it calls the ranking controversial and cites a textbook passage describing bradykinin as especially painful after tissue damage. The evidence supports bradykinin as a potent pain-producing mediator, but does not justify treating “most potent” as a universal ranking across every tissue, concentration, or experimental method.\n\nProstaglandin E2 commonly sensitizes nociceptors and can amplify bradykinin-evoked pain rather than acting as the source-keyed answer here. Substance P also participates in nociceptive transmission, so the source's grouping of it with sensitizing agents should not be read as a universal claim that it cannot excite nociceptive pathways.",
+      "emphasis": [
+        "source-keyed answer is bradykinin",
+        "endogenous algogen",
+        "ranking controversial",
+        "sensitizes nociceptors"
+      ],
+      "rationales": {
+        "a": "Serotonin is an algogenic mediator, but the source's answer key selects bradykinin and explicitly cites it as the better answer.",
+        "c": "Histamine can activate nociceptors, but it is not the source-keyed answer to this comparative item.",
+        "d": "Prostaglandins are important pain sensitizers; the source distinguishes that role from the direct algogenic answer it keys as bradykinin."
+      },
+      "reconstruction": {
+        "status": "needs_manual_review",
+        "sourceProblem": "The source explicitly labels the question controversial while using “most potent” as a broad comparative superlative. Relative algogenic potency depends on the experimental context, and the source explanation itself mixes direct algogens with sensitizers and neuropeptide signaling.",
+        "reconstructedContent": "The augmentation retains bradykinin as the exact source-keyed best answer, teaches it as a potent endogenous algogen, and avoids presenting an unsupported universal potency ranking. It also distinguishes PGE2 sensitization from bradykinin-evoked pain and preserves substance P's established nociceptive role.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology Chapter 11, printed source page 212 (stem/options), page 215 (answer key), and page 220 (solution, explicit controversy note, and Guyton and Hall citation); source PDF SHA-256 recorded in the accompanying batch report.",
+          "Kindgen-Milles D. Effects of prostaglandin E2 on the intensity of bradykinin-evoked pain from skin and veins of humans. Eur J Pharmacol. 1995;294(2–3):491–496. PMID: 8750710. Human experiments found PGE2 increased bradykinin-evoked pain while PGE2 alone did not elicit pain.",
+          "Mizumura K, et al. Excitation and sensitization of nociceptors by bradykinin: what do we know? Exp Brain Res. 2009;196:53–65. PMID: 19396590. Review of direct nociceptor excitation and sensitization mechanisms.",
+          "Otsuka M. In vivo molecular signal transduction of peripheral mechanisms of pain. Jpn J Pharmacol. 1999;79(3):263–268. PMID: 10230852. Reports substance P as a C-fiber transmitter that can directly stimulate nociceptor endings in the experimental paradigm reviewed."
+        ],
+        "reviewNote": "The keyed option is retained, but the source's comparative superlative remains flagged for later manual review; the augmentation does not claim a universal rank."
+      }
+    },
+    "marrow__PHYS_CH11_Q010": {
+      "takeaway": "TRPV1 responds to noxious heat, capsaicin and protons; vibration is not its defining activating stimulus, so vibration is the exception.",
+      "displayText": "Vanilloid receptor 1 (TRPV1) is a nonselective cation channel expressed by nociceptive sensory neurons. It is activated by capsaicin and related vanilloids, noxious heat (classically around or above 43 °C), and protons/acidic conditions.\n\nVibration is not a defining TRPV1 stimulus; mechanosensation is primarily mediated by other transduction channels and receptor systems. Therefore vibration is the source-keyed exception. The source lists “Heat” and “Thermal” as separate choices even though they overlap, but this duplication does not change the keyed answer because both describe heat activation.",
+      "emphasis": [
+        "Vanilloid receptor 1 (TRPV1)",
+        "noxious heat",
+        "protons/acidic conditions",
+        "vibration is the source-keyed exception"
+      ],
+      "rationales": {
+        "a": "Noxious heat activates TRPV1, classically at temperatures around or above 43 °C.",
+        "b": "Thermal stimulation is the same heat modality expressed in option A; it is not the exception asked for.",
+        "c": "Chemical agonists such as capsaicin and protons activate or gate TRPV1."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanation reverses the source-correct sentence and says TRPV1 is activated by vibration, despite the stem and answer key identifying vibration as the exception. The choices also redundantly list heat and thermal.",
+        "reconstructedContent": "The scanned source page and answer key show that vibration is the exception; the source solution's opening sentence should read that TRPV1 is not activated by vibration. The explanation restores this negation, preserves the source-keyed option, and clarifies the duplicated heat/thermal wording.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology Chapter 11, printed source page 212 (stem/options), page 215 (answer key), and page 220 (solution); source PDF SHA-256 recorded in the accompanying batch report.",
+          "Caterina MJ, et al. The capsaicin receptor: a heat-activated ion channel in the pain pathway. Nature. 1997;389:816–824. PMID: 9338776. Original channel cloning and functional characterization established capsaicin and heat activation.",
+          "Aneiros E, et al. The biophysical and molecular basis of TRPV1 proton gating. EMBO J. 2011;30:994–1002. PMID: 21285946. Electrophysiology showed proton activation/potentiation of TRPV1."
+        ],
+        "reviewNote": "The stem, options, and source answer key remain immutable. Only the augmentation corrects the contradictory source explanation; the redundant heat/thermal choices are documented."
+      }
+    }
+  }
+}

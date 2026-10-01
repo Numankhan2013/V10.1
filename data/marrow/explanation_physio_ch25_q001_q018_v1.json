@@ -1,0 +1,635 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Physiology Chapter 25 explanation refinement; raw imported source remains immutable.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "25",
+    "chapterTitle": "Regulation of Respiration",
+    "questionStart": 1,
+    "questionEnd": 18,
+    "questions": 18,
+    "status": "approved-rollout",
+    "workloadScore": 18,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "f3cd6b9dccb2092743fa86de4b0bef682d61c83762e9f00fa3b04d0a355d89d6",
+    "auditReport": "docs/question-explanations/physiology-final-20261001.md"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 753,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__PHYSIO_CH25_Q001": {
+      "takeaway": "The pneumotaxic centre lies in the upper pons; the medulla houses the pre-Bötzinger complex and dorsal/ventral respiratory groups.",
+      "displayText": "The pneumotaxic centre is located in the upper pons. Neural respiratory-control neurons lie in the pons and medulla: pontine centres are the pneumotaxic and apneustic centres; medullary centres include the pre-Bötzinger complex, dorsal respiratory group (DRG) and ventral respiratory group (VRG). The source diagram shows their opposing effects on inspiratory activity and output to the diaphragm, external intercostals and accessory respiratory muscles.",
+      "emphasis": [
+        "The pneumotaxic centre is located in the upper pons.",
+        "Neural respiratory-control neurons lie in the pons and medulla: pontine centres are the pneumotaxic and apneustic centres; medullary centres include the pre-Bötzinger complex, dorsal respiratory group (DRG) and ventral respiratory group (VRG).",
+        "The source diagram shows their opposing effects on inspiratory activity and output to the diaphragm, external intercostals and accessory respiratory muscles."
+      ],
+      "rationales": {
+        "b": "The midbrain is not the pontine respiratory-centre location specified.",
+        "c": "Medulla contains rhythm-generating and respiratory groups, but the pneumotaxic centre is in pons.",
+        "d": "The cerebellum coordinates movement and is not the site of the pneumotaxic centre."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          454,
+          455
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "OCR corruption in the imported solution obscures sentence-level wording and includes scan artifacts.",
+        "reconstructedContent": "Normalized the source explanation into readable prose while retaining its question-specific anatomy/physiology, mechanisms, terms and numerical details.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology source PDF, printed pages [454, 455]; SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+          "The imported source-fidelity record states that these rendered pages were visually inspected and OCR was used only as a helper."
+        ],
+        "reviewNote": "Safe OCR cleanup was grounded in the rendered source-page review; no keyed answer or medical distinction was changed.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          454,
+          455
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH25_Q002": {
+      "takeaway": "Pre-Bötzinger complex in the medulla contains pacemaker neurons that initiate inspiratory rhythm and drive phrenic motor output.",
+      "displayText": "The pre-Bötzinger complex in the medulla generates the automatic breathing rhythm. Its pacemaker cells initiate inspiration and discharge rhythmically to phrenic motor neurons. Voluntary control originates in the cerebral cortex and descends through corticospinal pathways; automatic drive uses medullary pacemaker circuits and cervical phrenic and thoracic motor neurons for the diaphragm and external intercostals. Inspiratory and expiratory motor pools are reciprocally active. The source distinguishes initiation by the pre-Bötzinger complex, maintenance by lower-pontine apneustic stimulation of DRG, and termination when vagal and pneumotaxic input inhibits apneustic drive. Quiet expiration is passive; VRG is recruited for forceful expiration, summarized by DIVE (DRG inspiration, VRG expiration).",
+      "emphasis": [
+        "The pre-Bötzinger complex in the medulla generates the automatic breathing rhythm.",
+        "Its pacemaker cells initiate inspiration and discharge rhythmically to phrenic motor neurons.",
+        "Voluntary control originates in the cerebral cortex and descends through corticospinal pathways; automatic drive uses medullary pacemaker circuits and cervical phrenic and thoracic motor neurons for the diaphragm and external intercostals."
+      ],
+      "rationales": {
+        "a": "Pneumotaxic centre in the pons modulates inspiratory termination/rate, rather than generating the automatic rhythm.",
+        "b": "Dorsal respiratory group contributes inspiratory ramp output but the source identifies pre-Bötzinger cells as the pacemaker.",
+        "d": "Apneustic centre is in the pons and promotes inspiratory activity; it is not the medullary rhythm pacemaker."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          455,
+          456
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "OCR corruption in the imported solution obscures sentence-level wording and includes scan artifacts.",
+        "reconstructedContent": "Normalized the source explanation into readable prose while retaining its question-specific anatomy/physiology, mechanisms, terms and numerical details.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology source PDF, printed pages [455, 456]; SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+          "The imported source-fidelity record states that these rendered pages were visually inspected and OCR was used only as a helper."
+        ],
+        "reviewNote": "Safe OCR cleanup was grounded in the rendered source-page review; no keyed answer or medical distinction was changed.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          455,
+          456
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH25_Q003": {
+      "takeaway": "Pre-Bötzinger neurons fire rhythmic bursts to inspiratory muscles during quiet breathing; pain and cortical inputs can modulate them.",
+      "displayText": "The main respiratory-control neurons are in the pre-Bötzinger complex, on each side of the medulla between the nucleus ambiguus and lateral reticular nucleus. They send regular bursts through the phrenic nerve to inspiratory muscles during quiet breathing. Quiet expiration is passive and has no expiratory motor discharge. Pain can stimulate respiration; substance P stimulates and opioids inhibit pre-Bötzinger activity. Cerebral-cortex impulses also influence this complex.",
+      "emphasis": [
+        "The main respiratory-control neurons are in the pre-Bötzinger complex, on each side of the medulla between the nucleus ambiguus and lateral reticular nucleus.",
+        "They send regular bursts through the phrenic nerve to inspiratory muscles during quiet breathing.",
+        "Quiet expiration is passive and has no expiratory motor discharge."
+      ],
+      "rationales": {
+        "a": "Quiet expiration is normally passive, so there are not regular expiratory-muscle bursts in quiet breathing.",
+        "b": "Pain can stimulate respiratory activity through inputs/receptors affecting the pre-Bötzinger complex.",
+        "c": "Cerebral-cortex signals can influence respiratory control, including voluntary breathing."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          456
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "OCR corruption in the imported solution obscures sentence-level wording and includes scan artifacts.",
+        "reconstructedContent": "Normalized the source explanation into readable prose while retaining its question-specific anatomy/physiology, mechanisms, terms and numerical details.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology source PDF, printed pages [456]; SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+          "The imported source-fidelity record states that these rendered pages were visually inspected and OCR was used only as a helper."
+        ],
+        "reviewNote": "Safe OCR cleanup was grounded in the rendered source-page review; no keyed answer or medical distinction was changed.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          456
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH25_Q004": {
+      "takeaway": "The upper-pontine pneumotaxic centre limits inspiratory duration and thereby helps set breathing rate.",
+      "displayText": "The rate of inspiration is controlled by the pneumotaxic center.\nPneumotaxic centre:\nLocation: Upper pons (dorsally in nucleus parabrachialis)\nFunction:\n• Transmits signals to the inspiratory area, i.e., it inhibits the apneustic center and thus the dorsal\nrespiratory group of neurons, to stop inspiration.\n• It thus helps limit duration of inspiration and switching between inspiration and expiration.\n• This has a secondary effect of increasing the rate of breathing because limiting the duration of\ninspiration also shortens the duration of expiration, and hence, the entire period of respiration.\nDiaphragm",
+      "emphasis": [
+        "The rate of inspiration is controlled by the pneumotaxic center.",
+        "• Transmits signals to the inspiratory area, i.",
+        "respiratory group of neurons, to stop inspiration."
+      ],
+      "rationales": {
+        "a": "Cerebral cortex supplies voluntary modulation, not the automatic rate-control centre asked here.",
+        "b": "Ventral respiratory group is recruited especially during increased drive/forced expiration.",
+        "d": "Apneustic centre sustains or deepens inspiration rather than limiting its duration."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          456,
+          457
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      }
+    },
+    "marrow__PHYSIO_CH25_Q005": {
+      "takeaway": "Apneustic input prolongs inspiratory ramp activity and increases inspiratory depth; pneumotaxic input limits the inspiratory switch-off point.",
+      "displayText": "Inspiratory depth increases when the apneustic centre delays the inspiratory switch-off signal maintained by the dorsal respiratory group. By contrast, the pneumotaxic centre limits inspiration by controlling the switch-off point of the inspiratory ramp. The ramp begins weakly and increases steadily, producing a gradual increase in lung volume rather than gasping. The respiratory centres control depth and rate by setting the point where the ramp suddenly ceases. The source contrasts pontine pneumotaxic modulation, medullary VRG drive for expiration, and DRG inspiratory output.",
+      "emphasis": [
+        "Inspiratory depth increases when the apneustic centre delays the inspiratory switch-off signal maintained by the dorsal respiratory group.",
+        "By contrast, the pneumotaxic centre limits inspiration by controlling the switch-off point of the inspiratory ramp.",
+        "The ramp begins weakly and increases steadily, producing a gradual increase in lung volume rather than gasping."
+      ],
+      "rationales": {
+        "a": "Pneumotaxic centre limits inspiration rather than deepening it.",
+        "b": "Ventral respiratory group is quiet during quiet breathing and is recruited for extra drive/forced expiration.",
+        "c": "Dorsal respiratory group provides inspiratory ramp signals but the apneustic centre increases their depth by delaying switch-off."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          457
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanation transcription concatenates multiple consecutive question solutions into this record, and OCR corruption obscures some wording.",
+        "reconstructedContent": "Isolated the specific numbered solution and normalized the learner-facing explanation against the printed page, preserving all question-specific respiratory-control details without importing adjacent answers.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology source PDF, printed pages [457]; SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+          "Canonical source question and answer key were checked against the pinned source bank."
+        ],
+        "reviewNote": "The affected printed solution page was visually inspected; spillover from neighboring questions was excluded.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          457
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH25_Q006": {
+      "takeaway": "The ventral respiratory group is largely quiet during ordinary breathing, then joins the dorsal group for extra inspiratory and forceful expiratory drive.",
+      "displayText": "The ventral respiratory group (VRG) is recruited for respiratory overdrive. It remains nearly inactive during quiet breathing, when expiration is passive and dorsal respiratory group (DRG) activity supports the basic inspiratory rhythm. During exercise or other increased ventilatory demand, signals spill over from DRG to VRG. VRG neurons contribute to both inspiration and expiration and provide strong expiratory drive to abdominal muscles during forceful expiration. The source comparison places DRG in the nucleus tractus solitarius and VRG in the nucleus retroambiguus; DRG supplies inspiratory ramp signals, while VRG is inactive in quiet breathing and active during forced expiration.",
+      "emphasis": [
+        "ventral respiratory group (VRG) is recruited for respiratory overdrive",
+        "nearly inactive during quiet breathing",
+        "active during forced expiration"
+      ],
+      "rationales": {
+        "a": "Pneumotaxic centre is pontine and modulates inspiration; it is not the medullary forced-expiration group.",
+        "b": "Dorsal group supplies inspiratory ramp signals and is active in basic breathing, unlike the source-described VRG recruitment for overdrive.",
+        "c": "Apneustic centre is pontine and stimulates inspiration, not the ventral group role in forceful expiration."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          458
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "The orphan native table block is recovered in displayTables with its source ID and printed-page/hash provenance; source figures remain in the immutable PDF."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The canonical Q6 explanation text is empty; the source block records a table and figure reference but no readable prose/table cells.",
+        "reconstructedContent": "Recovered the question-specific explanation from the printed solution on page 458: VRG is quiet in ordinary breathing, recruited for overdrive, contributes to inspiration and expiration, and provides forceful expiratory output. Restored the DRG/VRG comparison table with its locations and activity pattern.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology source PDF, printed page 458; SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe. The page contains the Q6 solution and comparison table.",
+          "Canonical source question PHYSIO_CH25_Q006 and answer key: option D."
+        ],
+        "reviewNote": "Printed page visually inspected; reconstruction is limited to learner-facing augmentation. Original source figure remains in the pinned PDF.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          458
+        ],
+        "orphanTableIds": [
+          "PHYSIO_CH25_Q006_T01"
+        ]
+      },
+      "displayTables": [
+        {
+          "table_id": "PHYSIO_CH25_Q006_T01",
+          "title": "Dorsal and ventral respiratory groups",
+          "source_page": 458,
+          "columns": [
+            "Feature",
+            "Dorsal respiratory group",
+            "Ventral respiratory group"
+          ],
+          "rows": [
+            [
+              "Location",
+              "Nucleus tractus solitarius in medulla",
+              "Nucleus retroambiguus in medulla"
+            ],
+            [
+              "Function",
+              "Inspiratory ramp signals stimulate inspiration",
+              "Inactive during quiet breathing; active during forced expiration"
+            ]
+          ]
+        }
+      ]
+    },
+    "marrow__PHYSIO_CH25_Q007": {
+      "takeaway": "Apneustic-centre stimulation delays inspiratory switch-off and produces a marked increase in inspiratory activity.",
+      "displayText": "The apneustic centre is in the lower pons and stimulates inspiratory activity. It delays the pneumotaxic switch-off of the inspiratory ramp, increasing the duration of inspiration. Vagal afferents from pulmonary stretch receptors inhibit apneustic drive as inflation proceeds, allowing the inspiratory signal to stop and expiration to begin.",
+      "emphasis": [
+        "The apneustic centre is in the lower pons and stimulates inspiratory activity.",
+        "It delays the pneumotaxic switch-off of the inspiratory ramp, increasing the duration of inspiration.",
+        "Vagal afferents from pulmonary stretch receptors inhibit apneustic drive as inflation proceeds, allowing the inspiratory signal to stop and expiration to begin."
+      ],
+      "rationales": {
+        "a": "The apneustic signal sustains the inspiratory ramp rather than decreasing it.",
+        "c": "Pneumotaxic stimulation would limit inspiration, opposing the increased activity in the prompt.",
+        "d": "The result is augmented inspiratory activity, not cessation of spontaneous respiration."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          459
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "OCR corruption in the imported solution obscures sentence-level wording and includes scan artifacts.",
+        "reconstructedContent": "Normalized the source explanation into readable prose while retaining its question-specific anatomy/physiology, mechanisms, terms and numerical details.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology source PDF, printed pages [459]; SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+          "The imported source-fidelity record states that these rendered pages were visually inspected and OCR was used only as a helper."
+        ],
+        "reviewNote": "Safe OCR cleanup was grounded in the rendered source-page review; no keyed answer or medical distinction was changed.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          459
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH25_Q008": {
+      "takeaway": "Mid-pontine transection plus bilateral vagotomy leaves apneustic drive relatively unopposed, producing apneusis with prolonged gasping inspiration.",
+      "displayText": "Transection of the brain stem at the mid-pontine level with bilateral vagotomy causes apneusis.\nAt mid pontine level lesion, the apneustic centre is intact while the pneumotaxic centre is\nseparated. Concurrent removal of vagus inputs causes this kind of abnormal pattern of breathing\ncharacterized by deep, gasping inspiration with a pause at full inspiration followed by a brief\ninsufficient release.",
+      "emphasis": [
+        "Transection of the brain stem at the mid-pontine level with bilateral vagotomy causes apneusis."
+      ],
+      "rationales": {
+        "a": "Apnoea is cessation of breathing; the described pattern retains deep inspiratory efforts with pauses.",
+        "b": "Regular breathing requires intact coordination of pontine and vagal influences.",
+        "c": "The source defines the prolonged inspiratory pause pattern as apneusis, not merely irregular rhythmic breathing."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          459
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      }
+    },
+    "marrow__PHYSIO_CH25_Q009": {
+      "takeaway": "Peripheral chemoreceptors respond strongly as arterial PO₂ falls below about 60 mmHg, but respond minimally to PO₂ shifts in the normoxic range.",
+      "displayText": "Peripheral chemoreceptors respond minimally to PO₂ changes in the normoxic range, but their firing rises steeply when arterial PO₂ falls below about 60 mmHg. The carotid bodies receive very high blood flow per unit tissue, so dissolved oxygen can meet receptor oxygen needs in anemia and carbon-monoxide exposure even when total oxygen content is low. Peripheral receptors respond to arterial O₂, CO₂ and H⁺; under normoxic conditions ventilation is driven chiefly by CO₂ and H⁺. Their response to arterial PCO₂ is faster than the central response, while central chemoreceptors dominate the ventilatory response to increased CO₂.",
+      "emphasis": [
+        "Peripheral chemoreceptors respond minimally to PO₂ changes in the normoxic range, but their firing rises steeply when arterial PO₂ falls below about 60 mmHg.",
+        "The carotid bodies receive very high blood flow per unit tissue, so dissolved oxygen can meet receptor oxygen needs in anemia and carbon-monoxide exposure even when total oxygen content is low.",
+        "Peripheral receptors respond to arterial O₂, CO₂ and H⁺; under normoxic conditions ventilation is driven chiefly by CO₂ and H⁺."
+      ],
+      "rationales": {
+        "b": "Peripheral chemoreceptors also respond to pH/H⁺ and therefore are not restricted to arterial PO₂.",
+        "c": "Peripheral CO₂ responses are faster, not slower, than central chemoreceptor responses.",
+        "d": "Central chemoreceptors are the dominant sensors for the normal ventilatory response to raised PCO₂."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          459,
+          460
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanation transcription concatenates multiple consecutive question solutions into this record, and OCR corruption obscures some wording.",
+        "reconstructedContent": "Isolated the specific numbered solution and normalized the learner-facing explanation against the printed page, preserving all question-specific respiratory-control details without importing adjacent answers.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology source PDF, printed pages [459, 460]; SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+          "Canonical source question and answer key were checked against the pinned source bank."
+        ],
+        "reviewNote": "The affected printed solution page was visually inspected; spillover from neighboring questions was excluded.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          459,
+          460
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH25_Q010": {
+      "takeaway": "Peripheral chemoreceptors chiefly sense arterial PO₂; dissolved oxygen tension, rather than total oxygen content, determines their hypoxic stimulus.",
+      "displayText": "Peripheral chemoreceptors in the carotid and aortic bodies are primarily sensitive to a fall in arterial PO₂. They also respond to increased PaCO₂ and reduced pH, which enhance their response to hypoxia. The carotid body is more sensitive than the aortic body.",
+      "emphasis": [
+        "primarily sensitive to a fall in arterial PO₂",
+        "increased PaCO₂ and reduced pH",
+        "carotid body is more sensitive than the aortic body"
+      ],
+      "rationales": {
+        "a": "PaCO₂ stimulates both chemoreceptor systems but is not the blood variable singled out as the peripheral oxygen stimulus.",
+        "b": "H⁺/pH also affects peripheral bodies, but the question asks their oxygen-sensitive arterial variable.",
+        "d": "Bicarbonate buffers pH and is not the direct variable monitored for peripheral hypoxia."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          460
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The canonical Q10 explanation text is empty even though the printed answer section is present on the rendered source page.",
+        "reconstructedContent": "Transcribed the printed Q10 explanation: peripheral bodies primarily detect decreased arterial PO₂, while increased PaCO₂ and low pH augment hypoxic sensitivity; carotid body is more sensitive than aortic body.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology source PDF, printed page 460; SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe. The Q10 section was visually inspected.",
+          "Canonical source question PHYSIO_CH25_Q010 and answer key: option C."
+        ],
+        "reviewNote": "Printed page visually inspected; source content normalized without changing the keyed distinction.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          460
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH25_Q011": {
+      "takeaway": "Cyanide causes histotoxic hypoxia and can strongly stimulate peripheral chemoreceptors despite normal arterial PO₂.",
+      "displayText": "Cyanide causes histotoxic hypoxia by blocking cellular oxygen utilization and is a strong peripheral-chemoreceptor stimulus despite a normal blood PO₂. Acidosis (increased H⁺) also stimulates peripheral bodies, while increased PCO₂ mainly drives central chemoreceptors. Carbon monoxide poisoning usually does not stimulate the carotid bodies because their high blood flow supplies dissolved oxygen even though total blood oxygen is reduced.",
+      "emphasis": [
+        "Cyanide causes histotoxic hypoxia by blocking cellular oxygen utilization and is a strong peripheral-chemoreceptor stimulus despite a normal blood PO₂.",
+        "Acidosis (increased H⁺) also stimulates peripheral bodies, while increased PCO₂ mainly drives central chemoreceptors.",
+        "Carbon monoxide poisoning usually does not stimulate the carotid bodies because their high blood flow supplies dissolved oxygen even though total blood oxygen is reduced."
+      ],
+      "rationales": {
+        "a": "Acidosis stimulates peripheral chemoreceptors, but the source identifies cyanide as the powerful stimulus in this comparison.",
+        "b": "Hypercapnia mainly drives central chemoreceptors via CSF acidification.",
+        "c": "Carbon monoxide reduces total oxygen content while dissolved PO₂ can remain normal, so carotid bodies are not strongly stimulated."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          460,
+          461
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "OCR corruption in the imported solution obscures sentence-level wording and includes scan artifacts.",
+        "reconstructedContent": "Normalized the source explanation into readable prose while retaining its question-specific anatomy/physiology, mechanisms, terms and numerical details.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology source PDF, printed pages [460, 461]; SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+          "The imported source-fidelity record states that these rendered pages were visually inspected and OCR was used only as a helper."
+        ],
+        "reviewNote": "Safe OCR cleanup was grounded in the rendered source-page review; no keyed answer or medical distinction was changed.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          460,
+          461
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH25_Q012": {
+      "takeaway": "Anemic hypoxia lowers oxygen content while dissolved PO₂ reaching carotid bodies remains near normal, so the bodies are not stimulated by anemia alone.",
+      "displayText": "Anemic hypoxia does not stimulate carotid-body chemoreceptors: dissolved oxygen reaching the receptors is generally normal even though total oxygen content is markedly reduced. The carotid bodies’ exceptionally high perfusion allows tissue oxygen needs to be met largely from dissolved O₂. Peripheral bodies respond instead when arterial PO₂ falls, as in hypoxic hypoxia, and can also be stimulated in stagnant or histotoxic hypoxia.",
+      "emphasis": [
+        "Anemic hypoxia does not stimulate carotid-body chemoreceptors: dissolved oxygen reaching the receptors is generally normal even though total oxygen content is markedly reduced.",
+        "The carotid bodies’ exceptionally high perfusion allows tissue oxygen needs to be met largely from dissolved O₂.",
+        "Peripheral bodies respond instead when arterial PO₂ falls, as in hypoxic hypoxia, and can also be stimulated in stagnant or histotoxic hypoxia."
+      ],
+      "rationales": {
+        "b": "Hypoxic hypoxia lowers arterial PO₂ and stimulates peripheral chemoreceptors.",
+        "c": "Stagnant hypoxia reduces tissue perfusion and oxygen delivery to the receptors.",
+        "d": "Histotoxic hypoxia, such as cyanide poisoning, is listed as a peripheral chemoreceptor stimulus."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          461
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "OCR corruption in the imported solution obscures sentence-level wording and includes scan artifacts.",
+        "reconstructedContent": "Normalized the source explanation into readable prose while retaining its question-specific anatomy/physiology, mechanisms, terms and numerical details.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology source PDF, printed pages [461]; SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+          "The imported source-fidelity record states that these rendered pages were visually inspected and OCR was used only as a helper."
+        ],
+        "reviewNote": "Safe OCR cleanup was grounded in the rendered source-page review; no keyed answer or medical distinction was changed.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          461
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH25_Q013": {
+      "takeaway": "Central chemoreceptors respond to CSF pH: CO₂ crosses the blood–brain barrier, generates H⁺ in CSF, and changes their firing.",
+      "displayText": "Central chemoreceptors on the ventral medulla are activated by changes in CSF pH. They do not respond to blood PO₂. For a given PCO₂ increase, CSF pH falls more than blood pH because CSF has less buffering; CO₂ forms carbonic acid, which dissociates to H⁺ and bicarbonate. CSF bicarbonate can buffer H⁺ and alter the pH signal and receptor output.",
+      "emphasis": [
+        "Central chemoreceptors on the ventral medulla are activated by changes in CSF pH.",
+        "They do not respond to blood PO₂.",
+        "For a given PCO₂ increase, CSF pH falls more than blood pH because CSF has less buffering; CO₂ forms carbonic acid, which dissociates to H⁺ and bicarbonate."
+      ],
+      "rationales": {
+        "a": "Central chemoreceptors do not respond to blood PO₂; CO₂ influences them indirectly through CSF chemistry.",
+        "c": "CSF has less buffering than blood, so for a given PCO₂ rise its pH falls more, not less.",
+        "d": "CSF bicarbonate buffering changes pH and therefore can alter central chemoreceptor output."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          461
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "OCR corruption in the imported solution obscures sentence-level wording and includes scan artifacts.",
+        "reconstructedContent": "Normalized the source explanation into readable prose while retaining its question-specific anatomy/physiology, mechanisms, terms and numerical details.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology source PDF, printed pages [461]; SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+          "The imported source-fidelity record states that these rendered pages were visually inspected and OCR was used only as a helper."
+        ],
+        "reviewNote": "Safe OCR cleanup was grounded in the rendered source-page review; no keyed answer or medical distinction was changed.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          461
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH25_Q014": {
+      "takeaway": "Raised arterial PCO₂ is the strongest blood change driving central chemoreceptors because CO₂ enters CSF and raises local H⁺.",
+      "displayText": "Central chemoreceptors are most sensitive to increased PCO₂ in the blood.\nCentral chemoreceptors are most sensitive to increased PCO₂ in the blood because CO₂ moves into\nthe CSF, where it is promptly hydrated to form H2CO3 that dissociates to increase the CSF H⁺\nconcentration. This stimulates the central chemoreceptors, which monitor CSF H⁺ concentration\n(not blood H⁺ concentration).\nOther options:\n• H⁺ in arterial blood penetrates the blood-brain barrier very slowly and hence has little effect on\ncentral chemoreceptors.\n• Arterial PO₂ has no effect on central chemoreceptors.",
+      "emphasis": [
+        "Central chemoreceptors are most sensitive to increased PCO₂ in the blood.",
+        "(not blood H⁺ concentration).",
+        "• Arterial PO₂ has no effect on central chemoreceptors."
+      ],
+      "rationales": {
+        "a": "Arterial PO₂ has no direct effect on central chemoreceptors.",
+        "c": "Arterial H⁺ crosses the blood–brain barrier slowly, so it has less immediate central effect than CO₂.",
+        "d": "A fall in PCO₂ reduces the CSF acidifying stimulus rather than activating central chemoreceptors."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          461,
+          462
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      }
+    },
+    "marrow__PHYSIO_CH25_Q015": {
+      "takeaway": "The immediate chemical stimulus at central chemoreceptors is increased CSF H⁺; blood PCO₂ acts mainly after CO₂ diffuses into CSF.",
+      "displayText": "The central chemoreceptors are primarily stimulated by an increase in the H⁺ in the CSF.\nCO₂ readily penetrates the blood-brain barrier and is promptly hydrated in the CSF to form\nH2CO3 that dissociates so that local H⁺ concentration rises. The H⁺ concentration,in, the CSF\nparallels the arterial PCO₂. So the effect of arterial PCO₂ and CO₂ in CSF is indirect or secondary.\nArterial PO₂ has no effect on central chemoreceptors. x",
+      "emphasis": [
+        "The central chemoreceptors are primarily stimulated by an increase in the H⁺ in the CSF.",
+        "H2CO3 that dissociates so that local H⁺ concentration rises.",
+        "parallels the arterial PCO₂."
+      ],
+      "rationales": {
+        "b": "Arterial PCO₂ is an upstream driver, but its effect is mediated through CSF CO₂ hydration and H⁺ generation.",
+        "c": "Arterial PO₂ does not stimulate central chemoreceptors.",
+        "d": "CSF CO₂ is converted to carbonic acid and H⁺; the local proton rise is the direct stimulus."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          462
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      }
+    },
+    "marrow__PHYSIO_CH25_Q016": {
+      "takeaway": "Falling arterial pressure can raise ventilation through both hypoperfusion-driven peripheral hypoxia and CO₂ retention/CSF acidification centrally.",
+      "displayText": "Both peripheral and central chemoreceptors can increase ventilation when arterial pressure falls. Reduced pressure can cause CO₂ retention, increasing arterial PCO₂ and CSF H⁺ to activate central chemoreceptors; hypoperfusion also causes tissue/receptor hypoxia that activates peripheral chemoreceptors. A fall in PCO₂ or H⁺ would reduce rather than increase chemoreceptor drive.",
+      "emphasis": [
+        "Both peripheral and central chemoreceptors can increase ventilation when arterial pressure falls.",
+        "Reduced pressure can cause CO₂ retention, increasing arterial PCO₂ and CSF H⁺ to activate central chemoreceptors; hypoperfusion also causes tissue/receptor hypoxia that activates peripheral chemoreceptors.",
+        "A fall in PCO₂ or H⁺ would reduce rather than increase chemoreceptor drive."
+      ],
+      "rationales": {
+        "a": "A fall in arterial PCO₂ would reduce chemoreceptor drive rather than cause the response.",
+        "b": "Low arterial PO₂ activates peripheral bodies but does not explain the additional central pathway specified.",
+        "d": "Decreased H⁺ would reduce, not increase, chemoreceptor stimulation."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          462
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "OCR corruption in the imported solution obscures sentence-level wording and includes scan artifacts.",
+        "reconstructedContent": "Normalized the source explanation into readable prose while retaining its question-specific anatomy/physiology, mechanisms, terms and numerical details.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology source PDF, printed pages [462]; SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+          "The imported source-fidelity record states that these rendered pages were visually inspected and OCR was used only as a helper."
+        ],
+        "reviewNote": "Safe OCR cleanup was grounded in the rendered source-page review; no keyed answer or medical distinction was changed.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          462
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH25_Q017": {
+      "takeaway": "Hypocapnia does not stimulate central or peripheral chemoreceptors; hypercapnia, hypoxia, acidosis and low perfusion can stimulate them.",
+      "displayText": "Hypercapnia is a stimulus for central and peripheral chemoreceptors and not hypocapnia.\nOption b: The peripheral chemoreceptors are stimulated by hypoxia (hypoxic, stagnant and\nhistotoxic but NOT anemic hypoxia)and exercise (increased K+ levels).\nOption c: The central chemoreceptors are stimulated by hypercapnia and resultant acidosis.\nOption d: Low perfusion pressure produces hypoxia because the amount of O₂ delivered to the\nreceptors per unit time is decreased. This stimulates the peripheral chemoreceptors.",
+      "emphasis": [
+        "Hypercapnia is a stimulus for central and peripheral chemoreceptors and not hypocapnia.",
+        "histotoxic but NOT anemic hypoxia)and exercise (increased K+ levels).",
+        "Option c: The central chemoreceptors are stimulated by hypercapnia and resultant acidosis."
+      ],
+      "rationales": {
+        "b": "Hypoxia stimulates peripheral chemoreceptors when arterial PO₂ falls.",
+        "c": "Acidosis raises H⁺ and stimulates central/peripheral chemoreceptor pathways.",
+        "d": "Low perfusion pressure can reduce oxygen delivery and stimulate peripheral bodies."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          462
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      }
+    },
+    "marrow__PHYSIO_CH25_Q018": {
+      "takeaway": "At rest, CSF pH acting on central chemoreceptors is the dominant ventilatory stimulus, with arterial CO₂ supplying the diffusible trigger.",
+      "displayText": "The most important stimulus comes from the pH of the CSF on the central chemoreceptors. The\nCOz2 that enters the brain and CSF is hydrated to H2CO3 and dissociates, leading to rising H⁺\nlevels. The CSF H⁺ concentration hence parallels the arterial CO₂ levels.\nThe effect of PO₂ on peripheral chemoreceptors under normoxic conditions is very small. Changes\nin PCO₂ do affect the peripheral chemoreceptors, but the magnitude is less than that for the\ncentral chemoreceptors.\nThe effect of changes in the pH on peripheral chemoreceptors under normal conditions is small:\nand the changes in PO₂ do not affect the central chemoreceptors.",
+      "emphasis": [
+        "The most important stimulus comes from the pH of the CSF on the central chemoreceptors.",
+        "The CSF H⁺ concentration hence parallels the arterial CO₂ levels.",
+        "The effect of PO₂ on peripheral chemoreceptors under normoxic conditions is very small."
+      ],
+      "rationales": {
+        "b": "Peripheral pH changes contribute, but their resting effect is smaller than central CSF-pH drive.",
+        "c": "Peripheral bodies respond to PCO₂, but the response magnitude is less than central chemoreceptor response.",
+        "d": "Under normoxia, PO₂ changes have little effect on peripheral bodies; central bodies do not sense blood PO₂."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          463
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      }
+    }
+  }
+}

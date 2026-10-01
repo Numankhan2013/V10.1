@@ -1,0 +1,404 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Anatomy Chapter 25 explanation refinement. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Anatomy",
+    "bank": "Marrow",
+    "chapterId": "25",
+    "chapterTitle": "Cerebellum",
+    "questionStart": 1,
+    "questionEnd": 14,
+    "questions": 14,
+    "status": "approved-rollout",
+    "workloadScore": 14,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 753,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__ANAT_CH25_Q001": {
+      "takeaway": "The middle/posterior lobe is the largest cerebellar lobe and coordinates balance and gait.",
+      "displayText": "The scenario is post-traumatic cerebellar ataxia with impaired balance; the gait image shows tandem-walk difficulty, poor heel-toe coordination, erratic foot placement and truncal sway. The largest cerebellar lobe is the middle (posterior) lobe, inferior to the primary fissure. The cerebellum has right and left hemispheres joined by the vermis and is divided into anterior lobe above the primary fissure, middle/posterior lobe below it, and flocculonodular lobe behind the uvulonodular fissure. Superior and inferior surfaces are separated by the horizontal fissure. Three cerebellar peduncles connect it with the nervous system.",
+      "emphasis": [
+        "post-traumatic cerebellar ataxia",
+        "middle (posterior) lobe",
+        "primary fissure",
+        "truncal sway"
+      ],
+      "rationales": {
+        "a": "The anterior lobe is smaller and lies above the primary fissure; the source identifies the middle/posterior lobe as largest.",
+        "c": "The flocculonodular lobe is a small vestibular lobe behind the uvulonodular fissure.",
+        "d": "Vermis is the midline bridge between hemispheres, not one of the three cerebellar lobes."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, including stable ID, stem, options, printed key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          428,
+          429
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 1 figure metadata item(s) remain in unchanged source record/shared renderer."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceFragment": "The given clinical scenario is suggestive of post-traumatic cerebellar ataxia presenting with\nimpaired balance. The largest part of the affected structure i.e. the cerebellum is the middle lobe,\nalso known as the posterior lobe. The gait shown in the above video is a cerebellar ataxic\ngait. Here, the patient is seen attempting tandem walking and displaying improper heel-toe\ncoordination, erratic foot placement, and truncal swaying.\nThe cerebellum consists of two hemispheres (right and left) joined by a median vermis. It is\ndivided into three lobes:\n+ Anterior lobe - lies superiorly above the primary fissure\n+ Middle lobe - lies inferiorly below the primary fissure\n+ Flocculonodular lobe - lies posterior to the uvulonodular fissure\nIt has two surfaces, superior and inferior, separated by a horizontal fissure. It is connected to the\nother parts of the central nervous system via three peduncles.",
+        "reconstructedContent": "The scenario is post-traumatic cerebellar ataxia with impaired balance; the gait image shows tandem-walk difficulty, poor heel-toe coordination, erratic foot placement and truncal sway. The largest cerebellar lobe is the middle (posterior) lobe, inferior to the primary fissure. The cerebellum has right and left hemispheres joined by the vermis and is divided into anterior lobe above the primary fissure, middle/posterior lobe below it, and flocculonodular lobe behind the uvulonodular fissure. Superior and inferior surfaces are separated by the horizontal fissure. Three cerebellar peduncles connect it with the nervous system.",
+        "evidenceBasis": "Anatomy ED8 source explanation pages [428, 429] reviewed; replaced severe OCR encoding noise with a question-specific reconstruction retaining the source facts and figure/table details.",
+        "reviewNote": "OCR is visibly corrupted in source export; reconstructed readable display text. Source records and native figures/tables remain unchanged.",
+        "sourceProblem": "The exported OCR explanation for marrow__ANAT_CH25_Q001 has character-encoding damage that makes it unsuitable as learner-facing text."
+      }
+    },
+    "marrow__ANAT_CH25_Q002": {
+      "takeaway": "Deep cerebellar nuclei are ordered dentate, emboliform, globose, fastigial from lateral to medial.",
+      "displayText": "The arrangement of cerebellar nuclei from lateral to medial is dentate, emboliform, globose, and\nfastigial.\nLateral Medial\nDentate\nGlobose\nmucus\nEmboitorm nucleus\nF ae Se =",
+      "emphasis": [
+        "lateral to medial",
+        "dentate, emboliform, globose"
+      ],
+      "rationales": {
+        "a": "Emboliform is medial to dentate, not the most lateral nucleus.",
+        "c": "Globose precedes fastigial medially, but dentate must come first and emboliform second.",
+        "d": "Fastigial is the most medial nucleus, so it cannot precede globose in lateral-to-medial order."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, including stable ID, stem, options, printed key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          429
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 1 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH25_Q003": {
+      "takeaway": "Vestibulocerebellar output centers on the fastigial nucleus.",
+      "displayText": "The oldest cerebellar component is the archicerebellum (vestibulocerebellum). It is associated with the fastigial nucleus, which connects through descending pathways with vestibular nuclei and medullary/pontine reticular formation.",
+      "emphasis": [
+        "archicerebellum (vestibulocerebellum)",
+        "fastigial nucleus",
+        "vestibular nuclei"
+      ],
+      "rationales": {
+        "b": "Globose is an interposed deep nucleus and is not the phylogenetically oldest vestibular component.",
+        "c": "Emboliform is also interposed; the oldest vestibulocerebellar part relates to fastigial output.",
+        "d": "Dentate is associated with the newer cerebrocerebellum, not the oldest archicerebellum."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, including stable ID, stem, options, printed key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          429,
+          430
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 2 figure metadata item(s) remain in unchanged source record/shared renderer."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceFragment": "Rae vats\nThe given clinical scoraio is suggestive\\of cerebellar syndrome. Phylogenetically, the oldest part\nof the atrophied, dette ie. thé'eerebellum is archicerebellum/ vestibulocerebellum and it is\nconcerned with fastigial nucletis (connected to vestibular nuclei via descending pathways along\nwith meduflary/pontine reticular formations).\nThe image given below shows MRI scans of two brains. The brain on the left shows atrophy of the\ncerebellum in a person with cerebellar degeneration. The brain on the right shows a normal\ncerebellum.\n\noy “SS »\nKO fe Res",
+        "reconstructedContent": "The oldest cerebellar component is the archicerebellum (vestibulocerebellum). It is associated with the fastigial nucleus, which connects through descending pathways with vestibular nuclei and medullary/pontine reticular formation.",
+        "evidenceBasis": "Anatomy ED8 source explanation pages [429, 430] reviewed; replaced severe OCR encoding noise with a question-specific reconstruction retaining the source facts and figure/table details.",
+        "reviewNote": "OCR is visibly corrupted in source export; reconstructed readable display text. Source records and native figures/tables remain unchanged.",
+        "sourceProblem": "The exported OCR explanation for marrow__ANAT_CH25_Q003 has character-encoding damage that makes it unsuitable as learner-facing text."
+      }
+    },
+    "marrow__ANAT_CH25_Q004": {
+      "takeaway": "Cerebellar glomeruli occupy the granular cortical layer.",
+      "displayText": "Cerebellar glomeruli are located in the granular layer, identified as layer B in the figure.",
+      "emphasis": [
+        "granular layer, identified as layer B",
+        "Cerebellar glomeruli"
+      ],
+      "rationales": {
+        "a": "Layer D is not the granular layer containing glomeruli in the figure.",
+        "b": "Layer C is the Purkinje-cell layer, not the granular layer.",
+        "d": "Layer A is not the granular layer; glomeruli are labeled in layer B."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, including stable ID, stem, options, printed key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          430
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 1 figure metadata item(s) remain in unchanged source record/shared renderer."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceFragment": "aT he) “\nCerebellar glomeruli are seen inthe granular layer (layer B) of the cerebellar cortex.\nee ee\nFes las + §) —=——Molecular layer\n< ae ne ae <— Purkinje layer\nsoe rainy Benet\nSRS et\nRo es White matter",
+        "reconstructedContent": "Cerebellar glomeruli are located in the granular layer, identified as layer B in the figure.",
+        "evidenceBasis": "Anatomy ED8 source explanation pages [430] reviewed; replaced severe OCR encoding noise with a question-specific reconstruction retaining the source facts and figure/table details.",
+        "reviewNote": "OCR is visibly corrupted in source export; reconstructed readable display text. Source records and native figures/tables remain unchanged.",
+        "sourceProblem": "The exported OCR explanation for marrow__ANAT_CH25_Q004 has character-encoding damage that makes it unsuitable as learner-facing text."
+      }
+    },
+    "marrow__ANAT_CH25_Q005": {
+      "takeaway": "Granule cells are the only excitatory neurons of cerebellar cortex.",
+      "displayText": "Ataxia-telangiectasia is characterized by progressive neuronal degeneration with a loss of Purkinje\nand granule cells in the cerebellum. The granule cells are the only excitatory cells in the cerebellar\ncortex.",
+      "emphasis": [
+        "Ataxia-telangiectasia",
+        "progressive neuronal degeneration",
+        "only excitatory cells"
+      ],
+      "rationales": {
+        "a": "Golgi cells are inhibitory interneurons, unlike excitatory granule cells.",
+        "b": "Purkinje cells are inhibitory output neurons, not the excitatory cell type asked for.",
+        "c": "Basket cells are inhibitory molecular-layer interneurons."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, including stable ID, stem, options, printed key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          430,
+          431
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      }
+    },
+    "marrow__ANAT_CH25_Q006": {
+      "takeaway": "Purkinje cells are the sole output cells of cerebellar cortex.",
+      "displayText": "The tremors are caused due to progressive degeneration of the Purkinje cells that form the output\nof the cerebellar cortex. They form the only output neurons of the cerebellar cortex.\nThe output of the whole cerebellum is from the deep cerebellar nuclei namely fastigial, globose,\nemboliform and dentate.",
+      "emphasis": [
+        "Purkinje cells",
+        "only output neurons of the cerebellar cortex",
+        "deep cerebellar nuclei"
+      ],
+      "rationales": {
+        "a": "Deep cerebellar nuclei are the output of the whole cerebellum, but not the sole output neurons of its cortex.",
+        "c": "Granule cells are excitatory input-layer neurons and project parallel fibers; they are not cortex output cells.",
+        "d": "Stellate cells are inhibitory interneurons in molecular layer, not the cortical output neurons."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, including stable ID, stem, options, printed key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          431
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      }
+    },
+    "marrow__ANAT_CH25_Q007": {
+      "takeaway": "Purkinje cells inhibit deep cerebellar nuclei.",
+      "displayText": "The image shows a histopathological section of the cerebellum. The cells marked with the arrow\nare Purkinje cells and they inhibit deep nuclei of the cerebellum. e~\nF ; x ve",
+      "emphasis": [
+        "Purkinje cells",
+        "inhibit deep nuclei of the cerebellum"
+      ],
+      "rationales": {
+        "a": "Purkinje cells modulate vestibular nuclei through cerebellar circuits but the source identifies deep cerebellar nuclei as the arrowed cells’ inhibited target.",
+        "b": "Anterior horn motor neurons are not the direct target described for Purkinje inhibitory output.",
+        "c": "Basal ganglia are anatomically separate from the deep cerebellar nuclear targets."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, including stable ID, stem, options, printed key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          431
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 2 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH25_Q008": {
+      "takeaway": "Purkinje cells receive climbing-fiber input from the inferior olive pathway.",
+      "displayText": "Rabies Negri inclusion bodies are present in Purkinje cells. Purkinje cells receive climbing-fiber input.",
+      "emphasis": [
+        "Negri inclusion bodies",
+        "Purkinje cells",
+        "climbing-fiber input"
+      ],
+      "rationales": {
+        "a": "Golgi cells are local inhibitory interneurons, not the principal climbing-fiber input to Purkinje cells.",
+        "b": "Granule cells provide parallel-fiber input to Purkinje dendrites; the source associates the Negri-bearing Purkinje cells with climbing fibers.",
+        "d": "Mossy fibers excite granule cells and reach Purkinje cells indirectly through parallel fibers."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, including stable ID, stem, options, printed key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          431
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 2 figure metadata item(s) remain in unchanged source record/shared renderer."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceFragment": "an “ A\nThe given slide shows Negri bodies, whiehraré costa sv a ggeroons found in the\nneurons of the Purkinje cells in a patient with rabies~The input to fli@-Purkinje cells of the\ncerebellum come from the climbing S: K&S -O\nThe i iven below shows Negri bodies <7 >\ne image given below s| sk Eri bodingy) me\nNegri bodies\n. it : y.\na Negi\n5. J ee\n; ae ease Aner r*\n& Sy bodies aa Rig\nnucleus\nWie rig oe «(XY",
+        "reconstructedContent": "Rabies Negri inclusion bodies are present in Purkinje cells. Purkinje cells receive climbing-fiber input.",
+        "evidenceBasis": "Anatomy ED8 source explanation pages [431] reviewed; replaced severe OCR encoding noise with a question-specific reconstruction retaining the source facts and figure/table details.",
+        "reviewNote": "OCR is visibly corrupted in source export; reconstructed readable display text. Source records and native figures/tables remain unchanged.",
+        "sourceProblem": "The exported OCR explanation for marrow__ANAT_CH25_Q008 has character-encoding damage that makes it unsuitable as learner-facing text."
+      }
+    },
+    "marrow__ANAT_CH25_Q009": {
+      "takeaway": "Climbing fibers arise from the contralateral inferior olive and excite cerebellar circuitry.",
+      "displayText": "The given clinical scenario is suggestive of acute viral cerebellitis secondary to COVID-19. The true\nstatement regarding the cerebellar circuitry is that that all climbing fibres originate from the\ncontralateral inferior olivary nucleus.\n\nOption A: Climbing and mossy fibers are excitatory and use glutamate and aspartate as the\nneurotransmitters.\nOption B: Mossy fibers terminate on the granule cells forming glomeruli.\nOption D: Efferents of the cerebellum pass through the superior and inferior cerebellar peduncles.",
+      "emphasis": [
+        "acute viral cerebellitis",
+        "contralateral inferior olivary nucleus",
+        "glutamate and aspartate",
+        "granule cells forming glomeruli"
+      ],
+      "rationales": {
+        "a": "Both climbing and mossy fibers are excitatory and use glutamate/aspartate rather than GABA.",
+        "b": "Mossy fibers terminate on granule cells within glomeruli, not directly on Purkinje dendrites.",
+        "d": "Cerebellar efferents use superior and inferior peduncles; not all leave only through superior peduncle."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, including stable ID, stem, options, printed key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          431,
+          432
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      }
+    },
+    "marrow__ANAT_CH25_Q010": {
+      "takeaway": "Middle cerebellar peduncle carries pontocerebellar afferents.",
+      "displayText": "The middle cerebellar peduncle transmits fibers of pontocerebellar pathway.",
+      "emphasis": [
+        "middle cerebellar peduncle",
+        "pontocerebellar pathway"
+      ],
+      "rationales": {
+        "b": "Tectospinal fibers descend from midbrain tectum and do not traverse the middle cerebellar peduncle.",
+        "c": "Spinocerebellar fibers enter via superior or inferior peduncles, not the middle peduncle.",
+        "d": "Olivocerebellar fibers enter through inferior cerebellar peduncle."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, including stable ID, stem, options, printed key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          432
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      }
+    },
+    "marrow__ANAT_CH25_Q011": {
+      "takeaway": "Purkinje output reaches deep cerebellar nuclei, including dentate.",
+      "displayText": "Purkinje cells project inhibitory output to deep cerebellar nuclei, including the dentate nucleus. The cerebellar cortex receives climbing-fiber input. Caudate and lentiform nuclei belong to basal ganglia; the red nucleus receives cerebellar input and helps modulate upper motor neuron signals.",
+      "emphasis": [
+        "Purkinje cells",
+        "dentate nucleus",
+        "deep cerebellar nuclei"
+      ],
+      "rationales": {
+        "a": "Caudate is a basal ganglia nucleus, not a deep cerebellar target of Purkinje output.",
+        "b": "Lentiform nucleus is part of basal ganglia; Purkinje output targets cerebellar nuclei.",
+        "d": "Red nucleus receives cerebellar efferents but is not the deep nucleus into which Purkinje cells project."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, including stable ID, stem, options, printed key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          432
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceFragment": "ss re) - of\nPurkinje cells of the cerebellum relay into the dentaté nucleus whichis one of the deep cerebellar\nnuclei. a oO oe\nThe input to the Purkinje cells come fromithe'climbing fibres. The outpttof Purkinje cells is\ninhibitory to the deep cerebellar nuclei, ~ oO “\nOptions A and B: Caudate and Igntiform nuclei aie part of the basal ganglia\nOption D: Red nucleus receives afferents,from the cerebelliim and plays a role in modulating\nsignals to the upper motor neurons of the Cerebral cortéx:",
+        "reconstructedContent": "Purkinje cells project inhibitory output to deep cerebellar nuclei, including the dentate nucleus. The cerebellar cortex receives climbing-fiber input. Caudate and lentiform nuclei belong to basal ganglia; the red nucleus receives cerebellar input and helps modulate upper motor neuron signals.",
+        "evidenceBasis": "Anatomy ED8 source explanation pages [432] reviewed; replaced severe OCR encoding noise with a question-specific reconstruction retaining the source facts and figure/table details.",
+        "reviewNote": "OCR is visibly corrupted in source export; reconstructed readable display text. Source records and native figures/tables remain unchanged.",
+        "sourceProblem": "The exported OCR explanation for marrow__ANAT_CH25_Q011 has character-encoding damage that makes it unsuitable as learner-facing text."
+      }
+    },
+    "marrow__ANAT_CH25_Q012": {
+      "takeaway": "Anterior spinocerebellar fibers enter through the superior peduncle.",
+      "displayText": "The anterior spinocerebellar tract enters through the superior cerebellar peduncle, not the inferior peduncle. Posterior spinocerebellar, cuneocerebellar and olivocerebellar fibers are among the pathways entering through the inferior peduncle. Glioblastoma multiforme is a highly malignant and frequently occurring primary astrocytoma with poor long-term prognosis.",
+      "emphasis": [
+        "anterior spinocerebellar tract",
+        "superior cerebellar peduncle",
+        "not the inferior peduncle"
+      ],
+      "rationales": {
+        "a": "Posterior spinocerebellar fibers enter through the inferior peduncle and can be affected.",
+        "c": "Cuneocerebellar fibers enter via the inferior peduncle.",
+        "d": "Olivocerebellar fibers also enter through the inferior peduncle; anterior spinocerebellar tract enters superiorly and is the exception."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, including stable ID, stem, options, printed key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          432
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceFragment": "The anterior spinocérebellar traéf'does not pass through the inferior cerebellar peduncle. It enters\nthe cerebellum\\thtough the superior cerebellar peduncle.\nGlioblastoma multiformé@is the most malignant and frequently occurring type of primary\nastrocytomas. It has the worst long-term prognosis (median survival of roughly 1 year).",
+        "reconstructedContent": "The anterior spinocerebellar tract enters through the superior cerebellar peduncle, not the inferior peduncle. Posterior spinocerebellar, cuneocerebellar and olivocerebellar fibers are among the pathways entering through the inferior peduncle. Glioblastoma multiforme is a highly malignant and frequently occurring primary astrocytoma with poor long-term prognosis.",
+        "evidenceBasis": "Anatomy ED8 source explanation pages [432] reviewed; replaced severe OCR encoding noise with a question-specific reconstruction retaining the source facts and figure/table details.",
+        "reviewNote": "OCR is visibly corrupted in source export; reconstructed readable display text. Source records and native figures/tables remain unchanged.",
+        "sourceProblem": "The exported OCR explanation for marrow__ANAT_CH25_Q012 has character-encoding damage that makes it unsuitable as learner-facing text."
+      }
+    },
+    "marrow__ANAT_CH25_Q013": {
+      "takeaway": "Superior peduncle carries major deep-nuclear efferents to red nucleus and thalamus.",
+      "displayText": "The highlighted structure is the superior cerebellar peduncle. It carries efferents from dentate, emboliform and globose nuclei, plus a smaller fastigial fascicle; fibers decussate in caudal midbrain and reach the contralateral red nucleus and thalamus. It also contains ventral spinocerebellar fibers. The middle peduncle carries afferents from contralateral pontine nuclei; the inferior peduncle carries brainstem/spinal afferents and efferents to vestibular nuclei.",
+      "emphasis": [
+        "superior cerebellar peduncle",
+        "contralateral red nucleus and thalamus",
+        "ventral spinocerebellar fibers",
+        "the inferior peduncle carries"
+      ],
+      "rationales": {
+        "a": "Fastigial nucleus contributes a small efferent fascicle but is not the principal target asked for in the source item.",
+        "b": "Inferior olive gives rise to climbing-fiber afferents rather than the superior-peduncle efferent destination.",
+        "d": "Subthalamus is not the target identified for superior-peduncle output in the source."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, including stable ID, stem, options, printed key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          432,
+          433
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 2 figure metadata item(s) remain in unchanged source record/shared renderer."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceFragment": "The peduncle highlighted in the image is the superior cerebellar peduncle. The superior cerebellar\npeduncle includes fibers from deep cerebellar nuclei that project to the brainstem, red nucleus,\nand thalamus. It also contains the ventral spinocerebellar tract fibers.\nThe superior cerebellar peduncle contains all the efferent fibers from the dentate, emboliform,\nand the globose nuclei, and a small fascicle from the fastigial nucleus. Its fibers decussate in the\ncaudal mesencephalon and are destined to synapse in the contralateral red nucleus and\nthalamus. The middle cerebellar peduncle contains only afferent fibers from the contralateral\npontine nuclei. The inferior cerebellar peduncle is a mixture of afferent fibers from the brainstem\nand spinal cord and efferent fibers to the vestibular nuclei.\nThe image below summarizes the various tracts in the cerebellar unit.\n\nuaomasmnan Cerebral\ntana aqueduct\n\nMAQENDE\n\nFORUMEN\nThe cerebellum consists of two hemispheres, (right and left) jommed by a median vermis. It is\ndivided into three lobes:-\n+ Anterior lobe - lies superiorly above:the primary fissure \n+ Middle lobe - lies inferiorly beldw the primany fissure. It is the largest lobe. It is also called the\nposterior lobe. ;\n+ Flocculonodular lobe - lies posterior tothe uvulonodular fissure\nIt has two surfaces - superior and-iviferior separated by a horizontal fissure. It is connected to the\nother parts of the central nervous system via*three peduncles\n* Superior cerebellar pedicle -connecting to the midbrain\n* Middle cerebellar peduncle - connecting to the pons\n+ Inferior cerebellar peduneléconnecting to the medulla oblongata",
+        "reconstructedContent": "The highlighted structure is the superior cerebellar peduncle. It carries efferents from dentate, emboliform and globose nuclei, plus a smaller fastigial fascicle; fibers decussate in caudal midbrain and reach the contralateral red nucleus and thalamus. It also contains ventral spinocerebellar fibers. The middle peduncle carries afferents from contralateral pontine nuclei; the inferior peduncle carries brainstem/spinal afferents and efferents to vestibular nuclei.",
+        "evidenceBasis": "Anatomy ED8 source explanation pages [432, 433] reviewed; replaced severe OCR encoding noise with a question-specific reconstruction retaining the source facts and figure/table details.",
+        "reviewNote": "OCR is visibly corrupted in source export; reconstructed readable display text. Source records and native figures/tables remain unchanged.",
+        "sourceProblem": "The exported OCR explanation for marrow__ANAT_CH25_Q013 has character-encoding damage that makes it unsuitable as learner-facing text."
+      }
+    },
+    "marrow__ANAT_CH25_Q014": {
+      "takeaway": "Superior cerebellar artery ischemia may present with ataxia and incoordination.",
+      "displayText": "Thrombosis of the superior cerebellar artery causes cerebellar lesion which presents with ataxia\nand incoordination.\nBlood supply of cerebellum:\n+ Superior cerebellar artery\n+ Posterior inferior cerebellar artery\n+ Anterior inferior cerebellar artery",
+      "emphasis": [
+        "superior cerebellar artery",
+        "ataxia",
+        "Blood supply of cerebellum",
+        "Superior cerebellar artery"
+      ],
+      "rationales": {
+        "a": "Posterior cerebral artery supplies occipital/temporal regions rather than the cerebellar artery named.",
+        "b": "Middle cerebral artery supplies lateral cerebral hemisphere, not cerebellum.",
+        "c": "Internal carotid supplies anterior circulation and is not a cerebellar artery."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, including stable ID, stem, options, printed key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          433
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      }
+    }
+  },
+  "source": {
+    "bundle": "anatomy_ch001_063",
+    "sourceRawSha256": "f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387",
+    "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+    "sourcePdfPages": [
+      428,
+      429,
+      430,
+      431,
+      432,
+      433
+    ]
+  }
+}

@@ -1,0 +1,319 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner-facing Marrow ED8 Biochemistry Chapter 17 Q13-Q24 explanations. Displays are limited to question-local content; raw source, tables and figures remain unchanged.",
+  "scope": {
+    "subject": "Biochemistry",
+    "bank": "Marrow",
+    "chapterId": "17",
+    "chapter": "Porphyrins and Bile Pigments",
+    "questionStart": 13,
+    "questionEnd": 24,
+    "questions": 12,
+    "status": "approved-rollout",
+    "workloadScore": 19,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "919f0709b2eb833e302c6f7524b6dd2bd13bfaed638009375b5062135d3795b1"
+  },
+  "questions": {
+    "marrow__BIOCHEM_CH17_Q013": {
+      "takeaway": "Erythropoietic protoporphyria accumulates heme intermediates in erythroid cells, not primarily in liver.",
+      "displayText": "Porphyrias are grouped by where excess heme-pathway intermediates accumulate. In erythropoietic porphyrias, overproduction occurs mainly in bone-marrow erythroid cells; these often present early with cutaneous photosensitivity. Examples include congenital erythropoietic porphyria, erythropoietic protoporphyria and X-linked protoporphyria. Hepatic porphyrias accumulate intermediates mainly in liver. Acute hepatic forms, including acute intermittent, hereditary coproporphyria, variegate and ALA-dehydratase-deficiency porphyrias, can cause neurovisceral attacks; chronic porphyria cutanea tarda commonly causes adult-onset blistering photosensitivity.",
+      "emphasis": [
+        "bone-marrow erythroid cells",
+        "erythropoietic protoporphyria",
+        "Hepatic porphyrias",
+        "acute intermittent"
+      ],
+      "rationales": {
+        "a": "Variegate porphyria is hepatic and can cause acute neurovisceral episodes as well as photosensitivity.",
+        "b": "Acute intermittent porphyria is an acute hepatic porphyria with neurovisceral attacks from hepatic ALA and porphobilinogen accumulation.",
+        "c": "Porphyria cutanea tarda is a chronic hepatic porphyria with adult-onset blistering photosensitivity."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source explanation's second half is severely OCR-corrupted and contains diagram residue, obscuring several porphyria examples.",
+        "reconstructedContent": "The display restores the source's location-based hepatic-versus-erythropoietic classification and preserves its named disease examples and clinical distinction.",
+        "evidenceBasis": "The stem and keyed answer identify erythropoietic protoporphyria; intact source sentences define both categories and list the same examples. Standard pathway distribution confirms the classification.",
+        "reviewNote": "Only corrupted words were normalized. The source's disease classification and key remain unchanged; figure labels are not reconstructed."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 265; explanation p. 277. The source classification diagram remains unchanged."
+      ]
+    },
+    "marrow__BIOCHEM_CH17_Q014": {
+      "takeaway": "Infantile photosensitivity with erythrodontia points to congenital erythropoietic porphyria (Gunther disease).",
+      "displayText": "Congenital erythropoietic porphyria (Gunther disease) is an autosomal-recessive disorder caused by uroporphyrinogen III synthase deficiency. Porphyrin I isomers accumulate in erythrocytes, marrow, plasma, urine and teeth, causing severe photosensitivity and red-brown teeth (erythrodontia) that fluoresce under ultraviolet light. Infants may have port-wine urine or pink-stained diapers; severe fetal disease can cause nonimmune hydrops. Delayed tooth eruption and early blistering photosensitivity in this vignette support the diagnosis.",
+      "emphasis": [
+        "Congenital erythropoietic porphyria (Gunther disease)",
+        "uroporphyrinogen III synthase deficiency",
+        "erythrodontia",
+        "fluoresce under ultraviolet light"
+      ],
+      "rationales": {
+        "b": "Porphyria cutanea tarda is a hepatic UROD-deficiency disorder that usually presents in adults with blistering photosensitivity, not congenital erythrodontia.",
+        "c": "Erythropoietic protoporphyria generally causes nonblistering photosensitivity and protoporphyrin accumulation; it does not cause the characteristic porphyrin-stained teeth.",
+        "d": "Acute intermittent porphyria causes neurovisceral attacks from hepatic precursor accumulation and does not produce early cutaneous photosensitivity or erythrodontia."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "OCR corruption obscures the source's enzyme and porphyrin names in the explanation of congenital erythropoietic porphyria.",
+        "reconstructedContent": "The display restores uroporphyrinogen III synthase deficiency, type I porphyrin accumulation and the source-described erythrodontia/photosensitivity findings.",
+        "evidenceBasis": "The source names Gunther disease, erythrodontia, porphyrin accumulation and the enzyme deficiency, while the stem supplies the infantile photosensitive presentation. These are characteristic, mutually consistent features.",
+        "reviewNote": "Only the corrupted explanatory terms were normalized. The source image of the teeth remains the visual authority and was not relabeled."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 265; explanation p. 277. Source dental image remains unchanged."
+      ]
+    },
+    "marrow__BIOCHEM_CH17_Q015": {
+      "takeaway": "Gain-of-function ALAS2 mutations cause X-linked protoporphyria; loss-of-function ALAS2 causes sideroblastic anemia.",
+      "displayText": "X-linked protoporphyria is caused by a gain-of-function mutation in ALA synthase 2 (ALAS2), leading to increased enzyme activity and ALA synthesis. When iron incorporation becomes limiting, protoporphyrin is not converted to heme and accumulates. ALAS2 mutations are also seen in X-linked sideroblastic anemia, which is not a porphyria: a loss-of-function mutation decreases ALAS2 activity and protoporphyrin synthesis. Sphingolipids are amphipathic and are found in the outer plasma-membrane leaflet and myelin sheath; they also participate in cell signaling and apoptosis.",
+      "emphasis": [
+        "gain-of-function mutation",
+        "ALA synthase 2 (ALAS2)",
+        "increased enzyme activity",
+        "loss-of-function mutation"
+      ],
+      "rationales": {
+        "a": "Acute intermittent porphyria is due to HMBS deficiency and is typically autosomal dominant, not caused by an ALAS2 variant.",
+        "b": "Congenital erythropoietic porphyria is due to uroporphyrinogen III synthase deficiency and is autosomal recessive.",
+        "d": "Erythropoietic protoporphyria is commonly associated with deficient ferrochelatase activity; the X-linked protoporphyria option specifically reflects ALAS2 gain of function."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 266; explanation p. 277."
+      ],
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source contains a focused ALAS2 explanation followed by OCR debris.",
+        "reconstructedContent": "The display preserves the source gain-of-function/loss-of-function contrast and expands the pathway consequence into a concise teaching sequence.",
+        "evidenceBasis": "The source directly states X-linked protoporphyria is due to ALAS2 gain of function with increased ALA and protoporphyrin accumulation, and distinguishes ALAS2 loss-of-function sideroblastic anemia.",
+        "reviewNote": "No source concept is intentionally excluded; the raw explanation remains immutable in the source bundle."
+      }
+    },
+    "marrow__BIOCHEM_CH17_Q016": {
+      "takeaway": "Protoporphyrinogen oxidase deficiency causes variegate porphyria, an autosomal-dominant acute hepatic porphyria.",
+      "displayText": "Protoporphyrinogen oxidase is defective in variegate porphyria. Variegate porphyria is an autosomal dominant porphyria. Protoporphyrinogen IX accumulates in the urine. Patients present with acute attacks of abdominal pain and peripheral neuropathy; cutaneous photosensitivity is also seen.",
+      "emphasis": [
+        "Protoporphyrinogen oxidase",
+        "variegate porphyria",
+        "autosomal dominant",
+        "Protoporphyrinogen IX accumulates"
+      ],
+      "rationales": {
+        "a": "Coproporphyrinogen oxidase deficiency causes hereditary coproporphyria, another acute hepatic porphyria, but it is a different enzyme block.",
+        "c": "Uroporphyrinogen III synthase deficiency causes congenital erythropoietic porphyria (Gunther disease), not variegate porphyria.",
+        "d": "Uroporphyrinogen decarboxylase deficiency causes porphyria cutanea tarda, which usually presents with chronic blistering photosensitivity."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 266; explanation p. 278. OCR debris following the source's disease summary was omitted."
+      ],
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source explanation has a misspelling in the inheritance term and ends with OCR debris.",
+        "reconstructedContent": "The display normalizes the disease name and retains inheritance, accumulated substrate, clinical presentation and photosensitivity.",
+        "evidenceBasis": "The readable source states autosomal dominant inheritance, protoporphyrinogen IX accumulation, acute abdominal/neurologic symptoms and photosensitivity.",
+        "reviewNote": "Only spelling and unrelated trailing OCR debris were cleaned; keyed enzyme is unchanged."
+      }
+    },
+    "marrow__BIOCHEM_CH17_Q017": {
+      "takeaway": "Heme oxygenase opens the porphyrin ring, producing biliverdin while releasing carbon monoxide and ferrous iron.",
+      "displayText": "Heme oxygenase initiates heme catabolism in the endoplasmic-reticulum system of reticuloendothelial cells. Oxidative cleavage of the porphyrin ring forms biliverdin and releases carbon monoxide and iron. Biliverdin reductase then uses NADPH to convert biliverdin to bilirubin; iron is conserved and stored or recycled. Heme oxygenase is the principal enzymatic source of endogenous carbon monoxide.",
+      "emphasis": [
+        "Heme oxygenase",
+        "forms biliverdin",
+        "carbon monoxide and iron",
+        "Biliverdin reductase"
+      ],
+      "rationales": {
+        "a": "Biliverdin reductase converts biliverdin to bilirubin using NADPH; this reduction does not cleave heme or release carbon monoxide.",
+        "c": "Bilirubin conjugation with glucuronic acid occurs in hepatocytes and does not release carbon monoxide.",
+        "d": "A second glucuronyl transfer forms bilirubin diglucuronide from the monoglucuronide; carbon monoxide is produced upstream during heme-ring cleavage."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source explanation has OCR corruption within 'carbon monoxide' and iron-release wording, followed by unrelated answers for other questions.",
+        "reconstructedContent": "The display restores the question-local heme-oxygenase reaction and separates the downstream biliverdin-reductase reaction; unrelated question text was removed.",
+        "evidenceBasis": "The intact source identifies conversion of heme to biliverdin, carbon monoxide release, iron release and subsequent NADPH-dependent biliverdin reduction. The stem and key agree.",
+        "reviewNote": "The reaction wording was normalized from intact pathway context. No amount-per-hemoglobin figure or source image was added to the learner display."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 267; explanation p. 278. Source bilirubin-metabolism figure remains unchanged."
+      ]
+    },
+    "marrow__BIOCHEM_CH17_Q018": {
+      "takeaway": "Hepatic UGT1A1 conjugates bilirubin with glucuronic acid in the endoplasmic reticulum.",
+      "displayText": "The endoplasmic reticulum is the site for bilirubin conjugation. Hepatocytes convert bilirubin to a polar form by conjugation. UDP-glucuronic acid acts as the glucuronyl donor, first producing bilirubin monoglucuronide and then bilirubin diglucuronide, which is excreted in bile. The reaction is catalyzed by UDP-glucuronosyltransferase (UGT1A1) in the ER.",
+      "emphasis": [
+        "endoplasmic reticulum",
+        "UDP-glucuronic acid",
+        "bilirubin monoglucuronide",
+        "bilirubin diglucuronide"
+      ],
+      "rationales": {
+        "a": "Cytosol is involved in bilirubin uptake and transport, but the conjugating enzyme UGT1A1 is located in the ER.",
+        "c": "Mitochondria carry out the initial and final heme-synthesis steps; they are not the site of hepatic bilirubin glucuronidation.",
+        "d": "The Golgi modifies and sorts many secretory products, but bilirubin conjugation occurs earlier in the hepatocyte ER."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 267; explanation p. 278. Source bilirubin metabolism diagram remains unchanged."
+      ],
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source explanation includes an intact bilirubin-conjugation paragraph followed by an OCR-corrupted figure.",
+        "reconstructedContent": "The display retains ER localization, UDP-glucuronic acid donation, sequential mono-/diglucuronide formation and bile excretion, while removing unreadable figure text.",
+        "evidenceBasis": "The question and key identify the ER; the source explanation explicitly gives the glucuronyl donor, mono- and diglucuronide products, bile excretion and ER transferase.",
+        "reviewNote": "Only diagram OCR debris was omitted; no source table or figure was recreated."
+      }
+    },
+    "marrow__BIOCHEM_CH17_Q019": {
+      "takeaway": "Canalicular MRP2-mediated secretion of conjugated bilirubin into bile is the rate-limiting hepatic step in the source account.",
+      "displayText": "After UGT1A1 conjugates bilirubin in the endoplasmic reticulum, hepatocytes actively export bilirubin glucuronides across the canalicular membrane into bile. Multidrug resistance-associated protein 2 (MRP2/ABCC2) mediates this ATP-dependent transport. The source identifies canalicular secretion as the rate-limiting step in hepatic bilirubin metabolism. Failure of this transporter causes conjugated hyperbilirubinemia, as in Dubin–Johnson syndrome.",
+      "emphasis": [
+        "actively export bilirubin glucuronides",
+        "canalicular membrane",
+        "Multidrug resistance-associated protein 2 (MRP2/ABCC2)",
+        "rate-limiting step"
+      ],
+      "rationales": {
+        "a": "Albumin carries unconjugated bilirubin in plasma to the liver; this transport is upstream and is not the source-keyed rate-limiting hepatic step.",
+        "b": "Hepatic uptake transfers albumin-released bilirubin into hepatocytes, but the source identifies canalicular export of the conjugate as rate-limiting.",
+        "c": "UGT1A1 conjugation makes bilirubin water-soluble in the ER; it precedes the source-keyed active secretion into bile."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source explanation has severe OCR corruption in 'conjugated bilirubin' and MRP2/MOAT terminology, followed by unrelated pathway diagrams.",
+        "reconstructedContent": "The display restores the source answer as canalicular secretion of conjugated bilirubin through MRP2, with the modern gene/protein notation ABCC2.",
+        "evidenceBasis": "The question and key name secretion of conjugated bilirubin; the readable source fragments specify active canalicular export and MRP2/MOAT. These are established transport details.",
+        "reviewNote": "Legacy 'MOAT' wording was not used as the primary name. The source key remains unchanged and no missing transport table was reconstructed."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 267; explanation p. 279."
+      ]
+    },
+    "marrow__BIOCHEM_CH17_Q020": {
+      "takeaway": "The Van den Bergh diazo reaction measures bilirubin and distinguishes conjugated from unconjugated fractions.",
+      "displayText": "The Van den Bergh reaction is a diazo colorimetric method for serum bilirubin. Diazotized sulfanilic acid reacts with bilirubin to form colored azodipyrroles. Conjugated bilirubin reacts directly in aqueous reagent; unconjugated bilirubin reacts after an accelerator such as methanol is added. Ehrlich's test detects urobilinogen, Hay's test detects urinary bile salts, and Benedict's test detects reducing sugars.",
+      "emphasis": [
+        "Van den Bergh reaction",
+        "diazo colorimetric method",
+        "azodipyrroles",
+        "reacts directly"
+      ],
+      "rationales": {
+        "a": "Ehrlich's aldehyde reagent is used to detect urobilinogen in urine or feces, not to measure serum bilirubin.",
+        "c": "Hay's sulfur test detects bile salts in urine; it is not the serum bilirubin diazo assay.",
+        "d": "Benedict's reagent detects reducing substances such as glucose; it is not a bilirubin measurement test."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source explanation includes the keyed test but then appends separate solutions for jaundice questions 21-24 and an OCR-corrupted reaction table.",
+        "reconstructedContent": "The display limits the explanation to the Van den Bergh reaction, its diazo principle and direct-versus-accelerated reaction distinction; adjacent cases and table fragments were not attributed to this question.",
+        "evidenceBasis": "The source's first paragraph identifies the test and colorimetric diazo reaction, and its explicit option notes distinguish Ehrlich, Hay and Benedict tests. The stem and answer key are unambiguous.",
+        "reviewNote": "Question-local explanatory material only is shown. The immutable source table remains available with the source question and is not modified or reconstructed here."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 267; explanation p. 280. The source reaction table remains untouched."
+      ]
+    },
+    "marrow__BIOCHEM_CH17_Q021": {
+      "takeaway": "Pancreatic-head obstruction causes conjugated hyperbilirubinemia, giving a direct-positive Van den Bergh reaction.",
+      "displayText": "A palpable upper-abdominal mass with jaundice, pruritus and scratch marks suggests extrahepatic biliary obstruction, including pancreatic-head malignancy. Obstruction prevents conjugated bilirubin from reaching the intestine and causes it to reflux into blood. Because conjugated bilirubin reacts with diazo reagent without an accelerator such as methanol, the Van den Bergh reaction is direct positive. Pale stools and dark urine may accompany obstructive cholestasis.",
+      "emphasis": [
+        "extrahepatic biliary obstruction",
+        "conjugated bilirubin",
+        "without an accelerator",
+        "direct positive"
+      ],
+      "rationales": {
+        "b": "An indirect-positive reaction indicates predominantly unconjugated bilirubin, as in hemolysis or impaired conjugation, rather than obstructive cholestasis.",
+        "c": "A biphasic reaction can occur when conjugated and unconjugated fractions are both elevated, but the obstructive pattern here is direct-predominant.",
+        "d": "The marked jaundice and likely biliary obstruction produce circulating conjugated bilirubin, so the diazo test is expected to react rather than remain negative."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "No source explanation text is attached to this item, although the adjacent chapter explanation contains a matching obstructive-jaundice case with the same clinical pattern.",
+        "reconstructedContent": "The learner explanation connects the source stem's obstructive-jaundice pattern to conjugated bilirubin and a direct-positive diazo reaction.",
+        "evidenceBasis": "The stem gives pruritic jaundice and an upper-abdominal mass; the source key is direct positive. A nearby source case explicitly links pancreatic malignancy/obstruction with conjugated bilirubin and a direct Van den Bergh reaction.",
+        "reviewNote": "The reconstruction uses the keyed answer and matching source-context mechanism. It does not add an imaging result or a specific tumor diagnosis beyond 'including pancreatic-head malignancy.'"
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 268; no question-local explanation text imported. The adjacent source explanation for a matching obstructive-jaundice case is cited as contextual evidence."
+      ]
+    },
+    "marrow__BIOCHEM_CH17_Q022": {
+      "takeaway": "Dubin–Johnson syndrome is caused by impaired canalicular export of conjugated bilirubin from MRP2 deficiency.",
+      "displayText": "Dubin–Johnson syndrome is an autosomal-recessive disorder caused by loss of canalicular multidrug resistance-associated protein 2 (MRP2/ABCC2). Impaired export of conjugated bilirubin produces predominantly conjugated hyperbilirubinemia and a coarse, darkly pigmented liver. This is the source's diagnostic clue. The stem mentions laboratory values that are not present in the canonical question record; no missing value or pattern is inferred.",
+      "emphasis": [
+        "Dubin–Johnson syndrome",
+        "MRP2/ABCC2",
+        "conjugated hyperbilirubinemia",
+        "darkly pigmented liver"
+      ],
+      "rationales": {
+        "a": "OATP1B1 and OATP1B3 mediate hepatic uptake of bilirubin and other organic anions; their deficiency causes Rotor syndrome rather than a black liver.",
+        "b": "BSEP (ABCB11) exports bile salts; its deficiency causes familial cholestasis, not the conjugated bilirubin transport defect of Dubin–Johnson syndrome.",
+        "c": "MRP3 is a basolateral transporter that can export conjugates back toward blood; the canalicular exporter deficient in Dubin–Johnson syndrome is MRP2."
+      },
+      "reconstruction": {
+        "status": "needs_manual_review",
+        "sourceProblem": "The question stem refers to laboratory values 'mentioned below,' but those values are absent from the canonical record.",
+        "reconstructedContent": "The display explains the diagnosis supported by the independently sufficient black-liver clue while leaving the absent laboratory values undisclosed.",
+        "evidenceBasis": "The source explanation identifies Dubin–Johnson syndrome and MRP2 mutation; the stem explicitly reports coarse black liver pigmentation and recurrent mild jaundice.",
+        "reviewNote": "Keep the source omission visible for manual review. No absent laboratory result, table, or figure content has been fabricated. The retained stem and source key still support the MRP2 answer."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 268; explanation p. 281. **Flag:** source stem refers to lab values missing from the canonical record; answer rationale uses only the reported liver biopsy and source explanation."
+      ]
+    },
+    "marrow__BIOCHEM_CH17_Q023": {
+      "takeaway": "Stress-triggered mild unconjugated jaundice in a healthy young adult is typical of Gilbert syndrome from reduced UGT1A1 expression.",
+      "displayText": "A healthy young adult with transient jaundice after a viral febrile illness and unconjugated hyperbilirubinemia most likely has Gilbert syndrome. The common mechanism is a promoter defect in the UGT1A1 gene, reducing transcription of the normal enzyme; residual activity is about 10–33% of normal. Mild unconjugated bilirubin elevation may recur with stress, alcohol or reduced caloric intake while other liver tests remain normal. The source also notes increased hepatic lipofuscin, a response to phenobarbital, and that treatment is not usually required; bilirubin can fluctuate and jaundice generally resolves without ill effects.",
+      "emphasis": [
+        "Gilbert syndrome",
+        "promoter defect in the UGT1A1 gene",
+        "10–33% of normal",
+        "treatment is not usually required"
+      ],
+      "rationales": {
+        "a": "BSEP deficiency impairs bile-salt export and causes cholestatic disease, not isolated stress-triggered unconjugated hyperbilirubinemia.",
+        "b": "MRP2 deficiency causes conjugated hyperbilirubinemia in Dubin–Johnson syndrome, opposite to the bilirubin fraction in this vignette.",
+        "d": "A severe missense defect with minimal UGT1A1 activity is more characteristic of Crigler–Najjar syndrome; Gilbert syndrome most often reflects reduced promoter-driven expression."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 268; explanation p. 281. The source describes promoter-associated reduced UGT1A1 expression and benign fluctuation."
+      ],
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source explanation contains a readable Gilbert syndrome account followed by OCR-corrupted diagram text.",
+        "reconstructedContent": "The display retains the source details on promoter regulation, residual activity, triggers, histology, phenobarbital response and benign course.",
+        "evidenceBasis": "The source directly links the clinical pattern to Gilbert syndrome and a UGT1A1 promoter defect, and specifies residual activity and triggers.",
+        "reviewNote": "Typos and diagram debris were cleaned; no source laboratory value or visual detail was inferred."
+      }
+    },
+    "marrow__BIOCHEM_CH17_Q024": {
+      "takeaway": "Complete biliary obstruction prevents urobilinogen formation, so urine urobilinogen is absent or markedly reduced.",
+      "displayText": "In complete extrahepatic obstruction, conjugated bilirubin cannot enter the gut, so intestinal bacteria cannot convert it to urobilinogen. Urinary urobilinogen is therefore absent or markedly reduced, while water-soluble conjugated bilirubin refluxes into plasma and appears in urine. Hemolysis instead increases bilirubin delivery to the liver but produces unconjugated bilirubin, which is not filtered into urine. Hepatocellular disease can produce variable urinary urobilinogen depending on uptake, excretion and intrahepatic cholestasis.",
+      "emphasis": [
+        "cannot enter the gut",
+        "cannot convert it to urobilinogen",
+        "absent or markedly reduced",
+        "conjugated bilirubin refluxes into plasma"
+      ],
+      "rationales": {
+        "a": "Unconjugated bilirubin is albumin-bound and water-insoluble, so it does not appear in urine during hemolytic jaundice; this statement is true.",
+        "c": "Crigler–Najjar syndrome reflects deficient UGT1A1 activity and causes unconjugated hyperbilirubinemia; this statement is true.",
+        "d": "Hepatocellular disease may yield normal or reduced urinary urobilinogen when hepatocyte injury or intrahepatic cholestasis limits bile flow; this can be true."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source contains OCR corruption in the urine findings and appends unrelated solutions for nearby jaundice questions.",
+        "reconstructedContent": "The display repairs the obstructive-jaundice finding and keeps only the source details needed to evaluate the four listed statements.",
+        "evidenceBasis": "The source directly states that urinary urobilinogen is not increased in obstructive jaundice and explains that complete obstruction prevents conjugated bilirubin from reaching the intestine. The keyed false statement says it is increased.",
+        "reviewNote": "The item-local explanation preserves the key distinction and the correct content of the remaining statements; adjacent question solutions and corrupt table debris were excluded."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 269; explanation p. 282. OCR-corrupted words were normalized; the source reaction table remains unchanged."
+      ]
+    }
+  }
+}

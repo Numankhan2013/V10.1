@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Marrow ED8 Physiology Chapter 16 explanation rollout; raw imported source remains immutable.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "16",
+    "chapterTitle": "Basal Ganglia and Cerebellum",
+    "questionStart": 19,
+    "questionEnd": 20,
+    "questions": 2,
+    "status": "approved-rollout",
+    "workloadScore": 5,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 875,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__PHYS_CH16_Q019": {
+      "takeaway": "Mossy fibers and granule-cell parallel fibers are both excitatory pathways.",
+      "displayText": "Cerebellar excitatory inputs include mossy fibers, climbing fibers, and granule-cell parallel fibers. Mossy fibers excite granule cells; granule axons bifurcate in the molecular layer as parallel fibers and excite many Purkinje cells. Climbing fibers strongly excite individual Purkinje cells; basket, stellate, and Golgi cells are inhibitory interneurons.",
+      "emphasis": [
+        "Cerebellar excitatory inputs include mossy"
+      ],
+      "rationales": {
+        "a": "Mossy fibers excite the cerebellar circuit, but Purkinje output to deep nuclei is inhibitory, so this pair is not both excitatory.",
+        "b": "Climbing fibers are excitatory, whereas Golgi cells are inhibitory interneurons.",
+        "d": "Climbing fibers excite Purkinje cells, but basket cells inhibit them."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanations contain OCR/layout damage, including tables or diagram-dependent labels.",
+        "reconstructedContent": "Cerebellar excitatory inputs include mossy fibers, climbing fibers, and granule-cell parallel fibers. Mossy fibers excite granule cells; granule axons bifurcate in the molecular layer as parallel fibers and excite many Purkinje cells. Climbing fibers strongly excite individual Purkinje cells; basket, stellate, and Golgi cells are inhibitory interneurons.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 320 were rendered and checked from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Rendered printed source pages were checked; OCR substitutions were corrected and source-specific cell, pathway, and transmitter relationships retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          320
+        ]
+      }
+    },
+    "marrow__PHYS_CH16_Q020": {
+      "takeaway": "Stellate-cell inhibition of Purkinje cells is feedforward inhibition.",
+      "displayText": "Parallel fibers excite stellate and basket interneurons, which then inhibit Purkinje cells. Because the inhibitory interneuron is activated by the same incoming pathway before suppressing its target, this is feedforward inhibition; Renshaw-cell suppression of the neuron that activated it is feedback inhibition.",
+      "emphasis": [
+        "Parallel fibers excite stellate and"
+      ],
+      "rationales": {
+        "a": "Presynaptic inhibition acts at a transmitter terminal before synaptic release; stellate cells inhibit Purkinje-cell bodies/dendrites postsynaptically.",
+        "b": "Feedback inhibition is exemplified by Renshaw circuits; here parallel-fiber input recruits stellate cells ahead of Purkinje output.",
+        "d": "Stellate cells do inhibit Purkinje cells, as part of cerebellar feedforward control."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanations contain OCR/layout damage, including tables or diagram-dependent labels.",
+        "reconstructedContent": "Parallel fibers excite stellate and basket interneurons, which then inhibit Purkinje cells. Because the inhibitory interneuron is activated by the same incoming pathway before suppressing its target, this is feedforward inhibition; Renshaw-cell suppression of the neuron that activated it is feedback inhibition.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 320 were rendered and checked from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Rendered printed source pages were checked; OCR substitutions were corrected and source-specific cell, pathway, and transmitter relationships retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          320
+        ]
+      }
+    }
+  }
+}

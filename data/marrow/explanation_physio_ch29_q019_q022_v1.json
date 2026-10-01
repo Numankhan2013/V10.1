@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner-facing Marrow ED8 Physiology Chapter 29 explanation refinement; native diagrams and tables remain unchanged.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "29",
+    "chapterTitle": "Electrophysiology of the Heart",
+    "questionStart": 19,
+    "questionEnd": 22,
+    "questions": 4,
+    "status": "approved-rollout",
+    "workloadScore": 5,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "f3cd6b9dccb2092743fa86de4b0bef682d61c83762e9f00fa3b04d0a355d89d6",
+    "auditReport": "docs/question-explanations/physiology-middle-20261001.md"
+  },
+  "questions": {
+    "marrow__PHYSIO_CH29_Q019": {
+      "takeaway": "The normal mean QRS axis is approximately −30° to +110°.",
+      "displayText": "The normal mean QRS axis is approximately −30° to +110°.\n\nThe normal mean QRS axis lies between −30° and +110°.\nThe QRS axis represents the major vector of ventricular activation, which is the overall direction of electrical activity.",
+      "emphasis": [
+        "The normal mean QRS axis is approximately −30° to +110°"
+      ],
+      "rationales": {
+        "a": "+30° to +100° excludes the normal leftward range around −30° and narrows the accepted interval.",
+        "b": "−30° to −100° is a reversed, markedly leftward axis range.",
+        "d": "−30° to −110° describes left-axis deviation rather than the normal interval."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH29_Q020": {
+      "takeaway": "Left stellate sympathetic fibers provide important sympathetic innervation to the AV node and left heart.",
+      "displayText": "Left stellate sympathetic fibers provide important sympathetic innervation to the AV node and left heart.\n\nThe sympathetic innervation to AV node is by Left stellate ganglion.\nInnervation of SA Node and AV Node:\nThe SA node develops from structures on the right side of the embryo and the AV node from structures on the left. Therefore -",
+      "emphasis": [
+        "Left stellate sympathetic fibers provide important sympathetic innervation to the AV node and left heart"
+      ],
+      "rationales": {
+        "a": "The right thoracic ganglion is not the named principal cardiac sympathetic source.",
+        "b": "The left thoracic chain contributes, but the stellate ganglion is the relevant source.",
+        "c": "Right stellate fibers more strongly influence the SA node and right-sided structures."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH29_Q021": {
+      "takeaway": "Sympathetic stimulation increases conduction velocity, heart rate and contractility; it shortens rather than lengthens refractory period.",
+      "displayText": "Sympathetic stimulation increases conduction velocity, heart rate and contractility; it shortens rather than lengthens refractory period.\n\nSympathetic stimulation causes faster conduction, therefore decreased refractory period.\nEffects of sympathetic stimulation:\n• Chronotropic- It increases the rate of sinus nodal discharge.\n• Dromotropic- It increases the rate of conduction.\n• Bathmotropic- It increases the level of excitability in all portions of the heart.\n• Inotropic- It increases the force of contraction of all the cardiac musculature.",
+      "emphasis": [
+        "Sympathetic stimulation increases conduction velocity, heart rate and contractility; it shortens rather than lengthens refractory period"
+      ],
+      "rationales": {
+        "a": "Conduction velocity increases through β₁ effects on cardiac tissue.",
+        "c": "Sympathetic stimulation raises heart rate.",
+        "d": "β₁ stimulation increases myocardial contractility."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH29_Q022": {
+      "takeaway": "The AH interval records conduction from atrial activation through AV node to the His bundle.",
+      "displayText": "The AH interval records conduction from atrial activation through AV node to the His bundle.\n\nThe AH interval corresponds to conduction from AV node to bundle of His on an ECG.\nHis bundle electrogram (HBE)\nThe record of the electrical activity obtained with the catheter passed through a vein to the right side of the heart and placed close to the tricuspid valve is HBE.\nIt shows 3 deflections as shown in the figure.\nWith HBE and standard ECG leads, 3 intervals can be timed accurately.",
+      "emphasis": [
+        "The AH interval records conduction from atrial activation through AV node to the His bundle"
+      ],
+      "rationales": {
+        "a": "His–Purkinje conduction corresponds to HV interval.",
+        "c": "Purkinje-to-ventricular conduction is part of HV, not AH.",
+        "d": "Ventricular activation follows His–Purkinje propagation and is not AH."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    }
+  }
+}

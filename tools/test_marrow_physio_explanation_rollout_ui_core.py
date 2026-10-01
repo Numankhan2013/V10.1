@@ -14,6 +14,9 @@ def main() -> None:
     bank, source_sha = load_sharded("physiology_ch001_043")
     source_questions = {q["id"]: q for q in bank["questions"]}
     pilot_ids = set(pilot["questions"])
+    ledger = json.loads((DATA.parent / 'question_completeness_reviews_v1.json').read_text())
+    deferred = {entry['id'] for entry in ledger['entries']
+                if entry['display'].get('blocked')} - enhanced_ids()
     assert len(pilot_ids) == 80
     assert source_sha == inventory["sourceRawSha256"]["Physiology"]
     assert len(source_questions) == 1014
@@ -75,7 +78,7 @@ def main() -> None:
                 (q for q in bank["questions"] if str(q["chapterId"]) == chapter),
                 key=lambda q: int(q["questionNumber"]),
             )
-            if q["id"] not in pilot_ids
+            if q["id"] not in pilot_ids and q['id'] not in deferred
         ]
         expected_prefix = set(ordered_nonpilot[: len(approved_ids)])
         assert approved_ids == expected_prefix

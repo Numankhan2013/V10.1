@@ -1,0 +1,367 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Marrow ED8 Physiology Chapter 19 explanation rollout; raw imported source remains immutable.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "19",
+    "chapterTitle": "Functional Anatomy",
+    "questionStart": 1,
+    "questionEnd": 13,
+    "questions": 13,
+    "status": "approved-rollout",
+    "workloadScore": 16,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 919,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__PHYSIO_CH19_Q001": {
+      "takeaway": "Count the alveolar end as generation 23 in Weibel’s model.",
+      "displayText": "The total number of airway generations present between trachea and alveolar sacs is 23. The tracheobronchial tree has 23 generations from trachea (generation 0) to alveoli. The tracheobronchial tree is divided into multiple generations in Weibel’s model, generations 0–16 form the conducting zone and do not exchange gas; generations 17–23 form the respiratory zone and do. The terminal bronchiole marks the transition to respiratory bronchioles.",
+      "emphasis": [
+        "The total number of airway generations present"
+      ],
+      "rationales": {
+        "a": "Twenty-one omits two respiratory generations in the stated Weibel model.",
+        "b": "Twenty-two is one fewer than the 23 generations counted from trachea to alveoli.",
+        "d": "Twenty-four adds a generation beyond the model’s alveolar endpoint."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were reviewed to verify source wording and resolve OCR/layout artifacts in the imported explanation.",
+        "reconstructedContent": "The total number of airway generations present between trachea and alveolar sacs is 23. The tracheobronchial tree has 23 generations from trachea (generation 0) to alveoli. The tracheobronchial tree is divided into multiple generations in Weibel’s model, generations 0–16 form the conducting zone and do not exchange gas; generations 17–23 form the respiratory zone and do. The terminal bronchiole marks the transition to respiratory bronchioles.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 356 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed pages were checked against the imported explanation. OCR artifacts were corrected while retaining the source mechanisms, quantities, distinctions, and keyed answer.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          356
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH19_Q002": {
+      "takeaway": "Medium-sized bronchi are the highest-resistance choice; parallel branching keeps small-airway total resistance low.",
+      "displayText": "Among the given options, bronchi (medium-sized airway) offer maximum resistance. For laminar flow through one tube, Poiseuille’s relation gives Q = πΔP r⁴/(8ηL), so R = 8ηL/(πr⁴): resistance rises steeply as radius falls. Yet the many small airways branch in parallel, creating a large combined cross-sectional area and low total resistance; they contribute little to total airway resistance despite their small individual radii. As lung volume rises, radial traction and transairway pressure enlarge airway caliber and lower resistance. Mucus, edema, bronchial smooth-muscle contraction, and denser or more viscous inspired gas increase resistance. This helps explain obstruction in asthma, bronchitis, and emphysema.",
+      "emphasis": [
+        "Among the given options, bronchi (medium-sized airway) offer maximum resistance."
+      ],
+      "rationales": {
+        "a": "Alveolar ducts are smaller distal airways, not the medium-sized bronchi identified as highest resistance in the listed choices.",
+        "c": "Respiratory bronchioles are small, highly branched airways; their parallel arrangement lowers their combined resistance.",
+        "d": "Small bronchioles have small individual radii, but extensive parallel branching limits their total contribution to resistance."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were reviewed to verify source wording and resolve OCR/layout artifacts in the imported explanation.",
+        "reconstructedContent": "Among the given options, bronchi (medium-sized airway) offer maximum resistance. For laminar flow through one tube, Poiseuille’s relation gives Q = πΔP r⁴/(8ηL), so R = 8ηL/(πr⁴): resistance rises steeply as radius falls. Yet the many small airways branch in parallel, creating a large combined cross-sectional area and low total resistance; they contribute little to total airway resistance despite their small individual radii. As lung volume rises, radial traction and transairway pressure enlarge airway caliber and lower resistance. Mucus, edema, bronchial smooth-muscle contraction, and denser or more viscous inspired gas increase resistance. This helps explain obstruction in asthma, bronchitis, and emphysema.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 356, 357 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed pages were checked against the imported explanation. OCR artifacts were corrected while retaining the source mechanisms, quantities, distinctions, and keyed answer.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          356,
+          357
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH19_Q003": {
+      "takeaway": "Lamellar bodies store surfactant in type II alveolar cells, outside the conducting airways.",
+      "displayText": "Chronic inflammation of conducting airways is suggestive of asthma. Conducting generations 0–16 extend from the trachea to the terminal bronchiole; they have pseudostratified ciliated columnar epithelium, smooth muscle, and cartilage in larger airways. Basal cells can act as stem cells, and nonciliated Club cells contribute epithelial repair and lung defense. Secreted defenses include IgA, collectins such as SP-A and SP-D, defensins, and reactive oxygen and nitrogen species. Lamellar bodies store surfactant in type II alveolar cells, not conducting airways.",
+      "emphasis": [
+        "Chronic inflammation of conducting airways is suggestive of asthma."
+      ],
+      "rationales": {
+        "a": "The conducting zone comprises the first 16 airway generations, ending at the terminal bronchiole.",
+        "b": "Conducting airways contain smooth muscle, and cartilage is present in larger conducting airways; these are not the exception.",
+        "c": "IgA, collectins, defensins, and reactive oxygen/nitrogen species contribute to airway defense."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were reviewed to verify source wording and resolve OCR/layout artifacts in the imported explanation.",
+        "reconstructedContent": "Chronic inflammation of conducting airways is suggestive of asthma. Conducting generations 0–16 extend from the trachea to the terminal bronchiole; they have pseudostratified ciliated columnar epithelium, smooth muscle, and cartilage in larger airways. Basal cells can act as stem cells, and nonciliated Club cells contribute epithelial repair and lung defense. Secreted defenses include IgA, collectins such as SP-A and SP-D, defensins, and reactive oxygen and nitrogen species. Lamellar bodies store surfactant in type II alveolar cells, not conducting airways.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 357, 358 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed pages were checked against the imported explanation. OCR artifacts were corrected while retaining the source mechanisms, quantities, distinctions, and keyed answer.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          357,
+          358
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH19_Q004": {
+      "takeaway": "Terminal bronchioles have the greatest smooth-muscle proportion of their wall.",
+      "displayText": "Smooth muscle is maximum in terminal bronchioles, with the greatest layer relative to wall thickness among these choices. The trachea and bronchi have cartilage and glands as prominent wall components, while terminal bronchioles lack cartilage and have a prominent circumferential smooth-muscle layer. Respiratory bronchioles are more distal and have alveolar outpouchings interrupting their walls.",
+      "emphasis": [
+        "Smooth muscle is maximum in terminal bronchioles"
+      ],
+      "rationales": {
+        "b": "The tracheal wall is supported by C-shaped cartilage rings; smooth muscle is not maximal relative to its full wall.",
+        "c": "Bronchi contain cartilage and glands in addition to smooth muscle, reducing its relative share of the wall.",
+        "d": "Respiratory bronchioles have alveolar openings in their walls and less continuous smooth muscle."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were reviewed to verify source wording and resolve OCR/layout artifacts in the imported explanation.",
+        "reconstructedContent": "Smooth muscle is maximum in terminal bronchioles, with the greatest layer relative to wall thickness among these choices. The trachea and bronchi have cartilage and glands as prominent wall components, while terminal bronchioles lack cartilage and have a prominent circumferential smooth-muscle layer. Respiratory bronchioles are more distal and have alveolar outpouchings interrupting their walls.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 358 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed pages were checked against the imported explanation. OCR artifacts were corrected while retaining the source mechanisms, quantities, distinctions, and keyed answer.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          358
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH19_Q005": {
+      "takeaway": "VIP is another bronchodilator, acting through the inhibitory NANC pathway.",
+      "displayText": "Salbutamol, a short-acting beta (adrenergic) agonist (SABA) is a bronchodilator. It acts at β₂ receptors to relax airway smooth muscle. Vasoactive intestinal peptide (VIP) also relaxes bronchial smooth muscle; with dynorphin it is part of the inhibitory nonadrenergic, noncholinergic (NANC) pathway. In contrast, substance P and cholinergic muscarinic stimulation constrict airways, as do histamine and leukotrienes. Parasympathetic M₂/M₃ receptors mediate bronchial smooth-muscle contraction; β₂ receptors mediate sympathetic relaxation. Methacholine, like acetylcholine, provokes bronchoconstriction in airway-hyperresponsiveness testing; zileuton inhibits 5-lipoxygenase and leukotriene-receptor antagonists include zafirlukast, pranlukast, and montelukast.",
+      "emphasis": [
+        "Salbutamol, a short-acting beta (adrenergic) agonist (SABA) is a bronchodilator."
+      ],
+      "rationales": {
+        "a": "Substance P is part of the excitatory NANC pathway and promotes bronchoconstriction, the opposite of salbutamol.",
+        "c": "Leukotrienes are potent bronchoconstrictors; leukotriene synthesis or receptors are targets of asthma drugs.",
+        "d": "Cholinergic M₂/M₃ stimulation contracts bronchial smooth muscle rather than relaxing it."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were reviewed to verify source wording and resolve OCR/layout artifacts in the imported explanation.",
+        "reconstructedContent": "Salbutamol, a short-acting beta (adrenergic) agonist (SABA) is a bronchodilator. It acts at β₂ receptors to relax airway smooth muscle. Vasoactive intestinal peptide (VIP) also relaxes bronchial smooth muscle; with dynorphin it is part of the inhibitory nonadrenergic, noncholinergic (NANC) pathway. In contrast, substance P and cholinergic muscarinic stimulation constrict airways, as do histamine and leukotrienes. Parasympathetic M₂/M₃ receptors mediate bronchial smooth-muscle contraction; β₂ receptors mediate sympathetic relaxation. Methacholine, like acetylcholine, provokes bronchoconstriction in airway-hyperresponsiveness testing; zileuton inhibits 5-lipoxygenase and leukotriene-receptor antagonists include zafirlukast, pranlukast, and montelukast.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 358, 359 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed pages were checked against the imported explanation. OCR artifacts were corrected while retaining the source mechanisms, quantities, distinctions, and keyed answer.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          358,
+          359
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH19_Q006": {
+      "takeaway": "Type II pneumocytes secrete surfactant and can replenish damaged type I cells.",
+      "displayText": "Type 2 pneumocytes secrete surfactant in the lungs. These granular alveolar cells synthesize and release it. Type I pneumocytes are thin squamous lining cells specialized for alveolar gas exchange; although they make up a minority of alveolar epithelial cells, their broad flattened shape covers about 95% of alveolar surface. Type II cells comprise about 60% of epithelial cells and can proliferate to replace damaged type I cells, including after toxic injury from drugs such as amiodarone or bleomycin. Other alveolar cells include macrophages, lymphocytes, plasma cells, neuroendocrine/APUD cells, and mast cells.",
+      "emphasis": [
+        "Type 2 pneumocytes secrete surfactant in the lungs."
+      ],
+      "rationales": {
+        "a": "Type I pneumocytes form the thin gas-exchange lining; surfactant is produced by type II cells.",
+        "b": "Alveolar macrophages clear particles and microbes; they are not the principal surfactant-secreting epithelial cell.",
+        "c": "“Dust cells” refers to alveolar macrophages, which phagocytose material rather than secrete surfactant."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were reviewed to verify source wording and resolve OCR/layout artifacts in the imported explanation.",
+        "reconstructedContent": "Type 2 pneumocytes secrete surfactant in the lungs. These granular alveolar cells synthesize and release it. Type I pneumocytes are thin squamous lining cells specialized for alveolar gas exchange; although they make up a minority of alveolar epithelial cells, their broad flattened shape covers about 95% of alveolar surface. Type II cells comprise about 60% of epithelial cells and can proliferate to replace damaged type I cells, including after toxic injury from drugs such as amiodarone or bleomycin. Other alveolar cells include macrophages, lymphocytes, plasma cells, neuroendocrine/APUD cells, and mast cells.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 359, 360 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed pages were checked against the imported explanation. OCR artifacts were corrected while retaining the source mechanisms, quantities, distinctions, and keyed answer.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          359,
+          360
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH19_Q007": {
+      "takeaway": "DPPC, or dipalmitoyl lecithin, is the predominant surfactant phospholipid.",
+      "displayText": "Major surfactant is dipalmitoylphosphatidylcholine i.e Lecithin. This phospholipid is also abbreviated DPPC. Phosphatidylglycerol is a minor phospholipid; surfactant also contains proteins SP-A, SP-B, SP-C, and SP-D, plus calcium. Sphingomyelin is a minor surfactant lipid and is used in the lecithin/sphingomyelin ratio to assess fetal lung maturity; an L/S ratio above 2 is considered mature in the source. Stable foam in the shake/Bubble/Clements test and amniotic-fluid phosphatidylglycerol are other maturity assessments. SP-C deficiency is associated with familial interstitial lung disease, while pulmonary alveolar proteinosis involves autoantibodies to GM-CSF and impaired surfactant clearance.",
+      "emphasis": [
+        "Major surfactant is dipalmitoylphosphatidylcholine i.e Lecithin."
+      ],
+      "rationales": {
+        "a": "Phosphatidylglycerol is present but is a minor surfactant phospholipid.",
+        "b": "Cephalin is not the predominant surfactant lipid; DPPC/lecithin is.",
+        "d": "Surfactant contains specific proteins, but protein is not its major component; DPPC is the most abundant lipid."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were reviewed to verify source wording and resolve OCR/layout artifacts in the imported explanation.",
+        "reconstructedContent": "Major surfactant is dipalmitoylphosphatidylcholine i.e Lecithin. This phospholipid is also abbreviated DPPC. Phosphatidylglycerol is a minor phospholipid; surfactant also contains proteins SP-A, SP-B, SP-C, and SP-D, plus calcium. Sphingomyelin is a minor surfactant lipid and is used in the lecithin/sphingomyelin ratio to assess fetal lung maturity; an L/S ratio above 2 is considered mature in the source. Stable foam in the shake/Bubble/Clements test and amniotic-fluid phosphatidylglycerol are other maturity assessments. SP-C deficiency is associated with familial interstitial lung disease, while pulmonary alveolar proteinosis involves autoantibodies to GM-CSF and impaired surfactant clearance.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 360 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed pages were checked against the imported explanation. OCR artifacts were corrected while retaining the source mechanisms, quantities, distinctions, and keyed answer.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          360
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH19_Q008": {
+      "takeaway": "Surfactant lowers surface tension and collapsing pressure by the law of Laplace.",
+      "displayText": "Surfactant helps to prevent alveolar collapse according to Law of Laplace. It is not Bernoulli’s principle. For an alveolus, collapsing pressure P = 2T/r, where T is surface tension and r is radius; lowering T reduces collapsing pressure, especially in smaller alveoli. Surfactant therefore increases lung compliance and reduces elastic recoil and inspiratory work, helps keep alveoli dry and limit pulmonary edema, and its deficiency can cause infant respiratory distress (hyaline-membrane) syndrome with atelectasis and retained fluid. In fetal life the epithelium secretes chloride with fluid; after birth, ENaC-mediated sodium absorption draws fluid out, and delayed ENaC maturation can add to edema in infant RDS.",
+      "emphasis": [
+        "Surfactant helps to prevent alveolar collapse according to Law of Laplace."
+      ],
+      "rationales": {
+        "a": "Reducing surface tension helps keep alveoli dry and limits pulmonary edema.",
+        "b": "Deficient surfactant is a major cause of infant respiratory distress syndrome.",
+        "d": "Higher surfactant increases compliance and lowers the work needed to expand the lungs; reduced surfactant raises it."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were reviewed to verify source wording and resolve OCR/layout artifacts in the imported explanation.",
+        "reconstructedContent": "Surfactant helps to prevent alveolar collapse according to Law of Laplace. It is not Bernoulli’s principle. For an alveolus, collapsing pressure P = 2T/r, where T is surface tension and r is radius; lowering T reduces collapsing pressure, especially in smaller alveoli. Surfactant therefore increases lung compliance and reduces elastic recoil and inspiratory work, helps keep alveoli dry and limit pulmonary edema, and its deficiency can cause infant respiratory distress (hyaline-membrane) syndrome with atelectasis and retained fluid. In fetal life the epithelium secretes chloride with fluid; after birth, ENaC-mediated sodium absorption draws fluid out, and delayed ENaC maturation can add to edema in infant RDS.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 361 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed pages were checked against the imported explanation. OCR artifacts were corrected while retaining the source mechanisms, quantities, distinctions, and keyed answer.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          361
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH19_Q009": {
+      "takeaway": "Amphipathic surfactant disrupts cohesive water–water forces at the alveolar interface.",
+      "displayText": "The surfactant is amphipathic in nature: its hydrophilic region associates with the aqueous lining and its hydrophobic region faces the alveolar air space. At the air–water interface, water molecules cohere strongly, producing surface tension. Surfactant molecules interpose among them; the weaker cohesion between water and surfactant disrupts water–water attraction and lowers surface tension. This is the mechanism behind surfactant’s reduction of alveolar collapsing pressure.",
+      "emphasis": [
+        "The surfactant is amphipathic in nature"
+      ],
+      "rationales": {
+        "b": "CO₂ diffusion is not lubricated by surfactant; its key action is to lower surface tension at the alveolar air–liquid interface.",
+        "c": "Surfactant does not bind oxygen; it reduces cohesive forces among water molecules.",
+        "d": "Its primary target is the alveolar air–liquid interface, where it lowers surface tension, not the capillary surface."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were reviewed to verify source wording and resolve OCR/layout artifacts in the imported explanation.",
+        "reconstructedContent": "The surfactant is amphipathic in nature: its hydrophilic region associates with the aqueous lining and its hydrophobic region faces the alveolar air space. At the air–water interface, water molecules cohere strongly, producing surface tension. Surfactant molecules interpose among them; the weaker cohesion between water and surfactant disrupts water–water attraction and lowers surface tension. This is the mechanism behind surfactant’s reduction of alveolar collapsing pressure.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 361, 362 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed pages were checked against the imported explanation. OCR artifacts were corrected while retaining the source mechanisms, quantities, distinctions, and keyed answer.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          361,
+          362
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH19_Q010": {
+      "takeaway": "Surfactant and traction from neighboring alveoli help maintain alveolar stability.",
+      "displayText": "Stability of alveoli is maintained by increased alveolar surface area by surfactant. The source uses this keyed wording. The physical support is surfactant reducing surface tension and on mechanical interdependence among neighboring alveoli. Lower surface tension decreases recoil and makes collapse less likely. If one alveolus tends to collapse, traction from surrounding alveoli opposes that collapse; because lung units are interconnected, collapse of one unit stretches and distorts neighboring units, which then support it. The source links surfactant-associated stability to increased alveolar surface area; the relevant physical effect is lower surface tension and recoil, not simply greater compliance, negative intrapleural pressure, or residual gas alone.",
+      "emphasis": [
+        "Stability of alveoli is maintained by increased alveolar surface area by surfactant."
+      ],
+      "rationales": {
+        "a": "Compliance describes ease of expansion; surfactant lowers surface tension and mechanical interdependence supports alveoli.",
+        "b": "Negative intrapleural pressure supports lung expansion but is not the specific local stabilizing factor described here.",
+        "d": "Residual gas remains after expiration, but the source identifies surfactant and mechanical interdependence as alveolar stability mechanisms."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were reviewed to verify source wording and resolve OCR/layout artifacts in the imported explanation.",
+        "reconstructedContent": "Stability of alveoli is maintained by increased alveolar surface area by surfactant. The source uses this keyed wording. The physical support is surfactant reducing surface tension and on mechanical interdependence among neighboring alveoli. Lower surface tension decreases recoil and makes collapse less likely. If one alveolus tends to collapse, traction from surrounding alveoli opposes that collapse; because lung units are interconnected, collapse of one unit stretches and distorts neighboring units, which then support it. The source links surfactant-associated stability to increased alveolar surface area; the relevant physical effect is lower surface tension and recoil, not simply greater compliance, negative intrapleural pressure, or residual gas alone.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 362 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed pages were checked against the imported explanation. OCR artifacts were corrected while retaining the source mechanisms, quantities, distinctions, and keyed answer.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          362
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH19_Q011": {
+      "takeaway": "Surfactant is detectable in amniotic fluid from about 28–32 weeks; mature levels come later.",
+      "displayText": "Surfactant appears in the amniotic fluid between 28 and 32 weeks of gestation. Thus, 28 weeks is the earliest listed option. Primitive alveoli form and surfactant synthesis begins around 20–24 weeks, but surfactant reaches the lung surface and amniotic fluid later; mature levels are usually present after 35 weeks. Prematurity before functional maturation risks respiratory distress/hyaline membrane disease. Antenatal corticosteroids accelerate fetal surfactant production, and an L/S ratio above 2 suggests lung maturity.",
+      "emphasis": [
+        "Surfactant appears in the amniotic fluid between 28 and 32 weeks of gestation."
+      ],
+      "rationales": {
+        "b": "Thirty-four weeks is later than the source’s first detection interval of 28–32 weeks.",
+        "c": "Thirty-five weeks is near the usual timing of mature surfactant levels, not first detectability.",
+        "d": "Thirty-six weeks is also later than the first appearance in amniotic fluid."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were reviewed to verify source wording and resolve OCR/layout artifacts in the imported explanation.",
+        "reconstructedContent": "Surfactant appears in the amniotic fluid between 28 and 32 weeks of gestation. Thus, 28 weeks is the earliest listed option. Primitive alveoli form and surfactant synthesis begins around 20–24 weeks, but surfactant reaches the lung surface and amniotic fluid later; mature levels are usually present after 35 weeks. Prematurity before functional maturation risks respiratory distress/hyaline membrane disease. Antenatal corticosteroids accelerate fetal surfactant production, and an L/S ratio above 2 suggests lung maturity.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 362, 363 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed pages were checked against the imported explanation. OCR artifacts were corrected while retaining the source mechanisms, quantities, distinctions, and keyed answer.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          362,
+          363
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH19_Q012": {
+      "takeaway": "Maternal hyperglycemia leads to fetal hyperinsulinemia, which suppresses surfactant synthesis.",
+      "displayText": "In maternal diabetes, inadequate insulin control allows excess maternal glucose to cross the placenta. Fetal hyperglycemia stimulates fetal pancreatic insulin secretion. Excess insulin in fetal plasma decreases surfactant production. This increases neonatal hyaline-membrane/RDS risk. Glucocorticoids, thyroxine, β-adrenergic agonists, calcium, lung stretch, and exercise are listed as increasing synthesis. Smoking, prolonged inhalation of 100% oxygen, and occlusion of a main bronchus or pulmonary artery decrease it.",
+      "emphasis": [
+        "Excess insulin in fetal plasma decreases surfactant production."
+      ],
+      "rationales": {
+        "a": "Thyroxine is listed as increasing surfactant synthesis.",
+        "b": "Beta-adrenergic agonists are listed as increasing surfactant synthesis.",
+        "d": "Calcium is listed among factors that increase surfactant synthesis."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were reviewed to verify source wording and resolve OCR/layout artifacts in the imported explanation.",
+        "reconstructedContent": "In maternal diabetes, inadequate insulin control allows excess maternal glucose to cross the placenta. Fetal hyperglycemia stimulates fetal pancreatic insulin secretion. Excess insulin in fetal plasma decreases surfactant production. This increases neonatal hyaline-membrane/RDS risk. Glucocorticoids, thyroxine, β-adrenergic agonists, calcium, lung stretch, and exercise are listed as increasing synthesis. Smoking, prolonged inhalation of 100% oxygen, and occlusion of a main bronchus or pulmonary artery decrease it.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 363 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed pages were checked against the imported explanation. OCR artifacts were corrected while retaining the source mechanisms, quantities, distinctions, and keyed answer.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          363
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH19_Q013": {
+      "takeaway": "Pulmonary endothelial ACE converts angiotensin I to angiotensin II.",
+      "displayText": "Conversion of angiotensin I to angiotensin II is the most significant metabolic function of the lung. This is mediated by angiotensin-converting enzyme (ACE) on pulmonary capillary endothelial surfaces. Pulmonary endothelial cells also take up or inactivate circulating substances, including bradykinin and serotonin, and metabolize some drugs; these are additional functions, while ACE-mediated angiotensin conversion is the best answer among the options.",
+      "emphasis": [
+        "This is mediated by angiotensin-converting enzyme (ACE)"
+      ],
+      "rationales": {
+        "a": "Serotonin is inactivated by the lung, but the source identifies ACE-mediated angiotensin conversion as the most significant function.",
+        "b": "Bradykinin is also inactivated in the lung, but it is not the best answer to the question asking the most significant metabolic function.",
+        "c": "The lung metabolizes some drugs, but that is not the principal metabolic function among these choices."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Printed solution pages were reviewed to verify source wording and resolve OCR/layout artifacts in the imported explanation.",
+        "reconstructedContent": "Conversion of angiotensin I to angiotensin II is the most significant metabolic function of the lung. This is mediated by angiotensin-converting enzyme (ACE) on pulmonary capillary endothelial surfaces. Pulmonary endothelial cells also take up or inactivate circulating substances, including bradykinin and serotonin, and metabolize some drugs; these are additional functions, while ACE-mediated angiotensin conversion is the best answer among the options.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 363, 364 were rendered and visually reviewed from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Printed pages were checked against the imported explanation. OCR artifacts were corrected while retaining the source mechanisms, quantities, distinctions, and keyed answer.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          363,
+          364
+        ]
+      }
+    }
+  }
+}

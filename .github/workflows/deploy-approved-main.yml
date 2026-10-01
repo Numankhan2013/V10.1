@@ -1,0 +1,75 @@
+name: Deploy explicitly approved main release
+
+on:
+  workflow_run:
+    workflows: [Build V11.7 Android + PWA]
+    types: [completed]
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: approved-main-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' && github.event.workflow_run.event == 'push' && contains(github.event.workflow_run.head_commit.message, '[approved-production]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the exact approved release
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+      - name: Download the verified build without rebuilding
+        uses: actions/download-artifact@v4
+        with:
+          name: V11.7-android-pwa
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Verify artifact identity and current main
+        env:
+          EXPECTED_RELEASE_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          set -eu
+          test "$(git ls-remote origin refs/heads/main | cut -f1)" = "$EXPECTED_RELEASE_SHA"
+          python3 - <<'PY'
+          import hashlib, json, os, zipfile
+          from pathlib import Path
+          manifest = json.loads(Path('app/build/outputs/apk/debug/NK-QBank-build-manifest.json').read_text())
+          assert manifest['git_commit'] == os.environ['EXPECTED_RELEASE_SHA'], 'Artifact commit mismatch'
+          assert Path('build/web/index.html').is_file(), 'Missing verified web artifact'
+          apk_items = [item for item in manifest['files'] if item['path'].endswith('.apk')]
+          assert len(apk_items) == 1, 'Expected one verified APK'
+          apk = Path(apk_items[0]['path'])
+          assert hashlib.sha256(apk.read_bytes()).hexdigest() == apk_items[0]['sha256'], 'APK hash mismatch'
+          index = next(item for item in manifest['files'] if item['path'] == 'app/src/main/assets/index.html')
+          with zipfile.ZipFile(apk) as archive:
+              assert hashlib.sha256(archive.read('assets/index.html')).hexdigest() == index['sha256'], 'Packaged app mismatch'
+          print('APPROVED_MAIN_ARTIFACT_OK', manifest['git_commit'])
+          PY
+      - name: Set the Pages production branch to main
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_PAGES_PROJECT: ${{ vars.CLOUDFLARE_PAGES_PROJECT || 'nk-qbank' }}
+        run: |
+          set -eu
+          curl --fail --silent --show-error --request PATCH \
+            "https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/pages/projects/${CLOUDFLARE_PAGES_PROJECT}" \
+            --header "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}" \
+            --header 'Content-Type: application/json' \
+            --data '{"production_branch":"main"}' > /tmp/pages-release-response.json
+          python3 - <<'PY'
+          import json
+          response = json.load(open('/tmp/pages-release-response.json'))
+          assert response.get('success') and response['result']['production_branch'] == 'main'
+          print('PAGES_PRODUCTION_BRANCH_OK main')
+          PY
+      - name: Deploy the approved artifact to the production domain
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy build/web --project-name=${{ vars.CLOUDFLARE_PAGES_PROJECT || 'nk-qbank' }} --branch=main

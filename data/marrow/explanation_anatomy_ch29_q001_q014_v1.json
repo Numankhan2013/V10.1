@@ -1,0 +1,374 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Anatomy Chapter 29 explanation refinement. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Anatomy",
+    "bank": "Marrow",
+    "chapterId": "29",
+    "chapterTitle": "Deep fascia and Triangles of the neck",
+    "questionStart": 1,
+    "questionEnd": 14,
+    "questions": 14,
+    "status": "approved-rollout",
+    "workloadScore": 14,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 753,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__ANAT_CH29_Q001": {
+      "takeaway": "Subclavian triangle belongs to posterior neck triangle, not anterior triangle.",
+      "displayText": "The subclavian triangle is a posterior triangle of the neck, not an anterior triangle. The anterior triangles of the neck are the submental, digastric (submandibular), muscular and carotid triangles. The posterior triangles of the neck are the occipital and subclavian triangles.",
+      "emphasis": [
+        "subclavian triangle",
+        "posterior triangle",
+        "The anterior triangles",
+        "posterior triangles"
+      ],
+      "rationales": {
+        "b": "Submental triangle lies in the anterior neck under the chin, unlike subclavian triangle.",
+        "c": "Digastric/submandibular triangle is one of the anterior triangles.",
+        "d": "Carotid triangle is also anterior; subclavian triangle is posterior."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stable ID, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          508
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      }
+    },
+    "marrow__ANAT_CH29_Q002": {
+      "takeaway": "Suprascapular nerve crosses lower posterior triangle, but source wording conflicts with its own key by calling it a content.",
+      "displayText": "The suprascapular nerve is a content of the lower part of the posterior triangle of the neck; it does not contribute to its roof. Lesser occipital, supraclavicular and great auricular nerves form part of the cutaneous nerve contents of the posterior triangle.",
+      "emphasis": [
+        "suprascapular nerve",
+        "content of the lower part",
+        "does not contribute to its roof",
+        "Lesser occipital"
+      ],
+      "rationales": {
+        "a": "Lesser occipital nerve is a cutaneous branch of cervical plexus contributing to posterior-triangle roof and contents.",
+        "b": "Supraclavicular nerve is a cutaneous roof/content branch.",
+        "d": "Great auricular nerve is a cutaneous roof/content branch. The printed key C is retained, but the explanation calls suprascapular nerve a lower-triangle content; the stem’s “neither roof nor a content” wording is inconsistent and does not justify saying C is absent from contents."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stable ID, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          508,
+          509
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      },
+      "reconstruction": {
+        "status": "contextually_reconstructed",
+        "sourceProblem": "The stem asks what is neither roof nor content, but source explanation explicitly calls keyed suprascapular nerve a content of lower posterior triangle; it only says nerve is not part of roof.",
+        "reconstructedContent": "The suprascapular nerve is a content of the lower part of the posterior triangle of the neck; it does not contribute to its roof. Lesser occipital, supraclavicular and great auricular nerves form part of the cutaneous nerve contents of the posterior triangle. Source review confirms the keyed nerve crosses the posterior triangle, so it should not be taught as absent from the triangle contents; the source roof-versus-content wording is internally inconsistent.",
+        "evidenceBasis": "Visual review of Anatomy ED8 page 508 confirms printed key C and the contradictory explanation wording. Source option and key remain unchanged.",
+        "reviewNote": "Completed discrepancy review: retain source key C, clarify that suprascapular nerve is a lower posterior-triangle content, and classify stem as internally inconsistent; do not infer that it is absent from contents."
+      }
+    },
+    "marrow__ANAT_CH29_Q003": {
+      "takeaway": "Investing deep fascia forms parotid/submandibular capsules and roof of posterior triangle.",
+      "displayText": "The investing layer of deep cervical fascia covers the parotid and submandibular glands. The pretracheal fascia encloses the thyroid gland and forms the false capsule; the parotid gland is covered by the superficial lamina of the investing layer. The axillary sheath is formed by the prevertebral fascia, and the investing layer forms the roof rather than the floor of the posterior triangle.",
+      "emphasis": [
+        "investing layer",
+        "parotid and submandibular glands",
+        "prevertebral fascia",
+        "roof rather than the floor"
+      ],
+      "rationales": {
+        "b": "Pretracheal fascia encloses thyroid but not parotid; parotid is covered by investing layer.",
+        "c": "Axillary sheath is continuous with prevertebral fascia, not pretracheal fascia.",
+        "d": "Investing fascia forms roof over posterior triangle, not the floor."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stable ID, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          509
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      }
+    },
+    "marrow__ANAT_CH29_Q004": {
+      "takeaway": "Suprasternal space of Burns contains anterior jugular veins and interclavicular tissue, not external jugular vein.",
+      "displayText": "The external jugular vein is not a content of the suprasternal space of Burns. This space is present in the suprasternal region along with the suprasternal/aponeurotic interval.",
+      "emphasis": [
+        "external jugular vein",
+        "not a content of the suprasternal space",
+        "suprasternal region"
+      ],
+      "rationales": {
+        "a": "Anterior jugular veins are associated with the suprasternal space/interval.",
+        "b": "Interclavicular ligament lies in relation to the suprasternal interval.",
+        "c": "Sternal head of SCM bounds the interval; external jugular vein is not its content."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stable ID, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          509,
+          510
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 1 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH29_Q005": {
+      "takeaway": "Vagus nerve traverses carotid triangle; the diagram marks that region 4.",
+      "displayText": "The scenario describes a vasovagal syncope. The vagus nerve is a content of the carotid triangle, corresponding to the area marked 4 in the question image.",
+      "emphasis": [
+        "vasovagal syncope",
+        "vagus nerve",
+        "carotid triangle",
+        "area marked 4"
+      ],
+      "rationales": {
+        "a": "The figure labels region 2 outside the carotid triangle; source associates vagus with area 4.",
+        "c": "Area 1 is not the carotid-triangle label given by source.",
+        "d": "Area 3 is not the source-labeled carotid triangle; region 4 contains vagus."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stable ID, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          510
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 2 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH29_Q006": {
+      "takeaway": "Posterior auricular artery arises above the carotid triangle.",
+      "displayText": "The posterior auricular artery is not given off within the carotid triangle; it arises above the triangle. The remaining listed vessels are branches of the external carotid artery associated with the carotid triangle.",
+      "emphasis": [
+        "posterior auricular artery",
+        "not given off within the carotid triangle",
+        "arises above the triangle"
+      ],
+      "rationales": {
+        "b": "Occipital artery arises from external carotid above carotid triangle, also outside the listed triangle branch origins.",
+        "c": "Ascending pharyngeal artery originates from medial ECA in carotid triangle.",
+        "d": "Superior thyroid artery arises near ECA origin in carotid triangle."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stable ID, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          511,
+          512
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 1 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH29_Q007": {
+      "takeaway": "Mylohyoid does not form carotid-triangle floor.",
+      "displayText": "Carotid bruit is auscultated over the carotid triangle. Mylohyoid does not form the floor of the carotid triangle.",
+      "emphasis": [
+        "Carotid bruit",
+        "Mylohyoid",
+        "floor of the carotid triangle"
+      ],
+      "rationales": {
+        "a": "Middle constrictor is part of carotid-triangle floor.",
+        "c": "Inferior constrictor contributes to the floor.",
+        "d": "Hyoglossus forms part of the floor; mylohyoid does not."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stable ID, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          512,
+          513
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 1 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH29_Q008": {
+      "takeaway": "Ansa cervicalis supplies most infrahyoid muscles; C1 fibers via hypoglossal supply thyrohyoid.",
+      "displayText": "The marked structure is ansa cervicalis. Thyrohyoid is supplied by C1 fibres travelling with the hypoglossal nerve, not by ansa cervicalis. Ansa cervicalis supplies the other listed infrahyoid muscles.",
+      "emphasis": [
+        "ansa cervicalis",
+        "Thyrohyoid",
+        "C1 fibres travelling with the hypoglossal nerve"
+      ],
+      "rationales": {
+        "b": "Sternothyroid is supplied by ansa cervicalis.",
+        "c": "Sternohyoid receives ansa cervicalis fibers.",
+        "d": "Inferior omohyoid is also supplied by ansa cervicalis; thyrohyoid instead receives C1 via hypoglossal."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stable ID, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          513,
+          514
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 2 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH29_Q009": {
+      "takeaway": "Lingual nerve is superficial to hyoglossus; lingual artery lies deep.",
+      "displayText": "The lingual nerve is a superficial relation of the hyoglossus muscle, not a deep relation.",
+      "emphasis": [
+        "lingual nerve",
+        "superficial relation",
+        "deep relation",
+        "hyoglossus"
+      ],
+      "rationales": {
+        "a": "Lingual artery lies deep to hyoglossus, as it is covered by the muscle.",
+        "c": "Stylohyoid ligament is a deep relation of hyoglossus.",
+        "d": "Glossopharyngeal nerve is among the deep relations; lingual nerve passes superficially."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stable ID, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          514,
+          515
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 1 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH29_Q010": {
+      "takeaway": "Spinal accessory injury weakens shoulder shrug, while pectoral-driven arm adduction is preserved.",
+      "displayText": "The patient most likely has iatrogenic injury to the spinal accessory nerve in the posterior triangle. Adduction of the arm remains intact because it is produced largely by pectoralis major, supplied by the medial and lateral pectoral nerves.",
+      "emphasis": [
+        "spinal accessory nerve",
+        "Adduction of the arm remains intact",
+        "pectoral nerves"
+      ],
+      "rationales": {
+        "a": "Shoulder shrug depends on trapezius supplied by spinal accessory nerve and would be impaired.",
+        "b": "Scapular retraction by trapezius/rhomboids can be weakened by spinal accessory injury.",
+        "d": "Overhead abduction above horizontal relies on trapezius upward rotation, so it may be impaired; adduction by pectoralis major remains intact."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stable ID, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          515,
+          516
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 1 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH29_Q011": {
+      "takeaway": "Dorsal scapular nerve is associated with occipital triangle, not subclavian triangle.",
+      "displayText": "The marked region is the subclavian (supraclavicular/omoclavicular) triangle. The dorsal scapular nerve is not a content of this triangle; it is associated with the occipital triangle.",
+      "emphasis": [
+        "subclavian (supraclavicular/omoclavicular) triangle",
+        "dorsal scapular nerve",
+        "occipital triangle"
+      ],
+      "rationales": {
+        "b": "Third part of subclavian artery is a content of subclavian triangle.",
+        "c": "Nerve to subclavius is a content of lower posterior triangle.",
+        "d": "Suprascapular nerve/vessels are described in relation to the subclavian triangle; dorsal scapular nerve is assigned to occipital triangle."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stable ID, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          516,
+          517
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 2 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH29_Q012": {
+      "takeaway": "Spinal accessory nerve supplies trapezius and sternocleidomastoid.",
+      "displayText": "The marked structure is the spinal accessory nerve. It enters the posterior triangle by piercing deep to the sternocleidomastoid and crosses the posterior triangle to supply the trapezius. The spinal accessory nerve also supplies sternocleidomastoid.",
+      "emphasis": [
+        "spinal accessory nerve",
+        "posterior triangle",
+        "trapezius",
+        "sternocleidomastoid"
+      ],
+      "rationales": {
+        "a": "Phrenic nerve supplies diaphragm, not the structure marked as spinal accessory nerve.",
+        "c": "Great auricular nerve supplies skin over parotid and auricle; it is a cervical plexus sensory branch.",
+        "d": "Spinal accessory also supplies sternocleidomastoid; however the keyed requested muscle supplied as it crosses posterior triangle is trapezius."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stable ID, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          517,
+          518
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 2 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH29_Q013": {
+      "takeaway": "Occipital triangle contains dorsal scapular nerve to rhomboids.",
+      "displayText": "Roseola infantum is a viral fever commonly caused by human herpesvirus 6 and 7. The marked region is the occipital triangle of the posterior triangle. The nerve to rhomboids (dorsal scapular nerve) is among its contents.",
+      "emphasis": [
+        "Roseola infantum",
+        "occipital triangle",
+        "nerve to rhomboids",
+        "dorsal scapular nerve"
+      ],
+      "rationales": {
+        "a": "Third part of subclavian artery is associated with lower/subclavian triangle, not occipital triangle.",
+        "c": "Suprascapular vein runs in the lower posterior triangle, not the marked occipital region.",
+        "d": "Long thoracic nerve to serratus anterior descends in the lower posterior triangle rather than the marked occipital triangle."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stable ID, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          518
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 2 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH29_Q014": {
+      "takeaway": "Occipital artery lies outside suboccipital triangle.",
+      "displayText": "The marked blue region is the suboccipital triangle. It does not contain the occipital artery. The occipital artery lies outside/superficial to the triangle in this context.",
+      "emphasis": [
+        "suboccipital triangle",
+        "does not contain the occipital artery",
+        "outside/superficial"
+      ],
+      "rationales": {
+        "b": "Vertebral artery traverses transverse foramina and suboccipital region but is not in the suboccipital triangle itself.",
+        "c": "Suboccipital nerve is a content of the triangle.",
+        "d": "Suboccipital venous plexus is also within the triangle; occipital artery lies outside it."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stable ID, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          519,
+          520
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 2 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    }
+  },
+  "source": {
+    "bundle": "anatomy_ch001_063",
+    "sourceRawSha256": "f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387",
+    "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+    "sourcePdfPages": [
+      508,
+      509,
+      510,
+      511,
+      512,
+      513,
+      514,
+      515,
+      516,
+      517,
+      518,
+      519,
+      520
+    ]
+  }
+}

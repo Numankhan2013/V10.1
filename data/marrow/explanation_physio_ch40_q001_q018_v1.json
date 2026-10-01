@@ -1,0 +1,380 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner-facing Marrow ED8 Physiology Chapter 40 explanation refinement; native diagrams and tables remain unchanged.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "40",
+    "chapterTitle": "Calcium Homeostasis",
+    "questionStart": 1,
+    "questionEnd": 18,
+    "questions": 18,
+    "status": "approved-rollout",
+    "workloadScore": 18,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "f3cd6b9dccb2092743fa86de4b0bef682d61c83762e9f00fa3b04d0a355d89d6",
+    "auditReport": "docs/question-explanations/physiology-tail-20261001.md"
+  },
+  "questions": {
+    "marrow__PHYSIO_CH40_Q001": {
+      "takeaway": "Vitamin D functions as a hormone by binding nuclear receptors to regulate calcium and phosphate homeostasis.",
+      "displayText": "Vitamin D functions as a hormone by binding nuclear receptors to regulate calcium and phosphate homeostasis.\n\nVitamin D has hormonal action. In conjunction with parathyroid hormone, it is a major regulatory hormone for Ca²⁺ and phosphate metabolism.",
+      "emphasis": [
+        "Vitamin D functions as a hormone by binding nuclear receptors to regulate calcium and phosphate homeostasis"
+      ],
+      "rationales": {
+        "a": "Niacin is a vitamin and metabolic cofactor, not a hormone-like calcium regulator.",
+        "b": "Pyridoxine acts as a coenzyme rather than a nuclear endocrine signal.",
+        "d": "Riboflavin is a cofactor precursor, not a hormone."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          752
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH40_Q002": {
+      "takeaway": "The active hormonal form of vitamin D is 1,25-dihydroxyvitamin D (calcitriol).",
+      "displayText": "The active hormonal form of vitamin D is 1,25-dihydroxyvitamin D (calcitriol).\n\nThe active form of Vit D is 1,25-dihydroxycholecalciferol.\n\nCholecalciferol is formed in the skin and converted to 25 hydroxycholecalciferol in the liver. This is hydroxylated in the kidney to form 1,25-dihydroxycholecalciferol.",
+      "emphasis": [
+        "The active hormonal form of vitamin D is 1,25-dihydroxyvitamin D (calcitriol)"
+      ],
+      "rationales": {
+        "a": "Cholecalciferol is the precursor made in skin/diet, not the active hormonal metabolite.",
+        "b": "24,25-dihydroxyvitamin D is a less active catabolic/alternative metabolite.",
+        "d": "25-hydroxyvitamin D is the major circulating storage/status form, not the active form."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          752
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH40_Q003": {
+      "takeaway": "Vitamin D increases renal phosphate reabsorption; the statement that it decreases reabsorption is false.",
+      "displayText": "Vitamin D increases renal phosphate reabsorption; the statement that it decreases reabsorption is false.\n\nVit D does not decrease phosphate reabsorption by the renal tubules. It increases calcium and phosphate reabsorption by the renal tubules, leading to a decrease in excretion of these substances in the urine.",
+      "emphasis": [
+        "Vitamin D increases renal phosphate reabsorption; the statement that it decreases reabsorption is false"
+      ],
+      "rationales": {
+        "a": "The vitamin D receptor–RXR complex binds DNA and regulates transcription.",
+        "b": "Calcitriol increases intestinal calbindin and calcium absorption.",
+        "c": "Vitamin D enhances gastrointestinal phosphate absorption."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          752
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH40_Q004": {
+      "takeaway": "Serum 25-hydroxyvitamin D is the best routine measure of vitamin D stores in a child with rickets.",
+      "displayText": "Serum 25-hydroxyvitamin D is the best routine measure of vitamin D stores in a child with rickets.\n\nMeasurement of 25 hydroxyvitamin D (calcidiol) provides more accurate information about vitamin D levels.\n\nPTH is increased in vitamin D deficiency. PTH is a major stimulus for the 1α-hydroxylase, so there is increased synthesis of the active hormone, 1,25-dihydroxyvitamin D. Paradoxically, levels of this hormone are often normal in severe vitamin D deficiency. Therefore, measurements of 1,25-dihydroxyvitamin D are not accurate reflections of vitamin D stores and should not be used to diagnose vitamin D deficiency in patients with normal renal function.",
+      "emphasis": [
+        "Serum 25-hydroxyvitamin D is the best routine measure of vitamin D stores in a child with rickets"
+      ],
+      "rationales": {
+        "a": "Cholecalciferol has a short half-life and varies with recent intake/sun exposure.",
+        "c": "1,25-dihydroxyvitamin D can be normal or high in deficiency because secondary hyperparathyroidism stimulates its production.",
+        "d": "24,25-dihydroxyvitamin D is not the routine vitamin D status measure."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          753
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH40_Q005": {
+      "takeaway": "Chronic renal failure reduces renal 1α-hydroxylation of 25-hydroxyvitamin D and lowers active calcitriol formation.",
+      "displayText": "Chronic renal failure reduces renal 1α-hydroxylation of 25-hydroxyvitamin D and lowers active calcitriol formation.\n\nThe conversion of 25-hydroxycholecalciferol to 1,25 dihydroxycholecalciferol is done by enzyme 1α-hydroxylase which is present in the kidney. In chronic renal failure (CRF), there is a deficiency of this enzyme and formation of the active form of vitamin D does not take place.\n\nFactors which increase activity of 1α-hydroxylase are:\n• Ca²⁺ deficiency\n• Increased parathyroid hormone (PTH)",
+      "emphasis": [
+        "Chronic renal failure reduces renal 1α-hydroxylation of 25-hydroxyvitamin D and lowers active calcitriol formation"
+      ],
+      "rationales": {
+        "a": "Low dietary calcium tends to raise PTH and stimulate calcitriol production.",
+        "b": "Hypocalcemia stimulates PTH, which promotes renal 1α-hydroxylase.",
+        "c": "PTH stimulates conversion to active 1,25-dihydroxyvitamin D."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          753
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH40_Q006": {
+      "takeaway": "Kidney, skin and intestine participate in vitamin D/calcium homeostasis; lung is not a principal calcium-regulating organ.",
+      "displayText": "Kidney, skin and intestine participate in vitamin D/calcium homeostasis; lung is not a principal calcium-regulating organ.\n\nThe lung is not involved in calcium homeostasis.\n\nThere are two sources of cholecalciferol in the body:\n• Diet\n• Synthesized in the skin from 7-dehydrocholesterol in the presence of ultraviolet light.\n\nCholecalciferol is hydroxylated in the liver to form 25-hydroxycholecalciferol, which is further hydroxylated in the kidney to form 1,25-dihydroxycholecalciferol. At higher calcium concentrations, when PTH is suppressed, the 25-hydroxycholecalciferol is converted to a different compound—24,25-dihydroxycholecalciferol—that has almost no vitamin D effect.\n\nNote: This is a controversial question because new evidence suggests an association between calcium homeostasis and pulmonary fibroblasts. Therefore:\n• If Lung is given in the options and spleen is provided as one of the choices instead of Kidneys, Skin, Liver or Intestine, then the best answer would be the spleen.\n• If other options are Kidneys, Skin, Liver, or Intestine, then the best answer would be Lung as the role of these organs in calcium metabolism is beyond doubt.",
+      "emphasis": [
+        "Kidney, skin and intestine participate in vitamin D/calcium homeostasis; lung is not a principal calcium-regulating organ"
+      ],
+      "rationales": {
+        "a": "Kidney controls calcium reabsorption and activates vitamin D.",
+        "b": "Skin synthesizes cholecalciferol after UVB exposure.",
+        "c": "Intestine absorbs dietary calcium under calcitriol regulation."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          753
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH40_Q007": {
+      "takeaway": "High calcium suppresses calcitriol synthesis and favors 24,25-dihydroxyvitamin D formation.",
+      "displayText": "High calcium suppresses calcitriol synthesis and favors 24,25-dihydroxyvitamin D formation.\n\nIncreased calcium levels lead to an increase in 24,25 dihydroxycholecalciferol.\n\nThe levels of calcium control formation of 1,25-dihydroxycholecalciferol. When calcium is low, PTH (parathyroid hormone) promotes the conversion of 25-hydroxycholecalciferol to 1,25-dihydroxycholecalciferol in the kidneys. At higher calcium concentrations, when PTH is suppressed, the 25-hydroxycholecalciferol is converted to a different compound—24,25-dihydroxycholecalciferol—that has almost no vitamin D effect.",
+      "emphasis": [
+        "High calcium suppresses calcitriol synthesis and favors 24,25-dihydroxyvitamin D formation"
+      ],
+      "rationales": {
+        "a": "High calcium suppresses rather than increases 1,25-dihydroxyvitamin D production.",
+        "c": "Hypercalcemia stimulates calcitonin, not suppresses it.",
+        "d": "High calcium inhibits PTH release."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          754
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH40_Q008": {
+      "takeaway": "Calcium deficiency lowers serum calcium and stimulates parathyroid hormone secretion.",
+      "displayText": "Calcium deficiency lowers serum calcium and stimulates parathyroid hormone secretion.\n\nLow Ca²⁺ diet leads to hypocalcemia, which stimulates PTH release. Hence, this patient will have high PTH levels.\n\nIncreased PTH causes:\n• Hypophosphatemia due to increased excretion of phosphate via the kidneys.\n• PTH acts on the kidneys to increase the absorption of calcium.\n• PTH also increases the level of the enzyme 1-α hydroxylase which leads to more production of the active form of vitamin D—1,25-dihydroxycholecalciferol.\n\nIn the presence of hypocalcemia, serum calcitonin levels decrease and active form of vitamin D increases.",
+      "emphasis": [
+        "Calcium deficiency lowers serum calcium and stimulates parathyroid hormone secretion"
+      ],
+      "rationales": {
+        "a": "PTH promotes renal phosphate excretion, so serum phosphate tends to fall rather than rise.",
+        "b": "Dietary deficiency tends to lower, not raise, plasma calcium.",
+        "d": "Low calcium favors active calcitriol formation rather than the inactive 24,25 pathway."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          755
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH40_Q009": {
+      "takeaway": "A calcium load suppresses PTH/calcitriol and shifts vitamin D metabolism toward 24,25-dihydroxycholecalciferol.",
+      "displayText": "A calcium load suppresses PTH/calcitriol and shifts vitamin D metabolism toward 24,25-dihydroxycholecalciferol.\n\nIn the given scenario, increased formation of 24,25-dihydroxycholecalciferol will take place. Infusion of calcium chloride solution will lead to raised calcium concentration in blood. At higher calcium concentrations, PTH is also suppressed. So the 25-hydroxycholecalciferol is converted to a different compound: 24,25-dihydroxycholecalciferol—that has almost no vitamin D effect.\n\nWhen plasma calcium concentration is high, formation of 1,25 dihydroxycholecalciferol is also greatly depressed. Lack of 1,25 dihydroxycholecalciferol, in turn, decreases the absorption of calcium from the intestines, bones, and renal tubules, thus causing the calcium ion concentration to fall back toward its normal level.\n\nOption A: Since PTH levels are suppressed bone demineralisation does not take place.\n\nOption B: Calcitonin is a calcium regulatory hormone whose level increases when the calcium concentration in plasma is high.\n\nOption C: Calcium ions are a part of the coagulation cascade and the blood coagulability either increases or remains the same with high plasma Ca²⁺ levels.",
+      "emphasis": [
+        "A calcium load suppresses PTH/calcitriol and shifts vitamin D metabolism toward 24,25-dihydroxycholecalciferol"
+      ],
+      "rationales": {
+        "a": "A calcium infusion suppresses PTH and does not promote bone demineralization.",
+        "b": "Elevated calcium generally stimulates calcitonin secretion rather than reducing it.",
+        "c": "Calcium supports coagulation; a load does not reduce blood coagulability."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          756
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH40_Q010": {
+      "takeaway": "Most active, vitamin-D-regulated calcium absorption occurs in the proximal small intestine, especially duodenum.",
+      "displayText": "Most active, vitamin-D-regulated calcium absorption occurs in the proximal small intestine, especially duodenum.\n\nCalcium absorption is mainly from the proximal small intestine (duodenum).\n\nVit D and PTH are important factors that control calcium absorption.",
+      "emphasis": [
+        "Most active, vitamin-D-regulated calcium absorption occurs in the proximal small intestine, especially duodenum"
+      ],
+      "rationales": {
+        "b": "Middle small intestine also absorbs calcium but is not the principal site.",
+        "c": "Distal ileum is not the main site of active transcellular calcium uptake.",
+        "d": "Colon is not the primary site of dietary calcium absorption."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          756
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH40_Q011": {
+      "takeaway": "Dietary protein can enhance intestinal calcium absorption, while oxalate, phytate and phosphate bind calcium and reduce availability.",
+      "displayText": "Dietary protein can enhance intestinal calcium absorption, while oxalate, phytate and phosphate bind calcium and reduce availability.\n\nCa²⁺ absorption is enhanced by proteins.\n\nIt is inhibited by phosphates, phytic acid, and oxalates because these anions form insoluble salts with Ca²⁺ in the intestine.",
+      "emphasis": [
+        "Dietary protein can enhance intestinal calcium absorption, while oxalate, phytate and phosphate bind calcium and reduce availability"
+      ],
+      "rationales": {
+        "b": "Oxalates form poorly absorbed calcium salts.",
+        "c": "Phytic acid binds calcium and limits absorption.",
+        "d": "Phosphate can complex with calcium and reduce its absorption."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          756
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH40_Q012": {
+      "takeaway": "Ionized calcium is the biologically active fraction that regulates neuromuscular function and secretion.",
+      "displayText": "Ionized calcium is the biologically active fraction that regulates neuromuscular function and secretion.\n\nIonic calcium is the active form that is important for most functions of calcium in the body, including the effect of calcium on the heart, the nervous system, and bone formation.\n\nMost of the calcium (99%) is stored in the bones. Only about 0.1 percent of the total body calcium is in the extracellular fluid and 1 percent is in the cells and its organelles.\n\nFrom the 0.1% Ca²⁺ in the plasma, the distribution of calcium is as follows:\n• About 41% is combined with the plasma proteins (non-diffusible through the capillary membrane).\n• About 9% is combined with anionic substances of the plasma and interstitial fluids like citrate and phosphate in such a manner that it is not ionized (diffusible through the capillary membrane).\n• The remaining 50% of the calcium in the plasma is both diffusible through the capillary membrane and ionized.",
+      "emphasis": [
+        "Ionized calcium is the biologically active fraction that regulates neuromuscular function and secretion"
+      ],
+      "rationales": {
+        "b": "Albumin-bound calcium is a circulating reserve but is not the free active fraction.",
+        "c": "Phosphate is a separate anion and not the active form of calcium.",
+        "d": "Protein-bound calcium is not directly ionized or biologically active."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          756
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH40_Q013": {
+      "takeaway": "Osteoclasts resorb bone by acidifying the resorption lacuna and degrading matrix.",
+      "displayText": "Osteoclasts resorb bone by acidifying the resorption lacuna and degrading matrix.\n\nOsteoclasts play a key role in bone resorption.\n\nThe cells responsible for bone formation are osteoblasts and the cells responsible for bone resorption are osteoclasts.\n\nOsteoblasts are modified fibroblasts. Osteoclasts are the members of the monocyte family.\n\nOsteoclasts erode and absorb the previously formed bone:\n• They become attached to the bone via integrins forming a sealing zone where the bone resorption takes place.\n• Proton pumps (H⁺-ATPases) then move from the endosomes of the osteoclasts into the cell membrane as opposed to the sealing zone and acidify the area into pH 4.0.\n• The acidic pH dissolves hydroxyapatite and the acid proteases secreted by the cell break down collagen.",
+      "emphasis": [
+        "Osteoclasts resorb bone by acidifying the resorption lacuna and degrading matrix"
+      ],
+      "rationales": {
+        "a": "Osteoblasts form bone matrix rather than resorb it.",
+        "c": "Stem cells can differentiate into osteoblast lineage but do not directly resorb bone.",
+        "d": "Cytotoxic cells are immune effectors, not bone-resorbing cells."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          757
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH40_Q014": {
+      "takeaway": "Osteoclasts lack PTH receptors; PTH acts on osteoblast-lineage cells to increase RANKL and indirectly activate osteoclasts.",
+      "displayText": "Osteoclasts lack PTH receptors; PTH acts on osteoblast-lineage cells to increase RANKL and indirectly activate osteoclasts.\n\nOsteoclast cells do not have PTH receptors. PTH stimulates osteoclast activity and bone resorption by an indirect mechanism.\n\nPTH has receptors on the osteoblasts in the bone. When PTH binds to these receptors, osteoblasts release cytokines like RANK-ligand and M-CSF. These cytokines allow the differentiation of macrophages to osteoclasts.\n\nOsteoclasts, in turn, cut the collagen in the bone, which is bound to calcium. This causes the release of calcium, phosphorus, and collagen breakdown products in the blood.\n\nOsteoblasts produce osteoprotegerin (OPG), or osteoclastogenesis inhibitory factor, a cytokine that inhibits bone resorption by preventing interaction of RANKL with its receptor. PTH decreases the production of osteoprotegerin (OPG).\n\nGlucocorticoids promote osteoclast activity and increase bone resorption by increasing RANKL production and decreasing the formation of OPG. On the other hand, the hormone estrogen stimulates OPG production.",
+      "emphasis": [
+        "Osteoclasts lack PTH receptors; PTH acts on osteoblast-lineage cells to increase RANKL and indirectly activate osteoclasts"
+      ],
+      "rationales": {
+        "b": "Osteoprotegerin is a decoy receptor that inhibits RANKL and reduces bone resorption.",
+        "c": "RANKL and M-CSF support osteoclast differentiation, not mature osteoblast formation.",
+        "d": "Glucocorticoids generally suppress osteoblast activity and can increase bone resorption."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          757
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH40_Q015": {
+      "takeaway": "Osteoclasts secrete acid and proteases to dissolve mineral and degrade bone matrix; these fall when osteoclast development is impaired.",
+      "displayText": "Osteoclasts secrete acid and proteases to dissolve mineral and degrade bone matrix; these fall when osteoclast development is impaired.\n\nSecretion of acid proteases would be decreased in the knocked-out mouse. Osteoclasts produce proteolytic enzymes and several acids necessary for bone resorption. The enzymes digest or dissolve the organic matrix of the bone; and the acids cause dissolution of the bone salts.\n\nA knocked-out mouse is a genetically modified mouse in which an existing gene is inactivated or ‘knocked out’ by replacing it with an artificial one. The control mice used in the above case are littermate mice i.e. mice with genetically modified embryonic stem (ES) cell strains used to test whether specific genes control a disease or immunological phenomena (eg: normal osteoclastic development).\n\nOption B: The acidic pH caused by the osteoclasts dissolves hydroxyapatite. In the knocked-out mouse, hydroxyapatite levels would therefore increase.\n\nOption A and C: Since the lineage of osteoclasts and osteoblasts is different, there is no decrease in the proliferation of osteoblasts. As the osteoblast levels are normal, phosphate deposition in bone also remains normal.",
+      "emphasis": [
+        "Osteoclasts secrete acid and proteases to dissolve mineral and degrade bone matrix; these fall when osteoclast development is impaired"
+      ],
+      "rationales": {
+        "a": "Reduced osteoclasts do not reduce phosphate deposition directly; formation depends on osteoblast activity.",
+        "b": "Hydroxyapatite content is not the secretion product of osteoclasts.",
+        "c": "Osteoblast proliferation is not the direct osteoclast function lost."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          758
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH40_Q016": {
+      "takeaway": "PTH increases renal calcium reabsorption, especially in distal nephron, while promoting phosphate excretion.",
+      "displayText": "PTH increases renal calcium reabsorption, especially in distal nephron, while promoting phosphate excretion.\n\nPTH promotes the reabsorption of calcium from the renal tubules.\n\nOption A: About 41 percent of the plasma calcium is bound to plasma proteins and is therefore not filtered by the glomerular capillaries. The rest of the calcium is filtered through the glomeruli into the renal tubules.\n\nOption B: Of the filtered calcium, approximately 90 percent is reabsorbed in the proximal tubules, loops of Henle, and early distal tubules. However, when calcium levels are low and PTH levels rise, PTH promotes calcium reabsorption from the later DCT.\n\nOption D: Calcitonin tends to decrease plasma calcium concentration and, in general, has effects opposite to those of PTH.",
+      "emphasis": [
+        "PTH increases renal calcium reabsorption, especially in distal nephron, while promoting phosphate excretion"
+      ],
+      "rationales": {
+        "a": "About 41% of plasma calcium is protein-bound and not filtered; the remaining free/complexed fraction is filtered, rather than 90% of total plasma calcium.",
+        "b": "Major calcium reabsorption occurs in proximal tubule, with regulated fine-tuning in distal nephron.",
+        "d": "Calcitonin opposes PTH effects on bone; it does not promote PTH action."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          758
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH40_Q017": {
+      "takeaway": "PTH increases bone resorption, distal renal calcium reabsorption and calcitriol synthesis, but decreases proximal phosphate reabsorption.",
+      "displayText": "PTH increases bone resorption, distal renal calcium reabsorption and calcitriol synthesis, but decreases proximal phosphate reabsorption.\n\nPTH does not increase phosphate reabsorption in kidney, rather it causes decreased phosphate reabsorption in the kidney.",
+      "emphasis": [
+        "PTH increases bone resorption, distal renal calcium reabsorption and calcitriol synthesis, but decreases proximal phosphate reabsorption"
+      ],
+      "rationales": {
+        "a": "PTH stimulates osteoclast-mediated resorption indirectly through osteoblast-lineage RANKL.",
+        "b": "PTH promotes renal calcium reabsorption.",
+        "d": "PTH stimulates renal 1α-hydroxylase and calcitriol synthesis."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          759
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH40_Q018": {
+      "takeaway": "Postsurgical hypoparathyroidism causes low calcium, high phosphate and neuromuscular irritability with signs such as Trousseau.",
+      "displayText": "Postsurgical hypoparathyroidism causes low calcium, high phosphate and neuromuscular irritability with signs such as Trousseau.\n\nIn a patient with parathyroid deficiency due to inadvertent damage to the parathyroid glands, the clinical evaluation will show low Ca²⁺ level, tetany, Trousseau sign, and high phosphate levels.\n\nPTH is released in response to low calcium levels. It increases the calcium levels by the following actions.\n\nFollowing signs can be elicited in hypoparathyroidism due to hypocalcemia (tetany):\n• Chvostek sign: Contraction facial muscles on tapping over facial nerve in front of the tragus of the ear.\n• Trousseau sign: Accoucheur’s hand position and painful carpopedal spasm by applying a sphygmomanometer cuff to the arm and keeping the pressure above systolic blood pressure for 5 minutes.\n\nNote: In option A, tetanus is different from tetany. Tetanus is caused by infection with the bacteria Clostridium tetani.\n\nThe image below is showing Trousseau sign.",
+      "emphasis": [
+        "Postsurgical hypoparathyroidism causes low calcium, high phosphate and neuromuscular irritability with signs such as Trousseau"
+      ],
+      "rationales": {
+        "a": "Hypoparathyroidism does cause low calcium and high phosphate, but the option says tetanus; the expected neuromuscular syndrome is tetany, specifically captured by the keyed Trousseau sign.",
+        "c": "Hypoparathyroidism does not cause high calcium or bone demineralization.",
+        "d": "The calcium is low, not high, and bone demineralization is not the pattern."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          759
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    }
+  }
+}

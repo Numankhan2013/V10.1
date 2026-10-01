@@ -1,0 +1,220 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Marrow ED8 Anatomy Chapter 11 learner-facing explanation augmentation; raw source remains immutable.",
+  "scope": {
+    "subject": "Anatomy",
+    "bank": "Marrow",
+    "chapterId": "11",
+    "chapterTitle": "Cell Structure, Epithelia, Glands & Connective Tissue",
+    "questionStart": 1,
+    "questionEnd": 8,
+    "questions": 8,
+    "status": "approved-rollout",
+    "workloadScore": 12.5,
+    "canonicalBaseSha": "81822e44753f5c3af7c2f2b0719d12230eed4478"
+  },
+  "questions": {
+    "marrow__ANAT_CH11_Q001": {
+      "takeaway": "Protoplasm comprises the nucleus plus cytoplasm; the plasma membrane surrounds it.",
+      "displayText": "The cytoplasm and nucleus together are referred to as protoplasm. A cell is surrounded by a cell membrane (or plasma membrane), which encloses a complex material called protoplasm. It consists of a central, denser part called the nucleus, and an outer less dense part called the cytoplasm.\n\nThe nucleus is surrounded by a nuclear membrane, which encloses chromatin, nucleolus, and nucleoplasm. The cytoplasm consists of cell organelles and cytosol (also called hyaloplasm), which is the liquid component of the cytoplasm present outside the cell organelles. Vacuoplasm refers to the fluid-filled spaces enclosed within membrane-bound cell organelles.",
+      "emphasis": [
+        "protoplasm",
+        "cytoplasm and nucleus",
+        "cytosol",
+        "Vacuoplasm"
+      ],
+      "rationales": {
+        "a": "The plasma membrane encloses protoplasm but is not one of its two named components.",
+        "c": "Nuclear membrane and nucleoplasm describe only nuclear structures, not all protoplasm.",
+        "d": "Cytosol plus organelles describes cytoplasm and excludes the nucleus."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          188
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and shared renderer."
+      }
+    },
+    "marrow__ANAT_CH11_Q002": {
+      "takeaway": "Vacuoplasm is the fluid within ER channels; hyaloplasm or cytosol is outside them.",
+      "displayText": "The cytoplasm that is present within the channels of the endoplasmic reticulum is called vacuoplasm. The presence of the endoplasmic reticulum divides the cytoplasm into two compartments: one within the channels called vacuoplasm and that outside the channels called hyaloplasm or cytosol.",
+      "emphasis": [
+        "vacuoplasm",
+        "within the channels",
+        "hyaloplasm or cytosol"
+      ],
+      "rationales": {
+        "a": "Hyaloplasm lies outside the ER channels.",
+        "c": "Cytosol is another name for hyaloplasm in this source context and lies outside the ER channels.",
+        "d": "Protoplasm is the broader term for nucleus plus cytoplasm."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          188,
+          189
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and shared renderer."
+      }
+    },
+    "marrow__ANAT_CH11_Q003": {
+      "takeaway": "The source-keyed answer is proteins by mass; phospholipids predominate among membrane lipids, and membrane composition varies.",
+      "displayText": "With respect to the mass ratio, the cell membrane predominantly consists of proteins. Most plasma membranes consist of approximately 50% lipid and 50% protein by weight.\n\nThe lipid molecules in the cell membrane are predominantly phospholipids. The trilaminar structure of membranes is produced by the arrangement of lipid molecules. Each phospholipid molecule consists of an enlarged head with a phosphate portion and two thin tails.\n\nThe head end is also called the polar end, while the tail end is the non-polar end. The head end is soluble in water and is said to be hydrophilic. The tail end is insoluble in water and is said to be hydrophobic.\n\nMembrane composition varies: typical plasma membranes contain roughly equal protein and lipid mass, so the source-keyed answer should not be read as a universal claim about every membrane.",
+      "emphasis": [
+        "proteins",
+        "50% lipid and 50% protein",
+        "phospholipids",
+        "hydrophilic"
+      ],
+      "rationales": {
+        "a": "Phospholipids predominate among membrane lipids, but the question asks about total mass.",
+        "c": "Carbohydrates are a minor membrane component and do not predominate by mass.",
+        "d": "Glycolipids are a smaller lipid subclass and do not exceed total membrane protein by mass."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "Source generalizes protein mass dominance to nearly all membranes despite variable membrane composition.",
+        "reconstructedContent": "Preserves source-keyed proteins and lipid-species distinction while qualifying the mass statement.",
+        "evidenceBasis": "Source explanation and Molecular Biology of the Cell, Membrane Proteins: https://www.ncbi.nlm.nih.gov/books/NBK26878/",
+        "reviewNote": "Raw source and correctOption=2 are unchanged; display clarifies scope."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          189
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and shared renderer."
+      }
+    },
+    "marrow__ANAT_CH11_Q004": {
+      "takeaway": "Pinocytosis is uptake of extracellular fluid; phagocytosis takes up particles and exocytosis releases material.",
+      "displayText": "Absorption of fluids into the cell occurs by pinocytosis; the vesicles involved are called pinocytotic vesicles. Endocytosis is a process in which large molecules enter cells by invagination and formation of a vesicle. Some cells use endocytosis to engulf foreign matter such as bacteria; this is phagocytosis.\n\nThe process of releasing molecules produced within the cytoplasm to the exterior is called exocytosis or reverse pinocytosis.",
+      "emphasis": [
+        "pinocytosis",
+        "pinocytotic vesicles",
+        "phagocytosis",
+        "exocytosis"
+      ],
+      "rationales": {
+        "a": "Endocytosis is the broader uptake category; fluid uptake specifically is pinocytosis.",
+        "b": "Phagocytosis is uptake of particulate material rather than extracellular fluid.",
+        "d": "Exocytosis releases intracellular material to the exterior."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          190
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and shared renderer."
+      }
+    },
+    "marrow__ANAT_CH11_Q005": {
+      "takeaway": "At a chemical synapse, clustered presynaptic secretory vesicles contain transmitter; the postsynaptic side shows a postsynaptic density.",
+      "displayText": "The structure marked with the asterisk in the electron micrograph indicates presynaptic secretory vesicles. The structure marked with the arrowhead is postsynaptic density. Secretory vesicles are synthesized by neurons and are involved in electrochemical signalling in the brain and neuromuscular junctions.\n\nOn electron microscopy, mitochondria appear as round or elliptical bodies with outer and inner mitochondrial membranes, cristae, and mitochondrial matrix. Golgi bodies appear as stacks of flattened membranous cisternae surrounded by clusters of vesicles. Ribosomes may be attached to the membrane of rough endoplasmic reticulum or may exist as monosomes or chains of granular structures called polyribosomes associated with mRNA.",
+      "emphasis": [
+        "presynaptic secretory vesicles",
+        "postsynaptic density",
+        "cristae",
+        "flattened membranous cisternae"
+      ],
+      "rationales": {
+        "a": "Mitochondria are bounded organelles with inner-membrane cristae, unlike the marked vesicle cluster.",
+        "b": "Golgi bodies are stacks of flattened cisternae with surrounding vesicles, not the marked presynaptic cluster.",
+        "d": "Ribosomes are small granular structures, free or on rough ER, not membrane-bound secretory vesicles."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          190,
+          191,
+          192
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and shared renderer."
+      }
+    },
+    "marrow__ANAT_CH11_Q006": {
+      "takeaway": "Euchromatin is loosely packed and lightly staining; heterochromatin is condensed and dark staining.",
+      "displayText": "Euchromatin in the nucleus has a loose appearance and stains lightly with hematoxylin and eosin (H&E). On H&E staining, the nucleus stains dark purple or blue while the cytoplasm usually stains pink. In some cells, nuclei are relatively large and stain lightly because of a delicate network of fibers called chromatin.\n\nIrregular dark masses are heterochromatin; areas where the network is loose and stains lightly are euchromatin.",
+      "emphasis": [
+        "Euchromatin",
+        "loose",
+        "light",
+        "heterochromatin"
+      ],
+      "rationales": {
+        "a": "Polychromatin is not the standard category for the loose pale nuclear pattern.",
+        "b": "Heterochromatin is condensed and dark staining, the opposite of the description.",
+        "c": "Hypochromatin is not the standard named chromatin type tested; the loose pale form is euchromatin."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          192,
+          193
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and shared renderer."
+      }
+    },
+    "marrow__ANAT_CH11_Q007": {
+      "takeaway": "The rough ER lumen is continuous with the perinuclear space because rough ER continues from the outer nuclear membrane.",
+      "displayText": "The lumen of the rough endoplasmic reticulum is continuous with the perinuclear space. Rough endoplasmic reticulum arises from the outer nuclear membrane; therefore its lumen is continuous with the perinuclear space between the inner and outer nuclear membranes. The lumen is also continuous with the lumen of smooth ER.\n\nThe ER is a network of flattened membrane-bound structures called cisternae and is classified as rough or smooth according to the presence or absence of attached ribosomes.",
+      "emphasis": [
+        "perinuclear space",
+        "outer nuclear membrane",
+        "rough endoplasmic reticulum",
+        "smooth ER"
+      ],
+      "rationales": {
+        "a": "Cytoplasm lies outside the ER lumen and is separated from it by ER membrane.",
+        "b": "The relevant continuity is with the perinuclear space, not a pericytoplasmic space.",
+        "d": "Nucleoplasm is inside the inner nuclear membrane and is not continuous with rough-ER lumen."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          193,
+          194
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and shared renderer."
+      }
+    },
+    "marrow__ANAT_CH11_Q008": {
+      "takeaway": "Pseudostratified epithelium is unilayered despite nuclei at different heights; seminiferous epithelium is complex stratified.",
+      "displayText": "Seminiferous epithelium is a complex stratified epithelium consisting of cells that form the lineage of spermatozoa (spermatogonia, spermatocytes and spermatids) together with Sertoli cells. Simple epithelia and pseudostratified epithelium are both unilayered epithelia. Simple epithelium is typically present at sites of absorption, secretion and filtration and, depending on cell shape, is classified as squamous, cuboidal or columnar.\n\nPseudostratified epithelium comprises only a single layer of cells but the nuclei lie at different levels, creating an appearance suggestive of stratification; the trachea is illustrated as an example.",
+      "emphasis": [
+        "complex stratified epithelium",
+        "single layer of cells",
+        "pseudostratified",
+        "Sertoli cells"
+      ],
+      "rationales": {
+        "a": "Simple squamous epithelium is a true single-layer epithelium.",
+        "b": "Pseudostratified columnar epithelium appears stratified but consists of one epithelial layer.",
+        "c": "Simple columnar epithelium is a single layer of columnar cells."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          194,
+          195,
+          196
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and shared renderer."
+      }
+    }
+  },
+  "source": {
+    "bundle": "anatomy_ch001_063",
+    "sourceRawSha256": "f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387",
+    "donorCommit": "69d04962186d0f8c6754e7a7efa8602a0e3bafd3"
+  }
+}

@@ -1,0 +1,380 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner-facing Marrow ED8 Physiology Chapter 38 explanation refinement; native diagrams and tables remain unchanged.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "38",
+    "chapterTitle": "The Pancreas",
+    "questionStart": 1,
+    "questionEnd": 18,
+    "questions": 18,
+    "status": "approved-rollout",
+    "workloadScore": 18,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "f3cd6b9dccb2092743fa86de4b0bef682d61c83762e9f00fa3b04d0a355d89d6",
+    "auditReport": "docs/question-explanations/physiology-tail-20261001.md"
+  },
+  "questions": {
+    "marrow__PHYSIO_CH38_Q001": {
+      "takeaway": "Banting and Macleod received the 1923 Nobel Prize for the discovery of insulin.",
+      "displayText": "Banting and Macleod received the 1923 Nobel Prize for the discovery of insulin.\n\nBanting and McLeod were awarded the Nobel Prize for the discovery of insulin.\nIn 1921, Banting took his idea to Professor John Macleod at the University of Toronto, who was a leading figure in the study of diabetes in Canada. Macleod gave Banting a laboratory with minimum equipment and ten dogs. Banting also got an assistant, a medical student by the name of Charles Best.\nIn 1923, the Nobel Committee decided to award Banting and Macleod the Nobel Prize in Physiology or Medicine. The decision of the Nobel Committee made Banting furious. He felt that the prize should have been shared between him and Best.",
+      "emphasis": [
+        "Banting and Macleod received the 1923 Nobel Prize for the discovery of insulin"
+      ],
+      "rationales": {
+        "a": "Banting and Best worked on insulin isolation, but the Nobel award was shared with Macleod.",
+        "b": "Sanger later received a Nobel Prize for insulin structure, not its discovery.",
+        "d": "Collip contributed to purification, but was not the named Nobel co-recipient."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          718
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH38_Q002": {
+      "takeaway": "Pancreatic F cells (PP cells) secrete pancreatic polypeptide; alpha cells make glucagon, beta insulin and delta somatostatin.",
+      "displayText": "Pancreatic F cells (PP cells) secrete pancreatic polypeptide; alpha cells make glucagon, beta insulin and delta somatostatin.\n\nThe correctly matched pair is F-Pancreatic polypeptide.\nCells of the endocrine pancreas are divided into the cell types shown in the accompanying table.\nThe close interrelations among these cells allow direct control of secretion of some of the hormones by the other hormones. For example:\n• Insulin inhibits glucagon secretion.\n• Amylin inhibits glucagon secretion.\n• Somatostatin inhibits secretion of insulin and glucagon.",
+      "emphasis": [
+        "Pancreatic F cells (PP cells) secrete pancreatic polypeptide; alpha cells make glucagon, beta insulin and delta somatostatin"
+      ],
+      "rationales": {
+        "a": "Alpha cells secrete glucagon, not somatostatin.",
+        "b": "Delta cells produce somatostatin; glucagon comes from alpha cells.",
+        "d": "A cells are alpha cells that secrete glucagon; insulin is from beta cells."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          718
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH38_Q003": {
+      "takeaway": "C-peptide is low when injected insulin suppresses endogenous beta-cell secretion; it distinguishes exogenous insulin use from insulinoma.",
+      "displayText": "C-peptide is low when injected insulin suppresses endogenous beta-cell secretion; it distinguishes exogenous insulin use from insulinoma.\n\nThe given clinical vignette strongly suggests hypoglycemia due to surreptitious use of exogenous insulin, characterized by a low C-peptide level.\nInsulin abuse is a method for increasing muscle bulk and performance enhancement in athletes, although less common than anabolic steroid abuse. Exogenous insulin does not contain C-peptide. Therefore blood level of C-peptide will be low in such patients. On the other hand, endogenous production of insulin will be characterized by high C-peptide level in blood.\nInsulin is composed of two chains A and B, and a connecting peptide called C peptide. The insulin and C peptide are packaged in the secretory granules and secreted in equimolar amounts.\nImportance of C-peptide:\n• C peptide is measured by radioimmunoassay, and its level in the blood provides an index of beta-cell function in patients receiving exogenous insulin. If they are unable to produce insulin, they have greatly decreased levels of C peptide.\n• C peptide levels can be used to differentiate between an insulinoma (high C-peptide) and exogenous insulin overdose (low C-peptide) in a patient with hypoglycemia.",
+      "emphasis": [
+        "C-peptide is low when injected insulin suppresses endogenous beta-cell secretion; it distinguishes exogenous insulin use from insulinoma"
+      ],
+      "rationales": {
+        "a": "Pancreatic polypeptide does not distinguish endogenous insulin secretion from injected insulin.",
+        "b": "Glucagon may counter hypoglycemia but is not the key endogenous-insulin marker.",
+        "c": "Somatostatin is not the diagnostic marker for endogenous beta-cell output."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          719
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH38_Q004": {
+      "takeaway": "Insulin is cleared rapidly, with a circulating half-life of about 4–6 minutes.",
+      "displayText": "Insulin is cleared rapidly, with a circulating half-life of about 4–6 minutes.\n\nThe half-life of insulin is 4-6 minutes.\nInsulin is degraded by the insulinase enzyme in the liver, and to a lesser extent, in the kidneys and\nmuscles.\nNote: Half-life of C-peptide is 20-30 minutes.",
+      "emphasis": [
+        "Insulin is cleared rapidly, with a circulating half-life of about 4–6 minutes"
+      ],
+      "rationales": {
+        "a": "One to two minutes is shorter than the typical insulin half-life.",
+        "c": "Ten to twelve minutes overestimates insulin’s rapid clearance.",
+        "d": "Twelve to sixteen minutes is far longer than the normal half-life."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          719
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH38_Q005": {
+      "takeaway": "Sulfonylurea-like insulin secretagogues close beta-cell ATP-sensitive K⁺ channels, depolarizing the cell and opening Ca²⁺ channels.",
+      "displayText": "Sulfonylurea-like insulin secretagogues close beta-cell ATP-sensitive K⁺ channels, depolarizing the cell and opening Ca²⁺ channels.\n\nGlucose-mediated insulin release occurs through the closure of ATP sensitive K+ channels. Therefore the new drug being initiated is most probably a sulfonylurea which acts via a similar mechanism.\nIncreased blood glucose concentration is the primary controller of insulin secretion. Inside the beta cells, glucose is converted to glucose-6-phosphate, and later ATP is generated. This ATP closes ATP sensitive potassium channels, leading to a rise in K+ and depolarization. This in turn causes the opening of voltage-gated Ca2+ channels and influx of Ca2+. This ultimately leads to the secretion of insulin via exocytosis.\nDiazoxide keeps the ATP sensitive K+ channels open and prevents depolarization, resulting in a decreased insulin release. It is used in patients with insulinoma.\nSulfonylureas cause closure of the ATP sensitive K+ channels, leading to increased insulin secretion. It is used in patients with diabetes mellitus.",
+      "emphasis": [
+        "Sulfonylurea-like insulin secretagogues close beta-cell ATP-sensitive K⁺ channels, depolarizing the cell and opening Ca²⁺ channels"
+      ],
+      "rationales": {
+        "b": "Raising cAMP can augment secretion but is not the glucose-mimetic sulfonylurea mechanism asked.",
+        "c": "Carrier-mediated transport does not trigger beta-cell depolarization in this drug mechanism.",
+        "d": "Receptor phosphorylation is not the immediate KATP-channel pathway."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          720
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH38_Q006": {
+      "takeaway": "Insulin stimulates GLUT4-mediated glucose uptake especially in skeletal muscle and adipose tissue.",
+      "displayText": "Insulin stimulates GLUT4-mediated glucose uptake especially in skeletal muscle and adipose tissue.\n\nInsulin mainly stimulates glucose uptake by skeletal muscles.\nGlucose uptake by skeletal muscle, cardiac muscle and adipose tissues is via GLUT-4 which is insulin-dependent. In the presence of insulin, GLUT-4 receptors translocate to the cell membrane and hence, glucose uptake by the cell occurs.\nMost of the other GLUT transporters are not insulin sensitive and are constitutively expressed in the cell membrane. Example: GLUT-1 in RBCs, brain and kidneys. (GLUT-3 is also present in the brain and kidneys.)\nNote: Insulin promotes glucose uptake in the liver. However, this is done by increasing the activity of glucokinase and inactivating glycogen phosphorylase. The net effect is the synthesis of glycogen and decreased breakdown of glycogen.",
+      "emphasis": [
+        "Insulin stimulates GLUT4-mediated glucose uptake especially in skeletal muscle and adipose tissue"
+      ],
+      "rationales": {
+        "a": "Brain glucose uptake is largely insulin-independent through GLUT1/GLUT3.",
+        "c": "Red blood cells use insulin-independent GLUT1.",
+        "d": "Renal glucose transport uses sodium-glucose cotransport rather than insulin-dependent GLUT4."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          720
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH38_Q007": {
+      "takeaway": "Insulin increases facilitated glucose transport by recruiting GLUT4 to muscle and adipocyte membranes.",
+      "displayText": "Insulin increases facilitated glucose transport by recruiting GLUT4 to muscle and adipocyte membranes.\n\nInsulin stimulates the glucose entry into the cells via facilitated diffusion by increasing the number of glucose transporters (GLUTs) in the cell membrane.\nThis type of insulin-dependent glucose transport via GLUT 4 is observed in skeletal muscle, cardiac muscle, and adipose tissues.",
+      "emphasis": [
+        "Insulin increases facilitated glucose transport by recruiting GLUT4 to muscle and adipocyte membranes"
+      ],
+      "rationales": {
+        "b": "Insulin increases, rather than decreases, glucose transport in insulin-sensitive tissues.",
+        "c": "Renal glucose reabsorption is mainly SGLT-mediated and is not the primary insulin action.",
+        "d": "Intestinal glucose absorption is mainly sodium-glucose cotransport and is not increased by insulin."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          721
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH38_Q008": {
+      "takeaway": "Insulin resistance and chronic hyperinsulinemia are associated with reduced GLUT4 responsiveness/availability in muscle and adipose tissue.",
+      "displayText": "Insulin resistance and chronic hyperinsulinemia are associated with reduced GLUT4 responsiveness/availability in muscle and adipose tissue.\n\nThe given clinical vignette is suggestive of insulin resistance, which is characterized by the downregulation of GLUT-4.\nGLUT-4 is an insulin-dependent GLUT. Other GLUTs are not insulin sensitive and are constitutively expressed in the cell membrane.\nAn arbitrary but clinically useful benchmark considers patients insulin resistant if they require greater than 1 unit/kilogram/day of exogenous insulin to maintain glycemic control. Patients requiring greater than 200 units of exogenous insulin per day are considered severely insulin resistant.",
+      "emphasis": [
+        "Insulin resistance and chronic hyperinsulinemia are associated with reduced GLUT4 responsiveness/availability in muscle and adipose tissue"
+      ],
+      "rationales": {
+        "a": "GLUT1 mediates basal insulin-independent uptake in many tissues.",
+        "b": "GLUT2 is the high-capacity transporter in liver and pancreatic beta cells.",
+        "c": "GLUT3 is a high-affinity neuronal transporter, not the insulin-sensitive transporter."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          721
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH38_Q009": {
+      "takeaway": "Insulin shifts potassium into cells, creating risk of hypokalemia during DKA treatment even if initial serum K⁺ is normal or high.",
+      "displayText": "Insulin shifts potassium into cells, creating risk of hypokalemia during DKA treatment even if initial serum K⁺ is normal or high.\n\nIn patients who require intravenous insulin therapy, a rapid insulin infusion results in\nhypokalemia.\nTherefore such patients should undergo serum electrolyte level assessment at frequent intervals\nwhile on insulin infusion for prompt diagnosis and early correction of hypokalemia.\nInsulin increases the activity of Na-K ATPase in cell membranes so that more K+ is pumped into\ncells. Hence, serum K+ falls.\nNote: Since insulin decreases serum potassium level, insulin-glucose infusions are used to treat\nhyperkalemia.",
+      "emphasis": [
+        "Insulin shifts potassium into cells, creating risk of hypokalemia during DKA treatment even if initial serum K⁺ is normal or high"
+      ],
+      "rationales": {
+        "a": "Insulin lowers serum potassium rather than causing hyperkalemia.",
+        "c": "The primary acute insulin-related electrolyte risk is not hypernatremia.",
+        "d": "Insulin does not directly produce hyponatremia as its characteristic electrolyte effect."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          721
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH38_Q010": {
+      "takeaway": "Arginine stimulates insulin release by depolarizing beta cells; catecholamines and potassium depletion inhibit release.",
+      "displayText": "Arginine stimulates insulin release by depolarizing beta cells; catecholamines and potassium depletion inhibit release.\n\nArginine increases insulin secretion.\nOption B: β-adrenergic blockers like propranolol inhibits insulin secretion.\nOption C: Epinephrine both stimulates (by β-adrenergic agonistic action) and inhibits (by\nα-adrenergic agonistic action) the secretion of insulin. However, the inhibitory effect of\nepinephrine is more dominant than the stimulatory effect.\nOption D: Insulin promotes glucose uptake by cells, causing reduced serum K+. Low serum K+\ndoes not cause an increase in insulin secretion.",
+      "emphasis": [
+        "Arginine stimulates insulin release by depolarizing beta cells; catecholamines and potassium depletion inhibit release"
+      ],
+      "rationales": {
+        "b": "Propranolol blocks beta-adrenergic influences and is not an insulin secretagogue here.",
+        "c": "Epinephrine inhibits insulin secretion through alpha-adrenergic signaling.",
+        "d": "K⁺ depletion hyperpolarizes beta cells and reduces insulin release."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          722
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH38_Q011": {
+      "takeaway": "Sympathetic stimulation generally inhibits insulin secretion, especially through alpha₂-adrenergic effects.",
+      "displayText": "Sympathetic stimulation generally inhibits insulin secretion, especially through alpha₂-adrenergic effects.\n\nSympathetic stimulation inhibits insulin secretion.\nThe regulation of insulin secretion can be controlled by alpha-adrenergic mediated response and beta-adrenergic mediated response. The stimulation of alpha-adrenergic receptor (α2) plays an inhibitory role in insulin secretion. On the other hand, the stimulation of beta-adrenergic receptor (β2) plays a stimulatory role in insulin secretion.\nStimulation of the sympathetic nerves to the pancreas releases norepinephrine which predominantly acts on α2-adrenergic receptors, causing a decrease in insulin secretion.\nNote: If alpha-adrenergic receptors are blocked, stimulation of the sympathetic nerves causes increased insulin secretion mediated by β2-adrenergic receptors.",
+      "emphasis": [
+        "Sympathetic stimulation generally inhibits insulin secretion, especially through alpha₂-adrenergic effects"
+      ],
+      "rationales": {
+        "b": "Stimulation is the opposite of the predominant sympathetic alpha₂ effect.",
+        "c": "The net sympathetic effect is inhibition, not a two-phase sequence.",
+        "d": "Insulin secretion is responsive to autonomic input; sympathetic stimulation does have an effect."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          722
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH38_Q012": {
+      "takeaway": "Somatostatin from islet delta cells suppresses both insulin and glucagon secretion locally.",
+      "displayText": "Somatostatin from islet delta cells suppresses both insulin and glucagon secretion locally.\n\nSomatostatin inhibits insulin and glucagon secretion.\nNote: Other actions of somatostatin:\n• Inhibits growth hormone secretion. Somatostatin is also known as growth hormone inhibitory hormone (GHIH).\n• Decreases motility of the stomach, duodenum, and gallbladder.\n• Decreases both secretion and absorption in the gastrointestinal tract.",
+      "emphasis": [
+        "Somatostatin from islet delta cells suppresses both insulin and glucagon secretion locally"
+      ],
+      "rationales": {
+        "a": "Epinephrine inhibits insulin but generally stimulates glucagon, so it does not lower both.",
+        "c": "High glucose stimulates insulin and suppresses glucagon rather than reducing both.",
+        "d": "Somatostatin is a clear inhibitor of both, so none is incorrect."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          722
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH38_Q013": {
+      "takeaway": "Incretin GLP-1 enhances glucose-dependent insulin secretion after oral nutrient exposure.",
+      "displayText": "Incretin GLP-1 enhances glucose-dependent insulin secretion after oral nutrient exposure.\n\nInsulin secretion is normally stimulated by GLP-1.\nGlucagon-like peptide—1 (GLP-1) and glucose-dependent insulinotropic peptide (GIP) are called\nincretins and are potent stimulators of insulin secretion. They also inhibit glucagon secretion.\nThey are released in the gastrointestinal tract after a person eats a meal. They then cause an\n“anticipatory” increase in blood insulin in preparation for the glucose and amino acids to be\nabsorbed from the meal.\nNote: Drugs that mimic the action of incretins are used in the management of diabetes.",
+      "emphasis": [
+        "Incretin GLP-1 enhances glucose-dependent insulin secretion after oral nutrient exposure"
+      ],
+      "rationales": {
+        "b": "GLP-2 primarily supports intestinal mucosa and is not the key insulinotropic incretin.",
+        "c": "VIP can have diverse pancreatic effects but GLP-1 is the principal incretin choice.",
+        "d": "Adrenergic receptor activation does not normally stimulate insulin in the way GLP-1 does."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          722
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH38_Q014": {
+      "takeaway": "Growth hormone antagonizes insulin by reducing peripheral glucose uptake and promoting insulin resistance.",
+      "displayText": "Growth hormone antagonizes insulin by reducing peripheral glucose uptake and promoting insulin resistance.\n\nGrowth hormone is a hyperglycemic hormone and antagonizes the effect of insulin.\nHyperglycemic hormones:\n• Glucagon\n• Epinephrine\n• Cortisol\n• Growth hormone\n• Thyroid hormone",
+      "emphasis": [
+        "Growth hormone antagonizes insulin by reducing peripheral glucose uptake and promoting insulin resistance"
+      ],
+      "rationales": {
+        "a": "Neuropeptide Y is not the classic systemic insulin-antagonistic hormone.",
+        "c": "Substance P is not the major counter-regulatory antagonist asked.",
+        "d": "VIP is not the principal insulin-antagonistic hormone; GH is."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          723
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH38_Q015": {
+      "takeaway": "Fetal pancreatic insulin secretion begins at approximately five months of gestation.",
+      "displayText": "Fetal pancreatic insulin secretion begins at approximately five months of gestation.\n\nIn a fetus, the pancreatic islets are formed in the third month of fetal life, while insulin secretion begins at about 5th month of fetal life.\nThe exocrine pancreas starts functioning after birth.",
+      "emphasis": [
+        "Fetal pancreatic insulin secretion begins at approximately five months of gestation"
+      ],
+      "rationales": {
+        "b": "Three months is earlier than the onset described in this source item.",
+        "c": "Seven months is later than the approximate onset.",
+        "d": "Nine months is near term and much later than the start of secretion."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          723
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH38_Q016": {
+      "takeaway": "The insulin receptor is a heterotetramer with two extracellular α and two transmembrane β subunits.",
+      "displayText": "The insulin receptor is a heterotetramer with two extracellular α and two transmembrane β subunits.\n\nAn insulin receptor has 4 parts. It is a tetramer made up of two α and two β subunits.\nThe α subunits are extracellular, whereas the β subunits penetrate through the cell membrane into the cytoplasm. The intracellular portions of the β subunits have tyrosine kinase activity.\nOnce insulin binds to the alpha subunits, the portions of the beta subunits protruding into the cell become autophosphorylated. Autophosphorylation of the beta subunits, in turn, activates a local tyrosine kinase, which causes phosphorylation of multiple intracellular enzymes. The net effect is to activate some of these enzymes while inactivating others.",
+      "emphasis": [
+        "The insulin receptor is a heterotetramer with two extracellular α and two transmembrane β subunits"
+      ],
+      "rationales": {
+        "a": "One subunit cannot describe the α₂β₂ receptor structure.",
+        "b": "Two subunits omits the four-chain receptor organization.",
+        "c": "Three subunits still omits one chain of the α₂β₂ complex."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          723
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH38_Q017": {
+      "takeaway": "Insulin suppresses hepatic ketogenesis by reducing lipolysis-derived fatty-acid delivery and promoting carbohydrate storage/oxidation.",
+      "displayText": "Insulin suppresses hepatic ketogenesis by reducing lipolysis-derived fatty-acid delivery and promoting carbohydrate storage/oxidation.\n\nInsulin decreases ketogenesis in the liver. In the absence of insulin (Type-1 DM), diabetic ketosis may occur.\nEffects of insulin on various tissues are summarized in the accompanying table.",
+      "emphasis": [
+        "Insulin suppresses hepatic ketogenesis by reducing lipolysis-derived fatty-acid delivery and promoting carbohydrate storage/oxidation"
+      ],
+      "rationales": {
+        "a": "Insulin promotes, rather than reduces, cellular potassium uptake.",
+        "b": "Insulin promotes muscle protein synthesis and suppresses catabolism.",
+        "c": "Insulin inhibits hormone-sensitive lipase rather than activating it."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          724
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__PHYSIO_CH38_Q018": {
+      "takeaway": "Insulin rapidly stimulates cellular K⁺ uptake via Na⁺/K⁺-ATPase activation; gene-expression effects occur later.",
+      "displayText": "Insulin rapidly stimulates cellular K⁺ uptake via Na⁺/K⁺-ATPase activation; gene-expression effects occur later.\n\nIncreased transport of K+ into adipocytes will occur first on giving an injection of insulin.\nBased on time of onset, actions of insulin are classified as:\nRapid (seconds): Increased permeability, leading to:\n• Increased transport of glucose, amino acids, and K+ into insulin sensitive cells\nIntermediate (minutes): Changes in activity levels of intracellular enzymes, leading to:\n• Stimulation of protein synthesis\n• Inhibition of protein degradation\n• Activation of glycolytic enzymes and glycogen synthase\n• Inhibition of phosphorylase and gluconeogenic enzymes\nDelayed (hours to days): Changed rates of transcription of DNA, leading to:\n• Increase in mRNAs for lipogenic and other enzymes",
+      "emphasis": [
+        "Insulin rapidly stimulates cellular K⁺ uptake via Na⁺/K⁺-ATPase activation; gene-expression effects occur later"
+      ],
+      "rationales": {
+        "b": "Protein synthesis changes follow signaling and are not the earliest response.",
+        "c": "Glycolysis can increase, but potassium uptake is the immediate expected effect in this item.",
+        "d": "Insulin suppresses lipolysis-related gene programs rather than increasing their mRNA."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          724
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    }
+  }
+}

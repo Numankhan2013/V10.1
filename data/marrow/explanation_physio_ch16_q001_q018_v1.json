@@ -1,0 +1,579 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Marrow ED8 Physiology Chapter 16 explanation rollout; raw imported source remains immutable.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "16",
+    "chapterTitle": "Basal Ganglia and Cerebellum",
+    "questionStart": 1,
+    "questionEnd": 18,
+    "questions": 18,
+    "status": "approved-rollout",
+    "workloadScore": 19,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 857,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__PHYS_CH16_Q001": {
+      "takeaway": "The caudate nucleus is a basal-ganglia nucleus.",
+      "displayText": "The caudate is one of the basal-ganglia nuclei. The source’s list also includes putamen, globus pallidus (external and internal segments), substantia nigra (pars compacta and reticulata), and subthalamic nucleus. Caudate plus putamen form the striatum; putamen plus globus pallidus form the lentiform nucleus.",
+      "emphasis": [
+        "The caudate is one of"
+      ],
+      "rationales": {
+        "a": "Dentate is a deep cerebellar nucleus, not a basal-ganglia structure.",
+        "b": "The thalamus is a relay structure in the basal-ganglia loop but is not one of the named basal-ganglia nuclei.",
+        "d": "The red nucleus is a midbrain motor structure associated with rubrospinal output, not a basal-ganglia nucleus."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanations contain OCR/layout damage, including tables or diagram-dependent labels.",
+        "reconstructedContent": "The caudate is one of the basal-ganglia nuclei. The source’s list also includes putamen, globus pallidus (external and internal segments), substantia nigra (pars compacta and reticulata), and subthalamic nucleus. Caudate plus putamen form the striatum; putamen plus globus pallidus form the lentiform nucleus.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 313 were rendered and checked from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Rendered printed source pages were checked; OCR substitutions were corrected and source-specific cell, pathway, and transmitter relationships retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          313
+        ]
+      }
+    },
+    "marrow__PHYS_CH16_Q002": {
+      "takeaway": "Cortical and thalamic afferents both terminate in the striatum.",
+      "displayText": "The striatum (caudate and putamen) is the principal recipient of basal-ganglia afferents. Excitatory glutamatergic projections arrive from cerebral cortex and thalamus; major outputs from GPi and substantia nigra pars reticulata are inhibitory and project to thalamus.",
+      "emphasis": [
+        "The striatum (caudate and putamen)"
+      ],
+      "rationales": {
+        "b": "Globus pallidus is part of the basal-ganglia output circuitry, not the main entry site for cortical and thalamic afferents.",
+        "c": "Substantia nigra has dopaminergic input and inhibitory output roles, but the major excitatory afferents converge on striatum.",
+        "d": "The subthalamic nucleus participates in internal circuitry; the striatum is the principal afferent recipient."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanations contain OCR/layout damage, including tables or diagram-dependent labels.",
+        "reconstructedContent": "The striatum (caudate and putamen) is the principal recipient of basal-ganglia afferents. Excitatory glutamatergic projections arrive from cerebral cortex and thalamus; major outputs from GPi and substantia nigra pars reticulata are inhibitory and project to thalamus.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 313, 314 were rendered and checked from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Rendered printed source pages were checked; OCR substitutions were corrected and source-specific cell, pathway, and transmitter relationships retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          313,
+          314
+        ]
+      }
+    },
+    "marrow__PHYS_CH16_Q003": {
+      "takeaway": "Equilibrium is least likely to be affected because vestibular and cerebellar systems maintain it.",
+      "displayText": "Basal-ganglia lesions can affect movement planning, tone, reflex activity, posture, movement speed/direction/intensity, and cognitive control (especially through caudate circuits). Equilibrium is chiefly maintained by vestibular and cerebellar systems, so it is least likely to be affected by an isolated basal-ganglia hemorrhage.",
+      "emphasis": [
+        "Basal-ganglia lesions can affect movement"
+      ],
+      "rationales": {
+        "a": "Movement planning is a basal-ganglia function and may be impaired by hemorrhage in this region.",
+        "b": "The source associates caudate circuits with cognitive control, so cognition can be affected.",
+        "d": "Skilled movements are organized in basal-ganglia circuits and may be disrupted."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanations contain OCR/layout damage, including tables or diagram-dependent labels.",
+        "reconstructedContent": "Basal-ganglia lesions can affect movement planning, tone, reflex activity, posture, movement speed/direction/intensity, and cognitive control (especially through caudate circuits). Equilibrium is chiefly maintained by vestibular and cerebellar systems, so it is least likely to be affected by an isolated basal-ganglia hemorrhage.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 314 were rendered and checked from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Rendered printed source pages were checked; OCR substitutions were corrected and source-specific cell, pathway, and transmitter relationships retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          314
+        ]
+      }
+    },
+    "marrow__PHYS_CH16_Q004": {
+      "takeaway": "The subthalamic nucleus provides glutamatergic signaling in basal-ganglia circuits.",
+      "displayText": "The subthalamic nucleus is the source’s principal glutamatergic basal-ganglia node. Its excitatory projections reach GPe and GPi; striatal projections to GPe/GPi and substantia nigra pars reticulata are GABAergic, while substantia nigra pars compacta supplies dopamine to striatum.",
+      "emphasis": [
+        "The subthalamic nucleus is the"
+      ],
+      "rationales": {
+        "a": "Striatal projection neurons are mainly GABAergic; the striatum is not the principal glutamate source in this circuit.",
+        "b": "Globus pallidus uses GABAergic output in the connections listed by the source.",
+        "c": "Substantia nigra pars compacta sends dopamine to striatum; it is not the major glutamate source."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanations contain OCR/layout damage, including tables or diagram-dependent labels.",
+        "reconstructedContent": "The subthalamic nucleus is the source’s principal glutamatergic basal-ganglia node. Its excitatory projections reach GPe and GPi; striatal projections to GPe/GPi and substantia nigra pars reticulata are GABAergic, while substantia nigra pars compacta supplies dopamine to striatum.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 314 were rendered and checked from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+          "The neurotransmitter table on printed pp. 314–315 was transcribed from its rendered rows."
+        ],
+        "reviewNote": "Rendered printed source pages were checked; OCR substitutions were corrected and source-specific cell, pathway, and transmitter relationships retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          314
+        ]
+      },
+      "displayTables": [
+        {
+          "title": "Basal-ganglia connections and neurotransmitters",
+          "source_page": 314,
+          "columns": [
+            "Connection",
+            "Neurotransmitter"
+          ],
+          "rows": [
+            [
+              "Substantia nigra pars compacta → striatum (nigrostriatal)",
+              "Dopamine"
+            ],
+            [
+              "Striatum → substantia nigra pars reticulata",
+              "GABA"
+            ],
+            [
+              "Striatum → GPe and GPi",
+              "GABA"
+            ],
+            [
+              "GPe → subthalamic nucleus",
+              "GABA"
+            ],
+            [
+              "Subthalamic nucleus → GPe and GPi",
+              "Glutamate"
+            ]
+          ]
+        }
+      ]
+    },
+    "marrow__PHYS_CH16_Q005": {
+      "takeaway": "A globus-pallidus lesion is associated with athetosis.",
+      "displayText": "The source’s movement-disorder table links a globus-pallidus lesion to athetosis: slow, spontaneous, continuous writhing of the hand, arm, neck, or face. Chorea is linked to striatum, hemiballismus to subthalamic nucleus, and Parkinsonism to substantia nigra.",
+      "emphasis": [
+        "The source’s movement-disorder table links"
+      ],
+      "rationales": {
+        "a": "Chorea is associated with striatal lesions and typically produces flicking movements, not the writhing pattern keyed here.",
+        "c": "Hemiballismus follows subthalamic-nucleus injury and causes sudden flinging of an entire limb.",
+        "d": "Parkinsonism is associated with substantia nigra degeneration and rigidity, akinesia, and tremor."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanations contain OCR/layout damage, including tables or diagram-dependent labels.",
+        "reconstructedContent": "The source’s movement-disorder table links a globus-pallidus lesion to athetosis: slow, spontaneous, continuous writhing of the hand, arm, neck, or face. Chorea is linked to striatum, hemiballismus to subthalamic nucleus, and Parkinsonism to substantia nigra.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 315, 316 were rendered and checked from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+          "The movement-disorder comparison table on printed p. 315 was transcribed from the rendered rows."
+        ],
+        "reviewNote": "Rendered printed source pages were checked; OCR substitutions were corrected and source-specific cell, pathway, and transmitter relationships retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          315,
+          316
+        ]
+      },
+      "displayTables": [
+        {
+          "title": "Hyperkinetic and Parkinsonian movement patterns",
+          "source_page": 315,
+          "columns": [
+            "Condition",
+            "Typical lesion site",
+            "Description"
+          ],
+          "rows": [
+            [
+              "Chorea",
+              "Striatum",
+              "Flicking movements of hands, face, and other body parts"
+            ],
+            [
+              "Athetosis",
+              "Globus pallidus",
+              "Spontaneous continuous writhing of hand, arm, neck, or face"
+            ],
+            [
+              "Hemiballismus",
+              "Subthalamic nucleus",
+              "Sudden flinging movements of an entire limb"
+            ],
+            [
+              "Parkinsonism",
+              "Substantia nigra",
+              "Rigidity, akinesia, and tremors"
+            ]
+          ]
+        }
+      ]
+    },
+    "marrow__PHYS_CH16_Q006": {
+      "takeaway": "Bipolar cells are not cerebellar cortical neurons.",
+      "displayText": "The cerebellar cortex contains Purkinje, granule, basket, stellate, and Golgi neurons, arranged in molecular, Purkinje-cell, and granular layers. Bipolar cells are not included in this cerebellar cortical neuron set; the deep nuclei are dentate, emboliform, globose, and fastigial.",
+      "emphasis": [
+        "The cerebellar cortex contains Purkinje"
+      ],
+      "rationales": {
+        "a": "Purkinje cells form the single-cell-thick cortical layer and are a defining cerebellar neuron type.",
+        "c": "Granule cells populate the internal granular layer of cerebellar cortex.",
+        "d": "Golgi cells are inhibitory interneurons in the granular layer."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanations contain OCR/layout damage, including tables or diagram-dependent labels.",
+        "reconstructedContent": "The cerebellar cortex contains Purkinje, granule, basket, stellate, and Golgi neurons, arranged in molecular, Purkinje-cell, and granular layers. Bipolar cells are not included in this cerebellar cortical neuron set; the deep nuclei are dentate, emboliform, globose, and fastigial.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 316 were rendered and checked from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Rendered printed source pages were checked; OCR substitutions were corrected and source-specific cell, pathway, and transmitter relationships retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          316
+        ]
+      }
+    },
+    "marrow__PHYS_CH16_Q007": {
+      "takeaway": "The red nucleus is a midbrain structure, not a cerebellar deep nucleus.",
+      "displayText": "The red nucleus lies in the midbrain and gives rise to rubrospinal influence on distal limb motor circuits; it is not a deep cerebellar nucleus. The cerebellar deep nuclei are dentate, emboliform, globose, and fastigial; globose and emboliform together form the interpositus nucleus.",
+      "emphasis": [
+        "The red nucleus lies in"
+      ],
+      "rationales": {
+        "a": "Globose is one of the deep cerebellar nuclei and forms part of the interpositus group.",
+        "b": "Emboliform is a deep cerebellar nucleus, paired with globose as interpositus.",
+        "c": "Dentate is the largest lateral deep cerebellar nucleus."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanations contain OCR/layout damage, including tables or diagram-dependent labels.",
+        "reconstructedContent": "The red nucleus lies in the midbrain and gives rise to rubrospinal influence on distal limb motor circuits; it is not a deep cerebellar nucleus. The cerebellar deep nuclei are dentate, emboliform, globose, and fastigial; globose and emboliform together form the interpositus nucleus.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 317 were rendered and checked from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Rendered printed source pages were checked; OCR substitutions were corrected and source-specific cell, pathway, and transmitter relationships retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          317
+        ]
+      }
+    },
+    "marrow__PHYS_CH16_Q008": {
+      "takeaway": "Purkinje cells are the cerebellar cortex’s sole efferent neurons.",
+      "displayText": "Purkinje cells are the only output neurons of the cerebellar cortex. Their axons project to deep cerebellar or vestibular nuclei and release inhibitory GABA; the deep nuclei then provide the cerebellum’s excitatory output to targets.",
+      "emphasis": [
+        "Purkinje cells are the only"
+      ],
+      "rationales": {
+        "b": "Bipolar cells are not the cerebellar cortex’s output cell class; Purkinje cells provide that output.",
+        "c": "Granule cells are excitatory interneurons whose parallel fibers influence Purkinje cells; they are not the cortex’s efferent output.",
+        "d": "Golgi cells are inhibitory local interneurons of the granular layer, not cerebellar cortical output neurons."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanations contain OCR/layout damage, including tables or diagram-dependent labels.",
+        "reconstructedContent": "Purkinje cells are the only output neurons of the cerebellar cortex. Their axons project to deep cerebellar or vestibular nuclei and release inhibitory GABA; the deep nuclei then provide the cerebellum’s excitatory output to targets.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 317 were rendered and checked from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Rendered printed source pages were checked; OCR substitutions were corrected and source-specific cell, pathway, and transmitter relationships retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          317
+        ]
+      }
+    },
+    "marrow__PHYS_CH16_Q009": {
+      "takeaway": "The flocculonodular lobe connects with vestibular nuclei.",
+      "displayText": "The flocculonodular lobe forms the vestibulocerebellum and connects directly with vestibular nuclei and the vestibular apparatus. It contributes to equilibrium and eye movements; it does not primarily project to the dentate or red nucleus.",
+      "emphasis": [
+        "The flocculonodular lobe forms the"
+      ],
+      "rationales": {
+        "a": "The red nucleus is a midbrain motor relay, not the direct vestibulocerebellar target.",
+        "b": "The inferior olive provides climbing-fiber input to cerebellum but is not the flocculonodular lobe’s direct output target.",
+        "d": "Dentate is a lateral deep nucleus associated with cerebrocerebellar output, not the vestibular connection asked about."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanations contain OCR/layout damage, including tables or diagram-dependent labels.",
+        "reconstructedContent": "The flocculonodular lobe forms the vestibulocerebellum and connects directly with vestibular nuclei and the vestibular apparatus. It contributes to equilibrium and eye movements; it does not primarily project to the dentate or red nucleus.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 317 were rendered and checked from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Rendered printed source pages were checked; OCR substitutions were corrected and source-specific cell, pathway, and transmitter relationships retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          317
+        ]
+      }
+    },
+    "marrow__PHYS_CH16_Q010": {
+      "takeaway": "Olivocerebellar axons from the inferior olive are climbing fibers.",
+      "displayText": "Climbing fibers arise from the inferior olivary nucleus and provide a strong excitatory input to individual Purkinje cells. Mossy fibers come from many sources, including pontine nuclei, and influence Purkinje cells indirectly through granule-cell parallel fibers; both are major excitatory cerebellar inputs.",
+      "emphasis": [
+        "Climbing fibers arise from the"
+      ],
+      "rationales": {
+        "b": "Spinocerebellar tracts are chiefly mossy-fiber inputs; climbing fibers originate in the inferior olive.",
+        "c": "Pontocerebellar fibers are mossy fibers that synapse through granule cells, not climbing fibers.",
+        "d": "Vestibulocerebellar input is a mossy-fiber pathway; climbing fibers are olivocerebellar."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanations contain OCR/layout damage, including tables or diagram-dependent labels.",
+        "reconstructedContent": "Climbing fibers arise from the inferior olivary nucleus and provide a strong excitatory input to individual Purkinje cells. Mossy fibers come from many sources, including pontine nuclei, and influence Purkinje cells indirectly through granule-cell parallel fibers; both are major excitatory cerebellar inputs.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 317, 318 were rendered and checked from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+          "The climbing-versus-mossy-fiber table on printed p. 318 was transcribed from the rendered rows."
+        ],
+        "reviewNote": "Rendered printed source pages were checked; OCR substitutions were corrected and source-specific cell, pathway, and transmitter relationships retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          317,
+          318
+        ]
+      },
+      "displayTables": [
+        {
+          "title": "Cerebellar climbing and mossy fibers",
+          "source_page": 318,
+          "columns": [
+            "Climbing fibers",
+            "Mossy fibers"
+          ],
+          "rows": [
+            [
+              "They come from one single source via the inferior olivary nucleus and end on single Purkinje cells, conveying proprioceptive input from throughout the body.",
+              "They come from many sources and synapse with granule cells in glomeruli; granule-cell axons form parallel fibers that excite multiple Purkinje cells."
+            ]
+          ]
+        }
+      ]
+    },
+    "marrow__PHYS_CH16_Q011": {
+      "takeaway": "The vestibulocerebellum comprises the nodulus and flocculus.",
+      "displayText": "The vestibulocerebellum is the nodulus and flocculus (flocculonodular lobe). The spinocerebellum comprises the vermis and adjacent medial hemispheric zones; the lateral hemispheres form cerebrocerebellum/neocerebellum.",
+      "emphasis": [
+        "The vestibulocerebellum is the nodulus"
+      ],
+      "rationales": {
+        "a": "Spinocerebellum includes vermis plus adjacent medial hemispheric portions, not vermis alone.",
+        "b": "Vermis and medial adjacent hemispheres define spinocerebellum, not the vestibulocerebellum asked here.",
+        "d": "Lateral hemispheres form cerebrocerebellum/neocerebellum, not vestibulocerebellum."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanations contain OCR/layout damage, including tables or diagram-dependent labels.",
+        "reconstructedContent": "The vestibulocerebellum is the nodulus and flocculus (flocculonodular lobe). The spinocerebellum comprises the vermis and adjacent medial hemispheric zones; the lateral hemispheres form cerebrocerebellum/neocerebellum.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 318 were rendered and checked from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Rendered printed source pages were checked; OCR substitutions were corrected and source-specific cell, pathway, and transmitter relationships retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          318
+        ]
+      }
+    },
+    "marrow__PHYS_CH16_Q012": {
+      "takeaway": "Planning and programming of voluntary movement is a neocerebellar function.",
+      "displayText": "The neocerebellum (cerebrocerebellum) plans and programs voluntary movements. The vestibulocerebellum governs balance, vestibular reflexes, and eye movements; the spinocerebellum coordinates limb movements, with vermis influencing proximal muscles and intermediate zones distal muscles.",
+      "emphasis": [
+        "The neocerebellum (cerebrocerebellum) plans and"
+      ],
+      "rationales": {
+        "a": "Equilibrium is primarily a vestibulocerebellar/flocculonodular function.",
+        "b": "Correction and coordination of ongoing movement are associated with spinocerebellar function, not the planning role asked here.",
+        "d": "Muscle tone is not the neocerebellum’s defining function in this source; the keyed role is voluntary-movement planning."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanations contain OCR/layout damage, including tables or diagram-dependent labels.",
+        "reconstructedContent": "The neocerebellum (cerebrocerebellum) plans and programs voluntary movements. The vestibulocerebellum governs balance, vestibular reflexes, and eye movements; the spinocerebellum coordinates limb movements, with vermis influencing proximal muscles and intermediate zones distal muscles.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 318 were rendered and checked from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Rendered printed source pages were checked; OCR substitutions were corrected and source-specific cell, pathway, and transmitter relationships retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          318
+        ]
+      }
+    },
+    "marrow__PHYS_CH16_Q013": {
+      "takeaway": "Resting tremor is the feature more characteristic of basal-ganglia disease than cerebellar injury.",
+      "displayText": "Cerebellar lesions cause ataxia, hypotonia, dysmetria/past-pointing, dysdiadochokinesia, decomposition of movement, intention tremor, nystagmus, and rebound phenomena. Resting tremor instead points toward basal-ganglia dysfunction, classically Parkinson disease.",
+      "emphasis": [
+        "Cerebellar lesions cause ataxia, hypotonia"
+      ],
+      "rationales": {
+        "a": "Nystagmus can accompany cerebellar dysfunction, particularly vestibulocerebellar lesions.",
+        "c": "Ataxia is a common cerebellar sign, with uncoordinated movement and gait instability.",
+        "d": "Past-pointing reflects dysmetria, a classic cerebellar deficit."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanations contain OCR/layout damage, including tables or diagram-dependent labels.",
+        "reconstructedContent": "Cerebellar lesions cause ataxia, hypotonia, dysmetria/past-pointing, dysdiadochokinesia, decomposition of movement, intention tremor, nystagmus, and rebound phenomena. Resting tremor instead points toward basal-ganglia dysfunction, classically Parkinson disease.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 318, 319 were rendered and checked from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Rendered printed source pages were checked; OCR substitutions were corrected and source-specific cell, pathway, and transmitter relationships retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          318,
+          319
+        ]
+      }
+    },
+    "marrow__PHYS_CH16_Q014": {
+      "takeaway": "The flocculonodular lobe controls vestibulo-ocular reflex coordination.",
+      "displayText": "The vestibulo-ocular reflex is coordinated by the vestibulocerebellum, especially the flocculonodular lobe. This circuit stabilizes gaze during head movement by coordinating vestibular input with eye-muscle output.",
+      "emphasis": [
+        "The vestibulo-ocular reflex is coordinated"
+      ],
+      "rationales": {
+        "a": "Spinocerebellum coordinates limb/proximal muscle movement; gaze stabilization is vestibulocerebellar.",
+        "c": "Neocerebellum plans voluntary movement sequences rather than controlling the vestibulo-ocular reflex.",
+        "d": "Occipital lobe processes visual input but is not the cerebellar control region for this reflex."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanations contain OCR/layout damage, including tables or diagram-dependent labels.",
+        "reconstructedContent": "The vestibulo-ocular reflex is coordinated by the vestibulocerebellum, especially the flocculonodular lobe. This circuit stabilizes gaze during head movement by coordinating vestibular input with eye-muscle output.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 319 were rendered and checked from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Rendered printed source pages were checked; OCR substitutions were corrected and source-specific cell, pathway, and transmitter relationships retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          319
+        ]
+      }
+    },
+    "marrow__PHYS_CH16_Q015": {
+      "takeaway": "Purkinje output is inhibitory to the deep cerebellar nuclei.",
+      "displayText": "Purkinje-cell axons inhibit deep cerebellar nuclei, chiefly through GABAergic synapses. The deep nuclei then send excitatory output to brainstem and thalamic targets, so cerebellar cortical inhibition shapes rather than directly excites the downstream motor signal.",
+      "emphasis": [
+        "Purkinje-cell axons inhibit deep cerebellar"
+      ],
+      "rationales": {
+        "b": "Climbing fibers excite Purkinje cells; they are not the target of Purkinje-cell inhibitory output.",
+        "c": "Granule cells excite Purkinje cells via parallel fibers; they are not the principal Purkinje efferent target.",
+        "d": "Spinocerebellar tracts are afferent inputs to cerebellum, not targets of Purkinje cortical output."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanations contain OCR/layout damage, including tables or diagram-dependent labels.",
+        "reconstructedContent": "Purkinje-cell axons inhibit deep cerebellar nuclei, chiefly through GABAergic synapses. The deep nuclei then send excitatory output to brainstem and thalamic targets, so cerebellar cortical inhibition shapes rather than directly excites the downstream motor signal.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 319 were rendered and checked from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Rendered printed source pages were checked; OCR substitutions were corrected and source-specific cell, pathway, and transmitter relationships retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          319
+        ]
+      }
+    },
+    "marrow__PHYS_CH16_Q016": {
+      "takeaway": "Inferior-olive climbing fibers contact Purkinje cells directly.",
+      "displayText": "Inferior olivary neurons send climbing fibers directly to Purkinje cells. Purkinje output then inhibits deep nuclei, whose own projection to downstream targets is excitatory.",
+      "emphasis": [
+        "Inferior olivary neurons send climbing"
+      ],
+      "rationales": {
+        "b": "Raphe nuclei provide serotonergic modulation but are not the climbing-fiber source projecting directly to Purkinje cells.",
+        "c": "Vestibular input can reach cerebellum, often through mossy-fiber pathways, but the direct climbing-fiber source is inferior olive.",
+        "d": "Locus coeruleus supplies noradrenergic modulation; it is not the direct climbing-fiber source."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanations contain OCR/layout damage, including tables or diagram-dependent labels.",
+        "reconstructedContent": "Inferior olivary neurons send climbing fibers directly to Purkinje cells. Purkinje output then inhibits deep nuclei, whose own projection to downstream targets is excitatory.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 319 were rendered and checked from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Rendered printed source pages were checked; OCR substitutions were corrected and source-specific cell, pathway, and transmitter relationships retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          319
+        ]
+      }
+    },
+    "marrow__PHYS_CH16_Q017": {
+      "takeaway": "Stellate and basket interneurons are in the molecular layer.",
+      "displayText": "The cerebellar cortex’s outer molecular layer contains stellate and basket cells; the middle Purkinje layer is one cell thick, and the inner granular layer contains granule and Golgi cells. Purkinje axons inhibit deep nuclei rather than releasing glutamate onto them.",
+      "emphasis": [
+        "The cerebellar cortex’s outer molecular"
+      ],
+      "rationales": {
+        "b": "The molecular layer is outermost, not innermost; the granular layer is internal.",
+        "c": "Golgi cells reside in the internal granular layer; the Purkinje layer contains Purkinje cell bodies.",
+        "d": "Purkinje cells inhibit deep nuclei, rather than releasing excitatory glutamate."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanations contain OCR/layout damage, including tables or diagram-dependent labels.",
+        "reconstructedContent": "The cerebellar cortex’s outer molecular layer contains stellate and basket cells; the middle Purkinje layer is one cell thick, and the inner granular layer contains granule and Golgi cells. Purkinje axons inhibit deep nuclei rather than releasing glutamate onto them.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 319, 320 were rendered and checked from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Rendered printed source pages were checked; OCR substitutions were corrected and source-specific cell, pathway, and transmitter relationships retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          319,
+          320
+        ]
+      }
+    },
+    "marrow__PHYS_CH16_Q018": {
+      "takeaway": "The anterior spinocerebellar tract enters through the superior cerebellar peduncle.",
+      "displayText": "The highlighted superior cerebellar peduncle carries the anterior (ventral) spinocerebellar tract, which crosses and enters the cerebellum through the superior peduncle, then terminates bilaterally. Dorsal spinocerebellar fibers enter through the inferior peduncle and remain ipsilateral.",
+      "emphasis": [
+        "The highlighted superior cerebellar peduncle"
+      ],
+      "rationales": {
+        "a": "Dorsal spinocerebellar fibers enter through the inferior peduncle and terminate ipsilaterally.",
+        "b": "Cuneocerebellar input from upper-limb proprioceptors uses the inferior peduncle.",
+        "d": "Pontocerebellar fibers enter through the middle cerebellar peduncle, not the highlighted superior peduncle."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanations contain OCR/layout damage, including tables or diagram-dependent labels.",
+        "reconstructedContent": "The highlighted superior cerebellar peduncle carries the anterior (ventral) spinocerebellar tract, which crosses and enters the cerebellum through the superior peduncle, then terminates bilaterally. Dorsal spinocerebellar fibers enter through the inferior peduncle and remain ipsilateral.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 320 were rendered and checked from the immutable PDF, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "Rendered printed source pages were checked; OCR substitutions were corrected and source-specific cell, pathway, and transmitter relationships retained.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          320
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,263 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Candidate learner-facing Marrow ED8 Biochemistry Chapter 14 Q10-Q23 explanation refinement. Raw imported source remains immutable.",
+  "scope": {
+    "subject": "Biochemistry",
+    "bank": "Marrow",
+    "chapterId": "14",
+    "chapter": "Biosynthesis of fatty acids and Eicosanoids",
+    "questionStart": 10,
+    "questionEnd": 23,
+    "questions": 12,
+    "status": "approved-rollout",
+    "workloadScore": 19.5,
+    "canonicalBaseSha": "81822e44753f5c3af7c2f2b0719d12230eed4478",
+    "sourceRawSha256": "919f0709b2eb833e302c6f7524b6dd2bd13bfaed638009375b5062135d3795b1"
+  },
+  "sourceLimitedItems": [
+    {
+      "id": "marrow__BIOCHEM_CH14_Q012",
+      "status": "needs_manual_review",
+      "sourceProblem": "The options refer to a numbered organelle list (1-5) that is absent from the rendered question page. The explanation says the correct pair is 1,3 and identifies those as endoplasmic reticulum and mitochondria, but the missing list prevents a learner from mapping the displayed options to organelles.",
+      "evidence": "ED8 Biochemistry source question p. 213; explanation p. 222; source review note in canonical question record. No replacement option mapping was invented."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH14_Q018",
+      "status": "needs_manual_review",
+      "sourceProblem": "The options refer to numbered intermediates (1-5), but the rendered question page omits the numbered list. The explanation identifies PGG2 and PGH2 as the unstable intermediates and the key selects 1,2, but their numeric mapping cannot be verified.",
+      "evidence": "ED8 Biochemistry source question p. 215; explanation pp. 224-225; source review note in canonical question record. No replacement option mapping was invented."
+    }
+  ],
+  "questions": {
+    "marrow__BIOCHEM_CH14_Q010": {
+      "takeaway": "During fatty-acid synthesis, decarboxylative condensation releases CO2 as malonyl-ACP adds two carbons to the growing chain.",
+      "displayText": "In each fatty-acid synthase cycle, the malonyl group is transferred to ACP and then undergoes decarboxylative condensation with the growing acyl group. The released CO2 helps drive carbon-carbon bond formation, while the chain gains two net carbons. Thus CO2 is produced during the condensation step; the earlier acetyl-CoA carboxylase reaction consumes bicarbonate to form malonyl-CoA.",
+      "emphasis": [
+        "decarboxylative condensation",
+        "released CO2",
+        "the chain gains two net carbons",
+        "during the condensation step"
+      ],
+      "rationales": {
+        "a": "Activation of the fatty acid to fatty acyl-CoA uses ATP; it is not the fatty-acid synthase condensation that releases the malonyl carboxyl group.",
+        "c": "Elongation describes the overall chain-growth process. The specific step that releases CO2 in each synthase cycle is condensation.",
+        "d": "Reduction uses NADPH to reduce the beta-keto and enoyl intermediates; it does not release the carboxyl-derived CO2."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry PDF pp. 213 and 217; explanation pp. 221-222."
+      ]
+    },
+    "marrow__BIOCHEM_CH14_Q011": {
+      "takeaway": "Acetyl-CoA carboxylase makes malonyl-CoA but is a separate enzyme, not a component of the fatty-acid synthase complex.",
+      "displayText": "The fatty-acid synthase (FAS) complex is a homodimer of two identical polypeptide monomers. Each monomer contains six enzyme activities and an acyl carrier protein (ACP); ACP carries the growing fatty-acid intermediates between catalytic sites. The six activities are organized as a condensing unit (ketoacyl synthase and malonyl/acetyl transacylase), a reduction unit (beta-ketoacyl reductase, dehydratase, and enoyl reductase), and a releasing unit (thioesterase). Acetyl-CoA carboxylase acts upstream: it uses acetyl-CoA, bicarbonate, and ATP to make malonyl-CoA, which FAS then uses for chain elongation.",
+      "emphasis": [
+        "Acetyl-CoA carboxylase acts upstream",
+        "make malonyl-CoA",
+        "ACP carries the growing fatty-acid intermediates",
+        "a homodimer of two identical polypeptide monomers"
+      ],
+      "rationales": {
+        "a": "Enoyl reductase is one of the reductive activities within the fatty-acid synthase complex.",
+        "b": "Ketoacyl synthase catalyzes the condensation activity of the fatty-acid synthase complex.",
+        "d": "The acetyl/malonyl transacylase activity loads the starter and extender groups onto the synthase machinery."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry PDF pp. 213 and 217; explanation p. 222."
+      ]
+    },
+    "marrow__BIOCHEM_CH14_Q013": {
+      "takeaway": "Stearate (18:0) is desaturated at Δ9 to form oleate (18:1 cis-Δ9).",
+      "displayText": "Stearic acid (18:0) is converted by Δ9 desaturase in the endoplasmic reticulum to oleic acid (18:1 cis-Δ9). Δ9 desaturase is a mixed-function oxidase that uses molecular oxygen. The ED8 explanation names NADPH; the canonical mammalian stearoyl-CoA desaturase electron-transfer chain is commonly described as NADH → cytochrome b5 reductase → cytochrome b5 → desaturase, and some sources describe NAD(P)-linked reductase activity. Humans can introduce a double bond at Δ9 but cannot introduce the additional Δ12 and Δ15 bonds needed to make linoleic and α-linolenic acids, which is why those fatty acids are essential in the diet.",
+      "emphasis": [
+        "Stearic acid (18:0)",
+        "Δ9 desaturase",
+        "oleic acid (18:1 cis-Δ9)",
+        "molecular oxygen"
+      ],
+      "rationales": {
+        "a": "Linoleic acid is 18:2 (Δ9,12); introducing the Δ12 bond is outside the desaturase capability described for humans.",
+        "c": "α-Linolenic acid is 18:3 (Δ9,12,15), so it requires additional Δ12 and Δ15 desaturation beyond conversion of stearate to oleate.",
+        "d": "Arachidonic acid is a 20-carbon, four-double-bond fatty acid derived through elongation and desaturation of essential fatty-acid precursors, not the direct Δ9 product of stearate."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "originalFragment": "■9 desaturase",
+        "evidenceBasis": [
+          "The immutable source explanation states that the first double bond is introduced at the Δ9 position.",
+          "The same explanation gives linoleic acid as Δ9,12 and linolenic acid as Δ9,12,15.",
+          "The printed question glyph is rendered as a black square in the source PDF; only the directly supported Δ9 notation is restored."
+        ],
+        "reviewNote": "Source-supported symbol normalization; no unshown option, pathway, or product was reconstructed.",
+        "reconstructedContent": "Δ9 desaturase",
+        "sourceProblem": "Printed and imported Δ9 enzyme notation appears as a black-square glyph; the explanation retains the Δ9/Δ12/Δ15 context needed to recover it."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry PDF p. 214; explanation p. 222. The printed enzyme symbol is a black square, while the explanation explicitly states Δ9 positional notation.",
+        "The source says NADPH. The standard mammalian SCD electron-transfer system is described using NADH-dependent cytochrome b5 reductase and cytochrome b5; broader reviews describe NAD(P)-cytochrome b5 reductase. The display preserves the source's NADPH statement while qualifying the standard mammalian chain rather than presenting NADPH as the only possible donor. See https://pmc.ncbi.nlm.nih.gov/articles/PMC2711665/ and https://pmc.ncbi.nlm.nih.gov/articles/PMC7483794/."
+      ]
+    },
+    "marrow__BIOCHEM_CH14_Q014": {
+      "takeaway": "Insulin promotes lipogenesis and activates pyruvate dehydrogenase; inhibiting PDH is not an insulin effect.",
+      "displayText": "In the fed state, insulin supports glucose uptake and lipogenesis. It lowers intracellular cAMP and favors dephosphorylation and activation of acetyl-CoA carboxylase; in adipose tissue it also promotes glucose entry and activates pyruvate dehydrogenase, supplying acetyl-CoA for fatty-acid synthesis. Therefore inhibition of pyruvate dehydrogenase is the false statement.",
+      "emphasis": [
+        "lowers intracellular cAMP",
+        "activation of acetyl-CoA carboxylase",
+        "activates pyruvate dehydrogenase",
+        "inhibition of pyruvate dehydrogenase is the false statement"
+      ],
+      "rationales": {
+        "a": "Insulin promotes acetyl-CoA carboxylase activity, increasing malonyl-CoA production for fatty-acid synthesis.",
+        "b": "Insulin increases glucose transport in insulin-responsive tissues, supplying substrate for lipogenesis.",
+        "d": "Lower intracellular cAMP favors phosphatase activity and the dephosphorylated, active form of acetyl-CoA carboxylase."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry PDF p. 214; explanation p. 223."
+      ]
+    },
+    "marrow__BIOCHEM_CH14_Q015": {
+      "takeaway": "Eicosanoids are signaling lipids derived mainly from 20-carbon polyunsaturated fatty acids such as arachidonic acid.",
+      "displayText": "Eicosanoids are short-acting paracrine mediators derived from arachidonic acid and other 20-carbon polyunsaturated fatty acids. They act locally through G-protein-coupled receptors. The source groups them as prostanoids—including E- and F-series prostaglandins, prostacyclin, and thromboxanes—plus leukotrienes and lipoxins. COX and LOX products therefore share the C20 precursor family but arise through distinct pathways.",
+      "emphasis": [
+        "20-carbon polyunsaturated fatty acids",
+        "arachidonic acid and other 20-carbon polyunsaturated fatty acids",
+        "short-acting paracrine mediators",
+        "G-protein-coupled receptors"
+      ],
+      "rationales": {
+        "a": "Nineteen carbons does not match the eicosanoid precursor class; the name and standard pathway refer to C20 fatty acids.",
+        "b": "Seventeen-carbon fatty acids are not the canonical precursors described for eicosanoids.",
+        "d": "Fifteen carbons is shorter than the 20-carbon arachidonic-acid family that supplies the principal eicosanoid pathways."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry PDF p. 214; explanation p. 223."
+      ]
+    },
+    "marrow__BIOCHEM_CH14_Q016": {
+      "takeaway": "Eicosanoid synthesis begins when phospholipases release arachidonic acid from membrane phospholipids.",
+      "displayText": "A stimulus such as increased intracellular calcium activates phospholipases, especially phospholipase A2, which hydrolyzes membrane phospholipids and releases arachidonic acid. The free arachidonic acid then enters either the cyclooxygenase pathway, forming PGG2 and PGH2 before prostanoids, or the lipoxygenase pathway, forming HPETEs and downstream leukotrienes or lipoxins. The hydrolase step supplies substrate to both branches.",
+      "emphasis": [
+        "phospholipase A2",
+        "releases arachidonic acid",
+        "hydrolyzes membrane phospholipids",
+        "supplies substrate to both branches"
+      ],
+      "rationales": {
+        "a": "PGH2 synthase acts after arachidonic acid has been released and carries out the cyclooxygenase/peroxidase reactions in the COX branch.",
+        "b": "Lipoxygenase acts on released arachidonic acid; it is not the shared substrate-release step for all eicosanoid branches.",
+        "d": "Cyclooxygenase is one downstream branch of eicosanoid synthesis and does not release arachidonic acid from the membrane."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry PDF p. 214; explanation p. 223. The source calls the initiating activity hydrolase and identifies phospholipase-mediated arachidonic-acid release."
+      ]
+    },
+    "marrow__BIOCHEM_CH14_Q017": {
+      "takeaway": "Aspirin inhibits cyclooxygenase products, while leukotrienes are formed through the lipoxygenase pathway.",
+      "displayText": "Aspirin inhibits cyclooxygenase (COX), which forms cyclic endoperoxides and other ring-structured prostanoids, including prostaglandins, prostacyclin, and thromboxane. Leukotrienes instead arise through the lipoxygenase pathway, so their production is least directly reduced by aspirin's COX inhibition. This pathway distinction does not mean that every eicosanoid response to aspirin is identical in every tissue.",
+      "emphasis": [
+        "inhibits cyclooxygenase (COX)",
+        "ring-structured prostanoids",
+        "lipoxygenase pathway",
+        "least directly reduced"
+      ],
+      "rationales": {
+        "a": "Prostaglandins are COX products, so aspirin can reduce their synthesis.",
+        "b": "Prostacyclin is generated downstream of COX-derived PGH2 and is among the products affected by COX inhibition.",
+        "c": "Thromboxane is a COX-derived prostanoid product, so aspirin inhibits its formation, especially in platelets."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry PDF p. 215; explanation p. 224."
+      ]
+    },
+    "marrow__BIOCHEM_CH14_Q019": {
+      "takeaway": "PGI2 (prostacyclin) is structurally distinct from the primary prostaglandins PGD2, PGE2, and PGF2α.",
+      "displayText": "PGD2, PGE2, and PGF2α are grouped as the primary prostaglandins because each contains a single cyclopentane ring, a 15-hydroxyl group, and a 13,14-trans double bond. PGI2, or prostacyclin, is formed from PGH2 but has a characteristic double-ring structure, so it is not classified as a primary prostaglandin in this structural grouping.",
+      "emphasis": [
+        "single cyclopentane ring",
+        "15-hydroxyl group",
+        "13,14-trans double bond",
+        "double-ring structure"
+      ],
+      "rationales": {
+        "a": "PGD2 is one of the primary prostaglandins in the source's structural classification.",
+        "c": "PGE2 is a primary prostaglandin with the single cyclopentane-ring structure described in the source.",
+        "d": "PGF2α is included among the primary prostaglandins; PGI2 is the structurally distinct prostacyclin."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry PDF p. 215; explanation p. 225."
+      ]
+    },
+    "marrow__BIOCHEM_CH14_Q020": {
+      "takeaway": "The source identifies lung and spleen together as tissues able to produce the full range of COX-derived products.",
+      "displayText": "The source-keyed pair is lung and spleen. COX first forms the common cyclic endoperoxide precursor PGH2; tissue-specific terminal synthases then direct it toward prostaglandins, prostacyclin, or thromboxane. The item asks which organ pair can make the whole product range, rather than which pair can make only one prostanoid.",
+      "emphasis": [
+        "lung and spleen",
+        "common cyclic endoperoxide precursor PGH2",
+        "tissue-specific terminal synthases",
+        "the whole product range"
+      ],
+      "rationales": {
+        "b": "The source does not identify spleen and liver as the pair with the full COX-product range; the keyed pair is lung and spleen.",
+        "c": "Although both organs can form prostanoids, the source's whole-range pair includes spleen rather than liver.",
+        "d": "Blood-vessel endothelium is strongly associated with prostacyclin, while thromboxane production is classically associated with platelets; this pair is not the source-keyed full-range pair."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry PDF p. 215; explanation p. 225 states lung and spleen. The source explanation does not include the underlying tissue-product table, so the distractor rationales are intentionally limited to the keyed whole-range distinction.",
+        "Cross-check for cell-specific prostanoid synthesis: https://www.ncbi.nlm.nih.gov/books/NBK218701/ ."
+      ]
+    },
+    "marrow__BIOCHEM_CH14_Q021": {
+      "takeaway": "PGE synthase converts the cyclic endoperoxide PGH2 to PGE2 through an isomerization step.",
+      "displayText": "After COX produces the cyclic endoperoxide PGH2, terminal synthases convert PGH2 into specific prostanoids. PGE synthase catalyzes formation of PGE2; this is the isomerase activity represented by the source answer. COX generates the common precursor, while the terminal synthase determines the product.",
+      "emphasis": [
+        "cyclic endoperoxide PGH2",
+        "PGE synthase",
+        "formation of PGE2",
+        "terminal synthase determines the product"
+      ],
+      "rationales": {
+        "b": "Cyclooxygenase forms the common PGG2/PGH2 intermediates from arachidonic acid; it is upstream of PGE2 formation.",
+        "c": "Hydrolase/phospholipase releases arachidonic acid from membrane phospholipids before the COX pathway begins.",
+        "d": "A reductase is not the source-identified activity that converts cyclic endoperoxides to PGE2."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry PDF p. 216; explanation p. 226."
+      ]
+    },
+    "marrow__BIOCHEM_CH14_Q022": {
+      "takeaway": "5-lipoxygenase initiates leukotriene synthesis, and cysteinyl leukotrienes contribute to bronchoconstriction in asthma.",
+      "displayText": "The abrupt wheeze and reduced peak expiratory flow are consistent with acute asthma. In 5-lipoxygenase-expressing leukocytes and other myeloid cells, arachidonic acid is converted toward leukotrienes. Leukotriene B4 (LTB4) promotes leukocyte activation and chemotaxis, while the cysteinyl leukotrienes LTC4, LTD4, and LTE4 contribute to bronchoconstriction, airway edema, and increased vascular permeability. Platelets can also contribute to cysteinyl-leukotriene production through transcellular cooperation with leukocytes; they should not be read as a major cell-autonomous 5-lipoxygenase source. This makes 5-lipoxygenase the relevant enzyme among the listed choices.",
+      "emphasis": [
+        "acute asthma",
+        "5-lipoxygenase",
+        "leukocyte activation and chemotaxis",
+        "cysteinyl leukotrienes LTC4, LTD4, and LTE4"
+      ],
+      "rationales": {
+        "a": "7-lipoxygenase is not the leukotriene-forming enzyme in the source pathway; 5-lipoxygenase initiates leukotriene synthesis.",
+        "b": "12-lipoxygenase produces other hydroxyeicosatetraenoic-acid products and is not the key leukotriene pathway enzyme in this asthma question.",
+        "c": "15-lipoxygenase is not the enzyme responsible for the 5-LOX leukotriene pathway highlighted by the source."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry PDF p. 216; explanation pp. 226-227. The source groups leukocytes, mast cells, platelets, and macrophages as leukotriene-associated cells; the display qualifies platelet participation as transcellular rather than implying a major platelet-autonomous 5-LOX pathway.",
+        "Medical cross-check: LTB4 leukocyte chemotaxis versus cysteinyl-leukotriene bronchoconstriction, https://pmc.ncbi.nlm.nih.gov/articles/PMC4088989/ ; 5-LO pathway and subtype functions, https://www.ncbi.nlm.nih.gov/books/NBK526114/ ; platelet-leukocyte transcellular LTC4 synthesis, https://ashpublications.org/blood/article/119/16/3790/29911/Cysteinyl-leukotriene-overproduction-in-aspirin ."
+      ]
+    },
+    "marrow__BIOCHEM_CH14_Q023": {
+      "takeaway": "In the 5-lipoxygenase pathway, arachidonic acid is first oxygenated to 5-HPETE before downstream leukotriene formation.",
+      "displayText": "5-lipoxygenase oxygenates arachidonic acid to 5-hydroperoxyeicosatetraenoic acid (5-HPETE). This is then reduced to 5-HETE or converted through leukotriene A4 to other leukotrienes; additional downstream reactions can form lipoxins. HPETE is therefore the first intermediate among the listed products.",
+      "emphasis": [
+        "5-lipoxygenase",
+        "5-hydroperoxyeicosatetraenoic acid (5-HPETE)",
+        "first intermediate among the listed products"
+      ],
+      "rationales": {
+        "b": "Leukotrienes form downstream after the initial HPETE intermediate in the lipoxygenase pathway.",
+        "c": "Lipoxins arise through later lipoxygenase reactions and are not the first product from arachidonic acid.",
+        "d": "HETE is formed after reduction of HPETE, so it follows the initial oxygenation step."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry PDF p. 216; explanation p. 227."
+      ]
+    }
+  }
+}

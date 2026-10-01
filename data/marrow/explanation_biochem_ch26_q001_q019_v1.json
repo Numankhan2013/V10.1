@@ -1,0 +1,291 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner-facing Marrow ED8 Biochemistry Chapter 26 explanation refinement; source records and figures remain immutable.",
+  "scope": {
+    "subject": "Biochemistry",
+    "bank": "Marrow",
+    "chapterId": "26",
+    "chapter": "RNA Synthesis and Protein Synthesis",
+    "questionStart": 1,
+    "questionEnd": 19,
+    "questions": 18,
+    "status": "approved-rollout",
+    "workloadScore": 20,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "919f0709b2eb833e302c6f7524b6dd2bd13bfaed638009375b5062135d3795b1"
+  },
+  "questions": {
+    "marrow__BIOCHEM_CH26_Q001": {
+      "takeaway": "mRNA carries protein-coding information from DNA to the ribosome, where its codons specify the amino-acid sequence.",
+      "displayText": "mRNA carries protein-coding information from DNA to the ribosome, where its codons specify the amino-acid sequence.\n\nmRNA is a protein-coding RNA.\nThe mRNA convey genetic information from DNA to the ribosome, where they specify the amino\nacid sequence of the protein products of gene expression.",
+      "emphasis": [
+        "mRNA carries protein-coding information from DNA to the ribosome, where its codons specify the amino-acid sequence"
+      ],
+      "rationales": {
+        "b": "tRNA is an adaptor that delivers amino acids and reads codons; its RNA sequence does not encode the protein product.",
+        "c": "rRNA forms the structural and catalytic core of ribosomes but is not translated into protein.",
+        "d": "snRNA participates in pre-mRNA splicing, not direct protein coding."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 404; explanation p. 410."
+      ]
+    },
+    "marrow__BIOCHEM_CH26_Q002": {
+      "takeaway": "miRNA regulates gene expression by binding target mRNAs; mRNA, rRNA and tRNA act directly in translation.",
+      "displayText": "miRNA regulates gene expression by binding target mRNAs; mRNA, rRNA and tRNA act directly in translation.\n\nmiRNA is not directly involved in protein synthesis. miRNA participates in the modulation of\ngene expression by altering mRNA function.\nThe mRNAs, rRNAs, and tRNAs are directly involved in protein synthesis. Other RNAs participate\nin either mRNA splicing (snRNAs) or modulation of gene expression by altering mRNA function\n(mi/siRNAs) and/or expression (IncRNAs).",
+      "emphasis": [
+        "miRNA regulates gene expression by binding target mRNAs; mRNA, rRNA and tRNA act directly in translation"
+      ],
+      "rationales": {
+        "a": "mRNA supplies the codon sequence read by ribosomes during protein synthesis.",
+        "b": "rRNA forms the ribosome's structural and catalytic framework needed for peptide synthesis.",
+        "c": "tRNA carries amino acids to the ribosome and pairs its anticodon with mRNA codons."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 404; explanation p. 411."
+      ]
+    },
+    "marrow__BIOCHEM_CH26_Q003": {
+      "takeaway": "RNA uses uracil in place of thymine, so adenine pairs with U in RNA.",
+      "displayText": "RNA uses uracil in place of thymine, so adenine pairs with U in RNA.\n\ne\ns\nUracil (U) replaces thymine (T) as the complementary base for adenine (A) in RNA.\nDifference between RNA and DNA\ncytosine a cytosine \\\nGuanine a Guanine rT]\nn ™ Base pair a _\nAdenine, (Al acenine, (Bl\nurect Trymine il\nNuciegbases Nucleobases\nRNA DNA\nRibonucleic acid Deoxyribonucleic acid\nSS an oe",
+      "emphasis": [
+        "RNA uses uracil in place of thymine, so adenine pairs with U in RNA"
+      ],
+      "rationales": {
+        "a": "RNA transcription does not require a primer; RNA polymerase initiates synthesis at a promoter.",
+        "b": "RNA polymerases lack the robust proofreading seen in many DNA polymerases, so this statement is false.",
+        "c": "RNA is synthesized from ribonucleotides, not deoxyribonucleotides."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 404; explanation p. 411."
+      ]
+    },
+    "marrow__BIOCHEM_CH26_Q004": {
+      "takeaway": "DNA-dependent RNA polymerase reads a DNA template and polymerizes complementary ribonucleotides to make RNA.",
+      "displayText": "DNA-dependent RNA polymerase reads a DNA template and polymerizes complementary ribonucleotides to make RNA.\n\nDNA-dependent RNA polymerase is the enzyme responsible for the polymerization of\nribonucleotides into a sequence complementary to the template strand of the gene.\nThe enzyme attaches at a specific site, the promoter, on the template strand. This is followed by\nthe initiation of RNA synthesis at the starting point, and the process continues until a termination\nsequence is reached.",
+      "emphasis": [
+        "DNA-dependent RNA polymerase reads a DNA template and polymerizes complementary ribonucleotides to make RNA"
+      ],
+      "rationales": {
+        "a": "RNA-dependent RNA polymerase copies RNA from an RNA template, as in some viruses, not a gene's DNA template.",
+        "b": "DNA-dependent RNA convertase is not the standard enzyme name for transcription.",
+        "c": "RNA-dependent replicase uses an RNA template to replicate RNA rather than transcribing a DNA gene."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 404,405; explanation p. 411."
+      ]
+    },
+    "marrow__BIOCHEM_CH26_Q005": {
+      "takeaway": "Topoisomerases relieve torsional strain and supercoils that arise as RNA polymerase opens and traverses DNA.",
+      "displayText": "Topoisomerases relieve torsional strain and supercoils that arise as RNA polymerase opens and traverses DNA.\n\nTopoisomerase prevents the formation of superhelical tensions in the DNA during transcription.\nDuring transcription, supercoils form when the DNA is unwound and can add stress to the\nmolecule. Topoisomerase activity enables RNA elongation to proceed further without being\nstopped. This action of topoisomerase also takes place during DNA replication.",
+      "emphasis": [
+        "Topoisomerases relieve torsional strain and supercoils that arise as RNA polymerase opens and traverses DNA"
+      ],
+      "rationales": {
+        "b": "RNA polymerase synthesizes RNA but does not remove the superhelical stress created by transcription.",
+        "c": "Pyrophosphatases hydrolyze pyrophosphate and do not relax DNA supercoils.",
+        "d": "DNA strand separation is performed by helicase in replication; topoisomerases relieve torsional stress during transcription."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 405; explanation p. 411,412."
+      ]
+    },
+    "marrow__BIOCHEM_CH26_Q006": {
+      "takeaway": "RNA polymerase II makes pre-mRNA and many snRNAs/miRNAs; RNA polymerase I transcribes the major rRNAs.",
+      "displayText": "RNA polymerase II makes pre-mRNA and many snRNAs/miRNAs; RNA polymerase I transcribes the major rRNAs.\n\nSynthesis of rRNA is not a function of RNA polymerase II. This is done by RNA polymerase I",
+      "emphasis": [
+        "RNA polymerase II makes pre-mRNA and many snRNAs/miRNAs; RNA polymerase I transcribes the major rRNAs"
+      ],
+      "rationales": {
+        "a": "RNA polymerase II synthesizes protein-coding pre-mRNA in eukaryotes.",
+        "c": "Many microRNAs are transcribed by RNA polymerase II from longer precursors.",
+        "d": "Several small nuclear RNAs are transcribed by RNA polymerase II; the listed rRNA synthesis is the exception."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 405; explanation p. 412."
+      ]
+    },
+    "marrow__BIOCHEM_CH26_Q007": {
+      "takeaway": "Bacterial sigma factor recognizes promoter sequences and positions core RNA polymerase for transcription initiation.",
+      "displayText": "Bacterial sigma factor recognizes promoter sequences and positions core RNA polymerase for transcription initiation.\n\nThe o subunit (sigma factor) enables RNA polymerase to recognize promoter regions on the DNA\nand thus helps to position it correctly on the template DNA. & ’\nae n%",
+      "emphasis": [
+        "Bacterial sigma factor recognizes promoter sequences and positions core RNA polymerase for transcription initiation"
+      ],
+      "rationales": {
+        "a": "The core RNA polymerase catalyzes phosphodiester-bond formation; sigma mainly provides promoter recognition.",
+        "c": "Sigma factor facilitates initiation and often dissociates after promoter escape; it is not the termination factor.",
+        "d": "RNA polymerase and associated factors open promoter DNA; sigma's key role is promoter targeting, not acting as helicase."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 405; explanation p. 412."
+      ]
+    },
+    "marrow__BIOCHEM_CH26_Q008": {
+      "takeaway": "α-Amanitin from death-cap mushrooms strongly inhibits eukaryotic RNA polymerase II, blocking mRNA synthesis.",
+      "displayText": "α-Amanitin from death-cap mushrooms strongly inhibits eukaryotic RNA polymerase II, blocking mRNA synthesis.\n\n“ey” oC ~,\nThe mushroom death cap (also known as manita phalloides) producés the toxin, o-amanitin\nwhich inhibits RNA polymerase. \\™\\ e<' >\nIn eukaryotes, o-Amanitin forms. a tight complex with the polymerase, thereby inhibiting mRNA\nsynthesis and, ultimately, protein synthesis:\nNote: Rifampicin inhibits the prokaryotic DNA-dependent RNA polymerase.\nSolution to Question 9)\" a\nRNA polymerase gives signals for the termination of RNA transcription. Proteins catalyzing\nRNA procéssing, termination}\"and polyadenylation appear to load onto RNA polymerase II soon\nafter initiation. 4\nTermination of transcription can be:\n* p dependent: When the termination signals are met, p factor binds to RNA. p factor has ATP\ndependent helicase activity. It detaches the RNA from the DNA.\n* p independent: In the 3' end of RNA, there is a series of U. RNA detaches from DNA due to\nweaker A=U at the end.",
+      "emphasis": [
+        "α-Amanitin from death-cap mushrooms strongly inhibits eukaryotic RNA polymerase II, blocking mRNA synthesis"
+      ],
+      "rationales": {
+        "a": "DNA polymerase replicates DNA; α-amanitin's classic target is eukaryotic RNA polymerase II.",
+        "c": "Topoisomerase relieves DNA torsion and is not the principal toxin target in death-cap poisoning.",
+        "d": "Helicase unwinds nucleic acids; α-amanitin instead inhibits RNA polymerase II."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 405,406; explanation p. 412."
+      ]
+    },
+    "marrow__BIOCHEM_CH26_Q009": {
+      "takeaway": "RNA polymerase II is coupled to pre-mRNA processing and termination factors; its CTD helps coordinate transcript termination and polyadenylation.",
+      "displayText": "RNA polymerase II is coupled to pre-mRNA processing and termination factors; its CTD helps coordinate transcript termination and polyadenylation.\n\nRNA polymerase gives signals for the termination of RNA transcription. Proteins catalyzing RNA processing, termination, and polyadenylation appear to load onto RNA polymerase II soon after initiation.\nTermination of transcription can be:\n• ρ dependent: When the termination signals are met, ρ factor binds to RNA. ρ factor has ATP-dependent helicase activity. It detaches the RNA from the DNA.\n• ρ independent: In the 3′ end of RNA, there is a series of U. RNA detaches from DNA due to weaker A=U at the end.",
+      "emphasis": [
+        "RNA polymerase II is coupled to pre-mRNA processing and termination factors; its CTD helps coordinate transcript termination and polyadenylation"
+      ],
+      "rationales": {
+        "a": "RNA polymerase I transcribes the large rRNA precursor; the question's processing/termination association is with Pol II.",
+        "c": "RNA polymerase III transcribes tRNAs and 5S rRNA; Pol II CTD recruits the mRNA processing machinery described.",
+        "d": "Topoisomerase manages DNA topology, not transcription termination signaling."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 406; explanation p. 412."
+      ]
+    },
+    "marrow__BIOCHEM_CH26_Q010": {
+      "takeaway": "The coding (non-template) DNA strand matches the RNA sequence except that DNA has T where RNA has U: 5′-TAAGGC-3′.",
+      "displayText": "The coding (non-template) DNA strand matches the RNA sequence except that DNA has T where RNA has U: 5′-TAAGGC-3′.\n\nThe non-template strand or coding strand in the DNA will have the same sequence of the RNA\nthat is produced, except that the non-template or coding strand has T is in place of U.\nAs all sequences are written in the 5’ to 3’ direction, unless otherwise specified, an RNA sequence\nof UAAGGC would correspond to a DNA sequence, on the non-template strand, of TAAGGC. Both\nthe non-template strand and RNA produced will be a complementary sequence to the template\nstrand. Therefore, the template strand would be ATTCCG (written 5’ to 3’).\nTemplate td SSE ESSE eT\nDNA TACGGCGTTAGACAAGTGCGTGAGTACACA\nATGCCGCAATCTGTTCACGCACTCATGTGT\need\nTranscription |\nAUGCCGCAAUCUGUUCACGCACUCAUGUGU\nRNA heeled ll ancl rlacleellecbatelelllcael\n‘\\ os\ni\nTranslation x\nProtein Met Pro Gin Ser Val His Ala Leu Met Cys hs\nae ae is",
+      "emphasis": [
+        "The coding (non-template) DNA strand matches the RNA sequence except that DNA has T where RNA has U: 5′-TAAGGC-3′"
+      ],
+      "rationales": {
+        "a": "CGGAAT is the complementary DNA sequence in the opposite orientation, not the coding strand written 5′ to 3′.",
+        "b": "RNA uses U; the DNA coding strand must use T at that position.",
+        "d": "ATTCCG is the reverse complement, not the same 5′-to-3′ coding sequence as the transcript."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 406; explanation p. 412,413."
+      ]
+    },
+    "marrow__BIOCHEM_CH26_Q011": {
+      "takeaway": "A primary transcript is the initial RNA product synthesized 5′ to 3′ before processing such as capping, splicing or cleavage.",
+      "displayText": "A primary transcript is the initial RNA product synthesized 5′ to 3′ before processing such as capping, splicing or cleavage.\n\noO ww ~\nThe RNA product, which is-synthesized ifthe 5’-3’ direction, is the primary transcript. The\nprimary transcripts are generated by. RNA polymerase II.\n< re)\nThe longest primary transcript is\\produced by the dystrophin gene.\nwa aM\nini ben 2 ino 3 ;\noS\nfe rT tan bm) Eun %\n2\" igi\n‘ | Transcription\na a —\ntranscript\n| Splicing",
+      "emphasis": [
+        "A primary transcript is the initial RNA product synthesized 5′ to 3′ before processing such as capping, splicing or cleavage"
+      ],
+      "rationales": {
+        "b": "RNA polymerase reads the DNA template 3′ to 5′ but synthesizes the RNA product 5′ to 3′.",
+        "c": "A primary transcript is RNA, not a DNA product.",
+        "d": "The polymerase product is RNA; DNA synthesis in this direction does not define a primary transcript."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 406; explanation p. 413."
+      ]
+    },
+    "marrow__BIOCHEM_CH26_Q012": {
+      "takeaway": "The 5′ 7-methylguanosine cap promotes RNA processing and translation initiation and protects mRNA from 5′ exonucleases.",
+      "displayText": "The 5′ 7-methylguanosine cap promotes RNA processing and translation initiation and protects mRNA from 5′ exonucleases.\n\n7-methyl-guanosine triphosphate capping of primary transcript is necessary for:\n* Processing of the primary transcript to mRNA\n¢ Translation of the mRNA\n+ Protection of the mRNA against nucleolytic attack by 5’-exonucleases",
+      "emphasis": [
+        "The 5′ 7-methylguanosine cap promotes RNA processing and translation initiation and protects mRNA from 5′ exonucleases"
+      ],
+      "rationales": {
+        "a": "The cap helps pre-mRNA processing and export, but its functions extend beyond maturation alone.",
+        "b": "The cap is recognized by translation initiation machinery and supports ribosome recruitment.",
+        "c": "The cap protects the 5′ end against exonucleolytic degradation; it also has processing and translation functions."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 406,407; explanation p. 413,414."
+      ]
+    },
+    "marrow__BIOCHEM_CH26_Q013": {
+      "takeaway": "Eukaryotic translation initiation factors recognize the 5′ 7-methylguanosine cap to recruit the small ribosomal subunit to mRNA.",
+      "displayText": "Eukaryotic translation initiation factors recognize the 5′ 7-methylguanosine cap to recruit the small ribosomal subunit to mRNA.\n\nThe attachment of mRNA to the ribosome is mediated through the guanyl cap at the 5' end.\nEukaryotic mRNAs have 7-methylguanosine caps at the 5' end and poly-A tails at the 3' end.\nThe 7-methylguanosine caps (Guanyl caps) are necessary for: ce\"\n+ Processing of primary transcripts to mRNA. eS\n* Mediating the attachment of mRNA to the ribosome for\\translation. x %\n+ Protection of mRNA against nucleolytic attack by’s'eXonucleases, <\nOther options: 4X Cx ‘@) >\nOption A: AAUAAA is present at the 3’ end} which is the ‘polyadenylation Sequence (poly-A tail).\nThey help stabilize the mRNA, facilitate its exit from the nucleus and aid in translation. After the\nmRNA enters the cytosol, the poly-Artail is gradually shortened.\nOption B: tRNA molecules’sérve as adapters for the translation of the information in the sequence\nof nucleotides of the mRNA“into specifice amino acids:> *\nOption D: Shine-Dalgarno sequenée initiates translation in prokaryotes.\nNote: The guanyl cap and poly-A tail aid in attaching the mRNA to the ribosome for translation,\nhowever, it is initiated and mediated firstthrough the Guanyl cap. The poly(A) tail stimulates\nrecruitment of the 408 ribosomal subunit to the mRNA, after which the ribosomal subunit binds\nto the guany] cap,at)5'end of mRNA’",
+      "emphasis": [
+        "Eukaryotic translation initiation factors recognize the 5′ 7-methylguanosine cap to recruit the small ribosomal subunit to mRNA"
+      ],
+      "rationales": {
+        "a": "The poly(A) tail stabilizes mRNA and binds poly(A)-binding protein; cap recognition is mediated by eIF4F.",
+        "b": "tRNA matches codons and carries amino acids after initiation; it does not recruit mRNA through the 5′ cap.",
+        "d": "The Shine–Dalgarno sequence is a bacterial ribosome-binding site, not the eukaryotic cap-dependent mechanism."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 407; explanation p. 414."
+      ]
+    },
+    "marrow__BIOCHEM_CH26_Q015": {
+      "takeaway": "tRNA does not undergo conventional 5′ cap addition; mRNA and several small regulatory/noncoding RNAs are capped or otherwise processed.",
+      "displayText": "tRNA does not undergo conventional 5′ cap addition; mRNA and several small regulatory/noncoding RNAs are capped or otherwise processed.\n\n- oO. “a\ntRNA of Alanine does not require 5’ capping:, « A\nCapping process protects the ‘5 end of, mRNA from the; action of exonucleases and\npolyadenylation protects the 3’ end ofthe mRNA.AllmRNA, snRNA, and siRNA undergo this\nprocess, but tRNA are comparatiyely’stable and-do hot require a capping at the 5’ end.\nA x\nNote: rRNAs also do not require 5' capping.)\n1 ‘\n, \\Z ‘i 7",
+      "emphasis": [
+        "tRNA does not undergo conventional 5′ cap addition; mRNA and several small regulatory/noncoding RNAs are capped or otherwise processed"
+      ],
+      "rationales": {
+        "b": "U6 snRNA has a specialized γ-monomethylphosphate 5′ cap rather than the common m7G cap, so it does undergo a distinct capping reaction.",
+        "c": "Histone mRNAs are unusual in lacking a poly(A) tail, but they are capped at the 5′ end.",
+        "d": "siRNA is processed from double-stranded RNA and its guide strand has a 5′ phosphate rather than a conventional m7G cap. Thus siRNA, like tRNA, can be read as not requiring conventional 5′ capping; this makes the source item ambiguous even though the printed key selects tRNA."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 407; explanation p. 415.",
+        "Review flag: the printed answer is alanine tRNA, but siRNA guide strands bear a 5′ phosphate rather than an m7G cap and are also plausibly uncapped under the broad stem wording. U6 has a distinct γ-monomethylphosphate cap. Source key is preserved pending item review."
+      ],
+      "status": "needs_manual_review"
+    },
+    "marrow__BIOCHEM_CH26_Q016": {
+      "takeaway": "Self-splicing introns catalyze their own removal through RNA folding and transesterification without a spliceosome protein catalyst.",
+      "displayText": "Self-splicing introns catalyze their own removal through RNA folding and transesterification without a spliceosome protein catalyst.\n\nSelf-splicing introns do not require a spliceosome or any other proteins for the splicing reaction.\nSelf-splicing introns fold into complex loops and undergo transesterification reactions, thus\nundergoing self splicing.\nOther options:\nOption A: Split genes have the advantage that they allow alternative splicing so that a single gene\ncan code for variant forms of the same protein.\nOption C: B-thalassemia results from the faulty splicing of the B-globin transcript. However, the\nspliceosome is normal and the reason for the fault is a mutation in the B-globin gene itself.\nOption D: Splicing occurs in the nucleus and mature transcripts are then transported into the\ncytosol for translation (protein synthesis) to occur.\n2 splicing %\nalternatively\nEe Ee «i.\nmRNAs\nJ translation J\nprotein x\nisoforms\nKo © >\n* e ~~ s ro.",
+      "emphasis": [
+        "Self-splicing introns catalyze their own removal through RNA folding and transesterification without a spliceosome protein catalyst"
+      ],
+      "rationales": {
+        "a": "Split genes permit alternative splicing and production of multiple transcripts, so they can have functional advantages.",
+        "c": "β-thalassemia can result from mutations that alter splice sites, but that is not evidence of a universal spliceosome defect.",
+        "d": "Most nuclear pre-mRNA splicing occurs in the nucleus, not the cytosol."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 407,408; explanation p. 415,416."
+      ]
+    },
+    "marrow__BIOCHEM_CH26_Q017": {
+      "takeaway": "RNA editing changes transcript sequence; the source example inserts uridines in a 3′-to-5′ editing process, unlike 5′-to-3′ polymer synthesis.",
+      "displayText": "RNA editing changes transcript sequence; the source example inserts uridines in a 3′-to-5′ editing process, unlike 5′-to-3′ polymer synthesis.\n\nee cy “w\noi &< >\noye . -* bys . : . . .\nRNA editing occurs in 3’ to 5’ direction. It istthe,process by whieh the coding sequence is changed\nat the mRNA level before translation. <<\nRNA editing occurs by insertion of additional Us atthe’ end of the mRNA and proceeds in a 3’ to\n5' direction. The guide RNA (gRNA),acts as a template for the editing process. An example of RNA\nediting is apoB gene and mRNA Shown in theimage below:\nre r\nApo B Gene\neee DNA strand\n* a | Transcription\nnn © Pre-mRNA strand\nRNA editing changes a CAA to No RNA editing\nUAA causing a STOP instead of\naGin\n| Translation |\nApolipoprotein B 48 Apolipoprotein B 100",
+      "emphasis": [
+        "RNA editing changes transcript sequence; the source example inserts uridines in a 3′-to-5′ editing process, unlike 5′-to-3′ polymer synthesis"
+      ],
+      "rationales": {
+        "a": "Transcription synthesizes RNA 5′ to 3′ by RNA polymerase.",
+        "b": "DNA replication synthesizes new DNA 5′ to 3′ on both leading and lagging strands.",
+        "c": "DNA repair synthesis by polymerases also adds nucleotides 5′ to 3′."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 408; explanation p. 416."
+      ]
+    },
+    "marrow__BIOCHEM_CH26_Q018": {
+      "takeaway": "eIF4 complex (including cap-binding eIF4E) recognizes the mRNA 5′ cap during eukaryotic initiation.",
+      "displayText": "eIF4 complex (including cap-binding eIF4E) recognizes the mRNA 5′ cap during eukaryotic initiation.\n\nThe eukaryotic initiation factor (eIF) that helps in cap binding is eIF 4.\nelF are accessory proteins that help initiate protein synthesis.\nFunctions of eIF:\n* eIF3 & elF 1A: First step of initiation involves dissociation of the ribosome into its 40S and\n60S subunits. eIF3 & eIF 1A bind to newly dissociated 40s ribosomal subunit and hence\ndelays the association of 40s and 60s.\n¢ e[F2: It is involved in the formation of binary complex (GTPteIF). This complex binds to met t\nRNA. Further, the GTP-eIF-2-tRNAi ternary complex binds to the 40S ribosomal subunit to form\nthe 43S preinitiation complex. This is the second step of initiation.\n+ eIF4: It forms the cap binding complex. It binds to 5’ terminal of mRNA molecules which are\ncapped. The mRNA would then bind to the 43S preinitiation complex to form the 48s initiation\ncomplex, in the third step of initiation. Bae\n* eIF5: It is involved in the hydrolysis of GTP bound to eIF2\\, This results imbinding of 60s subunit\nwith 48s initiation complex to form the 80s initiation coinplex. This is.thé fourth step of\ninitiation. aw 2\nr Cy ha ¥ - yore Corecess\nCom@tes scare THNA to tind = la ‘i. ,\nte tart canton \" ad » 7 =\n~ om” @e-\np .\\~ ea:\neK —\n\\ ~ Sik nde eae",
+      "emphasis": [
+        "eIF4 complex (including cap-binding eIF4E) recognizes the mRNA 5′ cap during eukaryotic initiation"
+      ],
+      "rationales": {
+        "a": "eIF1 helps start-codon selection and scanning fidelity; it is not the cap-binding factor.",
+        "b": "eIF2 delivers initiator Met-tRNAi bound to GTP to the 40S subunit, not the mRNA cap.",
+        "c": "eIF3 helps assemble initiation complexes on the small subunit; eIF4E within eIF4F binds the cap."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 408; explanation p. 416,417."
+      ]
+    },
+    "marrow__BIOCHEM_CH26_Q019": {
+      "takeaway": "eEF-2 uses GTP to translocate peptidyl-tRNA and the ribosome along mRNA during elongation.",
+      "displayText": "eEF-2 uses GTP to translocate peptidyl-tRNA and the ribosome along mRNA during elongation.\n\nEukaryotic elongation factor 2 (eEF-2) is required for the translocation of peptidyl-tRNA along the\nmRNA during translation.\nThe elongation reaction requires GTP hydrolysis. The corresponding elongation factor in bacteria\nis EF-G. Diphtheria toxin ADP-ribosylates eEF-2, leading to its inactivation.\nOther options:\nOption B: Initiation of eukaryotic protein synthesis requires several initiation factors, designated\nelF-1, eIF-2, etc.\nOption C: Chloramphenicol inhibits prokaryotic peptidyl transferase.\nOption D: Peptidyl transferase is an rRNA (within the large ribosomal subunit) involved in\nformation of the peptide bond between the amino acid groups within the A and P sites of the\nribosome.",
+      "emphasis": [
+        "eEF-2 uses GTP to translocate peptidyl-tRNA and the ribosome along mRNA during elongation"
+      ],
+      "rationales": {
+        "b": "Initiation uses eukaryotic initiation factors such as eIFs; eEF-2 functions later during elongation.",
+        "c": "Chloramphenicol targets the bacterial ribosome, not eEF-2; diphtheria toxin inactivates eEF-2.",
+        "d": "The ribosome's peptidyl-transferase center catalyzes peptide-bond formation; eEF-2 drives translocation."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 408; explanation p. 417,418."
+      ]
+    }
+  }
+}

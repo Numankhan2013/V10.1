@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner-facing Marrow ED8 Anatomy Chapter 61 explanation refinement; source diagrams and tables remain native and unchanged.",
+  "scope": {
+    "subject": "Anatomy",
+    "bank": "Marrow",
+    "chapterId": "61",
+    "chapterTitle": "Muscles and Tendons",
+    "questionStart": 15,
+    "questionEnd": 16,
+    "questions": 2,
+    "status": "approved-rollout",
+    "workloadScore": 2,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387",
+    "auditReport": "docs/question-explanations/anatomy-tail-20261001.md"
+  },
+  "questions": {
+    "marrow__ANAT_CH61_Q015": {
+      "takeaway": "Postural muscles predominantly use type I slow-twitch fibers, suited to sustained tonic activity.",
+      "displayText": "Postural muscles predominantly use type I slow-twitch fibers, suited to sustained tonic activity.\n\nPostural muscles predominantly contain Type I (slow-twitch) fibers, which show slow tonic contraction.\n\nMuscle fibers are broadly Type I (slow contracting/slow-twitch) and Type II (fast contracting/fast-twitch); Type II is further divided into IIA and IIX/IIB.",
+      "emphasis": [
+        "Postural muscles predominantly use type I slow-twitch fibers, suited to sustained tonic activity"
+      ],
+      "rationales": {
+        "a": "Type IIA fibers are fast oxidative-glycolytic and are less dominant in sustained postural work.",
+        "b": "Type IIB fibers fatigue rapidly and are not the main postural fiber type.",
+        "d": "Postural muscles can contain mixed fibers, but type I predominates."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          1185
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__ANAT_CH61_Q016": {
+      "takeaway": "A plank is isometric: muscle tension is maintained while muscle length and joint position stay essentially unchanged.",
+      "displayText": "A plank is isometric: muscle tension is maintained while muscle length and joint position stay essentially unchanged.\n\nContraction without a change in muscle length is isometric contraction; a plank is an isometric exercise.\n\nIsotonic contraction maintains constant tension while muscle length changes and may be concentric or eccentric. Concentric contraction shortens muscle, whereas eccentric contraction lengthens it.\n\nIsometric contraction generates force while maintaining constant muscle length; examples include holding a crouched position or a wall-sit.",
+      "emphasis": [
+        "A plank is isometric: muscle tension is maintained while muscle length and joint position stay essentially unchanged"
+      ],
+      "rationales": {
+        "a": "Isotonic contraction changes muscle length while maintaining relatively constant tension.",
+        "b": "Isomorphic is not the standard contraction category for holding a static plank.",
+        "d": "Isovolumetric refers to constant volume, not skeletal-muscle contraction with no length change."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          1186
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Anatomy Chapter 21 explanation refinement. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Anatomy",
+    "bank": "Marrow",
+    "chapterId": "21",
+    "chapterTitle": "White Matter of the Brain",
+    "questionStart": 15,
+    "questionEnd": 16,
+    "questions": 2,
+    "status": "approved-rollout",
+    "workloadScore": 14,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 753,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__ANAT_CH21_Q015": {
+      "takeaway": "The fornix arises from hippocampus and ends in the hypothalamic mammillary body; this source classifies it as association fibers.",
+      "displayText": "The arrow indicates the fornix. It arises from the hippocampus and ends in the mammillary body of the hypothalamus. The source classifies the fornix here as an association fiber and states that it is supplied by the anterior cerebral artery.",
+      "emphasis": [
+        "arrow indicates the fornix",
+        "arises from the hippocampus",
+        "mammillary body",
+        "anterior cerebral artery"
+      ],
+      "rationales": {
+        "b": "The habenular commissure is near the pineal gland and is distinct from the fornix, which arises in hippocampal formation.",
+        "c": "The mammillary body is the fornix destination, not its origin.",
+        "d": "The amygdala is part of the medial temporal limbic region but does not give rise to the fornix."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, including stable ID, stem, options, printed key, explanation and structured metadata",
+        "sourceExplanationPages": [
+          383
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 1 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH21_Q016": {
+      "takeaway": "The anterior commissure is commissural, whereas the pictured lamina terminalis, mammillary body, and pineal gland statements are correct.",
+      "displayText": "A is the anterior commissure, which is a commissural fiber rather than an association fiber. B is the lamina terminalis. C is the mammillary body and is a content of the interpeduncular fossa. D is the pineal gland, which lacks a blood-brain barrier.",
+      "emphasis": [
+        "anterior commissure",
+        "commissural fiber",
+        "lamina terminalis",
+        "pineal gland"
+      ],
+      "rationales": {
+        "a": "The pictured B is the lamina terminalis, so this statement is correct and does not answer which statement is incorrect.",
+        "c": "C is the mammillary body, a content of the interpeduncular fossa per the source, so this is not the incorrect statement.",
+        "d": "D is the pineal gland, which lacks a blood-brain barrier, making this statement correct."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, including stable ID, stem, options, printed key, explanation and structured metadata",
+        "sourceExplanationPages": [
+          383
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 1 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    }
+  },
+  "source": {
+    "bundle": "anatomy_ch001_063",
+    "sourceRawSha256": "f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387",
+    "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+    "sourcePdfPages": [
+      383
+    ]
+  }
+}

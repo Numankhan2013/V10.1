@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner-facing Marrow ED8 Anatomy Chapter 49 explanation refinement; native diagrams and tables remain unchanged.",
+  "scope": {
+    "subject": "Anatomy",
+    "bank": "Marrow",
+    "chapterId": "49",
+    "chapterTitle": "GI Tract",
+    "questionStart": 15,
+    "questionEnd": 17,
+    "questions": 3,
+    "status": "approved-rollout",
+    "workloadScore": 4,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387",
+    "auditReport": "docs/question-explanations/anatomy-middle-20261001.md"
+  },
+  "questions": {
+    "marrow__ANAT_CH49_Q015": {
+      "takeaway": "The external anal sphincter is skeletal muscle and is not a continuation of the rectum’s outer longitudinal muscle; that statement is false.",
+      "displayText": "The external anal sphincter is skeletal muscle and is not a continuation of the rectum’s outer longitudinal muscle; that statement is false.\n\nThe external anal sphincter is made up of striated muscle fibres. It is not a continuation of the outer longitudinal muscle of the rectum.\n\nThe external anal sphincter has upper (deep) and lower (subcutaneous or superficial) parts. The pudendal nerve innervates it and it is under voluntary control.\n\nThe internal anal sphincter is the terminal thickened part of the inner circular muscle of the large intestine. It extends from the anorectal junction to the anal verge. It is autonomically innervated: parasympathetic activity causes relaxation and sympathetic activity causes contraction.\n\nThe conjoint longitudinal muscle lies between the internal and external anal sphincters. It is the continuation of the outer longitudinal muscle of the rectum. Its fibres distally fan out and traverse the internal and external anal sphincters. It has a protective effect on haemorrhoids and degenerates with age.\n\nTreitz's muscle is the submucosal muscle of the anal canal. It is attached to the conjoint longitudinal muscle by Park's ligament, maintains the integrity of the anal cushions, and plays an important role in preventing haemorrhoids.",
+      "emphasis": [
+        "The external anal sphincter is skeletal muscle and is not a continuation of the rectum’s outer longitudinal muscle; that statement is false"
+      ],
+      "rationales": {
+        "a": "Internal sphincter is thickened continuation of inner circular smooth muscle.",
+        "b": "Conjoint longitudinal muscle supports anal canal and helps prevent prolapse/haemorrhoids.",
+        "c": "Treitz muscle is a submucosal smooth-muscle component supporting the anal canal."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          910,
+          911
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__ANAT_CH49_Q016": {
+      "takeaway": "External haemorrhoids are below the pectinate line and carry somatic pain via the pudendal nerve (S2–S4).",
+      "displayText": "External haemorrhoids are below the pectinate line and carry somatic pain via the pudendal nerve (S2–S4).\n\nThe nerve mediating pain in external haemorrhoids is the pudendal nerve, S2, S3, and S4.\n\nExternal haemorrhoids are located distal to the dentate line, are innervated by the inferior rectal branch of the pudendal nerve (somatic), and are pain sensitive. Internal haemorrhoids are proximal to the dentate line, receive parasympathetic fibres S2-S4 and sympathetic fibres L1-L2, and are pain insensitive.",
+      "emphasis": [
+        "External haemorrhoids are below the pectinate line and carry somatic pain via the pudendal nerve (S2–S4)"
+      ],
+      "rationales": {
+        "a": "Pelvic parasympathetic fibers are visceral and do not carry somatic external haemorrhoid pain.",
+        "c": "Sympathetic L1–L2 fibers are not the somatic perianal sensory pathway.",
+        "d": "Least splanchnic nerve is autonomic and unrelated to perianal pain."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          911
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__ANAT_CH49_Q017": {
+      "takeaway": "The rectum commonly has three transverse folds (Houston valves).",
+      "displayText": "The rectum commonly has three transverse folds (Houston valves).\n\nThree transverse mucosal folds, also known as Houston's valves, are commonly present in the rectum.\n\nThe transverse mucosal folds are permanent and become very prominent on distension of the rectum. The superior transverse fold is present near the beginning of the rectum and may occasionally encircle the entire lumen. The middle transverse fold is the largest and constant fold, present above the rectal ampulla, and projects from the anterior and right wall of the rectum. The inferior transverse fold is the most variable and is found on the left side.\n\nApart from these, the rectal mucosa has several longitudinal folds that disappear on distension of the rectum.",
+      "emphasis": [
+        "The rectum commonly has three transverse folds (Houston valves)"
+      ],
+      "rationales": {
+        "a": "Two folds undercounts the usual three.",
+        "c": "Four exceeds the commonly described three folds.",
+        "d": "Five is not the standard count."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          912
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    }
+  }
+}

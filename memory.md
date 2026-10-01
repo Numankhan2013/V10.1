@@ -828,3 +828,39 @@ pass with no page errors. Initial Android failure was a Pixel Launcher ANR
 overlay; the identical APK passed on retry. PR #80 remains draft; production
 and main unchanged. Physical acceptance remains separate. Final documentation
 was recorded through GitHub during workspace offline; fetch before local work.
+
+
+
+### Explanation refinement candidate — 2026-09-30
+
+User-directed parallel Luna wave: 83 new explanations plus nine existing emphasis repairs, source inventory 753 enhanced / 1,958 pending. Latest released preview remains 670 until exact-head combined CI passes. Primary owns shared integration; immutable sources/omission gates are preserved. See canonical STATE.md, wave manifest and docs/question-explanations/ audits. Production is not promoted.
+
+## 2026-10-01 — Verified explanation release and continued queue
+
+Last released product d4abce86068b4221e61e541c34dd29258de61cca: 753 enhanced/1,958 pending, Engineering 36742636966 and full Android/PWA/phone-tablet 36742637191 successful, preview https://e954d103.nk-qbank.pages.dev. Production remains untouched. User requests parallel Luna refinement of all remaining actionable explanations, source self-review by workers, exception-only integrator review and one combined build. Resume queue pins existing 753 exact augmentation hashes, all immutable source hashes, 1,935 actionable IDs and 23 deferred Marrow source gates. First local source-validated integration checkpoint adds149 (59 Anatomy/64 Biochemistry/26 Physiology): candidate902 enhanced/1,809pending, 1,786 actionable remain. This candidate is unfinished and unverified by full CI; full-queue validation deliberately rejects release until complete. Consult STATE and the latest wave manifest for newer checkpoints.
+
+- 2026-10-01 continued local integration: 710 new validated explanations / 1,463 candidate enhanced; 1,225 actionable remain plus 23 existing deferred gates. Anatomy status metadata and adrenal variant rationale corrected. Released source ledger hash is now checked against the earlier certified wave even when regenerating pins. Primary Anatomy and Physiology plus reassigned Biochemistry tail worker continue; no new preview deployment yet.
+
+- 2026-10-01 checkpoint: 1,027 new explanations integrated/validated / 1,780 candidate enhanced; 908 actionable remaining, 23 source gates unchanged. Biochemistry263 and Anatomy tail252 complete; reassigned worker starts Physiology tail261. Primary Anatomy315/662 and primary Physiology197/497 complete. User reaffirmed single final combined push/build, no partial deployment.
+
+- 2026-10-01 continued checkpoint: 1,206 new validated / 1,959 candidate enhanced, 729 actionable remaining plus23 source-held. Primary Anatomy338/662, primary Physiology212/497, tail Physiology141/261. Latest pins/source/gates/baseline augmentation hashes pass; no preview push/build yet.
+
+- 2026-10-01 checkpoint: 1,385 new validated / 2,138 candidate enhanced,550 actionable remain. Biochemistry worker completed Bio263,Anatomy-tail252,Physiology-tail261 and continues untouched middle165. Primary Anatomy397/662,Physiology212/332. Duplicate Anatomy emphasis anchor corrected; worker validator now catches duplicate anchors locally. No push/deployment before full completion.
+
+- 2026-10-01 checkpoint1,698 new validated /2,451 candidate enhanced,237 actionable remain. Anatomy primary525complete now authors untouchedPhys25–27; primaryPhys232/263; tailworker authors Anatomy43–50. Pancreatic rationale corrected after actualoptiontext review, combinedchecks pass. One final build/push remains deferred until all authoringdone.
+
+- 2026-10-01 checkpoint1,887new/2,640enhanced validates;48actions remain Ch25–26. FinalPDFexceptionreview recovered Ch27Q9 five-roworganflowtablefromp492 via existing orphan tableblock withPDFhash provenance;Ch27Q13actualfigure2D/2L vsD/L explains8x, sourcecontradiction resolved. Added narrow orphanblock/pagevalidator and regression/browserowner coverage; immutablebanks/gates unchanged. Full previewbuild awaits final48.
+
+- Final1935-actionable authoring complete:2688enhanced/23deferred/2711total,zero unprocessed IDs. All55localchecks pass; final2orphan tablesCh25Q6/Ch26Q3 now rendered displayTables withsourceIDs/pages/PDFhash,completewave revalidated aftermerge. Ten tableowners recovered in thiswave. Existing753augmentation fingerprints,rawbanks,gates unchanged. Three explicit sourcecaveats remain inenhanceditems (Bio17Q22 missinglabs,Bio26Q15capping ambiguity,Phys32Q28fiberwording). One combined canonical push/fullpreviewbuild next; no newcandidate buildverification yet.
+
+- Combined product08ded423 pushed: Engineering36841656512 passed; fullrun36841656565 failed in explanationbrowser onPHYSIO_CH23_Q018 selectiveemphasis beforedeployment. Rootcause: presentationtransform scientificformats text(H+ ->sup), but leavesanchorplainescaped. Narrowfix scientificformatsneedle identically. Actualrendererregression checksfailingH+,escaping,all2546authored displayconfigs including1935new; early inbothCIworkflows. All56localchecks pass; replacementbuild required. No source/explanationrecords changed byfix.
+
+## 2026-10-01 — Completed explanation release and scientific-emphasis regression
+
+Product `9d318f79d73d6f22a3c6f508e10f1fb243aea349` passed Engineering `36870646707` and full Android/PWA run `36870646652`, including phone/tablet Android WebView interaction, hardware Back, force-stop resume, review and FSRS checks. Preview: https://ac2f50ca.nk-qbank.pages.dev. Production was not promoted; physical acceptance is not implied.
+
+All 1,935 actionable explanations from the initial 1,958 pending are authored and integrated: 914 Anatomy,263 Biochemistry,758 Physiology. Total2,688 enhanced /23 explicitly source-held /2,711. Complete-wave checks protect old753 augmentation fingerprints,immutable raw banks and unchanged answer gates. Ten source-reviewed explanation table owners were recovered, including three omitted table objects anchored to existing table-block IDs and original explanation pages.
+
+Initial combined full run36841656565 failed before deployment on PHYSIO_CH23_Q018 emphasis: scientific formatter converted H+ to superscript HTML while anchor matching used plain escaped text. Fixed identical scientific formatting on text/needle, and added actual-renderer regression for the exact case, escaping and all2,546 authored display-text configurations. This regression runs early in bothCI workflows; all56 local checks passed. Replacement full browser suite passed3,870 exact runtime checks and562 rendered cases across phone/tablet. Live downloaded preview matches all2,688 approved configs exactly, includes corrected renderer and three orphan table recoveries; HTML SHA-256 bdc7702f8b9b6dc68b3ae1fbd6d7cd963baf6f2b274360c2b9eb158a3751c4f2.
+
+Three enhanced items retain explicit source caveats (Bio17Q22 absent labs,Bio26Q15 capping ambiguity,Phys32Q28 fiber wording). All23 pre-existing pending source gates are deferred at user request. No actionable explanation work remains; do not restart completed workers. This final certification is docs-only with skipCI so it does not schedule another preview build.

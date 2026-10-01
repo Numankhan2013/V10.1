@@ -97,6 +97,8 @@ def validate_augmented_question(qid: str, cfg: dict, source_q: dict, origin: str
         fail(f"{origin}: invalid emphasis count for {qid}")
     if any(not str(p).strip() for p in emphasis):
         fail(f"{origin}: blank emphasis anchor for {qid}")
+    if any(str(p) not in display for p in emphasis):
+        fail(f"{origin}: emphasis anchor absent from display text for {qid}")
     if "sourceText" in cfg:
         fail(f"{origin}: learner augmentation embeds forbidden sourceText for {qid}")
     options = source_q.get("options", [])
@@ -113,6 +115,50 @@ def validate_augmented_question(qid: str, cfg: dict, source_q: dict, origin: str
         fail(f"{origin}: distractor rationale mapping mismatch for {qid}")
     if any(not str(reason).strip() for reason in rationales.values()):
         fail(f"{origin}: blank distractor rationale for {qid}")
+    if 'displayTables' in cfg:
+        reconstruction = cfg.get('reconstruction', {})
+        if reconstruction.get('status') != 'resolved_reconstruction' or not all(
+            reconstruction.get(key) for key in ('sourceProblem', 'reconstructedContent', 'evidenceBasis', 'reviewNote')
+        ):
+            fail(f"{origin}: display tables require resolved source reconstruction for {qid}")
+        native = reviewed_table_sources(source_q, cfg)
+        reviewed = cfg['displayTables']
+        if not isinstance(reviewed, list) or len(reviewed) != len(native):
+            fail(f"{origin}: display table ownership/count mismatch for {qid}")
+        for table, source_table in zip(reviewed, native):
+            if table.get('source_page') != source_table.get('source_page'):
+                fail(f"{origin}: display table source page mismatch for {qid}")
+            columns, rows = table.get('columns'), table.get('rows')
+            if not isinstance(columns, list) or not columns or not isinstance(rows, list) or not rows:
+                fail(f"{origin}: empty reviewed display table for {qid}")
+            if any(not isinstance(label, str) or not label.strip() for label in columns):
+                fail(f"{origin}: invalid reviewed table header for {qid}")
+            if any(not isinstance(row, list) or len(row) != len(columns) or any(
+                not isinstance(cell, str) or not cell.strip() for cell in row
+            ) for row in rows):
+                fail(f"{origin}: invalid reviewed table cells for {qid}")
+
+
+def reviewed_table_sources(source_q: dict, cfg: dict) -> list[dict]:
+    """Include explicitly recovered source table blocks whose objects were omitted."""
+    structured = source_q.get('structuredExplanation') or {}
+    native = structured.get('tables') or []
+    reconstruction = cfg.get('reconstruction') or {}
+    recovered = reconstruction.get('orphanTableIds') or []
+    native_ids = {table.get('table_id') for table in native}
+    block_ids = {block.get('table_id') for block in structured.get('blocks', []) if block.get('type') == 'table'}
+    if len(set(recovered)) != len(recovered) or not set(recovered) <= block_ids - native_ids:
+        fail('Recovered table must match an omitted native source block')
+    provenance = source_q.get('provenance') or {}
+    pages = provenance.get('explanationPages') or provenance.get('explanation_pages') or []
+    reviewed = cfg.get('displayTables') or []
+    result = list(native)
+    for table_id in recovered:
+        matches = [table for table in reviewed if table.get('table_id') == table_id]
+        if len(matches) != 1 or matches[0].get('source_page') not in pages:
+            fail('Recovered table must have a unique ID and original explanation page')
+        result.append({'table_id': table_id, 'source_page': matches[0]['source_page']})
+    return result
 
 
 def approved_batch(record: dict, path: Path, expected_subject: str) -> bool:

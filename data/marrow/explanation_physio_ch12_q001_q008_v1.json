@@ -1,0 +1,204 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Marrow ED8 Physiology Chapter 12 explanation rollout; raw imported source remains immutable.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "12",
+    "chapterTitle": "Somatosensory Pathways",
+    "questionStart": 1,
+    "questionEnd": 8,
+    "questions": 8,
+    "status": "approved-rollout",
+    "workloadScore": 15,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 753,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__PHYS_CH12_Q001": {
+      "takeaway": "Bell–Magendie law assigns sensory input to dorsal roots and motor output to ventral roots.",
+      "displayText": "Bell–Magendie law states that spinal dorsal roots carry sensory (afferent) fibers, whereas ventral roots carry motor (efferent) fibers. It is an anatomical rule about spinal nerve-root direction.\n\nIt is distinct from sensory doctrines: the law of projection links a sensation to its receptor location; the doctrine of specific nerve energies ties a pathway to its characteristic modality; the Weber–Fechner relation describes perceived magnitude relative to log stimulus intensity; labelled-line theory describes modality-specific pathways.\n\n The source’s laws in sensory physiology also distinguish these doctrines. Müller’s doctrine of specific nerve energies: stimulation of nerve pathways from a particular sense organ evokes the sensation for which its receptor is specialized, no matter how or where along the pathway activity is initiated. Law of projection: stimulation anywhere along a sensory pathway to cortex produces a conscious sensation referred to the receptor’s location. Weber–Fechner law: perceived magnitude is proportional to the log of stimulus intensity. Labelled-line theory: sensations from different body parts travel along specified paths; in the posterior column, fibers from lower body parts are placed medially.\n\n The source examples make the doctrines concrete: a nerve pathway evoked from a particular sense organ produces its specialized sensation whether it is stimulated at its origin or elsewhere; sensation is referred to the receptor’s location; magnitude varies with log stimulus intensity; and lower-body posterior-column fibers are placed medially. Müller’s name is also written Muller in many teaching texts.",
+      "emphasis": [
+        "dorsal roots carry sensory (afferent) fibers",
+        "ventral roots carry motor (efferent) fibers",
+        "Bell–Magendie law"
+      ],
+      "rationales": {
+        "a": "The law of projection concerns where a sensation is perceived when a pathway is stimulated, not the sensory or motor function of spinal roots.",
+        "c": "The labelled-line principle describes modality-specific sensory pathways; it does not define dorsal and ventral roots.",
+        "d": "Weber–Fechner relates perceived magnitude to stimulus intensity and does not describe spinal root function."
+      }
+    },
+    "marrow__PHYS_CH12_Q002": {
+      "takeaway": "Sensory information reaches cortex from the thalamus through a tertiary neuron.",
+      "displayText": "The usual conscious somatosensory relay is a three-neuron chain: the primary neuron carries input from the receptor into the central nervous system; the secondary neuron ascends and synapses in the thalamus; and the tertiary neuron projects from the thalamus to the postcentral gyrus.\n\nIf the signal has reached the thalamus and the postcentral gyrus itself is intact, failure of the final thalamocortical projection prevents the sensation from reaching cortex. The source therefore identifies the tertiary neuron as the interrupted relay.\n\n As the printed source explains, secondary sensory neurons in the thalamus synapse onto tertiary sensory neurons, which project to the somatosensory region of cerebral cortex. The signal reaches the thalamus and the postcentral gyrus is intact, but sensation is not perceived; the pathway break is therefore between thalamus and gyrus at the tertiary neuron.",
+      "emphasis": [
+        "three-neuron chain",
+        "secondary neuron ascends and synapses in the thalamus",
+        "tertiary neuron projects from the thalamus to the postcentral gyrus"
+      ],
+      "rationales": {
+        "a": "The primary neuron carries peripheral receptor input toward the spinal cord or brainstem; the scenario places the interruption after the thalamus.",
+        "b": "The receptor initiates transduction of the hot stimulus. It cannot explain a break in transmission from an already reached thalamus to intact cortex.",
+        "c": "The secondary neuron carries the ascending projection to the thalamus, which the stem says has been reached."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanation layer contains OCR substitutions or damaged text that obscures source-specific details.",
+        "reconstructedContent": "The imported explanation is OCR-damaged although the printed source passage and relay diagram are legible. The learner-facing text was reconstructed from printed page 232, preserving the primary-to-secondary-to-tertiary relay and the keyed thalamocortical break..",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology printed page 232, rendered from the immutable PDF with SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe, was visually reviewed for the affected explanation/figure."
+        ],
+        "reviewNote": "The imported explanation is OCR-damaged although the printed source passage and relay diagram are legible. The learner-facing text was reconstructed from printed page 232, preserving the primary-to-secondary-to-tertiary relay and the keyed thalamocortical break.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          232
+        ]
+      }
+    },
+    "marrow__PHYS_CH12_Q003": {
+      "takeaway": "Major ascending somatic pathways cross either in the spinal cord or in the medulla, depending on the tract.",
+      "displayText": "The main ascending somatic pathways decussate at different levels. Spinothalamic fibers cross in the spinal cord, usually within one or two segments after entering. Dorsal-column fibers ascend ipsilaterally and cross as internal arcuate fibers in the caudal medulla before forming the medial lemniscus. Thus the source locates the principal crossings in the spinal cord and medulla oblongata.\n\nThis crossing pattern explains why a spinal cord lesion causes contralateral pain and temperature loss below the lesion but ipsilateral loss of vibration and conscious proprioception until a lesion is above the medullary dorsal-column decussation.\n\n Most ascending pathways and tracts decussate or cross, although some remain uncrossed. The dorsal-column pathway crosses in the medulla oblongata; the anterior and lateral spinothalamic tracts cross obliquely in spinal segments.\n\n Thus the crossing occurs mainly in the spinal cord and medulla oblongata; most ascending tracts cross, but some remain uncrossed.",
+      "emphasis": [
+        "cross in the spinal cord",
+        "cross as internal arcuate fibers in the caudal medulla",
+        "spinal cord and medulla oblongata"
+      ],
+      "rationales": {
+        "a": "The midbrain is not the principal crossing site for these spinal ascending pathways; dorsal-column crossing is in the medulla.",
+        "b": "The pons is not the characteristic crossing site for the dorsal-column or spinothalamic pathways described here.",
+        "d": "This omits the medullary crossing of the dorsal-column pathway."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanation layer contains OCR substitutions or damaged text that obscures source-specific details.",
+        "reconstructedContent": "The imported explanation includes OCR artifacts; printed source page 232 confirms the principal crossing sites and the distinction between spinal and medullary decussation..",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology printed page 232, rendered from the immutable PDF with SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe, was visually reviewed for the affected explanation/figure."
+        ],
+        "reviewNote": "The imported explanation includes OCR artifacts; printed source page 232 confirms the principal crossing sites and the distinction between spinal and medullary decussation.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          232
+        ]
+      }
+    },
+    "marrow__PHYS_CH12_Q004": {
+      "takeaway": "Conscious proprioception ascends in the dorsal-column–medial-lemniscus pathway.",
+      "displayText": "Conscious proprioceptive information—joint position and movement that can be perceived—is carried mainly in the dorsal-column–medial-lemniscus system. Primary afferents ascend ipsilaterally in the fasciculus gracilis or cuneatus, synapse in the medulla, cross, then ascend to the thalamus and somatosensory cortex.\n\nUnconscious proprioceptive input travels chiefly in spinocerebellar pathways to the cerebellum. The anterolateral system carries pain, temperature, and crude touch rather than the source-keyed conscious position sense.\n\n The source states directly: conscious proprioception is carried by the dorsal column, while unconscious proprioception is carried by the spinocerebellar tract. The anterolateral system in options B and C carries pain, temperature, and crude touch.\n\n In the source options, the anterior and lateral spinothalamic tracts carry pain, temperature, and crude touch; they do not carry conscious proprioception.",
+      "emphasis": [
+        "Conscious proprioceptive information",
+        "dorsal-column–medial-lemniscus system",
+        "Unconscious proprioceptive input"
+      ],
+      "rationales": {
+        "b": "The anterior spinothalamic tract is part of the anterolateral system and carries crude touch rather than conscious proprioception.",
+        "c": "The lateral spinothalamic tract carries pain and temperature, not conscious proprioception.",
+        "d": "The vestibular tract contributes to balance and postural control; it is not the ascending conscious proprioceptive pathway."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanation layer contains OCR substitutions or damaged text that obscures source-specific details.",
+        "reconstructedContent": "The imported explanation contains severe OCR substitutions.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology printed page 233, rendered from the immutable PDF with SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe, was visually reviewed for the affected explanation/figure."
+        ],
+        "reviewNote": "The imported explanation contains severe OCR substitutions. Printed source page 233 confirms conscious proprioception in dorsal columns, unconscious proprioception in spinocerebellar tracts, and the anterolateral pain, temperature, and crude-touch modalities.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          233
+        ]
+      }
+    },
+    "marrow__PHYS_CH12_Q005": {
+      "takeaway": "Dorsal-column fibers are large, rapidly conducting, and myelinated; they carry discriminative touch and proprioceptive signals.",
+      "displayText": "The dorsal-column–medial-lemniscus pathway uses large-diameter, heavily myelinated axons with rapid conduction (the source gives approximately 30–110 m/s). It carries discriminative or fine touch, vibration, and conscious proprioception.\n\nThe contrast with the anterolateral system is useful: its smaller, more slowly conducting fibers transmit pain, temperature, and crude touch. An unmyelinated fiber is therefore not a characteristic dorsal-column axon.\n\n The source describes the dorsal column–medial lemniscal system as composed of large, myelinated nerve fibers, transmitting signals to the brain at high velocities of 30 to 110 m/sec. Fine touch travels in the dorsal column; crude touch travels in the anterolateral column.\n\n Thus these high-velocity dorsal-column signals reach the brain; this is why the unmyelinated option is false.",
+      "emphasis": [
+        "large-diameter, heavily myelinated axons",
+        "30–110 m/s",
+        "fine touch, vibration, and conscious proprioception"
+      ],
+      "rationales": {
+        "a": "Large axonal diameter is a typical dorsal-column feature and supports fast conduction.",
+        "b": "Fine touch is carried in the dorsal-column pathway, so this is a true property.",
+        "c": "Rapid conduction is expected from the pathway’s large, heavily myelinated fibers."
+      }
+    },
+    "marrow__PHYS_CH12_Q006": {
+      "takeaway": "Primary somatosensory cortex in Brodmann areas 3, 1, and 2 processes tactile input.",
+      "displayText": "Tactile information reaches primary somatosensory cortex (S1) in the postcentral gyrus, classically Brodmann areas 3, 1, and 2. Area 3 receives major thalamic input; processing continues across areas 1 and 2, which contribute to features such as texture and shape.\n\nSomatosensory association areas 5 and 7 integrate this input into more complex body and object representations. The question asks for the cortical areas processing tactile stimulation, so S1 areas 3, 1, and 2 are the keyed choice.\n\n The human cerebral cortex is divided into about 50 distinct areas called Brodmann’s areas, based on histological structural differences. Areas 3, 1, and 2 constitute primary somatosensory area I; areas 5 and 7 constitute the somatosensory association area. Both process sensory information such as tactile stimulation.\n\n These areas process sensory information such as tactile stimulation.",
+      "emphasis": [
+        "primary somatosensory cortex (S1)",
+        "Brodmann areas 3, 1, and 2",
+        "areas 5 and 7"
+      ],
+      "rationales": {
+        "b": "Areas 4 and 6 are associated with primary motor and premotor functions, not primary tactile processing.",
+        "c": "Areas 44 and 45 are in the inferior frontal language network, not the primary somatosensory cortex.",
+        "d": "Areas 41 and 42 are auditory cortical regions in the temporal lobe."
+      }
+    },
+    "marrow__PHYS_CH12_Q007": {
+      "takeaway": "The sensory homunculus is arranged in an orderly, largely vertical body map along the postcentral gyrus.",
+      "displayText": "The body is represented somatotopically along the postcentral gyrus: lower limb and foot lie medially and superiorly, while face and head lie more laterally and inferiorly. In the standard diagram the map runs in an overall vertical orientation.\n\nThe sensory homunculus is distorted because cortical territory is allocated according to sensory innervation and discrimination demands rather than physical body size. The motor homunculus is a related but distinct map of motor output from precentral cortex.\n\n The source describes the cortical homunculus as a distorted representation of the human body: a neurological map of brain areas and proportions dedicated to processing motor or sensory functions for different body parts. The size of the cortical receiving area for impulses from a particular part is proportional to use. The sensory homunculus topographically represents sensory input to somatosensory cortex from different parts of the body; the motor homunculus topographically represents motor output from primary motor cortex. The source calls the body representation vertical, with legs at the top and head at the bottom of the postcentral gyrus.\n\n The source figure depicts the sensory homunculus along the postcentral gyrus, with body parts in order, legs at the top and head at the bottom. This is a map of cortical processing, not literal body proportions.",
+      "emphasis": [
+        "somatotopically along the postcentral gyrus",
+        "lower limb and foot lie medially and superiorly",
+        "overall vertical orientation"
+      ],
+      "rationales": {
+        "a": "A horizontal arrangement does not match the classic medial-to-lateral, superior-to-inferior somatotopic sequence.",
+        "c": "Sagittal names a plane of section, not the orientation of the cortical body map in the source diagram.",
+        "d": "A defined body map is present; “none” discards the somatotopic representation."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanation layer contains OCR substitutions or damaged text that obscures source-specific details.",
+        "reconstructedContent": "The imported explanation is OCR-damaged.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology printed page 234, rendered from the immutable PDF with SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe, was visually reviewed for the affected explanation/figure."
+        ],
+        "reviewNote": "The imported explanation is OCR-damaged. Printed page 234 shows the intact explanation and labelled sensory homunculus; the learner-facing text restores the vertical somatotopic orientation and the sensory-versus-motor map distinction.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          234
+        ]
+      }
+    },
+    "marrow__PHYS_CH12_Q008": {
+      "takeaway": "In the source’s sensory homunculus, the lips have the largest cortical representation among the listed options.",
+      "displayText": "The source’s sensory homunculus assigns the largest representation among these choices to the lips. Cortical territory reflects the density of sensory afferents and the need for fine discrimination, not the physical size of the body part.\n\nThe face, lips, and thumb occupy disproportionately large sensory cortical areas, whereas the trunk and back occupy relatively less. The keyed comparison is lips versus hand, thumb, and back.\n\n The source explanation states that the relative sizes of cortical receiving areas in the sensory homunculus are proportionate to use and directly proportional to the number of specialized sensory receptors in each peripheral body area. Lips have the greatest representation, followed by the face and thumb; the trunk and lower body occupy relatively small areas.\n\n In the somatic sensory cortex, lips have the greatest area of the body parts in this item, followed by face and thumb; the trunk and lower part of the body are represented by relatively small areas.",
+      "emphasis": [
+        "largest representation among these choices to the lips",
+        "density of sensory afferents",
+        "not the physical size of the body part"
+      ],
+      "rationales": {
+        "b": "The hand has substantial cortical representation, but the source’s comparison keys the lips as the largest of these four choices.",
+        "c": "The thumb is highly represented for fine sensation, but it is not the source-keyed largest choice here.",
+        "d": "The back has much less cortical territory than the densely innervated lips."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanation layer contains OCR substitutions or damaged text that obscures source-specific details.",
+        "reconstructedContent": "The imported explanation contains OCR substitutions.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology printed page 235, rendered from the immutable PDF with SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe, was visually reviewed for the affected explanation/figure."
+        ],
+        "reviewNote": "The imported explanation contains OCR substitutions. Printed page 235 confirms the lips as the largest among the listed sensory representations, with the face and thumb also large and trunk/lower body relatively small.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          235
+        ]
+      }
+    }
+  }
+}

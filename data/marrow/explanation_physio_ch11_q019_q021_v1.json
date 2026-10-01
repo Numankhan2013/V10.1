@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Marrow ED8 Physiology Chapter 11 explanation rollout; raw imported source remains immutable.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "11",
+    "chapterTitle": "Sensory Receptors",
+    "questionStart": 19,
+    "questionEnd": 21,
+    "questions": 3,
+    "status": "approved-rollout",
+    "workloadScore": 6,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 753,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__PHYS_CH11_Q019": {
+      "takeaway": "Primary cutaneous hyperalgesia reflects sensitization and a lowered threshold of nociceptors at the injured skin site.",
+      "displayText": "Primary cutaneous hyperalgesia is an exaggerated pain response to a noxious stimulus at the site of tissue injury. Local inflammatory mediators, including histamine and prostaglandins, sensitize cutaneous nociceptor endings and lower their activation threshold, so a normally painful stimulus produces a greater response.\n\nSecondary hyperalgesia occurs in surrounding, uninjured skin when central facilitation increases transmission in the spinal cord or higher pathways. The distinction is the site and mechanism: peripheral nociceptor sensitization at the lesion is primary; enhanced central sensory transmission outside it is secondary.\n\n The source also states that hyperalgesia and allodynia signify increased sensitivity of nociceptive afferent fibers. Causes include excessive sensitivity of pain receptors (primary hyperalgesia) and facilitation of sensory transmission (secondary hyperalgesia). Extreme sensitivity of sunburned skin is an example of primary hyperalgesia: local tissue products from the burn, including histamine, prostaglandins, and others, sensitize endings. Secondary hyperalgesia frequently follows lesions in the spinal cord or thalamus.",
+      "emphasis": [
+        "at the site of tissue injury",
+        "sensitize cutaneous nociceptor endings",
+        "Secondary hyperalgesia"
+      ],
+      "rationales": {
+        "a": "The normal skin around a flare is characteristic of secondary hyperalgesia, not the primary cutaneous response at the injured site.",
+        "b": "Reduced pain from a painful stimulus describes hypoalgesia; hyperalgesia is an increased response.",
+        "d": "Throbbing is a qualitative description of pain and does not define primary cutaneous hyperalgesia."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanation contains OCR corruption, including a malformed opening definition of hyperalgesia.",
+        "reconstructedContent": "The source PDF page 223 explicitly defines hyperalgesia as an exaggerated response to a noxious stimulus, distinguishes primary peripheral nociceptor sensitization from secondary facilitation, and gives sunburn, histamine, and prostaglandins as a primary example. The repaired display preserves that distinction.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology printed source page 223, rendered directly from the pinned PDF SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+          "Source question and answer key on printed pages 214–216; answer C identifies the altered pain-receptor threshold."
+        ],
+        "reviewNote": "The learner-facing text corrects OCR damage and retains the source-keyed distinction; question, options, and key remain unchanged.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          214,
+          215,
+          216,
+          223
+        ]
+      }
+    },
+    "marrow__PHYS_CH11_Q020": {
+      "takeaway": "Among the listed temperature-sensitive TRP channels, TRPV3 is most active at normal skin temperature.",
+      "displayText": "The source identifies TRPV3 as the TRP channel with greatest activity at normal skin temperature. TRPV3 is a warmth-sensitive channel expressed in keratinocytes and responds over innocuous warm temperatures.\n\nTRPV4 also responds to warmth, but the source distinguishes TRPV3 as the channel most active at ordinary skin temperature. TRPM8 is associated with cool and menthol stimuli. The question asks which listed channel has the source-keyed activity at a normal skin temperature, for which the answer is TRPV3.",
+      "emphasis": [
+        "TRPV3",
+        "normal skin temperature",
+        "TRPM8 is associated with cool and menthol stimuli"
+      ],
+      "rationales": {
+        "a": "TRPV4 also responds to warmth, but it is not the source-keyed channel with greatest activity at normal skin temperature.",
+        "c": "TRPM8 is associated with cooling and menthol, so it is not the channel keyed for ordinary skin temperature.",
+        "d": "TRPA1 is not the source-designated normal-temperature channel in this comparison."
+      }
+    },
+    "marrow__PHYS_CH11_Q021": {
+      "takeaway": "For suspected hypothermia in this cold-exposed patient, rectal temperature is the best core-temperature option listed.",
+      "displayText": "The keyed choice is rectal temperature, which provides a core-temperature estimate and is less affected by cold skin or ambient air than an oral or axillary measurement. In this extreme-cold scenario it is the best available option among those listed.\n\nInfrared tympanic thermometers can estimate core temperature when correctly positioned and used with a validated device; they should not be treated as universally inaccurate. Measurement site, device performance, and the patient’s exposure matter, and rectal readings may lag during rapid temperature change. The source item tests selection of a core site in a cold-exposed patient, not a general claim that tympanic thermometry is unusable.",
+      "emphasis": [
+        "rectal temperature",
+        "core-temperature estimate",
+        "best available option among those listed"
+      ],
+      "rationales": {
+        "a": "Oral temperature is affected by recent intake, breathing, and ambient exposure and is less suitable than a core site in severe cold.",
+        "c": "A properly used tympanic device can estimate core temperature, but this item keys rectal measurement for the cold-exposure scenario; technique and device validity matter.",
+        "d": "Axillary temperature is a peripheral measurement and can be depressed by cold exposure, so it can misrepresent core temperature."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanation overgeneralizes that infrared tympanic thermometers are unreliable because of insertion depth or cerumen.",
+        "reconstructedContent": "The question and answer key are legible in the source PDF and key rectal temperature for this cold-exposure scenario. The augmentation retains that best-available answer while qualifying the broad criticism of tympanic devices and noting that rectal readings may lag during rapid change.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology printed source page 215 shows the complete stem and all four options; answer-key page 216 keys option B.",
+          "Imported source explanation page 224 states rectal temperature is preferred for core temperature in the Siachen scenario but includes an overbroad claim about infrared tympanic thermometry."
+        ],
+        "reviewNote": "The source question and key remain unchanged; only the learner-facing explanation is qualified.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          215,
+          216,
+          224
+        ]
+      }
+    }
+  }
+}
