@@ -7,8 +7,8 @@
 - Repo: `Numankhan2013/V10.1`.
 - Accepted product commit: `125d68b`.
 - Accepted baseline: V11.6 remains the rollback product baseline; the Continue Practice contract below is separately user/device accepted.
-- **Sole Marrow/product integration trunk:** `feature/marrow-canonical-full-current`.
-- User approved promotion of explanations plus runs1375/1378 to main and production on2026-10-01; combined release validation is in progress; f286e555 Engineering passed but fullrun1379 failed in the random CBT screenshot fixture. Its deterministic topic-scoped replacement is being verified.
+- **Production integration trunk:** `main`; `feature/marrow-canonical-full-current` is synchronized to this approved release and remains the content-work lane. Future work must preserve the merged Revision/streak/FSRS features.
+- User-approved combined product `18e4cd58a09f14169447dd7aaf13a6cc08971ceb`: Engineering `36883870916` and full run1380 / `36883871119` passed. Production deployment `36888530721` succeeded; Pages production branch is `main`. Root https://nk-qbank.pages.dev and deployment https://3bbd46cc.nk-qbank.pages.dev serve identical HTML (SHA-256 `f0f9bb3ce205c6f79ae024d5025ffcce8c977a0915dc178c5307c83be5145c2a`), including all2,688 approved explanation configs and runs1375/1378 features.
 - Resolve the live canonical HEAD at run start; never hardcode a supposed current HEAD into automation logic.
 - Latest verified canonical checkpoint before the automation-readiness handoff: `356cce4`; Engineering `35453226391` and full Android/PWA/browser/APK/package run `35453226292` succeeded on that exact commit (GitHub checked 2026-09-20). The full run deployed preview `https://1b9fe4f4.nk-qbank.pages.dev`; production was not promoted. Recheck CI on the live head after any new commit. User preview review is not blanket acceptance.
 - Latest accepted Practice behavior was verified from checkpoint `74abb670c3ae088e06653681e85c347212222455`; full run `34695680534` succeeded and the user physically confirmed the Continue Practice flow. This behavior is build-verified, **device-verified**, and user-accepted.
@@ -27,7 +27,7 @@
 
 - Shared bank architecture: `MARROW_RECORDS → MARROW_BY_SUBJECT → BANKS_BY_SUBJECT`.
 - Do not fork Practice, CBT, Review Solutions, FSRS, sync, modules, persistence, analytics or navigation by subject/bank.
-- Primary navigation: **Home · FSRS · Tests · Insights · More**.
+- Primary navigation: **Home · Revision · Tests · Insights · More**; FSRS remains inside the approved Revision study hub.
 - Study hierarchy: **My Subjects → subject → bank chooser → Topics journey → topic → Practice/Topic Test**.
 - FSRS schedules every answered question. Pause commits answered work only; final submission adds remaining unanswered session IDs as skipped. Questions outside a submitted session remain unseen and excluded.
 - Old Wrong Questions dashboard/tab remains retired/replaced by Spaced FSRS.
@@ -87,7 +87,7 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 ## Explanation lane
 
-- Released explanation checkpoint: **2,688 enhanced / 23 deferred / 2,711 total** at product `9d318f79d73d6f22a3c6f508e10f1fb243aea349`. Engineering `36870646707` and full Android/PWA/browser/APK/phone-tablet-emulator run `36870646652` passed. Preview `https://ac2f50ca.nk-qbank.pages.dev`; production was not promoted.
+- Released explanation checkpoint: **2,688 enhanced / 23 deferred / 2,711 total** at product `9d318f79d73d6f22a3c6f508e10f1fb243aea349`. Engineering `36870646707` and full Android/PWA/browser/APK/phone-tablet-emulator run `36870646652` passed. Preview `https://ac2f50ca.nk-qbank.pages.dev`; now included in the approved combined production release above.
 - The parallel Luna continuation completed all 1,935 actionable explanations (914 Anatomy, 263 Biochemistry, 758 Physiology) in 178 bounded batches. Queue/wave manifests and separate worker audits preserve all 753 prior augmentations, immutable source banks and existing answer gates; zero actionable IDs remain.
 - Initial combined run `36841656565` at `08ded423` failed before deployment because scientific H+ formatting broke emphasis matching. The released fix formats text and anchors identically. New actual-renderer regression covers the exact failing item, HTML escaping and all 2,546 authored display-text configurations early in both workflows; all 56 local checks pass.
 - Full explanation browser verification passed 3,870 exact runtime-config checks and 562 rendered cases on phone/tablet. The live preview's entire 2,688-entry explanation map exactly matches approved content and includes the renderer fix. Live HTML SHA-256: `bdc7702f8b9b6dc68b3ae1fbd6d7cd963baf6f2b274360c2b9eb158a3751c4f2`.
@@ -135,7 +135,7 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 1. Completed final completeness pass source-reviewed 254 unique questions (226 initial + 28 supplemental): 89 repairs (74 contextual/15 exact; 81 text/table/notation/key and eight native images), 132 already complete, 33 underdetermined source omissions gated, including ANAT62Q6. Compiled display ledger: 114 entries; source tests pass across four variants. CI queue requires all new structural/glyph/question-visual candidates reviewed (195 current residual candidates; zero unreviewed). See `docs/QUESTION_COMPLETENESS_FINAL_PASS.md` and the pinned `data/question_completeness_reviews_v1.json` ledger. Raw imports remain immutable.
 2. Regenerated final image coverage: 1,502 references / 1,421 released / 79 invalid / two archival holds / zero unresolved cues; runtime 1,486 bindings / 1,306 assets / 1,128 owners. All 52 final local checks pass. Product checkpoint `de9c415cef4915d5b20a42abc9f2299a8595b173` is fully build-verified: Engineering `36732893469` and full browser/PWA/APK/package/Android-emulator run `36732893814` passed. Preview: `https://74f04894.nk-qbank.pages.dev`. All 114 contracts passed 228 runtime checks; eight recovered image URLs match exact native hashes in the live preview. Earlier image/browser assertion failures are resolved.
-3. User approved the explanation preview and Revision/liquid streak/FSRS features from runs1375 and1378 for main/production. Combined candidate preserves latest main study features and all2688 enhancements; verify one full build then deploy its exact artifact to nk-qbank.pages.dev. The23 source gates and two archival image gaps remain documented.
+3. Completed approved main/production promotion: explanations, liquid streak, Revision hub and editable FSRS ratings are live together. No further rebuild/promotion is pending. Keep23 source gates, two archival image gaps and PrepLadder source-comparison backlog explicit; defer source recovery until requested.
 
 ## Memory pointers
 

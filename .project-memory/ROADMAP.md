@@ -311,3 +311,5 @@ Priority 0: reproduce and restore user-reported unreadable PDF explanations. The
 - The 753 checkpoint is certified in preview e954d103. The source-order authoring continuation is finished and released. Any later content pass should target the explicitly deferred source gaps or recorded source caveats, not restart completed batches.
 - User explicitly deferred incomplete-source recovery. Known gated numbered-list items remain pending but must not repeatedly block all later actionable explanation work; preserve their gates and list them separately.
 - Keep parallel workers on disjoint content/audit files, one shared-state writer, and combine reviewed results into fewer full builds. Preserve full unique source detail and actual populated table cells.
+
+- 2026-10-01: Approved explanation/Revision/FSRS/liquid-streak integration completed on main and nk-qbank.pages.dev; full run1380 and artifact-only production deployment passed. Remaining source-held work stays deferred.
