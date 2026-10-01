@@ -8,7 +8,7 @@
 - Accepted product commit: `125d68b`.
 - Accepted baseline: V11.6 remains the rollback product baseline; the Continue Practice contract below is separately user/device accepted.
 - **Sole Marrow/product integration trunk:** `feature/marrow-canonical-full-current`.
-- User approved promotion of explanations plus runs1375/1378 to main and production on2026-10-01; combined release validation is in progress.
+- User approved promotion of explanations plus runs1375/1378 to main and production on2026-10-01; combined release validation is in progress; f286e555 Engineering passed but fullrun1379 failed in the random CBT screenshot fixture. Its deterministic topic-scoped replacement is being verified.
 - Resolve the live canonical HEAD at run start; never hardcode a supposed current HEAD into automation logic.
 - Latest verified canonical checkpoint before the automation-readiness handoff: `356cce4`; Engineering `35453226391` and full Android/PWA/browser/APK/package run `35453226292` succeeded on that exact commit (GitHub checked 2026-09-20). The full run deployed preview `https://1b9fe4f4.nk-qbank.pages.dev`; production was not promoted. Recheck CI on the live head after any new commit. User preview review is not blanket acceptance.
 - Latest accepted Practice behavior was verified from checkpoint `74abb670c3ae088e06653681e85c347212222455`; full run `34695680534` succeeded and the user physically confirmed the Continue Practice flow. This behavior is build-verified, **device-verified**, and user-accepted.

@@ -210,8 +210,14 @@ def main():
                 page.locator(".nk-cbt-builder .nk-module-subject").first.wait_for(state="visible")
                 if label in ("phone", "tablet"):
                     capture(page, f"{label}-13b-test-banks", observations)
+                # The full-bank overview is captured above. The interaction
+                # fixture must not randomly land on a deliberately gated item.
+                page.evaluate("window.QB.nkCbtSetBanks(false)")
+                page.locator(".nk-cbt-builder .nk-module-subject").filter(has_text="Biochemistry").filter(has_text="Marrow").click()
                 page.evaluate("window.QB.nkCbtSetStep(2)")
                 page.locator(".nk-cbt-topic-group").first.wait_for(state="visible")
+                page.locator(".nk-cbt-topic-group .nk-module-group-action").click()
+                page.locator(".nk-cbt-topic-group .nk-module-topic").first.click()
                 if label in ("phone", "tablet"):
                     capture(page, f"{label}-13c-test-topics", observations)
                 page.evaluate("window.QB.nkCbtSetStep(3)")
@@ -221,6 +227,12 @@ def main():
                 page.evaluate("window.QB.nkCbtStart()")
                 page.wait_for_function("window.QB.getState().activeSession?.mode==='exam'")
                 capture(page, f"{label}-14-cbt", observations)
+                diagnostic = page.evaluate("""() => {
+                  const session=window.QB.getState().activeSession;
+                  return {sessionId:session?.id,questionIds:session?.questionIds,index:session?.index,
+                    visibleText:document.body.innerText.slice(0,2000)};
+                }""")
+                (OUT / f"{label}-cbt-fixture.json").write_text(json.dumps(diagnostic, indent=2), encoding="utf-8")
                 page.locator(".option-list button").first.click()
                 capture(page, f"{label}-15-cbt-selected", observations)
                 page.evaluate("window.QB.openSessionReview()")
