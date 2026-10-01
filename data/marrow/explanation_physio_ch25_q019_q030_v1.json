@@ -1,0 +1,379 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Physiology Chapter 25 explanation refinement; raw imported source remains immutable.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "25",
+    "chapterTitle": "Regulation of Respiration",
+    "questionStart": 19,
+    "questionEnd": 30,
+    "questions": 12,
+    "status": "approved-rollout",
+    "workloadScore": 12,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "f3cd6b9dccb2092743fa86de4b0bef682d61c83762e9f00fa3b04d0a355d89d6",
+    "auditReport": "docs/question-explanations/physiology-final-20261001.md"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 753,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__PHYSIO_CH25_Q019": {
+      "takeaway": "At 6% inspired CO₂, hyperventilation continues and lowers alveolar PCO₂ toward normal; above the linear-response range, CO₂ narcosis can supervene.",
+      "displayText": "At 6% inspired CO₂, the ventilatory response continues: rising alveolar CO₂ stimulates ventilation, which lowers alveolar PCO₂ toward normal. The source describes a roughly linear rise in minute ventilation as inspired CO₂ increases up to about 6%. At higher inspired CO₂ (around 7% or more), alveolar and arterial PCO₂ can rise despite hyperventilation; severe hypercapnia depresses respiratory centres and can cause CO₂ narcosis with headache, confusion and coma.",
+      "emphasis": [
+        "At 6% inspired CO₂, the ventilatory response continues: rising alveolar CO₂ stimulates ventilation, which lowers alveolar PCO₂ toward normal.",
+        "The source describes a roughly linear rise in minute ventilation as inspired CO₂ increases up to about 6%.",
+        "At higher inspired CO₂ (around 7% or more), alveolar and arterial PCO₂ can rise despite hyperventilation; severe hypercapnia depresses respiratory centres and can cause CO₂ narcosis with headache, confusion and coma."
+      ],
+      "rationales": {
+        "b": "Apnoea is not the immediate response at 6% CO₂ while chemoreceptor-driven ventilation is active.",
+        "c": "Cheyne–Stokes breathing is a periodic pattern, not the expected direct response to inspired CO₂ here.",
+        "d": "Kussmaul breathing is a deep compensatory pattern in metabolic acidosis, not this ventilatory challenge."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          463
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "OCR corruption in the imported solution obscures sentence-level wording and includes scan artifacts.",
+        "reconstructedContent": "Normalized the source explanation into readable prose while retaining its question-specific anatomy/physiology, mechanisms, terms and numerical details.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology source PDF, printed pages [463]; SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+          "The imported source-fidelity record states that these rendered pages were visually inspected and OCR was used only as a helper."
+        ],
+        "reviewNote": "Safe OCR cleanup was grounded in the rendered source-page review; no keyed answer or medical distinction was changed.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          463
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH25_Q020": {
+      "takeaway": "CO₂ is the major normal controller of ventilation; minute ventilation rises with alveolar PCO₂ and the response uses central and peripheral sensors.",
+      "displayText": "The normal level of ventilation is controlled by the ventilatory response to CO₂.\nOption b: There is linear relationship between respiratory minute volume and the alveolar PCO₂,\ni.e. as alveolar PCO₂ increases respiratory minute volume increases.\nOption c: The ventilatory response depends on peripheral chemoreceptors in addition to central\nchemoreceptors.\nOption d: The ventilatory response to CO₂ is increased if the alveolar PO₂ is reduced\nThe ventilatory response is reduced also during sleep.",
+      "emphasis": [
+        "The normal level of ventilation is controlled by the ventilatory response to CO₂.",
+        "as alveolar PCO₂ increases respiratory minute volume increases.",
+        "The ventilatory response is reduced also during sleep."
+      ],
+      "rationales": {
+        "b": "The source describes a linear relationship between alveolar PCO₂ and respiratory minute volume.",
+        "c": "Peripheral chemoreceptors contribute alongside central chemoreceptors.",
+        "d": "Lower alveolar PO₂ increases the ventilatory response to CO₂; raising PO₂ does not."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          463
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      }
+    },
+    "marrow__PHYSIO_CH25_Q021": {
+      "takeaway": "Hering–Breuer inflation afferents arise from slowly adapting pulmonary stretch receptors and travel centrally in large myelinated vagal fibers.",
+      "displayText": "Hering-Breuer reflexes are mediated by slowly adapting pulmonary stretch receptors and the\nimpulses travel in the vagus nerve via large myelinated fibers.\nHering-Breuer inflation reflex: \"Prolonged inspiration inhibits further inspiration\"\n• Hyperinflation of lungs stimulates slowly adapting pulmonary stretch receptors and the impulses\ntravel in the vagus nerve via large myelinated fibers.\n• This signal inhibits the inspiratory ramp signals of the dorsal respiratory group of neurons\n(DRG), thus, inspiration is quickly inhibited and expiration follows.\n• Advantages of Hering-Breuer inflation reflex: It cuts down the inspiration time, and,therefore,\n• It prevents overinflation of the lungs. ° ?\n• Lungs operate at lower lung volumes, thereby preventing,Wwastage of energy.\n• The Hering-Breuer reflex is activated when the lung volume increases to more than three times\nthe normal tidal volume (tidal volume = 0.5 liters/breath; So, lung volume &gt; 1.5 liters per breath\nactivates the reflex). .% c& >\n• It signifies that the reflex plays a protective role preventing the overifflation of the lung rather\nthan regulating the normal ventilation:\\ e<' ) —-",
+      "emphasis": [
+        "impulses travel in the vagus nerve via large myelinated fibers.",
+        "travel in the vagus nerve via large myelinated fibers.",
+        "(DRG), thus, inspiration is quickly inhibited and expiration follows."
+      ],
+      "rationales": {
+        "b": "Rapidly adapting receptors are not the stretch-receptor pathway named for this reflex.",
+        "c": "Unmyelinated pulmonary C fibers mediate other pulmonary reflexes, not the classic inflation reflex.",
+        "d": "Bronchial C fibers are not the slowly adapting vagal stretch afferents."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          464
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      }
+    },
+    "marrow__PHYSIO_CH25_Q022": {
+      "takeaway": "Hering–Breuer inflation feedback inhibits further inspiration while the lungs remain inflated; it is most evident at high tidal volumes.",
+      "displayText": "The Hering–Breuer inflation reflex sends pulmonary stretch-receptor signals through the vagus to inhibit dorsal respiratory-group inspiratory ramp activity. Sustained lung inflation therefore inhibits further inspiration, shortens inspiration and prolongs expiration. It is evident in adults at high tidal volumes (over about 1.5 L). In experimental animals, cutting vagal pathways abolishes the reflex and produces slow, deep breathing.",
+      "emphasis": [
+        "The Hering–Breuer inflation reflex sends pulmonary stretch-receptor signals through the vagus to inhibit dorsal respiratory-group inspiratory ramp activity.",
+        "Sustained lung inflation therefore inhibits further inspiration, shortens inspiration and prolongs expiration.",
+        "It is evident in adults at high tidal volumes (over about 1."
+      ],
+      "rationales": {
+        "a": "The stretch-receptor afferents do travel to the brainstem through the vagus nerve.",
+        "c": "The source says the reflex is activated in adults at high tidal volumes, above about 1.5 L.",
+        "d": "Vagotomy/abolition in experimental animals causes slow, deep breathing."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          464
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "OCR corruption in the imported solution obscures sentence-level wording and includes scan artifacts.",
+        "reconstructedContent": "Normalized the source explanation into readable prose while retaining its question-specific anatomy/physiology, mechanisms, terms and numerical details.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology source PDF, printed pages [464]; SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+          "The imported source-fidelity record states that these rendered pages were visually inspected and OCR was used only as a helper."
+        ],
+        "reviewNote": "Safe OCR cleanup was grounded in the rendered source-page review; no keyed answer or medical distinction was changed.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          464
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH25_Q023": {
+      "takeaway": "Head’s paradoxical reflex is triggered by lung inflation and prolongs inspiration, opposite to the Hering–Breuer inflation response.",
+      "displayText": "Head's paradoxical reflex is stimulated by hyperinflation of lungs. It refers to prolonged\ninspiration stimulating further inspiration. Hyperinflation of the lungs causes strong and\nlong-lasting inspiratory effort (an effect opposite to the Hering-Breuer inflation reflex).\nPhysiological role:\n• Occasional deep breaths which are thought to counteract any tendency to atelectasis in quiet\nbreathing and possibly in reinforcing the gasps or inspiratory efforts.\n• First cry after birth.\n• The possible explanation for this could be the inhibition of vagus nerve at cold temperatures\n(due to the presence of pulmonary fluid in the unaerated newborn lungs).\n• Lack of inhibitory impulses from the pulmonary stretch receptors and vagus has an effect\nopposite to Hering-Breuer’s inflation reflex.",
+      "emphasis": [
+        "Head's paradoxical reflex is stimulated by hyperinflation of lungs.",
+        "inspiration stimulating further inspiration.",
+        "long-lasting inspiratory effort (an effect opposite to the Hering-Breuer inflation reflex)."
+      ],
+      "rationales": {
+        "a": "This reflex augments rather than inhibits inspiration.",
+        "c": "The source assigns it a limited role in occasional deep breaths/first cry, not major control of ordinary breathing.",
+        "d": "The source describes pulmonary stretch-receptor/vagal effects; the defining contrast is an inspiratory response to lung inflation."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          464,
+          465
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      }
+    },
+    "marrow__PHYSIO_CH25_Q024": {
+      "takeaway": "J-receptor stimulation produces immediate apnoea, followed by rapid breathing, bradycardia and hypotension in the pulmonary chemoreflex.",
+      "displayText": "Juxtacapillary (J) receptors are unmyelinated C-fibre endings near pulmonary vessels in alveolar interstitium. Their stimulation immediately produces apnoea, followed by rapid breathing, bradycardia and hypotension (the pulmonary chemoreflex). They do not participate in ordinary quiet breathing and can be stimulated by lung hyperinflation or intravenous/intracardiac chemicals such as capsaicin.",
+      "emphasis": [
+        "Juxtacapillary (J) receptors are unmyelinated C-fibre endings near pulmonary vessels in alveolar interstitium.",
+        "Their stimulation immediately produces apnoea, followed by rapid breathing, bradycardia and hypotension (the pulmonary chemoreflex).",
+        "They do not participate in ordinary quiet breathing and can be stimulated by lung hyperinflation or intravenous/intracardiac chemicals such as capsaicin."
+      ],
+      "rationales": {
+        "a": "The immediate response is not tachycardia; bradycardia follows the initial apnoea.",
+        "b": "The described subsequent blood-pressure response is hypotension, not hypertension.",
+        "c": "Rapid breathing follows the initial apnoea, so tachypnoea is not the immediate response."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          465
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "OCR corruption in the imported solution obscures sentence-level wording and includes scan artifacts.",
+        "reconstructedContent": "Normalized the source explanation into readable prose while retaining its question-specific anatomy/physiology, mechanisms, terms and numerical details.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology source PDF, printed pages [465]; SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+          "The imported source-fidelity record states that these rendered pages were visually inspected and OCR was used only as a helper."
+        ],
+        "reviewNote": "Safe OCR cleanup was grounded in the rendered source-page review; no keyed answer or medical distinction was changed.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          465
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH25_Q025": {
+      "takeaway": "Moderate exercise raises ventilation mainly through neural feed-forward/proprioceptive drive; arterial PO₂, PCO₂ and pH do not shift enough to explain it.",
+      "displayText": "Moderate exercise increases ventilation mainly through central feed-forward and proprioceptive drive, not through low arterial PO₂, low mixed-venous PO₂ or arterial acidosis. Arterial PO₂ and PCO₂ and blood pH remain near normal in moderate exercise. Mixed-venous PO₂ falls, but the source notes no known chemoreceptor response to that change. Buffer concentrations are large relative to added H⁺, keeping pH stable; when lactic acid rises, increased ventilation lowers PCO₂ and helps compensate.",
+      "emphasis": [
+        "Moderate exercise increases ventilation mainly through central feed-forward and proprioceptive drive, not through low arterial PO₂, low mixed-venous PO₂ or arterial acidosis.",
+        "Arterial PO₂ and PCO₂ and blood pH remain near normal in moderate exercise.",
+        "Mixed-venous PO₂ falls, but the source notes no known chemoreceptor response to that change."
+      ],
+      "rationales": {
+        "a": "Arterial PO₂ does not fall during moderate exercise in the source account.",
+        "b": "Mixed-venous PO₂ falls, but the source notes no known chemoreceptor response to that isolated change.",
+        "c": "Blood buffering and ventilatory compensation keep arterial pH approximately stable during moderate exercise."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          465
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "OCR corruption in the imported solution obscures sentence-level wording and includes scan artifacts.",
+        "reconstructedContent": "Normalized the source explanation into readable prose while retaining its question-specific anatomy/physiology, mechanisms, terms and numerical details.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology source PDF, printed pages [465]; SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+          "The imported source-fidelity record states that these rendered pages were visually inspected and OCR was used only as a helper."
+        ],
+        "reviewNote": "Safe OCR cleanup was grounded in the rendered source-page review; no keyed answer or medical distinction was changed.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          465
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH25_Q026": {
+      "takeaway": "During vigorous exercise, lactic-acid buffering adds CO₂ and carotid-body chemoreceptors mediate the extra hyperventilatory response.",
+      "displayText": "The exercise-induced hyperventilation during vigorous exercise is produced due to the receptors\npresent in carotid bodies.\nWhen exercise becomes more vigorous, buffering of the increased amounts of lactic acid that are\nproduced liberates more CO₂, and this further increases ventilation. The additional increase in\nventilation produced by the acidosis depends on the carotid bodies and does not occur if they are\nremoved.\nNote: The abrupt increase at the start of exercise is presumably due to psychic tical and\nafferent impulses from proprioceptors in muscles, tendons, » and joints.",
+      "emphasis": [
+        "present in carotid bodies.",
+        "produced liberates more CO₂, and this further increases ventilation.",
+        "afferent impulses from proprioceptors in muscles, tendons, » and joints."
+      ],
+      "rationales": {
+        "a": "Medullary centres integrate drive but the source specifically assigns this added acidosis response to carotid bodies.",
+        "b": "Lung parenchymal receptors do not mediate the source-described blood-acidosis response.",
+        "d": "Tracheal/large-bronchial receptors are not the chemoreceptors required for this ventilatory effect."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          466
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      }
+    },
+    "marrow__PHYSIO_CH25_Q027": {
+      "takeaway": "The abrupt rise in breathing at exercise onset is linked to proprioceptor input from joints, muscles and tendons.",
+      "displayText": "At exercise onset, joint, muscle and tendon proprioceptors and psychic input produce an abrupt rise in ventilation. In moderate exercise, mean arterial PO₂ and PCO₂ and blood pH remain nearly unchanged, while venous PCO₂ rises as exercising muscle returns excess CO₂. Increased cardiac output perfuses more pulmonary capillaries, makes V/Q distribution more even and reduces physiologic dead space. The later, gradual ventilatory rise tracks oxygen consumption and also reflects body temperature, plasma K⁺ and increased sensitivity/fluctuation of CO₂ drive.",
+      "emphasis": [
+        "At exercise onset, joint, muscle and tendon proprioceptors and psychic input produce an abrupt rise in ventilation.",
+        "In moderate exercise, mean arterial PO₂ and PCO₂ and blood pH remain nearly unchanged, while venous PCO₂ rises as exercising muscle returns excess CO₂.",
+        "Increased cardiac output perfuses more pulmonary capillaries, makes V/Q distribution more even and reduces physiologic dead space."
+      ],
+      "rationales": {
+        "a": "J receptors are pulmonary interstitial receptors, not the exercise-onset locomotor feedback source.",
+        "b": "Mean arterial PO₂ remains essentially unchanged in moderate exercise.",
+        "c": "Mean arterial PCO₂ also remains essentially unchanged at exercise onset."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          466
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "OCR corruption in the imported solution obscures sentence-level wording and includes scan artifacts.",
+        "reconstructedContent": "Normalized the source explanation into readable prose while retaining its question-specific anatomy/physiology, mechanisms, terms and numerical details.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology source PDF, printed pages [466]; SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+          "The imported source-fidelity record states that these rendered pages were visually inspected and OCR was used only as a helper."
+        ],
+        "reviewNote": "Safe OCR cleanup was grounded in the rendered source-page review; no keyed answer or medical distinction was changed.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          466
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH25_Q028": {
+      "takeaway": "Pneumotaxic input limits inspiration and raises breathing rate by shortening the cycle; rhythm generation belongs chiefly to medullary networks.",
+      "displayText": "Respiratory rhythm generation is a function of dorsal respiratory group of neurons (and not\npneumotaxic center).\nPneumotaxic center:\n• It is located dorsally in the nucleus parabrachialis of the upper pons and it transmits signals to\nthe inspiratory area.\n• Primary effect of this center is to control the switchoff point of the inspiratory TBP thus\ncontrolling the duration of the filing phase of the lung cycle. ‘\n• Function of the pneumotaxic center is primarily to limit inspiration, which has a secondary effect\nof increasing the rate of breathing, because limitation géfadpiration also » Shortens expiration and\nthe entire period of each respiration. vo",
+      "emphasis": [
+        "the inspiratory area.",
+        "controlling the duration of the filing phase of the lung cycle.",
+        "the entire period of each respiration."
+      ],
+      "rationales": {
+        "a": "Limiting inspiration is a primary pneumotaxic function.",
+        "b": "Shorter inspiration can shorten the respiratory cycle and secondarily increase rate.",
+        "c": "Controlling the inspiratory-ramp switch-off point is central to pneumotaxic action."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          467
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      }
+    },
+    "marrow__PHYSIO_CH25_Q029": {
+      "takeaway": "Hypoxia closes oxygen-sensitive K⁺ channels in glomus cells, depolarizing them and opening Ca²⁺ channels to excite afferents.",
+      "displayText": "Peripheral oxygen sensing occurs in type I glomus cells of carotid and aortic bodies. Hypoxia reduces conductance of oxygen-sensitive K⁺ channels and decreases K⁺ efflux, depolarizing the cell. Depolarization opens Ca²⁺ channels; Ca²⁺ influx triggers action potentials/transmitter release and excites afferent nerve endings.",
+      "emphasis": [
+        "Peripheral oxygen sensing occurs in type I glomus cells of carotid and aortic bodies.",
+        "Hypoxia reduces conductance of oxygen-sensitive K⁺ channels and decreases K⁺ efflux, depolarizing the cell.",
+        "Depolarization opens Ca²⁺ channels; Ca²⁺ influx triggers action potentials/transmitter release and excites afferent nerve endings."
+      ],
+      "rationales": {
+        "b": "Ca²⁺ entry follows depolarization and triggers transmitter release, but K⁺-channel conductance is the oxygen-sensing step.",
+        "c": "The source identifies oxygen-sensitive K⁺ channels, not sodium channels, as the initiating sensor.",
+        "d": "Chloride is not the glomus-cell channel involved in the source mechanism."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          467
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "OCR corruption in the imported solution obscures sentence-level wording and includes scan artifacts.",
+        "reconstructedContent": "Normalized the source explanation into readable prose while retaining its question-specific anatomy/physiology, mechanisms, terms and numerical details.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology source PDF, printed pages [467]; SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe.",
+          "The imported source-fidelity record states that these rendered pages were visually inspected and OCR was used only as a helper."
+        ],
+        "reviewNote": "Safe OCR cleanup was grounded in the rendered source-page review; no keyed answer or medical distinction was changed.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          467
+        ]
+      }
+    },
+    "marrow__PHYSIO_CH25_Q030": {
+      "takeaway": "Ventral respiratory-group neurons are recruited for forceful expiration, especially during heavy exercise; dorsal group supports ordinary inspiratory rhythm.",
+      "displayText": "Ventral groups of neurons fire, when forceful expiration is needed like during heavy exercise.\nDorsal group of neurons control the normal inspiration and expiration.\nPneumotaxic center limits the duration of inspiration.",
+      "emphasis": [
+        "Ventral groups of neurons fire, when forceful expiration is needed like during heavy exercise.",
+        "Dorsal group of neurons control the normal inspiration and expiration.",
+        "Pneumotaxic center limits the duration of inspiration."
+      ],
+      "rationales": {
+        "a": "Dorsal respiratory group mainly supplies inspiratory ramp signals in basic quiet breathing.",
+        "c": "Pneumotaxic centre limits inspiration and does not provide expiratory motor output.",
+        "d": "Chemoreceptors detect chemical stimuli; they are not the respiratory motor neurons that fire to drive expiration."
+      },
+      "audit": {
+        "reviewedAgainst": "Canonical source question and answer key plus visually rendered printed explanation pages; source explanation details retained with OCR artifacts safely normalized.",
+        "sourceExplanationPages": [
+          467
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No table or figure required reconstruction for this item."
+      }
+    }
+  }
+}
