@@ -1,6 +1,6 @@
 # Anatomy tail explanation audit — 2026-10-01
 
-**Scope:** Chapters 51–63, canonical Anatomy source bundle SHA-256 `f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387`, authored against `d4abce86068b4221e61e541c34dd29258de61cca`. This checkpoint contains chapters 51–57: 142 of 252 assigned actionable IDs. Four tail IDs remain gated and untouched: CH52 Q009, CH55 Q018, CH62 Q006, and CH62 Q010. Raw question source, keys, figures and table structures are immutable. Each file records this report in `scope.auditReport`.
+**Scope:** Chapters 51–63, canonical Anatomy source bundle SHA-256 `f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387`, authored against `d4abce86068b4221e61e541c34dd29258de61cca`. This checkpoint contains chapters 51–59: 175 of 252 assigned actionable IDs. Four tail IDs remain gated and untouched: CH52 Q009, CH55 Q018, CH62 Q006, and CH62 Q010. Raw question source, keys, figures and table structures are immutable. Each file records this report in `scope.auditReport`.
 
 ## Batches
 
@@ -20,6 +20,9 @@
 | `explanation_anatomy_ch56_q015_q023_v1.json` | 9 | Q015, Q016, Q017, Q018, Q019, Q020, Q021, Q022, Q023 |
 | `explanation_anatomy_ch57_q001_q014_v1.json` | 14 | Q001, Q002, Q003, Q004, Q005, Q006, Q007, Q008, Q009, Q010, Q011, Q012, Q013, Q014 |
 | `explanation_anatomy_ch57_q015_q021_v1.json` | 7 | Q015, Q016, Q017, Q018, Q019, Q020, Q021 |
+| `explanation_anatomy_ch58_q001_q014_v1.json` | 14 | Q001, Q002, Q003, Q004, Q005, Q006, Q007, Q008, Q009, Q010, Q011, Q012, Q013, Q014 |
+| `explanation_anatomy_ch58_q015_q019_v1.json` | 5 | Q015, Q016, Q017, Q018, Q019 |
+| `explanation_anatomy_ch59_q001_q014_v1.json` | 14 | Q001, Q002, Q003, Q004, Q005, Q006, Q007, Q008, Q009, Q010, Q011, Q012, Q013, Q014 |
 
 ## Source review and flags
 
@@ -181,6 +184,42 @@ Every item was checked by stable ID against the canonical source bundle. Display
 - `marrow__ANAT_CH57_Q019` — key option 3; question p. 1093, key p. not supplied, explanation p. 1107,1108.
 - `marrow__ANAT_CH57_Q020` — key option 1; question p. 1093, key p. not supplied, explanation p. 1108,1109.
 - `marrow__ANAT_CH57_Q021` — key option 1; question p. 1093, key p. not supplied, explanation p. 1109.
+### `explanation_anatomy_ch58_q001_q014_v1.json`
+- `marrow__ANAT_CH58_Q001` — key option 2; question p. 1110, key p. not supplied, explanation p. 1115,1116.
+- `marrow__ANAT_CH58_Q002` — key option 4; question p. 1110, key p. not supplied, explanation p. 1116.
+- `marrow__ANAT_CH58_Q003` — key option 2; question p. 1110, key p. not supplied, explanation p. 1116.
+- `marrow__ANAT_CH58_Q004` — key option 4; question p. 1110, key p. not supplied, explanation p. 1117.
+- `marrow__ANAT_CH58_Q005` — key option 1; question p. 1111, key p. not supplied, explanation p. 1117,1118.
+- `marrow__ANAT_CH58_Q006` — key option 2; question p. 1111, key p. not supplied, explanation p. 1117,1118.
+- `marrow__ANAT_CH58_Q007` — key option 3; question p. 1111, key p. not supplied, explanation p. 1118,1119.
+- `marrow__ANAT_CH58_Q008` — key option 3; question p. 1112, key p. not supplied, explanation p. 1119.
+- `marrow__ANAT_CH58_Q009` — key option 3; question p. 1112, key p. not supplied, explanation p. 1120.
+- `marrow__ANAT_CH58_Q010` — key option 3; question p. 1112, key p. not supplied, explanation p. 1120.
+- `marrow__ANAT_CH58_Q011` — key option 3; question p. 1112, key p. not supplied, explanation p. 1120.
+- `marrow__ANAT_CH58_Q012` — key option 4; question p. 1113, key p. not supplied, explanation p. 1120.
+- `marrow__ANAT_CH58_Q013` — key option 4; question p. 1113, key p. not supplied, explanation p. 1121,1122.
+- `marrow__ANAT_CH58_Q014` — key option 2; question p. 1113, key p. not supplied, explanation p. 1122.
+### `explanation_anatomy_ch58_q015_q019_v1.json`
+- `marrow__ANAT_CH58_Q015` — key option 1; question p. 1113, key p. not supplied, explanation p. 1123.
+- `marrow__ANAT_CH58_Q016` — key option 1; question p. 1114, key p. not supplied, explanation p. 1123,1124.
+- `marrow__ANAT_CH58_Q017` — key option 3; question p. 1114, key p. not supplied, explanation p. 1124.
+- `marrow__ANAT_CH58_Q018` — key option 1; question p. 1114, key p. not supplied, explanation p. 1124,1125.
+- `marrow__ANAT_CH58_Q019` — key option 3; question p. 1114, key p. not supplied, explanation p. 1125,1126.
+### `explanation_anatomy_ch59_q001_q014_v1.json`
+- `marrow__ANAT_CH59_Q001` — key option 2; question p. 1127, key p. not supplied, explanation p. 1132,1133.
+- `marrow__ANAT_CH59_Q002` — key option 4; question p. 1127, key p. not supplied, explanation p. 1133.
+- `marrow__ANAT_CH59_Q003` — key option 1; question p. 1127, key p. not supplied, explanation p. 1134.
+- `marrow__ANAT_CH59_Q004` — key option 2; question p. 1127, key p. not supplied, explanation p. 1135.
+- `marrow__ANAT_CH59_Q005` — key option 3; question p. 1128, key p. not supplied, explanation p. 1135.
+- `marrow__ANAT_CH59_Q006` — key option 2; question p. 1128, key p. not supplied, explanation p. 1136.
+- `marrow__ANAT_CH59_Q007` — key option 1; question p. 1128, key p. not supplied, explanation p. 1136,1137.
+- `marrow__ANAT_CH59_Q008` — key option 4; question p. 1128, key p. not supplied, explanation p. 1137.
+- `marrow__ANAT_CH59_Q009` — key option 4; question p. 1129, key p. not supplied, explanation p. 1137,1138.
+- `marrow__ANAT_CH59_Q010` — key option 4; question p. 1129, key p. not supplied, explanation p. 1138.
+- `marrow__ANAT_CH59_Q011` — key option 4; question p. 1129, key p. not supplied, explanation p. 1139.
+- `marrow__ANAT_CH59_Q012` — key option 3; question p. 1130, key p. not supplied, explanation p. 1139.
+- `marrow__ANAT_CH59_Q013` — key option 4; question p. 1130, key p. not supplied, explanation p. 1139,1140.
+- `marrow__ANAT_CH59_Q014` — key option 1; question p. 1130, key p. not supplied, explanation p. 1140,1141.
 
 ## Release boundary
 
