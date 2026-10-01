@@ -1,6 +1,6 @@
 # Biochemistry remaining explanations audit — 2026-10-01
 
-**Scope:** canonical Biochemistry source SHA-256 `919f0709b2eb833e302c6f7524b6dd2bd13bfaed638009375b5062135d3795b1`; authored against base `d4abce86068b4221e61e541c34dd29258de61cca` on `work/luna-biochem-remaining`. This checkpoint covers 101 of the 263 actionable pending IDs. The authored-and-validated count is separate from deployment; no runtime wiring or preview build is included in this worktree. Eight source-gated IDs remain excluded and untouched: CH13 Q020, CH14 Q012/Q018, CH15 Q003, CH16 Q014, CH17 Q012, CH27 Q012, CH28 Q009.
+**Scope:** canonical Biochemistry source SHA-256 `919f0709b2eb833e302c6f7524b6dd2bd13bfaed638009375b5062135d3795b1`; authored against base `d4abce86068b4221e61e541c34dd29258de61cca` on `work/luna-biochem-remaining`. This checkpoint covers 136 of the 263 actionable pending IDs. The authored-and-validated count is separate from deployment; no runtime wiring or preview build is included in this worktree. Eight source-gated IDs remain excluded and untouched: CH13 Q020, CH14 Q012/Q018, CH15 Q003, CH16 Q014, CH17 Q012, CH27 Q012, CH28 Q009.
 
 ## Batches
 
@@ -15,6 +15,9 @@
 | `explanation_biochem_ch18_q001_q019_v1.json` | 18 | Q001–Q008, Q010–Q019 |
 | `explanation_biochem_ch19_q001_q010_v1.json` | 10 | Q001–Q010 |
 | `explanation_biochem_ch19_q011_q020_v1.json` | 9 | Q011–Q018, Q020 |
+| `explanation_biochem_ch20_q001_q017_v1.json` | 16 | Q001–Q005, Q007–Q017 |
+| `explanation_biochem_ch21_q001_q011_v1.json` | 11 | Q001–Q011 |
+| `explanation_biochem_ch21_q013_q020_v1.json` | 8 | Q013–Q020 |
 
 ## Source review and flags
 
@@ -198,3 +201,7 @@ Page references below are from immutable `provenance.questionPages` / `provenanc
 - `marrow__BIOCHEM_CH19_Q018` — key B; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
 
 - `marrow__BIOCHEM_CH19_Q020` — key C; question and explanation source pages are recorded in `provenance` and `sourceNotes`.
+
+### Additional question references — checkpoint 136 of 263
+
+- Chapter 20, Q001–Q005 and Q007–Q017 (16 items); chapter 21, Q001–Q011 and Q013–Q020 (19 items). Source-page citations and source-key rationale mappings are included in the corresponding augmentation records.
