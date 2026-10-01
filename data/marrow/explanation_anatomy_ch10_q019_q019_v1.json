@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Anatomy Chapter 10 explanation refinement. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Anatomy",
+    "bank": "Marrow",
+    "chapterId": "10",
+    "chapterTitle": "Urinary & Genital Systems",
+    "questionStart": 19,
+    "questionEnd": 19,
+    "questions": 1,
+    "status": "approved-rollout",
+    "workloadScore": 2,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 753,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__ANAT_CH10_Q019": {
+      "takeaway": "The clitoris develops from the genital tubercle; the urogenital groove contributes to the vestibule.",
+      "displayText": "Agenesis of the clitoris occurs due to a defect in the development of the genital tubercle.\n\nThe vestibule is derived from the urogenital groove.",
+      "emphasis": [
+        "genital tubercle",
+        "urogenital groove",
+        "vestibule"
+      ],
+      "rationales": {
+        "a": "Urethral folds contribute to the boundaries of the urethral and vestibular region, but the clitoris develops from the genital tubercle.",
+        "b": "The urogenital groove contributes to the vestibule; it does not form the clitoris.",
+        "d": "Genital swellings contribute to external genital structures such as the labia majora, whereas the clitoris develops from the genital tubercle."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record: stem, options, printed key, explanation, and structured metadata",
+        "sourceExplanationPages": [
+          178
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      }
+    }
+  },
+  "source": {
+    "bundle": "anatomy_ch001_063",
+    "sourceRawSha256": "f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387",
+    "preparedFrom": "/tmp/explanation-remaining-20261001/anatomy-source.json"
+  }
+}
