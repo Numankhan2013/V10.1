@@ -1320,3 +1320,5 @@ Integrated existing worker commits without reauthoring: Anatomy 59 (493639f7, 5e
 - 2026-10-01 continued checkpoint: 1,206 new validated / 1,959 candidate enhanced, 729 actionable remaining plus23 source-held. Primary Anatomy338/662, primary Physiology212/497, tail Physiology141/261. Latest pins/source/gates/baseline augmentation hashes pass; no preview push/build yet.
 
 - Balanced untouched Physiology ownership: primary stops at Ch27 (332 total,120 remaining after212 complete); freed tail worker takes Ch28–33 (165) after Ch34–43, with separate middle audit. Completed work is not restarted.
+
+- 2026-10-01 checkpoint: 1,385 new validated / 2,138 candidate enhanced,550 actionable remain. Biochemistry worker completed Bio263,Anatomy-tail252,Physiology-tail261 and continues untouched middle165. Primary Anatomy397/662,Physiology212/332. Duplicate Anatomy emphasis anchor corrected; worker validator now catches duplicate anchors locally. No push/deployment before full completion.

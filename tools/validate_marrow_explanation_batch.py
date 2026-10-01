@@ -35,6 +35,8 @@ def main():
                 assert source['subject'] == scope['subject'] and str(source['chapterId']) == str(scope['chapterId']), qid
                 assert scope['questionStart'] <= source['questionNumber'] <= scope['questionEnd'], qid
                 validate_augmented_question(qid, cfg, source, path.name)
+                anchors = cfg.get('emphasis', [])
+                assert 1 <= len(anchors) <= 4 and len(set(anchors)) == len(anchors), qid
                 validate_source_retention(qid, source, cfg)
                 reconstruction = cfg.get('reconstruction')
                 if reconstruction:

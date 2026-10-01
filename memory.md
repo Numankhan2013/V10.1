@@ -788,3 +788,5 @@ Last released product d4abce86068b4221e61e541c34dd29258de61cca: 753 enhanced/1,9
 - 2026-10-01 checkpoint: 1,027 new explanations integrated/validated / 1,780 candidate enhanced; 908 actionable remaining, 23 source gates unchanged. Biochemistry263 and Anatomy tail252 complete; reassigned worker starts Physiology tail261. Primary Anatomy315/662 and primary Physiology197/497 complete. User reaffirmed single final combined push/build, no partial deployment.
 
 - 2026-10-01 continued checkpoint: 1,206 new validated / 1,959 candidate enhanced, 729 actionable remaining plus23 source-held. Primary Anatomy338/662, primary Physiology212/497, tail Physiology141/261. Latest pins/source/gates/baseline augmentation hashes pass; no preview push/build yet.
+
+- 2026-10-01 checkpoint: 1,385 new validated / 2,138 candidate enhanced,550 actionable remain. Biochemistry worker completed Bio263,Anatomy-tail252,Physiology-tail261 and continues untouched middle165. Primary Anatomy397/662,Physiology212/332. Duplicate Anatomy emphasis anchor corrected; worker validator now catches duplicate anchors locally. No push/deployment before full completion.
