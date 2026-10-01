@@ -32,7 +32,7 @@ def validate_source_retention(qid, source, cfg):
     return retained
 
 
-def load_wave(manifest_path=None):
+def load_wave(manifest_path=None, *, require_complete=True):
     paths = wave_manifests()
     manifest_path = manifest_path or paths[-1]
     manifest = json.loads(manifest_path.read_text())
@@ -109,8 +109,11 @@ def load_wave(manifest_path=None):
         assert {qid: digest(compiled[qid]) for qid in baseline} == queue['baselineConfigSha256'], 'Already completed explanations were rewritten'
         deferred = {qid for lane in queue['subjects'].values() for qid in lane['blockedIds']}
         assert deferred == set(manifest['withheldSourceLimitedIds']), 'Deferred source gaps lost'
-        assert set(sources) == baseline | set(wave) | deferred, 'Actionable explanations remain unprocessed'
-        assert not manifest['unprocessedActionableIds'], 'Actionable queue not complete'
+        unprocessed = set(manifest['unprocessedActionableIds'])
+        assert unprocessed.isdisjoint(baseline | set(wave) | deferred), 'Resume queue contains processed IDs'
+        assert set(sources) == baseline | set(wave) | deferred | unprocessed, 'Resume queue does not account for the corpus'
+        if require_complete:
+            assert not unprocessed, 'Actionable queue not complete'
         for spec in manifest['batches']:
             subject = sources[spec['ids'][0]]['subject']
             assert spec['count'] <= (14 if subject == 'Anatomy' else 18), 'Batch exceeds ownership bound'
