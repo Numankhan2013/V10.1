@@ -52,3 +52,9 @@ Added 22 IDs in three bounded files:
 - Ch22 Q1–6 (`explanation_anatomy_ch22_q001_q006_v1.json`)
 
 The rationales preserve distinctions among association, projection, and commissural fibers, internal capsule subdivisions, and basal ganglia pathway/nomenclature details. The source explanation's classification of arcuate fasciculus and fornix is retained as written. Validator passed: `MARROW_WORKER_BATCHES_OK files=21 questions=175 source_keyed=true detail_retention=true baseline_and_gates_preserved=true`. Total authored: 175/662 in my owned range; 487 remain through Chapter 50.
+
+## Checkpoint 4
+
+Added 26 IDs in three bounded files: Chapter 23 Q1–12, Chapter 24 Q1–7, and Chapter 24 Q8–14. Chapter 24 OCR-corrupted sections were reconstructed from the source pages with source-specific tracts, levels, syndrome signs and cross-sections retained; intact source explanations were copied. Figure and native table metadata remain in the unmodified source records. Validator passed: `MARROW_WORKER_BATCHES_OK files=24 questions=201 source_keyed=true detail_retention=true baseline_and_gates_preserved=true`.
+
+Also completed the source-level review of two flagged items. Ch19 Q17 keeps key C but now distinguishes the conventional brain CVO list from broader pituitary classification and corrects the erroneous implication that adenohypophysis has a conventional BBB; primary histology and NCBI evidence are recorded. Ch20 Q1 keeps key B but records that the unqualified calcarine option also includes a complete anterior part; editorial qualification is recommended. Neither source key nor gate changed. Total authored is 201/662 through Chapter 50; 461 remain in my range.
