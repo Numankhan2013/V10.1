@@ -74,3 +74,7 @@ Added Chapter 27 Q1–15 in two bounded files (Q1–14 and Q15). Explanations re
 ## Checkpoint 8
 
 Added 26 IDs in three bounded Chapter 28 files: Q1–14, Q15–22 and Q24–27. The source-gated Q23 match item remains intentionally untouched because its numbered muscle list/action list is missing from the rendered question page. Other explanations preserve skull joints, sutures, foramina, cranial nerves, orbital/skull-base anatomy, scalp layers and facial innervation. Validator passed: `MARROW_WORKER_BATCHES_OK files=32 questions=276 source_keyed=true detail_retention=true baseline_and_gates_preserved=true`. Total authored is 276/662 through Chapter 50; 386 remain.
+
+## Checkpoint 9
+
+Added Chapter 29 Q1–15 in two files. Chapter 29 Q2 received visual source review (PDF p. 508): the printed key selects suprascapular nerve, and the source explicitly calls it a lower posterior-triangle content while noting it is not part of the roof. The stem's “neither roof nor content” wording conflicts with that explanation; key C is retained and the augmentation states the nerve is a content rather than teaching it is absent. Remaining explanations retain triangle boundaries/contents, fascial layers, ansa cervicalis, spinal accessory and cervical sympathetic relationships. Validator passed: `MARROW_WORKER_BATCHES_OK files=34 questions=291 source_keyed=true detail_retention=true baseline_and_gates_preserved=true`. Total authored is 291/662 through Chapter 50; 371 remain.

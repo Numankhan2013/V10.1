@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Anatomy Chapter 29 explanation refinement. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Anatomy",
+    "bank": "Marrow",
+    "chapterId": "29",
+    "chapterTitle": "Deep fascia and Triangles of the neck",
+    "questionStart": 15,
+    "questionEnd": 15,
+    "questions": 1,
+    "status": "approved-rollout",
+    "workloadScore": 14,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 753,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__ANAT_CH29_Q015": {
+      "takeaway": "Cervical sympathetic trunk injury causes Horner syndrome; source labels it B.",
+      "displayText": "Ptosis, miosis and anhidrosis suggest Horner syndrome, caused by damage to the cervical sympathetic trunk. In the source cross-sectional image the cervical sympathetic trunk is marked B.",
+      "emphasis": [
+        "Horner syndrome",
+        "cervical sympathetic trunk",
+        "marked B"
+      ],
+      "rationales": {
+        "a": "Label A does not identify cervical sympathetic trunk in the source section.",
+        "c": "Label C is another neck structure, not the sympathetic trunk.",
+        "d": "Label D is not the sympathetic trunk; source marks the chain B in a Horner syndrome case."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stable ID, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          520
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 1 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    }
+  },
+  "source": {
+    "bundle": "anatomy_ch001_063",
+    "sourceRawSha256": "f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387",
+    "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+    "sourcePdfPages": [
+      520
+    ]
+  }
+}
