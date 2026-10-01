@@ -43,7 +43,7 @@ The root worker batch validator passed these four files at the assigned base: 26
 
 ## Chapter 13 checkpoint
 
-- Added 21 source-authored explanations across two contiguous batches; cumulative worktree output is 47 questions (26 previously committed plus 21 in this checkpoint). Against the original queue, 713 IDs remain pending, including two blocked IDs; 711 remain actionable. These are authored/validated candidate files, not preview-deployed enhancements.
+- Added 21 source-authored explanations across two contiguous batches; cumulative worktree output is 47 questions (26 previously committed plus 21 in this checkpoint). At that checkpoint, 713 IDs remained pending, including two blocked IDs; 711 were actionable. These are authored/validated candidate files, not preview-deployed enhancements. The first Chapter 14 checkpoint brought cumulative candidate output to 65, with 695 original pending IDs remaining (693 actionable); the second Chapter 14 checkpoint raises output to 85, leaving 675 pending IDs (673 actionable).
 
 | Batch file | IDs | Workload | Source scope |
 |---|---:|---:|---|
@@ -57,3 +57,16 @@ Selected OCR-damaged explanation pages were rendered from the pinned PDF (pp. 24
 CH13 Q17 is keyed to glutamate/umami. The source’s statement that sour taste uses H+ movement through ENaC is explicitly labeled outdated and corrected: ENaC is involved in salt taste while the OTOP1 proton channel contributes to sour responses, based on Teng et al., “Cellular and Neural Responses to Sour Stimuli Require the Proton Channel Otop1,” *Current Biology* 29 (2019), [doi:10.1016/j.cub.2019.08.077](https://doi.org/10.1016/j.cub.2019.08.077).
 
 Validation: the root worker batch CLI passed all six Physiology files at the assigned canonical base: 47 questions, source-keyed rationale/option alignment, detail retention or pinned reconstruction evidence, and preserved baseline/gates.
+
+## Chapter 14 checkpoint
+
+- Added 18 source-authored explanations in the first contiguous Motor Physiology batch, Q1–18. Cumulative candidate output is 65 questions; 695 original pending IDs remain, including the two blocked IDs (693 actionable).
+- The explanations cover intrafusal and extrafusal fibers, gamma and alpha efferents, primary Ia and secondary group II endings, spindle and tendon-organ function, stretch and inverse stretch reflexes, withdrawal and crossed extension, tone, alpha–gamma coactivation, righting/supportive reactions, and the corticospinal pyramids. Source option identities and keyed answers are retained with item-specific distractor rationales.
+- Rendered printed pages 268–278 from the pinned PDF and checked the source prose, figures, and the nuclear bag/chain comparison table. CH14 Q5 restores that native table in `displayTables`, pinned to printed p. 271 and the same PDF SHA-256. Source figures remain in the immutable PDF.
+- Worker batch validation passes all seven Physiology files at the assigned base: 65 questions, source-keyed rationales, verbatim emphasis, detail retention or page-pinned reconstruction, and preserved baseline/gates.
+
+## Chapter 14 completion checkpoint
+
+- Added the remaining source-order items, Q19–38, in two contiguous files (18 and 2 questions). Cumulative Physiology candidate output is now 85 questions; 675 original pending IDs remain, including two blocked IDs (673 actionable).
+- The corticospinal / extrapyramidal, decerebrate and decorticate posture, upper motor-neuron, motor homunculus, paracentral-lobule, premotor, and spinal-mass-reflex items were checked against rendered printed pages 278–289. The original figures remain available through the pinned PDF; no figure was redrawn or replaced.
+- Worker batch validation passes all nine Physiology files at the assigned base: 85 questions, source-keyed distractor rationales, emphasis, source retention or page-pinned reconstruction, and preserved baseline/gates.

@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Marrow ED8 Physiology Chapter 14 explanation rollout; raw imported source remains immutable.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "14",
+    "chapterTitle": "Motor Physiology - 1",
+    "questionStart": 37,
+    "questionEnd": 38,
+    "questions": 2,
+    "status": "approved-rollout",
+    "workloadScore": 4,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 818,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__PHYS_CH14_Q037": {
+      "takeaway": "The premotor cortex prepares posture and proximal muscles for a planned movement.",
+      "displayText": "The premotor cortex helps set posture at the start of a planned action and prepares the body for movement, especially through proximal limb muscles. It lies anterior to the precentral gyrus, receives parietal sensory input, and projects to primary motor cortex, brainstem reticular formation, and spinal cord. Its mirror neurons can respond during action observation as well as action performance.",
+      "emphasis": [
+        "set posture"
+      ],
+      "rationales": {
+        "b": "Primary motor cortex executes commands and controls movement; the preparatory postural setting is attributed to premotor cortex.",
+        "c": "‘Frontal’ is too broad; the source identifies premotor cortex specifically.",
+        "d": "Supplementary motor area helps organize internally generated movement sequences, whereas the described postural preparation and proximal-muscle orientation are premotor functions."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported solution contains OCR substitutions and/or figure-dependent text; source details were reconstructed against rendered pages.",
+        "reconstructedContent": "The premotor cortex helps set posture at the start of a planned action and prepares the body for movement, especially through proximal limb muscles. It lies anterior to the precentral gyrus, receives parietal sensory input, and projects to primary motor cortex, brainstem reticular formation, and spinal cord. Its mirror neurons can respond during action observation as well as action performance.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 288 were rendered and checked from the immutable Physiology PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe)."
+        ],
+        "reviewNote": "Rendered-page text and figures were checked; the explanation preserves the source mechanism, laterality, percentages, and clinical distinctions relevant to this item.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          288
+        ]
+      }
+    },
+    "marrow__PHYS_CH14_Q038": {
+      "takeaway": "Spinal mass reflex produces strong flexor, not extensor, spasm.",
+      "displayText": "The vignette is a spinal mass reflex triggered by visceral distension after a high cord lesion. A large portion of skeletal muscle enters strong flexor spasm, while colon and bladder may evacuate, systolic pressure can exceed 200 mm Hg, and widespread sweating can occur. The false option substitutes extensor for flexor spasm.",
+      "emphasis": [
+        "spinal mass reflex"
+      ],
+      "rationales": {
+        "a": "Marked hypertension, sometimes with systolic pressure above 200 mm Hg, is among the source-listed mass-reflex effects.",
+        "c": "Profuse sweating over large body areas is a recognized effect listed for spinal mass reflex.",
+        "d": "The source states the colon and bladder are likely to evacuate during this widespread spinal discharge."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported solution contains OCR substitutions and/or figure-dependent text; source details were reconstructed against rendered pages.",
+        "reconstructedContent": "The vignette is a spinal mass reflex triggered by visceral distension after a high cord lesion. A large portion of skeletal muscle enters strong flexor spasm, while colon and bladder may evacuate, systolic pressure can exceed 200 mm Hg, and widespread sweating can occur. The false option substitutes extensor for flexor spasm.",
+        "evidenceBasis": [
+          "Printed explanation page(s) 288, 289 were rendered and checked from the immutable Physiology PDF (SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe)."
+        ],
+        "reviewNote": "Rendered-page text and figures were checked; the explanation preserves the source mechanism, laterality, percentages, and clinical distinctions relevant to this item.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          288,
+          289
+        ]
+      }
+    }
+  }
+}

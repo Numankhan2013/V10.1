@@ -1,0 +1,539 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Marrow ED8 Physiology Chapter 14 explanation rollout; raw imported source remains immutable.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "14",
+    "chapterTitle": "Motor Physiology - 1",
+    "questionStart": 1,
+    "questionEnd": 18,
+    "questions": 18,
+    "status": "approved-rollout",
+    "workloadScore": 19,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 800,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__PHYS_CH14_Q001": {
+      "takeaway": "A spindle is built around 3–12 intrafusal muscle fibers.",
+      "displayText": "A muscle spindle contains about 3–12 intrafusal fibers arranged inside a capsule and in parallel with the larger extrafusal muscle fibers. The central region of each intrafusal fiber has few or no actin and myosin filaments and serves as the sensory region; contractile ends are driven by gamma motor fibers. The spindle is approximately 3–10 mm long; its central sensory region has few or no actin and myosin filaments, while the contractile ends receive small gamma motor fibers.",
+      "emphasis": [
+        "A muscle spindle contains about"
+      ],
+      "rationales": {
+        "a": "Twelve to twenty-four exceeds the stated spindle composition; the source gives 3–12 intrafusal fibers.",
+        "c": "One to three is too few for the total intrafusal fibers in a spindle; that range describes nuclear bag fibers in the note.",
+        "d": "Twenty-four to fifty is far above the source’s number of intrafusal fibers per spindle."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded PDF text layer is corrupted and the imported explanation contains OCR substitutions or layout damage.",
+        "reconstructedContent": "A muscle spindle contains about 3–12 intrafusal fibers arranged inside a capsule and in parallel with the larger extrafusal muscle fibers. The central region of each intrafusal fiber has few or no actin and myosin filaments and serves as the sensory region; contractile ends are driven by gamma motor fibers.\n\nSource explanation detail retained: «Each muscle spindle is 3 to 10 millitheters long*Itis built around 3 to 12 tiny intrafusal muscle\nfibers that are attached to the glycocalyx of the surrounding large extrafusal skeletal muscle fibers\n\n+ Each intrafusal muscle fibet is a tiny Skeletal muscle-fiber. However, the central region of each of\nthese fibers has few or no actin and myosin filaméxits Therefore, this central portion does not\ncontract when the ends do, Instead?it functionsis a sensory receptor. The end portions that do\ncontract are excited by small amma motor ‘herve fibers.",
+        "evidenceBasis": [
+          "Canonical source-fidelity record marks printed explanation page(s) 268 as rendered-page authoritative; the PDF SHA-256 is 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "The canonical rendered-page transcription was used to resolve OCR substitutions while retaining the source mechanism and keyed answer; preserved source text below the clean explanation carries ancillary source details.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          268
+        ]
+      }
+    },
+    "marrow__PHYS_CH14_Q002": {
+      "takeaway": "Gamma motor neurons innervate the muscle spindle.",
+      "displayText": "Gamma (γ) efferents provide motor supply to intrafusal fibers of the muscle spindle. Alpha motor neurons innervate the force-producing extrafusal fibers; spindle afferents instead carry sensory information from the receptor. The source gives gamma efferents as small group A motor fibers (about 3–6 μm), and notes approximately 1–3 nuclear bag and 3–9 nuclear chain fibers per spindle.",
+      "emphasis": [
+        "Gamma (γ) efferents provide motor"
+      ],
+      "rationales": {
+        "a": "Group I afferents are sensory fibers, not the motor supply to spindle contractile ends.",
+        "b": "Group II fibers provide secondary spindle sensory input; they are not the spindle’s motor efferents.",
+        "d": "The spindle has dedicated gamma motor innervation; it is not without motor supply."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded PDF text layer is corrupted and the imported explanation contains OCR substitutions or layout damage.",
+        "reconstructedContent": "Gamma (γ) efferents provide motor supply to intrafusal fibers of the muscle spindle. Alpha motor neurons innervate the force-producing extrafusal fibers; spindle afferents instead carry sensory information from the receptor.\n\nSource explanation detail retained: Motor supply to muscle spindle is y\n\nMuscle spindles have a motor nerve supply of their own.These nerves belong to Erlanger and\nGasser’s AM group. They are just 3-6 j1 in diameter (hence called small motor nerve system/l™\nefferents of Leksell) and go exclusively to muscle spindles\n\nNote:\n\n+ Motor innervation of muscle spindle is by gamma efferents\n\n« Motor innervation of extrafusal fibers is by alpha motor neurons\nNuclear bag muscle fibers: 1-3 per muscle spindle\n\nNuclear chain muscle fibers: 3-9 per muscle spindle.\n\n———\n\nDacieslaues easel oreervnnse spncto\nContractile fibres Nuclear chain fibres | Nuclear bes fibres\nEflownt :amotor neurons | | Efferent: Garrma static | Effet: Gamma dynamic @\now\n@\nho ae",
+        "evidenceBasis": [
+          "Canonical source-fidelity record marks printed explanation page(s) 268, 269 as rendered-page authoritative; the PDF SHA-256 is 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "The canonical rendered-page transcription was used to resolve OCR substitutions while retaining the source mechanism and keyed answer; preserved source text below the clean explanation carries ancillary source details.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          268,
+          269
+        ]
+      }
+    },
+    "marrow__PHYS_CH14_Q003": {
+      "takeaway": "The yellow spindle-ending efferent is a gamma motor neuron.",
+      "displayText": "The yellow efferent fiber shown ending on the contractile portions of intrafusal fibers is a gamma motor neuron. Gamma motor neurons arise in the anterior horn and adjust spindle sensitivity and muscle tone. Alpha neurons innervate extrafusal fibers; beta and delta are not the labeled spindle efferent class. Gamma efferents average about 5 μm and supply intrafusal spindle fibers; alpha motor axons are larger (about 14 μm) and innervate extrafusal fibers. A-beta fibers carry touch/pressure and A-delta fibers pain/temperature.",
+      "emphasis": [
+        "The yellow efferent fiber shown"
+      ],
+      "rationales": {
+        "b": "Alpha motor neurons supply extrafusal force-producing fibers, not the spindle endings shown in yellow.",
+        "c": "Beta is not the source-identified spindle efferent in the diagram; the spindle motor fibers are gamma efferents.",
+        "d": "Delta is not the gamma efferent class that terminates on intrafusal spindle ends."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded PDF text layer is corrupted and the imported explanation contains OCR substitutions or layout damage.",
+        "reconstructedContent": "The yellow efferent fiber shown ending on the contractile portions of intrafusal fibers is a gamma motor neuron. Gamma motor neurons arise in the anterior horn and adjust spindle sensitivity and muscle tone. Alpha neurons innervate extrafusal fibers; beta and delta are not the labeled spindle efferent class.\n\nSource explanation detail retained: In the given figure, the fiber in yellow innervates the ends of the muscle spindle. Therefore, it is\na gamma motor neuron\n\nMany much smaller gamma motor neurons are located in the spinal cord anterior horns (shown\nas the yellow efferent fiber). These gamma motor neurons average 5 micrometers in diameter,\nwhich go to small, special skeletal muscle fibers called intrafusal fibers or the muscle spindle\nThese fibers constitute the ends of the muscle spindle, which help control basic muscle “tone.”\nOption (b):\n\nThe alpha motor neurons (shown as the blue efferent fibre) are on an average 14 micrometers in\ndiameter. These fibers branch many times after they enter the muscle and innervate the large\nskeletal muscle fibers at the motor endplate. Stimulation of a single alpha nerve fiber excites\n\nanywhere from three to several hundred skeletal muscle fibers, which are collectively called the\nmotor unit.\n\nOption (c):\nAcbeta fibers are fibers for touch and pressure\nOption (4):\n\nA-delta fibers are fibers for pain and temperature\n\nSkeletal muscle ——\" Muscle spinaile Golgi tendon",
+        "evidenceBasis": [
+          "Canonical source-fidelity record marks printed explanation page(s) 269, 270 as rendered-page authoritative; the PDF SHA-256 is 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "The canonical rendered-page transcription was used to resolve OCR substitutions while retaining the source mechanism and keyed answer; preserved source text below the clean explanation carries ancillary source details.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          269,
+          270
+        ]
+      }
+    },
+    "marrow__PHYS_CH14_Q004": {
+      "takeaway": "Type II afferents do innervate static nuclear bag fibers, making that statement false.",
+      "displayText": "Intrafusal and extrafusal fibers lie in parallel, and primary Ia endings are especially sensitive to dynamic stretch. Type II sensory endings innervate nuclear chain and static nuclear bag fibers; they do not innervate dynamic nuclear bag fibers. Muscle spindles receive both dynamic and static gamma motor input. Type II endings supply static nuclear bag and chain fibers; Ia primary endings sample both bag and chain fibers and respond to dynamic change. Dynamic gamma neurons supply dynamic bag fibers; static gamma neurons supply static bag and chain fibers.",
+      "emphasis": [
+        "Intrafusal and extrafusal fibers lie"
+      ],
+      "rationales": {
+        "a": "This is true: spindle intrafusal fibers are arranged parallel to extrafusal muscle fibers.",
+        "b": "This is true: primary Ia endings respond strongly to the dynamic component of stretch.",
+        "d": "This is true: dynamic and static gamma motor neurons supply spindle intrafusal fibers."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded PDF text layer is corrupted and the imported explanation contains OCR substitutions or layout damage.",
+        "reconstructedContent": "Intrafusal and extrafusal fibers lie in parallel, and primary Ia endings are especially sensitive to dynamic stretch. Type II sensory endings innervate nuclear chain and static nuclear bag fibers; they do not innervate dynamic nuclear bag fibers. Muscle spindles receive both dynamic and static gamma motor input.\n\nSource explanation detail retained: ..\n\nType II nerve fibers-do innervaté-the static nuclear bag fibers. They do not innervate dynamic\nnuclear bag.fibers >\nAmuscle spindle has:\n\n+ Intrafusal fibers - these are tiny skeletal muscles which have few or no actin and myosin\nfilaments in the central portion. This portion acts as a sensory receptor.\n\n+ Extrafusal fibers\n\nThese fibers are positioned parallel to each other (Option A)\n\nThere are two types of intrafusal fibers:\n\n« Nuclear bag fibers - subdivided as dynamic and static nuclear bag fibers\n+ Nuclear chain fibers\n\nSensory nerve supply: There are two types of sensory endings:\n\n+ Primary endings - (annulospiral ending) from Type Ia nerve fibers. This innervates both the\nnuclear bag and nuclear chain fibers, They are most sensitive to the velocity of the change in\nmuscle length, This is called a dynamic response. (Option B}\n\n« Secondary endings - from Type II nerve fibers. This innervates static nuclear bag and nuclear\nchain fibers, They do not innervate dynamic nuclear bag fibers. (Option C)\n\nBoth primary and secondary endings show a static response\n\nMotor nerve supply: The muscle spindles are supplied by y motor neurons. There are two types\nof ymotor neurons- dynamic that supply dynamic nuclear bag fibers and static that supply static\nnuclear bag fibers and nuclear chain fibers. (Option D)\n\ner\n%\nos\n\ned\n\nae",
+        "evidenceBasis": [
+          "Canonical source-fidelity record marks printed explanation page(s) 270, 271 as rendered-page authoritative; the PDF SHA-256 is 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "The canonical rendered-page transcription was used to resolve OCR substitutions while retaining the source mechanism and keyed answer; preserved source text below the clean explanation carries ancillary source details.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          270,
+          271
+        ]
+      }
+    },
+    "marrow__PHYS_CH14_Q005": {
+      "takeaway": "Nuclear bag fibers sense dynamic muscle length.",
+      "displayText": "Nuclear bag fibers within the spindle encode dynamic changes in muscle length. The Golgi tendon organ monitors muscle tension, while spindle input also contributes to awareness of joint position. Distinguish length change at the spindle from force/tension at the tendon organ. Nuclear bag fibers have nuclei in a central dilation and encode static plus dynamic length change; chain-fiber nuclei lie in rows and encode static length change.",
+      "emphasis": [
+        "Nuclear bag fibers within the"
+      ],
+      "rationales": {
+        "b": "Muscle tension is monitored chiefly by the Golgi tendon organ, not the nuclear bag portion of the spindle.",
+        "c": "Joint position is supported by spindle proprioceptive input generally; the specific nuclear-bag distinction here is dynamic length.",
+        "d": "The nuclear bag fibers have a defined sensory role: encoding dynamic muscle length."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded PDF text layer is corrupted and the imported explanation contains OCR substitutions or layout damage.",
+        "reconstructedContent": "Nuclear bag fibers within the spindle encode dynamic changes in muscle length. The Golgi tendon organ monitors muscle tension, while spindle input also contributes to awareness of joint position. Distinguish length change at the spindle from force/tension at the tendon organ.\n\nSource explanation detail retained: ri\n\nack\nThe nuclear bag fibe $gense the dgatinic length of the muscle\n\nNuclear ba; fibgrd are intrafusal fibers, which are a part of the muscle spindle. Intrafusal fibers\n\nserve a purély sénsory funétion in the muscle spindle\n\nTypes of intrafusal fibers in muscle spindles:\n\nNote- Golgi tendon organ senses changes in muscle tension. Muscle spindle also provides sense of\njoint position,\n\nrons\n\nStructure Nudlei in central dilated area _| Nuclei in rows\nTypes StaticDynamic =\nPrimary sensory afferent Ia (for both the types) la\nSecondary sensory ending _| II (only for static bag fiber) | II\nEfferent static & dynamic y-motor neu | static ymotor neuron\n\ns\n\nWay of detection of the chan\nge in muscle length\n\nStatic & dynamic changes\n\nStatic change",
+        "evidenceBasis": [
+          "Canonical source-fidelity record marks printed explanation page(s) 271 as rendered-page authoritative; the PDF SHA-256 is 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "The canonical rendered-page transcription was used to resolve OCR substitutions while retaining the source mechanism and keyed answer; preserved source text below the clean explanation carries ancillary source details. The native table on printed p. 271 is restored in displayTables and pinned to that page.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          271
+        ]
+      },
+      "displayTables": [
+        {
+          "title": "Muscle-spindle fiber comparison",
+          "source_page": 271,
+          "columns": [
+            "Feature",
+            "Nuclear bag fibers",
+            "Nuclear chain fibers"
+          ],
+          "rows": [
+            [
+              "Structure",
+              "Nuclei in central dilated area",
+              "Nuclei in rows"
+            ],
+            [
+              "Types",
+              "Static and dynamic",
+              "Not subdivided in the source table"
+            ],
+            [
+              "Primary sensory afferent",
+              "Group Ia (for both types)",
+              "Group Ia"
+            ],
+            [
+              "Secondary sensory ending",
+              "Group II (static bag fibers only)",
+              "Group II"
+            ],
+            [
+              "Efferent",
+              "Static and dynamic γ motor neurons",
+              "Static γ motor neuron"
+            ],
+            [
+              "Muscle-length signal",
+              "Static and dynamic changes",
+              "Static change"
+            ]
+          ]
+        }
+      ]
+    },
+    "marrow__PHYS_CH14_Q006": {
+      "takeaway": "Stretch-reflex afferents innervate nuclear bag and chain fibers.",
+      "displayText": "Deep tendon (stretch) reflexes use group Ia and group II spindle afferents. A primary Ia ending can contact dynamic bag, static bag, and nuclear chain fibers; group II secondary endings supply static bag and chain fibers. Golgi tendon organs use Ib afferents and detect tension, rather than serving as the spindle receptors for this reflex. Ia endings innervate dynamic bag, static bag, and chain fibers; group II endings innervate static bag and chain fibers. Both are involved in deep tendon/stretch reflexes.",
+      "emphasis": [
+        "Deep tendon (stretch) reflexes use"
+      ],
+      "rationales": {
+        "a": "Dynamic bag fibers are only one spindle class; Ia afferents also sample static bag and chain fibers, and group II supplies static bag/chain.",
+        "b": "The Golgi tendon organ is a tension receptor with Ib afferents, not the receptor set for the deep tendon stretch reflex.",
+        "d": "The tendon organ is not part of the spindle afferent pair asked for; the relevant endings are Ia and II on spindle fibers."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded PDF text layer is corrupted and the imported explanation contains OCR substitutions or layout damage.",
+        "reconstructedContent": "Deep tendon (stretch) reflexes use group Ia and group II spindle afferents. A primary Ia ending can contact dynamic bag, static bag, and nuclear chain fibers; group II secondary endings supply static bag and chain fibers. Golgi tendon organs use Ib afferents and detect tension, rather than serving as the spindle receptors for this reflex.\n\nSource explanation detail retained: The afferents for deep tendon reflexes innervate both - nuclear bag and chain fibers.\n\nThe afferents for the DTRs are the type Ia and type II nerve fibers. There are three types of\nintrafusal muscle fibers: dynamic nuclear bag, static nuclear bag, and nuclear chain fibers. A\nsingle Ia afferent fiber innervates all three types of fibers to form a primary sensory ending. A\ngroup II sensory fiber innervates nuclear chain and static bag fibers to form a secondary sensory\nending,\n\nDeep tendon reflexes are an example of stretch reflex or myotatic reflex.",
+        "evidenceBasis": [
+          "Canonical source-fidelity record marks printed explanation page(s) 272 as rendered-page authoritative; the PDF SHA-256 is 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "The canonical rendered-page transcription was used to resolve OCR substitutions while retaining the source mechanism and keyed answer; preserved source text below the clean explanation carries ancillary source details.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          272
+        ]
+      }
+    },
+    "marrow__PHYS_CH14_Q007": {
+      "takeaway": "Passive muscle stretch activates the spindle and initiates the myotatic reflex.",
+      "displayText": "A stretch reflex is initiated by passive lengthening of the muscle, which stretches its muscle spindles and increases Ia afferent firing. The monosynaptic Ia-to-alpha motor-neuron connection contracts the stretched muscle; reciprocal inhibitory interneurons reduce antagonist activity. The monosynaptic myotatic arc proceeds from passive spindle stretch through Ia afferent activation to alpha motor-neuron drive and contraction of the same muscle.",
+      "emphasis": [
+        "A stretch reflex is initiated"
+      ],
+      "rationales": {
+        "b": "Active shortening does not provide the passive muscle-lengthening trigger specified for the stretch reflex.",
+        "c": "The question asks for the initiating stimulus, which is passive stretch rather than either passive or active movement indiscriminately.",
+        "d": "A stretch reflex has a defined stimulus: passive stretch of the muscle spindle."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded PDF text layer is corrupted and the imported explanation contains OCR substitutions or layout damage.",
+        "reconstructedContent": "A stretch reflex is initiated by passive lengthening of the muscle, which stretches its muscle spindles and increases Ia afferent firing. The monosynaptic Ia-to-alpha motor-neuron connection contracts the stretched muscle; reciprocal inhibitory interneurons reduce antagonist activity.\n\nSource explanation detail retained: Stretch reflex occurs when the muscle is stretéhéd passively. ) ,\n\nStretch (myotatic) reflex is monosynaptio, (As illustrated:ih the figure.given below, steps 1-25)\n\ne",
+        "evidenceBasis": [
+          "Canonical source-fidelity record marks printed explanation page(s) 272 as rendered-page authoritative; the PDF SHA-256 is 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "The canonical rendered-page transcription was used to resolve OCR substitutions while retaining the source mechanism and keyed answer; preserved source text below the clean explanation carries ancillary source details.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          272
+        ]
+      }
+    },
+    "marrow__PHYS_CH14_Q008": {
+      "takeaway": "Withdrawal produces ipsilateral flexion and contralateral extension, not a symmetric bilateral response.",
+      "displayText": "The flexor-withdrawal response is a nociceptive polysynaptic reflex: ipsilateral flexors contract and extensors are inhibited to withdraw from the stimulus. A crossed-extensor response activates contralateral extensors and inhibits flexors to support balance. Thus the response is not the same on both sides. Pain afferents activate flexor reflexes polysynaptically; afterdischarge can hold the part away for about 0.1–3 seconds after irritation ends.",
+      "emphasis": [
+        "The flexor-withdrawal response is a"
+      ],
+      "rationales": {
+        "a": "Nociceptive input is the usual trigger for the flexor-withdrawal reflex.",
+        "b": "A sufficiently strong stimulus can maintain the polysynaptic withdrawal response through afterdischarge.",
+        "c": "Ipsilateral flexion is the classic flexor-withdrawal pattern; it is not the false statement."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded PDF text layer is corrupted and the imported explanation contains OCR substitutions or layout damage.",
+        "reconstructedContent": "The flexor-withdrawal response is a nociceptive polysynaptic reflex: ipsilateral flexors contract and extensors are inhibited to withdraw from the stimulus. A crossed-extensor response activates contralateral extensors and inhibits flexors to support balance. Thus the response is not the same on both sides.\n\nSource explanation detail retained: Withdrawal reflexes are not accompanied by the same response on both sides of the body. On the\nipsilateral side of the pain stimulus, flexors are stimulated (they contract) and extensors are\ninhibited (they relax), and the arm is jerked away from the stove. On the contralateral side, flexors\nare inhibited and extensors are stimulated (crossed extension reflex) to maintain balance\n\nIt results in flexion on the ipsilateral side and extension on the contralateral side\n\nSomatosensory and pain afferent fibers elicit withdrawal of the stimulated body part from the\nnoxious stimulus.\n\nPain (e.g., touching a hot stove) stimulates the flexor reflex afferents of groups II, II, and IV,\n\nThe afferent fibers synapse polysynaptically (via interneurons) onto motoneurons in the spinal\ncord\n\nAs a result of persistent neural activity in the polysynaptic circuits, an afterdischarge occurs. The\nafterdischarge prevents the muscle from relaxing for some time\n\n06 006",
+        "evidenceBasis": [
+          "Canonical source-fidelity record marks printed explanation page(s) 272, 273 as rendered-page authoritative; the PDF SHA-256 is 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "The canonical rendered-page transcription was used to resolve OCR substitutions while retaining the source mechanism and keyed answer; preserved source text below the clean explanation carries ancillary source details.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          272,
+          273
+        ]
+      }
+    },
+    "marrow__PHYS_CH14_Q009": {
+      "takeaway": "Intact reflex arcs are essential to normal postural maintenance.",
+      "displayText": "Normal posture depends on intact reflex arcs as well as descending control. Spinal reflexes and central pattern-generating circuits, together with brainstem and cerebellar postural systems, continuously adjust muscle activity against gravity. Muscle strength and joint range matter for movement but do not replace the reflex circuitry that stabilizes posture. Spinal cord circuits integrate reflexes and central pattern generators; brainstem and cerebellum govern postural reflexes; cortex and basal ganglia support voluntary movement.",
+      "emphasis": [
+        "Normal posture depends on intact"
+      ],
+      "rationales": {
+        "b": "Muscle strength helps generate movement, but posture also requires neural reflex control; power alone is not the defining dependency asked here.",
+        "c": "Fiber type can influence contraction properties but does not substitute for the reflex arcs controlling posture.",
+        "d": "A normal joint range permits movement, but posture maintenance depends on reflex and descending neural circuits."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded PDF text layer is corrupted and the imported explanation contains OCR substitutions or layout damage.",
+        "reconstructedContent": "Normal posture depends on intact reflex arcs as well as descending control. Spinal reflexes and central pattern-generating circuits, together with brainstem and cerebellar postural systems, continuously adjust muscle activity against gravity. Muscle strength and joint range matter for movement but do not replace the reflex circuitry that stabilizes posture.\n\nSource explanation detail retained: a\n\nThe maintenance of nornial posture depends on the Integrity of reflex are.\n\nThe muscles that maintain upright posture—that is, support the body's weight against\ngravity—are controlled by the’brain and by reflex mechanisms\n\nThree levels of the nervoug system control movement:\n+ The spinal cord, which integrates spinal reflexes and contains central pattern generators.\n«The brain stem and cerebellum, which control postural reflexes and hand and eye movements\n\n« The cerebral cortex and basal ganglia, which are responsible for voluntary movements",
+        "evidenceBasis": [
+          "Canonical source-fidelity record marks printed explanation page(s) 273 as rendered-page authoritative; the PDF SHA-256 is 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "The canonical rendered-page transcription was used to resolve OCR substitutions while retaining the source mechanism and keyed answer; preserved source text below the clean explanation carries ancillary source details.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          273
+        ]
+      }
+    },
+    "marrow__PHYS_CH14_Q010": {
+      "takeaway": "The Golgi tendon organ is the receptor for the inverse stretch reflex.",
+      "displayText": "The Golgi tendon organ detects tension in series with muscle fibers. When tendon tension rises, Ib afferents activate an inhibitory interneuron that reduces alpha motor-neuron drive to the same muscle; this inverse stretch (Golgi tendon) reflex can relax the muscle. The spindle, by contrast, lies in parallel and detects muscle length. Golgi-organ Ib afferents recruit a glycinergic inhibitory interneuron that hyperpolarizes alpha motor neurons and relaxes the contracting muscle.",
+      "emphasis": [
+        "The Golgi tendon organ detects"
+      ],
+      "rationales": {
+        "a": "Muscle spindles lie in parallel and detect length/stretch; the inverse reflex uses tendon tension input.",
+        "b": "Extrafusal fibers generate force but are not the sensory receptor for the inverse stretch reflex.",
+        "c": "Intrafusal fibers belong to the spindle length receptor, not the tendon tension receptor."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded PDF text layer is corrupted and the imported explanation contains OCR substitutions or layout damage.",
+        "reconstructedContent": "The Golgi tendon organ detects tension in series with muscle fibers. When tendon tension rises, Ib afferents activate an inhibitory interneuron that reduces alpha motor-neuron drive to the same muscle; this inverse stretch (Golgi tendon) reflex can relax the muscle. The spindle, by contrast, lies in parallel and detects muscle length.\n\nSource explanation detail retained: j te re\nGolgi tendon organ is the receptor. for inverse stretch reflex (refer figure)\n\nce ys, eel\nThe Golgi tendon organs, unlike the spindles, are in sexieswith the muscle fibers; therefore, they\nare stimulated by both passive stretch'and active contraction of the muscle.\n\nThe degree of stimulation by contraétion of muééles is much greater than that caused by the\nstretching of muscles. co a\n\nX.\nMuscle contraction —.Ib fibers from the Golgi tendon organ excite an inhibitory interneuron that\nreleases inhibitory mediator glycine, hyperpolarization (inhibition) of ° motor neurons —\nmuscle relaxatiofiy\n\naS,\n\n*",
+        "evidenceBasis": [
+          "Canonical source-fidelity record marks printed explanation page(s) 274 as rendered-page authoritative; the PDF SHA-256 is 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "The canonical rendered-page transcription was used to resolve OCR substitutions while retaining the source mechanism and keyed answer; preserved source text below the clean explanation carries ancillary source details.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          274
+        ]
+      }
+    },
+    "marrow__PHYS_CH14_Q011": {
+      "takeaway": "Each Golgi tendon organ is associated with about 3–20 muscle fibers (source note: 3–25).",
+      "displayText": "A Golgi tendon organ samples tension from a small bundle of roughly 3–20 muscle fibers in the source account. Its netlike sensory endings lie among tendon fascicles, and its Ib afferent can engage the inverse stretch reflex. The source also gives a broader approximate range of 3–25 in its descriptive note. The organ is a netlike collection of knobby nerve endings among tendon fascicles; source notes about 3–25 fibers, fast myelinated Ib afferents, and roles in regulating contraction velocity, muscle length, and force.",
+      "emphasis": [
+        "A Golgi tendon organ samples"
+      ],
+      "rationales": {
+        "b": "Two hundred to three hundred fibers is far larger than the small bundle described for one tendon organ.",
+        "c": "Fifty to sixty fibers exceeds the keyed source range of roughly 3–20 per organ.",
+        "d": "Eighty to one hundred fibers is not the small tendon-fascicle sample described in the source."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded PDF text layer is corrupted and the imported explanation contains OCR substitutions or layout damage.",
+        "reconstructedContent": "A Golgi tendon organ samples tension from a small bundle of roughly 3–20 muscle fibers in the source account. Its netlike sensory endings lie among tendon fascicles, and its Ib afferent can engage the inverse stretch reflex. The source also gives a broader approximate range of 3–25 in its descriptive note.\n\nSource explanation detail retained: There are 3-20 muscle fibers per Golgi tendon organ\n\n«Golgi tendon organ consists of a netlike collection of knobby nerve endings among the fascicles\nofa tendon\n\n« There are 3-25 muscle fibers per Golgi tendon organ\n\n* The fibers from the Golgi tendon organs make up the Ib group of myelinated, rapidly conducting\nsensory nerve fibers.\n\n* Golgi tendon organs help in regulating the velocity of the muscle contraction, muscle length, and\nmuscle force.\n\n« They are the receptor for inverse stretch reflex",
+        "evidenceBasis": [
+          "Canonical source-fidelity record marks printed explanation page(s) 275 as rendered-page authoritative; the PDF SHA-256 is 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "The canonical rendered-page transcription was used to resolve OCR substitutions while retaining the source mechanism and keyed answer; preserved source text below the clean explanation carries ancillary source details.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          275
+        ]
+      }
+    },
+    "marrow__PHYS_CH14_Q012": {
+      "takeaway": "The inverse stretch reflex has one interneuron between Ib afferent and motor output.",
+      "displayText": "The inverse stretch (Golgi tendon) reflex is disynaptic: Ib afferents from the Golgi tendon organ synapse on an inhibitory interneuron, which then inhibits the alpha motor neuron. Excessive tendon tension can produce rapid muscle relaxation, the lengthening reaction that protects muscle and tendon from overload. At extreme tendon tension, inhibition can cause near-immediate relaxation (the lengthening reaction), a protective response against muscle tearing or tendon avulsion.",
+      "emphasis": [
+        "The inverse stretch (Golgi tendon)"
+      ],
+      "rationales": {
+        "a": "Ia spindle afferents mediate the stretch reflex; inverse stretch begins with Ib tendon-organ afferents.",
+        "b": "Although Golgi tendon input initiates it, this reflex includes an inhibitory interneuron and is not monosynaptic.",
+        "d": "A single interneuron is inserted in this disynaptic circuit; it is not a long polysynaptic chain."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded PDF text layer is corrupted and the imported explanation contains OCR substitutions or layout damage.",
+        "reconstructedContent": "The inverse stretch (Golgi tendon) reflex is disynaptic: Ib afferents from the Golgi tendon organ synapse on an inhibitory interneuron, which then inhibits the alpha motor neuron. Excessive tendon tension can produce rapid muscle relaxation, the lengthening reaction that protects muscle and tendon from overload.\n\nSource explanation detail retained: Golgi tendon reflex (Inverse myotatic/Inverse stretch reflex) is disynaptic, is the opposite, or\ninverse, of the stretch reflex\n\nWhen tension on the muscle—and therefore on the tendon—becomes extreme, the inhibitory\neffect from the golgi tendon organ can be so great that it leads instantaneous relaxation of the\nentire muscle. This effect is called the lengthening reaction; it is probably a protective mechanism\nto prevent tearing of the muscle or avulsion of the tendon from its attachments to the bone.",
+        "evidenceBasis": [
+          "Canonical source-fidelity record marks printed explanation page(s) 275 as rendered-page authoritative; the PDF SHA-256 is 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "The canonical rendered-page transcription was used to resolve OCR substitutions while retaining the source mechanism and keyed answer; preserved source text below the clean explanation carries ancillary source details.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          275
+        ]
+      }
+    },
+    "marrow__PHYS_CH14_Q013": {
+      "takeaway": "Withdrawal afferents reach motor neurons through spinal interneurons, not a direct pathway.",
+      "displayText": "The flexor-withdrawal pathway is polysynaptic. Nociceptive afferents first recruit spinal interneuron pools, which distribute excitation to the necessary flexors, inhibit antagonists, and sustain afterdischarge. They do not project directly to anterior motor neurons; the shortest described route uses several neurons. The source identifies diverging withdrawal circuits, reciprocal inhibition, and afterdischarge; the shortest pathway is three or four neurons.",
+      "emphasis": [
+        "The flexor-withdrawal pathway is polysynaptic"
+      ],
+      "rationales": {
+        "a": "Diverging interneuron circuits spread excitation to the muscle groups needed for withdrawal.",
+        "b": "Reciprocal inhibition of antagonist muscles is part of the flexor-withdrawal circuit.",
+        "c": "Interneuronal afterdischarge can prolong the reflex after the initiating stimulus ends."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded PDF text layer is corrupted and the imported explanation contains OCR substitutions or layout damage.",
+        "reconstructedContent": "The flexor-withdrawal pathway is polysynaptic. Nociceptive afferents first recruit spinal interneuron pools, which distribute excitation to the necessary flexors, inhibit antagonists, and sustain afterdischarge. They do not project directly to anterior motor neurons; the shortest described route uses several neurons.\n\nSource explanation detail retained: 4 o\nThe pathways for eliciting they for’ ‘withdrawal reflex do not pass directly to the anterior motor\nneurons; instead, they first a into the spitial cord interféuron pool of neurons and only\nsecondarily to the motor neurons. The\\shottest possible'circuit i is a three- or four-neuron pathway.\nThe following basic types of cireuits ‘ate present: Ae)\n\n« Diverging circuits to spreaduhdeflex to the-tecessary muscles for withdrawal;\n\n* Circuits to inhibit the o anfagonist muselés,”\n\nalled reciprocal inhibition circuits; and\n\nan\n* Circuits to cause aftiredischarge.ai8} present. They prolong the reflex contraction of the muscles\n\nthat last many fraetions of a second after the stimulus is over\na, “ ~\n~\n\nCrossed\n\nThe flexor reflex is organized to withdraw a pained or otherwise irritated part of the body from a\nstimulus. Further, because of after-discharge, the reflex can hold the irritated part away from the\nstimulus for 0.1 to 3 seconds after the irritation is over. During this time, other reflexes and\nactions of the central nervous system can move the entire body away from the painful stimulus.",
+        "evidenceBasis": [
+          "Canonical source-fidelity record marks printed explanation page(s) 276, 277 as rendered-page authoritative; the PDF SHA-256 is 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "The canonical rendered-page transcription was used to resolve OCR substitutions while retaining the source mechanism and keyed answer; preserved source text below the clean explanation carries ancillary source details.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          276,
+          277
+        ]
+      }
+    },
+    "marrow__PHYS_CH14_Q014": {
+      "takeaway": "Ongoing spindle input contributes to baseline muscle tone.",
+      "displayText": "Muscle spindle input helps maintain muscle tone, the resistance a muscle offers to passive stretch. Ongoing group Ia and II afferent activity supports baseline alpha motor-neuron firing through the tonic stretch-reflex circuit. The Golgi tendon organ instead senses tension; Renshaw cells mediate recurrent inhibition. The tonic/static stretch-reflex circuit uses ongoing Ia and II spindle afferent activity to support baseline alpha motor-neuron firing.",
+      "emphasis": [
+        "Muscle spindle input helps maintain"
+      ],
+      "rationales": {
+        "a": "The Golgi tendon organ senses tension and can inhibit muscle output; it is not the principal source of baseline stretch-reflex tone.",
+        "c": "Renshaw cells provide recurrent inhibition within spinal motor circuits, not the tonic length feedback that supports muscle tone.",
+        "d": "Muscle tone has a defined spindle-mediated reflex contribution, so ‘none’ is incorrect."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded PDF text layer is corrupted and the imported explanation contains OCR substitutions or layout damage.",
+        "reconstructedContent": "Muscle spindle input helps maintain muscle tone, the resistance a muscle offers to passive stretch. Ongoing group Ia and II afferent activity supports baseline alpha motor-neuron firing through the tonic stretch-reflex circuit. The Golgi tendon organ instead senses tension; Renshaw cells mediate recurrent inhibition.\n\nSource explanation detail retained: The resistance of a muscle to stretch is often referred to as its tone or tonus and muscle\nspindle helps to control basic muscle tone.\n\nThe tonic (static) stretch reflex circuit includes both group Ia and group II afferent:fiWers from\nmuscle spindles. Normally, there is ongoing activity in the Ia and II afferents;that helps maintain\na baseline firing of ° motor neurons; therefore, the tonic stfetch reflex contributes to muscle tone",
+        "evidenceBasis": [
+          "Canonical source-fidelity record marks printed explanation page(s) 277 as rendered-page authoritative; the PDF SHA-256 is 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "The canonical rendered-page transcription was used to resolve OCR substitutions while retaining the source mechanism and keyed answer; preserved source text below the clean explanation carries ancillary source details.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          277
+        ]
+      }
+    },
+    "marrow__PHYS_CH14_Q015": {
+      "takeaway": "Alpha and gamma motor neurons are coactivated to keep the spindle responsive during contraction.",
+      "displayText": "During many voluntary and involuntary movements, alpha and gamma motor neurons are coactivated. Alpha drive contracts extrafusal fibers while gamma drive contracts intrafusal ends, keeping the spindle’s sensory region taut as the whole muscle shortens. This preserves spindle feedback during movement. Alpha–gamma coactivation keeps the spindle receptor region from going slack or being overstretched as the whole muscle contracts, preserving length feedback for ongoing and planned movement.",
+      "emphasis": [
+        "During many voluntary and involuntary"
+      ],
+      "rationales": {
+        "a": "Alpha activation alone would shorten the muscle and unload the spindle unless gamma drive also contracts intrafusal ends.",
+        "b": "Gamma-before-alpha is not the described coordinated pattern; the two motor systems are excited at nearly the same time.",
+        "d": "Alpha-only drive would let the spindle slacken during shortening and reduce useful length feedback."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded PDF text layer is corrupted and the imported explanation contains OCR substitutions or layout damage.",
+        "reconstructedContent": "During many voluntary and involuntary movements, alpha and gamma motor neurons are coactivated. Alpha drive contracts extrafusal fibers while gamma drive contracts intrafusal ends, keeping the spindle’s sensory region taut as the whole muscle shortens. This preserves spindle feedback during movement.\n\nSource explanation detail retained: The cell bodies of ° and ymotor neurons fo a given muscle lie close*together. Both types are\nactivated by interneurons in their iinthediate vicihity and sometinies directly by neurons of the\ndescending pathways. During many voluntaty.ahd involuntaty:movements, they are coactivated,\nie., they are excited at almogt-the same time. (° -ll coactivation)\n\nThe purpose of ° -Ml coactivation:\n\n« First, it keeps the length of:theeceptor portioh of the muscle spindle from changing during the\ncourse of the whole muscle €ofttraction. Henée, the muscle contraction is not opposed by the\nstretch reflex\n\n+ Second, if the mugele'spindle didnot contract and relax along with the large muscle fibers, the\nreceptor portion-of the spindléwvould sometimes be flail and sometimes be overstretched\n\nCoactivation'thus ensuresifhat information about muscle length will be continuously available to\nprovide for adjustment during ongoing actions and to plan and program future movements",
+        "evidenceBasis": [
+          "Canonical source-fidelity record marks printed explanation page(s) 277 as rendered-page authoritative; the PDF SHA-256 is 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "The canonical rendered-page transcription was used to resolve OCR substitutions while retaining the source mechanism and keyed answer; preserved source text below the clean explanation carries ancillary source details.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          277
+        ]
+      }
+    },
+    "marrow__PHYS_CH14_Q016": {
+      "takeaway": "Righting reflexes are postural reflexes that restore orientation.",
+      "displayText": "Righting reflexes are postural responses that restore normal orientation, including keeping the head upright and maintaining standing position. Much of this righting-reflex integration occurs in midbrain nuclei, linking vestibular and other sensory cues to corrective movement. These orienting responses are integrated mainly in midbrain nuclei and maintain upright head and standing posture.",
+      "emphasis": [
+        "Righting reflexes are postural responses"
+      ],
+      "rationales": {
+        "a": "A stretch reflex is a local muscle-length response, not the broader orienting response that rights the body.",
+        "c": "Righting reactions are integrated above the spinal cord, prominently in the midbrain, rather than being purely spinal.",
+        "d": "Visual/ocular reflexes can contribute sensory input, but the righting response is a postural reflex category."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded PDF text layer is corrupted and the imported explanation contains OCR substitutions or layout damage.",
+        "reconstructedContent": "Righting reflexes are postural responses that restore normal orientation, including keeping the head upright and maintaining standing position. Much of this righting-reflex integration occurs in midbrain nuclei, linking vestibular and other sensory cues to corrective movement.\n\nSource explanation detail retained: Righting reflexes operate to maintain the normal standing position and keep an animal's head\n\nupright. These reflexes are a series of responses integrated for the most part in the nuclei of the\nmidbrain",
+        "evidenceBasis": [
+          "Canonical source-fidelity record marks printed explanation page(s) 277 as rendered-page authoritative; the PDF SHA-256 is 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "The canonical rendered-page transcription was used to resolve OCR substitutions while retaining the source mechanism and keyed answer; preserved source text below the clean explanation carries ancillary source details.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          277
+        ]
+      }
+    },
+    "marrow__PHYS_CH14_Q017": {
+      "takeaway": "The footpad supportive reaction is spinally integrated, so calling it a midbrain righting reflex is false.",
+      "displayText": "Pressure applied to the footpad of a decerebrate animal can trigger the positive supportive reaction: the limb extends toward the pressure. The response is also called the magnet reaction; it can occur after spinal transection and helps prevent falling toward that side. Its integration is spinal, not a midbrain righting reflex. The magnet reaction is observed in infants and after spinal transection; pressure on the right footpad, for example, extends the right lower limb.",
+      "emphasis": [
+        "Pressure applied to the footpad"
+      ],
+      "rationales": {
+        "a": "The pressure-directed extension is called the magnet reaction, so this statement is true.",
+        "b": "The supportive reaction can be integrated at spinal level, including after spinal transection.",
+        "c": "Extending toward the applied pressure helps support the body and prevent falling on that side."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded PDF text layer is corrupted and the imported explanation contains OCR substitutions or layout damage.",
+        "reconstructedContent": "Pressure applied to the footpad of a decerebrate animal can trigger the positive supportive reaction: the limb extends toward the pressure. The response is also called the magnet reaction; it can occur after spinal transection and helps prevent falling toward that side. Its integration is spinal, not a midbrain righting reflex.\n\nSource explanation detail retained: Pressure on the footpad of a decerebrate patient causes the limb to extend against the pressure\n\napplied to the foot. This reflex is called the positive supportive reaction and is a righting reflex\nintegrated at the spinal level\n\nPressure on one side causes extension in that direction (e.g., on applying pressure on the right\nfootpad, extension of the right lower limb occurs), an effect called the magnet reaction. It is seen\nin infants and following spinal transection.\n\nFrom an evolutionary perspective, this reflex helps to prevent falling on the side where the\nstimulus is given.",
+        "evidenceBasis": [
+          "Canonical source-fidelity record marks printed explanation page(s) 277, 278 as rendered-page authoritative; the PDF SHA-256 is 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "The canonical rendered-page transcription was used to resolve OCR substitutions while retaining the source mechanism and keyed answer; preserved source text below the clean explanation carries ancillary source details.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          277,
+          278
+        ]
+      }
+    },
+    "marrow__PHYS_CH14_Q018": {
+      "takeaway": "The medullary pyramids are formed by corticospinal fibers.",
+      "displayText": "The corticospinal pathways are called pyramidal tracts because their fibers form the visible pyramids on the ventral medulla. Vestibular, reticular, and rubrospinal pathways descend outside this medullary pyramid system and are classified as extrapyramidal. The corticospinal tract makes a triangular bundle along the ventral medulla, where it forms the visible pyramids.",
+      "emphasis": [
+        "The corticospinal pathways are called"
+      ],
+      "rationales": {
+        "a": "The arcuate nucleus is a medullary structure but does not form the corticospinal pyramids.",
+        "b": "Vestibular nuclei give rise to vestibulospinal pathways, which are extrapyramidal.",
+        "c": "The interstitial nucleus of Cajal participates in gaze and postural control; it is not the tract forming the medullary pyramids."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The embedded PDF text layer is corrupted and the imported explanation contains OCR substitutions or layout damage.",
+        "reconstructedContent": "The corticospinal pathways are called pyramidal tracts because their fibers form the visible pyramids on the ventral medulla. Vestibular, reticular, and rubrospinal pathways descend outside this medullary pyramid system and are classified as extrapyramidal.\n\nSource explanation detail retained: The corticospinal pathways are also called the pyramidal tracts or pyramidal system because of\ntheir triangular shape as they pass along the ventral surface of the medulla oblongata",
+        "evidenceBasis": [
+          "Canonical source-fidelity record marks printed explanation page(s) 278 as rendered-page authoritative; the PDF SHA-256 is 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe."
+        ],
+        "reviewNote": "The canonical rendered-page transcription was used to resolve OCR substitutions while retaining the source mechanism and keyed answer; preserved source text below the clean explanation carries ancillary source details.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          278
+        ]
+      }
+    }
+  }
+}
