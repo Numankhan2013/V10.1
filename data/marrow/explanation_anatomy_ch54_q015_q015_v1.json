@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner-facing Marrow ED8 Anatomy Chapter 54 explanation refinement; native source figures/tables remain unchanged.",
+  "scope": {
+    "subject": "Anatomy",
+    "bank": "Marrow",
+    "chapterId": "54",
+    "chapterTitle": "Bones of the Lower Limb",
+    "questionStart": 15,
+    "questionEnd": 15,
+    "questions": 1,
+    "status": "approved-rollout",
+    "workloadScore": 1,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387",
+    "auditReport": "docs/question-explanations/anatomy-tail-20261001.md"
+  },
+  "questions": {
+    "marrow__ANAT_CH54_Q015": {
+      "takeaway": "The sustentaculum tali is a medial shelf of the calcaneus that supports the talar head and carries the flexor hallucis longus tendon groove below.",
+      "displayText": "The sustentaculum tali is a medial shelf of the calcaneus that supports the talar head and carries the flexor hallucis longus tendon groove below.\n\nThe sustentaculum tali is a projection on the medial surface of the calcaneus.\n\nIts superior surface has a facet for the middle facet on the head of the talus and supports the posterior part of the talar head. Its inferior surface has a groove for the tendon of flexor hallucis longus as it enters the sole.\n\nThree ligaments attach to the sustentaculum tali: plantar calcaneonavicular ligament on its anterior surface, deltoid ligament on its medial surface, and the medial talocalcaneal ligament.",
+      "emphasis": [
+        "The sustentaculum tali is a medial shelf of the calcaneus that supports the talar head and carries the flexor hallucis longus tendon groove below"
+      ],
+      "rationales": {
+        "a": "The talus sits on the sustentaculum but the projection itself belongs to the calcaneus.",
+        "c": "The navicular lies anterior to the talar head and receives it; it does not bear the sustentaculum projection.",
+        "d": "The cuneiforms are distal tarsal bones and do not form the medial calcaneal shelf."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          1038,
+          1039
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    }
+  }
+}
