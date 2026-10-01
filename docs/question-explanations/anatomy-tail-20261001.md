@@ -1,6 +1,6 @@
 # Anatomy tail explanation audit — 2026-10-01
 
-**Scope:** Chapters 51–63, canonical Anatomy source bundle SHA-256 `f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387`, authored against `d4abce86068b4221e61e541c34dd29258de61cca`. This checkpoint contains chapters 51–53: 66 of 252 assigned actionable IDs. Four tail IDs remain gated and untouched: CH52 Q009, CH55 Q018, CH62 Q006, and CH62 Q010. Raw question source, keys, figures and table structures are immutable. Each file records this report in `scope.auditReport`.
+**Scope:** Chapters 51–63, canonical Anatomy source bundle SHA-256 `f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387`, authored against `d4abce86068b4221e61e541c34dd29258de61cca`. This checkpoint contains chapters 51–55: 98 of 252 assigned actionable IDs. Four tail IDs remain gated and untouched: CH52 Q009, CH55 Q018, CH62 Q006, and CH62 Q010. Raw question source, keys, figures and table structures are immutable. Each file records this report in `scope.auditReport`.
 
 ## Batches
 
@@ -12,6 +12,10 @@
 | `explanation_anatomy_ch52_q016_q022_v1.json` | 7 | Q016, Q017, Q018, Q019, Q020, Q021, Q022 |
 | `explanation_anatomy_ch53_q001_q014_v1.json` | 14 | Q001, Q002, Q003, Q004, Q005, Q006, Q007, Q008, Q009, Q010, Q011, Q012, Q013, Q014 |
 | `explanation_anatomy_ch53_q015_q020_v1.json` | 6 | Q015, Q016, Q017, Q018, Q019, Q020 |
+| `explanation_anatomy_ch54_q001_q014_v1.json` | 14 | Q001, Q002, Q003, Q004, Q005, Q006, Q007, Q008, Q009, Q010, Q011, Q012, Q013, Q014 |
+| `explanation_anatomy_ch54_q015_q015_v1.json` | 1 | Q015 |
+| `explanation_anatomy_ch55_q001_q014_v1.json` | 14 | Q001, Q002, Q003, Q004, Q005, Q006, Q007, Q008, Q009, Q010, Q011, Q012, Q013, Q014 |
+| `explanation_anatomy_ch55_q015_q017_v1.json` | 3 | Q015, Q016, Q017 |
 
 ## Source review and flags
 
@@ -38,7 +42,7 @@ Every item was checked by stable ID against the canonical source bundle. Display
 - `marrow__ANAT_CH51_Q016` — key option 3; question p. 946,947, key p. 950, explanation p. 963,964.
 - `marrow__ANAT_CH51_Q017` — key option 2; question p. 947, key p. 950, explanation p. 964.
 - `marrow__ANAT_CH51_Q018` — key option 4; question p. 947, key p. 950, explanation p. 965.
-- `marrow__ANAT_CH51_Q019` — key option 4; question p. 947,948, key p. 950, explanation p. 965,966. The source-native adrenal artery table on p. 966 lists gonadal artery as a variant origin of the inferior suprarenal artery; the option is therefore supported, and the item is not flagged.
+- `marrow__ANAT_CH51_Q019` — key option 4; question p. 947,948, key p. 950, explanation p. 965,966. Native table ANAT_CH51_Q019_T1 on p. 966 lists gonadal artery as a variant origin of inferior suprarenal artery; the option is supported.
 - `marrow__ANAT_CH51_Q020` — key option 2; question p. 948, key p. 950, explanation p. 966,967.
 - `marrow__ANAT_CH51_Q021` — key option 1; question p. 948, key p. 950, explanation p. 967.
 - `marrow__ANAT_CH51_Q022` — key option 3; question p. 949, key p. 950, explanation p. 968.
@@ -95,6 +99,46 @@ Every item was checked by stable ID against the canonical source bundle. Display
 - `marrow__ANAT_CH53_Q019` — key option 3; question p. 1003, key p. 1003,1004, explanation p. 1020,1021.
 - `marrow__ANAT_CH53_Q020` — key option 2; question p. 1003, key p. 1003,1004, explanation p. 1021.
 
+### `explanation_anatomy_ch54_q001_q014_v1.json`
+- `marrow__ANAT_CH54_Q001` — key option 3; question p. 1022, key p. 1026,1027, explanation p. 1027,1028.
+- `marrow__ANAT_CH54_Q002` — key option 2; question p. 1022, key p. 1026,1027, explanation p. 1028.
+- `marrow__ANAT_CH54_Q003` — key option 4; question p. 1022, key p. 1026,1027, explanation p. 1029.
+- `marrow__ANAT_CH54_Q004` — key option 2; question p. 1023, key p. 1026,1027, explanation p. 1029,1030. **Flag:** needs_manual_review. The source key selects the medial circumflex femoral artery as the principal source, but option A ('lateral epiphyseal artery') names a direct retinacular branch supplying the head. The stem is broad; preserve keyed parent artery pending review.
+- `marrow__ANAT_CH54_Q005` — key option 4; question p. 1023, key p. 1026,1027, explanation p. 1030,1031.
+- `marrow__ANAT_CH54_Q006` — key option 4; question p. 1023, key p. 1026,1027, explanation p. 1031,1032.
+- `marrow__ANAT_CH54_Q007` — key option 3; question p. 1023, key p. 1026,1027, explanation p. 1032,1033.
+- `marrow__ANAT_CH54_Q008` — key option 3; question p. 1024, key p. 1026,1027, explanation p. 1033,1034.
+- `marrow__ANAT_CH54_Q009` — key option 3; question p. 1024, key p. 1026,1027, explanation p. 1034.
+- `marrow__ANAT_CH54_Q010` — key option 3; question p. 1024, key p. 1026,1027, explanation p. 1034,1035.
+- `marrow__ANAT_CH54_Q011` — key option 3; question p. 1024, key p. 1026,1027, explanation p. 1035.
+- `marrow__ANAT_CH54_Q012` — key option 3; question p. 1025, key p. 1026,1027, explanation p. 1035,1036.
+- `marrow__ANAT_CH54_Q013` — key option 2; question p. 1025, key p. 1026,1027, explanation p. 1036,1037.
+- `marrow__ANAT_CH54_Q014` — key option 3; question p. 1026, key p. 1026,1027, explanation p. 1037,1038.
+
+### `explanation_anatomy_ch54_q015_q015_v1.json`
+- `marrow__ANAT_CH54_Q015` — key option 2; question p. 1026, key p. 1026,1027, explanation p. 1038,1039.
+
+### `explanation_anatomy_ch55_q001_q014_v1.json`
+- `marrow__ANAT_CH55_Q001` — key option 2; question p. 1040, key p. 1046,1047, explanation p. 1047.
+- `marrow__ANAT_CH55_Q002` — key option 2; question p. 1040, key p. 1046,1047, explanation p. 1047,1048,1049.
+- `marrow__ANAT_CH55_Q003` — key option 3; question p. 1040, key p. 1046,1047, explanation p. 1049.
+- `marrow__ANAT_CH55_Q004` — key option 3; question p. 1040, key p. 1046,1047, explanation p. 1050.
+- `marrow__ANAT_CH55_Q005` — key option 3; question p. 1041, key p. 1046,1047, explanation p. 1050.
+- `marrow__ANAT_CH55_Q006` — key option 1; question p. 1041, key p. 1046,1047, explanation p. 1050,1051.
+- `marrow__ANAT_CH55_Q007` — key option 3; question p. 1042, key p. 1046,1047, explanation p. 1051. **Flag:** needs_manual_review. The traditional unhappy triad includes ACL, tibial collateral ligament, and medial meniscus; no option gives all three. The printed key selects the closest pair (ACL and medial meniscus), which the source explanation also identifies as only the matching components. Preserve key pending question review.
+- `marrow__ANAT_CH55_Q008` — key option 4; question p. 1042, key p. 1046,1047, explanation p. 1052.
+- `marrow__ANAT_CH55_Q009` — key option 2; question p. 1043, key p. 1046,1047, explanation p. 1053.
+- `marrow__ANAT_CH55_Q010` — key option 4; question p. 1043, key p. 1046,1047, explanation p. 1053,1054.
+- `marrow__ANAT_CH55_Q011` — key option 3; question p. 1043, key p. 1046,1047, explanation p. 1054.
+- `marrow__ANAT_CH55_Q012` — key option 4; question p. 1043, key p. 1046,1047, explanation p. 1055.
+- `marrow__ANAT_CH55_Q013` — key option 2; question p. 1044, key p. 1046,1047, explanation p. 1055,1056.
+- `marrow__ANAT_CH55_Q014` — key option 4; question p. 1044, key p. 1046,1047, explanation p. 1056,1057.
+
+### `explanation_anatomy_ch55_q015_q017_v1.json`
+- `marrow__ANAT_CH55_Q015` — key option 3; question p. 1044, key p. 1046,1047, explanation p. 1057.
+- `marrow__ANAT_CH55_Q016` — key option 3; question p. 1045, key p. 1046,1047, explanation p. 1057,1058.
+- `marrow__ANAT_CH55_Q017` — key option 1; question p. 1046, key p. 1046,1047, explanation p. 1058.
+
 ## Release boundary
 
-These are authored and source-validated candidates, not runtime-integrated or build-verified content. No source question gate or key was changed. CH52 Q009, CH55 Q018 and CH62 Q006/Q010 remain excluded under the source-completeness ledger.
+These are authored and source-validated candidates, not runtime-integrated or build-verified content. No source question gate or key was changed. CH52 Q009, CH55 Q018 and CH62 Q006/Q010 remain excluded under the source-completeness ledger. CH51 Q019’s native source table resolves the apparent variant-artery concern. CH54 Q004 and CH55 Q007 retain manual-review flags for answer-option ambiguity/incompleteness.

@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner-facing Marrow ED8 Anatomy Chapter 55 explanation refinement; source figures and tables remain native and unchanged.",
+  "scope": {
+    "subject": "Anatomy",
+    "bank": "Marrow",
+    "chapterId": "55",
+    "chapterTitle": "Joints of the Lower Limb",
+    "questionStart": 15,
+    "questionEnd": 17,
+    "questions": 3,
+    "status": "approved-rollout",
+    "workloadScore": 4,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387",
+    "auditReport": "docs/question-explanations/anatomy-tail-20261001.md"
+  },
+  "questions": {
+    "marrow__ANAT_CH55_Q015": {
+      "takeaway": "The spring (plantar calcaneonavicular) ligament supports the inferior talar head and medial longitudinal arch.",
+      "displayText": "The spring (plantar calcaneonavicular) ligament supports the inferior talar head and medial longitudinal arch.\n\nThe marked structure is the head of the talus. The ligament related to its inferior surface is the spring (calcaneonavicular) ligament.\n\nThe inferior surface of the talar head has three facets: posterior facet (largest, articulates with sustentaculum tali), anterolateral facet (articulates with the anterior calcaneal facet), and medial facet (related to the spring ligament).",
+      "emphasis": [
+        "The spring (plantar calcaneonavicular) ligament supports the inferior talar head and medial longitudinal arch"
+      ],
+      "rationales": {
+        "a": "The deltoid ligament attaches to the medial malleolus and talus/calcaneus/navicular, but it is not under the talar head.",
+        "b": "Tibionavicular is a component of the deltoid ligament at the medial ankle, not the plantar support beneath the talar head.",
+        "d": "Tibiocalcaneal fibers connect medial malleolus to calcaneus and are part of deltoid ligament, not spring ligament."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          1057
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__ANAT_CH55_Q016": {
+      "takeaway": "The spring ligament is a plantar calcaneonavicular complex with three described bands; it supports the talar head and medial arch, and injury may cause acquired flatfoot.",
+      "displayText": "The spring ligament is a plantar calcaneonavicular complex with three described bands; it supports the talar head and medial arch, and injury may cause acquired flatfoot.\n\nThe marked structure is the spring ligament (plantar calcaneonavicular ligament). The false statement is that it is a complex of two ligaments; the source describes a complex of three ligaments: superomedial calcaneonavicular, medioplantar oblique calcaneonavicular, and inferoplantar longitudinal calcaneonavicular ligaments.\n\nThe spring ligament is a thick band connecting the anterior margin of the sustentaculum tali to the plantar surface of the navicular. It stabilizes the medial longitudinal arch and head of talus; disruption causes collapse of the medial longitudinal arch and flat foot.",
+      "emphasis": [
+        "The spring ligament is a plantar calcaneonavicular complex with three described bands; it supports the talar head and medial arch, and injury may cause acquired flatfoot"
+      ],
+      "rationales": {
+        "a": "The spring ligament's fibrocartilaginous facet supports part of the talar head, so this is true.",
+        "b": "Spring-ligament failure can contribute to adult-acquired flatfoot, so this is true.",
+        "d": "The ligament supports the medial longitudinal arch, so this is true; the source's false statement is that the complex has only two parts."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          1057,
+          1058
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__ANAT_CH55_Q017": {
+      "takeaway": "Lisfranc ligament is the strong interosseous cuneometatarsal ligament linking the medial cuneiform to the base of the second metatarsal.",
+      "displayText": "Lisfranc ligament is the strong interosseous cuneometatarsal ligament linking the medial cuneiform to the base of the second metatarsal.\n\nLisfranc's ligament is the cuneometatarsal interosseous ligament.\n\nThere are three cuneometatarsal interosseous ligaments; Lisfranc's is the strongest. It passes from the lateral surface of the medial cuneiform to the adjacent angle of the second metatarsal. Deformity can cause instability and deformity of the tarsometatarsal joint.",
+      "emphasis": [
+        "Lisfranc ligament is the strong interosseous cuneometatarsal ligament linking the medial cuneiform to the base of the second metatarsal"
+      ],
+      "rationales": {
+        "b": "The transverse acetabular ligament bridges the hip acetabular notch and is unrelated to tarsometatarsal stability.",
+        "c": "The plantar calcaneocuboid ligament supports the lateral foot and is not Lisfranc ligament.",
+        "d": "The fibular collateral ligament stabilizes the lateral knee, not the tarsometatarsal joint."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          1058
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    }
+  }
+}
