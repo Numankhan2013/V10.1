@@ -1330,3 +1330,5 @@ Integrated existing worker commits without reauthoring: Anatomy 59 (493639f7, 5e
 - 2026-10-01 checkpoint1,698 new validated /2,451 candidate enhanced,237 actionable remain. Anatomy primary525complete now authors untouchedPhys25–27; primaryPhys232/263; tailworker authors Anatomy43–50. Pancreatic rationale corrected after actualoptiontext review, combinedchecks pass. One final build/push remains deferred until all authoringdone.
 
 - Integrated all actionableAnatomy; checkpoint1,835new/2,588enhanced validates. Final100Physiology split17Ch23primary,48Ch25–26Anatomyworker,35Ch24&27tailworker. All confirmuntouchedranges anddisjointseparateaudits. No previewpush yet.
+
+- 2026-10-01 checkpoint1,887new/2,640enhanced validates;48actions remain Ch25–26. FinalPDFexceptionreview recovered Ch27Q9 five-roworganflowtablefromp492 via existing orphan tableblock withPDFhash provenance;Ch27Q13actualfigure2D/2L vsD/L explains8x, sourcecontradiction resolved. Added narrow orphanblock/pagevalidator and regression/browserowner coverage; immutablebanks/gates unchanged. Full previewbuild awaits final48.

@@ -6,6 +6,7 @@ import re
 from pathlib import Path
 
 from inventory_marrow_explanations import BANKS, DATA, enhanced_ids, load_sharded
+from apply_canonical_bank_explanation_wiring_v1 import reviewed_table_sources
 
 ROOT = DATA.parents[1]
 MANIFEST = DATA / 'explanation_refinement_wave_20260930.json'
@@ -82,7 +83,7 @@ def load_wave(manifest_path=None, *, require_complete=True):
                 assert all(reconstruction.get(k) for k in ('sourceProblem', 'reconstructedContent', 'evidenceBasis', 'reviewNote')), qid
             if 'displayTables' in cfg:
                 assert reconstruction and reconstruction['status'] == 'resolved_reconstruction', 'Unreviewed table reconstruction: ' + qid
-                native = source.get('structuredExplanation', {}).get('tables', [])
+                native = reviewed_table_sources(source, cfg)
                 assert len(cfg['displayTables']) == len(native), 'Native table ownership changed: ' + qid
                 for table, original in zip(cfg['displayTables'], native):
                     assert table['source_page'] == original['source_page'], qid

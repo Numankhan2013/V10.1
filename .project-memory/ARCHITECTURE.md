@@ -400,4 +400,4 @@ IDs, invalid emphasis and source-key/rationale drift. The wave browser checks
 every new runtime config on phone/tablet and real representative answer surfaces.
 `displayTables` is an approved-explanation-only display override for source-page-
 reviewed table reconstructions with provenance, leaving imported metadata intact.
-The shared compatibility renderer owns both native and reviewed display tables. It also adapts populated source `headers` lists to the renderer's `columns` contract without changing source records (Physiology Ch42 Q8 is the regression fixture).
+Explicitly recovered `orphanTableIds` may restore omitted table objects only when their IDs already exist in native source blocks and their pages match original explanation provenance; PDF hashes and complete cells remain required. The shared compatibility renderer owns both native and reviewed display tables. It also adapts populated source `headers` lists to the renderer's `columns` contract without changing source records (Physiology Ch42 Q8 is the regression fixture).

@@ -92,7 +92,7 @@ def main():
                             blocked.add(qid)
                         report['runtime'].append({'id': qid, 'width': width, 'blocked': actual['blocked']})
                     representatives = {spec['browserId'] for spec in manifest['batches'] + manifest.get('existingRepairs', []) if sources[spec['browserId']]['subject'] == subject}
-                    representatives |= {qid for qid in ids if sources[qid].get('structuredExplanation', {}).get('tables')}
+                    representatives |= {qid for qid in ids if wave[qid].get('displayTables') or sources[qid].get('structuredExplanation', {}).get('tables')}
                     representatives |= blocked
                     for qid in sorted(representatives):
                         print('EXPLANATION_WAVE_BROWSER_CASE', width, qid, flush=True)

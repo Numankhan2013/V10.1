@@ -182,3 +182,5 @@ A chapter/batch is explanation-fine-tuned only when:
 - representative browser output is verified;
 - no Practice/CBT/Review/FSRS/navigation regression is introduced;
 - exact-head verification is green and the verified result is reconciled into canonical.
+
+A reviewed display-table recovery can also restore a missing native table object when its `table_id` is already present in a source table block. Record that ID in `reconstruction.orphanTableIds`, pin the original explanation page and PDF hash, and use resolved reconstruction status. The source bank stays immutable; arbitrary added tables are rejected. Runtime phone/tablet checks include these recovered table owners.

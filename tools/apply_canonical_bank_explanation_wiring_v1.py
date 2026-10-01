@@ -121,7 +121,7 @@ def validate_augmented_question(qid: str, cfg: dict, source_q: dict, origin: str
             reconstruction.get(key) for key in ('sourceProblem', 'reconstructedContent', 'evidenceBasis', 'reviewNote')
         ):
             fail(f"{origin}: display tables require resolved source reconstruction for {qid}")
-        native = (source_q.get('structuredExplanation') or {}).get('tables') or []
+        native = reviewed_table_sources(source_q, cfg)
         reviewed = cfg['displayTables']
         if not isinstance(reviewed, list) or len(reviewed) != len(native):
             fail(f"{origin}: display table ownership/count mismatch for {qid}")
@@ -137,6 +137,28 @@ def validate_augmented_question(qid: str, cfg: dict, source_q: dict, origin: str
                 not isinstance(cell, str) or not cell.strip() for cell in row
             ) for row in rows):
                 fail(f"{origin}: invalid reviewed table cells for {qid}")
+
+
+def reviewed_table_sources(source_q: dict, cfg: dict) -> list[dict]:
+    """Include explicitly recovered source table blocks whose objects were omitted."""
+    structured = source_q.get('structuredExplanation') or {}
+    native = structured.get('tables') or []
+    reconstruction = cfg.get('reconstruction') or {}
+    recovered = reconstruction.get('orphanTableIds') or []
+    native_ids = {table.get('table_id') for table in native}
+    block_ids = {block.get('table_id') for block in structured.get('blocks', []) if block.get('type') == 'table'}
+    if len(set(recovered)) != len(recovered) or not set(recovered) <= block_ids - native_ids:
+        fail('Recovered table must match an omitted native source block')
+    provenance = source_q.get('provenance') or {}
+    pages = provenance.get('explanationPages') or provenance.get('explanation_pages') or []
+    reviewed = cfg.get('displayTables') or []
+    result = list(native)
+    for table_id in recovered:
+        matches = [table for table in reviewed if table.get('table_id') == table_id]
+        if len(matches) != 1 or matches[0].get('source_page') not in pages:
+            fail('Recovered table must have a unique ID and original explanation page')
+        result.append({'table_id': table_id, 'source_page': matches[0]['source_page']})
+    return result
 
 
 def approved_batch(record: dict, path: Path, expected_subject: str) -> bool:
