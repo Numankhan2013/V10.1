@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Anatomy Chapter 19 explanation refinement. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Anatomy",
+    "bank": "Marrow",
+    "chapterId": "19",
+    "chapterTitle": "Ventricular System and Subarachnoid Space",
+    "questionStart": 15,
+    "questionEnd": 17,
+    "questions": 3,
+    "status": "approved-rollout",
+    "workloadScore": 6,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 753,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__ANAT_CH19_Q015": {
+      "takeaway": "Pacchionian bodies are arachnoid granulations that protrude through dura into venous sinuses.",
+      "displayText": "Pacchionian bodies (arachnoid granulations) are focal pouches of arachnoid mater and subarachnoid space protruding through the walls of dural venous sinuses.\n\nOption B: Tuft of capillaries enclosed by pia mater lined by ependymal cells forms tela choroidea. It secretes CSF.\n\nOption C: Calcareous deposits in the astrocytes of the pineal gland are known as brain sand or corpora arenacea.\n\nOption D: Shrunken, yellow-brown, cystic lesions in the gyri and subarachnoid space associated with head injury are called plaque jaune.",
+      "emphasis": [
+        "Pacchionian bodies",
+        "arachnoid granulations",
+        "dural venous sinuses",
+        "plaque jaune"
+      ],
+      "rationales": {
+        "b": "Tela choroidea is the vascular pia-derived tissue that supports the choroid plexus, not an arachnoid granulation.",
+        "c": "Pineal calcifications are corpora arenacea (brain sand), not Pacchionian bodies.",
+        "d": "Plaque jaune refers to shrunken yellow-brown cystic lesions after head injury; it is not an arachnoid granulation."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record: stable ID, stem, options, printed answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          359
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      }
+    },
+    "marrow__ANAT_CH19_Q016": {
+      "takeaway": "The choroid plexus produces most CSF; ependymal and perivascular routes contribute less.",
+      "displayText": "The case suggests CSF rhinorrhea and the image shows the double-ring sign. CSF mainly forms in the choroid plexus. It is absorbed back by the arachnoid villi.\n\nFormation of CSF:\n• Major contributor - Choroid plexuses\n• Minor contributors - Ependymal cells lining the ventricles, brain substance through the perivascular spaces\n\nCSF is produced at a rate of 550 ml/day. The normal adult volume of CSF is 150 ml, and it is cycled about 3.7 times a day. The normal CSF pressure is 70-180 mm H2O.",
+      "emphasis": [
+        "CSF rhinorrhea",
+        "double-ring sign",
+        "Choroid plexuses",
+        "550 ml/day"
+      ],
+      "rationales": {
+        "a": "Ventricular ependymocytes contribute a smaller share; the choroid plexus is the major CSF source.",
+        "c": "Perivascular spaces are a minor source of CSF, not the majority contributor.",
+        "d": "Microglia are CNS immune cells and do not produce most CSF."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record: stable ID, stem, options, printed answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          359,
+          360
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native source table(s) and 2 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH19_Q017": {
+      "takeaway": "The source answer key selects adenohypophysis as not a circumventricular organ; this classification and the stated BBB rationale require subject review.",
+      "displayText": "Circumventricular organs are those structures in the brain that are devoid of the blood-brain barrier. Adenohypophysis is not devoid of a blood-brain barrier (BBB).\n\nNeurohypophysis is devoid of the blood-brain barrier.",
+      "emphasis": [
+        "Circumventricular organs",
+        "Adenohypophysis",
+        "blood-brain barrier",
+        "Neurohypophysis"
+      ],
+      "rationales": {
+        "a": "OVLT is a conventional circumventricular organ with specialized fenestrated vasculature.",
+        "b": "Median eminence is a conventional circumventricular organ associated with the hypothalamic–pituitary portal system.",
+        "d": "Pineal gland is a conventional circumventricular organ; the printed key selects adenohypophysis as the exception, but source rationale requires medical review."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record: stable ID, stem, options, printed answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          360
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "No source table or figure metadata was present in the audited explanation."
+      },
+      "reconstruction": {
+        "status": "needs_manual_review",
+        "sourceProblem": "The printed key selects adenohypophysis and source wording says it is not devoid of the BBB, but classification depends on how circumventricular organs are defined and the pituitary/anterior pituitary barrier description varies among reference lists.",
+        "sourceFragment": "Circumventricular organs are those structures in the brain that are devoid of the blood-brain barrier. Adenohypophysis is not devoid of a blood-brain barrier (BBB).\n\nNeurohypophysis is devoid of the blood-brain barrier.",
+        "reconstructedContent": "Circumventricular organs are those structures in the brain that are devoid of the blood-brain barrier. Adenohypophysis is not devoid of a blood-brain barrier (BBB).\n\nNeurohypophysis is devoid of the blood-brain barrier. The source-keyed answer is retained for this candidate, but whether adenohypophysis should be included among circumventricular organs and its BBB description require a medical subject review.",
+        "evidenceBasis": [
+          "Anatomy ED8 source explanation, question 17, page 360; answer key retained unchanged.",
+          "NCBI Endotext, Functional Anatomy of the Hypothalamus and Pituitary: https://www.ncbi.nlm.nih.gov/books/NBK279126/ lists conventional circumventricular organs, including median eminence and pineal, but not adenohypophysis.",
+          "A definitive guide to the blood-brain barrier (PMCID: PMC6692757): https://pmc.ncbi.nlm.nih.gov/articles/PMC6692757/ distinguishes the neurohypophysis and median eminence in the classic CVO group.",
+          "Development and Function of the Blood-Brain Barrier in the Context of Metabolic Control (PMCID: PMC5399017): https://pmc.ncbi.nlm.nih.gov/articles/PMC5399017/ includes “pituitary” among seven CVO categories."
+        ],
+        "reviewNote": "Do not teach the source’s categorical claim that adenohypophysis is BBB-protected as settled without subject review. Keep the source key but flag classification ambiguity; do not alter or remove the source completeness gate."
+      }
+    }
+  },
+  "source": {
+    "bundle": "anatomy_ch001_063",
+    "sourceRawSha256": "f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387"
+  }
+}

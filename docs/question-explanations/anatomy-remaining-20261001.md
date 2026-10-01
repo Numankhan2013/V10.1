@@ -6,7 +6,7 @@
 
 ## Checkpoint 1
 
-Authored 129 of the 914 pending actionable Anatomy IDs in fifteen new augmentation files:
+Authored 129 of the 914 pending actionable Anatomy IDs in fifteen new augmentation files (initial checkpoint; subsequent checkpoints are appended below):
 
 - Ch9 Q15–18 (`explanation_anatomy_ch09_q015_q018_v1.json`)
 - Ch10 Q19 (`explanation_anatomy_ch10_q019_q019_v1.json`)
@@ -30,4 +30,15 @@ Each file is bounded to one chapter and 14 or fewer questions, uses the exact `a
 
 The shared batch validator passed: `python3 /root/V10.1/tools/validate_marrow_explanation_batch.py --root /root/luna_anatomy_remaining --base-sha d4abce86068b4221e61e541c34dd29258de61cca` → `MARROW_WORKER_BATCHES_OK files=15 questions=129 source_keyed=true detail_retention=true baseline_and_gates_preserved=true`.
 
-This checkpoint is authoring/source-review validation only. It is not a combined preview, browser, CI, APK or release certification. The remaining 785 actionable IDs still require their assigned bounded files. The 13 completeness-gated IDs remain untouched.
+This checkpoint is authoring/source-review validation only. It is not a combined preview, browser, CI, APK or release certification. The original assignment has since been rebalanced: this worktree owns the remaining actionable Anatomy IDs through Chapter 50 (662 IDs total in that range); Chapters 51–63 (252 actionable IDs) are assigned to the freed Biochemistry worker. The 13 completeness-gated IDs remain untouched.
+
+
+## Checkpoint 2
+
+Added 24 more actionable IDs across Chapters 19–20 in three bounded files:
+
+- Ch19 Q1–14 (`explanation_anatomy_ch19_q001_q014_v1.json`)
+- Ch19 Q15–17 (`explanation_anatomy_ch19_q015_q017_v1.json`)
+- Ch20 Q1–7 (`explanation_anatomy_ch20_q001_q007_v1.json`)
+
+The Chapter 19 Q17 classification ambiguity and Chapter 20 Q1 collateral/calcarine sulcus ambiguity remain explicitly flagged for subject review, with source wording and evidence preserved. Chapter 20 Q4/Q7 figure/table interpretation was checked against the source PDF. Validator passed: `MARROW_WORKER_BATCHES_OK files=18 questions=153 source_keyed=true detail_retention=true baseline_and_gates_preserved=true`. Current authored total is 153 of the 662 actionable IDs owned through Chapter 50; 509 remain in my range. Chapters 51–63 are handed off under the balancing assignment to another worker, so they are outside this author's remaining count.
