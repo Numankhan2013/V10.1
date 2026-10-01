@@ -78,3 +78,7 @@ Added 26 IDs in three bounded Chapter 28 files: Q1–14, Q15–22 and Q24–27. 
 ## Checkpoint 9
 
 Added Chapter 29 Q1–15 in two files. Chapter 29 Q2 received visual source review (PDF p. 508): the printed key selects suprascapular nerve, and the source explicitly calls it a lower posterior-triangle content while noting it is not part of the roof. The stem's “neither roof nor content” wording conflicts with that explanation; key C is retained and the augmentation states the nerve is a content rather than teaching it is absent. Remaining explanations retain triangle boundaries/contents, fascial layers, ansa cervicalis, spinal accessory and cervical sympathetic relationships. Validator passed: `MARROW_WORKER_BATCHES_OK files=34 questions=291 source_keyed=true detail_retention=true baseline_and_gates_preserved=true`. Total authored is 291/662 through Chapter 50; 371 remain.
+
+## Checkpoint 10
+
+Added Chapter 30 Q1–24 in two files. The explanations cover mastication and TMJ mechanics, trigeminal branches, extraocular/facial muscle innervation, carotid branches and landmarks, pterygoid canal, venous pathways, facial danger zone and cervical node levels. Rationales distinguish neighboring nerve/artery routes and compartment anatomy. Validator passed: `MARROW_WORKER_BATCHES_OK files=36 questions=315 source_keyed=true detail_retention=true baseline_and_gates_preserved=true`. Total authored is 315/662 through Chapter 50; 347 remain.
