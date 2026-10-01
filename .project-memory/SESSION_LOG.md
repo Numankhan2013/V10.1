@@ -1316,3 +1316,5 @@ Integrated existing worker commits without reauthoring: Anatomy 59 (493639f7, 5e
 - Checkpoint advanced to 860 new validated / 1,613 candidate enhanced, 1,075 actionable remaining. Anatomy primary through Ch28 and tail through Ch57; Physiology drafting respiratory graphs/equations in Ch20. Source ambiguity handling preserves printed keys while avoiding false anatomical explanations. All work remains local pending full actionable completion.
 
 - 2026-10-01 checkpoint: 1,027 new explanations integrated/validated / 1,780 candidate enhanced; 908 actionable remaining, 23 source gates unchanged. Biochemistry263 and Anatomy tail252 complete; reassigned worker starts Physiology tail261. Primary Anatomy315/662 and primary Physiology197/497 complete. User reaffirmed single final combined push/build, no partial deployment.
+
+- 2026-10-01 continued checkpoint: 1,206 new validated / 1,959 candidate enhanced, 729 actionable remaining plus23 source-held. Primary Anatomy338/662, primary Physiology212/497, tail Physiology141/261. Latest pins/source/gates/baseline augmentation hashes pass; no preview push/build yet.
