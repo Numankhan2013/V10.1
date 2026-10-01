@@ -180,15 +180,15 @@
       }
     },
     "marrow__PHYSIO_CH27_Q009": {
-      "takeaway": "At rest, skeletal-muscle flow averages about 3–4 mL/min per 100 g of muscle.",
-      "displayText": "At rest, skeletal-muscle flow averages about 3–4 mL/min per 100 g of muscle.\n\nThe source identifies resting skeletal-muscle blood flow as 3–4 mL/min per 100 g. Its accompanying organ-flow table is retained in the unchanged native source representation; the extracted OCR is too corrupted to reconstruct the other rows safely.",
+      "takeaway": "At rest, skeletal-muscle blood flow is about 3–4 mL/min per 100 g; the source separately lists total flow rates for the major organs.",
+      "displayText": "At rest, skeletal-muscle blood flow is about 3–4 mL/min per 100 g; the source separately lists total flow rates for the major organs.\n\nThe source gives resting skeletal-muscle flow as 3–4 mL/min per 100 g in a 63-kg adult man with a mean arterial pressure of 90 mmHg and O₂ consumption of 250 mL/min. Its accompanying organ-flow table reports liver 1500 mL/min, kidneys 1260 mL/min, brain 750 mL/min, skeletal muscle 840 mL/min, and heart muscles 250 mL/min.",
       "emphasis": [
-        "At rest, skeletal-muscle flow averages about 3–4 mL/min per 100 g of muscle."
+        "At rest, skeletal-muscle blood flow is about 3–4 mL/min per 100 g; the source separately lists total flow rates for the major organs."
       ],
       "rationales": {
         "a": "This option expresses the numerical range per gram; the source’s unit is per 100 g of muscle.",
         "c": "The source gives 3–4, not 4–6, and normalizes flow per 100 g.",
-        "d": "Both the 4–6 range and the per-100-g value differ from the keyed source figure."
+        "d": "The denominator is correct (per 100 g), but the source gives 3–4 mL/min, not 4–6 mL/min."
       },
       "audit": {
         "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
@@ -196,15 +196,59 @@
           492
         ],
         "uniqueSourceDetailsPreserved": true,
-        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source visual metadata."
+        "tablesAndFigures": "The source table block PHYSIO_CH27_Q009_T01 is represented by a display table reconstructed from the rendered ED8 page 492; the raw structured explanation and source records remain unchanged."
       },
       "reconstruction": {
-        "status": "needs_manual_review",
-        "sourceProblem": "OCR corruption in imported display explanation",
-        "reconstructedContent": "The source identifies resting skeletal-muscle blood flow as 3–4 mL/min per 100 g. Its accompanying organ-flow table is retained in the unchanged native source representation; the extracted OCR is too corrupted to reconstruct the other rows safely.",
-        "evidenceBasis": "The canonical source record’s readable text/blocks, question stem and keyed answer; see source page provenance recorded in the audit report. No missing source-table cells or figure labels were inferred.",
-        "reviewNote": "The OCR fragment contains damaged numerals/labels around an organ-flow table. The key sentence clearly reads “3–4 mL/min/100 g of muscle”; the neighboring table values are not reconstructed."
-      }
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The canonical explanation contains an orphan native table block (PHYSIO_CH27_Q009_T01) but no structuredExplanation.tables data; its imported OCR text around the table is corrupted.",
+        "reconstructedContent": "Rendered Physiology ED8 source PDF page 492 shows the table headers Region and Blood flow (mL/min), with rows Liver 1500, Kidneys 1260, Brain 750, Skeletal muscle 840, and Heart muscles 250. The paragraph above it states the separate resting skeletal-muscle rate of 3–4 mL/min/100 g and gives the 63-kg adult man, mean arterial pressure 90 mmHg, and O₂ consumption 250 mL/min context.",
+        "evidenceBasis": [
+          "Direct visual review of data/marrow/source_pdfs/physiologyed8.pdf, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe, printed page 492 (question solution 9).",
+          "The source structuredExplanation block carries orphan table ID PHYSIO_CH27_Q009_T01; source page 492 visibly contains the table."
+        ],
+        "reviewNote": "The display table reproduces only the legible rows and labels visible on page 492. The imported question/source record and its orphan table block remain unchanged.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          492
+        ],
+        "orphanTableIds": [
+          "PHYSIO_CH27_Q009_T01"
+        ]
+      },
+      "displayTables": [
+        {
+          "title": "Resting blood flow through various organs in a 63-kg adult man",
+          "source_page": 492,
+          "columns": [
+            "Region",
+            "Blood flow (mL/min)"
+          ],
+          "rows": [
+            [
+              "Liver",
+              "1500"
+            ],
+            [
+              "Kidneys",
+              "1260"
+            ],
+            [
+              "Brain",
+              "750"
+            ],
+            [
+              "Skeletal muscle",
+              "840"
+            ],
+            [
+              "Heart muscles",
+              "250"
+            ]
+          ],
+          "table_id": "PHYSIO_CH27_Q009_T01"
+        }
+      ]
     },
     "marrow__PHYSIO_CH27_Q010": {
       "takeaway": "Septic shock can have high cardiac output because systemic vasodilation lowers resistance while metabolic demand rises.",
@@ -276,15 +320,15 @@
       }
     },
     "marrow__PHYSIO_CH27_Q013": {
-      "takeaway": "Poiseuille flow varies with the fourth power of radius; the keyed comparison is 8-fold, while the source prose’s doubled-radius example would yield 16-fold flow.",
-      "displayText": "Poiseuille flow varies with the fourth power of radius; the keyed comparison is 8-fold, while the source prose’s doubled-radius example would yield 16-fold flow.\n\nThe relationship between flow in a long narrow tube, viscosity, and radius is expressed mathematically by Poiseuille's law. Blood flow (F) inside the vessel depends on pressure difference, viscosity, radius and length. Radius is inversely proportional to resistance to the fourth power. Therefore, if the radius is doubled, resistance decreases by 2⁴ = 16; hence flow increases 16-fold for the same pressure difference.\n\nSource consistency note: The keyed answer is 8-fold, but the following source sentence gives a doubled-radius example as 16-fold. Poiseuille’s fourth-power relation supports 16-fold for an actual 2:1 radius ratio; the omitted/embedded vessel figure is needed to establish the ratio that produces the keyed 8-fold answer. The key remains unchanged, and the figure-specific ratio is not reconstructed here.",
+      "takeaway": "With equal pressure difference and viscosity, A’s doubled radius gives 16-fold flow but its doubled length halves the ratio, so A carries 8 times B’s flow.",
+      "displayText": "With equal pressure difference and viscosity, A’s doubled radius gives 16-fold flow but its doubled length halves the ratio, so A carries 8 times B’s flow.\n\nPoiseuille’s law is Q = ΔPπr⁴/(8ηL): flow is directly proportional to pressure difference and the fourth power of radius, and inversely proportional to viscosity and vessel length. In the source figure, vessel A has diameter 2D and length 2L; vessel B has diameter D and length L. With equal pressure difference and viscosity, doubling the radius gives 2⁴ = 16 times the flow, while doubling the length divides flow by 2. Therefore, Q_A/Q_B = 16/2 = 8.",
       "emphasis": [
-        "Poiseuille flow varies with the fourth power of radius; the keyed comparison is 8-fold, while the source prose’s doubled-radius example would yield 16-fold flow."
+        "With equal pressure difference and viscosity, A’s doubled radius gives 16-fold flow but its doubled length halves the ratio, so A carries 8 times B’s flow."
       ],
       "rationales": {
-        "a": "A fourfold flow ratio is not the source key; the stated vessel comparison is keyed as eightfold under the question’s figure conditions.",
-        "b": "A 32-fold ratio is not the source key; Poiseuille flow changes with the fourth power of the radius ratio.",
-        "d": "Sixteenfold flow is the result of doubling radius, as the explanation text says, but conflicts with the keyed 8-fold figure-specific answer."
+        "a": "The source figure gives A twice B’s diameter, so the radius contribution is 2⁴, not a fourfold flow ratio; A’s doubled length halves 16 to 8.",
+        "b": "A 32-fold ratio overstates the result: the 16-fold radius effect is reduced by the doubled vessel length.",
+        "d": "Sixteenfold is the radius-only effect; because A is also twice as long as B, the length denominator halves it to the keyed eightfold ratio."
       },
       "audit": {
         "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
@@ -292,9 +336,24 @@
           494
         ],
         "uniqueSourceDetailsPreserved": true,
-        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source visual metadata."
+        "tablesAndFigures": "Question vessel geometry is retained in the source figure PHYSIO_CH27_Q013_F01; the rendered ED8 figure on page 486 was used to explain the doubled diameter and length. Native source metadata is unchanged."
       },
-      "medicalReviewNote": "Source-keyed answer retained. Source prose internally conflicts: doubled radius implies 16-fold flow under Poiseuille’s law, while the key is 8-fold; the missing figure-specific radius ratio is not inferred."
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanation mentions the doubled-radius effect (16-fold) but omits the doubled vessel length visible in the question figure, leaving the keyed 8-fold comparison unexplained.",
+        "reconstructedContent": "The rendered question figure on page 486 labels vessel A with diameter 2D and length 2L and vessel B with diameter D and length L. Rendered solution page 494 gives Q = ΔPπr⁴/(8ηL), states flow varies directly with r⁴ and inversely with length, and explicitly calculates 16/2 = 8.",
+        "evidenceBasis": [
+          "Direct visual review of data/marrow/source_pdfs/physiologyed8.pdf, SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe, question figure on page 486.",
+          "Direct visual review of the same PDF’s solution on page 494, which states the Poiseuille formula and both radius and length effects."
+        ],
+        "reviewNote": "The source key C (8 times) is fully supported once the source figure’s doubled length is included. The apparent contradiction came from truncated imported explanation text; no key change or answer gate is required.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          486,
+          494
+        ]
+      }
     },
     "marrow__PHYSIO_CH27_Q014": {
       "takeaway": "The ebb phase conserves energy after injury; the later flow phase is hypermetabolic and activates acute-phase and innate immune responses.",
