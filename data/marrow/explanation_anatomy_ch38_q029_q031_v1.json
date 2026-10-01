@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Anatomy Chapter 38 explanation refinement. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Anatomy",
+    "bank": "Marrow",
+    "chapterId": "38",
+    "chapterTitle": "Brachial Plexus and Nerves",
+    "questionStart": 29,
+    "questionEnd": 31,
+    "questions": 3,
+    "status": "approved-rollout",
+    "workloadScore": 3,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 753,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__ANAT_CH38_Q029": {
+      "takeaway": "The marked dorsal hand territory is supplied by the radial nerve’s superficial cutaneous distribution.",
+      "displayText": "The area marked by the arrow is supplied by the radial nerve.",
+      "emphasis": [
+        "The area marked by the arrow is supplied by the radial nerve"
+      ],
+      "rationales": {
+        "b": "Posterior interosseous nerve is motor to extensor compartments and has no cutaneous hand territory.",
+        "c": "Median nerve supplies palmar lateral digits and distal dorsal nail beds, not the marked radial dorsal area.",
+        "d": "Ulnar nerve supplies the medial hand and medial one-and-a-half digits."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          700
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Native source table/figure metadata remains in the immutable source record."
+      }
+    },
+    "marrow__ANAT_CH38_Q030": {
+      "takeaway": "The arrow marks radial nerve in the cubital fossa; injury there can cause wrist drop.",
+      "displayText": "The marked structure is the radial nerve in the cubital fossa. A radial nerve lesion leads to wrist drop. Ape-thumb deformity is associated with median nerve lesion, while claw hand is associated with ulnar nerve lesion.",
+      "emphasis": [
+        "The marked structure is the radial nerve in the cubital fossa",
+        "A radial nerve lesion leads to wrist drop",
+        "Ape-thumb deformity is associated with median nerve lesion, while claw hand is associated with ulnar nerve lesion"
+      ],
+      "rationales": {
+        "a": "Ape-thumb deformity follows median thenar denervation.",
+        "b": "Claw hand follows ulnar intrinsic denervation.",
+        "c": "Claudication is exertional ischemic pain, not the defining consequence of radial nerve injury."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          701
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Native source table/figure metadata remains in the immutable source record."
+      }
+    },
+    "marrow__ANAT_CH38_Q031": {
+      "takeaway": "C5 contributes strongly to deltoid-mediated arm abduction through the axillary nerve.",
+      "displayText": "Inability to abduct the arm is most likely due to a C5 root lesion. Deltoid is the principal muscle for arm abduction and is supplied predominantly by C5 through the axillary nerve. The source also provides a table of upper-limb movements/muscles and root/nerve values used to localize lesions.",
+      "emphasis": [
+        "Inability to abduct the arm is most likely due to a C5 root lesion",
+        "Deltoid is the principal muscle for arm abduction and is supplied predominantly by C5 through the axillary nerve",
+        "The source also provides a table of upper-limb movements/muscles and root/nerve values used to localize lesions"
+      ],
+      "rationales": {
+        "a": "C4 is not the principal root for deltoid arm abduction.",
+        "c": "C6 contributes to upper-limb movements but is not the dominant root value asked for here.",
+        "d": "C7 more strongly contributes to elbow/wrist extension than primary shoulder abduction."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, stem, options, answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          701,
+          702
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Native source table/figure metadata remains in the immutable source record."
+      }
+    }
+  }
+}

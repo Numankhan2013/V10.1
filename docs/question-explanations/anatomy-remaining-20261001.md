@@ -102,3 +102,7 @@ Added Chapter 35 Q15–22 (8 IDs). The clavicle/scapula/shoulder-girdle explanat
 ## Checkpoint 15
 
 Added Chapter 36 Q1–15 in two files. The explanations distinguish axillary sheath and clavipectoral fascia, posterior shoulder spaces, cubital-fossa roof/content, snuffbox and wrist compartments, digital extensor expansion, tendon-sheath infection, and hand-space routes. Validator passed: `MARROW_WORKER_BATCHES_OK files=46 questions=412 source_keyed=true detail_retention=true baseline_and_gates_preserved=true`. Total authored is 412/662 through Chapter 50; 250 remain.
+
+## Checkpoint 16
+
+Added Chapter 37 Q1–7 and Chapter 38 Q1–31 in four bounded files. Breast explanations distinguish direct arterial branches, lymphatic sentinel pathways, secretion mechanisms and peau d’orange; upper-limb nerve explanations cover plexus divisions and lesions, named sensory territories, entrapment patterns, reflex levels and intrinsic-hand tests. Validator passed: `MARROW_WORKER_BATCHES_OK files=50 questions=450 source_keyed=true detail_retention=true baseline_and_gates_preserved=true`. Total authored is 450/525 in the current owned range through Chapter 42; 75 remain. Chapters 43–50 have been handed off and are outside my scope.
