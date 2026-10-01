@@ -1,0 +1,212 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner-facing Marrow ED8 Biochemistry Chapter 16 Q1-Q12 explanation refinement. Raw source and source tables/figures remain immutable.",
+  "scope": {
+    "subject": "Biochemistry",
+    "bank": "Marrow",
+    "chapterId": "16",
+    "chapter": "Cholesterol Synthesis, Transport and Excretion",
+    "questionStart": 1,
+    "questionEnd": 12,
+    "questions": 12,
+    "status": "approved-rollout",
+    "workloadScore": 15.5,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "919f0709b2eb833e302c6f7524b6dd2bd13bfaed638009375b5062135d3795b1"
+  },
+  "questions": {
+    "marrow__BIOCHEM_CH16_Q001": {
+      "takeaway": "Cholesterol synthesis spans cytosolic acetyl-CoA condensation and ER HMG-CoA reductase activity.",
+      "displayText": "Cholesterol synthesis takes place in the cytosol and endoplasmic reticulum.\n\nCytosolic acetyl-CoA forms acetoacetyl-CoA, which condenses with another acetyl-CoA to form HMG-CoA.\n\nCytosolic HMG-CoA, a key intermediate in cholesterol biosynthesis, is reduced in the endoplasmic reticulum to mevalonic acid by the regulatory enzyme HMG-CoA reductase. Mevalonic acid subsequently undergoes phosphorylation, decarboxylation, condensation and cyclization reactions to produce cholesterol.\n\nSummary of cholesterol synthesis pathway:\n• Synthesis of mevalonate from acetyl-CoA\n• Formation of isoprenoid units from mevalonate\n• Condensation of six isoprenoid units form squalene\n• Cyclization of squalene to give rise to the parent steroid, lanosterol\n• Formation of cholesterol from lanosterol.\n\nAll tissues containing nucleated cells are capable of cholesterol synthesis, with the majority produced in the liver and intestine.",
+      "emphasis": [
+        "Cholesterol synthesis",
+        "condensation and",
+        "HMG-CoA reductase"
+      ],
+      "rationales": {
+        "b": "Peroxisomes and mitochondria participate in many lipid pathways, but the source's cholesterol pathway is cytosolic plus ER-associated.",
+        "c": "Mitochondria are involved in steroid hormone synthesis from cholesterol, but the de novo cholesterol pathway begins in cytosol and proceeds at the ER.",
+        "d": "The Golgi is not the principal site of cholesterol biosynthesis; the regulatory reduction of HMG-CoA to mevalonate is ER-associated."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 250; explanation p. 257."
+      ]
+    },
+    "marrow__BIOCHEM_CH16_Q002": {
+      "takeaway": "Acetyl-CoA supplies the two-carbon units from which the mevalonate–isoprenoid pathway builds cholesterol.",
+      "displayText": "Cholesterol is synthesized from acetyl-CoA by a long pathway that may be divided into five steps:\n• Synthesis of mevalonate from acetyl-CoA\n• Formation of isoprenoid units from mevalonate\n• Condensation of six isoprenoid units form squalene\n• Cyclization of squalene to give rise to the parent steroid, lanosterol\n• Formation of cholesterol from lanosterol.\n\nAll tissues containing nucleated cells are capable of cholesterol synthesis, with the majority produced in the liver and intestine.",
+      "emphasis": [
+        "units from"
+      ],
+      "rationales": {
+        "a": "3-Hydroxybutyrate is a ketone body used as fuel and is not the direct carbon substrate for the cholesterol biosynthetic pathway.",
+        "b": "Acetoacetate is a ketone body interconverted with β-hydroxybutyrate; cholesterol synthesis instead starts from acetyl-CoA.",
+        "d": "Acyl-CoA is a broad term for activated fatty acids used in lipid metabolism, but acetyl-CoA is the two-carbon precursor for sterol synthesis."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 250; explanation p. 257."
+      ]
+    },
+    "marrow__BIOCHEM_CH16_Q003": {
+      "takeaway": "Cholic and chenodeoxycholic acids are primary; intestinal bacteria convert them into secondary bile acids.",
+      "displayText": "Deoxycholic acid is not a primary bile acid. It is a secondary bile acid.\n\nThe primary bile acids are cholic acid and chenodeoxycholic acid synthesized from cholesterol in the liver. They are next conjugated with glycine and taurine in the liver peroxisomes to form glycocholic, glycochenodeoxycholic, taurocholic, and taurochenodeoxycholic acids.\n\nThe secondary bile acids are formed in the intestine as the primary bile acids are deconjugated and dehydroxylated by the intestinal bacteria to form deoxycholic and lithocholic acid. These are absorbed in the ileum and returned to the liver by enterohepatic circulation.",
+      "emphasis": [
+        "secondary bile acids"
+      ],
+      "rationales": {
+        "a": "Cholic acid is made directly by the liver from cholesterol and is therefore a primary bile acid.",
+        "b": "Chenodeoxycholic acid is the second primary bile acid synthesized in the liver.",
+        "c": "Glycocholic acid is the glycine-conjugated form of primary cholic acid; conjugation does not make it a secondary bile acid."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 250; explanation p. 257."
+      ]
+    },
+    "marrow__BIOCHEM_CH16_Q004": {
+      "takeaway": "CYP7A1 forms 7α-hydroxycholesterol, the rate-limiting entry intermediate in the classic bile-acid pathway.",
+      "displayText": "In the classic hepatic pathway, cholesterol 7α-hydroxylase (CYP7A1) hydroxylates cholesterol to 7α-hydroxycholesterol, the first committed intermediate and rate-limiting step of bile-acid synthesis. CYP7A1 is an ER cytochrome P450 that uses NADPH and molecular oxygen. Bile-acid signaling through FXR suppresses CYP7A1 expression as negative feedback. The source lists vitamin C as a cofactor, but the P450 hydroxylation reaction requires NADPH and oxygen; vitamin C is not a direct CYP7A1 cofactor.",
+      "emphasis": [
+        "7α-hydroxycholesterol",
+        "cholesterol 7α-hydroxylase (CYP7A1)",
+        "rate-limiting step",
+        "uses NADPH and molecular oxygen"
+      ],
+      "rationales": {
+        "a": "7-Dehydrocholesterol is a precursor in cutaneous vitamin D synthesis, not the first intermediate in bile-acid formation.",
+        "c": "Lanosterol is formed during cholesterol synthesis after squalene cyclization; it is upstream of cholesterol rather than an intermediate in cholesterol-to-bile-acid conversion.",
+        "d": "Ergosterol is a fungal sterol and is not an intermediate in human bile-acid synthesis."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 250; explanation pp. 257-258. Product is rendered as 7α-hydroxycholesterol to clarify the source option's omitted stereochemical marker."
+      ],
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source identifies CYP7A1 and NADPH/oxygen but also lists vitamin C as a cofactor for the P450 reaction.",
+        "reconstructedContent": "The display preserves the correct first intermediate and feedback regulation while correcting the cofactor statement to NADPH and oxygen.",
+        "evidenceBasis": "CYP7A1 is a microsomal cytochrome P450 monooxygenase; the catalytic reaction uses molecular oxygen and reducing equivalents from NADPH. The source itself names CYP7A1, NADPH and oxygen, so the vitamin C addition is inconsistent with its stated enzyme chemistry.",
+        "reviewNote": "The keyed intermediate and source feedback description are retained; only the unsupported vitamin C cofactor claim is corrected."
+      }
+    },
+    "marrow__BIOCHEM_CH16_Q005": {
+      "takeaway": "Statins lower cholesterol by inhibiting rate-limiting HMG-CoA reductase.",
+      "displayText": "HMG-CoA reductase is the rate-limiting enzyme of cholesterol synthesis.\n\nHMG-CoA reductase is inhibited by the statin group of drugs (e.g. Atorvastatin, Rosuvastatin, Pravastatin, etc.), which are widely used as lipid-lowering agents.\n\nRegulation of HMG CoA reductase:\nGlucagon and glucocorticoids repress the transcription of HMG CoA reductase via sterol regulatory element-binding protein (SREBP).",
+      "emphasis": [
+        "HMG-CoA reductase"
+      ],
+      "rationales": {
+        "a": "HMG-CoA synthase forms HMG-CoA from acetyl-CoA and acetoacetyl-CoA, but statins target the next, reductase-catalyzed step.",
+        "c": "Squalene epoxidase acts later in sterol synthesis, after mevalonate-derived isoprenes form squalene; it is not the statin target.",
+        "d": "HMG-CoA lyase cleaves mitochondrial HMG-CoA in ketogenesis to form acetoacetate; it is distinct from cytosolic/ER HMG-CoA reductase."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 250; explanation p. 258."
+      ]
+    },
+    "marrow__BIOCHEM_CH16_Q006": {
+      "takeaway": "Lanosterol is the first sterol intermediate, not a hormone, formed when squalene cyclizes.",
+      "displayText": "Lanosterol is the first steroid to be synthesized in cholesterol synthesis.\n• Cyclization of squalene gives rise to the parent steroid, lanosterol.\n• The formation of cholesterol from lanosterol involves changes in the steroid nucleus and the side chain.\n\nNote: Though lanosterol is technically not a hormone, it is the best choice among the listed options. This is a recent NEET question.",
+      "emphasis": [
+        "Lanosterol is the first"
+      ],
+      "rationales": {
+        "a": "Cholecystokinin is a peptide hormone released by intestinal I cells; it is unrelated to sterol intermediates.",
+        "b": "Epinephrine is a catecholamine derived from tyrosine, not a product of cholesterol biosynthesis.",
+        "d": "Secretin is a peptide hormone released by duodenal S cells; it is not formed from cholesterol."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 250; explanation p. 258. Source note explicitly says lanosterol is technically not a hormone and is the best listed answer."
+      ]
+    },
+    "marrow__BIOCHEM_CH16_Q007": {
+      "takeaway": "Lipoproteins package water-insoluble lipids so they can travel through plasma to tissues.",
+      "displayText": "Lipoproteins transport the majority of non-polar lipids to most tissues for oxidation and to adipose tissue for storage as follows:\n• From the intestines as chylomicrons, it carries exogenous triglycerides.\n• From the liver as very-low-density lipoproteins (VLDL), it carries endogenous triglycerides.",
+      "emphasis": [
+        "Lipoproteins transport the majority of non-polar lipids to"
+      ],
+      "rationales": {
+        "b": "Polar lipids such as phospholipids are amphipathic and can interface with plasma; the key transport problem is moving hydrophobic neutral lipids.",
+        "c": "Lipoproteins transport triacylglycerol and cholesteryl esters as well as cholesterol; their role is not limited to cholesterol.",
+        "d": "Non-esterified fatty acids circulate mainly bound to albumin, while lipoproteins transport most dietary and endogenous neutral lipid cargo."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 250; explanation p. 258."
+      ]
+    },
+    "marrow__BIOCHEM_CH16_Q008": {
+      "takeaway": "LDL and HDL have the greatest cholesterol relative to triacylglycerol among the listed lipoproteins.",
+      "displayText": "As cholesterol is the predominant lipid in LDL and HDL, they have a higher cholesterol:triglyceride ratio.\n\nVLDL also has a significant amount of cholesterol but it predominantly comprises triglycerides (lower cholesterol:triglyceride ratio). Therefore, LDL and HDL are considered the major carriers of cholesterol.\n\nIDLs are formed by the removal of triglycerides from VLDL by muscle and adipose tissue and are hence enriched in cholesterol. LDLs are derived from VLDL and IDL particles and contain more cholesterol than IDLs.",
+      "emphasis": [
+        "LDL and HDL"
+      ],
+      "rationales": {
+        "a": "Chylomicrons and VLDL are the most triacylglycerol-rich particles, so their cholesterol-to-triacylglycerol ratios are low.",
+        "c": "VLDL remains triacylglycerol-rich despite carrying some cholesterol; pairing it with HDL does not yield the two highest ratios.",
+        "d": "IDL has lost triacylglycerol relative to VLDL, but the major cholesterol-rich pair in the source classification is LDL and HDL."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 250; explanation p. 258."
+      ]
+    },
+    "marrow__BIOCHEM_CH16_Q009": {
+      "takeaway": "After a fatty meal, LPL deficiency prevents chylomicron triacylglycerol clearance and causes chylomicronemia.",
+      "displayText": "After a fatty meal, chylomicrons are elevated in lipoprotein lipase deficiency.\n\nChylomicrons transport dietary lipids from the intestine to the peripheral tissues. They are synthesized in the intestine by assembling apo B-48 with lipids (mainly triacylglycerols). This is called a nascent chylomicron, which upon receiving apo C-II and apo E from HDL is remodelled into mature chylomicron.\n\nApo C-II activates lipoprotein lipase present on the endothelium. Lipoprotein lipase hydrolyzes the triacylglycerols into fatty acids and glycerol which are either used for storage or energy. Therefore, patients who are deficient in lipoprotein lipase or apo C-II (type I hyperlipoproteinemia) show increased levels of chylomicrons in the plasma after a fatty meal.",
+      "emphasis": [
+        "After a fatty meal"
+      ],
+      "rationales": {
+        "b": "LDL forms downstream from VLDL/IDL metabolism and is not the particle that accumulates immediately after dietary fat when LPL is deficient.",
+        "c": "HDL donates apoC-II and apoE and supports reverse cholesterol transport, but the blocked dietary triacylglycerol-rich particle is the chylomicron.",
+        "d": "ApoA is associated mainly with HDL; it is not the lipoprotein particle that accumulates when chylomicron triacylglycerol hydrolysis fails."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 250; explanation p. 258."
+      ]
+    },
+    "marrow__BIOCHEM_CH16_Q010": {
+      "takeaway": "Chylomicrons carry dietary triacylglycerol and VLDL carries hepatic triacylglycerol.",
+      "displayText": "Triacylglycerol is predominantly carried by chylomicrons and VLDL.",
+      "emphasis": [
+        "and VLDL"
+      ],
+      "rationales": {
+        "b": "LDL and HDL are relatively cholesterol- and protein-rich particles, not the principal triacylglycerol carriers.",
+        "c": "VLDL carries endogenous triacylglycerol, but HDL is not a major triacylglycerol-rich particle; chylomicrons carry dietary fat.",
+        "d": "Chylomicrons carry dietary triacylglycerol, but HDL's principal roles concern cholesterol exchange and reverse transport rather than bulk triacylglycerol delivery."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 251; explanation p. 259."
+      ]
+    },
+    "marrow__BIOCHEM_CH16_Q011": {
+      "takeaway": "Chylomicrons are the largest plasma lipoproteins because they carry the greatest triacylglycerol load.",
+      "displayText": "Chylomicrons are the largest among plasma lipoproteins, which are especially rich in triacylglycerol.",
+      "emphasis": [
+        "Chylomicrons are the largest"
+      ],
+      "rationales": {
+        "a": "VLDL also carries triacylglycerol but is smaller than a chylomicron, which is assembled in intestine after a meal.",
+        "b": "LDL is cholesterol-rich and much smaller than chylomicrons after VLDL/remnant remodeling.",
+        "c": "HDL is the smallest and densest of the major lipoproteins, the opposite end of the size range from chylomicrons."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 251; explanation p. 259."
+      ]
+    },
+    "marrow__BIOCHEM_CH16_Q012": {
+      "takeaway": "HDL promotes cholesterol efflux and reverse transport; it does not increase LDL oxidation.",
+      "displayText": "HDL plays no role in LDL oxidation.\n\nA major function of HDL is to act as a repository for the apo C and apo E required in the metabolism of chylomicrons and VLDL.\n\nThe class B scavenger receptor B1 (SRB-1) has been identified as an HDL receptor with a dual role in HDL metabolism. SRB-1 mediates the acceptance of cholesterol effluxed from the cells by HDL, which then transports it to the liver for excretion via the bile.",
+      "emphasis": [
+        "cholesterol efflux",
+        "LDL oxidation"
+      ],
+      "rationales": {
+        "a": "HDL donates apoC-II and apoE to nascent chylomicrons and VLDL, enabling their maturation and metabolism.",
+        "b": "Scavenger receptor class B type 1 (SR-BI) binds HDL and mediates selective uptake of HDL cholesteryl ester, especially in liver and steroidogenic tissues.",
+        "c": "HDL-mediated cholesterol efflux from peripheral cells is the defining first step of reverse cholesterol transport."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 251; explanation p. 259. The receptor abbreviation is normalized to SR-BI without changing the source meaning."
+      ]
+    }
+  }
+}
