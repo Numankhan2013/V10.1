@@ -1,0 +1,289 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner-facing Marrow ED8 Biochemistry Chapter 28 explanation refinement; source records and figures remain immutable.",
+  "scope": {
+    "subject": "Biochemistry",
+    "bank": "Marrow",
+    "chapterId": "28",
+    "chapter": "Molecular Biology Techniques",
+    "questionStart": 1,
+    "questionEnd": 19,
+    "questions": 18,
+    "status": "approved-rollout",
+    "workloadScore": 20,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "919f0709b2eb833e302c6f7524b6dd2bd13bfaed638009375b5062135d3795b1"
+  },
+  "questions": {
+    "marrow__BIOCHEM_CH28_Q001": {
+      "takeaway": "Restriction endonucleases recognize specific DNA sequences and cleave the DNA internally at or near those sites.",
+      "displayText": "Restriction endonucleases recognize specific DNA sequences and cleave the DNA internally at or near those sites.\n\nEnzymes that cut DNA at specific DNA sequences within the molecule are called restriction\nenzymes. eC,\"\nThese defensive enzymes protect the host bacterial DNA from the DNA genome ‘of foreign\norganisms (primarily infective phages) by specifically inactivating the invading phage DNA by\ndigestion. — ~\"",
+      "emphasis": [
+        "Restriction endonucleases recognize specific DNA sequences and cleave the DNA internally at or near those sites"
+      ],
+      "rationales": {
+        "a": "Helicase separates DNA strands during replication but does not make sequence-specific internal cuts.",
+        "b": "DNA polymerase synthesizes DNA from a template rather than cleaving it at recognition sequences.",
+        "d": "Gyrase is a bacterial topoisomerase that changes DNA supercoiling; restriction enzymes perform site-specific cleavage."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. not assigned in source metadata; explanation p. not assigned in source metadata."
+      ]
+    },
+    "marrow__BIOCHEM_CH28_Q002": {
+      "takeaway": "Restriction endonucleases are paired with cognate DNA methylases that mark host sites and protect them from self-digestion.",
+      "displayText": "Restriction endonucleases are paired with cognate DNA methylases that mark host sites and protect them from self-digestion.\n\ny a “w\nRestriction enzymes are found with'site-specific DNA methylases.>\nRestriction endonucleases are’present in cells that also have a companion enzyme that\nsite-specifically methylates the host DNA, thus rendering.it an unsuitable substrate for digestion\nby that particular restriction enzyme? » <y\nThus, site-specific DNA methylases and restriction enzymes that target the same sites always exist\nin pairs in a bacterium. y»\\ y",
+      "emphasis": [
+        "Restriction endonucleases are paired with cognate DNA methylases that mark host sites and protect them from self-digestion"
+      ],
+      "rationales": {
+        "b": "Interferon responses are part of antiviral host defense in animals and are not the bacterial restriction-modification partner.",
+        "c": "Thermostable polymerases support DNA amplification but do not protect host DNA from restriction cleavage.",
+        "d": "Terminal transferase adds nucleotides to DNA ends without a template; it is not the protective partner enzyme."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. not assigned in source metadata; explanation p. not assigned in source metadata."
+      ]
+    },
+    "marrow__BIOCHEM_CH28_Q003": {
+      "takeaway": "AAGCTT is a palindromic recognition sequence for restriction enzymes such as HindIII.",
+      "displayText": "AAGCTT is a palindromic recognition sequence for restriction enzymes such as HindIII.\n\nRestriction endonucleases can act on AAGCTT.\nRestriction endonucleases act and cleave at the site of a palindromic sequence. A palindromic\nsequence is a sequence that reads the same backward and forward. An example is listed below.\n5' --AAGCTT-- 3!\n3' -TTCGAA- 5'",
+      "emphasis": [
+        "AAGCTT is a palindromic recognition sequence for restriction enzymes such as HindIII"
+      ],
+      "rationales": {
+        "a": "AAGAAG does not read as its reverse complement and is not the palindromic sequence shown.",
+        "b": "GAGAGG is not the same sequence when read 5′ to 3′ on the complementary strand.",
+        "d": "TACGAG does not form the palindromic recognition pattern required by the item."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. not assigned in source metadata; explanation p. not assigned in source metadata."
+      ]
+    },
+    "marrow__BIOCHEM_CH28_Q004": {
+      "takeaway": "DNA ligase seals compatible DNA ends; restriction endonucleases, not ligase, cut DNA to create sticky ends.",
+      "displayText": "DNA ligase seals compatible DNA ends; restriction endonucleases, not ligase, cut DNA to create sticky ends.\n\nDNA ligase is not paired correctly with its use for cutting DNA and creating sticky ends. DNA\nligase joins the adjacent nucleotides in a covalent linkage.\nRestriction endonucleases cut DNA at specific sites creating sticky ends.",
+      "emphasis": [
+        "DNA ligase seals compatible DNA ends; restriction endonucleases, not ligase, cut DNA to create sticky ends"
+      ],
+      "rationales": {
+        "a": "DNA polymerase copies a DNA template in PCR; this is a correct tool-use pairing.",
+        "c": "Reverse transcriptase makes complementary DNA from an RNA template, the standard first step in cDNA production.",
+        "d": "Electrophoresis separates restriction fragments by size and is used in RFLP analysis."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. not assigned in source metadata; explanation p. not assigned in source metadata."
+      ]
+    },
+    "marrow__BIOCHEM_CH28_Q005": {
+      "takeaway": "Molecular cloning vectors include plasmids and bacteriophages (as well as cosmids) to propagate recombinant DNA.",
+      "displayText": "Molecular cloning vectors include plasmids and bacteriophages (as well as cosmids) to propagate recombinant DNA.\n\nGene cloning uses both plasmids and bacteriophages.\nHybrid DNA molecules can be constructed in cloning vectors typically using bacterial plasmids,\nphages, or cosmids. A clone is a large population of identical molecules, bacteria, or cells that\narise from a common ancestor. Molecular cloning allows for the production of a large number of\nidentical DNA molecules, which can then be characterized or used for other purposes.",
+      "emphasis": [
+        "Molecular cloning vectors include plasmids and bacteriophages (as well as cosmids) to propagate recombinant DNA"
+      ],
+      "rationales": {
+        "a": "Plasmids are cloning vectors, but this single option omits bacteriophages, which are also used.",
+        "b": "A noncoding sequence alone is not a vector; cloning uses a replicating carrier such as a plasmid or phage.",
+        "c": "Bacteriophages are cloning vectors, but this single option omits plasmids, which are also used."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. not assigned in source metadata; explanation p. not assigned in source metadata."
+      ]
+    },
+    "marrow__BIOCHEM_CH28_Q006": {
+      "takeaway": "The source identifies bacteriophages as vectors with linear DNA; plasmids and cosmids are generally circular constructs.",
+      "displayText": "The source identifies bacteriophages as vectors with linear DNA; plasmids and cosmids are generally circular constructs.\n\nPhages have linear DNA into which foreign DNA can be inserted at several restriction enzyme\nsites. x >\nAmplification of DNA (cloning) is done using cloning vectors - bacterial plasmids, phages, or\ncosmids. . % an\nBacterial plasmids are small, circular, duplex DNA molecules Syhose natural ‘function is to confer\nantibiotic resistance to the host cell. Cosmid is a plasmidsinto which the. DNA sequences from\nbacteriophage lambda (A cos sites) have been inserted; This enables'the packaging of plasmid\nDNA in vitro. They have a small,circtlar, duplex*DNA. (Options Brand C)\nJ. ‘ B : oe",
+      "emphasis": [
+        "The source identifies bacteriophages as vectors with linear DNA; plasmids and cosmids are generally circular constructs"
+      ],
+      "rationales": {
+        "b": "Bacterial plasmids are typically small circular double-stranded DNA molecules.",
+        "c": "Cosmids are plasmid-based vectors carrying lambda cos sites and are maintained as circular plasmid DNA in bacteria.",
+        "d": "Because plasmids and cosmids are generally circular, not all three vector classes have linear DNA."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. not assigned in source metadata; explanation p. not assigned in source metadata."
+      ]
+    },
+    "marrow__BIOCHEM_CH28_Q007": {
+      "takeaway": "A genomic library is a collection of recombinant clones representing most of an organism's genomic DNA, including coding and noncoding regions.",
+      "displayText": "A genomic library is a collection of recombinant clones representing most of an organism's genomic DNA, including coding and noncoding regions.\n\nXk —\nA genomic library is bacteria with plasmids containing DNA fragments representing the majority\nof the genetic information.from a plantor'animal.\nGene library describes ‘the combination of restriction enzymes and various cloning vectors allows\nthe entire genome of an organism to be individually packed into a vector. A collection of these\ndifferent recombinant clones is called a library.\n;\nA genomic library is prepared from the total DNA of a cell line or tissue. A cDNA library\ncomprises complementary DNA copies of the population of mRNAs in a tissue. (option C)\nGenomic DNA libraries are often prepared by performing partial digestion of total DNA with a\nrestriction enzyme that cuts DNA frequently.",
+      "emphasis": [
+        "A genomic library is a collection of recombinant clones representing most of an organism's genomic DNA, including coding and noncoding regions"
+      ],
+      "rationales": {
+        "a": "A genomic library is a physical collection of cloned fragments, not a computer catalogue of sequences.",
+        "c": "A cDNA library is made from expressed mRNAs and represents transcripts in a tissue; this is not a genomic library.",
+        "d": "Protein amino-acid sequences describe a proteome, not a cloned DNA library."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. not assigned in source metadata; explanation p. not assigned in source metadata."
+      ]
+    },
+    "marrow__BIOCHEM_CH28_Q008": {
+      "takeaway": "Northern blotting detects RNA; Southern blotting detects DNA and Western blotting detects proteins.",
+      "displayText": "Northern blotting detects RNA; Southern blotting detects DNA and Western blotting detects proteins.\n\nNorthern blotting is used for the detection of RNA.\nSouthern blotting is used for the detection of DNA and Western blotting is used for the detection\nof protein.\nty\na.\n| (Transfer of RNA to membrane)\nNS\n—* k\nKo 3 >",
+      "emphasis": [
+        "Northern blotting detects RNA; Southern blotting detects DNA and Western blotting detects proteins"
+      ],
+      "rationales": {
+        "a": "Southern blotting detects DNA, not RNA.",
+        "c": "Western blotting detects proteins with antibodies; Northern blotting detects RNA.",
+        "d": "Northern blotting has a defined target, RNA, so 'none' is incorrect."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. not assigned in source metadata; explanation p. not assigned in source metadata."
+      ]
+    },
+    "marrow__BIOCHEM_CH28_Q010": {
+      "takeaway": "Ideal PCR doubles target DNA each cycle; 30 cycles yield about 2³⁰, or 10⁹, copies from one template.",
+      "displayText": "Ideal PCR doubles target DNA each cycle; 30 cycles yield about 2³⁰, or 10⁹, copies from one template.\n\nA PCR reaction that continues for 30 cycles will produce approximately 1 billion PCR products\nfrom a single template DNA molecule.\nPolymerase chain reaction (PCR) is a method of amplifying a target sequence of DNA. DNA\nsequences as short as 50 to 100 bp and as long as 10 kb can be amplified by PCR. The\namplification is exponential.\n* 20 cycles provide amplification of 220 = 106 or 1 million copies\n* 30 cycles provide an amplification of 230 =109 or 1 billion copies",
+      "emphasis": [
+        "Ideal PCR doubles target DNA each cycle; 30 cycles yield about 2³⁰, or 10⁹, copies from one template"
+      ],
+      "rationales": {
+        "a": "64 copies corresponds to only about six ideal doublings, far fewer than 30 cycles.",
+        "b": "128,000 is far below the ideal 2³⁰ amplification expected after 30 cycles.",
+        "c": "About one million copies corresponds roughly to 20 cycles, not 30."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. not assigned in source metadata; explanation p. not assigned in source metadata."
+      ]
+    },
+    "marrow__BIOCHEM_CH28_Q011": {
+      "takeaway": "PCR needs template, primers, ordinary dNTPs and thermostable DNA polymerase; ddNTPs terminate chains and are used in sequencing.",
+      "displayText": "PCR needs template, primers, ordinary dNTPs and thermostable DNA polymerase; ddNTPs terminate chains and are used in sequencing.\n\naS >» *\nal ~%\nDideoxy-dNTPs (ddNTPs) is not required in PCR reaction. c\nIn a PCR reaction, the DNA sample is first heat-denatured (&gtigo°C) to separate the two strands\nof the template DNA containing the target;séquence. The primers, added in excess, are allowed to\nanneal to the DNA (typically 50-75°C), and each strand‘iscopied by a‘DNA polymerase, starting\nat the primer sites in the presencevof.all four dNTPs(again in vast,exCess).\nDNA synthesis is catalyzed by’a heat-stable DNA polymerase‘purified from one of a number of\ndifferent thermophilic bacteria, organisms that grow at.z0-80°C.",
+      "emphasis": [
+        "PCR needs template, primers, ordinary dNTPs and thermostable DNA polymerase; ddNTPs terminate chains and are used in sequencing"
+      ],
+      "rationales": {
+        "a": "A thermostable polymerase survives repeated denaturation cycles and is essential to PCR.",
+        "c": "Primers define and flank the amplified region, providing free 3′ ends for polymerase extension.",
+        "d": "The target template is the DNA sequence that PCR amplifies."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. not assigned in source metadata; explanation p. not assigned in source metadata."
+      ]
+    },
+    "marrow__BIOCHEM_CH28_Q012": {
+      "takeaway": "PCR can detect infectious agents, support prenatal genotyping and reveal allelic polymorphisms, so all listed uses apply.",
+      "displayText": "PCR can detect infectious agents, support prenatal genotyping and reveal allelic polymorphisms, so all listed uses apply.\n\n| © me: . oa\nAll of the listed options are applications! of PCR.\nThe applications of PCR to forensic medicine are as follows:\n— PM\n+ To detect infectious agents, especially latent viruses\n* Make prenatal genetic diagnoses\n+ Detect allelic polymorphisms\n+ Establish precise tissue types for transplants\n* To study evolution, using DNA from archeological samples\n+ For quantitative RNA analyses after RNA copying and mRNA quantitation by the so-called\nRT-PCR method (cDNA copies of mRNA generated by a retroviral reverse transcriptase)\n¢ To score in vivo protein-DNA occupancy using chromatin immunoprecipitation assays",
+      "emphasis": [
+        "PCR can detect infectious agents, support prenatal genotyping and reveal allelic polymorphisms, so all listed uses apply"
+      ],
+      "rationales": {
+        "a": "PCR amplifies pathogen nucleic acid and can detect infectious agents, including low-abundance viral genomes.",
+        "b": "PCR-based genotyping can identify fetal alleles and support prenatal genetic diagnosis when clinically appropriate.",
+        "c": "Allelic polymorphisms can be distinguished by PCR-based assays, so this is also an application."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. not assigned in source metadata; explanation p. not assigned in source metadata."
+      ]
+    },
+    "marrow__BIOCHEM_CH28_Q013": {
+      "takeaway": "RT-PCR reverse-transcribes RNA to cDNA and amplifies it, enabling measurement or detection of transcript expression.",
+      "displayText": "RT-PCR reverse-transcribes RNA to cDNA and amplifies it, enabling measurement or detection of transcript expression.\n\nRT-PCR is a method that is used for analysis of mRNA expression and its amplification.\nReverse transcriptase polymerase chain reaction (RT-PCR) is a variant of PCR and includes 2\nsteps:\n¢ Generation of complementary DNA (cDNA copies) from mRNA using reverse transcriptase -\nused to qualitatively detect gene expression\n¢ Amplification of newly synthesized cDNA by traditional PCR -This can be quantitatively\nmeasured by using fluorescent dyes (qRT-PCR).\nUses:\n* Determination of viral load in disease\n* Screening of genetic diseases and cancers ;\n——— AAA RNA * x\nReverse Ea Pamer\nTranscription\n_———————— ene 5\n=a\nPCR |\nee\nI | Amplified\n—— eee DNA\nAmplification >\\_\nEEE EEE\n—_—_—_— —LQQwWwWwEoy]o ss |\nEEE —=£2 =r\nooo A a |\noY “a\n\\ ‘ 7\n. ~~ ow",
+      "emphasis": [
+        "RT-PCR reverse-transcribes RNA to cDNA and amplifies it, enabling measurement or detection of transcript expression"
+      ],
+      "rationales": {
+        "a": "Forensic DNA profiling generally amplifies genomic DNA and does not by itself define RT-PCR.",
+        "b": "Standard PCR amplifies DNA; RT-PCR specifically includes reverse transcription of RNA before amplification.",
+        "c": "RT-PCR commonly analyzes RNA-derived cDNA but is not restricted to mRNA alone; other RNA targets can be studied."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. not assigned in source metadata; explanation p. not assigned in source metadata."
+      ]
+    },
+    "marrow__BIOCHEM_CH28_Q014": {
+      "takeaway": "PCR amplification of short tandem-repeat loci is central to DNA profiling for forensic identification and paternity analysis.",
+      "displayText": "PCR amplification of short tandem-repeat loci is central to DNA profiling for forensic identification and paternity analysis.\n\nPCR is used for DNA profiling (DNA fingerprinting).\nThe PCR allows the DNA in a single cell, hair follicle, or spermatozoon to be amplified and\nanalyzed. Thus, the applications of PCR to forensic medicine are obvious. DNA fingerprinting, or\nDNA profiling, is used for forensic analysis of crime scenes and paternity testing (Option D).\nOther options:\nOption A: Short Tandem Repeat (STR) are short sequences of DNA at scattered locations in the\ngenome, repeated in tandem (one after the other). E.g., CG-CG-CG-CG-CG. The number of these\nrepeat units varies from person to person but is unique for any given individual and, therefore,\nserves as a molecular fingerprint.\nOption B: Single Nucleotide Polymorphism(SNP) refers to variations that involve just one base at\na given locus (Eg., base C replaced by base A), which can occur within exons, introns, intergenic or\ncoding regions. They are almost always biallelic and are majorly used in the definition of inherited\ndiseases where the functional deficit is unknown. Each of these variations is present to some\nappreciable degree within a population and hence not unique to an individual.",
+      "emphasis": [
+        "PCR amplification of short tandem-repeat loci is central to DNA profiling for forensic identification and paternity analysis"
+      ],
+      "rationales": {
+        "a": "STR profiles are highly discriminating but are not literally unique in every possible case, so this statement is false.",
+        "b": "Forensic profiling chiefly uses noncoding STR loci, not SNPs specifically selected from coding sequences.",
+        "d": "DNA profiling can be used in paternity testing as well as forensic casework."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. not assigned in source metadata; explanation p. not assigned in source metadata."
+      ]
+    },
+    "marrow__BIOCHEM_CH28_Q015": {
+      "takeaway": "Classical radioactive in situ hybridization localizes genes on metaphase chromosomes by probe hybridization and autoradiographic detection.",
+      "displayText": "Classical radioactive in situ hybridization localizes genes on metaphase chromosomes by probe hybridization and autoradiographic detection.\n\nIn situ hybridization uses a radioactive probe for gene localization.\nIt is added to a metaphase spread of chromosomes on a glass slide. The exact area of\nhybridization is localized by layering photographic emulsion over the slide and after exposure,\nlining up the grains with some histologic identification of the chromosome.\nFluorescence in situ hybridization (FISH) utilizes fluorescent probes, not radioactive probes.\nFluorescent probes have greater safety, stability, and ease of detection (Option C).",
+      "emphasis": [
+        "Classical radioactive in situ hybridization localizes genes on metaphase chromosomes by probe hybridization and autoradiographic detection"
+      ],
+      "rationales": {
+        "a": "Somatic-cell hybridization maps genes by retention patterns in hybrid cell lines rather than by radioactive probe localization on chromosomes.",
+        "c": "FISH uses fluorescently labeled probes and fluorescent microscopy rather than a radioactive probe.",
+        "d": "Because FISH uses fluorescence and somatic-cell hybridization uses cell-line mapping, not all listed methods use radioactive probes."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. not assigned in source metadata; explanation p. not assigned in source metadata."
+      ]
+    },
+    "marrow__BIOCHEM_CH28_Q016": {
+      "takeaway": "Sickle-cell disease results from a single nucleotide substitution in HBB that changes β-globin Glu6 to Val.",
+      "displayText": "Sickle-cell disease results from a single nucleotide substitution in HBB that changes β-globin Glu6 to Val.\n\ned mY\nSickle cell disease is caused by a point mutation. * ¢ ‘s .\nThis is caused by mutation of a single baserout’of the 3 x 109 in the genome, a T-to-A DNA\nsubstitution, resulting in an A-to-U change in the mRNA. corresponding to the sixth codon of the\nB-globin gene. a <' >\nDefective production of B-globin results in a variety of diseases and is due to many different\nlesions in and around the‘B-globin gene. » %",
+      "emphasis": [
+        "Sickle-cell disease results from a single nucleotide substitution in HBB that changes β-globin Glu6 to Val"
+      ],
+      "rationales": {
+        "a": "Hemoglobin Lepore arises from a δβ-globin gene fusion/deletion, not the single-base missense change that causes sickle cell disease.",
+        "b": "β-thalassemia generally results from diverse mutations affecting synthesis or processing of β-globin, not the characteristic sickle missense substitution.",
+        "c": "Diabetes is a heterogeneous metabolic disease, not the single point-mutation hemoglobin disorder asked here."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. not assigned in source metadata; explanation p. not assigned in source metadata."
+      ]
+    },
+    "marrow__BIOCHEM_CH28_Q017": {
+      "takeaway": "RFLPs can support linkage mapping, QTL mapping and diagnosis of single-gene variants when a polymorphism tracks the disease allele.",
+      "displayText": "RFLPs can support linkage mapping, QTL mapping and diagnosis of single-gene variants when a polymorphism tracks the disease allele.\n\n© we\nRestriction fragment length polymorphism (RFLP) is used to construct a high-resolution linkage\nmap, QTL mapsyand identify single gene-disease.\nAn inherited difference in the’pattern of restriction enzyme digestion (e.g., a DNA variation\noccurring in more than 1% of the general population) is known as a restriction fragment length\npolymorphism (RFLP). RFLPs result from single-base changes (e.g., sickle-cell disease) or from\ndeletions or insertions (CNVs) of DNA into a restriction fragment (eg, the thalassemias) and have\nproved to be useful diagnostic tools.\nSNPs(single nucleotide polymorphisms)/RFLPs can be used to establish linkage groups, which in\nturn, by the process of chromosome walking, will eventually define the disease locus.",
+      "emphasis": [
+        "RFLPs can support linkage mapping, QTL mapping and diagnosis of single-gene variants when a polymorphism tracks the disease allele"
+      ],
+      "rationales": {
+        "a": "Restriction-fragment polymorphisms can serve as markers in high-resolution linkage maps.",
+        "b": "RFLP markers can track a disease locus in families, supporting analysis of single-gene disorders.",
+        "c": "RFLP markers can be used to construct quantitative-trait-locus maps, so all listed applications apply."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. not assigned in source metadata; explanation p. not assigned in source metadata."
+      ]
+    },
+    "marrow__BIOCHEM_CH28_Q018": {
+      "takeaway": "CRISPR-Cas9 originated as bacterial adaptive immunity: guide RNA directs Cas nucleases to complementary invading DNA.",
+      "displayText": "CRISPR-Cas9 originated as bacterial adaptive immunity: guide RNA directs Cas nucleases to complementary invading DNA.\n\nThe CRISPR-Cas9 system, found in many bacteria, represents a form of acquired, or adaptive\nimmunity to infection by bacteriophages, which complements the system of restriction\nendonucleases and methylases.\nIn recent years, a novel DNA editing/gene regulatory system termed Clustered Regularly\nInterspersed Short Palindromic Repeats- CRISPR-associated gene 9 (CRISPR-Cas9) has been\ndeveloped. CRISPR uses RNA-based targeting to bring the Cas9 nuclease to foreign (or any\ncomplementary) DNA.\nWithin bacteria, this CRISPR-RNA-Cas9 complex then degrades and inactivates the targeted\nDNA.",
+      "emphasis": [
+        "CRISPR-Cas9 originated as bacterial adaptive immunity: guide RNA directs Cas nucleases to complementary invading DNA"
+      ],
+      "rationales": {
+        "b": "CRISPR-Cas systems are not inherently a tuberculosis diagnostic test; they are microbial defense systems adapted for biotechnology.",
+        "c": "The system is a nucleic-acid targeting mechanism, not a tool designed to test air pollution.",
+        "d": "CRISPR can be used in molecular applications, but its biological role is not DNA sequencing; bacteria use it as adaptive immunity."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. not assigned in source metadata; explanation p. not assigned in source metadata."
+      ]
+    },
+    "marrow__BIOCHEM_CH28_Q019": {
+      "takeaway": "GATATC is palindromic (its reverse complement is GATATC) and is recognized by restriction enzymes such as EcoRV.",
+      "displayText": "GATATC is palindromic (its reverse complement is GATATC) and is recognized by restriction enzymes such as EcoRV.\n\nRestriction endonuclease enzymes act at specific palindromic sequences that create DNA\nfragments of different lengths. By analyzing the fragments, specific species of bacteria can be\nidentified. Option B is the only palindromic sequence here, hence it is the answer. *\nRFLP is a restriction fragment length polymorphism (RFLP) analysis technique that involves\ncutting a particular region of DNA with known variability; with restriction‘enzymes, then\nseparating the DNA fragments by agarose gel electrophoresis and determining the number of\nfragments and relative sizes. ‘\\ aS :\nCleavage of a sample of DNA with a restriction. énzyme prodnees a characteristic set of smaller\nDNA fragments. Deviations in the normal product pattern, produce RFLPs that occur if a\nmutation renders a restriction site unrecognizable and alternatively» generates a new recognition\nsite. ~~ * >",
+      "emphasis": [
+        "GATATC is palindromic (its reverse complement is GATATC) and is recognized by restriction enzymes such as EcoRV"
+      ],
+      "rationales": {
+        "a": "ATGGAC has reverse complement GTCCAT, so the displayed sequence pair is not palindromic.",
+        "c": "TAGATA has reverse complement TATCTA, not the displayed complementary sequence.",
+        "d": "AATATA has reverse complement TATATT, not the displayed sequence; it is not the selected palindromic site."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. not assigned in source metadata; explanation p. not assigned in source metadata."
+      ]
+    }
+  }
+}
