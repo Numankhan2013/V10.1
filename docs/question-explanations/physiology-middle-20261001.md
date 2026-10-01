@@ -122,7 +122,7 @@ Every item was checked against the canonical stem, options, key and full structu
 - `marrow__PHYSIO_CH31_Q012` — key option 1; question p. not supplied, key p. not supplied, explanation p. not supplied.
 - `marrow__PHYSIO_CH31_Q013` — key option 2; question p. not supplied, key p. not supplied, explanation p. not supplied.
 - `marrow__PHYSIO_CH31_Q014` — key option 3; question p. not supplied, key p. not supplied, explanation p. not supplied.
-- `marrow__PHYSIO_CH31_Q015` — key option 4; question p. not supplied, key p. not supplied, explanation p. not supplied. **Review flag:** source explanation confirms isotonic secretion (A) and CCK stimulation (D), leaving multiple true answers.
+- `marrow__PHYSIO_CH31_Q015` — key option 4; question p. not supplied, key p. not supplied, explanation p. not supplied. The source explanation states juice is isotonic, so option A’s hypertonic claim is false; the keyed CCK statement is supported.
 - `marrow__PHYSIO_CH31_Q016` — key option 1; question p. not supplied, key p. not supplied, explanation p. not supplied.
 - `marrow__PHYSIO_CH31_Q017` — key option 3; question p. not supplied, key p. not supplied, explanation p. not supplied.
 - `marrow__PHYSIO_CH31_Q018` — key option 3; question p. not supplied, key p. not supplied, explanation p. not supplied.
@@ -203,4 +203,4 @@ Every item was checked against the canonical stem, options, key and full structu
 
 ## Release boundary
 
-These are authored candidates, not runtime-integrated or build-verified content. No source key, raw record, figure, table or gate was changed. CH31 Q015 and CH32 Q028 have question-specific manual-review flags for contradictions documented in the source explanation; CH28 Q011 retains the source key and its stated model with a scope caveat.
+These are authored candidates, not runtime-integrated or build-verified content. No source key, raw record, figure, table or gate was changed. CH32 Q028 retains a question-specific manual-review flag because the source says all listed choices are fiber while its stem asks for a non-fiber. CH28 Q011 retains the source key with its stated model scoped as a textbook mechanism.
