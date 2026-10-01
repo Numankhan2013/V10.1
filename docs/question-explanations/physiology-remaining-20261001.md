@@ -43,7 +43,7 @@ The root worker batch validator passed these four files at the assigned base: 26
 
 ## Chapter 13 checkpoint
 
-- Added 21 source-authored explanations across two contiguous batches; cumulative worktree output is 47 questions (26 previously committed plus 21 in this checkpoint). At that checkpoint, 713 IDs remained pending, including two blocked IDs; 711 were actionable. These are authored/validated candidate files, not preview-deployed enhancements. The first Chapter 14 checkpoint brought cumulative candidate output to 65, with 695 original pending IDs remaining (693 actionable); the second Chapter 14 checkpoint raised output to 85, leaving 675 pending IDs (673 actionable). The Chapter 15 checkpoint brought output to 104, leaving 656 pending IDs (654 actionable). Chapter 16 brings output to 124, leaving 636 pending IDs (634 actionable).
+- Added 21 source-authored explanations across two contiguous batches; cumulative worktree output is 47 questions (26 previously committed plus 21 in this checkpoint). At that checkpoint, 713 IDs remained pending, including two blocked IDs; 711 were actionable. These are authored/validated candidate files, not preview-deployed enhancements. The first Chapter 14 checkpoint brought cumulative candidate output to 65, with 695 original pending IDs remaining (693 actionable); the second Chapter 14 checkpoint raised output to 85, leaving 675 pending IDs (673 actionable). The Chapter 15 checkpoint brought output to 104, leaving 656 pending IDs (654 actionable). Chapter 16 brought output to 124, leaving 636 pending IDs (634 actionable); Chapter 17 now brings output to 137, leaving 623 pending IDs (621 actionable).
 
 | Batch file | IDs | Workload | Source scope |
 |---|---:|---:|---|
@@ -84,3 +84,9 @@ Validation: the root worker batch CLI passed all six Physiology files at the ass
 - The explanations cover basal-ganglia nuclei, afferent/efferent connections and transmitters, lesion-pattern distinctions, cerebellar cortical/deep nuclei, functional subdivisions, fiber pathways, coordination findings, and feedforward inhibition. Source figures remain in the pinned PDF.
 - Rendered and checked printed pages 313–320. Restored the native neurotransmitter connection table (Q4, p.314), movement-disorder lesion table (Q5, p.315), and climbing-vs-mossy fiber table (Q10, p.318), each in `displayTables` with inspected-page and PDF-hash provenance.
 - Worker validation passes all 13 Physiology files at the assigned base: 124 questions with exact source-keyed distractor rationales, source detail retention/reconstruction, and preserved baseline/gates.
+
+## Chapter 17 checkpoint
+
+- Added 13 Hypothalamus and Limbic System questions (Q1–13); cumulative output is 137 and 623 original pending IDs remain, including two blocked IDs (621 actionable).
+- The explanations cover thalamic sensory relays, amygdala/Papez circuitry, reward, osmoregulation and ADH, circadian control, hypothalamic heat loss and satiety, hemispheric specialization, PAG descending analgesia, and thirst triggers. Q12’s labeled PAG cross-section was checked against printed p.329; its source figure remains in the immutable PDF.
+- Printed solution pages 325–329 were visually reviewed. Worker validation passes all 14 assigned-base Physiology files (137 questions) with source-keyed rationales and preserved baseline/gates.
