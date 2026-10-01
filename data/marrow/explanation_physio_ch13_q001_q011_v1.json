@@ -1,0 +1,287 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Marrow ED8 Physiology Chapter 13 explanation rollout; raw imported source remains immutable.",
+  "scope": {
+    "subject": "Physiology",
+    "bank": "Marrow",
+    "chapterId": "13",
+    "chapterTitle": "Special Senses",
+    "questionStart": 1,
+    "questionEnd": 11,
+    "questions": 11,
+    "status": "approved-rollout",
+    "workloadScore": 18.5,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 779,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__PHYS_CH13_Q001": {
+      "takeaway": "When light enters the eye, it first traverses the inner retinal surface, including the retinal ganglion-cell layer, before reaching the photoreceptor outer segments near the choroid. The neural signal then travels in the opposite direction: photoreceptors signal through bipolar cells to ganglion cells. The retina has ten histologic layers.",
+      "displayText": "Light passes through the inner retina before reaching photoreceptors; neural signaling proceeds back toward ganglion cells.",
+      "emphasis": [
+        "Light passes through the inner"
+      ],
+      "rationales": {
+        "a": "The inner nuclear layer contains bipolar, horizontal, and amacrine cell bodies; it lies deeper than the ganglion-cell layer on the path light takes from the vitreous.",
+        "b": "The outer nuclear layer houses photoreceptor nuclei and is reached after light has crossed inner retinal layers.",
+        "c": "The outer plexiform layer is also posterior to the ganglion-cell layer, so it is not the first layer encountered."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanation contains OCR substitutions, layout damage, or an incomplete native table that obscures source details.",
+        "reconstructedContent": "When light enters the eye, it first traverses the inner retinal surface, including the retinal ganglion-cell layer, before reaching the photoreceptor outer segments near the choroid. The neural signal then travels in the opposite direction: photoreceptors signal through bipolar cells to ganglion cells. The retina has ten histologic layers. Light passes through the inner retina before reaching photoreceptors; neural signaling proceeds back toward ganglion cells.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology printed page(s) 247, rendered from the immutable PDF with SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe, were visually reviewed for this item."
+        ],
+        "reviewNote": "Imported explanation text contains OCR/layout damage; the cited printed solution page(s) were visually checked and the learner-facing explanation restores the legible source details.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          247
+        ]
+      }
+    },
+    "marrow__PHYS_CH13_Q002": {
+      "takeaway": "The visual impulse begins when a photon photoisomerizes retinal in rhodopsin (visual purple). Rhodopsin is the photosensitive pigment of rods and consists of opsin, a G-protein-coupled receptor protein, plus retinal, the aldehyde form of vitamin A. Photoisomerization initiates phototransduction; it is not a vitamin-A condensation reaction.",
+      "displayText": "Photon-driven retinal photoisomerization in rhodopsin initiates phototransduction.",
+      "emphasis": [
+        "Photon-driven retinal photoisomerization in rhodopsin"
+      ],
+      "rationales": {
+        "a": "Opsin combines with 11-cis retinal to form rhodopsin, but that assembly is not the light-triggered event that initiates a visual impulse.",
+        "c": "NADP is not the chromophore event in rod phototransduction; the key trigger is retinal isomerization in rhodopsin.",
+        "d": "NAD is not the photosensitive pigment or the photon-driven initiating reaction."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanation contains OCR substitutions, layout damage, or an incomplete native table that obscures source details.",
+        "reconstructedContent": "The visual impulse begins when a photon photoisomerizes retinal in rhodopsin (visual purple). Rhodopsin is the photosensitive pigment of rods and consists of opsin, a G-protein-coupled receptor protein, plus retinal, the aldehyde form of vitamin A. Photoisomerization initiates phototransduction; it is not a vitamin-A condensation reaction. Photon-driven retinal photoisomerization in rhodopsin initiates phototransduction.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology printed page(s) 248, rendered from the immutable PDF with SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe, were visually reviewed for this item."
+        ],
+        "reviewNote": "Imported explanation text contains OCR/layout damage; the cited printed solution page(s) were visually checked and the learner-facing explanation restores the legible source details.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          248
+        ]
+      }
+    },
+    "marrow__PHYS_CH13_Q003": {
+      "takeaway": "Opsin combines with 11-cis-retinaldehyde to form rhodopsin. Retinol is a vitamin-A alcohol and must be oxidized to retinaldehyde; the 11-cis configuration is the chromophore bound to opsin. Photon absorption then isomerizes retinal and starts the visual transduction cascade.",
+      "displayText": "Rhodopsin is opsin bound to 11-cis-retinaldehyde.",
+      "emphasis": [
+        "Rhodopsin is opsin bound to"
+      ],
+      "rationales": {
+        "a": "All-trans retinal is produced after photon absorption and must be converted back to the 11-cis form before it can recombine with opsin.",
+        "c": "All-trans retinol is the alcohol form and has the wrong isomeric form; it is not the chromophore that binds opsin.",
+        "d": "11-cis retinol has the correct cis geometry but is still an alcohol, not the retinaldehyde chromophore."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanation contains OCR substitutions, layout damage, or an incomplete native table that obscures source details.",
+        "reconstructedContent": "Opsin combines with 11-cis-retinaldehyde to form rhodopsin. Retinol is a vitamin-A alcohol and must be oxidized to retinaldehyde; the 11-cis configuration is the chromophore bound to opsin. Photon absorption then isomerizes retinal and starts the visual transduction cascade. Rhodopsin is opsin bound to 11-cis-retinaldehyde.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology printed page(s) 248, rendered from the immutable PDF with SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe, were visually reviewed for this item."
+        ],
+        "reviewNote": "Imported explanation text contains OCR/layout damage; the cited printed solution page(s) were visually checked and the learner-facing explanation restores the legible source details.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          248
+        ]
+      }
+    },
+    "marrow__PHYS_CH13_Q004": {
+      "takeaway": "The foveola at the center of the macula is rod-free and contains only cones, supporting the highest spatial resolution. The macula lutea lies temporal to the optic disc and supports central vision with high photoreceptor density. The optic disc has no photoreceptors and creates the physiologic blind spot. Toward the peripheral retina the rod-to-cone ratio and convergence increase, improving sensitivity in dim light at the cost of acuity.",
+      "displayText": "Only cones occupy the foveola; peripheral retina is rod-rich and more sensitive but less acute.\n\nSource explanation detail: Central fovea (foveola) contains only cones (rod-free area) and is a region of highest resolution.\nRegional Variations in the Retina\n\nMacula lutea\n+ Located at posterior pole, temporal to the optic dise\n+ Area of central vision\n+ High density of photoreceptors and interneurons\nOptic dise\n+ Lacks photoreceptors\n+ Is called “Blind spot”\n+ Normally a person is unaware of blind spot because\n+ Corresponding part of the visual field can be seen by the contralateral eye se\n+ Neurological processes complete the incomplete image perceptually ©\nPeripheral retina Ne) fe)\n+ Higher ratio of rods to cones =Rod to cone+208 <\nWey\n+ Greater degree of convergence of photoreceptors to the target interneuromt (Bhotar cells)\no aN a\n* More sensitivity to light “\\ & « \\ <\n+ Lower visual acuity Be) K&S ‘O\nr> S >\nfe) wer O°\noS a x\n- i “Onl oe",
+      "emphasis": [
+        "Only cones occupy the foveola"
+      ],
+      "rationales": {
+        "a": "The optic disc is the blind spot because it lacks photoreceptors; the macula lutea is central retina, temporal to the disc.",
+        "b": "The macula has high, not low, density of photoreceptors and supports central vision.",
+        "d": "Peripheral retina has a higher rod-to-cone ratio, rather than a higher cone-to-rod ratio."
+      }
+    },
+    "marrow__PHYS_CH13_Q005": {
+      "takeaway": "Light causes rods to hyperpolarize, unlike the depolarizing receptor potentials common in many sensory receptors. In darkness, cGMP-gated sodium channels in the outer segment remain open; the phototransduction cascade triggered by light closes these channels, reducing inward current and making the rod membrane more negative. The change in graded receptor potential alters transmitter release onto bipolar cells.",
+      "displayText": "Light closes outer-segment cGMP-gated channels, so the rod hyperpolarizes.\n\nSource explanation detail: co wv\n‘The rod receptor potential ders from othé®'surface receptors in that it shows hyperpolarization.\nIn most sensory receyet Arrival ofgtimulus — Ion channels are opened up allowing current to\nflow =&gt; depolarsatt n of the receptor.\nIn photoreceptis: When the light strikes the outer segment, a cascade of reactions (refer figure)\nate initiated that close ade of the Nav channels inthe outer segment and results in\nhyperpolarization.\nEe 2\n— avr -¢ Ne\n° one || on\nae || Se\nal | es\n°. =a er\nale> | ne\n°. ON\" 7: se\neo i?\nheat ‘il",
+      "emphasis": [
+        "Light closes outer-segment cGMP-gated channels"
+      ],
+      "rationales": {
+        "a": "Depolarization is the typical response of many receptor cells to stimulation, but rods respond to light with hyperpolarization.",
+        "b": "The membrane becomes more negative during the light response, rather than less negative.",
+        "c": "Light closes cGMP-gated sodium channels and reduces inward sodium current; it does not increase sodium conductance."
+      }
+    },
+    "marrow__PHYS_CH13_Q006": {
+      "takeaway": "Rods and cones are the first-order neurons of the visual pathway. They transduce photons into graded receptor potentials and signal locally to bipolar and horizontal cells. Bipolar cells relay within the retina; ganglion cells are the retinal output neurons whose axons form the optic nerve and project to central targets, including the lateral geniculate nucleus.",
+      "displayText": "Rods and cones are first-order visual neurons; ganglion cells provide retinal output to the optic nerve.\n\nSource explanation detail: Photoreceptors - rods and cones are the first-order neurons in the visual pathway",
+      "emphasis": [
+        "Rods and cones are first-order"
+      ],
+      "rationales": {
+        "b": "Ganglion cells are the retinal output neurons and their axons form the optic nerve; they are downstream from photoreceptors.",
+        "c": "Lateral geniculate neurons are a central relay beyond the retina, not first-order retinal neurons.",
+        "d": "Bipolar cells are interneurons between photoreceptors and ganglion cells, not the first-order neurons."
+      }
+    },
+    "marrow__PHYS_CH13_Q007": {
+      "takeaway": "Retinal response polarity distinguishes these cells: rods, cones, and horizontal cells respond with hyperpolarizing potentials; bipolar-cell responses may be either hyperpolarizing or depolarizing. Amacrine cells produce purely depolarizing potentials in the source's classification. These are graded retinal responses rather than the all-or-none spiking characteristic of ganglion cells.",
+      "displayText": "Amacrine cells are the purely depolarizing retinal elements in this classification.",
+      "emphasis": [
+        "Amacrine cells are the purely"
+      ],
+      "rationales": {
+        "a": "Bipolar cells may be either hyperpolarizing or depolarizing; they are not purely depolarizing.",
+        "b": "Cones, like rods, have hyperpolarizing responses to light.",
+        "d": "Rods hyperpolarize when illuminated; they do not show the purely depolarizing response asked about."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanation contains OCR substitutions, layout damage, or an incomplete native table that obscures source details.",
+        "reconstructedContent": "Retinal response polarity distinguishes these cells: rods, cones, and horizontal cells respond with hyperpolarizing potentials; bipolar-cell responses may be either hyperpolarizing or depolarizing. Amacrine cells produce purely depolarizing potentials in the source's classification. These are graded retinal responses rather than the all-or-none spiking characteristic of ganglion cells. Amacrine cells are the purely depolarizing retinal elements in this classification.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology printed page(s) 250, rendered from the immutable PDF with SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe, were visually reviewed for this item."
+        ],
+        "reviewNote": "Imported explanation text contains OCR/layout damage; the cited printed solution page(s) were visually checked and the learner-facing explanation restores the legible source details.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          250
+        ]
+      }
+    },
+    "marrow__PHYS_CH13_Q008": {
+      "takeaway": "Amacrine cells release acetylcholine in the keyed item. They are retinal interneurons that connect bipolar-cell output with ganglion-cell dendrites and other amacrine cells within the inner plexiform layer. The source also lists GABA, glycine, dopamine, and indolamine among amacrine transmitters and notes that rods and cones release glutamate at synapses with bipolar cells; therefore transmitter identity depends on the retinal cell and synapse.",
+      "displayText": "The keyed transmitter for amacrine cells here is acetylcholine; rods and cones release glutamate to bipolar cells.",
+      "emphasis": [
+        "The keyed transmitter for amacrine"
+      ],
+      "rationales": {
+        "b": "Serotonin is not the transmitter identified by the source for this item; it lists acetylcholine among amacrine-cell transmitters.",
+        "c": "Histamine is not the keyed retinal amacrine transmitter in this source.",
+        "d": "Glutamate is released by rods and cones onto bipolar cells, distinguishing those photoreceptor synapses from the keyed amacrine answer."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanation contains OCR substitutions, layout damage, or an incomplete native table that obscures source details.",
+        "reconstructedContent": "Amacrine cells release acetylcholine in the keyed item. They are retinal interneurons that connect bipolar-cell output with ganglion-cell dendrites and other amacrine cells within the inner plexiform layer. The source also lists GABA, glycine, dopamine, and indolamine among amacrine transmitters and notes that rods and cones release glutamate at synapses with bipolar cells; therefore transmitter identity depends on the retinal cell and synapse. The keyed transmitter for amacrine cells here is acetylcholine; rods and cones release glutamate to bipolar cells.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology printed page(s) 250, rendered from the immutable PDF with SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe, were visually reviewed for this item."
+        ],
+        "reviewNote": "Imported explanation text contains OCR/layout damage; the cited printed solution page(s) were visually checked and the learner-facing explanation restores the legible source details.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          250
+        ]
+      }
+    },
+    "marrow__PHYS_CH13_Q009": {
+      "takeaway": "Ganglion cells are the only retinal neurons that generate action potentials. Photoreceptors, bipolar cells, and other retinal interneurons communicate with graded local potentials; ganglion-cell spikes carry retinal output along the optic nerve.",
+      "displayText": "Ganglion cells are the retinal neurons that fire action potentials.\n\nSource explanation detail: ‘All neural elements in the retina exhibit local graded potentials except ganglion cells which shows\n\naction potential.",
+      "emphasis": [
+        "Ganglion cells are the retinal"
+      ],
+      "rationales": {
+        "a": "Bipolar cells use graded potentials rather than the retinal action potentials attributed to ganglion cells.",
+        "c": "Amacrine cells are interneurons with local responses; they are not the retinal output cells that fire action potentials.",
+        "d": "Rods and cones signal with graded receptor potentials rather than action potentials."
+      }
+    },
+    "marrow__PHYS_CH13_Q010": {
+      "takeaway": "Each lateral geniculate nucleus receives crossed input from the contralateral nasal retina in layers 1, 4, and 6, and uncrossed input from the ipsilateral temporal retina in layers 2, 3, and 5. Because nasal-retinal fibers cross at the optic chiasm, the laminar input preserves eye-specific streams in the LGN.",
+      "displayText": "Contralateral nasal-retinal fibers terminate in LGN layers 1, 4, and 6.",
+      "emphasis": [
+        "Contralateral nasal-retinal fibers terminate in"
+      ],
+      "rationales": {
+        "a": "Layers 2, 3, and 5 receive ipsilateral temporal-retinal input, not contralateral nasal-retinal input.",
+        "c": "Layers 1–3 mix the two eye-specific sets and omit contralateral layers 4 and 6.",
+        "d": "Layers 4–6 include layer 4 and 6 contralateral input but layer 5 is ipsilateral; the full correct set is 1, 4, and 6."
+      },
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanation contains OCR substitutions, layout damage, or an incomplete native table that obscures source details.",
+        "reconstructedContent": "Each lateral geniculate nucleus receives crossed input from the contralateral nasal retina in layers 1, 4, and 6, and uncrossed input from the ipsilateral temporal retina in layers 2, 3, and 5. Because nasal-retinal fibers cross at the optic chiasm, the laminar input preserves eye-specific streams in the LGN. Contralateral nasal-retinal fibers terminate in LGN layers 1, 4, and 6.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology printed page(s) 251, rendered from the immutable PDF with SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe, were visually reviewed for this item."
+        ],
+        "reviewNote": "Imported explanation text contains OCR/layout damage; the cited printed solution page(s) were visually checked and the learner-facing explanation restores the legible source details.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          251
+        ]
+      }
+    },
+    "marrow__PHYS_CH13_Q011": {
+      "takeaway": "The parvocellular pathway carries color, texture, shape, fine detail, and accurate point-to-point spatial information. It receives input from type X retinal ganglion cells and projects through LGN layers 3–6. The magnocellular pathway receives type Y ganglion-cell input in LGN layers 1–2, is colorblind (black-and-white), and emphasizes movement, depth, and flicker. The source table names layer 4C for both pathways; the continuation on printed page 252 refines this: magnocellular input ends in 4Cα and parvocellular input in 4Cβ.",
+      "displayText": "Parvocellular processing carries color and fine spatial detail; magnocellular processing emphasizes movement, depth, and flicker.",
+      "emphasis": [
+        "Parvocellular processing carries color and"
+      ],
+      "rationales": {
+        "b": "Luminous contrast is not the feature singled out by the table; the parvocellular list centers on color and fine spatial detail.",
+        "c": "Temporal frequency and flicker are emphasized by the magnocellular pathway, not the parvocellular pathway.",
+        "d": "Saccadic eye movements are not the parvocellular pathway's listed function; the table assigns it color, texture, shape, and detail."
+      },
+      "displayTables": [
+        {
+          "title": "Parvocellular and magnocellular visual pathways",
+          "source_page": 251,
+          "columns": [
+            "Feature",
+            "Parvocellular pathway",
+            "Magnocellular pathway"
+          ],
+          "rows": [
+            [
+              "Retinal input",
+              "Type X retinal ganglion cells",
+              "Type Y retinal ganglion cells project to magnocellular LGN layers"
+            ],
+            [
+              "Information",
+              "Color; accurate point-to-point spatial information",
+              "Colorblind; black-and-white information"
+            ],
+            [
+              "Cortical projection",
+              "Primary visual cortex layer 4Cβ (source table: layer 4C)",
+              "Primary visual cortex layer 4Cα (source table: layer 4C)"
+            ],
+            [
+              "Functions",
+              "Color vision, texture, shape, and fine detail",
+              "Movement, depth, and flicker"
+            ]
+          ]
+        }
+      ],
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The imported explanation contains OCR substitutions, layout damage, or an incomplete native table that obscures source details.",
+        "reconstructedContent": "The parvocellular pathway carries color, texture, shape, fine detail, and accurate point-to-point spatial information. It receives input from type X retinal ganglion cells and projects through LGN layers 3–6. The magnocellular pathway receives type Y ganglion-cell input in LGN layers 1–2, is colorblind (black-and-white), and emphasizes movement, depth, and flicker. The source table names layer 4C for both pathways; the continuation on printed page 252 refines this: magnocellular input ends in 4Cα and parvocellular input in 4Cβ. Parvocellular processing carries color and fine spatial detail; magnocellular processing emphasizes movement, depth, and flicker.",
+        "evidenceBasis": [
+          "Marrow ED8 Physiology printed page(s) 251, 252, rendered from the immutable PDF with SHA-256 03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe, were visually reviewed for this item.",
+          "The printed page 251 table compares parvocellular and magnocellular input, coding, projection, and functions; page 252 specifies magnocellular 4Cα and parvocellular 4Cβ projections."
+        ],
+        "reviewNote": "The native table on p. 251 omitted its column and row data in the imported record. It was reconstructed from the pinned page image; page 252 resolves the source table’s shared “4C” label into 4Cα for magnocellular and 4Cβ for parvocellular input.",
+        "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+        "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+        "sourcePages": [
+          251,
+          252
+        ]
+      }
+    }
+  }
+}

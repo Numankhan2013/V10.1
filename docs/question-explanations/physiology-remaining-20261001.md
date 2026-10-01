@@ -5,7 +5,7 @@
 - Canonical base: `d4abce86068b4221e61e541c34dd29258de61cca`.
 - Immutable Physiology source bundle SHA-256: `f3cd6b9dccb2092743fa86de4b0bef682d61c83762e9f00fa3b04d0a355d89d6`.
 - Source PDF: `data/marrow/source_pdfs/physiologyed8.pdf`; SHA-256 `03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe`.
-- Checkpoint scope: 26 actionable questions authored in four contiguous source-order files. The initial inventory had 254 Physiology IDs enhanced and 760 pending; after this checkpoint, 280 are enhanced and 734 actionable questions remain. The two source-limited IDs remain withheld by the shared queue.
+- Checkpoint scope: 26 actionable questions authored in four contiguous source-order files. The initial inventory had 254 Physiology IDs enhanced and 760 pending; after the first checkpoint, 280 are source-authored and validated candidates and 734 pending IDs remain, including two blocked by shared queue gates (732 actionable). The two source-limited IDs remain withheld by the shared queue.
 - The raw source bundles, completeness ledger, shared inventory, runtime wiring, workflows, and gate files were not changed.
 
 | Batch file | IDs | Workload | Source scope |
@@ -39,3 +39,21 @@ Records with `reconstruction.status = resolved_reconstruction` include complete 
 ## Validation and handoff
 
 The root worker batch validator passed these four files at the assigned base: 26 questions, source IDs/chapter/order matched, exact three source-keyed distractor rationales, emphasis anchors present verbatim, detail-retention or documented OCR reconstruction satisfied, and baseline/blocked IDs preserved. No preview build or integration was performed from this worktree. Continue at Chapter 13 Q1; inspect and restore the empty native table placeholder at Chapter 13 Q11 from printed pages 251–252 before finalizing that batch.
+
+
+## Chapter 13 checkpoint
+
+- Added 21 source-authored explanations across two contiguous batches; cumulative worktree output is 47 questions (26 previously committed plus 21 in this checkpoint). Against the original queue, 713 IDs remain pending, including two blocked IDs; 711 remain actionable. These are authored/validated candidate files, not preview-deployed enhancements.
+
+| Batch file | IDs | Workload | Source scope |
+|---|---:|---:|---|
+| `explanation_physio_ch13_q001_q011_v1.json` | 11 | 18.5/20 | Ch13 Special Senses Q1–11 |
+| `explanation_physio_ch13_q012_q021_v1.json` | 10 | 11/20 | Ch13 Special Senses Q12–21 |
+
+The files retain source IDs/options/keys and contain question-specific learner explanations, 1–4 verbatim emphasis anchors, and exactly three source-keyed distractor rationales each. The Q11 native comparison table, absent from the imported record, is restored in `displayTables`: X/type-X parvocellular versus Y/type-Y magnocellular input, color versus achromatic coding, cortical projections, and the listed signal functions. Printed p. 251 labels both projections as layer 4C; p. 252 resolves this as magnocellular 4Cα and parvocellular 4Cβ. This table correction is pinned to the PDF path/hash and pages 251–252; the source figure remains represented by the immutable PDF.
+
+Selected OCR-damaged explanation pages were rendered from the pinned PDF (pp. 247–248, 250–252, 254–256). This confirms the ten retinal layers and opposing light/neural directions (Q1); rhodopsin photochemistry and 11-cis-retinaldehyde (Q2–3); amacrine cell response/transmitter descriptions and ganglion-cell action potentials (Q7–9); LGN eye-specific laminae (Q10); the X/Y pathway table and its 4C sublayer clarification (Q11–12); taste mechanisms (Q17); olfactory bulb circuitry and intensity range (Q18–19); photoreceptor counts/adaptation times and hemianopic pupil pattern (Q20–21). Reconstructed records are pinned per question to inspected source pages and the same PDF SHA-256.
+
+CH13 Q17 is keyed to glutamate/umami. The source’s statement that sour taste uses H+ movement through ENaC is explicitly labeled outdated and corrected: ENaC is involved in salt taste while the OTOP1 proton channel contributes to sour responses, based on Teng et al., “Cellular and Neural Responses to Sour Stimuli Require the Proton Channel Otop1,” *Current Biology* 29 (2019), [doi:10.1016/j.cub.2019.08.077](https://doi.org/10.1016/j.cub.2019.08.077).
+
+Validation: the root worker batch CLI passed all six Physiology files at the assigned canonical base: 47 questions, source-keyed rationale/option alignment, detail retention or pinned reconstruction evidence, and preserved baseline/gates.
