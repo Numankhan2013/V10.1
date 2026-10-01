@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner-facing Marrow ED8 Anatomy Chapter 60 explanation refinement; source diagrams and tables remain native and unchanged.",
+  "scope": {
+    "subject": "Anatomy",
+    "bank": "Marrow",
+    "chapterId": "60",
+    "chapterTitle": "Bones, Joints and Cartilage",
+    "questionStart": 29,
+    "questionEnd": 30,
+    "questions": 2,
+    "status": "approved-rollout",
+    "workloadScore": 2,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387",
+    "auditReport": "docs/question-explanations/anatomy-tail-20261001.md"
+  },
+  "questions": {
+    "marrow__ANAT_CH60_Q029": {
+      "takeaway": "A styloid process is a sharp projection; tubercles, epicondyles and trochanters are rounded or irregular elevations.",
+      "displayText": "A styloid process is a sharp projection; tubercles, epicondyles and trochanters are rounded or irregular elevations.\n\nThe styloid process is a sharp elevation of bone.\n\nRounded or irregular elevations include tubercle, tuberosity, epicondyle, malleolus and trochanter. Sharp elevations include styloid process, spine, cornu (horn) and hamulus (hook-like).",
+      "emphasis": [
+        "A styloid process is a sharp projection; tubercles, epicondyles and trochanters are rounded or irregular elevations"
+      ],
+      "rationales": {
+        "a": "A tubercle is a small rounded elevation.",
+        "b": "An epicondyle is a raised area above a condyle.",
+        "d": "A trochanter is a large blunt irregular elevation, not the sharp exception."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          1168
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    },
+    "marrow__ANAT_CH60_Q030": {
+      "takeaway": "The costotransverse articulation shown is a synovial joint.",
+      "displayText": "The costotransverse articulation shown is a synovial joint.\n\nThe marked joint is the costotransverse joint, which is a synovial joint.\n\nSternocostal joints are between the costal cartilages of the first seven ribs and sternum. The joint between the first costal cartilage and manubrium is fibrocartilaginous (synarthrosis), while the joints between the second to seventh costal cartilages and sternum are synovial.\n\nThe interchondral joint between the costal cartilages of the ninth and tenth ribs is never synovial and is usually absent.",
+      "emphasis": [
+        "The costotransverse articulation shown is a synovial joint"
+      ],
+      "rationales": {
+        "a": "Syndesmosis is a fibrous joint between bones joined by ligament; the costotransverse joint has a synovial cavity.",
+        "b": "Synarthrosis is a movement class for immovable joints, not this rib articulation.",
+        "c": "Synchondrosis is a primary cartilaginous joint, not the synovial costotransverse joint."
+      },
+      "audit": {
+        "reviewedAgainst": "canonical stem/options/key/full structuredExplanation",
+        "sourceExplanationPages": [
+          1169
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "Retained by unchanged native structuredExplanation and source figure metadata."
+      }
+    }
+  }
+}
