@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Bounded Anatomy Chapter 34 explanation refinement. Raw imported source remains immutable; this file contains learner-facing augmentation only.",
+  "scope": {
+    "subject": "Anatomy",
+    "bank": "Marrow",
+    "chapterId": "34",
+    "chapterTitle": "Larynx",
+    "questionStart": 15,
+    "questionEnd": 17,
+    "questions": 3,
+    "status": "approved-rollout",
+    "workloadScore": 14,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca"
+  },
+  "referenceGrammar": {
+    "approvedBeforeBatch": 753,
+    "canonicalInventoryTotal": 2711
+  },
+  "questions": {
+    "marrow__ANAT_CH34_Q015": {
+      "takeaway": "Recurrent laryngeal nerve injury can paralyze vocal fold intrinsic muscles.",
+      "displayText": "Injury to the recurrent laryngeal nerve causes vocal-cord paralysis because it supplies all intrinsic laryngeal muscles except cricothyroid. Cricothyroid is supplied by the external laryngeal nerve.",
+      "emphasis": [
+        "recurrent laryngeal nerve",
+        "all intrinsic laryngeal muscles except cricothyroid",
+        "external laryngeal nerve"
+      ],
+      "rationales": {
+        "b": "External laryngeal nerve supplies cricothyroid, not the other intrinsic muscles.",
+        "c": "Internal laryngeal nerve is sensory through thyrohyoid membrane.",
+        "d": "Superior laryngeal nerve divides into internal/external branches and is not the recurrent motor supply."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, clinical stem, options, printed answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          615
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 1 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH34_Q016": {
+      "takeaway": "Supraglottic tumor can extend to pre-epiglottic space through epiglottic perforations.",
+      "displayText": "Supraglottic tumors can spread to the pre-epiglottic space through multiple perforations in the epiglottic cartilage.\n\nThe pre-epiglottic space lies anterior to the epiglottis. Its superior relation is the hyoepiglottic membrane/median hyoepiglottic ligament; inferior relation is the thyroepiglottic ligament; anterior relations are the thyrohyoid membrane and median thyrohyoid ligament; posterior relation is the epiglottis; laterally it is related to the greater cornua of the hyoid superiorly and is continuous with the paraglottic space inferiorly.\n\nThe paraglottic space contains the laryngeal nerve and is continuous superiorly with the pre-epiglottic space; its inferior relation is the cricothyroid joint, posterior relation the piriform fossa, lateral relation the thyroid cartilage and thyrohyoid membrane, and medial relation the quadrangular membrane above and conus elasticus below.",
+      "emphasis": [
+        "pre-epiglottic space",
+        "perforations in the epiglottic cartilage",
+        "hyoepiglottic membrane",
+        "thyroepiglottic ligament"
+      ],
+      "rationales": {
+        "a": "Supraglottic tumors may spread by lymphatics, but this item asks the route into pre-epiglottic space.",
+        "c": "Hematogenous spread is not the local route from supraglottic growth.",
+        "d": "Paraglottic extension is another route, but source identifies perforations in epiglottis as the route to pre-epiglottic space."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, clinical stem, options, printed answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          616,
+          617
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 2 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    },
+    "marrow__ANAT_CH34_Q017": {
+      "takeaway": "Internal laryngeal nerve enters through thyrohyoid membrane with superior laryngeal vessels.",
+      "displayText": "The false statement is that the internal laryngeal nerve is accompanied by the superior thyroid vessels. It is accompanied by the superior laryngeal vessels and, together with them, pierces the thyrohyoid membrane.\n\nThe vagus nerve emerges through the intermediate compartment of the jugular foramen. Galen's anastomosis is a communicating branch between the inferior laryngeal nerve (from the recurrent laryngeal nerve) and the internal laryngeal nerve (from the superior laryngeal nerve). The right recurrent laryngeal nerve winds around the lower/posterior aspect of the first part of the right subclavian artery, while the left recurrent laryngeal nerve winds around the aortic arch.",
+      "emphasis": [
+        "internal laryngeal nerve",
+        "superior laryngeal vessels",
+        "thyrohyoid membrane",
+        "Galen's anastomosis"
+      ],
+      "rationales": {
+        "a": "Vagus emerges through intermediate jugular compartment, a correct statement.",
+        "b": "Galen anastomosis is between internal and recurrent laryngeal nerves, a true statement.",
+        "d": "Right recurrent laryngeal nerve loops around right subclavian artery; the false statement is that internal laryngeal accompanies superior thyroid vessels instead of superior laryngeal vessels."
+      },
+      "audit": {
+        "reviewedAgainst": "full Anatomy source record, clinical stem, options, printed answer key, complete explanation and structured metadata",
+        "sourceExplanationPages": [
+          617,
+          618
+        ],
+        "uniqueSourceDetailsPreserved": true,
+        "tablesAndFigures": "0 native table(s) and 1 figure metadata item(s) remain in unchanged source record/shared renderer."
+      }
+    }
+  },
+  "source": {
+    "bundle": "anatomy_ch001_063",
+    "sourceRawSha256": "f38dc86163ff7ca10b1cfbc72e075724abe7cff5360a8fd642671d1d4eb1d387",
+    "sourcePdf": "data/marrow/source_pdfs/Anatomy_ed8.pdf",
+    "sourcePdfPages": [
+      615,
+      616,
+      617,
+      618
+    ]
+  }
+}
