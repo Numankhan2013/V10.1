@@ -115,5 +115,13 @@ Validation: the root worker batch CLI passed all six Physiology files at the ass
 
 - Added all 15 Alveolar Gas Exchange items (Q1–15). Cumulative output through the owned range is 212 of 497 actionable questions; 285 remain assigned to this lane. Two gate-blocked items are untouched, and later chapters remain assigned to the other worker.
 - The learner text retains Fick’s diffusion factors, red-cell transit timing, the physiologic shunt components, DLCO method and values, humidification and water vapor pressure, alveolar gas tensions, both Bohr and Enghoff forms, dead-space types, regional V/Q values and gravity effects, the waterfall effect, infinite V/Q, the alveolar gas equation calculation, emphysema changes, and isocapnic buffering.
-- Rendered printed pages 387–398 from the pinned PDF and visually checked the gas-tension and V/Q figures on pp. 391, 394, and 396. Figures remain in the immutable source PDF; the source bundle did not provide `displayTables` or `displayFigures` objects for these items.
+- Rendered printed pages 387–398 from the pinned PDF and visually checked the gas-tension and V/Q figures on pp. 391, 394, and 396. Source-owned figures and their registry/runtime bindings remain intact; no replacement artwork was created.
 - The worker batch validator passes all 19 assigned-base Physiology files (212 questions), including exact source-keyed distractor rationales, verbatim emphasis, detail retention or pinned reconstruction evidence, and preserved baseline/gates.
+
+
+## Chapter 22 checkpoint
+
+- Added all 20 Gas Transport in Blood questions (Q1–20) across two contiguous batches. Cumulative Physiology-through-Ch27 ownership is 232 of 497 actionable questions; 265 assigned actionable items remain. No Ch28+ records or the two gate-blocked items were changed.
+- The explanations retain gas-law notation; diffusion- versus perfusion-limited gas transport; oxygen binding fractions and capacity calculations; oxygen delivery inputs; Hb subunits and T/R cooperativity; sigmoid dissociation, saturation and P50; Bohr/Haldane effects; 2,3-DPG and HbF; chloride-shift-related PCV; and CPDA storage effects.
+- Printed pages 404–415 were rendered and checked; selected curve, Hb transition, chloride-shift, and oxygen-capacity figures were visually reviewed. Chapter 22 Q9 had empty imported explanation text; the cooperative-binding mechanism was reconstructed from its printed solution on p. 408, with PDF hash and page evidence recorded per item.
+- The worker batch validator passes all 21 assigned-base Physiology files (232 questions), with exact source-keyed distractor rationales, emphasis anchors, detail retention or documented pinned reconstruction evidence, and preserved baseline/gates.
