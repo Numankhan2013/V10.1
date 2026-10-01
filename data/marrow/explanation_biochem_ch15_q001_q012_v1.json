@@ -1,0 +1,197 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner-facing Marrow ED8 Biochemistry Chapter 15 Q1-Q12 explanation refinement. Raw imported source and native visual metadata remain immutable.",
+  "scope": {
+    "subject": "Biochemistry",
+    "bank": "Marrow",
+    "chapterId": "15",
+    "chapter": "Metabolism of Acylglycerols and Sphingolipids",
+    "questionStart": 1,
+    "questionEnd": 12,
+    "questions": 11,
+    "status": "approved-rollout",
+    "workloadScore": 13,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "919f0709b2eb833e302c6f7524b6dd2bd13bfaed638009375b5062135d3795b1"
+  },
+  "questions": {
+    "marrow__BIOCHEM_CH15_Q001": {
+      "takeaway": "Triacylglycerol is a glycerolipid because three fatty acids are esterified to glycerol.",
+      "displayText": "Triacylglycerol is a glycerolipid.\n\nGlycerolipids are esters of the trihydric alcohol glycerol and fatty acids. The types of glycerolipids include mono-, di- or tri-substituted glycerols. The best known glycerolipid is the fatty acid triester of glycerol known as triglycerides or triacylglycerols.",
+      "emphasis": [
+        "Triacylglycerol is a glycerolipid"
+      ],
+      "rationales": {
+        "b": "Glycerophospholipids contain a phosphate-bearing polar head group in addition to their lipid backbone; triacylglycerol has no phosphate head group.",
+        "c": "Glycolipids contain a carbohydrate head group, whereas triacylglycerol is a glycerol ester of fatty acids without carbohydrate.",
+        "d": "Sterols have the characteristic fused-ring steroid nucleus; triacylglycerol instead has a glycerol backbone esterified to three fatty acids."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 229; explanation p. 237. The source figure showing glycerol esterified with three fatty-acid residues is retained in the source record."
+      ]
+    },
+    "marrow__BIOCHEM_CH15_Q002": {
+      "takeaway": "Lipase hydrolysis must release glycerol and fatty acids before triacylglycerol components can be catabolized.",
+      "displayText": "The first step for the catabolism of triacylglycerol is hydrolysis.\n\nTriacylglycerols must be hydrolyzed by lipase to their constituent fatty acids and glycerol before further catabolism. Hydrolysis (lipolysis) occurs in adipose tissue with release of free fatty acids into the plasma. Free fatty acids combine with albumin to reach various tissues, where they are oxidized to obtain energy or re-esterified.",
+      "emphasis": [
+        "fatty acids"
+      ],
+      "rationales": {
+        "a": "Decarboxylation is not the initiating reaction for triacylglycerol breakdown; the fatty acids and glycerol must first be freed by ester-bond hydrolysis.",
+        "c": "Oxidation applies to released fatty acids after lipolysis and activation, rather than to intact triacylglycerol as the first step.",
+        "d": "Dehydrogenation occurs in later oxidative pathways, including fatty-acid β-oxidation, after hydrolysis has made the fatty-acid substrate available."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 229; explanation p. 237."
+      ]
+    },
+    "marrow__BIOCHEM_CH15_Q004": {
+      "takeaway": "A glycerophospholipid has two fatty-acyl chains on glycerol and a phosphate-linked polar head group.",
+      "displayText": "Phospholipid consists of diglyceride + phosphate + choline or ethanolamine.\n\nA phospholipid, such as lecithin or cephalin, is any lipid consisting of a diglyceride combined with a phosphate group. A simple organic molecule such as choline or ethanolamine is attached to the phosphate group. A diglyceride is glycerol molecule with 2 fatty acids attached to it.",
+      "emphasis": [
+        "Phospholipid consists of diglyceride + phosphate + choline"
+      ],
+      "rationales": {
+        "a": "Glycerol plus phosphate and head group omits both fatty-acyl chains, so it does not describe the source's phospholipid structure.",
+        "b": "A monoglyceride has only one fatty-acyl chain; the source structure contains two acyl chains attached to glycerol.",
+        "d": "A triglyceride has three fatty-acyl chains and lacks the phosphate-linked polar head characteristic of this phospholipid."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 229; explanation p. 238."
+      ]
+    },
+    "marrow__BIOCHEM_CH15_Q005": {
+      "takeaway": "Ceramide is a sphingolipid core, not itself a phospholipid; adding phosphocholine yields sphingomyelin.",
+      "displayText": "Ceramide is not a phospholipid.\n\nCeramide consists of sphingosine and a fatty acid (ceramide = sphingosine + fatty acid). It can be a component of a phospholipid e.g sphingomyelin, which consists of ceramide, phosphoric acid and choline. It is also a component of non-phosphorylated compound lipids like cerebrosides, globosides, and gangliosides. These are fatty acids esterified with alcohol and contain other groups.\n\nOption A: Plasmalogens are a class of glycerophospholipids that contain vinyl-ether.",
+      "emphasis": [
+        "Ceramide is",
+        "a phospholipid"
+      ],
+      "rationales": {
+        "a": "Plasmalogens are glycerophospholipids with a characteristic vinyl-ether linkage at the glycerol backbone.",
+        "b": "Dipalmitoyl lecithin is dipalmitoylphosphatidylcholine, a glycerophospholipid and major lung-surfactant component.",
+        "d": "Cardiolipin (diphosphatidylglycerol) is a phospholipid enriched in the inner mitochondrial membrane."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 229; explanation p. 238."
+      ]
+    },
+    "marrow__BIOCHEM_CH15_Q006": {
+      "takeaway": "Prematurity with neonatal respiratory distress points to deficient surfactant DPPC from type II pneumocytes.",
+      "displayText": "A preterm infant requiring resuscitation at birth with cyanosis and diffuse bilateral opacities on chest radiography is suggestive of infant respiratory distress syndrome. It is caused by a deficiency of dipalmitoyl phosphatidylcholine.\n\nDipalmitoyl lecithin or dipalmitoylphosphatidylcholine (DPPC) is a major component of lung surfactant. In DPPC, positions 1 & 2 on the glycerol are occupied by palmitate. Surfactant is secreted by the type 2 pneumocytes in the alveoli. It reduces surface tension at the air-liquid interface of the alveolus and increases compliance.\n\nMature levels of surfactant are present after 35 weeks of gestation. Thus, preterm babies are at risk of surfactant deficiency, leading to infant respiratory distress syndrome. Lung maturity of the fetus can be assessed by determining the ratio of lecithin to sphingomyelin (L:S ratio) in the amniotic fluid. A ratio of >2 indicates maturity.\n\nOther options -\nOption 1: Phosphatidylethanolamine, also called cephalin, is found in the cell membranes of nervous tissue, particularly in the brain.\nOption 3: Diphosphatidyl glycerol, also called cardiolipin, is found in the inner membrane of mitochondria and plays a key role in apoptosis.\nOption 4: Phosphatidylinositol present in the cell membrane acts as a precursor of hormone secondary messengers and platelet-activating factor.",
+      "emphasis": [
+        "respiratory distress"
+      ],
+      "rationales": {
+        "a": "Phosphatidylethanolamine is a membrane phospholipid but is not the major surfactant phospholipid whose deficiency causes neonatal respiratory distress syndrome.",
+        "c": "Diphosphatidylglycerol is cardiolipin, concentrated in the inner mitochondrial membrane; it is not the principal alveolar surfactant lipid.",
+        "d": "Phosphatidylinositol is a membrane signaling lipid and arachidonate-containing phospholipid, not the major surface-active surfactant component."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 229; explanation p. 238. The chest radiograph remains source-owned; the source explanation reports the L:S maturity threshold."
+      ]
+    },
+    "marrow__BIOCHEM_CH15_Q007": {
+      "takeaway": "Most glycerophospholipid synthesis begins in the smooth endoplasmic reticulum before membrane trafficking.",
+      "displayText": "The location of phospholipids synthesis is the smooth endoplasmic reticulum.\n\nOnce synthesized the phospholipids are transported into the Golgi apparatus, and further across cell membranes, to be extruded out of the cell by the process of exocytosis.",
+      "emphasis": [
+        "the smooth endoplasmic reticulum"
+      ],
+      "rationales": {
+        "a": "Rough ER is distinguished by ribosomes and is associated with synthesis of secreted and membrane proteins; it is not the source's primary phospholipid-synthesis site.",
+        "c": "The Golgi modifies and sorts many membrane components, but most glycerophospholipid synthesis is associated with the smooth ER.",
+        "d": "Mitochondria contain specialized membrane lipids such as cardiolipin, but they are not the general cellular site asked for here."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 229; explanation p. 238."
+      ]
+    },
+    "marrow__BIOCHEM_CH15_Q008": {
+      "takeaway": "Phosphatidate branches to triacylglycerol and major phosphoglycerol synthesis pathways.",
+      "displayText": "The common intermediate in the biosynthesis of triacylglycerols and phosphoglycerols is phosphatidate.\n\nAcyl-CoA combines with glycerol-3-phosphate in two successive reactions to form phosphatidate or 1,2-diacylglycerol phosphate. 1,2-diacylglycerol phosphate contributes its phosphate for the formation of phosphatidyl inositol and becomes 1,2-diacylglycerol.\n\nThe 1,2-diacylglycerol is either converted to triacylglycerol by diacylglycerol acyl transferase, or reacts with CDP-choline or CDP-ethanolamine to form the phospholipids phosphatidylcholine or phosphatidylethanolamine.\n\n(Note: Phosphoglycerol is the glycerol ester of phosphoric acid and is a component of phospholipids).",
+      "emphasis": [
+        "to triacylglycerol"
+      ],
+      "rationales": {
+        "b": "Acyl-CoA supplies activated fatty-acyl groups to the pathway, but the shared branch intermediate formed after two acylations of glycerol-3-phosphate is phosphatidate.",
+        "c": "Acetyl-CoA is a precursor for fatty-acid synthesis and many other pathways, but it is not the common glycerolipid intermediate at this branch point.",
+        "d": "Plasmalogen is a specific ether phospholipid class produced downstream; it is not the shared precursor of triacylglycerol and phosphoglycerols."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 229; explanation p. 238. The source uses 'phosphoglycerol' in the glycerophospholipid sense."
+      ]
+    },
+    "marrow__BIOCHEM_CH15_Q009": {
+      "takeaway": "Cephalin is phosphatidylethanolamine, named for its ethanolamine head group.",
+      "displayText": "Phosphatidylethanolamine is the composition of the phospholipid cephalin.\n\nCephalin is a phospholipid composed of ethanolamine and phosphatidic acid. Thus, it is also known as phosphatidylethanolamine. It is found in cell membranes.",
+      "emphasis": [
+        "Cephalin is"
+      ],
+      "rationales": {
+        "a": "Phosphatidylserine has serine as its head group; it is a distinct acidic phospholipid rather than cephalin.",
+        "c": "Phosphatidylcholine is lecithin and carries choline, not ethanolamine.",
+        "d": "Phosphatidylinositol carries inositol as its head group and participates in membrane signaling; it is not cephalin."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 230; explanation p. 238."
+      ]
+    },
+    "marrow__BIOCHEM_CH15_Q010": {
+      "takeaway": "Externalization of phosphatidylserine marks apoptotic cells for recognition and clearance.",
+      "displayText": "Phosphatidylserine plays an important role in apoptosis.\n\nPhosphatidylserine, a phospholipid, is a component of the cell membrane. It is composed of serine and phosphatidic acid. It plays a key role in cell cycle signaling, coagulation and apoptosis (programmed cell death).",
+      "emphasis": [
+        "Phosphatidylserine plays an important role in apoptosis",
+        "component of the cell membrane",
+        "programmed cell death"
+      ],
+      "rationales": {
+        "b": "Phosphatidylethanolamine is an important membrane phospholipid, but externalized PS is the canonical apoptotic recognition signal asked about here.",
+        "c": "Phosphatidylcholine is a major membrane lipid and the major surfactant phospholipid as DPPC; it is not the apoptotic surface marker in this item.",
+        "d": "Phosphatidylglycerol is a membrane phospholipid and a precursor for cardiolipin, but it is not the characteristic apoptosis-associated surface signal."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 230; explanation p. 238."
+      ]
+    },
+    "marrow__BIOCHEM_CH15_Q011": {
+      "takeaway": "Cardiolipin is an inner-mitochondrial-membrane phospholipid that supports respiratory-chain organization and function.",
+      "displayText": "Cardiolipin (diphosphatidylglycerol) is highly enriched in the inner mitochondrial membrane, where it supports membrane architecture and the function of respiratory-chain complexes and other mitochondrial proteins. Reduced or altered cardiolipin remodeling causes mitochondrial dysfunction. Barth syndrome, usually X-linked from TAZ deficiency, features cardiomyopathy, skeletal myopathy and neutropenia. The source's phrase 'found only in mitochondria' is the classic exam framing; the biologically precise point is strong mitochondrial enrichment.",
+      "emphasis": [
+        "Cardiolipin (diphosphatidylglycerol)",
+        "inner mitochondrial membrane",
+        "respiratory-chain complexes",
+        "Barth syndrome"
+      ],
+      "rationales": {
+        "a": "Cephalin (phosphatidylethanolamine) is widely distributed in cellular membranes and is not the distinctive mitochondrial phospholipid in this item.",
+        "c": "Lecithin is phosphatidylcholine, a common membrane lipid present beyond mitochondria; it is not the cardiolipin marker.",
+        "d": "Plasmalogens are ether glycerophospholipids found in several tissues, not the phospholipid characteristically enriched in the inner mitochondrial membrane."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 230; explanation pp. 238-239. The word 'only' is preserved as the source's exam framing and qualified in the explanation."
+      ],
+      "reconstruction": {
+        "status": "resolved_reconstruction",
+        "sourceProblem": "The source calls cardiolipin a phospholipid found only in mitochondria, an over-absolute simplification.",
+        "reconstructedContent": "The display preserves the tested association but qualifies it as strong enrichment in the inner mitochondrial membrane and retains the source-described role in mitochondrial function and Barth syndrome.",
+        "evidenceBasis": "Cardiolipin is a characteristic inner mitochondrial membrane lipid that stabilizes respiratory-chain complexes; Barth syndrome is associated with cardiolipin remodeling and cardiomyopathy, skeletal myopathy and neutropenia.",
+        "reviewNote": "The source intended mitochondrial association and all listed clinical features remain. Only the word \"only\" is qualified to avoid teaching an absolute distribution claim."
+      }
+    },
+    "marrow__BIOCHEM_CH15_Q012": {
+      "takeaway": "Arachidonate stored at the membrane sn-2 position supplies substrate for prostaglandin synthesis.",
+      "displayText": "Phosphatidylinositol serves as a reservoir for prostaglandin synthesis.\n\nPhosphatidylinositol contains stearic acid and arachidonic acid attached to glycerol. Therefore, it serves as a reservoir of arachidonic acid in membranes and hence provides the necessary substrates for prostaglandin synthesis.",
+      "emphasis": [
+        "for prostaglandin synthesis"
+      ],
+      "rationales": {
+        "a": "Phosphatidylserine is a signaling and membrane lipid, but the source's specified arachidonate-rich reservoir among these choices is phosphatidylinositol.",
+        "c": "Phosphatidylcholine can also carry arachidonate in cell membranes, but it is not the source-keyed reservoir in this item.",
+        "d": "Phosphatidylethanolamine is a membrane phospholipid and may contain arachidonate, but the source identifies phosphatidylinositol as the intended reservoir here."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 230; explanation p. 239. The source's substrate-reservoir framing is retained; broader phospholipid arachidonate biology is not used to alter its key."
+      ]
+    }
+  }
+}

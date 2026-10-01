@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner-facing Marrow ED8 Biochemistry Chapter 16 Q15-Q21 explanation refinement. Raw source and native electrophoresis figures remain immutable.",
+  "scope": {
+    "subject": "Biochemistry",
+    "bank": "Marrow",
+    "chapterId": "16",
+    "chapter": "Cholesterol Synthesis, Transport and Excretion",
+    "questionStart": 15,
+    "questionEnd": 21,
+    "questions": 7,
+    "status": "approved-rollout",
+    "workloadScore": 10,
+    "canonicalBaseSha": "d4abce86068b4221e61e541c34dd29258de61cca",
+    "sourceRawSha256": "919f0709b2eb833e302c6f7524b6dd2bd13bfaed638009375b5062135d3795b1"
+  },
+  "questions": {
+    "marrow__BIOCHEM_CH16_Q015": {
+      "takeaway": "HDL is protein-rich and dense, so it migrates farthest toward the anode on lipoprotein electrophoresis.",
+      "displayText": "HDL has the highest electrophoretic mobility and the least lipid content. HDL particles are the densest.\n\nOn electrophoresis, HDL moves farthest on the electrophoretic plate towards the anode. On the other hand, the chylomicron does not move towards the charged end in electrophoresis, thus having the lowest mobility. As a general rule, lipoproteins with higher protein content will move faster towards the anode and those with fewer proteins have minimal mobility.\n\nThe density of various lipoproteins and their electrophoretic mobility are shown in the images below.",
+      "emphasis": [
+        "the anode"
+      ],
+      "rationales": {
+        "a": "Chylomicrons have the greatest triacylglycerol content and lowest density; they barely migrate from the origin and have the least mobility.",
+        "c": "LDL is more cholesterol-rich than VLDL but is less protein-dense and migrates less than HDL.",
+        "d": "VLDL carries endogenous triacylglycerol and has lower protein density than HDL, so it does not show the greatest mobility."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 251; explanation p. 259. Source electrophoresis and density figures remain unchanged."
+      ]
+    },
+    "marrow__BIOCHEM_CH16_Q016": {
+      "takeaway": "ApoB-100 is the single structural apolipoprotein on LDL and its ligand for the LDL receptor.",
+      "displayText": "The main apolipoprotein of LDL (β-lipoprotein) is apo B (B-100), which is found also in VLDL.",
+      "emphasis": [
+        "The main apolipoprotein of LDL (β-lipoprotein) is apo"
+      ],
+      "rationales": {
+        "b": "ApoE is present on remnant particles and mediates hepatic remnant uptake, but it is not the main structural apolipoprotein of LDL.",
+        "c": "ApoB-48 is the truncated intestinal apolipoprotein on chylomicrons and cannot substitute for LDL's apoB-100 ligand.",
+        "d": "ApoA-II is associated primarily with HDL; LDL's characteristic apolipoprotein is apoB-100."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 251; explanation p. 259. The source option's 'Apo A-11' is interpreted as Apo A-II by typography; it remains a distinct incorrect choice."
+      ]
+    },
+    "marrow__BIOCHEM_CH16_Q017": {
+      "takeaway": "LDL contains apoB-100, whereas apoB-48 is specific to intestinal chylomicrons.",
+      "displayText": "Apo B-48 is not the ligand of LDL.\n\nApo B-48 is the apolipoprotein present on nascent chylomicrons. The main apolipoprotein of LDL (β-lipoprotein) is apo B (B-100), which is found also in VLDL.\n\nLow-density lipoproteins (LDL) deliver cholesterol to the tissues, hence it is a marker of cardiovascular disease.",
+      "emphasis": [
+        "Apo B-48 is not the ligand of LDL"
+      ],
+      "rationales": {
+        "a": "LDL delivers cholesterol to cells via LDL-receptor binding to apoB-100, so this statement is true.",
+        "b": "A mature LDL particle has a single apoB-100 molecule as its major apolipoprotein, making this source statement true.",
+        "c": "Elevated LDL cholesterol is a major atherosclerotic cardiovascular risk marker, so this statement is not the false one."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 251; explanation p. 259."
+      ]
+    },
+    "marrow__BIOCHEM_CH16_Q018": {
+      "takeaway": "ApoA-I activates HDL-associated LCAT, esterifying cholesterol during reverse cholesterol transport.",
+      "displayText": "Apo A-I is the activator of Lecithin: cholesterol acyltransferase (LCAT), the enzyme present in HDL facilitating reverse cholesterol transport.\n\nLecithin-cholesterol acyltransferase (LCAT) is activated by apo A-I which then converts free cholesterol (amphipathic) in HDL to cholesterol ester (hydrophobic). As a result the initial discoidal shape now becomes spherical.\n\nThis facilitates reverse cholesterol transport.\n\nClinical correlation: Familial LCAT deficiency will lead to failure of reverse cholesterol transport resulting in cholesterol deposition in specific peripheral tissues - the cornea, kidneys, and erythrocytes. Major complications include premature atherosclerosis, renal failure, anemia and corneal opacities. HDL cholesterol level is decreased.",
+      "emphasis": [
+        "reverse cholesterol transport"
+      ],
+      "rationales": {
+        "a": "ApoB-100 is the structural ligand on VLDL/IDL/LDL and is not the HDL cofactor that activates LCAT.",
+        "b": "ApoB-48 is the chylomicron structural protein made by intestine; it does not activate HDL-associated LCAT.",
+        "c": "ApoA-IV participates in chylomicron metabolism and can modulate LCAT, but apoA-I is the principal physiological activator asked for here."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 251; explanation p. 259. Familial LCAT deficiency findings are retained from the source explanation."
+      ]
+    },
+    "marrow__BIOCHEM_CH16_Q019": {
+      "takeaway": "ApoB-48 is required to assemble chylomicrons in enterocytes for lymphatic secretion.",
+      "displayText": "Each nascent chylomicron particle has one molecule of apolipoprotein (apo) B-48 with which chylomicrons are released from the cells into the lymphatic system and travel to the blood, where they receive apo C-II and apo E from HDLs.",
+      "emphasis": [
+        "Each nascent chylomicron particle has one molecule of"
+      ],
+      "rationales": {
+        "b": "ApoB-100 is made by liver and is used to assemble VLDL; it is not the intestinal chylomicron apoprotein.",
+        "c": "ApoC-II is donated by HDL after chylomicrons reach blood and activates LPL; it is not the structural apoprotein required for lymphatic entry.",
+        "d": "ApoE is acquired from HDL and supports hepatic remnant uptake, but apoB-48 is the structural protein on nascent chylomicrons."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 251; explanation p. 260."
+      ]
+    },
+    "marrow__BIOCHEM_CH16_Q020": {
+      "takeaway": "VLDL remnants are processed in the circulation and liver; hepatic lipase helps convert IDL to LDL.",
+      "displayText": "IDL (Intermediate-density lipoprotein) particles are rapidly taken up by the liver in circulation, where they undergo further triglyceride hydrolysis and are converted to LDL (Low density lipoprotein).",
+      "emphasis": [
+        "IDL (Intermediate-density lipoprotein) particles are rapidly taken up"
+      ],
+      "rationales": {
+        "b": "Cytosol is an intracellular compartment, but IDL remodeling to LDL occurs in circulating particles at vascular surfaces.",
+        "c": "The heart uses lipoprotein-derived fatty acids and takes up some LDL, but it is not the site of IDL-to-LDL conversion.",
+        "d": "Mitochondria oxidize fatty acids and participate in sterol-derived steroid pathways; they do not remodel plasma IDL particles."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 251; explanation p. 260. The source's liver-capillary framing is clarified as intravascular particle remodeling."
+      ]
+    },
+    "marrow__BIOCHEM_CH16_Q021": {
+      "takeaway": "Insulin deficiency increases adipose lipolysis and reduces LPL-mediated clearance, raising VLDL and plasma triacylglycerol.",
+      "displayText": "In chronic diabetes, the values of TG and VLDL are increased due to an increase in hormone-sensitive lipase and a decrease in lipoprotein lipase.\n\nInsulin has an inhibitory effect on hormone-sensitive lipase (HSL). In diabetes, low insulin corresponds to an increase in HSL activity. This promotes the breakdown of lipids and the release of TG and free fatty acids from the adipose tissue.\n\nInsulin induces the activity of lipoprotein lipase (LPL) which is present on the capillary walls. LPL promotes hydrolysis of TG and the degradation of the transport proteins, VLDL, and chylomicrons. In diabetes, low insulin leads to decreased LPL activity which corresponds to an increase in VLDL and TG.",
+      "emphasis": [
+        "VLDL and"
+      ],
+      "rationales": {
+        "a": "Higher LPL with lower hormone-sensitive lipase would reduce adipose fatty-acid release and increase circulating triacylglycerol clearance, opposite to uncontrolled diabetes.",
+        "c": "Greater peripheral LDL-receptor activity primarily increases LDL clearance and does not explain the paired increase in VLDL and triacylglycerol.",
+        "d": "Hepatic lipase remodels IDL and HDL particles; its increased activity is not the main insulin-deficiency mechanism producing hypertriglyceridemia."
+      },
+      "sourceNotes": [
+        "Source question/key: ED8 Biochemistry p. 251; explanation p. 260."
+      ]
+    }
+  }
+}
