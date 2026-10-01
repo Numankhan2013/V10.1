@@ -1159,3 +1159,11 @@ checks every new ID's compiled augmentation on phone/tablet and real answer,
 distractor, emphasis, FSRS and populated-table surfaces for each batch and all
 table owners. Passing source checks or setting `approved-rollout` is not a claim
 of full build verification; exact-head Engineering and full CI remain required.
+
+### Resumed full remaining queue — 2026-10-01
+
+The user authorizes subject workers to self-review all remaining explanations in bounded chapter files and trusts their medical/source authoring. The integrator reviews flagged exceptions and runs automated contracts rather than repeating every medical review. `explanation_refinement_queue_20261001.json` pins the 753 completed IDs and their exact augmentation fingerprints, immutable subject hashes, disjoint pending batch IDs, and 23 deferred Marrow source gates. Do not restart completed work.
+
+Workers can call `validate_marrow_explanation_batch.py --root <worktree> --base-sha <canonical-base>` before global inventory is regenerated. This validates options, ownership, emphasis and mechanical source-word retention; low retention requires explicit reconstruction evidence. Mechanical retention is not medical certification: each author must check source-local meaning, contamination, clinical caveats and distractor facts. Preserve populated tables with either `columns` or historical `headers` lists. The latter exposed a real empty-render defect at Physiology Ch42 Q8 and is now a generic renderer regression.
+
+The integrator pins reviewed files with `build_marrow_explanation_refinement_wave.py --require-complete`, regenerates inventory, validates every historical wave and the latest full queue, then performs a single combined full preview/package build. Historical source/config hashes remain enforced; latest-wave checks require every actionable ID accounted for and all deliberately deferred source gates unchanged.

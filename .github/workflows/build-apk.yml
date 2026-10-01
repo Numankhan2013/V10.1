@@ -278,7 +278,9 @@ jobs:
       - name: Validate Marrow explanation inventory
         run: python3 tools/test_marrow_explanation_inventory.py
       - name: Validate reviewed parallel explanation batches
-        run: python3 tools/test_marrow_explanation_refinement_wave.py
+        run: |
+          python3 tools/test_marrow_explanation_refinement_wave.py
+          python3 tools/test_marrow_table_header_alias.py
       - name: Validate Marrow Biochemistry explanation gold sample
         run: python3 tools/test_marrow_biochem_explanation_sample.py
       - name: Validate Marrow Biochemistry explanation rollout

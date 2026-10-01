@@ -31,7 +31,7 @@ def cell_text(value):
 
 
 def table_cells(table):
-    columns = table.get('columns', [])
+    columns = table.get('columns') or table.get('headers') or []
     labels = [cell_text(c.get('label', c.get('title', c.get('key', ''))))
               if isinstance(c, dict) else cell_text(c) for c in columns]
     rows = []
@@ -123,7 +123,7 @@ def main():
                             require(page.locator('.nk-gold-em').count() > 0, f'{qid}: selective emphasis missing')
                             require(page.locator('.nk-fsrs-rating').is_visible(), f'{qid}: FSRS dock missing')
                             native_tables = wave[qid].get('displayTables', sources[qid].get('structuredExplanation', {}).get('tables', []))
-                            native_tables = [table for table in native_tables if table.get('columns') and table.get('rows')]
+                            native_tables = [table for table in native_tables if (table.get('columns') or table.get('headers')) and table.get('rows')]
                             tables = page.locator('.nk-gold-explanation .nk-marrow-table')
                             require(tables.count() == len(native_tables), f'{qid}: native table lost')
                             for i, native in enumerate(native_tables):

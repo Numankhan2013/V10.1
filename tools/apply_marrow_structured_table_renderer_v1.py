@@ -4,11 +4,11 @@
 Canonical ED8 bundles contain more than one legitimate historical table shape.
 The regression reported in Anatomy Ch5 Q10 occurs on the keyed shape where
 ``columns`` are ``{key,label}`` objects and rows are objects keyed by those
-column keys. The accepted legacy renderer expects scalar columns and positional
-rows, so direct rendering produced ``[object Object]`` headers and blank cells.
+column keys. Some source tables instead name their header list ``headers``.
+The accepted legacy renderer expects scalar columns and positional rows.
 
-This transform is deliberately narrow: normalize only tables that expose a
-non-empty ``columns`` list, and pass other/legacy shapes through untouched. It
+This transform is deliberately narrow: normalize tables that expose a
+non-empty ``columns`` or ``headers`` list, and pass other shapes through untouched. It
 keeps the accepted table markup/CSS and makes the known populated Q10 table a
 strict source + browser sentinel.
 """
@@ -65,7 +65,7 @@ def _scalar(value) -> str:
 
 def _table_text(table: dict) -> tuple[list[str], list[list[str]]]:
     """Normalize only the canonical keyed/column-list family for audit."""
-    raw_columns = table.get("columns")
+    raw_columns = table.get("columns") or table.get("headers")
     if not isinstance(raw_columns, list) or not raw_columns:
         return [], []
 
@@ -149,7 +149,7 @@ for record in records:
             table_count += 1
             subject_counts[subject] += 1
             table_id = str(table.get("table_id") or table.get("id") or question.get("id"))
-            raw_columns = table.get("columns")
+            raw_columns = table.get("columns") or table.get("headers")
 
             if not isinstance(raw_columns, list) or not raw_columns:
                 legacy_passthrough_count += 1
@@ -206,7 +206,9 @@ helper = r'''
 
   function nkNormalizeMarrowStructuredTable(table){
     const sourceTable=(table&&typeof table==='object')?table:{};
-    const rawColumns=Array.isArray(sourceTable.columns)?sourceTable.columns:null;
+    const rawColumns=Array.isArray(sourceTable.columns)&&sourceTable.columns.length
+      ? sourceTable.columns
+      : Array.isArray(sourceTable.headers)?sourceTable.headers:null;
 
     if(!rawColumns||rawColumns.length===0)return sourceTable;
 

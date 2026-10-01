@@ -2,6 +2,7 @@
 """Validate a reviewed multi-subject wave without changing immutable source."""
 import hashlib
 import json
+import re
 from pathlib import Path
 
 from inventory_marrow_explanations import BANKS, DATA, enhanced_ids, load_sharded
@@ -10,13 +11,31 @@ ROOT = DATA.parents[1]
 MANIFEST = DATA / 'explanation_refinement_wave_20260930.json'
 
 
+def wave_manifests():
+    return sorted(DATA.glob('explanation_refinement_wave_*.json'))
+
+
 def digest(value):
     return hashlib.sha256(json.dumps(value, ensure_ascii=False, sort_keys=True,
                                      separators=(',', ':')).encode()).hexdigest()
 
 
-def load_wave():
-    manifest = json.loads(MANIFEST.read_text())
+def validate_source_retention(qid, source, cfg):
+    """Reject undocumented loss of source concepts without another medical reread."""
+    words = lambda text: set(re.findall(r'[a-z0-9]+', text.lower()))
+    original = (source.get('structuredExplanation') or {}).get('text') or source.get('explanation') or ''
+    original_words = words(original)
+    retained = len(original_words & words(cfg['displayText'])) / max(1, len(original_words))
+    if len(original_words) >= 30 and retained < 0.85:
+        reconstruction = cfg.get('reconstruction', {})
+        assert reconstruction.get('reviewNote') and reconstruction.get('evidenceBasis'), 'Source detail retention requires documented review: ' + qid
+    return retained
+
+
+def load_wave(manifest_path=None):
+    paths = wave_manifests()
+    manifest_path = manifest_path or paths[-1]
+    manifest = json.loads(manifest_path.read_text())
     sources, hashes = {}, {}
     for subject, prefix in BANKS.items():
         bank, hashes[subject] = load_sharded(prefix)
@@ -74,10 +93,31 @@ def load_wave():
             wave[qid] = cfg
     baseline = set(manifest['baselineEnhancedIds'])
     current = enhanced_ids()
-    assert len(baseline) == 670 and baseline.isdisjoint(wave), 'Duplicate historical enhancement'
-    assert current == baseline | set(wave), 'Enhanced-set dropped or gained unreviewed IDs'
+    assert baseline.isdisjoint(wave), 'Duplicate historical enhancement'
+    expected = baseline | set(wave)
+    assert expected <= current, 'Previously verified enhanced IDs dropped'
+    if manifest_path == paths[-1]:
+        assert current == expected, 'Enhanced-set gained unreviewed IDs'
     assert len(wave) == manifest['newEnhancedCount'], 'Wave count drift'
     assert not set(manifest.get('withheldSourceLimitedIds', [])).intersection(wave), 'Incomplete question counted as refined'
+    if 'queueFile' in manifest:
+        from apply_canonical_bank_explanation_wiring_v1 import merged_explanations
+        queue = json.loads((ROOT / manifest['queueFile']).read_text())
+        assert digest(queue) == manifest['queueSha256'], 'Resume assignment changed'
+        assert set(queue['baselineEnhancedIds']) == baseline, 'Resume checkpoint changed'
+        compiled = merged_explanations(sources)
+        assert {qid: digest(compiled[qid]) for qid in baseline} == queue['baselineConfigSha256'], 'Already completed explanations were rewritten'
+        deferred = {qid for lane in queue['subjects'].values() for qid in lane['blockedIds']}
+        assert deferred == set(manifest['withheldSourceLimitedIds']), 'Deferred source gaps lost'
+        assert set(sources) == baseline | set(wave) | deferred, 'Actionable explanations remain unprocessed'
+        assert not manifest['unprocessedActionableIds'], 'Actionable queue not complete'
+        for spec in manifest['batches']:
+            subject = sources[spec['ids'][0]]['subject']
+            assert spec['count'] <= (14 if subject == 'Anatomy' else 18), 'Batch exceeds ownership bound'
+        # Mechanical retention catches accidental summaries; workers own medical review.
+        # Repairs that change source concepts require explicit reconstruction evidence.
+        for qid, cfg in wave.items():
+            validate_source_retention(qid, sources[qid], cfg)
     for spec in manifest.get('existingRepairs', []):
         record = json.loads((DATA / spec['file']).read_text())
         assert digest(record['questions']) == spec['questionsSha256'], spec['file']
@@ -95,9 +135,15 @@ def load_wave():
 
 
 def main():
-    manifest, _, wave = load_wave()
-    new = manifest['newEnhancedCount']
-    print(f'MARROW_EXPLANATION_REFINEMENT_WAVE_OK new={new} existing_repairs={len(wave)-new} total={670+new} batches={len(manifest["batches"])} source_pinned=true gates_unchanged=true emphasis=verbatim distractors=source_keyed')
+    previous = None
+    for path in wave_manifests():
+        manifest, _, wave = load_wave(path)
+        baseline = set(manifest['baselineEnhancedIds'])
+        if previous is not None:
+            assert baseline == previous, 'Wave continuity lost previously approved IDs'
+        new = manifest['newEnhancedCount']
+        previous = baseline | set(wave)
+        print(f'MARROW_EXPLANATION_REFINEMENT_WAVE_OK manifest={path.name} new={new} existing_repairs={len(wave)-new} total={len(baseline)+new} batches={len(manifest["batches"])} source_pinned=true gates_unchanged=true emphasis=verbatim distractors=source_keyed')
 
 
 if __name__ == '__main__':
