@@ -2,6 +2,8 @@
   // Presentation only: retain queue selection, scheduling, persistence and actions.
   function nkCompactScreenMarkup(markup){
     const redundant=[
+      'Return to this topic and keep your momentum.',
+      'Your progress, bookmarks, review schedules, and test history stay on this device. Original source PDFs remain bundled with the app.',
       'Pick up exactly where you left off.',
       'Pick a subject below and make today’s study session yours.',
       'Choose the question banks you want to study.',
@@ -29,8 +31,8 @@
     ];
     for(const copy of redundant)markup=markup.split('<p>'+copy+'</p>').join('');
     markup=markup.replace(/<p class="nk-v3-page-note">(?:Each subject opens its question-bank chooser before Topics\.|Subjects open the full Topics page\. No popup topic picker is used\.)<\/p>/g,'');
-    markup=markup.replace(/<div class="nk-kicker">(?:REVISION|EXAM PRACTICE|STUDY LIBRARY|SPACED REPETITION|INTENTIONAL STUDY|SAVED QUESTIONS|APP &amp; SOURCE|APP & SOURCE|QUESTION BANK|PERSONAL REVISION|MAKE IT YOURS|FROM YOUR HISTORY|HISTORY|IN THIS PERIOD|PERFORMANCE|RECENT)<\/div>/g,'');
-    markup=markup.replace(/<small>(?:STUDY LIBRARY|FROM YOUR HISTORY|HISTORY|PERFORMANCE|RECENT)<\/small>/g,'');
+    markup=markup.replace(/<div class="nk-kicker">(?:REVISION|EXAM PRACTICE|STUDY LIBRARY|SPACED REPETITION|INTENTIONAL STUDY|SAVED QUESTIONS|APP &amp; SOURCE|APP & SOURCE|QUESTION BANK|PERSONAL REVISION|MAKE IT YOURS|FROM YOUR HISTORY|HISTORY|IN THIS PERIOD|PERFORMANCE|RECENT|CROSS-DEVICE|CROSS-DEVICE SYNC)<\/div>/g,'');
+    markup=markup.replace(/<small>(?:STUDY LIBRARY|FROM YOUR HISTORY|HISTORY|PERFORMANCE|RECENT|CROSS-DEVICE|CROSS-DEVICE SYNC)<\/small>/g,'');
     markup=markup.replace(/<small>Questions you (?:have answered incorrectly|saved while studying|have not attempted yet)\.<\/small>|<small>Questions scheduled by spaced repetition\.<\/small>/g,'');
     markup=markup.replace(/<p class="nk-revision-detail">(?:20 questions per session · sampled from this focus|(?:20 questions per session · )?FSRS priority order and daily limit apply\.)<\/p>/g,'');
     markup=markup.replace(/<small>(?:Scheduled for now|You’re up to date|Ready for another pass|No mistakes to revisit)<\/small>/g,'');
@@ -42,6 +44,9 @@
     markup=markup.replace(/<p class="nk-fsrs-settings-note">([\s\S]*?)<\/p>/g,'<details class="nk-clarity-help"><summary>Review scheduling</summary><p>$1</p></details>');
     markup=markup.replace(/<header><span>0[123]<\/span><div><h2>(?:Memory goal|Daily pace|Long-term recall)<\/h2><\/div><\/header>/g,'');
     markup=markup.replace('Practice 1 mistakes','Practice 1 mistake').replace('Practice 1 bookmarks','Practice 1 bookmark');
+    markup=markup.replace('<strong>Offline and source-faithful</strong>','<strong>Source PDFs</strong>');
+    markup=markup.replace('<small>Search every subject and bank</small>','');
+    markup=markup.replace('<small>Your memory goal, daily review cap and review intervals</small>','');
     return markup;
   }
   const nkClarityDashboard=dashboard;dashboard=function(){return nkCompactScreenMarkup(nkClarityDashboard.apply(this,arguments));};
