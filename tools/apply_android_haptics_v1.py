@@ -16,10 +16,9 @@ BRIDGE = '''    // NATIVE_ACTION_HAPTICS_V1: framework effects honor the user's 
                 case "choice": effect = HapticFeedbackConstants.CLOCK_TICK; break;
                 case "mark": effect = HapticFeedbackConstants.CONTEXT_CLICK; break;
                 case "primary": effect = HapticFeedbackConstants.KEYBOARD_TAP; break;
-                // Answers use the lightest framework tick, without long/burst effects.
-                case "success":
-                case "error": effect = HapticFeedbackConstants.CLOCK_TICK; break;
-                case "complete": effect = Build.VERSION.SDK_INT >= 30 ? HapticFeedbackConstants.CONFIRM : HapticFeedbackConstants.VIRTUAL_KEY; break;
+                case "complete":
+                case "success": effect = Build.VERSION.SDK_INT >= 30 ? HapticFeedbackConstants.CONFIRM : HapticFeedbackConstants.VIRTUAL_KEY; break;
+                case "error": effect = Build.VERSION.SDK_INT >= 30 ? HapticFeedbackConstants.REJECT : HapticFeedbackConstants.LONG_PRESS; break;
                 default: return;
             }
             runOnUiThread(() -> { if (webView != null) webView.performHapticFeedback(effect); });
@@ -31,9 +30,7 @@ BRIDGE = '''    // NATIVE_ACTION_HAPTICS_V1: framework effects honor the user's 
 
 def transform(source: str) -> str:
     if 'private final class HapticsBridge' in source:
-        start = source.index('    // NATIVE_ACTION_HAPTICS_V1:')
-        end = source.index('    private final class MigrationBridge', start)
-        return source[:start] + BRIDGE + source[end:]
+        return source
     if 'private final class MigrationBridge' not in source:
         raise ValueError('Android secure-origin migration bridge must be installed first')
     if source.count('import android.view.Window;') != 1:
