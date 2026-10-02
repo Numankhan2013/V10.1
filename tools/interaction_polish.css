@@ -8,7 +8,7 @@ button:not(:disabled):active,button.nk-pressed,[role="button"].nk-pressed,summar
 .bookmark-toggle:active svg{transform:scale(.9)}
 button:focus-visible,[role="button"]:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--primary,#6951ec)!important;outline-offset:3px}
 button:disabled,[aria-disabled="true"]{cursor:default}
-.nk-session-back,.nk-grid-trigger,.bookmark-toggle{min-width:44px;min-height:44px}
+.nk-session-back,.nk-grid-trigger,.bookmark-toggle{min-width:44px!important;min-height:44px!important}
 /* Keep footer and source/explanation containers steady while content changes. */
 .nk-session-footer{contain:layout style}
 .modal,.nk-session-review,.qb-question-navigator{overscroll-behavior:contain}
@@ -16,5 +16,5 @@ button:disabled,[aria-disabled="true"]{cursor:default}
 .nk-v114-session,.page{animation:none!important}
 @media(prefers-reduced-motion:reduce){
  button,[role="button"],summary,a[href],[onclick],.bookmark-toggle svg{transition:none!important}
- button:active,button.nk-pressed,[role="button"].nk-pressed,summary.nk-pressed,a.nk-pressed,[onclick].nk-pressed{transform:none!important;filter:brightness(.96)}
+ .option:active,.option.nk-pressed,.bottom-nav button:active,.nav-item:active,button:active,button.nk-pressed,[role="button"].nk-pressed,summary.nk-pressed,a.nk-pressed,[onclick].nk-pressed{transform:none!important;filter:brightness(.96)}
 }

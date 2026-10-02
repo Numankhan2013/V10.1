@@ -30,6 +30,7 @@ def main():
                 page.evaluate("QB.practiceOne('1-1')");page.wait_for_selector('.option-list button');question=page.evaluate('__nkInteractionProbe.question()');option=page.locator('.option-list button').nth(int(question['correctOption'])-1)
                 option.dispatch_event('pointerdown',{'pointerId':1,'isPrimary':True,'pointerType':'touch','button':0,'clientX':30,'clientY':30})
                 assert option.evaluate("el=>el.classList.contains('nk-pressed')"),'press has no immediate feedback'
+                if reduced:assert option.evaluate("el=>getComputedStyle(el).transform")=='none','reduced-motion press moved the answer'
                 option.dispatch_event('pointercancel',{'pointerId':1,'pointerType':'touch'});assert not option.evaluate("el=>el.classList.contains('nk-pressed')"),'cancelled gesture remained pressed'
                 option.tap();page.wait_for_selector('.nk-fsrs-rating');assert len(page.evaluate('__vibrations'))==1,'Practice answer should emit only its outcome'
                 assert page.locator('.option-list .correct').count()==1
