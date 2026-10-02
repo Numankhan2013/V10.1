@@ -30,7 +30,9 @@ BRIDGE = '''    // NATIVE_ACTION_HAPTICS_V1: framework effects honor the user's 
 
 def transform(source: str) -> str:
     if 'private final class HapticsBridge' in source:
-        return source
+        start = source.index('    // NATIVE_ACTION_HAPTICS_V1:')
+        end = source.index('    private final class MigrationBridge', start)
+        return source[:start] + BRIDGE + source[end:]
     if 'private final class MigrationBridge' not in source:
         raise ValueError('Android secure-origin migration bridge must be installed first')
     if source.count('import android.view.Window;') != 1:
