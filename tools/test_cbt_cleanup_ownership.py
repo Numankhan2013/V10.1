@@ -17,6 +17,7 @@ cleanExamUi('old');assert.equal(removed,1);
 session={id:'review-old',mode:'review'};cleanExamUi('old');assert.equal(removed,1);
 session={id:'practice-new',mode:'practice'};cleanExamUi('old');assert.equal(removed,1);
 session={id:'exam-new',mode:'exam'};cleanExamUi('old');assert.equal(removed,1);
+cleanExamUi('');assert.equal(removed,1,'a repeated submit without an owner cannot touch a fresh exam');
 session=null;cleanExamUi('old');assert.equal(removed,2);
 console.log('CBT_CLEANUP_OWNERSHIP_OK review=true practice=true fresh_exam=true');
 """

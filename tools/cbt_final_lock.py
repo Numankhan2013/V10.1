@@ -23,7 +23,7 @@ lock = r'''<script id="cbt-final-lock-v2">
     // Submission cleanup belongs to the old exam. Fast Review/Practice entry
     // or a fresh test must never lose its newly opened navigator to this timer.
     const session=window.QB?.getState?.()?.activeSession;
-    if(session&&(session.mode!=='exam'||(owner&&String(session.id)!==owner)))return;
+    if(session&&(session.mode!=='exam'||(owner!=null&&String(session.id)!==owner)))return;
     document.querySelectorAll('.navigator .primary-btn, .qb-nav-submit').forEach(function(b){
       if(/submit\s*test/i.test(String(b.textContent||''))){b.disabled=true;b.remove();}
     });
