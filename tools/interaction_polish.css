@@ -15,7 +15,7 @@ button:disabled,[aria-disabled="true"]{cursor:default}
 .nk-session-footer{contain:layout style}
 .modal,.nk-session-review,.qb-question-navigator{overscroll-behavior:contain}
 .modal-backdrop{overscroll-behavior:contain}
-.nk-v114-session,.page{animation:none!important}
+html body :is(.nk-v114-session,.page,.modal,.qb-nav-panel,.nk-session-review-card){animation:none!important}
 @media(prefers-reduced-motion:reduce){
  button,[role="button"],summary,a[href],[onclick],.bookmark-toggle svg{transition:none!important}
  .option:active,.option.nk-pressed,.bottom-nav button:active,.nav-item:active,button:active,button.nk-pressed,[role="button"].nk-pressed,summary.nk-pressed,a.nk-pressed,[onclick].nk-pressed{transform:none!important;filter:brightness(.96)}

@@ -19,7 +19,11 @@ s = s.replace(
 
 lock = r'''<script id="cbt-final-lock-v2">
 (function(){
-  function cleanExamUi(){
+  function cleanExamUi(owner){
+    // Submission cleanup belongs to the old exam. Fast Review/Practice entry
+    // or a fresh test must never lose its newly opened navigator to this timer.
+    const session=window.QB?.getState?.()?.activeSession;
+    if(session&&(session.mode!=='exam'||(owner&&String(session.id)!==owner)))return;
     document.querySelectorAll('.navigator .primary-btn, .qb-nav-submit').forEach(function(b){
       if(/submit\s*test/i.test(String(b.textContent||''))){b.disabled=true;b.remove();}
     });
@@ -51,9 +55,10 @@ lock = r'''<script id="cbt-final-lock-v2">
   if(window.QB&&typeof window.QB.submitExam==='function'&&!window.QB.submitExam.__cbtFinalLock){
     const original=window.QB.submitExam;
     function submitExamFinalLock(){
-      cleanExamUi();
+      const owner=String(window.QB?.getState?.()?.activeSession?.id||'');
+      cleanExamUi(owner);
       try{return original.apply(this,arguments);}
-      finally{setTimeout(cleanExamUi,0);setTimeout(cleanExamUi,80);setTimeout(cleanExamUi,250);}
+      finally{setTimeout(()=>cleanExamUi(owner),0);setTimeout(()=>cleanExamUi(owner),80);setTimeout(()=>cleanExamUi(owner),250);}
     }
     submitExamFinalLock.__cbtFinalLock=true;
     window.QB.submitExam=submitExamFinalLock;

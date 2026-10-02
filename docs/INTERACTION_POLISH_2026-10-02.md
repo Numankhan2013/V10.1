@@ -96,3 +96,12 @@ rollback checks passed at320/390/820/1194px and reduced motion. Practice/CBT/
 Review, genuine multi-chapter Pause/Home Continue and FSRS rating amendment/
 sync/reload regressions passed. Full correction certification and canonical
 deployment are pending.
+
+The first correction's full build exposed an old submission timer: cleanup at
+0/80/250 ms could close a newly opened Review navigator. Reproduced locally;
+cleanup now checks the submitted exam's identity and leaves Review, Practice
+and a later exam alone. Legacy sheet entrance motion is removed too. The
+source regression checks all three session boundaries; the generated PYQ
+journey checks the Review navigator survives the full250 ms timer window.
+Local PYQ/mixed/history/Review/follow-up journeys pass phone/tablet. This is a
+new candidate requiring fresh full certification, not a rerun of failedb918.

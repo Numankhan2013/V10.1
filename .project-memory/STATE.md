@@ -8,7 +8,8 @@
 - Measured regression: shared 110 ms transitions leave the prior answer colors on the first frame after commit and animate release. Remove shared color/scale transitions and new page/question/sheet motion; keep immediate touch-down tint, cancellation, scroll/focus preservation and existing layout/colors.
 - Practice outcome feedback is now a single7/9 ms browser pulse; native success/error use light CLOCK_TICK instead of CONFIRM/REJECT/LONG_PRESS. Completion remains distinct; saves/rollback and selective haptic policy are preserved.
 - Faster bank indexing, leaner durable saves and in-place CBT/bookmark/FSRS/mark edits remain. Fresh first-frame/press/release checks passed at320/390/820/1194px plus reduced motion. All87 local checks and Practice/Continue/FSRS browser regressions passed. Full exact-candidate CI is required before promotion/release; physical feel remains subject to user review.
-- Prior a68 passed feature full36956370295 and fast gates; it is already on main (PR83 includes PR82). Its official main full36957980864 is running, but passing it alone does not authorize releasing the user-reported regression.
+- Prior a68 passed feature full36956370295 and fast gates; it is already on main (PR83 includes PR82). Its official main full36957980864 failed WebView rediscovery after an emulator app reset; this superseded run is not the correction certificate.
+- First correction b918 full36959307370 exposed stale CBT submission cleanup closing a fresh Review navigator. Fence delayed cleanup to its submitted exam; remove legacy sheet entrance motion. Local PYQ/mixed/Review journeys now pass phone/tablet; fresh full certification is pending.
 - See `docs/INTERACTION_POLISH_2026-10-02.md`; preserve the analysis, mocks, Home-only header and approved streak/FSRS work.
 
 ## Current UI refinement — 2026-10-02
