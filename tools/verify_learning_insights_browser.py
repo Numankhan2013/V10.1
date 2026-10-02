@@ -90,7 +90,7 @@ def main():
                 assert '30+' not in page.locator('.nk-li-year-key').inner_text()
 
                 page.locator('.nk-li-bars button:not(:disabled)').first.click()
-                assert 'Previous:' in page.locator('.nk-li-bin-readout').inner_text()
+                assert 'Previous week:' in page.locator('.nk-li-bin-readout').inner_text()
                 page.locator('.nk-li-year-grid button:not(:disabled)').last.click()
                 assert 'correct' in page.locator('#nk-li-year-detail').inner_text()
                 page.get_by_role('button', name='Top performing', exact=True).click()

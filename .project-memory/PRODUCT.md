@@ -250,3 +250,5 @@ The full-year heatmap comes first; continuous relative shade/glow distinguishes
 workload without fixed-count saturation. The user removed Study Map and Topics
 to revisit from this screen. Answer/rating metadata must not inflate counts or
 time, and recorded time must never be presented as a background activity tracker.
+
+- Result analysis keeps score (correct/all) distinct from accuracy (correct/answered), uses calm green/coral/amber outcomes and saved timing. Only tests offer subject/topic breakdown. Named fixed-question mocks can be saved and repeated; named study modules retain save/resume/restart.

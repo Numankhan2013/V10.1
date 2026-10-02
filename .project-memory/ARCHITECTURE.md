@@ -528,3 +528,9 @@ Approved production releases may use `.github/workflows/deploy-approved-main.yml
 The 2026-10-01 production promotion used the dedicated `release/approved-production-20261001` push trigger because the workflow_run follow-up did not appear. Its fallback pins successful build36883871119 and product18e4cd58, with the same exact-current-main/APK safeguards. This release-specific trigger cannot deploy a later unrelated commit; future releases must select their own verified artifact or use the existing exact-SHA manual dispatch. Do not assume the workflow_run trigger has been operationally verified.
 
 The final `apply_app_clarity_v1.py` presentation owner follows learning Insights and wraps navigation renderers only. It removes known redundant copy without changing queue/scheduler/storage APIs; clarity CSS targets navigation headers/cards. Independent scope-card updates use the same formatter. Metric definitions remain in collapsed Insights help.
+
+## Compact result analysis and named mocks
+
+`apply_refined_analysis_v1.py` runs after app clarity. It replaces only result markup and wraps the existing CBT builder/Tests renderers. The shared Practice/CBT/Review engines, immutable original results, FSRS, marked-question follow-up and retake lineage stay authoritative. Test breakdowns aggregate exact subject/bank/topic identities; Practice omits breakdowns. Time histograms read only finite saved question times and expose missing timing.
+
+Optional `state.savedMocks` stores names and ordered fixed question IDs. Durable state normalization preserves it; the existing sync envelope/winner/tombstone system adds a `savedMocks` collection, including reset and account isolation. Starting a mock validates every saved question and uses the protected timed-session entry point; it never silently shortens an unavailable set. A repeated exact set uses the existing initial-test/retake comparison. Modules retain their existing separate naming and restart flow.

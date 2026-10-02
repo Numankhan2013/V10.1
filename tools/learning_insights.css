@@ -41,3 +41,14 @@
 .nk-learning-insights .nk-li-card{padding:16px}
 .nk-learning-insights .nk-li-card>header{margin-bottom:12px}
 @media(max-width:699px){.nk-learning-insights .nk-li-head h1{font-size:26px}.nk-learning-insights .nk-li-year-summary b{font-size:19px}.nk-learning-insights .nk-li-stats article:last-child{min-height:72px}}
+
+/* Paired charts share top-aligned tracks, including an empty comparison. */
+.nk-li-donut-pair{align-items:start}
+.nk-li-outcomes{align-content:start;align-self:start}
+.nk-li-outcomes h3{min-height:32px;margin:0;align-content:center;font-weight:650;line-height:1.35}
+.nk-li-outcomes .nk-li-empty{grid-column:1/-1;margin:0;font-size:10px}
+.nk-li-bar-pair i[hidden]{display:none}
+.nk-li-bar-pair{gap:3px}
+.nk-li-bin-readout:empty{display:none}
+.nk-li-bars button small{font-variant-numeric:tabular-nums}
+.nk-li-comparison-head span{line-height:1.35;overflow-wrap:anywhere}

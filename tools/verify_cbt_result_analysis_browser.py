@@ -45,17 +45,17 @@ def main() -> None:
             expect(page.get_by_role("heading", name="Topic breakdown")).to_be_visible()
             analysis = page.locator(".nk-cbt-analysis")
             assert analysis.locator(".nk-cbt-analysis-row").count() == 3
-            analysis.locator(".nk-cbt-analysis-rest summary").click()
+            assert analysis.locator(".nk-cbt-analysis-row:visible").count() == 3
             assert "Anatomy · PrepLadder" in analysis.inner_text()
             assert "Anatomy · Marrow" in analysis.inner_text()
             assert "Physiology · Marrow" in analysis.inner_text()
-            assert "2 questions to revisit" in analysis.inner_text()
+            assert "2 questions to revisit" in page.locator(".nk-cbt-followup").inner_text()
             assert "1 incorrect · 0 unattempted" in analysis.inner_text()
             assert "0 incorrect · 1 unattempted" in analysis.inner_text()
             page.screenshot(path=str(output / "cbt-result-analysis-phone.png"), full_page=True)
             page.reload(wait_until="domcontentloaded")
             expect(page.get_by_role("heading", name="Topic breakdown")).to_be_visible()
-            page.get_by_role("button", name="Retake timed CBT").click()
+            page.get_by_role("button", name="Retry Test").click()
             page.wait_for_function("location.hash==='#exam' && window.QB.getState().activeSession?.mode==='exam'")
             retake = page.evaluate("window.QB.getState().activeSession")
             assert retake["questionIds"] == ids, retake

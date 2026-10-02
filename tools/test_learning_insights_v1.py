@@ -82,6 +82,7 @@ ctx.short=at(2026,3,31);run("nkLearningOffset=0;nkLearningPeriod='month'");const
 ctx.leap=at(2024,2,29);run("nkLearningPeriod='year'");const leap=run('nkLearningRange(leap)');assert.equal(new Date(leap.previousCut).getFullYear(),2023);assert.equal(new Date(leap.previousCut).getDate(),28);
 run("nkLearningOffset=-1");assert.equal(run('nkLearningRange(now)').partial,false);
 state.attempts={};state.tests=[];state.studyModules=[];run("nkLearningOffset=0");const empty=run('nkLearningModel(now)');assert.equal(empty.current.accuracy,null);assert.equal(empty.current.reviewAccuracy,null);assert.equal(empty.current.time,0);assert(!run('nkLearningContent(nkLearningModel(now))').includes('NaN'));
+for(const period of ['week','month','year']){run(`nkLearningOffset=0;nkLearningPeriod='${period}'`);const labels=run('nkLearningPeriodLabels(nkLearningModel(now))');assert.equal(labels.current,'This '+period);assert.equal(labels.previous,'Previous '+period);run('nkLearningOffset=-1');const historical=run('nkLearningPeriodLabels(nkLearningModel(now))');assert(!historical.current.includes('This '));assert.notEqual(historical.current,historical.previous);}
 console.log('LEARNING_INSIGHTS_BEHAVIOR_OK calendar=true DST=true elapsed_comparison=true answer_identity=true undo=true rating_edits=true timing_once=true legacy=true scopes=true topic_identity=true recovery=true modules=true read_only=true');
 '''
 program = 'const CORE=' + json.dumps(core) + ',ACTIVE=' + json.dumps(active) + ';\n' + program

@@ -14,6 +14,7 @@ persisted progress model.
 - Week/month/year controls browse past periods and compare the same elapsed
   calendar position for a current unfinished period. Subject/bank filters apply
   to dashboard metrics and the year calendar, independently of active study bank.
+- Chart legends and comparison columns say This week/month/year and Previous week/month/year; historical selections use explicit date ranges. Paired donuts align even with empty data; zero-value comparison bars do not displace the visible bar from its interval label.
 - Five totals lead into paired question-outcome donuts, interval answer bars,
   recorded study-time trend, period comparison, topic/subject performance,
   spaced repetition, missed-question recovery, and module progress.

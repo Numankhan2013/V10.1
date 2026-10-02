@@ -2,24 +2,27 @@
 
 > Operational state only. Resolve the live branch/commit and CI from Git before acting. Historical detail belongs in `SESSION_LOG.md` and dedicated handoffs.
 
-## Active Insights candidate — 2026-10-01
+## Current UI refinement — 2026-10-02
 
-- Branch `feature/home-learning-insights`, includes approved production `18e4cd5` and current main handoff. User authorized app-wide copy/spacing cleanup, then main and canonical-domain promotion after checks pass.
-- Owner: `tools/apply_learning_insights_v1.py`; definitions: `docs/LEARNING_INSIGHTS.md`. Week/month/year, same-elapsed comparisons and scoped outcomes/time/topics/subjects/FSRS/mistake recovery/modules are implemented.
-- User removed Study Map and Topics to revisit. A full-year calendar leads Insights, with daily details, totals/longest run, year selection and contained phone scrolling.
-- Continuous shade/glow uses count divided by the busiest day in the selected year/scope. New peaks rescale earlier days; there is no fixed 30+ saturation.
-- Active answers/results are read-only. Undo and rating edits do not inflate work. Sessions replace their answer timing; optional result session IDs provide exact future attribution, with bounded legacy matching.
-- Calculation/calendar and 320/390/820/1194 browser checks pass; generated Continue Practice passes. Product `94e1d27` passed web/PDF/APK build and fast gates; Android phone passed, tablet retries lost the screenshot target / WebView reconnect. Combined `fce4277` stopped on a stale Revision test locator after singular-label polish; fix the locator and rerun full CI.
-- Clarity owner `apply_app_clarity_v1.py` follows Insights: removes redundant navigation prose/kickers, compacts headers/cards/settings/builders; keeps source content, counts, timers, save/sync states and study actions.
-- Next: certify combined candidate, then promote main with `[approved-production]` and verify https://nk-qbank.pages.dev. Physical APK acceptance remains separate.
+- Active work: `feature/home-analysis-refinement`, based on released product `1ba1635428a661c4e9c152e2e90d75b441c05b0b`. New result/mock UI is not yet build-certified or on production; resolve live Git/CI.
+- Insights labels follow week/month/year; historical comparisons show dates. Donuts align with empty prior periods; visible bar groups centre on their interval labels. Preserve the comparative full-year heatmap and removed Study Map/Topics to revisit.
+- Late owner `apply_refined_analysis_v1.py` follows clarity: compact score/accuracy, green/coral/amber outcomes, test-only subject/topic tabs, saved-timing distribution/cumulative charts, and existing Review/correction/marked/retake/module actions. The user also removed the distracting global subject badge, including tests and Practice.
+- Named fixed-question mocks use optional `state.savedMocks`, durable snapshots and a separate sync collection with tombstones. Modules already support names, save/resume and restart. Tests remain immutable apart from explicit title edits.
+- 84 local checks pass; generated responsive screenshots and result/mock journeys passed. Practice/Review/CBT/marked/FSRS/clarity regressions passed; full Ubuntu content/browser/APK/emulator CI remains next.
+
+## Released Insights and clarity — 2026-10-02
+
+- Main is certified product `1ba1635428a661c4e9c152e2e90d75b441c05b0b`; PR81 merged. Feature full run `36947218296` and main full run `36949193523` passed content/browser/PWA/APK/package and phone/tablet emulators; both fast gates passed.
+- Canonical https://nk-qbank.pages.dev serves the exact certified HTML (SHA-256 `24ad5d627b94e25c9d6f79cbdc8ff73ec759f924ea8fde533d21c5d84cfb8737`); hosted phone/tablet period/reload/relative-heatmap checks passed.
+- Automatic production trigger did not start. Release branch `release/approved-production-20261002-clarity` at `cffb8ad0d9e63eab7ddb483708472cb3581350c6` pins the verified main artifact; deploy run `36951774743` succeeded without rebuilding. Main stayed unchanged for artifact identity checks.
+- Owners `apply_learning_insights_v1.py` and `apply_app_clarity_v1.py` implement read-only comparative metrics, continuous year-relative shade/glow and compact app screens. Accepted Revision/liquid streak/editable FSRS and all source work remain included. Physical APK acceptance remains separate.
 
 ## Canonical lineage
 
 - Accepted product commit: `125d68b`.
 - Accepted baseline: V11.6 remains the rollback product baseline; the Continue Practice contract below is separately user/device accepted.
-- **Production integration trunk:** `main`; `feature/marrow-canonical-full-current` is synchronized to this approved release and remains the content-work lane. Future work must preserve the merged Revision/streak/FSRS features.
+- **Production integration trunk:** `main`; `feature/marrow-canonical-full-current` remains the content-work lane and needs fast-forward alignment to the released Insights/clarity product before future content work. Preserve merged Revision/streak/FSRS features.
 - User-approved combined product `18e4cd58a09f14169447dd7aaf13a6cc08971ceb`: Engineering `36883870916` and full run1380 / `36883871119` passed. Production deployment `36888530721` succeeded; Pages production branch is `main`. Root https://nk-qbank.pages.dev and deployment https://3bbd46cc.nk-qbank.pages.dev serve identical HTML (SHA-256 `f0f9bb3ce205c6f79ae024d5025ffcce8c977a0915dc178c5307c83be5145c2a`), including all2,688 approved explanation configs and runs1375/1378 features.
-- Latest verified canonical checkpoint before the automation-readiness handoff: `356cce4`; Engineering `35453226391` and full Android/PWA/browser/APK/package run `35453226292` succeeded on that exact commit (GitHub checked 2026-09-20). The full run deployed preview `https://1b9fe4f4.nk-qbank.pages.dev`; production was not promoted. Recheck CI on the live head after any new commit. User preview review is not blanket acceptance.
 - Latest accepted Practice behavior was verified from checkpoint `74abb670c3ae088e06653681e85c347212222455`; full run `34695680534` succeeded and the user physically confirmed the Continue Practice flow. This behavior is build-verified, **device-verified**, and user-accepted.
 
 ## Complete canonical Marrow ED8 source
@@ -136,15 +139,12 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 1. Completed final completeness pass source-reviewed 254 unique questions (226 initial + 28 supplemental): 89 repairs (74 contextual/15 exact; 81 text/table/notation/key and eight native images), 132 already complete, 33 underdetermined source omissions gated, including ANAT62Q6. Compiled display ledger: 114 entries; source tests pass across four variants. CI queue requires all new structural/glyph/question-visual candidates reviewed (195 current residual candidates; zero unreviewed). See `docs/QUESTION_COMPLETENESS_FINAL_PASS.md` and the pinned `data/question_completeness_reviews_v1.json` ledger. Raw imports remain immutable.
 2. Regenerated final image coverage: 1,502 references / 1,421 released / 79 invalid / two archival holds / zero unresolved cues; runtime 1,486 bindings / 1,306 assets / 1,128 owners. All 52 final local checks pass. Product checkpoint `de9c415cef4915d5b20a42abc9f2299a8595b173` is fully build-verified: Engineering `36732893469` and full browser/PWA/APK/package/Android-emulator run `36732893814` passed. Preview: `https://74f04894.nk-qbank.pages.dev`. All 114 contracts passed 228 runtime checks; eight recovered image URLs match exact native hashes in the live preview. Earlier image/browser assertion failures are resolved.
-3. Completed approved main/production promotion: explanations, liquid streak, Revision hub and editable FSRS ratings are live together. No further rebuild/promotion is pending. Keep23 source gates, two archival image gaps and PrepLadder source-comparison backlog explicit; defer source recovery until requested.
+3. Released Insights/clarity and all prior approved features are live together. Certify the new chart/result/mock refinement before publishing it; preserve23 source gates, two archival image gaps and PrepLadder source-comparison backlog.
 
 ## Memory pointers
 
-- Memory schema: `.project-memory/README.md`.
 - PrepLadder visual verification handoff: `.project-memory/PREPLADDER_VISUAL_VERIFICATION_2026-09-16.md`.
 - Matching/structured presentation handoff: `.project-memory/MATCHING_TABLE_ARCHITECTURE_HANDOFF_2026-09-14.md`.
-- Chronological work/CI history: `.project-memory/SESSION_LOG.md`.
-- Accepted Practice handoff: `.project-memory/CONTINUE_PRACTICE_HANDOFF.md`.
 - Practice postmortem: `.project-memory/PRACTICE_FLOW_POSTMORTEM_2026-09-12.md`.
 - Canonical source consolidation: `.project-memory/FULL_CORPUS_CONSOLIDATION.md`.
 - Automation policy: `docs/MARROW_CANONICAL_AUTOMATION_POLICY.md`.

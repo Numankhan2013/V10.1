@@ -10,7 +10,7 @@
   const NK_RESET_PENDING_KEY='qbank_account_reset_pending_v1';
   const NK_ACCOUNT_SNAPSHOT_PREFIX='qbank_account_snapshot_v1_';
   const NK_ACCOUNT_SWITCH_PENDING_KEY='qbank_account_switch_pending_v1';
-  const NK_SYNC_KINDS=['attempts','bookmarks','notes','tests','modules','practiceSessions','sessions','preferences'];
+  const NK_SYNC_KINDS=['attempts','bookmarks','notes','tests','modules','savedMocks','practiceSessions','sessions','preferences'];
   let nkCloudApplying=false,nkCloudRevision=0,nkCloudMergeChanged=false;
   let nkCloudBusy=false,nkCloudReady=false,nkCloudResetting=false,nkCloudTimer=null,nkCloudInterval=null,nkResolvedProjectId='';
   let nkAuthView='signin',nkPendingCreateEmail='',nkSignInEmail='';
@@ -192,14 +192,15 @@
   function nkCaptureCloudChanges(){
     if(!nkAuth||nkCloudApplying||nkCloudResetting)return;
     const revision=nkCloudRevision;
-    const current={bookmarks:new Set(),modules:new Set()};
+    const current={bookmarks:new Set(),modules:new Set(),savedMocks:new Set()};
     Object.entries(state.attempts||{}).forEach(([qid,list])=>(Array.isArray(list)?list:[]).forEach(attempt=>{if(attempt?.id)nkQueueEnvelope(nkEnvelope('attempts',attempt.id,{qid:String(qid),attempt},Number(attempt.at||0)));}));
     Object.entries(state.fsrsRatingRevisions||{}).forEach(([qid,list])=>(Array.isArray(list)?list:[]).forEach(attempt=>{if(attempt?.isRatingRevision&&attempt.id)nkQueueEnvelope(nkEnvelope('attempts',attempt.id,{qid:String(qid),attempt},Number(attempt.at||0)));}));
     Object.entries(state.bookmarks||{}).forEach(([qid,value])=>{current.bookmarks.add(String(qid));nkQueueEnvelope(nkEnvelope('bookmarks',qid,{qid:String(qid),active:true},Number(value?.updatedAt||value?.addedAt||0)));});
     Object.entries(state.questionNotes||{}).forEach(([qid,note])=>{if(!note||typeof note.text!=='string')return;nkQueueEnvelope(nkEnvelope('notes',qid,{text:note.text,deleted:Boolean(note.deleted)},Number(note.updatedAt||0)));});
     (state.tests||[]).forEach(test=>{if(test?.id)nkQueueEnvelope(nkEnvelope('tests',test.id,test,nkEntityTimestamp(test)));});
     (state.studyModules||[]).forEach(module=>{if(!module?.id)return;current.modules.add(String(module.id));if(!module.syncEpoch)module.syncEpoch=`epoch_${module.createdAt||Date.now()}`;nkQueueEnvelope(nkEnvelope('modules',module.id,module,nkEntityTimestamp(module)));});
-    for(const kind of ['bookmarks','modules']){
+    (state.savedMocks||[]).forEach(mock=>{if(!mock?.id)return;current.savedMocks.add(String(mock.id));nkQueueEnvelope(nkEnvelope('savedMocks',mock.id,mock,nkEntityTimestamp(mock)));});
+    for(const kind of ['bookmarks','modules','savedMocks']){
       const before=new Set(Array.isArray(nkSyncMeta.known[kind])?nkSyncMeta.known[kind]:[]);
       before.forEach(id=>{if(!current[kind].has(id))nkQueueEnvelope(nkEnvelope(kind,id,null,Date.now(),true));});
       nkSyncMeta.known[kind]=[...current[kind]];
@@ -407,6 +408,12 @@
       state.questionNotes[id]={text:payload.text.slice(0,2000),updatedAt:Number(winner.updatedAt),deleted:Boolean(payload.deleted)};
     }
     else if(winner.kind==='tests'&&payload){const index=(state.tests||[]).findIndex(x=>String(x.id)===id);if(index<0)state.tests.push(payload);else state.tests[index]=payload;state.tests=state.tests.slice(-100);}
+    else if(winner.kind==='savedMocks'){
+      const list=Array.isArray(state.savedMocks)?state.savedMocks:[],index=list.findIndex(x=>String(x.id)===id);
+      if(winner.deleted){if(index>=0)list.splice(index,1);}
+      else if(payload&&payload.id&&Array.isArray(payload.questionIds)&&payload.questionIds.length){const mock={...payload,name:String(payload.name||'Timed CBT').slice(0,80),questionIds:payload.questionIds.map(String)};if(index<0)list.push(mock);else list[index]=mock;}
+      state.savedMocks=list.slice(-100);
+    }
     else if(winner.kind==='modules'){
       const list=Array.isArray(state.studyModules)?state.studyModules:[],index=list.findIndex(x=>String(x.id)===id),local=index>=0?list[index]:null;
       if(winner.deleted){if(index>=0)list.splice(index,1);}
@@ -448,6 +455,7 @@
     apply(()=>{nkRebuildReviews();if(typeof nkNormalizeStudyModules==='function')nkNormalizeStudyModules();});
     nkSyncMeta.known.bookmarks=Object.keys(state.bookmarks||{});
     nkSyncMeta.known.modules=(state.studyModules||[]).map(module=>String(module.id));
+    nkSyncMeta.known.savedMocks=(state.savedMocks||[]).map(mock=>String(mock.id));
     return count;
   }
   function nkCloudRenderStatus(){

@@ -55,6 +55,7 @@
     if(value.reviews!=null&&!nkStateObject(value.reviews))throw new Error('reviews is not an object');
     if(value.tests!=null&&!Array.isArray(value.tests))throw new Error('tests is not an array');
     if(value.studyModules!=null&&!Array.isArray(value.studyModules))throw new Error('studyModules is not an array');
+    if(value.savedMocks!=null&&!Array.isArray(value.savedMocks))throw new Error('savedMocks is not an array');
     if(value.normalPracticeCheckpoint!=null&&!nkNormalizeCheckpoint(value.normalPracticeCheckpoint))throw new Error('normal Practice checkpoint is invalid');
     if(value.normalPracticeCheckpoints!=null&&(!Array.isArray(value.normalPracticeCheckpoints)||value.normalPracticeCheckpoints.some(item=>!nkNormalizeCheckpoint(item))))throw new Error('normal Practice checkpoints are invalid');
     return true;
@@ -63,6 +64,7 @@
     nkValidateState(value);
     const out={...defaultState(),...value,attempts:value.attempts||{},bookmarks:value.bookmarks||{},questionNotes:value.questionNotes||{},reviews:value.reviews||{},tests:Array.isArray(value.tests)?value.tests:[]};
     out.studyModules=Array.isArray(value.studyModules)?value.studyModules:[];
+    out.savedMocks=Array.isArray(value.savedMocks)?value.savedMocks:[];
     out.stateSchemaVersion=NK_STATE_SCHEMA_VERSION;out.stateRevision=nkStateRevision(value);
     out.normalPracticeCheckpoints=nkNormalizePracticeCheckpoints(value.normalPracticeCheckpoints,value.normalPracticeCheckpoint);
     out.normalPracticeCheckpoint=nkLatestPracticeCheckpoint(out.normalPracticeCheckpoints);

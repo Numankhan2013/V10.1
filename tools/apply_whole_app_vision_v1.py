@@ -94,7 +94,7 @@ FOUNDATION_AND_DASHBOARD = r'''function nkAppSubjectMeta(name=activeSubject) {
 
 
 HEADER = r'''function header(title = 'NK QBank'){
-    return `<header class="nk-global-header-v114"><div class="nk-global-inner"><div class="nk-global-brand" aria-label="NK QBank"><strong>NK</strong><span>QBank</span></div><div class="nk-global-subject is-${nkAppSubjectMeta().key}">${nkAppSubjectIcon(activeSubject,18)}<span>${esc(activeSubject)}</span></div></div></header>`;
+    return `<header class="nk-global-header-v114"><div class="nk-global-inner"><div class="nk-global-brand" aria-label="NK QBank"><strong>NK</strong><span>QBank</span></div></div></header>`;
   }
 
   '''
