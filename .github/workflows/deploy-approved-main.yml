@@ -2,7 +2,7 @@ name: Deploy explicitly approved main release
 
 on:
   push:
-    branches: ['release/approved-production-20261001']
+    branches: ['release/approved-production-20261002-clarity']
   workflow_run:
     workflows: [Build V11.7 Android + PWA]
     types: [completed]
@@ -23,16 +23,16 @@ jobs:
       - name: Check out the exact approved release
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.workflow_run.head_sha || '18e4cd58a09f14169447dd7aaf13a6cc08971ceb' }}
+          ref: ${{ github.event.workflow_run.head_sha || '1ba1635428a661c4e9c152e2e90d75b441c05b0b' }}
       - name: Download the verified build without rebuilding
         uses: actions/download-artifact@v4
         with:
           name: V11.7-android-pwa
-          run-id: ${{ github.event.workflow_run.id || '36883871119' }}
+          run-id: ${{ github.event.workflow_run.id || '36949193523' }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Verify artifact identity and current main
         env:
-          EXPECTED_RELEASE_SHA: ${{ github.event.workflow_run.head_sha || '18e4cd58a09f14169447dd7aaf13a6cc08971ceb' }}
+          EXPECTED_RELEASE_SHA: ${{ github.event.workflow_run.head_sha || '1ba1635428a661c4e9c152e2e90d75b441c05b0b' }}
         run: |
           set -eu
           test "$(git ls-remote origin refs/heads/main | cut -f1)" = "$EXPECTED_RELEASE_SHA"
