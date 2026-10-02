@@ -20,11 +20,25 @@ async function main(){
   const output='build/android-interaction';fs.mkdirSync(output,{recursive:true});
   await device.installApk(fs.readFileSync(apk));
   async function launch(){
-    await device.shell(`am start -n ${pkg}/com.qbank.biochemistry.MainActivity`);
-    const view=await device.webView({pkg,timeout:60000});
-    const page=await view.page();page.setDefaultTimeout(30000);
-    await page.waitForFunction(()=>location.hostname==='qbank.local'&&window.QB?.getState);
-    return page;
+    let lastError=null;
+    for(let attempt=1;attempt<=2;attempt++){
+      try{
+        await device.shell(`am start -W -n ${pkg}/com.qbank.biochemistry.MainActivity`);
+        const view=await device.webView({pkg,timeout:60000});
+        const page=await view.page();page.setDefaultTimeout(30000);
+        await page.waitForFunction(()=>location.hostname==='qbank.local'&&window.QB?.getState);
+        return page;
+      }catch(error){
+        lastError=error;
+        const visible=device.webViews().filter(v=>v.pkg()===pkg).length;
+        console.log('ANDROID_WEBVIEW_ATTACH_RETRY '+JSON.stringify({attempt,visible,error:String(error?.message||error)}));
+        if(attempt===2)break;
+        await device.shell(`am force-stop ${pkg}`);
+        for(let i=0;i<60&&device.webViews().some(v=>v.pkg()===pkg);i++)await new Promise(resolve=>setTimeout(resolve,250));
+        await new Promise(resolve=>setTimeout(resolve,1000));
+      }
+    }
+    throw lastError;
   }
   // Android WebView updates a hash route in the current document. Playwright's
   // waitForURL defaults to a load event, which is not emitted for that change.
