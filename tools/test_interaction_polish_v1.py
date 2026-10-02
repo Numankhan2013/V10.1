@@ -13,7 +13,10 @@ def main():
         assert marker in result,marker
     assert 'transition:none!important' in result
     assert 'node.animate(' not in result, 'shared polish must not animate route/question publication'
-    assert 'transition:transform 110ms' not in result
+    assert 'transition:transform 110ms' in result
+    assert 'background-color 110ms' not in result
+    assert 'border-color 110ms' not in result
+    assert 'box-shadow 110ms' not in result
     try:transform(base.replace('route = parseHash(); render();','unexpectedRouteOwner();'))
     except ValueError:pass
     else:raise AssertionError('unexpected route owner was silently removed')
