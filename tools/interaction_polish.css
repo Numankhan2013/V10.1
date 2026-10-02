@@ -1,13 +1,16 @@
 /* One restrained press language, using the existing palette and dimensions. */
 button,[role="button"],summary,a[href],[onclick]{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
-/* Committed selection and released controls must reach their final appearance
-   in the same paint. Do not interpolate colors or scale touch targets. The
-   specificity also overrides older option rules emitted later in the body. */
+/* State colors commit immediately. Only the tactile scale eases back, so answer
+   correctness/selection never waits on a color or border transition. */
 html body :is(button,[role="button"],summary,a[href],[onclick],.option,.option-item){transition:none!important}
+html body :is(button:not(:disabled),[role="button"],summary,a[href],[onclick]){transition:transform 110ms ease-out!important}
 html body :is(button:not(:disabled),[role="button"],summary,a[href],[onclick]):active,
-html body :is(button,[role="button"],summary,a[href],[onclick]).nk-pressed{transform:none!important;filter:brightness(.96)}
-html body .option:active,html body .option.nk-pressed{transform:none!important;box-shadow:inset 0 0 0 1px currentColor!important}
-html body .bookmark-toggle svg{transition:none!important}
+html body :is(button,[role="button"],summary,a[href],[onclick]).nk-pressed{transform:scale(.98)!important;transition-duration:0ms!important}
+html body .option:not(.correct):not(.wrong){transition:transform 110ms ease-out!important}
+html body .option:not(.correct):not(.wrong):active,html body .option.nk-pressed{transform:scale(.992)!important;transition-duration:0ms!important;box-shadow:inset 0 0 0 1px currentColor!important}
+html body .bottom-nav button:active,html body .nav-item:active{transform:scale(.94)!important}
+html body .bookmark-toggle svg{transition:transform 110ms ease-out!important}
+html body .bookmark-toggle:active svg{transform:scale(.9)}
 button:focus-visible,[role="button"]:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--primary,#6951ec)!important;outline-offset:3px}
 button:disabled,[aria-disabled="true"]{cursor:default}
 .nk-session-back,.nk-grid-trigger,.bookmark-toggle{min-width:44px!important;min-height:44px!important}
@@ -17,6 +20,6 @@ button:disabled,[aria-disabled="true"]{cursor:default}
 .modal-backdrop{overscroll-behavior:contain}
 html body :is(.nk-v114-session,.page,.modal,.qb-nav-panel,.nk-session-review-card){animation:none!important}
 @media(prefers-reduced-motion:reduce){
- button,[role="button"],summary,a[href],[onclick],.bookmark-toggle svg{transition:none!important}
+ button,[role="button"],summary,a[href],[onclick],.bookmark-toggle svg,.option,.option-item{transition:none!important}
  .option:active,.option.nk-pressed,.bottom-nav button:active,.nav-item:active,button:active,button.nk-pressed,[role="button"].nk-pressed,summary.nk-pressed,a.nk-pressed,[onclick].nk-pressed{transform:none!important;filter:brightness(.96)}
 }
