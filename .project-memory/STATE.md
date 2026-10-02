@@ -6,7 +6,7 @@
 
 - Active work: `feature/home-analysis-refinement`, based on released product `1ba1635428a661c4e9c152e2e90d75b441c05b0b`. New result/mock UI is not yet build-certified or on production; resolve live Git/CI.
 - Insights labels follow week/month/year; historical comparisons show dates. Donuts align with empty prior periods; visible bar groups centre on their interval labels. Preserve the comparative full-year heatmap and removed Study Map/Topics to revisit.
-- Late owner `apply_refined_analysis_v1.py` follows clarity: compact score/accuracy, green/coral/amber outcomes, test-only subject/topic tabs, saved-timing distribution/cumulative charts, and existing Review/correction/marked/retake/module actions. The user also removed the distracting global subject badge, including tests and Practice.
+- Late owner `apply_refined_analysis_v1.py` follows clarity: compact score/accuracy, green/coral/amber outcomes, test-only subject/topic tabs, saved-timing distribution/cumulative charts, and existing Review/correction/marked/retake/module actions. The global subject badge is removed; the NK QBank header appears only on Home, per the latest user request.
 - Named fixed-question mocks use optional `state.savedMocks`, durable snapshots and a separate sync collection with tombstones. Modules already support names, save/resume and restart. Tests remain immutable apart from explicit title edits.
 - 84 local checks pass; generated responsive screenshots and result/mock journeys passed. Practice/Review/CBT/marked/FSRS/clarity regressions passed; full Ubuntu content/browser/APK/emulator CI remains next.
 

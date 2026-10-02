@@ -25,6 +25,8 @@ CBT builder and Tests page; it does not create another study engine.
   reset. Every saved question must remain available and answerable; an invalid
   exact set is blocked rather than silently shortened. Older clients preserve
   unknown state fields but do not display or sync this new collection.
+- The global NK QBank header appears only on Home. Other routes use their own
+  compact page/question headers; the global subject badge is absent everywhere.
 - Study modules already support naming, saving, resuming and restarting; the
   result screen retains Restart module and Return Home without a topic list.
 

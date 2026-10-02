@@ -48,7 +48,9 @@ def main():
                 page.route('**/*',lambda r:r.continue_() if r.request.url.startswith(origin) else r.abort())
                 page.goto(origin,wait_until='domcontentloaded');page.wait_for_function('window.QB && window.__nkAnalysisTest')
                 ids=page.evaluate(SEED)
-                if not baseline:assert page.locator('.nk-global-subject').count()==0
+                if not baseline:
+                    assert page.locator('.nk-global-subject').count()==0
+                    assert page.locator('.nk-global-header-v114').count()==0
                 if baseline:
                     page.screenshot(path=str(output/f'analysis-before-{width}.png'),full_page=True)
                     page.evaluate("window.QB.nav('analytics')")
@@ -81,6 +83,7 @@ def main():
                 page.evaluate("window.QB.nav('result','analysis-practice')")
                 expect(page.get_by_role('heading',name='Practice analysis',exact=True)).to_be_visible()
                 assert page.locator('.nk-global-subject').count()==0
+                assert page.locator('.nk-global-header-v114').count()==0
                 assert page.locator('.nk-cbt-analysis').count()==0
                 assert page.get_by_role('button',name='Correct my misses').count()==1
                 page.screenshot(path=str(output/f'analysis-practice-{width}.png'),full_page=True)
@@ -138,6 +141,8 @@ def main():
                 assert page.evaluate('window.QB.getState().activeSession') is None
                 assert page.evaluate('window.QB.getState().savedMocks.at(-1).name')=='Weekend mock'
                 page.screenshot(path=str(output/f'named-mocks-{width}.png'))
+                page.evaluate("window.QB.nav('dashboard')")
+                assert page.locator('.nk-global-header-v114').count()==1
                 assert not errors,errors
                 context.close()
             browser.close()
