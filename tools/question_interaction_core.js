@@ -6,7 +6,7 @@
   const nkInteractionSave=saveState,nkInteractionNavigate=navigate;
   let nkInteractionRender=render;
   const nkInteractionToast=showToast;
-  const nkFeedbackPatterns={choice:6,mark:9,primary:12,success:[12,24,16],error:[18,30,8],complete:[14,35,22]};
+  const nkFeedbackPatterns={choice:6,mark:9,primary:12,success:7,error:9,complete:[14,35,22]};
   let nkFeedbackAt=0;
   function nkPlayFeedback(kind){
     if(!Object.prototype.hasOwnProperty.call(nkFeedbackPatterns,kind))return;

@@ -891,3 +891,14 @@ User authorized latency recovery and native-feel polish. Implementation/local
 responsive checks on feature/home-interaction-polish retain c662 analysis/header
 work; new exact-head full CI is pending. Root/main still serve1ba. STATE and
 docs/INTERACTION_POLISH_2026-10-02.md own current facts. No physical haptic claim.
+
+Interaction candidate a68e9c2 passed feature full36956370295 and both fast gates;
+PR83/PR82 are merged through exact-SHA main fast-forward. Official main full
+36957980864 is running; canonical root remains1ba pending verified-artifact
+deployment. Keep main at a68 during the production identity guard.
+
+### 2026-10-02 — User-reported press latency / gentle answer feedback
+
+Main a68 is build-verified from feature CI, but the user reports its new interactions feel slower across the app. Hold canonical deployment while correcting shared110 ms state/release transitions and added route/question/sheet movement. A/B computed appearance confirms old answer colors persisted on the first frame; correction makes committed colors immediate with no transition. Preserve save/indexing/in-place improvements and rollback. User additionally requests subtle answer haptics: single7/9 ms browser pulses and native CLOCK_TICK outcomes. Fresh responsive/browser/native certification pending on `feature/home-answer-latency`; root still serves1ba.
+
+The first latency correction's full run36959307370 caught a real pre-existing race exposed by faster clicks: a stale250 ms CBT cleanup closed a newly opened Review navigator. Reproduced locally, fenced cleanup to its submitted exam, removed legacy panel animation and added source ownership / generated300 ms Review survival checks. PYQ/mixed/history/Review/follow-up now pass on phone/tablet; fresh full certification is required. Superseded maina68 Android failed at WebView rediscovery after app reset, after its Pause/Back/multi-Pause paths passed.

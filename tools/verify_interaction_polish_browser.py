@@ -27,12 +27,23 @@ def main():
                 context=browser.new_context(viewport={'width':w,'height':h},is_mobile=True,has_touch=True,service_workers='block',reduced_motion='reduce' if reduced else 'no-preference')
                 context.add_init_script("window.__vibrations=[];Object.defineProperty(Navigator.prototype,'vibrate',{configurable:true,value:function(pattern){window.__vibrations.push(pattern);return true;}})")
                 page=context.new_page();errors=[];page.on('pageerror',lambda e:errors.append(str(e)));page.route('**/*',lambda r:r.continue_() if r.request.url.startswith(origin) else r.abort());page.goto(origin+'/#dashboard',wait_until='domcontentloaded');page.wait_for_function('!!window.QB?.getState')
+                # Shared controls respond during touch-down and release without
+                # interpolating away their committed state, on every screen.
+                nav=page.locator('.bottom-nav button,.nav-item').first
+                nav.dispatch_event('pointerdown',{'isPrimary':True,'button':0,'clientX':20,'clientY':20})
+                assert nav.evaluate("el=>getComputedStyle(el).filter")=='brightness(0.96)'
+                assert nav.evaluate("el=>getComputedStyle(el).transform")=='none'
+                nav.dispatch_event('pointercancel',{'pointerId':1})
+                assert nav.evaluate("el=>getComputedStyle(el).filter")=='none'
+                assert nav.evaluate("el=>el.getAnimations().length")==0
                 page.evaluate("QB.practiceOne('1-1')");page.wait_for_selector('.option-list button');question=page.evaluate('__nkInteractionProbe.question()');option=page.locator('.option-list button').nth(int(question['correctOption'])-1)
                 option.dispatch_event('pointerdown',{'pointerId':1,'isPrimary':True,'pointerType':'touch','button':0,'clientX':30,'clientY':30})
                 assert option.evaluate("el=>el.classList.contains('nk-pressed')"),'press has no immediate feedback'
+                assert option.evaluate("el=>getComputedStyle(el).transitionDuration")=="0s",'answer press/release must be immediate'
+                assert option.evaluate("el=>getComputedStyle(el).transform")=="none",'answer tap must not shrink and rebound'
                 if reduced:assert option.evaluate("el=>getComputedStyle(el).transform")=='none','reduced-motion press moved the answer'
                 option.dispatch_event('pointercancel',{'pointerId':1,'pointerType':'touch'});assert not option.evaluate("el=>el.classList.contains('nk-pressed')"),'cancelled gesture remained pressed'
-                option.tap();page.wait_for_selector('.nk-fsrs-rating');assert len(page.evaluate('__vibrations'))==1,'Practice answer should emit only its outcome'
+                option.tap();page.wait_for_selector('.nk-fsrs-rating');assert page.evaluate('__vibrations')==[7],'correct answer should emit one gentle 7 ms pulse'
                 assert page.locator('.option-list .correct').count()==1
                 page.evaluate("window.__stem=document.querySelector('.question-text');window.__dock=document.querySelector('.nk-fsrs-rating');window.scrollTo(0,document.body.scrollHeight)")
                 before=page.evaluate('scrollY');page.evaluate('QB.toggleBookmark(QB.getState().activeSession.questionIds[0])');assert page.evaluate('scrollY')==before
@@ -52,6 +63,16 @@ def main():
                 page.evaluate('QB.openTestBuilder();QB.nkCbtSetStep(2);QB.nkCbtSelectVerifiedPyqs();QB.nkCbtSetStep(3);QB.nkCbtSetCount(10);QB.nkCbtStart()');page.wait_for_selector('.is-exam .option-list button')
                 page.evaluate("window.__stem=document.querySelector('.question-text')")
                 choices=page.locator('.is-exam .option-list button');choices.nth(0).tap();choices.nth(1).tap();assert page.evaluate("__stem===document.querySelector('.question-text')");assert choices.nth(1).get_attribute('aria-pressed')=='true'
+                appearance=page.evaluate("""async() => {
+                    const b=document.querySelectorAll('.is-exam .option-list button')[1];
+                    const color=getComputedStyle(b).backgroundColor;
+                    QB.selectExam(1);
+                    const immediate=getComputedStyle(b).backgroundColor;
+                    await new Promise(requestAnimationFrame);
+                    return {changed:color!==immediate,firstFrame:getComputedStyle(b).backgroundColor===immediate,
+                        animations:b.getAnimations().length,duration:getComputedStyle(b).transitionDuration};
+                }""")
+                assert appearance=={'changed':True,'firstFrame':True,'animations':0,'duration':'0s'},appearance
                 timing=page.evaluate("""() => {const ms=[];for(let i=0;i<12;i++){const t=performance.now();QB.selectExam(i%2+1);ms.push(performance.now()-t);}return ms.sort((a,b)=>a-b)[6];}""")
                 assert page.evaluate("__stem===document.querySelector('.question-text')")
                 page.locator('.nk-exam-review-toggle').tap();assert page.locator('.nk-exam-review-toggle').get_attribute('aria-pressed')=='true';assert page.evaluate("__stem===document.querySelector('.question-text')");pulses=page.evaluate('__vibrations.length')

@@ -54,7 +54,9 @@ jobs:
       - name: Test FSRS scheduler and queue contracts
         run: python3 tools/test_fsrs_v1.py
       - name: Test question interaction durability and identity
-        run: python3 tools/test_question_interaction_integrity.py
+        run: |
+          python3 tools/test_question_interaction_integrity.py
+          python3 tools/test_cbt_cleanup_ownership.py
       - name: Verify interaction polish owners
         run: python3 tools/test_interaction_polish_v1.py
       - name: Verify native haptic owner

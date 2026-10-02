@@ -2147,3 +2147,20 @@ The user additionally requested removing the entire NK QBank global header outsi
 - Analysis/header run36953970794 passed build but Android disconnected during
   source-PDF element capture; requested unchanged-c662 failed-job rerun.
   Main/root still certified1ba. See docs/INTERACTION_POLISH_2026-10-02.md.
+
+## 2026-10-02 — Certified interaction candidate promoted to main
+
+Product a68e9c2d6e2b8f121b747c2aba53d9cc5ffeec75 passed feature full36956370295
+(first attempt), both Engineering gates36956370263/36956374578, 87 local checks
+and fresh hosted phone/tablet touch/Bookmark/Pause/Insights checks. Main was
+fast-forwarded to the exact certified product; PR83 and ancestor PR82 are merged.
+Main full36957980864 now verifies the official Android identity and supplies
+the production artifact. Canonical root remains previous1ba until that run
+passes and the exact artifact deploys; preserve main identity throughout deploy.
+The isolated c662 run36953970794 also passed after its unchanged Android rerun.
+
+### 2026-10-02 — User-reported press latency / gentle answer feedback
+
+Main a68 is build-verified from feature CI, but the user reports its new interactions feel slower across the app. Hold canonical deployment while correcting shared110 ms state/release transitions and added route/question/sheet movement. A/B computed appearance confirms old answer colors persisted on the first frame; correction makes committed colors immediate with no transition. Preserve save/indexing/in-place improvements and rollback. User additionally requests subtle answer haptics: single7/9 ms browser pulses and native CLOCK_TICK outcomes. Fresh responsive/browser/native certification pending on `feature/home-answer-latency`; root still serves1ba.
+
+The first latency correction's full run36959307370 caught a real pre-existing race exposed by faster clicks: a stale250 ms CBT cleanup closed a newly opened Review navigator. Reproduced locally, fenced cleanup to its submitted exam, removed legacy panel animation and added source ownership / generated300 ms Review survival checks. PYQ/mixed/history/Review/follow-up now pass on phone/tablet; fresh full certification is required. Superseded maina68 Android failed at WebView rediscovery after app reset, after its Pause/Back/multi-Pause paths passed.

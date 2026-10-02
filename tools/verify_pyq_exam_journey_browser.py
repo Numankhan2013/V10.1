@@ -95,6 +95,10 @@ def main() -> None:
                 page.get_by_role('button', name='Review Solutions', exact=True).click()
                 page.wait_for_function("window.QB.getState().activeSession?.mode==='review'")
                 page.locator('#cr-grid').click()
+                # Exercise the old 0/80/250 ms submission-cleanup window: a
+                # newly opened Review navigator belongs to this new session.
+                page.wait_for_timeout(300)
+                expect(page.locator('#qb-question-navigator')).to_be_visible()
                 page.locator('#qb-question-navigator').get_by_role('button', name='End Review', exact=True).click()
                 expect(page.get_by_role('heading', name='Topic breakdown')).to_be_visible()
                 page.evaluate("window.QB.nav('tests')")
