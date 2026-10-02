@@ -2,24 +2,26 @@
 
 > Operational state only. Resolve the live branch/commit and CI from Git before acting. Historical detail belongs in `SESSION_LOG.md` and dedicated handoffs.
 
-## Interaction polish — 2026-10-02
+## Interaction responsiveness correction — 2026-10-02
 
-- Active `feature/home-interaction-polish`, based on analysis/header candidate c662. Main/root remain released1ba; new candidates are not production-certified.
-- User authorized latency/haptic recovery: topic indexing, leaner durable saves, in-place CBT/bookmark/FSRS/mark edits, cancellable press feedback, restrained/reduced-motion motion and contained sheets. Native selective bridge follows Activity regeneration; ordinary navigation is silent. See `docs/INTERACTION_POLISH_2026-10-02.md`.
-- Actual CBT median ~12.4 ms → ~4 ms locally, preserving DOM. Responsive touch/rollback/rating/reload and Continue/correction/FSRS/result/mock checks passed. Full exact-head CI remains next; physical haptic review is separate.
-- Analysis/header run36953970794 passed build/browser/PWA/APK; Android disconnected during source-PDF element capture. Unchanged-c662 failed-job rerun requested. Fast gates passed; PR82 remains pending.
+- User reports first polish candidate feels slower across all controls and asks for gentler answer haptics. Canonical deployment is held; `feature/home-answer-latency` builds forward from main product a68. Root remains released1ba.
+- Measured regression: shared 110 ms transitions leave the prior answer colors on the first frame after commit and animate release. Remove shared color/scale transitions and new page/question/sheet motion; keep immediate touch-down tint, cancellation, scroll/focus preservation and existing layout/colors.
+- Practice outcome feedback is now a single7/9 ms browser pulse; native success/error use light CLOCK_TICK instead of CONFIRM/REJECT/LONG_PRESS. Completion remains distinct; saves/rollback and selective haptic policy are preserved.
+- Faster bank indexing, leaner durable saves and in-place CBT/bookmark/FSRS/mark edits remain. Fresh first-frame/press/release checks passed at320/390/820/1194px plus reduced motion. All87 local checks and Practice/Continue/FSRS browser regressions passed. Full exact-candidate CI is required before promotion/release; physical feel remains subject to user review.
+- Prior a68 passed feature full36956370295 and fast gates; it is already on main (PR83 includes PR82). Its official main full36957980864 is running, but passing it alone does not authorize releasing the user-reported regression.
+- See `docs/INTERACTION_POLISH_2026-10-02.md`; preserve the analysis, mocks, Home-only header and approved streak/FSRS work.
 
 ## Current UI refinement — 2026-10-02
 
-- Prior candidate: `feature/home-analysis-refinement`, based on released product `1ba1635428a661c4e9c152e2e90d75b441c05b0b`. New result/mock UI is not yet build-certified or on production; resolve live Git/CI.
+- Prior candidate: `feature/home-analysis-refinement`, based on released product `1ba1635428a661c4e9c152e2e90d75b441c05b0b`. Now included in certified main product a68; official packaging/canonical deployment are pending.
 - Insights labels follow week/month/year; historical comparisons show dates. Donuts align with empty prior periods; visible bar groups centre on their interval labels. Preserve the comparative full-year heatmap and removed Study Map/Topics to revisit.
 - Late owner `apply_refined_analysis_v1.py` follows clarity: compact score/accuracy, green/coral/amber outcomes, test-only subject/topic tabs, saved-timing distribution/cumulative charts, and existing Review/correction/marked/retake/module actions. The global subject badge is removed; the NK QBank header appears only on Home, per the latest user request.
 - Named fixed-question mocks use optional `state.savedMocks`, durable snapshots and a separate sync collection with tombstones. Modules already support names, save/resume and restart. Tests remain immutable apart from explicit title edits.
-- 84 local checks pass; generated responsive screenshots and result/mock journeys passed. Practice/Review/CBT/marked/FSRS/clarity regressions passed; full Ubuntu content/browser/APK/emulator CI remains next.
+- 84 local checks pass; generated responsive screenshots and result/mock journeys passed. Practice/Review/CBT/marked/FSRS/clarity regressions passed; combined full Ubuntu content/browser/APK/emulator CI passed on a68; canonical release is pending.
 
 ## Released Insights and clarity — 2026-10-02
 
-- Main is certified product `1ba1635428a661c4e9c152e2e90d75b441c05b0b`; PR81 merged. Feature full run `36947218296` and main full run `36949193523` passed content/browser/PWA/APK/package and phone/tablet emulators; both fast gates passed.
+- Previous root release is certified product `1ba1635428a661c4e9c152e2e90d75b441c05b0b`; PR81 merged. Feature full run `36947218296` and main full run `36949193523` passed content/browser/PWA/APK/package and phone/tablet emulators; both fast gates passed.
 - Canonical https://nk-qbank.pages.dev serves the exact certified HTML (SHA-256 `24ad5d627b94e25c9d6f79cbdc8ff73ec759f924ea8fde533d21c5d84cfb8737`); hosted phone/tablet period/reload/relative-heatmap checks passed.
 - Automatic production trigger did not start. Release branch `release/approved-production-20261002-clarity` at `cffb8ad0d9e63eab7ddb483708472cb3581350c6` pins the verified main artifact; deploy run `36951774743` succeeded without rebuilding. Main stayed unchanged for artifact identity checks.
 - Owners `apply_learning_insights_v1.py` and `apply_app_clarity_v1.py` implement read-only comparative metrics, continuous year-relative shade/glow and compact app screens. Accepted Revision/liquid streak/editable FSRS and all source work remain included. Physical APK acceptance remains separate.
@@ -29,7 +31,6 @@
 - Accepted product commit: `125d68b`.
 - Accepted baseline: V11.6 remains the rollback product baseline; the Continue Practice contract below is separately user/device accepted.
 - **Production integration trunk:** `main`; `feature/marrow-canonical-full-current` remains the content-work lane and needs fast-forward alignment to the released Insights/clarity product before future content work. Preserve merged Revision/streak/FSRS features.
-- User-approved combined product `18e4cd58a09f14169447dd7aaf13a6cc08971ceb`: Engineering `36883870916` and full run1380 / `36883871119` passed. Production deployment `36888530721` succeeded; Pages production branch is `main`. Root https://nk-qbank.pages.dev and deployment https://3bbd46cc.nk-qbank.pages.dev serve identical HTML (SHA-256 `f0f9bb3ce205c6f79ae024d5025ffcce8c977a0915dc178c5307c83be5145c2a`), including all2,688 approved explanation configs and runs1375/1378 features.
 - Latest accepted Practice behavior was verified from checkpoint `74abb670c3ae088e06653681e85c347212222455`; full run `34695680534` succeeded and the user physically confirmed the Continue Practice flow. This behavior is build-verified, **device-verified**, and user-accepted.
 
 ## Complete canonical Marrow ED8 source

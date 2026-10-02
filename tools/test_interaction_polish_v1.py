@@ -11,6 +11,9 @@ def main():
     assert 'nkInteractionRender=render;' in result
     for marker in ['pointercancel','pointermove','prefers-reduced-motion','preventScroll','nkPolishSubmitted','nkPolishPanels']:
         assert marker in result,marker
+    assert 'transition:none!important' in result
+    assert 'node.animate(' not in result, 'shared polish must not animate route/question publication'
+    assert 'transition:transform 110ms' not in result
     try:transform(base.replace('route = parseHash(); render();','unexpectedRouteOwner();'))
     except ValueError:pass
     else:raise AssertionError('unexpected route owner was silently removed')

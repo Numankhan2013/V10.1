@@ -23,8 +23,9 @@ browser measurements, not physical-device latency claims.
 - Immediate pointer-down press states for buttons, cards, links, answer options,
   navigation and disclosure controls. Pointer cancellation or a scrolling
   gesture releases the press; actions still use their existing click handlers.
-- Short release transitions and 120–140 ms content/sheet movement. No animation
-  gates navigation or saving. Reduced-motion users receive static feedback.
+- Immediate press tint and immediate release/selection state. The initial
+  release/color transitions and content/sheet movement were removed after
+  the user reported slower feel; reduced motion remains respected.
 - Bookmark, CBT answer, FSRS grade and exam-review-mark edits update in place
   only after a successful durable commit. Question/source DOM, scroll position
   and rating controls remain mounted. A failed commit publishes neither the
@@ -58,3 +59,40 @@ Local source tests and disposable-preview checks do not certify the APK.
 Full exact-candidate Ubuntu generation/browser/PWA/package and Android phone/
 tablet CI remain mandatory before main/production promotion. Physical haptic
 feel and installation/data-preservation acceptance remain separate.
+
+## Exact-candidate certification and main promotion
+
+Product `a68e9c2d6e2b8f121b747c2aba53d9cc5ffeec75` passed full run
+[36956370295](https://github.com/Numankhan2013/V10.1/actions/runs/36956370295)
+on the first attempt, both Engineering gates and 87 local checks. Fresh hosted
+phone/tablet checks passed at https://f1295420.nk-qbank.pages.dev. Actual module
+topic taps and count/name typing also retained focus on phone/tablet.
+
+Main was fast-forwarded to that exact product; PR83 includes merged PR82.
+Main full run36957980864 is running for the official Android identity. Canonical
+deployment remains pending and must use that successful verified main artifact.
+Keep main fixed during the deployment workflow's artifact/current-main guard.
+
+## User-reported responsiveness regression and correction
+
+The user found the initial polish slower throughout the app, then asked for
+subtler answer haptics. Canonical release was held. A frame-level A/B audit
+found that a committed CBT selection still showed the old background/border
+on its first frame, while the shared 110 ms transition animated seven CSS
+properties. After correction, the committed, first-frame and settled colors
+match immediately and no control transition remains. Press tint is immediate,
+release is immediate, and the added question/page/sheet movement is removed.
+The faster save/indexing and in-place updates remain intact.
+
+Practice outcomes now use one brief7 ms correct /9 ms wrong browser pulse;
+native answer outcomes use CLOCK_TICK, removing CONFIRM/REJECT/LONG_PRESS from
+the repeated solving loop. Completion retains its separate feedback. The
+native owner also updates an existing bridge idempotently. Verification now
+checks actual first-frame appearance, press/release styles and gentle pulses,
+rather than relying only on fast synchronous handler measurements.
+
+All87 source/behavior/syntax checks pass. Generated first-frame/press/release/
+rollback checks passed at320/390/820/1194px and reduced motion. Practice/CBT/
+Review, genuine multi-chapter Pause/Home Continue and FSRS rating amendment/
+sync/reload regressions passed. Full correction certification and canonical
+deployment are pending.
