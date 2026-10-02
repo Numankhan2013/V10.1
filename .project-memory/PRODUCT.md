@@ -45,7 +45,7 @@ Prefer building over narrating.
   metrics show answered IDs, accuracy, and study time. Result score and answer
   accuracy name their denominators; zero answers show an em dash. Larger
   text/focus/touch targets and immediate result actions retain durable-submit
-  and repeated-tap guards. Tap/haptic feedback is excluded from this promotion.
+  and repeated-tap guards. Tap/haptic feedback was excluded from September promotion; the October 2 user request authorizes selective recovery and interaction polish.
 - **Daily loop:** Home → Continue/Practice → Review → Return Home stays
   frictionless; unfinished-session recovery works.
 - **Practice:** immediate feedback, source explanations, free navigation,

@@ -884,3 +884,10 @@ Product `18e4cd58a09f14169447dd7aaf13a6cc08971ceb` passed Engineering `368838709
 ## 2026-10-01 — App-wide clarity pass with comparative Insights
 
 The user supplied phone screenshots showing repeated page kickers/subtitles, definitions under obvious Revision labels, and excessive header gaps. They requested removal of noise across the app, and authorized promotion of the combined Insights/clarity candidate to main and https://nk-qbank.pages.dev after verification. The late deterministic clarity owner trims navigation-only markup, compacts main page headers, Revision queues, Home focus, FSRS settings and builders; counts/actions, safety warnings, save/sync states, subject/bank context and source questions/explanations remain protected. Insights now starts with title/controls and Activity, removes repeated chart instructions and promotional summary, and keeps metric definitions in collapsed help. Continuous heatmap intensity remains relative to the selected year/scope peak. Screenshot inspection and browser checks cover ten screens and two builders at320/390/820; all four populated Revision queues fit above phone navigation. Existing Continue Practice, missed-question/FSRS and Revision/streak browser checks pass. The previous94e1 build passed web/PDF/APK but Android tablet attempts lost a screenshot target and then timed out reconnecting WebView; neither is a certified final candidate. Full combined CI and production delivery remain pending. Current main release handoff ecf7906 was merged, retaining verified18e4 production content and release workflow.
+
+### 2026-10-02 interaction polish continuation
+
+User authorized latency recovery and native-feel polish. Implementation/local
+responsive checks on feature/home-interaction-polish retain c662 analysis/header
+work; new exact-head full CI is pending. Root/main still serve1ba. STATE and
+docs/INTERACTION_POLISH_2026-10-02.md own current facts. No physical haptic claim.

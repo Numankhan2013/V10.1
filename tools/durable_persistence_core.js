@@ -134,7 +134,13 @@
     const store=nkStorageAdapter(),previousPrimary=store.getItem(LS_KEY);
     try{
       nkMirrorNormalPracticeCheckpoint(candidate);nkPrepareTimedSession(candidate);
-      const next=nkNormalizeState(nkStateClone(candidate));next.stateRevision=Math.max(nkStateRevision(candidate),nkStateRevision(nkReadStateCandidate(LS_KEY)?.value))+1;
+      // Normalize makes a new root object and never mutates its input. Avoid a
+      // second full-state clone and the checkpoint normalization done by a
+      // redundant primary read on every question tap.
+      const next=nkNormalizeState(candidate);
+      let storedRevision=0;
+      if(previousPrimary){try{storedRevision=nkStateRevision(JSON.parse(previousPrimary));}catch(_){}}
+      next.stateRevision=Math.max(nkStateRevision(candidate),storedRevision)+1;
       const raw=JSON.stringify(next);
       store.setItem(NK_STATE_PENDING_KEY,raw);store.setItem(LS_KEY,raw);
       const check=store.getItem(LS_KEY);if(check!==raw)throw new Error('primary verification failed');

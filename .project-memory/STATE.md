@@ -2,9 +2,16 @@
 
 > Operational state only. Resolve the live branch/commit and CI from Git before acting. Historical detail belongs in `SESSION_LOG.md` and dedicated handoffs.
 
+## Interaction polish — 2026-10-02
+
+- Active `feature/home-interaction-polish`, based on analysis/header candidate c662. Main/root remain released1ba; new candidates are not production-certified.
+- User authorized latency/haptic recovery: topic indexing, leaner durable saves, in-place CBT/bookmark/FSRS/mark edits, cancellable press feedback, restrained/reduced-motion motion and contained sheets. Native selective bridge follows Activity regeneration; ordinary navigation is silent. See `docs/INTERACTION_POLISH_2026-10-02.md`.
+- Actual CBT median ~12.4 ms → ~4 ms locally, preserving DOM. Responsive touch/rollback/rating/reload and Continue/correction/FSRS/result/mock checks passed. Full exact-head CI remains next; physical haptic review is separate.
+- Analysis/header run36953970794 passed build/browser/PWA/APK; Android disconnected during source-PDF element capture. Unchanged-c662 failed-job rerun requested. Fast gates passed; PR82 remains pending.
+
 ## Current UI refinement — 2026-10-02
 
-- Active work: `feature/home-analysis-refinement`, based on released product `1ba1635428a661c4e9c152e2e90d75b441c05b0b`. New result/mock UI is not yet build-certified or on production; resolve live Git/CI.
+- Prior candidate: `feature/home-analysis-refinement`, based on released product `1ba1635428a661c4e9c152e2e90d75b441c05b0b`. New result/mock UI is not yet build-certified or on production; resolve live Git/CI.
 - Insights labels follow week/month/year; historical comparisons show dates. Donuts align with empty prior periods; visible bar groups centre on their interval labels. Preserve the comparative full-year heatmap and removed Study Map/Topics to revisit.
 - Late owner `apply_refined_analysis_v1.py` follows clarity: compact score/accuracy, green/coral/amber outcomes, test-only subject/topic tabs, saved-timing distribution/cumulative charts, and existing Review/correction/marked/retake/module actions. The global subject badge is removed; the NK QBank header appears only on Home, per the latest user request.
 - Named fixed-question mocks use optional `state.savedMocks`, durable snapshots and a separate sync collection with tombstones. Modules already support names, save/resume and restart. Tests remain immutable apart from explicit title edits.
@@ -78,12 +85,6 @@ Any change touching Home, Practice, session persistence, sync, question navigati
   residuals passed full run `34855852211`; physical acceptance remains separate.
 - Full details and residual identities: `.project-memory/MATCHING_TABLE_ARCHITECTURE_HANDOFF_2026-09-14.md`.
 
-## Scientific notation presentation — build-verified / user review pending
-
-- One shared, escape-first formatter now serves Practice, CBT and Review stems/options, takeaways, PrepLadder explanations/tables, Marrow native structured text/tables, and the separate enhanced-explanation wrapper. It renders explicit powers, common chemical/physiological subscripts and ionic charges, and only unambiguous OCR-placeholder repairs; raw source data remains unchanged.
-- Corpus audit found notation markup in **424 PrepLadder** and **695 Marrow** learner fields. Source-backed overrides repaired `5-10`, `5-14` and two occurrences in `4-12`; seven remaining ambiguous question records require rendered-source review. Residual OCR placeholders remain in 55 PrepLadder and 1 Marrow explanation records. Do not infer missing symbols from context alone.
-- All **46 available local checks** and exact-head Linux generated-app/browser/APK/package CI pass at the verified checkpoint above. Physical review remains pending.
-
 ## Learner-content hygiene
 
 - Whole-corpus serialized JSON/code sanitizer candidate `45f6539fff535fadc6aaa6970894f9ff123422fa` passed Engineering `34738522874` and full run `34738530102` over **2,711 questions / 27,898 learner-facing fields**; raw ED8 source is unchanged.
@@ -112,10 +113,6 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 ## BC3 and BC4 canonical interaction hardening
 
 - BC3 and BC4 were reconciled into canonical through `43328c1`. Canonical Engineering `35818707731` and full Android/PWA `35818707723` passed, including packaged Android 35 emulator phone/tablet and generated browser checks. Full history: `docs/BC4_QUESTION_INTERACTION_DEFECT_LEDGER_2026-09-22.md` and `SESSION_LOG.md`. Physical Android verification remains pending.
-
-## Study UI audit and first defect batch — 2026-09-23
-
-- Baseline screenshots at 320px/390px phone, larger text, and 820px tablet found CBT grid numbering/crowding, clipped question context, squeezed Analysis header, and a 320px Home action under bottom navigation. Shared fixes are in `docs/STUDY_UI_AUDIT_2026-09-23.md`. The user accepted the preview and authorized canonical promotion. Integrated product checkpoint `b6dd246` passed Engineering `35967933879` and full browser/PWA/APK/Android `35967933880`, including two saved chapters → submit one → Home Continue and Review Solutions → Home Continue. Physical in-place APK/data-preservation checks remain pending.
 
 ## Anti-fragmentation rules
 

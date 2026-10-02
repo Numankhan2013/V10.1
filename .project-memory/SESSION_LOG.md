@@ -2133,3 +2133,17 @@ User then requested contextual week/month/year chart labels, aligned donuts/bar 
 Latest user steering removes the top-right active-subject icon/text from the global header, including Test Analysis and Practice. The original whole-app header owner now omits the badge; source selection remains in the library and question context is preserved. Result screenshots are recaptured and the generated browser checks assert badge absence.
 
 The user additionally requested removing the entire NK QBank global header outside Home to lift the content. The original header owner now returns empty markup on non-dashboard routes; Home retains its existing branding. This supersedes the badge-only candidate and requires fresh screenshots/full certification.
+
+## 2026-10-02 — Interaction latency recovery and polish
+
+- User authorized the excluded b143242/89f949e latency/native-owner work and a
+  native-feel implementation pass without redesign. Recovered compatible deltas
+  and added shared cancellable presses, committed in-place question mutations,
+  restrained/reduced-motion motion and sheet focus/scroll containment.
+- Local baseline CBT medians ~12.4 ms → ~4 ms. Responsive failed-save, editable
+  FSRS, Continue, correction, study journey and result/mock checks passed.
+  Ordinary navigation is silent; Practice has one outcome pulse. Full new
+  candidate CI and production promotion remain pending; no physical haptic claim.
+- Analysis/header run36953970794 passed build but Android disconnected during
+  source-PDF element capture; requested unchanged-c662 failed-job rerun.
+  Main/root still certified1ba. See docs/INTERACTION_POLISH_2026-10-02.md.

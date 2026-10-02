@@ -379,3 +379,10 @@ unapproved candidate because it shares donor history. In this session the user
 approved account reset/switching, search, Practice correction, and Home/result
 refinements but explicitly excluded tap/haptic feedback. Main promotion and
 production deployment remain separate actions.
+
+## 2026-10-02 — Recover latency with selective haptics
+
+The user now authorizes excluded latency work and native-feel polish. Preserve
+the design and transactional study invariants. Visual feedback starts at
+pointer-down; outcomes/haptics follow successful saves. Ordinary navigation is
+silent; unsupported platforms retain visual feedback. Full CI precedes release.

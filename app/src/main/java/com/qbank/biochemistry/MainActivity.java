@@ -18,6 +18,7 @@ import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.view.HapticFeedbackConstants;
 import android.view.Window;
 
 import org.json.JSONObject;
@@ -66,9 +67,10 @@ public class MainActivity extends Activity {
         settings.setCacheMode(WebSettings.LOAD_DEFAULT);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) settings.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
 
-        webView.setBackgroundColor(Color.WHITE);
+        webView.setBackgroundColor(Color.WHITE); webView.setHapticFeedbackEnabled(true);
         webView.setWebChromeClient(new WebChromeClient());
         webView.addJavascriptInterface(new MigrationBridge(), "QBankMigration");
+        webView.addJavascriptInterface(new HapticsBridge(), "QBankHaptics");
         webView.setWebViewClient(new WebViewClient() {
             @Override public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) { return !request.getUrl().toString().startsWith(APP_ORIGIN); }
             @Override public void onPageFinished(WebView view, String url) {
@@ -84,6 +86,24 @@ public class MainActivity extends Activity {
         setContentView(webView);
         if (migrationPrefs.getBoolean("complete", false)) webView.loadUrl(APP_ORIGIN + "index.html");
         else webView.loadUrl("file:///android_asset/migrate_local_state.html");
+    }
+
+    // NATIVE_ACTION_HAPTICS_V1: framework effects honor the user's touch setting.
+    private final class HapticsBridge {
+        @JavascriptInterface public void play(String kind) {
+            if (kind == null) return;
+            final int effect;
+            switch (kind) {
+                case "choice": effect = HapticFeedbackConstants.CLOCK_TICK; break;
+                case "mark": effect = HapticFeedbackConstants.CONTEXT_CLICK; break;
+                case "primary": effect = HapticFeedbackConstants.KEYBOARD_TAP; break;
+                case "complete":
+                case "success": effect = Build.VERSION.SDK_INT >= 30 ? HapticFeedbackConstants.CONFIRM : HapticFeedbackConstants.VIRTUAL_KEY; break;
+                case "error": effect = Build.VERSION.SDK_INT >= 30 ? HapticFeedbackConstants.REJECT : HapticFeedbackConstants.LONG_PRESS; break;
+                default: return;
+            }
+            runOnUiThread(() -> { if (webView != null) webView.performHapticFeedback(effect); });
+        }
     }
 
     private final class MigrationBridge {

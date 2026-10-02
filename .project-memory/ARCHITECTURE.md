@@ -534,3 +534,12 @@ The final `apply_app_clarity_v1.py` presentation owner follows learning Insights
 `apply_refined_analysis_v1.py` runs after app clarity. It replaces only result markup and wraps the existing CBT builder/Tests renderers. The shared Practice/CBT/Review engines, immutable original results, FSRS, marked-question follow-up and retake lineage stay authoritative. Test breakdowns aggregate exact subject/bank/topic identities; Practice omits breakdowns. Time histograms read only finite saved question times and expose missing timing.
 
 Optional `state.savedMocks` stores names and ordered fixed question IDs. Durable state normalization preserves it; the existing sync envelope/winner/tombstone system adds a `savedMocks` collection, including reset and account isolation. Starting a mock validates every saved question and uses the protected timed-session entry point; it never silently shortens an unavailable set. A repeated exact set uses the existing initial-test/retake comparison. Modules retain their existing separate naming and restart flow.
+
+## Shared interaction system — 2026-10-02
+
+Final apply_interaction_polish_v1.py follows refined analysis and routes committed
+question paints through the shared renderer. In-place CBT/recall/bookmark/mark
+updates preserve source DOM and rollback. Presses cancel on gestures; short
+motion respects reduced motion. apply_android_haptics_v1.py follows Activity
+regeneration. Ordinary navigation is silent. Ownership and verification:
+docs/INTERACTION_POLISH_2026-10-02.md.

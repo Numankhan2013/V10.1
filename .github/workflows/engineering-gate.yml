@@ -55,6 +55,10 @@ jobs:
         run: python3 tools/test_fsrs_v1.py
       - name: Test question interaction durability and identity
         run: python3 tools/test_question_interaction_integrity.py
+      - name: Verify interaction polish owners
+        run: python3 tools/test_interaction_polish_v1.py
+      - name: Verify native haptic owner
+        run: python3 tools/test_android_haptics_v1.py
       - name: Test question presentation contracts
         run: python3 tools/test_question_presentation_v1.py
       - name: Validate Marrow pilot source bundle
