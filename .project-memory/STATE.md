@@ -9,7 +9,7 @@
 - User removed Study Map and Topics to revisit. A full-year calendar leads Insights, with daily details, totals/longest run, year selection and contained phone scrolling.
 - Continuous shade/glow uses count divided by the busiest day in the selected year/scope. New peaks rescale earlier days; there is no fixed 30+ saturation.
 - Active answers/results are read-only. Undo and rating edits do not inflate work. Sessions replace their answer timing; optional result session IDs provide exact future attribution, with bounded legacy matching.
-- Calculation/calendar and 320/390/820/1194 browser checks pass; generated Continue Practice passes. Product `94e1d27` passed web/PDF/APK build and fast gates; Android phone passed, tablet retries lost the screenshot target / WebView reconnect. New clarity candidate requires a full green run.
+- Calculation/calendar and 320/390/820/1194 browser checks pass; generated Continue Practice passes. Product `94e1d27` passed web/PDF/APK build and fast gates; Android phone passed, tablet retries lost the screenshot target / WebView reconnect. Combined `fce4277` stopped on a stale Revision test locator after singular-label polish; fix the locator and rerun full CI.
 - Clarity owner `apply_app_clarity_v1.py` follows Insights: removes redundant navigation prose/kickers, compacts headers/cards/settings/builders; keeps source content, counts, timers, save/sync states and study actions.
 - Next: certify combined candidate, then promote main with `[approved-production]` and verify https://nk-qbank.pages.dev. Physical APK acceptance remains separate.
 

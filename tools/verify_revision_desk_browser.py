@@ -178,7 +178,7 @@ def main() -> None:
             page.evaluate("window.QB.nkOpenRevisionHub()")
             page.get_by_role("heading",name="Revision",exact=True).wait_for()
             cards = page.locator(".nk-revision-card")
-            cards.nth(0).get_by_role("button", name="Practice 1 mistakes").click()
+            cards.nth(0).get_by_role("button", name="Practice 1 mistake").click()
             page.wait_for_function(
                 "([id,previous]) => location.hash==='#practice' && window.QB.getState().activeSession?.questionIds?.includes(id) && window.QB.getState().activeSession?.id!==previous",
                 arg=[WRONG_ID, previous_session],
@@ -188,7 +188,7 @@ def main() -> None:
             page.evaluate("window.QB.nkOpenRevisionHub()")
             page.get_by_role("heading",name="Revision",exact=True).wait_for()
             cards = page.locator(".nk-revision-card")
-            cards.nth(1).get_by_role("button", name="Practice 1 bookmarks").click()
+            cards.nth(1).get_by_role("button", name="Practice 1 bookmark").click()
             page.wait_for_function("id => location.hash==='#practice' && window.QB.getState().activeSession?.questionIds?.includes(id)", arg=BOOKMARK_ID)
 
             page.evaluate("window.QB.nkOpenRevisionHub()")
