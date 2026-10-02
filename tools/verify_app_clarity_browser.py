@@ -45,6 +45,8 @@ def main():
                         expect(page.locator('#nk-revision-subject')).to_be_visible()
                         page.locator('#nk-revision-subject').select_option('Biochemistry')
                         assert 'Questions you have' not in page.locator('.nk-revision-list').inner_text()
+                        assert 'Choose one area' not in page.locator('.nk-revision-focus-wrap').inner_text()
+                        assert 'Scheduled reviews for this focus' not in page.locator('.nk-revision-forecast').inner_text()
                         page.get_by_role('button',name='Hide focus',exact=True).click()
                     if route=='analytics':
                         assert page.locator('.nk-li-year-activity').bounding_box()['y']<280,(width,'heatmap starts too low')

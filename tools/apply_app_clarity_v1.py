@@ -10,7 +10,7 @@ def transform(source):
         return source
     if 'NK_LEARNING_INSIGHTS_V1_START' not in source:
         raise SystemExit('App clarity must follow learning Insights')
-    for name in ['dashboard','nkRevisionDeskPage','testsPage','morePage','nkFsrsReviewPage','nkFsrsSettingsMarkup','nkStudyLibraryPage','nkQuestionSearchPage','nkNotesPage','nkRevisionCards','nkCbtBuilderPage','studyModuleBuilderPage']:
+    for name in ['dashboard','nkRevisionDeskPage','testsPage','morePage','nkFsrsReviewPage','nkFsrsSettingsMarkup','nkStudyLibraryPage','nkQuestionSearchPage','nkNotesPage','nkRevisionCards','nkRevisionScopeMarkup','nkRevisionForecastMarkup','nkCbtBuilderPage','studyModuleBuilderPage']:
         if 'function '+name+'(' not in source:
             raise SystemExit('Missing clarity renderer: '+name)
     assert source.count('  window.QB={') == 1

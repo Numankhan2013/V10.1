@@ -60,6 +60,9 @@
   const nkClarityNotes=nkNotesPage;nkNotesPage=function(){return nkCompactScreenMarkup(nkClarityNotes.apply(this,arguments));};
   const nkClarityCbtBuilder=nkCbtBuilderPage;nkCbtBuilderPage=function(){return nkCompactScreenMarkup(nkClarityCbtBuilder.apply(this,arguments));};
   const nkClarityModuleBuilder=studyModuleBuilderPage;studyModuleBuilderPage=function(){return nkCompactScreenMarkup(nkClarityModuleBuilder.apply(this,arguments));};
+  // Focus and forecast also update independently when a scope changes.
+  const nkClarityRevisionScope=nkRevisionScopeMarkup;nkRevisionScopeMarkup=function(){return nkCompactScreenMarkup(nkClarityRevisionScope.apply(this,arguments));};
+  const nkClarityRevisionForecast=nkRevisionForecastMarkup;nkRevisionForecastMarkup=function(){return nkCompactScreenMarkup(nkClarityRevisionForecast.apply(this,arguments));};
   // Scope updates replace cards independently of the page renderer.
   const nkClarityRevisionCards=nkRevisionCards;nkRevisionCards=function(){return nkCompactScreenMarkup(nkClarityRevisionCards.apply(this,arguments));};
   /* NK_APP_CLARITY_V1_END */
