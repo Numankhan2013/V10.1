@@ -271,7 +271,7 @@ async function main(){
       await sourcePdf.screenshot({path:`${output}/${label}-source-pdf-contrast.png`});
       const initialPyqTest=await page.evaluate(()=>window.QB.getState().tests.at(-1));
       await page.evaluate(id=>window.QB.nav('result',id),initialPyqTest.id);
-      await page.getByRole('button',{name:'Retake timed CBT'}).click();
+      await page.getByRole('button',{name:'Retry Test'}).click();
       await page.waitForFunction(()=>window.QB.getState().activeSession?.mode==='exam');
       assert.deepEqual(await page.evaluate(()=>window.QB.getState().activeSession.questionIds),initialPyqTest.questionIds);
       assert.deepEqual(await page.evaluate(()=>window.QB.getState().activeSession.answers),{});
