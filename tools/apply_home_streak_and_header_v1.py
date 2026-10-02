@@ -2,11 +2,43 @@ from pathlib import Path
 
 HTML = Path('app/src/main/assets/index.html')
 s = HTML.read_text(encoding='utf-8')
+_original = s
+
+# Canonical streak semantics: today is an open grace day. If the learner has
+# not practiced yet today, preserve the consecutive run ending yesterday.
+# The streak breaks only once an entire local calendar day has been missed.
+CURRENT_STREAK_OLD = '''  function currentStreak() {
+    const days=studyDayKeys(), today=dayStart();
+    const todayKey=dayKey(today);
+    if(!days.has(todayKey)) return 0;
+    let n=0, cursor=new Date(today);
+    while(days.has(dayKey(cursor))){ n++; cursor.setDate(cursor.getDate()-1); }
+    return n;
+  }'''
+CURRENT_STREAK_GRACE_DAY = '''  function currentStreak() {
+    const days=studyDayKeys(), today=dayStart();
+    let cursor=new Date(today);
+    if(!days.has(dayKey(cursor))){
+      cursor.setDate(cursor.getDate()-1);
+      if(!days.has(dayKey(cursor))) return 0;
+    }
+    let n=0;
+    while(days.has(dayKey(cursor))){ n++; cursor.setDate(cursor.getDate()-1); }
+    return n;
+  }'''
+if CURRENT_STREAK_OLD in s:
+    s = s.replace(CURRENT_STREAK_OLD, CURRENT_STREAK_GRACE_DAY, 1)
+elif CURRENT_STREAK_GRACE_DAY not in s:
+    raise SystemExit('Canonical currentStreak() target not found; refusing ambiguous streak patch.')
 
 # This is a Home-only presentation patch. Do not touch the shared shell,
 # question renderer, CBT/Practice flows, or navigation APIs.
 if 'id="nk-home-streak-header-v1"' in s:
-    print('Home streak/header patch already present; no-op.')
+    if s != _original:
+        HTML.write_text(s, encoding='utf-8')
+        print('Home streak/header presentation already present; corrected canonical grace-day streak semantics.')
+    else:
+        print('Home streak/header and grace-day streak semantics already present; no-op.')
     raise SystemExit(0)
 
 # Insert a compact streak directly beneath the Home greeting. currentStreak(),
