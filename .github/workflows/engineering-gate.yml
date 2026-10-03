@@ -61,6 +61,10 @@ jobs:
           python3 tools/test_cbt_cleanup_ownership.py
       - name: Verify interaction polish owners
         run: python3 tools/test_interaction_polish_v1.py
+      - name: Verify visual refinement preserves the application
+        run: python3 tools/test_visual_refinement_v1.py
+      - name: Verify shared icon factories preserve labels and dimensions
+        run: python3 tools/test_icon_refinement_v1.py
       - name: Verify native haptic owner
         run: python3 tools/test_android_haptics_v1.py
       - name: Test question presentation contracts

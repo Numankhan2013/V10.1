@@ -1,0 +1,116 @@
+/* NK QBank: the incumbent violet identity, composed for long study sessions. */
+:root{
+ --nk-paper:#fffefd;--nk-canvas:#f7f6fa;--nk-ink:#29263f;--nk-secondary:#696579;
+ --nk-divider:#e5e1eb;--nk-action:#493394;--nk-selection:#f1ecfa;
+ --nk-amber-paper:#fff8eb;--nk-amber-ink:#875908;--nk-study-width:740px;
+}
+html body:has(#app :is(.nk-app-v114,.nk-tests-focused,.nk-home-command-center,.nk-v114-session)){
+ background:var(--nk-canvas)!important;color:var(--nk-ink);
+ --nk114-canvas:var(--nk-canvas);--nk114-surface:var(--nk-paper);--nk114-ink:var(--nk-ink);
+ --nk114-muted:var(--nk-secondary);--nk114-line:var(--nk-divider);--nk114-indigo:var(--nk-action);
+}
+/* Shared hierarchy and rhythm. Dense Revision retains its existing compact flow. */
+html body #app :is(.nk-app-v114,.nk-tests-focused){color:var(--nk-ink)}
+html body #app :is(.nk-page-head,.nk-v3-page-hero) h1,
+html body #app .nk-home-greeting h1{color:var(--nk-ink);font-weight:720!important;letter-spacing:-.025em!important;line-height:1.2}
+html body #app :is(.nk-section-head,.nk-v3-section-head) h2{color:var(--nk-ink);font-weight:680!important;line-height:1.25;letter-spacing:-.02em}
+html body #app :is(.nk-home-progress-head,.nk-home-revision-head) h2{color:var(--nk-ink);font-weight:680!important;line-height:1.25;letter-spacing:-.02em}
+html body #app :is(.nk-page-head,.nk-v3-page-hero){margin-bottom:20px!important}
+html body #app :is(.nk-section-head,.nk-v3-section-head){margin-bottom:12px!important}
+html body #app :is(.nk-home-command-center,.nk-tests-focused) :is(.nk-section,.nk-v3-section){margin-top:28px!important}
+html body #app :is(.nk-study-set-card,.nk-settings-group,.nk-subject-card,.nk-session-list,.nk-li-card,.nk-na-card,.nk-module-builder-card){
+ border-color:var(--nk-divider)!important;border-radius:16px!important;background:var(--nk-paper)!important;
+ box-shadow:none!important;
+}
+html body #app :is(.nk-study-set-main strong,.nk-subject-card strong,.nk-settings-row strong,.nk-test-row strong){font-weight:650!important;line-height:1.4}
+html body #app :is(.nk-study-set-main small,.nk-subject-card small,.nk-test-row small,.nk-settings-row small){color:var(--nk-secondary)!important;font-size:12px!important;line-height:1.5}
+html body #app .nk-line-progress{background:#eae5f2!important}
+html body #app .nk-study-set-card .nk-line-progress>i{background:#8468c9!important}
+html body #app .nk-study-set-action{background:#f6f3fc!important;color:var(--nk-action)!important;border-color:#dfd6f0!important;font-weight:650!important}
+/* Home's focus is the one deep-colored region, with softer surrounding depth. */
+html body #app .nk-home-command-center .nk-home-focus-card{
+ background:var(--nk-action)!important;background-image:none!important;
+ border:0!important;border-radius:20px!important;
+ box-shadow:0 6px 18px rgba(45,31,74,.09)!important;padding:24px!important;
+}
+html body #app .nk-home-focus-card h2{font-size:24px!important;font-weight:680!important;line-height:1.25!important;letter-spacing:-.02em}
+html body #app .nk-home-focus-card p{color:#eee5ff!important;line-height:1.6}
+html body #app .nk-home-focus-card :is(.nk-home-focus-primary,.nk-home-focus-action){box-shadow:none!important;color:var(--nk-action)!important}
+html body #app .nk-home-revision-counts button{border-color:var(--nk-divider)!important;border-radius:14px!important;background:var(--nk-paper)!important}
+/* Quiet navigation, with a single familiar selected tone on phone and tablet. */
+html body .bottom-nav{background:var(--nk-paper)!important;border-color:var(--nk-divider)!important;box-shadow:0 -2px 12px rgba(41,38,63,.025)!important}
+html body .bottom-nav .nav-item{color:var(--nk-secondary)!important}
+html body .bottom-nav .nav-item.active{color:var(--nk-action)!important;background:var(--nk-selection)!important}
+/* Reading has one measure. The footer and recall dock share that same axis. */
+html body:has(#app .nk-v114-session){background:var(--nk-paper)!important}
+html body:has(.nk-v114-session) .app-shell{padding-left:0!important}
+html body #app .qbank-session-page:has(.nk-v114-session){width:100%!important;max-width:none!important;background:var(--nk-paper)!important;padding:0 16px calc(104px + env(safe-area-inset-bottom))!important}
+html body #app .nk-v114-session{max-width:var(--nk-study-width)!important;margin-inline:auto!important;color:var(--nk-ink)}
+html body #app .nk-v114-session .question-card{background:transparent!important;box-shadow:none!important}
+html body #app .nk-v114-session .question-text{color:var(--nk-ink)!important;font-size:19px!important;line-height:1.6!important;font-weight:650!important;letter-spacing:-.012em!important}
+html body #app .nk-v114-session .option{min-height:62px!important;padding:14px 16px!important;border-radius:14px!important;box-shadow:none!important}
+html body #app .nk-v114-session .option-text{font-size:16px!important;font-weight:550!important;line-height:1.6!important;color:var(--nk-ink)!important}
+html body #app .nk-v114-session .option:where(:not(.correct):not(.wrong):not(.selected)){background:var(--nk-paper)!important;border-color:#ded8e8!important}
+html body #app .nk-v114-session .option.selected{background:var(--nk-selection)!important;border-color:#8468c9!important}
+html body .nk-session-footer{background:var(--nk-paper)!important;border-color:var(--nk-divider)!important;box-shadow:0 -4px 16px rgba(41,38,63,.035)!important;padding:10px 16px calc(10px + env(safe-area-inset-bottom))!important}
+html body .nk-session-footer .fixed-actions-inner{width:100%!important;max-width:var(--nk-study-width)!important;margin-inline:auto!important;padding:0!important;gap:10px!important}
+html body .nk-session-footer.nk-fsrs-docked .nk-fsrs-rating{width:100%!important;max-width:var(--nk-study-width)!important;margin:0 auto 10px!important;border-color:#dfd5ef!important;background:#f3eefb!important;box-shadow:none!important}
+html body .nk-session-footer .primary-btn{background:var(--nk-action)!important;background-image:none!important;color:#fff!important;box-shadow:none!important}
+html body .nk-session-footer .ghost-btn{background:var(--nk-paper)!important;border-color:#d7cfE4!important;color:var(--nk-action)!important}
+html body .nk-session-footer.nk-fsrs-docked .nk-fsrs-pill.is-default{background:var(--nk-action)!important;color:#fff!important;box-shadow:none!important}
+/* Topics keep their established journey, with steadier type and paper. */
+html body #app .nk-topics-v114 .nk-topic-row{border-radius:14px!important;background:var(--nk-paper)!important;box-shadow:none!important}
+html body #app .nk-topics-v114 .nk-topic-copy strong{color:var(--nk-ink)!important;font-size:14px!important;font-weight:620!important;line-height:1.45!important}
+html body #app .nk-topics-v114 .nk-topic-copy small{color:var(--nk-secondary)!important;font-size:11px!important;line-height:1.45!important}
+html body #app .nk-topics-v114 .nk-filter-tabs button.is-active{background:var(--nk-action)!important;color:#fff!important}
+html body #app :is(.nk-fsrs-subject-card,.nk-v3-subject-card){border-color:var(--nk-divider)!important;background:var(--nk-paper)!important;box-shadow:none!important}
+html body #app :is(.nk-fsrs-subject-card,.nk-v3-subject-card) small{color:var(--nk-secondary)!important;font-size:12px!important;line-height:1.5}
+html body #app :is(.nk-review-metrics small,.nk-review-chart small,.nk-v3-section-head>span,.nk-section-head>span){color:var(--nk-secondary)!important}
+html body #app .nk-more-v114 .nk-cloud-card{background:var(--nk-paper)!important;border:1px solid var(--nk-divider)!important;border-radius:16px!important;box-shadow:none!important}
+/* Insights and analysis share a palette, without changing outcome/bar semantics. */
+html body #app .nk-learning-insights{--li-ink:var(--nk-ink);--li-muted:var(--nk-secondary)}
+html body #app .nk-learning-insights .nk-li-card{padding:20px!important}
+html body #app .nk-learning-insights .nk-li-grid{margin-top:24px!important}
+html body #app .nk-learning-insights .nk-li-card h2{font-size:16px!important;font-weight:680!important;line-height:1.3!important}
+html body #app .nk-learning-insights .nk-li-stats article{border-color:var(--nk-divider)!important;background:var(--nk-paper)!important;border-radius:16px!important}
+html body #app .nk-learning-insights .nk-li-stats article>small{font-size:12px!important;color:var(--nk-secondary)!important;line-height:1.5}
+html body #app .nk-learning-insights .nk-li-stats article[data-metric="Recorded study time"]{background:var(--nk-amber-paper)!important;border-color:#efdfbf!important}
+html body #app .nk-learning-insights .nk-li-stats article[data-metric="Recorded study time"] :is(.nk-li-icon,small){color:var(--nk-amber-ink)!important}
+html body #app .nk-learning-insights .nk-li-stats article[data-metric="Recorded study time"] .nk-li-icon{background:#f9eaca!important}
+html body #app .nk-learning-insights .nk-li-topic strong{font-weight:650!important;line-height:1.4}
+html body #app .nk-learning-insights .nk-li-topic small{font-size:11px!important;color:var(--nk-secondary)!important;line-height:1.5}
+html body #app .nk-learning-insights :is(.nk-li-year-head p,.nk-li-year-summary small,.nk-li-stats article>p,.nk-li-outcomes dl,.nk-li-topic-head,.nk-li-comparison>div,.nk-li-period-note){color:var(--nk-secondary)!important}
+html body #app .nk-learning-insights :is(select,.nk-li-tabs){background:#f1ecfa!important}
+html body #app .nk-learning-insights .nk-li-tabs button[aria-pressed="true"],
+html body #app .nk-refined-analysis .nk-na-tabs button[aria-pressed="true"]{background:var(--nk-action)!important;color:#fff!important;box-shadow:none!important}
+html body #app .nk-refined-analysis{--na-ink:var(--nk-ink);--na-muted:var(--nk-secondary);--na-line:var(--nk-divider)}
+/* A shared two-tone glyph family: shape depth, without filters or animation. */
+.nk-product-icon{flex-shrink:0;overflow:visible;vertical-align:middle}
+html body .bottom-nav .nav-item.active .nk-icon-tone,
+html body .bookmark-toggle.bookmarked .nk-icon-tone{opacity:.32}
+html body .nk-fsrs-medallion svg path:first-child{fill:currentColor;fill-opacity:.16;stroke-width:1.9}
+html body #app :is(.nk-app-v114,.nk-home-command-center,.nk-v114-session) ::selection{background:#e4d9f6;color:var(--nk-ink)}
+html body #app :is(.nk-app-v114,.nk-home-command-center,.nk-v114-session) :is(button,select,input,summary):focus-visible{outline-color:var(--nk-action)!important}
+@media(min-width:768px) and (min-height:600px){
+ html body #app .qbank-session-page:has(.nk-v114-session){padding-inline:32px!important}
+}
+@media(min-width:900px){
+ html body #app :is(.nk-page-head,.nk-v3-page-hero) h1{font-size:30px!important}
+ html body #app .nk-home-command-center .nk-home-focus-card{padding:28px!important}
+}
+@media(max-width:359px){
+ html body #app .nk-home-command-center .nk-home-focus-card{padding:20px!important}
+ html body #app .nk-home-focus-card h2{font-size:22px!important}
+ html body #app .nk-v114-session .question-text{font-size:18px!important}
+ html body #app .nk-v114-session .option{padding:12px!important}
+ html body #app .nk-learning-insights .nk-li-card{padding:16px!important}
+}
+
+@media(min-width:700px) and (max-width:1100px){
+ html body #app .nk-learning-insights .nk-li-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+ html body #app .nk-learning-insights .nk-li-stats article:last-child{grid-column:1/-1;display:grid;grid-template-columns:36px 1fr auto;align-items:center;gap:4px 12px;min-height:72px}
+ html body #app .nk-learning-insights .nk-li-stats article:last-child>.nk-li-icon{grid-row:1/4}
+ html body #app .nk-learning-insights .nk-li-stats article:last-child>small{margin:0}
+ html body #app .nk-learning-insights .nk-li-stats article:last-child>b{grid-column:3;grid-row:1/4}
+ html body #app .nk-learning-insights .nk-li-stats article:last-child>:is(.nk-li-delta,p){margin:0}
+}
