@@ -4,7 +4,7 @@ Canonical source: `UW_2024_Renal,_Urinary_Systems_&_Electrolytes_6_blocks_OCR-72
 
 ## Integration order
 
-1. **Upsert** `continuation_patch_part1_qid11806.jsonl` into the existing Part 1 canonical ID `uworld__RENAL_P1_B03_Q040`. Do not create a second QID 11806. Part 1 ended after the question page; Part 2 pages 1-9 supply the answer/explanation.
+1. **Split reconciliation:** on branch `uworld-poisoning-env-block-01-20261003`, the existing Part 1 combined JSONL and `block_003.jsonl` have already been upserted with the completed canonical ID `uworld__RENAL_P1_B03_Q040` (QID 11806). `continuation_patch_part1_qid11806.jsonl` is retained as an audit/reuse artifact. If this package is consumed outside that branch, upsert the patch; never create a duplicate QID 11806.
 2. Import Blocks 4-6 from either `uworld_renal_urinary_electrolytes_part_02.jsonl` or the per-block slices. Do not import both combined + slices twice.
 3. `supplemental_009_partial.jsonl` contains an explicit missing Item 1 placeholder (non-importable) and a complete Item 2, QID 106039. The PDF then ends while a post-explanation exhibit is open; the canonical question/answer/explanation/objective are complete. Items 3-9 are not supplied in this PDF.
 
