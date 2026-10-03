@@ -58,10 +58,12 @@
   resultPage=function(testId){
     const t=nkAnalysisTest(testId);if(!t)return testsPage();
     const practice=t.kind==='practice',attempted=Number(t.correct||0)+Number(t.incorrect||0),accuracy=attempted?fmtPct(t.correct/attempted*100):'—',score=t.total?fmtPct(t.correct/t.total*100):'0%',totalTime=typeof t.totalTimeMs==='number'?t.totalTimeMs:null;
-    const origin=t.originRoute||(practice?'topics':'tests');
+    const origin=t.originRoute||(practice?'topics':'tests'),browse=/^revision-browse\/(wrong|bookmarks)$/.exec(origin);
+    const backLabel=browse?(browse[1]==='wrong'?'Mistakes':'Bookmarks'):origin;
+    const backAction=browse?`window.QB.nav('revision-browse','${browse[1]}')`:`window.QB.nav('${esc(origin)}')`;
     const questionMap=new Map(nkAllStudyQuestions().map(q=>[String(q.id),q]));BY_ID={...BY_ID,...Object.fromEntries((t.questionIds||[]).filter(id=>questionMap.has(String(id))).map(id=>[id,questionMap.get(String(id))]))};
     const module=t.studyModuleId&&nkFindStudyModule(t.studyModuleId);
-    return shell(`<main class="nk-app-v114 nk-result-v114 nk-refined-analysis"><header class="nk-na-head"><button class="nk-na-back" aria-label="Back to ${esc(origin)}" onclick="window.QB.nav('${esc(origin)}')">${navIcon('back',22)}</button><h1>${practice?'Practice':'Test'} analysis</h1></header><div class="nk-na-name"><span>${navIcon(practice?'book':'test',19)}</span><div><strong>${esc(t.title||'Untitled test')}</strong><small>${fmtDate(t.createdAt)}</small></div>${!practice?`<button aria-label="Rename test" onclick="document.getElementById('nk-na-rename').hidden=false;document.getElementById('nk-na-title').focus()">${nkAnalysisIcon('edit',18)}</button>`:''}</div>${!practice?`<form id="nk-na-rename" hidden onsubmit="event.preventDefault();window.QB.nkAnalysisRename('${esc(t.id)}')"><label for="nk-na-title">Test name</label><input id="nk-na-title" maxlength="80" value="${esc(t.title||'')}"><button type="submit">Save name</button></form>`:''}
+    return shell(`<main class="nk-app-v114 nk-result-v114 nk-refined-analysis"><header class="nk-na-head"><button class="nk-na-back" aria-label="Back to ${esc(backLabel)}" onclick="${backAction}">${navIcon('back',22)}</button><h1>${practice?'Practice':'Test'} analysis</h1></header><div class="nk-na-name"><span>${navIcon(practice?'book':'test',19)}</span><div><strong>${esc(t.title||'Untitled test')}</strong><small>${fmtDate(t.createdAt)}</small></div>${!practice?`<button aria-label="Rename test" onclick="document.getElementById('nk-na-rename').hidden=false;document.getElementById('nk-na-title').focus()">${nkAnalysisIcon('edit',18)}</button>`:''}</div>${!practice?`<form id="nk-na-rename" hidden novalidate onsubmit="event.preventDefault();window.QB.nkAnalysisRename('${esc(t.id)}')"><label for="nk-na-title">Test name</label><input id="nk-na-title" required maxlength="80" aria-describedby="nk-na-rename-status" oninput="if(this.value.trim()){this.removeAttribute('aria-invalid');document.getElementById('nk-na-rename-status').textContent='';}" value="${esc(t.title||'')}"><button type="submit">Save name</button><small id="nk-na-rename-status" role="status"></small></form>`:''}
       <section class="nk-na-card nk-na-summary nk-result-overview">${nkAnalysisRing(t,true)}<div><div class="nk-result-percentages"><strong>${t.correct} / ${t.total}</strong><span>Correct answers</span><span class="nk-na-accuracy">Accuracy <b>${accuracy}</b></span><span class="nk-na-sr">Score: all questions ${score}. Accuracy: answered questions ${accuracy}. ${attempted} answered.</span></div><div class="nk-na-outcome-counts nk-result-counts">${nkAnalysisOutcomes(t).map(([label,n,tone,icon])=>`<div class="is-${tone}"><span>${icon==='minus'?nkAnalysisIcon('minus',14):navIcon(icon,14)}</span><b>${n}</b><small>${label}</small></div>`).join('')}</div></div></section>
       <div class="nk-na-metrics">${[['clock','Time taken',nkAnalysisDuration(totalTime)],['stopwatch','Avg. time / Q',nkAnalysisDuration(totalTime===null||!t.total?null:totalTime/t.total)]].map(([icon,label,value])=>`<article><span>${icon==='stopwatch'?nkAnalysisIcon('stopwatch',21):navIcon(icon,21)}</span><div><small>${label}</small><b>${value}</b></div></article>`).join('')}</div>
       <div class="nk-na-analysis-grid">${!practice?nkAnalysisBreakdown(t):''}<section class="nk-na-card nk-na-performance"><header><h2>Question performance</h2></header><div>${nkAnalysisRing(t)}<dl>${nkAnalysisOutcomes(t).map(([label,n,tone])=>`<div><dt><i class="is-${tone}"></i>${label}</dt><dd>${n}<small>${t.total?Math.round(n/t.total*100):0}%</small></dd></div>`).join('')}</dl></div></section>${nkAnalysisTimeChart(t)}</div>
@@ -69,7 +71,16 @@
       ${practice?nkCorrectionResultSection(t):nkAnalysisFollowup(t)+nkAnalysisMarked(t)}${!practice?nkCbtComparisonSection(t):''}${!practice?`<button class="nk-na-save-mock" data-test-id="${esc(t.id)}" onclick="window.QB.nkMockSaveResult(this.getAttribute('data-test-id'))">${navIcon('bookmark',17)} Save as mock</button>`:''}${module?`<section class="nk-na-card nk-module-result"><header><h2>${esc(module.name)}</h2></header><div class="nk-module-result-actions"><button onclick="window.QB.restartStudyModule(this.getAttribute('data-module-id'))" data-module-id="${esc(module.id)}">Restart module</button><button onclick="window.QB.nav('dashboard')">Return Home</button></div></section>`:''}
       <details class="nk-na-card nk-na-answers"><summary>Every answer</summary><div class="nk-result-questions">${(t.questionIds||[]).map((id,i)=>{const q=questionMap.get(String(id)),sel=t.answers?.[id],correct=q&&Number(q.correctOption)===Number(sel);return `<div><span class="nk-question-index">${i+1}</span><span><strong>${q?esc(q.question.slice(0,125)):esc('Saved question unavailable')}</strong><small><i class="nk-status ${sel?(correct?'is-correct':'is-wrong'):'is-unattempted'}">${sel?(correct?'Correct':'Incorrect'):'Omitted'}</i>${q?esc(q.chapter||''):''}</small></span></div>`;}).join('')}</div></details></main>`,'tests');
   };
-  function nkAnalysisRename(id){const t=nkAnalysisTest(id),value=document.getElementById('nk-na-title')?.value.trim().slice(0,80);if(!t||!value)return;const prior=t.title;t.title=value;t.updatedAt=Date.now();if(saveState()===false){t.title=prior;return;}render();}
+  function nkAnalysisRename(id){
+    const t=nkAnalysisTest(id),input=document.getElementById('nk-na-title'),status=document.getElementById('nk-na-rename-status'),value=input?.value.trim().slice(0,80);
+    if(!t)return;
+    if(!value){input?.setAttribute?.('aria-invalid','true');if(status)status.textContent='Enter a test name.';input?.focus?.({preventScroll:true});return;}
+    input?.removeAttribute?.('aria-invalid');
+    const prior=t.title,priorUpdatedAt=t.updatedAt;t.title=value;t.updatedAt=Date.now();
+    if(saveState()===false){t.title=prior;if(priorUpdatedAt===undefined)delete t.updatedAt;else t.updatedAt=priorUpdatedAt;if(status)status.textContent='Could not save the name. Your text is still here.';return;}
+    render();
+    document.querySelector?.('.nk-na-name button')?.focus({preventScroll:true});
+  }
   function nkMockList(){return Array.isArray(state.savedMocks)?state.savedMocks:[];}
   function nkMockStore(name,ids){
     if(nkMockList().length>=100){showToast('Your saved mocks are full. Remove one before saving another.','bad');return null;}
@@ -90,7 +101,17 @@
     return startSession(ids,'exam',mock.name,initial?`cbt-retake:${String(initial.id)}`:`saved-mock:${mock.id}`);
   }
   function nkMockSaveResult(id){const t=nkAnalysisTest(id);if(!t||t.kind==='practice')return;if(nkMockList().some(m=>nkCbtSameQuestions(t,m))){showToast('This question set is already saved.');return;}if(nkMockStore(t.title,t.questionIds))showToast('Mock saved to Tests.','good');}
-  function nkMockRemove(id){const before=nkMockList();state.savedMocks=before.filter(m=>String(m.id)!==String(id));if(saveState()===false){state.savedMocks=before;return;}render();}
+  function nkMockRemove(id){
+    const before=nkMockList(),buttons=[...(document.querySelectorAll?.('.nk-na-mock-row>button:first-child')||[])],index=buttons.findIndex(n=>n.getAttribute('data-mock-id')===String(id));
+    const keyboard=document.activeElement?.matches?.('.nk-na-remove:focus-visible'),x=typeof window!=='undefined'?window.scrollX:0,y=typeof window!=='undefined'?window.scrollY:0;
+    state.savedMocks=before.filter(m=>String(m.id)!==String(id));if(saveState()===false){state.savedMocks=before;return;}render();
+    if(keyboard){
+      const next=[...(document.querySelectorAll?.('.nk-na-mock-row>button:first-child')||[])],target=next[Math.min(Math.max(0,index),next.length-1)]||document.querySelector?.('h1');
+      if(target){if(target.tagName==='H1')target.tabIndex=-1;target.focus({preventScroll:true});}
+    }
+    if(typeof window!=='undefined')window.scrollTo?.(x,y);
+    showToast('Saved mock removed.','good');
+  }
   const nkAnalysisQuestionsMarkup=nkCbtQuestionsMarkup;
   nkCbtQuestionsMarkup=function(){return `<label class="nk-na-mock-name" for="nk-cbt-name">Mock name <small>Optional</small><input id="nk-cbt-name" maxlength="80" placeholder="e.g. Biochemistry mock 01" value="${esc(nkCbtDraft?.name||'')}" oninput="window.QB.nkMockName(this.value)"></label>`+nkAnalysisQuestionsMarkup();};
   const nkAnalysisBuilderPage=nkCbtBuilderPage;

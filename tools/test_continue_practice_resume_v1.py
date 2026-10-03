@@ -55,6 +55,22 @@ let continuePractice=()=>{legacyHomeContinueCalls++;const q=questions[0];if(q)st
 window.QB={nkPausePractice,nkSubmitPracticeSession,nkResumePracticeById,nkDiscardNormalPractice,nkPracticeSavedSessionsDialog,openQuestionNavigator,openSessionReview,nkContinueRecentPractice,continuePractice};
 
 const full=Array.from({length:20},(_,i)=>`q${i+1}`);
+// Return hints change navigation only; legacy chapter checkpoints retain full study state.
+const returnSession={id:'return-session',mode:'practice',title:'Topic One',questionIds:[...full],index:4,
+  answers:{q1:2},submitted:{q1:true},questionTimes:{q1:1400},pendingRating:{q1:3},elapsedMs:2500,originRoute:'question-search'};
+const returnCheckpoint=nkPracticeBuildCheckpoint(returnSession,'paused');
+assert.equal(returnCheckpoint.context.originRoute,'question-search');
+for(const origin of ['notes','question-search','dashboard','study-library',undefined,'unsupported-route']){
+  const cp={...returnCheckpoint,context:{...returnCheckpoint.context,originRoute:origin}};
+  const restored=nkPracticeSessionFromCheckpoint(cp);
+  assert.equal(restored.originRoute,origin&&origin!=='unsupported-route'?origin:'topics');
+  assert.deepEqual(restored.questionIds,full);assert.equal(restored.index,4);
+  assert.deepEqual(restored.answers,{q1:2});assert.deepEqual(restored.submitted,{q1:true});
+  assert.deepEqual(restored.questionTimes,{q1:1400});assert.deepEqual(restored.pendingRating,{q1:3});
+  assert.equal(restored.elapsedMs,2500);
+}
+assert.equal(Object.hasOwn(nkPracticeBuildCheckpoint({...returnSession,originRoute:'topics'},'paused').context,'originRoute'),false);
+
 state.activeSession={id:'same-session',mode:'practice',title:'Topic One',questionIds:[...full],index:4,
   answers:{q1:1,q2:1,q3:1,q4:2},submitted:{q1:true,q2:true,q3:true,q4:true},questionTimes:{q5:25}};
 
