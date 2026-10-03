@@ -13,6 +13,7 @@ let nkStudySupport=q=>'INCUMBENT:'+q.id;
 const nkFormatQuestionTime=ms=>String(ms),navIcon=()=>'<svg></svg>';
 let nkCbtPool=()=>RECORD.questions,nkQuestionsForModuleDraft=()=>RECORD.questions,nkRevisionDeskData=()=>({wrong:RECORD.questions,bookmarked:RECORD.questions,unseen:RECORD.questions,due:RECORD.questions,dueCards:RECORD.questions});
 let startSession=ids=>{calls++;lastIds=ids;return true;},practiceOne=id=>startSession([id]);
+const nkAllStudyQuestions=()=>RECORD.questions;
 const nkFindStudyQuestion=id=>RECORD.questions.find(q=>q.id===id),showToast=()=>{};
 ''' +(ROOT/'tools/question_presentation_core.js').read_text()+ '\n'+(ROOT/'tools/uworld_biochemistry_core.js').read_text()+'\nconst RECORD='+json.dumps(record,ensure_ascii=False)+r''';
 for(const source of RECORD.questions){

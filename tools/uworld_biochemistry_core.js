@@ -35,7 +35,8 @@
   };
   const nkUworldStartSession=startSession;
   startSession=function(ids){
-    const eligible=(ids||[]).filter(id=>nkUworldEligible(nkFindStudyQuestion(id)));
+    const questions=new Map(nkAllStudyQuestions().map(q=>[String(q.id),q]));
+    const eligible=(ids||[]).filter(id=>nkUworldEligible(questions.get(String(id))));
     if(!eligible.length&&ids?.length){showToast('These questions need source diagrams. Open them individually to read the available OCR text.','bad');return false;}
     const args=[...arguments];args[0]=eligible;return nkUworldStartSession.apply(this,args);
   };
