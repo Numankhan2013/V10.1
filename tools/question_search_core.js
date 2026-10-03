@@ -66,7 +66,21 @@
     if(!['subject','bank','status'].includes(field))return;
     nkQuestionSearchState[field]=String(value||'');nkQuestionSearchState.limit=30;nkQuestionSearchUpdate();
   }
-  function nkQuestionSearchMore(){nkQuestionSearchState.limit+=30;nkQuestionSearchUpdate();}
+  function nkQuestionSearchMore(){
+    const surface=document.querySelector('.nk-question-search-results'),list=surface?.querySelector('.nk-question-search-list'),button=surface?.querySelector('.nk-question-search-more');
+    const keyboard=button===document.activeElement&&button?.matches(':focus-visible'),x=window.scrollX,y=window.scrollY;
+    const count=list?.children.length||0;
+    nkQuestionSearchState.limit+=30;
+    if(!list){nkQuestionSearchUpdate();return;}
+    const template=document.createElement('template');template.innerHTML=nkQuestionSearchResultsMarkup();
+    const added=[...template.content.querySelectorAll('.nk-question-search-item')].slice(count);
+    list.append(...added);
+    const status=surface.querySelector('[role="status"]'),nextStatus=template.content.querySelector('[role="status"]');
+    if(status&&nextStatus)status.textContent=nextStatus.textContent;
+    if(!template.content.querySelector('.nk-question-search-more'))button?.remove();
+    if(keyboard)added[0]?.querySelector('button')?.focus({preventScroll:true});
+    window.scrollTo(x,y);
+  }
   function nkQuestionSearchStart(rows,title){
     if(!rows.length)return false;
     if(state.activeSession?.mode==='exam'){showToast('Resume or abandon your timed test before starting Practice.','bad');return false;}

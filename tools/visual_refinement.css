@@ -114,3 +114,8 @@ html body #app :is(.nk-app-v114,.nk-home-command-center,.nk-v114-session) :is(bu
  html body #app .nk-learning-insights .nk-li-stats article:last-child>b{grid-column:3;grid-row:1/4}
  html body #app .nk-learning-insights .nk-li-stats article:last-child>:is(.nk-li-delta,p){margin:0}
 }
+
+/* Comfortable editing and native selectors retain the established study palette. */
+.nk-question-note textarea,.nk-question-search-box input,.nk-question-search-filters select,.nk-module-builder input[type="number"]{font-size:16px;}
+.nk-question-note .nk-note-save{background:#493394;color:#fff;white-space:nowrap;}
+.nk-question-note textarea{line-height:1.5;background:#fffefd;border-color:#d9d3e4;}

@@ -50,6 +50,11 @@ shouldFail=false;
 assert.equal(call("nkSaveQuestionNote('marrow-anat-1','')"),true);
 assert.equal(state.questionNotes['marrow-anat-1'].deleted,true,'removal must leave a sync tombstone');
 assert.equal(call("nkQuestionNote('marrow-anat-1')"),null);
+call("nkMountQuestionNote();nkNoteDrafts.set('marrow-anat-1','temporary')");
+call("nkMountQuestionNote()");assert.equal(call("nkNoteDrafts.size"),1);
+state.activeSession={id:'different-session'};call("nkMountQuestionNote()");assert.equal(call("nkNoteDrafts.size"),0);
+call("nkNoteDrafts.set('marrow-anat-1','private');var nkAuth={uid:'other-account'};nkMountQuestionNote()");
+assert.equal(call("nkNoteDrafts.size"),0,'account change must clear drafts');
 console.log('QUESTION_NOTES_BEHAVIOR_OK');
 '''
     script = script.replace("SOURCE", repr(CORE.read_text(encoding="utf-8")), 1)
