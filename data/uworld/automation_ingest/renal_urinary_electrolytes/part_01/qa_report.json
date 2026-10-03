@@ -6,12 +6,10 @@
   "logical_question_slots": 120,
   "source_questions": 119,
   "source_missing_slots": 1,
-  "records_with_correct_answer": 118,
-  "records_with_educational_objective": 118,
+  "records_with_correct_answer": 119,
+  "records_with_educational_objective": 119,
   "records_with_visual_sources": 96,
-  "continuation_records": [
-    "uworld__RENAL_P1_B03_Q040"
-  ],
+  "continuation_records": [],
   "page_coverage": 720,
   "unassigned_pages": [],
   "duplicate_source_ids_within_block": [],
@@ -2835,17 +2833,16 @@
         720
       ],
       "options": 6,
-      "correct": null,
+      "correct": "E",
       "qchars": 653,
-      "echars": 0,
-      "edu": false,
+      "echars": 2514,
+      "edu": true,
       "visual": [
         720
       ],
-      "status": "continuation_required_part_02",
+      "status": "pass",
       "notes": [
-        "Part 1 ends on the question page. Correct answer, answer statistics, and explanation continue in Part 2.",
-        "Question depends on a source visual; retain/crop from listed PDF page(s) during visual asset integration."
+        "Completed from Part 2 pages 1-9; canonical ID preserved across split."
       ]
     }
   ]
