@@ -514,6 +514,8 @@ jobs:
 
       - name: Verify study-flow continuity
         run: python3 tools/verify_study_flow_browser.py
+      - name: Verify study return destinations and saved-test feedback
+        run: python3 tools/verify_return_flow_browser.py
       - name: Verify personal notes in Practice and Review
         run: python3 tools/verify_question_notes_browser.py
       - name: Verify all-bank Quick Revision queues
@@ -572,6 +574,8 @@ jobs:
             build/ui-checks/question-completeness/
             build/ui-checks/explanation-refinement/
             build/ui-checks/bc4-interaction-report.json
+            build/study-flow-checks/
+            build/return-flow-checks/
             build/marrow-ui-checks/*.png
             build/marrow-image-review/*.png
             build/prepladder-visual-audit/*.png

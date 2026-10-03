@@ -35,7 +35,7 @@
     const previous=nkPracticeFindCheckpoint(session.id);
     if(typeof nkCheckpointFromSession==='function')return nkCheckpointFromSession(session,previous,lifecycle);
     const ids=nkPracticeSessionIds(session),index=Math.max(0,Math.min(ids.length-1,Number(session.index)||0)),now=Date.now();
-    return {version:1,sessionId:String(session.id),sessionQuestionIds:ids,context:{...(session.practiceContext||{}),subject:String(session.practiceContext?.subject||''),bank:String(session.practiceContext?.bank||''),topicId:String(session.practiceContext?.topicId||''),title:String(session.practiceContext?.title||session.title||'Practice')},position:{index,currentQuestionId:String(session.questionIds?.[index]||ids[index]||'')},answers:{...(session.answers||{})},submitted:{...(session.submitted||{})},questionTimes:{...(session.questionTimes||{})},pendingFsrsRatings:{...(session.pendingRating||{})},questionUpdates:{...(previous?.questionUpdates||{})},startedAt:Number(session.startedAt||now),lastTick:Number(session.lastTick||now),elapsedMs:Number(session.elapsedMs||0),lifecycle,updatedAt:now,createdAt:Number(previous?.createdAt||session.startedAt||now)};
+    return {version:1,sessionId:String(session.id),sessionQuestionIds:ids,context:{...(session.practiceContext||{}),...(session.originRoute&&session.originRoute!=='topics'?{originRoute:String(session.originRoute)}:{}),subject:String(session.practiceContext?.subject||''),bank:String(session.practiceContext?.bank||''),topicId:String(session.practiceContext?.topicId||''),title:String(session.practiceContext?.title||session.title||'Practice')},position:{index,currentQuestionId:String(session.questionIds?.[index]||ids[index]||'')},answers:{...(session.answers||{})},submitted:{...(session.submitted||{})},questionTimes:{...(session.questionTimes||{})},pendingFsrsRatings:{...(session.pendingRating||{})},questionUpdates:{...(previous?.questionUpdates||{})},startedAt:Number(session.startedAt||now),lastTick:Number(session.lastTick||now),elapsedMs:Number(session.elapsedMs||0),lifecycle,updatedAt:now,createdAt:Number(previous?.createdAt||session.startedAt||now)};
   }
   function nkPracticeCheckpoint(sessionId){
     if(sessionId)return nkPracticeFindCheckpoint(sessionId);
@@ -49,11 +49,12 @@
       if(typeof nkStorageError==='function')nkStorageError(`Practice ${checkpoint.sessionId} cannot resume because ${missing.length||ids.length} saved question ID${(missing.length||ids.length)===1?' is':'s are'} unavailable`);
       return null;
     }
+    const savedOrigin=String(checkpoint.context?.originRoute||''),originRoute=['notes','question-search','dashboard','study-library'].includes(savedOrigin)?savedOrigin:'topics';
     const position=checkpoint.position||{},mapped=ids.indexOf(String(position.currentQuestionId||'')),index=mapped>=0?mapped:Math.max(0,Math.min(ids.length-1,Number(position.index)||0));
     return {id:String(checkpoint.sessionId),mode:'practice',title:String(checkpoint.context?.title||'Practice'),questionIds:[...ids],sessionQuestionIds:[...ids],index,
       answers:{...(checkpoint.answers||{})},submitted:{...(checkpoint.submitted||{})},startedAt:Number(checkpoint.startedAt||Date.now()),lastTick:Number(checkpoint.lastTick||Date.now()),
       elapsedMs:Number(checkpoint.elapsedMs||0),questionEnteredAt:Date.now(),questionTimes:{...(checkpoint.questionTimes||{})},pendingRating:{...(checkpoint.pendingFsrsRatings||{})},
-      context:'normal',originRoute:'topics',practiceContext:{...(checkpoint.context||{}),questionIds:[...ids]},lifecycle:String(checkpoint.lifecycle)==='active'?'paused':String(checkpoint.lifecycle)};
+      context:'normal',originRoute,practiceContext:{...(checkpoint.context||{}),questionIds:[...ids]},lifecycle:String(checkpoint.lifecycle)==='active'?'paused':String(checkpoint.lifecycle)};
   }
   function nkPracticeIdentity(s){
     const ids=nkPracticeSessionIds(s),questions=ids.map(nkPracticeResumeQuestion).filter(Boolean);

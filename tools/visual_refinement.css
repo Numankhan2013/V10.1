@@ -132,3 +132,16 @@ html body #app :is(.nk-app-v114,.nk-home-command-center,.nk-v114-session) :is(bu
 
 /* Final review uses its content height, keeping creation actions close to scope. */
 .nk-module-builder-card:has(.nk-module-name){min-height:0;}
+
+/* Return-flow controls share the accepted editing and search language. */
+.nk-revision-search input,#nk-na-rename input,.nk-na-mock-name input{font-size:16px;}
+.nk-revision-search:focus-within,#nk-na-rename input:focus-visible{outline:2px solid var(--nk-action,#493394);outline-offset:3px;}
+.nk-revision-search{background:var(--nk-paper,#fffefd);border-color:var(--nk-divider,#e5e0ec);color:var(--nk-ink,#29263f);}
+#nk-na-rename:not([hidden]){display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;}
+#nk-na-rename label,#nk-na-rename [role="status"]{grid-column:1/-1;}
+#nk-na-rename label{color:var(--nk-secondary,#696579);}
+#nk-na-rename button{background:var(--nk-action,#493394);color:#fff;font-size:14px;font-weight:650;}
+#nk-na-rename [role="status"]{color:#9d3157;line-height:1.5;}
+#nk-na-rename [role="status"]:empty{display:none;}
+#nk-na-rename input[aria-invalid="true"]{border-color:#bc3958;}
+.nk-na-mock-row .nk-na-remove{width:44px;min-width:44px;min-height:44px;}

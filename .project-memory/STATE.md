@@ -9,6 +9,8 @@
 
 ## Impeccable interaction quality — 2026-10-03
 
+- Active follow-up: `feature/home-return-flow-20261003`, based on certified study-flow handoff. Bounded audit fixes Revision bookmark/mistake browse destinations and query continuity, checkpoint return hints, inline rename validation/failure rollback, and saved-mock keyboard focus/44px targets. Source and phone/tablet diagnostics pass; full CI/hosted certification pending. See `docs/RETURN_FLOW_REFINEMENT_2026-10-03.md`. Previous certified PR91/artifact remains unchanged.
+
 - User accepted PR90’s subtle aesthetics and requested another UX/UI flow pass. Active `feature/home-study-flow-20261003` retains that identity; consolidated note drafts/editor visibility, progressive search, Notes round-trip/query continuity, module focus/count validation and content-height review passed93 local checks and expanded phone/tablet/browser regressions. Smaller initial build37100662997 cancelled before preview on user request to batch more. Product e9646cc9c5808b43c2d8bbdf21ffc9bba4644007 passed both Engineering gates and full37101565843, including Android phone/tablet. Exact hosted flow/analysis/visual/reduced-motion checks passed at https://cd257e5f.nk-qbank.pages.dev (HTML SHA-256 7e40cc23dc2b89d09b4311d66c7d9f38d99616be8021e91a49d5a4bd2423ae8e). PR91 is ready, stacked on90/89/88; user requested continuation into a further bounded audit. See `docs/STUDY_FLOW_REFINEMENT_2026-10-03.md`. Physical-device/haptic acceptance remains unverified.
 - Interaction candidate: `feature/home-impeccable-interactions-20261003`, based on analysis candidate below; production remains unchanged. Impeccable skill-v4.5.0 installed for Codex in `.agents/skills/impeccable`, project hooks target that single copy, `PRODUCT.md` links canonical memory, `DESIGN.md` records preservation/Operate direction. Actual context/detector/audit/polish guidance used; see `docs/INTERACTION_QUALITY_2026-10-03.md`.
 - Audited phone/tablet screens and actual repeated controls. Preserve current immediate state colors, haptics, in-place CBT/rating/bookmark updates, fixed footer, question logic, FSRS/storage/data/source/nav and identity. Practice now retains the question/figures/header while revealing committed outcomes, notes/explanation and existing FSRS/footer; explicit text outcomes supplement color. No action waits for motion.
@@ -126,7 +128,6 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 - Reconcile verified work into canonical before starting another conflicting batch in the same lane.
 - Accepted product/UI fixes are protected canonical behavior for subsequent content/image/explanation work.
 - Automation start and reconciliation instructions: `.project-memory/IMAGE_AUTOMATION_READY_2026-09-20.md`. The historical percentage-correct pilot branch is not integrated and must not be used as an image base.
-
 ## Known problems / cautions
 
 - PrepLadder source-visual technical/browser gates are green, but **422 audit entries still require manual source-comparison review**; do not label that lane release-certified yet.
@@ -140,7 +141,6 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 1. Completed final completeness pass source-reviewed 254 unique questions (226 initial + 28 supplemental): 89 repairs (74 contextual/15 exact; 81 text/table/notation/key and eight native images), 132 already complete, 33 underdetermined source omissions gated, including ANAT62Q6. Compiled display ledger: 114 entries; source tests pass across four variants. CI queue requires all new structural/glyph/question-visual candidates reviewed (195 current residual candidates; zero unreviewed). See `docs/QUESTION_COMPLETENESS_FINAL_PASS.md` and the pinned `data/question_completeness_reviews_v1.json` ledger. Raw imports remain immutable.
 2. Regenerated final image coverage: 1,502 references / 1,421 released / 79 invalid / two archival holds / zero unresolved cues; runtime 1,486 bindings / 1,306 assets / 1,128 owners. All 52 final local checks pass. Product checkpoint `de9c415cef4915d5b20a42abc9f2299a8595b173` is fully build-verified: Engineering `36732893469` and full browser/PWA/APK/package/Android-emulator run `36732893814` passed. Preview: `https://74f04894.nk-qbank.pages.dev`. All 114 contracts passed 228 runtime checks; eight recovered image URLs match exact native hashes in the live preview. Earlier image/browser assertion failures are resolved.
 3. Production recovery is live; analysis/interaction/visual-icon candidates are fully certified and ready in PR88/89/90. No new production promotion is authorized. Preserve23 source gates, two archival image gaps and PrepLadder source-comparison backlog.
-
 ## Memory pointers
 
 - PrepLadder visual verification handoff: `.project-memory/PREPLADDER_VISUAL_VERIFICATION_2026-09-16.md`.

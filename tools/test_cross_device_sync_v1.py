@@ -40,6 +40,16 @@ assert.deepStrictEqual(state.normalPracticeCheckpoints.map(x=>x.sessionId),['pra
 assert.deepStrictEqual(state.normalPracticeCheckpoint.sessionQuestionIds,['q1','q2']);
 assert(state.normalPracticeCheckpoint.position.index===1&&state.normalPracticeCheckpoint.answers.q1===2&&state.normalPracticeCheckpoint.submitted.q1,'checkpoint progress missing');
 assert(state.normalPracticeCheckpoint.pendingFsrsRatings.q1.rating===3,'pending FSRS rating missing');
+assert(!Object.hasOwn(state.normalPracticeCheckpoint.context,'originRoute'),'ordinary chapter checkpoints gain no navigation field');
+const hintSession={...state.activeSession,originRoute:'question-search'};
+const hintCheckpoint=nkCheckpointFromSession(hintSession,state.normalPracticeCheckpoint,'paused');
+assert(hintCheckpoint.context.originRoute==='question-search');
+const hintRecovery=nkNormalizeCheckpoint(JSON.parse(JSON.stringify(hintCheckpoint)));
+assert(hintRecovery.context.originRoute==='question-search','return hint must survive durable normalization');
+assert.deepStrictEqual(hintRecovery.sessionQuestionIds,state.normalPracticeCheckpoint.sessionQuestionIds);
+assert.deepStrictEqual(hintRecovery.answers,state.normalPracticeCheckpoint.answers);
+assert.deepStrictEqual(hintRecovery.pendingFsrsRatings,state.normalPracticeCheckpoint.pendingFsrsRatings);
+
 const legacyOnly={...defaultState(),normalPracticeCheckpoint:{...state.normalPracticeCheckpoint,answers:{q1:2},submitted:{q1:true},pendingFsrsRatings:{q1:{rating:3}}}};
 const migrated=nkNormalizeState(legacyOnly);
 assert.deepStrictEqual(migrated.normalPracticeCheckpoints.map(x=>x.sessionId),['practice-1'],'legacy-only checkpoint must migrate by identity');

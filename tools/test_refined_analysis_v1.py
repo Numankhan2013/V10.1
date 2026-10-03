@@ -39,6 +39,17 @@ ctx.state.savedMocks[0].questionIds.push('missing');launched=null;assert.equal(r
 fail=true;assert.equal(run("nkMockStore('unsaved',['a'])"),null);assert.equal(ctx.state.savedMocks.length,1);
 fail=false;run('nkMockRemove(mockId)');assert.equal(ctx.state.savedMocks.length,0);
 ctx.state.tests=[{id:'named',title:'Old',correct:2,total:3}];run("nkAnalysisRename('named')");assert.equal(ctx.state.tests[0].title,'Renamed mock');assert.equal(ctx.state.tests[0].correct,2);
+// Inline validation does not write; failed saves preserve both metadata and editor text.
+let status={textContent:''},input={value:' ',invalid:null,setAttribute:(k,v)=>{input.invalid=v},removeAttribute:()=>{input.invalid=null},focus:()=>{}};
+ctx.document.getElementById=id=>id==='nk-na-title'?input:status;
+ctx.state.tests=[{id:'rollback',title:'Original',updatedAt:7,correct:2,total:3}];
+const saveCount=saved;run("nkAnalysisRename('rollback')");assert.equal(saved,saveCount);assert.equal(input.invalid,'true');assert.match(status.textContent,/Enter a test name/);
+input.value='Updated';fail=true;run("nkAnalysisRename('rollback')");
+assert.equal(ctx.state.tests[0].title,'Original');assert.equal(ctx.state.tests[0].updatedAt,7);assert.equal(input.value,'Updated');assert.match(status.textContent,/Your text is still here/);
+delete ctx.state.tests[0].updatedAt;run("nkAnalysisRename('rollback')");assert.equal(Object.hasOwn(ctx.state.tests[0],'updatedAt'),false);
+fail=false;run("nkAnalysisRename('rollback')");assert.equal(ctx.state.tests[0].title,'Updated');assert.equal(ctx.state.tests[0].correct,2);
+ctx.state.savedMocks=[{id:'keep',questionIds:['a']}];fail=true;run("nkMockRemove('keep')");assert.equal(ctx.state.savedMocks.length,1);
+fail=false;run("nkMockRemove('keep')");assert.equal(ctx.state.savedMocks.length,0);
 console.log('REFINED_ANALYSIS_BEHAVIOR_OK exact_sets=true missing_questions=true save_failure=true timing_boundaries=true subject_totals=true truthful_zero=true');
 '''.replace('CORE', json.dumps(core))
 subprocess.run(['node'], input=program, text=True, check=True)
