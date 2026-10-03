@@ -21,3 +21,25 @@ with keyboard access. Familiar native subject/bank pickers remain appropriate.
 
 Audit, implementation and validation evidence:
 [docs/INTERACTION_QUALITY_2026-10-03.md](docs/INTERACTION_QUALITY_2026-10-03.md).
+
+## Visual refinement direction — October 3, 2026
+
+The user additionally authorized aesthetic refinement across the existing app.
+Use Impeccable layout, colorize, quieter and polish guidance inside this visual
+world: warm paper `#fffefd`, quiet violet canvas `#f7f6fa`, ink `#29263f`,
+readable secondary text `#696579`, deep violet action `#493394`, pale violet
+selection `#f1ecfa`. Amber paper `#fff8eb` and amber ink `#875908` give recorded
+study time a comfortable, meaningful accent. Preserve semantic outcome colors.
+
+Keep the repeated study path predictable. Reading, options, recall dock and
+fixed footer share a 740px maximum measure; phone gutters are16px. Group controls
+and related metrics tightly, separate report groups by24px and major Home/Test
+sections by28px. Keep dense Revision and topic journeys compact. At intermediate
+tablet widths, four Insights metrics form two pairs with a compact full-width
+module summary. Use bordered quiet surfaces; Home focus is the single deep
+region. Preserve the approved streak and source visuals. Add no motion.
+
+Icons retain familiar meanings and a consistent24px vector grid. Shared glyphs
+use rounded2px contours, selective filled planes and subtle two-tone depth.
+Small arrows/checks remain direct. Preserve accessible labels, existing target
+sizes, offline assets and source diagrams; add no animated or raster glyphs.
