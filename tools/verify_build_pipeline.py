@@ -85,6 +85,7 @@ required_order = [
     "tools/test_icon_refinement_v1.py",
     "tools/test_visual_refinement_v1.py",
     "tools/test_refined_analysis_v1.py",
+    "tools/apply_uworld_biochemistry_v1.py",
     "tools/verify_product_contract.py --stage generated",
     "tools/verify_cbt_invariants.py",
 ]

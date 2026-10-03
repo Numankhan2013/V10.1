@@ -371,6 +371,14 @@ jobs:
         run: python3 tools/test_visual_refinement_v1.py
       - name: Test refined analysis and mock persistence
         run: python3 tools/test_refined_analysis_v1.py
+      - name: Test crawler exclusion and UWorld source contracts
+        run: |
+          python3 tools/test_crawler_exclusion.py
+          python3 tools/test_uworld_biochemistry_v1.py
+          python3 tools/test_uworld_runtime_v1.py
+          python3 tools/test_uworld_source_text.py
+      - name: Install bounded UWorld Biochemistry pilot
+        run: python3 tools/apply_uworld_biochemistry_v1.py
       - name: Verify final JavaScript syntax after all transformations
         run: |
           python3 - <<'PY'
@@ -487,6 +495,8 @@ jobs:
       - name: Verify Marrow bank selector and native explanation in browser
         if: ${{ !cancelled() && steps.browser_dependencies.outcome == 'success' }}
         run: python3 tools/verify_marrow_bank_browser.py
+      - name: Verify UWorld Biochemistry shared study flows on phone and tablet
+        run: python3 tools/verify_uworld_biochemistry_browser.py
       - name: Verify Marrow learner content hygiene in browser
         if: ${{ !cancelled() && steps.browser_dependencies.outcome == 'success' }}
         run: python3 tools/verify_marrow_content_hygiene_browser.py
@@ -576,6 +586,7 @@ jobs:
             build/ui-checks/bc4-interaction-report.json
             build/study-flow-checks/
             build/return-flow-checks/
+            build/uworld-biochemistry-checks/
             build/marrow-ui-checks/*.png
             build/marrow-image-review/*.png
             build/prepladder-visual-audit/*.png

@@ -178,17 +178,17 @@ def main() -> None:
             page.evaluate("window.QB.nkOpenRevisionHub()")
             page.get_by_role("heading",name="Revision",exact=True).wait_for()
             cards = page.locator(".nk-revision-card")
-            cards.nth(0).get_by_role("button", name="Practice 1 mistake").click()
+            cards.nth(0).get_by_role("button", name="Practice mistakes").click()
             page.wait_for_function(
                 "([id,previous]) => location.hash==='#practice' && window.QB.getState().activeSession?.questionIds?.includes(id) && window.QB.getState().activeSession?.id!==previous",
                 arg=[WRONG_ID, previous_session],
             )
-            assert page.evaluate("window.QB.getState().activeSession?.originRoute") == "wrong"
+            assert page.evaluate("window.QB.getState().activeSession?.originRoute") == "quick-revision"
 
             page.evaluate("window.QB.nkOpenRevisionHub()")
             page.get_by_role("heading",name="Revision",exact=True).wait_for()
             cards = page.locator(".nk-revision-card")
-            cards.nth(1).get_by_role("button", name="Practice 1 bookmark").click()
+            cards.nth(1).get_by_role("button", name="Practice bookmarks").click()
             page.wait_for_function("id => location.hash==='#practice' && window.QB.getState().activeSession?.questionIds?.includes(id)", arg=BOOKMARK_ID)
 
             page.evaluate("window.QB.nkOpenRevisionHub()")
@@ -206,12 +206,14 @@ def main() -> None:
             page.evaluate("window.QB.nkOpenRevisionHub()")
             page.get_by_role("heading",name="Revision",exact=True).wait_for()
             cards = page.locator(".nk-revision-card")
-            cards.nth(3).get_by_role("button", name="Review 1 due").click()
+            cards.nth(3).get_by_role("button", name="Review due").click()
             page.wait_for_function("id => location.hash==='#practice' && window.QB.getState().activeSession?.questionIds?.includes(id)", arg=WRONG_ID)
-            assert page.evaluate("window.QB.getState().activeSession?.originRoute") == "fsrs"
+            assert page.evaluate("window.QB.getState().activeSession?.originRoute") == "quick-revision"
             assert not errors, f"Browser errors: {errors!r}"
             print("REVISION_DESK_BROWSER_OK global=true mistakes=true bookmarks=true unseen=true due=true")
             browser.close()
+        from verify_revision_session_browser import main as verify_revision_sessions
+        verify_revision_sessions()
     finally:
         server.shutdown()
 

@@ -139,9 +139,10 @@ Prefer building over narrating.
   score, or study day. Saved-result follow-up shows correction status and launches
   only unresolved original misses; the saved score and topic analysis stay historical.
 - **Revision hub (candidate):** The primary Revision tab offers all-subject, all-bank Mistakes,
-  Bookmarks, Unseen, and Due queues. The first three start random sets of up
-  to 20; Due starts up to 20 in FSRS priority order and honors the existing
-  daily cap. Full searchable Mistakes and Bookmarks lists remain available.
+  Bookmarks, Unseen, and Due queues. Mistakes and Bookmarks snapshot the full eligible focused queue;
+  Due snapshots all admitted cards in FSRS priority order and honors the existing
+  daily cap. Both offer Pause/Finish at any point, preserve exact paused sets,
+  and Finish counts only answered work. Unseen retains its random20-question set. Full searchable Mistakes and Bookmarks lists remain available.
   Subject, bank, and source-topic focus applies to all four queues and counts;
   the default is all subjects and banks. Home shows global due/missed counts and opens Revision.
   Neutral cards retain small semantic icon/count accents; a scoped seven-day
@@ -259,3 +260,14 @@ to revisit from this screen. Answer/rating metadata must not inflate counts or
 time, and recorded time must never be presented as a background activity tracker.
 
 - Result analysis keeps score (correct/all) distinct from accuracy (correct/answered), uses calm green/coral/amber outcomes and saved timing. Only tests offer subject/topic breakdown. Named fixed-question mocks can be saved and repeated; named study modules retain save/resume/restart.
+
+## UWorld Biochemistry pilot — 2026-10-03
+
+Biochemistry has an additional UWorld2024 source:120 nominal-block plus12
+supplemental questions. Only this subject is integrated. The current pilot uses
+OCR text, with native scrollable explanations, source choice discussion and
+Educational objective, without Marrow takeaway/rationale augmentation.105
+questions are practice-ready;27 diagram-dependent questions open as unscored
+references. Source errors/tables/diagrams await a later question-by-question
+Luna-agent PDF validation pass. Originals and clipped/missing fields remain
+unchanged. Existing study engines, scoring, FSRS and history remain shared.

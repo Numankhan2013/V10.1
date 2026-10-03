@@ -27,11 +27,12 @@ def _chooser_steps(subject, click_marrow=True, screenshot=None, invoke=True):
     lines.extend([
         # This is an SPA. Verify the rendered chooser itself rather than relying
         # on a particular hash serialization or a navigation-event race.
-        "            page.wait_for_function(\"() => document.querySelectorAll('button.nk-bank-card').length===2\",timeout=5000)",
+        "            page.wait_for_function(\"() => document.querySelectorAll('button.nk-bank-card').length===" + ('3' if subject=='Biochemistry' else '2') + "\",timeout=5000)",
         "            prep=page.locator('button.nk-bank-card').filter(has_text='PrepLadder')",
         "            marrow=page.locator('button.nk-bank-card').filter(has_text='Marrow')",
         "            if prep.count()!=1: raise SystemExit('" + subject + " PrepLadder card missing')",
         "            if marrow.count()!=1: raise SystemExit('" + subject + " Marrow card missing')",
+        "            if page.locator('button.nk-bank-card').filter(has_text='UWorld').count()!=" + ('1' if subject=='Biochemistry' else '0') + ": raise SystemExit('" + subject + " UWorld pilot scope mismatch')",
         "            prep.wait_for(state='visible',timeout=5000)",
         "            marrow.wait_for(state='visible',timeout=5000)",
         "            chooser_text=page.locator('body').inner_text()",
