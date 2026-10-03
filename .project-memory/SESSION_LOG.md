@@ -2272,3 +2272,11 @@ percentages, legacy scope compatibility and ordinary-mistake provenance. One sou
 question remains held for an absent essential exhibit. All101 local checks and generated390/820/1194/1440px UWorld study flows pass,
 including direct percentage placement, source figures/retry/zoom and native tables.
 Full packaging and hosted certification are pending; production is unchanged.
+
+The first full reference run37157432292 passed source/PWA image bytes and every
+study/browser flow, then stopped on the UI capture's subject selector matching
+both Biochemistry and its UWorld collection. Scoped that audit to My Subjects,
+retaining all geometry/visibility/image assertions. A diagnostic audit initially
+lacked its existing Marrow JPEG fixture; copying that fixture to ignored build/web
+restores the original environment without changing app assets. The replacement
+full candidate is pending. Restored the existing executable bit on the FSRS test.

@@ -118,4 +118,8 @@ workflow. The reviewed reference refinement passes101 local checks and actual ge
 390/820/1194/1440px study flows, including direct option percentages without reflow,
 source figures/zoom/retry, native table cells/overflow, deferred CBT, Review
 Solutions, modules and FSRS-only mistake separation. Incumbent phone/tablet
-interaction checks pass. Full packaging and hosted certification are pending. Production remains unchanged. New physical-device acceptance is separate.
+interaction checks pass. Both initial Engineering gates pass. Full run37157432292 passed all study/browser
+checks but stopped on an ambiguous Biochemistry selector in the UI capture.
+The audit now targets My Subjects explicitly and passes320/390/large-text390/820px;
+all image, geometry and visibility assertions remain intact.
+Replacement full packaging and hosted certification are pending. Production remains unchanged. New physical-device acceptance is separate.
