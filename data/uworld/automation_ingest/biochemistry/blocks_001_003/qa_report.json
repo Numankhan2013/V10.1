@@ -1,0 +1,123 @@
+{
+  "status": "PASS_WITH_DOCUMENTED_SOURCE_LIMITATIONS",
+  "main_records": 120,
+  "supplemental_records": 12,
+  "total_complete_question_records": 132,
+  "unique_question_ids": 132,
+  "main_block_counts": {
+    "1": 40,
+    "2": 40,
+    "3": 40
+  },
+  "review_status_counts": {
+    "pass": 132,
+    "needs_review": 0
+  },
+  "validation": {
+    "all_main_items_1_to_40_present": true,
+    "duplicate_question_ids": [],
+    "missing_question_text": [],
+    "missing_correct_answer": [],
+    "missing_explanation": [],
+    "invalid_or_noncontiguous_options": [],
+    "correct_answer_percentage_mismatches": [],
+    "ui_chrome_leakage_detected": [],
+    "source_pages_covered_exactly_once": true,
+    "source_pages_missing": [],
+    "source_pages_duplicate_assignment": [],
+    "educational_objectives_exactly_recovered": 131,
+    "educational_objectives_source_clipped": 1,
+    "source_clipped_objective_qids": [
+      "1486"
+    ],
+    "main_answered_correctly_percent_unavailable": [
+      {
+        "block": 1,
+        "item": 13,
+        "qid": "1484"
+      },
+      {
+        "block": 1,
+        "item": 17,
+        "qid": "8385"
+      },
+      {
+        "block": 1,
+        "item": 24,
+        "qid": "1074"
+      },
+      {
+        "block": 2,
+        "item": 8,
+        "qid": "701"
+      },
+      {
+        "block": 2,
+        "item": 12,
+        "qid": "1472"
+      },
+      {
+        "block": 2,
+        "item": 26,
+        "qid": "108893"
+      },
+      {
+        "block": 3,
+        "item": 9,
+        "qid": "1483"
+      },
+      {
+        "block": 3,
+        "item": 12,
+        "qid": "1435"
+      },
+      {
+        "block": 3,
+        "item": 19,
+        "qid": "596"
+      },
+      {
+        "block": 3,
+        "item": 39,
+        "qid": "1436"
+      }
+    ],
+    "supplemental_answered_correctly_percent_unavailable": [
+      {
+        "item": null,
+        "qid": "1434"
+      },
+      {
+        "item": 6,
+        "qid": "11960"
+      }
+    ],
+    "option_percentage_source_clipped": [
+      {
+        "qid": "11914",
+        "option": "A"
+      }
+    ]
+  },
+  "render_verification": {
+    "qid_corrections": [
+      "103-0 → 1030",
+      "14TT → 1477",
+      "213()7 → 21307"
+    ],
+    "diagram_table_manual_linearizations": [
+      "QID 1032 metabolic-arrow choices",
+      "QID 107590 homocysteine/methionine/methylmalonic-acid table",
+      "QID 11914 pedigree choices"
+    ],
+    "headerless_boundary_repairs": [
+      "pages 545-546 → QID 1866",
+      "page 621 → QID 1790"
+    ]
+  },
+  "hashes": {
+    "source_pdf_sha256": "806d95d6f09dde57d34e0d0b5fda69298a7789041bb570ce4fa6dd1c95d4fae9",
+    "main_jsonl_sha256": "5a4811c18eec7e6d4d4535b6922cb0c921055344253edec0abe00e02b06d8e0d",
+    "supplemental_jsonl_sha256": "1c602a2a38669ca6f34c9cf4e2b9bbdedc2990d66e072274402e6d3bed839753"
+  }
+}
