@@ -58,7 +58,7 @@
     const subjects=[...new Set(nkQuestionSearchIndex().map(entry=>entry.q.subject).filter(Boolean))].sort();
     const banks=[...new Set(nkQuestionSearchIndex().map(entry=>entry.q.bank).filter(Boolean))].sort();
     const option=(value,label,selected)=>`<option value="${esc(value)}"${selected?' selected':''}>${esc(label)}</option>`;
-    return shell(`<main class="nk-app-v114 nk-question-search"><header class="nk-v3-page-hero"><div class="nk-kicker">QUESTION BANK</div><h1>Find a question</h1><p>Search every subject and bank, then practice exactly what you found.</p></header><label class="nk-question-search-box"><span aria-hidden="true">⌕</span><input type="search" value="${esc(nkQuestionSearchState.query)}" placeholder="Question wording or ID" aria-label="Search all questions" autocomplete="off" oninput="window.QB.nkQuestionSearchQuery(this.value)"></label><div class="nk-question-search-filters"><label>Subject<select onchange="window.QB.nkQuestionSearchSetFilter('subject',this.value)">${option('','All subjects',!nkQuestionSearchState.subject)}${subjects.map(subject=>option(subject,subject,nkQuestionSearchState.subject===subject)).join('')}</select></label><label>Bank<select onchange="window.QB.nkQuestionSearchSetFilter('bank',this.value)">${option('','All banks',!nkQuestionSearchState.bank)}${banks.map(bank=>option(bank,bank,nkQuestionSearchState.bank===bank)).join('')}</select></label><label>Progress<select onchange="window.QB.nkQuestionSearchSetFilter('status',this.value)">${option('','Any progress',!nkQuestionSearchState.status)}${option('unattempted','Unattempted',nkQuestionSearchState.status==='unattempted')}${option('missed','Missed before',nkQuestionSearchState.status==='missed')}${option('bookmarked','Bookmarked',nkQuestionSearchState.status==='bookmarked')}</select></label></div><div class="nk-question-search-results">${nkQuestionSearchResultsMarkup()}</div></main>`,'more');
+    return shell(`<main class="nk-app-v114 nk-question-search"><header class="nk-v3-page-hero"><div class="nk-kicker">QUESTION BANK</div><h1>Find a question</h1><p>Search every subject and bank, then practice exactly what you found.</p></header><label class="nk-question-search-box"><span aria-hidden="true">${navIcon('search',20)}</span><input type="search" value="${esc(nkQuestionSearchState.query)}" placeholder="Question wording or ID" aria-label="Search all questions" autocomplete="off" oninput="window.QB.nkQuestionSearchQuery(this.value)"></label><div class="nk-question-search-filters"><label>Subject<select onchange="window.QB.nkQuestionSearchSetFilter('subject',this.value)">${option('','All subjects',!nkQuestionSearchState.subject)}${subjects.map(subject=>option(subject,subject,nkQuestionSearchState.subject===subject)).join('')}</select></label><label>Bank<select onchange="window.QB.nkQuestionSearchSetFilter('bank',this.value)">${option('','All banks',!nkQuestionSearchState.bank)}${banks.map(bank=>option(bank,bank,nkQuestionSearchState.bank===bank)).join('')}</select></label><label>Progress<select onchange="window.QB.nkQuestionSearchSetFilter('status',this.value)">${option('','Any progress',!nkQuestionSearchState.status)}${option('unattempted','Unattempted',nkQuestionSearchState.status==='unattempted')}${option('missed','Missed before',nkQuestionSearchState.status==='missed')}${option('bookmarked','Bookmarked',nkQuestionSearchState.status==='bookmarked')}</select></label></div><div class="nk-question-search-results">${nkQuestionSearchResultsMarkup()}</div></main>`,'more');
   }
   function nkQuestionSearchUpdate(){const list=document.querySelector('.nk-question-search-results');if(list)list.innerHTML=nkQuestionSearchResultsMarkup();}
   function nkQuestionSearchQuery(value){nkQuestionSearchState.query=String(value||'');nkQuestionSearchState.limit=30;nkQuestionSearchUpdate();}
@@ -66,7 +66,21 @@
     if(!['subject','bank','status'].includes(field))return;
     nkQuestionSearchState[field]=String(value||'');nkQuestionSearchState.limit=30;nkQuestionSearchUpdate();
   }
-  function nkQuestionSearchMore(){nkQuestionSearchState.limit+=30;nkQuestionSearchUpdate();}
+  function nkQuestionSearchMore(){
+    const surface=document.querySelector('.nk-question-search-results'),list=surface?.querySelector('.nk-question-search-list'),button=surface?.querySelector('.nk-question-search-more');
+    const keyboard=button===document.activeElement&&button?.matches(':focus-visible'),x=window.scrollX,y=window.scrollY;
+    const count=list?.children.length||0;
+    nkQuestionSearchState.limit+=30;
+    if(!list){nkQuestionSearchUpdate();return;}
+    const template=document.createElement('template');template.innerHTML=nkQuestionSearchResultsMarkup();
+    const added=[...template.content.querySelectorAll('.nk-question-search-item')].slice(count);
+    list.append(...added);
+    const status=surface.querySelector('[role="status"]'),nextStatus=template.content.querySelector('[role="status"]');
+    if(status&&nextStatus)status.textContent=nextStatus.textContent;
+    if(!template.content.querySelector('.nk-question-search-more'))button?.remove();
+    if(keyboard)added[0]?.querySelector('button')?.focus({preventScroll:true});
+    window.scrollTo(x,y);
+  }
   function nkQuestionSearchStart(rows,title){
     if(!rows.length)return false;
     if(state.activeSession?.mode==='exam'){showToast('Resume or abandon your timed test before starting Practice.','bad');return false;}

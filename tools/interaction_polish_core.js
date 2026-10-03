@@ -88,7 +88,18 @@
     const keyboardAnswer=document.activeElement?.matches?.('.option');
     const footerFocus=[...document.querySelectorAll('.nk-session-footer .fixed-actions-inner button')].indexOf(document.activeElement);
     const open=same?[...document.querySelectorAll('.question-card details[open]')].map((node)=>node.id||node.className):[];
+    const builder=document.querySelector('.nk-module-builder'),builderTitle=builder?.querySelector('h1')?.textContent;
+    const builderAction=builder?.contains(document.activeElement)?document.activeElement?.getAttribute('onclick'):null;
     nkPolishRender.apply(this,arguments);
+    const nextBuilder=document.querySelector('.nk-module-builder');
+    if(builderAction&&builderTitle===nextBuilder?.querySelector('h1')?.textContent){
+      [...nextBuilder.querySelectorAll('button')].find(n=>n.getAttribute('onclick')===builderAction)?.focus({preventScroll:true});
+      window.scrollTo(x,y);
+    }else if(builderAction&&nextBuilder&&builderTitle!==nextBuilder.querySelector('h1')?.textContent){
+      const heading=nextBuilder.querySelector('h1');
+      if(heading){heading.tabIndex=-1;heading.focus({preventScroll:true});}
+      window.scrollTo(0,0);
+    }
     nkPolishOutcome();
     if(same){
       document.querySelectorAll('.question-card details').forEach(node=>{if(open.includes(node.id||node.className))node.open=true;});

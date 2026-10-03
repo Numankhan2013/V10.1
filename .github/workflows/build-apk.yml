@@ -511,6 +511,9 @@ jobs:
         run: python3 tools/verify_interaction_quality_browser.py
       - name: Verify reading composition and visual contrast
         run: python3 tools/verify_visual_refinement_browser.py
+
+      - name: Verify study-flow continuity
+        run: python3 tools/verify_study_flow_browser.py
       - name: Verify personal notes in Practice and Review
         run: python3 tools/verify_question_notes_browser.py
       - name: Verify all-bank Quick Revision queues

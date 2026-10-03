@@ -331,8 +331,17 @@
 
   function nkSetCustomModuleCount(value){
     if(!studyModuleDraft)return;studyModuleDraft.questionCount=Math.max(1,Math.min(500,Number(value||1)));
-    const available=nkQuestionsForModuleDraft().length,node=document.getElementById('nk-module-availability');
-    if(node)node.textContent=available?`${fmtNum(available)} eligible questions are currently available.`:'No eligible questions are available for this selection.';
+    const available=nkQuestionsForModuleDraft().length,node=document.getElementById('nk-module-availability'),input=document.getElementById('nk-module-custom-count');
+    const invalid=Boolean(input&&!input.checkValidity());
+    if(input){
+      input.setAttribute('aria-invalid',String(invalid));
+      const next=input.closest('.nk-module-builder')?.querySelector('.nk-module-builder-actions button');
+      if(next)next.disabled=invalid||!available;
+    }
+    if(node){
+      node.textContent=invalid?'Choose a whole number from 1 to 500.':available?`${fmtNum(available)} eligible questions are currently available.`:'No eligible questions are available for this selection.';
+      node.classList.toggle('is-error',invalid||!available);
+    }
   }
 
   function nkSetModuleName(value){if(studyModuleDraft){studyModuleDraft.name=String(value||'').slice(0,80);studyModuleDraft.nameEdited=true;}}
@@ -342,6 +351,10 @@
     if(step>studyModuleDraft.step){
       if(studyModuleDraft.step===1&&!studyModuleDraft.scopeIds.length){showToast('Select at least one question bank.','bad');return;}
       if(studyModuleDraft.step===2&&!studyModuleDraft.topicIds.length){showToast('Select at least one topic.','bad');return;}
+      if(studyModuleDraft.step===3&&studyModuleDraft.countMode==='custom'){
+        const input=document.getElementById('nk-module-custom-count');
+        if(input&&!input.checkValidity()){nkSetCustomModuleCount(input.value);input.focus({preventScroll:true});return;}
+      }
       if(studyModuleDraft.step===3&&!nkQuestionsForModuleDraft().length){showToast('Change the topics or question type to find eligible questions.','bad');return;}
     }
     studyModuleDraft.step=Math.max(1,Math.min(4,Number(step)));
@@ -376,7 +389,7 @@
     const types=[['all','All questions','The complete selected topics'],['unattempted','Unattempted','Questions you have not answered'],['wrong','Wrong','Questions missed before'],['bookmarked','Bookmarked','Questions you saved'],['mixed','Mixed','Prioritises wrong and unattempted']];
     const countButtons=[10,20,30].map(count=>`<button class="${studyModuleDraft.countMode===count?'is-selected':''}" onclick="window.QB.nkSetModuleCount(${count})">${count}</button>`).join('');
     const warning=!available?'No eligible questions are available for the selected topics and question type.':requested>available?`You requested ${requested}. ${available} eligible questions are currently available. The module will use all ${available}.`:`${available} eligible questions are currently available.`;
-    return `${scopeSummary}<div class="nk-module-pool-grid">${types.map(([value,title,copy])=>`<button class="${studyModuleDraft.questionPoolType===value?'is-selected':''}" onclick="window.QB.nkSetModulePool('${value}')"><strong>${title}</strong><small>${copy}</small></button>`).join('')}</div><div class="nk-module-count-block"><strong>Question count</strong><div class="nk-module-count-presets">${countButtons}<button class="${studyModuleDraft.countMode==='custom'?'is-selected':''}" onclick="window.QB.nkSetModuleCount('custom')">Custom</button></div>${studyModuleDraft.countMode==='custom'?`<label>Custom count<input type="number" min="1" max="500" value="${requested}" oninput="window.QB.nkSetCustomModuleCount(this.value)"></label>`:''}<p id="nk-module-availability" class="${available?'':'is-error'}">${esc(warning)}</p></div>`;
+    return `${scopeSummary}<div class="nk-module-pool-grid">${types.map(([value,title,copy])=>`<button class="${studyModuleDraft.questionPoolType===value?'is-selected':''}" onclick="window.QB.nkSetModulePool('${value}')"><strong>${title}</strong><small>${copy}</small></button>`).join('')}</div><div class="nk-module-count-block"><strong>Question count</strong><div class="nk-module-count-presets">${countButtons}<button class="${studyModuleDraft.countMode==='custom'?'is-selected':''}" onclick="window.QB.nkSetModuleCount('custom')">Custom</button></div>${studyModuleDraft.countMode==='custom'?`<label>Custom count<input id="nk-module-custom-count" type="number" inputmode="numeric" required step="1" min="1" max="500" aria-describedby="nk-module-availability" value="${requested}" oninput="window.QB.nkSetCustomModuleCount(this.value)"></label>`:''}<p id="nk-module-availability" role="status" class="${available?'':'is-error'}">${esc(warning)}</p></div>`;
   }
 
   function nkModuleBuilderReview(){
