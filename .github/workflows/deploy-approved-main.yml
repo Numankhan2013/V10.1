@@ -106,7 +106,7 @@ jobs:
                   last_error = None
                   for attempt in range(6):
                       try:
-                          request = urllib.request.Request(f'https://{host}/{name}', headers={'Cache-Control': 'no-cache'})
+                          request = urllib.request.Request(f'https://{host}/{name}', headers={'Cache-Control': 'no-cache', 'User-Agent': 'Mozilla/5.0'})
                           with urllib.request.urlopen(request, timeout=30) as response:
                               assert response.status == 200
                               actual = hashlib.sha256(response.read()).hexdigest()
