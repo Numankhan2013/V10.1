@@ -152,7 +152,8 @@
     "last_record_id": "uworld__RENAL_P1_B03_Q040",
     "source_question_id": "11806",
     "page": 720,
-    "state": "question_only; answer/explanation continue in Part 2"
+    "state": "completed from Part 2 continuation",
+    "continuation_source": "data/uworld/automation_ingest/renal_urinary_electrolytes/part_02/continuation_patch_part1_qid11806.jsonl"
   },
   "files": [
     "uworld_renal_urinary_electrolytes_part_01.jsonl",
@@ -171,12 +172,12 @@
     "evidence": "Rendered source jumps from Item 26 of 40 (QID 8249) to Item 28 of 40 (QID 981). Do not fabricate or renumber."
   },
   "validation": {
-    "complete_records": 118,
-    "complete_records_with_correct_answer": 118,
-    "complete_records_with_educational_objective": 118,
+    "complete_records": 119,
+    "complete_records_with_correct_answer": 119,
+    "complete_records_with_educational_objective": 119,
     "page_coverage": "720/720",
     "ui_footer_leakage_detected": 0,
     "duplicate_source_ids": 0,
-    "status": "PASS_WITH_2_INTENTIONAL_BOUNDARY_RECORDS"
+    "status": "PASS_WITH_1_INTENTIONAL_SOURCE_MISSING_SLOT"
   }
 }
