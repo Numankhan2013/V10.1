@@ -2,15 +2,15 @@
 
 > Operational state only. Resolve the live branch/commit and CI from Git before acting. Historical detail belongs in `SESSION_LOG.md` and dedicated handoffs.
 
+## Production promotion recovery — 2026-10-03
+
+- User authorized fixing and rerunning the latest failed production candidate on `main`. Product `d9885087e0a7f8e241d2f064a124dae0ca591110` passed the main build/browser/PWA/APK checks in run `36977682274`; its Android tablet driver disconnected during source-PDF locator screenshot capture. Production was skipped; the canonical root still serves the prior release.
+- Replace the oversized locator screenshot with a native Android viewport capture after the existing image-load and CSS-contrast assertions plus an explicit visibility check. Phone/tablet behavior assertions remain mandatory. Fresh full main certification and deployment of that exact verified artifact are pending; no physical-device acceptance is claimed.
+
 ## Interaction responsiveness correction — 2026-10-02
 
-- User reports first polish candidate feels slower across all controls and asks for gentler answer haptics. Canonical deployment is held; `feature/home-answer-latency` builds forward from main product a68. Root remains released1ba.
-- Measured regression: shared 110 ms transitions leave the prior answer colors on the first frame after commit and animate release. Remove shared color/scale transitions and new page/question/sheet motion; keep immediate touch-down tint, cancellation, scroll/focus preservation and existing layout/colors.
-- Practice outcome feedback is now a single7/9 ms browser pulse; native success/error use light CLOCK_TICK instead of CONFIRM/REJECT/LONG_PRESS. Completion remains distinct; saves/rollback and selective haptic policy are preserved.
-- Faster bank indexing, leaner durable saves and in-place CBT/bookmark/FSRS/mark edits remain. Fresh first-frame/press/release checks passed at320/390/820/1194px plus reduced motion. All87 local checks and Practice/Continue/FSRS browser regressions passed. Full exact-candidate CI is required before promotion/release; physical feel remains subject to user review.
-- Prior a68 passed feature full36956370295 and fast gates; it is already on main (PR83 includes PR82). Its official main full36957980864 failed WebView rediscovery after an emulator app reset; this superseded run is not the correction certificate.
-- First correction b918 full36959307370 exposed stale CBT submission cleanup closing a fresh Review navigator. Fence delayed cleanup to its submitted exam; remove legacy sheet entrance motion. Local PYQ/mixed/Review journeys now pass phone/tablet; fresh full certification is pending.
-- See `docs/INTERACTION_POLISH_2026-10-02.md`; preserve the analysis, mocks, Home-only header and approved streak/FSRS work.
+- The corrected immediate answer/press feedback, gentler CLOCK_TICK native outcomes, in-place mutations and fenced CBT cleanup are now merged on main in product `d9885087`. Feature full run `36975563929` passed; main full run `36977682274` passed packaging/browser checks but failed the tablet screenshot capture described above.
+- Preserve the analysis, mocks, Home-only header and approved streak/FSRS work. Root remains the earlier `1ba16354` release until fresh full certification and exact-artifact promotion. Physical feel remains subject to user review; see `docs/INTERACTION_POLISH_2026-10-02.md`.
 
 ## Current UI refinement — 2026-10-02
 

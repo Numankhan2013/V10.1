@@ -282,7 +282,15 @@ async function main(){
       await sourcePdf.scrollIntoViewIfNeeded();
       await page.waitForFunction(()=>document.querySelector('.source-pdf-page img')?.naturalWidth>0);
       assert.equal(await sourcePdf.evaluate(node=>getComputedStyle(node).filter),'contrast(1.16) saturate(1.12)');
-      await sourcePdf.screenshot({path:`${output}/${label}-source-pdf-contrast.png`});
+      // Capture the visible Android surface like the other evidence above.
+      // A full PDF-image locator capture can resize/scroll the WebView beyond
+      // its viewport and disconnect Chromium on the tablet emulator.
+      await sourcePdf.evaluate(node=>node.scrollIntoView({block:'center',behavior:'instant'}));
+      await page.waitForFunction(()=>{
+        const bounds=document.querySelector('.source-pdf-page img')?.getBoundingClientRect();
+        return bounds&&bounds.top<innerHeight&&bounds.bottom>0&&bounds.width>0;
+      });
+      await device.screenshot({path:`${output}/${label}-source-pdf-contrast.png`});
       const initialPyqTest=await page.evaluate(()=>window.QB.getState().tests.at(-1));
       await page.evaluate(id=>window.QB.nav('result',id),initialPyqTest.id);
       await page.getByRole('button',{name:'Retry Test'}).click();
