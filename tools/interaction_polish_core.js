@@ -14,6 +14,18 @@
   },{passive:true});
   ['pointerup','pointercancel','dragstart'].forEach(name=>document.addEventListener(name,nkReleasePress,{capture:true,passive:true}));
   window.addEventListener('blur',nkReleasePress);
+  // Dense activity data stays a compact chart. One tab stop, spatial arrow
+  // navigation and explicit activation replace hundreds of tab stops.
+  document.addEventListener('keydown',event=>{
+    const button=event.target.closest?.('.nk-li-year-grid button');
+    if(!button)return;
+    const keys={ArrowLeft:-7,ArrowRight:7,ArrowUp:-1,ArrowDown:1};
+    if(!(event.key in keys)&&!['Home','End'].includes(event.key))return;
+    const buttons=[...button.closest('.nk-li-year-grid').querySelectorAll('button:not(:disabled)')],index=buttons.indexOf(button);
+    const next=event.key==='Home'?0:event.key==='End'?buttons.length-1:Math.max(0,Math.min(buttons.length-1,index+keys[event.key]));
+    event.preventDefault();buttons.forEach((node,i)=>node.tabIndex=i===next?0:-1);
+    buttons[next]?.focus({preventScroll:true});buttons[next]?.scrollIntoView({block:'nearest',inline:'nearest',behavior:'instant'});
+  });
   const nkPolishMark=nkToggleExamReviewFlag;
   nkToggleExamReviewFlag=nkQuestionAction(nkPolishMark,()=>true,()=>{
     const button=document.querySelector('.nk-exam-review-toggle'),s=state.activeSession,id=s?.questionIds?.[s.index];
@@ -25,6 +37,48 @@
   });
   const nkPolishRender=nkInteractionRender;
   let nkPolishIdentity='',nkPolishRoute='',nkPolishSubmitted=false;
+  // Only the answer region and newly revealed support change after the existing
+  // durable submit. Keep the question, figures and header mounted while reading.
+  function nkPatchPracticeOutcome(){
+    const s=state.activeSession,q=nkCurrentQuestion(),card=document.querySelector('.is-practice .question-card');
+    if(route.page!=='practice'||!q||!s?.submitted?.[q.id]||!card||card.querySelector('.nk-study-support'))return false;
+    const options=card.querySelector('.option-list'),footer=document.querySelector('.nk-session-footer');
+    if(!options||!footer)return false;
+    const selected=s.answers[q.id]||null,template=document.createElement('template');
+    template.innerHTML=`<div class="option-list">${nkSessionOptions(q,selected,'practice',true)}</div>${nkStudySupport(q,s.questionTimes?.[q.id]||0,false)}${practiceActionBar(s,q,selected,true)}`;
+    const nextOptions=template.content.querySelector('.option-list'),nextFooter=template.content.querySelector('.nk-session-footer');
+    if(!nextOptions||!nextFooter||nextOptions.children.length!==options.children.length)return false;
+    const keyboardAnswer=document.activeElement?.matches('.option'),x=window.scrollX,y=window.scrollY;
+    options.replaceChildren(...nextOptions.childNodes);
+    nextFooter.remove();while(nextOptions.nextSibling)card.appendChild(nextOptions.nextSibling);
+    footer.replaceWith(nextFooter);nkMountQuestionNote();nkPolishOutcome();
+    window.scrollTo(x,y);
+    if(keyboardAnswer)document.querySelector('.nk-fsrs-pill.is-default,.nk-session-footer .primary-btn')?.focus({preventScroll:true});
+    nkPolishIdentity=nkQuestionIdentity();nkPolishRoute=route.page;nkPolishSubmitted=true;
+    return true;
+  }
+  function nkPolishOutcome(){
+    if(!['practice','review-test'].includes(route.page))return;
+    const s=state.activeSession,q=nkCurrentQuestion(),support=document.querySelector('.nk-study-support');
+    if(!q||!support||support.querySelector('.nk-answer-outcome'))return;
+    const selected=Number(s?.answers?.[q.id]),correct=selected===Number(q.correctOption);
+    const letter=(q.options||[]).find(o=>String(o.letter).toUpperCase().charCodeAt(0)-64===Number(q.correctOption))?.letter;
+    if(!letter)return;
+    const status=document.createElement('p');status.className='nk-answer-outcome '+(correct?'is-correct':selected?'is-wrong':'is-unattempted');
+    status.setAttribute('role','status');status.textContent=`${correct?'Correct · Answer':selected?'Incorrect · Correct answer':'Unattempted · Correct answer'} ${letter}`;
+    support.prepend(status);
+  }
+  // Local mode switches keep the keyboard on its control and retain the reading
+  // position. No timer or animation gates the replacement.
+  function nkPolishReplaceSurface(node,markup){
+    if(!node)return;
+    const controls=[...node.querySelectorAll('button,select,summary')],index=controls.indexOf(document.activeElement),x=window.scrollX,y=window.scrollY;
+    const template=document.createElement('template');template.innerHTML=markup;
+    const next=template.content.firstElementChild;if(!next)return;
+    node.replaceWith(next);
+    if(index>=0)next.querySelectorAll('button,select,summary')[index]?.focus({preventScroll:true});
+    window.scrollTo(x,y);return next;
+  }
   render=function(){
     if(nkInteractionTransaction){nkInteractionTransaction.render=true;return;}
     const identity=['practice','exam','review-test'].includes(route.page)?nkQuestionIdentity():'';
@@ -32,8 +86,10 @@
     const x=window.scrollX,y=window.scrollY;
     const submitted=Boolean(state.activeSession?.submitted?.[state.activeSession?.questionIds?.[state.activeSession?.index]]);
     const keyboardAnswer=document.activeElement?.matches?.('.option');
+    const footerFocus=[...document.querySelectorAll('.nk-session-footer .fixed-actions-inner button')].indexOf(document.activeElement);
     const open=same?[...document.querySelectorAll('.question-card details[open]')].map((node)=>node.id||node.className):[];
     nkPolishRender.apply(this,arguments);
+    nkPolishOutcome();
     if(same){
       document.querySelectorAll('.question-card details').forEach(node=>{if(open.includes(node.id||node.className))node.open=true;});
       window.scrollTo(x,y);
@@ -42,6 +98,10 @@
       }
     }else if(identity){
       window.scrollTo(0,0);
+      if(footerFocus>=0&&route.page===nkPolishRoute){
+        const buttons=document.querySelectorAll('.nk-session-footer .fixed-actions-inner button');
+        (buttons[footerFocus]?.disabled?buttons[1]:buttons[footerFocus])?.focus({preventScroll:true});
+      }
     }
     nkPolishIdentity=identity;nkPolishRoute=route.page;nkPolishSubmitted=submitted;
   };
