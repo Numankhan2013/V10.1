@@ -59,8 +59,8 @@
     const questions=nkAllStudyQuestions().filter(q=>nkRevisionScopeMatches(q,scope));
     const attempts=id=>typeof nkFsrsActiveAttempts==='function'?nkFsrsActiveAttempts(String(id)):
       (qAttempts(String(id))||[]).filter(a=>a&&!a.isUndo);
-    const wrong=questions.filter(q=>typeof nkFsrsUnresolvedMistake==='function'?
-      nkFsrsUnresolvedMistake(q.id):attempts(q.id).at(-1)?.correct===false);
+    const wrong=questions.filter(q=>typeof nkFsrsPracticeMistake==='function'?
+      nkFsrsPracticeMistake(q.id):attempts(q.id).at(-1)?.correct===false);
     const bookmarked=questions.filter(q=>Boolean(state.bookmarks?.[String(q.id)]));
     const unseen=questions.filter(q=>!attempts(q.id).length&&state.fsrsReviewEligible?.[String(q.id)]?.reason!=='skipped');
     const due=typeof nkFsrsQueue==='function'?nkFsrsQueue(scope):

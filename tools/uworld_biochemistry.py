@@ -2,12 +2,14 @@
 from pathlib import Path
 import hashlib,json
 from uworld_source_text import source_transcript
+from uworld_reviewed_document import load_reviewed
 ROOT=Path(__file__).resolve().parents[1]
 SOURCE=ROOT/'data/uworld/automation_ingest/biochemistry/blocks_001_003'
 # Deferred image-dependent records stay available as unscored reference text.
 # This is a conservative OCR-only gate, not a completed medical content audit.
 MISSING_VISUAL_IDS=set('12066 1378 1244 1022 1473 8328 1032 1036 1599 12263 2029 1071 2039 8276 11595 11914 1790 2030 1428 11950 1247 1727 1417 1436 1412 11960 1728'.split())
 PDF=ROOT/'data/uworld/Source_pdfs/biochemistry/UW 2024 - Biochemistry - 3 blocks - OCR.pdf'
+COLLECTION_SCOPE='UWorld · Biochemistry'
 
 def load_source():
     manifest=json.loads((SOURCE/'manifest.json').read_text())
@@ -33,6 +35,7 @@ def load_source():
 
 def bank_record():
     manifest,rows=load_source()
+    reviewed=load_reviewed(rows,manifest['source_sha256'])
     topics=[{'id':'uworld_biochem_block_'+str(n),'title':'Block '+str(n),'number':n} for n in range(1,4)]
     topics.append({'id':'uworld_biochem_supplemental','title':'Supplemental source questions','number':4})
     questions=[]
@@ -40,11 +43,16 @@ def bank_record():
         block=row['block_number'];topic=topics[block-1] if block else topics[3]
         options=[{'letter':o['label'],'text':('Pedigree '+o['label']) if row['source_question_id']=='11914' else ('Arrow '+o['label']) if row['source_question_id'] in ['1032','1036'] else o['text']} for o in row['options']]
         correct=ord(row['correct_option'])-64
-        questions.append({'id':row['question_id'],'subject':'Biochemistry','bank':'UWorld','chapterId':topic['id'],'chapter':topic['title'],
+        questions.append({'id':row['question_id'],'subject':COLLECTION_SCOPE,'collection':'Biochemistry','bank':'UWorld','chapterId':topic['id'],'chapter':topic['title'],
             'questionNumber':row['question_number'] or row.get('block_sequence') or len(questions)+1,'question':row['question_text'],
             'options':options,'correctOption':correct,'correctAnswerText':options[correct-1]['text'],'explanation':row['explanation']['text'],
             'sourcePage':min(row['source']['source_pages']),'sourcePageEnd':max(row['source']['source_pages']),
             'provenance':{'bank':'UWorld','edition':'2024','sourcePdfSha256':manifest['source_sha256'],'sourcePages':row['source']['source_pages']},
             'uworldSource':row,'uworldTranscript':source_transcript(row),
             'uworldPilot':{'status':'ocr-unverified','requiresVisual':row['source_question_id'] in MISSING_VISUAL_IDS}})
-    return {'subject':'Biochemistry','bank':'UWorld','edition':'2024','topics':topics,'questions':questions}
+        doc=reviewed.get(row['question_id'])
+        if doc:
+            q=questions[-1]
+            q.update(question=doc['question'],options=doc['options'],correctAnswerText=doc['options'][correct-1]['text'],uworldDocument=doc)
+            q['uworldPilot']={'status':'source-reviewed' if doc['status']=='verified' else 'source-blocked','requiresVisual':doc['status']!='verified'}
+    return {'subject':COLLECTION_SCOPE,'collection':'Biochemistry','organization':'UWorld','bank':'UWorld','edition':'2024','topics':topics,'questions':questions}

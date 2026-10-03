@@ -15,6 +15,13 @@ let nkCbtPool=()=>RECORD.questions,nkQuestionsForModuleDraft=()=>RECORD.question
 let startSession=ids=>{calls++;lastIds=ids;return true;},practiceOne=id=>startSession([id]);
 const nkAllStudyQuestions=()=>RECORD.questions;
 const nkFindStudyQuestion=id=>RECORD.questions.find(q=>q.id===id),showToast=()=>{};
+let chapterStats=()=>({}),activeBank='UWorld';
+const chapterQuestions=()=>RECORD.questions;
+let dashboard=()=>'<section class="nk-home-progress">',nkStudyLibraryPage=()=>'<main></main>',bankPage=()=>'',topics=()=>'',render=()=>{},nkModuleSelectedRecords=()=>[];
+const NK_UWORLD_BIOCHEMISTRY_BANK={subject:'UWorld · Biochemistry'},qAttempts=()=>[],fmtNum=String,shell=x=>x;
+let nkValidQuestionOption=(q,n)=>Boolean(q)&&Number.isInteger(Number(n)),studyModuleDraft=null;
+const state={activeSession:null},location={hostname:'localhost'};
+const document={addEventListener:()=>{},querySelectorAll:()=>[],querySelector:()=>null};
 ''' +(ROOT/'tools/question_presentation_core.js').read_text()+ '\n'+(ROOT/'tools/uworld_biochemistry_core.js').read_text()+'\nconst RECORD='+json.dumps(record,ensure_ascii=False)+r''';
 for(const source of RECORD.questions){
  const q=JSON.parse(JSON.stringify(source)),before=JSON.stringify(q),p=nkQuestionPresentationFor(q);
@@ -37,12 +44,17 @@ assert(!/Key takeaway|Why the other options are wrong|uworld_visuals\//i.test(ht
 const hostile={...native,uworldSource:{explanation:{text:'<img src=x onerror=alert(1)>',educational_objective:'<script>alert(1)</script>'}},uworldTranscript:{paragraphs:['<script>alert(1)</script>']}};
 assert(!nkStudySupport(hostile,0).includes('<script>'));assert(!nkUworldOptionMarkup(native,{text:'<img src=x onerror=alert(1)>'}).includes('<img src=x'));
 assert(nkUworldParagraph('(Choice A) Original reasoning.').includes('<strong>(Choice A)</strong>'));
-assert.equal(nkCbtPool().length,105);assert.equal(nkQuestionsForModuleDraft().length,105);
-assert(Object.values(nkRevisionDeskData()).every(rows=>rows.length===105));
-assert(startSession(RECORD.questions.map(q=>q.id)));assert.equal(lastIds.length,105);
-const count=calls;assert.equal(startSession(['uw2024_biochem_11914']),false);assert.equal(calls,count);
+const eligible=RECORD.questions.filter(q=>!q.uworldPilot.requiresVisual).length;
+assert.equal(nkCbtPool().length,eligible);assert.equal(nkQuestionsForModuleDraft().length,eligible);
+assert(Object.values(nkRevisionDeskData()).every(rows=>rows.length===eligible));
+assert(startSession(RECORD.questions.map(q=>q.id)));assert.equal(lastIds.length,eligible);
+const gated=RECORD.questions.find(q=>q.uworldPilot.requiresVisual);if(gated){const count=calls;assert.equal(startSession([gated.id]),false);assert.equal(calls,count);}
 assert.equal(startSession([native.id]),true);assert.deepEqual(lastIds,[native.id]);
-console.log('UWORLD_RUNTIME_OK records=132 eligible=105 reference_only=27 choices=4-8 native_ocr=true incumbent_preserved=true safe_markup=true no_answer_delay=true');
+assert(nkUworldNodes([{type:'paragraph',text:'(Choice A) Source reasoning.'}],native).includes('nk-uworld-choice-discussion'));
+assert(nkUworldNodes([{type:'table',caption:'Source table',columns:['Enzyme','Result'],rows:[['Ligase','Joins DNA']]}],native).includes('Joins DNA'));
+const zero={...native,uworldDocument:{statistics:{answered_correctly_percent:0,selection_percent:{A:0,B:null,C:99,D:1,E:0}}}};
+assert(nkUworldStatistics(zero).includes('0% answered correctly'));assert(nkUworldOptionPercentage(zero,{letter:'A'}).includes('0%'));assert(!nkUworldOptionPercentage(zero,{letter:'B'}).includes('percent of learners'));assert(nkUworldOptionPercentage(zero,{letter:'B'}).includes('aria-hidden'));
+console.log('UWORLD_RUNTIME_OK records=132 eligible='+eligible+' choices=4-8 source_native=true incumbent_preserved=true safe_markup=true no_answer_delay=true');
 '''
  with tempfile.TemporaryDirectory() as tmp:
   script=Path(tmp)/'runtime.js';script.write_text(runtime);subprocess.run(['node',str(script)],check=True,cwd=ROOT)

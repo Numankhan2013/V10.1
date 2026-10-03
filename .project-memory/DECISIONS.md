@@ -386,3 +386,15 @@ The user now authorizes excluded latency work and native-feel polish. Preserve
 the design and transactional study invariants. Visual feedback starts at
 pointer-down; outcomes/haptics follow successful saves. Ordinary navigation is
 silent; unsupported platforms retain visual feedback. Full CI precedes release.
+
+## UWorld source reference and interaction placement — 2026-10-03
+
+Refine the132-question Biochemistry pilot before scaling. Keep collections apart
+from traditional subjects; adapt source content through pinned typed display
+documents rather than rewriting canonical imports or forking study engines.
+Preserve UWorld's original explanation order and source choice discussions;
+educational objectives remain after explanations to avoid answer hints.
+Option-selection percentages belong beside each option, revealed immediately
+with answered feedback and withheld during CBT. No disclosure is needed.
+Practice mistakes represents unresolved ordinary misses; scheduled-review lapses
+remain the responsibility of FSRS and never create or resurrect that queue.

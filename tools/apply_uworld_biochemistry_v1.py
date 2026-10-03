@@ -9,7 +9,15 @@ END='  /* NK_UWORLD_BANK_DATA_END */'
 
 def transform(source):
     data=json.dumps(bank_record(),ensure_ascii=False,separators=(',',':')).replace('</','<\\/')
-    registry=START+'\n  const NK_UWORLD_BIOCHEMISTRY_BANK='+data+';\n  BANKS_BY_SUBJECT.Biochemistry.push(NK_UWORLD_BIOCHEMISTRY_BANK);\n'+END
+    registry=START+'\n  const NK_UWORLD_BIOCHEMISTRY_BANK='+data+''';
+  // Collection namespace participates in the shared engines, never My Subjects.
+  BANKS_BY_SUBJECT[NK_UWORLD_BIOCHEMISTRY_BANK.subject]=[NK_UWORLD_BIOCHEMISTRY_BANK];
+  SUBJECT_BY_NAME[NK_UWORLD_BIOCHEMISTRY_BANK.subject]=NK_UWORLD_BIOCHEMISTRY_BANK;
+  const nkUworldOriginalBankRecord=nkBankRecord;
+  nkBankRecord=function(name,bank){
+    return nkUworldOriginalBankRecord(name==='Biochemistry'&&bank==='UWorld'?NK_UWORLD_BIOCHEMISTRY_BANK.subject:name,bank);
+  };
+'''+END
     if START in source:
         a=source.index(START);b=source.index(END,a)+len(END);source=source[:a]+registry+source[b:]
     else:
@@ -25,6 +33,21 @@ def transform(source):
     source=source.replace('uworldZoom:nkUworldZoom,uworldRetryImages:nkUworldRetryImages,','uworldReference:nkUworldReference,')
     if 'uworldReference:nkUworldReference' not in source:
         source=source.replace('  window.QB={','  window.QB={uworldReference:nkUworldReference,',1)
+    if 'uworldFigure:nkUworldFigure' not in source:
+        source=source.replace('  window.QB={','  window.QB={uworldFigure:nkUworldFigure,uworldRetryFigures:nkUworldRetryFigures,',1)
+    # A real route makes Home/browser Back/reload use the existing navigation.
+    route="else if(route.page==='uworld') out=nkUworldLibraryPage();"
+    if route not in source:
+        anchor="else if(route.page==='topics') out=topics();"
+        if anchor in source:source=source.replace(anchor,route+'\n    '+anchor,1)
+    # Locked Practice outcomes and Review Solutions share this option renderer.
+    # Exam choices remain free of source percentages until Review Solutions.
+    option_end='</span></${tag}>`'
+    percent_end="</span>${q.bank==='UWorld'?nkUworldOptionPercentage(q,o,locked):''}</${tag}>`"
+    source=source.replace("</span>${q.bank==='UWorld'&&locked?nkUworldOptionPercentage(q,o):''}</${tag}>`",percent_end)
+    if percent_end not in source:
+        if option_end in source:source=source.replace(option_end,percent_end,1)
+        elif 'function nkSessionOptions(' in source:raise ValueError('Shared option percentage anchor changed')
     # The installed shared question presenter must match its canonical owner.
     pstart='  /* NK_QUESTION_PRESENTATION_V1_START';pend='  /* NK_QUESTION_PRESENTATION_V1_END */'
     a=source.index(pstart);b=source.index(pend,a)+len(pend)
@@ -33,8 +56,8 @@ def transform(source):
     if old in source:source=source.replace(old,new)
     elif new not in source:raise ValueError('Shared choice renderer missing')
     source=source.replace("${marrow?'M':'PL'}","${record.bank==='UWorld'?'UW':marrow?'M':'PL'}")
-    source=source.replace("${marrow?'Native text':'PDF source'}","${record.bank==='UWorld'?'OCR pilot · 105 ready':marrow?'Native text':'PDF source'}")
-    source=source.replace("record.bank==='UWorld'?'Source native'","record.bank==='UWorld'?'OCR pilot · 105 ready'")
+    source=source.replace("${marrow?'Native text':'PDF source'}","${record.bank==='UWorld'?'Source collection':marrow?'Native text':'PDF source'}")
+    source=source.replace("record.bank==='UWorld'?'Source native'","record.bank==='UWorld'?'Source collection'")
     css='<style id="nk-uworld-biochemistry-v1">'+(ROOT/'tools/uworld_biochemistry.css').read_text()+'</style>'
     source=re.sub(r'<style id="nk-uworld-biochemistry-v1">.*?</style>',css,source,flags=re.S)
     if 'id="nk-uworld-biochemistry-v1"' not in source:source=source.replace('</head>',css+'\n</head>',1)

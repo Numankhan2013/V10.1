@@ -2242,3 +2242,41 @@ measure, source-label emphasis and source objective.132 originals remain intact;
 excluded before scored pool selection. No completed medical fidelity review is
 claimed. Targeted source/runtime and generated390/820/1194/1440px study checks
 pass; certification and hosted evidence remain pending.
+
+### OCR pilot certification
+
+Product c7b505370b00f696b50ec2d81ea719283b8acced passes both Engineering gates
+37128060474/37128062400 and full37128060483, including Android phone/tablet.
+Earlier f0758b6/ea2c46c candidates failed the320px Revision geometry check;
+short dashboard hints fix the regression while retaining the original assertion,
+font sizes and44px controls. No failing check was relaxed. The native OCR
+reading layout replaces the rejected panel prototype and was inspected in the
+running app. Hosted https://690495d5.nk-qbank.pages.dev passes390/820/1194/1440px
+UWorld and390/820px continuous Revision flows, plus real static/worker/PDF/Range/
+HEAD crawler headers. HTML SHA-256 d833fdd0781061fe671c6689b344f1f53ef1748933f391134a5d725d9b066dec.
+Production root independently remains3fce9f7c07bf9c4721b1e58aa168bab76b0db8641cd9b2d908c46cbfe729fea9.
+PR93 stacks on92; the certified product branch remains unchanged. This docs-only
+handoff preserves its exact build identity. Every-question Luna validation,
+focused diagram/table recovery, physical acceptance and other subjects remain
+outstanding. Workspace CLI credential expired; connected GitHub tools and public
+read-only Git fetch remain usable.
+
+## 2026-10-03 — UWorld reference refinement
+
+User accepted prior pilot layout on phone/iPad/desktop and full Revision sessions,
+then requested source cleanup, independent My UWorld navigation, source statistics
+and clearer choice discussions. Six high-effort Luna batches reviewed132 records
+against the supplied PDF; independent checks corrected OCR overlap and crop bounds.
+Implemented source-pinned native documents, figures/tables, immediate per-option
+percentages, legacy scope compatibility and ordinary-mistake provenance. One source
+question remains held for an absent essential exhibit. All101 local checks and generated390/820/1194/1440px UWorld study flows pass,
+including direct percentage placement, source figures/retry/zoom and native tables.
+Full packaging and hosted certification are pending; production is unchanged.
+
+The first full reference run37157432292 passed source/PWA image bytes and every
+study/browser flow, then stopped on the UI capture's subject selector matching
+both Biochemistry and its UWorld collection. Scoped that audit to My Subjects,
+retaining all geometry/visibility/image assertions. A diagnostic audit initially
+lacked its existing Marrow JPEG fixture; copying that fixture to ignored build/web
+restores the original environment without changing app assets. The replacement
+full candidate is pending. Restored the existing executable bit on the FSRS test.

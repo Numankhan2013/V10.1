@@ -2,11 +2,14 @@
 
 > Operational state only. Resolve the live branch/commit and CI from Git before acting. Historical detail belongs in `SESSION_LOG.md` and dedicated handoffs.
 
-## UWorld Biochemistry and continuous Revision pilot — 2026-10-03
+## UWorld Biochemistry reference refinement — 2026-10-03
 
-- Active `feature/home-uworld-biochemistry-pilot-20261003`, based on the certified return-flow handoff; preserves all prior refinements. User authorizes Biochemistry-only UWorld integration, crawler exclusion, and full eligible Mistakes/Bookmarks/Due sessions with Pause/Finish at any point. Original sources imported unchanged from `uworld-poisoning-env-block-01-20261003` at2cc0ea8; no other subjects imported.
-- Pilot source:120 nominal+12 supplemental questions,132 stable IDs,729 source pages, exact JSONL hashes checked. Latest user scope is OCR text only; later Luna subagents will validate every question against the PDF. Native scrollable 17px/70ch explanations replace the rejected screenshot-panel prototype; originals stay immutable.105 practice questions and27 conservatively held unscored diagram references; objective1486 remains clipped.
-- Source/runtime and running phone/tablet/desktop OCR flows pass; full CI/packaged/hosted validation pending. Revision freezes full eligible queues (Due retains FSRS daily cap), uses shared Pause/Resume checkpoints, and finishes answered work only. Crawler guards discourage indexing but do not hide the public repository or restrict downloads. Production unchanged; no physical acceptance or medical OCR certification. See `docs/UWORLD_BIOCHEMISTRY_PILOT.md`.
+- Active `feature/home-uworld-reference-refinement-20261003`, based on certified PR93 handoff. User accepts the prior preview's phone/iPad/desktop spacing and continuous Revision workflow; reports OCR leakage/missing figures and authorizes a question-by-question Luna PDF audit. Perfect Biochemistry first; no other UWorld collections imported.
+- All132 stable source records have source-pinned reviewed display documents across729 pages. Six high-effort Luna batches plus independent crop/text checks recover focused figures and native tables; originals remain immutable.131 practice-ready questions;1244 remains an unscored reference because the supplied PDF lacks its essential stem exhibit. Objectives1486/1071/107111 and parts of figures1369/1244 are clipped in the source. Missing percentages remain null.
+- `My UWorld` sits below `My Subjects`, with independent Biochemistry collection→four source blocks. A collection namespace feeds shared engines; old saved UWorld scope keys resolve through read-only compatibility adapters. IDs, scoring, FSRS scheduling, history, sync and incumbent banks stay shared.
+- UWorld retains the accepted17px/70ch reading layout, original reasoning/order and objective after explanation. Source choice discussions gain their own quiet labelled presentation. Option-selection percentages appear at each option's right edge immediately after Practice answers and in Review Solutions, never during timed CBT; no extra disclosure or scroll is required. Focused images use existing zoom and offline packaging; essential-media failure prevents an unsupported answer and offers Retry.
+- Practice mistakes now derive from unresolved ordinary Practice/test misses. FSRS-only lapses adjust their schedule without creating or resurrecting Practice mistakes; any later correct answer resolves an ordinary miss. Full Revision queues and Pause/Finish remain intact.
+- All101 local checks, focused source/crop contracts and generated390/820/1194/1440px UWorld browser flows pass, including native tables, direct percentages, failed-media retry, CBT/review and FSRS queue separation. Incumbent390/820px interaction checks pass. Initial3888721 passes both Engineering gates and all study/browser checks through the journey suite; full37157432292 stopped on an ambiguous Biochemistry audit selector. The subject-only audit selector now passes320/390/large-text390/820px without weakening assertions; full replacement certification and hosted verification remain pending. Production remains unchanged. Prior certified OCR pilot c7b5053/run37128060483/preview https://690495d5.nk-qbank.pages.dev remains the comparison baseline. No medical certification is claimed.
 
 ## Production promotion recovery — 2026-10-03
 
@@ -30,12 +33,9 @@
 - Review Solutions uses white text on solid deep violet; missed-question practice retains a clear secondary button. PWA notices require a waiting worker with a verified different build, never idle alone; matching builds stay quiet, Later persists for that tab and study sessions defer the prompt. Updates still reload only after an explicit click.
 - All90 local checks passed. Candidate rendering checks at320/390/820/1194px passed analysis/Insights/mock paths and exact outcome/button colors; protected Continue Practice checks passed. Real service-worker verification passed16s idle, same-build suppression, dismissal/reload and explicit update. Analysis product c4f590b passed both Engineering gates and full37093986785, including Android phone/tablet; exact hosted390/820px checks passed at https://ee2927a6.nk-qbank.pages.dev (HTML SHA-256 afc9411ca72f451a0a7ae50eb19abb71046e01cfc25c3f474799bb0a85a21c02). PR88 is ready; no new production promotion or physical acceptance claimed.
 
-## Released Insights and clarity — 2026-10-02
+## Previous released Insights — 2026-10-02
 
-- Superseded root release was certified product `1ba1635428a661c4e9c152e2e90d75b441c05b0b`; PR81 merged. Feature full run `36947218296` and main full run `36949193523` passed content/browser/PWA/APK/package and phone/tablet emulators; both fast gates passed.
-- That prior release served HTML SHA-256 `24ad5d627b94e25c9d6f79cbdc8ff73ec759f924ea8fde533d21c5d84cfb8737`; hosted phone/tablet period/reload/relative-heatmap checks passed. October3 recovery above supersedes it.
-- Automatic production trigger did not start. Release branch `release/approved-production-20261002-clarity` at `cffb8ad0d9e63eab7ddb483708472cb3581350c6` pins the verified main artifact; deploy run `36951774743` succeeded without rebuilding. Main stayed unchanged for artifact identity checks.
-- Owners `apply_learning_insights_v1.py` and `apply_app_clarity_v1.py` implement read-only comparative metrics, continuous year-relative shade/glow and compact app screens. Accepted Revision/liquid streak/editable FSRS and all source work remain included. Physical APK acceptance remains separate.
+- PR81/release `1ba1635` was certified before the October3 production recovery. Historical run/artifact details remain in `SESSION_LOG.md`; current production is the recovery release above.
 
 ## Canonical lineage
 
