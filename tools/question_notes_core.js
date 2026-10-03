@@ -27,22 +27,24 @@
     ).sort((a,b)=>Number(b.note.updatedAt||0)-Number(a.note.updatedAt||0));
   }
 
+  let nkNotesQuery="";
   function nkNotesPage(){
     const entries=nkSavedQuestionNotes();
     return shell(`<div class="nk-app-v114 nk-notes-page">${nkAppPageHead('PERSONAL REVISION','My notes','Recall cues saved while reviewing questions.')}
       <div class="nk-notes-count">${fmtNum(entries.length)} saved note${entries.length===1?'':'s'}</div>
-      ${entries.length?`<label class="nk-notes-search"><span aria-hidden="true">⌕</span><input type="search" placeholder="Search notes or questions" aria-label="Search notes or questions" oninput="window.QB.nkFilterNotes(this.value)"></label>
+      ${entries.length?`<label class="nk-notes-search"><span aria-hidden="true">${navIcon('search',20)}</span><input type="search" value="${esc(nkNotesQuery)}" placeholder="Search notes or questions" aria-label="Search notes or questions" oninput="window.QB.nkFilterNotes(this.value)"></label>
       <div class="nk-notes-list">${entries.map(({id,note,q})=>{
         const subject=q?.subject||'Question unavailable',bank=q?.bank||'',topic=q?.chapter||q?.topic||'';
         const key=encodeURIComponent(id),search=esc(`${subject} ${bank} ${topic} ${q?.question||''} ${note.text}`.toLowerCase());
-        return `<article class="nk-notes-item" data-note-search="${search}"><div class="nk-notes-item-meta">${esc(subject)}${bank?` · ${esc(bank)}`:''}${topic?` · ${esc(topic)}`:''}</div><p class="nk-notes-item-question">${q?esc(q.question):'This question is not in the current banks.'}</p><div class="nk-notes-item-text">${esc(note.text)}</div>${q?`<button type="button" onclick="window.QB.nkOpenNotedQuestion('${key}')">Practice question <span aria-hidden="true">›</span></button>`:''}</article>`;
-      }).join('')}</div><p class="nk-notes-no-match" hidden>No notes match your search.</p>`:
+        return `<article class="nk-notes-item" data-note-search="${search}"><div class="nk-notes-item-meta">${esc(subject)}${bank?` · ${esc(bank)}`:''}${topic?` · ${esc(topic)}`:''}</div><p class="nk-notes-item-question">${q?esc(q.question):'This question is not in the current banks.'}</p><div class="nk-notes-item-text">${esc(note.text)}</div>${q?`<button type="button" onclick="window.QB.nkOpenNotedQuestion('${key}')">Practice question ${navIcon('chevron',16)}</button>`:''}</article>`;
+      }).join('')}</div><p class="nk-notes-no-match" role="status" hidden>No notes match your search.</p>`:
       nkAppEmpty('book','No notes yet','After answering a question, add a recall cue below the answer. It will appear here.')}
     </div>`,'more');
   }
 
   function nkFilterNotes(value){
-    const term=String(value||'').trim().toLowerCase();
+    nkNotesQuery=String(value||'');
+    const term=nkNotesQuery.trim().toLowerCase();
     let shown=0;
     document.querySelectorAll('.nk-notes-item').forEach(item=>{
       item.hidden=Boolean(term)&&!item.dataset.noteSearch.includes(term);
@@ -63,15 +65,22 @@
     const q=entry.q;
     if(typeof openBank==='function'&&q.subject&&q.bank)openBank(q.subject,q.bank);
     BY_ID={...BY_ID,[id]:q};
+    const previous=state.activeSession?.id;
     practiceOne(id);
+    if(state.activeSession?.id!==previous&&state.activeSession?.questionIds?.[0]===id){
+      state.activeSession.originRoute='notes';saveState();
+    }
   }
 
-  let nkNoteDraftOwner="";
+  let nkNoteDraftOwner="",nkNotesAccount="";
   const nkNoteDrafts=new Map();
   function nkMountQuestionNote(){
-    const owner=String(typeof nkAuth!=="undefined"&&nkAuth?.uid||"local")+":"+String(state.activeSession?.id||"");
+    const account=String(typeof nkAuth!=="undefined"&&nkAuth?.uid||"local");
+    if(account!==nkNotesAccount){nkNotesQuery="";nkNotesAccount=account;}
+    const owner=account+":"+String(state.activeSession?.id||"");
     if(owner!==nkNoteDraftOwner){nkNoteDrafts.clear();nkNoteDraftOwner=owner;}
     const page=route.page;
+    if(page==='notes'){nkFilterNotes(nkNotesQuery);return;}
     if(page!=='practice'&&page!=='review-test')return;
     const session=state.activeSession,qid=String(session?.questionIds?.[session.index]||'');
     if(!BY_ID[qid]||(page==='practice'&&!session?.submitted?.[qid]))return;

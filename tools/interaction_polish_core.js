@@ -95,6 +95,10 @@
     if(builderAction&&builderTitle===nextBuilder?.querySelector('h1')?.textContent){
       [...nextBuilder.querySelectorAll('button')].find(n=>n.getAttribute('onclick')===builderAction)?.focus({preventScroll:true});
       window.scrollTo(x,y);
+    }else if(builderAction&&nextBuilder&&builderTitle!==nextBuilder.querySelector('h1')?.textContent){
+      const heading=nextBuilder.querySelector('h1');
+      if(heading){heading.tabIndex=-1;heading.focus({preventScroll:true});}
+      window.scrollTo(0,0);
     }
     nkPolishOutcome();
     if(same){

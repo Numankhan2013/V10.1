@@ -116,6 +116,19 @@ html body #app :is(.nk-app-v114,.nk-home-command-center,.nk-v114-session) :is(bu
 }
 
 /* Comfortable editing and native selectors retain the established study palette. */
-.nk-question-note textarea,.nk-question-search-box input,.nk-question-search-filters select,.nk-module-builder input[type="number"]{font-size:16px;}
+.nk-question-note textarea,.nk-question-search-box input,.nk-question-search-filters select,.nk-module-builder input:not([type="checkbox"]){font-size:16px;}
 .nk-question-note .nk-note-save{background:#493394;color:#fff;white-space:nowrap;}
 .nk-question-note textarea{line-height:1.5;background:#fffefd;border-color:#d9d3e4;}
+
+.nk-notes-search input{font-size:16px;}
+.nk-notes-search:focus-within,.nk-question-search-box:focus-within{outline:2px solid var(--nk-action,#493394);outline-offset:3px;}
+.nk-notes-page .nk-notes-item,.nk-notes-page .nk-notes-search{background:var(--nk-paper,#fffefd);border-color:var(--nk-divider,#e5e0ec);color:var(--nk-ink,#29263f);}
+.nk-notes-page .nk-notes-item-text{background:var(--nk-selection,#f1ecfa);color:var(--nk-ink,#29263f);font-size:15px;line-height:1.6;}
+.nk-notes-page .nk-notes-item-question{font-size:15px;line-height:1.5;}
+.nk-notes-page .nk-notes-item-meta{color:var(--nk-secondary,#696579);font-size:12px;font-weight:650;}
+.nk-notes-page .nk-notes-item button{display:flex;justify-content:flex-end;align-items:center;gap:6px;color:var(--nk-action,#493394);}
+
+.nk-module-builder input:not([type="checkbox"]):focus-visible{outline:2px solid var(--nk-action,#493394);outline-offset:3px;}
+
+/* Final review uses its content height, keeping creation actions close to scope. */
+.nk-module-builder-card:has(.nk-module-name){min-height:0;}
