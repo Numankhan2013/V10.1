@@ -1,0 +1,144 @@
+{
+  "document": "UW_2024_Rheumatology_Orthopedics_&_Sports_5_blocks_OCR.pdf",
+  "page_count": 1179,
+  "question_count": 172,
+  "unique_question_ids": 172,
+  "block_counts": {
+    "1": 40,
+    "2": 40,
+    "3": 40,
+    "4": 40,
+    "5": 12
+  },
+  "block_structure": [
+    40,
+    40,
+    40,
+    40,
+    12
+  ],
+  "educational_objectives_extracted": 172,
+  "questions_with_visual_refs": 145,
+  "visual_page_refs": 482,
+  "questions_with_complete_choice_percentages": 165,
+  "validation_issue_count": 0,
+  "validation_issues": [],
+  "validation_rules": [
+    "172 records expected from four 40-item blocks plus one 12-item block",
+    "Question IDs must be unique",
+    "Every item must have 4-8 answer choices",
+    "Exactly one correct answer must map to an answer choice",
+    "Stem and explanation must be non-empty",
+    "Telegram/UI chrome must not leak into stem/explanation",
+    "Exhibit pages are preserved as source-page references for later image cropping",
+    "Interleaved linked-item pages are grouped by Question ID rather than page adjacency"
+  ],
+  "questions_with_source_collecting_statistics": 7,
+  "source_collecting_statistics_question_ids": [
+    "1253",
+    "1733",
+    "982",
+    "11801",
+    "1969",
+    "11798",
+    "1795"
+  ],
+  "answer_distribution_note": "Percentages are preserved when displayed by the source. For these questions, the source result screen itself displayed Collecting Statistics, so percentages are unavailable and intentionally left null rather than fabricated.",
+  "educational_objectives_rebuilt_from_page_local_source": 70,
+  "final_validation_issue_count": 0,
+  "final_validation_issues": [],
+  "final_validation_checks": [
+    "172 JSONL records parse successfully",
+    "unique question IDs and app IDs",
+    "block/item continuity 40/40/40/40/12",
+    "4-8 labeled options and correct answer maps to an option",
+    "non-empty stem, explanation, correct answer text, educational objective",
+    "no duplicate normalized stems",
+    "core UI/Telegram/result-state leakage absent from stem/explanation/objective",
+    "visual/exhibit source-page references preserved",
+    "source Collecting Statistics cases left with null percentages rather than fabricated values",
+    "interleaved linked-vignette pages grouped by Question ID rather than page adjacency"
+  ],
+  "explanations_safe_deduplicated": 9,
+  "explanation_cleanup_changes": [
+    [
+      "14677",
+      396,
+      375,
+      1
+    ],
+    [
+      "859",
+      166,
+      163,
+      0
+    ],
+    [
+      "11770",
+      303,
+      277,
+      1
+    ],
+    [
+      "19492",
+      595,
+      439,
+      1
+    ],
+    [
+      "1896",
+      358,
+      357,
+      0
+    ],
+    [
+      "752",
+      540,
+      333,
+      1
+    ],
+    [
+      "19565",
+      630,
+      423,
+      3
+    ],
+    [
+      "1835",
+      315,
+      249,
+      1
+    ],
+    [
+      "11818",
+      416,
+      376,
+      1
+    ],
+    [
+      "19823",
+      520,
+      366,
+      1
+    ],
+    [
+      "15666",
+      524,
+      325,
+      1
+    ]
+  ],
+  "final_polish": "Page-local reconstruction applied to known overlap-corrupted explanations; obvious OCR joins/units normalized only where supported by the rendered source; visual-overlay OCR removed from stems while visual page refs were retained.",
+  "visually_verified_option_repairs": {
+    "15677": "Seven-row laboratory-value table reconstructed from rendered source pages 278-279; correct E.",
+    "1664": "Five diagram-label choices A-E reconstructed from rendered source pages 338 and 341; correct E."
+  },
+  "additional_page_local_repairs": [
+    "1858",
+    "1835",
+    "11818"
+  ],
+  "source_modal_exhibit_pages_detected": 437,
+  "source_modal_exhibit_pages_missing_refs": 0,
+  "remaining_repeated_14gram_explanations": []
+}
