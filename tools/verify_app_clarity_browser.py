@@ -40,7 +40,7 @@ def main():
                         due=page.locator('.nk-revision-card.is-green').bounding_box()
                         nav=page.locator('.bottom-nav').bounding_box()
                         page.screenshot(path=str(output/f'clarity-revision-top-{width}.png'))
-                        assert due['y']+due['height']<(nav['y'] if width<768 else height), (width,due,nav,'All four revision queues must fit above phone navigation')
+                        assert due['y']+due['height']<(nav['y'] if width<768 else height), (width,due,nav,page.locator('.nk-revision-list').inner_text(),'All four revision queues must fit above phone navigation')
                         page.get_by_role('button',name='Focus questions',exact=True).click()
                         expect(page.locator('#nk-revision-subject')).to_be_visible()
                         page.locator('#nk-revision-subject').select_option('Biochemistry')

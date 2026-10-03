@@ -100,8 +100,8 @@
   }
 
   function nkRevisionCards(data){
-    return nkRevisionCard('wrong','Mistakes','Questions you have answered incorrectly.',data.wrong.length,'Practice mistakes',!data.wrong.length,'Work through this focus at your pace. Pause or finish whenever you need.')
-      +nkRevisionCard('bookmarks','Bookmarks','Questions you saved while studying.',data.bookmarked.length,'Practice bookmarks',!data.bookmarked.length,'Work through this focus at your pace. Pause or finish whenever you need.')
+    return nkRevisionCard('wrong','Mistakes','Questions you have answered incorrectly.',data.wrong.length,'Practice mistakes',!data.wrong.length,'Pause or finish at any point.')
+      +nkRevisionCard('bookmarks','Bookmarks','Questions you saved while studying.',data.bookmarked.length,'Practice bookmarks',!data.bookmarked.length,'Pause or finish at any point.')
       +nkRevisionCard('unseen','Unseen','Questions you have not attempted yet.',data.unseen.length,'Practice '+fmtNum(Math.min(20,data.unseen.length))+' unseen',!data.unseen.length,data.unseen.length>20?'20 questions per session · sampled from this focus':'')
       +nkRevisionCard('due','Due review','Questions scheduled by spaced repetition.',data.due.length,'Review due',!data.dueCards.length,(data.rolledOver?fmtNum(data.dueCards.length)+' available today · '+fmtNum(data.rolledOver)+' roll forward under the daily limit.':'Daily review limit applies.'));
   }
