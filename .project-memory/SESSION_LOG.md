@@ -2214,3 +2214,31 @@ Study-flow product e9646cc9c5808b43c2d8bbdf21ffc9bba4644007 passed93 local check
 ## 2026-10-03 — Return-flow audit following certified study-flow batch
 
 User requested continuation. On `feature/home-return-flow-20261003`, inspected actual Revision/bookmark/search recovery and saved-test controls using installed Impeccable preservation/hardening guidance. Reproduced wrong bookmark return route and lost filter, lost checkpoint-only search origin, silent empty rename and keyboard removal focus loss. Batched scoped fixes with legacy/data/FSRS/guard regressions and permanent phone/tablet return-flow browser checks. Previous certified e9646cc/PR91 remains immutable; full candidate verification pending. See `docs/RETURN_FLOW_REFINEMENT_2026-10-03.md`.
+
+Return-flow certification: product aced8f383af682834a91bcd64639d15f6df19d06 passed both Engineering gates37109357865/37109375136 and full37109357853 first attempt, including packaged Android phone/tablet. Hosted exact commit/core/style, return paths, rename failure/retry, removal focus, interaction/reduced-motion and visual390/820px checks passed at https://4e97ea33.nk-qbank.pages.dev; HTML SHA-25673217100cfc033769ba93df0f3859d98d2736851e8e67bc3f0bd73e0a65b5a2e. An initial hosted footer measurement preceded late layout settlement; network-idle/stable-height rerun and screenshot confirmed clearance without app edits. PR92 ready, stacked/unmerged; production bytes unchanged. Docs-only `handoff/return-flow-20261003` records certification without rebuilding the product. Physical/haptic acceptance unclaimed.
+
+## 2026-10-03 — UWorld Biochemistry and continuous Revision pilot
+
+User authorized Biochemistry-only reference integration, public search-engine
+exclusion and continuous Revision queues. Canonical sourcebranch2cc0ea8 has
+132 unique questions/729 PDF pages; originals/hashes preserved while importing
+only Biochemistry into the refined return-flow product. Shared bank adapter,
+A–H validation, original diagram choices, answer-gated explanation/source panels
+and optional explicitly uncertain OCR reading aid implemented. Audit found
+actual screenshot overlap/chrome despite ingest QA; rendered-source verification
+found and repaired two explanation-page exclusions. Mistakes/Bookmarks now use
+full eligible sets; Due keeps its daily limit/priority. Pause/Resume reuses shared
+checkpoints; Finish counts answered work only. Crawler guards implemented with
+explicit public-repository/access-control limits. Validation/certification pending.
+
+### Revised pilot boundary: OCR text only
+
+The user rejected the initial source-panel presentation, explicitly permitted
+scrolling and prioritized iPad/desktop readability. They then directed OCR-only
+integration now and a later Luna-agent validation of every question. The final
+pilot removes PDF extraction/packaging and renders native text with a readable
+measure, source-label emphasis and source objective.132 originals remain intact;
+105 are structurally usable,27 missing-diagram records are reference-only and
+excluded before scored pool selection. No completed medical fidelity review is
+claimed. Targeted source/runtime and generated390/820/1194/1440px study checks
+pass; certification and hosted evidence remain pending.

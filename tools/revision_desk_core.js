@@ -100,14 +100,14 @@
   }
 
   function nkRevisionCards(data){
-    return nkRevisionCard('wrong','Mistakes','Questions you have answered incorrectly.',data.wrong.length,'Practice '+fmtNum(Math.min(20,data.wrong.length))+' mistakes',!data.wrong.length,data.wrong.length>20?'20 questions per session · sampled from this focus':'')
-      +nkRevisionCard('bookmarks','Bookmarks','Questions you saved while studying.',data.bookmarked.length,'Practice '+fmtNum(Math.min(20,data.bookmarked.length))+' bookmarks',!data.bookmarked.length,data.bookmarked.length>20?'20 questions per session · sampled from this focus':'')
+    return nkRevisionCard('wrong','Mistakes','Questions you have answered incorrectly.',data.wrong.length,'Practice mistakes',!data.wrong.length,'Pause or finish at any point.')
+      +nkRevisionCard('bookmarks','Bookmarks','Questions you saved while studying.',data.bookmarked.length,'Practice bookmarks',!data.bookmarked.length,'Pause or finish at any point.')
       +nkRevisionCard('unseen','Unseen','Questions you have not attempted yet.',data.unseen.length,'Practice '+fmtNum(Math.min(20,data.unseen.length))+' unseen',!data.unseen.length,data.unseen.length>20?'20 questions per session · sampled from this focus':'')
-      +nkRevisionCard('due','Due review','Questions scheduled by spaced repetition.',data.due.length,'Review '+fmtNum(Math.min(20,data.dueCards.length))+' due',!data.dueCards.length,(data.dueCards.length>20?'20 questions per session · ':'')+(data.rolledOver?fmtNum(data.dueCards.length)+' available today · '+fmtNum(data.rolledOver)+' roll forward under the daily limit.':'FSRS priority order and daily limit apply.'));
+      +nkRevisionCard('due','Due review','Questions scheduled by spaced repetition.',data.due.length,'Review due',!data.dueCards.length,(data.rolledOver?fmtNum(data.dueCards.length)+' available today · '+fmtNum(data.rolledOver)+' roll forward under the daily limit.':'Daily review limit applies.'));
   }
   function nkRevisionDeskPage(){
     const data=nkRevisionDeskData();
-    return shell('<main class="nk-app-v114 nk-revision-desk"><header class="nk-v3-page-hero"><div class="nk-kicker">REVISION</div><h1>Revision</h1><p>Pick up missed, saved, unseen, or due questions from every subject and bank.</p></header><div class="nk-revision-focus-wrap">'+nkRevisionScopeMarkup()+'</div><section class="nk-revision-list">'
+    return shell('<main class="nk-app-v114 nk-revision-desk"><header class="nk-v3-page-hero"><div class="nk-kicker">REVISION</div><h1>Revision</h1><p>Pick up missed, saved, unseen, or due questions from every subject and bank.</p></header>'+(typeof nkRevisionPausedMarkup==='function'?nkRevisionPausedMarkup():'')+'<div class="nk-revision-focus-wrap">'+nkRevisionScopeMarkup()+'</div><section class="nk-revision-list">'
       +nkRevisionCards(data)+'</section>'+nkRevisionForecastMarkup()+'</main>','quick-revision');
   }
 
@@ -148,12 +148,15 @@
   }
 
   function nkStartRevisionQueue(kind){
+    if(state.activeSession?.mode==='exam'){showToast('Finish or leave your timed test before starting revision.','bad');return false;}
+    const previous=state.activeSession?.id;
     const data=nkRevisionDeskData();
     if(kind==='due'){
       if(!data.dueCards.length){showToast('No reviews are due across your question banks.');return;}
-      const rows=data.dueCards.slice(0,20);
+      const rows=data.dueCards;
       BY_ID={...BY_ID,...Object.fromEntries(rows.map(q=>[String(q.id),q]))};
       startSession(rows.map(q=>String(q.id)),'practice','Quick Revision · Due Review','fsrs');
+      if(typeof nkRevisionTagSession==='function')nkRevisionTagSession(kind,previous,rows.map(q=>String(q.id)));
       if(data.rolledOver)showToast(fmtNum(data.rolledOver)+' due reviews roll forward under your daily limit.');
       return;
     }
@@ -161,9 +164,10 @@
     if(!rows.length){showToast('No questions are available in this revision group.');return;}
     const pool=rows.slice();
     for(let i=pool.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]];}
-    const selected=pool.slice(0,20),ids=selected.map(q=>String(q.id));
+    const selected=kind==='unseen'?pool.slice(0,20):pool,ids=selected.map(q=>String(q.id));
     BY_ID={...BY_ID,...Object.fromEntries(selected.map(q=>[String(q.id),q]))};
     const title=kind==='wrong'?'Quick Revision · Mistakes':kind==='bookmarks'?'Quick Revision · Bookmarks':'Quick Revision · Unseen';
-    startSession(ids,'practice',title,kind==='wrong'?'wrong':'normal');
+    startSession(ids,'practice',title,kind==='wrong'?'wrong':kind==='bookmarks'?'bookmarked':'normal');
+    if(typeof nkRevisionTagSession==='function')nkRevisionTagSession(kind,previous,ids);
   }
   /* NK_REVISION_DESK_V1_END */

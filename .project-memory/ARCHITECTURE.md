@@ -555,3 +555,32 @@ adds `nk-qbank-build` metadata; the service worker replies to `NK_QBANK_VERSION`
 through MessageChannel. Only a verified different waiting worker gets a notice;
 Later is tab/build-scoped and active study defers it. Activation/reload remains
 explicit. Real browser lifecycle checks run in the full packaging workflow.
+
+## UWorld Biochemistry reference pilot — 2026-10-03
+
+`uworld_biochemistry.py` validates the two immutable canonical JSONLs and adapts
+132 stable IDs into one additional Biochemistry `BANKS_BY_SUBJECT` record. Source
+blocks plus the supplemental collection provide four honest source topics.
+`apply_uworld_biochemistry_v1.py` installs its registry before subject selection,
+then the final UWorld-only stem/option/support renderer after incumbent owners.
+The shared question presenter accepts source-complete A–H choices only for
+UWorld and bypasses legacy extraction heuristics. All study, FSRS, sync and
+storage paths remain shared. `uworld_source_text.py` creates an auditable native
+OCR display without altering originals. The UWorld renderer preserves source
+choice discussions and Educational objective without Marrow augmentation.
+
+The user deferred PDF recovery and question-by-question validation to a later
+Luna-agent pass. Current builds use text only:105 practice questions,27 gated
+reference records. Pools exclude these references before sampling, and the
+session-start guard prevents scored incomplete diagrams. Individually opened
+references use the existing modal/focus model without changing study state.
+See `docs/UWORLD_BIOCHEMISTRY_PILOT.md` for limits and scaling requirements.
+
+The Revision owner includes `revision_session_core.js`: explicitly tagged full
+eligible Mistakes/Bookmarks/Due snapshots use the existing checkpoint collection
+and restore exact membership/position. Due keeps scheduler priority and daily
+cap. Finish records answered work only. No new persistence schema is introduced.
+
+Web packaging applies crawler exclusion to HTML, robots.txt, static response
+headers and all same-origin source-worker responses. Public repository content
+and direct asset access remain public; this is not authentication.

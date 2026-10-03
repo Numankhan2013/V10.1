@@ -105,5 +105,11 @@ jobs:
         run: python3 tools/test_question_content_hygiene_v1.py
       - name: Verify source product contract
         run: python3 tools/verify_product_contract.py --stage source
+      - name: Verify crawler exclusion and bounded UWorld source contracts
+        run: |
+          python3 tools/test_crawler_exclusion.py
+          python3 tools/test_uworld_biochemistry_v1.py
+          python3 tools/test_uworld_runtime_v1.py
+          python3 tools/test_uworld_source_text.py
       - name: Verify deterministic build pipeline
         run: python3 tools/verify_build_pipeline.py
