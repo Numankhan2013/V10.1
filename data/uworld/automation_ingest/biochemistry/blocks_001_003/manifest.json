@@ -1,0 +1,136 @@
+{
+  "schema_version": "1.1",
+  "dataset": "UWorld 2024 - Biochemistry - 3 blocks",
+  "source_file": "UW 2024 - Biochemistry - 3 blocks - OCR.pdf",
+  "source_sha256": "806d95d6f09dde57d34e0d0b5fda69298a7789041bb570ce4fa6dd1c95d4fae9",
+  "source_size_bytes": 154342068,
+  "source_page_count": 729,
+  "canonical_main_file": "qbank_blocks_001_003_biochemistry.jsonl",
+  "canonical_main_sha256": "5a4811c18eec7e6d4d4535b6922cb0c921055344253edec0abe00e02b06d8e0d",
+  "canonical_main_record_count": 120,
+  "blocks": {
+    "1": {
+      "record_count": 40,
+      "source_pages": [
+        1,
+        225
+      ]
+    },
+    "2": {
+      "record_count": 40,
+      "source_pages": [
+        226,
+        440
+      ]
+    },
+    "3": {
+      "record_count": 40,
+      "source_pages": [
+        505,
+        729
+      ],
+      "source_capture_order": "reverse item order / reverse screenshot progression; reconstructed to item 1→40"
+    }
+  },
+  "supplemental_file": "supplemental_biochemistry_questions.jsonl",
+  "supplemental_sha256": "1c602a2a38669ca6f34c9cf4e2b9bbdedc2990d66e072274402e6d3bed839753",
+  "supplemental_record_count": 12,
+  "supplemental_segments": [
+    {
+      "kind": "orphan_complete",
+      "qid": "1434",
+      "source_pages": [
+        441,
+        444
+      ],
+      "item_number": null
+    },
+    {
+      "kind": "mini_11",
+      "record_count": 11,
+      "source_pages": [
+        445,
+        504
+      ],
+      "source_item_order": "11→1 in PDF; canonicalized to 1→11"
+    }
+  ],
+  "render_verified_qid_corrections": [
+    {
+      "block": 2,
+      "item": 2,
+      "ocr": "103-0",
+      "canonical": "1030"
+    },
+    {
+      "block": 2,
+      "item": 32,
+      "ocr": "14TT",
+      "canonical": "1477"
+    },
+    {
+      "block": 3,
+      "item": 11,
+      "ocr": "213()7",
+      "canonical": "21307"
+    }
+  ],
+  "render_verified_page_boundary_repairs": [
+    {
+      "qid": "1727",
+      "canonical_pages": [
+        539,
+        544
+      ]
+    },
+    {
+      "qid": "1866",
+      "canonical_pages": [
+        545,
+        549
+      ],
+      "note": "pages 545-546 are ethanol/gluconeogenesis explanation pages despite lacking QID header"
+    },
+    {
+      "qid": "2038",
+      "canonical_pages": [
+        615,
+        620
+      ]
+    },
+    {
+      "qid": "1790",
+      "canonical_pages": [
+        621,
+        625
+      ],
+      "note": "page 621 is cystic-fibrosis explanation/objective despite lacking QID header"
+    }
+  ],
+  "source_limitations": [
+    {
+      "qid": "1486",
+      "field": "educational_objective",
+      "status": "not_visible",
+      "note": "Educational objective heading is visible on page 242, but the objective text is below the captured viewport/obscured in subsequent exhibit-overlay screenshots; no text was invented."
+    },
+    {
+      "field": "answered_correctly_percent",
+      "main_unavailable_count": 10,
+      "supplemental_unavailable_count": 2,
+      "note": "These source screenshots show Collecting Statistics or otherwise do not expose the aggregate percentage; null is preserved instead of guessing."
+    },
+    {
+      "qid": "11914",
+      "field": "option_A_selection_percent",
+      "status": "not_visible",
+      "note": "Rendered answered screenshot exposes B=3%, C=4%, D=3%, E=84%; option A percentage is above the captured viewport and is left null."
+    }
+  ],
+  "figure_provenance": {
+    "total_references": 284,
+    "questions_with_references": 112,
+    "assets_extracted": false,
+    "note": "Figure/exhibit references retain source-page provenance for later image integration."
+  }
+}
