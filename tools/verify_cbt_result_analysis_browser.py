@@ -50,8 +50,13 @@ def main() -> None:
             assert "Anatomy · Marrow" in analysis.inner_text()
             assert "Physiology · Marrow" in analysis.inner_text()
             assert "2 questions to revisit" in page.locator(".nk-cbt-followup").inner_text()
-            assert "1 incorrect · 0 unattempted" in analysis.inner_text()
-            assert "0 incorrect · 1 unattempted" in analysis.inner_text()
+            wrong_row = analysis.locator('.nk-na-row').filter(has=page.locator('.nk-na-row-bar .is-incorrect'))
+            omitted_row = analysis.locator('.nk-na-row').filter(has=page.locator('.nk-na-row-bar .is-omitted'))
+            assert wrong_row.count() == 1 and omitted_row.count() == 1
+            assert wrong_row.locator('.nk-na-row-counts .is-incorrect').inner_text().split() == ['1', 'Incorrect']
+            assert wrong_row.locator('.nk-na-row-counts .is-omitted').inner_text().split() == ['0', 'Unattempted']
+            assert omitted_row.locator('.nk-na-row-counts .is-incorrect').inner_text().split() == ['0', 'Incorrect']
+            assert omitted_row.locator('.nk-na-row-counts .is-omitted').inner_text().split() == ['1', 'Unattempted']
             page.screenshot(path=str(output / "cbt-result-analysis-phone.png"), full_page=True)
             page.reload(wait_until="domcontentloaded")
             expect(page.get_by_role("heading", name="Topic breakdown")).to_be_visible()
