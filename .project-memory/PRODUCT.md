@@ -30,6 +30,13 @@ Prefer building over narrating.
 
 ## Intended behavior (protected)
 
+- **Analysis clarity (2026-10-03):** test breakdown colors always mean Correct,
+  Incorrect and Unattempted, with explicit counts. Insights ranks recorded-answer
+  accuracy and contains no missed-question revision prompt; the result-specific
+  Practise missed questions action remains in Test Analysis. Timing views show
+  ranges or running totals with honest saved-timing coverage. Review Solutions
+  has high-contrast text. PWA notices represent a verified different waiting
+  build, remain dismissible, and never result from inactivity alone.
 - **Final source/image integration:** preserve source-native question and
   explanation image roles, fullscreen zoom, offline image bytes, and stable
   question ownership. Source-backed question recovery uses pinned evidence;

@@ -51,7 +51,8 @@ def main():
                     if route=='analytics':
                         assert page.locator('.nk-li-year-activity').bounding_box()['y']<280,(width,'heatmap starts too low')
                         assert page.locator('.nk-li-year-grid button').count()>=365
-                        assert page.locator('.nk-li-card').count()==9
+                        assert page.locator('.nk-li-card').count()==8
+                        assert page.get_by_role('heading',name='Missed-question revision',exact=True).count()==0
                     if route=='fsrs-settings':
                         assert page.locator('.nk-fsrs-field input').count()==3
                         expect(page.get_by_role('button',name='Save changes',exact=True)).to_be_visible()
