@@ -111,6 +111,22 @@ state.attempts.q1.push({{id:'later-wrong',correct:false,at:now+100,reviewedAt:no
 assert.equal(nkFsrsUnresolvedMistake('q1'),true,'a later miss returns to Mistakes');
 const savedTest={{createdAt:now-1500}};
 assert.deepEqual(nkFsrsUnresolvedResultMisses(savedTest,['q184','q1']),['q1'],'saved-result follow-up only retains unresolved misses');
+// Scheduled lapses stay in FSRS; ordinary misses resolve on any correct answer.
+state.attempts.q1=[{{id:'initial-good',correct:true,at:now,source:'practice'}},{{id:'review-lapse',correct:false,at:now+1,source:'fsrs-review'}}];
+assert.equal(nkFsrsPracticeMistake('q1'),false);
+assert.equal(nkFsrsUnresolvedMistake('q1'),true,'FSRS lapse classification is unchanged');
+state.attempts.q1=[{{id:'initial-miss',correct:false,at:now,source:'practice'}},{{id:'review-lapse',correct:false,at:now+1,source:'fsrs-review'}}];
+assert.equal(nkFsrsPracticeMistake('q1'),true,'an unresolved initial miss is not erased by another lapse');
+state.attempts.q1.push({{id:'review-good',correct:true,at:now+2,source:'fsrs-review'}});
+assert.equal(nkFsrsPracticeMistake('q1'),false,'a correct scheduled review resolves the initial miss');
+state.attempts.q1.push({{id:'review-lapse-again',correct:false,at:now+3,source:'fsrs-review'}});
+assert.equal(nkFsrsPracticeMistake('q1'),false,'a later FSRS lapse must not resurrect the practice mistake');
+state.attempts.q1.push({{id:'new-test-miss',correct:false,at:now+4,source:'exam'}});
+assert.equal(nkFsrsPracticeMistake('q1'),true);
+const untouchedSchedule=JSON.stringify(state.reviews.q1);
+nkFsrsPracticeMistake('q1');assert.equal(JSON.stringify(state.reviews.q1),untouchedSchedule);
+state.attempts.q1.push({{id:'undo-test',isUndo:true,undoOf:'new-test-miss',at:now+5}});
+assert.equal(nkFsrsPracticeMistake('q1'),false,'undone mistakes do not enter the queue');
 console.log('FSRS_BEHAVIOR_OK');
 """
 

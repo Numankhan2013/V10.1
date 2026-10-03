@@ -30,6 +30,15 @@ Prefer building over narrating.
 
 ## Intended behavior (protected)
 
+- **UWorld reference pilot:** a separate My UWorld collection library sits below
+  My Subjects. Biochemistry's original blocks retain their mixed-discipline
+  identity. Source-reviewed prose, tables and focused figures preserve original
+  reasoning; source choice discussions have a distinct readable treatment.
+  Educational objectives follow explanations. Source option percentages appear
+  beside the options immediately after answering or in Review Solutions;
+  timed CBT withholds them. Missing source values stay blank. Essential absent
+  exhibits are unscored references, and failed image loads offer Retry.
+
 - **Analysis clarity (2026-10-03):** test breakdown colors always mean Correct,
   Incorrect and Unattempted, with explicit counts. Insights ranks recorded-answer
   accuracy and contains no missed-question revision prompt; the result-specific
@@ -131,9 +140,10 @@ Prefer building over narrating.
   the Android APK and website/PWA. Every answered question is scheduled;
   Pause commits only answered work, while final session submission makes all
   remaining unanswered questions eligible as skipped. Globally unseen questions stay out.
-- **Resolved mistakes and rating amendments (candidate):** Mistakes uses the
-  latest active answer; a correct retry clears it without deleting history or
-  FSRS eligibility. Correct-answer recall controls remain visible with the saved
+- **Resolved mistakes and rating amendments (candidate):** Practice mistakes tracks
+  unresolved ordinary Practice/test misses. An FSRS-only lapse affects scheduling
+  without creating or resurrecting this queue; any correct answer clears an
+  ordinary miss without deleting history or FSRS eligibility. Correct-answer recall controls remain visible with the saved
   Hard/Good/Easy selection, editable within the same Practice session. An edit
   recalculates that retrieval at its original time, never adding another review,
   score, or study day. Saved-result follow-up shows correction status and launches
@@ -261,13 +271,9 @@ time, and recorded time must never be presented as a background activity tracker
 
 - Result analysis keeps score (correct/all) distinct from accuracy (correct/answered), uses calm green/coral/amber outcomes and saved timing. Only tests offer subject/topic breakdown. Named fixed-question mocks can be saved and repeated; named study modules retain save/resume/restart.
 
-## UWorld Biochemistry pilot — 2026-10-03
+## UWorld Biochemistry source scope — 2026-10-03
 
-Biochemistry has an additional UWorld2024 source:120 nominal-block plus12
-supplemental questions. Only this subject is integrated. The current pilot uses
-OCR text, with native scrollable explanations, source choice discussion and
-Educational objective, without Marrow takeaway/rationale augmentation.105
-questions are practice-ready;27 diagram-dependent questions open as unscored
-references. Source errors/tables/diagrams await a later question-by-question
-Luna-agent PDF validation pass. Originals and clipped/missing fields remain
-unchanged. Existing study engines, scoring, FSRS and history remain shared.
+Only this132-record collection is integrated:120 nominal plus12 supplemental.
+The source-reviewed reference pilot has131 practice-ready questions and one
+absent-exhibit unscored reference. See the protected behavior above and
+`docs/UWORLD_BIOCHEMISTRY_PILOT.md` for source limitations and scale criteria.

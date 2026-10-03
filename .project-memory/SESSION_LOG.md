@@ -2260,3 +2260,15 @@ handoff preserves its exact build identity. Every-question Luna validation,
 focused diagram/table recovery, physical acceptance and other subjects remain
 outstanding. Workspace CLI credential expired; connected GitHub tools and public
 read-only Git fetch remain usable.
+
+## 2026-10-03 — UWorld reference refinement
+
+User accepted prior pilot layout on phone/iPad/desktop and full Revision sessions,
+then requested source cleanup, independent My UWorld navigation, source statistics
+and clearer choice discussions. Six high-effort Luna batches reviewed132 records
+against the supplied PDF; independent checks corrected OCR overlap and crop bounds.
+Implemented source-pinned native documents, figures/tables, immediate per-option
+percentages, legacy scope compatibility and ordinary-mistake provenance. One source
+question remains held for an absent essential exhibit. All101 local checks and generated390/820/1194/1440px UWorld study flows pass,
+including direct percentage placement, source figures/retry/zoom and native tables.
+Full packaging and hosted certification are pending; production is unchanged.

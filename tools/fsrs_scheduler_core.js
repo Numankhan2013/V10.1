@@ -39,6 +39,16 @@
     }).sort((a,b)=>Number(a.reviewedAt||a.at||0)-Number(b.reviewedAt||b.at||0)||String(a.id||'').localeCompare(String(b.id||'')));
   }
   function nkFsrsUnresolvedMistake(qid){return nkFsrsActiveAttempts(String(qid)).at(-1)?.correct===false;}
+  // A scheduled-review lapse changes FSRS, but never creates a Practice mistake.
+  // Any subsequent correct answer resolves an existing practice/test mistake.
+  function nkFsrsPracticeMistake(qid){
+    let unresolved=false;
+    for(const attempt of nkFsrsActiveAttempts(String(qid))){
+      if(attempt.correct===true)unresolved=false;
+      else if(attempt.correct===false&&attempt.source!=='fsrs-review')unresolved=true;
+    }
+    return unresolved;
+  }
   function nkFsrsPruneCommittedPending(session=state.activeSession){
     if(!session?.pendingRating)return;
     Object.entries(session.pendingRating).forEach(([qid,p])=>{if((state.attempts?.[qid]||[]).some(a=>!a.isUndo&&!a.isRatingRevision&&String(a.id)===String(p.id)))delete session.pendingRating[qid];});
@@ -205,6 +215,6 @@
   const nkFsrsOriginalNavigate=navigate;navigate=function(page,id){if(page==='result'){const t=state.tests.find(t=>String(t.id)===String(id));if(t){t.originRoute=state.activeSession?.originRoute||nkFsrsSessionOrigin||t.originRoute||(t.kind==='practice'?'topics':'tests');saveState();}nkFsrsSessionOrigin=null;}if(route.page==='fsrs-settings'&&page!=='fsrs-settings'&&nkFsrsDirty()){nkFsrsAskToLeave({page,id});return;}const s=state.activeSession,qid=s?.questionIds?.[s.index];if(qid)nkFsrsCommitPending(qid,3);return nkFsrsOriginalNavigate.apply(this,arguments);};
   recordAttempt=nkFsrsRecordAttempt;
   qAttempts=function(qid){return nkFsrsActiveAttempts(qid);};
-  if(typeof wrongQuestions==='function')wrongQuestions=function(){return QUESTIONS.filter(q=>nkFsrsUnresolvedMistake(q.id));};
+  if(typeof wrongQuestions==='function')wrongQuestions=function(){return QUESTIONS.filter(q=>nkFsrsPracticeMistake(q.id));};
   window.addEventListener('pagehide',()=>nkFsrsRecoverPending());
   /* NK_FSRS_V6_END */

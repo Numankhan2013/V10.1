@@ -1,47 +1,121 @@
-# UWorld Biochemistry OCR pilot
+# UWorld Biochemistry reference pilot
 
-The pilot imports only Biochemistry from `uworld-poisoning-env-block-01-20261003` at `2cc0ea8f9ab4d2e3ac18d32b94b58b36a0f3700d`. The original canonical JSONLs, QA material and Git LFS PDF are unchanged. No other UWorld subject is integrated.
+Only Biochemistry is integrated, from `uworld-poisoning-env-block-01-20261003`
+at `2cc0ea8f9ab4d2e3ac18d32b94b58b36a0f3700d`. Original canonical JSONLs,
+QA material and Git LFS PDF remain unchanged. No other UWorld collection is imported.
 
-The supplied corpus contains 120 nominal questions in three blocks and 12 supplemental questions: 132 unique canonical IDs and 729 uniquely assigned source PDF pages. The source PDF is pinned to SHA-256 `806d95d6f09dde57d34e0d0b5fda69298a7789041bb570ce4fa6dd1c95d4fae9` and retained for the later source-validation pass. The current build uses JSONL/OCR text only, following the user's revised scope. It does not extract or package UWorld PDF screenshots.
+The corpus has120 nominal and12 supplemental questions:132 stable IDs and729
+assigned source pages. The supplied PDF is pinned to SHA-256
+`806d95d6f09dde57d34e0d0b5fda69298a7789041bb570ce4fa6dd1c95d4fae9`.
+Six high-effort Luna batches visually reviewed each question's assigned pages.
+Independent text/crop checks corrected duplicated OCR, UI leakage and cropped
+scientific labels. This is model-assisted source review, not clinical certification.
 
 ## Shared architecture
 
-`tools/uworld_biochemistry.py` checks source hashes, counts, stable IDs, question/answer consistency, consecutive A–H choices and source-page ownership, then adapts the corpus into one additional `BANKS_BY_SUBJECT.Biochemistry` record. Each question retains its complete immutable original under `uworldSource`, plus a separate auditable OCR display transcript. Canonical IDs, including the supplemental namespace, are preserved.
+`uworld_biochemistry.py` adapts immutable sources to one shared bank record under
+the collection namespace `UWorld · Biochemistry`. Traditional My Subjects retains
+its three subjects and incumbent banks. Home → My UWorld → Biochemistry → four
+original blocks provides independent collection navigation, including Supplemental.
+Mixed disciplines are not recategorized as traditional Biochemistry questions.
 
-The three source blocks and Supplemental source questions are four navigation topics. Forty-seven records lack reliable topic metadata, so the adapter does not invent a medical taxonomy. Existing Practice, CBT, Review Solutions, bookmarks, notes, custom modules, FSRS, history, sync and checkpoints remain the product's shared engines. The UWorld-only presentation branch accepts four through eight choices and bypasses incumbent extraction repair. Other banks retain their existing presentation rules.
+Question IDs and complete `uworldSource` remain unchanged. The separate reviewed
+layer in `data/uworld/reviewed/biochemistry` pins every original row and the PDF;
+`uworld_reviewed_document.py` validates all page coverage, original answer keys,
+choice labels, source percentages and explicit question/explanation/option image
+roles. Ordered paragraph, native table and focused figure nodes preserve source
+flow. Forty-seven originals lack reliable topic metadata; no taxonomy is invented.
 
-`uworld_biochemistry_core.js` renders UWorld explanation text directly, rather than routing it through Marrow takeaway or generated distractor sections. Original choice discussions, numbered stages and the supplied Educational objective remain recognizable. Impeccable's Operate/Read and typeset guidance informs the retained NK palette, 17px body, 1.72 line-height, 70ch maximum measure, paragraph spacing and source-label emphasis. Phone users can scroll vertically; iPad and desktop use the same readable document instead of compressed screenshot panels. There is no animation or source-asset wait before answering.
+Practice, CBT, Review Solutions, bookmarks, notes, modules, FSRS, history, sync and
+checkpoints use the shared engines. Read-only compatibility aliases resolve old
+Biochemistry/UWorld bank and module scope keys without rewriting user storage.
+Four through eight source choices are supported without incumbent extraction repair.
 
-`uworld_source_text.py` removes only explicit screenshot labels, narrowly identifiable leading statistics, and exact repeated runs of at least 40 words. Display paragraph breaks change whitespace only. Removals retain hashes and counts; raw OCR remains available behind a disclosure. No medical wording, option reasoning, tables or missing content is generated.
+`build_uworld_reviewed_figures.py` runs in CI after retrieving the original LFS PDF.
+It creates lossless focused crops from reviewed display coordinates, deterministic
+content paths and a source/byte inventory. The existing recursive web copy and
+service-worker precache provide offline images; `verify_uworld_media_package.py`
+checks every generated image and its PWA/APK packaging. The154MB source PDF is not
+shipped to learners as the explanation UI.
 
-## OCR boundary and deferred validation
+## Native question experience
 
-The native OCR display replaces an earlier rejected screenshot-panel prototype. That prototype is not the shipped design or a certified result.
+The user accepted the previous scrollable17px/70ch typography on phone, iPad and
+desktop; it is preserved. Impeccable Operate/Read, typeset and craft guidance informs
+restrained layout, source-label emphasis, table overflow, figure captions and warm
+educational objectives. Screenshots of the entire source application are not used
+as primary explanations. Figures use the existing fullscreen zoom/pan viewer.
 
-There are currently **105 structurally usable questions** and **27 conservatively held diagram-dependent references**. The latter are listed in `MISSING_VISUAL_IDS`. They remain discoverable individually, open a read-only text view, and do not create answers, scores or FSRS records. New CBT, module and Revision pools exclude them before sampling; the session-start guard also excludes them. Known pedigree and arrow choices keep neutral labels rather than presenting imported interpretations as source choices.
+Original explanations and option reasoning retain their order and completeness.
+Source-labelled choice discussions form a distinct Understanding the other choices
+section with quiet labels and comfortable spacing; they are not forced into Marrow
+rationale cards. Educational objectives remain after explanations to avoid giving
+away unanswered questions. Raw OCR and source issues are available in Source details.
 
-This is not a completed medical-content audit. Scanning errors, partial overlaps and flattened laboratory/comparison tables remain possible, including in the 105 practice questions. Some diagrams may eventually be shown unnecessary, and additional missing exhibits may be found. The next pass should use the user-requested **Luna subagents to validate every question against the PDF**, then recover focused scientific exhibits and structured tables with explicit source evidence. That work is deliberately deferred; no question-by-question certification is claimed now.
+Source selection percentages appear at the right of each option immediately after
+a Practice answer and in Review Solutions. Reserved width prevents answer text
+reflow. Correct/wrong feedback and percentages accompany the existing immediate
+commit, without an extra click, disclosure or scroll. Timed CBT reveals none of
+these values until submission/review. Aggregate correct percentage is a quiet
+post-answer line. Zero is displayed; missing source values stay blank.
 
-QID1486's Educational objective is clipped in the supplied source and remains null. Twelve aggregate correct percentages and QID11914's option-A percentage remain unavailable. Missing text or statistics are never invented.
+Essential stem/option image failures disable unsupported answers and offer Retry
+figures. Navigation, Pause and Finish remain available. Explanation-only images
+never block answer commits. No action is delayed for motion.
 
-Before scaling, complete that Luna pass, review each gated record, verify figure roles prevent answer leakage, verify table relationships and scientific symbols, and budget offline media sizes. Other subjects must supply their own source evidence; do not reuse Biochemistry screenshot coordinates or assume its metadata is universal.
+## Source limitations and scaling
 
-## Revision sessions
+**131 questions are available for scored practice;1244 remains an unscored reference.**
+Its essential physical-examination stem exhibit is absent from the supplied PDF.
+References create no attempt, score or FSRS record and are excluded from new study
+pools. Source review recovers26 native tables and184 focused figure placements.
 
-Mistakes and Bookmarks launch full eligible frozen queues. Due Review uses the complete queue admitted by existing FSRS priority and daily limits. Labels are Practice mistakes, Practice bookmarks and Review due, without an arbitrary 20-question cap. Unseen retains its separate existing random-20 action.
+Educational objectives1486,1071 and107111 are clipped in the supplied screenshots
+and stay null. The nitrogen-transport figure1369 and collagen figure1244 are
+partially clipped in the source; visible scientific content is retained with notes.
+A few exhibit crops retain a minimal adjacent source border where trimming would
+remove scientific labels or diagram content.
+Twelve aggregate percentages and66 option percentages are unavailable, including
+11914 option A. Missing words, figures, values and statistics are never fabricated.
 
-The grid and final-question action open the same Revision sheet with **Pause** and **Finish session**. Pause preserves exact ordered membership, position, answers, timing and pending ratings in shared durable checkpoints and returns to Revision. Resume restores the same session. Finish saves answered work only; untouched questions remain eligible without fabricated skipped attempts. Finishing with no answers creates no result. Storage-failure rollback and retry remain shared.
+Before scaling: retain this typed-document/source-pin/role pattern; resolve source
+omissions with better originals if available; inspect the final pilot on real
+study sessions; check scientific symbols, tables and source choice reasoning;
+budget offline assets and independent reviews per collection. Other collections
+must provide their own source evidence and coordinates. Biochemistry-first remains
+the recommendation and scope.
+
+## Revision sessions and mistake provenance
+
+Mistakes and Bookmarks use full eligible frozen queues; Due Review uses the admitted
+FSRS priority queue and existing daily cap. Labels are Practice mistakes, Practice
+bookmarks and Review due. Unseen retains its separate random20 action.
+
+Pause preserves exact membership, position, answers, timing and ratings. Finish
+saves answered work only; untouched questions remain eligible without fabricated
+skipped attempts. Finishing with no answers creates no result. Storage rollback
+and retry remain shared.
+
+Practice mistakes derives from unresolved ordinary Practice/test misses. A correct
+answer from any flow resolves one. Scheduled-review failures affect FSRS scheduling
+without creating or resurrecting Practice mistakes. Undo remains respected and
+persisted attempts/scheduler logic are unchanged.
 
 ## Search-engine exclusion
 
-[Search engine exclusion](SEARCH_ENGINE_EXCLUSION.md) documents HTML robots metadata, `robots.txt`, static response headers and source-worker response coverage. These discourage cooperative indexing. They do not restrict direct downloads or hide a public GitHub repository and its history. Actual access restrictions require private source storage and server-side authentication; obfuscation does not supply that protection.
+[Search engine exclusion](SEARCH_ENGINE_EXCLUSION.md) documents robots metadata,
+robots.txt, static headers and source-worker coverage. These discourage cooperative
+indexing but do not hide a public GitHub repository/history or restrict direct
+access. Private source storage and server authentication are needed for access
+control; obfuscation does not provide it.
 
 ## Validation status
 
-Source adapter/runtime/OCR checks pass. The running generated diagnostic app passes UWorld Practice, immediate committed feedback, shared FSRS/bookmarks, deferred CBT feedback, Review Solutions, custom modules, read-only references and incumbent-bank switching at 390, 820, 1194 and 1440px. Body computes to 17px/29.24px with a 70ch maximum measure. Continuous Revision has phone/tablet completion, pause/reload, save-failure retry, answered-only finish and daily-cap checks.
-
-Product **c7b505370b00f696b50ec2d81ea719283b8acced** passes both Engineering gates (`37128060474`, `37128062400`) and full ordered build `37128060483`, including packaged APK/PWA and Android phone/tablet emulators. Two earlier candidates failed the 320px Revision geometry check; concise dashboard hints preserve the existing type sizes, 44px controls and unchanged all-four-cards-visible assertion. Session eligibility uses one question index before filtering, avoiding repeated corpus scans.
-
-The actual hosted [pilot preview](https://690495d5.nk-qbank.pages.dev) passes the same UWorld scenarios at 390/820/1194/1440px and full Revision scenarios at 390/820px. Hosted static/worker/PDF, HEAD and Range responses carry crawler exclusion; the PDF range remains byte-correct. HTML SHA-256: `d833fdd0781061fe671c6689b344f1f53ef1748933f391134a5d725d9b066dec`. [PR93](https://github.com/Numankhan2013/V10.1/pull/93) stacks on PR92 and preserves the preceding refinements.
-
-Production remains unchanged and its previous HTML hash was independently rechecked. No physical-device acceptance or OCR medical certification is claimed. This certification handoff is documentation only and keeps the tested product branch/artifact immutable.
+The certified prior OCR pilot is product c7b5053, full run37128060483,
+[preview](https://690495d5.nk-qbank.pages.dev) and [PR93](https://github.com/Numankhan2013/V10.1/pull/93).
+The user confirmed that layout on phone/iPad/desktop and the continuous Revision
+workflow. The reviewed reference refinement passes101 local checks and actual generated
+390/820/1194/1440px study flows, including direct option percentages without reflow,
+source figures/zoom/retry, native table cells/overflow, deferred CBT, Review
+Solutions, modules and FSRS-only mistake separation. Incumbent phone/tablet
+interaction checks pass. Full packaging and hosted certification are pending. Production remains unchanged. New physical-device acceptance is separate.

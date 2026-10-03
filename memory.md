@@ -902,3 +902,15 @@ deployment. Keep main at a68 during the production identity guard.
 Main a68 is build-verified from feature CI, but the user reports its new interactions feel slower across the app. Hold canonical deployment while correcting shared110 ms state/release transitions and added route/question/sheet movement. A/B computed appearance confirms old answer colors persisted on the first frame; correction makes committed colors immediate with no transition. Preserve save/indexing/in-place improvements and rollback. User additionally requests subtle answer haptics: single7/9 ms browser pulses and native CLOCK_TICK outcomes. Fresh responsive/browser/native certification pending on `feature/home-answer-latency`; root still serves1ba.
 
 The first latency correction's full run36959307370 caught a real pre-existing race exposed by faster clicks: a stale250 ms CBT cleanup closed a newly opened Review navigator. Reproduced locally, fenced cleanup to its submitted exam, removed legacy panel animation and added source ownership / generated300 ms Review survival checks. PYQ/mixed/history/Review/follow-up now pass on phone/tablet; fresh full certification is required. Superseded maina68 Android failed at WebView rediscovery after app reset, after its Pause/Back/multi-Pause paths passed.
+
+## UWorld reference refinement — 2026-10-03
+
+Active reference refinement follows certified PR93. User accepts prior pilot
+phone/iPad/desktop typography and continuous Revision; requests a Luna source
+pass, independent My UWorld collection hierarchy and no FSRS-only Practice misses.
+All132 reviewed documents preserve immutable originals;131 are practice-ready,
+1244 is held for an absent essential exhibit. Native tables/focused figures and
+source-labelled choice reasoning preserve UWorld flow; option percentages appear
+beside answers immediately after answering and stay hidden in CBT. See canonical
+STATE and docs/UWORLD_BIOCHEMISTRY_PILOT.md for live certification and limits.
+Production remains unchanged; no medical certification is claimed.

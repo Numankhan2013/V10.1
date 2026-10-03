@@ -111,7 +111,8 @@
         options.every((o,i)=>o.letter===String.fromCharCode(65+i)&&String(o.text||'').trim())&&
         source?.question_id===q.id&&source?.source?.bank==='UWorld'&&source.options?.length===options.length&&
         correct===String(source.correct_option).charCodeAt(0)-64&&Boolean(source.explanation?.text?.trim())&&
-        q.uworldPilot?.status==='ocr-unverified'&&q.uworldPilot.requiresVisual===false;
+        ['ocr-unverified','source-reviewed'].includes(q.uworldPilot?.status)&&q.uworldPilot.requiresVisual===false&&
+        (q.uworldPilot.status!=='source-reviewed'||q.uworldDocument?.status==='verified');
       const presentation={options,supporting:[],valid,repaired:false,originalOptionCount:options.length};
       if(q.uworldPilot?.requiresVisual)presentation.unavailableTitle='Diagram needed · reference only';
       try{Object.defineProperty(q,'__nkQuestionPresentation',{value:presentation,configurable:true});}catch(_){q.__nkQuestionPresentation=presentation;}

@@ -34,6 +34,31 @@ closed. Raw question bundles and audit metadata remain unchanged.
 
 ## Runtime data and assets
 
+- UWorld Biochemistry adds one collection namespace (`UWorld · Biochemistry`)
+  to the shared bank registry and lookup, without adding a traditional subject.
+  Home/Library → My UWorld → collection → source blocks uses existing routes
+  and study engines. Read-only aliases resolve legacy Biochemistry/UWorld bank
+  and module scope keys without rewriting persisted records.
+- `uworld_reviewed_document.py` validates per-row/PDF hashes, complete source
+  page review, unchanged option labels/key, ordered paragraph/table/figure nodes,
+  explicit image roles and source percentages. Six reviewed JSON batches are
+  display overlays; immutable JSONLs and `uworldSource` remain untouched.
+  `build_uworld_reviewed_figures.py` runs in CI after fetching the pinned LFS PDF,
+  renders lossless focused crops and writes a byte inventory. Recursive PWA
+  asset copying/precache and `verify_uworld_media_package.py` protect web/offline
+  and APK bytes. The source PDF itself is not bundled in the UWorld UI.
+- UWorld wraps the shared question presenter, option renderer and explanation
+  surface. Source-reviewed question/option images are essential media; load
+  failures disable unsupported answer commits and expose Retry. Paragraphs,
+  native tables, labelled choice discussions and educational objective preserve
+  source order. Option percentages are inserted in the shared option renderer
+  using its locked Practice/Review state, so in-place outcome feedback reveals
+  them immediately while CBT stays concealed. Images reuse the shared zoom viewer.
+- `nkFsrsPracticeMistake` replays active attempts independently of the existing
+  FSRS mistake classification. Ordinary failures open a Practice mistake;
+  correct answers from any flow resolve it; FSRS-only failures do not open it.
+  Undo filtering, scheduler replay and persisted attempts are unchanged.
+
 - Final source-completeness recovery is pinned in
   `data/question_completeness_reviews_v1.json`. Its compiler validates source
   fingerprints and generates 114 bounded display contracts for the shared
@@ -556,25 +581,14 @@ through MessageChannel. Only a verified different waiting worker gets a notice;
 Later is tab/build-scoped and active study defers it. Activation/reload remains
 explicit. Real browser lifecycle checks run in the full packaging workflow.
 
-## UWorld Biochemistry reference pilot — 2026-10-03
+## UWorld and Revision integration — 2026-10-03
 
-`uworld_biochemistry.py` validates the two immutable canonical JSONLs and adapts
-132 stable IDs into one additional Biochemistry `BANKS_BY_SUBJECT` record. Source
-blocks plus the supplemental collection provide four honest source topics.
-`apply_uworld_biochemistry_v1.py` installs its registry before subject selection,
-then the final UWorld-only stem/option/support renderer after incumbent owners.
-The shared question presenter accepts source-complete A–H choices only for
-UWorld and bypasses legacy extraction heuristics. All study, FSRS, sync and
-storage paths remain shared. `uworld_source_text.py` creates an auditable native
-OCR display without altering originals. The UWorld renderer preserves source
-choice discussions and Educational objective without Marrow augmentation.
-
-The user deferred PDF recovery and question-by-question validation to a later
-Luna-agent pass. Current builds use text only:105 practice questions,27 gated
-reference records. Pools exclude these references before sampling, and the
-session-start guard prevents scored incomplete diagrams. Individually opened
-references use the existing modal/focus model without changing study state.
-See `docs/UWORLD_BIOCHEMISTRY_PILOT.md` for limits and scaling requirements.
+The source-reviewed collection/document/media architecture is described under
+Runtime data and assets above. `uworld_source_text.py` remains the auditable raw
+OCR fallback; reviewed source documents provide the main presentation. Pools
+exclude blocked references before sampling; individual references use the
+existing modal/focus model without changing study state.
+See `docs/UWORLD_BIOCHEMISTRY_PILOT.md` for source limits and scale requirements.
 
 The Revision owner includes `revision_session_core.js`: explicitly tagged full
 eligible Mistakes/Bookmarks/Due snapshots use the existing checkpoint collection
