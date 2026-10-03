@@ -12,13 +12,14 @@
 - The corrected immediate answer/press feedback, gentler CLOCK_TICK native outcomes, in-place mutations and fenced CBT cleanup are now merged on main in product `d9885087`. Feature full run `36975563929` passed; main full run `36977682274` passed packaging/browser checks but failed the tablet screenshot capture described above.
 - Preserve the analysis, mocks, Home-only header and approved streak/FSRS work. Full certification and exact-artifact production promotion passed; the corrected main product is live. Physical feel remains subject to user review; see `docs/INTERACTION_POLISH_2026-10-02.md`.
 
-## Current UI refinement — 2026-10-02
+## Analysis clarity and verified PWA updates — 2026-10-03
 
-- Prior candidate: `feature/home-analysis-refinement`, based on released product `1ba1635428a661c4e9c152e2e90d75b441c05b0b`. Now included in certified main product a68; official packaging/canonical deployment are pending.
-- Insights labels follow week/month/year; historical comparisons show dates. Donuts align with empty prior periods; visible bar groups centre on their interval labels. Preserve the comparative full-year heatmap and removed Study Map/Topics to revisit.
-- Late owner `apply_refined_analysis_v1.py` follows clarity: compact score/accuracy, green/coral/amber outcomes, test-only subject/topic tabs, saved-timing distribution/cumulative charts, and existing Review/correction/marked/retake/module actions. The global subject badge is removed; the NK QBank header appears only on Home, per the latest user request.
-- Named fixed-question mocks use optional `state.savedMocks`, durable snapshots and a separate sync collection with tombstones. Modules already support names, save/resume and restart. Tests remain immutable apart from explicit title edits.
-- 84 local checks pass; generated responsive screenshots and result/mock journeys passed. Practice/Review/CBT/marked/FSRS/clarity regressions passed; combined full Ubuntu content/browser/APK/emulator CI passed on a68; canonical release is pending.
+- Active candidate: `feature/home-analysis-legibility-20261003`, based on released main product `d1735d2129f9f53bccda036c08bce367d2de7542` plus its handoff. Canonical production remains the verified October3 recovery release above.
+- User asks for unambiguous outcome graphs, readable Review Solutions, understandable cumulative timing and removal of missed-question practice from Insights only. Test Analysis retains its result-specific practice action; Practice correction, marked follow-up, retakes and saved mocks remain.
+- Test rows now use fixed green Correct / red Incorrect / amber Unattempted segments and explicit counts; no score-threshold recoloring or faded segments. Insights topic/subject accuracy bars use a consistent correct-answer fill and retain ranking/denominators. The Insights revision prompt card is removed.
+- Timing uses saved finite per-question milliseconds only, excludes missing records, deduplicates question IDs and names views Time ranges / Within time. Explain running totals and repeated all-under30s counts; show recording coverage and revisits. Historical result data is untouched.
+- Review Solutions uses white text on solid deep violet; missed-question practice retains a clear secondary button. PWA notices require a waiting worker with a verified different build, never idle alone; matching builds stay quiet, Later persists for that tab and study sessions defer the prompt. Updates still reload only after an explicit click.
+- All90 local checks passed. Candidate rendering checks at320/390/820/1194px passed analysis/Insights/mock paths and exact outcome/button colors; protected Continue Practice checks passed. Real service-worker verification passed16s idle, same-build suppression, dismissal/reload and explicit update. Fresh full candidate CI/preview is pending; no new production promotion or physical-device acceptance is claimed.
 
 ## Released Insights and clarity — 2026-10-02
 

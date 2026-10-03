@@ -67,14 +67,27 @@ def main():
                 page.screenshot(path=str(output/f'analysis-refined-top-{width}.png'))
                 totals=page.evaluate("[...document.querySelectorAll('.nk-na-row header b')].map(n=>n.innerText)")
                 assert totals
+                outcome_colors={'is-correct':'rgb(21, 153, 117)','is-incorrect':'rgb(212, 72, 99)','is-omitted':'rgb(219, 163, 58)'}
+                for tone,color in outcome_colors.items():
+                    for segment in page.locator(f'.nk-na-row-bar .{tone}').all():
+                        assert segment.evaluate('(n)=>getComputedStyle(n).backgroundColor')==color
+                        assert segment.evaluate('(n)=>getComputedStyle(n).opacity')=='1'
+                assert page.locator('.nk-na-row-counts').count()==page.locator('.nk-na-row').count()
+                # Read the final cascade: legacy gradient rules caused the unreadable CTA.
+                review=page.get_by_role('button',name='Review Solutions',exact=True)
+                assert review.evaluate('(n)=>getComputedStyle(n).color')=='rgb(255, 255, 255)'
+                assert review.evaluate('(n)=>getComputedStyle(n).backgroundColor')=='rgb(73, 51, 148)'
+                assert review.evaluate('(n)=>getComputedStyle(n).backgroundImage')=='none'
                 page.get_by_role('button',name='Subject-wise',exact=True).click()
                 expect(page.get_by_role('heading',name='Subject breakdown')).to_be_visible()
                 assert page.locator('.nk-na-row').count()==3
                 page.get_by_role('button',name='Topic-wise',exact=True).click()
-                page.get_by_role('button',name='Cumulative',exact=True).click()
+                page.get_by_role('button',name='Within time',exact=True).click()
                 assert page.locator('.nk-na-time-bars>div>b').all_text_contents()==['4','8','12','16','20']
-                page.get_by_role('button',name='By time / Q',exact=True).click()
+                assert 'Running total' in page.locator('.nk-na-time-explanation').inner_text()
+                page.get_by_role('button',name='Time ranges',exact=True).click()
                 assert page.locator('.nk-na-time-bars>div>b').all_text_contents()==['4']*5
+                assert 'Timing saved for 20 of 20' in page.locator('.nk-na-time-coverage').inner_text()
                 page.evaluate("window.QB.nav('result','analysis-low')")
                 assert '67%' in page.locator('.nk-na-accuracy').inner_text()
                 assert '10%' in page.locator('.nk-na-summary .nk-na-ring').inner_text()

@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import html as html_escape
 import json
 import re
 import shutil
@@ -47,6 +48,7 @@ def main() -> None:
         config_path.write_text("window.NK_QBANK_FIREBASE_CONFIG = "+json.dumps(config)+";\n")
     html = out / "index.html"
     html.write_text(html.read_text(encoding="utf-8").replace('src="assets/physiology_image_pages.js"', 'src="physiology_image_pages.js"').replace('href="assets/Biochemistry_QBank_Source.pdf"', 'href="Biochemistry_QBank_Source.pdf"'), encoding="utf-8")
+    html.write_text(html.read_text(encoding="utf-8").replace('</head>', '<meta name="nk-qbank-build" content="'+html_escape.escape(args.version, quote=True)+'">\n</head>', 1), encoding="utf-8")
     sw = out / "sw.js"
     sw_text=sw.read_text(encoding="utf-8").replace("const BUILD_VERSION='dev';", f"const BUILD_VERSION={args.version!r};", 1)
     image_shell=(

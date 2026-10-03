@@ -543,3 +543,15 @@ updates preserve source DOM and rollback. Presses cancel on gestures; short
 motion respects reduced motion. apply_android_haptics_v1.py follows Activity
 regeneration. Ordinary navigation is silent. Ownership and verification:
 docs/INTERACTION_POLISH_2026-10-02.md.
+
+## Analysis and PWA update identity — 2026-10-03
+
+`refined_analysis_core.js` owns fixed outcome segments and labeled counts plus
+saved-timing distributions/running totals. `learning_insights_core.js` keeps
+period-scoped rankings/denominators with a consistent accuracy fill and omits
+its revision prompt card. Result-specific missed/marked/correction APIs remain.
+`pwa_update_core.js` is injected by the existing cross-device owner. Web packaging
+adds `nk-qbank-build` metadata; the service worker replies to `NK_QBANK_VERSION`
+through MessageChannel. Only a verified different waiting worker gets a notice;
+Later is tab/build-scoped and active study defers it. Activation/reload remains
+explicit. Real browser lifecycle checks run in the full packaging workflow.

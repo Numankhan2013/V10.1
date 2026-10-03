@@ -2,7 +2,6 @@
 """Behavior tests for merge safety and PWA/sync source contracts."""
 
 from pathlib import Path
-import ast
 import importlib.util
 import json
 import subprocess
@@ -386,25 +385,8 @@ function nkDurablePersist(v){localStorage.setItem(LS_KEY,JSON.stringify(v));retu
     if "skipWaiting" in install:
         raise SystemExit("PWA installation must wait for an explicit update action")
     transform_source = (ROOT / "tools/apply_cross_device_pwa_v1.py").read_text(encoding="utf-8")
-    update_sw = next(ast.literal_eval(node.value) for node in ast.walk(ast.parse(transform_source))
-                     if isinstance(node, ast.Assign) and any(isinstance(t, ast.Name) and t.id == "update_sw" for t in node.targets))
-    lifecycle = r'''
-const assert=(v,m)=>{if(!v)throw new Error(m)};
-const events={},swEvents={};let reloads=0,click;
-const worker={postMessage:message=>{assert(message==='SKIP_WAITING','update message');swEvents.controllerchange();swEvents.controllerchange();}};
-const registration={waiting:worker,addEventListener:()=>{}};
-const navigator={serviceWorker:{controller:{},addEventListener:(name,fn)=>swEvents[name]=fn,register:async()=>registration}};
-const window={addEventListener:(name,fn)=>events[name]=fn};
-const location={hostname:'example.test',reload:()=>reloads++};
-const document={querySelector:()=>null,createElement:()=>({querySelector:()=>({set onclick(fn){click=fn}})}),body:{appendChild:()=>{}}};
-'''
-    lifecycle += update_sw + "\n" + r'''
-(async()=>{await events.load();swEvents.controllerchange();assert(reloads===0,'unrequested controller changes must not reload');click();assert(reloads===1,'explicit update must reload only once');console.log('PWA_UPDATE_LIFECYCLE_OK');})().catch(error=>{console.error(error);process.exitCode=1});
-'''
-    with tempfile.TemporaryDirectory() as directory:
-        script = Path(directory) / "pwa-test.js"
-        script.write_text(lifecycle, encoding="utf-8")
-        subprocess.run(["node", str(script)], check=True)
+    if "tools/pwa_update_core.js" not in transform_source or "NK_QBANK_VERSION" not in worker:
+        raise SystemExit("PWA updates must compare the waiting build with the running page")
     sync_core = CORE.read_text(encoding="utf-8")
     pull_at = sync_core.find("pulled=await nkPullCloud(token)")
     push_at = sync_core.find("pushed=await nkPushOutbox(token)")
