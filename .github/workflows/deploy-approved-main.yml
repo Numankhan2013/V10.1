@@ -2,7 +2,7 @@ name: Deploy explicitly approved main release
 
 on:
   push:
-    branches: ['release/approved-production-20261001']
+    branches: ['release/approved-production-20261003-recovery']
   workflow_run:
     workflows: [Build V11.7 Android + PWA]
     types: [completed]
@@ -20,19 +20,36 @@ jobs:
     if: ${{ github.event_name == 'push' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' && github.event.workflow_run.event == 'push' && contains(github.event.workflow_run.head_commit.message, '[approved-production]')) }}
     runs-on: ubuntu-latest
     steps:
+      - name: Require successful full verification of the exact main artifact
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERIFIED_RUN_ID: ${{ github.event.workflow_run.id || '37088358628' }}
+          VERIFIED_RELEASE_SHA: ${{ github.event.workflow_run.head_sha || 'd1735d2129f9f53bccda036c08bce367d2de7542' }}
+        run: |
+          set -eu
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$VERIFIED_RUN_ID" > /tmp/verified-release-run.json
+          python3 - <<'PYTHON'
+          import json, os
+          run = json.load(open('/tmp/verified-release-run.json'))
+          assert run['status'] == 'completed' and run['conclusion'] == 'success', 'Full verification must pass before production'
+          assert run['head_sha'] == os.environ['VERIFIED_RELEASE_SHA'], 'Verified commit mismatch'
+          assert run['head_branch'] == 'main' and run['event'] == 'push', 'Only the main push artifact qualifies'
+          assert run['path'] == '.github/workflows/build-apk.yml', 'Wrong verification workflow'
+          print('FULL_MAIN_VERIFICATION_OK', run['id'], run['head_sha'])
+          PYTHON
       - name: Check out the exact approved release
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.workflow_run.head_sha || '18e4cd58a09f14169447dd7aaf13a6cc08971ceb' }}
+          ref: ${{ github.event.workflow_run.head_sha || 'd1735d2129f9f53bccda036c08bce367d2de7542' }}
       - name: Download the verified build without rebuilding
         uses: actions/download-artifact@v4
         with:
           name: V11.7-android-pwa
-          run-id: ${{ github.event.workflow_run.id || '36883871119' }}
+          run-id: ${{ github.event.workflow_run.id || '37088358628' }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Verify artifact identity and current main
         env:
-          EXPECTED_RELEASE_SHA: ${{ github.event.workflow_run.head_sha || '18e4cd58a09f14169447dd7aaf13a6cc08971ceb' }}
+          EXPECTED_RELEASE_SHA: ${{ github.event.workflow_run.head_sha || 'd1735d2129f9f53bccda036c08bce367d2de7542' }}
         run: |
           set -eu
           test "$(git ls-remote origin refs/heads/main | cut -f1)" = "$EXPECTED_RELEASE_SHA"
@@ -75,3 +92,30 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy build/web --project-name=${{ vars.CLOUDFLARE_PAGES_PROJECT || 'nk-qbank' }} --branch=main
+      - name: Verify production serves the exact verified web artifact
+        env:
+          CLOUDFLARE_PAGES_PROJECT: ${{ vars.CLOUDFLARE_PAGES_PROJECT || 'nk-qbank' }}
+        run: |
+          python3 - <<'PYTHON'
+          import hashlib, os, time, urllib.request
+          from pathlib import Path
+          project = os.environ['CLOUDFLARE_PAGES_PROJECT']
+          for host in [f'{project}.pages.dev', f'main.{project}.pages.dev']:
+              for name in ['index.html', 'sw.js', 'qbank-config.js']:
+                  expected = hashlib.sha256(Path('build/web', name).read_bytes()).hexdigest()
+                  last_error = None
+                  for attempt in range(6):
+                      try:
+                          request = urllib.request.Request(f'https://{host}/{name}', headers={'Cache-Control': 'no-cache'})
+                          with urllib.request.urlopen(request, timeout=30) as response:
+                              assert response.status == 200
+                              actual = hashlib.sha256(response.read()).hexdigest()
+                          assert actual == expected, f'{host}/{name}: expected {expected}, got {actual}'
+                          print('PRODUCTION_ARTIFACT_MATCH', host, name, actual)
+                          break
+                      except Exception as error:
+                          last_error = error
+                          if attempt == 5:
+                              raise
+                          time.sleep(10)
+          PYTHON

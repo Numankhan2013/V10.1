@@ -5,12 +5,12 @@
 ## Production promotion recovery — 2026-10-03
 
 - User authorized fixing and rerunning the latest failed production candidate on `main`. Product `d9885087e0a7f8e241d2f064a124dae0ca591110` passed the main build/browser/PWA/APK checks in run `36977682274`; its Android tablet driver disconnected during source-PDF locator screenshot capture. Production was skipped; the canonical root still serves the prior release.
-- Replace the oversized locator screenshot with a native Android viewport capture after the existing image-load and CSS-contrast assertions plus an explicit visibility check. Phone/tablet behavior assertions remain mandatory. Fresh full main certification and deployment of that exact verified artifact are pending; no physical-device acceptance is claimed.
+- Native Android viewport capture replaces the oversized source-PDF locator screenshot, preserving image readiness, contrast and visibility assertions. All88 local checks, Engineering run `37088358732` and full main run `37088358628` passed at `d1735d2129f9f53bccda036c08bce367d2de7542`, including phone/tablet emulators. The automatic deployment did not start; this release branch pins that exact successful artifact and checks production bytes after upload. Deployment is pending; no physical-device acceptance is claimed.
 
 ## Interaction responsiveness correction — 2026-10-02
 
 - The corrected immediate answer/press feedback, gentler CLOCK_TICK native outcomes, in-place mutations and fenced CBT cleanup are now merged on main in product `d9885087`. Feature full run `36975563929` passed; main full run `36977682274` passed packaging/browser checks but failed the tablet screenshot capture described above.
-- Preserve the analysis, mocks, Home-only header and approved streak/FSRS work. Root remains the earlier `1ba16354` release until fresh full certification and exact-artifact promotion. Physical feel remains subject to user review; see `docs/INTERACTION_POLISH_2026-10-02.md`.
+- Preserve the analysis, mocks, Home-only header and approved streak/FSRS work. Full certification passed; root remains the earlier `1ba16354` release until exact-artifact promotion. Physical feel remains subject to user review; see `docs/INTERACTION_POLISH_2026-10-02.md`.
 
 ## Current UI refinement — 2026-10-02
 
