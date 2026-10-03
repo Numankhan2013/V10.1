@@ -2280,3 +2280,16 @@ retaining all geometry/visibility/image assertions. A diagnostic audit initially
 lacked its existing Marrow JPEG fixture; copying that fixture to ignored build/web
 restores the original environment without changing app assets. The replacement
 full candidate is pending. Restored the existing executable bit on the FSRS test.
+
+## 2026-10-03 — Certified UWorld reference pilot
+
+Product424e0ca8 passes101 local checks, both Engineering gates37158604008/
+37158606814 and full37158603961, including Android phone/tablet. Actual hosted
+390/820/1194/1440px UWorld flows pass at2f165b3a.nk-qbank.pages.dev; HTML SHA-256
+9bc847becbabe6eb1cf9da681deaa808da1bc4bd1bb58762ab71a6fd48022c02. Source inventory,
+184 offline paths, representative image hashes and crawler headers are verified.
+Standard browser requests succeed where Cloudflare rejects the bare Python client.
+PR94 is ready, stacked on93. Production's prior hash remains unchanged. This
+handoff edits documentation only, preserving the certified product artifact.
+No new physical-device or clinical acceptance is claimed; source gaps remain
+explicit in the pilot document, and all other UWorld collections remain deferred.
