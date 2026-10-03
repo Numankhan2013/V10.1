@@ -67,3 +67,19 @@ are required before certification; the pull request and canonical STATE record
 that result. The production recovery release remains live independently.
 Physical haptic feel, installed upgrades and aesthetic acceptance remain user
 checks, not claims made from browser/emulator results.
+
+## Certification
+
+Product c6445527de29d6557cc32b9ad22073a6d4d5bd55 passed all93 local checks,
+both Engineering gates37097235498/37097257022 and complete generated/PDF/
+browser/PWA/APK/Android run37097235503. Packaged Android phone and tablet
+passed native Back/Stay/Exit, force-stop/restart, same-session resume, multiple
+paused chapters, review, ratings and source rendering.
+
+Exact hosted CSS/glyph/source bytes, phone/tablet visual/contrast/geometry/long-copy
+and analysis checks, plus immediate continuity/reduced-motion checks passed at
+https://143b9176.nk-qbank.pages.dev. HTML SHA-256:
+d64674b722384c816687e37fa96de80f12b2c8f091a20c61ed9859f93445d38d.
+PR90 is ready, stacked on89/88; no new production deployment was performed.
+Production bytes still match the verified recovery release. Physical-device
+feel and user aesthetic acceptance remain separate from this certification.
