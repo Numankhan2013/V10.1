@@ -7,10 +7,11 @@
 - User authorized fixing and rerunning the latest failed production candidate on `main`. Product `d9885087e0a7f8e241d2f064a124dae0ca591110` passed the main build/browser/PWA/APK checks in run `36977682274`; its Android tablet driver disconnected during source-PDF locator screenshot capture. Production was skipped in that original run; the recovery release below is now live.
 - Native Android viewport capture replaces the oversized source-PDF locator screenshot, preserving image readiness, contrast and visibility assertions. All88 local checks, Engineering run `37088358732` and full main run `37088358628` passed at `d1735d2129f9f53bccda036c08bce367d2de7542`, including phone/tablet emulators. The automatic deployment did not start; this release branch pins that exact successful artifact and checks production bytes after upload. Production run `37090193916` succeeded; canonical https://nk-qbank.pages.dev and its immutable deployment serve exact verified HTML/config/service-worker bytes. HTML SHA-256: `3fce9f7c07bf9c4721b1e58aa168bab76b0db8641cd9b2d908c46cbfe729fea9`. No physical-device acceptance is claimed.
 
-## Interaction responsiveness correction — 2026-10-02
+## Impeccable interaction quality — 2026-10-03
 
-- The corrected immediate answer/press feedback, gentler CLOCK_TICK native outcomes, in-place mutations and fenced CBT cleanup are now merged on main in product `d9885087`. Feature full run `36975563929` passed; main full run `36977682274` passed packaging/browser checks but failed the tablet screenshot capture described above.
-- Preserve the analysis, mocks, Home-only header and approved streak/FSRS work. Full certification and exact-artifact production promotion passed; the corrected main product is live. Physical feel remains subject to user review; see `docs/INTERACTION_POLISH_2026-10-02.md`.
+- Active work: `feature/home-impeccable-interactions-20261003`, based on analysis candidate below; production remains unchanged. Impeccable skill-v4.5.0 installed for Codex in `.agents/skills/impeccable`, project hooks target that single copy, `PRODUCT.md` links canonical memory, `DESIGN.md` records preservation/Operate direction. Actual context/detector/audit/polish guidance used; see `docs/INTERACTION_QUALITY_2026-10-03.md`.
+- Audited phone/tablet screens and actual repeated controls. Preserve current immediate state colors, haptics, in-place CBT/rating/bookmark updates, fixed footer, question logic, FSRS/storage/data/source/nav and identity. Practice now retains the question/figures/header while revealing committed outcomes, notes/explanation and existing FSRS/footer; explicit text outcomes supplement color. No action waits for motion.
+- Insights refreshes data while retaining native pickers, focus, metrics disclosure and report position; local analysis/topic/year switches retain focus/scroll. Activity has one keyboard tab stop, spatial arrows and explicit Enter details. Scoped small common controls gain44px targets. New generated-browser regression protects continuity/immediate state/read-only Insights/reduced motion at320/390/820/1194px. Local90 checks and responsive checks pass; fresh full generated/PWA/APK/Android CI and preview pending. No physical acceptance claimed.
 
 ## Analysis clarity and verified PWA updates — 2026-10-03
 
@@ -134,12 +135,11 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 - Earlier OCR counts (seven question records and 56 explanation records) predate the final completeness pass below. Question-essential uncertainty was included in the focused review; remaining explanation-wide cleanup is separate and must use pinned source evidence.
 - Four PrepLadder source records remain intentionally non-answerable rather than recording corrupt attempts: `anatomy-22-4`, `physiology-23-38`, `physiology-24-6`, `physiology-33-33`.
 - Production promotion requires explicit authorization; the user authorized this Insights/clarity release after verification.
-
 ## Current priorities / Next step
 
 1. Completed final completeness pass source-reviewed 254 unique questions (226 initial + 28 supplemental): 89 repairs (74 contextual/15 exact; 81 text/table/notation/key and eight native images), 132 already complete, 33 underdetermined source omissions gated, including ANAT62Q6. Compiled display ledger: 114 entries; source tests pass across four variants. CI queue requires all new structural/glyph/question-visual candidates reviewed (195 current residual candidates; zero unreviewed). See `docs/QUESTION_COMPLETENESS_FINAL_PASS.md` and the pinned `data/question_completeness_reviews_v1.json` ledger. Raw imports remain immutable.
 2. Regenerated final image coverage: 1,502 references / 1,421 released / 79 invalid / two archival holds / zero unresolved cues; runtime 1,486 bindings / 1,306 assets / 1,128 owners. All 52 final local checks pass. Product checkpoint `de9c415cef4915d5b20a42abc9f2299a8595b173` is fully build-verified: Engineering `36732893469` and full browser/PWA/APK/package/Android-emulator run `36732893814` passed. Preview: `https://74f04894.nk-qbank.pages.dev`. All 114 contracts passed 228 runtime checks; eight recovered image URLs match exact native hashes in the live preview. Earlier image/browser assertion failures are resolved.
-3. Released Insights/clarity and all prior approved features are live together. Chart/result/mock and immediate interaction refinement are certified and published; preserve23 source gates, two archival image gaps and PrepLadder source-comparison backlog.
+3. Production recovery is live; analysis and interaction candidates require their own full certification. Preserve23 source gates, two archival image gaps and PrepLadder source-comparison backlog.
 
 ## Memory pointers
 
