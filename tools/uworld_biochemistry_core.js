@@ -96,7 +96,8 @@
     if(q?.bank!=='UWorld')return nkUworldOriginalStem(q);
     const imageOptions=(q.options||[]).filter(o=>o.figure);
     const tools=imageOptions.length?`<details class="nk-uworld-option-tools"><summary>Enlarge option diagrams</summary><div>${imageOptions.map(o=>`<button type="button" aria-label="Enlarge option ${esc(o.letter)}" onclick="window.QB.uworldFigure('${esc(o.figure.asset)}')">${esc(o.letter)} ${navIcon('search',16)}</button>`).join('')}</div></details>`:'';
-    return `<div class="nk-uworld-stem">${nkUworldOriginalStem(q)}${nkUworldNodes(q.uworldDocument?.question_blocks,q)}${tools}</div>`;
+    const displayQuestion=q.uworldDocument?{...q,question:q.uworldDocument.question}:q;
+    return `<div class="nk-uworld-stem">${nkUworldOriginalStem(displayQuestion)}${nkUworldNodes(q.uworldDocument?.question_blocks,q)}${tools}</div>`;
   };
   const nkUworldOriginalSupport=nkStudySupport;
   nkStudySupport=function(q,timeMs,unattempted=false,renderedSource=''){

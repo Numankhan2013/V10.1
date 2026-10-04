@@ -76,4 +76,5 @@ def transform(source):
 
 if __name__=='__main__':
     HTML.write_text(transform(HTML.read_text()),encoding='utf-8')
-    print('UWORLD_COLLECTIONS_INSTALLED collections=2 questions=165 topics=5 shared_engine=true original_records=preserved')
+    records = bank_records()
+    print(f'UWORLD_COLLECTIONS_INSTALLED collections={len(records)} questions={sum(len(r["questions"]) for r in records)} topics={sum(len(r["topics"]) for r in records)} shared_engine=true original_records=preserved')

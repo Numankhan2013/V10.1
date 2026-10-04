@@ -45,6 +45,10 @@ assert(nkQuestionPresentationFor(legacy).valid);assert.equal(nkStudySupport(lega
 const native=RECORD.questions[0],before=JSON.stringify(native),html=nkStudySupport(native,12000);
 assert(html.includes('nk-uworld-reading'));assert(html.includes('Educational objective'));assert(html.includes('Original OCR explanation'));
 assert(!/Key takeaway|Why the other options are wrong|uworld_visuals\//i.test(html));assert.equal(JSON.stringify(native),before);
+const ordered={...native,question:'Full searchable context. Final question prompt.',uworldDocument:{...native.uworldDocument,question:'Full searchable context.',question_blocks:[{type:'paragraph',text:'Final question prompt.'}]}};
+const orderedBefore=JSON.stringify(ordered),stem=nkQuestionStemMarkup(ordered);
+assert.equal(stem.split('Final question prompt.').length-1,1,'Question prompt must appear once after ordered exhibit blocks');
+assert.equal(JSON.stringify(ordered),orderedBefore,'Display ordering must not rewrite searchable source content');
 const hostile={...native,uworldSource:{explanation:{text:'<img src=x onerror=alert(1)>',educational_objective:'<script>alert(1)</script>'}},uworldTranscript:{paragraphs:['<script>alert(1)</script>']}};
 assert(!nkStudySupport(hostile,0).includes('<script>'));assert(!nkUworldOptionMarkup(native,{text:'<img src=x onerror=alert(1)>'}).includes('<img src=x'));
 assert(nkUworldParagraph('(Choice A) Original reasoning.').includes('<strong>(Choice A)</strong>'));

@@ -940,5 +940,16 @@ October4 follow-up: user confirms the second UWorld preview works and requests
 card-footer removal and an app-wide Impeccable quality pass. Active quality branch
 fixes block taxonomy, reference-only search/batches, incompatible native bank
 filters, modal disclosure focus and small builder targets.102 local checks and
-bounded rendered flows pass; full CI and hosted verification remain pending.
+bounded rendered flows pass. Product67a85ee3, both Engineering gates and full
+37184199118 including Android phone/tablet emulators pass. Actual hosted UWorld
+four-width/Search/focus checks pass at https://adf558ca.nk-qbank.pages.dev; all206
+media hashes/offline paths remain unchanged. PR96 is ready, stacked on95. The
+docs-only certified handoff preserves that product artifact; production unchanged.
 Canonical STATE and docs/UWORLD_APP_QUALITY_2026-10-04.md own current details.
+
+October4 next batch: user authorizes reuse of supplied JSONLs/PDFs and chooses
+Ophthalmology as the first PDF-only extraction. Active Ophthalmology branch uses
+the pinned30-question/204-page source56fe817, three Luna/high source batches and
+existing UWorld registry/display/media/study engines. Verification is in progress;
+canonical STATE and docs/UWORLD_OPHTHALMOLOGY_COLLECTION.md own current detail.
+Production and prior certified artifacts remain unchanged.

@@ -2349,3 +2349,34 @@ reverse focus stayed on Close. Full37183638634 is cancelled before preview deliv
 The shared predicate now excludes descendants of every closed disclosure while
 keeping its own summary accessible. Forward/reverse/nested disclosure regressions,
 102 local checks and repeated interaction checks pass. The replacement build is pending.
+
+## 2026-10-04 — Certified UWorld and shared-app quality pass
+
+Final product67a85ee3 (treeeceb16342a6e3d72473ad4b11435b1f532328e53) passes102
+local checks, both Engineering gates37184200975/37184199171 and full37184199118,
+including generated source/PWA/APK and Android35 phone/tablet emulator checks.
+Actual hosted four-width UWorld flows plus phone/tablet Search and bidirectional/
+nested disclosure focus pass at https://adf558ca.nk-qbank.pages.dev; HTML SHA-256
+8d63e6f945826062ca4a422978093b1c693fdde8b29d62478fc65f454c3d2ce9. Hosted screenshots
+confirm clean collection cards and intact source table presentation. All206 media
+hashes/offline paths remain unchanged from the prior certified combined inventory;
+representative hosted bytes and crawler headers pass. The first run37183638634
+is intentionally cancelled and does not certify this artifact. Production HTML
+remains3fce9f7c07bf9c4721b1e58aa168bab76b0db8641cd9b2d908c46cbfe729fea9.
+PR96 is ready and unmerged, stacked on95. This docs-only handoff preserves the
+verified product and artifact. No new physical-device/clinical certification,
+production promotion, additional import or explanation redesign is claimed.
+
+## 2026-10-04 — PDF-only Ophthalmology source extraction and integration
+
+The user accepts taking extraction work into integration rather than preparing
+JSONLs separately. Supplied JSONLs/PDFs remain reusable; Ophthalmology is explicitly
+selected as the first PDF-only collection. Source56fe817 holds its pinned204-page,
+45,046,309-byte original PDF. Three user-authorized Luna/high assignments visually
+review all30 questions and source pages. Root owns source pin/page manifest,
+canonical snapshot/typed schema reconciliation, crop/key/prose checks and the narrow
+registry/CI integration. Original per-page OCR stays auditable; complete searchable
+stems and ordered display stems have separate roles for inline exhibits.
+Only Ophthalmology is added. Other supplied packages remain queued. The accepted
+UWorld appearance and shared study/storage/sync engines remain protected. Source
+review/full verification and hosted certification are in progress; production unchanged.

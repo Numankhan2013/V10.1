@@ -20,7 +20,7 @@ def main():
     assert all(q['explanation'] == row['explanation']['text'] for q, row in zip(bank['questions'], rows))
     assert all(q['subject'] == 'UWorld · Poisoning & Environmental Exposure' for q in bank['questions'])
     assert len(bank['topics']) == 1
-    assert len(bank_records()) == 2
+    assert len(bank_records()) == 3
     assert all(doc['status'] == 'verified' for doc in docs.values())
     for doc in docs.values():
         text = ' '.join([doc['question'], doc.get('educational_objective') or ''] +
