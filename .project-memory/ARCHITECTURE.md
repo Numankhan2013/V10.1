@@ -49,8 +49,8 @@ closed. Raw question bundles and audit metadata remain unchanged.
 ## Runtime data and assets
 
 - `uworld_collections.py` explicitly registers Biochemistry, Poisoning &
-  Environmental Exposure, Ophthalmology, Male Reproductive System and Female
-  Reproductive System & Breast, each with its own `UWorld · collection` namespace
+  Environmental Exposure, Ophthalmology, Male Reproductive System, Female
+  Reproductive System & Breast and Biostatistics & Epidemiology, each with its own `UWorld · collection` namespace
   in the shared bank registry and lookup, without adding a traditional subject.
   Home/Library → My UWorld → collection → source blocks uses existing routes
   and study engines. Read-only aliases resolve legacy Biochemistry/UWorld bank
@@ -651,3 +651,5 @@ the app; recovery evidence is recorded separately from the original full run.
 ## Web-first artifact and complete Biostatistics Block 1 — 2026-10-04
 
 `uworld_biostatistics.py` reuses the shared imported collection owner for40 questions/pages1–182, four pinned review batches and stable Block1 IDs. Reviewed native question/explanation figures and typed tables use the incumbent presenter. Original120 records remain archival and immutable; unreviewed later blocks stay excluded. `approved_release_artifact.py` verifies every PWA manifest entry, full directory membership, sizes/hashes and exact commit before the approved-main uploader; earlier combined APK artifacts retain their identity checks.
+
+The default full workflow now verifies/packages the PWA independently. Manual `build_apk=true` also runs the Android/package/emulator lane. An explicitly approved release can fast-forward main to an already fully verified exact SHA and pin that run/SHA in the operational release branch; the artifact-only uploader requires current-main equality and all web manifest hashes. Release evidence belongs in STATE/SESSION_LOG, rather than changing the verified app commit.

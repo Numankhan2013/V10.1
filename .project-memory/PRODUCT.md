@@ -23,8 +23,9 @@ V11.5 Custom Study Modules. Later candidates must build forward from it.
 
 Motto: **we do not break anything while we build something.**
 
-Engineering loop: inspect → implement narrowly → build → verify → inspect
-packaged APK → fix → rebuild → verify again → physical-device test.
+Engineering loop: inspect → implement narrowly → build → verify the packaged
+PWA and hosted preview → fix observed defects → confirm. APK packaging and
+Android checks are on demand; physical-device acceptance remains separate.
 Physical-device behavior is final; CI alone never promotes a baseline.
 Prefer building over narrating.
 

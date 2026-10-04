@@ -325,3 +325,7 @@ Priority 0: reproduce and restore user-reported unreadable PDF explanations. The
   post-answer option statistics, shared engines and independent crop validation.
 
 - 2026-10-04: Biostatistics complete Block1 (four reviewed10-question batches) is implemented; release after fullCI and hosted verification as explicitly authorized. Next content scope is80 remaining block questions plus complete supplemental19197, each requiring native source review. APK optimization remains deferred until requested.
+
+## 2026-10-04 — Web-first UWorld release completed
+
+Main31bff68/canonical domain are certified by full37221902987 and approved release37224697940. Three further10-question Biostatistics batches complete40-question Block1. Next source-backed work: remaining80 block items and supplemental19197. APK size optimization is deferred until requested; existing APKs/manual build path remain.
