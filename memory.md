@@ -927,3 +927,11 @@ UWorld collection on October4: Poisoning & Environmental Exposure (33questions).
 Explanation aesthetics are deferred. Shared engines and source-native documents
 remain; canonical STATE and docs/UWORLD_SECOND_COLLECTION.md track current
 verification and source review. Production is unchanged.
+
+Second collection certified at795d94a9:33 Poisoning & Environmental Exposure
+questions,29 native tables,22 focused figures;102 local checks, both Engineering
+gates and full37165147973 including Android phone/tablet emulators pass.
+Actual hosted four-width flows and206 offline media paths pass at
+https://1b80a731.nk-qbank.pages.dev; all184 Biochemistry image hashes are unchanged.
+PR95 is ready, stacked on94. Canonical STATE and UWORLD_SECOND_COLLECTION.md
+record exact hashes/provenance; production is unchanged. This handoff is docs-only.

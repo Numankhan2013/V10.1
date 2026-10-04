@@ -36,7 +36,7 @@ closed. Raw question bundles and audit metadata remain unchanged.
 
 - `uworld_collections.py` explicitly registers Biochemistry and Poisoning &
   Environmental Exposure, each with its own `UWorld · collection` namespace
-  to the shared bank registry and lookup, without adding a traditional subject.
+  in the shared bank registry and lookup, without adding a traditional subject.
   Home/Library → My UWorld → collection → source blocks uses existing routes
   and study engines. Read-only aliases resolve legacy Biochemistry/UWorld bank
   and module scope keys without rewriting persisted records.

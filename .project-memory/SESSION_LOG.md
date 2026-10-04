@@ -2309,3 +2309,21 @@ A–I validation handles nine choices and linked stems retain independent contex
 Pause/Continue, labs/graphs, CBT/review/modules and prior FSRS regressions.
 Full CI and hosted certification remain pending. No production promotion or
 physical Android/clinical certification is claimed. Details: UWORLD_SECOND_COLLECTION.md.
+
+## 2026-10-04 — Certified second UWorld collection
+
+Product795d94a9 passes102 local checks, both Engineering gates37165147978/
+37165168319 and full37165147973, including packaged PWA/APK checks and Android
+phone/tablet emulators. Actual hosted390/820/1194/1440px flows pass at
+https://1b80a731.nk-qbank.pages.dev; HTML SHA-256
+8df4bac9be93d1db712bc28e991caab936c9372f20df31296d98a3d44e97f9d9.
+The combined165-document inventory has206 offline media paths; all184 prior
+Biochemistry image hashes remain unchanged. Representative new media hashes,
+crawler headers and the unchanged production hash are verified. All33 Poisoning
+questions also pass an independent rendered walkthrough of29 tables/22 figures.
+The hosted diagnostic uses a standard browser client header and the tools import
+path; bare Python requests are rejected by Cloudflare. No product change was
+needed for that diagnostic environment setup. PR95 is ready and unmerged,
+stacked on94. This documentation-only handoff preserves the exact certified
+product/artifact. No production promotion, physical-device acceptance or clinical
+certification is claimed. Explanation aesthetics and other collections remain deferred.
