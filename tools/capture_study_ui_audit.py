@@ -75,6 +75,7 @@ def main():
                 if label in ("small-phone", "large-text-phone"):
                     page.evaluate("window.QB.openStudyModuleBuilder();window.QB.nkModuleBuilderStep(2)")
                     capture(page, f"{label}-01d-module-topics", observations)
+                    assert page.locator('.nk-module-select-tools button:not(:disabled)').evaluate_all('nodes=>nodes.every(n=>n.getBoundingClientRect().height>=44)'), 'Module selection actions have small targets'
                     assert page.evaluate("getComputedStyle(document.querySelector('.nk-module-topic-groups')).overflowY") == "visible", \
                         f"Nested topic scrolling remains at {label}"
                     assert page.evaluate("""() => {
@@ -165,7 +166,7 @@ def main():
                     }""")
                     assert home_action["visible"], f"Home study action is obscured by bottom navigation at 320px: {home_action}"
 
-                page.locator("button.nk-v3-subject-card").filter(has_text="Biochemistry").click()
+                page.locator(".nk-home-subjects button.nk-v3-subject-card").filter(has_text="Biochemistry").click()
                 capture(page, f"{label}-01b-subject-destination", observations)
                 # The current Home card can enter the preferred bank directly.
                 # Open the chooser explicitly to capture both bank paths.
@@ -220,6 +221,7 @@ def main():
                 page.locator(".nk-cbt-topic-group .nk-module-topic").first.click()
                 if label in ("phone", "tablet"):
                     capture(page, f"{label}-13c-test-topics", observations)
+                    assert page.locator('.nk-cbt-builder :is(.nk-module-select-tools button,.nk-module-group-action):not(:disabled)').evaluate_all('nodes=>nodes.every(n=>n.getBoundingClientRect().height>=44)'), 'CBT selection actions have small targets'
                 page.evaluate("window.QB.nkCbtSetStep(3)")
                 page.locator("#nk-cbt-custom-count").wait_for(state="visible")
                 if label in ("phone", "tablet"):

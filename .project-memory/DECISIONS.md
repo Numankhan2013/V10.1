@@ -379,3 +379,30 @@ unapproved candidate because it shares donor history. In this session the user
 approved account reset/switching, search, Practice correction, and Home/result
 refinements but explicitly excluded tap/haptic feedback. Main promotion and
 production deployment remain separate actions.
+
+## 2026-10-02 — Recover latency with selective haptics
+
+The user now authorizes excluded latency work and native-feel polish. Preserve
+the design and transactional study invariants. Visual feedback starts at
+pointer-down; outcomes/haptics follow successful saves. Ordinary navigation is
+silent; unsupported platforms retain visual feedback. Full CI precedes release.
+
+## UWorld source reference and interaction placement — 2026-10-03
+
+Refine the132-question Biochemistry pilot before scaling. Keep collections apart
+from traditional subjects; adapt source content through pinned typed display
+documents rather than rewriting canonical imports or forking study engines.
+Preserve UWorld's original explanation order and source choice discussions;
+educational objectives remain after explanations to avoid answer hints.
+Option-selection percentages belong beside each option, revealed immediately
+with answered feedback and withheld during CBT. No disclosure is needed.
+Practice mistakes represents unresolved ordinary misses; scheduled-review lapses
+remain the responsibility of FSRS and never create or resurrect that queue.
+
+## Web-first builds, optional APK packaging (2026-10-04)
+
+The user uses browser previews and explicitly defers APK work. The shared full workflow now verifies/packages/deploys a PWA on pushes and default manual runs. Only manual `build_apk=true` enables Gradle, APK package checks, Android artifact upload and emulator interaction. PWA manifests hash all shipped files without requiring an APK. Preserve existing APKs and the on-demand build path; optimize Android size when requested. Web build verification does not claim Android/device acceptance. This user instruction supersedes earlier mandatory-APK milestone wording in the engineering baseline.
+
+## Reviewed prose owns learner-facing UWorld text (2026-10-04)
+
+Raw imports remain immutable archives but do not ship as alternate explanations or search fallbacks. Source-locked reviewed documents own runtime prose, options, typed tables and visuals. Reject observed screenshot chrome and long repeated paragraph runs before generation; fixes must remain explicit PDF/record-pinned display overlays. A partial next collection is labeled by its actual original question range; importing its entire unreviewed source is prohibited.

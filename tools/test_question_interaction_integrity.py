@@ -62,6 +62,14 @@ check('failed rating change restores the saved grade and schedule',()=>{selectPr
 check('failed amendment undo restores its saved grade',()=>{selectPractice('q1',1);nkRateCurrent(2);nkRateCurrent(3);const before=JSON.stringify(state);failed=true;assert.equal(nkFsrsUndo(),false);assert.equal(JSON.stringify(state),before);});
 check('rating edits keep one review through navigation',()=>{selectPractice('q1',1);nkRateCurrent(2);nkRateCurrent(3);nkRateCurrent(4);nextQ();prevQ();assert.equal(state.attempts.q1.length,1);assert.equal(state.reviews.q1.repetitions,1);assert.equal(nkFsrsSessionRating('q1').rating,4);});
 check('CBT selection changes before submission without FSRS',()=>{reset('exam');selectExam(1);selectExam(2);assert.equal(state.activeSession.answers.q1,2);assert.deepEqual(state.attempts,{});assert.deepEqual(state.reviews,{});});
+check('CBT paints in place after a durable save and rolls back a failed replacement',()=>{
+ reset('exam');const buttons=questions[0].options.map(()=>({selected:false,classList:{toggle(name,value){this.owner.selected=value;}}}));
+ buttons.forEach(b=>b.classList.owner=b);
+ const original=document.querySelector;document.querySelector=()=>({querySelectorAll:()=>buttons});
+ try{writes=0;renders=0;selectExam(2,'q1','session');assert.equal(writes,1);assert.equal(renders,0);assert.deepEqual(buttons.map(b=>b.selected),[false,true,false,false]);
+ const before=JSON.stringify(state);failed=true;selectExam(3,'q1','session');assert.equal(JSON.stringify(state),before);assert.deepEqual(buttons.map(b=>b.selected),[false,true,false,false]);}
+ finally{document.querySelector=original;}
+});
 check('one wrong-answer action has one durable commit',()=>{writes=0;selectPractice('q1',2);assert.equal(writes,1);assert.equal(state.attempts.q1.length,1);});
 check('final submission commits a legacy selected answer to FSRS',()=>{state.activeSession.answers.q2=1;finishPracticeSession();assert.equal(state.attempts.q2?.length,1);assert.equal(state.reviews.q2.repetitions,1);});
 check('history Back commits pending FSRS exactly once',()=>{selectPractice('q1',1);windowEvents.hashchange();assert.equal(state.attempts.q1.length,1);windowEvents.hashchange();assert.equal(state.attempts.q1.length,1);});

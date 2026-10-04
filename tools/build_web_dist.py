@@ -4,16 +4,19 @@
 from __future__ import annotations
 
 import argparse
+import html as html_escape
 import json
 import re
 import shutil
 from pathlib import Path
+from web_security_policy import HEADERS, worker_source
 
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "app/src/main/assets"
 DEFAULT_OUT = ROOT / "build/web"
 PAGES_FILE_LIMIT = 25 * 1024 * 1024
+ROBOTS_DIRECTIVES = "noindex, nofollow, noarchive, nosnippet, noimageindex"
 
 
 def main() -> None:
@@ -40,13 +43,20 @@ def main() -> None:
     config=json.loads(re.search(r"=\s*(\{.*\})\s*;",config_path.read_text()).group(1))
     anatomy_url=config.get("anatomyPdfUrl", "")
     if anatomy_url:
-        worker=(ROOT / "tools/anatomy_pdf_worker.mjs").read_text().replace("__ANATOMY_SOURCE_URL__",json.dumps(anatomy_url))
+        worker=worker_source(anatomy_url)
         (out / "_worker.js").write_text(worker)
-        (out / "_routes.json").write_text(json.dumps({"version":1,"include":["/anatomy-source.pdf"],"exclude":[]}))
+        # Pages _headers rules do not apply to Worker-generated responses.
+        # Route all paths through the bridge so fallthrough/error responses
+        # receive the same search-engine exclusion as static assets.
+        (out / "_routes.json").write_text(json.dumps({"version":1,"include":["/*"],"exclude":[]}))
         config["anatomyPdfUrl"]="./anatomy-source.pdf"
         config_path.write_text("window.NK_QBANK_FIREBASE_CONFIG = "+json.dumps(config)+";\n")
     html = out / "index.html"
     html.write_text(html.read_text(encoding="utf-8").replace('src="assets/physiology_image_pages.js"', 'src="physiology_image_pages.js"').replace('href="assets/Biochemistry_QBank_Source.pdf"', 'href="Biochemistry_QBank_Source.pdf"'), encoding="utf-8")
+    html.write_text(html.read_text(encoding="utf-8").replace('</head>', '<meta name="nk-qbank-build" content="'+html_escape.escape(args.version, quote=True)+'">\n</head>', 1), encoding="utf-8")
+    page = html.read_text(encoding="utf-8")
+    page = re.sub(r'<meta\b[^>]*\bname\s*=\s*[\"\']robots[\"\'][^>]*>', '', page, flags=re.IGNORECASE)
+    html.write_text(page.replace('</head>', '<meta name="robots" content="'+ROBOTS_DIRECTIVES+'">\n</head>', 1), encoding="utf-8")
     sw = out / "sw.js"
     sw_text=sw.read_text(encoding="utf-8").replace("const BUILD_VERSION='dev';", f"const BUILD_VERSION={args.version!r};", 1)
     image_shell=(
@@ -57,9 +67,12 @@ def main() -> None:
     sw_text=sw_text.replace("const SHELL=[",'const SHELL='+json.dumps(image_shell)[:-1]+',',1)
     sw.write_text(sw_text, encoding="utf-8")
     (out / "_headers").write_text(
+        "/*\n  X-Robots-Tag: "+ROBOTS_DIRECTIVES+"\n"+
+        ''.join('  '+name+': '+value+'\n' for name,value in HEADERS.items())+
         "/sw.js\n  Cache-Control: no-cache\n/index.html\n  Cache-Control: no-cache\n/qbank-config.js\n  Cache-Control: no-cache\n/source_visuals/*\n  Cache-Control: public, max-age=31536000, immutable\n/vendor/*\n  Cache-Control: public, max-age=31536000, immutable\n",
         encoding="utf-8",
     )
+    (out / "robots.txt").write_text("User-agent: *\nDisallow: /\n", encoding="utf-8")
     (out / "_redirects").write_text("/* /index.html 200\n", encoding="utf-8")
     if "Anatomy_QBank_Source.pdf" not in skipped:
         raise SystemExit("Expected oversized Anatomy PDF to be excluded from Pages output")

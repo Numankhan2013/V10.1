@@ -2,16 +2,44 @@
 
 > Operational state only. Resolve the live branch/commit and CI from Git before acting. Historical detail belongs in `SESSION_LOG.md` and dedicated handoffs.
 
+## Web-first explanation hygiene + complete Biostatistics Block 1 — 2026-10-04
+
+- User authorizes the next chapter batches, thorough source/local/hosted checks, then merge to `main` and release at https://nk-qbank.pages.dev when qualified. This supersedes the earlier reproductive-preview-only restriction. Current work is on `feature/home-uworld-hygiene-biostatistics-20261004`; resolve live HEAD/PR100 before acting.
+- APK packaging/emulator checks require explicit manual `build_apk=true`. Push/default dispatch retains source/generated-browser/media/offline/PWA checks. Preserve existing APKs; size optimization is deferred. Approved-main release accepts the fully hashed PWA artifact, with exact main SHA and explicit approval-message gates; legacy combined artifacts remain supported.
+- Candidate repairs33 reproductive questions plus Biochemistry633/12263 through PDF/row-pinned display snapshots. Original JSONLs, keys, percentages and prior figure coordinates remain immutable. Reviewed documents own runtime/search prose; raw OCR disclosure/archive fields are omitted. Screenshot chrome and repeated-page prose fail validation.
+- Biostatistics & Epidemiology now includes all40 Block1 questions/pages1–182, reviewed in four10-question batches. There are29 native figure placements (including essential question charts) and13 typed tables. The original120-row import remains unchanged; remaining80 block questions plus supplemental19197 are queued. Restored source notation includes α/β, ≥, √n, powers and hepatitis C/HCV; keys and percentages are preserved. Collection registry totals368 questions/11 topics across6 collections.
+- All108 local checks pass for the40-question extension. First10 checkpoint55626d2 passed Engineering37215529871 and full PWA37215529813; actual https://5b620c5e.nk-qbank.pages.dev passes four-width flows and595 media hashes/offline paths. Actual scrolling confirms Female869 figures paint; initial white full-page captures were not missing source images. Full40-question CI and finished-candidate hosted/Impeccable review remain before main promotion. Canonical root currently remains315cfcc. Details: `docs/UWORLD_HYGIENE_BIOSTATISTICS_2026-10-04.md`.
+
+## Verified reproductive feature preview — 2026-10-04
+
+- Feature app candidatee9a1c15 is based on docs93a8196/product315cfcc. User authorizes two locally verified additions and one combined preview, explicitly no production promotion. Male52/281pages and Female81/595pages retain two blocks each; original JSONLs/PDFs are pinned to source56fe817. Pregnancy placeholder files are excluded. Report: `docs/UWORLD_REPRODUCTIVE_BATCH.md`.
+- Reusable imported owner validates source/normalized hashes, keys, page ownership and complete overlays. Six Luna/high batches review all133 questions/876pages;46 native tables/306 source figure placements. Root reviews every crop sheet and repairs289 bounds, recovering missing exhibits. Female1830's six-choice repair has an explicit PDF/row-pinned ledger; original JSONL bytes remain immutable. Missing stats/source editorial inconsistencies remain documented.
+- Collection icons replace universal DNA. Topics resumes exact-bank durable Practice IDs/position/answers, excludes special modes and hides completed-bank zero-left actions. Today's Focus uses saved context while retaining timed priority/multi-session choice.104 local checks, scoped Topics/Home390/820/1440 and combined390/820/1194/1440 pass.
+- Engineering37205213243 and complete build/package job37205213240 pass. Original full-run Android installation hits Playwright's string limit before launch; recovery33642325/run37208580256 hash-checks/reuses that exact674756225-byte APK, streams installation via adb and passes phone/tablet/native Back/restart/FSRS/CBT checks. Full original run is not reported as success. Verification-only owners are retained for future main builds.
+- https://f0ec5f5d.nk-qbank.pages.dev passes actual four-width flows/all133 new questions and all589 media hashes/offline paths; prior283 images are unchanged. Hosted HTML d65c4ced30a2aff44cb8494fbd350fb70b11612fe3497ec87df266ef7ea8a6a5 matches CI. Main-domain production086b04f4 remains unchanged after upload. No physical-device, authenticated-account or clinical acceptance is inferred; docs-only handoff preserves exact application bytes.
+
+## Certified production release — 2026-10-04
+
+- Production product315cfcccc2a0d830aa851fbd136f3e8d14e215e8 / merged PR98 includes the accepted interaction/visual/revision feature chain, all three UWorld collections and the app-wide audit repairs. The user explicitly authorizes promotion accessible through https://nk-qbank.pages.dev. A separate docs-only handoff records certification without advancing the verified main product.
+- All 103 local checks, Engineering37191000202 and complete main37191000207 pass, including production APK identity/package/media/offline/browser and Android phone/tablet emulators. Approved release 37192960486 verifies/reuses that exact artifact, sets Pages production branch main and succeeds. The canonical root matches the CI-measured HTML SHA-256086b04f41fcf610af844b76652b7c6368392dc26d9bd8f609b258b2a6e77897b; HTML/config/service worker/inventory/robots bytes match https://92774e98.nk-qbank.pages.dev.
+- Ophthalmology30 questions/204 pages/8 native tables/77 source figure placements is source-reviewed from original56fe817 PDF SHA-256ab4aadac54fbc78c9db9fca4b561cb5d0ee0ba4ade3f72066c72bf64021843dc. Three user-authorized Luna/high batches plus independent root checks preserve original keys, prose, percentages, objectives and page provenance;41 crop repairs retain scientific labels. Only this PDF-only block is added; other supplied packages remain queued.
+- Actual main-domain390/820/1194/1440px UWorld flows,320/390/820/1440px audit repairs and phone/tablet Search/focus pass. All 283 UWorld assets match their packaged inventory hashes and offline paths; the prior206 media identities remain unchanged. Streamed source-PDF ranges and security/crawler response headers pass; cross-origin framing is rejected. Shared study engines, scoring, FSRS, stored data, native haptics and accepted appearance remain protected.
+- Audit repairs: account Back/email/contrast, narrow Topics controls/focus, empty FSRS actions, completed-start Android migration/file/private-asset boundaries and hosted frame/MIME/referrer policy. This is build-verified/hosted-verified, not new physical-device or clinical acceptance. Preserve known source gates and public-content/search-exclusion limits. Use the canonical root; the older main preview alias is stale. Reports: `docs/PREPRODUCTION_AUDIT_2026-10-04.md`, `docs/UWORLD_OPHTHALMOLOGY_COLLECTION.md`.
+
+## Certified Biochemistry reference
+
+- Product424e0ca80e57fc946ad96f41d38547bcbc23d089 / PR94 stacks on93 and passes full37158603961 plus both Engineering gates and101 local checks. Actual hosted four-width flows,184 offline assets and crawler headers pass at https://2f165b3a.nk-qbank.pages.dev; HTML SHA-2569bc847becbabe6eb1cf9da681deaa808da1bc4bd1bb58762ab71a6fd48022c02. Details/source limitations: `docs/UWORLD_BIOCHEMISTRY_PILOT.md`.
+-132 reviewed records/729pages;131 scored questions;1244 unscored because its essential exhibit is absent. Objectives1486/1071/107111 and figure sections1369/1244 are source-clipped. Missing stats stay null; accepted17px/70ch source-native layout, objective-after-explanation and immediate option percentages remain.
+- Practice mistakes only tracks unresolved ordinary Practice/test misses; FSRS-only lapses affect scheduling without creating or resurrecting ordinary mistakes. Correct answers from any flow resolve an ordinary miss. Continuous Revision/Pause/Finish remains accepted. No new installed-Android, haptic or clinical certification is claimed.
+
+## Accepted interaction and analysis refinements
+
+- Impeccable interaction, return-flow, source-search, analysis and PWA-update behavior remains protected. Prior certification and exact preview evidence are recorded in SESSION_LOG and the 2026-10-03 reports under docs/.
+
 ## Canonical lineage
 
-- Repo: `Numankhan2013/V10.1`.
-- Accepted product commit: `125d68b`.
-- Accepted baseline: V11.6 remains the rollback product baseline; the Continue Practice contract below is separately user/device accepted.
-- **Sole Marrow/product integration trunk:** `feature/marrow-canonical-full-current`.
-- User approved promotion of explanations plus runs1375/1378 to main and production on2026-10-01; combined release validation is in progress; f286e555 Engineering passed but fullrun1379 failed in the random CBT screenshot fixture. Its deterministic topic-scoped replacement is being verified.
-- Resolve the live canonical HEAD at run start; never hardcode a supposed current HEAD into automation logic.
-- Latest verified canonical checkpoint before the automation-readiness handoff: `356cce4`; Engineering `35453226391` and full Android/PWA/browser/APK/package run `35453226292` succeeded on that exact commit (GitHub checked 2026-09-20). The full run deployed preview `https://1b9fe4f4.nk-qbank.pages.dev`; production was not promoted. Recheck CI on the live head after any new commit. User preview review is not blanket acceptance.
-- Latest accepted Practice behavior was verified from checkpoint `74abb670c3ae088e06653681e85c347212222455`; full run `34695680534` succeeded and the user physically confirmed the Continue Practice flow. This behavior is build-verified, **device-verified**, and user-accepted.
+- Accepted product commit: `125d68b`. Accepted baseline: V11.6 remains the rollback product baseline; the Continue Practice contract below is separately user/device accepted.
+- **Production integration trunk:** `main`; `feature/marrow-canonical-full-current` remains the content-work lane and needs fast-forward alignment to the released Insights/clarity product before future content work. Preserve merged Revision/streak/FSRS features.
 
 ## Complete canonical Marrow ED8 source
 
@@ -27,10 +55,9 @@
 
 - Shared bank architecture: `MARROW_RECORDS → MARROW_BY_SUBJECT → BANKS_BY_SUBJECT`.
 - Do not fork Practice, CBT, Review Solutions, FSRS, sync, modules, persistence, analytics or navigation by subject/bank.
-- Primary navigation: **Home · FSRS · Tests · Insights · More**.
+- Primary navigation: **Home · Revision · Tests · Insights · More**; FSRS remains inside the approved Revision study hub.
 - Study hierarchy: **My Subjects → subject → bank chooser → Topics journey → topic → Practice/Topic Test**.
 - FSRS schedules every answered question. Pause commits answered work only; final submission adds remaining unanswered session IDs as skipped. Questions outside a submitted session remain unseen and excluded.
-- Old Wrong Questions dashboard/tab remains retired/replaced by Spaced FSRS.
 - Preserve approved V3 Home/Topics/question/Review/FSRS/module/timing behavior; do not restore rank/membership UI.
 
 ## Accepted Practice / Continue Practice contract — user/device verified
@@ -59,25 +86,13 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 - Browser regressions must verify meaningful expected cell content, not container existence.
 - User physically verified the structured-table repair at `c829599050173d24408b72e8dc564ba501a156b4`.
 
-## Matching/list and structured-question presentation — build verified, user review pending
+## Matching/list and structured-question presentation
 
-- Shared matching architecture is real and generic; the earlier partial success was **not** a one-record manual patch. The original residual failures came from a brittle wording detector plus parser limits.
-- Generic repair lineage through `f0471f5b494c50e36bf7e3952be90a33ba45dea1` broadened match intent with structural gating, trims duplicate source blocks, supports A–H / i–viii labels, ignores Column/List header prose, and handles bare letter↔roman notation without inventing source content.
-- Built-artifact audit found **63** PrepLadder records containing `match`/`matching`; generic semantic table renderings increased from **39 to 53**. Ordinary prose uses of “match” remain ordinary questions because structural evidence is required.
-- `physiology-9-17` (“Match the ion…”) is an explicit browser regression requiring List I/List II, Sodium/Chloride/Potassium/Calcium, -70/+63/+132/-90, four canonical choices, and no duplicated source block. User physically confirmed this ion-question repair in preview.
-- Commit `d111b7c6a4efcbdc09c15354072973b78fee35b2` source-fingerprint-reformed the previously listed structurally incomplete/image-dependent matching residuals (`26-13`, `physiology-10-10`, `physiology-36-7`, `anatomy-3-12`, `anatomy-14-3`, `anatomy-29-16`, `anatomy-29-33`, `anatomy-30-4`) instead of leaving flattened prose or guessing. These are no longer pending generic-parser residuals.
-- User then exposed a separate structured row-selection family: `physiology-9-22` (axonal transport) is not worded as “match” but contained a duplicated flattened four-column source table with choices `1/2/3/4`.
-- Commit `5352eb415e96834f3514139951a17ef7da3f368a` added reusable multi-column override-grid presentation and reformed `physiology-9-22` into **Statement / Type / Direction / Mediator** while preserving the original four choices and canonical `correctOption=3`.
-- Exact-head Engineering `34855852205` passed. Full Android/PWA/browser/APK/package run `34855852211` passed, including the new axonal-transport browser regression, matching regressions, Continue Practice, APK/package/reproducibility checks, asset verification, and PWA preview deployment. Production promotion was skipped.
-- Rule going forward: for duplicated/flattened source tables or list structures, use safe generic parsing first; if source structure is not safely inferable, perform a stable-ID/source-fingerprinted presentation reform from authoritative source. Do not alter the canonical answer contract and do not leave a clearly recoverable table as raw prose.
-- Full handoff: `.project-memory/MATCHING_TABLE_ARCHITECTURE_HANDOFF_2026-09-14.md`.
-- Status: **BUILD_VERIFIED / USER_REVIEW_PENDING** for the new axonal-transport and source-backed residual presentations; the ion-question repair itself is user-preview verified.
-
-## Scientific notation presentation — build-verified / user review pending
-
-- One shared, escape-first formatter now serves Practice, CBT and Review stems/options, takeaways, PrepLadder explanations/tables, Marrow native structured text/tables, and the separate enhanced-explanation wrapper. It renders explicit powers, common chemical/physiological subscripts and ionic charges, and only unambiguous OCR-placeholder repairs; raw source data remains unchanged.
-- Corpus audit found notation markup in **424 PrepLadder** and **695 Marrow** learner fields. Source-backed overrides repaired `5-10`, `5-14` and two occurrences in `4-12`; seven remaining ambiguous question records require rendered-source review. Residual OCR placeholders remain in 55 PrepLadder and 1 Marrow explanation records. Do not infer missing symbols from context alone.
-- All **46 available local checks** and exact-head Linux generated-app/browser/APK/package CI pass at the verified checkpoint above. Physical review remains pending.
+- Shared structural parsing and source-fingerprinted reform preserve canonical
+  choices/keys across Practice/CBT/Review. Structured ion question `physiology-9-17`
+  is user-preview verified. Axonal transport `physiology-9-22` and source-backed
+  residuals passed full run `34855852211`; physical acceptance remains separate.
+- Full details and residual identities: `.project-memory/MATCHING_TABLE_ARCHITECTURE_HANDOFF_2026-09-14.md`.
 
 ## Learner-content hygiene
 
@@ -87,7 +102,7 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 ## Explanation lane
 
-- Released explanation checkpoint: **2,688 enhanced / 23 deferred / 2,711 total** at product `9d318f79d73d6f22a3c6f508e10f1fb243aea349`. Engineering `36870646707` and full Android/PWA/browser/APK/phone-tablet-emulator run `36870646652` passed. Preview `https://ac2f50ca.nk-qbank.pages.dev`; production was not promoted.
+- Released explanation checkpoint: **2,688 enhanced / 23 deferred / 2,711 total** at product `9d318f79d73d6f22a3c6f508e10f1fb243aea349`. Engineering `36870646707` and full Android/PWA/browser/APK/phone-tablet-emulator run `36870646652` passed. Preview `https://ac2f50ca.nk-qbank.pages.dev`; now included in the approved combined production release above.
 - The parallel Luna continuation completed all 1,935 actionable explanations (914 Anatomy, 263 Biochemistry, 758 Physiology) in 178 bounded batches. Queue/wave manifests and separate worker audits preserve all 753 prior augmentations, immutable source banks and existing answer gates; zero actionable IDs remain.
 - Initial combined run `36841656565` at `08ded423` failed before deployment because scientific H+ formatting broke emphasis matching. The released fix formats text and anchors identically. New actual-renderer regression covers the exact failing item, HTML escaping and all 2,546 authored display-text configurations early in both workflows; all 56 local checks pass.
 - Full explanation browser verification passed 3,870 exact runtime-config checks and 562 rendered cases on phone/tablet. The live preview's entire 2,688-entry explanation map exactly matches approved content and includes the renderer fix. Live HTML SHA-256: `bdc7702f8b9b6dc68b3ae1fbd6d7cd963baf6f2b274360c2b9eb158a3751c4f2`.
@@ -96,54 +111,38 @@ Any change touching Home, Practice, session persistence, sync, question navigati
 
 ## Image lane
 
-- PrepLadder source-visual engineering is now exact-head build verified at product code `2340bd201fabcc05e6d45932c7f8e5fa451e14f0`: Engineering `35053564204` and full Android/PWA/browser/APK/package run `35053564213` both succeeded.
-- Stable source-visual ownership resolves by active stable question ID across both `.nk-v113-question` and shared `.nk-v114-session` wrappers, with text fallback retained. This specifically fixes matching/table presentations such as Anatomy `anatomy-9-1`, whose visible stem is semantically rewritten before visual mounting.
-- Browser coverage is green for graph, table, diagnostic/clinical image, diagram and multi-panel representatives on phone (`390×844`) and tablet (`820×1180`). The verifier requires stable owner identity, loaded source pixels, preserved aspect ratio/readable size, a real visible fullscreen backdrop/panel covering ≥95% of the viewport, functional zoom, and ≥2 mounted images for the multi-panel representative.
-- APK build, packaged product contract, reproducibility manifest, packaged Marrow image-byte checks, artifact upload and Cloudflare preview deployment all passed in run `35053564213`. Production promotion was intentionally skipped.
-- Technical source-visual audit remains **422 total / 422 PENDING_MANUAL_REVIEW**. Technical/browser validation is green, but source-visual release certification is **not complete** until those bounded comparison items receive manual review/acceptance.
-- Dedicated handoff: `.project-memory/PREPLADDER_VISUAL_VERIFICATION_2026-09-16.md`.
-- Marrow image batch `manual-biochem-ch25-28-20260928` is complete under `docs/MARROW_MANUAL_IMAGE_INTEGRATION.md`; the former separate Physiology Ch3–7 claim was transferred to the primary writer on 2026-09-30 and reconciled in the final pass below. All five former image holds (Ch25 Q26, Ch26 Q18, Ch27 Q2/Q3, Ch28 Q27) are SOURCE_LIMITED and released with exact source pixels retained and tap-to-expand availability documented. Q27 Q5 is an evidence-backed invalid metadata adjudication. The full 22-reference range is accounted for (21 released, 1 invalid; 0 untracked or review-required in the batch). Biochemistry coverage at that historical checkpoint was 110 raw / 108 effective / 92 released / 2 invalid / 16 unresolved / 31 cues; current counts are below. Registry, progress, coverage, and product package checks pass. Candidate commit `ef969540171b3cb19d724a28f3adbf0fba42f5f7` passed Engineering `36425459384` and full browser/PWA/APK/package/emulator run `36425386902`; the same SHA was fast-forward integrated to canonical and passed Engineering `36427679654` plus full run `36427679667`. Preview `https://27f74250.nk-qbank.pages.dev` and feature alias returned HTTP 200. Production promotion was skipped.
-- Batch 02 on historical branch `manual/marrow-physiology-fastlane-20260912-b02` is unverified evidence only: 40 refs audited, 14 metadata-invalid, 12 new assets, 14 specialist deferrals; targeted run `34704088880` failed canonical wiring and was never reconciled.
+- Source-visual owner resolution, fullscreen/zoom, multi-panel and phone/tablet
+  browser/package checks are build-verified at `2340bd2` / full `35053564213`.
+- PrepLadder technical validation does not replace its 422-item manual source
+  comparison audit: `.project-memory/PREPLADDER_VISUAL_VERIFICATION_2026-09-16.md`.
+- Marrow image work is complete at the final checkpoint/counts in Current
+  priorities below. Two archival source gaps remain. Historical batches and
+  invalid metadata adjudications are in SESSION_LOG and the image handoffs.
 
 ## BC3 and BC4 canonical interaction hardening
 
 - BC3 and BC4 were reconciled into canonical through `43328c1`. Canonical Engineering `35818707731` and full Android/PWA `35818707723` passed, including packaged Android 35 emulator phone/tablet and generated browser checks. Full history: `docs/BC4_QUESTION_INTERACTION_DEFECT_LEDGER_2026-09-22.md` and `SESSION_LOG.md`. Physical Android verification remains pending.
-
-## Study UI audit and first defect batch — 2026-09-23
-
-- Baseline screenshots at 320px/390px phone, larger text, and 820px tablet found CBT grid numbering/crowding, clipped question context, squeezed Analysis header, and a 320px Home action under bottom navigation. Shared fixes are in `docs/STUDY_UI_AUDIT_2026-09-23.md`. The user accepted the preview and authorized canonical promotion. Integrated product checkpoint `b6dd246` passed Engineering `35967933879` and full browser/PWA/APK/Android `35967933880`, including two saved chapters → submit one → Home Continue and Review Solutions → Home Continue. Physical in-place APK/data-preservation checks remain pending.
-
 ## Anti-fragmentation rules
-
 - Explanation and image work build from `feature/marrow-canonical-full-current` and the complete 2,711-question corpus.
 - Re-read canonical `STATE.md`, live commit, inventory/registry fingerprints and current ownership before editing.
 - A stale PR/branch is historical evidence, not a lock or merge target; transplant only stable-ID/content-scoped work after ownership and duplicate checks.
 - Reconcile verified work into canonical before starting another conflicting batch in the same lane.
 - Accepted product/UI fixes are protected canonical behavior for subsequent content/image/explanation work.
 - Automation start and reconciliation instructions: `.project-memory/IMAGE_AUTOMATION_READY_2026-09-20.md`. The historical percentage-correct pilot branch is not integrated and must not be used as an image base.
-
 ## Known problems / cautions
-
 - PrepLadder source-visual technical/browser gates are green, but **422 audit entries still require manual source-comparison review**; do not label that lane release-certified yet.
 - New axonal-transport and source-backed residual structured presentations are build-verified but still need user physical preview review before acceptance.
 - Future flattened table/list questions may exist outside literal `match` wording; treat them as structured-presentation defects, not ordinary prose cleanup.
 - Earlier OCR counts (seven question records and 56 explanation records) predate the final completeness pass below. Question-essential uncertainty was included in the focused review; remaining explanation-wide cleanup is separate and must use pinned source evidence.
 - Four PrepLadder source records remain intentionally non-answerable rather than recording corrupt attempts: `anatomy-22-4`, `physiology-23-38`, `physiology-24-6`, `physiology-33-33`.
-- Production promotion remains prohibited unless explicitly requested.
-
+- The user explicitly authorized the audited UWorld/app release; production is live after full verification. Future unrelated promotions still require authorization.
 ## Current priorities / Next step
-
 1. Completed final completeness pass source-reviewed 254 unique questions (226 initial + 28 supplemental): 89 repairs (74 contextual/15 exact; 81 text/table/notation/key and eight native images), 132 already complete, 33 underdetermined source omissions gated, including ANAT62Q6. Compiled display ledger: 114 entries; source tests pass across four variants. CI queue requires all new structural/glyph/question-visual candidates reviewed (195 current residual candidates; zero unreviewed). See `docs/QUESTION_COMPLETENESS_FINAL_PASS.md` and the pinned `data/question_completeness_reviews_v1.json` ledger. Raw imports remain immutable.
 2. Regenerated final image coverage: 1,502 references / 1,421 released / 79 invalid / two archival holds / zero unresolved cues; runtime 1,486 bindings / 1,306 assets / 1,128 owners. All 52 final local checks pass. Product checkpoint `de9c415cef4915d5b20a42abc9f2299a8595b173` is fully build-verified: Engineering `36732893469` and full browser/PWA/APK/package/Android-emulator run `36732893814` passed. Preview: `https://74f04894.nk-qbank.pages.dev`. All 114 contracts passed 228 runtime checks; eight recovered image URLs match exact native hashes in the live preview. Earlier image/browser assertion failures are resolved.
-3. User approved the explanation preview and Revision/liquid streak/FSRS features from runs1375 and1378 for main/production. Combined candidate preserves latest main study features and all2688 enhancements; verify one full build then deploy its exact artifact to nk-qbank.pages.dev. The23 source gates and two archival image gaps remain documented.
-
+3. Audited production315cfcc is live with the certified interaction/UWorld feature chain; the reproductive/Continue preview and exact-artifact Android recovery are verified; production promotion remains unauthorized. Preserve23 source gates, two archival image gaps and the PrepLadder source-comparison backlog. Next work: a bounded source-backed collection batch, retaining the current native presenters and shared study engines.
 ## Memory pointers
-
-- Memory schema: `.project-memory/README.md`.
 - PrepLadder visual verification handoff: `.project-memory/PREPLADDER_VISUAL_VERIFICATION_2026-09-16.md`.
 - Matching/structured presentation handoff: `.project-memory/MATCHING_TABLE_ARCHITECTURE_HANDOFF_2026-09-14.md`.
-- Chronological work/CI history: `.project-memory/SESSION_LOG.md`.
-- Accepted Practice handoff: `.project-memory/CONTINUE_PRACTICE_HANDOFF.md`.
 - Practice postmortem: `.project-memory/PRACTICE_FLOW_POSTMORTEM_2026-09-12.md`.
 - Canonical source consolidation: `.project-memory/FULL_CORPUS_CONSOLIDATION.md`.
 - Automation policy: `docs/MARROW_CANONICAL_AUTOMATION_POLICY.md`.

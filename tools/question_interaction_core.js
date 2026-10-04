@@ -3,8 +3,20 @@
   // feedback is published until the complete action has been saved.
   let nkInteractionTransaction=null;
   function nkAfterQuestionCommit(effect){if(nkInteractionTransaction)nkInteractionTransaction.effects.push([effect,[]]);else effect();}
-  const nkInteractionSave=saveState,nkInteractionRender=render,nkInteractionNavigate=navigate;
-  const nkInteractionToast=showToast,nkInteractionHaptic=haptic;
+  const nkInteractionSave=saveState,nkInteractionNavigate=navigate;
+  let nkInteractionRender=render;
+  const nkInteractionToast=showToast;
+  const nkFeedbackPatterns={choice:6,mark:9,primary:12,success:[12,24,16],error:[18,30,8],complete:[14,35,22]};
+  let nkFeedbackAt=0;
+  function nkPlayFeedback(kind){
+    if(!Object.prototype.hasOwnProperty.call(nkFeedbackPatterns,kind))return;
+    // Feedback accompanies meaningful committed changes, never general taps.
+    const now=Date.now();if(now-nkFeedbackAt<60)return;nkFeedbackAt=now;
+    try{
+      if(location.hostname==='qbank.local'&&window.QBankHaptics?.play){window.QBankHaptics.play(kind);return;}
+      if(typeof navigator!=='undefined'&&typeof navigator.vibrate==='function')navigator.vibrate(nkFeedbackPatterns[kind]);
+    }catch(_){}
+  }
   let nkAppNavigationTarget=null;
   function nkMarkAppNavigation(args){
     const target='#'+args[0]+(args[1]?'/'+encodeURIComponent(args[1]):'');
@@ -29,8 +41,45 @@
     return result;
   };
   showToast=function(){if(nkInteractionTransaction){nkInteractionTransaction.effects.push([nkInteractionToast,[...arguments]]);return;}return nkInteractionToast.apply(this,arguments);};
-  haptic=function(){if(nkInteractionTransaction){nkInteractionTransaction.effects.push([nkInteractionHaptic,[...arguments]]);return;}return nkInteractionHaptic.apply(this,arguments);};
-  function nkQuestionTransaction(action){
+  haptic=function(pattern){
+    // Practice selection immediately submits: use its outcome pulse only.
+    const kind=Array.isArray(pattern)?(pattern[0]>=16?'success':'error'):(state.activeSession?.mode==='exam'?'choice':'');
+    if(!kind)return;
+    if(nkInteractionTransaction){nkInteractionTransaction.effects.push([nkPlayFeedback,[kind]]);return;}
+    nkPlayFeedback(kind);
+  };
+  function nkPatchExamChoice(){
+    const s=state.activeSession,id=s?.questionIds?.[s.index],q=nkCurrentQuestion();
+    if(route.page!=='exam'||s?.mode!=='exam'||!q)return false;
+    const buttons=document.querySelector('.nk-v114-session.is-exam')?.querySelectorAll('.option-list button.option');
+    if(!buttons||buttons.length!==q.options.length)return false;
+    buttons.forEach((button,index)=>{
+      const selected=Number(s.answers?.[id])===String(q.options[index].letter).toUpperCase().charCodeAt(0)-64;
+      button.classList.toggle('selected',selected);button.setAttribute?.('aria-pressed',String(selected));
+    });
+    return true;
+  }
+  function nkPatchBookmark(){
+    const q=nkCurrentQuestion();if(!q||!['practice','exam','review-test'].includes(route.page))return false;
+    const buttons=document.querySelectorAll('.bookmark-toggle');if(!buttons.length)return false;
+    const marked=Boolean(state.bookmarks[q.id]);
+    buttons.forEach(button=>{button.classList.toggle('bookmarked',marked);button.setAttribute('aria-pressed',String(marked));button.setAttribute('aria-label',marked?'Remove bookmark':'Bookmark question');});
+    nkPlayFeedback('mark');return true;
+  }
+  function nkPatchRecall(){
+    const q=nkCurrentQuestion(),dock=document.querySelector('.nk-fsrs-rating');
+    if(route.page!=='practice'||!q||!dock)return false;
+    const markup=nkFsrsRatingMarkup(q.id);if(!markup)return false;
+    // Keep the rating group and focused button mounted during edits.
+    const template=document.createElement('template');template.innerHTML=markup;
+    const next=template.content.firstElementChild;
+    dock.querySelector('.nk-fsrs-recall-label').innerHTML=next.querySelector('.nk-fsrs-recall-label').innerHTML;
+    const buttons=dock.querySelectorAll('button'),updated=next.querySelectorAll('button');
+    if(buttons.length!==updated.length)return false;
+    buttons.forEach((button,i)=>{button.className=updated[i].className;button.setAttribute('aria-pressed',updated[i].getAttribute('aria-pressed'));button.title=updated[i].title;});
+    nkPlayFeedback('choice');return true;
+  }
+  function nkQuestionTransaction(action,paintAfterCommit){
     if(nkInteractionTransaction)return action();
     const before=nkStateClone(state),tx={dirty:false,render:false,navigation:null,effects:[]};nkInteractionTransaction=tx;
     let result;
@@ -48,37 +97,38 @@
       nkFsrsOriginalNavigate.apply(null,tx.navigation);
       if(route.page===tx.navigation[0]&&location.hash===nkAppNavigationTarget)nkAppNavigationTarget=null;
     }
-    if(tx.render)nkInteractionRender();
+    if(tx.render&&!(paintAfterCommit&&paintAfterCommit()))nkInteractionRender();
+    if(tx.navigation?.[0]==='result')nkPlayFeedback('complete');
     tx.effects.forEach(([fn,args])=>fn.apply(null,args));
     return result;
   }
-  function nkQuestionAction(handler,guard=()=>true){return function(){const args=[...arguments];if(!guard(...args))return false;return nkQuestionTransaction(()=>handler.apply(this,args));};}
+  function nkQuestionAction(handler,guard=()=>true,paintAfterCommit=null){return function(){const args=[...arguments];if(!guard(...args))return false;return nkQuestionTransaction(()=>handler.apply(this,args),paintAfterCommit);};}
   function nkCurrentQuestion(){const s=state.activeSession;return s?nkPracticeResumeQuestion(s.questionIds?.[s.index]):null;}
   function nkValidQuestionOption(q,n){return Boolean(q)&&nkQuestionPresentationFor(q).valid&&Number.isInteger(Number(n))&&(q.options||[]).some(o=>String(o.letter).toUpperCase().charCodeAt(0)-64===Number(n));}
   const nkIntegritySelectPractice=selectPractice;
   selectPractice=nkQuestionAction(nkIntegritySelectPractice,(id,n,owner)=>{
     const s=state.activeSession,q=nkCurrentQuestion();
     return s?.mode==='practice'&&(owner==null||String(s.id)===String(owner))&&String(q?.id)===String(id)&&!s.submitted?.[id]&&nkValidQuestionOption(q,n);
-  });
+  },()=>typeof nkPatchPracticeOutcome==='function'&&nkPatchPracticeOutcome());
   selectExam=nkQuestionAction(selectExam,(n,id,owner)=>{
     const s=state.activeSession,q=nkCurrentQuestion();
     return s?.mode==='exam'&&(id==null||String(q?.id)===String(id))&&(owner==null||String(s.id)===String(owner))&&!s.strictExpired?.[q?.id]&&(s.timerMode!=='per-question'||typeof nkStrictSpent!=='function'||nkStrictSpent(s,String(q?.id))<60000)&&nkValidQuestionOption(q,n);
-  });
-  submitPractice=nkQuestionAction(submitPractice,()=>{const s=state.activeSession,q=nkCurrentQuestion();return s?.mode==='practice'&&q&&!s.submitted?.[q.id]&&nkValidQuestionOption(q,s.answers?.[q.id]);});
+  },nkPatchExamChoice);
+  submitPractice=nkQuestionAction(submitPractice,()=>{const s=state.activeSession,q=nkCurrentQuestion();return s?.mode==='practice'&&q&&!s.submitted?.[q.id]&&nkValidQuestionOption(q,s.answers?.[q.id]);},()=>typeof nkPatchPracticeOutcome==='function'&&nkPatchPracticeOutcome());
   // A submitted question is immutable. Starting another session is the existing
   // way to practise again; Review cannot clear answers through a legacy callback.
   retryCurrent=nkQuestionAction(retryCurrent,()=>{const s=state.activeSession,id=s?.questionIds?.[s.index];return s?.mode==='practice'&&!s.submitted?.[id];});
   nextQ=nkQuestionAction(nextQ);
   prevQ=nkQuestionAction(prevQ);
   goIndex=nkQuestionAction(goIndex,i=>Number.isInteger(Number(i))&&Number(i)>=0&&Number(i)<(state.activeSession?.questionIds?.length||0));
-  toggleBookmark=nkQuestionAction(toggleBookmark,id=>Boolean(nkPracticeResumeQuestion(id)));
+  toggleBookmark=nkQuestionAction(toggleBookmark,id=>Boolean(nkPracticeResumeQuestion(id)),nkPatchBookmark);
   nkFsrsCommitPending=nkQuestionAction(nkFsrsCommitPending);
   nkFsrsRecoverPending=nkQuestionAction(nkFsrsRecoverPending);
-  nkRateCurrent=nkQuestionAction(nkRateCurrent,r=>[2,3,4].includes(Number(r)));
+  nkRateCurrent=nkQuestionAction(nkRateCurrent,r=>[2,3,4].includes(Number(r)),nkPatchRecall);
   nkFsrsUndo=nkQuestionAction(nkFsrsUndo);
   // Pause must save its pending recall rating and checkpoint together.
   const nkIntegrityPause=nkPausePractice;
-  nkPausePractice=nkQuestionAction(function(){nkFsrsRecoverPending();return nkIntegrityPause.apply(this,arguments);});
+  nkPausePractice=nkQuestionAction(function(){nkFsrsRecoverPending();const out=nkIntegrityPause.apply(this,arguments);if(out!==false)nkAfterQuestionCommit(()=>nkPlayFeedback('primary'));return out;});
   submitExam=nkQuestionAction(submitExam);
   const nkIntegrityFinishPractice=finishPracticeSession;
   finishPracticeSession=nkQuestionAction(function(){

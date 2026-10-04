@@ -35,7 +35,7 @@
     const previous=nkPracticeFindCheckpoint(session.id);
     if(typeof nkCheckpointFromSession==='function')return nkCheckpointFromSession(session,previous,lifecycle);
     const ids=nkPracticeSessionIds(session),index=Math.max(0,Math.min(ids.length-1,Number(session.index)||0)),now=Date.now();
-    return {version:1,sessionId:String(session.id),sessionQuestionIds:ids,context:{...(session.practiceContext||{}),subject:String(session.practiceContext?.subject||''),bank:String(session.practiceContext?.bank||''),topicId:String(session.practiceContext?.topicId||''),title:String(session.practiceContext?.title||session.title||'Practice')},position:{index,currentQuestionId:String(session.questionIds?.[index]||ids[index]||'')},answers:{...(session.answers||{})},submitted:{...(session.submitted||{})},questionTimes:{...(session.questionTimes||{})},pendingFsrsRatings:{...(session.pendingRating||{})},questionUpdates:{...(previous?.questionUpdates||{})},startedAt:Number(session.startedAt||now),lastTick:Number(session.lastTick||now),elapsedMs:Number(session.elapsedMs||0),lifecycle,updatedAt:now,createdAt:Number(previous?.createdAt||session.startedAt||now)};
+    return {version:1,sessionId:String(session.id),sessionQuestionIds:ids,context:{...(session.practiceContext||{}),...(session.originRoute&&session.originRoute!=='topics'?{originRoute:String(session.originRoute)}:{}),subject:String(session.practiceContext?.subject||''),bank:String(session.practiceContext?.bank||''),topicId:String(session.practiceContext?.topicId||''),title:String(session.practiceContext?.title||session.title||'Practice')},position:{index,currentQuestionId:String(session.questionIds?.[index]||ids[index]||'')},answers:{...(session.answers||{})},submitted:{...(session.submitted||{})},questionTimes:{...(session.questionTimes||{})},pendingFsrsRatings:{...(session.pendingRating||{})},questionUpdates:{...(previous?.questionUpdates||{})},startedAt:Number(session.startedAt||now),lastTick:Number(session.lastTick||now),elapsedMs:Number(session.elapsedMs||0),lifecycle,updatedAt:now,createdAt:Number(previous?.createdAt||session.startedAt||now)};
   }
   function nkPracticeCheckpoint(sessionId){
     if(sessionId)return nkPracticeFindCheckpoint(sessionId);
@@ -49,11 +49,12 @@
       if(typeof nkStorageError==='function')nkStorageError(`Practice ${checkpoint.sessionId} cannot resume because ${missing.length||ids.length} saved question ID${(missing.length||ids.length)===1?' is':'s are'} unavailable`);
       return null;
     }
+    const savedOrigin=String(checkpoint.context?.originRoute||''),originRoute=['notes','question-search','dashboard','study-library'].includes(savedOrigin)?savedOrigin:'topics';
     const position=checkpoint.position||{},mapped=ids.indexOf(String(position.currentQuestionId||'')),index=mapped>=0?mapped:Math.max(0,Math.min(ids.length-1,Number(position.index)||0));
     return {id:String(checkpoint.sessionId),mode:'practice',title:String(checkpoint.context?.title||'Practice'),questionIds:[...ids],sessionQuestionIds:[...ids],index,
       answers:{...(checkpoint.answers||{})},submitted:{...(checkpoint.submitted||{})},startedAt:Number(checkpoint.startedAt||Date.now()),lastTick:Number(checkpoint.lastTick||Date.now()),
       elapsedMs:Number(checkpoint.elapsedMs||0),questionEnteredAt:Date.now(),questionTimes:{...(checkpoint.questionTimes||{})},pendingRating:{...(checkpoint.pendingFsrsRatings||{})},
-      context:'normal',originRoute:'topics',practiceContext:{...(checkpoint.context||{}),questionIds:[...ids]},lifecycle:String(checkpoint.lifecycle)==='active'?'paused':String(checkpoint.lifecycle)};
+      context:'normal',originRoute,practiceContext:{...(checkpoint.context||{}),questionIds:[...ids]},lifecycle:String(checkpoint.lifecycle)==='active'?'paused':String(checkpoint.lifecycle)};
   }
   function nkPracticeIdentity(s){
     const ids=nkPracticeSessionIds(s),questions=ids.map(nkPracticeResumeQuestion).filter(Boolean);
@@ -96,6 +97,35 @@
     if(!context?.topicId)return null;const current=nkPracticeTopicContext(context.subject,context.bank,context.topicId);if(!current)return null;
     const topic=current.record.topics?.[current.index+1];if(!topic)return null;
     return nkPracticeTopicContext(current.subject,current.bank,topic.id);
+  }
+  function nkTopicPracticeContinuation(subject,bank){
+    const record=nkPracticeRecord(subject,bank);if(!record||String(record.bank||'')!==String(bank))return null;
+    const matches=q=>q&&String(q.subject||'')===String(subject)&&String(q.bank||'')===String(bank);
+    const describe=(sessionId,ids,position,submitted)=>{
+      const index=Math.max(0,Math.min(ids.length-1,Number(position)||0)),q=nkPracticeResumeQuestion(ids[index]);
+      const topic=(record.topics||[]).find(t=>String(t.id)===String(q?.chapterId));
+      if(!topic)return null;
+      return {topicId:String(topic.id),sessionId:String(sessionId),index,total:ids.length,
+        answered:ids.filter(id=>Boolean(submitted?.[id])).length};
+    };
+    const live=state.activeSession,ids=nkPracticeSessionIds(live);
+    if(nkPracticeResumeEligible(live)&&ids.length&&ids.every(id=>matches(nkPracticeResumeQuestion(id)))){
+      const current=String(live.questionIds?.[Number(live.index)||0]||''),mapped=ids.indexOf(current);
+      return describe(live.id,ids,mapped>=0?mapped:live.pausedIndex,live.submitted);
+    }
+    for(const cp of nkPracticeCheckpoints(false)){
+      const saved=(cp.sessionQuestionIds||[]).map(String);
+      if(!saved.length||!saved.every(id=>matches(nkPracticeResumeQuestion(id))))continue;
+      const mapped=saved.indexOf(String(cp.position?.currentQuestionId||''));
+      const result=describe(cp.sessionId,saved,mapped>=0?mapped:cp.position?.index,cp.submitted);
+      if(result)return result;
+    }
+    const topics=record.topics||[],remaining=t=>{
+      const qs=(record.questions||[]).filter(q=>String(q.chapterId)===String(t.id)&&(typeof nkUworldEligible!=='function'||nkUworldEligible(q)));
+      return {total:qs.length,done:qs.filter(q=>qAttempts(q.id).length).length};
+    };
+    const topic=topics.find(t=>{const s=remaining(t);return s.done>0&&s.done<s.total;})||topics.find(t=>{const s=remaining(t);return s.done<s.total;});
+    return topic?{topicId:String(topic.id),sessionId:null,remaining:remaining(topic).total-remaining(topic).done}:null;
   }
   function nkPracticeLatestCompletedContext(){
     const tests=(state.tests||[]).filter(t=>t?.kind==='practice'&&t.practiceContext?.topicId).sort((a,b)=>Number(b.createdAt||0)-Number(a.createdAt||0));
@@ -293,7 +323,7 @@
   nkLatestPracticeContext=function(){
     const next=nkPracticeContinuation(),context=next.context;
     if(next.kind==='choices')return {topic:`${next.checkpoints.length} saved Practices`,subject:'',live:true,savedCount:next.checkpoints.length};
-    if(['paused','active','suspended'].includes(next.kind)&&next.session){const ids=nkPracticeSessionIds(next.session),liveId=String(next.session.questionIds?.[Number(next.session.index)||0]||''),mapped=ids.indexOf(liveId),idx=mapped>=0?mapped:Math.max(0,Math.min(ids.length-1,Number(next.session.pausedIndex)||0)),q=nkPracticeResumeQuestion(ids[idx]||context?.questionIds?.[0]);return q?{q,topic:context?.title||nkTopicTitleForQuestion(q),subject:context?.subject||q.subject||activeSubject,live:true,paused:next.kind!=='active'}:null;}
+    if(['paused','active','suspended'].includes(next.kind)&&next.session){const ids=nkPracticeSessionIds(next.session),liveId=String(next.session.questionIds?.[Number(next.session.index)||0]||''),mapped=ids.indexOf(liveId),idx=mapped>=0?mapped:Math.max(0,Math.min(ids.length-1,Number(next.session.pausedIndex)||0)),q=nkPracticeResumeQuestion(ids[idx]||context?.questionIds?.[0]);return q?{q,topic:context?.title||nkTopicTitleForQuestion(q),subject:context?.subject||q.subject||activeSubject,live:true,position:idx,total:ids.length,paused:next.kind!=='active'}:null;}
     if((next.kind==='topic-remaining'||next.kind==='next-topic')&&context){const q=nkPracticeResumeQuestion(context.questionIds?.[0]);return q?{q,topic:context.title,subject:context.subject,live:false,nextTopic:next.kind==='next-topic'}:null;}
     return null;
   };

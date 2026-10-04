@@ -1,5 +1,21 @@
   /* NK_BANK_AWARE_CBT_BUILDER_V1_START */
   let nkCbtDraft=null;
+  // Bank records are immutable after boot. Index each record once so rapid
+  // topic toggles do not scan the whole question bank for every painted row.
+  const nkCbtTopicIndex=new WeakMap();
+  function nkCbtQuestionsByTopic(record){
+    if(!record)return new Map();
+    let index=nkCbtTopicIndex.get(record);
+    if(!index){
+      index=new Map();
+      (record.questions||[]).forEach(q=>{
+        const key=String(q.chapterId),list=index.get(key)||[];
+        list.push(q);index.set(key,list);
+      });
+      nkCbtTopicIndex.set(record,index);
+    }
+    return index;
+  }
 
   function nkCbtRecords(){
     return Object.values(BANKS_BY_SUBJECT).flat().filter(record=>record?.subject&&record?.bank&&Array.isArray(record.questions));
@@ -12,11 +28,11 @@
     return nkCbtRecords().filter(record=>selected.has(nkCbtRecordKey(record)));
   }
   function nkCbtTopicCount(record,topic){
-    return (record.questions||[]).filter(q=>String(q.chapterId)===String(topic.id)).length;
+    return (nkCbtQuestionsByTopic(record).get(String(topic.id))||[]).length;
   }
   function nkCbtVerifiedPyqTopics(){
     return nkCbtSelectedRecords().flatMap(record=>nkModuleTopics(record).filter(topic=>{
-      const questions=(record.questions||[]).filter(q=>String(q.chapterId)===String(topic.id));
+      const questions=nkCbtQuestionsByTopic(record).get(String(topic.id))||[];
       return questions.length>0&&questions.every(q=>Array.isArray(q.studyCollections)&&q.studyCollections.includes('pyq'));
     }).map(topic=>({record,topic})));
   }

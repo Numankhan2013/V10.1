@@ -9,6 +9,7 @@ from apply_home_command_center_v1 import BOTTOM_NAV as OLD_BOTTOM_NAV
 ROOT = Path(__file__).resolve().parents[1]
 HTML = ROOT / "app/src/main/assets/index.html"
 CORE = ROOT / "tools/revision_desk_core.js"
+SESSION_CORE = ROOT / "tools/revision_session_core.js"
 MARKER = "NK_REVISION_DESK_V1_START"
 
 # Replace the existing renderer, keeping exactly one primary navigation owner.
@@ -100,6 +101,8 @@ CSS = """<style id="nk-revision-desk-v1">
 .nk-revision-forecast-foot button{min-height:44px;padding:0;border:0;background:none;color:var(--primary);font:inherit;font-size:12px;font-weight:750}
 .nk-fsrs-settings-entry{background:#fff!important;border-color:var(--line)!important;box-shadow:none!important}
 .nk-nav-due{font-size:9px;font-weight:750;background:#f0f2f6;color:#187657;border-radius:5px;padding:1px 4px;margin-left:3px;font-variant-numeric:tabular-nums}
+.nk-revision-paused{margin:0 0 22px}.nk-revision-paused h2{font-size:17px;margin:0 0 10px}.nk-revision-paused-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}.nk-revision-paused-row>span{min-width:0}.nk-revision-paused-row strong,.nk-revision-paused-row small{display:block;overflow-wrap:anywhere}.nk-revision-paused-row strong{font-size:13px}.nk-revision-paused-row small{font-size:12px;line-height:1.5;margin-top:4px;color:var(--nk-secondary,#696579)}.nk-revision-paused-row button{min-height:44px;padding:8px 12px;flex-shrink:0;border-radius:12px;background:var(--nk-action,#493394);color:#fff;font-size:13px;font-weight:650}.nk-revision-session-help{grid-column:1/-1;margin:0;color:var(--nk-secondary,#696579);font-size:13px;line-height:1.5}
+@media(max-width:360px){.nk-revision-paused-row{align-items:stretch;flex-direction:column}.nk-revision-paused-row button{align-self:flex-start}}
 @media(max-width:360px){.nk-home-revision-counts button{padding:12px}.nk-home-revision-counts strong{font-size:23px}.nk-revision-forecast{padding:14px}.nk-revision-forecast-head{align-items:flex-start}.nk-nav-due{font-size:8px;margin-left:2px}}
 </style>"""
 
@@ -129,7 +132,7 @@ def transform(source: str) -> str:
     source = replace_once(source, OLD_MORE_ROWS, NEW_MORE_ROWS, "More revision entry")
     bridge = "  window.QB={nkFilterNotes,nkOpenNotedQuestion,"
     source = replace_once(source, bridge,
-                          CORE.read_text(encoding="utf-8").rstrip() + "\n\n  window.QB={nkFilterNotes,nkOpenNotedQuestion,nkStartRevisionQueue,nkFilterRevisionBrowse,nkOpenRevisionQuestion,nkToggleRevisionFocus,nkSetRevisionScope,nkOpenRevisionHub,",
+                          CORE.read_text(encoding="utf-8").rstrip() + "\n" + SESSION_CORE.read_text(encoding="utf-8").rstrip() + "\n\n  window.QB={nkFinishRevisionSession,nkFilterNotes,nkOpenNotedQuestion,nkStartRevisionQueue,nkFilterRevisionBrowse,nkOpenRevisionQuestion,nkToggleRevisionFocus,nkSetRevisionScope,nkOpenRevisionHub,",
                           "revision core and action")
     return source
 

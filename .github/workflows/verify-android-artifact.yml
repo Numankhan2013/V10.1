@@ -1,0 +1,86 @@
+name: Verify exact Android artifact without rebuilding
+
+on:
+  push:
+    branches: ['verify/android-artifact-*']
+  workflow_dispatch:
+    inputs:
+      source_run:
+        description: Build run containing the exact APK and web artifact
+        required: true
+        default: '37205213240'
+      source_sha:
+        description: Exact product commit recorded in that artifact
+        required: true
+        default: 'e9a1c15537fd2bb0542726c60d15b059f574fcc5'
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  android-interaction:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      SOURCE_RUN: ${{ inputs.source_run || '37205213240' }}
+      SOURCE_SHA: ${{ inputs.source_sha || 'e9a1c15537fd2bb0542726c60d15b059f574fcc5' }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '20'
+      - name: Download the existing artifact without rebuilding
+        uses: actions/download-artifact@v4
+        with:
+          name: V11.7-android-pwa
+          run-id: ${{ env.SOURCE_RUN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: build/android-artifact
+      - name: Verify the exact product, APK and packaged HTML
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, os, urllib.request, zipfile
+          from pathlib import Path
+          url = f"https://api.github.com/repos/{os.environ['GITHUB_REPOSITORY']}/actions/runs/{os.environ['SOURCE_RUN']}"
+          headers = {'Authorization': 'Bearer ' + os.environ['GH_TOKEN'], 'Accept': 'application/vnd.github+json'}
+          run = json.load(urllib.request.urlopen(urllib.request.Request(url, headers=headers)))
+          assert run['head_sha'] == os.environ['SOURCE_SHA'], 'Build run commit mismatch'
+          jobs = json.load(urllib.request.urlopen(urllib.request.Request(url + '/jobs', headers=headers)))
+          assert any(j['name'] == 'build' and j['conclusion'] == 'success' for j in jobs['jobs']), 'Build/package job must pass'
+          root = Path('build/android-artifact')
+          manifest = json.loads((root / 'app/build/outputs/apk/debug/NK-QBank-build-manifest.json').read_text())
+          assert manifest['git_commit'] == os.environ['SOURCE_SHA'], 'Artifact commit mismatch'
+          items = [item for item in manifest['files'] if item['path'].endswith('.apk')]
+          assert len(items) == 1
+          apk = root / items[0]['path']
+          with apk.open('rb') as stream:
+              assert hashlib.file_digest(stream, 'sha256').hexdigest() == items[0]['sha256'], 'APK hash mismatch'
+          index = next(item for item in manifest['files'] if item['path'] == 'app/src/main/assets/index.html')
+          with zipfile.ZipFile(apk) as archive:
+              assert hashlib.sha256(archive.read('assets/index.html')).hexdigest() == index['sha256'], 'Packaged HTML mismatch'
+          print('EXACT_ANDROID_ARTIFACT_OK', manifest['git_commit'], 'apk_bytes=' + str(apk.stat().st_size))
+          PY
+      - name: Install Android interaction driver
+        run: npm install --no-package-lock --prefix "$RUNNER_TEMP/bc4-node" playwright@1.55.1
+      - name: Enable emulator acceleration
+        run: sudo chmod a+rw /dev/kvm
+      - name: Exercise the existing APK on Android phone and tablet
+        uses: reactivecircus/android-emulator-runner@v2
+        env:
+          NODE_PATH: ${{ runner.temp }}/bc4-node/node_modules
+        with:
+          api-level: 35
+          target: google_apis
+          arch: x86_64
+          disable-animations: true
+          script: node tools/verify_android_question_interaction.js
+      - name: Upload Android interaction evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: exact-artifact-android-interaction
+          path: build/android-interaction/
+          retention-days: 3

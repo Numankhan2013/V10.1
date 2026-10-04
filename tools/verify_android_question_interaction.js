@@ -18,13 +18,37 @@ async function main(){
   assert(['com.qbank.marrowpilot','com.qbank.biochemistry'].includes(pkg));
   const [device]=await android.devices();assert(device,'Android emulator unavailable');
   const output='build/android-interaction';fs.mkdirSync(output,{recursive:true});
-  await device.installApk(fs.readFileSync(apk));
+  // adb streams the file instead of serializing a large APK through Playwright.
+  try{
+    const installed=execFileSync(path.join(sdk,'platform-tools','adb'),['-s',device.serial(),'install','-r','-t',apk],{encoding:'utf8',timeout:180000});
+    assert.match(installed,/Success/,'APK installation must succeed');
+    console.log('ANDROID_APK_INSTALL_OK bytes='+fs.statSync(apk).size);
+  }catch(error){await device.close();throw error;}
   async function launch(){
-    await device.shell(`am start -n ${pkg}/com.qbank.biochemistry.MainActivity`);
-    const view=await device.webView({pkg,timeout:60000});
-    const page=await view.page();page.setDefaultTimeout(30000);
-    await page.waitForFunction(()=>location.hostname==='qbank.local'&&window.QB?.getState);
-    return page;
+    let lastError=null;
+    for(let attempt=1;attempt<=2;attempt++){
+      try{
+        await device.shell(`am start -W -n ${pkg}/com.qbank.biochemistry.MainActivity`);
+        const view=await device.webView({pkg,timeout:60000});
+        const page=await view.page();page.setDefaultTimeout(30000);
+        await page.waitForFunction(()=>location.hostname==='qbank.local'&&window.QB?.getState);
+        await page.waitForFunction(()=>typeof window.QBankMigration==='undefined');
+        assert.equal(await page.evaluate(()=>typeof window.QBankHaptics.play),'function','existing native haptics must remain available');
+        const missing=await page.evaluate(async()=>{const response=await fetch('/app/security-audit-missing-asset.txt');return {status:response.status,text:await response.text()};});
+        assert.equal(missing.status,404,'missing private-origin assets must fail locally');
+        assert.equal(missing.text,'App asset unavailable');
+        return page;
+      }catch(error){
+        lastError=error;
+        const visible=device.webViews().filter(v=>v.pkg()===pkg).length;
+        console.log('ANDROID_WEBVIEW_ATTACH_RETRY '+JSON.stringify({attempt,visible,error:String(error?.message||error)}));
+        if(attempt===2)break;
+        await device.shell(`am force-stop ${pkg}`);
+        for(let i=0;i<60&&device.webViews().some(v=>v.pkg()===pkg);i++)await new Promise(resolve=>setTimeout(resolve,250));
+        await new Promise(resolve=>setTimeout(resolve,1000));
+      }
+    }
+    throw lastError;
   }
   // Android WebView updates a hash route in the current document. Playwright's
   // waitForURL defaults to a load event, which is not emitted for that change.
@@ -268,10 +292,18 @@ async function main(){
       await sourcePdf.scrollIntoViewIfNeeded();
       await page.waitForFunction(()=>document.querySelector('.source-pdf-page img')?.naturalWidth>0);
       assert.equal(await sourcePdf.evaluate(node=>getComputedStyle(node).filter),'contrast(1.16) saturate(1.12)');
-      await sourcePdf.screenshot({path:`${output}/${label}-source-pdf-contrast.png`});
+      // Capture the visible Android surface like the other evidence above.
+      // A full PDF-image locator capture can resize/scroll the WebView beyond
+      // its viewport and disconnect Chromium on the tablet emulator.
+      await sourcePdf.evaluate(node=>node.scrollIntoView({block:'center',behavior:'instant'}));
+      await page.waitForFunction(()=>{
+        const bounds=document.querySelector('.source-pdf-page img')?.getBoundingClientRect();
+        return bounds&&bounds.top<innerHeight&&bounds.bottom>0&&bounds.width>0;
+      });
+      await device.screenshot({path:`${output}/${label}-source-pdf-contrast.png`});
       const initialPyqTest=await page.evaluate(()=>window.QB.getState().tests.at(-1));
       await page.evaluate(id=>window.QB.nav('result',id),initialPyqTest.id);
-      await page.getByRole('button',{name:'Retake timed CBT'}).click();
+      await page.getByRole('button',{name:'Retry Test'}).click();
       await page.waitForFunction(()=>window.QB.getState().activeSession?.mode==='exam');
       assert.deepEqual(await page.evaluate(()=>window.QB.getState().activeSession.questionIds),initialPyqTest.questionIds);
       assert.deepEqual(await page.evaluate(()=>window.QB.getState().activeSession.answers),{});

@@ -32,7 +32,60 @@ closed. Raw question bundles and audit metadata remain unchanged.
 - Long-term direction is incremental isolation (persistence, rendering, review,
   analytics, tokens), never a big-bang rewrite.
 
+## Imported UWorld owners and scoped continuation — 2026-10-04
+
+- `uworld_imported_collection.py` supplies source-pinned reusable ownership for
+  the two reproductive JSONL collections. Explicit registry owners pin original
+  imports, normalized rows/full page OCR and complete reviewed overlays. A
+  hash-pinned optional repair ledger records source-proven normalization fixes
+  without mutating original imports. Existing typed presenters/media generators
+  and shared study engines install them; arbitrary prepared folders are inert.
+- `nkTopicPracticeContinuation(subject,bank)` resolves ordinary Practice live
+  sessions/checkpoints only within the exact bank, returns saved question index,
+  total and answered count, and delegates to the existing durable resume path.
+  Home focus derives progress from that same saved context. Special modes,
+  multi-session choice and conflict protection remain with their original owners.
+
 ## Runtime data and assets
+
+- `uworld_collections.py` explicitly registers Biochemistry, Poisoning &
+  Environmental Exposure, Ophthalmology, Male Reproductive System and Female
+  Reproductive System & Breast, each with its own `UWorld · collection` namespace
+  in the shared bank registry and lookup, without adding a traditional subject.
+  Home/Library → My UWorld → collection → source blocks uses existing routes
+  and study engines. Read-only aliases resolve legacy Biochemistry/UWorld bank
+  and module scope keys without rewriting persisted records.
+- `uworld_reviewed_document.py` validates per-row/PDF hashes, complete source
+  page review, unchanged option labels/key, ordered paragraph/table/figure nodes,
+  explicit image roles and source percentages. Collection parameters preserve
+  each PDF's hash/display geometry and asset identity. Reviewed JSON batches are
+  display overlays; immutable JSONLs and `uworldSource` remain untouched.
+  `build_uworld_reviewed_figures.py` runs in CI after fetching the pinned LFS PDF,
+  renders lossless focused crops and writes a byte inventory. Recursive PWA
+  asset copying/precache and `verify_uworld_media_package.py` protect web/offline
+  and APK bytes, with a combined source/asset inventory. Source PDFs are not bundled
+  in the UWorld UI. Poisoning's linked pair keeps full context in each item and
+  original metadata; shared free navigation and feedback remain. A–I choices
+  cover the genuine nine-option source item. No other collection is auto-imported.
+  Ophthalmology supplies a PDF-extracted immutable JSONL with per-page OCR audit
+  text and complete ownership, then uses the same reviewed-document/media pipeline.
+  Full searchable stems remain intact while display documents can interleave
+  source exhibits and the final prompt without duplication.
+  Collection blocks bypass the legacy subject taxonomy and use source block names.
+  Search keeps references readable without starting scored sessions; it filters
+  source-blocked UWorld items before batch sampling. Bank choices follow the
+  selected search area, preserving a compatible choice and native control focus.
+- UWorld wraps the shared question presenter, option renderer and explanation
+  surface. Source-reviewed question/option images are essential media; load
+  failures disable unsupported answer commits and expose Retry. Paragraphs,
+  native tables, labelled choice discussions and educational objective preserve
+  source order. Option percentages are inserted in the shared option renderer
+  using its locked Practice/Review state, so in-place outcome feedback reveals
+  them immediately while CBT stays concealed. Images reuse the shared zoom viewer.
+- `nkFsrsPracticeMistake` replays active attempts independently of the existing
+  FSRS mistake classification. Ordinary failures open a Practice mistake;
+  correct answers from any flow resolve it; FSRS-only failures do not open it.
+  Undo filtering, scheduler replay and persisted attempts are unchanged.
 
 - Final source-completeness recovery is pinned in
   `data/question_completeness_reviews_v1.json`. Its compiler validates source
@@ -108,11 +161,17 @@ closed. Raw question bundles and audit metadata remain unchanged.
   `tools/insights_focus_core.js` groups all-bank questions by exact subject,
   bank, and source topic; it reads active attempts and launches the shared
   Practice engine without persisting a second analytics model.
-  `tools/qbank_coverage_core.js` derives an Insights study map from the same
-  bank registry and active attempts. It presents one bank's source topics at
-  a time, keeps filter/search state in page memory, and opens the existing
-  `nkOpenSubjectChapter` route. No progress schema or copied question set is
-  created.
+  `tools/apply_learning_insights_v1.py` owns the final Insights renderer after
+  coverage/correction transforms. `learning_insights_core.js` derives all metrics
+  from effective answer events, saved results, current modules and FSRS schedules;
+  period/scope UI state is transient. Legacy coverage/focus functions remain
+  historical helpers, but neither section is rendered in Insights.
+  The full-year calendar uses local days and continuous count/peak shade/glow.
+  Completed results replace matched attempt timing; new result records include
+  optional `sessionId` provenance. Existing durable state and generic result sync
+  retain that additive field; no analytics collection or schema migration is added.
+  Calendar/DST/Undo/edits/scopes/timing tests run in both workflows. The generated
+  phone/tablet dashboard verifier replaces the retired coverage/focus UI journeys.
 - Attempt helpers: `qAttempts(id)`, `latestAttempt(id)`, `chapterStats(id)`,
   `chapterQuestions(id)`, `totalAttempted()`, `overallAccuracy()`,
   `pendingReviewCount()`, `dueQuestions()`, `wrongQuestions()`,
@@ -518,3 +577,77 @@ reviewed table reconstructions with provenance, leaving imported metadata intact
 Explicitly recovered `orphanTableIds` may restore omitted table objects only when their IDs already exist in native source blocks and their pages match original explanation provenance; PDF hashes and complete cells remain required. The shared compatibility renderer owns both native and reviewed display tables. It also adapts populated source `headers` lists to the renderer's `columns` contract without changing source records (Physiology Ch42 Q8 is the regression fixture).
 
 Approved production releases may use `.github/workflows/deploy-approved-main.yml`: only a successful full Android/PWA workflow for a main push whose commit message contains `[approved-production]` qualifies. The follow-up downloads that exact run artifact, verifies its commit against current main and its packaged APK hashes, sets Pages production_branch to main, then deploys without rebuilding. Ordinary main pushes remain unpromoted; existing manual exact-SHA dispatch remains available.
+
+The 2026-10-01 production promotion used the dedicated `release/approved-production-20261001` push trigger because the workflow_run follow-up did not appear. Its fallback pins successful build36883871119 and product18e4cd58, with the same exact-current-main/APK safeguards. This release-specific trigger cannot deploy a later unrelated commit; future releases must select their own verified artifact or use the existing exact-SHA manual dispatch. Do not assume the workflow_run trigger has been operationally verified.
+
+The final `apply_app_clarity_v1.py` presentation owner follows learning Insights and wraps navigation renderers only. It removes known redundant copy without changing queue/scheduler/storage APIs; clarity CSS targets navigation headers/cards. Independent scope-card updates use the same formatter. Metric definitions remain in collapsed Insights help.
+
+## Compact result analysis and named mocks
+
+`apply_refined_analysis_v1.py` runs after app clarity. It replaces only result markup and wraps the existing CBT builder/Tests renderers. The shared Practice/CBT/Review engines, immutable original results, FSRS, marked-question follow-up and retake lineage stay authoritative. Test breakdowns aggregate exact subject/bank/topic identities; Practice omits breakdowns. Time histograms read only finite saved question times and expose missing timing.
+
+Optional `state.savedMocks` stores names and ordered fixed question IDs. Durable state normalization preserves it; the existing sync envelope/winner/tombstone system adds a `savedMocks` collection, including reset and account isolation. Starting a mock validates every saved question and uses the protected timed-session entry point; it never silently shortens an unavailable set. A repeated exact set uses the existing initial-test/retake comparison. Modules retain their existing separate naming and restart flow.
+
+## Shared interaction system — 2026-10-02
+
+Final apply_interaction_polish_v1.py follows refined analysis and routes committed
+question paints through the shared renderer. In-place CBT/recall/bookmark/mark
+updates preserve source DOM and rollback. Presses cancel on gestures; short
+motion respects reduced motion. apply_android_haptics_v1.py follows Activity
+regeneration. Ordinary navigation is silent. Ownership and verification:
+docs/INTERACTION_POLISH_2026-10-02.md.
+
+## Analysis and PWA update identity — 2026-10-03
+
+`refined_analysis_core.js` owns fixed outcome segments and labeled counts plus
+saved-timing distributions/running totals. `learning_insights_core.js` keeps
+period-scoped rankings/denominators with a consistent accuracy fill and omits
+its revision prompt card. Result-specific missed/marked/correction APIs remain.
+`pwa_update_core.js` is injected by the existing cross-device owner. Web packaging
+adds `nk-qbank-build` metadata; the service worker replies to `NK_QBANK_VERSION`
+through MessageChannel. Only a verified different waiting worker gets a notice;
+Later is tab/build-scoped and active study defers it. Activation/reload remains
+explicit. Real browser lifecycle checks run in the full packaging workflow.
+
+## UWorld and Revision integration — 2026-10-03
+
+The source-reviewed collection/document/media architecture is described under
+Runtime data and assets above. `uworld_source_text.py` remains the auditable raw
+OCR fallback; reviewed source documents provide the main presentation. Pools
+exclude blocked references before sampling; individual references use the
+existing modal/focus model without changing study state.
+See `docs/UWORLD_BIOCHEMISTRY_PILOT.md` for source limits and scale requirements.
+
+The Revision owner includes `revision_session_core.js`: explicitly tagged full
+eligible Mistakes/Bookmarks/Due snapshots use the existing checkpoint collection
+and restore exact membership/position. Due keeps scheduler priority and daily
+cap. Finish records answered work only. No new persistence schema is introduced.
+
+Web packaging applies crawler exclusion to HTML, robots.txt, static response
+headers and all same-origin source-worker responses. Public repository content
+and direct asset access remain public; this is not authentication.
+
+### Preproduction response and Android boundaries
+
+`tools/web_security_policy.py` supplies one response policy for static Pages
+headers and the source-streaming Worker, including frame denial, MIME protection
+and a restricted cross-origin referrer. Search exclusion, source bytes/ranges,
+validators and offline caching retain their existing owners.
+`apply_android_secure_origin_v1.py` restricts the migration bridge/file access to
+the one-time file-origin migration; completion removes both. Private-origin
+missing/rejected assets return local404; HTTPS API requests retain their normal
+network path. The Android driver checks those boundaries on initial/repeated
+launches while preserving native haptics and existing resume/state checks.
+
+## Exact Android artifact verification — 2026-10-04
+
+The native interaction driver installs an APK by bounded adb file streaming,
+without serializing it through Playwright's Node transport. Installation failure
+closes the device connection. `verify-android-artifact.yml` can reuse an explicitly
+pinned build run/commit, requiring its build job success and manifest/APK/packaged
+HTML hash checks before phone/tablet execution. It neither regenerates nor deploys
+the app; recovery evidence is recorded separately from the original full run.
+
+## Web-first artifact and complete Biostatistics Block 1 — 2026-10-04
+
+`uworld_biostatistics.py` reuses the shared imported collection owner for40 questions/pages1–182, four pinned review batches and stable Block1 IDs. Reviewed native question/explanation figures and typed tables use the incumbent presenter. Original120 records remain archival and immutable; unreviewed later blocks stay excluded. `approved_release_artifact.py` verifies every PWA manifest entry, full directory membership, sizes/hashes and exact commit before the approved-main uploader; earlier combined APK artifacts retain their identity checks.

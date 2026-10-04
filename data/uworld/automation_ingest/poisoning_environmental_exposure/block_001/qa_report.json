@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "record_count": 33,
+  "unique_question_ids": 33,
+  "unique_uworld_question_ids": 33,
+  "page_coverage": "166/166",
+  "option_count_distribution": {
+    "5": 26,
+    "6": 6,
+    "9": 1
+  },
+  "correct_answer_resolved": "33/33",
+  "stems_present": "33/33",
+  "explanations_present": "33/33",
+  "educational_objectives_present": "33/33",
+  "questions_with_explanation_visuals": 30,
+  "explanation_visual_placeholders": 45,
+  "question_visual_questions": [
+    2,
+    14,
+    24,
+    32
+  ],
+  "linked_question_set": [
+    19,
+    20
+  ],
+  "checks": [
+    "Every JSONL line parses independently.",
+    "All canonical question IDs and UWorld Question IDs are unique.",
+    "Every correct_option exists in its option list and correct_answer_text matches it.",
+    "No Telegram URL, UWorld navigation UI, notebook/flashcard/footer text leaked into canonical question or explanation text.",
+    "Every PDF page 1-166 maps to exactly one UWorld Question ID; no page is missing or double-assigned.",
+    "Question 16 contains all 9 answer choices A-I; rendered pages 77-78 were used to recover/check the OCR-damaged tail.",
+    "Questions 19 and 20 were reconstructed by Question ID despite interleaving in PDF page order.",
+    "Question 24 laboratory data were structured and PO2/PCO2 labels were visually verified on rendered page 114.",
+    "Question 32 graph answers remain explicitly visual; A-C percentages are preserved and unavailable D/E percentages are null, not guessed.",
+    "Scientific notation hotspots (eg, δ-aminolevulinate, Km/Vmax) were normalized only where visually/source-confirmed."
+  ],
+  "intentional_followup_for_image_lane": "Visual assets are referenced by exact source pages with asset=null. This is deliberate: the later image-integration pass should crop/extract from the retained source PDF rather than reconstructing figures from OCR.",
+  "validation_errors": []
+}

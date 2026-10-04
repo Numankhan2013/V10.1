@@ -7,6 +7,7 @@ from pathlib import Path
 import threading
 
 from playwright.sync_api import expect, sync_playwright
+from uworld_collections import bank_records
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -32,7 +33,14 @@ def main() -> None:
             page.wait_for_function("window.QB && window.QB.getState")
             page.get_by_role("button", name="Choose subjects and topics").click()
             page.wait_for_url("**/#test-builder")
-            expect(page.locator(".nk-cbt-builder .nk-module-subject")).to_have_count(6)
+            banks = page.locator(".nk-cbt-builder .nk-module-subject")
+            expect(banks).to_have_count(6 + len(bank_records()))
+            for record in bank_records():
+                expect(banks.filter(has=page.get_by_text(record["subject"], exact=True))).to_have_count(1)
+            expect(banks.filter(has_text="Biochemistry").filter(has_text="UWorld")).to_have_count(1)
+            expect(banks.filter(has_text="Poisoning & Environmental Exposure").filter(has_text="UWorld")).to_have_count(1)
+            expect(banks.filter(has_text="Anatomy").filter(has_text="UWorld")).to_have_count(0)
+            expect(banks.filter(has_text="Physiology").filter(has_text="UWorld")).to_have_count(0)
             page.get_by_role("button", name="Clear all").click()
             marrow = page.locator(".nk-cbt-builder .nk-module-subject").filter(has_text="Anatomy").filter(has_text="Marrow")
             marrow.click()

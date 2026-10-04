@@ -311,3 +311,17 @@ Priority 0: reproduce and restore user-reported unreadable PDF explanations. The
 - The 753 checkpoint is certified in preview e954d103. The source-order authoring continuation is finished and released. Any later content pass should target the explicitly deferred source gaps or recorded source caveats, not restart completed batches.
 - User explicitly deferred incomplete-source recovery. Known gated numbered-list items remain pending but must not repeatedly block all later actionable explanation work; preserve their gates and list them separately.
 - Keep parallel workers on disjoint content/audit files, one shared-state writer, and combine reviewed results into fewer full builds. Preserve full unique source detail and actual populated table cells.
+
+- 2026-10-01: Approved explanation/Revision/FSRS/liquid-streak integration completed on main and nk-qbank.pages.dev; full run1380 and artifact-only production deployment passed. Remaining source-held work stays deferred.
+
+## UWorld reference-first rollout — 2026-10-03
+
+- User chooses a complete Biochemistry reference pilot before importing other
+  collections.132 source documents are audited; final candidate certification
+  and real prolonged-study acceptance remain before scaling.
+- Resolve absent1244 stem exhibit and source-clipped objectives/figures with
+  improved originals when available. Preserve explicit missing values.
+- Future collections reuse typed documents, source pins, image roles, direct
+  post-answer option statistics, shared engines and independent crop validation.
+
+- 2026-10-04: Biostatistics complete Block1 (four reviewed10-question batches) is implemented; release after fullCI and hosted verification as explicitly authorized. Next content scope is80 remaining block questions plus complete supplemental19197, each requiring native source review. APK optimization remains deferred until requested.

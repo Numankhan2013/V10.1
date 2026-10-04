@@ -93,7 +93,7 @@ def main():
             expect(page.locator(".nk-result-percentages")).to_contain_text("Accuracy: answered questions")
             assert "—" in page.locator(".nk-result-percentages").inner_text()
             page.screenshot(path=str(output / "phone-390-result-unanswered.png"), full_page=True, animations="disabled")
-            page.get_by_role("button", name="Retake timed CBT").click()
+            page.get_by_role("button", name="Retry Test").click()
             page.wait_for_function("window.QB.getState().activeSession?.mode==='exam'")
             context.close()
             browser.close()

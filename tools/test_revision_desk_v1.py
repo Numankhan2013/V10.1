@@ -112,13 +112,25 @@ context.nkFsrsQueue=filters=>{const due=questions.filter(q=>['phys-due','anat-du
 call("nkSetRevisionScope('subject','')");
 for(let i=0;i<25;i++){const id='wrong-'+i;questions.push({id,subject:i%2?'Anatomy':'Physiology',bank:i%2?'Marrow':'PrepLadder'});state.attempts[id]=[{id:'wrong-attempt-'+i,correct:false,at:i+10}];}
 call("nkStartRevisionQueue('wrong')");
-assert.equal(started.ids.length,20,'Quick revision keeps a mistake session to 20 questions');
-assert.equal(new Set(started.ids).size,20,'a revision sample contains unique question IDs');
+assert.equal(started.ids.length,26,'Revision snapshots the full eligible mistake queue');
+assert.equal(new Set(started.ids).size,26,'a revision snapshot contains unique question IDs');
 assert(started.ids.every(id=>id==='anat-wrong'||id.startsWith('wrong-')),'mistake session contains only mistake questions');
+// Browse queries are scoped to kind and account, and timed tests remain protected.
+context.nkAuth={uid:'account-one'};context.route={page:'revision-browse',id:'bookmarks'};
+context.document.querySelectorAll=()=>[];
+call("nkRevisionBrowsePage('bookmarks')");call("nkFilterRevisionBrowse('Biochemistry')");
+assert(call("nkRevisionBrowsePage('bookmarks')").includes('value="Biochemistry"'));
+assert(call("nkRevisionBrowsePage('wrong')").includes('value=""'));
+context.nkAuth.uid='account-two';assert(call("nkRevisionBrowsePage('bookmarks')").includes('value=""'));
+context.nkFindStudyQuestion=id=>questions.find(q=>q.id===id);context.saveState=()=>true;
+state.activeSession={id:'protected-exam',mode:'exam'};const oldStart=started;
+call("nkOpenRevisionQuestion('bio-bookmark')");assert.equal(started,oldStart);assert.equal(state.activeSession.id,'protected-exam');
 console.log('REVISION_DESK_BEHAVIOR_OK globalPools=true skippedExcluded=true dueUsesFSRS=true');
 '''.replace("SOURCE", repr(CORE.read_text(encoding="utf-8") + '\n' + BOTTOM_NAV), 1)
     subprocess.run(["node", "-e", script], cwd=ROOT, check=True)
     print("REVISION_DESK_INSTALL_OK")
+    from test_revision_session_v1 import main as verify_revision_sessions
+    verify_revision_sessions()
 
 
 if __name__ == "__main__":

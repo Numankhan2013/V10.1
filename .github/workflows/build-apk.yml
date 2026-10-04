@@ -1,8 +1,13 @@
-name: Build V11.7 Android + PWA
+name: Build and verify PWA (optional APK)
 
 on:
   workflow_dispatch:
     inputs:
+      build_apk:
+        description: Also build and verify an Android APK (slower; normally leave off)
+        required: true
+        type: boolean
+        default: false
       promote_production:
         description: Promote this verified main build to the production PWA
         required: true
@@ -27,6 +32,7 @@ jobs:
   android-interaction:
     name: Android WebView interaction regression
     needs: build
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_apk }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -251,16 +257,26 @@ jobs:
         run: python3 tools/apply_android_secure_origin_v1.py
       - name: Confirm Android Back before leaving active question sessions
         run: python3 tools/apply_android_back_guard_v1.py
+      - name: Install native action haptics
+        run: python3 tools/apply_android_haptics_v1.py
+      - name: Verify native action haptics
+        run: python3 tools/test_android_haptics_v1.py
       - name: Apply cross-device sync and responsive PWA layer
         run: python3 tools/apply_cross_device_pwa_v1.py
       - name: Test cross-device merge and PWA contracts
         run: python3 tools/test_cross_device_sync_v1.py
+      - name: Test verified PWA update identity and dismissal
+        run: python3 tools/test_pwa_update_v2.py
       - name: Apply FSRS smart review scheduler
         run: python3 tools/apply_fsrs_v1.py
       - name: Test FSRS scheduler and queue contracts
         run: python3 tools/test_fsrs_v1.py
       - name: Test question interaction durability and identity
-        run: python3 tools/test_question_interaction_integrity.py
+        run: |
+          python3 tools/test_question_interaction_integrity.py
+          python3 tools/test_cbt_cleanup_ownership.py
+      - name: Verify interaction polish owner
+        run: python3 tools/test_interaction_polish_v1.py
       - name: Repair WebView boot-blocking JavaScript after protected transformations
         run: python3 tools/fix_boot_syntax.py
       - name: Install isolated Marrow bank pilot
@@ -341,6 +357,51 @@ jobs:
         run: python3 tools/apply_practice_correction_v1.py
       - name: Test Practice correction pass
         run: python3 tools/test_practice_correction_v1.py
+      - name: Install period-aware learning Insights dashboard
+        run: python3 tools/apply_learning_insights_v1.py
+      - name: Test learning Insights calculations and calendar comparisons
+        run: python3 tools/test_learning_insights_v1.py
+      - name: Compact navigation screens and remove redundant copy
+        run: python3 tools/apply_app_clarity_v1.py
+      - name: Install refined analysis and named reusable mocks
+        run: python3 tools/apply_refined_analysis_v1.py
+      - name: Install shared interaction polish
+        run: python3 tools/apply_interaction_polish_v1.py
+      - name: Refine incumbent visual identity
+        run: python3 tools/apply_visual_refinement_v1.py
+      - name: Enrich shared offline icon geometry
+        run: python3 tools/apply_icon_refinement_v1.py
+      - name: Verify shared icon factories preserve labels and dimensions
+        run: python3 tools/test_icon_refinement_v1.py
+      - name: Verify visual refinement preserves the application
+        run: python3 tools/test_visual_refinement_v1.py
+      - name: Test refined analysis and mock persistence
+        run: python3 tools/test_refined_analysis_v1.py
+      - name: Test crawler exclusion and UWorld source contracts
+        run: |
+          python3 tools/test_crawler_exclusion.py
+          python3 tools/test_uworld_biochemistry_v1.py
+          python3 tools/test_uworld_runtime_v1.py
+          python3 tools/test_uworld_source_text.py
+          python3 tools/test_uworld_reviewed_document.py
+          python3 tools/test_uworld_poisoning.py
+          python3 tools/test_uworld_ophthalmology.py
+          python3 tools/test_uworld_imported_collections.py
+          python3 tools/test_uworld_content_hygiene.py
+          python3 tools/test_web_build_manifest.py
+          python3 tools/test_web_first_workflow.py
+          python3 tools/test_uworld_biostatistics.py
+      - name: Recover source-reviewed UWorld scientific exhibits
+        run: |
+          git lfs pull --include="data/uworld/Source_pdfs/biochemistry/UW 2024 - Biochemistry - 3 blocks - OCR.pdf" --exclude=""
+          git lfs pull --include="data/uworld/Source_pdfs/Poisioning_environmental_exposure/UW_2024_Poisoning_&_Environmental_Exposure_1_block_OCR.pdf" --exclude=""
+          git lfs pull --include="data/uworld/Source_pdfs/opthalmology/UW 2024 - Ophthalmology - block 1 - OCR.pdf" --exclude=""
+          git lfs pull --include="data/uworld/Source_pdfs/Male_reproductive_system/UW 2024 - Male Reproductive System - 2 blocks - OCR.pdf" --exclude=""
+          git lfs pull --include="data/uworld/Source_pdfs/Female_reproductive_system_breast/UW_2024_Female_Reproductive_System_&_Breast_2_blocks_OCR.pdf" --exclude=""
+          git lfs pull --include="data/uworld/Source_pdfs/biostatistics_epidemiology/UW 2024 - Biostatistics & Epidemiology - 3 blocks - OCR.pdf" --exclude=""
+          python3 tools/build_uworld_reviewed_figures.py
+      - name: Install bounded UWorld collections
+        run: python3 tools/apply_uworld_biochemistry_v1.py
       - name: Verify final JavaScript syntax after all transformations
         run: |
           python3 - <<'PY'
@@ -438,6 +499,8 @@ jobs:
         run: python3 tools/build_web_dist.py --version ${{ github.sha }}
       - name: Verify Marrow image bytes and offline cache
         run: python3 tools/check_marrow_image_package.py
+      - name: Verify focused UWorld exhibit bytes and offline cache
+        run: python3 tools/verify_uworld_media_package.py
       - name: Verify offline FSRS assets in PWA artifact
         run: |
           test -s build/web/vendor/ts-fsrs/ts-fsrs-5.4.2.umd.js
@@ -448,12 +511,17 @@ jobs:
         run: |
           python3 -m pip install --disable-pip-version-check playwright
           python3 -m playwright install --with-deps chromium
+      - name: Verify PWA updates stay quiet until a different build is ready
+        if: ${{ !cancelled() && steps.browser_dependencies.outcome == 'success' }}
+        run: python3 tools/verify_pwa_update_browser.py
       - name: Verify generated recall dock in browser
         if: ${{ !cancelled() && steps.browser_dependencies.outcome == 'success' }}
         run: python3 tools/verify_recall_dock_browser.py
       - name: Verify Marrow bank selector and native explanation in browser
         if: ${{ !cancelled() && steps.browser_dependencies.outcome == 'success' }}
         run: python3 tools/verify_marrow_bank_browser.py
+      - name: Verify UWorld Biochemistry shared study flows on phone and tablet
+        run: python3 tools/verify_uworld_biochemistry_browser.py
       - name: Verify Marrow learner content hygiene in browser
         if: ${{ !cancelled() && steps.browser_dependencies.outcome == 'success' }}
         run: python3 tools/verify_marrow_content_hygiene_browser.py
@@ -468,12 +536,27 @@ jobs:
         run: python3 tools/verify_question_completeness_browser.py
       - name: Verify Continue Practice controls and pause resume in browser
         if: ${{ !cancelled() && steps.browser_dependencies.outcome == 'success' }}
-        run: python3 tools/verify_continue_practice_browser.py
+        run: |
+          python3 tools/verify_continue_practice_browser.py
+          python3 tools/verify_topic_continue_browser.py
       - name: Verify question interaction integrity on phone and tablet
         if: ${{ !cancelled() && steps.browser_dependencies.outcome == 'success' }}
         run: python3 tools/verify_question_interaction_browser.py
+      - name: Verify touch polish on phone and tablet
+        run: python3 tools/verify_interaction_polish_browser.py
+      - name: Verify immediate outcomes and interaction continuity
+        run: python3 tools/verify_interaction_quality_browser.py
+      - name: Verify reading composition and visual contrast
+        run: python3 tools/verify_visual_refinement_browser.py
+
+      - name: Verify study-flow continuity
+        run: python3 tools/verify_study_flow_browser.py
+      - name: Verify study return destinations and saved-test feedback
+        run: python3 tools/verify_return_flow_browser.py
       - name: Verify personal notes in Practice and Review
         run: python3 tools/verify_question_notes_browser.py
+      - name: Verify audited account controls and safe learner text
+        run: python3 tools/verify_preproduction_browser.py
       - name: Verify all-bank Quick Revision queues
         run: python3 tools/verify_revision_desk_browser.py
       - name: Verify editable FSRS ratings and resolved mistakes
@@ -482,8 +565,12 @@ jobs:
         run: python3 tools/verify_question_search_browser.py
       - name: Verify Practice correction journey on phone and tablet
         run: python3 tools/verify_practice_correction_browser.py
-      - name: Verify actionable Insights across banks
-        run: python3 tools/verify_insights_focus_browser.py
+      - name: Verify learning Insights on phone and tablet
+        run: python3 tools/verify_learning_insights_browser.py
+      - name: Verify result analysis and saved mocks in phone and tablet browsers
+        run: python3 tools/verify_refined_analysis_browser.py
+      - name: Verify compact screens and visible Revision queues
+        run: python3 tools/verify_app_clarity_browser.py
       - name: Verify bank-aware timed CBT selection and exam launch
         run: python3 tools/verify_bank_aware_cbt_builder_browser.py
       - name: Verify PYQ and mixed CBT journeys on phone and tablet
@@ -499,8 +586,6 @@ jobs:
           name: study-journey-views
           path: build/study-journey/
           retention-days: 3
-      - name: Verify all-bank QBank coverage tracker
-        run: python3 tools/verify_qbank_coverage_browser.py
       - name: Capture study UI audit across screen sizes
         if: ${{ !cancelled() && steps.browser_dependencies.outcome == 'success' }}
         run: python3 tools/capture_study_ui_audit.py
@@ -528,6 +613,9 @@ jobs:
             build/ui-checks/question-completeness/
             build/ui-checks/explanation-refinement/
             build/ui-checks/bc4-interaction-report.json
+            build/study-flow-checks/
+            build/return-flow-checks/
+            build/uworld-biochemistry-checks/
             build/marrow-ui-checks/*.png
             build/marrow-image-review/*.png
             build/prepladder-visual-audit/*.png
@@ -535,24 +623,41 @@ jobs:
             build/prepladder-visual-browser/*.png
           retention-days: 3
           if-no-files-found: warn
+      - name: Verify packaged PWA product contract
+        run: python3 tools/verify_product_contract.py --stage packaged --html build/web/index.html
+      - name: Write PWA reproducibility manifest
+        run: python3 tools/write_build_manifest.py --web-only
+      - name: Upload verified PWA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: V11.7-pwa
+          retention-days: 3
+          path: |
+            build/web/**
+            build/NK-QBank-web-manifest.json
+          if-no-files-found: error
       - name: Set up JDK 17
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_apk }}
         uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: '17'
       - name: Set up Gradle
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_apk }}
         uses: gradle/actions/setup-gradle@v5
         with:
           gradle-version: '9.5.0'
       - name: Configure side-by-side Marrow pilot APK
-        if: ${{ startsWith(github.ref_name, 'feature/') || startsWith(github.ref_name, 'consolidation/') }}
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_apk && (startsWith(github.ref_name, 'feature/') || startsWith(github.ref_name, 'consolidation/')) }}
         run: python3 tools/configure_marrow_pilot_android.py
       - name: Build debug APK
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_apk }}
         run: gradle --no-daemon assembleDebug
       - name: Restore production Android source identity
-        if: ${{ startsWith(github.ref_name, 'feature/') || startsWith(github.ref_name, 'consolidation/') }}
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_apk && (startsWith(github.ref_name, 'feature/') || startsWith(github.ref_name, 'consolidation/')) }}
         run: python3 tools/configure_marrow_pilot_android.py --restore
       - name: Verify packaged APK
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_apk }}
         run: |
           APK=$(find app/build/outputs/apk/debug -type f -name '*.apk' -print -quit)
           test -n "$APK"
@@ -601,6 +706,7 @@ jobs:
           unzip -l "$APK" | grep -q 'assets/vendor/ts-fsrs/LICENSE'
           test "$(unzip -l "$APK" | grep -Ec 'source_visuals/.*\.(png|jpg)')" -ge 400
           unzip -l "$APK" | grep -q 'assets/source_visual_inventory.json'
+          python3 tools/verify_uworld_media_package.py --apk "$APK"
           python3 - <<'PY'
           from pathlib import Path
           import re, subprocess, tempfile
@@ -618,12 +724,16 @@ jobs:
           PY
           echo "Packaged APK verification passed: Home V4/V5 retained; Home streak/header v2 present; Home three-action hierarchy present; CBT end-of-session review flow present; review footer hardened; Review Solutions question grid present; singleton toast behavior present; legacy streak layer absent; JavaScript syntax valid; source visuals retained."
       - name: Verify packaged product contract
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_apk }}
         run: python3 tools/verify_product_contract.py --stage packaged --html /tmp/packaged-index.html
       - name: Write reproducibility manifest
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_apk }}
         run: python3 tools/write_build_manifest.py
       - name: Verify packaged Marrow image bytes
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_apk }}
         run: python3 tools/check_marrow_image_package.py --apk
       - name: Upload debug APK and build manifest
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_apk }}
         uses: actions/upload-artifact@v4
         with:
           name: V11.7-android-pwa

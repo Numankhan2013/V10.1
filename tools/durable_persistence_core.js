@@ -55,6 +55,7 @@
     if(value.reviews!=null&&!nkStateObject(value.reviews))throw new Error('reviews is not an object');
     if(value.tests!=null&&!Array.isArray(value.tests))throw new Error('tests is not an array');
     if(value.studyModules!=null&&!Array.isArray(value.studyModules))throw new Error('studyModules is not an array');
+    if(value.savedMocks!=null&&!Array.isArray(value.savedMocks))throw new Error('savedMocks is not an array');
     if(value.normalPracticeCheckpoint!=null&&!nkNormalizeCheckpoint(value.normalPracticeCheckpoint))throw new Error('normal Practice checkpoint is invalid');
     if(value.normalPracticeCheckpoints!=null&&(!Array.isArray(value.normalPracticeCheckpoints)||value.normalPracticeCheckpoints.some(item=>!nkNormalizeCheckpoint(item))))throw new Error('normal Practice checkpoints are invalid');
     return true;
@@ -63,6 +64,7 @@
     nkValidateState(value);
     const out={...defaultState(),...value,attempts:value.attempts||{},bookmarks:value.bookmarks||{},questionNotes:value.questionNotes||{},reviews:value.reviews||{},tests:Array.isArray(value.tests)?value.tests:[]};
     out.studyModules=Array.isArray(value.studyModules)?value.studyModules:[];
+    out.savedMocks=Array.isArray(value.savedMocks)?value.savedMocks:[];
     out.stateSchemaVersion=NK_STATE_SCHEMA_VERSION;out.stateRevision=nkStateRevision(value);
     out.normalPracticeCheckpoints=nkNormalizePracticeCheckpoints(value.normalPracticeCheckpoints,value.normalPracticeCheckpoint);
     out.normalPracticeCheckpoint=nkLatestPracticeCheckpoint(out.normalPracticeCheckpoints);
@@ -103,7 +105,7 @@
     const now=Date.now(),next={answers:{...(s.answers||{})},submitted:{...(s.submitted||{})},questionTimes:{...(s.questionTimes||{})},pendingFsrsRatings:{...(s.pendingRating||{})}};
     const questionUpdates={};ids.forEach(id=>questionUpdates[id]=nkCheckpointQuestionUpdate(prior,id,next,now));
     return {version:NK_PRACTICE_CHECKPOINT_VERSION,sessionId:String(s.id),sessionQuestionIds:ids,membershipHash:nkCheckpointMembership(ids),
-      context:{...(s.practiceContext||{}),subject:String(s.practiceContext?.subject||''),bank:String(s.practiceContext?.bank||''),topicId:String(s.practiceContext?.topicId||''),title:String(s.practiceContext?.title||s.title||'Practice')},
+      context:{...(s.practiceContext||{}),...(s.originRoute&&s.originRoute!=='topics'?{originRoute:String(s.originRoute)}:{}),subject:String(s.practiceContext?.subject||''),bank:String(s.practiceContext?.bank||''),topicId:String(s.practiceContext?.topicId||''),title:String(s.practiceContext?.title||s.title||'Practice')},
       position:{index:Math.max(0,Math.min(ids.length-1,Number(s.index)||0)),currentQuestionId:current},answers:next.answers,submitted:next.submitted,
       startedAt:Number(s.startedAt||now),lastTick:Number(s.lastTick||now),elapsedMs:Number(s.elapsedMs||0),questionEnteredAt:Number(s.questionEnteredAt||now),
       questionTimes:next.questionTimes,pendingFsrsRatings:next.pendingFsrsRatings,questionUpdates,lifecycle:lifecycle||String(s.lifecycle||'active'),
@@ -132,7 +134,13 @@
     const store=nkStorageAdapter(),previousPrimary=store.getItem(LS_KEY);
     try{
       nkMirrorNormalPracticeCheckpoint(candidate);nkPrepareTimedSession(candidate);
-      const next=nkNormalizeState(nkStateClone(candidate));next.stateRevision=Math.max(nkStateRevision(candidate),nkStateRevision(nkReadStateCandidate(LS_KEY)?.value))+1;
+      // Normalize makes a new root object and never mutates its input. Avoid a
+      // second full-state clone and the checkpoint normalization done by a
+      // redundant primary read on every question tap.
+      const next=nkNormalizeState(candidate);
+      let storedRevision=0;
+      if(previousPrimary){try{storedRevision=nkStateRevision(JSON.parse(previousPrimary));}catch(_){}}
+      next.stateRevision=Math.max(nkStateRevision(candidate),storedRevision)+1;
       const raw=JSON.stringify(next);
       store.setItem(NK_STATE_PENDING_KEY,raw);store.setItem(LS_KEY,raw);
       const check=store.getItem(LS_KEY);if(check!==raw)throw new Error('primary verification failed');

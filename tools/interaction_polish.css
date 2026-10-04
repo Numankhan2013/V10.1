@@ -1,0 +1,39 @@
+/* One restrained press language, using the existing palette and dimensions. */
+button,[role="button"],summary,a[href],[onclick]{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+/* State colors commit immediately. Only the tactile scale eases back, so answer
+   correctness/selection never waits on a color or border transition. */
+html body :is(button,[role="button"],summary,a[href],[onclick],.option,.option-item){transition:none!important}
+html body :is(button:not(:disabled),[role="button"],summary,a[href],[onclick]){transition:transform 110ms ease-out!important}
+html body :is(button:not(:disabled),[role="button"],summary,a[href],[onclick]):active,
+html body :is(button,[role="button"],summary,a[href],[onclick]).nk-pressed{transform:scale(.98)!important;transition:none!important}
+html body .option:not(.correct):not(.wrong){transition:transform 110ms ease-out!important}
+html body .option:not(.correct):not(.wrong):active,html body .option:not(.correct):not(.wrong).nk-pressed{transform:scale(.992)!important;transition:none!important;box-shadow:inset 0 0 0 1px currentColor!important}
+html body .bottom-nav button:active,html body .nav-item:active{transform:scale(.94)!important}
+html body .bookmark-toggle svg{transition:transform 110ms ease-out!important}
+html body .bookmark-toggle:active svg{transform:scale(.9)}
+button:focus-visible,[role="button"]:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--primary,#6951ec)!important;outline-offset:3px}
+button:disabled,[aria-disabled="true"]{cursor:default}
+.nk-session-back,.nk-grid-trigger,.bookmark-toggle{min-width:44px!important;min-height:44px!important}
+/* Keep footer and source/explanation containers steady while content changes. */
+.nk-session-footer{contain:layout style}
+.modal,.nk-session-review,.qb-question-navigator{overscroll-behavior:contain}
+.modal-backdrop{overscroll-behavior:contain}
+.nk-answer-outcome{margin:12px 0 10px;font-size:13px;font-weight:800;line-height:1.5;color:var(--ink,#292653)}
+.nk-answer-outcome.is-correct{color:#11674e}
+.nk-answer-outcome.is-wrong{color:#a4334f}
+/* Enlarge actual controls, not the compact data cells in the activity chart. */
+html body :is(.nk-li-period-nav button,.nk-li-tabs button,.nk-li-year-activity select,.nk-journey-heading button,.nk-filter-tabs button,.nk-continue-learning button,.nk-study-set-main summary,.nk-study-set-main details button,.nk-study-set-action,.nk-source-actions button){min-height:44px!important;min-width:44px!important}
+input,textarea{caret-color:var(--primary,#6951ec)}
+.nk-answer-time strong,.nk-na-time-bars b,.nk-li-stats article>b,.nk-session-progress,.nk-exam-strip strong{font-variant-numeric:tabular-nums}
+@media(hover:none){html body .option:hover{transform:none!important}}
+html body :is(.nk-v114-session,.page,.modal,.qb-nav-panel,.nk-session-review-card){animation:none!important}
+@media(prefers-reduced-motion:reduce){
+ html body :is(button,[role="button"],summary,a[href],[onclick],.option,.option-item),html body .bookmark-toggle svg{transition:none!important}
+ html body :is(button:not(:disabled),[role="button"],summary,a[href],[onclick]):active,
+ html body :is(button,[role="button"],summary,a[href],[onclick]).nk-pressed,
+ html body .option:not(.correct):not(.wrong):active,
+ html body .option:not(.correct):not(.wrong).nk-pressed,
+ html body .bottom-nav button:active,
+ html body .nav-item:active{transform:none!important;transition:none!important;filter:brightness(.96)}
+ html body .bookmark-toggle:active svg{transform:none!important;transition:none!important}
+}

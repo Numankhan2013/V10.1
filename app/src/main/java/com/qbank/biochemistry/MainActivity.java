@@ -18,6 +18,7 @@ import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.view.HapticFeedbackConstants;
 import android.view.Window;
 
 import org.json.JSONObject;
@@ -56,7 +57,10 @@ public class MainActivity extends Activity {
         settings.setJavaScriptEnabled(true);
         settings.setDomStorageEnabled(true);
         settings.setDatabaseEnabled(true);
-        settings.setAllowFileAccess(true);
+        // NK_WEBVIEW_MIGRATION_BOUNDARY_V1: file access is temporary.
+        settings.setAllowFileAccess(!migrationPrefs.getBoolean("complete", false));
+        settings.setAllowFileAccessFromFileURLs(false);
+        settings.setAllowUniversalAccessFromFileURLs(false);
         settings.setAllowContentAccess(false);
         settings.setBuiltInZoomControls(false);
         settings.setDisplayZoomControls(false);
@@ -66,9 +70,10 @@ public class MainActivity extends Activity {
         settings.setCacheMode(WebSettings.LOAD_DEFAULT);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) settings.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
 
-        webView.setBackgroundColor(Color.WHITE);
+        webView.setBackgroundColor(Color.WHITE); webView.setHapticFeedbackEnabled(true);
         webView.setWebChromeClient(new WebChromeClient());
-        webView.addJavascriptInterface(new MigrationBridge(), "QBankMigration");
+        if (!migrationPrefs.getBoolean("complete", false)) webView.addJavascriptInterface(new MigrationBridge(), "QBankMigration");
+        webView.addJavascriptInterface(new HapticsBridge(), "QBankHaptics");
         webView.setWebViewClient(new WebViewClient() {
             @Override public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) { return !request.getUrl().toString().startsWith(APP_ORIGIN); }
             @Override public void onPageFinished(WebView view, String url) {
@@ -86,6 +91,24 @@ public class MainActivity extends Activity {
         else webView.loadUrl("file:///android_asset/migrate_local_state.html");
     }
 
+    // NATIVE_ACTION_HAPTICS_V1: framework effects honor the user's touch setting.
+    private final class HapticsBridge {
+        @JavascriptInterface public void play(String kind) {
+            if (kind == null) return;
+            final int effect;
+            switch (kind) {
+                case "choice": effect = HapticFeedbackConstants.CLOCK_TICK; break;
+                case "mark": effect = HapticFeedbackConstants.CONTEXT_CLICK; break;
+                case "primary": effect = HapticFeedbackConstants.KEYBOARD_TAP; break;
+                case "complete":
+                case "success": effect = Build.VERSION.SDK_INT >= 30 ? HapticFeedbackConstants.CONFIRM : HapticFeedbackConstants.VIRTUAL_KEY; break;
+                case "error": effect = Build.VERSION.SDK_INT >= 30 ? HapticFeedbackConstants.REJECT : HapticFeedbackConstants.LONG_PRESS; break;
+                default: return;
+            }
+            runOnUiThread(() -> { if (webView != null) webView.performHapticFeedback(effect); });
+        }
+    }
+
     private final class MigrationBridge {
         @JavascriptInterface public void capture(String state, String subject, String sync, String auth, String backup) {
             migrationPrefs.edit().putString("state", state).putString("subject", subject)
@@ -95,7 +118,7 @@ public class MainActivity extends Activity {
         @JavascriptInterface public void complete() {
             migrationPrefs.edit().putBoolean("complete", true).remove("state").remove("subject")
                     .remove("sync").remove("auth").remove("backup").apply();
-            runOnUiThread(() -> { if (webView != null) webView.removeJavascriptInterface("QBankMigration"); });
+            runOnUiThread(() -> { if (webView != null) { webView.getSettings().setAllowFileAccess(false); webView.removeJavascriptInterface("QBankMigration"); } });
         }
     }
 
@@ -106,7 +129,7 @@ public class MainActivity extends Activity {
             String path = URLDecoder.decode(request.getUrl().getPath().substring("/app/".length()), "UTF-8");
             if (path.isEmpty()) path = "index.html";
             if (path.startsWith("assets/")) path = path.substring(7);
-            if (path.contains("..") || path.startsWith("/")) return null;
+            if (path.contains("..") || path.startsWith("/")) return appAssetNotFound();
             byte[] bytes;
             try (InputStream in = getAssets().open(path); ByteArrayOutputStream out = new ByteArrayOutputStream()) {
                 byte[] buffer = new byte[16384]; int count;
@@ -122,7 +145,14 @@ public class MainActivity extends Activity {
                 bytes = html.getBytes(StandardCharsets.UTF_8);
             }
             return new WebResourceResponse(mimeType(path), "UTF-8", new ByteArrayInputStream(bytes));
-        } catch (Exception ignored) { return null; }
+        } catch (Exception ignored) { return appAssetNotFound(); }
+    }
+
+    private static WebResourceResponse appAssetNotFound() {
+        Map<String, String> headers = new HashMap<>();
+        headers.put("X-Content-Type-Options", "nosniff");
+        return new WebResourceResponse("text/plain", "UTF-8", 404, "Not Found", headers,
+                new ByteArrayInputStream("App asset unavailable".getBytes(StandardCharsets.UTF_8)));
     }
 
     private String migrationPayload() {

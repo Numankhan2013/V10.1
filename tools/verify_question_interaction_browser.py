@@ -172,6 +172,7 @@ def main():
                 assert session(page)['id'] == original['id']
                 page.evaluate("window.QB.nkOpenSubjectLibrary('Biochemistry')")
                 page.wait_for_function("document.querySelectorAll('button.nk-bank-card').length===2")
+                assert page.locator('button.nk-bank-card').filter(has_text='UWorld').count()==0
                 assert session(page)['id'] == original['id']
                 page.evaluate("window.QB.nav('dashboard')")
                 page.wait_for_url('**/#dashboard')

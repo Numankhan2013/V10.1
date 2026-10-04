@@ -864,3 +864,166 @@ All 1,935 actionable explanations from the initial 1,958 pending are authored an
 Initial combined full run36841656565 failed before deployment on PHYSIO_CH23_Q018 emphasis: scientific formatter converted H+ to superscript HTML while anchor matching used plain escaped text. Fixed identical scientific formatting on text/needle, and added actual-renderer regression for the exact case, escaping and all2,546 authored display-text configurations. This regression runs early in bothCI workflows; all56 local checks passed. Replacement full browser suite passed3,870 exact runtime checks and562 rendered cases across phone/tablet. Live downloaded preview matches all2,688 approved configs exactly, includes corrected renderer and three orphan table recoveries; HTML SHA-256 bdc7702f8b9b6dc68b3ae1fbd6d7cd963baf6f2b274360c2b9eb158a3751c4f2.
 
 Three enhanced items retain explicit source caveats (Bio17Q22 absent labs,Bio26Q15 capping ambiguity,Phys32Q28 fiber wording). All23 pre-existing pending source gates are deferred at user request. No actionable explanation work remains; do not restart completed workers. This final certification is docs-only with skipCI so it does not schedule another preview build.
+
+
+### 2026-10-01 — Learning Insights dashboard
+
+The user requested a comprehensive period-aware Insights dashboard from their
+phone/tablet prototypes, then removed Study Map/Topics to revisit and required
+a full-year heatmap at the top. Continuous relative count/peak shade and glow
+replace fixed thresholds; year/scope changes rescale the calendar. The new
+read-only dashboard includes period comparisons, outcomes, recorded timing,
+topic/subject performance, FSRS, mistake recovery and module progress. Source
+and active release work remain separate. See STATE.md and docs/LEARNING_INSIGHTS.md
+for certification, preview and the current candidate handoff.
+
+## 2026-10-01 — Approved combined production release completed
+
+Product `18e4cd58a09f14169447dd7aaf13a6cc08971ceb` passed Engineering `36883870916` and full Android/PWA run1380 / `36883871119`, including Android emulator checks. The deterministic answerable-topic screenshot fixture passed. User-approved runs1375 and1378 features and all2,688 enhancements are merged into main. Full-build workflow_run production follow-up did not appear; a dedicated release-branch push deployed the existing verified artifact without rebuilding. Production run `36888530721` verified exact current-main/artifact/APK identity, set Pages production_branch=main and published https://3bbd46cc.nk-qbank.pages.dev. Root https://nk-qbank.pages.dev is byte-identical (HTML SHA-256 `f0f9bb3ce205c6f79ae024d5025ffcce8c977a0915dc178c5307c83be5145c2a`). Entire live2,688-entry explanation map equals approved configs; liquid streak, Revision and editable-rating markers are present. Main and content integration branch are synchronized with this docs-only release handoff; no new full build is required. Preserve23 source gates, two archival image gaps and422 PrepLadder source-comparison audit entries. This is user-approved production promotion, not a claim of new physical Android testing.
+
+## 2026-10-01 — App-wide clarity pass with comparative Insights
+
+The user supplied phone screenshots showing repeated page kickers/subtitles, definitions under obvious Revision labels, and excessive header gaps. They requested removal of noise across the app, and authorized promotion of the combined Insights/clarity candidate to main and https://nk-qbank.pages.dev after verification. The late deterministic clarity owner trims navigation-only markup, compacts main page headers, Revision queues, Home focus, FSRS settings and builders; counts/actions, safety warnings, save/sync states, subject/bank context and source questions/explanations remain protected. Insights now starts with title/controls and Activity, removes repeated chart instructions and promotional summary, and keeps metric definitions in collapsed help. Continuous heatmap intensity remains relative to the selected year/scope peak. Screenshot inspection and browser checks cover ten screens and two builders at320/390/820; all four populated Revision queues fit above phone navigation. Existing Continue Practice, missed-question/FSRS and Revision/streak browser checks pass. The previous94e1 build passed web/PDF/APK but Android tablet attempts lost a screenshot target and then timed out reconnecting WebView; neither is a certified final candidate. Full combined CI and production delivery remain pending. Current main release handoff ecf7906 was merged, retaining verified18e4 production content and release workflow.
+
+### 2026-10-02 interaction polish continuation
+
+User authorized latency recovery and native-feel polish. Implementation/local
+responsive checks on feature/home-interaction-polish retain c662 analysis/header
+work; new exact-head full CI is pending. Root/main still serve1ba. STATE and
+docs/INTERACTION_POLISH_2026-10-02.md own current facts. No physical haptic claim.
+
+Interaction candidate a68e9c2 passed feature full36956370295 and both fast gates;
+PR83/PR82 are merged through exact-SHA main fast-forward. Official main full
+36957980864 is running; canonical root remains1ba pending verified-artifact
+deployment. Keep main at a68 during the production identity guard.
+
+### 2026-10-02 — User-reported press latency / gentle answer feedback
+
+Main a68 is build-verified from feature CI, but the user reports its new interactions feel slower across the app. Hold canonical deployment while correcting shared110 ms state/release transitions and added route/question/sheet movement. A/B computed appearance confirms old answer colors persisted on the first frame; correction makes committed colors immediate with no transition. Preserve save/indexing/in-place improvements and rollback. User additionally requests subtle answer haptics: single7/9 ms browser pulses and native CLOCK_TICK outcomes. Fresh responsive/browser/native certification pending on `feature/home-answer-latency`; root still serves1ba.
+
+The first latency correction's full run36959307370 caught a real pre-existing race exposed by faster clicks: a stale250 ms CBT cleanup closed a newly opened Review navigator. Reproduced locally, fenced cleanup to its submitted exam, removed legacy panel animation and added source ownership / generated300 ms Review survival checks. PYQ/mixed/history/Review/follow-up now pass on phone/tablet; fresh full certification is required. Superseded maina68 Android failed at WebView rediscovery after app reset, after its Pause/Back/multi-Pause paths passed.
+
+## UWorld reference refinement — 2026-10-03
+
+Active reference refinement follows certified PR93. User accepts prior pilot
+phone/iPad/desktop typography and continuous Revision; requests a Luna source
+pass, independent My UWorld collection hierarchy and no FSRS-only Practice misses.
+All132 reviewed documents preserve immutable originals;131 are practice-ready,
+1244 is held for an absent essential exhibit. Native tables/focused figures and
+source-labelled choice reasoning preserve UWorld flow; option percentages appear
+beside answers immediately after answering and stay hidden in CBT. See canonical
+STATE and docs/UWORLD_BIOCHEMISTRY_PILOT.md for live certification and limits.
+Production remains unchanged; no medical certification is claimed.
+
+The UWorld reference refinement is now certified at424e0ca8:101 local checks,
+both Engineering gates and full37158603961 including Android phone/tablet.
+Actual hosted390/820/1194/1440px flows pass at https://2f165b3a.nk-qbank.pages.dev.
+PR94 stacks on93; production is unchanged. See canonical STATE and the pilot
+report for exact hashes and remaining source limitations. This handoff is docs-only.
+
+
+The user accepts the Biochemistry reference architecture and authorizes the second
+UWorld collection on October4: Poisoning & Environmental Exposure (33questions).
+Explanation aesthetics are deferred. Shared engines and source-native documents
+remain; canonical STATE and docs/UWORLD_SECOND_COLLECTION.md track current
+verification and source review. Production is unchanged.
+
+Second collection certified at795d94a9:33 Poisoning & Environmental Exposure
+questions,29 native tables,22 focused figures;102 local checks, both Engineering
+gates and full37165147973 including Android phone/tablet emulators pass.
+Actual hosted four-width flows and206 offline media paths pass at
+https://1b80a731.nk-qbank.pages.dev; all184 Biochemistry image hashes are unchanged.
+PR95 is ready, stacked on94. Canonical STATE and UWORLD_SECOND_COLLECTION.md
+record exact hashes/provenance; production is unchanged. This handoff is docs-only.
+
+October4 follow-up: user confirms the second UWorld preview works and requests
+card-footer removal and an app-wide Impeccable quality pass. Active quality branch
+fixes block taxonomy, reference-only search/batches, incompatible native bank
+filters, modal disclosure focus and small builder targets.102 local checks and
+bounded rendered flows pass. Product67a85ee3, both Engineering gates and full
+37184199118 including Android phone/tablet emulators pass. Actual hosted UWorld
+four-width/Search/focus checks pass at https://adf558ca.nk-qbank.pages.dev; all206
+media hashes/offline paths remain unchanged. PR96 is ready, stacked on95. The
+docs-only certified handoff preserves that product artifact; production unchanged.
+Canonical STATE and docs/UWORLD_APP_QUALITY_2026-10-04.md own current details.
+
+October4 next batch: user authorizes reuse of supplied JSONLs/PDFs and chooses
+Ophthalmology as the first PDF-only extraction. Active Ophthalmology branch uses
+the pinned30-question/204-page source56fe817, three Luna/high source batches and
+existing UWorld registry/display/media/study engines. Verification is in progress;
+canonical STATE and docs/UWORLD_OPHTHALMOLOGY_COLLECTION.md own current detail.
+Production and prior certified artifacts remain unchanged.
+
+2026-10-04: The user explicitly authorizes the preproduction UI/UX/function/security
+audit and promotion accessible from https://nk-qbank.pages.dev. Ophthalmology
+30 questions/204 pages/8 tables/77 figures joins the existing UWorld registry.
+The audit branch repairs account Back/contrast, narrow topic controls/focus,
+empty FSRS actions, Android migration/file/private-asset boundaries and hosted
+frame/MIME/referrer headers. Final main CI, Android and exact production-domain
+proof remain required; consult STATE and the preproduction audit report.
+
+## 2026-10-04 — Audited UWorld release certified on the main domain
+
+PR98 merges the accepted feature chain, source-reviewed Ophthalmology and scoped
+UI/UX/security repairs. Production product 315cfcc passes 103 local checks,
+Engineering 37191000202 and complete main 37191000207 including Android phone/
+tablet emulators. Approved release 37192960486 verifies/reuses the exact successful
+artifact and sets Pages production branch main. https://nk-qbank.pages.dev is live; HTML SHA-256 086b04f41fcf610af844b76652b7c6368392dc26d9bd8f609b258b2a6e77897b matches CI, and root HTML/config/
+service worker/inventory/robots bytes match the immutable upload https://92774e98.nk-qbank.pages.dev.
+All 283 UWorld assets/offline paths pass; previous 206 identities are unchanged.
+Actual four-width UWorld/audit and phone/tablet Search/focus checks pass; source
+PDF ranges, policy headers and browser frame denial pass. Certificate docs remain
+a separate handoff so main retains the exact released product. No physical-device,
+authenticated live-account or clinical acceptance is inferred.
+
+## 2026-10-04 — Reproductive batch and scoped Continue Practice
+
+User requests local integration of two collections before one combined preview,
+with no production promotion. Supplied source56fe817 JSONLs/PDFs yield Male52
+and Female81 questions across four blocks, all876pages reviewed in six Luna/high
+batches. Reusable imported owner validates provenance while sharing the existing
+presenter/media/study engines. Original imports remain immutable; Female1830's
+six-option PDF correction uses an explicit pinned ledger. Native tables46,
+figures306; root repairs289 crop bounds and confirms complete question exhibits.
+Collection-specific icons replace DNA. Topics resumes exact-bank durable
+Practice IDs/position/progress; Today’s Focus uses saved context rather than an
+unrelated active session.104 local checks and existing320/390/820 Continue plus
+new390/820/1440 Topics/Home browser cases pass. Combined five-collection browser390/820/1194/1440 also passes all133 new
+questions; one full preview CI remains pending. Production315cfcc remains live. No physical-device or
+clinical certification is inferred; report docs/UWORLD_REPRODUCTIVE_BATCH.md.
+
+The combined preview candidate1b956851 passes Engineering37203647000 and
+source media/offline plus UWorld/Continue browser stages in full37203646998.
+Its timed-builder verifier falsely matches Male/Female using an insensitive
+substring. Exact registry subject matching passes locally; verification-only
+candidatee9a1c15/full37205213240 is published for the combined preview.
+Production main-domain hash086b04f4 remains unchanged. Full corrected CI pending.
+
+The deployed e9a1c15 preview passes actual four-width study flows and589
+hosted media hashes/offline paths, retaining283 previous images; HTML d65c4ced
+matches CI. Native verification hit Playwright's APK serialization limit before
+app launch, then timed out. An isolated adb-streaming driver recovery reuses the
+exact37205213240 artifact, checking its commit/APK/packaged HTML hashes without
+rebuilding or deploying. Original full-run success is not claimed. Recovery
+pending; production remains unchanged.
+
+## 2026-10-04 — Reproductive preview and exact-artifact Android checks verified
+
+Feature app e9a1c15 passes Engineering37205213243 and the complete build/package
+job37205213240. Native installation hit Playwright's string limit before launch;
+verifier33642325/recovery37208580256 validates the exact674756225-byte APK and
+uses adb streaming without rebuilding or deployment. Phone/tablet native Back,
+force-stop/multi-pause recovery, FSRS, CBT/Review and retake comparisons pass.
+Hosted https://f0ec5f5d.nk-qbank.pages.dev passes390/820/1194/1440px study flows
+for all133 new questions and589 image hashes/offline paths; prior283 identities
+remain unchanged. HTML d65c4ced matches CI. Production086b04f4 remains unchanged.
+The original full-run cancellation is recorded honestly; no physical-device,
+live-account or clinical acceptance is inferred. A docs-only certificate keeps
+all application bytes unchanged; no production promotion is authorized.
+
+
+### 2026-10-04 web-first / UWorld hygiene candidate
+
+User prefers previews and requests APKs only on demand. `build-apk.yml` defaults to PWA verification/deployment; manual `build_apk=true` retains Android packaging/testing. Candidate removes raw UWorld explanation disclosure/runtime archives, repairs33 reproductive records and Biochemistry633, and begins the chosen Biostatistics collection with original Block1 questions1–10. Remaining111 complete Biostatistics items are pending. Canonical current evidence and production guard: `.project-memory/STATE.md`; no new production or Android/device certification is claimed.
+
+2026-10-04 continuation: User explicitly authorizes additional batches, thorough inspection and qualified main/canonical-domain release. Biostatistics now includes complete40-question Block1/pages1–182 with29 native figure placements; remaining81 complete items are queued. All108 local checks pass; full extension CI/hosted/main release evidence belongs in `.project-memory/STATE.md`. APKs remain manual opt-in.

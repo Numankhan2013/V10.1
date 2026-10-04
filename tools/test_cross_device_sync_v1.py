@@ -2,7 +2,6 @@
 """Behavior tests for merge safety and PWA/sync source contracts."""
 
 from pathlib import Path
-import ast
 import importlib.util
 import json
 import subprocess
@@ -26,9 +25,10 @@ global.document={getElementById:id=>nodes[id]||null,createElement:()=>({id:'',cl
 const LS_KEY='qbank_state_v1';
 const defaultState=()=>({attempts:{},bookmarks:{},reviews:{},tests:[],studyModules:[],activeSession:null,studyStartedAt:null});
 ''' + STORAGE_CORE.read_text(encoding="utf-8") + r'''
-const valid={...defaultState(),stateSchemaVersion:2,stateRevision:7,bookmarks:{q1:{addedAt:1}},questionNotes:{q1:{text:'My clue',updatedAt:7,deleted:false}}};
+const valid={...defaultState(),savedMocks:[{id:'saved-mock',name:'Biochemistry 01',questionIds:['q1','q2'],createdAt:6,updatedAt:7}],stateSchemaVersion:2,stateRevision:7,bookmarks:{q1:{addedAt:1}},questionNotes:{q1:{text:'My clue',updatedAt:7,deleted:false}}};
 data[NK_STATE_LKG_KEY]=JSON.stringify(valid);data[LS_KEY]='{broken';
 let recovered=nkDurableLoadState();
+assert(recovered.savedMocks[0].name==='Biochemistry 01'&&recovered.savedMocks[0].questionIds.join(',')==='q1,q2','named exact mocks must survive snapshot recovery');
 assert(recovered.stateRevision===7&&recovered.bookmarks.q1&&recovered.questionNotes.q1.text==='My clue','corrupt primary must recover notes from LKG');
 assert(nkStorageBootNotice.includes('last valid snapshot'),'recovery must be visible');
 const pending={...valid,stateRevision:8,bookmarks:{q2:{addedAt:2}}};data[NK_STATE_PENDING_KEY]=JSON.stringify(pending);
@@ -40,6 +40,16 @@ assert.deepStrictEqual(state.normalPracticeCheckpoints.map(x=>x.sessionId),['pra
 assert.deepStrictEqual(state.normalPracticeCheckpoint.sessionQuestionIds,['q1','q2']);
 assert(state.normalPracticeCheckpoint.position.index===1&&state.normalPracticeCheckpoint.answers.q1===2&&state.normalPracticeCheckpoint.submitted.q1,'checkpoint progress missing');
 assert(state.normalPracticeCheckpoint.pendingFsrsRatings.q1.rating===3,'pending FSRS rating missing');
+assert(!Object.hasOwn(state.normalPracticeCheckpoint.context,'originRoute'),'ordinary chapter checkpoints gain no navigation field');
+const hintSession={...state.activeSession,originRoute:'question-search'};
+const hintCheckpoint=nkCheckpointFromSession(hintSession,state.normalPracticeCheckpoint,'paused');
+assert(hintCheckpoint.context.originRoute==='question-search');
+const hintRecovery=nkNormalizeCheckpoint(JSON.parse(JSON.stringify(hintCheckpoint)));
+assert(hintRecovery.context.originRoute==='question-search','return hint must survive durable normalization');
+assert.deepStrictEqual(hintRecovery.sessionQuestionIds,state.normalPracticeCheckpoint.sessionQuestionIds);
+assert.deepStrictEqual(hintRecovery.answers,state.normalPracticeCheckpoint.answers);
+assert.deepStrictEqual(hintRecovery.pendingFsrsRatings,state.normalPracticeCheckpoint.pendingFsrsRatings);
+
 const legacyOnly={...defaultState(),normalPracticeCheckpoint:{...state.normalPracticeCheckpoint,answers:{q1:2},submitted:{q1:true},pendingFsrsRatings:{q1:{rating:3}}}};
 const migrated=nkNormalizeState(legacyOnly);
 assert.deepStrictEqual(migrated.normalPracticeCheckpoints.map(x=>x.sessionId),['practice-1'],'legacy-only checkpoint must migrate by identity');
@@ -105,6 +115,13 @@ const assert=(condition,message)=>{if(!condition)throw new Error(message);};
 state={attempts:{q1:[{id:'a1',at:10,correct:false,selected:1,timeSpent:5}]},bookmarks:{},reviews:{},tests:[],studyModules:[],activeSession:null,fsrsReviewEligible:{}};
 nkApplyCloudEnvelope({kind:'attempts',entityId:'a2',ownerDevice:'ipad',updatedAt:20,deleted:false,payload:JSON.stringify({qid:'q1',attempt:{id:'a2',at:20,correct:true,selected:2,timeSpent:7}}),schemaVersion:1});
 assert(state.attempts.q1.length===2,'immutable attempts must merge');
+const remoteMock={id:'mock-sync',name:'Renal 01',questionIds:['q1','q2'],createdAt:1,updatedAt:21};
+nkApplyCloudEnvelope({kind:'savedMocks',entityId:remoteMock.id,ownerDevice:'ipad',updatedAt:21,deleted:false,payload:JSON.stringify(remoteMock),schemaVersion:1});
+assert(state.savedMocks.length===1&&state.savedMocks[0].questionIds.join(',')==='q1,q2','mock sync must preserve the exact ordered set and name');
+nkApplyCloudEnvelope({kind:'savedMocks',entityId:remoteMock.id,ownerDevice:'android',updatedAt:23,deleted:true,payload:'',schemaVersion:1});
+nkApplyCloudEnvelope({kind:'savedMocks',entityId:remoteMock.id,ownerDevice:'ipad',updatedAt:22,deleted:false,payload:JSON.stringify(remoteMock),schemaVersion:1});
+assert(state.savedMocks.length===0,'a stale device must not resurrect a removed mock');
+
 nkApplyCloudEnvelope({kind:'attempts',entityId:'a2',ownerDevice:'ipad',updatedAt:20,deleted:false,payload:JSON.stringify({qid:'q1',attempt:{id:'a2',at:20,correct:true,selected:2,timeSpent:7}}),schemaVersion:1});
 assert(state.attempts.q1.length===2,'duplicate attempt must be deduplicated');
 const ratingEvent={id:'rating-a2',isRatingRevision:true,ratingOf:'a2',rating:2,at:25,revisedAt:25};
@@ -330,6 +347,8 @@ async function testRequests(){
   assert(signedOutCard.includes('Sign in to QBank')&&signedOutCard.includes('Create account')&&!signedOutCard.includes("nkCloudAuthenticate('create')"),'auth card must present one sign-in action and a separate create-account entry');
   const authFields={'nk-cloud-create-email':{value:'new@example.com',checkValidity:()=>true,focus(){}},'nk-cloud-create-password':{value:'strong-password',focus(){}},'nk-cloud-confirm-password':{value:'strong-password',focus(){}}};document.getElementById=id=>authFields[id]||null;document.querySelector=()=>null;
   nkCloudAuthStartCreate();nkCloudAuthNext();assert(nkAuthView==='create-password'&&nkPendingCreateEmail==='new@example.com','create-account flow must advance from email to password');
+  nkCloudAuthBack();assert(nkAuthView==='create-email'&&nkPendingCreateEmail==='new@example.com','Back from password must retain the email step and address');
+  nkCloudAuthNext();
   globalThis.fetch=async(url,options)=>({ok:true,text:async()=>JSON.stringify({localId:'new-user',email:'new@example.com',idToken:'not-saved',refreshToken:'not-saved',expiresIn:'3600'})});
   await nkCloudAuthenticate('create');
   assert(nkAuthView==='signin'&&nkSignInEmail==='new@example.com'&&!nkAuth&&!localStorage.getItem('qbank_firebase_auth_v1'),'creating an account must return to the sign-in step without auto-signing in');
@@ -378,25 +397,8 @@ function nkDurablePersist(v){localStorage.setItem(LS_KEY,JSON.stringify(v));retu
     if "skipWaiting" in install:
         raise SystemExit("PWA installation must wait for an explicit update action")
     transform_source = (ROOT / "tools/apply_cross_device_pwa_v1.py").read_text(encoding="utf-8")
-    update_sw = next(ast.literal_eval(node.value) for node in ast.walk(ast.parse(transform_source))
-                     if isinstance(node, ast.Assign) and any(isinstance(t, ast.Name) and t.id == "update_sw" for t in node.targets))
-    lifecycle = r'''
-const assert=(v,m)=>{if(!v)throw new Error(m)};
-const events={},swEvents={};let reloads=0,click;
-const worker={postMessage:message=>{assert(message==='SKIP_WAITING','update message');swEvents.controllerchange();swEvents.controllerchange();}};
-const registration={waiting:worker,addEventListener:()=>{}};
-const navigator={serviceWorker:{controller:{},addEventListener:(name,fn)=>swEvents[name]=fn,register:async()=>registration}};
-const window={addEventListener:(name,fn)=>events[name]=fn};
-const location={hostname:'example.test',reload:()=>reloads++};
-const document={querySelector:()=>null,createElement:()=>({querySelector:()=>({set onclick(fn){click=fn}})}),body:{appendChild:()=>{}}};
-'''
-    lifecycle += update_sw + "\n" + r'''
-(async()=>{await events.load();swEvents.controllerchange();assert(reloads===0,'unrequested controller changes must not reload');click();assert(reloads===1,'explicit update must reload only once');console.log('PWA_UPDATE_LIFECYCLE_OK');})().catch(error=>{console.error(error);process.exitCode=1});
-'''
-    with tempfile.TemporaryDirectory() as directory:
-        script = Path(directory) / "pwa-test.js"
-        script.write_text(lifecycle, encoding="utf-8")
-        subprocess.run(["node", str(script)], check=True)
+    if "tools/pwa_update_core.js" not in transform_source or "NK_QBANK_VERSION" not in worker:
+        raise SystemExit("PWA updates must compare the waiting build with the running page")
     sync_core = CORE.read_text(encoding="utf-8")
     pull_at = sync_core.find("pulled=await nkPullCloud(token)")
     push_at = sync_core.find("pushed=await nkPushOutbox(token)")
