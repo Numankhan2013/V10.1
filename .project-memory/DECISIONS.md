@@ -398,3 +398,11 @@ Option-selection percentages belong beside each option, revealed immediately
 with answered feedback and withheld during CBT. No disclosure is needed.
 Practice mistakes represents unresolved ordinary misses; scheduled-review lapses
 remain the responsibility of FSRS and never create or resurrect that queue.
+
+## Web-first builds, optional APK packaging (2026-10-04)
+
+The user uses browser previews and explicitly defers APK work. The shared full workflow now verifies/packages/deploys a PWA on pushes and default manual runs. Only manual `build_apk=true` enables Gradle, APK package checks, Android artifact upload and emulator interaction. PWA manifests hash all shipped files without requiring an APK. Preserve existing APKs and the on-demand build path; optimize Android size when requested. Web build verification does not claim Android/device acceptance. This user instruction supersedes earlier mandatory-APK milestone wording in the engineering baseline.
+
+## Reviewed prose owns learner-facing UWorld text (2026-10-04)
+
+Raw imports remain immutable archives but do not ship as alternate explanations or search fallbacks. Source-locked reviewed documents own runtime prose, options, typed tables and visuals. Reject observed screenshot chrome and long repeated paragraph runs before generation; fixes must remain explicit PDF/record-pinned display overlays. A partial next collection is labeled by its actual original question range; importing its entire unreviewed source is prohibited.

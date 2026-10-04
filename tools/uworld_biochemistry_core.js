@@ -88,10 +88,10 @@
     return value==null?'':`<p class="nk-uworld-cohort"><strong>${esc(value)}% answered correctly</strong><span>Reported in the UWorld source</span></p>`;
   }
   function nkUworldReading(q){
-    const doc=q.uworldDocument,transcript=q.uworldTranscript;
-    const objective=doc?doc.educational_objective:q.uworldSource?.explanation?.educational_objective;
-    const nodes=doc?.explanation||(transcript?.paragraphs||[q.uworldSource?.explanation?.text||'']).map(text=>({type:'paragraph',text}));
-    return `<div class="nk-uworld-reading">${nkUworldNodes(nodes,q)}${objective?`<section class="nk-uworld-objective"><h3>Educational objective</h3><p>${nkScientificMarkup(objective)}</p></section>`:'<p class="nk-uworld-source-note">The educational objective is unavailable or clipped in the supplied source.</p>'}<details class="nk-uworld-original"><summary>${doc?'Source details':'About this OCR text'}</summary><p class="nk-uworld-source-note">${doc?'Checked against the supplied PDF, pages '+esc(doc.reviewed_pages.join(', '))+'. Original imports are preserved.':'This pilot uses the supplied OCR text. Scanning errors and flattened tables may remain.'}</p>${doc?.issues?.length?`<p class="nk-uworld-source-note">${nkScientificMarkup(doc.issues.join(' '))}</p>`:''}<details><summary>Original OCR explanation</summary><p>${nkScientificMarkup(q.uworldSource?.explanation?.text||'')}</p></details></details></div>`;
+    const doc=q.uworldDocument;
+    if(!doc)return '<div class="nk-uworld-reading"><p class="nk-uworld-source-note">The source explanation is not available yet.</p></div>';
+    const objective=doc.educational_objective;
+    return `<div class="nk-uworld-reading">${nkUworldNodes(doc.explanation,q)}${objective?`<section class="nk-uworld-objective"><h3>Educational objective</h3><p>${nkScientificMarkup(objective)}</p></section>`:'<p class="nk-uworld-source-note">The educational objective is unavailable or clipped in the supplied source.</p>'}<details class="nk-uworld-original"><summary>Source details</summary><p class="nk-uworld-source-note">Source PDF · pages ${esc(doc.reviewed_pages.join(', '))}</p>${doc.issues?.length?`<p class="nk-uworld-source-note">${nkScientificMarkup(doc.issues.join(' '))}</p>`:''}</details></div>`;
   }
   const nkUworldOriginalStem=nkQuestionStemMarkup;
   nkQuestionStemMarkup=function(q){
@@ -105,7 +105,7 @@
   nkStudySupport=function(q,timeMs,unattempted=false,renderedSource=''){
     if(q?.bank!=='UWorld')return nkUworldOriginalSupport(q,timeMs,unattempted,renderedSource);
     const time=unattempted?'<span>Not answered in this test</span>':`<span>Answered in <strong>${esc(nkFormatQuestionTime(timeMs||0))}</strong></span>`;
-    return `<div class="nk-study-support is-uworld"><div class="nk-answer-time">${navIcon('clock',19)}${time}</div>${nkUworldStatistics(q)}<section class="nk-source-section nk-uworld-explanation"><header><div>${navIcon('book',19)}<strong>Explanation</strong></div><span>UWorld 2024${q.uworldDocument?' · Source reviewed':' · OCR pilot'}</span></header>${nkUworldReading(q)}</section></div>`;
+    return `<div class="nk-study-support is-uworld"><div class="nk-answer-time">${navIcon('clock',19)}${time}</div>${nkUworldStatistics(q)}<section class="nk-source-section nk-uworld-explanation"><header><div>${navIcon('book',19)}<strong>Explanation</strong></div><span>UWorld 2024${q.uworldDocument?' · Source reviewed':' · Source pending'}</span></header>${nkUworldReading(q)}</section></div>`;
   };
   function nkUworldRequiredAssets(q){return [...(q?.uworldDocument?.question_blocks||[]).filter(n=>n.type==='figure'),...(q?.options||[]).map(o=>o.figure).filter(Boolean)].map(n=>n.asset);}
   function nkUworldMediaReady(q){
@@ -161,7 +161,7 @@
   startSession=function(ids){
     const questions=new Map(nkAllStudyQuestions().map(q=>[String(q.id),q]));
     const eligible=(ids||[]).filter(id=>nkUworldEligible(questions.get(String(id))));
-    if(!eligible.length&&ids?.length){showToast('These questions need source diagrams. Open them individually to read the available OCR text.','bad');return false;}
+    if(!eligible.length&&ids?.length){showToast('These questions need source diagrams. Open them individually to read the available explanation.','bad');return false;}
     const args=[...arguments];args[0]=eligible;return nkUworldStartSession.apply(this,args);
   };
   function nkUworldReference(id){

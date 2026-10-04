@@ -1,8 +1,13 @@
-name: Build V11.7 Android + PWA
+name: Build and verify PWA (optional APK)
 
 on:
   workflow_dispatch:
     inputs:
+      build_apk:
+        description: Also build and verify an Android APK (slower; normally leave off)
+        required: true
+        type: boolean
+        default: false
       promote_production:
         description: Promote this verified main build to the production PWA
         required: true
@@ -27,6 +32,7 @@ jobs:
   android-interaction:
     name: Android WebView interaction regression
     needs: build
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_apk }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -381,6 +387,10 @@ jobs:
           python3 tools/test_uworld_poisoning.py
           python3 tools/test_uworld_ophthalmology.py
           python3 tools/test_uworld_imported_collections.py
+          python3 tools/test_uworld_content_hygiene.py
+          python3 tools/test_web_build_manifest.py
+          python3 tools/test_web_first_workflow.py
+          python3 tools/test_uworld_biostatistics.py
       - name: Recover source-reviewed UWorld scientific exhibits
         run: |
           git lfs pull --include="data/uworld/Source_pdfs/biochemistry/UW 2024 - Biochemistry - 3 blocks - OCR.pdf" --exclude=""
@@ -388,6 +398,7 @@ jobs:
           git lfs pull --include="data/uworld/Source_pdfs/opthalmology/UW 2024 - Ophthalmology - block 1 - OCR.pdf" --exclude=""
           git lfs pull --include="data/uworld/Source_pdfs/Male_reproductive_system/UW 2024 - Male Reproductive System - 2 blocks - OCR.pdf" --exclude=""
           git lfs pull --include="data/uworld/Source_pdfs/Female_reproductive_system_breast/UW_2024_Female_Reproductive_System_&_Breast_2_blocks_OCR.pdf" --exclude=""
+          git lfs pull --include="data/uworld/Source_pdfs/biostatistics_epidemiology/UW 2024 - Biostatistics & Epidemiology - 3 blocks - OCR.pdf" --exclude=""
           python3 tools/build_uworld_reviewed_figures.py
       - name: Install bounded UWorld collections
         run: python3 tools/apply_uworld_biochemistry_v1.py
@@ -612,24 +623,41 @@ jobs:
             build/prepladder-visual-browser/*.png
           retention-days: 3
           if-no-files-found: warn
+      - name: Verify packaged PWA product contract
+        run: python3 tools/verify_product_contract.py --stage packaged --html build/web/index.html
+      - name: Write PWA reproducibility manifest
+        run: python3 tools/write_build_manifest.py --web-only
+      - name: Upload verified PWA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: V11.7-pwa
+          retention-days: 3
+          path: |
+            build/web/**
+            build/NK-QBank-web-manifest.json
+          if-no-files-found: error
       - name: Set up JDK 17
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_apk }}
         uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: '17'
       - name: Set up Gradle
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_apk }}
         uses: gradle/actions/setup-gradle@v5
         with:
           gradle-version: '9.5.0'
       - name: Configure side-by-side Marrow pilot APK
-        if: ${{ startsWith(github.ref_name, 'feature/') || startsWith(github.ref_name, 'consolidation/') }}
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_apk && (startsWith(github.ref_name, 'feature/') || startsWith(github.ref_name, 'consolidation/')) }}
         run: python3 tools/configure_marrow_pilot_android.py
       - name: Build debug APK
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_apk }}
         run: gradle --no-daemon assembleDebug
       - name: Restore production Android source identity
-        if: ${{ startsWith(github.ref_name, 'feature/') || startsWith(github.ref_name, 'consolidation/') }}
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_apk && (startsWith(github.ref_name, 'feature/') || startsWith(github.ref_name, 'consolidation/')) }}
         run: python3 tools/configure_marrow_pilot_android.py --restore
       - name: Verify packaged APK
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_apk }}
         run: |
           APK=$(find app/build/outputs/apk/debug -type f -name '*.apk' -print -quit)
           test -n "$APK"
@@ -696,12 +724,16 @@ jobs:
           PY
           echo "Packaged APK verification passed: Home V4/V5 retained; Home streak/header v2 present; Home three-action hierarchy present; CBT end-of-session review flow present; review footer hardened; Review Solutions question grid present; singleton toast behavior present; legacy streak layer absent; JavaScript syntax valid; source visuals retained."
       - name: Verify packaged product contract
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_apk }}
         run: python3 tools/verify_product_contract.py --stage packaged --html /tmp/packaged-index.html
       - name: Write reproducibility manifest
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_apk }}
         run: python3 tools/write_build_manifest.py
       - name: Verify packaged Marrow image bytes
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_apk }}
         run: python3 tools/check_marrow_image_package.py --apk
       - name: Upload debug APK and build manifest
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_apk }}
         uses: actions/upload-artifact@v4
         with:
           name: V11.7-android-pwa

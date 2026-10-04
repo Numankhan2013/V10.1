@@ -4,9 +4,11 @@ import uworld_poisoning
 import uworld_ophthalmology
 import uworld_male_reproductive
 import uworld_female_reproductive
+import uworld_biostatistics
+from uworld_content_hygiene import learner_question
 
 COLLECTIONS = (uworld_biochemistry, uworld_poisoning, uworld_ophthalmology,
-               uworld_male_reproductive, uworld_female_reproductive)
+               uworld_male_reproductive, uworld_female_reproductive, uworld_biostatistics)
 
 
 def bank_records():
@@ -14,6 +16,8 @@ def bank_records():
     ids = [q['id'] for record in records for q in record['questions']]
     if len(ids) != len(set(ids)):
         raise ValueError('UWorld stable question identity collision')
+    for record in records:
+        record['questions'] = [learner_question(q) for q in record['questions']]
     return records
 
 

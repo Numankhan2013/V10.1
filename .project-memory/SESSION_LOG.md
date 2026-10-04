@@ -2452,3 +2452,19 @@ remain unchanged. HTML d65c4ced matches CI. Production086b04f4 remains unchanged
 The original full-run cancellation is recorded honestly; no physical-device,
 live-account or clinical acceptance is inferred. A docs-only certificate keeps
 all application bytes unchanged; no production promotion is authorized.
+
+## 2026-10-04 — Explanation leakage, web-first workflow and Biostatistics starter
+
+User reports Female Reproductive explanation leakage, suspects Male too, selects Biostatistics & Epidemiology next, requests Impeccable, and explicitly defers APKs. Investigated original failure:37203646998 had a Male/Female substring selector collision;37205213240 web/build passed but Android installer exceeded its single-string limit before launch on674756225-byte APK. Existing e9a1c15/3364232 fixes and exact-artifact recovery37208580256 already cover these failures. Current changes focus on verified source repairs and PWA-only default while preserving manual Android builds. Impeccable narrow Read/Operate refinement preserves incumbent typography/palette and source-native figures. Candidate records34 pinned display repairs and a10-question Biostatistics starter; source/CI/hosted evidence will be added after checks.
+
+### Archived STATE interaction/analysis evidence
+
+## Impeccable interaction quality — 2026-10-03
+
+- Impeccable4.5.0 is installed for Codex in `.agents/skills/impeccable`; `DESIGN.md` preserves accepted warm paper/violet/amber, coherent two-tone icons, immediate in-place answering and restrained feedback. Certified interaction/visual/study/return-flow PR89–92 stack on88; their full builds and hosted checks pass. User accepts the subtle aesthetics. Preserve existing haptics, reduced motion, fixed footer, storage, FSRS, navigation and question logic.
+- Latest prior return-flow productaced8f38/full37109357853 passed93 checks and actual hosted390/820px flows at https://4e97ea33.nk-qbank.pages.dev. Source reports: `docs/INTERACTION_QUALITY_2026-10-03.md`, `docs/VISUAL_REFINEMENT_2026-10-03.md`, `docs/STUDY_FLOW_REFINEMENT_2026-10-03.md`, `docs/RETURN_FLOW_REFINEMENT_2026-10-03.md`. Production unchanged; physical-device/haptic acceptance is separate.
+
+## Analysis clarity and verified PWA updates — 2026-10-03
+
+- Certified productc4f590b / PR88 passes90 local checks, both Engineering gates and full37093986785 including Android phone/tablet; hosted390/820px checks pass at https://ee2927a6.nk-qbank.pages.dev. Preserve fixed Correct/Incorrect/Unattempted colors/counts, recorded-only timing coverage, high-contrast Review Solutions and Insights-only revision-prompt removal. Test Analysis retains practice on its missed IDs.
+- PWA prompts require a waiting worker with a verified different build; matching builds and inactivity stay quiet. Later persists for the tab and active study defers the notice; only an explicit click reloads. See `docs/INTERACTION_QUALITY_2026-10-03.md` for the subsequent interaction pass. Full historical evidence remains in SESSION_LOG; production unchanged and no physical acceptance claimed.

@@ -15,6 +15,7 @@ FOUNDATION_AND_DASHBOARD = r'''function nkAppSubjectMeta(name=activeSubject) {
     if(key.startsWith('uworld · ')){
       if(key.includes('biochemistry'))return {key:'biochemistry',icon:'dna',tone:'magenta'};
       if(key.includes('poisoning'))return {key:'poisoning',icon:'flask',tone:'amber'};
+      if(key.includes('biostatistics'))return {key:'biostatistics',icon:'chart',tone:'blue'};
       if(key.includes('ophthalmology'))return {key:'ophthalmology',icon:'eye',tone:'blue'};
       if(key.includes('female reproductive'))return {key:'female-reproductive',icon:'female',tone:'magenta'};
       if(key.includes('male reproductive'))return {key:'male-reproductive',icon:'male',tone:'blue'};
@@ -37,6 +38,7 @@ FOUNDATION_AND_DASHBOARD = r'''function nkAppSubjectMeta(name=activeSubject) {
     const key=nkAppSubjectMeta(name).key;
     const paths={
       poisoning:'<path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.75 3h10.5A2 2 0 0 0 19 18l-5-9V3M7.5 14h9"/><path d="M10 17h.01M14 18h.01"/>',
+      biostatistics:'<path d="M4 3v17h17M8 15v-4M13 15V6M18 15V9"/>',
       ophthalmology:'<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/>',
       'male-reproductive':'<circle cx="9" cy="15" r="6"/><path d="m13.3 10.7 7.2-7.2M15 3h6v6"/>',
       'female-reproductive':'<circle cx="12" cy="8" r="5"/><path d="M12 13v8M8 18h8"/>',

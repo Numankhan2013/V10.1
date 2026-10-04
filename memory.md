@@ -1020,3 +1020,8 @@ remain unchanged. HTML d65c4ced matches CI. Production086b04f4 remains unchanged
 The original full-run cancellation is recorded honestly; no physical-device,
 live-account or clinical acceptance is inferred. A docs-only certificate keeps
 all application bytes unchanged; no production promotion is authorized.
+
+
+### 2026-10-04 web-first / UWorld hygiene candidate
+
+User prefers previews and requests APKs only on demand. `build-apk.yml` defaults to PWA verification/deployment; manual `build_apk=true` retains Android packaging/testing. Candidate removes raw UWorld explanation disclosure/runtime archives, repairs33 reproductive records and Biochemistry633, and begins the chosen Biostatistics collection with original Block1 questions1–10. Remaining111 complete Biostatistics items are pending. Canonical current evidence and production guard: `.project-memory/STATE.md`; no new production or Android/device certification is claimed.

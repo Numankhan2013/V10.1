@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import hashlib
+import argparse
 import json
 import os
 import subprocess
@@ -21,29 +22,38 @@ def digest(path: Path) -> dict[str, object]:
     return {"path": str(path.relative_to(ROOT)), "bytes": path.stat().st_size, "sha256": h.hexdigest()}
 
 
-apk_files = sorted((ROOT / "app/build/outputs/apk/debug").glob("*.apk"))
-if len(apk_files) != 1:
-    raise SystemExit(f"Expected exactly one debug APK, found {len(apk_files)}")
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--web-only', action='store_true')
+    args = parser.parse_args()
+    if args.web_only:
+        web = ROOT / 'build/web'
+        if not (web / 'index.html').is_file() or not (web / 'sw.js').is_file():
+            raise SystemExit('Generated PWA is missing; refuse an empty manifest')
+        tracked = sorted(p for p in web.rglob('*') if p.is_file())
+        output = ROOT / 'build/NK-QBank-web-manifest.json'
+    else:
+        apk_files = sorted((ROOT / "app/build/outputs/apk/debug").glob("*.apk"))
+        if len(apk_files) != 1:
+            raise SystemExit(f"Expected exactly one debug APK, found {len(apk_files)}")
+        tracked = [ROOT / "app/src/main/assets/index.html",
+                   ROOT / "app/src/main/AndroidManifest.xml",
+                   ROOT / "app/src/main/java/com/qbank/biochemistry/MainActivity.java",
+                   ROOT / ".github/workflows/build-apk.yml", apk_files[0]]
+        output = ROOT / "app/build/outputs/apk/debug/NK-QBank-build-manifest.json"
+    files = [digest(path) for path in tracked]
+    manifest = {
+        "schema": 1, "product": "NK QBank",
+        "platform": 'web' if args.web_only else 'android',
+        "generated_at_utc": datetime.now(timezone.utc).isoformat(),
+        "git_commit": os.environ.get("GITHUB_SHA") or subprocess.check_output(
+            ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip(),
+        "git_ref": os.environ.get("GITHUB_REF_NAME", "local"),
+        "total_bytes": sum(f['bytes'] for f in files), "files": files,
+    }
+    output.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+    print(output, 'files=' + str(len(files)), 'bytes=' + str(manifest['total_bytes']))
 
-tracked = [
-    ROOT / "app/src/main/assets/index.html",
-    ROOT / "app/src/main/AndroidManifest.xml",
-    ROOT / "app/src/main/java/com/qbank/biochemistry/MainActivity.java",
-    ROOT / ".github/workflows/build-apk.yml",
-    apk_files[0],
-]
 
-manifest = {
-    "schema": 1,
-    "product": "NK QBank",
-    "generated_at_utc": datetime.now(timezone.utc).isoformat(),
-    "git_commit": os.environ.get("GITHUB_SHA") or subprocess.check_output(
-        ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True
-    ).strip(),
-    "git_ref": os.environ.get("GITHUB_REF_NAME", "local"),
-    "files": [digest(path) for path in tracked],
-}
-
-output = ROOT / "app/build/outputs/apk/debug/NK-QBank-build-manifest.json"
-output.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
-print(output)
+if __name__ == '__main__':
+    main()

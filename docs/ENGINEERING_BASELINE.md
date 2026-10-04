@@ -34,14 +34,14 @@ The following must not regress during unrelated work:
 5. Run source contract checks before transformation.
 6. Run generated-app checks after every transformation.
 7. Validate JavaScript after the final transformation.
-8. Build and inspect the packaged APK.
-9. Publish the APK together with its SHA-256 build manifest.
+8. Verify/package the generated PWA and publish its complete SHA-256 file manifest.
+9. Build/inspect/publish an APK and its manifest only when explicitly requested (`build_apk=true`); existing APKs remain available.
 10. Promote the PWA only after full CI and explicit user authorization. Promote the accepted Android baseline only after physical-device acceptance.
 
 ## Candidate states
 
 - **Implemented:** source changes exist.
-- **Build-verified:** CI, generated-app, and packaged-APK checks pass.
+- **Build-verified (web):** source CI, generated-app/browser, media/offline and packaged-PWA checks pass. Android verification is separately reported only when requested.
 - **Device-verified:** installed and tested on the physical Android device.
 - **Accepted baseline:** device-verified and explicitly approved.
 

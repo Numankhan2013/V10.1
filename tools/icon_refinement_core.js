@@ -45,6 +45,7 @@
       physiology:'<path d="m12 21-7.5-7.43A5 5 0 0 1 12 7a5 5 0 1 1 7.5 6.57L12 21Z"/>',
       anatomy:'<path d="M15 3a3 3 0 0 1 3 3a3 3 0 1 1-2.12 5.122l-4.758 4.758a3 3 0 1 1-5.117 2.297v-.177h-.176a3 3 0 1 1 2.298-5.115l4.758-4.758A3 3 0 0 1 15 3Z"/>',
       poisoning:'<path d="m7.5 14-2.5 4a2 2 0 0 0 1.75 3h10.5A2 2 0 0 0 19 18l-2.5-4h-9Z"/>',
+      biostatistics:'<rect x="6" y="9" width="4" height="8" rx="1"/><rect x="11" y="4" width="4" height="13" rx="1"/><rect x="16" y="7" width="4" height="10" rx="1"/>',
       ophthalmology:'<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/>',
       'male-reproductive':'<circle cx="9" cy="15" r="6"/>',
       'female-reproductive':'<circle cx="12" cy="8" r="5"/>',

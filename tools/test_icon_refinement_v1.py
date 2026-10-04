@@ -38,7 +38,7 @@ for(const name of names){for(const size of [14,18,22,28]){
 for(const name of ['Anatomy','Physiology','Biochemistry']){
   const icon=nkSubjectGraphic(name,22);assert(icon.includes('nk-subject-svg'));assert(icon.includes('nk-icon-tone'));
 }
-const collectionKeys={'Biochemistry':'biochemistry','Poisoning & Environmental Exposure':'poisoning','Ophthalmology':'ophthalmology','Male Reproductive System':'male-reproductive','Female Reproductive System & Breast':'female-reproductive','Pregnancy, Childbirth & Puerperium':'pregnancy','Future Collection':'uworld'};
+const collectionKeys={'Biochemistry':'biochemistry','Poisoning & Environmental Exposure':'poisoning','Ophthalmology':'ophthalmology','Biostatistics & Epidemiology':'biostatistics','Male Reproductive System':'male-reproductive','Female Reproductive System & Breast':'female-reproductive','Pregnancy, Childbirth & Puerperium':'pregnancy','Future Collection':'uworld'};
 const glyphs=new Set();
 for(const [name,key] of Object.entries(collectionKeys)){
   const icon=nkSubjectGraphic('UWorld · '+name,24);
@@ -46,7 +46,7 @@ for(const [name,key] of Object.entries(collectionKeys)){
   assert(!icon.includes('undefined')&&!icon.includes('http'));
   glyphs.add(icon);
 }
-assert.equal(glyphs.size,7,'collections must not silently share the DNA fallback');
+assert.equal(glyphs.size,Object.keys(collectionKeys).length,'collections must not silently share the DNA fallback');
 for(const name of ['minus','edit','timer'])assert(nkAnalysisIcon(name,18).includes('nk-product-icon'));
 assert(navIcon('future').includes('circle'),'unknown glyph fallback retained');
 console.log('ICON_REFINEMENT_OK glyphs=25 sizes=14,18,22,28 subject_families=3 offline=true');

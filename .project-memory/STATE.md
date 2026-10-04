@@ -2,6 +2,13 @@
 
 > Operational state only. Resolve the live branch/commit and CI from Git before acting. Historical detail belongs in `SESSION_LOG.md` and dedicated handoffs.
 
+## Web-first explanation hygiene + Biostatistics candidate — 2026-10-04
+
+- User prioritizes browser previews and explanation quality; APK packaging and Android emulator checks are now an explicit `build_apk=true` workflow-dispatch option. Pushes/default dispatch retain source, generated-browser, media, offline and packaged-PWA checks. Old APKs remain available; APK size reduction is deferred until requested. Production promotion remains separately guarded.
+- Candidate repairs 33 reproductive questions plus Biochemistry633 with PDF/row-pinned before/after display snapshots. Source JSONLs, answer keys, percentages and existing visual coordinates remain immutable. Runtime/search/fallback prose uses reviewed documents; raw OCR disclosure and extraction archives are omitted from shipped records. Chrome and repeated-page prose fail source validation.
+- User-selected next integration is Biostatistics & Epidemiology. First ten complete questions (original Block1 items1–10/pages1–45) are source reviewed, with six native diagram placements and six typed matrices/tables. The original120-row import is archived unchanged; remaining110 rows plus supplemental19197 stay queued. This is a starter batch, not the complete40-item block or121-item collection.
+- All108 local source/behavior/syntax checks pass. Full PWA CI, actual hosted preview and bounded Impeccable visual review must pass before build/hosted verification is recorded. Production root remains the certified315cfcc release. Details: `docs/UWORLD_HYGIENE_BIOSTATISTICS_2026-10-04.md`.
+
 ## Verified reproductive feature preview — 2026-10-04
 
 - Feature app candidatee9a1c15 is based on docs93a8196/product315cfcc. User authorizes two locally verified additions and one combined preview, explicitly no production promotion. Male52/281pages and Female81/595pages retain two blocks each; original JSONLs/PDFs are pinned to source56fe817. Pregnancy placeholder files are excluded. Report: `docs/UWORLD_REPRODUCTIVE_BATCH.md`.
@@ -24,15 +31,9 @@
 -132 reviewed records/729pages;131 scored questions;1244 unscored because its essential exhibit is absent. Objectives1486/1071/107111 and figure sections1369/1244 are source-clipped. Missing stats stay null; accepted17px/70ch source-native layout, objective-after-explanation and immediate option percentages remain.
 - Practice mistakes only tracks unresolved ordinary Practice/test misses; FSRS-only lapses affect scheduling without creating or resurrecting ordinary mistakes. Correct answers from any flow resolve an ordinary miss. Continuous Revision/Pause/Finish remains accepted. No new installed-Android, haptic or clinical certification is claimed.
 
-## Impeccable interaction quality — 2026-10-03
+## Accepted interaction and analysis refinements
 
-- Impeccable4.5.0 is installed for Codex in `.agents/skills/impeccable`; `DESIGN.md` preserves accepted warm paper/violet/amber, coherent two-tone icons, immediate in-place answering and restrained feedback. Certified interaction/visual/study/return-flow PR89–92 stack on88; their full builds and hosted checks pass. User accepts the subtle aesthetics. Preserve existing haptics, reduced motion, fixed footer, storage, FSRS, navigation and question logic.
-- Latest prior return-flow productaced8f38/full37109357853 passed93 checks and actual hosted390/820px flows at https://4e97ea33.nk-qbank.pages.dev. Source reports: `docs/INTERACTION_QUALITY_2026-10-03.md`, `docs/VISUAL_REFINEMENT_2026-10-03.md`, `docs/STUDY_FLOW_REFINEMENT_2026-10-03.md`, `docs/RETURN_FLOW_REFINEMENT_2026-10-03.md`. Production unchanged; physical-device/haptic acceptance is separate.
-
-## Analysis clarity and verified PWA updates — 2026-10-03
-
-- Certified productc4f590b / PR88 passes90 local checks, both Engineering gates and full37093986785 including Android phone/tablet; hosted390/820px checks pass at https://ee2927a6.nk-qbank.pages.dev. Preserve fixed Correct/Incorrect/Unattempted colors/counts, recorded-only timing coverage, high-contrast Review Solutions and Insights-only revision-prompt removal. Test Analysis retains practice on its missed IDs.
-- PWA prompts require a waiting worker with a verified different build; matching builds and inactivity stay quiet. Later persists for the tab and active study defers the notice; only an explicit click reloads. See `docs/INTERACTION_QUALITY_2026-10-03.md` for the subsequent interaction pass. Full historical evidence remains in SESSION_LOG; production unchanged and no physical acceptance claimed.
+- Impeccable interaction, return-flow, source-search, analysis and PWA-update behavior remains protected. Prior certification and exact preview evidence are recorded in SESSION_LOG and the 2026-10-03 reports under docs/.
 
 ## Canonical lineage
 

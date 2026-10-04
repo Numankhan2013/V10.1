@@ -4,6 +4,7 @@ from pathlib import Path
 import hashlib
 import json
 import math
+from uworld_content_hygiene import validate_display
 
 ROOT = Path(__file__).resolve().parents[1]
 REVIEWED = ROOT / 'data/uworld/reviewed/biochemistry'
@@ -92,6 +93,7 @@ def load_reviewed(rows, pdf_sha, reviewed_dir=None, page_size=(1417,728)):
                 raise ValueError('Incomplete UWorld statistic labels: ' + qid)
             for value in statistics['selection_percent'].values():
                 percentage(value)
+            validate_display(doc)
             result[qid] = doc
     return result
 

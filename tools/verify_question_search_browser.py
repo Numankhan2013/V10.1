@@ -85,8 +85,6 @@ def main() -> None:
                 assert page.evaluate("document.activeElement.matches('.nk-uworld-original>summary')"), 'Figure control trapped focus before Source details'
                 page.keyboard.press('Enter')
                 page.keyboard.press('Tab')
-                assert page.evaluate("document.activeElement.closest('.nk-uworld-original details')!==null")
-                page.keyboard.press('Tab')
                 assert page.evaluate("document.activeElement.matches('.nk-modal-close')"), 'Forward focus escaped the source reference'
                 page.locator('.nk-uworld-reference').get_by_role('button',name='Close',exact=True).click()
                 page.wait_for_function("document.body.style.overflow!=='hidden'")

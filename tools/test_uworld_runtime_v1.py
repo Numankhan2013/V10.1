@@ -43,7 +43,10 @@ for(let n=4;n<=9;n++){
 const legacy={id:'legacy',bank:'PrepLadder',question:'Source stem',correctOption:1,options:[{letter:'A',text:'One'},{letter:'B',text:'Two'}]};
 assert(nkQuestionPresentationFor(legacy).valid);assert.equal(nkStudySupport(legacy,1000),'INCUMBENT:legacy');
 const native=RECORD.questions[0],before=JSON.stringify(native),html=nkStudySupport(native,12000);
-assert(html.includes('nk-uworld-reading'));assert(html.includes('Educational objective'));assert(html.includes('Original OCR explanation'));
+assert(html.includes('nk-uworld-reading'));assert(html.includes('Educational objective'));assert(html.includes('Source details'));
+assert(!html.includes('Original OCR explanation'));assert(!html.includes('Original imports'));
+const unreviewed={...native,uworldDocument:null,uworldSource:{explanation:{text:'RAW_OCR_LEAK',educational_objective:'UNREVIEWED_OBJECTIVE'}}};
+assert(!nkUworldReading(unreviewed).includes('RAW_OCR_LEAK'));assert(!nkUworldReading(unreviewed).includes('UNREVIEWED_OBJECTIVE'));
 assert(!/Key takeaway|Why the other options are wrong|uworld_visuals\//i.test(html));assert.equal(JSON.stringify(native),before);
 const ordered={...native,question:'Full searchable context. Final question prompt.',uworldDocument:{...native.uworldDocument,question:'Full searchable context.',question_blocks:[{type:'paragraph',text:'Final question prompt.'}]}};
 const orderedBefore=JSON.stringify(ordered),stem=nkQuestionStemMarkup(ordered);
