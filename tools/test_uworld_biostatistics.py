@@ -54,6 +54,9 @@ def main():
     assert [o['text'] for o in docs['UWORLD_1284']['options']] == ['0.05 × 8','0.95 × 8','0.05⁸','0.95⁸','1 − 0.05⁸','1 − 0.95⁸']
     assert docs['UWORLD_19105']['options'][4]['text'] == '0.055 to 0.065'
     assert 'SD/√n' in docs['UWORLD_1299']['options'][1]['text']
+    confidence = [n['text'] for n in docs['UWORLD_1299']['explanation'] if n['type']=='paragraph']
+    assert any(t == 'CI of mean = mean ± 1.96 × (SD/√n)' for t in confidence)
+    assert any(t.startswith('Most research is done') for t in confidence)
     assert 'hepatitis C (HCV)' in docs['UWORLD_19691']['question']
     assert all('HGV' not in o['text'] for o in docs['UWORLD_19691']['options'])
     assert docs['UWORLD_19391']['options'][2]['text'] == 'Phase III'
