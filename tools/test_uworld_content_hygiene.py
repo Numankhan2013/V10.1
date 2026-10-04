@@ -17,6 +17,12 @@ def main():
         assert 'uworldTranscript' not in q
         assert 'source_page_ocr' not in q['uworldSource']
         assert q['explanation'] == q['uworldSource']['explanation']['text']
+        for node in q['uworldDocument'].get('question_blocks', []):
+            if node['type'] == 'table':
+                assert all(cell in q['question'] for row in [node['columns']] + node['rows'] for cell in row)
+        for node in q['uworldDocument']['explanation']:
+            if node['type'] == 'table':
+                assert all(cell in q['explanation'] for row in [node['columns']] + node['rows'] for cell in row)
         assert not any(fragment in q['explanation'] for fragment in ['Ela»', 'alee mme', 'Original OCR'])
     first = next(iter(questions.values()))['uworldDocument']
     for mutate in [

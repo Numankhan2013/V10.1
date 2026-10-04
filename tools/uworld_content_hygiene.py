@@ -52,9 +52,15 @@ def learner_question(question):
     and search receive reviewed prose instead of raw extraction text.
     """
     doc = question['uworldDocument']
-    text = '\n\n'.join(n['text'] for n in doc['explanation'] if n['type'] == 'paragraph')
-    full_question = ' '.join([doc['question']] + [n['text'] for n in doc.get('question_blocks', [])
-                                               if n['type'] == 'paragraph'])
+    def searchable_text(node):
+        if node['type'] == 'paragraph':
+            return node['text']
+        if node['type'] == 'table':
+            return '\n'.join([node.get('title', '')] +
+                             ['\t'.join(row) for row in [node['columns']] + node['rows']]).strip()
+        return ''
+    text = '\n\n'.join(filter(None, map(searchable_text, doc['explanation'])))
+    full_question = ' '.join([doc['question']] + list(filter(None, map(searchable_text, doc.get('question_blocks', [])))))
     question = {k: v for k, v in question.items() if k != 'uworldTranscript'}
     question.update(question=full_question, explanation=text,
                     uworldSource={
