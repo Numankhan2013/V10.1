@@ -18,7 +18,12 @@ async function main(){
   assert(['com.qbank.marrowpilot','com.qbank.biochemistry'].includes(pkg));
   const [device]=await android.devices();assert(device,'Android emulator unavailable');
   const output='build/android-interaction';fs.mkdirSync(output,{recursive:true});
-  await device.installApk(fs.readFileSync(apk));
+  // adb streams the file instead of serializing a large APK through Playwright.
+  try{
+    const installed=execFileSync(path.join(sdk,'platform-tools','adb'),['-s',device.serial(),'install','-r','-t',apk],{encoding:'utf8',timeout:180000});
+    assert.match(installed,/Success/,'APK installation must succeed');
+    console.log('ANDROID_APK_INSTALL_OK bytes='+fs.statSync(apk).size);
+  }catch(error){await device.close();throw error;}
   async function launch(){
     let lastError=null;
     for(let attempt=1;attempt<=2;attempt++){

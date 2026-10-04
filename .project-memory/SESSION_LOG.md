@@ -2423,3 +2423,18 @@ unrelated active session.104 local checks and existing320/390/820 Continue plus
 new390/820/1440 Topics/Home browser cases pass. Combined five-collection browser390/820/1194/1440 also passes all133 new
 questions; one full preview CI remains pending. Production315cfcc remains live. No physical-device or
 clinical certification is inferred; report docs/UWORLD_REPRODUCTIVE_BATCH.md.
+
+The combined preview candidate1b956851 passes Engineering37203647000 and
+source media/offline plus UWorld/Continue browser stages in full37203646998.
+Its timed-builder verifier falsely matches Male/Female using an insensitive
+substring. Exact registry subject matching passes locally; verification-only
+candidatee9a1c15/full37205213240 is published for the combined preview.
+Production main-domain hash086b04f4 remains unchanged. Full corrected CI pending.
+
+The deployed e9a1c15 preview passes actual four-width study flows and589
+hosted media hashes/offline paths, retaining283 previous images; HTML d65c4ced
+matches CI. Native verification hit Playwright's APK serialization limit before
+app launch, then timed out. An isolated adb-streaming driver recovery reuses the
+exact37205213240 artifact, checking its commit/APK/packaged HTML hashes without
+rebuilding or deploying. Original full-run success is not claimed. Recovery
+pending; production remains unchanged.

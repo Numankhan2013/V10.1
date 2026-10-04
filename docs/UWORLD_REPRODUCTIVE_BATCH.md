@@ -85,3 +85,31 @@ Local Poppler crops establish source/geometry inspection, not packaged byte
 certification. A single feature preview build must still run the full ordered
 CI PDF/media/PWA/APK and Android phone/tablet checks. No new physical-device,
 clinical, authenticated-account or production acceptance is claimed.
+
+The initial full run37203646998 passed source image/offline and combined UWorld
+checks, then exposed a test-only substring collision: “Male Reproductive
+System” also matched “Female Reproductive System” case-insensitively. The timed
+builder verifier now selects the exact registry subject label and passes
+locally. Corrected candidatee9a1c15/full37205213240 remains pending; product
+selection logic is unchanged. Initial Engineering37203647000 passed.
+
+The corrected build/package job succeeds. Preview
+https://f0ec5f5d.nk-qbank.pages.dev serves HTML SHA-256
+`d65c4ced30a2aff44cb8494fbd350fb70b11612fe3497ec87df266ef7ea8a6a5`,
+matching the CI browser-measured build. Actual hosted390/820/1194/1440px
+UWorld flows pass, including all133 new records. All589 hosted PNG hashes and
+offline paths match the inventory; all283 previous media identities are
+unchanged. The main domain retains production hash086b04f4 after the preview
+upload. Engineering37205213243 passes; Android emulator completion remains
+pending before complete full-run certification. No large APK artifact was
+downloaded locally; package identity is established by CI and hosted byte/hash
+comparison.
+
+The original Android job failed before app launch: Playwright's installApk
+serializes the APK and exceeded Node's string limit, leaving a connection open
+until job timeout. The verification driver now uses bounded adb file streaming
+and closes its device on installation failure. A separate verification-only
+workflow pins source rune9a1c15/37205213240, checks APK/packaged HTML hashes and
+reuses that exact artifact. It never rebuilds or deploys the application.
+Android recovery remains pending; the original full-run conclusion is not
+reported as success.
