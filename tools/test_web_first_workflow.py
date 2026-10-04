@@ -31,6 +31,7 @@ def main():
     approved = (ROOT/'.github/workflows/deploy-approved-main.yml').read_text()
     assert 'Build and verify PWA (optional APK)' in approved
     assert "'V11.7-pwa' || 'V11.7-android-pwa'" in approved
+    assert "'build' || '.'" in approved  # PWA upload has build/ as its common ancestor.
     assert 'tools/approved_release_artifact.py --release-sha' in approved
     assert "contains(github.event.workflow_run.head_commit.message, '[approved-production]')" in approved
     assert 'git ls-remote origin refs/heads/main' in approved

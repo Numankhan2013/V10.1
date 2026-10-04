@@ -28,6 +28,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: ${{ github.event.workflow_run.name == 'Build and verify PWA (optional APK)' && 'V11.7-pwa' || 'V11.7-android-pwa' }}
+          path: ${{ github.event.workflow_run.name == 'Build and verify PWA (optional APK)' && 'build' || '.' }}
           run-id: ${{ github.event.workflow_run.id || '36883871119' }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Verify artifact identity and current main
