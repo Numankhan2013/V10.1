@@ -8,7 +8,7 @@ def verify_imported_collections(page, output, width, reset_practice, open_questi
     reports = []
     for name, key, counts in [('Male Reproductive System', 'male-reproductive', [39, 13]),
                               ('Female Reproductive System & Breast', 'female-reproductive', [41, 40]),
-                              ('Biostatistics & Epidemiology', 'biostatistics', [10])]:
+                              ('Biostatistics & Epidemiology', 'biostatistics', [40])]:
         page.evaluate('QB.nav("uworld")')
         card = page.locator('.nk-uworld-collection').filter(has_text=re.compile(re.escape(name)))
         assert card.locator('.nk-v3-subject-icon svg').get_attribute('data-nk-icon') == key
@@ -59,8 +59,12 @@ def verify_imported_collections(page, output, width, reset_practice, open_questi
             if q['id'] == 'UWORLD_1902':
                 assert all(text in stem for text in ['Testosterone', 'Inhibin', 'FSH', 'LH'])
                 expect(page.locator('.nk-uworld-stem table')).to_have_count(1)
-            if q['id'] in ['UWORLD_15800', 'UWORLD_16001']:
+            if q['id'] in ['UWORLD_15800', 'UWORLD_16001', 'UWORLD_14853', 'UWORLD_1187', 'UWORLD_1285']:
                 expect(page.locator('.nk-uworld-stem img')).to_have_count(1)
+            if q['id'] == 'UWORLD_19691':
+                assert 'hepatitis C (HCV)' in stem and 'HGV' not in stem
+            if q['id'] == 'UWORLD_1272':
+                assert 'β' in page.locator('.option-list').inner_text()
             page.locator('.option-list button').nth(q['correctOption'] - 1).click()
             expect(page.locator('.nk-uworld-objective')).to_be_visible()
             for option in q['options']:
@@ -84,11 +88,17 @@ def verify_imported_collections(page, output, width, reset_practice, open_questi
                 assert '0.45' in explanation and '66/60' in explanation
             if q['id'] == 'UWORLD_14853':
                 expect(page.locator('.nk-uworld-stem img')).to_have_count(1)
+            if q['id'] == 'UWORLD_1299':
+                assert '√n' in explanation
+            if q['id'] == 'UWORLD_19262':
+                assert 'α' in explanation and 'β' in explanation
+                assert 'Type I' in explanation and 'Type II' in explanation
+                expect(page.locator('.nk-uworld-reading table')).to_have_count(1)
             page.wait_for_function('''() => [...document.querySelectorAll('.nk-uworld-reading img')].every(i=>i.complete&&i.naturalWidth>0)''')
             assert not page.evaluate('document.documentElement.scrollWidth>innerWidth'), q['id']
             tables += page.locator('.nk-uworld-reading table,.nk-uworld-stem table').count()
             figures += page.locator('.nk-uworld-reading img,.nk-uworld-stem img').count()
-            if q['id'] == eligible[0]['id'] or q['id'] == 'UWORLD_16001':
+            if q['id'] == eligible[0]['id'] or q['id'] in ['UWORLD_16001','UWORLD_8519','UWORLD_1299','UWORLD_1187','UWORLD_1169','UWORLD_1285','UWORLD_1284','UWORLD_19262']:
                 page.screenshot(path=str(output / f'{key}-{q["id"]}-{width}.png'), full_page=True)
 
         reset_practice()

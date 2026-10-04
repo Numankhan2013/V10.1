@@ -323,3 +323,5 @@ Priority 0: reproduce and restore user-reported unreadable PDF explanations. The
   improved originals when available. Preserve explicit missing values.
 - Future collections reuse typed documents, source pins, image roles, direct
   post-answer option statistics, shared engines and independent crop validation.
+
+- 2026-10-04: Biostatistics complete Block1 (four reviewed10-question batches) is implemented; release after fullCI and hosted verification as explicitly authorized. Next content scope is80 remaining block questions plus complete supplemental19197, each requiring native source review. APK optimization remains deferred until requested.

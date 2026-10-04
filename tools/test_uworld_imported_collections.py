@@ -53,7 +53,7 @@ def main():
     banks = bank_records()
     assert len(banks) == 6 and len(all_ids) == len(set(all_ids)) == 133
     ids = [q['id'] for bank in banks for q in bank['questions']]
-    assert len(ids) == len(set(ids)) == 338
+    assert len(ids) == len(set(ids)) == 368
     _, rows = male.load_source()
     assert [r['question_number'] for r in rows if r['block_number'] == 1] == list(range(1, 40))
     assert all(male.reviewed_documents()[f'UWORLD_{id}']['statistics']['selection_percent'][

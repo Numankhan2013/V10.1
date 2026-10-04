@@ -11,10 +11,10 @@ def main():
     manifest, rows = load_source()
     before = deepcopy(rows)
     docs, bank = reviewed_documents(rows), bank_record()
-    assert len(rows) == len(docs) == len(bank['questions']) == 10
+    assert len(rows) == len(docs) == len(bank['questions']) == 40
     assert manifest['source_pdf_total_pages'] == 548 and manifest['source_block_record_count'] == 40
-    assert [r['question_number'] for r in rows] == list(range(1, 11))
-    assert bank['topics'][0]['title'] == 'Block 1 · Questions 1–10'
+    assert [r['question_number'] for r in rows] == list(range(1, 41))
+    assert bank['topics'][0]['title'] == 'Block 1'
     assert bank['topics'][0]['id'] == 'uworld_biostatistics_epidemiology_block_1'
     pdf = PDF.read_bytes()
     assert ('oid sha256:' + PDF_SHA).encode() in pdf or hashlib.sha256(pdf).hexdigest() == PDF_SHA
@@ -28,7 +28,12 @@ def main():
         assert doc['reviewed_pages'] == original['source']['source_pages']
         assert doc['status'] == 'verified' and doc['educational_objective']
         assert doc['statistics']['answered_correctly_percent'] == original['statistics']['answered_correctly_percent']
-        assert doc['options'] == [{'letter':o['label'],'text':o['text'],'selection_percent':o['selection_percent']} for o in original['options']]
+        assert [(o['letter'], o['selection_percent']) for o in doc['options']] == [(o['label'], o['selection_percent']) for o in original['options']]
+        # Native page review restores corrupted symbols and words. All other
+        # options retain source text, allowing only split-word/case repairs.
+        restored = {'19105', '1299', '19391', '1272', '19691', '19398', '1284'}
+        if row['uworld_question_id'] not in restored:
+            assert [''.join(o['text'].split()).casefold() for o in doc['options']] == [''.join(o['text'].split()).casefold() for o in original['options']]
         validate_display(doc)
     assert rows == before
     hcc = docs['UWORLD_19445']['question_blocks'][0]
@@ -43,8 +48,19 @@ def main():
     assert '≥2 groups' in docs['UWORLD_19308']['explanation'][2]['text']
     assert len(figures(docs['UWORLD_14853'])) == 1
     assert figures(docs['UWORLD_14853'])[0]['role'] == 'question'
-    assert sum(len(figures(d)) for d in docs.values()) == 6
-    print('UWORLD_BIOSTATISTICS_OK reviewed=10 pages=45 source_block_items=40 archival_items=120 figures=6')
+    assert sum(len(figures(d)) for d in docs.values()) == 29
+    assert sorted(p for d in docs.values() for p in d['reviewed_pages']) == list(range(1, 183))
+    assert [o['text'] for o in docs['UWORLD_1272']['options']] == ['α','β','Type I error','Type II error','1 − β']
+    assert [o['text'] for o in docs['UWORLD_1284']['options']] == ['0.05 × 8','0.95 × 8','0.05⁸','0.95⁸','1 − 0.05⁸','1 − 0.95⁸']
+    assert docs['UWORLD_19105']['options'][4]['text'] == '0.055 to 0.065'
+    assert 'SD/√n' in docs['UWORLD_1299']['options'][1]['text']
+    assert 'hepatitis C (HCV)' in docs['UWORLD_19691']['question']
+    assert all('HGV' not in o['text'] for o in docs['UWORLD_19691']['options'])
+    assert docs['UWORLD_19391']['options'][2]['text'] == 'Phase III'
+    assert docs['UWORLD_19398']['options'][1]['text'] == 'Phase II'
+    for qid in ['1187','1285']:
+        assert figures(docs['UWORLD_'+qid])[0]['role'] == 'question'
+    print('UWORLD_BIOSTATISTICS_OK reviewed=40 pages=182 source_block_items=40 archival_items=120 figures=29')
 
 
 if __name__ == '__main__':

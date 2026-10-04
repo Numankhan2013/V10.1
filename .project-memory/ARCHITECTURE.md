@@ -647,3 +647,7 @@ closes the device connection. `verify-android-artifact.yml` can reuse an explici
 pinned build run/commit, requiring its build job success and manifest/APK/packaged
 HTML hash checks before phone/tablet execution. It neither regenerates nor deploys
 the app; recovery evidence is recorded separately from the original full run.
+
+## Web-first artifact and complete Biostatistics Block 1 — 2026-10-04
+
+`uworld_biostatistics.py` reuses the shared imported collection owner for40 questions/pages1–182, four pinned review batches and stable Block1 IDs. Reviewed native question/explanation figures and typed tables use the incumbent presenter. Original120 records remain archival and immutable; unreviewed later blocks stay excluded. `approved_release_artifact.py` verifies every PWA manifest entry, full directory membership, sizes/hashes and exact commit before the approved-main uploader; earlier combined APK artifacts retain their identity checks.

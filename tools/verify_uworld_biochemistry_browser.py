@@ -73,7 +73,7 @@ def main():
                             ('UWorld · Ophthalmology', 'UWorld'): 30,
                             ('UWorld · Male Reproductive System', 'UWorld'): 52,
                             ('UWorld · Female Reproductive System & Breast', 'UWorld'): 81,
-                            ('UWorld · Biostatistics & Epidemiology', 'UWorld'): 10}
+                            ('UWorld · Biostatistics & Epidemiology', 'UWorld'): 40}
                 assert {(r['subject'], r['bank']): r['questions'] for r in records} == expected, records
                 qs = page.evaluate('__uworldTest.questions().filter(q=>q.bank==="UWorld"&&q.collection==="Biochemistry")')
                 assert len(qs) == len({q['id'] for q in qs}) == 132

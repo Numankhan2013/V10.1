@@ -4,7 +4,7 @@ on:
   push:
     branches: ['release/approved-production-20261001']
   workflow_run:
-    workflows: [Build V11.7 Android + PWA]
+    workflows: [Build V11.7 Android + PWA, Build and verify PWA (optional APK)]
     types: [completed]
 
 permissions:
@@ -27,7 +27,7 @@ jobs:
       - name: Download the verified build without rebuilding
         uses: actions/download-artifact@v4
         with:
-          name: V11.7-android-pwa
+          name: ${{ github.event.workflow_run.name == 'Build and verify PWA (optional APK)' && 'V11.7-pwa' || 'V11.7-android-pwa' }}
           run-id: ${{ github.event.workflow_run.id || '36883871119' }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Verify artifact identity and current main
@@ -36,21 +36,7 @@ jobs:
         run: |
           set -eu
           test "$(git ls-remote origin refs/heads/main | cut -f1)" = "$EXPECTED_RELEASE_SHA"
-          python3 - <<'PY'
-          import hashlib, json, os, zipfile
-          from pathlib import Path
-          manifest = json.loads(Path('app/build/outputs/apk/debug/NK-QBank-build-manifest.json').read_text())
-          assert manifest['git_commit'] == os.environ['EXPECTED_RELEASE_SHA'], 'Artifact commit mismatch'
-          assert Path('build/web/index.html').is_file(), 'Missing verified web artifact'
-          apk_items = [item for item in manifest['files'] if item['path'].endswith('.apk')]
-          assert len(apk_items) == 1, 'Expected one verified APK'
-          apk = Path(apk_items[0]['path'])
-          assert hashlib.sha256(apk.read_bytes()).hexdigest() == apk_items[0]['sha256'], 'APK hash mismatch'
-          index = next(item for item in manifest['files'] if item['path'] == 'app/src/main/assets/index.html')
-          with zipfile.ZipFile(apk) as archive:
-              assert hashlib.sha256(archive.read('assets/index.html')).hexdigest() == index['sha256'], 'Packaged app mismatch'
-          print('APPROVED_MAIN_ARTIFACT_OK', manifest['git_commit'])
-          PY
+          python3 tools/approved_release_artifact.py --release-sha "$EXPECTED_RELEASE_SHA"
       - name: Set the Pages production branch to main
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}

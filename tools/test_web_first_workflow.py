@@ -28,6 +28,12 @@ def main():
     assert '--html build/web/index.html' in steps['Verify packaged PWA product contract']
     assert 'inputs.build_apk' not in steps['Deploy PWA preview to Cloudflare Pages']
     assert 'inputs.promote_production' in steps['Promote PWA to Cloudflare Pages production']
+    approved = (ROOT/'.github/workflows/deploy-approved-main.yml').read_text()
+    assert 'Build and verify PWA (optional APK)' in approved
+    assert "'V11.7-pwa' || 'V11.7-android-pwa'" in approved
+    assert 'tools/approved_release_artifact.py --release-sha' in approved
+    assert "contains(github.event.workflow_run.head_commit.message, '[approved-production]')" in approved
+    assert 'git ls-remote origin refs/heads/main' in approved
     print('WEB_FIRST_WORKFLOW_OK pushes=web_only dispatch_default=web_only android=explicit_opt_in production=guarded')
 
 

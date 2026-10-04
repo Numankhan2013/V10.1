@@ -1025,3 +1025,5 @@ all application bytes unchanged; no production promotion is authorized.
 ### 2026-10-04 web-first / UWorld hygiene candidate
 
 User prefers previews and requests APKs only on demand. `build-apk.yml` defaults to PWA verification/deployment; manual `build_apk=true` retains Android packaging/testing. Candidate removes raw UWorld explanation disclosure/runtime archives, repairs33 reproductive records and Biochemistry633, and begins the chosen Biostatistics collection with original Block1 questions1–10. Remaining111 complete Biostatistics items are pending. Canonical current evidence and production guard: `.project-memory/STATE.md`; no new production or Android/device certification is claimed.
+
+2026-10-04 continuation: User explicitly authorizes additional batches, thorough inspection and qualified main/canonical-domain release. Biostatistics now includes complete40-question Block1/pages1–182 with29 native figure placements; remaining81 complete items are queued. All108 local checks pass; full extension CI/hosted/main release evidence belongs in `.project-memory/STATE.md`. APKs remain manual opt-in.
