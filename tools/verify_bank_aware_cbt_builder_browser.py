@@ -36,7 +36,7 @@ def main() -> None:
             banks = page.locator(".nk-cbt-builder .nk-module-subject")
             expect(banks).to_have_count(6 + len(bank_records()))
             for record in bank_records():
-                expect(banks.filter(has_text=record["collection"]).filter(has_text="UWorld")).to_have_count(1)
+                expect(banks.filter(has=page.get_by_text(record["subject"], exact=True))).to_have_count(1)
             expect(banks.filter(has_text="Biochemistry").filter(has_text="UWorld")).to_have_count(1)
             expect(banks.filter(has_text="Poisoning & Environmental Exposure").filter(has_text="UWorld")).to_have_count(1)
             expect(banks.filter(has_text="Anatomy").filter(has_text="UWorld")).to_have_count(0)
