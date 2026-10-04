@@ -29,6 +29,7 @@ def main():
         lambda d: d['explanation'].append({'type': 'paragraph', 'text': 'Answered correctly 96% Time Spent 14 secs'}),
         lambda d: d['options'][0].update(text='Yolk sac tumor Correct answer 96%'),
         lambda d: d['explanation'].append({'type': 'table', 'columns': ['One'], 'rows': [['Exhibit Display']]}),
+        lambda d: d.update(question='Gene schematic t,..._cAA _ :r ___ TA_I_A'),
         lambda d: d['explanation'].extend([{'type':'paragraph','text':' '.join('word'+str(i) for i in range(40))}] * 2),
     ]:
         bad = deepcopy(first); mutate(bad)
@@ -49,6 +50,10 @@ def main():
     assert 'mesoderm, and endoderm' in questions['UWORLD_1928']['explanation']
     assert 'papillae composed of epithelial and myoepithelial cells' in questions['UWORLD_21642']['explanation']
     assert 'high-flow (nonischemic) priapism' in questions['UWORLD_19695']['explanation']
+    gene = questions['uw2024_biochem_12263']
+    assert 'β-globin' in gene['question'] and 't,..._cAA' not in gene['question']
+    assert '13-globin' not in gene['explanation'] and 'β-globin chain production' in gene['explanation']
+    assert gene['uworldDocument']['question_blocks'][-1]['text'].startswith('The base sequence indicated')
     ledger = json.loads((ROOT / 'data/uworld/display_repairs_v1.json').read_text())
     raw_docs = {d['id']: d for p in list((ROOT/'data/uworld/reviewed').glob('*/batch-*.json')) +
                 list((ROOT/'data/uworld/prepared').glob('*/reviewed/batch-*.json'))

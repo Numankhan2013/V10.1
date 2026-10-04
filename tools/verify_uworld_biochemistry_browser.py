@@ -166,7 +166,7 @@ def main():
                     reference.get_by_role('button',name='Close',exact=True).click()
                     expect(reference).to_have_count(0)
                 # Recovered diagram questions and diagram options use native study engines.
-                for qid in ('uw2024_biochem_1036','uw2024_biochem_11914','uw2024_biochem_8328'):
+                for qid in ('uw2024_biochem_1036','uw2024_biochem_11914','uw2024_biochem_8328','uw2024_biochem_12263'):
                     open_question(qid)
                     expect(page.locator('img[data-uworld-essential="true"]').first).to_be_visible()
                     page.wait_for_function('() => [...document.querySelectorAll(\'img[data-uworld-essential="true"]\')].every(i=>i.complete&&i.naturalWidth>0)')
@@ -175,11 +175,18 @@ def main():
                     if qid=='uw2024_biochem_11914':
                         expect(page.locator('.nk-uworld-option-figure img')).to_have_count(5)
                         assert not any('autosomal' in t.lower() or 'dominant' in t.lower() for t in page.locator('.option-list button').all_inner_texts())
+                    if qid=='uw2024_biochem_12263':
+                        stem=page.locator('.nk-uworld-stem').inner_text()
+                        assert 'β-globin' in stem and 't,..._cAA' not in stem
+                        assert 'The base sequence indicated' in stem
                     page.screenshot(path=str(output/f'recovered-diagram-{qid}-{width}.png'))
                     q=page.evaluate('__uworldTest.current()')
                     page.locator('.option-list button').nth(q['correctOption']-1).click()
                     assert page.evaluate('QB.getState().activeSession.submitted[__uworldTest.current().id]===true')
                     page.wait_for_function("() => [...document.querySelectorAll('.nk-uworld-reading img')].every(i=>i.complete&&i.naturalWidth>0)")
+                    if qid=='uw2024_biochem_12263':
+                        explanation=page.locator('.nk-uworld-explanation').inner_text()
+                        assert 'β-globin chain production' in explanation and '13-globin' not in explanation
                     page.screenshot(path=str(output/f'recovered-explanation-{qid}-{width}.png'))
                     if page.locator('.nk-uworld-figure button').count():
                         page.locator('.nk-uworld-figure button').first.click()

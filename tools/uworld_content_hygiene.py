@@ -7,7 +7,8 @@ import re
 CHROME = re.compile(
     r'Exhibit Display|Answered correctly|Collecting Statistics|Correct answer|'
     r'Block Time Elapsed|Time Spent|My Notebook|Flashcards|End Block|'
-    r'https?://t\.me|alee\s+mme|Ela»|\[\s*\[\s*@|©U\w+', re.I)
+    r'https?://t\.me|alee\s+mme|Ela»|\[\s*\[\s*@|©U\w+|'
+    r't,\.\.\._cAA|s•-{8,}', re.I)
 
 
 def display_texts(doc):

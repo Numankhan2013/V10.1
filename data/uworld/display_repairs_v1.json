@@ -4597,6 +4597,131 @@
         "status": "verified"
       },
       "repair": "Remove duplicate screenshot-prefix fragment and watermark transcription; retain complete subsequent source rationale."
+    },
+    {
+      "question_id": "uw2024_biochem_12263",
+      "source_pdf_sha256": "806d95d6f09dde57d34e0d0b5fda69298a7789041bb570ce4fa6dd1c95d4fae9",
+      "source_record_sha256": "dfd1445152ba549cc7d26693f62aebb07fd2ab23373c206637f6149be94496c0",
+      "source_pages": [
+        411,
+        412,
+        413,
+        414,
+        415,
+        416
+      ],
+      "before_display_sha256": "023d6aacb80e015470ea99fdef298e42180dca1e2db1dac9c0097a60304e8d8d",
+      "after_display_sha256": "0b29312d0649dea33dfc2e2a03e9c099251815276507f148d6ee4a46792fedd0",
+      "before_display": {
+        "id": "uw2024_biochem_12263",
+        "source_record_sha256": "dfd1445152ba549cc7d26693f62aebb07fd2ab23373c206637f6149be94496c0",
+        "reviewed_pages": [
+          411,
+          412,
+          413,
+          414,
+          415,
+          416
+        ],
+        "question": "A 6-year-old girl with chronic anemia requiring repeated blood transfusions is undergoing genetic testing. The patient's mother and older sibling have a history of mild anemia. Her peripheral blood smear shows hypochromic, microcytic red blood cells, and hemoglobin electrophoresis reveals a predominance of hemoglobins F and A2. Sequencing of the ~-globin gene is performed using the patient's erythroblast DNA. A schematic representation of the gene and its transcribed RNA is shown in the image below. t,..._cAA _ :r ___ TA_I_A _ __ A_:r_G ____ G_T __ A_G ____ _ :rAAA _ __.I 3' DNA coding strand s•---------------~- 3' mRNAprecursor The base sequence indicated by the bold red arrow is responsible for which of the following functions?",
+        "options": [
+          {
+            "letter": "A",
+            "text": "Enhancement of transcription"
+          },
+          {
+            "letter": "B",
+            "text": "Initiation of transcription"
+          },
+          {
+            "letter": "C",
+            "text": "Initiation of translation"
+          },
+          {
+            "letter": "D",
+            "text": "Repression of transcription"
+          },
+          {
+            "letter": "E",
+            "text": "Termination of transcription"
+          }
+        ],
+        "correct_label": "B",
+        "explanation": [
+          {
+            "type": "figure",
+            "page": 416,
+            "bbox": [
+              360,
+              125,
+              960,
+              490
+            ],
+            "caption": "Transcriptional enhancer diagram showing activator binding and DNA looping to the promoter.",
+            "role": "explanation"
+          },
+          {
+            "type": "figure",
+            "page": 413,
+            "bbox": [
+              360,
+              125,
+              1200,
+              490
+            ],
+            "caption": "Eukaryotic gene organization diagram with enhancer, promoter boxes, coding regions, and transcription landmarks.",
+            "role": "explanation"
+          },
+          {
+            "type": "paragraph",
+            "text": "This patient with chronic microcytic anemia requiring blood transfusions and a predominance of hemoglobins F and A2 on hemoglobin electrophoresis likely has beta-thalassemia, a hereditary blood disorder characterized by reduced 13-globin chain production. The base sequence indicated by the bold red arrow in this patient's 13-globin gene represents the CAAT box, a highly conserved (consensus) sequence that functions as a promoter of transcription in the eukaryotic genome. It is typically located 70-80 bases upstream from the transcription start site. The Hogness (TATA) box is a second promoter region in the eukaryotic genome and is seen just to the right of the CAAT box in the above image. The TATA box is generally located 25 bases upstream from the transcription start site. Both the CAAT box and the TATA box promote initiation of transcription by acting as binding sites for general transcription factors and RNA polymerase II."
+          },
+          {
+            "type": "paragraph",
+            "text": "(Choice A) Enhancer sequences bind activator proteins that facilitate bending of DNA. DNA bending allows activator proteins to interact with general transcription factors and RNA polymerase II at the promoter, increasing the rate of transcription. Enhancers can be located upstream or downstream from the gene being transcribed and may be near the gene or thousands of base pairs away."
+          },
+          {
+            "type": "paragraph",
+            "text": "(Choice C) Translation is initiated in the cytoplasm when a ribosome recognizes the AUG (methionine) start codon on a mature mRNAstrand. The Kozak consensus sequence plays a major role in initiation of the eukaryotic translation process."
+          },
+          {
+            "type": "paragraph",
+            "text": "(Choice D) Silencers are similar to enhancers, but they decrease transcription rates by binding repressor proteins."
+          },
+          {
+            "type": "paragraph",
+            "text": "(Choice E) Eukaryotic transcription termination is not completely understood. In prokaryotes, a palindromic code in the DNA template causes formation of a \"hairpin\" turn in the newly synthesized mRNA, which facilitates detachment of RNA polymerase from the DNA template"
+          }
+        ],
+        "question_blocks": [
+          {
+            "type": "figure",
+            "page": 411,
+            "bbox": [
+              125,
+              165,
+              680,
+              290
+            ],
+            "caption": "β-globin gene schematic with an upstream sequence highlighted.",
+            "role": "question"
+          }
+        ],
+        "educational_objective": "The TATA and CAAT boxes are promoters of transcription in eukaryotic cells and are located approximately 25 and 75 bases upstream from the transcription start site, respectively. They promote initiation of transcription by serving as binding sites for transcription factors and RNA polymerase II",
+        "statistics": {
+          "answered_correctly_percent": 64,
+          "selection_percent": {
+            "A": 26,
+            "B": 64,
+            "C": 4,
+            "D": 2,
+            "E": 2
+          }
+        },
+        "issues": [],
+        "status": "verified"
+      },
+      "repair": "Rendered source pages411 and414–415 confirm β-globin and source prompt. Remove flattened schematic text, retain original question figure and place the source prompt after it; restore β-globin in explanation without altering source keys, options, statistics or figure identity."
     }
   ]
 }
