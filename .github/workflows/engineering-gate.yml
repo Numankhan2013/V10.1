@@ -51,6 +51,8 @@ jobs:
         run: python3 tools/test_continue_practice_resume_v1.py
       - name: Test cross-device merge and PWA contracts
         run: python3 tools/test_cross_device_sync_v1.py
+      - name: Test verified PWA update identity and dismissal
+        run: python3 tools/test_pwa_update_v2.py
       - name: Test FSRS scheduler and queue contracts
         run: python3 tools/test_fsrs_v1.py
       - name: Test question interaction durability and identity
@@ -59,6 +61,10 @@ jobs:
           python3 tools/test_cbt_cleanup_ownership.py
       - name: Verify interaction polish owners
         run: python3 tools/test_interaction_polish_v1.py
+      - name: Verify visual refinement preserves the application
+        run: python3 tools/test_visual_refinement_v1.py
+      - name: Verify shared icon factories preserve labels and dimensions
+        run: python3 tools/test_icon_refinement_v1.py
       - name: Verify native haptic owner
         run: python3 tools/test_android_haptics_v1.py
       - name: Test question presentation contracts
@@ -99,5 +105,13 @@ jobs:
         run: python3 tools/test_question_content_hygiene_v1.py
       - name: Verify source product contract
         run: python3 tools/verify_product_contract.py --stage source
+      - name: Verify crawler exclusion and bounded UWorld source contracts
+        run: |
+          python3 tools/test_crawler_exclusion.py
+          python3 tools/test_uworld_biochemistry_v1.py
+          python3 tools/test_uworld_runtime_v1.py
+          python3 tools/test_uworld_source_text.py
+          python3 tools/test_uworld_reviewed_document.py
+          python3 tools/test_uworld_poisoning.py
       - name: Verify deterministic build pipeline
         run: python3 tools/verify_build_pipeline.py

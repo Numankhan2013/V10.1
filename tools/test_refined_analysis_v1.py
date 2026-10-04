@@ -22,8 +22,16 @@ ctx.t={questionIds:['a','b','c','d','e','f','g'],questionTimes:{a:0,b:29999,c:30
 let time=run('nkAnalysisTimeData(t)');assert.deepEqual(Array.from(time.counts),[2,1,1,1,1]);assert.equal(time.missing,1);assert.equal(time.recorded,6);
 run("nkAnalysisTimeMode='cumulative'");assert.deepEqual(Array.from(run('nkAnalysisTimeData(t)').counts),[2,3,4,5,6]);
 assert.equal(run('nkAnalysisDuration(null)'), '—');assert.equal(run('nkAnalysisDuration(0)'), '0m 0s');
-ctx.row={title:'Zero',subject:'Anatomy',bank:'Marrow',total:2,correct:0,incorrect:2,unattempted:0};assert.match(run('nkAnalysisRow(row)'),/is-incorrect is-muted.*width:100%/);
-ctx.row.incorrect=0;ctx.row.unattempted=2;assert.match(run('nkAnalysisRow(row)'),/is-omitted is-muted.*width:100%/);
+ctx.row={title:'Zero',subject:'Anatomy',bank:'Marrow',total:2,correct:0,incorrect:2,unattempted:0};assert.match(run('nkAnalysisRow(row)'),/is-incorrect.*width:100%/);
+ctx.row.incorrect=0;ctx.row.unattempted=2;assert.match(run('nkAnalysisRow(row)'),/is-omitted.*width:100%/);
+ctx.row={title:'Mixed',subject:'Anatomy',bank:'Marrow',total:2,correct:1,incorrect:0,unattempted:1};
+const mixed=run('nkAnalysisRow(row)');assert.match(mixed,/is-correct.*width:50%/);assert.match(mixed,/is-omitted.*width:50%/);assert.doesNotMatch(mixed,/is-muted/);
+assert.match(mixed,/>1<\/b> Correct/);assert.match(mixed,/>1<\/b> Unattempted/);
+ctx.t={questionIds:['a','b','c','d','e','e'],questionTimes:{a:1000,b:3000,c:5000,d:15000}};
+const short=run('nkAnalysisTimeData(t)');assert.deepEqual(Array.from(short.counts),[4,4,4,4,4]);assert.equal(short.missing,1);
+assert.match(run('nkAnalysisTimeChart(t)'),/All 4 recorded questions took under 30 seconds/);
+assert.match(run('nkAnalysisTimeChart(t)'),/Timing saved for 4 of 5 questions/);
+ctx.t={questionIds:['x','y','z'],questionTimes:{x:NaN,y:-1,z:'1000'}};assert.equal(run('nkAnalysisTimeData(t)').recorded,0);
 const mock=run("nkMockStore('Mock <01>', ['a','b'])");ctx.mockId=mock.id;
 run('nkMockStart(mockId)');assert.deepEqual(Array.from(launched.ids),['a','b']);assert.equal(launched.mode,'exam');assert.equal(launched.title,'Mock <01>');
 ctx.state.tests.push({id:'first',title:'Initial',questionIds:['a','b'],createdAt:1});run('nkMockStart(mockId)');assert.equal(launched.context,'cbt-retake:first');
@@ -31,6 +39,17 @@ ctx.state.savedMocks[0].questionIds.push('missing');launched=null;assert.equal(r
 fail=true;assert.equal(run("nkMockStore('unsaved',['a'])"),null);assert.equal(ctx.state.savedMocks.length,1);
 fail=false;run('nkMockRemove(mockId)');assert.equal(ctx.state.savedMocks.length,0);
 ctx.state.tests=[{id:'named',title:'Old',correct:2,total:3}];run("nkAnalysisRename('named')");assert.equal(ctx.state.tests[0].title,'Renamed mock');assert.equal(ctx.state.tests[0].correct,2);
+// Inline validation does not write; failed saves preserve both metadata and editor text.
+let status={textContent:''},input={value:' ',invalid:null,setAttribute:(k,v)=>{input.invalid=v},removeAttribute:()=>{input.invalid=null},focus:()=>{}};
+ctx.document.getElementById=id=>id==='nk-na-title'?input:status;
+ctx.state.tests=[{id:'rollback',title:'Original',updatedAt:7,correct:2,total:3}];
+const saveCount=saved;run("nkAnalysisRename('rollback')");assert.equal(saved,saveCount);assert.equal(input.invalid,'true');assert.match(status.textContent,/Enter a test name/);
+input.value='Updated';fail=true;run("nkAnalysisRename('rollback')");
+assert.equal(ctx.state.tests[0].title,'Original');assert.equal(ctx.state.tests[0].updatedAt,7);assert.equal(input.value,'Updated');assert.match(status.textContent,/Your text is still here/);
+delete ctx.state.tests[0].updatedAt;run("nkAnalysisRename('rollback')");assert.equal(Object.hasOwn(ctx.state.tests[0],'updatedAt'),false);
+fail=false;run("nkAnalysisRename('rollback')");assert.equal(ctx.state.tests[0].title,'Updated');assert.equal(ctx.state.tests[0].correct,2);
+ctx.state.savedMocks=[{id:'keep',questionIds:['a']}];fail=true;run("nkMockRemove('keep')");assert.equal(ctx.state.savedMocks.length,1);
+fail=false;run("nkMockRemove('keep')");assert.equal(ctx.state.savedMocks.length,0);
 console.log('REFINED_ANALYSIS_BEHAVIOR_OK exact_sets=true missing_questions=true save_failure=true timing_boundaries=true subject_totals=true truthful_zero=true');
 '''.replace('CORE', json.dumps(core))
 subprocess.run(['node'], input=program, text=True, check=True)

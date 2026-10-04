@@ -40,7 +40,7 @@ def main():
                         due=page.locator('.nk-revision-card.is-green').bounding_box()
                         nav=page.locator('.bottom-nav').bounding_box()
                         page.screenshot(path=str(output/f'clarity-revision-top-{width}.png'))
-                        assert due['y']+due['height']<(nav['y'] if width<768 else height), (width,due,nav,'All four revision queues must fit above phone navigation')
+                        assert due['y']+due['height']<(nav['y'] if width<768 else height), (width,due,nav,page.locator('.nk-revision-list').inner_text(),'All four revision queues must fit above phone navigation')
                         page.get_by_role('button',name='Focus questions',exact=True).click()
                         expect(page.locator('#nk-revision-subject')).to_be_visible()
                         page.locator('#nk-revision-subject').select_option('Biochemistry')
@@ -51,7 +51,8 @@ def main():
                     if route=='analytics':
                         assert page.locator('.nk-li-year-activity').bounding_box()['y']<280,(width,'heatmap starts too low')
                         assert page.locator('.nk-li-year-grid button').count()>=365
-                        assert page.locator('.nk-li-card').count()==9
+                        assert page.locator('.nk-li-card').count()==8
+                        assert page.get_by_role('heading',name='Missed-question revision',exact=True).count()==0
                     if route=='fsrs-settings':
                         assert page.locator('.nk-fsrs-field input').count()==3
                         expect(page.get_by_role('button',name='Save changes',exact=True)).to_be_visible()

@@ -1,0 +1,71 @@
+{
+  "nominal_title": "UW 2024 - Biochemistry - 3 blocks - OCR.pdf",
+  "actual_structure": [
+    {
+      "segment": "block_1",
+      "pages": [
+        1,
+        225
+      ],
+      "questions": 40
+    },
+    {
+      "segment": "block_2",
+      "pages": [
+        226,
+        440
+      ],
+      "questions": 40
+    },
+    {
+      "segment": "orphan_complete",
+      "pages": [
+        441,
+        444
+      ],
+      "questions": 1,
+      "qids": [
+        "1434"
+      ]
+    },
+    {
+      "segment": "mini_block_11",
+      "pages": [
+        445,
+        504
+      ],
+      "questions": 11,
+      "source_order": "11→1"
+    },
+    {
+      "segment": "block_3",
+      "pages": [
+        505,
+        729
+      ],
+      "questions": 40,
+      "source_order": "40→1"
+    }
+  ],
+  "policy": "The canonical main JSONL contains exactly the three 40-question blocks. Complete questions outside those nominal blocks are preserved in the supplemental JSONL instead of being silently discarded or mixed into the 120-question set.",
+  "source_limitations": [
+    {
+      "qid": "1486",
+      "field": "educational_objective",
+      "status": "not_visible",
+      "note": "Educational objective heading is visible on page 242, but the objective text is below the captured viewport/obscured in subsequent exhibit-overlay screenshots; no text was invented."
+    },
+    {
+      "field": "answered_correctly_percent",
+      "main_unavailable_count": 10,
+      "supplemental_unavailable_count": 2,
+      "note": "These source screenshots show Collecting Statistics or otherwise do not expose the aggregate percentage; null is preserved instead of guessing."
+    },
+    {
+      "qid": "11914",
+      "field": "option_A_selection_percent",
+      "status": "not_visible",
+      "note": "Rendered answered screenshot exposes B=3%, C=4%, D=3%, E=84%; option A percentage is above the captured viewport and is left null."
+    }
+  ]
+}

@@ -30,6 +30,22 @@ Prefer building over narrating.
 
 ## Intended behavior (protected)
 
+- **UWorld collections:** a separate My UWorld collection library sits below
+  My Subjects. Biochemistry and Poisoning & Environmental Exposure retain their original blocks and mixed-discipline
+  identity. Source-reviewed prose, tables and focused figures preserve original
+  reasoning; source choice discussions have a distinct readable treatment.
+  Educational objectives follow explanations. Source option percentages appear
+  beside the options immediately after answering or in Review Solutions;
+  timed CBT withholds them. Missing source values stay blank. Essential absent
+  exhibits are unscored references, and failed image loads offer Retry.
+
+- **Analysis clarity (2026-10-03):** test breakdown colors always mean Correct,
+  Incorrect and Unattempted, with explicit counts. Insights ranks recorded-answer
+  accuracy and contains no missed-question revision prompt; the result-specific
+  Practise missed questions action remains in Test Analysis. Timing views show
+  ranges or running totals with honest saved-timing coverage. Review Solutions
+  has high-contrast text. PWA notices represent a verified different waiting
+  build, remain dismissible, and never result from inactivity alone.
 - **Final source/image integration:** preserve source-native question and
   explanation image roles, fullscreen zoom, offline image bytes, and stable
   question ownership. Source-backed question recovery uses pinned evidence;
@@ -124,17 +140,19 @@ Prefer building over narrating.
   the Android APK and website/PWA. Every answered question is scheduled;
   Pause commits only answered work, while final session submission makes all
   remaining unanswered questions eligible as skipped. Globally unseen questions stay out.
-- **Resolved mistakes and rating amendments (candidate):** Mistakes uses the
-  latest active answer; a correct retry clears it without deleting history or
-  FSRS eligibility. Correct-answer recall controls remain visible with the saved
+- **Resolved mistakes and rating amendments (candidate):** Practice mistakes tracks
+  unresolved ordinary Practice/test misses. An FSRS-only lapse affects scheduling
+  without creating or resurrecting this queue; any correct answer clears an
+  ordinary miss without deleting history or FSRS eligibility. Correct-answer recall controls remain visible with the saved
   Hard/Good/Easy selection, editable within the same Practice session. An edit
   recalculates that retrieval at its original time, never adding another review,
   score, or study day. Saved-result follow-up shows correction status and launches
   only unresolved original misses; the saved score and topic analysis stay historical.
 - **Revision hub (candidate):** The primary Revision tab offers all-subject, all-bank Mistakes,
-  Bookmarks, Unseen, and Due queues. The first three start random sets of up
-  to 20; Due starts up to 20 in FSRS priority order and honors the existing
-  daily cap. Full searchable Mistakes and Bookmarks lists remain available.
+  Bookmarks, Unseen, and Due queues. Mistakes and Bookmarks snapshot the full eligible focused queue;
+  Due snapshots all admitted cards in FSRS priority order and honors the existing
+  daily cap. Both offer Pause/Finish at any point, preserve exact paused sets,
+  and Finish counts only answered work. Unseen retains its random20-question set. Full searchable Mistakes and Bookmarks lists remain available.
   Subject, bank, and source-topic focus applies to all four queues and counts;
   the default is all subjects and banks. Home shows global due/missed counts and opens Revision.
   Neutral cards retain small semantic icon/count accents; a scoped seven-day
@@ -252,3 +270,10 @@ to revisit from this screen. Answer/rating metadata must not inflate counts or
 time, and recorded time must never be presented as a background activity tracker.
 
 - Result analysis keeps score (correct/all) distinct from accuracy (correct/answered), uses calm green/coral/amber outcomes and saved timing. Only tests offer subject/topic breakdown. Named fixed-question mocks can be saved and repeated; named study modules retain save/resume/restart.
+
+## UWorld Biochemistry source scope — 2026-10-03
+
+Only this132-record collection is integrated:120 nominal plus12 supplemental.
+The source-reviewed reference pilot has131 practice-ready questions and one
+absent-exhibit unscored reference. See the protected behavior above and
+`docs/UWORLD_BIOCHEMISTRY_PILOT.md` for source limitations and scale criteria.

@@ -105,7 +105,7 @@
     const now=Date.now(),next={answers:{...(s.answers||{})},submitted:{...(s.submitted||{})},questionTimes:{...(s.questionTimes||{})},pendingFsrsRatings:{...(s.pendingRating||{})}};
     const questionUpdates={};ids.forEach(id=>questionUpdates[id]=nkCheckpointQuestionUpdate(prior,id,next,now));
     return {version:NK_PRACTICE_CHECKPOINT_VERSION,sessionId:String(s.id),sessionQuestionIds:ids,membershipHash:nkCheckpointMembership(ids),
-      context:{...(s.practiceContext||{}),subject:String(s.practiceContext?.subject||''),bank:String(s.practiceContext?.bank||''),topicId:String(s.practiceContext?.topicId||''),title:String(s.practiceContext?.title||s.title||'Practice')},
+      context:{...(s.practiceContext||{}),...(s.originRoute&&s.originRoute!=='topics'?{originRoute:String(s.originRoute)}:{}),subject:String(s.practiceContext?.subject||''),bank:String(s.practiceContext?.bank||''),topicId:String(s.practiceContext?.topicId||''),title:String(s.practiceContext?.title||s.title||'Practice')},
       position:{index:Math.max(0,Math.min(ids.length-1,Number(s.index)||0)),currentQuestionId:current},answers:next.answers,submitted:next.submitted,
       startedAt:Number(s.startedAt||now),lastTick:Number(s.lastTick||now),elapsedMs:Number(s.elapsedMs||0),questionEnteredAt:Number(s.questionEnteredAt||now),
       questionTimes:next.questionTimes,pendingFsrsRatings:next.pendingFsrsRatings,questionUpdates,lifecycle:lifecycle||String(s.lifecycle||'active'),

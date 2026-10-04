@@ -18,6 +18,14 @@ button:disabled,[aria-disabled="true"]{cursor:default}
 .nk-session-footer{contain:layout style}
 .modal,.nk-session-review,.qb-question-navigator{overscroll-behavior:contain}
 .modal-backdrop{overscroll-behavior:contain}
+.nk-answer-outcome{margin:12px 0 10px;font-size:13px;font-weight:800;line-height:1.5;color:var(--ink,#292653)}
+.nk-answer-outcome.is-correct{color:#11674e}
+.nk-answer-outcome.is-wrong{color:#a4334f}
+/* Enlarge actual controls, not the compact data cells in the activity chart. */
+html body :is(.nk-li-period-nav button,.nk-li-tabs button,.nk-li-year-activity select,.nk-journey-heading button,.nk-filter-tabs button,.nk-continue-learning button,.nk-study-set-main summary,.nk-study-set-main details button,.nk-study-set-action,.nk-source-actions button){min-height:44px!important;min-width:44px!important}
+input,textarea{caret-color:var(--primary,#6951ec)}
+.nk-answer-time strong,.nk-na-time-bars b,.nk-li-stats article>b,.nk-session-progress,.nk-exam-strip strong{font-variant-numeric:tabular-nums}
+@media(hover:none){html body .option:hover{transform:none!important}}
 html body :is(.nk-v114-session,.page,.modal,.qb-nav-panel,.nk-session-review-card){animation:none!important}
 @media(prefers-reduced-motion:reduce){
  html body :is(button,[role="button"],summary,a[href],[onclick],.option,.option-item),html body .bookmark-toggle svg{transition:none!important}

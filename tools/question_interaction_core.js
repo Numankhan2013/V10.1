@@ -109,12 +109,12 @@
   selectPractice=nkQuestionAction(nkIntegritySelectPractice,(id,n,owner)=>{
     const s=state.activeSession,q=nkCurrentQuestion();
     return s?.mode==='practice'&&(owner==null||String(s.id)===String(owner))&&String(q?.id)===String(id)&&!s.submitted?.[id]&&nkValidQuestionOption(q,n);
-  });
+  },()=>typeof nkPatchPracticeOutcome==='function'&&nkPatchPracticeOutcome());
   selectExam=nkQuestionAction(selectExam,(n,id,owner)=>{
     const s=state.activeSession,q=nkCurrentQuestion();
     return s?.mode==='exam'&&(id==null||String(q?.id)===String(id))&&(owner==null||String(s.id)===String(owner))&&!s.strictExpired?.[q?.id]&&(s.timerMode!=='per-question'||typeof nkStrictSpent!=='function'||nkStrictSpent(s,String(q?.id))<60000)&&nkValidQuestionOption(q,n);
   },nkPatchExamChoice);
-  submitPractice=nkQuestionAction(submitPractice,()=>{const s=state.activeSession,q=nkCurrentQuestion();return s?.mode==='practice'&&q&&!s.submitted?.[q.id]&&nkValidQuestionOption(q,s.answers?.[q.id]);});
+  submitPractice=nkQuestionAction(submitPractice,()=>{const s=state.activeSession,q=nkCurrentQuestion();return s?.mode==='practice'&&q&&!s.submitted?.[q.id]&&nkValidQuestionOption(q,s.answers?.[q.id]);},()=>typeof nkPatchPracticeOutcome==='function'&&nkPatchPracticeOutcome());
   // A submitted question is immutable. Starting another session is the existing
   // way to practise again; Review cannot clear answers through a legacy callback.
   retryCurrent=nkQuestionAction(retryCurrent,()=>{const s=state.activeSession,id=s?.questionIds?.[s.index];return s?.mode==='practice'&&!s.submitted?.[id];});

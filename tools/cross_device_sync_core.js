@@ -140,7 +140,10 @@
     nkPendingCreateEmail=email;nkAuthView='create-password';render();nkFocusAuthInput('nk-cloud-create-password');
   }
   function nkCloudAuthStartCreate(){nkAuthView='create-email';nkPendingCreateEmail='';render();nkFocusAuthInput('nk-cloud-create-email');}
-  function nkCloudAuthBack(){nkAuthView='signin';nkPendingCreateEmail='';render();nkFocusAuthInput('nk-cloud-email');}
+  function nkCloudAuthBack(){
+    if(nkAuthView==='create-password'){nkAuthView='create-email';render();nkFocusAuthInput('nk-cloud-create-email');return;}
+    nkAuthView='signin';nkPendingCreateEmail='';render();nkFocusAuthInput('nk-cloud-email');
+  }
   async function nkCloudAuthenticate(mode){
     if(!nkCloudConfigured()){showToast('Firebase is not configured for this build.','bad');return;}
     const creating=mode==='create',email=creating?nkPendingCreateEmail:String(document.getElementById('nk-cloud-email')?.value||'').trim(),password=String(document.getElementById(creating?'nk-cloud-create-password':'nk-cloud-password')?.value||''),confirmPassword=String(document.getElementById('nk-cloud-confirm-password')?.value||'');

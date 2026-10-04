@@ -2,6 +2,7 @@
 """Serve bundled WebView assets from a private HTTPS origin and migrate file-origin state."""
 
 from pathlib import Path
+import re
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -52,10 +53,46 @@ METHODS = r'''
 '''
 
 
+def harden_existing_origin(source: str) -> str:
+    if 'NK_WEBVIEW_MIGRATION_BOUNDARY_V1' in source:
+        return source
+    if 'qbank_origin_migration_v1' not in source:
+        raise ValueError('Install the private app origin before hardening it')
+    source = once(source, 'settings.setAllowFileAccess(true);',
+                  '// NK_WEBVIEW_MIGRATION_BOUNDARY_V1: file access is temporary.\n'
+                  '        settings.setAllowFileAccess(!migrationPrefs.getBoolean("complete", false));\n'
+                  '        settings.setAllowFileAccessFromFileURLs(false);\n'
+                  '        settings.setAllowUniversalAccessFromFileURLs(false);', 'temporary file access')
+    source, count = re.subn(r'webView\.addJavascriptInterface\(new MigrationBridge\(\),\s*"QBankMigration"\);',
+                           'if (!migrationPrefs.getBoolean("complete", false)) webView.addJavascriptInterface(new MigrationBridge(), "QBankMigration");', source)
+    if count != 1:
+        raise ValueError('Expected one migration interface')
+    source = once(source, 'if (webView != null) webView.removeJavascriptInterface("QBankMigration");',
+                  'if (webView != null) { webView.getSettings().setAllowFileAccess(false); webView.removeJavascriptInterface("QBankMigration"); }',
+                  'migration completion boundary')
+    start = source.index('    private WebResourceResponse serveAppAsset(')
+    end = source.index('    private String migrationPayload()', start)
+    method = source[start:end]
+    before, body = method.split('try {', 1)
+    # Requests outside APP_ORIGIN still reach the normal HTTPS network stack.
+    # Missing or rejected paths inside it must never fall through to DNS.
+    method = before + 'try {' + body.replace('return null;', 'return appAssetNotFound();')
+    helper = '''    private static WebResourceResponse appAssetNotFound() {
+        Map<String, String> headers = new HashMap<>();
+        headers.put("X-Content-Type-Options", "nosniff");
+        return new WebResourceResponse("text/plain", "UTF-8", 404, "Not Found", headers,
+                new ByteArrayInputStream("App asset unavailable".getBytes(StandardCharsets.UTF_8)));
+    }
+
+'''
+    return source[:start] + method + helper + source[end:]
+
+
 def main() -> None:
     source = JAVA.read_text(encoding="utf-8")
     if "qbank_origin_migration_v1" in source:
-        print("Android secure origin already installed")
+        JAVA.write_text(harden_existing_origin(source), encoding="utf-8")
+        print("Android secure origin and migration boundary installed")
         return
     source = once(source, "import android.app.Activity;", "import android.app.Activity;\nimport android.content.Context;\nimport android.content.SharedPreferences;", "context imports")
     source = once(source, "import android.webkit.WebChromeClient;", "import android.webkit.JavascriptInterface;\nimport android.webkit.WebChromeClient;", "bridge import")
@@ -68,7 +105,7 @@ def main() -> None:
     source = once(source, "                WebResourceResponse response = renderPdfRequest(request);\n                return response != null ? response : super.shouldInterceptRequest(view, request);", "                WebResourceResponse response = renderPdfRequest(request);\n                if(response==null)response=serveAppAsset(request);\n                return response != null ? response : super.shouldInterceptRequest(view, request);", "asset interception")
     source = once(source, '        setContentView(webView); webView.loadUrl("file:///android_asset/index.html");', '        setContentView(webView);if(migrationPrefs.getBoolean("complete",false))webView.loadUrl(APP_ORIGIN+"index.html");else webView.loadUrl("file:///android_asset/migrate_local_state.html");', "secure app load")
     source = once(source, "    private void preparePdfs() {", METHODS + "    private void preparePdfs() {", "migration methods")
-    JAVA.write_text(source, encoding="utf-8")
+    JAVA.write_text(harden_existing_origin(source), encoding="utf-8")
 
     manifest = MANIFEST.read_text(encoding="utf-8")
     if "android.permission.INTERNET" not in manifest:

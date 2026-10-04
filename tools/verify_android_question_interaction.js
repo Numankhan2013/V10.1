@@ -27,6 +27,11 @@ async function main(){
         const view=await device.webView({pkg,timeout:60000});
         const page=await view.page();page.setDefaultTimeout(30000);
         await page.waitForFunction(()=>location.hostname==='qbank.local'&&window.QB?.getState);
+        await page.waitForFunction(()=>typeof window.QBankMigration==='undefined');
+        assert.equal(await page.evaluate(()=>typeof window.QBankHaptics.play),'function','existing native haptics must remain available');
+        const missing=await page.evaluate(async()=>{const response=await fetch('/app/security-audit-missing-asset.txt');return {status:response.status,text:await response.text()};});
+        assert.equal(missing.status,404,'missing private-origin assets must fail locally');
+        assert.equal(missing.text,'App asset unavailable');
         return page;
       }catch(error){
         lastError=error;

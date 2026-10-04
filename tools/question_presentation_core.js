@@ -102,6 +102,22 @@
 
   function nkQuestionPresentationFor(q){
     if(q?.__nkQuestionPresentation)return q.__nkQuestionPresentation;
+    // UWorld's complete source choices may run A–I. Do not send these through
+    // Marrow extraction repair heuristics or infer a new matching question.
+    if(q?.bank==='UWorld'){
+      const options=Array.isArray(q.options)?q.options:[],correct=Number(q.correctOption);
+      const source=q.uworldSource;
+      const valid=options.length>=4&&options.length<=9&&Number.isInteger(correct)&&correct>=1&&correct<=options.length&&
+        options.every((o,i)=>o.letter===String.fromCharCode(65+i)&&String(o.text||'').trim())&&
+        source?.question_id===q.id&&(source?.source?.bank||source?.bank)==='UWorld'&&source.options?.length===options.length&&
+        correct===String(source.correct_option).toUpperCase().charCodeAt(0)-64&&Boolean(source.explanation?.text?.trim())&&
+        ['ocr-unverified','source-reviewed'].includes(q.uworldPilot?.status)&&q.uworldPilot.requiresVisual===false&&
+        (q.uworldPilot.status!=='source-reviewed'||q.uworldDocument?.status==='verified');
+      const presentation={options,supporting:[],valid,repaired:false,originalOptionCount:options.length};
+      if(q.uworldPilot?.requiresVisual)presentation.unavailableTitle='Diagram needed · reference only';
+      try{Object.defineProperty(q,'__nkQuestionPresentation',{value:presentation,configurable:true});}catch(_){q.__nkQuestionPresentation=presentation;}
+      return presentation;
+    }
     const completeness=nkQuestionCompletenessReview(q);
     if(completeness&&completeness.valid!==false&&completeness.correctOption!=null)q.correctOption=completeness.correctOption;
     const original=Array.isArray(q?.options)?q.options.filter(Boolean):[];

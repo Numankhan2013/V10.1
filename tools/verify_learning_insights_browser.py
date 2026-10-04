@@ -74,7 +74,9 @@ def main():
                 assert page.locator('[data-metric="Questions practised"]>b').inner_text().replace(',', '') == str(model['current']['attempts'])
                 assert model['current']['reviews'] < model['current']['attempts']
                 assert not page.evaluate('document.documentElement.scrollWidth>innerWidth'), f'Horizontal overflow at {width}'
-                assert page.locator('.nk-li-card').count() == 9
+                assert page.locator('.nk-li-card').count() == 8
+                assert page.get_by_role('heading', name='Missed-question revision').count() == 0
+                assert page.get_by_role('button', name='Practise missed questions', exact=False).count() == 0
                 assert page.locator('.nk-li-year-activity').bounding_box()['y'] < page.locator('.nk-li-stats').bounding_box()['y']
                 page.get_by_label('Activity year', exact=True).select_option(str(__import__('datetime').datetime.now().year))
                 assert page.locator('.nk-li-year-grid button').count() >= 365

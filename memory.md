@@ -902,3 +902,62 @@ deployment. Keep main at a68 during the production identity guard.
 Main a68 is build-verified from feature CI, but the user reports its new interactions feel slower across the app. Hold canonical deployment while correcting shared110 ms state/release transitions and added route/question/sheet movement. A/B computed appearance confirms old answer colors persisted on the first frame; correction makes committed colors immediate with no transition. Preserve save/indexing/in-place improvements and rollback. User additionally requests subtle answer haptics: single7/9 ms browser pulses and native CLOCK_TICK outcomes. Fresh responsive/browser/native certification pending on `feature/home-answer-latency`; root still serves1ba.
 
 The first latency correction's full run36959307370 caught a real pre-existing race exposed by faster clicks: a stale250 ms CBT cleanup closed a newly opened Review navigator. Reproduced locally, fenced cleanup to its submitted exam, removed legacy panel animation and added source ownership / generated300 ms Review survival checks. PYQ/mixed/history/Review/follow-up now pass on phone/tablet; fresh full certification is required. Superseded maina68 Android failed at WebView rediscovery after app reset, after its Pause/Back/multi-Pause paths passed.
+
+## UWorld reference refinement — 2026-10-03
+
+Active reference refinement follows certified PR93. User accepts prior pilot
+phone/iPad/desktop typography and continuous Revision; requests a Luna source
+pass, independent My UWorld collection hierarchy and no FSRS-only Practice misses.
+All132 reviewed documents preserve immutable originals;131 are practice-ready,
+1244 is held for an absent essential exhibit. Native tables/focused figures and
+source-labelled choice reasoning preserve UWorld flow; option percentages appear
+beside answers immediately after answering and stay hidden in CBT. See canonical
+STATE and docs/UWORLD_BIOCHEMISTRY_PILOT.md for live certification and limits.
+Production remains unchanged; no medical certification is claimed.
+
+The UWorld reference refinement is now certified at424e0ca8:101 local checks,
+both Engineering gates and full37158603961 including Android phone/tablet.
+Actual hosted390/820/1194/1440px flows pass at https://2f165b3a.nk-qbank.pages.dev.
+PR94 stacks on93; production is unchanged. See canonical STATE and the pilot
+report for exact hashes and remaining source limitations. This handoff is docs-only.
+
+
+The user accepts the Biochemistry reference architecture and authorizes the second
+UWorld collection on October4: Poisoning & Environmental Exposure (33questions).
+Explanation aesthetics are deferred. Shared engines and source-native documents
+remain; canonical STATE and docs/UWORLD_SECOND_COLLECTION.md track current
+verification and source review. Production is unchanged.
+
+Second collection certified at795d94a9:33 Poisoning & Environmental Exposure
+questions,29 native tables,22 focused figures;102 local checks, both Engineering
+gates and full37165147973 including Android phone/tablet emulators pass.
+Actual hosted four-width flows and206 offline media paths pass at
+https://1b80a731.nk-qbank.pages.dev; all184 Biochemistry image hashes are unchanged.
+PR95 is ready, stacked on94. Canonical STATE and UWORLD_SECOND_COLLECTION.md
+record exact hashes/provenance; production is unchanged. This handoff is docs-only.
+
+October4 follow-up: user confirms the second UWorld preview works and requests
+card-footer removal and an app-wide Impeccable quality pass. Active quality branch
+fixes block taxonomy, reference-only search/batches, incompatible native bank
+filters, modal disclosure focus and small builder targets.102 local checks and
+bounded rendered flows pass. Product67a85ee3, both Engineering gates and full
+37184199118 including Android phone/tablet emulators pass. Actual hosted UWorld
+four-width/Search/focus checks pass at https://adf558ca.nk-qbank.pages.dev; all206
+media hashes/offline paths remain unchanged. PR96 is ready, stacked on95. The
+docs-only certified handoff preserves that product artifact; production unchanged.
+Canonical STATE and docs/UWORLD_APP_QUALITY_2026-10-04.md own current details.
+
+October4 next batch: user authorizes reuse of supplied JSONLs/PDFs and chooses
+Ophthalmology as the first PDF-only extraction. Active Ophthalmology branch uses
+the pinned30-question/204-page source56fe817, three Luna/high source batches and
+existing UWorld registry/display/media/study engines. Verification is in progress;
+canonical STATE and docs/UWORLD_OPHTHALMOLOGY_COLLECTION.md own current detail.
+Production and prior certified artifacts remain unchanged.
+
+2026-10-04: The user explicitly authorizes the preproduction UI/UX/function/security
+audit and promotion accessible from https://nk-qbank.pages.dev. Ophthalmology
+30 questions/204 pages/8 tables/77 figures joins the existing UWorld registry.
+The audit branch repairs account Back/contrast, narrow topic controls/focus,
+empty FSRS actions, Android migration/file/private-asset boundaries and hosted
+frame/MIME/referrer headers. Final main CI, Android and exact production-domain
+proof remain required; consult STATE and the preproduction audit report.

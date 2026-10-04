@@ -57,7 +57,10 @@ public class MainActivity extends Activity {
         settings.setJavaScriptEnabled(true);
         settings.setDomStorageEnabled(true);
         settings.setDatabaseEnabled(true);
-        settings.setAllowFileAccess(true);
+        // NK_WEBVIEW_MIGRATION_BOUNDARY_V1: file access is temporary.
+        settings.setAllowFileAccess(!migrationPrefs.getBoolean("complete", false));
+        settings.setAllowFileAccessFromFileURLs(false);
+        settings.setAllowUniversalAccessFromFileURLs(false);
         settings.setAllowContentAccess(false);
         settings.setBuiltInZoomControls(false);
         settings.setDisplayZoomControls(false);
@@ -69,7 +72,7 @@ public class MainActivity extends Activity {
 
         webView.setBackgroundColor(Color.WHITE); webView.setHapticFeedbackEnabled(true);
         webView.setWebChromeClient(new WebChromeClient());
-        webView.addJavascriptInterface(new MigrationBridge(), "QBankMigration");
+        if (!migrationPrefs.getBoolean("complete", false)) webView.addJavascriptInterface(new MigrationBridge(), "QBankMigration");
         webView.addJavascriptInterface(new HapticsBridge(), "QBankHaptics");
         webView.setWebViewClient(new WebViewClient() {
             @Override public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) { return !request.getUrl().toString().startsWith(APP_ORIGIN); }
@@ -115,7 +118,7 @@ public class MainActivity extends Activity {
         @JavascriptInterface public void complete() {
             migrationPrefs.edit().putBoolean("complete", true).remove("state").remove("subject")
                     .remove("sync").remove("auth").remove("backup").apply();
-            runOnUiThread(() -> { if (webView != null) webView.removeJavascriptInterface("QBankMigration"); });
+            runOnUiThread(() -> { if (webView != null) { webView.getSettings().setAllowFileAccess(false); webView.removeJavascriptInterface("QBankMigration"); } });
         }
     }
 
@@ -126,7 +129,7 @@ public class MainActivity extends Activity {
             String path = URLDecoder.decode(request.getUrl().getPath().substring("/app/".length()), "UTF-8");
             if (path.isEmpty()) path = "index.html";
             if (path.startsWith("assets/")) path = path.substring(7);
-            if (path.contains("..") || path.startsWith("/")) return null;
+            if (path.contains("..") || path.startsWith("/")) return appAssetNotFound();
             byte[] bytes;
             try (InputStream in = getAssets().open(path); ByteArrayOutputStream out = new ByteArrayOutputStream()) {
                 byte[] buffer = new byte[16384]; int count;
@@ -142,7 +145,14 @@ public class MainActivity extends Activity {
                 bytes = html.getBytes(StandardCharsets.UTF_8);
             }
             return new WebResourceResponse(mimeType(path), "UTF-8", new ByteArrayInputStream(bytes));
-        } catch (Exception ignored) { return null; }
+        } catch (Exception ignored) { return appAssetNotFound(); }
+    }
+
+    private static WebResourceResponse appAssetNotFound() {
+        Map<String, String> headers = new HashMap<>();
+        headers.put("X-Content-Type-Options", "nosniff");
+        return new WebResourceResponse("text/plain", "UTF-8", 404, "Not Found", headers,
+                new ByteArrayInputStream("App asset unavailable".getBytes(StandardCharsets.UTF_8)));
     }
 
     private String migrationPayload() {

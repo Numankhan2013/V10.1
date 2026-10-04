@@ -41,13 +41,15 @@ for(let i=0;i<35;i++)questions.push({id:'bulk-'+i,subject:'Anatomy',bank:'PrepLa
 questions.push({...questions[0]});
 const state={attempts:{'physiology-9-6':[{id:'a',correct:false,at:1}],
  'marrow__PHYS_CH01_Q001':[{id:'b',correct:true,at:2}]},bookmarks:{'marrow__PHYS_CH01_Q001':{addedAt:3}},activeSession:null};
-let opened=null,started=null,saved=0,toasts=[];const BY_ID={};
+let opened=null,started=null,saved=0,toasts=[],referenceRead=null;const BY_ID={};
 const context={state,BY_ID,Math,Date,window:{},document:{querySelector:()=>null},
  nkAllStudyQuestions:()=>questions,nkFsrsActiveAttempts:id=>state.attempts[id]||[],qAttempts:id=>state.attempts[id]||[],
  fmtNum:n=>String(n),esc:value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),
  navIcon:()=>'',shell:value=>value,showToast:message=>toasts.push(message),openBank:(subject,bank)=>opened=[subject,bank],
  startSession:(ids,mode,title,kind)=>{started={ids,mode,title,kind};state.activeSession={id:'new-session',mode,questionIds:ids,originRoute:'topics'};return true;},
  saveState:()=>{saved++;return true;}};
+context.nkUworldEligible=q=>!q.blocked;
+context.nkUworldReference=id=>{referenceRead=id;return true;};
 vm.createContext(context);vm.runInContext(SOURCE,context);
 const run=code=>vm.runInContext(code,context);
 assert.equal(run('nkQuestionSearchIndex().length'),39,'duplicate bank IDs must not appear twice');
@@ -84,6 +86,30 @@ assert.equal(state.activeSession.id,'exam','search cannot replace an active time
 assert.equal(started.ids[0],'physiology-9-6','blocked search does not start Practice');
 assert(toasts.some(message=>message.includes('timed test')));
 assert(previous.id==='new-session');
+// References remain findable without entering scored Practice, and a stale
+// bank choice cannot hide a newly selected source collection.
+state.activeSession=null;
+for(let i=0;i<25;i++)questions.push({id:'uw-'+i,subject:'UWorld · Test collection',bank:'UWorld',chapter:'Block 1',question:'Source question '+i,options:[],blocked:i===0});
+run("nkQuestionSearchCache=null;nkQuestionSearchQuery('');nkQuestionSearchSetFilter('bank','Marrow');nkQuestionSearchSetFilter('subject','UWorld · Test collection')");
+assert.equal(run('nkQuestionSearchState.bank'),'');
+assert.deepEqual(Array.from(run('nkQuestionSearchBanks()')),['UWorld']);
+assert.equal(run('nkQuestionSearchMatches().rows.length'),25);
+assert(!run('nkQuestionSearchPage()').includes('value="Marrow"'));
+run("nkQuestionSearchQuery('uw-0')");
+assert(run('nkQuestionSearchResultsMarkup()').includes('Read reference'));
+assert(!run('nkQuestionSearchResultsMarkup()').includes('Practice first'));
+const savedBefore=saved,openedBefore=opened,startedBefore=started;
+run("nkQuestionSearchOpen('uw-0')");
+assert.equal(referenceRead,'uw-0');assert.equal(state.activeSession,null);
+assert.equal(opened,openedBefore);assert.equal(started,startedBefore);assert.equal(saved,savedBefore);
+run("nkQuestionSearchQuery('');nkQuestionSearchPracticeMatches()");
+assert.deepEqual(Array.from(started.ids),Array.from({length:20},(_,i)=>'uw-'+(i+1)));
+assert.equal(state.activeSession.originRoute,'question-search');
+run("nkQuestionSearchSetFilter('bank','UWorld');nkQuestionSearchSetFilter('subject','Physiology')");
+assert.equal(run('nkQuestionSearchState.bank'),'');
+assert.deepEqual(Array.from(run('nkQuestionSearchBanks()')),['Marrow','PrepLadder']);
+run("nkQuestionSearchSetFilter('bank','Marrow');nkQuestionSearchSetFilter('subject','Anatomy')");
+assert.equal(run('nkQuestionSearchState.bank'),'Marrow','valid bank selection survives a subject change');
 console.log('QUESTION_SEARCH_BEHAVIOR_OK banks=true text=true id=true filters=true paging=true practice=true testGuard=true');
 '''.replace("SOURCE", source, 1)
     subprocess.run(["node", "-e", script], cwd=ROOT, check=True)

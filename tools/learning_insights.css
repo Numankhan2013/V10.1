@@ -52,3 +52,11 @@
 .nk-li-bin-readout:empty{display:none}
 .nk-li-bars button small{font-variant-numeric:tabular-nums}
 .nk-li-comparison-head span{line-height:1.35;overflow-wrap:anywhere}
+
+/* Accuracy is the filled fraction, with a consistent correct-answer color. */
+.nk-learning-insights .nk-li-accuracy-bar{height:10px;background:#e9edf0;border-radius:5px}
+.nk-learning-insights .nk-li-accuracy-bar>i{background:#159975;border-radius:5px}
+.nk-li-topic strong{font-size:12px}
+.nk-li-topic b{font-size:15px;color:#242348;font-variant-numeric:tabular-nums}
+.nk-li-topic small{font-size:10px;color:#62677a}
+.nk-li-topic em{font-size:9px;color:#7d6545}

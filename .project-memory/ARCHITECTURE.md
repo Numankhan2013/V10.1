@@ -34,6 +34,44 @@ closed. Raw question bundles and audit metadata remain unchanged.
 
 ## Runtime data and assets
 
+- `uworld_collections.py` explicitly registers Biochemistry, Poisoning &
+  Environmental Exposure and Ophthalmology, each with its own `UWorld · collection` namespace
+  in the shared bank registry and lookup, without adding a traditional subject.
+  Home/Library → My UWorld → collection → source blocks uses existing routes
+  and study engines. Read-only aliases resolve legacy Biochemistry/UWorld bank
+  and module scope keys without rewriting persisted records.
+- `uworld_reviewed_document.py` validates per-row/PDF hashes, complete source
+  page review, unchanged option labels/key, ordered paragraph/table/figure nodes,
+  explicit image roles and source percentages. Collection parameters preserve
+  each PDF's hash/display geometry and asset identity. Reviewed JSON batches are
+  display overlays; immutable JSONLs and `uworldSource` remain untouched.
+  `build_uworld_reviewed_figures.py` runs in CI after fetching the pinned LFS PDF,
+  renders lossless focused crops and writes a byte inventory. Recursive PWA
+  asset copying/precache and `verify_uworld_media_package.py` protect web/offline
+  and APK bytes, with a combined source/asset inventory. Source PDFs are not bundled
+  in the UWorld UI. Poisoning's linked pair keeps full context in each item and
+  original metadata; shared free navigation and feedback remain. A–I choices
+  cover the genuine nine-option source item. No other collection is auto-imported.
+  Ophthalmology supplies a PDF-extracted immutable JSONL with per-page OCR audit
+  text and complete ownership, then uses the same reviewed-document/media pipeline.
+  Full searchable stems remain intact while display documents can interleave
+  source exhibits and the final prompt without duplication.
+  Collection blocks bypass the legacy subject taxonomy and use source block names.
+  Search keeps references readable without starting scored sessions; it filters
+  source-blocked UWorld items before batch sampling. Bank choices follow the
+  selected search area, preserving a compatible choice and native control focus.
+- UWorld wraps the shared question presenter, option renderer and explanation
+  surface. Source-reviewed question/option images are essential media; load
+  failures disable unsupported answer commits and expose Retry. Paragraphs,
+  native tables, labelled choice discussions and educational objective preserve
+  source order. Option percentages are inserted in the shared option renderer
+  using its locked Practice/Review state, so in-place outcome feedback reveals
+  them immediately while CBT stays concealed. Images reuse the shared zoom viewer.
+- `nkFsrsPracticeMistake` replays active attempts independently of the existing
+  FSRS mistake classification. Ordinary failures open a Practice mistake;
+  correct answers from any flow resolve it; FSRS-only failures do not open it.
+  Undo filtering, scheduler replay and persisted attempts are unchanged.
+
 - Final source-completeness recovery is pinned in
   `data/question_completeness_reviews_v1.json`. Its compiler validates source
   fingerprints and generates 114 bounded display contracts for the shared
@@ -543,3 +581,45 @@ updates preserve source DOM and rollback. Presses cancel on gestures; short
 motion respects reduced motion. apply_android_haptics_v1.py follows Activity
 regeneration. Ordinary navigation is silent. Ownership and verification:
 docs/INTERACTION_POLISH_2026-10-02.md.
+
+## Analysis and PWA update identity — 2026-10-03
+
+`refined_analysis_core.js` owns fixed outcome segments and labeled counts plus
+saved-timing distributions/running totals. `learning_insights_core.js` keeps
+period-scoped rankings/denominators with a consistent accuracy fill and omits
+its revision prompt card. Result-specific missed/marked/correction APIs remain.
+`pwa_update_core.js` is injected by the existing cross-device owner. Web packaging
+adds `nk-qbank-build` metadata; the service worker replies to `NK_QBANK_VERSION`
+through MessageChannel. Only a verified different waiting worker gets a notice;
+Later is tab/build-scoped and active study defers it. Activation/reload remains
+explicit. Real browser lifecycle checks run in the full packaging workflow.
+
+## UWorld and Revision integration — 2026-10-03
+
+The source-reviewed collection/document/media architecture is described under
+Runtime data and assets above. `uworld_source_text.py` remains the auditable raw
+OCR fallback; reviewed source documents provide the main presentation. Pools
+exclude blocked references before sampling; individual references use the
+existing modal/focus model without changing study state.
+See `docs/UWORLD_BIOCHEMISTRY_PILOT.md` for source limits and scale requirements.
+
+The Revision owner includes `revision_session_core.js`: explicitly tagged full
+eligible Mistakes/Bookmarks/Due snapshots use the existing checkpoint collection
+and restore exact membership/position. Due keeps scheduler priority and daily
+cap. Finish records answered work only. No new persistence schema is introduced.
+
+Web packaging applies crawler exclusion to HTML, robots.txt, static response
+headers and all same-origin source-worker responses. Public repository content
+and direct asset access remain public; this is not authentication.
+
+### Preproduction response and Android boundaries
+
+`tools/web_security_policy.py` supplies one response policy for static Pages
+headers and the source-streaming Worker, including frame denial, MIME protection
+and a restricted cross-origin referrer. Search exclusion, source bytes/ranges,
+validators and offline caching retain their existing owners.
+`apply_android_secure_origin_v1.py` restricts the migration bridge/file access to
+the one-time file-origin migration; completion removes both. Private-origin
+missing/rejected assets return local404; HTTPS API requests retain their normal
+network path. The Android driver checks those boundaries on initial/repeated
+launches while preserving native haptics and existing resume/state checks.
