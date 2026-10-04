@@ -18,6 +18,7 @@ const nkFindStudyQuestion=id=>RECORD.questions.find(q=>q.id===id),showToast=()=>
 let chapterStats=()=>({}),activeBank='UWorld';
 const chapterQuestions=()=>RECORD.questions;
 let dashboard=()=>'<section class="nk-home-progress">',nkStudyLibraryPage=()=>'<main></main>',bankPage=()=>'',topics=()=>'',render=()=>{},nkModuleSelectedRecords=()=>[];
+let nkTopicSection=()=> 'Incumbent section',chapterPage=()=>'<button class="nk-back-link">Topics</button>';
 const NK_UWORLD_BIOCHEMISTRY_BANK={subject:'UWorld · Biochemistry'},qAttempts=()=>[],fmtNum=String,shell=x=>x;
 const NK_UWORLD_COLLECTIONS=[NK_UWORLD_BIOCHEMISTRY_BANK];
 let nkValidQuestionOption=(q,n)=>Boolean(q)&&Number.isInteger(Number(n)),studyModuleDraft=null;
@@ -29,6 +30,8 @@ for(const source of RECORD.questions){
  assert.equal(p.valid,!q.uworldPilot.requiresVisual,q.id);assert(!p.repaired);assert.deepEqual(p.options,q.options);
  assert.strictEqual(nkQuestionPresentationFor(q),p);assert.equal(JSON.stringify(q),before);
 }
+assert.equal(nkTopicSection({id:'uworld_poisoning_block_1'}),'Blocks');
+activeBank='Marrow';assert.equal(nkTopicSection({id:'1'}),'Incumbent section');activeBank='UWorld';
 for(let n=4;n<=9;n++){
  const q={...RECORD.questions[0],id:'choices-'+n,correctOption:n,options:Array.from({length:n},(_,i)=>({letter:'ABCDEFGHI'[i],text:'Choice '+i}))};
  q.uworldSource={...q.uworldSource,question_id:q.id,options:q.options,correct_option:'ABCDEFGHI'[n-1]};

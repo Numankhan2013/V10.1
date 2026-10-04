@@ -136,7 +136,7 @@
   new MutationObserver(nkPolishPanels).observe(document.body,{childList:true,subtree:true});
   document.addEventListener('keydown',event=>{
     if(event.key!=='Tab'||!nkPolishOverlay)return;
-    const nodes=[...nkPolishOverlay.querySelectorAll('button:not(:disabled),a[href],input:not(:disabled),select,textarea,[tabindex="0"]')].filter(node=>node.getClientRects().length);
+    const nodes=[...nkPolishOverlay.querySelectorAll('button:not(:disabled),a[href],input:not(:disabled),select:not(:disabled),textarea:not(:disabled),summary,[tabindex="0"]')].filter(node=>node.getClientRects().length);
     if(!nodes.length)return;
     const first=nodes[0],last=nodes.at(-1);
     if(event.shiftKey&&(document.activeElement===first||!nkPolishOverlay.contains(document.activeElement))){event.preventDefault();last.focus();}

@@ -935,3 +935,10 @@ Actual hosted four-width flows and206 offline media paths pass at
 https://1b80a731.nk-qbank.pages.dev; all184 Biochemistry image hashes are unchanged.
 PR95 is ready, stacked on94. Canonical STATE and UWORLD_SECOND_COLLECTION.md
 record exact hashes/provenance; production is unchanged. This handoff is docs-only.
+
+October4 follow-up: user confirms the second UWorld preview works and requests
+card-footer removal and an app-wide Impeccable quality pass. Active quality branch
+fixes block taxonomy, reference-only search/batches, incompatible native bank
+filters, modal disclosure focus and small builder targets.102 local checks and
+bounded rendered flows pass; full CI and hosted verification remain pending.
+Canonical STATE and docs/UWORLD_APP_QUALITY_2026-10-04.md own current details.

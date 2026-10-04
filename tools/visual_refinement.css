@@ -145,3 +145,6 @@ html body #app :is(.nk-app-v114,.nk-home-command-center,.nk-v114-session) :is(bu
 #nk-na-rename [role="status"]:empty{display:none;}
 #nk-na-rename input[aria-invalid="true"]{border-color:#bc3958;}
 .nk-na-mock-row .nk-na-remove{width:44px;min-width:44px;min-height:44px;}
+
+/* Small builder actions keep the same visual weight with a comfortable target. */
+html body #app :is(.nk-module-builder,.nk-cbt-builder) :is(.nk-module-select-tools button,.nk-module-scope-actions button,.nk-module-group-action){min-height:44px;}

@@ -8,7 +8,10 @@ def verify_poisoning(page, output, width, reset_practice, open_question):
     page.locator('.nk-uworld-collection').filter(has_text=collection).click()
     expect(page.locator('button.nk-topic-row')).to_have_count(1)
     assert collection in page.locator('h1').first.inner_text()
+    assert page.locator('.nk-topic-group>h2').all_inner_texts()==['Blocks']
+    assert '1 blocks' not in page.locator('.nk-topics-v114').inner_text()
     page.locator('button.nk-topic-row').click()
+    expect(page.locator('.nk-chapter-v114 .nk-back-link')).to_have_text('Blocks')
     expect(page.locator('button.nk-library-row')).to_have_count(33)
     reset_practice()
     page.locator('.nk-chapter-actions').get_by_role('button', name='Practice', exact=False).click()
