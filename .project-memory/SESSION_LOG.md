@@ -2309,3 +2309,43 @@ A–I validation handles nine choices and linked stems retain independent contex
 Pause/Continue, labs/graphs, CBT/review/modules and prior FSRS regressions.
 Full CI and hosted certification remain pending. No production promotion or
 physical Android/clinical certification is claimed. Details: UWORLD_SECOND_COLLECTION.md.
+
+## 2026-10-04 — Certified second UWorld collection
+
+Product795d94a9 passes102 local checks, both Engineering gates37165147978/
+37165168319 and full37165147973, including packaged PWA/APK checks and Android
+phone/tablet emulators. Actual hosted390/820/1194/1440px flows pass at
+https://1b80a731.nk-qbank.pages.dev; HTML SHA-256
+8df4bac9be93d1db712bc28e991caab936c9372f20df31296d98a3d44e97f9d9.
+The combined165-document inventory has206 offline media paths; all184 prior
+Biochemistry image hashes remain unchanged. Representative new media hashes,
+crawler headers and the unchanged production hash are verified. All33 Poisoning
+questions also pass an independent rendered walkthrough of29 tables/22 figures.
+The hosted diagnostic uses a standard browser client header and the tools import
+path; bare Python requests are rejected by Cloudflare. No product change was
+needed for that diagnostic environment setup. PR95 is ready and unmerged,
+stacked on94. This documentation-only handoff preserves the exact certified
+product/artifact. No production promotion, physical-device acceptance or clinical
+certification is claimed. Explanation aesthetics and other collections remain deferred.
+
+## 2026-10-04 — UWorld and app-wide quality audit
+
+The user confirms the second preview works and requests removal of redundant
+UWorld collection footers and a broader Impeccable UI/UX/function pass. The
+installed4.5.0 Operate/audit/harden/polish/craft guidance preserves the accepted
+visual world. Three-size empty/populated screenshots and real control paths
+reproduce inherited false topic taxonomy, reference-only Search returning to
+blocks, incompatible bank filters, skipped later modal disclosures and small
+builder targets. Narrow existing owners remove footers, use actual source blocks,
+keep source references unscored/readable, filter them before scored search batches,
+refresh compatible native bank choices without remounting controls, include native
+summaries in modal focus and raise small builder actions to44px. No source/scoring/
+FSRS/storage/sync or motion changes.102 local checks and UWorld/search/interaction
+browser checks pass;78-screen confirmation has no page overflow/errors. Full
+packaged CI and actual hosted certification remain pending; production unchanged.
+
+A deeper keyboard check reproduces closed disclosures retaining layout boxes:
+reverse focus stayed on Close. Full37183638634 is cancelled before preview delivery.
+The shared predicate now excludes descendants of every closed disclosure while
+keeping its own summary accessible. Forward/reverse/nested disclosure regressions,
+102 local checks and repeated interaction checks pass. The replacement build is pending.

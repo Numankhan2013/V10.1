@@ -61,6 +61,55 @@ def main() -> None:
                 page.wait_for_function("id => location.hash==='#practice' && window.QB.getState().activeSession?.questionIds?.[0]===id", arg=PREP_ID)
 
                 page.evaluate("window.QB.nav('question-search')")
+                # A source-blocked item is readable without creating or replacing
+                # scored work, and every disclosure in its modal is keyboard reachable.
+                page.locator('.nk-question-search-filters select').nth(1).select_option('')
+                search.fill('uw2024_biochem_1244')
+                assert page.locator('.nk-question-search-summary button').count()==0
+                snapshot=page.evaluate('JSON.stringify(QB.getState())')
+                opener=page.get_by_role('button',name='Read reference',exact=True)
+                opener.click()
+                page.locator('.nk-uworld-reference').wait_for()
+                assert page.evaluate('JSON.stringify(QB.getState())')==snapshot
+                assert page.evaluate("location.hash==='#question-search'")
+                page.keyboard.press('Shift+Tab')
+                assert page.evaluate("document.activeElement.matches('.nk-uworld-reference-explanation>summary')"), 'Closed nested disclosures captured reverse focus'
+                page.keyboard.press('Tab')
+                assert page.evaluate("document.activeElement.matches('.nk-modal-close')")
+                page.keyboard.press('Tab')
+                assert page.evaluate("document.activeElement.matches('.nk-uworld-reference-explanation>summary')")
+                page.keyboard.press('Enter')
+                assert page.locator('.nk-uworld-reference-explanation').get_attribute('open') is not None
+                page.locator('.nk-uworld-reference-explanation button').last.focus()
+                page.keyboard.press('Tab')
+                assert page.evaluate("document.activeElement.matches('.nk-uworld-original>summary')"), 'Figure control trapped focus before Source details'
+                page.keyboard.press('Enter')
+                page.keyboard.press('Tab')
+                assert page.evaluate("document.activeElement.closest('.nk-uworld-original details')!==null")
+                page.keyboard.press('Tab')
+                assert page.evaluate("document.activeElement.matches('.nk-modal-close')"), 'Forward focus escaped the source reference'
+                page.locator('.nk-uworld-reference').get_by_role('button',name='Close',exact=True).click()
+                page.wait_for_function("document.body.style.overflow!=='hidden'")
+                assert opener.evaluate('n=>n===document.activeElement')
+                search.fill('')
+                page.locator('.nk-question-search-filters select').nth(1).select_option('Marrow')
+                subject=page.locator('.nk-question-search-filters select').first
+                subject.focus()
+                subject.select_option('UWorld · Poisoning & Environmental Exposure')
+                assert subject.evaluate('n=>n===document.activeElement')
+                banks=page.locator('#nk-question-search-bank')
+                assert banks.input_value()==''
+                assert banks.locator('option').evaluate_all('nodes=>nodes.map(n=>n.value)')==['','UWorld']
+                assert page.locator('.nk-question-search-item').count()==30
+                assert '33 matching' in page.locator('.nk-question-search-summary').inner_text()
+                page.get_by_role('button',name='Practice first 20 matches',exact=True).click()
+                page.wait_for_function("QB.getState().activeSession?.questionIds.length===20")
+                assert page.evaluate("QB.getState().activeSession.questionIds.every(id=>id.startsWith('UWORLD_'))")
+                assert page.evaluate("QB.getState().activeSession.originRoute==='question-search'")
+                page.evaluate("QB.nav('question-search')")
+                subject.select_option('')
+                search.fill(PREP_ID)
+                page.locator('.nk-question-search-filters select').nth(1).select_option('PrepLadder')
                 page.evaluate("""() => {const s=window.QB.getState();s.activeSession={id:'search-guard-exam',mode:'exam',questionIds:['x'],index:0,answers:{}};}""")
                 page.locator(".nk-question-search-item button").click()
                 assert page.evaluate("window.QB.getState().activeSession?.id") == "search-guard-exam", "Search replaced an active timed test"

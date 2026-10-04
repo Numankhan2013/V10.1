@@ -136,7 +136,15 @@
   new MutationObserver(nkPolishPanels).observe(document.body,{childList:true,subtree:true});
   document.addEventListener('keydown',event=>{
     if(event.key!=='Tab'||!nkPolishOverlay)return;
-    const nodes=[...nkPolishOverlay.querySelectorAll('button:not(:disabled),a[href],input:not(:disabled),select,textarea,[tabindex="0"]')].filter(node=>node.getClientRects().length);
+    const nodes=[...nkPolishOverlay.querySelectorAll('button:not(:disabled),a[href],input:not(:disabled),select:not(:disabled),textarea:not(:disabled),summary,[tabindex="0"]')].filter(node=>{
+      if(!node.getClientRects().length)return false;
+      // Closed details retain layout boxes in some engines. Only their own
+      // summary is focusable; nested disclosures must satisfy every ancestor.
+      for(let details=node.closest('details:not([open])');details;details=details.parentElement?.closest('details:not([open])')){
+        if(!details.querySelector(':scope > summary')?.contains(node))return false;
+      }
+      return true;
+    });
     if(!nodes.length)return;
     const first=nodes[0],last=nodes.at(-1);
     if(event.shiftKey&&(document.activeElement===first||!nkPolishOverlay.contains(document.activeElement))){event.preventDefault();last.focus();}

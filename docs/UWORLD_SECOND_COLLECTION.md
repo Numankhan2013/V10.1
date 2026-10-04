@@ -71,8 +71,20 @@ context; native lab cells; loaded graph answers/zoom; immediate percentages;
 concealed CBT feedback; Review Solutions; separate frozen modules; and the full
 Biochemistry/reference/failed-media/FSRS-only mistake regression.
 
-Full ordered CI, packaged PWA/APK, Android emulators and hosted certification
-remain pending for the final candidate. Production stays unchanged. Later
-collections must supply their own verified source pins/documents/media; there
-is no automatic import of the entire repository. Explanation styling remains
-a later shared-presenter pass.
+Product `795d94a9a6cdcff4a2d2b51c1f94aaaaac1f5a64` passes both Engineering
+gates37165147978/37165168319 and full ordered run37165147973, including
+packaged PWA/APK checks and Android phone/tablet emulators. PR95 is ready,
+stacked on PR94; this certification handoff edits documentation only.
+
+The actual hosted preview https://1b80a731.nk-qbank.pages.dev passes the same
+390/820/1194/1440px learner flows. HTML SHA-256:
+`8df4bac9be93d1db712bc28e991caab936c9372f20df31296d98a3d44e97f9d9`.
+All206 media paths are in the offline package; all184 Biochemistry image hashes
+match the previous certified preview. Representative new PNG hashes and crawler
+headers pass. An independent browser walkthrough renders all33 questions,
+29 native tables and22 figure placements without raw-object or source-UI leakage.
+
+Production remains at its prior verified HTML hash. No new physical-device
+acceptance or clinical certification is claimed. Later collections must supply
+their own verified source pins/documents/media; there is no automatic import of
+the entire repository. Explanation styling remains a later shared-presenter pass.

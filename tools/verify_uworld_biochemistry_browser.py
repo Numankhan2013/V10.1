@@ -93,11 +93,15 @@ def main():
                 page.evaluate('QB.nav("dashboard")')
                 page.locator('.nk-home-uworld').get_by_role('button',name='Open',exact=False).click()
                 expect(page.locator('.nk-uworld-library h1')).to_have_text('My UWorld')
+                assert page.locator('.nk-uworld-library-note').count()==0
+                assert "UWorld's original collections" not in page.locator('.nk-uworld-library').inner_text()
                 page.screenshot(path=str(output / f'uworld-collections-{width}.png'))
                 expect(page.locator('.nk-uworld-collection')).to_have_count(2)
                 page.locator('.nk-uworld-collection').filter(has_text='Biochemistry').click()
                 expect(page.locator('button.nk-topic-row')).to_have_count(4)
+                assert page.locator('.nk-topic-group>h2').all_inner_texts()==['Blocks']
                 page.locator('button.nk-topic-row').first.click()
+                expect(page.locator('.nk-chapter-v114 .nk-back-link')).to_have_text('Blocks')
                 page.locator('button.nk-library-row').first.click()
                 page.locator('.option-list button').first.wait_for()
                 first = page.evaluate('__uworldTest.current()')
