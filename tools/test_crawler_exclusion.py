@@ -11,6 +11,7 @@ import tempfile
 from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
+from web_security_policy import HEADERS
 DIRECTIVES = "noindex, nofollow, noarchive, nosnippet, noimageindex"
 spec = importlib.util.spec_from_file_location("web_dist_test", ROOT / "tools/build_web_dist.py")
 builder = importlib.util.module_from_spec(spec)
@@ -38,6 +39,8 @@ with tempfile.TemporaryDirectory() as directory:
         assert (out / "robots.txt").read_text() == "User-agent: *\nDisallow: /\n"
         headers = (out / "_headers").read_text()
         assert headers.startswith("/*\n  X-Robots-Tag: " + DIRECTIVES + "\n")
+        for name, value in HEADERS.items():
+            assert '  ' + name + ': ' + value + '\n' in headers
         assert "/sw.js\n  Cache-Control: no-cache" in headers
         assert "/source_visuals/*\n  Cache-Control: public, max-age=31536000, immutable" in headers
         assert "/vendor/*\n  Cache-Control: public, max-age=31536000, immutable" in headers
@@ -51,7 +54,13 @@ with tempfile.TemporaryDirectory() as directory:
             harness = r'''
 const assert=(ok,message)=>{if(!ok)throw Error(message);};
 const tag='noindex, nofollow, noarchive, nosnippet, noimageindex';
-function excluded(response){assert(response.headers.get('X-Robots-Tag')===tag,'missing search exclusion');}
+function excluded(response){
+  assert(response.headers.get('X-Robots-Tag')===tag,'missing search exclusion');
+  assert(response.headers.get('Content-Security-Policy')==="frame-ancestors 'none'",'missing frame restriction');
+  assert(response.headers.get('X-Frame-Options')==='DENY','missing legacy frame restriction');
+  assert(response.headers.get('X-Content-Type-Options')==='nosniff','missing MIME protection');
+  assert(response.headers.get('Referrer-Policy')==='strict-origin-when-cross-origin','missing referrer restriction');
+}
 const requestHeaders={Range:'bytes=0-3','If-Range':'original','If-None-Match':'original','If-Modified-Since':'Wed, 01 Oct 2025 00:00:00 GMT'};
 let upstreamRequest;
 globalThis.fetch=async(url,options)=>{

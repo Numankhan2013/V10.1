@@ -1,8 +1,9 @@
 """Verify same-origin source streaming without fetching or altering medical content."""
 from pathlib import Path
+from web_security_policy import worker_source
 import subprocess,tempfile,json
 p=Path(__file__).with_name('anatomy_pdf_worker.mjs')
-s=p.read_text().replace('__ANATOMY_SOURCE_URL__',json.dumps('https://source.example/anatomy.pdf'))
+s=worker_source('https://source.example/anatomy.pdf')
 s+='''
 const worker=(await import(import.meta.url)).default;
 const assert=(v)=>{if(!v)throw Error('Worker contract failed');};

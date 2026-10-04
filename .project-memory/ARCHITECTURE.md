@@ -611,3 +611,15 @@ cap. Finish records answered work only. No new persistence schema is introduced.
 Web packaging applies crawler exclusion to HTML, robots.txt, static response
 headers and all same-origin source-worker responses. Public repository content
 and direct asset access remain public; this is not authentication.
+
+### Preproduction response and Android boundaries
+
+`tools/web_security_policy.py` supplies one response policy for static Pages
+headers and the source-streaming Worker, including frame denial, MIME protection
+and a restricted cross-origin referrer. Search exclusion, source bytes/ranges,
+validators and offline caching retain their existing owners.
+`apply_android_secure_origin_v1.py` restricts the migration bridge/file access to
+the one-time file-origin migration; completion removes both. Private-origin
+missing/rejected assets return local404; HTTPS API requests retain their normal
+network path. The Android driver checks those boundaries on initial/repeated
+launches while preserving native haptics and existing resume/state checks.

@@ -9,6 +9,7 @@ import json
 import re
 import shutil
 from pathlib import Path
+from web_security_policy import HEADERS, worker_source
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -42,7 +43,7 @@ def main() -> None:
     config=json.loads(re.search(r"=\s*(\{.*\})\s*;",config_path.read_text()).group(1))
     anatomy_url=config.get("anatomyPdfUrl", "")
     if anatomy_url:
-        worker=(ROOT / "tools/anatomy_pdf_worker.mjs").read_text().replace("__ANATOMY_SOURCE_URL__",json.dumps(anatomy_url))
+        worker=worker_source(anatomy_url)
         (out / "_worker.js").write_text(worker)
         # Pages _headers rules do not apply to Worker-generated responses.
         # Route all paths through the bridge so fallthrough/error responses
@@ -66,7 +67,9 @@ def main() -> None:
     sw_text=sw_text.replace("const SHELL=[",'const SHELL='+json.dumps(image_shell)[:-1]+',',1)
     sw.write_text(sw_text, encoding="utf-8")
     (out / "_headers").write_text(
-        "/*\n  X-Robots-Tag: "+ROBOTS_DIRECTIVES+"\n/sw.js\n  Cache-Control: no-cache\n/index.html\n  Cache-Control: no-cache\n/qbank-config.js\n  Cache-Control: no-cache\n/source_visuals/*\n  Cache-Control: public, max-age=31536000, immutable\n/vendor/*\n  Cache-Control: public, max-age=31536000, immutable\n",
+        "/*\n  X-Robots-Tag: "+ROBOTS_DIRECTIVES+"\n"+
+        ''.join('  '+name+': '+value+'\n' for name,value in HEADERS.items())+
+        "/sw.js\n  Cache-Control: no-cache\n/index.html\n  Cache-Control: no-cache\n/qbank-config.js\n  Cache-Control: no-cache\n/source_visuals/*\n  Cache-Control: public, max-age=31536000, immutable\n/vendor/*\n  Cache-Control: public, max-age=31536000, immutable\n",
         encoding="utf-8",
     )
     (out / "robots.txt").write_text("User-agent: *\nDisallow: /\n", encoding="utf-8")

@@ -953,3 +953,11 @@ the pinned30-question/204-page source56fe817, three Luna/high source batches and
 existing UWorld registry/display/media/study engines. Verification is in progress;
 canonical STATE and docs/UWORLD_OPHTHALMOLOGY_COLLECTION.md own current detail.
 Production and prior certified artifacts remain unchanged.
+
+2026-10-04: The user explicitly authorizes the preproduction UI/UX/function/security
+audit and promotion accessible from https://nk-qbank.pages.dev. Ophthalmology
+30 questions/204 pages/8 tables/77 figures joins the existing UWorld registry.
+The audit branch repairs account Back/contrast, narrow topic controls/focus,
+empty FSRS actions, Android migration/file/private-asset boundaries and hosted
+frame/MIME/referrer headers. Final main CI, Android and exact production-domain
+proof remain required; consult STATE and the preproduction audit report.

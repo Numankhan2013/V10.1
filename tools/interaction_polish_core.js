@@ -150,4 +150,26 @@
     if(event.shiftKey&&(document.activeElement===first||!nkPolishOverlay.contains(document.activeElement))){event.preventDefault();last.focus();}
     else if(!event.shiftKey&&(document.activeElement===last||!nkPolishOverlay.contains(document.activeElement))){event.preventDefault();first.focus();}
   });
+  // Filtering updates immediately while preserving keyboard and strip position.
+  if(typeof setTopicFilter==='function'){
+    const nkPolishOriginalTopicFilter=setTopicFilter;
+    setTopicFilter=function(value){
+      const strip=document.querySelector('.nk-topics-v114 .nk-filter-tabs');
+      const focused=Boolean(strip?.contains(document.activeElement));
+      const scroll=strip?.scrollLeft||0;
+      const result=nkPolishOriginalTopicFilter(value);
+      const next=document.querySelector('.nk-topics-v114 .nk-filter-tabs');
+      const selected=next?.querySelector('button.is-active');
+      if(next){
+        next.scrollLeft=scroll;
+        if(selected){
+          if(focused)selected.focus({preventScroll:true});
+          const outer=next.getBoundingClientRect(),inner=selected.getBoundingClientRect();
+          if(inner.left<outer.left)next.scrollLeft-=outer.left-inner.left;
+          else if(inner.right>outer.right)next.scrollLeft+=inner.right-outer.right;
+        }
+      }
+      return result;
+    };
+  }
   /* NK_INTERACTION_POLISH_V1_END */

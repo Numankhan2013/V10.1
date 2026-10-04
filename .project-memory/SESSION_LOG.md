@@ -2380,3 +2380,16 @@ stems and ordered display stems have separate roles for inline exhibits.
 Only Ophthalmology is added. Other supplied packages remain queued. The accepted
 UWorld appearance and shared study/storage/sync engines remain protected. Source
 review/full verification and hosted certification are in progress; production unchanged.
+
+## 2026-10-04 — User authorizes preproduction audit and main-domain release
+
+While Ophthalmology candidate4b23940 builds, the user explicitly requests a complete
+UI/UX/function/security audit, confirmed fixes and promotion accessible through the
+main domain. A fresh122-state browser capture precedes fixes. Confirmed issues:
+account creation Back returns to sign-in and loses the email step; narrow Topics
+clips the index action and crowds filter labels; dedicated FSRS offers an active
+zero-card start action. Security review finds that completed Android starts still
+expose the migration bridge/file access and private asset failures can fall through
+to networking; hosted responses lack frame restrictions. The scoped repair branch
+reuses existing owners and shared engines. Production remains the previous release
+until the final candidate's full main CI and exact-artifact promotion succeed.

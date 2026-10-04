@@ -347,6 +347,8 @@ async function testRequests(){
   assert(signedOutCard.includes('Sign in to QBank')&&signedOutCard.includes('Create account')&&!signedOutCard.includes("nkCloudAuthenticate('create')"),'auth card must present one sign-in action and a separate create-account entry');
   const authFields={'nk-cloud-create-email':{value:'new@example.com',checkValidity:()=>true,focus(){}},'nk-cloud-create-password':{value:'strong-password',focus(){}},'nk-cloud-confirm-password':{value:'strong-password',focus(){}}};document.getElementById=id=>authFields[id]||null;document.querySelector=()=>null;
   nkCloudAuthStartCreate();nkCloudAuthNext();assert(nkAuthView==='create-password'&&nkPendingCreateEmail==='new@example.com','create-account flow must advance from email to password');
+  nkCloudAuthBack();assert(nkAuthView==='create-email'&&nkPendingCreateEmail==='new@example.com','Back from password must retain the email step and address');
+  nkCloudAuthNext();
   globalThis.fetch=async(url,options)=>({ok:true,text:async()=>JSON.stringify({localId:'new-user',email:'new@example.com',idToken:'not-saved',refreshToken:'not-saved',expiresIn:'3600'})});
   await nkCloudAuthenticate('create');
   assert(nkAuthView==='signin'&&nkSignInEmail==='new@example.com'&&!nkAuth&&!localStorage.getItem('qbank_firebase_auth_v1'),'creating an account must return to the sign-in step without auto-signing in');

@@ -4,9 +4,9 @@
 
 ## UWorld PDF-only Ophthalmology batch — 2026-10-04
 
-- Active `feature/home-uworld-ophthalmology-20261004`, based on certified quality product67a85ee3 / docs handoff676c1b5e. User authorizes reuse of existing JSONLs/PDFs and selects Ophthalmology as the first PDF-only extraction. Only this30-question block is in this batch; other supplied packages remain queued. No production promotion is authorized.
+- Active `feature/home-uworld-ophthalmology-20261004`, based on certified quality product67a85ee3 / docs handoff676c1b5e. User authorizes reuse of existing JSONLs/PDFs and selects Ophthalmology as the first PDF-only extraction. Only this30-question block is in this batch; other supplied packages remain queued. The user now explicitly authorizes a broader UI/UX/function/security audit and promotion to the main domain after verification.
 - Original204-page/45,046,309-byte PDF at source56fe817 is pinned to SHA-256ab4aadac54fbc78c9db9fca4b561cb5d0ee0ba4ade3f72066c72bf64021843dc. Three user-authorized Luna/high source batches extract/review every page, preserving original keys, prose, percentages, objectives, tables and exhibits. Extracted rows keep original per-page OCR/provenance; source image review is required even without a supplied JSONL.
-- Existing UWorld registry, typed presenter, media/package pipeline and shared study engines are reused. Full stem text remains searchable while ordered display blocks retain inline exhibit placement. Source extraction, local/browser/full CI and hosted proof are in progress; no Ophthalmology build/device/content acceptance is claimed yet. See `docs/UWORLD_OPHTHALMOLOGY_COLLECTION.md` when written.
+- Existing UWorld registry, typed presenter, media/package pipeline and shared study engines are reused. Full stem text remains searchable while ordered display blocks retain inline exhibit placement. Source extraction and103 local checks pass. Candidate4b23940 passes full37188960243 including Android and both Engineering gates; `review/preproduction-audit-20261004` adds confirmed account Back, narrow topic-control, empty FSRS and response/WebView security repairs. Final full CI and production proof remain pending; no Ophthalmology build/device/content acceptance is claimed yet. See `docs/UWORLD_OPHTHALMOLOGY_COLLECTION.md` when written.
 
 ## Certified UWorld and app-wide quality pass
 

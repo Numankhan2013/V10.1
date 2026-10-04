@@ -148,3 +148,11 @@ html body #app :is(.nk-app-v114,.nk-home-command-center,.nk-v114-session) :is(bu
 
 /* Small builder actions keep the same visual weight with a comfortable target. */
 html body #app :is(.nk-module-builder,.nk-cbt-builder) :is(.nk-module-select-tools button,.nk-module-scope-actions button,.nk-module-group-action){min-height:44px;}
+
+/* Keep topic controls reachable without squeezing their labels. */
+html body #app .nk-journey-heading h1{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+html body #app .nk-journey-heading button{flex-shrink:0}
+html body #app .nk-topics-v114 .nk-filter-tabs button{flex-shrink:0;flex-basis:auto}
+
+html body #app .nk-cloud-card .primary-btn{color:#fff!important}
+html body #app .nk-fsrs-page-v3 .nk-v3-primary:disabled{opacity:.55;cursor:default;box-shadow:none}

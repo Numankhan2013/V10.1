@@ -1,9 +1,11 @@
 /* Same-origin streaming bridge for the configured, unchanged Anatomy source. */
 const SOURCE_URL=__ANATOMY_SOURCE_URL__;
 const ROBOTS_DIRECTIVES='noindex, nofollow, noarchive, nosnippet, noimageindex';
+const SECURITY_HEADERS=__WEB_SECURITY_HEADERS__;
 function excludeFromSearch(response) {
   const headers=new Headers(response.headers);
   headers.set('X-Robots-Tag',ROBOTS_DIRECTIVES);
+  for(const [name,value] of Object.entries(SECURITY_HEADERS))headers.set(name,value);
   return new Response(response.body,{status:response.status,statusText:response.statusText,headers});
 }
 export default {
