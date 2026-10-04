@@ -638,3 +638,12 @@ the one-time file-origin migration; completion removes both. Private-origin
 missing/rejected assets return local404; HTTPS API requests retain their normal
 network path. The Android driver checks those boundaries on initial/repeated
 launches while preserving native haptics and existing resume/state checks.
+
+## Exact Android artifact verification — 2026-10-04
+
+The native interaction driver installs an APK by bounded adb file streaming,
+without serializing it through Playwright's Node transport. Installation failure
+closes the device connection. `verify-android-artifact.yml` can reuse an explicitly
+pinned build run/commit, requiring its build job success and manifest/APK/packaged
+HTML hash checks before phone/tablet execution. It neither regenerates nor deploys
+the app; recovery evidence is recorded separately from the original full run.

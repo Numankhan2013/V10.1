@@ -68,48 +68,48 @@ conflict protection, durable Pause and the accepted warm-paper/violet appearance
 remain intact. Impeccable guidance was applied to clarity and coherent state
 feedback; no animation delays were added.
 
-## Verification boundary
+## Verification
 
 104 local source/behavior/syntax checks pass. Continue Practice browser checks
 pass at320/390/820px, including multiple paused sessions, durable resume,
-submission and special-mode boundaries. The targeted Topics/Today's Focus
-browser suite passes at390/820/1440px, including reload, exact bank scoping,
-question position and completed-bank behavior. Updated source collection,
-icon and build-order checks pass after final crop corrections.
+submission and special-mode boundaries. Targeted Topics/Today's Focus checks
+pass at390/820/1440px, including reload, bank scoping, saved position and
+completed banks. The local five-collection diagnostic also passes all133 new
+questions at390/820/1194/1440px; its Poppler crops establish source geometry,
+not packaged byte certification.
 
-The combined five-collection browser check passes at390/820/1194/1440px
-against a local diagnostic generated from the previously certified app with
-current owners, including all133 new questions, tables, figures, source
-statistics/objectives, Pause/Continue and timed CBT/Review Solutions.
-Local Poppler crops establish source/geometry inspection, not packaged byte
-certification. A single feature preview build must still run the full ordered
-CI PDF/media/PWA/APK and Android phone/tablet checks. No new physical-device,
-clinical, authenticated-account or production acceptance is claimed.
+[Engineering37205213243](https://github.com/Numankhan2013/V10.1/actions/runs/37205213243)
+and the complete build/package job in
+[37205213240](https://github.com/Numankhan2013/V10.1/actions/runs/37205213240)
+pass. An earlier timed-builder check used a case-insensitive substring that
+matched both Male and Female; it now matches the exact registry subject label
+and passes locally and in CI. App selection logic is unchanged.
 
-The initial full run37203646998 passed source image/offline and combined UWorld
-checks, then exposed a test-only substring collision: “Male Reproductive
-System” also matched “Female Reproductive System” case-insensitively. The timed
-builder verifier now selects the exact registry subject label and passes
-locally. Corrected candidatee9a1c15/full37205213240 remains pending; product
-selection logic is unchanged. Initial Engineering37203647000 passed.
+The original full run is cancelled after Playwright's APK installer hits Node's
+string limit before launch; it is not described as green. The driver now streams
+the file with adb and closes the device on installation failure. Android-only
+[recovery37208580256](https://github.com/Numankhan2013/V10.1/actions/runs/37208580256)
+at verifier33642325 validates and reuses the exact674,756,225-byte APK for product
+e9a1c15 without regeneration or deployment. Both phone and tablet pass native
+Back/exit confirmation, force-stop resume, three durable paused sessions,
+Practice/Review/FSRS, PYQ CBT/Review, timed-grid abandon and retake comparison.
 
-The corrected build/package job succeeds. Preview
-https://f0ec5f5d.nk-qbank.pages.dev serves HTML SHA-256
-`d65c4ced30a2aff44cb8494fbd350fb70b11612fe3497ec87df266ef7ea8a6a5`,
-matching the CI browser-measured build. Actual hosted390/820/1194/1440px
-UWorld flows pass, including all133 new records. All589 hosted PNG hashes and
-offline paths match the inventory; all283 previous media identities are
-unchanged. The main domain retains production hash086b04f4 after the preview
-upload. Engineering37205213243 passes; Android emulator completion remains
-pending before complete full-run certification. No large APK artifact was
-downloaded locally; package identity is established by CI and hosted byte/hash
-comparison.
+The verified preview is **https://f0ec5f5d.nk-qbank.pages.dev**. Actual hosted
+390/820/1194/1440px flows pass for all133 new questions, alongside the prior
+three collections. HTML SHA-256
+`d65c4ced30a2aff44cb8494fbd350fb70b11612fe3497ec87df266ef7ea8a6a5`
+matches the CI browser-measured build. All589 hosted image hashes and offline
+paths match the package; all283 previous media identities remain unchanged.
+No large APK artifact was downloaded locally; package identity comes from CI,
+exact-artifact recovery and hosted hash comparison.
 
-The original Android job failed before app launch: Playwright's installApk
-serializes the APK and exceeded Node's string limit, leaving a connection open
-until job timeout. The verification driver now uses bounded adb file streaming
-and closes its device on installation failure. A separate verification-only
-workflow pins source rune9a1c15/37205213240, checks APK/packaged HTML hashes and
-reuses that exact artifact. It never rebuilds or deploys the application.
-Android recovery remains pending; the original full-run conclusion is not
-reported as success.
+Production https://nk-qbank.pages.dev retains its prior HTML SHA-256
+`086b04f41fcf610af844b76652b7c6368392dc26d9bd8f609b258b2a6e77897b`
+after preview upload. No production promotion is authorized. No physical-device,
+live-account or clinical certification is inferred.
+
+For the next batch, keep the explicit registry, immutable sources, pinned
+normalization repairs and complete source review. Track image/APK size alongside
+coverage before a substantially larger rollout; this batch exposed a real
+verification transport limit. Preserve source fidelity while considering reuse
+of unchanged generated figures to reduce repeated CI work.

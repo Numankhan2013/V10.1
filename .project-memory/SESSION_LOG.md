@@ -2438,3 +2438,17 @@ app launch, then timed out. An isolated adb-streaming driver recovery reuses the
 exact37205213240 artifact, checking its commit/APK/packaged HTML hashes without
 rebuilding or deploying. Original full-run success is not claimed. Recovery
 pending; production remains unchanged.
+
+## 2026-10-04 — Reproductive preview and exact-artifact Android checks verified
+
+Feature app e9a1c15 passes Engineering37205213243 and the complete build/package
+job37205213240. Native installation hit Playwright's string limit before launch;
+verifier33642325/recovery37208580256 validates the exact674756225-byte APK and
+uses adb streaming without rebuilding or deployment. Phone/tablet native Back,
+force-stop/multi-pause recovery, FSRS, CBT/Review and retake comparisons pass.
+Hosted https://f0ec5f5d.nk-qbank.pages.dev passes390/820/1194/1440px study flows
+for all133 new questions and589 image hashes/offline paths; prior283 identities
+remain unchanged. HTML d65c4ced matches CI. Production086b04f4 remains unchanged.
+The original full-run cancellation is recorded honestly; no physical-device,
+live-account or clinical acceptance is inferred. A docs-only certificate keeps
+all application bytes unchanged; no production promotion is authorized.
