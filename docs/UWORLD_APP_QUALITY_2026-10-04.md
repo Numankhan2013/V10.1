@@ -30,7 +30,7 @@ A single combined78-screen confirmation checks the same sizes after repairs.
 | P1 | Search advertises Practice for the absent-exhibit Biochemistry1244; activation sends the user to blocks with a toast. | Label it Read reference and open the existing source reference view on Search. The live session, attempts, score and FSRS are unchanged. |
 | P1 | A search batch can include that blocked reference; the shared gate then reduces IDs after the advertised batch count. | Keep references searchable, exclude them before sampling and counting scored batches, and omit the batch action when only references match. |
 | P2 | Choosing a UWorld collection after Marrow retains an impossible bank filter and shows no questions. | Offer banks from the selected area; preserve compatible selections, clear incompatible ones and update the existing native picker without losing focus. |
-| P1 | After the last figure button in a reference dialog, Tab returns to Close and skips later Source details disclosures. | Include visible native summaries and enabled form fields in the shared modal focus order; retain its focus containment and opener restoration. |
+| P1 | After the last figure button in a reference dialog, Tab returns to Close and skips later Source details disclosures. | Include visible native summaries and enabled form fields in the shared modal focus order, excluding content inside every closed disclosure ancestor; retain forward/reverse containment and opener restoration. |
 | P2 | Builder selection/group controls measure40–42px tall. | Give those existing controls44px targets without changing their type, colors, actions or motion. |
 
 The taxonomy, reference and batch fixes apply across both UWorld collections.
@@ -69,7 +69,8 @@ clinical content certification are outside this browser audit.
 source media/retry, unscored references, full-block Pause→Home Continue, nine
 options, linked context, CBT/review, modules and FSRS-only mistake separation.
 Expanded phone/tablet Search tests verify references preserve exact saved state,
-keyboard disclosure/return focus, compatible filters and full20-question batches.
+forward/reverse disclosure focus, nested closed-content exclusion and opener return,
+compatible filters and full20-question batches.
 Existing repeated touch/reduced-motion/rollback/rating checks pass at320/390/820/
 1194px and reduced-motion390px. The78-screen confirmation finds no page overflow
 or console errors, and builder action targets measure at least44px.
@@ -79,3 +80,9 @@ second-collection product795d94a9 and its documentation handoff. Full ordered CI
 packaged PWA/APK, Android emulators and actual hosted certification remain pending.
 Production is unchanged. Explanation aesthetic work and further collections remain
 separate milestones.
+
+The initial full run37183638634 is cancelled before delivery after a deeper
+keyboard check reproduced closed disclosures reporting layout boxes. The final
+focus predicate checks closed ancestors explicitly; both-direction/nested-dialog
+regressions,102 local checks and repeated interaction checks pass. Replacement
+full CI remains pending. No source or visual redesign is added.

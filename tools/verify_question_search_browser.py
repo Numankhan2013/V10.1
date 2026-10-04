@@ -72,6 +72,10 @@ def main() -> None:
                 page.locator('.nk-uworld-reference').wait_for()
                 assert page.evaluate('JSON.stringify(QB.getState())')==snapshot
                 assert page.evaluate("location.hash==='#question-search'")
+                page.keyboard.press('Shift+Tab')
+                assert page.evaluate("document.activeElement.matches('.nk-uworld-reference-explanation>summary')"), 'Closed nested disclosures captured reverse focus'
+                page.keyboard.press('Tab')
+                assert page.evaluate("document.activeElement.matches('.nk-modal-close')")
                 page.keyboard.press('Tab')
                 assert page.evaluate("document.activeElement.matches('.nk-uworld-reference-explanation>summary')")
                 page.keyboard.press('Enter')
@@ -79,6 +83,11 @@ def main() -> None:
                 page.locator('.nk-uworld-reference-explanation button').last.focus()
                 page.keyboard.press('Tab')
                 assert page.evaluate("document.activeElement.matches('.nk-uworld-original>summary')"), 'Figure control trapped focus before Source details'
+                page.keyboard.press('Enter')
+                page.keyboard.press('Tab')
+                assert page.evaluate("document.activeElement.closest('.nk-uworld-original details')!==null")
+                page.keyboard.press('Tab')
+                assert page.evaluate("document.activeElement.matches('.nk-modal-close')"), 'Forward focus escaped the source reference'
                 page.locator('.nk-uworld-reference').get_by_role('button',name='Close',exact=True).click()
                 page.wait_for_function("document.body.style.overflow!=='hidden'")
                 assert opener.evaluate('n=>n===document.activeElement')

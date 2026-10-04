@@ -2343,3 +2343,9 @@ summaries in modal focus and raise small builder actions to44px. No source/scori
 FSRS/storage/sync or motion changes.102 local checks and UWorld/search/interaction
 browser checks pass;78-screen confirmation has no page overflow/errors. Full
 packaged CI and actual hosted certification remain pending; production unchanged.
+
+A deeper keyboard check reproduces closed disclosures retaining layout boxes:
+reverse focus stayed on Close. Full37183638634 is cancelled before preview delivery.
+The shared predicate now excludes descendants of every closed disclosure while
+keeping its own summary accessible. Forward/reverse/nested disclosure regressions,
+102 local checks and repeated interaction checks pass. The replacement build is pending.
