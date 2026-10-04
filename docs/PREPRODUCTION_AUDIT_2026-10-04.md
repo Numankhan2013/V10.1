@@ -32,19 +32,51 @@ clearing and inert learner text.
 
 ## Verification and release
 
-All103 local checks and focused browser checks pass before publication. The
+All 103 local checks and focused browser checks pass before publication. The
 Ophthalmology candidate4b23940 passes full37188960243, including Android
 phone/tablet emulators, and Engineering37188960230/37188962652. The initial37187979431 run was cancelled after a
 stale eight-bank test expectation; the corrected check derives the count from
 the registry and verifies each UWorld collection explicitly.
 
-The final audit candidate must pass Engineering and the complete main pipeline,
-including production APK identity, package/media/offline checks and Android
-phone/tablet emulators. The approved-production workflow must reuse that exact
-successful artifact and verify current main before setting the Pages production
-branch to main and uploading it. Final proof must compare main-domain HTML,
-configuration, service worker and source-media bytes with the verified artifact,
-and run the audited flows on the actual domain. These steps are pending.
+Final main product `315cfcccc2a0d830aa851fbd136f3e8d14e215e8` passes
+Engineering [37191000202](https://github.com/Numankhan2013/V10.1/actions/runs/37191000202)
+and complete [37191000207](https://github.com/Numankhan2013/V10.1/actions/runs/37191000207),
+including production APK identity, package/media/offline checks, the focused audit
+browser suite and Android phone/tablet emulators. PR98 is merged.
+
+The automatic workflow-run upload did not start. The user-authorized recovery
+branch `release/approved-production-20261004` pins the successful main SHA and
+artifact run; it makes no product change or rebuild. Approved production [release 37192960486](https://github.com/Numankhan2013/V10.1/actions/runs/37192960486)
+verifies current main, manifest commit, APK hash and packaged HTML identity, then
+reuses the exact successful artifact without rebuilding. It sets the Pages
+production branch to main and uploads successfully. The live primary domain is
+**https://nk-qbank.pages.dev**. The historical `main.nk-qbank.pages.dev`
+preview alias remains on an older build and is not the production URL. The immutable
+upload is https://92774e98.nk-qbank.pages.dev.
+
+Actual root HTML equals the hash measured by the final CI browser suite:
+`086b04f41fcf610af844b76652b7c6368392dc26d9bd8f609b258b2a6e77897b`.
+Root HTML/configuration/service worker/UWorld inventory/robots bytes equal the
+immutable upload from the verified artifact. All 283 UWorld images are downloaded
+from the root and match their packaged inventory hashes and offline paths;
+all 206 prior media identities remain unchanged. Streamed Anatomy PDF byte ranges,
+security/crawler headers and SPA fallback policy pass. A real foreign-origin
+iframe attempt is rejected by the browser's frame policy.
+
+Fresh Android contexts use the driver's existing one-retry reattachment path;
+completed-start bridge removal, native haptics and local missing-asset checks pass.
+The first migration document is not claimed to have no JavaScript bridge symbol
+before a new document is loaded. No physical cold-start timing is measured.
+
+The actual root passes four-width UWorld source/read/answer/statistics/zoom/table/
+CBT/Review/Pause/Continue/module/Search flows, four-width audit repairs and phone/
+tablet Search and reference-focus checks. Browser contexts use isolated local
+state; account checks use synthetic configuration with API calls blocked.
+The local environment cannot download the 893 MB artifact through its network
+proxy, and the connector's 512 MB ceiling also rejects it. Artifact identity is
+therefore established by the release workflow's exact-artifact checks, the CI
+HTML hash and byte comparison against that same immutable upload; no local APK
+archive download is claimed.
 
 Authenticated live-account and physical-device testing require user usage;
 server access conclusions are limited to the inspected rules and observed

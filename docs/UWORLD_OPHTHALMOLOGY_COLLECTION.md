@@ -58,7 +58,19 @@ All 103 local checks pass. The running diagnostic at 390/820/1194/1440px passes
 all 30 questions, graphical choices, native tables, zoom, Pause/Continue, timed
 tests, modules and Search, alongside both previous UWorld collections.
 
-Full ordered CI PWA/APK/package and Android-emulator checks, exact hosted
-verification and source-media byte comparison are pending. Local diagnostics
-do not establish packaged build certification. Production remains
-unchanged; there is no physical-device or clinical certification claim.
+Ophthalmology product4b23940 passes full37188960243 and its Engineering gates.
+Final audited main product315cfcc passes Engineering37191000202 and complete
+main37191000207, including production APK identity, ordered PWA/APK/package,
+media/offline/browser checks and Android phone/tablet emulators. PR98 is merged;
+approved release 37192960486 reuses that exact verified artifact for production.
+
+**https://nk-qbank.pages.dev** is live. Its HTML matches the final CI-measured
+SHA-256 `086b04f41fcf610af844b76652b7c6368392dc26d9bd8f609b258b2a6e77897b`. Root HTML/config/service worker/inventory
+bytes match the immutable upload https://92774e98.nk-qbank.pages.dev.
+Actual hosted four-width UWorld flows pass, including all 30 Ophthalmology
+questions, eight tables and five graphical choices. All 283 media assets match
+the packaged inventory and offline paths; all 206 previous assets are unchanged.
+See `PREPRODUCTION_AUDIT_2026-10-04.md` for release and security evidence.
+No physical-device or clinical certification is claimed. Biochemistry1244 remains
+unscored because its essential source exhibit is missing; other documented source
+clipping and null statistics remain preserved rather than invented.

@@ -2393,3 +2393,17 @@ expose the migration bridge/file access and private asset failures can fall thro
 to networking; hosted responses lack frame restrictions. The scoped repair branch
 reuses existing owners and shared engines. Production remains the previous release
 until the final candidate's full main CI and exact-artifact promotion succeed.
+
+## 2026-10-04 — Audited UWorld release certified on the main domain
+
+PR98 merges the accepted feature chain, source-reviewed Ophthalmology and scoped
+UI/UX/security repairs. Production product 315cfcc passes 103 local checks,
+Engineering 37191000202 and complete main 37191000207 including Android phone/
+tablet emulators. Approved release 37192960486 verifies/reuses the exact successful
+artifact and sets Pages production branch main. https://nk-qbank.pages.dev is live; HTML SHA-256 086b04f41fcf610af844b76652b7c6368392dc26d9bd8f609b258b2a6e77897b matches CI, and root HTML/config/
+service worker/inventory/robots bytes match the immutable upload https://92774e98.nk-qbank.pages.dev.
+All 283 UWorld assets/offline paths pass; previous 206 identities are unchanged.
+Actual four-width UWorld/audit and phone/tablet Search/focus checks pass; source
+PDF ranges, policy headers and browser frame denial pass. Certificate docs remain
+a separate handoff so main retains the exact released product. No physical-device,
+authenticated live-account or clinical acceptance is inferred.
