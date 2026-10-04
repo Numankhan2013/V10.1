@@ -1,0 +1,64 @@
+{
+  "source_pdf": "UW 2024 - Male Reproductive System - 2 blocks - OCR.pdf",
+  "source_sha256": "1b06296226be118da84743cd9cf8abed7c3e669dd260543734dbf27cefcf6c24",
+  "source_pages": 281,
+  "expected_from_source": {
+    "block_1_items_observed": 39,
+    "block_1_header_denominator": 40,
+    "block_1_note": "Source proceeds from Item 39 of 40 to the next block; Item 40 is not present in this PDF and was not fabricated.",
+    "block_2_items_observed": 13,
+    "block_2_header_denominator": 13,
+    "total_unique_questions_observed": 52
+  },
+  "counts": {
+    "records": 52,
+    "unique_source_question_ids": 52,
+    "block_1": 39,
+    "block_2": 13,
+    "visual_required": 5,
+    "with_option_percentages": 48,
+    "without_option_percentages": 4,
+    "needs_manual_review": 0
+  },
+  "checks": {
+    "unique_stable_ids": true,
+    "unique_source_question_ids": true,
+    "block_1_item_sequence": true,
+    "block_2_item_sequence": true,
+    "all_have_question_text": true,
+    "all_have_contiguous_options": true,
+    "all_have_4_to_8_options": true,
+    "all_have_single_valid_correct_option": true,
+    "all_have_explanations": true,
+    "all_have_educational_objectives": true,
+    "all_have_source_page_traceability": true,
+    "no_known_ui_leakage": true,
+    "no_duplicate_page_ownership_conflict": true
+  },
+  "special_handling": {
+    "image_label_questions": [
+      "1737",
+      "839"
+    ],
+    "tabular_answer_sets": [
+      "1902",
+      "1449"
+    ],
+    "percentage_ocr_repairs": [
+      "664",
+      "1449",
+      "1827",
+      "1870",
+      "1902",
+      "2021",
+      "15804"
+    ],
+    "statistics_not_shown": [
+      "343",
+      "580",
+      "839",
+      "11762"
+    ]
+  },
+  "all_checks_pass": true
+}

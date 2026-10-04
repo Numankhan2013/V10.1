@@ -2,8 +2,11 @@
 import uworld_biochemistry
 import uworld_poisoning
 import uworld_ophthalmology
+import uworld_male_reproductive
+import uworld_female_reproductive
 
-COLLECTIONS = (uworld_biochemistry, uworld_poisoning, uworld_ophthalmology)
+COLLECTIONS = (uworld_biochemistry, uworld_poisoning, uworld_ophthalmology,
+               uworld_male_reproductive, uworld_female_reproductive)
 
 
 def bank_records():

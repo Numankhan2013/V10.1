@@ -77,9 +77,10 @@ HELPERS = r'''
   function nkHomeFocusSection(focus,module){
     if(state.activeSession?.mode==='exam'&&typeof nkTimedFocusCard==='function')return nkTimedFocusCard();
     const title=module?module.name:focus?.topic||'Choose your next topic';
-    const copy=module?`${nkModuleProgress(module).remaining} questions remain in this study set.`:focus?.live?'Pick up exactly where you left off.':focus?'Return to this topic and keep your momentum.':'Pick a subject below and make today’s study session yours.';
+    const total=Number(focus?.total||0),index=Math.min(total,Math.max(1,Number(focus?.position||0)+1));
+    const copy=module?`${nkModuleProgress(module).remaining} questions remain in this study set.`:focus?.savedCount?`${focus.savedCount} saved sessions. Choose the one you want to resume.`:focus?.live&&total?`Question ${index} of ${total}. Pick up where you left off.`:focus?.live?'Pick up exactly where you left off.':focus?.nextTopic?'Your previous topic is complete. Open the next topic when you’re ready.':focus?'Continue with the questions you haven’t answered in this topic.':'Pick a subject below and make today’s study session yours.';
     const action=module?`window.QB.startStudyModule('${esc(module.id)}')`:focus?'window.QB.nkContinueRecentPractice()':"document.querySelector('.nk-home-subjects')?.scrollIntoView({behavior:'smooth',block:'start'})";
-    const label=module?'Continue module':focus?.live?'Continue Practice':focus?'Practice this topic':'Choose a subject';
+    const label=module?'Continue module':focus?.savedCount?'Choose saved Practice':focus?.live?'Continue Practice':focus?.nextTopic?'Open next topic':focus?'Practice remaining questions':'Choose a subject';
     return `<section class="nk-home-focus-card"><div class="nk-home-focus-label">TODAY'S FOCUS</div><h2>${esc(title)}</h2><p>${esc(copy)}</p><span class="nk-home-focus-heart" aria-hidden="true">♡</span><button class="nk-focus-primary nk-home-focus-action" onclick="${action}"><span>${label}</span><span>→</span></button></section>`;
   }
   /* NK_HOME_STREAK_MILESTONES_V1 */

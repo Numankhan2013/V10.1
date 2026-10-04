@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "source_pdf_sha256": "ab85991bc3089c7f3936dfe40e7b7d3f31440d3023b83df54b19ec761b75423b",
+  "records": [
+    {
+      "question_id": "UWORLD_1830",
+      "original_record_sha256": "c545c90b46c42167ba29042bb8d47338946debfdcd34ea362d287dd12388d0fd",
+      "source_pages": [
+        438,
+        439
+      ],
+      "original_options": [
+        {
+          "label": "a",
+          "text": "46,XX",
+          "selection_percent": 41
+        },
+        {
+          "label": "b",
+          "text": "46,XY",
+          "selection_percent": 17
+        },
+        {
+          "label": "c",
+          "text": "47,0XX",
+          "selection_percent": 4
+        },
+        {
+          "label": "d",
+          "text": "47,XXY",
+          "selection_percent": 6
+        },
+        {
+          "label": "e",
+          "text": "69,XXX  O F 69,XXY",
+          "selection_percent": 20
+        }
+      ],
+      "replacement_options": [
+        {
+          "label": "a",
+          "text": "46,XX",
+          "selection_percent": 41
+        },
+        {
+          "label": "b",
+          "text": "46,XY",
+          "selection_percent": 17
+        },
+        {
+          "label": "c",
+          "text": "47,XXX",
+          "selection_percent": 4
+        },
+        {
+          "label": "d",
+          "text": "47,XXY",
+          "selection_percent": 6
+        },
+        {
+          "label": "e",
+          "text": "69,XXX",
+          "selection_percent": 9
+        },
+        {
+          "label": "f",
+          "text": "69,XXY",
+          "selection_percent": 20
+        }
+      ],
+      "reason": "Source p439 has six distinct choices. The upstream JSONL merged E/F, misread C and lost the E percentage. Original key A is unchanged.",
+      "verification": "Luna page-image review plus independent root comparison of PDF page439."
+    }
+  ]
+}

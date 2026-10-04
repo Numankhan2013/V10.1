@@ -130,6 +130,13 @@ assert.equal(state.activeSession.submitted.q1,true);
 assert.equal(Boolean(state.activeSession.submitted.q5),false);
 assert.equal(oldContinueCalls,0);
 assert.equal(legacyHomeContinueCalls,0);
+const topicResume=nkTopicPracticeContinuation('Anatomy','Marrow');
+assert.equal(topicResume.sessionId,'same-session');assert.equal(topicResume.index,4);assert.equal(topicResume.total,20);
+assert.equal(nkLatestPracticeContext().position,4);assert.equal(nkLatestPracticeContext().total,20);
+assert.equal(nkTopicPracticeContinuation('Anatomy','OtherBank'),null,'topic tray must not cross bank boundaries');
+const ordinary=state.activeSession;state.activeSession={id:'revision',mode:'practice',context:'wrong',questionIds:['q21'],index:0};
+assert.equal(nkTopicPracticeContinuation('Anatomy','Marrow').sessionId,'same-session','saved ordinary Practice must survive special-mode browsing');
+state.activeSession=ordinary;
 
 // Regression guard for older persisted state: even if questionIds was reduced to
 // the current question, sessionQuestionIds remains the canonical whole test.

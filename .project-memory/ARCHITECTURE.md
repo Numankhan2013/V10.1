@@ -32,10 +32,25 @@ closed. Raw question bundles and audit metadata remain unchanged.
 - Long-term direction is incremental isolation (persistence, rendering, review,
   analytics, tokens), never a big-bang rewrite.
 
+## Imported UWorld owners and scoped continuation — 2026-10-04
+
+- `uworld_imported_collection.py` supplies source-pinned reusable ownership for
+  the two reproductive JSONL collections. Explicit registry owners pin original
+  imports, normalized rows/full page OCR and complete reviewed overlays. A
+  hash-pinned optional repair ledger records source-proven normalization fixes
+  without mutating original imports. Existing typed presenters/media generators
+  and shared study engines install them; arbitrary prepared folders are inert.
+- `nkTopicPracticeContinuation(subject,bank)` resolves ordinary Practice live
+  sessions/checkpoints only within the exact bank, returns saved question index,
+  total and answered count, and delegates to the existing durable resume path.
+  Home focus derives progress from that same saved context. Special modes,
+  multi-session choice and conflict protection remain with their original owners.
+
 ## Runtime data and assets
 
 - `uworld_collections.py` explicitly registers Biochemistry, Poisoning &
-  Environmental Exposure and Ophthalmology, each with its own `UWorld · collection` namespace
+  Environmental Exposure, Ophthalmology, Male Reproductive System and Female
+  Reproductive System & Breast, each with its own `UWorld · collection` namespace
   in the shared bank registry and lookup, without adding a traditional subject.
   Home/Library → My UWorld → collection → source blocks uses existing routes
   and study engines. Read-only aliases resolve legacy Biochemistry/UWorld bank

@@ -380,11 +380,14 @@ jobs:
           python3 tools/test_uworld_reviewed_document.py
           python3 tools/test_uworld_poisoning.py
           python3 tools/test_uworld_ophthalmology.py
+          python3 tools/test_uworld_imported_collections.py
       - name: Recover source-reviewed UWorld scientific exhibits
         run: |
           git lfs pull --include="data/uworld/Source_pdfs/biochemistry/UW 2024 - Biochemistry - 3 blocks - OCR.pdf" --exclude=""
           git lfs pull --include="data/uworld/Source_pdfs/Poisioning_environmental_exposure/UW_2024_Poisoning_&_Environmental_Exposure_1_block_OCR.pdf" --exclude=""
           git lfs pull --include="data/uworld/Source_pdfs/opthalmology/UW 2024 - Ophthalmology - block 1 - OCR.pdf" --exclude=""
+          git lfs pull --include="data/uworld/Source_pdfs/Male_reproductive_system/UW 2024 - Male Reproductive System - 2 blocks - OCR.pdf" --exclude=""
+          git lfs pull --include="data/uworld/Source_pdfs/Female_reproductive_system_breast/UW_2024_Female_Reproductive_System_&_Breast_2_blocks_OCR.pdf" --exclude=""
           python3 tools/build_uworld_reviewed_figures.py
       - name: Install bounded UWorld collections
         run: python3 tools/apply_uworld_biochemistry_v1.py
@@ -522,7 +525,9 @@ jobs:
         run: python3 tools/verify_question_completeness_browser.py
       - name: Verify Continue Practice controls and pause resume in browser
         if: ${{ !cancelled() && steps.browser_dependencies.outcome == 'success' }}
-        run: python3 tools/verify_continue_practice_browser.py
+        run: |
+          python3 tools/verify_continue_practice_browser.py
+          python3 tools/verify_topic_continue_browser.py
       - name: Verify question interaction integrity on phone and tablet
         if: ${{ !cancelled() && steps.browser_dependencies.outcome == 'success' }}
         run: python3 tools/verify_question_interaction_browser.py

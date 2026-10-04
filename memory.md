@@ -975,3 +975,19 @@ Actual four-width UWorld/audit and phone/tablet Search/focus checks pass; source
 PDF ranges, policy headers and browser frame denial pass. Certificate docs remain
 a separate handoff so main retains the exact released product. No physical-device,
 authenticated live-account or clinical acceptance is inferred.
+
+## 2026-10-04 — Reproductive batch and scoped Continue Practice
+
+User requests local integration of two collections before one combined preview,
+with no production promotion. Supplied source56fe817 JSONLs/PDFs yield Male52
+and Female81 questions across four blocks, all876pages reviewed in six Luna/high
+batches. Reusable imported owner validates provenance while sharing the existing
+presenter/media/study engines. Original imports remain immutable; Female1830's
+six-option PDF correction uses an explicit pinned ledger. Native tables46,
+figures306; root repairs289 crop bounds and confirms complete question exhibits.
+Collection-specific icons replace DNA. Topics resumes exact-bank durable
+Practice IDs/position/progress; Today’s Focus uses saved context rather than an
+unrelated active session.104 local checks and existing320/390/820 Continue plus
+new390/820/1440 Topics/Home browser cases pass. Combined five-collection browser390/820/1194/1440 also passes all133 new
+questions; one full preview CI remains pending. Production315cfcc remains live. No physical-device or
+clinical certification is inferred; report docs/UWORLD_REPRODUCTIVE_BATCH.md.

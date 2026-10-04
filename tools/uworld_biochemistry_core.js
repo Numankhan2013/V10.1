@@ -3,7 +3,7 @@
     return NK_UWORLD_COLLECTIONS.map(r=>{
     const available=r.questions.filter(nkUworldEligible),answered=available.filter(q=>qAttempts(q.id).length).length;
     const ready=available.length,pct=ready?Math.round(answered/ready*100):0;
-    return `<button class="nk-v3-subject-card nk-uworld-collection" onclick="window.QB.openBank('${esc(r.subject)}','UWorld')"><span class="nk-v3-subject-icon">${navIcon('book',24)}</span><span class="nk-v3-subject-copy"><strong>${esc(r.collection)}</strong><small>${fmtNum(r.topics.length)} ${r.topics.length===1?'block':'blocks'} · ${fmtNum(r.questions.length)} questions</small><span class="nk-v3-subject-progress"><i style="width:${pct}%"></i></span></span><b>${pct}%</b>${navIcon('chevron',18)}</button>`;
+    return `<button class="nk-v3-subject-card nk-uworld-collection" onclick="window.QB.openBank('${esc(r.subject)}','UWorld')"><span class="nk-v3-subject-icon">${nkSubjectGraphic(r.subject,24)}</span><span class="nk-v3-subject-copy"><strong>${esc(r.collection)}</strong><small>${fmtNum(r.topics.length)} ${r.topics.length===1?'block':'blocks'} · ${fmtNum(r.questions.length)} questions</small><span class="nk-v3-subject-progress"><i style="width:${pct}%"></i></span></span><b>${pct}%</b>${navIcon('chevron',18)}</button>`;
     }).join('');
   }
   function nkUworldHomeSection(){return `<section class="nk-v3-section nk-home-uworld"><div class="nk-v3-section-head"><h2>My UWorld</h2><button onclick="window.QB.nav('uworld')">Open ${navIcon('chevron',14)}</button></div><div class="nk-v3-subject-list">${nkUworldLibraryCards()}</div></section>`;}
@@ -19,7 +19,9 @@
   const nkUworldOriginalTopics=topics;
   topics=function(){
     const out=nkUworldOriginalTopics.apply(this,arguments);if(activeBank!=='UWorld')return out;
-    return out.replace(/<div class="nk-subject-switch"[^>]*>[\s\S]*?<\/div>/,'')
+    return out.replace(/<svg class="nk-topic-path"[\s\S]*?<\/svg>/g,'')
+      .replaceAll('<span class="nk-topic-copy">','<span class="nk-uworld-topic-icon" aria-hidden="true">'+nkSubjectGraphic(activeSubject,24)+'</span><span class="nk-topic-copy">')
+      .replace(/<div class="nk-subject-switch"[^>]*>[\s\S]*?<\/div>/,'')
       .replace(/aria-label="Back to question banks" onclick="[^"]*"/,'aria-label="Back to My UWorld" onclick="window.QB.nav(\'uworld\')"')
       .replace('<h1>'+esc(activeSubject)+'<small>','<h1>'+esc(nkBankRecord(activeSubject,'UWorld').collection)+'<small>')
       .replace('<h2>Topics</h2>','<h2>Blocks</h2>').replace('Choose a chapter and move directly into focused recall.','Choose a source block and move directly into focused recall.')

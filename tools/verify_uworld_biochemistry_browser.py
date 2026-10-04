@@ -11,6 +11,7 @@ from urllib.request import urlopen
 from playwright.sync_api import sync_playwright, expect
 from uworld_poisoning_browser_cases import verify_poisoning
 from uworld_ophthalmology_browser_cases import verify_ophthalmology
+from uworld_imported_browser_cases import verify_imported_collections
 
 ROOT = Path(__file__).resolve().parents[1]
 PROBE = '''window.__uworldTest={wrong:()=>nkRevisionDeskData().wrong.map(q=>q.id),questions:()=>nkAllStudyQuestions(),current:()=>nkCurrentQuestion(),presentation:id=>nkQuestionPresentationFor(BY_ID[id]),records:()=>Object.values(BANKS_BY_SUBJECT).flat().map(r=>({subject:r.subject,bank:r.bank,questions:r.questions.length,topics:(r.topics||r.chapters||[]).length}))};\n'''
@@ -69,7 +70,9 @@ def main():
                             ('Anatomy', 'Marrow'): 1115, ('Physiology', 'Marrow'): 1014, ('Biochemistry', 'Marrow'): 582,
                             ('UWorld · Biochemistry', 'UWorld'): 132,
                             ('UWorld · Poisoning & Environmental Exposure', 'UWorld'): 33,
-                            ('UWorld · Ophthalmology', 'UWorld'): 30}
+                            ('UWorld · Ophthalmology', 'UWorld'): 30,
+                            ('UWorld · Male Reproductive System', 'UWorld'): 52,
+                            ('UWorld · Female Reproductive System & Breast', 'UWorld'): 81}
                 assert {(r['subject'], r['bank']): r['questions'] for r in records} == expected, records
                 qs = page.evaluate('__uworldTest.questions().filter(q=>q.bank==="UWorld"&&q.collection==="Biochemistry")')
                 assert len(qs) == len({q['id'] for q in qs}) == 132
@@ -98,7 +101,7 @@ def main():
                 assert page.locator('.nk-uworld-library-note').count()==0
                 assert "UWorld's original collections" not in page.locator('.nk-uworld-library').inner_text()
                 page.screenshot(path=str(output / f'uworld-collections-{width}.png'))
-                expect(page.locator('.nk-uworld-collection')).to_have_count(3)
+                expect(page.locator('.nk-uworld-collection')).to_have_count(5)
                 page.locator('.nk-uworld-collection').filter(has_text='Biochemistry').click()
                 expect(page.locator('button.nk-topic-row')).to_have_count(4)
                 assert page.locator('.nk-topic-group>h2').all_inner_texts()==['Blocks']
@@ -304,10 +307,11 @@ def main():
                     assert page.evaluate('__uworldTest.wrong().length')==0
                 poisoning = verify_poisoning(page, output, width, reset_practice, open_question)
                 ophthalmology = verify_ophthalmology(page, output, width, reset_practice, open_question)
+                imported = verify_imported_collections(page, output, width, reset_practice, open_question)
                 assert not errors, errors
                 reports.append({'width': width, 'origin':origin,'html_sha256':html_hash,'registry': True, 'source_reviewed_reading': True, 'readable_typography': typography,
                                 'diagram_reference_unscored': True, 'eligible_questions':eligible, 'immediate_answer': True, 'shared_fsrs': True,
-                                'cbt_deferred_feedback': True, 'review_solutions': True, 'frozen_module': True, 'prepladder_preserved': True, 'poisoning': poisoning, 'ophthalmology': ophthalmology})
+                                'cbt_deferred_feedback': True, 'review_solutions': True, 'frozen_module': True, 'prepladder_preserved': True, 'poisoning': poisoning, 'ophthalmology': ophthalmology, 'imported': imported})
                 context.close()
             browser.close()
     finally:

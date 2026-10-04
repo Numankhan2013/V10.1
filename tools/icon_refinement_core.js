@@ -43,9 +43,15 @@
     const plane={
       biochemistry:'<path d="M7 4h10c0 3-2 5-5 8s-5 5-5 8h10c0-3-2-5-5-8S7 7 7 4Z"/>',
       physiology:'<path d="m12 21-7.5-7.43A5 5 0 0 1 12 7a5 5 0 1 1 7.5 6.57L12 21Z"/>',
-      anatomy:'<path d="M15 3a3 3 0 0 1 3 3a3 3 0 1 1-2.12 5.122l-4.758 4.758a3 3 0 1 1-5.117 2.297v-.177h-.176a3 3 0 1 1 2.298-5.115l4.758-4.758A3 3 0 0 1 15 3Z"/>'
+      anatomy:'<path d="M15 3a3 3 0 0 1 3 3a3 3 0 1 1-2.12 5.122l-4.758 4.758a3 3 0 1 1-5.117 2.297v-.177h-.176a3 3 0 1 1 2.298-5.115l4.758-4.758A3 3 0 0 1 15 3Z"/>',
+      poisoning:'<path d="m7.5 14-2.5 4a2 2 0 0 0 1.75 3h10.5A2 2 0 0 0 19 18l-2.5-4h-9Z"/>',
+      ophthalmology:'<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/>',
+      'male-reproductive':'<circle cx="9" cy="15" r="6"/>',
+      'female-reproductive':'<circle cx="12" cy="8" r="5"/>',
+      pregnancy:'<circle cx="10" cy="4" r="2"/><path d="M9 8h3l1 3c4 0 6 2 6 5H9V8Z"/>',
+      uworld:nkIconPlanes.book
     };
-    return nkIconLayers(nkSubjectIconBase(name,size),plane[key],key).replace('class="nk-product-icon"','class="nk-product-icon nk-subject-svg"').replace(' class="nk-subject-svg"','');
+    return nkIconLayers(nkSubjectIconBase(name,size),plane[key]||'',key).replace('class="nk-product-icon"','class="nk-product-icon nk-subject-svg"').replace(' class="nk-subject-svg"','');
   };
   const nkAnalysisIconBase=nkAnalysisIcon;
   nkAnalysisIcon=function(name,size=18){

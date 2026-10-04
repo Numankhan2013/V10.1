@@ -16,6 +16,7 @@ HELPERS_AND_PRACTICE = r'''function nkSessionSubject(q) {
   function nkSessionSubjectKey(q) { return nkSessionSubject(q).toLowerCase(); }
 
   function nkSessionSubjectIcon(q) {
+    if(String(q?.subject||activeSubject||'').toLowerCase().startsWith('uworld · '))return nkSubjectGraphic(q?.subject||activeSubject,20);
     const key=nkSessionSubjectKey(q);
     return navIcon(key==='physiology'?'heart':key==='anatomy'?'body':'dna',20);
   }

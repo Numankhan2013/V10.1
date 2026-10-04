@@ -113,5 +113,7 @@ jobs:
           python3 tools/test_uworld_source_text.py
           python3 tools/test_uworld_reviewed_document.py
           python3 tools/test_uworld_poisoning.py
+          python3 tools/test_uworld_ophthalmology.py
+          python3 tools/test_uworld_imported_collections.py
       - name: Verify deterministic build pipeline
         run: python3 tools/verify_build_pipeline.py

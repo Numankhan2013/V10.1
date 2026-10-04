@@ -31,7 +31,7 @@ Prefer building over narrating.
 ## Intended behavior (protected)
 
 - **UWorld collections:** a separate My UWorld collection library sits below
-  My Subjects. Biochemistry and Poisoning & Environmental Exposure retain their original blocks and mixed-discipline
+  My Subjects. All explicitly integrated collections retain their original blocks and mixed-discipline
   identity. Source-reviewed prose, tables and focused figures preserve original
   reasoning; source choice discussions have a distinct readable treatment.
   Educational objectives follow explanations. Source option percentages appear

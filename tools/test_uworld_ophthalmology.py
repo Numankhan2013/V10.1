@@ -18,7 +18,7 @@ def main():
     bank = bank_record()
     assert len(rows) == len(docs) == len(bank['questions']) == 30
     assert rows == frozen and len(bank['topics']) == 1
-    assert {r['collection'] for r in bank_records()} == {'Biochemistry', 'Poisoning & Environmental Exposure', 'Ophthalmology'}
+    assert {r['collection'] for r in bank_records()} == {'Biochemistry', 'Poisoning & Environmental Exposure', 'Ophthalmology', 'Male Reproductive System', 'Female Reproductive System & Breast'}
     expected_pages = json.loads((SOURCE / 'page_to_question_manifest.json').read_text())
     assert expected_pages == {str(p): row['question_id'] for row in rows for p in row['source']['all_question_id_pages']}
     pdf_bytes = PDF.read_bytes()
