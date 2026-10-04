@@ -914,3 +914,16 @@ source-labelled choice reasoning preserve UWorld flow; option percentages appear
 beside answers immediately after answering and stay hidden in CBT. See canonical
 STATE and docs/UWORLD_BIOCHEMISTRY_PILOT.md for live certification and limits.
 Production remains unchanged; no medical certification is claimed.
+
+The UWorld reference refinement is now certified at424e0ca8:101 local checks,
+both Engineering gates and full37158603961 including Android phone/tablet.
+Actual hosted390/820/1194/1440px flows pass at https://2f165b3a.nk-qbank.pages.dev.
+PR94 stacks on93; production is unchanged. See canonical STATE and the pilot
+report for exact hashes and remaining source limitations. This handoff is docs-only.
+
+
+The user accepts the Biochemistry reference architecture and authorizes the second
+UWorld collection on October4: Poisoning & Environmental Exposure (33questions).
+Explanation aesthetics are deferred. Shared engines and source-native documents
+remain; canonical STATE and docs/UWORLD_SECOND_COLLECTION.md track current
+verification and source review. Production is unchanged.

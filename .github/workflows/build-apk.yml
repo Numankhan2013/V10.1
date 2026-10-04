@@ -378,11 +378,13 @@ jobs:
           python3 tools/test_uworld_runtime_v1.py
           python3 tools/test_uworld_source_text.py
           python3 tools/test_uworld_reviewed_document.py
+          python3 tools/test_uworld_poisoning.py
       - name: Recover source-reviewed UWorld scientific exhibits
         run: |
           git lfs pull --include="data/uworld/Source_pdfs/biochemistry/UW 2024 - Biochemistry - 3 blocks - OCR.pdf" --exclude=""
+          git lfs pull --include="data/uworld/Source_pdfs/Poisioning_environmental_exposure/UW_2024_Poisoning_&_Environmental_Exposure_1_block_OCR.pdf" --exclude=""
           python3 tools/build_uworld_reviewed_figures.py
-      - name: Install bounded UWorld Biochemistry pilot
+      - name: Install bounded UWorld collections
         run: python3 tools/apply_uworld_biochemistry_v1.py
       - name: Verify final JavaScript syntax after all transformations
         run: |

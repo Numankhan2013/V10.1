@@ -6,11 +6,14 @@ import json
 from pathlib import Path
 import zipfile
 from uworld_biochemistry import ROOT
+from uworld_collections import media_sources
 
 
 def verify(read, web=False):
     inventory = json.loads(read('uworld_figure_inventory.json'))
-    assert inventory['reviewedQuestions'] == 132
+    expected_sources = [{'sourcePdfSha256': manifest['source_sha256'], 'reviewedQuestions': len(docs)} for _, manifest, docs in media_sources()]
+    assert inventory['sources'] == expected_sources
+    assert inventory['reviewedQuestions'] == sum(s['reviewedQuestions'] for s in expected_sources)
     assert inventory['sourcePdfSha256'] == '806d95d6f09dde57d34e0d0b5fda69298a7789041bb570ce4fa6dd1c95d4fae9'
     assert inventory['assets']
     shell = read('sw.js').decode() if web else ''
@@ -18,6 +21,7 @@ def verify(read, web=False):
         raw = read(path)
         assert raw.startswith(b'\x89PNG\r\n\x1a\n'), path
         assert hashlib.sha256(raw).hexdigest() == info['sha256'], path
+        assert info['sourcePdfSha256'] in {s['sourcePdfSha256'] for s in expected_sources}, path
         if web:
             assert './'+path in shell, 'Exhibit omitted from offline shell: '+path
     print('UWORLD_MEDIA_PACKAGE_OK assets='+str(len(inventory['assets']))+' offline='+str(web))

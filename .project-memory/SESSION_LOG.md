@@ -2280,3 +2280,32 @@ retaining all geometry/visibility/image assertions. A diagnostic audit initially
 lacked its existing Marrow JPEG fixture; copying that fixture to ignored build/web
 restores the original environment without changing app assets. The replacement
 full candidate is pending. Restored the existing executable bit on the FSRS test.
+
+## 2026-10-03 — Certified UWorld reference pilot
+
+Product424e0ca8 passes101 local checks, both Engineering gates37158604008/
+37158606814 and full37158603961, including Android phone/tablet. Actual hosted
+390/820/1194/1440px UWorld flows pass at2f165b3a.nk-qbank.pages.dev; HTML SHA-256
+9bc847becbabe6eb1cf9da681deaa808da1bc4bd1bb58762ab71a6fd48022c02. Source inventory,
+184 offline paths, representative image hashes and crawler headers are verified.
+Standard browser requests succeed where Cloudflare rejects the bare Python client.
+PR94 is ready, stacked on93. Production's prior hash remains unchanged. This
+handoff edits documentation only, preserving the certified product artifact.
+No new physical-device or clinical acceptance is claimed; source gaps remain
+explicit in the pilot document, and all other UWorld collections remain deferred.
+
+## 2026-10-04 — Second UWorld collection
+
+The user accepts the Biochemistry reference pilot's functionality, architecture,
+percentages and objectives; device type for this latest acceptance is unspecified.
+They defer explanation presentation changes and authorize one further collection.
+Selected Poisoning & Environmental Exposure from source56fe817:33 questions/166
+pages, complete JSONL and original PDF. Three Luna/high agents visually review
+all items; root checks preserve source text, fix authoring schema/crop issues and
+remove source percentages from a pre-answer question matrix. Shared typed/media
+configuration and explicit two-collection registry preserve Biochemistry, while
+A–I validation handles nine choices and linked stems retain independent context.
+102 local checks and generated four-width flows pass including full-block
+Pause/Continue, labs/graphs, CBT/review/modules and prior FSRS regressions.
+Full CI and hosted certification remain pending. No production promotion or
+physical Android/clinical certification is claimed. Details: UWORLD_SECOND_COLLECTION.md.

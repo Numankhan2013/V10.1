@@ -1,8 +1,10 @@
   /* NK_UWORLD_BIOCHEMISTRY_V1_START */
   function nkUworldLibraryCards(){
-    const r=NK_UWORLD_BIOCHEMISTRY_BANK,available=r.questions.filter(nkUworldEligible),answered=available.filter(q=>qAttempts(q.id).length).length;
+    return NK_UWORLD_COLLECTIONS.map(r=>{
+    const available=r.questions.filter(nkUworldEligible),answered=available.filter(q=>qAttempts(q.id).length).length;
     const ready=available.length,pct=ready?Math.round(answered/ready*100):0;
-    return `<button class="nk-v3-subject-card nk-uworld-collection" onclick="window.QB.openBank('${esc(r.subject)}','UWorld')"><span class="nk-v3-subject-icon">${navIcon('book',24)}</span><span class="nk-v3-subject-copy"><strong>${esc(r.collection)}</strong><small>${fmtNum(r.topics.length)} blocks · ${fmtNum(r.questions.length)} questions</small><span class="nk-v3-subject-progress"><i style="width:${pct}%"></i></span></span><b>${pct}%</b>${navIcon('chevron',18)}</button><p class="nk-uworld-library-note">${ready} available for practice · UWorld's original collections and blocks.</p>`;
+    return `<button class="nk-v3-subject-card nk-uworld-collection" onclick="window.QB.openBank('${esc(r.subject)}','UWorld')"><span class="nk-v3-subject-icon">${navIcon('book',24)}</span><span class="nk-v3-subject-copy"><strong>${esc(r.collection)}</strong><small>${fmtNum(r.topics.length)} ${r.topics.length===1?'block':'blocks'} · ${fmtNum(r.questions.length)} questions</small><span class="nk-v3-subject-progress"><i style="width:${pct}%"></i></span></span><b>${pct}%</b>${navIcon('chevron',18)}</button><p class="nk-uworld-library-note">${ready} available for practice · UWorld's original collections and blocks.</p>`;
+    }).join('');
   }
   function nkUworldHomeSection(){return `<section class="nk-v3-section nk-home-uworld"><div class="nk-v3-section-head"><h2>My UWorld</h2><button onclick="window.QB.nav('uworld')">Open ${navIcon('chevron',14)}</button></div><div class="nk-v3-subject-list">${nkUworldLibraryCards()}</div></section>`;}
   function nkUworldLibraryPage(){return shell(`<main class="nk-app-v114 nk-uworld-library"><button class="nk-back-link" onclick="window.QB.nav('dashboard')">${navIcon('back',18)} Home</button><header class="nk-v3-page-hero"><h1>My UWorld</h1><p>Choose a collection, then open its original question blocks.</p></header><div class="nk-v3-subject-list">${nkUworldLibraryCards()}</div></main>`,'dashboard');}
@@ -11,15 +13,15 @@
   const nkUworldOriginalLibrary=nkStudyLibraryPage;
   nkStudyLibraryPage=function(){return nkUworldOriginalLibrary().replace('</main>',nkUworldHomeSection()+'</main>');};
   const nkUworldOriginalBankPage=bankPage;
-  bankPage=function(name){return name===NK_UWORLD_BIOCHEMISTRY_BANK.subject?nkUworldLibraryPage():nkUworldOriginalBankPage.apply(this,arguments);};
+  bankPage=function(name){return NK_UWORLD_COLLECTIONS.some(r=>r.subject===name)?nkUworldLibraryPage():nkUworldOriginalBankPage.apply(this,arguments);};
   const nkUworldOriginalTopics=topics;
   topics=function(){
     const out=nkUworldOriginalTopics.apply(this,arguments);if(activeBank!=='UWorld')return out;
     return out.replace(/<div class="nk-subject-switch"[^>]*>[\s\S]*?<\/div>/,'')
       .replace(/aria-label="Back to question banks" onclick="[^"]*"/,'aria-label="Back to My UWorld" onclick="window.QB.nav(\'uworld\')"')
-      .replace('<h1>'+esc(activeSubject)+'<small>','<h1>'+esc(NK_UWORLD_BIOCHEMISTRY_BANK.collection)+'<small>')
+      .replace('<h1>'+esc(activeSubject)+'<small>','<h1>'+esc(nkBankRecord(activeSubject,'UWorld').collection)+'<small>')
       .replace('<h2>Topics</h2>','<h2>Blocks</h2>').replace('Choose a chapter and move directly into focused recall.','Choose a source block and move directly into focused recall.')
-      .replace(/> topics</g,'> blocks<').replaceAll('UWorld · Biochemistry · UWorld','UWorld · Biochemistry').replace('Topic index','Block index').replace('Search chapters or questions','Search blocks or questions');
+      .replace(/> topics</g,'> blocks<').replaceAll(activeSubject+' · UWorld',activeSubject).replace('Topic index','Block index').replace('Search chapters or questions','Search blocks or questions');
   };
   function nkUworldLegacyScope(draft){
     if(!draft)return draft;
@@ -55,7 +57,7 @@
       const choice=node.type==='paragraph'&&String(node.text).match(/^\(Choices?\s+([^)]*)\)\s*([\s\S]*)$/i);
       if(choice){
         if(!discussion){out.push(`<section class="nk-uworld-choices">${heading?'':'<h3>Understanding the other choices</h3>'}`);discussion=true;heading=true;}
-        out.push(`<article class="nk-uworld-choice-discussion"><h4>${nkScientificMarkup('Choice'+(/^(?:[A-H])$/.test(choice[1])?'':'s')+' '+choice[1])}</h4><p>${nkScientificMarkup(choice[2])}</p></article>`);
+        out.push(`<article class="nk-uworld-choice-discussion"><h4>${nkScientificMarkup('Choice'+(/^(?:[A-I])$/.test(choice[1])?'':'s')+' '+choice[1])}</h4><p>${nkScientificMarkup(choice[2])}</p></article>`);
       }else{
         if(discussion){out.push('</section>');discussion=false;}
         out.push(node.type==='table'?nkUworldTable(node):node.type==='figure'?nkUworldFigureMarkup(node,q):nkUworldParagraph(node.text));

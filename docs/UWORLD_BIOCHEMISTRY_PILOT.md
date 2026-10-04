@@ -113,13 +113,35 @@ control; obfuscation does not provide it.
 
 The certified prior OCR pilot is product c7b5053, full run37128060483,
 [preview](https://690495d5.nk-qbank.pages.dev) and [PR93](https://github.com/Numankhan2013/V10.1/pull/93).
-The user confirmed that layout on phone/iPad/desktop and the continuous Revision
-workflow. The reviewed reference refinement passes101 local checks and actual generated
-390/820/1194/1440px study flows, including direct option percentages without reflow,
+The user confirmed that layout on phone/iPad/desktop and continuous Revision.
+
+The reference product **424e0ca80e57fc946ad96f41d38547bcbc23d089** passes101
+local checks, both Engineering gates37158604008/37158606814, and full ordered
+build37158603961, including packaged PWA/APK and Android phone/tablet emulators.
+The first full run37157432292 passed study/browser checks but stopped on the
+UI audit's ambiguous Biochemistry subject/collection selector. The corrected
+audit targets My Subjects and retains all image, geometry and visibility checks;
+320/390/large-text390/820px captures pass in the final build.
+
+The actual [reference preview](https://2f165b3a.nk-qbank.pages.dev) passes
+390/820/1194/1440px flows: direct right-side option percentages without reflow,
 source figures/zoom/retry, native table cells/overflow, deferred CBT, Review
-Solutions, modules and FSRS-only mistake separation. Incumbent phone/tablet
-interaction checks pass. Both initial Engineering gates pass. Full run37157432292 passed all study/browser
-checks but stopped on an ambiguous Biochemistry selector in the UI capture.
-The audit now targets My Subjects explicitly and passes320/390/large-text390/820px;
-all image, geometry and visibility assertions remain intact.
-Replacement full packaging and hosted certification are pending. Production remains unchanged. New physical-device acceptance is separate.
+Solutions, modules, FSRS-only mistake separation and incumbent-bank return.
+Hosted source inventory132/184, all184 offline-cache paths, representative image
+hashes and crawler-exclusion headers were checked. Cloudflare's browser-integrity
+check rejects the bare Python client; a standard browser user agent permits the
+same public requests. HTML SHA-256:
+`9bc847becbabe6eb1cf9da681deaa808da1bc4bd1bb58762ab71a6fd48022c02`.
+
+[PR94](https://github.com/Numankhan2013/V10.1/pull/94) stacks on PR93.
+Production remains unchanged: its prior HTML SHA-256
+`3fce9f7c07bf9c4721b1e58aa168bab76b0db8641cd9b2d908c46cbfe729fea9`
+was rechecked. New physical-device acceptance and clinical review remain separate.
+This documentation-only certification handoff preserves the product branch and
+artifact identity; no other UWorld collection is imported.
+
+
+On October4 the user accepted this reference architecture and functionality and
+authorized one further collection. See [second collection](UWORLD_SECOND_COLLECTION.md)
+for Poisoning & Environmental Exposure and current expansion verification.
+Explanation aesthetics remain deferred; this historical certified artifact is unchanged.
