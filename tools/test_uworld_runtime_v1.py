@@ -19,6 +19,7 @@ let chapterStats=()=>({}),activeBank='UWorld';
 const chapterQuestions=()=>RECORD.questions;
 let dashboard=()=>'<section class="nk-home-progress">',nkStudyLibraryPage=()=>'<main></main>',bankPage=()=>'',topics=()=>'',render=()=>{},nkModuleSelectedRecords=()=>[];
 const NK_UWORLD_BIOCHEMISTRY_BANK={subject:'UWorld · Biochemistry'},qAttempts=()=>[],fmtNum=String,shell=x=>x;
+const NK_UWORLD_COLLECTIONS=[NK_UWORLD_BIOCHEMISTRY_BANK];
 let nkValidQuestionOption=(q,n)=>Boolean(q)&&Number.isInteger(Number(n)),studyModuleDraft=null;
 const state={activeSession:null},location={hostname:'localhost'};
 const document={addEventListener:()=>{},querySelectorAll:()=>[],querySelector:()=>null};
@@ -28,10 +29,10 @@ for(const source of RECORD.questions){
  assert.equal(p.valid,!q.uworldPilot.requiresVisual,q.id);assert(!p.repaired);assert.deepEqual(p.options,q.options);
  assert.strictEqual(nkQuestionPresentationFor(q),p);assert.equal(JSON.stringify(q),before);
 }
-for(let n=4;n<=8;n++){
- const q={...RECORD.questions[0],id:'choices-'+n,correctOption:n,options:Array.from({length:n},(_,i)=>({letter:'ABCDEFGH'[i],text:'Choice '+i}))};
- q.uworldSource={...q.uworldSource,question_id:q.id,options:q.options,correct_option:'ABCDEFGH'[n-1]};
- assert(nkQuestionPresentationFor(q).valid,'A–H structural support lost');
+for(let n=4;n<=9;n++){
+ const q={...RECORD.questions[0],id:'choices-'+n,correctOption:n,options:Array.from({length:n},(_,i)=>({letter:'ABCDEFGHI'[i],text:'Choice '+i}))};
+ q.uworldSource={...q.uworldSource,question_id:q.id,options:q.options,correct_option:'ABCDEFGHI'[n-1]};
+ assert(nkQuestionPresentationFor(q).valid,'A–I structural support lost');
  for(const change of [r=>r.options.pop(),r=>r.options[0].letter='X',r=>r.options[0].text=' ',r=>r.correctOption=0,r=>r.uworldSource=null,r=>r.uworldPilot={status:'unknown',requiresVisual:false}]){
   const bad=JSON.parse(JSON.stringify(q));change(bad);assert(!nkQuestionPresentationFor(bad).valid);
  }
@@ -54,7 +55,7 @@ assert(nkUworldNodes([{type:'paragraph',text:'(Choice A) Source reasoning.'}],na
 assert(nkUworldNodes([{type:'table',caption:'Source table',columns:['Enzyme','Result'],rows:[['Ligase','Joins DNA']]}],native).includes('Joins DNA'));
 const zero={...native,uworldDocument:{statistics:{answered_correctly_percent:0,selection_percent:{A:0,B:null,C:99,D:1,E:0}}}};
 assert(nkUworldStatistics(zero).includes('0% answered correctly'));assert(nkUworldOptionPercentage(zero,{letter:'A'}).includes('0%'));assert(!nkUworldOptionPercentage(zero,{letter:'B'}).includes('percent of learners'));assert(nkUworldOptionPercentage(zero,{letter:'B'}).includes('aria-hidden'));
-console.log('UWORLD_RUNTIME_OK records=132 eligible='+eligible+' choices=4-8 source_native=true incumbent_preserved=true safe_markup=true no_answer_delay=true');
+console.log('UWORLD_RUNTIME_OK records=132 eligible='+eligible+' choices=4-9 source_native=true incumbent_preserved=true safe_markup=true no_answer_delay=true');
 '''
  with tempfile.TemporaryDirectory() as tmp:
   script=Path(tmp)/'runtime.js';script.write_text(runtime);subprocess.run(['node',str(script)],check=True,cwd=ROOT)

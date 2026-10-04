@@ -9,6 +9,7 @@ import json
 import threading
 from urllib.request import urlopen
 from playwright.sync_api import sync_playwright, expect
+from uworld_poisoning_browser_cases import verify_poisoning
 
 ROOT = Path(__file__).resolve().parents[1]
 PROBE = '''window.__uworldTest={wrong:()=>nkRevisionDeskData().wrong.map(q=>q.id),questions:()=>nkAllStudyQuestions(),current:()=>nkCurrentQuestion(),presentation:id=>nkQuestionPresentationFor(BY_ID[id]),records:()=>Object.values(BANKS_BY_SUBJECT).flat().map(r=>({subject:r.subject,bank:r.bank,questions:r.questions.length,topics:(r.topics||r.chapters||[]).length}))};\n'''
@@ -65,12 +66,13 @@ def main():
                 records = page.evaluate('__uworldTest.records()')
                 expected = {('Anatomy', 'PrepLadder'): 1068, ('Physiology', 'PrepLadder'): 899, ('Biochemistry', 'PrepLadder'): 719,
                             ('Anatomy', 'Marrow'): 1115, ('Physiology', 'Marrow'): 1014, ('Biochemistry', 'Marrow'): 582,
-                            ('UWorld · Biochemistry', 'UWorld'): 132}
+                            ('UWorld · Biochemistry', 'UWorld'): 132,
+                            ('UWorld · Poisoning & Environmental Exposure', 'UWorld'): 33}
                 assert {(r['subject'], r['bank']): r['questions'] for r in records} == expected, records
-                qs = page.evaluate('__uworldTest.questions().filter(q=>q.bank==="UWorld")')
+                qs = page.evaluate('__uworldTest.questions().filter(q=>q.bank==="UWorld"&&q.collection==="Biochemistry")')
                 assert len(qs) == len({q['id'] for q in qs}) == 132
                 assert all(q['subject'] == 'UWorld · Biochemistry' for q in qs)
-                eligible=page.evaluate('__uworldTest.questions().filter(q=>q.bank==="UWorld"&&__uworldTest.presentation(q.id).valid).length')
+                eligible=page.evaluate('__uworldTest.questions().filter(q=>q.bank==="UWorld"&&q.collection==="Biochemistry"&&__uworldTest.presentation(q.id).valid).length')
                 assert eligible==131, 'Only the known absent-exhibit question should remain unscored'
 
                 def reset_practice():
@@ -92,7 +94,8 @@ def main():
                 page.locator('.nk-home-uworld').get_by_role('button',name='Open',exact=False).click()
                 expect(page.locator('.nk-uworld-library h1')).to_have_text('My UWorld')
                 page.screenshot(path=str(output / f'uworld-collections-{width}.png'))
-                page.locator('.nk-uworld-collection').click()
+                expect(page.locator('.nk-uworld-collection')).to_have_count(2)
+                page.locator('.nk-uworld-collection').filter(has_text='Biochemistry').click()
                 expect(page.locator('button.nk-topic-row')).to_have_count(4)
                 page.locator('button.nk-topic-row').first.click()
                 page.locator('button.nk-library-row').first.click()
@@ -293,10 +296,11 @@ def main():
                     assert page.evaluate('__uworldTest.wrong().length')==0,'FSRS-only lapse entered Practice mistakes'
                     page.evaluate('QB.nkFinishRevisionSession()')
                     assert page.evaluate('__uworldTest.wrong().length')==0
+                poisoning = verify_poisoning(page, output, width, reset_practice, open_question)
                 assert not errors, errors
                 reports.append({'width': width, 'origin':origin,'html_sha256':html_hash,'registry': True, 'source_reviewed_reading': True, 'readable_typography': typography,
                                 'diagram_reference_unscored': True, 'eligible_questions':eligible, 'immediate_answer': True, 'shared_fsrs': True,
-                                'cbt_deferred_feedback': True, 'review_solutions': True, 'frozen_module': True, 'prepladder_preserved': True})
+                                'cbt_deferred_feedback': True, 'review_solutions': True, 'frozen_module': True, 'prepladder_preserved': True, 'poisoning': poisoning})
                 context.close()
             browser.close()
     finally:

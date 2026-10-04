@@ -139,3 +139,9 @@ Production remains unchanged: its prior HTML SHA-256
 was rechecked. New physical-device acceptance and clinical review remain separate.
 This documentation-only certification handoff preserves the product branch and
 artifact identity; no other UWorld collection is imported.
+
+
+On October4 the user accepted this reference architecture and functionality and
+authorized one further collection. See [second collection](UWORLD_SECOND_COLLECTION.md)
+for Poisoning & Environmental Exposure and current expansion verification.
+Explanation aesthetics remain deferred; this historical certified artifact is unchanged.

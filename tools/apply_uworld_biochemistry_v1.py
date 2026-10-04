@@ -2,17 +2,24 @@
 """Install the bounded source-native UWorld adapter after all incumbent render owners."""
 from pathlib import Path
 import json,re
-from uworld_biochemistry import ROOT,bank_record
+from uworld_biochemistry import ROOT
+from uworld_collections import bank_records
 HTML=ROOT/'app/src/main/assets/index.html'
 START='  /* NK_UWORLD_BANK_DATA_START */'
 END='  /* NK_UWORLD_BANK_DATA_END */'
 
 def transform(source):
-    data=json.dumps(bank_record(),ensure_ascii=False,separators=(',',':')).replace('</','<\\/')
-    registry=START+'\n  const NK_UWORLD_BIOCHEMISTRY_BANK='+data+''';
+    records=bank_records()
+    data=json.dumps(records,ensure_ascii=False,separators=(',',':')).replace('</','<\\/')
+    registry=START+'\n  const NK_UWORLD_COLLECTIONS='+data+''';
+  const NK_UWORLD_BIOCHEMISTRY_BANK=NK_UWORLD_COLLECTIONS[0];
   // Collection namespace participates in the shared engines, never My Subjects.
   BANKS_BY_SUBJECT[NK_UWORLD_BIOCHEMISTRY_BANK.subject]=[NK_UWORLD_BIOCHEMISTRY_BANK];
   SUBJECT_BY_NAME[NK_UWORLD_BIOCHEMISTRY_BANK.subject]=NK_UWORLD_BIOCHEMISTRY_BANK;
+  for(const record of NK_UWORLD_COLLECTIONS.slice(1)){
+    BANKS_BY_SUBJECT[record.subject]=[record];
+    SUBJECT_BY_NAME[record.subject]=record;
+  }
   const nkUworldOriginalBankRecord=nkBankRecord;
   nkBankRecord=function(name,bank){
     return nkUworldOriginalBankRecord(name==='Biochemistry'&&bank==='UWorld'?NK_UWORLD_BIOCHEMISTRY_BANK.subject:name,bank);
@@ -69,4 +76,4 @@ def transform(source):
 
 if __name__=='__main__':
     HTML.write_text(transform(HTML.read_text()),encoding='utf-8')
-    print('UWORLD_BIOCHEMISTRY_INSTALLED questions=132 topics=4 shared_engine=true original_records=preserved')
+    print('UWORLD_COLLECTIONS_INSTALLED collections=2 questions=165 topics=5 shared_engine=true original_records=preserved')
