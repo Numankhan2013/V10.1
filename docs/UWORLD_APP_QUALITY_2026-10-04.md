@@ -75,14 +75,33 @@ Existing repeated touch/reduced-motion/rollback/rating checks pass at320/390/820
 1194px and reduced-motion390px. The78-screen confirmation finds no page overflow
 or console errors, and builder action targets measure at least44px.
 
-Candidate branch: `feature/home-uworld-quality-20261004`, based on certified
-second-collection product795d94a9 and its documentation handoff. Full ordered CI,
-packaged PWA/APK, Android emulators and actual hosted certification remain pending.
-Production is unchanged. Explanation aesthetic work and further collections remain
-separate milestones.
+Certified product: `67a85ee3ce2c6a0261da69aa1f5534e2f84645ac` on
+`feature/home-uworld-quality-20261004`; ready PR96 stacks on PR95. Both Engineering
+gates37184200975/37184199171 and full ordered run37184199118 pass. The full run
+includes generated source/package/PWA/APK checks, broad browser flows and packaged
+Android35 phone/tablet emulators: Practice/review/FSRS, native Back, force-stop
+resume, multiple paused sessions, timed grid/abandon and retake comparisons.
 
-The initial full run37183638634 is cancelled before delivery after a deeper
+Actual hosted proof passes at https://adf558ca.nk-qbank.pages.dev,
+HTML SHA-256 `8d63e6f945826062ca4a422978093b1c693fdde8b29d62478fc65f454c3d2ce9`.
+Four-width390/820/1194/1440px UWorld tests cover both collections, percentages,
+source diagrams/tables/nine choices, full33-question Pause/Continue, unscored
+references, CBT/review/modules and incumbent bank behavior. Actual hosted
+phone/tablet Search tests additionally exercise bank compatibility, source-reference
+state preservation, forward/reverse/nested focus and full eligible batches.
+Hosted collection and source-table screenshots are inspected after those tests.
+
+The combined165-record inventory and all206 offline media paths remain intact;
+all206 UWorld image hashes match the preceding certified preview. Representative
+hosted media bytes and crawler headers also pass. Production remains
+`d1735d2129f9f53bccda036c08bce367d2de7542`, with unchanged HTML SHA-256
+`3fce9f7c07bf9c4721b1e58aa168bab76b0db8641cd9b2d908c46cbfe729fea9`.
+
+The initial full run37183638634 was cancelled before delivery after a deeper
 keyboard check reproduced closed disclosures reporting layout boxes. The final
 focus predicate checks closed ancestors explicitly; both-direction/nested-dialog
-regressions,102 local checks and repeated interaction checks pass. Replacement
-full CI remains pending. No source or visual redesign is added.
+regressions protect the repair. Only replacement run37184199118 certifies the final
+product. The docs-only `handoff/uworld-quality-certified-20261004` records this
+certification without changing the verified artifact. Production promotion,
+further collections and explanation aesthetic work remain separate milestones.
+No new physical-device or clinical acceptance is claimed.
