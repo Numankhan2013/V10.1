@@ -1,8 +1,9 @@
 """Explicit bounded collection registry; no automatic whole-corpus import."""
 import uworld_biochemistry
 import uworld_poisoning
+import uworld_ophthalmology
 
-COLLECTIONS = (uworld_biochemistry, uworld_poisoning)
+COLLECTIONS = (uworld_biochemistry, uworld_poisoning, uworld_ophthalmology)
 
 
 def bank_records():
@@ -16,6 +17,6 @@ def bank_records():
 def media_sources():
     for owner in COLLECTIONS:
         manifest, rows = owner.load_source()
-        docs = (owner.reviewed_documents(rows) if owner is uworld_poisoning else
-                uworld_biochemistry.load_reviewed(rows, manifest['source_sha256']))
+        docs = (uworld_biochemistry.load_reviewed(rows, manifest['source_sha256'])
+                if owner is uworld_biochemistry else owner.reviewed_documents(rows))
         yield owner.PDF, manifest, docs

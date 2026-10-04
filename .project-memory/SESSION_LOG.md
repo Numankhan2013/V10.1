@@ -2366,3 +2366,17 @@ remains3fce9f7c07bf9c4721b1e58aa168bab76b0db8641cd9b2d908c46cbfe729fea9.
 PR96 is ready and unmerged, stacked on95. This docs-only handoff preserves the
 verified product and artifact. No new physical-device/clinical certification,
 production promotion, additional import or explanation redesign is claimed.
+
+## 2026-10-04 — PDF-only Ophthalmology source extraction and integration
+
+The user accepts taking extraction work into integration rather than preparing
+JSONLs separately. Supplied JSONLs/PDFs remain reusable; Ophthalmology is explicitly
+selected as the first PDF-only collection. Source56fe817 holds its pinned204-page,
+45,046,309-byte original PDF. Three user-authorized Luna/high assignments visually
+review all30 questions and source pages. Root owns source pin/page manifest,
+canonical snapshot/typed schema reconciliation, crop/key/prose checks and the narrow
+registry/CI integration. Original per-page OCR stays auditable; complete searchable
+stems and ordered display stems have separate roles for inline exhibits.
+Only Ophthalmology is added. Other supplied packages remain queued. The accepted
+UWorld appearance and shared study/storage/sync engines remain protected. Source
+review/full verification and hosted certification are in progress; production unchanged.

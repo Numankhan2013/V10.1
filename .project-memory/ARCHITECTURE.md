@@ -34,8 +34,8 @@ closed. Raw question bundles and audit metadata remain unchanged.
 
 ## Runtime data and assets
 
-- `uworld_collections.py` explicitly registers Biochemistry and Poisoning &
-  Environmental Exposure, each with its own `UWorld · collection` namespace
+- `uworld_collections.py` explicitly registers Biochemistry, Poisoning &
+  Environmental Exposure and Ophthalmology, each with its own `UWorld · collection` namespace
   in the shared bank registry and lookup, without adding a traditional subject.
   Home/Library → My UWorld → collection → source blocks uses existing routes
   and study engines. Read-only aliases resolve legacy Biochemistry/UWorld bank
@@ -52,6 +52,10 @@ closed. Raw question bundles and audit metadata remain unchanged.
   in the UWorld UI. Poisoning's linked pair keeps full context in each item and
   original metadata; shared free navigation and feedback remain. A–I choices
   cover the genuine nine-option source item. No other collection is auto-imported.
+  Ophthalmology supplies a PDF-extracted immutable JSONL with per-page OCR audit
+  text and complete ownership, then uses the same reviewed-document/media pipeline.
+  Full searchable stems remain intact while display documents can interleave
+  source exhibits and the final prompt without duplication.
   Collection blocks bypass the legacy subject taxonomy and use source block names.
   Search keeps references readable without starting scored sessions; it filters
   source-blocked UWorld items before batch sampling. Bank choices follow the

@@ -946,3 +946,10 @@ four-width/Search/focus checks pass at https://adf558ca.nk-qbank.pages.dev; all2
 media hashes/offline paths remain unchanged. PR96 is ready, stacked on95. The
 docs-only certified handoff preserves that product artifact; production unchanged.
 Canonical STATE and docs/UWORLD_APP_QUALITY_2026-10-04.md own current details.
+
+October4 next batch: user authorizes reuse of supplied JSONLs/PDFs and chooses
+Ophthalmology as the first PDF-only extraction. Active Ophthalmology branch uses
+the pinned30-question/204-page source56fe817, three Luna/high source batches and
+existing UWorld registry/display/media/study engines. Verification is in progress;
+canonical STATE and docs/UWORLD_OPHTHALMOLOGY_COLLECTION.md own current detail.
+Production and prior certified artifacts remain unchanged.
