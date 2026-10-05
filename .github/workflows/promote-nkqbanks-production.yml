@@ -1,0 +1,97 @@
+name: Promote verified preview to nkqbanks production
+
+on:
+  push:
+    branches: ['release/promote-nkqbanks-20261005']
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      TARGET_PROJECT: nkqbanks
+      VERIFIED_RUN_ID: '37263917754'
+      VERIFIED_SHA: a76b124acb2d9a62ac5c1a7b862c1c9d09836414
+    steps:
+      - name: Check out promoted main content
+        uses: actions/checkout@v4
+        with:
+          ref: 07f6e8c5f7213dc567d09902b0c4295742771072
+
+      - name: Download exact verified preview artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: V11.7-pwa
+          path: build
+          run-id: 37263917754
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Verify downloaded artifact identity
+        run: python3 tools/approved_release_artifact.py --release-sha "$VERIFIED_SHA"
+
+      - name: Ensure nkqbanks Pages project and main production branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          api="https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/pages/projects/${TARGET_PROJECT}"
+          code="$(curl --silent --show-error --output /tmp/pages-project.json --write-out '%{http_code}'             --header "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}"             "$api")"
+          if [ "$code" = "404" ]; then
+            curl --fail-with-body --silent --show-error --request POST               "https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/pages/projects"               --header "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}"               --header 'Content-Type: application/json'               --data '{"name":"nkqbanks","production_branch":"main"}' > /tmp/pages-project-create.json
+            python3 - <<'PY'
+          import json
+          p=json.load(open('/tmp/pages-project-create.json'))
+          assert p.get('success'), p
+          assert (p.get('result') or {}).get('name')=='nkqbanks', p
+          print('PAGES_PROJECT_CREATED nkqbanks')
+          PY
+          else
+            test "$code" = "200"
+            python3 - <<'PY'
+          import json
+          p=json.load(open('/tmp/pages-project.json'))
+          assert p.get('success'), p
+          assert (p.get('result') or {}).get('name')=='nkqbanks', p
+          print('PAGES_PROJECT_FOUND nkqbanks')
+          PY
+          fi
+          curl --fail-with-body --silent --show-error --request PATCH             "$api"             --header "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}"             --header 'Content-Type: application/json'             --data '{"production_branch":"main"}' > /tmp/pages-project-patch.json
+          python3 - <<'PY'
+          import json
+          p=json.load(open('/tmp/pages-project-patch.json'))
+          assert p.get('success'), p
+          r=p.get('result') or {}
+          assert r.get('name')=='nkqbanks', r
+          assert r.get('production_branch')=='main', r
+          print('PAGES_PRODUCTION_BRANCH_OK nkqbanks main')
+          PY
+
+      - name: Deploy verified PWA to canonical production domain
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy build/web --project-name=nkqbanks --branch=main
+
+      - name: Verify canonical domain serves deployed artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          expected="$(sha256sum build/web/index.html | awk '{print $1}')"
+          ok=0
+          for i in $(seq 1 12); do
+            if curl --fail --silent --show-error --location               --header 'Cache-Control: no-cache'               "https://nkqbanks.pages.dev/?release=${VERIFIED_SHA}&attempt=${i}"               --output /tmp/live-index.html; then
+              actual="$(sha256sum /tmp/live-index.html | awk '{print $1}')"
+              if [ "$actual" = "$expected" ]; then
+                ok=1
+                break
+              fi
+            fi
+            sleep 5
+          done
+          test "$ok" = "1"
+          echo "CANONICAL_DOMAIN_OK https://nkqbanks.pages.dev"
