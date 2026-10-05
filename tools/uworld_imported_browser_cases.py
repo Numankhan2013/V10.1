@@ -8,7 +8,7 @@ def verify_imported_collections(page, output, width, reset_practice, open_questi
     reports = []
     for name, key, counts in [('Male Reproductive System', 'male-reproductive', [39, 13]),
                               ('Female Reproductive System & Breast', 'female-reproductive', [41, 40]),
-                              ('Biostatistics & Epidemiology', 'biostatistics', [40])]:
+                              ('Biostatistics & Epidemiology', 'biostatistics', [40, 20])]:
         page.evaluate('QB.nav("uworld")')
         card = page.locator('.nk-uworld-collection').filter(has_text=re.compile(re.escape(name)))
         assert card.locator('.nk-v3-subject-icon svg').get_attribute('data-nk-icon') == key
@@ -27,27 +27,29 @@ def verify_imported_collections(page, output, width, reset_practice, open_questi
         eligible = [q for q in members if not q['uworldPilot']['requiresVisual']]
         # Complete multi-question snapshot, Pause and rendered Continue keep IDs,
         # position and answered progress. Pausing never creates a skipped answer.
-        page.locator('.nk-topic-row').first.click()
-        reset_practice()
-        page.locator('.nk-chapter-actions').get_by_role('button', name='Practice', exact=False).click()
-        page.locator('#modal').get_by_role('button', name='Start Practice', exact=True).click()
-        page.locator('.option-list button').first.wait_for()
-        original = page.evaluate('QB.getState().activeSession')
-        assert len(original['questionIds']) == sum(q['chapterId'] == members[0]['chapterId'] for q in eligible)
-        page.wait_for_function('''() => [...document.querySelectorAll('img[data-uworld-essential="true"]')].every(i=>i.complete&&i.naturalWidth>0)''')
-        q = page.evaluate('__uworldTest.current()')
-        page.locator('.option-list button').nth(q['correctOption'] - 1).click()
-        page.get_by_role('button', name='Next', exact=True).click()
-        before = page.evaluate('QB.getState().activeSession')
-        page.evaluate('QB.openSessionReview()')
-        page.locator('#nk-session-review').get_by_role('button', name='Pause', exact=True).click()
-        page.wait_for_function('QB.getState().activeSession?.lifecycle==="paused"')
-        page.locator('.nk-home-focus-action').click()
-        resumed = page.evaluate('QB.getState().activeSession')
-        assert resumed['id'] == original['id'] and resumed['questionIds'] == original['questionIds']
-        assert resumed['index'] == before['index'] and resumed['answers'] == before['answers']
-        assert not resumed['submitted'].get(resumed['questionIds'][resumed['index']])
-
+        for block_index in range(len(counts)):
+            page.evaluate('QB.nav("uworld")')
+            page.locator('.nk-uworld-collection').filter(has_text=re.compile(re.escape(name))).click()
+            page.locator('.nk-topic-row').nth(block_index).click()
+            reset_practice()
+            page.locator('.nk-chapter-actions').get_by_role('button', name='Practice', exact=False).click()
+            page.locator('#modal').get_by_role('button', name='Start Practice', exact=True).click()
+            page.locator('.option-list button').first.wait_for()
+            original = page.evaluate('QB.getState().activeSession')
+            assert len(original['questionIds']) == sum(q['chapterId'] == members[sum(counts[:block_index])]['chapterId'] for q in eligible)
+            page.wait_for_function('''() => [...document.querySelectorAll('img[data-uworld-essential="true"]')].every(i=>i.complete&&i.naturalWidth>0)''')
+            q = page.evaluate('__uworldTest.current()')
+            page.locator('.option-list button').nth(q['correctOption'] - 1).click()
+            page.get_by_role('button', name='Next', exact=True).click()
+            before = page.evaluate('QB.getState().activeSession')
+            page.evaluate('QB.openSessionReview()')
+            page.locator('#nk-session-review').get_by_role('button', name='Pause', exact=True).click()
+            page.wait_for_function('QB.getState().activeSession?.lifecycle==="paused"')
+            page.locator('.nk-home-focus-action').click()
+            resumed = page.evaluate('QB.getState().activeSession')
+            assert resumed['id'] == original['id'] and resumed['questionIds'] == original['questionIds']
+            assert resumed['index'] == before['index'] and resumed['answers'] == before['answers']
+            assert not resumed['submitted'].get(resumed['questionIds'][resumed['index']])
         tables = figures = 0
         for q in eligible:
             open_question(q['id'])
@@ -59,7 +61,7 @@ def verify_imported_collections(page, output, width, reset_practice, open_questi
             if q['id'] == 'UWORLD_1902':
                 assert all(text in stem for text in ['Testosterone', 'Inhibin', 'FSH', 'LH'])
                 expect(page.locator('.nk-uworld-stem table')).to_have_count(1)
-            if q['id'] in ['UWORLD_15800', 'UWORLD_16001', 'UWORLD_14853', 'UWORLD_1187', 'UWORLD_1285']:
+            if q['id'] in ['UWORLD_15800', 'UWORLD_16001', 'UWORLD_14853', 'UWORLD_1187', 'UWORLD_1285', 'UWORLD_20250', 'UWORLD_20088']:
                 expect(page.locator('.nk-uworld-stem img')).to_have_count(1)
             if q['id'] == 'UWORLD_19691':
                 assert 'hepatitis C (HCV)' in stem and 'HGV' not in stem
@@ -94,11 +96,21 @@ def verify_imported_collections(page, output, width, reset_practice, open_questi
                 assert 'α' in explanation and 'β' in explanation
                 assert 'Type I' in explanation and 'Type II' in explanation
                 expect(page.locator('.nk-uworld-reading table')).to_have_count(1)
+            if q['id'] == 'UWORLD_12854':
+                assert all(value in stem for value in ['9.1','10.4','13.5'])
+                assert '0.705' in explanation
+            if q['id'] == 'UWORLD_11835':
+                assert 'q²' in explanation and '1/400' in explanation
+            if q['id'] == 'UWORLD_19810':
+                assert '1.5' in explanation and 'equivalent' in explanation
+            assert all(p.inner_text().strip() for p in page.locator('.nk-uworld-choice-discussion p').all())
             page.wait_for_function('''() => [...document.querySelectorAll('.nk-uworld-reading img')].every(i=>i.complete&&i.naturalWidth>0)''')
             assert not page.evaluate('document.documentElement.scrollWidth>innerWidth'), q['id']
             tables += page.locator('.nk-uworld-reading table,.nk-uworld-stem table').count()
             figures += page.locator('.nk-uworld-reading img,.nk-uworld-stem img').count()
-            if q['id'] == eligible[0]['id'] or q['id'] in ['UWORLD_16001','UWORLD_8519','UWORLD_1299','UWORLD_1187','UWORLD_1169','UWORLD_1285','UWORLD_1284','UWORLD_19262']:
+            if q['id'] == eligible[0]['id'] or q['id'] in ['UWORLD_16001','UWORLD_8519','UWORLD_1299','UWORLD_1187','UWORLD_1169','UWORLD_1285','UWORLD_1284','UWORLD_19262','UWORLD_12854','UWORLD_11835','UWORLD_19810','UWORLD_20088','UWORLD_19431','UWORLD_19741','UWORLD_1233','UWORLD_108026','UWORLD_1279','UWORLD_1283']:
+                page.locator('.nk-uworld-objective').scroll_into_view_if_needed()
+                page.wait_for_timeout(500)
                 page.screenshot(path=str(output / f'{key}-{q["id"]}-{width}.png'), full_page=True)
 
         reset_practice()

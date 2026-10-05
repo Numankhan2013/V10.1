@@ -1,0 +1,1135 @@
+{
+  "schema_version": 1,
+  "source_pdf_sha256": "82c97582c1a6fd7ac47570183cc80c7cd232ad3557203e3cc4b4d2c6a55b16c9",
+  "records": [
+    {
+      "id": "UWORLD_19741",
+      "source_record_sha256": "9d7ec2520340eabb42cd0ef79152dfbbb62fbcd78e380d77b2f6a2a6be08edcb",
+      "reviewed_pages": [
+        231,
+        232,
+        233,
+        234
+      ],
+      "status": "verified",
+      "issues": [],
+      "question": "A group of psychiatrists conducts a double-blind placebo-controlled randomized trial to determine the efficacy and safety of cariprazine for the treatment of depressive episodes associated with bipolar I disorder (bipolar depression) in adults. The treatment response rate was 46% for cariprazine versus 32% for placebo, and the rate for all adverse events was 7% for cariprazine versus 5% for placebo. The differences in rates were statistically significant. Which of the following is the approximate number of patients who must be exposed to cariprazine to cause harm to 1 person who otherwise would not have been harmed?",
+      "question_blocks": [],
+      "options": [
+        {
+          "letter": "A",
+          "text": "2",
+          "selection_percent": 9
+        },
+        {
+          "letter": "B",
+          "text": "8",
+          "selection_percent": 11
+        },
+        {
+          "letter": "C",
+          "text": "14",
+          "selection_percent": 17
+        },
+        {
+          "letter": "D",
+          "text": "21",
+          "selection_percent": 5
+        },
+        {
+          "letter": "E",
+          "text": "50",
+          "selection_percent": 56
+        }
+      ],
+      "correct_label": "E",
+      "explanation": [
+        {
+          "type": "paragraph",
+          "text": "The number of people who must be exposed to a treatment to cause harm to 1 person who otherwise would not have been harmed is known as the number needed to harm (NNH). It is calculated in a manner similar to the number needed to treat (NNT) but using the absolute risk increase (ARI) instead of the absolute risk reduction: NNH = (1 / ARI) ARI is the difference in the rate (risk) of the adverse event (AE) between the treatment group (eg, cariprazine) and the control group (eg, placebo): ARI = (Rate AE (cariprazine) − Rate AE (placebo))."
+        },
+        {
+          "type": "paragraph",
+          "text": "In this study, the rate of any AE in the treatment group (ie, cariprazine) is 0.07 (ie, 7%) and in the control (ie, placebo) group is 0.05 (5%)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Therefore, the ARI in adverse events of cariprazine versus placebo is: ARI = (Rate AE (cariprazine) − Rate AE (placebo)) = 0.07 − 0.05 = 0.02 (or 2%) (Choice A). Consequently, the NNH is: NNH = (1 / ARI) = 1 / 0.02 = 50."
+        },
+        {
+          "type": "paragraph",
+          "text": "Therefore, approximately 50 patients would need to be treated with cariprazine to cause harm to 1 person who otherwise would not have been harmed. The lower the NNH, the more risk of harm; an NNH of 1 means that every patient treated is harmed."
+        },
+        {
+          "type": "paragraph",
+          "text": "(Choices B, C, and D) The absolute risk reduction (ARR) is the difference in risk of an unfavorable event (eg, treatment nonresponse) between the cariprazine and placebo groups: ARR = (Rate (placebo) − Rate (cariprazine)). In this case, the rate of no response in the cariprazine group is 100% − 46% = 54% and in the placebo group is 100% − 32% = 68%, so ARR = 0.68 − 0.54 = 0.14 (ie, 14%). The relative risk reduction (RRR) is (Rate (placebo) − Rate (cariprazine)) / Rate (placebo), so RRR = (0.68 − 0.54) / 0.68 = 0.21 (ie, 21%). The number needed to treat (NNT) to avoid 1 additional negative event (ie, no treatment response) compared to placebo is the inverse of the absolute risk reduction (ARR): NNT = 1 / ARR = 1 / 0.14 = 8."
+        }
+      ],
+      "educational_objective": "The number needed to harm (NNH) is the number of people who must be exposed to a treatment to cause harm to 1 person who otherwise would not have been harmed. To calculate NNH, the absolute risk increase (ARI) between the treatment and control groups must be known: NNH = 1 / ARI.",
+      "statistics": {
+        "answered_correctly_percent": 56,
+        "time_spent_seconds": 3,
+        "version_year": null,
+        "selection_percent": {
+          "A": 9,
+          "B": 11,
+          "C": 17,
+          "D": 5,
+          "E": 56
+        }
+      },
+      "review_method": "All owned native PDF pages183–277 rendered and independently reviewed; display-only recovery of source paragraphs, options, mathematical notation, tables and focused diagrams. Original key, option percentages and raw imports preserved."
+    },
+    {
+      "id": "UWORLD_1174",
+      "source_record_sha256": "3bf0a19b26ec7dcfedb89f25cadd4b31d180588886725c41e1885da2c32d2490",
+      "reviewed_pages": [
+        235,
+        236,
+        237,
+        238,
+        239
+      ],
+      "status": "verified",
+      "issues": [],
+      "question": "A physician research group is evaluating the efficacy of a new lipid-lowering drug, Superstatin, which is being marketed directly to consumers as a groundbreaking new therapy to prevent heart attacks. The drug manufacturer claims that the drug is more effective than existing hypolipidemic agents for primary prevention of myocardial infarction. Results of a 5-year, randomized, double-blinded, controlled study to evaluate the efficacy of Superstatin are shown below.",
+      "question_blocks": [
+        {
+          "type": "table",
+          "columns": [
+            "",
+            "Number of patients treated with Superstatin",
+            "Number of patients treated with control medication"
+          ],
+          "rows": [
+            [
+              "Myocardial infarction",
+              "10",
+              "25"
+            ],
+            [
+              "No myocardial infarction",
+              "990",
+              "975"
+            ]
+          ],
+          "title": "Study outcomes"
+        },
+        {
+          "type": "paragraph",
+          "text": "Compared to the control medication, how many patients need to be treated with Superstatin to prevent one additional myocardial infarction?"
+        }
+      ],
+      "options": [
+        {
+          "letter": "A",
+          "text": "2",
+          "selection_percent": 7
+        },
+        {
+          "letter": "B",
+          "text": "5",
+          "selection_percent": 11
+        },
+        {
+          "letter": "C",
+          "text": "23",
+          "selection_percent": 5
+        },
+        {
+          "letter": "D",
+          "text": "48",
+          "selection_percent": 4
+        },
+        {
+          "letter": "E",
+          "text": "67",
+          "selection_percent": 60
+        },
+        {
+          "letter": "F",
+          "text": "92",
+          "selection_percent": 2
+        },
+        {
+          "letter": "G",
+          "text": "100",
+          "selection_percent": 7
+        }
+      ],
+      "correct_label": "E",
+      "explanation": [
+        {
+          "type": "table",
+          "columns": [
+            "Term",
+            "Definition",
+            "Calculation"
+          ],
+          "rows": [
+            [
+              "Absolute risk reduction (ARR)",
+              "Percentage indicating the actual difference in event rate between control & treatment groups",
+              "ARR = control rate − treatment rate"
+            ],
+            [
+              "Relative risk reduction (RRR)",
+              "Percentage indicating relative reduction in the treatment event rate compared to the control group",
+              "RRR = ARR / control rate"
+            ],
+            [
+              "Relative risk (RR)",
+              "Ratio of the probability of an event occurring in the treatment group compared to the control group",
+              "RR = treatment rate / control rate"
+            ],
+            [
+              "Number needed to treat (NNT)",
+              "Number of individuals who need to be treated to prevent a negative outcome in 1 patient",
+              "NNT = 1 / ARR"
+            ]
+          ],
+          "title": "Common measures of therapeutic efficacy"
+        },
+        {
+          "type": "paragraph",
+          "text": "The number needed to treat (NNT) represents the number of patients that need to be treated with a medication (eg, Superstatin) in order to prevent an additional negative outcome (eg, myocardial infarction). NNT is calculated by dividing 1 by the absolute risk reduction (ARR). NNT = 1 / ARR ARR represents the actual difference in control and experimental group event rates. The data is not presented in the standard format of a contingency (2 x 2) table, so care should be exercised in selecting the appropriate values."
+        },
+        {
+          "type": "paragraph",
+          "text": "In this example, the event of interest is myocardial infarction. There were 25 + 975 = 1,000 patients in the control group; of those, 25 had a myocardial infarction. Similarly, there were 10 + 990 = 1,000 patients in the treatment (ie, Superstatin) group; of those, 10 had a myocardial infarction. Therefore:  Control event rate = 25 / 1,000 = 0.025 Experimental event rate = 10 / 1,000 = 0.01 ARR can then be calculated: ARR= Control event rate - Experimental event rate = 0.025 - 0.01 = 0.015, or 1.5%"
+        },
+        {
+          "type": "paragraph",
+          "text": "Finally, NNT is found by dividing 1 by 0.015: NNT = 1 / 0.015 = 66.6 ≈ 67 Rounding up the result to the nearest whole number, 67 patients need to be treated with Superstatin to prevent an additional myocardial infarction."
+        },
+        {
+          "type": "paragraph",
+          "text": "The ideal NNT would be 1, meaning that all patients in the treatment group benefit from the treatment. A low NNT implies that a treatment is more beneficial because fewer patients need to be treated to prevent an additional negative outcome."
+        },
+        {
+          "type": "paragraph",
+          "text": "For instance, if a third hypolipidemic medication had an NNT of 40, it would be more beneficial than Superstatin, as only 40 patients would need to be treated over a given period to prevent an additional myocardial infarction."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "",
+            "Outcome/disease present",
+            "Outcome/disease absent",
+            "Total"
+          ],
+          "rows": [
+            [
+              "Exposure/risk factor present",
+              "a",
+              "b",
+              "a + b"
+            ],
+            [
+              "Exposure/risk factor absent",
+              "c",
+              "d",
+              "c + d"
+            ],
+            [
+              "Total",
+              "a + c",
+              "b + d",
+              ""
+            ]
+          ],
+          "title": "Standard contingency table"
+        }
+      ],
+      "educational_objective": "The number needed to treat (NNT) is the number of patients that need to be treated with a medication to avoid an additional negative outcome. NNT is calculated by dividing 1 by the absolute risk reduction (the difference between the control and experimental group event rates). Lower NNT values represent more beneficial treatments.",
+      "statistics": {
+        "answered_correctly_percent": 60,
+        "time_spent_seconds": 3,
+        "version_year": 2023,
+        "selection_percent": {
+          "A": 7,
+          "B": 11,
+          "C": 5,
+          "D": 4,
+          "E": 60,
+          "F": 2,
+          "G": 7
+        }
+      },
+      "review_method": "All owned native PDF pages183–277 rendered and independently reviewed; display-only recovery of source paragraphs, options, mathematical notation, tables and focused diagrams. Original key, option percentages and raw imports preserved."
+    },
+    {
+      "id": "UWORLD_108159",
+      "source_record_sha256": "eb7117b44f8c5edd6ec2b0252cf7e2a4540457c451034f025c4e607f78566a98",
+      "reviewed_pages": [
+        240,
+        241,
+        242,
+        243
+      ],
+      "status": "verified",
+      "issues": [],
+      "question": "A clinical study compares several cut points for a new biomarker for bacterial bloodstream infection among adult patients in the intensive care unit (ICU) against blood culture results. Analysis shows that a biomarker value ≥2.6 ng/mL has a sensitivity of 32% and a specificity of 96% for predicting bloodstream infections. Which of the following conclusions about the study results is correct?",
+      "question_blocks": [],
+      "options": [
+        {
+          "letter": "A",
+          "text": "Based on a cut point of ≥2.6 ng/mL, 4% of adult patients in the ICU with bacterial bloodstream infections will be correctly identified.",
+          "selection_percent": 5
+        },
+        {
+          "letter": "B",
+          "text": "Based on a cut point of ≥2.6 ng/mL, 4% of adult patients in the ICU without bacterial bloodstream infections will be incorrectly identified.",
+          "selection_percent": 47
+        },
+        {
+          "letter": "C",
+          "text": "Based on a cut point of ≥2.6 ng/mL, 96% of adult patients in the ICU with bacterial bloodstream infections will be correctly identified.",
+          "selection_percent": 30
+        },
+        {
+          "letter": "D",
+          "text": "Based on a cut point of ≥2.6 ng/mL, 96% of adult patients in the ICU without bacterial bloodstream infections will be incorrectly identified.",
+          "selection_percent": 5
+        },
+        {
+          "letter": "E",
+          "text": "Of all adult patients in the ICU with bacterial bloodstream infections, 4% will have a biomarker value <2.6 ng/mL.",
+          "selection_percent": 7
+        },
+        {
+          "letter": "F",
+          "text": "Of all adult patients in the ICU with bacterial bloodstream infections, 96% will have a biomarker value <2.6 ng/mL.",
+          "selection_percent": 4
+        }
+      ],
+      "correct_label": "B",
+      "explanation": [
+        {
+          "type": "table",
+          "columns": [
+            "Test result",
+            "Positive condition",
+            "Negative condition",
+            "Predictive value"
+          ],
+          "rows": [
+            [
+              "Positive",
+              "TP",
+              "FP",
+              "PPV = TP / (TP + FP)"
+            ],
+            [
+              "Negative",
+              "FN",
+              "TN",
+              "NPV = TN / (TN + FN)"
+            ],
+            [
+              "",
+              "Sensitivity = TP / (TP + FN)",
+              "Specificity = TN / (TN + FP)",
+              ""
+            ]
+          ],
+          "title": "Diagnostic test performance"
+        },
+        {
+          "type": "paragraph",
+          "text": "FN = false negative; FP = false positive; NPV = negative predictive value; PPV = positive predictive value; TN = true negative; TP = true positive."
+        },
+        {
+          "type": "paragraph",
+          "text": "Compared to blood culture (the reference standard for diagnosing bacterial bloodstream infection), a biomarker value cut point of ≥2.6 ng/mL has a sensitivity of 32% and a specificity of 96%."
+        },
+        {
+          "type": "paragraph",
+          "text": "• The specificity of the test is the percentage of healthy individuals (eg, adult patients in the intensive care unit [ICU] without bacterial bloodstream infection) who are correctly identified (ie, negative test result) by the diagnostic test. Its complement (1 - specificity) is the false-positive rate (eg, percentage of adult patients in the ICU without bacterial bloodstream infection who test positive)."
+        },
+        {
+          "type": "paragraph",
+          "text": "• The sensitivity of the test is the percentage of diseased individuals (eg, ICU patients with bacterial bloodstream infection) who are correctly identified (ie, positive test result) by the diagnostic test. Its complement (1 - sensitivity) is the false-negative rate (eg, percentage of adult patients in the ICU with bacterial bloodstream infection who test negative). This test's specificity indicates that 96% of adult patients in the ICU without bacterial bloodstream infection will be correctly identified (ie, test negative) based on the biomarker cut point of ≥2.6 ng/mL (ie, test result <2.6 ng/mL) (Choice D). Conversely, 100% - 96% = 4%, of adult patients in the ICU without bacterial bloodstream infection will be incorrectly identified."
+        },
+        {
+          "type": "paragraph",
+          "text": "(Choices A, C, E, and F) This test's sensitivity indicates that 32% of adult patients in the ICU with bacterial bloodstream infection will be correctly diagnosed (ie, test positive) based on the biomarker cut point of ≥2.6 ng/mL. Conversely, 100% - 32% = 68% of adult patients in the ICU with bacterial bloodstream infection will be missed (ie, test negative with a result <2.6 ng/mL)."
+        }
+      ],
+      "educational_objective": "Sensitivity represents the probability that an individual with disease will have a positive test result. Specificity represents the probability that an individual without disease will have a negative test result.",
+      "statistics": {
+        "answered_correctly_percent": 47,
+        "time_spent_seconds": 3,
+        "version_year": null,
+        "selection_percent": {
+          "A": 5,
+          "B": 47,
+          "C": 30,
+          "D": 5,
+          "E": 7,
+          "F": 4
+        }
+      },
+      "review_method": "All owned native PDF pages183–277 rendered and independently reviewed; display-only recovery of source paragraphs, options, mathematical notation, tables and focused diagrams. Original key, option percentages and raw imports preserved."
+    },
+    {
+      "id": "UWORLD_1279",
+      "source_record_sha256": "5ab1e01ea03f7897aa6516ce6db633f59ea1a94fda041d689870300ba6bfb77f",
+      "reviewed_pages": [
+        244,
+        245,
+        246,
+        247,
+        248,
+        249
+      ],
+      "status": "verified",
+      "issues": [],
+      "question": "A new estrogen receptor agonist is being evaluated for the treatment of postmenopausal symptoms. A prospective study shows that the drug increases the risk of deep vein thrombosis (DVT) in treated women who smoke compared to untreated women who smoke, with a relative risk (RR) of 1.70 and p-value of 0.01. In nonsmokers, no increased risk of DVT is evident with use of the drug (RR= 0.96; p-value = 0.68). Which of the following describes this phenomenon?",
+      "question_blocks": [],
+      "options": [
+        {
+          "letter": "A",
+          "text": "Confounding",
+          "selection_percent": 48
+        },
+        {
+          "letter": "B",
+          "text": "Effect modification",
+          "selection_percent": 40
+        },
+        {
+          "letter": "C",
+          "text": "Latent period",
+          "selection_percent": 2
+        },
+        {
+          "letter": "D",
+          "text": "Observer bias",
+          "selection_percent": 2
+        },
+        {
+          "letter": "E",
+          "text": "Selection bias",
+          "selection_percent": 6
+        }
+      ],
+      "correct_label": "B",
+      "explanation": [
+        {
+          "type": "figure",
+          "page": 248,
+          "bbox": [
+            460,
+            111,
+            866,
+            601
+          ],
+          "caption": "Confounding: shoe size, age and IQ",
+          "role": "explanation"
+        },
+        {
+          "type": "paragraph",
+          "text": "Effect modification occurs when the effect of an exposure on an outcome is modified by another variable. It can be identified using stratified analysis (analyzing the cohort as different subgroups), as the different strata will have different measures of association. In this scenario, smoking status modified the effect of the new estrogen receptor agonist (exposure) on deep vein thrombosis (DVT) incidence (outcome). Using stratified analysis by smoking status:"
+        },
+        {
+          "type": "paragraph",
+          "text": "• Among smokers, there was a statistically significant association between taking the new estrogen receptor agonist and risk of developing DVT with a relative risk of >1, indicating higher risk, and a p-value of <0.05, indicating statistical significance."
+        },
+        {
+          "type": "paragraph",
+          "text": "• In contrast, among nonsmokers, there was no statistically significant association between taking the medication and risk of DVT (p-value >0.05). Effect modification is not a bias (Choices D and E), as it is not due to flaws in the design or analysis phases of the study. It is a natural phenomenon that should be described, not corrected. Effect modification is most easily confused with confounding (Choice A), but stratified analysis can help distinguish between these 2 scenarios. With effect modification, the different strata will have different measures of association, as seen in this example of the association between taking the estrogen receptor and the risk of DVT among smokers compared to nonsmokers. In contrast, with confounding, stratification usually reveals no significant difference between the strata."
+        },
+        {
+          "type": "paragraph",
+          "text": "For instance, in an analysis of primary school students (of all grade levels), age can be a confounder that muddies the association between shoe size and intelligence. Children with bigger shoe sizes may appear to be more intelligent on initial analysis. However, this association is likely not due to shoe size but rather to age because older children tend to have both bigger feet and more intelligence. When older and younger children are analyzed separately (stratification based on the confounder), the association between shoe size and intelligence disappears."
+        },
+        {
+          "type": "paragraph",
+          "text": "(Choice C) The latent period is the time required for an exposure to begin having an effect. However, there is no information on how latency was handled in this study."
+        }
+      ],
+      "educational_objective": "Effect modification is present when the effect of the main exposure on the outcome is modified by the presence of another variable. Effect modification is not a bias.",
+      "statistics": {
+        "answered_correctly_percent": 40,
+        "time_spent_seconds": 3,
+        "version_year": 2023,
+        "selection_percent": {
+          "A": 48,
+          "B": 40,
+          "C": 2,
+          "D": 2,
+          "E": 6
+        }
+      },
+      "review_method": "All owned native PDF pages183–277 rendered and independently reviewed; display-only recovery of source paragraphs, options, mathematical notation, tables and focused diagrams. Original key, option percentages and raw imports preserved."
+    },
+    {
+      "id": "UWORLD_1202",
+      "source_record_sha256": "24ed0a5276fd55a31ed717f97e2500604f93fcd4a34a404581ee3e258abf9cb6",
+      "reviewed_pages": [
+        250,
+        251,
+        252,
+        253
+      ],
+      "status": "verified",
+      "issues": [],
+      "question": "Officials of a public health department report a higher than normal prevalence of acute myelogenous leukemia (AML) among children age 5-12 in their community. They observe that some households in the community are exposed to chemical waste from a nearby factory and worry that exposure to this waste is responsible for the increased prevalence of AML. A case-control study is designed to evaluate the health department officials' claim that exposure to chemical waste is associated with AML in childhood. Which of the following populations should be selected as the control group?",
+      "question_blocks": [],
+      "options": [
+        {
+          "letter": "A",
+          "text": "Children who do not have AML and are exposed to chemical waste",
+          "selection_percent": 19
+        },
+        {
+          "letter": "B",
+          "text": "Children who do not have AML and are not exposed to chemical waste",
+          "selection_percent": 20
+        },
+        {
+          "letter": "C",
+          "text": "Children who do not have AML, regardless of exposure status to chemical waste",
+          "selection_percent": 30
+        },
+        {
+          "letter": "D",
+          "text": "Children who have AML and are exposed to chemical waste",
+          "selection_percent": 0
+        },
+        {
+          "letter": "E",
+          "text": "Children who have AML and are not exposed to chemical waste",
+          "selection_percent": 23
+        },
+        {
+          "letter": "F",
+          "text": "Children who have AML, regardless of exposure status to chemical waste",
+          "selection_percent": 4
+        }
+      ],
+      "correct_label": "C",
+      "explanation": [
+        {
+          "type": "figure",
+          "page": 252,
+          "bbox": [
+            385,
+            190,
+            935,
+            541
+          ],
+          "caption": "Case-control study: disease selection and exposure assessment",
+          "role": "explanation"
+        },
+        {
+          "type": "paragraph",
+          "text": "A case-control study is the most appropriate study design for evaluating the public health officials' claim. This is because the disease (acute myelogenous leukemia [AML]) is a rare condition occurring at a higher rate in this population, and a retrospective exposure (chemical waste exposure) needs to be evaluated. In case-control studies, 2 groups of subjects are created: cases (subjects with the disease of interest) and controls (subjects without the disease of interest). After the case and control groups are selected, exposure frequency to a specific variable (eg, chemical waste) within both groups is ascertained. If there is a statistically significant difference in exposure frequency between the 2 groups, it is likely that the variable in question is associated with disease development."
+        },
+        {
+          "type": "paragraph",
+          "text": "In this example, AML is the disease of interest; therefore, children with AML should be used as cases and children without AML should be used as controls. Cases and controls should be selected regardless of exposure status to the chemical waste (Choices A and B). Selecting subjects based on exposure status is inappropriate because comparing the frequency of exposure between the case and control groups is what determines whether the exposure is more prevalent among cases as compared to controls. Ideally, exposure frequency among controls should be representative of that among the population of individuals \"at risk\" of becoming cases. In other words, for a given case-control study, controls are nondiseased individuals who could be considered cases if they had the disease. Often, controls and cases are matched based on independent variables (eg, age, sex) to decrease the effects of confounding."
+        },
+        {
+          "type": "paragraph",
+          "text": "(Choices D, E, and F) AML is the outcome of interest; therefore, children who have AML can be used only to form the cases group and cannot be used as controls. Cases should also be selected regardless of exposure status."
+        }
+      ],
+      "educational_objective": "Selection of control subjects in case-control studies is intended to provide an accurate estimation of exposure frequency among the nondiseased general population. Cases and controls should be selected based on disease status, not exposure status.",
+      "statistics": {
+        "answered_correctly_percent": 30,
+        "time_spent_seconds": 3,
+        "version_year": null,
+        "selection_percent": {
+          "A": 19,
+          "B": 20,
+          "C": 30,
+          "D": 0,
+          "E": 23,
+          "F": 4
+        }
+      },
+      "review_method": "All owned native PDF pages183–277 rendered and independently reviewed; display-only recovery of source paragraphs, options, mathematical notation, tables and focused diagrams. Original key, option percentages and raw imports preserved."
+    },
+    {
+      "id": "UWORLD_19810",
+      "source_record_sha256": "dc9a798d4944dd93db75d0da6528b7024bc56f4ea25fbcaf25ee547ff790d695",
+      "reviewed_pages": [
+        254,
+        255,
+        256,
+        257,
+        258,
+        259
+      ],
+      "status": "verified",
+      "issues": [],
+      "question": "For a case-control study designed to investigate a possible association between endometriosis and systemic lupus erythematosus (SLE), 1,040 women with SLE and 1,260 women without SLE are selected. The investigators inquire about a history of endometriosis in both groups of women. Among women with SLE, 240 had a history of endometriosis; among women without SLE, 210 had a history of endometriosis. Which of the following is the estimated odds ratio of endometriosis in women with SLE compared to women without SLE?",
+      "question_blocks": [],
+      "options": [
+        {
+          "letter": "A",
+          "text": "0.1",
+          "selection_percent": 2
+        },
+        {
+          "letter": "B",
+          "text": "0.7",
+          "selection_percent": 7
+        },
+        {
+          "letter": "C",
+          "text": "0.8",
+          "selection_percent": 6
+        },
+        {
+          "letter": "D",
+          "text": "1.2",
+          "selection_percent": 13
+        },
+        {
+          "letter": "E",
+          "text": "1.5",
+          "selection_percent": 70
+        }
+      ],
+      "correct_label": "E",
+      "explanation": [
+        {
+          "type": "paragraph",
+          "text": "The odds of an event are related to the probability P of that event, with odds = P / (1 - P). For example, the probability of rolling a die and getting a 1 is 1/6, but the odds of rolling a 1 is 1/5. The odds ratio (OR) is a measure of association used in case-control studies to compare the odds of exposure in cases (ie, individuals with disease) relative to controls (ie, individuals without disease): OR = (odds of exposure in cases) / (odds of exposure in controls) A shortcut to calculate the OR when a contingency table has a standard format (ie, exposure of interest in the first row of exposure status and cases in the first column of disease status) is the following: OR = (a/c) / (b/d)"
+        },
+        {
+          "type": "paragraph",
+          "text": "In this study, the disease of interest is systemic lupus erythematosus (SLE), so cases are women with SLE, and controls are women without SLE. The exposure of interest is a history of endometriosis. Given that 240 of 1,040 women with SLE had a history of endometriosis, 1,040 − 240 = 800 of women with SLE had no history of endometriosis. Given that 210 of 1,260 without SLE had a history of endometriosis, 1,260 − 210 = 1,050 of women without SLE had no history of endometriosis. Based on these data, the standard contingency table is as follows:"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "History of endometriosis",
+            "SLE+",
+            "SLE−"
+          ],
+          "rows": [
+            [
+              "Yes",
+              "240 (a)",
+              "210 (b)"
+            ],
+            [
+              "No",
+              "800 (c)",
+              "1,050 (d)"
+            ],
+            [
+              "Total",
+              "1,040",
+              "1,260"
+            ]
+          ],
+          "title": "Case-control contingency table"
+        },
+        {
+          "type": "paragraph",
+          "text": "The odds of endometriosis in women with SLE and women without SLE are:"
+        },
+        {
+          "type": "paragraph",
+          "text": "• Odds of endometriosis in cases: a/c = 240/800 = 0.3"
+        },
+        {
+          "type": "paragraph",
+          "text": "• Odds of endometriosis in controls: b/d = 210/ 1,050 = 0.2"
+        },
+        {
+          "type": "paragraph",
+          "text": "Therefore, the OR of endometriosis in women with SLE compared to women without SLE is: OR = (odds of endometriosis in cases)/ (odds of endometriosis in controls)= (a/c)/ (b/d) = 0.3/0.2 = 1.5 The estimated OR= 1.5 is >1 (ie, the null value for the OR); this indicates that a history of endometriosis acts as a risk factor for SLE. This example calculated the OR of exposure (ie, odds of exposure among cases relative to controls). The OR is sometimes described as the odds of disease among exposed individuals relative to nonexposed individuals, given by (a/b) / (c/d). Both OR definitions are mathematically equivalent and reduce to OR= (ad) / (bc)."
+        },
+        {
+          "type": "figure",
+          "page": 258,
+          "bbox": [
+            384,
+            242,
+            930,
+            472
+          ],
+          "caption": "Odds vs probability",
+          "role": "explanation"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "",
+            "Outcome/disease present",
+            "Outcome/disease absent",
+            "Total"
+          ],
+          "rows": [
+            [
+              "Exposure/risk factor present",
+              "a",
+              "b",
+              "a + b"
+            ],
+            [
+              "Exposure/risk factor absent",
+              "c",
+              "d",
+              "c + d"
+            ],
+            [
+              "Total",
+              "a + c",
+              "b + d",
+              ""
+            ]
+          ],
+          "title": "Standard contingency table"
+        }
+      ],
+      "educational_objective": "The odds ratio (OR) is a measure of association calculated as: OR = (odds of exposure in cases) / (odds of exposure in controls). For a contingency table in the standard format: OR = (ad) / (bc).",
+      "statistics": {
+        "answered_correctly_percent": 70,
+        "time_spent_seconds": 4,
+        "version_year": 2023,
+        "selection_percent": {
+          "A": 2,
+          "B": 7,
+          "C": 6,
+          "D": 13,
+          "E": 70
+        }
+      },
+      "review_method": "All owned native PDF pages183–277 rendered and independently reviewed; display-only recovery of source paragraphs, options, mathematical notation, tables and focused diagrams. Original key, option percentages and raw imports preserved."
+    },
+    {
+      "id": "UWORLD_19388",
+      "source_record_sha256": "062d6ad4f536e1fff5639f12db685024f23825466458c347908f49a3b1bdf6d1",
+      "reviewed_pages": [
+        260,
+        261,
+        262,
+        263
+      ],
+      "status": "verified",
+      "issues": [],
+      "question": "A group of researchers conduct a study to evaluate the pharmacologic properties of oxfendazole, an anthelminthic agent. As part of the study, increasing oral doses of oxfendazole (0.5 to 60 mg/kg) are administered to healthy volunteers. Data is collected to form a pharmacokinetic profile of the drug and its metabolites, and the incidence of adverse effects is recorded for the various dosages. A total of 20 healthy male and female (nonchildbearing potential) volunteers participate in the study. Oxfendazole is found to be well tolerated throughout the dose range without any serious adverse effects or deaths. Which of the following best describes this type of study?",
+      "question_blocks": [],
+      "options": [
+        {
+          "letter": "A",
+          "text": "Preclinical study",
+          "selection_percent": 1
+        },
+        {
+          "letter": "B",
+          "text": "Phase I clinical trial",
+          "selection_percent": 79
+        },
+        {
+          "letter": "C",
+          "text": "Phase II clinical trial",
+          "selection_percent": 12
+        },
+        {
+          "letter": "D",
+          "text": "Phase III clinical trial",
+          "selection_percent": 4
+        },
+        {
+          "letter": "E",
+          "text": "Phase IV clinical trial",
+          "selection_percent": 2
+        }
+      ],
+      "correct_label": "B",
+      "explanation": [
+        {
+          "type": "paragraph",
+          "text": "The clinical trials process addresses whether new treatments (eg, drugs, procedures) are effective and safe for their intended use (ie, treatment of a disease) in the target population (eg, subjects with the disease of interest). New treatments go through several research phases; some phases involve no human subjects (ie, preclinical studies) and some involve few (ie, phase I and II trials) or many (ie, phase III and IV trials) human subjects. Each of these phases has a different purpose."
+        },
+        {
+          "type": "paragraph",
+          "text": "A phase I trial is the first step in testing a new treatment in humans. Data is collected on the drug's pharmacokinetic profile, metabolism, and pharmacodynamic response (ie, how it affects the body). Different treatment routes (eg, orally, intravenously) may also be investigated. Human safety is assessed in terms of adverse effects and the maximum tolerated dose (MTD). Gradually increasing doses are typically administered to find the highest dose (ie, MTD) that does not cause unacceptable toxicity. Phase I trials usually include only a small number of healthy subjects."
+        },
+        {
+          "type": "paragraph",
+          "text": "Note: Cancer-related phase I trials may involve subjects with cancer (rather than healthy subjects) who have been unresponsive to other treatments."
+        },
+        {
+          "type": "paragraph",
+          "text": "(Choice A) Contrary to phase I, II, III, and IV trials, which include human subjects, preclinical studies do not involve human subjects."
+        },
+        {
+          "type": "paragraph",
+          "text": "(Choice C) A phase II trial assesses treatment efficacy in a small number of affected subjects (ie, those with the disease of interest), rather than in healthy subjects. For example, a phase II study would assess efficacy, optimal dosing, and adverse effects of oxfendazole among subjects with helminth infection. The study above evaluated the safety, pharmacokinetic profile, and metabolism of oxfendazole in a small number of healthy subjects."
+        },
+        {
+          "type": "paragraph",
+          "text": "(Choice D) A phase III trial assesses the safety and effectiveness of a new treatment compared to a standard treatment (or placebo); therefore, it involves ≥2 groups of affected subjects. For example, a phase III study would evaluate the effectiveness of oxfendazole compared to placebo among subjects with helminth infection."
+        },
+        {
+          "type": "paragraph",
+          "text": "(Choice E) A phase IV trial studies the adverse effects caused over time by a new treatment after it has been approved and is on the market, as with a study to assess adverse effects related to oxfendazole use not seen in earlier trials."
+        }
+      ],
+      "educational_objective": "A phase I trial assesses the pharmacokinetics, pharmacodynamics, and safety profile (eg, adverse events, toxicity) of a new treatment in humans. It is usually conducted on a small number of healthy subjects.",
+      "statistics": {
+        "answered_correctly_percent": 79,
+        "time_spent_seconds": 4,
+        "version_year": null,
+        "selection_percent": {
+          "A": 1,
+          "B": 79,
+          "C": 12,
+          "D": 4,
+          "E": 2
+        }
+      },
+      "review_method": "All owned native PDF pages183–277 rendered and independently reviewed; display-only recovery of source paragraphs, options, mathematical notation, tables and focused diagrams. Original key, option percentages and raw imports preserved."
+    },
+    {
+      "id": "UWORLD_1283",
+      "source_record_sha256": "e8c9920d9e03f8b36ad5b8c7542144bf643c7502ac39130d33c8c683dbd1412d",
+      "reviewed_pages": [
+        264,
+        265,
+        266,
+        267
+      ],
+      "status": "verified",
+      "issues": [],
+      "question": "Plasma homocysteine levels are measured in patients with acute coronary syndrome who are treated at a large community hospital. The mean plasma homocysteine level in this group is determined to be 11.1 µmol/L with a standard deviation of 1.2 µmol/L. In a separate group of patients hospitalized on the general ward in the same hospital, the mean plasma level is 9.5 µmol/L and the standard deviation is 1.3 µmol/L. Which of the following statistical methods should be used to compare the mean homocysteine levels of these 2 groups of patients?",
+      "question_blocks": [],
+      "options": [
+        {
+          "letter": "A",
+          "text": "Two-sample t test",
+          "selection_percent": 76
+        },
+        {
+          "letter": "B",
+          "text": "Linear regression",
+          "selection_percent": 1
+        },
+        {
+          "letter": "C",
+          "text": "Correlation coefficient",
+          "selection_percent": 4
+        },
+        {
+          "letter": "D",
+          "text": "Chi-square test",
+          "selection_percent": 16
+        },
+        {
+          "letter": "E",
+          "text": "Meta-analysis",
+          "selection_percent": 1
+        }
+      ],
+      "correct_label": "A",
+      "explanation": [
+        {
+          "type": "figure",
+          "page": 266,
+          "bbox": [
+            450,
+            115,
+            890,
+            607
+          ],
+          "caption": "Two-sample t test: null and alternate hypotheses",
+          "role": "explanation"
+        },
+        {
+          "type": "paragraph",
+          "text": "The two-sample t test is commonly employed to determine if the means of 2 populations are equal. Several statistical approaches can be used, but the basic numerical requirements needed to perform this test are the 2 mean values, the sample variances (eg, standard deviations), and the sample sizes. The t statistic is then calculated, from which the p value can be determined. If p < 0.05, the null hypothesis (which assumes that there is no difference between 2 groups) is rejected and the 2 means are assumed to be statistically different."
+        },
+        {
+          "type": "paragraph",
+          "text": "(Choice B) Linear regression is used to model the linear relationship between a dependent variable and an independent variable. For example, linear regression could be used to determine the relationship (described in terms of a trend line) between the number of cigarettes smoked per day and the number of yearly hospitalizations in COPD patients."
+        },
+        {
+          "type": "paragraph",
+          "text": "(Choice C) The correlation coefficient is a measure of the strength and direction of a linear relationship between 2 variables. For example, a study may report a correlation coefficient describing the association between estrogen levels and breast cancer risk in postmenopausal women. It is different from linear regression in that a single number is reported describing the strength and magnitude of the association."
+        },
+        {
+          "type": "paragraph",
+          "text": "(Choice D) The chi-square test is most appropriate for use with categorical data. It can be used to evaluate whether the expected frequency of an occurrence is consistent with the observed frequency of that occurrence (\"goodness of fit\"). For instance, a study evaluating Mendelian inheritance of red and green seed colors would use a chi-square test to compare the observed and expected proportions of each seed type."
+        },
+        {
+          "type": "paragraph",
+          "text": "(Choice E) Meta-analysis is an epidemiologic method of analyzing pooled data from several studies, thereby increasing the statistical power beyond that of the individual studies."
+        }
+      ],
+      "educational_objective": "The two-sample t test is a statistical method commonly employed to compare the means of 2 groups of subjects.",
+      "statistics": {
+        "answered_correctly_percent": 76,
+        "time_spent_seconds": 3,
+        "version_year": 2023,
+        "selection_percent": {
+          "A": 76,
+          "B": 1,
+          "C": 4,
+          "D": 16,
+          "E": 1
+        }
+      },
+      "review_method": "All owned native PDF pages183–277 rendered and independently reviewed; display-only recovery of source paragraphs, options, mathematical notation, tables and focused diagrams. Original key, option percentages and raw imports preserved."
+    },
+    {
+      "id": "UWORLD_20088",
+      "source_record_sha256": "80ce2cb2eb627a432fb2d71e0d388f147c60674402a0a669ae94e8db7a0736fa",
+      "reviewed_pages": [
+        268,
+        269,
+        270,
+        271,
+        272,
+        273
+      ],
+      "status": "verified",
+      "issues": [],
+      "question": "A study is conducted to describe the age-sex distribution of a certain country. According to national data, the population pyramid of the country has the shape shown below.",
+      "question_blocks": [
+        {
+          "type": "figure",
+          "page": 270,
+          "bbox": [
+            494,
+            193,
+            840,
+            524
+          ],
+          "caption": "Age-sex distribution of the country",
+          "role": "question"
+        },
+        {
+          "type": "paragraph",
+          "text": "Based on the population pyramid, which of the following is most likely true about this country and its population?"
+        }
+      ],
+      "options": [
+        {
+          "letter": "A",
+          "text": "The country seems to have high birth rates; therefore, the population must be growing",
+          "selection_percent": 0
+        },
+        {
+          "letter": "B",
+          "text": "The country seems to have a high death rate; therefore, the population must be shrinking",
+          "selection_percent": 1
+        },
+        {
+          "letter": "C",
+          "text": "The country seems to have a low birth rate; therefore, the population must be old",
+          "selection_percent": 77
+        },
+        {
+          "letter": "D",
+          "text": "The country seems to have a short life expectancy; therefore, the population must be young",
+          "selection_percent": 0
+        },
+        {
+          "letter": "E",
+          "text": "The country seems to have a similar percentage of people in each age cohort; therefore, the population must be stable",
+          "selection_percent": 19
+        }
+      ],
+      "correct_label": "C",
+      "explanation": [
+        {
+          "type": "figure",
+          "page": 271,
+          "bbox": [
+            420,
+            182,
+            920,
+            526
+          ],
+          "caption": "Expansive, stationary and constrictive population pyramids",
+          "role": "explanation"
+        },
+        {
+          "type": "paragraph",
+          "text": "A population pyramid displays the percentage of individuals in each age cohort to describe the current population profile, and to project how the population will increase/decrease in the future. Every population pyramid is unique, but most fit into one of three general categories."
+        },
+        {
+          "type": "paragraph",
+          "text": "• Expansive populations have high birth and mortality rates and short life expectancies."
+        },
+        {
+          "type": "paragraph",
+          "text": "Therefore, they show a larger percentage of people in younger cohorts (ie, graph has a broad bottom and narrow top). These populations are young and growing, and their pyramids characterize many developing countries."
+        },
+        {
+          "type": "paragraph",
+          "text": "• Stationary populations have declining birth rates, low mortality rates, and long life expectancies."
+        },
+        {
+          "type": "paragraph",
+          "text": "Therefore, they show a somewhat equal percentage of people in each age cohort (ie, graph has a somewhat rectangular shape). These populations are stable (ie, neither growing nor shrinking), and their pyramids are characteristic of many developed countries."
+        },
+        {
+          "type": "paragraph",
+          "text": "• Constrictive populations have significantly low birth and mortality rates and long life expectancies."
+        },
+        {
+          "type": "paragraph",
+          "text": "Therefore, they show a smaller percentage of people in younger cohorts (ie, graph has a narrower bottom). These populations are shrinking, and their pyramids are characteristic of very advanced countries with a high level of literacy, easy access to birth control measures, and exceptional health and medical resources. In this question, the population pyramid has a narrow bottom, which represents a low birth rate, and a wide top, which represents a low mortality rate (Choices A and B). The percentage of people in each age cohort increases with age, with the greatest proportion of people in the age 70+ cohort (Choice E). This means that the population has a long life expectancy—a characteristic of old populations (Choice D). Because the percentage of people in the age 0-9 cohort (about 10% for both men and women) is lower than the percentage of people in the age 70+ cohort (about 20% for both men and women), the younger cohorts are not able to replace the older cohorts as they die off, leading to a reduction in the population (ie, population shrinks). This is a classic example of a constrictive pyramid."
+        }
+      ],
+      "educational_objective": "There are three types of population pyramids: expansive (ie, young and growing population; high birth and mortality rates), stationary (ie, stable population; declining birth rates and low mortality rates), and constrictive (ie, shrinking population; significantly low birth and mortality rates).",
+      "statistics": {
+        "answered_correctly_percent": 77,
+        "time_spent_seconds": 3,
+        "version_year": null,
+        "selection_percent": {
+          "A": 0,
+          "B": 1,
+          "C": 77,
+          "D": 0,
+          "E": 19
+        }
+      },
+      "review_method": "All owned native PDF pages183–277 rendered and independently reviewed; display-only recovery of source paragraphs, options, mathematical notation, tables and focused diagrams. Original key, option percentages and raw imports preserved."
+    },
+    {
+      "id": "UWORLD_19848",
+      "source_record_sha256": "6acf103443a543bf8c7ae92ebb377e32e638abd24982b46b167bfcdb6f4df4e3",
+      "reviewed_pages": [
+        274,
+        275,
+        276,
+        277
+      ],
+      "status": "verified",
+      "issues": [],
+      "question": "The specificity of the standard test to detect disease X in the general population is 73%. A team of researchers set forth a goal to increase specificity for detecting disease X. They develop a new test and conduct a study to evaluate its performance on a random sample from the general population. The results of their study are shown below.",
+      "question_blocks": [
+        {
+          "type": "table",
+          "columns": [
+            "",
+            "Patients with disease X",
+            "Patients without disease X"
+          ],
+          "rows": [
+            [
+              "Positive",
+              "270",
+              "45"
+            ],
+            [
+              "Negative",
+              "30",
+              "255"
+            ]
+          ],
+          "title": "Diagnostic study results"
+        },
+        {
+          "type": "paragraph",
+          "text": "According to these results, have the researchers achieved their goal?"
+        }
+      ],
+      "options": [
+        {
+          "letter": "A",
+          "text": "Cannot be determined because the prevalence of disease X is not provided",
+          "selection_percent": 2
+        },
+        {
+          "letter": "B",
+          "text": "No, the researchers' new test has about 9% lower specificity than the standard test",
+          "selection_percent": 1
+        },
+        {
+          "letter": "C",
+          "text": "No, the researchers' results lead to nearly the same specificity as the standard test",
+          "selection_percent": 1
+        },
+        {
+          "letter": "D",
+          "text": "Yes, the researchers achieved an increase in specificity of about 12%",
+          "selection_percent": 83
+        },
+        {
+          "letter": "E",
+          "text": "Yes, the researchers achieved an increase in specificity of about 15%",
+          "selection_percent": 10
+        }
+      ],
+      "correct_label": "D",
+      "explanation": [
+        {
+          "type": "table",
+          "columns": [
+            "Test result",
+            "Positive condition",
+            "Negative condition",
+            "Predictive value"
+          ],
+          "rows": [
+            [
+              "Positive",
+              "TP",
+              "FP",
+              "PPV = TP / (TP + FP)"
+            ],
+            [
+              "Negative",
+              "FN",
+              "TN",
+              "NPV = TN / (TN + FN)"
+            ],
+            [
+              "",
+              "Sensitivity = TP / (TP + FN)",
+              "Specificity = TN / (TN + FP)",
+              ""
+            ]
+          ],
+          "title": "Diagnostic test performance"
+        },
+        {
+          "type": "paragraph",
+          "text": "FN = false negative; FP = false positive; NPV = negative predictive value; PPV = positive predictive value; TN = true negative; TP = true positive."
+        },
+        {
+          "type": "paragraph",
+          "text": "The specificity of a test refers to its ability to correctly identify individuals without the disease. Specificity is equal to the number of individuals who do not have the disease and who test negative (true negatives [TN]) divided by the total number of individuals without the disease (TN + false positives [FP]): Specificity = TN / (TN + FP) In this question, 255 out of 300 (ie, 45 + 255) patients without disease X had a negative test (ie, TN = 255) and 45 had a positive test (ie, FP = 45)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Therefore, the specificity of the new test is: Specificity= TN / (TN+ FP) = 255 / (255 + 45) = 255 / 300 = 0.85 (or 85%) The specificity of the standard test is 73% and of the new test is 85%."
+        },
+        {
+          "type": "paragraph",
+          "text": "Therefore, the researchers achieved an increase in specificity of about 85% - 73% = 12% (Choices B, C, and E)."
+        },
+        {
+          "type": "paragraph",
+          "text": "(Choice A) Contrary to positive and negative predictive values, which are influenced by the prevalence of disease in the population, sensitivity and specificity are intrinsic test performance characteristic that do not depend on disease prevalence."
+        }
+      ],
+      "educational_objective": "The specificity of a test is its ability to correctly identify individuals without the disease. Specificity can be calculated as follows: specificity= true negatives / (true negatives + false positives).",
+      "statistics": {
+        "answered_correctly_percent": 83,
+        "time_spent_seconds": 3,
+        "version_year": null,
+        "selection_percent": {
+          "A": 2,
+          "B": 1,
+          "C": 1,
+          "D": 83,
+          "E": 10
+        }
+      },
+      "review_method": "All owned native PDF pages183–277 rendered and independently reviewed; display-only recovery of source paragraphs, options, mathematical notation, tables and focused diagrams. Original key, option percentages and raw imports preserved."
+    }
+  ]
+}

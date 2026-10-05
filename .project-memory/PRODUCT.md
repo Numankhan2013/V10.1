@@ -278,3 +278,7 @@ Only this132-record collection is integrated:120 nominal plus12 supplemental.
 The source-reviewed reference pilot has131 practice-ready questions and one
 absent-exhibit unscored reference. See the protected behavior above and
 `docs/UWORLD_BIOCHEMISTRY_PILOT.md` for source limitations and scale criteria.
+
+## Compact My UWorld and moderate source continuation — 2026-10-05
+
+Home and the study library expose one My UWorld entry opening the full collection library. Collection names, blocks and progress remain there. Biostatistics includes40 Block1 questions plus20 Block2 questions, explicitly titled “Block 2 · Questions 1–20”; subsequent source items remain queued. Registry:388 UWorld questions across6 collections.
