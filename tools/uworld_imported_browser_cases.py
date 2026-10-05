@@ -103,7 +103,9 @@ def verify_imported_collections(page, output, width, reset_practice, open_questi
                 assert 'q²' in explanation and '1/400' in explanation
             if q['id'] == 'UWORLD_19810':
                 assert '1.5' in explanation and 'equivalent' in explanation
-            assert all(p.inner_text().strip() for p in page.locator('.nk-uworld-choice-discussion p').all())
+            assert all(p.inner_text().strip() for p in page.locator('.nk-uworld-choice-discussion p').all()), q['id']
+            if q['id'] == 'UWORLD_19441':
+                assert '0.80 represents the relative risk' in page.locator('.nk-uworld-choice-discussion').filter(has_text='Choice D').inner_text()
             page.wait_for_function('''() => [...document.querySelectorAll('.nk-uworld-reading img')].every(i=>i.complete&&i.naturalWidth>0)''')
             assert not page.evaluate('document.documentElement.scrollWidth>innerWidth'), q['id']
             tables += page.locator('.nk-uworld-reading table,.nk-uworld-stem table').count()

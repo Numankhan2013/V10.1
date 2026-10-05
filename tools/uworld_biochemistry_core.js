@@ -65,7 +65,14 @@
   function nkUworldNodes(nodes,q){
     let discussion=false,heading=false;
     const out=[];
-    for(const node of nodes||[]){
+    const blocks=nodes||[];
+    for(let index=0;index<blocks.length;index++){
+      let node=blocks[index];
+      // Some reviewed source paragraphs separate a choice label from its body.
+      // Keep that source discussion together without changing archival records.
+      if(node.type==='paragraph'&&/^\(Choices?\s+[^)]*\)\s*$/i.test(node.text)&&blocks[index+1]?.type==='paragraph'&&!/^\(Choices?\s+/i.test(blocks[index+1].text)){
+        node={...node,text:node.text+' '+blocks[++index].text};
+      }
       const choice=node.type==='paragraph'&&String(node.text).match(/^\(Choices?\s+([^)]*)\)\s*([\s\S]*)$/i);
       if(choice){
         if(!discussion){out.push(`<section class="nk-uworld-choices">${heading?'':'<h3>Understanding the other choices</h3>'}`);discussion=true;heading=true;}
