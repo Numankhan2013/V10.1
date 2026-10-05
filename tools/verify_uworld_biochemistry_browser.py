@@ -73,7 +73,7 @@ def main():
                             ('UWorld · Ophthalmology', 'UWorld'): 30,
                             ('UWorld · Male Reproductive System', 'UWorld'): 52,
                             ('UWorld · Female Reproductive System & Breast', 'UWorld'): 81,
-                            ('UWorld · Biostatistics & Epidemiology', 'UWorld'): 40}
+                            ('UWorld · Biostatistics & Epidemiology', 'UWorld'): 60}
                 assert {(r['subject'], r['bank']): r['questions'] for r in records} == expected, records
                 qs = page.evaluate('__uworldTest.questions().filter(q=>q.bank==="UWorld"&&q.collection==="Biochemistry")')
                 assert len(qs) == len({q['id'] for q in qs}) == 132
@@ -97,7 +97,16 @@ def main():
                 expect(page.locator('button.nk-bank-card')).to_have_count(2)
                 assert page.locator('button.nk-bank-card').filter(has_text='UWorld').count()==0
                 page.evaluate('QB.nav("dashboard")')
-                page.locator('.nk-home-uworld').get_by_role('button',name='Open',exact=False).click()
+                entry = page.locator('.nk-home-uworld').get_by_role('button',name='Open My UWorld',exact=True)
+                expect(entry).to_have_count(1)
+                expect(page.locator('.nk-home-uworld .nk-uworld-collection')).to_have_count(0)
+                assert '6 collections · 388 questions' in entry.inner_text()
+                assert entry.bounding_box()['height'] >= 44
+                assert not page.evaluate('document.documentElement.scrollWidth>innerWidth')
+                page.screenshot(path=str(output / f'home-my-uworld-{width}.png'),full_page=True)
+                entry.focus()
+                expect(entry).to_be_focused()
+                entry.press('Enter')
                 expect(page.locator('.nk-uworld-library h1')).to_have_text('My UWorld')
                 assert page.locator('.nk-uworld-library-note').count()==0
                 assert "UWorld's original collections" not in page.locator('.nk-uworld-library').inner_text()

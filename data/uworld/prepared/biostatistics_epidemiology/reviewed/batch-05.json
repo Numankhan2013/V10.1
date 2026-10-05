@@ -1,0 +1,1199 @@
+{
+  "schema_version": 1,
+  "source_pdf_sha256": "82c97582c1a6fd7ac47570183cc80c7cd232ad3557203e3cc4b4d2c6a55b16c9",
+  "records": [
+    {
+      "id": "UWORLD_19431",
+      "source_record_sha256": "6bd0887658e73ddda367c851b36a41ce091bb5c70f7a2db19a31079d6db59d2e",
+      "reviewed_pages": [
+        183,
+        184,
+        185,
+        186
+      ],
+      "status": "verified",
+      "issues": [],
+      "question": "A study is conducted to assess whether quantitative measurement of heat shock protein 90 alpha (Hsp90α) in plasma can improve diagnostic accuracy and help monitor treatment response in liver cancer patients. A total of 300 individuals (100 liver cancer patients and 200 healthy controls) participate in the study. Analyses reveal that 90 of the liver cancer patients have an abnormally high plasma Hsp90α level and that 12 of the healthy controls have an abnormally high plasma Hsp90α level. An abnormally high plasma Hsp90α level indicates a positive test for liver cancer. Which of the following values best represents the specificity of this test?",
+      "question_blocks": [],
+      "options": [
+        {
+          "letter": "A",
+          "text": "6%",
+          "selection_percent": 5
+        },
+        {
+          "letter": "B",
+          "text": "10%",
+          "selection_percent": 1
+        },
+        {
+          "letter": "C",
+          "text": "33%",
+          "selection_percent": 2
+        },
+        {
+          "letter": "D",
+          "text": "90%",
+          "selection_percent": 9
+        },
+        {
+          "letter": "E",
+          "text": "94%",
+          "selection_percent": 81
+        }
+      ],
+      "correct_label": "E",
+      "explanation": [
+        {
+          "type": "table",
+          "columns": [
+            "Test result",
+            "Positive condition",
+            "Negative condition",
+            "Predictive value"
+          ],
+          "rows": [
+            [
+              "Positive",
+              "TP",
+              "FP",
+              "PPV = TP / (TP + FP)"
+            ],
+            [
+              "Negative",
+              "FN",
+              "TN",
+              "NPV = TN / (TN + FN)"
+            ],
+            [
+              "",
+              "Sensitivity = TP / (TP + FN)",
+              "Specificity = TN / (TN + FP)",
+              ""
+            ]
+          ],
+          "title": "Diagnostic test performance"
+        },
+        {
+          "type": "paragraph",
+          "text": "FN = false negative; FP = false positive; NPV = negative predictive value; PPV = positive predictive value; TN = true negative; TP = true positive."
+        },
+        {
+          "type": "paragraph",
+          "text": "The specificity of a test refers to its ability to correctly identify individuals without the disease. Specificity is equal to the number of individuals who do not have the disease and who test negative (true negatives [TN]) divided by the total number of individuals without the disease (TN + false positives [FP]): Specificity = TN / (TN + FP)"
+        },
+        {
+          "type": "paragraph",
+          "text": "In this example, 12 out of 200 healthy controls had an abnormally high plasma heat shock protein 90 alpha (Hsp90α) level (ie, tested positive); therefore, FP = 12 and TN= 188 (ie, 200 - 12)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Therefore, the specificity of the test is as follows: Specificity= TN / (TN+ FP) = 188 / (188 + 12) = 188 / 200 = 0.94 (or 94%)"
+        },
+        {
+          "type": "paragraph",
+          "text": "(Choice A) In this example, 6% is the false positive rate (FPR): FPR = FP / (TN + FP) = 12 / (188 + 12) = 12 / 200 = 0.06 (or 6%). FPR is the probability of a positive test in a patient without the disease (ie, FP); it is also the complement to specificity (ie, FPR = 1 - specificity= 1 - 0.94 = 0.06)."
+        },
+        {
+          "type": "paragraph",
+          "text": "(Choices B and D) The sensitivity of a test refers to its ability to correctly identify individuals with the disease. It is calculated as the number of individuals who have the disease and who test positive (true positives [TP]) divided by the total number of individuals with the disease (TP + false negatives [FN]): sensitivity= TP / (TP + FN). In this example, 90 of 100 liver cancer patients had an abnormally high plasma Hsp90α level (ie, tested positive); therefore, TP = 90 and FN = 10 (ie, 100 - 90). Accordingly, the sensitivity of the test is 90 / (90 + 10) = 90 / 100 = 0.90 (or 90%). Sensitivity is related to the false negative rate (FNR): FNR = 1 - sensitivity. FNR is the probability of a negative test result in a patient with the disease (ie, FN): FNR = FN / (TP + FN) = 10 / (10 + 90) = 10 / 100 = 0.10 (or 10%)."
+        },
+        {
+          "type": "paragraph",
+          "text": "(Choice C) In this example, 33% represents the proportion of study participants with liver cancer: 100 liver cancer patients / (100 liver cancer patients+ 200 health controls)= 0.333 (or 33.3%)."
+        }
+      ],
+      "educational_objective": "The specificity of a test is its ability to correctly identify individuals without the disease. Specificity can be calculated as follows: Specificity= True negatives / (True negatives+ False positives)",
+      "statistics": {
+        "answered_correctly_percent": 81,
+        "time_spent_seconds": 40,
+        "version_year": null,
+        "selection_percent": {
+          "A": 5,
+          "B": 1,
+          "C": 2,
+          "D": 9,
+          "E": 81
+        }
+      },
+      "review_method": "All owned native PDF pages183–277 rendered and independently reviewed; display-only recovery of source paragraphs, options, mathematical notation, tables and focused diagrams. Original key, option percentages and raw imports preserved."
+    },
+    {
+      "id": "UWORLD_1233",
+      "source_record_sha256": "27b7cbc88ac06da16527c787ed1c508194ffa472fe5983457dd7e2d055da62b7",
+      "reviewed_pages": [
+        187,
+        188,
+        189,
+        190,
+        191,
+        192
+      ],
+      "status": "verified",
+      "issues": [],
+      "question": "An 89-year-old man is brought to a geriatric clinic by family members who are concerned that he is developing dementia due to recent worsening of his memory. The attending physician uses a new cognitive test (test X) to help rule out the possibility of dementia. The patient's test result is negative. A study evaluating the efficacy of test X in a sample of 200 individuals age ≥85, in which the prevalence of dementia is 50%, has determined that the test has a specificity of 80% and a sensitivity of 90%. Assuming that this patient's pretest probability of having dementia is equivalent to the disease prevalence in the study population, what is the probability that this patient truly does not have dementia?",
+      "question_blocks": [],
+      "options": [
+        {
+          "letter": "A",
+          "text": "18%",
+          "selection_percent": 4
+        },
+        {
+          "letter": "B",
+          "text": "53%",
+          "selection_percent": 4
+        },
+        {
+          "letter": "C",
+          "text": "66%",
+          "selection_percent": 8
+        },
+        {
+          "letter": "D",
+          "text": "82%",
+          "selection_percent": 25
+        },
+        {
+          "letter": "E",
+          "text": "89%",
+          "selection_percent": 56
+        }
+      ],
+      "correct_label": "E",
+      "explanation": [
+        {
+          "type": "paragraph",
+          "text": "The negative predictive value (NPV) of a diagnostic test is the probability that a patient truly does not have the disease when the patient receives a negative test result. It can be calculated from study data as follows:"
+        },
+        {
+          "type": "paragraph",
+          "text": "NPV = number of true negatives / total number of negative tests"
+        },
+        {
+          "type": "paragraph",
+          "text": "To determine the NPV in this case, it helps to summarize the results of the efficacy study in a 2 × 2 table. The study evaluated 200 individuals in a population with a 50% prevalence of dementia (ie, 100 patients had dementia while 100 did not). Knowing that specificity (ie, true negatives/total disease-negatives) and sensitivity (ie, true positives/total disease positives) are 80% and 90%, respectively, the following 2 × 2 table can be created:"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "",
+            "Disease present",
+            "Disease absent",
+            "Total"
+          ],
+          "rows": [
+            [
+              "Test positive",
+              "a (true positive)",
+              "b (false positive)",
+              "a + b"
+            ],
+            [
+              "Test negative",
+              "c (false negative)",
+              "d (true negative)",
+              "c + d"
+            ],
+            [
+              "Total",
+              "a + c",
+              "b + d",
+              ""
+            ]
+          ],
+          "title": "Standard 2 × 2 contingency table"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Test X",
+            "Dementia present",
+            "Dementia absent",
+            "Total"
+          ],
+          "rows": [
+            [
+              "Positive",
+              "90",
+              "20",
+              "110"
+            ],
+            [
+              "Negative",
+              "10",
+              "80",
+              "90"
+            ],
+            [
+              "Total",
+              "100",
+              "100",
+              "200"
+            ]
+          ],
+          "title": "Test X study results"
+        },
+        {
+          "type": "paragraph",
+          "text": "The NPV can now be estimated as follows:"
+        },
+        {
+          "type": "paragraph",
+          "text": "NPV = number of true negatives (d) / total number of negative tests (c + d)"
+        },
+        {
+          "type": "paragraph",
+          "text": "NPV = d / (c + d) = 80 / (10 + 80) = 0.889 ≈ 89%"
+        },
+        {
+          "type": "paragraph",
+          "text": "Unlike sensitivity and specificity, positive and negative predictive values vary based on the prevalence of the disease. In fact, the NPV is inversely proportional to the prevalence of a disease (eg, NPV ↑ as disease prevalence ↓). For the NPV to be applicable to an individual patient, that patient's pretest probability (eg, probability of having the disease before testing) must be similar to the prevalence of disease in the population where the study was conducted. The question says to assume that the patient's pretest probability is equivalent to the disease prevalence in the study population, so the NPV calculated in the study is generalizable to this patient."
+        }
+      ],
+      "educational_objective": "Negative predictive value (NPV) represents the probability of not having a disease given a negative test result. NPV is inversely proportional to the prevalence of a disease. When a patient has characteristics similar to the overall population (eg, age, sex, risk factor status), the disease prevalence is a valid estimate of the pretest probability of disease.",
+      "statistics": {
+        "answered_correctly_percent": 56,
+        "time_spent_seconds": 4,
+        "version_year": 2023,
+        "selection_percent": {
+          "A": 4,
+          "B": 4,
+          "C": 8,
+          "D": 25,
+          "E": 56
+        }
+      },
+      "review_method": "All owned native PDF pages183–277 rendered and independently reviewed; display-only recovery of source paragraphs, options, mathematical notation, tables and focused diagrams. Original key, option percentages and raw imports preserved."
+    },
+    {
+      "id": "UWORLD_14859",
+      "source_record_sha256": "61d3bacc3044dc88473e286c969e77cf233510b839a5d8ef6eff50f2508183a1",
+      "reviewed_pages": [
+        193,
+        194,
+        195,
+        196,
+        197
+      ],
+      "status": "verified",
+      "issues": [],
+      "question": "The aim of a prospective cohort study conducted in a group of adults with diagnosed type 2 diabetes mellitus (T2DM) is to investigate the association between the presence of morbid obesity (BMI >40 kg/m²) and the risk of developing diabetic nephropathy. One of the groups in the study consists of adults with T2DM, a BMI >40 kg/m², and no diabetic nephropathy. Which of the following is the most appropriate comparison group for this prospective cohort study?",
+      "question_blocks": [],
+      "options": [
+        {
+          "letter": "A",
+          "text": "Adults with T2DM who have morbid obesity (BMI >40 kg/m²) and diabetic nephropathy",
+          "selection_percent": 20
+        },
+        {
+          "letter": "B",
+          "text": "Adults with T2DM who have normal weight (BMI 18.5 to <25 kg/m²) and diabetic nephropathy",
+          "selection_percent": 8
+        },
+        {
+          "letter": "C",
+          "text": "Adults with T2DM who have normal weight (BMI 18.5 to <25 kg/m²) and no diabetic nephropathy",
+          "selection_percent": 60
+        },
+        {
+          "letter": "D",
+          "text": "Adults without T2DM who have morbid obesity (BMI >40 kg/m²) and no diabetic nephropathy",
+          "selection_percent": 7
+        },
+        {
+          "letter": "E",
+          "text": "Adults without T2DM who have normal weight (BMI 18.5 to <25 kg/m²) and diabetic nephropathy",
+          "selection_percent": 1
+        }
+      ],
+      "correct_label": "C",
+      "explanation": [
+        {
+          "type": "figure",
+          "page": 195,
+          "bbox": [
+            395,
+            198,
+            938,
+            526
+          ],
+          "caption": "Cohort study: exposure selection and outcome assessment",
+          "role": "explanation"
+        },
+        {
+          "type": "paragraph",
+          "text": "A cohort study is an observational design in which potential participants in the population of interest are initially identified as exposed or nonexposed according to the independent variable (ie, exposure status to a risk factor). Once participants are categorized based on their exposure status, the occurrence (ie, incidence) of the dependent variable (eg, outcome of interest) over a specific period is determined in each group. Finally, the occurrence of the outcome is compared between exposed and nonexposed groups to estimate the association between the risk factors and the outcomes. If there is a statistically significant difference in outcome occurrence between the 2 groups, it is likely that the risk factor in question is associated with disease development."
+        },
+        {
+          "type": "paragraph",
+          "text": "In this example:"
+        },
+        {
+          "type": "paragraph",
+          "text": "• The population of interest is patients with type 2 diabetes mellitus (T2DM)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Therefore, both the exposed and nonexposed groups must consist of patients with T2DM (Choices D and E)."
+        },
+        {
+          "type": "paragraph",
+          "text": "• The risk factor of interest is morbid obesity (BMI >40 kg/m²)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Therefore, the exposed group is adults with morbid obesity, and the nonexposed group is adults with normal weight (BMI 18.5 to <25 kg/m²) (Choice A)."
+        },
+        {
+          "type": "paragraph",
+          "text": "• The outcome of interest is diabetic nephropathy. Exposed and nonexposed subjects must be selected with no history of the outcome because the occurrence of the outcome is what is measured during the study period (Choice B)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Therefore, the exposed group is adults with T2DM who have morbid obesity and no diabetic nephropathy; the nonexposed group is adults with T2DM who have normal weight (BMI 18.5 to <25 kg/m²) and no diabetic nephropathy. Comparing the frequency of the outcome (eg, diabetic nephropathy) between exposed and nonexposed groups is what determines whether exposure to the risk factor (eg, morbid obesity) is associated with the risk of developing the outcome (eg, diabetic nephropathy)."
+        }
+      ],
+      "educational_objective": "In a cohort study, subjects should be initially selected from the population of interest (eg, T2DM) based on their exposure status to a risk factor (eg, presence or absence of morbid obesity). Subjects are then monitored during the study period for development of the outcome of interest (eg, diabetic nephropathy).",
+      "statistics": {
+        "answered_correctly_percent": 60,
+        "time_spent_seconds": 3,
+        "version_year": null,
+        "selection_percent": {
+          "A": 20,
+          "B": 8,
+          "C": 60,
+          "D": 7,
+          "E": 1
+        }
+      },
+      "review_method": "All owned native PDF pages183–277 rendered and independently reviewed; display-only recovery of source paragraphs, options, mathematical notation, tables and focused diagrams. Original key, option percentages and raw imports preserved."
+    },
+    {
+      "id": "UWORLD_108026",
+      "source_record_sha256": "ea5ffa59e8baf927c456ee47948212db8e7b20f15165b22cef33a7e7734cd1f2",
+      "reviewed_pages": [
+        198,
+        199,
+        200,
+        201
+      ],
+      "status": "verified",
+      "issues": [],
+      "question": "A randomized controlled study investigated the effects of single-dose dexmedetomidine on emergence delirium (ED) in children who were under anesthesia induced with sevoflurane. A total of 2,500 patients age 2-7 who were scheduled for tonsillectomy were enrolled in the study; 80% were randomized to receive dexmedetomidine 0.5 µg/kg or volume-matched normal saline over 10 minutes after induction of anesthesia. The primary outcome was the incidence of ED within 30 minutes after extubating. The results show an incidence of ED of 300 cases per 1,000 patients for dexmedetomidine and 500 cases per 1,000 patients for saline. Which of the following is the best estimate of the absolute risk reduction for ED following dexmedetomidine compared to saline?",
+      "question_blocks": [],
+      "options": [
+        {
+          "letter": "A",
+          "text": "0.80 × 2,500",
+          "selection_percent": 0
+        },
+        {
+          "letter": "B",
+          "text": "(500 / 1,000) − (300 / 1,000)",
+          "selection_percent": 66
+        },
+        {
+          "letter": "C",
+          "text": "(300 / 1,000) / (500 / 1,000)",
+          "selection_percent": 9
+        },
+        {
+          "letter": "D",
+          "text": "1 / [(500 / 1,000) − (300 / 1,000)]",
+          "selection_percent": 14
+        },
+        {
+          "letter": "E",
+          "text": "[(500 / 1,000) − (300 / 1,000)] / (500 / 1,000)",
+          "selection_percent": 8
+        }
+      ],
+      "correct_label": "B",
+      "explanation": [
+        {
+          "type": "table",
+          "columns": [
+            "Term",
+            "Definition",
+            "Calculation"
+          ],
+          "rows": [
+            [
+              "Absolute risk reduction (ARR)",
+              "Percentage indicating the actual difference in event rate between control & treatment groups",
+              "ARR = control rate − treatment rate"
+            ],
+            [
+              "Relative risk reduction (RRR)",
+              "Percentage indicating relative reduction in the treatment event rate compared to the control group",
+              "RRR = ARR / control rate"
+            ],
+            [
+              "Relative risk (RR)",
+              "Ratio of the probability of an event occurring in the treatment group compared to the control group",
+              "RR = treatment rate / control rate"
+            ],
+            [
+              "Number needed to treat (NNT)",
+              "Number of individuals who need to be treated to prevent a negative outcome in 1 patient",
+              "NNT = 1 / ARR"
+            ]
+          ],
+          "title": "Common measures of therapeutic efficacy"
+        },
+        {
+          "type": "paragraph",
+          "text": "This randomized controlled study compared the incidence of emergence delirium (ED) in children who underwent tonsillectomy while under anesthesia induced with sevoflurane. Participants were randomized to receive dexmedetomidine 0.5 µg/kg (ie, treatment group) or volume-matched normal saline (ie, control group) over 10 minutes after induction of anesthesia. A total of 2,500 patients were enrolled in the study, but only 2,000 (= 0.80 x 2,500) were randomized into treatments (Choice A). The incidence of ED was as follows:"
+        },
+        {
+          "type": "paragraph",
+          "text": "• Dexmedetomidine (treatment group): 300 cases per 1,000 patients (or 300 / 1,000)"
+        },
+        {
+          "type": "paragraph",
+          "text": "• Saline (control group): 500 cases per 1,000 patients (or 500 / 1,000) These results indicate that the absolute risk reduction (ARR) (ie, control rate - treatment rate) in ED between groups is (500 / 1,000) - (300 / 1,000) = 0.20. ARR= 0.20 indicates that 20% of patients did not develop ED as a result of having received dexmedetomidine rather than saline."
+        },
+        {
+          "type": "paragraph",
+          "text": "(Choice C) The calculation (300 / 1,000) / (500 / 1,000) = 0.60 provides the relative risk (RR) (ie, treatment rate / control rate). RR= 0.60 indicates that the risk of ED in the dexmedetomidine group is 0.60 the risk of ED in the saline group."
+        },
+        {
+          "type": "paragraph",
+          "text": "(Choice D) The calculation 1 / [(500 / 1,000) − (300 / 1,000)] = 5 provides the number needed to treat (NNT) (ie, 1 / ARR). NNT = 5 indicates that 5 of the patients undergoing tonsillectomy had to be given dexmedetomidine 0.5 µg/kg over 10 minutes after induction of anesthesia with sevoflurane to avoid 1 case of ED (compared to saline)."
+        },
+        {
+          "type": "paragraph",
+          "text": "(Choice E) The calculation [(500 / 1,000) − (300 / 1,000)] / (500 / 1,000) = 0.40 provides the relative risk reduction (RRR) (ie, ARR / control rate). RRR = 0.40 indicates that dexmedetomidine offers a 40% reduction in ED compared to saline."
+        }
+      ],
+      "educational_objective": "Absolute risk reduction (ARR) is the difference in event rate between a control group and a treatment group (ie, the percentage of patients improved by treatment). It is calculated as: ARR = control rate - treatment rate",
+      "statistics": {
+        "answered_correctly_percent": 66,
+        "time_spent_seconds": 3,
+        "version_year": 2023,
+        "selection_percent": {
+          "A": 0,
+          "B": 66,
+          "C": 9,
+          "D": 14,
+          "E": 8
+        }
+      },
+      "review_method": "All owned native PDF pages183–277 rendered and independently reviewed; display-only recovery of source paragraphs, options, mathematical notation, tables and focused diagrams. Original key, option percentages and raw imports preserved."
+    },
+    {
+      "id": "UWORLD_1276",
+      "source_record_sha256": "ec4820aeb40e48a4dbf30b8a12a572e5c15e44710dcdd35b6d61bf24778fcbfd",
+      "reviewed_pages": [
+        202,
+        203,
+        204,
+        205,
+        206
+      ],
+      "status": "verified",
+      "issues": [],
+      "question": "Researchers are studying the relationship between essential hypertension and a common mutation in the structure of a sodium channel protein. A study population is randomly selected and blood samples are obtained for leukocyte genotyping. The prevalence of hypertension is determined based on mean blood pressure measurements obtained using standardized ambulatory blood pressure monitoring conducted over 1 week. Based on the analysis results, the researchers conclude that the sodium channel structure mutation is associated with hypertension. Which of the following best describes the study design used by the investigators?",
+      "question_blocks": [],
+      "options": [
+        {
+          "letter": "A",
+          "text": "Case-control study",
+          "selection_percent": 10
+        },
+        {
+          "letter": "B",
+          "text": "Cross-sectional study",
+          "selection_percent": 56
+        },
+        {
+          "letter": "C",
+          "text": "Prospective cohort study",
+          "selection_percent": 17
+        },
+        {
+          "letter": "D",
+          "text": "Randomized clinical trial",
+          "selection_percent": 9
+        },
+        {
+          "letter": "E",
+          "text": "Retrospective cohort study",
+          "selection_percent": 6
+        }
+      ],
+      "correct_label": "B",
+      "explanation": [
+        {
+          "type": "figure",
+          "page": 204,
+          "bbox": [
+            445,
+            115,
+            895,
+            608
+          ],
+          "caption": "Temporality of different study designs",
+          "role": "explanation"
+        },
+        {
+          "type": "paragraph",
+          "text": "A cross-sectional study (also known as a prevalence study) simultaneously measures exposures and outcomes. The cross-sectional study has a \"snapshot\" design that is frequently used in surveys, mostly because it is inexpensive and easy to perform."
+        },
+        {
+          "type": "paragraph",
+          "text": "In this example, a snapshot was obtained of individuals randomly selected from the population; their blood samples were analyzed for the presence of the sodium channel protein mutation and the prevalence of hypertension was calculated. The subjects' blood pressure was measured over 7 days to obtain an average measurement (likely to limit the results being impacted by white-coat hypertension and other transient causes of hypertension)."
+        },
+        {
+          "type": "paragraph",
+          "text": "The major limitation of a cross-sectional study design is that a temporal relationship between exposure and outcome is not always clear. However, in this case, demonstrating a temporal relationship was straightforward because the possession of a specific genotype clearly precedes hypertension."
+        },
+        {
+          "type": "paragraph",
+          "text": "(Choice A) A case-control study is designed by selecting individuals with a particular disease (cases), individuals without that disease (controls), and then evaluating previous exposure status. This study would have been classified as a case-control study if it had explicitly recruited individuals with (cases) and without (controls) hypertension (rather than randomly selecting a sample from a population) and evaluated their sodium channel mutation patterns."
+        },
+        {
+          "type": "paragraph",
+          "text": "(Choices C and E) A prospective cohort study would have taken individuals without hypertension from the population, analyzed their blood samples to determine the distribution of the sodium channel mutation, and followed them over time (years) to determine the proportion of new cases of hypertension in patients with and without the mutation. In this example, although hypertension was measured over several days, the objective was not to document incidence of new cases of hypertension (which would be unlikely to develop over 1 week) but to measure the prevalence of hypertension while ensuring that average blood pressure measurements were obtained. A retrospective design would have also assessed incidence (not prevalence) of hypertension compared to an earlier period of time, based on a chart review of historic data. Prospective and retrospective cohort studies are organized by selecting a group of individuals (ie, a cohort) who do not have the disease of interest (eg, hypertension), determining their exposure status, and then following them (forward in time or from a point in the past to the present) to assess for the development of the disease."
+        },
+        {
+          "type": "paragraph",
+          "text": "(Choice D) A randomized clinical trial directly compares ≥2 treatments. Usually, the subjects are randomly assigned to experience a specific exposure (eg, a medication) or no exposure (eg, placebo) and are then followed to assess for the outcome of interest (eg, disease)."
+        }
+      ],
+      "educational_objective": "In a cross-sectional study, exposure and outcome are measured simultaneously at a particular point in time (\"snapshot study\"). In other study designs, a certain time period separates the exposure from the outcome.",
+      "statistics": {
+        "answered_correctly_percent": 56,
+        "time_spent_seconds": 3,
+        "version_year": null,
+        "selection_percent": {
+          "A": 10,
+          "B": 56,
+          "C": 17,
+          "D": 9,
+          "E": 6
+        }
+      },
+      "review_method": "All owned native PDF pages183–277 rendered and independently reviewed; display-only recovery of source paragraphs, options, mathematical notation, tables and focused diagrams. Original key, option percentages and raw imports preserved."
+    },
+    {
+      "id": "UWORLD_1203",
+      "source_record_sha256": "647f858ac43134797730ae4fe5c2c298d6e62b2ccbe472de13e3fea459b33293",
+      "reviewed_pages": [
+        207,
+        208,
+        209
+      ],
+      "status": "verified",
+      "issues": [],
+      "question": "400 women aged 20-35 coming for routine check-up are asked about their smoking status. 40% of the women are smokers. Over the next ten years, 25 smokers and 24 non-smokers developed breast cancer. Which of the following best describes the study design?",
+      "question_blocks": [],
+      "options": [
+        {
+          "letter": "A",
+          "text": "Prospective cohort study",
+          "selection_percent": 85
+        },
+        {
+          "letter": "B",
+          "text": "Retrospective cohort study",
+          "selection_percent": 4
+        },
+        {
+          "letter": "C",
+          "text": "Case-control study",
+          "selection_percent": 6
+        },
+        {
+          "letter": "D",
+          "text": "Cross-sectional study",
+          "selection_percent": 3
+        },
+        {
+          "letter": "E",
+          "text": "Randomized clinical trial",
+          "selection_percent": 0
+        }
+      ],
+      "correct_label": "A",
+      "explanation": [
+        {
+          "type": "paragraph",
+          "text": "The scenario described above is a good example of prospective cohort study. Initially a group of subjects is selected (i.e., cohort) and their exposure status is determined (smoker/non-smoker). The cohort is then followed for a certain period of time and observed for development of the outcome (breast cancer). Sometimes, the exposure status is determined retrospectively and then patients are tracked from that point of time, typically using medical records (Choice B)."
+        },
+        {
+          "type": "paragraph",
+          "text": "(Choice C) A case-control study is designed by selecting patients with a particular disease (cases) and without that disease (controls) and then determining their previous exposure status."
+        },
+        {
+          "type": "paragraph",
+          "text": "(Choice D) A cross-sectional study is also known as a prevalence study. It is characterized by the simultaneous measurement of exposure and outcome. It is a snapshot study design that frequently uses surveys. They are relatively inexpensive and easy to perform."
+        },
+        {
+          "type": "paragraph",
+          "text": "(Choice E) A randomized clinical trial directly compares two or more treatments. Usually, the subjects are randomly assigned to an exposure (e.g., a medication) or placebo and then followed for the development of the outcome of interest."
+        }
+      ],
+      "educational_objective": "Prospective cohort studies are organized by selecting a group of individuals (i.e., cohort), determining their exposure status, and then following them over time for development of the disease of interest.",
+      "statistics": {
+        "answered_correctly_percent": 85,
+        "time_spent_seconds": 3,
+        "version_year": 2023,
+        "selection_percent": {
+          "A": 85,
+          "B": 4,
+          "C": 6,
+          "D": 3,
+          "E": 0
+        }
+      },
+      "review_method": "All owned native PDF pages183–277 rendered and independently reviewed; display-only recovery of source paragraphs, options, mathematical notation, tables and focused diagrams. Original key, option percentages and raw imports preserved."
+    },
+    {
+      "id": "UWORLD_1232",
+      "source_record_sha256": "59a1120d808949ae09cab1d7545f9c42131d5bd5b292aa6a58ca40180300510d",
+      "reviewed_pages": [
+        210,
+        211,
+        212,
+        213,
+        214
+      ],
+      "status": "verified",
+      "issues": [],
+      "question": "A 54-year-old man with hypertension and hyperlipidemia who came to the emergency department with chest pain wants to know if he is having a heart attack. Test A is newly available for diagnosing myocardial infarction (MI). In a recent study, the results of test A (compared to a gold standard diagnosis of MI) were as follows:",
+      "question_blocks": [
+        {
+          "type": "table",
+          "columns": [
+            "Test A",
+            "MI",
+            "No MI"
+          ],
+          "rows": [
+            [
+              "Positive",
+              "200",
+              "50"
+            ],
+            [
+              "Negative",
+              "120",
+              "80"
+            ]
+          ],
+          "title": "Myocardial infarction study"
+        },
+        {
+          "type": "paragraph",
+          "text": "The patient has a positive result on test A. Assuming his pre-test probability is equivalent to the prevalence of MI in the study, what is the probability that the patient has an MI?"
+        }
+      ],
+      "options": [
+        {
+          "letter": "A",
+          "text": "40%",
+          "selection_percent": 2
+        },
+        {
+          "letter": "B",
+          "text": "50%",
+          "selection_percent": 1
+        },
+        {
+          "letter": "C",
+          "text": "60%",
+          "selection_percent": 12
+        },
+        {
+          "letter": "D",
+          "text": "80%",
+          "selection_percent": 82
+        },
+        {
+          "letter": "E",
+          "text": "90%",
+          "selection_percent": 1
+        }
+      ],
+      "correct_label": "D",
+      "explanation": [
+        {
+          "type": "paragraph",
+          "text": "The positive predictive value (PPV) of a diagnostic test answers the following question: Given a positive test result, what is the probability that a patient has the disease? PPV corresponds to the number of people with the disease who test positive among all those who test positive. Using a standard contingency (2 x 2) table, PPV =a / (a+ b)."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "",
+            "Disease positive",
+            "Disease negative",
+            "Total"
+          ],
+          "rows": [
+            [
+              "Test positive",
+              "a (true positive)",
+              "b (false positive)",
+              "a + b"
+            ],
+            [
+              "Test negative",
+              "c (false negative)",
+              "d (true negative)",
+              "c + d"
+            ],
+            [
+              "Total",
+              "a + c",
+              "b + d",
+              ""
+            ]
+          ],
+          "title": "Generic contingency table"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Test A",
+            "MI",
+            "No MI",
+            "Total"
+          ],
+          "rows": [
+            [
+              "Positive",
+              "200",
+              "50",
+              "250"
+            ],
+            [
+              "Negative",
+              "120",
+              "80",
+              "200"
+            ],
+            [
+              "Total",
+              "320",
+              "130",
+              "450"
+            ]
+          ],
+          "title": "Contingency table: MI research study"
+        },
+        {
+          "type": "paragraph",
+          "text": "MI = myocardial infarction."
+        },
+        {
+          "type": "paragraph",
+          "text": "Unlike specificity and sensitivity, PPV varies with disease prevalence. If disease prevalence increases, PPV increases; similarly, PPV decreases with decreasing prevalence. In this question, the patient's pre-test probability (which takes into account clinical judgment regarding how likely it is that he has an MI) is assumed to be equivalent to the prevalence of MI in the study, making the results directly translatable."
+        },
+        {
+          "type": "paragraph",
+          "text": "Therefore, PPV = 200 / (200 + 50) = 200 / 250 = 0.8 or 80%. In other instances, clinicians may assume that pre-test prevalence equals disease prevalence in the population."
+        }
+      ],
+      "educational_objective": "Positive predictive value represents the probability of truly having a disease given a positive test result. It increases with increasing disease prevalence and decreases with decreasing disease prevalence.",
+      "statistics": {
+        "answered_correctly_percent": 82,
+        "time_spent_seconds": 4,
+        "version_year": null,
+        "selection_percent": {
+          "A": 2,
+          "B": 1,
+          "C": 12,
+          "D": 82,
+          "E": 1
+        }
+      },
+      "review_method": "All owned native PDF pages183–277 rendered and independently reviewed; display-only recovery of source paragraphs, options, mathematical notation, tables and focused diagrams. Original key, option percentages and raw imports preserved."
+    },
+    {
+      "id": "UWORLD_12854",
+      "source_record_sha256": "6b5af909437ba72516959f95c9c021cbce7fdf0f2268e5b12992302c52ee85de",
+      "reviewed_pages": [
+        215,
+        216,
+        217,
+        218
+      ],
+      "status": "verified",
+      "issues": [],
+      "question": "A group of psychiatrists has noticed an unusual number of older individuals with depression in the surrounding community. A decision is taken to conduct a cross-sectional study to estimate the prevalence of depression in this specific population. Estimates for the prevalence of depression (cases per 100 individuals) in the community are as follows:",
+      "question_blocks": [
+        {
+          "type": "table",
+          "columns": [
+            "Age group",
+            "Women",
+            "Men"
+          ],
+          "rows": [
+            [
+              "60–69",
+              "9.1",
+              "8.4"
+            ],
+            [
+              "70–79",
+              "11.9",
+              "10.4"
+            ],
+            [
+              "80–89",
+              "13.5",
+              "12.4"
+            ],
+            [
+              "90+",
+              "13.3",
+              "12.1"
+            ],
+            [
+              "Total",
+              "11.9",
+              "10.8"
+            ]
+          ],
+          "title": "Depression prevalence (cases per 100 individuals)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Suppose during an afternoon clinic, a psychiatrist sees a 65-year-old woman, a 72-year-old man, and an 84-year-old woman from this community. Assuming no relation between the 3 patients, what is the probability that none of them has depression?"
+        }
+      ],
+      "options": [
+        {
+          "letter": "A",
+          "text": "0.001",
+          "selection_percent": 8
+        },
+        {
+          "letter": "B",
+          "text": "0.011",
+          "selection_percent": 6
+        },
+        {
+          "letter": "C",
+          "text": "0.295",
+          "selection_percent": 8
+        },
+        {
+          "letter": "D",
+          "text": "0.705",
+          "selection_percent": 66
+        },
+        {
+          "letter": "E",
+          "text": "0.999",
+          "selection_percent": 10
+        }
+      ],
+      "correct_label": "D",
+      "explanation": [
+        {
+          "type": "table",
+          "columns": [
+            "Patient",
+            "Probability of having depression",
+            "Probability of NOT having depression"
+          ],
+          "rows": [
+            [
+              "65-year-old woman",
+              "0.091",
+              "1 − 0.091"
+            ],
+            [
+              "72-year-old man",
+              "0.104",
+              "1 − 0.104"
+            ],
+            [
+              "84-year-old woman",
+              "0.135",
+              "1 − 0.135"
+            ]
+          ],
+          "title": "Independent patient probabilities"
+        },
+        {
+          "type": "paragraph",
+          "text": "The age- and gender-specific prevalence of depression in the community is a good estimator of the probability that a corresponding individual from community has the disease. Because each of the 3 patients is unrelated to the others, each of the diagnoses is an independent event (ie, a patient's diagnosis has no impact on another's). When events are independent of each other, the probability that all the events occur is calculated by multiplying together the probability of each individual event."
+        },
+        {
+          "type": "paragraph",
+          "text": "In this case, to calculate the probability that none of the 3 patients has depression, multiply the probability of each complementary event (ie, the probability of not having depression): (1 - 0.091) × (1 - 0.104) × (1 - 0.135)= 0.909 × 0.896 × 0.865= 0.705"
+        },
+        {
+          "type": "paragraph",
+          "text": "(Choices A and E) The probability that all 3 patients have depression can be calculated by multiplying the probability of each event, (0.091) × (0.104) × (0.135) = 0.001. The complementary event (ie, the probability that at least 1 patient does not have depression) can be calculated by subtracting the probability that all 3 patients have depression from 1, or 1 - [(0.091) × (0.104) × (0.135)] = 0.999."
+        },
+        {
+          "type": "paragraph",
+          "text": "(Choice B) The probability that only the women have depression can be calculated by multiplying together the probability of each woman having the disorder along with the probability of the man not having the disorder, (0.091) × (0.135) × (1 -0.104)= 0.011."
+        },
+        {
+          "type": "paragraph",
+          "text": "(Choice C) The probability that at least 1 patient has depression is complementary to the probability of none of the 3 patients having depression. It can be calculated by subtracting the probability that none of the 3 patients has depression from 1, or 1 - [(1 - 0.091) × (1 - 0.104) × (1 - 0.135)] = 0.295."
+        }
+      ],
+      "educational_objective": "The multiplication law of probability states that the probability of 2 or more independent events occurring together can be calculated by multiplying the individual probabilities of each event. The multiplication law of probability can be extended to complementary events (1 - probability of event) in the same manner.",
+      "statistics": {
+        "answered_correctly_percent": 66,
+        "time_spent_seconds": 3,
+        "version_year": 2023,
+        "selection_percent": {
+          "A": 8,
+          "B": 6,
+          "C": 8,
+          "D": 66,
+          "E": 10
+        }
+      },
+      "review_method": "All owned native PDF pages183–277 rendered and independently reviewed; display-only recovery of source paragraphs, options, mathematical notation, tables and focused diagrams. Original key, option percentages and raw imports preserved."
+    },
+    {
+      "id": "UWORLD_20250",
+      "source_record_sha256": "57560b6076be4e62474955d458643218689935941b3fef7906dff486059915d7",
+      "reviewed_pages": [
+        219,
+        220,
+        221,
+        222,
+        223,
+        224
+      ],
+      "status": "verified",
+      "issues": [],
+      "question": "The population pyramid of all races and ethnicities for a certain state in the United States is shown below.",
+      "question_blocks": [
+        {
+          "type": "figure",
+          "page": 220,
+          "bbox": [
+            408,
+            210,
+            920,
+            507
+          ],
+          "caption": "Age-sex population pyramid of the state",
+          "role": "question"
+        },
+        {
+          "type": "paragraph",
+          "text": "Which of the following statements best describes the population of this specific state?"
+        }
+      ],
+      "options": [
+        {
+          "letter": "A",
+          "text": "Life expectancy is low due to its high mortality rate",
+          "selection_percent": 3
+        },
+        {
+          "letter": "B",
+          "text": "The high birth rate indicates the population is growing",
+          "selection_percent": 11
+        },
+        {
+          "letter": "C",
+          "text": "The population is shrinking due to the migration of older people",
+          "selection_percent": 2
+        },
+        {
+          "letter": "D",
+          "text": "The similar number of people in each age cohort indicates the population is stable",
+          "selection_percent": 71
+        },
+        {
+          "letter": "E",
+          "text": "The state has a young population because of its high birth rate",
+          "selection_percent": 10
+        }
+      ],
+      "correct_label": "D",
+      "explanation": [
+        {
+          "type": "figure",
+          "page": 222,
+          "bbox": [
+            420,
+            182,
+            920,
+            526
+          ],
+          "caption": "Expansive, stationary and constrictive population pyramids",
+          "role": "explanation"
+        },
+        {
+          "type": "paragraph",
+          "text": "A population pyramid displays the percentage of individuals in each age cohort to describe the current population profile, and to project how the population will increase/decrease in the future. Every population pyramid is unique, but most fit into one of three general categories."
+        },
+        {
+          "type": "paragraph",
+          "text": "• Expansive populations have high birth and mortality rates and short life expectancies."
+        },
+        {
+          "type": "paragraph",
+          "text": "Therefore, they show a larger percentage of people in younger cohorts (ie, graph has a broad bottom and narrow top). These populations are young and growing, and their pyramids characterize many developing countries."
+        },
+        {
+          "type": "paragraph",
+          "text": "• Stationary populations have declining birth rates, low mortality rates, and long life expectancies."
+        },
+        {
+          "type": "paragraph",
+          "text": "Therefore, they show a somewhat equal percentage of people in each age cohort (ie, graph has a somewhat rectangular shape). These populations are stable (ie, neither growing nor shrinking), and their pyramids are characteristic of many developed countries."
+        },
+        {
+          "type": "paragraph",
+          "text": "• Constrictive populations have significantly low birth and mortality rates and long life expectancies."
+        },
+        {
+          "type": "paragraph",
+          "text": "Therefore, they show a smaller percentage of people in younger cohorts (ie, graph has a narrow bottom). These populations are shrinking, and their pyramids are characteristic of very advanced countries with a high level of literacy, easy access to birth control measures, and exceptional health and medical resources. In this question, the population pyramid has a rectangular shape that tapers off significantly only in the advanced age cohorts. This indicates that the population has gone through a decline in both birth and mortality rates, resulting in a longer life expectancy (Choices A and E). When a population reaches a balance between its birth and mortality rates (ie, rectangular shape), it is neither growing nor shrinking; therefore, it is a stable population (Choice B)."
+        },
+        {
+          "type": "paragraph",
+          "text": "(Choice C) A small proportion of older cohorts (eg, age ≥75) is expected in any population; this tapering off at the top of the pyramid occurs due to a natural increase in age-related mortality rather than migration of older people."
+        }
+      ],
+      "educational_objective": "There are three types of population pyramids: expansive (ie, young and growing population; high birth and mortality rates), stationary (ie, stable population; declining birth rates and low mortality rates), and constrictive (ie, shrinking population; significantly low birth and mortality rates).",
+      "statistics": {
+        "answered_correctly_percent": 71,
+        "time_spent_seconds": 7,
+        "version_year": 2023,
+        "selection_percent": {
+          "A": 3,
+          "B": 11,
+          "C": 2,
+          "D": 71,
+          "E": 10
+        }
+      },
+      "review_method": "All owned native PDF pages183–277 rendered and independently reviewed; display-only recovery of source paragraphs, options, mathematical notation, tables and focused diagrams. Original key, option percentages and raw imports preserved."
+    },
+    {
+      "id": "UWORLD_11835",
+      "source_record_sha256": "7f8b778d7d7ba48fc96ed9e73dfad5d4c23537c1b1426bd92834b7737e2596e0",
+      "reviewed_pages": [
+        225,
+        226,
+        227,
+        228,
+        229,
+        230
+      ],
+      "status": "verified",
+      "issues": [],
+      "question": "A healthy 31-year-old woman comes to the office as she and her husband desire a second child. The husband is infertile and the patient's son, who was conceived via donor insemination, was recently diagnosed with glycogen storage disease type II (Pompe disease). This rare autosomal recessive disease is known to affect 1 in 40,000 of the general population. Genetic testing confirms that the patient is a carrier for the disease. A different sperm donor is selected with no personal or family history of Pompe disease; however, his carrier status is unknown. What is the probability of the patient having an affected child with the new sperm donor?",
+      "question_blocks": [],
+      "options": [
+        {
+          "letter": "A",
+          "text": "1/4",
+          "selection_percent": 9
+        },
+        {
+          "letter": "B",
+          "text": "1/240",
+          "selection_percent": 2
+        },
+        {
+          "letter": "C",
+          "text": "1/400",
+          "selection_percent": 23
+        },
+        {
+          "letter": "D",
+          "text": "1/800",
+          "selection_percent": 18
+        },
+        {
+          "letter": "E",
+          "text": "1/40,000",
+          "selection_percent": 14
+        },
+        {
+          "letter": "F",
+          "text": "1/160,000",
+          "selection_percent": 31
+        }
+      ],
+      "correct_label": "C",
+      "explanation": [
+        {
+          "type": "figure",
+          "page": 227,
+          "bbox": [
+            438,
+            115,
+            890,
+            567
+          ],
+          "caption": "Hardy-Weinberg analysis",
+          "role": "explanation"
+        },
+        {
+          "type": "paragraph",
+          "text": "To be affected by an autosomal recessive disorder, an offspring must inherit 2 copies of the mutant allele (a), a copy from the mother and another copy from the father (in this case, the sperm donor)."
+        },
+        {
+          "type": "paragraph",
+          "text": "In this example, genetic analysis confirms that the mother is a carrier (Aa), which gives her a 50% chance of passing 1 mutant allele (a) to her child. The sperm donor does not have Pompe disease, but his carrier status is unknown (ie, he has either an AA or Aa genotype). Given that he has no family history of the disease, his risk of being a carrier is the same as that of the general population. Hardy-Weinberg analysis can be used to estimate the frequency of alleles and genotypes in the general population:"
+        },
+        {
+          "type": "paragraph",
+          "text": "• The total gene pool is given by (p + q) = 1. By convention, p = normal allele (A) frequency and q = mutant allele (a) frequency in the population of interest."
+        },
+        {
+          "type": "paragraph",
+          "text": "• Disease frequency is equivalent to the proportion of homozygous recessive individuals. These affected individuals have 2 copies of the mutant allele (aa); therefore, the frequency of affected individuals= q × q = q²."
+        },
+        {
+          "type": "paragraph",
+          "text": "• Carrier frequency is equal to the proportion of heterozygous individuals. Carriers have only 1 mutant allele that may be inherited in 2 different ways (ie, Aa or aA); consequently, the probability of being a carrier = 2pq. For rare autosomal recessive disorders, p ≈ 1; therefore, the probability approximates to 2 times the frequency of the mutant allele, or 2q."
+        },
+        {
+          "type": "paragraph",
+          "text": "In this case, 1 in 40,000 individuals is affected by the condition in the general population, so q² = 1/40,000 and q = 1/√40,000 = 1/200. Thus, the probability of the sperm donor being a carrier = 2q = 2 × (1/200) = 1/100. Given that a carrier sperm donor would have a 50% chance of passing on the mutant allele (a), the probability of the child being affected is: P(mother gives recessive allele) × P(donor is a carrier) × P(donor gives recessive allele) = (1/2 × 1/100 × 1/2) = 1/400."
+        },
+        {
+          "type": "paragraph",
+          "text": "(Choices E and F) 1/40,000 represents the disease frequency (q²), not the mutant allele frequency (q)."
+        },
+        {
+          "type": "figure",
+          "page": 230,
+          "bbox": [
+            510,
+            185,
+            819,
+            510
+          ],
+          "caption": "Autosomal recessive inheritance",
+          "role": "explanation"
+        }
+      ],
+      "educational_objective": "The Hardy-Weinberg equation can be used to estimate carrier frequency, disease frequency, and frequency of different genotypes if at least 1 of these values is known.",
+      "statistics": {
+        "answered_correctly_percent": 23,
+        "time_spent_seconds": 3,
+        "version_year": null,
+        "selection_percent": {
+          "A": 9,
+          "B": 2,
+          "C": 23,
+          "D": 18,
+          "E": 14,
+          "F": 31
+        }
+      },
+      "review_method": "All owned native PDF pages183–277 rendered and independently reviewed; display-only recovery of source paragraphs, options, mathematical notation, tables and focused diagrams. Original key, option percentages and raw imports preserved."
+    }
+  ]
+}

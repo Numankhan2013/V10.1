@@ -65,11 +65,16 @@ def main() -> None:
                 after=frontier.evaluate('(n)=>getComputedStyle(n,"::before").transform')
                 assert before!=after,'liquid edge should visibly move toward the next day'
                 assert frontier.evaluate('(n)=>!n.nextElementSibling.classList.contains("is-done")'),'motion never marks a future day studied'
-            assert page.locator('.nk-home-week-day.is-linked').first.evaluate('(n)=>getComputedStyle(n,"::after").animationName')=='nkStreakLiquidFlow'
+            linked=page.locator('.nk-home-week-day.is-linked')
+            if linked.count():
+                assert linked.first.evaluate('(n)=>getComputedStyle(n,"::after").animationName')=='nkStreakLiquidFlow'
+            else:
+                assert datetime.now().weekday()==0,'linked connector should only be absent on Monday'
             page.emulate_media(reduced_motion='reduce')
             assert page.locator('.nk-streak-flame-svg').evaluate('(n)=>getComputedStyle(n).animationName')=='none'
             assert page.locator('.nk-home-week-day.is-today i').evaluate('(n)=>getComputedStyle(n).animationName')=='none'
-            assert page.locator('.nk-home-week-day.is-linked').first.evaluate('(n)=>getComputedStyle(n,"::after").animationName')=='none'
+            if linked.count():
+                assert linked.first.evaluate('(n)=>getComputedStyle(n,"::after").animationName')=='none'
             if frontier.count():assert frontier.evaluate('(n)=>getComputedStyle(n,"::before").display')=='none'
             page.emulate_media(reduced_motion='no-preference')
             page.evaluate('(attempts)=>{window.QB.getState().attempts=attempts;window.QB.saveState();window.QB.nav("more");}',original_attempts)

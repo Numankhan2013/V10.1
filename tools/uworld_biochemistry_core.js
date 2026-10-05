@@ -6,7 +6,10 @@
     return `<button class="nk-v3-subject-card nk-uworld-collection" onclick="window.QB.openBank('${esc(r.subject)}','UWorld')"><span class="nk-v3-subject-icon">${nkSubjectGraphic(r.subject,24)}</span><span class="nk-v3-subject-copy"><strong>${esc(r.collection)}</strong><small>${fmtNum(r.topics.length)} ${r.topics.length===1?'block':'blocks'} · ${fmtNum(r.questions.length)} questions</small><span class="nk-v3-subject-progress"><i style="width:${pct}%"></i></span></span><b>${pct}%</b>${navIcon('chevron',18)}</button>`;
     }).join('');
   }
-  function nkUworldHomeSection(){return `<section class="nk-v3-section nk-home-uworld"><div class="nk-v3-section-head"><h2>My UWorld</h2><button onclick="window.QB.nav('uworld')">Open ${navIcon('chevron',14)}</button></div><div class="nk-v3-subject-list">${nkUworldLibraryCards()}</div></section>`;}
+  function nkUworldHomeSection(){
+    const collections=NK_UWORLD_COLLECTIONS.length,questions=NK_UWORLD_COLLECTIONS.reduce((total,r)=>total+r.questions.length,0);
+    return `<section class="nk-v3-section nk-home-uworld" aria-label="My UWorld"><button class="nk-v3-subject-card nk-uworld-entry" aria-label="Open My UWorld" onclick="window.QB.nav('uworld')"><span class="nk-v3-subject-icon" aria-hidden="true">${navIcon('book',24)}</span><span class="nk-v3-subject-copy"><strong>My UWorld</strong><small>${fmtNum(collections)} ${collections===1?'collection':'collections'} · ${fmtNum(questions)} questions</small></span><span class="nk-uworld-entry-action" aria-hidden="true">Open</span>${navIcon('chevron',18)}</button></section>`;
+  }
   function nkUworldLibraryPage(){return shell(`<main class="nk-app-v114 nk-uworld-library"><button class="nk-back-link" onclick="window.QB.nav('dashboard')">${navIcon('back',18)} Home</button><header class="nk-v3-page-hero"><h1>My UWorld</h1><p>Choose a collection, then open its original question blocks.</p></header><div class="nk-v3-subject-list">${nkUworldLibraryCards()}</div></main>`,'dashboard');}
   const nkUworldOriginalDashboard=dashboard;
   dashboard=function(){return nkUworldOriginalDashboard().replace('<section class="nk-home-progress">',nkUworldHomeSection()+'<section class="nk-home-progress">');};
@@ -62,7 +65,14 @@
   function nkUworldNodes(nodes,q){
     let discussion=false,heading=false;
     const out=[];
-    for(const node of nodes||[]){
+    const blocks=nodes||[];
+    for(let index=0;index<blocks.length;index++){
+      let node=blocks[index];
+      // Some reviewed source paragraphs separate a choice label from its body.
+      // Keep that source discussion together without changing archival records.
+      if(node.type==='paragraph'&&/^\(Choices?\s+[^)]*\)\s*$/i.test(node.text)&&blocks[index+1]?.type==='paragraph'&&!/^\(Choices?\s+/i.test(blocks[index+1].text)){
+        node={...node,text:node.text+' '+blocks[++index].text};
+      }
       const choice=node.type==='paragraph'&&String(node.text).match(/^\(Choices?\s+([^)]*)\)\s*([\s\S]*)$/i);
       if(choice){
         if(!discussion){out.push(`<section class="nk-uworld-choices">${heading?'':'<h3>Understanding the other choices</h3>'}`);discussion=true;heading=true;}
