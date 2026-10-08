@@ -341,32 +341,46 @@ button{font:inherit;cursor:pointer}
 @keyframes nkStreakWaterSurface{0%,100%{border-radius:50%;transform:scale(1)}50%{border-radius:45% 55% 52% 48%;transform:scale(1.035)}}
 @keyframes nkStreakEmberLift{0%{opacity:0;transform:translate(0,5px) scale(.4)}25%{opacity:.85}100%{opacity:0;transform:translate(var(--ember-drift),-17px) scale(.2)}}
 @media(max-width:390px){.nk-home-streak-card{gap:8px;padding:10px}.nk-home-streak-card .nk-home-week{grid-template-columns:repeat(7,20px)}.nk-streak-number{font-size:23px}}
-/* 11 upgraded v2: Trophy Streak-Card composition, tier-driven flame (Rive concept) */
-.up-streak2{display:grid;grid-template-columns:50px minmax(0,1fr) auto auto;align-items:center;gap:10px;padding:12px 14px;border:1px solid #ebeaf5;border-radius:17px;background:#fff;box-shadow:0 5px 20px rgba(39,42,101,.045);color:#151852}
-.up-flame2{position:relative;width:50px;height:54px;display:grid;place-items:center;isolation:isolate}
-.up-flame2:before{content:"";position:absolute;z-index:-1;inset:6px -2px -2px;border-radius:50%;background:radial-gradient(ellipse,var(--aura,rgba(255,150,60,.45)),transparent 70%);filter:blur(4px);animation:nkStreakFireAura 2.2s ease-in-out infinite}
-.up-flame2 .up-flame-scale{display:grid;place-items:center;transform:scale(var(--fs,1.19));transition:transform .5s cubic-bezier(.3,1.2,.4,1)}
-.up-flame2 .up-flame-svg{width:34px;height:44px}
-.up-flame2 .up-ember{bottom:10px}
-.up-streak2[data-tier="3"]{--fs:1;--aura:rgba(150,140,200,.35)}
-.up-streak2[data-tier="7"]{--fs:1.1;--aura:rgba(255,150,60,.45)}
-.up-streak2[data-tier="14"]{--fs:1.19;--aura:rgba(255,140,50,.5)}
-.up-streak2[data-tier="30"]{--fs:1.28;--aura:rgba(255,180,60,.6)}
-.up-streak2[data-tier="3"] .e4,.up-streak2[data-tier="3"] .e5{display:none}
-.up-streak2[data-tier="7"] .e5{display:none}
-.up-streak-copy2{display:grid;gap:2px;min-width:0}
-.up-streak-copy2 strong{font-size:12px;font-weight:700;color:#29244d;display:flex;align-items:center;gap:6px;white-space:nowrap}
-.up-streak-num2{font-size:24px;font-weight:850;letter-spacing:-.6px;font-variant-numeric:tabular-nums}
-.up-tier2{font-size:8px;font-weight:850;letter-spacing:1px;text-transform:uppercase;padding:3px 7px;border-radius:999px}
-.up-streak2[data-tier="3"] .up-tier2{color:#6a5f8f;background:#efecf9;border:1px solid #d9d3ef}
-.up-streak2[data-tier="7"] .up-tier2{color:#b25a12;background:#fff0da;border:1px solid #f3d9ab}
-.up-streak2[data-tier="14"] .up-tier2{color:#a84a10;background:#ffe9d2;border:1px solid #f2c69c}
-.up-streak2[data-tier="30"] .up-tier2{color:#8a6d00;background:#fff4cf;border:1px solid #ecd27e}
-.up-streak-copy2 small{font-size:10px;color:#76738b}
-.up-stat2{display:grid;gap:1px;text-align:right}
-.up-stat2 b{font-size:17px;font-weight:850;letter-spacing:-.4px;font-variant-numeric:tabular-nums}
-.up-stat2 small{font-size:8.5px;color:#858397;white-space:nowrap}
-.up-streak2 .up-streak-week{grid-column:1/-1;padding:2px 0 0}
+/* 11-A v3: faithful Trophy Streak-Card IA (title+action, badge count, calendar, longest, total, how-it-works) */
+.up-tcard{background:#fff;border:1px solid #ebeaf5;border-radius:17px;box-shadow:0 5px 20px rgba(39,42,101,.045);color:#151852;padding:14px}
+.up-tcard-head{display:flex;align-items:center;justify-content:space-between}
+.up-tcard-head h3{font-size:14px;font-weight:800;letter-spacing:-.2px;margin:0}
+.up-tcard-head button{border:0;background:none;color:#6549c6;font-size:11px;font-weight:750;display:flex;align-items:center;gap:4px;min-height:36px;padding:0 0 0 12px}
+.up-tcard-now{display:flex;align-items:center;gap:10px;margin-top:8px}
+.up-tcard-now .up-sbflame{transform:scale(var(--bfs,.95))}
+.up-tcard-now .up-flame-svg{width:30px;height:39px}
+.up-tcard-now .up-tnum{font-size:22px;font-weight:850;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.up-tcard-now .up-tdays{font-size:11px;color:#76738b;font-weight:600}
+.up-tcard[data-tier="3"]{--bfs:.8}
+.up-tcard[data-tier="7"]{--bfs:.88}
+.up-tcard[data-tier="14"]{--bfs:.95}
+.up-tcard[data-tier="30"]{--bfs:1.05}
+.up-tcard .up-streak-week{margin-top:10px}
+.up-tcard-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px;padding-top:12px;border-top:1px solid #f0edf6}
+.up-tcard-stats>div{display:grid;gap:3px}
+.up-tcard-stats strong{font-size:10.5px;font-weight:650;color:#76738b}
+.up-tcard-stats b{font-size:20px;font-weight:850;letter-spacing:-.4px;font-variant-numeric:tabular-nums}
+.up-tcard-stats small{font-size:9px;color:#8a8ea8}
+.up-how{margin-top:6px;border-top:1px solid #f0edf6}
+.up-how summary{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:44px;font-size:11px;font-weight:750;color:#6549c6;cursor:pointer;list-style:none}
+.up-how summary::-webkit-details-marker{display:none}
+.up-how summary svg{transition:transform .25s}
+.up-how[open] summary svg{transform:rotate(180deg)}
+.up-how ul{margin:0 0 6px;padding:0;list-style:none;display:grid;gap:8px}
+.up-how li{font-size:10.5px;line-height:1.55;color:#5b5f7e;display:flex;gap:8px}
+.up-how li i{flex:none;width:5px;height:5px;border-radius:50%;background:#8f7bd8;margin-top:5px}
+.up-tier2{font-size:8px;font-weight:850;letter-spacing:1px;text-transform:uppercase;padding:3px 7px;border-radius:999px;white-space:nowrap}
+.up-tcard[data-tier="3"] .up-tier2{color:#6a5f8f;background:#efecf9;border:1px solid #d9d3ef}
+.up-tcard[data-tier="7"] .up-tier2{color:#b25a12;background:#fff0da;border:1px solid #f3d9ab}
+.up-tcard[data-tier="14"] .up-tier2{color:#a84a10;background:#ffe9d2;border:1px solid #f2c69c}
+.up-tcard[data-tier="30"] .up-tier2{color:#8a6d00;background:#fff4cf;border:1px solid #ecd27e}
+.up-tflame{position:relative;display:grid;place-items:center;isolation:isolate}
+.up-tflame:before{content:"";position:absolute;z-index:-1;inset:4px -3px -3px;border-radius:50%;background:radial-gradient(ellipse,var(--aura,rgba(255,140,50,.5)),transparent 70%);filter:blur(4px);animation:nkStreakFireAura 2.2s ease-in-out infinite}
+.up-tcard[data-tier="3"]{--aura:rgba(150,140,200,.35)}
+.up-tcard[data-tier="7"]{--aura:rgba(255,150,60,.45)}
+.up-tcard[data-tier="14"]{--aura:rgba(255,140,50,.5)}
+.up-tcard[data-tier="30"]{--aura:rgba(255,180,60,.6)}
+.up-tflame .up-ember{bottom:6px}
 .up-tierstep{display:flex;align-items:center;gap:6px;margin-top:10px}
 .up-tierstep span{font-size:9px;color:#858397;font-weight:600}
 .up-tierstep button{border:1px solid #e5e0f5;background:#fff;color:#73668f;font-size:10px;font-weight:800;min-width:34px;min-height:30px;border-radius:9px;transition:all .18s}
@@ -374,7 +388,10 @@ button{font:inherit;cursor:pointer}
 /* 11-B · Trophy Badge concept (compact) */
 .up-concept-tag{display:inline-block;font-size:9px;font-weight:850;letter-spacing:1px;text-transform:uppercase;color:#48328f;background:#e8e2fb;padding:4px 10px;border-radius:999px;margin:14px 0 8px}
 .up-sbadge{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid #e6e7ef;border-radius:999px;padding:5px 13px 5px 7px;box-shadow:0 4px 14px rgba(39,42,101,.07)}
-.up-sbadge .up-sbflame{display:grid;place-items:center;transform:scale(var(--bfs,.95));transition:transform .4s cubic-bezier(.3,1.2,.4,1)}
+.up-sbflame{display:grid;place-items:center;transform:scale(var(--bfs,.95));transition:transform .4s cubic-bezier(.3,1.2,.4,1)}
+.up-tcard-now .up-tnum{font-weight:850;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.up-tcard-now .up-tdays{font-size:11px;color:#76738b;font-weight:600}
+.up-tcard-stats b small{font-size:10px;font-weight:600;color:#8a8ea8}
 .up-sbadge .up-flame-svg{width:19px;height:25px}
 .up-sbadge b{font-size:16px;font-weight:850;letter-spacing:-.3px;font-variant-numeric:tabular-nums}
 .up-sbadge small{font-size:9px;color:#76738b;font-weight:600}
@@ -826,16 +843,16 @@ button{font:inherit;cursor:pointer}
         <div class="pv-phone">
           <section class="nk-home-streak-card nk-streak-blaze" aria-label="14 day study streak"><span class="nk-home-streak-flame" aria-hidden="true"><svg class="nk-streak-flame-svg" viewBox="0 0 50 64" aria-hidden="true"><path class="nk-fire-outer" d="M26 2c1 13 21 20 21 36 0 15-10 24-22 24C11 62 3 53 3 41c0-11 9-17 11-27 1 12 8 14 10 6 3-7 2-13 2-18Z"/><path class="nk-fire-side" d="M11 23c-1 10-7 13-7 21 0 7 4 13 10 16-5-12 1-17-3-37Z"/><path class="nk-fire-middle" d="M28 24c1 9 10 14 10 22 0 9-6 15-13 15-8 0-14-6-14-15 0-6 5-10 7-16 1 6 3 9 6 10 5-5 5-10 4-16Z"/><path class="nk-fire-core" d="M27 42c2 5 5 8 5 12 0 5-3 7-7 7s-7-3-7-7c0-5 6-9 9-12Z"/></svg><i class="nk-fire-spark nk-fire-spark-one"></i><i class="nk-fire-spark nk-fire-spark-two"></i><i class="nk-fire-spark nk-fire-spark-three"></i><i class="nk-fire-spark nk-fire-spark-four"></i></span><div class="nk-home-streak-copy"><strong><b class="nk-streak-number">14</b> day streak</strong><small>Keep the chain alive.</small></div><div class="nk-home-week" role="img" aria-label="Study this week"><span class="nk-home-week-day is-done is-linked"><i><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>M</b></span><span class="nk-home-week-day is-done is-linked"><i><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>T</b></span><span class="nk-home-week-day is-done is-linked"><i><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>W</b></span><span class="nk-home-week-day is-done is-linked"><i><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>T</b></span><span class="nk-home-week-day is-done is-frontier"><i><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>F</b></span><span class="nk-home-week-day is-today"><i></i><b>S</b></span><span class="nk-home-week-day"><i></i><b>S</b></span></div></section>
         </div>
-        <p class="pv-note"><b>Audit finding:</b> the 🔥 emoji is not a design choice — it's the v102 fallback injector (<b>index.html ~L1301</b>) misfiring on Home. Its guard only checks for <b>.streak-card</b>, but Home renders <b>.nk-home-streak-card</b>, so the injector adds a duplicate emoji card. One-line production fix available when you approve (extend the guard).</p>
+        <p class="pv-note"><b>Audit finding:</b> the fire emoji is not a design choice — it's the v102 fallback injector (<b>index.html ~L1301</b>) misfiring on Home. Its guard only checks for <b>.streak-card</b>, but Home renders <b>.nk-home-streak-card</b>, so the injector adds a duplicate emoji card. One-line production fix available when you approve (extend the guard).</p>
       </div>
       <div class="pv-col">
         <span class="pv-tag is-new">Upgraded · same data, graphical flame</span>
         <div class="pv-phone">
-          <section class="up-streak2" data-tier="14" id="upStreakCard" aria-label="14 day study streak"><span class="up-flame2" aria-hidden="true"><span class="up-flame-scale"><svg class="up-flame-svg" viewBox="0 0 50 64"><defs><linearGradient id="upFlameOuter" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff7a2e"/><stop offset=".55" stop-color="#ff9c38"/><stop offset="1" stop-color="#e04e1f"/></linearGradient><linearGradient id="upFlameMid" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe27a"/><stop offset="1" stop-color="#ffab3d"/></linearGradient><linearGradient id="upFlameCore" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffdf0"/><stop offset="1" stop-color="#ffe27a"/></linearGradient><radialGradient id="upFlameHalo" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffb35c" stop-opacity=".55"/><stop offset="1" stop-color="#ffb35c" stop-opacity="0"/></radialGradient></defs><ellipse cx="25" cy="56" rx="19" ry="6" fill="url(#upFlameHalo)"/><path d="M26 2c1 13 21 20 21 36 0 15-10 24-22 24C11 62 3 53 3 41c0-11 9-17 11-27 1 12 8 14 10 6 3-7 2-13 2-18Z" fill="url(#upFlameOuter)"/><path d="M11 23c-1 10-7 13-7 21 0 7 4 13 10 16-5-12 1-17-3-37Z" fill="#f56b24"/><path d="M28 24c1 9 10 14 10 22 0 9-6 15-13 15-8 0-14-6-14-15 0-6 5-10 7-16 1 6 3 9 6 10 5-5 5-10 4-16Z" fill="url(#upFlameMid)"/><path d="M27 42c2 5 5 8 5 12 0 5-3 7-7 7s-7-3-7-7c0-5 6-9 9-12Z" fill="url(#upFlameCore)"/><ellipse cx="25.5" cy="46" rx="3" ry="4.5" fill="#fff" opacity=".85"/></svg></span><span class="up-ember e1" style="left:16px;width:4px;height:6px;--drift:-6px;animation-delay:0s"></span><span class="up-ember e2" style="left:28px;width:3px;height:5px;--drift:5px;animation-delay:.7s"></span><span class="up-ember e3" style="left:22px;width:5px;height:7px;--drift:2px;animation-delay:1.3s"></span><span class="up-ember e4" style="left:33px;width:3px;height:4px;--drift:7px;animation-delay:1.8s"></span><span class="up-ember e5" style="left:12px;width:3px;height:5px;--drift:-4px;animation-delay:1.1s"></span></span><div class="up-streak-copy2"><strong><span class="up-streak-num2" id="upStreakNum">0</span> day streak <span class="up-tier2" id="upStreakTier">Blaze</span></strong><small>Keep the chain alive.</small></div><div class="up-stat2"><b>30</b><small>Longest</small></div><div class="up-stat2"><b>68</b><small>Total days</small></div><div class="up-streak-week"><span class="up-streak-day is-done is-linked"><i> <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>M</b></span><span class="up-streak-day is-done is-linked"><i> <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>T</b></span><span class="up-streak-day is-done is-linked"><i> <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>W</b></span><span class="up-streak-day is-done is-linked"><i> <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>T</b></span><span class="up-streak-day is-done is-frontier"><i> <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>F</b></span><span class="up-streak-day is-today"><i></i><b>S</b></span><span class="up-streak-day "><i></i><b>S</b></span></div></section>
+          <section class="up-tcard" data-tier="14" id="upTrophyCard" aria-label="Study streak, 14 days"><div class="up-tcard-head"><h3>Study streak</h3><button type="button" id="upTrophyGo">Insights <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></button></div><div class="up-tcard-now"><span class="up-tflame" aria-hidden="true"><span class="up-sbflame"><svg class="up-flame-svg" viewBox="0 0 50 64"><defs><linearGradient id="upFlameOuter" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff7a2e"/><stop offset=".55" stop-color="#ff9c38"/><stop offset="1" stop-color="#e04e1f"/></linearGradient><linearGradient id="upFlameMid" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe27a"/><stop offset="1" stop-color="#ffab3d"/></linearGradient><linearGradient id="upFlameCore" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffdf0"/><stop offset="1" stop-color="#ffe27a"/></linearGradient></defs><path d="M26 2c1 13 21 20 21 36 0 15-10 24-22 24C11 62 3 53 3 41c0-11 9-17 11-27 1 12 8 14 10 6 3-7 2-13 2-18Z" fill="url(#upFlameOuter)"/><path d="M11 23c-1 10-7 13-7 21 0 7 4 13 10 16-5-12 1-17-3-37Z" fill="#f56b24"/><path d="M28 24c1 9 10 14 10 22 0 9-6 15-13 15-8 0-14-6-14-15 0-6 5-10 7-16 1 6 3 9 6 10 5-5 5-10 4-16Z" fill="url(#upFlameMid)"/><path d="M27 42c2 5 5 8 5 12 0 5-3 7-7 7s-7-3-7-7c0-5 6-9 9-12Z" fill="url(#upFlameCore)"/><ellipse cx="25.5" cy="46" rx="3" ry="4.5" fill="#fff" opacity=".85"/></svg></span><span class="up-ember" style="left:8px;width:4px;height:6px;--drift:-5px;animation-delay:0s"></span><span class="up-ember" style="left:20px;width:3px;height:5px;--drift:4px;animation-delay:.8s"></span><span class="up-ember" style="left:14px;width:3px;height:4px;--drift:-2px;animation-delay:1.5s"></span></span><span><span class="up-tnum" style="font-size:22px">0</span> <span class="up-tdays">days</span> <span class="up-tier2 up-tchip">Blaze</span></span></div><div class="up-streak-week"><span class="up-streak-day is-done is-linked"><i> <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>M</b></span><span class="up-streak-day is-done is-linked"><i> <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>T</b></span><span class="up-streak-day is-done is-linked"><i> <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>W</b></span><span class="up-streak-day is-done is-linked"><i> <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>T</b></span><span class="up-streak-day is-done is-frontier"><i> <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>F</b></span><span class="up-streak-day is-today"><i></i><b>S</b></span><span class="up-streak-day "><i></i><b>S</b></span></div><div class="up-tcard-stats"><div><strong>Longest streak</strong><b>30 <small>days</small></b></div><div><strong>Total active days</strong><b>68</b></div></div><details class="up-how"><summary>How do streaks work? <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></summary><ul><li><i></i><span>Answer at least one question each day to build your streak.</span></li><li><i></i><span>Each active day extends it — weekends count the same.</span></li><li><i></i><span>Missing a day resets it to 0.</span></li></ul></details></section>
         </div>
         <div class="up-tierstep" role="group" aria-label="Preview flame tiers"><span>Flame evolution (Rive concept):</span><button type="button" data-tier="3">3</button><button type="button" data-tier="7">7</button><button type="button" data-tier="14" class="on">14</button><button type="button" data-tier="30">30</button></div>
         <div><span class="up-concept-tag">Concept B · Trophy Badge — compact</span></div>
-        <div><span class="up-sbadge" data-tier="14" id="upSBadge" role="img" aria-label="14 day streak"><span class="up-sbflame" aria-hidden="true"><svg class="up-flame-svg" viewBox="0 0 50 64"><defs><linearGradient id="upFlameB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff9435"/><stop offset="1" stop-color="#e04e1f"/></linearGradient></defs><path d="M26 2c1 13 21 20 21 36 0 15-10 24-22 24C11 62 3 53 3 41c0-11 9-17 11-27 1 12 8 14 10 6 3-7 2-13 2-18Z" fill="url(#upFlameB)"/></svg></span><b id="upSBadgeNum">14</b><small>day streak</small></span></div>
+        <div><span class="up-sbadge" data-tier="14" id="upSBadge" role="img" aria-label="14 day streak"><span class="up-sbflame" aria-hidden="true"><svg class="up-flame-svg" viewBox="0 0 50 64"><defs><linearGradient id="upFlameB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff9435"/><stop offset="1" stop-color="#e04e1f"/></linearGradient></defs><path d="M26 2c1 13 21 20 21 36 0 15-10 24-22 24C11 62 3 53 3 41c0-11 9-17 11-27 1 12 8 14 10 6 3-7 2-13 2-18Z" fill="url(#upFlameB)"/></svg></span><b class="up-tnum" id="upSBadgeNum">14</b><small>day streak</small></span></div>
         <p class="pv-note" style="margin-top:8px"><b>Badge placement:</b> candidate for the Home greeting row or topbar — follows the same tier state as concept A above (step the tiers and watch it follow).</p>
         <div><span class="up-concept-tag">Concept C · Milestone moment — celebration</span></div>
         <div class="up-mile enter" id="upMile">
@@ -848,7 +865,7 @@ button{font:inherit;cursor:pointer}
           <div class="up-mile-actions"><button type="button" class="up-mile-keep" id="upMileKeep">Keep studying</button><button type="button" class="up-mile-replay" id="upMileReplay">Replay</button></div>
         </div>
         <div id="upMileGone" style="display:none;text-align:center;margin-top:10px"><p style="font-size:11px;color:#858397;margin-bottom:8px">Dismissed — production notices behave the same way.</p><button type="button" id="upMileShow" style="min-height:38px;padding:0 16px;border-radius:10px;border:1px solid #e0e1ed;background:#fff;color:#4d5f8d;font-size:11px;font-weight:800">Show again</button></div>
-        <p class="pv-note"><b>A · Trophy Card:</b> current + longest (30) + total (68) + week calendar in one compact card — same height as current. The flame <b>evolves with tier</b> (step 3·7·14·30: grows, brightens, gains embers; numerals resize by digit count like the Rive asset) — the state-driven concept production Rive would own. Zero emoji. The v102 🔥 fallback bug stands as reported.</p>
+        <p class="pv-note"><b>A · Trophy Streak Card, faithfully adapted:</b> title + Insights action, badge-composed current count, week calendar, longest (30), total (68), collapsed "How do streaks work?" — Trophy's exact information architecture in QBank theme. The flame still <b>evolves with tier</b> (scale, aura, chip color; numerals resize by digit count like the Rive asset). B follows the same tier state live. Zero emoji. The v102 fire-emoji fallback bug stands as reported — now fixed on branch <b>fix/v102-streak-guard</b> (guard extended, awaiting CI/quota).</p>
       </div>
     </div>
   </section>
@@ -886,7 +903,7 @@ button{font:inherit;cursor:pointer}
             <div class="nk-li-year-summary" id="upHeatSummary"></div>
           </div>
         </div>
-        <p class="pv-note"><b>What changed (UI Arc pattern):</b> squares are back (you were right), now on <b>fixed levels with a written legend</b> — No answers · 1–3 · 4–6 · 7–10 · 11+ — instead of peak-relative shading. Cells wave in on view, year switches sweep the recolor, legend swatches are <b>level filters</b> (tap to isolate those days), arrow keys move between days, Enter selects. One honest flag: fixed buckets change your approved relative-shade semantics — your call whether that ships.</p>
+        <p class="pv-note"><b>What changed (UI Arc pattern, your shading kept):</b> squares on <b>peak-relative bands with a written legend</b> — dark violet always means your busiest day, the rest scale below it, and the legend prints the actual ranges for this view. Cells wave in, year switches recolor, legend swatches <b>filter by band</b>, arrows + Enter work from the keyboard. No fixed thresholds anywhere.</p>
       </div>
     </div>
   </section>
@@ -1347,20 +1364,19 @@ paintSources();
 /* ---------- 11 · streak tiers (Rive state-driven concept, prototyped) ---------- */
 const TIERS = {3:'Warm', 7:'Fire', 14:'Blaze', 30:'Radiant'};
 function setTier(t){
-  const card = document.getElementById('upStreakCard');
-  card.dataset.tier = String(t);
-  card.setAttribute('aria-label', t+' day study streak');
-  document.getElementById('upStreakTier').textContent = TIERS[t];
-  document.querySelectorAll('.up-tierstep button').forEach(b=>b.classList.toggle('on', b.dataset.tier===String(t)));
-  const numEl = document.getElementById('upStreakNum');
-  numEl.style.fontSize = String(t).length>1 ? '22px' : '26px';
-  countUp(numEl, t, fmtInt);
-  const badge = document.getElementById('upSBadge');
-  if(badge){
-    badge.dataset.tier = String(t);
-    badge.setAttribute('aria-label', t+' day streak');
-    badge.querySelector('b').textContent = t;
-  }
+  const label = TIERS[t], ts = String(t);
+  ['upTrophyCard','upSBadge'].forEach(id=>{
+    const el = document.getElementById(id);
+    if(!el) return;
+    el.dataset.tier = ts;
+    el.setAttribute('aria-label', el.id==='upSBadge' ? ts+' day streak' : 'Study streak, '+ts+' days');
+  });
+  document.querySelectorAll('.up-tchip').forEach(el=>{ el.textContent = label; });
+  document.querySelectorAll('.up-tnum').forEach(el=>{
+    if(!el.closest('#upSBadge')) el.style.fontSize = ts.length>1 ? '22px' : '26px';
+    countUp(el, t, fmtInt);
+  });
+  document.querySelectorAll('.up-tierstep button').forEach(b=>b.classList.toggle('on', b.dataset.tier===ts));
 }
 document.querySelectorAll('.up-tierstep button').forEach(b=>b.addEventListener('click', ()=>setTier(Number(b.dataset.tier))));
 setTier(14);
@@ -1473,22 +1489,36 @@ const HEAT_OPTS = [
   {v:'2026', label:'2026', desc:'Calendar year'},
   {v:'2025', label:'2025', desc:'Calendar year'}
 ];
-const HEAT_LEVELS = [
-  {fill:'#edeef5', border:'#e5e3ee', label:'No answers'},
-  {fill:'#ddd3f5', border:'#c9bdf0', label:'1–3 answers'},
-  {fill:'#bda8ec', border:'#a78fe3', label:'4–6 answers'},
-  {fill:'#8f6fdd', border:'#7a5cd0', label:'7–10 answers'},
-  {fill:'#6540c5', border:'#5234ab', label:'11+ answers'}
+const HEAT_BASE = [
+  {fill:'#edeef5', border:'#e5e3ee'},
+  {fill:'#ddd3f5', border:'#c9bdf0'},
+  {fill:'#bda8ec', border:'#a78fe3'},
+  {fill:'#8f6fdd', border:'#7a5cd0'},
+  {fill:'#6540c5', border:'#5234ab'}
 ];
-function heatLevel(n){ return n===0?0 : n<=3?1 : n<=6?2 : n<=10?3 : 4; }
-function heatBucket(n){
-  const L = HEAT_LEVELS[heatLevel(n)];
-  return `--heat-fill:${L.fill};--heat-border:${L.border};--heat-glow:${heatLevel(n)===4?'0 0 6px rgba(101,64,197,.35)':'none'}`;
+/* bands are relative to the busiest day (shipped semantics): dark violet = peak */
+function heatBands(peak){
+  const p = Math.max(1, peak);
+  const q = v => Math.max(1, Math.round(p*v));
+  return [
+    {i:0, ...HEAT_BASE[0], label:'No answers', test:n=>n===0},
+    {i:1, ...HEAT_BASE[1], label:`1–${q(.25)} answers`, test:n=>n>0&&n<=p*.25},
+    {i:2, ...HEAT_BASE[2], label:`${q(.25)+1}–${q(.5)} answers`, test:n=>n>p*.25&&n<=p*.5},
+    {i:3, ...HEAT_BASE[3], label:`${q(.5)+1}–${q(.75)} answers`, test:n=>n>p*.5&&n<=p*.75},
+    {i:4, ...HEAT_BASE[4], label:`${q(.75)+1}–${p} answers (peak)`, test:n=>n>p*.75}
+  ];
+}
+function heatBandIndex(n, bands){ return bands.findIndex(b=>b.test(n)); }
+function heatBucket(n, bands){
+  const L = bands[Math.max(0, heatBandIndex(n, bands))];
+  return `--heat-fill:${L.fill};--heat-border:${L.border};--heat-glow:${L.i===4?'0 0 6px rgba(101,64,197,.35)':'none'}`;
 }
 let heatFilter = -1, heatSel = -1, heatFocus = 0, heatCellsCache = [];
 function paintUpHeat(){
   const seed = HEAT_SEEDS[heatYear];
   const {cells, first, end, today} = heatWindow(seed);
+  const peak = Math.max(1,...cells.map(c=>c.n));
+  const bands = heatBands(peak);
   heatCellsCache = cells;
   heatSel = -1;
   heatFocus = Math.max(0, cells.findIndex(c=>c.at===today));
@@ -1500,8 +1530,8 @@ function paintUpHeat(){
   canvas.innerHTML = `<div class="nk-li-year-months">${months.map(m=>`<span style="grid-column:${m.col}">${m.label}</span>`).join('')}</div>`+
     `<div class="nk-li-year-grid" role="grid" aria-label="Daily study activity">${cells.map((c,i)=>{
       const d=new Date(c.at);
-      const dim = heatFilter>=0 && heatLevel(c.n)!==heatFilter;
-      return `<button type="button" role="gridcell" data-i="${i}" tabindex="${i===heatFocus?0:-1}" class="${c.at===today?'is-today':''}${dim?' dim':''}" aria-selected="false" aria-label="${d.toLocaleDateString('en-GB',{dateStyle:'long'})}: ${c.n} answers" title="${heatFmtD(c.at)}: ${c.n} answers" style="${heatBucket(c.n)};--d:${Math.min(i*4,600)}ms;grid-column:${Math.floor(i/7)+1};grid-row:${i%7+1}"></button>`;
+      const dim = heatFilter>=0 && heatBandIndex(c.n, bands)!==heatFilter;
+      return `<button type="button" role="gridcell" data-i="${i}" tabindex="${i===heatFocus?0:-1}" class="${c.at===today?'is-today':''}${dim?' dim':''}" aria-selected="false" aria-label="${d.toLocaleDateString('en-GB',{dateStyle:'long'})}: ${c.n} answers" title="${heatFmtD(c.at)}: ${c.n} answers" style="${heatBucket(c.n, bands)};--d:${Math.min(i*4,600)}ms;grid-column:${Math.floor(i/7)+1};grid-row:${i%7+1}"></button>`;
     }).join('')}</div>`;
   const grid = canvas.querySelector('.nk-li-year-grid');
   grid.querySelectorAll('button').forEach(btn=>btn.addEventListener('click', ()=>selectUpHeat(Number(btn.dataset.i))));
@@ -1544,7 +1574,9 @@ function selectUpHeat(i){
   document.getElementById('upHeatDetail').innerHTML = heatDetailText(cells[i].at, cells[i].n).html;
 }
 function paintHeatLegend(){
-  document.getElementById('upHeatKey').innerHTML = `<span>Less</span>` + HEAT_LEVELS.map((L,i)=>
+  const peak = Math.max(1,...heatCellsCache.map(c=>c.n));
+  const bands = heatBands(peak);
+  document.getElementById('upHeatKey').innerHTML = `<span>Less</span>` + bands.map((L,i)=>
     `<button type="button" class="up-heat-lv" data-l="${i}" aria-pressed="${heatFilter===i}" aria-label="${L.label}: show only these days" title="${L.label}"><i style="background:${L.fill};border-color:${L.border}"></i></button>`).join('') + `<span>More</span>`;
   document.getElementById('upHeatKey').querySelectorAll('.up-heat-lv').forEach(b=>b.addEventListener('click', ()=>{
     const l = Number(b.dataset.l);
