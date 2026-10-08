@@ -15,6 +15,18 @@ A presentation layer over the unchanged V11.6/V11.7 app (main `07f6e8c`):
 - Under browser automation (`navigator.webdriver`) the legacy look stays, so existing contract suites are unchanged. Use `?ui=geist` to force the new look.
 - Profile name is device-local; stats reuse the app's own counters.
 
+## QA pass (2026-10-08, deployed preview)
+Audited Home, Profile, Revision/FSRS, Tests, CBT builder → timed CBT → result → Review Solutions, Practice (PrepLadder, Marrow figure, UWorld 5-option + table), topics, My UWorld, Insights, More, Bookmarks/Mistakes/Notes, search and the Custom Study Module builder at 390/768/1280 in light and dark. Fixed in `redesign/*` only:
+- Builder steppers: current/done step numerals were invisible (white on #f5f5f5).
+- Builder primary buttons ("Continue to questions", module "Continue") were white on white.
+- Fixed docks: runtime measures the covered band (`--nkg-dock-h`) so the last card clears nav + action bars + safe area.
+- 44px tap targets for analysis back/rename, analysis tabs, theme segments, header actions, ghost buttons, session-review close.
+- Explanation tables no longer split words mid-letter; UWorld source badge no longer wraps into a 3-line pill.
+- Insights: previous-week bars visible in light/dark; the arbitrarily amber "Recorded study time" tile is neutral.
+- Result score ring: legacy lavender track (inline style) swapped for the neutral token.
+- Home section headings share one size and left edge.
+- `#profile` no longer flashes the dashboard (route attribute set before first render + `:has()` guard).
+
 ## Known limits
-- `#profile` briefly shows the dashboard before Profile renders.
-- Timed CBT, Review Solutions and PDF figures need visual review on the deployed preview.
+- Original-PDF source panes need a recent Chromium/WebView (pdf.js uses `Map.prototype.getOrInsertComputed`); older engines show an error in that pane (app behaviour, not the redesign).
+- Activity heatmap day cells stay ~21px (dense data grid).

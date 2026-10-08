@@ -32,6 +32,13 @@
   };
   if (mode !== 'geist') { doc.setAttribute('data-nk-ui', 'legacy'); return; }
   doc.setAttribute('data-nk-ui', 'geist');
+  /* Route attribute is set before the app's first render and before its own
+     hashchange handler, so route-scoped CSS (e.g. #profile) never flashes. */
+  (function () {
+    function r() { return (location.hash.replace(/^#/, '').split('/')[0]) || 'dashboard'; }
+    doc.setAttribute('data-nkg-route', r());
+    window.addEventListener('hashchange', function () { doc.setAttribute('data-nkg-route', r()); });
+  })();
 
   /* ------------------------------------------------------------------ theme */
   var media = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
@@ -417,7 +424,45 @@
     if (modal) swapIcons(modal);
     updateTopbar(page, session);
     syncThemeControls();
+    measureDock();
+    neutralizeInlineTracks(app);
   }
+  /* A few charts set their track colour inline (legacy lavender #eceaf4 /
+     #eeecf4 / #ebe6f5). Swap only that literal for the neutral token. */
+  var LAVENDER = /#(?:eceaf4|eeecf4|ebe6f5)/gi;
+  function neutralizeInlineTracks(root) {
+    var els = root.querySelectorAll('[style*="#eceaf4" i], [style*="#eeecf4" i], [style*="#ebe6f5" i]');
+    for (var i = 0; i < els.length; i++) {
+      var st = els[i].getAttribute('style');
+      if (st) els[i].setAttribute('style', st.replace(LAVENDER, 'var(--nkg-active)'));
+    }
+  }
+  /* Height of the band covered by fixed bottom docks (nav, session footer,
+     recall dock, builder action bars). Published as --nkg-dock-h. */
+  var dockFrame = 0;
+  function measureDock() {
+    if (dockFrame) return;
+    dockFrame = window.requestAnimationFrame(function () {
+      dockFrame = 0;
+      var app = document.getElementById('app');
+      if (!app) return;
+      var H = window.innerHeight, top = H;
+      var c = app.querySelectorAll('nav, footer, [class*="action"], [class*="footer"], [class*="dock"], [class*="bar"]');
+      for (var i = 0; i < c.length; i++) {
+        var el = c[i];
+        if (el.offsetParent !== null) continue;
+        var cs = window.getComputedStyle(el);
+        if (cs.position !== 'fixed' || cs.display === 'none' || cs.visibility === 'hidden') continue;
+        var rc = el.getBoundingClientRect();
+        if (!rc.height || rc.height > H * 0.5 || rc.top < H * 0.4 || rc.bottom < H * 0.6) continue;
+        if (rc.top < top) top = rc.top;
+      }
+      var h = Math.max(0, Math.round(H - top));
+      if (h) { doc.style.setProperty('--nkg-dock-h', h + 'px'); doc.setAttribute('data-nkg-dock', ''); }
+      else { doc.style.removeProperty('--nkg-dock-h'); doc.removeAttribute('data-nkg-dock'); }
+    });
+  }
+  window.addEventListener('resize', measureDock);
   function schedule(records) {
     if (scheduled) return;
     for (var i = 0; records && i < records.length; i++) {

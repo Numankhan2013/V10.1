@@ -436,3 +436,90 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-year-grid .is-selected { box
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-answer-time,
 html[data-nk-ui="geist"] :is(body,#nkg-root) .danger-border,
 html[data-nk-ui="geist"] :is(body,#nkg-root) .success-border { border-left-width: 1px !important; }
+
+/* ===================================================== QA pass 2026-10-08
+   One batch from the deployed-preview audit (impeccable audit/polish/harden,
+   emil break-ui). Presentation only. */
+
+/* Builder steppers (CBT + Custom Study Module): current/done steps were white
+   numerals on #f5f5f5. Current = filled ink, done = ink outline + check tone. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-module-stepper span { color: var(--nkg-fg-3); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-module-stepper i {
+  background: var(--nkg-surface-2) !important; color: var(--nkg-fg-3) !important;
+  border: 1px solid var(--nkg-border) !important; font-style: normal; font-weight: 600;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-module-stepper :is(.is-current, .is-done) { color: var(--nkg-fg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-module-stepper .is-current i {
+  background: var(--nkg-inverse-bg) !important; color: var(--nkg-inverse-fg) !important; border-color: var(--nkg-inverse-bg) !important;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-module-stepper .is-done i {
+  background: var(--nkg-surface) !important; color: var(--nkg-fg) !important; border-color: var(--nkg-fg) !important;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-module-stepper b { font-size: 12px; font-weight: 600; letter-spacing: 0; }
+
+/* Builder primary actions were white text on a white surface. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-module-builder-actions, .nk-module-final-actions, .nk-cbt-actions, .nk-cbt-main-actions) .is-primary {
+  background: var(--nkg-inverse-bg) !important; color: var(--nkg-inverse-fg) !important;
+  border-color: var(--nkg-inverse-bg) !important;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-module-builder-actions, .nk-module-final-actions, .nk-cbt-actions, .nk-cbt-main-actions) .is-primary:disabled {
+  background: var(--nkg-surface-2) !important; color: var(--nkg-fg-3) !important; border-color: var(--nkg-border) !important;
+}
+
+/* Fixed docks (session footer, recall dock, builder bars, bottom nav): the
+   runtime measures the covered band as --nkg-dock-h so the last card always
+   clears it, plus the safe area. */
+html[data-nk-ui="geist"][data-nkg-dock] :is(body,#nkg-root) #app main.page {
+  padding-bottom: calc(var(--nkg-dock-h, 0px) + 28px + env(safe-area-inset-bottom, 0px)) !important;
+}
+
+/* Tap targets: 44px minimum for the controls the audit found short. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-na-back, .nk-na-name > button, .nk-session-review-close) {
+  min-width: 44px !important; min-height: 44px !important;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-tabs > button,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-seg button,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-head-action,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-btn,
+html[data-nk-ui="geist"] :is(body,#nkg-root) #app .ghost-btn { min-height: 44px !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-tabs > button { display: inline-flex; align-items: center; justify-content: center; }
+/* Heatmap day cells stay dense; give them a slightly larger hit area without moving the grid. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-heatmap button { position: relative; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-heatmap button::after { content: ""; position: absolute; inset: -2px; }
+
+/* Explanation tables: never split words mid-letter ("Manageme|nt"). The
+   table scroller handles anything genuinely wider than the column. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) #app table :is(th, td) {
+  word-break: normal !important; overflow-wrap: break-word !important; hyphens: manual;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) #app table :is(th, td):first-child { min-width: 7.5em; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-uworld-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* Source badge in explanation headers ("UWorld 2024 · Source reviewed") wrapped into a 3-line pill. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-source-section > header { display: flex !important; flex-wrap: wrap !important; align-items: center; justify-content: space-between; gap: 6px 12px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-source-section > header > div { min-width: 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-source-section > header > span { white-space: nowrap; flex: 0 0 auto; }
+
+/* Insights: previous-week bars were #f5f5f5 on white (invisible) and near-black in dark. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-li-bar-pair, .nk-li-key) i.is-previous {
+  background: color-mix(in srgb, var(--nkg-fg) 22%, var(--nkg-surface)) !important;
+}
+/* Insights: one metric tile was painted amber for no semantic reason; keep tiles neutral. */
+html[data-nk-ui="geist"] body #app .nk-learning-insights .nk-li-stats article[data-metric="Recorded study time"] {
+  border-color: var(--nkg-border) !important; background: var(--nkg-surface) !important;
+}
+html[data-nk-ui="geist"] body #app .nk-learning-insights .nk-li-stats article[data-metric="Recorded study time"] :is(.nk-li-icon, small) { color: var(--nkg-fg-2) !important; }
+html[data-nk-ui="geist"] body #app .nk-learning-insights .nk-li-stats article[data-metric="Recorded study time"] .nk-li-icon.nk-li-icon {
+  background: var(--nkg-surface-2) !important; color: var(--nkg-fg) !important;
+}
+
+/* Home: section headings share one size and one left edge. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-command-center :is(.nk-section-head, .nk-v3-section-head) { padding-left: 0 !important; padding-right: 0 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-command-center :is(.nk-section-head, .nk-v3-section-head, .nk-home-revision-head, .nk-home-progress-head) h2 {
+  font-size: 18px !important; line-height: 1.3 !important; letter-spacing: -0.015em !important;
+}
+
+/* #profile: hide the app's fallback dashboard until the Profile view is in. */
+html[data-nk-ui="geist"][data-nkg-route="profile"] #app main.page:not(:has(.nkg-profile)),
+html[data-nk-ui="geist"][data-nkg-route="profile"] #app .nk-global-header-v114 { visibility: hidden !important; }
+
