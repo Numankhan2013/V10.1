@@ -246,6 +246,53 @@ button{font:inherit;cursor:pointer}
 .up-count button{position:relative;z-index:1;flex:1;border:0;background:none;min-height:48px;font-size:14px;font-weight:850;color:#676b96;border-radius:12px;transition:color .2s}
 .up-count button.on{color:#3d3594}
 
+/* ============ 08 · comparison current (exact shipped styles) ============ */
+.nk-li-comparison>div{display:grid;grid-template-columns:1.15fr 1fr 1fr .8fr;align-items:center;gap:5px;border-bottom:1px solid #f0edf6;padding:13px 0;font-size:10px}
+.nk-li-comparison strong{font-size:10px;font-weight:650}
+.nk-li-comparison b{font-size:11px;font-variant-numeric:tabular-nums}
+.nk-li-comparison span{color:#74778e;font-variant-numeric:tabular-nums}
+.nk-li-comparison .nk-li-comparison-head{font-size:9px;padding-top:0;color:#74778e}
+.nk-li-comparison .nk-li-delta{font-size:9px}
+.nk-li-comparison-head span{line-height:1.35;overflow-wrap:anywhere}
+/* 08 upgraded: stacked comparison rows */
+.up-cmp-row{padding:12px 2px}
+.up-cmp-row + .up-cmp-row{border-top:1px solid #f0edf6}
+.up-cmp-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.up-cmp-top strong{font-size:11px;font-weight:650}
+.up-cmp-vals{display:flex;align-items:baseline;gap:8px;margin-top:5px}
+.up-cmp-vals b{font-size:19px;font-weight:850;letter-spacing:-.4px;font-variant-numeric:tabular-nums}
+.up-cmp-vals span{font-size:10px;color:#74778e}
+
+/* ============ 09 · forecast current (exact shipped styles) ============ */
+.nk-li-forecast{display:flex;align-items:flex-end;gap:8px;height:100px}
+.nk-li-forecast>span{display:flex;flex:1;align-items:center;flex-direction:column;justify-content:flex-end;gap:6px}
+.nk-li-forecast b{font-size:10px;font-variant-numeric:tabular-nums}
+.nk-li-forecast i{width:100%;max-width:26px;border-radius:4px 4px 1px 1px;background:linear-gradient(0deg,#8063ee,#b3a2f7);display:block}
+.nk-li-forecast small{font-size:9px;color:#74778e}
+/* 09 upgraded: grow-in bars + today highlight + readout */
+.up-forecast i{transition:height .6s cubic-bezier(.25,.9,.3,1)}
+.up-forecast>span.is-today b{color:#48328f;font-weight:850}
+.up-forecast>span.is-today i{background:linear-gradient(0deg,#5b45d6,#8f7bf0);box-shadow:0 4px 12px rgba(98,81,162,.35)}
+.up-fc-readout{font-size:10px;color:#686485;background:#f8f7fd;border-radius:10px;padding:9px 11px;margin-top:10px;min-height:34px}
+.up-fc-readout strong{color:#453771}
+
+/* ============ 10 · source cards current (exact shipped styles) ============ */
+.nk-test-source-card{display:grid;grid-template-columns:46px 1fr 22px;gap:12px;align-items:center;width:100%;padding:12px;border:1px solid #e6e7ef;border-radius:17px;background:#fff;text-align:left;color:#171a58;font:inherit;margin-bottom:8px;transition:border-color .2s,background .2s}
+.nk-test-source-card>span:nth-child(2){display:grid;min-width:0}
+.nk-test-source-card strong{font-size:13px}
+.nk-test-source-card small{font-size:10px;color:#8589a7;margin-top:3px}
+.nk-test-source-icon{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:#efedff;color:#6951e6}
+.nk-test-source-icon.is-wrong{background:#ffecef;color:#e94d65}
+.nk-test-source-icon.is-bookmarks{background:#fff2e6;color:#f38a29}
+.nk-test-source-card.active{border-color:#8c78ef;background:#f8f6ff}
+.nk-test-source-card:disabled{opacity:.55;cursor:not-allowed}
+/* 10 upgraded: morphing pick indicator */
+.up-pick{width:22px;height:22px;border-radius:50%;border:1.5px solid #c9c2e8;display:grid;place-items:center;color:#fff;transition:background .22s,border-color .22s,transform .28s cubic-bezier(.3,1.5,.5,1);transform:scale(.85)}
+.up-pick svg{opacity:0;transform:scale(.4);transition:opacity .15s,transform .25s cubic-bezier(.3,1.6,.5,1)}
+.nk-test-source-card.active .up-pick{background:#6d55e0;border-color:#6d55e0;transform:scale(1);box-shadow:0 3px 10px rgba(109,85,224,.35)}
+.nk-test-source-card.active .up-pick svg{opacity:1;transform:none}
+.nk-test-source-card:active{transform:scale(.985)}
+
 @media(prefers-reduced-motion:reduce){
   *,*:before,*:after{transition:none!important;animation:none!important}
 }
@@ -511,6 +558,91 @@ button{font:inherit;cursor:pointer}
     </div>
   </section>
 
+  <!-- 08 · COMPARISON -->
+  <section class="pv-sec" id="comparison">
+    <div class="pv-sec-head"><span class="n">08</span><h2>Insights · Period comparison table</h2><span class="file">tools/learning_insights_core.js (nkLearningComparison)</span></div>
+    <p class="pv-sec-sub">The Measure / This week / Previous week / Change grid across five metrics.</p>
+    <div class="pv-pair">
+      <div class="pv-col">
+        <span class="pv-tag is-current">Current · static replica</span>
+        <div class="pv-phone">
+          <div class="nk-learning-insights">
+            <div class="nk-li-card" style="margin-top:0"><header><h2>Period comparison</h2></header>
+              <div class="nk-li-comparison"><div class="nk-li-comparison-head"><span>Measure</span><span>This week</span><span>Previous week</span><span>Change</span></div><div><strong>Answers</strong><b>142</b><span>118</span><span class="nk-li-delta is-up">↑ 20%</span></div><div><strong>Study time</strong><b>9h 41m</b><span>8h 38m</span><span class="nk-li-delta is-up">↑ 12%</span></div><div><strong>Accuracy</strong><b>76%</b><span>71%</span><span class="nk-li-delta is-up">↑ 5 pp</span></div><div><strong>FSRS reviews</strong><b>64</b><span>58</span><span class="nk-li-delta is-up">↑ 10%</span></div><div><strong>Modules finished</strong><b>3</b><span>2</span><span class="nk-li-delta is-up">↑ 50%</span></div></div>
+            </div>
+          </div>
+        </div>
+        <p class="pv-note"><b>What feels off today:</b> four cramped columns at 10px — headers wrap, values collide, and the eye has to zigzag across every row to compare two numbers.</p>
+      </div>
+      <div class="pv-col">
+        <span class="pv-tag is-new">Upgraded · same data, restructured</span>
+        <div class="pv-phone">
+          <div class="nk-learning-insights">
+            <div class="nk-li-card" style="margin-top:0"><header><h2>Period comparison</h2></header>
+              <div class="up-cmp" id="upCmp"></div>
+            </div>
+          </div>
+        </div>
+        <p class="pv-note"><b>What changed:</b> each measure reads top-to-bottom — label with its delta, then the big current value with the previous beneath it ("118 previously", your Insights' own phrasing). Same five metrics, same deltas, room to breathe.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 · FORECAST -->
+  <section class="pv-sec" id="forecast">
+    <div class="pv-sec-head"><span class="n">09</span><h2>Insights · 7-day review forecast</h2><span class="file">tools/learning_insights_core.js (nkLearningFsrs)</span></div>
+    <p class="pv-sec-sub">The due-per-day bars inside Spaced repetition · FSRS.</p>
+    <div class="pv-pair">
+      <div class="pv-col">
+        <span class="pv-tag is-current">Current · static replica</span>
+        <div class="pv-phone">
+          <div class="nk-learning-insights">
+            <div class="nk-li-card" style="margin-top:0"><header><h2>Spaced repetition · FSRS</h2></header>
+              <h3 style="font-size:11px;margin:0 0 12px">7-day review forecast <small style="float:right;color:#74778e;font-size:10px;font-weight:400">As of today</small></h3>
+              <div class="nk-li-forecast" id="curForecast"></div>
+            </div>
+          </div>
+        </div>
+        <p class="pv-note"><b>What feels off today:</b> bars sit at full height statically — today is indistinguishable from the other days, and tapping a day tells you nothing.</p>
+      </div>
+      <div class="pv-col">
+        <span class="pv-tag is-new">Upgraded · interactive</span>
+        <div class="pv-phone">
+          <div class="nk-learning-insights">
+            <div class="nk-li-card" style="margin-top:0"><header><h2>Spaced repetition · FSRS</h2></header>
+              <h3 style="font-size:11px;margin:0 0 12px">7-day review forecast <small style="float:right;color:#74778e;font-size:10px;font-weight:400">As of today</small></h3>
+              <div class="nk-li-forecast up-forecast" id="upForecast"></div>
+              <div class="up-fc-readout" id="upFcReadout"><span style="color:#74778e">Tap a day to see its due count.</span></div>
+            </div>
+          </div>
+        </div>
+        <p class="pv-note"><b>What changed:</b> bars grow in on view, Today stands out in deep violet, and tapping any day reports its due count below. Same gradient bars, same layout.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 · SOURCE CARDS -->
+  <section class="pv-sec" id="source-cards">
+    <div class="pv-sec-head"><span class="n">10</span><h2>Tests · quick-test source cards</h2><span class="file">tools/apply_home_command_center_v1.py (TESTS_PAGE)</span></div>
+    <p class="pv-sec-sub">The Wrong questions / Bookmarked questions selectors (37 missed, 12 saved).</p>
+    <div class="pv-pair">
+      <div class="pv-col">
+        <span class="pv-tag is-current">Current · interactive</span>
+        <div class="pv-phone" style="background:#f6f7fb">
+          <div id="curSource"></div>
+        </div>
+        <p class="pv-note"><b>What feels off today:</b> selection is only a border tint — the chevron never acknowledges your choice, and there's no press feedback.</p>
+      </div>
+      <div class="pv-col">
+        <span class="pv-tag is-new">Upgraded · interactive</span>
+        <div class="pv-phone" style="background:#f6f7fb">
+          <div id="upSource"></div>
+        </div>
+        <p class="pv-note"><b>What changed:</b> the trailing chevron becomes a pick indicator that fills and pops a check when selected (easyui Morphing-Icon style micro-interaction), with a soft press scale. Tap to switch sources.</p>
+      </div>
+    </div>
+  </section>
+
   <footer class="pv-foot">
     <b>Assumptions &amp; next step.</b> Sample numbers stand in for real study data; all wording, colors, radii and iconography follow your shipped stylesheets. Motion is transform/opacity-only and fully disabled under <b>prefers-reduced-motion</b>, per your codebase convention. If you approve any piece, I will port it into the matching <b>tools/apply_*_v1.py</b> transform as a narrow, contract-safe change — nothing else moves. If not, deleting this one file discards the whole experiment.
   </footer>
@@ -524,9 +656,11 @@ const S = (p,s=21)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="n
 const IC = {
   home: s=>S('<path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V10Z"/>',s),
   refresh: s=>S('<path d="M20 11a8 8 0 0 0-14.8-4L3 9"/><path d="M3 4v5h5M4 13a8 8 0 0 0 14.8 4L21 15"/><path d="M21 20v-5h-5"/>',s),
+  bookmark: s=>S('<path d="M6 4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18l-6-3-6 3V4Z"/>',s),
   test: s=>S('<rect x="6" y="3" width="12" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h3"/>',s),
   chart: s=>S('<path d="M4 19V5"/><path d="M4 19h16"/><path d="m7 15 3-4 3 2 5-7"/>',s),
-  more: s=>S('<circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/>',s)
+  more: s=>S('<circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/>',s),
+  chev: s=>S('<path d="m9 6 6 6-6 6"/>',s)
 };
 const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -898,6 +1032,65 @@ const countSeg = document.getElementById('upCountSeg'), countPill = document.get
   countSeg.appendChild(b);
 });
 requestAnimationFrame(()=>movePill(countPill, countSeg, countSeg.querySelector('button.on')));
+
+/* ---------- 08 · comparison rows ---------- */
+const CMP = [
+  ['Answers','142','118','↑ 20%','is-up'],
+  ['Study time','9h 41m','8h 38m','↑ 12%','is-up'],
+  ['Accuracy','76%','71%','↑ 5 pp','is-up'],
+  ['FSRS reviews','64','58','↑ 10%','is-up'],
+  ['Modules finished','3','2','↑ 50%','is-up']
+];
+document.getElementById('upCmp').innerHTML = CMP.map(([label,a,b,d,cls])=>
+  `<div class="up-cmp-row"><div class="up-cmp-top"><strong>${label}</strong><span class="nk-li-delta ${cls}">${d}</span></div><div class="up-cmp-vals"><b>${a}</b><span>${b} previously</span></div></div>`).join('');
+
+/* ---------- 09 · forecast ---------- */
+const FC_DAYS = ['Today','Sat','Sun','Mon','Tue','Wed','Thu'];
+const FC_N = [12,8,5,9,4,6,3];
+const FC_MAX = Math.max(...FC_N);
+function fcHTML(animate){
+  return FC_N.map((n,i)=>
+    `<span class="${i===0?'is-today':''}"><b>${n}</b><i style="height:${animate?0:Math.max(4,Math.round(n/FC_MAX*68))}px"></i><small>${FC_DAYS[i]}</small></span>`).join('');
+}
+document.getElementById('curForecast').innerHTML = fcHTML(false);
+const upFc = document.getElementById('upForecast');
+upFc.innerHTML = fcHTML(true);
+function growForecast(){
+  const bars = upFc.querySelectorAll('i');
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    bars.forEach((bar,i)=>{ bar.style.height = Math.max(4,Math.round(FC_N[i]/FC_MAX*68))+'px'; });
+  }));
+}
+if('IntersectionObserver' in window && !REDUCED){
+  const fio = new IntersectionObserver(es=>{ es.forEach(en=>{ if(en.isIntersecting) growForecast(); }); }, {threshold:.4});
+  fio.observe(upFc);
+} else {
+  upFc.querySelectorAll('i').forEach((bar,i)=>{ bar.style.height = Math.max(4,Math.round(FC_N[i]/FC_MAX*68))+'px'; });
+}
+upFc.querySelectorAll('span').forEach((sp,i)=>sp.addEventListener('click', ()=>{
+  document.getElementById('upFcReadout').innerHTML =
+    `<strong>${FC_DAYS[i]==='Today'?'Today':FC_DAYS[i]}</strong><span> — ${FC_N[i]} review${FC_N[i]===1?'':'s'} due</span>`;
+}));
+
+/* ---------- 10 · source cards ---------- */
+const SOURCES = [
+  {id:'wrong', icon:'refresh', cls:'is-wrong', title:'Wrong questions', sub:'37 missed across all banks'},
+  {id:'bookmarks', icon:'bookmark', cls:'is-bookmarks', title:'Bookmarked questions', sub:'12 saved across all banks'}
+];
+function sourceCard(s, active, upgraded){
+  const tail = upgraded
+    ? `<span class="up-pick"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></span>`
+    : `<span style="display:grid;place-items:center;color:#9aa0b8">${IC.chev(20)}</span>`;
+  return `<button type="button" class="nk-test-source-card${active?' active':''}" data-s="${s.id}"><span class="nk-test-source-icon ${s.cls}">${IC[s.icon](23)}</span><span><strong>${s.title}</strong><small>${s.sub}</small></span>${tail}</button>`;
+}
+let curSource = 'wrong', upSourceSel = 'wrong';
+function paintSources(){
+  document.getElementById('curSource').innerHTML = SOURCES.map(s=>sourceCard(s, s.id===curSource, false)).join('');
+  document.getElementById('upSource').innerHTML = SOURCES.map(s=>sourceCard(s, s.id===upSourceSel, true)).join('');
+  document.getElementById('curSource').querySelectorAll('button').forEach(b=>b.addEventListener('click', ()=>{ curSource = b.dataset.s; paintSources(); }));
+  document.getElementById('upSource').querySelectorAll('button').forEach(b=>b.addEventListener('click', ()=>{ upSourceSel = b.dataset.s; paintSources(); }));
+}
+paintSources();
 
 /* ---------- 04 · navs ---------- */
 const NAV = [['dashboard','Home','home'],['fsrs','FSRS','refresh'],['tests','Tests','test'],['analytics','Insights','chart'],['more','More','more']];
