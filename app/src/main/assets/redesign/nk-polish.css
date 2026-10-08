@@ -351,6 +351,10 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-donut.nkg-sweeping { transit
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-donut-pair .nk-li-outcomes h3 { font-size: var(--nkg-t-sm) !important; font-weight: 500 !important; color: var(--nkg-fg-2) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-outcomes dl > * { font-variant-numeric: tabular-nums; }
 
+/* One colour for skipped questions everywhere: amber (matches Test analysis "Omitted"). */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learning-insights { --li-lilac: var(--nkg-amber); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-outcomes dt i.is-lilac { background: var(--nkg-amber) !important; }
+
 /* Questions bars (03). */
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-bars > button { transition: background-color var(--nkg-dur) var(--nkg-ease) !important; border-radius: var(--nkg-r-md) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-bars > button > b { font: 600 var(--nkg-t-xs)/1 var(--nkg-font-mono) !important; color: var(--nkg-fg) !important; }

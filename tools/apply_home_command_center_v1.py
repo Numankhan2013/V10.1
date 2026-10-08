@@ -142,17 +142,22 @@ HELPERS = r'''
   function nkFsrsLaunchQueue(subject=''){const fallback=nkReviewDue(subject);return typeof nkFsrsQueue==='function'?nkFsrsQueue({subject}):{cards:fallback,due:fallback,totalDue:fallback.length,rolledOver:0};}
   function nkStartReviewOnly(subject=nkFsrsSubjectFilter){const queue=nkFsrsLaunchQueue(subject),rows=queue.cards||[];if(!rows.length){showToast('No attempted or submitted-as-skipped questions are due for this selection.');return;}BY_ID={...BY_ID,...Object.fromEntries(rows.map(q=>[String(q.id),q]))};startSession(rows.map(q=>String(q.id)),'practice','FSRS Review','fsrs');if(queue.rolledOver)showToast(`${queue.rolledOver} due reviews roll forward under your daily limit.`);}
   function nkMarkSkippedFromSession(s){
-    // Skip rule: a question you moved past counts as skipped only if it comes BEFORE
-    // your last answered question. Questions after it were never reached, so they
-    // stay out of review; a session with no answers marks nothing. Questions with
-    // history already live in FSRS; unanswerable questions never enter.
+    // Skip rule (shared by Practice, timed tests, revision and study modules). An
+    // unanswered question counts as skipped, and enters FSRS, when you clearly met it:
+    //   1) it comes BEFORE your last answered question (you moved past it), or
+    //   2) you spent real time on it (>= 15 s) - you tried and could not answer, even
+    //      if it is one of the last questions of the session.
+    // Questions you never opened (or only glanced at) after your last answer stay out,
+    // and a session with no answers marks only questions you genuinely worked on.
+    // Questions that already have history are in FSRS already; unanswerable ones never enter.
     if(!s?.questionIds?.length)return;
+    const ENGAGED_MS=15000;
     const ids=(typeof nkPracticeSessionIds==='function'&&nkPracticeSessionIds(s).length>=s.questionIds.length?nkPracticeSessionIds(s):s.questionIds).map(String);
     let last=-1;ids.forEach((id,i)=>{if(s.answers?.[id])last=i;});
-    if(last<0)return;
     state.fsrsReviewEligible=state.fsrsReviewEligible||{};const at=Date.now();
-    ids.slice(0,last).forEach(id=>{
-      const key=String(id),answered=Boolean(s.answers?.[key]),q=typeof nkFindStudyQuestion==='function'?nkFindStudyQuestion(key):null;
+    ids.forEach((id,i)=>{
+      const key=String(id),answered=Boolean(s.answers?.[key]),engaged=Number(s.questionTimes?.[key]||0)>=ENGAGED_MS,q=typeof nkFindStudyQuestion==='function'?nkFindStudyQuestion(key):null;
+      if(answered||(i>=last&&!engaged))return;
       if(q&&typeof nkFsrsAnswerable==='function'&&!nkFsrsAnswerable(q))return;
       if(typeof qAttempts==='function'&&qAttempts(key).length)return;
       if(!answered)state.fsrsReviewEligible[key]={reason:'skipped',at};

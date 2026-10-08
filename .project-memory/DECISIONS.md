@@ -435,3 +435,13 @@ Save & exit never mark anything. Reason: finishing a long session early (or
 abandoning a module) must not flood FSRS with questions never looked at, while
 a question deliberately passed over mid-session is a real weak spot.
 
+Amendment (same day): dwell time. A question you worked on but could not
+answer, typically the last few questions of a module you completed, would
+otherwise be dropped because it follows the last answered question. The skip
+rule therefore also counts an unanswered question as skipped when its recorded
+per-question time is at least 15 seconds (`ENGAGED_MS` in
+`nkMarkSkippedFromSession`). Time is already recorded for every visited
+question and persists across pause/resume, so no new UI is needed; a quick
+glance (under 15 s) does not count. Skipped questions use one colour, amber
+(`--nkg-amber`), in Test analysis and Insights.
+

@@ -27,7 +27,7 @@ const ids=n=>Array.from({{length:n}},(_,i)=>'q'+(i+1)),run=(session)=>{{state.fs
 assert.deepEqual(run({{questionIds:ids(20),answers:{{q1:1,q3:1,q4:1,q5:1}}}}),['q2'],'only the skipped question before the last answer enters FSRS');
 // Looking at question 6 after answering 5 does not matter: it comes after the last answer.
 assert.deepEqual(run({{questionIds:ids(20),answers:{{q1:1,q5:1}}}}),['q2','q3','q4']);
-// Nothing answered: nothing enters FSRS.
+// Nothing answered and nothing worked on: nothing enters FSRS.
 assert.deepEqual(run({{questionIds:ids(20),answers:{{}}}}),[],'a session with no answers marks nothing');
 // Study modules follow the same rule (no special case).
 assert.deepEqual(run({{studyModuleId:'m1',questionIds:ids(6),answers:{{q1:1}}}}),[]);
@@ -36,6 +36,12 @@ assert.deepEqual(run({{studyModuleId:'m1',questionIds:ids(6),answers:{{q1:1,q4:1
 assert.deepEqual(run({{questionIds:ids(5),answers:{{q5:1}}}}),['q1','q2','q3','q4']);
 // Questions that already have history are already in FSRS: no stale skip entry.
 state.attempts={{q2:[{{id:'old'}}]}};assert.deepEqual(run({{questionIds:ids(5),answers:{{q1:1,q4:1}}}}),['q3']);
+state.attempts={{}};
+// Tried-but-skipped: real time spent (>= 15 s) on an unanswered question counts even after the last answer.
+assert.deepEqual(run({{questionIds:ids(6),answers:{{q1:1,q2:1,q3:1}},questionTimes:{{q5:40000,q6:3000}}}}),['q5'],'a question you worked on enters FSRS; a glance does not');
+assert.deepEqual(run({{studyModuleId:'m1',questionIds:ids(10),answers:{{q1:1,q2:1,q3:1,q4:1,q5:1,q6:1,q7:1}},questionTimes:{{q8:25000,q9:20000,q10:2000}}}}),['q8','q9'],'module finished with 2 hard questions at the end');
+assert.deepEqual(run({{questionIds:ids(5),answers:{{}},questionTimes:{{q2:30000}}}}),['q2'],'no answers: only a question you worked on');
+assert.deepEqual(run({{questionIds:ids(5),answers:{{}},questionTimes:{{q2:4000,q3:9000}}}}),[],'no answers and only glances: nothing');
 console.log('SKIP_RULE_OK');
 """
 with tempfile.NamedTemporaryFile("w", suffix=".js", encoding="utf-8", delete=False) as handle:
