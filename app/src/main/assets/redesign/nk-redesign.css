@@ -498,7 +498,7 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-uworld-table-scroll { overflow-
 /* Source badge in explanation headers ("UWorld 2024 · Source reviewed") wrapped into a 3-line pill. */
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-source-section > header { display: flex !important; flex-wrap: wrap !important; align-items: center; justify-content: space-between; gap: 6px 12px; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-source-section > header > div { min-width: 0; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-source-section > header > span { white-space: nowrap; flex: 0 0 auto; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-source-section > header > span { white-space: nowrap; flex: 0 0 auto; width: auto !important; max-width: 100%; min-width: 0 !important; overflow: hidden; text-overflow: ellipsis; }
 
 /* Insights: previous-week bars were #f5f5f5 on white (invisible) and near-black in dark. */
 html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-li-bar-pair, .nk-li-key) i.is-previous {
@@ -534,3 +534,8 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) #app button.is-primary:not(:disable
 }
 html[data-nk-ui="geist"] :is(body,#nkg-root) #app button.is-primary:not(:disabled) :is(strong, b, span) { color: inherit !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) #app button.is-primary:not(:disabled) small { color: color-mix(in srgb, var(--nkg-inverse-fg) 70%, transparent) !important; }
+/* Tablet/desktop: the nav becomes an 88px side rail at >=768px; the top bar must start after it
+   (at 768px the brand sat underneath the rail). */
+@media (min-width: 768px) {
+  html[data-nk-ui="geist"]:not([data-nkg-session]) :is(body,#nkg-root) .nkg-topbar { margin-left: 88px; }
+}
