@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QBank V10.1 — UI Upgrade Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#2f2d63;
+  --primary-2:#3d65d8;
+  --success:#159a74;
+  --danger:#df4e52;
+  --warning:#e79b18;
+  --ink:#171826;
+  --muted:#6f7180;
+  --line:#e7e8ee;
+  --surface:#ffffff;
+  --surface-2:#f6f7fb;
+  --surface-3:#eef0f8;
+  --shadow:0 10px 28px rgba(32,34,58,.06);
+  --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#e9ebf2;color:var(--ink);min-height:100vh}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+
+/* ---------- stage ---------- */
+.stage{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:36px 16px}
+.stage-head{text-align:center;max-width:640px}
+.stage-head .kicker{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--primary-2);background:#e8edff;padding:6px 12px;border-radius:999px;margin-bottom:12px}
+.stage-head h1{font-size:26px;font-weight:850;letter-spacing:-.5px}
+.stage-head p{color:var(--muted);font-size:13.5px;margin-top:8px;line-height:1.55}
+.stage-head p b{color:var(--ink)}
+
+/* ---------- phone frame ---------- */
+.phone{width:392px;height:800px;background:var(--surface-2);border-radius:44px;box-shadow:0 40px 90px rgba(23,24,38,.28),0 0 0 10px #1b1c2b,0 0 0 11px #34354a;overflow:hidden;display:flex;flex-direction:column;position:relative}
+.phone-notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:110px;height:24px;background:#1b1c2b;border-radius:999px;z-index:60}
+.screen{flex:1;display:flex;flex-direction:column;overflow:hidden;position:relative}
+
+/* ---------- topbar ---------- */
+.topbar{background:linear-gradient(180deg,#232245,#302e61);color:#fff;padding:14px 18px 12px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 18px rgba(0,0,0,.12);z-index:30;flex:none}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px}
+.brand-mark{width:32px;height:32px;border-radius:10px;background:#3a72e4;display:grid;place-items:center;font-weight:800;font-size:17px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.16)}
+.topbar .icon-btn{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;color:#fff}
+.topbar .icon-btn:hover{background:rgba(255,255,255,.1)}
+
+/* ---------- page ---------- */
+.page{flex:1;overflow-y:auto;padding:18px 16px 110px;scrollbar-width:none}
+.page::-webkit-scrollbar{display:none}
+.fade-in{animation:pageIn .38s cubic-bezier(.22,.9,.3,1) both}
+@keyframes pageIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* ---------- greeting ---------- */
+.greet-kicker{font-size:10.5px;font-weight:800;letter-spacing:1.1px;text-transform:uppercase;color:var(--primary-2)}
+.greeting h1{font-size:24px;font-weight:850;letter-spacing:-.6px;margin-top:5px}
+.greeting p{color:var(--muted);font-size:12.5px;margin-top:5px;line-height:1.5}
+
+/* ---------- focus card ---------- */
+.focus-card{margin-top:16px;padding:18px;border-radius:20px;background:linear-gradient(135deg,#2f2d63,#3d3a86);color:#fff;box-shadow:0 14px 34px rgba(47,45,99,.3);position:relative;overflow:hidden}
+.focus-card:after{content:"";position:absolute;right:-38px;top:-38px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(96,110,234,.5),transparent 70%)}
+.focus-card .eyebrow{font-size:10px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;opacity:.65}
+.focus-card h2{font-size:17px;font-weight:800;margin-top:7px;letter-spacing:-.2px}
+.focus-card p{font-size:12px;opacity:.75;margin-top:6px;line-height:1.5}
+.focus-actions{display:flex;gap:8px;margin-top:14px;position:relative;z-index:1}
+.focus-btn{display:inline-flex;align-items:center;gap:6px;min-height:38px;padding:0 13px;border-radius:11px;font-size:11.5px;font-weight:750;background:rgba(255,255,255,.12);color:#fff;transition:background .15s}
+.focus-btn:hover{background:rgba(255,255,255,.2)}
+.focus-btn.primary{background:#fff;color:var(--primary)}
+.focus-btn.primary:hover{background:#eef0ff}
+
+/* ---------- streak ---------- */
+.streak-card{margin-top:14px;padding:16px;border-radius:18px;background:linear-gradient(180deg,#fffaf0,#fff);border:1px solid #f0dfb8;box-shadow:0 6px 22px rgba(50,43,20,.05)}
+.streak-head{display:flex;align-items:flex-start;justify-content:space-between}
+.streak-head .section-title{font-size:14px;font-weight:780}
+.streak-head .sub{font-size:11px;color:var(--muted);font-weight:500}
+.streak-number{font-size:38px;font-weight:900;letter-spacing:-1.5px;line-height:1;margin-top:8px;color:#26264f}
+.streak-number span{font-size:14px;font-weight:800;color:var(--muted);letter-spacing:0}
+.streak-sub{font-size:11.5px;color:var(--muted);margin-top:5px}
+.flame-hero{width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,#fff1d6,#ffe4b8);display:grid;place-items:center;flex:none}
+.streak-week{display:flex;gap:5px;margin-top:14px}
+.streak-day{flex:1;text-align:center;font-size:9px;color:var(--muted);font-weight:700}
+.streak-dot{width:26px;height:26px;border-radius:9px;display:grid;place-items:center;margin:4px auto 0;border:1px solid #e5e7ee;background:#f8f9fc}
+.streak-day.done .streak-dot{background:#fff2dc;border-color:#efcb7b}
+.streak-day.today .streak-dot{box-shadow:0 0 0 3px #eef0ff}
+.streak-day.today{color:var(--primary)}
+
+/* ---------- section title ---------- */
+.section-title{display:flex;align-items:center;justify-content:space-between;font-size:15px;font-weight:780;margin:20px 2px 10px}
+.section-title .sub{font-size:11px;color:var(--muted);font-weight:500}
+
+/* ---------- upgraded stat cards (Metric HUD style) ---------- */
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stat-card{position:relative;padding:15px 15px 13px;border-radius:16px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);overflow:hidden}
+.stat-card.wide{grid-column:1/-1}
+.stat-top{display:flex;align-items:center;justify-content:space-between}
+.stat-label{font-size:11px;color:var(--muted);font-weight:750;display:flex;align-items:center;gap:6px}
+.stat-icon{width:26px;height:26px;border-radius:8px;display:grid;place-items:center}
+.stat-icon.blue{background:#eaf1ff;color:#2e63c7}
+.stat-icon.green{background:#e9f8f2;color:#168261}
+.stat-icon.orange{background:#fff2df;color:#a86008}
+.stat-icon.purple{background:#efecff;color:#5044b5}
+.stat-value{font-size:27px;font-weight:850;letter-spacing:-.8px;margin-top:8px;font-variant-numeric:tabular-nums;line-height:1}
+.stat-value small{font-size:12px;color:var(--muted);font-weight:700;letter-spacing:0}
+.stat-foot{display:flex;align-items:center;justify-content:space-between;margin-top:9px}
+.stat-delta{display:inline-flex;align-items:center;gap:3px;font-size:10.5px;font-weight:800;padding:3px 7px;border-radius:999px}
+.stat-delta.up{background:#e7f8f1;color:var(--success)}
+.stat-delta.down{background:#fff0f1;color:var(--danger)}
+.stat-delta.flat{background:#f0f1f6;color:#606270}
+.stat-spark{margin-top:10px;height:30px;width:100%}
+.stat-spark svg{width:100%;height:100%;display:block}
+.stat-glow{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gc1,var(--primary-2)),var(--gc2,#7c9bff));opacity:.9}
+
+/* ---------- segmented range filter (upgraded) ---------- */
+.seg-wrap{position:relative;margin:2px 2px 12px}
+.seg{display:flex;position:relative;background:#e9ebf3;border-radius:13px;padding:3px}
+.seg-pill{position:absolute;top:3px;bottom:3px;border-radius:10px;background:#fff;box-shadow:0 3px 10px rgba(32,34,58,.14);transition:transform .38s cubic-bezier(.34,1.4,.4,1),width .38s cubic-bezier(.34,1.4,.4,1);z-index:0}
+.seg button{position:relative;z-index:1;flex:1;padding:8px 4px;font-size:11.5px;font-weight:750;color:var(--muted);border-radius:10px;transition:color .2s;letter-spacing:.1px}
+.seg button.active{color:var(--primary)}
+.seg-note{text-align:center;font-size:10px;color:var(--muted);margin-top:8px;font-weight:600}
+
+/* before/after toggle for filter */
+.ba-toggle{display:inline-flex;background:#e9ebf3;border-radius:999px;padding:2px;margin-left:8px;vertical-align:middle}
+.ba-toggle button{font-size:9.5px;font-weight:800;padding:4px 10px;border-radius:999px;color:var(--muted);letter-spacing:.3px}
+.ba-toggle button.on{background:var(--primary);color:#fff}
+.legacy-seg{display:flex;gap:6px;margin:2px 2px 12px}
+.legacy-seg button{flex:1;padding:9px 4px;font-size:11px;font-weight:700;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:9px;transition:.12s}
+.legacy-seg button.active{color:var(--primary);background:#eef0fa;border-color:#d5d9ee}
+
+/* ---------- chart card ---------- */
+.chart-card{padding:16px;border-radius:18px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow)}
+.chart-head{display:flex;align-items:baseline;justify-content:space-between}
+.chart-head .t{font-size:13.5px;font-weight:780}
+.chart-head .v{font-size:20px;font-weight:850;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.chart-head .v small{font-size:11px;color:var(--muted);font-weight:700}
+.chart-plot{position:relative;margin-top:10px;height:150px}
+.chart-plot svg{width:100%;height:100%;display:block;overflow:visible}
+.chart-tip{position:absolute;pointer-events:none;background:#232245;color:#fff;font-size:10px;font-weight:700;padding:5px 9px;border-radius:8px;transform:translate(-50%,-115%);opacity:0;transition:opacity .15s;white-space:nowrap;z-index:5}
+.chart-tip:after{content:"";position:absolute;left:50%;bottom:-4px;transform:translateX(-50%);border:5px solid transparent;border-top-color:#232245;border-bottom:0}
+.chart-x{display:flex;justify-content:space-between;font-size:9px;color:var(--muted);font-weight:600;margin-top:6px;padding:0 2px}
+
+/* ---------- chapter performance ---------- */
+.chapter-row{display:flex;align-items:center;gap:12px;padding:12px 2px;border-top:1px solid var(--line)}
+.chapter-row:first-child{border-top:0}
+.chapter-main{flex:1;min-width:0}
+.chapter-name{font-weight:700;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chapter-meta{font-size:10.5px;color:var(--muted);margin-top:3px}
+.chapter-bar{width:104px;flex:none}
+.chapter-pct{text-align:right;font-weight:800;font-size:11.5px;margin-bottom:5px;font-variant-numeric:tabular-nums}
+.pbar{height:6px;border-radius:999px;background:#eceef4;overflow:hidden}
+.pbar>span{display:block;height:100%;border-radius:inherit;transition:width .9s cubic-bezier(.22,.9,.3,1)}
+
+/* ---------- upgraded bottom nav ---------- */
+.bottom-nav{position:absolute;bottom:0;left:0;right:0;z-index:40;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);display:flex;padding:7px 8px calc(9px + env(safe-area-inset-bottom))}
+.nav-item{flex:1;min-height:52px;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:9.5px;font-weight:700;color:#858895;position:relative;transition:color .2s}
+.nav-item svg{width:21px;height:21px;transition:transform .25s cubic-bezier(.34,1.5,.5,1)}
+.nav-item.active{color:var(--primary)}
+.nav-item.active svg{transform:translateY(-1px) scale(1.08)}
+.nav-pill{position:absolute;top:7px;bottom:7px;border-radius:14px;background:linear-gradient(135deg,#eef0ff,#e4e9ff);box-shadow:inset 0 0 0 1px #dfe4fb;transition:transform .42s cubic-bezier(.34,1.35,.4,1),width .42s cubic-bezier(.34,1.35,.4,1);z-index:0}
+.nav-item>*{position:relative;z-index:1}
+
+/* ---------- preview badge ---------- */
+.preview-badge{position:absolute;top:38px;right:14px;z-index:50;background:var(--primary);color:#fff;font-size:8.5px;font-weight:800;letter-spacing:1px;padding:4px 9px;border-radius:999px;box-shadow:0 4px 12px rgba(47,45,99,.35)}
+
+/* ---------- legend / footnote under phone ---------- */
+.stage-foot{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.chip{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;color:var(--muted);background:#fff;border:1px solid var(--line);padding:7px 13px;border-radius:999px;box-shadow:var(--shadow)}
+.chip i{width:8px;height:8px;border-radius:50%;display:inline-block}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="stage-head">
+    <span class="kicker">UI Upgrade Preview</span>
+    <h1>QBank V10.1 — refreshed interface concepts</h1>
+    <p>Inspired by <b>easyui.site</b> (pill navigation, metric HUD, animated numbers) — rebuilt in your existing theme. <b>Nothing in your repo was touched.</b> Click around: the nav, filters and charts are live.</p>
+  </div>
+
+  <div class="phone">
+    <div class="phone-notch"></div>
+    <div class="screen">
+      <div class="preview-badge">PREVIEW</div>
+      <header class="topbar">
+        <div class="brand"><div class="brand-mark">Q</div><span id="topTitle">QBank</span></div>
+        <button class="icon-btn" aria-label="Notifications">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></svg>
+        </button>
+      </header>
+
+      <main class="page" id="page"></main>
+
+      <nav class="bottom-nav" id="bottomNav">
+        <div class="nav-pill" id="navPill"></div>
+      </nav>
+    </div>
+  </div>
+
+  <div class="stage-foot">
+    <span class="chip"><i style="background:#3d65d8"></i>Same theme &amp; colors</span>
+    <span class="chip"><i style="background:#159a74"></i>Sliding pill navigation</span>
+    <span class="chip"><i style="background:#e79b18"></i>Animated metric cards</span>
+    <span class="chip"><i style="background:#2f2d63"></i>Smooth range filters</span>
+  </div>
+</div>
+
+<script>
+/* ================= data ================= */
+const RANGES = {
+  day:   { label:'Today',        hours:'1h 24m', questions:18, accuracy:'72%', delta:'+8%',  up:true,  spark:[2,4,3,6,5,8,7,9], chart:[4,6,5,8,7,9,8,10], x:['6a','9a','12p','3p','6p','9p'] },
+  week:  { label:'This Week',    hours:'9h 41m', questions:142, accuracy:'78%', delta:'+12%', up:true,  spark:[5,7,6,9,8,10,9,11], chart:[8,10,9,12,11,13,12,14], x:['M','T','W','T','F','S','S'] },
+  month: { label:'This Month',   hours:'38h 07m', questions:586, accuracy:'74%', delta:'+5%',  up:true,  spark:[9,12,10,14,12,15,13,16], chart:[12,15,13,17,15,18,16,19], x:['W1','W2','W3','W4','W5'] }
+};
+const CHAPTERS = [
+  { name:'General Anatomy',        done:34, total:40, acc:85 },
+  { name:'Upper Limb',             done:28, total:36, acc:78 },
+  { name:'Lower Limb',             done:19, total:38, acc:50 },
+  { name:'Thorax & Abdomen',       done:12, total:30, acc:40 },
+  { name:'Neuroanatomy',           done:8,  total:32, acc:25 }
+];
+
+/* ================= state ================= */
+let current = 'dashboard';
+let range = 'week';
+let legacyFilter = false;
+
+/* ================= helpers ================= */
+const $ = s => document.querySelector(s);
+const icon = (name, size=21) => {
+  const c = `width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"`;
+  const p = {
+    home:`<svg ${c}><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V10Z"/></svg>`,
+    book:`<svg ${c}><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21V5.5Z"/><path d="M4 5.5V21"/></svg>`,
+    test:`<svg ${c}><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h3"/></svg>`,
+    chart:`<svg ${c}><path d="M4 19V5"/><path d="M4 19h16"/><path d="m7 15 3-4 3 2 5-7"/></svg>`,
+    more:`<svg ${c}><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg>`,
+    clock:`<svg ${c}><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/></svg>`,
+    flame:`<svg ${c}><path d="M12 2c1 4-4 6-4 11a4.5 4.5 0 0 0 9 0c0-2-1-3.5-2-5-.5 1.5-1.5 2-2.5 2C13 7 13 4 12 2Z"/></svg>`,
+    zap:`<svg ${c}><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg>`,
+    target:`<svg ${c}><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg>`,
+    trend:`<svg ${c}><path d="m3 17 6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>`
+  };
+  return p[name] || p.more;
+};
+
+/* spring count-up */
+function countUp(el, target, {dur=900, decimals=0, suffix=''} = {}) {
+  const start = performance.now();
+  const from = 0;
+  function tick(t){
+    const k = Math.min(1, (t - start) / dur);
+    const e = 1 - Math.pow(1 - k, 3);
+    const v = from + (target - from) * e;
+    el.textContent = v.toFixed(decimals).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + suffix;
+    if (k < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+/* sparkline */
+function sparkSVG(data, color){
+  const w=120,h=30,max=Math.max(...data),min=Math.min(...data);
+  const px = i => 3 + i*(w-6)/(data.length-1);
+  const py = v => h-4 - (v-min)/(max-min||1)*(h-8);
+  const pts = data.map((v,i)=>`${px(i)},${py(v)}`).join(' ');
+  const area = `3,${h} ${pts} ${w-3},${h}`;
+  return `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
+    <polygon points="${area}" fill="${color}" opacity=".08"/>
+    <polyline points="${pts}" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="${px(data.length-1)}" cy="${py(data[data.length-1])}" r="3" fill="${color}"/>
+  </svg>`;
+}
+
+/* ================= pages ================= */
+function dashboardPage(){
+  const r = RANGES[range];
+  return `<div class="fade-in">
+    <div class="greeting">
+      <div class="greet-kicker">Anatomy · Personal QBank</div>
+      <h1>Good evening</h1>
+      <p>One clear next step, then the rest of your study day.</p>
+    </div>
+
+    <section class="focus-card">
+      <div class="eyebrow">Your next best move</div>
+      <h2>You have 12 review questions due.</h2>
+      <p>Start with the review queue to strengthen what is due today.</p>
+      <div class="focus-actions">
+        <button class="focus-btn primary">${icon('clock',15)} Review 12</button>
+        <button class="focus-btn">${icon('book',15)} Practice 20</button>
+        <button class="focus-btn">${icon('test',15)} Timed CBT</button>
+      </div>
+    </section>
+
+    <div class="streak-card">
+      <div class="streak-head">
+        <div>
+          <div class="section-title" style="margin:0"><span>Study Streak</span><span class="sub">Keep the chain alive</span></div>
+          <div class="streak-number" data-count="14">0<span> days</span></div>
+          <div class="streak-sub">Nice — keep going today.</div>
+        </div>
+        <div class="flame-hero">${icon('flame',26)}</div>
+      </div>
+      <div class="streak-week">
+        ${['M','T','W','T','F','S','S'].map((d,i)=>`<div class="streak-day ${i<5?'done':''} ${i===5?'today':''}"><div class="streak-dot">${i<5?icon('flame',13):''}</div><b>${d}</b><small>${i===5?'Today':i+3}</small></div>`).join('')}
+      </div>
+    </div>
+
+    <div class="section-title"><span>At a glance</span><span class="sub" id="rangeSub">Live · ${r.label}</span></div>
+
+    ${legacyFilter ? legacyRange() : upgradedRange()}
+
+    <div class="stat-grid">
+      <div class="stat-card" style="--gc1:#3d65d8;--gc2:#7c9bff">
+        <div class="stat-glow"></div>
+        <div class="stat-top"><span class="stat-label">${icon('clock',13)} Study time</span><span class="stat-icon blue">${icon('clock',14)}</span></div>
+        <div class="stat-value" id="statHours">0</div>
+        <div class="stat-foot"><span class="stat-delta up">${icon('trend',10)} ${r.delta}</span><span style="font-size:10px;color:var(--muted);font-weight:600">vs prev</span></div>
+        <div class="stat-spark">${sparkSVG(r.spark,'#3d65d8')}</div>
+      </div>
+      <div class="stat-card" style="--gc1:#159a74;--gc2:#4ade9e">
+        <div class="stat-glow"></div>
+        <div class="stat-top"><span class="stat-label">${icon('zap',13)} Questions</span><span class="stat-icon green">${icon('zap',14)}</span></div>
+        <div class="stat-value" id="statQ">0</div>
+        <div class="stat-foot"><span class="stat-delta up">${icon('trend',10)} ${r.delta}</span><span style="font-size:10px;color:var(--muted);font-weight:600">vs prev</span></div>
+        <div class="stat-spark">${sparkSVG(r.spark,'#159a74')}</div>
+      </div>
+      <div class="stat-card" style="--gc1:#e79b18;--gc2:#fbbf24">
+        <div class="stat-glow"></div>
+        <div class="stat-top"><span class="stat-label">${icon('target',13)} Accuracy</span><span class="stat-icon orange">${icon('target',14)}</span></div>
+        <div class="stat-value" id="statAcc">0%</div>
+        <div class="stat-foot"><span class="stat-delta up">${icon('trend',10)} +3%</span><span style="font-size:10px;color:var(--muted);font-weight:600">vs prev</span></div>
+        <div class="stat-spark">${sparkSVG(r.spark,'#e79b18')}</div>
+      </div>
+      <div class="stat-card" style="--gc1:#5044b5;--gc2:#8b7cf6">
+        <div class="stat-glow"></div>
+        <div class="stat-top"><span class="stat-label">${icon('book',13)} Due review</span><span class="stat-icon purple">${icon('book',14)}</span></div>
+        <div class="stat-value" id="statDue">0</div>
+        <div class="stat-foot"><span class="stat-delta down">${icon('trend',10)} −4</span><span style="font-size:10px;color:var(--muted);font-weight:600">queue</span></div>
+        <div class="stat-spark">${sparkSVG([...r.spark].reverse(),'#5044b5')}</div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function analyticsPage(){
+  const r = RANGES[range];
+  return `<div class="fade-in">
+    <div class="section-title" style="margin-top:2px"><span>Insights</span><span class="sub">Performance built from your attempts</span></div>
+
+    ${legacyFilter ? legacyRange() : upgradedRange()}
+
+    <div class="chart-card">
+      <div class="chart-head">
+        <span class="t">Questions over time</span>
+        <span class="v" id="chartVal">0 <small>today</small></span>
+      </div>
+      <div class="chart-plot" id="chartPlot">
+        <div class="chart-tip" id="chartTip"></div>
+      </div>
+      <div class="chart-x" id="chartX"></div>
+    </div>
+
+    <div class="section-title"><span>Chapter Performance</span><span class="sub">Accuracy by chapter</span></div>
+    <div class="chart-card" style="padding:6px 16px">
+      ${CHAPTERS.map(c=>`
+        <div class="chapter-row">
+          <div class="chapter-main">
+            <div class="chapter-name">${c.name}</div>
+            <div class="chapter-meta">${c.done}/${c.total} completed</div>
+          </div>
+          <div class="chapter-bar">
+            <div class="chapter-pct" style="color:${c.acc>=75?'var(--success)':c.acc>=50?'var(--warning)':'var(--danger)'}">${c.acc}%</div>
+            <div class="pbar"><span data-w="${c.acc}" style="width:0%;background:${c.acc>=75?'var(--success)':c.acc>=50?'var(--warning)':'var(--danger)'}"></span></div>
+          </div>
+        </div>`).join('')}
+    </div>
+  </div>`;
+}
+
+/* ================= range filters ================= */
+function upgradedRange(){
+  return `<div class="seg-wrap">
+    <div class="seg" id="seg">
+      <div class="seg-pill" id="segPill"></div>
+      ${Object.entries(RANGES).map(([k,v])=>`<button data-range="${k}" class="${k===range?'active':''}">${v.label}</button>`).join('')}
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:2px">
+      <span class="seg-note">Slide between ranges — stats morph with spring physics</span>
+      <span class="ba-toggle">
+        <button id="baNew" class="${!legacyFilter?'on':''}">NEW</button>
+        <button id="baOld" class="${legacyFilter?'on':''}">OLD</button>
+      </span>
+    </div>
+  </div>`;
+}
+function legacyRange(){
+  return `<div class="legacy-seg" id="legacySeg">
+    ${Object.entries(RANGES).map(([k,v])=>`<button data-range="${k}" class="${k===range?'active':''}">${v.label}</button>`).join('')}
+  </div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin:-6px 2px 12px">
+    <span class="seg-note">Current implementation — plain buttons, no motion</span>
+    <span class="ba-toggle">
+      <button id="baNew" class="on">NEW</button>
+      <button id="baOld">OLD</button>
+    </span>
+  </div>`;
+}
+
+/* ================= chart ================= */
+function buildChart(){
+  const plot = $('#chartPlot');
+  const r = RANGES[range];
+  const data = r.chart, labels = r.x;
+  const w = 340, h = 150, pad = 6;
+  const max = Math.max(...data)*1.15, min = 0;
+  const px = i => pad + i*(w-2*pad)/(data.length-1);
+  const py = v => h-pad - (v-min)/(max-min)*(h-2*pad);
+  const pts = data.map((v,i)=>[px(i),py(v)]);
+  const line = pts.map(p=>p.join(',')).join(' ');
+  const area = `${pad},${h-pad} ${line} ${w-pad},${h-pad}`;
+  const gid = 'g'+range;
+  plot.insertAdjacentHTML('afterbegin', `
+    <svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="${gid}" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#3d65d8" stop-opacity=".22"/>
+          <stop offset="1" stop-color="#3d65d8" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      ${[0.25,0.5,0.75].map(f=>`<line x1="${pad}" x2="${w-pad}" y1="${h*f}" y2="${h*f}" stroke="#ececf2" stroke-width="1"/>`).join('')}
+      <polygon points="${area}" fill="url(#${gid})" class="chart-area"/>
+      <polyline points="${line}" fill="none" stroke="#3d65d8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="chart-line"/>
+      ${pts.map((p,i)=>`<circle cx="${p[0]}" cy="${p[1]}" r="3.5" fill="#fff" stroke="#3d65d8" stroke-width="2.5" class="chart-dot" data-i="${i}" opacity="0"/>`).join('')}
+      <line id="scrub" x1="0" x2="0" y1="4" y2="${h-4}" stroke="#2f2d63" stroke-width="1" stroke-dasharray="3 3" opacity="0"/>
+    </svg>`);
+  $('#chartX').innerHTML = labels.map(l=>`<span>${l}</span>`).join('');
+
+  const svg = plot.querySelector('svg');
+  const tip = $('#chartTip');
+  const scrub = $('#scrub');
+  const dots = [...plot.querySelectorAll('.chart-dot')];
+  const valEl = $('#chartVal');
+
+  function moveScrub(clientX){
+    const rect = svg.getBoundingClientRect();
+    const x = (clientX - rect.left) * (w / rect.width);
+    let best = 0, bd = Infinity;
+    pts.forEach((p,i)=>{ const d = Math.abs(p[0]-x); if(d<bd){bd=d;best=i;} });
+    const [cx,cy] = pts[best];
+    scrub.setAttribute('x1',cx); scrub.setAttribute('x2',cx);
+    scrub.setAttribute('opacity','.6');
+    dots.forEach((d,i)=>d.setAttribute('opacity', i===best?1:0));
+    tip.style.left = (cx/w*100)+'%';
+    tip.style.top = (cy/h*100)+'%';
+    tip.style.opacity = 1;
+    tip.textContent = `${data[best]} questions · ${labels[best]}`;
+    valEl.innerHTML = `${data[best]} <small>${labels[best]}</small>`;
+  }
+  svg.addEventListener('pointermove', e => moveScrub(e.clientX));
+  svg.addEventListener('pointerleave', () => {
+    scrub.setAttribute('opacity','0');
+    dots.forEach(d=>d.setAttribute('opacity','0'));
+    tip.style.opacity = 0;
+    valEl.innerHTML = `${r.questions} <small>${r.label.toLowerCase()}</small>`;
+  });
+}
+
+/* ================= nav ================= */
+const NAV = [
+  ['dashboard','Home','home'],
+  ['topics','Topics','book'],
+  ['tests','Tests','test'],
+  ['analytics','Insights','chart'],
+  ['more','More','more']
+];
+const TITLES = { dashboard:'QBank', topics:'Topics', tests:'Tests', analytics:'Insights', more:'More' };
+
+function buildNav(){
+  const nav = $('#bottomNav');
+  nav.querySelectorAll('.nav-item').forEach(n=>n.remove());
+  NAV.forEach(([id,label,ic])=>{
+    const b = document.createElement('button');
+    b.className = 'nav-item' + (id===current?' active':'');
+    b.dataset.page = id;
+    b.innerHTML = `${icon(ic,22)}<span>${label}</span>`;
+    b.addEventListener('click', ()=>go(id));
+    nav.appendChild(b);
+  });
+  requestAnimationFrame(movePill);
+}
+
+function movePill(){
+  const pill = $('#navPill');
+  const active = $('.nav-item.active');
+  if(!active) return;
+  const nav = $('#bottomNav');
+  const nr = nav.getBoundingClientRect();
+  const r = active.getBoundingClientRect();
+  pill.style.width = (r.width)+'px';
+  pill.style.transform = `translateX(${r.left - nr.left}px)`;
+}
+
+function go(page){
+  if(page === current) return;
+  current = page;
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.toggle('active', n.dataset.page===page));
+  $('#topTitle').textContent = TITLES[page] || 'QBank';
+  movePill();
+  render();
+}
+
+/* ================= render ================= */
+function render(){
+  const page = $('#page');
+  page.innerHTML = current === 'analytics' ? analyticsPage() : dashboardPage();
+
+  /* range filter events */
+  const seg = $('#seg');
+  if(seg){
+    seg.querySelectorAll('button').forEach(b=>b.addEventListener('click', ()=>{
+      range = b.dataset.range;
+      seg.querySelectorAll('button').forEach(x=>x.classList.toggle('active', x===b));
+      requestAnimationFrame(moveSegPill);
+      updateStats();
+    }));
+    requestAnimationFrame(moveSegPill);
+  }
+  const legacy = $('#legacySeg');
+  if(legacy){
+    legacy.querySelectorAll('button').forEach(b=>b.addEventListener('click', ()=>{
+      range = b.dataset.range;
+      legacy.querySelectorAll('button').forEach(x=>x.classList.toggle('active', x===b));
+      updateStats();
+    }));
+  }
+  document.querySelectorAll('#baNew').forEach(b=>b.addEventListener('click', ()=>{ legacyFilter=false; render(); }));
+  document.querySelectorAll('#baOld').forEach(b=>b.addEventListener('click', ()=>{ legacyFilter=true; render(); }));
+
+  updateStats();
+  if(current === 'analytics'){
+    buildChart();
+    requestAnimationFrame(()=>document.querySelectorAll('.pbar>span').forEach(s=>s.style.width=s.dataset.w+'%'));
+  }
+}
+
+function moveSegPill(){
+  const pill = $('#segPill');
+  const seg = $('#seg');
+  const active = seg.querySelector('button.active');
+  if(!pill || !seg || !active) return;
+  const sr = seg.getBoundingClientRect();
+  const r = active.getBoundingClientRect();
+  pill.style.width = r.width+'px';
+  pill.style.transform = `translateX(${r.left - sr.left - 3}px)`;
+}
+
+function updateStats(){
+  const r = RANGES[range];
+  const sub = $('#rangeSub'); if(sub) sub.textContent = `Live · ${r.label}`;
+  const h = $('#statHours'); if(h){ const [hh,mm] = r.hours.split(' '); countUp(h, parseInt(hh), {suffix:'h '+mm}); }
+  const q = $('#statQ'); if(q) countUp(q, r.questions);
+  const a = $('#statAcc'); if(a) countUp(a, parseInt(r.accuracy), {suffix:'%'});
+  const d = $('#statDue'); if(d) countUp(d, range==='day'?12:range==='week'?12:12);
+  document.querySelectorAll('.stat-spark').forEach((s,i)=>{
+    const colors = ['#3d65d8','#159a74','#e79b18','#5044b5'];
+    s.innerHTML = sparkSVG(r.spark, colors[i % 4]);
+  });
+}
+
+/* ================= init ================= */
+window.addEventListener('resize', ()=>{ movePill(); if($('#seg')) moveSegPill(); });
+buildNav();
+render();
+</script>
+</body>
+</html>
