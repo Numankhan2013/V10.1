@@ -254,21 +254,15 @@ button{font:inherit;cursor:pointer}
 .nk-li-comparison .nk-li-comparison-head{font-size:9px;padding-top:0;color:#74778e}
 .nk-li-comparison .nk-li-delta{font-size:9px}
 .nk-li-comparison-head span{line-height:1.35;overflow-wrap:anywhere}
-/* 08 upgraded v3: scannable table + proportion bars */
-.up-cmptable>div{display:grid;grid-template-columns:1fr auto auto auto;align-items:center;gap:10px;padding:13px 2px;border-bottom:1px solid #f0edf6}
-.up-cmptable>div:last-child{border-bottom:0}
-.up-cmptable .up-cmpt-head{padding:0 2px 8px}
-.up-cmptable .up-cmpt-head span{font-size:9.5px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:#8a8ea8}
-.up-cmptable strong{font-size:12.5px;font-weight:700}
-.up-cmptable .cur{font-size:16px;font-weight:850;letter-spacing:-.3px;font-variant-numeric:tabular-nums;text-align:right}
-.up-cmptable .prv{font-size:11.5px;color:#8a8ea8;font-variant-numeric:tabular-nums;text-align:right}
-.up-cmptable .nk-li-delta{font-size:10px;font-weight:800}
-.up-cmpbar{grid-column:1/-1;position:relative;height:4px;border-radius:99px;background:#efeff6;margin-top:3px}
-.up-cmpbar i{position:absolute;left:0;top:0;bottom:0;border-radius:inherit;background:linear-gradient(90deg,#7860e9,#a794f5)}
-.up-cmpbar b{position:absolute;top:-2.5px;bottom:-2.5px;width:2.5px;border-radius:2px;background:#29265f}
-.up-cmp-legend{display:flex;align-items:center;gap:6px;font-size:9px;color:#8a8ea8;margin:10px 2px 0}
-.up-cmp-legend i{width:14px;height:4px;border-radius:99px;background:linear-gradient(90deg,#7860e9,#a794f5)}
-.up-cmp-legend b{width:2.5px;height:9px;border-radius:2px;background:#29265f}
+/* 08 upgraded v4: arrow notation — previous → current, no gimmicks */
+.up-cmpline{padding:12px 2px}
+.up-cmpline + .up-cmpline{border-top:1px solid #f0edf6}
+.up-cmpline-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.up-cmpline-top strong{font-size:12px;font-weight:700}
+.up-cmpline-flow{display:flex;align-items:baseline;gap:9px;margin-top:6px}
+.up-cmpline-flow .prv{font-size:13px;color:#8a8ea8;font-variant-numeric:tabular-nums}
+.up-cmpline-flow .arr{color:#745be8;font-weight:800;font-size:15px}
+.up-cmpline-flow .cur{font-size:20px;font-weight:850;letter-spacing:-.4px;color:#191945;font-variant-numeric:tabular-nums}
 
 /* ============ 09 · forecast current (exact shipped styles) ============ */
 .nk-li-forecast{display:flex;align-items:flex-end;gap:8px;height:100px}
@@ -306,6 +300,111 @@ button{font:inherit;cursor:pointer}
 .nk-test-source-card.active .up-pick{background:#6d55e0;border-color:#6d55e0;transform:scale(1);box-shadow:0 3px 10px rgba(109,85,224,.35)}
 .nk-test-source-card.active .up-pick svg{opacity:1;transform:none}
 .nk-test-source-card:active{transform:scale(.985)}
+
+/* ============ 11 · streak current (exact shipped styles) ============ */
+.nk-home-streak-card{display:grid;grid-template-columns:44px minmax(92px,1fr) auto;align-items:center;gap:10px;padding:12px 14px;border:1px solid #ebeaf5;border-radius:17px;background:#fff;box-shadow:0 5px 20px rgba(39,42,101,.045);color:#151852}
+.nk-home-streak-card.nk-streak-warm{--streak-halo:rgba(115,86,233,.28);--streak-spread:9px;--flame-scale:1;--fire-speed:1.5s}
+.nk-home-streak-card.nk-streak-fire{--streak-halo:rgba(115,86,233,.35);--streak-spread:12px;--flame-scale:1.10;--fire-speed:1.3s}
+.nk-home-streak-card.nk-streak-blaze{--streak-halo:rgba(115,86,233,.40);--streak-spread:15px;--flame-scale:1.19;--fire-speed:1.15s}
+.nk-home-streak-card.nk-streak-radiant{--streak-halo:rgba(115,86,233,.46);--streak-spread:18px;--flame-scale:1.28;--fire-speed:1s}
+.nk-home-streak-card .nk-home-streak-flame{position:relative;isolation:isolate;width:52px;height:54px;border-radius:0;background:none;box-shadow:none;animation:none;overflow:visible}
+.nk-home-streak-card .nk-home-streak-flame:before{content:"";position:absolute;z-index:-1;inset:8px 0 -1px;border-radius:50%;background:radial-gradient(ellipse,#ffc67e65,transparent 70%);filter:blur(4px);animation:nkStreakFireAura 2s ease-in-out infinite}
+.nk-streak-flame-svg{width:36px;height:47px;overflow:visible;transform:scale(var(--flame-scale));transform-origin:50% 90%;filter:drop-shadow(0 3px 3px #f6992b38)}
+.nk-fire-outer{fill:#ff882c}.nk-fire-side{fill:#f56b24}.nk-fire-middle{fill:#ffd15a;transform-origin:50% 95%}.nk-fire-core{fill:#fff7c8;transform-origin:50% 95%}
+.nk-home-streak-card:not(.nk-streak-rest) .nk-streak-flame-svg{animation:nkStreakLiveFire var(--fire-speed) ease-in-out infinite}
+.nk-home-streak-card:not(.nk-streak-rest) .nk-fire-middle{animation:nkStreakInnerFire .9s ease-in-out infinite}
+.nk-home-streak-card:not(.nk-streak-rest) .nk-fire-core{animation:nkStreakCoreFire .7s ease-in-out infinite}
+.nk-home-streak-card .nk-home-streak-copy{display:grid;gap:4px;min-width:0}
+.nk-home-streak-card .nk-home-streak-copy strong{font-size:12px;line-height:1.15;font-weight:700;color:#29244d;white-space:nowrap}
+.nk-streak-number{font-size:25px;font-weight:850;letter-spacing:-.6px;vertical-align:-1px;font-variant-numeric:tabular-nums;margin-right:2px}
+.nk-home-streak-card .nk-home-streak-copy small{font-size:11px;color:#76738b;line-height:1.4;max-width:230px}
+.nk-home-streak-card .nk-home-week{display:grid;grid-template-columns:repeat(7,21px);gap:0;isolation:isolate;padding:4px 0}
+.nk-home-streak-card .nk-home-week-day{position:relative;display:grid;gap:8px;place-items:center}
+.nk-home-streak-card .nk-home-week-day:not(:last-child):after{content:"";position:absolute;z-index:-2;height:3px;top:5px;left:50%;width:100%;background:#e7e7f2;border-radius:99px}
+.nk-home-streak-card .nk-home-week-day.is-linked:after{height:5px;top:4px;background:linear-gradient(90deg,#7257e6 0%,#b9a4ff 40%,#8e74f2 60%,#7257e6 100%);background-size:200% 100%;box-shadow:0 0 var(--streak-spread) var(--streak-halo);animation:nkStreakLiquidFlow 2.4s linear infinite}
+.nk-home-streak-card .nk-home-week-day.is-frontier:before{content:"";position:absolute;z-index:-1;top:4px;left:50%;height:5px;width:90%;border-radius:99px 65% 65% 99%;background:linear-gradient(90deg,#8a6eee,#c4b2ff);box-shadow:0 0 6px #ab94f755;transform-origin:left center;animation:nkStreakLiquidReach 2.8s cubic-bezier(.4,0,.2,1) infinite}
+.nk-home-streak-card .nk-home-week-day i{position:relative;width:13px;height:13px;border-radius:50%;background:#e7e7f2;display:grid;place-items:center;color:#fff;box-shadow:none;outline:none}
+.nk-home-streak-card .nk-home-week-day.is-done i{background:linear-gradient(145deg,#9880f4,#7052e3);box-shadow:0 0 var(--streak-spread) var(--streak-halo);animation:nkStreakWaterSurface 2.8s ease-in-out infinite}
+.nk-home-streak-card .nk-home-week-day.is-today i{outline:2px solid #8468ec;outline-offset:2px}
+.nk-home-streak-card .nk-home-week-day b{font-size:8px;color:#858397}
+.nk-home-streak-card .nk-home-week-day.is-done b{color:#5e5188}
+.nk-home-streak-card .nk-fire-spark{display:none;position:absolute;width:3px;height:5px;background:#ffc25d;border-radius:70% 30% 60% 40%;pointer-events:none}
+.nk-home-streak-card:not(.nk-streak-rest) .nk-fire-spark-one,.nk-home-streak-card:not(.nk-streak-rest) .nk-fire-spark-two,.nk-streak-fire .nk-fire-spark-three,.nk-streak-blaze .nk-fire-spark-three,.nk-streak-radiant .nk-fire-spark{display:block;animation:nkStreakEmberLift 2.2s ease-out infinite}
+.nk-fire-spark-one{top:19px;left:10px;--ember-drift:-5px}.nk-fire-spark-two{top:15px;right:8px;--ember-drift:5px;animation-delay:-1.1s!important}
+.nk-fire-spark-three{top:12px;left:23px;--ember-drift:3px;animation-delay:-.6s!important}.nk-fire-spark-four{top:20px;left:16px;--ember-drift:-3px;animation-delay:-1.7s!important}
+@keyframes nkStreakLiveFire{0%,100%{transform:scale(var(--flame-scale)) rotate(-3deg)}35%{transform:translateY(-3px) scale(calc(var(--flame-scale) * .96),calc(var(--flame-scale) * 1.08)) rotate(2deg)}70%{transform:translateY(-1px) scale(calc(var(--flame-scale) * 1.03),calc(var(--flame-scale) * .97)) rotate(-1deg)}}
+@keyframes nkStreakInnerFire{0%,100%{transform:scale(1,1)}50%{transform:scale(.94,1.12) translateY(-1px)}}
+@keyframes nkStreakCoreFire{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.85)}}
+@keyframes nkStreakFireAura{0%,100%{opacity:.6;transform:scale(.9)}50%{opacity:1;transform:scale(1.15)}}
+@keyframes nkStreakLiquidFlow{from{background-position:200% 0}to{background-position:0 0}}
+@keyframes nkStreakLiquidReach{0%,100%{transform:scaleX(.22) scaleY(.7);opacity:.35}55%{transform:scaleX(1) scaleY(1.15);opacity:.85}75%{transform:scaleX(.86);opacity:.65}}
+@keyframes nkStreakWaterSurface{0%,100%{border-radius:50%;transform:scale(1)}50%{border-radius:45% 55% 52% 48%;transform:scale(1.035)}}
+@keyframes nkStreakEmberLift{0%{opacity:0;transform:translate(0,5px) scale(.4)}25%{opacity:.85}100%{opacity:0;transform:translate(var(--ember-drift),-17px) scale(.2)}}
+@media(max-width:390px){.nk-home-streak-card{gap:8px;padding:10px}.nk-home-streak-card .nk-home-week{grid-template-columns:repeat(7,20px)}.nk-streak-number{font-size:23px}}
+/* 11 upgraded: graphical flame stage, tier chip, check pop, today pulse */
+.up-streak{display:grid;grid-template-columns:56px minmax(92px,1fr) auto;align-items:center;gap:12px;padding:14px 15px;border:1px solid #f3ddba;border-radius:17px;background:linear-gradient(180deg,#fffdf8,#fff);box-shadow:0 5px 20px rgba(39,42,101,.05),0 0 0 3px #fff4e2,0 10px 28px rgba(226,111,25,.13);color:#151852}
+.up-flame-stage{position:relative;width:56px;height:60px;display:grid;place-items:center;isolation:isolate}
+.up-flame-stage:before{content:"";position:absolute;z-index:-1;inset:2px -4px -4px;border-radius:50%;background:radial-gradient(ellipse,rgba(255,150,60,.5),transparent 70%);filter:blur(5px);animation:nkStreakFireAura 2.2s ease-in-out infinite}
+.up-flame-svg{width:40px;height:52px;overflow:visible;transform-origin:50% 92%;animation:upFlameFlick 1.6s ease-in-out infinite;filter:drop-shadow(0 4px 5px rgba(230,110,30,.35))}
+@keyframes upFlameFlick{0%,100%{transform:scale(1,1) rotate(-1.5deg)}35%{transform:translateY(-1.5px) scale(.97,1.06) rotate(1.5deg)}70%{transform:scale(1.02,.98) rotate(-.5deg)}}
+.up-ember{position:absolute;bottom:14px;border-radius:60% 40% 55% 45%;background:#ffc25d;pointer-events:none;opacity:0;animation:upEmberRise 2.4s ease-out infinite}
+@keyframes upEmberRise{0%{opacity:0;transform:translate(0,4px) scale(.5)}20%{opacity:.9}100%{opacity:0;transform:translate(var(--drift,3px),-26px) scale(.25)}}
+.up-streak-copy{display:grid;gap:3px;min-width:0}
+.up-streak-copy strong{font-size:12px;font-weight:700;color:#29244d;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.up-streak-num{font-size:26px;font-weight:850;letter-spacing:-.6px;font-variant-numeric:tabular-nums}
+.up-tier{font-size:8.5px;font-weight:850;letter-spacing:1px;text-transform:uppercase;color:#a85b12;background:#fff0da;border:1px solid #f3d9ab;padding:3px 8px;border-radius:999px}
+.up-streak-copy small{font-size:11px;color:#76738b}
+.up-streak-week{display:grid;grid-template-columns:repeat(7,22px);gap:0;isolation:isolate;padding:4px 0}
+.up-streak-day{position:relative;display:grid;gap:8px;place-items:center}
+.up-streak-day:not(:last-child):after{content:"";position:absolute;z-index:-2;height:3px;top:6px;left:50%;width:100%;background:#ece7f2;border-radius:99px}
+.up-streak-day.is-linked:after{height:4px;top:5.5px;background:linear-gradient(90deg,#7257e6,#c0aaff,#7257e6);background-size:200% 100%;box-shadow:0 0 10px rgba(115,86,233,.35);animation:nkStreakLiquidFlow 2.4s linear infinite}
+.up-streak-day.is-frontier:before{content:"";position:absolute;z-index:-1;top:5.5px;left:50%;height:4px;width:90%;border-radius:99px 65% 65% 99%;background:linear-gradient(90deg,#8a6eee,#c4b2ff);box-shadow:0 0 6px #ab94f755;transform-origin:left center;animation:nkStreakLiquidReach 2.8s cubic-bezier(.4,0,.2,1) infinite}
+.up-streak-day i{position:relative;width:15px;height:15px;border-radius:50%;background:#e7e7f2;display:grid;place-items:center;color:#fff}
+.up-streak-day.is-done i{background:linear-gradient(145deg,#9880f4,#7052e3);box-shadow:0 0 10px rgba(115,86,233,.4)}
+.up-streak-day.is-done i svg{animation:upCheckPop .45s cubic-bezier(.3,1.6,.5,1) both}
+@keyframes upCheckPop{from{opacity:0;transform:scale(.2)}to{opacity:1;transform:none}}
+.up-streak-day.is-today i{outline:2px solid #8468ec;outline-offset:2px;animation:upTodayPulse 2s ease-out infinite}
+@keyframes upTodayPulse{0%{box-shadow:0 0 0 0 rgba(132,104,236,.5)}70%{box-shadow:0 0 0 7px rgba(132,104,236,0)}100%{box-shadow:0 0 0 0 rgba(132,104,236,0)}}
+.up-streak-day b{font-size:8px;color:#858397}
+.up-streak-day.is-done b{color:#5e5188}
+
+/* ============ 12 · heatmap current (exact shipped styles) ============ */
+.nk-li-year-activity{--heat0:#edeef5;margin:2px 0 20px;padding:16px;border:1px solid #e6e0f2;border-radius:19px;background:linear-gradient(140deg,#fff 55%,#faf8ff);box-shadow:0 6px 24px #7653be07;min-width:0;overflow:hidden;color:#191945}
+.nk-li-year-activity>header{display:flex;justify-content:space-between;align-items:start;gap:12px;margin-bottom:12px}
+.nk-li-year-activity h2{margin:0 0 5px;font-size:18px;letter-spacing:-.5px}
+.nk-li-year-activity header p{font-size:10px;line-height:1.5;color:#74778e;margin:0}
+.nk-li-year-activity select{max-width:100%;min-height:40px;padding:0 6px;border:1px solid #e5def3;border-radius:9px;color:#614a93;background:#f7f4fd;font:inherit;font-size:10px}
+.nk-li-year-body{display:flex;gap:8px;align-items:end}
+.nk-li-year-days{display:grid;grid-template-rows:repeat(7,1fr);height:171px;flex:0 0 23px;font-size:9px;color:#8b82a1;padding-top:21px;box-sizing:content-box}
+.nk-li-year-days span:nth-child(1){grid-row:1}.nk-li-year-days span:nth-child(2){grid-row:3}.nk-li-year-days span:nth-child(3){grid-row:5}
+.nk-li-year-scroll{overflow-x:auto;overflow-y:hidden;scrollbar-width:thin;padding:2px 3px 10px;flex:1;min-width:0}
+.nk-li-year-canvas{min-width:calc(var(--weeks)*25px);width:100%}
+.nk-li-year-months{display:grid;grid-template-columns:repeat(var(--weeks),minmax(0,1fr));gap:4px;height:23px;color:#887a9e;font-size:10px;align-items:start}
+.nk-li-year-months span{white-space:nowrap;overflow:visible}
+.nk-li-year-grid{display:grid;grid-template-columns:repeat(var(--weeks),minmax(0,1fr));grid-template-rows:repeat(7,21px);gap:4px}
+.nk-li-year-grid button{display:block;width:100%;height:100%;padding:0;border:1px solid var(--heat-border,#e5e3ee);border-radius:3px;background:var(--heat-fill,var(--heat0));box-shadow:var(--heat-glow,none);transition:transform .12s,box-shadow .12s;cursor:pointer;min-height:0;min-width:0}
+.nk-li-year-grid .is-today{box-shadow:0 0 0 1px #fff,0 0 0 2px #9075ce}
+.nk-li-year-grid .is-selected{transform:scale(1.14);box-shadow:0 0 0 2px #453166;z-index:1}
+.nk-li-year-foot{display:flex;flex-direction:column;align-items:flex-start;gap:4px;margin-top:5px}
+.nk-li-year-foot p{color:#6d607e;font-size:10px;line-height:1.6;margin:0;min-height:20px}
+.nk-li-year-key{display:flex;align-items:center;gap:4px;white-space:nowrap;color:#91849e;font-size:8px;align-self:flex-end}
+.nk-li-year-key i{display:block;width:11px;height:11px;border-radius:3px;border:1px solid var(--heat-border,#e5e3ee);background:var(--heat-fill,var(--heat0));box-shadow:var(--heat-glow,none)}
+.nk-li-year-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;border-top:1px solid #eee9f6;padding-top:15px;margin-top:10px}
+.nk-li-year-summary span{display:grid;gap:5px}
+.nk-li-year-summary b{font-size:19px;letter-spacing:-.4px;font-variant-numeric:tabular-nums}
+.nk-li-year-summary small{font-size:9px;color:#74778e}
+/* 12 upgraded: dot matrix, selection ring, detail chip */
+.up-heat .nk-li-year-grid{gap:5px}
+.up-heat .nk-li-year-grid button{border-radius:50%}
+.up-heat .nk-li-year-grid .is-today{box-shadow:0 0 0 1.5px #fff,0 0 0 3px #9075ce,0 0 12px rgba(144,117,206,.5)}
+.up-heat .nk-li-year-grid .is-selected{transform:scale(1.22);box-shadow:0 0 0 2px #fff,0 0 0 3.5px #8f7bd8,0 0 16px rgba(116,91,232,.55);z-index:1}
+.up-heat .nk-li-year-key i{border-radius:50%}
+.up-heat-detail{font-size:10px;color:#453771;background:#f4f1fd;border:1px solid #e3dcf7;border-radius:10px;padding:8px 11px;margin-top:10px;min-height:32px}
+.up-heat-detail:empty{display:none}
+.up-heat-head{display:flex;justify-content:space-between;align-items:start;gap:8px;margin-bottom:12px}
+.up-heat-head h2{margin:0 0 5px;font-size:18px;letter-spacing:-.5px;color:#191945}
+.up-heat-head p{font-size:10px;line-height:1.5;color:#74778e;margin:0}
+.up-heat-head .up-dd{flex:none;width:132px}
 
 @media(prefers-reduced-motion:reduce){
   *,*:before,*:after{transition:none!important;animation:none!important}
@@ -593,12 +692,11 @@ button{font:inherit;cursor:pointer}
         <div class="pv-phone">
           <div class="nk-learning-insights">
             <div class="nk-li-card" style="margin-top:0"><header><h2>Period comparison</h2></header>
-              <div class="up-cmptable" id="upCmp"></div>
-              <p class="up-cmp-legend"><i></i> this period <b></b> previous period</p>
+              <div id="upCmp"></div>
             </div>
           </div>
         </div>
-        <p class="pv-note"><b>What changed (v3):</b> you were right — the stacked cards killed the side-by-side scanning that makes a table work. So the table stays, executed properly: uppercase micro-headers, bigger tabular values (16px current / muted previous), roomier rows, and one slim proportion bar per row with a dark notch marking the previous value — the eye catches up/down before reading a single number. Library search confirmed no component does this better; it's dashboard craft (Linear/Stripe/Vercel all use this shape).</p>
+        <p class="pv-note"><b>What changed (v4):</b> you were right about the bars — dead. Now each row reads like a sentence: <b>118 → 142 ↑ 20%</b>. Muted past, violet arrow, big present, delta chip. Nothing to decode, nothing to learn.</p>
       </div>
     </div>
   </section>
@@ -654,6 +752,66 @@ button{font:inherit;cursor:pointer}
           <div class="up-source" id="upSource"></div>
         </div>
         <p class="pv-note"><b>What changed (v2):</b> the selected card now carries a violet halo ring + soft elevation (Cult Halo-Select idea, your theme) on top of the morphing check — selection reads at a glance instead of a border-tint whisper. Tap to switch sources.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 · STREAK -->
+  <section class="pv-sec" id="streak">
+    <div class="pv-sec-head"><span class="n">11</span><h2>Home · Study streak card</h2><span class="file">tools/apply_home_command_center_v1.py</span></div>
+    <p class="pv-sec-sub">14-day Blaze streak · Mon–Fri done, Saturday today, Sunday ahead. And an audit finding on the fire emoji below.</p>
+    <div class="pv-pair">
+      <div class="pv-col">
+        <span class="pv-tag is-current">Current · static replica</span>
+        <div class="pv-phone">
+          <section class="nk-home-streak-card nk-streak-blaze" aria-label="14 day study streak"><span class="nk-home-streak-flame" aria-hidden="true"><svg class="nk-streak-flame-svg" viewBox="0 0 50 64" aria-hidden="true"><path class="nk-fire-outer" d="M26 2c1 13 21 20 21 36 0 15-10 24-22 24C11 62 3 53 3 41c0-11 9-17 11-27 1 12 8 14 10 6 3-7 2-13 2-18Z"/><path class="nk-fire-side" d="M11 23c-1 10-7 13-7 21 0 7 4 13 10 16-5-12 1-17-3-37Z"/><path class="nk-fire-middle" d="M28 24c1 9 10 14 10 22 0 9-6 15-13 15-8 0-14-6-14-15 0-6 5-10 7-16 1 6 3 9 6 10 5-5 5-10 4-16Z"/><path class="nk-fire-core" d="M27 42c2 5 5 8 5 12 0 5-3 7-7 7s-7-3-7-7c0-5 6-9 9-12Z"/></svg><i class="nk-fire-spark nk-fire-spark-one"></i><i class="nk-fire-spark nk-fire-spark-two"></i><i class="nk-fire-spark nk-fire-spark-three"></i><i class="nk-fire-spark nk-fire-spark-four"></i></span><div class="nk-home-streak-copy"><strong><b class="nk-streak-number">14</b> day streak</strong><small>Keep the chain alive.</small></div><div class="nk-home-week" role="img" aria-label="Study this week"><span class="nk-home-week-day is-done is-linked"><i><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>M</b></span><span class="nk-home-week-day is-done is-linked"><i><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>T</b></span><span class="nk-home-week-day is-done is-linked"><i><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>W</b></span><span class="nk-home-week-day is-done is-linked"><i><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>T</b></span><span class="nk-home-week-day is-done is-frontier"><i><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>F</b></span><span class="nk-home-week-day is-today"><i></i><b>S</b></span><span class="nk-home-week-day"><i></i><b>S</b></span></div></section>
+        </div>
+        <p class="pv-note"><b>Audit finding:</b> the 🔥 emoji is not a design choice — it's the v102 fallback injector (<b>index.html ~L1301</b>) misfiring on Home. Its guard only checks for <b>.streak-card</b>, but Home renders <b>.nk-home-streak-card</b>, so the injector adds a duplicate emoji card. One-line production fix available when you approve (extend the guard).</p>
+      </div>
+      <div class="pv-col">
+        <span class="pv-tag is-new">Upgraded · same data, graphical flame</span>
+        <div class="pv-phone">
+          <section class="up-streak" aria-label="14 day study streak"><span class="up-flame-stage" aria-hidden="true"><svg class="up-flame-svg" viewBox="0 0 50 64"><defs><linearGradient id="upFlameOuter" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff7a2e"/><stop offset=".55" stop-color="#ff9c38"/><stop offset="1" stop-color="#e04e1f"/></linearGradient><linearGradient id="upFlameMid" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe27a"/><stop offset="1" stop-color="#ffab3d"/></linearGradient><linearGradient id="upFlameCore" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffdf0"/><stop offset="1" stop-color="#ffe27a"/></linearGradient><radialGradient id="upFlameHalo" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffb35c" stop-opacity=".55"/><stop offset="1" stop-color="#ffb35c" stop-opacity="0"/></radialGradient></defs><ellipse cx="25" cy="56" rx="19" ry="6" fill="url(#upFlameHalo)"/><path d="M26 2c1 13 21 20 21 36 0 15-10 24-22 24C11 62 3 53 3 41c0-11 9-17 11-27 1 12 8 14 10 6 3-7 2-13 2-18Z" fill="url(#upFlameOuter)"/><path d="M11 23c-1 10-7 13-7 21 0 7 4 13 10 16-5-12 1-17-3-37Z" fill="#f56b24"/><path d="M28 24c1 9 10 14 10 22 0 9-6 15-13 15-8 0-14-6-14-15 0-6 5-10 7-16 1 6 3 9 6 10 5-5 5-10 4-16Z" fill="url(#upFlameMid)"/><path d="M27 42c2 5 5 8 5 12 0 5-3 7-7 7s-7-3-7-7c0-5 6-9 9-12Z" fill="url(#upFlameCore)"/><ellipse cx="25.5" cy="46" rx="3" ry="4.5" fill="#fff" opacity=".85"/></svg><span class="up-ember" style="left:16px;width:4px;height:6px;--drift:-6px;animation-delay:0s"></span><span class="up-ember" style="left:28px;width:3px;height:5px;--drift:5px;animation-delay:.7s"></span><span class="up-ember" style="left:22px;width:5px;height:7px;--drift:2px;animation-delay:1.3s"></span><span class="up-ember" style="left:33px;width:3px;height:4px;--drift:7px;animation-delay:1.8s"></span><span class="up-ember" style="left:12px;width:3px;height:5px;--drift:-4px;animation-delay:1.1s"></span></span><div class="up-streak-copy"><strong><span class="up-streak-num" id="upStreakNum">0</span> day streak <span class="up-tier">Blaze</span></strong><small>Keep the chain alive.</small></div><div class="up-streak-week"><span class="up-streak-day is-done is-linked"><i><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>M</b></span><span class="up-streak-day is-done is-linked"><i><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>T</b></span><span class="up-streak-day is-done is-linked"><i><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>W</b></span><span class="up-streak-day is-done is-linked"><i><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>T</b></span><span class="up-streak-day is-done is-frontier"><i><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>F</b></span><span class="up-streak-day is-today"><i></i><b>S</b></span><span class="up-streak-day"><i></i><b>S</b></span></div></section>
+        </div>
+        <p class="pv-note"><b>What changed:</b> layered gradient flame (ember-orange → gold → white-hot tip) on a halo stage with rising ember particles — zero emoji. Blaze tier chip, count-up number, checks that pop in, pulsing today ring. Same layout, same week logic, same violet links.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12 · HEATMAP -->
+  <section class="pv-sec" id="heatmap">
+    <div class="pv-sec-head"><span class="n">12</span><h2>Insights · Year activity heatmap</h2><span class="file">tools/learning_insights_core.js (nkLearningYearActivity)</span></div>
+    <p class="pv-sec-sub">12-week excerpt ending today · same generated activity in both. Tap any day for its detail.</p>
+    <div class="pv-pair">
+      <div class="pv-col">
+        <span class="pv-tag is-current">Current · interactive replica</span>
+        <div class="pv-phone">
+          <div class="nk-li-year-activity">
+            <header><div><h2>Activity</h2><p id="curHeatRange"></p></div><label><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Activity year</span><select aria-label="Activity year"><option>Past 12 months</option><option>2026</option><option>2025</option></select></label></header>
+            <div class="nk-li-year-body"><div class="nk-li-year-days" aria-hidden="true"><span>Mon</span><span>Wed</span><span>Fri</span></div><div class="nk-li-year-scroll"><div class="nk-li-year-canvas" id="curHeatCanvas"></div></div></div>
+            <div class="nk-li-year-foot"><p id="curHeatDetail"></p><div class="nk-li-year-key" id="curHeatKey"></div></div>
+            <div class="nk-li-year-summary" id="curHeatSummary"></div>
+          </div>
+        </div>
+        <p class="pv-note"><b>What feels off today:</b> hard little squares, a native year dropdown, tap feedback is a dark scale-box, and the detail line is bare text.</p>
+      </div>
+      <div class="pv-col">
+        <span class="pv-tag is-new">Upgraded · interactive</span>
+        <div class="pv-phone">
+          <div class="nk-li-year-activity up-heat">
+            <div class="up-heat-head"><div><h2>Activity</h2><p id="upHeatRange"></p></div>
+              <div class="up-dd" id="upDdYear">
+                <button type="button" class="up-dd-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Activity year"><span class="up-dd-val">Past 12 months</span><span class="up-dd-chev"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button>
+                <div class="up-dd-panel" role="listbox" aria-label="Activity year"></div>
+              </div>
+            </div>
+            <div class="nk-li-year-body"><div class="nk-li-year-days" aria-hidden="true"><span>Mon</span><span>Wed</span><span>Fri</span></div><div class="nk-li-year-scroll"><div class="nk-li-year-canvas" id="upHeatCanvas"></div></div></div>
+            <div class="up-heat-detail" id="upHeatDetail"></div>
+            <div class="nk-li-year-foot"><p></p><div class="nk-li-year-key" id="upHeatKey"></div></div>
+            <div class="nk-li-year-summary" id="upHeatSummary"></div>
+          </div>
+        </div>
+        <p class="pv-note"><b>What changed:</b> squares become a glowing dot matrix (same violet scale), selection uses the forecast-style violet ring, the year picker is the approved spring dropdown (switching years regenerates the pattern), detail renders as a proper chip, summary counts up. Tap around.</p>
       </div>
     </div>
   </section>
@@ -1048,20 +1206,16 @@ const countSeg = document.getElementById('upCountSeg'), countPill = document.get
 });
 requestAnimationFrame(()=>movePill(countPill, countSeg, countSeg.querySelector('button.on')));
 
-/* ---------- 08 · comparison table v3 ---------- */
+/* ---------- 08 · comparison v4: arrow notation ---------- */
 const CMPT = [
-  ['Answers','142','118',142,118,'↑ 20%','is-up'],
-  ['Study time','9h 41m','8h 38m',581,518,'↑ 12%','is-up'],
-  ['Accuracy','76%','71%',76,71,'↑ 5 pp','is-up'],
-  ['FSRS reviews','64','58',64,58,'↑ 10%','is-up'],
-  ['Modules finished','3','2',3,2,'↑ 50%','is-up']
+  ['Answers','142','118','↑ 20%','is-up'],
+  ['Study time','9h 41m','8h 38m','↑ 12%','is-up'],
+  ['Accuracy','76%','71%','↑ 5 pp','is-up'],
+  ['FSRS reviews','64','58','↑ 10%','is-up'],
+  ['Modules finished','3','2','↑ 50%','is-up']
 ];
-document.getElementById('upCmp').innerHTML =
-  `<div class="up-cmpt-head"><span></span><span>This week</span><span>Last week</span><span>Change</span></div>` +
-  CMPT.map(([label,a,b,an,bn,d,cls])=>{
-    const mx = Math.max(an,bn,1e-9);
-    return `<div><strong>${label}</strong><span class="cur">${a}</span><span class="prv">${b}</span><span class="nk-li-delta ${cls}">${d}</span><span class="up-cmpbar" aria-hidden="true"><i style="width:${(an/mx*100).toFixed(1)}%"></i><b style="left:calc(${(bn/mx*100).toFixed(1)}% - 1px)"></b></span></div>`;
-  }).join('');
+document.getElementById('upCmp').innerHTML = CMPT.map(([label,a,b,d,cls])=>
+  `<div class="up-cmpline"><div class="up-cmpline-top"><strong>${label}</strong><span class="nk-li-delta ${cls}">${d}</span></div><div class="up-cmpline-flow"><span class="prv">${b}</span><span class="arr" aria-hidden="true">→</span><span class="cur">${a}</span></div></div>`).join('');
 
 /* ---------- 09 · forecast ---------- */
 const FC_DAYS = ['Today','Sat','Sun','Mon','Tue','Wed','Thu'];
@@ -1114,6 +1268,136 @@ function paintSources(){
   document.getElementById('upSource').querySelectorAll('button').forEach(b=>b.addEventListener('click', ()=>{ upSourceSel = b.dataset.s; paintSources(); }));
 }
 paintSources();
+
+/* ---------- 11 · streak count-up ---------- */
+countUp(document.getElementById('upStreakNum'), 14, fmtInt);
+
+/* ---------- 12 · heatmap engine ---------- */
+function heatStyle(n, peak){
+  if(!n||!peak) return '--heat-fill:#edeef5;--heat-border:#e5e3ee;--heat-glow:none';
+  const r=Math.min(1,Math.max(0,n/peak)), l=91-46*r, s=56+12*r;
+  return `--heat-fill:hsl(258 ${s.toFixed(2)}% ${l.toFixed(2)}%);--heat-border:hsl(258 ${s.toFixed(2)}% ${Math.max(35,l-6).toFixed(2)}%);--heat-glow:0 0 ${(8*r).toFixed(2)}px hsl(258 65% 58% / ${(r*.22).toFixed(3)})`;
+}
+const heatFmtD = ms=>new Date(ms).toLocaleDateString('en-GB',{day:'numeric',month:'short'});
+function heatWindow(seed){
+  const today = new Date(); today.setHours(0,0,0,0);
+  const end = new Date(today); end.setDate(end.getDate()+1);
+  const first = new Date(today); first.setDate(first.getDate()-83);
+  while(first.getDay()!==1) first.setDate(first.getDate()-1);
+  const cells=[]; let s=seed;
+  const rnd=()=>{ s=(s*1103515245+12345)&0x7fffffff; return s/0x7fffffff; };
+  let run=0;
+  for(let d=new Date(first); d<end; d.setDate(d.getDate()+1)){
+    const wd=d.getDay(), wknd=(wd===0||wd===6);
+    let n=0;
+    if(rnd()>(wknd?0.55:0.28)){ run++; n=Math.min(14,Math.round(2+rnd()*9+(run>3?3:0))); }
+    else run=0;
+    cells.push({at:new Date(d).getTime(), n});
+  }
+  return {cells, first:new Date(first).getTime(), end:end.getTime()-1, today:today.getTime()};
+}
+function heatSummary(cells){
+  let active=0,total=0,longest=0,run=0;
+  cells.forEach(c=>{ total+=c.n; if(c.n){active++;run++;longest=Math.max(longest,run);}else run=0; });
+  return {active,total,longest};
+}
+function paintHeat(canvasId, seed, selectedAt, onTap){
+  const {cells, first, end, today} = heatWindow(seed);
+  const peak = Math.max(1,...cells.map(c=>c.n));
+  const cols = Math.ceil(cells.length/7);
+  const months=[];
+  cells.forEach((c,i)=>{ const d=new Date(c.at); if(d.getDate()===1||i===0) months.push({col:Math.floor(i/7)+1, label:d.toLocaleDateString('en-GB',{month:'short'})}); });
+  const canvas = document.getElementById(canvasId);
+  canvas.style.setProperty('--weeks', cols);
+  canvas.innerHTML = `<div class="nk-li-year-months">${months.map(m=>`<span style="grid-column:${m.col}">${m.label}</span>`).join('')}</div>`+
+    `<div class="nk-li-year-grid" role="group" aria-label="Daily study activity">${cells.map((c,i)=>{
+      const d=new Date(c.at);
+      return `<button type="button" data-at="${c.at}" class="${c.at===today?'is-today':''} ${c.at===selectedAt?'is-selected':''}" aria-label="${d.toLocaleDateString('en-GB',{dateStyle:'long'})}: ${c.n} answers" title="${heatFmtD(c.at)}: ${c.n} answers" style="${heatStyle(c.n,peak)};grid-column:${Math.floor(i/7)+1};grid-row:${i%7+1}"></button>`;
+    }).join('')}</div>`;
+  canvas.querySelectorAll('button').forEach(btn=>btn.addEventListener('click', ()=>onTap(Number(btn.dataset.at), cells)));
+  return {cells, first, end, today, peak};
+}
+function heatDetailText(at, n){
+  const c=Math.round(n*0.76);
+  return {text:`${new Date(at).toLocaleDateString('en-GB',{dateStyle:'medium'})}: ${n} answers · ${c} correct · ${n-c} incorrect.`,
+    html:`<strong>${heatFmtD(at)}</strong> — ${n} answers · ${c} correct · ${n-c} incorrect`};
+}
+/* current replica */
+(function(){
+  let sel = -1;
+  const draw = ()=>{
+    const {cells, first, end} = paintHeat('curHeatCanvas', 7, sel, (at, all)=>{
+      sel = at;
+      draw();
+      const c = all.find(x=>x.at===at);
+      document.getElementById('curHeatDetail').textContent = heatDetailText(at, c?c.n:0).text;
+    });
+    return {cells, first, end};
+  };
+  const {cells, first, end} = draw();
+  document.getElementById('curHeatRange').textContent = `${heatFmtD(first)} ${new Date(first).getFullYear()} – ${heatFmtD(end)} ${new Date(end).getFullYear()}`;
+  const s = heatSummary(cells);
+  document.getElementById('curHeatSummary').innerHTML =
+    `<span><b>${s.active}</b><small>Active days</small></span><span><b>${fmtInt(s.total)}</b><small>Total answers</small></span><span><b>${s.longest}</b><small>Longest run</small></span>`;
+  const pk = Math.max(1,...cells.map(c=>c.n));
+  document.getElementById('curHeatKey').innerHTML = `<span>0</span>${[0,.25,.5,.75,1].map(r=>`<i style="${heatStyle(Math.round(pk*r),pk)}"></i>`).join('')}<span>${pk}</span>`;
+})();
+/* upgraded */
+let heatYear = 'rolling';
+const HEAT_SEEDS = {rolling:7, '2026':21, '2025':42};
+const HEAT_OPTS = [
+  {v:'rolling', label:'Past 12 months', desc:'Rolling year'},
+  {v:'2026', label:'2026', desc:'Calendar year'},
+  {v:'2025', label:'2025', desc:'Calendar year'}
+];
+function paintUpHeat(){
+  let sel = -1;
+  const seed = HEAT_SEEDS[heatYear];
+  const redraw = ()=>{
+    const {cells, first, end} = paintHeat('upHeatCanvas', seed, sel, (at, all)=>{
+      sel = at;
+      redraw();
+      const c = all.find(x=>x.at===at);
+      document.getElementById('upHeatDetail').innerHTML = heatDetailText(at, c?c.n:0).html;
+    });
+    document.getElementById('upHeatRange').textContent = `${heatFmtD(first)} ${new Date(first).getFullYear()} – ${heatFmtD(end)} ${new Date(end).getFullYear()}`;
+    const s = heatSummary(cells);
+    const sumEl = document.getElementById('upHeatSummary');
+    sumEl.innerHTML = `<span><b id="upHeatA">0</b><small>Active days</small></span><span><b id="upHeatT">0</b><small>Total answers</small></span><span><b id="upHeatL">0</b><small>Longest run</small></span>`;
+    countUp(document.getElementById('upHeatA'), s.active, fmtInt);
+    countUp(document.getElementById('upHeatT'), s.total, fmtInt);
+    countUp(document.getElementById('upHeatL'), s.longest, fmtInt);
+    const pk = Math.max(1,...cells.map(c=>c.n));
+    document.getElementById('upHeatKey').innerHTML = `<span>0</span>${[0,.25,.5,.75,1].map(r=>`<i style="${heatStyle(Math.round(pk*r),pk)}"></i>`).join('')}<span>${pk}</span>`;
+  };
+  redraw();
+}
+(function buildYearDd(){
+  const root = document.getElementById('upDdYear');
+  const btn = root.querySelector('.up-dd-btn'), val = root.querySelector('.up-dd-val'), panel = root.querySelector('.up-dd-panel');
+  panel.innerHTML = HEAT_OPTS.map(o=>
+    `<button type="button" class="up-dd-opt${heatYear===o.v?' sel':''}" role="option" aria-selected="${heatYear===o.v}" data-v="${o.v}"><span class="up-dd-txt"><b>${o.label}</b><small>${o.desc}</small></span><span class="up-dd-check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></span></button>`).join('');
+  btn.addEventListener('click', e=>{
+    e.stopPropagation();
+    const willOpen = !root.classList.contains('open');
+    closeAllDd(root);
+    root.classList.toggle('open', willOpen);
+    btn.setAttribute('aria-expanded', String(willOpen));
+  });
+  panel.querySelectorAll('.up-dd-opt').forEach(opt=>opt.addEventListener('click', e=>{
+    e.stopPropagation();
+    heatYear = opt.dataset.v;
+    val.textContent = HEAT_OPTS.find(o=>o.v===heatYear).label;
+    panel.querySelectorAll('.up-dd-opt').forEach(x=>{
+      const on = x===opt;
+      x.classList.toggle('sel', on); x.setAttribute('aria-selected', String(on));
+    });
+    root.classList.remove('open');
+    btn.setAttribute('aria-expanded','false');
+    paintUpHeat();
+  }));
+})();
+paintUpHeat();
 
 /* ---------- 04 · navs ---------- */
 const NAV = [['dashboard','Home','home'],['fsrs','FSRS','refresh'],['tests','Tests','test'],['analytics','Insights','chart'],['more','More','more']];
