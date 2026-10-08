@@ -341,30 +341,51 @@ button{font:inherit;cursor:pointer}
 @keyframes nkStreakWaterSurface{0%,100%{border-radius:50%;transform:scale(1)}50%{border-radius:45% 55% 52% 48%;transform:scale(1.035)}}
 @keyframes nkStreakEmberLift{0%{opacity:0;transform:translate(0,5px) scale(.4)}25%{opacity:.85}100%{opacity:0;transform:translate(var(--ember-drift),-17px) scale(.2)}}
 @media(max-width:390px){.nk-home-streak-card{gap:8px;padding:10px}.nk-home-streak-card .nk-home-week{grid-template-columns:repeat(7,20px)}.nk-streak-number{font-size:23px}}
-/* 11 upgraded: graphical flame stage, tier chip, check pop, today pulse */
-.up-streak{display:grid;grid-template-columns:56px minmax(92px,1fr) auto;align-items:center;gap:12px;padding:14px 15px;border:1px solid #f3ddba;border-radius:17px;background:linear-gradient(180deg,#fffdf8,#fff);box-shadow:0 5px 20px rgba(39,42,101,.05),0 0 0 3px #fff4e2,0 10px 28px rgba(226,111,25,.13);color:#151852}
-.up-flame-stage{position:relative;width:56px;height:60px;display:grid;place-items:center;isolation:isolate}
-.up-flame-stage:before{content:"";position:absolute;z-index:-1;inset:2px -4px -4px;border-radius:50%;background:radial-gradient(ellipse,rgba(255,150,60,.5),transparent 70%);filter:blur(5px);animation:nkStreakFireAura 2.2s ease-in-out infinite}
-.up-flame-svg{width:40px;height:52px;overflow:visible;transform-origin:50% 92%;animation:upFlameFlick 1.6s ease-in-out infinite;filter:drop-shadow(0 4px 5px rgba(230,110,30,.35))}
+/* 11 upgraded v2: Trophy Streak-Card composition, tier-driven flame (Rive concept) */
+.up-streak2{display:grid;grid-template-columns:50px minmax(0,1fr) auto auto;align-items:center;gap:10px;padding:12px 14px;border:1px solid #ebeaf5;border-radius:17px;background:#fff;box-shadow:0 5px 20px rgba(39,42,101,.045);color:#151852}
+.up-flame2{position:relative;width:50px;height:54px;display:grid;place-items:center;isolation:isolate}
+.up-flame2:before{content:"";position:absolute;z-index:-1;inset:6px -2px -2px;border-radius:50%;background:radial-gradient(ellipse,var(--aura,rgba(255,150,60,.45)),transparent 70%);filter:blur(4px);animation:nkStreakFireAura 2.2s ease-in-out infinite}
+.up-flame2 .up-flame-scale{display:grid;place-items:center;transform:scale(var(--fs,1.19));transition:transform .5s cubic-bezier(.3,1.2,.4,1)}
+.up-flame2 .up-flame-svg{width:34px;height:44px}
+.up-flame2 .up-ember{bottom:10px}
+.up-streak2[data-tier="3"]{--fs:1;--aura:rgba(150,140,200,.35)}
+.up-streak2[data-tier="7"]{--fs:1.1;--aura:rgba(255,150,60,.45)}
+.up-streak2[data-tier="14"]{--fs:1.19;--aura:rgba(255,140,50,.5)}
+.up-streak2[data-tier="30"]{--fs:1.28;--aura:rgba(255,180,60,.6)}
+.up-streak2[data-tier="3"] .e4,.up-streak2[data-tier="3"] .e5{display:none}
+.up-streak2[data-tier="7"] .e5{display:none}
+.up-streak-copy2{display:grid;gap:2px;min-width:0}
+.up-streak-copy2 strong{font-size:12px;font-weight:700;color:#29244d;display:flex;align-items:center;gap:6px;white-space:nowrap}
+.up-streak-num2{font-size:24px;font-weight:850;letter-spacing:-.6px;font-variant-numeric:tabular-nums}
+.up-tier2{font-size:8px;font-weight:850;letter-spacing:1px;text-transform:uppercase;padding:3px 7px;border-radius:999px}
+.up-streak2[data-tier="3"] .up-tier2{color:#6a5f8f;background:#efecf9;border:1px solid #d9d3ef}
+.up-streak2[data-tier="7"] .up-tier2{color:#b25a12;background:#fff0da;border:1px solid #f3d9ab}
+.up-streak2[data-tier="14"] .up-tier2{color:#a84a10;background:#ffe9d2;border:1px solid #f2c69c}
+.up-streak2[data-tier="30"] .up-tier2{color:#8a6d00;background:#fff4cf;border:1px solid #ecd27e}
+.up-streak-copy2 small{font-size:10px;color:#76738b}
+.up-stat2{display:grid;gap:1px;text-align:right}
+.up-stat2 b{font-size:17px;font-weight:850;letter-spacing:-.4px;font-variant-numeric:tabular-nums}
+.up-stat2 small{font-size:8.5px;color:#858397;white-space:nowrap}
+.up-streak2 .up-streak-week{grid-column:1/-1;padding:2px 0 0}
+.up-tierstep{display:flex;align-items:center;gap:6px;margin-top:10px}
+.up-tierstep span{font-size:9px;color:#858397;font-weight:600}
+.up-tierstep button{border:1px solid #e5e0f5;background:#fff;color:#73668f;font-size:10px;font-weight:800;min-width:34px;min-height:30px;border-radius:9px;transition:all .18s}
+.up-tierstep button.on{background:#29265f;border-color:#29265f;color:#fff}
+/* shared streak atoms */
+.up-flame-svg{overflow:visible;transform-origin:50% 92%;animation:upFlameFlick 1.6s ease-in-out infinite;filter:drop-shadow(0 4px 5px rgba(230,110,30,.35))}
 @keyframes upFlameFlick{0%,100%{transform:scale(1,1) rotate(-1.5deg)}35%{transform:translateY(-1.5px) scale(.97,1.06) rotate(1.5deg)}70%{transform:scale(1.02,.98) rotate(-.5deg)}}
-.up-ember{position:absolute;bottom:14px;border-radius:60% 40% 55% 45%;background:#ffc25d;pointer-events:none;opacity:0;animation:upEmberRise 2.4s ease-out infinite}
+.up-ember{position:absolute;border-radius:60% 40% 55% 45%;background:#ffc25d;pointer-events:none;opacity:0;animation:upEmberRise 2.4s ease-out infinite}
 @keyframes upEmberRise{0%{opacity:0;transform:translate(0,4px) scale(.5)}20%{opacity:.9}100%{opacity:0;transform:translate(var(--drift,3px),-26px) scale(.25)}}
-.up-streak-copy{display:grid;gap:3px;min-width:0}
-.up-streak-copy strong{font-size:12px;font-weight:700;color:#29244d;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
-.up-streak-num{font-size:26px;font-weight:850;letter-spacing:-.6px;font-variant-numeric:tabular-nums}
-.up-tier{font-size:8.5px;font-weight:850;letter-spacing:1px;text-transform:uppercase;color:#a85b12;background:#fff0da;border:1px solid #f3d9ab;padding:3px 8px;border-radius:999px}
-.up-streak-copy small{font-size:11px;color:#76738b}
-.up-streak-week{display:grid;grid-template-columns:repeat(7,22px);gap:0;isolation:isolate;padding:4px 0}
+.up-streak-week{display:grid;grid-template-columns:repeat(7,21px);gap:0;isolation:isolate;padding:4px 0}
 .up-streak-day{position:relative;display:grid;gap:8px;place-items:center}
-.up-streak-day:not(:last-child):after{content:"";position:absolute;z-index:-2;height:3px;top:6px;left:50%;width:100%;background:#ece7f2;border-radius:99px}
-.up-streak-day.is-linked:after{height:4px;top:5.5px;background:linear-gradient(90deg,#7257e6,#c0aaff,#7257e6);background-size:200% 100%;box-shadow:0 0 10px rgba(115,86,233,.35);animation:nkStreakLiquidFlow 2.4s linear infinite}
-.up-streak-day.is-frontier:before{content:"";position:absolute;z-index:-1;top:5.5px;left:50%;height:4px;width:90%;border-radius:99px 65% 65% 99%;background:linear-gradient(90deg,#8a6eee,#c4b2ff);box-shadow:0 0 6px #ab94f755;transform-origin:left center;animation:nkStreakLiquidReach 2.8s cubic-bezier(.4,0,.2,1) infinite}
-.up-streak-day i{position:relative;width:15px;height:15px;border-radius:50%;background:#e7e7f2;display:grid;place-items:center;color:#fff}
+.up-streak-day:not(:last-child):after{content:"";position:absolute;z-index:-2;height:3px;top:5px;left:50%;width:100%;background:#ece7f2;border-radius:99px}
+.up-streak-day.is-linked:after{height:4px;top:4.5px;background:linear-gradient(90deg,#7257e6,#c0aaff,#7257e6);background-size:200% 100%;box-shadow:0 0 10px rgba(115,86,233,.35);animation:nkStreakLiquidFlow 2.4s linear infinite}
+.up-streak-day.is-frontier:before{content:"";position:absolute;z-index:-1;top:4.5px;left:50%;height:4px;width:90%;border-radius:99px 65% 65% 99%;background:linear-gradient(90deg,#8a6eee,#c4b2ff);box-shadow:0 0 6px #ab94f755;transform-origin:left center;animation:nkStreakLiquidReach 2.8s cubic-bezier(.4,0,.2,1) infinite}
+.up-streak-day i{position:relative;width:14px;height:14px;border-radius:50%;background:#e7e7f2;display:grid;place-items:center;color:#fff}
 .up-streak-day.is-done i{background:linear-gradient(145deg,#9880f4,#7052e3);box-shadow:0 0 10px rgba(115,86,233,.4)}
 .up-streak-day.is-done i svg{animation:upCheckPop .45s cubic-bezier(.3,1.6,.5,1) both}
 @keyframes upCheckPop{from{opacity:0;transform:scale(.2)}to{opacity:1;transform:none}}
-.up-streak-day.is-today i{outline:2px solid #8468ec;outline-offset:2px;animation:upTodayPulse 2s ease-out infinite}
-@keyframes upTodayPulse{0%{box-shadow:0 0 0 0 rgba(132,104,236,.5)}70%{box-shadow:0 0 0 7px rgba(132,104,236,0)}100%{box-shadow:0 0 0 0 rgba(132,104,236,0)}}
+.up-streak-day.is-today i{outline:2px solid #8468ec;outline-offset:2px}
 .up-streak-day b{font-size:8px;color:#858397}
 .up-streak-day.is-done b{color:#5e5188}
 
@@ -771,9 +792,10 @@ button{font:inherit;cursor:pointer}
       <div class="pv-col">
         <span class="pv-tag is-new">Upgraded · same data, graphical flame</span>
         <div class="pv-phone">
-          <section class="up-streak" aria-label="14 day study streak"><span class="up-flame-stage" aria-hidden="true"><svg class="up-flame-svg" viewBox="0 0 50 64"><defs><linearGradient id="upFlameOuter" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff7a2e"/><stop offset=".55" stop-color="#ff9c38"/><stop offset="1" stop-color="#e04e1f"/></linearGradient><linearGradient id="upFlameMid" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe27a"/><stop offset="1" stop-color="#ffab3d"/></linearGradient><linearGradient id="upFlameCore" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffdf0"/><stop offset="1" stop-color="#ffe27a"/></linearGradient><radialGradient id="upFlameHalo" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffb35c" stop-opacity=".55"/><stop offset="1" stop-color="#ffb35c" stop-opacity="0"/></radialGradient></defs><ellipse cx="25" cy="56" rx="19" ry="6" fill="url(#upFlameHalo)"/><path d="M26 2c1 13 21 20 21 36 0 15-10 24-22 24C11 62 3 53 3 41c0-11 9-17 11-27 1 12 8 14 10 6 3-7 2-13 2-18Z" fill="url(#upFlameOuter)"/><path d="M11 23c-1 10-7 13-7 21 0 7 4 13 10 16-5-12 1-17-3-37Z" fill="#f56b24"/><path d="M28 24c1 9 10 14 10 22 0 9-6 15-13 15-8 0-14-6-14-15 0-6 5-10 7-16 1 6 3 9 6 10 5-5 5-10 4-16Z" fill="url(#upFlameMid)"/><path d="M27 42c2 5 5 8 5 12 0 5-3 7-7 7s-7-3-7-7c0-5 6-9 9-12Z" fill="url(#upFlameCore)"/><ellipse cx="25.5" cy="46" rx="3" ry="4.5" fill="#fff" opacity=".85"/></svg><span class="up-ember" style="left:16px;width:4px;height:6px;--drift:-6px;animation-delay:0s"></span><span class="up-ember" style="left:28px;width:3px;height:5px;--drift:5px;animation-delay:.7s"></span><span class="up-ember" style="left:22px;width:5px;height:7px;--drift:2px;animation-delay:1.3s"></span><span class="up-ember" style="left:33px;width:3px;height:4px;--drift:7px;animation-delay:1.8s"></span><span class="up-ember" style="left:12px;width:3px;height:5px;--drift:-4px;animation-delay:1.1s"></span></span><div class="up-streak-copy"><strong><span class="up-streak-num" id="upStreakNum">0</span> day streak <span class="up-tier">Blaze</span></strong><small>Keep the chain alive.</small></div><div class="up-streak-week"><span class="up-streak-day is-done is-linked"><i><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>M</b></span><span class="up-streak-day is-done is-linked"><i><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>T</b></span><span class="up-streak-day is-done is-linked"><i><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>W</b></span><span class="up-streak-day is-done is-linked"><i><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>T</b></span><span class="up-streak-day is-done is-frontier"><i><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>F</b></span><span class="up-streak-day is-today"><i></i><b>S</b></span><span class="up-streak-day"><i></i><b>S</b></span></div></section>
+          <section class="up-streak2" data-tier="14" id="upStreakCard" aria-label="14 day study streak"><span class="up-flame2" aria-hidden="true"><span class="up-flame-scale"><svg class="up-flame-svg" viewBox="0 0 50 64"><defs><linearGradient id="upFlameOuter" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff7a2e"/><stop offset=".55" stop-color="#ff9c38"/><stop offset="1" stop-color="#e04e1f"/></linearGradient><linearGradient id="upFlameMid" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe27a"/><stop offset="1" stop-color="#ffab3d"/></linearGradient><linearGradient id="upFlameCore" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffdf0"/><stop offset="1" stop-color="#ffe27a"/></linearGradient><radialGradient id="upFlameHalo" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffb35c" stop-opacity=".55"/><stop offset="1" stop-color="#ffb35c" stop-opacity="0"/></radialGradient></defs><ellipse cx="25" cy="56" rx="19" ry="6" fill="url(#upFlameHalo)"/><path d="M26 2c1 13 21 20 21 36 0 15-10 24-22 24C11 62 3 53 3 41c0-11 9-17 11-27 1 12 8 14 10 6 3-7 2-13 2-18Z" fill="url(#upFlameOuter)"/><path d="M11 23c-1 10-7 13-7 21 0 7 4 13 10 16-5-12 1-17-3-37Z" fill="#f56b24"/><path d="M28 24c1 9 10 14 10 22 0 9-6 15-13 15-8 0-14-6-14-15 0-6 5-10 7-16 1 6 3 9 6 10 5-5 5-10 4-16Z" fill="url(#upFlameMid)"/><path d="M27 42c2 5 5 8 5 12 0 5-3 7-7 7s-7-3-7-7c0-5 6-9 9-12Z" fill="url(#upFlameCore)"/><ellipse cx="25.5" cy="46" rx="3" ry="4.5" fill="#fff" opacity=".85"/></svg></span><span class="up-ember e1" style="left:16px;width:4px;height:6px;--drift:-6px;animation-delay:0s"></span><span class="up-ember e2" style="left:28px;width:3px;height:5px;--drift:5px;animation-delay:.7s"></span><span class="up-ember e3" style="left:22px;width:5px;height:7px;--drift:2px;animation-delay:1.3s"></span><span class="up-ember e4" style="left:33px;width:3px;height:4px;--drift:7px;animation-delay:1.8s"></span><span class="up-ember e5" style="left:12px;width:3px;height:5px;--drift:-4px;animation-delay:1.1s"></span></span><div class="up-streak-copy2"><strong><span class="up-streak-num2" id="upStreakNum">0</span> day streak <span class="up-tier2" id="upStreakTier">Blaze</span></strong><small>Keep the chain alive.</small></div><div class="up-stat2"><b>30</b><small>Longest</small></div><div class="up-stat2"><b>68</b><small>Total days</small></div><div class="up-streak-week"><span class="up-streak-day is-done is-linked"><i> <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>M</b></span><span class="up-streak-day is-done is-linked"><i> <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>T</b></span><span class="up-streak-day is-done is-linked"><i> <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>W</b></span><span class="up-streak-day is-done is-linked"><i> <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>T</b></span><span class="up-streak-day is-done is-frontier"><i> <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>F</b></span><span class="up-streak-day is-today"><i></i><b>S</b></span><span class="up-streak-day "><i></i><b>S</b></span></div></section>
         </div>
-        <p class="pv-note"><b>What changed:</b> layered gradient flame (ember-orange → gold → white-hot tip) on a halo stage with rising ember particles — zero emoji. Blaze tier chip, count-up number, checks that pop in, pulsing today ring. Same layout, same week logic, same violet links.</p>
+        <div class="up-tierstep" role="group" aria-label="Preview flame tiers"><span>Flame evolution (Rive concept):</span><button type="button" data-tier="3">3</button><button type="button" data-tier="7">7</button><button type="button" data-tier="14" class="on">14</button><button type="button" data-tier="30">30</button></div>
+        <p class="pv-note"><b>What changed (v2):</b> Trophy Streak-Card composition — current, longest (30) and total (68) stats plus the week calendar in one compact card (same height as current, no bloat). The flame now <b>evolves with tier</b>: step through 3 · 7 · 14 · 30 below and it grows, brightens and gains embers — the Rive state-driven concept, prototyped in code. Zero emoji.</p>
       </div>
     </div>
   </section>
@@ -1269,8 +1291,18 @@ function paintSources(){
 }
 paintSources();
 
-/* ---------- 11 · streak count-up ---------- */
-countUp(document.getElementById('upStreakNum'), 14, fmtInt);
+/* ---------- 11 · streak tiers (Rive state-driven concept, prototyped) ---------- */
+const TIERS = {3:'Warm', 7:'Fire', 14:'Blaze', 30:'Radiant'};
+function setTier(t){
+  const card = document.getElementById('upStreakCard');
+  card.dataset.tier = String(t);
+  card.setAttribute('aria-label', t+' day study streak');
+  document.getElementById('upStreakTier').textContent = TIERS[t];
+  document.querySelectorAll('.up-tierstep button').forEach(b=>b.classList.toggle('on', b.dataset.tier===String(t)));
+  countUp(document.getElementById('upStreakNum'), t, fmtInt);
+}
+document.querySelectorAll('.up-tierstep button').forEach(b=>b.addEventListener('click', ()=>setTier(Number(b.dataset.tier))));
+setTier(14);
 
 /* ---------- 12 · heatmap engine ---------- */
 function heatStyle(n, peak){
