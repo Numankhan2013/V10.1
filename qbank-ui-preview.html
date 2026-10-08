@@ -183,23 +183,68 @@ button{font:inherit;cursor:pointer}
 .up-tip-card .t{font-size:9px;color:#74778e;font-weight:700;white-space:nowrap}
 .up-tip-card .v{font-size:17px;font-weight:850;letter-spacing:-.4px;color:#29265f;font-variant-numeric:tabular-nums;margin-top:1px}
 .up-tip-card .p{font-size:9px;color:#74778e;font-weight:600;margin-top:1px;white-space:nowrap}
-.up-totals{margin-top:12px;border-top:1px solid #f0edf6;padding-top:2px}
-.up-total-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 2px}
+.up-totals{margin-top:14px;border-top:1px solid #f0edf6;padding-top:4px}
+.up-total-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 2px}
 .up-total-row + .up-total-row{border-top:1px dashed #f0edf6}
-.up-total-label{font-size:12px;font-weight:700;color:#3c3f63}
+.up-total-label{font-size:12.5px;font-weight:650;letter-spacing:-.1px;color:#3c3f63}
 .up-total-row.is-prev .up-total-label{color:#74778e;font-weight:600}
-.up-total-val{display:flex;align-items:center;gap:8px}
-.up-total-val b{font-size:20px;font-weight:850;letter-spacing:-.4px;font-variant-numeric:tabular-nums}
-.up-total-row.is-prev .up-total-val b{font-size:16px;font-weight:750;color:#555a76}
+.up-total-val{display:flex;align-items:center;gap:9px}
+.up-total-val b{font-size:22px;font-weight:850;letter-spacing:-.6px;font-variant-numeric:tabular-nums;color:#29265f}
+.up-total-val .nk-li-delta{font-size:10px;font-weight:800}
+.up-total-row.is-prev .up-total-val b{font-size:17px;font-weight:750;color:#555a76}
 
-/* ============ UPGRADED · nav option B (expanding active tab) ============ */
-.pv-trio{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;align-items:start}
-@media(max-width:1100px){.pv-trio{grid-template-columns:1fr}}
-.up-navx{background:#fff;border:1px solid #e3e6ef;border-radius:18px;display:flex;padding:6px 10px;height:76px;box-shadow:0 -4px 14px rgba(27,34,67,.06)}
-.up-navx .nx{flex:1 1 0;min-width:0;border:0;background:none;color:#7b8191;border-radius:13px;display:flex;align-items:center;justify-content:center;min-height:58px;padding:0 4px;transition:background .25s,color .25s,flex-grow .32s cubic-bezier(.3,1.1,.4,1)}
-.up-navx .nx .nx-label{font-size:9px;font-weight:750;max-width:0;opacity:0;overflow:hidden;white-space:nowrap;transition:max-width .3s cubic-bezier(.3,1.1,.4,1),opacity .2s,margin-left .3s}
-.up-navx .nx.on{flex-grow:2.1;background:#eff1fb;box-shadow:inset 0 0 0 1px #d9def3;color:#29265f}
-.up-navx .nx.on .nx-label{max-width:72px;opacity:1;margin-left:5px}
+/* ============ 05 · topic tabs current (exact shipped styles) ============ */
+.nk-li-tabs{display:flex;background:#f4f1fc;border-radius:9px;padding:3px;margin:0 0 8px}
+.nk-li-tabs button{flex:1;min-height:38px;padding:4px;border:0;border-radius:7px;background:none;font:inherit;font-size:10px;color:#73668f}
+.nk-li-tabs button[aria-pressed=true]{color:#fff;background:#7860e9;box-shadow:0 2px 6px #765ed322}
+.nk-li-topic{display:flex;justify-content:space-between;gap:12px;width:100%;padding:12px 0;border:0;border-bottom:1px solid #f1edf6;background:none;text-align:left;color:#191945;font:inherit;min-height:70px}
+.nk-li-topic>span:first-child{flex:1;min-width:0}
+.nk-li-topic>span:last-child{display:grid;align-content:start;text-align:right;gap:4px;flex-shrink:0}
+.nk-li-topic strong{font-size:12px;line-height:1.5;display:block}
+.nk-li-topic small{display:block;font-size:10px;line-height:1.5;color:#62677a;margin-top:3px}
+.nk-li-topic b{font-size:15px;color:#242348;font-variant-numeric:tabular-nums}
+.nk-li-progress{display:block;overflow:hidden;background:#e8e4f3;height:6px;border-radius:9px;margin-top:8px}
+.nk-li-progress>i{display:block;height:100%;border-radius:inherit;background:#745be8}
+.nk-li-accuracy-bar{height:10px;background:#e9edf0;border-radius:5px}
+.nk-li-accuracy-bar>i{background:#159975;border-radius:5px}
+/* 05 upgraded: rows crossfade + bars glide */
+.up-topic-list{transition:opacity .18s ease}
+.up-topic-list.swap{opacity:0}
+.up-topic-list .nk-li-accuracy-bar>i{transition:width .55s cubic-bezier(.25,.9,.3,1)}
+
+/* ============ 06 · donut current (exact shipped styles) ============ */
+.nk-li-outcomes{display:grid;grid-template-columns:110px minmax(0,1fr);gap:8px 14px;align-items:center}
+.nk-li-outcomes h3{grid-column:1/-1;color:#74778e;font-size:10px;font-weight:650;margin:0 0 8px}
+.nk-li-donut{width:110px;height:110px;border-radius:50%;background:var(--donut,#eeecf4);display:grid;place-items:center}
+.nk-li-donut>span{width:79px;height:79px;display:flex;flex-direction:column;justify-content:center;align-items:center;border-radius:50%;background:#fff}
+.nk-li-donut b{font-size:23px;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.nk-li-donut small{font-size:9px;color:#74778e;margin-top:2px}
+.nk-li-outcomes dl{margin:0;display:grid;gap:12px}
+.nk-li-outcomes dl>div{display:flex;justify-content:space-between;gap:6px;align-items:center;font-size:10px}
+.nk-li-outcomes dt{display:flex;gap:6px;align-items:center;font-weight:600}
+.nk-li-outcomes dd{margin:0;font-weight:750;white-space:nowrap;font-variant-numeric:tabular-nums}
+.nk-li-outcomes dd small{color:#74778e;font-size:9px;font-weight:400;margin-left:5px}
+.nk-li-outcomes dt i{height:7px;width:7px;border-radius:50%;background:#c7bcf5;flex-shrink:0}
+.nk-li-outcomes dt i.is-green{background:#18ac80}
+.nk-li-outcomes dt i.is-red{background:#ed6d91}
+/* 06 upgraded: legend stagger */
+@keyframes uprise{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+.up-donut-live dl>div{animation:uprise .4s cubic-bezier(.25,.9,.3,1) both}
+.up-donut-live dl>div:nth-child(2){animation-delay:.08s}
+.up-donut-live dl>div:nth-child(3){animation-delay:.16s}
+
+/* ============ 07 · count grid current (exact shipped styles) ============ */
+.nk-test-quick-setup{margin-top:13px;padding:14px;border:1px solid #e6e7ef;border-radius:16px;background:#fff;color:#151852}
+.nk-test-quick-setup h3{margin:0;font-size:13px}
+.nk-test-quick-setup .nk-test-count-grid{margin-top:10px}
+.nk-test-count-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.nk-test-count-grid button{min-height:54px;border:1px solid #e0e1ed;border-radius:15px;background:#fff;color:#1d205f;font-weight:850;font-size:14px}
+.nk-test-count-grid button.active{border-color:#a99bf4;background:#f0edff;color:#4d30d5}
+.nk-test-quick-setup>p{margin:8px 2px 0;color:#7b809d;font-size:10px}
+/* 07 upgraded: pill group */
+.up-count{position:relative;display:flex;background:#ececf5;border-radius:15px;padding:3px}
+.up-count button{position:relative;z-index:1;flex:1;border:0;background:none;min-height:48px;font-size:14px;font-weight:850;color:#676b96;border-radius:12px;transition:color .2s}
+.up-count button.on{color:#3d3594}
 
 @media(prefers-reduced-motion:reduce){
   *,*:before,*:after{transition:none!important;animation:none!important}
@@ -369,8 +414,8 @@ button{font:inherit;cursor:pointer}
   <!-- 04 · BOTTOM NAV -->
   <section class="pv-sec" id="bottom-nav">
     <div class="pv-sec-head"><span class="n">04</span><h2>Bottom navigation · active indicator</h2><span class="file">tools/apply_home_command_center_v1.py (BOTTOM_NAV)</span></div>
-    <p class="pv-sec-sub">Home · FSRS · Tests · Insights · More. Same items, same icons, same active colors. Two upgrade candidates from the new libraries — my recommendation is below.</p>
-    <div class="pv-trio">
+    <p class="pv-sec-sub">Home · FSRS · Tests · Insights · More. Same items, same icons, same active colors.</p>
+    <div class="pv-pair">
       <div class="pv-col">
         <span class="pv-tag is-current">Current · interactive</span>
         <div class="pv-phone">
@@ -379,18 +424,89 @@ button{font:inherit;cursor:pointer}
         <p class="pv-note"><b>What feels off today:</b> the active tab is only a color change — the highlight snaps with no sense of movement between tabs.</p>
       </div>
       <div class="pv-col">
-        <span class="pv-tag is-new">Option A · gliding pill</span>
+        <span class="pv-tag is-new">Upgraded · interactive</span>
         <div class="pv-phone">
           <nav class="nk-bottom-nav-v114 up-nav" aria-label="Primary navigation" id="upNav"><div class="up-nav-pill" id="upNavPill"></div></nav>
         </div>
-        <p class="pv-note"><b>Option A:</b> a single pill glides behind the active tab (transform-only). All labels always visible. Tap through the tabs to feel it.</p>
+        <p class="pv-note"><b>What changed:</b> a single pill glides behind the active tab (transform-only). Tap through the tabs to feel it. An expanding-tab alternative was tried and dropped — hiding labels until tapped is wrong for a study app.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 · TOPIC TABS -->
+  <section class="pv-sec" id="topic-tabs">
+    <div class="pv-sec-head"><span class="n">05</span><h2>Insights · Topic performance sort tabs</h2><span class="file">tools/learning_insights_core.js (nkLearningTopics)</span></div>
+    <p class="pv-sec-sub">The Needs improvement / Top performing toggle above the topic rows.</p>
+    <div class="pv-pair">
+      <div class="pv-col">
+        <span class="pv-tag is-current">Current · static replica</span>
+        <div class="pv-phone">
+          <div class="nk-learning-insights">
+            <div class="nk-li-tabs" role="group" aria-label="Sort topic performance"><button type="button" aria-pressed="true">Needs improvement</button><button type="button" aria-pressed="false">Top performing</button></div>
+            <div id="curTopics"></div>
+          </div>
+        </div>
+        <p class="pv-note"><b>What feels off today:</b> same snap-fill swap as the old period controls — no sliding indicator, rows swap instantly.</p>
       </div>
       <div class="pv-col">
-        <span class="pv-tag is-new">Option B · expanding tab</span>
+        <span class="pv-tag is-new">Upgraded · interactive</span>
         <div class="pv-phone">
-          <nav class="up-navx" aria-label="Primary navigation" id="upNavX"></nav>
+          <div class="nk-learning-insights">
+            <div class="up-seg" id="upTopicSeg" role="group" aria-label="Sort topic performance"><div class="up-seg-pill" id="upTopicPill"></div></div>
+            <div class="up-topic-list" id="upTopicList" style="margin-top:4px"></div>
+          </div>
         </div>
-        <p class="pv-note"><b>Option B</b> (21st.dev bottom-nav pattern): inactive tabs collapse to icon-only; the active tab expands to reveal its label. Sleeker, but labels hide until tapped. <b>My recommendation: A</b> — in a study app, FSRS/Tests/Insights labels should never hide; B suits icon-obvious apps (music, social), not a QBank.</p>
+        <p class="pv-note"><b>What changed:</b> the same sliding-pill segmented control as the approved period filters — one consistent toggle language app-wide. Rows crossfade and accuracy bars glide to their new widths.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 · DONUT -->
+  <section class="pv-sec" id="donut">
+    <div class="pv-sec-head"><span class="n">06</span><h2>Insights · Question-performance donut</h2><span class="file">tools/learning_insights_core.js (nkLearningDonut)</span></div>
+    <p class="pv-sec-sub">The Correct / Incorrect / Skipped outcome ring with its counts.</p>
+    <div class="pv-pair">
+      <div class="pv-col">
+        <span class="pv-tag is-current">Current · static replica</span>
+        <div class="pv-phone">
+          <div class="nk-learning-insights">
+            <div class="nk-li-outcomes"><h3>This week</h3><div class="nk-li-donut" role="img" aria-label="This week: 108 correct, 26 incorrect, 8 skipped" style="--donut:conic-gradient(#18ac80 0 76.1%,#ed6d91 76.1% 94.4%,#c7bcf5 94.4% 100%)"><span><b>142</b><small>questions</small></span></div><dl><div><dt><i class="is-green"></i>Correct</dt><dd>108 <small>76%</small></dd></div><div><dt><i class="is-red"></i>Incorrect</dt><dd>26 <small>18%</small></dd></div><div><dt><i></i>Skipped</dt><dd>8 <small>6%</small></dd></div></dl></div>
+          </div>
+        </div>
+        <p class="pv-note"><b>What feels off today:</b> the ring just appears at full values — no sense of arrival, numbers are static.</p>
+      </div>
+      <div class="pv-col">
+        <span class="pv-tag is-new">Upgraded · animated on scroll into view</span>
+        <div class="pv-phone">
+          <div class="nk-learning-insights">
+            <div class="nk-li-card" style="margin-top:0"><header><h2>Question performance</h2></header>
+              <div class="nk-li-outcomes" id="upDonut"><h3>This week</h3><div class="nk-li-donut" role="img" aria-label="This week: 108 correct, 26 incorrect, 8 skipped" id="upDonutRing" style="--donut:#eeecf4"><span><b id="upDonutNum">0</b><small>questions</small></span></div><dl><div><dt><i class="is-green"></i>Correct</dt><dd>108 <small>76%</small></dd></div><div><dt><i class="is-red"></i>Incorrect</dt><dd>26 <small>18%</small></dd></div><div><dt><i></i>Skipped</dt><dd>8 <small>6%</small></dd></div></dl></div>
+            </div>
+          </div>
+        </div>
+        <p class="pv-note"><b>What changed:</b> the ring sweeps in from zero, the center number counts up, legend rows stagger in. Same conic ring, same colors, same wording — only the arrival is choreographed. Scroll it out and back to replay.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 · COUNT GRID -->
+  <section class="pv-sec" id="count-grid">
+    <div class="pv-sec-head"><span class="n">07</span><h2>Tests · question-count picker</h2><span class="file">tools/apply_home_command_center_v1.py (TESTS_PAGE)</span></div>
+    <p class="pv-sec-sub">The 10 / 20 / 50 / 100 picker in the quick-test builder (Wrong questions, 37 available).</p>
+    <div class="pv-pair">
+      <div class="pv-col">
+        <span class="pv-tag is-current">Current · static replica</span>
+        <div class="pv-phone">
+          <div class="nk-test-quick-setup"><h3>Number of questions</h3><div class="nk-test-count-grid"><button type="button">10</button><button type="button" class="active">20</button><button type="button">50</button><button type="button">100</button></div><p>20 questions available for this test.</p></div>
+        </div>
+        <p class="pv-note"><b>What feels off today:</b> four separate buttons with a border-color snap — and each tap re-renders the page. No group feel.</p>
+      </div>
+      <div class="pv-col">
+        <span class="pv-tag is-new">Upgraded · interactive</span>
+        <div class="pv-phone">
+          <div class="nk-test-quick-setup"><h3>Number of questions</h3><div class="up-count" id="upCountSeg" role="group" aria-label="Number of questions"><div class="up-seg-pill" id="upCountPill"></div></div><p><b id="upCountAvail" style="font-variant-numeric:tabular-nums">20</b> questions available for this test.</p></div>
+        </div>
+        <p class="pv-note"><b>What changed:</b> one segmented pill group (same control language as 01/02/05) — the indicator slides, the availability count ticks to the new value. No page flash.</p>
       </div>
     </div>
   </section>
@@ -693,6 +809,96 @@ function renderUpTrend(animate){
 function updateCharts(){ upBin = -1; renderUpBars(); renderUpTrend(false); }
 renderUpBars(); renderUpTrend(true);
 
+/* ---------- 05 · topic tabs ---------- */
+const TOPICS = {
+  needs:[
+    {t:'Neuroanatomy', s:'Anatomy · Marrow · 14 distinct questions', acc:25, c:'8/32 correct'},
+    {t:'Thorax & Abdomen', s:'Anatomy · PrepLadder · 11 distinct questions', acc:40, c:'12/30 correct'},
+    {t:'Lower Limb', s:'Anatomy · PrepLadder · 9 distinct questions', acc:50, c:'15/30 correct'}
+  ],
+  top:[
+    {t:'General Anatomy', s:'Anatomy · PrepLadder · 22 distinct questions', acc:85, c:'34/40 correct'},
+    {t:'General Embryology', s:'Anatomy · PrepLadder · 12 distinct questions', acc:82, c:'23/28 correct'},
+    {t:'Upper Limb', s:'Anatomy · Marrow · 18 distinct questions', acc:78, c:'28/36 correct'}
+  ]
+};
+function topicRows(rows, animateBars){
+  return rows.map(r=>
+    `<button type="button" class="nk-li-topic"><span><strong>${r.t}</strong><small>${r.s}</small><i class="nk-li-progress nk-li-accuracy-bar"><i style="width:${animateBars?0:r.acc}%"></i></i></span><span><b>${r.acc}%</b><small>${r.c}</small></span></button>`).join('');
+}
+document.getElementById('curTopics').innerHTML = topicRows(TOPICS.needs, false);
+let topicMode = 'needs';
+const topicSeg = document.getElementById('upTopicSeg'), topicPill = document.getElementById('upTopicPill');
+[['needs','Needs improvement'],['top','Top performing']].forEach(([v,l])=>{
+  const b = document.createElement('button');
+  b.textContent = l; b.dataset.m = v;
+  if(v===topicMode) b.classList.add('on');
+  b.addEventListener('click', ()=>{
+    if(topicMode===v) return;
+    topicMode = v;
+    topicSeg.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
+    movePill(topicPill, topicSeg, b);
+    const list = document.getElementById('upTopicList');
+    const swap = ()=>{
+      list.innerHTML = topicRows(TOPICS[v], true);
+      requestAnimationFrame(()=>requestAnimationFrame(()=>{
+        list.querySelectorAll('.nk-li-accuracy-bar>i').forEach((bar,i)=>{ bar.style.width = TOPICS[v][i].acc+'%'; });
+      }));
+      list.classList.remove('swap');
+    };
+    if(REDUCED){ list.innerHTML = topicRows(TOPICS[v], false); }
+    else { list.classList.add('swap'); setTimeout(swap, 160); }
+  });
+  topicSeg.appendChild(b);
+});
+document.getElementById('upTopicList').innerHTML = topicRows(TOPICS.needs, false);
+requestAnimationFrame(()=>movePill(topicPill, topicSeg, topicSeg.querySelector('button.on')));
+
+/* ---------- 06 · donut sweep ---------- */
+function paintDonut(el, cPct, wPct){
+  el.style.setProperty('--donut', `conic-gradient(#18ac80 0 ${cPct.toFixed(1)}%,#ed6d91 ${cPct.toFixed(1)}% ${(cPct+wPct).toFixed(1)}%,#c7bcf5 ${(cPct+wPct).toFixed(1)}% 100%)`);
+}
+function animDonut(){
+  const ring = document.getElementById('upDonutRing'), num = document.getElementById('upDonutNum');
+  const live = document.getElementById('upDonut');
+  live.classList.remove('up-donut-live');
+  void live.offsetWidth;
+  live.classList.add('up-donut-live');
+  if(REDUCED){ paintDonut(ring, 76.1, 18.3); num.textContent = '142'; return; }
+  const t0 = performance.now(), dur = 850;
+  (function tick(t){
+    const k = Math.min(1,(t-t0)/dur), e = 1-Math.pow(1-k,3);
+    paintDonut(ring, 76.1*e, 18.3*e);
+    num.textContent = fmtInt(142*e);
+    if(k<1) requestAnimationFrame(tick);
+  })(t0);
+}
+if('IntersectionObserver' in window && !REDUCED){
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(en=>{ if(en.isIntersecting) animDonut(); });
+  }, {threshold:.4});
+  io.observe(document.getElementById('upDonut'));
+} else { animDonut(); }
+
+/* ---------- 07 · count picker ---------- */
+const POOL = 37;
+let testCount = 20;
+const countSeg = document.getElementById('upCountSeg'), countPill = document.getElementById('upCountPill');
+[10,20,50,100].forEach(n=>{
+  const b = document.createElement('button');
+  b.textContent = n;
+  if(n===testCount) b.classList.add('on');
+  b.addEventListener('click', ()=>{
+    if(testCount===n) return;
+    testCount = n;
+    countSeg.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
+    movePill(countPill, countSeg, b);
+    countUp(document.getElementById('upCountAvail'), Math.min(n,POOL), fmtInt);
+  });
+  countSeg.appendChild(b);
+});
+requestAnimationFrame(()=>movePill(countPill, countSeg, countSeg.querySelector('button.on')));
+
 /* ---------- 04 · navs ---------- */
 const NAV = [['dashboard','Home','home'],['fsrs','FSRS','refresh'],['tests','Tests','test'],['analytics','Insights','chart'],['more','More','more']];
 function buildNav(el, active, onTap){
@@ -720,26 +926,7 @@ buildNav(upNav, upActive, id=>{ upActive = id;
     const on = n.textContent.trim().startsWith(NAV.find(x=>x[0]===id)[1]);
     n.classList.toggle('active', on); n.setAttribute('aria-current', on?'page':'false');
   });
-requestAnimationFrame(moveUpNavPill);
-
-/* ---------- 04b · nav option B: expanding active tab ---------- */
-let nxActive = 'dashboard';
-const upNavX = document.getElementById('upNavX');
-NAV.forEach(([id,label,ic])=>{
-  const b = document.createElement('button');
-  b.className = 'nx'+(id===nxActive?' on':'');
-  b.setAttribute('aria-current', id===nxActive?'page':'false');
-  b.setAttribute('aria-label', label);
-  b.innerHTML = `${IC[ic](21)}<span class="nx-label">${label}</span>`;
-  b.addEventListener('click', ()=>{
-    nxActive = id;
-    upNavX.querySelectorAll('.nx').forEach(n=>{
-      const on = n.getAttribute('aria-label')===NAV.find(x=>x[0]===id)[1];
-      n.classList.toggle('on', on); n.setAttribute('aria-current', on?'page':'false');
-    });
-  });
-  upNavX.appendChild(b);
-});
+  requestAnimationFrame(moveUpNavPill);
 });
 function moveUpNavPill(){
   const a = upNav.querySelector('.nav-item.active'); if(!a) return;
