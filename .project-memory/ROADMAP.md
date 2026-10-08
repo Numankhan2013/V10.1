@@ -4,7 +4,9 @@ Source: `memory.md` refinement phases R1–R9 + V11.5 docs + current handoff.
 Check off only when build-verified **and** device-verified where UI is involved.
 `STATE.md` holds the immediate next step.
 
-## Immediate (next 1–2 sessions)
+## Immediate
+
+> Pruned 2026-10-08: `[x]` = user previewed/accepted the feature. In-place physical APK/sync acceptance is tracked once in STATE.md. Pre-prune copy: `archive/ROADMAP_2026-10-05_pre-cleanup.md`.
 
 - [ ] Exact completed-CBT retake with initial-versus-final saved-result
       comparison: score, accuracy, attempts, time, recovered/new misses, and
@@ -22,7 +24,7 @@ Check off only when build-verified **and** device-verified where UI is involved.
       `https://ce13d233.nk-qbank.pages.dev`. Physical review remains pending.
       After that, examine simultaneous Practice/test sessions with explicit
       resume selection and no overwrite of saved work.
-- [ ] Exam practice candidate: one verified-PYQ action inside the bank-aware
+- [x] Exam practice candidate: one verified-PYQ action inside the bank-aware
       CBT Topics step, cumulative 60-second chapter Topic Test timing, and a
       complete PYQ/mixed result-to-review-to-missed-Practice journey. Source
       counts are 27 PrepLadder topics/1,118 questions; Marrow has no verified
@@ -42,18 +44,18 @@ Check off only when build-verified **and** device-verified where UI is involved.
       `36244266344` and full browser/PWA/APK/Android phone+tablet emulator
       `36244266405`. The packaged APK artifact is in that run; physical
       installed-app review remains pending.
-- [ ] Browser/PWA Back warning during Practice and timed tests: restore the
+- [x] Browser/PWA Back warning during Practice and timed tests: restore the
       active question on Stay, follow history on Exit, and verify both phone
       and tablet browser paths. Product `f450ab7` passed Engineering
       `36248903088` and full browser/PWA/APK/Android emulator `36248903102`;
       preview `https://8552f47f.nk-qbank.pages.dev`. The user confirmed it works.
-- [ ] Timed CBT mark for review and follow-up: toggle an uncertain question,
+- [x] Timed CBT mark for review and follow-up: toggle an uncertain question,
       retain marks through reload and both question grids, snapshot them in
       saved history, then Practice exactly the marked IDs after submission.
       Product `31ac38a` passed Engineering `36293641439` and full browser/PWA/
       packaged APK/Android phone+tablet emulator `36293641549`; preview
       `https://da6eaa24.nk-qbank.pages.dev`. The user confirmed it works.
-- [ ] Visible timed-test recovery after Exit: show an in-progress card on Home,
+- [x] Visible timed-test recovery after Exit: show an in-progress card on Home,
       Tests, and the CBT builder with answered/marked counts, then resume the
       same timed session or finish safely if time expired. Product `78e391f`
       passed local 68 checks, Engineering `36298273342`, and full browser/PWA/
@@ -73,14 +75,14 @@ Check off only when build-verified **and** device-verified where UI is involved.
       browser/PWA/APK/Android emulator `36218442273`; preview
       `https://697c1da1.nk-qbank.pages.dev`. User review remains. This is a
       study map, not an inferred mastery score.
-- [ ] Timed CBT result analysis on `feature/qbank-bank-aware-modules-20260924`:
+- [x] Timed CBT result analysis on `feature/qbank-bank-aware-modules-20260924`:
       show source-exact subject/bank/topic results from the saved test snapshot,
       then practise only that test's incorrect and unattempted IDs through the
       shared Practice engine. Product `b65ad21` passed Engineering
       `36216951965` and full browser/PWA/APK/Android emulator `36216944458`;
       preview `https://c22cbdd0.nk-qbank.pages.dev`. The user checked it and
       said it works; the in-place physical APK check remains separate.
-- [ ] Bank-aware study modules and PYQ candidate: exact subject/bank/topic
+- [x] Bank-aware study modules and PYQ candidate: exact subject/bank/topic
       records and frozen legacy modules passed generated browser/PWA/APK/emulator
       verification at `7b7eef2`; the user accepted the topic picker. The current
       follow-up removes the redundant Questions-step Source control so selected
@@ -88,7 +90,7 @@ Check off only when build-verified **and** device-verified where UI is involved.
       `a94b329`. The user accepted this feature preview; the in-place APK
       check remains separate. PrepLadder
       has 1,118 source-labelled PYQs; Marrow ED8 lacks reliable PYQ/exam/year fields.
-- [ ] Study intelligence: a first increment adds question-linked personal notes
+- [x] Study intelligence: a first increment adds question-linked personal notes
       to answered Practice and Review, with durable local storage and account
       sync. User checked and accepted the note functionality at `e623fd1`.
       The read-only saved card and compact More → My notes index/search passed
