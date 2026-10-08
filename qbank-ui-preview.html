@@ -99,6 +99,27 @@ button{font:inherit;cursor:pointer}
 .up-li-scope select{flex:1;min-height:40px;padding:0 10px;border:1px solid #e5def3;border-radius:10px;background:#f7f4fd;color:#614a93;font:inherit;font-size:10.5px;font-weight:650}
 .up-li-note{font-size:10px;color:#74778e;margin-top:8px;line-height:1.5}
 
+/* ============ UPGRADED · SpringSelect-style scope dropdowns ============ */
+.up-dd{position:relative;flex:1;min-width:0}
+.up-dd-btn{width:100%;min-height:44px;padding:0 10px;border:1px solid #e5def3;border-radius:11px;background:#f7f4fd;color:#614a93;font:inherit;font-size:11px;font-weight:700;display:flex;align-items:center;gap:7px;text-align:left;transition:border-color .18s,box-shadow .18s,background .18s}
+.up-dd-btn:hover{border-color:#c9bcf0}
+.up-dd.open .up-dd-btn{border-color:#8f7bd8;background:#fff;box-shadow:0 0 0 3px #ece7fb}
+.up-dd-btn .up-dd-val{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.up-dd-btn .up-dd-chev{flex:none;display:grid;place-items:center;color:#7a68b8;transition:transform .3s cubic-bezier(.3,1.4,.5,1)}
+.up-dd.open .up-dd-chev{transform:rotate(200deg)}
+.up-dd-panel{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:30;background:#fff;border:1px solid #e7e1f5;border-radius:13px;box-shadow:0 18px 44px rgba(41,38,95,.18);padding:5px;transform-origin:top center;transition:opacity .22s ease,transform .28s cubic-bezier(.3,1.3,.4,1)}
+.up-dd-panel[hidden]{display:block;opacity:0;transform:translateY(-7px) scale(.96);pointer-events:none}
+.up-dd:not(.open) .up-dd-panel{opacity:0;transform:translateY(-7px) scale(.96);pointer-events:none}
+.up-dd.open .up-dd-panel{opacity:1;transform:none}
+.up-dd-opt{display:flex;align-items:center;gap:9px;width:100%;border:0;background:none;text-align:left;padding:9px 10px;border-radius:9px;color:#191945;min-height:44px;transition:background .12s}
+.up-dd-opt:hover{background:#f4f1fd}
+.up-dd-opt .up-dd-txt{flex:1;min-width:0}
+.up-dd-opt .up-dd-txt b{display:block;font-size:11px}
+.up-dd-opt .up-dd-txt small{display:block;font-size:9px;color:#74778e;margin-top:2px}
+.up-dd-opt .up-dd-check{flex:none;width:18px;height:18px;color:#745be8;opacity:0;transform:scale(.5);transition:opacity .15s,transform .2s cubic-bezier(.3,1.5,.5,1)}
+.up-dd-opt.sel .up-dd-check{opacity:1;transform:none}
+.up-dd-opt.sel{background:#f4f1fd}
+
 /* ============ CURRENT · Insights charts (exact shipped styles) ============ */
 .nk-li-card{padding:16px;border:1px solid #ece9f3;border-radius:18px;background:#fff;min-width:0;margin-top:12px}
 .nk-li-card>header{margin-bottom:12px}
@@ -123,14 +144,19 @@ button{font:inherit;cursor:pointer}
 .nk-li-delta.is-down{color:#a55271}
 .nk-li-delta.is-neutral{color:#69718c}
 
-/* ============ UPGRADED · charts ============ */
+/* ============ UPGRADED · charts v2 (smooth bezier, markers, HTML axis) ============ */
 .up-bars button i{transition:height .45s cubic-bezier(.25,.9,.3,1)}
 .up-trend-wrap{position:relative}
-.up-trend-tip{position:absolute;pointer-events:none;background:#29265f;color:#fff;font-size:10px;font-weight:700;padding:5px 9px;border-radius:8px;white-space:nowrap;transform:translate(-50%,-120%);opacity:0;transition:opacity .15s;z-index:5}
+.up-trend-tip{position:absolute;pointer-events:none;background:#29265f;color:#fff;font-size:10px;font-weight:700;padding:5px 9px;border-radius:8px;white-space:nowrap;transform:translate(-50%,-125%);opacity:0;transition:opacity .15s;z-index:5}
 .up-trend-tip:after{content:"";position:absolute;left:50%;bottom:-4px;transform:translateX(-50%);border:5px solid transparent;border-top-color:#29265f;border-bottom:0}
+.up-trend-tip small{display:block;font-weight:500;opacity:.75;font-size:9px}
 .up-curve{transition:opacity .3s}
-.up-draw{stroke-dasharray:900;stroke-dashoffset:900;animation:updraw 1.1s cubic-bezier(.4,0,.2,1) forwards}
+.up-draw{stroke-dasharray:1200;stroke-dashoffset:1200;animation:updraw 1.2s cubic-bezier(.4,0,.2,1) forwards}
 @keyframes updraw{to{stroke-dashoffset:0}}
+.up-mark{transition:opacity .3s}
+.up-mark text{font-size:10px;font-weight:800;fill:#453771}
+.up-x{display:flex;justify-content:space-between;margin-top:2px;padding:0 1px}
+.up-x span{font-size:9px;color:#74778e;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
 .up-bin-readout{background:#f8f7fd;border-radius:10px;padding:10px;font-size:10px;line-height:1.6;color:#686485;margin-top:12px;min-height:44px;display:grid;gap:5px}
 .up-bin-readout strong{color:#453771;font-size:11px}
 .up-bin-readout small{font-size:9px;color:#74778e}
@@ -251,14 +277,20 @@ button{font:inherit;cursor:pointer}
               </div>
               <div class="up-li-label" id="upLiLabel">This week · 5 – 11 Oct</div>
               <div class="up-li-scope">
-                <select aria-label="Insights subject"><option>All subjects</option><option>Anatomy</option><option>Physiology</option><option>Biochemistry</option></select>
-                <select aria-label="Insights bank"><option>All banks</option><option>PrepLadder</option><option>Marrow</option></select>
+                <div class="up-dd" id="upDdSubject">
+                  <button type="button" class="up-dd-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Insights subject"><span class="up-dd-val">All subjects</span><span class="up-dd-chev"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button>
+                  <div class="up-dd-panel" role="listbox" aria-label="Insights subject"></div>
+                </div>
+                <div class="up-dd" id="upDdBank">
+                  <button type="button" class="up-dd-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Insights bank"><span class="up-dd-val">All banks</span><span class="up-dd-chev"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button>
+                  <div class="up-dd-panel" role="listbox" aria-label="Insights bank"></div>
+                </div>
               </div>
             </div>
             <p class="up-li-note" id="upLiNote">Compared with 28 Sep – 4 Oct · to date</p>
           </div>
         </div>
-        <p class="pv-note"><b>What changed:</b> one unified bar — chevrons, sliding Week/Month/Year pill and Today reset belong together. The label crossfades instead of snapping. Scope pickers keep their behavior, restyled to match. Try the chevrons: the next arrow disables at today, like production.</p>
+        <p class="pv-note"><b>What changed:</b> one unified bar — chevrons, sliding Week/Month/Year pill and Today reset belong together, and the label crossfades. The subject/bank pickers are now custom spring dropdowns (inspired by easyui's SpringSelect): tap one and the panel springs open from the trigger with an overshooting chevron — no more native Android sheet. Picking a scope re-filters the charts below, like production.</p>
       </div>
     </div>
   </section>
@@ -295,13 +327,14 @@ button{font:inherit;cursor:pointer}
               <div class="up-bin-readout" id="upBinReadout"></div>
             </div>
             <div class="nk-li-card"><header><h2>Study time trend</h2></header>
-              <div class="nk-li-key"><span><i></i><span id="upTrendCur">This week</span></span><span><i class="is-previous"></i><span id="upTrendPrev">Previous week</span></span></div>
-              <div class="up-trend-wrap" id="upTrendWrap"><div class="up-trend-tip" id="upTrendTip"></div><svg class="nk-li-trend" viewBox="0 0 400 200" id="upTrend"></svg></div>
+              <div class="nk-li-key"><span><i></i><span id="upTrendCur">This week</span></span><span><i class="is-previous"></i><span id="upTrendPrev">Previous week</span></span><span id="upTrendScope" style="margin-left:auto"></span></div>
+              <div class="up-trend-wrap" id="upTrendWrap"><div class="up-trend-tip" id="upTrendTip"></div><svg class="nk-li-trend" viewBox="0 0 400 196" id="upTrend" preserveAspectRatio="xMidYMid meet"></svg></div>
+              <div class="up-x" id="upTrendX"></div>
               <div class="nk-li-trend-totals"><span><small id="upTrendCurT">This week</small><b id="upTrendVal">9h 41m</b></span><span class="nk-li-delta is-up" id="upTrendDelta">↑ 12%</span><span><small id="upTrendPrevT">Previous week</small><b id="upTrendPrevVal">8h 38m</b></span></div>
             </div>
           </div>
         </div>
-        <p class="pv-note"><b>What changed:</b> bars glide to new heights when the period changes; tapping a bar opens the same detail readout production shows. The trend draws in once, and hovering or touching it scrubs values with a guide line — same violet, same type, same wording.</p>
+        <p class="pv-note"><b>What changed:</b> rebuilt from scratch. The curve is now a smooth cubic-bezier spline (no jagged segments), axis labels are crisp HTML instead of stretched SVG text, peak/trough markers call out your best and quietest day, and scrubbing shows both current and previous values in the tooltip. Totals count up and respect the subject/bank scope above.</p>
       </div>
     </div>
   </section>
@@ -357,14 +390,34 @@ const HOME = {
 const PERIODS = {
   week:{unit:'week', cur:'This week', prev:'Previous week', range:'5 – 11 Oct', note:'Compared with 28 Sep – 4 Oct · to date',
     bins:['Mon','Tue','Wed','Thu','Fri','Sat','Sun'], curV:[12,18,9,24,15,20,8], prevV:[10,14,12,18,11,16,9],
-    curT:[1.1,1.8,0.9,2.4,1.5,2.0,0.8], prevT:[1.0,1.4,1.2,1.8,1.1,1.6,0.9], tot:'9h 41m', prevTot:'8h 38m', delta:['↑ 12%','is-up']},
+    curT:[1.1,1.8,0.9,2.4,1.5,2.0,0.8], prevT:[1.0,1.4,1.2,1.8,1.1,1.6,0.9], totMs:34860000, prevTotMs:31080000, delta:['↑ 12%','is-up']},
   month:{unit:'month', cur:'This month', prev:'Previous month', range:'October 2026', note:'Compared with 1 – 30 Sep · to date',
     bins:['1–7','8–14','15–21','22–28','29–31'], curV:[86,74,92,68,41], prevV:[70,80,75,72,38],
-    curT:[9.5,8.2,10.1,7.4,4.5], prevT:[7.7,8.8,8.2,7.9,4.2], tot:'38h 07m', prevTot:'35h 48m', delta:['↑ 7%','is-up']},
+    curT:[9.5,8.2,10.1,7.4,4.5], prevT:[7.7,8.8,8.2,7.9,4.2], totMs:137220000, prevTotMs:128880000, delta:['↑ 7%','is-up']},
   year:{unit:'year', cur:'This year', prev:'Previous year', range:'2026', note:'Compared with 1 Jan – 8 Oct 2025 · to date',
     bins:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct'], curV:[120,140,160,150,180,170,190,200,210,96], prevV:[0,0,0,0,0,0,0,0,90,120],
-    curT:[12,14,16,15,18,17,19,20,21,9.6], prevT:[0,0,0,0,0,0,0,0,9,12], tot:'142h 20m', prevTot:'21h 00m', delta:['New activity','is-neutral']}
+    curT:[12,14,16,15,18,17,19,20,21,9.6], prevT:[0,0,0,0,0,0,0,0,9,12], totMs:512400000, prevTotMs:75600000, delta:['New activity','is-neutral']}
 };
+/* scope shares (sample data scaled the way production re-filters) */
+const SUBJECTS = [
+  {v:'', label:'All subjects', desc:'Combined study activity'},
+  {v:'Anatomy', label:'Anatomy', desc:'1,068 PrepLadder questions'},
+  {v:'Physiology', label:'Physiology', desc:'899 PrepLadder questions'},
+  {v:'Biochemistry', label:'Biochemistry', desc:'719 PrepLadder questions'}
+];
+const BANKS = [
+  {v:'', label:'All banks', desc:'Every question source'},
+  {v:'PrepLadder', label:'PrepLadder', desc:'2,686 subject questions'},
+  {v:'Marrow', label:'Marrow', desc:'2,711 bank questions'}
+];
+const SUB_MULT = {'':1, 'Anatomy':.45, 'Physiology':.32, 'Biochemistry':.23};
+const BANK_MULT = {'':1, 'PrepLadder':.6, 'Marrow':.4};
+let scope = {subject:'', bank:''};
+function scopeMult(){ return (SUB_MULT[scope.subject]||1)*(BANK_MULT[scope.bank]||1); }
+function scopeLabel(){
+  const s = scope.subject || 'All subjects', b = scope.bank || 'All banks';
+  return (scope.subject||scope.bank) ? `${s} · ${b}` : '';
+}
 
 /* ---------- helpers ---------- */
 function fmtStudy(ms){ if(!ms) return '—'; const m=Math.floor(ms/60000); const h=Math.floor(m/60); return (h?h+'h ':'')+(m%60)+'m'; }
@@ -442,7 +495,8 @@ function updateLi(){
   const apply = ()=>{
     const [t,note] = liRangeText();
     lbl.textContent = t;
-    document.getElementById('upLiNote').textContent = note;
+    const sc = scopeLabel();
+    document.getElementById('upLiNote').textContent = (sc ? sc+' — ' : '') + note;
     document.getElementById('upLiPrev').disabled = false;
     document.getElementById('upLiNext').disabled = liOffset===0;
     document.getElementById('upLiToday').classList.toggle('show', liOffset!==0);
@@ -456,6 +510,48 @@ document.getElementById('upLiPrev').addEventListener('click', ()=>{ liOffset--; 
 document.getElementById('upLiNext').addEventListener('click', ()=>{ if(liOffset<0){ liOffset++; updateLi(); } });
 document.getElementById('upLiToday').addEventListener('click', ()=>{ liOffset = 0; updateLi(); });
 requestAnimationFrame(()=>movePill(liPill, liSeg, liSeg.querySelector('button.on')));
+
+/* ---------- 02b · SpringSelect-style scope dropdowns ---------- */
+function closeAllDd(except){
+  document.querySelectorAll('.up-dd.open').forEach(d=>{
+    if(d===except) return;
+    d.classList.remove('open');
+    d.querySelector('.up-dd-btn').setAttribute('aria-expanded','false');
+  });
+}
+function buildDd(id, options, key){
+  const root = document.getElementById(id);
+  const btn = root.querySelector('.up-dd-btn'), val = root.querySelector('.up-dd-val'), panel = root.querySelector('.up-dd-panel');
+  panel.innerHTML = options.map(o=>
+    `<button type="button" class="up-dd-opt${scope[key]===o.v?' sel':''}" role="option" aria-selected="${scope[key]===o.v}" data-v="${o.v}"><span class="up-dd-txt"><b>${o.label}</b><small>${o.desc}</small></span><span class="up-dd-check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></span></button>`).join('');
+  btn.addEventListener('click', e=>{
+    e.stopPropagation();
+    const willOpen = !root.classList.contains('open');
+    closeAllDd(root);
+    root.classList.toggle('open', willOpen);
+    btn.setAttribute('aria-expanded', String(willOpen));
+  });
+  panel.querySelectorAll('.up-dd-opt').forEach(opt=>opt.addEventListener('click', e=>{
+    e.stopPropagation();
+    scope[key] = opt.dataset.v;
+    val.textContent = options.find(o=>o.v===scope[key]).label;
+    panel.querySelectorAll('.up-dd-opt').forEach(x=>{
+      const on = x===opt;
+      x.classList.toggle('sel', on); x.setAttribute('aria-selected', String(on));
+    });
+    root.classList.remove('open');
+    btn.setAttribute('aria-expanded','false');
+    updateCharts();
+    const sc = scopeLabel();
+    const p = PERIODS[liPeriod];
+    document.getElementById('upLiNote').textContent = (sc ? sc+' — ' : '') + (liOffset===0 ? p.note : `Compared with the previous ${p.unit} · historical`);
+    document.getElementById('upTrendScope').textContent = sc;
+  }));
+}
+buildDd('upDdSubject', SUBJECTS, 'subject');
+buildDd('upDdBank', BANKS, 'bank');
+document.addEventListener('click', ()=>closeAllDd());
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeAllDd(); });
 
 /* ---------- 03 · current replicas (static) ---------- */
 (function(){
@@ -476,16 +572,19 @@ requestAnimationFrame(()=>movePill(liPill, liSeg, liSeg.querySelector('button.on
 /* ---------- 03 · upgraded charts ---------- */
 let upBin = -1;
 function renderUpBars(){
-  const p = PERIODS[liPeriod], max = Math.max(1,...p.curV,...p.prevV);
+  const p = PERIODS[liPeriod], m = scopeMult();
+  const curV = p.curV.map(v=>Math.round(v*m)), prevV = p.prevV.map(v=>Math.round(v*m));
+  const curT = p.curT.map(v=>v*m), prevT = p.prevT.map(v=>v*m);
+  const max = Math.max(1,...curV,...prevV);
   const el = document.getElementById('upBars');
   el.innerHTML = p.bins.map((b,i)=>
-    `<button type="button" data-i="${i}" class="${upBin===i?'is-selected':''}" aria-pressed="${upBin===i}" aria-label="${b}: ${p.curV[i]} answers"><b>${p.curV[i]}</b><span class="nk-li-bar-pair"><i style="height:${p.curV[i]/max*108}px"></i><i class="is-previous" style="height:${p.prevV[i]/max*108}px"></i></span><small>${b}</small></button>`).join('');
+    `<button type="button" data-i="${i}" class="${upBin===i?'is-selected':''}" aria-pressed="${upBin===i}" aria-label="${b}: ${curV[i]} answers"><b>${curV[i]}</b><span class="nk-li-bar-pair"><i style="height:${curV[i]/max*108}px"></i><i class="is-previous" style="height:${prevV[i]/max*108}px"></i></span><small>${b}</small></button>`).join('');
   el.querySelectorAll('button').forEach(btn=>btn.addEventListener('click', ()=>{
     upBin = Number(btn.dataset.i);
     el.querySelectorAll('button').forEach((x,j)=>{ x.classList.toggle('is-selected',j===upBin); x.setAttribute('aria-pressed',String(j===upBin)); });
     const i = upBin;
     document.getElementById('upBinReadout').innerHTML =
-      `<strong>${p.bins[i]} · ${p.cur}</strong><span>${p.curV[i]} answers · ${Math.round(p.curT[i]*60)}m study time</span><small>${p.prev}: ${p.prevV[i]} answers · ${Math.round(p.prevT[i]*60)}m</small>`;
+      `<strong>${p.bins[i]} · ${p.cur}</strong><span>${curV[i]} answers · ${Math.round(curT[i]*60)}m study time</span><small>${p.prev}: ${prevV[i]} answers · ${Math.round(prevT[i]*60)}m</small>`;
   }));
   document.getElementById('upBinReadout').innerHTML = upBin<0
     ? `<span style="color:#74778e">Tap a ${liPeriod==='year'?'month':liPeriod==='month'?'week':'day'} to see its detail — same readout as production.</span>`
@@ -493,38 +592,62 @@ function renderUpBars(){
   document.getElementById('upBarsCur').textContent = p.cur;
   document.getElementById('upBarsPrev').textContent = p.prev;
 }
+function smoothPath(pts){
+  if(pts.length<2) return pts.length?`M ${pts[0][0]},${pts[0][1]}`:'';
+  let d = `M ${pts[0][0].toFixed(1)},${pts[0][1].toFixed(1)}`;
+  for(let i=0;i<pts.length-1;i++){
+    const p0=pts[Math.max(0,i-1)], p1=pts[i], p2=pts[i+1], p3=pts[Math.min(pts.length-1,i+2)];
+    const c1x=p1[0]+(p2[0]-p0[0])/6, c1y=p1[1]+(p2[1]-p0[1])/6;
+    const c2x=p2[0]-(p3[0]-p1[0])/6, c2y=p2[1]-(p3[1]-p1[1])/6;
+    d += ` C ${c1x.toFixed(1)},${c1y.toFixed(1)} ${c2x.toFixed(1)},${c2y.toFixed(1)} ${p2[0].toFixed(1)},${p2[1].toFixed(1)}`;
+  }
+  return d;
+}
 function renderUpTrend(animate){
-  const p = PERIODS[liPeriod], n = p.bins.length, mx = Math.max(1,...p.curT,...p.prevT);
-  const x=i=>35+i*345/Math.max(1,n-1), y=v=>172-v/mx*138;
-  const path=a=>a.map((v,i)=>`${i===0?'M':'L'} ${x(i).toFixed(1)} ${y(v).toFixed(1)}`).join(' ');
+  const p = PERIODS[liPeriod], m = scopeMult(), n = p.bins.length;
+  const cur = p.curT.map(v=>v*m), prev = p.prevT.map(v=>v*m);
+  const mx = Math.max(0.5,...cur,...prev);
+  const L=34, R=390, T=20, B=176;
+  const x=i=>L+i*(R-L)/Math.max(1,n-1), y=v=>B-v/mx*(B-T);
+  const curPts = cur.map((v,i)=>[x(i),y(v)]), prevPts = prev.map((v,i)=>[x(i),y(v)]);
+  const curPath = smoothPath(curPts), prevPath = smoothPath(prevPts);
+  const area = curPath+` L ${x(n-1).toFixed(1)} ${B} L ${L} ${B} Z`;
+  let peakI = 0; cur.forEach((v,i)=>{ if(v>cur[peakI]) peakI = i; });
+  let lowI = 0; cur.forEach((v,i)=>{ if(v<cur[lowI]) lowI = i; });
   const svg = document.getElementById('upTrend');
   svg.innerHTML =
-    [0,.5,1].map(g=>`<line x1="35" x2="380" y1="${172-g*138}" y2="${172-g*138}" stroke="#ebeaf4"/><text x="2" y="${176-g*138}" font-size="12" fill="#74788f">${(mx*g).toFixed(mx<2?1:0)}h</text>`).join('')+
-    `<path d="${path(p.curT)} L ${x(n-1)} 172 L 35 172 Z" fill="#7861ee" opacity=".12" class="up-curve"/>`+
-    `<path d="${path(p.prevT)}" fill="none" stroke="#cdc4f5" stroke-width="2.5" stroke-dasharray="5 5" class="up-curve"/>`+
-    `<path d="${path(p.curT)}" fill="none" stroke="#7861ee" stroke-width="3" class="${animate&&!REDUCED?'up-draw':''}"/>`+
-    `<line id="upScrub" x1="0" x2="0" y1="6" y2="176" stroke="#29265f" stroke-width="1" stroke-dasharray="3 3" opacity="0"/>`+
-    p.bins.map((b,i)=>`<text x="${x(i)}" y="196" text-anchor="middle" font-size="11" fill="#74788f">${b}</text>`).join('');
-  const tip = document.getElementById('upTrendTip'), wrap = document.getElementById('upTrendWrap');
-  const scrub = svg.querySelector('#upScrub');
+    `<defs><linearGradient id="upArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7861ee" stop-opacity=".20"/><stop offset="1" stop-color="#7861ee" stop-opacity=".01"/></linearGradient></defs>`+
+    [0,.5,1].map(g=>{ const yy = B-g*(B-T);
+      return `<line x1="${L}" x2="${R}" y1="${yy}" y2="${yy}" stroke="#ebeaf4"/><text x="2" y="${yy+4}" font-size="11" fill="#74788f">${(mx*g).toFixed(mx<2?1:0)}h</text>`; }).join('')+
+    `<path d="${area}" fill="url(#upArea)" class="up-curve"/>`+
+    `<path d="${prevPath}" fill="none" stroke="#cdc4f5" stroke-width="2.5" stroke-dasharray="5 5" class="up-curve"/>`+
+    `<path d="${curPath}" fill="none" stroke="#7861ee" stroke-width="3" stroke-linecap="round" class="${animate&&!REDUCED?'up-draw':''}"/>`+
+    `<g class="up-mark"><circle cx="${x(lowI).toFixed(1)}" cy="${y(cur[lowI]).toFixed(1)}" r="3.5" fill="#fff" stroke="#b9aef0" stroke-width="2.5"/><text x="${x(lowI).toFixed(1)}" y="${(y(cur[lowI])+16).toFixed(1)}" text-anchor="middle">${cur[lowI].toFixed(1)}h</text></g>`+
+    `<g class="up-mark"><circle cx="${x(peakI).toFixed(1)}" cy="${y(cur[peakI]).toFixed(1)}" r="4.5" fill="#7861ee" stroke="#fff" stroke-width="2.5"/><text x="${x(peakI).toFixed(1)}" y="${(y(cur[peakI])-10).toFixed(1)}" text-anchor="middle">${cur[peakI].toFixed(1)}h</text></g>`+
+    `<circle id="upFocus" r="5" fill="#fff" stroke="#29265f" stroke-width="3" opacity="0"/>`+
+    `<line id="upScrub" x1="0" x2="0" y1="${T-6}" y2="${B}" stroke="#29265f" stroke-width="1" stroke-dasharray="3 3" opacity="0"/>`;
+  document.getElementById('upTrendX').innerHTML = p.bins.map(b=>`<span>${b}</span>`).join('');
+  const tip = document.getElementById('upTrendTip');
+  const scrub = svg.querySelector('#upScrub'), focus = svg.querySelector('#upFocus');
   svg.onpointermove = e=>{
     const r = svg.getBoundingClientRect();
     const sx = (e.clientX-r.left)*(400/r.width);
-    let best=0,bd=1e9;
-    p.bins.forEach((_,i)=>{ const d=Math.abs(x(i)-sx); if(d<bd){bd=d;best=i;} });
+    let best=0, bd=1e9;
+    cur.forEach((_,i)=>{ const d=Math.abs(x(i)-sx); if(d<bd){bd=d;best=i;} });
     scrub.setAttribute('x1',x(best)); scrub.setAttribute('x2',x(best)); scrub.setAttribute('opacity','.55');
-    tip.style.left = (x(best)/400*100)+'%'; tip.style.top = (y(p.curT[best])/200*100)+'%';
+    focus.setAttribute('cx',x(best)); focus.setAttribute('cy',y(cur[best])); focus.setAttribute('opacity','1');
+    tip.style.left = (x(best)/400*100)+'%'; tip.style.top = (y(cur[best])/196*100)+'%';
     tip.style.opacity = 1;
-    tip.textContent = `${p.bins[best]} · ${p.curT[best].toFixed(1)}h`;
+    tip.innerHTML = `${p.bins[best]} · ${cur[best].toFixed(1)}h<small>previous ${prev[best].toFixed(1)}h</small>`;
   };
-  svg.onpointerleave = ()=>{ scrub.setAttribute('opacity','0'); tip.style.opacity = 0; };
-  void wrap.offsetWidth;
+  svg.onpointerleave = ()=>{ scrub.setAttribute('opacity','0'); focus.setAttribute('opacity','0'); tip.style.opacity = 0; };
   document.getElementById('upTrendCur').textContent = p.cur;
   document.getElementById('upTrendPrev').textContent = p.prev;
   document.getElementById('upTrendCurT').textContent = p.cur;
   document.getElementById('upTrendPrevT').textContent = p.prev;
-  document.getElementById('upTrendVal').textContent = p.tot;
-  document.getElementById('upTrendPrevVal').textContent = p.prevTot;
+  document.getElementById('upTrendScope').textContent = scopeLabel();
+  countUp(document.getElementById('upTrendVal'), p.totMs*m/60000, v=>fmtStudy(v*60000));
+  countUp(document.getElementById('upTrendPrevVal'), p.prevTotMs*m/60000, v=>fmtStudy(v*60000));
   const d = document.getElementById('upTrendDelta');
   d.textContent = p.delta[0]; d.className = 'nk-li-delta '+p.delta[1];
 }
