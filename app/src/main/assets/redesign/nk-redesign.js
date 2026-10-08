@@ -67,6 +67,7 @@
     if (media.addEventListener) media.addEventListener('change', onScheme); else if (media.addListener) media.addListener(onScheme);
   }
   window.NKQ_UI.setTheme = setTheme;
+  window.NKQ_UI.metrics = function () { return lifetime(); };
   window.NKQ_UI.theme = resolvedTheme;
   applyTheme();
 
@@ -426,6 +427,7 @@
     syncThemeControls();
     measureDock();
     neutralizeInlineTracks(app);
+    if (window.NKFeel && typeof window.NKFeel.render === 'function') window.NKFeel.render(app, page, session);
     var zero = app.querySelectorAll('.nk-review-chart > span');
     for (var z = 0; z < zero.length; z++) {
       var b = zero[z].querySelector('b');
