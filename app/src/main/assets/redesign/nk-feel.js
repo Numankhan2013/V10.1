@@ -295,9 +295,11 @@
     var attempts = s.attempts || {}, tests = Array.isArray(s.tests) ? s.tests : [];
     var uniq = {}, total = 0, correct = 0, ms = 0;
     Object.keys(attempts).forEach(function (qid) {
-      (attempts[qid] || []).forEach(function (a) {
-        if (!a || a.isUndo || a.isRatingRevision || typeof a.correct !== 'boolean') return;
-        var at = Number(a.at || a.reviewedAt); if (!(at >= w[0] && at <= w[1])) return;
+      var list = attempts[qid] || [], undone = {};
+      list.forEach(function (a) { if (a && a.isUndo && a.undoOf) undone[String(a.undoOf)] = true; });
+      list.forEach(function (a) {
+        if (!a || a.isUndo || a.isRatingRevision || typeof a.correct !== 'boolean' || undone[String(a.id)]) return;
+        var at = Number(a.reviewedAt || a.at); if (!(at >= w[0] && at <= w[1])) return;
         uniq[qid] = 1; total++; if (a.correct) correct++;
         if (a.source !== 'exam') ms += Math.max(0, Number(a.timeSpent) || 0);
       });

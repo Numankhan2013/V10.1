@@ -106,9 +106,9 @@ HELPERS = r'''
   function nkHomeRangeStart(range){const d=new Date();d.setHours(0,0,0,0);if(range==='today')return d.getTime();if(range==='week'){d.setDate(d.getDate()-((d.getDay()+6)%7));return d.getTime();}if(range==='month'){d.setDate(1);return d.getTime();}d.setMonth(0,1);return d.getTime();}
   function nkHomeProgressStats(range=nkHomeProgressRange){
     const start=nkHomeRangeStart(range),end=Date.now(),attempts=[],qids=new Set();
-    for(const [qid,items] of Object.entries(state.attempts||{}))for(const a of items||[]){
-      const at=Number(a?.at||0);
-      if(!a||a.isUndo||at<start||at>end||typeof a.correct!=='boolean')continue;
+    for(const [qid,items] of Object.entries(state.attempts||{}))for(const a of (typeof qAttempts==='function'?qAttempts(qid):items)||[]){
+      const at=Number(a?.reviewedAt||a?.at||0);
+      if(!a||a.isUndo||a.isRatingRevision||at<start||at>end||typeof a.correct!=='boolean')continue;
       attempts.push(a);qids.add(String(qid));
     }
     const correct=attempts.filter(a=>a.correct).length;
@@ -127,10 +127,11 @@ HELPERS = r'''
   }
 
   function nkReviewEligibility(q){
+    if(typeof nkFsrsEligibility==='function')return nkFsrsEligibility(q);
     const id=String(q?.id||''),history=qAttempts(id).filter(a=>a&&!a.isUndo);if(history.some(a=>a.correct===false))return'wrong';if(history.length)return'attempted';if(state.fsrsReviewEligible?.[id]?.reason==='skipped')return'skipped';return'';
   }
   function nkReviewPool(subject=''){return nkAllStudyQuestions().filter(q=>(!subject||q.subject===subject)&&nkReviewEligibility(q));}
-  function nkReviewDue(subject=''){const now=Date.now();return nkReviewPool(subject).filter(q=>{const r=state.reviews?.[q.id];return !r||Number(r.nextReviewAt||r.due||0)<=now;});}
+  function nkReviewDue(subject=''){const now=Date.now();return nkReviewPool(subject).filter(q=>{const r=state.reviews?.[q.id];return typeof nkFsrsIsDue==='function'?nkFsrsIsDue(r,now):(!r||Number(r.nextReviewAt||r.due||0)<=now);});}
   function nkReviewCounts(subject=''){
     const now=Date.now(),pool=nkReviewPool(subject),due=nkReviewDue(subject);let learning=0,relearning=0,overdue=0;pool.forEach(q=>{const r=state.reviews?.[q.id];if(Number(r?.state)===1)learning++;if(Number(r?.state)===3)relearning++;const at=Number(r?.nextReviewAt||r?.due||0);if(at&&at<now-86400000)overdue++;});return{pool:pool.length,due:due.length,learning,relearning,overdue};
   }
@@ -141,7 +142,7 @@ HELPERS = r'''
   function nkFsrsLaunchQueue(subject=''){const fallback=nkReviewDue(subject);return typeof nkFsrsQueue==='function'?nkFsrsQueue({subject}):{cards:fallback,due:fallback,totalDue:fallback.length,rolledOver:0};}
   function nkStartReviewOnly(subject=nkFsrsSubjectFilter){const queue=nkFsrsLaunchQueue(subject),rows=queue.cards||[];if(!rows.length){showToast('No attempted or submitted-as-skipped questions are due for this selection.');return;}BY_ID={...BY_ID,...Object.fromEntries(rows.map(q=>[String(q.id),q]))};startSession(rows.map(q=>String(q.id)),'practice','FSRS Review','fsrs');if(queue.rolledOver)showToast(`${queue.rolledOver} due reviews roll forward under your daily limit.`);}
   function nkMarkSkippedFromSession(s){
-    if(!s?.questionIds?.length)return;state.fsrsReviewEligible=state.fsrsReviewEligible||{};const at=Date.now();s.questionIds.forEach(id=>{const key=String(id),answered=Boolean(s.answers?.[key]);if(!answered)state.fsrsReviewEligible[key]={reason:'skipped',at};});
+    if(!s?.questionIds?.length)return;state.fsrsReviewEligible=state.fsrsReviewEligible||{};const at=Date.now();s.questionIds.forEach(id=>{const key=String(id),answered=Boolean(s.answers?.[key]),q=typeof nkFindStudyQuestion==='function'?nkFindStudyQuestion(key):null;if(q&&typeof nkFsrsAnswerable==='function'&&!nkFsrsAnswerable(q))return;if(!answered)state.fsrsReviewEligible[key]={reason:'skipped',at};});
   }
   const nkHomeOriginalEndSession=endSession;
   endSession=function(){const s=state.activeSession;if(s?.mode==='practice'&&typeof savePracticeElapsed==='function')savePracticeElapsed();nkMarkSkippedFromSession(s);saveState();return nkHomeOriginalEndSession.apply(this,arguments);};

@@ -406,3 +406,19 @@ The user uses browser previews and explicitly defers APK work. The shared full w
 ## Reviewed prose owns learner-facing UWorld text (2026-10-04)
 
 Raw imports remain immutable archives but do not ship as alternate explanations or search fallbacks. Source-locked reviewed documents own runtime prose, options, typed tables and visuals. Reject observed screenshot chrome and long repeated paragraph runs before generation; fixes must remain explicit PDF/record-pinned display overlays. A partial next collection is labeled by its actual original question range; importing its entire unreviewed source is prohibited.
+
+## FSRS availability, ordering and fuzz follow Anki (2026-10-08)
+
+Supersedes the fuzz part of decision 14. ts-fsrs 5.4.2 seeds fuzz from the
+review time, repetition count and difficulty×stability, so replay from
+immutable attempts stays identical on every device; fuzz is therefore enabled
+to spread review load. Review cards are due for their whole local calendar
+day; learning/relearning steps have a 20-minute learn-ahead. The queue serves
+learning steps, then reviews by lowest retrievability, then never-answered
+submitted-as-skipped questions, so skips never crowd out real reviews.
+Questions that accept no answer are excluded from FSRS, Unseen and
+Continue Practice remaining work. Not adopted (contract or sync impact):
+in-session re-queue of lapses (membership-hash checkpoints), Again for
+correct answers (rating revisions are limited to Hard/Good/Easy across sync),
+and a separate new-card limit (FSRS stays review-only).
+

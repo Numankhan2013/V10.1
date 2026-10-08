@@ -5,12 +5,15 @@ NK QBank includes a functional offline FSRS v6 review system in both the Android
 ## Runtime behavior
 
 - `ts-fsrs` 5.4.2 is vendored under `app/src/main/assets/vendor/ts-fsrs/` with its MIT license; the app never depends on a runtime CDN.
-- The scheduler uses FSRS v6 with fuzz disabled for deterministic Android/PWA results, 90% desired retention, a 365-day maximum interval, and 10-minute learning and relearning steps.
+- The scheduler uses FSRS v6 with ts-fsrs fuzz enabled (its seed is the review time, repetition count and difficulty×stability, so every device replays identical intervals while review load spreads across days), 90% desired retention, a 365-day maximum interval, and 10-minute learning and relearning steps.
 - Existing `state.reviews` entries migrate to schema v2. A local migration backup is created, and each legacy due date is preserved until that card receives its first new FSRS rating.
 - Immutable attempts are the replay and synchronization truth. Schema-v2 review cards are derived from sorted attempts, with audit snapshots on rated attempts.
 - Practice ratings support Again, Hard, Good, and Easy. CBT answers map to binary Again/Good outcomes, and a pending Good rating can be recovered if a session closes between answer submission and navigation.
 - Every answered question enters the FSRS pool, regardless of correctness. Pausing commits answered questions (including a pending default-Good rating) but never adds untouched questions. Final Practice/CBT submission marks every remaining unanswered question as skipped and eligible; questions outside a submitted session remain unseen and excluded.
-- The all-subject Today queue prioritizes due learning/relearning cards, applies the 150-distinct-card daily cap, supports subject/topic filters, shows counts and estimates, and provides a seven-day forecast plus lapse attention flags.
+- Availability follows Anki: a review card is due for its whole local calendar day; learning/relearning steps may be studied up to 20 minutes early (`nkFsrsIsDue`, shared by Home, Revision, the FSRS page and Insights).
+- The all-subject Today queue orders learning/relearning steps first (by due time), then reviews from least to most retrievable, then submitted-as-skipped questions that were never answered; applies the 150-distinct-card daily cap; supports subject/topic filters; shows counts and estimates; and provides a seven-day forecast plus lapse attention flags.
+- Questions that accept no answer (incomplete-source gates) are never review-eligible, never marked skipped and never listed as Unseen or as remaining Continue Practice work.
+- The recall dock shows each grade's next interval on the button (for example Hard 15m · Good 2d · Easy 7d).
 - Settings change future ratings without rewriting past attempt history. Undo records a reversible event rather than deleting synchronized history.
 
 ## Build and verification

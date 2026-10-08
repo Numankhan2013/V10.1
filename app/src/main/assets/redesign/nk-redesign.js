@@ -137,7 +137,7 @@
     try { var a = JSON.parse(lsGet('qbank_firebase_auth_v1') || 'null'); return a && a.uid ? a : null; } catch (e) { return null; }
   }
   function syncMeta() { try { return JSON.parse(lsGet('qbank_sync_v1') || 'null') || {}; } catch (e) { return {}; } }
-  function go(page) { if (window.QB && typeof window.QB.nav === 'function') window.QB.nav(page); else location.hash = page; }
+  function go(page, id) { if (window.QB && typeof window.QB.nav === 'function') window.QB.nav(page, id); else location.hash = page + (id ? '/' + id : ''); }
   function dayKey(ts) { var d = new Date(Number(ts)); return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); }
   function haptic() { try { if (window.QBankHaptics && typeof window.QBankHaptics.play === 'function') window.QBankHaptics.play('choice'); } catch (e) { /* web: no haptics */ } }
 
@@ -158,9 +158,10 @@
     var total = 0, correct = 0, unique = 0, practiceMs = 0, reviews = 0, days = {}, subjects = {};
     Object.keys(attempts).forEach(function (qid) {
       var list = Array.isArray(attempts[qid]) ? attempts[qid] : [], counted = false;
-      var sub = subjectOf(qid);
+      var sub = subjectOf(qid), undone = {};
+      list.forEach(function (a) { if (a && a.isUndo && a.undoOf) undone[String(a.undoOf)] = true; });
       list.forEach(function (a) {
-        if (!a || a.isUndo || a.isRatingRevision || typeof a.correct !== 'boolean') return;
+        if (!a || a.isUndo || a.isRatingRevision || typeof a.correct !== 'boolean' || undone[String(a.id)]) return;
         total++; if (a.correct) correct++;
         if (a.source !== 'exam') practiceMs += Math.max(0, Number(a.timeSpent) || 0);
         if (a.rating != null && a.schedulerVersion) reviews++;
@@ -377,7 +378,8 @@
           var card = document.querySelector('.nk-cloud-card') || document.querySelector('.nk-settings-group input[type="email"]');
           if (card && card.scrollIntoView) card.scrollIntoView({ block: 'center' });
         }, 60);
-      } else go(go2);
+      } else if (go2 === 'bookmarks' || go2 === 'wrong') go('revision-browse', go2);
+      else go(go2);
       return;
     }
     var act = t.getAttribute('data-nkg-act');

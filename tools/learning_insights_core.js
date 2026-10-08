@@ -67,7 +67,7 @@
   }
   function nkLearningForecast(data,now){
     const today=nkLearningDay(now),days=Array.from({length:8},(_,i)=>nkLearningShift(today,i)),counts=Array(7).fill(0);let due=0,total=0;
-    data.questions.forEach(q=>{if(!nkLearningMatches(q)||!nkFsrsEligibility(q))return;total++;const r=state.reviews?.[q.id],at=Number(r?.due||r?.nextReviewAt||0);if(!at||at<=now)due++;if(!at||at<+days[1])counts[0]++;else {const i=days.findIndex((day,index)=>index<7&&at>=+day&&at<+days[index+1]);if(i>=0)counts[i]++;}});
+    data.questions.forEach(q=>{if(!nkLearningMatches(q)||!nkFsrsEligibility(q))return;total++;const r=state.reviews?.[q.id],at=Number(r?.due||r?.nextReviewAt||0);if(typeof nkFsrsIsDue==='function'?nkFsrsIsDue(r,now):(!at||at<=now))due++;if(!at||at<+days[1])counts[0]++;else {const i=days.findIndex((day,index)=>index<7&&at>=+day&&at<+days[index+1]);if(i>=0)counts[i]++;}});
     return {counts,due,total,days};
   }
   function nkLearningModel(now=Date.now()){
