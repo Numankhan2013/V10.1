@@ -3,574 +3,575 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QBank V10.1 — UI Upgrade Preview</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<title>NK QBank — UI Upgrade Preview (faithful current vs upgraded)</title>
 <style>
-:root{
-  --primary:#2f2d63;
-  --primary-2:#3d65d8;
-  --success:#159a74;
-  --danger:#df4e52;
-  --warning:#e79b18;
-  --ink:#171826;
-  --muted:#6f7180;
-  --line:#e7e8ee;
-  --surface:#ffffff;
-  --surface-2:#f6f7fb;
-  --surface-3:#eef0f8;
-  --shadow:0 10px 28px rgba(32,34,58,.06);
-  --radius:18px;
-}
+/* ============ preview chrome ============ */
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#e9ebf2;color:var(--ink);min-height:100vh}
-button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+html,body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,sans-serif;background:#e9ebf3;color:#151852;min-height:100vh}
+button{font:inherit;cursor:pointer}
+.pv-page{max-width:1180px;margin:0 auto;padding:40px 20px 80px}
+.pv-hero{text-align:center;max-width:720px;margin:0 auto 36px}
+.pv-kicker{display:inline-block;font-size:11px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:#48328f;background:#e8e2fb;padding:6px 14px;border-radius:999px;margin-bottom:14px}
+.pv-hero h1{font-size:28px;font-weight:850;letter-spacing:-.6px}
+.pv-hero p{color:#5b5f7e;font-size:13.5px;margin-top:10px;line-height:1.6}
+.pv-hero p b{color:#151852}
+.pv-sec{margin-top:44px}
+.pv-sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:6px;flex-wrap:wrap}
+.pv-sec-head .n{font-size:12px;font-weight:850;color:#fff;background:#29265f;border-radius:8px;padding:3px 9px}
+.pv-sec-head h2{font-size:19px;font-weight:800;letter-spacing:-.3px}
+.pv-sec-head .file{font-size:11px;color:#5b5f7e;font-family:ui-monospace,Menlo,Consolas,monospace}
+.pv-sec-sub{font-size:12.5px;color:#5b5f7e;margin:0 0 16px;line-height:1.55;max-width:760px}
+.pv-pair{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+@media(max-width:900px){.pv-pair{grid-template-columns:1fr}}
+.pv-col{display:grid;gap:10px;justify-items:stretch}
+.pv-tag{justify-self:start;font-size:10px;font-weight:850;letter-spacing:1.1px;text-transform:uppercase;padding:5px 12px;border-radius:999px}
+.pv-tag.is-current{background:#eceef4;color:#6a6e89}
+.pv-tag.is-new{background:#29265f;color:#fff}
+.pv-phone{background:#f6f7fb;border:1px solid #e3e6ef;border-radius:26px;padding:20px 16px 24px;box-shadow:0 18px 44px rgba(23,24,38,.10)}
+.pv-note{font-size:11.5px;color:#5b5f7e;line-height:1.6;background:#fff;border:1px solid #e3e6ef;border-radius:12px;padding:10px 13px}
+.pv-note b{color:#151852}
+.pv-foot{margin-top:56px;font-size:12px;color:#5b5f7e;line-height:1.7;background:#fff;border:1px solid #e3e6ef;border-radius:16px;padding:18px 20px}
+.pv-foot b{color:#151852}
 
-/* ---------- stage ---------- */
-.stage{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:36px 16px}
-.stage-head{text-align:center;max-width:640px}
-.stage-head .kicker{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--primary-2);background:#e8edff;padding:6px 12px;border-radius:999px;margin-bottom:12px}
-.stage-head h1{font-size:26px;font-weight:850;letter-spacing:-.5px}
-.stage-head p{color:var(--muted);font-size:13.5px;margin-top:8px;line-height:1.55}
-.stage-head p b{color:var(--ink)}
+/* ============ CURRENT · Home My Progress (exact shipped styles) ============ */
+.nk-home-progress{color:#151852}
+.nk-home-progress-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.nk-home-progress-head h2{margin:0;font-size:18px}
+.nk-home-range{display:flex;align-items:center;color:#676b96;font-size:10px}
+.nk-home-range select{appearance:none;border:0;background:transparent;padding:8px 15px 8px 8px;color:inherit;font:inherit;font-weight:750}
+.nk-home-range>span{margin-left:-13px;pointer-events:none}
+.nk-home-progress-card{padding:4px 14px;border:1px solid #e9eaf2;border-radius:18px;background:#fff}
+.nk-home-progress-row{display:grid;grid-template-columns:40px 1fr;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid #f0f1f5}
+.nk-home-progress-row:last-child{border-bottom:0}
+.nk-home-progress-icon{width:35px;height:35px;border-radius:11px;display:grid;place-items:center;background:#efedff;color:#6d52f3}
+.nk-home-progress-icon.is-green{background:#e6f9ef;color:#20ad70}
+.nk-home-progress-icon.is-blue{background:#e9f3ff;color:#3295ed}
+.nk-home-progress-copy{display:flex;justify-content:space-between;gap:10px;font-size:10px;align-items:baseline}
+.nk-home-progress-copy strong{font-weight:600;color:#3c3f63}
+.nk-home-progress-copy b{font-size:15px}
 
-/* ---------- phone frame ---------- */
-.phone{width:392px;height:800px;background:var(--surface-2);border-radius:44px;box-shadow:0 40px 90px rgba(23,24,38,.28),0 0 0 10px #1b1c2b,0 0 0 11px #34354a;overflow:hidden;display:flex;flex-direction:column;position:relative}
-.phone-notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:110px;height:24px;background:#1b1c2b;border-radius:999px;z-index:60}
-.screen{flex:1;display:flex;flex-direction:column;overflow:hidden;position:relative}
+/* ============ UPGRADED · Home My Progress (same theme) ============ */
+.up-seg{position:relative;display:flex;background:#e7e4f3;border-radius:13px;padding:3px;margin-bottom:12px}
+.up-seg-pill{position:absolute;top:3px;bottom:3px;border-radius:10px;background:#fff;box-shadow:0 3px 10px rgba(41,38,95,.16);transition:transform .32s cubic-bezier(.3,1.2,.4,1),width .32s cubic-bezier(.3,1.2,.4,1)}
+.up-seg button{position:relative;z-index:1;flex:1;border:0;background:none;min-height:38px;font-size:11px;font-weight:750;color:#676b96;border-radius:10px;transition:color .2s}
+.up-seg button.on{color:#3d3594}
+.up-prog-card{padding:6px 14px;border:1px solid #e9eaf2;border-radius:18px;background:#fff}
+.up-prog-row{display:grid;grid-template-columns:40px 1fr;gap:10px;align-items:center;padding:11px 0;border-bottom:1px solid #f0f1f5}
+.up-prog-row:last-child{border-bottom:0}
+.up-prog-copy{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.up-prog-copy strong{font-size:10px;font-weight:600;color:#3c3f63}
+.up-prog-val{text-align:right}
+.up-prog-val b{font-size:17px;font-variant-numeric:tabular-nums;letter-spacing:-.3px}
+.up-delta{display:inline-block;font-size:9px;font-weight:800;padding:2px 7px;border-radius:999px;margin-top:3px;white-space:nowrap}
+.up-delta.is-up{background:#e6f9ef;color:#159a68}
+.up-delta.is-down{background:#fff0f1;color:#c54d5b}
+.up-delta.is-neutral{background:#f0f1f6;color:#6a6e89}
 
-/* ---------- topbar ---------- */
-.topbar{background:linear-gradient(180deg,#232245,#302e61);color:#fff;padding:14px 18px 12px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 18px rgba(0,0,0,.12);z-index:30;flex:none}
-.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px}
-.brand-mark{width:32px;height:32px;border-radius:10px;background:#3a72e4;display:grid;place-items:center;font-weight:800;font-size:17px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.16)}
-.topbar .icon-btn{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;color:#fff}
-.topbar .icon-btn:hover{background:rgba(255,255,255,.1)}
+/* ============ CURRENT · Insights controls (exact shipped styles) ============ */
+.nk-learning-insights{--li-ink:#191945;--li-muted:#74778e;--li-violet:#745be8;--li-lilac:#c7bcf5;--li-green:#18ac80;--li-red:#ed6d91;--li-amber:#de982d;color:var(--li-ink)}
+.nk-li-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 12px}
+.nk-li-head h1{font-size:27px;margin:0;letter-spacing:-.5px}
+.nk-li-head select{min-height:44px;padding:0 32px 0 12px;border:1px solid #e5e0f5;border-radius:11px;background:#f0ecfe;color:#48328f;font:inherit;font-size:12px;font-weight:750}
+.nk-li-controls{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.nk-li-period-nav{display:flex;align-items:center;gap:6px}
+.nk-li-period-nav>button{display:grid;place-items:center;width:40px;min-height:44px;border:1px solid #e9e6f2;background:#fff;border-radius:10px;color:#6251a2}
+.nk-li-period-nav strong{font-size:12px;text-align:center;min-width:130px}
+.nk-li-period-nav .nk-li-today{width:auto;padding:0 10px;font:inherit;font-size:11px}
+.nk-li-scope{display:flex;gap:8px}
+.nk-li-scope select{min-height:44px;padding:0 10px;border:1px solid #e9e6f2;border-radius:10px;background:#fff;font:inherit;font-size:11px;color:#575978}
+.nk-li-period-note{font-size:10px;color:var(--li-muted);margin:8px 0 12px;line-height:1.5}
 
-/* ---------- page ---------- */
-.page{flex:1;overflow-y:auto;padding:18px 16px 110px;scrollbar-width:none}
-.page::-webkit-scrollbar{display:none}
-.fade-in{animation:pageIn .38s cubic-bezier(.22,.9,.3,1) both}
-@keyframes pageIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+/* ============ UPGRADED · Insights controls (same theme) ============ */
+.up-li-bar{background:#fff;border:1px solid #ece9f3;border-radius:16px;padding:10px;box-shadow:0 4px 18px rgba(51,36,84,.05)}
+.up-li-row{display:flex;align-items:center;gap:8px}
+.up-li-chev{flex:none;width:42px;height:42px;border-radius:11px;border:1px solid #e9e6f2;background:#fff;color:#6251a2;display:grid;place-items:center;transition:background .15s}
+.up-li-chev:hover{background:#f4f1fd}
+.up-li-chev:disabled{opacity:.35;cursor:default}
+.up-li-seg{position:relative;flex:1;display:flex;background:#f1eefa;border-radius:12px;padding:3px}
+.up-li-seg .up-seg-pill{box-shadow:0 3px 10px rgba(98,81,162,.18)}
+.up-li-seg button{position:relative;z-index:1;flex:1;border:0;background:none;min-height:36px;font-size:11px;font-weight:750;color:#73668f;border-radius:9px;transition:color .2s}
+.up-li-seg button.on{color:#48328f}
+.up-li-today{flex:none;border:0;background:none;color:#6549c6;font-size:11px;font-weight:750;min-height:42px;padding:0 8px;display:none}
+.up-li-today.show{display:block}
+.up-li-label{font-size:12px;font-weight:750;text-align:center;margin-top:8px;min-height:18px;transition:opacity .18s}
+.up-li-label.swap{opacity:0}
+.up-li-scope{display:flex;gap:8px;margin-top:8px}
+.up-li-scope select{flex:1;min-height:40px;padding:0 10px;border:1px solid #e5def3;border-radius:10px;background:#f7f4fd;color:#614a93;font:inherit;font-size:10.5px;font-weight:650}
+.up-li-note{font-size:10px;color:#74778e;margin-top:8px;line-height:1.5}
 
-/* ---------- greeting ---------- */
-.greet-kicker{font-size:10.5px;font-weight:800;letter-spacing:1.1px;text-transform:uppercase;color:var(--primary-2)}
-.greeting h1{font-size:24px;font-weight:850;letter-spacing:-.6px;margin-top:5px}
-.greeting p{color:var(--muted);font-size:12.5px;margin-top:5px;line-height:1.5}
+/* ============ CURRENT · Insights charts (exact shipped styles) ============ */
+.nk-li-card{padding:16px;border:1px solid #ece9f3;border-radius:18px;background:#fff;min-width:0;margin-top:12px}
+.nk-li-card>header{margin-bottom:12px}
+.nk-li-card h2{font-size:14px;margin:0;letter-spacing:-.2px}
+.nk-li-key{display:flex;flex-wrap:wrap;gap:14px;font-size:9px;color:#74778e;margin:0 0 15px}
+.nk-li-key span{display:flex;align-items:center;gap:5px}
+.nk-li-key i{height:7px;width:7px;border-radius:50%;background:#745be8}
+.nk-li-key i.is-previous{background:#d5ccf9}
+.nk-li-bars{display:flex;align-items:flex-end;gap:3px;padding-top:6px}
+.nk-li-bars button{flex:1;min-width:0;border:0;border-radius:7px;background:transparent;display:flex;align-items:center;flex-direction:column;gap:7px;min-height:150px;padding:5px 1px;color:#191945;font:inherit}
+.nk-li-bars button>b{font-size:10px;font-weight:750;min-height:13px}
+.nk-li-bars button small{font-size:9px;color:#74778e;white-space:nowrap;font-variant-numeric:tabular-nums}
+.nk-li-bar-pair{height:108px;display:flex;align-items:flex-end;gap:3px;width:100%;justify-content:center}
+.nk-li-bar-pair i{width:36%;max-width:29px;display:block;border-radius:4px 4px 1px 1px;background:linear-gradient(0deg,#7860e9,#aa99f3)}
+.nk-li-bar-pair i.is-previous{background:#ddd5fa}
+.nk-li-trend{display:block;width:100%;height:auto;max-height:230px}
+.nk-li-trend-totals{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:18px;padding-top:13px;border-top:1px solid #f0edf6}
+.nk-li-trend-totals small{font-size:10px;color:#74778e}
+.nk-li-trend-totals b{font-size:19px}
+.nk-li-delta{font-size:10px;font-weight:750;white-space:nowrap;color:#69718c}
+.nk-li-delta.is-up{color:#17805f}
+.nk-li-delta.is-down{color:#a55271}
+.nk-li-delta.is-neutral{color:#69718c}
 
-/* ---------- focus card ---------- */
-.focus-card{margin-top:16px;padding:18px;border-radius:20px;background:linear-gradient(135deg,#2f2d63,#3d3a86);color:#fff;box-shadow:0 14px 34px rgba(47,45,99,.3);position:relative;overflow:hidden}
-.focus-card:after{content:"";position:absolute;right:-38px;top:-38px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(96,110,234,.5),transparent 70%)}
-.focus-card .eyebrow{font-size:10px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;opacity:.65}
-.focus-card h2{font-size:17px;font-weight:800;margin-top:7px;letter-spacing:-.2px}
-.focus-card p{font-size:12px;opacity:.75;margin-top:6px;line-height:1.5}
-.focus-actions{display:flex;gap:8px;margin-top:14px;position:relative;z-index:1}
-.focus-btn{display:inline-flex;align-items:center;gap:6px;min-height:38px;padding:0 13px;border-radius:11px;font-size:11.5px;font-weight:750;background:rgba(255,255,255,.12);color:#fff;transition:background .15s}
-.focus-btn:hover{background:rgba(255,255,255,.2)}
-.focus-btn.primary{background:#fff;color:var(--primary)}
-.focus-btn.primary:hover{background:#eef0ff}
+/* ============ UPGRADED · charts ============ */
+.up-bars button i{transition:height .45s cubic-bezier(.25,.9,.3,1)}
+.up-trend-wrap{position:relative}
+.up-trend-tip{position:absolute;pointer-events:none;background:#29265f;color:#fff;font-size:10px;font-weight:700;padding:5px 9px;border-radius:8px;white-space:nowrap;transform:translate(-50%,-120%);opacity:0;transition:opacity .15s;z-index:5}
+.up-trend-tip:after{content:"";position:absolute;left:50%;bottom:-4px;transform:translateX(-50%);border:5px solid transparent;border-top-color:#29265f;border-bottom:0}
+.up-curve{transition:opacity .3s}
+.up-draw{stroke-dasharray:900;stroke-dashoffset:900;animation:updraw 1.1s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes updraw{to{stroke-dashoffset:0}}
+.up-bin-readout{background:#f8f7fd;border-radius:10px;padding:10px;font-size:10px;line-height:1.6;color:#686485;margin-top:12px;min-height:44px;display:grid;gap:5px}
+.up-bin-readout strong{color:#453771;font-size:11px}
+.up-bin-readout small{font-size:9px;color:#74778e}
+.up-bars button.is-selected{background:#f0ecfc;box-shadow:inset 0 0 0 1px #c2b4f0}
 
-/* ---------- streak ---------- */
-.streak-card{margin-top:14px;padding:16px;border-radius:18px;background:linear-gradient(180deg,#fffaf0,#fff);border:1px solid #f0dfb8;box-shadow:0 6px 22px rgba(50,43,20,.05)}
-.streak-head{display:flex;align-items:flex-start;justify-content:space-between}
-.streak-head .section-title{font-size:14px;font-weight:780}
-.streak-head .sub{font-size:11px;color:var(--muted);font-weight:500}
-.streak-number{font-size:38px;font-weight:900;letter-spacing:-1.5px;line-height:1;margin-top:8px;color:#26264f}
-.streak-number span{font-size:14px;font-weight:800;color:var(--muted);letter-spacing:0}
-.streak-sub{font-size:11.5px;color:var(--muted);margin-top:5px}
-.flame-hero{width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,#fff1d6,#ffe4b8);display:grid;place-items:center;flex:none}
-.streak-week{display:flex;gap:5px;margin-top:14px}
-.streak-day{flex:1;text-align:center;font-size:9px;color:var(--muted);font-weight:700}
-.streak-dot{width:26px;height:26px;border-radius:9px;display:grid;place-items:center;margin:4px auto 0;border:1px solid #e5e7ee;background:#f8f9fc}
-.streak-day.done .streak-dot{background:#fff2dc;border-color:#efcb7b}
-.streak-day.today .streak-dot{box-shadow:0 0 0 3px #eef0ff}
-.streak-day.today{color:var(--primary)}
+/* ============ CURRENT · bottom nav (exact shipped styles) ============ */
+.nk-bottom-nav-v114{height:76px;background:#fff;border:1px solid #e3e6ef;border-radius:18px;display:flex;padding:6px 10px;box-shadow:0 -4px 14px rgba(27,34,67,.06)}
+.nk-bottom-nav-v114 .nav-item{flex:1;min-height:58px;border:0;background:none;color:#7b8191;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:9px;font-weight:750}
+.nk-bottom-nav-v114 .nav-icon-wrap{width:36px;height:31px;border-radius:10px;display:grid;place-items:center}
+.nk-bottom-nav-v114 .nav-item.active{color:#29265f}
+.nk-bottom-nav-v114 .nav-item.active .nav-icon-wrap{background:#eff1fb;box-shadow:inset 0 0 0 1px #d9def3}
 
-/* ---------- section title ---------- */
-.section-title{display:flex;align-items:center;justify-content:space-between;font-size:15px;font-weight:780;margin:20px 2px 10px}
-.section-title .sub{font-size:11px;color:var(--muted);font-weight:500}
+/* ============ UPGRADED · bottom nav ============ */
+.up-nav{position:relative}
+.up-nav-pill{position:absolute;top:6px;bottom:6px;border-radius:14px;background:#eff1fb;box-shadow:inset 0 0 0 1px #d9def3;transition:transform .38s cubic-bezier(.3,1.25,.4,1),width .38s cubic-bezier(.3,1.25,.4,1)}
+.up-nav .nav-item{position:relative;z-index:1;transition:color .2s}
+.up-nav .nav-item svg{transition:transform .25s cubic-bezier(.3,1.4,.5,1)}
+.up-nav .nav-item.active svg{transform:translateY(-1px) scale(1.06)}
+.up-nav .nav-item.active .nav-icon-wrap{background:none!important;box-shadow:none!important}
 
-/* ---------- upgraded stat cards (Metric HUD style) ---------- */
-.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.stat-card{position:relative;padding:15px 15px 13px;border-radius:16px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);overflow:hidden}
-.stat-card.wide{grid-column:1/-1}
-.stat-top{display:flex;align-items:center;justify-content:space-between}
-.stat-label{font-size:11px;color:var(--muted);font-weight:750;display:flex;align-items:center;gap:6px}
-.stat-icon{width:26px;height:26px;border-radius:8px;display:grid;place-items:center}
-.stat-icon.blue{background:#eaf1ff;color:#2e63c7}
-.stat-icon.green{background:#e9f8f2;color:#168261}
-.stat-icon.orange{background:#fff2df;color:#a86008}
-.stat-icon.purple{background:#efecff;color:#5044b5}
-.stat-value{font-size:27px;font-weight:850;letter-spacing:-.8px;margin-top:8px;font-variant-numeric:tabular-nums;line-height:1}
-.stat-value small{font-size:12px;color:var(--muted);font-weight:700;letter-spacing:0}
-.stat-foot{display:flex;align-items:center;justify-content:space-between;margin-top:9px}
-.stat-delta{display:inline-flex;align-items:center;gap:3px;font-size:10.5px;font-weight:800;padding:3px 7px;border-radius:999px}
-.stat-delta.up{background:#e7f8f1;color:var(--success)}
-.stat-delta.down{background:#fff0f1;color:var(--danger)}
-.stat-delta.flat{background:#f0f1f6;color:#606270}
-.stat-spark{margin-top:10px;height:30px;width:100%}
-.stat-spark svg{width:100%;height:100%;display:block}
-.stat-glow{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gc1,var(--primary-2)),var(--gc2,#7c9bff));opacity:.9}
-
-/* ---------- segmented range filter (upgraded) ---------- */
-.seg-wrap{position:relative;margin:2px 2px 12px}
-.seg{display:flex;position:relative;background:#e9ebf3;border-radius:13px;padding:3px}
-.seg-pill{position:absolute;top:3px;bottom:3px;border-radius:10px;background:#fff;box-shadow:0 3px 10px rgba(32,34,58,.14);transition:transform .38s cubic-bezier(.34,1.4,.4,1),width .38s cubic-bezier(.34,1.4,.4,1);z-index:0}
-.seg button{position:relative;z-index:1;flex:1;padding:8px 4px;font-size:11.5px;font-weight:750;color:var(--muted);border-radius:10px;transition:color .2s;letter-spacing:.1px}
-.seg button.active{color:var(--primary)}
-.seg-note{text-align:center;font-size:10px;color:var(--muted);margin-top:8px;font-weight:600}
-
-/* before/after toggle for filter */
-.ba-toggle{display:inline-flex;background:#e9ebf3;border-radius:999px;padding:2px;margin-left:8px;vertical-align:middle}
-.ba-toggle button{font-size:9.5px;font-weight:800;padding:4px 10px;border-radius:999px;color:var(--muted);letter-spacing:.3px}
-.ba-toggle button.on{background:var(--primary);color:#fff}
-.legacy-seg{display:flex;gap:6px;margin:2px 2px 12px}
-.legacy-seg button{flex:1;padding:9px 4px;font-size:11px;font-weight:700;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:9px;transition:.12s}
-.legacy-seg button.active{color:var(--primary);background:#eef0fa;border-color:#d5d9ee}
-
-/* ---------- chart card ---------- */
-.chart-card{padding:16px;border-radius:18px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow)}
-.chart-head{display:flex;align-items:baseline;justify-content:space-between}
-.chart-head .t{font-size:13.5px;font-weight:780}
-.chart-head .v{font-size:20px;font-weight:850;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
-.chart-head .v small{font-size:11px;color:var(--muted);font-weight:700}
-.chart-plot{position:relative;margin-top:10px;height:150px}
-.chart-plot svg{width:100%;height:100%;display:block;overflow:visible}
-.chart-tip{position:absolute;pointer-events:none;background:#232245;color:#fff;font-size:10px;font-weight:700;padding:5px 9px;border-radius:8px;transform:translate(-50%,-115%);opacity:0;transition:opacity .15s;white-space:nowrap;z-index:5}
-.chart-tip:after{content:"";position:absolute;left:50%;bottom:-4px;transform:translateX(-50%);border:5px solid transparent;border-top-color:#232245;border-bottom:0}
-.chart-x{display:flex;justify-content:space-between;font-size:9px;color:var(--muted);font-weight:600;margin-top:6px;padding:0 2px}
-
-/* ---------- chapter performance ---------- */
-.chapter-row{display:flex;align-items:center;gap:12px;padding:12px 2px;border-top:1px solid var(--line)}
-.chapter-row:first-child{border-top:0}
-.chapter-main{flex:1;min-width:0}
-.chapter-name{font-weight:700;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.chapter-meta{font-size:10.5px;color:var(--muted);margin-top:3px}
-.chapter-bar{width:104px;flex:none}
-.chapter-pct{text-align:right;font-weight:800;font-size:11.5px;margin-bottom:5px;font-variant-numeric:tabular-nums}
-.pbar{height:6px;border-radius:999px;background:#eceef4;overflow:hidden}
-.pbar>span{display:block;height:100%;border-radius:inherit;transition:width .9s cubic-bezier(.22,.9,.3,1)}
-
-/* ---------- upgraded bottom nav ---------- */
-.bottom-nav{position:absolute;bottom:0;left:0;right:0;z-index:40;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);display:flex;padding:7px 8px calc(9px + env(safe-area-inset-bottom))}
-.nav-item{flex:1;min-height:52px;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:9.5px;font-weight:700;color:#858895;position:relative;transition:color .2s}
-.nav-item svg{width:21px;height:21px;transition:transform .25s cubic-bezier(.34,1.5,.5,1)}
-.nav-item.active{color:var(--primary)}
-.nav-item.active svg{transform:translateY(-1px) scale(1.08)}
-.nav-pill{position:absolute;top:7px;bottom:7px;border-radius:14px;background:linear-gradient(135deg,#eef0ff,#e4e9ff);box-shadow:inset 0 0 0 1px #dfe4fb;transition:transform .42s cubic-bezier(.34,1.35,.4,1),width .42s cubic-bezier(.34,1.35,.4,1);z-index:0}
-.nav-item>*{position:relative;z-index:1}
-
-/* ---------- preview badge ---------- */
-.preview-badge{position:absolute;top:38px;right:14px;z-index:50;background:var(--primary);color:#fff;font-size:8.5px;font-weight:800;letter-spacing:1px;padding:4px 9px;border-radius:999px;box-shadow:0 4px 12px rgba(47,45,99,.35)}
-
-/* ---------- legend / footnote under phone ---------- */
-.stage-foot{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
-.chip{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;color:var(--muted);background:#fff;border:1px solid var(--line);padding:7px 13px;border-radius:999px;box-shadow:var(--shadow)}
-.chip i{width:8px;height:8px;border-radius:50%;display:inline-block}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{transition:none!important;animation:none!important}
+}
 </style>
 </head>
 <body>
-<div class="stage">
-  <div class="stage-head">
-    <span class="kicker">UI Upgrade Preview</span>
-    <h1>QBank V10.1 — refreshed interface concepts</h1>
-    <p>Inspired by <b>easyui.site</b> (pill navigation, metric HUD, animated numbers) — rebuilt in your existing theme. <b>Nothing in your repo was touched.</b> Click around: the nav, filters and charts are live.</p>
-  </div>
+<div class="pv-page">
 
-  <div class="phone">
-    <div class="phone-notch"></div>
-    <div class="screen">
-      <div class="preview-badge">PREVIEW</div>
-      <header class="topbar">
-        <div class="brand"><div class="brand-mark">Q</div><span id="topTitle">QBank</span></div>
-        <button class="icon-btn" aria-label="Notifications">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></svg>
-        </button>
-      </header>
+  <header class="pv-hero">
+    <span class="pv-kicker">UI upgrade preview · easyui-inspired</span>
+    <h1>NK QBank — refreshed interface concepts</h1>
+    <p>Left shows your <b>actual shipped UI</b> (same markup and styles as production). Right shows the <b>upgraded version</b> in the identical theme — sliding pill controls, animated values, smoother charts. <b>Nothing in your app was touched.</b> Everything on the right is interactive: tap the filters, bars and nav.</p>
+  </header>
 
-      <main class="page" id="page"></main>
-
-      <nav class="bottom-nav" id="bottomNav">
-        <div class="nav-pill" id="navPill"></div>
-      </nav>
+  <!-- 01 · HOME MY PROGRESS -->
+  <section class="pv-sec" id="home-progress">
+    <div class="pv-sec-head"><span class="n">01</span><h2>Home · My Progress filter + stats</h2><span class="file">tools/apply_home_command_center_v1.py</span></div>
+    <p class="pv-sec-sub">The range picker (Today / This Week / This Month / This Year) and the three rows — Unique questions answered, Answer accuracy, Study Time.</p>
+    <div class="pv-pair">
+      <div class="pv-col">
+        <span class="pv-tag is-current">Current · static replica</span>
+        <div class="pv-phone">
+          <section class="nk-home-progress">
+            <div class="nk-home-progress-head"><h2>My Progress</h2>
+              <label class="nk-home-range"><select aria-label="Progress range"><option>Today</option><option selected>This Week</option><option>This Month</option><option>This Year</option></select><span>⌄</span></label>
+            </div>
+            <div class="nk-home-progress-card">
+              <div class="nk-home-progress-row"><span class="nk-home-progress-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5"/><path d="M4 19h16"/><path d="m7 15 3-4 3 2 5-7"/></svg></span><div><div class="nk-home-progress-copy"><strong>Unique questions answered</strong><b>142</b></div></div></div>
+              <div class="nk-home-progress-row"><span class="nk-home-progress-icon is-green"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></span><div><div class="nk-home-progress-copy"><strong>Answer accuracy</strong><b>76%</b></div></div></div>
+              <div class="nk-home-progress-row"><span class="nk-home-progress-icon is-blue"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/></svg></span><div><div class="nk-home-progress-copy"><strong>Study Time</strong><b>9h 41m</b></div></div></div>
+            </div>
+          </section>
+        </div>
+        <p class="pv-note"><b>What feels off today:</b> a native dropdown for the range, and switching it re-renders the whole page (scroll and focus jump). The rows are static — no sense of change versus the previous period.</p>
+      </div>
+      <div class="pv-col">
+        <span class="pv-tag is-new">Upgraded · interactive</span>
+        <div class="pv-phone">
+          <section class="nk-home-progress">
+            <div class="nk-home-progress-head"><h2>My Progress</h2></div>
+            <div class="up-seg" id="upHomeSeg" role="group" aria-label="Progress range">
+              <div class="up-seg-pill" id="upHomePill"></div>
+            </div>
+            <div class="up-prog-card">
+              <div class="up-prog-row"><span class="nk-home-progress-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5"/><path d="M4 19h16"/><path d="m7 15 3-4 3 2 5-7"/></svg></span>
+                <div class="up-prog-copy"><strong>Unique questions answered</strong><span class="up-prog-val"><b id="upHAttempted">0</b><br><span class="up-delta is-up" id="upHAttemptedD"></span></span></div></div>
+              <div class="up-prog-row"><span class="nk-home-progress-icon is-green"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></span>
+                <div class="up-prog-copy"><strong>Answer accuracy</strong><span class="up-prog-val"><b id="upHAcc">0%</b><br><span class="up-delta is-up" id="upHAccD"></span></span></div></div>
+              <div class="up-prog-row"><span class="nk-home-progress-icon is-blue"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/></svg></span>
+                <div class="up-prog-copy"><strong>Study Time</strong><span class="up-prog-val"><b id="upHTime">—</b><br><span class="up-delta is-up" id="upHTimeD"></span></span></div></div>
+            </div>
+          </section>
+        </div>
+        <p class="pv-note"><b>What changed:</b> one-tap segmented control with a sliding pill — no dropdown, no page flash. Values count up on switch, and each row gains an honest delta versus the previous equivalent period (same wording your Insights already uses).</p>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="stage-foot">
-    <span class="chip"><i style="background:#3d65d8"></i>Same theme &amp; colors</span>
-    <span class="chip"><i style="background:#159a74"></i>Sliding pill navigation</span>
-    <span class="chip"><i style="background:#e79b18"></i>Animated metric cards</span>
-    <span class="chip"><i style="background:#2f2d63"></i>Smooth range filters</span>
-  </div>
+  <!-- 02 · INSIGHTS CONTROLS -->
+  <section class="pv-sec" id="insights-controls">
+    <div class="pv-sec-head"><span class="n">02</span><h2>Insights · period + scope controls</h2><span class="file">tools/learning_insights_core.js</span></div>
+    <p class="pv-sec-sub">The Week / Month / Year picker, prev–next stepper with Today reset, and the subject / bank scope pickers.</p>
+    <div class="pv-pair">
+      <div class="pv-col">
+        <span class="pv-tag is-current">Current · static replica</span>
+        <div class="pv-phone">
+          <div class="nk-learning-insights">
+            <header class="nk-li-head"><div><h1>Insights</h1></div>
+              <label><select aria-label="Time period"><option selected>This Week</option><option>This Month</option><option>This Year</option></select></label>
+            </header>
+            <div class="nk-li-controls">
+              <div class="nk-li-period-nav">
+                <button type="button" aria-label="Previous week"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/><path d="M9 12h11"/></svg></button>
+                <strong>5 – 11 Oct</strong>
+                <button type="button" aria-label="Next week" disabled><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></button>
+              </div>
+              <div class="nk-li-scope">
+                <label><select aria-label="Insights subject"><option>All subjects</option><option>Anatomy</option><option>Physiology</option><option>Biochemistry</option></select></label>
+                <label><select aria-label="Insights bank"><option>All banks</option><option>PrepLadder</option><option>Marrow</option></select></label>
+              </div>
+            </div>
+            <p class="nk-li-period-note">Compared with 28 Sep – 4 Oct · to date</p>
+          </div>
+        </div>
+        <p class="pv-note"><b>What feels off today:</b> three separate mechanisms for one idea (dropdown + arrows + Today), all native controls with inconsistent styling, and the range label swaps with no transition.</p>
+      </div>
+      <div class="pv-col">
+        <span class="pv-tag is-new">Upgraded · interactive</span>
+        <div class="pv-phone">
+          <div class="nk-learning-insights">
+            <header class="nk-li-head"><div><h1>Insights</h1></div></header>
+            <div class="up-li-bar">
+              <div class="up-li-row">
+                <button class="up-li-chev" id="upLiPrev" aria-label="Previous period"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+                <div class="up-li-seg" id="upLiSeg" role="group" aria-label="Time period"><div class="up-seg-pill" id="upLiPill"></div></div>
+                <button class="up-li-chev" id="upLiNext" aria-label="Next period"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></button>
+                <button class="up-li-today" id="upLiToday">Today</button>
+              </div>
+              <div class="up-li-label" id="upLiLabel">This week · 5 – 11 Oct</div>
+              <div class="up-li-scope">
+                <select aria-label="Insights subject"><option>All subjects</option><option>Anatomy</option><option>Physiology</option><option>Biochemistry</option></select>
+                <select aria-label="Insights bank"><option>All banks</option><option>PrepLadder</option><option>Marrow</option></select>
+              </div>
+            </div>
+            <p class="up-li-note" id="upLiNote">Compared with 28 Sep – 4 Oct · to date</p>
+          </div>
+        </div>
+        <p class="pv-note"><b>What changed:</b> one unified bar — chevrons, sliding Week/Month/Year pill and Today reset belong together. The label crossfades instead of snapping. Scope pickers keep their behavior, restyled to match. Try the chevrons: the next arrow disables at today, like production.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 · INSIGHTS CHARTS -->
+  <section class="pv-sec" id="insights-charts">
+    <div class="pv-sec-head"><span class="n">03</span><h2>Insights · Questions chart + Study-time trend</h2><span class="file">tools/learning_insights_core.js</span></div>
+    <p class="pv-sec-sub">The current-vs-previous bar chart and the study-time trend line, driven by the same period control.</p>
+    <div class="pv-pair">
+      <div class="pv-col">
+        <span class="pv-tag is-current">Current · static replica</span>
+        <div class="pv-phone">
+          <div class="nk-learning-insights">
+            <div class="nk-li-card"><header><h2>Questions practised</h2></header>
+              <div class="nk-li-key"><span><i></i>This week</span><span><i class="is-previous"></i>Previous week</span></div>
+              <div class="nk-li-bars" id="curBars"></div>
+            </div>
+            <div class="nk-li-card"><header><h2>Study time trend</h2></header>
+              <div class="nk-li-key"><span><i></i>This week</span><span><i class="is-previous"></i>Previous week</span></div>
+              <svg class="nk-li-trend" viewBox="0 0 400 200" id="curTrend"></svg>
+              <div class="nk-li-trend-totals"><span><small>This week</small><b>9h 41m</b></span><span class="nk-li-delta is-up">↑ 12%</span><span><small>Previous week</small><b>8h 38m</b></span></div>
+            </div>
+          </div>
+        </div>
+        <p class="pv-note"><b>What feels off today:</b> solid charts, but bars snap to new heights on period change with no transition, dots have title-tooltips only (no touch feedback), and the trend line just appears.</p>
+      </div>
+      <div class="pv-col">
+        <span class="pv-tag is-new">Upgraded · interactive</span>
+        <div class="pv-phone">
+          <div class="nk-learning-insights">
+            <div class="nk-li-card"><header><h2>Questions practised</h2></header>
+              <div class="nk-li-key"><span><i></i><span id="upBarsCur">This week</span></span><span><i class="is-previous"></i><span id="upBarsPrev">Previous week</span></span></div>
+              <div class="nk-li-bars up-bars" id="upBars"></div>
+              <div class="up-bin-readout" id="upBinReadout"></div>
+            </div>
+            <div class="nk-li-card"><header><h2>Study time trend</h2></header>
+              <div class="nk-li-key"><span><i></i><span id="upTrendCur">This week</span></span><span><i class="is-previous"></i><span id="upTrendPrev">Previous week</span></span></div>
+              <div class="up-trend-wrap" id="upTrendWrap"><div class="up-trend-tip" id="upTrendTip"></div><svg class="nk-li-trend" viewBox="0 0 400 200" id="upTrend"></svg></div>
+              <div class="nk-li-trend-totals"><span><small id="upTrendCurT">This week</small><b id="upTrendVal">9h 41m</b></span><span class="nk-li-delta is-up" id="upTrendDelta">↑ 12%</span><span><small id="upTrendPrevT">Previous week</small><b id="upTrendPrevVal">8h 38m</b></span></div>
+            </div>
+          </div>
+        </div>
+        <p class="pv-note"><b>What changed:</b> bars glide to new heights when the period changes; tapping a bar opens the same detail readout production shows. The trend draws in once, and hovering or touching it scrubs values with a guide line — same violet, same type, same wording.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 · BOTTOM NAV -->
+  <section class="pv-sec" id="bottom-nav">
+    <div class="pv-sec-head"><span class="n">04</span><h2>Bottom navigation · active indicator</h2><span class="file">tools/apply_home_command_center_v1.py (BOTTOM_NAV)</span></div>
+    <p class="pv-sec-sub">Home · FSRS · Tests · Insights · More. Same items, same icons, same active colors.</p>
+    <div class="pv-pair">
+      <div class="pv-col">
+        <span class="pv-tag is-current">Current · interactive</span>
+        <div class="pv-phone">
+          <nav class="nk-bottom-nav-v114" aria-label="Primary navigation" id="curNav"></nav>
+        </div>
+        <p class="pv-note"><b>What feels off today:</b> the active tab is only a color change — the highlight snaps with no sense of movement between tabs.</p>
+      </div>
+      <div class="pv-col">
+        <span class="pv-tag is-new">Upgraded · interactive</span>
+        <div class="pv-phone">
+          <nav class="nk-bottom-nav-v114 up-nav" aria-label="Primary navigation" id="upNav"><div class="up-nav-pill" id="upNavPill"></div></nav>
+        </div>
+        <p class="pv-note"><b>What changed:</b> a single pill glides behind the active tab (transform-only, 60fps-friendly). Tap through the tabs to feel it. Colors, sizes and icons are untouched.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="pv-foot">
+    <b>Assumptions &amp; next step.</b> Sample numbers stand in for real study data; all wording, colors, radii and iconography follow your shipped stylesheets. Motion is transform/opacity-only and fully disabled under <b>prefers-reduced-motion</b>, per your codebase convention. If you approve any piece, I will port it into the matching <b>tools/apply_*_v1.py</b> transform as a narrow, contract-safe change — nothing else moves. If not, deleting this one file discards the whole experiment.
+  </footer>
+
 </div>
 
 <script>
-/* ================= data ================= */
-const RANGES = {
-  day:   { label:'Today',        hours:'1h 24m', questions:18, accuracy:'72%', delta:'+8%',  up:true,  spark:[2,4,3,6,5,8,7,9], chart:[4,6,5,8,7,9,8,10], x:['6a','9a','12p','3p','6p','9p'] },
-  week:  { label:'This Week',    hours:'9h 41m', questions:142, accuracy:'78%', delta:'+12%', up:true,  spark:[5,7,6,9,8,10,9,11], chart:[8,10,9,12,11,13,12,14], x:['M','T','W','T','F','S','S'] },
-  month: { label:'This Month',   hours:'38h 07m', questions:586, accuracy:'74%', delta:'+5%',  up:true,  spark:[9,12,10,14,12,15,13,16], chart:[12,15,13,17,15,18,16,19], x:['W1','W2','W3','W4','W5'] }
+'use strict';
+/* ---------- icons (exact paths from the app's navIcon) ---------- */
+const S = (p,s=21)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
+const IC = {
+  home: s=>S('<path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V10Z"/>',s),
+  refresh: s=>S('<path d="M20 11a8 8 0 0 0-14.8-4L3 9"/><path d="M3 4v5h5M4 13a8 8 0 0 0 14.8 4L21 15"/><path d="M21 20v-5h-5"/>',s),
+  test: s=>S('<rect x="6" y="3" width="12" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h3"/>',s),
+  chart: s=>S('<path d="M4 19V5"/><path d="M4 19h16"/><path d="m7 15 3-4 3 2 5-7"/>',s),
+  more: s=>S('<circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/>',s)
 };
-const CHAPTERS = [
-  { name:'General Anatomy',        done:34, total:40, acc:85 },
-  { name:'Upper Limb',             done:28, total:36, acc:78 },
-  { name:'Lower Limb',             done:19, total:38, acc:50 },
-  { name:'Thorax & Abdomen',       done:12, total:30, acc:40 },
-  { name:'Neuroanatomy',           done:8,  total:32, acc:25 }
-];
+const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* ================= state ================= */
-let current = 'dashboard';
-let range = 'week';
-let legacyFilter = false;
-
-/* ================= helpers ================= */
-const $ = s => document.querySelector(s);
-const icon = (name, size=21) => {
-  const c = `width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"`;
-  const p = {
-    home:`<svg ${c}><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V10Z"/></svg>`,
-    book:`<svg ${c}><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21V5.5Z"/><path d="M4 5.5V21"/></svg>`,
-    test:`<svg ${c}><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h3"/></svg>`,
-    chart:`<svg ${c}><path d="M4 19V5"/><path d="M4 19h16"/><path d="m7 15 3-4 3 2 5-7"/></svg>`,
-    more:`<svg ${c}><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg>`,
-    clock:`<svg ${c}><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/></svg>`,
-    flame:`<svg ${c}><path d="M12 2c1 4-4 6-4 11a4.5 4.5 0 0 0 9 0c0-2-1-3.5-2-5-.5 1.5-1.5 2-2.5 2C13 7 13 4 12 2Z"/></svg>`,
-    zap:`<svg ${c}><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg>`,
-    target:`<svg ${c}><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg>`,
-    trend:`<svg ${c}><path d="m3 17 6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>`
-  };
-  return p[name] || p.more;
+/* ---------- sample data (stands in for real study state) ---------- */
+const HOME = {
+  today:{label:'Today', attempted:18, acc:72, ms:5040000, pAttempted:11, pAcc:64, pMs:3120000},
+  week:{label:'This Week', attempted:142, acc:76, ms:34860000, pAttempted:118, pAcc:71, pMs:31080000},
+  month:{label:'This Month', attempted:586, acc:74, ms:136620000, pAttempted:540, pAcc:72, pMs:129000000},
+  year:{label:'This Year', attempted:2688, acc:75, ms:511200000, pAttempted:0, pAcc:null, pMs:0}
+};
+const PERIODS = {
+  week:{unit:'week', cur:'This week', prev:'Previous week', range:'5 – 11 Oct', note:'Compared with 28 Sep – 4 Oct · to date',
+    bins:['Mon','Tue','Wed','Thu','Fri','Sat','Sun'], curV:[12,18,9,24,15,20,8], prevV:[10,14,12,18,11,16,9],
+    curT:[1.1,1.8,0.9,2.4,1.5,2.0,0.8], prevT:[1.0,1.4,1.2,1.8,1.1,1.6,0.9], tot:'9h 41m', prevTot:'8h 38m', delta:['↑ 12%','is-up']},
+  month:{unit:'month', cur:'This month', prev:'Previous month', range:'October 2026', note:'Compared with 1 – 30 Sep · to date',
+    bins:['1–7','8–14','15–21','22–28','29–31'], curV:[86,74,92,68,41], prevV:[70,80,75,72,38],
+    curT:[9.5,8.2,10.1,7.4,4.5], prevT:[7.7,8.8,8.2,7.9,4.2], tot:'38h 07m', prevTot:'35h 48m', delta:['↑ 7%','is-up']},
+  year:{unit:'year', cur:'This year', prev:'Previous year', range:'2026', note:'Compared with 1 Jan – 8 Oct 2025 · to date',
+    bins:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct'], curV:[120,140,160,150,180,170,190,200,210,96], prevV:[0,0,0,0,0,0,0,0,90,120],
+    curT:[12,14,16,15,18,17,19,20,21,9.6], prevT:[0,0,0,0,0,0,0,0,9,12], tot:'142h 20m', prevTot:'21h 00m', delta:['New activity','is-neutral']}
 };
 
-/* spring count-up */
-function countUp(el, target, {dur=900, decimals=0, suffix=''} = {}) {
-  const start = performance.now();
-  const from = 0;
-  function tick(t){
-    const k = Math.min(1, (t - start) / dur);
-    const e = 1 - Math.pow(1 - k, 3);
-    const v = from + (target - from) * e;
-    el.textContent = v.toFixed(decimals).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + suffix;
-    if (k < 1) requestAnimationFrame(tick);
-  }
-  requestAnimationFrame(tick);
+/* ---------- helpers ---------- */
+function fmtStudy(ms){ if(!ms) return '—'; const m=Math.floor(ms/60000); const h=Math.floor(m/60); return (h?h+'h ':'')+(m%60)+'m'; }
+function countUp(el, to, fmt){
+  if(REDUCED){ el.textContent = fmt(to); return; }
+  const t0 = performance.now(), dur = 650;
+  (function tick(t){
+    const k = Math.min(1,(t-t0)/dur), e = 1-Math.pow(1-k,3);
+    el.textContent = fmt(to*e);
+    if(k<1) requestAnimationFrame(tick); else el.textContent = fmt(to);
+  })(t0);
+}
+const fmtInt = v=>Math.round(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');
+function deltaHTML(cur, prev, isPct){
+  if(prev===null||prev===undefined) return ['No comparison yet','is-neutral'];
+  if(!prev && !isPct) return [cur?'New activity':'No change','is-neutral'];
+  const d = isPct ? cur-prev : (cur-prev)/prev*100;
+  if(Math.abs(d)<.05) return ['No change','is-neutral'];
+  return [(d>0?'↑ ':'↓ ')+Math.abs(d).toFixed(isPct?1:0)+(isPct?' pp':'%'), d>0?'is-up':'is-down'];
+}
+function movePill(pill, seg, btn){
+  const sr = seg.getBoundingClientRect(), r = btn.getBoundingClientRect();
+  pill.style.width = r.width+'px';
+  pill.style.transform = `translateX(${r.left-sr.left-3}px)`;
 }
 
-/* sparkline */
-function sparkSVG(data, color){
-  const w=120,h=30,max=Math.max(...data),min=Math.min(...data);
-  const px = i => 3 + i*(w-6)/(data.length-1);
-  const py = v => h-4 - (v-min)/(max-min||1)*(h-8);
-  const pts = data.map((v,i)=>`${px(i)},${py(v)}`).join(' ');
-  const area = `3,${h} ${pts} ${w-3},${h}`;
-  return `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
-    <polygon points="${area}" fill="${color}" opacity=".08"/>
-    <polyline points="${pts}" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="${px(data.length-1)}" cy="${py(data[data.length-1])}" r="3" fill="${color}"/>
-  </svg>`;
-}
-
-/* ================= pages ================= */
-function dashboardPage(){
-  const r = RANGES[range];
-  return `<div class="fade-in">
-    <div class="greeting">
-      <div class="greet-kicker">Anatomy · Personal QBank</div>
-      <h1>Good evening</h1>
-      <p>One clear next step, then the rest of your study day.</p>
-    </div>
-
-    <section class="focus-card">
-      <div class="eyebrow">Your next best move</div>
-      <h2>You have 12 review questions due.</h2>
-      <p>Start with the review queue to strengthen what is due today.</p>
-      <div class="focus-actions">
-        <button class="focus-btn primary">${icon('clock',15)} Review 12</button>
-        <button class="focus-btn">${icon('book',15)} Practice 20</button>
-        <button class="focus-btn">${icon('test',15)} Timed CBT</button>
-      </div>
-    </section>
-
-    <div class="streak-card">
-      <div class="streak-head">
-        <div>
-          <div class="section-title" style="margin:0"><span>Study Streak</span><span class="sub">Keep the chain alive</span></div>
-          <div class="streak-number" data-count="14">0<span> days</span></div>
-          <div class="streak-sub">Nice — keep going today.</div>
-        </div>
-        <div class="flame-hero">${icon('flame',26)}</div>
-      </div>
-      <div class="streak-week">
-        ${['M','T','W','T','F','S','S'].map((d,i)=>`<div class="streak-day ${i<5?'done':''} ${i===5?'today':''}"><div class="streak-dot">${i<5?icon('flame',13):''}</div><b>${d}</b><small>${i===5?'Today':i+3}</small></div>`).join('')}
-      </div>
-    </div>
-
-    <div class="section-title"><span>At a glance</span><span class="sub" id="rangeSub">Live · ${r.label}</span></div>
-
-    ${legacyFilter ? legacyRange() : upgradedRange()}
-
-    <div class="stat-grid">
-      <div class="stat-card" style="--gc1:#3d65d8;--gc2:#7c9bff">
-        <div class="stat-glow"></div>
-        <div class="stat-top"><span class="stat-label">${icon('clock',13)} Study time</span><span class="stat-icon blue">${icon('clock',14)}</span></div>
-        <div class="stat-value" id="statHours">0</div>
-        <div class="stat-foot"><span class="stat-delta up">${icon('trend',10)} ${r.delta}</span><span style="font-size:10px;color:var(--muted);font-weight:600">vs prev</span></div>
-        <div class="stat-spark">${sparkSVG(r.spark,'#3d65d8')}</div>
-      </div>
-      <div class="stat-card" style="--gc1:#159a74;--gc2:#4ade9e">
-        <div class="stat-glow"></div>
-        <div class="stat-top"><span class="stat-label">${icon('zap',13)} Questions</span><span class="stat-icon green">${icon('zap',14)}</span></div>
-        <div class="stat-value" id="statQ">0</div>
-        <div class="stat-foot"><span class="stat-delta up">${icon('trend',10)} ${r.delta}</span><span style="font-size:10px;color:var(--muted);font-weight:600">vs prev</span></div>
-        <div class="stat-spark">${sparkSVG(r.spark,'#159a74')}</div>
-      </div>
-      <div class="stat-card" style="--gc1:#e79b18;--gc2:#fbbf24">
-        <div class="stat-glow"></div>
-        <div class="stat-top"><span class="stat-label">${icon('target',13)} Accuracy</span><span class="stat-icon orange">${icon('target',14)}</span></div>
-        <div class="stat-value" id="statAcc">0%</div>
-        <div class="stat-foot"><span class="stat-delta up">${icon('trend',10)} +3%</span><span style="font-size:10px;color:var(--muted);font-weight:600">vs prev</span></div>
-        <div class="stat-spark">${sparkSVG(r.spark,'#e79b18')}</div>
-      </div>
-      <div class="stat-card" style="--gc1:#5044b5;--gc2:#8b7cf6">
-        <div class="stat-glow"></div>
-        <div class="stat-top"><span class="stat-label">${icon('book',13)} Due review</span><span class="stat-icon purple">${icon('book',14)}</span></div>
-        <div class="stat-value" id="statDue">0</div>
-        <div class="stat-foot"><span class="stat-delta down">${icon('trend',10)} −4</span><span style="font-size:10px;color:var(--muted);font-weight:600">queue</span></div>
-        <div class="stat-spark">${sparkSVG([...r.spark].reverse(),'#5044b5')}</div>
-      </div>
-    </div>
-  </div>`;
-}
-
-function analyticsPage(){
-  const r = RANGES[range];
-  return `<div class="fade-in">
-    <div class="section-title" style="margin-top:2px"><span>Insights</span><span class="sub">Performance built from your attempts</span></div>
-
-    ${legacyFilter ? legacyRange() : upgradedRange()}
-
-    <div class="chart-card">
-      <div class="chart-head">
-        <span class="t">Questions over time</span>
-        <span class="v" id="chartVal">0 <small>today</small></span>
-      </div>
-      <div class="chart-plot" id="chartPlot">
-        <div class="chart-tip" id="chartTip"></div>
-      </div>
-      <div class="chart-x" id="chartX"></div>
-    </div>
-
-    <div class="section-title"><span>Chapter Performance</span><span class="sub">Accuracy by chapter</span></div>
-    <div class="chart-card" style="padding:6px 16px">
-      ${CHAPTERS.map(c=>`
-        <div class="chapter-row">
-          <div class="chapter-main">
-            <div class="chapter-name">${c.name}</div>
-            <div class="chapter-meta">${c.done}/${c.total} completed</div>
-          </div>
-          <div class="chapter-bar">
-            <div class="chapter-pct" style="color:${c.acc>=75?'var(--success)':c.acc>=50?'var(--warning)':'var(--danger)'}">${c.acc}%</div>
-            <div class="pbar"><span data-w="${c.acc}" style="width:0%;background:${c.acc>=75?'var(--success)':c.acc>=50?'var(--warning)':'var(--danger)'}"></span></div>
-          </div>
-        </div>`).join('')}
-    </div>
-  </div>`;
-}
-
-/* ================= range filters ================= */
-function upgradedRange(){
-  return `<div class="seg-wrap">
-    <div class="seg" id="seg">
-      <div class="seg-pill" id="segPill"></div>
-      ${Object.entries(RANGES).map(([k,v])=>`<button data-range="${k}" class="${k===range?'active':''}">${v.label}</button>`).join('')}
-    </div>
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:2px">
-      <span class="seg-note">Slide between ranges — stats morph with spring physics</span>
-      <span class="ba-toggle">
-        <button id="baNew" class="${!legacyFilter?'on':''}">NEW</button>
-        <button id="baOld" class="${legacyFilter?'on':''}">OLD</button>
-      </span>
-    </div>
-  </div>`;
-}
-function legacyRange(){
-  return `<div class="legacy-seg" id="legacySeg">
-    ${Object.entries(RANGES).map(([k,v])=>`<button data-range="${k}" class="${k===range?'active':''}">${v.label}</button>`).join('')}
-  </div>
-  <div style="display:flex;justify-content:space-between;align-items:center;margin:-6px 2px 12px">
-    <span class="seg-note">Current implementation — plain buttons, no motion</span>
-    <span class="ba-toggle">
-      <button id="baNew" class="on">NEW</button>
-      <button id="baOld">OLD</button>
-    </span>
-  </div>`;
-}
-
-/* ================= chart ================= */
-function buildChart(){
-  const plot = $('#chartPlot');
-  const r = RANGES[range];
-  const data = r.chart, labels = r.x;
-  const w = 340, h = 150, pad = 6;
-  const max = Math.max(...data)*1.15, min = 0;
-  const px = i => pad + i*(w-2*pad)/(data.length-1);
-  const py = v => h-pad - (v-min)/(max-min)*(h-2*pad);
-  const pts = data.map((v,i)=>[px(i),py(v)]);
-  const line = pts.map(p=>p.join(',')).join(' ');
-  const area = `${pad},${h-pad} ${line} ${w-pad},${h-pad}`;
-  const gid = 'g'+range;
-  plot.insertAdjacentHTML('afterbegin', `
-    <svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
-      <defs>
-        <linearGradient id="${gid}" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#3d65d8" stop-opacity=".22"/>
-          <stop offset="1" stop-color="#3d65d8" stop-opacity="0"/>
-        </linearGradient>
-      </defs>
-      ${[0.25,0.5,0.75].map(f=>`<line x1="${pad}" x2="${w-pad}" y1="${h*f}" y2="${h*f}" stroke="#ececf2" stroke-width="1"/>`).join('')}
-      <polygon points="${area}" fill="url(#${gid})" class="chart-area"/>
-      <polyline points="${line}" fill="none" stroke="#3d65d8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="chart-line"/>
-      ${pts.map((p,i)=>`<circle cx="${p[0]}" cy="${p[1]}" r="3.5" fill="#fff" stroke="#3d65d8" stroke-width="2.5" class="chart-dot" data-i="${i}" opacity="0"/>`).join('')}
-      <line id="scrub" x1="0" x2="0" y1="4" y2="${h-4}" stroke="#2f2d63" stroke-width="1" stroke-dasharray="3 3" opacity="0"/>
-    </svg>`);
-  $('#chartX').innerHTML = labels.map(l=>`<span>${l}</span>`).join('');
-
-  const svg = plot.querySelector('svg');
-  const tip = $('#chartTip');
-  const scrub = $('#scrub');
-  const dots = [...plot.querySelectorAll('.chart-dot')];
-  const valEl = $('#chartVal');
-
-  function moveScrub(clientX){
-    const rect = svg.getBoundingClientRect();
-    const x = (clientX - rect.left) * (w / rect.width);
-    let best = 0, bd = Infinity;
-    pts.forEach((p,i)=>{ const d = Math.abs(p[0]-x); if(d<bd){bd=d;best=i;} });
-    const [cx,cy] = pts[best];
-    scrub.setAttribute('x1',cx); scrub.setAttribute('x2',cx);
-    scrub.setAttribute('opacity','.6');
-    dots.forEach((d,i)=>d.setAttribute('opacity', i===best?1:0));
-    tip.style.left = (cx/w*100)+'%';
-    tip.style.top = (cy/h*100)+'%';
-    tip.style.opacity = 1;
-    tip.textContent = `${data[best]} questions · ${labels[best]}`;
-    valEl.innerHTML = `${data[best]} <small>${labels[best]}</small>`;
-  }
-  svg.addEventListener('pointermove', e => moveScrub(e.clientX));
-  svg.addEventListener('pointerleave', () => {
-    scrub.setAttribute('opacity','0');
-    dots.forEach(d=>d.setAttribute('opacity','0'));
-    tip.style.opacity = 0;
-    valEl.innerHTML = `${r.questions} <small>${r.label.toLowerCase()}</small>`;
+/* ---------- 01 · upgraded home progress ---------- */
+let homeRange = 'week';
+const homeSeg = document.getElementById('upHomeSeg'), homePill = document.getElementById('upHomePill');
+Object.keys(HOME).forEach(k=>{
+  const b = document.createElement('button');
+  b.textContent = HOME[k].label; b.dataset.range = k;
+  if(k===homeRange) b.classList.add('on');
+  b.addEventListener('click', ()=>{ homeRange = k;
+    homeSeg.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
+    movePill(homePill, homeSeg, b); updateHome();
   });
+  homeSeg.appendChild(b);
+});
+function updateHome(){
+  const d = HOME[homeRange];
+  countUp(document.getElementById('upHAttempted'), d.attempted, fmtInt);
+  countUp(document.getElementById('upHAcc'), d.acc, v=>Math.round(v)+'%');
+  countUp(document.getElementById('upHTime'), d.ms/60000, v=>fmtStudy(v*60000));
+  const [aT,aC] = deltaHTML(d.attempted, d.pAttempted, false);
+  const [cT,cC] = deltaHTML(d.acc, d.pAcc, true);
+  const [tT,tC] = deltaHTML(d.ms, d.pMs, false);
+  const set = (id,txt,cls)=>{ const e=document.getElementById(id); e.textContent=txt; e.className='up-delta '+cls; };
+  set('upHAttemptedD',aT,aC); set('upHAccD',cT,cC); set('upHTimeD',tT,tC);
 }
+requestAnimationFrame(()=>{ movePill(homePill, homeSeg, homeSeg.querySelector('button.on')); updateHome(); });
 
-/* ================= nav ================= */
-const NAV = [
-  ['dashboard','Home','home'],
-  ['topics','Topics','book'],
-  ['tests','Tests','test'],
-  ['analytics','Insights','chart'],
-  ['more','More','more']
-];
-const TITLES = { dashboard:'QBank', topics:'Topics', tests:'Tests', analytics:'Insights', more:'More' };
+/* ---------- 02 · upgraded insights controls ---------- */
+let liPeriod = 'week', liOffset = 0;
+const liSeg = document.getElementById('upLiSeg'), liPill = document.getElementById('upLiPill');
+['week','month','year'].forEach(k=>{
+  const b = document.createElement('button');
+  b.textContent = k[0].toUpperCase()+k.slice(1); b.dataset.p = k;
+  if(k===liPeriod) b.classList.add('on');
+  b.addEventListener('click', ()=>{ liPeriod = k; liOffset = 0;
+    liSeg.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
+    movePill(liPill, liSeg, b); updateLi();
+  });
+  liSeg.appendChild(b);
+});
+function liRangeText(){
+  const p = PERIODS[liPeriod];
+  if(liOffset===0) return [`${p.cur} · ${p.range}`, p.note];
+  const n = -liOffset;
+  const unit = liPeriod==='week' ? (n===1?'Last week':n+' weeks ago') : liPeriod==='month' ? (n===1?'Last month':n+' months ago') : (n===1?'Last year':n+' years ago');
+  return [`${unit} · ${p.range}`, `Compared with the previous ${p.unit} · historical`];
+}
+function updateLi(){
+  const lbl = document.getElementById('upLiLabel');
+  const apply = ()=>{
+    const [t,note] = liRangeText();
+    lbl.textContent = t;
+    document.getElementById('upLiNote').textContent = note;
+    document.getElementById('upLiPrev').disabled = false;
+    document.getElementById('upLiNext').disabled = liOffset===0;
+    document.getElementById('upLiToday').classList.toggle('show', liOffset!==0);
+    lbl.classList.remove('swap');
+  };
+  if(REDUCED){ apply(); }
+  else { lbl.classList.add('swap'); setTimeout(apply, 160); }
+  updateCharts();
+}
+document.getElementById('upLiPrev').addEventListener('click', ()=>{ liOffset--; updateLi(); });
+document.getElementById('upLiNext').addEventListener('click', ()=>{ if(liOffset<0){ liOffset++; updateLi(); } });
+document.getElementById('upLiToday').addEventListener('click', ()=>{ liOffset = 0; updateLi(); });
+requestAnimationFrame(()=>movePill(liPill, liSeg, liSeg.querySelector('button.on')));
 
-function buildNav(){
-  const nav = $('#bottomNav');
-  nav.querySelectorAll('.nav-item').forEach(n=>n.remove());
+/* ---------- 03 · current replicas (static) ---------- */
+(function(){
+  const bins = ['M','T','W','T','F','S','S'], cur=[12,18,9,24,15,20,8], prev=[10,14,12,18,11,16,9];
+  const max = Math.max(...cur, ...prev);
+  document.getElementById('curBars').innerHTML = bins.map((b,i)=>
+    `<button type="button" tabindex="-1"><b>${cur[i]}</b><span class="nk-li-bar-pair"><i style="height:${cur[i]/max*108}px"></i><i class="is-previous" style="height:${prev[i]/max*108}px"></i></span><small>${b}</small></button>`).join('');
+  const t=[1.1,1.8,0.9,2.4,1.5,2.0,0.8], p=[1.0,1.4,1.2,1.8,1.1,1.6,0.9], mx=2.4;
+  const x=i=>35+i*345/6, y=v=>172-v/mx*138;
+  const path=a=>a.map((v,i)=>`${i===0?'M':'L'} ${x(i).toFixed(1)} ${y(v).toFixed(1)}`).join(' ');
+  document.getElementById('curTrend').innerHTML =
+    [0,.5,1].map(n=>`<line x1="35" x2="380" y1="${172-n*138}" y2="${172-n*138}" stroke="#ebeaf4"/>`).join('')+
+    `<path d="${path(t)} L ${x(6)} 172 L 35 172 Z" fill="#7861ee" opacity=".12"/>`+
+    `<path d="${path(p)}" fill="none" stroke="#cdc4f5" stroke-width="2.5" stroke-dasharray="5 5"/>`+
+    `<path d="${path(t)}" fill="none" stroke="#7861ee" stroke-width="3"/>`;
+})();
+
+/* ---------- 03 · upgraded charts ---------- */
+let upBin = -1;
+function renderUpBars(){
+  const p = PERIODS[liPeriod], max = Math.max(1,...p.curV,...p.prevV);
+  const el = document.getElementById('upBars');
+  el.innerHTML = p.bins.map((b,i)=>
+    `<button type="button" data-i="${i}" class="${upBin===i?'is-selected':''}" aria-pressed="${upBin===i}" aria-label="${b}: ${p.curV[i]} answers"><b>${p.curV[i]}</b><span class="nk-li-bar-pair"><i style="height:${p.curV[i]/max*108}px"></i><i class="is-previous" style="height:${p.prevV[i]/max*108}px"></i></span><small>${b}</small></button>`).join('');
+  el.querySelectorAll('button').forEach(btn=>btn.addEventListener('click', ()=>{
+    upBin = Number(btn.dataset.i);
+    el.querySelectorAll('button').forEach((x,j)=>{ x.classList.toggle('is-selected',j===upBin); x.setAttribute('aria-pressed',String(j===upBin)); });
+    const i = upBin;
+    document.getElementById('upBinReadout').innerHTML =
+      `<strong>${p.bins[i]} · ${p.cur}</strong><span>${p.curV[i]} answers · ${Math.round(p.curT[i]*60)}m study time</span><small>${p.prev}: ${p.prevV[i]} answers · ${Math.round(p.prevT[i]*60)}m</small>`;
+  }));
+  document.getElementById('upBinReadout').innerHTML = upBin<0
+    ? `<span style="color:#74778e">Tap a ${liPeriod==='year'?'month':liPeriod==='month'?'week':'day'} to see its detail — same readout as production.</span>`
+    : document.getElementById('upBinReadout').innerHTML;
+  document.getElementById('upBarsCur').textContent = p.cur;
+  document.getElementById('upBarsPrev').textContent = p.prev;
+}
+function renderUpTrend(animate){
+  const p = PERIODS[liPeriod], n = p.bins.length, mx = Math.max(1,...p.curT,...p.prevT);
+  const x=i=>35+i*345/Math.max(1,n-1), y=v=>172-v/mx*138;
+  const path=a=>a.map((v,i)=>`${i===0?'M':'L'} ${x(i).toFixed(1)} ${y(v).toFixed(1)}`).join(' ');
+  const svg = document.getElementById('upTrend');
+  svg.innerHTML =
+    [0,.5,1].map(g=>`<line x1="35" x2="380" y1="${172-g*138}" y2="${172-g*138}" stroke="#ebeaf4"/><text x="2" y="${176-g*138}" font-size="12" fill="#74788f">${(mx*g).toFixed(mx<2?1:0)}h</text>`).join('')+
+    `<path d="${path(p.curT)} L ${x(n-1)} 172 L 35 172 Z" fill="#7861ee" opacity=".12" class="up-curve"/>`+
+    `<path d="${path(p.prevT)}" fill="none" stroke="#cdc4f5" stroke-width="2.5" stroke-dasharray="5 5" class="up-curve"/>`+
+    `<path d="${path(p.curT)}" fill="none" stroke="#7861ee" stroke-width="3" class="${animate&&!REDUCED?'up-draw':''}"/>`+
+    `<line id="upScrub" x1="0" x2="0" y1="6" y2="176" stroke="#29265f" stroke-width="1" stroke-dasharray="3 3" opacity="0"/>`+
+    p.bins.map((b,i)=>`<text x="${x(i)}" y="196" text-anchor="middle" font-size="11" fill="#74788f">${b}</text>`).join('');
+  const tip = document.getElementById('upTrendTip'), wrap = document.getElementById('upTrendWrap');
+  const scrub = svg.querySelector('#upScrub');
+  svg.onpointermove = e=>{
+    const r = svg.getBoundingClientRect();
+    const sx = (e.clientX-r.left)*(400/r.width);
+    let best=0,bd=1e9;
+    p.bins.forEach((_,i)=>{ const d=Math.abs(x(i)-sx); if(d<bd){bd=d;best=i;} });
+    scrub.setAttribute('x1',x(best)); scrub.setAttribute('x2',x(best)); scrub.setAttribute('opacity','.55');
+    tip.style.left = (x(best)/400*100)+'%'; tip.style.top = (y(p.curT[best])/200*100)+'%';
+    tip.style.opacity = 1;
+    tip.textContent = `${p.bins[best]} · ${p.curT[best].toFixed(1)}h`;
+  };
+  svg.onpointerleave = ()=>{ scrub.setAttribute('opacity','0'); tip.style.opacity = 0; };
+  void wrap.offsetWidth;
+  document.getElementById('upTrendCur').textContent = p.cur;
+  document.getElementById('upTrendPrev').textContent = p.prev;
+  document.getElementById('upTrendCurT').textContent = p.cur;
+  document.getElementById('upTrendPrevT').textContent = p.prev;
+  document.getElementById('upTrendVal').textContent = p.tot;
+  document.getElementById('upTrendPrevVal').textContent = p.prevTot;
+  const d = document.getElementById('upTrendDelta');
+  d.textContent = p.delta[0]; d.className = 'nk-li-delta '+p.delta[1];
+}
+function updateCharts(){ upBin = -1; renderUpBars(); renderUpTrend(false); }
+renderUpBars(); renderUpTrend(true);
+
+/* ---------- 04 · navs ---------- */
+const NAV = [['dashboard','Home','home'],['fsrs','FSRS','refresh'],['tests','Tests','test'],['analytics','Insights','chart'],['more','More','more']];
+function buildNav(el, active, onTap){
   NAV.forEach(([id,label,ic])=>{
     const b = document.createElement('button');
-    b.className = 'nav-item' + (id===current?' active':'');
-    b.dataset.page = id;
-    b.innerHTML = `${icon(ic,22)}<span>${label}</span>`;
-    b.addEventListener('click', ()=>go(id));
-    nav.appendChild(b);
-  });
-  requestAnimationFrame(movePill);
-}
-
-function movePill(){
-  const pill = $('#navPill');
-  const active = $('.nav-item.active');
-  if(!active) return;
-  const nav = $('#bottomNav');
-  const nr = nav.getBoundingClientRect();
-  const r = active.getBoundingClientRect();
-  pill.style.width = (r.width)+'px';
-  pill.style.transform = `translateX(${r.left - nr.left}px)`;
-}
-
-function go(page){
-  if(page === current) return;
-  current = page;
-  document.querySelectorAll('.nav-item').forEach(n=>n.classList.toggle('active', n.dataset.page===page));
-  $('#topTitle').textContent = TITLES[page] || 'QBank';
-  movePill();
-  render();
-}
-
-/* ================= render ================= */
-function render(){
-  const page = $('#page');
-  page.innerHTML = current === 'analytics' ? analyticsPage() : dashboardPage();
-
-  /* range filter events */
-  const seg = $('#seg');
-  if(seg){
-    seg.querySelectorAll('button').forEach(b=>b.addEventListener('click', ()=>{
-      range = b.dataset.range;
-      seg.querySelectorAll('button').forEach(x=>x.classList.toggle('active', x===b));
-      requestAnimationFrame(moveSegPill);
-      updateStats();
-    }));
-    requestAnimationFrame(moveSegPill);
-  }
-  const legacy = $('#legacySeg');
-  if(legacy){
-    legacy.querySelectorAll('button').forEach(b=>b.addEventListener('click', ()=>{
-      range = b.dataset.range;
-      legacy.querySelectorAll('button').forEach(x=>x.classList.toggle('active', x===b));
-      updateStats();
-    }));
-  }
-  document.querySelectorAll('#baNew').forEach(b=>b.addEventListener('click', ()=>{ legacyFilter=false; render(); }));
-  document.querySelectorAll('#baOld').forEach(b=>b.addEventListener('click', ()=>{ legacyFilter=true; render(); }));
-
-  updateStats();
-  if(current === 'analytics'){
-    buildChart();
-    requestAnimationFrame(()=>document.querySelectorAll('.pbar>span').forEach(s=>s.style.width=s.dataset.w+'%'));
-  }
-}
-
-function moveSegPill(){
-  const pill = $('#segPill');
-  const seg = $('#seg');
-  const active = seg.querySelector('button.active');
-  if(!pill || !seg || !active) return;
-  const sr = seg.getBoundingClientRect();
-  const r = active.getBoundingClientRect();
-  pill.style.width = r.width+'px';
-  pill.style.transform = `translateX(${r.left - sr.left - 3}px)`;
-}
-
-function updateStats(){
-  const r = RANGES[range];
-  const sub = $('#rangeSub'); if(sub) sub.textContent = `Live · ${r.label}`;
-  const h = $('#statHours'); if(h){ const [hh,mm] = r.hours.split(' '); countUp(h, parseInt(hh), {suffix:'h '+mm}); }
-  const q = $('#statQ'); if(q) countUp(q, r.questions);
-  const a = $('#statAcc'); if(a) countUp(a, parseInt(r.accuracy), {suffix:'%'});
-  const d = $('#statDue'); if(d) countUp(d, range==='day'?12:range==='week'?12:12);
-  document.querySelectorAll('.stat-spark').forEach((s,i)=>{
-    const colors = ['#3d65d8','#159a74','#e79b18','#5044b5'];
-    s.innerHTML = sparkSVG(r.spark, colors[i % 4]);
+    b.className = 'nav-item'+(id===active?' active':'');
+    b.setAttribute('aria-current', id===active?'page':'false');
+    b.innerHTML = `<span class="nav-icon-wrap">${IC[ic](21)}</span><span>${label}</span>`;
+    b.addEventListener('click', ()=>onTap(id));
+    el.appendChild(b);
   });
 }
-
-/* ================= init ================= */
-window.addEventListener('resize', ()=>{ movePill(); if($('#seg')) moveSegPill(); });
-buildNav();
-render();
+let curActive = 'dashboard';
+const curNav = document.getElementById('curNav');
+buildNav(curNav, curActive, id=>{ curActive = id;
+  curNav.querySelectorAll('.nav-item').forEach(n=>{
+    const on = n.textContent.trim().startsWith(NAV.find(x=>x[0]===id)[1]);
+    n.classList.toggle('active', on); n.setAttribute('aria-current', on?'page':'false');
+  });
+});
+let upActive = 'dashboard';
+const upNav = document.getElementById('upNav'), upNavPill = document.getElementById('upNavPill');
+buildNav(upNav, upActive, id=>{ upActive = id;
+  upNav.querySelectorAll('.nav-item').forEach(n=>{
+    const on = n.textContent.trim().startsWith(NAV.find(x=>x[0]===id)[1]);
+    n.classList.toggle('active', on); n.setAttribute('aria-current', on?'page':'false');
+  });
+  requestAnimationFrame(moveUpNavPill);
+});
+function moveUpNavPill(){
+  const a = upNav.querySelector('.nav-item.active'); if(!a) return;
+  const nr = upNav.getBoundingClientRect(), r = a.getBoundingClientRect();
+  upNavPill.style.width = r.width+'px';
+  upNavPill.style.transform = `translateX(${r.left-nr.left-10}px)`;
+}
+requestAnimationFrame(moveUpNavPill);
+addEventListener('resize', ()=>{
+  const hb = homeSeg.querySelector('button.on'); if(hb) movePill(homePill, homeSeg, hb);
+  const lb = liSeg.querySelector('button.on'); if(lb) movePill(liPill, liSeg, lb);
+  moveUpNavPill();
+});
 </script>
 </body>
 </html>
