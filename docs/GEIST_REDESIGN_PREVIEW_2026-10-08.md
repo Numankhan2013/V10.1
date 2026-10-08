@@ -25,6 +25,8 @@ Audited Home, Profile, Revision/FSRS, Tests, CBT builder → timed CBT → resul
 - Insights: previous-week bars visible in light/dark; the arbitrarily amber "Recorded study time" tile is neutral.
 - Result score ring: legacy lavender track (inline style) swapped for the neutral token.
 - Home section headings share one size and left edge.
+- Every legacy `.is-primary` action is the inverse button (chapter "Practice" was white on white).
+- Revision forecast: zero days draw as a hairline instead of a dark slab; chart/metric captions ≥10.5px.
 - `#profile` no longer flashes the dashboard (route attribute set before first render + `:has()` guard).
 
 ## Known limits

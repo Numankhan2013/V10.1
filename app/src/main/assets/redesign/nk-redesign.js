@@ -426,6 +426,11 @@
     syncThemeControls();
     measureDock();
     neutralizeInlineTracks(app);
+    var zero = app.querySelectorAll('.nk-review-chart > span');
+    for (var z = 0; z < zero.length; z++) {
+      var b = zero[z].querySelector('b');
+      zero[z].classList.toggle('nkg-zero', !!b && b.textContent.trim() === '0');
+    }
   }
   /* A few charts set their track colour inline (legacy lavender #eceaf4 /
      #eeecf4 / #ebe6f5). Swap only that literal for the neutral token. */

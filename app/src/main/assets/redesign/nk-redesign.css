@@ -523,3 +523,14 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-command-center :is(.nk-sec
 html[data-nk-ui="geist"][data-nkg-route="profile"] #app main.page:not(:has(.nkg-profile)),
 html[data-nk-ui="geist"][data-nkg-route="profile"] #app .nk-global-header-v114 { visibility: hidden !important; }
 
+/* Revision forecast: a zero day is a hairline, not a dark slab that reads as data. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-review-chart > span.nkg-zero > i { background: var(--nkg-border-strong) !important; height: 2px !important; min-height: 2px !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-review-chart small,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-review-metrics small { font-size: 10.5px !important; letter-spacing: .02em; }
+/* Every legacy `.is-primary` action (chapter "Practice", builder Continue, ...) is the one
+   inverse button of its group; the generated theme had left some white-on-white. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) #app button.is-primary:not(:disabled) {
+  background: var(--nkg-inverse-bg) !important; color: var(--nkg-inverse-fg) !important; border-color: var(--nkg-inverse-bg) !important;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) #app button.is-primary:not(:disabled) :is(strong, b, span) { color: inherit !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) #app button.is-primary:not(:disabled) small { color: color-mix(in srgb, var(--nkg-inverse-fg) 70%, transparent) !important; }
