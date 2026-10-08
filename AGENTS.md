@@ -98,7 +98,7 @@ commit/run when useful and tell the next agent to resolve live HEAD from Git.
 - Prefer building over narrating; verify by execution (`python3`, `node --check`,
   `gh run view`, artifact inspection) where possible.
 
-## File map (verified 2026-09-07, branch `v11.7-cross-device-pwa-sync`)
+## File map (refreshed 2026-10-08, branch `main`)
 
 - `app/src/main/assets/index.html` — monolithic WebView app (source ~6 MB on
   V11 branches; 1.9 MB on stale `main`)
@@ -110,7 +110,7 @@ commit/run when useful and tell the next agent to resolve live HEAD from Git.
   `tools/verify_build_pipeline.py`; contracts by
   `tools/verify_product_contract.py` and `tools/verify_cbt_invariants.py`
 - `.github/workflows/build-apk.yml` — deterministic Android + PWA pipeline
-  (`Build V11.7 Android + PWA`); `engineering-gate.yml` — fast contract gate
+  (`Build and verify PWA (optional APK)`; APK only with `build_apk=true`); `engineering-gate.yml` — fast contract gate
 - `data/subjects_qbank_lzma.b64.part*` — bundled subject data parts
 - `data/marrow/*` + `docs/MARROW_BANK_INTEGRATION.md` — hash-verified Marrow pilot data and canonical multi-bank expansion runbook
 
@@ -126,14 +126,7 @@ Each must remain a thin pointer such as:
 
 Do not copy product/architecture/roadmap content into adapters.
 
-<!-- V11.7_DEPLOYMENT_HANDOFF_2026-09-07 -->
-## V11.7 deployment handoff — 2026-09-07
-
-- Active candidate: `v11.7-cross-device-pwa-sync`. Physically accepted rollback baseline remains **V11.6 Content Quality** at `125d68b`; do not call V11.7 accepted until Android migration and Android↔iPad sync pass on real devices.
-- Firebase/Firestore is configured and builds now report `QBANK_RUNTIME_CONFIG_OK firebase=configured`. Exact GitHub Variables: `QBANK_FIREBASE_API_KEY`, `QBANK_FIREBASE_PROJECT_ID`, `QBANK_ANATOMY_PDF_URL`. Firestore user-scoped rules and the intentionally empty composite-index set are deployed.
-- Cloudflare Pages project: `nk-qbank`; canonical root: `https://nk-qbank.pages.dev`. The production release workflow sets the Direct Upload project production branch to `main` before upload. Release `d43da3dbdaa639214d676b333152654568fe5ba9` was promoted in run `36325843382`; root, `main.nk-qbank.pages.dev`, and preview `https://37799f47.nk-qbank.pages.dev` serve byte-identical builds (HTTP 200).
-- Anatomy source PDF uses the configured public R2 object URL because it is ~46 MiB; Biochemistry and Physiology PDFs ship inside `build/web`.
-- Physical iPad testing found and fixed two browser runtime bugs: `278b6c5` fixed the blank-screen sync bootstrap (`nkAuth` initialization timing); `7b047e5` fixed PDF.js canvas creation by avoiding a local `document` name that shadowed the DOM document.
-- Latest hashed preview opens successfully on iPad. Before the production-promotion workflow change, the root `nk-qbank.pages.dev` still served the older blank production deployment. Source-PDF rendering, Anatomy/R2 CORS, final production URL, Android in-place upgrade, and full two-way sync still require physical verification.
-- Remaining physical checks: install the current APK over the existing Android install without uninstalling; verify local data preservation and same-account Android/iPad sync, offline/reconnect, force-close/reopen, and sign-out/in behavior. PWA production root is current.
-
+Archived history (not current state): `.project-memory/archive/` holds the V11.7
+deployment handoff and pre-cleanup snapshots of `STATE.md` and `ROADMAP.md`.
+Firebase / Cloudflare Pages (`nk-qbank`) / R2 Anatomy PDF deployment facts are in
+that archived handoff and `.project-memory/ARCHITECTURE.md`.
