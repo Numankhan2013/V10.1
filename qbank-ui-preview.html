@@ -3,468 +3,340 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NK QBank — UI Upgrade Preview (faithful current vs upgraded)</title>
+<title>NK QBank — UI Preview v12 (Geist redesign theme)</title>
 <style>
-/* ============ preview chrome ============ */
+/* ============ v12 · Geist preview chrome (mirrors redesign/nk-tokens.css) ============ */
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,sans-serif;background:#f8fafc;color:#0f172a;min-height:100vh}
+html,body{min-height:100vh}
+body{background:#fafafa;color:#171717}
 button{font:inherit;cursor:pointer}
+#pv{--bg:#ffffff;--sub:#fafafa;--s2:#f5f5f5;--hov:#f2f2f2;--act:#ededed;--bd:#e5e5e5;--bds:#d4d4d4;--fg:#171717;--fg2:#4d4d4d;--fg3:#666666;--inv:#171717;--invf:#ffffff;--grn:#0a7d35;--grnb:#ecf8f0;--grnbd:#b6e3c6;--red:#c9252c;--redb:#fdeeee;--redbd:#f5c2c4;--amb:#a35200;--ambb:#fff5e3;--ambbd:#f6d9a6;--org:#e5530b;--orgb:#fff1e8;--mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;font-family:"Geist",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--sub);color:var(--fg);min-height:100vh;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+#pv[data-gtheme="dark"]{--bg:#0a0a0a;--sub:#000000;--s2:#161616;--hov:#1a1a1a;--act:#222222;--bd:#262626;--bds:#383838;--fg:#ededed;--fg2:#b4b4b4;--fg3:#999999;--inv:#ededed;--invf:#0a0a0a;--grn:#46c96f;--grnb:#0c2416;--grnbd:#1b4d2d;--red:#ff6b70;--redb:#2c0f12;--redbd:#5c1f24;--amb:#f5a524;--ambb:#291c05;--ambbd:#57390b;--org:#ff8a3d;--orgb:#2b1607;color-scheme:dark}
+#pv[data-gtheme="dark"] body{background:#000}
 .pv-page{max-width:1180px;margin:0 auto;padding:40px 20px 80px}
 .pv-hero{text-align:center;max-width:720px;margin:0 auto 36px}
-.pv-kicker{display:inline-block;font-size:11px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:#1e1b4b;background:#eef2ff;padding:6px 14px;border-radius:999px;margin-bottom:14px}
-.pv-hero h1{font-size:28px;font-weight:850;letter-spacing:-.6px}
-.pv-hero p{color:#64748b;font-size:13.5px;margin-top:10px;line-height:1.6}
-.pv-hero p b{color:#0f172a}
+.pv-kicker{display:inline-block;font-size:12px;font-weight:500;color:var(--fg3);margin-bottom:12px}
+.pv-kicker b{font-family:var(--mono);font-weight:600;color:var(--fg2)}
+.pv-hero h1{font-size:26px;font-weight:600;letter-spacing:-.03em;line-height:1.2}
+.pv-hero p{color:var(--fg2);font-size:13.5px;margin-top:10px;line-height:1.6}
+.pv-hero p b{color:var(--fg);font-weight:600}
+.pv-theme{display:inline-flex;padding:3px;gap:2px;border-radius:8px;background:var(--s2);border:1px solid var(--bd);margin-top:16px}
+.pv-theme button{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 14px;border:0;border-radius:6px;background:transparent;color:var(--fg2);font-size:13px;font-weight:500}
+.pv-theme button[aria-pressed="true"]{background:var(--bg);color:var(--fg);box-shadow:0 1px 1px rgba(0,0,0,.02),0 4px 8px -4px rgba(0,0,0,.05),0 16px 24px -8px rgba(0,0,0,.07)}
 .pv-sec{margin-top:44px}
 .pv-sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:6px;flex-wrap:wrap}
-.pv-sec-head .n{font-size:12px;font-weight:850;color:#fff;background:#1e1b4b;border-radius:8px;padding:3px 9px}
-.pv-sec-head h2{font-size:19px;font-weight:800;letter-spacing:-.3px}
-.pv-sec-head .file{font-size:11px;color:#64748b;font-family:ui-monospace,Menlo,Consolas,monospace}
-.pv-sec-sub{font-size:12.5px;color:#64748b;margin:0 0 16px;line-height:1.55;max-width:760px}
+.pv-sec-head .n{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--fg2);border:1px solid var(--bd);border-radius:6px;padding:3px 9px;background:var(--bg)}
+.pv-sec-head h2{font-size:18px;font-weight:600;letter-spacing:-.015em}
+.pv-sec-head .file{font-size:11px;color:var(--fg3);font-family:var(--mono)}
+.pv-sec-sub{font-size:12.5px;color:var(--fg2);margin:0 0 16px;line-height:1.55;max-width:760px}
 .pv-pair{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
 @media(max-width:900px){.pv-pair{grid-template-columns:1fr}}
 .pv-col{display:grid;gap:10px;justify-items:stretch}
-.pv-tag{justify-self:start;font-size:10px;font-weight:850;letter-spacing:1.1px;text-transform:uppercase;padding:5px 12px;border-radius:999px}
-.pv-tag.is-current{background:#f1f5f9;color:#64748b}
-.pv-tag.is-new{background:#1e1b4b;color:#fff}
-.pv-phone{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:20px 16px 24px;box-shadow:0 1px 3px rgba(0,0,0,.03)}
-.pv-note{font-size:11.5px;color:#64748b;line-height:1.6;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:10px 13px}
-.pv-note b{color:#0f172a}
-.pv-foot{margin-top:56px;font-size:12px;color:#64748b;line-height:1.7;background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:18px 20px}
-.pv-foot b{color:#0f172a}
+.pv-tag{justify-self:start;font-size:12px;font-weight:500;padding:4px 0;color:var(--fg3)}
+.pv-tag.is-new{color:var(--fg);font-weight:600}
+.pv-phone{background:var(--bg);border:1px solid var(--bd);border-radius:16px;padding:20px 16px 24px;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.pv-note{font-size:12px;color:var(--fg2);line-height:1.6;background:var(--bg);border:1px solid var(--bd);border-radius:12px;padding:10px 13px}
+.pv-note b{color:var(--fg);font-weight:600}
+.pv-foot{margin-top:56px;font-size:12px;color:var(--fg2);line-height:1.7;background:var(--bg);border:1px solid var(--bd);border-radius:16px;padding:18px 20px}
+.pv-foot b{color:var(--fg)}
+.gs-num{font-family:var(--mono);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
 
-/* ============ CURRENT · Home My Progress (pre-redesign structure) ============ */
-.nk-home-progress{color:#0f172a}
-.nk-home-progress-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
-.nk-home-progress-head h2{margin:0;font-size:18px}
-.nk-home-range{display:flex;align-items:center;color:#64748b;font-size:10px}
-.nk-home-range select{appearance:none;border:0;background:transparent;padding:8px 15px 8px 8px;color:inherit;font:inherit;font-weight:750}
-.nk-home-range>span{margin-left:-13px;pointer-events:none}
-.nk-home-progress-card{padding:4px 14px;border:1px solid #e2e8f0;border-radius:18px;background:#fff}
-.nk-home-progress-row{display:grid;grid-template-columns:40px 1fr;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid #f1f5f9}
-.nk-home-progress-row:last-child{border-bottom:0}
-.nk-home-progress-icon{width:35px;height:35px;border-radius:11px;display:grid;place-items:center;background:#eff6ff;color:#2563eb}
-.nk-home-progress-icon.is-green{background:#ecfdf5;color:#059669}
-.nk-home-progress-icon.is-blue{background:#eff6ff;color:#2563eb}
-.nk-home-progress-copy{display:flex;justify-content:space-between;gap:10px;font-size:10px;align-items:baseline}
-.nk-home-progress-copy strong{font-weight:600;color:#334155}
-.nk-home-progress-copy b{font-size:15px}
+/* ============ Geist shared atoms ============ */
+.gs-card{background:var(--bg);border:1px solid var(--bd);border-radius:12px;box-shadow:none}
+.gs-kicker{font-size:12px;font-weight:500;color:var(--fg3)}
+.gs-h{font-size:18px;font-weight:600;letter-spacing:-.015em;color:var(--fg)}
+.gs-seg{display:inline-flex;padding:3px;gap:2px;border-radius:8px;background:var(--s2);border:1px solid var(--bd);position:relative}
+.gs-seg button{position:relative;z-index:1;display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 12px;border:0;border-radius:6px;background:transparent;color:var(--fg2);font-size:13px;font-weight:500;flex:1;justify-content:center;white-space:nowrap}
+.gs-seg button.on{color:var(--fg)}
+.gs-seg-pill{position:absolute;top:3px;bottom:3px;border-radius:6px;background:var(--bg);box-shadow:0 1px 1px rgba(0,0,0,.02),0 4px 8px -4px rgba(0,0,0,.05),0 16px 24px -8px rgba(0,0,0,.07);transition:transform 180ms cubic-bezier(.23,1,.32,1),width 180ms cubic-bezier(.23,1,.32,1)}
+.gs-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 16px;border-radius:8px;border:1px solid transparent;font-size:14px;font-weight:500;white-space:nowrap}
+.gs-btn-primary{background:var(--inv);color:var(--invf);border-color:var(--inv)}
+.gs-btn-secondary{background:var(--bg);color:var(--fg);border-color:var(--bds);box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.gs-btn-ghost{background:transparent;color:var(--fg2)}
+.gs-btn:active{transform:scale(.97)}
+.gs-delta{display:inline-block;font-size:12px;font-weight:500;padding:2px 8px;border-radius:6px;margin-top:4px;white-space:nowrap;border:1px solid transparent}
+.gs-delta.is-up{background:var(--grnb);color:var(--grn);border-color:var(--grnbd)}
+.gs-delta.is-down{background:var(--redb);color:var(--red);border-color:var(--redbd)}
+.gs-delta.is-neutral{background:var(--s2);color:var(--fg2);border-color:var(--bd)}
+.gs-readout{font-size:12px;color:var(--fg2);background:var(--sub);border:1px solid var(--bd);border-radius:8px;padding:9px 11px;margin-top:10px;min-height:34px}
+.gs-readout strong{color:var(--fg);font-weight:600}
+.gs-tip{position:absolute;pointer-events:none;background:var(--inv);color:var(--invf);border-radius:8px;padding:8px 11px;min-width:104px;transform:translate(-50%,-115%);opacity:0;transition:opacity 180ms;z-index:6;text-align:left}
+.gs-tip .t{font-size:12px;color:var(--invf);opacity:.7;font-weight:500;white-space:nowrap}
+.gs-tip .v{font-size:17px;font-weight:600;font-family:var(--mono);margin-top:1px}
+.gs-tip .p{font-size:12px;opacity:.7;margin-top:1px;white-space:nowrap}
 
-/* ============ UPGRADED · Home My Progress (same theme) ============ */
-.up-seg{position:relative;display:flex;background:#f1f5f9;border-radius:13px;padding:3px;margin-bottom:12px}
-.up-seg-pill{position:absolute;top:3px;bottom:3px;border-radius:10px;background:#fff;box-shadow:0 3px 10px rgba(15,23,42,.12);transition:transform .32s cubic-bezier(.3,1.2,.4,1),width .32s cubic-bezier(.3,1.2,.4,1)}
-.up-seg button{position:relative;z-index:1;flex:1;border:0;background:none;min-height:38px;font-size:11px;font-weight:750;color:#64748b;border-radius:10px;transition:color .2s}
-.up-seg button.on{color:#1e1b4b}
-.up-prog-card{padding:6px 14px;border:1px solid #e2e8f0;border-radius:18px;background:#fff}
-.up-prog-row{display:grid;grid-template-columns:40px 1fr;gap:10px;align-items:center;padding:11px 0;border-bottom:1px solid #f1f5f9}
-.up-prog-row:last-child{border-bottom:0}
-.up-prog-copy{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
-.up-prog-copy strong{font-size:10px;font-weight:600;color:#334155}
-.up-prog-val{text-align:right}
-.up-prog-val b{font-size:17px;font-variant-numeric:tabular-nums;letter-spacing:-.3px}
-.up-delta{display:inline-block;font-size:9px;font-weight:800;padding:2px 7px;border-radius:999px;margin-top:3px;white-space:nowrap}
-.up-delta.is-up{background:#ecfdf5;color:#059669}
-.up-delta.is-down{background:#fff1f2;color:#e11d48}
-.up-delta.is-neutral{background:#f1f5f9;color:#64748b}
+/* Geist custom dropdown */
+.gs-dd{position:relative;flex:1;min-width:0}
+.gs-dd-btn{width:100%;min-height:44px;padding:0 12px;border:1px solid var(--bds);border-radius:8px;background:var(--bg);color:var(--fg);font-size:13px;font-weight:500;display:flex;align-items:center;gap:8px;text-align:left}
+.gs-dd-btn .gs-dd-val{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gs-dd-btn .gs-dd-chev{flex:none;display:grid;place-items:center;color:var(--fg3)}
+.gs-dd.open .gs-dd-btn{box-shadow:0 1px 1px rgba(0,0,0,.02),0 8px 16px -4px rgba(0,0,0,.07),0 24px 48px -12px rgba(0,0,0,.16)}
+.gs-dd-panel{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:30;background:var(--bg);border:1px solid var(--bd);border-radius:12px;box-shadow:0 1px 1px rgba(0,0,0,.02),0 8px 16px -4px rgba(0,0,0,.07),0 24px 48px -12px rgba(0,0,0,.16);padding:5px;opacity:0;transform:translateY(-4px);pointer-events:none;transition:opacity 180ms cubic-bezier(.23,1,.32,1),transform 180ms cubic-bezier(.23,1,.32,1)}
+.gs-dd.open .gs-dd-panel{opacity:1;transform:none;pointer-events:auto}
+.gs-dd-opt{display:flex;align-items:center;gap:9px;width:100%;border:0;background:none;text-align:left;padding:9px 10px;border-radius:8px;color:var(--fg);min-height:44px}
+.gs-dd-opt:hover{background:var(--hov)}
+.gs-dd-opt .gs-dd-txt{flex:1;min-width:0}
+.gs-dd-opt .gs-dd-txt b{display:block;font-size:13px;font-weight:500}
+.gs-dd-opt .gs-dd-txt small{display:block;font-size:12px;color:var(--fg3);margin-top:2px}
+.gs-dd-opt .gs-dd-check{flex:none;width:18px;height:18px;color:var(--fg);opacity:0}
+.gs-dd-opt.sel .gs-dd-check{opacity:1}
+.gs-dd-opt.sel{background:var(--hov)}
 
-/* ============ CURRENT · Insights controls (pre-redesign structure) ============ */
-.nk-learning-insights{--li-ink:#0f172a;--li-muted:#64748b;--li-violet:#2563eb;--li-lilac:#cbd5e1;--li-green:#059669;--li-red:#e11d48;--li-amber:#de982d;color:var(--li-ink)}
-.nk-li-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 12px}
-.nk-li-head h1{font-size:27px;margin:0;letter-spacing:-.5px}
-.nk-li-head select{min-height:44px;padding:0 32px 0 12px;border:1px solid #e2e8f0;border-radius:11px;background:#f0ecfe;color:#1e1b4b;font:inherit;font-size:12px;font-weight:750}
-.nk-li-controls{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
-.nk-li-period-nav{display:flex;align-items:center;gap:6px}
-.nk-li-period-nav>button{display:grid;place-items:center;width:40px;min-height:44px;border:1px solid #e2e8f0;background:#fff;border-radius:10px;color:#475569}
-.nk-li-period-nav strong{font-size:12px;text-align:center;min-width:130px}
-.nk-li-period-nav .nk-li-today{width:auto;padding:0 10px;font:inherit;font-size:11px}
-.nk-li-scope{display:flex;gap:8px}
-.nk-li-scope select{min-height:44px;padding:0 10px;border:1px solid #e2e8f0;border-radius:10px;background:#fff;font:inherit;font-size:11px;color:#575978}
-.nk-li-period-note{font-size:10px;color:var(--li-muted);margin:8px 0 12px;line-height:1.5}
+/* ============ 01 · Home progress (Geist) ============ */
+.gs-prog-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.gs-prog-head h2{font-size:18px;font-weight:600;letter-spacing:-.015em}
+.gs-prog-card{padding:6px 16px}
+.gs-prog-row{display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--bd)}
+.gs-prog-row:last-child{border-bottom:0}
+.gs-tile{width:36px;height:36px;border-radius:8px;display:grid;place-items:center;background:var(--s2);color:var(--fg);border:1px solid var(--bd)}
+.gs-prog-copy{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.gs-prog-copy strong{font-size:13px;font-weight:500;color:var(--fg2)}
+.gs-prog-val{text-align:right}
+.gs-prog-val b{font-size:17px;font-weight:600;font-family:var(--mono);letter-spacing:-.01em}
 
-/* ============ UPGRADED · Insights controls (same theme) ============ */
-.up-li-bar{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:10px;box-shadow:0 1px 3px rgba(0,0,0,.03)}
-.up-li-row{display:flex;align-items:center;gap:8px}
-.up-li-chev{flex:none;width:42px;height:42px;border-radius:11px;border:1px solid #e2e8f0;background:#fff;color:#475569;display:grid;place-items:center;transition:background .15s}
-.up-li-chev:hover{background:#eff6ff}
-.up-li-chev:disabled{opacity:.35;cursor:default}
-.up-li-seg{position:relative;flex:1;display:flex;background:#f1f5f9;border-radius:12px;padding:3px}
-.up-li-seg .up-seg-pill{box-shadow:0 3px 10px rgba(37,99,235,.2)}
-.up-li-seg button{position:relative;z-index:1;flex:1;border:0;background:none;min-height:36px;font-size:11px;font-weight:750;color:#64748b;border-radius:9px;transition:color .2s}
-.up-li-seg button.on{color:#1e1b4b}
-.up-li-today{flex:none;border:0;background:none;color:#2563eb;font-size:11px;font-weight:750;min-height:42px;padding:0 8px;display:none}
-.up-li-today.show{display:block}
-.up-li-label{font-size:12px;font-weight:750;text-align:center;margin-top:8px;min-height:18px;transition:opacity .18s}
-.up-li-label.swap{opacity:0}
-.up-li-scope{display:flex;gap:8px;margin-top:8px}
-.up-li-scope select{flex:1;min-height:40px;padding:0 10px;border:1px solid #e2e8f0;border-radius:10px;background:#ffffff;color:#334155;font:inherit;font-size:10.5px;font-weight:650}
-.up-li-note{font-size:10px;color:#64748b;margin-top:8px;line-height:1.5}
+/* ============ 02 · Insights controls (Geist) ============ */
+.gs-li-bar{padding:12px}
+.gs-li-row{display:flex;align-items:center;gap:8px}
+.gs-chev{flex:none;width:44px;height:44px;border-radius:8px;border:0;background:none;color:var(--fg2);display:grid;place-items:center}
+.gs-chev:hover{background:var(--hov);color:var(--fg)}
+.gs-chev:disabled{opacity:.45}
+.gs-chev:active{transform:scale(.97)}
+.gs-li-seg{flex:1}
+.gs-li-today{flex:none;border:0;background:none;color:var(--fg2);font-size:13px;font-weight:500;min-height:44px;padding:0 8px;display:none}
+.gs-li-today.show{display:block}
+.gs-li-label{font-size:13px;font-weight:500;text-align:center;margin-top:10px;min-height:18px;transition:opacity 180ms}
+.gs-li-label.swap{opacity:0}
+.gs-li-scope{display:flex;gap:8px;margin-top:10px}
+.gs-li-note{font-size:12px;color:var(--fg3);margin-top:8px}
 
-/* ============ UPGRADED · SpringSelect-style scope dropdowns ============ */
-.up-dd{position:relative;flex:1;min-width:0}
-.up-dd-btn{width:100%;min-height:44px;padding:0 10px;border:1px solid #e2e8f0;border-radius:11px;background:#ffffff;color:#334155;font:inherit;font-size:11px;font-weight:700;display:flex;align-items:center;gap:7px;text-align:left;transition:border-color .18s,box-shadow .18s,background .18s}
-.up-dd-btn:hover{border-color:#93c5fd}
-.up-dd.open .up-dd-btn{border-color:#2563eb;background:#fff;box-shadow:0 0 0 3px #bfdbfe}
-.up-dd-btn .up-dd-val{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.up-dd-btn .up-dd-chev{flex:none;display:grid;place-items:center;color:#7a68b8;transition:transform .3s cubic-bezier(.3,1.4,.5,1)}
-.up-dd.open .up-dd-chev{transform:rotate(180deg)}
-.up-dd-panel{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:30;background:#fff;border:1px solid #e2e8f0;border-radius:13px;box-shadow:0 18px 44px rgba(15,23,42,.18);padding:5px;transform-origin:top center;transition:opacity .22s ease,transform .28s cubic-bezier(.3,1.3,.4,1)}
-.up-dd-panel[hidden]{display:block;opacity:0;transform:translateY(-7px) scale(.96);pointer-events:none}
-.up-dd:not(.open) .up-dd-panel{opacity:0;transform:translateY(-7px) scale(.96);pointer-events:none}
-.up-dd.open .up-dd-panel{opacity:1;transform:none}
-.up-dd-opt{display:flex;align-items:center;gap:9px;width:100%;border:0;background:none;text-align:left;padding:9px 10px;border-radius:9px;color:#0f172a;min-height:44px;transition:background .12s}
-.up-dd-opt:hover{background:#eff6ff}
-.up-dd-opt .up-dd-txt{flex:1;min-width:0}
-.up-dd-opt .up-dd-txt b{display:block;font-size:11px}
-.up-dd-opt .up-dd-txt small{display:block;font-size:9px;color:#64748b;margin-top:2px}
-.up-dd-opt .up-dd-check{flex:none;width:18px;height:18px;color:#2563eb;opacity:0;transform:scale(.5);transition:opacity .15s,transform .2s cubic-bezier(.3,1.5,.5,1)}
-.up-dd-opt.sel .up-dd-check{opacity:1;transform:none}
-.up-dd-opt.sel{background:#eff6ff}
+/* ============ 03 · charts (Geist: ink strokes, neutral grid) ============ */
+.gs-chart-card{padding:16px;margin-top:12px}
+.gs-chart-card>header{margin-bottom:12px}
+.gs-chart-card h2{font-size:14px;font-weight:600;margin:0}
+.gs-key{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--fg2);margin:0 0 15px}
+.gs-key span{display:flex;align-items:center;gap:6px}
+.gs-key i{height:8px;width:8px;border-radius:2px;background:var(--fg)}
+.gs-key i.is-previous{background:color-mix(in srgb,var(--fg) 22%,var(--bg))}
+.gs-bars{display:flex;align-items:flex-end;gap:4px;padding-top:6px}
+.gs-bars button{flex:1;min-width:0;border:0;border-radius:8px;background:transparent;display:flex;align-items:center;flex-direction:column;gap:7px;min-height:150px;padding:5px 1px;color:var(--fg);font:inherit}
+.gs-bars button>b{font-size:12px;font-weight:600;min-height:14px;font-family:var(--mono)}
+.gs-bars button small{font-size:12px;color:var(--fg3);white-space:nowrap;font-family:var(--mono)}
+.gs-bar-pair{height:108px;display:flex;align-items:flex-end;gap:4px;width:100%;justify-content:center}
+.gs-bar-pair i{width:36%;max-width:29px;display:block;border-radius:3px 3px 1px 1px;background:var(--fg)}
+.gs-bar-pair i.is-previous{background:color-mix(in srgb,var(--fg) 22%,var(--bg))}
+.gs-bars button i{transition:height 180ms cubic-bezier(.23,1,.32,1)}
+.gs-bars button.is-selected{background:var(--hov);box-shadow:inset 0 0 0 1px var(--bds)}
+.gs-trend{display:block;width:100%;height:auto;max-height:230px}
+.gs-trend-wrap{position:relative}
+.gs-trend-wrap svg{touch-action:pan-y;cursor:crosshair}
+.gs-curve{transition:opacity 180ms}
+.gs-draw{stroke-dasharray:1200;stroke-dashoffset:1200;animation:gsdraw 1.2s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes gsdraw{to{stroke-dashoffset:0}}
+.gs-mark text{font-size:11px;font-weight:600;fill:var(--fg);font-family:var(--mono)}
+.gs-x{display:flex;justify-content:space-between;margin-top:2px;padding:0 1px}
+.gs-x span{font-size:12px;color:var(--fg3);font-weight:500;font-family:var(--mono);white-space:nowrap}
+.gs-totals{margin-top:14px;border-top:1px solid var(--bd);padding-top:4px}
+.gs-total-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 2px}
+.gs-total-row + .gs-total-row{border-top:1px solid var(--bd)}
+.gs-total-label{font-size:13px;font-weight:500;color:var(--fg2)}
+.gs-total-row.is-prev .gs-total-label{color:var(--fg3)}
+.gs-total-val{display:flex;align-items:center;gap:9px}
+.gs-total-val b{font-size:22px;font-weight:600;letter-spacing:-.02em;font-family:var(--mono)}
+.gs-total-row.is-prev .gs-total-val b{font-size:17px;color:var(--fg2)}
 
-/* ============ CURRENT · Insights charts (pre-redesign structure) ============ */
-.nk-li-card{padding:16px;border:1px solid #e2e8f0;border-radius:18px;background:#fff;min-width:0;margin-top:12px}
-.nk-li-card>header{margin-bottom:12px}
-.nk-li-card h2{font-size:14px;margin:0;letter-spacing:-.2px}
-.nk-li-key{display:flex;flex-wrap:wrap;gap:14px;font-size:9px;color:#64748b;margin:0 0 15px}
-.nk-li-key span{display:flex;align-items:center;gap:5px}
-.nk-li-key i{height:7px;width:7px;border-radius:50%;background:#2563eb}
-.nk-li-key i.is-previous{background:#bfdbfe}
-.nk-li-bars{display:flex;align-items:flex-end;gap:3px;padding-top:6px}
-.nk-li-bars button{flex:1;min-width:0;border:0;border-radius:7px;background:transparent;display:flex;align-items:center;flex-direction:column;gap:7px;min-height:150px;padding:5px 1px;color:#0f172a;font:inherit}
-.nk-li-bars button>b{font-size:10px;font-weight:750;min-height:13px}
-.nk-li-bars button small{font-size:9px;color:#64748b;white-space:nowrap;font-variant-numeric:tabular-nums}
-.nk-li-bar-pair{height:108px;display:flex;align-items:flex-end;gap:3px;width:100%;justify-content:center}
-.nk-li-bar-pair i{width:36%;max-width:29px;display:block;border-radius:4px 4px 1px 1px;background:linear-gradient(0deg,#2563eb,#93c5fd)}
-.nk-li-bar-pair i.is-previous{background:#bfdbfe}
-.nk-li-trend{display:block;width:100%;height:auto;max-height:230px}
-.nk-li-trend-totals{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:18px;padding-top:13px;border-top:1px solid #e2e8f0}
-.nk-li-trend-totals small{font-size:10px;color:#64748b}
-.nk-li-trend-totals b{font-size:19px}
-.nk-li-delta{font-size:10px;font-weight:750;white-space:nowrap;color:#64748b}
-.nk-li-delta.is-up{color:#059669}
-.nk-li-delta.is-down{color:#e11d48}
-.nk-li-delta.is-neutral{color:#64748b}
+/* ============ 04 · bottom nav (Geist: active = fg, no pill) ============ */
+.gs-nav{background:var(--bg);border:1px solid var(--bd);border-radius:12px;display:flex;padding:6px 10px}
+.gs-nav .nav-item{flex:1;min-height:56px;border:0;background:none;color:var(--fg3);border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:12px;font-weight:500}
+.gs-nav .nav-icon-wrap{width:38px;height:30px;border-radius:8px;display:grid;place-items:center;position:relative}
+.gs-nav .nav-item.active{color:var(--fg)}
+.gs-nav .nav-item:active{transform:scale(.97)}
+.gs-due{position:absolute;top:2px;right:4px;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:var(--inv);color:var(--invf);font-size:11px;font-weight:600;font-family:var(--mono);display:grid;place-items:center;border:2px solid var(--bg)}
 
-/* ============ UPGRADED · charts v2 (smooth bezier, markers, HTML axis) ============ */
-.up-bars button i{transition:height .45s cubic-bezier(.25,.9,.3,1)}
-.up-trend-wrap{position:relative}
-.up-trend-tip{position:absolute;pointer-events:none;background:#1e1b4b;color:#fff;font-size:10px;font-weight:700;padding:5px 9px;border-radius:8px;white-space:nowrap;transform:translate(-50%,-125%);opacity:0;transition:opacity .15s;z-index:5}
-.up-trend-tip:after{content:"";position:absolute;left:50%;bottom:-4px;transform:translateX(-50%);border:5px solid transparent;border-top-color:#1e1b4b;border-bottom:0}
-.up-trend-tip small{display:block;font-weight:500;opacity:.75;font-size:9px}
-.up-curve{transition:opacity .3s}
-.up-draw{stroke-dasharray:1200;stroke-dashoffset:1200;animation:updraw 1.2s cubic-bezier(.4,0,.2,1) forwards}
-@keyframes updraw{to{stroke-dashoffset:0}}
-.up-mark{transition:opacity .3s}
-.up-mark text{font-size:10px;font-weight:800;fill:#1e1b4b}
-.up-x{display:flex;justify-content:space-between;margin-top:2px;padding:0 1px}
-.up-x span{font-size:9px;color:#64748b;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
-.up-bin-readout{background:#f8fafc;border-radius:10px;padding:10px;font-size:10px;line-height:1.6;color:#64748b;margin-top:12px;min-height:44px;display:grid;gap:5px}
-.up-bin-readout strong{color:#1e1b4b;font-size:11px}
-.up-bin-readout small{font-size:9px;color:#64748b}
-.up-bars button.is-selected{background:#eff6ff;box-shadow:inset 0 0 0 1px #93c5fd}
+/* ============ 05 · topic rows (Geist list) ============ */
+.gs-topic-list{transition:opacity 180ms}
+.gs-topic-list.swap{opacity:0}
+.gs-topic{display:flex;justify-content:space-between;gap:12px;width:100%;padding:12px 2px;border:0;border-bottom:1px solid var(--bd);background:none;text-align:left;color:var(--fg);min-height:70px}
+.gs-topic:last-child{border-bottom:0}
+.gs-topic>span:first-child{flex:1;min-width:0}
+.gs-topic>span:last-child{display:grid;align-content:start;text-align:right;gap:4px;flex-shrink:0}
+.gs-topic strong{font-size:13px;font-weight:500;display:block}
+.gs-topic small{display:block;font-size:12px;color:var(--fg3);margin-top:3px}
+.gs-topic b{font-size:13px;font-weight:500;font-family:var(--mono);color:var(--fg2)}
+.gs-accbar{display:block;overflow:hidden;background:var(--act);height:4px;border-radius:4px;margin-top:8px}
+.gs-accbar>i{display:block;height:100%;border-radius:inherit;background:var(--fg)}
+.gs-topic-list .gs-accbar>i{transition:width 180ms cubic-bezier(.23,1,.32,1)}
 
-/* ============ CURRENT · bottom nav (redesigned nk114 component) ============ */
-.nk-bottom-nav-v114{height:72px!important;background:rgba(255,255,255,.92)!important;backdrop-filter:blur(20px)!important;-webkit-backdrop-filter:blur(20px)!important;border-top:1px solid rgba(226,232,240,.85)!important;box-shadow:0 -1px 3px rgba(0,0,0,.03),0 -4px 12px rgba(0,0,0,.04)!important;display:flex;padding:6px 10px}
-.nk-bottom-nav-v114 .nav-item{flex:1;min-height:56px!important;border:0;background:none;color:#64748b!important;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:9px;font-weight:750;transition:color .15s ease}
-.nk-bottom-nav-v114 .nav-icon-wrap{width:38px!important;height:30px!important;border-radius:10px!important;display:grid!important;place-items:center!important;transition:background .15s ease,color .15s ease}
-.nk-bottom-nav-v114 .nav-label{font-size:9.5px!important;font-weight:700!important;letter-spacing:.02em!important}
-.nk-bottom-nav-v114 .nav-item.active{color:#2563eb!important}
-.nk-bottom-nav-v114 .nav-item.active .nav-icon-wrap{background:#eff6ff!important;box-shadow:inset 0 0 0 1px #bfdbfe!important;color:#2563eb!important}
+/* ============ 06 · donut (Geist: semantic strokes) ============ */
+.gs-outcomes{display:grid;grid-template-columns:110px minmax(0,1fr);gap:8px 14px;align-items:center}
+.gs-outcomes h3{grid-column:1/-1;color:var(--fg3);font-size:12px;font-weight:500;margin:0 0 8px}
+.gs-donut{width:110px;height:110px;border-radius:50%;background:var(--ring,var(--act));display:grid;place-items:center}
+.gs-donut>span{width:79px;height:79px;display:flex;flex-direction:column;justify-content:center;align-items:center;border-radius:50%;background:var(--bg)}
+.gs-donut b{font-size:23px;font-weight:600;font-family:var(--mono);letter-spacing:-.02em}
+.gs-donut small{font-size:12px;color:var(--fg3);margin-top:2px}
+.gs-outcomes dl{margin:0;display:grid;gap:12px}
+.gs-outcomes dl>div{display:flex;justify-content:space-between;gap:6px;align-items:center;font-size:12px}
+.gs-outcomes dt{display:flex;gap:6px;align-items:center;font-weight:500;color:var(--fg2)}
+.gs-outcomes dd{margin:0;font-weight:500;font-family:var(--mono);white-space:nowrap}
+.gs-outcomes dd small{color:var(--fg3);font-size:12px;margin-left:5px}
+.gs-outcomes dt i{height:8px;width:8px;border-radius:2px;background:var(--bds);flex-shrink:0}
+.gs-outcomes dt i.is-green{background:var(--grn)}
+.gs-outcomes dt i.is-red{background:var(--red)}
+@keyframes gsuprise{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.gs-donut-live dl>div{animation:gsuprise 180ms cubic-bezier(.23,1,.32,1) both}
+.gs-donut-live dl>div:nth-child(2){animation-delay:.06s}
+.gs-donut-live dl>div:nth-child(3){animation-delay:.12s}
 
-/* ============ UPGRADED · bottom nav ============ */
-.up-nav{position:relative}
-.up-nav-pill{position:absolute;top:6px;bottom:6px;border-radius:14px;background:#eff6ff;box-shadow:inset 0 0 0 1px #bfdbfe;transition:transform .38s cubic-bezier(.3,1.25,.4,1),width .38s cubic-bezier(.3,1.25,.4,1)}
-.up-nav .nav-item{position:relative;z-index:1;transition:color .2s}
-.up-nav .nav-item svg{transition:transform .25s cubic-bezier(.3,1.4,.5,1)}
-.up-nav .nav-item.active svg{transform:translateY(-1px) scale(1.06)}
-.up-nav .nav-item.active .nav-icon-wrap{background:none!important;box-shadow:none!important}
+/* ============ 07 · count picker (nkg-seg) ============ */
+.gs-count{width:100%}
+.gs-count button{font-size:14px;font-family:var(--mono)}
 
-/* ============ UPGRADED · trend v3 (Cult analytics-chart ideas) ============ */
-.up-trend-wrap svg{touch-action:pan-y;cursor:crosshair}
-.up-tip-card{position:absolute;pointer-events:none;background:#fff;border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 14px 34px rgba(41,38,95,.20);padding:8px 11px;min-width:104px;transform:translate(-50%,-115%);opacity:0;transition:opacity .15s;z-index:6;text-align:left}
-.up-tip-card .t{font-size:9px;color:#64748b;font-weight:700;white-space:nowrap}
-.up-tip-card .v{font-size:17px;font-weight:850;letter-spacing:-.4px;color:#1e1b4b;font-variant-numeric:tabular-nums;margin-top:1px}
-.up-tip-card .p{font-size:9px;color:#64748b;font-weight:600;margin-top:1px;white-space:nowrap}
-.up-totals{margin-top:14px;border-top:1px solid #e2e8f0;padding-top:4px}
-.up-total-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 2px}
-.up-total-row + .up-total-row{border-top:1px dashed #e2e8f0}
-.up-total-label{font-size:12.5px;font-weight:650;letter-spacing:-.1px;color:#334155}
-.up-total-row.is-prev .up-total-label{color:#64748b;font-weight:600}
-.up-total-val{display:flex;align-items:center;gap:9px}
-.up-total-val b{font-size:22px;font-weight:850;letter-spacing:-.6px;font-variant-numeric:tabular-nums;color:#1e1b4b}
-.up-total-val .nk-li-delta{font-size:10px;font-weight:800}
-.up-total-row.is-prev .up-total-val b{font-size:17px;font-weight:750;color:#475569}
+/* ============ 08 · comparison (Geist arrow notation) ============ */
+.gs-cmpline{padding:12px 2px}
+.gs-cmpline + .gs-cmpline{border-top:1px solid var(--bd)}
+.gs-cmpline-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.gs-cmpline-top strong{font-size:13px;font-weight:500}
+.gs-cmpline-flow{display:flex;align-items:baseline;gap:9px;margin-top:6px}
+.gs-cmpline-flow .prv{font-size:13px;color:var(--fg3);font-family:var(--mono)}
+.gs-cmpline-flow .arr{color:var(--fg);font-weight:600;font-size:15px}
+.gs-cmpline-flow .cur{font-size:20px;font-weight:600;letter-spacing:-.02em;color:var(--fg);font-family:var(--mono)}
 
-/* ============ 05 · topic tabs current (pre-redesign structure) ============ */
-.nk-li-tabs{display:flex;background:#f4f1fc;border-radius:9px;padding:3px;margin:0 0 8px}
-.nk-li-tabs button{flex:1;min-height:38px;padding:4px;border:0;border-radius:7px;background:none;font:inherit;font-size:10px;color:#64748b}
-.nk-li-tabs button[aria-pressed=true]{color:#fff;background:#2563eb;box-shadow:0 2px 6px #765ed322}
-.nk-li-topic{display:flex;justify-content:space-between;gap:12px;width:100%;padding:12px 0;border:0;border-bottom:1px solid #e2e8f0;background:none;text-align:left;color:#0f172a;font:inherit;min-height:70px}
-.nk-li-topic>span:first-child{flex:1;min-width:0}
-.nk-li-topic>span:last-child{display:grid;align-content:start;text-align:right;gap:4px;flex-shrink:0}
-.nk-li-topic strong{font-size:12px;line-height:1.5;display:block}
-.nk-li-topic small{display:block;font-size:10px;line-height:1.5;color:#64748b;margin-top:3px}
-.nk-li-topic b{font-size:15px;color:#0f172a;font-variant-numeric:tabular-nums}
-.nk-li-progress{display:block;overflow:hidden;background:#f1f5f9;height:6px;border-radius:9px;margin-top:8px}
-.nk-li-progress>i{display:block;height:100%;border-radius:inherit;background:#2563eb}
-.nk-li-accuracy-bar{height:10px;background:#e9edf0;border-radius:5px}
-.nk-li-accuracy-bar>i{background:#059669;border-radius:5px}
-/* 05 upgraded: rows crossfade + bars glide */
-.up-topic-list{transition:opacity .18s ease}
-.up-topic-list.swap{opacity:0}
-.up-topic-list .nk-li-accuracy-bar>i{transition:width .55s cubic-bezier(.25,.9,.3,1)}
+/* ============ 09 · forecast (Geist: fg bars, hairline zero) ============ */
+.gs-forecast{display:flex;align-items:flex-end;gap:8px;height:100px}
+.gs-forecast>span{flex:1;display:flex;align-items:center;flex-direction:column;justify-content:flex-end;gap:6px;border-radius:8px;cursor:pointer;padding:4px 0}
+.gs-forecast b{font-size:12px;font-family:var(--mono);font-weight:600}
+.gs-forecast i{width:100%;max-width:26px;border-radius:3px 3px 1px 1px;background:var(--fg);display:block;transition:height 180ms cubic-bezier(.23,1,.32,1)}
+.gs-forecast small{font-size:12px;color:var(--fg3);font-family:var(--mono)}
+.gs-forecast>span.is-today{background:var(--inv)}
+.gs-forecast>span.is-today b,.gs-forecast>span.is-today small{color:var(--invf)}
+.gs-forecast>span.is-today i{background:var(--invf)}
+.gs-forecast>span.nkg-zero i{background:var(--bds);height:2px!important;min-height:2px}
+.gs-forecast>span.sel{box-shadow:0 0 0 2px var(--fg)}
+.gs-forecast>span:active{transform:scale(.97)}
 
-/* ============ 06 · donut current (pre-redesign structure) ============ */
-.nk-li-outcomes{display:grid;grid-template-columns:110px minmax(0,1fr);gap:8px 14px;align-items:center}
-.nk-li-outcomes h3{grid-column:1/-1;color:#64748b;font-size:10px;font-weight:650;margin:0 0 8px}
-.nk-li-donut{width:110px;height:110px;border-radius:50%;background:var(--donut,#f1f5f9);display:grid;place-items:center}
-.nk-li-donut>span{width:79px;height:79px;display:flex;flex-direction:column;justify-content:center;align-items:center;border-radius:50%;background:#fff}
-.nk-li-donut b{font-size:23px;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
-.nk-li-donut small{font-size:9px;color:#64748b;margin-top:2px}
-.nk-li-outcomes dl{margin:0;display:grid;gap:12px}
-.nk-li-outcomes dl>div{display:flex;justify-content:space-between;gap:6px;align-items:center;font-size:10px}
-.nk-li-outcomes dt{display:flex;gap:6px;align-items:center;font-weight:600}
-.nk-li-outcomes dd{margin:0;font-weight:750;white-space:nowrap;font-variant-numeric:tabular-nums}
-.nk-li-outcomes dd small{color:#64748b;font-size:9px;font-weight:400;margin-left:5px}
-.nk-li-outcomes dt i{height:7px;width:7px;border-radius:50%;background:#cbd5e1;flex-shrink:0}
-.nk-li-outcomes dt i.is-green{background:#059669}
-.nk-li-outcomes dt i.is-red{background:#e11d48}
-/* 06 upgraded: legend stagger */
-@keyframes uprise{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
-.up-donut-live dl>div{animation:uprise .4s cubic-bezier(.25,.9,.3,1) both}
-.up-donut-live dl>div:nth-child(2){animation-delay:.08s}
-.up-donut-live dl>div:nth-child(3){animation-delay:.16s}
+/* ============ 10 · source cards (Geist hairlines) ============ */
+.gs-source-card{display:grid;grid-template-columns:42px 1fr 22px;gap:12px;align-items:center;width:100%;padding:12px;border:1px solid var(--bd);border-radius:12px;background:var(--bg);text-align:left;color:var(--fg);margin-bottom:8px}
+.gs-source-card>span:nth-child(2){display:grid;min-width:0}
+.gs-source-card strong{font-size:13px;font-weight:500}
+.gs-source-card small{font-size:12px;color:var(--fg3);margin-top:3px}
+.gs-source-icon{width:36px;height:36px;padding:8px;border-radius:8px;display:grid;place-items:center;background:var(--s2);color:var(--fg);border:1px solid var(--bd);box-sizing:border-box}
+.gs-source-card.active{border-color:var(--fg)}
+.gs-source-card:active{transform:scale(.97)}
+.gs-pick{width:22px;height:22px;border-radius:50%;border:1px solid var(--bds);display:grid;place-items:center;color:var(--invf)}
+.gs-pick svg{opacity:0}
+.gs-source-card.active .gs-pick{background:var(--inv);border-color:var(--inv)}
+.gs-source-card.active .gs-pick svg{opacity:1}
 
-/* ============ 07 · count grid current (pre-redesign structure) ============ */
-.nk-test-quick-setup{margin-top:13px;padding:14px;border:1px solid #e2e8f0;border-radius:16px;background:#fff;color:#0f172a}
-.nk-test-quick-setup h3{margin:0;font-size:13px}
-.nk-test-quick-setup .nk-test-count-grid{margin-top:10px}
-.nk-test-count-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.nk-test-count-grid button{min-height:54px;border:1px solid #e2e8f0;border-radius:15px;background:#fff;color:#1d205f;font-weight:850;font-size:14px}
-.nk-test-count-grid button.active{border-color:#a99bf4;background:#eff6ff;color:#4d30d5}
-.nk-test-quick-setup>p{margin:8px 2px 0;color:#64748b;font-size:10px}
-/* 07 upgraded: pill group */
-.up-count{position:relative;display:flex;background:#f1f5f9;border-radius:15px;padding:3px}
-.up-count button{position:relative;z-index:1;flex:1;border:0;background:none;min-height:48px;font-size:14px;font-weight:850;color:#64748b;border-radius:12px;transition:color .2s}
-.up-count button.on{color:#1e1b4b}
+/* ============ 11 · streak (Geist restrained) ============ */
+.gs-strip{background:var(--bg);border:1px solid var(--bd);border-radius:12px;box-shadow:none;display:grid;grid-template-columns:40px minmax(0,1fr) auto;align-items:center;gap:12px;padding:12px 14px;color:var(--fg)}
+.gs-flame{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:var(--s2);color:var(--fg3);border:1px solid var(--bd)}
+.gs-strip.is-burning .gs-flame{background:var(--orgb);color:var(--org);border-color:transparent}
+.gs-strip-copy{display:grid;gap:2px;min-width:0}
+.gs-strip-copy strong{font-size:13px;font-weight:600}
+.gs-strip-copy strong .gs-num{font-size:20px;letter-spacing:-.02em}
+.gs-strip-copy small{font-size:12px;color:var(--fg3)}
+.gs-week{display:grid;grid-template-columns:repeat(7,21px);gap:0;padding:4px 0}
+.gs-week-day{display:grid;gap:6px;place-items:center}
+.gs-week-day i{width:13px;height:13px;border-radius:50%;background:transparent;border:1px dashed var(--bds);display:grid;place-items:center}
+.gs-week-day.is-done i{background:var(--inv);border:1px solid var(--inv)}
+.gs-week-day.is-today i{box-shadow:0 0 0 2px var(--bg),0 0 0 3.5px var(--fg)}
+.gs-week-day b{font-size:12px;color:var(--fg3);font-weight:500;font-family:var(--mono)}
+.gs-week-day.is-today b{color:var(--fg)}
+/* Trophy card re-expressed in Geist */
+.gs-tcard{background:var(--bg);border:1px solid var(--bd);border-radius:12px;color:var(--fg);padding:16px}
+.gs-tcard-head{display:flex;align-items:center;justify-content:space-between}
+.gs-tcard-head h3{font-size:14px;font-weight:600;margin:0}
+.gs-tcard-head button{border:0;background:none;color:var(--fg2);font-size:13px;font-weight:500;display:flex;align-items:center;gap:4px;min-height:44px;padding:0 0 0 12px}
+.gs-tcard-now{display:flex;align-items:center;gap:12px;margin-top:10px}
+.gs-tcard-now .gs-flame{width:44px;height:44px;border-radius:12px}
+.gs-tcard-now .gs-tnum{font-size:28px;font-weight:600;letter-spacing:-.03em;font-family:var(--mono)}
+.gs-tcard-now .gs-tdays{font-size:12px;color:var(--fg3);font-weight:500}
+.gs-tcard[data-tier="3"] .gs-flame{background:var(--s2);color:var(--fg3);border-color:var(--bd)}
+.gs-tcard[data-tier="7"] .gs-flame,.gs-tcard[data-tier="14"] .gs-flame,.gs-tcard[data-tier="30"] .gs-flame{background:var(--orgb);color:var(--org);border-color:transparent}
+.gs-tcard .gs-week{margin-top:12px}
+.gs-tcard-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px;padding-top:14px;border-top:1px solid var(--bd)}
+.gs-tcard-stats>div{display:grid;gap:2px}
+.gs-tcard-stats strong{font-size:12px;font-weight:500;color:var(--fg3)}
+.gs-tcard-stats b{font-size:22px;font-weight:600;font-family:var(--mono)}
+.gs-tcard-stats small{font-size:12px;color:var(--fg3)}
+.gs-how{margin-top:8px;border-top:1px solid var(--bd)}
+.gs-how summary{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:44px;font-size:13px;font-weight:500;color:var(--fg2);cursor:pointer;list-style:none}
+.gs-how summary::-webkit-details-marker{display:none}
+.gs-how ul{margin:0 0 6px;padding:0;list-style:none;display:grid;gap:8px}
+.gs-how li{font-size:12px;line-height:1.55;color:var(--fg2);display:flex;gap:8px}
+.gs-how li i{flex:none;width:4px;height:4px;border-radius:50%;background:var(--bds);margin-top:6px}
+.gs-tier{font-size:12px;font-weight:500;padding:3px 10px;border-radius:6px;white-space:nowrap;border:1px solid var(--bd);background:var(--s2);color:var(--fg2)}
+.gs-tcard[data-tier="7"] .gs-tier,.gs-tcard[data-tier="14"] .gs-tier,.gs-tcard[data-tier="30"] .gs-tier{background:var(--orgb);color:var(--org);border-color:transparent}
+.gs-tierstep{display:flex;align-items:center;gap:6px;margin-top:12px}
+.gs-tierstep span{font-size:12px;color:var(--fg3);font-weight:500}
+.gs-tierstep button{border:1px solid var(--bd);background:var(--bg);color:var(--fg2);font-size:12px;font-weight:500;font-family:var(--mono);min-width:40px;min-height:40px;border-radius:8px}
+.gs-tierstep button.on{background:var(--inv);border-color:var(--inv);color:var(--invf)}
+.gs-badge{display:inline-flex;align-items:center;gap:8px;background:var(--inv);color:var(--invf);border-radius:999px;padding:6px 14px 6px 8px}
+.gs-badge .gs-mini-flame{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:transparent;color:var(--org)}
+.gs-badge b{font-size:14px;font-weight:600;font-family:var(--mono)}
+.gs-badge small{font-size:12px;opacity:.7}
+.gs-concept-tag{display:inline-block;font-size:12px;font-weight:500;color:var(--fg3);margin:14px 0 8px}
+.gs-mile{border-radius:16px;padding:20px 16px 16px;background:var(--inv);color:var(--invf);text-align:center}
+.gs-mile .gs-mflame{width:44px;height:56px;margin:0 auto;display:block;color:var(--org)}
+.gs-mile .eyebrow{font-size:12px;font-weight:500;opacity:.7;margin-top:10px}
+.gs-mile h3{font-size:22px;font-weight:600;letter-spacing:-.02em;margin:8px 0 4px}
+.gs-mile h3 .gs-num{font-size:22px}
+.gs-mile p{font-size:13px;opacity:.7;line-height:1.5;margin:0}
+.gs-mile-stats{display:flex;justify-content:center;gap:30px;margin:14px 0 2px}
+.gs-mile-stats span{display:grid;gap:2px}
+.gs-mile-stats b{font-size:22px;font-weight:600;font-family:var(--mono)}
+.gs-mile-stats small{font-size:12px;opacity:.7}
+.gs-mile-actions{display:flex;gap:8px;margin-top:14px}
+.gs-mile-keep{flex:1;min-height:44px;border:0;border-radius:8px;background:var(--invf);color:var(--inv);font-weight:500;font-size:14px}
+.gs-mile-replay{min-height:44px;padding:0 14px;border-radius:8px;border:1px solid transparent;background:transparent;color:var(--invf);font-size:13px;font-weight:500;opacity:.8}
+.gs-mile.enter>*{animation:gsMileIn 180ms cubic-bezier(.23,1,.32,1) both}
+.gs-mile.enter>*:nth-child(2){animation-delay:.05s}
+.gs-mile.enter>*:nth-child(3){animation-delay:.1s}
+.gs-mile.enter>*:nth-child(4){animation-delay:.15s}
+@keyframes gsMileIn{from{opacity:0;transform:translateY(4px)}}
 
-/* ============ 08 · comparison current (pre-redesign structure) ============ */
-.nk-li-comparison>div{display:grid;grid-template-columns:1.15fr 1fr 1fr .8fr;align-items:center;gap:5px;border-bottom:1px solid #e2e8f0;padding:13px 0;font-size:10px}
-.nk-li-comparison strong{font-size:10px;font-weight:650}
-.nk-li-comparison b{font-size:11px;font-variant-numeric:tabular-nums}
-.nk-li-comparison span{color:#64748b;font-variant-numeric:tabular-nums}
-.nk-li-comparison .nk-li-comparison-head{font-size:9px;padding-top:0;color:#64748b}
-.nk-li-comparison .nk-li-delta{font-size:9px}
-.nk-li-comparison-head span{line-height:1.35;overflow-wrap:anywhere}
-/* 08 upgraded v4: arrow notation — previous → current, no gimmicks */
-.up-cmpline{padding:12px 2px}
-.up-cmpline + .up-cmpline{border-top:1px solid #e2e8f0}
-.up-cmpline-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
-.up-cmpline-top strong{font-size:12px;font-weight:700}
-.up-cmpline-flow{display:flex;align-items:baseline;gap:9px;margin-top:6px}
-.up-cmpline-flow .prv{font-size:13px;color:#64748b;font-variant-numeric:tabular-nums}
-.up-cmpline-flow .arr{color:#2563eb;font-weight:800;font-size:15px}
-.up-cmpline-flow .cur{font-size:20px;font-weight:850;letter-spacing:-.4px;color:#0f172a;font-variant-numeric:tabular-nums}
-
-/* ============ 09 · forecast current (pre-redesign structure) ============ */
-.nk-li-forecast{display:flex;align-items:flex-end;gap:8px;height:100px}
-.nk-li-forecast>span{display:flex;flex:1;align-items:center;flex-direction:column;justify-content:flex-end;gap:6px}
-.nk-li-forecast b{font-size:10px;font-variant-numeric:tabular-nums}
-.nk-li-forecast i{width:100%;max-width:26px;border-radius:4px 4px 1px 1px;background:linear-gradient(0deg,#2563eb,#b3a2f7);display:block}
-.nk-li-forecast small{font-size:9px;color:#64748b}
-/* 09 upgraded: grow-in bars + today highlight + readout */
-.up-forecast i{transition:height .6s cubic-bezier(.25,.9,.3,1)}
-.up-forecast>span.is-today b{color:#1e1b4b;font-weight:850}
-.up-forecast>span.is-today i{background:linear-gradient(0deg,#1d4ed8,#60a5fa);box-shadow:0 4px 12px rgba(37,99,235,.35)}
-/* selection state: ring + glow, never restyles Today itself */
-.up-forecast>span{border-radius:9px;cursor:pointer;transition:box-shadow .18s,background .18s,transform .12s}
-.up-forecast>span.sel{background:#eff6ff;box-shadow:0 0 0 1.5px #2563eb,0 0 16px rgba(37,99,235,.3)}
-.up-forecast>span.sel i{filter:brightness(1.07)}
-.up-forecast>span:active{transform:scale(.94)}
-.up-fc-readout{font-size:10px;color:#64748b;background:#f8fafc;border-radius:10px;padding:9px 11px;margin-top:10px;min-height:34px}
-.up-fc-readout strong{color:#1e1b4b}
-
-/* ============ 10 · source cards current (pre-redesign structure) ============ */
-.nk-test-source-card{display:grid;grid-template-columns:46px 1fr 22px;gap:12px;align-items:center;width:100%;padding:12px;border:1px solid #e2e8f0;border-radius:17px;background:#fff;text-align:left;color:#171a58;font:inherit;margin-bottom:8px;transition:border-color .2s,background .2s,box-shadow .25s}
-.nk-test-source-card>span:nth-child(2){display:grid;min-width:0}
-.nk-test-source-card strong{font-size:13px}
-.nk-test-source-card small{font-size:10px;color:#8589a7;margin-top:3px}
-.nk-test-source-icon{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:#eff6ff;color:#6951e6}
-.nk-test-source-icon.is-wrong{background:#fff1f2;color:#e11d48}
-.nk-test-source-icon.is-bookmarks{background:#fffbeb;color:#d97706}
-.nk-test-source-card.active{border-color:#93c5fd;background:#eff6ff}
-.nk-test-source-card:disabled{opacity:.55;cursor:not-allowed}
-/* 10 upgraded: halo-glow selected state (Cult Halo-Select idea, same theme) */
-.up-source .nk-test-source-card.active{box-shadow:0 0 0 3px #bfdbfe,0 10px 24px rgba(37,99,235,.14)}
-/* 10 upgraded: morphing pick indicator */
-.up-pick{width:22px;height:22px;border-radius:50%;border:1.5px solid #cbd5e1;display:grid;place-items:center;color:#fff;transition:background .22s,border-color .22s,transform .28s cubic-bezier(.3,1.5,.5,1);transform:scale(.85)}
-.up-pick svg{opacity:0;transform:scale(.4);transition:opacity .15s,transform .25s cubic-bezier(.3,1.6,.5,1)}
-.nk-test-source-card.active .up-pick{background:#2563eb;border-color:#2563eb;transform:scale(1);box-shadow:0 3px 10px rgba(37,99,235,.35)}
-.nk-test-source-card.active .up-pick svg{opacity:1;transform:none}
-.nk-test-source-card:active{transform:scale(.985)}
-
-/* 11 current: redesigned Home streak strip (exact nk114 app component) */
-.nk-streak-strip{min-height:76px;padding:12px 16px;background:#fff;border:1px solid #fed7aa;border-radius:16px;display:flex;align-items:center;justify-content:space-between;gap:14px;box-shadow:0 1px 3px rgba(0,0,0,.04),0 4px 14px rgba(0,0,0,.03)}
-.nk-streak-copy{display:flex;align-items:center;gap:12px;min-width:0}
-.nk-streak-flame{width:46px;height:46px;border-radius:13px;background:linear-gradient(135deg,#f97316,#ea580c);color:#fff;display:grid;place-items:center;border:1px solid #f97316;box-shadow:0 4px 12px rgba(0,0,0,.12),inset 0 1px 0 rgba(255,255,255,.3);flex:none}
-.nk-streak-copy strong,.nk-streak-copy small{display:block}
-.nk-streak-copy strong{font-size:14.5px;font-weight:750;color:#0f172a}
-.nk-streak-copy small{font-size:11px;color:#78350f;margin-top:3px}
-.nk-week-strip{display:flex;gap:6px}
-.nk-week-day{display:grid;gap:4px;justify-items:center}
-.nk-week-day i{width:25px;height:25px;border-radius:8px;background:#f1f5f9;display:grid;place-items:center;color:#fff;font-size:10px}
-.nk-week-day b{font-size:10px;font-weight:700;color:#64748b}
-.nk-week-day.is-done i{background:#ea580c;box-shadow:0 2px 6px rgba(0,0,0,.1)}
-.nk-week-day.is-today i{box-shadow:0 0 0 2px #f59e0b}
-@media(max-width:390px){.nk-streak-strip{gap:8px;padding:10px}.nk-week-day i{width:20px;height:20px}}
-/* pre-redesign streak tiers retired with the old card */
-/* pre-redesign streak flame/copy retired */
-/* pre-redesign streak week/sparks retired */
-/* pre-redesign fire keyframes retired */
-@keyframes nkStreakFireAura{0%,100%{opacity:.6;transform:scale(.9)}50%{opacity:1;transform:scale(1.15)}}
-@keyframes nkStreakLiquidFlow{from{background-position:200% 0}to{background-position:0 0}}
-@keyframes nkStreakLiquidReach{0%,100%{transform:scaleX(.22) scaleY(.7);opacity:.35}55%{transform:scaleX(1) scaleY(1.15);opacity:.85}75%{transform:scaleX(.86);opacity:.65}}
-/* pre-redesign water/ember keyframes retired */
-/* 11-A v3: faithful Trophy Streak-Card IA (title+action, badge count, calendar, longest, total, how-it-works) */
-.up-tcard{background:#fff;border:1px solid #e2e8f0;border-radius:17px;box-shadow:0 5px 20px rgba(39,42,101,.045);color:#0f172a;padding:14px}
-.up-tcard-head{display:flex;align-items:center;justify-content:space-between}
-.up-tcard-head h3{font-size:14px;font-weight:800;letter-spacing:-.2px;margin:0}
-.up-tcard-head button{border:0;background:none;color:#2563eb;font-size:11px;font-weight:750;display:flex;align-items:center;gap:4px;min-height:36px;padding:0 0 0 12px}
-.up-tcard-now{display:flex;align-items:center;gap:10px;margin-top:8px}
-.up-tcard-now .up-sbflame{transform:scale(var(--bfs,.95))}
-.up-tcard-now .up-flame-svg{width:30px;height:39px}
-.up-tcard-now .up-tnum{font-size:22px;font-weight:850;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
-.up-tcard-now .up-tdays{font-size:11px;color:#475569;font-weight:600}
-.up-tcard[data-tier="3"]{--bfs:.8}
-.up-tcard[data-tier="7"]{--bfs:.88}
-.up-tcard[data-tier="14"]{--bfs:.95}
-.up-tcard[data-tier="30"]{--bfs:1.05}
-.up-tcard .up-streak-week{margin-top:10px}
-.up-tcard-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px;padding-top:12px;border-top:1px solid #e2e8f0}
-.up-tcard-stats>div{display:grid;gap:3px}
-.up-tcard-stats strong{font-size:10.5px;font-weight:650;color:#475569}
-.up-tcard-stats b{font-size:20px;font-weight:850;letter-spacing:-.4px;font-variant-numeric:tabular-nums}
-.up-tcard-stats small{font-size:9px;color:#64748b}
-.up-how{margin-top:6px;border-top:1px solid #e2e8f0}
-.up-how summary{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:44px;font-size:11px;font-weight:750;color:#2563eb;cursor:pointer;list-style:none}
-.up-how summary::-webkit-details-marker{display:none}
-.up-how summary svg{transition:transform .25s}
-.up-how[open] summary svg{transform:rotate(180deg)}
-.up-how ul{margin:0 0 6px;padding:0;list-style:none;display:grid;gap:8px}
-.up-how li{font-size:10.5px;line-height:1.55;color:#64748b;display:flex;gap:8px}
-.up-how li i{flex:none;width:5px;height:5px;border-radius:50%;background:#2563eb;margin-top:5px}
-.up-tier2{font-size:8px;font-weight:850;letter-spacing:1px;text-transform:uppercase;padding:3px 7px;border-radius:999px;white-space:nowrap}
-.up-tcard[data-tier="3"] .up-tier2{color:#475569;background:#f1f5f9;border:1px solid #e2e8f0}
-.up-tcard[data-tier="7"] .up-tier2{color:#b25a12;background:#fff0da;border:1px solid #f3d9ab}
-.up-tcard[data-tier="14"] .up-tier2{color:#a84a10;background:#ffe9d2;border:1px solid #f2c69c}
-.up-tcard[data-tier="30"] .up-tier2{color:#8a6d00;background:#fff4cf;border:1px solid #ecd27e}
-.up-tflame{position:relative;display:grid;place-items:center;isolation:isolate}
-.up-tflame:before{content:"";position:absolute;z-index:-1;inset:4px -3px -3px;border-radius:50%;background:radial-gradient(ellipse,var(--aura,rgba(255,140,50,.5)),transparent 70%);filter:blur(4px);animation:nkStreakFireAura 2.2s ease-in-out infinite}
-.up-tcard[data-tier="3"]{--aura:rgba(100,116,139,.35)}
-.up-tcard[data-tier="7"]{--aura:rgba(255,150,60,.45)}
-.up-tcard[data-tier="14"]{--aura:rgba(255,140,50,.5)}
-.up-tcard[data-tier="30"]{--aura:rgba(255,180,60,.6)}
-.up-tflame .up-ember{bottom:6px}
-.up-tierstep{display:flex;align-items:center;gap:6px;margin-top:10px}
-.up-tierstep span{font-size:9px;color:#64748b;font-weight:600}
-.up-tierstep button{border:1px solid #e2e8f0;background:#fff;color:#64748b;font-size:10px;font-weight:800;min-width:34px;min-height:30px;border-radius:9px;transition:all .18s}
-.up-tierstep button.on{background:#1e1b4b;border-color:#1e1b4b;color:#fff}
-/* 11-B · Trophy Badge concept (compact) */
-.up-concept-tag{display:inline-block;font-size:9px;font-weight:850;letter-spacing:1px;text-transform:uppercase;color:#1e1b4b;background:#eef2ff;padding:4px 10px;border-radius:999px;margin:14px 0 8px}
-.up-sbadge{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid #e2e8f0;border-radius:999px;padding:5px 13px 5px 7px;box-shadow:0 4px 14px rgba(39,42,101,.07)}
-.up-sbflame{display:grid;place-items:center;transform:scale(var(--bfs,.95));transition:transform .4s cubic-bezier(.3,1.2,.4,1)}
-.up-tcard-now .up-tnum{font-weight:850;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
-.up-tcard-now .up-tdays{font-size:11px;color:#475569;font-weight:600}
-.up-tcard-stats b small{font-size:10px;font-weight:600;color:#64748b}
-.up-sbadge .up-flame-svg{width:19px;height:25px}
-.up-sbadge b{font-size:16px;font-weight:850;letter-spacing:-.3px;font-variant-numeric:tabular-nums}
-.up-sbadge small{font-size:9px;color:#475569;font-weight:600}
-.up-sbadge[data-tier="3"]{--bfs:.8}
-.up-sbadge[data-tier="7"]{--bfs:.88}
-.up-sbadge[data-tier="14"]{--bfs:.95}
-.up-sbadge[data-tier="30"]{--bfs:1.05}
-/* 11-C · milestone moment (shaden.io notification-streak + Lottie concept, subtle) */
-.up-mile{position:relative;overflow:hidden;border-radius:18px;padding:20px 16px 16px;background:linear-gradient(145deg,#1e1b4b 0%,#312e81 100%);color:#fff;box-shadow:0 2px 4px rgba(0,0,0,.06),0 8px 24px rgba(0,0,0,.08);text-align:center}
-.up-mile .up-mflame{width:44px;height:56px;margin:0 auto;display:block}
-.up-mile .eyebrow{font-size:9px;font-weight:850;letter-spacing:1.6px;text-transform:uppercase;opacity:.7;margin-top:10px}
-.up-mile h3{font-size:22px;font-weight:850;letter-spacing:-.4px;margin:8px 0 4px}
-.up-mile p{font-size:12px;opacity:.82;line-height:1.5;margin:0}
-.up-mile-stats{display:flex;justify-content:center;gap:30px;margin:14px 0 2px}
-.up-mile-stats span{display:grid;gap:2px}
-.up-mile-stats b{font-size:22px;font-weight:850;font-variant-numeric:tabular-nums}
-.up-mile-stats small{font-size:9px;opacity:.7}
-.up-mile-actions{display:flex;gap:8px;margin-top:14px}
-.up-mile-keep{flex:1;min-height:44px;border:0;border-radius:12px;background:#fff;color:#1e1b4b;font-weight:850;font-size:13px}
-.up-mile-replay{min-height:44px;padding:0 14px;border-radius:12px;border:1px solid rgba(255,255,255,.45);background:transparent;color:#fff;font-size:11px;font-weight:750}
-.up-mile.enter>*{animation:upMileIn .5s cubic-bezier(.25,.9,.3,1) both}
-.up-mile.enter>*:nth-child(2){animation-delay:.06s}
-.up-mile.enter>*:nth-child(3){animation-delay:.12s}
-.up-mile.enter>*:nth-child(4){animation-delay:.18s}
-.up-mile.enter>*:nth-child(5){animation-delay:.24s}
-@keyframes upMileIn{from{opacity:0;transform:translateY(12px)}}
-.up-burst{position:absolute;left:0;right:0;bottom:26%;height:0;pointer-events:none}
-.up-burst i{position:absolute;bottom:0;left:50%;width:5px;height:5px;margin-left:-2px;border-radius:50%;background:#ffd76a;opacity:0}
-.up-burst.go i{animation:upBurst 1s cubic-bezier(.2,.7,.3,1) forwards}
-@keyframes upBurst{0%{opacity:0;transform:translate(0,0) scale(1)}15%{opacity:1}100%{opacity:0;transform:translate(var(--dx),-110px) scale(.3)}}
-/* shared streak atoms */
-.up-flame-svg{overflow:visible;transform-origin:50% 92%;animation:upFlameFlick 1.6s ease-in-out infinite;filter:drop-shadow(0 4px 5px rgba(230,110,30,.35))}
-@keyframes upFlameFlick{0%,100%{transform:scale(1,1) rotate(-1.5deg)}35%{transform:translateY(-1.5px) scale(.97,1.06) rotate(1.5deg)}70%{transform:scale(1.02,.98) rotate(-.5deg)}}
-.up-ember{position:absolute;border-radius:60% 40% 55% 45%;background:#ffc25d;pointer-events:none;opacity:0;animation:upEmberRise 2.4s ease-out infinite}
-@keyframes upEmberRise{0%{opacity:0;transform:translate(0,4px) scale(.5)}20%{opacity:.9}100%{opacity:0;transform:translate(var(--drift,3px),-26px) scale(.25)}}
-.up-streak-week{display:grid;grid-template-columns:repeat(7,21px);gap:0;isolation:isolate;padding:4px 0}
-.up-streak-day{position:relative;display:grid;gap:8px;place-items:center}
-.up-streak-day:not(:last-child):after{content:"";position:absolute;z-index:-2;height:3px;top:5px;left:50%;width:100%;background:#ece7f2;border-radius:99px}
-.up-streak-day.is-linked:after{height:4px;top:4.5px;background:linear-gradient(90deg,#2563eb,#93c5fd,#2563eb);background-size:200% 100%;box-shadow:0 0 10px rgba(37,99,235,.35);animation:nkStreakLiquidFlow 2.4s linear infinite}
-.up-streak-day.is-frontier:before{content:"";position:absolute;z-index:-1;top:4.5px;left:50%;height:4px;width:90%;border-radius:99px 65% 65% 99%;background:linear-gradient(90deg,#3b82f6,#93c5fd);box-shadow:0 0 6px #ab94f755;transform-origin:left center;animation:nkStreakLiquidReach 2.8s cubic-bezier(.4,0,.2,1) infinite}
-.up-streak-day i{position:relative;width:14px;height:14px;border-radius:50%;background:#e7e7f2;display:grid;place-items:center;color:#fff}
-.up-streak-day.is-done i{background:linear-gradient(145deg,#3b82f6,#1d4ed8);box-shadow:0 0 10px rgba(37,99,235,.4)}
-.up-streak-day.is-done i svg{animation:upCheckPop .45s cubic-bezier(.3,1.6,.5,1) both}
-@keyframes upCheckPop{from{opacity:0;transform:scale(.2)}to{opacity:1;transform:none}}
-.up-streak-day.is-today i{outline:2px solid #2563eb;outline-offset:2px}
-.up-streak-day b{font-size:8px;color:#64748b}
-.up-streak-day.is-done b{color:#475569}
-
-/* ============ 12 · heatmap current (pre-redesign structure) ============ */
-.nk-li-year-activity{--heat0:#f1f5f9;margin:2px 0 20px;padding:16px;border:1px solid #e2e8f0;border-radius:19px;background:linear-gradient(140deg,#fff 55%,#faf8ff);box-shadow:0 6px 24px #7653be07;min-width:0;overflow:hidden;color:#0f172a}
-.nk-li-year-activity>header{display:flex;justify-content:space-between;align-items:start;gap:12px;margin-bottom:12px}
-.nk-li-year-activity h2{margin:0 0 5px;font-size:18px;letter-spacing:-.5px}
-.nk-li-year-activity header p{font-size:10px;line-height:1.5;color:#64748b;margin:0}
-.nk-li-year-activity select{max-width:100%;min-height:40px;padding:0 6px;border:1px solid #e2e8f0;border-radius:9px;color:#334155;background:#ffffff;font:inherit;font-size:10px}
-.nk-li-year-body{display:flex;gap:8px;align-items:end}
-.nk-li-year-days{display:grid;grid-template-rows:repeat(7,1fr);height:171px;flex:0 0 23px;font-size:9px;color:#8b82a1;padding-top:21px;box-sizing:content-box}
-.nk-li-year-days span:nth-child(1){grid-row:1}.nk-li-year-days span:nth-child(2){grid-row:3}.nk-li-year-days span:nth-child(3){grid-row:5}
-.nk-li-year-scroll{overflow-x:auto;overflow-y:hidden;scrollbar-width:thin;padding:2px 3px 10px;flex:1;min-width:0}
-.nk-li-year-canvas{min-width:calc(var(--weeks)*25px);width:100%}
-.nk-li-year-months{display:grid;grid-template-columns:repeat(var(--weeks),minmax(0,1fr));gap:4px;height:23px;color:#887a9e;font-size:10px;align-items:start}
-.nk-li-year-months span{white-space:nowrap;overflow:visible}
-.nk-li-year-grid{display:grid;grid-template-columns:repeat(var(--weeks),minmax(0,1fr));grid-template-rows:repeat(7,21px);gap:4px}
-.nk-li-year-grid button{display:block;width:100%;height:100%;padding:0;border:1px solid var(--heat-border,#e2e8f0);border-radius:3px;background:var(--heat-fill,var(--heat0));box-shadow:var(--heat-glow,none);transition:transform .12s,box-shadow .12s;cursor:pointer;min-height:0;min-width:0}
-.nk-li-year-grid .is-today{box-shadow:0 0 0 1px #fff,0 0 0 2px #2563eb}
-.nk-li-year-grid .is-selected{transform:scale(1.14);box-shadow:0 0 0 2px #1e1b4b;z-index:1}
-.nk-li-year-foot{display:flex;flex-direction:column;align-items:flex-start;gap:4px;margin-top:5px}
-.nk-li-year-foot p{color:#6d607e;font-size:10px;line-height:1.6;margin:0;min-height:20px}
-.nk-li-year-key{display:flex;align-items:center;gap:4px;white-space:nowrap;color:#91849e;font-size:8px;align-self:flex-end}
-.nk-li-year-key i{display:block;width:11px;height:11px;border-radius:3px;border:1px solid var(--heat-border,#e2e8f0);background:var(--heat-fill,var(--heat0));box-shadow:var(--heat-glow,none)}
-.nk-li-year-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;border-top:1px solid #e2e8f0;padding-top:15px;margin-top:10px}
-.nk-li-year-summary span{display:grid;gap:5px}
-.nk-li-year-summary b{font-size:19px;letter-spacing:-.4px;font-variant-numeric:tabular-nums}
-.nk-li-year-summary small{font-size:9px;color:#64748b}
-/* 12 upgraded v2: UI Arc pattern — squares, fixed buckets, wave-in, level filters */
-.up-heat .nk-li-year-grid button{animation:none}
-.up-heat .anim .nk-li-year-grid button{animation:upCellWave .45s cubic-bezier(.25,.9,.3,1) both;animation-delay:var(--d,0ms)}
-@keyframes upCellWave{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:none}}
-.up-heat .nk-li-year-grid button.dim{opacity:.16}
-.up-heat .nk-li-year-grid .is-today{box-shadow:0 0 0 1px #fff,0 0 0 2px #2563eb}
-.up-heat .nk-li-year-grid .is-selected{transform:scale(1.16);box-shadow:0 0 0 2px #1e1b4b;z-index:1}
-.up-heat .nk-li-year-grid button:focus-visible{outline:2px solid #2563eb;outline-offset:1px}
-.up-heat-lv{display:grid;place-items:center;background:none;border:0;padding:3px;border-radius:5px;cursor:pointer}
-.up-heat-lv i{display:block;width:11px;height:11px;border-radius:3px;border:1px solid}
-.up-heat-lv[aria-pressed="true"]{box-shadow:0 0 0 1.5px #2563eb;background:#eff6ff}
-.up-heat-detail{font-size:10px;color:#1e1b4b;background:#eff6ff;border:1px solid #e3dcf7;border-radius:10px;padding:8px 11px;margin-top:10px;min-height:32px}
-.up-heat-detail:empty{display:none}
-.up-heat-head{display:flex;justify-content:space-between;align-items:start;gap:8px;margin-bottom:12px}
-.up-heat-head h2{margin:0 0 5px;font-size:18px;letter-spacing:-.5px;color:#0f172a}
-.up-heat-head p{font-size:10px;line-height:1.5;color:#64748b;margin:0}
-.up-heat-head .up-dd{flex:none;width:132px}
+/* ============ 12 · heatmap (Geist neutral ink scale) ============ */
+.gs-heat{padding:16px}
+.gs-heat-head{display:flex;justify-content:space-between;align-items:start;gap:8px;margin-bottom:12px}
+.gs-heat-head h2{margin:0 0 5px;font-size:18px;font-weight:600;letter-spacing:-.015em}
+.gs-heat-head p{font-size:12px;color:var(--fg3);margin:0}
+.gs-heat-head .gs-dd{flex:none;width:150px}
+.gs-heat-body{display:flex;gap:8px;align-items:end}
+.gs-heat-days{display:grid;grid-template-rows:repeat(7,1fr);height:171px;flex:0 0 30px;font-size:12px;color:var(--fg3);padding-top:21px;box-sizing:content-box;font-family:var(--mono)}
+.gs-heat-days span:nth-child(1){grid-row:1}.gs-heat-days span:nth-child(2){grid-row:3}.gs-heat-days span:nth-child(3){grid-row:5}
+.gs-heat-scroll{overflow-x:auto;overflow-y:hidden;scrollbar-width:thin;padding:2px 3px 10px;flex:1;min-width:0}
+.gs-heat-canvas{min-width:calc(var(--weeks)*25px);width:100%}
+.gs-heat-months{display:grid;grid-template-columns:repeat(var(--weeks),minmax(0,1fr));gap:4px;height:23px;color:var(--fg3);font-size:12px;align-items:start;font-family:var(--mono)}
+.gs-heat-months span{white-space:nowrap;overflow:visible}
+.gs-heat-grid{display:grid;grid-template-columns:repeat(var(--weeks),minmax(0,1fr));grid-template-rows:repeat(7,21px);gap:4px}
+.gs-heat-grid button{display:block;width:100%;height:100%;padding:0;border:1px solid var(--bd);border-radius:3px;background:var(--act);cursor:pointer;min-height:0;min-width:0}
+.gs-heat-grid button[data-lvl="1"]{background:color-mix(in srgb,var(--fg) 25%,var(--act))}
+.gs-heat-grid button[data-lvl="2"]{background:color-mix(in srgb,var(--fg) 50%,var(--act))}
+.gs-heat-grid button[data-lvl="3"]{background:color-mix(in srgb,var(--fg) 75%,var(--act))}
+.gs-heat-grid button[data-lvl="4"]{background:var(--fg);border-color:var(--fg)}
+.gs-heat-grid .is-today{box-shadow:0 0 0 1px var(--bg),0 0 0 2.5px var(--fg)}
+.gs-heat-grid .is-selected{box-shadow:0 0 0 2px var(--fg)}
+.gs-heat-grid button.dim{opacity:.3}
+.gs-heat-grid button:focus-visible{outline:2px solid var(--fg);outline-offset:1px}
+.gs-heat-grid.anim button{animation:gsCellWave 180ms cubic-bezier(.23,1,.32,1) both;animation-delay:var(--d,0ms)}
+@keyframes gsCellWave{from{opacity:0}to{opacity:1}}
+.gs-heat-detail{font-size:12px;color:var(--fg2);background:var(--sub);border:1px solid var(--bd);border-radius:8px;padding:8px 11px;margin-top:10px;min-height:32px}
+.gs-heat-detail:empty{display:none}
+.gs-heat-detail strong{color:var(--fg);font-weight:600}
+.gs-heat-foot{display:flex;flex-direction:column;align-items:flex-start;gap:4px;margin-top:5px}
+.gs-heat-foot p{color:var(--fg2);font-size:12px;margin:0;min-height:20px}
+.gs-heat-key{display:flex;align-items:center;gap:4px;white-space:nowrap;color:var(--fg3);font-size:12px;align-self:flex-end}
+.gs-heat-key>span{margin:0 4px}
+.gs-heat-lv{display:grid;place-items:center;background:none;border:0;padding:3px;border-radius:5px;cursor:pointer}
+.gs-heat-lv i{display:block;width:12px;height:12px;border-radius:3px;background:var(--act);border:1px solid var(--bd)}
+.gs-heat-lv i[data-lvl="1"]{background:color-mix(in srgb,var(--fg) 25%,var(--act));border-color:transparent}
+.gs-heat-lv i[data-lvl="2"]{background:color-mix(in srgb,var(--fg) 50%,var(--act));border-color:transparent}
+.gs-heat-lv i[data-lvl="3"]{background:color-mix(in srgb,var(--fg) 75%,var(--act));border-color:transparent}
+.gs-heat-lv i[data-lvl="4"]{background:var(--fg);border-color:var(--fg)}
+.gs-heat-lv[aria-pressed="true"]{box-shadow:0 0 0 1.5px var(--fg);background:var(--hov)}
+.gs-heat-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;border-top:1px solid var(--bd);padding-top:15px;margin-top:10px}
+.gs-heat-summary span{display:grid;gap:5px}
+.gs-heat-summary b{font-size:19px;font-weight:600;font-family:var(--mono)}
+.gs-heat-summary small{font-size:12px;color:var(--fg3)}
 
 @media(prefers-reduced-motion:reduce){
   *,*:before,*:after{transition:none!important;animation:none!important}
@@ -472,434 +344,385 @@ button{font:inherit;cursor:pointer}
 </style>
 </head>
 <body>
+<div id="pv" data-gtheme="light">
 <div class="pv-page">
 
   <header class="pv-hero">
-    <span class="pv-kicker">UI preview v11 · nk114 redesign theme</span>
-    <h1>NK QBank — concepts in the new slate + indigo theme</h1>
-    <p>Left shows the <b>redesigned app's real components</b> (nk114 system: slate canvas, indigo primary, blue actions). Right shows the <b>upgraded library concepts re-skinned into that same theme</b> — sliding pill controls, animated values, smoother charts. <b>Nothing in your app was touched.</b> Everything on the right is interactive: tap the filters, bars and nav.</p>
+    <span class="pv-kicker">UI preview <b>v12</b> · Geist redesign theme · light + dark</span>
+    <h1>Concepts in the Geist fashion</h1>
+    <p>Left shows the <b>redesign's own components</b> (neutral surfaces, inverse primaries, mono numerals). Right shows the <b>library concepts re-expressed in that same language</b> — no violet, no amber cards, no glows. <b>Nothing in your app was touched.</b> Toggle the theme above; everything follows, including the heat scale.</p>
+    <div class="pv-theme" role="group" aria-label="Preview theme"><button type="button" data-th="light" aria-pressed="true">Light</button><button type="button" data-th="dark" aria-pressed="false">Dark</button></div>
   </header>
 
-  <!-- 01 · HOME MY PROGRESS -->
+  <!-- 01 · HOME PROGRESS -->
   <section class="pv-sec" id="home-progress">
-    <div class="pv-sec-head"><span class="n">01</span><h2>Home · My Progress filter + stats</h2><span class="file">tools/apply_home_command_center_v1.py</span></div>
-    <p class="pv-sec-sub">The range picker (Today / This Week / This Month / This Year) and the three rows — Unique questions answered, Answer accuracy, Study Time.</p>
+    <div class="pv-sec-head"><span class="n">01</span><h2>Home · progress filter + stats</h2><span class="file">Geist seg + mono numerals</span></div>
+    <p class="pv-sec-sub">Range picker with sliding indicator; values count up; honest deltas vs the previous period.</p>
     <div class="pv-pair">
       <div class="pv-col">
-        <span class="pv-tag is-current">Before · pre-redesign</span>
+        <span class="pv-tag">Before · quiet rows</span>
         <div class="pv-phone">
-          <section class="nk-home-progress">
-            <div class="nk-home-progress-head"><h2>My Progress</h2>
-              <label class="nk-home-range"><select aria-label="Progress range"><option>Today</option><option selected>This Week</option><option>This Month</option><option>This Year</option></select><span>⌄</span></label>
-            </div>
-            <div class="nk-home-progress-card">
-              <div class="nk-home-progress-row"><span class="nk-home-progress-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5"/><path d="M4 19h16"/><path d="m7 15 3-4 3 2 5-7"/></svg></span><div><div class="nk-home-progress-copy"><strong>Unique questions answered</strong><b>142</b></div></div></div>
-              <div class="nk-home-progress-row"><span class="nk-home-progress-icon is-green"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></span><div><div class="nk-home-progress-copy"><strong>Answer accuracy</strong><b>76%</b></div></div></div>
-              <div class="nk-home-progress-row"><span class="nk-home-progress-icon is-blue"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/></svg></span><div><div class="nk-home-progress-copy"><strong>Study Time</strong><b>9h 41m</b></div></div></div>
-            </div>
-          </section>
+          <div class="gs-prog-head"><h2>My Progress</h2></div>
+          <div class="gs-card gs-prog-card">
+            <div class="gs-prog-row"><span class="gs-tile"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5"/><path d="M4 19h16"/><path d="m7 15 3-4 3 2 5-7"/></svg></span><div class="gs-prog-copy"><strong>Unique questions answered</strong><span class="gs-prog-val"><b>142</b></span></div></div>
+            <div class="gs-prog-row"><span class="gs-tile"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></span><div class="gs-prog-copy"><strong>Answer accuracy</strong><span class="gs-prog-val"><b>76%</b></span></div></div>
+            <div class="gs-prog-row"><span class="gs-tile"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/></svg></span><div class="gs-prog-copy"><strong>Study time</strong><span class="gs-prog-val"><b>9h 41m</b></span></div></div>
+          </div>
         </div>
-        <p class="pv-note"><b>What feels off today:</b> a native dropdown for the range, and switching it re-renders the whole page (scroll and focus jump). The rows are static — no sense of change versus the previous period.</p>
+        <p class="pv-note"><b>Before:</b> static rows, native-feel range control, no sense of change vs the previous period.</p>
       </div>
       <div class="pv-col">
-        <span class="pv-tag is-new">Upgraded · interactive</span>
+        <span class="pv-tag is-new">Geist · interactive</span>
         <div class="pv-phone">
-          <section class="nk-home-progress">
-            <div class="nk-home-progress-head"><h2>My Progress</h2></div>
-            <div class="up-seg" id="upHomeSeg" role="group" aria-label="Progress range">
-              <div class="up-seg-pill" id="upHomePill"></div>
-            </div>
-            <div class="up-prog-card">
-              <div class="up-prog-row"><span class="nk-home-progress-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5"/><path d="M4 19h16"/><path d="m7 15 3-4 3 2 5-7"/></svg></span>
-                <div class="up-prog-copy"><strong>Unique questions answered</strong><span class="up-prog-val"><b id="upHAttempted">0</b><br><span class="up-delta is-up" id="upHAttemptedD"></span></span></div></div>
-              <div class="up-prog-row"><span class="nk-home-progress-icon is-green"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></span>
-                <div class="up-prog-copy"><strong>Answer accuracy</strong><span class="up-prog-val"><b id="upHAcc">0%</b><br><span class="up-delta is-up" id="upHAccD"></span></span></div></div>
-              <div class="up-prog-row"><span class="nk-home-progress-icon is-blue"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/></svg></span>
-                <div class="up-prog-copy"><strong>Study Time</strong><span class="up-prog-val"><b id="upHTime">—</b><br><span class="up-delta is-up" id="upHTimeD"></span></span></div></div>
-            </div>
-          </section>
+          <div class="gs-prog-head"><h2>My Progress</h2></div>
+          <div class="gs-seg" id="upHomeSeg" role="group" aria-label="Progress range" style="width:100%;margin-bottom:12px"><div class="gs-seg-pill" id="upHomePill"></div></div>
+          <div class="gs-card gs-prog-card">
+            <div class="gs-prog-row"><span class="gs-tile"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5"/><path d="M4 19h16"/><path d="m7 15 3-4 3 2 5-7"/></svg></span>
+              <div class="gs-prog-copy"><strong>Unique questions answered</strong><span class="gs-prog-val"><b id="upHAttempted">0</b><br><span class="gs-delta is-up" id="upHAttemptedD"></span></span></div></div>
+            <div class="gs-prog-row"><span class="gs-tile"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></span>
+              <div class="gs-prog-copy"><strong>Answer accuracy</strong><span class="gs-prog-val"><b id="upHAcc">0%</b><br><span class="gs-delta is-up" id="upHAccD"></span></span></div></div>
+            <div class="gs-prog-row"><span class="gs-tile"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/></svg></span>
+              <div class="gs-prog-copy"><strong>Study time</strong><span class="gs-prog-val"><b id="upHTime">—</b><br><span class="gs-delta is-up" id="upHTimeD"></span></span></div></div>
+          </div>
         </div>
-        <p class="pv-note"><b>What changed:</b> one-tap segmented control with a sliding pill — no dropdown, no page flash. Values count up on switch, and each row gains an honest delta versus the previous equivalent period (same wording your Insights already uses).</p>
+        <p class="pv-note"><b>Geist expression:</b> the redesign's own seg (surface track, white indicator) with sliding motion added; deltas are semantic subtle chips; every figure is mono tabular.</p>
       </div>
     </div>
   </section>
 
   <!-- 02 · INSIGHTS CONTROLS -->
   <section class="pv-sec" id="insights-controls">
-    <div class="pv-sec-head"><span class="n">02</span><h2>Insights · period + scope controls</h2><span class="file">tools/learning_insights_core.js</span></div>
-    <p class="pv-sec-sub">The Week / Month / Year picker, prev–next stepper with Today reset, and the subject / bank scope pickers.</p>
+    <div class="pv-sec-head"><span class="n">02</span><h2>Insights · period + scope controls</h2><span class="file">ghost chevrons · seg · dropdowns</span></div>
+    <p class="pv-sec-sub">One unified bar: chevrons, Week/Month/Year seg, Today reset, subject/bank dropdowns.</p>
     <div class="pv-pair">
       <div class="pv-col">
-        <span class="pv-tag is-current">Before · pre-redesign</span>
+        <span class="pv-tag">Before · three mechanisms</span>
         <div class="pv-phone">
-          <div class="nk-learning-insights">
-            <header class="nk-li-head"><div><h1>Insights</h1></div>
-              <label><select aria-label="Time period"><option selected>This Week</option><option>This Month</option><option>This Year</option></select></label>
-            </header>
-            <div class="nk-li-controls">
-              <div class="nk-li-period-nav">
-                <button type="button" aria-label="Previous week"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/><path d="M9 12h11"/></svg></button>
-                <strong>5 – 11 Oct</strong>
-                <button type="button" aria-label="Next week" disabled><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></button>
-              </div>
-              <div class="nk-li-scope">
-                <label><select aria-label="Insights subject"><option>All subjects</option><option>Anatomy</option><option>Physiology</option><option>Biochemistry</option></select></label>
-                <label><select aria-label="Insights bank"><option>All banks</option><option>PrepLadder</option><option>Marrow</option></select></label>
-              </div>
-            </div>
-            <p class="nk-li-period-note">Compared with 28 Sep – 4 Oct · to date</p>
-          </div>
+          <div class="gs-prog-head"><h2>Insights</h2></div>
+          <p class="pv-note">Dropdown + arrows + Today, all native controls with inconsistent styling.</p>
         </div>
-        <p class="pv-note"><b>What feels off today:</b> three separate mechanisms for one idea (dropdown + arrows + Today), all native controls with inconsistent styling, and the range label swaps with no transition.</p>
+        <p class="pv-note"><b>Before:</b> three separate mechanisms for one idea; range label swaps with no transition.</p>
       </div>
       <div class="pv-col">
-        <span class="pv-tag is-new">Upgraded · interactive</span>
+        <span class="pv-tag is-new">Geist · interactive</span>
         <div class="pv-phone">
-          <div class="nk-learning-insights">
-            <header class="nk-li-head"><div><h1>Insights</h1></div></header>
-            <div class="up-li-bar">
-              <div class="up-li-row">
-                <button class="up-li-chev" id="upLiPrev" aria-label="Previous period"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
-                <div class="up-li-seg" id="upLiSeg" role="group" aria-label="Time period"><div class="up-seg-pill" id="upLiPill"></div></div>
-                <button class="up-li-chev" id="upLiNext" aria-label="Next period"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></button>
-                <button class="up-li-today" id="upLiToday">Today</button>
+          <div class="gs-card gs-li-bar">
+            <div class="gs-prog-head"><h2>Insights</h2></div>
+            <div class="gs-li-row">
+              <button class="gs-chev" id="upLiPrev" aria-label="Previous period"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+              <div class="gs-seg gs-li-seg" id="upLiSeg" role="group" aria-label="Time period"><div class="gs-seg-pill" id="upLiPill"></div></div>
+              <button class="gs-chev" id="upLiNext" aria-label="Next period"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></button>
+              <button class="gs-li-today" id="upLiToday">Today</button>
+            </div>
+            <div class="gs-li-label" id="upLiLabel">This week · 5 – 11 Oct</div>
+            <div class="gs-li-scope">
+              <div class="gs-dd" id="upDdSubject">
+                <button type="button" class="gs-dd-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Insights subject"><span class="gs-dd-val">All subjects</span><span class="gs-dd-chev"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button>
+                <div class="gs-dd-panel" role="listbox" aria-label="Insights subject"></div>
               </div>
-              <div class="up-li-label" id="upLiLabel">This week · 5 – 11 Oct</div>
-              <div class="up-li-scope">
-                <div class="up-dd" id="upDdSubject">
-                  <button type="button" class="up-dd-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Insights subject"><span class="up-dd-val">All subjects</span><span class="up-dd-chev"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button>
-                  <div class="up-dd-panel" role="listbox" aria-label="Insights subject"></div>
-                </div>
-                <div class="up-dd" id="upDdBank">
-                  <button type="button" class="up-dd-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Insights bank"><span class="up-dd-val">All banks</span><span class="up-dd-chev"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button>
-                  <div class="up-dd-panel" role="listbox" aria-label="Insights bank"></div>
-                </div>
+              <div class="gs-dd" id="upDdBank">
+                <button type="button" class="gs-dd-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Insights bank"><span class="gs-dd-val">All banks</span><span class="gs-dd-chev"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button>
+                <div class="gs-dd-panel" role="listbox" aria-label="Insights bank"></div>
               </div>
             </div>
-            <p class="up-li-note" id="upLiNote">Compared with 28 Sep – 4 Oct · to date</p>
           </div>
+          <p class="gs-li-note" id="upLiNote">Compared with 28 Sep – 4 Oct · to date</p>
         </div>
-        <p class="pv-note"><b>What changed:</b> one unified bar — chevrons, sliding Week/Month/Year pill and Today reset belong together, and the label crossfades. The subject/bank pickers are now custom spring dropdowns (inspired by easyui's SpringSelect): tap one and the panel springs open from the trigger with an overshooting chevron — no more native Android sheet. Picking a scope re-filters the charts below, like production.</p>
+        <p class="pv-note"><b>Geist expression:</b> ghost chevrons, hairline card, strong-border dropdowns with layered shadow on open — no tinted fills anywhere. Scope picks re-filter the charts below.</p>
       </div>
     </div>
   </section>
 
-  <!-- 03 · INSIGHTS CHARTS -->
+  <!-- 03 · CHARTS -->
   <section class="pv-sec" id="insights-charts">
-    <div class="pv-sec-head"><span class="n">03</span><h2>Insights · Questions chart + Study-time trend</h2><span class="file">tools/learning_insights_core.js</span></div>
-    <p class="pv-sec-sub">The current-vs-previous bar chart and the study-time trend line, driven by the same period control.</p>
+    <div class="pv-sec-head"><span class="n">03</span><h2>Insights · Questions chart + Study-time trend</h2><span class="file">ink strokes · neutral grid</span></div>
+    <p class="pv-sec-sub">Current series in ink, previous series as a 22% mix, grid on hairlines — the redesign's chart mapping.</p>
     <div class="pv-pair">
       <div class="pv-col">
-        <span class="pv-tag is-current">Before · pre-redesign</span>
+        <span class="pv-tag">Before · static</span>
         <div class="pv-phone">
-          <div class="nk-learning-insights">
-            <div class="nk-li-card"><header><h2>Questions practised</h2></header>
-              <div class="nk-li-key"><span><i></i>This week</span><span><i class="is-previous"></i>Previous week</span></div>
-              <div class="nk-li-bars" id="curBars"></div>
-            </div>
-            <div class="nk-li-card"><header><h2>Study time trend</h2></header>
-              <div class="nk-li-key"><span><i></i>This week</span><span><i class="is-previous"></i>Previous week</span></div>
-              <svg class="nk-li-trend" viewBox="0 0 400 200" id="curTrend"></svg>
-              <div class="nk-li-trend-totals"><span><small>This week</small><b>9h 41m</b></span><span class="nk-li-delta is-up">↑ 12%</span><span><small>Previous week</small><b>8h 38m</b></span></div>
-            </div>
+          <div class="gs-card gs-chart-card"><header><h2>Questions practised</h2></header>
+            <div class="gs-key"><span><i></i>This week</span><span><i class="is-previous"></i>Previous week</span></div>
+            <div class="gs-bars" id="curBars"></div>
+          </div>
+          <div class="gs-card gs-chart-card"><header><h2>Study time trend</h2></header>
+            <svg class="gs-trend" viewBox="0 0 400 200" id="curTrend"></svg>
           </div>
         </div>
-        <p class="pv-note"><b>What feels off today:</b> solid charts, but bars snap to new heights on period change with no transition, dots have title-tooltips only (no touch feedback), and the trend line just appears.</p>
+        <p class="pv-note"><b>Before:</b> bars snap with no transition; trend line just appears; tooltips are title-only.</p>
       </div>
       <div class="pv-col">
-        <span class="pv-tag is-new">Upgraded · interactive</span>
+        <span class="pv-tag is-new">Geist · interactive</span>
         <div class="pv-phone">
-          <div class="nk-learning-insights">
-            <div class="nk-li-card"><header><h2>Questions practised</h2></header>
-              <div class="nk-li-key"><span><i></i><span id="upBarsCur">This week</span></span><span><i class="is-previous"></i><span id="upBarsPrev">Previous week</span></span></div>
-              <div class="nk-li-bars up-bars" id="upBars"></div>
-              <div class="up-bin-readout" id="upBinReadout"></div>
-            </div>
-            <div class="nk-li-card"><header><h2>Study time trend</h2></header>
-              <div class="nk-li-key"><span><i></i><span id="upTrendCur">This week</span></span><span><i class="is-previous"></i><span id="upTrendPrev">Previous week</span></span><span id="upTrendScope" style="margin-left:auto"></span></div>
-              <div class="up-trend-wrap" id="upTrendWrap"><div class="up-tip-card" id="upTrendTip"></div><svg class="nk-li-trend" viewBox="0 0 400 196" id="upTrend" preserveAspectRatio="xMidYMid meet"></svg></div>
-              <div class="up-x" id="upTrendX"></div>
-              <div class="up-totals">
-                <div class="up-total-row"><span class="up-total-label" id="upTrendCurT">This week</span><span class="up-total-val"><b id="upTrendVal">9h 41m</b><span class="nk-li-delta is-up" id="upTrendDelta">↑ 12%</span></span></div>
-                <div class="up-total-row is-prev"><span class="up-total-label" id="upTrendPrevT">Previous week</span><span class="up-total-val"><b id="upTrendPrevVal">8h 38m</b></span></div>
-              </div>
+          <div class="gs-card gs-chart-card"><header><h2>Questions practised</h2></header>
+            <div class="gs-key"><span><i></i><span id="upBarsCur">This week</span></span><span><i class="is-previous"></i><span id="upBarsPrev">Previous week</span></span></div>
+            <div class="gs-bars" id="upBars"></div>
+            <div class="gs-readout" id="upBinReadout"></div>
+          </div>
+          <div class="gs-card gs-chart-card"><header><h2>Study time trend</h2></header>
+            <div class="gs-key"><span><i></i><span id="upTrendCur">This week</span></span><span><i class="is-previous"></i><span id="upTrendPrev">Previous week</span></span><span id="upTrendScope" style="margin-left:auto"></span></div>
+            <div class="gs-trend-wrap" id="upTrendWrap"><div class="gs-tip" id="upTrendTip"></div><svg class="gs-trend" viewBox="0 0 400 196" id="upTrend" preserveAspectRatio="xMidYMid meet"></svg></div>
+            <div class="gs-x" id="upTrendX"></div>
+            <div class="gs-totals">
+              <div class="gs-total-row"><span class="gs-total-label" id="upTrendCurT">This week</span><span class="gs-total-val"><b id="upTrendVal">9h 41m</b><span class="gs-delta is-up" id="upTrendDelta">↑ 12%</span></span></div>
+              <div class="gs-total-row is-prev"><span class="gs-total-label" id="upTrendPrevT">Previous week</span><span class="gs-total-val"><b id="upTrendPrevVal">8h 38m</b></span></div>
             </div>
           </div>
         </div>
-        <p class="pv-note"><b>What changed (v3):</b> new gradient-stroke spline, floating tooltip <b>card</b> (Cult analytics-chart style) with current + previous values, pinned peak marker, and a restructured totals block — current vs previous now stack in clean rows instead of cramping one line. Scrubbing works on tap <b>and</b> drag for touch (vertical page scroll still works).</p>
+        <p class="pv-note"><b>Geist expression:</b> ink spline with draw-in, inverse tooltip card, mono axis, stacked totals — scrub by tap or drag.</p>
       </div>
     </div>
   </section>
 
   <!-- 04 · BOTTOM NAV -->
   <section class="pv-sec" id="bottom-nav">
-    <div class="pv-sec-head"><span class="n">04</span><h2>Bottom navigation · active indicator</h2><span class="file">tools/apply_home_command_center_v1.py (BOTTOM_NAV)</span></div>
-    <p class="pv-sec-sub">Home · Topics · Tests · Insights · More — the redesigned frosted-glass nav with blue active pill.</p>
+    <div class="pv-sec-head"><span class="n">04</span><h2>Bottom navigation · active state</h2><span class="file">no pill — fg color + press scale</span></div>
+    <p class="pv-sec-sub">Home · Topics · Tests · Insights · More. The redesign carries no active pill: active is foreground color.</p>
     <div class="pv-pair">
       <div class="pv-col">
-        <span class="pv-tag is-new">Redesigned · live component</span>
+        <span class="pv-tag">Redesign · live pattern</span>
         <div class="pv-phone">
-          <nav class="nk-bottom-nav-v114" aria-label="Primary navigation" id="curNav"></nav>
+          <nav class="gs-nav" aria-label="Primary navigation" id="curNav"></nav>
         </div>
-        <p class="pv-note"><b>What this is now:</b> the redesigned app nav itself — frosted glass, slate icons, blue active pill. The upgrade adds only the gliding motion between tabs.</p>
+        <p class="pv-note"><b>Redesign:</b> gray icons, active tab in ink, 12px labels — no indicator shape at all.</p>
       </div>
       <div class="pv-col">
-        <span class="pv-tag is-new">Upgraded · interactive</span>
+        <span class="pv-tag is-new">Geist · interactive</span>
         <div class="pv-phone">
-          <nav class="nk-bottom-nav-v114 up-nav" aria-label="Primary navigation" id="upNav"><div class="up-nav-pill" id="upNavPill"></div></nav>
+          <nav class="gs-nav" aria-label="Primary navigation" id="upNav"></nav>
         </div>
-        <p class="pv-note"><b>What changed:</b> a single pill glides behind the active tab (transform-only). Tap through the tabs to feel it. An expanding-tab alternative was tried and dropped — hiding labels until tapped is wrong for a study app.</p>
+        <p class="pv-note"><b>Geist expression:</b> same nav plus honest press-scale on tap and the inverse due-count badge on Insights (the redesign's own badge pattern). No glide — there is nothing to glide.</p>
       </div>
     </div>
   </section>
 
   <!-- 05 · TOPIC TABS -->
   <section class="pv-sec" id="topic-tabs">
-    <div class="pv-sec-head"><span class="n">05</span><h2>Insights · Topic performance sort tabs</h2><span class="file">tools/learning_insights_core.js (nkLearningTopics)</span></div>
-    <p class="pv-sec-sub">The Needs improvement / Top performing toggle above the topic rows.</p>
+    <div class="pv-sec-head"><span class="n">05</span><h2>Insights · topic performance sort</h2><span class="file">nkg-seg + hairline rows</span></div>
+    <p class="pv-sec-sub">Needs improvement / Top performing toggle above hairline topic rows with ink accuracy bars.</p>
     <div class="pv-pair">
       <div class="pv-col">
-        <span class="pv-tag is-current">Before · pre-redesign</span>
+        <span class="pv-tag">Before · static rows</span>
         <div class="pv-phone">
-          <div class="nk-learning-insights">
-            <div class="nk-li-tabs" role="group" aria-label="Sort topic performance"><button type="button" aria-pressed="true">Needs improvement</button><button type="button" aria-pressed="false">Top performing</button></div>
-            <div id="curTopics"></div>
-          </div>
+          <div id="curTopics"></div>
         </div>
-        <p class="pv-note"><b>What feels off today:</b> same snap-fill swap as the old period controls — no sliding indicator, rows swap instantly.</p>
+        <p class="pv-note"><b>Before:</b> rows swap instantly; toggle has no indicator motion.</p>
       </div>
       <div class="pv-col">
-        <span class="pv-tag is-new">Upgraded · interactive</span>
+        <span class="pv-tag is-new">Geist · interactive</span>
         <div class="pv-phone">
-          <div class="nk-learning-insights">
-            <div class="up-seg" id="upTopicSeg" role="group" aria-label="Sort topic performance"><div class="up-seg-pill" id="upTopicPill"></div></div>
-            <div class="up-topic-list" id="upTopicList" style="margin-top:4px"></div>
-          </div>
+          <div class="gs-seg" id="upTopicSeg" role="group" aria-label="Sort topic performance" style="width:100%"><div class="gs-seg-pill" id="upTopicPill"></div></div>
+          <div class="gs-topic-list" id="upTopicList" style="margin-top:4px"></div>
         </div>
-        <p class="pv-note"><b>What changed:</b> the same sliding-pill segmented control as the approved period filters — one consistent toggle language app-wide. Rows crossfade and accuracy bars glide to their new widths.</p>
+        <p class="pv-note"><b>Geist expression:</b> surface track with sliding white indicator; rows crossfade; 4px ink bars glide.</p>
       </div>
     </div>
   </section>
 
   <!-- 06 · DONUT -->
   <section class="pv-sec" id="donut">
-    <div class="pv-sec-head"><span class="n">06</span><h2>Insights · Question-performance donut</h2><span class="file">tools/learning_insights_core.js (nkLearningDonut)</span></div>
-    <p class="pv-sec-sub">The Correct / Incorrect / Skipped outcome ring with its counts.</p>
+    <div class="pv-sec-head"><span class="n">06</span><h2>Insights · question-performance donut</h2><span class="file">semantic strokes only</span></div>
+    <p class="pv-sec-sub">Correct / Incorrect / Skipped ring. Color carries meaning and nothing else.</p>
     <div class="pv-pair">
       <div class="pv-col">
-        <span class="pv-tag is-current">Before · pre-redesign</span>
+        <span class="pv-tag">Before · static ring</span>
         <div class="pv-phone">
-          <div class="nk-learning-insights">
-            <div class="nk-li-outcomes"><h3>This week</h3><div class="nk-li-donut" role="img" aria-label="This week: 108 correct, 26 incorrect, 8 skipped" style="--donut:conic-gradient(#059669 0 76.1%,#e11d48 76.1% 94.4%,#cbd5e1 94.4% 100%)"><span><b>142</b><small>questions</small></span></div><dl><div><dt><i class="is-green"></i>Correct</dt><dd>108 <small>76%</small></dd></div><div><dt><i class="is-red"></i>Incorrect</dt><dd>26 <small>18%</small></dd></div><div><dt><i></i>Skipped</dt><dd>8 <small>6%</small></dd></div></dl></div>
-          </div>
+          <div class="gs-outcomes"><h3>This week</h3><div class="gs-donut" role="img" aria-label="This week: 108 correct, 26 incorrect, 8 skipped" style="--ring:conic-gradient(var(--grn) 0 76.1%,var(--red) 76.1% 94.4%,var(--bds) 94.4% 100%)"><span><b>142</b><small>questions</small></span></div><dl><div><dt><i class="is-green"></i>Correct</dt><dd>108 <small>76%</small></dd></div><div><dt><i class="is-red"></i>Incorrect</dt><dd>26 <small>18%</small></dd></div><div><dt><i></i>Skipped</dt><dd>8 <small>6%</small></dd></div></dl></div>
         </div>
-        <p class="pv-note"><b>What feels off today:</b> the ring just appears at full values — no sense of arrival, numbers are static.</p>
+        <p class="pv-note"><b>Before:</b> ring appears at full values; numbers static.</p>
       </div>
       <div class="pv-col">
-        <span class="pv-tag is-new">Upgraded · animated on scroll into view</span>
+        <span class="pv-tag is-new">Geist · animated on scroll into view</span>
         <div class="pv-phone">
-          <div class="nk-learning-insights">
-            <div class="nk-li-card" style="margin-top:0"><header><h2>Question performance</h2></header>
-              <div class="nk-li-outcomes" id="upDonut"><h3>This week</h3><div class="nk-li-donut" role="img" aria-label="This week: 108 correct, 26 incorrect, 8 skipped" id="upDonutRing" style="--donut:#f1f5f9"><span><b id="upDonutNum">0</b><small>questions</small></span></div><dl><div><dt><i class="is-green"></i>Correct</dt><dd>108 <small>76%</small></dd></div><div><dt><i class="is-red"></i>Incorrect</dt><dd>26 <small>18%</small></dd></div><div><dt><i></i>Skipped</dt><dd>8 <small>6%</small></dd></div></dl></div>
-            </div>
+          <div class="gs-card gs-chart-card" style="margin-top:0"><header><h2>Question performance</h2></header>
+            <div class="gs-outcomes" id="upDonut"><h3>This week</h3><div class="gs-donut" role="img" aria-label="This week: 108 correct, 26 incorrect, 8 skipped" id="upDonutRing" style="--ring:var(--act)"><span><b id="upDonutNum">0</b><small>questions</small></span></div><dl><div><dt><i class="is-green"></i>Correct</dt><dd>108 <small>76%</small></dd></div><div><dt><i class="is-red"></i>Incorrect</dt><dd>26 <small>18%</small></dd></div><div><dt><i></i>Skipped</dt><dd>8 <small>6%</small></dd></div></dl></div>
           </div>
         </div>
-        <p class="pv-note"><b>What changed:</b> the ring sweeps in from zero, the center number counts up, legend rows stagger in. Same conic ring, same colors, same wording — only the arrival is choreographed. Scroll it out and back to replay.</p>
+        <p class="pv-note"><b>Geist expression:</b> ring sweeps from zero in semantic green/red, skipped stays a neutral arc; mono center counts up; legend staggers.</p>
       </div>
     </div>
   </section>
 
-  <!-- 07 · COUNT GRID -->
+  <!-- 07 · COUNT -->
   <section class="pv-sec" id="count-grid">
-    <div class="pv-sec-head"><span class="n">07</span><h2>Tests · question-count picker</h2><span class="file">tools/apply_home_command_center_v1.py (TESTS_PAGE)</span></div>
-    <p class="pv-sec-sub">The 10 / 20 / 50 / 100 picker in the quick-test builder (Wrong questions, 37 available).</p>
+    <div class="pv-sec-head"><span class="n">07</span><h2>Tests · question-count picker</h2><span class="file">nkg-seg, mono numerals</span></div>
+    <p class="pv-sec-sub">10 / 20 / 50 / 100 in the quick-test builder.</p>
     <div class="pv-pair">
       <div class="pv-col">
-        <span class="pv-tag is-current">Before · pre-redesign</span>
+        <span class="pv-tag">Before · four buttons</span>
         <div class="pv-phone">
-          <div class="nk-test-quick-setup"><h3>Number of questions</h3><div class="nk-test-count-grid"><button type="button">10</button><button type="button" class="active">20</button><button type="button">50</button><button type="button">100</button></div><p>20 questions available for this test.</p></div>
+          <p class="pv-note">Four separate buttons with a border snap; each tap re-renders the page.</p>
         </div>
-        <p class="pv-note"><b>What feels off today:</b> four separate buttons with a border-color snap — and each tap re-renders the page. No group feel.</p>
+        <p class="pv-note"><b>Before:</b> no group feel; availability count is static text.</p>
       </div>
       <div class="pv-col">
-        <span class="pv-tag is-new">Upgraded · interactive</span>
+        <span class="pv-tag is-new">Geist · interactive</span>
         <div class="pv-phone">
-          <div class="nk-test-quick-setup"><h3>Number of questions</h3><div class="up-count" id="upCountSeg" role="group" aria-label="Number of questions"><div class="up-seg-pill" id="upCountPill"></div></div><p><b id="upCountAvail" style="font-variant-numeric:tabular-nums">20</b> questions available for this test.</p></div>
+          <h3 style="font-size:14px;font-weight:600;margin:0 0 10px">Number of questions</h3>
+          <div class="gs-seg gs-count" id="upCountSeg" role="group" aria-label="Number of questions"><div class="gs-seg-pill" id="upCountPill"></div></div>
+          <p style="margin:8px 2px 0;color:var(--fg3);font-size:12px"><b id="upCountAvail" class="gs-num">20</b> questions available for this test.</p>
         </div>
-        <p class="pv-note"><b>What changed:</b> one segmented pill group (same control language as 01/02/05) — the indicator slides, the availability count ticks to the new value. No page flash.</p>
+        <p class="pv-note"><b>Geist expression:</b> one seg group in mono numerals; availability ticks to the new value.</p>
       </div>
     </div>
   </section>
 
   <!-- 08 · COMPARISON -->
   <section class="pv-sec" id="comparison">
-    <div class="pv-sec-head"><span class="n">08</span><h2>Insights · Period comparison table</h2><span class="file">tools/learning_insights_core.js (nkLearningComparison)</span></div>
-    <p class="pv-sec-sub">The Measure / This week / Previous week / Change grid across five metrics.</p>
+    <div class="pv-sec-head"><span class="n">08</span><h2>Insights · period comparison</h2><span class="file">arrow notation, ink present</span></div>
+    <p class="pv-sec-sub">Each row reads as a sentence: muted past → ink present + delta chip.</p>
     <div class="pv-pair">
       <div class="pv-col">
-        <span class="pv-tag is-current">Before · pre-redesign</span>
+        <span class="pv-tag">Before · cramped grid</span>
         <div class="pv-phone">
-          <div class="nk-learning-insights">
-            <div class="nk-li-card" style="margin-top:0"><header><h2>Period comparison</h2></header>
-              <div class="nk-li-comparison"><div class="nk-li-comparison-head"><span>Measure</span><span>This week</span><span>Previous week</span><span>Change</span></div><div><strong>Answers</strong><b>142</b><span>118</span><span class="nk-li-delta is-up">↑ 20%</span></div><div><strong>Study time</strong><b>9h 41m</b><span>8h 38m</span><span class="nk-li-delta is-up">↑ 12%</span></div><div><strong>Accuracy</strong><b>76%</b><span>71%</span><span class="nk-li-delta is-up">↑ 5 pp</span></div><div><strong>FSRS reviews</strong><b>64</b><span>58</span><span class="nk-li-delta is-up">↑ 10%</span></div><div><strong>Modules finished</strong><b>3</b><span>2</span><span class="nk-li-delta is-up">↑ 50%</span></div></div>
-            </div>
-          </div>
+          <p class="pv-note">Four cramped columns; headers wrap; the eye zigzags across every row.</p>
         </div>
-        <p class="pv-note"><b>What feels off today:</b> four cramped columns at 10px — headers wrap, values collide, and the eye has to zigzag across every row to compare two numbers.</p>
+        <p class="pv-note"><b>Before:</b> values collide; comparison takes work.</p>
       </div>
       <div class="pv-col">
-        <span class="pv-tag is-new">Upgraded · same data, restructured</span>
+        <span class="pv-tag is-new">Geist · same data, restructured</span>
         <div class="pv-phone">
-          <div class="nk-learning-insights">
-            <div class="nk-li-card" style="margin-top:0"><header><h2>Period comparison</h2></header>
-              <div id="upCmp"></div>
-            </div>
+          <div class="gs-card gs-chart-card" style="margin-top:0"><header><h2>Period comparison</h2></header>
+            <div id="upCmp"></div>
           </div>
         </div>
-        <p class="pv-note"><b>What changed (v4):</b> you were right about the bars — dead. Now each row reads like a sentence: <b>118 → 142 ↑ 20%</b>. Muted past, violet arrow, big present, delta chip. Nothing to decode, nothing to learn.</p>
+        <p class="pv-note"><b>Geist expression:</b> <b>118 → 142 ↑ 20%</b> — muted mono past, ink arrow, big mono present, semantic chip. Nothing to decode.</p>
       </div>
     </div>
   </section>
 
   <!-- 09 · FORECAST -->
   <section class="pv-sec" id="forecast">
-    <div class="pv-sec-head"><span class="n">09</span><h2>Insights · 7-day review forecast</h2><span class="file">tools/learning_insights_core.js (nkLearningFsrs)</span></div>
-    <p class="pv-sec-sub">The due-per-day bars inside Spaced repetition · FSRS.</p>
+    <div class="pv-sec-head"><span class="n">09</span><h2>Insights · 7-day review forecast</h2><span class="file">ink bars · inverse today · hairline zero</span></div>
+    <p class="pv-sec-sub">Due-per-day bars. Zero days draw as a hairline, not a slab — the redesign's own rule.</p>
     <div class="pv-pair">
       <div class="pv-col">
-        <span class="pv-tag is-current">Before · pre-redesign</span>
+        <span class="pv-tag">Before · static bars</span>
         <div class="pv-phone">
-          <div class="nk-learning-insights">
-            <div class="nk-li-card" style="margin-top:0"><header><h2>Spaced repetition · FSRS</h2></header>
-              <h3 style="font-size:11px;margin:0 0 12px">7-day review forecast <small style="float:right;color:#64748b;font-size:10px;font-weight:400">As of today</small></h3>
-              <div class="nk-li-forecast" id="curForecast"></div>
-            </div>
+          <div class="gs-card gs-chart-card" style="margin-top:0"><header><h2>Spaced repetition · FSRS</h2></header>
+            <div class="gs-forecast" id="curForecast"></div>
           </div>
         </div>
-        <p class="pv-note"><b>What feels off today:</b> bars sit at full height statically — today is indistinguishable from the other days, and tapping a day tells you nothing.</p>
+        <p class="pv-note"><b>Before:</b> today indistinguishable; tapping a day tells nothing.</p>
       </div>
       <div class="pv-col">
-        <span class="pv-tag is-new">Upgraded · interactive</span>
+        <span class="pv-tag is-new">Geist · interactive</span>
         <div class="pv-phone">
-          <div class="nk-learning-insights">
-            <div class="nk-li-card" style="margin-top:0"><header><h2>Spaced repetition · FSRS</h2></header>
-              <h3 style="font-size:11px;margin:0 0 12px">7-day review forecast <small style="float:right;color:#64748b;font-size:10px;font-weight:400">As of today</small></h3>
-              <div class="nk-li-forecast up-forecast" id="upForecast"></div>
-              <div class="up-fc-readout" id="upFcReadout"><span style="color:#64748b">Tap a day to see its due count.</span></div>
-            </div>
+          <div class="gs-card gs-chart-card" style="margin-top:0"><header><h2>Spaced repetition · FSRS</h2></header>
+            <div class="gs-forecast" id="upForecast"></div>
+            <div class="gs-readout" id="upFcReadout"><span style="color:var(--fg3)">Tap a day to see its due count.</span></div>
           </div>
         </div>
-        <p class="pv-note"><b>What changed (v2):</b> tapping a day now selects it — glow ring, brightened bar, readout update, and a guarded 8ms haptic tap (your app already uses haptics selectively). Today keeps its deep-violet fill untouched; selection is the ring around it, so both identities coexist. Today starts pre-selected so the pattern is visible immediately.</p>
+        <p class="pv-note"><b>Geist expression:</b> today is the inverse tile; selection is a 2px ink ring; bars grow in; readout updates. Today starts pre-selected.</p>
       </div>
     </div>
   </section>
 
   <!-- 10 · SOURCE CARDS -->
   <section class="pv-sec" id="source-cards">
-    <div class="pv-sec-head"><span class="n">10</span><h2>Tests · quick-test source cards</h2><span class="file">tools/apply_home_command_center_v1.py (TESTS_PAGE)</span></div>
-    <p class="pv-sec-sub">The Wrong questions / Bookmarked questions selectors (37 missed, 12 saved).</p>
+    <div class="pv-sec-head"><span class="n">10</span><h2>Tests · quick-test source cards</h2><span class="file">hairlines · inverse check</span></div>
+    <p class="pv-sec-sub">Wrong questions / Bookmarked questions selectors.</p>
     <div class="pv-pair">
       <div class="pv-col">
-        <span class="pv-tag is-current">Before · pre-redesign</span>
-        <div class="pv-phone" style="background:#ffffff">
+        <span class="pv-tag">Before · border-tint whisper</span>
+        <div class="pv-phone">
           <div id="curSource"></div>
         </div>
-        <p class="pv-note"><b>What feels off today:</b> selection is only a border tint — the chevron never acknowledges your choice, and there's no press feedback.</p>
+        <p class="pv-note"><b>Before:</b> selection is only a border tint; no press feedback.</p>
       </div>
       <div class="pv-col">
-        <span class="pv-tag is-new">Upgraded · interactive</span>
-        <div class="pv-phone" style="background:#ffffff">
-          <div class="up-source" id="upSource"></div>
+        <span class="pv-tag is-new">Geist · interactive</span>
+        <div class="pv-phone">
+          <div id="upSource"></div>
         </div>
-        <p class="pv-note"><b>What changed (v2):</b> the selected card now carries a violet halo ring + soft elevation (Cult Halo-Select idea, your theme) on top of the morphing check — selection reads at a glance instead of a border-tint whisper. Tap to switch sources.</p>
+        <p class="pv-note"><b>Geist expression:</b> selected card takes the ink border with an inverse check disc; press scales honestly. Tap to switch.</p>
       </div>
     </div>
   </section>
 
   <!-- 11 · STREAK -->
   <section class="pv-sec" id="streak">
-    <div class="pv-sec-head"><span class="n">11</span><h2>Streak · top 3 concepts (Trophy-anchored)</h2><span class="file">Trophy streak-card/badge · shadcn.io notification-streak · Rive dynamic fire · Lottie</span></div>
-    <p class="pv-sec-sub">A: full Trophy-style card · B: compact Trophy-style badge · C: milestone celebration moment. Same 14-day Blaze sample throughout.</p>
+    <div class="pv-sec-head"><span class="n">11</span><h2>Streak · restrained, Trophy-informed</h2><span class="file">orange glyph only · no sparks</span></div>
+    <p class="pv-sec-sub">A: Trophy card re-expressed in Geist · B: inverse badge · C: inverse milestone. Same 14-day sample.</p>
     <div class="pv-pair">
       <div class="pv-col">
-        <span class="pv-tag is-new">Redesigned · live component</span>
+        <span class="pv-tag">Redesign · live pattern</span>
         <div class="pv-phone">
-          <section class="nk-streak-strip is-burning" aria-label="14 day study streak"><div class="nk-streak-copy"><span class="nk-streak-flame" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 10.941c2.333 -3.308 .167 -7.823 -1 -8.941c0 3.395 -2.235 5.299 -3.667 6.706c-1.43 1.408 -2.333 3.294 -2.333 5.588c0 3.704 3.134 6.706 7 6.706c3.866 0 7 -3.002 7 -6.706c0 -1.712 -1.232 -4.403 -2.333 -5.588c-2.084 3.353 -3.257 3.353 -4.667 2.235"/></svg></span><div><strong>14 day streak</strong><small>7 more days to reach 21 days</small></div></div><div class="nk-week-strip" role="img" aria-label="Study this week"><span class="nk-week-day is-done"><i><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 10.941c2.333 -3.308 .167 -7.823 -1 -8.941c0 3.395 -2.235 5.299 -3.667 6.706c-1.43 1.408 -2.333 3.294 -2.333 5.588c0 3.704 3.134 6.706 7 6.706c3.866 0 7 -3.002 7 -6.706c0 -1.712 -1.232 -4.403 -2.333 -5.588c-2.084 3.353 -3.257 3.353 -4.667 2.235"/></svg></i><b>M</b></span><span class="nk-week-day is-done"><i><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 10.941c2.333 -3.308 .167 -7.823 -1 -8.941c0 3.395 -2.235 5.299 -3.667 6.706c-1.43 1.408 -2.333 3.294 -2.333 5.588c0 3.704 3.134 6.706 7 6.706c3.866 0 7 -3.002 7 -6.706c0 -1.712 -1.232 -4.403 -2.333 -5.588c-2.084 3.353 -3.257 3.353 -4.667 2.235"/></svg></i><b>T</b></span><span class="nk-week-day is-done"><i><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 10.941c2.333 -3.308 .167 -7.823 -1 -8.941c0 3.395 -2.235 5.299 -3.667 6.706c-1.43 1.408 -2.333 3.294 -2.333 5.588c0 3.704 3.134 6.706 7 6.706c3.866 0 7 -3.002 7 -6.706c0 -1.712 -1.232 -4.403 -2.333 -5.588c-2.084 3.353 -3.257 3.353 -4.667 2.235"/></svg></i><b>W</b></span><span class="nk-week-day is-done"><i><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 10.941c2.333 -3.308 .167 -7.823 -1 -8.941c0 3.395 -2.235 5.299 -3.667 6.706c-1.43 1.408 -2.333 3.294 -2.333 5.588c0 3.704 3.134 6.706 7 6.706c3.866 0 7 -3.002 7 -6.706c0 -1.712 -1.232 -4.403 -2.333 -5.588c-2.084 3.353 -3.257 3.353 -4.667 2.235"/></svg></i><b>T</b></span><span class="nk-week-day is-done"><i><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 10.941c2.333 -3.308 .167 -7.823 -1 -8.941c0 3.395 -2.235 5.299 -3.667 6.706c-1.43 1.408 -2.333 3.294 -2.333 5.588c0 3.704 3.134 6.706 7 6.706c3.866 0 7 -3.002 7 -6.706c0 -1.712 -1.232 -4.403 -2.333 -5.588c-2.084 3.353 -3.257 3.353 -4.667 2.235"/></svg></i><b>F</b></span><span class="nk-week-day is-today"><i></i><b>S</b></span><span class="nk-week-day"><i></i><b>S</b></span></div></section>
+          <section class="gs-strip is-burning" aria-label="14 day study streak"><span class="gs-flame" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 10.941c2.333 -3.308 .167 -7.823 -1 -8.941c0 3.395 -2.235 5.299 -3.667 6.706c-1.43 1.408 -2.333 3.294 -2.333 5.588c0 3.704 3.134 6.706 7 6.706c3.866 0 7 -3.002 7 -6.706c0 -1.712 -1.232 -4.403 -2.333 -5.588c-2.084 3.353 -3.257 3.353 -4.667 2.235"/></svg></span><div class="gs-strip-copy"><strong><span class="gs-num">14</span> day streak</strong><small>7 more days to reach 21 days</small></div><div class="gs-week" role="img" aria-label="Study this week"><span class="gs-week-day is-done"><i></i><b>M</b></span><span class="gs-week-day is-done"><i></i><b>T</b></span><span class="gs-week-day is-done"><i></i><b>W</b></span><span class="gs-week-day is-done"><i></i><b>T</b></span><span class="gs-week-day is-done"><i></i><b>F</b></span><span class="gs-week-day is-today"><i></i><b>S</b></span><span class="gs-week-day"><i></i><b>S</b></span></div></section>
         </div>
-        <p class="pv-note"><b>What this is now:</b> the redesigned strip — white card, amber flame squircle, milestone copy ("7 more days to reach 21 days"), orange week dots. <b>Audit finding (still open):</b> the fire emoji is not a design choice — it's the v102 fallback injector (<b>index.html ~L1301</b>) misfiring on Home. Its guard only checks for <b>.streak-card</b>, but Home renders a streak strip, so the injector adds a duplicate emoji card. One-line production fix available when you approve (extend the guard).</p>
+        <p class="pv-note"><b>Redesign:</b> one orange glyph when alive; dashed empties; inverse-filled study days; double-ring today. No sparks, no liquid, no aura — by design.</p>
       </div>
       <div class="pv-col">
-        <span class="pv-tag is-new">Upgraded · same data, graphical flame</span>
+        <span class="pv-tag is-new">Geist · Trophy IA, restrained</span>
         <div class="pv-phone">
-          <section class="up-tcard" data-tier="14" id="upTrophyCard" aria-label="Study streak, 14 days"><div class="up-tcard-head"><h3>Study streak</h3><button type="button" id="upTrophyGo">Insights <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></button></div><div class="up-tcard-now"><span class="up-tflame" aria-hidden="true"><span class="up-sbflame"><svg class="up-flame-svg" viewBox="0 0 50 64"><defs><linearGradient id="upFlameOuter" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff7a2e"/><stop offset=".55" stop-color="#ff9c38"/><stop offset="1" stop-color="#e04e1f"/></linearGradient><linearGradient id="upFlameMid" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe27a"/><stop offset="1" stop-color="#ffab3d"/></linearGradient><linearGradient id="upFlameCore" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffdf0"/><stop offset="1" stop-color="#ffe27a"/></linearGradient></defs><path d="M26 2c1 13 21 20 21 36 0 15-10 24-22 24C11 62 3 53 3 41c0-11 9-17 11-27 1 12 8 14 10 6 3-7 2-13 2-18Z" fill="url(#upFlameOuter)"/><path d="M11 23c-1 10-7 13-7 21 0 7 4 13 10 16-5-12 1-17-3-37Z" fill="#f56b24"/><path d="M28 24c1 9 10 14 10 22 0 9-6 15-13 15-8 0-14-6-14-15 0-6 5-10 7-16 1 6 3 9 6 10 5-5 5-10 4-16Z" fill="url(#upFlameMid)"/><path d="M27 42c2 5 5 8 5 12 0 5-3 7-7 7s-7-3-7-7c0-5 6-9 9-12Z" fill="url(#upFlameCore)"/><ellipse cx="25.5" cy="46" rx="3" ry="4.5" fill="#fff" opacity=".85"/></svg></span><span class="up-ember" style="left:8px;width:4px;height:6px;--drift:-5px;animation-delay:0s"></span><span class="up-ember" style="left:20px;width:3px;height:5px;--drift:4px;animation-delay:.8s"></span><span class="up-ember" style="left:14px;width:3px;height:4px;--drift:-2px;animation-delay:1.5s"></span></span><span><span class="up-tnum" style="font-size:22px">0</span> <span class="up-tdays">days</span> <span class="up-tier2 up-tchip">Blaze</span></span></div><div class="up-streak-week"><span class="up-streak-day is-done is-linked"><i> <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>M</b></span><span class="up-streak-day is-done is-linked"><i> <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>T</b></span><span class="up-streak-day is-done is-linked"><i> <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>W</b></span><span class="up-streak-day is-done is-linked"><i> <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>T</b></span><span class="up-streak-day is-done is-frontier"><i> <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></i><b>F</b></span><span class="up-streak-day is-today"><i></i><b>S</b></span><span class="up-streak-day "><i></i><b>S</b></span></div><div class="up-tcard-stats"><div><strong>Longest streak</strong><b>30 <small>days</small></b></div><div><strong>Total active days</strong><b>68</b></div></div><details class="up-how"><summary>How do streaks work? <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></summary><ul><li><i></i><span>Answer at least one question each day to build your streak.</span></li><li><i></i><span>Each active day extends it — weekends count the same.</span></li><li><i></i><span>Missing a day resets it to 0.</span></li></ul></details></section>
+          <section class="gs-tcard" data-tier="14" id="upTrophyCard" aria-label="Study streak, 14 days"><div class="gs-tcard-head"><h3>Study streak</h3><button type="button" id="upTrophyGo">Insights <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></button></div><div class="gs-tcard-now"><span class="gs-flame" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 10.941c2.333 -3.308 .167 -7.823 -1 -8.941c0 3.395 -2.235 5.299 -3.667 6.706c-1.43 1.408 -2.333 3.294 -2.333 5.588c0 3.704 3.134 6.706 7 6.706c3.866 0 7 -3.002 7 -6.706c0 -1.712 -1.232 -4.403 -2.333 -5.588c-2.084 3.353 -3.257 3.353 -4.667 2.235"/></svg></span><span><span class="gs-tnum" style="font-size:28px">0</span> <span class="gs-tdays">days</span> <span class="gs-tier">Blaze</span></span></div><div class="gs-week" role="img" aria-label="Study this week"><span class="gs-week-day is-done"><i></i><b>M</b></span><span class="gs-week-day is-done"><i></i><b>T</b></span><span class="gs-week-day is-done"><i></i><b>W</b></span><span class="gs-week-day is-done"><i></i><b>T</b></span><span class="gs-week-day is-done"><i></i><b>F</b></span><span class="gs-week-day is-today"><i></i><b>S</b></span><span class="gs-week-day"><i></i><b>S</b></span></div><div class="gs-tcard-stats"><div><strong>Longest streak</strong><b class="gs-num">30 <small>days</small></b><small>personal best</small></div><div><strong>Total active days</strong><b class="gs-num">68 <small>days</small></b><small>all time</small></div></div><details class="gs-how"><summary>How do streaks work? <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary><ul><li><i></i>Answer at least one question per calendar day to extend the streak.</li><li><i></i>The count, week dots and tier chip all follow the same streak state.</li></ul></details></section>
         </div>
-        <div class="up-tierstep" role="group" aria-label="Preview flame tiers"><span>Flame evolution (Rive concept):</span><button type="button" data-tier="3">3</button><button type="button" data-tier="7">7</button><button type="button" data-tier="14" class="on">14</button><button type="button" data-tier="30">30</button></div>
-        <div><span class="up-concept-tag">Concept B · Trophy Badge — compact</span></div>
-        <div><span class="up-sbadge" data-tier="14" id="upSBadge" role="img" aria-label="14 day streak"><span class="up-sbflame" aria-hidden="true"><svg class="up-flame-svg" viewBox="0 0 50 64"><defs><linearGradient id="upFlameB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff9435"/><stop offset="1" stop-color="#e04e1f"/></linearGradient></defs><path d="M26 2c1 13 21 20 21 36 0 15-10 24-22 24C11 62 3 53 3 41c0-11 9-17 11-27 1 12 8 14 10 6 3-7 2-13 2-18Z" fill="url(#upFlameB)"/></svg></span><b class="up-tnum" id="upSBadgeNum">14</b><small>day streak</small></span></div>
-        <p class="pv-note" style="margin-top:8px"><b>Badge placement:</b> candidate for the Home greeting row or topbar — follows the same tier state as concept A above (step the tiers and watch it follow).</p>
-        <div><span class="up-concept-tag">Concept C · Milestone moment — celebration</span></div>
-        <div class="up-mile enter" id="upMile">
-          <span class="up-burst" id="upBurst" aria-hidden="true"><i style="--dx:-80px"></i><i style="--dx:-55px;animation-delay:.05s"></i><i style="--dx:-30px;animation-delay:.1s"></i><i style="--dx:-10px;animation-delay:.03s"></i><i style="--dx:12px;animation-delay:.08s"></i><i style="--dx:32px;animation-delay:.02s"></i><i style="--dx:58px;animation-delay:.12s"></i><i style="--dx:82px;animation-delay:.06s"></i></span>
-          <svg class="up-mflame" viewBox="0 0 50 64" aria-hidden="true"><defs><linearGradient id="upFlameOuterM" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff7a2e"/><stop offset=".55" stop-color="#ff9c38"/><stop offset="1" stop-color="#e04e1f"/></linearGradient><linearGradient id="upFlameMidM" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe27a"/><stop offset="1" stop-color="#ffab3d"/></linearGradient><linearGradient id="upFlameCoreM" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffdf0"/><stop offset="1" stop-color="#ffe27a"/></linearGradient></defs><path d="M26 2c1 13 21 20 21 36 0 15-10 24-22 24C11 62 3 53 3 41c0-11 9-17 11-27 1 12 8 14 10 6 3-7 2-13 2-18Z" fill="url(#upFlameOuterM)"/><path d="M28 24c1 9 10 14 10 22 0 9-6 15-13 15-8 0-14-6-14-15 0-6 5-10 7-16 1 6 3 9 6 10 5-5 5-10 4-16Z" fill="url(#upFlameMidM)"/><path d="M27 42c2 5 5 8 5 12 0 5-3 7-7 7s-7-3-7-7c0-5 6-9 9-12Z" fill="url(#upFlameCoreM)"/></svg>
+        <div class="gs-tierstep" role="group" aria-label="Preview flame tiers"><span>Tier state:</span><button type="button" data-tier="3">3</button><button type="button" data-tier="7">7</button><button type="button" data-tier="14" class="on">14</button><button type="button" data-tier="30">30</button></div>
+        <div><span class="gs-concept-tag">Concept B · inverse badge</span></div>
+        <div><span class="gs-badge" data-tier="14" id="upSBadge" role="img" aria-label="14 day streak"><span class="gs-mini-flame" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 10.941c2.333 -3.308 .167 -7.823 -1 -8.941c0 3.395 -2.235 5.299 -3.667 6.706c-1.43 1.408 -2.333 3.294 -2.333 5.588c0 3.704 3.134 6.706 7 6.706c3.866 0 7 -3.002 7 -6.706c0 -1.712 -1.232 -4.403 -2.333 -5.588c-2.084 3.353 -3.257 3.353 -4.667 2.235"/></svg></span><b class="gs-tnum" id="upSBadgeNum">14</b><small>day streak</small></span></div>
+        <div><span class="gs-concept-tag">Concept C · inverse milestone</span></div>
+        <div class="gs-mile enter" id="upMile">
+          <svg class="gs-mflame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 10.941c2.333 -3.308 .167 -7.823 -1 -8.941c0 3.395 -2.235 5.299 -3.667 6.706c-1.43 1.408 -2.333 3.294 -2.333 5.588c0 3.704 3.134 6.706 7 6.706c3.866 0 7 -3.002 7 -6.706c0 -1.712 -1.232 -4.403 -2.333 -5.588c-2.084 3.353 -3.257 3.353 -4.667 2.235"/></svg>
           <div class="eyebrow">Milestone reached</div>
-          <h3><span id="upMileNum">0</span>-day streak</h3>
-          <p>Two weeks of daily study — Blaze tier unlocked. Keep the chain alive.</p>
-          <div class="up-mile-stats"><span><b>14</b><small>Current</small></span><span><b>30</b><small>Longest</small></span></div>
-          <div class="up-mile-actions"><button type="button" class="up-mile-keep" id="upMileKeep">Keep studying</button><button type="button" class="up-mile-replay" id="upMileReplay">Replay</button></div>
+          <h3><span id="upMileNum" class="gs-num">0</span>-day streak</h3>
+          <p>Two weeks of daily study. Keep the chain alive.</p>
+          <div class="gs-mile-stats"><span><b class="gs-num">14</b><small>Current</small></span><span><b class="gs-num">30</b><small>Longest</small></span></div>
+          <div class="gs-mile-actions"><button type="button" class="gs-mile-keep" id="upMileKeep">Keep studying</button><button type="button" class="gs-mile-replay" id="upMileReplay">Replay</button></div>
         </div>
-        <div id="upMileGone" style="display:none;text-align:center;margin-top:10px"><p style="font-size:11px;color:#64748b;margin-bottom:8px">Dismissed — production notices behave the same way.</p><button type="button" id="upMileShow" style="min-height:38px;padding:0 16px;border-radius:10px;border:1px solid #e2e8f0;background:#fff;color:#4d5f8d;font-size:11px;font-weight:800">Show again</button></div>
-        <p class="pv-note"><b>A · Trophy Streak Card, faithfully adapted to nk114:</b> title + Insights action, badge-composed current count, week calendar, longest (30), total (68), collapsed "How do streaks work?" — Trophy's exact information architecture in QBank theme. The flame still <b>evolves with tier</b> (scale, aura, chip color; numerals resize by digit count like the Rive asset). B follows the same tier state live. Zero emoji. The v102 fire-emoji fallback bug stands as reported — now fixed on branch <b>fix/v102-streak-guard</b> (guard extended, awaiting CI/quota).</p>
+        <div id="upMileGone" style="display:none;text-align:center;margin-top:10px"><p style="font-size:12px;color:var(--fg3);margin-bottom:8px">Dismissed — production notices behave the same way.</p><button type="button" id="upMileShow" class="gs-btn gs-btn-secondary" style="font-size:12px">Show again</button></div>
+        <p class="pv-note"><b>A · Trophy IA in Geist:</b> title + ghost Insights action, mono count, Geist week dots, longest/total stat grid, disclosure how-it-works. Tier state (3·7·14·30) moves only the glyph tile gray→orange, the chip, and the numeral — no aura, no embers, no scaling flame. B follows live. Zero emoji.</p>
       </div>
     </div>
   </section>
 
   <!-- 12 · HEATMAP -->
   <section class="pv-sec" id="heatmap">
-    <div class="pv-sec-head"><span class="n">12</span><h2>Insights · Year activity heatmap</h2><span class="file">tools/learning_insights_core.js (nkLearningYearActivity)</span></div>
-    <p class="pv-sec-sub">12-week excerpt ending today · same generated activity in both. Tap any day for its detail.</p>
+    <div class="pv-sec-head"><span class="n">12</span><h2>Insights · year activity heatmap</h2><span class="file">neutral ink scale · written legend</span></div>
+    <p class="pv-sec-sub">Peak-relative bands with printed ranges; filters, keyboard, year switch, dark-mode scale.</p>
     <div class="pv-pair">
       <div class="pv-col">
-        <span class="pv-tag is-current">Before · pre-redesign</span>
+        <span class="pv-tag">Before · quiet grid</span>
         <div class="pv-phone">
-          <div class="nk-li-year-activity">
-            <header><div><h2>Activity</h2><p id="curHeatRange"></p></div><label><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Activity year</span><select aria-label="Activity year"><option>Past 12 months</option><option>2026</option><option>2025</option></select></label></header>
-            <div class="nk-li-year-body"><div class="nk-li-year-days" aria-hidden="true"><span>Mon</span><span>Wed</span><span>Fri</span></div><div class="nk-li-year-scroll"><div class="nk-li-year-canvas" id="curHeatCanvas"></div></div></div>
-            <div class="nk-li-year-foot"><p id="curHeatDetail"></p><div class="nk-li-year-key" id="curHeatKey"></div></div>
-            <div class="nk-li-year-summary" id="curHeatSummary"></div>
+          <div class="gs-card gs-heat">
+            <div class="gs-heat-head"><div><h2>Activity</h2><p id="curHeatRange"></p></div></div>
+            <div class="gs-heat-body"><div class="gs-heat-days" aria-hidden="true"><span>Mon</span><span>Wed</span><span>Fri</span></div><div class="gs-heat-scroll"><div class="gs-heat-canvas" id="curHeatCanvas"></div></div></div>
+            <div class="gs-heat-detail" id="curHeatDetail"></div>
+            <div class="gs-heat-summary" id="curHeatSummary"></div>
           </div>
         </div>
-        <p class="pv-note"><b>What feels off today:</b> hard little squares, a native year dropdown, tap feedback is a dark scale-box, and the detail line is bare text.</p>
+        <p class="pv-note"><b>Before:</b> bare detail text; no band language; no keyboard story.</p>
       </div>
       <div class="pv-col">
-        <span class="pv-tag is-new">Upgraded · interactive</span>
+        <span class="pv-tag is-new">Geist · interactive</span>
         <div class="pv-phone">
-          <div class="nk-li-year-activity up-heat">
-            <div class="up-heat-head"><div><h2>Activity</h2><p id="upHeatRange"></p></div>
-              <div class="up-dd" id="upDdYear">
-                <button type="button" class="up-dd-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Activity year"><span class="up-dd-val">Past 12 months</span><span class="up-dd-chev"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button>
-                <div class="up-dd-panel" role="listbox" aria-label="Activity year"></div>
+          <div class="gs-card gs-heat">
+            <div class="gs-heat-head"><div><h2>Activity</h2><p id="upHeatRange"></p></div>
+              <div class="gs-dd" id="upDdYear">
+                <button type="button" class="gs-dd-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Activity year"><span class="gs-dd-val">Past 12 months</span><span class="gs-dd-chev"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button>
+                <div class="gs-dd-panel" role="listbox" aria-label="Activity year"></div>
               </div>
             </div>
-            <div class="nk-li-year-body"><div class="nk-li-year-days" aria-hidden="true"><span>Mon</span><span>Wed</span><span>Fri</span></div><div class="nk-li-year-scroll"><div class="nk-li-year-canvas" id="upHeatCanvas"></div></div></div>
-            <div class="up-heat-detail" id="upHeatDetail"></div>
-            <div class="nk-li-year-foot"><p></p><div class="nk-li-year-key" id="upHeatKey"></div></div>
-            <div class="nk-li-year-summary" id="upHeatSummary"></div>
+            <div class="gs-heat-body"><div class="gs-heat-days" aria-hidden="true"><span>Mon</span><span>Wed</span><span>Fri</span></div><div class="gs-heat-scroll"><div class="gs-heat-canvas" id="upHeatCanvas"></div></div></div>
+            <div class="gs-heat-detail" id="upHeatDetail"></div>
+            <div class="gs-heat-foot"><p></p><div class="gs-heat-key" id="upHeatKey"></div></div>
+            <div class="gs-heat-summary" id="upHeatSummary"></div>
           </div>
         </div>
-        <p class="pv-note"><b>What changed (UI Arc pattern, your shading kept):</b> squares on <b>peak-relative bands with a written legend</b> — dark violet always means your busiest day, the rest scale below it, and the legend prints the actual ranges for this view. Cells wave in, year switches recolor, legend swatches <b>filter by band</b>, arrows + Enter work from the keyboard. No fixed thresholds anywhere.</p>
+        <p class="pv-note"><b>Geist expression:</b> near-white → near-black ink scale (inverts in dark); written band ranges; swatches filter; arrows + Enter work. Peak is ink, not violet.</p>
       </div>
     </div>
   </section>
 
   <footer class="pv-foot">
-    <b>Assumptions &amp; next step (v11).</b> Sample numbers stand in for real study data; all wording, colors, radii and iconography follow the redesigned <b>nk114 system</b> (slate canvas, indigo primary, blue actions, tabular numerals). Motion is transform/opacity-only and fully disabled under <b>prefers-reduced-motion</b>, per your codebase convention. If you approve any piece, it can be ported as a narrow change — nothing else moves. If not, deleting this one file discards the whole experiment.
+    <b>Assumptions &amp; next step (v12).</b> Sample numbers stand in for real study data. The language mirrors the Geist redesign tokens: neutrals, inverse primaries, hairlines, 6–16px radii, Geist + Geist Mono with tabular numerals, 180ms motion, 44px targets, first-class dark mode (toggle above). Motion is transform/opacity-only and fully disabled under <b>prefers-reduced-motion</b>. If you approve any piece, it can be ported as a narrow change — nothing else moves. Not pushed anywhere; this file is the whole experiment.
   </footer>
 
+</div>
 </div>
 
 <script>
 'use strict';
-/* ---------- icons (exact paths from the app's navIcon) ---------- */
+/* ---------- icons ---------- */
 const S = (p,s=21)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
 const IC = {
   home: s=>S('<path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V10Z"/>',s),
@@ -913,7 +736,13 @@ const IC = {
 };
 const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* ---------- sample data (stands in for real study state) ---------- */
+/* ---------- preview theme toggle ---------- */
+document.querySelectorAll('.pv-theme button').forEach(b=>b.addEventListener('click', ()=>{
+  document.getElementById('pv').dataset.gtheme = b.dataset.th;
+  document.querySelectorAll('.pv-theme button').forEach(x=>x.setAttribute('aria-pressed', String(x===b)));
+}));
+
+/* ---------- sample data ---------- */
 const HOME = {
   today:{label:'Today', attempted:18, acc:72, ms:5040000, pAttempted:11, pAcc:64, pMs:3120000},
   week:{label:'This Week', attempted:142, acc:76, ms:34860000, pAttempted:118, pAcc:71, pMs:31080000},
@@ -931,7 +760,6 @@ const PERIODS = {
     bins:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct'], curV:[120,140,160,150,180,170,190,200,210,96], prevV:[0,0,0,0,0,0,0,0,90,120],
     curT:[12,14,16,15,18,17,19,20,21,9.6], prevT:[0,0,0,0,0,0,0,0,9,12], totMs:512400000, prevTotMs:75600000, delta:['New activity','is-neutral']}
 };
-/* scope shares (sample data scaled the way production re-filters) */
 const SUBJECTS = [
   {v:'', label:'All subjects', desc:'Combined study activity'},
   {v:'Anatomy', label:'Anatomy', desc:'1,068 PrepLadder questions'},
@@ -977,7 +805,7 @@ function movePill(pill, seg, btn){
   pill.style.transform = `translateX(${r.left-sr.left-3}px)`;
 }
 
-/* ---------- 01 · upgraded home progress ---------- */
+/* ---------- 01 · home progress ---------- */
 let homeRange = 'week';
 const homeSeg = document.getElementById('upHomeSeg'), homePill = document.getElementById('upHomePill');
 Object.keys(HOME).forEach(k=>{
@@ -998,12 +826,12 @@ function updateHome(){
   const [aT,aC] = deltaHTML(d.attempted, d.pAttempted, false);
   const [cT,cC] = deltaHTML(d.acc, d.pAcc, true);
   const [tT,tC] = deltaHTML(d.ms, d.pMs, false);
-  const set = (id,txt,cls)=>{ const e=document.getElementById(id); e.textContent=txt; e.className='up-delta '+cls; };
+  const set = (id,txt,cls)=>{ const e=document.getElementById(id); e.textContent=txt; e.className='gs-delta '+cls; };
   set('upHAttemptedD',aT,aC); set('upHAccD',cT,cC); set('upHTimeD',tT,tC);
 }
 requestAnimationFrame(()=>{ movePill(homePill, homeSeg, homeSeg.querySelector('button.on')); updateHome(); });
 
-/* ---------- 02 · upgraded insights controls ---------- */
+/* ---------- 02 · insights controls ---------- */
 let liPeriod = 'week', liOffset = 0;
 const liSeg = document.getElementById('upLiSeg'), liPill = document.getElementById('upLiPill');
 ['week','month','year'].forEach(k=>{
@@ -1044,19 +872,19 @@ document.getElementById('upLiNext').addEventListener('click', ()=>{ if(liOffset<
 document.getElementById('upLiToday').addEventListener('click', ()=>{ liOffset = 0; updateLi(); });
 requestAnimationFrame(()=>movePill(liPill, liSeg, liSeg.querySelector('button.on')));
 
-/* ---------- 02b · SpringSelect-style scope dropdowns ---------- */
+/* ---------- 02b · dropdowns ---------- */
 function closeAllDd(except){
-  document.querySelectorAll('.up-dd.open').forEach(d=>{
+  document.querySelectorAll('.gs-dd.open').forEach(d=>{
     if(d===except) return;
     d.classList.remove('open');
-    d.querySelector('.up-dd-btn').setAttribute('aria-expanded','false');
+    d.querySelector('.gs-dd-btn').setAttribute('aria-expanded','false');
   });
 }
 function buildDd(id, options, key){
   const root = document.getElementById(id);
-  const btn = root.querySelector('.up-dd-btn'), val = root.querySelector('.up-dd-val'), panel = root.querySelector('.up-dd-panel');
+  const btn = root.querySelector('.gs-dd-btn'), val = root.querySelector('.gs-dd-val'), panel = root.querySelector('.gs-dd-panel');
   panel.innerHTML = options.map(o=>
-    `<button type="button" class="up-dd-opt${scope[key]===o.v?' sel':''}" role="option" aria-selected="${scope[key]===o.v}" data-v="${o.v}"><span class="up-dd-txt"><b>${o.label}</b><small>${o.desc}</small></span><span class="up-dd-check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></span></button>`).join('');
+    `<button type="button" class="gs-dd-opt${scope[key]===o.v?' sel':''}" role="option" aria-selected="${scope[key]===o.v}" data-v="${o.v}"><span class="gs-dd-txt"><b>${o.label}</b><small>${o.desc}</small></span><span class="gs-dd-check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></span></button>`).join('');
   btn.addEventListener('click', e=>{
     e.stopPropagation();
     const willOpen = !root.classList.contains('open');
@@ -1064,11 +892,11 @@ function buildDd(id, options, key){
     root.classList.toggle('open', willOpen);
     btn.setAttribute('aria-expanded', String(willOpen));
   });
-  panel.querySelectorAll('.up-dd-opt').forEach(opt=>opt.addEventListener('click', e=>{
+  panel.querySelectorAll('.gs-dd-opt').forEach(opt=>opt.addEventListener('click', e=>{
     e.stopPropagation();
     scope[key] = opt.dataset.v;
     val.textContent = options.find(o=>o.v===scope[key]).label;
-    panel.querySelectorAll('.up-dd-opt').forEach(x=>{
+    panel.querySelectorAll('.gs-dd-opt').forEach(x=>{
       const on = x===opt;
       x.classList.toggle('sel', on); x.setAttribute('aria-selected', String(on));
     });
@@ -1086,20 +914,19 @@ buildDd('upDdBank', BANKS, 'bank');
 document.addEventListener('click', ()=>closeAllDd());
 document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeAllDd(); });
 
-/* ---------- 03 · current replicas (static) ---------- */
+/* ---------- 03 · bars (static before) ---------- */
 (function(){
   const bins = ['M','T','W','T','F','S','S'], cur=[12,18,9,24,15,20,8], prev=[10,14,12,18,11,16,9];
   const max = Math.max(...cur, ...prev);
   document.getElementById('curBars').innerHTML = bins.map((b,i)=>
-    `<button type="button" tabindex="-1"><b>${cur[i]}</b><span class="nk-li-bar-pair"><i style="height:${cur[i]/max*108}px"></i><i class="is-previous" style="height:${prev[i]/max*108}px"></i></span><small>${b}</small></button>`).join('');
+    `<button type="button" tabindex="-1"><b>${cur[i]}</b><span class="gs-bar-pair"><i style="height:${cur[i]/max*108}px"></i><i class="is-previous" style="height:${prev[i]/max*108}px"></i></span><small>${b}</small></button>`).join('');
   const t=[1.1,1.8,0.9,2.4,1.5,2.0,0.8], p=[1.0,1.4,1.2,1.8,1.1,1.6,0.9], mx=2.4;
   const x=i=>35+i*345/6, y=v=>172-v/mx*138;
   const path=a=>a.map((v,i)=>`${i===0?'M':'L'} ${x(i).toFixed(1)} ${y(v).toFixed(1)}`).join(' ');
   document.getElementById('curTrend').innerHTML =
-    [0,.5,1].map(n=>`<line x1="35" x2="380" y1="${172-n*138}" y2="${172-n*138}" stroke="#e2e8f0"/>`).join('')+
-    `<path d="${path(t)} L ${x(6)} 172 L 35 172 Z" fill="#2563eb" opacity=".12"/>`+
-    `<path d="${path(p)}" fill="none" stroke="#bfdbfe" stroke-width="2.5" stroke-dasharray="5 5"/>`+
-    `<path d="${path(t)}" fill="none" stroke="#2563eb" stroke-width="3"/>`;
+    [0,.5,1].map(n=>`<line x1="35" x2="380" y1="${172-n*138}" y2="${172-n*138}" stroke="var(--bd)"/>`).join('')+
+    `<path d="${path(p)}" fill="none" stroke="var(--bds)" stroke-width="2.5" stroke-dasharray="5 5"/>`+
+    `<path d="${path(t)}" fill="none" stroke="var(--fg)" stroke-width="3"/>`;
 })();
 
 /* ---------- 03 · upgraded charts ---------- */
@@ -1111,7 +938,7 @@ function renderUpBars(){
   const max = Math.max(1,...curV,...prevV);
   const el = document.getElementById('upBars');
   el.innerHTML = p.bins.map((b,i)=>
-    `<button type="button" data-i="${i}" class="${upBin===i?'is-selected':''}" aria-pressed="${upBin===i}" aria-label="${b}: ${curV[i]} answers"><b>${curV[i]}</b><span class="nk-li-bar-pair"><i style="height:${curV[i]/max*108}px"></i><i class="is-previous" style="height:${prevV[i]/max*108}px"></i></span><small>${b}</small></button>`).join('');
+    `<button type="button" data-i="${i}" class="${upBin===i?'is-selected':''}" aria-pressed="${upBin===i}" aria-label="${b}: ${curV[i]} answers"><b>${curV[i]}</b><span class="gs-bar-pair"><i style="height:${curV[i]/max*108}px"></i><i class="is-previous" style="height:${prevV[i]/max*108}px"></i></span><small>${b}</small></button>`).join('');
   el.querySelectorAll('button').forEach(btn=>btn.addEventListener('click', ()=>{
     upBin = Number(btn.dataset.i);
     el.querySelectorAll('button').forEach((x,j)=>{ x.classList.toggle('is-selected',j===upBin); x.setAttribute('aria-pressed',String(j===upBin)); });
@@ -1120,7 +947,7 @@ function renderUpBars(){
       `<strong>${p.bins[i]} · ${p.cur}</strong><span>${curV[i]} answers · ${Math.round(curT[i]*60)}m study time</span><small>${p.prev}: ${prevV[i]} answers · ${Math.round(prevT[i]*60)}m</small>`;
   }));
   document.getElementById('upBinReadout').innerHTML = upBin<0
-    ? `<span style="color:#64748b">Tap a ${liPeriod==='year'?'month':liPeriod==='month'?'week':'day'} to see its detail — same readout as production.</span>`
+    ? `<span style="color:var(--fg3)">Tap a ${liPeriod==='year'?'month':liPeriod==='month'?'week':'day'} to see its detail.</span>`
     : document.getElementById('upBinReadout').innerHTML;
   document.getElementById('upBarsCur').textContent = p.cur;
   document.getElementById('upBarsPrev').textContent = p.prev;
@@ -1144,20 +971,16 @@ function renderUpTrend(animate){
   const x=i=>L+i*(R-L)/Math.max(1,n-1), y=v=>B-v/mx*(B-T);
   const curPts = cur.map((v,i)=>[x(i),y(v)]), prevPts = prev.map((v,i)=>[x(i),y(v)]);
   const curPath = smoothPath(curPts), prevPath = smoothPath(prevPts);
-  const area = curPath+` L ${x(n-1).toFixed(1)} ${B} L ${L} ${B} Z`;
   let peakI = 0; cur.forEach((v,i)=>{ if(v>cur[peakI]) peakI = i; });
   const svg = document.getElementById('upTrend');
   svg.innerHTML =
-    `<defs><linearGradient id="upArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2563eb" stop-opacity=".20"/><stop offset="1" stop-color="#2563eb" stop-opacity=".01"/></linearGradient>`+
-    `<linearGradient id="upStroke" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2563eb"/><stop offset="1" stop-color="#93c5fd"/></linearGradient></defs>`+
     [0,.5,1].map(g=>{ const yy = B-g*(B-T);
-      return `<line x1="${L}" x2="${R}" y1="${yy}" y2="${yy}" stroke="#e2e8f0"/><text x="2" y="${yy+4}" font-size="11" fill="#64748b">${(mx*g).toFixed(mx<2?1:0)}h</text>`; }).join('')+
-    `<path d="${area}" fill="url(#upArea)" class="up-curve"/>`+
-    `<path d="${prevPath}" fill="none" stroke="#bfdbfe" stroke-width="2.5" stroke-dasharray="5 5" class="up-curve"/>`+
-    `<path d="${curPath}" fill="none" stroke="url(#upStroke)" stroke-width="3.5" stroke-linecap="round" class="${animate&&!REDUCED?'up-draw':''}"/>`+
-    `<g class="up-mark"><circle cx="${x(peakI).toFixed(1)}" cy="${y(cur[peakI]).toFixed(1)}" r="4.5" fill="#2563eb" stroke="#fff" stroke-width="2.5"/><text x="${x(peakI).toFixed(1)}" y="${(y(cur[peakI])-10).toFixed(1)}" text-anchor="middle">${cur[peakI].toFixed(1)}h</text></g>`+
-    `<circle id="upFocus" r="5" fill="#fff" stroke="#1e1b4b" stroke-width="3" opacity="0"/>`+
-    `<line id="upScrub" x1="0" x2="0" y1="${T-6}" y2="${B}" stroke="#1e1b4b" stroke-width="1" stroke-dasharray="3 3" opacity="0"/>`;
+      return `<line x1="${L}" x2="${R}" y1="${yy}" y2="${yy}" stroke="var(--bd)"/><text x="2" y="${yy+4}" font-size="11" fill="var(--fg3)" font-family="var(--mono)">${(mx*g).toFixed(mx<2?1:0)}h</text>`; }).join('')+
+    `<path d="${prevPath}" fill="none" stroke="var(--bds)" stroke-width="2.5" stroke-dasharray="5 5" class="gs-curve"/>`+
+    `<path d="${curPath}" fill="none" stroke="var(--fg)" stroke-width="3" stroke-linecap="round" class="${animate&&!REDUCED?'gs-draw':''}"/>`+
+    `<g class="gs-mark"><circle cx="${x(peakI).toFixed(1)}" cy="${y(cur[peakI]).toFixed(1)}" r="4.5" fill="var(--fg)" stroke="var(--bg)" stroke-width="2.5"/><text x="${x(peakI).toFixed(1)}" y="${(y(cur[peakI])-10).toFixed(1)}" text-anchor="middle">${cur[peakI].toFixed(1)}h</text></g>`+
+    `<circle id="upFocus" r="5" fill="var(--bg)" stroke="var(--fg)" stroke-width="3" opacity="0"/>`+
+    `<line id="upScrub" x1="0" x2="0" y1="${T-6}" y2="${B}" stroke="var(--fg)" stroke-width="1" stroke-dasharray="3 3" opacity="0"/>`;
   document.getElementById('upTrendX').innerHTML = p.bins.map(b=>`<span>${b}</span>`).join('');
   const tip = document.getElementById('upTrendTip');
   const scrub = svg.querySelector('#upScrub'), focus = svg.querySelector('#upFocus');
@@ -1187,7 +1010,7 @@ function renderUpTrend(animate){
   countUp(document.getElementById('upTrendVal'), p.totMs*m/60000, v=>fmtStudy(v*60000));
   countUp(document.getElementById('upTrendPrevVal'), p.prevTotMs*m/60000, v=>fmtStudy(v*60000));
   const d = document.getElementById('upTrendDelta');
-  d.textContent = p.delta[0]; d.className = 'nk-li-delta '+p.delta[1];
+  d.textContent = p.delta[0]; d.className = 'gs-delta '+p.delta[1];
 }
 function updateCharts(){ upBin = -1; renderUpBars(); renderUpTrend(false); }
 renderUpBars(); renderUpTrend(true);
@@ -1207,7 +1030,7 @@ const TOPICS = {
 };
 function topicRows(rows, animateBars){
   return rows.map(r=>
-    `<button type="button" class="nk-li-topic"><span><strong>${r.t}</strong><small>${r.s}</small><i class="nk-li-progress nk-li-accuracy-bar"><i style="width:${animateBars?0:r.acc}%"></i></i></span><span><b>${r.acc}%</b><small>${r.c}</small></span></button>`).join('');
+    `<button type="button" class="gs-topic"><span><strong>${r.t}</strong><small>${r.s}</small><i class="gs-accbar"><i style="width:${animateBars?0:r.acc}%"></i></i></span><span><b>${r.acc}%</b><small>${r.c}</small></span></button>`).join('');
 }
 document.getElementById('curTopics').innerHTML = topicRows(TOPICS.needs, false);
 let topicMode = 'needs';
@@ -1225,7 +1048,7 @@ const topicSeg = document.getElementById('upTopicSeg'), topicPill = document.get
     const swap = ()=>{
       list.innerHTML = topicRows(TOPICS[v], true);
       requestAnimationFrame(()=>requestAnimationFrame(()=>{
-        list.querySelectorAll('.nk-li-accuracy-bar>i').forEach((bar,i)=>{ bar.style.width = TOPICS[v][i].acc+'%'; });
+        list.querySelectorAll('.gs-accbar>i').forEach((bar,i)=>{ bar.style.width = TOPICS[v][i].acc+'%'; });
       }));
       list.classList.remove('swap');
     };
@@ -1237,16 +1060,16 @@ const topicSeg = document.getElementById('upTopicSeg'), topicPill = document.get
 document.getElementById('upTopicList').innerHTML = topicRows(TOPICS.needs, false);
 requestAnimationFrame(()=>movePill(topicPill, topicSeg, topicSeg.querySelector('button.on')));
 
-/* ---------- 06 · donut sweep ---------- */
+/* ---------- 06 · donut ---------- */
 function paintDonut(el, cPct, wPct){
-  el.style.setProperty('--donut', `conic-gradient(#059669 0 ${cPct.toFixed(1)}%,#e11d48 ${cPct.toFixed(1)}% ${(cPct+wPct).toFixed(1)}%,#cbd5e1 ${(cPct+wPct).toFixed(1)}% 100%)`);
+  el.style.setProperty('--ring', `conic-gradient(var(--grn) 0 ${cPct.toFixed(1)}%,var(--red) ${cPct.toFixed(1)}% ${(cPct+wPct).toFixed(1)}%,var(--bds) ${(cPct+wPct).toFixed(1)}% 100%)`);
 }
 function animDonut(){
   const ring = document.getElementById('upDonutRing'), num = document.getElementById('upDonutNum');
   const live = document.getElementById('upDonut');
-  live.classList.remove('up-donut-live');
+  live.classList.remove('gs-donut-live');
   void live.offsetWidth;
-  live.classList.add('up-donut-live');
+  live.classList.add('gs-donut-live');
   if(REDUCED){ paintDonut(ring, 76.1, 18.3); num.textContent = '142'; return; }
   const t0 = performance.now(), dur = 850;
   (function tick(t){
@@ -1282,7 +1105,7 @@ const countSeg = document.getElementById('upCountSeg'), countPill = document.get
 });
 requestAnimationFrame(()=>movePill(countPill, countSeg, countSeg.querySelector('button.on')));
 
-/* ---------- 08 · comparison v4: arrow notation ---------- */
+/* ---------- 08 · comparison ---------- */
 const CMPT = [
   ['Answers','142','118','↑ 20%','is-up'],
   ['Study time','9h 41m','8h 38m','↑ 12%','is-up'],
@@ -1291,15 +1114,15 @@ const CMPT = [
   ['Modules finished','3','2','↑ 50%','is-up']
 ];
 document.getElementById('upCmp').innerHTML = CMPT.map(([label,a,b,d,cls])=>
-  `<div class="up-cmpline"><div class="up-cmpline-top"><strong>${label}</strong><span class="nk-li-delta ${cls}">${d}</span></div><div class="up-cmpline-flow"><span class="prv">${b}</span><span class="arr" aria-hidden="true">→</span><span class="cur">${a}</span></div></div>`).join('');
+  `<div class="gs-cmpline"><div class="gs-cmpline-top"><strong>${label}</strong><span class="gs-delta ${cls}">${d}</span></div><div class="gs-cmpline-flow"><span class="prv">${b}</span><span class="arr" aria-hidden="true">→</span><span class="cur">${a}</span></div></div>`).join('');
 
 /* ---------- 09 · forecast ---------- */
 const FC_DAYS = ['Today','Sat','Sun','Mon','Tue','Wed','Thu'];
-const FC_N = [12,8,5,9,4,6,3];
+const FC_N = [12,8,5,9,0,6,3];
 const FC_MAX = Math.max(...FC_N);
 function fcHTML(animate){
   return FC_N.map((n,i)=>
-    `<span class="${i===0?'is-today':''}"><b>${n}</b><i style="height:${animate?0:Math.max(4,Math.round(n/FC_MAX*68))}px"></i><small>${FC_DAYS[i]}</small></span>`).join('');
+    `<span class="${i===0?'is-today':''}${n===0?' nkg-zero':''}"><b>${n}</b><i style="height:${animate||n===0?0:Math.max(4,Math.round(n/FC_MAX*68))}px"></i><small>${FC_DAYS[i]}</small></span>`).join('');
 }
 document.getElementById('curForecast').innerHTML = fcHTML(false);
 const upFc = document.getElementById('upForecast');
@@ -1307,14 +1130,14 @@ upFc.innerHTML = fcHTML(true);
 function growForecast(){
   const bars = upFc.querySelectorAll('i');
   requestAnimationFrame(()=>requestAnimationFrame(()=>{
-    bars.forEach((bar,i)=>{ bar.style.height = Math.max(4,Math.round(FC_N[i]/FC_MAX*68))+'px'; });
+    bars.forEach((bar,i)=>{ if(FC_N[i]>0) bar.style.height = Math.max(4,Math.round(FC_N[i]/FC_MAX*68))+'px'; });
   }));
 }
 if('IntersectionObserver' in window && !REDUCED){
   const fio = new IntersectionObserver(es=>{ es.forEach(en=>{ if(en.isIntersecting) growForecast(); }); }, {threshold:.4});
   fio.observe(upFc);
 } else {
-  upFc.querySelectorAll('i').forEach((bar,i)=>{ bar.style.height = Math.max(4,Math.round(FC_N[i]/FC_MAX*68))+'px'; });
+  upFc.querySelectorAll('i').forEach((bar,i)=>{ if(FC_N[i]>0) bar.style.height = Math.max(4,Math.round(FC_N[i]/FC_MAX*68))+'px'; });
 }
 function selectFc(i){
   upFc.querySelectorAll('span').forEach((sp,j)=>sp.classList.toggle('sel', i===j));
@@ -1327,14 +1150,14 @@ selectFc(0);
 
 /* ---------- 10 · source cards ---------- */
 const SOURCES = [
-  {id:'wrong', icon:'refresh', cls:'is-wrong', title:'Wrong questions', sub:'37 missed across all banks'},
-  {id:'bookmarks', icon:'bookmark', cls:'is-bookmarks', title:'Bookmarked questions', sub:'12 saved across all banks'}
+  {id:'wrong', icon:'refresh', title:'Wrong questions', sub:'37 missed across all banks'},
+  {id:'bookmarks', icon:'bookmark', title:'Bookmarked questions', sub:'12 saved across all banks'}
 ];
 function sourceCard(s, active, upgraded){
   const tail = upgraded
-    ? `<span class="up-pick"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></span>`
-    : `<span style="display:grid;place-items:center;color:#94a3b8">${IC.chev(20)}</span>`;
-  return `<button type="button" class="nk-test-source-card${active?' active':''}" data-s="${s.id}"><span class="nk-test-source-icon ${s.cls}">${IC[s.icon](23)}</span><span><strong>${s.title}</strong><small>${s.sub}</small></span>${tail}</button>`;
+    ? `<span class="gs-pick"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></span>`
+    : `<span style="display:grid;place-items:center;color:var(--fg3)">${IC.chev(20)}</span>`;
+  return `<button type="button" class="gs-source-card${active?' active':''}" data-s="${s.id}"><span class="gs-source-icon">${IC[s.icon](20)}</span><span><strong>${s.title}</strong><small>${s.sub}</small></span>${tail}</button>`;
 }
 let curSource = 'wrong', upSourceSel = 'wrong';
 function paintSources(){
@@ -1345,7 +1168,7 @@ function paintSources(){
 }
 paintSources();
 
-/* ---------- 11 · streak tiers (Rive state-driven concept, prototyped) ---------- */
+/* ---------- 11 · streak tiers (restrained: glyph tile + chip + numeral) ---------- */
 const TIERS = {3:'Warm', 7:'Fire', 14:'Blaze', 30:'Radiant'};
 function setTier(t){
   const label = TIERS[t], ts = String(t);
@@ -1355,27 +1178,24 @@ function setTier(t){
     el.dataset.tier = ts;
     el.setAttribute('aria-label', el.id==='upSBadge' ? ts+' day streak' : 'Study streak, '+ts+' days');
   });
-  document.querySelectorAll('.up-tchip').forEach(el=>{ el.textContent = label; });
-  document.querySelectorAll('.up-tnum').forEach(el=>{
-    if(!el.closest('#upSBadge')) el.style.fontSize = ts.length>1 ? '22px' : '26px';
+  document.querySelectorAll('.gs-tier').forEach(el=>{ el.textContent = label; });
+  document.querySelectorAll('.gs-tnum').forEach(el=>{
+    if(!el.closest('#upSBadge')) el.style.fontSize = ts.length>1 ? '24px' : '28px';
     countUp(el, t, fmtInt);
   });
-  document.querySelectorAll('.up-tierstep button').forEach(b=>b.classList.toggle('on', b.dataset.tier===ts));
+  document.querySelectorAll('.gs-tierstep button').forEach(b=>b.classList.toggle('on', b.dataset.tier===ts));
 }
-document.querySelectorAll('.up-tierstep button').forEach(b=>b.addEventListener('click', ()=>setTier(Number(b.dataset.tier))));
+document.querySelectorAll('.gs-tierstep button').forEach(b=>b.addEventListener('click', ()=>setTier(Number(b.dataset.tier))));
 setTier(14);
 
-/* ---------- 11-C · milestone moment ---------- */
+/* ---------- 11-C · milestone ---------- */
 function showMilestone(){
   const m = document.getElementById('upMile');
   m.style.display = '';
   m.classList.remove('enter');
-  const burst = document.getElementById('upBurst');
-  burst.classList.remove('go');
   void m.offsetWidth;
   m.classList.add('enter');
   countUp(document.getElementById('upMileNum'), 14, fmtInt);
-  if(!REDUCED){ void burst.offsetWidth; burst.classList.add('go'); }
 }
 function initMilestone(){
   const m = document.getElementById('upMile');
@@ -1395,12 +1215,7 @@ document.getElementById('upMileShow').addEventListener('click', ()=>{
 });
 initMilestone();
 
-/* ---------- 12 · heatmap engine ---------- */
-function heatStyle(n, peak){
-  if(!n||!peak) return '--heat-fill:#f1f5f9;--heat-border:#e2e8f0;--heat-glow:none';
-  const r=Math.min(1,Math.max(0,n/peak)), l=91-46*r, s=56+12*r;
-  return `--heat-fill:hsl(217 ${s.toFixed(2)}% ${l.toFixed(2)}%);--heat-border:hsl(217 ${s.toFixed(2)}% ${Math.max(35,l-6).toFixed(2)}%);--heat-glow:0 0 ${(8*r).toFixed(2)}px hsl(217 65% 58% / ${(r*.22).toFixed(3)})`;
-}
+/* ---------- 12 · heatmap (neutral ink scale, data-lvl per theme) ---------- */
 const heatFmtD = ms=>new Date(ms).toLocaleDateString('en-GB',{day:'numeric',month:'short'});
 function heatWindow(seed){
   const today = new Date(); today.setHours(0,0,0,0);
@@ -1424,37 +1239,56 @@ function heatSummary(cells){
   cells.forEach(c=>{ total+=c.n; if(c.n){active++;run++;longest=Math.max(longest,run);}else run=0; });
   return {active,total,longest};
 }
-function paintHeat(canvasId, seed, selectedAt, onTap){
-  const {cells, first, end, today} = heatWindow(seed);
-  const peak = Math.max(1,...cells.map(c=>c.n));
+/* bands are relative to the busiest day: ink always means peak */
+function heatBands(peak){
+  const p = Math.max(1, peak);
+  const q = v => Math.max(1, Math.round(p*v));
+  return [
+    {i:0, label:'No answers', test:n=>n===0},
+    {i:1, label:`1–${q(.25)} answers`, test:n=>n>0&&n<=p*.25},
+    {i:2, label:`${q(.25)+1}–${q(.5)} answers`, test:n=>n>p*.25&&n<=p*.5},
+    {i:3, label:`${q(.5)+1}–${q(.75)} answers`, test:n=>n>p*.5&&n<=p*.75},
+    {i:4, label:`${q(.75)+1}–${p} answers (peak)`, test:n=>n>p*.75}
+  ];
+}
+function heatBandIndex(n, bands){ return bands.findIndex(b=>b.test(n)); }
+let heatFilter = -1, heatSel = -1, heatFocus = 0, heatCellsCache = [];
+function heatGridHTML(cells, today, selectedAt, bands, gridAttrs, selectedClass){
   const cols = Math.ceil(cells.length/7);
   const months=[];
   cells.forEach((c,i)=>{ const d=new Date(c.at); if(d.getDate()===1||i===0) months.push({col:Math.floor(i/7)+1, label:d.toLocaleDateString('en-GB',{month:'short'})}); });
-  const canvas = document.getElementById(canvasId);
-  canvas.style.setProperty('--weeks', cols);
-  canvas.innerHTML = `<div class="nk-li-year-months">${months.map(m=>`<span style="grid-column:${m.col}">${m.label}</span>`).join('')}</div>`+
-    `<div class="nk-li-year-grid" role="group" aria-label="Daily study activity">${cells.map((c,i)=>{
+  return {cols, html:`<div class="gs-heat-months">${months.map(m=>`<span style="grid-column:${m.col}">${m.label}</span>`).join('')}</div>`+
+    `<div class="gs-heat-grid" ${gridAttrs}>${cells.map((c,i)=>{
       const d=new Date(c.at);
-      return `<button type="button" data-at="${c.at}" class="${c.at===today?'is-today':''} ${c.at===selectedAt?'is-selected':''}" aria-label="${d.toLocaleDateString('en-GB',{dateStyle:'long'})}: ${c.n} answers" title="${heatFmtD(c.at)}: ${c.n} answers" style="${heatStyle(c.n,peak)};grid-column:${Math.floor(i/7)+1};grid-row:${i%7+1}"></button>`;
-    }).join('')}</div>`;
-  canvas.querySelectorAll('button').forEach(btn=>btn.addEventListener('click', ()=>onTap(Number(btn.dataset.at), cells)));
-  return {cells, first, end, today, peak};
+      const lvl = Math.max(0, heatBandIndex(c.n, bands));
+      const dim = (typeof heatFilter!=='undefined' && heatFilter>=0 && lvl!==heatFilter) ? ' dim' : '';
+      return `<button type="button" data-i="${i}" data-lvl="${lvl}" tabindex="${i===heatFocus0?0:-1}" class="${c.at===today?'is-today':''}${c.at===selectedAt?' '+selectedClass:''}${dim}" aria-label="${d.toLocaleDateString('en-GB',{dateStyle:'long'})}: ${c.n} answers" title="${heatFmtD(c.at)}: ${c.n} answers" style="--d:${Math.min(i*4,600)}ms;grid-column:${Math.floor(i/7)+1};grid-row:${i%7+1}"></button>`;
+    }).join('')}</div>`};
 }
 function heatDetailText(at, n){
   const c=Math.round(n*0.76);
   return {text:`${new Date(at).toLocaleDateString('en-GB',{dateStyle:'medium'})}: ${n} answers · ${c} correct · ${n-c} incorrect.`,
     html:`<strong>${heatFmtD(at)}</strong> — ${n} answers · ${c} correct · ${n-c} incorrect`};
 }
-/* current replica */
+let heatFocus0 = 0;
+/* before replica */
 (function(){
   let sel = -1;
   const draw = ()=>{
-    const {cells, first, end} = paintHeat('curHeatCanvas', 7, sel, (at, all)=>{
-      sel = at;
+    const {cells, first, end, today} = heatWindow(7);
+    const peak = Math.max(1,...cells.map(c=>c.n));
+    const bands = heatBands(peak);
+    heatFocus0 = Math.max(0, cells.findIndex(c=>c.at===today));
+    const g = heatGridHTML(cells, today, sel, bands, 'role="group" aria-label="Daily study activity"', 'is-selected');
+    const canvas = document.getElementById('curHeatCanvas');
+    canvas.style.setProperty('--weeks', Math.ceil(cells.length/7));
+    canvas.innerHTML = g.html;
+    canvas.querySelectorAll('button').forEach(btn=>btn.addEventListener('click', ()=>{
+      const i = Number(btn.dataset.i);
+      sel = cells[i].at;
       draw();
-      const c = all.find(x=>x.at===at);
-      document.getElementById('curHeatDetail').textContent = heatDetailText(at, c?c.n:0).text;
-    });
+      document.getElementById('curHeatDetail').innerHTML = heatDetailText(sel, cells[i].n).html;
+    }));
     return {cells, first, end};
   };
   const {cells, first, end} = draw();
@@ -1462,10 +1296,8 @@ function heatDetailText(at, n){
   const s = heatSummary(cells);
   document.getElementById('curHeatSummary').innerHTML =
     `<span><b>${s.active}</b><small>Active days</small></span><span><b>${fmtInt(s.total)}</b><small>Total answers</small></span><span><b>${s.longest}</b><small>Longest run</small></span>`;
-  const pk = Math.max(1,...cells.map(c=>c.n));
-  document.getElementById('curHeatKey').innerHTML = `<span>0</span>${[0,.25,.5,.75,1].map(r=>`<i style="${heatStyle(Math.round(pk*r),pk)}"></i>`).join('')}<span>${pk}</span>`;
 })();
-/* upgraded v2 — UI Arc Activity Heatmap pattern (fixed buckets, wave, level filters) */
+/* upgraded — filters, keyboard, year switch, animated in */
 let heatYear = 'rolling';
 const HEAT_SEEDS = {rolling:7, '2026':21, '2025':42};
 const HEAT_OPTS = [
@@ -1473,31 +1305,7 @@ const HEAT_OPTS = [
   {v:'2026', label:'2026', desc:'Calendar year'},
   {v:'2025', label:'2025', desc:'Calendar year'}
 ];
-const HEAT_BASE = [
-  {fill:'#f1f5f9', border:'#e2e8f0'},
-  {fill:'#dbeafe', border:'#bfdbfe'},
-  {fill:'#93c5fd', border:'#60a5fa'},
-  {fill:'#2563eb', border:'#1d4ed8'},
-  {fill:'#1e1b4b', border:'#312e81'}
-];
-/* bands are relative to the busiest day (shipped semantics): dark violet = peak */
-function heatBands(peak){
-  const p = Math.max(1, peak);
-  const q = v => Math.max(1, Math.round(p*v));
-  return [
-    {i:0, ...HEAT_BASE[0], label:'No answers', test:n=>n===0},
-    {i:1, ...HEAT_BASE[1], label:`1–${q(.25)} answers`, test:n=>n>0&&n<=p*.25},
-    {i:2, ...HEAT_BASE[2], label:`${q(.25)+1}–${q(.5)} answers`, test:n=>n>p*.25&&n<=p*.5},
-    {i:3, ...HEAT_BASE[3], label:`${q(.5)+1}–${q(.75)} answers`, test:n=>n>p*.5&&n<=p*.75},
-    {i:4, ...HEAT_BASE[4], label:`${q(.75)+1}–${p} answers (peak)`, test:n=>n>p*.75}
-  ];
-}
-function heatBandIndex(n, bands){ return bands.findIndex(b=>b.test(n)); }
-function heatBucket(n, bands){
-  const L = bands[Math.max(0, heatBandIndex(n, bands))];
-  return `--heat-fill:${L.fill};--heat-border:${L.border};--heat-glow:${L.i===4?'0 0 6px rgba(37,99,235,.35)':'none'}`;
-}
-let heatFilter = -1, heatSel = -1, heatFocus = 0, heatCellsCache = [];
+/* shared heat state is declared above heatGridHTML */
 function paintUpHeat(){
   const seed = HEAT_SEEDS[heatYear];
   const {cells, first, end, today} = heatWindow(seed);
@@ -1506,18 +1314,12 @@ function paintUpHeat(){
   heatCellsCache = cells;
   heatSel = -1;
   heatFocus = Math.max(0, cells.findIndex(c=>c.at===today));
-  const cols = Math.ceil(cells.length/7);
-  const months=[];
-  cells.forEach((c,i)=>{ const d=new Date(c.at); if(d.getDate()===1||i===0) months.push({col:Math.floor(i/7)+1, label:d.toLocaleDateString('en-GB',{month:'short'})}); });
+  heatFocus0 = heatFocus;
+  const g = heatGridHTML(cells, today, -1, bands, 'role="grid" aria-label="Daily study activity"', 'is-selected');
   const canvas = document.getElementById('upHeatCanvas');
-  canvas.style.setProperty('--weeks', cols);
-  canvas.innerHTML = `<div class="nk-li-year-months">${months.map(m=>`<span style="grid-column:${m.col}">${m.label}</span>`).join('')}</div>`+
-    `<div class="nk-li-year-grid" role="grid" aria-label="Daily study activity">${cells.map((c,i)=>{
-      const d=new Date(c.at);
-      const dim = heatFilter>=0 && heatBandIndex(c.n, bands)!==heatFilter;
-      return `<button type="button" role="gridcell" data-i="${i}" tabindex="${i===heatFocus?0:-1}" class="${c.at===today?'is-today':''}${dim?' dim':''}" aria-selected="false" aria-label="${d.toLocaleDateString('en-GB',{dateStyle:'long'})}: ${c.n} answers" title="${heatFmtD(c.at)}: ${c.n} answers" style="${heatBucket(c.n, bands)};--d:${Math.min(i*4,600)}ms;grid-column:${Math.floor(i/7)+1};grid-row:${i%7+1}"></button>`;
-    }).join('')}</div>`;
-  const grid = canvas.querySelector('.nk-li-year-grid');
+  canvas.style.setProperty('--weeks', Math.ceil(cells.length/7));
+  canvas.innerHTML = g.html;
+  const grid = canvas.querySelector('.gs-heat-grid');
   grid.querySelectorAll('button').forEach(btn=>btn.addEventListener('click', ()=>selectUpHeat(Number(btn.dataset.i))));
   grid.addEventListener('keydown', e=>{
     const n = heatCellsCache.length;
@@ -1547,7 +1349,7 @@ function selectUpHeat(i){
   const cells = heatCellsCache;
   if(!cells[i]) return;
   heatSel = cells[i].at; heatFocus = i;
-  const grid = document.querySelector('#upHeatCanvas .nk-li-year-grid');
+  const grid = document.querySelector('#upHeatCanvas .gs-heat-grid');
   if(!grid) return;
   grid.querySelectorAll('button').forEach((b,j)=>{
     const on = j===i;
@@ -1561,8 +1363,8 @@ function paintHeatLegend(){
   const peak = Math.max(1,...heatCellsCache.map(c=>c.n));
   const bands = heatBands(peak);
   document.getElementById('upHeatKey').innerHTML = `<span>Less</span>` + bands.map((L,i)=>
-    `<button type="button" class="up-heat-lv" data-l="${i}" aria-pressed="${heatFilter===i}" aria-label="${L.label}: show only these days" title="${L.label}"><i style="background:${L.fill};border-color:${L.border}"></i></button>`).join('') + `<span>More</span>`;
-  document.getElementById('upHeatKey').querySelectorAll('.up-heat-lv').forEach(b=>b.addEventListener('click', ()=>{
+    `<button type="button" class="gs-heat-lv" data-l="${i}" aria-pressed="${heatFilter===i}" aria-label="${L.label}: show only these days" title="${L.label}"><i data-lvl="${i}"></i></button>`).join('') + `<span>More</span>`;
+  document.getElementById('upHeatKey').querySelectorAll('.gs-heat-lv').forEach(b=>b.addEventListener('click', ()=>{
     const l = Number(b.dataset.l);
     heatFilter = heatFilter===l ? -1 : l;
     paintUpHeat();
@@ -1572,15 +1374,17 @@ function paintHeatLegend(){
 function waveHeat(){
   if(REDUCED) return;
   const canvas = document.getElementById('upHeatCanvas');
-  canvas.classList.remove('anim');
+  const grid = canvas.querySelector('.gs-heat-grid');
+  if(!grid) return;
+  grid.classList.remove('anim');
   void canvas.offsetWidth;
-  canvas.classList.add('anim');
+  grid.classList.add('anim');
 }
 (function buildYearDd(){
   const root = document.getElementById('upDdYear');
-  const btn = root.querySelector('.up-dd-btn'), val = root.querySelector('.up-dd-val'), panel = root.querySelector('.up-dd-panel');
+  const btn = root.querySelector('.gs-dd-btn'), val = root.querySelector('.gs-dd-val'), panel = root.querySelector('.gs-dd-panel');
   panel.innerHTML = HEAT_OPTS.map(o=>
-    `<button type="button" class="up-dd-opt${heatYear===o.v?' sel':''}" role="option" aria-selected="${heatYear===o.v}" data-v="${o.v}"><span class="up-dd-txt"><b>${o.label}</b><small>${o.desc}</small></span><span class="up-dd-check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></span></button>`).join('');
+    `<button type="button" class="gs-dd-opt${heatYear===o.v?' sel':''}" role="option" aria-selected="${heatYear===o.v}" data-v="${o.v}"><span class="gs-dd-txt"><b>${o.label}</b><small>${o.desc}</small></span><span class="gs-dd-check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></span></button>`).join('');
   btn.addEventListener('click', e=>{
     e.stopPropagation();
     const willOpen = !root.classList.contains('open');
@@ -1588,11 +1392,11 @@ function waveHeat(){
     root.classList.toggle('open', willOpen);
     btn.setAttribute('aria-expanded', String(willOpen));
   });
-  panel.querySelectorAll('.up-dd-opt').forEach(opt=>opt.addEventListener('click', e=>{
+  panel.querySelectorAll('.gs-dd-opt').forEach(opt=>opt.addEventListener('click', e=>{
     e.stopPropagation();
     heatYear = opt.dataset.v;
     val.textContent = HEAT_OPTS.find(o=>o.v===heatYear).label;
-    panel.querySelectorAll('.up-dd-opt').forEach(x=>{
+    panel.querySelectorAll('.gs-dd-opt').forEach(x=>{
       const on = x===opt;
       x.classList.toggle('sel', on); x.setAttribute('aria-selected', String(on));
     });
@@ -1608,46 +1412,33 @@ if('IntersectionObserver' in window && !REDUCED){
   hio.observe(document.getElementById('upHeatCanvas'));
 }
 
-/* ---------- 04 · navs ---------- */
+/* ---------- 04 · navs (Geist: no pill, press scale + due badge) ---------- */
 const NAV = [['dashboard','Home','home'],['topics','Topics','book'],['tests','Tests','test'],['analytics','Insights','chart'],['more','More','more']];
-function buildNav(el, active, onTap){
+function buildNav(el, active, onTap, badge){
   NAV.forEach(([id,label,ic])=>{
     const b = document.createElement('button');
     b.className = 'nav-item'+(id===active?' active':'');
     b.setAttribute('aria-current', id===active?'page':'false');
-    b.innerHTML = `<span class="nav-icon-wrap">${IC[ic](21)}</span><span class="nav-label">${label}</span>`;
+    b.innerHTML = `<span class="nav-icon-wrap">${IC[ic](22)}${badge&&id==='analytics'?'<span class="gs-due">3</span>':''}</span><span class="nav-label">${label}</span>`;
     b.addEventListener('click', ()=>onTap(id));
     el.appendChild(b);
   });
 }
-let curActive = 'dashboard';
-const curNav = document.getElementById('curNav');
-buildNav(curNav, curActive, id=>{ curActive = id;
-  curNav.querySelectorAll('.nav-item').forEach(n=>{
-    const on = n.textContent.trim().startsWith(NAV.find(x=>x[0]===id)[1]);
-    n.classList.toggle('active', on); n.setAttribute('aria-current', on?'page':'false');
-  });
-});
-let upActive = 'dashboard';
-const upNav = document.getElementById('upNav'), upNavPill = document.getElementById('upNavPill');
-buildNav(upNav, upActive, id=>{ upActive = id;
-  upNav.querySelectorAll('.nav-item').forEach(n=>{
-    const on = n.textContent.trim().startsWith(NAV.find(x=>x[0]===id)[1]);
-    n.classList.toggle('active', on); n.setAttribute('aria-current', on?'page':'false');
-  });
-  requestAnimationFrame(moveUpNavPill);
-});
-function moveUpNavPill(){
-  const a = upNav.querySelector('.nav-item.active'); if(!a) return;
-  const nr = upNav.getBoundingClientRect(), r = a.getBoundingClientRect();
-  upNavPill.style.width = r.width+'px';
-  upNavPill.style.transform = `translateX(${r.left-nr.left-10}px)`;
+function wireNav(el, get, set){
+  buildNav(el, get(), id=>{ set(id);
+    el.querySelectorAll('.nav-item').forEach(n=>{
+      const on = n.textContent.trim().startsWith(NAV.find(x=>x[0]===id)[1]);
+      n.classList.toggle('active', on); n.setAttribute('aria-current', on?'page':'false');
+    });
+  }, el.id==='upNav');
 }
-requestAnimationFrame(moveUpNavPill);
+let curActive = 'dashboard';
+wireNav(document.getElementById('curNav'), ()=>curActive, id=>{curActive=id;});
+let upActive = 'dashboard';
+wireNav(document.getElementById('upNav'), ()=>upActive, id=>{upActive=id;});
 addEventListener('resize', ()=>{
   const hb = homeSeg.querySelector('button.on'); if(hb) movePill(homePill, homeSeg, hb);
   const lb = liSeg.querySelector('button.on'); if(lb) movePill(liPill, liSeg, lb);
-  moveUpNavPill();
 });
 </script>
 </body>
