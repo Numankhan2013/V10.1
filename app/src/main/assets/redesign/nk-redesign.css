@@ -539,3 +539,9 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) #app button.is-primary:not(:disable
 @media (min-width: 768px) {
   html[data-nk-ui="geist"]:not([data-nkg-session]) :is(body,#nkg-root) .nkg-topbar { margin-left: 88px; }
 }
+/* CBT step 3 action bar: two 190px min-width buttons overflowed the 362px bar on phones
+   ("Save mock" started at -15px). Share the bar instead. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-cbt-main-actions { gap: 8px !important; }
+@media (max-width: 767px) {
+  html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-cbt-main-actions > button { min-width: 0 !important; flex: 1 1 0 !important; width: auto !important; }
+}

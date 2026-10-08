@@ -26,6 +26,7 @@ Audited Home, Profile, Revision/FSRS, Tests, CBT builder → timed CBT → resul
 - Result score ring: legacy lavender track (inline style) swapped for the neutral token.
 - Home section headings share one size and left edge.
 - Every legacy `.is-primary` action is the inverse button (chapter "Practice" was white on white).
+- CBT step 3 bar: "Save mock" / "Start timed CBT" share the bar on phones (Save mock started at −15px).
 - Tablet (≥768px): top bar starts after the 88px side rail (the brand was hidden under it).
 - Revision forecast: zero days draw as a hairline instead of a dark slab; chart/metric captions ≥10.5px.
 - `#profile` no longer flashes the dashboard (route attribute set before first render + `:has()` guard).
