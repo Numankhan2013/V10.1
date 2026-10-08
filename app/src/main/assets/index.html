@@ -1303,7 +1303,7 @@ button.v102-practice-submit-hidden{display:none!important}
 (function(){
   function read(){try{if(window.QB&&typeof window.QB.getState==='function')return window.QB.getState();}catch(_){} try{return window.state||null;}catch(_){return null;}}
   function add(){
-    if(document.querySelector('.streak-card') || document.querySelector('.v102-streak-card')) return;
+    if(document.querySelector('.streak-card') || document.querySelector('.v102-streak-card') || document.querySelector('.nk-home-streak-card')) return;
     var st=read();
     if(!st) return;
     var active=Array.isArray(st.activeDays)?st.activeDays:[];
