@@ -452,7 +452,10 @@
     const s=state.activeSession;if(!s?.studyModuleId)return;
     const remaining=s.questionIds.filter(id=>!s.submitted?.[id]).length;
     if(remaining&&!confirm(`Finish this module with ${remaining} unanswered question${remaining===1?'':'s'}?`))return;
-    closeSessionReview();finishPracticeSession();
+    closeSessionReview();
+    // Same skip rule as every session: only questions passed over before the last answered one enter FSRS.
+    if(typeof nkMarkSkippedFromSession==='function')nkMarkSkippedFromSession(s);
+    finishPracticeSession();
   }
 
   function restartStudyModule(id){

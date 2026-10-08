@@ -422,3 +422,16 @@ in-session re-queue of lapses (membership-hash checkpoints), Again for
 correct answers (rating revisions are limited to Hard/Good/Easy across sync),
 and a separate new-card limit (FSRS stays review-only).
 
+## Skip rule: only questions before the last answered one enter FSRS (2026-10-08)
+
+Supersedes decision 23's "final submission adds every remaining unanswered
+question as skipped". One shared function (`nkMarkSkippedFromSession`) now
+applies to Practice Submit, timed-test Submit, Finish of a revision pass and
+Finish of a study module: a question counts as skipped, and enters FSRS, only
+if it comes before the last answered question in the session. Questions after
+it were never reached and stay unseen, a session with no answers marks
+nothing, and questions that already have history are left alone. Pause and
+Save & exit never mark anything. Reason: finishing a long session early (or
+abandoning a module) must not flood FSRS with questions never looked at, while
+a question deliberately passed over mid-session is a real weak spot.
+

@@ -142,11 +142,21 @@ HELPERS = r'''
   function nkFsrsLaunchQueue(subject=''){const fallback=nkReviewDue(subject);return typeof nkFsrsQueue==='function'?nkFsrsQueue({subject}):{cards:fallback,due:fallback,totalDue:fallback.length,rolledOver:0};}
   function nkStartReviewOnly(subject=nkFsrsSubjectFilter){const queue=nkFsrsLaunchQueue(subject),rows=queue.cards||[];if(!rows.length){showToast('No attempted or submitted-as-skipped questions are due for this selection.');return;}BY_ID={...BY_ID,...Object.fromEntries(rows.map(q=>[String(q.id),q]))};startSession(rows.map(q=>String(q.id)),'practice','FSRS Review','fsrs');if(queue.rolledOver)showToast(`${queue.rolledOver} due reviews roll forward under your daily limit.`);}
   function nkMarkSkippedFromSession(s){
+    // Skip rule: a question you moved past counts as skipped only if it comes BEFORE
+    // your last answered question. Questions after it were never reached, so they
+    // stay out of review; a session with no answers marks nothing. Questions with
+    // history already live in FSRS; unanswerable questions never enter.
     if(!s?.questionIds?.length)return;
-    // Study modules are open-ended: questions never reached must not seep into FSRS.
-    // Only answered work (and only deliberate Practice/CBT submissions) feeds review.
-    if(s.studyModuleId)return;
-    state.fsrsReviewEligible=state.fsrsReviewEligible||{};const at=Date.now();s.questionIds.forEach(id=>{const key=String(id),answered=Boolean(s.answers?.[key]),q=typeof nkFindStudyQuestion==='function'?nkFindStudyQuestion(key):null;if(q&&typeof nkFsrsAnswerable==='function'&&!nkFsrsAnswerable(q))return;if(!answered)state.fsrsReviewEligible[key]={reason:'skipped',at};});
+    const ids=(typeof nkPracticeSessionIds==='function'&&nkPracticeSessionIds(s).length>=s.questionIds.length?nkPracticeSessionIds(s):s.questionIds).map(String);
+    let last=-1;ids.forEach((id,i)=>{if(s.answers?.[id])last=i;});
+    if(last<0)return;
+    state.fsrsReviewEligible=state.fsrsReviewEligible||{};const at=Date.now();
+    ids.slice(0,last).forEach(id=>{
+      const key=String(id),answered=Boolean(s.answers?.[key]),q=typeof nkFindStudyQuestion==='function'?nkFindStudyQuestion(key):null;
+      if(q&&typeof nkFsrsAnswerable==='function'&&!nkFsrsAnswerable(q))return;
+      if(typeof qAttempts==='function'&&qAttempts(key).length)return;
+      if(!answered)state.fsrsReviewEligible[key]={reason:'skipped',at};
+    });
   }
   const nkHomeOriginalEndSession=endSession;
   endSession=function(){const s=state.activeSession;if(s?.mode==='practice'&&typeof savePracticeElapsed==='function')savePracticeElapsed();nkMarkSkippedFromSession(s);saveState();return nkHomeOriginalEndSession.apply(this,arguments);};

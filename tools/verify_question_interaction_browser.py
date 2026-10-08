@@ -194,7 +194,9 @@ def main():
                 assert result['attempted'] == 3 and result['unattempted'] == len(ids) - 3
                 assert result['correct'] + result['incorrect'] == 3
                 assert page.evaluate('id=>(window.QB.getState().attempts[id]||[]).length===1 && Boolean(window.QB.getState().reviews[id])', ids[3]), 'legacy selected answer counted without attempt/FSRS'
-                assert page.evaluate('ids=>ids.every(id=>window.QB.getState().fsrsReviewEligible[id]?.reason==="skipped")', ids[5:])
+                # Skip rule: answered 2-4, so only question 1 (passed over before the last answer) enters FSRS; 5+ were never reached.
+                assert page.evaluate('id=>window.QB.getState().fsrsReviewEligible[id]?.reason==="skipped"', ids[0])
+                assert page.evaluate('ids=>ids.every(id=>!window.QB.getState().fsrsReviewEligible[id])', ids[4:])
                 assert page.evaluate('id=>Boolean(window.QB.getState().bookmarks[id])', ids[1])
                 # Actual CBT builder: changes remain private until final Submit.
                 page.evaluate('window.QB.openSessionBuilder(null,"exam")')

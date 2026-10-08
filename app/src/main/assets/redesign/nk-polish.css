@@ -593,6 +593,26 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-progress > i { height: 
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-progress > span { font: 500 var(--nkg-t-xs)/1 var(--nkg-font-mono) !important; color: var(--nkg-fg-3) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-key-takeaway { border-radius: var(--nkg-r-lg) !important; }
 
+/* ======================================================= answer grids */
+/* Answered cells are filled ink-tint cells with a check badge; unanswered stay open
+   and quiet, so progress reads at a glance without hurting legibility. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-review-q, html[data-nk-ui="geist"] :is(body,#nkg-root) .qb-nav-q { position: relative; transition: background-color var(--nkg-dur) var(--nkg-ease), border-color var(--nkg-dur) var(--nkg-ease), transform 120ms var(--nkg-ease); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-review-q.unanswered { background: var(--nkg-surface) !important; border-style: solid; color: var(--nkg-fg-3) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-review-q.unanswered small { color: var(--nkg-fg-3) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-review-q.answered, html[data-nk-ui="geist"] :is(body,#nkg-root) .qb-nav-q.answered:not(.correct):not(.incorrect) {
+  background: color-mix(in srgb, var(--nkg-fg) 10%, var(--nkg-surface)) !important;
+  border-color: color-mix(in srgb, var(--nkg-fg) 38%, var(--nkg-surface)) !important; color: var(--nkg-fg) !important;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-review-q.answered span, html[data-nk-ui="geist"] :is(body,#nkg-root) .qb-nav-q.answered span { font-weight: 700; color: var(--nkg-fg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-review-q.answered small { color: var(--nkg-fg-2) !important; font-weight: 500; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-review-q.answered::after, html[data-nk-ui="geist"] :is(body,#nkg-root) .qb-nav-q.answered:not(.correct):not(.incorrect)::after {
+  content: "\2713"; position: absolute; top: 5px; right: 5px; width: 14px; height: 14px; border-radius: 50%;
+  background: var(--nkg-inverse-bg); color: var(--nkg-inverse-fg); font: 700 9px/14px var(--nkg-font-sans); text-align: center;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-review-q.active { border-color: var(--nkg-fg) !important; box-shadow: 0 0 0 1.5px var(--nkg-fg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-review-dot.answered, html[data-nk-ui="geist"] :is(body,#nkg-root) .qb-legend-dot.answered { background: color-mix(in srgb, var(--nkg-fg) 14%, var(--nkg-surface)) !important; border: 1px solid color-mix(in srgb, var(--nkg-fg) 40%, var(--nkg-surface)) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-review-dot.unanswered, html[data-nk-ui="geist"] :is(body,#nkg-root) .qb-legend-dot.unanswered { background: var(--nkg-surface) !important; border: 1px solid var(--nkg-border-strong) !important; }
+
 /* ===================================================== secondary pages */
 html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-back-link, .nk-bank-back) { display: inline-flex !important; align-items: center !important; gap: 6px !important; min-height: 36px !important; padding: 0 10px 0 6px !important; margin: 4px 0 4px -6px !important;
   border: 0 !important; border-radius: var(--nkg-r-md) !important; background: transparent !important; box-shadow: none !important; color: var(--nkg-fg-2) !important; font: 500 var(--nkg-t-sm)/1 var(--nkg-font-sans) !important; letter-spacing: 0 !important; }

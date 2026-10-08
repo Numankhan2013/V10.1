@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Study modules must never seed FSRS with questions the learner did not reach."""
+"""Skip rule: only questions passed over BEFORE the last answered one may enter FSRS."""
 from pathlib import Path
 import re
 import subprocess
@@ -13,22 +13,30 @@ match = re.search(r"  function nkMarkSkippedFromSession\(s\)\{.*?\n  \}\n", home
 if not match:
     raise SystemExit("nkMarkSkippedFromSession source owner not found")
 function = match.group(0)
-if "s.studyModuleId" not in function:
-    raise SystemExit("nkMarkSkippedFromSession must ignore study-module sessions")
+if "s.studyModuleId" in function:
+    raise SystemExit("the skip rule is shared by modules, Practice, CBT and Revision; no module special case")
 if "s.studyModuleId&&s.questionIds.some(id=>!s.submitted?.[id])" not in interaction or "exitStudyModule()" not in interaction:
     raise SystemExit("review-sheet Save & exit must keep an unfinished module instead of ending it")
 
 harness = f"""
 const assert=require('assert');
-let state={{fsrsReviewEligible:{{}}}};const nkFindStudyQuestion=()=>null;
+let state={{fsrsReviewEligible:{{}},attempts:{{}}}};const nkFindStudyQuestion=()=>null,qAttempts=id=>state.attempts[id]||[];
 {function}
-// An unfinished module: one answered, five never reached.
-nkMarkSkippedFromSession({{studyModuleId:'m1',questionIds:['a','b','c','d','e','f'],answers:{{a:1}}}});
-assert.deepEqual(state.fsrsReviewEligible,{{}},'study-module questions never reached must not enter FSRS');
-// Deliberate Practice/CBT submissions keep their documented behavior.
-nkMarkSkippedFromSession({{questionIds:['a','b','c'],answers:{{a:1}}}});
-assert.deepEqual(Object.keys(state.fsrsReviewEligible).sort(),['b','c'],'submitted Practice/CBT skips remain eligible');
-console.log('STUDY_MODULE_FSRS_OK');
+const ids=n=>Array.from({{length:n}},(_,i)=>'q'+(i+1)),run=(session)=>{{state.fsrsReviewEligible={{}};nkMarkSkippedFromSession(session);return Object.keys(state.fsrsReviewEligible).sort((a,b)=>Number(a.slice(1))-Number(b.slice(1)));}};
+// Your example: 20 questions, answered 1, 3, 4 and 5. Question 2 was passed over; 6-20 were never reached.
+assert.deepEqual(run({{questionIds:ids(20),answers:{{q1:1,q3:1,q4:1,q5:1}}}}),['q2'],'only the skipped question before the last answer enters FSRS');
+// Looking at question 6 after answering 5 does not matter: it comes after the last answer.
+assert.deepEqual(run({{questionIds:ids(20),answers:{{q1:1,q5:1}}}}),['q2','q3','q4']);
+// Nothing answered: nothing enters FSRS.
+assert.deepEqual(run({{questionIds:ids(20),answers:{{}}}}),[],'a session with no answers marks nothing');
+// Study modules follow the same rule (no special case).
+assert.deepEqual(run({{studyModuleId:'m1',questionIds:ids(6),answers:{{q1:1}}}}),[]);
+assert.deepEqual(run({{studyModuleId:'m1',questionIds:ids(6),answers:{{q1:1,q4:1}}}}),['q2','q3']);
+// Only the last answered question defines the boundary, wherever it is in the list.
+assert.deepEqual(run({{questionIds:ids(5),answers:{{q5:1}}}}),['q1','q2','q3','q4']);
+// Questions that already have history are already in FSRS: no stale skip entry.
+state.attempts={{q2:[{{id:'old'}}]}};assert.deepEqual(run({{questionIds:ids(5),answers:{{q1:1,q4:1}}}}),['q3']);
+console.log('SKIP_RULE_OK');
 """
 with tempfile.NamedTemporaryFile("w", suffix=".js", encoding="utf-8", delete=False) as handle:
     handle.write(harness)
@@ -37,4 +45,4 @@ try:
     subprocess.run(["node", str(path)], check=True)
 finally:
     path.unlink(missing_ok=True)
-print("STUDY_MODULE_FSRS_TEST_OK: unfinished modules never seed FSRS; Save & exit keeps the module open")
+print("SKIP_RULE_TEST_OK: only questions before the last answered one can enter FSRS; Save & exit keeps an unfinished module open")
