@@ -106,7 +106,7 @@ button{font:inherit;cursor:pointer}
 .up-dd.open .up-dd-btn{border-color:#8f7bd8;background:#fff;box-shadow:0 0 0 3px #ece7fb}
 .up-dd-btn .up-dd-val{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .up-dd-btn .up-dd-chev{flex:none;display:grid;place-items:center;color:#7a68b8;transition:transform .3s cubic-bezier(.3,1.4,.5,1)}
-.up-dd.open .up-dd-chev{transform:rotate(200deg)}
+.up-dd.open .up-dd-chev{transform:rotate(180deg)}
 .up-dd-panel{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:30;background:#fff;border:1px solid #e7e1f5;border-radius:13px;box-shadow:0 18px 44px rgba(41,38,95,.18);padding:5px;transform-origin:top center;transition:opacity .22s ease,transform .28s cubic-bezier(.3,1.3,.4,1)}
 .up-dd-panel[hidden]{display:block;opacity:0;transform:translateY(-7px) scale(.96);pointer-events:none}
 .up-dd:not(.open) .up-dd-panel{opacity:0;transform:translateY(-7px) scale(.96);pointer-events:none}
@@ -176,6 +176,30 @@ button{font:inherit;cursor:pointer}
 .up-nav .nav-item svg{transition:transform .25s cubic-bezier(.3,1.4,.5,1)}
 .up-nav .nav-item.active svg{transform:translateY(-1px) scale(1.06)}
 .up-nav .nav-item.active .nav-icon-wrap{background:none!important;box-shadow:none!important}
+
+/* ============ UPGRADED · trend v3 (Cult analytics-chart ideas) ============ */
+.up-trend-wrap svg{touch-action:pan-y;cursor:crosshair}
+.up-tip-card{position:absolute;pointer-events:none;background:#fff;border:1px solid #e7e1f5;border-radius:12px;box-shadow:0 14px 34px rgba(41,38,95,.20);padding:8px 11px;min-width:104px;transform:translate(-50%,-115%);opacity:0;transition:opacity .15s;z-index:6;text-align:left}
+.up-tip-card .t{font-size:9px;color:#74778e;font-weight:700;white-space:nowrap}
+.up-tip-card .v{font-size:17px;font-weight:850;letter-spacing:-.4px;color:#29265f;font-variant-numeric:tabular-nums;margin-top:1px}
+.up-tip-card .p{font-size:9px;color:#74778e;font-weight:600;margin-top:1px;white-space:nowrap}
+.up-totals{margin-top:12px;border-top:1px solid #f0edf6;padding-top:2px}
+.up-total-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 2px}
+.up-total-row + .up-total-row{border-top:1px dashed #f0edf6}
+.up-total-label{font-size:12px;font-weight:700;color:#3c3f63}
+.up-total-row.is-prev .up-total-label{color:#74778e;font-weight:600}
+.up-total-val{display:flex;align-items:center;gap:8px}
+.up-total-val b{font-size:20px;font-weight:850;letter-spacing:-.4px;font-variant-numeric:tabular-nums}
+.up-total-row.is-prev .up-total-val b{font-size:16px;font-weight:750;color:#555a76}
+
+/* ============ UPGRADED · nav option B (expanding active tab) ============ */
+.pv-trio{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;align-items:start}
+@media(max-width:1100px){.pv-trio{grid-template-columns:1fr}}
+.up-navx{background:#fff;border:1px solid #e3e6ef;border-radius:18px;display:flex;padding:6px 10px;height:76px;box-shadow:0 -4px 14px rgba(27,34,67,.06)}
+.up-navx .nx{flex:1 1 0;min-width:0;border:0;background:none;color:#7b8191;border-radius:13px;display:flex;align-items:center;justify-content:center;min-height:58px;padding:0 4px;transition:background .25s,color .25s,flex-grow .32s cubic-bezier(.3,1.1,.4,1)}
+.up-navx .nx .nx-label{font-size:9px;font-weight:750;max-width:0;opacity:0;overflow:hidden;white-space:nowrap;transition:max-width .3s cubic-bezier(.3,1.1,.4,1),opacity .2s,margin-left .3s}
+.up-navx .nx.on{flex-grow:2.1;background:#eff1fb;box-shadow:inset 0 0 0 1px #d9def3;color:#29265f}
+.up-navx .nx.on .nx-label{max-width:72px;opacity:1;margin-left:5px}
 
 @media(prefers-reduced-motion:reduce){
   *,*:before,*:after{transition:none!important;animation:none!important}
@@ -328,13 +352,16 @@ button{font:inherit;cursor:pointer}
             </div>
             <div class="nk-li-card"><header><h2>Study time trend</h2></header>
               <div class="nk-li-key"><span><i></i><span id="upTrendCur">This week</span></span><span><i class="is-previous"></i><span id="upTrendPrev">Previous week</span></span><span id="upTrendScope" style="margin-left:auto"></span></div>
-              <div class="up-trend-wrap" id="upTrendWrap"><div class="up-trend-tip" id="upTrendTip"></div><svg class="nk-li-trend" viewBox="0 0 400 196" id="upTrend" preserveAspectRatio="xMidYMid meet"></svg></div>
+              <div class="up-trend-wrap" id="upTrendWrap"><div class="up-tip-card" id="upTrendTip"></div><svg class="nk-li-trend" viewBox="0 0 400 196" id="upTrend" preserveAspectRatio="xMidYMid meet"></svg></div>
               <div class="up-x" id="upTrendX"></div>
-              <div class="nk-li-trend-totals"><span><small id="upTrendCurT">This week</small><b id="upTrendVal">9h 41m</b></span><span class="nk-li-delta is-up" id="upTrendDelta">↑ 12%</span><span><small id="upTrendPrevT">Previous week</small><b id="upTrendPrevVal">8h 38m</b></span></div>
+              <div class="up-totals">
+                <div class="up-total-row"><span class="up-total-label" id="upTrendCurT">This week</span><span class="up-total-val"><b id="upTrendVal">9h 41m</b><span class="nk-li-delta is-up" id="upTrendDelta">↑ 12%</span></span></div>
+                <div class="up-total-row is-prev"><span class="up-total-label" id="upTrendPrevT">Previous week</span><span class="up-total-val"><b id="upTrendPrevVal">8h 38m</b></span></div>
+              </div>
             </div>
           </div>
         </div>
-        <p class="pv-note"><b>What changed:</b> rebuilt from scratch. The curve is now a smooth cubic-bezier spline (no jagged segments), axis labels are crisp HTML instead of stretched SVG text, peak/trough markers call out your best and quietest day, and scrubbing shows both current and previous values in the tooltip. Totals count up and respect the subject/bank scope above.</p>
+        <p class="pv-note"><b>What changed (v3):</b> new gradient-stroke spline, floating tooltip <b>card</b> (Cult analytics-chart style) with current + previous values, pinned peak marker, and a restructured totals block — current vs previous now stack in clean rows instead of cramping one line. Scrubbing works on tap <b>and</b> drag for touch (vertical page scroll still works).</p>
       </div>
     </div>
   </section>
@@ -342,8 +369,8 @@ button{font:inherit;cursor:pointer}
   <!-- 04 · BOTTOM NAV -->
   <section class="pv-sec" id="bottom-nav">
     <div class="pv-sec-head"><span class="n">04</span><h2>Bottom navigation · active indicator</h2><span class="file">tools/apply_home_command_center_v1.py (BOTTOM_NAV)</span></div>
-    <p class="pv-sec-sub">Home · FSRS · Tests · Insights · More. Same items, same icons, same active colors.</p>
-    <div class="pv-pair">
+    <p class="pv-sec-sub">Home · FSRS · Tests · Insights · More. Same items, same icons, same active colors. Two upgrade candidates from the new libraries — my recommendation is below.</p>
+    <div class="pv-trio">
       <div class="pv-col">
         <span class="pv-tag is-current">Current · interactive</span>
         <div class="pv-phone">
@@ -352,11 +379,18 @@ button{font:inherit;cursor:pointer}
         <p class="pv-note"><b>What feels off today:</b> the active tab is only a color change — the highlight snaps with no sense of movement between tabs.</p>
       </div>
       <div class="pv-col">
-        <span class="pv-tag is-new">Upgraded · interactive</span>
+        <span class="pv-tag is-new">Option A · gliding pill</span>
         <div class="pv-phone">
           <nav class="nk-bottom-nav-v114 up-nav" aria-label="Primary navigation" id="upNav"><div class="up-nav-pill" id="upNavPill"></div></nav>
         </div>
-        <p class="pv-note"><b>What changed:</b> a single pill glides behind the active tab (transform-only, 60fps-friendly). Tap through the tabs to feel it. Colors, sizes and icons are untouched.</p>
+        <p class="pv-note"><b>Option A:</b> a single pill glides behind the active tab (transform-only). All labels always visible. Tap through the tabs to feel it.</p>
+      </div>
+      <div class="pv-col">
+        <span class="pv-tag is-new">Option B · expanding tab</span>
+        <div class="pv-phone">
+          <nav class="up-navx" aria-label="Primary navigation" id="upNavX"></nav>
+        </div>
+        <p class="pv-note"><b>Option B</b> (21st.dev bottom-nav pattern): inactive tabs collapse to icon-only; the active tab expands to reveal its label. Sleeker, but labels hide until tapped. <b>My recommendation: A</b> — in a study app, FSRS/Tests/Insights labels should never hide; B suits icon-obvious apps (music, social), not a QBank.</p>
       </div>
     </div>
   </section>
@@ -613,34 +647,39 @@ function renderUpTrend(animate){
   const curPath = smoothPath(curPts), prevPath = smoothPath(prevPts);
   const area = curPath+` L ${x(n-1).toFixed(1)} ${B} L ${L} ${B} Z`;
   let peakI = 0; cur.forEach((v,i)=>{ if(v>cur[peakI]) peakI = i; });
-  let lowI = 0; cur.forEach((v,i)=>{ if(v<cur[lowI]) lowI = i; });
   const svg = document.getElementById('upTrend');
   svg.innerHTML =
-    `<defs><linearGradient id="upArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7861ee" stop-opacity=".20"/><stop offset="1" stop-color="#7861ee" stop-opacity=".01"/></linearGradient></defs>`+
+    `<defs><linearGradient id="upArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7861ee" stop-opacity=".20"/><stop offset="1" stop-color="#7861ee" stop-opacity=".01"/></linearGradient>`+
+    `<linearGradient id="upStroke" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#745be8"/><stop offset="1" stop-color="#b3a1f2"/></linearGradient></defs>`+
     [0,.5,1].map(g=>{ const yy = B-g*(B-T);
       return `<line x1="${L}" x2="${R}" y1="${yy}" y2="${yy}" stroke="#ebeaf4"/><text x="2" y="${yy+4}" font-size="11" fill="#74788f">${(mx*g).toFixed(mx<2?1:0)}h</text>`; }).join('')+
     `<path d="${area}" fill="url(#upArea)" class="up-curve"/>`+
     `<path d="${prevPath}" fill="none" stroke="#cdc4f5" stroke-width="2.5" stroke-dasharray="5 5" class="up-curve"/>`+
-    `<path d="${curPath}" fill="none" stroke="#7861ee" stroke-width="3" stroke-linecap="round" class="${animate&&!REDUCED?'up-draw':''}"/>`+
-    `<g class="up-mark"><circle cx="${x(lowI).toFixed(1)}" cy="${y(cur[lowI]).toFixed(1)}" r="3.5" fill="#fff" stroke="#b9aef0" stroke-width="2.5"/><text x="${x(lowI).toFixed(1)}" y="${(y(cur[lowI])+16).toFixed(1)}" text-anchor="middle">${cur[lowI].toFixed(1)}h</text></g>`+
+    `<path d="${curPath}" fill="none" stroke="url(#upStroke)" stroke-width="3.5" stroke-linecap="round" class="${animate&&!REDUCED?'up-draw':''}"/>`+
     `<g class="up-mark"><circle cx="${x(peakI).toFixed(1)}" cy="${y(cur[peakI]).toFixed(1)}" r="4.5" fill="#7861ee" stroke="#fff" stroke-width="2.5"/><text x="${x(peakI).toFixed(1)}" y="${(y(cur[peakI])-10).toFixed(1)}" text-anchor="middle">${cur[peakI].toFixed(1)}h</text></g>`+
     `<circle id="upFocus" r="5" fill="#fff" stroke="#29265f" stroke-width="3" opacity="0"/>`+
     `<line id="upScrub" x1="0" x2="0" y1="${T-6}" y2="${B}" stroke="#29265f" stroke-width="1" stroke-dasharray="3 3" opacity="0"/>`;
   document.getElementById('upTrendX').innerHTML = p.bins.map(b=>`<span>${b}</span>`).join('');
   const tip = document.getElementById('upTrendTip');
   const scrub = svg.querySelector('#upScrub'), focus = svg.querySelector('#upFocus');
-  svg.onpointermove = e=>{
+  function scrubTo(clientX){
     const r = svg.getBoundingClientRect();
-    const sx = (e.clientX-r.left)*(400/r.width);
+    const sx = (clientX-r.left)*(400/r.width);
     let best=0, bd=1e9;
     cur.forEach((_,i)=>{ const d=Math.abs(x(i)-sx); if(d<bd){bd=d;best=i;} });
     scrub.setAttribute('x1',x(best)); scrub.setAttribute('x2',x(best)); scrub.setAttribute('opacity','.55');
     focus.setAttribute('cx',x(best)); focus.setAttribute('cy',y(cur[best])); focus.setAttribute('opacity','1');
-    tip.style.left = (x(best)/400*100)+'%'; tip.style.top = (y(cur[best])/196*100)+'%';
+    const pct = Math.min(86, Math.max(14, x(best)/400*100));
+    tip.style.left = pct+'%'; tip.style.top = (y(cur[best])/196*100)+'%';
     tip.style.opacity = 1;
-    tip.innerHTML = `${p.bins[best]} · ${cur[best].toFixed(1)}h<small>previous ${prev[best].toFixed(1)}h</small>`;
-  };
-  svg.onpointerleave = ()=>{ scrub.setAttribute('opacity','0'); focus.setAttribute('opacity','0'); tip.style.opacity = 0; };
+    tip.innerHTML = `<div class="t">${p.bins[best]} · ${p.cur}</div><div class="v">${cur[best].toFixed(1)}h</div><div class="p">previous ${prev[best].toFixed(1)}h</div>`;
+  }
+  function hideScrub(){ scrub.setAttribute('opacity','0'); focus.setAttribute('opacity','0'); tip.style.opacity = 0; }
+  svg.onpointerdown = e=>{ scrubTo(e.clientX); };
+  svg.onpointermove = e=>{ if(e.pointerType==='mouse' || e.buttons) scrubTo(e.clientX); };
+  svg.onpointerup = hideScrub;
+  svg.onpointercancel = hideScrub;
+  svg.onpointerleave = hideScrub;
   document.getElementById('upTrendCur').textContent = p.cur;
   document.getElementById('upTrendPrev').textContent = p.prev;
   document.getElementById('upTrendCurT').textContent = p.cur;
@@ -681,7 +720,26 @@ buildNav(upNav, upActive, id=>{ upActive = id;
     const on = n.textContent.trim().startsWith(NAV.find(x=>x[0]===id)[1]);
     n.classList.toggle('active', on); n.setAttribute('aria-current', on?'page':'false');
   });
-  requestAnimationFrame(moveUpNavPill);
+requestAnimationFrame(moveUpNavPill);
+
+/* ---------- 04b · nav option B: expanding active tab ---------- */
+let nxActive = 'dashboard';
+const upNavX = document.getElementById('upNavX');
+NAV.forEach(([id,label,ic])=>{
+  const b = document.createElement('button');
+  b.className = 'nx'+(id===nxActive?' on':'');
+  b.setAttribute('aria-current', id===nxActive?'page':'false');
+  b.setAttribute('aria-label', label);
+  b.innerHTML = `${IC[ic](21)}<span class="nx-label">${label}</span>`;
+  b.addEventListener('click', ()=>{
+    nxActive = id;
+    upNavX.querySelectorAll('.nx').forEach(n=>{
+      const on = n.getAttribute('aria-label')===NAV.find(x=>x[0]===id)[1];
+      n.classList.toggle('on', on); n.setAttribute('aria-current', on?'page':'false');
+    });
+  });
+  upNavX.appendChild(b);
+});
 });
 function moveUpNavPill(){
   const a = upNav.querySelector('.nav-item.active'); if(!a) return;
