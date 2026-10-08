@@ -46,6 +46,10 @@ Kept as deliberate design (changing them touches contracts or sync):
 6. **Unseen served unanswerable questions.** These are now excluded from Unseen.
 7. **Legacy per-subject lists were still reachable.** The Profile shortcuts and old `#wrong`/`#bookmarks`/`#review` links opened outdated lists. Those lists covered the current subject only, counted resolved misses as still wrong, and used a timestamp due rule. They now open the all-bank Revision views.
 
+8. **Study-module "Save & exit" seeded FSRS (found on follow-up).** In a module with unanswered questions, the review sheet's *Save & exit* button called `endSession()`, which marked every untouched question as "skipped", queued them for review and left the module unsaved-as-exited. Fixed twice: *Save & exit* on an unfinished module now keeps it open (`exitStudyModule`), and `nkMarkSkippedFromSession` ignores study-module sessions entirely, so no exit path (Save & exit, Finish with N omitted, back, nav away, direct `endSession`) can put an unreached module question into FSRS. Covered by `tools/test_study_module_fsrs_v1.py`.
+
+Policy: **only answered questions feed FSRS from modules.** Plain Practice *Submit* and CBT *Submit* still mark unanswered questions as skipped (documented decision 23); see the note in the changelog if that should change.
+
 ## Verified correct (no change)
 
 - **Sync:** merge and rebuild of reviews from attempts.
