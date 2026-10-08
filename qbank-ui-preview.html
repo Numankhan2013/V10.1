@@ -254,14 +254,21 @@ button{font:inherit;cursor:pointer}
 .nk-li-comparison .nk-li-comparison-head{font-size:9px;padding-top:0;color:#74778e}
 .nk-li-comparison .nk-li-delta{font-size:9px}
 .nk-li-comparison-head span{line-height:1.35;overflow-wrap:anywhere}
-/* 08 upgraded: stacked comparison rows */
-.up-cmp-row{padding:12px 2px}
-.up-cmp-row + .up-cmp-row{border-top:1px solid #f0edf6}
-.up-cmp-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
-.up-cmp-top strong{font-size:11px;font-weight:650}
-.up-cmp-vals{display:flex;align-items:baseline;gap:8px;margin-top:5px}
-.up-cmp-vals b{font-size:19px;font-weight:850;letter-spacing:-.4px;font-variant-numeric:tabular-nums}
-.up-cmp-vals span{font-size:10px;color:#74778e}
+/* 08 upgraded v3: scannable table + proportion bars */
+.up-cmptable>div{display:grid;grid-template-columns:1fr auto auto auto;align-items:center;gap:10px;padding:13px 2px;border-bottom:1px solid #f0edf6}
+.up-cmptable>div:last-child{border-bottom:0}
+.up-cmptable .up-cmpt-head{padding:0 2px 8px}
+.up-cmptable .up-cmpt-head span{font-size:9.5px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:#8a8ea8}
+.up-cmptable strong{font-size:12.5px;font-weight:700}
+.up-cmptable .cur{font-size:16px;font-weight:850;letter-spacing:-.3px;font-variant-numeric:tabular-nums;text-align:right}
+.up-cmptable .prv{font-size:11.5px;color:#8a8ea8;font-variant-numeric:tabular-nums;text-align:right}
+.up-cmptable .nk-li-delta{font-size:10px;font-weight:800}
+.up-cmpbar{grid-column:1/-1;position:relative;height:4px;border-radius:99px;background:#efeff6;margin-top:3px}
+.up-cmpbar i{position:absolute;left:0;top:0;bottom:0;border-radius:inherit;background:linear-gradient(90deg,#7860e9,#a794f5)}
+.up-cmpbar b{position:absolute;top:-2.5px;bottom:-2.5px;width:2.5px;border-radius:2px;background:#29265f}
+.up-cmp-legend{display:flex;align-items:center;gap:6px;font-size:9px;color:#8a8ea8;margin:10px 2px 0}
+.up-cmp-legend i{width:14px;height:4px;border-radius:99px;background:linear-gradient(90deg,#7860e9,#a794f5)}
+.up-cmp-legend b{width:2.5px;height:9px;border-radius:2px;background:#29265f}
 
 /* ============ 09 · forecast current (exact shipped styles) ============ */
 .nk-li-forecast{display:flex;align-items:flex-end;gap:8px;height:100px}
@@ -273,11 +280,16 @@ button{font:inherit;cursor:pointer}
 .up-forecast i{transition:height .6s cubic-bezier(.25,.9,.3,1)}
 .up-forecast>span.is-today b{color:#48328f;font-weight:850}
 .up-forecast>span.is-today i{background:linear-gradient(0deg,#5b45d6,#8f7bf0);box-shadow:0 4px 12px rgba(98,81,162,.35)}
+/* selection state: ring + glow, never restyles Today itself */
+.up-forecast>span{border-radius:9px;cursor:pointer;transition:box-shadow .18s,background .18s,transform .12s}
+.up-forecast>span.sel{background:#f1edfd;box-shadow:0 0 0 1.5px #8f7bd8,0 0 16px rgba(116,91,232,.35)}
+.up-forecast>span.sel i{filter:brightness(1.07)}
+.up-forecast>span:active{transform:scale(.94)}
 .up-fc-readout{font-size:10px;color:#686485;background:#f8f7fd;border-radius:10px;padding:9px 11px;margin-top:10px;min-height:34px}
 .up-fc-readout strong{color:#453771}
 
 /* ============ 10 · source cards current (exact shipped styles) ============ */
-.nk-test-source-card{display:grid;grid-template-columns:46px 1fr 22px;gap:12px;align-items:center;width:100%;padding:12px;border:1px solid #e6e7ef;border-radius:17px;background:#fff;text-align:left;color:#171a58;font:inherit;margin-bottom:8px;transition:border-color .2s,background .2s}
+.nk-test-source-card{display:grid;grid-template-columns:46px 1fr 22px;gap:12px;align-items:center;width:100%;padding:12px;border:1px solid #e6e7ef;border-radius:17px;background:#fff;text-align:left;color:#171a58;font:inherit;margin-bottom:8px;transition:border-color .2s,background .2s,box-shadow .25s}
 .nk-test-source-card>span:nth-child(2){display:grid;min-width:0}
 .nk-test-source-card strong{font-size:13px}
 .nk-test-source-card small{font-size:10px;color:#8589a7;margin-top:3px}
@@ -286,6 +298,8 @@ button{font:inherit;cursor:pointer}
 .nk-test-source-icon.is-bookmarks{background:#fff2e6;color:#f38a29}
 .nk-test-source-card.active{border-color:#8c78ef;background:#f8f6ff}
 .nk-test-source-card:disabled{opacity:.55;cursor:not-allowed}
+/* 10 upgraded: halo-glow selected state (Cult Halo-Select idea, same theme) */
+.up-source .nk-test-source-card.active{box-shadow:0 0 0 3px #ece7fb,0 10px 24px rgba(76,53,180,.14)}
 /* 10 upgraded: morphing pick indicator */
 .up-pick{width:22px;height:22px;border-radius:50%;border:1.5px solid #c9c2e8;display:grid;place-items:center;color:#fff;transition:background .22s,border-color .22s,transform .28s cubic-bezier(.3,1.5,.5,1);transform:scale(.85)}
 .up-pick svg{opacity:0;transform:scale(.4);transition:opacity .15s,transform .25s cubic-bezier(.3,1.6,.5,1)}
@@ -579,11 +593,12 @@ button{font:inherit;cursor:pointer}
         <div class="pv-phone">
           <div class="nk-learning-insights">
             <div class="nk-li-card" style="margin-top:0"><header><h2>Period comparison</h2></header>
-              <div class="up-cmp" id="upCmp"></div>
+              <div class="up-cmptable" id="upCmp"></div>
+              <p class="up-cmp-legend"><i></i> this period <b></b> previous period</p>
             </div>
           </div>
         </div>
-        <p class="pv-note"><b>What changed:</b> each measure reads top-to-bottom — label with its delta, then the big current value with the previous beneath it ("118 previously", your Insights' own phrasing). Same five metrics, same deltas, room to breathe.</p>
+        <p class="pv-note"><b>What changed (v3):</b> you were right — the stacked cards killed the side-by-side scanning that makes a table work. So the table stays, executed properly: uppercase micro-headers, bigger tabular values (16px current / muted previous), roomier rows, and one slim proportion bar per row with a dark notch marking the previous value — the eye catches up/down before reading a single number. Library search confirmed no component does this better; it's dashboard craft (Linear/Stripe/Vercel all use this shape).</p>
       </div>
     </div>
   </section>
@@ -616,7 +631,7 @@ button{font:inherit;cursor:pointer}
             </div>
           </div>
         </div>
-        <p class="pv-note"><b>What changed:</b> bars grow in on view, Today stands out in deep violet, and tapping any day reports its due count below. Same gradient bars, same layout.</p>
+        <p class="pv-note"><b>What changed (v2):</b> tapping a day now selects it — glow ring, brightened bar, readout update, and a guarded 8ms haptic tap (your app already uses haptics selectively). Today keeps its deep-violet fill untouched; selection is the ring around it, so both identities coexist. Today starts pre-selected so the pattern is visible immediately.</p>
       </div>
     </div>
   </section>
@@ -636,9 +651,9 @@ button{font:inherit;cursor:pointer}
       <div class="pv-col">
         <span class="pv-tag is-new">Upgraded · interactive</span>
         <div class="pv-phone" style="background:#f6f7fb">
-          <div id="upSource"></div>
+          <div class="up-source" id="upSource"></div>
         </div>
-        <p class="pv-note"><b>What changed:</b> the trailing chevron becomes a pick indicator that fills and pops a check when selected (easyui Morphing-Icon style micro-interaction), with a soft press scale. Tap to switch sources.</p>
+        <p class="pv-note"><b>What changed (v2):</b> the selected card now carries a violet halo ring + soft elevation (Cult Halo-Select idea, your theme) on top of the morphing check — selection reads at a glance instead of a border-tint whisper. Tap to switch sources.</p>
       </div>
     </div>
   </section>
@@ -1033,16 +1048,20 @@ const countSeg = document.getElementById('upCountSeg'), countPill = document.get
 });
 requestAnimationFrame(()=>movePill(countPill, countSeg, countSeg.querySelector('button.on')));
 
-/* ---------- 08 · comparison rows ---------- */
-const CMP = [
-  ['Answers','142','118','↑ 20%','is-up'],
-  ['Study time','9h 41m','8h 38m','↑ 12%','is-up'],
-  ['Accuracy','76%','71%','↑ 5 pp','is-up'],
-  ['FSRS reviews','64','58','↑ 10%','is-up'],
-  ['Modules finished','3','2','↑ 50%','is-up']
+/* ---------- 08 · comparison table v3 ---------- */
+const CMPT = [
+  ['Answers','142','118',142,118,'↑ 20%','is-up'],
+  ['Study time','9h 41m','8h 38m',581,518,'↑ 12%','is-up'],
+  ['Accuracy','76%','71%',76,71,'↑ 5 pp','is-up'],
+  ['FSRS reviews','64','58',64,58,'↑ 10%','is-up'],
+  ['Modules finished','3','2',3,2,'↑ 50%','is-up']
 ];
-document.getElementById('upCmp').innerHTML = CMP.map(([label,a,b,d,cls])=>
-  `<div class="up-cmp-row"><div class="up-cmp-top"><strong>${label}</strong><span class="nk-li-delta ${cls}">${d}</span></div><div class="up-cmp-vals"><b>${a}</b><span>${b} previously</span></div></div>`).join('');
+document.getElementById('upCmp').innerHTML =
+  `<div class="up-cmpt-head"><span></span><span>This week</span><span>Last week</span><span>Change</span></div>` +
+  CMPT.map(([label,a,b,an,bn,d,cls])=>{
+    const mx = Math.max(an,bn,1e-9);
+    return `<div><strong>${label}</strong><span class="cur">${a}</span><span class="prv">${b}</span><span class="nk-li-delta ${cls}">${d}</span><span class="up-cmpbar" aria-hidden="true"><i style="width:${(an/mx*100).toFixed(1)}%"></i><b style="left:calc(${(bn/mx*100).toFixed(1)}% - 1px)"></b></span></div>`;
+  }).join('');
 
 /* ---------- 09 · forecast ---------- */
 const FC_DAYS = ['Today','Sat','Sun','Mon','Tue','Wed','Thu'];
@@ -1067,10 +1086,14 @@ if('IntersectionObserver' in window && !REDUCED){
 } else {
   upFc.querySelectorAll('i').forEach((bar,i)=>{ bar.style.height = Math.max(4,Math.round(FC_N[i]/FC_MAX*68))+'px'; });
 }
-upFc.querySelectorAll('span').forEach((sp,i)=>sp.addEventListener('click', ()=>{
+function selectFc(i){
+  upFc.querySelectorAll('span').forEach((sp,j)=>sp.classList.toggle('sel', i===j));
+  try{ if(navigator.vibrate) navigator.vibrate(8); }catch(e){}
   document.getElementById('upFcReadout').innerHTML =
-    `<strong>${FC_DAYS[i]==='Today'?'Today':FC_DAYS[i]}</strong><span> — ${FC_N[i]} review${FC_N[i]===1?'':'s'} due</span>`;
-}));
+    `<strong>${FC_DAYS[i]}</strong><span> — ${FC_N[i]} review${FC_N[i]===1?'':'s'} due</span>`;
+}
+upFc.querySelectorAll('span').forEach((sp,i)=>sp.addEventListener('click', ()=>selectFc(i)));
+selectFc(0);
 
 /* ---------- 10 · source cards ---------- */
 const SOURCES = [
