@@ -6,11 +6,13 @@ import uworld_male_reproductive
 import uworld_female_reproductive
 import uworld_biostatistics
 import uworld_general_pharmacology
+import uworld_pathology_general_principles
 from uworld_content_hygiene import learner_question
 
 COLLECTIONS = (uworld_biochemistry, uworld_poisoning, uworld_ophthalmology,
                uworld_male_reproductive, uworld_female_reproductive, uworld_biostatistics,
-               uworld_general_pharmacology)
+               uworld_general_pharmacology,
+               uworld_pathology_general_principles)
 
 
 def bank_records():
