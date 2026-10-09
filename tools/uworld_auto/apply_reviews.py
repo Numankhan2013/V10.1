@@ -35,6 +35,8 @@ def to_fix(cur, rev):
     old_p = ' '.join(n['text'] for n in cur['explanation'] if n['type'] == 'paragraph')
     drift = [name for name, a, b, lim in (('stem', rev['question'], cur['question'], .85),
                                            ('explanation', ' '.join(paras), old_p, .80)) if close(a, b) < lim]
+    if rev['correct_label'] != cur['correct_label']:
+        drift.append('correct answer changed ' + cur['correct_label'] + '→' + rev['correct_label'])
     if status == 'verified' and drift:
         status, issues = 'blocked', ['review drifted from OCR: ' + ', '.join(drift)]
     if any(i.startswith(PICTURE_FLAG) for i in cur['issues']):
