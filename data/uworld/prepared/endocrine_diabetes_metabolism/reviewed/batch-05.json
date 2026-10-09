@@ -2214,31 +2214,31 @@
     739,
     740
    ],
-   "question": "A 53-year-old man comes to the office due to uncontrolled type 2 diabetes mellitus. The patient was diagnosed 3 years ago and prescribed metformin and lifestyle modification. In the past year, his hemoglobin A1c levels have been steadily rising. Blood pressure is 145/90 mm Hg. BMI is 37 kg/m2. Laboratory results are normal except for a fasting plasma glucose of 155 mg/dL and a hemoglobin A1c level of 8%. Additional treatment with canagliflozin is initiated. Over the next several days, which of the following effects are most likely to occur in this patient due to the new medication?",
+   "question": "A 53-year-old man comes to the office due to uncontrolled type 2 diabetes mellitus. The patient was diagnosed 3 years ago and prescribed metformin and lifestyle modification. In the past year, his hemoglobin A1c levels have been steadily rising. Blood pressure is 145/90 mm Hg. BMI is 37 kg/m². Laboratory results are normal except for a fasting plasma glucose of 155 mg/dL and a hemoglobin A1c level of 8%. Additional treatment with canagliflozin is initiated. Over the next several days, which of the following effects are most likely to occur in this patient due to the new medication?",
    "options": [
     {
      "letter": "A",
-     "text": "Urinary glucose excretion: Decreased; Total body sodium content: Decreased; Extracellular fluid volume: Unchanged",
+     "text": "Urinary glucose excretion Decreased · Total body sodium content Decreased · Extracellular fluid volume Unchanged",
      "selection_percent": 1
     },
     {
      "letter": "B",
-     "text": "Urinary glucose excretion: Decreased; Total body sodium content: Increased; Extracellular fluid volume: Decreased",
+     "text": "Urinary glucose excretion Decreased · Total body sodium content Increased · Extracellular fluid volume Decreased",
      "selection_percent": 1
     },
     {
      "letter": "C",
-     "text": "Urinary glucose excretion: Increased; Total body sodium content: Decreased; Extracellular fluid volume: Decreased",
+     "text": "Urinary glucose excretion Increased · Total body sodium content Decreased · Extracellular fluid volume Decreased",
      "selection_percent": 70
     },
     {
      "letter": "D",
-     "text": "Urinary glucose excretion: Increased; Total body sodium content: Unchanged; Extracellular fluid volume: Increased",
+     "text": "Urinary glucose excretion Increased · Total body sodium content Unchanged · Extracellular fluid volume Increased",
      "selection_percent": 9
     },
     {
      "letter": "E",
-     "text": "Urinary glucose excretion: Increased; Total body sodium content: Increased; Extracellular fluid volume: Decreased",
+     "text": "Urinary glucose excretion Increased · Total body sodium content Increased · Extracellular fluid volume Decreased",
      "selection_percent": 16
     }
    ],
@@ -2322,11 +2322,9 @@
      "E": 16
     }
    },
-   "status": "blocked",
-   "issues": [
-    "review: Choices are a table (urinary glucose excretion / total body sodium content / extracellular fluid volume columns), transcribed as row text and kept blocked; fixed split words 'mell itus', 'modifi cation', 'SGL T2' to SGLT2, 'mg/dl' to mg/dL; set answered_correctly_percent to 70; percentages 1/1/70/9/16 from the statistics; explanation bullets are separate paragraphs as on screen; SGLT2 figures excluded. Blocked: not every screenshot page could be read as an image in this session, so this transcription is not confirmed against all screens."
-   ],
-   "source_record_sha256": "682a3be8ed55a580bcdd9c9c687aa69a5f32f1da17f05c6e260aca991f48fc33"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "a52789399970e4a5ae16d3620cae3fa2878e698f3d81275798d43fce879c8c14"
   },
   {
    "id": "UWORLD_1262",
@@ -2405,11 +2403,7 @@
     },
     {
      "type": "paragraph",
-     "text": "This patient's symptoms are concerning for a pituitary tumor. Large pituitary tumors can cause headaches due to mass effect, and compression of the optic chiasm by suprasellar extension of the tumor can lead to bitemporal hemianopsia."
-    },
-    {
-     "type": "paragraph",
-     "text": "The most common type of pituitary adenoma is a prolactinoma. Prolactin is a peptide hormone secreted from lactotrophs of the pituitary gland whose primary physiologic action is maintenance of lactation in postpartum women. Hyperprolactinemia also suppresses GnRH production in the hypothalamus, leading to oligomenorrhea/amenorrhea and infertility. Suppression of ovulation is also seen as a physiologic effect of breastfeeding, which supports elevated prolactin levels for 6 months or more postpartum."
+     "text": "This patient's symptoms are concerning for a pituitary tumor. Large pituitary tumors can cause headaches due to mass effect, and compression of the optic chiasm by suprasellar extension of the tumor can lead to bitemporal hemianopsia. The most common type of pituitary adenoma is a prolactinoma. Prolactin is a peptide hormone secreted from lactotrophs of the pituitary gland whose primary physiologic action is maintenance of lactation in postpartum women. Hyperprolactinemia also suppresses GnRH production in the hypothalamus, leading to oligomenorrhea/amenorrhea and infertility. Suppression of ovulation is also seen as a physiologic effect of breastfeeding, which supports elevated prolactin levels for 6 months or more postpartum."
     },
     {
      "type": "paragraph",
@@ -2441,9 +2435,9 @@
    },
    "status": "blocked",
    "issues": [
-    "review: Explanation and options transcribed and OCR artifacts fixed (removed '©UWorld' figure text, split paragraphs, verified options/percentages, correct D 85%). BLOCKED: the Educational objective text is hidden behind the 'Exhibit Display' popup in every screenshot that shows it (pages 746-747), so it could not be read; left empty rather than guessed."
+    "review: Removed ©UWorld from para 1, fixed 'insuffi ciency'; answer D unchanged (green tick p743). BLOCKED: Educational objective text is not visible in any page (p745 cuts off at the heading; p747 only covered by popup)."
    ],
-   "source_record_sha256": "daec4f70e9596a88c71190f87c71dbdfd9f7173ef6c0eb5b46644a53689a3057"
+   "source_record_sha256": "a9373e61d445815fa3dd50d68d31717344f53bafc7769cf7130a6dcc1d3fc5ba"
   },
   {
    "id": "UWORLD_18959",

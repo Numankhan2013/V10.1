@@ -12,13 +12,16 @@ import uworld_endocrine_diabetes_metabolism
 import uworld_pathology_general_principles
 import uworld_cardiovascular_system
 import uworld_renal_urinary_electrolytes
+import uworld_gastrointestinal_nutrition
+import uworld_rheumatology_orthopedics_sports
 from uworld_content_hygiene import learner_question
 
 COLLECTIONS = (uworld_biochemistry, uworld_poisoning, uworld_ophthalmology,
                uworld_male_reproductive, uworld_female_reproductive, uworld_biostatistics,
                uworld_general_pharmacology,
                uworld_pathology_general_principles, uworld_endocrine_diabetes_metabolism, uworld_pregnancy_childbirth_puerperium, uworld_psychiatric_behavioral_substance_use,
-               uworld_cardiovascular_system, uworld_renal_urinary_electrolytes)
+               uworld_cardiovascular_system, uworld_renal_urinary_electrolytes,
+               uworld_gastrointestinal_nutrition, uworld_rheumatology_orthopedics_sports)
 
 
 def bank_records():

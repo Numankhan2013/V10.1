@@ -932,27 +932,27 @@
    "options": [
     {
      "letter": "A",
-     "text": "Cerebral neurons / Hepatocytes (Cell sample A / Cell sample B)",
+     "text": "Cell sample A Cerebral neurons · Cell sample B Hepatocytes",
      "selection_percent": 24
     },
     {
      "letter": "B",
-     "text": "Intestinal epithelial cells / Pancreatic beta cells (Cell sample A / Cell sample B)",
+     "text": "Cell sample A Intestinal epithelial cells · Cell sample B Pancreatic beta cells",
      "selection_percent": 5
     },
     {
      "letter": "C",
-     "text": "Renal tubular cells / Hepatocytes (Cell sample A / Cell sample B)",
+     "text": "Cell sample A Renal tubular cells · Cell sample B Hepatocytes",
      "selection_percent": 9
     },
     {
      "letter": "D",
-     "text": "Renal tubular cells / Skeletal myocytes (Cell sample A / Cell sample B)",
+     "text": "Cell sample A Renal tubular cells · Cell sample B Skeletal myocytes",
      "selection_percent": 54
     },
     {
      "letter": "E",
-     "text": "Skeletal myocytes / Adipocytes (Cell sample A / Cell sample B)",
+     "text": "Cell sample A Skeletal myocytes · Cell sample B Adipocytes",
      "selection_percent": 6
     }
    ],
@@ -1021,7 +1021,23 @@
     },
     {
      "type": "paragraph",
-     "text": "In contrast to GLUT-4, GLUTs 1, 2, 3, and 5 are always present on the plasma membrane, regardless of insulin levels, and are responsible for insulin-independent glucose transport (sample A). • GLUT-1 contributes to basal glucose transport in erythrocytes and at the blood-brain barrier. • GLUT-2 is present in hepatocytes, pancreatic beta cells, and at the basolateral membrane of renal tubules and small intestinal mucosa. It plays a role in absorption of dietary glucose, reabsorption of glucose from renal tubules, hepatic glucose regulation, and sensitivity of beta cells to circulating glucose. • GLUT-3 is involved in placental and neuronal glucose transport. • GLUT-5 is a fructose transporter found in spermatocytes and the gastrointestinal tract."
+     "text": "In contrast to GLUT-4, GLUTs 1, 2, 3, and 5 are always present on the plasma membrane, regardless of insulin levels, and are responsible for insulin-independent glucose transport (sample A)."
+    },
+    {
+     "type": "paragraph",
+     "text": "GLUT-1 contributes to basal glucose transport in erythrocytes and at the blood-brain barrier."
+    },
+    {
+     "type": "paragraph",
+     "text": "GLUT-2 is present in hepatocytes, pancreatic beta cells, and at the basolateral membrane of renal tubules and small intestinal mucosa. It plays a role in absorption of dietary glucose, reabsorption of glucose from renal tubules, hepatic glucose regulation, and sensitivity of beta cells to circulating glucose."
+    },
+    {
+     "type": "paragraph",
+     "text": "GLUT-3 is involved in placental and neuronal glucose transport."
+    },
+    {
+     "type": "paragraph",
+     "text": "GLUT-5 is a fructose transporter found in spermatocytes and the gastrointestinal tract."
     },
     {
      "type": "paragraph",
@@ -1043,11 +1059,9 @@
      "E": 6
     }
    },
-   "status": "blocked",
-   "issues": [
-    "review: Blocked: the answer choices are a two-column table (cell sample A / cell sample B) and the question depends on the two graphs, which are not transcribed. Option text is transcribed from the table, not verified verbatim. Removed bogus option F (only A-E exist), removed 'Insulin concentration' figure label and '©UWor1d' and 'UWORLD_847 explanation 2' leak from the explanation, fixed 'insulin- independent' to insulin-independent, set answered_correctly_percent 54 and selection percents A 24, B 5, C 9, D 54, E 6."
-   ],
-   "source_record_sha256": "a519c2107b7003d602d32a618875a31ca31a1653c015b9f7b2576da81a222e8e"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "04477b9522f57fc327b5e02d0fe0cb19dd5a5380889088b1f8f70644b8bb48a1"
   },
   {
    "id": "UWORLD_15308",

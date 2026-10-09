@@ -1294,7 +1294,7 @@
     232,
     233
    ],
-   "question": "A 13-year-old boy is brought to the clinic due to progressive difficulty with breathing, hoarseness, and dysphagia. The symptoms began insidiously 8 months ago but have rapidly become worse in the last 4 weeks. The patient has no associated skin rash, pharyngeal pain, fever, weight loss, or loss of appetite. Medical history is unremarkable and the patient takes no medications. He is up to date on scheduled vaccinations. The patient's parents and siblings have no history of significant health problems. Vital signs are normal, and he is at 70th percentile for height and weight. Oropharyngeal examination reveals a large, red lingual mass. The patient subsequently undergoes excision of the mass; histopathologic preparation of the recovered tissue is shown in the image below. Failure of which of the following embryologic processes is most likely responsible for this patient's lesion?",
+   "question": "A 13-year-old boy is brought to the clinic due to progressive difficulty with breathing, hoarseness, and dysphagia. The symptoms began insidiously 6 months ago but have rapidly become worse in the last 4 weeks. The patient has no associated skin rash, pharyngeal pain, fever, weight loss, or loss of appetite. Medical history is unremarkable and the patient takes no medications. He is up to date on scheduled vaccinations. The patient's parents and siblings have no history of significant health problems. Vital signs are normal, and he is at 70th percentile for height and weight. Oropharyngeal examination reveals a large, red lingual mass. The patient subsequently undergoes excision of the mass; histopathologic preparation of the recovered tissue is shown in the image below. Failure of which of the following embryologic processes is most likely responsible for this patient's lesion?",
    "options": [
     {
      "letter": "A",
@@ -1395,11 +1395,9 @@
      "E": 3
     }
    },
-   "status": "blocked",
-   "issues": [
-    "review drifted from OCR: stem"
-   ],
-   "source_record_sha256": "09d41aea239813024e8172d78288118af6ee155c5a57f56a408a05c1a4ffcd4d"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "80ba3610a43c083612f212a4134986822ddd2c1ae6e094c7e61438b0b5cfaf01"
   },
   {
    "id": "UWORLD_14953",
@@ -2374,27 +2372,27 @@
    "options": [
     {
      "letter": "A",
-     "text": "TSH: No change; T3: Increase; Reverse T3: Increase; T4: Decrease",
+     "text": "TSH No change · T3 Increase · Reverse T3 Increase · T4 Decrease",
      "selection_percent": 3
     },
     {
      "letter": "B",
-     "text": "TSH: No change; T3: Increase; Reverse T3: Decrease; T4: Decrease",
+     "text": "TSH No change · T3 Increase · Reverse T3 Decrease · T4 Decrease",
      "selection_percent": 4
     },
     {
      "letter": "C",
-     "text": "TSH: Decrease; T3: Increase; Reverse T3: Increase; T4: Decrease",
+     "text": "TSH Decrease · T3 Increase · Reverse T3 Increase · T4 Decrease",
      "selection_percent": 26
     },
     {
      "letter": "D",
-     "text": "TSH: Decrease; T3: Increase; Reverse T3: Decrease; T4: Decrease",
+     "text": "TSH Decrease · T3 Increase · Reverse T3 Decrease · T4 Decrease",
      "selection_percent": 48
     },
     {
      "letter": "E",
-     "text": "TSH: Decrease; T3: Increase; Reverse T3: Decrease; T4: Increase",
+     "text": "TSH Decrease · T3 Increase · Reverse T3 Decrease · T4 Increase",
      "selection_percent": 17
     }
    ],
@@ -2425,7 +2423,19 @@
     },
     {
      "type": "paragraph",
-     "text": "Circulating thyroid hormone exists in 3 primary forms: 1. T4 (thyroxine) is the major secretory product of the thyroid gland. 2. T3 (triiodothyronine) is the most active form of thyroid hormone; a small amount is released by the thyroid gland, but the majority arises from peripheral deiodination of T4. 3. Reverse T3 (rT3) is an inactive form that is generated almost entirely from the peripheral conversion of T4."
+     "text": "Circulating thyroid hormone exists in 3 primary forms:"
+    },
+    {
+     "type": "paragraph",
+     "text": "1. T4 (thyroxine) is the major secretory product of the thyroid gland."
+    },
+    {
+     "type": "paragraph",
+     "text": "2. T3 (triiodothyronine) is the most active form of thyroid hormone; a small amount is released by the thyroid gland, but the majority arises from peripheral deiodination of T4."
+    },
+    {
+     "type": "paragraph",
+     "text": "3. Reverse T3 (rT3) is an inactive form that is generated almost entirely from the peripheral conversion of T4."
     },
     {
      "type": "paragraph",
@@ -2451,11 +2461,9 @@
      "E": 17
     }
    },
-   "status": "blocked",
-   "issues": [
-    "review: Choices are a table (TSH / T3 / Reverse T3 / T4 rows), so transcribed as row text and kept blocked; removed nonexistent choice F and the stray choice text from the OCR; percentages 3/4/26/48/17 from screen; hypothalamic-pituitary-thyroid figure excluded. Blocked: not every screenshot page could be read as an image in this session, so this transcription is not confirmed against all screens."
-   ],
-   "source_record_sha256": "7d51bafb0f8f936e64eab02b1861bbf3dd16cd819fb27f04eaad7c05afac8bf5"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "8af6f3ca314537ec8b40a46330c3a2de9ba980d762476a6d9b4362f2b62b6546"
   }
  ]
 }
