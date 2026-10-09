@@ -856,9 +856,12 @@
   /* Presentation only: the builder's markup, handlers and labels stay owned by the app. */
   var builderOpen = {};
   function enhanceBuilder(app) {
-    var root = app.querySelector('.nk-cbt-builder');
+    var root = app.querySelector('.nk-cbt-builder, .nk-module-builder');
     if (!root) return;
-    root.classList.add('nkg-builder');
+    var steps = root.querySelectorAll('.nk-module-stepper > span'), step = 1;
+    each(steps, function (s, i) { if (s.classList.contains('is-current')) step = i + 1; });
+    root.classList.remove('nkg-step-1', 'nkg-step-2', 'nkg-step-3', 'nkg-step-4');
+    root.classList.add('nkg-builder', 'nkg-step-' + step);
     /* Step 1 · sources grouped by bank, each row a compact checklist item. */
     var grid = root.querySelector('.nk-module-choice-grid');
     if (grid && !grid.__nkg) {
@@ -886,11 +889,11 @@
       });
     }
     /* Step 2 · groups collapse to their header so 260+ topics stay scannable; search opens them. */
-    each(root.querySelectorAll('.nk-cbt-topic-group'), function (g) {
+    each(root.querySelectorAll('.nk-module-topic-group'), function (g) {
       var head = g.querySelector(':scope > header'), title = txt(g.querySelector('.nk-module-group-title'));
       if (!head || head.__nkg) return;
       head.__nkg = true;
-      if (!(title in builderOpen)) builderOpen[title] = false;
+      if (!(title in builderOpen)) builderOpen[title] = root.querySelectorAll('.nk-module-topic-group').length === 1;
       g.classList.toggle('is-collapsed', !builderOpen[title]);
       var tog = el('button', 'nkg-group-toggle', icon('caret-down', 16));
       tog.type = 'button';
@@ -914,7 +917,7 @@
     /* Step 2 · topic rows get the same check affordance. */
     each(root.querySelectorAll('.nk-module-topic .nk-module-check'), function (c) { c.classList.add('nkg-check'); if (!c.querySelector('svg')) c.innerHTML = icon('check', 13); });
     /* Step 3 · presets become a segmented control. */
-    var presets = root.querySelector('.nk-cbt-count-grid');
+    var presets = root.querySelector('.nk-cbt-count-grid, .nk-module-count-presets');
     if (presets && !presets.__nkg) {
       presets.__nkg = true;
       presets.classList.add('nkg-seg', 'nkg-seg-fill');
@@ -924,12 +927,17 @@
       presets.addEventListener('click', function (e) { if (e.target.closest('button')) haptic('selection'); }, true);
     }
     /* The dock states what will be built before you commit. */
-    var dock = root.querySelector('.nk-cbt-main-actions');
-    if (dock && !dock.querySelector('.nkg-dock-sum')) {
-      var intro = root.querySelector('.nk-cbt-bank-intro span'), timing = root.querySelector('#nk-cbt-count-result');
-      var sum = intro ? txt(intro) : timing ? txt(timing) : '';
-      if (sum && !root.classList.contains('is-questions')) dock.insertBefore(el('span', 'nkg-dock-sum', esc(sum)), dock.firstChild);
+    var dock = root.querySelector('.nk-cbt-main-actions, .nk-module-builder-actions');
+    if (dock && step === 1 && !dock.querySelector('.nkg-dock-sum, [id$="-footer-count"]')) {
+      var rowsAll = root.querySelectorAll('.nk-module-choice-grid .nk-module-subject'), on = root.querySelectorAll('.nk-module-choice-grid .nk-module-subject.is-selected').length;
+      if (rowsAll.length) dock.insertBefore(el('span', 'nkg-dock-sum', on + ' of ' + rowsAll.length + ' banks selected'), dock.firstChild);
     }
+    /* Module question pool reads as a single-choice list. */
+    each(root.querySelectorAll('.nk-module-pool-grid > button'), function (b) {
+      if (b.querySelector('.nkg-radio')) return;
+      b.setAttribute('aria-pressed', b.classList.contains('is-selected') ? 'true' : 'false');
+      var r = el('span', 'nkg-radio'); r.setAttribute('aria-hidden', 'true'); b.appendChild(r);
+    });
   }
 
   /* =========================================================== Revision */
