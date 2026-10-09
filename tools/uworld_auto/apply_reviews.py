@@ -17,7 +17,7 @@ ROOT = HERE.parents[1]
 PICTURE_FLAG = 'choices look like pictures or a table'
 
 
-def to_fix(cur, rev):
+def to_fix(cur, rev, careful=False):
     """Reviewer JSON -> fields of a display document (figures are kept from the extractor)."""
     letters = [o['letter'] for o in rev['options']]
     if letters != list('ABCDEFGHI')[:len(letters)] or rev['correct_label'] not in letters:
@@ -35,11 +35,15 @@ def to_fix(cur, rev):
     old_p = ' '.join(n['text'] for n in cur['explanation'] if n['type'] == 'paragraph')
     drift = [name for name, a, b, lim in (('stem', rev['question'], cur['question'], .85),
                                            ('explanation', ' '.join(paras), old_p, .80)) if close(a, b) < lim]
-    if rev['correct_label'] != cur['correct_label']:
+    if rev['correct_label'] != cur['correct_label'] and not (careful and 'green tick' in (rev.get('notes') or '').lower()):
         drift.append('correct answer changed ' + cur['correct_label'] + '→' + rev['correct_label'])
+    if careful:
+        # The careful (Sonnet) pass may rebuild mixed-up questions from their own pages and
+        # transcribe table/diagram choices; only an unexplained answer change blocks it.
+        drift = [d for d in drift if d.startswith('correct answer')]
     if status == 'verified' and drift:
         status, issues = 'blocked', ['review drifted from OCR: ' + ', '.join(drift)]
-    if any(i.startswith(PICTURE_FLAG) for i in cur['issues']):
+    if not careful and any(i.startswith(PICTURE_FLAG) for i in cur['issues']):
         status, issues = 'blocked', issues or ['review: picture/table choices need a person']
     return {
         'question': rev['question'].strip(),
@@ -55,6 +59,7 @@ def to_fix(cur, rev):
 
 def main():
     slug, outdir = sys.argv[1], Path(sys.argv[2])
+    careful = len(sys.argv) > 3 and sys.argv[3] == '--careful'
     src = ROOT / 'data/uworld/prepared' / slug
     manifest = json.loads((src / 'manifest.json').read_text())
     rows = [json.loads(l) for l in (src / 'normalized.jsonl').read_text().splitlines() if l.strip()]
@@ -69,11 +74,13 @@ def main():
         if not f.exists():
             continue
         try:
-            fix = to_fix(docs[qid], json.loads(f.read_text()))
+            fix = to_fix(docs[qid], json.loads(f.read_text()), careful)
             probe = {**docs[qid], **fix}
             validate_display(probe)
         except Exception as e:  # malformed or leaky review: keep the question blocked
             rejected.append((qid, str(e))); continue
+        if careful:
+            fix['issues'] = fix['issues'] + [] if fix['status'] != 'verified' else []
         fixes[qid] = fix; applied += 1
     by_id = {r['question_id']: r for r in rows}
     for qid, fix in fixes.items():
