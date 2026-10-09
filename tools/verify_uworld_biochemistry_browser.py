@@ -106,7 +106,8 @@ def main():
                 entry = page.locator('.nk-home-uworld').get_by_role('button',name='Open My UWorld',exact=True)
                 expect(entry).to_have_count(1)
                 expect(page.locator('.nk-home-uworld .nk-uworld-collection')).to_have_count(0)
-                assert '6 collections · 388 questions' in entry.inner_text()
+                uw = {k: v for k, v in expected.items() if k[1] == 'UWorld'}
+                assert f"{len(uw)} collections · {sum(uw.values()):,} questions" in entry.inner_text(), entry.inner_text()
                 assert entry.bounding_box()['height'] >= 44
                 assert not page.evaluate('document.documentElement.scrollWidth>innerWidth')
                 page.screenshot(path=str(output / f'home-my-uworld-{width}.png'),full_page=True)

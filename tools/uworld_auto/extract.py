@@ -31,11 +31,11 @@ def bands(a):
     blue = (g[..., 2] > 120) & (g[..., 2] - g[..., 0] > 70)
     frac = blue.mean(axis=1)
     top = 48
-    for y in range(0, 90):
+    for y in range(0, min(90, len(frac))):
         if frac[y] > .5:
             top = y + 1
     bottom = a.shape[0]
-    for y in range(300, a.shape[0] - 15):
+    for y in range(min(300, a.shape[0]), a.shape[0] - 15):
         if frac[y:y + 15].min() > .5:   # the footer is a tall solid bar, not a rule
             bottom = y
             break
