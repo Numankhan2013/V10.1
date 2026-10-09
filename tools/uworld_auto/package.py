@@ -74,8 +74,8 @@ def main():
     docs, unowned, seen = [], [], set()
     for d, issues, pages in results:
         letters = [o['letter'] for o in d['options']] if d else []
-        usable = (d and d.get('correct_label') in letters and 4 <= len(letters) <= 9 and
-                  letters == list('ABCDEFGHI')[:len(letters)] and d['question'].strip() and
+        usable = (d and d.get('correct_label') in letters and 4 <= len(letters) <= 12 and
+                  letters == list('ABCDEFGHIJKL')[:len(letters)] and d['question'].strip() and
                   any(n['type'] == 'paragraph' for n in d['explanation']) and all(o['text'] for o in d['options']))
         if not usable or d['id'] in seen:
             unowned.append({'pages': pages, 'reason': '; '.join(issues) or 'duplicate question id'})

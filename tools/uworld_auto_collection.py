@@ -38,7 +38,7 @@ class AutoCollection(ImportedCollection):
                     source['source_pdf_sha256'] != self.PDF_SHA or
                     owned != list(range(min(owned), max(owned) + 1))):
                 raise ValueError('Auto UWorld ownership mismatch: ' + qid)
-            if (not 4 <= len(labels) <= 9 or labels != list('abcdefghi')[:len(labels)] or
+            if (not 4 <= len(labels) <= 12 or labels != list('abcdefghijkl')[:len(labels)] or
                     row['correct_option'] not in labels or not row['question_text'].strip()):
                 raise ValueError('Auto UWorld question contract mismatch: ' + qid)
             for option in options:

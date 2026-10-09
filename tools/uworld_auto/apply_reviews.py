@@ -20,7 +20,7 @@ PICTURE_FLAG = 'choices look like pictures or a table'
 def to_fix(cur, rev, careful=False):
     """Reviewer JSON -> fields of a display document (figures are kept from the extractor)."""
     letters = [o['letter'] for o in rev['options']]
-    if letters != list('ABCDEFGHI')[:len(letters)] or rev['correct_label'] not in letters:
+    if letters != list('ABCDEFGHIJKL')[:len(letters)] or rev['correct_label'] not in letters:
         raise ValueError('choice letters')
     paras = [p.strip() for p in rev['explanation_paragraphs'] if p and p.strip()]
     if not paras or not rev['question'].strip() or any(not o['text'].strip() for o in rev['options']):
