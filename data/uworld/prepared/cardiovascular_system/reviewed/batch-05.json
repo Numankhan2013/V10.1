@@ -28,7 +28,7 @@
     },
     {
      "letter": "C",
-     "text": "Oigoxin",
+     "text": "Digoxin",
      "selection_percent": 3
     },
     {
@@ -101,15 +101,19 @@
     },
     {
      "type": "paragraph",
-     "text": "Amiodarone is a class Ill antiarrhythmic drug used for the management of a variety of supraventricular and ventricular arrhythmias. Class Ill drugs predominantly block potassium channels and inhibit the outward potassium currents during phase 3 of the card iac action potential, prolonging repolarization and total action potential duration (APO). The QT interval represents the time required for ventricular depolarization and repolarization; it can be regarded as a rough estimate of the APO. Drugs that significantly prolong the cardiac action potential (eg, class IA and Ill antiarrhythmics) cause prolongation of the QT interval. Prolonged QT is associated with a form of ventricular tachycardia called torsades de pointes (polymorphic ventricular tachycardia). However, unlike other drugs that cause QT prolongation, amiodarone has very little risk of inducing torsades de pointes. This effect is thought to be due to it having a more homogeneous effect on ventricular repolarization compared to other drugs (ie, less QT dispersion)."
+     "text": "Amiodarone is a class III antiarrhythmic drug used for the management of a variety of supraventricular and ventricular arrhythmias. Class III drugs predominantly block potassium channels and inhibit the outward potassium currents during phase 3 of the cardiac action potential, prolonging repolarization and total action potential duration (APD)."
     },
     {
      "type": "paragraph",
-     "text": "(Choice A) Adenosine interacts with A 1 receptors on cardiac cells and activates potassium channels, increasing potassium conductance. It causes a transient conduction delay through the atrioventricular (AV) node and is used for acute termination of paroxysmal supraventricular tachycardia (PSVT). Adenosine is rapidly metabolized in the blood and tissues and has a very brief duration of action."
+     "text": "The QT interval represents the time required for ventricular depolarization and repolarization; it can be regarded as a rough estimate of the APD. Drugs that significantly prolong the cardiac action potential (eg, class IA and III antiarrhythmics) cause prolongation of the QT interval. Prolonged QT is associated with a form of ventricular tachycardia called torsades de pointes (polymorphic ventricular tachycardia). However, unlike other drugs that cause QT prolongation, amiodarone has very little risk of inducing torsades de pointes. This effect is thought to be due to it having a more homogeneous effect on ventricular repolarization compared to other drugs (ie, less QT dispersion)."
     },
     {
      "type": "paragraph",
-     "text": "(Choice C) Digoxin slows AV nodal conduction speed by augmenting vagal parasympathetic tone and increases cardiac contractility by inhibiting Na•/K•-ATPase (increases intracellular calcium). It also decreases the APO and can cause QT interval shortening."
+     "text": "(Choice A) Adenosine interacts with A1 receptors on cardiac cells and activates potassium channels, increasing potassium conductance. It causes a transient conduction delay through the atrioventricular (AV) node and is used for acute termination of paroxysmal supraventricular tachycardia (PSVT). Adenosine is rapidly metabolized in the blood and tissues and has a very brief duration of action."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice C) Digoxin slows AV nodal conduction speed by augmenting vagal parasympathetic tone and increases cardiac contractility by inhibiting Na+/K+-ATPase (increases intracellular calcium). It also decreases the APD and can cause QT interval shortening."
     },
     {
      "type": "paragraph",
@@ -117,20 +121,20 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice E) Lidocaine is a class 18 antiarrhythmic drug that acts by blocking sodium channels and inhibiting phase 0 depolarization. It does not prolong the QT interval."
+     "text": "(Choice E) Lidocaine is a class IB antiarrhythmic drug that acts by blocking sodium channels and inhibiting phase 0 depolarization. It does not prolong the QT interval."
     },
     {
      "type": "paragraph",
-     "text": "(Choice F) Procainamide is a class IA antiarrhythmic drug that inhibits sodium-dependent (phase 0) depolarization. It also has moderate potassium channel blocking activity, leading to prolongation of APO and the QT interval with an increased risk of torsades de pointes."
+     "text": "(Choice F) Procainamide is a class IA antiarrhythmic drug that inhibits sodium-dependent (phase 0) depolarization. It also has moderate potassium channel blocking activity, leading to prolongation of APD and the QT interval with an increased risk of torsades de pointes."
     },
     {
      "type": "paragraph",
      "text": "(Choice G) Verapamil is a cardio-selective calcium channel blocker (class IV antiarrhythmic drug). It slows the sinus rate and prolongs the PR interval by slowing conduction through the AV node. It does not prolong the QT interval."
     }
    ],
-   "educational_objective": "Amiodarone (and other class Ill and class IA antiarrhythmic agents) causes lengthening of the cardiac action potential, which manifests as QT interval prolongation on ECG. QT prolongation caused by amiodarone, in contrast to other drugs, is associated with a very low risk of torsades de pointes.",
+   "educational_objective": "Amiodarone (and other class III and class IA antiarrhythmic agents) causes lengthening of the cardiac action potential, which manifests as QT interval prolongation on ECG. QT prolongation caused by amiodarone, in contrast to other drugs, is associated with a very low risk of torsades de pointes.",
    "statistics": {
-    "answered_correctly_percent": null,
+    "answered_correctly_percent": 48,
     "selection_percent": {
      "A": 5,
      "B": 48,
@@ -141,11 +145,9 @@
      "G": 7
     }
    },
-   "status": "blocked",
-   "issues": [
-    "choice percents sum 95"
-   ],
-   "source_record_sha256": "25c08d5458e01a7e36fd25900562aac3ddae23b3c7eb8e3c68e368eaa92a9351"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "4ff2d2220f9aea3f82717ba3d0bbae53ae496cb7f9d8737d7795fff5b8397718"
   },
   {
    "id": "UWORLD_15001",
@@ -336,11 +338,11 @@
     812,
     813
    ],
-   "question": "A 68-year-old man comes to the office due to exertional shortness of breath and fatigue, which have progressed over the past year. The patient has a history of hypertension, but medical history is otherwise unremarkable. He is a lifetime nonsmoker. His father died of a \"heart attack\" at age 70. Blood pressure is 144/74 mmHg, and pulse is 72/min and regular. Cardiac auscultation reveals a 3/6 ejection-type, late-peaking systolic murmur and a barely audible S2. The murmur diminishes in intensity during the straining phase of the Valsalva maneuver. Which of the following processes underlies this patient's current condition?",
+   "question": "A 68-year-old man comes to the office due to exertional shortness of breath and fatigue, which have progressed over the past year. The patient has a history of hypertension, but medical history is otherwise unremarkable. He is a lifetime nonsmoker. His father died of a \"heart attack\" at age 70. Blood pressure is 144/74 mm Hg, and pulse is 72/min and regular. Cardiac auscultation reveals a 3/6 ejection-type, late-peaking systolic murmur and a barely audible S2. The murmur diminishes in intensity during the straining phase of the Valsalva maneuver. Which of the following processes underlies this patient's current condition?",
    "options": [
     {
      "letter": "A",
-     "text": "Cardiomyocyte hypertrophy and disarray causing asymmetric septa! thickening",
+     "text": "Cardiomyocyte hypertrophy and disarray causing asymmetric septal thickening",
      "selection_percent": 27
     },
     {
@@ -402,7 +404,7 @@
     },
     {
      "type": "paragraph",
-     "text": "© UWo~d This patient's soft S2 and late-peaking systolic ejection murmur that decreases in intensity with maneuvers that decrease left ventricular blood volume (eg, abrupt standing, Valsalva straining phase) are consistent with aortic stenosis, which most commonly occurs due to age-related calcific aortic valve disease (CAVD). The early pathogenesis of CAVD is analogous to that of arterial atherosclerosis. The endothelium lining the aortic side of the aortic valve cusps is exposed to the same high pressure and turbulent blood flow as the aortic vascular endothelium. As occurs with atheroma development in the vascular endothelium, these mechanical forces (along with smoking, hyperglycemia, and hyperlipidemia) over time cause damage to the aortic valve cusp endothelium, triggering endothelial dysfunction and the onset of a similar atherosclerotic process. There is subendothelial lipid deposition and infiltration of inflammatory cells (ie, macrophages, T lymphocytes) followed by the release of inflammatory mediators (eg, interleukin-1-beta, transforming growth factor beta-1 ). Subsequently, there is increased production of proteins involved in tissue calcification (eg, osteopontin). Fibroblasts differentiate into osteoblast-like cells, leading to aberrant bone matrix deposition with progressive valvular calcification and stenosis."
+     "text": "This patient's soft S2 and late-peaking systolic ejection murmur that decreases in intensity with maneuvers that decrease left ventricular blood volume (eg, abrupt standing, Valsalva straining phase) are consistent with aortic stenosis, which most commonly occurs due to age-related calcific aortic valve disease (CAVD). The early pathogenesis of CAVD is analogous to that of arterial atherosclerosis. The endothelium lining the aortic side of the aortic valve cusps is exposed to the same high pressure and turbulent blood flow as the aortic vascular endothelium. As occurs with atheroma development in the vascular endothelium, these mechanical forces (along with smoking, hyperglycemia, and hyperlipidemia) over time cause damage to the aortic valve cusp endothelium, triggering endothelial dysfunction and the onset of a similar atherosclerotic process. There is subendothelial lipid deposition and infiltration of inflammatory cells (ie, macrophages, T lymphocytes) followed by the release of inflammatory mediators (eg, interleukin-1-beta, transforming growth factor beta-1). Subsequently, there is increased production of proteins involved in tissue calcification (eg, osteopontin). Fibroblasts differentiate into osteoblast-like cells, leading to aberrant bone matrix deposition with progressive valvular calcification and stenosis."
     },
     {
      "type": "paragraph",
@@ -432,11 +434,9 @@
      "E": 5
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …© UWo~d This patient's…"
-   ],
-   "source_record_sha256": "3dc1ee8cd236d02122ba793a5a9dae24d55cdd8d13e311c592686898a5673c53"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "514c2964ba47115306bff159cd8eb42ee5418dfd0ed0cb458c2747b9a12c4d87"
   },
   {
    "id": "UWORLD_86",
@@ -678,7 +678,7 @@
     836,
     837
    ],
-   "question": "A 2-day-old boy is being evaluated in the nursery for irritability. He was born to a 22-year-old primigravida who received limited prenatal care. Delivery was uncomplicated, and Apgar scores were 7 and 8 at 1 and 5 minutes, respectively. Temperature is 36.7 C (98 F), blood pressure is 70/30 mmHg, pulse is 148/min, and respirations are 68/min. On physical examination, the patient is cyanotic and irritable. Auscultation reveals a continuous, machinery-like murmur appreciated between the scapulae. Serum lactate level is elevated. Echocardiogram shows the origin of the aorta lying anterior and to the right of the pulmonary artery. Failure of which of the following processes during embryonic development is most likely responsible for this patient's findings on imaging?",
+   "question": "A 2-day-old boy is being evaluated in the nursery for irritability. He was born to a 22-year-old primigravida who received limited prenatal care. Delivery was uncomplicated, and Apgar scores were 7 and 8 at 1 and 5 minutes, respectively. Temperature is 36.7 C (98 F), blood pressure is 70/30 mm Hg, pulse is 148/min, and respirations are 68/min. On physical examination, the patient is cyanotic and irritable. Auscultation reveals a continuous, machinery-like murmur appreciated between the scapulae. Serum lactate level is elevated. Echocardiogram shows the origin of the aorta lying anterior and to the right of the pulmonary artery. Failure of which of the following processes during embryonic development is most likely responsible for this patient's findings on imaging?",
    "options": [
     {
      "letter": "A",
@@ -697,11 +697,16 @@
     },
     {
      "letter": "D",
-     "text": "Septation (1 1%) ✓ 0 E. Spiraling",
+     "text": "Septation",
+     "selection_percent": 11
+    },
+    {
+     "letter": "E",
+     "text": "Spiraling",
      "selection_percent": 67
     }
    ],
-   "correct_label": "D",
+   "correct_label": "E",
    "question_blocks": [],
    "explanation": [
     {
@@ -772,7 +777,15 @@
     },
     {
      "type": "paragraph",
-     "text": "This newborn's echocardiogram is indicative of transposition of the great arteries (TGA), a cyanotic congenital heart defect characterized by abnormal origination of the aorta/pulmonary artery. In early gestation, there is a single outflow tract from the rudimentary heart that is subsequently divided into the aorta and pulmonary artery by the aorticopulmonary septum. This septum normally spirals during outflow tract division to create an anteriorly located pulmonary artery arising from the right ventricle and a posteriorly located aorta arising from the left ventricle. TGA occurs due to failed spiraling of the aorticopulmonary septum, resulting in an anterior aorta that originates from the right ventricle and a posterior pulmonary artery that originates from the left ventricle. Parallel pulmonary and systemic circuits are created, and deoxygenated blood is delivered from the right ventricle to the systemic circulation via the aorta. Neonates with TGA often have cyanosis, tachypnea, and tachycardia immediately after birth; however, some may have normal examination fin dings initially due to shunting of oxygenated blood to the systemic circulation via the ductus arteriosus, with cyanosis developing after 24-48 hours as the ductus begins to close. Other mixing lesions, such as a large ventricular septal defect, can also mask the development of clinically-apparent cyanosis. In this patient, elevated lactate is caused by a high degree of anaerobic metabolism due to poor oxygen delivery to the tissues."
+     "text": "This newborn's echocardiogram is indicative of transposition of the great arteries (TGA), a cyanotic congenital heart defect characterized by abnormal origination of the aorta/pulmonary artery. In early gestation, there is a single outflow tract from the rudimentary heart that is subsequently divided into the aorta and pulmonary artery by the aorticopulmonary septum. This septum normally spirals during outflow tract division to create an anteriorly located pulmonary artery arising from the right ventricle and a posteriorly located aorta arising from the left ventricle."
+    },
+    {
+     "type": "paragraph",
+     "text": "TGA occurs due to failed spiraling of the aorticopulmonary septum, resulting in an anterior aorta that originates from the right ventricle and a posterior pulmonary artery that originates from the left ventricle. Parallel pulmonary and systemic circuits are created, and deoxygenated blood is delivered from the right ventricle to the systemic circulation via the aorta."
+    },
+    {
+     "type": "paragraph",
+     "text": "Neonates with TGA often have cyanosis, tachypnea, and tachycardia immediately after birth; however, some may have normal examination findings initially due to shunting of oxygenated blood to the systemic circulation via the ductus arteriosus, with cyanosis developing after 24-48 hours as the ductus begins to close. Other mixing lesions, such as a large ventricular septal defect, can also mask the development of clinically-apparent cyanosis. In this patient, elevated lactate is caused by a high degree of anaerobic metabolism due to poor oxygen delivery to the tissues."
     },
     {
      "type": "paragraph",
@@ -794,14 +807,13 @@
      "A": 4,
      "B": 13,
      "C": 1,
-     "D": 67
+     "D": 11,
+     "E": 67
     }
    },
-   "status": "blocked",
-   "issues": [
-    "choice percents sum 85"
-   ],
-   "source_record_sha256": "832b8f6084cb6328bc4f43135e73344b94d65b29b9b44424c6cd0d7154456d94"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "b930a8e6f0161128d346510b2984438dec5f4e7dc9aeb1299839caa21f531b5f"
   },
   {
    "id": "UWORLD_11925",
@@ -814,7 +826,7 @@
     843,
     844
    ],
-   "question": "A 71 -year-old woman comes to the emergency department due to progressive dyspnea and orthopnea for the last week. She has a history of myocardial infarction and systolic heart failure with a left ventricular ejection fraction of 15%. The patient is compliant with her medications, which include carvedilol, furosemide, aspirin, lisinopril, and atorvastatin. Blood pressure is 11 8/7 4 mmHg and pulse is 72/min. Examination reveals elevated jugular venous pressure, bibasilar crackles, an S3 heart sound, and bilateral lower extremity pitting edema. The patient is started on dobutamine infusion, which provides significant symptom relief. Echocardiogram shows mild improvement in cardiac contractility. Which of the following is the likely mechanism underlying this patient's clinical improvement?",
+   "question": "A 71-year-old woman comes to the emergency department due to progressive dyspnea and orthopnea for the last week. She has a history of myocardial infarction and systolic heart failure with a left ventricular ejection fraction of 15%. The patient is compliant with her medications, which include carvedilol, furosemide, aspirin, lisinopril, and atorvastatin. Blood pressure is 118/74 mm Hg and pulse is 72/min. Examination reveals elevated jugular venous pressure, bibasilar crackles, an S3 heart sound, and bilateral lower extremity pitting edema. The patient is started on dobutamine infusion, which provides significant symptom relief. Echocardiogram shows mild improvement in cardiac contractility. Which of the following is the likely mechanism underlying this patient's clinical improvement?",
    "options": [
     {
      "letter": "A",
@@ -823,7 +835,7 @@
     },
     {
      "letter": "B",
-     "text": "protein-adenylate cyclase activation",
+     "text": "Gs protein-adenylate cyclase activation",
      "selection_percent": 79
     },
     {
@@ -874,7 +886,11 @@
     },
     {
      "type": "paragraph",
-     "text": "Dobutamine is a ~-adrenergic agonist with predominant activity on~' receptors and weak activity on ~ 2 and a, receptors. Stimulation of ~,-adrenergic receptors causes Gs protein GTP binding, leading to activation of adenylyl cyclase and increased production of cAMP in the target cells. In cardiac myocytes, increased cAMP causes calcium channel activation and increased cytosolic Ca 2• concentration. This causes a conformational change in the troponin complex, facilitating actin-myosin binding and increasing myocardial contractility (positive inotropy). Increased cAMP also causes a rise in heart rate by increasing Na· and Ca 2• channel activation in pacemaker cells (positive chronotropy). In the vasculature, a, agonist activity (vasoconstriction) balances the ~ 2 agonist effect (vasodilation) with resultant mild vasodilation. The net hemodynamic effects are an increase in cardiac contractility and a decrease in systemic vascular resistance without significant change in arterial blood pressure. This increase in cardiac output can improve symptoms and end-organ perfusion in patients with severe left ventricular systolic dysfunction and cardiogenic shock."
+     "text": "Dobutamine is a β-adrenergic agonist with predominant activity on β1 receptors and weak activity on β2 and α1 receptors. Stimulation of β1-adrenergic receptors causes Gs protein GTP binding, leading to activation of adenylyl cyclase and increased production of cAMP in the target cells. In cardiac myocytes, increased cAMP causes calcium channel activation and increased cytosolic Ca2+ concentration. This causes a conformational change in the troponin complex, facilitating actin-myosin binding and increasing myocardial contractility (positive inotropy). Increased cAMP also causes a rise in heart rate by increasing Na+ and Ca2+ channel activation in pacemaker cells (positive chronotropy)."
+    },
+    {
+     "type": "paragraph",
+     "text": "In the vasculature, α1 agonist activity (vasoconstriction) balances the β2 agonist effect (vasodilation) with resultant mild vasodilation. The net hemodynamic effects are an increase in cardiac contractility and a decrease in systemic vascular resistance without significant change in arterial blood pressure. This increase in cardiac output can improve symptoms and end-organ perfusion in patients with severe left ventricular systolic dysfunction and cardiogenic shock."
     },
     {
      "type": "paragraph",
@@ -886,7 +902,7 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice D) Digoxin acts by inhibiting the sodium-potassium ATPase pump. This increases intracellular sodium concentration, which in turn decreases activity of the sodium-calcium exchanger that exports calcium from myocardial cells. The corresponding rise in intracellular Ca 2• concentration leads to improved myocardial contractil ity."
+     "text": "(Choice D) Digoxin acts by inhibiting the sodium-potassium ATPase pump. This increases intracellular sodium concentration, which in turn decreases activity of the sodium-calcium exchanger that exports calcium from myocardial cells. The corresponding rise in intracellular Ca2+ concentration leads to improved myocardial contractility."
     },
     {
      "type": "paragraph",
@@ -894,12 +910,12 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice F) Calcium channel blockers (eg, verapamil, diltiazem) prevent calcium ions from traversing voltagedependent calcium channels in vascular smooth muscle and myocardium, leading to vasodilation and a decrease in cardiac contractility."
+     "text": "(Choice F) Calcium channel blockers (eg, verapamil, diltiazem) prevent calcium ions from traversing voltage-dependent calcium channels in vascular smooth muscle and myocardium, leading to vasodilation and a decrease in cardiac contractility."
     }
    ],
-   "educational_objective": "Dobutamine is a 13-adrenergic agonist with predominant activity on 13, receptors and weak activity on l3 2 and a, receptors. Stimulation of 13, receptors leads to an increased production of cAMP and increased cytosolic Ca 2• concentration. This facilitates the interaction between actin and myosin, resulting in increased myocardial contractility.",
+   "educational_objective": "Dobutamine is a β-adrenergic agonist with predominant activity on β1 receptors and weak activity on β2 and α1 receptors. Stimulation of β1 receptors leads to an increased production of cAMP and increased cytosolic Ca2+ concentration. This facilitates the interaction between actin and myosin, resulting in increased myocardial contractility.",
    "statistics": {
-    "answered_correctly_percent": null,
+    "answered_correctly_percent": 79,
     "selection_percent": {
      "A": 2,
      "B": 79,
@@ -909,11 +925,9 @@
      "F": 4
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …Dobutamine is a ~-adrenergic agonist w…"
-   ],
-   "source_record_sha256": "fe71b55d3780c4326d0a6357f058f3f067d6f8c3a54d83420e8abd59692b1a8a"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "a63dce4698fae902b73e6e909e5225aed9ce6c4d2afdb259954bc1ee289f7bfa"
   },
   {
    "id": "UWORLD_7238",
@@ -1316,7 +1330,7 @@
     910,
     911
    ],
-   "question": "A 38-year-old woman is being evaluated for shortness of breath. The patient has had poor exercise tolerance for the last several months that she initially attributed to deconditioning. Over the last several weeks, her symptoms have gotten progressively worse and she currently feels short of breath even during mild exertion. The patient has no family history of heart disease. As part of her evaluation, she undergoes right and left heart catheterization. The following data are obtained: Left ventricular end-diastolic 10 mmHg (normal: 3-12 mm pressure Left ventricular peak systolic 110 mmHg (normal: 100-140 pressure Pulmonary capillary wedge 36 mmHg (normal: <12 mm pressure Which of the following is the most likely cause of this patient's symptoms?",
+   "question": "A 38-year-old woman is being evaluated for shortness of breath. The patient has had poor exercise tolerance for the last several months that she initially attributed to deconditioning. Over the last several weeks, her symptoms have gotten progressively worse and she currently feels short of breath even during mild exertion. The patient has no family history of heart disease. As part of her evaluation, she undergoes right and left heart catheterization. The following data are obtained: Left ventricular end-diastolic pressure 10 mm Hg (normal: 3-12 mm Hg); Left ventricular peak systolic pressure 110 mm Hg (normal: 100-140 mm Hg); Pulmonary capillary wedge pressure 36 mm Hg (normal: <12 mm Hg). Which of the following is the most likely cause of this patient's symptoms?",
    "options": [
     {
      "letter": "A",
@@ -1393,7 +1407,11 @@
     },
     {
      "type": "paragraph",
-     "text": "Time © UWorld A balloon-tipped pulmonary artery (Swan-Ganz) catheter is often used to obtain hemodynamic measurements in patients with shock and certain cardiopulmonary conditions. During pulmonary artery (right heart) catheterization, the catheter is advanced to a small branch of the pulmonary artery and the balloon is inflated to obstruct blood flow in that vessel and its distal branches (which eventually form the pulmonary veins). Because blood flow toward the left atrium (LA) is obstructed beyond this point of occlusion, the pressure at the tip of the \"wedged\" catheter becomes nearly equal to the LA pressure and left ventricular end-diastolic pressure (LVEDP). This is referred to as the pulmonary capillary wedge pressure (PCWP). During normal diastole, the LA pressure is nearly equal to the LVEDP as the open mitral valve offers minimal resistance to flow between the 2 chambers. In patients with mitral stenosis, there is resistance to blood flow from the LA to LV that leads to an increase in the LA pressure. This increase in LA pressure is transmitted back to the pulmonary veins and is recorded as elevated PCWP during pulmonary artery catheterization. If the LA pressure is sufficiently high to overcome the resistance between the LA and LV, LV filling may not be signifi cantly affected, resulting in normal LVEDP."
+     "text": "A balloon-tipped pulmonary artery (Swan-Ganz) catheter is often used to obtain hemodynamic measurements in patients with shock and certain cardiopulmonary conditions. During pulmonary artery (right heart) catheterization, the catheter is advanced to a small branch of the pulmonary artery and the balloon is inflated to obstruct blood flow in that vessel and its distal branches (which eventually form the pulmonary veins). Because blood flow toward the left atrium (LA) is obstructed beyond this point of occlusion, the pressure at the tip of the \"wedged\" catheter becomes nearly equal to the LA pressure and left ventricular end-diastolic pressure (LVEDP). This is referred to as the pulmonary capillary wedge pressure (PCWP)."
+    },
+    {
+     "type": "paragraph",
+     "text": "During normal diastole, the LA pressure is nearly equal to the LVEDP as the open mitral valve offers minimal resistance to flow between the 2 chambers. In patients with mitral stenosis, there is resistance to blood flow from the LA to LV that leads to an increase in the LA pressure. This increase in LA pressure is transmitted back to the pulmonary veins and is recorded as elevated PCWP during pulmonary artery catheterization. If the LA pressure is sufficiently high to overcome the resistance between the LA and LV, LV filling may not be significantly affected, resulting in normal LVEDP."
     },
     {
      "type": "paragraph",
@@ -1408,7 +1426,7 @@
      "text": "(Choices C and E) Both dilated and restrictive cardiomyopathy are associated with pulmonary and systemic venous congestion, resulting in a similar increase in both LVEDP and PCWP. In dilated cardiomyopathy, this occurs due to systolic dysfunction (impaired ventricular contractility), whereas in restrictive cardiomyopathy this occurs due to diastolic dysfunction (impaired ventricular relaxation/filling)."
     }
    ],
-   "educational_objective": "Under normal circumstances, pulmonary capillary wedge pressure (PCWP) closely reflects left atrial (LA) and left ventricular end-diastolic pressure (LVEOP). Mitral stenosis leads to an increase in the LA pressure that is reflected as elevated PCWP during pulmonary artery catheterization. Left ventricular filling may be normal, resulting in an increased pressure gradient between the LA and LV during diastole.",
+   "educational_objective": "Under normal circumstances, pulmonary capillary wedge pressure (PCWP) closely reflects left atrial (LA) and left ventricular end-diastolic pressure (LVEDP). Mitral stenosis leads to an increase in the LA pressure that is reflected as elevated PCWP during pulmonary artery catheterization. Left ventricular filling may be normal, resulting in an increased pressure gradient between the LA and LV during diastole.",
    "statistics": {
     "answered_correctly_percent": 83,
     "selection_percent": {
@@ -1419,11 +1437,9 @@
      "E": 6
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …Time © UWorld A balloon-tip…"
-   ],
-   "source_record_sha256": "44be79fff012a1498d319e1397f61db9818806480c91eea7e027e5196111afc7"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "3d18cebd8501e906ab5eaa99812636b25862cf34a306ff14995144a29a3b6717"
   },
   {
    "id": "UWORLD_1529",
@@ -1672,37 +1688,32 @@
     931,
     932
    ],
-   "question": "A 56-year-old man comes to the emergency department due to palpitations and lightheadedness over the last 2 hours. He has a history of hypertension but no other cardiac conditions and never before had similar symptoms. The patient drinks 1 to 2 alcoholic beverages daily but does not smoke cigarettes or use ill icit drugs. Blood pressure is 132/76 mmHg and pulse is 116/min and irregular. Cardiopulmonary examination is normal, except for tachycardia. Resting ECG shows atrial fibrillation. The patient undergoes transesophageal echocardiography, which reveals normal cardiac anatomy and no intracardiac thrombi. Electrical cardioversion is performed. After the intervention, sinus rhythm is restored, and amiodarone therapy is begun to maintain normal sinus rhythm. Which of the following cardiac electrophysiologic changes are most likely to occur in this patient due to the medication? Sinus rate PR interval QRS duration QT interval Decreased Prolonged No change No change Decreased Prolonged Prolonged Prolonged No change No change No change No change No change No change Prolonged No change No change No change Prolonged Prolonged",
+   "question": "A 56-year-old man comes to the emergency department due to palpitations and lightheadedness over the last 2 hours. He has a history of hypertension but no other cardiac conditions and never before had similar symptoms. The patient drinks 1 to 2 alcoholic beverages daily but does not smoke cigarettes or use illicit drugs. Blood pressure is 132/76 mm Hg and pulse is 116/min and irregular. Cardiopulmonary examination is normal, except for tachycardia. Resting ECG shows atrial fibrillation. The patient undergoes transesophageal echocardiography, which reveals normal cardiac anatomy and no intracardiac thrombi. Electrical cardioversion is performed. After the intervention, sinus rhythm is restored, and amiodarone therapy is begun to maintain normal sinus rhythm. Which of the following cardiac electrophysiologic changes are most likely to occur in this patient due to the medication?",
    "options": [
     {
      "letter": "A",
-     "text": "RS duration QT interval Sinus rate PR interval X @ A. Decreased Prolonged No change No change",
+     "text": "Sinus rate Decreased · PR interval Prolonged · QRS duration No change · QT interval No change",
      "selection_percent": 8
     },
     {
      "letter": "B",
-     "text": "Prolonged Prolonged Prolonged",
+     "text": "Sinus rate Decreased · PR interval Prolonged · QRS duration Prolonged · QT interval Prolonged",
      "selection_percent": 35
     },
     {
      "letter": "C",
-     "text": "ecreased 0 No change No change No change",
+     "text": "Sinus rate No change · PR interval No change · QRS duration No change · QT interval No change",
      "selection_percent": 4
     },
     {
      "letter": "D",
-     "text": "No change 0 Prolonged No change",
+     "text": "Sinus rate No change · PR interval No change · QRS duration Prolonged · QT interval No change",
      "selection_percent": 9
     },
     {
      "letter": "E",
-     "text": "No change No change 0 E. No change Prolonged Prolonged",
+     "text": "Sinus rate No change · PR interval No change · QRS duration Prolonged · QT interval Prolonged",
      "selection_percent": 40
-    },
-    {
-     "letter": "F",
-     "text": "o change",
-     "selection_percent": null
     }
    ],
    "correct_label": "B",
@@ -1755,7 +1766,19 @@
     },
     {
      "type": "paragraph",
-     "text": "Amiodarone is a commonly used antiarrhythmic drug with wide-ranging antiarrhythmic effects and corresponding ECG manifestations. It primarily functions as a class Ill antiarrhythmic by inhibiting the rapid component of the delayed rectifier potassium current, which is responsible for ventricular repolarization. This prolongs action potential duration and the effective refractory period, suppressing electrical foci that stimulate atrial and ventricular arrhythmias. It also prolongs the QT interval on ECG, which increases the risk of torsade de pointes; however, compared to other class Ill antiarrhythmics (eg, dofetilide, ibutilide), the risk of torsade de pointes with amiodarone is low. Amiodarone also has the following effects: • Class I effect: Amiodarone somewhat inhibits the fast sodium channels responsible for cardiomyocyte depolarization (phase 0). This slows ventricular depolarization to suppress arrhythmogenic foci, and it prolongs QRS complex duration on ECG. • Class II and IV effects: Amiodarone has beta-blocking properties that inhibit sympathetic stimulation of the conduction system. The drug also inhibits the slow L-type calcium channels responsible for depolarization of the sinus node and atrioventricular node. Both effects prolong the refractory period of the conduction system to suppress arrhythmogenic foci and in doing so contribute to a decreased sinus rate (ie, slowed heart rate) and a prolonged PR interval on ECG."
+     "text": "Amiodarone is a commonly used antiarrhythmic drug with wide-ranging antiarrhythmic effects and corresponding ECG manifestations. It primarily functions as a class III antiarrhythmic by inhibiting the rapid component of the delayed rectifier potassium current, which is responsible for ventricular repolarization. This prolongs action potential duration and the effective refractory period, suppressing electrical foci that stimulate atrial and ventricular arrhythmias. It also prolongs the QT interval on ECG, which increases the risk of torsade de pointes; however, compared to other class III antiarrhythmics (eg, dofetilide, ibutilide), the risk of torsade de pointes with amiodarone is low."
+    },
+    {
+     "type": "paragraph",
+     "text": "Amiodarone also has the following effects:"
+    },
+    {
+     "type": "paragraph",
+     "text": "Class I effect: Amiodarone somewhat inhibits the fast sodium channels responsible for cardiomyocyte depolarization (phase 0). This slows ventricular depolarization to suppress arrhythmogenic foci, and it prolongs QRS complex duration on ECG."
+    },
+    {
+     "type": "paragraph",
+     "text": "Class II and IV effects: Amiodarone has beta-blocking properties that inhibit sympathetic stimulation of the conduction system. The drug also inhibits the slow L-type calcium channels responsible for depolarization of the sinus node and atrioventricular node. Both effects prolong the refractory period of the conduction system to suppress arrhythmogenic foci and in doing so contribute to a decreased sinus rate (ie, slowed heart rate) and a prolonged PR interval on ECG."
     },
     {
      "type": "paragraph",
@@ -1763,10 +1786,10 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choices C, D, and E) Class I antiarrhythmics inhibit fast sodium channels to slow depolarization and prolong QRS duration. However, the effects of class IB antiarrhythmics (eg, lidocaine) occur only at rapid heart rates, and no change in QRS duration is seen on resting ECG. Class IA antiarrhythmics ( eg, procainamide) also inhibit the delayed rectifier potassium current to prolong the QT interval."
+     "text": "(Choices C, D, and E) Class I antiarrhythmics inhibit fast sodium channels to slow depolarization and prolong QRS duration. However, the effects of class IB antiarrhythmics (eg, lidocaine) occur only at rapid heart rates, and no change in QRS duration is seen on resting ECG. Class IA antiarrhythmics (eg, procainamide) also inhibit the delayed rectifier potassium current to prolong the QT interval."
     }
    ],
-   "educational_objective": "Amiodarone primarily functions as a class Ill antiarrhythmic, inhibiting the delayed rectifier potassium current to slow ventricular repolarization and prolong the QT interval. It also inhibits fast sodium channels (class I effect) to slow ventricular depolarization and prolong QRS complex duration. Beta blockade (class II effect) and inhibition of slow L-type calcium channels (class IV effect) slow conduction in the sinus node and atrioventricular node causing decreased sinus rate and a prolonged PR interval.",
+   "educational_objective": "Amiodarone primarily functions as a class III antiarrhythmic, inhibiting the delayed rectifier potassium current to slow ventricular repolarization and prolong the QT interval. It also inhibits fast sodium channels (class I effect) to slow ventricular depolarization and prolong QRS complex duration. Beta blockade (class II effect) and inhibition of slow L-type calcium channels (class IV effect) slow conduction in the sinus node and atrioventricular node causing decreased sinus rate and a prolonged PR interval.",
    "statistics": {
     "answered_correctly_percent": 35,
     "selection_percent": {
@@ -1774,16 +1797,12 @@
      "B": 35,
      "C": 4,
      "D": 9,
-     "E": 40,
-     "F": null
+     "E": 40
     }
    },
-   "status": "blocked",
-   "issues": [
-    "choice letters disagree with order: D,E",
-    "missing choice percent"
-   ],
-   "source_record_sha256": "1a50265a6535d3439a75252e4848b5b404f8ac62b35f035009d0d7769b7d17e1"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "c94eaf4975277d40bf4faf6e15bc74a16be53a51812d315909c375b862685da2"
   },
   {
    "id": "UWORLD_156",
@@ -2020,7 +2039,19 @@
     },
     {
      "type": "paragraph",
-     "text": "© UWorld Coronary dominance is determined by the coronary artery that supplies blood to the posterior descending artery (PDA (or posterior interventricular artery]). The PDA originates from one of the following: • Right coronary artery in approximately 70%-80% of the population (right dominant) • Left circumflex artery in approximately 5%-10% of the population (left dominant) • Both right coronary and left circumflex artery in 10%-20% of the population (codominant)"
+     "text": "Coronary dominance is determined by the coronary artery that supplies blood to the posterior descending artery (PDA [or posterior interventricular artery]). The PDA originates from one of the following:"
+    },
+    {
+     "type": "paragraph",
+     "text": "• Right coronary artery in approximately 70%-80% of the population (right dominant)"
+    },
+    {
+     "type": "paragraph",
+     "text": "• Left circumflex artery in approximately 5%-10% of the population (left dominant)"
+    },
+    {
+     "type": "paragraph",
+     "text": "• Both right coronary and left circumflex artery in 10%-20% of the population (codominant)"
     },
     {
      "type": "paragraph",
@@ -2045,7 +2076,7 @@
    ],
    "educational_objective": "Coronary dominance is determined by the coronary artery supplying the posterior descending artery. The posterior descending artery originates from the right coronary artery in approximately 70%-80% of patients (right dominant), both the right coronary and left circumflex artery in 10%-20% (codominant), and the left circumflex artery in 5%-10% (left dominant). The dominant coronary artery supplies blood to the atrioventricular (AV) node via the AV nodal artery.",
    "statistics": {
-    "answered_correctly_percent": null,
+    "answered_correctly_percent": 55,
     "selection_percent": {
      "A": 6,
      "B": 55,
@@ -2054,11 +2085,9 @@
      "E": 4
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …© UWorld Coronary domi…"
-   ],
-   "source_record_sha256": "604168bbaad5853b2963a0351f3be589129ed6b53d72495920be5244a04b3b54"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "55fb10de378f71267e46913545f613b911583e0ab010911ccdd020e2b7312ae0"
   },
   {
    "id": "UWORLD_22793",
@@ -2390,7 +2419,11 @@
    "explanation": [
     {
      "type": "paragraph",
-     "text": "Dopamine is an adrenergic agonist that has varying effects based on the dose. At low doses, dopamine stimulates D1 receptors in the renal vasculature and tubules, inducing an increase in renal blood flow, glomerular filtration rate, and sodium excretion. Vasodilation of the mesenteric, cerebral, and coronary vascular beds is also prominent at low doses. As the dosage increases, dopamine begins to stimulate p,adrenergic receptors in the heart, increasing cardiac contractility, heart rate, and systolic blood pressure. At the high end of the dose range, stimulation of a,receptors in the systemic vasculature leads to generalized vasoconstriction, which can result in decreased cardiac output due to the increased afterload."
+     "text": "Dopamine is an adrenergic agonist that has varying effects based on the dose. At low doses, dopamine stimulates D1 receptors in the renal vasculature and tubules, inducing an increase in renal blood flow, glomerular filtration rate, and sodium excretion. Vasodilation of the mesenteric, cerebral, and coronary vascular beds is also prominent at low doses."
+    },
+    {
+     "type": "paragraph",
+     "text": "As the dosage increases, dopamine begins to stimulate β1-adrenergic receptors in the heart, increasing cardiac contractility, heart rate, and systolic blood pressure. At the high end of the dose range, stimulation of α1-receptors in the systemic vasculature leads to generalized vasoconstriction, which can result in decreased cardiac output due to the increased afterload."
     },
     {
      "type": "paragraph",
@@ -2398,18 +2431,18 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice C) Epinephrine increases heart rate, myocardial contractility, and cardiac output by stimulating ~' receptors. At low doses, stimulation of ~ 2 receptors in the skeletal muscle vasculature produces vasodilation that can cause decreased blood pressure. At high doses, a,-induced vasoconstriction in the skin and viscera becomes more pronounced. Epinephrine does not significantly increase renal blood flow (even at lower doses) due to the lack of D 1 receptor stimulation."
+     "text": "(Choice C) Epinephrine increases heart rate, myocardial contractility, and cardiac output by stimulating β1 receptors. At low doses, stimulation of β2 receptors in the skeletal muscle vasculature produces vasodilation that can cause decreased blood pressure. At high doses, α1-induced vasoconstriction in the skin and viscera becomes more pronounced. Epinephrine does not significantly increase renal blood flow (even at lower doses) due to the lack of D1 receptor stimulation."
     },
     {
      "type": "paragraph",
-     "text": "(Choice D) Esmolol is a cardioselective ~1 blocker with a short duration of action. Esmolol decreases heart rate, myocardial contractility, and cardiac conduction without affecting renal blood flow."
+     "text": "(Choice D) Esmolol is a cardioselective β1 blocker with a short duration of action. Esmolol decreases heart rate, myocardial contractility, and cardiac conduction without affecting renal blood flow."
     },
     {
      "type": "paragraph",
-     "text": "(Choice E) Phenylephrine is a selective a,-adrenergic receptor agonist that causes a generalized increase in peripheral vascular resistance and blood pressure. Its use results in significant renal, splanchnic, and mesenteric vasoconstriction."
+     "text": "(Choice E) Phenylephrine is a selective α1-adrenergic receptor agonist that causes a generalized increase in peripheral vascular resistance and blood pressure. Its use results in significant renal, splanchnic, and mesenteric vasoconstriction."
     }
    ],
-   "educational_objective": "Low-dose dopamine infusion stimulates D 1 receptors in the renal and mesenteric vasculature, resulting in vasodilation and increased blood flow to these sites. Increasing doses of dopamine stimulate~. and a1 receptors, resulting in increased cardiac output and elevated systemic vascular resistance. At the high end of the dose range, the increase in afterload can result in decreased cardiac output.",
+   "educational_objective": "Low-dose dopamine infusion stimulates D1 receptors in the renal and mesenteric vasculature, resulting in vasodilation and increased blood flow to these sites. Increasing doses of dopamine stimulate β1 and α1 receptors, resulting in increased cardiac output and elevated systemic vascular resistance. At the high end of the dose range, the increase in afterload can result in decreased cardiac output.",
    "statistics": {
     "answered_correctly_percent": 67,
     "selection_percent": {
@@ -2420,11 +2453,9 @@
      "E": 5
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …ity, and cardiac output by stimulating ~' receptors. At low d…"
-   ],
-   "source_record_sha256": "55426109180694baf3b250a6fa7e605b40ae1d1b0dfe1118bbcf234617ff21cf"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "6f2975d35a302da2327983d44063a20d4bf8bd4dbe565e691c0986a461a4b93d"
   },
   {
    "id": "UWORLD_15214",
@@ -2439,37 +2470,32 @@
     989,
     990
    ],
-   "question": "A 65-year-old man is evaluated for progressive shortness of breath. He has had exertional dyspnea for the past year and has been experiencing weight gain and peripheral edema for the last several weeks. He has no previous history of cardiac or pulmonary disease. Cardiac biopsy of the left ventricle shows the histopathologic find ings on the slide below. Which of the following are the most likely echocardiographic findings in this patient? Left Left Left Left atrial ventricular ventricular ventricular cavity size wall cavity size relaxation thickness Dilated Not dilated Normal Normal Dilated Dilated Normal Impaired Dilated Not dilated Increased Impaired Not dilated Dilated Increased Impaired Not dilated Dilated Increased Normal",
+   "question": "A 65-year-old man is evaluated for progressive shortness of breath. He has had exertional dyspnea for the past year and has been experiencing weight gain and peripheral edema for the last several weeks. He has no previous history of cardiac or pulmonary disease. Cardiac biopsy of the left ventricle shows the histopathologic findings on the slide below. Which of the following are the most likely echocardiographic findings in this patient?",
    "options": [
     {
      "letter": "A",
-     "text": "eft Left Left Left atrial ventricular ventricular ventricular cavity size wall cavity size relaxation thickness @ A. Normal",
+     "text": "Left atrial cavity size Dilated · Left ventricular cavity size Not dilated · Left ventricular wall thickness Normal · Left ventricular relaxation Normal",
      "selection_percent": 3
     },
     {
      "letter": "B",
-     "text": "ilated Not dilated Normal 0 B. Normal",
+     "text": "Left atrial cavity size Dilated · Left ventricular cavity size Dilated · Left ventricular wall thickness Normal · Left ventricular relaxation Impaired",
      "selection_percent": 19
     },
     {
      "letter": "C",
-     "text": "ilated Dilated Impaired ✓ OC. Not dilated",
+     "text": "Left atrial cavity size Dilated · Left ventricular cavity size Not dilated · Left ventricular wall thickness Increased · Left ventricular relaxation Impaired",
      "selection_percent": 55
     },
     {
      "letter": "D",
-     "text": "ilated Impaired Increased D. 0 Impaired",
+     "text": "Left atrial cavity size Not dilated · Left ventricular cavity size Dilated · Left ventricular wall thickness Increased · Left ventricular relaxation Impaired",
      "selection_percent": 17
     },
     {
      "letter": "E",
-     "text": "ot dilated Increased Dilated E. 0 Normal",
+     "text": "Left atrial cavity size Not dilated · Left ventricular cavity size Dilated · Left ventricular wall thickness Increased · Left ventricular relaxation Normal",
      "selection_percent": 5
-    },
-    {
-     "letter": "F",
-     "text": "ot dilated Dilated Increased",
-     "selection_percent": null
     }
    ],
    "correct_label": "C",
@@ -2544,7 +2570,11 @@
     },
     {
      "type": "paragraph",
-     "text": "This patient with heart failure (eg, progressive dyspnea, weight gain, peripheral edema) has copious pink, amorphous material (hyaline) on cardiac biopsy, which is characteristic of cardiac amyloidosis. Amyloidosis is a systemic disorder caused by the extracellular deposition of fibrils of misfolded amyloid protein in various tissues (eg, heart, liver, kidney, blood vessels). The 2 types of amyloidosis that most commonly affect the heart are amyloid transthyretin (ATTR) and amyloid light chain (AL). Cardiac amyloid deposition typically causes a restrictive cardiomyopathy with uniformly thickened ventricular walls that are stiff and have impaired diastolic relaxation (normal wall thickness can be seen with other, noninfiltrative etiologies of restrictive cardiomyopathy). Left ventricular (LV) cavity size is normal or decreased, and the impaired diastolic relaxation both increases LV fil ling pressure and reduces cardiac output (leading to dyspnea). The elevated LV pressure is transmitted backward, leading to left atrial dilation, increased pulmonary arterial pressure, and progressive right-sided heart failure (eg, jugular venous distension, peripheral edema)."
+     "text": "This patient with heart failure (eg, progressive dyspnea, weight gain, peripheral edema) has copious pink, amorphous material (hyaline) on cardiac biopsy, which is characteristic of cardiac amyloidosis. Amyloidosis is a systemic disorder caused by the extracellular deposition of fibrils of misfolded amyloid protein in various tissues (eg, heart, liver, kidney, blood vessels). The 2 types of amyloidosis that most commonly affect the heart are amyloid transthyretin (ATTR) and amyloid light chain (AL)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Cardiac amyloid deposition typically causes a restrictive cardiomyopathy with uniformly thickened ventricular walls that are stiff and have impaired diastolic relaxation (normal wall thickness can be seen with other, noninfiltrative etiologies of restrictive cardiomyopathy). Left ventricular (LV) cavity size is normal or decreased, and the impaired diastolic relaxation both increases LV filling pressure and reduces cardiac output (leading to dyspnea). The elevated LV pressure is transmitted backward, leading to left atrial dilation, increased pulmonary arterial pressure, and progressive right-sided heart failure (eg, jugular venous distension, peripheral edema)."
     },
     {
      "type": "paragraph",
@@ -2552,7 +2582,7 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice B) Dilated left atrial and ventricular cavities with normal LV wall thickness is consistent with dilated cardiomyopathy, which results from contractile dysfunction after direct myocardial insult (eg, infection, chronic alcohol toxicity). LV relaxation may be normal or impaired depending on thed isease progression and underlying etiology. Interstitial fibrosis would be prominent on microscopy in addition to find ings specific to the underlying cause (eg, inflammatory cells in viral myocarditis)."
+     "text": "(Choice B) Dilated left atrial and ventricular cavities with normal LV wall thickness is consistent with dilated cardiomyopathy, which results from contractile dysfunction after direct myocardial insult (eg, infection, chronic alcohol toxicity). LV relaxation may be normal or impaired depending on the disease progression and underlying etiology. Interstitial fibrosis would be prominent on microscopy in addition to findings specific to the underlying cause (eg, inflammatory cells in viral myocarditis)."
     },
     {
      "type": "paragraph",
@@ -2571,15 +2601,12 @@
      "B": 19,
      "C": 55,
      "D": 17,
-     "E": 5,
-     "F": null
+     "E": 5
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent"
-   ],
-   "source_record_sha256": "18251d06a889d660bdfdc1670e35f5084875564be44b48993974c9728fcf1366"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "b0a494f20ec82d6003e45396071df34a92548a8d75e2c50243b2e2f0dcb92a05"
   }
  ]
 }

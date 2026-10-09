@@ -532,7 +532,7 @@
     1413,
     1414
    ],
-   "question": "A 43-year-old man comes to the office due to yellowing of the skin over the past few weeks. He has had no fever or abdominal pain and has not traveled recently or received blood transfusions. The patient has also experienced increased shortness of breath with exercise over the last several months. He has no other medical conditions and takes no medications. The patient drinks 1 or 2 glasses of wine on social occasions and does not use tobacco or illicit drugs. His father died of liver cirrhosis attributed to heavy alcohol use. On physical examination, expiration is prolonged and there are scattered wheezes bilaterally. Laboratory results show total bilirubin of 4.1 mg/dl and alanine aminotransferase of 90 U/L. Viral hepatitis serology is negative. Chest x-ray shows hyperlucency of the lungs and flattening of the diaphragm. Abdominal ultrasound reveals increased liver span and echogenicity of the liver parenchyma but no masses. Which of the following is the most likely underlying cause of this patient's symptoms?",
+   "question": "A 43-year-old man comes to the office due to yellowing of the skin over the past few weeks. He has had no fever or abdominal pain and has not traveled recently or received blood transfusions. The patient has also experienced increased shortness of breath with exercise over the last several months. He has no other medical conditions and takes no medications. The patient drinks 1 or 2 glasses of wine on social occasions and does not use tobacco or illicit drugs. His father died of liver cirrhosis attributed to heavy alcohol use. On physical examination, expiration is prolonged and there are scattered wheezes bilaterally. Laboratory results show total bilirubin of 4.1 mg/dL and alanine aminotransferase of 90 U/L. Viral hepatitis serology is negative. Chest x-ray shows hyperlucency of the lungs and flattening of the diaphragm. Abdominal ultrasound reveals increased liver span and echogenicity of the liver parenchyma but no masses. Which of the following is the most likely underlying cause of this patient's symptoms?",
    "options": [
     {
      "letter": "A",
@@ -541,7 +541,7 @@
     },
     {
      "letter": "B",
-     "text": "Decreased UOP-glucuronosyltransferase activity",
+     "text": "Decreased UDP-glucuronosyltransferase activity",
      "selection_percent": 10
     },
     {
@@ -614,7 +614,11 @@
     },
     {
      "type": "paragraph",
-     "text": "Alpha-1 antitrypsin Alpha-1 antitrypsin released from hepatocytes accumulation in hepatocytes © uworld This patient with signs of liver dysfunction (ie, jaundice, transaminitis) and evidence of emphysema on chest x-ray (eg, hyperlucency, diaphragmatic flattening) likely has alpha-1 antitrypsin deficiency (MTD). Alpha-1 antitrypsin is a serine protease inhibitor that regulates the activity of a number of tissue-destructive proteases, most importantly neutrophil elastase. Deficiency is inherited in an autosomal codominant fashion. MTD leads to unchecked elastase activity in the lungs, resulting in alveolar destruction and lung hyperinflation; the panacinar emphysema tends to favor the basilar lung regions and typically develops prior to age 50. In addition, some patients are at risk for developing liver disease due to accumulation of improperly folded alpha-1 antitrypsin proteins in hepatocytes. Liver disease is of greatest concern in the first 2 decades of life, but it can present at any age. Patients can experience hepatomegaly, hyperbilirubinemia, elevated transaminases, and eventual cirrhosis and end-stage liver disease. Hepatocellular carcinoma may also develop."
+     "text": "This patient with signs of liver dysfunction (ie, jaundice, transaminitis) and evidence of emphysema on chest x-ray (eg, hyperlucency, diaphragmatic flattening) likely has alpha-1 antitrypsin deficiency (AATD). Alpha-1 antitrypsin is a serine protease inhibitor that regulates the activity of a number of tissue-destructive proteases, most importantly neutrophil elastase. Deficiency is inherited in an autosomal codominant fashion."
+    },
+    {
+     "type": "paragraph",
+     "text": "AATD leads to unchecked elastase activity in the lungs, resulting in alveolar destruction and lung hyperinflation; the panacinar emphysema tends to favor the basilar lung regions and typically develops prior to age 50. In addition, some patients are at risk for developing liver disease due to accumulation of improperly folded alpha-1 antitrypsin proteins in hepatocytes. Liver disease is of greatest concern in the first 2 decades of life, but it can present at any age. Patients can experience hepatomegaly, hyperbilirubinemia, elevated transaminases, and eventual cirrhosis and end-stage liver disease. Hepatocellular carcinoma may also develop."
     },
     {
      "type": "paragraph",
@@ -637,7 +641,7 @@
      "text": "(Choice F) Unregulated gastrointestinal iron absorption occurs in hemochromatosis. Patients can develop cirrhosis due to iron overload. The joints (arthritis), pancreas (diabetes mellitus), and heart (cardiomyopathy) are also commonly affected, but lung involvement is not typical."
     }
    ],
-   "educational_objective": "Alpha-1 antitrypsin (MT) is a serine protease inhibitor that regulates the activity of elastase in the lung. Inherited deficiency of MT leads to alveolar destruction and panacinar emphysema; in addition, accumulation of improperly folded MT proteins in hepatocytes can lead to liver dysfunction and cirrhosis in some patients.",
+   "educational_objective": "Alpha-1 antitrypsin (AAT) is a serine protease inhibitor that regulates the activity of elastase in the lung. Inherited deficiency of AAT leads to alveolar destruction and panacinar emphysema; in addition, accumulation of improperly folded AAT proteins in hepatocytes can lead to liver dysfunction and cirrhosis in some patients.",
    "statistics": {
     "answered_correctly_percent": 64,
     "selection_percent": {
@@ -649,11 +653,9 @@
      "F": 5
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …epatocytes accumulation in hepatocytes © uworld This patient …"
-   ],
-   "source_record_sha256": "ad618a5b188b9ae16d85b143ee75e298efc458bbd2ef9973dea7b4c5fae6823f"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "63db5abf7b501cfc7d5ad825668f95a7db850fe291a82b96282da2ccaace7cc4"
   },
   {
    "id": "UWORLD_358",
@@ -1954,7 +1956,15 @@
     },
     {
      "type": "paragraph",
-     "text": "cytoplasm which is more prominent at the tips of the vill i. These findings occur due to accumulation of lipids in the absorptive cells of the intestinal epithelium and are typical of abetalipoproteinemia, a disease caused by impaired formation of apolipoprotein B (apoB)-containing lipoproteins. Dietary lipids are normally processed in small-bowel enterocytes and secreted as chylomicrons; endogenously produced lipids are secreted from hepatocytes as very low-density lipoprotein (VLDL). Chylomicron and VLDL particles are synthesized within the endoplasmic reticulum as lipids accumulate around apolipoprotein B (ApoB). ApoB-100 is found in VLDL, and apoB-48 (a truncated version without the LDL receptor ligand) is present in chylomicrons. During the synthesis of apoB-containing lipoproteins, microsomal triglyceride transfer protein (MTP) functions as a chaperone protein necessary for proper folding of apoB and also participates in the transfer of lipids to newly formed chylomicrons and VLDL particles. Abetalipoproteinemia is most commonly caused by an autosomal recessive, loss-of-function mutation in the MTP gene. It manifests during the first year of life with symptoms of malabsorption (eg, abdominal distention, foul-smelling stool). Laboratory studies show very low plasma triglyceride and cholesterol levels; chylomicrons, VLDLs, and apoB are entirely absent from the blood. Poor lipid absorption causes deficiency of fat-soluble vitamins (particularly vitamin E) and essential fatty acids. This results in red blood cells with abnormal membranes and thorny projections called acanthocytes as well as multiple neurologic abnormalities (eg, progressive ataxia, retinitis pigmentosa)."
+     "text": "The slide above shows normal intestinal mucosal architecture, but the enterocytes contain clear or foamy cytoplasm which is more prominent at the tips of the villi. These findings occur due to accumulation of lipids in the absorptive cells of the intestinal epithelium and are typical of abetalipoproteinemia, a disease caused by impaired formation of apolipoprotein B (apoB)-containing lipoproteins."
+    },
+    {
+     "type": "paragraph",
+     "text": "Dietary lipids are normally processed in small-bowel enterocytes and secreted as chylomicrons; endogenously produced lipids are secreted from hepatocytes as very low-density lipoprotein (VLDL). Chylomicron and VLDL particles are synthesized within the endoplasmic reticulum as lipids accumulate around apolipoprotein B (ApoB). ApoB-100 is found in VLDL, and apoB-48 (a truncated version without the LDL receptor ligand) is present in chylomicrons. During the synthesis of apoB-containing lipoproteins, microsomal triglyceride transfer protein (MTP) functions as a chaperone protein necessary for proper folding of apoB and also participates in the transfer of lipids to newly formed chylomicrons and VLDL particles."
+    },
+    {
+     "type": "paragraph",
+     "text": "Abetalipoproteinemia is most commonly caused by an autosomal recessive, loss-of-function mutation in the MTP gene. It manifests during the first year of life with symptoms of malabsorption (eg, abdominal distention, foul-smelling stool). Laboratory studies show very low plasma triglyceride and cholesterol levels; chylomicrons, VLDLs, and apoB are entirely absent from the blood. Poor lipid absorption causes deficiency of fat-soluble vitamins (particularly vitamin E) and essential fatty acids. This results in red blood cells with abnormal membranes and thorny projections called acanthocytes as well as multiple neurologic abnormalities (eg, progressive ataxia, retinitis pigmentosa)."
     },
     {
      "type": "paragraph",
@@ -1962,7 +1972,7 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice C) Light microscopy in Crohn disease shows chronic infl ammation of all layers of the intestinal wall and noncaseating granulomas."
+     "text": "(Choice C) Light microscopy in Crohn disease shows chronic inflammation of all layers of the intestinal wall and noncaseating granulomas."
     },
     {
      "type": "paragraph",
@@ -1983,9 +1993,9 @@
    },
    "status": "blocked",
    "issues": [
-    "no educational objective"
+    "review: Split first explanation paragraph into 3 as on screen; text otherwise matches. Educational objective not legible: page 1502 shows only the heading and pages 1503-1504 are covered by Exhibit popups, so left empty. Answer A confirmed by green tick (page 1500)."
    ],
-   "source_record_sha256": "6e0f4e3efe9ebad72dfe966bed88ea8499d9be65ed4bb53e4884b2955fc44f62"
+   "source_record_sha256": "064373e703fa930532d3082cc8e8ef5e9e23e7c93a69da40ecd99c4aaada06fe"
   },
   {
    "id": "UWORLD_1766",
@@ -2144,7 +2154,11 @@
     },
     {
      "type": "paragraph",
-     "text": "artery The first part of the duodenum emerges from the pylorus of the stomach and is horizontally oriented over the first lumbar vertebra. It is the only part of the duodenum that is not retroperitoneal. The second part of the duodenum courses inferiorly from the level of L 1 to L3. This part of the duodenum is in close relation to the head of the pancreas and contains the ampulla of Vater, the site where pancreatic and common bile duct secretions are released. The third part of the duodenum courses horizontally over L3, the abdominal aorta, and the inferior vena cava. It is in close association with the uncinate process of the pancreas and the superior mesenteric artery and vein. Small bowel malignancies are rare; if they occur in the third part of the duodenum, anterior tumor invasion could compromise the superior mesenteric vessels. The fourth part of the duodenum courses superiorly and to the left of the L2 and L3 vertebrae and becomes the jejunum past the ligament of Treitz."
+     "text": "The first part of the duodenum emerges from the pylorus of the stomach and is horizontally oriented over the first lumbar vertebra. It is the only part of the duodenum that is not retroperitoneal. The second part of the duodenum courses inferiorly from the level of L1 to L3. This part of the duodenum is in close relation to the head of the pancreas and contains the ampulla of Vater, the site where pancreatic and common bile duct secretions are released."
+    },
+    {
+     "type": "paragraph",
+     "text": "The third part of the duodenum courses horizontally over L3, the abdominal aorta, and the inferior vena cava. It is in close association with the uncinate process of the pancreas and the superior mesenteric artery and vein. Small bowel malignancies are rare; if they occur in the third part of the duodenum, anterior tumor invasion could compromise the superior mesenteric vessels. The fourth part of the duodenum courses superiorly and to the left of the L2 and L3 vertebrae and becomes the jejunum past the ligament of Treitz."
     },
     {
      "type": "paragraph",
@@ -2174,13 +2188,9 @@
      "E": 3
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …artery ©UWorld The first part…",
-    "UWorld screenshot text leaked: UWORLD_1832 explanation 1",
-    "screenshot chrome removed automatically"
-   ],
-   "source_record_sha256": "818624ce20354b9e58eaca93c0851a618f2ff380a6b058c810201de4b646f54a"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "033cc80a0b0373b42719f32c6afb12c8e8d7874dd6bf3d2b8bc8213b82958694"
   },
   {
    "id": "UWORLD_18542",

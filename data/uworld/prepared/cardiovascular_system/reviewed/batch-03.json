@@ -32,11 +32,16 @@
     },
     {
      "letter": "D",
-     "text": "False aneurysm (1 4%) 0 E. Giant cell arteritis",
-     "selection_percent": 10
+     "text": "False aneurysm",
+     "selection_percent": 14
     },
     {
      "letter": "E",
+     "text": "Giant cell arteritis",
+     "selection_percent": 10
+    },
+    {
+     "letter": "F",
      "text": "Malignant hypertension",
      "selection_percent": 7
     }
@@ -79,15 +84,23 @@
     },
     {
      "type": "paragraph",
-     "text": "© uworld Myxomatous changes in the media of large arteries is found in cystic medial degeneration, a form of pathologic weakening of connective tissue that occurs in large arteries. Medial degeneration is characterized by the fragmentation of elastic tissue and separation of the elastic and fibromuscular components of the tunica media by small, clefted spaces that become filled with amorphous extracellular matrix (ie, mucopolysaccharide). Marfan syndrome is a frequent cause of cystic medial degeneration in younger patients. It is characterized by an autosomal dominant defect in the extracellular glycoprotein fibrillin-1, which is a major component of the extracellular matrix microfibrils that form the scaffolding for elastic fibers. Mutation of the fibrillin-1 gene results in elastic tissue fragmentation, which predisposes affected patients to aortic aneurysms (with an intact intima) and dissections (with an intimal tear). Beta-aminopropionitrile (a chemical found in certain kinds of sweet peas) causes inhibition of lysyl oxidase, an enzyme responsible for cross-linking elastin fibers and collagen fibers. Ingestion of this compound can cause connective tissue disruption in the aorta that mimics the myxomatous degeneration seen in patients with Marfan syndrome."
+     "text": "Myxomatous changes in the media of large arteries is found in cystic medial degeneration, a form of pathologic weakening of connective tissue that occurs in large arteries. Medial degeneration is characterized by the fragmentation of elastic tissue and separation of the elastic and fibromuscular components of the tunica media by small, clefted spaces that become filled with amorphous extracellular matrix (ie, mucopolysaccharide)."
     },
     {
      "type": "paragraph",
-     "text": "(Choice B) Atherosclerosis is the formation of intimal atheromas in response to chronic or repetitive endothelial injury. Myxomatous degeneration does not play a signifi cant role in the pathogenesis of atherosclerosis."
+     "text": "Marfan syndrome is a frequent cause of cystic medial degeneration in younger patients. It is characterized by an autosomal dominant defect in the extracellular glycoprotein fibrillin-1, which is a major component of the extracellular matrix microfibrils that form the scaffolding for elastic fibers. Mutation of the fibrillin-1 gene results in elastic tissue fragmentation, which predisposes affected patients to aortic aneurysms (with an intact intima) and dissections (with an intimal tear)."
     },
     {
      "type": "paragraph",
-     "text": "(Choice C) The pathogenesis of berry aneurysms is multifactorial. Contributory factors include hemodynamic stress, hypertension, and certain connective tissue disorders. Type IV Ehlers-Danlos syndrome (which results in abnormalities in type Ill collagen) predisposes patients to the development of berry aneurysms. Myxomatous degeneration is not associated with berry aneurysms."
+     "text": "Beta-aminopropionitrile (a chemical found in certain kinds of sweet peas) causes inhibition of lysyl oxidase, an enzyme responsible for cross-linking elastin fibers and collagen fibers. Ingestion of this compound can cause connective tissue disruption in the aorta that mimics the myxomatous degeneration seen in patients with Marfan syndrome."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice B) Atherosclerosis is the formation of intimal atheromas in response to chronic or repetitive endothelial injury. Myxomatous degeneration does not play a significant role in the pathogenesis of atherosclerosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice C) The pathogenesis of berry aneurysms is multifactorial. Contributory factors include hemodynamic stress, hypertension, and certain connective tissue disorders. Type IV Ehlers-Danlos syndrome (which results in abnormalities in type III collagen) predisposes patients to the development of berry aneurysms. Myxomatous degeneration is not associated with berry aneurysms."
     },
     {
      "type": "paragraph",
@@ -109,17 +122,14 @@
      "A": 48,
      "B": 11,
      "C": 6,
-     "D": 10,
-     "E": 7
+     "D": 14,
+     "E": 10,
+     "F": 7
     }
    },
-   "status": "blocked",
-   "issues": [
-    "choice letters disagree with order: E",
-    "choice percents sum 82",
-    "suspicious OCR: …© uworld Myxomatous ch…"
-   ],
-   "source_record_sha256": "062310b6513a4716629088feef0dad729346debc73c3777a3ab12dbd11d628b5"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "948d7a056846a1ed2987f37b4f154446fb4cc77ba923c6c6ea5537c071b50234"
   },
   {
    "id": "UWORLD_11763",
@@ -129,7 +139,7 @@
     406,
     407
    ],
-   "question": "An 82-year-old woman is sent to the hospital from a nursing home after 2 days of fever, confusion, and lethargy. The patient has a history of mild dementia, hypertension, and osteoarthritis. Her temperature is 38.8 C (102 F), blood pressure is 90/60 mmHg, and pulse is 116/min. She has mild suprapubic and right costovertebral angle tenderness. Her leukocyte count is 18,000/mm 3 , and urinalysis is consistent with acute cystitis. A femoral venous access is planned for administration of intravenous fluids and antibiotics. The femoral artery pulsation is palpable immediately below the inguinal ligament. Which of the following describes the optimal cannulation site for the femoral vein?",
+   "question": "An 82-year-old woman is sent to the hospital from a nursing home after 2 days of fever, confusion, and lethargy. The patient has a history of mild dementia, hypertension, and osteoarthritis. Her temperature is 38.8 C (102 F), blood pressure is 90/60 mm Hg, and pulse is 116/min. She has mild suprapubic and right costovertebral angle tenderness. Her leukocyte count is 18,000/mm³, and urinalysis is consistent with acute cystitis. A femoral venous access is planned for administration of intravenous fluids and antibiotics. The femoral artery pulsation is palpable immediately below the inguinal ligament. Which of the following describes the optimal cannulation site for the femoral vein?",
    "options": [
     {
      "letter": "A",
@@ -173,7 +183,11 @@
     },
     {
      "type": "paragraph",
-     "text": "Femoral vein catheter placement is usually done in patients with unavailable preferred access sites (eg, subclavian, jugular vein) or those at increased risk of complications (eg, emergency access, uncooperative patient). The femoral vein is the major deep vein of the lower extremity and passes through the femoral triangle beneath the inguinal ligament before entering the pelvis as the external iliac vein. The femoral triangle is a subfascial space in the upper thigh that is bordered by the inguinal ligament (superiorly), adductor longus muscle (medially), and sartorius muscle (laterally). Within the femoral triangle lies (lateral to medial) the femoral nerve, femoral artery, femoral vein, and deep inguinal nodes/lymphatic vessels. The femoral artery is located at the midinguinal point (midway between the pubic symphysis and anterior superior iliac spine), and the femoral vein lies immediately medial to the artery. Cannulation of the femoral vein should occur approximately 1 cm below the inguinal ligament and 0.5-1.0 cm medial to the femoral artery pulsation (Choices C, D, and E)."
+     "text": "Femoral vein catheter placement is usually done in patients with unavailable preferred access sites (eg, subclavian, jugular vein) or those at increased risk of complications (eg, emergency access, uncooperative patient). The femoral vein is the major deep vein of the lower extremity and passes through the femoral triangle beneath the inguinal ligament before entering the pelvis as the external iliac vein. The femoral triangle is a subfascial space in the upper thigh that is bordered by the inguinal ligament (superiorly), adductor longus muscle (medially), and sartorius muscle (laterally)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Within the femoral triangle lies (lateral to medial) the femoral nerve, femoral artery, femoral vein, and deep inguinal nodes/lymphatic vessels. The femoral artery is located at the midinguinal point (midway between the pubic symphysis and anterior superior iliac spine), and the femoral vein lies immediately medial to the artery. Cannulation of the femoral vein should occur approximately 1 cm below the inguinal ligament and 0.5-1.0 cm medial to the femoral artery pulsation (Choices C, D, and E)."
     },
     {
      "type": "paragraph",
@@ -191,13 +205,9 @@
      "E": 1
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …©UWorld Femoral vein c…",
-    "UWorld screenshot text leaked: UWORLD_11763 explanation 1",
-    "screenshot chrome removed automatically"
-   ],
-   "source_record_sha256": "ac7cbef5a341eb80520c73de268d553c43e294f6c48ce326e374b990ab2dffc3"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "33920b2d1006917fcd3853211cced92c029877f7784d13789d1fc3a46a2cfe9e"
   },
   {
    "id": "UWORLD_93",
@@ -209,7 +219,7 @@
     421,
     422
    ],
-   "question": "A 78-year-old man is admitted to the hospital due to fatigue, orthopnea, and exertional dyspnea. The patient takes no medications and has not seen a physician in many years. He is a lifelong nonsmoker. Blood pressure is 110/60 mmHg and pulse is 64/min. Examination reveals bibasilar crackles, elevated jugular venous pressure, and bilateral lower extremity pitting edema. Left ventricular diastolic pressure-volume curve is shown in the exhibit (purple curve). Which of the following is the most likely cause of this patient's condition?",
+   "question": "A 78-year-old man is admitted to the hospital due to fatigue, orthopnea, and exertional dyspnea. The patient takes no medications and has not seen a physician in many years. He is a lifelong nonsmoker. Blood pressure is 110/60 mm Hg and pulse is 64/min. Examination reveals bibasilar crackles, elevated jugular venous pressure, and bilateral lower extremity pitting edema. Left ventricular diastolic pressure-volume curve is shown in the exhibit (purple curve). Which of the following is the most likely cause of this patient's condition?",
    "options": [
     {
      "letter": "A",
@@ -276,7 +286,15 @@
     },
     {
      "type": "paragraph",
-     "text": "EF = ejection fraction; LV = left ventricular. SV = stroke volume. © UWor1d This patient's fatigue, exertional dyspnea, and orthopnea as well as lung crackles, jugular venous distension (JVD), and lower extremity edema on physical examination are consistent with decompensated heart failure. The left ventricular (LV) diastolic pressure-volume curve shows elevated pressure at any given LV volume. This finding indicates reduced LV compliance (ie, diastolic dysfunction), as occurs in conditions causing heart failure with preserved ejection fraction (eg, hypertensive heart disease, restrictive cardiomyopathy). Cardiac amyloidosis is a common cause of restrictive cardiomyopathy resulting from abnormal accumulation of amyloid proteins, particularly immunoglobulin light chains or transthyretin (protein carrier of thyroxine and retinol). Transthyretin amyloidosis most often affects the heart of elderly patients and lead to an infiltrative restrictive cardiomyopathy. The ventricular walls become thickened and stiff and unable to relax during diastole; higher pressures are required to fill the ventricle. Elevated hydrostatic pressure backs up into the lungs (pulmonary edema) and into the right side of the heart and systemic venous system (JVD and peripheral edema). LV contractility is intact with infiltrative restrictive cardiomyopathy (especially early in the disease process), but it can decrease as the disease progresses, eventually leading to LV cavity dilation and a picture consistent with dilated cardiomyopathy."
+     "text": "This patient's fatigue, exertional dyspnea, and orthopnea as well as lung crackles, jugular venous distension (JVD), and lower extremity edema on physical examination are consistent with decompensated heart failure. The left ventricular (LV) diastolic pressure-volume curve shows elevated pressure at any given LV volume. This finding indicates reduced LV compliance (ie, diastolic dysfunction), as occurs in conditions causing heart failure with preserved ejection fraction (eg, hypertensive heart disease, restrictive cardiomyopathy)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Cardiac amyloidosis is a common cause of restrictive cardiomyopathy resulting from abnormal accumulation of amyloid proteins, particularly immunoglobulin light chains or transthyretin (protein carrier of thyroxine and retinol). Transthyretin amyloidosis most often affects the heart of elderly patients and lead to an infiltrative restrictive cardiomyopathy. The ventricular walls become thickened and stiff and unable to relax during diastole; higher pressures are required to fill the ventricle. Elevated hydrostatic pressure backs up into the lungs (pulmonary edema) and into the right side of the heart and systemic venous system (JVD and peripheral edema)."
+    },
+    {
+     "type": "paragraph",
+     "text": "LV contractility is intact with infiltrative restrictive cardiomyopathy (especially early in the disease process), but it can decrease as the disease progresses, eventually leading to LV cavity dilation and a picture consistent with dilated cardiomyopathy."
     },
     {
      "type": "paragraph",
@@ -285,7 +303,7 @@
    ],
    "educational_objective": "Reduced ventricular compliance is seen with restrictive cardiomyopathy and other causes of diastolic dysfunction and heart failure with preserved ejection fraction (eg, hypertensive heart disease). It involves ventricular wall thickening and/or stiffening that leads to increased diastolic filling pressure at any given ventricular volume.",
    "statistics": {
-    "answered_correctly_percent": 48,
+    "answered_correctly_percent": 49,
     "selection_percent": {
      "A": 16,
      "B": 15,
@@ -294,11 +312,9 @@
      "E": 16
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: … left ventricular. SV = stroke volume. © UWor1d This patient'…"
-   ],
-   "source_record_sha256": "39747b14c454234d5c88ae04f49c6ed8feb55de1b0c1940f8476382109e6e6a3"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "890712a299f7544a2b3711a2b3621e5117770808a5dc1d7f0e9ebd375a0a0fca"
   },
   {
    "id": "UWORLD_19534",
@@ -463,10 +479,14 @@
     },
     {
      "type": "paragraph",
-     "text": "© uworld The beat marked by the letter Y in this patient is a premature ventricular contraction (PVC), recognized by a wide QRS complex, opposite-facing Twave, and brief ensuing sinus pause (ie, delayed Pwave). PVCs may result from increased ventricular automaticity leading to spontaneous ventricular depolarization. Occasional PVCs are normal and considered benign. When a PVC occurs, it interrupts diastolic filling of the left ventricle, resulting in decreased end-diastolic volume (EDV) compared to the previous normal beat (beat X > Y). The sinus pause that occurs after a PVC allows for longer-than-normal filling time before the next ventricular contraction (ie, prolonged ventricular diastole), which creates increased EDY at the time of the post-PVC beat (beat Z > X). The greater-than-normal EDV causes a large-stroke volume ventricular ejection, which may be responsible for the palpitations that some patients experience with PVCs."
+     "text": "The beat marked by the letter Y in this patient is a premature ventricular contraction (PVC), recognized by a wide QRS complex, opposite-facing T wave, and brief ensuing sinus pause (ie, delayed P wave). PVCs may result from increased ventricular automaticity leading to spontaneous ventricular depolarization. Occasional PVCs are normal and considered benign."
+    },
+    {
+     "type": "paragraph",
+     "text": "When a PVC occurs, it interrupts diastolic filling of the left ventricle, resulting in decreased end-diastolic volume (EDV) compared to the previous normal beat (beat X > Y). The sinus pause that occurs after a PVC allows for longer-than-normal filling time before the next ventricular contraction (ie, prolonged ventricular diastole), which creates increased EDV at the time of the post-PVC beat (beat Z > X). The greater-than-normal EDV causes a large-stroke volume ventricular ejection, which may be responsible for the palpitations that some patients experience with PVCs."
     }
    ],
-   "educational_objective": "A premature ventricular contraction is recognized on ECG by a wide QRS complex, opposite-facing Twave, and brief ensuing sinus pause. Left ventricular fil ling is less than normal at the time of the PVC. The ensuing sinus pause allows for greater-than-normal filling during the post-PVC beat.",
+   "educational_objective": "A premature ventricular contraction is recognized on ECG by a wide QRS complex, opposite-facing T wave, and brief ensuing sinus pause. Left ventricular filling is less than normal at the time of the PVC. The ensuing sinus pause allows for greater-than-normal filling during the post-PVC beat.",
    "statistics": {
     "answered_correctly_percent": 55,
     "selection_percent": {
@@ -477,13 +497,9 @@
      "E": 55
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …©UWorld Which of the f…",
-    "UWorld screenshot text leaked: UWORLD_21037 question",
-    "screenshot chrome removed automatically"
-   ],
-   "source_record_sha256": "c2779b50a5680a3c2e7567714504594487c5f6e6c59c6b06adf22668de1a8b4f"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "a81407b6c7446e5434715ef170b0d4eae188222306707a2aeaae389883aadb1e"
   },
   {
    "id": "UWORLD_8546",
@@ -495,7 +511,7 @@
     442,
     443
    ],
-   "question": "A 63-year-old man comes to the emergency department due to dyspnea. Over the past several days, the patient has experienced progressively worsening shortness of breath while walking his dog around the block. In addition, he could not breathe while lying in bed last night and fell asleep only after moving to a recl iner. The patient had an acute myocardial infarction 2 years ago and has been nonadherent with his medications and follow-up appointments. Temperature is 36.7 C (98 F), blood pressure is 122/74 mmHg, pulse is 94/min, and respirations are 22/min. Physical examination shows bibasilar lung crackles, jugular venous distension, and bilateral pitting edema in the lower extremities. Chest x-ray reveals cardiomegaly and pulmonary venous congestion. Which of the following factors is most likely contributing to this patient's symptoms?",
+   "question": "A 63-year-old man comes to the emergency department due to dyspnea. Over the past several days, the patient has experienced progressively worsening shortness of breath while walking his dog around the block. In addition, he could not breathe while lying in bed last night and fell asleep only after moving to a recliner. The patient had an acute myocardial infarction 2 years ago and has been nonadherent with his medications and follow-up appointments. Temperature is 36.7 C (98 F), blood pressure is 122/74 mm Hg, pulse is 94/min, and respirations are 22/min. Physical examination shows bibasilar lung crackles, jugular venous distension, and bilateral pitting edema in the lower extremities. Chest x-ray reveals cardiomegaly and pulmonary venous congestion. Which of the following factors is most likely contributing to this patient's symptoms?",
    "options": [
     {
      "letter": "A",
@@ -550,11 +566,11 @@
     },
     {
      "type": "paragraph",
-     "text": "Maintains blood pressure © UWortd This patient's progressive dyspnea, orthopnea, and lower extremity swelling are consistent with acute decompensated heart failure. Heart failure occurs when a structural or functional cardiac disorder impairs ventricular filling or ejection of blood, causing reduced cardiac output and elevated fill ing pressure. The reduced cardiac output causes an initial drop in blood pressure, which triggers compensatory neurohormonal activity mainly via stimulation of the sympathetic nervous system and renin-angiotensin-aldosterone system (RMS). These adaptations function together in an effort to improve organ perfusion by increasing cardiac chronotropy and inotropy (improves cardiac output), promoting arterial and venous vasoconstriction (maintains perfusion pressure), and expanding the extracellular fluid compartment (improves circulating blood volume). However, over time, these responses lead to adverse consequences that perpetuate a downward spiral of progressive cardiac deterioration. Chronic hemodynamic stress (eg, increased preload and afterload) and prolonged exposure to sympathetic drive (catecholamines) and RMS stimulation (angiotensin II, aldosterone) lead to deleterious remodeling with worsening cardiac function and eventual symptomatic decompensation."
+     "text": "This patient's progressive dyspnea, orthopnea, and lower extremity swelling are consistent with acute decompensated heart failure. Heart failure occurs when a structural or functional cardiac disorder impairs ventricular filling or ejection of blood, causing reduced cardiac output and elevated filling pressure. The reduced cardiac output causes an initial drop in blood pressure, which triggers compensatory neurohormonal activity mainly via stimulation of the sympathetic nervous system and renin-angiotensin-aldosterone system (RAAS). These adaptations function together in an effort to improve organ perfusion by increasing cardiac chronotropy and inotropy (improves cardiac output), promoting arterial and venous vasoconstriction (maintains perfusion pressure), and expanding the extracellular fluid compartment (improves circulating blood volume). However, over time, these responses lead to adverse consequences that perpetuate a downward spiral of progressive cardiac deterioration. Chronic hemodynamic stress (eg, increased preload and afterload) and prolonged exposure to sympathetic drive (catecholamines) and RAAS stimulation (angiotensin II, aldosterone) lead to deleterious remodeling with worsening cardiac function and eventual symptomatic decompensation."
     },
     {
      "type": "paragraph",
-     "text": "(Choices A and B) Decreased cardiac output in heart failure stimulates increased RMS activity and sympathetic output, resulting in increased arteriolar resistance."
+     "text": "(Choices A and B) Decreased cardiac output in heart failure stimulates increased RAAS activity and sympathetic output, resulting in increased arteriolar resistance."
     },
     {
      "type": "paragraph",
@@ -562,7 +578,7 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice D) Heart failure triggers the myocardium to secrete natriuretic peptides (ie, atrial natriuretic peptide, brain natriuretic peptide) in response to myocardial stretch from volume overload. These peptides stimulate vasodilation and increase salt and water excretion to improve the symptoms of heart failure; however, these positive effects are overpowered by the negative effects of increased sympathetic drive and RMS activation."
+     "text": "(Choice D) Heart failure triggers the myocardium to secrete natriuretic peptides (ie, atrial natriuretic peptide, brain natriuretic peptide) in response to myocardial stretch from volume overload. These peptides stimulate vasodilation and increase salt and water excretion to improve the symptoms of heart failure; however, these positive effects are overpowered by the negative effects of increased sympathetic drive and RAAS activation."
     }
    ],
    "educational_objective": "The reduced cardiac output in heart failure triggers compensatory activation of the sympathetic nervous system and renin-angiotensin-aldosterone pathway, resulting in vasoconstriction (increased afterload), fluid retention (increased preload), and deleterious cardiac remodeling. These mechanisms perpetuate a downward spiral of cardiac deterioration, leading to symptomatic decompensated heart failure.",
@@ -576,11 +592,9 @@
      "E": 52
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …Maintains blood pressure © UWortd This patient'…"
-   ],
-   "source_record_sha256": "a61bdd4f2d2531b3c373c3bc273054e2d36d8d2d19dfaac05eddcfa0eee5daba"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "62f2d5994bf2c2736f8c5db63e60309518902460a1e4fefca98692ac439084a2"
   },
   {
    "id": "UWORLD_1531",
@@ -788,7 +802,7 @@
     473,
     474
    ],
-   "question": "An experiment is conducted to assess the effects of drug A on the hemodynamic actions of epinephrine. Two groups of healthy volunteers are selected. The first group receives only low-dose epinephrine, and its effects on diastolic blood pressure and heart rate are monitored and shown below (epinephrine group). The second group is pretreated with drug A and then infused with low-dose epinephrine to produce a new set of curves (epinephrine+ drug A group). Epinephrine group Epinephrine + Drug A group Which of the following medications is most likely to be drug A?",
+   "question": "An experiment is conducted to assess the effects of drug A on the hemodynamic actions of epinephrine. Two groups of healthy volunteers are selected. The first group receives only low-dose epinephrine, and its effects on diastolic blood pressure and heart rate are monitored and shown below (epinephrine group). The second group is pretreated with drug A and then infused with low-dose epinephrine to produce a new set of curves (epinephrine + drug A group). Which of the following medications is most likely to be drug A?",
    "options": [
     {
      "letter": "A",
@@ -797,7 +811,7 @@
     },
     {
      "letter": "B",
-     "text": "lsoproterenol",
+     "text": "Isoproterenol",
      "selection_percent": 15
     },
     {
@@ -844,15 +858,15 @@
    "explanation": [
     {
      "type": "paragraph",
-     "text": "The hemodynamic actions of epinephrine occur secondary to agonistic effects at o1, 131, and 132 adrenoreceptors (relative strength: 13, = l3 2 > a,). Stimulation of 131 receptors in the heart increases cardiac rate and contractility, which increases systolic blood pressure due to the rise in cardiac output. Stimulation of 132 receptors in the skeletal muscle vasculature produces vasodilation and decreased diastolic blood pressure, while activation of o1 receptors on vascular smooth muscle in the skin and viscera increases peripheral resistance and raises diastolic blood pressure. At low doses, 132-mediated vasodilation predominates, whereas at high doses o 1-induced vasoconstriction becomes more pronounced. In this experiment, low-dose epinephrine by itself caused increased heart rate (131 response) and decreased diastolic blood pressure (132 response). However, after pretreatment with drug A, the heart rate fails to increase and there is a marked rise in diastolic blood pressure. These effects are best explained by pretreatment with a nonselective beta antagonist such as propranolol. When administered alone, propranolol produces peripheral vasoconstriction (132 antagonism) without signifi cantly increasing blood pressure (due to concomitant 131 blockade). However, in combination with epinephrine, propranolol will counteract epinephrine's 132-mediated vasodilation and 131-mediated heart rate increase while leaving the o1 effect (vasoconstriction) intact. This will vasoconstriction (~2 antagonism) without signifi cantly increasing blood pressure (due to concomitant ~1 blockade). However, in combination with epinephrine, propranolol will counteract epinephrine's ~2-mediated vasodilation and ~1 -mediated heart rate increase while leaving the a1 effect (vasoconstriction) intact. This will increase diastolic blood pressure and cause a slight reflexive reduction in heart rate."
+     "text": "The hemodynamic actions of epinephrine occur secondary to agonistic effects at α1, β1, and β2 adrenoreceptors (relative strength: β1 = β2 > α1). Stimulation of β1 receptors in the heart increases cardiac rate and contractility, which increases systolic blood pressure due to the rise in cardiac output. Stimulation of β2 receptors in the skeletal muscle vasculature produces vasodilation and decreased diastolic blood pressure, while activation of α1 receptors on vascular smooth muscle in the skin and viscera increases peripheral resistance and raises diastolic blood pressure. At low doses, β2-mediated vasodilation predominates, whereas at high doses α1-induced vasoconstriction becomes more pronounced. In this experiment, low-dose epinephrine by itself caused increased heart rate (β1 response) and decreased diastolic blood pressure (β2 response). However, after pretreatment with drug A, the heart rate fails to increase and there is a marked rise in diastolic blood pressure. These effects are best explained by pretreatment with a nonselective beta antagonist such as propranolol. When administered alone, propranolol produces peripheral vasoconstriction (β2 antagonism) without significantly increasing blood pressure (due to concomitant β1 blockade). However, in combination with epinephrine, propranolol will counteract epinephrine's β2-mediated vasodilation and β1-mediated heart rate increase while leaving the α1 effect (vasoconstriction) intact. This will increase diastolic blood pressure and cause a slight reflexive reduction in heart rate."
     },
     {
      "type": "paragraph",
-     "text": "(Choice A) Atropine is a competitive antagonist of cholinergic muscarinic receptors in the heart (M 2). Atropine increases the heart rate by blocking parasympathetic vagal influence; after pretreatment with atropine, epinephrine-mediated tachycardia would increase."
+     "text": "(Choice A) Atropine is a competitive antagonist of cholinergic muscarinic receptors in the heart (M2). Atropine increases the heart rate by blocking parasympathetic vagal influence; after pretreatment with atropine, epinephrine-mediated tachycardia would increase."
     },
     {
      "type": "paragraph",
-     "text": "(Choice B) lsoproterenol is a nonselective ~-adrenergic agonist that stimulates both ~2 receptors on vascular smooth muscle (leading to vasodilatation) and cardiac ~1 receptors (leading to increases in cardiac rate and contractility). A combination of isoproterenol and epinephrine would further decrease diastolic blood pressure and exacerbate the tachycardia."
+     "text": "(Choice B) Isoproterenol is a nonselective β-adrenergic agonist that stimulates both β2 receptors on vascular smooth muscle (leading to vasodilatation) and cardiac β1 receptors (leading to increases in cardiac rate and contractility). A combination of isoproterenol and epinephrine would further decrease diastolic blood pressure and exacerbate the tachycardia."
     },
     {
      "type": "paragraph",
@@ -860,12 +874,12 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice D) Phenylephrine is a selective a-adrenergic agonist. Administration by itself may cause elevated systolic and diastolic blood pressures, which may be associated with reflex bradycardia. However, after pretreatment, epinephrine would still produce an initial rise in heart rate due to unopposed ~1 stimulation."
+     "text": "(Choice D) Phenylephrine is a selective α-adrenergic agonist. Administration by itself may cause elevated systolic and diastolic blood pressures, which may be associated with reflex bradycardia. However, after pretreatment, epinephrine would still produce an initial rise in heart rate due to unopposed β1 stimulation."
     }
    ],
-   "educational_objective": "Epinephrine increases systolic blood pressure ( a, + ~,) and heart rate (~ 1 ), and either increases or decreases diastolic blood pressure depending on the dose (either a 1 or ~2 predominates). Pretreatment with propranolol eliminates the ~ effects of epinephrine (vasodilatation and tachycardia), leaving only the a effect (vasoconstriction).",
+   "educational_objective": "Epinephrine increases systolic blood pressure (α1 + β1) and heart rate (β1), and either increases or decreases diastolic blood pressure depending on the dose (either α1 or β2 predominates). Pretreatment with propranolol eliminates the β effects of epinephrine (vasodilatation and tachycardia), leaving only the α effect (vasoconstriction).",
    "statistics": {
-    "answered_correctly_percent": null,
+    "answered_correctly_percent": 55,
     "selection_percent": {
      "A": 3,
      "B": 15,
@@ -874,11 +888,9 @@
      "E": 55
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …n) intact. This will vasoconstriction (~2 antagonism) without…"
-   ],
-   "source_record_sha256": "60ef52dc328b25326f045b7618c61ec8dd5cf986ea7029f9fac2c7d0de74945d"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "8c87295eb026832435247a9f0cc6519cf1ba35d7b4289063e5c6a78d21dc74dc"
   },
   {
    "id": "UWORLD_20257",
@@ -2058,7 +2070,7 @@
     545,
     546
    ],
-   "question": "Physiologists conducting research on the electrical properties of the heart measure action potential conduction velocity at 4 different points within normal cardiac tissue. The results, expressed in terms of speed of conduction (meters per second), are as follows: Point 1 - 0.05 m/sec Point 2 - 0.3 m/sec Point 3 - 1.1 m/sec Point 4 - 2.2 m/sec From the following list of locations, which most likely corresponds to the order of points 1-2-3-4 (AV= atrioventricular)?",
+   "question": "Physiologists conducting research on the electrical properties of the heart measure action potential conduction velocity at 4 different points within normal cardiac tissue. The results, expressed in terms of speed of conduction (meters per second), are as follows: Point 1 – 0.05 m/sec Point 2 – 0.3 m/sec Point 3 – 1.1 m/sec Point 4 – 2.2 m/sec From the following list of locations, which most likely corresponds to the order of points 1-2-3-4 (AV = atrioventricular)?",
    "options": [
     {
      "letter": "A",
@@ -2102,7 +2114,23 @@
     },
     {
      "type": "paragraph",
-     "text": "© UWorld Cardiac impulses normally originate in the sinoatrial (SA) node. SA node depolarization delivers an electrical impulse to the surrounding atrial myocardium, which carries the action potential to the atrioventricular (AV) node at a rate of 1.1 m/sec. Speed of conduction in the AV node is the slowest (0.05 m/sec), and this delay allows the ventricles to completely fill with blood during diastole. From the AV node, the action potential enters the His- Purkinje system. Impulses travel the fastest through the Purkinje fibers (2.2 m/sec), which ensures that the ventricles contract in a bottom-up fashion (necessary for efficient propulsion of blood into the pulmonary artery and aorta). From the Purkinje fibers, the action potential is transmitted to the ventricular myocardium, where it travels at a rate of 0.3 m/sec. Points 1-2-3-4 are arranged in order of increasing conduction speed (not conduction time), as follows:"
+     "text": "Cardiac impulses normally originate in the sinoatrial (SA) node. SA node depolarization delivers an electrical impulse to the surrounding atrial myocardium, which carries the action potential to the atrioventricular (AV) node at a rate of 1.1 m/sec. Speed of conduction in the AV node is the slowest (0.05 m/sec), and this delay allows the ventricles to completely fill with blood during diastole. From the AV node, the action potential enters the His-Purkinje system. Impulses travel the fastest through the Purkinje fibers (2.2 m/sec), which ensures that the ventricles contract in a bottom-up fashion (necessary for efficient propulsion of blood into the pulmonary artery and aorta). From the Purkinje fibers, the action potential is transmitted to the ventricular myocardium, where it travels at a rate of 0.3 m/sec. Points 1-2-3-4 are arranged in order of increasing conduction speed (not conduction time), as follows:"
+    },
+    {
+     "type": "paragraph",
+     "text": "Point 1 – AV node (0.05 m/sec)"
+    },
+    {
+     "type": "paragraph",
+     "text": "Point 2 – Ventricular muscle (0.3 m/sec)"
+    },
+    {
+     "type": "paragraph",
+     "text": "Point 3 – Atrial muscle (1.1 m/sec)"
+    },
+    {
+     "type": "paragraph",
+     "text": "Point 4 – Purkinje system (2.2 m/sec)"
     }
    ],
    "educational_objective": "The cardiac action potential conduction speed is slowest in the atrioventricular node and fastest in the Purkinje system. Conduction speed of the atrial muscle is faster than that of the ventricular muscle.",
@@ -2116,11 +2144,9 @@
      "E": 3
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …© UWorld Cardiac impul…"
-   ],
-   "source_record_sha256": "f6021e821b016e13498d6537be5eec3c973fe5adc567a8412b55238a493c191f"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "49db36879fd283b08999291173808790e7e745856cd9dcff9f4aa225acf5e230"
   },
   {
    "id": "UWORLD_1506",
@@ -2320,7 +2346,7 @@
     585,
     586
    ],
-   "question": "A 64-year-old man dies suddenly while playing tennis. In the preceding months, he experienced fatigue and some exertional dyspnea. Autopsy is performed. The heart examination shows left ventricular septal thickness of 1.6 cm (normal: <1 . 1 ), posterior wall thickness of 1.6 cm (normal: <1 . 1 ), and an internal left ventricular diameter of 3.2 cm (normal: 3.5-5.9). No focal myocardial scarring is seen. Which of the following is the most likely cause of the cardiac findings seen in this individual?",
+   "question": "A 64-year-old man dies suddenly while playing tennis. In the preceding months, he experienced fatigue and some exertional dyspnea. Autopsy is performed. The heart examination shows left ventricular septal thickness of 1.6 cm (normal: <1.1), posterior wall thickness of 1.6 cm (normal: <1.1), and an internal left ventricular diameter of 3.2 cm (normal: 3.5-5.9). No focal myocardial scarring is seen. Which of the following is the most likely cause of the cardiac findings seen in this individual?",
    "options": [
     {
      "letter": "A",
@@ -2364,7 +2390,11 @@
     },
     {
      "type": "paragraph",
-     "text": "LV = left ventricle: RV= right ventricle. This individual's autopsy reveals thickened left ventricular walls and a small left ventricular cavity consistent with concentric hypertrophy. Concentric hypertrophy results from the addition of myocardial contractile fibers in parallel in response to chronic pressure overload. The adaptation allows for increased contractile force but causes impaired diastolic filling and can lead to heart failure with preserved ejection fraction (diastolic failure). Common causes of concentric hypertrophy include prolonged systemic hypertension and aortic stenosis. Patients with severe aortic stenosis typically experience exertional symptoms, including fatigue, shortness of breath, angina, and presyncope or syncope. Sudden cardiac death can result from the inability to increase cardiac output with exertion due to left ventricular outflow obstruction."
+     "text": "This individual's autopsy reveals thickened left ventricular walls and a small left ventricular cavity consistent with concentric hypertrophy. Concentric hypertrophy results from the addition of myocardial contractile fibers in parallel in response to chronic pressure overload. The adaptation allows for increased contractile force but causes impaired diastolic filling and can lead to heart failure with preserved ejection fraction (diastolic failure). Common causes of concentric hypertrophy include prolonged systemic hypertension and aortic stenosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Patients with severe aortic stenosis typically experience exertional symptoms, including fatigue, shortness of breath, angina, and presyncope or syncope. Sudden cardiac death can result from the inability to increase cardiac output with exertion due to left ventricular outflow obstruction."
     },
     {
      "type": "paragraph",
@@ -2394,13 +2424,9 @@
      "E": 0
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …= left ventricle: RV= right ventricle. ©UWortd This individua…",
-    "UWorld screenshot text leaked: UWORLD_15196 explanation 1",
-    "screenshot chrome removed automatically"
-   ],
-   "source_record_sha256": "d760981a580cca21e1f47654c0c65b894e9d117f372fea40d77a81735b1b6f0a"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "c470be7dc43e5b5cdd23e060fc5a25ea4ed7456ae0909d3822da15b7c3d60ae8"
   },
   {
    "id": "UWORLD_8333",
@@ -2478,7 +2504,11 @@
     },
     {
      "type": "paragraph",
-     "text": "Mitral valve The aorta has 4 major divisions: the ascending aorta, the aortic arch, the descending thoracic aorta, and the abdominal aorta. The ascending aorta lies posterior and to the right of the main pulmonary artery. The aortic arch travels above the right pulmonary artery and the left bronchus. The brachiocephalic, left common carotid, and left subclavian arteries (in that order) originate from its superior aspect. The descending thoracic aorta travels down the anterior surface of the vertebral column, becoming the abdominal aorta as it crosses the diaphragm. As it descends, the aorta moves from the left side of the vertebral column toward the midline; at the level of the cardiac chambers, the descending aorta lies posterior to the esophagus and the left atrium. This permits clear visualization of the descending aorta during transesophageal echocardiography (TEE), allowing for the detection of abnormalities such as dissection or aneurysm. The other answer choices describe structures located anterior to the esophagus."
+     "text": "The aorta has 4 major divisions: the ascending aorta, the aortic arch, the descending thoracic aorta, and the abdominal aorta. The ascending aorta lies posterior and to the right of the main pulmonary artery. The aortic arch travels above the right pulmonary artery and the left bronchus. The brachiocephalic, left common carotid, and left subclavian arteries (in that order) originate from its superior aspect. The descending thoracic aorta travels down the anterior surface of the vertebral column, becoming the abdominal aorta as it crosses the diaphragm. As it descends, the aorta moves from the left side of the vertebral column toward the midline; at the level of the cardiac chambers, the descending aorta lies posterior to the esophagus and the left atrium. This permits clear visualization of the descending aorta during transesophageal echocardiography (TEE), allowing for the detection of abnormalities such as dissection or aneurysm."
+    },
+    {
+     "type": "paragraph",
+     "text": "The other answer choices describe structures located anterior to the esophagus."
     },
     {
      "type": "paragraph",
@@ -2508,13 +2538,9 @@
      "E": 1
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …Mitral valve ©UWorld The aorta has …",
-    "UWorld screenshot text leaked: UWORLD_8333 explanation 3",
-    "screenshot chrome removed automatically"
-   ],
-   "source_record_sha256": "638df1b4ce28a9ef123724c63b2c2e5a5df75a5c84cb68c100f6ab4e9fc0ab9c"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "2689b1642b93c1e6e1e65c715b3700070d58f3c298210a3548c4a67fbc65ef97"
   }
  ]
 }

@@ -8,10 +8,39 @@ HTML=ROOT/'app/src/main/assets/index.html'
 START='  /* NK_UWORLD_BANK_DATA_START */'
 END='  /* NK_UWORLD_BANK_DATA_END */'
 
+DATA_DIR=HTML.parent/'uworld_data'
+DATA_TAGS=re.compile(r'<script src="uworld_data/[^"]+"></script>\n?')
+
+
+def write_data(records):
+    """One script per collection: index.html stays far below the 25 MB Pages file limit."""
+    if DATA_DIR.exists():
+        for old in DATA_DIR.glob('*.js'):old.unlink()
+    DATA_DIR.mkdir(exist_ok=True)
+    names=[]
+    for i,record in enumerate(records):
+        data=json.dumps(record,ensure_ascii=False,separators=(',',':')).replace('</','<\\/')
+        name=data_names(records)[i]
+        (HTML.parent/name).write_text(f'(window.NK_UWORLD_DATA=window.NK_UWORLD_DATA||[])[{i}]={data};\n',encoding='utf-8')
+        names.append(name)
+    return names
+
+
+def data_names(records):
+    return [f'uworld_data/collection-{i:02d}.js' for i in range(len(records))]
+
+
 def transform(source):
     records=bank_records()
-    data=json.dumps(records,ensure_ascii=False,separators=(',',':')).replace('</','<\\/')
-    registry=START+'\n  const NK_UWORLD_COLLECTIONS='+data+''';
+    names=data_names(records)
+    # Collection scripts load synchronously before the app script that reads them.
+    source=DATA_TAGS.sub('',source)
+    anchor='  let activeSubject = '
+    at=source.rfind('<script',0,source.index(anchor))
+    if at<0:at=source.index('<head>')+len('<head>')
+    source=source[:at]+''.join(f'<script src="{n}"></script>\n' for n in names)+source[at:]
+    registry=START+'''
+  const NK_UWORLD_COLLECTIONS=(window.NK_UWORLD_DATA||[]).filter(Boolean);
   const NK_UWORLD_BIOCHEMISTRY_BANK=NK_UWORLD_COLLECTIONS[0];
   // Collection namespace participates in the shared engines, never My Subjects.
   BANKS_BY_SUBJECT[NK_UWORLD_BIOCHEMISTRY_BANK.subject]=[NK_UWORLD_BIOCHEMISTRY_BANK];
@@ -75,6 +104,7 @@ def transform(source):
     return source
 
 if __name__=='__main__':
-    HTML.write_text(transform(HTML.read_text()),encoding='utf-8')
     records = bank_records()
+    write_data(records)
+    HTML.write_text(transform(HTML.read_text()),encoding='utf-8')
     print(f'UWORLD_COLLECTIONS_INSTALLED collections={len(records)} questions={sum(len(r["questions"]) for r in records)} topics={sum(len(r["topics"]) for r in records)} shared_engine=true original_records=preserved')

@@ -234,23 +234,18 @@
     },
     {
      "letter": "C",
-     "text": "Circulating viral antigen-antibody complexes with small vessel deposition and immunologic vessel",
+     "text": "Circulating viral antigen-antibody complexes with small vessel deposition and immunologic vessel injury",
      "selection_percent": 3
     },
     {
      "letter": "D",
-     "text": "nJUry 0 D. Antigen mimicry with generation of self-antigen recognizing CD4+ T lymphocytes that damage",
+     "text": "Antigen mimicry with generation of self-antigen recognizing CD4+ T lymphocytes that damage hepatocytes",
      "selection_percent": 4
     },
     {
      "letter": "E",
-     "text": "epatocytes 0 E. CD8+ T lymphocyte response to viral antigens on the cell surface resulting in hepatocyte",
+     "text": "CD8+ T lymphocyte response to viral antigens on the cell surface resulting in hepatocyte damage",
      "selection_percent": 53
-    },
-    {
-     "letter": "F",
-     "text": "amage",
-     "selection_percent": null
     }
    ],
    "correct_label": "E",
@@ -258,7 +253,15 @@
    "explanation": [
     {
      "type": "paragraph",
-     "text": "Hepatitis B virus infection progresses through two phases: the proliferative phase and the integrative phase. In the proliferative phase, the entire virion and all related antigens of the episomal HBV DNA are present. On the hepatocyte cell surface, viral HBsAg and HBcAg are expressed in conjunction with the major histocompatibility complex (MHC) class I molecules. This expression serves to activate the cytotoxic CD8+ T lymphocytes, which respond by destroying the infected hepatocytes. Note that the virion itself does not have a cytopathic effect. In the integrative phase, the HBV DNA is incorporated into the host genome of those hepatocytes that survived the immune response. lnfectivity ceases and liver damage tapers off when the antiviral antibodies appear and viral replication stops. The risk of hepatocellular carcinoma, however, remains elevated because of the HBV DNA that has been integrated into the host genome."
+     "text": "Hepatitis B virus infection progresses through two phases: the proliferative phase and the integrative phase."
+    },
+    {
+     "type": "paragraph",
+     "text": "In the proliferative phase, the entire virion and all related antigens of the episomal HBV DNA are present. On the hepatocyte cell surface, viral HBsAg and HBcAg are expressed in conjunction with the major histocompatibility complex (MHC) class I molecules. This expression serves to activate the cytotoxic CD8+ T lymphocytes, which respond by destroying the infected hepatocytes. Note that the virion itself does not have a cytopathic effect."
+    },
+    {
+     "type": "paragraph",
+     "text": "In the integrative phase, the HBV DNA is incorporated into the host genome of those hepatocytes that survived the immune response. Infectivity ceases and liver damage tapers off when the antiviral antibodies appear and viral replication stops. The risk of hepatocellular carcinoma, however, remains elevated because of the HBV DNA that has been integrated into the host genome."
     },
     {
      "type": "paragraph",
@@ -277,7 +280,7 @@
      "text": "(Choice D) The pathogenesis of autoimmune hepatitis (not hepatitis B infection) involves antigen mimicry with generation of self-antigen recognizing CD4+ T lymphocytes that damage hepatocytes."
     }
    ],
-   "educational_objective": "Hepatitis B virus does not have a cytotoxic effect itself; however, the presence of viral HBsAg and HBcAg on the cell surface stimulate the host's cytotoxic CD8+ T lymphocytes to destroy infected hepatocytes. Pathophysiology Gastrointestinal & Nutrition Hepatitis b",
+   "educational_objective": "Hepatitis B virus does not have a cytotoxic effect itself; however, the presence of viral HBsAg and HBcAg on the cell surface stimulate the host's cytotoxic CD8+ T lymphocytes to destroy infected hepatocytes.",
    "statistics": {
     "answered_correctly_percent": 53,
     "selection_percent": {
@@ -285,15 +288,12 @@
      "B": 12,
      "C": 3,
      "D": 4,
-     "E": 53,
-     "F": null
+     "E": 53
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent"
-   ],
-   "source_record_sha256": "909f9bb40364bb70db7a4f99fd3bcaac7b91aadbb38d7787644d44a02c5f27a1"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "964abbfe6db3f34eccff410c10ddad505403bc9f37b62545aba9fe6c4b52904a"
   },
   {
    "id": "UWORLD_586",
@@ -685,35 +685,52 @@
    "options": [
     {
      "letter": "A",
-     "text": "Hepatic concentration of cytochrome P-450 (1 4%) 0 B. Liver blood perfusion",
-     "selection_percent": 19
+     "text": "Hepatic concentration of cytochrome P-450",
+     "selection_percent": 14
     },
     {
      "letter": "B",
+     "text": "Liver blood perfusion",
+     "selection_percent": 19
+    },
+    {
+     "letter": "C",
      "text": "Rate of hepatic regeneration",
      "selection_percent": 5
     },
     {
-     "letter": "C",
+     "letter": "D",
      "text": "Serum aminotransferase levels",
      "selection_percent": 34
     },
     {
-     "letter": "D",
+     "letter": "E",
      "text": "Size of the liver",
      "selection_percent": 24
     }
    ],
-   "correct_label": "C",
+   "correct_label": "D",
    "question_blocks": [],
    "explanation": [
     {
      "type": "paragraph",
-     "text": "A number of age-related changes take place in the liver that impair its ability to metabolize drugs. These changes place elderly individuals, such as this patient, at higher risk for drug-related toxicity. Normal age-related changes include the following: • Decreased liver mass, which is largely explained by the decrease in hepatic blood flow that occurs with aging, can impair metabolism because the liver is unable to take up as much drug from the systemic circulation as it once could. • Decreased cytochrome P-450 expression and concentration slows the rate of hepatic metabolism of numerous drugs (eg, some antineoplastic agents). • Reduced rate of hepatic regeneration impairs the liver's ability to recover after injury."
+     "text": "A number of age-related changes take place in the liver that impair its ability to metabolize drugs. These changes place elderly individuals, such as this patient, at higher risk for drug-related toxicity. Normal age-related changes include the following:"
     },
     {
      "type": "paragraph",
-     "text": "Although the liver's metabolic capabilities generally decline with age, aminotransferase levels are unchanged in healthy elderly individuals. Elevations in liver enzymes should therefore raise suspicion for undiagnosed hepatic disease or hepatotoxin exposure. Small variations may be seen in bilirubin, alkaline phosphatase, and gammaglutamyltransferase levels, but they are generally minimal."
+     "text": "Decreased liver mass, which is largely explained by the decrease in hepatic blood flow that occurs with aging, can impair metabolism because the liver is unable to take up as much drug from the systemic circulation as it once could."
+    },
+    {
+     "type": "paragraph",
+     "text": "Decreased cytochrome P-450 expression and concentration slows the rate of hepatic metabolism of numerous drugs (eg, some antineoplastic agents)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Reduced rate of hepatic regeneration impairs the liver's ability to recover after injury."
+    },
+    {
+     "type": "paragraph",
+     "text": "Although the liver's metabolic capabilities generally decline with age, aminotransferase levels are unchanged in healthy elderly individuals. Elevations in liver enzymes should therefore raise suspicion for undiagnosed hepatic disease or hepatotoxin exposure. Small variations may be seen in bilirubin, alkaline phosphatase, and gamma-glutamyltransferase levels, but they are generally minimal."
     },
     {
      "type": "paragraph",
@@ -724,19 +741,16 @@
    "statistics": {
     "answered_correctly_percent": 34,
     "selection_percent": {
-     "A": 19,
-     "B": 5,
-     "C": 34,
-     "D": 24
+     "A": 14,
+     "B": 19,
+     "C": 5,
+     "D": 34,
+     "E": 24
     }
    },
-   "status": "blocked",
-   "issues": [
-    "choice letters disagree with order: B,C,D",
-    "correct answer signals disagree: tick C, percent C, text D",
-    "choice percents sum 82"
-   ],
-   "source_record_sha256": "97913e2dfa960e6fd1a33049aa00b95eff5dbb0be3dd915b1e09254f24e99cba"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "5d5937ae6b626f8ce18b56b3d7b9d730cb61c80ee39b7d8fb9f7fc11f3b6ad96"
   },
   {
    "id": "UWORLD_18549",
@@ -1078,7 +1092,7 @@
     76,
     77
    ],
-   "question": "A 65-year-old man comes to the office due to pain, redness, and swelling in his right calf. The patient is diagnosed with cellulitis and clindamycin is initiated. A few days after starting treatment, he develops watery diarrhea and abdominal cramps. The patient is hospitalized, and a complete blood count reveals leukocytosis. The toxin responsible for this patient's condition most directly affects which of the following components of intestinal mucosa! cells?",
+   "question": "A 65-year-old man comes to the office due to pain, redness, and swelling in his right calf. The patient is diagnosed with cellulitis and clindamycin is initiated. A few days after starting treatment, he develops watery diarrhea and abdominal cramps. The patient is hospitalized, and a complete blood count reveals leukocytosis. The toxin responsible for this patient's condition most directly affects which of the following components of intestinal mucosal cells?",
    "options": [
     {
      "letter": "A",
@@ -1122,7 +1136,11 @@
     },
     {
      "type": "paragraph",
-     "text": "Clostridioides difficile is part of the gut's normal microbial flora in 2%-3% of healthy adults and approximately 70% of healthy infants. The administration of antibiotics (eg, clindamycin, fluoroquinolones, broad-spectrum penicillin) that are lethal to other commensal gut organisms can result inC difficile colitis due to an unchecked replication of pathogenic strains of C difficile. These strains produce toxin A and toxin B, which act synergistically, although toxin B is significantly more virulent. The toxins bind specific receptors on intestinal mucosal cells and are internalized, allowing them to inactivate the Rho-regulatory proteins involved in the maintenance of actin cytoskeletal structure. The result is loss of cytoskeleton integrity, leading to cell rounding/retraction, disruption of intercellular tight junctions, and increased paracellular intestinal fluid secretion (eg, watery diarrhea). Both toxins also have inflammatory effects (eg, neutrophil recruitment) and can induce apoptosis, resulting pseudomembrane formation."
+     "text": "Clostridioides difficile is part of the gut's normal microbial flora in 2%-3% of healthy adults and approximately 70% of healthy infants. The administration of antibiotics (eg, clindamycin, fluoroquinolones, broad-spectrum penicillin) that are lethal to other commensal gut organisms can result in C difficile colitis due to an unchecked replication of pathogenic strains of C difficile."
+    },
+    {
+     "type": "paragraph",
+     "text": "These strains produce toxin A and toxin B, which act synergistically, although toxin B is significantly more virulent. The toxins bind specific receptors on intestinal mucosal cells and are internalized, allowing them to inactivate the Rho-regulatory proteins involved in the maintenance of actin cytoskeletal structure. The result is loss of cytoskeleton integrity, leading to cell rounding/retraction, disruption of intercellular tight junctions, and increased paracellular intestinal fluid secretion (eg, watery diarrhea). Both toxins also have inflammatory effects (eg, neutrophil recruitment) and can induce apoptosis, resulting pseudomembrane formation."
     },
     {
      "type": "paragraph",
@@ -1138,10 +1156,10 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice E) Ribosomal protein synthesis is inhibited by Shiga and Shiga-like toxins. Shiga toxin is the main exotoxin released by Shigella species; Shiga-like toxin (ie, verotoxin) is produced by enterohemorrhagic Escherichia coli (eg, 0157:H?). These toxins cause inflammatory diarrhea (eg, fever, pain, blood} 3-4 days after the ingestion of contaminated food or water."
+     "text": "(Choice E) Ribosomal protein synthesis is inhibited by Shiga and Shiga-like toxins. Shiga toxin is the main exotoxin released by Shigella species; Shiga-like toxin (ie, verotoxin) is produced by enterohemorrhagic Escherichia coli (eg, O157:H7). These toxins cause inflammatory diarrhea (eg, fever, pain, blood) 3-4 days after the ingestion of contaminated food or water."
     }
    ],
-   "educational_objective": "Pathogenic Clostridioides difficile can proliferate due to loss of commensal gut flora following the use of broad- spectrum antibiotics (eg, clindamycin). C difficile toxins A and B stimulate an inflammatory reaction and disrupt the actin cytoskeletal structure, resulting in pseudomembranous colitis characterized by crampy abdominal pain, watery diarrhea, and leukocytosis.",
+   "educational_objective": "Pathogenic Clostridioides difficile can proliferate due to loss of commensal gut flora following the use of broad-spectrum antibiotics (eg, clindamycin). C difficile toxins A and B stimulate an inflammatory reaction and disrupt the actin cytoskeletal structure, resulting in pseudomembranous colitis characterized by crampy abdominal pain, watery diarrhea, and leukocytosis.",
    "statistics": {
     "answered_correctly_percent": 42,
     "selection_percent": {
@@ -1152,11 +1170,9 @@
      "E": 8
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …matory diarrhea (eg, fever, pain, blood} 3-4 days after the i…"
-   ],
-   "source_record_sha256": "9aedeb63ff6098bc6b8af035ebda0301097d5170086a1d37cc65301dbf3f2b08"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "c25888954624ee85f4650d4a7ea37ddd41dcc9fd959ab1755a73a3e2cda470bc"
   },
   {
    "id": "UWORLD_17006",
@@ -1489,7 +1505,7 @@
     },
     {
      "letter": "F",
-     "text": "Tumor necrosis factor- alpha",
+     "text": "Tumor necrosis factor-alpha",
      "selection_percent": 8
     }
    ],
@@ -1509,30 +1525,30 @@
     },
     {
      "type": "paragraph",
-     "text": "The balance of pro- and anti-inflammatory cytokines in the intestinal mucosa is essential for homeostasis. Overproduction of proinflammatory cytokines leads to pathology such as that observed in infl ammatory bowel diseases. Among the listed choices, IL-10 is the only cytokine with anti-inflammatory properties. IL-10 reduces production of proinflammatory TH 1 cytokines (IL-2 and interferon gamma) and major histocompatibility complex class II expression (important for antigen presentation and T-helper cell response). It also inhibits activated dendritic cells and macrophages. These effects of IL-10 result in the attenuation of cellular-mediated immunity with some enhancement of the humoral response, leading to a protective effect in Crohn disease."
+     "text": "The balance of pro- and anti-inflammatory cytokines in the intestinal mucosa is essential for homeostasis. Overproduction of proinflammatory cytokines leads to pathology such as that observed in inflammatory bowel diseases. Among the listed choices, IL-10 is the only cytokine with anti-inflammatory properties. IL-10 reduces production of proinflammatory TH1 cytokines (IL-2 and interferon gamma) and major histocompatibility complex class II expression (important for antigen presentation and T-helper cell response). It also inhibits activated dendritic cells and macrophages. These effects of IL-10 result in the attenuation of cellular-mediated immunity with some enhancement of the humoral response, leading to a protective effect in Crohn disease."
     },
     {
      "type": "paragraph",
-     "text": "(Choice A) IL-1, produced by macrophages and epithelial cells, has proinflammatory properties such as endothelium activation, increased chemokine expression (promoting leukocyte recruitment), and induction of fever. I L-1 ~ is important for differentiation of TH 17 cells."
+     "text": "(Choice A) IL-1, produced by macrophages and epithelial cells, has proinflammatory properties such as endothelium activation, increased chemokine expression (promoting leukocyte recruitment), and induction of fever. IL-1β is important for differentiation of TH17 cells."
     },
     {
      "type": "paragraph",
-     "text": "(Choice B) IL-5 is secreted by TH2 cells and promotes the humoral response by stimulating differentiation of B cells and increasing lgA production. It also promotes the growth and differentiation of eosinophils and is implicated in the pathogenesis of many allergic diseases (eg, asthma)."
+     "text": "(Choice B) IL-5 is secreted by TH2 cells and promotes the humoral response by stimulating differentiation of B cells and increasing IgA production. It also promotes the growth and differentiation of eosinophils and is implicated in the pathogenesis of many allergic diseases (eg, asthma)."
     },
     {
      "type": "paragraph",
-     "text": "(Choice D) IL-12 is secreted by macrophages and induces differentiation of TH 1 cells and activation of natural killer cells."
+     "text": "(Choice D) IL-12 is secreted by macrophages and induces differentiation of TH1 cells and activation of natural killer cells."
     },
     {
      "type": "paragraph",
-     "text": "(Choice E) Interferon gamma is secreted by TH 1 cells and promotes proinflammatory pathways by activating macrophages, increasing antigen presentation, and inducing the death of epithelial cells."
+     "text": "(Choice E) Interferon gamma is secreted by TH1 cells and promotes proinflammatory pathways by activating macrophages, increasing antigen presentation, and inducing the death of epithelial cells."
     },
     {
      "type": "paragraph",
-     "text": "(Choice F) Tumor necrosis factor- alpha, produced by macrophages, natural killer cells, and T cells, is a proinflammatory mediator that promotes leukocyte recruitment and activates the endothelium (increases expression of adhesion molecules)."
+     "text": "(Choice F) Tumor necrosis factor-alpha, produced by macrophages, natural killer cells, and T cells, is a proinflammatory mediator that promotes leukocyte recruitment and activates the endothelium (increases expression of adhesion molecules)."
     }
    ],
-   "educational_objective": "Of the cytokines released in the setting of tissue injury, IL-10 plays important anti-inflammatory and immunomodulatory roles, especially in the pathogenesis of infl ammatory bowel disease. IL-10 attenuates the immune response through the inhibition of TH 1 cytokines, reduction of major histocompatibility complex class 11 expression, and suppression of activated macrophages and dendritic cells.",
+   "educational_objective": "Of the cytokines released in the setting of tissue injury, IL-10 plays important anti-inflammatory and immunomodulatory roles, especially in the pathogenesis of inflammatory bowel disease. IL-10 attenuates the immune response through the inhibition of TH1 cytokines, reduction of major histocompatibility complex class II expression, and suppression of activated macrophages and dendritic cells.",
    "statistics": {
     "answered_correctly_percent": 72,
     "selection_percent": {
@@ -1544,13 +1560,9 @@
      "F": 8
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …©UWorld The balance of…",
-    "UWorld screenshot text leaked: UWORLD_1597 explanation 1",
-    "screenshot chrome removed automatically"
-   ],
-   "source_record_sha256": "07a45a8fd3c985b7932ec62c4c7a0d58eaf0ba404b6f4b8860797a7446ad11fe"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "79bab9c22eb58d76230e73244bab97a554f94def2f8713fc2103f0dfd59be477"
   },
   {
    "id": "UWORLD_107582",
@@ -1856,7 +1868,7 @@
     },
     {
      "type": "paragraph",
-     "text": "© UWorfd This patient's presentation is consistent with diffuse esophageal spasm (DES). Esophageal contractions are normally stimulated by esophageal distension from a food bolus. The contractions originate above the site of distension and propel the bolus downward in a coordinated fashion. In DES, several segments of the esophagus contract inappropriately at the same time, which appears as disorganized non-peristaltic contractions on esophageal manometry and \"corkscrew\" esophagus on barium esophagogram. Because the food bolus is inefficiently propelled toward the stomach, patients typically present with intermittent solid/liquid dysphagia, chest pain, heartburn, and food regurgitation. The pathogenesis of DES likely involves impaired inhibitory neurotransmission within the esophageal myenteric plexus."
+     "text": "This patient's presentation is consistent with diffuse esophageal spasm (DES). Esophageal contractions are normally stimulated by esophageal distension from a food bolus. The contractions originate above the site of distension and propel the bolus downward in a coordinated fashion. In DES, several segments of the esophagus contract inappropriately at the same time, which appears as disorganized non-peristaltic contractions on esophageal manometry and \"corkscrew\" esophagus on barium esophagogram. Because the food bolus is inefficiently propelled toward the stomach, patients typically present with intermittent solid/liquid dysphagia, chest pain, heartburn, and food regurgitation. The pathogenesis of DES likely involves impaired inhibitory neurotransmission within the esophageal myenteric plexus."
     },
     {
      "type": "paragraph",
@@ -1881,7 +1893,7 @@
    ],
    "educational_objective": "Diffuse esophageal spasm is characterized by periodic, simultaneous, and non-peristaltic contractions of the esophagus due to impaired inhibitory innervation within the esophageal myenteric plexus. Patients typically present with liquid/solid dysphagia and chest pain due to inefficient propulsion of food into the stomach.",
    "statistics": {
-    "answered_correctly_percent": null,
+    "answered_correctly_percent": 77,
     "selection_percent": {
      "A": 6,
      "B": 2,
@@ -1891,11 +1903,9 @@
      "F": 7
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …© UWorfd This patient'…"
-   ],
-   "source_record_sha256": "e9322a1966f57062d3d1ac44c64d4191cb838a9d9dc594682674c567787e8be0"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "cdac3e97612ca04c805aa24e614228b0396d4ae23b8208dbd325246de158f88f"
   },
   {
    "id": "UWORLD_1546",
@@ -2202,7 +2212,15 @@
     },
     {
      "type": "paragraph",
-     "text": "© UWo<1d Folate derivatives are crucial in the synthesis of nucleic acids (particularly thymine), conversion of homocysteine to methionine, and generation of one-carbon carriers (eg, S-adenosylmethionine) for methylation reactions. All biochemical functions of folate require the reduced tetrahydrofolate form of the vitamin, which is synthesized by dihydrofolate reductase (a rate-limiting step in folate metabolism). The enzyme thymidylate synthase is responsible for converting deoxyuridine monophosphate (dUMP) to deoxythymidine monophosphate (dTMP). Although most enzymes involved in one-carbon metabolism maintain fol ate in its active tetrahydrofolate form, thymidylate synthase is unique in that it oxidizes 5, 10methylenetetrahydrofolate to dihydrofolate. This makes de novo thymidine synthesis particularly susceptible to folate-deficient conditions because tetrahydrofolate must be continuously regenerated by dihydrofolate reductase. In this experiment, inhibition of thymidylate synthase due to deficient folate increases the ratio of dUMP to dTMP, causing the incorporation of uracil into DNA in place of thymidine. This leads to excessive activation of DNA repair mechanisms, resulting in double-stranded DNA breaks and apoptosis. Thymidine supplementation reduces the metabolic folate demand, preventing apoptosis in folate-defi cient cells."
+     "text": "Folate derivatives are crucial in the synthesis of nucleic acids (particularly thymine), conversion of homocysteine to methionine, and generation of one-carbon carriers (eg, S-adenosylmethionine) for methylation reactions. All biochemical functions of folate require the reduced tetrahydrofolate form of the vitamin, which is synthesized by dihydrofolate reductase (a rate-limiting step in folate metabolism)."
+    },
+    {
+     "type": "paragraph",
+     "text": "The enzyme thymidylate synthase is responsible for converting deoxyuridine monophosphate (dUMP) to deoxythymidine monophosphate (dTMP). Although most enzymes involved in one-carbon metabolism maintain folate in its active tetrahydrofolate form, thymidylate synthase is unique in that it oxidizes 5,10-methylenetetrahydrofolate to dihydrofolate. This makes de novo thymidine synthesis particularly susceptible to folate-deficient conditions because tetrahydrofolate must be continuously regenerated by dihydrofolate reductase."
+    },
+    {
+     "type": "paragraph",
+     "text": "In this experiment, inhibition of thymidylate synthase due to deficient folate increases the ratio of dUMP to dTMP, causing the incorporation of uracil into DNA in place of thymidine. This leads to excessive activation of DNA repair mechanisms, resulting in double-stranded DNA breaks and apoptosis. Thymidine supplementation reduces the metabolic folate demand, preventing apoptosis in folate-deficient cells."
     },
     {
      "type": "paragraph",
@@ -2210,11 +2228,11 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice B) Cytosine is a pyrimidine base. Unlike thymine, it is not dependent on folate and can be synthesized in sufficient quantities under folate-defi cient conditions."
+     "text": "(Choice B) Cytosine is a pyrimidine base. Unlike thymine, it is not dependent on folate and can be synthesized in sufficient quantities under folate-deficient conditions."
     },
     {
      "type": "paragraph",
-     "text": "(Choice C) Glutamine is a major source of nitrogen in the synthesis of purine and pyrimidine bases. However, glutamine supplementation would not ameliorate the cellular apoptosis induced by folate defi ciency."
+     "text": "(Choice C) Glutamine is a major source of nitrogen in the synthesis of purine and pyrimidine bases. However, glutamine supplementation would not ameliorate the cellular apoptosis induced by folate deficiency."
     },
     {
      "type": "paragraph",
@@ -2232,11 +2250,9 @@
      "E": 31
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …© UWo<1d Folate deriva…"
-   ],
-   "source_record_sha256": "4fd1c026b64a74665bef0d7c8cee1c4932fb235b188b23e693e8bb70222a859f"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "8f5c5bc7c7737d40dabfefbe6252a44470342f9166a4dd0e4d2a5b8806cbc21c"
   },
   {
    "id": "UWORLD_1046",

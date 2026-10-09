@@ -11,7 +11,7 @@
     718,
     719
    ],
-   "question": "A 68-year-old man comes to the emergency department due to lower abdominal pain and nausea. His symptoms started the prior evening, when he began to feel abdominal fullness and discomfort. This progressed to pain over the lower abdomen and constant nausea without vomiting. The patient last urinated >24 hours ago. He has had difficulty initiating urination and a feeling of incomplete voiding for the last year but avoided seeing a physician. Temperature is 36.7 C (98 F), blood pressure is 150/90 mmHg, and pulse is 95/min. Physical examination shows suprapubic tenderness and fullness without guarding or rebound. Rectal examination reveals an enlarged, smooth prostate. Serum creatinine is 2.6 mg/dL and blood urea nitrogen is 22 mg/dL. A urinary catheter is placed, with immediate collection of 800 mL of urine and relief of the patient's symptoms. The following day, serum creatinine is improved. This patient's condition is associated with increased risk for which of the following?",
+   "question": "A 68-year-old man comes to the emergency department due to lower abdominal pain and nausea. His symptoms started the prior evening, when he began to feel abdominal fullness and discomfort. This progressed to pain over the lower abdomen and constant nausea without vomiting. The patient last urinated >24 hours ago. He has had difficulty initiating urination and a feeling of incomplete voiding for the last year but avoided seeing a physician. Temperature is 36.7 C (98 F), blood pressure is 150/90 mm Hg, and pulse is 95/min. Physical examination shows suprapubic tenderness and fullness without guarding or rebound. Rectal examination reveals an enlarged, smooth prostate. Serum creatinine is 2.6 mg/dL and blood urea nitrogen is 22 mg/dL. A urinary catheter is placed, with immediate collection of 800 mL of urine and relief of the patient's symptoms. The following day, serum creatinine is improved. This patient's condition is associated with increased risk for which of the following?",
    "options": [
     {
      "letter": "A",
@@ -26,7 +26,7 @@
     {
      "letter": "C",
      "text": "Priapism",
-     "selection_percent": 11
+     "selection_percent": 1
     },
     {
      "letter": "D",
@@ -55,7 +55,11 @@
     },
     {
      "type": "paragraph",
-     "text": "This patient with progressive lower urinary tract symptoms and an enlarged prostate has benign prostatic hyperplasia (BPH). Bladder-outlet obstruction with acute urinary retention is a common complication of BPH and can occur with progressive disease or be triggered by medications that decrease bladder contractility (eg, sympathomimetic or anticholinergic medications). Enlargement of the prostate ( static obstruction) and contraction of prostatic smooth muscle (dynamic obstruction) compress the prostatic urethra, which increases the hydrostatic pressure required to overcome resistance to flow. As the bladder empties during micturition, urinary pressures diminish; if urinary pressure falls below the prostatic compressive pressure, urine flow stops, leaving a residual volume of urine in the bladder. Complete emptying of the bladder is a defense mechanism against urinary tract infection, but if the bladder does not empty completely, the residual urine can act as a growth medium for pathogenic bacteria. Other complications of BPH include bladder hypertrophy, hydroureter and hydronephrosis, and chronic kidney disease (obstructive uropathy)."
+     "text": "This patient with progressive lower urinary tract symptoms and an enlarged prostate has benign prostatic hyperplasia (BPH). Bladder-outlet obstruction with acute urinary retention is a common complication of BPH and can occur with progressive disease or be triggered by medications that decrease bladder contractility (eg, sympathomimetic or anticholinergic medications)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Enlargement of the prostate (static obstruction) and contraction of prostatic smooth muscle (dynamic obstruction) compress the prostatic urethra, which increases the hydrostatic pressure required to overcome resistance to flow. As the bladder empties during micturition, urinary pressures diminish; if urinary pressure falls below the prostatic compressive pressure, urine flow stops, leaving a residual volume of urine in the bladder. Complete emptying of the bladder is a defense mechanism against urinary tract infection, but if the bladder does not empty completely, the residual urine can act as a growth medium for pathogenic bacteria. Other complications of BPH include bladder hypertrophy, hydroureter and hydronephrosis, and chronic kidney disease (obstructive uropathy)."
     },
     {
      "type": "paragraph",
@@ -63,7 +67,7 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice B) Glomerulonephritis causes primary (intrarenal) azotemia and is not typically associated with BPH. Common causes of glomerulonephritis in adults include lgA nephropathy and membranoproliferative glomerulonephritis."
+     "text": "(Choice B) Glomerulonephritis causes primary (intrarenal) azotemia and is not typically associated with BPH. Common causes of glomerulonephritis in adults include IgA nephropathy and membranoproliferative glomerulonephritis."
     },
     {
      "type": "paragraph",
@@ -71,7 +75,7 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice D) The risk for prostatic adenocarcinoma increases with age and is greatest in black patients and in individuals with a family history of prostate cancer. However, the risk is not appreciably increased in those with IBPH or urinary obstruction."
+     "text": "(Choice D) The risk for prostatic adenocarcinoma increases with age and is greatest in black patients and in individuals with a family history of prostate cancer. However, the risk is not appreciably increased in those with BPH or urinary obstruction."
     }
    ],
    "educational_objective": "Benign prostatic hyperplasia can increase resistance to urine flow in the urethra and lead to incomplete bladder emptying during micturition. The residual urine can act as a growth medium for pathogenic bacteria and increase the risk for urinary tract infection.",
@@ -80,16 +84,14 @@
     "selection_percent": {
      "A": 3,
      "B": 4,
-     "C": 11,
+     "C": 1,
      "D": 9,
      "E": 81
     }
    },
-   "status": "blocked",
-   "issues": [
-    "choice percents sum 108"
-   ],
-   "source_record_sha256": "b6d4a4b5c87e073c24996342b49ddc9ee50892fcfcdc6def5a928ee9248a77ee"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "f58446713bd53667cb4ec1edce97167a54c3dd30296001a151427e97ad110178"
   },
   {
    "id": "UWORLD_17307",
@@ -804,19 +806,23 @@
     },
     {
      "type": "paragraph",
-     "text": "Diabetic nephropathy (DN) is the most common cause of end-stage renal disease in the United States. It occurs in both types 1 and 2 diabetes. The earliest morphological change is glomerular basement membrane thickening with mesangial matrix expansion. Normally, the glomerular basement membrane has negatively charged heparan sulfate moieties that form a charge barrier preventing leakage of negatively charged proteins (eg, albumin) into the Bowman capsule. In diabetes, there is progressive loss of this negative charge due to upregulation of heparanase expression by renal epithelial cells, leading to leakage of albumin and other plasma proteins. In the initial stages of DN, only small amounts of albumin (30-300 mg/day; ie, moderately increased albuminuria) are lost but can be detected with an albumin-specific urine assay (regular dipstick uninalysis has low sensitivity and is not recommended). Early administration of ACE inhibitors in patients with diabetes and moderately increased albuminuria can reduce urinary albumin excretion and slow progression to overt DN."
+     "text": "Diabetic nephropathy (DN) is the most common cause of end-stage renal disease in the United States. It occurs in both types 1 and 2 diabetes. The earliest morphological change is glomerular basement membrane thickening with mesangial matrix expansion. Normally, the glomerular basement membrane has negatively charged heparan sulfate moieties that form a charge barrier preventing leakage of negatively charged proteins (eg, albumin) into the Bowman capsule. In diabetes, there is progressive loss of this negative charge due to upregulation of heparanase expression by renal epithelial cells, leading to leakage of albumin and other plasma proteins."
     },
     {
      "type": "paragraph",
-     "text": "(Choice B) Glycosuria is seen at blood glucose levels >200-300 mg/dL due to saturation of renal glucose transporters. Glycosuria reflects poor glycemic control but does not correlate with the degree of renal damage in DINI."
+     "text": "In the initial stages of DN, only small amounts of albumin (30-300 mg/day; ie, moderately increased albuminuria) are lost but can be detected with an albumin-specific urine assay (regular dipstick urinalysis has low sensitivity and is not recommended). Early administration of ACE inhibitors in patients with diabetes and moderately increased albuminuria can reduce urinary albumin excretion and slow progression to overt DN."
     },
     {
      "type": "paragraph",
-     "text": "(Choice C) Ketonuria occurs in starvation and in conditions that cause ketoacidosis, such as insufficient insulin administration in patients with type 11 diabetes mellitus. It is usually a transient phenomenon that corrects with treatment of the ketoacidosis."
+     "text": "(Choice B) Glycosuria is seen at blood glucose levels >200-300 mg/dL due to saturation of renal glucose transporters. Glycosuria reflects poor glycemic control but does not correlate with the degree of renal damage in DN."
     },
     {
      "type": "paragraph",
-     "text": "(Choice D) Red blood cell casts are a sign of glomerular bleeding, such as in glomerulonephritis (eg, poststreptococcal glomerulonephritis). Diabetes mellitus usually causes a nephrotic syndrome with proteinuria and a bland unine sediment."
+     "text": "(Choice C) Ketonuria occurs in starvation and in conditions that cause ketoacidosis, such as insufficient insulin administration in patients with type 1 diabetes mellitus. It is usually a transient phenomenon that corrects with treatment of the ketoacidosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice D) Red blood cell casts are a sign of glomerular bleeding, such as in glomerulonephritis (eg, poststreptococcal glomerulonephritis). Diabetes mellitus usually causes a nephrotic syndrome with proteinuria and a bland urine sediment."
     },
     {
      "type": "paragraph",
@@ -824,7 +830,7 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice F) Waxy casts are shiny, translucent structures formed in the dilated tubules of enlarged nephrons that undergo compensatory hypertrophy in response to reduced renal mass. They indicate advanced renal disease {chronic renal failure)."
+     "text": "(Choice F) Waxy casts are shiny, translucent structures formed in the dilated tubules of enlarged nephrons that undergo compensatory hypertrophy in response to reduced renal mass. They indicate advanced renal disease (chronic renal failure)."
     }
    ],
    "educational_objective": "Moderately increased albuminuria (urine albumin 30-300 mg/day) is the earliest manifestation of diabetic nephropathy. Screening for diabetic nephropathy is best achieved using an albumin-specific urine assay (regular dipstick urinalysis has low sensitivity).",
@@ -839,11 +845,9 @@
      "F": 2
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …. They indicate advanced renal disease {chronic renal failure…"
-   ],
-   "source_record_sha256": "7c926088afe54c84f10a4a61ebddb4b9b6d6131dbcf85e5e8285ec8967e94c61"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "45b4d7e2119635c8baab022952d0f368855cf544e63b49752778720f37d59858"
   },
   {
    "id": "UWORLD_383",
@@ -941,33 +945,28 @@
    "options": [
     {
      "letter": "A",
-     "text": "\"Many children with this disorder develop kidney dysfunction that progresses to end-stage renal",
+     "text": "\"Many children with this disorder develop kidney dysfunction that progresses to end-stage renal disease, so we will need to follow up closely for this.\"",
      "selection_percent": 10
     },
     {
      "letter": "B",
-     "text": "isease, so we will need to follow up closely for this.\" 6 B. \"Patients with these findings are at an increased risk for forming cerebral aneurysms over their",
+     "text": "\"Patients with these findings are at an increased risk for forming cerebral aneurysms over their lifetime, so periodic screening is recommended.\"",
      "selection_percent": 2
     },
     {
      "letter": "C",
-     "text": "ifetime, so periodic screening is recommended.\" V@) C. \"The majority of patients with this developmental anomaly are asymptomatic, but there is an",
+     "text": "\"The majority of patients with this developmental anomaly are asymptomatic, but there is an increased risk for urinary tract infections.\"",
      "selection_percent": 76
     },
     {
      "letter": "D",
-     "text": "ncreased risk for urinary tract infections.\" ( D. \"These findings are part of a developmental sequence that can lead to impaired lung",
+     "text": "\"These findings are part of a developmental sequence that can lead to impaired lung development with potential respiratory distress at delivery.\"",
      "selection_percent": 9
     },
     {
      "letter": "E",
-     "text": "evelopment with potential respiratory distress at delivery.\" GE. \"This genetic condition is associated with varying degrees of liver disease, which warrants",
+     "text": "\"This genetic condition is associated with varying degrees of liver disease, which warrants periodic imaging of the liver.\"",
      "selection_percent": 1
-    },
-    {
-     "letter": "F",
-     "text": "eriodic imaging of the liver.\"",
-     "selection_percent": null
     }
    ],
    "correct_label": "C",
@@ -1008,7 +1007,7 @@
     },
     {
      "type": "paragraph",
-     "text": "This patient's prenatal ultrasound reveals a fetus with fusion of the inferior kidney poles, a congenital anomaly known as horseshoe kidney. Pathophysiology of horseshoe kidney involves abnormal migration of the right and left metanephric blastema (from which the renal parenchyma is derived), leading to fusion of the developing inferior poles. The kidneys' physiologic ascent into the abdomen is limited due to the fused parenchyma (isthmus), which is mechanically restricted by the overlying inferior mesenteric artery (IMA) at its origin from the aorta (low-lying position). Most patients with horseshoe kidney and its associated anatomic abnormalities are asymptomatic. However, in some patients, the abnormal position of the kidney and ureters may lead to intermittent ureteropelvic junction obstruction and uninary stasis, which increase the risk for nephroliths and urinary tract infections."
+     "text": "This patient's prenatal ultrasound reveals a fetus with fusion of the inferior kidney poles, a congenital anomaly known as horseshoe kidney. Pathophysiology of horseshoe kidney involves abnormal migration of the right and left metanephric blastema (from which the renal parenchyma is derived), leading to fusion of the developing inferior poles. The kidneys' physiologic ascent into the abdomen is limited due to the fused parenchyma (isthmus), which is mechanically restricted by the overlying inferior mesenteric artery (IMA) at its origin from the aorta (low-lying position). Most patients with horseshoe kidney and its associated anatomic abnormalities are asymptomatic. However, in some patients, the abnormal position of the kidney and ureters may lead to intermittent ureteropelvic junction obstruction and urinary stasis, which increase the risk for nephroliths and urinary tract infections."
     },
     {
      "type": "paragraph",
@@ -1016,26 +1015,23 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choices Band E) Both ARPKD and autosomal dominant polycystic kidney disease (ADPKD) are associated with hepatic manifestations, specifically bile duct dysgenesis and fibrosis in ARPKD and asymptomatic cysts in ADPKD. Patients with ADPKD are· also at risk for cerebral aneurysms due to abnormal gene expression in vascular smooth muscle cells. Horseshoe kidney is not associated with extrarenal manifestations (eg, liver disease, cerebral aneurysms)."
+     "text": "(Choices B and E) Both ARPKD and autosomal dominant polycystic kidney disease (ADPKD) are associated with hepatic manifestations, specifically bile duct dysgenesis and fibrosis in ARPKD and asymptomatic cysts in ADPKD. Patients with ADPKD are also at risk for cerebral aneurysms due to abnormal gene expression in vascular smooth muscle cells. Horseshoe kidney is not associated with extrarenal manifestations (eg, liver disease, cerebral aneurysms)."
     }
    ],
-   "educational_objective": "Horseshoe kidney is a congenital anomaly in which the infenior poles of the developing kidney fuse in utero. Most patients remain asymptomatic but are at increased risk for recurrent nephroliths and urinary tract infections due to the abnormal orientation and positioning of the kidney.",
+   "educational_objective": "Horseshoe kidney is a congenital anomaly in which the inferior poles of the developing kidney fuse in utero. Most patients remain asymptomatic but are at increased risk for recurrent nephroliths and urinary tract infections due to the abnormal orientation and positioning of the kidney.",
    "statistics": {
-    "answered_correctly_percent": null,
+    "answered_correctly_percent": 76,
     "selection_percent": {
      "A": 10,
      "B": 2,
      "C": 76,
      "D": 9,
-     "E": 1,
-     "F": null
+     "E": 1
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent"
-   ],
-   "source_record_sha256": "fb8a0534a4337173421872cce3f835f842ddd72ed4c6fb78bab12342979dec34"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "bd5bd510d950b2652a76837f83ca565c2a17af7333c2f413599752e89c4cf8c0"
   },
   {
    "id": "UWORLD_15225",
@@ -1406,37 +1402,32 @@
     885,
     886
    ],
-   "question": "A 64-year-old man comes to the hospital due to generalized weakness and fatigue for the past several weeks. He has a history of uncontrolled hypertension and nonadherence to medical therapy. Blood pressure is 160/100 mmHg, pulse is 90/min, and respirations are 22/min. Oxygen saturation is 95% on room air. Physical examination shows elevated jugular venous pressure, bilateral crackles, and 3+ pitting edema in both legs. Laboratory results are as follows: Blood urea nitrogen Creatinine Which of the following additional findings are most likely present in this patient? Bicarbonate Paco, Anion gap (mEq/L) (mEq/L)",
+   "question": "A 64-year-old man comes to the hospital due to generalized weakness and fatigue for the past several weeks. He has a history of uncontrolled hypertension and nonadherence to medical therapy. Blood pressure is 160/100 mm Hg, pulse is 90/min, and respirations are 22/min. Oxygen saturation is 95% on room air. Physical examination shows elevated jugular venous pressure, bilateral crackles, and 3+ pitting edema in both legs. Laboratory results are as follows: Blood urea nitrogen 82 mg/dL Creatinine 4.8 mg/dL Which of the following additional findings are most likely present in this patient?",
    "options": [
     {
      "letter": "A",
-     "text": "aco, Anion gap Bicarbonate pH (mEq/L) (mEq/L) (mm Hg) x @ A. 7.15 16 48 18",
+     "text": "pH 7.15 · Bicarbonate (mEq/L) 16 · PaCO2 (mm Hg) 48 · Anion gap (mEq/L) 18",
      "selection_percent": 7
     },
     {
      "letter": "B",
-     "text": "7.25 112",
+     "text": "pH 7.25 · Bicarbonate (mEq/L) 12 · PaCO2 (mm Hg) 28 · Anion gap (mEq/L) 20",
      "selection_percent": 49
     },
     {
      "letter": "C",
-     "text": "118 112",
+     "text": "pH 7.31 · Bicarbonate (mEq/L) 18 · PaCO2 (mm Hg) 37 · Anion gap (mEq/L) 12",
      "selection_percent": 22
     },
     {
      "letter": "D",
-     "text": "31 37 0 D. 50 110 7.32 25",
+     "text": "pH 7.32 · Bicarbonate (mEq/L) 25 · PaCO2 (mm Hg) 50 · Anion gap (mEq/L) 10",
      "selection_percent": 11
     },
     {
      "letter": "E",
-     "text": "112",
+     "text": "pH 7.39 · Bicarbonate (mEq/L) 23 · PaCO2 (mm Hg) 39 · Anion gap (mEq/L) 12",
      "selection_percent": 9
-    },
-    {
-     "letter": "F",
-     "text": "39 23 39",
-     "selection_percent": null
     }
    ],
    "correct_label": "B",
@@ -1511,23 +1502,27 @@
     },
     {
      "type": "paragraph",
-     "text": "Explanation"
+     "text": "This patient's markedly elevated blood urea nitrogen (BUN) and serum creatinine in the setting of uncontrolled hypertension suggest advanced chronic kidney disease (CKD), a condition commonly presenting with fatigue, generalized weakness, and evidence of volume overload (eg, jugular venous distension, peripheral edema). Once CKD becomes advanced (eg, serum creatinine >3 mg/dL), anion gap metabolic acidosis with respiratory compensation is expected."
     },
     {
      "type": "paragraph",
-     "text": "This patient's markedly elevated blood urea nitrogen (BUN) and serum creatinine in the setting of uncontrolled hypertension suggest advanced chronic kidney disease (CKD), a condition commonly presenting with fatigue, generalized weakness, and evidence of volume overload (eg, jugular venous distension, peripheral edema). Once CKD becomes advanced (eg, serum creatinine >3 mg/dL), anion gap metabolic acidosis with respiratory compensation is expected. CKD involves a gradual decline in glomerular filtration rate (GFR), as evidenced by a slow increase in serum creatinine. Urea, which is formed in the liver from ammonia and other nitrogenous wastes derived from protein breakdown, is normally cleared by the kidneys and also accumulates as GFR declines. With advanced CKD, BUN levels become markedly elevated (eg, >60 mg/dL). Although urea is uncharged and does not contribute to acidemia or an elevation in the anion gap, elevated BUN (ie, uremia) is a marker for the reduced renal clearance and consequent accumulation of unmeasured acidic compounds (eg, hydrogen phosphate, hydrogen sulfate, uric acid). These compounds donate hydrogen ions (H) to bind up bicarbonate (HCO, ) and acidify the blood, and the remaining anionic component increases the anion gap (normal: 10-14 mEq/L). In response to the metabolic acidosis, the lungs compensate with hyperventilation to decrease PaCO, and help normalize pH."
+     "text": "CKD involves a gradual decline in glomerular filtration rate (GFR), as evidenced by a slow increase in serum creatinine. Urea, which is formed in the liver from ammonia and other nitrogenous wastes derived from protein breakdown, is normally cleared by the kidneys and also accumulates as GFR declines. With advanced CKD, BUN levels become markedly elevated (eg, >60 mg/dL). Although urea is uncharged and does not contribute to acidemia or an elevation in the anion gap, elevated BUN (ie, uremia) is a marker for the reduced renal clearance and consequent accumulation of unmeasured acidic compounds (eg, hydrogen phosphate, hydrogen sulfate, uric acid). These compounds donate hydrogen ions (H+) to bind up bicarbonate (HCO3-) and acidify the blood, and the remaining anionic component increases the anion gap (normal: 10-14 mEq/L)."
     },
     {
      "type": "paragraph",
-     "text": "(Choice A) Low pH with low HCO, and elevated PaCO represents mixed metabolic and respiratory acidosis. Such a scenario with an elevated anion gap may be seen with sepsis (ie, lactic acidosis) with acute respiratory failure."
+     "text": "In response to the metabolic acidosis, the lungs compensate with hyperventilation to decrease PaCO2 and help normalize pH."
     },
     {
      "type": "paragraph",
-     "text": "(Choice C) Low pH with low HCO, and slightly reduced PaCO, represents metabolic acidosis with respiratory compensation. A normal anion gap is expected with metabolic acidosis that results from loss of HCO, (eg, severe diarrhea). However, this patient with CKD will have accumulation of unmeasured acidic compounds, resulting in an elevated anion gap."
+     "text": "(Choice A) Low pH with low HCO3- and elevated PaCO2 represents mixed metabolic and respiratory acidosis. Such a scenario with an elevated anion gap may be seen with sepsis (ie, lactic acidosis) with acute respiratory failure."
     },
     {
      "type": "paragraph",
-     "text": "(Choice D) Low pH with elevated PaCO, indicates respiratory acidosis. Minimal increase in HCO, suggests acute respiratory acidosis (eg, acute opioid overdose) as there has not been time for metabolic compensation to occur (full metabolic compensation requires approximately 72 hours)."
+     "text": "(Choice C) Low pH with low HCO3- and slightly reduced PaCO2 represents metabolic acidosis with respiratory compensation. A normal anion gap is expected with metabolic acidosis that results from loss of HCO3- (eg, severe diarrhea). However, this patient with CKD will have accumulation of unmeasured acidic compounds, resulting in an elevated anion gap."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice D) Low pH with elevated PaCO2 indicates respiratory acidosis. Minimal increase in HCO3- suggests acute respiratory acidosis (eg, acute opioid overdose) as there has not been time for metabolic compensation to occur (full metabolic compensation requires approximately 72 hours)."
     },
     {
      "type": "paragraph",
@@ -1542,15 +1537,12 @@
      "B": 49,
      "C": 22,
      "D": 11,
-     "E": 9,
-     "F": null
+     "E": 9
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent"
-   ],
-   "source_record_sha256": "eeef0c4f81cbcf7380f1d81d851d255c09e4509c6ae7089d8030cd7916c143bf"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "22b72b9772d8fec4d19a1e4d219d8001aa2ac89213e7213cff41b0c999762bef"
   },
   {
    "id": "UWORLD_8884",
@@ -1810,37 +1802,32 @@
     905,
     906
    ],
-   "question": "A 43-year-old man comes to the office due to swelling of the legs and abdomen. The patient has a history of alcohol-induced cirrhosis, and his ascites had been well controlled with furosemide. Over the past week, he has had increasing bilateral lower extremity and abdominal swelling despite taking a diuretic as prescribed. The patient reports no change in dietary sodium or water intake but states he has been taking over-the-counter ibuprofen after injuring his back recently. He stopped drinking alcohol 2 years ago and does not use tobacco or illicit drugs. Physical examination shows 3+ bilateral lower extremity edema and moderate ascites. Which of the following changes most likely contributed to the acute deterioration in this patient's condition? Renal Glomerular Urinary sodium prostaglandin level filtration rate excretion Decreased Decreased Decreased Decreased Unchanged Decreased Increased Increased Increased Increased Increased Unchanged Unchanged Decreased Increased",
+   "question": "A 43-year-old man comes to the office due to swelling of the legs and abdomen. The patient has a history of alcohol-induced cirrhosis, and his ascites had been well controlled with furosemide. Over the past week, he has had increasing bilateral lower extremity and abdominal swelling despite taking a diuretic as prescribed. The patient reports no change in dietary sodium or water intake but states he has been taking over-the-counter ibuprofen after injuring his back recently. He stopped drinking alcohol 2 years ago and does not use tobacco or illicit drugs. Physical examination shows 3+ bilateral lower extremity edema and moderate ascites Which of the following changes most likely contributed to the acute deterioration in this patient's condition?",
    "options": [
     {
      "letter": "A",
-     "text": "enal Glomerular Urinary sodium prostaglandin level filtration rate excretion v@ A. Decreased Decreased Decreased",
+     "text": "Decreased Decreased Decreased",
      "selection_percent": 88
     },
     {
      "letter": "B",
-     "text": "Unchanged",
+     "text": "Decreased Unchanged Decreased",
      "selection_percent": 5
     },
     {
      "letter": "C",
-     "text": "ecreased Decreased 0 C. Increased Increased Increased",
+     "text": "Increased Increased Increased",
      "selection_percent": 1
     },
     {
      "letter": "D",
-     "text": "Unchanged",
+     "text": "Increased Increased Unchanged",
      "selection_percent": 2
     },
     {
      "letter": "E",
-     "text": "ncreased Increased 0 E. Unchanged",
+     "text": "Unchanged Decreased Increased",
      "selection_percent": 2
-    },
-    {
-     "letter": "F",
-     "text": "ecreased Increased",
-     "selection_percent": null
     }
    ],
    "correct_label": "A",
@@ -1871,11 +1858,7 @@
     },
     {
      "type": "paragraph",
-     "text": "Furosemide is a loop diuretic that binds to Na-K-2Cl symporters in the ascending limb of the loop of Henle and"
-    },
-    {
-     "type": "paragraph",
-     "text": "Furosemide is a loop diuretic that binds to Na-K-2CI symporters in the ascending limb of the loop of Henle and effectively blocks Na and CI transport, resulting in increased Na, Cl, and fluid excretion. Loop diuretics also stimulate prostaglandin release, which increases renal plasma flow (RPF), leading to increased glomerular filtration rate (GFR) and drug delivery to the loop of Henle. Nonsteroidal anti-inflammatory drugs (NSAIDs) (eg, ibuprofen, naproxen, indomethacin) inhibit prostaglandin synthesis (resulting in decreased renal prostaglandin levels). In healthy patients, prostaglandin synthesis is low and NSAID use has minimal effects on renal hemodynamics. However, patients with intravascular volume depletion (eg, cirrhosis, congestive heart failure, dehydration) are dependent on the vasodilatory effects of prostaglandins to maintain adequate RPF and GFR. Therefore, NSAID use in this population leads to markedly decreased GFR and RPF. Reduced fluid and electrolyte delivery to renal tubules reduces the efficacy of loop diuretics, resulting in reduced urinary sodium excretion and fluid retention (eg, ascites, edema, as occurred in this patient). Similar effects can occur in patients with chronic kidney disease; therefore, NSAIDs should generally be avoided in all patients with renal disease or reduced effective arterial volume."
+     "text": "Furosemide is a loop diuretic that binds to Na-K-2Cl symporters in the ascending limb of the loop of Henle and effectively blocks Na and Cl transport, resulting in increased Na, Cl, and fluid excretion. Loop diuretics also stimulate prostaglandin release, which increases renal plasma flow (RPF), leading to increased glomerular filtration rate (GFR) and drug delivery to the loop of Henle. Nonsteroidal anti-inflammatory drugs (NSAIDs) (eg, ibuprofen, naproxen, indomethacin) inhibit prostaglandin synthesis (resulting in decreased renal prostaglandin levels). In healthy patients, prostaglandin synthesis is low and NSAID use has minimal effects on renal hemodynamics. However, patients with intravascular volume depletion (eg, cirrhosis, congestive heart failure, dehydration) are dependent on the vasodilatory effects of prostaglandins to maintain adequate RPF and GFR. Therefore, NSAID use in this population leads to markedly decreased GFR and RPF. Reduced fluid and electrolyte delivery to renal tubules reduces the efficacy of loop diuretics, resulting in reduced urinary sodium excretion and fluid retention (eg, ascites, edema, as occurred in this patient). Similar effects can occur in patients with chronic kidney disease; therefore, NSAIDs should generally be avoided in all patients with renal disease or reduced effective arterial volume."
     },
     {
      "type": "paragraph",
@@ -1884,21 +1867,18 @@
    ],
    "educational_objective": "Nonsteroidal anti-inflammatory drugs (NSAIDs) inhibit prostaglandin synthesis. Patients with intravascular volume depletion (eg, cirrhosis) are dependent on the vasodilatory effects of prostaglandins to maintain adequate renal plasma flow and glomerular filtration. NSAID use in this population reduces glomerular filtration rates and blunts the effects of loop diuretics, leading to sodium and water retention.",
    "statistics": {
-    "answered_correctly_percent": null,
+    "answered_correctly_percent": 88,
     "selection_percent": {
      "A": 88,
      "B": 5,
      "C": 1,
      "D": 2,
-     "E": 2,
-     "F": null
+     "E": 2
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent"
-   ],
-   "source_record_sha256": "ab715d7a3c476914726dc075f298de7eb4d56b0df47d482529281b67e328f2d9"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "57652528abf9563eabfb0bf436784c21739e2418743a5cf913efd33462aed160"
   },
   {
    "id": "UWORLD_16978",
@@ -2393,27 +2373,27 @@
    "options": [
     {
      "letter": "A",
-     "text": "GFRI, FF;",
+     "text": "GFR↓, FF↑",
      "selection_percent": 7
     },
     {
      "letter": "B",
-     "text": "GFR], FF unchanged",
+     "text": "GFR↓, FF unchanged",
      "selection_percent": 4
     },
     {
      "letter": "C",
-     "text": "GFR, FF]",
+     "text": "GFR↑, FF↓",
      "selection_percent": 6
     },
     {
      "letter": "D",
-     "text": "GFRT, FF;",
+     "text": "GFR↑, FF↑",
      "selection_percent": 77
     },
     {
      "letter": "E",
-     "text": "GFR unchanged, FF;",
+     "text": "GFR unchanged, FF↑",
      "selection_percent": 3
     }
    ],
@@ -2433,18 +2413,22 @@
     },
     {
      "type": "paragraph",
-     "text": "Blood circulates in the kidney along the following path: interlobar arteries arcuate arteries »radial arteries afferent arterioles »glomerular capillaries »efferent arterioles »peritubular capillaries »interlobar veins. Glomerular filtration rate (GFR) normally equals approximately 125 ml/min, although this number can vary between 90 to 130 by gender and between different subjects. The GFR depends on the difference in hydrostatic and oncotic pressures between the glomerular capillaries and Bowman's capsule. Glomerular filtration"
+     "text": "Blood circulates in the kidney along the following path: interlobar arteries→arcuate arteries→radial arteries→afferent arterioles→glomerular capillaries→efferent arterioles→peritubular capillaries→interlobar veins. Glomerular filtration rate (GFR) normally equals approximately 125 ml/min, although this number can vary between 90 to 130 by gender and between different subjects. The GFR depends on the difference in hydrostatic and oncotic pressures between the glomerular capillaries and Bowman's capsule."
     },
     {
      "type": "paragraph",
-     "text": "Constriction of the efferent arteriole produces a significant increase in glomerular capillary hydrostatic pressure because of the reduction in glomerular blood outflow. This produces a corresponding increase in GFR. Efferent arteriolar constriction also reduces renal plasma flow (RPF). The increase in GFR along with the decrease in RPF leads to an increased filtration fraction (FF) because FF=GFR/RPF (Choice D). As RPF decreases, the slower capillary flow allows more time for the filtration of plasma across the glomerular membrane. This leads to an increased concentration of non-filterable plasma proteins within the glomerular capillaries, thus elevating capillary oncotic pressure. As efferent arteriolar constriction increases past a certain point, this increase in capillary oncotic pressure begins to oppose, and eventually overwhelm, the increase in capillary hydrostatic pressure also produced by efferent arteriolar constriction. Thus, when RPF is low secondary to severe efferent arteriolar constriction, the substantially increased capillary oncotic pressure results in an overall decrease in GFR (Choice A)."
+     "text": "Constriction of the efferent arteriole produces a significant increase in glomerular capillary hydrostatic pressure because of the reduction in glomerular blood outflow. This produces a corresponding increase in GFR. Efferent arteriolar constriction also reduces renal plasma flow (RPF). The increase in GFR along with the decrease in RPF leads to an increased filtration fraction (FF) because FF=GFR/RPF (Choice D)."
+    },
+    {
+     "type": "paragraph",
+     "text": "As RPF decreases, the slower capillary flow allows more time for the filtration of plasma across the glomerular membrane. This leads to an increased concentration of non-filterable plasma proteins within the glomerular capillaries, thus elevating capillary oncotic pressure. As efferent arteriolar constriction increases past a certain point, this increase in capillary oncotic pressure begins to oppose, and eventually overwhelm, the increase in capillary hydrostatic pressure also produced by efferent arteriolar constriction. Thus, when RPF is low secondary to severe efferent arteriolar constriction, the substantially increased capillary oncotic pressure results in an overall decrease in GFR (Choice A)."
     },
     {
      "type": "paragraph",
      "text": "(Choice B) Selective constriction of the afferent arteriole decreases plasma flow into the glomerular capillaries, reducing capillary hydrostatic pressure and thus decreasing the GFR. Constriction of the afferent arteriole results in relatively equal decreases in RPF and GFR (FF=GFR/RPF), so the filtration fraction remains unchanged."
     }
    ],
-   "educational_objective": "Selective vasooonstniction of the efferent arteriole (up to certain extent} increases hydrostatic pressure in the glomerular capillaries, and therefore increases the glomerular filtration rate. As efferent arteriolar constriction continues to increase, the glomerular filtration rate begins to decrease due to a flow-mediated rise in oncotic pressure in the glomerular capillaries. The filtration fraction always increases with increasing efferent arteriole constriction.",
+   "educational_objective": "Selective vasoconstriction of the efferent arteriole (up to certain extent) increases hydrostatic pressure in the glomerular capillaries, and therefore increases the glomerular filtration rate. As efferent arteriolar constriction continues to increase, the glomerular filtration rate begins to decrease due to a flow-mediated rise in oncotic pressure in the glomerular capillaries. The filtration fraction always increases with increasing efferent arteriole constriction.",
    "statistics": {
     "answered_correctly_percent": 77,
     "selection_percent": {
@@ -2455,11 +2439,9 @@
      "E": 3
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …: interlobar arteries arcuate arteries »radial arteries affer…"
-   ],
-   "source_record_sha256": "d8c4c4cf22dc6833340e1c7f13ddbe406a91d61f309d781d555678e8e816920e"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "3cf9e7f61c4c57a20849ead420a45cdb62e2eead9c5087806c9f368b13a0f5cc"
   },
   {
    "id": "UWORLD_15324",

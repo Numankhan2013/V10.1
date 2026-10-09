@@ -575,21 +575,26 @@
     },
     {
      "letter": "B",
-     "text": "Endothelial cells (1 4%) 0 C. Foamy macrophages",
-     "selection_percent": 31
+     "text": "Endothelial cells",
+     "selection_percent": 14
     },
     {
      "letter": "C",
+     "text": "Foamy macrophages",
+     "selection_percent": 31
+    },
+    {
+     "letter": "D",
      "text": "Infiltrating T lymphocytes",
      "selection_percent": 2
     },
     {
-     "letter": "D",
+     "letter": "E",
      "text": "Smooth muscle cells",
      "selection_percent": 32
     }
    ],
-   "correct_label": "D",
+   "correct_label": "E",
    "question_blocks": [],
    "explanation": [
     {
@@ -605,7 +610,15 @@
     },
     {
      "type": "paragraph",
-     "text": "POGF = platelet-derived growth factor. © UWorld Atherosclerosis is a chronic inflammatory and fibroproliferative disease triggered by endothelial cell injury from chronic hemodynamic stress (eg, hypertension), hypercholesterolemia, diabetes mellitus, and/or cigarette smoking. The resulting endothelial cell dysfunction allows adherence and migration of monocytes and T lymphocytes into the intima (Choices Band D). Increased vascular permeability also allows LDL cholesterol into the intima, where it becomes oxidized and is phagocytosed by the accumulating macrophages to produce lipidladen foam cells (Choice C). Over time, the infiltrating leukocytes and dysfunctional endothelium (along with adherent activated platelets [Choice Al) release cytokines and growth factors (eg, platelet-derived growth factor, fibroblast growth factor, endothelin-1) that promote migration and proliferation of medial smooth muscle cells (SMCs) into the intima. This chronic inflammatory state drives further deposition of oxidized LDL cholesterol and proliferation of SMCs with increased production of extracellular matrix proteins (eg, collagen, proteoglycans), eventually forming the fibrous cap typical of a mature atheroma (ie, fibrofatty plaque). As the atheroma grows larger, the likelihood increases that the fibrous cap will be disrupted (atherosclerotic plaque rupture), followed by rapid luminal thrombosis that has catastrophic clinical consequences (eg, acute coronary syndrome, sudden cardiac death)."
+     "text": "Atherosclerosis is a chronic inflammatory and fibroproliferative disease triggered by endothelial cell injury from chronic hemodynamic stress (eg, hypertension), hypercholesterolemia, diabetes mellitus, and/or cigarette smoking. The resulting endothelial cell dysfunction allows adherence and migration of monocytes and T lymphocytes into the intima (Choices B and D). Increased vascular permeability also allows LDL cholesterol into the intima, where it becomes oxidized and is phagocytosed by the accumulating macrophages to produce lipid-laden foam cells (Choice C)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Over time, the infiltrating leukocytes and dysfunctional endothelium (along with adherent activated platelets [Choice A]) release cytokines and growth factors (eg, platelet-derived growth factor, fibroblast growth factor, endothelin-1) that promote migration and proliferation of medial smooth muscle cells (SMCs) into the intima."
+    },
+    {
+     "type": "paragraph",
+     "text": "This chronic inflammatory state drives further deposition of oxidized LDL cholesterol and proliferation of SMCs with increased production of extracellular matrix proteins (eg, collagen, proteoglycans), eventually forming the fibrous cap typical of a mature atheroma (ie, fibrofatty plaque). As the atheroma grows larger, the likelihood increases that the fibrous cap will be disrupted (atherosclerotic plaque rupture), followed by rapid luminal thrombosis that has catastrophic clinical consequences (eg, acute coronary syndrome, sudden cardiac death)."
     }
    ],
    "educational_objective": "Medial smooth muscle cells are responsible for synthesizing the extracellular matrix proteins (eg, collagen, proteoglycans) that form the fibrous cap of a mature atheroma. Progressive atheroma enlargement increases the likelihood of plaque rupture with resulting luminal thrombosis.",
@@ -613,18 +626,15 @@
     "answered_correctly_percent": 32,
     "selection_percent": {
      "A": 18,
-     "B": 31,
-     "C": 2,
-     "D": 32
+     "B": 14,
+     "C": 31,
+     "D": 2,
+     "E": 32
     }
    },
-   "status": "blocked",
-   "issues": [
-    "choice letters disagree with order: C,D",
-    "choice percents sum 83",
-    "suspicious OCR: …POGF = platelet-derived growth factor. © UWorld Atheroscleros…"
-   ],
-   "source_record_sha256": "2217707e7d262194bf9ab2288abe12c3da1998ae3d96b44baf1e8d93c2ed2f50"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "8060ede37d9f8638c57205ce93262f686790954d03f93af4e988261c435ee280"
   },
   {
    "id": "UWORLD_141",
@@ -936,36 +946,36 @@
     2214,
     2215
    ],
-   "question": "A 56-year-old man is brought to the emergency department due to sudden-onset, severe chest pain. Blood pressure is 88/56 mmHg and pulse is 83/min . On physical examination, the patient is in moderate distress. The jugular veins are distended. No murmurs or extra heart sounds are heard on cardiac auscultation. The lungs are clear to auscultation. ECG shows evidence of an ST-segment elevation myocardial infarction. Bedside echocardiography reveals contractile dysfunction of a large portion of the right ventricle and normal function of the entire left ventricle consistent with myocardial infarction involving only the right ventricle. Percutaneous coronary intervention with coronary angiography is performed and shows thrombotic occlusion affecting one of the major coronary arteries. No other significant atherosclerotic lesions are identified. Which of the following most likely explains the findings in this patient? Coronary artery Occluded artery dominance 0 A. Left anterior descending Left dominant 0 B. Left anterior descending Left anterior descending Right dominant Left circumflex Left dominant Left circumflex Right dominant Right coronary Left dominant Right coronary Right dominant",
+   "question": "A 56-year-old man is brought to the emergency department due to sudden-onset, severe chest pain. Blood pressure is 88/56 mm Hg and pulse is 83/min. On physical examination, the patient is in moderate distress. The jugular veins are distended. No murmurs or extra heart sounds are heard on cardiac auscultation. The lungs are clear to auscultation. ECG shows evidence of an ST-segment elevation myocardial infarction. Bedside echocardiography reveals contractile dysfunction of a large portion of the right ventricle and normal function of the entire left ventricle consistent with myocardial infarction involving only the right ventricle. Percutaneous coronary intervention with coronary angiography is performed and shows thrombotic occlusion affecting one of the major coronary arteries. No other significant atherosclerotic lesions are identified. Which of the following most likely explains the findings in this patient?",
    "options": [
     {
      "letter": "A",
-     "text": "oronary artery Occluded artery dominance @ A. Left anterior descending Left dominant",
+     "text": "Occluded artery Left anterior descending · Coronary artery dominance Left dominant",
      "selection_percent": 2
     },
     {
      "letter": "B",
-     "text": "Left anterior descending Right dominant",
+     "text": "Occluded artery Left anterior descending · Coronary artery dominance Right dominant",
      "selection_percent": 7
     },
     {
      "letter": "C",
-     "text": "0 Left circumflex Left dominant",
+     "text": "Occluded artery Left circumflex · Coronary artery dominance Left dominant",
      "selection_percent": 2
     },
     {
      "letter": "D",
-     "text": "Left circumflex Right dominant",
+     "text": "Occluded artery Left circumflex · Coronary artery dominance Right dominant",
      "selection_percent": 2
     },
     {
      "letter": "E",
-     "text": "Right coronary Left dominant",
+     "text": "Occluded artery Right coronary · Coronary artery dominance Left dominant",
      "selection_percent": 46
     },
     {
      "letter": "F",
-     "text": "Right coronary Right dominant",
+     "text": "Occluded artery Right coronary · Coronary artery dominance Right dominant",
      "selection_percent": 39
     }
    ],
@@ -1019,7 +1029,11 @@
     },
     {
      "type": "paragraph",
-     "text": "The coronary circulation is composed of 3 major epicardial vessels. • The left anterior descending artery (LAD) arises from the left main artery and courses down the anterior heart, supplying the anterior left ventricular (LV) wall and septum."
+     "text": "The coronary circulation is composed of 3 major epicardial vessels."
+    },
+    {
+     "type": "paragraph",
+     "text": "• The left anterior descending artery (LAD) arises from the left main artery and courses down the anterior heart, supplying the anterior left ventricular (LV) wall and septum."
     },
     {
      "type": "paragraph",
@@ -1031,15 +1045,19 @@
     },
     {
      "type": "paragraph",
-     "text": "Blood supply to the inferior LV wall depends on coronary artery dominance. Right coronary dominance is present in approximately 85% of patients and involves the RCA coursing past the RV to give off the posterior descending artery (PDA) and supply the inferior LV wall. Left coronary dominance is present in approximately 10% of patients and involves the LCx extending around the left side of the heart to give off the PDA and supply the inferior LV wall. Approximately 5% of patients have codominant circulation. In virtually all patients, the RV is fully supplied by the RCA, and in patients with left-dominant circulation, none of the inferior LV wall is supplied by the RCA. Therefore, isolated RV myocardial infarction (Ml) can occur due to RCA occlusion in a patient with left-dominant circulation. Given the low prevalence of left-dominant circulation, isolated RV Ml is an uncommon event (approximately 3% of Mis)."
+     "text": "Blood supply to the inferior LV wall depends on coronary artery dominance. Right coronary dominance is present in approximately 85% of patients and involves the RCA coursing past the RV to give off the posterior descending artery (PDA) and supply the inferior LV wall. Left coronary dominance is present in approximately 10% of patients and involves the LCx extending around the left side of the heart to give off the PDA and supply the inferior LV wall. Approximately 5% of patients have codominant circulation."
     },
     {
      "type": "paragraph",
-     "text": "(Choices A, B, C, and D) The LAD and LCx do not supply the RV and are not involved in RV Ml."
+     "text": "In virtually all patients, the RV is fully supplied by the RCA, and in patients with left-dominant circulation, none of the inferior LV wall is supplied by the RCA. Therefore, isolated RV myocardial infarction (MI) can occur due to RCA occlusion in a patient with left-dominant circulation. Given the low prevalence of left-dominant circulation, isolated RV MI is an uncommon event (approximately 3% of MIs)."
     },
     {
      "type": "paragraph",
-     "text": "(Choice F) With right-dominant circulation, the RCA supplies the inferior LV wall. Therefore, RCA occlusion would cause Ml involving the RV and the inferior LV wall, or the inferior LV wall alone if the occlusion is distal to the RV."
+     "text": "(Choices A, B, C, and D) The LAD and LCx do not supply the RV and are not involved in RV MI."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice F) With right-dominant circulation, the RCA supplies the inferior LV wall. Therefore, RCA occlusion would cause MI involving the RV and the inferior LV wall, or the inferior LV wall alone if the occlusion is distal to the RV."
     }
    ],
    "educational_objective": "Blood supply to the inferior left ventricular (LV) wall is determined by coronary dominance. Most patients have right-dominant circulation, in which the inferior LV wall is supplied by the right coronary artery. Approximately 10% of patients have left-dominant circulation, in which the inferior LV wall is supplied by the left circumflex artery. The right ventricle is fully supplied by the right coronary artery in virtually all patients.",
@@ -1054,11 +1072,9 @@
      "F": 39
     }
    },
-   "status": "blocked",
-   "issues": [
-    "choice letters disagree with order: C,D"
-   ],
-   "source_record_sha256": "48f0a31f091fb4bfcdf8e69e221eedd817d8c2fe1f4b09d8386aa9a194548903"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "46140be59f606011db585e5171ec96fac881834dd783d7684336367e560fa02f"
   },
   {
    "id": "UWORLD_1782",
@@ -1256,7 +1272,7 @@
     2237,
     2238
    ],
-   "question": "A 54-year-old man comes to the office due to new-onset muscle cramps. The patient has a history of hypertension and was started on hydrochlorothiazide 4 weeks ago. Blood pressure is 138/86 mmHg and pulse is 78/min. Examination shows no abnormalities. Based on his most recent laboratory results, triamterene is added to the current therapy. Which of the following best describes the mechanism of action of this medication?",
+   "question": "A 54-year-old man comes to the office due to new-onset muscle cramps. The patient has a history of hypertension and was started on hydrochlorothiazide 4 weeks ago. Blood pressure is 138/86 mm Hg and pulse is 78/min. Examination shows no abnormalities. Based on his most recent laboratory results, triamterene is added to the current therapy. Which of the following best describes the mechanism of action of this medication?",
    "options": [
     {
      "letter": "A",
@@ -1311,11 +1327,31 @@
     },
     {
      "type": "paragraph",
-     "text": "ENaC = epithelial sodium channel; ROMK = renal out8' medullary potassium channel. >rtd Thiazide diuretics lower blood pressure by inhibiting Na•/CI- cotransporters in the distal convoluted tubules, thereby decreasing reabsorption of Na· and Cl-. Both thiazides and loop diuretics induce volume loss with subsequent activation of the renin-angiotensin-aldosterone system. Aldosterone increases renal sodium resorption in exchange for potassium by upregulating the synthesis and activity of the following: • Epithelial sodium channels: Found on the apical membrane of principal cells, it absorbs Na+ from the tubular lumen • Na+/K+-ATPase pump: Located on the basal membrane of principal cells, it extrudes Na+ into the interstitial space in exchange for potassium"
+     "text": "Thiazide diuretics lower blood pressure by inhibiting Na+/Cl- cotransporters in the distal convoluted tubules, thereby decreasing reabsorption of Na+ and Cl-. Both thiazides and loop diuretics induce volume loss with subsequent activation of the renin-angiotensin-aldosterone system. Aldosterone increases renal sodium resorption in exchange for potassium by upregulating the synthesis and activity of the following:"
     },
     {
      "type": "paragraph",
-     "text": "Because of these effects, increased aldosterone levels commonly result in hypokalemia, which can lead to muscle cramps, weakness, and (when severe) cardiac arrhythmias. Potassium-sparing diuretics may be added to prevent hypokalemia. These weak diuretic medications act in the distal nephron, where they reduce potassium excretion via the following mechanisms: • Triamterene and amiloride directly inhibit the epithelial sodium channel, preventing sodium from entering principal cells. This reduces the electrochemical gradient (ie, negative luminal charge) that helps drive potassium secretion. • Aldosterone antagonists (ie, spironolactone, eplerenone) directly inhibit the mineralocorticoid receptor, resulting in decreased formation and activity of epithelial sodium channels and Na+/K+-ATPase pumps (Choice 0)."
+     "text": "• Epithelial sodium channels: Found on the apical membrane of principal cells, it absorbs Na+ from the tubular lumen"
+    },
+    {
+     "type": "paragraph",
+     "text": "• Na+/K+-ATPase pump: Located on the basal membrane of principal cells, it extrudes Na+ into the interstitial space in exchange for potassium"
+    },
+    {
+     "type": "paragraph",
+     "text": "Because of these effects, increased aldosterone levels commonly result in hypokalemia, which can lead to muscle cramps, weakness, and (when severe) cardiac arrhythmias."
+    },
+    {
+     "type": "paragraph",
+     "text": "Potassium-sparing diuretics may be added to prevent hypokalemia. These weak diuretic medications act in the distal nephron, where they reduce potassium excretion via the following mechanisms:"
+    },
+    {
+     "type": "paragraph",
+     "text": "• Triamterene and amiloride directly inhibit the epithelial sodium channel, preventing sodium from entering principal cells. This reduces the electrochemical gradient (ie, negative luminal charge) that helps drive potassium secretion."
+    },
+    {
+     "type": "paragraph",
+     "text": "• Aldosterone antagonists (ie, spironolactone, eplerenone) directly inhibit the mineralocorticoid receptor, resulting in decreased formation and activity of epithelial sodium channels and Na+/K+-ATPase pumps (Choice D)."
     },
     {
      "type": "paragraph",
@@ -1332,7 +1368,7 @@
    ],
    "educational_objective": "Potassium-sparing diuretics are often added to loop or thiazide diuretics to prevent hypokalemia. Amiloride and triamterene directly inhibit the epithelial sodium channel, preventing sodium from entering the principal cell, which reduces the electrochemical gradient (ie, negative luminal charge) that helps drive potassium secretion.",
    "statistics": {
-    "answered_correctly_percent": null,
+    "answered_correctly_percent": 61,
     "selection_percent": {
      "A": 61,
      "B": 2,
@@ -1341,13 +1377,9 @@
      "E": 2
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …nal out8' medullary potassium channel. ©UIM>rtd Thiazide diur…",
-    "UWorld screenshot text leaked: UWORLD_18860 explanation 2",
-    "screenshot chrome removed automatically"
-   ],
-   "source_record_sha256": "16c6d2251e6f326a5e6d7237aed7320f85a51237032b55641e0b1f7c385722c7"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "5e5e3b360270c2ba4d87e2e2973f0dd39e5537075b2ead147747860b0f183034"
   },
   {
    "id": "UWORLD_231",
@@ -1432,7 +1464,7 @@
     2245,
     2246
    ],
-   "question": "A 32-year-old man is evaluated in the emergency department due to fever, night sweats, and chills over the last several days. The patient has been using intravenous drugs recently as he is \"stressed out.\" He has otherwise been in good health with no medical problems. Temperature is 38.3 C (101 F), blood pressure is 120/80 mmHg, and pulse is 105/min and regular. Further evaluation reveals aortic valve endocarditis with an intracardiac abscess and small fistula formation between the aortic root and right ventricle. Doppler ultrasound interrogation of the fistula will most likely reveal which of the following blood flow patterns?",
+   "question": "A 32-year-old man is evaluated in the emergency department due to fever, night sweats, and chills over the last several days. The patient has been using intravenous drugs recently as he is \"stressed out.\" He has otherwise been in good health with no medical problems. Temperature is 38.3 C (101 F), blood pressure is 120/80 mm Hg, and pulse is 105/min and regular. Further evaluation reveals aortic valve endocarditis with an intracardiac abscess and small fistula formation between the aortic root and right ventricle. Doppler ultrasound interrogation of the fistula will most likely reveal which of the following blood flow patterns?",
    "options": [
     {
      "letter": "A",
@@ -1441,7 +1473,7 @@
     },
     {
      "letter": "B",
-     "text": "Flow from the aortic root to the right ventricle only ind iastole",
+     "text": "Flow from the aortic root to the right ventricle only in diastole",
      "selection_percent": 15
     },
     {
@@ -1456,7 +1488,7 @@
     },
     {
      "letter": "E",
-     "text": "Flow from the right ventricle to the aortic root only ind iastole",
+     "text": "Flow from the right ventricle to the aortic root only in diastole",
      "selection_percent": 3
     },
     {
@@ -1481,7 +1513,7 @@
     },
     {
      "type": "paragraph",
-     "text": "This patient with aortic valve endocarditis has developed an intracardiac fistula between the aortic root and right ventricle. Aortocavitary fistulas are an uncommon complication of bacterial endocarditis caused by extension of the infection from the valve to the adjacent myocardium. Echocardiography with Doppler analysis can be used to detect and quantify shunts in patients with intracardiac fistulas. During the normal cardiac cycle, central aortic pressure (eg, 120/80 mmHg) is higher than right ventricular pressure (eg, 25/5 mmHg) during systole and diastole. Consequently, in patients with aortocavitary fistula, Doppler interrogation will most likely demonstrate continuous blood flow from the higher-pressure aortic root to the lower-pressure right ventricle (left-to-right cardiac shunt) (Choices Band C). This can lead to a continuous murmur heard on cardiac auscultation."
+     "text": "This patient with aortic valve endocarditis has developed an intracardiac fistula between the aortic root and right ventricle. Aortocavitary fistulas are an uncommon complication of bacterial endocarditis caused by extension of the infection from the valve to the adjacent myocardium. Echocardiography with Doppler analysis can be used to detect and quantify shunts in patients with intracardiac fistulas. During the normal cardiac cycle, central aortic pressure (eg, 120/80 mm Hg) is higher than right ventricular pressure (eg, 25/5 mm Hg) during systole and diastole. Consequently, in patients with aortocavitary fistula, Doppler interrogation will most likely demonstrate continuous blood flow from the higher-pressure aortic root to the lower-pressure right ventricle (left-to-right cardiac shunt) (Choices B and C). This can lead to a continuous murmur heard on cardiac auscultation."
     },
     {
      "type": "paragraph",
@@ -1500,13 +1532,9 @@
      "F": 6
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …©UWorld This patient w…",
-    "UWorld screenshot text leaked: UWORLD_12187 explanation 1",
-    "screenshot chrome removed automatically"
-   ],
-   "source_record_sha256": "8ad631305d84adaaa4c92112004333fcb3ad52a289b0a30dc13d445cc637ac76"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "d2218fcaa6606e12af6109cee8dcec3f63143112f020657d82aa7dda32e12d09"
   },
   {
    "id": "UWORLD_1164",
@@ -1780,7 +1808,7 @@
     2024,
     2025
    ],
-   "question": "This item has associated media that may require the use of headphones. Please ensure your system/speaker volume is set to an audible level. A 23-year-old woman comes to the office due to exertional dyspnea. She occasionally has a dry cough but has had no chest pain, palpitations, or syncope. The patient emigrated from Cambodia 3 years ago. She had bilateral knee swelling as a child. Cardiac auscultation findings over the cardiac apex are given below. Which of the following is the most likely cause of this patient's symptoms? Play Media",
+   "question": "A 23-year-old woman comes to the office due to exertional dyspnea. She occasionally has a dry cough but has had no chest pain, palpitations, or syncope. The patient emigrated from Cambodia 3 years ago. She had bilateral knee swelling as a child. Cardiac auscultation findings over the cardiac apex are given below. Which of the following is the most likely cause of this patient's symptoms?",
    "options": [
     {
      "letter": "A",
@@ -1799,7 +1827,12 @@
     },
     {
      "letter": "D",
-     "text": "Mitral regurgitation (6 1%) 0 E. Mitral stenosis",
+     "text": "Mitral regurgitation",
+     "selection_percent": 61
+    },
+    {
+     "letter": "E",
+     "text": "Mitral stenosis",
      "selection_percent": 28
     }
    ],
@@ -1842,7 +1875,11 @@
     },
     {
      "type": "paragraph",
-     "text": "This patient's auscultatory findings reveal a blowing holosystolic murmur best heard over the cardiac apex (typically with radiation to the axilla), which is classic for mitral regurgitation (MR). Given her emigration from Southeast Asia and knee swelling as a child, the MR is most likely due to rheumatic heart disease (rheumatic heart disease is most commonly seen in Latin America, Africa, and Asia). Patients with rheumatic heart disease almost always have mitral valve involvement; MR is the more common manifestation in young patients (eg, age <25), whereas mitral stenosis is more common in middle-aged patients (eg, age >30). With increasing age, mixed mitral valve disease (ie, components of both regurgitation and stenosis) becomes increasingly frequent."
+     "text": "This patient's auscultatory findings reveal a blowing holosystolic murmur best heard over the cardiac apex (typically with radiation to the axilla), which is classic for mitral regurgitation (MR). Given her emigration from Southeast Asia and knee swelling as a child, the MR is most likely due to rheumatic heart disease (rheumatic heart disease is most commonly seen in Latin America, Africa, and Asia)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Patients with rheumatic heart disease almost always have mitral valve involvement; MR is the more common manifestation in young patients (eg, age <25), whereas mitral stenosis is more common in middle-aged patients (eg, age >30). With increasing age, mixed mitral valve disease (ie, components of both regurgitation and stenosis) becomes increasingly frequent."
     },
     {
      "type": "paragraph",
@@ -1863,19 +1900,18 @@
    ],
    "educational_objective": "Mitral regurgitation causes a blowing holosystolic murmur best heard at the cardiac apex and with radiation to the axilla. Rheumatic heart disease is a common cause of both mitral regurgitation and mitral stenosis and is most commonly seen in patients who grew up in Latin America, Africa, or Asia.",
    "statistics": {
-    "answered_correctly_percent": null,
+    "answered_correctly_percent": 61,
     "selection_percent": {
      "A": 0,
      "B": 3,
      "C": 5,
-     "D": 28
+     "D": 61,
+     "E": 28
     }
    },
-   "status": "blocked",
-   "issues": [
-    "choice percents sum 36"
-   ],
-   "source_record_sha256": "04583b2a4d7350167b1c7b7bdd065ed9416798cd6224a9f7e669926fa7db7503"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "fa02990a106b0b36b7b0d166e2df34a2c82318edd018eec55e16d30d930840c9"
   },
   {
    "id": "UWORLD_2009",
@@ -2091,7 +2127,7 @@
     2041,
     2042
    ],
-   "question": "A 54-year-old man comes to the emergency department due to severe fatigue and dyspnea. He has a long history of progressively worsening heart failure that has been resistant to treatment with medications, including diuretics. He was treated with chest radiation 10 years ago for non-Hodgkin lymphoma and has been in remission since then. The patient is admitted to the hospital, but his condition continues to deteriorate despite aggressive therapy. He dies 3 days later, and an autopsy is performed. Gross inspection of the heart shows dense, thick, fibrous tissue in the pericardia! space between the visceral and parietal pericardium. Which of the following signs would most likely have been detected during a physical examination of this patient just prior to his death?",
+   "question": "A 54-year-old man comes to the emergency department due to severe fatigue and dyspnea. He has a long history of progressively worsening heart failure that has been resistant to treatment with medications, including diuretics. He was treated with chest radiation 10 years ago for non-Hodgkin lymphoma and has been in remission since then. The patient is admitted to the hospital, but his condition continues to deteriorate despite aggressive therapy. He dies 3 days later, and an autopsy is performed. Gross inspection of the heart shows dense, thick, fibrous tissue in the pericardial space between the visceral and parietal pericardium. Which of the following signs would most likely have been detected during a physical examination of this patient just prior to his death?",
    "options": [
     {
      "letter": "A",
@@ -2110,7 +2146,7 @@
     },
     {
      "letter": "D",
-     "text": "S3gallop",
+     "text": "S3 gallop",
      "selection_percent": 13
     },
     {
@@ -2135,7 +2171,11 @@
     },
     {
      "type": "paragraph",
-     "text": "The autopsy find ing of thick, fibrous tissue in the pericard ia! space is consistent with constrictive pericarditis, a potential complication of chest radiation therapy for non-Hodgkin lymphoma. This dense, rigid pericardia! tissue encases the heart and restricts ventricular filling, causing low cardiac output (manifesting with fatigue and dyspnea on exertion) and progressive right-sided heart failure (manifesting with hepatomegaly and peripheral edema). Physical examination in constrictive pericarditis typically shows elevated jugular venous pressure (JVP) with prominent x and y descents and a pericardia! knock (early diastolic sound that occurs before S3) and may also demonstrate pulsus paradoxus (>10 mmHg drop in systolic blood pressure during inspiration). In addition, Kussmaul sign may be present. Under normal circumstances, the decrease in intrathoracic pressure during inspiration increases venous return to the right side of the heart and lowers JVP. However, in constrictive pericarditis, the rigid pericardium prevents the right side of the heart from accommodating increased venous return, which leads to a paradoxical rise in JVP during inspiration, referred to as Kussmaul sign."
+     "text": "The autopsy finding of thick, fibrous tissue in the pericardial space is consistent with constrictive pericarditis, a potential complication of chest radiation therapy for non-Hodgkin lymphoma. This dense, rigid pericardial tissue encases the heart and restricts ventricular filling, causing low cardiac output (manifesting with fatigue and dyspnea on exertion) and progressive right-sided heart failure (manifesting with hepatomegaly and peripheral edema)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Physical examination in constrictive pericarditis typically shows elevated jugular venous pressure (JVP) with prominent x and y descents and a pericardial knock (early diastolic sound that occurs before S3) and may also demonstrate pulsus paradoxus (>10 mm Hg drop in systolic blood pressure during inspiration). In addition, Kussmaul sign may be present. Under normal circumstances, the decrease in intrathoracic pressure during inspiration increases venous return to the right side of the heart and lowers JVP. However, in constrictive pericarditis, the rigid pericardium prevents the right side of the heart from accommodating increased venous return, which leads to a paradoxical rise in JVP during inspiration, referred to as Kussmaul sign."
     },
     {
      "type": "paragraph",
@@ -2143,7 +2183,7 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice C) During inspiration, venous return to the right side of the heart is increased, resulting in later closure of the pulmonic valve and physiologic splitting of the aortic (A2) and pulmonic components of S2. Paradoxical splitting occurs when cardiac pathology ( eg, aortic stenosis, left bundle branch block) delays closure of the aortic valve, causing A2 to occur noticeably later than P2."
+     "text": "(Choice C) During inspiration, venous return to the right side of the heart is increased, resulting in later closure of the pulmonic valve and physiologic splitting of the aortic (A2) and pulmonic components of S2. Paradoxical splitting occurs when cardiac pathology (eg, aortic stenosis, left bundle branch block) delays closure of the aortic valve, causing A2 to occur noticeably later than P2."
     },
     {
      "type": "paragraph",
@@ -2154,9 +2194,9 @@
      "text": "(Choice E) A sustained left parasternal lift is most commonly a sign of right ventricular hypertrophy, such as occurs with chronic right ventricular pressure overload (eg, pulmonary hypertension, pulmonic stenosis) or volume overload (eg, tricuspid regurgitation)."
     }
    ],
-   "educational_objective": "In constrictive pericarditis, normal pericardium is replaced by dense, rigid pericardia! tissue that restricts ventricular filling, leading to low cardiac output and progressive right-sided heart failure. Physical examination findings in such patients include elevated jugular venous pressure (JVP), pericardia! knock, pulsus paradoxus, and a paradoxical rise in JVP with inspiration (Kussmaul sign).",
+   "educational_objective": "In constrictive pericarditis, normal pericardium is replaced by dense, rigid pericardial tissue that restricts ventricular filling, leading to low cardiac output and progressive right-sided heart failure. Physical examination findings in such patients include elevated jugular venous pressure (JVP), pericardial knock, pulsus paradoxus, and a paradoxical rise in JVP with inspiration (Kussmaul sign).",
    "statistics": {
-    "answered_correctly_percent": 4,
+    "answered_correctly_percent": 64,
     "selection_percent": {
      "A": 64,
      "B": 3,
@@ -2165,11 +2205,9 @@
      "E": 6
     }
    },
-   "status": "blocked",
-   "issues": [
-    "answered% differs from correct choice%"
-   ],
-   "source_record_sha256": "88f47a4f1cacb51eee59402f767a0a3fc90ea70b3f10e3e3539e6cd5a20c93cd"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "c1016a221d75ea10a2807641dd29bdb58e93ba6fd0646c59c38d2e39c238bec9"
   },
   {
    "id": "UWORLD_205",
@@ -2276,16 +2314,21 @@
     },
     {
      "letter": "C",
-     "text": "Granulomatosis with polyangiitis (2 1%) ✓ 0 D. Polyarteritis nodosa",
-     "selection_percent": 54
+     "text": "Granulomatosis with polyangiitis",
+     "selection_percent": 21
     },
     {
      "letter": "D",
+     "text": "Polyarteritis nodosa",
+     "selection_percent": 54
+    },
+    {
+     "letter": "E",
      "text": "Thromboangiitis obliterans",
      "selection_percent": 7
     }
    ],
-   "correct_label": "C",
+   "correct_label": "D",
    "question_blocks": [
     {
      "type": "figure",
@@ -2335,11 +2378,31 @@
     },
     {
      "type": "paragraph",
-     "text": "This patient's vomiting, right upper quadrant pain, and gallbladder inflammation with no evidence of gallstones indicates acute acalculous cholecystitis. Although a variety of conditions cause acute acalculous cholecystitis, the presence of long-standing, nonspecific symptoms (eg, fatigue, weight loss, arthralgias) and biopsy findings of fibrinoid necrosis of the submucosal arteries of the gallbladder raise strong suspicion for polyarteritis nodosa (PAN). PAN is a systemic vasculitis of medium-sized muscular arteries; biopsy of affected areas generally reveals the following: • Segmental fibrinoid necrosis (amorphic, eosinophilic areas) of the vessel wall • Infiltration of the vessel wall with mononuclear cells and neutrophils • Internal and external elastic laminae damage, which may cause microaneurysms"
+     "text": "This patient's vomiting, right upper quadrant pain, and gallbladder inflammation with no evidence of gallstones indicates acute acalculous cholecystitis. Although a variety of conditions cause acute acalculous cholecystitis, the presence of long-standing, nonspecific symptoms (eg, fatigue, weight loss, arthralgias) and biopsy findings of fibrinoid necrosis of the submucosal arteries of the gallbladder raise strong suspicion for polyarteritis nodosa (PAN)."
     },
     {
      "type": "paragraph",
-     "text": "In contrast to many other vasculitides (eg, granulomatosis with polyangiitis), there is no granulomatous inflammation in PAN. PAN typically attacks arteries of the kidneys (eg, increased BUN/creatinine), skin, neurologic system, and gastrointestinal tract; most cases present due to symptoms of tissue ischemia from artery lumen narrowing/thrombosis or bleeding from microaneurysm rupture. In this case, damage to the submucosal gallbladder arteries likely caused gallbladder ischemia, which lead to acalculous cholecystitis. Other common gastrointestinal findings in PAN include bead-like microaneurysm formation in the mesenteric vessels, mesenteric ischemia, and bowel necrosis/rupture."
+     "text": "PAN is a systemic vasculitis of medium-sized muscular arteries; biopsy of affected areas generally reveals the following:"
+    },
+    {
+     "type": "paragraph",
+     "text": "• Segmental fibrinoid necrosis (amorphic, eosinophilic areas) of the vessel wall"
+    },
+    {
+     "type": "paragraph",
+     "text": "• Infiltration of the vessel wall with mononuclear cells and neutrophils"
+    },
+    {
+     "type": "paragraph",
+     "text": "• Internal and external elastic laminae damage, which may cause microaneurysms"
+    },
+    {
+     "type": "paragraph",
+     "text": "In contrast to many other vasculitides (eg, granulomatosis with polyangiitis), there is no granulomatous inflammation in PAN."
+    },
+    {
+     "type": "paragraph",
+     "text": "PAN typically attacks arteries of the kidneys (eg, increased BUN/creatinine), skin, neurologic system, and gastrointestinal tract; most cases present due to symptoms of tissue ischemia from artery lumen narrowing/thrombosis or bleeding from microaneurysm rupture. In this case, damage to the submucosal gallbladder arteries likely caused gallbladder ischemia, which lead to acalculous cholecystitis. Other common gastrointestinal findings in PAN include bead-like microaneurysm formation in the mesenteric vessels, mesenteric ischemia, and bowel necrosis/rupture."
     },
     {
      "type": "paragraph",
@@ -2351,7 +2414,7 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice C) Granulomatosis with polyangiitis is an antineutrophil cytoplasmic antibody- positive vasculitis that generally affects the upper airways, lungs, and kidneys. Gastrointestinal involvement is uncommon."
+     "text": "(Choice C) Granulomatosis with polyangiitis is an antineutrophil cytoplasmic antibody–positive vasculitis that generally affects the upper airways, lungs, and kidneys. Gastrointestinal involvement is uncommon."
     },
     {
      "type": "paragraph",
@@ -2364,16 +2427,14 @@
     "selection_percent": {
      "A": 5,
      "B": 10,
-     "C": 54,
-     "D": 7
+     "C": 21,
+     "D": 54,
+     "E": 7
     }
    },
-   "status": "blocked",
-   "issues": [
-    "choice letters disagree with order: D",
-    "choice percents sum 76"
-   ],
-   "source_record_sha256": "347f5690369e41e81a8d368d2f380ed56fec5b02ca9db17c953acb1e529b7dd4"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "99d9f112788a688765f02d4862e181f6a7267034a2022a71c51a6da2046d7497"
   }
  ]
 }

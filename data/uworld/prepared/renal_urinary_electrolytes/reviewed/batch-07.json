@@ -157,7 +157,7 @@
     1118,
     1119
    ],
-   "question": "A longitudinal study is conducted to assess changes in renal function over time in patients with recently diagnosed type 2 diabetes mellitus. An initial set of laboratory tests is obtained in newly enrolled patients to establish baseline renal function parameters. The following measurements are taken from a 42-year-old male volunteer. Urine Serum Creati niine Glucose rng/dl Potassium 50.0 mlEq/L 4.0 mEq/L Uric acid Para-aminohippuric acid Which of the following is the best estimate of the filtration fraction in this patient assuming a urine flow of 1.0 mL/min?",
+   "question": "A longitudinal study is conducted to assess changes in renal function over time in patients with recently diagnosed type 2 diabetes mellitus. An initial set of laboratory tests is obtained in newly enrolled patients to establish baseline renal function parameters. The following measurements are taken from a 42-year-old male volunteer.\nUrine Serum\nCreatinine 110.0 mg/dL 1.1 mg/dL\nGlucose 0 80.0 mg/dL\nPotassium 50.0 mEq/L 4.0 mEq/L\nUric acid 15.0 mg/dL 3.0 mg/dL\nPara-aminohippuric acid 100 mg/mL 0.2 mg/mL\nWhich of the following is the best estimate of the filtration fraction in this patient assuming a urine flow of 1.0 mL/min?",
    "options": [
     {
      "letter": "A",
@@ -182,7 +182,7 @@
     {
      "letter": "E",
      "text": "50%",
-     "selection_percent": null
+     "selection_percent": 10
     }
    ],
    "correct_label": "B",
@@ -201,10 +201,42 @@
     },
     {
      "type": "paragraph",
-     "text": "@UWorid Filtration fraction (FF) is the fraction of plasma flowing through the glomeruli that is filtered across the glomerular capillaries into Bowman's space. It can be thought of as the ratio between the glomerular filtration rate (GFR) and renal plasma flow (RPF): FF = GFR/ RPF GFR can be calculated using the inulin or creatinine clearance, as these substances are freely filtered at the glomerulus and have relatively insignificant tubular reabsorption or secretion. RPF can be determined using the para-aminohippuric acid (PAH) clearance as almost all the PAH entering the kidneys is excreted in the urine (mostly via tubular secretion). The clearance (C) of any given substanceS can be calculated as: C, = ([Urine concentration of S] x [Urine flow rate]) / (Plasma concentration of S) In this example, creatinine and PAH clearances can be calculated as: Ccreators =(110 mg/dl x 1 ml/min)/ 1.1 mg/dl = 100 ml/min C%, = (100 mg/ml x 1 ml/min) /0.2 mg/ml = 500 ml/min From these values, FIF can then be calculated as (1100 ml/min)/ (500 ml/min) = 0.2 or 20%, which is the typical filtration fraction for a healthy individual."
+     "text": "Filtration fraction (FF) is the fraction of plasma flowing through the glomeruli that is filtered across the glomerular capillaries into Bowman's space. It can be thought of as the ratio between the glomerular filtration rate (GFR) and renal plasma flow (RPF):"
+    },
+    {
+     "type": "paragraph",
+     "text": "FF = GFR / RPF"
+    },
+    {
+     "type": "paragraph",
+     "text": "GFR can be calculated using the inulin or creatinine clearance, as these substances are freely filtered at the glomerulus and have relatively insignificant tubular reabsorption or secretion. RPF can be determined using the para-aminohippuric acid (PAH) clearance as almost all the PAH entering the kidneys is excreted in the urine (mostly via tubular secretion)."
+    },
+    {
+     "type": "paragraph",
+     "text": "The clearance (C) of any given substance S can be calculated as:"
+    },
+    {
+     "type": "paragraph",
+     "text": "C_S = ([Urine concentration of S] x [Urine flow rate]) / (Plasma concentration of S)"
+    },
+    {
+     "type": "paragraph",
+     "text": "In this example, creatinine and PAH clearances can be calculated as:"
+    },
+    {
+     "type": "paragraph",
+     "text": "C_creatinine = (110 mg/dl x 1 ml/min) / 1.1 mg/dl = 100 ml/min"
+    },
+    {
+     "type": "paragraph",
+     "text": "C_PAH = (100 mg/ml x 1 ml/min) / 0.2 mg/ml = 500 ml/min"
+    },
+    {
+     "type": "paragraph",
+     "text": "From these values, FF can then be calculated as (100 ml/min) / (500 ml/min) = 0.2 or 20%, which is the typical filtration fraction for a healthy individual."
     }
    ],
-   "educational_objective": "The glomerular filtration rate (GFR) can be estimated by the inulin or creatinine clearance, while the renal plasma flow (RPF) is calculated using the para-aminohippuric acid clearance. The filtration fraction (FF = GFR/ RPF) is the fraction of the RPIF that is filtered across the glomerular capillaries into Bowman's space.. llt is usually equal to 20% in healthy individuals.",
+   "educational_objective": "The glomerular filtration rate (GFR) can be estimated by the inulin or creatinine clearance, while the renal plasma flow (RPF) is calculated using the para-aminohippuric acid clearance. The filtration fraction (FF = GFR / RPF) is the fraction of the RPF that is filtered across the glomerular capillaries into Bowman's space. It is usually equal to 20% in healthy individuals.",
    "statistics": {
     "answered_correctly_percent": 59,
     "selection_percent": {
@@ -212,16 +244,12 @@
      "B": 59,
      "C": 6,
      "D": 5,
-     "E": null
+     "E": 10
     }
    },
-   "status": "blocked",
-   "issues": [
-    "choice percents sum 198",
-    "choices look like pictures or a table",
-    "impossible percentage removed"
-   ],
-   "source_record_sha256": "84462d184e51654dc93af406af1fa5e2f62eb666142dadd0ef7ad308150f892c"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "8b976b1f7ce01bdac3996f77e2d898dae891ed895464f586fd5795e32d2707b5"
   },
   {
    "id": "UWORLD_2014",
@@ -562,7 +590,11 @@
     },
     {
      "type": "paragraph",
-     "text": "This patient has livedo reticularis, a blue toe, and acute kidney injury following coronary angiography; this presentation is concerning for atheroembolic disease. Invasive vascular procedures (eg, angiography, angioplasty, aortic surgery) can cause cholesterol-containing debris from atherosclerotic plaques to become dislodged from large arteries (eg, the aorta during cardiac catheterization) and shower microemboli into the circulation. These lodge in small, distal arterioles, resulting in ischemia of the corresponding organs and tissues; symptoms develop within a few days or weeks after the procedure. Skin findings (eg, livedo reticularis, blue toe syndrome} are the most common presenting signs. Pulses typically remain palpable as larger arteries are unaffected. Signs of acute kidney injury (eg, oliguria, azotemia) are common in the setting of postprocedure atheroembolism and are frequently seen in elderly patients with preexisting renal atherosclerosis. Frank infarction with flank pain and hematuria does not occur due to the small size of the emboli. Cholesterol is dissolved during tissue preparation for microscopic evaluation, leaving the needle-shaped clefts that partially or completely obstruct the arcuate or interlobular renal arteries. Other organs that may be involved are the gastrointestinal tract and the CNS, including the retinal vessels."
+     "text": "This patient has livedo reticularis, a blue toe, and acute kidney injury following coronary angiography; this presentation is concerning for atheroembolic disease. Invasive vascular procedures (eg, angiography, angioplasty, aortic surgery) can cause cholesterol-containing debris from atherosclerotic plaques to become dislodged from large arteries (eg, the aorta during cardiac catheterization) and shower microemboli into the circulation. These lodge in small, distal arterioles, resulting in ischemia of the corresponding organs and tissues; symptoms develop within a few days or weeks after the procedure. Skin findings (eg, livedo reticularis, blue toe syndrome) are the most common presenting signs. Pulses typically remain palpable as larger arteries are unaffected."
+    },
+    {
+     "type": "paragraph",
+     "text": "Signs of acute kidney injury (eg, oliguria, azotemia) are common in the setting of postprocedure atheroembolism and are frequently seen in elderly patients with preexisting renal atherosclerosis. Frank infarction with flank pain and hematuria does not occur due to the small size of the emboli. Cholesterol is dissolved during tissue preparation for microscopic evaluation, leaving the needle-shaped clefts that partially or completely obstruct the arcuate or interlobular renal arteries. Other organs that may be involved are the gastrointestinal tract and the CNS, including the retinal vessels."
     },
     {
      "type": "paragraph",
@@ -581,7 +613,7 @@
      "text": "(Choice E) Urate nephropathy due to tubular obstruction from urate crystal deposition is usually seen in individuals with acute hyperuricemia (eg, tumor lysis syndrome). The classic presentation is acute renal failure during chemotherapy for a malignancy."
     }
    ],
-   "educational_objective": "Invasive vascular procedures can be complicated by atheroembolic disease, which may involve the kidneys, gastrointestinal tract, CNS, and the skin. Light microscopy shows a partially or completely obstructed arterial lumen with needle-shaped cholesterol clefts within the atheromatous embolus..",
+   "educational_objective": "Invasive vascular procedures can be complicated by atheroembolic disease, which may involve the kidneys, gastrointestinal tract, CNS, and the skin. Light microscopy shows a partially or completely obstructed arterial lumen with needle-shaped cholesterol clefts within the atheromatous embolus.",
    "statistics": {
     "answered_correctly_percent": 41,
     "selection_percent": {
@@ -592,11 +624,9 @@
      "E": 7
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …, livedo reticularis, blue toe syndrome} are the most common …"
-   ],
-   "source_record_sha256": "fb0a80064dd12dceeeb9cdc0ea79068aed8985a086eb035eccb9548d232d227f"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "f2c60a5c0d0bc06d11941713cdda3e5bed66277448709df972abb894e4ce43c0"
   },
   {
    "id": "UWORLD_28",
@@ -2336,32 +2366,27 @@
     1383,
     1384
    ],
-   "question": "A 64-year-old woman is evaluated for right hand pain after a fall from standing height. The patient has a 20-year history of type 2 diabetes mellitus complicated by diabetic nephropathy and advanced chronic kidney disease. Xray of the right hand reveals no fractures, but it demonstrates subperiosteal resorption and new bone formation, particularly at the radial aspect of the middle phalanges. Laboratory studies show elevated serum parathyroid hormone, alkaline phosphatase, and phosphorus levels. If a bone biopsy is performed, which of the following findings would most likely be present in this patient? Osteoclasts Osteoblasts Decreased Decreased Decreased Increased Increased Increased Normal Normal",
+   "question": "A 64-year-old woman is evaluated for right hand pain after a fall from standing height. The patient has a 20-year history of type 2 diabetes mellitus complicated by diabetic nephropathy and advanced chronic kidney disease. X-ray of the right hand reveals no fractures, but it demonstrates subperiosteal resorption and new bone formation, particularly at the radial aspect of the middle phalanges. Laboratory studies show elevated serum parathyroid hormone, alkaline phosphatase, and phosphorus levels. If a bone biopsy is performed, which of the following findings would most likely be present in this patient?",
    "options": [
     {
      "letter": "A",
-     "text": "steoclasts Osteoblasts 0 A.",
+     "text": "Osteoclasts Decreased · Osteoblasts Decreased",
      "selection_percent": 2
     },
     {
      "letter": "B",
-     "text": "ecreased Decreased @ B.",
+     "text": "Osteoclasts Decreased · Osteoblasts Increased",
      "selection_percent": 11
     },
     {
      "letter": "C",
-     "text": "ecreased Increased vO C.",
+     "text": "Osteoclasts Increased · Osteoblasts Increased",
      "selection_percent": 82
     },
     {
      "letter": "D",
-     "text": "ncreased Increased 0 D.",
+     "text": "Osteoclasts Normal · Osteoblasts Normal",
      "selection_percent": 4
-    },
-    {
-     "letter": "E",
-     "text": "ormal Normal",
-     "selection_percent": null
     }
    ],
    "correct_label": "C",
@@ -2425,15 +2450,27 @@
     },
     {
      "type": "paragraph",
-     "text": "Parathyroid hormone (PTH) plays an important role in bone remodeling by regulating the activity of osteoblasts (which secrete osteoid for bone formation) and osteoclasts (which resorb bone). PTH exerts the following dual effects on bone: • Increases bone formation by stimulating the differentiation and activity of osteoblasts • Increases bone resorption by transforming osteoblasts into osteoclasts"
+     "text": "Parathyroid hormone (PTH) plays an important role in bone remodeling by regulating the activity of osteoblasts (which secrete osteoid for bone formation) and osteoclasts (which resorb bone). PTH exerts the following dual effects on bone:"
     },
     {
      "type": "paragraph",
-     "text": "This balanced process allows for normal bone turnover but can become disrupted in conditions that alter PTH secretion, such as secondary hyperparathyroidism in patients with chronic kidney disease (CKD). In CKD, hypocalcemia, caused by decreased formation of active vitamin D and decreased renal phosphate excretion, triggers PTH secretion in an attempt to increase serum calcium. Despite releasing calcium from bones, this compensatory response is unable to fully normalize serum calcium (due to the failing kidneys) and therefore results in chronic PTH elevation (ie, loss of negative feedback). Chronic PTIHI elevation leads to increased activity of both osteodasts and osteoblasts; the increase in osteoclast activity exceeds that of osteoblasts, which results in greater bone resorption than formation (suggested by an elevated serum alkaline phosphatase). A potential consequence of this high bone turnover is osteitis fibrosa cystica, a form of renal osteodystrophy characterized by weakened bone caused by the replacement of mineralized bone with fibrous tissue. Serum elevations in PTH, phosphorus, and alkaline phosphatase, in conjunction with the plain radiography finding of subperiosteal resorption, are typically sufficient for the diagnosis of osteitis fibrosa cystica. However, a bone biopsy would show an increased number of osteoclasts and osteoblasts throughout the bone trabeculae"
+     "text": "• Increases bone formation by stimulating the differentiation and activity of osteoblasts"
     },
     {
      "type": "paragraph",
-     "text": "(Choice D)."
+     "text": "• Increases bone resorption by transforming osteoblasts into osteoclasts"
+    },
+    {
+     "type": "paragraph",
+     "text": "This balanced process allows for normal bone turnover but can become disrupted in conditions that alter PTH secretion, such as secondary hyperparathyroidism in patients with chronic kidney disease (CKD). In CKD, hypocalcemia, caused by decreased formation of active vitamin D and decreased renal phosphate excretion, triggers PTH secretion in an attempt to increase serum calcium. Despite releasing calcium from bones, this compensatory response is unable to fully normalize serum calcium (due to the failing kidneys) and therefore results in chronic PTH elevation (ie, loss of negative feedback)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Chronic PTH elevation leads to increased activity of both osteoclasts and osteoblasts; the increase in osteoclast activity exceeds that of osteoblasts, which results in greater bone resorption than formation (suggested by an elevated serum alkaline phosphatase). A potential consequence of this high bone turnover is osteitis fibrosa cystica, a form of renal osteodystrophy characterized by weakened bone caused by the replacement of mineralized bone with fibrous tissue."
+    },
+    {
+     "type": "paragraph",
+     "text": "Serum elevations in PTH, phosphorus, and alkaline phosphatase, in conjunction with the plain radiography finding of subperiosteal resorption, are typically sufficient for the diagnosis of osteitis fibrosa cystica. However, a bone biopsy would show an increased number of osteoclasts and osteoblasts throughout the bone trabeculae. (Choice D)."
     },
     {
      "type": "paragraph",
@@ -2451,15 +2488,12 @@
      "A": 2,
      "B": 11,
      "C": 82,
-     "D": 4,
-     "E": null
+     "D": 4
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent"
-   ],
-   "source_record_sha256": "1e806cb15374f1415905b467e2291b4f842401a59716771b14e14af7b6d2b02c"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "dd2aa6ac4f761c49023b60e705f2852a5c8c1d0489416a113ca5909dd38be012"
   },
   {
    "id": "UWORLD_15271",
@@ -2473,7 +2507,7 @@
     1391,
     1392
    ],
-   "question": "A 57-year-old man comes to the hospital due to nausea, vomiting, and severe crampy pain in the right flank. He has had no fever or chills. Several days ago, the patient had similar, but less severe, pain that resolved spontaneously. Medical history is significant for type 2 diabetes mellitus, obesity, hyperlipidemia, hypertension, and gout. Temperature is 37 C (98.6 F), blood pressure is 160/100 mmHg, and pulse is 98/min. Physical examination shows right flank tenderness. Blood urea nitrogen and serum creatinine are normal. Abdominal ultrasound reveals right-sided hydronephrosis and proximal ureteral dilation. Urinalysis in this patient would most likely reveal which of the following?",
+   "question": "A 57-year-old man comes to the hospital due to nausea, vomiting, and severe crampy pain in the right flank. He has had no fever or chills. Several days ago, the patient had similar, but less severe, pain that resolved spontaneously. Medical history is significant for type 2 diabetes mellitus, obesity, hyperlipidemia, hypertension, and gout. Temperature is 37 C (98.6 F), blood pressure is 160/100 mm Hg, and pulse is 98/min. Physical examination shows right flank tenderness. Blood urea nitrogen and serum creatinine are normal. Abdominal ultrasound reveals right-sided hydronephrosis and proximal ureteral dilation. Urinalysis in this patient would most likely reveal which of the following?",
    "options": [
     {
      "letter": "A",
@@ -2492,8 +2526,8 @@
     },
     {
      "letter": "D",
-     "text": "Specific gravity of 11.002",
-     "selection_percent": null
+     "text": "Specific gravity of 1.002",
+     "selection_percent": 13
     },
     {
      "letter": "E",
@@ -2550,7 +2584,15 @@
     },
     {
      "type": "paragraph",
-     "text": "This patient has acute, recurrent flank pain associated with ureteral dilation; this presentation is typical for acute ureterolithiasis. Although ultrasound is relatively sensitive for ureteral and calyceal dilation due to an obstructing stone (hydronephrosis), small stones themselves may not be visible. Kidney stones usually cause disruption of the ureteral epithelium with resulting gross or microscopic hematuria due to the presence of free red blood cells (RBCs) in the urine. When bleeding into the renal collecting system or lower urinary tract occurs, RBC morphology is normal. In contrast, glomerular bleeding (eg, glomerulonephritis) causes formation of RBC casts due to trapping of RBCs by precipitating Tamm-Horsfall protein (Choice C); the cells are typically dysmorphic due to mechanical and osmotic trauma as they pass through the nephron. Inspection of urine sediment in patients with acute ureterolithiasis may identify crystals corresponding to the type of stone. This patient has risk factors for uric acid stones, including gout and metabolic syndrome (obesity, diabetes mellitus, hyperlipidemia), and urinalysis may show polygonal uric acid crystals (which are morphologically distinct from the needle-shaped monosodium urate crystals seen in synovial fluid in acute gout)."
+     "text": "This patient has acute, recurrent flank pain associated with ureteral dilation; this presentation is typical for acute ureterolithiasis. Although ultrasound is relatively sensitive for ureteral and calyceal dilation due to an obstructing stone (hydronephrosis), small stones themselves may not be visible."
+    },
+    {
+     "type": "paragraph",
+     "text": "Kidney stones usually cause disruption of the ureteral epithelium with resulting gross or microscopic hematuria due to the presence of free red blood cells (RBCs) in the urine. When bleeding into the renal collecting system or lower urinary tract occurs, RBC morphology is normal. In contrast, glomerular bleeding (eg, glomerulonephritis) causes formation of RBC casts due to trapping of RBCs by precipitating Tamm-Horsfall protein (Choice C); the cells are typically dysmorphic due to mechanical and osmotic trauma as they pass through the nephron."
+    },
+    {
+     "type": "paragraph",
+     "text": "Inspection of urine sediment in patients with acute ureterolithiasis may identify crystals corresponding to the type of stone. This patient has risk factors for uric acid stones, including gout and metabolic syndrome (obesity, diabetes mellitus, hyperlipidemia), and urinalysis may show polygonal uric acid crystals (which are morphologically distinct from the needle-shaped monosodium urate crystals seen in synovial fluid in acute gout)."
     },
     {
      "type": "paragraph",
@@ -2558,7 +2600,7 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice D) Urine specific gravity correlates with urine concentration, and a specific gravity of <1.003 indicates dilute urine; because kidney stones most commonly occur in conoentrated urine (eg, >1.015), it is unlikely that a patient with an acute stone would have such a low specific gravity."
+     "text": "(Choice D) Urine specific gravity correlates with urine concentration, and a specific gravity of ≤1.003 indicates dilute urine; because kidney stones most commonly occur in concentrated urine (eg, >1.015), it is unlikely that a patient with an acute stone would have such a low specific gravity."
     },
     {
      "type": "paragraph",
@@ -2567,21 +2609,18 @@
    ],
    "educational_objective": "Urine sediment in acute ureterolithiasis typically shows free red blood cells (hematuria) and crystals consistent with the type of stone. Ultrasound can reveal ureteral and calyceal dilation (hydronephrosis), but small stones themselves may not be visible.",
    "statistics": {
-    "answered_correctly_percent": null,
+    "answered_correctly_percent": 61,
     "selection_percent": {
      "A": 3,
      "B": 61,
      "C": 12,
-     "D": null,
+     "D": 13,
      "E": 9
     }
    },
-   "status": "blocked",
-   "issues": [
-    "choice percents sum 198",
-    "impossible percentage removed"
-   ],
-   "source_record_sha256": "a046b49a97d3b11645a17238c8a526e60255f01a7ebddc442c4012b5194427c9"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "e40fce0a857fcbb2f75cd1d80b420a7b5ccdf08e868111499d430dc70f7d0da6"
   }
  ]
 }

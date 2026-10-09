@@ -480,7 +480,15 @@
     },
     {
      "type": "paragraph",
-     "text": "© UWorld Bile acids are synthesized in the liver from cholesterol catabolism. Bile enters the duodenum through gallbladder contraction. Bile acids are primarily absorbed in the terminal ileum, with the small amount that remains unabsorbed being excreted in the stool (this amount is matched by bile acid synthesis). Statins are the first-line therapy for most patients with hypercholesterolemia. These drugs competitively inhibit HMG CoA reductase, the enzyme responsible for the conversion of HMG CoA to mevalonate (ie, the rate-limiting step in hepatic cholesterol synthesis). This inhibition decreases hepatic cholesterol synthesis. The resulting upregulation of LDL receptors causes increased uptake of LDL from the circulation. Statins are very effective in reducing LDL cholesterol. Statins' effects on triglyceride and HDL levels are comparatively modest. Bile acid-binding resins (ie, bile acid sequestrants) work by binding bile acids in the gastrointestinal tract, thereby interfering with the enterohepatic circulation of bile acids and causing increased bile acid excretion. This results in hepatic synthesis of new bile acids, a process that consumes liver cholesterol stores. Hepatic uptake of LDL from the circulation is increased for continued bile acid synthesis. Bile acid production and secretion are increased by 10-fold due to this interruption of the enterohepatic circulation of bile acids. Hepatic cholesterol reduction is an activating factor for HMG CoA reductase and subsequently results in increased hepatic cholesterol synthesis. This effect can be blocked with the addition of a statin drug to the treatment regimen, leading to a greater reduction in LDL levels than with use of either drug alone (synergistic action)."
+     "text": "Bile acids are synthesized in the liver from cholesterol catabolism. Bile enters the duodenum through gallbladder contraction. Bile acids are primarily absorbed in the terminal ileum, with the small amount that remains unabsorbed being excreted in the stool (this amount is matched by bile acid synthesis)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Statins are the first-line therapy for most patients with hypercholesterolemia. These drugs competitively inhibit HMG CoA reductase, the enzyme responsible for the conversion of HMG CoA to mevalonate (ie, the rate-limiting step in hepatic cholesterol synthesis). This inhibition decreases hepatic cholesterol synthesis. The resulting upregulation of LDL receptors causes increased uptake of LDL from the circulation. Statins are very effective in reducing LDL cholesterol. Statins' effects on triglyceride and HDL levels are comparatively modest."
+    },
+    {
+     "type": "paragraph",
+     "text": "Bile acid–binding resins (ie, bile acid sequestrants) work by binding bile acids in the gastrointestinal tract, thereby interfering with the enterohepatic circulation of bile acids and causing increased bile acid excretion. This results in hepatic synthesis of new bile acids, a process that consumes liver cholesterol stores. Hepatic uptake of LDL from the circulation is increased for continued bile acid synthesis. Bile acid production and secretion are increased by 10-fold due to this interruption of the enterohepatic circulation of bile acids. Hepatic cholesterol reduction is an activating factor for HMG CoA reductase and subsequently results in increased hepatic cholesterol synthesis. This effect can be blocked with the addition of a statin drug to the treatment regimen, leading to a greater reduction in LDL levels than with use of either drug alone (synergistic action)."
     }
    ],
    "educational_objective": "Simvastatin decreases hepatic cholesterol production, while cholestyramine increases hepatic cholesterol and bile acid synthesis. Combination therapy results in a synergistic reduction in plasma LDL level.",
@@ -494,11 +502,9 @@
      "E": 3
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …© UWorld Bile acids ar…"
-   ],
-   "source_record_sha256": "5066ddf7795f9eef183a6708928901fd8c9903624a3eee14859fa75da70620dd"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "37e05e09a851e740d385924ed0c4f6e08391186eeb273712fb9fd5df1b7d2611"
   },
   {
    "id": "UWORLD_59",
@@ -1079,26 +1085,31 @@
     },
     {
      "letter": "B",
-     "text": "Allergen-mediated esophageal disease (1 8%) ✓ 0 C. Gastroesophageal junction incompetence",
-     "selection_percent": 67
+     "text": "Allergen-mediated esophageal disease",
+     "selection_percent": 18
     },
     {
      "letter": "C",
+     "text": "Gastroesophageal junction incompetence",
+     "selection_percent": 67
+    },
+    {
+     "letter": "D",
      "text": "Mucosal disruption from fungal infection",
      "selection_percent": 3
     },
     {
-     "letter": "D",
+     "letter": "E",
      "text": "Mucosal disruption from viral infection",
      "selection_percent": 1
     },
     {
-     "letter": "E",
+     "letter": "F",
      "text": "Pill-induced esophageal mucosa damage",
      "selection_percent": 8
     }
    ],
-   "correct_label": "B",
+   "correct_label": "C",
    "question_blocks": [],
    "explanation": [
     {
@@ -1169,7 +1180,11 @@
     },
     {
      "type": "paragraph",
-     "text": "Gastroesophageal reflux disease (GERO) is a very common condition that usually manifests with heartburn, regurgitation, and dysphagia. However, patients can have extraesophageal symptoms (eg, nocturnal cough, hoarseness) in the absence of heartburn (\"silent GERO\"). Gastroesophageal junction incompetence is the primary pathophysiologic mechanism responsible for GERO. This incompetence is most commonly caused by excessive relaxation of the lower esophageal sphincter, resulting in the reflux of acidic gastric contents back into the esophagus. Irritation of the esophageal mucosa leads to an inflammatory reaction with mucosal erythema and edema; erosions/ulcerations may develop in severe cases. Characteristic histologic findings include basal zone hyperplasia, elongation of the lamina propria papillae, and scattered eosinophils and neutrophils."
+     "text": "Gastroesophageal reflux disease (GERD) is a very common condition that usually manifests with heartburn, regurgitation, and dysphagia. However, patients can have extraesophageal symptoms (eg, nocturnal cough, hoarseness) in the absence of heartburn (\"silent GERD\")."
+    },
+    {
+     "type": "paragraph",
+     "text": "Gastroesophageal junction incompetence is the primary pathophysiologic mechanism responsible for GERD. This incompetence is most commonly caused by excessive relaxation of the lower esophageal sphincter, resulting in the reflux of acidic gastric contents back into the esophagus. Irritation of the esophageal mucosa leads to an inflammatory reaction with mucosal erythema and edema; erosions/ulcerations may develop in severe cases. Characteristic histologic findings include basal zone hyperplasia, elongation of the lamina propria papillae, and scattered eosinophils and neutrophils."
     },
     {
      "type": "paragraph",
@@ -1192,24 +1207,21 @@
      "text": "(Choice F) Pill-induced esophagitis is commonly seen with tetracycline antibiotics, potassium chloride, and bisphosphonates. Metformin and enalapril do not cause esophagitis."
     }
    ],
-   "educational_objective": "Gastroesophageal reflux disease is caused primarily by gastroesophageal junction incompetence and can be associated with extraesophageal symptoms (eg, nocturnal cough) in the absence of heartburn (\"silent GERO\"). Acidic gastric contents irritate the esophageal mucosa, leading to characteristic histologic findings that include basal zone hyperplasia, elongation of the lamina propria papillae, and scattered eosinophils.",
+   "educational_objective": "Gastroesophageal reflux disease is caused primarily by gastroesophageal junction incompetence and can be associated with extraesophageal symptoms (eg, nocturnal cough) in the absence of heartburn (\"silent GERD\"). Acidic gastric contents irritate the esophageal mucosa, leading to characteristic histologic findings that include basal zone hyperplasia, elongation of the lamina propria papillae, and scattered eosinophils.",
    "statistics": {
     "answered_correctly_percent": 67,
     "selection_percent": {
      "A": 1,
-     "B": 67,
-     "C": 3,
-     "D": 1,
-     "E": 8
+     "B": 18,
+     "C": 67,
+     "D": 3,
+     "E": 1,
+     "F": 8
     }
    },
-   "status": "blocked",
-   "issues": [
-    "choice letters disagree with order: C,D,E",
-    "correct answer signals disagree: tick B, percent B, text C",
-    "choice percents sum 80"
-   ],
-   "source_record_sha256": "ac16307347b94ece98922989cdf0fc173bff5dd2ae3a04b6f3bb1baccf9637c8"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "df4fd69451b90b38b74c450e0743887a6815a9fa86c37080c69d8f54f2901be2"
   },
   {
    "id": "UWORLD_328",
@@ -1312,7 +1324,7 @@
     1123,
     1124
    ],
-   "question": "A 60-year-old woman comes to the office with persistent, profuse mucoid diarrhea. Despite not eating much for the past 2 days, her diarrhea has not decreased, but she has no other symptoms. The patient has not had ageappropriate colon cancer screening. Family history is unremarkable. She does not use tobacco, alcohol, or illicit drugs. Vital signs and cardiopulmonary examination are normal. The abdomen is soft and nondistended. There is no hepatosplenomegaly. Laboratory studies show hypokalemia and microcytic anemia. Colonoscopy reveals a 2.5-cm, cauliflower-like mass in the sigmoid colon. The mass is resected and the histopathology of the lesion is shown in the exhibit. Which of the following is the most likely diagnosis in this patient?",
+   "question": "A 60-year-old woman comes to the office with persistent, profuse mucoid diarrhea. Despite not eating much for the past 2 days, her diarrhea has not decreased, but she has no other symptoms. The patient has not had age-appropriate colon cancer screening. Family history is unremarkable. She does not use tobacco, alcohol, or illicit drugs. Vital signs and cardiopulmonary examination are normal. The abdomen is soft and nondistended. There is no hepatosplenomegaly. Laboratory studies show hypokalemia and microcytic anemia. Colonoscopy reveals a 2.5-cm, cauliflower-like mass in the sigmoid colon. The mass is resected and the histopathology of the lesion is shown in the exhibit. Which of the following is the most likely diagnosis in this patient?",
    "options": [
     {
      "letter": "A",
@@ -1412,15 +1424,19 @@
     },
     {
      "type": "paragraph",
-     "text": "•crowded cells with dark, elongated nuclei. Biopsy of this patient's mass demonstrates long glands with finger-like (villous) projections extending from the surface as well as dysplastic epithelium, which are characteristic of a villous adenoma. A villous adenoma is often large and sessile and can have velvety or cauliflower-like projections. By contrast, a tubular adenoma is composed of dysplastic colonic mucosa! cells that form tube-shaped glands and tends to be smaller and pedunculated. A mixture of these 2 types indicates a tubulovillous adenoma. Of these, villous adenomas are the most likely to undergo malignant transformation. Adenomas in the colon can cause occult or visible bleeding, leading to iron-deficiency anemia. Large polyps may occasionally cause partial obstruction with pain, constipation, and abdominal distension. In addition, villous adenomas can produce large quantities of prostaglandin E2, which results in increased mucin production and a secretory diarrhea characterized by watery, mucinous stools. Mucin is a potassium-rich glycoprotein; excessive production can result in hypoproteinemia and hypokalemia."
+     "text": "Biopsy of this patient's mass demonstrates long glands with finger-like (villous) projections extending from the surface as well as dysplastic epithelium, which are characteristic of a villous adenoma. A villous adenoma is often large and sessile and can have velvety or cauliflower-like projections. By contrast, a tubular adenoma is composed of dysplastic colonic mucosal cells that form tube-shaped glands and tends to be smaller and pedunculated. A mixture of these 2 types indicates a tubulovillous adenoma. Of these, villous adenomas are the most likely to undergo malignant transformation."
     },
     {
      "type": "paragraph",
-     "text": "(Choice A) Intestinal carcinoids can cause diarrhea and are often associated with additional symptoms such as flushing, wheezing, and vascular telangiectasia when they metastasize. Histopathology is typified by insular (nesting) masses of small, round cells with peripheral palisading, granular cytoplasm, small nucleoli, and salt-andpepper chromatin."
+     "text": "Adenomas in the colon can cause occult or visible bleeding, leading to iron-deficiency anemia. Large polyps may occasionally cause partial obstruction with pain, constipation, and abdominal distension. In addition, villous adenomas can produce large quantities of prostaglandin E2, which results in increased mucin production and a secretory diarrhea characterized by watery, mucinous stools. Mucin is a potassium-rich glycoprotein; excessive production can result in hypoproteinemia and hypokalemia."
     },
     {
      "type": "paragraph",
-     "text": "(Choice B) Hamartomatous polyps consist of disorganized mucosa! glands, smooth muscle, and connective tissue. They may occur sporadically or in Peutz-Jeghers syndrome or juvenile polyposis. These polyps can cause bleeding and intussusception, but not secretory diarrhea."
+     "text": "(Choice A) Intestinal carcinoids can cause diarrhea and are often associated with additional symptoms such as flushing, wheezing, and vascular telangiectasia when they metastasize. Histopathology is typified by insular (nesting) masses of small, round cells with peripheral palisading, granular cytoplasm, small nucleoli, and salt-and-pepper chromatin."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice B) Hamartomatous polyps consist of disorganized mucosal glands, smooth muscle, and connective tissue. They may occur sporadically or in Peutz-Jeghers syndrome or juvenile polyposis. These polyps can cause bleeding and intussusception, but not secretory diarrhea."
     },
     {
      "type": "paragraph",
@@ -1442,13 +1458,9 @@
      "E": 75
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …ded cells with dark, elongated nuclei. ©uworld Biopsy of this…",
-    "UWorld screenshot text leaked: UWORLD_430 explanation 5",
-    "screenshot chrome removed automatically"
-   ],
-   "source_record_sha256": "76ee5678c53912b60c069876a3a2b95e46d64baabbca3389712eb8bff78522a6"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "ff9fe2b7667bc9f16e2475428f079b2e993eb2d752ca8bafb541ebb911500e16"
   },
   {
    "id": "UWORLD_12062",
@@ -1651,7 +1663,7 @@
     1140,
     1141
    ],
-   "question": "A 45-year-old man comes to the office due to a 1 year history of abdominal pain and greasy stools. He has also noticed a 7-kg (15.4-lb) weight loss over the past 6 months. Medical history is significant for several years of joint pain in his knees and wrists but is otherwise unremarkable. The patient does not use tobacco or alcohol. After an initial workup, a duodenal biopsy is performed. Microscopic examination shows numerous macrophages in the lamina propria filled with inclusions positive for periodic acid- Schiff stain. Which of the following is the most appropriate treatment for this patient?",
+   "question": "A 45-year-old man comes to the office due to a 1 year history of abdominal pain and greasy stools. He has also noticed a 7-kg (15.4-lb) weight loss over the past 6 months. Medical history is significant for several years of joint pain in his knees and wrists but is otherwise unremarkable. The patient does not use tobacco or alcohol. After an initial workup, a duodenal biopsy is performed. Microscopic examination shows numerous macrophages in the lamina propria filled with inclusions positive for periodic acid–Schiff stain. Which of the following is the most appropriate treatment for this patient?",
    "options": [
     {
      "letter": "A",
@@ -1717,11 +1729,15 @@
     },
     {
      "type": "paragraph",
-     "text": "This patient with joint pain and malabsorption (eg, greasy stools, weight loss) has biopsy findings consistent with Whipple disease, a rare, systemic disease caused by chronic infection with the gram-positive bacillus Tropheryma whipplei. It usually presents in middle-aged men (age 40-60) and often affects multiple organ systems, most commonly the small intestine (eg, abdominal pain, diarrhea, steatorrhea, weight loss), joints (eg, arthralgia), and CNS (eg, dementia). Twhippfei proliferates within the macrophages of affected tissues and provokes minimal inflammatory response, allowing persistent infection. Diagnosis can be confirmed with biopsy of the small intestine, which shows numerous foamy macrophages distended by bacilli in the lamina propria. The bacilli are characteristically positive for periodic acid-Schiff (PAS), which stains polysaccharides in the Twhippfei membrane. Long-term (ie, ~12 months) antibiotic therapy is usually successful in resolving the symptoms, although relapses can occur."
+     "text": "This patient with joint pain and malabsorption (eg, greasy stools, weight loss) has biopsy findings consistent with Whipple disease, a rare, systemic disease caused by chronic infection with the gram-positive bacillus Tropheryma whipplei. It usually presents in middle-aged men (age 40-60) and often affects multiple organ systems, most commonly the small intestine (eg, abdominal pain, diarrhea, steatorrhea, weight loss), joints (eg, arthralgia), and CNS (eg, dementia). T whipplei proliferates within the macrophages of affected tissues and provokes minimal inflammatory response, allowing persistent infection."
     },
     {
      "type": "paragraph",
-     "text": "(Choice A) Aminosalicylic acid derivatives are appropriate treatment for ulcerative colitis (UC). Although UC can present with gastrointestinal symptoms, weight loss, and joint pain, microscopic examination of the intestine typically shows diffuse mucosa! inflammation, including crypt abscesses and ulceration."
+     "text": "Diagnosis can be confirmed with biopsy of the small intestine, which shows numerous foamy macrophages distended by bacilli in the lamina propria. The bacilli are characteristically positive for periodic acid–Schiff (PAS), which stains polysaccharides in the T whipplei membrane. Long-term (ie, ≥12 months) antibiotic therapy is usually successful in resolving the symptoms, although relapses can occur."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice A) Aminosalicylic acid derivatives are appropriate treatment for ulcerative colitis (UC). Although UC can present with gastrointestinal symptoms, weight loss, and joint pain, microscopic examination of the intestine typically shows diffuse mucosal inflammation, including crypt abscesses and ulceration."
     },
     {
      "type": "paragraph",
@@ -1736,9 +1752,9 @@
      "text": "(Choice E) Surgery is appropriate for patients with bowel conditions unresponsive to medical treatment (eg, ischemic infarction). Intestinal infarction typically presents with severe abdominal pain, and microscopic examination may show coagulative necrosis."
     }
    ],
-   "educational_objective": "Whipple disease, caused by the gram-positive actinomycete Tropheryma whippfei, is a rare systemic illness that often involves the small intestine, joints, and CNS. Classic intestinal histologic findings include foamy macrophages in the lamina propria filled with bacilli positive for periodic acid- Schiff stain. Treatment is with antibiotics.",
+   "educational_objective": "Whipple disease, caused by the gram-positive actinomycete Tropheryma whipplei, is a rare systemic illness that often involves the small intestine, joints, and CNS. Classic intestinal histologic findings include foamy macrophages in the lamina propria filled with bacilli positive for periodic acid–Schiff stain. Treatment is with antibiotics.",
    "statistics": {
-    "answered_correctly_percent": null,
+    "answered_correctly_percent": 67,
     "selection_percent": {
      "A": 5,
      "B": 67,
@@ -1747,11 +1763,9 @@
      "E": 4
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …he T whippfei membrane. Long-term (ie, ~12 months) antibiotic…"
-   ],
-   "source_record_sha256": "230ac432497c22060fea51314fd12f17481b869d28b45c927f9147d21694ddc6"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "155c6f45efe477ce59c88529a8e4ed2bc43342be1ffe7a4bcafd36db33aca4c3"
   },
   {
    "id": "UWORLD_49",
@@ -1787,11 +1801,16 @@
     },
     {
      "letter": "D",
-     "text": "Primary biliary cholangitis (1 9%) ✓ O E. Primary sclerosing cholangitis",
+     "text": "Primary biliary cholangitis",
+     "selection_percent": 19
+    },
+    {
+     "letter": "E",
+     "text": "Primary sclerosing cholangitis",
      "selection_percent": 75
     }
    ],
-   "correct_label": "D",
+   "correct_label": "E",
    "question_blocks": [],
    "explanation": [
     {
@@ -1862,7 +1881,11 @@
     },
     {
      "type": "paragraph",
-     "text": "This patient with fatigue, nausea, pruritus, and scleral icterus has characteristic biopsy findings associated with primary sclerosing cholangitis (PSC), a chronic disorder characterized by infl ammation, fibrosis, and stricture of the intrahepatic and extrahepatic bile ducts. Histologic features include fibrous obliteration of the bile ducts as well as concentric periductal connective tissue deposition, which resembles an onion skin- like pattern. PSC affects men disproportionately and has a strong association with ulcerative colitis, likely explaining this patient's bloody stools. Manifestations of PSC are related to cholestasis and include pruritus, jaundice, and fatigue. Laboratory findings also reflect a cholestatic pattern of liver injury and include elevated alkaline phosphatase levels, direct hyperbilirubinemia, and normal to mildly elevated aminotransferases. The diagnosis is typically confirmed with cholangiography (eg, MR or endoscopic retrograde cholangiopancreatography) demonstrating multifocal bile duct stricture with segmental dilations."
+     "text": "This patient with fatigue, nausea, pruritus, and scleral icterus has characteristic biopsy findings associated with primary sclerosing cholangitis (PSC), a chronic disorder characterized by inflammation, fibrosis, and stricture of the intrahepatic and extrahepatic bile ducts. Histologic features include fibrous obliteration of the bile ducts as well as concentric periductal connective tissue deposition, which resembles an onion skin-like pattern. PSC affects men disproportionately and has a strong association with ulcerative colitis, likely explaining this patient's bloody stools."
+    },
+    {
+     "type": "paragraph",
+     "text": "Manifestations of PSC are related to cholestasis and include pruritus, jaundice, and fatigue. Laboratory findings also reflect a cholestatic pattern of liver injury and include elevated alkaline phosphatase levels, direct hyperbilirubinemia, and normal to mildly elevated aminotransferases. The diagnosis is typically confirmed with cholangiography (eg, MR or endoscopic retrograde cholangiopancreatography) demonstrating multifocal bile duct stricture with segmental dilations."
     },
     {
      "type": "paragraph",
@@ -1888,14 +1911,13 @@
      "A": 3,
      "B": 0,
      "C": 1,
-     "D": 75
+     "D": 19,
+     "E": 75
     }
    },
-   "status": "blocked",
-   "issues": [
-    "choice percents sum 79"
-   ],
-   "source_record_sha256": "35c87c7e4157995656512b940e55385bd845e7cd84f87a95313c9459bc16a8c7"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "cf093ae1c65532cf8456290d554c6b877479f35cf024bab1142ff7d608f2becc"
   },
   {
    "id": "UWORLD_14873",

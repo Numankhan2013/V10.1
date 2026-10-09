@@ -1271,7 +1271,7 @@
     618,
     619
    ],
-   "question": "Physiologists are investigating renal autoregulatory mechanisms in an animal species that closely mimics human physiology. During one of their experiments, renal blood flow and glomerular filtration rate are measured in an anesthetized animal in response to changes in mean arterial pressure. The data they obtain is shown on the graph below. Assuming a hematocrit of 0.50, what is the best estimate of the filtration fraction when the mean arterial pressure is",
+   "question": "Physiologists are investigating renal autoregulatory mechanisms in an animal species that closely mimics human physiology. During one of their experiments, renal blood flow and glomerular filtration rate are measured in an anesthetized animal in response to changes in mean arterial pressure. The data they obtain is shown on the graph below. Assuming a hematocrit of 0.50, what is the best estimate of the filtration fraction when the mean arterial pressure is 120 mm Hg?",
    "options": [
     {
      "letter": "A",
@@ -1327,10 +1327,34 @@
    "explanation": [
     {
      "type": "paragraph",
-     "text": "The filtration fraction (FF) is the fraction of plasma flowing through the glomeruli that is filtered across the glomerular capillaries into Bowman's space. It can be thought of as the ratio between the glomerular filtration rate (GFR) and renal plasma flow (RPF): FF= GFR/RPF RIPF is used to calculate FF rather than renal blood flow (RBF) because RIBIF includes the volume of the blood that is occupied by erythrocytes, a volume unavailable for filtration across the glomerular capillaries. The RPF quantifies the volume of plasma that is able to pass through the glomerular capillaries more accurately and can be calculated from the RBF using the following equation: RPF = RBF (1- Hematocrit) In this case, at a mean arterial pressure of 120 mmHg, the experimental animal has a RBF of 1.0 L/min and a GFR of 0.1 L/min. Because the hematocrit is 0.5, this gives: RPF = (1.0 L/min) (1-0.5)= 0.5 L/min Therefore, FF =(0.1 L/min) /(0.5 L/min) = 0.2."
+     "text": "The filtration fraction (FF) is the fraction of plasma flowing through the glomeruli that is filtered across the glomerular capillaries into Bowman's space. It can be thought of as the ratio between the glomerular filtration rate (GFR) and renal plasma flow (RPF):"
+    },
+    {
+     "type": "paragraph",
+     "text": "FF = GFR/RPF"
+    },
+    {
+     "type": "paragraph",
+     "text": "RPF is used to calculate FF rather than renal blood flow (RBF) because RBF includes the volume of the blood that is occupied by erythrocytes, a volume unavailable for filtration across the glomerular capillaries. The RPF quantifies the volume of plasma that is able to pass through the glomerular capillaries more accurately and can be calculated from the RBF using the following equation:"
+    },
+    {
+     "type": "paragraph",
+     "text": "RPF = RBF * (1 - Hematocrit)"
+    },
+    {
+     "type": "paragraph",
+     "text": "In this case, at a mean arterial pressure of 120 mm Hg, the experimental animal has a RBF of 1.0 L/min and a GFR of 0.1 L/min. Because the hematocrit is 0.5, this gives:"
+    },
+    {
+     "type": "paragraph",
+     "text": "RPF = (1.0 L/min) * (1 - 0.5) = 0.5 L/min"
+    },
+    {
+     "type": "paragraph",
+     "text": "Therefore, FF = (0.1 L/min) / (0.5 L/min) = 0.2."
     }
    ],
-   "educational_objective": "The filtration fraction is the fraction of plasma flowing through the glomeruli that is filtered across the glomerular capillaries into Bowman's space (FF = GFR/RPF). Renal plasma flow can be determined from renal blood flow by multiplying the renal blood flow by (1 - Hematocrit).",
+   "educational_objective": "The filtration fraction is the fraction of plasma flowing through the glomeruli that is filtered across the glomerular capillaries into Bowman's space (FF = GFR/RPF). Renal plasma flow can be determined from renal blood flow by multiplying the renal blood flow by (1 – Hematocrit).",
    "statistics": {
     "answered_correctly_percent": 47,
     "selection_percent": {
@@ -1341,11 +1365,9 @@
      "E": 3
     }
    },
-   "status": "blocked",
-   "issues": [
-    "choices look like pictures or a table"
-   ],
-   "source_record_sha256": "912850c68abe261adbe0b0e44574b7955e3f276ddbb1a1ce4d0c032dccb70570"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "36070042e1adb4c62c058a7bd9287de39eaf654928682b581d07b59750cec006"
   },
   {
    "id": "UWORLD_11464",
@@ -1512,42 +1534,37 @@
     630,
     631
    ],
-   "question": "A 55-year-old woman is treated with ramipril for primary (essential) hypertension. Her blood pressure decreases to normal value over several weeks of treatment. The patient seems to be compliant with her medication and experiences no significant side effects. She has no other medical issues and takes no other medications. She does not use tobacco, alcohol, or illicit drugs. Physical examination shows no abnormalities. Which of the following is the most likely combination of changes in response to this patient's treatment (AT = angiotensin)? Renin ATI Aldosterone Bradykinin No change No change",
+   "question": "A 55-year-old woman is treated with ramipril for primary (essential) hypertension. Her blood pressure decreases to normal value over several weeks of treatment. The patient seems to be compliant with her medication and experiences no significant side effects. She has no other medical issues and takes no other medications. She does not use tobacco, alcohol, or illicit drugs. Physical examination shows no abnormalities. Which of the following is the most likely combination of changes in response to this patient's treatment (AT = angiotensin)?",
    "options": [
     {
      "letter": "A",
-     "text": "TI AT II Aldosterone Bradykinin Renin vO A. 7",
+     "text": "Renin ↑ · AT I ↑ · AT II ↓ · Aldosterone ↓ · Bradykinin ↑",
      "selection_percent": 85
     },
     {
      "letter": "B",
-     "text": "1 1 @ B. t",
+     "text": "Renin ↑ · AT I ↑ · AT II ↑ · Aldosterone ↓ · Bradykinin ↑",
      "selection_percent": 2
     },
     {
      "letter": "C",
-     "text": "1 1 ! 0 C. t No change",
+     "text": "Renin ↑ · AT I ↑ · AT II ↑ · Aldosterone ↓ · Bradykinin No change",
      "selection_percent": 1
     },
     {
      "letter": "D",
-     "text": "t",
+     "text": "Renin ↑ · AT I ↑ · AT II ↓ · Aldosterone ↓ · Bradykinin ↓",
      "selection_percent": 6
     },
     {
      "letter": "E",
-     "text": "1 • • 0 E.",
+     "text": "Renin ↑ · AT I ↓ · AT II ↓ · Aldosterone ↓ · Bradykinin ↓",
      "selection_percent": 1
     },
     {
      "letter": "F",
-     "text": "ll • 0 F. No change",
+     "text": "Renin ↓ · AT I ↓ · AT II ↓ · Aldosterone ↓ · Bradykinin No change",
      "selection_percent": 3
-    },
-    {
-     "letter": "G",
-     "text": "ll",
-     "selection_percent": null
     }
    ],
    "correct_label": "A",
@@ -1600,7 +1617,15 @@
     },
     {
      "type": "paragraph",
-     "text": "The renin-angiotensin-aldosterone system (RAAS) is one of the most important neurohormonal systems, regulating arterial blood pressure and sodium and fluid content in the body. In response to decreased sodium, fluid volume, or arterial blood pressure, renin is released from the kidneys, converting angiotensinogen to angiotensin I. Subsequently, angiotensin-converting enzyme (ACE) converts angiotensin I to angiotensin II. Angiotensin II then increases aldosterone secretion from the adrenal cortex, leading to increased sodium and fluid retention in the collecting tubules of the kidneys. Angiotensin Il is also a potent vasoconstrictor that ultimately increases systemic vascular resistance and arterial pressure. Angiotensin ll itself is involved in 2 negative feedback mechanisms that help regulate the RAAS. In short-loop negative feedback, elevated angiotensin II stimulates the angiotensin receptors on juxtaglomerular cells to inhibit renin release. In long-loop negative feedback, increased blood pressure and sodium levels (due to angiotensin Il) eventually decrease renin release via intrarenal baroreceptor and macula densa pathways, respectively. ACE inhibitors such as ramipril block ACE and decrease the conversion of angiotensin I to angiotensin II, effectively blocking arteriolar vasoconstriction and aldosterone secretion. In addition to decreased blood pressure and sodium levels, decreased angiotensin Ill levels also interfere with negative feedback mechanisms, ultimately activating the RAAS to promote renin release. ACE is also responsible for the breakdown of bradykinin; therefore, ACE inhibitors lead to increased bradykinin levels, which are thought to cause the characteristic ACE inhibitor--induced cough."
+     "text": "The renin-angiotensin-aldosterone system (RAAS) is one of the most important neurohormonal systems, regulating arterial blood pressure and sodium and fluid content in the body. In response to decreased sodium, fluid volume, or arterial blood pressure, renin is released from the kidneys, converting angiotensinogen to angiotensin I. Subsequently, angiotensin-converting enzyme (ACE) converts angiotensin I to angiotensin II. Angiotensin II then increases aldosterone secretion from the adrenal cortex, leading to increased sodium and fluid retention in the collecting tubules of the kidneys. Angiotensin II is also a potent vasoconstrictor that ultimately increases systemic vascular resistance and arterial pressure."
+    },
+    {
+     "type": "paragraph",
+     "text": "Angiotensin II itself is involved in 2 negative feedback mechanisms that help regulate the RAAS. In short-loop negative feedback, elevated angiotensin II stimulates the angiotensin receptors on juxtaglomerular cells to inhibit renin release. In long-loop negative feedback, increased blood pressure and sodium levels (due to angiotensin II) eventually decrease renin release via intrarenal baroreceptor and macula densa pathways, respectively."
+    },
+    {
+     "type": "paragraph",
+     "text": "ACE inhibitors such as ramipril block ACE and decrease the conversion of angiotensin I to angiotensin II, effectively blocking arteriolar vasoconstriction and aldosterone secretion. In addition to decreased blood pressure and sodium levels, decreased angiotensin II levels also interfere with negative feedback mechanisms, ultimately activating the RAAS to promote renin release. ACE is also responsible for the breakdown of bradykinin; therefore, ACE inhibitors lead to increased bradykinin levels, which are thought to cause the characteristic ACE inhibitor–induced cough."
     }
    ],
    "educational_objective": "Angiotensin-converting enzyme (ACE) inhibitors block the effect of ACE, decreasing angiotensin II and aldosterone levels. By decreasing angiotensin II levels, ACE inhibitors directly interrupt negative feedback loops, thereby increasing renin and angiotensin I levels. ACE is also responsible for the breakdown of bradykinin; ACE inhibitors therefore increase bradykinin levels.",
@@ -1612,16 +1637,12 @@
      "C": 1,
      "D": 6,
      "E": 1,
-     "F": 3,
-     "G": null
+     "F": 3
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent",
-    "choices look like pictures or a table"
-   ],
-   "source_record_sha256": "36d3cff4b6da54bda345441d4f387e88f310744732ca71ea59e0fbf23ffde9c7"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "e0843c9a67ec3aa6d3c477acb1b1b1efd5dbff6d1b22105b64c54b8874a28a9e"
   },
   {
    "id": "UWORLD_817",

@@ -108,38 +108,33 @@
    "options": [
     {
      "letter": "A",
-     "text": "tructure Function 0 A. Distal convoluted",
+     "text": "Distal convoluted tubule | Generation of ammonia",
      "selection_percent": 2
     },
     {
      "letter": "B",
-     "text": "eneration of tubule ammonia @ B. Distal convoluted",
+     "text": "Distal convoluted tubule | Reabsorption of bicarbonate",
      "selection_percent": 5
     },
     {
      "letter": "C",
-     "text": "eabsorption of tubule bicarbonate 0 C. Distal convoluted",
+     "text": "Distal convoluted tubule | Secretion of hydrogen ions",
      "selection_percent": 9
     },
     {
      "letter": "D",
-     "text": "ecretion of hydrogen ions tubule ( D. Proximal convoluted Generation of",
+     "text": "Proximal convoluted tubule | Generation of ammonia",
      "selection_percent": 7
     },
     {
      "letter": "E",
-     "text": "ubule ammonia V6 E. Proximal convoluted Reabsorption of",
+     "text": "Proximal convoluted tubule | Reabsorption of bicarbonate",
      "selection_percent": 64
     },
     {
      "letter": "F",
-     "text": "ubule bicarbonate 0 F. Proximal convoluted Secretion of",
+     "text": "Proximal convoluted tubule | Secretion of hydrogen ions",
      "selection_percent": 10
-    },
-    {
-     "letter": "G",
-     "text": "ydrogen ions tubule",
-     "selection_percent": null
     }
    ],
    "correct_label": "E",
@@ -184,11 +179,11 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choices A and D) The proximal tubule is also responsible for the generation of ammonia (NH.). Hypoaldosteronism or aldosterone resistance (RTA type 4, most commonly seen in adults with diabetes) can disrupt this process by inhibiting production of NH, in the proximal tubule, resulting in reduced ammonium (NH,) excretion and metabolic acidosis. This patient's hypokalemia and hypophosphatemia are inconsistent with this diagnosis."
+     "text": "(Choices A and D) The proximal tubule is also responsible for the generation of ammonia (NH₃). Hypoaldosteronism or aldosterone resistance (RTA type 4, most commonly seen in adults with diabetes) can disrupt this process by inhibiting production of NH₃ in the proximal tubule, resulting in reduced ammonium (NH₄⁺) excretion and metabolic acidosis. This patient's hypokalemia and hypophosphatemia are inconsistent with this diagnosis."
     },
     {
      "type": "paragraph",
-     "text": "(Choices B, C, and F) Hydrogen ions (H) are primarily secreted into the urine from the distal convoluted tubule. Failure of this process (RTA type 1) leads to decreased distal acid secretion and metabolic acidosis, but phosphate and glucose would be normal."
+     "text": "(Choices B, C, and F) Hydrogen ions (H⁺) are primarily secreted into the urine from the distal convoluted tubule. Failure of this process (RTA type 1) leads to decreased distal acid secretion and metabolic acidosis, but phosphate and glucose would be normal."
     }
    ],
    "educational_objective": "Defects in either the proximal or distal convoluted tubule (eg, bicarbonate loss, acid retention) can result in a normal anion gap metabolic acidosis. However, the proximal tubule is responsible for reabsorption of glucose, amino acids, and phosphate in addition to bicarbonate; therefore, generalized proximal tubular dysfunction (Fanconi syndrome) can also cause failure to thrive, glucosuria, and rickets.",
@@ -200,15 +195,12 @@
      "C": 9,
      "D": 7,
      "E": 64,
-     "F": 10,
-     "G": null
+     "F": 10
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent"
-   ],
-   "source_record_sha256": "36e25cd6bd3ac9e94fe94cac30d4c26aea1cba1f4c187b78de1774072e322953"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "51dc084b8722b85b154e7c81e3cc3b5ef6096809097ee0360deb1dfdc4c72618"
   },
   {
    "id": "UWORLD_818",
@@ -756,7 +748,7 @@
     211,
     212
    ],
-   "question": "A 60-year-old man comes to the office due to dark, rusty-colored urine for the last 2 weeks. He reports no pain, urinary frequency, or urgency. The patient has no chronic medical conditions and takes no medications. He smoked a half pack of cigarettes daily for 10 years but quit 30 years ago. His father had hypertension and his mother has Alzheimer dementia. Urinalysis shows a large number of red blood cells. Renal ultrasound reveals a mass in the right kidney. Cytologic evaluation of the mass shows malignant cells with a chromosome 33p deletion. The deletion most likely involves which of the following genes?",
+   "question": "A 60-year-old man comes to the office due to dark, rusty-colored urine for the last 2 weeks. He reports no pain, urinary frequency, or urgency. The patient has no chronic medical conditions and takes no medications. He smoked a half pack of cigarettes daily for 10 years but quit 30 years ago. His father had hypertension and his mother has Alzheimer dementia. Urinalysis shows a large number of red blood cells. Renal ultrasound reveals a mass in the right kidney. Cytologic evaluation of the mass shows malignant cells with a chromosome 3p deletion. The deletion most likely involves which of the following genes?",
    "options": [
     {
      "letter": "A",
@@ -789,7 +781,11 @@
    "explanation": [
     {
      "type": "paragraph",
-     "text": "This patient with hematuria and a malignant renal mass most likely has renal cell carcinoma (RCC). RCC, particularly the clear cell subtype, is strongly associated with deletion, nonsense, and frameshift mutations involving the von Hippel-Lindau (VHL) gene at chromosome 3p. The majority of RCCs are sporadic and develop as single tumors; these are typically associated with somatic mutations in the VHL gene. Germline VHL mutations also occur and are responsible for von Hippel-Lindau syndrome, a rare, autosomal dominant disorder characterized by clear cell renal carcinomas (often multifocal and bilateral), cerebellar hemangioblastoma, and pheochromocytoma. VHL encodes a protein that normally inhibits hypoxia-inducible factors; VHL mutations lead to constitutive activation of these proteins, resulting in overexpression of multiple angiogenic growth factors (eg, VEG-F, PDG- F) that stimulate tumor proliferation. As a result, tumors harboring VHL mutations are highly sensitive to angiogenesis inhibitors."
+     "text": "This patient with hematuria and a malignant renal mass most likely has renal cell carcinoma (RCC). RCC, particularly the clear cell subtype, is strongly associated with deletion, nonsense, and frameshift mutations involving the von Hippel-Lindau (VHL) gene at chromosome 3p. The majority of RCCs are sporadic and develop as single tumors; these are typically associated with somatic mutations in the VHL gene. Germline VHL mutations also occur and are responsible for von Hippel-Lindau syndrome, a rare, autosomal dominant disorder characterized by clear cell renal carcinomas (often multifocal and bilateral), cerebellar hemangioblastoma, and pheochromocytoma."
+    },
+    {
+     "type": "paragraph",
+     "text": "VHL encodes a protein that normally inhibits hypoxia-inducible factors; VHL mutations lead to constitutive activation of these proteins, resulting in overexpression of multiple angiogenic growth factors (eg, VEG-F, PDG-F) that stimulate tumor proliferation. As a result, tumors harboring VHL mutations are highly sensitive to angiogenesis inhibitors."
     },
     {
      "type": "paragraph",
@@ -805,10 +801,10 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice E) Mutations of the /T-1 tumor suppressor gene are associated with the development of Wilms tumor. This gene is located on chromosome 11."
+     "text": "(Choice E) Mutations of the WT-1 tumor suppressor gene are associated with the development of Wilms tumor. This gene is located on chromosome 11."
     }
    ],
-   "educational_objective": "Sporadic and hereditary (associated with von Hippel-Lindau disease) renal cell carcinomas are associated with mutations involving the VHL gene on chromosome 3p. The VHL gene is a tumor suppressor that inhibits hypoxia- inducible factors; mutations lead to constitutive activation of these proteins, resulting in the activation of multiple angiogenic and tumorigenic growth factors (eg, VEG-F, PDG-F).",
+   "educational_objective": "Sporadic and hereditary (associated with von Hippel-Lindau disease) renal cell carcinomas are associated with mutations involving the VHL gene on chromosome 3p. The VHL gene is a tumor suppressor that inhibits hypoxia-inducible factors; mutations lead to constitutive activation of these proteins, resulting in the activation of multiple angiogenic and tumorigenic growth factors (eg, VEG-F, PDG-F).",
    "statistics": {
     "answered_correctly_percent": 76,
     "selection_percent": {
@@ -819,11 +815,9 @@
      "E": 7
     }
    },
-   "status": "blocked",
-   "issues": [
-    "choices look like pictures or a table"
-   ],
-   "source_record_sha256": "b088aad545f9927053d67d8de84cd7b421a60dd360df44e72f8d50e674358496"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "a9b2a0ed1aa95c3fdc61a4c8a5901f94c911e19d5469c197ee2a9dcc10295859"
   },
   {
    "id": "UWORLD_15312",
@@ -1104,7 +1098,7 @@
     278,
     279
    ],
-   "question": "A 7-year-old boy is brought to the emergency department by his parents for arthralgias. He had a cough and runny nose last week but otherwise has been in good health. Temperature is 37 C (98.6 F), blood pressure is 95/65 mmHg, pulse is 92/min, and respirations are 20/min. Physical examination shows raised, red-purple papules, some of which have coalesced, over the patient's buttocks and thighs. Auscultation of the lungs and heart is normal. The abdomen is soft with normal bowel sounds. The knees are tender but do not appear warm or swollen. Urinalysis results are as follows: Protein Blood moderate Leukocyte esterase trace Nitrites negative White blood cells 1-2/hpf Red blood ells (RBCs) many/hpf Casts RBC casts Which of the following mechanisms is the most likely underlying cause of this patient's renal findings?",
+   "question": "A 7-year-old boy is brought to the emergency department by his parents for arthralgias. He had a cough and runny nose last week but otherwise has been in good health. Temperature is 37 C (98.6 F), blood pressure is 95/65 mm Hg, pulse is 92/min, and respirations are 20/min. Physical examination shows raised, red-purple papules, some of which have coalesced, over the patient's buttocks and thighs. Auscultation of the lungs and heart is normal. The abdomen is soft with normal bowel sounds. The knees are tender but do not appear warm or swollen. Urinalysis results are as follows: Protein 2+; Blood moderate; Leukocyte esterase trace; Nitrites negative; White blood cells 1-2/hpf; Red blood cells (RBCs) many/hpf; Casts RBC casts. Which of the following mechanisms is the most likely underlying cause of this patient's renal findings?",
    "options": [
     {
      "letter": "A",
@@ -1128,7 +1122,7 @@
     },
     {
      "letter": "E",
-     "text": ".. T-lymphocyte cytotoxicity against virally-infected mesangial cells",
+     "text": "T-lymphocyte cytotoxicity against virally-infected mesangial cells",
      "selection_percent": 4
     }
    ],
@@ -1181,15 +1175,27 @@
     },
     {
      "type": "paragraph",
-     "text": "This patient has findings consistent with Henoch-Sch~nlein purpura (HSP) (ie, IgA vasculitis), a leukocytoclastic vasculitis most common in school-aged children and characterized by lower extremity palpable purpura, arthralgia/arthritis, abdominal pain, and/or renal abnormalities. HSP is caused by the deposition of lgA immune complexes in small-vessel walls and may be precipitated by an upper respiratory tract infection, as seen in this patient. HSP renal disease is an immune-mediated glomerulonephritis with microscopic features identical to lgA nephropathy: • Mesangial deposition of lgA immune complexes triggers mesangial cell proliferation and extracellular matrix deposition, primarily via enhanced expression of platelet-derived growth factor and transforming growth factor beta. • lgA Immune complexes also trigger complement activation via the alternative and lectin pathways; hydrolyzed complement proteins (eg, ca) act as chemokines that attract neutrophils, which produce oxidants and release proteases (eg, elastase) that are damaging to glomerular capillaries. • Macrophages may also be recruited to the glomerulus, where they cause further damage to glomerular capillaries, promote fibrin deposition, and contribute to crescent formation in severe cases."
+     "text": "This patient has findings consistent with Henoch-Schönlein purpura (HSP) (ie, IgA vasculitis), a leukocytoclastic vasculitis most common in school-aged children and characterized by lower extremity palpable purpura, arthralgia/arthritis, abdominal pain, and/or renal abnormalities. HSP is caused by the deposition of IgA immune complexes in small-vessel walls and may be precipitated by an upper respiratory tract infection, as seen in this patient. HSP renal disease is an immune-mediated glomerulonephritis with microscopic features identical to IgA nephropathy:"
     },
     {
      "type": "paragraph",
-     "text": "Most children with HSP-related renal disease have mild nephritis characterized by hematuria, red blood cell (RBC) casts, non-nephrotic range proteinuria, and a normal creatinine. However, severe complications (eg, nephrotic nephrotic range proteinuria, and a normal creatinine. However, severe complications (eg, nephrotic syndrome, acute kidney injury) can occur."
+     "text": "• Mesangial deposition of IgA immune complexes triggers mesangial cell proliferation and extracellular matrix deposition, primarily via enhanced expression of platelet-derived growth factor and transforming growth factor beta."
     },
     {
      "type": "paragraph",
-     "text": "(Choice A) lgG autoantibodies to phospholipase A, receptor on podocytes can lead to subepithelial immune deposition and membranous nephropathy. Patients have nephrotic syndrome (eg, edema, marked proteinuria [usually 23+]), not hematuria."
+     "text": "• IgA Immune complexes also trigger complement activation via the alternative and lectin pathways; hydrolyzed complement proteins (eg, c5a) act as chemokines that attract neutrophils, which produce oxidants and release proteases (eg, elastase) that are damaging to glomerular capillaries."
+    },
+    {
+     "type": "paragraph",
+     "text": "• Macrophages may also be recruited to the glomerulus, where they cause further damage to glomerular capillaries, promote fibrin deposition, and contribute to crescent formation in severe cases."
+    },
+    {
+     "type": "paragraph",
+     "text": "Most children with HSP-related renal disease have mild nephritis characterized by hematuria, red blood cell (RBC) casts, non–nephrotic range proteinuria, and a normal creatinine. However, severe complications (eg, nephrotic syndrome, acute kidney injury) can occur."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice A) IgG autoantibodies to phospholipase A₂ receptor on podocytes can lead to subepithelial immune deposition and membranous nephropathy. Patients have nephrotic syndrome (eg, edema, marked proteinuria [usually ≥3+]), not hematuria."
     },
     {
      "type": "paragraph",
@@ -1204,7 +1210,7 @@
      "text": "(Choice E) In rapidly progressive glomerulonephritis, activated T lymphocytes secrete cytokines that stimulate macrophage activity, a process that contributes to crescent formation. However, T lymphocyte-mediated cytotoxicity is not a mechanism of glomerular injury in HSP."
     }
    ],
-   "educational_objective": "Henoch-Sch~nlein purpura is an lg/-mediated, leukocytoclastic vasculitis that presents with palpable purpura, arthralgia/arthritis, abdominal pain, and/or hematuria. Renal involvement is due to mesangial deposition of lgA immune complexes with subsequent mesangial cell proliferation, neutrophilic infiltration, and glomerular damage.",
+   "educational_objective": "Henoch-Schönlein purpura is an IgA-mediated, leukocytoclastic vasculitis that presents with palpable purpura, arthralgia/arthritis, abdominal pain, and/or hematuria. Renal involvement is due to mesangial deposition of IgA immune complexes with subsequent mesangial cell proliferation, neutrophilic infiltration, and glomerular damage.",
    "statistics": {
     "answered_correctly_percent": 74,
     "selection_percent": {
@@ -1215,11 +1221,9 @@
      "E": 4
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …has findings consistent with Henoch-Sch~nlein purpura (HSP) (…"
-   ],
-   "source_record_sha256": "2b1c9890c2b673b07b186ecead9dee37149a88f59d3fd8010705c108bcbf451c"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "b870a877369fdfe189268c8d617a02f9dc626a74e3515efeb4b810410faf980a"
   },
   {
    "id": "UWORLD_1916",
@@ -2542,7 +2546,7 @@
     368,
     369
    ],
-   "question": "A 44-year-old man is brought to the emergency department with fatigue, shortness of breath, and lethargy. The patient had a brief upper respiratory illness about a month ago but began experiencing progressive dyspnea on exertion 2 weeks ago. He has no significant medical history and takes no medications. Blood pressure is 100/70 mmHg and pulse is 95/min and regular. The apical impulse is palpated in the sixth intercostal space along the left anterior axillary line. An S3 is heard on cardiac auscultation. Bibasilar crackles are present. Distal extremities are cold, and there is 1+ peripheral edema. Laboratory results are as follows: Blood urea nitrogen Serum creatinine Urine microscopy Red blood cells 0/hpf White blood cells 0-1/hpf Sediment none Which of the following is most likely to be present in this patient compared to the normal state? Q) A. Decreased distal tubule sodium reabsorption () B. Decreased proximal tubule urea reabsorption @) C. Decreased renal venous pressure () D. Increased collecting duct free water excretion",
+   "question": "A 44-year-old man is brought to the emergency department with fatigue, shortness of breath, and lethargy. The patient had a brief upper respiratory illness about a month ago but began experiencing progressive dyspnea on exertion 2 weeks ago. He has no significant medical history and takes no medications. Blood pressure is 100/70 mm Hg and pulse is 95/min and regular. The apical impulse is palpated in the sixth intercostal space along the left anterior axillary line. An S3 is heard on cardiac auscultation. Bibasilar crackles are present. Distal extremities are cold, and there is 1+ peripheral edema. Laboratory results are as follows: Blood urea nitrogen 45 mg/dL; Serum creatinine 1.8 mg/dL; Urine microscopy: Red blood cells 0/hpf; White blood cells 0-1/hpf; Sediment none. Which of the following is most likely to be present in this patient compared to the normal state?",
    "options": [
     {
      "letter": "A",
@@ -2617,15 +2621,15 @@
     },
     {
      "type": "paragraph",
-     "text": "In the short term, these adaptions increase blood volume and maintain systemic perfusion, allowing for a relatively normal glomerular filtration rate (GFR). However, over time, vasoconstriction-induced increased afterload and ventricular overfilling lead to decreased pump efficiency and decompensated failure. Renal dysfunction (eg, acute kidney injury) occurs in up to 60% of patients with DHF; it is often due to cardiorenal syndrome, a complication of the vicious cycle of DHF. In cardiorenal syndrome, back pressure from the failing heart increases central venous and renal venous pressure"
+     "text": "In the short term, these adaptions increase blood volume and maintain systemic perfusion, allowing for a relatively normal glomerular filtration rate (GFR). However, over time, vasoconstriction-induced increased afterload and ventricular overfilling lead to decreased pump efficiency and decompensated failure. Renal dysfunction (eg, acute kidney injury) occurs in up to 60% of patients with DHF; it is often due to cardiorenal syndrome, a complication of the vicious cycle of DHF."
     },
     {
      "type": "paragraph",
-     "text": "(Choice C) to the point that the glomerular capillary filtration gradient drops substantially (due to interstitial edema causing increased hydrostatic pressure in Bowman capsule) and GFR significantly decreases. Characteristic laboratory findings in cardiorenal syndrome reflect activation of the RAAS and indicate a prerenal etiology, with low urine sodium (ie, fractional excretion of sodium <1%) and bland urine sediment. Urea passively follows sodium reabsorption in the proximal tubule, leading to an elevated blood urea nitrogen/creatinine ratio (>20:1)."
+     "text": "In cardiorenal syndrome, back pressure from the failing heart increases central venous and renal venous pressure (Choice C) to the point that the glomerular capillary filtration gradient drops substantially (due to interstitial edema causing increased hydrostatic pressure in Bowman capsule) and GFR significantly decreases. Characteristic laboratory findings in cardiorenal syndrome reflect activation of the RAAS and indicate a prerenal etiology, with low urine sodium (ie, fractional excretion of sodium <1%) and bland urine sediment. Urea passively follows sodium reabsorption in the proximal tubule, leading to an elevated blood urea nitrogen/creatinine ratio (>20:1)."
     },
     {
      "type": "paragraph",
-     "text": "(Choices A, B, and D) Decreased sodium and urea reabsorption and increased free water excretion are the normal responses to volume overload. However, in DHF, the appropriate response to volume overload is disrupted as the kidneys misinterpret reduced renal perfusion as an indicator of volume depletion (rather than volume overload) and activate IRAAS and other maladaptive systems in response."
+     "text": "(Choices A, B, and D) Decreased sodium and urea reabsorption and increased free water excretion are the normal responses to volume overload. However, in DHF, the appropriate response to volume overload is disrupted as the kidneys misinterpret reduced renal perfusion as an indicator of volume depletion (rather than volume overload) and activate RAAS and other maladaptive systems in response."
     }
    ],
    "educational_objective": "Decompensated heart failure involves a vicious cycle of hemodynamic alterations and maladaptive neurohormonal changes resulting from decreased renal perfusion. Cardiorenal syndrome is a complication of this cycle, in which back pressure from the failing heart increases renal venous pressure to the point that the glomerular filtration rate drops substantially.",
@@ -2640,11 +2644,9 @@
      "F": 5
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …eased proximal tubule urea reabsorption @) C. Decreased renal ve…"
-   ],
-   "source_record_sha256": "d6cc19f7200eab974ca2297e0dfbcbef8edc3124d766550475f820387c7c0ce7"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "3cb52c1f4e48df25e750055eaea1daa1726abcc1e0460c459a3081eb4782b53d"
   },
   {
    "id": "UWORLD_22188",
