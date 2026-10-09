@@ -15,7 +15,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE)); sys.path.insert(0, str(HERE.parent))
 from pdfpages import Doc
 from extract import extract, Stub, Page
-from regions import images
+from regions import images, white_panel
 from package import lfs_path, render_crop, save_crop, ROOT
 from apply_reviews import to_fix
 from uworld_reviewed_document import record_hash, validate_node
@@ -75,10 +75,16 @@ def question_figure(doc, n, pages):
     if pg.exhibit and pg.exhibit[0]:
         box = pg.exhibit[0]
     else:
-        found = images(pg.a, pg.top, pg.bottom, lines=pg.body)
-        if not found:
-            raise ValueError('no picture found on page %d' % n)
-        box = max(found, key=lambda b: (b[2] - b[0]) * (b[3] - b[1]))
+        # Graphs are white panels on the light page (colour detection misses them);
+        # photos are found by colour. The answer-statistics bar is never a picture.
+        box = white_panel(pg.a, pg.top, pg.bottom)
+        if box is None:
+            stats = [l for l in pg.body if re.search(r'Answered|Correct|Time Spent|Version', l['text'])]
+            found = [b for b in images(pg.a, pg.top, pg.bottom, lines=pg.body)
+                     if not any(b[1] <= l['y0'] <= b[3] for l in stats)]
+            if not found:
+                raise ValueError('no picture found on page %d' % n)
+            box = max(found, key=lambda b: (b[2] - b[0]) * (b[3] - b[1]))
     return {'type': 'figure', 'page': n, 'bbox': [int(x) for x in box], 'role': 'question'}
 
 

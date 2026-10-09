@@ -4,16 +4,16 @@
  "source_sha256": "4caf34330d12c79f1b865d3ff48f29ddc7a355f02c40e836c66edf85575a20d5",
  "source_pdf": "data/uworld/Source_pdfs/endocrine_diabetes_and_metabolism/UW_2024_Endocrine,_Diabetes_&_Metabolism_6_blocks_OCR.pdf",
  "page_count": 1213,
- "record_count": 214,
+ "record_count": 216,
  "jsonl_file": "normalized.jsonl",
- "jsonl_sha256": "d3d229ec5444d0e7bd8e505b5f1e57dcc4d9869543d2eedf2f1d4f5233de02b9",
+ "jsonl_sha256": "b1d1a3f098b6ca75854389bb2d83b017f83a520ea088612ffc023d3ba22c9d68",
  "source_extraction_method": "uworld-auto-extract",
  "blocks": {
   "1": 40,
   "2": 40,
   "3": 40,
-  "4": 39,
-  "5": 37,
+  "4": 40,
+  "5": 38,
   "6": 18
  },
  "unowned_pages": [
@@ -26,29 +26,7 @@
     107,
     108
    ],
-   "reason": "no answered page; rescue: reviewer held it: Choices are line graphs (pages 103-104 show them) and current.json question_blocks is empty so figures"
-  },
-  {
-   "pages": [
-    805,
-    806,
-    807,
-    808,
-    809
-   ],
-   "reason": "no answered page; rescue: reviewer held it: Transcribed from screenshots (green tick B, page 807). Stem needs the eyelid photograph (page 805/806)"
-  },
-  {
-   "pages": [
-    911,
-    912,
-    913,
-    914,
-    915,
-    916,
-    917
-   ],
-   "reason": "options ['A', 'B']; rescue: reviewer held it: no answered screenshot with choice percentages: pages show green tick A (page 912) but 'Collecting Sta"
+   "reason": "no answered page; rescue: reviewer held it: Choices are line graphs (pages 103-104 show them) and current.json question_blocks is empty so figures; rescue: reviewer held it: Choices A-E are five different graphs (needs more than one picture; pages 103 and 104 each show only p"
   },
   {
    "pages": [
@@ -62,7 +40,7 @@
   }
  ],
  "figures_dir": "data/uworld/prepared/endocrine_diabetes_metabolism/figures",
- "verified": 213,
+ "verified": 215,
  "blocked": 1,
  "reviewed_by": "claude-haiku (flagged questions only)"
 }

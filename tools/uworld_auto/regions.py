@@ -1,6 +1,7 @@
 """Pixel geometry for UWorld screenshots: exhibit popups, bordered tables, inline images."""
 import re
 import numpy as np
+from collections import Counter
 
 CONTENT_TOP, CONTENT_BOTTOM = 48, 716   # below the toolbar, above the footer (crop-space points)
 
@@ -179,3 +180,33 @@ def iou(a, b):
     ix = max(0, min(a[2], b[2]) - max(a[0], b[0])); iy = max(0, min(a[3], b[3]) - max(a[1], b[1]))
     inter = ix * iy
     return inter / ((a[2] - a[0]) * (a[3] - a[1]) + (b[2] - b[0]) * (b[3] - b[1]) - inter or 1)
+
+
+def white_panel(a, top, bottom, min_h=60):
+    """Bounding box of the tallest white rectangle (figure panel) between top and bottom."""
+    W = a.shape[1]
+    white = a.min(axis=2) >= 252
+    edges = {}
+    for y in range(int(top), int(bottom)):
+        row = white[y]
+        n = int(row.sum())
+        if not 80 <= n <= W * 0.8:
+            continue
+        xs = np.flatnonzero(row)
+        edges[y] = (int(xs.min()), int(xs.max()))
+    if not edges:
+        return None
+    best = None
+    for (x0, x1), _ in Counter(edges.values()).most_common(5):
+        ys = [y for y, e in edges.items() if abs(e[0] - x0) <= 4 and abs(e[1] - x1) <= 4]
+        # longest run of rows (allowing small breaks for drawn lines)
+        runs, start, prev = [], ys[0], ys[0]
+        for y in ys[1:]:
+            if y - prev > 12:
+                runs.append((start, prev)); start = y
+            prev = y
+        runs.append((start, prev))
+        s, e = max(runs, key=lambda r: r[1] - r[0])
+        if e - s >= min_h and (best is None or e - s > best[3] - best[1]):
+            best = [x0, s, x1 + 1, e + 1]
+    return best
