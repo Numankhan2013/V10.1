@@ -17,32 +17,32 @@
    "options": [
     {
      "letter": "A",
-     "text": "7.30 101 23 11",
+     "text": "pH 7.30 · PaO₂ (mm Hg) 101 · PaCO₂ (mm Hg) 23 · Serum HCO₃⁻ (mEq/L) 11",
      "selection_percent": 7
     },
     {
      "letter": "B",
-     "text": "7.32 60 64 32",
+     "text": "pH 7.32 · PaO₂ (mm Hg) 60 · PaCO₂ (mm Hg) 64 · Serum HCO₃⁻ (mEq/L) 32",
      "selection_percent": 21
     },
     {
      "letter": "C",
-     "text": "7.38 80 40 23",
+     "text": "pH 7.38 · PaO₂ (mm Hg) 80 · PaCO₂ (mm Hg) 40 · Serum HCO₃⁻ (mEq/L) 23",
      "selection_percent": 8
     },
     {
      "letter": "D",
-     "text": "7.57 65 26 23",
+     "text": "pH 7.57 · PaO₂ (mm Hg) 65 · PaCO₂ (mm Hg) 26 · Serum HCO₃⁻ (mEq/L) 23",
      "selection_percent": 44
     },
     {
      "letter": "E",
-     "text": "7.47 96 24 17",
+     "text": "pH 7.47 · PaO₂ (mm Hg) 96 · PaCO₂ (mm Hg) 24 · Serum HCO₃⁻ (mEq/L) 17",
      "selection_percent": 15
     },
     {
      "letter": "F",
-     "text": "7.49 75 49 36",
+     "text": "pH 7.49 · PaO₂ (mm Hg) 75 · PaCO₂ (mm Hg) 49 · Serum HCO₃⁻ (mEq/L) 36",
      "selection_percent": 3
     }
    ],
@@ -115,15 +115,15 @@
     },
     {
      "type": "paragraph",
-     "text": "Stimulation of central respiratory drive occurs in response to dyspnea and inflammatory mediators released by ischemic pulmonary tissue. Hyperventilation does not significantly improve arterial oxygenation because hemoglobin is nearly fully saturated with O2 in areas of normal V/Q ratio, allowing little capacity for high V/Q regions to increase blood O2 content much further. In contrast, CO2 removal is more directly dependent on ventilation, and high V/Q regions have large capacity to exhale additional CO2. Therefore, the hyperventilation leads to hypocapnia (low PaCO2) and respiratory alkalosis. The serum HCO3- is near normal in the acute setting, but metabolic compensation with renal bicarbonate loss takes place over the next 72 hours."
+     "text": "Stimulation of central respiratory drive occurs in response to dyspnea and inflammatory mediators released by ischemic pulmonary tissue. Hyperventilation does not significantly improve arterial oxygenation because hemoglobin is nearly fully saturated with O₂ in areas of normal V/Q ratio, allowing little capacity for high V/Q regions to increase blood O₂ content much further. In contrast, CO₂ removal is more directly dependent on ventilation, and high V/Q regions have large capacity to exhale additional CO₂. Therefore, the hyperventilation leads to hypocapnia (low PaCO₂) and respiratory alkalosis. The serum HCO₃⁻ is near normal in the acute setting, but metabolic compensation with renal bicarbonate loss takes place over the next 72 hours."
     },
     {
      "type": "paragraph",
-     "text": "(Choice A) Low blood pH of 7.30 with low serum HCO3- indicates metabolic acidosis, which is compensated by hyperventilation leading to low PaCO2."
+     "text": "(Choice A) Low blood pH of 7.30 with low serum HCO₃⁻ indicates metabolic acidosis, which is compensated by hyperventilation leading to low PaCO₂."
     },
     {
      "type": "paragraph",
-     "text": "(Choice B) A low pH of 7.32 with high PaCO2 reflects respiratory acidosis. The high HCO3- indicates renal compensation by bicarbonate retention. Although PE may eventually lead to respiratory collapse with an acute increase in PaCO2, a renal compensatory response would not be expected so abruptly."
+     "text": "(Choice B) A low pH of 7.32 with high PaCO₂ reflects respiratory acidosis. The high HCO₃⁻ indicates renal compensation by bicarbonate retention. Although PE may eventually lead to respiratory collapse with an acute increase in PaCO₂, a renal compensatory response would not be expected so abruptly."
     },
     {
      "type": "paragraph",
@@ -131,11 +131,11 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice E) A high pH of 7.47 with low PaCO2 reflects respiratory alkalosis. The low HCO3- indicates renal compensation, which is expected with chronic respiratory alkalosis but should not be present with acute PE. Normal PaO2 can occasionally be present in acute PE but is less likely."
+     "text": "(Choice E) A high pH of 7.47 with low PaCO₂ reflects respiratory alkalosis. The low HCO₃⁻ indicates renal compensation, which is expected with chronic respiratory alkalosis but should not be present with acute PE. Normal PaO₂ can occasionally be present in acute PE but is less likely."
     },
     {
      "type": "paragraph",
-     "text": "(Choice F) A high pH of 7.48 with high serum HCO3- reflects metabolic alkalosis, which is compensated by hypoventilation leading to high PaCO2."
+     "text": "(Choice F) A high pH of 7.48 with high serum HCO₃⁻ reflects metabolic alkalosis, which is compensated by hypoventilation leading to high PaCO₂."
     }
    ],
    "educational_objective": "The combination of calf swelling, history of prolonged immobility, and sudden-onset dyspnea is strongly suggestive of acute pulmonary embolism (PE). PE typically presents with hypoxemia due to ventilation/perfusion mismatch and acute respiratory alkalosis (hypocapnia) due to hyperventilation.",
@@ -150,11 +150,9 @@
      "F": 3
     }
    },
-   "status": "blocked",
-   "issues": [
-    "review: Blocked: choices are a numeric table (pH, PaO2, PaCO2, HCO3- in column order), so transcribed values only. Removed spurious option G and the table header fragment from the stem; rebuilt options A-F from the screen; set selection_percent and correct label D (green tick); fixed kg/m2 and 'signifi cantly'; choice F text says pH 7.48 while the table shows 7.49 (kept as on screen)."
-   ],
-   "source_record_sha256": "5af0eefc9246c718af58b0e23669a43edf6a5dc359b3c4cf7c7b74ddf94c8110"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "f6d3925af60cf5202f0e4ca5c3b9f4f0c0ac63e5236c76b1af8e867c601fa2a9"
   },
   {
    "id": "UWORLD_524",
@@ -1318,27 +1316,27 @@
    "options": [
     {
      "letter": "A",
-     "text": "Decreased Increased Unchanged",
+     "text": "Minute ventilation Decreased · Ventilation/perfusion ratio Increased · Mixed venous oxygen content Unchanged",
      "selection_percent": 2
     },
     {
      "letter": "B",
-     "text": "Increased Decreased Decreased",
+     "text": "Minute ventilation Increased · Ventilation/perfusion ratio Decreased · Mixed venous oxygen content Decreased",
      "selection_percent": 20
     },
     {
      "letter": "C",
-     "text": "Increased Increased Decreased",
+     "text": "Minute ventilation Increased · Ventilation/perfusion ratio Increased · Mixed venous oxygen content Decreased",
      "selection_percent": 57
     },
     {
      "letter": "D",
-     "text": "Increased Unchanged Increased",
+     "text": "Minute ventilation Increased · Ventilation/perfusion ratio Unchanged · Mixed venous oxygen content Increased",
      "selection_percent": 19
     },
     {
      "letter": "E",
-     "text": "Unchanged Unchanged Increased",
+     "text": "Minute ventilation Unchanged · Ventilation/perfusion ratio Unchanged · Mixed venous oxygen content Increased",
      "selection_percent": 0
     }
    ],
@@ -1422,11 +1420,9 @@
      "E": 0
     }
    },
-   "status": "blocked",
-   "issues": [
-    "review drifted from OCR: stem"
-   ],
-   "source_record_sha256": "2ba79c40478180742254adeb56664f93f2fea4c67e0683c28dd8aec07cdaf112"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "a8f494e2156852761d860b180ff770b144ac7ee76128813b2373a39a2affc4c5"
   },
   {
    "id": "UWORLD_168",

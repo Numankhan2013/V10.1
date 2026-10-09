@@ -18,27 +18,27 @@
    "options": [
     {
      "letter": "A",
-     "text": "pH 7.19; PaCO2 65 mm Hg; plasma HCO3- 24 mEq/L; PaO2 50 mm Hg",
+     "text": "pH 7.19 · PaCO2 65 mm Hg · Plasma HCO3- 24 mEq/L · PaO2 50 mm Hg",
      "selection_percent": 12
     },
     {
      "letter": "B",
-     "text": "pH 7.34; PaCO2 60 mm Hg; plasma HCO3- 31 mEq/L; PaO2 50 mm Hg",
+     "text": "pH 7.34 · PaCO2 60 mm Hg · Plasma HCO3- 31 mEq/L · PaO2 50 mm Hg",
      "selection_percent": 64
     },
     {
      "letter": "C",
-     "text": "pH 7.40; PaCO2 40 mm Hg; plasma HCO3- 24 mEq/L; PaO2 90 mm Hg",
+     "text": "pH 7.40 · PaCO2 40 mm Hg · Plasma HCO3- 24 mEq/L · PaO2 90 mm Hg",
      "selection_percent": 6
     },
     {
      "letter": "D",
-     "text": "pH 7.47; PaCO2 50 mm Hg; plasma HCO3- 35 mEq/L; PaO2 90 mm Hg",
+     "text": "pH 7.47 · PaCO2 50 mm Hg · Plasma HCO3- 35 mEq/L · PaO2 90 mm Hg",
      "selection_percent": 10
     },
     {
      "letter": "E",
-     "text": "pH 7.56; PaCO2 28 mm Hg; plasma HCO3- 24 mEq/L; PaO2 50 mm Hg",
+     "text": "pH 7.56 · PaCO2 28 mm Hg · Plasma HCO3- 24 mEq/L · PaO2 50 mm Hg",
      "selection_percent": 6
     }
    ],
@@ -152,11 +152,9 @@
      "E": 6
     }
    },
-   "status": "blocked",
-   "issues": [
-    "review: BLOCKED: choices are a table of numeric values (pH, PaCO2, plasma HCO3-, PaO2), transcribed as readable text from the screenshot. Choice F in OCR was table-header leakage and is removed (five choices only); stem trailing 'Plasma PaO2 (mEq/L)' removed. Acid-base figures and the table exhibit excluded. Percent for choices read from the screenshot."
-   ],
-   "source_record_sha256": "e9d751c73fb0f01604605e96410322671aa20c04c2e71f35ae1e1317cecf7da9"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "bf78f3eea111b1c496e780d826c2af9ecaa55f5ce2468a2499165e81cfb7ec5e"
   }
  ]
 }

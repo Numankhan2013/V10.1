@@ -4,76 +4,18 @@
  "source_sha256": "b67a61b07e1cd029fcdd1ed953a916241ee4ee1a92cc1ed5cbdc6fc030d58a92",
  "source_pdf": "data/uworld/Source_pdfs/pregnancy_childbirth_puerperium/UW_2024_Pregnancy,_Childbirth_&_Puerperium_2_blocks_OCR.pdf",
  "page_count": 358,
- "record_count": 53,
+ "record_count": 59,
  "jsonl_file": "normalized.jsonl",
- "jsonl_sha256": "49f7ca45b362b2b949ba94054751383c6ccfa7272a429dfb775ec7fd186412b6",
+ "jsonl_sha256": "7027a57a5660d1e62d41695f430c3310385c49d5a67091583cbef59bed51628c",
  "source_extraction_method": "uworld-auto-extract",
  "blocks": {
-  "1": 19,
-  "2": 18,
-  "3": 16
+  "1": 20,
+  "2": 20,
+  "3": 19
  },
- "unowned_pages": [
-  {
-   "pages": [
-    44,
-    45,
-    46,
-    47
-   ],
-   "reason": "choice letters disagree with order: C; correct answer signals disagree: tick C, percent None, text D; options ['A', 'B', 'C']"
-  },
-  {
-   "pages": [
-    156,
-    157,
-    158,
-    159,
-    160
-   ],
-   "reason": "missing choice percent; suspicious OCR: \u2026i i X \u00ae B.\u2026; choices look like pictures or a table; empty choice text (image option?)"
-  },
-  {
-   "pages": [
-    229,
-    230,
-    231,
-    232,
-    233
-   ],
-   "reason": "choice letters disagree with order: E; missing choice percent; choices look like pictures or a table; empty choice text (image option?)"
-  },
-  {
-   "pages": [
-    266,
-    267,
-    268,
-    269
-   ],
-   "reason": "choice letters disagree with order: D,E,F; missing choice percent; choices look like pictures or a table; empty choice text (image option?)"
-  },
-  {
-   "pages": [
-    285,
-    286,
-    287,
-    288
-   ],
-   "reason": "missing choice percent; choices look like pictures or a table; empty choice text (image option?)"
-  },
-  {
-   "pages": [
-    305,
-    306,
-    307,
-    308,
-    309
-   ],
-   "reason": "missing choice percent; suspicious OCR: \u2026ications. Temperature is 36.7 C (98.1 F}, blood pressure is 1\u2026; choices look like pictures or a table; empty choice text (image option?)"
-  }
- ],
+ "unowned_pages": [],
  "figures_dir": "data/uworld/prepared/pregnancy_childbirth_puerperium/figures",
- "verified": 53,
+ "verified": 59,
  "blocked": 0,
  "reviewed_by": "claude-haiku (flagged questions only)"
 }

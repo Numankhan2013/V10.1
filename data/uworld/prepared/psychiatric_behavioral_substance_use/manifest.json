@@ -4,13 +4,13 @@
  "source_sha256": "9133e721ae476b083d364cc7eb4a6c1a5227ff124a3afc3d5a266eea9b805f7b",
  "source_pdf": "data/uworld/Source_pdfs/psychiatry/UW_2024_Psychiatric_Behavioral_&_Substance_Use_Disorder_5_blocks.pdf",
  "page_count": 787,
- "record_count": 179,
+ "record_count": 180,
  "jsonl_file": "normalized.jsonl",
- "jsonl_sha256": "9e5bf01f4b8dcebb0e4edf8b6e8bad356a2c1da0aa76d843018c62209457ad34",
+ "jsonl_sha256": "1f8e49e91e8d4192032c9061f757da63a4e0a7efeb8adfa82e3df34cd53e257b",
  "source_extraction_method": "uworld-auto-extract",
  "blocks": {
   "1": 41,
-  "2": 39,
+  "2": 40,
   "3": 40,
   "4": 38,
   "5": 21
@@ -25,21 +25,11 @@
     11,
     12
    ],
-   "reason": "options panel not found"
-  },
-  {
-   "pages": [
-    283,
-    284,
-    285,
-    286,
-    287
-   ],
-   "reason": "no answered page"
+   "reason": "options panel not found; rescue: reviewer held it: Choices are letters on the citric-acid-cycle figure (pages 7-9), but current.json has no question_bloc"
   }
  ],
  "figures_dir": "data/uworld/prepared/psychiatric_behavioral_substance_use/figures",
- "verified": 178,
+ "verified": 179,
  "blocked": 1,
  "reviewed_by": "claude-haiku (flagged questions only)"
 }

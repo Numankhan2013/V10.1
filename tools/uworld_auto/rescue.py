@@ -14,7 +14,8 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE)); sys.path.insert(0, str(HERE.parent))
 from pdfpages import Doc
-from extract import extract, Stub
+from extract import extract, Stub, Page
+from regions import images
 from package import lfs_path, render_crop, save_crop, ROOT
 from apply_reviews import to_fix
 from uworld_reviewed_document import record_hash, validate_node
@@ -66,6 +67,21 @@ def packets(slug, out):
     print(f'{slug}: {n} rescue packets -> {out}')
 
 
+def question_figure(doc, n, pages):
+    """The stem picture a reviewer located: the exhibit popup figure, else the largest image on that page."""
+    if n not in pages:
+        raise ValueError('figure page outside the question')
+    pg = Page(doc, n)
+    if pg.exhibit and pg.exhibit[0]:
+        box = pg.exhibit[0]
+    else:
+        found = images(pg.a, pg.top, pg.bottom, lines=pg.body)
+        if not found:
+            raise ValueError('no picture found on page %d' % n)
+        box = max(found, key=lambda b: (b[2] - b[0]) * (b[3] - b[1]))
+    return {'type': 'figure', 'page': n, 'bbox': [int(x) for x in box], 'role': 'question'}
+
+
 def adopt(slug, pk, out):
     src, manifest, rows = load(slug)
     sha = manifest['source_sha256']
@@ -73,6 +89,11 @@ def adopt(slug, pk, out):
     yoff = Doc(pdf).yoff
     batches = sorted((src / 'reviewed').glob('batch-*.json'))
     owned = {r['question_id'] for r in rows}
+    # Question ids are global across collections (a truncated OCR id can collide).
+    import uworld_collections
+    elsewhere = {q['id'] for rec in uworld_collections.bank_records() if rec['subject'] != 'UWorld · ' + manifest['collection']
+                 for q in rec['questions']}
+    doc = Doc(pdf)
     page_block = {p: r['block_number'] for r in rows for p in r['source']['source_pages']}
     fixes_path = src / 'reviewed/fixes.json'
     fixes = json.loads(fixes_path.read_text()) if fixes_path.exists() else {}
@@ -81,7 +102,7 @@ def adopt(slug, pk, out):
         pages = entry['pages']
         hit = next((f for f in (pk.glob('UWORLD_*/partial.json')) if json.loads(f.read_text())['reviewed_pages'] == pages), None)
         rev = out / (hit.parent.name + '.json') if hit else None
-        if not hit or not rev.exists() or hit.parent.name in owned:
+        if not hit or not rev.exists() or hit.parent.name in owned or hit.parent.name in elsewhere:
             kept.append(entry); continue
         partial = json.loads(hit.read_text())
         meta = partial.pop('_meta')
@@ -89,6 +110,9 @@ def adopt(slug, pk, out):
             review = json.loads(rev.read_text())
             if review.get('status') != 'verified':
                 raise ValueError('reviewer held it: ' + (review.get('notes') or ''))
+            fig_page = review.get('question_figure_page')
+            if fig_page and not partial['question_blocks']:
+                partial['question_blocks'] = [question_figure(doc, int(fig_page), pages)]
             cur = {**partial, 'issues': [], 'correct_label': review['correct_label']}
             fix = to_fix(cur, review, careful=True)
             if fix['status'] != 'verified':

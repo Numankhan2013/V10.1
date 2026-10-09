@@ -94,10 +94,8 @@
      "E": 83
     }
    },
-   "status": "blocked",
-   "issues": [
-    "review drifted from OCR: stem"
-   ],
+   "status": "verified",
+   "issues": [],
    "source_record_sha256": "afb637e4f46bf974b4569389c78b4e028dc7e26bdd9ac702770439e7a794a621"
   },
   {
@@ -711,22 +709,22 @@
    "options": [
     {
      "letter": "A",
-     "text": "Bronchial microvessels → Pulmonary capillaries",
+     "text": "Fluid entry Bronchial microvessels · Fluid exit Pulmonary capillaries",
      "selection_percent": 14
     },
     {
      "letter": "B",
-     "text": "Bronchial microvessels → Pulmonary parenchymal lymphatics",
+     "text": "Fluid entry Bronchial microvessels · Fluid exit Pulmonary parenchymal lymphatics",
      "selection_percent": 33
     },
     {
      "letter": "C",
-     "text": "Intercostal microvessels → Parietal pleural lymphatics",
+     "text": "Fluid entry Intercostal microvessels · Fluid exit Parietal pleural lymphatics",
      "selection_percent": 47
     },
     {
      "letter": "D",
-     "text": "Intercostal microvessels → Pulmonary capillaries",
+     "text": "Fluid entry Intercostal microvessels · Fluid exit Pulmonary capillaries",
      "selection_percent": 4
     }
    ],
@@ -772,7 +770,7 @@
      "text": "(Choices A, B, and D) Neither the pulmonary capillaries nor the pulmonary parenchymal lymphatics significantly contribute to the uptake of pleural fluid from the pleural space in the normal or pathologic state. Fluid from the pulmonary (alveolar) capillaries (ie, the pulmonary circulation) does not significantly contribute to inflow of pleural fluid into the pleural space in the normal state; however, it can become a primary source of fluid inflow in pathologic states (eg, increased pulmonary capillary hydrostatic pressure with decompensated heart failure)."
     }
    ],
-   "educational_objective": "Pleural fluid normally enters the pleural space via filtration from the systemic circulation, primarily from the intercostal microvessels of the parietal pleura, and exits the pleural space via stomata in the parietal pleura that drain into the parietal pleural lymphatics.",
+   "educational_objective": "Pleural fluid normally enters the pleural space via filtration from the systemic circulation, primarily from the intercostal microvessels of the parietal pleura, and exits the pleural space via stomata in the parietal pleura that drain into the parietal pleura lymphatics.",
    "statistics": {
     "answered_correctly_percent": 47,
     "selection_percent": {
@@ -782,11 +780,9 @@
      "D": 4
     }
    },
-   "status": "blocked",
-   "issues": [
-    "review: Choices are a two-column table (Fluid entry / Fluid exit), so blocked for review; transcribed the four pathways from screenshot 1575 (the OCR letters were scrambled, C was the only one out of order). Explanation split into the three paragraphs shown on screen, figures excluded; the objective's 'stomata' and 'parietal pleural lymphatics' wording was read at low resolution and should be rechecked."
-   ],
-   "source_record_sha256": "c8591992a3af7491ab01a43a982b7d0365d834fe325a5f41359890bc59d6686c"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "158ee74ec3271a01cbe77f6452ad61f35d135cfd5d1e8a8e3c2554019e9ce5e3"
   },
   {
    "id": "UWORLD_565",
@@ -2786,7 +2782,19 @@
     },
     {
      "type": "paragraph",
-     "text": "This hospitalized patient with worsening hypoxemia and bilateral lung infiltrates mostly likely has acute respiratory distress syndrome (ARDS), a potential complication of acute pancreatitis. ARDS involves an inflammatory response in the lungs that leads to alveolar capillary leakage and diffuse pulmonary edema; the edema prevents ventilation of affected alveoli and facilitates alveolar collapse, leading to increased intrapulmonary shunting (perfusion without ventilation). In addition, functional residual capacity (FRC) (ie, the volume of air in the lungs at end-tidal expiration) is reduced. Mechanical ventilation is typically needed for the management of ARDS because it allows for the application of positive end-expiratory pressure (PEEP). PEEP helps treat ARDS by opening collapsed alveoli to reduce intrapulmonary shunting (Choice D) and increase FRC back to near-normal levels. The increase in FRC has the following beneficial effects: • There is a critical lung capacity (ie, closing capacity) at which some of the lung's small airways collapse during expiration (due to decreased radial traction at lower lung volumes). When FRC drops below this critical capacity, alveoli supplied by the collapsed airways are without ventilation for part of the respiratory cycle, which contributes to intrapulmonary shunting and increases ventilation-perfusion mismatching. Increasing FRC minimizes the below closing capacity and in doing so decreases ventilation-perfusion mismatching. • Because the FRC air volume remains in the lungs throughout the respiratory cycle, it acts as a store of oxygen that the body can pull from during brief periods of increased need. Therefore, increasing FRC increases the oxygen reserves in the lungs."
+     "text": "This hospitalized patient with worsening hypoxemia and bilateral lung infiltrates mostly likely has acute respiratory distress syndrome (ARDS), a potential complication of acute pancreatitis. ARDS involves an inflammatory response in the lungs that leads to alveolar capillary leakage and diffuse pulmonary edema; the edema prevents ventilation of affected alveoli and facilitates alveolar collapse, leading to increased intrapulmonary shunting (perfusion without ventilation). In addition, functional residual capacity (FRC) (ie, the volume of air in the lungs at end-tidal expiration) is reduced."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mechanical ventilation is typically needed for the management of ARDS because it allows for the application of positive end-expiratory pressure (PEEP). PEEP helps treat ARDS by opening collapsed alveoli to reduce intrapulmonary shunting (Choice D) and increase FRC back to near-normal levels. The increase in FRC has the following beneficial effects:"
+    },
+    {
+     "type": "paragraph",
+     "text": "There is a critical lung capacity (ie, closing capacity) at which some of the lung's small airways collapse during expiration (due to decreased radial traction at lower lung volumes). When FRC drops below this critical capacity, alveoli supplied by the collapsed airways are without ventilation for part of the respiratory cycle, which contributes to intrapulmonary shunting and increases ventilation-perfusion mismatching. Increasing FRC minimizes the time spent below closing capacity and in doing so decreases ventilation-perfusion mismatching."
+    },
+    {
+     "type": "paragraph",
+     "text": "Because the FRC air volume remains in the lungs throughout the respiratory cycle, it acts as a store of oxygen that the body can pull from during brief periods of increased need. Therefore, increasing FRC increases the oxygen reserves in the lungs."
     },
     {
      "type": "paragraph",
@@ -2794,7 +2802,7 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice B) lntrapleural pressure is normally negative throughout the respiratory cycle due to the opposing elasticity of the lungs (tend to collapse) and chest wall (tends to expand). Increased end-expiratory airway pressure during PEEP reduces the collapsing force of the lungs, causing the intrapleural pressure to increase."
+     "text": "(Choice B) Intrapleural pressure is normally negative throughout the respiratory cycle due to the opposing elasticity of the lungs (tend to collapse) and chest wall (tends to expand). Increased end-expiratory airway pressure during PEEP reduces the collapsing force of the lungs, causing the intrapleural pressure to increase."
     },
     {
      "type": "paragraph",
@@ -2812,12 +2820,9 @@
      "E": 19
     }
    },
-   "status": "blocked",
-   "issues": [
-    "UWorld screenshot text leaked: UWORLD_19919 explanation 4",
-    "screenshot chrome removed automatically"
-   ],
-   "source_record_sha256": "f2df78c2970f31cf25c9364e5a9a21f568f9ed6df1fa63e8ed60d4167b793bca"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "83193cdcb121f3f6b1b05620665625489aedf3a7d0ab063e6ad5283acba79abf"
   },
   {
    "id": "UWORLD_1219",
