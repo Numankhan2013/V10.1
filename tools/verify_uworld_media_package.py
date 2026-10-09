@@ -19,10 +19,11 @@ def verify(read, web=False):
     shell = read('sw.js').decode() if web else ''
     for path, info in inventory['assets'].items():
         raw = read(path)
-        assert raw.startswith(b'\x89PNG\r\n\x1a\n'), path
+        webp = path.endswith('.webp')
+        assert (raw[:4] == b'RIFF' and raw[8:12] == b'WEBP') if webp else raw.startswith(b'\x89PNG\r\n\x1a\n'), path
         assert hashlib.sha256(raw).hexdigest() == info['sha256'], path
         assert info['sourcePdfSha256'] in {s['sourcePdfSha256'] for s in expected_sources}, path
-        if web:
+        if web and not webp:   # auto-collection WebP crops load on demand (runtime cache)
             assert './'+path in shell, 'Exhibit omitted from offline shell: '+path
     print('UWORLD_MEDIA_PACKAGE_OK assets='+str(len(inventory['assets']))+' offline='+str(web))
 

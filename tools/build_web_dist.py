@@ -62,7 +62,7 @@ def main() -> None:
     image_shell=(
         ['./marrow_visual_metadata.js','./marrow_visual_renderer.js','./source_visual_inventory.json']
         + ['./'+p.relative_to(out).as_posix() for p in sorted((out/'marrow_visuals').glob('*'))]
-        + ['./'+p.relative_to(out).as_posix() for p in sorted((out/'source_visuals').rglob('*')) if p.is_file()]
+        + ['./'+p.relative_to(out).as_posix() for p in sorted((out/'source_visuals').rglob('*')) if p.is_file() and p.suffix != '.webp']
     )
     sw_text=sw_text.replace("const SHELL=[",'const SHELL='+json.dumps(image_shell)[:-1]+',',1)
     sw.write_text(sw_text, encoding="utf-8")

@@ -294,7 +294,7 @@ def extract_question(views_all, pdf_sha):
     options = split_options(opt_lines)
     for o in options:
         m = PCT_RE.search(o['text'])
-        o['selection_percent'] = int(m.group(1)) if m else None
+        o['selection_percent'] = int(m.group(1)) if m and int(m.group(1)) <= 100 else None
         o['text'] = PCT_RE.sub('', o['text']).strip()
         o['text'] = re.sub(r'\s*\(\s*\d{1,3}\s*%?\s*$', '', o['text']).strip()
     first_opt_y = opt_box[1]
@@ -340,7 +340,7 @@ def extract_question(views_all, pdf_sha):
                 correct = m.group(1); break
     tick_letter = options[int(np.argmax(green))]['letter'] if options and max(green) >= 3 and sorted(green)[-2:-1] != [max(green)] else None
     pct_line = re.search(r'(\d{1,3})\s*%\s*\W*\s*Answered', stat_text) or re.search(r'(\d{1,3})\s*%', stat_text)
-    answered_pct = int(pct_line.group(1)) if pct_line else None
+    answered_pct = int(pct_line.group(1)) if pct_line and int(pct_line.group(1)) <= 100 else None
     by_pct = [o['letter'] for o in options if answered_pct is not None and o['selection_percent'] == answered_pct]
     pct_letter = by_pct[0] if len(by_pct) == 1 else None
     votes = [x for x in (tick_letter, pct_letter, correct) if x]

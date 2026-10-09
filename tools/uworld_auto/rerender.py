@@ -4,7 +4,7 @@ import json, sys
 from pathlib import Path
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE)); sys.path.insert(0, str(HERE.parent))
-from package import render_crop, lfs_path, ROOT
+from package import render_crop, lfs_path, ROOT, save_crop
 from pdfpages import Doc
 from uworld_reviewed_document import figure_asset
 
@@ -18,10 +18,10 @@ for b in sorted((src / 'reviewed').glob('batch-*.json')):
     for d in json.loads(b.read_text())['records']:
         for n in d.get('question_blocks', []) + d['explanation']:
             if n['type'] == 'figure':
-                name = Path(figure_asset(d['id'], n, m['source_sha256'])).name
+                name = Path(figure_asset(d['id'], n, m['source_sha256'], 'webp')).name
                 want.add(name)
-                render_crop(pdf, n['page'], n['bbox'], yoff).save(src / 'figures' / name, optimize=True)
-for f in (src / 'figures').glob('*.png'):
+                save_crop(render_crop(pdf, n['page'], n['bbox'], yoff), src / 'figures' / name)
+for f in (src / 'figures').glob('*'):
     if f.name not in want:
         f.unlink()
 print(slug, len(want), 'crops')

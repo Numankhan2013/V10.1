@@ -51,6 +51,11 @@ def render_crop(pdf, page, bbox, yoff, scale=1.3):
     return im.crop((round(x0 * scale), round((y0 + yoff) * scale), round(x1 * scale), round((y1 + yoff) * scale)))
 
 
+def save_crop(im, target):
+    # WebP q90 is visually lossless for these screenshots and ~10x smaller than PNG.
+    im.save(target, 'WEBP', quality=90, method=6)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('slug'); ap.add_argument('collection'); ap.add_argument('pdf')
@@ -108,10 +113,10 @@ def main():
                 d['issues'].append(str(e))
             d['status'] = 'verified' if not d['issues'] else 'blocked'
         for node in [n for n in d['question_blocks'] + d['explanation'] if n['type'] == 'figure']:
-            validate_node(node, d['id'], d['reviewed_pages'], node['role'], sha, (1416, 757))
+            validate_node(node, d['id'], d['reviewed_pages'], node['role'], sha, (1416, 757), 'webp')
             target = out / 'figures' / Path(node['asset']).name
             if not target.exists():
-                render_crop(local, node['page'], node['bbox'], doc.yoff).save(target, optimize=True)
+                save_crop(render_crop(local, node['page'], node['bbox'], doc.yoff), target)
             node.pop('asset')
         if d['status'] != 'verified':
             qa.append({'id': d['id'], 'pages': d['reviewed_pages'], 'issues': d['issues']})

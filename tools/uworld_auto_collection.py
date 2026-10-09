@@ -9,7 +9,7 @@ are committed beside the data so CI never downloads the (multi-GB) PDFs.
 import hashlib
 import json
 from uworld_imported_collection import ImportedCollection, ROOT
-from uworld_reviewed_document import record_hash, percentage
+from uworld_reviewed_document import record_hash, percentage, load_reviewed
 
 
 class AutoCollection(ImportedCollection):
@@ -55,3 +55,13 @@ class AutoCollection(ImportedCollection):
         if json.loads((self.SOURCE / 'page_to_question_manifest.json').read_text()) != expected:
             raise ValueError('Auto UWorld page map mismatch: ' + self.slug)
         return manifest, rows
+
+    def reviewed_documents(self, rows=None):
+        # Auto collections ship WebP crops (visually lossless, ~10x smaller); they are
+        # fetched on demand and runtime-cached rather than precached by the app shell.
+        if rows is None:
+            _, rows = self.load_source()
+        docs = load_reviewed(rows, self.PDF_SHA, self.SOURCE / 'reviewed', self.PAGE_SIZE, ext='webp')
+        if set(docs) != {r['question_id'] for r in rows}:
+            raise ValueError('Finish source review before shipping: ' + self.slug)
+        return docs
