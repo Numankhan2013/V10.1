@@ -391,6 +391,7 @@ jobs:
           python3 tools/test_web_build_manifest.py
           python3 tools/test_web_first_workflow.py
           python3 tools/test_uworld_biostatistics.py
+          python3 tools/test_uworld_auto.py
       - name: Recover source-reviewed UWorld scientific exhibits
         run: |
           git lfs pull --include="data/uworld/Source_pdfs/biochemistry/UW 2024 - Biochemistry - 3 blocks - OCR.pdf" --exclude=""

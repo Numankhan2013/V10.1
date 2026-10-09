@@ -51,9 +51,13 @@ def main():
                 else:
                     raise AssertionError('Unreviewed or changed source document accepted')
     banks = bank_records()
-    assert len(banks) == 6 and len(all_ids) == len(set(all_ids)) == 133
+    # The six hand-reviewed collections stay pinned; auto-extracted ones (tools/uworld_auto) add to them.
+    assert len(all_ids) == len(set(all_ids)) == 133
     ids = [q['id'] for bank in banks for q in bank['questions']]
-    assert len(ids) == len(set(ids)) == 388
+    from uworld_collections import COLLECTIONS
+    auto = sum(len(m.OWNER.load_source()[1]) for m in COLLECTIONS if getattr(getattr(m, 'OWNER', None), 'AUTO', False))
+    assert len(banks) == len(COLLECTIONS) >= 6
+    assert len(ids) == len(set(ids)) == 388 + auto
     _, rows = male.load_source()
     assert [r['question_number'] for r in rows if r['block_number'] == 1] == list(range(1, 40))
     assert all(male.reviewed_documents()[f'UWORLD_{id}']['statistics']['selection_percent'][

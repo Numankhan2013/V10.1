@@ -445,3 +445,7 @@ question and persists across pause/resume, so no new UI is needed; a quick
 glance (under 15 s) does not count. Skipped questions use one colour, amber
 (`--nkg-amber`), in Test analysis and Insights.
 
+
+## 2026-10-09 · UWorld imports are extracted deterministically
+
+New UWorld collections are produced by `tools/uworld_auto/` (alignment of scrolled screenshots, OCR-leak removal inside detected tables/pictures, three-signal answer key, automatic QA) instead of per-question model review. Only flagged questions need review (`review_packet.py`, `reviewed/fixes.json`); they ship `source-blocked` until fixed. Crops are committed per collection so CI does not download multi-GB PDFs. See `docs/UWORLD_AUTO_PIPELINE.md`.
