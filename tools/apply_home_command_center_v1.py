@@ -49,7 +49,7 @@ HELPERS = r'''
     setTimeout(()=>{if(typeof openChapter==='function')openChapter(topicId);},0);
   }
   function nkSubjectCardsV3(){
-    return (SUBJECTS||[]).map(r=>{const s=nkSubjectStatsV3(r.subject),m=nkAppSubjectMeta(r.subject);return `<button class="nk-v3-subject-card is-${m.key}" onclick="window.QB.nkOpenSubjectLibrary('${esc(r.subject)}')"><span class="nk-v3-subject-icon">${nkAppSubjectIcon(r.subject,24)}</span><span class="nk-v3-subject-copy"><strong>${esc(r.subject)}</strong><small>${fmtNum(s.topics)} topics · ${fmtNum(s.questions)} questions</small><span class="nk-v3-subject-progress"><i style="width:${s.pct}%"></i></span></span><b>${s.pct}%</b>${navIcon('chevron',18)}</button>`;}).join('');
+    return (SUBJECTS||[]).map(r=>{const s=nkSubjectStatsV3(r.subject),m=nkAppSubjectMeta(r.subject);const banks=(typeof nkBankRecords==='function'?nkBankRecords(r.subject):[]).filter(b=>b&&b.bank&&Array.isArray(b.questions)).map(b=>[b.bank,b.questions.filter(q=>qAttempts(q.id).length>0).length,b.questions.length]);return `<button class="nk-v3-subject-card is-${m.key}" data-nk-banks="${esc(JSON.stringify(banks))}" onclick="window.QB.nkOpenSubjectLibrary('${esc(r.subject)}')"><span class="nk-v3-subject-icon">${nkAppSubjectIcon(r.subject,24)}</span><span class="nk-v3-subject-copy"><strong>${esc(r.subject)}</strong><small>${fmtNum(s.topics)} topics · ${fmtNum(s.questions)} questions</small><span class="nk-v3-subject-progress"><i style="width:${s.pct}%"></i></span></span><b>${s.pct}%</b>${navIcon('chevron',18)}</button>`;}).join('');
   }
   function nkTopicTitleForQuestion(q){
     if(!q)return'';const r=nkPreferredRecord(q.subject),t=(r?.topics||[]).find(x=>String(x.id)===String(q.chapterId));return t?.title||q.topic||q.chapter||'';

@@ -130,7 +130,8 @@
     pill.style.width = w + 'px';
     pill.style.transform = 'translateX(' + left + 'px)';
     if (animate !== false && prev && (Math.abs(prev.left - left) > 0.5 || Math.abs(prev.w - w) > 0.5)) {
-      anim(pill, { transform: ['translateX(' + prev.left + 'px)', 'translateX(' + left + 'px)'], width: [prev.w + 'px', w + 'px'] }, Object.assign({ keep: true }, SPRING_PILL));
+      /* Transform-only so the slide runs on the compositor, even while the page recomputes. */
+      anim(pill, { transform: ['translateX(' + prev.left + 'px)', 'translateX(' + left + 'px)'] }, Object.assign({ keep: true }, SPRING_PILL));
     }
     pillMemo[key] = { left: left, w: w };
   }
@@ -158,9 +159,15 @@
       if (!b || b.getAttribute('aria-pressed') === 'true') return;
       haptic('selection');
       each(seg.querySelectorAll('button'), function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
-      select.value = b.dataset.value;
-      select.dispatchEvent(new Event('change', { bubbles: true }));
-      if (seg.isConnected) placePill(seg, b, key, true); /* no re-render: move in place */
+      /* Slide the pill first, then recompute once it has mostly arrived, so heavy pages (Insights) never stall the motion. */
+      placePill(seg, b, key, true);
+      var value = b.dataset.value;
+      window.clearTimeout(seg.__nkgCommit);
+      seg.__nkgCommit = window.setTimeout(function () {
+        if (select.value === value) return;
+        select.value = value;
+        select.dispatchEvent(new Event('change', { bubbles: true }));
+      }, RM.matches ? 0 : 140);
     });
     select.classList.add('nkg-hidden-native');
     select.setAttribute('tabindex', '-1');
@@ -427,9 +434,13 @@
       trackPill(seg, 'li-period', function () { return seg.querySelector('[aria-pressed="true"]'); });
     }
     each(root.querySelectorAll('.nk-li-scope select'), function (s, i) {
-      if (s.classList.contains('nkg-hidden-native')) return;
+      /* Filters narrow each other: rebuild the menu whenever the native options change. */
+      var sig = [].map.call(s.options, function (o) { return o.value + '\u001f' + o.textContent; }).join('\u001e') + '|' + s.value;
+      if (s.classList.contains('nkg-hidden-native') && s.__nkgSig === sig && s.__nkgDd && s.__nkgDd.isConnected) return;
+      if (s.__nkgDd) s.__nkgDd.remove();
       var lab = s.closest('label');
       var dd = ddFromSelect(s, { cls: i ? 'is-right' : '' });
+      s.__nkgSig = sig; s.__nkgDd = dd;
       (lab || s).parentNode.insertBefore(dd, lab || s);
     });
     var yearSel = root.querySelector('.nk-li-year-activity > header select');
@@ -808,6 +819,119 @@
     }
   }
 
+
+
+  /* ================================================= Home · subject banks */
+  /* Each subject shows how far you are through every bank it comes from. */
+  function enhanceSubjects(app) {
+    each(app.querySelectorAll('.nk-v3-subject-card[data-nk-banks]'), function (card) {
+      if (card.__nkgBanks) return;
+      var banks; try { banks = JSON.parse(card.getAttribute('data-nk-banks')); } catch (e) { return; }
+      if (!banks || !banks.length) return;
+      card.__nkgBanks = true;
+      var copy = card.querySelector('.nk-v3-subject-copy'); if (!copy) return;
+      var done = 0, total = 0;
+      banks.forEach(function (b) { done += +b[1] || 0; total += +b[2] || 0; });
+      card.classList.add('nkg-banked');
+      var title = copy.querySelector('strong');
+      if (title && !copy.querySelector('.nkg-subj-head')) {
+        var head = el('span', 'nkg-subj-head');
+        title.parentNode.insertBefore(head, title); head.appendChild(title);
+        head.appendChild(el('em', 'nkg-subj-total', fmtInt(done) + ' / ' + fmtInt(total)));
+      }
+      var rows = el('span', 'nkg-bank-rows');
+      banks.forEach(function (b) {
+        var pct = b[2] ? Math.round(b[1] / b[2] * 100) : 0;
+        var row = el('span', 'nkg-bank-row', '<span class="nkg-bank-name">' + esc(b[0]) + '</span><span class="nkg-bank-bar" role="presentation"><i style="width:0%"></i></span><span class="nkg-bank-pct">' + pct + '%</span>');
+        row.setAttribute('aria-label', b[0] + ': ' + fmtInt(b[1]) + ' of ' + fmtInt(b[2]) + ' questions, ' + pct + '%');
+        rows.appendChild(row);
+        var bar = row.querySelector('i');
+        window.requestAnimationFrame(function () { window.requestAnimationFrame(function () { bar.style.width = (pct ? Math.max(2, pct) : 0) + '%'; }); });
+      });
+      copy.appendChild(rows);
+    });
+  }
+
+  /* ===================================================== CBT builder */
+  /* Presentation only: the builder's markup, handlers and labels stay owned by the app. */
+  var builderOpen = {};
+  function enhanceBuilder(app) {
+    var root = app.querySelector('.nk-cbt-builder');
+    if (!root) return;
+    root.classList.add('nkg-builder');
+    /* Step 1 · sources grouped by bank, each row a compact checklist item. */
+    var grid = root.querySelector('.nk-module-choice-grid');
+    if (grid && !grid.__nkg) {
+      grid.__nkg = true;
+      var groups = {}, order = [];
+      each([].slice.call(grid.querySelectorAll(':scope > .nk-module-subject')), function (b) {
+        var meta = txt(b.querySelector('small')), bank = meta.split(' · ')[0] || 'Other';
+        if (!groups[bank]) { groups[bank] = []; order.push(bank); }
+        groups[bank].push(b);
+        var title = b.querySelector('strong');
+        if (title && !title.__nkg) { title.__nkg = true; var t = txt(title).replace(/^UWorld · /, ''); title.innerHTML = '<span class="nkg-sr-only">' + esc(txt(title)) + '</span><span aria-hidden="true">' + esc(t) + '</span>'; }
+        var small = b.querySelector('small');
+        if (small) small.textContent = meta.split(' · ').slice(1).join(' · ').replace(/\b1 topics\b/, '1 topic');
+        if (!b.querySelector('.nkg-check')) { var c = el('span', 'nkg-check', icon('check', 13)); c.setAttribute('aria-hidden', 'true'); b.appendChild(c); }
+        b.addEventListener('click', function () { haptic('selection'); });
+      });
+      grid.classList.add('nkg-bank-groups');
+      order.forEach(function (bank) {
+        var list = groups[bank], on = list.filter(function (b) { return b.classList.contains('is-selected'); }).length;
+        var sec = el('section', 'nkg-bank-group');
+        sec.appendChild(el('header', '', '<h3>' + esc(bank) + '</h3><span>' + on + ' of ' + list.length + '</span>'));
+        var box = el('div', 'nkg-bank-list');
+        list.forEach(function (b) { box.appendChild(b); });
+        sec.appendChild(box); grid.appendChild(sec);
+      });
+    }
+    /* Step 2 · groups collapse to their header so 260+ topics stay scannable; search opens them. */
+    each(root.querySelectorAll('.nk-cbt-topic-group'), function (g) {
+      var head = g.querySelector(':scope > header'), title = txt(g.querySelector('.nk-module-group-title'));
+      if (!head || head.__nkg) return;
+      head.__nkg = true;
+      if (!(title in builderOpen)) builderOpen[title] = false;
+      g.classList.toggle('is-collapsed', !builderOpen[title]);
+      var tog = el('button', 'nkg-group-toggle', icon('caret-down', 16));
+      tog.type = 'button';
+      function sync() { var open = !g.classList.contains('is-collapsed'); tog.setAttribute('aria-expanded', String(open)); tog.setAttribute('aria-label', (open ? 'Hide ' : 'Show ') + title + ' topics'); }
+      sync();
+      tog.addEventListener('click', function () { g.classList.toggle('is-collapsed'); builderOpen[title] = !g.classList.contains('is-collapsed'); sync(); haptic('selection'); });
+      head.appendChild(tog);
+      var copy = head.querySelector(':scope > div');
+      if (copy) { copy.style.cursor = 'pointer'; copy.addEventListener('click', function () { tog.click(); }); }
+    });
+    var search = root.querySelector('.nk-module-topic-search input');
+    if (search && !search.__nkg) { search.__nkg = true; search.addEventListener('input', function () { root.classList.toggle('nkg-searching', Boolean(search.value.trim())); }); }
+    /* Step 3 · the bank summary becomes compact chips. */
+    var bankSum = root.querySelector('.nk-cbt-summary > div:first-child strong');
+    if (bankSum && !bankSum.__nkg) {
+      bankSum.__nkg = true;
+      var parts = bankSum.innerHTML.split(/<br\s*\/?>/i).map(function (h) { var d = el('span'); d.innerHTML = h; return txt(d).replace(/^UWorld · (.+) · UWorld$/, 'UWorld · $1'); }).filter(Boolean);
+      bankSum.innerHTML = parts.map(function (t) { return '<span class="nkg-chip">' + esc(t) + '</span>'; }).join('');
+      bankSum.classList.add('nkg-chips');
+    }
+    /* Step 2 · topic rows get the same check affordance. */
+    each(root.querySelectorAll('.nk-module-topic .nk-module-check'), function (c) { c.classList.add('nkg-check'); if (!c.querySelector('svg')) c.innerHTML = icon('check', 13); });
+    /* Step 3 · presets become a segmented control. */
+    var presets = root.querySelector('.nk-cbt-count-grid');
+    if (presets && !presets.__nkg) {
+      presets.__nkg = true;
+      presets.classList.add('nkg-seg', 'nkg-seg-fill');
+      presets.setAttribute('role', 'group'); presets.setAttribute('aria-label', 'Number of questions');
+      each(presets.querySelectorAll('button'), function (b) { b.setAttribute('aria-pressed', b.classList.contains('is-selected') ? 'true' : 'false'); });
+      trackPill(presets, 'cbt-count', function () { return presets.querySelector('button.is-selected'); });
+      presets.addEventListener('click', function (e) { if (e.target.closest('button')) haptic('selection'); }, true);
+    }
+    /* The dock states what will be built before you commit. */
+    var dock = root.querySelector('.nk-cbt-main-actions');
+    if (dock && !dock.querySelector('.nkg-dock-sum')) {
+      var intro = root.querySelector('.nk-cbt-bank-intro span'), timing = root.querySelector('#nk-cbt-count-result');
+      var sum = intro ? txt(intro) : timing ? txt(timing) : '';
+      if (sum && !root.classList.contains('is-questions')) dock.insertBefore(el('span', 'nkg-dock-sum', esc(sum)), dock.firstChild);
+    }
+  }
+
   /* =========================================================== Revision */
   function enhanceRevision(app) {
     each(app.querySelectorAll('.nk-review-chart'), function (f) { enhanceForecast(f, 'rev'); });
@@ -877,10 +1001,11 @@
     try {
       syncTopbar(app, page, session);
       pageEnter(app, page, session);
-      if (page === 'dashboard') enhanceHome(app);
+      if (page === 'dashboard') { enhanceHome(app); enhanceSubjects(app); }
       else if (page === 'analytics') enhanceInsights(app);
       else if (page === 'tests' || page === 'test-builder') enhanceTests(app);
       else if (page === 'quick-revision' || page === 'fsrs') enhanceRevision(app);
+      enhanceBuilder(app);
       if (session) answerFeedback(app);
     } catch (e) {
       if (window.console && console.warn) console.warn('NKFeel', e);

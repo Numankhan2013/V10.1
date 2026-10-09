@@ -428,6 +428,8 @@
     updateTopbar(page, session);
     syncThemeControls();
     measureDock();
+    /* Re-measure once page-enter motion has settled (a transformed page offsets fixed docks). */
+    window.clearTimeout(dockSettle); dockSettle = window.setTimeout(measureDock, 480);
     neutralizeInlineTracks(app);
     if (window.NKFeel && typeof window.NKFeel.render === 'function') window.NKFeel.render(app, page, session);
     var zero = app.querySelectorAll('.nk-review-chart > span');
@@ -448,7 +450,7 @@
   }
   /* Height of the band covered by fixed bottom docks (nav, session footer,
      recall dock, builder action bars). Published as --nkg-dock-h. */
-  var dockFrame = 0;
+  var dockFrame = 0, dockSettle = 0;
   function measureDock() {
     if (dockFrame) return;
     dockFrame = window.requestAnimationFrame(function () {
@@ -456,7 +458,7 @@
       var app = document.getElementById('app');
       if (!app) return;
       var H = window.innerHeight, top = H;
-      var c = app.querySelectorAll('nav, footer, [class*="action"], [class*="footer"], [class*="dock"], [class*="bar"]');
+      var c = app.querySelectorAll('nav, footer, [class*="action"], [class*="footer"], [class*="dock"], [class*="bar"], .nk-continue-learning');
       for (var i = 0; i < c.length; i++) {
         var el = c[i];
         if (el.offsetParent !== null) continue;
