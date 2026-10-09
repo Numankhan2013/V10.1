@@ -25,7 +25,11 @@ def main():
     docs = {r['id']: r for f in sorted((src / 'reviewed').glob('batch-*.json')) for r in json.loads(f.read_text())['records']}
     flagged = json.loads((src / 'qa_report.json').read_text())['flagged']
     for f in flagged:
-        d = out / f['id']; d.mkdir(exist_ok=True)
+        d = out / f['id']
+        if d.exists() and any(d.glob('page-*.png')):
+            (d / 'current.json').write_text(json.dumps(docs[f['id']], indent=1, ensure_ascii=False))
+            continue
+        d.mkdir(exist_ok=True)
         (d / 'current.json').write_text(json.dumps(docs[f['id']], indent=1, ensure_ascii=False))
         for p in f['pages']:
             subprocess.run(['pdftoppm', '-f', str(p), '-l', str(p), '-r', '60', '-png', '-singlefile', str(pdf), str(d / f'page-{p:04d}')])
