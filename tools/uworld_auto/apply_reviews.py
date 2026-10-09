@@ -28,6 +28,15 @@ def to_fix(cur, rev):
     figures = [n for n in cur['explanation'] if n['type'] != 'paragraph']
     status = rev.get('status')
     issues = [] if status == 'verified' else ['review: ' + (rev.get('notes') or 'held by reviewer')]
+    # A correction should stay close to what the screenshots' OCR said; a large rewrite
+    # (e.g. a reviewer that could not see the images) is never trusted as verified.
+    from difflib import SequenceMatcher
+    close = lambda a, b: SequenceMatcher(None, a.lower(), b.lower(), autojunk=False).ratio()
+    old_p = ' '.join(n['text'] for n in cur['explanation'] if n['type'] == 'paragraph')
+    drift = [name for name, a, b, lim in (('stem', rev['question'], cur['question'], .85),
+                                           ('explanation', ' '.join(paras), old_p, .80)) if close(a, b) < lim]
+    if status == 'verified' and drift:
+        status, issues = 'blocked', ['review drifted from OCR: ' + ', '.join(drift)]
     if any(i.startswith(PICTURE_FLAG) for i in cur['issues']):
         status, issues = 'blocked', issues or ['review: picture/table choices need a person']
     return {
