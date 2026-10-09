@@ -28,7 +28,7 @@ def main():
         d = out / f['id']; d.mkdir(exist_ok=True)
         (d / 'current.json').write_text(json.dumps(docs[f['id']], indent=1, ensure_ascii=False))
         for p in f['pages']:
-            subprocess.run(['pdftoppm', '-f', str(p), '-l', str(p), '-r', '50', '-png', '-singlefile', str(pdf), str(d / f'page-{p:04d}')])
+            subprocess.run(['pdftoppm', '-f', str(p), '-l', str(p), '-r', '60', '-png', '-singlefile', str(pdf), str(d / f'page-{p:04d}')])
     print(f'{len(flagged)} flagged questions -> {out}')
 
 
