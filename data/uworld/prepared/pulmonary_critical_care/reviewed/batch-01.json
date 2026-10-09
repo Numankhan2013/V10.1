@@ -33,7 +33,12 @@
     },
     {
      "letter": "D",
-     "text": "Perfusion-limited oxygenation (1 4%) 0 E. Shift in the hemoglobin dissociation curve",
+     "text": "Perfusion-limited oxygenation",
+     "selection_percent": 14
+    },
+    {
+     "letter": "E",
+     "text": "Shift in the hemoglobin dissociation curve",
      "selection_percent": 9
     }
    ],
@@ -87,11 +92,19 @@
     },
     {
      "type": "paragraph",
-     "text": "(systemic arterial blood) The graph illustrates the pO 2 of blood as it moves through the lungs and into the systemic circulation. Blood in the pulmonary arteries comes from the systemic venous system and is normally deoxygenated. As blood moves through the pulmonary capillaries, it becomes progressively more oxygenated until it equilibrates with the alveolar pO 2 (~104 mm Hg when breathing room air). This is represented by the curve's first upward deflection and subsequent plateau. However, blood in the left atrium and ventricle has a slightly lower pO 2 (~100 mm Hg) than blood in the pulmonary capillaries. This is due to the mixing of deoxygenated blood with oxygenated blood from the pulmonary veins and is represented by the downward deflection identified by the arrow. This deoxygenated blood comes from the following sources: 1. The bronchial arteries carry blood to the bronchi and bronchioles and, together with the pulmonary artery, form the dual blood supply to the lungs. The bronchial veins return only a portion of this blood to the right heart via the azygos and hemi-azygos veins; most of the blood supplied by the bronchial arteries returns to the left heart via the pulmonary veins. 2. Small cardiac (thebesian) veins that drain into the left atrium and ventricle also contribute to normal anatomic shunting."
+     "text": "The graph illustrates the pO2 of blood as it moves through the lungs and into the systemic circulation. Blood in the pulmonary arteries comes from the systemic venous system and is normally deoxygenated. As blood moves through the pulmonary capillaries, it becomes progressively more oxygenated until it equilibrates with the alveolar pO2 (~104 mm Hg when breathing room air). This is represented by the curve's first upward deflection and subsequent plateau. However, blood in the left atrium and ventricle has a slightly lower pO2 (~100 mm Hg) than blood in the pulmonary capillaries. This is due to the mixing of deoxygenated blood with oxygenated blood from the pulmonary veins and is represented by the downward deflection identified by the arrow. This deoxygenated blood comes from the following sources:"
     },
     {
      "type": "paragraph",
-     "text": "(Choice A) Hypoxia due to a diffusion limitation frequently results from pulmonary fibrosis, acute respiratory distress syndrome, emphysema, or hyaline membrane disease of the infant. In diffusion-limited gas exchange, the blood pO 2 does not equilibrate with the alveolar pO 2 by the end of its traversal through the alveolar capillaries."
+     "text": "1. The bronchial arteries carry blood to the bronchi and bronchioles and, together with the pulmonary artery, form the dual blood supply to the lungs. The bronchial veins return only a portion of this blood to the right heart via the azygos and hemi-azygos veins; most of the blood supplied by the bronchial arteries returns to the left heart via the pulmonary veins."
+    },
+    {
+     "type": "paragraph",
+     "text": "2. Small cardiac (thebesian) veins that drain into the left atrium and ventricle also contribute to normal anatomic shunting."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice A) Hypoxia due to a diffusion limitation frequently results from pulmonary fibrosis, acute respiratory distress syndrome, emphysema, or hyaline membrane disease of the infant. In diffusion-limited gas exchange, the blood pO2 does not equilibrate with the alveolar pO2 by the end of its traversal through the alveolar capillaries."
     },
     {
      "type": "paragraph",
@@ -103,25 +116,23 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice E) The hemoglobin dissociation curve shifts to the right in the systemic capillaries to increase oxygen delivery to the body tissues. Increases in pCO 2 , temperature, and 2,3-diphosphoglycerate concentration cause right-shifting of the curve; the opposite conditions cause a left shift and favor oxygen loading in the lungs."
+     "text": "(Choice E) The hemoglobin dissociation curve shifts to the right in the systemic capillaries to increase oxygen delivery to the body tissues. Increases in pCO2, temperature, and 2,3-diphosphoglycerate concentration cause right-shifting of the curve; the opposite conditions cause a left shift and favor oxygen loading in the lungs."
     }
    ],
-   "educational_objective": "The pO 2 in the left atrium and ventricle is lower than that in the pulmonary capillaries due to mixing of oxygenated blood from the pulmonary veins with deoxygenated blood from the bronchial circulation and thebesian veins.",
+   "educational_objective": "The pO2 in the left atrium and ventricle is lower than that in the pulmonary capillaries due to mixing of oxygenated blood from the pulmonary veins with deoxygenated blood from the bronchial circulation and thebesian veins.",
    "statistics": {
     "answered_correctly_percent": 62,
     "selection_percent": {
      "A": 10,
      "B": 2,
      "C": 62,
-     "D": 9
+     "D": 14,
+     "E": 9
     }
    },
-   "status": "blocked",
-   "issues": [
-    "choice percents sum 83",
-    "suspicious OCR: …t equilibrates with the alveolar pO 2 (~104 mm Hg when breath…"
-   ],
-   "source_record_sha256": "08c0f11cb74b8331d21b16885057b298387935f0b86d46ff072d1364b0c953d8"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "e07ba0ad08947b7b98636d9932f47f3e8b6f1106c5b7f8ddcfc86beda1e756db"
   },
   {
    "id": "UWORLD_1523",
@@ -314,7 +325,7 @@
     20,
     21
    ],
-   "question": "A 42-year-old woman is evaluated due to frequent episodes of shortness of breath, chest tightness, and cough. The patient has been hospitalized on several occasions because of these symptoms and recently required mechanical ventilation due to respiratory failure. She takes multiple inhaled and systemic medications. The patient does not use tobacco, alcohol, or ill icit drugs. Physical examination reveals scattered expiratory wheezes in both lungs. Peak expiratory flow rate is decreased from baseline. The treatment regimen is expanded to include a monoclonal antibody that binds circulating lgE, with the resulting complexes being subsequently cleared by reticuloendothelial cells. This medication is most likely to help this patient through which of the following mechanisms?",
+   "question": "A 42-year-old woman is evaluated due to frequent episodes of shortness of breath, chest tightness, and cough. The patient has been hospitalized on several occasions because of these symptoms and recently required mechanical ventilation due to respiratory failure. She takes multiple inhaled and systemic medications. The patient does not use tobacco, alcohol, or illicit drugs. Physical examination reveals scattered expiratory wheezes in both lungs. Peak expiratory flow rate is decreased from baseline. The treatment regimen is expanded to include a monoclonal antibody that binds circulating IgE, with the resulting complexes being subsequently cleared by reticuloendothelial cells. This medication is most likely to help this patient through which of the following mechanisms?",
    "options": [
     {
      "letter": "A",
@@ -323,7 +334,7 @@
     },
     {
      "letter": "B",
-     "text": "Decreasing airway infl ammation",
+     "text": "Decreasing airway inflammation",
      "selection_percent": 82
     },
     {
@@ -333,7 +344,7 @@
     },
     {
      "letter": "D",
-     "text": "Increasing cyclic AMP- mediated smooth muscle relaxation",
+     "text": "Increasing cyclic AMP–mediated smooth muscle relaxation",
      "selection_percent": 6
     },
     {
@@ -358,7 +369,11 @@
     },
     {
      "type": "paragraph",
-     "text": "This patient's frequent episodes of shortness of breath, chest tightness, and cough complicated by respiratory failure requiring hospitalization is consistent with asthma. The mainstays of medication therapy for asthma include an as-needed short-acting beta agonist (eg, albuterol), an inhaled corticosteroid (eg, mometasone), and a longacting beta agonist (eg, salmeterol). For patients whose symptoms remain uncontrolled after such therapy is optimized, the addition of an lgE-binding monoclonal antibody (eg, omalizumab) may be beneficial. Many patients with asthma have high levels of circulating lgE antibodies generated against environmental antigens (eg, dust mites, animal dander). Omalizumab binds to the lgE antibody heavy chain and blocks the binding of lgE to the lgE receptors on mast cells. By preventing this binding, omalizumab inhibits proinflammatory substance release (including histamine and leukotrienes) by mast cells, markedly reducing airway inflammation."
+     "text": "This patient's frequent episodes of shortness of breath, chest tightness, and cough complicated by respiratory failure requiring hospitalization is consistent with asthma. The mainstays of medication therapy for asthma include an as-needed short-acting beta agonist (eg, albuterol), an inhaled corticosteroid (eg, mometasone), and a long-acting beta agonist (eg, salmeterol). For patients whose symptoms remain uncontrolled after such therapy is optimized, the addition of an IgE-binding monoclonal antibody (eg, omalizumab) may be beneficial."
+    },
+    {
+     "type": "paragraph",
+     "text": "Many patients with asthma have high levels of circulating IgE antibodies generated against environmental antigens (eg, dust mites, animal dander). Omalizumab binds to the IgE antibody heavy chain and blocks the binding of IgE to the IgE receptors on mast cells. By preventing this binding, omalizumab inhibits proinflammatory substance release (including histamine and leukotrienes) by mast cells, markedly reducing airway inflammation."
     },
     {
      "type": "paragraph",
@@ -370,16 +385,16 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice D) Beta-2 agonists (eg, albuterol, salmeterol) cause bronchodilation via cyclic AMP- mediated smooth muscle relaxation and are effective symptomatic treatments for asthma. These drugs do not significantly reduce airway inflammation."
+     "text": "(Choice D) Beta-2 agonists (eg, albuterol, salmeterol) cause bronchodilation via cyclic AMP–mediated smooth muscle relaxation and are effective symptomatic treatments for asthma. These drugs do not significantly reduce airway inflammation."
     },
     {
      "type": "paragraph",
      "text": "(Choice E) Increasing pulmonary vasodilation helps improve pulmonary arterial hypertension and can be achieved with several classes of drugs, including endothelin receptor antagonists (eg, bosentan), phosphodiesterase inhibitors (eg, sildenafil), and prostacyclin analogs."
     }
    ],
-   "educational_objective": "lgE-binding monoclonal antibodies (eg, omalizumab} are effective in treating asthma that remains uncontrolled despite optimal therapy with bronchodilators and inhaled corticosteroids. lgE-binding monoclonal antibodies reduce airway inflammation by blocking the binding of lgE to the lgE receptors on mast cells and preventing the release of proinflammatory substances, including histamine and leukotrienes.",
+   "educational_objective": "IgE-binding monoclonal antibodies (eg, omalizumab) are effective in treating asthma that remains uncontrolled despite optimal therapy with bronchodilators and inhaled corticosteroids. IgE-binding monoclonal antibodies reduce airway inflammation by blocking the binding of IgE to the IgE receptors on mast cells and preventing the release of proinflammatory substances, including histamine and leukotrienes.",
    "statistics": {
-    "answered_correctly_percent": null,
+    "answered_correctly_percent": 82,
     "selection_percent": {
      "A": 1,
      "B": 82,
@@ -388,11 +403,9 @@
      "E": 4
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …g monoclonal antibodies (eg, omalizumab} are effective in tre…"
-   ],
-   "source_record_sha256": "c443d9dc497650ed92fdfa255f63e1e31dc119a950a69eea8fecc6a4d4f11423"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "aee3f06a2fcaaa9524c90163cdc02ff606a3d0a2e010d2dc9e11a1eb85592b36"
   },
   {
    "id": "UWORLD_121",
@@ -1343,15 +1356,19 @@
     },
     {
      "type": "paragraph",
-     "text": "This patient most likely has cystic fibrosis (CF), an autosomal recessive disease characterized by recurrent sinopulmonary infections, pancreatic insufficiency, and malabsorption. It is caused by several different mutations that affect the CF transmembrane conductance regulator (CFTR) gene. The most common CFTR gene mutation (found in approximately 70% of cases) is a 3-base pair deletion of phenylalanine at amino acid position 508 (AF508). This mutation causes impaired post-translational processing (eg, improper folding and glycosylation) of CFTR, which is detected by the endoplasmic reticulum. As a result, the abnormal protein is targeted for proteasomal degradation, preventing it from reaching the cell surface. Certain drugs (eg, lumacaftor) can partially correct this folding defect, leading to expression of functional CFTR."
+     "text": "This patient most likely has cystic fibrosis (CF), an autosomal recessive disease characterized by recurrent sinopulmonary infections, pancreatic insufficiency, and malabsorption. It is caused by several different mutations that affect the CF transmembrane conductance regulator (CFTR) gene."
     },
     {
      "type": "paragraph",
-     "text": "(Choice B) Decreased production of functionally normal CFTR ( eg, reduced messenger RNA or protein stability) often causes a milder form of the disease with normal sweat chloride levels that may not be diagnosed until adulthood."
+     "text": "The most common CFTR gene mutation (found in approximately 70% of cases) is a 3-base pair deletion of phenylalanine at amino acid position 508 (ΔF508). This mutation causes impaired post-translational processing (eg, improper folding and glycosylation) of CFTR, which is detected by the endoplasmic reticulum. As a result, the abnormal protein is targeted for proteasomal degradation, preventing it from reaching the cell surface. Certain drugs (eg, lumacaftor) can partially correct this folding defect, leading to expression of functional CFTR."
     },
     {
      "type": "paragraph",
-     "text": "(Choice C) Mutations affecting regulation of chloride ion conduction through a CFTR protein also result in CF. However, they result in decreased chloride conductivity and are less common than the t.F508 mutation."
+     "text": "(Choice B) Decreased production of functionally normal CFTR (eg, reduced messenger RNA or protein stability) often causes a milder form of the disease with normal sweat chloride levels that may not be diagnosed until adulthood."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice C) Mutations affecting regulation of chloride ion conduction through a CFTR protein also result in CF. However, they result in decreased chloride conductivity and are less common than the ΔF508 mutation."
     },
     {
      "type": "paragraph",
@@ -1359,10 +1376,10 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice E) CFTR is an ATP-gated chloride channel activated by cAMP-mediated phosphorylation. Mutations that reduce the ability of the channel to open can also cause CF. The t.F508 mutation, in addition to preventing proper trafficking to the cell surface, also reduces the regulatory effects of ATP and cAMP on channel opening."
+     "text": "(Choice E) CFTR is an ATP-gated chloride channel activated by cAMP-mediated phosphorylation. Mutations that reduce the ability of the channel to open can also cause CF. The ΔF508 mutation, in addition to preventing proper trafficking to the cell surface, also reduces the regulatory effects of ATP and cAMP on channel opening."
     }
    ],
-   "educational_objective": "Cystic fibrosis (CF) is most commonly due to a 3-base pair deletion in the CF transmembrane conductance regulator (CFTR) gene at amino acid position 508 (t.F508). This mutation impairs post-translational processing of CFTR, resulting in shunting of CFTR toward the proteasome, with complete absence of the protein on the cell surface. Elevated sweat chloride concentrations are found in most patients with CF.",
+   "educational_objective": "Cystic fibrosis (CF) is most commonly due to a 3-base pair deletion in the CF transmembrane conductance regulator (CFTR) gene at amino acid position 508 (ΔF508). This mutation impairs post-translational processing of CFTR, resulting in shunting of CFTR toward the proteasome, with complete absence of the protein on the cell surface. Elevated sweat chloride concentrations are found in most patients with CF.",
    "statistics": {
     "answered_correctly_percent": 61,
     "selection_percent": {
@@ -1373,13 +1390,9 @@
      "E": 1
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …©UWOf1d This patient m…",
-    "UWorld screenshot text leaked: UWORLD_802 explanation 2",
-    "screenshot chrome removed automatically"
-   ],
-   "source_record_sha256": "d14193d2fb165f8ed45a386099bb174c6bb49e95201423c8d843e36650f04695"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "6ba2383bd4ffb18241d085c3683faf033b0ce67e793f7b1158874f0b0ce0d81a"
   },
   {
    "id": "UWORLD_20173",
@@ -1391,37 +1404,32 @@
     98,
     99
    ],
-   "question": "A 64-year-old man comes to the office due to worsening dyspnea on exertion for the past 3 months. The patient has had a nonproductive cough but no chest pain, fever, or chills. He was diagnosed with hypertension several years ago but takes no medications. Blood pressure is 160/96 mm Hg, pulse is 92/min, and respirations are 18/min. Physical examination shows bilateral inspiratory crackles as well as dullness to percussion and decreased breath sounds at the right lung base. Chest x-ray reveals a right-sided pleural effusion. Which of the following pleuropulmonary changes are most likely present in this patient? Vascular Vascular Vascular Lymphatic hydrostatic oncotic permeability flow pressure pressure Increased Normal Normal Decreased Increased Increased Decreased Decreased Normal Normal Decreased Increased Normal Increased Normal Increased Decreased Decreased Increased Increased Submit",
+   "question": "A 64-year-old man comes to the office due to worsening dyspnea on exertion for the past 3 months. The patient has had a nonproductive cough but no chest pain, fever, or chills. He was diagnosed with hypertension several years ago but takes no medications. Blood pressure is 160/96 mm Hg, pulse is 92/min, and respirations are 18/min. Physical examination shows bilateral inspiratory crackles as well as dullness to percussion and decreased breath sounds at the right lung base. Chest x-ray reveals a right-sided pleural effusion. Which of the following pleuropulmonary changes are most likely present in this patient?",
    "options": [
     {
      "letter": "A",
-     "text": "ascular Vascular Vascular Lymphatic hydrostatic oncotic permeability flow pressure pressure @ A. Increased Normal Normal Decreased",
+     "text": "Vascular permeability: Increased; vascular hydrostatic pressure: Normal; vascular oncotic pressure: Normal; lymphatic flow: Decreased",
      "selection_percent": 6
     },
     {
      "letter": "B",
-     "text": "Increased Decreased Decreased",
+     "text": "Vascular permeability: Increased; vascular hydrostatic pressure: Increased; vascular oncotic pressure: Decreased; lymphatic flow: Decreased",
      "selection_percent": 32
     },
     {
      "letter": "C",
-     "text": "Increased 0 Normal Decreased Increased",
+     "text": "Vascular permeability: Normal; vascular hydrostatic pressure: Normal; vascular oncotic pressure: Decreased; lymphatic flow: Increased",
      "selection_percent": 2
     },
     {
      "letter": "D",
-     "text": "Increased Normal Increased",
+     "text": "Vascular permeability: Normal; vascular hydrostatic pressure: Increased; vascular oncotic pressure: Normal; lymphatic flow: Increased",
      "selection_percent": 56
     },
     {
      "letter": "E",
-     "text": "0 Decreased Increased Increased",
+     "text": "Vascular permeability: Decreased; vascular hydrostatic pressure: Decreased; vascular oncotic pressure: Increased; lymphatic flow: Increased",
      "selection_percent": 1
-    },
-    {
-     "letter": "F",
-     "text": "ecreased",
-     "selection_percent": null
     }
    ],
    "correct_label": "D",
@@ -1462,7 +1470,11 @@
     },
     {
      "type": "paragraph",
-     "text": "In the normal state, the pleural space contains a small amount of fluid (eg, 5-10 ml) that undergoes constant turnover, with the rate of inflow equivalent to the rate of outflow. The rate of inflow is determined by vascular hydrostatic pressure, vascular oncotic pressure, and vascular membrane permeability (ie, the Starl ing equation), whereas the rate of outflow is determined by the drainage capacity of the parietal pleural lymphatics. A pleural effusion results from an increased rate of pleural fluid inflow, a decreased rate of pleural fluid outflow, or a combination of the two. This patient with progressive dyspnea on exertion, nonproductive cough, bilateral crackles on lung auscultation, and a right-sided pleural effusion most likely has decompensated heart failure (chronic, poorly controlled hypertension is a common cause). Pleural effusion in decompensated heart failure is primarily driven by backward transmission of pressure from the failing left ventricle to the pulmonary circulation, resulting in increased pulmonary capillary hydrostatic pressure and an increased rate of fluid inflow to the pleural space. Vascular permeability remains normal, as does vascular oncotic pressure (which is mostly determined by serum albumin concentration). Outflow through the parietal pleural lymphatics increases in response to the increased fluid inflow, but it is unable to keep up, resulting in development of pleural effusion."
+     "text": "In the normal state, the pleural space contains a small amount of fluid (eg, 5-10 mL) that undergoes constant turnover, with the rate of inflow equivalent to the rate of outflow. The rate of inflow is determined by vascular hydrostatic pressure, vascular oncotic pressure, and vascular membrane permeability (ie, the Starling equation), whereas the rate of outflow is determined by the drainage capacity of the parietal pleural lymphatics. A pleural effusion results from an increased rate of pleural fluid inflow, a decreased rate of pleural fluid outflow, or a combination of the two."
+    },
+    {
+     "type": "paragraph",
+     "text": "This patient with progressive dyspnea on exertion, nonproductive cough, bilateral crackles on lung auscultation, and a right-sided pleural effusion most likely has decompensated heart failure (chronic, poorly controlled hypertension is a common cause). Pleural effusion in decompensated heart failure is primarily driven by backward transmission of pressure from the failing left ventricle to the pulmonary circulation, resulting in increased pulmonary capillary hydrostatic pressure and an increased rate of fluid inflow to the pleural space. Vascular permeability remains normal, as does vascular oncotic pressure (which is mostly determined by serum albumin concentration). Outflow through the parietal pleural lymphatics increases in response to the increased fluid inflow, but it is unable to keep up, resulting in development of pleural effusion."
     },
     {
      "type": "paragraph",
@@ -1470,7 +1482,7 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice B) All 4 of these changes encourage the development of pleural effusion and multiple disturbances would be required for such changes to take place (eg, lung malignancy [increased vascular permeability and decreased"
+     "text": "(Choice B) All 4 of these changes encourage the development of pleural effusion and multiple disturbances would be required for such changes to take place (eg, lung malignancy [increased vascular permeability and decreased lymphatic flow] in the setting of both hypoalbuminemia [decreased oncotic pressure] and heart failure [increased hydrostatic pressure])."
     },
     {
      "type": "paragraph",
@@ -1489,16 +1501,14 @@
      "B": 32,
      "C": 2,
      "D": 56,
-     "E": 1,
-     "F": null
+     "E": 1
     }
    },
    "status": "blocked",
    "issues": [
-    "choice letters disagree with order: C,D",
-    "missing choice percent"
+    "review: Options are a 4-column grid table, transcribed as row text (verify layout); no Choice D explanation paragraph appears on screen, so none added; figure and Starling popup text excluded; percents A6 B32 C2 D56 E1 (sum 97), answered correctly 56."
    ],
-   "source_record_sha256": "479bc21881c70c78b4a389130d5bbb9d2148b0b00ee64ad3a844c42a4fa335dc"
+   "source_record_sha256": "7da95cef372d741f686bb7d48f60283ca86ff8236712b6ad0eb91f3f10b072c9"
   },
   {
    "id": "UWORLD_14958",
@@ -1766,7 +1776,23 @@
     },
     {
      "type": "paragraph",
-     "text": "Week 1 Week 2 Week 3 ~d This patient has a urinary tract infection complicated by fever and hemodynamic instability consistent with sepsis. Her rapid-onset respiratory failure is suggestive of acute respiratory distress syndrome (ARDS). ARDS is characterized by bilateral pulmonary infiltrates and hypoxemia in the absence of heart failure. It can occur due to direct pulmonary trauma (eg, pulmonary contusions, inhaled irritants) or indirect nonpulmonary insults (eg, sepsis, burns, pancreatitis) that result in pulmonary epithelial and/or endothelial injury. The 3 phases of ARDS follow the disease's progression: • Exudative phase: Inflammatory cytokines (eg, tumor necrosis factor, IL-1, IL-6) activate the pulmonary endothelium and recruit neutrophils to the lung tissue. Resultant endothelial damage leads to increased capillary permeability and leakage of protein-rich fluid into the alveolar space. Organization of the edema and cellular debris leads to the formation of hyaline membranes. • Proliferative phase: One to two weeks later, endothelial cells, pneumocytes, and fibroblasts proliferate in attempts to repair the damaged lung; collagen is deposited and scarring may occur. Edema is reabsorbed. • Fibrotic phase: In a minority of patients, excessive collagen deposition leads to irreversible pulmonary fibrosis and pulmonary hypertension."
+     "text": "This patient has a urinary tract infection complicated by fever and hemodynamic instability consistent with sepsis. Her rapid-onset respiratory failure is suggestive of acute respiratory distress syndrome (ARDS). ARDS is characterized by bilateral pulmonary infiltrates and hypoxemia in the absence of heart failure. It can occur due to direct pulmonary trauma (eg, pulmonary contusions, inhaled irritants) or indirect nonpulmonary insults (eg, sepsis, burns, pancreatitis) that result in pulmonary epithelial and/or endothelial injury."
+    },
+    {
+     "type": "paragraph",
+     "text": "The 3 phases of ARDS follow the disease's progression:"
+    },
+    {
+     "type": "paragraph",
+     "text": "Exudative phase: Inflammatory cytokines (eg, tumor necrosis factor, IL-1, IL-6) activate the pulmonary endothelium and recruit neutrophils to the lung tissue. Resultant endothelial damage leads to increased capillary permeability and leakage of protein-rich fluid into the alveolar space. Organization of the edema and cellular debris leads to the formation of hyaline membranes."
+    },
+    {
+     "type": "paragraph",
+     "text": "Proliferative phase: One to two weeks later, endothelial cells, pneumocytes, and fibroblasts proliferate in attempts to repair the damaged lung; collagen is deposited and scarring may occur. Edema is reabsorbed."
+    },
+    {
+     "type": "paragraph",
+     "text": "Fibrotic phase: In a minority of patients, excessive collagen deposition leads to irreversible pulmonary fibrosis and pulmonary hypertension."
     },
     {
      "type": "paragraph",
@@ -1774,18 +1800,18 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice C) Noncaseating granulomas are found in sarcoidosis, which typically presents more chronically with cough, skin find ings, or uveitis. Hemodynamic instability and acute respiratory failure would be unexpected."
+     "text": "(Choice C) Noncaseating granulomas are found in sarcoidosis, which typically presents more chronically with cough, skin findings, or uveitis. Hemodynamic instability and acute respiratory failure would be unexpected."
     },
     {
      "type": "paragraph",
-     "text": "(Choice D) Mucus plugging typically occurs in patients with underlying lung disease (eg, cystic fibros is, chronic obstructive pulmonary disease). Mucus plugs can cause hypoxemia but would not be expected to cause hypotension and fevers, and acute respiratory deterioration in the setting of sepsis is more likely due to ARDS."
+     "text": "(Choice D) Mucus plugging typically occurs in patients with underlying lung disease (eg, cystic fibrosis, chronic obstructive pulmonary disease). Mucus plugs can cause hypoxemia but would not be expected to cause hypotension and fevers, and acute respiratory deterioration in the setting of sepsis is more likely due to ARDS."
     },
     {
      "type": "paragraph",
      "text": "(Choice E) Wedge-shaped areas of hemorrhagic necrosis can be seen with pulmonary embolism, which can cause acute respiratory failure, hypotension, and tachycardia. However, patients often have chest pain, and in general, decompensation occurs suddenly (not progressively over a course of hours). In addition, urinary symptoms, confusion, and high fevers are unexpected in this condition."
     }
    ],
-   "educational_objective": "Acute respiratory distress syndrome is caused by injury of the pulmonary epithelium and/or endothelium, and occurs most often due to sepsis or pneumonia. Cytokines recruit neutrophils to the lung tissue, which cause capillary damage and leakage of protein-rich flu id into the alveoli. Later, cellular proliferation and collagen deposition occurs, and in some patients, this leads to irreversible pulmonary fibrosis.",
+   "educational_objective": "Acute respiratory distress syndrome is caused by injury of the pulmonary epithelium and/or endothelium, and occurs most often due to sepsis or pneumonia. Cytokines recruit neutrophils to the lung tissue, which cause capillary damage and leakage of protein-rich fluid into the alveoli. Later, cellular proliferation and collagen deposition occurs, and in some patients, this leads to irreversible pulmonary fibrosis.",
    "statistics": {
     "answered_correctly_percent": 77,
     "selection_percent": {
@@ -1796,13 +1822,9 @@
      "E": 8
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …Week 1 Week 2 Week 3 ©UWo~d This patient ha…",
-    "UWorld screenshot text leaked: UWORLD_1579 explanation 3",
-    "screenshot chrome removed automatically"
-   ],
-   "source_record_sha256": "4ac54e3c0dfdf9721eeee29e48c5dfa5e26f233a1392dee83d0d487c377783ad"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "543b255cc6ee4a21b5ad81ad3f5707b2efeac365c7862fa6853ce43cc8f79a31"
   },
   {
    "id": "UWORLD_14840",
@@ -2094,11 +2116,11 @@
     144,
     145
    ],
-   "question": "A 23-year-old woman, gravida 2 para 1, with poorly controlled type 1 diabetes and hypothyroidism comes to the hospital with preterm, premature rupture of membrane at 30 weeks' gestation. Her medications include prenatal vitamins and insulin. Vital signs are normal and examination shows clear vaginal discharge. The patient's cervix is closed and she has no uterine contractions. Laboratory results are as follows: Hemoglobin Glucose Hemoglobin A 1 c Which of the following medications has the greatest positive impact on fetal survival?",
+   "question": "A 23-year-old woman, gravida 2 para 1, with poorly controlled type 1 diabetes and hypothyroidism comes to the hospital with preterm, premature rupture of membrane at 30 weeks' gestation. Her medications include prenatal vitamins and insulin. Vital signs are normal and examination shows clear vaginal discharge. The patient's cervix is closed and she has no uterine contractions. Laboratory results are as follows: Hemoglobin 11.8 g/dL; Glucose 200 mg/dL; Hemoglobin A1c 7.2%. Which of the following medications has the greatest positive impact on fetal survival?",
    "options": [
     {
      "letter": "A",
-     "text": "Oexamethasone",
+     "text": "Dexamethasone",
      "selection_percent": 61
     },
     {
@@ -2127,7 +2149,15 @@
    "explanation": [
     {
      "type": "paragraph",
-     "text": "In the terminal saccular stage of lung development, the type II pneumocytes produce pulmonary surfactant, a lipoprotein complex rich in phospholipids, most notably dipalmitoylphosphatidylcholine (OPPC, a type of lecithin). This surfactant decreases alveolar surface tension by creating a lipid-rich monolayer that separates alveolar gas from the underlying aqueous fluid. The phenomenon prevents atelectasis and end-expiratory collapse and increases pulmonary compliance. In a fetus, efflux of lung fluid into amniotic fluid enables testing of markers of lung maturity. Until 33 weeks gestation, the lecithin and sphingomyelin levels are about equal. After 33 weeks, the lecithin levels rise dramatically compared to sphingomyelin. A lecithin-to-sphingomyelin ratio >1 .9 is indicative of mature fetal lungs. Premature infants born at <32 weeks gestation are at significant risk of surfactant deficiency. Corticosteroids (eg, betamethasone, dexamethasone) have the greatest effect on increasing surfactant production by accelerating maturation of type II pneumocytes. They are administered to patients at risk for preterm labor (eg, preterm premature rupture of membranes) to decrease the risk of respiratory distress syndrome and mortality."
+     "text": "In the terminal saccular stage of lung development, the type II pneumocytes produce pulmonary surfactant, a lipoprotein complex rich in phospholipids, most notably dipalmitoylphosphatidylcholine (DPPC, a type of lecithin). This surfactant decreases alveolar surface tension by creating a lipid-rich monolayer that separates alveolar gas from the underlying aqueous fluid. The phenomenon prevents atelectasis and end-expiratory collapse and increases pulmonary compliance."
+    },
+    {
+     "type": "paragraph",
+     "text": "In a fetus, efflux of lung fluid into amniotic fluid enables testing of markers of lung maturity. Until 33 weeks gestation, the lecithin and sphingomyelin levels are about equal. After 33 weeks, the lecithin levels rise dramatically compared to sphingomyelin. A lecithin-to-sphingomyelin ratio >1.9 is indicative of mature fetal lungs."
+    },
+    {
+     "type": "paragraph",
+     "text": "Premature infants born at <32 weeks gestation are at significant risk of surfactant deficiency. Corticosteroids (eg, betamethasone, dexamethasone) have the greatest effect on increasing surfactant production by accelerating maturation of type II pneumocytes. They are administered to patients at risk for preterm labor (eg, preterm premature rupture of membranes) to decrease the risk of respiratory distress syndrome and mortality."
     },
     {
      "type": "paragraph",
@@ -2139,7 +2169,7 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choices DandE) Nifedipine and terbutaline are medications used for inhibition of preterm labor (tocolysis). Nifedipine is a calcium channel blocker and results in myometrial relaxation by inhibition of myosin light-chain kinase-mediated phosphorylation. Terbutaline is a ~-sympathomimetic that increases intracellular cAMP formation in myometrial cells. This inhibits myosin light-chain kinase and relaxes the smooth muscle. Neither drug directly affects fetal lung maturity."
+     "text": "(Choices D and E) Nifedipine and terbutaline are medications used for inhibition of preterm labor (tocolysis). Nifedipine is a calcium channel blocker and results in myometrial relaxation by inhibition of myosin light-chain kinase-mediated phosphorylation. Terbutaline is a β-sympathomimetic that increases intracellular cAMP formation in myometrial cells. This inhibits myosin light-chain kinase and relaxes the smooth muscle. Neither drug directly affects fetal lung maturity."
     }
    ],
    "educational_objective": "Both maternal and fetal cortisol help to accelerate fetal lung maturation by stimulating surfactant production. Betamethasone or dexamethasone is administered to pregnant women at risk of premature delivery to prevent neonatal respiratory distress syndrome.",
@@ -2153,11 +2183,9 @@
      "E": 8
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …ated phosphorylation. Terbutaline is a ~-sympathomimetic that…"
-   ],
-   "source_record_sha256": "6094d13ec725d3fea39dfba79cb5a554ae4d8f7cf27f7851db69e85dd0d1d087"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "9033e4a0cf9e30131ef431c966783a37dd6fb823e315da15dae71e4fe085ae86"
   },
   {
    "id": "UWORLD_19294",

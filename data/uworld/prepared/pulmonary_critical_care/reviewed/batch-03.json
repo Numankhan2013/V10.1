@@ -720,16 +720,21 @@
     },
     {
      "letter": "B",
-     "text": "Cervical cancer (2 1%) 0 C. Hypertrophic cardiomyopathy",
-     "selection_percent": 1
+     "text": "Cervical cancer",
+     "selection_percent": 21
     },
     {
      "letter": "C",
+     "text": "Hypertrophic cardiomyopathy",
+     "selection_percent": 1
+    },
+    {
+     "letter": "D",
      "text": "Interstitial cystitis",
      "selection_percent": 3
     },
     {
-     "letter": "D",
+     "letter": "E",
      "text": "Minimal change disease",
      "selection_percent": 1
     }
@@ -761,7 +766,15 @@
     },
     {
      "type": "paragraph",
-     "text": "Normal bronchi are lined mainly by pseudostratified ciliated columnar cells that propel inhaled particles toward the oropharynx for removal by swallowing or expectoration. Interspersed goblet cells produce mucus that traps inhaled debris. The ciliated and goblet cells of respiratory epithelium are together responsible for mucociliary clearance. In response to chronic irritation, such as smoking, the respiratory epithelium may be replaced with squamous epithelium. This change of cell types is called squamous metaplasia and is seen histologically as a transition to stratified polygonal epithelial cells. This transition is initially adaptive because squamous cells are more resistant to irritation than columnar cells. However, the lack of cilia and goblet cells prevents effective mucociliary clearance and increases the risk of respiratory infections. Squamous bronchial metaplasia is reversible and may resolve on discontinuation of smoking, but persistent irritant exposure can cause progression to dysplasia or squamous cell carcinoma. Other examples of metaplasia include Barrett esophagus, in which esophageal squamous epithelium is replaced by intestinal columnar epithelium with goblet cells in response to chronic acid exposure, and squamous metaplasia of the cervix."
+     "text": "Normal bronchi are lined mainly by pseudostratified ciliated columnar cells that propel inhaled particles toward the oropharynx for removal by swallowing or expectoration. Interspersed goblet cells produce mucus that traps inhaled debris. The ciliated and goblet cells of respiratory epithelium are together responsible for mucociliary clearance."
+    },
+    {
+     "type": "paragraph",
+     "text": "In response to chronic irritation, such as smoking, the respiratory epithelium may be replaced with squamous epithelium. This change of cell types is called squamous metaplasia and is seen histologically as a transition to stratified polygonal epithelial cells. This transition is initially adaptive because squamous cells are more resistant to irritation than columnar cells. However, the lack of cilia and goblet cells prevents effective mucociliary clearance and increases the risk of respiratory infections. Squamous bronchial metaplasia is reversible and may resolve on discontinuation of smoking, but persistent irritant exposure can cause progression to dysplasia or squamous cell carcinoma."
+    },
+    {
+     "type": "paragraph",
+     "text": "Other examples of metaplasia include Barrett esophagus, in which esophageal squamous epithelium is replaced by intestinal columnar epithelium with goblet cells in response to chronic acid exposure, and squamous metaplasia of the cervix."
     },
     {
      "type": "paragraph",
@@ -773,7 +786,7 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice D) Interstitial cystitis is characterized by urinary frequency and urgency, and pelvic pain. Gross findings include erythema and ulceration of the bladder mucosa. Histopathology shows infl ammatory infiltrates and fibrosis."
+     "text": "(Choice D) Interstitial cystitis is characterized by urinary frequency and urgency, and pelvic pain. Gross findings include erythema and ulceration of the bladder mucosa. Histopathology shows inflammatory infiltrates and fibrosis."
     },
     {
      "type": "paragraph",
@@ -782,20 +795,18 @@
    ],
    "educational_objective": "Squamous bronchial metaplasia is a reversible, adaptive response to chronic irritation, such as smoking. The normal columnar epithelium is replaced by squamous epithelium, which is more resistant to irritation but has reduced mucociliary clearance. Metaplasia also occurs with Barrett esophagus, in which esophageal squamous epithelium is replaced by intestinal columnar epithelium with goblet cells in response to chronic acid exposure.",
    "statistics": {
-    "answered_correctly_percent": null,
+    "answered_correctly_percent": 72,
     "selection_percent": {
      "A": 72,
-     "B": 1,
-     "C": 3,
-     "D": 1
+     "B": 21,
+     "C": 1,
+     "D": 3,
+     "E": 1
     }
    },
-   "status": "blocked",
-   "issues": [
-    "choice letters disagree with order: C,D",
-    "choice percents sum 77"
-   ],
-   "source_record_sha256": "224fa2893414f5f793573a0ad8f8d38af4720805c898deedf5b6dff2788ecac2"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "ec07de5737c55e87e91a20db48064da71233fe9c6fa6543f6df5d0ea9301026b"
   },
   {
    "id": "UWORLD_536",
@@ -889,7 +900,7 @@
     445,
     446
    ],
-   "question": "A 43-year-old man is brought to the emergency department after being found unresponsive by his wife. She says he was in his usual state of health when she left home a few hours ago. The patient has a history of depression and type 2 diabetes mellitus. He was recently laid off from work. Blood pressure is 100/60 mm Hg and pulse is 64/min. On physical examination, the patient is responsive to deep sternal rub and has mildly dry mucous membranes. Arterial blood gas analysis reveals the following: PaCO2 HCO3- 24 mEq/L Which of the following is the most likely current acid-base status in this patient?",
+   "question": "A 43-year-old man is brought to the emergency department after being found unresponsive by his wife. She says he was in his usual state of health when she left home a few hours ago. The patient has a history of depression and type 2 diabetes mellitus. He was recently laid off from work. Blood pressure is 100/60 mm Hg and pulse is 64/min. On physical examination, the patient is responsive to deep sternal rub and has mildly dry mucous membranes. Arterial blood gas analysis reveals the following: pH 7.22, PaCO2 60 mm Hg, HCO3- 24 mEq/L. Which of the following is the most likely current acid-base status in this patient?",
    "options": [
     {
      "letter": "A",
@@ -949,7 +960,35 @@
     },
     {
      "type": "paragraph",
-     "text": "The assessment of an arterial blood gas follows a stepwise process: 1. Evaluate the pH (normal: 7.4): A value <7.35 signifies acidosis whereas a value >7.45 indicates alkalosis. This patient has an arterial blood pH of 7.22, which is consistent with acidosis. 2. Identify the primary process: Differentiate respiratory from metabolic processes by determining the PaCO2 (normal: 40) and HCO3- (normal: 24). • Respiratory acidosis occurs due to the retention of CO 2 in the lungs and presents with a low pH and a high PaCO2. • Metabolic acidosis develops due to depletion of HCO3- and is characterized by a low pH and a low HCO3-. This patient has a pH of 7.22 (low) and a PaCO2 of 60 mm Hg (high), which is consistent with respiratory acidosis. 3. Identify compensation: Because increased PaCO 2 leads to an increased hydrogen ion concentration in the body, the kidneys begin to compensate by increasing resorption of HCO3- to help buffer the excess acid. The renal compensation begins after several hours and takes several days to complete. After approximately 72 hours, the expected compensatory increase in HCO3- is approximately 4 mEq/L for every 10 mm Hg elevation in PaCO2. This patient has a HCO3- of 24 mEq/L, which is normal and indicates respiratory acidosis without compensation. Causes of respiratory acidosis without compensation include any disorder that causes acute hypoventilation (eg, opioid overdose with depression of respiratory drive)."
+     "text": "The assessment of an arterial blood gas follows a stepwise process:"
+    },
+    {
+     "type": "paragraph",
+     "text": "1. Evaluate the pH (normal: 7.4): A value <7.35 signifies acidosis whereas a value >7.45 indicates alkalosis. This patient has an arterial blood pH of 7.22, which is consistent with acidosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "2. Identify the primary process: Differentiate respiratory from metabolic processes by determining the PaCO2 (normal: 40) and HCO3- (normal: 24)."
+    },
+    {
+     "type": "paragraph",
+     "text": "• Respiratory acidosis occurs due to the retention of CO2 in the lungs and presents with a low pH and a high PaCO2."
+    },
+    {
+     "type": "paragraph",
+     "text": "• Metabolic acidosis develops due to depletion of HCO3- and is characterized by a low pH and a low HCO3-."
+    },
+    {
+     "type": "paragraph",
+     "text": "This patient has a pH of 7.22 (low) and a PaCO2 of 60 mm Hg (high), which is consistent with respiratory acidosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "3. Identify compensation: Because increased PaCO2 leads to an increased hydrogen ion concentration in the body, the kidneys begin to compensate by increasing resorption of HCO3- to help buffer the excess acid. The renal compensation begins after several hours and takes several days to complete. After approximately 72 hours, the expected compensatory increase in HCO3- is approximately 4 mEq/L for every 10 mm Hg elevation in PaCO2."
+    },
+    {
+     "type": "paragraph",
+     "text": "This patient has a HCO3- of 24 mEq/L, which is normal and indicates respiratory acidosis without compensation. Causes of respiratory acidosis without compensation include any disorder that causes acute hypoventilation (eg, opioid overdose with depression of respiratory drive)."
     },
     {
      "type": "paragraph",
@@ -957,18 +996,18 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice B) Metabolic alkalosis is indicated by high pH and high HCO3-. The respiratory compensation involves hypoventilation to retain CO 2 and decrease pH."
+     "text": "(Choice B) Metabolic alkalosis is indicated by high pH and high HCO3-. The respiratory compensation involves hypoventilation to retain CO2 and decrease pH."
     },
     {
      "type": "paragraph",
-     "text": "(Choice C) This patient's low pH and high PaCO2 are consistent with respiratory acidosis, but the normal HCO3indicates that renal compensation has not yet occurred."
+     "text": "(Choice C) This patient's low pH and high PaCO2 are consistent with respiratory acidosis, but the normal HCO3- indicates that renal compensation has not yet occurred."
     },
     {
      "type": "paragraph",
-     "text": "(Choice D) Respiratory alkalosis is indicated by high pH and low PaCO 2 . The metabolic compensation involves increased HCO3- excretion by the kidneys to help decrease pH and requires approximately 72 hours to complete."
+     "text": "(Choice D) Respiratory alkalosis is indicated by high pH and low PaCO2. The metabolic compensation involves increased HCO3- excretion by the kidneys to help decrease pH and requires approximately 72 hours to complete."
     }
    ],
-   "educational_objective": "Respiratory acidosis presents with low pH and high PaCO 2. HCO3- initially remains near normal but becomes elevated over several days as renal compensation develops.",
+   "educational_objective": "Respiratory acidosis presents with low pH and high PaCO2. HCO3- initially remains near normal but becomes elevated over several days as renal compensation develops.",
    "statistics": {
     "answered_correctly_percent": 82,
     "selection_percent": {
@@ -980,13 +1019,9 @@
      "F": 82
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …©uworld The assessment…",
-    "UWorld screenshot text leaked: UWORLD_1357 explanation 2",
-    "screenshot chrome removed automatically"
-   ],
-   "source_record_sha256": "b5395d5a294a57e3a184503e116c299e946be12c0d08ea8243a88316fab81178"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "b86c8ebe61f6f5c04ae50ad2738fdfca1b2cd8d188dd5543a17eedab80d9889e"
   },
   {
    "id": "UWORLD_1217",
@@ -996,7 +1031,7 @@
     449,
     450
    ],
-   "question": "A 63-year-old man comes to the emergency department due to fever and cough. A medical student interviews and examines the patient and notes that he has had 3 months of fevers, night sweats, and productive cough. Chest xray reveals a right apical lung lesion, and the patient is subsequently placed in respiratory isolation. The medical student was in close contact with the patient during the initial interview and the patient coughed frequently during their interaction. The student had a negative tuberculin skin test prior to beginning the rotation. If this patient's infectious disease is transmitted to the student, which of the following processes is most likely to occur during the first week after exposure?",
+   "question": "A 63-year-old man comes to the emergency department due to fever and cough. A medical student interviews and examines the patient and notes that he has had 3 months of fevers, night sweats, and productive cough. Chest x-ray reveals a right apical lung lesion, and the patient is subsequently placed in respiratory isolation. The medical student was in close contact with the patient during the initial interview and the patient coughed frequently during their interaction. The student had a negative tuberculin skin test prior to beginning the rotation. If this patient's infectious disease is transmitted to the student, which of the following processes is most likely to occur during the first week after exposure?",
    "options": [
     {
      "letter": "A",
@@ -1040,7 +1075,19 @@
     },
     {
      "type": "paragraph",
-     "text": "IFN-y = interferon-gamma. © UWorld Mycobacterium tuberculosis is a facultative intracellular, acid-fast bacillus that is transmitted via aerosolized droplets. The pathogen is frequently inhaled into the lower lobe of the lung where it replicates within the alveoli. Alveolar macrophages phagocytose the organism but are initially unable to eliminate it due to microbial virulence factors (eg, cord factor) that prevent phagolysosome fusion and acidification. This allows M tuberculosis to replicate in an unchecked fashion within the phagosomes of alveolar macrophages for the first few weeks of the infection. After a few weeks, antigen-presenting cells in the draining lymphatic system display mycobacterial antigens and release interleukin-12, which stimulates narve CD4 lymphocytes to differentiate into T helper type 1 (TH 1) cells. Th 1 cells release interferon-gamma (Choice B), which activates macrophages and causes them to: • Form fully acidified phagolysosomes that are capable of destroying intracellular mycobacteria • Differentiate into epithelioid cells and multinucleated Langhans giant cells that surround extracellular mycobacteria within granulomas (Choice A). These cells release digestive enzymes and generate reactive oxygen species, which helps limit mycobacterial proliferation but also cause caseating necrosis and (in some patients) cavitary lung lesions (Choice E)."
+     "text": "Mycobacterium tuberculosis is a facultative intracellular, acid-fast bacillus that is transmitted via aerosolized droplets. The pathogen is frequently inhaled into the lower lobe of the lung where it replicates within the alveoli. Alveolar macrophages phagocytose the organism but are initially unable to eliminate it due to microbial virulence factors (eg, cord factor) that prevent phagolysosome fusion and acidification. This allows M tuberculosis to replicate in an unchecked fashion within the phagosomes of alveolar macrophages for the first few weeks of the infection."
+    },
+    {
+     "type": "paragraph",
+     "text": "After a few weeks, antigen-presenting cells in the draining lymphatic system display mycobacterial antigens and release interleukin-12, which stimulates naive CD4 lymphocytes to differentiate into T helper type 1 (TH1) cells. TH1 cells release interferon-gamma (Choice B), which activates macrophages and causes them to:"
+    },
+    {
+     "type": "paragraph",
+     "text": "• Form fully acidified phagolysosomes that are capable of destroying intracellular mycobacteria"
+    },
+    {
+     "type": "paragraph",
+     "text": "• Differentiate into epithelioid cells and multinucleated Langhans giant cells that surround extracellular mycobacteria within granulomas (Choice A). These cells release digestive enzymes and generate reactive oxygen species, which helps limit mycobacterial proliferation but also cause caseating necrosis and (in some patients) cavitary lung lesions (Choice E)."
     },
     {
      "type": "paragraph",
@@ -1058,11 +1105,9 @@
      "E": 1
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …IFN-y = interferon-gamma. © UWorld Mycobacterium…"
-   ],
-   "source_record_sha256": "f9048d4581a2723d8371aaa1b0cad3493193ddf8d273654f184450b7a60fe73e"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "f1f24fc675a825a6d2517e12c2655cff5c9d45db29297f355aaaa2985a5de866"
   },
   {
    "id": "UWORLD_1130",
@@ -1078,26 +1123,31 @@
    "options": [
     {
      "letter": "A",
-     "text": "ABO incompatibility (1 8%) OB. C1 inhibitor deficiency",
+     "text": "ABO incompatibility",
      "selection_percent": 18
     },
     {
      "letter": "B",
+     "text": "C1 inhibitor deficiency",
+     "selection_percent": 18
+    },
+    {
+     "letter": "C",
      "text": "Leukocyte adhesion deficiency",
      "selection_percent": 2
     },
     {
-     "letter": "C",
-     "text": "Selective lgAdeficiency",
+     "letter": "D",
+     "text": "Selective IgA deficiency",
      "selection_percent": 59
     },
     {
-     "letter": "D",
+     "letter": "E",
      "text": "Severe combined immune deficiency",
      "selection_percent": 2
     }
    ],
-   "correct_label": "C",
+   "correct_label": "D",
    "question_blocks": [],
    "explanation": [
     {
@@ -1124,15 +1174,19 @@
     },
     {
      "type": "paragraph",
-     "text": "This patient has a history of recurrent pneumonia, a diagnosis of celiac disease, and an anaphylactic reaction during blood transfusion. These findings are highly suggestive of selective lgA deficiency, the most common primary immunodeficiency. Although most patients with lgA deficiency are asymptomatic, some may have recurrent sinopulmonary (eg, sinusitis, pneumonia) and gastrointestinal infections (eg, Giardia) due to absence of secretory lgA. Concomitant autoimmune disorders (eg, celiac disease) are also common. Patients with severe lgA defi ciency can form lgE antibodies directed against lgA (anti-lgA antibodies). Serum lgA levels are low or undetectable due to failure of B cells to differentiate into lgA-secreting plasma cells; serum lgG and lgM levels are normal. When transfused with blood products (eg, red blood cells, platelets, fresh frozen plasma) containing small amounts of lgA, these patients can develop potentially fatal anaphylaxis. Therefore, patients with severe lgA defi ciency should wear medical alert bracelets and receive blood products that are washed of residual plasma or from an lgA-deficient donor."
+     "text": "This patient has a history of recurrent pneumonia, a diagnosis of celiac disease, and an anaphylactic reaction during blood transfusion. These findings are highly suggestive of selective IgA deficiency, the most common primary immunodeficiency. Although most patients with IgA deficiency are asymptomatic, some may have recurrent sinopulmonary (eg, sinusitis, pneumonia) and gastrointestinal infections (eg, Giardia) due to absence of secretory IgA. Concomitant autoimmune disorders (eg, celiac disease) are also common."
     },
     {
      "type": "paragraph",
-     "text": "(Choice A) Acute hemolytic reactions occur when a patient's preexisting lgM or lgG antibody cross-reacts with antigens (eg, A, B, Rh, Kell) in transfused blood. Reactions range from fever and chills to severe hemolysis and circulatory collapse. However, anaphylaxis is lgE-mediated and does not result from ABO incompatibility."
+     "text": "Patients with severe IgA deficiency can form IgE antibodies directed against IgA (anti-IgA antibodies). Serum IgA levels are low or undetectable due to failure of B cells to differentiate into IgA-secreting plasma cells; serum IgG and IgM levels are normal. When transfused with blood products (eg, red blood cells, platelets, fresh frozen plasma) containing small amounts of IgA, these patients can develop potentially fatal anaphylaxis. Therefore, patients with severe IgA deficiency should wear medical alert bracelets and receive blood products that are washed of residual plasma or from an IgA-deficient donor."
     },
     {
      "type": "paragraph",
-     "text": "(Choice B) C1 inhibitor defi ciency causes hereditary angioedema that can be triggered by transfusions. Affected patients have angioedema but do not have urticaria or wheezing, both of which are present in this patient."
+     "text": "(Choice A) Acute hemolytic reactions occur when a patient's preexisting IgM or IgG antibody cross-reacts with antigens (eg, A, B, Rh, Kell) in transfused blood. Reactions range from fever and chills to severe hemolysis and circulatory collapse. However, anaphylaxis is IgE-mediated and does not result from ABO incompatibility."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice B) C1 inhibitor deficiency causes hereditary angioedema that can be triggered by transfusions. Affected patients have angioedema but do not have urticaria or wheezing, both of which are present in this patient."
     },
     {
      "type": "paragraph",
@@ -1140,26 +1194,25 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice E) Severe combined immune deficiency results from failure of T cell development and leads to a severe defect of cell-mediated and humeral immunity. This disease causes severe bacterial, viral, and fungal infections beginning in infancy."
+     "text": "(Choice E) Severe combined immune deficiency results from failure of T cell development and leads to a severe defect of cell-mediated and humoral immunity. This disease causes severe bacterial, viral, and fungal infections beginning in infancy."
     }
    ],
-   "educational_objective": "Selective lgA deficiency is the most common primary immune defi ciency and can present with recurrent sinopulmonary and gastrointestinal infections as well as autoimmune disease. Patients with severe lgA deficiency can have anaphylaxis during transfusion of blood products that contain small amounts of lgA.",
+   "educational_objective": "Selective IgA deficiency is the most common primary immune deficiency and can present with recurrent sinopulmonary and gastrointestinal infections as well as autoimmune disease. Patients with severe IgA deficiency can have anaphylaxis during transfusion of blood products that contain small amounts of IgA.",
    "statistics": {
     "answered_correctly_percent": 59,
     "selection_percent": {
      "A": 18,
-     "B": 2,
-     "C": 59,
-     "D": 2
+     "B": 18,
+     "C": 2,
+     "D": 59,
+     "E": 2
     }
    },
    "status": "blocked",
    "issues": [
-    "choice letters disagree with order: B,C,D",
-    "correct answer signals disagree: tick C, percent C, text D",
-    "choice percents sum 81"
+    "review drifted from OCR: correct answer changed C→D"
    ],
-   "source_record_sha256": "a54ff41bffba888aa863c22259b0bb4814ad2c1b9100a4728ee03246416ce272"
+   "source_record_sha256": "9337a8dc387ebbc3339e82ffa920921035db24d4677bb89cc0dbbd039800f693"
   },
   {
    "id": "UWORLD_19339",
@@ -2115,7 +2168,7 @@
     512,
     513
    ],
-   "question": "Which of the following is the most likely etiology of this patient's hemoptysis?",
+   "question": "A 17-year-old girl is brought to the emergency department due to hemoptysis and severe respiratory distress. The patient has been on several oral antibiotics for pneumonia over the past week and has required numerous similar treatments in the past. She has been coughing up blood for the past day, which has become progressively worse. Temperature is 37.0 C (98.6 F), blood pressure is 90/60 mm Hg, pulse is 120/min, and respirations are 42/min. Pulmonary examination reveals diffusely reduced air flow, rales, and intercostal retractions. Copious red blood is produced while coughing during the examination and progresses rapidly. Despite aggressive management, the patient ultimately expires. An autopsy is performed and a gross lung specimen is shown in the image below:\n\nWhich of the following is the most likely etiology of this patient's hemoptysis?",
    "options": [
     {
      "letter": "A",
@@ -2139,8 +2192,8 @@
     },
     {
      "letter": "E",
-     "text": "Hemorrhage from a highly vascular endobronchial tumor (1 0%)",
-     "selection_percent": null
+     "text": "Hemorrhage from a highly vascular endobronchial tumor",
+     "selection_percent": 10
     }
    ],
    "correct_label": "A",
@@ -2182,15 +2235,15 @@
     },
     {
      "type": "paragraph",
-     "text": "This patient's fatal, massive hemoptysis is suggestive of hemorrhage from the bronchial arteries. A common underlying cause of massive hemoptysis is bronchiectasis, as indicated by this patient's autopsy showing thick, widened airways and mucus plugging. Bronchiectasis is often associated with cystic fibrosis and immunodefi ciency disorders, which causes chronic and recurrent airway inflammation and infection. This stimulates neovascularization and bronchial artery hypertrophy. The dilated, fragile, and tortuous vessels are in close proximity to the bronchioles and prone to rupture with increased airway pressure, such as during coughing (eg, acute pulmonary exacerbation). Normally, blood supply to the lungs consists of the pulmonary circulation and the bronchial circulation. Pulmonary arteries deliver deoxygenated blood from the right ventricle to the lung parenchyma (ie, respiratory bronchioles to alveoli) to be oxygenated and returned to the heart; bronchial arteries arise from the aorta and supply the endobronchial tree (ie, bronchi to terminal bronchioles) with oxygenated blood. Although bleeding from the low-pressure pulmonary circulation is more common, hemorrhage from the high-pressure, systemic bronchial circulation is usually responsible for massive, life-threatening hemoptysis."
+     "text": "This patient's fatal, massive hemoptysis is suggestive of hemorrhage from the bronchial arteries. A common underlying cause of massive hemoptysis is bronchiectasis, as indicated by this patient's autopsy showing thick, widened airways and mucus plugging. Bronchiectasis is often associated with cystic fibrosis and immunodeficiency disorders, which causes chronic and recurrent airway inflammation and infection. This stimulates neovascularization and bronchial artery hypertrophy. The dilated, fragile, and tortuous vessels are in close proximity to the bronchioles and prone to rupture with increased airway pressure, such as during coughing (eg, acute pulmonary exacerbation). Normally, blood supply to the lungs consists of the pulmonary circulation and the bronchial circulation. Pulmonary arteries deliver deoxygenated blood from the right ventricle to the lung parenchyma (ie, respiratory bronchioles to alveoli) to be oxygenated and returned to the heart; bronchial arteries arise from the aorta and supply the endobronchial tree (ie, bronchi to terminal bronchioles) with oxygenated blood. Although bleeding from the low-pressure pulmonary circulation is more common, hemorrhage from the high-pressure, systemic bronchial circulation is usually responsible for massive, life-threatening hemoptysis."
     },
     {
      "type": "paragraph",
-     "text": "(Choices Band C) Hemoptysis due to hypertrophied pulmonary arteries or diffuse alveolar hemorrhage (ie, alveolar capillary vasculitis) involves bleeding from the pulmonary circulation, which is a low-pressure system that is unlikely to result in life-threatening hemoptysis. In addition, bronchiectasis is not associated with either condition."
+     "text": "(Choices B and C) Hemoptysis due to hypertrophied pulmonary arteries or diffuse alveolar hemorrhage (ie, alveolar capillary vasculitis) involves bleeding from the pulmonary circulation, which is a low-pressure system that is unlikely to result in life-threatening hemoptysis. In addition, bronchiectasis is not associated with either condition."
     },
     {
      "type": "paragraph",
-     "text": "(Choice D) A fistula between the tracheobronchial tree and aorta is usually fatal and can occur with chronic vascular or airway infl ammation, typically due to an implanted medical device or stent. A fistula is an uncommon cause of hemoptysis that would not cause dilated bronchial walls on pathology."
+     "text": "(Choice D) A fistula between the tracheobronchial tree and aorta is usually fatal and can occur with chronic vascular or airway inflammation, typically due to an implanted medical device or stent. A fistula is an uncommon cause of hemoptysis that would not cause dilated bronchial walls on pathology."
     },
     {
      "type": "paragraph",
@@ -2205,14 +2258,14 @@
      "B": 14,
      "C": 29,
      "D": 7,
-     "E": null
+     "E": 10
     }
    },
    "status": "blocked",
    "issues": [
-    "missing choice percent"
+    "review drifted from OCR: stem"
    ],
-   "source_record_sha256": "557e7d6887c1c47dc0ba3008dd00f64b3e9ef4581000c79e17281a84f7c6f865"
+   "source_record_sha256": "ed8af935cd8b2e512c6534fd8cedd44c8b0b4090a155a18977b5e4dfde4a33bc"
   },
   {
    "id": "UWORLD_800",
@@ -2228,7 +2281,7 @@
    "options": [
     {
      "letter": "A",
-     "text": "urve 1 Curve 2 X @ A. Albumin Phosphatidylcholine",
+     "text": "Albumin Phosphatidylcholine",
      "selection_percent": 5
     },
     {
@@ -2248,13 +2301,8 @@
     },
     {
      "letter": "E",
-     "text": "0 Phosphatidylglycerol",
+     "text": "Sphingomyelin Phosphatidylglycerol",
      "selection_percent": 14
-    },
-    {
-     "letter": "F",
-     "text": "Sphingomyelin",
-     "selection_percent": null
     }
    ],
    "correct_label": "B",
@@ -2285,7 +2333,23 @@
     },
     {
      "type": "paragraph",
-     "text": "Surfactant is an essential lipoprotein complex that decreases alveolar surface tension and facilitates alveolar expansion. Quantity and quality of surfactant increases throughout gestation and correlates with greater fetal lung maturity. Assessment of fetal lung maturity is not often indicated because infants of gestational age <32 weeks can be presumed to have immature lungs while those who are full term typically do not. However, a subset of patients may benefit from an evaluation of lung maturity to weigh the risks and benefits to the mother and fetus of preterm delivery versus continuing a medically complex pregnancy. Several markers of surfactant production and quality within amniotic fluid can help guide estimations of fetal lung maturity: • Lamellar bodies are organelles within type 2 pneumocytes that store, transport, and secrete surfactant into the air-liquid interface of the alveoli. Increased lamellar body counts within the amniotic fluid are associated with increased surfactant production and lung maturity. • Phosphatidylcholine (also known as lecithin [L]) and sphingomyelin (S) are lipid components of surfactant. They are produced in approximately equal amounts until the middle of the third trimester, at which point the phosphatidylcholine concentration increases sharply while the sphingomyelin level remains low, as represented by curves 1 and 2, respectively (Choices C and E). This change in composition (US >2) later in gestation reflects production of a more mature surfactant. • Phosphatidylglycerol is a phospholipid component of surfactant that increases late in the third trimester, and its presence suggests advanced lung maturity."
+     "text": "Surfactant is an essential lipoprotein complex that decreases alveolar surface tension and facilitates alveolar expansion. Quantity and quality of surfactant increases throughout gestation and correlates with greater fetal lung maturity. Assessment of fetal lung maturity is not often indicated because infants of gestational age <32 weeks can be presumed to have immature lungs while those who are full term typically do not. However, a subset of patients may benefit from an evaluation of lung maturity to weigh the risks and benefits to the mother and fetus of preterm delivery versus continuing a medically complex pregnancy."
+    },
+    {
+     "type": "paragraph",
+     "text": "Several markers of surfactant production and quality within amniotic fluid can help guide estimations of fetal lung maturity:"
+    },
+    {
+     "type": "paragraph",
+     "text": "Lamellar bodies are organelles within type 2 pneumocytes that store, transport, and secrete surfactant into the air-liquid interface of the alveoli. Increased lamellar body counts within the amniotic fluid are associated with increased surfactant production and lung maturity."
+    },
+    {
+     "type": "paragraph",
+     "text": "Phosphatidylcholine (also known as lecithin [L]) and sphingomyelin (S) are lipid components of surfactant. They are produced in approximately equal amounts until the middle of the third trimester, at which point the phosphatidylcholine concentration increases sharply while the sphingomyelin level remains low, as represented by curves 1 and 2, respectively (Choices C and E). This change in composition (L/S >2) later in gestation reflects production of a more mature surfactant."
+    },
+    {
+     "type": "paragraph",
+     "text": "Phosphatidylglycerol is a phospholipid component of surfactant that increases late in the third trimester, and its presence suggests advanced lung maturity."
     },
     {
      "type": "paragraph",
@@ -2300,16 +2364,12 @@
      "B": 66,
      "C": 5,
      "D": 8,
-     "E": 14,
-     "F": null
+     "E": 14
     }
    },
-   "status": "blocked",
-   "issues": [
-    "choice letters disagree with order: E,F",
-    "missing choice percent"
-   ],
-   "source_record_sha256": "ed4646cf6f8c6995e5911344341e7d5e1abc1e80147fe68e0277a54f071a590b"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "e81400c6f3919e907cf16ebe15753c22762aac6b40af13ce08b0fdfcd8c9e36d"
   },
   {
    "id": "UWORLD_170",

@@ -118,7 +118,7 @@ def main():
                 assert page.locator('.nk-uworld-library-note').count()==0
                 assert "UWorld's original collections" not in page.locator('.nk-uworld-library').inner_text()
                 page.screenshot(path=str(output / f'uworld-collections-{width}.png'))
-                expect(page.locator('.nk-uworld-collection')).to_have_count(6)
+                expect(page.locator('.nk-uworld-collection')).to_have_count(len(uw))
                 page.locator('.nk-uworld-collection').filter(has_text='Biochemistry').click()
                 expect(page.locator('button.nk-topic-row')).to_have_count(4)
                 assert page.locator('.nk-topic-group>h2').all_inner_texts()==['Blocks']
