@@ -74,6 +74,12 @@ def main():
                             ('UWorld · Male Reproductive System', 'UWorld'): 52,
                             ('UWorld · Female Reproductive System & Breast', 'UWorld'): 81,
                             ('UWorld · Biostatistics & Epidemiology', 'UWorld'): 60}
+                # Auto-extracted collections (tools/uworld_auto) carry their own pinned counts.
+                import glob as _glob, json as _json
+                for _m in _glob.glob(str(Path(__file__).resolve().parents[1] / 'data/uworld/prepared/*/manifest.json')):
+                    _man = _json.loads(Path(_m).read_text())
+                    if _man.get('source_extraction_method') == 'uworld-auto-extract':
+                        expected[('UWorld · ' + _man['collection'], 'UWorld')] = _man['record_count']
                 assert {(r['subject'], r['bank']): r['questions'] for r in records} == expected, records
                 qs = page.evaluate('__uworldTest.questions().filter(q=>q.bank==="UWorld"&&q.collection==="Biochemistry")')
                 assert len(qs) == len({q['id'] for q in qs}) == 132
