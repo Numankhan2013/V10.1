@@ -554,5 +554,14 @@ def extract(doc, pdf_sha, first=1, last=None, progress=None):
             results.append((None, ['unidentified pages %d-%d' % (g[0].n, g[-1].n)], [p.n for p in g]))
             continue
         d, issues = extract_question(g, pdf_sha)
-        results.append((polish(d, vocab), issues, [p.n for p in g]))
+        d = polish(d, vocab)
+        if d:
+            # QA ran before the OCR repairs; drop the OCR flag if the repaired text is clean.
+            texts = [d['question'], d['educational_objective']] + [o['text'] for o in d['options']] + \
+                    [n['text'] for n in d['explanation'] if n['type'] == 'paragraph']
+            if not any(JUNK_RE.search(' ' + t + ' ') for t in texts):
+                d['issues'] = [i for i in d['issues'] if not i.startswith('suspicious OCR')]
+                issues = d['issues']
+                d['status'] = 'verified' if not issues else 'blocked'
+        results.append((d, issues, [p.n for p in g]))
     return results
