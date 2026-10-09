@@ -26,7 +26,18 @@ def exhibit(a):
     """Return the popup window (x0, y0_content, x1, y1_frame) or None."""
     blue = _blue(a)
     h = a.shape[0]
-    rows = [y for y in range(CONTENT_TOP + 2, min(h, 320)) if blue[y].sum() > 250]
+    # Start below the viewer toolbar (its position varies with browser chrome above it).
+    frac = blue.mean(axis=1)
+    toolbar, y = CONTENT_TOP - 2, next((y for y in range(0, min(h, 140)) if frac[y] > .6), None)
+    if y is not None:
+        gap = 0
+        while y < min(h, 160) and gap <= 3:   # the toolbar is one contiguous band (icons leave small gaps)
+            if frac[y] > .6:
+                toolbar, gap = y, 0
+            else:
+                gap += 1
+            y += 1
+    rows = [y for y in range(max(CONTENT_TOP, toolbar) + 2, min(h, 320)) if blue[y].sum() > 250]
     if not rows:
         return None
     # The title bar is the first tall band of wide blue rows.
@@ -41,6 +52,8 @@ def exhibit(a):
     if len(band) < 10:
         return None
     runs = _runs(blue[band[len(band) // 2]], 250)
+    # A popup's title bar is inset; the viewer toolbar runs edge to edge.
+    runs = [r for r in runs if r[0] >= 20 and r[1] <= a.shape[1] - 20]
     if not runs:
         return None
     x0, x1 = max(runs, key=lambda r: r[1] - r[0])

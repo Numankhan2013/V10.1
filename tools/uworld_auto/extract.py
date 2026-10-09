@@ -540,19 +540,35 @@ def polish(doc, vocab):
     return doc
 
 
+class Stub:
+    """Header-only view of a page (no raster) used to group pages cheaply."""
+    def __init__(self, doc, n):
+        self.n = n
+        self.lines = doc.lines(n)
+        head = ' '.join(l['text'] for l in self.lines if l['y0'] < 50)
+        m = QID_RE.search(head)
+        self.qid = m.group(1) if m else None
+        m = ITEM_RE.search(head)
+        self.item = (int(m.group(1)), int(m.group(2))) if m else None
+
+
 def extract(doc, pdf_sha, first=1, last=None, progress=None):
+    """Group pages from their OCR headers, then rasterise one question at a time (bounded memory)."""
     last = last or doc.pages
-    pages = []
-    for n in range(first, last + 1):
-        pages.append(Page(doc, n))
-        if progress and n % 25 == 0:
-            progress(n)
-    vocab = build_vocab(pages)
+    stubs = [Stub(doc, n) for n in range(first, last + 1)]
+    vocab = build_vocab(stubs)
     results = []
-    for g in group_pages(pages):
-        if not g[0].qid:
-            results.append((None, ['unidentified pages %d-%d' % (g[0].n, g[-1].n)], [p.n for p in g]))
+    for k, sg in enumerate(group_pages(stubs)):
+        if progress and k % 10 == 0:
+            progress(sg[0].n)
+        if not sg[0].qid:
+            results.append((None, ['unidentified pages %d-%d' % (sg[0].n, sg[-1].n)], [p.n for p in sg]))
             continue
+        g = []
+        for st in sg:
+            pg = Page(doc, st.n)
+            pg.qid = st.qid
+            g.append(pg)
         d, issues = extract_question(g, pdf_sha)
         d = polish(d, vocab)
         if d:
@@ -564,4 +580,5 @@ def extract(doc, pdf_sha, first=1, last=None, progress=None):
                 issues = d['issues']
                 d['status'] = 'verified' if not issues else 'blocked'
         results.append((d, issues, [p.n for p in g]))
+        del g
     return results
