@@ -43,7 +43,7 @@ def blocks_from_items(docs):
         d['_meta']['number'] = item[0] if item else None
 
 
-def render_crop(pdf, page, bbox, yoff, scale=2):
+def render_crop(pdf, page, bbox, yoff, scale=1.3):
     png = subprocess.run(['pdftoppm', '-f', str(page), '-l', str(page), '-r', str(72 * scale), '-png', str(pdf)],
                          capture_output=True).stdout
     im = Image.open(io.BytesIO(png)).convert('RGB')
