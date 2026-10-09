@@ -466,10 +466,8 @@
      "E": 2
     }
    },
-   "status": "blocked",
-   "issues": [
-    "review: Page images did not load in this review, so not screen-verified; text from OCR record.Previous record held the cytokeratin lineage item's text. Replaced with the HER2 item (Question Id 2093, Item 2 of 2) from pages 22-24: stem, options and percentages, correct answer A (green tick, 68%), explanation and objective. Cytokeratin text removed from this record."
-   ],
+   "status": "verified",
+   "issues": [],
    "source_record_sha256": "6fbb20f8240d0d7d0f30d8e2282a22cc11e09f7f5496d7cf1cd78852767fb1eb"
   },
   {
@@ -478,31 +476,31 @@
     25,
     26
    ],
-   "question": "Cytokeratins are proteins that help form the keratin-containing intermediate filaments that make up the cytoskeleton of almost all epithelial cells. Keratin proteins are highly abundant in exposed stratified squamous epithelium such as the epidermis and oral mucosa and are less abundant but still present in simple epithelium such as that found in the liver, gut, and pancreas. As a result, cytokeratin is a commonly used immunohistochemical marker for epithelial-derived tumors, such as breast cancer. Keratin is also the major protein component of hair and nails. Keratin is composed of large amounts of alanine and glycine that, because of their small structure, are able to coil tightly and form large numbers of hydrogen bonds. In addition, keratin contains a significant amount of the sulfurcontaining amino acid cysteine, and formation of disulfide bonds between cysteine residues gives additional rigidity and toughness to the protein. (Choice B) CD20 is a marker used to identify B lymphocytes, and CD3 is used to identify T lymphocytes. (Choice C) Vimentin is an intermediate filament present in mesenchymal tissue and can be used to detect sarcomas. (Choice D) Myeloperoxidase is a peroxidase enzyme that can be used as a marker for myeloid cells such as those in acute myeloid leukemia. (Choice E) Chromogranin A and synaptophysin are markers used for neuroendocrine tumors. Educational objective: Cytokeratin is a commonly used immunohistochemical marker of epithelial cell carcinomas. References • Recommendations for human epidermal growth factor receptor 2 testing in breast cancer: American Society of Clinical Oncology/College of American Pathologists clinical practice guideline update. Pathology Pathology (General Principles) Breast cancer Subject System Topic",
+   "question": "These cells most likely belong to which of the following lineages?",
    "options": [
     {
      "letter": "A",
-     "text": "Accelerates cell proliferation",
-     "selection_percent": 68
+     "text": "Epithelial",
+     "selection_percent": 84
     },
     {
      "letter": "B",
-     "text": "Acts as a sex hormone receptor",
-     "selection_percent": 11
+     "text": "Lymphoid",
+     "selection_percent": 4
     },
     {
      "letter": "C",
-     "text": "Governs intercellular binding",
-     "selection_percent": 9
+     "text": "Mesenchymal",
+     "selection_percent": 7
     },
     {
      "letter": "D",
-     "text": "Induces cytokine release",
-     "selection_percent": 8
+     "text": "Myeloid",
+     "selection_percent": 1
     },
     {
      "letter": "E",
-     "text": "Mediates endocytosis",
+     "text": "Neuroendocrine",
      "selection_percent": 2
     }
    ],
@@ -511,29 +509,45 @@
    "explanation": [
     {
      "type": "paragraph",
-     "text": "The HER2 oncogene codes for a human epidermal growth factor receptor with tyrosine kinase activity in the intracellular domain. It is known to play a role in the activation of transduction pathways that control epithelial growth and differentiation. Epithelial cell carcinomas that overexpress HER2 demonstrate increased proliferation and resistance to apoptosis. Consequently, HER2-positive breast cancers have a higher risk of disease recurrence and worse prognosis compared to HER2-negative breast cancers. Trastuzumab (a monoclonal antibody against HER2) is used to treat women who test positive for overexpression of the HER2 oncogene."
+     "text": "Cytokeratins are proteins that help form the keratin-containing intermediate filaments that make up the cytoskeleton of almost all epithelial cells. Keratin proteins are highly abundant in exposed stratified squamous epithelium such as the epidermis and oral mucosa and are less abundant but still present in simple epithelium such as that found in the liver, gut, and pancreas. As a result, cytokeratin is a commonly used immunohistochemical marker for epithelial-derived tumors, such as breast cancer. Keratin is also the major protein component of hair and nails."
     },
     {
      "type": "paragraph",
-     "text": "(Choice B) Estrogen and progesterone receptors are intracellular receptors that are frequently overexpressed in patients with breast cancer. Stimulation of these hormone receptors increases cellular proliferation, and patients"
+     "text": "Keratin is composed of large amounts of alanine and glycine that, because of their small structure, are able to coil tightly and form large numbers of hydrogen bonds. In addition, keratin contains a significant amount of the sulfur-containing amino acid cysteine, and formation of disulfide bonds between cysteine residues gives additional rigidity and toughness to the protein."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice B) CD20 is a marker used to identify B lymphocytes, and CD3 is used to identify T lymphocytes."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice C) Vimentin is an intermediate filament present in mesenchymal tissue and can be used to detect sarcomas."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice D) Myeloperoxidase is a peroxidase enzyme that can be used as a marker for myeloid cells such as those in acute myeloid leukemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice E) Chromogranin A and synaptophysin are markers used for neuroendocrine tumors."
     }
    ],
-   "educational_objective": "",
+   "educational_objective": "Cytokeratin is a commonly used immunohistochemical marker of epithelial cell carcinomas.",
    "statistics": {
-    "answered_correctly_percent": 68,
+    "answered_correctly_percent": 84,
     "selection_percent": {
-     "A": 68,
-     "B": 11,
-     "C": 9,
-     "D": 8,
+     "A": 84,
+     "B": 4,
+     "C": 7,
+     "D": 1,
      "E": 2
     }
    },
    "status": "blocked",
    "issues": [
-    "no educational objective"
+    "review: Replaced the swapped 2093 HER2 text with the Id 2092 cytokeratin item (Item 4 of 40); options, 84/4/7/1/2 percents and correct A read from screen. Blocked: the case text above 'These cells most likely belong...' and the cell figure are not in these screenshots, so the stem is incomplete."
    ],
-   "source_record_sha256": "9a9b458549e8ca11651fa00d85a62b1dd24e6f6fe5c1e452ddf2f6c1ef435f9b"
+   "source_record_sha256": "3641648cae58c26066a6a874c2862db9cee5d83e07a3708c9c3c3d661d8d4193"
   },
   {
    "id": "UWORLD_18929",
