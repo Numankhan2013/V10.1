@@ -981,3 +981,99 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-uworld-figure > button > span s
 /* Explanation reading rhythm. */
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-uworld-reading > p, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-uworld-choice-discussion p, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-uworld-objective p { font: 400 16px/1.7 var(--nkg-font-sans) !important; color: var(--nkg-fg) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-uworld-reading > p + p { margin-top: 12px !important; }
+
+/* ===================================================== Practice v3 (session screen) */
+/* Header: slim sticky bar, count centred, progress as a hairline under it. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v114-session > .nk-session-head {
+  position: sticky !important; top: 0; z-index: 30; display: grid !important; grid-template-columns: 44px 1fr auto; align-items: center;
+  height: 52px; margin: 0 calc(-1 * var(--nkg-gutter, 16px)) !important; padding: 0 calc(var(--nkg-gutter, 16px) - 6px) !important;
+  background: color-mix(in srgb, var(--nkg-bg) 88%, transparent) !important; -webkit-backdrop-filter: saturate(1.3) blur(14px); backdrop-filter: saturate(1.3) blur(14px);
+  border: 0 !important; box-shadow: none !important;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-head .icon-btn { width: 40px !important; height: 40px !important; border-radius: 12px !important; border: 0 !important; background: transparent !important; color: var(--nkg-fg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-head .icon-btn:active { background: var(--nkg-hover) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-head .nk-session-count { justify-self: center; font: 500 13px/1 var(--nkg-font-mono) !important; color: var(--nkg-fg-3) !important; letter-spacing: 0 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-head .nk-session-count strong { font: 600 15px/1 var(--nkg-font-sans) !important; color: var(--nkg-fg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-head .q-actions { display: flex; gap: 2px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v114-session > .nk-session-progress {
+  position: sticky !important; top: 52px; z-index: 29; display: block !important; height: 2px !important; padding: 0 !important;
+  margin: 0 calc(-1 * var(--nkg-gutter, 16px)) 18px !important; background: var(--nkg-border) !important; border-radius: 0 !important; overflow: hidden;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v114-session > .nk-session-progress > i { display: block; height: 2px !important; border-radius: 0 !important; background: var(--nkg-fg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v114-session > .nk-session-progress > span { display: none !important; }
+
+/* Question: eyebrow + comfortable reading measure. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-q-eyebrow { display: flex; align-items: center; gap: 8px; margin: 0 0 10px; font: 500 var(--nkg-t-xs)/1 var(--nkg-font-mono); color: var(--nkg-fg-3); text-transform: uppercase; letter-spacing: .06em; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-q-eyebrow i { font-style: normal; padding: 3px 7px; border-radius: 6px; background: var(--nkg-surface-2); color: var(--nkg-fg-2); letter-spacing: .02em; text-transform: none; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .question-card { background: transparent !important; border: 0 !important; box-shadow: none !important; padding: 0 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .question-card .question-text, html[data-nk-ui="geist"] :is(body,#nkg-root) .question-card .question-text :is(p, span, div) { font: 400 17px/1.62 var(--nkg-font-sans) !important; color: var(--nkg-fg) !important; letter-spacing: -0.003em; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .question-card .question-text { margin-bottom: 20px !important; }
+
+/* Options: square letter badges; outcome icons replace the letter after answering. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .question-card .option-list { display: grid !important; gap: 10px !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .question-card .option {
+  display: flex !important; align-items: center; gap: 12px; min-height: 56px; padding: 12px 14px !important; margin: 0 !important;
+  border-radius: 14px !important; border: 1px solid var(--nkg-border) !important; background: var(--nkg-surface) !important; box-shadow: none !important;
+  transition: border-color var(--nkg-dur) var(--nkg-ease), background-color var(--nkg-dur) var(--nkg-ease), opacity var(--nkg-dur) var(--nkg-ease), transform 120ms var(--nkg-ease);
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .question-card .option:not(.correct):not(.wrong):active { transform: scale(.99); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .question-card .option .option-letter {
+  flex: none; width: 30px !important; height: 30px !important; border-radius: 9px !important; display: grid !important; place-items: center;
+  border: 1px solid var(--nkg-border) !important; background: var(--nkg-surface-2) !important; color: var(--nkg-fg-2) !important;
+  font: 600 13px/1 var(--nkg-font-mono) !important;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .question-card .option .option-text { flex: 1; font: 400 15.5px/1.45 var(--nkg-font-sans) !important; color: var(--nkg-fg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .question-card .option .nk-uworld-option-percent { font: 500 13px/1 var(--nkg-font-mono) !important; color: var(--nkg-fg-2) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .question-card .option.correct { border-color: var(--nkg-green-border) !important; background: var(--nkg-green-bg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .question-card .option.wrong { border-color: var(--nkg-red-border) !important; background: var(--nkg-red-bg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .question-card .option:is(.correct, .wrong) .option-letter { color: transparent !important; border-color: transparent !important; background-position: center !important; background-repeat: no-repeat !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .question-card .option.correct .option-letter { background: var(--nkg-green) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 16px no-repeat !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .question-card .option.wrong .option-letter { background: var(--nkg-red) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M7 7l10 10M17 7L7 17'/%3E%3C/svg%3E") center / 14px no-repeat !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .question-card .option.correct .nk-uworld-option-percent { color: var(--nkg-green) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .question-card .option.wrong .nk-uworld-option-percent { color: var(--nkg-red) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .question-card .option-list.nkg-answered .option:not(.correct):not(.wrong) { opacity: .6; }
+
+/* Bottom bar: compact Previous, full-width Next. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-footer .fixed-actions-inner { display: grid !important; grid-template-columns: 52px minmax(0, 1fr) !important; gap: 10px !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-footer .fixed-actions-inner > .ghost-btn { width: 52px !important; min-width: 0 !important; padding: 0 !important; font-size: 0 !important; display: grid !important; place-items: center; border-radius: 14px !important; height: 52px !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-footer .fixed-actions-inner > .ghost-btn svg { width: 20px !important; height: 20px !important; margin: 0 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-footer .fixed-actions-inner > .primary-btn { height: 52px !important; border-radius: 14px !important; font: 600 16px/1 var(--nkg-font-sans) !important; }
+
+/* Explanation: clear sections. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-source-section > header { display: flex !important; align-items: center; justify-content: space-between; gap: 10px; padding: 0 0 12px !important; margin: 0 0 14px !important; border-bottom: 1px solid var(--nkg-border) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-source-section > header strong { font: 600 18px/1.2 var(--nkg-font-sans) !important; color: var(--nkg-fg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-source-section > header > span { font: 500 var(--nkg-t-xs)/1 var(--nkg-font-mono) !important; color: var(--nkg-fg-3) !important; background: none !important; border: 0 !important; padding: 0 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-uworld-choices > h3, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-uworld-objective > h3 { font: 600 15px/1.3 var(--nkg-font-sans) !important; color: var(--nkg-fg) !important; margin: 26px 0 10px !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-uworld-choice-discussion {
+  display: grid !important; grid-template-columns: auto minmax(0, 1fr); column-gap: 12px; align-items: start;
+  padding: 14px !important; margin: 0 0 8px !important; border: 1px solid var(--nkg-border) !important; border-radius: 14px !important; background: var(--nkg-surface) !important;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-uworld-choice-discussion::before {
+  content: attr(data-nkg-l); grid-row: 1 / 3; min-width: 30px; height: 30px; padding: 0 6px; border-radius: 9px; display: grid; place-items: center;
+  background: var(--nkg-surface-2); border: 1px solid var(--nkg-border); font: 600 13px/1 var(--nkg-font-mono); color: var(--nkg-fg-2);
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-uworld-choice-discussion[data-nkg-l] > h4 { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-uworld-choice-discussion p { margin: 0 !important; font: 400 15px/1.6 var(--nkg-font-sans) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-uworld-objective { margin-top: 22px !important; padding: 16px !important; border-radius: 14px !important; background: var(--nkg-blue-bg) !important; border: 1px solid var(--nkg-blue-border) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-uworld-objective > h3 { margin: 0 0 8px !important; color: var(--nkg-blue) !important; font-size: var(--nkg-t-xs) !important; text-transform: uppercase; letter-spacing: .06em; font-family: var(--nkg-font-mono) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-uworld-objective p { color: var(--nkg-fg) !important; font-weight: 500 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) details.nk-uworld-original { margin-top: 18px !important; font-size: var(--nkg-t-xs) !important; color: var(--nkg-fg-3) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) details.nk-uworld-original summary { cursor: pointer; font: 500 var(--nkg-t-xs)/1 var(--nkg-font-mono) !important; color: var(--nkg-fg-3) !important; }
+
+/* Note: a compact row. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-question-note { padding: 12px 14px !important; border-radius: 14px !important; border: 1px solid var(--nkg-border) !important; background: var(--nkg-surface) !important; box-shadow: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-question-note-head strong { font: 600 14px/1.3 var(--nkg-font-sans) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-question-note-head small { font: 400 var(--nkg-t-xs)/1.3 var(--nkg-font-sans) !important; color: var(--nkg-fg-3) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-question-note-head { padding: 0 !important; margin: 0 !important; background: none !important; border: 0 !important; display: flex !important; align-items: center; justify-content: space-between; gap: 12px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-question-note .nk-note-add { min-height: 34px !important; padding: 0 12px !important; border-radius: 10px !important; border: 1px solid var(--nkg-border) !important; background: var(--nkg-surface-2) !important; font: 600 13px/1 var(--nkg-font-sans) !important; }
+/* Pick-rate as a thin underline (a full-height fill read as a stray border at low %). */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .option-list .option[style*="--nkg-pct"]::after { inset: auto 0 0 0 !important; height: 3px; opacity: .35 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .option-list .option.correct[style*="--nkg-pct"]::after { opacity: .9 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .option-list .option.wrong[style*="--nkg-pct"]::after { opacity: .8 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-uworld-objective p { font: 500 15.5px/1.6 var(--nkg-font-sans) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .question-card .option-list:has(.option.correct, .option.wrong) .option:not(.correct):not(.wrong) { opacity: .6; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-footer .fixed-actions-inner > .ghost-btn { line-height: 0 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-footer .fixed-actions-inner > .ghost-btn > * { margin: 0 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-footer .fixed-actions-inner > .ghost-btn svg { display: block !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-footer .fixed-actions-inner > .ghost-btn { display: flex !important; align-items: center !important; justify-content: center !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .qbank-session-page .question-card .option-list:has(.option.correct, .option.wrong) > .option:not(.correct):not(.wrong) { opacity: .6 !important; }

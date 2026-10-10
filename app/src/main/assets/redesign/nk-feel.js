@@ -1072,6 +1072,30 @@
     });
   }
 
+
+  /* Practice v3: question eyebrow, answered-state hook, letter badges for choice notes. */
+  function practiceScreen(app) {
+    var card = app.querySelector('.qbank-session-page .question-card');
+    if (!card) return;
+    var count = app.querySelector('.nk-session-count');
+    var m = count && count.textContent.replace(/\s+/g, ' ').match(/(\d+)\s*\/\s*(\d+)/);
+    var eb = card.querySelector(':scope > .nkg-q-eyebrow');
+    var label = m ? 'Question ' + m[1] + ' of ' + m[2] : '';
+    if (label && (!eb || eb.getAttribute('data-l') !== label)) {
+      if (!eb) { eb = el('div', 'nkg-q-eyebrow'); card.insertBefore(eb, card.firstChild); }
+      eb.setAttribute('data-l', label); eb.textContent = label;
+      var bank = app.querySelector('.nk-uworld-stem') ? 'UWorld' : '';
+      if (bank) eb.insertAdjacentHTML('beforeend', '<i>' + bank + '</i>');
+    }
+    var list = card.querySelector('.option-list');
+    if (list) list.classList.toggle('nkg-answered', !!list.querySelector('.option.correct, .option.wrong'));
+    each(app.querySelectorAll('.nk-uworld-choice-discussion:not([data-nkg-l])'), function (a) {
+      var h = a.querySelector('h4'); if (!h) return;
+      var letters = (h.textContent.replace(/^Choices?\s*/i, '').match(/\b[A-L]\b/g) || []);
+      if (letters.length) a.setAttribute('data-nkg-l', letters.join(' · '));
+    });
+  }
+
   function render(app, page, session) {
     if (!app) return;
     try {
@@ -1083,7 +1107,7 @@
       else if (page === 'quick-revision' || page === 'fsrs') enhanceRevision(app);
       enhanceBuilder(app);
       if (app.querySelector('.nk-na-followup, .nk-na-save-mock')) enhanceResult(app);
-      if (session) { answerFeedback(app); optionRates(app); cohortChip(app); }
+      if (session) { answerFeedback(app); optionRates(app); cohortChip(app); practiceScreen(app); }
     } catch (e) {
       if (window.console && console.warn) console.warn('NKFeel', e);
     }
