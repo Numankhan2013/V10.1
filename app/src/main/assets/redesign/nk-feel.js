@@ -1053,6 +1053,16 @@
 
 
   /* Answered UWorld options carry the source pick-rate; expose it to CSS for a bar. */
+  function cohortChip(app) {
+    var c = app.querySelector('.nk-uworld-cohort:not(.nkg-cohort)'); if (!c) return;
+    var st = c.querySelector('strong'); var m = st && st.textContent.match(/(\d+)\s*%/); if (!m) return;
+    var n = Math.max(0, Math.min(100, +m[1]));
+    c.classList.add('nkg-cohort', n >= 70 ? 'is-easy' : n < 40 ? 'is-hard' : 'is-mid');
+    c.setAttribute('aria-label', n + '% of UWorld users answered correctly');
+    st.innerHTML = '<b>' + n + '%</b><small>got it right</small>';
+    var bar = el('span', 'nkg-cohort-bar', '<i></i>'); bar.setAttribute('aria-hidden', 'true'); bar.style.setProperty('--nkg-p', String(n));
+    c.appendChild(bar);
+  }
   function optionRates(app) {
     each(app.querySelectorAll('.option-list .option'), function (o) {
       var p = o.querySelector('.nk-uworld-option-percent');
@@ -1073,7 +1083,7 @@
       else if (page === 'quick-revision' || page === 'fsrs') enhanceRevision(app);
       enhanceBuilder(app);
       if (app.querySelector('.nk-na-followup, .nk-na-save-mock')) enhanceResult(app);
-      if (session) { answerFeedback(app); optionRates(app); }
+      if (session) { answerFeedback(app); optionRates(app); cohortChip(app); }
     } catch (e) {
       if (window.console && console.warn) console.warn('NKFeel', e);
     }
