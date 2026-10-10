@@ -120,16 +120,17 @@ html[data-nk-theme="dark"] .nk-pdl-pill {
 }
 @keyframes nk-pdl-sweep { to { transform: translateX(100%); } }
 
-/* reveal: rendered page comes in from soft focus */
-.source-pdf-page.nk-pdl-reveal > canvas,
-.source-pdf-page.nk-pdl-reveal > img { animation: nk-pdl-reveal 520ms cubic-bezier(.23, 1, .32, 1) both; }
-@keyframes nk-pdl-reveal { from { opacity: 0; filter: blur(8px); transform: scale(.985); } to { opacity: 1; filter: blur(0); transform: none; } }
+/* reveal: rendered page comes in from soft focus. The animation runs on the page
+   container, never on the canvas/img: those carry the source-page contrast/saturate
+   filter, and animating `filter` there would replace it for the whole reveal. */
+.source-pdf-page.nk-pdl-reveal { animation: nk-pdl-reveal 520ms cubic-bezier(.23, 1, .32, 1) both; }
+@keyframes nk-pdl-reveal { from { opacity: 0; filter: blur(8px); } to { opacity: 1; filter: blur(0); } }
 
 @media (prefers-reduced-motion: reduce) {
   .nk-pdl-pill { transform: translate(-50%, 0); filter: none; transition: opacity 200ms linear; }
   .nk-pdl-pill.is-leaving { transform: translate(-50%, 0); filter: none; }
   .nk-pdl-line, .nk-pdl-scan, .nk-pdl-label, .nk-pdl-bar::after, .source-pdf-page.nk-pdl-pending::after { animation: none !important; }
   .nk-pdl-line { stroke-dashoffset: 0; }
-  .source-pdf-page.nk-pdl-reveal > canvas, .source-pdf-page.nk-pdl-reveal > img { animation: nk-pdl-fade 200ms linear both; }
+  .source-pdf-page.nk-pdl-reveal { animation: nk-pdl-fade 200ms linear both; }
   @keyframes nk-pdl-fade { from { opacity: 0; } to { opacity: 1; } }
 }
