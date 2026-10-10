@@ -21,6 +21,9 @@ def main() -> None:
         "nkMountQuestionNote();",
         "questionNotes: {}",
         'id="nk-question-notes-v1"',
+        "NK_NOTE_MEDIA_V1_START",
+        "function nkNoteImportPdf(",
+        ".nk-note-viewer-stage",
     ):
         assert marker in generated, marker
 
@@ -47,6 +50,22 @@ shouldFail=true;
 assert.equal(call("nkSaveQuestionNote('marrow-anat-1','Failed edit')"),false);
 assert.equal(state.questionNotes['marrow-anat-1'].text,'My own memory point','failed storage must roll back');
 shouldFail=false;
+const img={type:'image',source:'pdf',label:'Atlas · page 2',asset:{id:'na_test123abc',mime:'image/jpeg',w:2400,h:3200,bytes:900000}};
+let committed=null;context.nkNoteAssetsCommit=(kept,removed)=>{committed={kept,removed};};context.img=img;
+assert.equal(call("nkSaveQuestionNoteBlocks('marrow-anat-1',[{type:'text',text:' First cue '},img,{type:'text',text:'After the page'}])"),true);
+const rich=state.questionNotes['marrow-anat-1'];
+assert.equal(rich.text,'First cue\n\nAfter the page','plain text summary stays readable by older app versions');
+assert.equal(rich.blocksAt,rich.updatedAt);
+assert.equal(call("nkNoteBlocks(state.questionNotes['marrow-anat-1']).map(b=>b.type).join()"),'text,image,text');
+assert.equal(JSON.stringify(committed),JSON.stringify({kept:['na_test123abc'],removed:[]}));
+assert.equal(call("nkSaveQuestionNoteBlocks('marrow-anat-1',[{type:'image',asset:{id:'bad id'}}])"),true,'invalid image references are dropped, leaving an empty note');
+assert.equal(committed.removed.map(a=>a.id).join(),'na_test123abc','removed images are released');
+assert.equal(state.questionNotes['marrow-anat-1'].deleted,true);
+assert.equal(JSON.stringify(state.questionNotes['marrow-anat-1'].blocks),'[]','a note that had images keeps writing parts so removals sync');
+assert.equal(call("nkSaveQuestionNoteBlocks('marrow-anat-1',Array.from({length:12},()=>img))"),true);
+assert.equal(call("nkNoteBlocks(state.questionNotes['marrow-anat-1']).length"),10,'a note holds at most ten images or pages');
+assert.equal(call("nkSaveQuestionNoteBlocks('marrow-anat-1',[{type:'text',text:'y'.repeat(2001)}])"),false);
+assert.equal(call("nkSaveQuestionNote('marrow-anat-1','My own memory point')"),true);
 assert.equal(call("nkSaveQuestionNote('marrow-anat-1','')"),true);
 assert.equal(state.questionNotes['marrow-anat-1'].deleted,true,'removal must leave a sync tombstone');
 assert.equal(call("nkQuestionNote('marrow-anat-1')"),null);

@@ -2,6 +2,11 @@
 
 > Operational state only. Resolve the live branch/commit and CI from Git before acting. Historical detail belongs in `SESSION_LOG.md` and dedicated handoffs.
 
+## Question notes with images and PDF pages — 2026-10-10
+
+- Branch `ccr-47681b8d-1aikn7` (resolve live HEAD/CI from Git). Notes are ordered text/image/PDF-page blocks behind a compact My notes bar; tapping opens a full-screen note page with ⋮/long-press block menus, + Add block, shimmer skeletons and a zoom viewer. Image bytes live in IndexedDB and sync once per device as chunked `noteAssets`; parts sync as `noteBlocks`. Android gets a native file chooser. Design/limits: `docs/QUESTION_NOTES.md`.
+- 110 local checks pass; a local replay of the full build passes; the new and updated notes browser checks were run locally on a patched build. Full CI, hosted preview, iPad/Android device checks (Pencil-free import, Safari PDF worker on older iPadOS) and user acceptance are pending.
+
 ## My UWorld Home and Block 2 candidate — 2026-10-05
 
 - User authorizes moderate next content, compact Home → My UWorld library, Impeccable refinement, local/hosted verification and promotion to main/canonical root. Active candidate: `feature/home-uworld-block2-20261005`, based on certified product31bff68 and docs197bdac. Main/root remain31bff68 until full qualification; resolve live Git/CI.
@@ -33,10 +38,6 @@
 -132 reviewed records/729pages;131 scored questions;1244 unscored because its essential exhibit is absent. Objectives1486/1071/107111 and figure sections1369/1244 are source-clipped. Missing stats stay null; accepted17px/70ch source-native layout, objective-after-explanation and immediate option percentages remain.
 - Practice mistakes only tracks unresolved ordinary Practice/test misses; FSRS-only lapses affect scheduling without creating or resurrecting ordinary mistakes. Correct answers from any flow resolve an ordinary miss. Continuous Revision/Pause/Finish remains accepted. No new installed-Android, haptic or clinical certification is claimed.
 
-## Accepted interaction and analysis refinements
-
-- Impeccable interaction, return-flow, source-search, analysis and PWA-update behavior remains protected. Prior certification and exact preview evidence are recorded in SESSION_LOG and the 2026-10-03 reports under docs/.
-
 ## Canonical lineage
 
 - Accepted product commit: `125d68b`. Accepted baseline: V11.6 remains the rollback product baseline; the Continue Practice contract below is separately user/device accepted.
@@ -54,6 +55,7 @@
 
 ## Product architecture to preserve
 
+- Impeccable interaction, return-flow, source-search, analysis and PWA-update behavior remains protected (certifications in SESSION_LOG). BC3/BC4 interaction hardening is reconciled at `43328c1`; history in `docs/BC4_QUESTION_INTERACTION_DEFECT_LEDGER_2026-09-22.md`.
 - Shared bank architecture: `MARROW_RECORDS → MARROW_BY_SUBJECT → BANKS_BY_SUBJECT`.
 - Do not fork Practice, CBT, Review Solutions, FSRS, sync, modules, persistence, analytics or navigation by subject/bank.
 - Primary navigation: **Home · Revision · Tests · Insights · More**; FSRS remains inside the approved Revision study hub.
@@ -120,9 +122,6 @@ Any change touching Home, Practice, session persistence, sync, question navigati
   priorities below. Two archival source gaps remain. Historical batches and
   invalid metadata adjudications are in SESSION_LOG and the image handoffs.
 
-## BC3 and BC4 canonical interaction hardening
-
-- BC3 and BC4 were reconciled into canonical through `43328c1`. Canonical Engineering `35818707731` and full Android/PWA `35818707723` passed, including packaged Android 35 emulator phone/tablet and generated browser checks. Full history: `docs/BC4_QUESTION_INTERACTION_DEFECT_LEDGER_2026-09-22.md` and `SESSION_LOG.md`. Physical Android verification remains pending.
 ## Anti-fragmentation rules
 - Explanation and image work build from `feature/marrow-canonical-full-current` and the complete 2,711-question corpus.
 - Re-read canonical `STATE.md`, live commit, inventory/registry fingerprints and current ownership before editing.

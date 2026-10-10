@@ -10,7 +10,7 @@
   const NK_RESET_PENDING_KEY='qbank_account_reset_pending_v1';
   const NK_ACCOUNT_SNAPSHOT_PREFIX='qbank_account_snapshot_v1_';
   const NK_ACCOUNT_SWITCH_PENDING_KEY='qbank_account_switch_pending_v1';
-  const NK_SYNC_KINDS=['attempts','bookmarks','notes','tests','modules','savedMocks','practiceSessions','sessions','preferences'];
+  const NK_SYNC_KINDS=['attempts','bookmarks','notes','noteBlocks','tests','modules','savedMocks','practiceSessions','sessions','preferences'];
   let nkCloudApplying=false,nkCloudRevision=0,nkCloudMergeChanged=false;
   let nkCloudBusy=false,nkCloudReady=false,nkCloudResetting=false,nkCloudTimer=null,nkCloudInterval=null,nkResolvedProjectId='';
   let nkAuthView='signin',nkPendingCreateEmail='',nkSignInEmail='';
@@ -199,7 +199,9 @@
     Object.entries(state.attempts||{}).forEach(([qid,list])=>(Array.isArray(list)?list:[]).forEach(attempt=>{if(attempt?.id)nkQueueEnvelope(nkEnvelope('attempts',attempt.id,{qid:String(qid),attempt},Number(attempt.at||0)));}));
     Object.entries(state.fsrsRatingRevisions||{}).forEach(([qid,list])=>(Array.isArray(list)?list:[]).forEach(attempt=>{if(attempt?.isRatingRevision&&attempt.id)nkQueueEnvelope(nkEnvelope('attempts',attempt.id,{qid:String(qid),attempt},Number(attempt.at||0)));}));
     Object.entries(state.bookmarks||{}).forEach(([qid,value])=>{current.bookmarks.add(String(qid));nkQueueEnvelope(nkEnvelope('bookmarks',qid,{qid:String(qid),active:true},Number(value?.updatedAt||value?.addedAt||0)));});
-    Object.entries(state.questionNotes||{}).forEach(([qid,note])=>{if(!note||typeof note.text!=='string')return;nkQueueEnvelope(nkEnvelope('notes',qid,{text:note.text,deleted:Boolean(note.deleted)},Number(note.updatedAt||0)));});
+    Object.entries(state.questionNotes||{}).forEach(([qid,note])=>{if(!note||typeof note.text!=='string')return;nkQueueEnvelope(nkEnvelope('notes',qid,{text:note.text,deleted:Boolean(note.deleted)},Number(note.updatedAt||0)));
+      // Ordered text/image parts travel separately so older app versions keep reading plain `notes`.
+      if(Array.isArray(note.blocks))nkQueueEnvelope(nkEnvelope('noteBlocks',qid,{blocks:note.blocks,deleted:Boolean(note.deleted)},Number(note.blocksAt||note.updatedAt||0)));});
     (state.tests||[]).forEach(test=>{if(test?.id)nkQueueEnvelope(nkEnvelope('tests',test.id,test,nkEntityTimestamp(test)));});
     (state.studyModules||[]).forEach(module=>{if(!module?.id)return;current.modules.add(String(module.id));if(!module.syncEpoch)module.syncEpoch=`epoch_${module.createdAt||Date.now()}`;nkQueueEnvelope(nkEnvelope('modules',module.id,module,nkEntityTimestamp(module)));});
     (state.savedMocks||[]).forEach(mock=>{if(!mock?.id)return;current.savedMocks.add(String(mock.id));nkQueueEnvelope(nkEnvelope('savedMocks',mock.id,mock,nkEntityTimestamp(mock)));});
@@ -238,10 +240,12 @@
   async function nkTombstoneAccountCollections(token){
     const tombstonePass=async()=>{
       let cleared=0;
-      for(const kind of NK_SYNC_KINDS){
+      for(const kind of [...NK_SYNC_KINDS,'noteAssets']){
         let pageToken='';
         do{
           const query=new URLSearchParams({pageSize:'1000'});if(pageToken)query.set('pageToken',pageToken);
+          // Note image chunks are large; list only the envelope fields needed to tombstone them.
+          if(kind==='noteAssets')['kind','entityId','ownerDevice','updatedAt','deleted','schemaVersion'].forEach(field=>query.append('mask.fieldPaths',field));
           const result=await nkFetchJson(`${nkFirestoreRoot()}/users/${encodeURIComponent(nkAuth.uid)}/${encodeURIComponent(kind)}?${query}`,{headers:{Authorization:`Bearer ${token}`}}),docs=Array.isArray(result.documents)?result.documents:[];
           for(let i=0;i<docs.length;i+=20){
             const batch=docs.slice(i,i+20).filter(doc=>{const e=nkDecodeDocument(doc);return e.schemaVersion===1&&e.kind===kind&&(!e.deleted||e.payload);});
@@ -260,6 +264,7 @@
     const previous=nkCloudResetting;nkCloudResetting=true;
     try{
       state=defaultState();if(saveState()===false)throw new Error('Local progress could not be saved as cleared.');
+      if(typeof nkNoteAssetsForgetAccount==='function')nkNoteAssetsForgetAccount(nkAuth?.uid||'');
       nkSyncMeta.outbox={};nkSyncMeta.localHashes={};nkSyncMeta.known={};nkSyncMeta.winners={};nkSyncMeta.cursors={};nkSyncMeta.accountGeneration=String(generation||nkSyncMeta.accountGeneration||'legacy');nkSyncMeta.lastSyncAt=null;nkSyncMeta.status='synced';nkSyncMeta.lastError='';nkCloudRevision++;
       if(!nkSaveSyncMeta())throw new Error('Local sync metadata could not be saved as cleared.');
       localStorage.removeItem(NK_PRE_CLOUD_BACKUP);localStorage.removeItem(NK_RESET_PENDING_KEY);
@@ -408,7 +413,14 @@
     else if(winner.kind==='bookmarks'){if(winner.deleted||!payload?.active)delete state.bookmarks[id];else state.bookmarks[id]={addedAt:Number(winner.updatedAt),updatedAt:Number(winner.updatedAt)};}
     else if(winner.kind==='notes'&&payload&&typeof payload.text==='string'){
       state.questionNotes=state.questionNotes||{};
-      state.questionNotes[id]={text:payload.text.slice(0,2000),updatedAt:Number(winner.updatedAt),deleted:Boolean(payload.deleted)};
+      const prior=state.questionNotes[id],parts=Array.isArray(prior?.blocks)?{blocks:prior.blocks,blocksAt:Number(prior.blocksAt||0)}:{};
+      state.questionNotes[id]={...parts,text:payload.text.slice(0,2000),updatedAt:Number(winner.updatedAt),deleted:Boolean(payload.deleted)};
+    }
+    else if(winner.kind==='noteBlocks'&&payload&&Array.isArray(payload.blocks)){
+      state.questionNotes=state.questionNotes||{};
+      const blocks=typeof nkNoteSanitizeBlocks==='function'?nkNoteSanitizeBlocks(payload.blocks):[],prior=state.questionNotes[id];
+      const text=blocks.filter(block=>block.type==='text').map(block=>block.text).join('\n\n').slice(0,2000);
+      state.questionNotes[id]=prior?{...prior,blocks,blocksAt:Number(winner.updatedAt)}:{text,updatedAt:Number(winner.updatedAt),deleted:Boolean(payload.deleted),blocks,blocksAt:Number(winner.updatedAt)};
     }
     else if(winner.kind==='tests'&&payload){const index=(state.tests||[]).findIndex(x=>String(x.id)===id);if(index<0)state.tests.push(payload);else state.tests[index]=payload;state.tests=state.tests.slice(-100);}
     else if(winner.kind==='savedMocks'){
@@ -495,7 +507,9 @@
       if(initial||firstPull)nkCaptureCloudChanges();
       stage='upload';
       const pushed=await nkPushOutbox(token);
-      nkSyncMeta.lastSyncAt=Date.now();nkSyncMeta.status='synced';nkSyncMeta.lastError='';nkSaveSyncMeta();if(changed)render();return {pulled,pushed};
+      nkSyncMeta.lastSyncAt=Date.now();nkSyncMeta.status='synced';nkSyncMeta.lastError='';nkSaveSyncMeta();if(changed)render();
+      if(typeof nkNoteAssetsSyncSoon==='function')nkNoteAssetsSyncSoon();
+      return {pulled,pushed};
     }catch(error){
       nkSyncMeta.status=navigator.onLine?'error':'offline';
       nkSyncMeta.lastError=`${stage}: ${String(error.message||error)}`;

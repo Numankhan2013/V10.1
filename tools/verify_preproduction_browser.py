@@ -77,10 +77,12 @@ def main():
 
                 page.evaluate("QB.openBank('Biochemistry','Marrow'); QB.practiceOne('marrow__BIOCHEM_CH01_Q001')")
                 page.locator('.option-list button').first.click()
-                page.locator('.nk-note-add').click()
+                page.locator('.nk-note-bar').click()
+                page.locator('.nk-np-add-menu').get_by_role('menuitem', name='Text', exact=True).click()
                 page.locator('#nk-question-note-text').fill(PAYLOAD)
-                page.get_by_role('button', name='Save note', exact=True).click()
+                page.locator('.nk-note-page').get_by_role('button', name='Save', exact=True).click()
                 expect(page.locator('.nk-note-readonly')).to_have_text(PAYLOAD)
+                page.get_by_role('button', name='Close notes').click()
                 page.evaluate("QB.nav('notes')")
                 expect(page.locator('.nk-notes-item-text')).to_have_text(PAYLOAD)
                 assert page.locator('.nk-notes-item-text img').count() == 0
