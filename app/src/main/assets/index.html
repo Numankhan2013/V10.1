@@ -7,6 +7,16 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>QBank — Biochemistry</title>
+<!-- NK_GEIST_REDESIGN_V1: presentation-only layer (assets/redesign/). Gated on html[data-nk-ui="geist"]. -->
+<link rel="preload" href="redesign/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="redesign/nk-tokens.css">
+<link rel="stylesheet" href="redesign/nk-theme.css">
+<link rel="stylesheet" href="redesign/nk-redesign.css">
+<link rel="stylesheet" href="redesign/nk-polish.css">
+<script src="redesign/nk-icons.js"></script>
+<script src="redesign/nk-redesign.js"></script>
+<script src="redesign/vendor/motion-12.23.12.min.js" defer></script>
+<script src="redesign/nk-feel.js" defer></script>
 <style>:root{
   --primary:#2f2d63;
   --primary-2:#3d65d8;
@@ -542,8 +552,10 @@ window.SUBJECT_QBANK_DATA={"subjects":[{"subject":"Physiology","topics":[{"id":"
   }
   function chapterQuestions(cid) { return QUESTIONS.filter(q => String(q.chapterId) === String(cid)); }
   function chapterStats(cid) {
-    const qs = chapterQuestions(cid), ids = new Set(qs.map(q=>q.id));
-    const at = Object.entries(state.attempts).filter(([id])=>ids.has(id)).flatMap(([,v])=>v||[]);
+    // Completion counts only questions that accept an answer; accuracy counts
+    // only active answers (undo events and undone answers are not misses).
+    const qs = chapterQuestions(cid).filter(q=>typeof nkFsrsAnswerable!=='function'||nkFsrsAnswerable(q));
+    const at = qs.flatMap(q=>qAttempts(q.id)||[]).filter(a=>a&&!a.isUndo&&!a.isRatingRevision&&typeof a.correct==='boolean');
     const attempted = qs.filter(q=>qAttempts(q.id).length).length;
     const correct = at.filter(a=>a.correct).length;
     const incorrect = at.filter(a=>!a.correct).length;
@@ -562,7 +574,13 @@ window.SUBJECT_QBANK_DATA={"subjects":[{"subject":"Physiology","topics":[{"id":"
     const d = new Date(date); d.setHours(0,0,0,0); return d;
   }
   function studyDayKeys() {
-    return new Set(Object.values(state.attempts).flat().filter(a=>a&&a.at).map(a=>dayKey(a.at)));
+    // A study day needs a real answer: undo events, rating edits and undone
+    // answers never create (or keep alive) a streak. Matches Insights.
+    const keys=new Set();
+    Object.entries(state.attempts||{}).forEach(([qid,list])=>{
+      (typeof qAttempts==='function'?qAttempts(qid):(list||[])).forEach(a=>{if(a&&!a.isUndo&&!a.isRatingRevision&&typeof a.correct==='boolean'&&Number(a.reviewedAt||a.at)>0)keys.add(dayKey(Number(a.reviewedAt||a.at)));});
+    });
+    return keys;
   }
   function currentStreak() {
     const days=studyDayKeys(), today=dayStart();
@@ -1114,9 +1132,9 @@ window.SUBJECT_QBANK_DATA={"subjects":[{"subject":"Physiology","topics":[{"id":"
     else if(route.page==='tests') out=testsPage();
     else if(route.page==='analytics') out=analytics();
     else if(route.page==='more') out=morePage();
-    else if(route.page==='bookmarks') out=libraryPage('bookmarks');
-    else if(route.page==='wrong') out=libraryPage('wrong');
-    else if(route.page==='review') out=libraryPage('review');
+    // Legacy per-subject lists: deep links now open the all-bank Revision views.
+    else if(route.page==='bookmarks'||route.page==='wrong') out=typeof nkRevisionBrowsePage==='function'?nkRevisionBrowsePage(route.page):libraryPage(route.page);
+    else if(route.page==='review') out=typeof nkFsrsReviewPage==='function'?nkFsrsReviewPage():libraryPage('review');
     else if(route.page==='practice') out=practicePage();
     else if(route.page==='exam') out=examPage();
     else if(route.page==='result') out=resultPage(decodeURIComponent(route.id||''));

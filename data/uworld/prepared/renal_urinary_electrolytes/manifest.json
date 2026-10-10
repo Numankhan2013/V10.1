@@ -1,0 +1,56 @@
+{
+ "schema_version": 1,
+ "collection": "Renal, Urinary Systems & Electrolytes",
+ "source_sha256": "d1e0ddd1926f85c24188fe067610055805753eb27d92b55c14270e81f6bd6f81",
+ "source_pdf": "data/uworld/Source_pdfs/renal_urinary_systems_electrolytes/UW_2024_Renal,_Urinary_Systems_&_Electrolytes_6_blocks_OCR.pdf",
+ "page_count": 1441,
+ "record_count": 223,
+ "jsonl_file": "normalized.jsonl",
+ "jsonl_sha256": "648d9b3194c7bf0dc957c6b95f31a49f64b87b735b3230eeaedf3a32a3ba79b5",
+ "source_extraction_method": "uworld-auto-extract",
+ "blocks": {
+  "1": 4,
+  "2": 1,
+  "3": 3,
+  "4": 6,
+  "5": 56,
+  "6": 56,
+  "7": 20,
+  "8": 33,
+  "9": 13,
+  "10": 31
+ },
+ "unowned_pages": [
+  {
+   "pages": [
+    645,
+    646,
+    647,
+    648,
+    649
+   ],
+   "reason": "no answered page; rescue: reviewer held it: Choices A-D are four different graph images (not in question_blocks; only one picture can be added); D; rescue: reviewer held it: Choices A-D are four different graph images (not in question_blocks; only one picture can be added); D"
+  },
+  {
+   "pages": [
+    1328,
+    1329,
+    1330,
+    1331,
+    1332,
+    1333,
+    1334,
+    1335,
+    1336,
+    1337,
+    1338,
+    1339
+   ],
+   "reason": "no answered page"
+  }
+ ],
+ "figures_dir": "data/uworld/prepared/renal_urinary_electrolytes/figures",
+ "verified": 222,
+ "blocked": 1,
+ "reviewed_by": "claude-haiku (flagged questions only)"
+}

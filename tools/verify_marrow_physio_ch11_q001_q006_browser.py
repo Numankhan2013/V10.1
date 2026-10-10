@@ -59,7 +59,8 @@ def main() -> None:
     index = WEB / "index.html"
     if not index.exists():
         raise SystemExit("Generated PWA is missing; build_web_dist must run first")
-    generated = index.read_text(encoding="utf-8")
+    # Question data ships beside index.html in data/*.js (see build_web_dist.externalize_data).
+    generated = index.read_text(encoding="utf-8") + "".join(p.read_text(encoding="utf-8") for p in sorted((index.parent / "data").glob("*.js")))
     for stable_id in (Q1, Q6):
         if stable_id not in generated:
             raise SystemExit(f"Stable ID {stable_id} missing from generated PWA")

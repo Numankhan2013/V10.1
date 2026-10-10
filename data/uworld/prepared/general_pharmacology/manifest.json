@@ -1,0 +1,40 @@
+{
+ "schema_version": 1,
+ "collection": "General Pharmacology",
+ "source_sha256": "62ea92d4571aa553754c1fe9c78259942ff2c26a051cb1753a3af8a82b21025b",
+ "source_pdf": "data/uworld/Source_pdfs/general_pharmacology/UW 2024 - General Pharmacology - 2 block - OCR.pdf",
+ "page_count": 222,
+ "record_count": 44,
+ "jsonl_file": "normalized.jsonl",
+ "jsonl_sha256": "c8bad890e9229636628b67f9551da8dbaa2a86a551ee5321faf2451a52c8b772",
+ "source_extraction_method": "uworld-auto-extract",
+ "blocks": {
+  "1": 8,
+  "2": 29,
+  "3": 7
+ },
+ "unowned_pages": [
+  {
+   "pages": [
+    156,
+    157,
+    158,
+    159
+   ],
+   "reason": "empty explanation; no educational objective; rescue: reviewer held it: Stem, options, percentages verified (graph is in question_blocks, page 159; green tick on page 157 is ; rescue: reviewer held it: Stem, options, percentages verified (graph is in question_blocks, page 159; green tick on page 157 is "
+  },
+  {
+   "pages": [
+    183,
+    184,
+    185,
+    186
+   ],
+   "reason": "no answered page; rescue: reviewer held it: Graph (curves A-E) on pages 184-186 missing from question_blocks; explanation is cut off after '(Choic; rescue: reviewer held it: Graph (curves A-E) on pages 184-186 missing from question_blocks; explanation is cut off after '(Choic"
+  }
+ ],
+ "figures_dir": "data/uworld/prepared/general_pharmacology/figures",
+ "verified": 44,
+ "blocked": 0,
+ "reviewed_by": "claude-haiku (flagged questions only)"
+}

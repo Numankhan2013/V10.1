@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Linux CI: exercise the generated app and capture the actual recall footer."""
 from functools import partial
+import re
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 import threading
@@ -34,9 +35,10 @@ def main():
                 dock = page.locator('.nk-session-footer .nk-fsrs-rating')
                 dock.wait_for(state='visible')
                 buttons = dock.locator('button')
-                assert buttons.all_text_contents() == ['Hard', 'Good', 'Easy']
+                assert [b.split(chr(10))[0] for b in buttons.evaluate_all("els=>els.map(e=>e.firstChild.textContent+'\\n'+(e.querySelector('.nk-fsrs-ivl')?.textContent||''))")] == ['Hard', 'Good', 'Easy']
+                assert all(t for t in buttons.evaluate_all("els=>els.map(e=>e.querySelector('.nk-fsrs-ivl')?.textContent||'')")), 'Each rating shows its next interval'
                 assert dock.locator('svg').count() == 1
-                assert dock.get_by_role('button', name='Good', exact=True).get_attribute('aria-pressed') == 'true'
+                assert dock.get_by_role('button', name=re.compile(r'^Good\b')).get_attribute('aria-pressed') == 'true'
                 box = dock.bounding_box()
                 nav = page.locator('.nk-session-footer .fixed-actions-inner').bounding_box()
                 assert box and nav and box['y'] + box['height'] <= nav['y'], 'Dock must sit above Previous/Next'
@@ -50,19 +52,19 @@ def main():
                 top = box['y']
                 page.evaluate('window.scrollTo(0, document.body.scrollHeight)')
                 assert abs(dock.bounding_box()['y'] - top) < 1, 'Dock moved with content'
-                dock.get_by_role('button', name='Hard', exact=True).click()
+                dock.get_by_role('button', name=re.compile(r'^Hard\b')).click()
                 assert page.locator('.nk-fsrs-rating').count() == 1
                 assert page.evaluate("window.QB.getState().attempts['1-1'].at(-1).rating") == 2
-                assert dock.get_by_role('button', name='Hard', exact=True).get_attribute('aria-pressed') == 'true'
-                dock.get_by_role('button', name='Good', exact=True).click()
-                assert dock.get_by_role('button', name='Good', exact=True).get_attribute('aria-pressed') == 'true'
+                assert dock.get_by_role('button', name=re.compile(r'^Hard\b')).get_attribute('aria-pressed') == 'true'
+                dock.get_by_role('button', name=re.compile(r'^Good\b')).click()
+                assert dock.get_by_role('button', name=re.compile(r'^Good\b')).get_attribute('aria-pressed') == 'true'
                 assert page.evaluate("window.QB.getState().reviews['1-1'].repetitions") == 1
                 assert page.evaluate("window.QB.getState().attempts['1-1'].length") == 1
                 context.close()
             browser.close()
     finally:
         server.shutdown()
-    print('RECALL_DOCK_BROWSER_OK widths=320,390,768 pre-answer-hidden fixed-placement text-only-pills rating-preserved')
+    print('RECALL_DOCK_BROWSER_OK widths=320,390,768 pre-answer-hidden fixed-placement interval-pills rating-preserved')
 
 
 if __name__ == '__main__':

@@ -18,7 +18,7 @@ for path in (CORE, VENDOR, LICENSE):
 core = CORE.read_text(encoding="utf-8")
 required = [
     "request_retention:p.desiredRetention", "maximum_interval:p.maximumInterval",
-    "enable_fuzz:false", "learning_steps:['10m']", "relearning_steps:['10m']",
+    "enable_fuzz:true", "function nkFsrsIsDue(review,now=Date.now())", "NK_FSRS_LEARN_AHEAD=20*60000", "if(!nkFsrsAnswerable(q))return ''", "learning_steps:['10m']", "relearning_steps:['10m']",
     "legacyDueOverride", "schedulerVersion:NK_FSRS_VERSION", "nkFsrsRecoverPending",
     "dailyCap:150", "needsAttention", "nkFsrsUndo", "function nkFsrsEligibility(q)",
     "if(history.length)return 'attempted'", "reason==='skipped'", "function nkFsrsQueueDialog(){navigate('fsrs');}",
@@ -52,6 +52,7 @@ const SUBJECTS=[{{subject:'Anatomy',topics:[{{id:'0',title:'Topic 0'}}],question
 function nkAllBankQuestions(){{return [...questions,bankExtra];}}
 let state={{attempts:{{q0:[{{id:'legacy',selected:1,correct:true,at:now-86400000}}]}},reviews:{{q0:{{nextReviewAt:now+123456}}}},fsrsPreferences:null,fsrsReviewEligible:{{}},activeSession:null}};
 let lastRoute='',route={{page:'practice'}};let BY_ID=Object.fromEntries(questions.map(q=>[q.id,q])),dashboard=()=>'<main></main>',morePage=()=>'<main></main>',practicePage=()=>'<main></main>',practiceActionBar=()=>'<div class="fixed-actions nk-session-footer"><div class="fixed-actions-inner"><button>Previous</button><button>Next</button></div></div>',submitPractice=()=>{{}},nextQ=()=>{{}},prevQ=()=>{{}},goIndex=()=>{{}},retryCurrent=()=>{{}},endSession=()=>{{}},navigate=page=>{{lastRoute=page;}},recordAttempt=()=>{{}},qAttempts=()=>[],nkRebuildReviews=()=>{{}};
+function nkQuestionPresentationFor(q){{return {{valid:q.id!=='q183'}};}}
 const saveState=()=>localStorage.setItem(LS_KEY,JSON.stringify(state)),startSession=()=>{{}},render=()=>{{}},showToast=()=>{{}},savePracticeElapsed=()=>{{}},haptic=()=>{{}},esc=x=>String(x),shell=x=>x,navIcon=()=>'',windowQB={{}};window.QB=windowQB;global.document={{getElementById:()=>null,querySelector:()=>null,body:{{insertAdjacentHTML:()=>{{}}}}}};window.addEventListener=()=>{{}};
 {core}
 nkFsrsInit();assert.equal(state.reviews.q0.schemaVersion,2);assert.equal(state.reviews.q0.nextReviewAt,now+123456,'legacy due date preserved');assert(nkFsrsAllQuestions().some(q=>q.id==='marrow-extra'),'FSRS question universe must include dynamically integrated bank questions');
@@ -127,6 +128,25 @@ const untouchedSchedule=JSON.stringify(state.reviews.q1);
 nkFsrsPracticeMistake('q1');assert.equal(JSON.stringify(state.reviews.q1),untouchedSchedule);
 state.attempts.q1.push({{id:'undo-test',isUndo:true,undoOf:'new-test-miss',at:now+5}});
 assert.equal(nkFsrsPracticeMistake('q1'),false,'undone mistakes do not enter the queue');
+
+// Anki-style availability: whole-day review due dates and a bounded learn-ahead.
+{{const later=new Date(now);later.setHours(23,59,0,0);assert(nkFsrsIsDue({{schemaVersion:2,state:2,due:+later,nextReviewAt:+later}},now),'review cards are due for their whole calendar day');
+const tomorrow=new Date(now);tomorrow.setHours(24,30,0,0);assert(!nkFsrsIsDue({{schemaVersion:2,state:2,due:+tomorrow,nextReviewAt:+tomorrow}},now),'a review due tomorrow is not due today');
+assert(nkFsrsIsDue({{schemaVersion:2,state:3,due:now+15*60000}},now),'a relearning step within 20 minutes may be studied early');
+assert(!nkFsrsIsDue({{schemaVersion:2,state:3,due:now+25*60000}},now),'learn-ahead is bounded to 20 minutes');
+assert(nkFsrsIsDue(undefined,now),'an eligible question without a card is available');}}
+// Submitted-as-skipped questions with no memory never crowd out real reviews.
+{{const order=nkFsrsQueue({{subject:'Physiology',topic:'1'}}).cards;assert(order.length>1&&order.at(-1).id==='q189','never-answered skipped questions queue after due reviews');}}
+// Questions that accept no answer can never enter or get stuck in the review pool.
+state.fsrsReviewEligible.q183={{reason:'skipped',at:now}};delete state.reviews.q183;
+assert.equal(nkFsrsEligibility(questions[183]),'','unanswerable question is not review-eligible');
+assert(!nkFsrsQueue().due.some(q=>q.id==='q183'),'unanswerable question never enters the due queue');delete state.fsrsReviewEligible.q183;
+// Fuzz spreads review load yet stays deterministic: incremental scheduling equals replay on any device.
+{{state.attempts.q182=[];delete state.reviews.q182;const t0=now-60*86400000;
+nkFsrsRecordAttempt('q182',1,500,'practice',3,t0,'fz1');nkFsrsRecordAttempt('q182',1,500,'practice',3,Number(state.reviews.q182.due),'fz2');nkFsrsRecordAttempt('q182',1,500,'practice',3,Number(state.reviews.q182.due),'fz3');
+const inc={{due:state.reviews.q182.due,s:state.reviews.q182.stability}};nkFsrsReplay('q182');
+assert.equal(state.reviews.q182.due,inc.due,'fuzzed incremental schedule equals deterministic replay');assert.equal(state.reviews.q182.stability,inc.s);
+const again=JSON.stringify(state.reviews.q182);nkFsrsReplay('q182');assert.equal(JSON.stringify(state.reviews.q182),again,'fuzzed replay is repeatable');}}
 console.log('FSRS_BEHAVIOR_OK');
 """
 

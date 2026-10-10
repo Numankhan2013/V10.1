@@ -62,7 +62,7 @@
     const wrong=questions.filter(q=>typeof nkFsrsPracticeMistake==='function'?
       nkFsrsPracticeMistake(q.id):attempts(q.id).at(-1)?.correct===false);
     const bookmarked=questions.filter(q=>Boolean(state.bookmarks?.[String(q.id)]));
-    const unseen=questions.filter(q=>!attempts(q.id).length&&state.fsrsReviewEligible?.[String(q.id)]?.reason!=='skipped');
+    const unseen=questions.filter(q=>!attempts(q.id).length&&state.fsrsReviewEligible?.[String(q.id)]?.reason!=='skipped'&&(typeof nkFsrsAnswerable!=='function'||nkFsrsAnswerable(q)));
     const due=typeof nkFsrsQueue==='function'?nkFsrsQueue(scope):
       (typeof nkFsrsLaunchQueue==='function'?nkFsrsLaunchQueue(scope.subject):{cards:[],due:[]});
     return {wrong,bookmarked,unseen,due:due.due||[],dueCards:due.cards||[],rolledOver:Number(due.rolledOver||0)};

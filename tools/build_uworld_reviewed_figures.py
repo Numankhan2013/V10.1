@@ -19,6 +19,26 @@ def build(output):
     assets = {}
     sources = []
     for source_pdf, manifest, reviewed in media_sources():
+        if manifest.get('figures_dir'):
+            # Auto-extracted collections commit their crops; the multi-GB PDFs stay out of CI.
+            sources.append({'sourcePdfSha256': manifest['source_sha256'], 'reviewedQuestions': len(reviewed)})
+            committed = ROOT / manifest['figures_dir']
+            for doc in reviewed.values():
+                for node in figures(doc):
+                    asset = node['asset']
+                    if asset in assets:
+                        continue
+                    src = committed / Path(asset).name
+                    if not src.exists():
+                        raise ValueError('Committed UWorld crop missing: ' + str(src))
+                    path = output / asset
+                    path.write_bytes(src.read_bytes())
+                    from PIL import Image as _Image
+                    with _Image.open(path) as im:
+                        size = im.size
+                    assets[asset] = {'sha256': hashlib.sha256(path.read_bytes()).hexdigest(), 'width': size[0], 'height': size[1],
+                                     'sourcePdfSha256': manifest['source_sha256'], 'sourcePage': node['page'], 'bbox': node['bbox']}
+            continue
         if hashlib.sha256(source_pdf.read_bytes()).hexdigest() != manifest['source_sha256']:
             raise ValueError('Original UWorld PDF unavailable or hash mismatch; fetch its LFS object')
         sources.append({'sourcePdfSha256': manifest['source_sha256'], 'reviewedQuestions': len(reviewed)})

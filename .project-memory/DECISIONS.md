@@ -406,3 +406,46 @@ The user uses browser previews and explicitly defers APK work. The shared full w
 ## Reviewed prose owns learner-facing UWorld text (2026-10-04)
 
 Raw imports remain immutable archives but do not ship as alternate explanations or search fallbacks. Source-locked reviewed documents own runtime prose, options, typed tables and visuals. Reject observed screenshot chrome and long repeated paragraph runs before generation; fixes must remain explicit PDF/record-pinned display overlays. A partial next collection is labeled by its actual original question range; importing its entire unreviewed source is prohibited.
+
+## FSRS availability, ordering and fuzz follow Anki (2026-10-08)
+
+Supersedes the fuzz part of decision 14. ts-fsrs 5.4.2 seeds fuzz from the
+review time, repetition count and difficulty×stability, so replay from
+immutable attempts stays identical on every device; fuzz is therefore enabled
+to spread review load. Review cards are due for their whole local calendar
+day; learning/relearning steps have a 20-minute learn-ahead. The queue serves
+learning steps, then reviews by lowest retrievability, then never-answered
+submitted-as-skipped questions, so skips never crowd out real reviews.
+Questions that accept no answer are excluded from FSRS, Unseen and
+Continue Practice remaining work. Not adopted (contract or sync impact):
+in-session re-queue of lapses (membership-hash checkpoints), Again for
+correct answers (rating revisions are limited to Hard/Good/Easy across sync),
+and a separate new-card limit (FSRS stays review-only).
+
+## Skip rule: only questions before the last answered one enter FSRS (2026-10-08)
+
+Supersedes decision 23's "final submission adds every remaining unanswered
+question as skipped". One shared function (`nkMarkSkippedFromSession`) now
+applies to Practice Submit, timed-test Submit, Finish of a revision pass and
+Finish of a study module: a question counts as skipped, and enters FSRS, only
+if it comes before the last answered question in the session. Questions after
+it were never reached and stay unseen, a session with no answers marks
+nothing, and questions that already have history are left alone. Pause and
+Save & exit never mark anything. Reason: finishing a long session early (or
+abandoning a module) must not flood FSRS with questions never looked at, while
+a question deliberately passed over mid-session is a real weak spot.
+
+Amendment (same day): dwell time. A question you worked on but could not
+answer, typically the last few questions of a module you completed, would
+otherwise be dropped because it follows the last answered question. The skip
+rule therefore also counts an unanswered question as skipped when its recorded
+per-question time is at least 15 seconds (`ENGAGED_MS` in
+`nkMarkSkippedFromSession`). Time is already recorded for every visited
+question and persists across pause/resume, so no new UI is needed; a quick
+glance (under 15 s) does not count. Skipped questions use one colour, amber
+(`--nkg-amber`), in Test analysis and Insights.
+
+
+## 2026-10-09 · UWorld imports are extracted deterministically
+
+New UWorld collections are produced by `tools/uworld_auto/` (alignment of scrolled screenshots, OCR-leak removal inside detected tables/pictures, three-signal answer key, automatic QA) instead of per-question model review. Only flagged questions need review (`review_packet.py`, `reviewed/fixes.json`); they ship `source-blocked` until fixed. Crops are committed per collection so CI does not download multi-GB PDFs. See `docs/UWORLD_AUTO_PIPELINE.md`.

@@ -1,0 +1,61 @@
+{
+ "schema_version": 1,
+ "collection": "Pathology (General Principles)",
+ "source_sha256": "96bc365edbcea756e35cd0033ba4d3848c0e6292992ce04fc625a6cef15ea8a7",
+ "source_pdf": "data/uworld/Source_pdfs/pathology/UW 2024 - Pathology (General Principles) - block 2 - OCR.pdf",
+ "page_count": 235,
+ "record_count": 39,
+ "jsonl_file": "normalized.jsonl",
+ "jsonl_sha256": "aec74e4f4d485ddb307c6d929528cbbd7461d9f153837f086e087e11de539362",
+ "source_extraction_method": "uworld-auto-extract",
+ "blocks": {
+  "1": 38,
+  "2": 1
+ },
+ "unowned_pages": [
+  {
+   "pages": [
+    1
+   ],
+   "reason": "unidentified pages 1-1"
+  },
+  {
+   "pages": [
+    21
+   ],
+   "reason": "no answered page"
+  },
+  {
+   "pages": [
+    27
+   ],
+   "reason": "no answered page"
+  },
+  {
+   "pages": [
+    80,
+    81,
+    82
+   ],
+   "reason": "no answered page; rescue: reviewer held it: no answered screenshot (pages 80-82 show only explanation text/exhibits; stem, choices, green tick and"
+  },
+  {
+   "pages": [
+    111,
+    112
+   ],
+   "reason": "no answered page; rescue: reviewer held it: no answered screenshot (pages 111-112 show only explanation text/exhibits; stem, choices, green tick a"
+  },
+  {
+   "pages": [
+    157,
+    158
+   ],
+   "reason": "no answered page; rescue: reviewer held it: no answered screenshot (pages 157-158 show only explanation text/exhibits; stem, choices, green tick a"
+  }
+ ],
+ "figures_dir": "data/uworld/prepared/pathology_general_principles/figures",
+ "verified": 38,
+ "blocked": 1,
+ "reviewed_by": "claude-haiku (flagged questions only)"
+}

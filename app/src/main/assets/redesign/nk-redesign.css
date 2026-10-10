@@ -1,0 +1,547 @@
+/* NK QBank — Geist redesign component layer.
+   Loaded after nk-tokens.css and the generated nk-theme.css. Re-skins the
+   existing DOM (no renderer changes): typography, surfaces, shell chrome,
+   Home composition, study screens, Profile and motion.
+   Scope: html[data-nk-ui="geist"] only; component selectors are boosted with :is(body,#nkg-root) so they out-rank the legacy layers. */
+
+/* ------------------------------------------------------------------ base */
+html[data-nk-ui="geist"] { background: var(--nkg-bg-subtle); -webkit-text-size-adjust: 100%; }
+html[data-nk-ui="geist"] body {
+  background: var(--nkg-bg-subtle) !important;
+  color: var(--nkg-fg) !important;
+  font-family: var(--nkg-font-sans) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "ss01", "cv11";
+  overflow-x: hidden;
+}
+html[data-nk-ui="geist"] body,
+html[data-nk-ui="geist"] :is(body,#nkg-root) button,
+html[data-nk-ui="geist"] :is(body,#nkg-root) input,
+html[data-nk-ui="geist"] :is(body,#nkg-root) select,
+html[data-nk-ui="geist"] :is(body,#nkg-root) textarea { font-family: var(--nkg-font-sans) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) ::selection { background: color-mix(in srgb, var(--nkg-fg) 16%, transparent); color: inherit; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) input, html[data-nk-ui="geist"] :is(body,#nkg-root) textarea { caret-color: var(--nkg-fg); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) :focus-visible { outline: 2px solid var(--nkg-focus) !important; outline-offset: 2px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) * { -webkit-tap-highlight-color: transparent; scrollbar-color: var(--nkg-border-strong) transparent; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) ::-webkit-scrollbar { width: 10px; height: 10px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) ::-webkit-scrollbar-thumb { background: var(--nkg-border-strong); border-radius: 10px; border: 3px solid transparent; background-clip: content-box; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) ::-webkit-scrollbar-track { background: transparent; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) a { color: inherit; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) h1, html[data-nk-ui="geist"] :is(body,#nkg-root) h2, html[data-nk-ui="geist"] :is(body,#nkg-root) h3 { letter-spacing: -0.02em; text-wrap: balance; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .app-shell { min-width: 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .app-shell p,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .app-shell small,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .app-shell strong,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .app-shell li { overflow-wrap: break-word; }
+
+/* Numbers, timers and counts use Geist Mono with tabular figures. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-num,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .timer,
+html[data-nk-ui="geist"] :is(body,#nkg-root) #exam-timer,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-streak-number,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-nav-due,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-revision-counts strong,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-progress-copy b,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card > b,
+html[data-nk-ui="geist"] :is(body,#nkg-root) [class*="timer"] { font-family: var(--nkg-font-mono) !important; font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .app-shell b,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .app-shell strong { font-variant-numeric: tabular-nums; }
+
+/* Theme switch: crossfade colours only for the frame of the switch. */
+html[data-nk-ui="geist"].nkg-theme-switching *,
+html[data-nk-ui="geist"].nkg-theme-switching *::before,
+html[data-nk-ui="geist"].nkg-theme-switching *::after { transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease, fill 200ms ease !important; }
+
+/* Phosphor glyphs: always solid currentColor, whatever legacy SVG rules say. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) svg[data-nkg-icon] { fill: currentColor !important; stroke: none !important; flex-shrink: 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) svg[data-nkg-icon] * { fill: currentColor !important; stroke: none !important; opacity: 1 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-icon-tone { display: none !important; }
+
+/* ---------------------------------------------------------------- top bar */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-topbar {
+  position: relative; z-index: 30;
+  background: var(--nkg-bg);
+  border-bottom: 1px solid var(--nkg-border);
+  padding-top: env(safe-area-inset-top);
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-topbar[hidden] { display: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-topbar-inner {
+  height: var(--nkg-topbar-h); max-width: 1120px; margin: 0 auto;
+  display: flex; align-items: center; gap: 4px; padding: 0 12px 0 16px;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-grow { flex: 1; min-width: 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-brand { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; min-width: 0; padding: 0; border: 0; background: none; color: var(--nkg-fg); cursor: pointer; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-logo {
+  width: 28px; height: 28px; border-radius: 7px; display: grid; place-items: center; flex-shrink: 0;
+  background: var(--nkg-inverse-bg); color: var(--nkg-inverse-fg);
+  font: 700 11px/1 var(--nkg-font-mono); letter-spacing: -0.04em;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-topbar-title { font-weight: 600; font-size: 15px; letter-spacing: -0.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-icon-btn {
+  width: 44px; height: 44px; display: inline-grid; place-items: center; border: 0; border-radius: var(--nkg-r-md);
+  background: none; color: var(--nkg-fg-2); cursor: pointer;
+  transition: background-color var(--nkg-dur) var(--nkg-ease), color var(--nkg-dur) var(--nkg-ease), transform 120ms var(--nkg-ease);
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-theme-toggle .nkg-sun { display: none; }
+html[data-nk-ui="geist"][data-nk-theme="dark"] :is(body,#nkg-root) .nkg-theme-toggle .nkg-sun { display: block; }
+html[data-nk-ui="geist"][data-nk-theme="dark"] :is(body,#nkg-root) .nkg-theme-toggle .nkg-moon { display: none; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-avatar-btn { width: 44px; height: 44px; display: inline-grid; place-items: center; padding: 0; border: 0; background: none; border-radius: 50%; cursor: pointer; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-avatar {
+  width: 32px; height: 32px; border-radius: 50%; display: inline-grid; place-items: center; flex-shrink: 0;
+  background: var(--nkg-active); color: var(--nkg-fg); border: 1px solid var(--nkg-border);
+  font: 600 12px/1 var(--nkg-font-sans); letter-spacing: 0;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-avatar-btn[aria-current="page"] .nkg-avatar { box-shadow: 0 0 0 2px var(--nkg-bg), 0 0 0 3.5px var(--nkg-fg); }
+@media (hover: hover) and (pointer: fine) {
+  html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-icon-btn:hover { background: var(--nkg-hover); color: var(--nkg-fg); }
+  html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-avatar-btn:hover .nkg-avatar { border-color: var(--nkg-fg-3); }
+}
+/* The top bar carries the brand: retire the legacy Home brand rows. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-global-header-v114,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-brandbar { display: none !important; }
+
+/* ------------------------------------------------------------- page frame */
+html[data-nk-ui="geist"] :is(body,#nkg-root) main.page { background: transparent !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-app-v114 h1,
+html[data-nk-ui="geist"] :is(body,#nkg-root) main.page h1 { font-weight: 600 !important; letter-spacing: -0.025em !important; color: var(--nkg-fg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) main.page h2 { font-weight: 600 !important; letter-spacing: -0.015em !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-kicker,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-focus-label {
+  font: 500 12px/1.4 var(--nkg-font-sans) !important; letter-spacing: 0 !important; text-transform: none !important;
+  color: var(--nkg-fg-3) !important;
+}
+
+/* ------------------------------------------------------------ bottom nav */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .bottom-nav {
+  background: color-mix(in srgb, var(--nkg-bg) 94%, transparent) !important;
+  -webkit-backdrop-filter: saturate(160%) blur(12px) !important; backdrop-filter: saturate(160%) blur(12px) !important;
+  border-top: 1px solid var(--nkg-border) !important; box-shadow: none !important;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .bottom-nav .nav-item {
+  color: var(--nkg-fg-3) !important; background: transparent !important; box-shadow: none !important;
+  font-weight: 500 !important; transition: color var(--nkg-dur) var(--nkg-ease), transform 120ms var(--nkg-ease) !important;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .bottom-nav .nav-item.active { color: var(--nkg-fg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .bottom-nav .nav-icon-wrap { background: transparent !important; box-shadow: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .bottom-nav .nav-item.active .nav-icon-wrap::before,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .bottom-nav .nav-item.active::before,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .bottom-nav .nav-item.active::after { display: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .bottom-nav .nav-label { font-size: 12px !important; font-weight: 500 !important; letter-spacing: 0 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .bottom-nav .nav-item svg { width: 22px !important; height: 22px !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-nav-due {
+  background: var(--nkg-inverse-bg) !important; color: var(--nkg-inverse-fg) !important;
+  font-size: 11px !important; font-weight: 600 !important; border: 2px solid var(--nkg-bg) !important; box-shadow: none !important;
+}
+
+/* ----------------------------------------------------------------- Home */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-home-head { margin: 4px 0 20px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-date { margin: 0; font-size: 13px; color: var(--nkg-fg-3); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-home-head h1 { margin: 4px 0 0 !important; font-size: 26px !important; line-height: 1.2 !important; font-weight: 600 !important; letter-spacing: -0.03em !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-greeting { display: none !important; }
+
+/* Streak: restrained. One orange glyph when a streak is alive; no sparks. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-streak-card {
+  background: var(--nkg-surface) !important; border: 1px solid var(--nkg-border) !important;
+  border-radius: var(--nkg-r-lg) !important; box-shadow: none !important; background-image: none !important;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-streak-card::before,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-streak-card::after,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-fire-spark { display: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-streak-flame {
+  width: 40px !important; height: 40px !important; border-radius: 10px !important; display: grid !important; place-items: center !important;
+  background: var(--nkg-surface-2) !important; border: 1px solid var(--nkg-border) !important; color: var(--nkg-fg-3) !important;
+  animation: none !important; filter: none !important; box-shadow: none !important; transform: none !important;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-streak-flame svg { width: 22px !important; height: 22px !important; animation: none !important; filter: none !important; transform: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-streak-card:not(.nk-streak-rest) .nk-home-streak-flame { color: var(--nkg-orange) !important; background: var(--nkg-orange-bg) !important; border-color: transparent !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-streak-copy strong { color: var(--nkg-fg) !important; font-weight: 600 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-streak-copy small { color: var(--nkg-fg-3) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-streak-number { color: var(--nkg-fg) !important; font-weight: 600 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-week-day i {
+  background: transparent !important; border: 1px dashed var(--nkg-border-strong) !important; box-shadow: none !important; animation: none !important;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-week-day b { color: var(--nkg-fg-3) !important; font-weight: 500 !important; font-family: var(--nkg-font-mono) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-week-day[class*="is-studied"] i,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-week-day[class*="is-active"] i,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-week-day[class*="is-done"] i { background: var(--nkg-inverse-bg) !important; border: 1px solid var(--nkg-inverse-bg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-week-day.is-today i { box-shadow: 0 0 0 2px var(--nkg-surface), 0 0 0 3.5px var(--nkg-fg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-week-day.is-today b { color: var(--nkg-fg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-week-day::before,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-week-day::after,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-week::before,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-week::after { display: none !important; }
+
+/* Today's focus: the single inverse (near-black / white in dark) region. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-focus-card {
+  background: var(--nkg-inverse-bg) !important; background-image: none !important; color: var(--nkg-inverse-fg) !important;
+  border: 1px solid var(--nkg-inverse-bg) !important; border-radius: var(--nkg-r-lg) !important; box-shadow: none !important;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-focus-card::before,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-focus-card::after,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-focus-heart { display: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-focus-card h2,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-focus-card h3,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-focus-card strong { color: var(--nkg-inverse-fg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-focus-card .nk-home-focus-label,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-focus-card p,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-focus-card small,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-focus-card > span:not([class]) { color: color-mix(in srgb, var(--nkg-inverse-fg) 70%, transparent) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-focus-card button,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-focus-card .nk-focus-primary {
+  background: color-mix(in srgb, var(--nkg-inverse-fg) 10%, transparent) !important; color: var(--nkg-inverse-fg) !important;
+  border: 1px solid color-mix(in srgb, var(--nkg-inverse-fg) 24%, transparent) !important; box-shadow: none !important;
+  border-radius: var(--nkg-r-md) !important; font-weight: 500 !important; background-image: none !important;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-focus-card .nk-focus-primary,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-focus-card .nk-home-focus-action,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-focus-card button.primary-btn {
+  background: var(--nkg-inverse-fg) !important; color: var(--nkg-inverse-bg) !important; border-color: var(--nkg-inverse-fg) !important;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-focus-card .nk-focus-primary *,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-focus-card .nk-home-focus-action * { color: inherit !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-focus-card [class*="progress"] { background: color-mix(in srgb, var(--nkg-inverse-fg) 18%, transparent) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-focus-card [class*="progress"] > *,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-focus-card [class*="progress"] i { background: var(--nkg-inverse-fg) !important; background-image: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-arrow, html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-caret { display: inline-grid; place-items: center; }
+
+/* Revision counts & cards: hairline surfaces, numbers carry the weight. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-revision-counts button,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-progress-card,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-study-set-empty,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-settings-group > div:not(.nk-kicker),
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-cloud-card {
+  background: var(--nkg-surface) !important; background-image: none !important;
+  border: 1px solid var(--nkg-border) !important; border-radius: var(--nkg-r-lg) !important; box-shadow: none !important;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-revision-counts strong { font-weight: 600 !important; letter-spacing: -0.03em !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-revision-counts .nk-count-due { color: var(--nkg-fg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-revision-counts .nk-count-missed { color: var(--nkg-red) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-revision-counts span { color: var(--nkg-fg-2) !important; font-weight: 500 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-revision-head button,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-section-head > span,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-range select { color: var(--nkg-fg-2) !important; font-weight: 500 !important; }
+
+/* Subjects: neutral tiles, the glyph carries the subject accent. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-icon,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-progress-icon,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-settings-icon,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-study-set-empty > span:first-child {
+  background: var(--nkg-surface-2) !important; background-image: none !important; color: var(--nkg-fg) !important;
+  border: 1px solid var(--nkg-border) !important; border-radius: var(--nkg-r-md) !important; box-shadow: none !important;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.is-anatomy .nk-v3-subject-icon { color: var(--nkg-subj-anatomy) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.is-physiology .nk-v3-subject-icon { color: var(--nkg-subj-physiology) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.is-biochemistry .nk-v3-subject-icon { color: var(--nkg-subj-biochemistry) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-copy strong { color: var(--nkg-fg) !important; font-weight: 600 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-copy small { color: var(--nkg-fg-3) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-progress { background: var(--nkg-active) !important; border-radius: 99px !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-progress i { background: var(--nkg-fg) !important; background-image: none !important; border-radius: inherit !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card > b { color: var(--nkg-fg-2) !important; font-weight: 500 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card > svg,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-settings-row > svg:last-child { color: var(--nkg-fg-3) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-uworld-entry-action { color: var(--nkg-fg-2) !important; background: transparent !important; font-weight: 500 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-progress-icon.is-green,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-progress-icon.is-blue { color: var(--nkg-fg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-progress-row { border-color: var(--nkg-border) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-progress-copy strong { font-weight: 500 !important; color: var(--nkg-fg-2) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-progress-copy b { color: var(--nkg-fg) !important; font-weight: 600 !important; }
+
+/* --------------------------------------------------------------- buttons */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .primary-btn,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-primary,
+html[data-nk-ui="geist"] :is(body,#nkg-root) button.primary {
+  background: var(--nkg-inverse-bg) !important; background-image: none !important; color: var(--nkg-inverse-fg) !important;
+  border: 1px solid var(--nkg-inverse-bg) !important; box-shadow: none !important; border-radius: var(--nkg-r-md) !important; font-weight: 500 !important;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .ghost-btn,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .secondary-btn {
+  background: var(--nkg-surface) !important; background-image: none !important; color: var(--nkg-fg) !important;
+  border: 1px solid var(--nkg-border-strong) !important; box-shadow: var(--nkg-shadow-sm) !important; border-radius: var(--nkg-r-md) !important; font-weight: 500 !important;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .danger-btn { color: var(--nkg-red) !important; background: var(--nkg-surface) !important; border: 1px solid var(--nkg-red-border) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) button[disabled], html[data-nk-ui="geist"] :is(body,#nkg-root) button:disabled { opacity: .45; }
+
+/* Press feedback: a quick, honest scale on touch-down; never gates the action. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-icon-btn:active,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-avatar-btn:active,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-btn:active,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-list-item:active,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-seg button:active,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .primary-btn:active,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .ghost-btn:active,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card:active,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-settings-row:active,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-revision-counts button:active,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .bottom-nav .nav-item:active { transform: scale(0.97) !important; transition-duration: 80ms !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-settings-row,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-revision-counts button,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .primary-btn,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .ghost-btn { transition: transform 160ms var(--nkg-ease), background-color var(--nkg-dur) var(--nkg-ease), border-color var(--nkg-dur) var(--nkg-ease) !important; }
+@media (hover: hover) and (pointer: fine) {
+  html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card:hover,
+  html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-settings-row:hover { border-color: var(--nkg-border-strong) !important; background: var(--nkg-surface) !important; }
+  html[data-nk-ui="geist"] :is(body,#nkg-root) .ghost-btn:hover { background: var(--nkg-hover) !important; }
+}
+
+/* ------------------------------------------------------------ More rows */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-settings-row { background: var(--nkg-surface) !important; border-color: var(--nkg-border) !important; box-shadow: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-settings-row strong { color: var(--nkg-fg) !important; font-weight: 500 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-settings-row small { color: var(--nkg-fg-3) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-settings-row[class*="is-"] .nk-settings-icon { color: var(--nkg-fg) !important; background: var(--nkg-surface-2) !important; }
+
+/* Appearance group (injected into More). */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-group-title { margin: 0 0 8px; font: 500 13px/1.4 var(--nkg-font-sans); letter-spacing: 0; color: var(--nkg-fg-3); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-appearance { margin-bottom: 24px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-settings-group > .nkg-appearance-card,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-appearance-card { border: 1px solid var(--nkg-border) !important; border-radius: var(--nkg-r-lg) !important; background: var(--nkg-surface) !important; overflow: hidden; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-profile-row,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-theme-row { display: flex; align-items: center; gap: 12px; width: 100%; padding: 12px 16px; min-height: 60px; text-align: left; border: 0; background: transparent; color: var(--nkg-fg); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-profile-row { cursor: pointer; border-bottom: 1px solid var(--nkg-border); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-theme-row { flex-wrap: wrap; row-gap: 10px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-theme-row .nkg-row-copy { flex: 1 1 200px; }
+@media (max-width: 520px) { html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-theme-row .nkg-seg { width: 100%; } html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-seg button { flex: 1; justify-content: center; } }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-row-copy { display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-row-copy strong { font-size: 14px; font-weight: 500; color: var(--nkg-fg); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-row-copy small { font-size: 12.5px; color: var(--nkg-fg-3); line-height: 1.4; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-chev { color: var(--nkg-fg-3); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-seg { display: inline-flex; padding: 3px; gap: 2px; border-radius: var(--nkg-r-md); background: var(--nkg-surface-2); border: 1px solid var(--nkg-border); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-seg button {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 12px; border: 0; border-radius: 6px;
+  background: transparent; color: var(--nkg-fg-2); font-size: 13px; font-weight: 500; cursor: pointer;
+  transition: background-color var(--nkg-dur) var(--nkg-ease), color var(--nkg-dur) var(--nkg-ease), box-shadow var(--nkg-dur) var(--nkg-ease), transform 120ms var(--nkg-ease);
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-seg button[aria-pressed="true"] { background: var(--nkg-surface); color: var(--nkg-fg); box-shadow: var(--nkg-shadow-md); }
+
+/* ---------------------------------------------------------------- Profile */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-profile { max-width: 760px; margin: 0 auto; padding: 4px 0 24px; display: flex; flex-direction: column; gap: 28px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-profile-head { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-avatar-lg { width: 64px; height: 64px; font-size: 20px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-profile-id { flex: 1; min-width: 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-profile-name { margin: 0 !important; font-size: 22px !important; line-height: 1.25 !important; overflow-wrap: anywhere; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-profile-id p { margin: 2px 0 0; color: var(--nkg-fg-3); font-size: 13px; overflow-wrap: anywhere; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-name-form { flex-basis: 100%; display: flex; flex-direction: column; gap: 6px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-name-form[hidden] { display: none; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-name-form label { font-size: 12.5px; font-weight: 500; color: var(--nkg-fg-2); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-name-form small { font-size: 12px; color: var(--nkg-fg-3); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-name-row { display: flex; gap: 8px; flex-wrap: wrap; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-input {
+  flex: 1 1 180px; min-height: 44px; padding: 0 12px; border-radius: var(--nkg-r-md); border: 1px solid var(--nkg-border-strong);
+  background: var(--nkg-surface); color: var(--nkg-fg); font-size: 15px; outline: none;
+  transition: border-color var(--nkg-dur) var(--nkg-ease), box-shadow var(--nkg-dur) var(--nkg-ease);
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-input:focus { border-color: var(--nkg-fg-3); box-shadow: 0 0 0 3px color-mix(in srgb, var(--nkg-fg) 10%, transparent); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 16px;
+  border-radius: var(--nkg-r-md); border: 1px solid transparent; font-size: 14px; font-weight: 500; cursor: pointer; white-space: nowrap;
+  transition: background-color var(--nkg-dur) var(--nkg-ease), border-color var(--nkg-dur) var(--nkg-ease), transform 120ms var(--nkg-ease);
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-btn[hidden] { display: none; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-btn-sm { min-height: 40px; padding: 0 12px; font-size: 13px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-btn-primary { background: var(--nkg-inverse-bg); color: var(--nkg-inverse-fg); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-btn-secondary { background: var(--nkg-surface); color: var(--nkg-fg); border-color: var(--nkg-border-strong); box-shadow: var(--nkg-shadow-sm); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-btn-ghost { background: transparent; color: var(--nkg-fg-2); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-card { background: var(--nkg-surface); border: 1px solid var(--nkg-border); border-radius: var(--nkg-r-lg); padding: 16px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-streak-main { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-streak-main small { display: block; font-size: 12.5px; color: var(--nkg-fg-3); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-streak-main span:not(.nkg-flame) { color: var(--nkg-fg-2); font-weight: 500; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-streak-n { font-size: 28px; font-weight: 600; letter-spacing: -0.03em; color: var(--nkg-fg); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-flame { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: var(--nkg-surface-2); color: var(--nkg-fg-3); border: 1px solid var(--nkg-border); flex-shrink: 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-flame.is-on { background: var(--nkg-orange-bg); color: var(--nkg-orange); border-color: transparent; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-heatmap-wrap { overflow-x: auto; padding: 2px 2px 6px; -webkit-overflow-scrolling: touch; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-heatmap { display: grid; grid-auto-flow: column; grid-template-rows: repeat(7, 12px); gap: 3px; width: max-content; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-heatmap i,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-legend i { width: 12px; height: 12px; border-radius: 3px; background: var(--nkg-active); display: block; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) [data-l="1"] { background: color-mix(in srgb, var(--nkg-fg) 25%, var(--nkg-active)) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) [data-l="2"] { background: color-mix(in srgb, var(--nkg-fg) 50%, var(--nkg-active)) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) [data-l="3"] { background: color-mix(in srgb, var(--nkg-fg) 75%, var(--nkg-active)) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) [data-l="4"] { background: var(--nkg-fg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-legend { display: flex; align-items: center; gap: 3px; margin-top: 8px; font-size: 12px; color: var(--nkg-fg-3); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-legend span { margin: 0 4px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 1px solid var(--nkg-border); border-radius: var(--nkg-r-lg); background: var(--nkg-surface); overflow: hidden; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-stat { display: flex; flex-direction: column; gap: 2px; padding: 14px 16px; border-bottom: 1px solid var(--nkg-border); border-right: 1px solid var(--nkg-border); min-width: 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-stat:nth-child(2n) { border-right: 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-stat:nth-last-child(-n + 2) { border-bottom: 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-stat-label { font-size: 12.5px; color: var(--nkg-fg-3); font-weight: 500; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-stat strong { font-size: 22px; line-height: 1.25; font-weight: 600; color: var(--nkg-fg); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-stat small { font-size: 12px; color: var(--nkg-fg-3); }
+@media (min-width: 640px) {
+  html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-stat:nth-child(2n) { border-right: 1px solid var(--nkg-border); }
+  html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-stat:nth-child(3n) { border-right: 0; }
+  html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-stat:nth-last-child(-n + 3) { border-bottom: 0; }
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-list { border: 1px solid var(--nkg-border); border-radius: var(--nkg-r-lg); background: var(--nkg-surface); overflow: hidden; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-list-item,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-subj-row {
+  display: flex; align-items: center; gap: 12px; width: 100%; min-height: 56px; padding: 10px 16px; text-align: left;
+  border: 0; border-bottom: 1px solid var(--nkg-border); background: transparent; color: var(--nkg-fg);
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-list-item:last-child, html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-subj-row:last-child { border-bottom: 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) button.nkg-list-item { cursor: pointer; transition: background-color var(--nkg-dur) var(--nkg-ease), transform 120ms var(--nkg-ease); }
+@media (hover: hover) and (pointer: fine) { html[data-nk-ui="geist"] :is(body,#nkg-root) button.nkg-list-item:hover { background: var(--nkg-hover); } }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-tile-ic { width: 36px; height: 36px; padding: 8px; border-radius: var(--nkg-r-md); border: 1px solid var(--nkg-border); background: var(--nkg-surface-2); color: var(--nkg-fg); box-sizing: border-box; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot, html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-sync-dot { width: 10px; height: 10px; border-radius: 3px; background: var(--nkg-subj-uworld); flex-shrink: 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot.is-anatomy { background: var(--nkg-subj-anatomy); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot.is-physiology { background: var(--nkg-subj-physiology); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot.is-biochemistry { background: var(--nkg-subj-biochemistry); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-sync-dot { border-radius: 50%; background: var(--nkg-border-strong); margin: 0 13px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-sync-dot.is-on { background: var(--nkg-green); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-sync-dot.is-error { background: var(--nkg-amber); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-subj-acc { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-subj-acc b { font-size: 13px; font-weight: 500; color: var(--nkg-fg-2); min-width: 3.2em; text-align: right; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-bar { width: 72px; height: 4px; border-radius: 4px; background: var(--nkg-active); overflow: hidden; display: block; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-bar i { display: block; height: 100%; background: var(--nkg-fg); border-radius: inherit; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-empty { padding: 28px 16px; text-align: center; border: 1px dashed var(--nkg-border-strong); border-radius: var(--nkg-r-lg); color: var(--nkg-fg-2); font-size: 14px; }
+
+/* ---------------------------------------------------------------- motion */
+@keyframes nkgPageIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-profile { animation: nkgPageIn 200ms var(--nkg-ease) both; }
+@media (prefers-reduced-motion: reduce) {
+  html[data-nk-ui="geist"] :is(body,#nkg-root) *, html[data-nk-ui="geist"] :is(body,#nkg-root) *::before, html[data-nk-ui="geist"] :is(body,#nkg-root) *::after { animation-duration: 1ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+  html[data-nk-ui="geist"] :is(body,#nkg-root) [class]:active { transform: none !important; }
+}
+
+/* -------------------------------------------- charts & inline SVG colours */
+html[data-nk-ui="geist"] :is(body,#nkg-root) [stroke="#ebeaf4"],
+html[data-nk-ui="geist"] :is(body,#nkg-root) [stroke="#e6e8ef"] { stroke: var(--nkg-border) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) [stroke="#cdc4f5"] { stroke: var(--nkg-border-strong) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) [stroke="#7861ee"],
+html[data-nk-ui="geist"] :is(body,#nkg-root) [stroke="#3d65d8"] { stroke: var(--nkg-fg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) [fill="#7861ee"] { fill: var(--nkg-fg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) [fill="#74788f"] { fill: var(--nkg-fg-3) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) [stop-color="#7861ee"] { stop-color: var(--nkg-fg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) [style*="color:#747b8b"] { color: var(--nkg-fg-3) !important; }
+
+/* Activity heatmaps: keep the app's own intensity scale, drawn in neutral ink
+   (relative colour: hsl lightness 91 -> 45 maps to near-white -> near-black). */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-year-grid button,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-year-key i {
+  background: hsl(from var(--heat-fill, #edeef5) 0 0 clamp(8, calc(9 + (l - 45) * 1.66), 93)) !important;
+  border-color: hsl(from var(--heat-fill, #edeef5) 0 0 clamp(6, calc(6 + (l - 45) * 1.66), 88)) !important;
+  box-shadow: none !important;
+}
+html[data-nk-ui="geist"][data-nk-theme="dark"] :is(body,#nkg-root) .nk-li-year-grid button,
+html[data-nk-ui="geist"][data-nk-theme="dark"] :is(body,#nkg-root) .nk-li-year-key i {
+  background: hsl(from var(--heat-fill, #edeef5) 0 0 clamp(9, calc(93 - (l - 45) * 1.7), 93)) !important;
+  border-color: hsl(from var(--heat-fill, #edeef5) 0 0 clamp(12, calc(88 - (l - 45) * 1.6), 88)) !important;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-year-grid .is-today { box-shadow: 0 0 0 1px var(--nkg-surface), 0 0 0 2.5px var(--nkg-fg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-year-grid .is-selected { box-shadow: 0 0 0 2px var(--nkg-fg) !important; }
+
+/* No thick side stripes: hairline frames only. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-answer-time,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .danger-border,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .success-border { border-left-width: 1px !important; }
+
+/* ===================================================== QA pass 2026-10-08
+   One batch from the deployed-preview audit (impeccable audit/polish/harden,
+   emil break-ui). Presentation only. */
+
+/* Builder steppers (CBT + Custom Study Module): current/done steps were white
+   numerals on #f5f5f5. Current = filled ink, done = ink outline + check tone. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-module-stepper span { color: var(--nkg-fg-3); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-module-stepper i {
+  background: var(--nkg-surface-2) !important; color: var(--nkg-fg-3) !important;
+  border: 1px solid var(--nkg-border) !important; font-style: normal; font-weight: 600;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-module-stepper :is(.is-current, .is-done) { color: var(--nkg-fg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-module-stepper .is-current i {
+  background: var(--nkg-inverse-bg) !important; color: var(--nkg-inverse-fg) !important; border-color: var(--nkg-inverse-bg) !important;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-module-stepper .is-done i {
+  background: var(--nkg-surface) !important; color: var(--nkg-fg) !important; border-color: var(--nkg-fg) !important;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-module-stepper b { font-size: 12px; font-weight: 600; letter-spacing: 0; }
+
+/* Builder primary actions were white text on a white surface. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-module-builder-actions, .nk-module-final-actions, .nk-cbt-actions, .nk-cbt-main-actions) .is-primary {
+  background: var(--nkg-inverse-bg) !important; color: var(--nkg-inverse-fg) !important;
+  border-color: var(--nkg-inverse-bg) !important;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-module-builder-actions, .nk-module-final-actions, .nk-cbt-actions, .nk-cbt-main-actions) .is-primary:disabled {
+  background: var(--nkg-surface-2) !important; color: var(--nkg-fg-3) !important; border-color: var(--nkg-border) !important;
+}
+
+/* Fixed docks (session footer, recall dock, builder bars, bottom nav): the
+   runtime measures the covered band as --nkg-dock-h so the last card always
+   clears it, plus the safe area. */
+html[data-nk-ui="geist"][data-nkg-dock] :is(body,#nkg-root) #app main.page {
+  padding-bottom: calc(var(--nkg-dock-h, 0px) + 28px + env(safe-area-inset-bottom, 0px)) !important;
+}
+
+/* Tap targets: 44px minimum for the controls the audit found short. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-na-back, .nk-na-name > button, .nk-session-review-close) {
+  min-width: 44px !important; min-height: 44px !important;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-tabs > button,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-seg button,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-head-action,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-btn,
+html[data-nk-ui="geist"] :is(body,#nkg-root) #app .ghost-btn { min-height: 44px !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-tabs > button { display: inline-flex; align-items: center; justify-content: center; }
+/* Heatmap day cells stay dense; give them a slightly larger hit area without moving the grid. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-heatmap button { position: relative; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-heatmap button::after { content: ""; position: absolute; inset: -2px; }
+
+/* Explanation tables: never split words mid-letter ("Manageme|nt"). The
+   table scroller handles anything genuinely wider than the column. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) #app table :is(th, td) {
+  word-break: normal !important; overflow-wrap: break-word !important; hyphens: manual;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) #app table :is(th, td):first-child { min-width: 7.5em; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-uworld-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* Source badge in explanation headers ("UWorld 2024 · Source reviewed") wrapped into a 3-line pill. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-source-section > header { display: flex !important; flex-wrap: wrap !important; align-items: center; justify-content: space-between; gap: 6px 12px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-source-section > header > div { min-width: 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-source-section > header > span { white-space: nowrap; flex: 0 0 auto; width: auto !important; max-width: 100%; min-width: 0 !important; overflow: hidden; text-overflow: ellipsis; }
+
+/* Insights: previous-week bars were #f5f5f5 on white (invisible) and near-black in dark. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-li-bar-pair, .nk-li-key) i.is-previous {
+  background: color-mix(in srgb, var(--nkg-fg) 22%, var(--nkg-surface)) !important;
+}
+/* Insights: one metric tile was painted amber for no semantic reason; keep tiles neutral. */
+html[data-nk-ui="geist"] body #app .nk-learning-insights .nk-li-stats article[data-metric="Recorded study time"] {
+  border-color: var(--nkg-border) !important; background: var(--nkg-surface) !important;
+}
+html[data-nk-ui="geist"] body #app .nk-learning-insights .nk-li-stats article[data-metric="Recorded study time"] :is(.nk-li-icon, small) { color: var(--nkg-fg-2) !important; }
+html[data-nk-ui="geist"] body #app .nk-learning-insights .nk-li-stats article[data-metric="Recorded study time"] .nk-li-icon.nk-li-icon {
+  background: var(--nkg-surface-2) !important; color: var(--nkg-fg) !important;
+}
+
+/* Home: section headings share one size and one left edge. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-command-center :is(.nk-section-head, .nk-v3-section-head) { padding-left: 0 !important; padding-right: 0 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-command-center :is(.nk-section-head, .nk-v3-section-head, .nk-home-revision-head, .nk-home-progress-head) h2 {
+  font-size: 18px !important; line-height: 1.3 !important; letter-spacing: -0.015em !important;
+}
+
+/* #profile: hide the app's fallback dashboard until the Profile view is in. */
+html[data-nk-ui="geist"][data-nkg-route="profile"] #app main.page:not(:has(.nkg-profile)),
+html[data-nk-ui="geist"][data-nkg-route="profile"] #app .nk-global-header-v114 { visibility: hidden !important; }
+
+/* Revision forecast: a zero day is a hairline, not a dark slab that reads as data. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-review-chart > span.nkg-zero > i { background: var(--nkg-border-strong) !important; height: 2px !important; min-height: 2px !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-review-chart small,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-review-metrics small { font-size: 10.5px !important; letter-spacing: .02em; }
+/* Every legacy `.is-primary` action (chapter "Practice", builder Continue, ...) is the one
+   inverse button of its group; the generated theme had left some white-on-white. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) #app button.is-primary:not(:disabled) {
+  background: var(--nkg-inverse-bg) !important; color: var(--nkg-inverse-fg) !important; border-color: var(--nkg-inverse-bg) !important;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) #app button.is-primary:not(:disabled) :is(strong, b, span) { color: inherit !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) #app button.is-primary:not(:disabled) small { color: color-mix(in srgb, var(--nkg-inverse-fg) 70%, transparent) !important; }
+/* Tablet/desktop: the nav becomes an 88px side rail at >=768px; the top bar must start after it
+   (at 768px the brand sat underneath the rail). */
+@media (min-width: 768px) {
+  html[data-nk-ui="geist"]:not([data-nkg-session]) :is(body,#nkg-root) .nkg-topbar { margin-left: 88px; }
+}
+/* CBT step 3 action bar: two 190px min-width buttons overflowed the 362px bar on phones
+   ("Save mock" started at -15px). Share the bar instead. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-cbt-main-actions { gap: 8px !important; }
+@media (max-width: 767px) {
+  html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-cbt-main-actions > button { min-width: 0 !important; flex: 1 1 0 !important; width: auto !important; }
+}
