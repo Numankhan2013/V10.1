@@ -149,7 +149,13 @@ closed. Raw question bundles and audit metadata remain unchanged.
   callers receive success/failure and malformed primary state recovers visibly.
   `studyModules` (max 100, normalized; see `docs/CUSTOM_STUDY_MODULES.md`).
   Question notes use `tools/question_notes_core.js` and one independent cloud
-  envelope per question; see `docs/QUESTION_NOTES.md`.
+  envelope per question; see `docs/QUESTION_NOTES.md`. Notes may hold ordered
+  text/image/PDF-page parts (`blocks`, `blocksAt`; `text` stays a legacy
+  summary). Image bytes live only in IndexedDB `qbank_note_media_v1`
+  (`tools/question_note_media_core.js`) and sync as chunked
+  `users/{uid}/noteAssets/{assetId}~{n}` documents uploaded/downloaded once,
+  outside `NK_SYNC_KINDS`; parts sync as the `noteBlocks` kind. Android gets
+  a native `<input type=file>` chooser from `tools/apply_android_file_picker_v1.py`.
   Revision keeps its optional subject/bank/topic focus in page memory;
   `tools/revision_desk_core.js` filters question pools and passes the same
   scope to `nkFsrsQueue`, whose daily cap still counts reviews across all banks.

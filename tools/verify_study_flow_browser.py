@@ -44,28 +44,32 @@ def main():
                 page.goto(origin);page.wait_for_function('QB?.getState');page.evaluate('QB.startAllPractice()')
                 page.wait_for_selector('.option-list button');q=page.evaluate('__visualQuestion()')
                 page.locator('.option-list button').nth(int(q['correctOption'])-1).click()
-                page.locator('.nk-note-add').click()
-                bounds=page.locator('.nk-note-save').bounding_box()
-                footer=page.locator('.nk-session-footer').bounding_box()
-                assert bounds['y']>=0 and bounds['y']+bounds['height']<=footer['y'],('editor hidden',width,bounds,footer)
+                bar=page.locator('.nk-question-note .nk-note-bar')
+                barBox=bar.bounding_box()
+                assert barBox['height']<=96,('note bar should stay compact',width,barBox)
+                bar.click();sheet=page.locator('.nk-note-page');sheet.wait_for(state='visible')
+                sheet.locator('.nk-np-add-menu').get_by_role('menuitem',name='Text',exact=True).click()
+                save=sheet.get_by_role('button',name='Save',exact=True);bounds=save.bounding_box()
+                assert bounds['y']>=0 and bounds['y']+bounds['height']<=height,('editor hidden',width,bounds)
                 draft='Recall cue with α and العربية <script>safe</script>'
-                page.locator('textarea').fill(draft)
+                sheet.locator('textarea').fill(draft)
                 page.screenshot(path=str(output/f'note-{width}.png'))
-                page.get_by_role('button',name='Next',exact=True).click()
-                page.get_by_role('button',name='Previous',exact=True).click()
-                assert page.locator('textarea').input_value()==draft
-                assert not page.locator('textarea').evaluate('n=>n===document.activeElement'),'restored draft stole focus'
                 assert not page.evaluate('Object.values(QB.getState().questionNotes||{}).some(n=>n.text?.includes("Recall cue"))'),'draft persisted without Save'
-                page.locator('.nk-note-cancel').click()
-                page.locator('.nk-note-add').click();assert page.locator('textarea').input_value()==''
-                page.locator('textarea').fill(draft);page.locator('.nk-note-save').click()
-                assert page.locator('.nk-note-readonly').inner_text()==draft
-                page.locator('.nk-note-edit').click();page.locator('textarea').fill('Failed save: keep my recall cue')
-                page.evaluate('__studyFailSave()');page.locator('.nk-note-save').click()
-                assert 'Save failed' in page.locator('.nk-question-note [role="status"]').inner_text()
-                assert page.locator('textarea').input_value()=='Failed save: keep my recall cue'
+                sheet.locator('.nk-note-cancel').click()
+                assert sheet.locator('textarea').count()==0 and not page.evaluate('Object.values(QB.getState().questionNotes||{}).some(n=>n.text?.includes("Recall cue"))'),'Cancel must discard'
+                sheet.locator('.nk-np-add-btn').click();sheet.locator('.nk-np-add-menu').get_by_role('menuitem',name='Text',exact=True).click()
+                assert sheet.locator('textarea').input_value()==''
+                sheet.locator('textarea').fill(draft);save.click()
+                assert sheet.locator('.nk-note-readonly').inner_text()==draft
+                sheet.locator('.nk-nb[data-i="0"] .nk-nb-dots').click();page.locator('.nk-nb-menu').get_by_role('menuitem',name='Edit',exact=True).click()
+                sheet.locator('textarea').fill('Failed save: keep my recall cue')
+                page.evaluate('__studyFailSave()');sheet.get_by_role('button',name='Save',exact=True).click()
+                assert 'Save failed' in sheet.locator('.nk-nb-edit-actions [role="status"]').inner_text()
+                assert sheet.locator('textarea').input_value()=='Failed save: keep my recall cue'
                 assert page.evaluate('Object.values(QB.getState().questionNotes).some(n=>n.text.includes("<script>safe</script>"))')
-                page.evaluate('__studyRestoreSave()');page.locator('.nk-note-cancel').click()
+                page.evaluate('__studyRestoreSave()');sheet.locator('.nk-note-cancel').click()
+                sheet.get_by_role('button',name='Close notes').click()
+                assert 'Recall cue' in bar.inner_text() and page.locator('.nk-note-page').count()==0
                 page.evaluate("QB.nav('notes')")
                 notesSearch=page.locator('.nk-notes-search input');notesSearch.fill('Recall cue')
                 assert notesSearch.evaluate('n=>getComputedStyle(n).fontSize')=='16px'
