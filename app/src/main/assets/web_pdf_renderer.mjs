@@ -11,6 +11,44 @@ if (location.hostname !== 'qbank.local') {
   const documents = new Map();
   let renderQueue = Promise.resolve();
 
+  // Glyph repairs: the PrepLadder PDFs print a black box wherever their generator had no
+  // subscript/superscript (pCO■, HCO■■, Na■). tools/build_pdf_glyph_repairs.py maps each
+  // box to its intended character; here it is painted over the box after PDF.js draws.
+  let repairs = null;
+  const repairsReady = fetch('./pdf_glyph_repairs.json').then(r => r.ok ? r.json() : null)
+    .then(j => { repairs = j && j.subjects || {}; }).catch(() => { repairs = {}; });
+  function repairGlyphs(ctx, subject, pageNo, scale, top, bottom) {
+    const list = repairs && repairs[subject] && repairs[subject][String(pageNo)];
+    if (!list) return;
+    for (const [x0, y0, x1, y1, ch, kind, size, color, baseline] of list) {
+      if (y1 < top || y0 > bottom) continue;
+      const bx = x0 * scale, by = (y0 - top) * scale, w = (x1 - x0) * scale, h = (y1 - y0) * scale;
+      // Paper colour: brightest pixel just above/below the line (never the neighbouring ink).
+      let bg = '#ffffff', best = -1;
+      for (const [sx, sy] of [[bx, by - 2], [bx + w, by - 2], [bx, by + h + 2], [bx + w, by + h + 2]]) {
+        try {
+          const d = ctx.getImageData(Math.max(0, Math.round(sx)), Math.max(0, Math.round(sy)), 1, 1).data, l = d[0] + d[1] + d[2];
+          if (l > best) { best = l; bg = `rgb(${d[0]},${d[1]},${d[2]})`; }
+        } catch (e) {}
+      }
+      ctx.fillStyle = bg; ctx.fillRect(bx - 1, by - 1, w + 2, h + 2);
+      const px = size * scale * (kind === 'base' ? 1 : 0.68);
+      const shift = kind === 'sub' ? 0.2 * size * scale : kind === 'sup' ? -0.38 * size * scale : 0;
+      ctx.font = `${px}px Helvetica, Arial, "Liberation Sans", Roboto, sans-serif`;
+      ctx.fillStyle = color || '#000'; ctx.textBaseline = 'alphabetic';
+      ctx.fillText(ch, bx, (baseline - top) * scale + shift);
+    }
+  }
+  // Tone curve: the sources use thin, mid-grey, non-embedded Helvetica that reads washed
+  // out on phones. A gamma curve on the rendered pixels darkens ink and keeps paper white
+  // (255 stays 255); colours keep their hue. The CSS contrast/saturate filter still applies.
+  const TONE = new Uint8ClampedArray(256).map((_, v) => Math.round(255 * Math.pow(v / 255, 1.7)));
+  function toneCurve(ctx, w, h) {
+    const img = ctx.getImageData(0, 0, w, h), d = img.data;
+    for (let i = 0; i < d.length; i += 4) { d[i] = TONE[d[i]]; d[i + 1] = TONE[d[i + 1]]; d[i + 2] = TONE[d[i + 2]]; }
+    ctx.putImageData(img, 0, 0);
+  }
+
   function loadDocument(subject) {
     const url = urls[subject];
     if (!url) return Promise.reject(new Error('Anatomy source PDF needs the configured R2 URL.'));
@@ -31,8 +69,12 @@ if (location.hostname !== 'qbank.local') {
     const viewport = page.getViewport({scale});
     const canvas = document.createElement('canvas');
     canvas.width = Math.ceil(viewport.width); canvas.height = Math.ceil(cropHeight*scale);
-    await page.render({canvasContext:canvas.getContext('2d',{alpha:false}),viewport,transform:[1,0,0,1,0,-top*scale]}).promise;
+    const ctx = canvas.getContext('2d',{alpha:false,willReadFrequently:true});
+    await page.render({canvasContext:ctx,viewport,transform:[1,0,0,1,0,-top*scale]}).promise;
     page.cleanup();
+    await repairsReady;
+    repairGlyphs(ctx, node.dataset.subject, Number(node.dataset.page), scale, top, bottom);
+    toneCurve(ctx, canvas.width, canvas.height);
     return canvas;
   }
   async function renderSegment(node) {
