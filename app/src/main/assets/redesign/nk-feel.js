@@ -951,6 +951,20 @@
       var rowsAll = root.querySelectorAll('.nk-module-choice-grid .nk-module-subject'), on = root.querySelectorAll('.nk-module-choice-grid .nk-module-subject.is-selected').length;
       if (rowsAll.length) dock.insertBefore(el('span', 'nkg-dock-sum', on + ' of ' + rowsAll.length + ' banks selected'), dock.firstChild);
     }
+    /* Step 3 · the dock names the set Continue will build (count · pool). */
+    if (dock && step === 3 && root.querySelector('#nk-module-availability')) {
+      var sum = dock.querySelector('.nkg-dock-sum') || dock.insertBefore(el('span', 'nkg-dock-sum'), dock.firstChild);
+      var poolSum = function () {
+        var sel = root.querySelector('.nk-module-count-presets button.is-selected'), custom = root.querySelector('#nk-module-custom-count');
+        var want = parseInt(custom ? custom.value : sel ? txt(sel) : '', 10) || 0;
+        var avail = parseInt((txt(root.querySelector('#nk-module-availability')).match(/[\d,]+/) || ['0'])[0].replace(/,/g, ''), 10) || 0;
+        var n = avail ? Math.min(want || avail, avail) : 0, pool = txt(root.querySelector('.nk-module-pool-grid > button.is-selected strong'));
+        sum.textContent = n ? n + ' question' + (n === 1 ? '' : 's') + (pool ? ' · ' + pool : '') : 'No eligible questions';
+      };
+      poolSum();
+      var ci = root.querySelector('#nk-module-custom-count');
+      if (ci && !ci.__nkgSum) { ci.__nkgSum = true; ci.addEventListener('input', poolSum); }
+    }
     /* Module question pool reads as a single-choice list. */
     each(root.querySelectorAll('.nk-module-pool-grid > button'), function (b) {
       if (b.querySelector('.nkg-radio')) return;
@@ -1099,6 +1113,7 @@
   function render(app, page, session) {
     if (!app) return;
     try {
+      watchToasts();
       syncTopbar(app, page, session);
       pageEnter(app, page, session);
       if (page === 'dashboard') { enhanceHome(app); enhanceSubjects(app); }
@@ -1112,5 +1127,78 @@
       if (window.console && console.warn) console.warn('NKFeel', e);
     }
   }
-  window.NKFeel = { render: render, haptic: haptic };
+  /* ============================================================ Toasts
+     The app writes one plain .toast into #toast-root and wipes it after 2.6 s.
+     In the redesign that node stays hidden and is mirrored into a native toast:
+     a compact card that springs in above the bottom bar, carries a drawn icon
+     (check for success, ! for problems, i for notes), cross-fades when replaced,
+     leaves with an exit motion and can be swiped away. */
+  var toastLayer = null, toastCur = null, toastTimer = 0;
+  var TOAST_IC = {
+    good: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle class="nkg-ti-ring" cx="12" cy="12" r="10"/><path class="nkg-ti-mark" d="M7.5 12.4l3 3 6-6.4"/></svg>',
+    bad: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle class="nkg-ti-ring" cx="12" cy="12" r="10"/><path class="nkg-ti-mark" d="M12 7.2v6"/><path class="nkg-ti-dot" d="M12 16.6v.2"/></svg>',
+    info: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle class="nkg-ti-ring" cx="12" cy="12" r="10"/><path class="nkg-ti-dot" d="M12 7.6v.2"/><path class="nkg-ti-mark" d="M12 11v5.6"/></svg>'
+  };
+  function toastLeave(t) {
+    if (!t || t.__leaving) return;
+    t.__leaving = true;
+    t.classList.add('is-leaving');
+    setTimeout(function () { if (t.parentNode) t.parentNode.removeChild(t); }, RM.matches ? 0 : 220);
+  }
+  function toastShow(msg, kind) {
+    if (!toastLayer) {
+      toastLayer = el('div', 'nkg-toasts');
+      toastLayer.setAttribute('role', 'status'); toastLayer.setAttribute('aria-live', 'polite');
+      document.body.appendChild(toastLayer);
+    }
+    /* Sit just above whatever is pinned to the bottom (tab bar, builder dock, session footer). */
+    var top = window.innerHeight;
+    each(document.querySelectorAll('nav, footer, [class*="actions"], [class*="dock"], [class*="footer"], .bottom-nav'), function (b) {
+      if (b === toastLayer || toastLayer.contains(b)) return;
+      var cs = getComputedStyle(b); if (cs.position !== 'fixed' || cs.display === 'none' || cs.visibility === 'hidden') return;
+      var r = b.getBoundingClientRect(); if (r.height && r.bottom >= window.innerHeight - 140 && r.top < top) top = r.top;
+    });
+    toastLayer.style.bottom = Math.max(12, window.innerHeight - top + 12) + 'px';
+    if (toastCur && toastCur.__msg === msg && !toastCur.__leaving) { toastCur.classList.remove('is-bump'); void toastCur.offsetWidth; toastCur.classList.add('is-bump'); }
+    else {
+      toastLeave(toastCur);
+      var t = el('div', 'nkg-toast is-' + kind, '<span class="nkg-toast-ic">' + TOAST_IC[kind] + '</span><span class="nkg-toast-msg"></span>');
+      t.querySelector('.nkg-toast-msg').textContent = msg;
+      t.__msg = msg;
+      /* swipe sideways or down to dismiss */
+      var x0 = 0, y0 = 0, drag = false;
+      t.addEventListener('pointerdown', function (e) { drag = true; x0 = e.clientX; y0 = e.clientY; t.setPointerCapture && t.setPointerCapture(e.pointerId); t.style.transition = 'none'; });
+      t.addEventListener('pointermove', function (e) { if (!drag) return; var dx = e.clientX - x0, dy = Math.max(0, e.clientY - y0); t.style.transform = 'translate(' + dx + 'px,' + dy + 'px)'; t.style.opacity = String(Math.max(0, 1 - (Math.abs(dx) + dy) / 160)); });
+      function end(e) { if (!drag) return; drag = false; var dx = e.clientX - x0, dy = e.clientY - y0; t.style.transition = ''; if (Math.abs(dx) > 70 || dy > 40) { t.style.transform = 'translate(' + (dx > 0 ? 1 : dx < 0 ? -1 : 0) * 120 + '%,' + (dy > 40 ? 40 : 0) + 'px)'; t.style.opacity = '0'; t.__leaving = true; setTimeout(function () { if (t.parentNode) t.parentNode.removeChild(t); }, 200); } else { t.style.transform = ''; t.style.opacity = ''; } }
+      t.addEventListener('pointerup', end); t.addEventListener('pointercancel', end);
+      toastLayer.appendChild(t);
+      toastCur = t;
+    }
+    clearTimeout(toastTimer);
+    /* Long enough to read at a glance, short enough not to linger: ~1.8 s plus reading time, capped at 4 s. */
+    var hold = Math.min(4000, 1800 + msg.length * 22);
+    var cur = toastCur;
+    toastTimer = setTimeout(function () { toastLeave(cur); }, hold);
+  }
+  function watchToasts() {
+    if (!window.MutationObserver || document.documentElement.getAttribute('data-nk-ui') !== 'geist') return;
+    var root = document.getElementById('toast-root');
+    if (!root || root.__nkgToast) return;
+    root.__nkgToast = true;
+    new MutationObserver(function (recs) {
+      recs.forEach(function (r) {
+        each(r.addedNodes, function (n) {
+          if (n.nodeType !== 1 || !n.classList.contains('toast')) return;
+          var kind = n.classList.contains('good') ? 'good' : n.classList.contains('bad') ? 'bad' : 'info';
+          var msg = (n.textContent || '').trim();
+          /* Bookmarking already shows on the icon itself; no toast for it. */
+          if (msg && !/^(Bookmarked for later|Bookmark removed)\.?$/.test(msg)) toastShow(msg, kind);
+        });
+      });
+    }).observe(root, { childList: true });
+  }
+  watchToasts();
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', watchToasts);
+
+  window.NKFeel = { render: render, haptic: haptic, toast: toastShow };
 })();

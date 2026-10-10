@@ -26,7 +26,7 @@ HELPERS = r'''
     if(typeof nkAllQuestionBank==='function') return nkAllQuestionBank();
     return (SUBJECTS||[]).flatMap(r=>(r.questions||[]).map(q=>({...q,subject:q.subject||r.subject,bank:q.bank||r.bank||'PrepLadder'})));
   }
-  function nkFindStudyQuestion(qid){return nkAllStudyQuestions().find(q=>String(q.id)===String(qid))||BY_ID?.[String(qid)]||null;}
+  function nkFindStudyQuestion(qid){const hit=typeof nkBankQuestionById==='function'?nkBankQuestionById(qid):null;return hit||nkAllStudyQuestions().find(q=>String(q.id)===String(qid))||BY_ID?.[String(qid)]||null;}
   function nkPreferredRecord(subject){
     const records=typeof nkBankRecords==='function'?nkBankRecords(subject):[];
     if(records.length)return records.find(r=>r.bank==='Marrow')||records[0];

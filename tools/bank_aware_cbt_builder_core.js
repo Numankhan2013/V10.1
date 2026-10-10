@@ -87,7 +87,7 @@
     if(!nkCbtDraft)return;
     if(step>nkCbtDraft.step){
       if(!nkCbtDraft.bankKeys.length){showToast('Choose at least one question bank.','bad');return;}
-      if(nkCbtDraft.step===2&&!nkCbtPool().length){showToast('Choose a topic with questions.','bad');return;}
+      if(step>2&&!nkCbtPool().length){showToast('Choose a topic with questions.','bad');return;}
     }
     nkCbtDraft.step=Math.max(1,Math.min(3,Number(step)));
     if(nkCbtDraft.step===3)nkCbtDraft.count=Math.min(nkCbtDraft.count,nkCbtPool().length);
@@ -213,7 +213,7 @@
     const content=step===1?nkCbtBanksMarkup():step===2?nkCbtTopicsMarkup():nkCbtQuestionsMarkup();
     const action=step===2?`<div class="nk-module-builder-actions nk-module-topic-actions nk-cbt-actions"><span id="nk-cbt-footer-count">${nkCbtDraft.topicKeys.length} topics · ${fmtNum(nkCbtPool().length)} questions</span><button id="nk-cbt-topics-continue" class="is-primary" ${nkCbtPool().length?'':'disabled'} onclick="window.QB.nkCbtSetStep(3)">Continue to questions</button></div>`:step===1?`<div class="nk-cbt-main-actions"><button class="is-primary" ${nkCbtDraft.bankKeys.length?'':'disabled'} onclick="window.QB.nkCbtSetStep(2)">Continue to topics</button></div>`:`<div class="nk-cbt-main-actions"><button class="is-primary" onclick="window.QB.nkCbtStart()">Start timed CBT</button></div>`;
     const description=step===1?'Choose the question banks you want to study.':step===2?'Search or scroll, then tap the topics you want to test.':'Set the number of questions. Your time limit updates with it.';
-    return shell(`<main class="nk-app-v114 nk-module-builder nk-cbt-builder ${step===2?'is-topics':step===3?'is-questions':'is-banks'}" aria-label="Build timed test"><button class="nk-back-link" onclick="${step===1?"window.QB.nav('tests')":`window.QB.nkCbtSetStep(${step-1})`}">${navIcon('back',18)} ${step===1?'Tests':'Back'}</button>${nkAppPageHead(`TIMED CBT · STEP ${step} OF 3`,titles[step-1],description)}<div class="nk-module-stepper">${[1,2,3].map(n=>`<span class="${n===step?'is-current':n<step?'is-done':''}"><i>${n<step?navIcon('check',12):n}</i><b>${['Banks','Topics','Questions'][n-1]}</b></span>`).join('')}</div><section class="nk-module-builder-card">${content}</section>${action}</main>`,'tests');
+    return shell(`<main class="nk-app-v114 nk-module-builder nk-cbt-builder ${step===2?'is-topics':step===3?'is-questions':'is-banks'}" aria-label="Build timed test"><button class="nk-back-link" onclick="${step===1?"window.QB.nav('tests')":`window.QB.nkCbtSetStep(${step-1})`}">${navIcon('back',18)} ${step===1?'Tests':'Back'}</button>${nkAppPageHead(`TIMED CBT · STEP ${step} OF 3`,titles[step-1],description)}<div class="nk-module-stepper">${[1,2,3].map(n=>`<span class="${n===step?'is-current':n<step?'is-done':''}"${n===step?' aria-current="step"':` tabindex="0" aria-label="Go to ${['Banks','Topics','Questions'][n-1]}" onclick="window.QB.nkCbtSetStep(${n})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"`}><i>${n<step?navIcon('check',12):n}</i><b>${['Banks','Topics','Questions'][n-1]}</b></span>`).join('')}</div><section class="nk-module-builder-card">${content}</section>${action}</main>`,'tests');
   }
   openTestBuilder=nkCbtOpenBuilder;
   openMultiSubjectTestBuilder=nkCbtOpenBuilder;
