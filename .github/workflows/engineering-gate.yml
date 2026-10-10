@@ -67,6 +67,8 @@ jobs:
         run: python3 tools/test_icon_refinement_v1.py
       - name: Verify native haptic owner
         run: python3 tools/test_android_haptics_v1.py
+      - name: Verify Android note file chooser
+        run: python3 tools/test_android_file_picker_v1.py
       - name: Test question presentation contracts
         run: python3 tools/test_question_presentation_v1.py
       - name: Validate Marrow pilot source bundle

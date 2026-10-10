@@ -44,6 +44,8 @@ required_order = [
     "tools/apply_android_back_guard_v1.py",
     "tools/apply_android_haptics_v1.py",
     "tools/test_android_haptics_v1.py",
+    "tools/apply_android_file_picker_v1.py",
+    "tools/test_android_file_picker_v1.py",
     "tools/apply_cross_device_pwa_v1.py",
     "tools/test_cross_device_sync_v1.py",
     "tools/apply_fsrs_v1.py",

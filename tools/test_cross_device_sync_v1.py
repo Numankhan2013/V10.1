@@ -11,6 +11,7 @@ import tempfile
 ROOT = Path(__file__).resolve().parents[1]
 CORE = ROOT / "tools/cross_device_sync_core.js"
 STORAGE_CORE = ROOT / "tools/durable_persistence_core.js"
+NOTES_CORE = ROOT / "tools/question_notes_core.js"
 
 
 def test_durable_persistence() -> None:
@@ -139,6 +140,19 @@ nkApplyCloudEnvelope({kind:'notes',entityId:'q1',ownerDevice:'ipad',updatedAt:12
 assert(state.questionNotes.q1.deleted,'newer note removal must sync as a tombstone');
 nkApplyCloudEnvelope({kind:'notes',entityId:'q1',ownerDevice:'android',updatedAt:120,deleted:false,payload:JSON.stringify({text:'Recall clue',deleted:false}),schemaVersion:1});
 assert(state.questionNotes.q1.deleted,'older note copy must not resurrect a removed note');
+const noteParts=[{type:'text',text:'Look at the arrow'},{type:'image',source:'pdf',label:'Atlas · page 4',asset:{id:'na_abc123def',mime:'image/jpeg',w:1600,h:2200,bytes:400000}}];
+nkApplyCloudEnvelope({kind:'notes',entityId:'q5',ownerDevice:'ipad',updatedAt:300,deleted:false,payload:JSON.stringify({text:'Look at the arrow',deleted:false}),schemaVersion:1});
+nkApplyCloudEnvelope({kind:'noteBlocks',entityId:'q5',ownerDevice:'ipad',updatedAt:300,deleted:false,payload:JSON.stringify({blocks:noteParts,deleted:false}),schemaVersion:1});
+assert(JSON.stringify(nkNoteBlocks(state.questionNotes.q5))===JSON.stringify(noteParts),'ordered text and image parts must sync');
+nkApplyCloudEnvelope({kind:'notes',entityId:'q5',ownerDevice:'android-old',updatedAt:310,deleted:false,payload:JSON.stringify({text:'Edited on the old app',deleted:false}),schemaVersion:1});
+assert(nkNoteBlocks(state.questionNotes.q5).map(b=>b.text||b.asset.id).join('|')==='Edited on the old app|na_abc123def','an older app text edit must keep the synced image');
+nkApplyCloudEnvelope({kind:'notes',entityId:'q5',ownerDevice:'ipad',updatedAt:320,deleted:false,payload:JSON.stringify({text:'Only text now',deleted:false}),schemaVersion:1});
+nkApplyCloudEnvelope({kind:'noteBlocks',entityId:'q5',ownerDevice:'ipad',updatedAt:320,deleted:false,payload:JSON.stringify({blocks:[{type:'text',text:'Only text now'}],deleted:false}),schemaVersion:1});
+assert(nkNoteBlocks(state.questionNotes.q5).length===1,'a newer save that removed an image must not resurrect it');
+nkApplyCloudEnvelope({kind:'noteBlocks',entityId:'q5',ownerDevice:'android',updatedAt:305,deleted:false,payload:JSON.stringify({blocks:noteParts,deleted:false}),schemaVersion:1});
+assert(nkNoteBlocks(state.questionNotes.q5).length===1,'older parts must not replace newer parts');
+nkApplyCloudEnvelope({kind:'noteBlocks',entityId:'q6',ownerDevice:'ipad',updatedAt:330,deleted:false,payload:JSON.stringify({blocks:[{type:'image',asset:{id:'../../escape',w:1,h:1}},{type:'text',text:'Safe'}],deleted:false}),schemaVersion:1});
+assert(nkNoteBlocks(state.questionNotes.q6).map(b=>b.type).join()==='text','unsafe image references must be dropped');
 nkApplyCloudEnvelope({kind:'sessions',entityId:'active',ownerDevice:'android',updatedAt:200,deleted:false,payload:JSON.stringify({id:'new',index:4}),schemaVersion:1});
 nkApplyCloudEnvelope({kind:'sessions',entityId:'active',ownerDevice:'ipad',updatedAt:150,deleted:false,payload:JSON.stringify({id:'old',index:1}),schemaVersion:1});
 assert(state.activeSession.id==='new'&&state.activeSession.index===4,'opening an older device must not replace newer session progress');
@@ -373,7 +387,8 @@ function nkDurablePersist(v){localStorage.setItem(LS_KEY,JSON.stringify(v));retu
 '''
     with tempfile.TemporaryDirectory() as directory:
         script = Path(directory) / "sync-test.js"
-        script.write_text(prelude + "\n" + core + "\n" + harness, encoding="utf-8")
+        notes = NOTES_CORE.read_text(encoding="utf-8")
+        script.write_text(prelude + "\n" + core + "\n" + notes + "\n" + harness, encoding="utf-8")
         subprocess.run(["node", str(script)], check=True)
 
     required = [

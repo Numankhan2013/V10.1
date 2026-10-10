@@ -406,3 +406,17 @@ The user uses browser previews and explicitly defers APK work. The shared full w
 ## Reviewed prose owns learner-facing UWorld text (2026-10-04)
 
 Raw imports remain immutable archives but do not ship as alternate explanations or search fallbacks. Source-locked reviewed documents own runtime prose, options, typed tables and visuals. Reject observed screenshot chrome and long repeated paragraph runs before generation; fixes must remain explicit PDF/record-pinned display overlays. A partial next collection is labeled by its actual original question range; importing its entire unreviewed source is prohibited.
+
+## Note images import instead of in-app ink (2026-10-10)
+
+The user writes handwriting in GoodNotes and wants it attached to a question
+note together with text, images and selected PDF pages, at most about ten
+pages, with no lag. Importing beats an in-app ink engine: GoodNotes already
+handles writing, and an in-browser Pencil pipeline would be weeks of iPad
+latency work. PDF pages are rasterized at 3,200 px on the long edge so small
+handwriting stays legible; exports that already fit keep their original bytes.
+Image bytes never enter the localStorage study state or the envelope outbox,
+and never join the five-minute full pull: they live in IndexedDB and move
+once per device as chunked `noteAssets` documents. Ordered parts sync as a
+separate `noteBlocks` kind so older clients keep reading plain `notes` text
+without echoing changes that would erase images.
