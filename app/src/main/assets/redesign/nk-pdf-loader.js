@@ -74,8 +74,19 @@
     return r.height > 0 && r.top < innerHeight ? Math.max(0, innerHeight - r.top) : 0;
   }
 
+  /* The pill sits in the middle of the page skeleton that is loading (first visible one),
+     not over the bottom controls. It moves to the next loading page as each one lands. */
+  function placePill() {
+    if (!pill) return;
+    var host = null;
+    seen.forEach(function (n) { if (!host && n.isConnected && isPending(n)) host = n; });
+    if (host && pill.parentNode !== host) host.appendChild(pill);
+    else if (!pill.isConnected) document.body.appendChild(pill);
+  }
+
   function show() {
     if (!pill) buildPill();
+    placePill();
     clearTimeout(hideTimer);
     pill.style.setProperty('--nk-pdl-offset', navOffset() + 'px');
     pill.classList.remove('is-done', 'is-leaving');
@@ -109,6 +120,7 @@
 
   function paint(pending, total) {
     if (!pill) return;
+    if (pending > 0) placePill();
     var done = Math.max(0, total - pending);
     count.textContent = total > 1 ? done + '/' + total : '';
     bar.style.transform = 'scaleX(' + (total ? Math.max(0.08, done / total) : 0.08).toFixed(3) + ')';
