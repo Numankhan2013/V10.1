@@ -2506,3 +2506,10 @@ User asked for a thorough functional audit, especially whether FSRS is as good a
 - Added ordered note blocks (text/image/PDF page), IndexedDB asset store with full/preview/thumb variants, PDF page picker (3,200 px render), zoom viewer, chunked `noteAssets` transfer outside the envelope pull, `noteBlocks` sync kind compatible with older clients, Android `<input type=file>` chooser transform, and a pdf.js 6 `Map.getOrInsertComputed` polyfill (main thread only; the custom-port worker approach hung the pdf.js handshake).
 - Per the user's mockup, the in-card editor became a compact My notes bar plus a full-screen note page with ⋮/long-press menus (Edit/View, Move up/down, Delete), floating + Add block and shimmer skeletons. Existing notes browser tests were rewritten for this flow.
 - Verification: 110 local checks; local replay of the full build workflow passed; notes browser checks run locally against a patched build with Chromium 140 (two-device sync against an in-memory Firestore double). Full CI, hosted preview and device checks pending.
+
+## 2026-10-10 — Shared viewer for source PDFs and note images
+
+- Merged `feature/home-pdf-loader` (user's PDF loader, glyph repairs, Geist viewer) with main (#103 notes). User reported: long delay before the source page opens full screen, and hard-to-control panning.
+- Cause of delay: each tap re-rendered a 12 MP raster, ran the tone curve synchronously, PNG-encoded and decoded it before opening. Now the viewer opens from a copy of the inline canvas, the sharp render starts after the opening motion, is cached (last two), and the tone curve yields in bands.
+- Panning now follows the finger and clamps at edges (no rubber band/bounce; flick glide stops at edges). Note images use the same viewer (`NKViewer.show`), with prev/next and sideways swipe. Fixed: an early gesture during the opening motion blocked the sharp render.
+- Added `tools/verify_source_viewer_browser.py` (Geist: open within two frames, sharpen, exact edges, cached reopen).

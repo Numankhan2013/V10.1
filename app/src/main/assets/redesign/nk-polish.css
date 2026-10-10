@@ -1217,3 +1217,10 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-chapter-title > .nk-topic-libra
 /* Skipped (left unanswered in a submitted session) reads amber; never-reached stays plain. */
 html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-topic-map .nk-topic-cell.is-k { background: var(--nkg-warning, #d98b16) !important; border-color: var(--nkg-warning, #d98b16) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-topic-legend li.is-k::before { background: var(--nkg-warning, #d98b16); box-shadow: none; }
+
+/* ======================================================= Marrow explanation emphasis
+   Highlighted terms (strong.nk-gold-em) were weight 600 in the same ink as the body, so
+   they barely stood out in Geist. Body prose steps down one tone and the highlighted
+   words go heavier in full ink, as before the redesign. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-source-section.is-marrow :is(p, div, li, td):has(> .nk-gold-em) { color: var(--nkg-fg-2) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-source-section.is-marrow .nk-gold-em { font-weight: 720 !important; color: var(--nkg-fg) !important; letter-spacing: -0.005em; }
