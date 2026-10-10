@@ -44,6 +44,9 @@ def main() -> None:
 
     html_path = args.html if args.html.is_absolute() else ROOT / args.html
     html = html_path.read_text(encoding="utf-8")
+    if args.stage == "packaged":
+        # The web build ships question data beside index.html (build_web_dist.externalize_data).
+        html += "".join(p.read_text(encoding="utf-8") for p in sorted((html_path.parent / "data").glob("*.js")))
     native = MAIN.read_text(encoding="utf-8")
     manifest = MANIFEST.read_text(encoding="utf-8")
 
