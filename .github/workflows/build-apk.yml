@@ -563,6 +563,8 @@ jobs:
         run: python3 tools/verify_question_notes_browser.py
       - name: Verify image and PDF-page notes, viewer and two-device sync
         run: python3 tools/verify_question_note_media_browser.py
+      - name: Verify the Geist source-PDF viewer opens at once and pans edge to edge
+        run: python3 tools/verify_source_viewer_browser.py
       - name: Verify audited account controls and safe learner text
         run: python3 tools/verify_preproduction_browser.py
       - name: Verify all-bank Quick Revision queues

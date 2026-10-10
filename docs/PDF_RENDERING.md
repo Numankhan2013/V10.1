@@ -40,12 +40,24 @@ Use this for any PDF surface in the app (explanations today, imported note PDFs 
    Paper stays 255, grey ink darkens, hue is preserved. The CSS
    `contrast(1.16) saturate(1.12)` filter on canvas/img is a tested contract — leave it,
    and never animate `filter` on the canvas itself (animate a wrapper).
-5. **Viewer** (Geist UI): `redesign/nk-viewer.js` + `nk-viewer.css` replace
-   `window.openSourceZoom` (legacy UI keeps the original). Shared-element open/close from
-   the tapped page, always-dark frosted backdrop, fit-to-width start, pinch/double-tap/
-   ctrl-wheel zoom at the finger, momentum pan with rubber-band edges, swipe-down to
-   dismiss at fit, tap to hide chrome, Esc/+/−/0. DOM contract kept: `#source-pdf-zoom`,
-   `img.source-pdf-zoomimg`, `#spz-minus`, `#spz-reset`, `#spz-plus`, `#spz-close`.
+5. **Viewer** (Geist UI, also note images in both UIs): `redesign/nk-viewer.js` +
+   `nk-viewer.css` replace `window.openSourceZoom` in Geist (legacy UI keeps the original).
+   - **Opens at once** from the inline canvas already on screen (a copy; no re-render, no
+     PNG round trip). The sharp full-screen raster (`sharpRaster`, ≤ 3,600 px / 12 MP)
+     starts after the opening motion and swaps in without moving the page
+     (`data-quality` goes `preview` → `high`). The last two sharp renders are cached, so
+     reopening is instant. The tone curve runs in yielding bands, so a 12 MP render never
+     freezes taps or animation.
+   - **Panning** follows the finger 1:1 and stops firmly at every edge: no rubber band, no
+     bounce; a short flick glide also stops at the edge. Content shorter than the screen
+     stays centred on that axis.
+   - Shared-element open/close from the tapped page, always-dark frosted backdrop,
+     fit-to-width start (capped at 980 px on wide screens), pinch/double-tap/ctrl-wheel
+     zoom at the finger, swipe-down to dismiss at fit, tap to hide chrome, Esc/+/−/0, and
+     ←/→, arrows or a sideways swipe at fit for multi-image notes.
+   - DOM contract kept: `#source-pdf-zoom`, `.source-pdf-zoomimg`, `#spz-minus`,
+     `#spz-reset`, `#spz-plus`, `#spz-close`. API: `NKViewer.show(items, options)`.
+   - Check: `tools/verify_source_viewer_browser.py`.
 
 ## For a new PDF surface (e.g. imported note PDFs)
 

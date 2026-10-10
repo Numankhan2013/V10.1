@@ -2,10 +2,10 @@
 
 > Operational state only. Resolve the live branch/commit and CI from Git before acting. Historical detail belongs in `SESSION_LOG.md` and dedicated handoffs.
 
-## Question notes with images and PDF pages — 2026-10-10
+## Notes, PDF loader and shared viewer — 2026-10-10
 
-- Branch `ccr-47681b8d-1aikn7` (resolve live HEAD/CI from Git). Notes are ordered text/image/PDF-page blocks behind a compact My notes bar; tapping opens a full-screen note page with ⋮/long-press block menus, + Add block, shimmer skeletons and a zoom viewer. Image bytes live in IndexedDB and sync once per device as chunked `noteAssets`; parts sync as `noteBlocks`. Android gets a native file chooser. Design/limits: `docs/QUESTION_NOTES.md`.
-- 110 local checks pass; a local replay of the full build passes; the new and updated notes browser checks were run locally on a patched build. Full CI, hosted preview, iPad/Android device checks (Pencil-free import, Safari PDF worker on older iPadOS) and user acceptance are pending.
+- Main has question notes with images/PDF pages (#103: My notes bar, block note page, IndexedDB + chunked `noteAssets` sync, Android file chooser). Branch `ccr-47681b8d-1aikn7` adds the PDF loader/glyph repair work from `feature/home-pdf-loader` and one shared viewer (`redesign/nk-viewer.js`) for Geist source PDFs and note images: opens at once from the on-screen canvas, swaps in a cached sharp render, firm edge-to-edge panning. Details: `docs/PDF_RENDERING.md`, `docs/QUESTION_NOTES.md`.
+- Build-verified notes on main (full run 38057009229). Viewer branch: local checks and local browser checks (`verify_source_viewer_browser`, notes media) pass; CI, production promotion and iPad/Android device checks pending. Production promotion was user-authorized on 2026-10-10 after this viewer work.
 
 ## My UWorld Home and Block 2 candidate — 2026-10-05
 

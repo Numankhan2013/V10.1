@@ -285,7 +285,7 @@
       const act=target.dataset.act;
       if(act==='close')close();
       else if(act==='menu'){const r=target.getBoundingClientRect();openMenu(Number(target.dataset.i),r.right,r.bottom+4);}
-      else if(act==='open'){if(typeof nkNoteOpenViewer==='function')nkNoteOpenViewer(blocks,Number(target.dataset.m));}
+      else if(act==='open'){if(typeof nkNoteOpenViewer==='function')nkNoteOpenViewer(blocks,Number(target.dataset.m),target.querySelector('img'));}
       else if(act==='save-edit'){if(saveEdit())render();}
       else if(act==='cancel-edit'){cancelEdit();render();}
       else if(act==='add')toggleAdd();

@@ -207,13 +207,17 @@ def local_flow(browser, origin: str, screenshot: Path, pdf: Path, output: Path, 
     viewer = page.locator(".nk-note-viewer")
     viewer.wait_for(state="visible")
     page.wait_for_function("(document.querySelector('.nk-note-viewer img')?.getAttribute('src')||'').startsWith('blob:')")
+    page.wait_for_function("document.querySelector('.nk-note-viewer')?.classList.contains('is-open')")
+    page.wait_for_timeout(450)  # opening motion
     viewer.get_by_role("button", name="Zoom in").click()
-    assert "scale(1.6)" in viewer.locator("img").get_attribute("style")
+    page.wait_for_function("document.querySelector('.nk-note-viewer #spz-reset')?.textContent==='150%'")
     viewer.get_by_role("button", name="Next image").click()
     assert viewer.locator(".nk-note-viewer-count").inner_text() == "3 / 3"
+    page.wait_for_function("(document.querySelector('.nk-note-viewer img')?.getAttribute('src')||'').startsWith('blob:')")
     page.screenshot(path=str(output / f"note-media-viewer-{width}.png"))
     page.keyboard.press("Escape")
-    assert viewer.count() == 0 and sheet.is_visible(), "closing the viewer returns to the note"
+    viewer.wait_for(state="detached")
+    assert sheet.is_visible(), "closing the viewer returns to the note"
 
     sheet.get_by_role("button", name="Close notes").click()
     assert page.locator(".nk-note-page").count() == 0

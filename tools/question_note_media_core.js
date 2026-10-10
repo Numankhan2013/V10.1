@@ -352,8 +352,20 @@
   });
 
   // Full-screen viewer with pinch, drag, double-tap and button zoom (the app viewport disables browser zoom).
-  function nkNoteOpenViewer(blocks,start){
+  function nkNoteOpenViewer(blocks,start,origin){
     const media=blocks.filter(block=>block.type==='image');if(!media.length)return;
+    // The shared viewer (redesign/nk-viewer.js) opens from the preview and sharpens to the full image.
+    if(window.NKViewer?.show){
+      const at=Math.max(0,Math.min(media.length-1,Number(start)||0));
+      window.NKViewer.show(media.map((block,i)=>({
+        preview:()=>nkNoteAssetUrl(block.asset.id,'preview').then(url=>url||nkNoteAssetUrl(block.asset.id,'full')),
+        highRes:()=>nkNoteAssetUrl(block.asset.id,'full'),
+        title:block.label||(block.source==='pdf'?'PDF page':'Image'),
+        subtitle:block.source==='pdf'?'PDF page':'',
+        origin:i===at?origin:null
+      })),{index:at,className:'nk-note-viewer',imageClass:'nk-note-viewer-img',label:'Note image'});
+      return;
+    }
     const opener=document.activeElement,viewer=document.createElement('div');
     let index=Math.max(0,Math.min(media.length-1,Number(start)||0)),scale=1,tx=0,ty=0,lastTap=0;
     const pointers=new Map();let pinch=null,drag=null;
