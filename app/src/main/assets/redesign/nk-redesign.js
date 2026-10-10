@@ -408,7 +408,7 @@
   });
 
   /* ------------------------------------------------------------ observer */
-  var scheduled = false;
+  var scheduled = false, observers = [];
   function onRender() {
     scheduled = false;
     var app = document.getElementById('app');
@@ -437,6 +437,9 @@
       var b = zero[z].querySelector('b');
       zero[z].classList.toggle('nkg-zero', !!b && b.textContent.trim() === '0');
     }
+    /* Drop the mutations this pass made itself (icon swaps, decorations) so one app
+       render costs one decoration pass instead of re-triggering itself. */
+    for (var o = 0; o < observers.length; o++) observers[o].takeRecords();
   }
   /* A few charts set their track colour inline (legacy lavender #eceaf4 /
      #eeecf4 / #ebe6f5). Swap only that literal for the neutral token. */
@@ -486,8 +489,9 @@
   function start() {
     var app = document.getElementById('app');
     if (!app) return;
-    new MutationObserver(schedule).observe(app, { childList: true, subtree: true });
-    new MutationObserver(schedule).observe(document.body, { childList: true });
+    observers = [new MutationObserver(schedule), new MutationObserver(schedule)];
+    observers[0].observe(app, { childList: true, subtree: true });
+    observers[1].observe(document.body, { childList: true });
     window.addEventListener('hashchange', function () { window.setTimeout(onRender, 0); });
     onRender();
   }

@@ -107,7 +107,10 @@
     }
     return { play: play, hasNative: function () { return !!window.QBankHaptics; } };
   })();
-  var haptic = Haptics.play;
+  /* Haptics mark outcomes, not taps: the core app already buzzes once for an answer,
+     a mark and a finished test. Navigation, segments, menus, grids and outcomes stay silent
+     here so an answer never buzzes twice. */
+  var haptic = function () { /* intentionally silent: one buzz per answer comes from the core */ };
 
   /* -------------------------------------------------- sliding seg indicator */
   var pillMemo = {};
@@ -139,6 +142,21 @@
     container.__nkgPill = { key: key, sel: selectorFn };
     placePill(container, selectorFn(), key, true);
     if (ro) ro.observe(container);
+    /* The app marks the chosen button in place (class change, no re-render); follow it. */
+    if (window.MutationObserver && !container.__nkgPillMo) {
+      var queued = false;
+      container.__nkgPillMo = new MutationObserver(function () {
+        if (queued) return;
+        queued = true;
+        window.requestAnimationFrame(function () {
+          queued = false;
+          var sel = selectorFn();
+          each(container.querySelectorAll(':scope > button'), function (b) { b.setAttribute('aria-pressed', b === sel ? 'true' : 'false'); });
+          placePill(container, sel, key, true);
+        });
+      });
+      container.__nkgPillMo.observe(container, { subtree: true, attributes: true, attributeFilter: ['class'] });
+    }
   }
 
   /* Build a seg from a native <select>; the select stays (hidden) and owns state. */
@@ -271,7 +289,12 @@
     try {
       M.animate(from, p.v, {
         duration: Math.min(0.9, 0.45 + Math.abs(p.v - from) / 4000), ease: [0.16, 1, 0.3, 1],
-        onUpdate: function (x) { node.textContent = p.f(x); },
+        onUpdate: function (x) {
+          var now = performance.now();
+          if (now - (node.__nkgAt || 0) < 70) return;
+          node.__nkgAt = now;
+          var t = p.f(x); if (t !== node.textContent) node.textContent = t;
+        },
         onComplete: function () { node.textContent = final; }
       });
     } catch (e) { node.textContent = final; }
@@ -674,17 +697,18 @@
     box.appendChild(out);
     box.classList.add('nkg-cmp-ready');
     if (changed('cmp', txt(box) + periodKey) && motionOK() && moves.length) {
-      moves.forEach(function (mv) {
-        var dot = mv.row.querySelector('.is-cur.nkg-cmp-dot'), seg = mv.row.querySelector('.nkg-cmp-seg');
-        dot.style.left = mv.a + '%';
-        if (mv.b > mv.a) seg.style.width = '0%'; else { seg.style.left = mv.a + '%'; seg.style.width = '0%'; }
-      });
+      /* Final geometry is set once; the motion is transform-only (compositor), so the
+         period switch never forces a layout per frame. */
       onView(out, function () {
         moves.forEach(function (mv, i) {
           var dot = mv.row.querySelector('.is-cur.nkg-cmp-dot'), seg = mv.row.querySelector('.nkg-cmp-seg');
-          var lo = Math.min(mv.a, mv.b), w = Math.abs(mv.b - mv.a), opts = { duration: 0.7, delay: 0.1 + i * 0.06, ease: [0.22, 1, 0.36, 1], keep: true };
-          anim(dot, { left: [mv.a + '%', mv.b + '%'] }, Object.assign({}, opts));
-          anim(seg, mv.b > mv.a ? { width: ['0%', w + '%'] } : { left: [mv.a + '%', lo + '%'], width: ['0%', w + '%'] }, Object.assign({}, opts));
+          var track = dot && dot.parentElement, W = track ? track.getBoundingClientRect().width : 0;
+          var opts = { duration: 0.7, delay: 0.1 + i * 0.06, ease: [0.22, 1, 0.36, 1] };
+          if (dot && W) anim(dot, { transform: ['translateX(' + ((mv.a - mv.b) * W / 100) + 'px)', 'translateX(0px)'] }, Object.assign({}, opts));
+          if (seg) {
+            seg.style.transformOrigin = mv.b > mv.a ? 'left center' : 'right center';
+            anim(seg, { transform: ['scaleX(0)', 'scaleX(1)'] }, Object.assign({}, opts));
+          }
         });
       });
     }
@@ -782,15 +806,10 @@
     });
     if (!heatSeen && motionOK()) {
       heatSeen = true;
-      var cells = [].slice.call(grid.querySelectorAll('button:not(.is-ghost)'));
-      var weeks = parseInt(getComputedStyle(card.querySelector('.nk-li-year-canvas')).getPropertyValue('--weeks'), 10) || 53;
+      /* One compositor animation for the whole year (hundreds of per-cell animations
+         stall phones). */
       onView(grid, function () {
-        var visibleFrom = Math.max(0, weeks - Math.ceil(scroller.clientWidth / 15) - 1);
-        cells.forEach(function (c) {
-          var col = parseInt((c.style.gridColumn || '1'), 10) || 1;
-          if (col < visibleFrom) return;
-          anim(c, { opacity: [0, 1], transform: ['scale(.4)', 'scale(1)'] }, { duration: 0.32, delay: (col - visibleFrom) * 0.012 + (parseInt(c.style.gridRow, 10) || 1) * 0.006 });
-        });
+        anim(grid, { opacity: [0, 1], transform: ['translateY(6px)', 'translateY(0px)'] }, { duration: 0.36 });
       });
     }
   }
@@ -842,11 +861,11 @@
       var rows = el('span', 'nkg-bank-rows');
       banks.forEach(function (b) {
         var pct = b[2] ? Math.round(b[1] / b[2] * 100) : 0;
-        var row = el('span', 'nkg-bank-row', '<span class="nkg-bank-name">' + esc(b[0]) + '</span><span class="nkg-bank-bar" role="presentation"><i style="width:0%"></i></span><span class="nkg-bank-pct">' + pct + '%</span>');
+        var row = el('span', 'nkg-bank-row', '<span class="nkg-bank-name">' + esc(b[0]) + '</span><span class="nkg-bank-bar" role="presentation"><i></i></span><span class="nkg-bank-pct">' + pct + '%</span>');
         row.setAttribute('aria-label', b[0] + ': ' + fmtInt(b[1]) + ' of ' + fmtInt(b[2]) + ' questions, ' + pct + '%');
         rows.appendChild(row);
         var bar = row.querySelector('i');
-        window.requestAnimationFrame(function () { window.requestAnimationFrame(function () { bar.style.width = (pct ? Math.max(2, pct) : 0) + '%'; }); });
+        window.requestAnimationFrame(function () { window.requestAnimationFrame(function () { bar.style.transform = 'scaleX(' + ((pct ? Math.max(2, pct) : 0) / 100) + ')'; }); });
       });
       copy.appendChild(rows);
     });
@@ -1004,6 +1023,45 @@
   }
 
   /* ================================================================ entry */
+
+  /* ===================================================== Test result follow-ups */
+  /* Missed / marked / save-as-mock become one tappable action list: icon, task, count.
+     The app's buttons (and their handlers) stay; the card only re-composes them. */
+  function enhanceResult(app) {
+    each(app.querySelectorAll('.nk-na-followup:not(.nkg-action)'), function (sec) {
+      var btn = sec.querySelector(':scope > button'), label = sec.querySelector(':scope > strong');
+      var marked = sec.classList.contains('nk-cbt-marked');
+      sec.classList.add('nkg-action', btn ? (marked ? 'is-marked' : 'is-missed') : 'is-clear');
+      var ic = el('span', 'nkg-action-icon', icon(btn ? (marked ? 'star' : 'arrows-clockwise') : 'check-circle', 18));
+      ic.setAttribute('aria-hidden', 'true');
+      sec.insertBefore(ic, sec.firstChild);
+      if (btn && !btn.querySelector('.nkg-action-chev')) {
+        each(btn.querySelectorAll('svg'), function (svg) { svg.remove(); });
+        btn.insertAdjacentHTML('beforeend', '<span class="nkg-action-chev" aria-hidden="true">' + icon('caret-right', 16) + '</span>');
+      }
+    });
+    var save = app.querySelector('.nk-na-save-mock:not(.nkg-action)');
+    if (save) {
+      save.classList.add('nkg-action', 'is-save');
+      var t = save.textContent.trim();
+      save.setAttribute('aria-label', t);
+      save.innerHTML = '<span class="nkg-action-icon" aria-hidden="true">' + icon('stack', 18) + '</span>' +
+        '<span class="nkg-action-text"><b>' + esc(t) + '</b><small>Reuse this exact set of questions later</small></span>' +
+        '<span class="nkg-action-chev" aria-hidden="true">' + icon('caret-right', 16) + '</span>';
+    }
+  }
+
+
+  /* Answered UWorld options carry the source pick-rate; expose it to CSS for a bar. */
+  function optionRates(app) {
+    each(app.querySelectorAll('.option-list .option'), function (o) {
+      var p = o.querySelector('.nk-uworld-option-percent');
+      var n = p ? parseInt(p.textContent, 10) : NaN;
+      if (isNaN(n)) { if (o.style.getPropertyValue('--nkg-pct')) o.style.removeProperty('--nkg-pct'); return; }
+      if (o.style.getPropertyValue('--nkg-pct') !== String(n)) o.style.setProperty('--nkg-pct', String(Math.max(0, Math.min(100, n))));
+    });
+  }
+
   function render(app, page, session) {
     if (!app) return;
     try {
@@ -1014,7 +1072,8 @@
       else if (page === 'tests' || page === 'test-builder') enhanceTests(app);
       else if (page === 'quick-revision' || page === 'fsrs') enhanceRevision(app);
       enhanceBuilder(app);
-      if (session) answerFeedback(app);
+      if (app.querySelector('.nk-na-followup, .nk-na-save-mock')) enhanceResult(app);
+      if (session) { answerFeedback(app); optionRates(app); }
     } catch (e) {
       if (window.console && console.warn) console.warn('NKFeel', e);
     }
