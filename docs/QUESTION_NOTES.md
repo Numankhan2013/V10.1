@@ -1,10 +1,10 @@
 # Question-linked personal notes
 
-The study-intelligence increment adds a learner-written note to a question. After answering in Practice, or while viewing Review Solutions, tap
-**Add note**, write up to 2,000 characters, and save. The note becomes a
-read-only card with **Edit** and **Delete** at its top right. Edit opens the
-textarea; Cancel leaves the saved text intact. A saved note reappears when
-that question is opened again, including through a different module route.
+The study-intelligence increment adds a learner-written note to a question.
+After answering in Practice, or while viewing Review Solutions, the **My
+notes** bar opens the note page (see Images and PDF pages below). A saved note
+reappears when that question is opened again, including through a different
+module route.
 
 **More → My notes** lists saved notes from every subject and bank, newest first.
 Search matches the note, question, topic, subject, and bank. Each available
@@ -26,14 +26,24 @@ revision queue without duplicating Practice.
 
 ## Images and PDF pages (2026-10-10)
 
-A note is an ordered list of parts: text, images and PDF pages, in any order.
+A note is an ordered list of blocks: text, images and PDF pages, in any order.
 Handwriting is written in GoodNotes (or any app) and brought in as an export,
-screenshot, paste or drag; the app does not draw ink itself. In the editor,
-**+ Text**, **+ Image** and **+ PDF pages** add parts, ↑/↓ reorder them and
-Remove drops one. A PDF opens a page picker with lazy thumbnails; chosen pages
-become images. A one-page PDF is added directly. Tapping a saved image opens a
+screenshot, paste or drag; the app does not draw ink itself.
+
+After answering (or in Review), the question shows a compact **My notes** bar
+with the first line of text and a block count. Tapping it opens a full-screen
+notes page (`.nk-note-page`) where blocks flow as a document: text blocks,
+framed images with captions, and PDF pages under a PDF badge and title. Every
+block has a ⋮ button, and long-press or right-click opens the same menu: Edit
+(text) or View full screen (images), Move up, Move down and Delete. A floating
+**+ Add block** button offers Text, Image and PDF pages; an empty note opens
+with that menu expanded. Changes save immediately; text saves with Save, and
+closing the page with unsaved non-empty text saves it. Image frames show a
+shimmer skeleton until the picture has decoded, and imports show a skeleton
+block while they are processed. A PDF opens a page picker with lazy
+thumbnails; a one-page PDF is added directly. Tapping an image opens a
 full-screen viewer with pinch, drag, double-tap and button zoom, plus
-previous/next for several images. More → My notes shows up to four thumbnails.
+previous/next. More → My notes shows up to four thumbnails per note.
 
 Limits: 10 images or pages per note (and per PDF import), 10 text parts of up
 to 2,000 characters each. Images that already fit (JPG/PNG/WebP, ≤3,200 px long

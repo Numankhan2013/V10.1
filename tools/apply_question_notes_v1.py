@@ -40,27 +40,75 @@ CSS = '''<style id="nk-question-notes-v1">
 .nk-notes-item button{width:100%;min-height:44px;margin-top:8px;border:0;background:transparent;color:#3658ad;text-align:right;font:inherit;font-size:12px;font-weight:800}
 .nk-notes-item button span{font-size:18px;vertical-align:middle}
 .nk-notes-no-match{padding:20px;text-align:center;color:#65718b;font-size:13px}
-.nk-note-blocks{display:grid;gap:10px;margin:0 15px 15px}
-.nk-note-blocks .nk-note-readonly{margin:0}
-.nk-note-figure{margin:0}
-.nk-question-note .nk-note-figure-open{display:block;width:100%;min-height:0;padding:0;border:1px solid #e1e7f1;border-radius:10px;background:#fff;overflow:hidden;cursor:zoom-in}
-.nk-note-figure figcaption{margin-top:5px;color:#66708d;font-size:11px;overflow-wrap:anywhere}
-.nk-note-media-frame{position:relative;display:block;width:100%;background:#fff;overflow:hidden}
-.nk-note-media-frame img{display:block;width:100%;height:100%;object-fit:contain}
-.nk-note-media-missing{display:none;position:absolute;inset:0;align-items:center;justify-content:center;padding:12px;background:#f5f7fb;color:#66708d;font-size:12px;line-height:1.4;text-align:center}
+.nk-question-note{margin:18px 0 8px;border:0;background:transparent;overflow:visible}
+.nk-question-note .nk-note-bar{width:100%;min-height:64px;display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid #dce3ef;border-radius:14px;background:#fff;color:#17204b;text-align:left;font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background .15s,border-color .15s,transform .1s}
+.nk-question-note .nk-note-bar:active{transform:scale(.99);background:#f6f7fc}
+.nk-note-bar-icon{flex:none;width:38px;height:38px;display:grid;place-items:center;border-radius:11px;background:var(--nk-selection,#f1ecfa);color:var(--nk-action,#493394)}
+.nk-note-bar-copy{flex:1;min-width:0;display:grid;gap:2px}
+.nk-note-bar-copy strong{font-size:15px;font-weight:800}
+.nk-note-bar-copy small{color:#66708d;font-size:12.5px;font-weight:500;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nk-note-bar-count{flex:none;min-width:24px;height:24px;padding:0 7px;display:grid;place-items:center;border-radius:12px;background:var(--nk-action,#493394);color:#fff;font-size:12px;font-weight:800}
+.nk-note-bar-chevron{flex:none;color:#8a93ad;display:grid}
+.nk-note-media-frame{position:relative;display:block;width:100%;overflow:hidden;background:linear-gradient(100deg,#eceff6 30%,#f8f9fc 50%,#eceff6 70%);background-size:220% 100%;animation:nk-note-shimmer 1.3s linear infinite}
+.nk-note-media-frame img{display:block;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .28s ease}
+.nk-note-media-frame.is-loaded{animation:none;background:#fff}
+.nk-note-media-frame.is-loaded img{opacity:1}
+.nk-note-media-frame.is-missing{animation:none;background:#f5f7fb}
+.nk-note-media-missing{display:none;position:absolute;inset:0;align-items:center;justify-content:center;padding:12px;color:#66708d;font-size:12px;line-height:1.4;text-align:center}
 .nk-note-media-frame.is-missing .nk-note-media-missing{display:flex}
-.nk-note-parts{display:grid;gap:10px}
-.nk-note-part.is-media{display:grid;grid-template-columns:88px 1fr;align-items:center;gap:10px;padding:8px;border:1px solid #e1e7f1;border-radius:10px;background:#fbfcff}
-.nk-note-part.is-media .nk-note-media-frame{width:88px;max-height:120px;border:1px solid #e1e7f1;border-radius:6px}
-.nk-note-part.is-media .nk-note-media-missing{font-size:0}
-.nk-note-part.is-media .nk-note-part-tools{grid-column:1/-1}
-.nk-note-part-label{color:#3c4766;font-size:12px;font-weight:700;overflow-wrap:anywhere}
-.nk-note-part-tools{display:flex;justify-content:flex-end;gap:4px;margin-top:4px}
-.nk-question-note .nk-note-part-tools button{min-width:44px;padding:0 10px;background:#f2f5fb}
-.nk-note-add-row{position:relative;display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+@keyframes nk-note-shimmer{from{background-position:120% 0}to{background-position:-120% 0}}
+.nk-note-page{position:fixed;inset:0;z-index:1900;display:flex;flex-direction:column;background:var(--nk-paper,#fbfbfe);color:#17204b;animation:nk-note-page-in .2s ease-out}
+@keyframes nk-note-page-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.nk-np-head{flex:none;display:flex;align-items:center;gap:8px;padding:calc(8px + env(safe-area-inset-top)) 12px 8px;border-bottom:1px solid #e6e9f2;background:#fff}
+.nk-np-head h2{margin:0;font-size:18px;font-weight:700;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nk-np-head h2 span{color:#3a4466;font-weight:600}
+.nk-np-back{flex:none;width:44px;height:44px;display:grid;place-items:center;border:0;border-radius:12px;background:transparent;color:#17204b;cursor:pointer}
+.nk-np-body{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:6px 0 120px}
+.nk-np-blocks{width:min(760px,100%);margin:0 auto;padding:0 18px}
+.nk-nb{position:relative;padding:20px 0;border-top:1px solid #e6e9f2;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
+.nk-nb:first-child{border-top:0}
+.nk-nb-head,.nk-nb-foot{display:flex;align-items:center;gap:10px}
+.nk-nb-head{margin-bottom:10px}
+.nk-nb-foot{margin-top:8px}
+.nk-nb-kind{flex:1;color:var(--nk-action,#493394);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.nk-note-page .nk-nb-text{margin:0;padding:0;border:0;border-radius:0;background:transparent;color:#25304f;font-size:16.5px;line-height:1.6;white-space:pre-wrap;overflow-wrap:anywhere}
+.nk-nb-title{flex:1;min-width:0;font-size:16px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nk-nb-caption{flex:1;min-width:0;color:#4a5474;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nk-nb-badge{flex:none;width:30px;height:36px;display:grid;place-items:end center;padding-bottom:5px;border-radius:4px 10px 4px 4px;background:#e5484d;color:#fff;font-size:9px;font-weight:800}
+.nk-nb-dots{flex:none;width:40px;height:40px;margin-right:-8px;display:grid;place-items:center;border:0;border-radius:10px;background:transparent;color:#5a6380;cursor:pointer}
+.nk-nb-dots:active,.nk-np-back:active{background:#eef0f7}
+.nk-nb-open{display:block;width:100%;padding:0;border:1px solid #e1e5ef;border-radius:12px;background:#fff;overflow:hidden;cursor:zoom-in;-webkit-tap-highlight-color:transparent}
+.nk-nb.is-editing{-webkit-user-select:text;user-select:text}
+.nk-nb.is-editing .nk-nb-kind{display:block;margin-bottom:8px}
+.nk-nb.is-editing textarea{width:100%;min-height:140px;padding:12px;border:1px solid #cfd7e7;border-radius:12px;background:#fff;color:#17204b;font:inherit;font-size:16px;line-height:1.55;resize:vertical}
+.nk-nb.is-editing textarea:focus{outline:3px solid #e7e3f8;border-color:var(--nk-action,#493394)}
+.nk-nb-edit-actions{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:10px}
+.nk-nb-edit-actions small{color:#697391;font-size:12px}
+.nk-nb-edit-actions>div{display:flex;gap:6px}
+.nk-nb-edit-actions button{min-height:44px;padding:0 14px;border:0;border-radius:10px;background:transparent;color:var(--nk-action,#493394);font-weight:800;cursor:pointer}
+.nk-nb-edit-actions .nk-note-save{padding:0 18px;background:var(--nk-action,#493394);color:#fff}
+.nk-nb.is-skeleton{display:grid;gap:12px}
+.nk-skel{display:block;border-radius:8px;background:linear-gradient(100deg,#eceff6 30%,#f8f9fc 50%,#eceff6 70%);background-size:220% 100%;animation:nk-note-shimmer 1.3s linear infinite}
+.nk-skel-line{width:42%;height:16px}
+.nk-skel-box{width:100%;aspect-ratio:4/3;border-radius:12px}
+.nk-np-empty{padding:56px 12px;text-align:center;color:#5a6380}
+.nk-np-empty strong{display:block;margin-bottom:6px;color:#17204b;font-size:17px}
+.nk-np-empty p{margin:0 auto;max-width:300px;font-size:14px;line-height:1.5}
+.nk-np-status{width:min(760px,100%);margin:6px auto 0;padding:0 18px;color:#5a6380;font-size:13px;text-align:center;min-height:1em}
+.nk-np-add{position:absolute;left:50%;bottom:calc(20px + env(safe-area-inset-bottom));transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px}
+.nk-np-add-btn{display:flex;align-items:center;gap:8px;min-height:52px;padding:0 26px;border:0;border-radius:26px;background:var(--nk-action,#493394);color:#fff;font:inherit;font-size:16px;font-weight:700;box-shadow:0 10px 24px rgba(73,51,148,.32);cursor:pointer;transition:transform .1s}
+.nk-np-add-btn:active{transform:scale(.97)}
+.nk-np-add-menu,.nk-nb-menu{min-width:190px;padding:6px;border:1px solid #e1e5ef;border-radius:14px;background:#fff;box-shadow:0 14px 34px rgba(23,32,75,.18)}
+.nk-np-add-menu[hidden]{display:none}
+.nk-np-add-menu button,.nk-nb-menu button{display:block;width:100%;min-height:44px;padding:0 14px;border:0;border-radius:9px;background:transparent;color:#17204b;font:inherit;font-size:15px;font-weight:600;text-align:left;cursor:pointer}
+.nk-np-add-menu button:hover,.nk-nb-menu button:hover,.nk-np-add-menu button:focus-visible,.nk-nb-menu button:focus-visible{background:#f2f0fa;outline:0}
+.nk-np-add-menu button:disabled,.nk-nb-menu button:disabled{opacity:.4;cursor:default}
+.nk-nb-menu{position:fixed;z-index:1950;animation:nk-note-pop .12s ease-out}
+.nk-nb-menu .is-danger{color:#c03a4c}
+@keyframes nk-note-pop{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+.nk-note-page button:focus-visible,.nk-question-note .nk-note-bar:focus-visible{outline:3px solid #8ca3ed;outline-offset:2px}
 .nk-note-file{position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none}
-.nk-question-note .nk-note-add-row button{flex:1 1 auto;border:1px dashed #b9c4e0;background:#f8faff}
-.nk-question-note button:disabled{opacity:.45;cursor:default}
+@media (prefers-reduced-motion:reduce){.nk-note-media-frame,.nk-skel,.nk-note-page,.nk-nb-menu{animation:none}}
 .nk-notes-item-media{display:flex;align-items:center;gap:8px;margin-top:10px}
 .nk-notes-item-media .nk-note-media-frame{width:72px;height:72px;border:1px solid #dce3ef;border-radius:8px}
 .nk-notes-item-media .nk-note-media-frame img{object-fit:cover}

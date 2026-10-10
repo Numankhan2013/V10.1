@@ -2488,3 +2488,10 @@ This is build-verified and hosted-verified. APKs remain manual opt-in; existing 
 ## 2026-10-05 — Compact My UWorld and moderate Block 2 candidate
 
 User authorizes Impeccable Home consolidation plus a moderate next topic and verified main/domain release. One My UWorld entry now opens the full library. Reviewed95 native pages add20 Biostatistics Block2 questions,12 figures and17 typed tables; old40 rows/batches and original source keys/statistics remain immutable. All108 local checks pass. Four-width learner/source-media flows and full Ubuntu qualification/promotion are in progress; main remains certified31bff68 at this checkpoint. Report: `docs/UWORLD_BLOCK2_HOME_2026-10-05.md`.
+
+## 2026-10-10 — Question notes: images, PDF pages and note page
+
+- User chose importing GoodNotes exports over an in-app ink engine. Branch `ccr-47681b8d-1aikn7`.
+- Added ordered note blocks (text/image/PDF page), IndexedDB asset store with full/preview/thumb variants, PDF page picker (3,200 px render), zoom viewer, chunked `noteAssets` transfer outside the envelope pull, `noteBlocks` sync kind compatible with older clients, Android `<input type=file>` chooser transform, and a pdf.js 6 `Map.getOrInsertComputed` polyfill (main thread only; the custom-port worker approach hung the pdf.js handshake).
+- Per the user's mockup, the in-card editor became a compact My notes bar plus a full-screen note page with ⋮/long-press menus (Edit/View, Move up/down, Delete), floating + Add block and shimmer skeletons. Existing notes browser tests were rewritten for this flow.
+- Verification: 110 local checks; local replay of the full build workflow passed; notes browser checks run locally against a patched build with Chromium 140 (two-device sync against an in-memory Firestore double). Full CI, hosted preview and device checks pending.

@@ -42,24 +42,29 @@ def main() -> None:
             page.evaluate("window.QB.submitPractice()")
             note = page.locator(".nk-question-note")
             note.wait_for(state="visible")
-            note.get_by_role("button", name="Add note").click()
-            note.locator("textarea").fill("My recall cue: compare the two fibres.")
-            note.get_by_role("button", name="Save note").click()
+            note.get_by_role("button", name="Open my notes").click()
+            sheet = page.locator(".nk-note-page")
+            sheet.locator(".nk-np-add-menu").get_by_role("menuitem", name="Text", exact=True).click()
+            sheet.locator("textarea").fill("My recall cue: compare the two fibres.")
+            sheet.get_by_role("button", name="Save", exact=True).click()
             assert page.evaluate("id => window.QB.getState().questionNotes?.[id]?.text", QUESTION_ID) == "My recall cue: compare the two fibres."
-            assert note.locator("textarea").count() == 0
-            assert note.get_by_role("button", name="Save note").count() == 0
-            assert note.get_by_role("button", name="Cancel").count() == 0
-            assert note.locator(".nk-note-readonly").inner_text() == "My recall cue: compare the two fibres."
+            assert sheet.locator("textarea").count() == 0
+            assert sheet.locator(".nk-note-readonly").inner_text() == "My recall cue: compare the two fibres."
+            sheet.get_by_role("button", name="Close notes").click()
+            assert "My recall cue" in note.inner_text()
             page.screenshot(path=str(output / "question-notes-practice-phone.png"), full_page=True)
 
             page.reload(wait_until="domcontentloaded")
             page.wait_for_function("window.QB && window.QB.getState")
             note.wait_for(state="visible")
-            assert note.locator(".nk-note-readonly").inner_text() == "My recall cue: compare the two fibres.", "Note was lost after reload"
-            note.get_by_role("button", name="Edit note").click()
-            note.locator("textarea").fill("Unsaved change")
-            note.get_by_role("button", name="Cancel").click()
-            assert note.locator(".nk-note-readonly").inner_text() == "My recall cue: compare the two fibres.", "Cancel changed the saved note"
+            assert "My recall cue: compare the two fibres." in note.inner_text(), "Note was lost after reload"
+            note.get_by_role("button", name="Open my notes").click()
+            sheet.locator('.nk-nb[data-i="0"] .nk-nb-dots').click()
+            page.locator(".nk-nb-menu").get_by_role("menuitem", name="Edit", exact=True).click()
+            sheet.locator("textarea").fill("Unsaved change")
+            sheet.get_by_role("button", name="Cancel").click()
+            assert sheet.locator(".nk-note-readonly").inner_text() == "My recall cue: compare the two fibres.", "Cancel changed the saved note"
+            sheet.get_by_role("button", name="Close notes").click()
 
             page.evaluate("window.QB.nav('more')")
             page.get_by_role("button", name="My notes").click()
@@ -79,7 +84,7 @@ def main() -> None:
             page.locator(".option").first.click()
             page.evaluate("window.QB.submitPractice()")
             note.wait_for(state="visible")
-            assert note.locator(".nk-note-readonly").inner_text() == "My recall cue: compare the two fibres."
+            assert "My recall cue: compare the two fibres." in note.inner_text()
 
             page.evaluate("""id => {
               const s=window.QB.getState();
@@ -89,13 +94,17 @@ def main() -> None:
             }""", QUESTION_ID)
             note = page.locator(".nk-question-note")
             note.wait_for(state="visible")
-            assert note.locator(".nk-note-readonly").inner_text() == "My recall cue: compare the two fibres.", "Review did not show the note"
-            note.get_by_role("button", name="Delete note").click()
+            assert "My recall cue: compare the two fibres." in note.inner_text(), "Review did not show the note"
+            note.get_by_role("button", name="Open my notes").click()
+            sheet.locator('.nk-nb[data-i="0"] .nk-nb-dots').click()
+            page.locator(".nk-nb-menu").get_by_role("menuitem", name="Delete", exact=True).click()
             assert page.evaluate("id => window.QB.getState().questionNotes?.[id]?.deleted", QUESTION_ID), "Removing a note needs a sync tombstone"
-            assert note.get_by_role("button", name="Add note").count() == 1
+            assert sheet.locator(".nk-np-empty").is_visible()
+            sheet.get_by_role("button", name="Close notes").click()
+            assert "Add text, images or PDF pages" in note.inner_text()
             page.screenshot(path=str(output / "question-notes-review-phone.png"), full_page=True)
             assert not errors, f"Browser errors: {errors!r}"
-            print("QUESTION_NOTES_BROWSER_OK practice=true reload=true review=true removal=true")
+            print("QUESTION_NOTES_BROWSER_OK bar=true practice=true reload=true review=true removal=true")
             browser.close()
     finally:
         server.shutdown()

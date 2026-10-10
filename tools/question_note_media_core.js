@@ -227,10 +227,6 @@
     }catch(_){}
     nkNoteAssetsSyncSoon();
   }
-  // Images imported into a draft that was cancelled were never saved anywhere else.
-  async function nkNoteDiscardDraftAssets(ids){
-    for(const id of ids){try{const meta=await nkNoteIdbGet('meta',id);if(meta?.draft)await nkNoteAssetDrop(id,null);}catch(_){}}
-  }
   function nkNoteReferencedAssets(){
     const out=new Map();
     Object.values(state.questionNotes||{}).forEach(note=>{if(note&&!note.deleted)nkNoteBlocks(note).forEach(block=>{if(block.type==='image')out.set(block.asset.id,block.asset);});});
@@ -339,7 +335,13 @@
       if(img.dataset.nkNotePending)return;img.dataset.nkNotePending='1';
       nkNoteAssetUrl(img.dataset.nkNoteAsset,img.dataset.nkNoteVariant||'preview').then(url=>{
         delete img.dataset.nkNotePending;const frame=img.closest('.nk-note-media-frame');
-        if(url){img.src=url;frame?.classList.remove('is-missing');}
+        if(url){
+          frame?.classList.remove('is-missing');
+          // The frame shimmers until the picture is decoded, then the image fades in.
+          const shown=()=>frame?.classList.add('is-loaded');
+          img.addEventListener('load',shown,{once:true});img.src=url;
+          if(img.complete&&img.naturalWidth)shown();
+        }
         else{frame?.classList.add('is-missing');nkNoteAssetsSyncSoon(300);}
       }).catch(()=>{delete img.dataset.nkNotePending;img.closest('.nk-note-media-frame')?.classList.add('is-missing');});
     });
