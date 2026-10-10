@@ -1,0 +1,69 @@
+{
+ "schema_version": 1,
+ "collection": "Gastrointestinal & Nutrition",
+ "source_sha256": "27c92e515205d15ef32d85a7b80599b5c378234f84886bbc46e70e959e6e7ae2",
+ "source_pdf": "data/uworld/Source_pdfs/gastrointenstinal_and_nutrition/Gastrointestinal & Nutrition - 8 blocks.pdf",
+ "page_count": 1886,
+ "record_count": 311,
+ "jsonl_file": "normalized.jsonl",
+ "jsonl_sha256": "2019ac9d842c10f7f864d0486b157d79c1ae892e46afa59dced47ff77c78b599",
+ "source_extraction_method": "uworld-auto-extract",
+ "blocks": {
+  "1": 41,
+  "2": 40,
+  "3": 39,
+  "4": 39,
+  "5": 40,
+  "6": 40,
+  "7": 37,
+  "8": 35
+ },
+ "unowned_pages": [
+  {
+   "pages": [
+    139,
+    140,
+    141,
+    142
+   ],
+   "reason": "no answered page; rescue: reviewer held it: green tick E (page 140); stats 'Collecting Statistics'; explanation text between the figure (pages 140"
+  },
+  {
+   "pages": [
+    565,
+    566,
+    567,
+    568,
+    569,
+    570,
+    571
+   ],
+   "reason": "options panel not found; rescue: reviewer held it: No screenshot shows the full answered options panel: page 570 popup hides it (only B 0% and green tick"
+  },
+  {
+   "pages": [
+    642,
+    643,
+    644,
+    645,
+    646
+   ],
+   "reason": "missing choice percent; choices look like pictures or a table; empty choice text (image option?); rescue: reviewer held it: Green tick B (page 643). Text between the explanation figure (pages 643-644, covered by popup) and 'Re"
+  },
+  {
+   "pages": [
+    774,
+    775,
+    776,
+    777,
+    778,
+    779
+   ],
+   "reason": "duplicate question id"
+  }
+ ],
+ "figures_dir": "data/uworld/prepared/gastrointestinal_nutrition/figures",
+ "verified": 310,
+ "blocked": 1,
+ "reviewed_by": "claude-haiku (flagged questions only)"
+}

@@ -74,6 +74,12 @@ def main():
                             ('UWorld · Male Reproductive System', 'UWorld'): 52,
                             ('UWorld · Female Reproductive System & Breast', 'UWorld'): 81,
                             ('UWorld · Biostatistics & Epidemiology', 'UWorld'): 60}
+                # Auto-extracted collections (tools/uworld_auto) carry their own pinned counts.
+                import glob as _glob, json as _json
+                for _m in _glob.glob(str(Path(__file__).resolve().parents[1] / 'data/uworld/prepared/*/manifest.json')):
+                    _man = _json.loads(Path(_m).read_text())
+                    if _man.get('source_extraction_method') == 'uworld-auto-extract':
+                        expected[('UWorld · ' + _man['collection'], 'UWorld')] = _man['record_count']
                 assert {(r['subject'], r['bank']): r['questions'] for r in records} == expected, records
                 qs = page.evaluate('__uworldTest.questions().filter(q=>q.bank==="UWorld"&&q.collection==="Biochemistry")')
                 assert len(qs) == len({q['id'] for q in qs}) == 132
@@ -100,7 +106,8 @@ def main():
                 entry = page.locator('.nk-home-uworld').get_by_role('button',name='Open My UWorld',exact=True)
                 expect(entry).to_have_count(1)
                 expect(page.locator('.nk-home-uworld .nk-uworld-collection')).to_have_count(0)
-                assert '6 collections · 388 questions' in entry.inner_text()
+                uw = {k: v for k, v in expected.items() if k[1] == 'UWorld'}
+                assert f"{len(uw)} collections · {sum(uw.values()):,} questions" in entry.inner_text(), entry.inner_text()
                 assert entry.bounding_box()['height'] >= 44
                 assert not page.evaluate('document.documentElement.scrollWidth>innerWidth')
                 page.screenshot(path=str(output / f'home-my-uworld-{width}.png'),full_page=True)
@@ -111,7 +118,7 @@ def main():
                 assert page.locator('.nk-uworld-library-note').count()==0
                 assert "UWorld's original collections" not in page.locator('.nk-uworld-library').inner_text()
                 page.screenshot(path=str(output / f'uworld-collections-{width}.png'))
-                expect(page.locator('.nk-uworld-collection')).to_have_count(6)
+                expect(page.locator('.nk-uworld-collection')).to_have_count(len(uw))
                 page.locator('.nk-uworld-collection').filter(has_text='Biochemistry').click()
                 expect(page.locator('button.nk-topic-row')).to_have_count(4)
                 assert page.locator('.nk-topic-group>h2').all_inner_texts()==['Blocks']

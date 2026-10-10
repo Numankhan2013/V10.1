@@ -54,6 +54,8 @@
     const index=s.index;
     s.questionIds.forEach((id,i)=>{if(!s.submitted?.[id]&&nkValidQuestionOption(nkPracticeResumeQuestion(id),s.answers?.[id])){s.index=i;submitPractice();}});
     s.index=index;nkFsrsRecoverPending();nkPracticePrepareSession(s);
+    // Same skip rule as every session: only questions passed over before the last answered one.
+    if(typeof nkMarkSkippedFromSession==='function')nkMarkSkippedFromSession(s);
     const all=nkPracticeSessionIds(s),ids=all.filter(id=>s.submitted?.[id]&&nkValidQuestionOption(nkPracticeResumeQuestion(id),s.answers?.[id])),now=Date.now();
     const answers=Object.fromEntries(ids.map(id=>[id,s.answers[id]])),times=Object.fromEntries(ids.map(id=>[id,Number(s.questionTimes?.[id]||0)])),correct=ids.filter(id=>Number(nkPracticeResumeQuestion(id)?.correctOption)===Number(answers[id])).length;
     s.lifecycle='submitted';s.submittedAt=now;const cp=nkPracticeBuildCheckpoint(s,'submitted');cp.terminalAt=now;nkPracticeStoreCheckpoint(cp);
@@ -62,7 +64,7 @@
       state.tests.push({id:resultId,sessionId:String(s.id),title:s.title,kind:'practice',questionIds:ids,answers,questionTimes:times,correct,incorrect:ids.length-correct,unattempted:0,total:ids.length,attempted:ids.length,totalTimeMs:Object.values(times).reduce((a,b)=>a+b,0),createdAt:now,autoSubmitted:false,originRoute:'quick-revision',revisionQueueKind:nkRevisionSessionKind(s)});
       state.tests=state.tests.slice(-100);
     }
-    // Ending a revision pass never turns the untouched remainder into skipped attempts.
+    // Ending a revision pass never records skipped attempts, and never touches questions after the last one answered.
     nkFsrsSessionOrigin=null;state.activeSession=null;if(saveState()===false)return false;
     nkPracticeCloseOverlays();navigate(ids.length?'result':'quick-revision',ids.length?resultId:undefined);return true;
   }

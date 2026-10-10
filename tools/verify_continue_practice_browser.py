@@ -480,15 +480,25 @@ def main() -> None:
             # A stale/expired submitted flag without a selected answer must not
             # prevent final submission from recording the question as skipped.
             page.evaluate("id => window.QB.getState().activeSession.submitted[id]=true", untouched[0])
+            # Skip rule: answer a later question (index 6). Only the questions passed over
+            # before it (indexes 4 and 5) may enter FSRS; everything after it was never reached.
+            late_id = lifecycle_ids[6]
+            late_correct = page.evaluate("""qid => {
+              const all=[...(window.QBANK_DATA?.questions||[]),...((window.SUBJECT_QBANK_DATA?.subjects||[]).flatMap(x=>x.questions||[]))];
+              return Number(all.find(q=>String(q.id)===String(qid))?.correctOption||0);
+            }""", late_id)
+            page.evaluate("i => window.QB.goIndex(i)", 6)
+            page.evaluate("args => window.QB.selectPractice(args.id,args.correct)", {"id": late_id, "correct": late_correct})
             page.evaluate("window.QB.openSessionReview()")
             page.locator("#nk-session-review").get_by_role("button", name="Submit", exact=True).click()
             page.wait_for_function("!window.QB.getState().activeSession")
-            submitted_skips = page.evaluate("""untouched => {
+            submitted_skips = page.evaluate("""ids => {
               const state=window.QB.getState();
-              return untouched.filter(id=>state.fsrsReviewEligible?.[id]?.reason==='skipped');
-            }""", untouched)
-            if submitted_skips != untouched:
-                raise SystemExit(f"Final submission did not add every unanswered question to FSRS: {submitted_skips}")
+              return ids.filter(id=>state.fsrsReviewEligible?.[id]?.reason==='skipped');
+            }""", lifecycle_ids)
+            if submitted_skips != lifecycle_ids[4:6]:
+                raise SystemExit(f"Skip rule violated: expected only questions passed over before the last answer, got {submitted_skips}")
+            untouched = lifecycle_ids[4:6]
 
             # Complete the daily loop through Analysis and the read-only Review
             # surface, including Previous/Next, the grid, and End Review.

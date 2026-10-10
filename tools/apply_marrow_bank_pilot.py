@@ -130,10 +130,22 @@ if legacy_marker in source:
   function nkBankRecord(name,bank){
     const list=nkBankRecords(name);return list.find(x=>x.bank===bank)||list[0]||null;
   }
+  // The flattened bank (~30k copies) is rebuilt only when a bank record or its
+  // question list changes; per-question lookups used to rebuild it every call.
+  let nkAllBankQuestionsCache=null;
+  function nkAllBankQuestionsBuild(){
+    const sources=Object.values(BANKS_BY_SUBJECT).flatMap(records=>records),c=nkAllBankQuestionsCache;
+    if(c&&c.sources.length===sources.length&&sources.every((r,i)=>r===c.sources[i]&&r.questions===c.lists[i]&&(r.questions||[]).length===c.lengths[i]))return c;
+    const all=sources.flatMap(record=>(record.questions||[]).map(q=>({...q,subject:q.subject||record.subject,bank:q.bank||record.bank||'PrepLadder'})));
+    return nkAllBankQuestionsCache={sources,lists:sources.map(r=>r.questions),lengths:sources.map(r=>(r.questions||[]).length),all,byId:null};
+  }
   function nkAllBankQuestions(){
-    return Object.values(BANKS_BY_SUBJECT).flatMap(records=>records.flatMap(record=>
-      (record.questions||[]).map(q=>({...q,subject:q.subject||record.subject,bank:q.bank||record.bank||'PrepLadder'}))
-    ));
+    return nkAllBankQuestionsBuild().all.slice();
+  }
+  function nkBankQuestionById(id){
+    const c=nkAllBankQuestionsBuild();
+    if(!c.byId){c.byId=new Map();c.all.forEach(q=>{const k=String(q.id);if(!c.byId.has(k))c.byId.set(k,q);});}
+    return c.byId.get(String(id))||null;
   }
 '''
     source=source[:record_start]+generic_registry+source[registry_end:]

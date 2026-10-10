@@ -109,6 +109,24 @@ CSS = '''<style id="nk-question-notes-v1">
 .nk-note-page button:focus-visible,.nk-question-note .nk-note-bar:focus-visible{outline:3px solid #8ca3ed;outline-offset:2px}
 .nk-note-file{position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none}
 @media (prefers-reduced-motion:reduce){.nk-note-media-frame,.nk-skel,.nk-note-page,.nk-nb-menu{animation:none}}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-question-note.nk-question-note{padding:0!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-question-note .nk-note-bar.nk-note-bar{min-height:64px;padding:12px 14px;border:1px solid var(--nkg-border)!important;border-radius:14px!important;background:var(--nkg-surface)!important;color:var(--nkg-fg)!important;font-family:var(--nkg-font-sans,inherit)}
+html[data-nk-ui="geist"] .nk-note-bar-icon{background:var(--nkg-surface-2,#f4f4f5);color:var(--nkg-fg)}
+html[data-nk-ui="geist"] .nk-note-bar-copy small,html[data-nk-ui="geist"] .nk-nb-caption,html[data-nk-ui="geist"] .nk-np-status,html[data-nk-ui="geist"] .nk-np-empty p{color:var(--nkg-fg-3)}
+html[data-nk-ui="geist"] .nk-note-bar-count,html[data-nk-ui="geist"] .nk-np-add-btn,html[data-nk-ui="geist"] .nk-nb-edit-actions .nk-note-save{background:var(--nkg-inverse-bg,#111);color:var(--nkg-inverse-fg,#fff)}
+html[data-nk-ui="geist"] .nk-np-add-btn{box-shadow:0 10px 24px rgba(0,0,0,.22)}
+html[data-nk-ui="geist"] .nk-note-page{background:var(--nkg-bg,#fff);color:var(--nkg-fg);font-family:var(--nkg-font-sans,inherit)}
+html[data-nk-ui="geist"] .nk-np-head{background:var(--nkg-surface,#fff);border-color:var(--nkg-border)}
+html[data-nk-ui="geist"] .nk-np-head h2,html[data-nk-ui="geist"] .nk-np-back,html[data-nk-ui="geist"] .nk-nb-title,html[data-nk-ui="geist"] .nk-np-empty strong{color:var(--nkg-fg)}
+html[data-nk-ui="geist"] .nk-np-head h2 span,html[data-nk-ui="geist"] .nk-nb-kind,html[data-nk-ui="geist"] .nk-nb-dots{color:var(--nkg-fg-2)}
+html[data-nk-ui="geist"] .nk-note-page .nk-nb-text{color:var(--nkg-fg)}
+html[data-nk-ui="geist"] .nk-nb{border-color:var(--nkg-border)}
+html[data-nk-ui="geist"] .nk-nb-open,html[data-nk-ui="geist"] .nk-np-add-menu,html[data-nk-ui="geist"] .nk-nb-menu{border-color:var(--nkg-border);background:var(--nkg-surface,#fff)}
+html[data-nk-ui="geist"] .nk-np-add-menu button,html[data-nk-ui="geist"] .nk-nb-menu button,html[data-nk-ui="geist"] .nk-nb-edit-actions button{color:var(--nkg-fg)}
+html[data-nk-ui="geist"] .nk-nb-menu .is-danger{color:var(--nkg-red,#c03a4c)}
+html[data-nk-ui="geist"] .nk-np-add-menu button:hover,html[data-nk-ui="geist"] .nk-nb-menu button:hover,html[data-nk-ui="geist"] .nk-np-add-menu button:focus-visible,html[data-nk-ui="geist"] .nk-nb-menu button:focus-visible{background:var(--nkg-surface-2,#f4f4f5)}
+html[data-nk-ui="geist"] .nk-nb.is-editing textarea{border-color:var(--nkg-border);background:var(--nkg-surface,#fff);color:var(--nkg-fg)}
+html[data-nk-ui="geist"] .nk-nb.is-editing textarea:focus{outline-color:var(--nkg-border);border-color:var(--nkg-fg)}
 .nk-notes-item-media{display:flex;align-items:center;gap:8px;margin-top:10px}
 .nk-notes-item-media .nk-note-media-frame{width:72px;height:72px;border:1px solid #dce3ef;border-radius:8px}
 .nk-notes-item-media .nk-note-media-frame img{object-fit:cover}

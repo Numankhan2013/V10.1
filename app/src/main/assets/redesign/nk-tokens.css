@@ -1,0 +1,98 @@
+/* NK QBank — Geist redesign tokens (light + dark).
+   Neutral white / near-black base; colour only carries meaning:
+   correct = green, incorrect = red, warning = amber, streak = orange.
+   Every token is scoped to html[data-nk-ui="geist"] so the legacy UI is untouched
+   when the redesign is switched off. */
+
+@font-face {
+  font-family: "Geist";
+  src: url("fonts/Geist-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Geist Mono";
+  src: url("fonts/GeistMono-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+html[data-nk-ui="geist"] {
+  --nkg-font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --nkg-font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --nkg-bg: #ffffff;
+  --nkg-bg-subtle: #fafafa;
+  --nkg-surface: #ffffff;
+  --nkg-surface-2: #f5f5f5;
+  --nkg-hover: #f2f2f2;
+  --nkg-active: #ededed;
+  --nkg-border: #e5e5e5;
+  --nkg-border-strong: #d4d4d4;
+  --nkg-fg: #171717;
+  --nkg-fg-2: #4d4d4d;
+  --nkg-fg-3: #666666;
+  --nkg-inverse-bg: #171717;
+  --nkg-inverse-fg: #ffffff;
+  --nkg-focus: #0062cc;
+  --nkg-scrim: rgba(0, 0, 0, .36);
+
+  --nkg-green: #0a7d35;  --nkg-green-bg: #ecf8f0;  --nkg-green-border: #b6e3c6;
+  --nkg-red: #c9252c;    --nkg-red-bg: #fdeeee;    --nkg-red-border: #f5c2c4;
+  --nkg-amber: #a35200;  --nkg-amber-bg: #fff5e3;  --nkg-amber-border: #f6d9a6;
+  --nkg-orange: #e5530b; --nkg-orange-bg: #fff1e8;
+  --nkg-blue: #0062cc;   --nkg-blue-bg: #eaf3ff;   --nkg-blue-border: #bcd8fb;
+
+  /* Subject accent dots (identity marks only, never surfaces). */
+  --nkg-subj-anatomy: #2563eb;
+  --nkg-subj-physiology: #e11d48;
+  --nkg-subj-biochemistry: #0d9488;
+  --nkg-subj-uworld: #737373;
+
+  --nkg-shadow-sm: 0 1px 2px rgba(0, 0, 0, .05);
+  --nkg-shadow-md: 0 1px 1px rgba(0,0,0,.02), 0 4px 8px -4px rgba(0,0,0,.05), 0 16px 24px -8px rgba(0,0,0,.07);
+  --nkg-shadow-lg: 0 1px 1px rgba(0,0,0,.02), 0 8px 16px -4px rgba(0,0,0,.07), 0 24px 48px -12px rgba(0,0,0,.16);
+
+  --nkg-r-sm: 6px; --nkg-r-md: 8px; --nkg-r-lg: 12px; --nkg-r-xl: 16px;
+  --nkg-ease: cubic-bezier(.23, 1, .32, 1);
+  --nkg-ease-in-out: cubic-bezier(.77, 0, .175, 1);
+  --nkg-dur: 180ms;
+  --nkg-topbar-h: 56px;
+  color-scheme: light;
+}
+
+html[data-nk-ui="geist"][data-nk-theme="dark"] {
+  --nkg-bg: #0a0a0a;
+  --nkg-bg-subtle: #000000;
+  --nkg-surface: #0a0a0a;
+  --nkg-surface-2: #161616;
+  --nkg-hover: #1a1a1a;
+  --nkg-active: #222222;
+  --nkg-border: #262626;
+  --nkg-border-strong: #383838;
+  --nkg-fg: #ededed;
+  --nkg-fg-2: #b4b4b4;
+  --nkg-fg-3: #999999;
+  --nkg-inverse-bg: #ededed;
+  --nkg-inverse-fg: #0a0a0a;
+  --nkg-focus: #4fa3ff;
+  --nkg-scrim: rgba(0, 0, 0, .64);
+
+  --nkg-green: #46c96f;  --nkg-green-bg: #0c2416;  --nkg-green-border: #1b4d2d;
+  --nkg-red: #ff6b70;    --nkg-red-bg: #2c0f12;    --nkg-red-border: #5c1f24;
+  --nkg-amber: #f5a524;  --nkg-amber-bg: #291c05;  --nkg-amber-border: #57390b;
+  --nkg-orange: #ff8a3d; --nkg-orange-bg: #2b1607;
+  --nkg-blue: #4fa3ff;   --nkg-blue-bg: #0b1d33;   --nkg-blue-border: #173a63;
+
+  --nkg-subj-anatomy: #60a5fa;
+  --nkg-subj-physiology: #fb7185;
+  --nkg-subj-biochemistry: #2dd4bf;
+  --nkg-subj-uworld: #a3a3a3;
+
+  --nkg-shadow-sm: 0 0 0 1px rgba(255, 255, 255, .04);
+  --nkg-shadow-md: 0 0 0 1px rgba(255,255,255,.06), 0 8px 24px rgba(0,0,0,.5);
+  --nkg-shadow-lg: 0 0 0 1px rgba(255,255,255,.08), 0 24px 48px rgba(0,0,0,.7);
+  color-scheme: dark;
+}

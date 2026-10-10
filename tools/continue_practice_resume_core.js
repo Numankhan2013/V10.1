@@ -98,6 +98,10 @@
     const topic=current.record.topics?.[current.index+1];if(!topic)return null;
     return nkPracticeTopicContext(current.subject,current.bank,topic.id);
   }
+  // Questions that accept no answer (incomplete source, UWorld diagram needed)
+  // can never be "remaining" work, or Continue Practice would loop on them.
+  function nkPracticeAnswerable(q){return Boolean(q)&&(typeof nkUworldEligible!=='function'||q.bank!=='UWorld'||nkUworldEligible(q))&&(typeof nkFsrsAnswerable!=='function'||nkFsrsAnswerable(q));}
+  function nkPracticePendingIds(ids){return ids.filter(id=>!(typeof qAttempts==='function'&&qAttempts(id).length)&&nkPracticeAnswerable(nkPracticeResumeQuestion(id)));}
   function nkTopicPracticeContinuation(subject,bank){
     const record=nkPracticeRecord(subject,bank);if(!record||String(record.bank||'')!==String(bank))return null;
     const matches=q=>q&&String(q.subject||'')===String(subject)&&String(q.bank||'')===String(bank);
@@ -121,7 +125,7 @@
       if(result)return result;
     }
     const topics=record.topics||[],remaining=t=>{
-      const qs=(record.questions||[]).filter(q=>String(q.chapterId)===String(t.id)&&(typeof nkUworldEligible!=='function'||nkUworldEligible(q)));
+      const qs=(record.questions||[]).filter(q=>String(q.chapterId)===String(t.id)&&nkPracticeAnswerable(q));
       return {total:qs.length,done:qs.filter(q=>qAttempts(q.id).length).length};
     };
     const topic=topics.find(t=>{const s=remaining(t);return s.done>0&&s.done<s.total;})||topics.find(t=>{const s=remaining(t);return s.done<s.total;});
@@ -149,7 +153,7 @@
     if(completed){
       const current=nkPracticeTopicContext(completed.subject,completed.bank,completed.topicId);
       if(current){
-        const pending=current.questionIds.filter(id=>!(typeof qAttempts==='function'&&qAttempts(id).length));
+        const pending=nkPracticePendingIds(current.questionIds);
         if(!pending.length){const next=nkPracticeNextTopic(completed);return next?{kind:'next-topic',context:next}:{kind:'library'};}
         return {kind:'topic-remaining',context:{...current,questionIds:pending}};
       }
@@ -158,7 +162,7 @@
     if(legacy?.q){
       const current=nkPracticeTopicContext(legacy.q.subject,legacy.q.bank,legacy.q.chapterId);
       if(current){
-        const pending=current.questionIds.filter(id=>!(typeof qAttempts==='function'&&qAttempts(id).length));
+        const pending=nkPracticePendingIds(current.questionIds);
         if(!pending.length){const next=nkPracticeNextTopic(current);return next?{kind:'next-topic',context:next}:{kind:'library'};}
         return {kind:'topic-remaining',context:{...current,questionIds:pending}};
       }

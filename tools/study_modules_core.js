@@ -348,16 +348,18 @@
 
   function nkModuleBuilderStep(step){
     if(!studyModuleDraft)studyModuleDraft=nkNewStudyModuleDraft();
-    if(step>studyModuleDraft.step){
-      if(studyModuleDraft.step===1&&!studyModuleDraft.scopeIds.length){showToast('Select at least one question bank.','bad');return;}
-      if(studyModuleDraft.step===2&&!studyModuleDraft.topicIds.length){showToast('Select at least one topic.','bad');return;}
-      if(studyModuleDraft.step===3&&studyModuleDraft.countMode==='custom'){
+    step=Math.max(1,Math.min(4,Number(step)));
+    // Forward moves (Continue or a later stepper item) must pass every step they skip.
+    for(let at=studyModuleDraft.step;at<step;at++){
+      if(at===1&&!studyModuleDraft.scopeIds.length){showToast('Select at least one question bank.','bad');return;}
+      if(at===2&&!studyModuleDraft.topicIds.length){showToast('Select at least one topic.','bad');return;}
+      if(at===3&&studyModuleDraft.countMode==='custom'){
         const input=document.getElementById('nk-module-custom-count');
         if(input&&!input.checkValidity()){nkSetCustomModuleCount(input.value);input.focus({preventScroll:true});return;}
       }
-      if(studyModuleDraft.step===3&&!nkQuestionsForModuleDraft().length){showToast('Change the topics or question type to find eligible questions.','bad');return;}
+      if(at===3&&!nkQuestionsForModuleDraft().length){showToast('Change the topics or question type to find eligible questions.','bad');return;}
     }
-    studyModuleDraft.step=Math.max(1,Math.min(4,Number(step)));
+    studyModuleDraft.step=step;
     if(studyModuleDraft.step===4&&!studyModuleDraft.nameEdited)studyModuleDraft.name=nkStudyModuleAutoName();
     render();
   }
@@ -394,7 +396,7 @@
 
   function nkModuleBuilderReview(){
     const available=nkQuestionsForModuleDraft().length,requested=Math.max(1,Number(studyModuleDraft.questionCount||20)),actual=Math.min(requested,available),autoName=nkStudyModuleAutoName();
-    return `<label class="nk-module-name"><span>Module name</span><input maxlength="80" value="${esc(studyModuleDraft.name||autoName)}" placeholder="${esc(autoName)}" oninput="window.QB.nkSetModuleName(this.value)"></label><div class="nk-module-review-card"><div><small>Study scope</small><strong>${esc(nkModuleScopeLabels(studyModuleDraft).join(' + '))}</strong><p>${fmtNum(studyModuleDraft.topicIds.length)} topics selected</p></div><div><small>Question pool</small><strong>${esc(nkStudyModulePoolLabel(studyModuleDraft.questionPoolType))}</strong><p>${fmtNum(actual)} questions</p></div></div>${requested>available?`<div class="nk-module-warning">Only ${fmtNum(available)} eligible questions are available. You can create this module with all ${fmtNum(actual)} questions.</div>`:''}`;
+    return `<label class="nk-module-name"><span>Module name</span><input maxlength="80" value="${esc(studyModuleDraft.name||autoName)}" placeholder="${esc(autoName)}" oninput="window.QB.nkSetModuleName(this.value)"></label><div class="nk-module-review-card"><div><small>Study scope</small><strong>${esc(nkModuleScopeLabels(studyModuleDraft).join(' + '))}</strong><p>${fmtNum(studyModuleDraft.topicIds.length)} topic${studyModuleDraft.topicIds.length===1?'':'s'} selected</p></div><div><small>Question pool</small><strong>${esc(nkStudyModulePoolLabel(studyModuleDraft.questionPoolType))}</strong><p>${fmtNum(actual)} questions</p></div></div>${requested>available?`<div class="nk-module-warning">Only ${fmtNum(available)} eligible questions are available. You can create this module with all ${fmtNum(actual)} questions.</div>`:''}`;
   }
 
   function studyModuleBuilderPage(){
@@ -404,7 +406,7 @@
     const available=nkQuestionsForModuleDraft().length,canCreate=available>0&&studyModuleDraft.topicIds.length>0;
     const description=step===2?'Search or scroll, then tap the topics you want in this module.':'Build a focused set that stays stable while you work through it.';
     const actions=step===2?`<div class="nk-module-builder-actions nk-module-topic-actions"><span id="nk-module-footer-count">${studyModuleDraft.topicIds.length} topic${studyModuleDraft.topicIds.length===1?'':'s'} selected</span><button id="nk-module-topics-continue" class="is-primary" ${studyModuleDraft.topicIds.length?'':'disabled'} onclick="window.QB.nkModuleBuilderStep(3)">Continue to questions</button></div>`:step<4?`<div class="nk-module-builder-actions"><button class="is-primary" onclick="window.QB.nkModuleBuilderStep(${step+1})">Continue</button></div>`:`<div class="nk-module-builder-actions"><div class="nk-module-final-actions"><button ${canCreate?'':'disabled'} onclick="window.QB.nkCreateStudyModule(false)">Save for later</button><button class="is-primary" ${canCreate?'':'disabled'} onclick="window.QB.nkCreateStudyModule(true)">Start now</button></div></div>`;
-    return shell(`<div class="nk-app-v114 nk-module-builder ${step===2?'is-topics':''}"><button class="nk-back-link" onclick="${step===1?"window.QB.nav('dashboard')":`window.QB.nkModuleBuilderStep(${step-1})`}">${navIcon('back',18)} ${step===1?'Home':'Back'}</button>${nkAppPageHead(`CUSTOM STUDY · STEP ${step} OF 4`,titles[step-1],description)}<div class="nk-module-stepper">${[1,2,3,4].map(n=>`<span class="${n===step?'is-current':n<step?'is-done':''}"><i>${n<step?navIcon('check',12):n}</i><b>${['Banks','Topics','Questions','Finish'][n-1]}</b></span>`).join('')}</div><section class="nk-module-builder-card">${content}</section>${actions}</div>`,'dashboard');
+    return shell(`<div class="nk-app-v114 nk-module-builder ${step===2?'is-topics':''}"><button class="nk-back-link" onclick="${step===1?"window.QB.nav('dashboard')":`window.QB.nkModuleBuilderStep(${step-1})`}">${navIcon('back',18)} ${step===1?'Home':'Back'}</button>${nkAppPageHead(`CUSTOM STUDY · STEP ${step} OF 4`,titles[step-1],description)}<div class="nk-module-stepper">${[1,2,3,4].map(n=>`<span class="${n===step?'is-current':n<step?'is-done':''}"${n===step?' aria-current="step"':` tabindex="0" aria-label="Go to ${['Banks','Topics','Questions','Finish'][n-1]}" onclick="window.QB.nkModuleBuilderStep(${n})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"`}><i>${n<step?navIcon('check',12):n}</i><b>${['Banks','Topics','Questions','Finish'][n-1]}</b></span>`).join('')}</div><section class="nk-module-builder-card">${content}</section>${actions}</div>`,'dashboard');
   }
 
   function nkCreateStudyModule(startNow){
@@ -452,7 +454,10 @@
     const s=state.activeSession;if(!s?.studyModuleId)return;
     const remaining=s.questionIds.filter(id=>!s.submitted?.[id]).length;
     if(remaining&&!confirm(`Finish this module with ${remaining} unanswered question${remaining===1?'':'s'}?`))return;
-    closeSessionReview();finishPracticeSession();
+    closeSessionReview();
+    // Same skip rule as every session: only questions passed over before the last answered one enter FSRS.
+    if(typeof nkMarkSkippedFromSession==='function')nkMarkSkippedFromSession(s);
+    finishPracticeSession();
   }
 
   function restartStudyModule(id){

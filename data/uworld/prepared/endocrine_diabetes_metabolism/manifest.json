@@ -1,0 +1,46 @@
+{
+ "schema_version": 1,
+ "collection": "Endocrine, Diabetes & Metabolism",
+ "source_sha256": "4caf34330d12c79f1b865d3ff48f29ddc7a355f02c40e836c66edf85575a20d5",
+ "source_pdf": "data/uworld/Source_pdfs/endocrine_diabetes_and_metabolism/UW_2024_Endocrine,_Diabetes_&_Metabolism_6_blocks_OCR.pdf",
+ "page_count": 1213,
+ "record_count": 216,
+ "jsonl_file": "normalized.jsonl",
+ "jsonl_sha256": "b669b1277314a53c22d286eaf4b8a01eda4d3058a5d29b905d21c4a2bea3afc7",
+ "source_extraction_method": "uworld-auto-extract",
+ "blocks": {
+  "1": 40,
+  "2": 40,
+  "3": 40,
+  "4": 40,
+  "5": 38,
+  "6": 18
+ },
+ "unowned_pages": [
+  {
+   "pages": [
+    103,
+    104,
+    105,
+    106,
+    107,
+    108
+   ],
+   "reason": "no answered page; rescue: reviewer held it: Choices are line graphs (pages 103-104 show them) and current.json question_blocks is empty so figures; rescue: reviewer held it: Choices A-E are five different graphs (needs more than one picture; pages 103 and 104 each show only p"
+  },
+  {
+   "pages": [
+    952,
+    953,
+    954,
+    955,
+    956
+   ],
+   "reason": "choice letters disagree with order: E; missing choice percent; choices look like pictures or a table; empty choice text (image option?)"
+  }
+ ],
+ "figures_dir": "data/uworld/prepared/endocrine_diabetes_metabolism/figures",
+ "verified": 215,
+ "blocked": 1,
+ "reviewed_by": "claude-haiku (flagged questions only)"
+}

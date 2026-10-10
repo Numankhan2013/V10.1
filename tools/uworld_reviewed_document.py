@@ -14,11 +14,11 @@ def record_hash(row):
     return hashlib.sha256(json.dumps(row, ensure_ascii=False, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
 
 
-def figure_asset(qid, node, pdf_sha='806d95d6f09dde57d34e0d0b5fda69298a7789041bb570ce4fa6dd1c95d4fae9'):
+def figure_asset(qid, node, pdf_sha='806d95d6f09dde57d34e0d0b5fda69298a7789041bb570ce4fa6dd1c95d4fae9', ext='png'):
     spec = {'pdf': pdf_sha,
             'page': node['page'], 'bbox': node['bbox']}
     digest = record_hash(spec)[:16]
-    return f'source_visuals/uworld/{qid}-{digest}.png'
+    return f'source_visuals/uworld/{qid}-{digest}.{ext}'
 
 
 def percentage(value):
@@ -29,7 +29,7 @@ def percentage(value):
     return value
 
 
-def validate_node(node, qid, pages, role, pdf_sha='806d95d6f09dde57d34e0d0b5fda69298a7789041bb570ce4fa6dd1c95d4fae9', page_size=(1417,728)):
+def validate_node(node, qid, pages, role, pdf_sha='806d95d6f09dde57d34e0d0b5fda69298a7789041bb570ce4fa6dd1c95d4fae9', page_size=(1417,728), ext='png'):
     kind = node.get('type')
     if kind == 'paragraph':
         if not isinstance(node.get('text'), str) or not node['text'].strip():
@@ -50,12 +50,12 @@ def validate_node(node, qid, pages, role, pdf_sha='806d95d6f09dde57d34e0d0b5fda6
             raise ValueError('Invalid reviewed figure geometry: ' + qid)
         if not (0 <= bbox[0] < bbox[2] <= page_size[0] and 0 <= bbox[1] < bbox[3] <= page_size[1]):
             raise ValueError('Reviewed figure outside source page: ' + qid)
-        node['asset'] = figure_asset(qid, node, pdf_sha)
+        node['asset'] = figure_asset(qid, node, pdf_sha, ext)
     else:
         raise ValueError('Unknown reviewed document node: ' + qid)
 
 
-def load_reviewed(rows, pdf_sha, reviewed_dir=None, page_size=(1417,728)):
+def load_reviewed(rows, pdf_sha, reviewed_dir=None, page_size=(1417,728), ext='png'):
     source = {r['question_id']: r for r in rows}
     result = {}
     for path in sorted((Path(reviewed_dir) if reviewed_dir is not None else REVIEWED).glob('batch-*.json')):
@@ -81,12 +81,12 @@ def load_reviewed(rows, pdf_sha, reviewed_dir=None, page_size=(1417,728)):
                 raise ValueError('Empty reviewed UWorld choice: ' + qid)
             pages = doc['reviewed_pages']
             for node in doc.get('question_blocks', []):
-                validate_node(node, qid, pages, 'question', pdf_sha, page_size)
+                validate_node(node, qid, pages, 'question', pdf_sha, page_size, ext)
             for node in doc['explanation']:
-                validate_node(node, qid, pages, 'explanation', pdf_sha, page_size)
+                validate_node(node, qid, pages, 'explanation', pdf_sha, page_size, ext)
             for option in doc['options']:
                 if option.get('figure'):
-                    validate_node(option['figure'], qid, pages, 'option', pdf_sha, page_size)
+                    validate_node(option['figure'], qid, pages, 'option', pdf_sha, page_size, ext)
             statistics = doc['statistics']
             percentage(statistics.get('answered_correctly_percent'))
             if set(statistics.get('selection_percent', {})) != set(labels):

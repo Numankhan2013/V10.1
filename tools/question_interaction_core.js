@@ -158,7 +158,8 @@
   });
   if(typeof sessionReviewSubmit==='function')sessionReviewSubmit=nkQuestionAction(function(){
     const s=state.activeSession;if(!s)return false;
-    const out=s.mode==='exam'?submitExam(false):endSession();
+    // An unfinished study module "Save & exit" keeps its progress; it is never submitted.
+    const out=s.mode==='exam'?submitExam(false):(s.studyModuleId&&s.questionIds.some(id=>!s.submitted?.[id])&&typeof exitStudyModule==='function'?exitStudyModule():endSession());
     if(out!==false)nkAfterQuestionCommit(()=>closeSessionReview());return out;
   });
 
