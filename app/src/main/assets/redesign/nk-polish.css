@@ -1619,13 +1619,7 @@ html[data-nk-ui="geist"] .nkg-goo-add .nk-np-add-btn.is-open svg { transform: ro
 html[data-nk-ui="geist"] .nkg-goo-add .nk-np-add-btn:active { transform: scale(.95); }
 html[data-nk-ui="geist"] .nk-nb-edit-actions .nk-note-save:active { transform: scale(.95); }
 html[data-nk-ui="geist"] .nk-nb.is-editing textarea { resize: none; overflow-y: auto; transition: height 160ms var(--nkg-ease); }
-html[data-nk-ui="geist"] .nk-nb.is-text { transition: background-color 900ms var(--nkg-ease), outline-color 900ms var(--nkg-ease); outline: 8px solid transparent; border-radius: 4px; }
-html[data-nk-ui="geist"] .nk-nb.nkg-just-saved { background-color: color-mix(in srgb, var(--nkg-green) 9%, transparent); outline-color: color-mix(in srgb, var(--nkg-green) 9%, transparent); transition-duration: 0ms; }
-html[data-nk-ui="geist"] .nkg-saved { display: inline-flex; align-items: center; gap: 4px; margin-left: auto; margin-right: 6px; height: 22px; padding: 0 8px 0 6px; border-radius: 11px; background: var(--nkg-green-bg); color: var(--nkg-green); font-size: 12px; font-weight: 600; animation: nkgChipIn 320ms var(--nkg-spring); transition: opacity 280ms var(--nkg-ease), transform 280ms var(--nkg-ease); }
-html[data-nk-ui="geist"] .nkg-saved.is-out { opacity: 0; transform: translateY(-3px); }
-html[data-nk-ui="geist"] .nkg-saved svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 26; stroke-dashoffset: 26; animation: nkgDraw .42s .1s cubic-bezier(.23, 1, .32, 1) forwards; }
-@keyframes nkgChipIn { from { opacity: 0; transform: scale(.7); } }
-@media (prefers-reduced-motion: reduce) { html[data-nk-ui="geist"] .nkg-saved, html[data-nk-ui="geist"] .nkg-saved svg { animation: none; stroke-dashoffset: 0; } html[data-nk-ui="geist"] .nkg-goo-add .nk-np-add-btn svg { transition: none; } }
+@media (prefers-reduced-motion: reduce) { html[data-nk-ui="geist"] .nkg-goo-add .nk-np-add-btn svg { transition: none; } }
 /* Busy submit: the label steps back, three dots wave in its place. */
 html[data-nk-ui="geist"] :is(body,#nkg-root) button.nkg-busy { position: relative; color: transparent !important; pointer-events: none; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) button.nkg-busy > * { opacity: 0; }
@@ -1731,3 +1725,22 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-sheet .nk-mock-block { mar
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-sheet .nk-mock-block h3 { font-size: 17px !important; font-weight: 650 !important; letter-spacing: -0.01em !important; margin-bottom: 12px !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-sheet .nk-mock-facts { margin-top: 8px !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-sheet .nk-mock-facts dd { font-size: 22px !important; }
+
+/* ===================================================== Notes: write in place (2026-10-11 c)
+   The editor is the page: no box, no ring, no tint. Text sits where the saved note
+   will sit. Save morphs into a small drawn check, then the note simply stays. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-nb.is-editing textarea {
+  border: 0 !important; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; outline: 0 !important;
+  padding: 0 !important; margin: 0 !important; min-height: 26.4px;
+  font-size: 16.5px !important; line-height: 26.4px !important; color: var(--nkg-fg) !important; caret-color: var(--nkg-fg);
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-nb.is-editing textarea::placeholder { color: var(--nkg-fg-3, var(--nkg-muted)); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-nb-edit-actions { border: 0 !important; background: transparent !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-nb-edit-actions .nk-note-cancel { background: transparent !important; border: 0 !important; color: var(--nkg-fg-2, var(--nkg-muted)) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-nb-edit-actions .nk-note-save { position: relative; overflow: hidden; border-radius: 999px !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-note-save.nkg-saving { pointer-events: none; color: transparent !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-note-save .nkg-save-check { position: absolute; inset: 0; margin: auto; width: 18px; height: 18px; fill: none; stroke: var(--nkg-inverse-fg); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 24; stroke-dashoffset: 24; animation: nkgDraw .32s .12s cubic-bezier(.23, 1, .32, 1) forwards; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-nb.nkg-settle .nk-nb-text { animation: nkgSettle .36s cubic-bezier(.16, 1, .3, 1); }
+@keyframes nkgSettle { from { opacity: .55; } }
+@media (prefers-reduced-motion: reduce) { html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-note-save .nkg-save-check { animation: none; stroke-dashoffset: 0; } html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-nb.nkg-settle .nk-nb-text { animation: none; } }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-nb.is-editing > .nk-nb-kind { display: flex !important; align-items: center; height: 44px; margin: 0 0 10px !important; }
