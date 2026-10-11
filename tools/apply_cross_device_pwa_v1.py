@@ -21,11 +21,13 @@ CSS = r'''<style id="nk-cross-device-pwa-v1">
 </style>'''
 
 META = '''<link rel="manifest" href="manifest.webmanifest">
-<meta name="theme-color" content="#135262">
+<meta name="theme-color" content="#ffffff">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="NK QBank">
-<link rel="apple-touch-icon" href="qbank-icon-192.png">
+<link rel="icon" href="nk-icon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <script src="qbank-config.js"></script>
 <script type="module" src="web_pdf_renderer.mjs"></script>'''
 
