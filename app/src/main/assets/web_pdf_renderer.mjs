@@ -17,12 +17,12 @@ if (location.hostname !== 'qbank.local') {
   let repairs = null;
   const repairsReady = fetch('./pdf_glyph_repairs.json').then(r => r.ok ? r.json() : null)
     .then(j => { repairs = j && j.subjects || {}; }).catch(() => { repairs = {}; });
-  function repairGlyphs(ctx, subject, pageNo, scale, top, bottom) {
+  function repairGlyphs(ctx, subject, pageNo, scale, top, bottom, left) {
     const list = repairs && repairs[subject] && repairs[subject][String(pageNo)];
     if (!list) return;
     for (const [x0, y0, x1, y1, ch, kind, size, color, baseline] of list) {
       if (y1 < top || y0 > bottom) continue;
-      const bx = x0 * scale, by = (y0 - top) * scale, w = (x1 - x0) * scale, h = (y1 - y0) * scale;
+      const bx = (x0 - left) * scale, by = (y0 - top) * scale, w = (x1 - x0) * scale, h = (y1 - y0) * scale;
       // Paper colour: brightest pixel just above/below the line (never the neighbouring ink).
       let bg = '#ffffff', best = -1;
       for (const [sx, sy] of [[bx, by - 2], [bx + w, by - 2], [bx, by + h + 2], [bx + w, by + h + 2]]) {
@@ -88,27 +88,42 @@ if (location.hostname !== 'qbank.local') {
     return documents.get(subject);
   }
 
+  // Side margins: both books keep ~9% blank paper on each side of every page, which on a
+  // phone only shrinks the text. Trim 7% per side (keeping a little paper) except on the
+  // few pages whose figures run to the edge. Anatomy is left as is.
+  // Every body page also prints its content between y 84 and 704 (points); above is blank
+  // paper and below is the running footer ("Prepladder X Qbank · Page N"), so crops are
+  // clamped to that band and a crop holding only the footer is not shown at all.
+  const MARGIN_TRIM = {
+    biochemistry: {x: 0.07, keep: new Set([275, 277, 280, 799, 851]), body: [84, 704]},
+    physiology: {x: 0.07, keep: new Set([269, 270, 271, 272, 273, 274, 275, 276, 277]), body: [84, 704]}
+  };
   // Render only the authoritative crop. A 12 MP limit bounds each canvas,
   // including unusually tall segments, without changing the source geometry.
   async function raster(node, requestedWidth) {
     const pdf = await loadDocument(node.dataset.subject);
     const page = await pdf.getPage(Number(node.dataset.page));
     const base = page.getViewport({scale:1});
-    const top = Math.max(0, Number(node.dataset.top || 0));
-    const bottom = Math.min(base.height, Number(node.dataset.bottom || base.height));
+    const trim = MARGIN_TRIM[node.dataset.subject];
+    const band = trim && Number(node.dataset.page) >= 5 ? trim.body : [0, base.height];
+    const top = Math.max(band[0], Number(node.dataset.top || 0));
+    const bottom = Math.min(band[1], base.height, Number(node.dataset.bottom || base.height));
+    if (bottom - top < 6) return null;
     const cropHeight = Math.max(1, bottom-top);
-    const scale = Math.min(requestedWidth/base.width, Math.sqrt(12000000/(base.width*cropHeight)));
+    const left = trim && !trim.keep.has(Number(node.dataset.page)) ? base.width*trim.x : 0;
+    const cropWidth = base.width - 2*left;
+    const scale = Math.min(requestedWidth/cropWidth, Math.sqrt(12000000/(cropWidth*cropHeight)));
     const viewport = page.getViewport({scale});
     const canvas = document.createElement('canvas');
-    canvas.width = Math.ceil(viewport.width); canvas.height = Math.ceil(cropHeight*scale);
+    canvas.width = Math.ceil(cropWidth*scale); canvas.height = Math.ceil(cropHeight*scale);
     await repairsReady;
     // Read-back-friendly (CPU) canvas only where pixels are read on this thread: pages with
     // glyph repairs, or browsers that tone here. Elsewhere PDF.js draws on an accelerated canvas.
     const pageRepairs = repairs && repairs[node.dataset.subject] && repairs[node.dataset.subject][node.dataset.page];
     const ctx = canvas.getContext('2d',{alpha:false,willReadFrequently:!toneWorker || !!pageRepairs});
-    await page.render({canvasContext:ctx,viewport,transform:[1,0,0,1,0,-top*scale]}).promise;
+    await page.render({canvasContext:ctx,viewport,transform:[1,0,0,1,-left*scale,-top*scale]}).promise;
     page.cleanup();
-    repairGlyphs(ctx, node.dataset.subject, Number(node.dataset.page), scale, top, bottom);
+    repairGlyphs(ctx, node.dataset.subject, Number(node.dataset.page), scale, top, bottom, left);
     await toneCurve(canvas, ctx);
     return canvas;
   }
@@ -134,6 +149,7 @@ if (location.hostname !== 'qbank.local') {
     node.dataset.rendered='loading';
     try {
       const canvas = await raster(node,target);
+      if (!canvas) {node.hidden=true;node.dataset.rendered='true';node.dataset.pixelWidth=String(target);return;}
       if (!node.isConnected) {canvas.width=canvas.height=0;return;}
       canvas.style.width='100%';canvas.style.height='auto';canvas.style.display='block';
       node.querySelector('canvas').replaceWith(canvas);
