@@ -110,10 +110,16 @@ def main():
                 page.locator('#visual-end').scroll_into_view_if_needed()
                 # Practice order is random, and explanation images can finish loading after the
                 # first scroll and grow the page; measure only once the page has stopped growing.
-                page.evaluate('scrollTo(0,document.documentElement.scrollHeight)')
-                page.wait_for_function('[...document.images].every(i=>i.complete)',timeout=15000)
-                page.wait_for_timeout(300)
-                page.evaluate('scrollTo(0,document.documentElement.scrollHeight)')
+                page.evaluate('''async()=>{
+                  let last=-1,same=0;
+                  for(let i=0;i<60&&same<3;i++){
+                    scrollTo(0,document.documentElement.scrollHeight);
+                    await new Promise(r=>setTimeout(r,150));
+                    const h=document.documentElement.scrollHeight,ready=[...document.images].every(img=>img.complete);
+                    same=h===last&&ready?same+1:0;last=h;
+                  }
+                  scrollTo(0,document.documentElement.scrollHeight);
+                }''')
                 end=page.locator('#visual-end').bounding_box();footer=page.locator('.nk-session-footer').bounding_box()
                 assert end['y']+end['height'] <= footer['y'], ('footer obscures explanation',width,end,footer)
                 assert not errors,errors
