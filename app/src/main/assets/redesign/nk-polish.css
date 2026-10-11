@@ -1601,3 +1601,38 @@ html[data-nk-ui="geist"][data-nk-theme="dark"] :is(body,#nkg-root) .nk-home-comm
   html[data-nk-ui="geist"] :is(body,#nkg-root) .question-card .option.nkg-sweep::before, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-focus-card .nkg-shine::after, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-ring.nkg-ring-in::after { display: none !important; }
   html[data-nk-ui="geist"] :is(body,#nkg-root) .bottom-nav > .nkg-nav-glide { transition: none !important; }
 }
+
+/* ===================================================== Notes: gooey add + saved state */
+html[data-nk-ui="geist"] #nkg-goo-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+html[data-nk-ui="geist"] .nk-np-add.nkg-goo-add { isolation: isolate; }
+html[data-nk-ui="geist"] .nkg-goo-add .nkg-goo-layer { position: absolute; inset: 0; z-index: 0; pointer-events: none; filter: url(#nkg-goo); overflow: visible; }
+html[data-nk-ui="geist"] .nkg-goo-add .nkg-goo-layer i { position: absolute; border-radius: 999px; background: var(--nkg-inverse-bg); will-change: transform; }
+html[data-nk-ui="geist"] .nkg-goo-add > :not(.nkg-goo-layer) { position: relative; z-index: 1; }
+html[data-nk-ui="geist"] .nkg-goo-add .nk-np-add-menu { min-width: 0; padding: 0; border: 0; background: transparent; box-shadow: none; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+html[data-nk-ui="geist"] .nkg-goo-add .nk-np-add-menu[hidden] { display: none; }
+html[data-nk-ui="geist"] .nkg-goo-add .nk-np-add-menu button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: auto; min-width: 148px; min-height: 46px; padding: 0 20px; border-radius: 999px; background: var(--nkg-inverse-bg) !important; color: var(--nkg-inverse-fg) !important; font-weight: 600; text-align: center; box-shadow: 0 8px 20px -10px rgba(0, 0, 0, .45); }
+html[data-nk-ui="geist"] .nkg-goo-add .nk-np-add-menu button:focus-visible { outline: 2px solid var(--nkg-focus); outline-offset: 3px; }
+html[data-nk-ui="geist"] .nkg-goo-add .nk-np-add-menu button:disabled { opacity: .45; }
+html[data-nk-ui="geist"] .nkg-goo-ic svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; display: block; }
+html[data-nk-ui="geist"] .nkg-goo-add .nk-np-add-btn svg { transition: transform 380ms var(--nkg-spring); }
+html[data-nk-ui="geist"] .nkg-goo-add .nk-np-add-btn.is-open svg { transform: rotate(135deg); }
+html[data-nk-ui="geist"] .nkg-goo-add .nk-np-add-btn:active { transform: scale(.95); }
+html[data-nk-ui="geist"] .nk-nb-edit-actions .nk-note-save:active { transform: scale(.95); }
+html[data-nk-ui="geist"] .nk-nb.is-editing textarea { resize: none; overflow-y: auto; transition: height 160ms var(--nkg-ease); }
+html[data-nk-ui="geist"] .nk-nb.nkg-just-saved { box-shadow: 0 0 0 1.5px var(--nkg-green-border), 0 0 0 6px color-mix(in srgb, var(--nkg-green) 10%, transparent); transition: box-shadow 900ms var(--nkg-ease); }
+html[data-nk-ui="geist"] .nkg-saved { display: inline-flex; align-items: center; gap: 4px; margin-left: auto; margin-right: 6px; height: 22px; padding: 0 8px 0 6px; border-radius: 11px; background: var(--nkg-green-bg); color: var(--nkg-green); font-size: 12px; font-weight: 600; animation: nkgChipIn 320ms var(--nkg-spring); transition: opacity 280ms var(--nkg-ease), transform 280ms var(--nkg-ease); }
+html[data-nk-ui="geist"] .nkg-saved.is-out { opacity: 0; transform: translateY(-3px); }
+html[data-nk-ui="geist"] .nkg-saved svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 26; stroke-dashoffset: 26; animation: nkgDraw .42s .1s cubic-bezier(.23, 1, .32, 1) forwards; }
+@keyframes nkgChipIn { from { opacity: 0; transform: scale(.7); } }
+@media (prefers-reduced-motion: reduce) { html[data-nk-ui="geist"] .nkg-saved, html[data-nk-ui="geist"] .nkg-saved svg { animation: none; stroke-dashoffset: 0; } html[data-nk-ui="geist"] .nkg-goo-add .nk-np-add-btn svg { transition: none; } }
+/* Busy submit: the label steps back, three dots wave in its place. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) button.nkg-busy { position: relative; color: transparent !important; pointer-events: none; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) button.nkg-busy > * { opacity: 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) button.nkg-busy::after { content: ""; position: absolute; left: 50%; top: 50%; width: 6px; height: 6px; margin: -3px 0 0 -3px; border-radius: 50%; color: var(--nkg-inverse-fg); background: currentColor; box-shadow: -12px 0 0 currentColor, 12px 0 0 currentColor; animation: nkgDots .9s ease-in-out infinite; }
+@keyframes nkgDots { 0%, 100% { box-shadow: -12px 0 0 currentColor, 12px 0 0 color-mix(in srgb, currentColor 35%, transparent); background: color-mix(in srgb, currentColor 65%, transparent); } 50% { box-shadow: -12px 0 0 color-mix(in srgb, currentColor 35%, transparent), 12px 0 0 currentColor; background: currentColor; } }
+/* Images: shimmer placeholder until loaded, then a short fade. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) img.nkg-img-wait { min-height: 120px; min-width: 60%; border-radius: var(--nkg-r-md); color: transparent; background: linear-gradient(100deg, var(--nkg-surface-2) 40%, var(--nkg-hover) 50%, var(--nkg-surface-2) 60%) 0 0 / 300% 100%; animation: nkgShimmer 1.3s linear infinite; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) img.nkg-img-in { animation: nkgImgIn .35s var(--nkg-ease); }
+@keyframes nkgShimmer { from { background-position: 100% 0; } to { background-position: 0 0; } }
+@keyframes nkgImgIn { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { html[data-nk-ui="geist"] :is(body,#nkg-root) img.nkg-img-wait { animation: none; } html[data-nk-ui="geist"] :is(body,#nkg-root) button.nkg-busy::after { animation-duration: 2.4s; } }

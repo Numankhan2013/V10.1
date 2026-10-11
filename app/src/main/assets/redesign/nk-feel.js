@@ -1129,7 +1129,7 @@
     if (same && qMemo.idx != null && idx !== qMemo.idx && isFinite(idx)) {
       var dir = idx > qMemo.idx ? 1 : -1;
       var card = app.querySelector('.question-shell');
-      if (card) anim(card, { opacity: [0, 1], transform: ['translateX(' + (dir * 26) + 'px)', 'none'], filter: ['blur(3px)', 'blur(0px)'] }, { duration: 0.3 });
+      if (card) anim(card, { opacity: [0.2, 1], transform: ['translateX(' + (dir * 22) + 'px)', 'none'] }, { duration: 0.26 });
       anim(strong, { opacity: [0, 1], transform: ['translateY(' + (dir * 60) + '%)', 'none'], filter: ['blur(2px)', 'blur(0px)'] }, { duration: 0.28 });
     }
     if (bar && same && qMemo.pct != null && isFinite(pct) && pct !== qMemo.pct) anim(bar, { width: [qMemo.pct + '%', pct + '%'] }, { type: 'spring', stiffness: 240, damping: 22 });
@@ -1201,7 +1201,7 @@
   function staggerPage(main) {
     var secs = [].slice.call(main.querySelectorAll(':scope > section, :scope > div > section, :scope > div > header, :scope > header')).filter(function (n) { var r = n.getBoundingClientRect(); return r.height && r.top < window.innerHeight; }).slice(0, 7);
     if (secs.length < 2) return false;
-    anim(secs, { opacity: [0, 1], transform: ['translateY(10px)', 'none'], filter: ['blur(2px)', 'blur(0px)'] }, { duration: 0.36, delay: M.stagger ? M.stagger(0.045) : 0 });
+    anim(secs, { opacity: [0, 1], transform: ['translateY(10px)', 'none'] }, { duration: 0.34, delay: M.stagger ? M.stagger(0.045) : 0 });
     var cta = main.querySelector('.nk-home-focus-card :is(.nk-focus-primary, .nk-home-focus-action)');
     if (cta && motionOK()) { cta.classList.remove('nkg-shine'); void cta.offsetWidth; cta.classList.add('nkg-shine'); window.setTimeout(function () { cta.classList.remove('nkg-shine'); }, 1800); }
     return true;
@@ -1242,6 +1242,136 @@
     })(t0);
   }
 
+  /* ========================================================== Notes page
+     The + button splits like liquid into its actions (an SVG goo filter on a
+     blob layer behind the real buttons), and saving a note settles the card
+     with a drawn "Saved" check. The app keeps owning every button and handler. */
+  var GOO_IC = {
+    'add-text': '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6.5V5h14v1.5M12 5v14M9.5 19h5"/></svg>',
+    'add-image': '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5"/><circle cx="9" cy="10" r="1.6"/><path d="M20.5 16l-5-5-8.5 8.5"/></svg>',
+    'add-pdf': '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3.5H7a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8.5z"/><path d="M14 3.5v5h5M9 13h6M9 16.5h4"/></svg>'
+  };
+  function ensureGooFilter() {
+    if (document.getElementById('nkg-goo-defs')) return;
+    var d = document.createElement('div'); d.id = 'nkg-goo-defs'; d.setAttribute('aria-hidden', 'true');
+    d.innerHTML = '<svg width="0" height="0" style="position:absolute"><defs><filter id="nkg-goo" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur in="SourceGraphic" stdDeviation="7" result="b"/><feColorMatrix in="b" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -10" result="g"/><feComposite in="SourceGraphic" in2="g" operator="atop"/></filter></defs></svg>';
+    document.body.appendChild(d);
+  }
+  function gooMenu(sheet) {
+    var add = sheet.querySelector('.nk-np-add'); if (!add || add.__nkgGoo) return;
+    add.__nkgGoo = true; add.classList.add('nkg-goo-add');
+    var menu = add.querySelector('.nk-np-add-menu'), btn = add.querySelector('.nk-np-add-btn');
+    if (!menu || !btn) return;
+    each(menu.querySelectorAll('button[data-act]'), function (b) {
+      if (!b.querySelector('.nkg-goo-ic') && GOO_IC[b.dataset.act]) b.insertAdjacentHTML('afterbegin', '<span class="nkg-goo-ic">' + GOO_IC[b.dataset.act] + '</span>');
+    });
+    var layer = el('div', 'nkg-goo-layer'); layer.setAttribute('aria-hidden', 'true');
+    add.insertBefore(layer, add.firstChild);
+    function blobFor(n) { var r = n.getBoundingClientRect(), a = add.getBoundingClientRect(); var b = el('i'); b.style.cssText = 'left:' + (r.left - a.left) + 'px;top:' + (r.top - a.top) + 'px;width:' + r.width + 'px;height:' + r.height + 'px'; layer.appendChild(b); return { b: b, r: r }; }
+    function sync() {
+      var open = !menu.hidden;
+      if (open === add.__open) return;
+      add.__open = open;
+      btn.classList.toggle('is-open', open);
+      if (!motionOK()) return;
+      layer.innerHTML = '';
+      var main = blobFor(btn), items = [].slice.call(menu.querySelectorAll('button'));
+      if (open) {
+        items.forEach(function (it, i) {
+          var o = blobFor(it), dy = (main.r.top + main.r.height / 2) - (o.r.top + o.r.height / 2);
+          var spring = { type: 'spring', stiffness: 380, damping: 24, delay: i * 0.045 };
+          anim(o.b, { transform: ['translateY(' + dy + 'px) scale(.45, .8)', 'none'] }, spring);
+          anim(it, { transform: ['translateY(' + dy + 'px) scale(.45, .8)', 'none'], opacity: [0, 1] }, spring);
+          anim(it.querySelectorAll('.nkg-goo-ic, .nkg-goo-ic ~ *'), { opacity: [0, 1] }, { duration: 0.2, delay: 0.12 + i * 0.045 });
+        });
+        window.setTimeout(function () { if (add.__open) layer.innerHTML = ''; }, 900);
+      } else {
+        /* The app hides the menu at once; its blobs flow back into the button. */
+        var last = add.__rects || [];
+        last.forEach(function (r, i) {
+          var a = add.getBoundingClientRect(), b = el('i');
+          b.style.cssText = 'left:' + (r.left - a.left) + 'px;top:' + (r.top - a.top) + 'px;width:' + r.width + 'px;height:' + r.height + 'px';
+          layer.appendChild(b);
+          var dy = (main.r.top + main.r.height / 2) - (r.top + r.height / 2);
+          anim(b, { transform: ['none', 'translateY(' + dy + 'px) scale(.4, .7)'] }, { duration: 0.34, ease: [0.5, 0, 0.75, 0], delay: (last.length - 1 - i) * 0.03, keep: true });
+        });
+        window.setTimeout(function () { if (!add.__open) layer.innerHTML = ''; }, 520);
+      }
+    }
+    function remember() { if (!menu.hidden) add.__rects = [].map.call(menu.querySelectorAll('button'), function (b) { return b.getBoundingClientRect(); }); }
+    new MutationObserver(function () { sync(); window.requestAnimationFrame(function () { window.setTimeout(remember, 420); }); }).observe(menu, { attributes: true, attributeFilter: ['hidden'] });
+    sync(); window.setTimeout(remember, 420);
+  }
+  /* Saving: the button shows a quick drawn check, the saved card settles in place. */
+  var noteSaving = null;
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('.nk-note-page [data-act="save-edit"]');
+    if (!b || document.documentElement.getAttribute('data-nk-ui') !== 'geist') return;
+    var card = b.closest('.nk-nb'); noteSaving = card ? card.getAttribute('data-i') : null;
+  }, true);
+  function noteSaved(sheet) {
+    if (noteSaving == null) return;
+    var i = noteSaving; noteSaving = null;
+    var card = sheet.querySelector('.nk-nb[data-i="' + i + '"]:not(.is-editing)');
+    if (!card) return;
+    var head = card.querySelector('.nk-nb-head');
+    if (head && !head.querySelector('.nkg-saved')) {
+      var chip = el('span', 'nkg-saved', '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 12.5l4.2 4.2L18.5 7.8"/></svg>Saved');
+      head.insertBefore(chip, head.querySelector('.nk-nb-dots'));
+      window.setTimeout(function () { chip.classList.add('is-out'); window.setTimeout(function () { chip.remove(); }, 320); }, 1500);
+    }
+    anim(card, { transform: ['scale(.985)', 'none'] }, { type: 'spring', stiffness: 420, damping: 22 });
+    card.classList.add('nkg-just-saved'); window.setTimeout(function () { card.classList.remove('nkg-just-saved'); }, 1200);
+  }
+  function noteSheet(sheet) {
+    ensureGooFilter(); gooMenu(sheet); noteSaved(sheet);
+    var area = sheet.querySelector('.nk-nb.is-editing textarea');
+    if (area && !area.__nkgGrow) {
+      area.__nkgGrow = true;
+      var grow = function () { area.style.height = 'auto'; area.style.height = Math.min(window.innerHeight * 0.55, area.scrollHeight + 2) + 'px'; };
+      area.addEventListener('input', grow); grow();
+      var ed = area.closest('.nk-nb'); if (ed && !ed.__nkgIn) { ed.__nkgIn = true; anim(ed, { opacity: [0, 1], transform: ['translateY(10px) scale(.99)', 'none'] }, { duration: 0.28 }); }
+    }
+  }
+  function watchNotes() { if (window.MutationObserver && document.body) new MutationObserver(function () {
+    if (document.documentElement.getAttribute('data-nk-ui') !== 'geist') return;
+    var sheet = document.querySelector('body > .nk-note-page');
+    if (!sheet) return;
+    if (!sheet.__nkgObs) {
+      sheet.__nkgObs = true;
+      new MutationObserver(function () { noteSheet(sheet); }).observe(sheet, { childList: true });
+      if (motionOK()) anim(sheet, { opacity: [0, 1], transform: ['translateY(18px)', 'none'] }, { type: 'spring', stiffness: 420, damping: 36 });
+    }
+    noteSheet(sheet);
+  }).observe(document.body, { childList: true }); }
+  if (document.body) watchNotes(); else document.addEventListener('DOMContentLoaded', watchNotes);
+
+  /* ======================================================= Waiting states
+     Submitting a session is heavy synchronous work. The tap first paints a
+     busy state on the button (two frames), then runs the app's own handler,
+     so the wait reads as "working" instead of a frozen screen. */
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('button.nk-practice-submit, button.qb-nav-submit');
+    if (!b || b.__nkgGo || document.documentElement.getAttribute('data-nk-ui') !== 'geist') return;
+    if (!/submit|finish/i.test(b.getAttribute('onclick') || '') || b.disabled || b.classList.contains('nkg-busy')) return;
+    e.preventDefault(); e.stopImmediatePropagation();
+    b.classList.add('nkg-busy'); b.setAttribute('aria-busy', 'true');
+    window.requestAnimationFrame(function () { window.requestAnimationFrame(function () {
+      b.__nkgGo = true;
+      try { b.click(); } finally { b.__nkgGo = false; if (b.isConnected) { b.classList.remove('nkg-busy'); b.removeAttribute('aria-busy'); } }
+    }); });
+  }, true);
+  /* Images shimmer until their bytes arrive, then fade in. */
+  function imageWaits(app) {
+    each(app.querySelectorAll('.question-card img:not([data-nkg-img]), .feedback-body img:not([data-nkg-img])'), function (img) {
+      img.setAttribute('data-nkg-img', '1');
+      if (img.complete && img.naturalWidth) return;
+      img.classList.add('nkg-img-wait');
+      var done = function () { img.classList.remove('nkg-img-wait'); img.classList.add('nkg-img-in'); window.setTimeout(function () { img.classList.remove('nkg-img-in'); }, 400); };
+      img.addEventListener('load', done, { once: true }); img.addEventListener('error', function () { img.classList.remove('nkg-img-wait'); }, { once: true });
+    });
+  }
+
   function render(app, page, session) {
     if (!app) return;
     try {
@@ -1254,7 +1384,7 @@
       else if (page === 'quick-revision' || page === 'fsrs') enhanceRevision(app);
       enhanceBuilder(app);
       if (app.querySelector('.nk-na-followup, .nk-na-save-mock')) enhanceResult(app);
-      if (session) { answerFeedback(app); optionRates(app); cohortChip(app); practiceScreen(app); questionMotion(app); } else qMemo.key = null;
+      if (session) { answerFeedback(app); optionRates(app); cohortChip(app); practiceScreen(app); questionMotion(app); imageWaits(app); } else qMemo.key = null;
       resultMotion(app);
       navGlide();
     } catch (e) {
