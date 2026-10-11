@@ -1463,7 +1463,7 @@
           var btn = n.querySelector('button');
           var msg = btn ? ((n.querySelector('span') || {}).textContent || '').trim() : (n.textContent || '').trim();
           /* Bookmarking already shows on the icon itself; no toast for it. */
-          if (msg && !/^(Bookmarked for later|Bookmark removed)\.?$/.test(msg)) toastShow(msg, kind, btn ? { label: btn.textContent.trim(), el: btn } : null);
+          if (msg && !/^(Bookmarked for later|Bookmark removed|Note saved)\.?$/.test(msg)) toastShow(msg, kind, btn ? { label: btn.textContent.trim(), el: btn } : null);
         });
       });
     }).observe(root, { childList: true });

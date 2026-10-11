@@ -1619,7 +1619,8 @@ html[data-nk-ui="geist"] .nkg-goo-add .nk-np-add-btn.is-open svg { transform: ro
 html[data-nk-ui="geist"] .nkg-goo-add .nk-np-add-btn:active { transform: scale(.95); }
 html[data-nk-ui="geist"] .nk-nb-edit-actions .nk-note-save:active { transform: scale(.95); }
 html[data-nk-ui="geist"] .nk-nb.is-editing textarea { resize: none; overflow-y: auto; transition: height 160ms var(--nkg-ease); }
-html[data-nk-ui="geist"] .nk-nb.nkg-just-saved { box-shadow: 0 0 0 1.5px var(--nkg-green-border), 0 0 0 6px color-mix(in srgb, var(--nkg-green) 10%, transparent); transition: box-shadow 900ms var(--nkg-ease); }
+html[data-nk-ui="geist"] .nk-nb.is-text { transition: background-color 900ms var(--nkg-ease), outline-color 900ms var(--nkg-ease); outline: 8px solid transparent; border-radius: 4px; }
+html[data-nk-ui="geist"] .nk-nb.nkg-just-saved { background-color: color-mix(in srgb, var(--nkg-green) 9%, transparent); outline-color: color-mix(in srgb, var(--nkg-green) 9%, transparent); transition-duration: 0ms; }
 html[data-nk-ui="geist"] .nkg-saved { display: inline-flex; align-items: center; gap: 4px; margin-left: auto; margin-right: 6px; height: 22px; padding: 0 8px 0 6px; border-radius: 11px; background: var(--nkg-green-bg); color: var(--nkg-green); font-size: 12px; font-weight: 600; animation: nkgChipIn 320ms var(--nkg-spring); transition: opacity 280ms var(--nkg-ease), transform 280ms var(--nkg-ease); }
 html[data-nk-ui="geist"] .nkg-saved.is-out { opacity: 0; transform: translateY(-3px); }
 html[data-nk-ui="geist"] .nkg-saved svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 26; stroke-dashoffset: 26; animation: nkgDraw .42s .1s cubic-bezier(.23, 1, .32, 1) forwards; }
@@ -1636,3 +1637,4 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) img.nkg-img-in { animation: nkgImgI
 @keyframes nkgShimmer { from { background-position: 100% 0; } to { background-position: 0 0; } }
 @keyframes nkgImgIn { from { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { html[data-nk-ui="geist"] :is(body,#nkg-root) img.nkg-img-wait { animation: none; } html[data-nk-ui="geist"] :is(body,#nkg-root) button.nkg-busy::after { animation-duration: 2.4s; } }
+html[data-nk-ui="geist"] .nk-nb.is-text .nk-nb-text { background: transparent !important; }
