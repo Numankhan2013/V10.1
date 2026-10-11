@@ -127,11 +127,20 @@ def main():
                 page.get_by_role('button',name='Save name',exact=True).click()
                 assert page.locator('.nk-na-name strong').inner_text()=='Biochemistry mock 01'
                 page.get_by_role('button',name='Save as mock',exact=True).click()
+                expect(page.locator('.nk-na-mock-saved')).to_contain_text('Saved as mock')
+                page.locator('.nk-na-mock-saved').get_by_role('button',name='Rename',exact=True).click()
+                page.get_by_label('Mock name',exact=True).fill('Biochemistry mock 01 · saved')
+                page.get_by_role('button',name='Save',exact=True).click()
+                expect(page.locator('.nk-na-mock-saved')).to_contain_text('Biochemistry mock 01 · saved')
                 page.evaluate("window.QB.nav('tests')")
                 expect(page.get_by_role('heading',name='Saved mocks')).to_be_visible()
                 page.reload(wait_until='domcontentloaded');page.wait_for_function('window.QB')
                 assert page.evaluate('window.QB.getState().savedMocks[0].questionIds')==ids
                 page.locator('.nk-na-mock-row>button').first.click()
+                sheet=page.locator('#nk-mock-sheet');sheet.wait_for(state='visible')
+                assert page.evaluate('window.QB.getState().activeSession') is None,'opening a saved mock shows its details first'
+                expect(sheet.locator('.nk-mock-facts')).to_contain_text(str(len(ids)))
+                sheet.get_by_role('button',name='Start mock',exact=True).click()
                 page.wait_for_function("window.QB.getState().activeSession?.mode==='exam'")
                 session=page.evaluate('window.QB.getState().activeSession')
                 assert session['questionIds']==ids and not session['answers']

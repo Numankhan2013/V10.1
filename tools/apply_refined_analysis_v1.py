@@ -17,7 +17,7 @@ def transform(source):
         if source.count(anchor) != 1:
             raise SystemExit(f'Expected one refined analysis anchor: {anchor}')
     source = source.replace('</head>', '<style id="nk-refined-analysis-v1">\n' + (ROOT / 'tools/refined_analysis.css').read_text() + '\n</style>\n</head>', 1)
-    actions = 'nkAnalysisSetTab,nkAnalysisSetTime,nkAnalysisRename,nkMockName,nkMockSaveDraft,nkMockStart,nkMockSaveResult,nkMockRemove,'
+    actions = 'nkAnalysisSetTab,nkAnalysisSetTime,nkAnalysisRename,nkMockName,nkMockSaveDraft,nkMockStart,nkMockSaveResult,nkMockRemove,nkMockRenameInline,nkMockRename,nkMockOpen,nkMockClose,nkMockLaunch,nkMockSheetRename,nkMockAskDelete,nkMockUndo,nkMockFilter,nkMockShowAll,'
     return source.replace('  window.QB={', (ROOT / 'tools/refined_analysis_core.js').read_text().rstrip() + '\n\n  window.QB={' + actions, 1)
 
 

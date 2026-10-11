@@ -76,8 +76,11 @@
     home: 'house', book: 'book-open', test: 'clipboard-text', chart: 'chart-line-up', bookmark: 'bookmark-simple',
     clock: 'clock', search: 'magnifying-glass', bell: 'bell', star: 'star', trash: 'trash', refresh: 'arrows-clockwise',
     share: 'share-network', molecule: 'atom', bulb: 'lightbulb', heart: 'heart', body: 'person', dna: 'dna',
-    biochemistry: 'dna', physiology: 'heartbeat', anatomy: 'bone', poisoning: 'flask', biostatistics: 'chart-bar',
-    ophthalmology: 'eye', 'male-reproductive': 'gender-male', 'female-reproductive': 'gender-female', pregnancy: 'baby',
+    // Subjects and UWorld collections: Healthicons organ glyphs ("hi-"), Phosphor where it reads better.
+    biochemistry: 'dna', physiology: 'hi-heart-cardiogram', anatomy: 'hi-skeleton', poisoning: 'hi-poison', biostatistics: 'chart-bar',
+    ophthalmology: 'hi-eye', 'male-reproductive': 'hi-testicles', 'female-reproductive': 'hi-female-reproductive-system', pregnancy: 'hi-pregnant',
+    pharmacology: 'hi-pills-2', pathology: 'hi-microscope', endocrine: 'hi-thyroid', psychiatry: 'brain', cardiovascular: 'hi-heart-organ',
+    renal: 'hi-kidneys', gastrointestinal: 'hi-stomach', rheumatology: 'hi-joints', pulmonary: 'hi-lungs',
     uworld: 'books', back: 'arrow-left', chevron: 'caret-right', check: 'check', close: 'x', pause: 'pause',
     menu: 'list', more: 'dots-three', grid: 'squares-four', minus: 'minus', edit: 'pencil-simple', stopwatch: 'timer'
   };
@@ -455,8 +458,7 @@
     if (page === 'dashboard') decorateHome(app);
     polishCopy(app, session);
     swapIcons(app);
-    var modal = document.getElementById('modal');
-    if (modal) swapIcons(modal);
+    ['modal', 'nk-practice-sessions', 'nk-mock-sheet'].forEach(function (id) { var m = document.getElementById(id); if (m) swapIcons(m); });
     updateTopbar(page, session);
     syncThemeControls();
     measureDock();

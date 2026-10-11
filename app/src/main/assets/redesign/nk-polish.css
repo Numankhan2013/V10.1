@@ -1290,3 +1290,250 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-uworld-library .nk-v3-page-hero
 html[data-nk-ui="geist"] :is(body,#nkg-root) a.nk-settings-row { text-decoration: none !important; color: inherit !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-reset-row { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; min-height: 44px; padding: 10px 16px; border: 0; background: transparent; color: var(--nkg-danger, #d64b58); font: 500 var(--nkg-t-sm, 14px)/1.2 var(--nkg-font-sans); cursor: pointer; border-radius: var(--nkg-r-md, 10px); }
 @media (hover: hover) and (pointer: fine) { html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-reset-row:hover { background: color-mix(in srgb, var(--nkg-danger, #d64b58) 8%, transparent); } }
+
+/* ===================================================== Sheets 2026-10-11 */
+/* Paused Practice + saved-mock details: one sheet language. Bottom sheet on phones
+   (grab bar, rounded top, safe-area foot), centred panel from tablet up. The list
+   scrolls; header and foot stay put. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(#nk-practice-sessions, #nk-mock-sheet).modal-backdrop {
+  position: fixed !important; inset: 0 !important; z-index: 10000 !important;
+  display: flex !important; align-items: flex-end !important; justify-content: center !important; padding: 0 !important;
+  background: color-mix(in srgb, #000 44%, transparent) !important;
+  animation: nkg-scrim-in 200ms ease-out both;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-dialog, .nk-mock-sheet).modal {
+  position: relative; width: 100% !important; max-width: 560px !important; margin: 0 !important; padding: 0 !important;
+  max-height: min(88dvh, 760px) !important; display: flex !important; flex-direction: column !important; overflow: hidden !important;
+  background: var(--nkg-surface) !important; color: var(--nkg-fg) !important;
+  border: 1px solid var(--nkg-border) !important; border-bottom: 0 !important; border-radius: 24px 24px 0 0 !important;
+  box-shadow: 0 -18px 48px -20px rgb(0 0 0 / .32) !important;
+  animation: nkg-sheet-up 380ms cubic-bezier(.16, 1, .3, 1) both;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-dialog, .nk-mock-sheet).modal::before {
+  content: ''; position: absolute; top: 8px; left: 50%; width: 36px; height: 4px; margin-left: -18px; border-radius: 4px; background: var(--nkg-border-strong);
+}
+@media (min-width: 700px) {
+  html[data-nk-ui="geist"] :is(body,#nkg-root) :is(#nk-practice-sessions, #nk-mock-sheet).modal-backdrop { align-items: center !important; padding: 24px !important; }
+  html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-dialog, .nk-mock-sheet).modal { border-bottom: 1px solid var(--nkg-border) !important; border-radius: 20px !important; box-shadow: 0 24px 64px -24px rgb(0 0 0 / .38) !important; animation-name: nkg-sheet-pop; }
+  html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-dialog, .nk-mock-sheet).modal::before { display: none; }
+}
+@keyframes nkg-scrim-in { from { opacity: 0; } }
+@keyframes nkg-sheet-up { from { transform: translateY(100%); } }
+@keyframes nkg-sheet-pop { from { opacity: 0; transform: translateY(12px) scale(.98); } }
+@media (prefers-reduced-motion: reduce) { html[data-nk-ui="geist"] :is(body,#nkg-root) :is(#nk-practice-sessions, #nk-mock-sheet, .nk-practice-sessions-dialog, .nk-mock-sheet) { animation: none !important; } }
+
+/* Header: title + one quiet line, round close button. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-head, .nk-mock-sheet-head) {
+  flex: none; display: flex !important; align-items: center; gap: 12px; padding: 22px 16px 14px 20px !important; margin: 0 !important;
+  border-bottom: 1px solid var(--nkg-border);
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-practice-sessions-head > div, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-sheet-title { flex: 1; min-width: 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-head, .nk-mock-sheet-head) h2 { margin: 0 !important; font: 600 20px/1.2 var(--nkg-font-sans) !important; letter-spacing: -0.02em !important; color: var(--nkg-fg) !important; text-wrap: balance; overflow-wrap: anywhere; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-practice-sessions-head p, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-sheet-title small { display: block; margin: 3px 0 0 !important; font: 400 var(--nkg-t-sm)/1.35 var(--nkg-font-sans) !important; color: var(--nkg-fg-3) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-head, .nk-mock-sheet-head) .nk-modal-close {
+  flex: none; width: 36px !important; height: 36px !important; min-width: 0 !important; min-height: 0 !important; padding: 0 !important; margin: -4px 0 0 !important;
+  display: grid !important; place-items: center; border-radius: 50% !important; border: 0 !important;
+  background: var(--nkg-surface-2) !important; color: var(--nkg-fg-2) !important; box-shadow: none !important; position: relative;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-head, .nk-mock-sheet-head) .nk-modal-close::after { content: ''; position: absolute; inset: -4px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-head, .nk-mock-sheet-head) .nk-modal-close:hover { background: var(--nkg-bg-subtle) !important; color: var(--nkg-fg) !important; }
+
+/* --- Paused Practice rows: icon · topic + subject · Resume / progress · meta · discard */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-list { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; display: block !important; margin: 0 !important; padding: 4px 12px !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-row {
+  display: grid !important; grid-template-columns: 44px minmax(0, 1fr) auto !important;
+  grid-template-areas: "icon copy actions" "icon progress actions" !important; column-gap: 12px !important; row-gap: 8px !important; align-items: center !important;
+  padding: 16px 8px !important; margin: 0 !important; background: transparent !important; border: 0 !important; border-radius: 0 !important; box-shadow: none !important;
+  border-bottom: 1px solid var(--nkg-border) !important;
+  animation: nkgEnter 360ms cubic-bezier(.16, 1, .3, 1) both;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-row:nth-child(2) { animation-delay: 40ms; } html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-row:nth-child(3) { animation-delay: 80ms; } html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-row:nth-child(n+4) { animation-delay: 110ms; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-row:last-child { border-bottom: 0 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-icon { grid-area: icon; align-self: start; width: 44px; height: 44px; border-radius: 13px; display: grid; place-items: center; background: var(--nkg-surface-2); color: var(--nkg-fg); border: 1px solid var(--nkg-border); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-copy { grid-area: copy; min-width: 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-copy strong { display: -webkit-box !important; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; font: 600 15px/1.3 var(--nkg-font-sans) !important; letter-spacing: -0.01em; color: var(--nkg-fg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-copy small { display: block; margin: 2px 0 0 !important; font: 400 var(--nkg-t-sm)/1.3 var(--nkg-font-sans) !important; color: var(--nkg-fg-3) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-progress { grid-area: progress; min-width: 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-bar { display: block; height: 4px; border-radius: 4px; background: var(--nkg-surface-2); overflow: hidden; box-shadow: inset 0 0 0 1px var(--nkg-border); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-bar i { display: block; height: 100%; min-width: 4px; border-radius: inherit; background: var(--nkg-fg); transform-origin: left; animation: nkg-bar-grow 700ms cubic-bezier(.16, 1, .3, 1) 120ms both; }
+@keyframes nkg-bar-grow { from { transform: scaleX(0); } }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-progress small { display: flex !important; flex-wrap: wrap; gap: 0 6px; margin: 7px 0 0 !important; font: 500 var(--nkg-t-xs)/1.3 var(--nkg-font-sans) !important; color: var(--nkg-fg-3) !important; font-variant-numeric: tabular-nums; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-progress small span + span::before { content: '·'; margin-right: 6px; color: var(--nkg-border-strong); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-actions { grid-area: actions; display: flex !important; flex-direction: column; align-items: flex-end; align-self: stretch; justify-content: space-between; gap: 4px !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-actions[hidden] { display: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-actions .primary-btn {
+  min-height: 36px !important; height: 36px; padding: 0 16px !important; border-radius: 999px !important; border: 0 !important;
+  background: var(--nkg-inverse-bg) !important; color: var(--nkg-inverse-fg) !important; box-shadow: none !important;
+  font: 600 var(--nkg-t-sm)/1 var(--nkg-font-sans) !important; min-width: 44px !important;
+  transition: transform 120ms ease, opacity 120ms ease;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-actions .primary-btn:active { transform: scale(.96); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-actions .nk-saved-practice-discard {
+  width: 44px !important; min-width: 44px !important; height: 32px; min-height: 32px !important; padding: 0 !important; margin-right: -8px;
+  display: grid !important; place-items: center; border: 0 !important; border-radius: 10px !important; background: transparent !important; color: var(--nkg-fg-3) !important; box-shadow: none !important;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-actions .nk-saved-practice-discard:hover { color: var(--nkg-red) !important; background: var(--nkg-red-bg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-row.is-confirming .nk-saved-practice-progress { grid-column: 2 / 4; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-confirm {
+  grid-column: 1 / -1; display: flex; align-items: center; gap: 8px; padding: 8px 8px 8px 14px; margin-top: 4px;
+  border-radius: 14px; background: var(--nkg-red-bg); border: 1px solid var(--nkg-red-border);
+  animation: nkgEnter 240ms cubic-bezier(.16, 1, .3, 1) both;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-confirm span { flex: 1; min-width: 0; font: 600 var(--nkg-t-sm)/1.3 var(--nkg-font-sans); color: var(--nkg-red); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-confirm button { min-height: 36px !important; padding: 0 14px !important; border-radius: 999px !important; font: 600 var(--nkg-t-sm)/1 var(--nkg-font-sans) !important; box-shadow: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-confirm .ghost-btn { background: var(--nkg-surface) !important; color: var(--nkg-fg) !important; border: 1px solid var(--nkg-border) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-confirm .danger-btn { background: var(--nkg-red) !important; color: #fff !important; border: 0 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-practice-sessions-foot { flex: none; padding: 12px 16px calc(14px + env(safe-area-inset-bottom)) !important; border-top: 1px solid var(--nkg-border); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-practice-sessions-foot .ghost-btn {
+  width: 100%; min-height: 46px !important; display: flex !important; align-items: center; justify-content: center; gap: 8px;
+  border-radius: 14px !important; border: 1px dashed var(--nkg-border-strong) !important; background: transparent !important; color: var(--nkg-fg-2) !important;
+  font: 600 var(--nkg-t-sm)/1 var(--nkg-font-sans) !important; box-shadow: none !important;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-practice-sessions-foot .ghost-btn:hover { color: var(--nkg-fg) !important; border-style: solid !important; background: var(--nkg-bg-subtle) !important; }
+
+/* --- Saved mock details sheet */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-sheet-icon { flex: none; width: 44px; height: 44px; border-radius: 13px; display: grid; place-items: center; background: var(--nkg-surface-2); border: 1px solid var(--nkg-border); color: var(--nkg-fg); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-sheet-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 4px 20px 20px !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-facts { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 !important; margin: 16px 0 4px !important; border: 1px solid var(--nkg-border); border-radius: 16px; overflow: hidden; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-facts > div { padding: 12px 14px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-facts > div + div { border-left: 1px solid var(--nkg-border); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-facts dt { font: 500 var(--nkg-t-xs)/1.2 var(--nkg-font-sans) !important; color: var(--nkg-fg-3) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-facts dd { margin: 4px 0 0 !important; font: 600 18px/1.15 var(--nkg-font-sans) !important; letter-spacing: -0.02em; color: var(--nkg-fg) !important; font-variant-numeric: tabular-nums; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-warning { margin: 12px 0 0 !important; padding: 10px 12px !important; border-radius: 12px !important; background: var(--nkg-red-bg) !important; border: 1px solid var(--nkg-red-border); color: var(--nkg-red) !important; font: 500 var(--nkg-t-sm)/1.4 var(--nkg-font-sans) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-block { margin-top: 24px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-block h3 { display: flex; align-items: baseline; gap: 6px; margin: 0 0 10px !important; font: 600 var(--nkg-t-sm)/1.2 var(--nkg-font-sans) !important; color: var(--nkg-fg) !important; letter-spacing: 0 !important; text-transform: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-block h3 span { font-weight: 500; color: var(--nkg-fg-3); font-variant-numeric: tabular-nums; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-stack { display: flex; height: 10px; gap: 3px; border-radius: 0; overflow: visible; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-stack i { width: var(--nk-share); min-width: 6px; border-radius: 3px; background: color-mix(in srgb, var(--nkg-fg) calc(100% - var(--nk-tone) * 22%), var(--nkg-surface-2)); opacity: 1; transform-origin: left; animation: nkg-bar-grow 640ms cubic-bezier(.16, 1, .3, 1) both; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-legend, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-topics, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-attempts { list-style: none; margin: 12px 0 0 !important; padding: 0 !important; display: grid; gap: 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-legend li { display: grid; grid-template-columns: 10px minmax(0, 1fr) auto 40px; align-items: center; gap: 10px; padding: 7px 0; font: 500 var(--nkg-t-sm)/1.3 var(--nkg-font-sans); color: var(--nkg-fg); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-dot { width: 10px; height: 10px; border-radius: 3px; opacity: 1; background: color-mix(in srgb, var(--nkg-fg) calc(100% - var(--nk-tone) * 22%), var(--nkg-surface-2)); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-legend b, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-topics b { font: 600 var(--nkg-t-sm)/1 var(--nkg-font-sans); font-variant-numeric: tabular-nums; color: var(--nkg-fg); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-legend small { text-align: right; font: 500 var(--nkg-t-xs)/1 var(--nkg-font-sans); color: var(--nkg-fg-3); font-variant-numeric: tabular-nums; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-topics li { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-top: 1px solid var(--nkg-border); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-topics li:first-child { border-top: 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-topics li > span { flex: 1; min-width: 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-topics strong { display: block; font: 500 var(--nkg-t-sm)/1.35 var(--nkg-font-sans) !important; color: var(--nkg-fg) !important; overflow-wrap: anywhere; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-topics small { display: block; margin-top: 1px; font: 400 var(--nkg-t-xs)/1.3 var(--nkg-font-sans) !important; color: var(--nkg-fg-3) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-topics b { min-width: 28px; height: 24px; padding: 0 8px; display: grid; place-items: center; border-radius: 999px; background: var(--nkg-surface-2); font-size: var(--nkg-t-xs); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) details.nk-mock-more > summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; padding: 8px 0; font: 600 var(--nkg-t-sm)/1 var(--nkg-font-sans); color: var(--nkg-fg-2); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) details.nk-mock-more > summary::-webkit-details-marker { display: none; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) details.nk-mock-more > summary::after { content: ''; width: 6px; height: 6px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg) translateY(-2px); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) details.nk-mock-more[open] > summary { display: none; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) details.nk-mock-more .nk-mock-topics { margin-top: 0 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) details.nk-mock-more .nk-mock-topics li:first-child { border-top: 1px solid var(--nkg-border); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-chips span { display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 12px; border-radius: 999px; border: 1px solid var(--nkg-border); background: var(--nkg-surface); font: 500 var(--nkg-t-sm)/1 var(--nkg-font-sans); color: var(--nkg-fg-2); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-chips b { color: var(--nkg-fg); font-weight: 600; font-variant-numeric: tabular-nums; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-attempts li { display: grid; grid-template-columns: 76px minmax(0, 1fr) 44px; align-items: center; gap: 12px; padding: 8px 0; font: 500 var(--nkg-t-sm)/1.2 var(--nkg-font-sans); color: var(--nkg-fg-2); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-attempts b { text-align: right; color: var(--nkg-fg); font-weight: 600; font-variant-numeric: tabular-nums; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-attempt-bar { height: 6px; border-radius: 6px; background: var(--nkg-surface-2); overflow: hidden; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-attempt-bar i { display: block; height: 100%; border-radius: inherit; background: var(--nkg-fg); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-sheet-foot { flex: none; display: flex !important; align-items: center; flex-wrap: wrap; gap: 8px; padding: 12px 16px calc(14px + env(safe-area-inset-bottom)) !important; border-top: 1px solid var(--nkg-border); background: var(--nkg-surface); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-icon-btn { flex: none; width: 48px !important; height: 48px !important; min-width: 48px !important; padding: 0 !important; display: grid !important; place-items: center; border-radius: 14px !important; border: 1px solid var(--nkg-border) !important; background: var(--nkg-surface) !important; color: var(--nkg-fg-2) !important; box-shadow: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-icon-btn:hover { color: var(--nkg-fg) !important; border-color: var(--nkg-border-strong) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-icon-btn.nk-mock-delete:hover { color: var(--nkg-red) !important; border-color: var(--nkg-red-border) !important; background: var(--nkg-red-bg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-sheet-foot .nk-mock-start { flex: 1; min-height: 48px !important; border-radius: 14px !important; border: 0 !important; background: var(--nkg-inverse-bg) !important; color: var(--nkg-inverse-fg) !important; font: 600 var(--nkg-t-base)/1 var(--nkg-font-sans) !important; box-shadow: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-sheet-foot .nk-mock-start:disabled { opacity: .4; cursor: not-allowed; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-sheet-foot.is-confirming { background: var(--nkg-red-bg); border-top-color: var(--nkg-red-border); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-sheet-foot.is-confirming p { flex-basis: 100%; margin: 0 0 2px !important; font: 600 var(--nkg-t-sm)/1.35 var(--nkg-font-sans) !important; color: var(--nkg-red) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-sheet-foot.is-confirming button { flex: 1; min-height: 46px !important; border-radius: 14px !important; font: 600 var(--nkg-t-sm)/1 var(--nkg-font-sans) !important; box-shadow: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-sheet-foot.is-confirming .ghost-btn { background: var(--nkg-surface) !important; color: var(--nkg-fg) !important; border: 1px solid var(--nkg-border) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-sheet-foot.is-confirming .danger-btn { background: var(--nkg-red) !important; color: #fff !important; border: 0 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-rename { display: flex !important; flex-wrap: wrap; gap: 8px; align-items: center; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-rename input { flex: 1; min-width: 0; height: 40px; min-height: 40px !important; padding: 0 12px !important; border-radius: 10px !important; border: 1px solid var(--nkg-border-strong) !important; background: var(--nkg-surface) !important; color: var(--nkg-fg) !important; font: 600 16px/1 var(--nkg-font-sans) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-rename button { height: 40px; min-height: 40px !important; padding: 0 14px !important; border-radius: 10px !important; border: 0 !important; background: var(--nkg-inverse-bg) !important; color: var(--nkg-inverse-fg) !important; font: 600 var(--nkg-t-sm)/1 var(--nkg-font-sans) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-rename small:empty { display: none; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-rename small { flex-basis: 100%; margin: 0 !important; color: var(--nkg-red) !important; font-size: var(--nkg-t-xs) !important; }
+
+/* --- Saved mocks on Tests: search, rows with a score / New badge, show all */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-saved-mocks .nk-section-head span { font-variant-numeric: tabular-nums; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-search {
+  display: flex !important; align-items: center; gap: 8px; margin: 0 0 10px !important; padding: 0 12px !important; height: 44px;
+  border: 1px solid var(--nkg-border) !important; border-radius: 12px !important; background: var(--nkg-surface) !important; color: var(--nkg-fg-3);
+  transition: border-color var(--nkg-dur-fast) ease, box-shadow var(--nkg-dur-fast) ease;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-search:focus-within { border-color: var(--nkg-border-strong) !important; box-shadow: 0 0 0 3px color-mix(in srgb, var(--nkg-fg) 8%, transparent); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-search input { flex: 1; min-width: 0; height: 100%; border: 0 !important; background: none !important; box-shadow: none !important; outline: 0 !important; padding: 0 !important; color: var(--nkg-fg) !important; font: 400 16px/1 var(--nkg-font-sans) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-search input::placeholder { color: var(--nkg-fg-3); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-search input::-webkit-search-cancel-button { filter: grayscale(1); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-saved-mocks .nk-session-list { border: 1px solid var(--nkg-border); border-radius: 16px; overflow: hidden; background: var(--nkg-surface); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-row { display: block !important; border-bottom: 1px solid var(--nkg-border) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-saved-mocks .nk-na-mock-row:last-of-type, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-saved-mocks:not(.is-expanded):not(.is-searching) .nk-na-mock-row:nth-child(5) { border-bottom: 0 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-row > button:first-child {
+  width: 100%; display: grid !important; grid-template-columns: 40px minmax(0, 1fr) auto 16px; align-items: center; gap: 12px !important;
+  padding: 12px 14px !important; background: transparent !important; border: 0 !important; border-radius: 0 !important; text-align: left; color: var(--nkg-fg) !important;
+  transition: background-color var(--nkg-dur-fast) ease;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-row > button:first-child:hover { background: var(--nkg-bg-subtle) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-row > button:first-child:active { background: var(--nkg-surface-2) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-icon { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: var(--nkg-surface-2); color: var(--nkg-fg-2); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-copy { min-width: 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-row strong { display: block; font: 600 15px/1.3 var(--nkg-font-sans) !important; color: var(--nkg-fg) !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-row small { display: block; margin-top: 2px !important; font: 400 var(--nkg-t-sm)/1.3 var(--nkg-font-sans) !important; color: var(--nkg-fg-3) !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-state { font: 600 var(--nkg-t-sm)/1 var(--nkg-font-sans); color: var(--nkg-fg); font-variant-numeric: tabular-nums; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-state.is-new { height: 22px; padding: 0 8px; display: inline-grid; place-items: center; border-radius: 999px; background: var(--nkg-surface-2); color: var(--nkg-fg-2); font-size: var(--nkg-t-xs); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-row > button:first-child > svg:last-child { color: var(--nkg-fg-3); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-none { margin: 10px 0 0 !important; padding: 18px; text-align: center; border: 1px dashed var(--nkg-border); border-radius: 14px; font: 500 var(--nkg-t-sm)/1.4 var(--nkg-font-sans); color: var(--nkg-fg-3) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-saved-mocks.is-searching .nk-session-list:not(:has(.nk-na-mock-row:not([hidden]))) { display: none; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-more { width: 100%; height: 44px; margin-top: 8px !important; border: 0 !important; background: none !important; color: var(--nkg-fg-2) !important; font: 600 var(--nkg-t-sm)/1 var(--nkg-font-sans) !important; border-radius: 12px !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-more:hover { background: var(--nkg-bg-subtle) !important; color: var(--nkg-fg) !important; }
+
+/* --- Result page: Save as mock is an action, then a saved state with Rename. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) button.nk-na-save-mock:not(.nkg-action) {
+  display: flex !important; align-items: center; justify-content: center; gap: 8px; width: 100%; height: 48px; margin: 16px 0 !important;
+  border: 1px solid var(--nkg-border-strong) !important; border-radius: 14px !important; background: var(--nkg-surface) !important; color: var(--nkg-fg) !important;
+  font: 600 var(--nkg-t-base)/1 var(--nkg-font-sans) !important; box-shadow: none !important; transition: transform 120ms ease, background-color 120ms ease;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) button.nk-na-save-mock::after { content: none !important; display: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) button.nk-na-save-mock:not(.nkg-action):hover { background: var(--nkg-bg-subtle) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) button.nk-na-save-mock:active { transform: scale(.985); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-saved {
+  display: flex !important; align-items: center; gap: 12px; margin: 16px 0 !important; padding: 12px 12px 12px 14px !important; min-height: 48px; box-sizing: border-box;
+  border: 1px solid var(--nkg-green-border) !important; border-radius: 14px !important; background: var(--nkg-green-bg) !important;
+  animation: nkg-saved-in 420ms cubic-bezier(.16, 1, .3, 1) both;
+}
+@keyframes nkg-saved-in { from { opacity: .4; transform: scale(.98); filter: blur(2px); } }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-saved-icon { flex: none; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--nkg-green); color: #fff; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-saved-icon svg { animation: nkg-ti-pop 360ms var(--nkg-spring) 80ms both; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-saved > div { flex: 1; min-width: 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-saved strong { display: block; font: 600 var(--nkg-t-base)/1.25 var(--nkg-font-sans) !important; color: var(--nkg-green) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-saved small { display: block; margin-top: 1px; font: 400 var(--nkg-t-sm)/1.3 var(--nkg-font-sans) !important; color: var(--nkg-fg-2) !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-saved > button { flex: none; height: 36px; min-height: 36px !important; padding: 0 14px !important; border-radius: 999px !important; border: 1px solid var(--nkg-green-border) !important; background: var(--nkg-surface) !important; color: var(--nkg-fg) !important; font: 600 var(--nkg-t-sm)/1 var(--nkg-font-sans) !important; box-shadow: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-saved.is-editing { background: var(--nkg-surface) !important; border-color: var(--nkg-border-strong) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-rename { display: grid !important; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; width: 100%; align-items: center; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-rename label { grid-column: 1 / -1; font: 600 var(--nkg-t-sm)/1 var(--nkg-font-sans) !important; color: var(--nkg-fg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-rename input { height: 40px; min-height: 40px !important; padding: 0 12px !important; border-radius: 10px !important; border: 1px solid var(--nkg-border-strong) !important; background: var(--nkg-surface) !important; color: var(--nkg-fg) !important; font: 400 16px/1 var(--nkg-font-sans) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-rename > div { display: flex; gap: 6px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-rename button { height: 40px; min-height: 40px !important; padding: 0 12px !important; border-radius: 10px !important; border: 1px solid var(--nkg-border) !important; background: var(--nkg-surface) !important; color: var(--nkg-fg) !important; font: 600 var(--nkg-t-sm)/1 var(--nkg-font-sans) !important; box-shadow: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-rename button[type="submit"] { background: var(--nkg-inverse-bg) !important; color: var(--nkg-inverse-fg) !important; border-color: var(--nkg-inverse-bg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-rename small:empty { display: none; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-rename small { grid-column: 1 / -1; color: var(--nkg-red) !important; font-size: var(--nkg-t-xs) !important; }
+
+/* Undo toast after deleting a mock. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .toast.nk-undo-toast { display: flex !important; align-items: center; justify-content: space-between; gap: 16px; text-align: left; pointer-events: auto; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-undo-toast button { flex: none; height: 32px; padding: 0 12px; border: 0; border-radius: 8px; background: color-mix(in srgb, var(--nkg-inverse-fg) 16%, transparent); color: var(--nkg-inverse-fg); font: 600 var(--nkg-t-sm)/1 var(--nkg-font-sans); cursor: pointer; }
+/* Healthicons sit inside a 48px grid with generous padding; scale them to match Phosphor's optical size. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) svg[data-nkg-icon^="hi-"] { transform: scale(1.22); overflow: visible; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-actions .primary-btn { height: 36px !important; max-height: 36px !important; width: auto !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-progress small { gap: 0 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-progress small span + span::before { margin: 0 6px !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-confirm .danger-btn { color: var(--nkg-surface) !important; }
+@media (max-width: 380px) {
+  html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-row { grid-template-columns: 40px minmax(0, 1fr) !important; grid-template-areas: "icon copy" "icon progress" "icon actions" !important; }
+  html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-icon { width: 40px; height: 40px; }
+  html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-actions { flex-direction: row; align-items: center; justify-content: space-between; align-self: auto; margin-top: 2px; }
+  html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-actions .nk-saved-practice-discard { margin-right: -10px; }
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-saved-mocks:not(.is-expanded):not(.is-searching) .nk-na-mock-row.is-extra, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-saved-mocks .nk-na-mock-row[hidden] { display: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-na-saved-mocks .nk-na-mock-search input[type="search"] { border: 0 !important; background: transparent !important; box-shadow: none !important; outline: 0 !important; padding: 0 !important; height: 100% !important; min-height: 0 !important; border-radius: 0 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-saved-mocks.is-searching .nk-na-mock-more { display: none !important; }
+html[data-nk-ui="geist"] .nkg-toast.has-action { pointer-events: auto; padding-right: 6px; }
+html[data-nk-ui="geist"] .nkg-toast-action {
+  margin-left: 6px; height: 30px; padding: 0 12px; border: 0; border-radius: 999px; cursor: pointer;
+  background: color-mix(in srgb, currentColor 14%, transparent); color: inherit; font: 600 var(--nkg-t-sm)/1 var(--nkg-font-sans);
+}
+html[data-nk-ui="geist"] .nkg-toast-action:active { transform: scale(.95); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-action.is-save { grid-template-columns: 40px minmax(0, 1fr) auto; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-action-pill { grid-column: 3; grid-row: 1 / 3; height: 32px; padding: 0 14px; display: inline-grid; place-items: center; border-radius: 999px; background: var(--nkg-inverse-bg); color: var(--nkg-inverse-fg); font: 600 var(--nkg-t-sm)/1 var(--nkg-font-sans); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-saved { min-height: 70px; padding: 14px 14px 14px 16px !important; border-radius: var(--nkg-r-lg) !important; }

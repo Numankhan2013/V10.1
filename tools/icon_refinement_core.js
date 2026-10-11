@@ -52,7 +52,9 @@
       pregnancy:'<circle cx="10" cy="4" r="2"/><path d="M9 8h3l1 3c4 0 6 2 6 5H9V8Z"/>',
       uworld:nkIconPlanes.book
     };
-    return nkIconLayers(nkSubjectIconBase(name,size),plane[key]||'',key).replace('class="nk-product-icon"','class="nk-product-icon nk-subject-svg"').replace(' class="nk-subject-svg"','');
+    // UWorld collections without their own glyph still name their system, so the app shell can draw an organ icon.
+    const collection=String(name||'').toLowerCase(),system=key==='uworld'&&collection.startsWith('uworld · ')?([['pharmacology','pharmacology'],['pathology','pathology'],['endocrine','endocrine'],['psychiatric','psychiatry'],['cardiovascular','cardiovascular'],['renal','renal'],['gastrointestinal','gastrointestinal'],['rheumatology','rheumatology'],['pulmonary','pulmonary']].find(([word])=>collection.includes(word))||[])[1]:'';
+    return nkIconLayers(nkSubjectIconBase(name,size),plane[key]||'',system||key).replace('class="nk-product-icon"','class="nk-product-icon nk-subject-svg"').replace(' class="nk-subject-svg"','');
   };
   const nkAnalysisIconBase=nkAnalysisIcon;
   nkAnalysisIcon=function(name,size=18){
