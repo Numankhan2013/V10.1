@@ -42,17 +42,43 @@ if (location.hostname !== 'qbank.local') {
   // Tone curve: the sources use thin, mid-grey, non-embedded Helvetica that reads washed
   // out on phones. A gamma curve on the rendered pixels darkens ink and keeps paper white
   // (255 stays 255); colours keep their hue. The CSS contrast/saturate filter still applies.
+  // The curve runs in a worker on a transferred bitmap, so the page thread only renders
+  // (on a phone the pixel pass costs more than the PDF.js render itself). Pure-white paper
+  // pixels are skipped. Browsers without OffscreenCanvas fall back to yielding bands here.
+  const TONE_SRC = 'const T=new Uint8ClampedArray(256).map((_,v)=>Math.round(255*Math.pow(v/255,1.7)));' +
+    'function tone(d){const u=new Uint32Array(d.buffer,d.byteOffset,d.length>>2);for(let j=0;j<u.length;j++){if(u[j]===0xFFFFFFFF)continue;const i=j<<2;d[i]=T[d[i]];d[i+1]=T[d[i+1]];d[i+2]=T[d[i+2]];}}';
   const TONE = new Uint8ClampedArray(256).map((_, v) => Math.round(255 * Math.pow(v / 255, 1.7)));
-  // Applied in bands that yield to the browser between them, so a 12 MP full-screen render
-  // never freezes taps, scrolling or the viewer's animation.
-  async function toneCurve(ctx, w, h) {
+  const toneHere = new Function('T', TONE_SRC.slice(TONE_SRC.indexOf('function')) + 'return tone;')(TONE);
+  let toneWorker = null, toneSeq = 0;
+  const toneJobs = new Map();
+  if (typeof Worker !== 'undefined' && typeof OffscreenCanvas !== 'undefined' && typeof createImageBitmap === 'function') {
+    try {
+      const src = TONE_SRC + 'onmessage=e=>{const{id,bitmap}=e.data;try{const w=bitmap.width,h=bitmap.height,c=new OffscreenCanvas(w,h),x=c.getContext("2d",{willReadFrequently:true});' +
+        'x.drawImage(bitmap,0,0);bitmap.close();const band=Math.max(1,Math.floor(4000000/w));for(let y=0;y<h;y+=band){const r=Math.min(band,h-y),img=x.getImageData(0,y,w,r);tone(img.data);x.putImageData(img,0,y);}' +
+        'const out=c.transferToImageBitmap();postMessage({id,bitmap:out},[out]);}catch(err){postMessage({id,error:String(err&&err.message||err)});}};';
+      const url = URL.createObjectURL(new Blob([src], {type: 'text/javascript'}));
+      toneWorker = new Worker(url);
+      toneWorker.onmessage = e => { const job = toneJobs.get(e.data.id); if (!job) return; toneJobs.delete(e.data.id); e.data.error ? job.reject(new Error(e.data.error)) : job.resolve(e.data.bitmap); };
+      toneWorker.onerror = () => { toneWorker = null; toneJobs.forEach(job => job.reject(new Error('tone worker failed'))); toneJobs.clear(); };
+    } catch (e) { toneWorker = null; }
+  }
+  async function toneOnPage(ctx, w, h) {
     const band = Math.max(1, Math.floor(600000 / Math.max(1, w)));
     for (let y = 0; y < h; y += band) {
-      const rows = Math.min(band, h - y), img = ctx.getImageData(0, y, w, rows), d = img.data;
-      for (let i = 0; i < d.length; i += 4) { d[i] = TONE[d[i]]; d[i + 1] = TONE[d[i + 1]]; d[i + 2] = TONE[d[i + 2]]; }
-      ctx.putImageData(img, 0, y);
+      const rows = Math.min(band, h - y), img = ctx.getImageData(0, y, w, rows);
+      toneHere(img.data); ctx.putImageData(img, 0, y);
       if (y + band < h) await new Promise(resolve => setTimeout(resolve, 0));
     }
+  }
+  async function toneCurve(canvas, ctx) {
+    if (toneWorker) {
+      try {
+        const bitmap = await createImageBitmap(canvas);
+        const toned = await new Promise((resolve, reject) => { const id = ++toneSeq; toneJobs.set(id, {resolve, reject}); toneWorker.postMessage({id, bitmap}, [bitmap]); });
+        ctx.drawImage(toned, 0, 0); toned.close(); return;
+      } catch (e) { toneWorker = null; }
+    }
+    await toneOnPage(ctx, canvas.width, canvas.height);
   }
 
   function loadDocument(subject) {
@@ -75,12 +101,15 @@ if (location.hostname !== 'qbank.local') {
     const viewport = page.getViewport({scale});
     const canvas = document.createElement('canvas');
     canvas.width = Math.ceil(viewport.width); canvas.height = Math.ceil(cropHeight*scale);
-    const ctx = canvas.getContext('2d',{alpha:false,willReadFrequently:true});
+    await repairsReady;
+    // Read-back-friendly (CPU) canvas only where pixels are read on this thread: pages with
+    // glyph repairs, or browsers that tone here. Elsewhere PDF.js draws on an accelerated canvas.
+    const pageRepairs = repairs && repairs[node.dataset.subject] && repairs[node.dataset.subject][node.dataset.page];
+    const ctx = canvas.getContext('2d',{alpha:false,willReadFrequently:!toneWorker || !!pageRepairs});
     await page.render({canvasContext:ctx,viewport,transform:[1,0,0,1,0,-top*scale]}).promise;
     page.cleanup();
-    await repairsReady;
     repairGlyphs(ctx, node.dataset.subject, Number(node.dataset.page), scale, top, bottom);
-    await toneCurve(ctx, canvas.width, canvas.height);
+    await toneCurve(canvas, ctx);
     return canvas;
   }
   // Sharp full-screen renders: one in flight per segment, the last two kept (each is up to
