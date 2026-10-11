@@ -1129,7 +1129,7 @@
     if (same && qMemo.idx != null && idx !== qMemo.idx && isFinite(idx)) {
       var dir = idx > qMemo.idx ? 1 : -1;
       var card = app.querySelector('.question-shell');
-      if (card) anim(card, { opacity: [0.2, 1], transform: ['translateX(' + (dir * 22) + 'px)', 'none'] }, { duration: 0.26 });
+      if (card) anim(card, { opacity: [0, 1], transform: ['translateX(' + (dir * 26) + 'px)', 'none'], filter: ['blur(3px)', 'blur(0px)'] }, { duration: 0.3 });
       anim(strong, { opacity: [0, 1], transform: ['translateY(' + (dir * 60) + '%)', 'none'], filter: ['blur(2px)', 'blur(0px)'] }, { duration: 0.28 });
     }
     if (bar && same && qMemo.pct != null && isFinite(pct) && pct !== qMemo.pct) anim(bar, { width: [qMemo.pct + '%', pct + '%'] }, { type: 'spring', stiffness: 240, damping: 22 });
@@ -1201,7 +1201,7 @@
   function staggerPage(main) {
     var secs = [].slice.call(main.querySelectorAll(':scope > section, :scope > div > section, :scope > div > header, :scope > header')).filter(function (n) { var r = n.getBoundingClientRect(); return r.height && r.top < window.innerHeight; }).slice(0, 7);
     if (secs.length < 2) return false;
-    anim(secs, { opacity: [0, 1], transform: ['translateY(10px)', 'none'] }, { duration: 0.34, delay: M.stagger ? M.stagger(0.045) : 0 });
+    anim(secs, { opacity: [0, 1], transform: ['translateY(10px)', 'none'], filter: ['blur(2px)', 'blur(0px)'] }, { duration: 0.36, delay: M.stagger ? M.stagger(0.045) : 0 });
     var cta = main.querySelector('.nk-home-focus-card :is(.nk-focus-primary, .nk-home-focus-action)');
     if (cta && motionOK()) { cta.classList.remove('nkg-shine'); void cta.offsetWidth; cta.classList.add('nkg-shine'); window.setTimeout(function () { cta.classList.remove('nkg-shine'); }, 1800); }
     return true;
