@@ -1060,8 +1060,8 @@
       var t = save.textContent.trim();
       save.setAttribute('aria-label', t);
       save.innerHTML = '<span class="nkg-action-icon" aria-hidden="true">' + icon('stack', 18) + '</span>' +
-        '<span class="nkg-action-text"><b>' + esc(t) + '</b><small>Reuse this exact set of questions later</small></span>' +
-        '<span class="nkg-action-chev" aria-hidden="true">' + icon('caret-right', 16) + '</span>';
+        '<span class="nkg-action-text"><b>' + esc(t) + '</b><small>Retake this exact set later</small></span>' +
+        '<span class="nkg-action-pill" aria-hidden="true">Save</span>';
     }
   }
 
@@ -1145,7 +1145,7 @@
     t.classList.add('is-leaving');
     setTimeout(function () { if (t.parentNode) t.parentNode.removeChild(t); }, RM.matches ? 0 : 220);
   }
-  function toastShow(msg, kind) {
+  function toastShow(msg, kind, action) {
     if (!toastLayer) {
       toastLayer = el('div', 'nkg-toasts');
       toastLayer.setAttribute('role', 'status'); toastLayer.setAttribute('aria-live', 'polite');
@@ -1159,15 +1159,21 @@
       var r = b.getBoundingClientRect(); if (r.height && r.bottom >= window.innerHeight - 140 && r.top < top) top = r.top;
     });
     toastLayer.style.bottom = Math.max(12, window.innerHeight - top + 12) + 'px';
-    if (toastCur && toastCur.__msg === msg && !toastCur.__leaving) { toastCur.classList.remove('is-bump'); void toastCur.offsetWidth; toastCur.classList.add('is-bump'); }
+    if (!action && toastCur && toastCur.__msg === msg && !toastCur.__leaving) { toastCur.classList.remove('is-bump'); void toastCur.offsetWidth; toastCur.classList.add('is-bump'); }
     else {
       toastLeave(toastCur);
       var t = el('div', 'nkg-toast is-' + kind, '<span class="nkg-toast-ic">' + TOAST_IC[kind] + '</span><span class="nkg-toast-msg"></span>');
       t.querySelector('.nkg-toast-msg').textContent = msg;
       t.__msg = msg;
+      /* An action (Undo) mirrors the app's own button, so the app keeps owning what it does. */
+      if (action) {
+        var act = el('button', 'nkg-toast-action'); act.type = 'button'; act.textContent = action.label;
+        act.addEventListener('click', function () { haptic('selection'); action.el.click(); toastLeave(t); });
+        t.appendChild(act); t.classList.add('has-action');
+      }
       /* swipe sideways or down to dismiss */
       var x0 = 0, y0 = 0, drag = false;
-      t.addEventListener('pointerdown', function (e) { drag = true; x0 = e.clientX; y0 = e.clientY; t.setPointerCapture && t.setPointerCapture(e.pointerId); t.style.transition = 'none'; });
+      t.addEventListener('pointerdown', function (e) { if (e.target.closest && e.target.closest('button')) return; drag = true; x0 = e.clientX; y0 = e.clientY; t.setPointerCapture && t.setPointerCapture(e.pointerId); t.style.transition = 'none'; });
       t.addEventListener('pointermove', function (e) { if (!drag) return; var dx = e.clientX - x0, dy = Math.max(0, e.clientY - y0); t.style.transform = 'translate(' + dx + 'px,' + dy + 'px)'; t.style.opacity = String(Math.max(0, 1 - (Math.abs(dx) + dy) / 160)); });
       function end(e) { if (!drag) return; drag = false; var dx = e.clientX - x0, dy = e.clientY - y0; t.style.transition = ''; if (Math.abs(dx) > 70 || dy > 40) { t.style.transform = 'translate(' + (dx > 0 ? 1 : dx < 0 ? -1 : 0) * 120 + '%,' + (dy > 40 ? 40 : 0) + 'px)'; t.style.opacity = '0'; t.__leaving = true; setTimeout(function () { if (t.parentNode) t.parentNode.removeChild(t); }, 200); } else { t.style.transform = ''; t.style.opacity = ''; } }
       t.addEventListener('pointerup', end); t.addEventListener('pointercancel', end);
@@ -1176,7 +1182,7 @@
     }
     clearTimeout(toastTimer);
     /* Long enough to read at a glance, short enough not to linger: ~1.8 s plus reading time, capped at 4 s. */
-    var hold = Math.min(4000, 1800 + msg.length * 22);
+    var hold = action ? 6500 : Math.min(4000, 1800 + msg.length * 22);
     var cur = toastCur;
     toastTimer = setTimeout(function () { toastLeave(cur); }, hold);
   }
@@ -1190,9 +1196,10 @@
         each(r.addedNodes, function (n) {
           if (n.nodeType !== 1 || !n.classList.contains('toast')) return;
           var kind = n.classList.contains('good') ? 'good' : n.classList.contains('bad') ? 'bad' : 'info';
-          var msg = (n.textContent || '').trim();
+          var btn = n.querySelector('button');
+          var msg = btn ? ((n.querySelector('span') || {}).textContent || '').trim() : (n.textContent || '').trim();
           /* Bookmarking already shows on the icon itself; no toast for it. */
-          if (msg && !/^(Bookmarked for later|Bookmark removed)\.?$/.test(msg)) toastShow(msg, kind);
+          if (msg && !/^(Bookmarked for later|Bookmark removed)\.?$/.test(msg)) toastShow(msg, kind, btn ? { label: btn.textContent.trim(), el: btn } : null);
         });
       });
     }).observe(root, { childList: true });

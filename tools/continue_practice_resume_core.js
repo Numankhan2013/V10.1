@@ -224,13 +224,37 @@
   }
 
   let nkPendingInteractiveStart=null;
+  function nkPracticeGlyph(name,size){return typeof navIcon==='function'?navIcon(name,size):'';}
+  function nkPracticeAgo(ts){
+    const t=Number(ts||0);if(!t)return '';const m=Math.max(0,Math.round((Date.now()-t)/60000));
+    if(m<1)return 'just now';if(m<60)return `${m} min ago`;const h=Math.round(m/60);if(h<24)return `${h} h ago`;const d=Math.round(h/24);
+    return d<7?`${d} d ago`:new Date(t).toLocaleDateString(undefined,{day:'numeric',month:'short'});
+  }
   function nkPracticeSavedSessionsDialog(){
     if(typeof document==='undefined'||!document.body)return false;
     const checkpoints=nkPracticeCheckpoints(false);if(!checkpoints.length)return false;
     document.getElementById('nk-practice-sessions')?.remove();
-    const rows=checkpoints.map(cp=>{const total=cp.sessionQuestionIds?.length||0,done=Object.values(cp.submitted||{}).filter(Boolean).length,title=String(cp.context?.title||'Practice'),subject=String(cp.context?.subject||'Practice'),bank=String(cp.context?.bank||''),position=Math.min(total,Math.max(1,Number(cp.position?.index||0)+1)),started=new Date(Number(cp.startedAt||cp.createdAt||cp.updatedAt)).toLocaleString();return `<article class="nk-saved-practice-row" data-session-id="${esc(String(cp.sessionId))}"><div><strong>${esc(title)}</strong><small>${esc([subject,bank,`${done}/${total} answered`,`Question ${position}/${total}`,started].filter(Boolean).join(' · '))}</small></div><div><button type="button" class="primary-btn" onclick="window.QB.nkResumePracticeById(${esc(JSON.stringify(String(cp.sessionId)))})">Resume</button><button type="button" class="ghost-btn" onclick="window.QB.nkDiscardNormalPractice(${esc(JSON.stringify(String(cp.sessionId)))})">Discard</button></div></article>`;}).join('');
-    document.body.insertAdjacentHTML('beforeend',`<div class="modal-backdrop" id="nk-practice-sessions"><section class="modal card nk-practice-sessions-dialog" role="dialog" aria-modal="true" aria-labelledby="nk-practice-sessions-title"><h2 id="nk-practice-sessions-title">Paused Practice</h2><p>Your chapter progress is saved. Resume any session, or start a new chapter from Topics.</p><div class="nk-saved-practice-list">${rows}</div><button type="button" class="ghost-btn" onclick="document.getElementById('nk-practice-sessions')?.remove()">Close</button></section></div>`);
+    const rows=checkpoints.map(cp=>{
+      const id=String(cp.sessionId),arg=esc(JSON.stringify(id)),total=cp.sessionQuestionIds?.length||0,done=Object.values(cp.submitted||{}).filter(Boolean).length;
+      const title=String(cp.context?.title||'Practice'),subject=String(cp.context?.subject||'Practice'),bank=String(cp.context?.bank||'');
+      const position=Math.min(total,Math.max(1,Number(cp.position?.index||0)+1)),pct=total?Math.round(done/total*100):0,ago=nkPracticeAgo(cp.pausedAt||cp.updatedAt||cp.startedAt);
+      const icon=typeof nkSubjectGraphic==='function'?nkSubjectGraphic(subject,22):nkPracticeGlyph('book',22);
+      return `<article class="nk-saved-practice-row" data-session-id="${esc(id)}"><span class="nk-saved-practice-icon" aria-hidden="true">${icon}</span><div class="nk-saved-practice-copy"><strong>${esc(title)}</strong><small>${esc([subject,bank].filter(Boolean).join(' · '))}</small></div><div class="nk-saved-practice-progress"><span class="nk-saved-practice-bar" role="img" aria-label="${done} of ${total} answered"><i style="width:${pct}%"></i></span><small><span>Question ${position} of ${total}</span>${ago?`<span>${esc(ago)}</span>`:''}</small></div><div class="nk-saved-practice-actions"><button type="button" class="primary-btn" onclick="window.QB.nkResumePracticeById(${arg})">Resume</button><button type="button" class="ghost-btn nk-saved-practice-discard" aria-label="Discard" title="Discard session" onclick="window.QB.nkPracticeConfirmDiscard(${arg})">${nkPracticeGlyph('trash',18)||'Discard'}</button></div></article>`;
+    }).join('');
+    const count=checkpoints.length;
+    document.body.insertAdjacentHTML('beforeend',`<div class="modal-backdrop" id="nk-practice-sessions" onclick="if(event.target===this)this.remove()"><section class="modal card nk-practice-sessions-dialog" role="dialog" aria-modal="true" aria-labelledby="nk-practice-sessions-title"><header class="nk-practice-sessions-head"><div><h2 id="nk-practice-sessions-title">Paused Practice</h2><p>${count} ${count===1?'session':'sessions'} saved where you left off</p></div><button type="button" class="nk-modal-close" aria-label="Close" onclick="document.getElementById('nk-practice-sessions')?.remove()">${nkPracticeGlyph('close',20)||'×'}</button></header><div class="nk-saved-practice-list">${rows}</div><footer class="nk-practice-sessions-foot"><button type="button" class="ghost-btn" onclick="document.getElementById('nk-practice-sessions')?.remove();window.QB.nav('study-library')">${nkPracticeGlyph('book',18)}<span>Start a new topic</span></button></footer></section></div>`);
     return true;
+  }
+  // Discard asks once, inside the row, so a stray tap never throws away a session.
+  function nkPracticeConfirmDiscard(sessionId,cancel){
+    if(typeof document==='undefined')return false;
+    const row=[...document.querySelectorAll('#nk-practice-sessions .nk-saved-practice-row')].find(n=>n.getAttribute('data-session-id')===String(sessionId));if(!row)return false;
+    row.querySelector('.nk-saved-practice-confirm')?.remove();
+    const actions=row.querySelector('.nk-saved-practice-actions');
+    if(cancel){row.classList.remove('is-confirming');if(actions)actions.hidden=false;row.querySelector('.nk-saved-practice-discard')?.focus({preventScroll:true});return true;}
+    const arg=esc(JSON.stringify(String(sessionId)));if(actions)actions.hidden=true;row.classList.add('is-confirming');
+    row.insertAdjacentHTML('beforeend',`<div class="nk-saved-practice-confirm" role="group" aria-label="Discard this session?"><span>Discard this session?</span><button type="button" class="ghost-btn" onclick="window.QB.nkPracticeConfirmDiscard(${arg},true)">Keep</button><button type="button" class="danger-btn" onclick="window.QB.nkDiscardNormalPractice(${arg})">Discard</button></div>`);
+    row.querySelector('.nk-saved-practice-confirm .ghost-btn')?.focus({preventScroll:true});return true;
   }
   function nkResumePracticeById(sessionId){
     document.getElementById('nk-practice-sessions')?.remove();const live=state.activeSession;

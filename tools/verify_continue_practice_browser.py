@@ -363,7 +363,12 @@ def main() -> None:
             if double_pause != {"first": True, "second": True, "unchanged": True}:
                 raise SystemExit(f"Double Pause was not idempotent: {double_pause}")
             page.locator("button.nk-home-focus-action").click()
-            page.locator(f'#nk-practice-sessions .nk-saved-practice-row[data-session-id="{snapshots["B"]["checkpoint"]["sessionId"]}"]').get_by_role("button", name="Discard", exact=True).click()
+            discard_row = page.locator(f'#nk-practice-sessions .nk-saved-practice-row[data-session-id="{snapshots["B"]["checkpoint"]["sessionId"]}"]')
+            # Discard asks once inside the row before anything is thrown away.
+            discard_row.get_by_role("button", name="Discard", exact=True).click()
+            if page.evaluate("""id => window.QB.getState().normalPracticeCheckpoints.find(cp=>cp.sessionId===id)?.lifecycle""", snapshots["B"]["checkpoint"]["sessionId"]) == "discarded":
+                raise SystemExit("A single Discard tap must not discard a saved Practice")
+            discard_row.get_by_role("button", name="Discard", exact=True).click()
             remaining = page.evaluate("""() => window.QB.getState().normalPracticeCheckpoints.filter(cp=>!['submitted','completed','discarded'].includes(cp.lifecycle)).map(cp=>cp.sessionId)""")
             if remaining != [snapshots["C"]["checkpoint"]["sessionId"]]:
                 raise SystemExit(f"Discarding B changed another saved Practice: {remaining}")

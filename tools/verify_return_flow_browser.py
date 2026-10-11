@@ -97,16 +97,20 @@ def main():
                 assert page.evaluate('document.activeElement.getAttribute("aria-label")')=='Rename test'
                 assert page.evaluate('QB.getState().tests.find(t=>t.id==="return-rename").title')=='New title with α and العربية'
                 page.evaluate('(id)=>{QB.getState().savedMocks=[{id:"return-one",name:"First mock",questionIds:[id],createdAt:1,updatedAt:1},{id:"return-two",name:"Second mock",questionIds:[id],createdAt:2,updatedAt:2}];QB.saveState();QB.nav("tests");}',q['id'])
-                remove=page.locator('.nk-na-remove').last;size=remove.bounding_box();assert size['width']>=44 and size['height']>=44
-                page.evaluate('__returnFailSave()');remove.focus();page.keyboard.press('Enter')
-                assert page.locator('.nk-na-mock-row').count()==2
-                assert page.evaluate('document.activeElement.matches(".nk-na-remove")')
-                page.evaluate('__returnSave()');page.keyboard.press('Enter')
-                assert page.locator('.nk-na-mock-row').count()==1
-                assert page.evaluate('document.activeElement.matches(".nk-na-mock-row>button:first-child")')
-                page.locator('.nk-na-remove').focus();page.keyboard.press('Enter')
-                assert page.locator('.nk-na-mock-row').count()==0
-                assert page.evaluate('document.activeElement.tagName')=='H1'
+                rows=page.locator('.nk-na-mock-row')
+                rows.last.locator('button').first.click();page.locator('#nk-mock-sheet').wait_for(state='visible')
+                page.keyboard.press('Escape');assert page.locator('#nk-mock-sheet').count()==0
+                rows.last.locator('button').first.click();page.locator('#nk-mock-sheet').wait_for(state='visible')
+                remove=page.get_by_role('button',name='Delete mock',exact=True);size=remove.bounding_box();assert size['width']>=44 and size['height']>=44
+                remove.click()
+                assert rows.count()==2,'one tap on Delete only asks'
+                page.evaluate('__returnFailSave()');page.get_by_role('button',name='Delete',exact=True).click()
+                assert rows.count()==2 and page.locator('#nk-mock-sheet').count()==1
+                page.evaluate('__returnSave()');page.get_by_role('button',name='Delete',exact=True).click()
+                assert rows.count()==1 and page.locator('#nk-mock-sheet').count()==0
+                page.get_by_role('button',name='Undo',exact=True).click()
+                assert rows.count()==2
+                assert page.evaluate('QB.getState().savedMocks.map(m=>m.id)')==['return-one','return-two']
                 assert not page.evaluate('document.documentElement.scrollWidth>innerWidth')
                 assert not errors,errors
                 reports.append({'width':width,'bookmark_return':True,'mistakes_return':True,'restore_origin':True,'legacy_recovery':True,'rename_failure_retry':True,'remove_keyboard':True,'remove_rollback':True})
