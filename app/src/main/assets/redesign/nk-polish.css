@@ -1719,9 +1719,10 @@ html[data-nk-ui="geist"] .nk-nb.is-text .nk-nb-text { background: transparent !i
 /* Same surface as every other page: up to 1120px, 16px gutters on phones, 24px on tablets. */
 html[data-nk-ui="geist"] :is(body,#nkg-root) :is(#nk-practice-sessions, #nk-mock-sheet) { --nkg-screen-w: 1120px; --nkg-screen-pad: 16px; --nkg-screen-gut: max(var(--nkg-screen-pad), calc((100% - var(--nkg-screen-w)) / 2 + var(--nkg-screen-pad))); }
 @media (min-width: 700px) { html[data-nk-ui="geist"] :is(body,#nkg-root) :is(#nk-practice-sessions, #nk-mock-sheet) { --nkg-screen-pad: 24px; } }
-/* The app's press rule (interaction_polish: [onclick]:active scale .98 + dim) also matched
-   these screens' backdrops, so any tap made the whole page flinch. A page never presses. */
-html[data-nk-ui="geist"] body :is(#nk-practice-sessions, #nk-mock-sheet, .modal-backdrop):active { transform: none !important; filter: none !important; transition: none !important; }
+/* The app's press feedback (interaction_polish: [onclick]:active, and on touch the
+   .nk-pressed class its script adds) scales by .98 and dims. It also matched these
+   screens' backdrops, so any tap made the whole page flinch. A page never presses. */
+html[data-nk-ui="geist"] body :is(#nk-practice-sessions, #nk-mock-sheet, .modal-backdrop):is(:active, .nk-pressed) { transform: none !important; filter: none !important; transition: none !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) :is(#nk-practice-sessions, #nk-mock-sheet).modal-backdrop {
   align-items: stretch !important; justify-content: stretch !important; padding: 0 !important;
   background: var(--nkg-bg) !important;
