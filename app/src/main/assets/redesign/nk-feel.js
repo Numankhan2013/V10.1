@@ -1006,13 +1006,45 @@
     if (bar) bar.classList.toggle('is-scrolled', (window.scrollY || document.documentElement.scrollTop || 0) > 2);
   }
   window.addEventListener('scroll', onScroll, { passive: true });
+  /* Navigation direction, like a native stack: drilling in slides the new screen
+     from the right, going back slides it from the left, tab switches only fade. */
+  var TABS = { dashboard: 1, 'quick-revision': 1, tests: 1, analytics: 1, more: 1 };
+  var navStack = [];
+  function navDirection(key, page) {
+    if (TABS[page]) { var was = navStack.length > 1; navStack = [key]; return was ? 'pop' : 'tab'; }
+    if (navStack.length > 1 && navStack[navStack.length - 2] === key) { navStack.pop(); return 'pop'; }
+    var at = navStack.indexOf(key);
+    if (at >= 0) { navStack = navStack.slice(0, at + 1); return 'pop'; }
+    navStack.push(key); return 'push';
+  }
+  function slideIn(node, dir) {
+    if (!node) return;
+    if (!motionOK() || !node.animate) return;
+    /* The individual translate property: legacy rules pin transform with !important on some pages. */
+    var x = dir === 'pop' ? -22 : 22;
+    node.animate([{ opacity: 0, translate: x + 'px 0' }, { opacity: 1, translate: '0 0' }], { duration: 340, easing: 'cubic-bezier(.16, 1, .3, 1)' });
+  }
   function pageEnter(app, page, session) {
     var key = page + (session ? ':s' : '');
-    if (lastRoute === null) { lastRoute = key; return; }
-    if (key === lastRoute) return;
+    if (lastRoute === null) { lastRoute = key; navStack = [key]; return; }
+    if (key === lastRoute) {
+      /* Same route rendered again right after arriving: carry the slide over to the new main. */
+      var cur = pageEnter.cur, m = app.querySelector('main.page');
+      if (cur && m && m !== cur.main && performance.now() - cur.t < 200 && cur.dir !== 'tab') { cur.main = m; slideIn(m, cur.dir); }
+      return;
+    }
     lastRoute = key;
-    var main = app.querySelector('main.page');
-    if (main && !session && !staggerPage(main)) anim(main, { opacity: [0, 1], transform: ['translateY(6px)', 'none'] }, { duration: 0.26 });
+    var dir = navDirection(key, page);
+    /* The app can render a route several times in one go; animate the final main,
+       still before the first paint. */
+    window.cancelAnimationFrame(pageEnter.raf);
+    pageEnter.raf = window.requestAnimationFrame(function () {
+      var main = app.querySelector('main.page');
+      if (!main) return;
+      pageEnter.cur = { dir: dir, t: performance.now(), main: main };
+      if (dir === 'tab') { if (!staggerPage(main)) anim(main, { opacity: [0, 1], transform: ['translateY(6px)', 'none'] }, { duration: 0.26 }); return; }
+      slideIn(main, dir);
+    });
   }
 
   /* ===================================================== global feedback */
@@ -1132,7 +1164,7 @@
       if (card) anim(card, { opacity: [0, 1], transform: ['translateX(' + (dir * 26) + 'px)', 'none'], filter: ['blur(3px)', 'blur(0px)'] }, { duration: 0.3 });
       anim(strong, { opacity: [0, 1], transform: ['translateY(' + (dir * 60) + '%)', 'none'], filter: ['blur(2px)', 'blur(0px)'] }, { duration: 0.28 });
     }
-    if (bar && same && qMemo.pct != null && isFinite(pct) && pct !== qMemo.pct) anim(bar, { width: [qMemo.pct + '%', pct + '%'] }, { type: 'spring', stiffness: 240, damping: 22 });
+    if (bar && same && qMemo.pct != null && isFinite(pct) && pct !== qMemo.pct) anim(bar, { width: [qMemo.pct + '%', pct + '%'] }, { type: 'spring', stiffness: 240, damping: 22, keep: true });
     var answered = !!app.querySelector('.question-card .option:is(.correct, .wrong)');
     if (same && idx === qMemo.idx && qMemo.answered === false && answered) answerReveal(app);
     qMemo.key = key; qMemo.idx = isFinite(idx) ? idx : null; qMemo.pct = isFinite(pct) ? pct : null; qMemo.answered = answered;
@@ -1457,22 +1489,61 @@
     var bar = el('span', 'nkg-bar-title'); bar.setAttribute('aria-hidden', 'true');
     head.appendChild(bar);
   }
+  /* These two are screens, not layers: while one is open the app underneath is not
+     rendered, the window itself scrolls, it gets a history entry so Back and the
+     iPad edge swipe close it, and it enters and leaves with the same push / pop
+     motion as every other screen. */
+  var screen = null;
+  function currentPage() { for (var id in PAGE_IDS) { var n = document.getElementById(id); if (n) return n; } return null; }
+  function syncScreen() {
+    var page = currentPage(), root = document.documentElement;
+    if (page && screen && page === screen.el) return;
+    if (page && screen) { screen.el = page; pageify(page); return; } /* re-rendered in place (rename, discard) */
+    if (page) {
+      pageify(page);
+      screen = { el: page, y: window.scrollY || 0, hash: location.hash };
+      root.classList.add('nkg-screen-open');
+      try { history.pushState({ nkgScreen: page.id }, '', location.href); screen.pushed = true; } catch (e) {}
+      window.scrollTo(0, 0);
+      slideIn(page.querySelector('.modal'), 'push');
+      return;
+    }
+    if (!screen) return;
+    var s = screen; screen = null;
+    root.classList.remove('nkg-screen-open');
+    if (location.hash !== s.hash) return; /* left for another route (Resume, Start mock) */
+    window.scrollTo(0, s.y);
+    var main = document.querySelector('#app main.page'); if (main) slideIn(main, 'pop');
+    if (s.pushed && !s.popped && history.state && history.state.nkgScreen) { ignorePop = s.y; history.back(); }
+  }
+  var ignorePop = false;
+  window.addEventListener('popstate', function (e) {
+    if (ignorePop !== false) { var y = ignorePop; ignorePop = false; if (y) window.scrollTo(0, y); return; }
+    if (screen) {
+      screen.popped = true; var y0 = screen.y; window.setTimeout(function () { if (!screen) window.scrollTo(0, y0); }, 0);
+      var close = screen.el.querySelector('.nk-modal-close');
+      if (close) close.click(); else screen.el.remove();
+      return;
+    }
+    /* Landed on a leftover screen entry after leaving through Resume: step past it. */
+    if (e.state && e.state.nkgScreen) window.setTimeout(function () {
+      if (!screen && history.state && history.state.nkgScreen) { ignorePop = 0; history.back(); }
+    }, 0);
+  });
   function watchPages() { if (window.MutationObserver && document.body) new MutationObserver(function () {
     if (document.documentElement.getAttribute('data-nk-ui') !== 'geist') return;
-    for (var id in PAGE_IDS) pageify(document.getElementById(id));
+    syncScreen();
   }).observe(document.body, { childList: true }); }
   if (document.body) watchPages(); else document.addEventListener('DOMContentLoaded', watchPages);
-  document.addEventListener('scroll', function (e) {
-    var page = e.target;
-    if (!page || !PAGE_IDS[page.id] || !page.__nkgPage) return;
-    var head = page.querySelector('.nk-practice-sessions-head, .nk-mock-sheet-head'), title = page.querySelector('.nkg-page-title');
-    if (!head || !title) return;
-    var h2 = title.querySelector('h2'), bar = head.querySelector('.nkg-bar-title');
-    var on = page.scrollTop > title.offsetTop + (h2 ? h2.offsetTop + h2.offsetHeight : 40) - head.offsetHeight;
+  window.addEventListener('scroll', function () {
+    if (!screen) return;
+    var page = screen.el, head = page.querySelector('.nk-practice-sessions-head, .nk-mock-sheet-head'), h2 = page.querySelector('.nkg-page-title h2');
+    if (!head || !h2) return;
+    var on = h2.getBoundingClientRect().bottom < head.getBoundingClientRect().bottom;
     if (on === head.classList.contains('is-compact')) return;
-    if (on && bar && h2) bar.textContent = h2.textContent;
+    var bar = head.querySelector('.nkg-bar-title'); if (on && bar) bar.textContent = h2.textContent;
     head.classList.toggle('is-compact', on);
-  }, { capture: true, passive: true });
+  }, { passive: true });
 
   function render(app, page, session) {
     if (!app) return;
