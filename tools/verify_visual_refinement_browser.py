@@ -108,6 +108,11 @@ def main():
                 assert not page.evaluate('document.documentElement.scrollWidth>innerWidth')
                 page.locator('.nk-study-support').evaluate("n=>n.insertAdjacentHTML('beforeend','<p id=visual-end>End of long explanation</p>')")
                 page.locator('#visual-end').scroll_into_view_if_needed()
+                # Practice order is random, and explanation images can finish loading after the
+                # first scroll and grow the page; measure only once the page has stopped growing.
+                page.evaluate('scrollTo(0,document.documentElement.scrollHeight)')
+                page.wait_for_function('[...document.images].every(i=>i.complete)',timeout=15000)
+                page.wait_for_timeout(300)
                 page.evaluate('scrollTo(0,document.documentElement.scrollHeight)')
                 end=page.locator('#visual-end').bounding_box();footer=page.locator('.nk-session-footer').bounding_box()
                 assert end['y']+end['height'] <= footer['y'], ('footer obscures explanation',width,end,footer)
