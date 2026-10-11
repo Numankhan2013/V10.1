@@ -1164,7 +1164,7 @@
       if (card) anim(card, { opacity: [0, 1], transform: ['translateX(' + (dir * 26) + 'px)', 'none'], filter: ['blur(3px)', 'blur(0px)'] }, { duration: 0.3 });
       anim(strong, { opacity: [0, 1], transform: ['translateY(' + (dir * 60) + '%)', 'none'], filter: ['blur(2px)', 'blur(0px)'] }, { duration: 0.28 });
     }
-    if (bar && same && qMemo.pct != null && isFinite(pct) && pct !== qMemo.pct) anim(bar, { width: [qMemo.pct + '%', pct + '%'] }, { type: 'spring', stiffness: 240, damping: 22, keep: true });
+    if (bar && same && qMemo.pct != null && isFinite(pct) && pct !== qMemo.pct) anim(bar, { width: [qMemo.pct + '%', pct + '%'] }, { duration: 0.5, ease: [0.22, 1, 0.36, 1], keep: true });
     var answered = !!app.querySelector('.question-card .option:is(.correct, .wrong)');
     if (same && idx === qMemo.idx && qMemo.answered === false && answered) answerReveal(app);
     qMemo.key = key; qMemo.idx = isFinite(idx) ? idx : null; qMemo.pct = isFinite(pct) ? pct : null; qMemo.answered = answered;
@@ -1278,66 +1278,124 @@
      The + button splits like liquid into its actions (an SVG goo filter on a
      blob layer behind the real buttons), and saving a note settles the card
      with a drawn "Saved" check. The app keeps owning every button and handler. */
-  /* ---- Add block: a port of motion-primitives' MorphingPopover. The pill grows
-     into the panel in place (same spring as the component: bounce .1, .4s), the
-     items fade up once the shape is open, and closing runs the same path back. */
-  var MORPH = { type: 'spring', bounce: 0.1, duration: 0.4 };
+  /* ---- Add block: transitions.dev "Gooey plus menu", ported as is. One SVG goo layer
+     (blur 6 + alpha contrast 18) carries the liquid and its box-shadow passes; the real
+     buttons sit crisp on top and travel with the blobs on the same CSS transitions
+     (open 350ms overshoot, 40ms stagger; close 250ms; + turns 45deg; 700ms dip on close).
+     The app keeps owning the menu: we only mirror its hidden attribute to data-open. */
   function phos(name) { var d = window.NKQ_ICONS && window.NKQ_ICONS[name]; return d ? '<svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">' + d + '</svg>' : ''; }
   var MENU_IC = { 'add-text': 'text-t', 'add-image': 'image', 'add-pdf': 'file-pdf' };
-  function cssVar(name) { return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
-  function morphMenu(sheet) {
-    var add = sheet.querySelector('.nk-np-add'); if (!add || add.__nkgMorph) return;
+  var GOO_FAN = { 1: [[0, -64]], 2: [[-38, -54], [38, -54]], 3: [[-54, -34], [0, -64], [54, -34]] };
+  var gooId = 0;
+  function gooFilter(id, x, y, w, h) {
+    return '<filter id="' + id + '" filterUnits="userSpaceOnUse" x="' + (x == null ? -85 : x) + '" y="' + (y == null ? -85 : y) + '" width="' + (w || 370) + '" height="' + (h || 310) + '" color-interpolation-filters="sRGB">' +
+      '<feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>' +
+      '<feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo"/>' +
+      '<feComposite in="SourceGraphic" in2="goo" operator="atop" result="shape"/>' +
+      '<feColorMatrix in="shape" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 60 -29.5" result="ring-solid"/>' +
+      '<feMorphology in="ring-solid" operator="dilate" radius="1" result="ring-a"/>' +
+      '<feFlood class="nkg-goo-ring" flood-color="#000000" flood-opacity="0.06" result="ring-c"/>' +
+      '<feComposite in="ring-c" in2="ring-a" operator="in" result="ring"/>' +
+      '<feGaussianBlur in="shape" stdDeviation="3" result="s2-b"/><feOffset in="s2-b" dy="2" result="s2-o"/>' +
+      '<feFlood flood-color="#000000" flood-opacity="0.05" result="s2-c"/><feComposite in="s2-c" in2="s2-o" operator="in" result="s2"/>' +
+      '<feGaussianBlur in="shape" stdDeviation="21" result="s3-b"/><feOffset in="s3-b" dy="4" result="s3-o"/>' +
+      '<feFlood flood-color="#000000" flood-opacity="0.06" result="s3-c"/><feComposite in="s3-c" in2="s3-o" operator="in" result="s3"/>' +
+      '<feMerge><feMergeNode in="s3"/><feMergeNode in="s2"/><feMergeNode in="ring"/><feMergeNode in="shape"/></feMerge></filter>';
+  }
+  function gooMenu(sheet) {
+    var add = sheet.querySelector('.nk-np-add'); if (!add || add.__nkgGoo) return;
     var menu = add.querySelector('.nk-np-add-menu'), btn = add.querySelector('.nk-np-add-btn');
     if (!menu || !btn) return;
-    add.__nkgMorph = true; add.classList.add('nkg-morph');
-    each(menu.querySelectorAll('button[data-act]'), function (b) {
-      if (!b.querySelector('.nkg-menu-ic') && MENU_IC[b.dataset.act]) b.insertAdjacentHTML('afterbegin', '<span class="nkg-menu-ic">' + phos(MENU_IC[b.dataset.act]) + '</span>');
+    add.__nkgGoo = true;
+    var items = [].slice.call(menu.querySelectorAll('button[data-act]')), fan = GOO_FAN[items.length] || GOO_FAN[3];
+    var id = 'nkg-goo-' + (++gooId), blobs = '';
+    items.forEach(function (b, i) {
+      var p = fan[i] || [0, -64], v = '--fx:' + p[0] + 'px;--fy:' + p[1] + 'px;--i:' + i;
+      var label = b.textContent.trim(); b.textContent = '';
+      b.setAttribute('style', v); b.className = 'nkg-goo-item';
+      b.insertAdjacentHTML('beforeend', '<span class="nkg-goo-ic">' + phos(MENU_IC[b.dataset.act]) + '</span>');
+      var sr = el('span', 'nkg-sr-only'); sr.textContent = label; b.appendChild(sr);
+      blobs += '<circle class="nkg-goo-blob" cx="100" cy="100" r="20" style="' + v + '"/>';
     });
-    var bg = el('div', 'nkg-morph-bg'); bg.setAttribute('aria-hidden', 'true'); menu.insertBefore(bg, menu.firstChild);
-    var items = function () { return [].slice.call(menu.querySelectorAll('button')); };
-    var run = null, open = !menu.hidden;
-    /* The pill's box expressed inside the panel. */
-    function pillBox() {
-      var m = menu.getBoundingClientRect(), r = btn.getBoundingClientRect();
-      return { l: r.left - m.left, t: r.top - m.top, w: r.width, h: r.height, W: m.width, H: m.height };
+    var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('class', 'nkg-goo-svg'); svg.setAttribute('viewBox', '0 0 200 140');
+    svg.setAttribute('aria-hidden', 'true'); svg.setAttribute('focusable', 'false');
+    svg.innerHTML = '<defs>' + gooFilter(id) + '</defs><g filter="url(#' + id + ')">' + blobs + '<circle class="nkg-goo-blob is-main" cx="100" cy="100" r="20"/></g>';
+    add.insertBefore(svg, add.firstChild);
+    var plus = btn.querySelector('svg'), name = btn.querySelector('span');
+    if (plus) { var turn = el('span', 'nkg-goo-plus'); plus.parentNode.insertBefore(turn, plus); turn.appendChild(plus); }
+    if (name) name.className = 'nkg-sr-only';
+    add.classList.add('nkg-goo'); add.dataset.open = 'false';
+    var dip = 0;
+    function sync() {
+      var open = !menu.hidden; if (add.dataset.open === String(open)) return;
+      add.dataset.open = String(open);
+      window.clearTimeout(dip);
+      if (!open && motionOK()) { add.classList.add('is-anticipating'); dip = window.setTimeout(function () { add.classList.remove('is-anticipating'); }, 750); }
+      else add.classList.remove('is-anticipating');
     }
-    function paint(k, p) {
-      var l = p.l * (1 - k), t = p.t * (1 - k), w = p.w + (p.W - p.w) * k, h = p.h + (p.H - p.h) * k;
-      bg.style.left = l + 'px'; bg.style.top = t + 'px'; bg.style.width = w + 'px'; bg.style.height = h + 'px';
-      bg.style.borderRadius = (p.h / 2 + (22 - p.h / 2) * Math.min(1, Math.max(0, k))) + 'px';
-    }
-    function settle() { bg.style.cssText = ''; each(items(), function (it) { it.style.opacity = ''; it.style.transform = ''; it.style.filter = ''; }); }
-    function stop() { if (run) { run.stop(); run = null; } }
-    function show() {
-      stop(); add.classList.add('is-morphed'); menu.classList.remove('nkg-closing');
-      if (!motionOK()) return settle();
-      var p = pillBox(), ink = cssVar('--nkg-inverse-bg') || '#111', surf = cssVar('--nkg-surface') || '#fff';
-      each(items(), function (it) { it.style.opacity = '0'; it.style.transform = 'translateY(6px)'; it.style.filter = 'blur(4px)'; });
-      paint(0, p); bg.style.backgroundColor = ink; bg.style.borderColor = 'transparent';
-      run = M.animate(0, 1, Object.assign({ onUpdate: function (k) { paint(k, p); }, onComplete: function () { run = null; settle(); } }, MORPH));
-      M.animate(bg, { backgroundColor: [ink, surf] }, { duration: 0.18, ease: 'easeOut' });
-      window.setTimeout(function () { bg.style.borderColor = ''; }, 160);
-      items().forEach(function (it, i) {
-        M.animate(it, { opacity: [0, 1], transform: ['translateY(6px)', 'translateY(0px)'], filter: ['blur(4px)', 'blur(0px)'] }, { duration: 0.26, delay: 0.1 + i * 0.04, ease: [0.16, 1, 0.3, 1] });
+    new MutationObserver(sync).observe(menu, { attributes: true, attributeFilter: ['hidden'] });
+    /* Opened on render (an empty note): start closed so the split still plays. */
+    if (!menu.hidden) requestAnimationFrame(function () { requestAnimationFrame(sync); });
+  }
+
+  /* ---- Block menu: the same goo, as a row. The "..." button splits sideways into
+     icon buttons (nearest first). The app creates and removes this menu itself, so a
+     dismiss without a choice replays the merge on a short-lived ghost. */
+  var ROW_IC = { edit: 'pencil-simple', view: 'arrows-out-simple', up: 'arrow-up', down: 'arrow-down', 'delete': 'trash' };
+  var ROW_GAP = 60, rowBlock = null, rowActed = false;
+  function gooRow(sheet, menu) {
+    if (menu.__nkgGoo || !rowBlock || !rowBlock.isConnected) return;
+    var dots = rowBlock.querySelector('.nk-nb-dots'); if (!dots) return;
+    menu.__nkgGoo = true; rowActed = false;
+    noteMenuIndex = Number(rowBlock.getAttribute('data-i'));
+    var items = [].slice.call(menu.querySelectorAll('button[data-act]')), n = items.length;
+    var W = n * ROW_GAP + 40, ox = W - 40, id = 'nkg-goo-' + (++gooId), blobs = '';
+    items.forEach(function (b, i) {
+      var v = '--fx:' + (-(n - i) * ROW_GAP) + 'px;--fy:0px;--i:' + (n - 1 - i);
+      var label = b.textContent.trim(); b.textContent = '';
+      b.setAttribute('style', v); b.classList.add('nkg-goo-item');
+      b.insertAdjacentHTML('beforeend', '<span class="nkg-goo-ic">' + phos(ROW_IC[b.dataset.act] || 'dots-three') + '</span>');
+      var sr = el('span', 'nkg-sr-only'); sr.textContent = label; b.appendChild(sr);
+      blobs += '<circle class="nkg-goo-blob" cx="' + (ox + 20) + '" cy="20" r="20" style="' + v + '"/>';
+    });
+    var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('class', 'nkg-goo-svg'); svg.setAttribute('viewBox', '0 0 ' + W + ' 40');
+    svg.setAttribute('aria-hidden', 'true'); svg.setAttribute('focusable', 'false');
+    svg.innerHTML = '<defs>' + gooFilter(id, -85, -85, W + 170, 210) + '</defs><g filter="url(#' + id + ')">' + blobs + '<circle class="nkg-goo-blob is-main" cx="' + (ox + 20) + '" cy="20" r="20"/></g>';
+    menu.insertBefore(svg, menu.firstChild);
+    var x = el('button', 'nkg-goo-x'); x.type = 'button'; x.setAttribute('aria-label', 'Close menu'); x.innerHTML = phos('x');
+    x.addEventListener('click', function () { document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true })); });
+    menu.appendChild(x);
+    var r = dots.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+    menu.classList.add('nkg-goo'); menu.dataset.open = 'false';
+    menu.style.setProperty('--goo-w', W + 'px'); menu.style.setProperty('--goo-ox', ox + 'px');
+    menu.style.left = (cx + 20 - W) + 'px'; menu.style.top = (cy - 20) + 'px';
+    if (!motionOK()) { menu.dataset.open = 'true'; return; }
+    requestAnimationFrame(function () { requestAnimationFrame(function () { menu.dataset.open = 'true'; }); });
+  }
+  function rowGhost(sheet, menu) {
+    if (rowActed || !motionOK() || menu.dataset.open !== 'true' || !sheet.isConnected) return;
+    menu.classList.add('is-ghost'); menu.setAttribute('aria-hidden', 'true'); menu.removeAttribute('role');
+    each(menu.querySelectorAll('button'), function (b) { b.tabIndex = -1; b.removeAttribute('role'); });
+    sheet.appendChild(menu);
+    requestAnimationFrame(function () { menu.dataset.open = 'false'; });
+    window.setTimeout(function () { menu.remove(); }, 420);
+  }
+  function watchRow(sheet) {
+    if (sheet.__nkgRow) return; sheet.__nkgRow = true;
+    var pick = function (e) { var b = e.target.closest && e.target.closest('.nk-nb[data-i]'); if (b) rowBlock = b; };
+    sheet.addEventListener('pointerdown', pick, true); sheet.addEventListener('contextmenu', pick, true);
+    sheet.addEventListener('click', function (e) {
+      if (e.target.closest && e.target.closest('.nk-nb-menu [data-act]')) rowActed = true;
+      var d = e.target.closest && e.target.closest('[data-act="menu"]'); if (d) rowBlock = d.closest('.nk-nb[data-i]') || rowBlock;
+    }, true);
+    new MutationObserver(function (list) {
+      list.forEach(function (m) {
+        each(m.addedNodes, function (nd) { if (nd.nodeType === 1 && nd.classList.contains('nk-nb-menu') && !nd.classList.contains('is-ghost')) gooRow(sheet, nd); });
+        each(m.removedNodes, function (nd) { if (nd.nodeType === 1 && nd.classList.contains('nk-nb-menu') && nd.__nkgGoo && !nd.classList.contains('is-ghost') && m.target === sheet && sheet.contains(sheet.querySelector('.nk-np-blocks'))) rowGhost(sheet, nd); });
       });
-    }
-    function hide() {
-      stop();
-      if (!motionOK() || !menu.isConnected) { add.classList.remove('is-morphed'); return; }
-      menu.classList.add('nkg-closing');
-      var p = pillBox(), ink = cssVar('--nkg-inverse-bg') || '#111', surf = cssVar('--nkg-surface') || '#fff';
-      items().forEach(function (it) { M.animate(it, { opacity: [1, 0], filter: ['blur(0px)', 'blur(3px)'] }, { duration: 0.1 }); });
-      bg.style.borderColor = 'transparent';
-      M.animate(bg, { backgroundColor: [surf, ink] }, { duration: 0.2, delay: 0.1, ease: 'easeIn' });
-      run = M.animate(1, 0, Object.assign({ onUpdate: function (k) { paint(k, p); }, onComplete: function () {
-        run = null; menu.classList.remove('nkg-closing'); add.classList.remove('is-morphed'); settle();
-      } }, MORPH, { bounce: 0, duration: 0.32 }));
-    }
-    new MutationObserver(function () {
-      var now = !menu.hidden; if (now === open) return; open = now;
-      if (now) show(); else hide();
-    }).observe(menu, { attributes: true, attributeFilter: ['hidden'] });
-    if (open) show();
+    }).observe(sheet, { childList: true });
   }
 
   /* ---- The notes page re-renders itself on every change. Measure blocks before an
@@ -1425,7 +1483,7 @@
   }, true);
 
   function noteSheet(sheet) {
-    morphMenu(sheet); glideNotes(sheet);
+    gooMenu(sheet); watchRow(sheet); glideNotes(sheet);
     var area = sheet.querySelector('.nk-nb.is-editing textarea');
     if (area && !area.__nkgGrow) {
       area.__nkgGrow = true; area.rows = 2;
