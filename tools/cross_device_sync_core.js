@@ -82,7 +82,7 @@
     if(localStorage.getItem(NK_ACCOUNT_SWITCH_PENDING_KEY))throw new Error('An interrupted account switch must be recovered before signing in.');
     const fromUid=String(nkSyncMeta.boundUid||'');
     if(localStorage.getItem(NK_RESET_PENDING_KEY)&&fromUid!==uid)throw new Error('Finish the pending account reset in the original account before switching accounts.');
-    if(!fromUid||fromUid===uid){nkSyncMeta.boundUid=uid;if(!nkSaveSyncMeta())throw new Error('Account sync history could not be saved.');return false;}
+    if(!fromUid||fromUid===uid){nkSyncMeta.boundUid=uid;if(!fromUid&&!nkSyncMeta.lastSyncAt)nkSyncMeta.needsInitialPull=true;if(!nkSaveSyncMeta())throw new Error('Account sync history could not be saved.');return false;}
     const target=nkReadAccountSnapshot(uid)||{uid,state:defaultState(),syncMeta:{deviceId:nkSyncMeta.deviceId,boundUid:uid,needsInitialPull:true},activeSubject:'Biochemistry'};
     const prior={uid:fromUid,state,syncMeta:{...nkSyncMeta,boundUid:fromUid},activeSubject};
     // Write the source snapshot first. The journal lets startup roll back a
@@ -189,7 +189,7 @@
   function nkQueueEnvelope(envelope){
     const key=`${envelope.kind}/${envelope.entityId}`,signature=nkHash({deleted:envelope.deleted,payload:envelope.payload});
     if(nkSyncMeta.localHashes[key]===signature)return;
-    nkSyncMeta.localHashes[key]=signature;envelope.updatedAt=Math.max(Date.now(),Number(envelope.updatedAt||0));nkSyncMeta.outbox[key]=envelope;nkCloudRevision++;
+    nkSyncMeta.localHashes[key]=signature;envelope.updatedAt=Math.max(Date.now(),Number(envelope.updatedAt||0),Number(nkSyncMeta.winners?.[key]?.updatedAt||0)+1);nkSyncMeta.outbox[key]=envelope;nkCloudRevision++;
   }
   function nkEntityTimestamp(value,fallback=0){return Math.max(Number(value?.updatedAt||0),Number(value?.lastOpenedAt||0),Number(value?.completedAt||0),Number(value?.createdAt||0),Number(value?.questionEnteredAt||0),Number(value?.lastTick||0),Number(value?.startedAt||0),Number(fallback||0));}
   function nkCaptureCloudChanges(){
@@ -271,8 +271,9 @@
       if(nkSyncMeta.boundUid)localStorage.removeItem(nkAccountSnapshotKey(nkSyncMeta.boundUid));
     }finally{nkCloudResetting=previous;}
   }
+  let nkResetAttempted='';
   async function nkCompleteRemoteReset(token,generation){
-    const previous=nkCloudResetting;nkCloudResetting=true;
+    const previous=nkCloudResetting;nkCloudResetting=true;nkResetAttempted=String(generation);
     try{await nkWriteResetMarker(token,generation,'resetting');await nkTombstoneAccountCollections(token);await nkWriteResetMarker(token,generation,'complete');nkClearLocalProgress(generation);}
     finally{nkCloudResetting=previous;}
   }
@@ -302,7 +303,7 @@
       while(nkCloudBusy)await new Promise(resolve=>setTimeout(resolve,40));
       clearTimeout(nkCloudTimer);const token=await nkRefreshAuth();await nkResolveFirebaseProjectId();await nkCompleteRemoteReset(token,generation);
       showToast('Account progress has been reset on this device and in sync.','good');render();
-    }catch(error){nkSyncMeta.status='error';nkSyncMeta.lastError=`Account reset: ${String(error.message||error)}`;nkSaveSyncMeta();showToast('Reset is incomplete. Keep this account signed in and retry Reset progress when online.','bad');render();}
+    }catch(error){if(nkResetAttempted!==generation)localStorage.removeItem(NK_RESET_PENDING_KEY);nkSyncMeta.status='error';nkSyncMeta.lastError=`Account reset: ${String(error.message||error)}`;nkSaveSyncMeta();showToast('Reset is incomplete. Keep this account signed in and retry Reset progress when online.','bad');render();}
     finally{nkCloudResetting=false;nkCloudRenderStatus();}
   }
   function nkDocId(envelope){return encodeURIComponent(`${envelope.ownerDevice}--${envelope.entityId}`);}

@@ -1012,7 +1012,7 @@
     if (key === lastRoute) return;
     lastRoute = key;
     var main = app.querySelector('main.page');
-    if (main && !session) anim(main, { opacity: [0, 1], transform: ['translateY(6px)', 'none'] }, { duration: 0.26 });
+    if (main && !session && !staggerPage(main)) anim(main, { opacity: [0, 1], transform: ['translateY(6px)', 'none'] }, { duration: 0.26 });
   }
 
   /* ===================================================== global feedback */
@@ -1031,7 +1031,7 @@
     if (o && sig !== lastOutcome) {
       var picked = app.querySelector('.option.correct .option-letter, .option.wrong .option-letter');
       each(app.querySelectorAll('.option.correct .option-letter, .option.wrong .option-letter'), function (l) { anim(l, { transform: ['scale(.7)', 'scale(1)'] }, { type: 'spring', stiffness: 520, damping: 18 }); });
-      if (picked) anim(o, { opacity: [0, 1], transform: ['translateY(-3px)', 'none'] }, { duration: 0.22 });
+      if (picked && lastOutcome !== null) anim(o, { opacity: [0, 1], transform: ['translateY(-3px)', 'none'] }, { duration: 0.22 });
     }
     lastOutcome = sig || lastOutcome;
   }
@@ -1110,6 +1110,138 @@
     });
   }
 
+  /* ====================================================== Motion pack
+     Presentation only. Nothing here gates an answer, a navigation or a save:
+     each effect starts after the app has already rendered the new state and
+     is skipped under reduced motion. */
+  var qMemo = { key: null, idx: null, pct: null, answered: null };
+  function activeSessionId() {
+    try { var a = window.QB && window.QB.getState && window.QB.getState().activeSession; return a ? String(a.id || a.startedAt || 'a') : null; } catch (e) { return null; }
+  }
+  /* Next / Previous: the question slides in from the side it came from, the counter rolls. */
+  function questionMotion(app) {
+    var strong = app.querySelector('.nk-session-count strong');
+    if (!strong) { qMemo.key = null; return; }
+    var key = activeSessionId(), idx = parseInt(strong.textContent, 10);
+    var bar = app.querySelector('.nk-session-progress > i');
+    var pct = bar ? parseFloat(bar.style.width) : NaN;
+    var same = key && qMemo.key === key;
+    if (same && qMemo.idx != null && idx !== qMemo.idx && isFinite(idx)) {
+      var dir = idx > qMemo.idx ? 1 : -1;
+      var card = app.querySelector('.question-shell');
+      if (card) anim(card, { opacity: [0, 1], transform: ['translateX(' + (dir * 26) + 'px)', 'none'], filter: ['blur(3px)', 'blur(0px)'] }, { duration: 0.3 });
+      anim(strong, { opacity: [0, 1], transform: ['translateY(' + (dir * 60) + '%)', 'none'], filter: ['blur(2px)', 'blur(0px)'] }, { duration: 0.28 });
+    }
+    if (bar && same && qMemo.pct != null && isFinite(pct) && pct !== qMemo.pct) anim(bar, { width: [qMemo.pct + '%', pct + '%'] }, { type: 'spring', stiffness: 240, damping: 22 });
+    var answered = !!app.querySelector('.question-card .option:is(.correct, .wrong)');
+    if (same && idx === qMemo.idx && qMemo.answered === false && answered) answerReveal(app);
+    qMemo.key = key; qMemo.idx = isFinite(idx) ? idx : null; qMemo.pct = isFinite(pct) ? pct : null; qMemo.answered = answered;
+  }
+  /* Answer reveal: the mark draws itself, a wrong pick shakes once, the right one gets a light sweep. */
+  var DRAW = { ok: '<svg class="nkg-draw" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 12.5l4.2 4.2L18.5 7.8"/></svg>', no: '<svg class="nkg-draw" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10"/><path d="M17 7L7 17"/></svg>' };
+  function answerReveal(app) {
+    if (!motionOK()) return;
+    each(app.querySelectorAll('.question-card .option:is(.correct, .wrong) .option-letter'), function (l) {
+      if (l.querySelector('.nkg-draw')) return;
+      var good = l.parentNode.classList.contains('correct');
+      l.insertAdjacentHTML('beforeend', good ? DRAW.ok : DRAW.no);
+      l.classList.add('nkg-drawing');
+      window.setTimeout(function () { l.classList.remove('nkg-drawing'); var d = l.querySelector('.nkg-draw'); if (d) d.remove(); }, 900);
+    });
+    var wrong = app.querySelector('.question-card .option.wrong');
+    if (wrong) anim(wrong, { transform: ['translateX(0px)', 'translateX(-6px)', 'translateX(5px)', 'translateX(-3px)', 'translateX(2px)', 'translateX(0px)'] }, { duration: 0.42, ease: 'easeInOut' });
+    var right = app.querySelector('.question-card .option.correct');
+    if (right) { right.classList.remove('nkg-sweep'); void right.offsetWidth; right.classList.add('nkg-sweep'); window.setTimeout(function () { right.classList.remove('nkg-sweep'); }, 1100); }
+    var extra = app.querySelectorAll('.question-card :is(.nk-answer-outcome, .nk-key-takeaway, .nk-question-note, .nk-source-section, .feedback-body)');
+    if (extra.length) anim(extra, { opacity: [0, 1], transform: ['translateY(8px)', 'none'] }, { duration: 0.32, delay: M.stagger ? M.stagger(0.05, { startDelay: 0.08 }) : 0.08 });
+  }
+  /* Bookmark: the icon springs and a small ring of dots bursts out when a question is saved. */
+  function burst(r) {
+    if (!motionOK()) return;
+    var b = el('span', 'nkg-burst'); b.setAttribute('aria-hidden', 'true');
+    b.style.left = (r.left + r.width / 2) + 'px'; b.style.top = (r.top + r.height / 2) + 'px';
+    for (var i = 0; i < 8; i++) { var d = el('i'); d.style.setProperty('--a', (i * 45) + 'deg'); b.appendChild(d); }
+    document.body.appendChild(b);
+    window.setTimeout(function () { b.remove(); }, 700);
+  }
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest && e.target.closest('.bookmark-toggle');
+    if (!btn || document.documentElement.getAttribute('data-nk-ui') !== 'geist') return;
+    var was = btn.classList.contains('bookmarked'), r = btn.getBoundingClientRect();
+    window.requestAnimationFrame(function () { window.requestAnimationFrame(function () {
+      var nb = document.querySelector('.bookmark-toggle'); if (!nb) return;
+      var now = nb.classList.contains('bookmarked');
+      if (now === was) return;
+      anim(nb, { transform: ['scale(.72)', 'scale(1)'] }, { type: 'spring', stiffness: 620, damping: 15 });
+      if (now) burst(r);
+    }); });
+  }, true);
+  /* Bottom bar: one pill glides to the active tab. */
+  var navX = null;
+  function navGlide() {
+    var nav = document.querySelector('.bottom-nav');
+    if (!nav || !nav.getClientRects().length || getComputedStyle(nav).display === 'none') return;
+    var act = nav.querySelector('.nav-item.active .nav-icon-wrap');
+    var g = nav.querySelector(':scope > .nkg-nav-glide');
+    if (!act) { if (g) g.classList.remove('is-on'); return; }
+    if (!g) { g = el('span', 'nkg-nav-glide'); g.setAttribute('aria-hidden', 'true'); nav.insertBefore(g, nav.firstChild); }
+    var nr = nav.getBoundingClientRect(), ar = act.getBoundingClientRect();
+    var x = ar.left + ar.width / 2 - nr.left, y = ar.top + ar.height / 2 - nr.top;
+    g.style.top = y + 'px';
+    if (navX != null && !g.__placed && Math.abs(navX - x) > 1 && motionOK()) {
+      g.style.transition = 'none'; g.style.transform = 'translate(' + navX + 'px, -50%)'; void g.offsetWidth; g.style.transition = '';
+    }
+    g.__placed = true;
+    g.style.transform = 'translate(' + x + 'px, -50%)';
+    g.classList.add('is-on');
+    navX = x;
+  }
+  window.addEventListener('resize', function () { var g = document.querySelector('.bottom-nav > .nkg-nav-glide'); if (g) { g.__placed = false; navX = null; navGlide(); } });
+  /* Route entrance: the page's sections rise in sequence instead of fading as one block. */
+  function staggerPage(main) {
+    var secs = [].slice.call(main.querySelectorAll(':scope > section, :scope > div > section, :scope > div > header, :scope > header')).filter(function (n) { var r = n.getBoundingClientRect(); return r.height && r.top < window.innerHeight; }).slice(0, 7);
+    if (secs.length < 2) return false;
+    anim(secs, { opacity: [0, 1], transform: ['translateY(10px)', 'none'], filter: ['blur(2px)', 'blur(0px)'] }, { duration: 0.36, delay: M.stagger ? M.stagger(0.045) : 0 });
+    var cta = main.querySelector('.nk-home-focus-card :is(.nk-focus-primary, .nk-home-focus-action)');
+    if (cta && motionOK()) { cta.classList.remove('nkg-shine'); void cta.offsetWidth; cta.classList.add('nkg-shine'); window.setTimeout(function () { cta.classList.remove('nkg-shine'); }, 1800); }
+    return true;
+  }
+  /* Result: the score ring sweeps round, the number counts up, a strong score gets confetti. */
+  var ringMemo = null;
+  function resultMotion(app) {
+    var ring = app.querySelector('.nk-na-summary .nk-na-ring, .nk-na-ring');
+    var sig = ring ? (ring.getAttribute('aria-label') || '') + '|' + (location.hash || '') : null;
+    if (!ring) { ringMemo = null; return; }
+    if (sig === ringMemo) return;
+    ringMemo = sig;
+    if (!motionOK()) return;
+    ring.classList.remove('nkg-ring-in'); void ring.offsetWidth; ring.classList.add('nkg-ring-in');
+    var b = ring.querySelector('b');
+    var m = /Score/.test(ring.getAttribute('aria-label') || '') && b && /^(\d+)%$/.exec(b.textContent.trim());
+    var pct = m ? +m[1] : (function () { var x = /(\d+) correct, (\d+) incorrect, (\d+) omitted/.exec(ring.getAttribute('aria-label') || ''); if (!x) return 0; var t = +x[1] + +x[2] + +x[3]; return t ? x[1] / t * 100 : 0; })();
+    if (b) countUp(b, 'ring-' + sig, true);
+    if (pct >= 80) window.setTimeout(function () { confetti(ring.getBoundingClientRect()); }, 450);
+  }
+  function confetti(r) {
+    if (!motionOK()) return;
+    var cv = el('canvas', 'nkg-confetti'); cv.setAttribute('aria-hidden', 'true');
+    var dpr = Math.min(2, window.devicePixelRatio || 1), W = window.innerWidth, H = window.innerHeight;
+    cv.width = W * dpr; cv.height = H * dpr; document.body.appendChild(cv);
+    var ctx = cv.getContext('2d'); if (!ctx) { cv.remove(); return; }
+    ctx.scale(dpr, dpr);
+    var cs = getComputedStyle(document.documentElement);
+    var cols = ['--nkg-green', '--nkg-blue', '--nkg-amber', '--nkg-orange', '--nkg-fg'].map(function (v) { return cs.getPropertyValue(v).trim() || '#888'; });
+    var ox = r.left + r.width / 2, oy = r.top + r.height / 2, P = [];
+    for (var i = 0; i < 90; i++) { var a = -Math.PI / 2 + (Math.random() - 0.5) * Math.PI * 1.1, v = 6 + Math.random() * 7; P.push({ x: ox, y: oy, vx: Math.cos(a) * v, vy: Math.sin(a) * v, w: 4 + Math.random() * 5, h: 6 + Math.random() * 6, r: Math.random() * 6, vr: (Math.random() - 0.5) * 0.4, c: cols[i % cols.length] }); }
+    var t0 = performance.now();
+    (function frame(t) {
+      var k = (t - t0) / 1600; ctx.clearRect(0, 0, W, H);
+      P.forEach(function (p) { p.vy += 0.28; p.vx *= 0.985; p.vy *= 0.985; p.x += p.vx; p.y += p.vy; p.r += p.vr;
+        ctx.save(); ctx.globalAlpha = Math.max(0, 1 - k * k); ctx.translate(p.x, p.y); ctx.rotate(p.r); ctx.fillStyle = p.c; ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h * Math.abs(Math.cos(p.r * 2))); ctx.restore(); });
+      if (k < 1) window.requestAnimationFrame(frame); else cv.remove();
+    })(t0);
+  }
+
   function render(app, page, session) {
     if (!app) return;
     try {
@@ -1122,7 +1254,9 @@
       else if (page === 'quick-revision' || page === 'fsrs') enhanceRevision(app);
       enhanceBuilder(app);
       if (app.querySelector('.nk-na-followup, .nk-na-save-mock')) enhanceResult(app);
-      if (session) { answerFeedback(app); optionRates(app); cohortChip(app); practiceScreen(app); }
+      if (session) { answerFeedback(app); optionRates(app); cohortChip(app); practiceScreen(app); questionMotion(app); } else qMemo.key = null;
+      resultMotion(app);
+      navGlide();
     } catch (e) {
       if (window.console && console.warn) console.warn('NKFeel', e);
     }
@@ -1207,5 +1341,5 @@
   watchToasts();
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', watchToasts);
 
-  window.NKFeel = { render: render, haptic: haptic, toast: toastShow };
+  window.NKFeel = { render: render, haptic: haptic, toast: toastShow, confetti: confetti };
 })();

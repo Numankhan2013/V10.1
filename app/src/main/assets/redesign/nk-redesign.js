@@ -56,8 +56,27 @@
     for (var i = 0; i < metas.length; i++) metas[i].setAttribute('content', color);
     syncThemeControls();
   }
+  var themePt = null;
+  document.addEventListener('pointerdown', function (e) { themePt = { x: e.clientX, y: e.clientY }; }, true);
   function setTheme(pref) {
     lsSet(THEME_KEY, pref);
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var before = doc.getAttribute('data-nk-theme');
+    /* The new theme spreads in a circle from where it was chosen. */
+    if (document.startViewTransition && !reduce && resolvedTheme() !== before) {
+      var pt = themePt || { x: window.innerWidth - 60, y: 28 };
+      var rad = Math.hypot(Math.max(pt.x, window.innerWidth - pt.x), Math.max(pt.y, window.innerHeight - pt.y));
+      doc.classList.add('nkg-vt-theme');
+      try {
+        var vt = document.startViewTransition(function () { applyTheme(); });
+        vt.ready.then(function () {
+          doc.animate({ clipPath: ['circle(0px at ' + pt.x + 'px ' + pt.y + 'px)', 'circle(' + rad + 'px at ' + pt.x + 'px ' + pt.y + 'px)'] },
+            { duration: 560, easing: 'cubic-bezier(.23, 1, .32, 1)', pseudoElement: '::view-transition-new(root)' });
+        }, function () {});
+        vt.finished.then(function () { doc.classList.remove('nkg-vt-theme'); }, function () { doc.classList.remove('nkg-vt-theme'); });
+        return;
+      } catch (e) { doc.classList.remove('nkg-vt-theme'); }
+    }
     doc.classList.add('nkg-theme-switching');
     applyTheme();
     window.setTimeout(function () { doc.classList.remove('nkg-theme-switching'); }, 240);

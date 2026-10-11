@@ -10,7 +10,7 @@ self.addEventListener('fetch',event=>{
   if(event.request.method!=='GET')return;
   const url=new URL(event.request.url);if(isCloud(url))return;
   if(event.request.mode==='navigate'){
-    event.respondWith(fetch(event.request).then(response=>{const copy=response.clone();caches.open(SHELL_CACHE).then(cache=>cache.put('./index.html',copy));return response;}).catch(()=>caches.match('./index.html')));return;
+    event.respondWith(fetch(event.request).then(response=>{const scope=new URL(self.registration.scope).pathname,path=url.pathname;const appShell=path===scope||path===scope+'index.html';if(response.ok&&appShell&&/text\/html/.test(response.headers.get('content-type')||'')){const copy=response.clone();caches.open(SHELL_CACHE).then(cache=>cache.put('./index.html',copy));}return response;}).catch(()=>caches.match('./index.html')));return;
   }
   if(url.origin!==self.location.origin)return;
   event.respondWith(caches.match(event.request).then(cached=>cached||fetch(event.request).then(response=>{if(response.ok){const copy=response.clone();caches.open(RUNTIME_CACHE).then(cache=>cache.put(event.request,copy));}return response;})));
