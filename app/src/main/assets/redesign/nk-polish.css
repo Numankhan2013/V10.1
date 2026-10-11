@@ -1224,3 +1224,44 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-topic-legend li.is-k::before { 
    words go heavier in full ink, as before the redesign. */
 html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-source-section.is-marrow :is(p, div, li, td):has(> .nk-gold-em) { color: var(--nkg-fg-2) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-source-section.is-marrow .nk-gold-em { font-weight: 720 !important; color: var(--nkg-fg) !important; letter-spacing: -0.005em; }
+
+/* ======================================================= Audit 2026-10-11 */
+/* Bookmark: outline when not saved, filled when saved (both shapes ship in the svg). */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .bookmark-toggle .nkg-on { display: none; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .bookmark-toggle.bookmarked .nkg-on { display: inline; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .bookmark-toggle.bookmarked .nkg-off { display: none; }
+/* Practice review grid: per-question outcome in the topic map's colours. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-review-q:is(.is-correct, .is-wrong, .is-skipped)::after { display: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-review-q.is-correct { background: var(--nkg-success, #159a68) !important; border-color: var(--nkg-success, #159a68) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-review-q.is-wrong { background: var(--nkg-danger, #d64b58) !important; border-color: var(--nkg-danger, #d64b58) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-review-q.is-skipped { background: var(--nkg-warning, #d98b16) !important; border-color: var(--nkg-warning, #d98b16) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-review-q:is(.is-correct, .is-wrong, .is-skipped) span { color: #fff !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-review-q:is(.is-correct, .is-wrong, .is-skipped).active { box-shadow: 0 0 0 2px var(--nkg-bg), 0 0 0 3.5px var(--nkg-fg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-review-dot.correct { background: var(--nkg-success, #159a68) !important; border-color: var(--nkg-success, #159a68) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-review-dot.wrong { background: var(--nkg-danger, #d64b58) !important; border-color: var(--nkg-danger, #d64b58) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-review-dot.skipped { background: var(--nkg-warning, #d98b16) !important; border-color: var(--nkg-warning, #d98b16) !important; }
+/* In-progress topic ring. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-topic-state.progress { background: transparent !important; color: var(--nkg-fg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-topic-ring circle:first-child { stroke: var(--nkg-border-strong) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-topic-ring circle:last-child { stroke: currentColor !important; }
+/* Streak copy wraps inside its column instead of running under the weekday dots. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-streak-copy { justify-self: stretch !important; overflow: hidden; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-streak-copy small { white-space: normal !important; display: -webkit-box !important; -webkit-line-clamp: 2; -webkit-box-orient: vertical; text-overflow: clip; }
+/* Long topic names wrap to two lines instead of truncating. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-journey-heading h1 { white-space: normal !important; overflow: hidden !important; text-overflow: clip !important; display: -webkit-box !important; -webkit-line-clamp: 2; -webkit-box-orient: vertical; font-size: clamp(22px, 6vw, 30px) !important; line-height: 1.12 !important; }
+/* Search: one focus ring on the box, none on the inner input. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-question-search-box input, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-question-search-box input:focus, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-question-search-box input:focus-visible { border: 0 !important; outline: none !important; box-shadow: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-question-search-box:focus-within { outline: none !important; }
+/* Original-PDF explanations use the full width on tablets. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .feedback-body.source-explanation:has(.source-pdf-explanation) { max-width: none !important; }
+/* Forecast: today is a bold label, not a black block; selection keeps the outline. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-li-forecast, .nk-review-chart) > span.nkg-today:not(.is-selected) { background: transparent !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-li-forecast, .nk-review-chart) > span.nkg-today:not(.is-selected) > i { background: var(--nkg-fg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-li-forecast, .nk-review-chart) > span.nkg-today:not(.is-selected) > :is(b, small) { color: var(--nkg-fg) !important; font-weight: 700 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-li-forecast, .nk-review-chart) > span.nkg-today.nkg-zero:not(.is-selected) > i { background: var(--nkg-border-strong) !important; }
+/* Profile heatmap fills the card width. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-heatmap { width: 100% !important; grid-auto-columns: minmax(0, 1fr) !important; grid-template-rows: repeat(7, auto) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-heatmap i { width: 100% !important; height: auto !important; aspect-ratio: 1; }
+/* Insights subjects: notes for idle / empty periods. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-li-subjects-idle, .nk-li-subjects-empty) { margin: 10px 0 0; font-size: var(--nkg-t-xs); color: var(--nkg-fg-3); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-subjects-empty { margin: 4px 0; padding: 14px 0; text-align: center; }

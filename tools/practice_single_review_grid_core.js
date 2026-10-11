@@ -33,6 +33,22 @@
     const box=document.getElementById('nk-session-review');
     if(!box)return result;
     box.classList.add('nk-practice-final-review');
+    // Practice gives feedback per question, so the grid can show the outcome of each one:
+    // correct, wrong, or skipped (opened and left blank), in the topic map's colours.
+    let shown={correct:0,wrong:0,skipped:0};
+    (box.querySelectorAll?.('.nk-session-review-q')||[]).forEach((cell,i)=>{
+      const id=s.questionIds[i];if(id==null)return;
+      const last=(state.attempts?.[id]||[]).at(-1);
+      const outcome=s.answers?.[id]&&s.submitted?.[id]&&last?(last.correct?'correct':'wrong'):(!s.answers?.[id]&&i!==s.index&&Number(s.questionTimes?.[id]||0)>0?'skipped':'');
+      if(!outcome)return;
+      shown[outcome]++;cell.classList.add('is-'+outcome);
+      cell.setAttribute('aria-label',`Question ${i+1} ${outcome}`);
+    });
+    const legend=box.querySelector('.nk-session-review-legend');
+    if(legend&&(shown.correct||shown.wrong||shown.skipped)){
+      legend.innerHTML=[['correct','Correct'],['wrong','Wrong'],['skipped','Skipped'],['unanswered','Not attempted'],['active','Current']]
+        .filter(([key])=>key==='active'||key==='unanswered'||shown[key]).map(([key,label])=>`<span><i class="nk-review-dot ${key}"></i>${label}</span>`).join('');
+    }
     const actions=box.querySelector('.nk-session-review-actions');
     if(actions){
       actions.innerHTML='<button type="button" class="primary-btn nk-practice-pause" onclick="window.QB.nkPausePractice()">Pause</button><button type="button" class="primary-btn nk-practice-submit" onclick="window.QB.nkSubmitPracticeSession()">Submit</button>';

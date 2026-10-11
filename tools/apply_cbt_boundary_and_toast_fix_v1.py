@@ -48,7 +48,7 @@ new_next = r'''function sessionReviewClass(status){return status?'answered':'una
       <div class="nk-session-review-grid">${cells}</div>
       <div class="nk-session-review-legend"><span><i class="nk-review-dot answered"></i>Answered</span><span><i class="nk-review-dot unanswered"></i>Unanswered</span><span><i class="nk-review-dot active"></i>Current</span></div>
       <div class="nk-session-review-actions${unanswered?'':' two'}">${backBtn}${unansweredBtn}<button type="button" class="primary-btn" onclick="window.QB.__sessionReviewSubmit()">${actionLabel}</button></div>
-      ${unanswered?`<div class="nk-session-review-warning">${unanswered} question${unanswered===1?'':'s'} remain unanswered. You can review them now or submit/finish with them left blank.</div>`:`<div class="nk-session-review-ready">All questions have an answer. You can submit/finish this session.</div>`}
+      ${unanswered?`<div class="nk-session-review-warning">${unanswered} question${unanswered===1?'':'s'} ${unanswered===1?'is':'are'} still unanswered. Go back to them, or submit and leave them blank.</div>`:`<div class="nk-session-review-ready">Every question is answered. Submit when you are ready.</div>`}
     </section>`;
     document.body.appendChild(box);
   }

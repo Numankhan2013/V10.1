@@ -108,7 +108,18 @@ def main():
                 assert not page.evaluate('document.documentElement.scrollWidth>innerWidth')
                 page.locator('.nk-study-support').evaluate("n=>n.insertAdjacentHTML('beforeend','<p id=visual-end>End of long explanation</p>')")
                 page.locator('#visual-end').scroll_into_view_if_needed()
-                page.evaluate('scrollTo(0,document.documentElement.scrollHeight)')
+                # Practice order is random, and explanation images can finish loading after the
+                # first scroll and grow the page; measure only once the page has stopped growing.
+                page.evaluate('''async()=>{
+                  let last=-1,same=0;
+                  for(let i=0;i<60&&same<3;i++){
+                    scrollTo(0,document.documentElement.scrollHeight);
+                    await new Promise(r=>setTimeout(r,150));
+                    const h=document.documentElement.scrollHeight,ready=[...document.images].every(img=>img.complete);
+                    same=h===last&&ready?same+1:0;last=h;
+                  }
+                  scrollTo(0,document.documentElement.scrollHeight);
+                }''')
                 end=page.locator('#visual-end').bounding_box();footer=page.locator('.nk-session-footer').bounding_box()
                 assert end['y']+end['height'] <= footer['y'], ('footer obscures explanation',width,end,footer)
                 assert not errors,errors
