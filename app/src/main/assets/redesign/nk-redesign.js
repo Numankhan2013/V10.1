@@ -102,6 +102,11 @@
     for (var i = 0; i < list.length; i++) {
       var legacy = list[i].getAttribute('data-nk-icon');
       if (ICON_MAP[legacy]) swapIcon(list[i], ICON_MAP[legacy]);
+      // Bookmark buttons carry both shapes; CSS shows the filled one while .bookmarked,
+      // so the saved state reads at a glance without a toast or a re-render.
+      if (legacy === 'bookmark' && list[i].closest('.bookmark-toggle') && (window.NKQ_ICONS || {})['bookmark-simple-fill']) {
+        list[i].innerHTML = '<g class="nkg-off">' + list[i].innerHTML + '</g><g class="nkg-on">' + window.NKQ_ICONS['bookmark-simple-fill'] + '</g>';
+      }
     }
     var flames = root.querySelectorAll('.nk-flame-svg:not([data-nkg-icon]), .nk-streak-flame-svg:not([data-nkg-icon])');
     for (var j = 0; j < flames.length; j++) swapIcon(flames[j], 'fire-fill');
@@ -264,7 +269,7 @@
       return '<button type="button" data-nkg-theme-choice="' + val + '" aria-pressed="false">' + iconSvg(icon, 16) + '<span>' + label + '</span></button>';
     };
     return '<section class="nk-settings-group nkg-appearance" aria-labelledby="nkg-appearance-title">' +
-      '<h2 class="nkg-group-title" id="nkg-appearance-title">Appearance</h2>' +
+      '<h2 class="nkg-group-title" id="nkg-appearance-title">Profile &amp; appearance</h2>' +
       '<div class="nkg-appearance-card">' +
       '<button type="button" class="nkg-profile-row" data-nkg-act="profile"><span class="nkg-avatar">' + esc(initials(profileName())) + '</span>' +
       '<span class="nkg-row-copy"><strong>' + esc(profileName() || 'Your profile') + '</strong><small>Lifetime progress, streaks and account</small></span>' + iconSvg('caret-right', 16, 'nkg-chev') + '</button>' +
@@ -422,6 +427,7 @@
     if (page === 'profile') renderProfile(app);
     else if (page === 'more') decorateMore(app);
     if (page === 'dashboard') decorateHome(app);
+    polishCopy(app, session);
     swapIcons(app);
     var modal = document.getElementById('modal');
     if (modal) swapIcons(modal);
@@ -440,6 +446,29 @@
     /* Drop the mutations this pass made itself (icon swaps, decorations) so one app
        render costs one decoration pass instead of re-triggering itself. */
     for (var o = 0; o < observers.length; o++) observers[o].takeRecords();
+  }
+  /* Small Geist-only wording fixes on core markup (legacy UI and its tests keep the originals). */
+  function polishCopy(app, session) {
+    if (session) {
+      // The last question's primary action ends the session, so say so.
+      var st = window.QB && window.QB.getState && window.QB.getState(), s = st && st.activeSession;
+      var next = app.querySelector('.fixed-actions-inner .primary-btn[onclick="window.QB.nextQ()"]');
+      if (next && s && (s.mode === 'practice' || s.mode === 'exam') && s.questionIds && s.index === s.questionIds.length - 1) {
+        var label = next.firstChild;
+        if (label && label.nodeType === 3 && /Next/.test(label.nodeValue)) {
+          label.nodeValue = 'Finish ';
+          var icon = next.querySelector('svg[data-nk-icon]');
+          if (icon) { icon.setAttribute('data-nk-icon', 'check'); icon.removeAttribute('data-nkg-icon'); }
+        }
+      }
+    }
+    // Marrow source line: keep the page reference, drop the build note.
+    var prov = app.querySelectorAll('.nk-marrow-provenance:not([data-nkg-copy])');
+    for (var i = 0; i < prov.length; i++) {
+      var pages = (prov[i].textContent.match(/explanation pages? ([\d,\s]+)/) || [])[1];
+      prov[i].textContent = 'Source: Marrow ED8' + (pages ? ' · page' + (/,/.test(pages) ? 's ' : ' ') + pages.trim().replace(/,\s*/g, ', ') : '');
+      prov[i].setAttribute('data-nkg-copy', '');
+    }
   }
   /* A few charts set their track colour inline (legacy lavender #eceaf4 /
      #eeecf4 / #ebe6f5). Swap only that literal for the neutral token. */

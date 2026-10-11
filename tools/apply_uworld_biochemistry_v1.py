@@ -92,13 +92,13 @@ def transform(source):
     if old in source:source=source.replace(old,new)
     elif new not in source:raise ValueError('Shared choice renderer missing')
     source=source.replace("${marrow?'M':'PL'}","${record.bank==='UWorld'?'UW':marrow?'M':'PL'}")
-    source=source.replace("${marrow?'Native text':'PDF source'}","${record.bank==='UWorld'?'Source collection':marrow?'Native text':'PDF source'}")
+    source=source.replace("${marrow?'Native text':'PDF source'}","${record.bank==='UWorld'?'Source collection':marrow?'Text explanations':'Original PDF'}")
     source=source.replace("record.bank==='UWorld'?'Source native'","record.bank==='UWorld'?'Source collection'")
     css='<style id="nk-uworld-biochemistry-v1">'+(ROOT/'tools/uworld_biochemistry.css').read_text()+'</style>'
     source=re.sub(r'<style id="nk-uworld-biochemistry-v1">.*?</style>',css,source,flags=re.S)
     if 'id="nk-uworld-biochemistry-v1"' not in source:source=source.replace('</head>',css+'\n</head>',1)
     source=source.replace('<script src="uworld_visual_metadata.js"></script>\n','')
-    source=source.replace('Both banks use the same practice, test, review and progress architecture.','All banks use the same practice, test, review and progress architecture.')
+    source=source.replace('Both banks use the same practice, test, review and progress architecture.','Each bank keeps its own progress. Practice, tests and revision work the same in all of them.')
     # Legacy exact-stem image matching belongs only to PrepLadder.
     source=source.replace('data-marrow-question="${q.bank===\'Marrow\'?esc(String(q.id)):\'\'}"','data-marrow-question="${q.bank!==\'PrepLadder\'?esc(String(q.id)):\'\'}"')
     return source
