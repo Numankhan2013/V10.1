@@ -272,8 +272,8 @@
       '<h2 class="nkg-group-title" id="nkg-appearance-title">Profile &amp; appearance</h2>' +
       '<div class="nkg-appearance-card">' +
       '<button type="button" class="nkg-profile-row" data-nkg-act="profile"><span class="nkg-avatar">' + esc(initials(profileName())) + '</span>' +
-      '<span class="nkg-row-copy"><strong>' + esc(profileName() || 'Your profile') + '</strong><small>Lifetime progress, streaks and account</small></span>' + iconSvg('caret-right', 16, 'nkg-chev') + '</button>' +
-      '<div class="nkg-theme-row"><span class="nkg-row-copy"><strong>Theme</strong><small>Light, dark or follow this device</small></span>' +
+      '<span class="nkg-row-copy"><strong>' + esc(profileName() || 'Your profile') + '</strong></span>' + iconSvg('caret-right', 16, 'nkg-chev') + '</button>' +
+      '<div class="nkg-theme-row"><span class="nkg-row-copy"><strong>Theme</strong></span>' +
       '<div class="nkg-seg" role="group" aria-label="Theme">' + choice('light', 'Light', 'sun') + choice('dark', 'Dark', 'moon') + choice('system', 'System', 'desktop') + '</div></div>' +
       '</div></section>';
   }
@@ -286,6 +286,33 @@
     wrap.innerHTML = appearanceMarkup();
     var node = wrap.firstChild;
     if (firstGroup) firstGroup.parentNode.insertBefore(node, firstGroup); else host.appendChild(node);
+    // One list for the app's tools: notes, search, revision settings and the source PDF.
+    // Reset progress leaves the PDF card and becomes a quiet row of its own at the end.
+    var list = host.querySelector('.nk-settings-row') && host.querySelector('.nk-settings-row').parentNode;
+    var row = function (icon, label) {
+      return '<span class="nk-settings-icon">' + iconSvg(icon, 18) + '</span><span><strong>' + label + '</strong></span>' + iconSvg('caret-right', 16, 'nkg-chev');
+    };
+    var fsrs = app.querySelector('.nk-fsrs-settings-entry');
+    if (list && fsrs) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'nk-settings-row nkg-row-added'; b.setAttribute('onclick', "window.QB.nav('fsrs-settings')");
+      b.innerHTML = row('gear', 'Revision settings');
+      list.appendChild(b); fsrs.remove();
+    }
+    var source = host.querySelector('.nk-source-card');
+    if (list && source) {
+      var pdf = source.querySelector('a[href]'), reset = source.querySelector('button[onclick*="resetProgress"]');
+      if (pdf) {
+        var a = document.createElement('a');
+        a.className = 'nk-settings-row nkg-row-added'; a.href = pdf.getAttribute('href'); a.target = '_blank'; a.rel = 'noopener';
+        a.innerHTML = row('file-pdf', 'Source PDF');
+        list.appendChild(a);
+      }
+      var group = source.closest('.nk-settings-group');
+      if (reset && group) {
+        group.innerHTML = '<button type="button" class="nkg-reset-row" onclick="window.QB.resetProgress()">' + iconSvg('arrow-counter-clockwise', 16) + '<span>Reset progress</span></button>';
+      }
+    }
     syncThemeControls();
   }
 
@@ -329,32 +356,31 @@
     return '<div class="nkg-profile" role="region" aria-label="Profile">' +
       '<section class="nkg-profile-head">' +
       '<span class="nkg-avatar nkg-avatar-lg" aria-hidden="true">' + esc(initials(name)) + '</span>' +
-      '<div class="nkg-profile-id"><h1 class="nkg-profile-name">' + esc(name || 'Add your name') + '</h1><p>' + (auth && auth.email ? esc(auth.email) : 'Local profile on this device') + '</p></div>' +
+      '<div class="nkg-profile-id"><h1 class="nkg-profile-name">' + esc(name || 'Add your name') + '</h1>' + (auth && auth.email ? '<p>' + esc(auth.email) + '</p>' : '') + '</div>' +
       '<button type="button" class="nkg-btn nkg-btn-secondary nkg-btn-sm" data-nkg-act="edit-name">' + iconSvg('pencil-simple', 16) + '<span>Edit</span></button>' +
       '<form class="nkg-name-form" hidden><label for="nkg-name-input">Display name</label><div class="nkg-name-row"><input id="nkg-name-input" class="nkg-input" maxlength="40" autocomplete="name" value="' + esc(name) + '" placeholder="Your name"><button type="submit" class="nkg-btn nkg-btn-primary nkg-btn-sm">Save</button><button type="button" class="nkg-btn nkg-btn-ghost nkg-btn-sm" data-nkg-act="cancel-name">Cancel</button></div><small>Stored only on this device.</small></form>' +
       '</section>' +
       '<section class="nkg-card nkg-streak-card"><div class="nkg-streak-main"><span class="nkg-flame' + (m.current ? ' is-on' : '') + '" aria-hidden="true">' + iconSvg('fire-fill', 24) + '</span>' +
       '<div><strong class="nkg-num nkg-streak-n">' + fmt(m.current) + '</strong><span> day streak</span><small>Best ' + fmt(m.best) + (m.best === 1 ? ' day' : ' days') + '</small></div></div>' + heatmap(m.days) + '</section>' +
       '<section aria-labelledby="nkg-life-title"><h2 class="nkg-group-title" id="nkg-life-title">Lifetime</h2><div class="nkg-stats">' +
-      stat('Answers', fmt(m.total), fmt(m.unique) + ' unique questions') +
+      stat('Answers', fmt(m.total)) +
       stat('Accuracy', m.accuracy == null ? '\u2014' : Math.round(m.accuracy) + '%', fmt(m.correct) + ' correct') +
-      stat('Study time', fmtDuration(m.studyMs), 'Practice and timed tests') +
-      stat('Reviews', fmt(m.reviews), 'Rated in Revision') +
-      stat('Timed tests', fmt(m.tests), 'Completed') +
-      stat('Best streak', fmt(m.best), m.best === 1 ? 'day' : 'days') +
+      stat('Study time', fmtDuration(m.studyMs)) +
+      stat('Reviews', fmt(m.reviews)) +
+      stat('Timed tests', fmt(m.tests)) +
+      stat('Best streak', fmt(m.best) + (m.best === 1 ? ' day' : ' days')) +
       '</div></section>' +
       '<section aria-labelledby="nkg-subj-title"><h2 class="nkg-group-title" id="nkg-subj-title">By subject</h2>' +
       (subjRows ? '<div class="nkg-list">' + subjRows + '</div>' : '<div class="nkg-empty">Answer a question in any subject to see your breakdown here.</div>') + '</section>' +
       '<section aria-labelledby="nkg-acct-title"><h2 class="nkg-group-title" id="nkg-acct-title">Account &amp; sync</h2><div class="nkg-list">' +
-      '<div class="nkg-list-item nkg-static"><span class="nkg-sync-dot' + (auth ? (meta && meta.status === 'error' ? ' is-error' : ' is-on') : '') + '" aria-hidden="true"></span><span class="nkg-row-copy"><strong>' + (auth ? esc(auth.email || 'QBank account') : 'This device only') + '</strong><small>' + esc(syncLine) + '</small></span></div>' +
-      short('sync', auth ? 'cloud-check' : 'cloud-slash', auth ? 'Sync &amp; account' : 'Set up sync', auth ? 'Sync now, sign out' : 'Email and password, across devices') +
+      (!auth ? '' : '<div class="nkg-list-item nkg-static"><span class="nkg-sync-dot' + (auth ? (meta && meta.status === 'error' ? ' is-error' : ' is-on') : '') + '" aria-hidden="true"></span><span class="nkg-row-copy"><strong>' + (auth ? esc(auth.email || 'QBank account') : 'This device only') + '</strong><small>' + esc(syncLine) + '</small></span></div>') +
+      short('sync', auth ? 'cloud-check' : 'cloud-slash', auth ? 'Sync &amp; account' : 'Set up sync') +
       '</div></section>' +
       '<section aria-labelledby="nkg-short-title"><h2 class="nkg-group-title" id="nkg-short-title">Shortcuts</h2><div class="nkg-list">' +
       short('bookmarks', 'bookmark-simple', 'Bookmarks', fmt(m.bookmarks) + ' saved') +
-      short('wrong', 'x-circle', 'Mistakes', 'Questions to get right') +
+      short('wrong', 'x-circle', 'Mistakes') +
       short('notes', 'note-pencil', 'My notes', fmt(m.notes) + ' notes') +
-      short('fsrs-settings', 'gear', 'Revision settings', 'Daily limits and scheduling') +
-      short('more', 'sun', 'Appearance & app', 'Theme and app controls') +
+      short('fsrs-settings', 'gear', 'Revision settings') +
       '</div></section>' +
       '</div>';
   }
@@ -461,6 +487,19 @@
           if (icon) { icon.setAttribute('data-nk-icon', 'check'); icon.removeAttribute('data-nkg-icon'); }
         }
       }
+    }
+    // Declutter: hide what repeats another card or explains the obvious.
+    var cards = app.querySelectorAll('.nk-li-card:not([data-nkg-seen])');
+    for (var c = 0; c < cards.length; c++) {
+      cards[c].setAttribute('data-nkg-seen', '');
+      var h = cards[c].querySelector('header h2');
+      // Period comparison repeats the stat tiles at the top of Insights.
+      if (h && h.textContent.trim() === 'Period comparison') cards[c].classList.add('nkg-hidden');
+    }
+    var smalls = app.querySelectorAll('.nk-li-subjects small, .nk-note-bar-copy small');
+    for (var k = 0; k < smalls.length; k++) {
+      var t = smalls[k].textContent.trim();
+      if (t === 'No previous answers' || /^Add text/.test(t)) smalls[k].classList.add('nkg-hidden');
     }
     // Marrow source line: keep the page reference, drop the build note.
     var prov = app.querySelectorAll('.nk-marrow-provenance:not([data-nkg-copy])');

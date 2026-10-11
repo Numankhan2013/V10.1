@@ -1265,3 +1265,28 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-heatmap i { width: 100% !impor
 /* Insights subjects: notes for idle / empty periods. */
 html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-li-subjects-idle, .nk-li-subjects-empty) { margin: 10px 0 0; font-size: var(--nkg-t-xs); color: var(--nkg-fg-3); }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-subjects-empty { margin: 4px 0; padding: 14px 0; text-align: center; }
+
+/* ======================================================= Declutter 2026-10-11
+   Text that explains what the layout, colour or icon already says, and cards that repeat
+   another card's numbers, are hidden in Geist. Legacy UI keeps them. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-hidden { display: none !important; }
+/* Home */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-streak-copy small, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-focus-card > p, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-uworld-entry-action { display: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-delta.is-neutral, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-delta.is-neutral { display: none !important; }
+/* Revision */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-revision-detail, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-revision-card.is-empty .nk-revision-actions, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-revision-forecast-foot small { display: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-revision-forecast-foot { justify-content: flex-end !important; }
+/* Practice: the selected pill already shows the default rating. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-fsrs-recall-label small { display: none !important; }
+/* Source PDF: the section header already names it. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .source-pdf-head, html[data-nk-ui="geist"] :is(body,#nkg-root) .source-pdf-note { display: none !important; }
+/* Results: summary card already shows correct / incorrect / omitted. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-performance, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-time-explanation, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-time-coverage { display: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-correction-section > .nk-kicker, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-correction-action small { display: none !important; }
+/* Insights: empty module card. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-card:has(> p.nk-li-empty) { display: none !important; }
+/* UWorld library and FSRS page captions. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-uworld-library .nk-v3-page-hero > p, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-fsrs-page-v3 .nk-v3-section-head > span { display: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) a.nk-settings-row { text-decoration: none !important; color: inherit !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-reset-row { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; min-height: 44px; padding: 10px 16px; border: 0; background: transparent; color: var(--nkg-danger, #d64b58); font: 500 var(--nkg-t-sm, 14px)/1.2 var(--nkg-font-sans); cursor: pointer; border-radius: var(--nkg-r-md, 10px); }
+@media (hover: hover) and (pointer: fine) { html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-reset-row:hover { background: color-mix(in srgb, var(--nkg-danger, #d64b58) 8%, transparent); } }
