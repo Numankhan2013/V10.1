@@ -15,6 +15,7 @@ def main():
     assert 'meta name="nk-qbank-build"' in generated, 'Web builds must identify the running page'
     worker = (ROOT / 'build/web/sw.js').read_text()
     worker = re.sub(r'const SHELL=\[.*?\];', "const SHELL=['./','./index.html'];", worker, count=1, flags=re.S)
+    worker = re.sub(r'const MEDIA=\[.*?\];', "const MEDIA=[];", worker, count=1, flags=re.S)
     versions = {'page': 'first', 'worker': 'first'}
 
     class Handler(BaseHTTPRequestHandler):
