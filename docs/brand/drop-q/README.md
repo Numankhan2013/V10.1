@@ -1,4 +1,4 @@
-# Drop-Q — Mind QBank mark (candidate C1)
+# Drop-Q — NK QBank mark (candidate C1)
 
 Status: **candidate, not approved, not wired into the app.** Replaces the B5 "hook-tail" working candidate.
 

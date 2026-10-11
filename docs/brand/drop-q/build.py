@@ -13,7 +13,7 @@ OPT=MC-1.2   # optical centre, nudged toward the ring
 def mark(fg, extra=''):
     return (f'<g fill="{fg}"{extra}><path fill-rule="evenodd" d="{RING}"/>'
             f'<path d="{NECK}"/><path d="{DROP}"/></g>')
-def mark_svg(fg, pad=8, size=None, label='Mind QBank Drop-Q mark'):
+def mark_svg(fg, pad=8, size=None, label='NK QBank Drop-Q mark'):
     s=x1-x0; vb=f"{OPT-s/2-pad:.2f} {OPT-s/2-pad:.2f} {s+2*pad:.2f} {s+2*pad:.2f}"
     wh=f' width="{size}" height="{size}"' if size else ''
     return f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{vb}"{wh} role="img" aria-label="{label}">{mark(fg)}</svg>'
@@ -23,7 +23,7 @@ def icon_svg(bg, fg, size=None, scale=0.56, radius=0.225):
     tx=S/2-OPT*sc; ty=S/2-OPT*sc
     wh=f' width="{size}" height="{size}"' if size else ''
     rr=S*radius
-    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"{wh} role="img" aria-label="Mind QBank app icon">'
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"{wh} role="img" aria-label="NK QBank app icon">'
             f'<rect width="100" height="100" rx="{rr}" fill="{bg}"/>'
             f'<g transform="translate({tx:.3f} {ty:.3f}) scale({sc:.4f})">{mark(fg)}</g></svg>')
 json.dump(dict(RING=RING,DROP=DROP,NECK=NECK,OPT=OPT,x0=x0,x1=x1),open('geom.json','w'))
