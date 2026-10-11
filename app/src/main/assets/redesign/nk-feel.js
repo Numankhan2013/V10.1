@@ -1372,6 +1372,14 @@
     });
   }
 
+  /* Full-page Paused Practice / mock details: the large title folds into the bar on scroll. */
+  document.addEventListener('scroll', function (e) {
+    var page = e.target;
+    if (!page || !page.id || (page.id !== 'nk-practice-sessions' && page.id !== 'nk-mock-sheet')) return;
+    var head = page.querySelector('.nk-practice-sessions-head, .nk-mock-sheet-head');
+    if (head) head.classList.toggle('is-compact', page.scrollTop > 56);
+  }, true);
+
   function render(app, page, session) {
     if (!app) return;
     try {

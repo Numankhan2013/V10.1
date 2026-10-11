@@ -1638,3 +1638,96 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) img.nkg-img-in { animation: nkgImgI
 @keyframes nkgImgIn { from { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { html[data-nk-ui="geist"] :is(body,#nkg-root) img.nkg-img-wait { animation: none; } html[data-nk-ui="geist"] :is(body,#nkg-root) button.nkg-busy::after { animation-duration: 2.4s; } }
 html[data-nk-ui="geist"] .nk-nb.is-text .nk-nb-text { background: transparent !important; }
+
+/* ===================================================== Pages, not sheets (2026-10-11 b)
+   Paused Practice and saved-mock details open as their own full-screen pages:
+   page background, a sticky bar with Back, a large wrapping title, content at a
+   readable measure, actions pinned to the bottom, no visible scrollbar. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(#nk-practice-sessions, #nk-mock-sheet).modal-backdrop {
+  align-items: stretch !important; justify-content: stretch !important; padding: 0 !important;
+  background: var(--nkg-bg) !important; overflow-y: auto !important; overscroll-behavior: contain;
+  scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  animation: nkg-page-in 340ms cubic-bezier(.16, 1, .3, 1) both !important;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(#nk-practice-sessions, #nk-mock-sheet).modal-backdrop::-webkit-scrollbar, html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-saved-practice-list, .nk-mock-sheet-body)::-webkit-scrollbar { display: none; }
+@keyframes nkg-page-in { from { transform: translateX(28%); opacity: 0; } }
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-dialog, .nk-mock-sheet).modal {
+  width: 100% !important; max-width: none !important; max-height: none !important; min-height: 100% !important; height: auto !important;
+  display: flex !important; flex-direction: column !important; overflow: visible !important;
+  background: var(--nkg-bg) !important; border: 0 !important; border-radius: 0 !important; box-shadow: none !important; animation: none !important;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-dialog, .nk-mock-sheet).modal::before { display: none !important; }
+@media (min-width: 700px) { html[data-nk-ui="geist"] :is(body,#nkg-root) :is(#nk-practice-sessions, #nk-mock-sheet).modal-backdrop { padding: 0 !important; align-items: stretch !important; } html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-dialog, .nk-mock-sheet).modal { border-radius: 0 !important; border: 0 !important; } }
+
+/* Header: sticky bar with Back, then a large title that wraps. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-head, .nk-mock-sheet-head) {
+  position: sticky; top: 0; z-index: 2; display: grid !important; grid-template-columns: 44px minmax(0, 1fr); align-items: start; column-gap: 8px;
+  padding: calc(8px + env(safe-area-inset-top)) 16px 16px 8px !important; border-bottom: 1px solid transparent;
+  background: color-mix(in srgb, var(--nkg-bg) 88%, transparent); -webkit-backdrop-filter: saturate(1.4) blur(14px); backdrop-filter: saturate(1.4) blur(14px);
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-head, .nk-mock-sheet-head) .nk-modal-close {
+  grid-column: 1; grid-row: 1; width: 44px !important; height: 44px !important; margin: 0 !important; border-radius: 12px !important;
+  background: transparent !important; color: var(--nkg-fg) !important;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-head, .nk-mock-sheet-head) .nk-modal-close svg { display: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-head, .nk-mock-sheet-head) .nk-modal-close::before {
+  content: ""; width: 22px; height: 22px; background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 12H5M11 18l-6-6 6-6'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 12H5M11 18l-6-6 6-6'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-head, .nk-mock-sheet-head) .nk-modal-close:hover { background: var(--nkg-hover) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-practice-sessions-head > div, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-sheet-title { grid-column: 1 / -1; grid-row: 2; padding: 10px 8px 0 8px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-head, .nk-mock-sheet-head) h2 { font: 700 30px/1.12 var(--nkg-font-sans) !important; letter-spacing: -0.03em !important; text-wrap: balance; overflow-wrap: break-word; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-practice-sessions-head p, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-sheet-title small { margin-top: 6px !important; font-size: var(--nkg-t-base) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-sheet-head .nk-mock-sheet-icon { display: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-sheet-title .nk-mock-rename { margin-top: 4px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-sheet-title .nk-mock-rename input { height: 48px; font-size: 20px !important; }
+
+/* Content at a readable measure. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-saved-practice-list, .nk-mock-sheet-body) { flex: 1 0 auto !important; overflow: visible !important; width: 100%; max-width: 680px; margin: 0 auto !important; box-sizing: border-box; scrollbar-width: none; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-list { padding: 4px 16px 24px !important; display: grid !important; gap: 12px; align-content: start; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-sheet-body { padding: 0 16px 28px !important; }
+
+/* Paused session cards: title gets the full width; Resume is a real button. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-row {
+  grid-template-columns: 44px minmax(0, 1fr) !important;
+  grid-template-areas: "icon copy" "progress progress" "actions actions" !important;
+  row-gap: 14px !important; column-gap: 14px !important; align-items: start !important;
+  padding: 16px !important; border: 1px solid var(--nkg-border) !important; border-radius: 18px !important; background: var(--nkg-surface) !important;
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-row:last-child { border-bottom: 1px solid var(--nkg-border) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-copy strong { display: block !important; -webkit-line-clamp: unset; overflow: visible; font-size: 17px !important; line-height: 1.3 !important; overflow-wrap: break-word; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-copy small { margin-top: 4px !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-bar { height: 6px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-actions { flex-direction: row !important; align-items: center !important; justify-content: stretch !important; gap: 8px !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-actions .primary-btn { flex: 1; height: 46px !important; min-height: 46px !important; border-radius: 14px !important; font-size: var(--nkg-t-base) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-actions .nk-saved-practice-discard { width: 46px !important; min-width: 46px !important; height: 46px !important; min-height: 46px !important; margin: 0 !important; border-radius: 14px !important; border: 1px solid var(--nkg-border) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-row.is-confirming .nk-saved-practice-progress { grid-column: 1 / -1; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-confirm { margin-top: 0; }
+@media (max-width: 380px) { html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-row { grid-template-columns: 40px minmax(0, 1fr) !important; } }
+@media (min-width: 700px) { html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-list { grid-template-columns: 1fr 1fr; } }
+
+/* Bottom actions: pinned, page-coloured, safe-area aware. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-foot, .nk-mock-sheet-foot) {
+  position: sticky; bottom: 0; z-index: 2; width: 100%; box-sizing: border-box; margin-top: auto;
+  padding: 12px max(16px, calc((100% - 680px) / 2 + 16px)) calc(12px + env(safe-area-inset-bottom)) !important;
+  background: color-mix(in srgb, var(--nkg-bg) 90%, transparent) !important; -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-practice-sessions-foot .ghost-btn { min-height: 50px !important; border-style: solid !important; background: var(--nkg-surface) !important; color: var(--nkg-fg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-sheet-foot .nk-mock-start, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-icon-btn { min-height: 52px !important; height: 52px !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-icon-btn { width: 52px !important; min-width: 52px !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-head, .nk-mock-sheet-head) { padding-left: max(10px, calc((100% - 680px) / 2 + 10px)) !important; padding-right: max(16px, calc((100% - 680px) / 2 + 16px)) !important; transition: border-color 200ms ease; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-head, .nk-mock-sheet-head) .nk-modal-close:focus:not(:focus-visible) { outline: 0 !important; box-shadow: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-saved-practice-actions .nk-saved-practice-discard { flex: 0 0 46px !important; }
+/* Large title collapses into the bar once the page scrolls. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-head, .nk-mock-sheet-head).is-compact { border-bottom-color: var(--nkg-border); padding-bottom: 8px !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-head, .nk-mock-sheet-head).is-compact > div:not(.nk-mock-sheet-title), html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-sheet-head.is-compact .nk-mock-sheet-title { grid-column: 2; grid-row: 1; padding: 0 !important; align-self: center; min-width: 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-head, .nk-mock-sheet-head).is-compact h2 { font-size: 17px !important; line-height: 1.25 !important; letter-spacing: -0.01em !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-wrap: nowrap; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-head, .nk-mock-sheet-head).is-compact :is(p, small, .nk-mock-rename) { display: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-head, .nk-mock-sheet-head) h2 { transition: font-size 220ms cubic-bezier(.16, 1, .3, 1); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-head, .nk-mock-sheet-head) .nk-modal-close:focus { outline: 0 !important; box-shadow: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-head, .nk-mock-sheet-head) .nk-modal-close:focus-visible { box-shadow: inset 0 0 0 2px var(--nkg-focus) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-sheet .nk-mock-block { margin-top: 28px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-sheet .nk-mock-block h3 { font-size: 17px !important; font-weight: 650 !important; letter-spacing: -0.01em !important; margin-bottom: 12px !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-sheet .nk-mock-facts { margin-top: 8px !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-sheet .nk-mock-facts dd { font-size: 22px !important; }
