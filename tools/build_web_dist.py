@@ -10,6 +10,7 @@ import json
 import re
 import shutil
 from pathlib import Path
+from prune_unreachable_css import prune_build
 from web_security_policy import HEADERS, worker_source
 
 
@@ -117,6 +118,10 @@ def main() -> None:
     )
     (out / "robots.txt").write_text("User-agent: *\nDisallow: /\n", encoding="utf-8")
     (out / "_redirects").write_text("/* /index.html 200\n", encoding="utf-8")
+    # Drop CSS that no markup, script or data in the build can ever match, such
+    # as rules for legacy screens Geist replaced. The browser suite runs on this output.
+    pruned = prune_build(out)
+    print(f"UNREACHABLE_CSS_PRUNED rules={pruned.removed_rules} trimmed={pruned.trimmed_rules} kb={pruned.removed_bytes / 1024:.1f}")
     if "Anatomy_QBank_Source.pdf" not in skipped:
         raise SystemExit("Expected oversized Anatomy PDF to be excluded from Pages output")
     print(f"WEB_DIST_OK files={sum(1 for p in out.rglob('*') if p.is_file())} skipped_oversize={','.join(skipped)}")

@@ -251,13 +251,11 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-progress-copy b { color: v
 
 /* --------------------------------------------------------------- buttons */
 html[data-nk-ui="geist"] :is(body,#nkg-root) .primary-btn,
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-primary,
 html[data-nk-ui="geist"] :is(body,#nkg-root) button.primary {
   background: var(--nkg-inverse-bg) !important; background-image: none !important; color: var(--nkg-inverse-fg) !important;
   border: 1px solid var(--nkg-inverse-bg) !important; box-shadow: none !important; border-radius: var(--nkg-r-md) !important; font-weight: 500 !important;
 }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .ghost-btn,
-html[data-nk-ui="geist"] :is(body,#nkg-root) .secondary-btn {
+html[data-nk-ui="geist"] :is(body,#nkg-root) .ghost-btn {
   background: var(--nkg-surface) !important; background-image: none !important; color: var(--nkg-fg) !important;
   border: 1px solid var(--nkg-border-strong) !important; box-shadow: var(--nkg-shadow-sm) !important; border-radius: var(--nkg-r-md) !important; font-weight: 500 !important;
 }
@@ -435,9 +433,7 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-year-grid .is-today { box-sh
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-year-grid .is-selected { box-shadow: 0 0 0 2px var(--nkg-fg) !important; }
 
 /* No thick side stripes: hairline frames only. */
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-answer-time,
-html[data-nk-ui="geist"] :is(body,#nkg-root) .danger-border,
-html[data-nk-ui="geist"] :is(body,#nkg-root) .success-border { border-left-width: 1px !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-answer-time { border-left-width: 1px !important; }
 
 /* ===================================================== QA pass 2026-10-08
    One batch from the deployed-preview audit (impeccable audit/polish/harden,
@@ -486,8 +482,8 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-btn,
 html[data-nk-ui="geist"] :is(body,#nkg-root) #app .ghost-btn { min-height: 44px !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-tabs > button { display: inline-flex; align-items: center; justify-content: center; }
 /* Heatmap day cells stay dense; give them a slightly larger hit area without moving the grid. */
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-heatmap button { position: relative; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-heatmap button::after { content: ""; position: absolute; inset: -2px; }
+
+
 
 /* Explanation tables: never split words mid-letter ("Manageme|nt"). The
    table scroller handles anything genuinely wider than the column. */

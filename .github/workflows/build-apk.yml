@@ -513,6 +513,8 @@ jobs:
           test -s app/src/main/assets/vendor/ts-fsrs/ts-fsrs-5.4.2.umd.js
           test -s app/src/main/assets/vendor/ts-fsrs/LICENSE
           grep -q 'NK_FSRS_V6_START' app/src/main/assets/index.html
+      - name: Test unreachable CSS pruning
+        run: python3 tools/test_prune_unreachable_css.py
       - name: Build Cloudflare Pages PWA artifact
         run: python3 tools/build_web_dist.py --version ${{ github.sha }}
       - name: Verify Marrow image bytes and offline cache
