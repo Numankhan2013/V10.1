@@ -2,6 +2,12 @@
 
 > Operational state only. Resolve the live branch/commit and CI from Git before acting. Historical detail belongs in `SESSION_LOG.md` and dedicated handoffs.
 
+## Production, IndexedDB progress and faster CI — 2026-10-12
+
+- User-authorized production: PR #109 merged as `39cc716166f1551175d7703af44c16aa747683e1`; dispatch run 38201928452 verified and promoted it (Pages production branch `main`). The production domain is behind Cloudflare Access (email PIN / Google, owner only); `*.nk-qbank.pages.dev` previews are not covered by that Access app.
+- Branch `feature/home-v12-redesign` continues after the release: progress lives in IndexedDB (`app/src/main/assets/nk-store.js`, loaded before every other script). Heavy `qbank_state_*`/backup keys are served from memory, committed per task in one IndexedDB transaction, and the primary is also written synchronously to localStorage so an instant reload never loses a save. First run migrates localStorage; restore points (30 min / daily / before reset, restore, migration) are listed under More > Restore points. Checked by `tools/verify_progress_store_browser.py`.
+- CI: `tools/run_browser_suite.py` runs all browser verifiers four at a time in one step (the Marrow wrapper's eight scripts and four UWorld widths are separate entries); UWorld exhibit crops are cached on their inputs and re-hashed later. Geist-default conversion of the 22 legacy-only verifiers is in progress (snapshot on `wip/geist-verifiers`); legacy UI removal follows it.
+
 ## Notes, PDF loader and shared viewer — 2026-10-10
 
 - Main has question notes with images/PDF pages (#103: My notes bar, block note page, IndexedDB + chunked `noteAssets` sync, Android file chooser). Branch `ccr-47681b8d-1aikn7` adds the PDF loader/glyph repair work from `feature/home-pdf-loader` and one shared viewer (`redesign/nk-viewer.js`) for Geist source PDFs and note images: opens at once from the on-screen canvas, swaps in a cached sharp render, firm edge-to-edge panning. Details: `docs/PDF_RENDERING.md`, `docs/QUESTION_NOTES.md`.
