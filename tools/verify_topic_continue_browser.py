@@ -6,12 +6,13 @@ from pathlib import Path
 import json
 import threading
 from playwright.sync_api import sync_playwright, expect
+from app_page import built_page
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def main():
     web = ROOT / 'build/web'
-    html = (web / 'index.html').read_text()
+    html = built_page(web)
     probe = 'window.__topicContinue={current:()=>nkCurrentQuestion(),context:()=>nkLatestPracticeContext(),record:(s,b)=>nkBankRecord(s,b)};\n'
     diagnostic = html.replace('  window.QB={', probe + '  window.QB={', 1).encode()
     class Handler(SimpleHTTPRequestHandler):

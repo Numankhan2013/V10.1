@@ -7,13 +7,14 @@ from pathlib import Path
 import threading
 
 from playwright.sync_api import expect, sync_playwright
+from app_page import built_page
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def main():
     web = ROOT / "build/web"
-    source = (web / "index.html").read_text(encoding="utf-8")
+    source = built_page(web)
     assert "NK_TIMED_RESUME_CARD_V1_START" in source
     output = ROOT / "build/study-journey"
     output.mkdir(parents=True, exist_ok=True)

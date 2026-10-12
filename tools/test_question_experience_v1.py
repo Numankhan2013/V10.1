@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from pathlib import Path
 import re
-from app_page import app_page
+from app_page import app_source
 
 
 HTML = Path("app/src/main/assets/index.html")
@@ -14,10 +14,10 @@ def require(source: str, markers: list[str]) -> None:
 
 
 def main() -> None:
-    source = app_page()
+    source = app_source()
     require(source, [
         # The shared session experience (V11.4) superseded the V11.3 stylesheet and context bar.
-        'id="nk-session-experience-v114"',
+        '/* ── nk-session-experience-v114 ── */',
         "function nkPracticeSubject(q)",
         "function nkFormatQuestionTime(ms)",
         "s.questionTimes?.[q.id]",
@@ -38,7 +38,7 @@ def main() -> None:
     present = [marker for marker in forbidden if marker in practice]
     if present:
         raise SystemExit(f"Duplicate correctness feedback returned: {present}")
-    if len(re.findall(r'id="nk-session-experience-v114"', source)) != 1:
+    if source.count('/* ── nk-session-experience-v114 ── */') != 1:
         raise SystemExit("Question experience style must be installed exactly once")
     if 'id="nk-question-experience-v113"' in source:
         raise SystemExit("Superseded V11.3 question style returned")

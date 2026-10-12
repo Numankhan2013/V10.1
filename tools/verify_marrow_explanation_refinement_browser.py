@@ -8,6 +8,7 @@ import threading
 
 from playwright.sync_api import sync_playwright
 from test_marrow_explanation_refinement_wave import load_wave
+from app_page import built_page
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -47,7 +48,7 @@ def table_cells(table):
 def main():
     manifest, sources, wave = load_wave()
     web = ROOT / 'build/web'
-    html = (web / 'index.html').read_text()
+    html = built_page(web)
     marker = 'getState:()=>state,'
     require(html.count(marker) == 1, 'Read-only runtime probe insertion point changed')
     probe = """__explanationWave:id=>{const q=BY_ID[id];if(!q)return null;return {id:q.id,cfg:NK_MARROW_EXPLANATION_GOLD_V1[id],blocked:!nkQuestionPresentationFor(q).valid,tables:q.structuredExplanation?.tables||[]};},__wavePlain:t=>{const d=document.createElement('div');d.innerHTML=nkScientificMarkup(t);return d.textContent;},"""

@@ -2547,3 +2547,19 @@ User asked for a thorough functional audit, especially whether FSRS is as good a
   page.
 - Removed six unused scripts that still patched index.html and two workflows
   for retired branches whose scripts no longer exist.
+
+## 2026-10-12 — One stylesheet (bake stage 3)
+
+- All CSS moved into `app/src/main/assets/app.css` (59 sheets: Geist tokens/theme/
+  redesign/polish/PDF loader/viewer, then 52 former inline blocks, original cascade
+  order). Declarations that lose on every element they match (a later same-selector
+  rule or the `html[data-nk-ui="geist"]` twin) were removed: 904 KB → 808 KB source.
+  `redesign_generate_theme_css.py` and the six feature `.css` modules were removed;
+  `app_page.py` gained `app_css`, `css_section`, `built_page`.
+- Verified with a computed-style fingerprint of every element at every browser-verifier
+  screenshot, light and dark, stage 2 build vs merged build, against run-to-run noise:
+  no real differences across 15 verifiers. A first version of the cleanup (a regex that
+  dropped emptied rules) fused a selector and broke `.nk-na-metrics`; the comparison
+  caught it and it was replaced by a brace-matched pass.
+- Local gotcha: a full disk makes browser verifiers fail with
+  `ERR_INSUFFICIENT_RESOURCES`; keep scratch web builds (~900 MB each) trimmed.

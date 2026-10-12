@@ -81,14 +81,18 @@ commit/run when useful and tell the next agent to resolve live HEAD from Git.
 - Motto: **we do not break anything while we build something**.
 - Core study flows are complete; work is refinement, polish, and hardening.
 - One narrow, deterministic change per milestone.
-- `app/src/main/assets/index.html` is source: edit its markup, styles and
-  scripts directly. Never add a build step that patches it (the 62 old
+- `app/src/main/assets/index.html` is source: edit its markup and scripts
+  directly. Never add a build step that patches it (the 62 old
   `apply_*`/`install_*`/`fix_*` patch scripts were baked in and removed on
   2026-10-12; `verify_build_pipeline.py` rejects new ones). Question data never
   lives in the page: it carries `__NK_DATA_*__` tokens that
   `tools/build_app_data.py` (the single data owner) fills in CI.
-- Larger features live in `app/src/main/modules/` (one `.js` or `.css` per
-  feature, unit-tested on their own) and sit in the page as
+- All CSS lives in one stylesheet, `app/src/main/assets/app.css`, in cascade
+  order (Geist tokens and theme first, then the legacy feature sections, each
+  headed `/* ── <name> ── */`). Declarations that always lost to a Geist rule
+  were removed on 2026-10-12; check computed styles before changing a rule.
+- Larger script features live in `app/src/main/modules/` (one `.js` per
+  feature, unit-tested on its own) and sit in the page as
   `/* @module <file> */` markers. Edit the module file; tests read the page
   through `tools/app_page.py`, which puts the modules in place, and
   `build_app_data.py` writes the assembled page in CI.
@@ -111,8 +115,11 @@ commit/run when useful and tell the next agent to resolve live HEAD from Git.
 
 ## File map (verified 2026-09-07, branch `v11.7-cross-device-pwa-sync`)
 
-- `app/src/main/assets/index.html` — monolithic WebView app source (~1.1 MB,
-  data tokens only; CI fills it to ~19 MB)
+- `app/src/main/assets/index.html` — WebView app markup and scripts (~180 KB,
+  module markers and data tokens; CI fills it to ~19 MB)
+- `app/src/main/assets/app.css` — the app's only stylesheet (~810 KB source;
+  the web build prunes unreachable rules)
+- `app/src/main/modules/` — feature scripts included into the page
 - `app/src/main/assets/*.pdf` — Anatomy / Biochemistry / Physiology sources
 - `app/src/main/assets/source_visuals/` — ~420 lossless PNG display cache
 - `app/src/main/assets/source_visual_metadata.js`,

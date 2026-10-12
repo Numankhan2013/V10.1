@@ -8,6 +8,7 @@ import re
 import threading
 from playwright.sync_api import sync_playwright
 from verify_learning_insights_browser import PROBE, SEED
+from app_page import built_page
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -35,8 +36,8 @@ PAIRS = '''selector => [...document.querySelectorAll(selector)].filter(n=>n.getC
 
 def main():
     web = ROOT/'build/web'
-    html = (web/'index.html').read_text()
-    assert 'id="nk-visual-refinement-v1"' in html
+    html = built_page(web)
+    assert '/* ── nk-visual-refinement-v1 ── */' in html
     probe = PROBE+'window.__visualQuestion=()=>nkCurrentQuestion();\n'
     diagnostic = html.replace('  window.QB={', probe+'  window.QB={', 1).encode()
 

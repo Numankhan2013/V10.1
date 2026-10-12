@@ -5,12 +5,13 @@ from pathlib import Path
 import re
 import threading
 from playwright.sync_api import sync_playwright, expect
+from app_page import built_page
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def main():
-    generated = (ROOT / 'build/web/index.html').read_text()
+    generated = built_page(ROOT / 'build/web')
     core = re.search(r'/\* NK_PWA_UPDATE_V2_START \*/.*?/\* NK_PWA_UPDATE_V2_END \*/', generated, re.S).group()
     assert 'meta name="nk-qbank-build"' in generated, 'Web builds must identify the running page'
     worker = (ROOT / 'build/web/sw.js').read_text()

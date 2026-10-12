@@ -6,7 +6,7 @@ import subprocess
 from pathlib import Path
 
 from inventory_marrow_explanations import load_sharded
-from app_page import app_page
+from app_page import app_source
 
 ROOT = Path(__file__).resolve().parents[1]
 HTML = ROOT / 'app/src/main/assets/index.html'
@@ -14,7 +14,7 @@ MARKER = '  // NK_MARROW_STRUCTURED_TABLE_RENDERER_V1'
 
 
 def main():
-    page = app_page()
+    page = app_source()
     assert page.count(MARKER) == 1, 'Marrow structured-table renderer missing'
     start = page.index(MARKER)
     helper = page[start:page.index('  const NK_MARROW_EXPLANATION_GOLD_V1=', start)]

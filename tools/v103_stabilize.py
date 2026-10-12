@@ -1,7 +1,7 @@
 from pathlib import Path
 
 INDEX = Path('app/src/main/assets/index.html')
-MARKER = 'id="v103-stabilize"'
+MARKER = '/* ── v103-stabilize ── */'
 
 STYLE = r'''<style id="v103-stabilize">
 .review-test .review-nav{margin-top:14px}

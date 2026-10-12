@@ -2,10 +2,10 @@
 """Delayed submission cleanup cannot close a later study session's navigator."""
 from pathlib import Path
 import subprocess
-from app_page import app_page
+from app_page import app_source
 ROOT=Path(__file__).resolve().parents[1]
 def main():
-    app=app_page()
+    app=app_source()
     assert app.count('<script id="cbt-final-lock-v2">')==1,'final CBT lock must ship once'
     start=app.index('<script id="cbt-final-lock-v2">');lock=app[start:app.index('</script>',start)]
     assert app.count('  function cleanExamUi(')==1,'only the final lock may define submission cleanup'

@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 import subprocess
 import tempfile
-from app_page import app_page
+from app_page import app_source
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -43,7 +43,7 @@ def load_configs() -> dict[str, dict]:
 
 
 def main() -> None:
-    page = app_page()
+    page = app_source()
     gold_text = function_fragment(page, "function nkGoldText(", "function nkGoldSignalWords(")
     gold_renderer = function_fragment(
         page, "function nkRenderMarrowGoldText(", "function nkRenderGoldWrongOptions("

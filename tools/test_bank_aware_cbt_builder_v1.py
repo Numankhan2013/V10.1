@@ -4,7 +4,7 @@
 from pathlib import Path
 import re
 import subprocess
-from app_page import app_page
+from app_page import app_source
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -13,9 +13,9 @@ CORE = ROOT / "app/src/main/modules/bank_aware_cbt_builder.js"
 
 
 def main() -> None:
-    page = app_page()
+    page = app_source()
     assert page.count(CORE.read_text(encoding="utf-8").strip()) == 1, "CBT builder core ships verbatim once"
-    for marker in ("NK_BANK_AWARE_CBT_BUILDER_V1_START", 'id="nk-bank-aware-cbt-builder-v1"',
+    for marker in ("NK_BANK_AWARE_CBT_BUILDER_V1_START", '/* ── nk-bank-aware-cbt-builder-v1 ── */',
                    "    else if(route.page==='test-builder') out=nkCbtBuilderPage();\n"
                    "    else if(route.page==='module-builder') out=studyModuleBuilderPage();"):
         assert page.count(marker) == 1, marker

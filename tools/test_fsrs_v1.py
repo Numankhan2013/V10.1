@@ -4,7 +4,7 @@
 from pathlib import Path
 import subprocess
 import tempfile
-from app_page import app_page
+from app_page import app_source
 
 ROOT = Path(__file__).resolve().parents[1]
 CORE = ROOT / "app/src/main/modules/fsrs_scheduler.js"
@@ -35,7 +35,7 @@ for forbidden in ("newCardLimit", "newCards", "New cards each day", "const nkFsr
     if forbidden in core:
         raise SystemExit(f"FSRS review-only contract regressed: {forbidden}")
 
-html = app_page()
+html = app_source()
 if "NK_FSRS_V6_START" not in html:
     from apply_fsrs_v1 import transform
     html = transform(html)

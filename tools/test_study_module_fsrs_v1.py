@@ -4,10 +4,10 @@ from pathlib import Path
 import re
 import subprocess
 import tempfile
-from app_page import app_page
+from app_page import app_source
 
 ROOT = Path(__file__).resolve().parents[1]
-home = app_page()
+home = app_source()
 interaction = (ROOT / "app/src/main/modules/question_interaction.js").read_text(encoding="utf-8")
 
 if home.count("function nkMarkSkippedFromSession(") != 1:

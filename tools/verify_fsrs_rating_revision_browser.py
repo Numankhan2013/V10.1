@@ -5,6 +5,7 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 import threading
 from playwright.sync_api import expect, sync_playwright
+from app_page import built_page
 
 ROOT = Path(__file__).resolve().parents[1]
 PROBE = '''window.__nkFsrsTest={
@@ -18,7 +19,7 @@ PROBE = '''window.__nkFsrsTest={
 
 def main():
     web = ROOT/'build/web'
-    html = (web/'index.html').read_text()
+    html = built_page(web)
     assert html.count('/* NK_FSRS_V6_END */') == 1
     # Expose read/merge commands only in the test response, never in app assets.
     diagnostic = html.replace('/* NK_FSRS_V6_END */', PROBE+'\n/* NK_FSRS_V6_END */').encode()

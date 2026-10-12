@@ -8,6 +8,7 @@ from pathlib import Path
 import threading
 
 from playwright.sync_api import expect, sync_playwright
+from app_page import built_page
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -17,7 +18,7 @@ BOOKMARK_ID = "physiology-9-6"
 
 def main() -> None:
     web = ROOT / "build/web"
-    html = (web / "index.html").read_text(encoding="utf-8")
+    html = built_page(web)
     assert "NK_REVISION_DESK_V1_START" in html
     output = ROOT / "build/ui-checks"
     output.mkdir(parents=True, exist_ok=True)

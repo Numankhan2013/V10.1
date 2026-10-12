@@ -6,6 +6,7 @@ from pathlib import Path
 import sys
 import threading
 from playwright.sync_api import sync_playwright, expect
+from app_page import built_page
 
 ROOT = Path(__file__).resolve().parents[1]
 PROBE = '''window.__nkAnalysisTest={questions:()=>nkAllStudyQuestions().filter(q=>nkQuestionPresentationFor(q).valid),model:()=>nkLearningModel(),labels:()=>nkLearningPeriodLabels(nkLearningModel())};\n'''
@@ -24,7 +25,7 @@ SEED = r'''() => {
 def main():
     baseline = '--capture-baseline' in sys.argv
     web = ROOT / 'build/web'
-    html = (web / 'index.html').read_text()
+    html = built_page(web)
     diagnostic = html.replace('  window.QB={', PROBE + '  window.QB={', 1).encode()
     class Handler(SimpleHTTPRequestHandler):
         def do_GET(self):

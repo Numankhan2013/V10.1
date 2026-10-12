@@ -3,14 +3,14 @@
 
 from pathlib import Path
 import subprocess
-from app_page import app_page
+from app_page import app_source
 
 ROOT = Path(__file__).resolve().parents[1]
 HTML = ROOT / 'app/src/main/assets/index.html'
 
 
 def main() -> None:
-    html = app_page()
+    html = app_source()
     if html.count('function nkStartTopicTimedTest') != 1:
         raise SystemExit('Topic timed test launcher missing or duplicated')
     timer = "function nkStartTopicTimedTest" + html.split("function nkStartTopicTimedTest", 1)[1].split("/* NK_HOME_FLOW_V3_END */", 1)[0]

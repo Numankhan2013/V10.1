@@ -4,7 +4,7 @@
 from pathlib import Path
 import re
 import subprocess
-from app_page import app_page
+from app_page import app_source
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -13,10 +13,10 @@ CORE = ROOT / "app/src/main/modules/qbank_coverage.js"
 
 
 def main() -> None:
-    page = app_page()
+    page = app_source()
     assert page.count(CORE.read_text(encoding="utf-8").strip()) == 1, "coverage core ships verbatim once"
     assert "CHAPTER PERFORMANCE" not in page, "old active-bank chapter list stays removed"
-    for marker in ("NK_QBANK_COVERAGE_V1_START", 'id="nk-qbank-coverage-v1"'):
+    for marker in ("NK_QBANK_COVERAGE_V1_START", '/* ── nk-qbank-coverage-v1 ── */'):
         assert page.count(marker) == 1, marker
     qb = page[page.index("  window.QB={"):]
     assert ("nkCoverageSelectBank,nkCoverageSetSearch,nkCoverageSetStatus,nkCoverageShowMore,nkCoverageOpen,"

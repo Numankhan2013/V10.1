@@ -8,7 +8,7 @@ import json
 import zlib
 import subprocess
 import tempfile
-from app_page import app_page
+from app_page import app_source
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -17,7 +17,7 @@ CORE = ROOT / "app/src/main/modules/question_content_hygiene.js"
 
 
 def main() -> None:
-    source = app_page()
+    source = app_source()
 
     behavior = CORE.read_text(encoding="utf-8") + r'''
 const q={

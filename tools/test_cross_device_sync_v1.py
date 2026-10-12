@@ -5,7 +5,7 @@ from pathlib import Path
 import json
 import subprocess
 import tempfile
-from app_page import app_page
+from app_page import app_source
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -411,7 +411,7 @@ function nkDurablePersist(v){localStorage.setItem(LS_KEY,JSON.stringify(v));retu
     install = worker.split("self.addEventListener('install'", 1)[1].split("self.addEventListener('activate'", 1)[0]
     if "skipWaiting" in install:
         raise SystemExit("PWA installation must wait for an explicit update action")
-    generated = app_page()
+    generated = app_source()
     if generated.count((ROOT / "app/src/main/modules/pwa_update.js").read_text(encoding="utf-8")) != 1 or "NK_QBANK_VERSION" not in worker:
         raise SystemExit("PWA updates must compare the waiting build with the running page")
     sync_core = CORE.read_text(encoding="utf-8")
@@ -426,7 +426,7 @@ function nkDurablePersist(v){localStorage.setItem(LS_KEY,JSON.stringify(v));retu
             raise SystemExit(f"Cross-device sync diagnostic/project-resolution/review-eligibility contract missing: {marker}")
     if ":batchWrite" in sync_core:
         raise SystemExit("Firebase ID-token clients must not use the IAM-oriented batchWrite endpoint")
-    for marker in ("@media (min-width:768px) and (min-height:600px)", "min-width:1024px", "nk-pwa-update", "location.hostname !== 'qbank.local'", '<style id="nk-cross-device-pwa-v1">'):
+    for marker in ("@media (min-width:768px) and (min-height:600px)", "min-width:1024px", "nk-pwa-update", "location.hostname !== 'qbank.local'", '/* ── nk-cross-device-pwa-v1 ── */'):
         if marker not in generated:
             raise SystemExit(f"Responsive/update page contract missing: {marker}")
     for path in (CORE, STORAGE_CORE):

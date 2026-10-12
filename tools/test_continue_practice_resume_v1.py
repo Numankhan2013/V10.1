@@ -4,7 +4,7 @@
 from pathlib import Path
 import subprocess
 import tempfile
-from app_page import app_page
+from app_page import app_source
 
 ROOT = Path(__file__).resolve().parents[1]
 HTML = ROOT / "app/src/main/assets/index.html"
@@ -308,8 +308,8 @@ console.log('CONTINUE_PRACTICE_BEHAVIOR_OK single_grid=true footer=previous_next
 
 
 def test_shipped_page() -> None:
-    html = app_page()
-    for marker in (START, END, FLOW_START, FLOW_END, f'<style id="{STYLE_ID}">', "/* NK_HOME_FLOW_V3_END */"):
+    html = app_source()
+    for marker in (START, END, FLOW_START, FLOW_END, f'/* ── {STYLE_ID} ── */', "/* NK_HOME_FLOW_V3_END */"):
         assert html.count(marker) == 1, marker
     # The resume core overrides Home V3 helpers, so it must ship after that flow.
     assert html.index("/* NK_HOME_FLOW_V3_END */") < html.index(START) < html.index(END) < html.index(FLOW_START) < html.index(FLOW_END)

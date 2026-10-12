@@ -3,7 +3,7 @@
 
 from pathlib import Path
 import re
-from app_page import app_page
+from app_page import app_source
 
 
 HTML = Path("app/src/main/assets/index.html")
@@ -24,9 +24,9 @@ def function_section(source: str, start: str) -> str:
 
 
 def main() -> None:
-    source = app_page()
+    source = app_source()
     required = [
-        'id="nk-whole-app-vision-v114"',
+        '/* ── nk-whole-app-vision-v114 ── */',
         "function nkAppSubjectMeta(name=activeSubject)",
         "function nkSubjectGraphic(name,size=20)",
         "function nkFlameGraphic(size=24)",
@@ -60,7 +60,7 @@ def main() -> None:
         "window.QB.confirmSession('${selectedId||''}','exam',${pool})",
         "window.__QB_OPEN_REVIEW(this.getAttribute('data-review-test-id'))",
         'data-v102-review-cta="1"',
-        'id="nk-session-experience-v114"',
+        '/* ── nk-session-experience-v114 ── */',
         'id="cr-grid"',
         "&scale=4",
     ]
@@ -76,7 +76,7 @@ def main() -> None:
         raise SystemExit("Whole-app renderer leaked into protected CBT/Review question pages")
     if "nk-option-state" in source:
         raise SystemExit("Option-side status holes returned")
-    if source.count('id="nk-whole-app-vision-v114"') != 1:
+    if source.count('/* ── nk-whole-app-vision-v114 ── */') != 1:
         raise SystemExit("Whole-app style must be installed exactly once")
     if re.search(r"NaN Questions|NaN Topics", source):
         raise SystemExit("Invalid subject-count copy returned")

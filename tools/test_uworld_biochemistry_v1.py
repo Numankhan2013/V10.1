@@ -3,7 +3,7 @@ from uworld_biochemistry import load_source,bank_record
 from uworld_biochemistry import ROOT
 from uworld_collections import bank_records
 import re
-from app_page import app_page
+from app_page import app_source
 manifest,rows=load_source();record=bank_record()
 assert len(record['questions'])==132 and len(record['topics'])==4
 assert [sum(q['chapterId']==t['id'] for q in record['questions']) for t in record['topics']]==[40,40,40,12]
@@ -27,7 +27,7 @@ assert record['subject']=='UWorld · Biochemistry' and record['collection']=='Bi
 assert all(q['uworldPilot']['status'] in ['ocr-unverified','source-reviewed','source-blocked'] for q in record['questions'])
 assert max(len(q['options']) for q in record['questions'])==8
 # Shipped page: one collection registry, scripts load before the app script, incumbent functions survive.
-out=app_page()
+out=app_source()
 assert out.count('/* NK_UWORLD_BANK_DATA_START */')==1 and out.count('/* NK_UWORLD_BIOCHEMISTRY_V1_START */')==1
 assert out.count('BANKS_BY_SUBJECT[NK_UWORLD_BIOCHEMISTRY_BANK.subject]=')==1 and 'BANKS_BY_SUBJECT.Biochemistry.push(' not in out
 assert 'function nkStudySupport(' in out and out.count('uworldReference:nkUworldReference')==1

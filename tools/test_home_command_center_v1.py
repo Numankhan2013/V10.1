@@ -5,7 +5,7 @@ from pathlib import Path
 import subprocess
 import json
 import re
-from app_page import app_page
+from app_page import app_source
 
 ROOT=Path(__file__).resolve().parents[1]
 HTML=ROOT/'app/src/main/assets/index.html'
@@ -14,7 +14,7 @@ STYLE_ID='nk-home-command-center-v1'
 
 
 def main():
-    html=app_page()
+    html=app_source()
     script=next(x for x in re.findall(r'<script>(.*?)</script>',html,re.S) if f'{FLOW_MARKER}_START' in x)
     subprocess.run(['node','--check'],input=script,text=True,check=True)
 
@@ -51,7 +51,7 @@ def main():
     survived=[x for x in prohibited if x in html]
     if survived:raise SystemExit(f'Obsolete Home/Test behavior survived: {survived}')
 
-    if html.count(f'id="{STYLE_ID}"')!=1:raise SystemExit('Home V3 stylesheet duplicated')
+    if html.count(f'/* ── {STYLE_ID} ── */')!=1:raise SystemExit('Home V3 stylesheet duplicated')
     home=html.split('function dashboard(){',1)[1].split('function testRow(',1)[0]
     tests=html.split('function testsPage(){',1)[1].split('function morePage(',1)[0]
     if '<section class="nk-home-quick-grid"' in home or 'Strongest Chapters' in home or "Today's Review" in home:raise SystemExit('Home retained duplicate launch surfaces')

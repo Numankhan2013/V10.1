@@ -5,10 +5,11 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 import threading
 from playwright.sync_api import sync_playwright, expect
+from app_page import built_page
 ROOT=Path(__file__).resolve().parents[1]
 
 def main():
-    web=ROOT/'build/web';assert 'NK_APP_CLARITY_V1_START' in (web/'index.html').read_text()
+    web=ROOT/'build/web';assert 'NK_APP_CLARITY_V1_START' in built_page(web)
     class Quiet(SimpleHTTPRequestHandler):
         def log_message(self,*args):pass
     server=ThreadingHTTPServer(('127.0.0.1',0),partial(Quiet,directory=str(web)))

@@ -4,7 +4,7 @@
 from pathlib import Path
 import re
 import subprocess
-from app_page import app_page
+from app_page import app_source
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -14,7 +14,7 @@ HTML = ROOT / "app/src/main/assets/index.html"
 
 
 def main() -> None:
-    page = app_page()
+    page = app_source()
     start = page.index("function bottomNav(active){")
     bottom_nav = page[start:page.index("\n  }\n", start) + 4]
     assert page.count('class="bottom-nav ') == 1
@@ -28,7 +28,7 @@ def main() -> None:
     for action in ('nkFinishRevisionSession', 'nkStartRevisionQueue', 'nkFilterRevisionBrowse',
                    'nkOpenRevisionQuestion', 'nkToggleRevisionFocus', 'nkSetRevisionScope', 'nkOpenRevisionHub'):
         assert action + ',' in qb, action
-    for marker in ('NK_REVISION_DESK_V1_START', 'id="nk-revision-desk-v1"',
+    for marker in ('NK_REVISION_DESK_V1_START', '/* ── nk-revision-desk-v1 ── */',
                    "else if(route.page==='quick-revision') out=nkRevisionDeskPage();",
                    "else if(route.page==='revision-browse') out=nkRevisionBrowsePage(route.id);",
                    "${row('book','My notes',`${fmtNum(nkSavedQuestionNotes().length)} recall cues`,\"window.QB.nav('notes')\",'is-violet')}",

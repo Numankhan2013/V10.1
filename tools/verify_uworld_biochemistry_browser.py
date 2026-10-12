@@ -12,6 +12,7 @@ from playwright.sync_api import sync_playwright, expect
 from uworld_poisoning_browser_cases import verify_poisoning
 from uworld_ophthalmology_browser_cases import verify_ophthalmology
 from uworld_imported_browser_cases import verify_imported_collections
+from app_page import built_page
 
 ROOT = Path(__file__).resolve().parents[1]
 PROBE = '''window.__uworldTest={wrong:()=>nkRevisionDeskData().wrong.map(q=>q.id),questions:()=>nkAllStudyQuestions(),current:()=>nkCurrentQuestion(),presentation:id=>nkQuestionPresentationFor(BY_ID[id]),records:()=>Object.values(BANKS_BY_SUBJECT).flat().map(r=>({subject:r.subject,bank:r.bank,questions:r.questions.length,topics:(r.topics||r.chapters||[]).length}))};\n'''
@@ -23,7 +24,7 @@ def main():
     parser.add_argument('--widths',default='390,820,1194,1440',help='Comma-separated viewport widths, so CI can split the sizes across workers')
     args=parser.parse_args()
     web = ROOT / 'build/web'
-    html = urlopen(args.url.rstrip('/')+'/index.html').read().decode() if args.url else (web / 'index.html').read_text()
+    html = urlopen(args.url.rstrip('/')+'/index.html').read().decode() if args.url else built_page(web)
     html_hash=hashlib.sha256(html.encode()).hexdigest()
     assert 'NK_UWORLD_BIOCHEMISTRY_V1_START' in html
     anchor = '  window.QB={'

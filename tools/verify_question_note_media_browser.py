@@ -18,6 +18,7 @@ import time
 import fitz
 from PIL import Image, ImageDraw
 from playwright.sync_api import sync_playwright
+from app_page import built_page
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -330,7 +331,7 @@ def sync_flow(browser, origin: str, screenshot: Path, output: Path) -> None:
 
 def main() -> None:
     web = ROOT / "build/web"
-    html = (web / "index.html").read_text(encoding="utf-8")
+    html = built_page(web)
     assert "NK_NOTE_MEDIA_V1_START" in html
     output = ROOT / "build/ui-checks"
     output.mkdir(parents=True, exist_ok=True)

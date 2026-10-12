@@ -6,6 +6,7 @@ from pathlib import Path
 import threading,json,re
 from playwright.sync_api import sync_playwright
 from verify_learning_insights_browser import PROBE
+from app_page import built_page
 ROOT=Path(__file__).resolve().parents[1]
 
 SEED='''(kind)=>{
@@ -16,7 +17,7 @@ SEED='''(kind)=>{
 }'''
 
 def main():
-    web=ROOT/'build/web';html=(web/'index.html').read_text();assert 'NK_REVISION_SESSION_V1_START' in html
+    web=ROOT/'build/web';html=built_page(web);assert 'NK_REVISION_SESSION_V1_START' in html
     probe=PROBE+'''window.__revisionCurrent=()=>nkCurrentQuestion();window.__revisionRestore=cp=>nkPracticeSessionFromCheckpoint(cp);window.__revisionDue=()=>nkFsrsQueue({});window.__revisionFail=fail=>{window.__NK_STORAGE_ADAPTER=fail?{getItem:k=>localStorage.getItem(k),setItem:()=>{throw new Error('Revision QA storage failure');},removeItem:k=>localStorage.removeItem(k)}:undefined;};\n'''
     diagnostic=html.replace('  window.QB={',probe+'  window.QB={',1).encode()
     class Handler(SimpleHTTPRequestHandler):

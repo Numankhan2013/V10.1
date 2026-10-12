@@ -5,10 +5,11 @@ from functools import partial
 from http.server import ThreadingHTTPServer,SimpleHTTPRequestHandler
 import threading,json
 from playwright.sync_api import sync_playwright
+from app_page import built_page
 ROOT=Path(__file__).resolve().parents[1]
 
 def main():
-    web=ROOT/'build/web';html=(web/'index.html').read_text()
+    web=ROOT/'build/web';html=built_page(web)
     assert 'NK_INTERACTION_POLISH_V1_START' in html
     probe="window.__nkInteractionProbe={question:()=>nkCurrentQuestion(),render:()=>render()};"
     diagnostic=html.replace('  window.QB={',probe+'\n  window.QB={',1).encode()

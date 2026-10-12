@@ -15,7 +15,7 @@ block left empty. Everything else is kept byte for byte.
 
   python3 tools/prune_unreachable_css.py build/web            # prune the build in place
   python3 tools/prune_unreachable_css.py build/web --report   # only report
-  python3 tools/prune_unreachable_css.py build/web --files app/src/main/assets/redesign/nk-theme.css
+  python3 tools/prune_unreachable_css.py build/web --files build/web/app.css
 """
 import argparse
 import re
@@ -211,7 +211,7 @@ class Pruner:
 
 def prune_build(root: Path, files=None, report_only=False) -> Pruner:
     pruner = Pruner(Reachability.from_build(root))
-    targets = [Path(f) for f in files] if files else [root / 'index.html', *sorted((root / 'redesign').glob('*.css'))]
+    targets = [Path(f) for f in files] if files else [root / 'index.html', *sorted(root.glob('*.css')), *sorted((root / 'redesign').glob('*.css'))]
     for path in targets:
         text = path.read_text(encoding='utf-8')
         before = pruner.removed_bytes
@@ -225,7 +225,7 @@ def prune_build(root: Path, files=None, report_only=False) -> Pruner:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('build', type=Path, help='built web root whose sources decide what is reachable')
-    parser.add_argument('--files', nargs='*', help='CSS or HTML files to prune (default: the build index.html and redesign/*.css)')
+    parser.add_argument('--files', nargs='*', help='CSS or HTML files to prune (default: the build index.html, *.css and redesign/*.css)')
     parser.add_argument('--report', action='store_true', help='report without writing')
     parser.add_argument('--list', type=Path, help='write the removed selectors to this file, one per line')
     args = parser.parse_args()
