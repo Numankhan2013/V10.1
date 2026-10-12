@@ -4,8 +4,11 @@
  * The app's storage code is synchronous, so those keys are served from an
  * in-memory copy that is hydrated before the app boots and committed to
  * IndexedDB in one transaction per task (pending, primary and last-known-good
- * writes of a save land atomically). The primary record is mirrored to
- * localStorage, best effort and debounced, so an older build can still open it.
+ * writes of a save land atomically). IndexedDB commits asynchronously, so a
+ * reload or close right after a save could drop that transaction: the primary
+ * record is also written to localStorage synchronously (one write, where the
+ * old scheme made three) and boot adopts it when its revision is newer. An
+ * older build can open that copy too.
  *
  * Automatic restore points are taken while you study and before destructive
  * actions; window.NKStore lists and restores them.
@@ -16,13 +19,16 @@
   var DB_NAME = 'nk-qbank', DB_VERSION = 1, PRIMARY = 'qbank_state_v1';
   // Keys whose values are whole copies of the progress state.
   var HEAVY = /^(qbank_state_|qbank_pre_fsrs_backup_v1$|qbank_account_snapshot_v1_)/;
-  var MIRROR_DELAY = 1500, SNAPSHOT_EVERY = 30 * 60 * 1000, RECENT_KEEP = 12, DAILY_KEEP = 14;
+  var SNAPSHOT_EVERY = 30 * 60 * 1000, RECENT_KEEP = 12, DAILY_KEEP = 14;
   var proto = Storage.prototype, nativeGet = proto.getItem, nativeSet = proto.setItem, nativeRemove = proto.removeItem;
   var local = null;
   try { local = window.localStorage; } catch (_) {}
 
   var mem = new Map(), dirty = new Map(), ready = false, failed = false, db = null, bootRead = false;
-  var flushQueued = false, mirrorTimer = 0, lastSnapshotAt = 0, lastError = '', channel = null;
+  // Set once a restore commits: the page is about to reload and its in-memory
+  // state is older than the restored copy, so its unload save must not land.
+  var frozen = false;
+  var flushQueued = false, lastSnapshotAt = 0, lastError = '', channel = null;
   var listeners = [];
 
   function heavy(store, key) { return store === local && HEAVY.test(String(key)); }
@@ -77,12 +83,15 @@
   };
   proto.setItem = function (key, value) {
     if (!heavy(this, key)) return nativeSet.call(this, key, value);
+    if (frozen) return;
     key = String(key); value = String(value);
     if (!ready) { nativeSet.call(this, key, value); mem.set(key, value); return; }
     mem.set(key, value); dirty.set(key, value); schedule();
+    if (key === PRIMARY) journal(value);
   };
   proto.removeItem = function (key) {
     if (!heavy(this, key)) return nativeRemove.call(this, key);
+    if (frozen) return;
     key = String(key);
     if (!ready) { nativeRemove.call(this, key); mem.delete(key); return; }
     mem.delete(key); dirty.set(key, null); schedule();
@@ -103,7 +112,7 @@
     var primary = batch.get(PRIMARY);
     if (primary && Date.now() - lastSnapshotAt >= SNAPSHOT_EVERY) addSnapshot(tx, primary, 'auto');
     return done(tx).then(function () {
-      if (primary) { mirrorSoon(); announce(primary); }
+      if (primary) announce(primary);
       if (lastError) lastError = '';
     }, function (error) {
       // Put the batch back so the next save retries it, and surface the failure.
@@ -112,18 +121,16 @@
       try { window.dispatchEvent(new CustomEvent('nk-store-error', { detail: lastError })); } catch (_) {}
     });
   }
-  function mirrorSoon() { clearTimeout(mirrorTimer); mirrorTimer = setTimeout(mirror, MIRROR_DELAY); }
-  function mirror() {
-    clearTimeout(mirrorTimer); mirrorTimer = 0;
-    var raw = mem.get(PRIMARY);
-    if (!local || raw == null) return;
-    try { if (nativeGet.call(local, PRIMARY) !== raw) nativeSet.call(local, PRIMARY, raw); }
+  // Over quota the stale copy is dropped rather than left behind; IndexedDB still has the save.
+  function journal(raw) {
+    if (!local) return;
+    try { nativeSet.call(local, PRIMARY, raw); }
     catch (_) { try { nativeRemove.call(local, PRIMARY); } catch (__) {} }
   }
   function announce(raw) {
     try { if (channel) channel.postMessage({ type: 'state', revision: revisionOf(raw) }); } catch (_) {}
   }
-  function flushNow() { if (dirty.size) flush(); if (mirrorTimer) mirror(); }
+  function flushNow() { if (dirty.size) flush(); }
   window.addEventListener('pagehide', flushNow);
   document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'hidden') flushNow(); });
 
@@ -190,7 +197,7 @@
       state.stateRevision = Math.max(current, Number(state.stateRevision) || 0) + 1;
       var next = JSON.stringify(state);
       local.setItem(PRIMARY, next); local.setItem('qbank_state_lkg_v2', next); local.removeItem('qbank_state_pending_v2');
-      return flush().then(function () { mirror(); return true; });
+      return flush().then(function () { frozen = true; return true; });
     });
   }
   function usage() {
