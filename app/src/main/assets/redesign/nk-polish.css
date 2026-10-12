@@ -19,6 +19,12 @@ html[data-nk-ui="geist"] {
   --nkg-dur-med: 240ms;
 }
 @media (min-width: 768px) { html[data-nk-ui="geist"] { --nkg-gutter: 24px; --nkg-t-title: 30px; } }
+/* One scroller. The legacy html,body{overflow-x:hidden} turns body into its own
+   scroll container, which froze scrolling in iOS home-screen apps; clip trims the
+   same overflow without creating one. The viewer's inline overflow lock still wins. */
+html[data-nk-ui="geist"]:not([style*="overflow"]), html[data-nk-ui="geist"]:not([style*="overflow"]) body {
+  overflow-x: hidden !important; overflow-x: clip !important; overflow-y: visible !important;
+}
 
 /* =================================================== page frame & column */
 html[data-nk-ui="geist"] :is(body,#nkg-root) main.page { padding-left: var(--nkg-gutter) !important; padding-right: var(--nkg-gutter) !important; }
