@@ -7,30 +7,20 @@
  * file only reads progress (window.QB.getState / saved auth) and calls the
  * app's existing public actions (window.QB.nav, ...).
  *
- * Switches:
- *   ?ui=legacy / ?ui=geist  persist the choice in localStorage "nkq.ui".
- *   Without a stored choice the redesign is on, browser automation included,
- *   so the verification suites exercise the UI people actually use.
+ * Geist is the only UI; the old ?ui=legacy switch has been retired.
  *   localStorage "nkq.theme" = light | dark | system (default system).
  */
 (function () {
   'use strict';
   var doc = document.documentElement;
-  var UI_KEY = 'nkq.ui', THEME_KEY = 'nkq.theme', NAME_KEY = 'nkq.profile.name';
+  var THEME_KEY = 'nkq.theme', NAME_KEY = 'nkq.profile.name';
 
   function lsGet(k) { try { return window.localStorage.getItem(k); } catch (e) { return null; } }
   function lsSet(k, v) { try { window.localStorage.setItem(k, v); } catch (e) { /* storage blocked */ } }
 
-  var forced = (location.search.match(/[?&]ui=(geist|legacy)(?:&|$)/) || [])[1];
-  if (forced) lsSet(UI_KEY, forced);
-  var stored = lsGet(UI_KEY);
-  var mode = stored === 'legacy' ? 'legacy' : 'geist';
-
-  window.NKQ_UI = {
-    mode: mode,
-    setMode: function (next) { lsSet(UI_KEY, next === 'legacy' ? 'legacy' : 'geist'); location.reload(); }
-  };
-  if (mode !== 'geist') { doc.setAttribute('data-nk-ui', 'legacy'); return; }
+  /* Forget a saved choice of the retired legacy UI. */
+  try { window.localStorage.removeItem('nkq.ui'); } catch (e) { /* storage blocked */ }
+  window.NKQ_UI = { mode: 'geist' };
   doc.setAttribute('data-nk-ui', 'geist');
   /* Route attribute is set before the app's first render and before its own
      hashchange handler, so route-scoped CSS (e.g. #profile) never flashes. */
