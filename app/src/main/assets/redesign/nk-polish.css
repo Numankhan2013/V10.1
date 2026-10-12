@@ -1301,7 +1301,7 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-reset-row { display: flex; ali
 /* Paused Practice + saved-mock details: one sheet language. Bottom sheet on phones
    (grab bar, rounded top, safe-area foot), centred panel from tablet up. The list
    scrolls; header and foot stay put. */
-html[data-nk-ui="geist"] :is(body,#nkg-root) :is(#nk-practice-sessions, #nk-mock-sheet).modal-backdrop {
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(#nk-practice-sessions, #nk-mock-sheet, #nk-restore-sheet).modal-backdrop {
   position: fixed !important; inset: 0 !important; z-index: 10000 !important;
   display: flex !important; align-items: flex-end !important; justify-content: center !important; padding: 0 !important;
   background: color-mix(in srgb, #000 44%, transparent) !important;
@@ -1319,14 +1319,14 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-dialog, .
   content: ''; position: absolute; top: 8px; left: 50%; width: 36px; height: 4px; margin-left: -18px; border-radius: 4px; background: var(--nkg-border-strong);
 }
 @media (min-width: 700px) {
-  html[data-nk-ui="geist"] :is(body,#nkg-root) :is(#nk-practice-sessions, #nk-mock-sheet).modal-backdrop { align-items: center !important; padding: 24px !important; }
+  html[data-nk-ui="geist"] :is(body,#nkg-root) :is(#nk-practice-sessions, #nk-mock-sheet, #nk-restore-sheet).modal-backdrop { align-items: center !important; padding: 24px !important; }
   html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-dialog, .nk-mock-sheet).modal { border-bottom: 1px solid var(--nkg-border) !important; border-radius: 20px !important; box-shadow: 0 24px 64px -24px rgb(0 0 0 / .38) !important; animation-name: nkg-sheet-pop; }
   html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-dialog, .nk-mock-sheet).modal::before { display: none; }
 }
 @keyframes nkg-scrim-in { from { opacity: 0; } }
 @keyframes nkg-sheet-up { from { transform: translateY(100%); } }
 @keyframes nkg-sheet-pop { from { opacity: 0; transform: translateY(12px) scale(.98); } }
-@media (prefers-reduced-motion: reduce) { html[data-nk-ui="geist"] :is(body,#nkg-root) :is(#nk-practice-sessions, #nk-mock-sheet, .nk-practice-sessions-dialog, .nk-mock-sheet) { animation: none !important; } }
+@media (prefers-reduced-motion: reduce) { html[data-nk-ui="geist"] :is(body,#nkg-root) :is(#nk-practice-sessions, #nk-mock-sheet, #nk-restore-sheet, .nk-practice-sessions-dialog, .nk-mock-sheet) { animation: none !important; } }
 
 /* Header: title + one quiet line, round close button. */
 html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-head, .nk-mock-sheet-head) {
@@ -1723,13 +1723,13 @@ html[data-nk-ui="geist"] .nk-nb.is-text .nk-nb-text { background: transparent !i
    page background, a sticky bar with Back, a large wrapping title, content at a
    readable measure, actions pinned to the bottom, no visible scrollbar. */
 /* Same surface as every other page: up to 1120px, 16px gutters on phones, 24px on tablets. */
-html[data-nk-ui="geist"] :is(body,#nkg-root) :is(#nk-practice-sessions, #nk-mock-sheet) { --nkg-screen-w: 1120px; --nkg-screen-pad: 16px; --nkg-screen-gut: max(var(--nkg-screen-pad), calc((100% - var(--nkg-screen-w)) / 2 + var(--nkg-screen-pad))); }
-@media (min-width: 700px) { html[data-nk-ui="geist"] :is(body,#nkg-root) :is(#nk-practice-sessions, #nk-mock-sheet) { --nkg-screen-pad: 24px; } }
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(#nk-practice-sessions, #nk-mock-sheet, #nk-restore-sheet) { --nkg-screen-w: 1120px; --nkg-screen-pad: 16px; --nkg-screen-gut: max(var(--nkg-screen-pad), calc((100% - var(--nkg-screen-w)) / 2 + var(--nkg-screen-pad))); }
+@media (min-width: 700px) { html[data-nk-ui="geist"] :is(body,#nkg-root) :is(#nk-practice-sessions, #nk-mock-sheet, #nk-restore-sheet) { --nkg-screen-pad: 24px; } }
 /* The app's press feedback (interaction_polish: [onclick]:active, and on touch the
    .nk-pressed class its script adds) scales by .98 and dims. It also matched these
    screens' backdrops, so any tap made the whole page flinch. A page never presses. */
-html[data-nk-ui="geist"] body :is(#nk-practice-sessions, #nk-mock-sheet, .modal-backdrop):is(:active, .nk-pressed) { transform: none !important; filter: none !important; transition: none !important; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) :is(#nk-practice-sessions, #nk-mock-sheet).modal-backdrop {
+html[data-nk-ui="geist"] body :is(#nk-practice-sessions, #nk-mock-sheet, #nk-restore-sheet, .modal-backdrop):is(:active, .nk-pressed) { transform: none !important; filter: none !important; transition: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(#nk-practice-sessions, #nk-mock-sheet, #nk-restore-sheet).modal-backdrop {
   align-items: stretch !important; justify-content: stretch !important; padding: 0 !important;
   background: var(--nkg-bg) !important;
   position: relative !important; inset: auto !important; z-index: auto !important; min-height: 100vh; min-height: 100dvh;
@@ -1738,14 +1738,14 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) :is(#nk-practice-sessions, #nk-mock
 /* A screen replaces the app: nothing is rendered underneath, the window scrolls. */
 html[data-nk-ui="geist"].nkg-screen-open body > :is(#app, .nkg-topbar) { display: none !important; }
 html[data-nk-ui="geist"].nkg-screen-open body { overflow: visible !important; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) :is(#nk-practice-sessions, #nk-mock-sheet).modal-backdrop::-webkit-scrollbar, html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-saved-practice-list, .nk-mock-sheet-body)::-webkit-scrollbar { display: none; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(#nk-practice-sessions, #nk-mock-sheet, #nk-restore-sheet).modal-backdrop::-webkit-scrollbar, html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-saved-practice-list, .nk-mock-sheet-body)::-webkit-scrollbar { display: none; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-dialog, .nk-mock-sheet).modal {
   width: 100% !important; max-width: none !important; max-height: none !important; min-height: 100vh !important; min-height: 100dvh !important; height: auto !important;
   display: flex !important; flex-direction: column !important; overflow: visible !important;
   background: var(--nkg-bg) !important; border: 0 !important; border-radius: 0 !important; box-shadow: none !important; animation: none !important;
 }
 html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-dialog, .nk-mock-sheet).modal::before { display: none !important; }
-@media (min-width: 700px) { html[data-nk-ui="geist"] :is(body,#nkg-root) :is(#nk-practice-sessions, #nk-mock-sheet).modal-backdrop { padding: 0 !important; align-items: stretch !important; } html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-dialog, .nk-mock-sheet).modal { border-radius: 0 !important; border: 0 !important; } }
+@media (min-width: 700px) { html[data-nk-ui="geist"] :is(body,#nkg-root) :is(#nk-practice-sessions, #nk-mock-sheet, #nk-restore-sheet).modal-backdrop { padding: 0 !important; align-items: stretch !important; } html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-dialog, .nk-mock-sheet).modal { border-radius: 0 !important; border: 0 !important; } }
 
 /* Header: sticky bar with Back, then a large title that wraps. */
 html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-practice-sessions-head, .nk-mock-sheet-head) .nk-modal-close {
@@ -1854,3 +1854,22 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-ghost .nkg-save-check { animat
    The top bar shows the mark itself in ink, no tile: the app icon carries the tile. */
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-logo { background: none !important; color: var(--nkg-fg) !important; border-radius: 0 !important; width: 24px !important; height: 24px !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-logo svg { width: 22px; height: 22px; display: block; }
+
+/* Restore points: automatic on-device snapshots, grouped by day. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-restore-lede { margin: 0 0 4px !important; font: 400 var(--nkg-t-sm)/1.5 var(--nkg-font-sans) !important; color: var(--nkg-fg-2) !important; max-width: 60ch; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-restore-status { margin: 0 !important; min-height: 0; font: 500 var(--nkg-t-sm)/1.4 var(--nkg-font-sans) !important; color: var(--nkg-fg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-restore-status:empty { display: none; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-restore-day { margin: 20px 0 4px !important; font: 600 var(--nkg-t-xs)/1.2 var(--nkg-font-sans) !important; letter-spacing: .02em; color: var(--nkg-fg-3) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-restore-list { list-style: none; margin: 0 !important; padding: 0 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-restore-list li { display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 8px 0; border-top: 1px solid var(--nkg-border); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-restore-list li:first-child { border-top: 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-restore-copy { flex: 1; min-width: 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-restore-copy strong { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px; font: 500 var(--nkg-t-sm)/1.35 var(--nkg-font-sans) !important; font-variant-numeric: tabular-nums; color: var(--nkg-fg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-restore-copy em { font: 400 var(--nkg-t-xs)/1.3 var(--nkg-font-sans) !important; font-style: normal; color: var(--nkg-fg-3) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-restore-copy small { display: block; margin-top: 2px; font: 400 var(--nkg-t-xs)/1.3 var(--nkg-font-sans) !important; font-variant-numeric: tabular-nums; color: var(--nkg-fg-3) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-restore-list .nkg-btn { flex: 0 0 auto; min-width: 88px; justify-content: center; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-restore-list .nkg-btn.nkg-armed { background: var(--nkg-fg) !important; color: var(--nkg-bg) !important; border-color: var(--nkg-fg) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-restore-empty { margin: 16px 0 0 !important; font: 400 var(--nkg-t-sm)/1.5 var(--nkg-font-sans) !important; color: var(--nkg-fg-3) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-restore-rows[aria-busy="true"] { min-height: 120px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-restore-meta { margin: 24px 0 0 !important; font: 400 var(--nkg-t-xs)/1.4 var(--nkg-font-sans) !important; color: var(--nkg-fg-3) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-restore-meta:empty { display: none; }

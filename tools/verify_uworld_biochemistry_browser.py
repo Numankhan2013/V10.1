@@ -20,6 +20,7 @@ PROBE = '''window.__uworldTest={wrong:()=>nkRevisionDeskData().wrong.map(q=>q.id
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--url',help='Verify the actual hosted preview and its source media')
+    parser.add_argument('--widths',default='390,820,1194,1440',help='Comma-separated viewport widths, so CI can split the sizes across workers')
     args=parser.parse_args()
     web = ROOT / 'build/web'
     html = urlopen(args.url.rstrip('/')+'/index.html').read().decode() if args.url else (web / 'index.html').read_text()
@@ -54,7 +55,8 @@ def main():
     try:
         with sync_playwright() as pw:
             browser = pw.chromium.launch()
-            for width, height in [(390, 844), (820, 1180), (1194, 900), (1440, 1000)]:
+            sizes = {390: 844, 820: 1180, 1194: 900, 1440: 1000}
+            for width, height in [(int(w), sizes[int(w)]) for w in args.widths.split(',')]:
                 context = browser.new_context(viewport={'width': width, 'height': height}, service_workers='block', has_touch=width<=820, is_mobile=width<=820)
                 page = context.new_page()
                 errors = []
@@ -341,7 +343,8 @@ def main():
     finally:
         server.shutdown()
         server.server_close()
-    (output / 'report.json').write_text(json.dumps(reports, indent=2))
+    name = 'report.json' if args.widths == parser.get_default('widths') else f"report-{args.widths.replace(',', '-')}.json"
+    (output / name).write_text(json.dumps(reports, indent=2))
     print('UWORLD_BIOCHEMISTRY_BROWSER_OK', json.dumps(reports))
 
 

@@ -321,6 +321,12 @@
       b.innerHTML = row('gear', 'Revision settings');
       list.appendChild(b); fsrs.remove();
     }
+    if (list && window.NKStore) {
+      var r = document.createElement('button');
+      r.type = 'button'; r.className = 'nk-settings-row nkg-row-added'; r.setAttribute('data-nkg-act', 'restore');
+      r.innerHTML = row('arrow-counter-clockwise', 'Restore points');
+      list.appendChild(r);
+    }
     var source = host.querySelector('.nk-source-card');
     if (list && source) {
       var pdf = source.querySelector('a[href]'), reset = source.querySelector('button[onclick*="resetProgress"]');
@@ -335,6 +341,7 @@
         group.innerHTML = '<button type="button" class="nkg-reset-row" onclick="window.QB.resetProgress()">' + iconSvg('arrow-counter-clockwise', 16) + '<span>Reset progress</span></button>';
       }
     }
+    guardReset();
     syncThemeControls();
   }
 
@@ -417,6 +424,88 @@
     swapIcons(main);
   }
 
+  /* ------------------------------------------------------ Restore points */
+  /* Progress lives in IndexedDB and nk-store.js snapshots it on its own: every
+     half hour of study, once a day, and before a reset, restore or migration.
+     This page lists those points; nothing here is a file to download. */
+  var REASONS = { auto: '', migration: 'Moved to on-device database', 'before-restore': 'Before a restore', 'before-reset': 'Before reset', manual: 'Saved by you' };
+  function restoreDay(at) {
+    var d = new Date(at), today = new Date(); today.setHours(0, 0, 0, 0);
+    var diff = Math.round((today - new Date(d.getFullYear(), d.getMonth(), d.getDate())) / 864e5);
+    if (diff === 0) return 'Today';
+    if (diff === 1) return 'Yesterday';
+    return d.toLocaleDateString(undefined, { weekday: 'short', day: 'numeric', month: 'short' });
+  }
+  function restoreTime(at) { return new Date(at).toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' }); }
+  function plural(n, word) { return n.toLocaleString() + ' ' + word + (n === 1 ? '' : 's'); }
+  function bytesLabel(n) { return n >= 1048576 ? (n / 1048576).toFixed(1) + ' MB' : Math.max(1, Math.round(n / 1024)) + ' KB'; }
+  function restoreRows(list) {
+    if (!list.length) return '<p class="nkg-restore-empty">The first restore point is saved after a few minutes of study.</p>';
+    var out = '', day = '';
+    list.forEach(function (item) {
+      var d = restoreDay(item.at);
+      if (d !== day) { if (day) out += '</ul>'; out += '<h3 class="nkg-restore-day">' + esc(d) + '</h3><ul class="nkg-restore-list">'; day = d; }
+      var detail = plural(item.answered || 0, 'answer') + (item.notes ? ' · ' + plural(item.notes, 'note') : '') + (item.tests ? ' · ' + plural(item.tests, 'test') : '');
+      var why = REASONS[item.reason] || '';
+      out += '<li><span class="nkg-restore-copy"><strong>' + esc(restoreTime(item.at)) + (why ? '<em>' + esc(why) + '</em>' : '') + '</strong><small>' + esc(detail) + '</small></span>' +
+        '<button type="button" class="nkg-btn nkg-btn-secondary nkg-btn-sm" data-nkg-act="restore-pick" data-id="' + esc(item.id) + '">Restore</button></li>';
+    });
+    return out + '</ul>';
+  }
+  function openRestore() {
+    if (!window.NKStore || document.getElementById('nk-restore-sheet')) return;
+    document.body.insertAdjacentHTML('beforeend',
+      '<div class="modal-backdrop nk-mock-sheet-backdrop" id="nk-restore-sheet" onkeydown="if(event.key===\'Escape\'){event.stopPropagation();this.querySelector(\'.nk-modal-close\').click()}">' +
+      '<section class="modal card nk-mock-sheet" role="dialog" aria-modal="true" aria-labelledby="nk-restore-title">' +
+      '<header class="nk-mock-sheet-head"><div class="nk-mock-sheet-title"><h2 id="nk-restore-title">Restore points</h2></div>' +
+      '<button type="button" class="nk-modal-close" aria-label="Close" data-nkg-act="restore-close">' + iconSvg('x', 20) + '</button></header>' +
+      '<div class="nk-mock-sheet-body"><p class="nkg-restore-lede">Saved automatically on this device while you study. Restoring keeps your current progress as a point too, so you can undo it.</p>' +
+      '<p class="nkg-restore-status" role="status" aria-live="polite"></p><div class="nkg-restore-rows" aria-busy="true"></div>' +
+      '<p class="nkg-restore-meta"></p></div></section></div>');
+    var sheet = document.getElementById('nk-restore-sheet');
+    window.NKStore.snapshots().then(function (list) {
+      var rows = sheet.querySelector('.nkg-restore-rows');
+      rows.innerHTML = restoreRows(list); rows.removeAttribute('aria-busy');
+    }, function () { sheet.querySelector('.nkg-restore-rows').innerHTML = '<p class="nkg-restore-empty">Restore points are not available in this browser.</p>'; });
+    window.NKStore.usage().then(function (u) {
+      var meta = sheet.querySelector('.nkg-restore-meta');
+      if (meta) meta.textContent = (window.NKStore.backend === 'indexeddb' ? 'On-device database' : 'Browser storage') + ' · progress ' + bytesLabel(u.progressBytes || 0);
+    });
+  }
+  function closeRestore() { var s = document.getElementById('nk-restore-sheet'); if (s) s.remove(); }
+  var restoreArmed = null;
+  function pickRestore(btn) {
+    var sheet = document.getElementById('nk-restore-sheet'), status = sheet && sheet.querySelector('.nkg-restore-status');
+    if (!sheet) return;
+    // Two taps: the first arms the row, the second restores. Nothing is lost
+    // either way because the current progress is saved as a point first.
+    if (restoreArmed !== btn) {
+      if (restoreArmed && restoreArmed.isConnected) { restoreArmed.textContent = 'Restore'; restoreArmed.classList.remove('nkg-armed'); }
+      restoreArmed = btn; btn.textContent = 'Tap to confirm'; btn.classList.add('nkg-armed'); haptic();
+      window.setTimeout(function () { if (restoreArmed === btn && btn.isConnected) { btn.textContent = 'Restore'; btn.classList.remove('nkg-armed'); restoreArmed = null; } }, 4000);
+      return;
+    }
+    restoreArmed = null;
+    Array.prototype.forEach.call(sheet.querySelectorAll('[data-nkg-act="restore-pick"]'), function (b) { b.disabled = true; });
+    btn.textContent = 'Restoring…'; btn.setAttribute('aria-busy', 'true');
+    window.NKStore.restore(btn.getAttribute('data-id')).then(function () {
+      if (status) status.textContent = 'Restored. Reopening…';
+      window.setTimeout(function () { location.reload(); }, 450);
+    }, function (error) {
+      if (status) status.textContent = 'Could not restore: ' + (error && error.message || 'unknown error');
+      Array.prototype.forEach.call(sheet.querySelectorAll('[data-nkg-act="restore-pick"]'), function (b) { b.disabled = false; });
+      btn.textContent = 'Restore'; btn.classList.remove('nkg-armed'); btn.removeAttribute('aria-busy');
+    });
+  }
+  // A reset keeps a restore point first, so it can be undone from this page.
+  function guardReset() {
+    var qb = window.QB;
+    if (!qb || !window.NKStore || qb.__nkgResetGuard || typeof qb.resetProgress !== 'function') return;
+    var reset = qb.resetProgress;
+    qb.resetProgress = function () { window.NKStore.snapshot('before-reset'); return reset.apply(this, arguments); };
+    qb.__nkgResetGuard = true;
+  }
+
   /* --------------------------------------------------------------- events */
   document.addEventListener('click', function (ev) {
     var t = ev.target && ev.target.closest ? ev.target.closest('[data-nkg-act],[data-nkg-go],[data-nkg-theme-choice]') : null;
@@ -440,6 +529,9 @@
     else if (act === 'search') go('question-search');
     else if (act === 'profile') { if (route() !== 'profile') location.hash = 'profile'; }
     else if (act === 'theme') { setTheme(resolvedTheme() === 'dark' ? 'light' : 'dark'); haptic(); }
+    else if (act === 'restore') openRestore();
+    else if (act === 'restore-close') closeRestore();
+    else if (act === 'restore-pick') pickRestore(t);
     else if (act === 'edit-name' || act === 'cancel-name') {
       var form = document.querySelector('.nkg-name-form'), btn = document.querySelector('[data-nkg-act="edit-name"]');
       if (!form) return;

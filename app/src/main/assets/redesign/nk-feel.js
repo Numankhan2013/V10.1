@@ -1545,7 +1545,7 @@
   /* Full-page Paused Practice / mock details. The bar holds only Back and a small
      title; the large title lives in the scrolling content. Scrolling changes only
      opacity and a hairline, never layout, so the page cannot shake. */
-  var PAGE_IDS = { 'nk-practice-sessions': 1, 'nk-mock-sheet': 1 };
+  var PAGE_IDS = { 'nk-practice-sessions': 1, 'nk-mock-sheet': 1, 'nk-restore-sheet': 1 };
   function pageify(page) {
     if (!page || page.__nkgPage) return;
     var head = page.querySelector('.nk-practice-sessions-head, .nk-mock-sheet-head');

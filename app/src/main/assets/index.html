@@ -7,6 +7,8 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>QBank — Biochemistry</title>
+<!-- Progress lives in IndexedDB; this must run before any script reads saved state. -->
+<script src="nk-store.js"></script>
 <!-- NK_GEIST_REDESIGN_V1: presentation-only layer (assets/redesign/). Gated on html[data-nk-ui="geist"]. -->
 <link rel="preload" href="redesign/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="redesign/nk-tokens.css">
