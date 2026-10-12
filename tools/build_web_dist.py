@@ -96,13 +96,18 @@ def main() -> None:
     html.write_text(page.replace('</head>', '<meta name="robots" content="'+ROBOTS_DIRECTIVES+'">\n</head>', 1), encoding="utf-8")
     sw = out / "sw.js"
     sw_text=sw.read_text(encoding="utf-8").replace("const BUILD_VERSION='dev';", f"const BUILD_VERSION={args.version!r};", 1)
-    image_shell=(
+    data_shell=(
         ['./marrow_visual_metadata.js','./marrow_visual_renderer.js','./source_visual_inventory.json']
         + ['./'+name for name in data_files]
-        + ['./'+p.relative_to(out).as_posix() for p in sorted((out/'marrow_visuals').glob('*'))]
+    )
+    # Figures are content-hashed: the worker fills them into a persistent cache
+    # in the background instead of blocking installation on every deploy.
+    media=(
+        ['./'+p.relative_to(out).as_posix() for p in sorted((out/'marrow_visuals').glob('*'))]
         + ['./'+p.relative_to(out).as_posix() for p in sorted((out/'source_visuals').rglob('*')) if p.is_file() and p.suffix != '.webp']
     )
-    sw_text=sw_text.replace("const SHELL=[",'const SHELL='+json.dumps(image_shell)[:-1]+',',1)
+    sw_text=sw_text.replace("const SHELL=[",'const SHELL='+json.dumps(data_shell)[:-1]+',',1)
+    sw_text=sw_text.replace("const MEDIA=[];",'const MEDIA='+json.dumps(media)+';',1)
     sw.write_text(sw_text, encoding="utf-8")
     (out / "_headers").write_text(
         "/*\n  X-Robots-Tag: "+ROBOTS_DIRECTIVES+"\n"+

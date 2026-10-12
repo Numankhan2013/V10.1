@@ -1006,13 +1006,45 @@
     if (bar) bar.classList.toggle('is-scrolled', (window.scrollY || document.documentElement.scrollTop || 0) > 2);
   }
   window.addEventListener('scroll', onScroll, { passive: true });
+  /* Navigation direction, like a native stack: drilling in slides the new screen
+     from the right, going back slides it from the left, tab switches only fade. */
+  var TABS = { dashboard: 1, 'quick-revision': 1, tests: 1, analytics: 1, more: 1 };
+  var navStack = [];
+  function navDirection(key, page) {
+    if (TABS[page]) { var was = navStack.length > 1; navStack = [key]; return was ? 'pop' : 'tab'; }
+    if (navStack.length > 1 && navStack[navStack.length - 2] === key) { navStack.pop(); return 'pop'; }
+    var at = navStack.indexOf(key);
+    if (at >= 0) { navStack = navStack.slice(0, at + 1); return 'pop'; }
+    navStack.push(key); return 'push';
+  }
+  function slideIn(node, dir) {
+    if (!node) return;
+    if (!motionOK() || !node.animate) return;
+    /* The individual translate property: legacy rules pin transform with !important on some pages. */
+    var x = dir === 'pop' ? -22 : 22;
+    node.animate([{ opacity: 0, translate: x + 'px 0' }, { opacity: 1, translate: '0 0' }], { duration: 340, easing: 'cubic-bezier(.16, 1, .3, 1)' });
+  }
   function pageEnter(app, page, session) {
     var key = page + (session ? ':s' : '');
-    if (lastRoute === null) { lastRoute = key; return; }
-    if (key === lastRoute) return;
+    if (lastRoute === null) { lastRoute = key; navStack = [key]; return; }
+    if (key === lastRoute) {
+      /* Same route rendered again right after arriving: carry the slide over to the new main. */
+      var cur = pageEnter.cur, m = app.querySelector('main.page');
+      if (cur && m && m !== cur.main && performance.now() - cur.t < 200 && cur.dir !== 'tab') { cur.main = m; slideIn(m, cur.dir); }
+      return;
+    }
     lastRoute = key;
-    var main = app.querySelector('main.page');
-    if (main && !session) anim(main, { opacity: [0, 1], transform: ['translateY(6px)', 'none'] }, { duration: 0.26 });
+    var dir = navDirection(key, page);
+    /* The app can render a route several times in one go; animate the final main,
+       still before the first paint. */
+    window.cancelAnimationFrame(pageEnter.raf);
+    pageEnter.raf = window.requestAnimationFrame(function () {
+      var main = app.querySelector('main.page');
+      if (!main) return;
+      pageEnter.cur = { dir: dir, t: performance.now(), main: main };
+      if (dir === 'tab') { if (!staggerPage(main)) anim(main, { opacity: [0, 1], transform: ['translateY(6px)', 'none'] }, { duration: 0.26 }); return; }
+      slideIn(main, dir);
+    });
   }
 
   /* ===================================================== global feedback */
@@ -1031,7 +1063,7 @@
     if (o && sig !== lastOutcome) {
       var picked = app.querySelector('.option.correct .option-letter, .option.wrong .option-letter');
       each(app.querySelectorAll('.option.correct .option-letter, .option.wrong .option-letter'), function (l) { anim(l, { transform: ['scale(.7)', 'scale(1)'] }, { type: 'spring', stiffness: 520, damping: 18 }); });
-      if (picked) anim(o, { opacity: [0, 1], transform: ['translateY(-3px)', 'none'] }, { duration: 0.22 });
+      if (picked && lastOutcome !== null) anim(o, { opacity: [0, 1], transform: ['translateY(-3px)', 'none'] }, { duration: 0.22 });
     }
     lastOutcome = sig || lastOutcome;
   }
@@ -1110,6 +1142,477 @@
     });
   }
 
+  /* ====================================================== Motion pack
+     Presentation only. Nothing here gates an answer, a navigation or a save:
+     each effect starts after the app has already rendered the new state and
+     is skipped under reduced motion. */
+  var qMemo = { key: null, idx: null, pct: null, answered: null };
+  function activeSessionId() {
+    try { var a = window.QB && window.QB.getState && window.QB.getState().activeSession; return a ? String(a.id || a.startedAt || 'a') : null; } catch (e) { return null; }
+  }
+  /* Next / Previous: the question slides in from the side it came from, the counter rolls. */
+  function questionMotion(app) {
+    var strong = app.querySelector('.nk-session-count strong');
+    if (!strong) { qMemo.key = null; return; }
+    var key = activeSessionId(), idx = parseInt(strong.textContent, 10);
+    var bar = app.querySelector('.nk-session-progress > i');
+    var pct = bar ? parseFloat(bar.style.width) : NaN;
+    var same = key && qMemo.key === key;
+    if (same && qMemo.idx != null && idx !== qMemo.idx && isFinite(idx)) {
+      var dir = idx > qMemo.idx ? 1 : -1;
+      var card = app.querySelector('.question-shell');
+      if (card) anim(card, { opacity: [0, 1], transform: ['translateX(' + (dir * 26) + 'px)', 'none'], filter: ['blur(3px)', 'blur(0px)'] }, { duration: 0.3 });
+      anim(strong, { opacity: [0, 1], transform: ['translateY(' + (dir * 60) + '%)', 'none'], filter: ['blur(2px)', 'blur(0px)'] }, { duration: 0.28 });
+    }
+    if (bar && same && qMemo.pct != null && isFinite(pct) && pct !== qMemo.pct) anim(bar, { width: [qMemo.pct + '%', pct + '%'] }, { duration: 0.5, ease: [0.22, 1, 0.36, 1], keep: true });
+    var answered = !!app.querySelector('.question-card .option:is(.correct, .wrong)');
+    if (same && idx === qMemo.idx && qMemo.answered === false && answered) answerReveal(app);
+    qMemo.key = key; qMemo.idx = isFinite(idx) ? idx : null; qMemo.pct = isFinite(pct) ? pct : null; qMemo.answered = answered;
+  }
+  /* Answer reveal: the mark draws itself, a wrong pick shakes once, the right one gets a light sweep. */
+  var DRAW = { ok: '<svg class="nkg-draw" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 12.5l4.2 4.2L18.5 7.8"/></svg>', no: '<svg class="nkg-draw" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10"/><path d="M17 7L7 17"/></svg>' };
+  function answerReveal(app) {
+    if (!motionOK()) return;
+    each(app.querySelectorAll('.question-card .option:is(.correct, .wrong) .option-letter'), function (l) {
+      if (l.querySelector('.nkg-draw')) return;
+      var good = l.parentNode.classList.contains('correct');
+      l.insertAdjacentHTML('beforeend', good ? DRAW.ok : DRAW.no);
+      l.classList.add('nkg-drawing');
+      window.setTimeout(function () { l.classList.remove('nkg-drawing'); var d = l.querySelector('.nkg-draw'); if (d) d.remove(); }, 900);
+    });
+    var wrong = app.querySelector('.question-card .option.wrong');
+    if (wrong) anim(wrong, { transform: ['translateX(0px)', 'translateX(-6px)', 'translateX(5px)', 'translateX(-3px)', 'translateX(2px)', 'translateX(0px)'] }, { duration: 0.42, ease: 'easeInOut' });
+    var right = app.querySelector('.question-card .option.correct');
+    if (right) { right.classList.remove('nkg-sweep'); void right.offsetWidth; right.classList.add('nkg-sweep'); window.setTimeout(function () { right.classList.remove('nkg-sweep'); }, 1100); }
+    var extra = app.querySelectorAll('.question-card :is(.nk-answer-outcome, .nk-key-takeaway, .nk-question-note, .nk-source-section, .feedback-body)');
+    if (extra.length) anim(extra, { opacity: [0, 1], transform: ['translateY(8px)', 'none'] }, { duration: 0.32, delay: M.stagger ? M.stagger(0.05, { startDelay: 0.08 }) : 0.08 });
+  }
+  /* Bookmark: the icon springs and a small ring of dots bursts out when a question is saved. */
+  function burst(r) {
+    if (!motionOK()) return;
+    var b = el('span', 'nkg-burst'); b.setAttribute('aria-hidden', 'true');
+    b.style.left = (r.left + r.width / 2) + 'px'; b.style.top = (r.top + r.height / 2) + 'px';
+    for (var i = 0; i < 8; i++) { var d = el('i'); d.style.setProperty('--a', (i * 45) + 'deg'); b.appendChild(d); }
+    document.body.appendChild(b);
+    window.setTimeout(function () { b.remove(); }, 700);
+  }
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest && e.target.closest('.bookmark-toggle');
+    if (!btn || document.documentElement.getAttribute('data-nk-ui') !== 'geist') return;
+    var was = btn.classList.contains('bookmarked'), r = btn.getBoundingClientRect();
+    window.requestAnimationFrame(function () { window.requestAnimationFrame(function () {
+      var nb = document.querySelector('.bookmark-toggle'); if (!nb) return;
+      var now = nb.classList.contains('bookmarked');
+      if (now === was) return;
+      anim(nb, { transform: ['scale(.72)', 'scale(1)'] }, { type: 'spring', stiffness: 620, damping: 15 });
+      if (now) burst(r);
+    }); });
+  }, true);
+  /* Bottom bar: one pill glides to the active tab. */
+  var navX = null;
+  function navGlide() {
+    var nav = document.querySelector('.bottom-nav');
+    if (!nav || !nav.getClientRects().length || getComputedStyle(nav).display === 'none') return;
+    var act = nav.querySelector('.nav-item.active .nav-icon-wrap');
+    var g = nav.querySelector(':scope > .nkg-nav-glide');
+    if (!act) { if (g) g.classList.remove('is-on'); return; }
+    if (!g) { g = el('span', 'nkg-nav-glide'); g.setAttribute('aria-hidden', 'true'); nav.insertBefore(g, nav.firstChild); }
+    var nr = nav.getBoundingClientRect(), ar = act.getBoundingClientRect();
+    var x = ar.left + ar.width / 2 - nr.left, y = ar.top + ar.height / 2 - nr.top;
+    g.style.top = y + 'px';
+    if (navX != null && !g.__placed && Math.abs(navX - x) > 1 && motionOK()) {
+      g.style.transition = 'none'; g.style.transform = 'translate(' + navX + 'px, -50%)'; void g.offsetWidth; g.style.transition = '';
+    }
+    g.__placed = true;
+    g.style.transform = 'translate(' + x + 'px, -50%)';
+    g.classList.add('is-on');
+    navX = x;
+  }
+  window.addEventListener('resize', function () { var g = document.querySelector('.bottom-nav > .nkg-nav-glide'); if (g) { g.__placed = false; navX = null; navGlide(); } });
+  /* Route entrance: the page's sections rise in sequence instead of fading as one block. */
+  function staggerPage(main) {
+    var secs = [].slice.call(main.querySelectorAll(':scope > section, :scope > div > section, :scope > div > header, :scope > header')).filter(function (n) { var r = n.getBoundingClientRect(); return r.height && r.top < window.innerHeight; }).slice(0, 7);
+    if (secs.length < 2) return false;
+    anim(secs, { opacity: [0, 1], transform: ['translateY(10px)', 'none'], filter: ['blur(2px)', 'blur(0px)'] }, { duration: 0.36, delay: M.stagger ? M.stagger(0.045) : 0 });
+    var cta = main.querySelector('.nk-home-focus-card :is(.nk-focus-primary, .nk-home-focus-action)');
+    if (cta && motionOK()) { cta.classList.remove('nkg-shine'); void cta.offsetWidth; cta.classList.add('nkg-shine'); window.setTimeout(function () { cta.classList.remove('nkg-shine'); }, 1800); }
+    return true;
+  }
+  /* Result: the score ring sweeps round, the number counts up, a strong score gets confetti. */
+  var ringMemo = null;
+  function resultMotion(app) {
+    var ring = app.querySelector('.nk-na-summary .nk-na-ring, .nk-na-ring');
+    var sig = ring ? (ring.getAttribute('aria-label') || '') + '|' + (location.hash || '') : null;
+    if (!ring) { ringMemo = null; return; }
+    if (sig === ringMemo) return;
+    ringMemo = sig;
+    if (!motionOK()) return;
+    ring.classList.remove('nkg-ring-in'); void ring.offsetWidth; ring.classList.add('nkg-ring-in');
+    var b = ring.querySelector('b');
+    var m = /Score/.test(ring.getAttribute('aria-label') || '') && b && /^(\d+)%$/.exec(b.textContent.trim());
+    var pct = m ? +m[1] : (function () { var x = /(\d+) correct, (\d+) incorrect, (\d+) omitted/.exec(ring.getAttribute('aria-label') || ''); if (!x) return 0; var t = +x[1] + +x[2] + +x[3]; return t ? x[1] / t * 100 : 0; })();
+    if (b) countUp(b, 'ring-' + sig, true);
+    if (pct >= 80) window.setTimeout(function () { confetti(ring.getBoundingClientRect()); }, 450);
+  }
+  function confetti(r) {
+    if (!motionOK()) return;
+    var cv = el('canvas', 'nkg-confetti'); cv.setAttribute('aria-hidden', 'true');
+    var dpr = Math.min(2, window.devicePixelRatio || 1), W = window.innerWidth, H = window.innerHeight;
+    cv.width = W * dpr; cv.height = H * dpr; document.body.appendChild(cv);
+    var ctx = cv.getContext('2d'); if (!ctx) { cv.remove(); return; }
+    ctx.scale(dpr, dpr);
+    var cs = getComputedStyle(document.documentElement);
+    var cols = ['--nkg-green', '--nkg-blue', '--nkg-amber', '--nkg-orange', '--nkg-fg'].map(function (v) { return cs.getPropertyValue(v).trim() || '#888'; });
+    var ox = r.left + r.width / 2, oy = r.top + r.height / 2, P = [];
+    for (var i = 0; i < 90; i++) { var a = -Math.PI / 2 + (Math.random() - 0.5) * Math.PI * 1.1, v = 6 + Math.random() * 7; P.push({ x: ox, y: oy, vx: Math.cos(a) * v, vy: Math.sin(a) * v, w: 4 + Math.random() * 5, h: 6 + Math.random() * 6, r: Math.random() * 6, vr: (Math.random() - 0.5) * 0.4, c: cols[i % cols.length] }); }
+    var t0 = performance.now();
+    (function frame(t) {
+      var k = (t - t0) / 1600; ctx.clearRect(0, 0, W, H);
+      P.forEach(function (p) { p.vy += 0.28; p.vx *= 0.985; p.vy *= 0.985; p.x += p.vx; p.y += p.vy; p.r += p.vr;
+        ctx.save(); ctx.globalAlpha = Math.max(0, 1 - k * k); ctx.translate(p.x, p.y); ctx.rotate(p.r); ctx.fillStyle = p.c; ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h * Math.abs(Math.cos(p.r * 2))); ctx.restore(); });
+      if (k < 1) window.requestAnimationFrame(frame); else cv.remove();
+    })(t0);
+  }
+
+  /* ========================================================== Notes page
+     The + button splits like liquid into its actions (an SVG goo filter on a
+     blob layer behind the real buttons), and saving a note settles the card
+     with a drawn "Saved" check. The app keeps owning every button and handler. */
+  /* ---- Add block: transitions.dev "Gooey plus menu", ported as is. One SVG goo layer
+     (blur 6 + alpha contrast 18) carries the liquid and its box-shadow passes; the real
+     buttons sit crisp on top and travel with the blobs on the same CSS transitions
+     (open 350ms overshoot, 40ms stagger; close 250ms; + turns 45deg; 700ms dip on close).
+     The app keeps owning the menu: we only mirror its hidden attribute to data-open. */
+  function phos(name) { var d = window.NKQ_ICONS && window.NKQ_ICONS[name]; return d ? '<svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">' + d + '</svg>' : ''; }
+  var MENU_IC = { 'add-text': 'text-t', 'add-image': 'image', 'add-pdf': 'file-pdf' };
+  var GOO_FAN = { 1: [[0, -64]], 2: [[-38, -54], [38, -54]], 3: [[-54, -34], [0, -64], [54, -34]] };
+  var gooId = 0;
+  function gooFilter(id, x, y, w, h) {
+    return '<filter id="' + id + '" filterUnits="userSpaceOnUse" x="' + (x == null ? -85 : x) + '" y="' + (y == null ? -85 : y) + '" width="' + (w || 370) + '" height="' + (h || 310) + '" color-interpolation-filters="sRGB">' +
+      '<feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>' +
+      '<feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo"/>' +
+      '<feComposite in="SourceGraphic" in2="goo" operator="atop" result="shape"/>' +
+      '<feColorMatrix in="shape" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 60 -29.5" result="ring-solid"/>' +
+      '<feMorphology in="ring-solid" operator="dilate" radius="1" result="ring-a"/>' +
+      '<feFlood class="nkg-goo-ring" flood-color="#000000" flood-opacity="0.06" result="ring-c"/>' +
+      '<feComposite in="ring-c" in2="ring-a" operator="in" result="ring"/>' +
+      '<feGaussianBlur in="shape" stdDeviation="3" result="s2-b"/><feOffset in="s2-b" dy="2" result="s2-o"/>' +
+      '<feFlood flood-color="#000000" flood-opacity="0.05" result="s2-c"/><feComposite in="s2-c" in2="s2-o" operator="in" result="s2"/>' +
+      '<feGaussianBlur in="shape" stdDeviation="21" result="s3-b"/><feOffset in="s3-b" dy="4" result="s3-o"/>' +
+      '<feFlood flood-color="#000000" flood-opacity="0.06" result="s3-c"/><feComposite in="s3-c" in2="s3-o" operator="in" result="s3"/>' +
+      '<feMerge><feMergeNode in="s3"/><feMergeNode in="s2"/><feMergeNode in="ring"/><feMergeNode in="shape"/></feMerge></filter>';
+  }
+  function gooMenu(sheet) {
+    var add = sheet.querySelector('.nk-np-add'); if (!add || add.__nkgGoo) return;
+    var menu = add.querySelector('.nk-np-add-menu'), btn = add.querySelector('.nk-np-add-btn');
+    if (!menu || !btn) return;
+    add.__nkgGoo = true;
+    var items = [].slice.call(menu.querySelectorAll('button[data-act]')), fan = GOO_FAN[items.length] || GOO_FAN[3];
+    var id = 'nkg-goo-' + (++gooId), blobs = '';
+    items.forEach(function (b, i) {
+      var p = fan[i] || [0, -64], v = '--fx:' + p[0] + 'px;--fy:' + p[1] + 'px;--i:' + i;
+      var label = b.textContent.trim(); b.textContent = '';
+      b.setAttribute('style', v); b.className = 'nkg-goo-item';
+      b.insertAdjacentHTML('beforeend', '<span class="nkg-goo-ic">' + phos(MENU_IC[b.dataset.act]) + '</span>');
+      var sr = el('span', 'nkg-sr-only'); sr.textContent = label; b.appendChild(sr);
+      blobs += '<circle class="nkg-goo-blob" cx="100" cy="100" r="20" style="' + v + '"/>';
+    });
+    var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('class', 'nkg-goo-svg'); svg.setAttribute('viewBox', '0 0 200 140');
+    svg.setAttribute('aria-hidden', 'true'); svg.setAttribute('focusable', 'false');
+    svg.innerHTML = '<defs>' + gooFilter(id) + '</defs><g filter="url(#' + id + ')">' + blobs + '<circle class="nkg-goo-blob is-main" cx="100" cy="100" r="20"/></g>';
+    add.insertBefore(svg, add.firstChild);
+    var plus = btn.querySelector('svg'), name = btn.querySelector('span');
+    if (plus) { var turn = el('span', 'nkg-goo-plus'); plus.parentNode.insertBefore(turn, plus); turn.appendChild(plus); }
+    if (name) name.className = 'nkg-sr-only';
+    add.classList.add('nkg-goo'); add.dataset.open = 'false';
+    var dip = 0;
+    function sync() {
+      var open = !menu.hidden; if (add.dataset.open === String(open)) return;
+      add.dataset.open = String(open);
+      window.clearTimeout(dip);
+      if (!open && motionOK()) { add.classList.add('is-anticipating'); dip = window.setTimeout(function () { add.classList.remove('is-anticipating'); }, 750); }
+      else add.classList.remove('is-anticipating');
+    }
+    new MutationObserver(sync).observe(menu, { attributes: true, attributeFilter: ['hidden'] });
+    /* Opened on render (an empty note): start closed so the split still plays. */
+    if (!menu.hidden) requestAnimationFrame(function () { requestAnimationFrame(sync); });
+  }
+
+  /* ---- Block menu: the same goo, as a row. The "..." button splits sideways into
+     icon buttons (nearest first). The app creates and removes this menu itself, so a
+     dismiss without a choice replays the merge on a short-lived ghost. */
+  var ROW_IC = { edit: 'pencil-simple', view: 'arrows-out-simple', up: 'arrow-up', down: 'arrow-down', 'delete': 'trash' };
+  var ROW_GAP = 60, rowBlock = null, rowActed = false;
+  function gooRow(sheet, menu) {
+    if (menu.__nkgGoo || !rowBlock || !rowBlock.isConnected) return;
+    var dots = rowBlock.querySelector('.nk-nb-dots'); if (!dots) return;
+    menu.__nkgGoo = true; rowActed = false;
+    noteMenuIndex = Number(rowBlock.getAttribute('data-i'));
+    var items = [].slice.call(menu.querySelectorAll('button[data-act]')), n = items.length;
+    var W = n * ROW_GAP + 40, ox = W - 40, id = 'nkg-goo-' + (++gooId), blobs = '';
+    items.forEach(function (b, i) {
+      var v = '--fx:' + (-(n - i) * ROW_GAP) + 'px;--fy:0px;--i:' + (n - 1 - i);
+      var label = b.textContent.trim(); b.textContent = '';
+      b.setAttribute('style', v); b.classList.add('nkg-goo-item');
+      b.insertAdjacentHTML('beforeend', '<span class="nkg-goo-ic">' + phos(ROW_IC[b.dataset.act] || 'dots-three') + '</span>');
+      var sr = el('span', 'nkg-sr-only'); sr.textContent = label; b.appendChild(sr);
+      blobs += '<circle class="nkg-goo-blob" cx="' + (ox + 20) + '" cy="20" r="20" style="' + v + '"/>';
+    });
+    var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('class', 'nkg-goo-svg'); svg.setAttribute('viewBox', '0 0 ' + W + ' 40');
+    svg.setAttribute('aria-hidden', 'true'); svg.setAttribute('focusable', 'false');
+    svg.innerHTML = '<defs>' + gooFilter(id, -85, -85, W + 170, 210) + '</defs><g filter="url(#' + id + ')">' + blobs + '<circle class="nkg-goo-blob is-main" cx="' + (ox + 20) + '" cy="20" r="20"/></g>';
+    menu.insertBefore(svg, menu.firstChild);
+    var x = el('button', 'nkg-goo-x'); x.type = 'button'; x.setAttribute('aria-label', 'Close menu'); x.innerHTML = phos('x');
+    x.addEventListener('click', function () { document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true })); });
+    menu.appendChild(x);
+    var r = dots.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+    menu.classList.add('nkg-goo'); menu.dataset.open = 'false';
+    menu.style.setProperty('--goo-w', W + 'px'); menu.style.setProperty('--goo-ox', ox + 'px');
+    menu.style.left = (cx + 20 - W) + 'px'; menu.style.top = (cy - 20) + 'px';
+    if (!motionOK()) { menu.dataset.open = 'true'; return; }
+    requestAnimationFrame(function () { requestAnimationFrame(function () { menu.dataset.open = 'true'; }); });
+  }
+  function rowGhost(sheet, menu) {
+    if (rowActed || !motionOK() || menu.dataset.open !== 'true' || !sheet.isConnected) return;
+    menu.classList.add('is-ghost'); menu.setAttribute('aria-hidden', 'true'); menu.removeAttribute('role');
+    each(menu.querySelectorAll('button'), function (b) { b.tabIndex = -1; b.removeAttribute('role'); });
+    sheet.appendChild(menu);
+    requestAnimationFrame(function () { menu.dataset.open = 'false'; });
+    window.setTimeout(function () { menu.remove(); }, 420);
+  }
+  function watchRow(sheet) {
+    if (sheet.__nkgRow) return; sheet.__nkgRow = true;
+    var pick = function (e) { var b = e.target.closest && e.target.closest('.nk-nb[data-i]'); if (b) rowBlock = b; };
+    sheet.addEventListener('pointerdown', pick, true); sheet.addEventListener('contextmenu', pick, true);
+    sheet.addEventListener('click', function (e) {
+      if (e.target.closest && e.target.closest('.nk-nb-menu [data-act]')) rowActed = true;
+      var d = e.target.closest && e.target.closest('[data-act="menu"]'); if (d) rowBlock = d.closest('.nk-nb[data-i]') || rowBlock;
+    }, true);
+    new MutationObserver(function (list) {
+      list.forEach(function (m) {
+        each(m.addedNodes, function (nd) { if (nd.nodeType === 1 && nd.classList.contains('nk-nb-menu') && !nd.classList.contains('is-ghost')) gooRow(sheet, nd); });
+        each(m.removedNodes, function (nd) { if (nd.nodeType === 1 && nd.classList.contains('nk-nb-menu') && nd.__nkgGoo && !nd.classList.contains('is-ghost') && m.target === sheet && sheet.contains(sheet.querySelector('.nk-np-blocks'))) rowGhost(sheet, nd); });
+      });
+    }).observe(sheet, { childList: true });
+  }
+
+  /* ---- The notes page re-renders itself on every change. Measure blocks before an
+     action and glide them to their new places afterwards, and keep already-decoded
+     images, so a save, move or delete reads as one continuous motion. */
+  var notePlan = null, noteMenuIndex = null;
+  function noteBoxes(sheet) {
+    var m = {};
+    each(sheet.querySelectorAll('.nk-np-blocks > .nk-nb[data-i]'), function (n) { m[n.getAttribute('data-i')] = { top: n.offsetTop, h: n.offsetHeight }; });
+    return m;
+  }
+  function planNotes(sheet, act) {
+    var keep = {};
+    each(sheet.querySelectorAll('.nk-np-blocks img[data-nk-note-asset][src]'), function (img) { keep[img.getAttribute('data-nk-note-asset') + '|' + (img.getAttribute('data-nk-note-variant') || 'preview')] = img.getAttribute('src'); });
+    notePlan = { boxes: noteBoxes(sheet), act: act, at: noteMenuIndex, imgs: keep, actions: null };
+  }
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest && e.target.closest('.nk-note-page [data-act]');
+    if (!t || document.documentElement.getAttribute('data-nk-ui') !== 'geist') return;
+    var act = t.getAttribute('data-act'), sheet = t.closest('.nk-note-page');
+    if (act === 'menu') { noteMenuIndex = Number(t.getAttribute('data-i')); return; }
+    if (act === 'save-edit') return; /* planned by the save handler below */
+    if (/^(cancel-edit|edit|up|down|delete|add-text)$/.test(act)) planNotes(sheet, act);
+  }, true);
+  function oldKeyFor(i, plan) {
+    var k = plan.at;
+    if (plan.act === 'delete' && k != null) return i >= k ? i + 1 : i;
+    if (plan.act === 'up' && k != null) return i === k - 1 ? k : i === k ? k - 1 : i;
+    if (plan.act === 'down' && k != null) return i === k + 1 ? k : i === k ? k + 1 : i;
+    return i;
+  }
+  function glideNotes(sheet) {
+    var plan = notePlan; notePlan = null;
+    if (!plan) return;
+    each(sheet.querySelectorAll('.nk-np-blocks img[data-nk-note-asset]:not([src])'), function (img) {
+      var src = plan.imgs[img.getAttribute('data-nk-note-asset') + '|' + (img.getAttribute('data-nk-note-variant') || 'preview')];
+      if (!src) return;
+      img.src = src; var f = img.closest('.nk-note-media-frame'); if (f) { f.classList.remove('is-missing'); f.classList.add('is-loaded'); }
+    });
+    if (!motionOK()) return;
+    each(sheet.querySelectorAll('.nk-np-blocks > .nk-nb[data-i]'), function (n) {
+      var i = Number(n.getAttribute('data-i')), was = plan.boxes[oldKeyFor(i, plan)];
+      if (!was) { if (plan.act === 'add-text' || n.classList.contains('is-editing')) anim(n, { opacity: [0, 1], transform: ['translateY(8px)', 'none'] }, { duration: 0.26, ease: [0.16, 1, 0.3, 1] }); return; }
+      var dy = was.top - n.offsetTop;
+      if (Math.abs(dy) > 0.5) anim(n, { transform: ['translateY(' + dy + 'px)', 'none'] }, { type: 'spring', bounce: 0, duration: 0.42 });
+    });
+    if (plan.actions) {
+      var card = sheet.querySelector('.nk-nb[data-i="' + plan.actions.i + '"]');
+      if (card) {
+        var ghost = plan.actions.node; ghost.classList.add('nkg-ghost'); ghost.style.top = plan.actions.top + 'px';
+        card.appendChild(ghost);
+        M.animate(ghost, { opacity: [1, 0] }, { duration: 0.14, ease: 'easeOut' }).then(function () { ghost.remove(); });
+      }
+    }
+  }
+
+  /* ---- Save: the pill springs into a small circle and draws a check; the note then
+     settles in place while the actions fade out with it. */
+  /* The save itself waits for the animation. Anything that could close the sheet
+     first (another tap, Escape, navigation, leaving the app) commits it now. */
+  var pendingSave = null;
+  function flushSave() { if (pendingSave) { var f = pendingSave; pendingSave = null; f(); } }
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') flushSave(); }, true);
+  window.addEventListener('hashchange', flushSave);
+  window.addEventListener('pagehide', flushSave);
+  document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'hidden') flushSave(); });
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('.nk-note-page [data-act="save-edit"]');
+    if (pendingSave && !b) flushSave();
+    if (!b || document.documentElement.getAttribute('data-nk-ui') !== 'geist') return;
+    var card = b.closest('.nk-nb'), sheet = b.closest('.nk-note-page');
+    if (b.__nkgGo) return;
+    if (!motionOK()) { planNotes(sheet, 'save'); return; }
+    e.preventDefault(); e.stopImmediatePropagation();
+    if (b.classList.contains('nkg-saving')) return;
+    var area = card && card.querySelector('textarea');
+    if (area && !area.value.trim()) { b.__nkgGo = true; b.click(); b.__nkgGo = false; return; }
+    if (area) area.readOnly = true;
+    var w = b.offsetWidth, h = b.offsetHeight;
+    b.style.width = w + 'px'; b.classList.add('nkg-saving');
+    b.insertAdjacentHTML('beforeend', '<svg class="nkg-save-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 12.5l4.2 4.2L18.5 7.8"/></svg>');
+    M.animate(b, { width: [w + 'px', h + 'px'] }, { type: 'spring', bounce: 0.25, duration: 0.45 });
+    pendingSave = function () {
+      if (!b.isConnected) return;
+      planNotes(sheet, 'save');
+      var row = card.querySelector('.nk-nb-edit-actions');
+      if (row) notePlan.actions = { i: card.getAttribute('data-i'), top: row.offsetTop, node: row.cloneNode(true) };
+      b.__nkgGo = true; b.click(); b.__nkgGo = false;
+      if (!b.isConnected) return;
+      notePlan = null;
+      b.classList.remove('nkg-saving'); b.style.width = ''; if (area) area.readOnly = false;
+      var c = b.querySelector('.nkg-save-check'); if (c) c.remove();
+    };
+    window.setTimeout(flushSave, 560);
+  }, true);
+
+  function noteSheet(sheet) {
+    gooMenu(sheet); watchRow(sheet); glideNotes(sheet);
+    var area = sheet.querySelector('.nk-nb.is-editing textarea');
+    if (area && !area.__nkgGrow) {
+      area.__nkgGrow = true; area.rows = 2;
+      var grow = function () { area.style.height = 'auto'; area.style.height = Math.min(window.innerHeight * 0.55, area.scrollHeight + 2) + 'px'; };
+      area.addEventListener('input', grow); grow();
+    }
+    var hint = sheet.querySelector('.nk-nb-edit-actions small');
+    if (hint) hint.classList.toggle('nkg-quiet', /^Up to [\d,]+ characters$/.test(hint.textContent.trim()));
+  }
+  function watchNotes() { if (window.MutationObserver && document.body) new MutationObserver(function () {
+    if (document.documentElement.getAttribute('data-nk-ui') !== 'geist') return;
+    var sheet = document.querySelector('body > .nk-note-page');
+    if (!sheet) return;
+    if (!sheet.__nkgObs) {
+      sheet.__nkgObs = true;
+      new MutationObserver(function () { noteSheet(sheet); }).observe(sheet, { childList: true });
+      if (motionOK()) anim(sheet, { opacity: [0, 1], transform: ['translateY(18px)', 'none'] }, { type: 'spring', bounce: 0, duration: 0.4 });
+    }
+    noteSheet(sheet);
+  }).observe(document.body, { childList: true }); }
+  if (document.body) watchNotes(); else document.addEventListener('DOMContentLoaded', watchNotes);
+
+  /* ======================================================= Waiting states
+     Submitting a session is heavy synchronous work. The tap first paints a
+     busy state on the button (two frames), then runs the app's own handler,
+     so the wait reads as "working" instead of a frozen screen. */
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('button.nk-practice-submit, button.qb-nav-submit');
+    if (!b || b.__nkgGo || document.documentElement.getAttribute('data-nk-ui') !== 'geist') return;
+    if (!/submit|finish/i.test(b.getAttribute('onclick') || '') || b.disabled || b.classList.contains('nkg-busy')) return;
+    e.preventDefault(); e.stopImmediatePropagation();
+    b.classList.add('nkg-busy'); b.setAttribute('aria-busy', 'true');
+    window.requestAnimationFrame(function () { window.requestAnimationFrame(function () {
+      b.__nkgGo = true;
+      try { b.click(); } finally { b.__nkgGo = false; if (b.isConnected) { b.classList.remove('nkg-busy'); b.removeAttribute('aria-busy'); } }
+    }); });
+  }, true);
+  /* Images shimmer until their bytes arrive, then fade in. */
+  function imageWaits(app) {
+    each(app.querySelectorAll('.question-card img:not([data-nkg-img]), .feedback-body img:not([data-nkg-img])'), function (img) {
+      img.setAttribute('data-nkg-img', '1');
+      if (img.complete && img.naturalWidth) return;
+      img.classList.add('nkg-img-wait');
+      var done = function () { img.classList.remove('nkg-img-wait'); img.classList.add('nkg-img-in'); window.setTimeout(function () { img.classList.remove('nkg-img-in'); }, 400); };
+      img.addEventListener('load', done, { once: true }); img.addEventListener('error', function () { img.classList.remove('nkg-img-wait'); }, { once: true });
+    });
+  }
+
+  /* Full-page Paused Practice / mock details. The bar holds only Back and a small
+     title; the large title lives in the scrolling content. Scrolling changes only
+     opacity and a hairline, never layout, so the page cannot shake. */
+  var PAGE_IDS = { 'nk-practice-sessions': 1, 'nk-mock-sheet': 1 };
+  function pageify(page) {
+    if (!page || page.__nkgPage) return;
+    var head = page.querySelector('.nk-practice-sessions-head, .nk-mock-sheet-head');
+    var title = head && (head.querySelector('.nk-mock-sheet-title') || head.querySelector(':scope > div'));
+    if (!head || !title) return;
+    page.__nkgPage = true;
+    title.classList.add('nkg-page-title');
+    head.parentNode.insertBefore(title, head.nextSibling);
+    var bar = el('span', 'nkg-bar-title'); bar.setAttribute('aria-hidden', 'true');
+    head.appendChild(bar);
+  }
+  /* These two are screens, not layers: while one is open the app underneath is not
+     rendered, the window itself scrolls, it gets a history entry so Back and the
+     iPad edge swipe close it, and it enters and leaves with the same push / pop
+     motion as every other screen. */
+  var screen = null;
+  function currentPage() { for (var id in PAGE_IDS) { var n = document.getElementById(id); if (n) return n; } return null; }
+  function syncScreen() {
+    var page = currentPage(), root = document.documentElement;
+    if (page && screen && page === screen.el) return;
+    if (page && screen) { screen.el = page; pageify(page); return; } /* re-rendered in place (rename, discard) */
+    if (page) {
+      pageify(page);
+      screen = { el: page, y: window.scrollY || 0, hash: location.hash };
+      root.classList.add('nkg-screen-open');
+      try { history.pushState({ nkgScreen: page.id }, '', location.href); screen.pushed = true; } catch (e) {}
+      window.scrollTo(0, 0);
+      slideIn(page.querySelector('.modal'), 'push');
+      return;
+    }
+    if (!screen) return;
+    var s = screen; screen = null;
+    root.classList.remove('nkg-screen-open');
+    if (location.hash !== s.hash) return; /* left for another route (Resume, Start mock) */
+    window.scrollTo(0, s.y);
+    var main = document.querySelector('#app main.page'); if (main) slideIn(main, 'pop');
+    if (s.pushed && !s.popped && history.state && history.state.nkgScreen) { ignorePop = s.y; history.back(); }
+  }
+  var ignorePop = false;
+  window.addEventListener('popstate', function (e) {
+    if (ignorePop !== false) { var y = ignorePop; ignorePop = false; if (y) window.scrollTo(0, y); return; }
+    if (screen) {
+      screen.popped = true; var y0 = screen.y; window.setTimeout(function () { if (!screen) window.scrollTo(0, y0); }, 0);
+      var close = screen.el.querySelector('.nk-modal-close');
+      if (close) close.click(); else screen.el.remove();
+      return;
+    }
+    /* Landed on a leftover screen entry after leaving through Resume: step past it. */
+    if (e.state && e.state.nkgScreen) window.setTimeout(function () {
+      if (!screen && history.state && history.state.nkgScreen) { ignorePop = 0; history.back(); }
+    }, 0);
+  });
+  function watchPages() { if (window.MutationObserver && document.body) new MutationObserver(function () {
+    if (document.documentElement.getAttribute('data-nk-ui') !== 'geist') return;
+    syncScreen();
+  }).observe(document.body, { childList: true }); }
+  if (document.body) watchPages(); else document.addEventListener('DOMContentLoaded', watchPages);
+  window.addEventListener('scroll', function () {
+    if (!screen) return;
+    var page = screen.el, head = page.querySelector('.nk-practice-sessions-head, .nk-mock-sheet-head'), h2 = page.querySelector('.nkg-page-title h2');
+    if (!head || !h2) return;
+    var on = h2.getBoundingClientRect().bottom < head.getBoundingClientRect().bottom;
+    if (on === head.classList.contains('is-compact')) return;
+    var bar = head.querySelector('.nkg-bar-title'); if (on && bar) bar.textContent = h2.textContent;
+    head.classList.toggle('is-compact', on);
+  }, { passive: true });
+
   function render(app, page, session) {
     if (!app) return;
     try {
@@ -1122,7 +1625,9 @@
       else if (page === 'quick-revision' || page === 'fsrs') enhanceRevision(app);
       enhanceBuilder(app);
       if (app.querySelector('.nk-na-followup, .nk-na-save-mock')) enhanceResult(app);
-      if (session) { answerFeedback(app); optionRates(app); cohortChip(app); practiceScreen(app); }
+      if (session) { answerFeedback(app); optionRates(app); cohortChip(app); practiceScreen(app); questionMotion(app); imageWaits(app); } else qMemo.key = null;
+      resultMotion(app);
+      navGlide();
     } catch (e) {
       if (window.console && console.warn) console.warn('NKFeel', e);
     }
@@ -1199,7 +1704,7 @@
           var btn = n.querySelector('button');
           var msg = btn ? ((n.querySelector('span') || {}).textContent || '').trim() : (n.textContent || '').trim();
           /* Bookmarking already shows on the icon itself; no toast for it. */
-          if (msg && !/^(Bookmarked for later|Bookmark removed)\.?$/.test(msg)) toastShow(msg, kind, btn ? { label: btn.textContent.trim(), el: btn } : null);
+          if (msg && !/^(Bookmarked for later|Bookmark removed|Note saved)\.?$/.test(msg)) toastShow(msg, kind, btn ? { label: btn.textContent.trim(), el: btn } : null);
         });
       });
     }).observe(root, { childList: true });
@@ -1207,5 +1712,5 @@
   watchToasts();
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', watchToasts);
 
-  window.NKFeel = { render: render, haptic: haptic, toast: toastShow };
+  window.NKFeel = { render: render, haptic: haptic, toast: toastShow, confetti: confetti };
 })();

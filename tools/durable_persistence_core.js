@@ -82,7 +82,11 @@
       if(!primary||primary.error||chosen.key!==LS_KEY)nkStorageBootNotice=primary?.error?'Recovered progress from the last valid snapshot because the main copy was damaged.':'Recovered an interrupted progress save.';
       return chosen.value;
     }
-    if(primary?.error||pending?.error||lkg?.error)nkStorageBootNotice='Saved progress could not be read. No valid recovery snapshot was available; retry before studying.';
+    if(primary?.error||pending?.error||lkg?.error){
+      // Keep the unreadable bytes before any later save overwrites every copy with a fresh state.
+      try{const store=nkStorageAdapter(),raw=store.getItem(LS_KEY)||store.getItem(NK_STATE_LKG_KEY)||store.getItem(NK_STATE_PENDING_KEY);if(raw&&!store.getItem('qbank_state_unreadable_v1'))store.setItem('qbank_state_unreadable_v1',raw);}catch(_){}
+      nkStorageBootNotice='Saved progress could not be read. No valid recovery snapshot was available; a raw copy was kept. Retry before studying.';
+    }
     return nkNormalizeState(defaultState());
   }
   function nkStorageError(message,error){
@@ -130,7 +134,21 @@
     if(!Number(s.deadlineAt))s.deadlineAt=Number(s.startedAt||Date.now())+Math.max(1,(s.questionIds||[]).length)*60000;
     s.updatedAt=Date.now();
   }
+  // Another tab or window saved progress: this copy is stale, so it stops writing
+  // instead of overwriting the newer answers, and offers a reload.
+  let nkOtherTabNewer=false;
+  function nkStorageStaleTab(){
+    try{
+      let box=document.getElementById('nk-storage-error');
+      if(!box){box=document.createElement('div');box.id='nk-storage-error';box.className='nk-storage-error';box.setAttribute('role','alert');document.body.appendChild(box);}
+      box.innerHTML='<span>Progress was updated in another tab or window. Reload to continue here without overwriting it.</span><button type="button" onclick="location.reload()">Reload</button>';
+    }catch(_){}
+  }
+  // Ask the browser not to evict progress under storage pressure (Safari tabs especially).
+  try{navigator.storage?.persisted?.().then(done=>{if(!done)navigator.storage.persist?.();}).catch(()=>{});}catch(_){}
+  try{window.addEventListener('storage',event=>{if(event.key===LS_KEY&&event.newValue){nkOtherTabNewer=true;nkStorageStaleTab();}});}catch(_){}
   function nkDurablePersist(candidate,reason='state save'){
+    if(nkOtherTabNewer){nkStorageStaleTab();return false;}
     const store=nkStorageAdapter(),previousPrimary=store.getItem(LS_KEY);
     try{
       nkMirrorNormalPracticeCheckpoint(candidate);nkPrepareTimedSession(candidate);

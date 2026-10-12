@@ -4,10 +4,21 @@ if ('serviceWorker' in navigator && location.hostname !== 'qbank.local') {
     try {
       let updateRequested=false,refreshing=false,pending=null;
       const currentVersion=document.querySelector('meta[name="nk-qbank-build"]')?.content;
+      const syncMedia=()=>{try{navigator.serviceWorker.controller?.postMessage?.({type:'NK_MEDIA_SYNC'});}catch{}};
       navigator.serviceWorker.addEventListener('controllerchange',()=>{
+        syncMedia();
         if(updateRequested&&!refreshing){refreshing=true;location.reload();}
       });
       const registration=await navigator.serviceWorker.register('./sw.js');
+      // Figures download in the background after the app shell is ready; ask
+      // the browser not to evict them so the bank stays usable offline.
+      navigator.serviceWorker.addEventListener('message',event=>{
+        if(event.data?.type!=='NK_MEDIA_PROGRESS')return;
+        window.NK_MEDIA_OFFLINE=event.data;
+        try{window.dispatchEvent(new CustomEvent('nk-media-progress',{detail:event.data}));}catch{}
+      });
+      syncMedia();
+      try{void navigator.storage?.persist?.();}catch{}
       const versionOf=worker=>new Promise(resolve=>{
         const channel=new MessageChannel();
         const finish=value=>{clearTimeout(timer);channel.port1.close();resolve(value);};

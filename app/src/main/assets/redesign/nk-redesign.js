@@ -56,8 +56,27 @@
     for (var i = 0; i < metas.length; i++) metas[i].setAttribute('content', color);
     syncThemeControls();
   }
+  var themePt = null;
+  document.addEventListener('pointerdown', function (e) { themePt = { x: e.clientX, y: e.clientY }; }, true);
   function setTheme(pref) {
     lsSet(THEME_KEY, pref);
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var before = doc.getAttribute('data-nk-theme');
+    /* The new theme spreads in a circle from where it was chosen. */
+    if (document.startViewTransition && !reduce && resolvedTheme() !== before) {
+      var pt = themePt || { x: window.innerWidth - 60, y: 28 };
+      var rad = Math.hypot(Math.max(pt.x, window.innerWidth - pt.x), Math.max(pt.y, window.innerHeight - pt.y));
+      doc.classList.add('nkg-vt-theme');
+      try {
+        var vt = document.startViewTransition(function () { applyTheme(); });
+        vt.ready.then(function () {
+          doc.animate({ clipPath: ['circle(0px at ' + pt.x + 'px ' + pt.y + 'px)', 'circle(' + rad + 'px at ' + pt.x + 'px ' + pt.y + 'px)'] },
+            { duration: 560, easing: 'cubic-bezier(.23, 1, .32, 1)', pseudoElement: '::view-transition-new(root)' });
+        }, function () {});
+        vt.finished.then(function () { doc.classList.remove('nkg-vt-theme'); }, function () { doc.classList.remove('nkg-vt-theme'); });
+        return;
+      } catch (e) { doc.classList.remove('nkg-vt-theme'); }
+    }
     doc.classList.add('nkg-theme-switching');
     applyTheme();
     window.setTimeout(function () { doc.classList.remove('nkg-theme-switching'); }, 240);
@@ -222,7 +241,7 @@
     topbar.className = 'nkg-topbar';
     topbar.innerHTML =
       '<div class="nkg-topbar-inner">' +
-      '<button type="button" class="nkg-brand" data-nkg-act="home" aria-label="NK QBank home"><span class="nkg-logo" aria-hidden="true">NK</span><span class="nkg-topbar-title">Home</span></button>' +
+      '<button type="button" class="nkg-brand" data-nkg-act="home" aria-label="NK QBank home"><span class="nkg-logo" aria-hidden="true"><svg viewBox="8.8 8.8 79.61 79.61" fill="currentColor"><path fill-rule="evenodd" d="M10 46a36 36 0 1 0 72 0a36 36 0 1 0-72 0ZM26.5 43.5a17 17 0 1 0 34 0a17 17 0 1 0-34 0Z"/><path d="M55.02 80.85A12 12 0 0 1 67.37 84.95L84.95 67.37A12 12 0 0 1 80.85 55.02Z"/><path d="M64.61 77.11a12.5 12.5 0 1 0 25 0a12.5 12.5 0 1 0-25 0Z"/></svg></span><span class="nkg-topbar-title">Home</span></button>' +
       '<span class="nkg-grow"></span>' +
       '<button type="button" class="nkg-icon-btn" data-nkg-act="search" aria-label="Find a question">' + iconSvg('magnifying-glass', 20) + '</button>' +
       '<button type="button" class="nkg-icon-btn nkg-theme-toggle" data-nkg-act="theme" aria-label="Switch theme">' + iconSvg('moon', 20, 'nkg-moon') + iconSvg('sun', 20, 'nkg-sun') + '</button>' +
