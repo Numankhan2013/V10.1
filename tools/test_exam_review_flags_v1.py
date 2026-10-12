@@ -2,31 +2,25 @@
 """Verify timed-test marks survive the saved-test boundary and target follow-up."""
 from pathlib import Path
 import json
+import re
 import subprocess
-
-from apply_exam_review_flags_v1 import transform
 
 ROOT=Path(__file__).resolve().parents[1]
 CORE=ROOT/'tools/exam_review_flags_core.js'
+HTML=ROOT/'app/src/main/assets/index.html'
 
 def main():
-    fixture='''<html><head></head><script>
-/* NK_QUESTION_INTERACTION_INTEGRITY_V1_START */
-/* NK_CBT_RESULT_ANALYSIS_V1_START */
-function examPage(){return `<div class="option-list">${options}</div></section>`;}
-function submitExam(){const test={questionTimes:qt,correct,incorrect,unattempted,total:s.questionIds.length,attempted,totalTimeMs,createdAt:now};return test;}
-function nkCbtResultSection(test){return '';}
-function openSessionReview(){}function openQuestionNavigator(){}
-  window.QB={nav:()=>{}};
-</script></html>'''
-    generated=transform(fixture)
-    assert transform(generated)==generated
-    for marker in ('NK_EXAM_REVIEW_FLAGS_V1_START','nkExamReviewButton(q,s)',
-                   'markedForReview:{...(s.markedForReview||{})}',
-                   'nkToggleExamReviewFlag,nkCbtPracticeMarked','nk-exam-review-flags-v1'):
-        assert marker in generated,marker
-    inline=generated.split('<script>',1)[1].split('</script>',1)[0]
-    subprocess.run(['node','--check'],input=inline,text=True,check=True)
+    page=HTML.read_text(encoding='utf-8')
+    assert page.count(CORE.read_text(encoding='utf-8').strip())==1,'review flag core ships verbatim once'
+    for marker in ('NK_EXAM_REVIEW_FLAGS_V1_START','id="nk-exam-review-flags-v1"',
+                   '<div class="option-list">${options}</div>${nkExamReviewButton(q,s)}</section>',
+                   'questionTimes:qt,markedForReview:{...(s.markedForReview||{})},correct,incorrect,unattempted,total:s.questionIds.length,attempted,totalTimeMs,createdAt:now'):
+        assert page.count(marker)==1,marker
+    qb=page[page.index('  window.QB={'):]
+    assert 'nkToggleExamReviewFlag,nkCbtPracticeMarked,' in qb[:qb.index('};')]
+    for match in re.finditer(r'<script(?![^>]*\bsrc=)[^>]*>',page):
+        inline=page[match.end():page.index('</script>',match.end())]
+        if inline.strip():subprocess.run(['node','--check'],input=inline,text=True,check=True)
 
     script='''
 const assert=require('node:assert/strict'),vm=require('node:vm');

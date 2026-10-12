@@ -1,20 +1,17 @@
 #!/usr/bin/env python3
-'''Behavior and transformation contracts for durable Continue Practice.'''
+'''Behavior and shipped-page contracts for durable Continue Practice.'''
 
 from pathlib import Path
 import subprocess
 import tempfile
 
-from apply_continue_practice_resume_v1 import (
-    END,
-    FLOW_END,
-    FLOW_START,
-    START,
-    STYLE_ID,
-    transform,
-)
-
 ROOT = Path(__file__).resolve().parents[1]
+HTML = ROOT / "app/src/main/assets/index.html"
+STYLE_ID = "nk-continue-practice-resume-v1"
+START = "/* NK_CONTINUE_PRACTICE_RESUME_V1_START */"
+END = "/* NK_CONTINUE_PRACTICE_RESUME_V1_END */"
+FLOW_START = "/* NK_PRACTICE_SINGLE_REVIEW_GRID_V1_START */"
+FLOW_END = "/* NK_PRACTICE_SINGLE_REVIEW_GRID_V1_END */"
 CORE = (ROOT / "tools/continue_practice_resume_core.js").read_text(encoding="utf-8")
 FLOW_CORE = (ROOT / "tools/practice_single_review_grid_core.js").read_text(encoding="utf-8")
 
@@ -309,26 +306,15 @@ console.log('CONTINUE_PRACTICE_BEHAVIOR_OK single_grid=true footer=previous_next
         subprocess.run(["node", str(path)], check=True, cwd=ROOT)
 
 
-def test_transform() -> None:
-    fixture = '''<html><head></head><body><script>
-<style id="v102-practice-layer">button.v102-practice-submit-hidden{display:none}</style>
-<script id="v102-practice-layer-script">legacy submit hider</script>
-function nkLatestPracticeContext(){return null;} function nkContinueRecentPractice(){return null;}
-function continuePractice(){return 'legacy-one-question';}
-function finishPracticeSession(){} function practiceActionBar(){return '<div class="fixed-actions-inner"></div>';}
-function openQuestionNavigator(){} function openSessionReview(){} function endSession(){} function saveState(){} function navigate(){}
-/* NK_HOME_FLOW_V3_END */
-window.QB={continuePractice};
-</script></body></html>'''
-    updated = transform(fixture)
-    assert transform(updated) == updated
+def test_shipped_page() -> None:
+    html = HTML.read_text(encoding="utf-8")
+    for marker in (START, END, FLOW_START, FLOW_END, f'<style id="{STYLE_ID}">', "/* NK_HOME_FLOW_V3_END */"):
+        assert html.count(marker) == 1, marker
+    # The resume core overrides Home V3 helpers, so it must ship after that flow.
+    assert html.index("/* NK_HOME_FLOW_V3_END */") < html.index(START) < html.index(END) < html.index(FLOW_START) < html.index(FLOW_END)
+    assert CORE.strip() in html and FLOW_CORE.strip() in html
     for marker in (
-        START,
-        END,
-        FLOW_START,
-        FLOW_END,
-        STYLE_ID,
-        "nkPausePractice,nkSubmitPracticeSession,",
+        "nkPausePractice,nkSubmitPracticeSession,nkDiscardNormalPractice,nkPracticeConfirmDiscard,nkResumePracticeById,nkPracticeSavedSessionsDialog,nkResolvePracticeReplacement,nkResolveTimedSession,",
         "sessionQuestionIds",
         "normalPracticeCheckpoints",
         "Paused Practice",
@@ -337,17 +323,16 @@ window.QB={continuePractice};
         "nkPracticeResumeOriginalHomeContinue",
         "continuePractice=function()",
     ):
-        assert marker in updated, marker
-    assert "v102-practice-submit-hidden" not in updated
-    assert "v102-practice-layer-script" not in updated
+        assert marker in html, marker
+    assert "v102-practice-submit-hidden" not in html
+    assert "v102-practice-layer-script" not in html
 
 
 def main() -> None:
-    test_transform()
+    test_shipped_page()
     run_node_behavior()
     workflow = (ROOT / ".github/workflows/build-apk.yml").read_text(encoding="utf-8")
     gate = (ROOT / ".github/workflows/engineering-gate.yml").read_text(encoding="utf-8")
-    assert workflow.index("tools/apply_home_command_center_v1.py") < workflow.index("tools/apply_continue_practice_resume_v1.py") < workflow.index("tools/apply_cross_device_pwa_v1.py")
     assert "tools/test_continue_practice_resume_v1.py" in workflow
     assert "tools/test_continue_practice_resume_v1.py" in gate
     print("CONTINUE_PRACTICE_CONTRACT_OK multiple_paused_chapters=true durable_pause=true home_resume_chooser=true full_session_resume=true footer=previous_next")

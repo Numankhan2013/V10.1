@@ -41,18 +41,19 @@ def main() -> None:
         'id="nk-multi-scope-topics"',
         'class="nk-subject-svg"',
         'class="nk-flame-svg"',
-        'class="nk-app-v114 nk-home-v114"',
+        # Home V3 (nk-home-command-center-v1) and the focused Tests page later replaced the V11.4 Home/Tests shells.
+        'class="nk-home-approved-v1 nk-home-command-center"',
         'class="nk-app-v114 nk-topics-v114"',
         'class="nk-app-v114 nk-chapter-v114"',
-        'class="nk-app-v114 nk-tests-v114"',
-        'class="nk-app-v114 nk-analytics-v114"',
+        'class="nk-new-test-v2 nk-tests-focused"',
+        'class="nk-app-v114 nk-analytics-v114 nk-learning-insights"',
         'class="nk-app-v114 nk-more-v114"',
         'class="nk-app-v114 nk-library-v114"',
         'class="nk-app-v114 nk-result-v114"',
-        "window.QB.openSubjectTopics('${esc(x.subject)}')",
-        "window.QB.openTestBuilder()",
-        "window.QB.startAllSubjectPractice()",
-        "window.QB.startLibrary('review')",
+        "window.QB.nkOpenSubjectLibrary('${esc(x.subject)}')",
+        "window.QB.openMultiSubjectTestBuilder()",
+        "startAllSubjectPractice,",
+        "window.QB.startLibrary('${kind}')",
         "window.QB.practiceOne('${q.id}')",
         "window.QB.openChapter('${c.id}')",
         "window.QB.confirmSession('${selectedId||''}','exam',${pool})",
@@ -78,8 +79,9 @@ def main() -> None:
         raise SystemExit("Whole-app style must be installed exactly once")
     if re.search(r"NaN Questions|NaN Topics", source):
         raise SystemExit("Invalid subject-count copy returned")
-    apply_subject = section(source, "function applySubject", "applySubject(activeSubject)")
-    if "SUBJECTS.flatMap" not in apply_subject:
+    apply_subject = section(source, "function applySubject", "applySubject(activeSubject,activeBank)")
+    all_banks = section(source, "function nkAllBankQuestionsBuild(", "function nkAllBankQuestions(")
+    if "BY_ID=Object.fromEntries(nkAllBankQuestions()" not in apply_subject or "Object.values(BANKS_BY_SUBJECT)" not in all_banks:
         raise SystemExit("Question lookup is still limited to the active subject")
     if '<span>Q</span><strong>${esc(title)}</strong>' in source:
         raise SystemExit("Legacy Q tile brand returned")
@@ -89,9 +91,12 @@ def main() -> None:
     for duplicate in ("row('test','Timed CBT'", "row('chart','Insights'", "row('book','Topics'", "row('clock','Due review'", "row('book','Create module'"):
         if duplicate in more:
             raise SystemExit(f"More retained a duplicate launcher: {duplicate}")
-    insights = section(source, "function analytics()", "function morePage()")
-    if "nkInsightsExpanded?chapterRows:chapterRows.slice(0,6)" not in insights or "nkToggleInsightsExpanded()" not in insights:
-        raise SystemExit("Insights topic list is not progressively disclosed")
+    # Learning Insights replaced the expandable topic list with a capped, sortable one.
+    insights = function_section(source, "function analytics()")
+    content = function_section(source, "function nkLearningContent(model)")
+    topics = function_section(source, "function nkLearningTopics(model)")
+    if "nkLearningContent(model)" not in insights or "nkLearningTopics(model)" not in content or ".slice(0,6)" not in topics or "window.QB.nkLearningSetTopics(" not in topics:
+        raise SystemExit("Insights topic list is not capped and sortable")
     print("WHOLE_APP_VISION_OK: professional subject identity, motivational streak, all-subject random practice and multi-subject CBT are installed; protected session UI retained")
 
 

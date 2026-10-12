@@ -2,7 +2,6 @@
 """Behavior tests for merge safety and PWA/sync source contracts."""
 
 from pathlib import Path
-import importlib.util
 import json
 import subprocess
 import tempfile
@@ -411,8 +410,8 @@ function nkDurablePersist(v){localStorage.setItem(LS_KEY,JSON.stringify(v));retu
     install = worker.split("self.addEventListener('install'", 1)[1].split("self.addEventListener('activate'", 1)[0]
     if "skipWaiting" in install:
         raise SystemExit("PWA installation must wait for an explicit update action")
-    transform_source = (ROOT / "tools/apply_cross_device_pwa_v1.py").read_text(encoding="utf-8")
-    if "tools/pwa_update_core.js" not in transform_source or "NK_QBANK_VERSION" not in worker:
+    generated = (ROOT / "app/src/main/assets/index.html").read_text(encoding="utf-8")
+    if generated.count((ROOT / "tools/pwa_update_core.js").read_text(encoding="utf-8")) != 1 or "NK_QBANK_VERSION" not in worker:
         raise SystemExit("PWA updates must compare the waiting build with the running page")
     sync_core = CORE.read_text(encoding="utf-8")
     pull_at = sync_core.find("pulled=await nkPullCloud(token)")
@@ -426,26 +425,23 @@ function nkDurablePersist(v){localStorage.setItem(LS_KEY,JSON.stringify(v));retu
             raise SystemExit(f"Cross-device sync diagnostic/project-resolution/review-eligibility contract missing: {marker}")
     if ":batchWrite" in sync_core:
         raise SystemExit("Firebase ID-token clients must not use the IAM-oriented batchWrite endpoint")
-    transform = (ROOT / "tools/apply_cross_device_pwa_v1.py").read_text(encoding="utf-8")
-    for marker in ("@media (min-width:768px) and (min-height:600px)", "min-width:1024px", "nk-pwa-update", "location.hostname !== 'qbank.local'"):
-        if marker not in transform:
-            raise SystemExit(f"Responsive/update transform contract missing: {marker}")
-    generated = (ROOT / "app/src/main/assets/index.html").read_text(encoding="utf-8")
-    transform_path = ROOT / "tools/apply_cross_device_pwa_v1.py"
-    spec = importlib.util.spec_from_file_location("cross_device_transform", transform_path)
-    transform_module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(transform_module)
-    installed = transform_module.transform(generated)
-    for marker in ("nkCloudAuthStartCreate", "nkResetProgress", "Reset account progress", "NK_CROSS_DEVICE_SYNC_V1_START"):
-        if marker not in installed:
-            raise SystemExit(f"Cross-device transform did not install account UI/reset integration: {marker}")
-    if "NK_DURABLE_PERSISTENCE_V2_START" in generated:
-        forbidden = ("localStorage.setItem(LS_KEY, JSON.stringify(state))", "localStorage.setItem(LS_KEY,JSON.stringify(state))", "localStorage.setItem(STORAGE_KEY,JSON.stringify(state))", "localStorage.setItem('qbank_state_v1',JSON.stringify(st))")
-        hits = [item for item in forbidden if item in generated]
-        if hits:
-            raise SystemExit(f"Generated app bypasses durable state persistence: {hits}")
-    android = (ROOT / "tools/apply_android_secure_origin_v1.py").read_text(encoding="utf-8")
-    for marker in ("APP_ORIGIN", "migrate_local_state.html", "QBankMigration", "\\u003c"):
+    for marker in ("@media (min-width:768px) and (min-height:600px)", "min-width:1024px", "nk-pwa-update", "location.hostname !== 'qbank.local'", '<style id="nk-cross-device-pwa-v1">'):
+        if marker not in generated:
+            raise SystemExit(f"Responsive/update page contract missing: {marker}")
+    for path in (CORE, STORAGE_CORE):
+        if generated.count(path.read_text(encoding="utf-8").rstrip()) != 1:
+            raise SystemExit(f"Shipped page must carry {path.name} verbatim once")
+    for marker in ("nkCloudAuthStartCreate", "nkResetProgress", "Reset account progress", "NK_CROSS_DEVICE_SYNC_V1_START", "${nkCloudAccountCard()}", "function resetProgress(){return nkResetProgress();}", "nkReliabilityInit();\n  render();\n  nkCloudInit();\n})();", "saveState,nkRetryPersistence,nkCloudAuthenticate"):
+        if marker not in generated:
+            raise SystemExit(f"Shipped page lacks account UI/reset integration: {marker}")
+    if "NK_DURABLE_PERSISTENCE_V2_START" not in generated:
+        raise SystemExit("Shipped page lacks durable state persistence")
+    forbidden = ("localStorage.setItem(LS_KEY, JSON.stringify(state))", "localStorage.setItem(LS_KEY,JSON.stringify(state))", "localStorage.setItem(STORAGE_KEY,JSON.stringify(state))", "localStorage.setItem('qbank_state_v1',JSON.stringify(st))")
+    hits = [item for item in forbidden if item in generated]
+    if hits:
+        raise SystemExit(f"Generated app bypasses durable state persistence: {hits}")
+    android = (ROOT / "app/src/main/java/com/qbank/biochemistry/MainActivity.java").read_text(encoding="utf-8")
+    for marker in ("APP_ORIGIN", "migrate_local_state.html", "QBankMigration", "\\u003c", 'if (!migrationPrefs.getBoolean("complete", false)) webView.addJavascriptInterface(new MigrationBridge(), "QBankMigration");'):
         if marker not in android:
             raise SystemExit(f"Android migration contract missing: {marker}")
     rules = (ROOT / "firestore.rules").read_text(encoding="utf-8")

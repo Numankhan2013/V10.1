@@ -2,27 +2,28 @@
 """Check deterministic result installation and saved-answer bank/topic grouping."""
 
 from pathlib import Path
+import re
 import subprocess
-
-from apply_cbt_result_analysis_v1 import transform
 
 
 ROOT = Path(__file__).resolve().parents[1]
+HTML = ROOT / "app/src/main/assets/index.html"
 CORE = ROOT / "tools/cbt_result_analysis_core.js"
 
 
 def main() -> None:
-    fixture = ("<html><head></head><script>/* NK_BANK_AWARE_CBT_BUILDER_V1_START */"
-               "function resultPage(t){return `      ${studyModule?nkModuleResultExtras(t,studyModule):''}`;}"
-               "  window.QB={nav:()=>{}};</script></html>")
-    generated = transform(fixture)
-    assert transform(generated) == generated
-    for marker in ("NK_CBT_RESULT_ANALYSIS_V1_START", "nkCbtComparisonSection(t)",
-                   "nkCbtResultSection(t)", "nkCbtRetake", "nkCbtPracticeMisses",
-                   "nk-cbt-result-analysis-v1"):
-        assert marker in generated, marker
-    inline = generated.split("<script>", 1)[1].split("</script>", 1)[0]
-    subprocess.run(["node", "--check"], input=inline, text=True, check=True)
+    page = HTML.read_text(encoding="utf-8")
+    assert page.count(CORE.read_text(encoding="utf-8").strip()) == 1, "result analysis core ships verbatim once"
+    for marker in ("NK_CBT_RESULT_ANALYSIS_V1_START", 'id="nk-cbt-result-analysis-v1"',
+                   "      ${nkCbtComparisonSection(t)}\n      ${nkCbtResultSection(t)}\n"
+                   "      ${studyModule?nkModuleResultExtras(t,studyModule):''}"):
+        assert page.count(marker) == 1, marker
+    qb = page[page.index("  window.QB={"):]
+    assert "nkCbtRetake,nkCbtPracticeMisses," in qb[:qb.index("};")]
+    for match in re.finditer(r"<script(?![^>]*\bsrc=)[^>]*>", page):
+        inline = page[match.end():page.index("</script>", match.end())]
+        if inline.strip():
+            subprocess.run(["node", "--check"], input=inline, text=True, check=True)
 
     source = CORE.read_text(encoding="utf-8")
     script = r'''

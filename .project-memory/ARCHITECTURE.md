@@ -279,32 +279,26 @@ closed. Raw question bundles and audit metadata remain unchanged.
   exercises graph, table, clinical, diagram and multi-panel representatives at
   phone/tablet sizes plus fullscreen zoom.
 
-## Deterministic build pipeline (order enforced)
+## Build pipeline (order enforced)
 
-`tools/verify_build_pipeline.py` requires the protected transform order:
+Since 2026-10-12 `app/src/main/assets/index.html` and `MainActivity.java` are
+source: the output of the old 62-step patch chain (`fix_review_build` →
+… → `apply_uworld_biochemistry_v1`) was baked into them and those scripts were
+removed. Mentions of an `apply_*`/`install_*` script below name the feature's
+original owner; its code now lives in index.html (read the old script with
+`git show eb84d7f6:tools/<name>.py`). Feature modules in `tools/*_core.js` and
+the feature stylesheets ship verbatim inside the page
+(`tools/test_app_source_parity.py`).
 
-`fix_review_build` → `harden_review_renderer` →
-`build_source_visual_metadata` → `improve_source_visual_assets_v1` →
-`install_source_visual_renderer` → `cbt_canonical` →
-`apply_question_ui_v2` → `apply_home_visual_redesign_v4` →
-`apply_home_v5_fixes` → `remove_legacy_streak_layer` →
-`apply_home_streak_and_header_v1` → `apply_home_actions_v1` →
-`apply_cbt_boundary_and_toast_fix_v1` → `harden_cbt_review_footer_v1` →
-`add_review_solution_grid` → `apply_question_experience_v1` →
-`test_question_experience_v1` → `apply_session_experience_v2` →
-`test_session_experience_v2` → `apply_whole_app_vision_v1` →
-`test_whole_app_vision_v1` → `apply_custom_study_modules_v1` →
-`test_custom_study_modules_v1` → `apply_home_command_center_v1` →
-`test_home_command_center_v1` → `apply_continue_practice_resume_v1` →
-`test_continue_practice_resume_v1` → `apply_question_content_hygiene_v1` →
-Android/sync/FSRS layers → `fix_boot_syntax` → Marrow registration →
-`apply_marrow_structured_table_renderer_v1` →
-`apply_question_presentation_v1` → `test_question_presentation_v1` →
-image installation → notes → revision → Insights →
-`apply_bank_aware_cbt_builder_v1` → `test_bank_aware_cbt_builder_v1` →
-`apply_cbt_result_analysis_v1` → `test_cbt_result_analysis_v1` →
-`verify_product_contract --stage generated` →
-`verify_cbt_invariants`.
+`tools/build_app_data.py` is the only step that changes the page: it fills the
+`__NK_DATA_*__` tokens (PrepLadder data, Marrow banks and explanations from
+`tools/marrow_bank_data.py`, topic taxonomy, UWorld collection scripts from
+`tools/uworld_app_data.py`) and releases Marrow figures.
+`tools/verify_build_pipeline.py` requires: source contract → parity check →
+data step → PDF maps (`build_biochem_solution_map`, `final_hardening`) →
+source visuals → feature tests → `verify_product_contract --stage generated` →
+`verify_cbt_invariants` → `build_web_dist` → browser suite, and rejects any
+step that patches the page.
 
 Full `build-apk.yml` additionally runs: study-metrics test, source contract,
 PDF renderers + `PyMuPDF`/`Pillow` maps (`build_biochem_solution_map`,

@@ -1,37 +1,42 @@
 #!/usr/bin/env python3
-"""Check all-bank revision pools and install points without changing app assets."""
+"""Check all-bank revision pools and their install points in the shipped page."""
 
 from pathlib import Path
+import re
 import subprocess
-
-from apply_revision_desk_v1 import transform, BOTTOM_NAV, OLD_BOTTOM_NAV
 
 
 ROOT = Path(__file__).resolve().parents[1]
 CORE = ROOT / "tools/revision_desk_core.js"
+SESSION_CORE = ROOT / "tools/revision_session_core.js"
+HTML = ROOT / "app/src/main/assets/index.html"
 
 
 def main() -> None:
-    rows = "${row('refresh','Wrong questions',`${fmtNum(wrong)} missed · retrieval practice`,\"window.QB.nav('wrong')\",'is-red')}${row('bookmark','Bookmarks',`${fmtNum(bm)} saved by you`,\"window.QB.nav('bookmarks')\",'is-violet')}${row('book','My notes',`${fmtNum(nkSavedQuestionNotes().length)} recall cues`,\"window.QB.nav('notes')\")}"
-    fixture = (
-        '<html><head></head><script>/* NK_QUESTION_NOTES_V1_START */' + OLD_BOTTOM_NAV +
-        'let route={page:"notes"};function render(){let out="";if(false){} else if(route.page===\'notes\') out=nkNotesPage();}'
-        'function morePage(){const bm=bookmarkedQuestions().length,wrong=wrongQuestions().length;'
-        'return `<div>' + rows + '</div>`; }'
-        '  window.QB={nkFilterNotes,nkOpenNotedQuestion,};</script></html>'
-    )
-    generated = transform(fixture)
-    assert transform(generated) == generated
-    assert generated.count('class="bottom-nav ') == 1
-    assert "['fsrs','FSRS','refresh']" not in generated
-    for marker in ('NK_REVISION_DESK_V1_START', 'nkRevisionDeskPage()', 'nkRevisionBrowsePage(route.id)',
-                   'nkStartRevisionQueue', 'nkOpenRevisionQuestion',
-                   "route.page==='quick-revision'", "nkOpenRevisionHub",
-                   'All subjects', 'All question banks', 'nkSetRevisionScope',
-                   'nkToggleRevisionFocus', '20 questions per session'):
-        assert marker in generated, marker
-    inline = generated.split("<script>", 1)[1].split("</script>", 1)[0]
-    subprocess.run(["node", "--check"], input=inline, text=True, check=True)
+    page = HTML.read_text(encoding="utf-8")
+    start = page.index("function bottomNav(active){")
+    bottom_nav = page[start:page.index("\n  }\n", start) + 4]
+    assert page.count('class="bottom-nav ') == 1
+    assert "['fsrs','FSRS','refresh']" not in page
+    assert "const bm=bookmarkedQuestions().length,wrong=wrongQuestions().length;" not in page
+    assert "${row('refresh','Wrong questions'" not in page, "More keeps only notes; Revision owns the queues"
+    for core in (CORE, SESSION_CORE):
+        assert page.count(core.read_text(encoding="utf-8").strip()) == 1, core.name
+    qb = page[page.index("  window.QB={"):]
+    qb = qb[:qb.index("};")]
+    for action in ('nkFinishRevisionSession', 'nkStartRevisionQueue', 'nkFilterRevisionBrowse',
+                   'nkOpenRevisionQuestion', 'nkToggleRevisionFocus', 'nkSetRevisionScope', 'nkOpenRevisionHub'):
+        assert action + ',' in qb, action
+    for marker in ('NK_REVISION_DESK_V1_START', 'id="nk-revision-desk-v1"',
+                   "else if(route.page==='quick-revision') out=nkRevisionDeskPage();",
+                   "else if(route.page==='revision-browse') out=nkRevisionBrowsePage(route.id);",
+                   "${row('book','My notes',`${fmtNum(nkSavedQuestionNotes().length)} recall cues`,\"window.QB.nav('notes')\",'is-violet')}",
+                   'All subjects', 'All question banks', '20 questions per session'):
+        assert marker in page, marker
+    for match in re.finditer(r"<script(?![^>]*\bsrc=)[^>]*>", page):
+        inline = page[match.end():page.index("</script>", match.end())]
+        if inline.strip():
+            subprocess.run(["node", "--check"], input=inline, text=True, check=True)
 
     script = r'''
 const assert=require('node:assert/strict'),vm=require('node:vm');
@@ -126,7 +131,7 @@ context.nkFindStudyQuestion=id=>questions.find(q=>q.id===id);context.saveState=(
 state.activeSession={id:'protected-exam',mode:'exam'};const oldStart=started;
 call("nkOpenRevisionQuestion('bio-bookmark')");assert.equal(started,oldStart);assert.equal(state.activeSession.id,'protected-exam');
 console.log('REVISION_DESK_BEHAVIOR_OK globalPools=true skippedExcluded=true dueUsesFSRS=true');
-'''.replace("SOURCE", repr(CORE.read_text(encoding="utf-8") + '\n' + BOTTOM_NAV), 1)
+'''.replace("SOURCE", repr(CORE.read_text(encoding="utf-8") + '\n' + bottom_nav), 1)
     subprocess.run(["node", "-e", script], cwd=ROOT, check=True)
     print("REVISION_DESK_INSTALL_OK")
     from test_revision_session_v1 import main as verify_revision_sessions

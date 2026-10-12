@@ -4,35 +4,17 @@
 from pathlib import Path
 import subprocess
 import json
-from apply_home_command_center_v1 import FLOW_MARKER, STYLE_ID, transform
+import re
 
 ROOT=Path(__file__).resolve().parents[1]
 HTML=ROOT/'app/src/main/assets/index.html'
+FLOW_MARKER='NK_HOME_FLOW_V3'
+STYLE_ID='nk-home-command-center-v1'
 
 
 def main():
-    fixture='''<html><head></head><body><script>
-function openStudyModuleBuilder(){return 'custom';}
-/* NK_CUSTOM_STUDY_MODULES_V1_START */
-function endSession(){return 'end';}
-function nextQ(){return 'next';}
-function prevQ(){return 'prev';}
-function goIndex(){return 'go';}
-function dashboard(){return shell(`<main><b>${[1].map(x=>`${x}`).join('')}</b></main>`,'dashboard');}
-function bottomNav(active){return `<nav>${active}</nav>`;}
-function testsPage(){return shell('<div>old tests</div>','tests');}
-function examPage(){return '<div>old exam</div>';}
-function startExamTicker(){return 'old ticker';}
-function submitExam(auto=false){return auto;}
-function chapterPage(c){return `<button onclick="window.QB.openSessionBuilder('${c.id}','exam')">Timed</button>`;}
-function topics(){return `<button onclick="window.QB.openSubjectTopics('${esc(x.subject)}')">Subject</button>`;}
-function render(){let out='';if(route.page==='dashboard')out=dashboard();else if(route.page==='more') out=morePage();return out;}
-function untouchedQuestionEngine(){return 'protected';}
-window.QB={openStudyModuleBuilder};
-</script></body></html>'''
-    updated=transform(fixture)
-    if transform(updated)!=updated:raise SystemExit('Home V3 transform is not idempotent')
-    script=updated.split('<script>',1)[1].split('</script>',1)[0]
+    html=HTML.read_text(encoding='utf-8')
+    script=next(x for x in re.findall(r'<script>(.*?)</script>',html,re.S) if f'{FLOW_MARKER}_START' in x)
     subprocess.run(['node','--check'],input=script,text=True,check=True)
 
     required=(
@@ -42,7 +24,7 @@ window.QB={openStudyModuleBuilder};
         'FSRS','My Subjects','nkSubjectStatsV3','nkOpenSubjectLibrary',
         'STUDY LIBRARY','study-library','complete topic journey','My Progress','Today','This Week','This Month','This Year',
         'FSRS Review','Choose subject','All Subjects','Every answered question is scheduled here','pausing keeps untouched questions out',
-        "['fsrs','FSRS','refresh']",'Timed tests','Choose subjects and topics','Quick test','Wrong questions','Bookmarked questions','Completed tests',
+        "['quick-revision','Revision','refresh']",'window.QB.nkOpenRevisionHub()','Timed tests','Choose subjects and topics','Quick test','Wrong questions','Bookmarked questions','Completed tests',
         'openMultiSubjectTestBuilder','Number of questions','[10,20,50,100]',
         "timerMode='global'","timerMode='per-question'",'Topic Test · 60 sec this question','nkExpireTopicQuestion','Time expired','submitExam(true)',
         "state.fsrsReviewEligible", "reason:'skipped'", 'nkReviewEligibility', 'nkReviewDue',
@@ -52,7 +34,7 @@ window.QB={openStudyModuleBuilder};
         "route.page==='study-library'", "route.page==='fsrs'", "window.QB.nkStartTopicTimedTest('${c.id}')",
         "window.QB.nkOpenSubjectLibrary('${esc(x.subject)}')", '@media(max-width:560px)','@media(prefers-reduced-motion:reduce)'
     )
-    missing=[x for x in required if x not in updated]
+    missing=[x for x in required if x not in html]
     if missing:raise SystemExit(f'Home V3 contract missing: {missing}')
 
     prohibited=(
@@ -65,12 +47,12 @@ window.QB={openStudyModuleBuilder};
         "function nkStartReviewOnly(subject=nkFsrsSubjectFilter){const rows=nkReviewDue(subject)",
         "nkSessionQuestionEncountered"
     )
-    survived=[x for x in prohibited if x in updated]
+    survived=[x for x in prohibited if x in html]
     if survived:raise SystemExit(f'Obsolete Home/Test behavior survived: {survived}')
 
-    if updated.count(f'id="{STYLE_ID}"')!=1:raise SystemExit('Home V3 stylesheet duplicated')
-    home=updated.split('function dashboard(){',1)[1].split('function bottomNav(',1)[0]
-    tests=updated.split('function testsPage(){',1)[1].split('function examPage()',1)[0]
+    if html.count(f'id="{STYLE_ID}"')!=1:raise SystemExit('Home V3 stylesheet duplicated')
+    home=html.split('function dashboard(){',1)[1].split('function testRow(',1)[0]
+    tests=html.split('function testsPage(){',1)[1].split('function morePage(',1)[0]
     if '<section class="nk-home-quick-grid"' in home or 'Strongest Chapters' in home or "Today's Review" in home:raise SystemExit('Home retained duplicate launch surfaces')
     if not home.index('${nkHomeStreakMarkup()}') < home.index('${nkHomeFocusSection(focus,focusModule)}') < home.index('${nkStudySetsSection(focusModule?.id)}') < home.index('nk-home-subjects'):
         raise SystemExit('Home lost its streak, Today focus, study sets, subjects hierarchy')
@@ -80,12 +62,11 @@ window.QB={openStudyModuleBuilder};
     for label in ('Unique questions answered','Answer accuracy','Study Time'):
         if label not in home:raise SystemExit(f'Home period metric missing: {label}')
     for fn in ('dashboard','bottomNav','testsPage','examPage','startExamTicker','submitExam'):
-        if updated.count(f'function {fn}(')!=1:raise SystemExit(f'{fn} duplicated or missing')
-    if "function untouchedQuestionEngine(){return 'protected';}" not in updated:raise SystemExit('Protected question engine mutated')
+        if html.count(f'function {fn}(')!=1:raise SystemExit(f'{fn} duplicated or missing')
     for bad in ('Membership','Premium Member','Rank'):
-        if bad in updated:raise SystemExit(f'Personal QBank introduced prohibited UI: {bad}')
+        if re.search(rf'\b{bad}\b',html):raise SystemExit(f'Personal QBank introduced prohibited UI: {bad}')
 
-    helpers=updated.split('function nkHomeRangeStart(',1)[1].split('function nkSetHomeProgressRange(',1)[0]
+    helpers=html.split('function nkHomeRangeStart(',1)[1].split('function nkSetHomeProgressRange(',1)[0]
     stats_js='function nkHomeRangeStart('+helpers
     behavior=r'''
 const assert=require('node:assert/strict'),vm=require('node:vm');
@@ -105,7 +86,7 @@ console.log('HOME_PERIOD_METRICS_OK unique=true denominator=answered time=true e
     subprocess.run(['node','-e',behavior],check=True)
 
 
-    streak_helpers=updated.split('/* NK_HOME_STREAK_MILESTONES_V1 */',1)[1].split('function nkHomeRangeStart(',1)[0]
+    streak_helpers=html.split('/* NK_HOME_STREAK_MILESTONES_V1 */',1)[1].split('function nkHomeRangeStart(',1)[0]
     streak_behavior=r'''
 const assert=require('node:assert/strict'),vm=require('node:vm');
 const today=new Date('2026-10-01T12:00:00Z');
@@ -123,15 +104,6 @@ assert.equal((markup.match(/is-today/g)||[]).length,1);
 console.log('HOME_STREAK_MILESTONES_OK thresholds=true connections=true gaps=true accessible=true');
 '''.replace('SOURCE',json.dumps(streak_helpers),1)
     subprocess.run(['node','-e',streak_behavior],check=True)
-    if HTML.exists():
-        html=HTML.read_text(encoding='utf-8')
-        if FLOW_MARKER in html:
-            absent=[x for x in required if x not in html]
-            if absent:raise SystemExit(f'Generated Home V3 integration missing: {absent}')
-            for bad in prohibited[-2:]:
-                if bad in html:raise SystemExit(f'Generated app retained prohibited FSRS behavior: {bad}')
-            print('HOME_V3_INTEGRATION_OK')
-
     print('HOME_V3_CONTRACT_OK: hybrid Home, subject→Topics, answered-plus-submitted-skip FSRS, global Test budget, strict topic timer')
 
 

@@ -3,41 +3,25 @@
 
 from __future__ import annotations
 
-import ast
 import json
 from pathlib import Path
-import re
 import subprocess
 import tempfile
 
-from apply_question_presentation_v1 import transform
-
 
 ROOT = Path(__file__).resolve().parents[1]
-PILOT = ROOT / "tools/apply_marrow_bank_pilot.py"
+HTML = ROOT / "app/src/main/assets/index.html"
 PHYSIO_Q18 = ROOT / "data/marrow/explanation_physio_ch23_q018_q018_v1.json"
+PRESENTATION_START = "  /* NK_QUESTION_PRESENTATION_V1_START"
+PRESENTATION_END = "  /* NK_QUESTION_PRESENTATION_V1_END */"
 
 
-def wrapper_source() -> str:
-    tree = ast.parse(PILOT.read_text(encoding="utf-8"), filename=str(PILOT))
-    for node in ast.walk(tree):
-        if isinstance(node, ast.Assign) and any(
-            isinstance(target, ast.Name) and target.id == "wrapper"
-            for target in node.targets
-        ):
-            expression = node.value
-            if isinstance(expression, ast.Call) and isinstance(expression.func, ast.Attribute):
-                expression = expression.func.value
-            value = ast.literal_eval(expression)
-            if isinstance(value, str) and "function nkGoldText(" in value:
-                return value
-    raise AssertionError("Could not find the literal wrapper containing nkGoldText")
-
-
-def function_fragment(wrapper: str, start: str, end: str) -> str:
-    start_at = wrapper.index(start)
-    end_at = wrapper.index(end, start_at)
-    return wrapper[start_at:end_at].rstrip()
+def function_fragment(source: str, start: str, end: str) -> str:
+    if source.count(start) != 1:
+        raise AssertionError(f"Expected one {start!r} in index.html, found {source.count(start)}")
+    start_at = source.index(start)
+    end_at = source.index(end, start_at)
+    return source[start_at:end_at].rstrip()
 
 
 def load_configs() -> dict[str, dict]:
@@ -58,13 +42,17 @@ def load_configs() -> dict[str, dict]:
 
 
 def main() -> None:
-    wrapper = wrapper_source()
-    gold_text = function_fragment(
-        wrapper, "function nkGoldText(", "function nkGoldSignalWords("
-    )
+    page = HTML.read_text(encoding="utf-8")
+    gold_text = function_fragment(page, "function nkGoldText(", "function nkGoldSignalWords(")
     gold_renderer = function_fragment(
-        wrapper, "function nkRenderMarrowGoldText(", "function nkRenderGoldWrongOptions("
+        page, "function nkRenderMarrowGoldText(", "function nkRenderGoldWrongOptions("
     )
+    presentation = function_fragment(page, PRESENTATION_START, PRESENTATION_END)
+    # The shipped gold renderer must route text and anchors through the shared
+    # scientific-notation/escaping boundary.
+    for wired in ("let html=nkScientificMarkup(text);", "const needle=nkScientificMarkup(phrase);"):
+        if wired not in gold_text:
+            raise AssertionError(f"Gold emphasis is not wired into scientific markup: {wired}")
 
     q18_document = json.loads(PHYSIO_Q18.read_text(encoding="utf-8"))
     q18_id, q18_cfg = next(iter(q18_document["questions"].items()))
@@ -72,35 +60,16 @@ def main() -> None:
     if q18_id not in configs:
         raise AssertionError(f"Q18 config {q18_id} is absent from the corpus scan")
 
-    # This fixture supplies the real transformation's anchors. The two gold
-    # functions above are extracted verbatim from the production wrapper AST.
-    fixture = r'''<!doctype html><html><head></head><body>
-<script>
-  function richText(text) {
-    return esc(String(text||'')).replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');
-  }
-  function nkSessionOptions(q,selected,mode,submitted) {
-    const locked=false;
-    return `${esc(o.text)}`;
-  }
-  const practice = '<div class="question-text">${esc(q.question)}</div>';
-  const cbt = '<div class="question-text">${esc(q.question)}</div>';
-  const review = '<div class="question-text">${esc(q.question)}</div>';
-__GOLD_FUNCTIONS__
-  window.QB={};
-</script></body></html>'''
-    fixture = fixture.replace("__GOLD_FUNCTIONS__", gold_text + "\n\n" + gold_renderer)
-    transformed = transform(fixture)
-    scripts = re.findall(r"<script>(.*?)</script>", transformed, flags=re.S)
-    if len(scripts) != 1:
-        raise AssertionError(f"Expected one transformed fixture script, got {len(scripts)}")
+    # The presentation core and the two gold functions are extracted verbatim
+    # from the shipped index.html.
+    shipped = presentation + "\n\n" + gold_text + "\n\n" + gold_renderer
 
     configs_json = json.dumps(configs, ensure_ascii=False, separators=(",", ":"))
     q18_json = json.dumps(q18_cfg, ensure_ascii=False, separators=(",", ":"))
     runtime = r'''const assert=require('assert');
 global.window=globalThis;
 const esc=value=>String(value??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-''' + scripts[0] + r'''
+''' + shipped + r'''
 const configs=JSON.parse(__CONFIGS__);
 const q18=JSON.parse(__Q18__);
 const q18html=nkRenderMarrowGoldText(q18.displayText,q18);

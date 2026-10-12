@@ -4,11 +4,15 @@
 from pathlib import Path
 import subprocess
 
-from apply_home_command_center_v1 import HELPERS
+ROOT = Path(__file__).resolve().parents[1]
+HTML = ROOT / 'app/src/main/assets/index.html'
 
 
 def main() -> None:
-    timer = "function nkStartTopicTimedTest" + HELPERS.split("function nkStartTopicTimedTest", 1)[1].split("/* NK_HOME_FLOW_V3_END */", 1)[0]
+    html = HTML.read_text(encoding='utf-8')
+    if html.count('function nkStartTopicTimedTest') != 1:
+        raise SystemExit('Topic timed test launcher missing or duplicated')
+    timer = "function nkStartTopicTimedTest" + html.split("function nkStartTopicTimedTest", 1)[1].split("/* NK_HOME_FLOW_V3_END */", 1)[0]
     script = r'''
 const assert=require('node:assert/strict');
 let now=1000000,submitted=null,saves=0,renders=0;
@@ -47,7 +51,7 @@ assert.equal(submitted.session.questionTimes.p3,60000);
 assert(saves>3&&renders>3);
 console.log('TOPIC_TIMER_OK cumulative=true reload=true lock=true final=true');
 '''
-    subprocess.run(['node', '-e', script], check=True, cwd=Path(__file__).resolve().parents[1])
+    subprocess.run(['node', '-e', script], check=True, cwd=ROOT)
 
 
 if __name__ == '__main__':

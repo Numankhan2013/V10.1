@@ -136,25 +136,25 @@ def main() -> None:
         text=True,
         check=True,
     )
-    if HTML.exists():
-        html = HTML.read_text(encoding="utf-8")
-        if 'id="nk-custom-study-modules-v1"' in html:
-            required = [
-                "studyModules: []",
-                "route.page==='module-builder'",
-                "studyModuleId:s.studyModuleId||null",
-                "s.studyModuleId?'study-module':'practice'",
-                "nkStudySetsSection()",
-                "nkOpenQuickStudy",
-                "Review Solutions",
-                "Save & exit",
-                "Finish with ${unanswered} omitted",
-            ]
-            missing = [marker for marker in required if marker not in html]
-            if missing:
-                raise SystemExit(f"Generated module integration missing: {missing}")
-            print("CUSTOM_STUDY_MODULE_INTEGRATION_OK: session, Home, completion, review, and unified-history hooks present")
-
+    html = HTML.read_text(encoding="utf-8")
+    if html.count('id="nk-custom-study-modules-v1"') != 1:
+        raise SystemExit("Custom Study Modules stylesheet missing or duplicated")
+    required = [
+        "studyModules: []",
+        "route.page==='module-builder'",
+        "studyModuleId:s.studyModuleId||null",
+        "s.studyModuleId?'study-module':'practice'",
+        "function nkStudySetsSection(focusModuleId='')",
+        "nkStudySetsSection(focusModule?.id)",
+        "nkOpenQuickStudy",
+        "Review Solutions",
+        "Save & exit",
+        "Finish with ${unanswered} omitted",
+    ]
+    missing = [marker for marker in required if marker not in html]
+    if missing:
+        raise SystemExit(f"Module integration missing: {missing}")
+    print("CUSTOM_STUDY_MODULE_INTEGRATION_OK: session, Home, completion, review, and unified-history hooks present")
 
 if __name__ == "__main__":
     main()

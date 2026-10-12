@@ -15,6 +15,8 @@ import zlib
 from collections import Counter
 from pathlib import Path
 
+from marrow_bank_data import CONTENT_OVERRIDE_PATHS, apply_content_overrides
+
 ROOT = Path(__file__).resolve().parents[1]
 
 NODE = r'''
@@ -152,13 +154,10 @@ def main() -> None:
     args = parser.parse_args()
     records, hashes = load_marrow()
     raw_marrow = [copy.deepcopy(q) for record in records for q in record["questions"]]
-    owner_path = ROOT / "tools/apply_marrow_bank_pilot.py"
-    owner = owner_path.read_text()
-    start = owner.index('CONTENT_OVERRIDE_PATHS=')
-    end = owner.index('expanded_ids=', start)
-    namespace = {"DATA": ROOT / "data/marrow", "json": json, "hashlib": hashlib, "expanded_records": records}
+    owner_path = ROOT / "tools/marrow_bank_data.py"
     with contextlib.redirect_stdout(io.StringIO()) as captured:
-        exec(compile(owner[start:end], str(owner_path), "exec"), namespace)
+        applied_content_ids = apply_content_overrides(records)
+        print(f"MARROW_CONTENT_HYGIENE_OVERRIDES_OK questions={len(applied_content_ids)} manifests={len(CONTENT_OVERRIDE_PATHS)}")
     marrow = [q for record in records for q in record["questions"]]
     generated = None
     if args.generated_dir:
@@ -189,7 +188,7 @@ def main() -> None:
         Path(__file__),
     ]
     input_hashes = {str(path.relative_to(ROOT)) if path.is_relative_to(ROOT) else str(path): sha(path.read_bytes()) for path in tracked_inputs}
-    payload = {"prepFiles": [str(path) for path in files], "core": core_paths[0].read_text(), "hygiene": core_paths[1].read_text(), "rawMarrow": raw_marrow, "marrow": marrow, "displayOverrideIds": sorted(namespace["applied_content_ids"])}
+    payload = {"prepFiles": [str(path) for path in files], "core": core_paths[0].read_text(), "hygiene": core_paths[1].read_text(), "rawMarrow": raw_marrow, "marrow": marrow, "displayOverrideIds": sorted(applied_content_ids)}
     result = subprocess.run(["node", "-e", NODE], input=json.dumps(payload), text=True, capture_output=True, check=True, cwd=ROOT)
     evaluated = json.loads(result.stdout)
     all_rows = evaluated["records"]

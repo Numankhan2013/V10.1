@@ -8,14 +8,8 @@ import sys
 from verification_preflight import is_termux, pdf_preflight
 
 ROOT = Path(__file__).resolve().parents[1]
-# These consume artifacts produced by the full ordered PDF/app pipeline.
-CI_TESTS = {
-    "test_question_experience_v1.py",
-    "test_session_experience_v2.py",
-    "test_whole_app_vision_v1.py",
-    "test_marrow_bank_pilot.py",
-    "test_question_context_bar_v1.py",
-}
+# Feature tests read the source page directly; none need generated artifacts.
+CI_TESTS = set()
 CI_VERIFIERS = {"verify_cbt_invariants.py", "verify_source_visual_contract.py", "verify_recall_dock_browser.py", "verify_marrow_bank_browser.py", "verify_continue_practice_browser.py", "verify_marrow_structured_table_browser.py", "verify_marrow_content_hygiene_browser.py", "verify_marrow_anatomy_ch06_q002_browser.py", "verify_marrow_anatomy_ch06_q018_browser.py", "verify_marrow_physio_ch11_q001_q006_browser.py", "verify_question_presentation_browser.py", "verify_question_notes_browser.py", "verify_prepladder_visuals_browser.py"}
 CI_VERIFIERS.add('verify_uworld_media_package.py')
 

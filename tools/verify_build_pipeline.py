@@ -8,88 +8,23 @@ ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW = ROOT / ".github/workflows/build-apk.yml"
 text = WORKFLOW.read_text(encoding="utf-8")
 
+# index.html is source: no workflow step may rewrite its code. The one data
+# step fills the page's __NK_DATA_*__ tokens after the source checks and before
+# anything reads the generated page.
 required_order = [
-    "tools/fix_review_build.py",
-    "tools/harden_review_renderer.py",
+    "tools/verify_product_contract.py --stage source",
+    "tools/test_app_source_parity.py",
+    "tools/build_app_data.py",
+    "tools/build_biochem_solution_map.py",
+    "tools/final_hardening.py",
     "tools/build_source_visual_metadata.py",
     "tools/improve_source_visual_assets_v1.py",
-    "tools/install_source_visual_renderer.py",
-    "tools/cbt_canonical.py",
-    "tools/apply_question_ui_v2.py",
-    "tools/apply_home_visual_redesign_v4.py",
-    "tools/apply_home_v5_fixes.py",
-    "tools/remove_legacy_streak_layer.py",
-    "tools/apply_home_streak_and_header_v1.py",
-    "tools/apply_home_actions_v1.py",
-    "tools/apply_cbt_boundary_and_toast_fix_v1.py",
-    "tools/harden_cbt_review_footer_v1.py",
-    "tools/add_review_solution_grid.py",
-    "tools/apply_question_experience_v1.py",
-    "tools/test_question_experience_v1.py",
-    "tools/apply_session_experience_v2.py",
-    "tools/test_session_experience_v2.py",
-    "tools/apply_whole_app_vision_v1.py",
-    "tools/test_whole_app_vision_v1.py",
-    "tools/apply_custom_study_modules_v1.py",
-    "tools/test_custom_study_modules_v1.py",
-    "tools/apply_home_command_center_v1.py",
-    "tools/test_home_command_center_v1.py",
-    "tools/test_topic_timer_v1.py",
-    "tools/apply_continue_practice_resume_v1.py",
-    "tools/test_continue_practice_resume_v1.py",
-    "tools/apply_question_content_hygiene_v1.py",
-    "tools/test_question_content_hygiene_v1.py",
-    "tools/apply_marrow_topic_numbering_v1.py",
-    "tools/apply_android_secure_origin_v1.py",
-    "tools/apply_android_back_guard_v1.py",
-    "tools/apply_android_haptics_v1.py",
-    "tools/test_android_haptics_v1.py",
-    "tools/apply_android_file_picker_v1.py",
-    "tools/test_android_file_picker_v1.py",
-    "tools/apply_cross_device_pwa_v1.py",
-    "tools/test_cross_device_sync_v1.py",
-    "tools/apply_fsrs_v1.py",
-    "tools/test_fsrs_v1.py",
-    "tools/fix_boot_syntax.py",
-    "tools/apply_marrow_bank_pilot.py",
-    "tools/apply_marrow_structured_table_renderer_v1.py",
-    "tools/apply_question_presentation_v1.py",
-    "tools/test_question_presentation_v1.py",
-    "tools/install_marrow_images.py",
+    "tools/verify_source_visual_contract.py",
     "tools/test_marrow_bank_pilot.py",
-    "tools/apply_question_notes_v1.py",
-    "tools/test_question_notes_v1.py",
-    "tools/apply_revision_desk_v1.py",
-    "tools/test_revision_desk_v1.py",
-    "tools/apply_insights_focus_v1.py",
-    "tools/test_insights_focus_v1.py",
-    "tools/apply_bank_aware_cbt_builder_v1.py",
-    "tools/test_bank_aware_cbt_builder_v1.py",
-    "tools/apply_cbt_result_analysis_v1.py",
-    "tools/test_cbt_result_analysis_v1.py",
-    "tools/apply_exam_review_flags_v1.py",
-    "tools/test_exam_review_flags_v1.py",
-    "tools/apply_timed_resume_card_v1.py",
-    "tools/test_timed_resume_card_v1.py",
-    "tools/apply_qbank_coverage_v1.py",
-    "tools/test_qbank_coverage_v1.py",
-    "tools/apply_question_search_v1.py",
-    "tools/test_question_search_v1.py",
-    "tools/apply_practice_correction_v1.py",
-    "tools/test_practice_correction_v1.py",
-    "tools/apply_learning_insights_v1.py",
-    "tools/test_learning_insights_v1.py",
-    "tools/apply_app_clarity_v1.py",
-    "tools/apply_refined_analysis_v1.py",
-    "tools/apply_interaction_polish_v1.py",
-    "tools/apply_visual_refinement_v1.py",
-    "tools/apply_icon_refinement_v1.py",
-    "tools/test_icon_refinement_v1.py",
-    "tools/test_visual_refinement_v1.py",
-    "tools/test_refined_analysis_v1.py",
-    "tools/apply_uworld_biochemistry_v1.py",
     "tools/verify_product_contract.py --stage generated",
     "tools/verify_cbt_invariants.py",
+    "tools/build_web_dist.py",
+    "tools/run_browser_suite.py",
 ]
 
 # The full workflow must remain a strict Linux PDF/build gate, even though local
@@ -116,7 +51,8 @@ for marker in ("runs-on: ubuntu-latest", "actions/setup-python@", "PyMuPDF Pillo
                "tools/verify_study_journey_browser.py",
                "tools/verify_marrow_content_hygiene_browser.py",
                "NK_MARROW_STRUCTURED_TABLE_RENDERER_V1",
-               "NK_QUESTION_PRESENTATION_V1_START"):
+               "NK_QUESTION_PRESENTATION_V1_START",
+               "tools/test_app_source_parity.py", "tools/build_app_data.py"):
     if marker not in text:
         raise SystemExit(f"Full Linux/PDF verification requirement missing: {marker}")
 if not (text.index("PyMuPDF Pillow") < text.index("tools/verification_preflight.py --require-pdf")
@@ -145,16 +81,12 @@ duplicates = sorted({command for command in commands if commands.count(command) 
 if duplicates:
     raise SystemExit(f"Transformation scripts have multiple workflow owners: {duplicates}")
 
-if text.find("tools/fix_boot_syntax.py") > text.find("Verify final JavaScript syntax"):
-    raise SystemExit("Boot syntax repair must run before final JavaScript validation")
 if text.find("Verify packaged APK") < text.find("Build debug APK"):
     raise SystemExit("Packaged verification must run after the APK build")
-if text.find("tools/apply_marrow_bank_pilot.py") > text.find("tools/apply_marrow_structured_table_renderer_v1.py"):
-    raise SystemExit("Structured-table compatibility must run after Marrow bank generation")
-if text.find("tools/apply_marrow_structured_table_renderer_v1.py") > text.find("tools/install_marrow_images.py"):
-    raise SystemExit("Structured-table compatibility must precede image installation")
-if text.find("tools/apply_question_presentation_v1.py") < text.find("tools/apply_marrow_structured_table_renderer_v1.py") or text.find("tools/apply_question_presentation_v1.py") > text.find("tools/install_marrow_images.py"):
-    raise SystemExit("Question presentation normalization must follow Marrow registration and precede image installation")
+# A step that rewrites the app page's code would make index.html stop being source.
+page_writers = sorted(set(re.findall(r"python3\s+(tools/(?:apply|install|fix|harden|remove|add|cbt)_[A-Za-z0-9_]+\.py)", text)))
+if page_writers:
+    raise SystemExit(f"index.html is source; these steps patch it: {page_writers}")
 if "v11.1-engineering-foundation" not in text:
     raise SystemExit("Engineering branch is not protected by the build workflow")
 for marker in (

@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Behavior, corpus, and transform contracts for question presentation."""
+"""Behavior, corpus, and shipped-page contracts for question presentation."""
 
 from pathlib import Path
 import subprocess
 import tempfile
 
-from apply_question_presentation_v1 import transform
+import re
 
 ROOT = Path(__file__).resolve().parents[1]
 CORE = ROOT / "tools/question_presentation_core.js"
@@ -559,37 +559,29 @@ console.log('QUESTION_PRESENTATION_BEHAVIOR_OK repaired='+repaired+' invalid='+i
         test_path.unlink(missing_ok=True)
 
 
-def test_transform() -> None:
-    fixture = r'''<html><head></head><body><script>
-  function richText(text) {
-    return esc(String(text||'')).replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');
-  }
-function nkSessionOptions(q,selected,mode,submitted) {
-    const locked=true;return `<span class="option-text">${esc(o.text)}</span>`;}
-function nkGoldText(text){let html=esc(String(text||''));return html;}
-function nkGoldWrong(o,reason){return '<strong>'+esc(o.text||'')+'</strong><p>'+esc(reason)+'</p>';}
-function nkTakeaway(takeaway){return `<p>${esc(takeaway)}</p>`;}
-function practicePage(){return `<div class="question-text">${esc(q.question)}</div>`}
-function examPage(){return `<div class="question-text" data-marrow-question="">${esc(q.question)}</div>`}
-function reviewTestPage(){return `<div class="question-text">${esc(q.question)}</div>`}
-  window.QB={};
-</script></body></html>'''
-    updated = transform(fixture)
-    assert transform(updated) == updated
+def test_shipped_page() -> None:
+    updated = (ROOT / "app/src/main/assets/index.html").read_text(encoding="utf-8")
+    assert updated.count(CORE.read_text(encoding="utf-8").rstrip()) == 1
+    assert updated.index("NK_QUESTION_PRESENTATION_V1_START") < updated.index("  window.QB={")
     assert updated.count("${nkQuestionStemMarkup(q)}") == 3
-    assert "if(!presentation.valid)return '';" in updated
-    assert "return nkScientificMarkup(text)" in updated
-    assert "${nkScientificMarkup(o.text)}" in updated
-    assert "${nkScientificMarkup(takeaway)}" in updated
-    assert "let html=nkScientificMarkup(text);" in updated
-    assert "'<strong>'+nkScientificMarkup(o.text||'')+'</strong>" in updated
-    assert "nkScientificMarkup(reason)" in updated
+    assert not re.search(r'<div class="question-text"[^>]*>\$\{esc\(q\.question\)\}', updated)
+    assert "function nkSessionOptions(q,selected,mode,submitted) {\n    const presentation=nkQuestionPresentationFor(q);if(!presentation.valid)return '';\n    const locked=" in updated
+    assert "return nkScientificMarkup(text).replace(" in updated
+    assert "esc(String(text||'')).replace(/\\*\\*" not in updated
+    assert "nkScientificMarkup(o.text)" in updated and "${esc(o.text)}" not in updated
+    assert "${nkScientificMarkup(takeaway)}" in updated and "${esc(takeaway)}" not in updated
+    assert "let html=nkScientificMarkup(text);" in updated and "let html=esc(String(text||''));" not in updated
+    assert "const needle=nkScientificMarkup(phrase);" in updated
+    # The gold distractor label keeps its plain escaped boundary; its rationale shares notation.
+    assert "<strong>'+esc(o.text||'')+'</strong>" in updated
+    assert "nkScientificMarkup(reason)" in updated and "esc(reason)" not in updated
+    assert updated.count('<style id="nk-question-presentation-v1">') == 1
     assert ".nk-sci-sub,.nk-sci-sup" in updated
-    for marker in ("NK_QUESTION_PRESENTATION_V1_START", "nk-question-presentation-v1", "nkQuestionPresentationFor", "nkQuestionMatchingTable"):
+    for marker in ("nkQuestionPresentationFor", "nkQuestionMatchingTable"):
         assert marker in updated
 
 
 if __name__ == "__main__":
-    test_transform()
+    test_shipped_page()
     run_node_behavior()
     print("QUESTION_PRESENTATION_V1_TEST_OK shared_renderer=practice,cbt,review source_data=unchanged")

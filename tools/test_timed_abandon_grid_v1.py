@@ -2,28 +2,25 @@
 """Verify abandonment stays in timed-test grids and saves before leaving."""
 from pathlib import Path
 import json
+import re
 import subprocess
-
-from apply_timed_abandon_grid_v1 import transform
 
 ROOT=Path(__file__).resolve().parents[1]
 CORE=ROOT/'tools/timed_abandon_grid_core.js'
+HTML=ROOT/'app/src/main/assets/index.html'
 
 
 def main():
-    fixture='''<html><head></head><script>
-/* NK_EXAM_REVIEW_FLAGS_V1_START */
-function openQuestionNavigator(){}function openSessionReview(){}
-function closeQuestionNavigator(){}function closeSessionReview(){}
-function saveState(){}function navigate(){}function showToast(){}
-  window.QB={openQuestionNavigator,openSessionReview};
-</script></html>'''
-    generated=transform(fixture)
-    assert transform(generated)==generated
-    assert 'nkAbandonTimedTest,' in generated
-    assert 'nk-timed-abandon-grid-v1' in generated
+    page=HTML.read_text(encoding='utf-8')
+    assert page.count(CORE.read_text(encoding='utf-8').strip())==1,'abandon core ships verbatim once'
+    for marker in ('NK_TIMED_ABANDON_GRID_V1_START','id="nk-timed-abandon-grid-v1"'):
+        assert page.count(marker)==1,marker
+    qb=page[page.index('  window.QB={'):]
+    assert 'nkAbandonTimedTest,' in qb[:qb.index('};')]
     assert 'examPage' not in CORE.read_text(encoding='utf-8')
-    subprocess.run(['node','--check'],input=generated.split('<script>',1)[1].split('</script>',1)[0],text=True,check=True)
+    for match in re.finditer(r'<script(?![^>]*\bsrc=)[^>]*>',page):
+        inline=page[match.end():page.index('</script>',match.end())]
+        if inline.strip():subprocess.run(['node','--check'],input=inline,text=True,check=True)
 
     script=r'''
 const assert=require('node:assert/strict'),vm=require('node:vm');

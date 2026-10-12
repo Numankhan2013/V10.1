@@ -94,7 +94,8 @@
       submitted:{...(module.submitted||{})},questionTimes:{...(module.questionTimes||{})},
       createdAt:Number(module.createdAt||Date.now()),lastOpenedAt:Number(module.lastOpenedAt||module.createdAt||Date.now()),
       completedAt:module.completedAt?Number(module.completedAt):null,isCompleted:Boolean(module.isCompleted),
-      resultTestId:module.resultTestId?String(module.resultTestId):null
+      resultTestId:module.resultTestId?String(module.resultTestId):null,
+      syncEpoch:String(module.syncEpoch||`epoch_${module.createdAt||Date.now()}`),updatedAt:Number(module.updatedAt||module.lastOpenedAt||module.createdAt||Date.now())
     };
   }
 
@@ -413,7 +414,7 @@
     if(!studyModuleDraft)return;const available=nkQuestionsForModuleDraft().length;if(!available){showToast('No eligible questions are available. Change your filters.','bad');return;}
     const now=Date.now(),id=`module_${now}_${Math.random().toString(16).slice(2)}`,questionIds=nkSelectModuleQuestionIds(studyModuleDraft,id);
     if(!questionIds.length){showToast('No eligible questions are available. Change your filters.','bad');return;}
-    const module=nkNormalizeStudyModule({id,name:(studyModuleDraft.name||nkStudyModuleAutoName()).trim(),subjectIds:[...studyModuleDraft.subjectIds],scopeIds:[...studyModuleDraft.scopeIds],topicIds:[...studyModuleDraft.topicIds],questionPoolType:studyModuleDraft.questionPoolType,collectionFilter:studyModuleDraft.collectionFilter,questionIds,totalQuestions:questionIds.length,completedQuestionIds:[],currentPosition:0,answers:{},submitted:{},questionTimes:{},createdAt:now,lastOpenedAt:now,completedAt:null,isCompleted:false,resultTestId:null});
+    const module=nkNormalizeStudyModule({id,name:(studyModuleDraft.name||nkStudyModuleAutoName()).trim(),subjectIds:[...studyModuleDraft.subjectIds],scopeIds:[...studyModuleDraft.scopeIds],topicIds:[...studyModuleDraft.topicIds],questionPoolType:studyModuleDraft.questionPoolType,collectionFilter:studyModuleDraft.collectionFilter,questionIds,totalQuestions:questionIds.length,completedQuestionIds:[],currentPosition:0,answers:{},submitted:{},questionTimes:{},createdAt:now,lastOpenedAt:now,completedAt:null,isCompleted:false,resultTestId:null,syncEpoch:`epoch_${now}`,updatedAt:now});
     state.studyModules=[...nkStudyModuleList(),module].slice(-100);studyModuleDraft=null;saveState();
     if(startNow)startStudyModule(module.id);else{showToast('Study module saved.','good');navigate('dashboard');}
   }
@@ -463,7 +464,7 @@
   function restartStudyModule(id){
     const module=nkFindStudyModule(id);if(!module)return;
     if(!confirm(`Restart ${module.name}? Its saved question set will stay the same, but module progress will reset.`))return;
-    module.completedQuestionIds=[];module.currentPosition=0;module.answers={};module.submitted={};module.questionTimes={};module.completedAt=null;module.isCompleted=false;module.resultTestId=null;module.lastOpenedAt=Date.now();saveState();startStudyModule(module.id);
+    module.syncEpoch=`epoch_${Date.now()}_${Math.random().toString(36).slice(2)}`;module.updatedAt=Date.now();module.completedQuestionIds=[];module.currentPosition=0;module.answers={};module.submitted={};module.questionTimes={};module.completedAt=null;module.isCompleted=false;module.resultTestId=null;module.lastOpenedAt=Date.now();saveState();startStudyModule(module.id);
   }
 
   function renameStudyModule(id){

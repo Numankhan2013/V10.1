@@ -1,8 +1,8 @@
 """Verify bounded immutable import, variable choices and source-safe presentation."""
 from uworld_biochemistry import load_source,bank_record
-from apply_uworld_biochemistry_v1 import transform
-from pathlib import Path
-import hashlib,json
+from uworld_biochemistry import ROOT
+from uworld_collections import bank_records
+import re
 manifest,rows=load_source();record=bank_record()
 assert len(record['questions'])==132 and len(record['topics'])==4
 assert [sum(q['chapterId']==t['id'] for q in record['questions']) for t in record['topics']]==[40,40,40,12]
@@ -25,8 +25,15 @@ assert by_id['uw2024_biochem_1486']['uworldSource']['explanation']['educational_
 assert record['subject']=='UWorld · Biochemistry' and record['collection']=='Biochemistry'
 assert all(q['uworldPilot']['status'] in ['ocr-unverified','source-reviewed','source-blocked'] for q in record['questions'])
 assert max(len(q['options']) for q in record['questions'])==8
-# Transformer must be additive/idempotent; retained incumbent functions survive.
-fixture='<head></head>  let activeSubject = 1;\n  /* NK_QUESTION_PRESENTATION_V1_START */\n  /* NK_QUESTION_PRESENTATION_V1_END */\n  function nkStudySupport(){}\n  window.QB={};\n${nkScientificMarkup(o.text)}'
-out=transform(fixture);assert transform(out)==out and out.count('BANKS_BY_SUBJECT[NK_UWORLD_BIOCHEMISTRY_BANK.subject]=')==1 and 'BANKS_BY_SUBJECT.Biochemistry.push(' not in out
-assert 'function nkStudySupport(){}' in out and 'uworldReference:nkUworldReference' in out
-print('UWORLD_SOURCE_ADAPTER_OK 132 records/729 pages/4 source collections/A–H/immutable/idempotent')
+# Shipped page: one collection registry, scripts load before the app script, incumbent functions survive.
+out=(ROOT/'app/src/main/assets/index.html').read_text(encoding='utf-8')
+assert out.count('/* NK_UWORLD_BANK_DATA_START */')==1 and out.count('/* NK_UWORLD_BIOCHEMISTRY_V1_START */')==1
+assert out.count('BANKS_BY_SUBJECT[NK_UWORLD_BIOCHEMISTRY_BANK.subject]=')==1 and 'BANKS_BY_SUBJECT.Biochemistry.push(' not in out
+assert 'function nkStudySupport(' in out and out.count('uworldReference:nkUworldReference')==1
+data=re.findall(r'<script src="(uworld_data/[^"]+)"></script>',out)
+assert out.count('__NK_DATA_UWORLD_SCRIPTS__')+bool(data)==1,'UWorld collection scripts must be emitted exactly once'
+if data:assert data==[f'uworld_data/collection-{i:02d}.js' for i in range(len(bank_records()))]
+first=out.find('__NK_DATA_UWORLD_SCRIPTS__') if not data else out.index('<script src="uworld_data/')
+assert 0<=first<out.index('  let activeSubject = ')
+assert '${nkScientificMarkup(o.text)}' not in out and "${q.bank==='UWorld'?nkUworldOptionMarkup(q,o):nkScientificMarkup(o.text)}" in out
+print('UWORLD_SOURCE_ADAPTER_OK 132 records/729 pages/4 source collections/A–H/immutable/shipped')

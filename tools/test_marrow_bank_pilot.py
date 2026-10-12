@@ -133,6 +133,12 @@ def main():
     if args.data_only:
         print('MARROW_DATA_OK anatomy=1115/63 biochemistry=582/28 physiology=1014/43 total=2711 pilot_enhanced=142 rationales=426 repaired=3');return
     s=HTML.read_text(encoding='utf-8')
+    # Source index.html carries data tokens; CI fills them (build_app_data.py). Fill
+    # the Marrow ones the same way so data-dependent markers are checked either way.
+    import build_app_data
+    for name,build in (('MARROW_DATA',build_app_data.marrow_data),('MARROW_EXPLANATION_GOLD',build_app_data.marrow_explanation_gold)):
+        tok=f'__NK_DATA_{name}__'
+        if tok in s: s=s.replace(tok,build())
     required=['NK_MARROW_BANK_PILOT_V1_START','nk-marrow-bank-pilot-v1','const MARROW_RECORDS = Array.isArray(MARROW_DATA.records) ? MARROW_DATA.records : [MARROW_DATA]','const MARROW_BY_SUBJECT = Object.freeze','const BANKS_BY_SUBJECT = Object.create(null)','Object.values(BANKS_BY_SUBJECT).flatMap','function nkBankRecords(name)','function openBank(name,bank)','function bankPage(name)',"route.page==='banks'",'Detailed explanation','Structured text','function nkRenderMarrowExplanation(q)',"q.bank==='Marrow'",'qbank_active_bank_v1','marrow__ANAT_CH01_Q001','marrow__ANAT_CH48_Q011','marrow__ANAT_CH60_Q001','marrow__ANAT_CH63_Q013','marrow__BIOCHEM_CH01_Q001','marrow__BIOCHEM_CH26_Q022','marrow__BIOCHEM_CH27_Q012','marrow__BIOCHEM_CH28_Q027','marrow__PHYS_CH01_Q001','marrow__PHYSIO_CH33_Q025','marrow__PHYSIO_CH43_Q016','NK_MARROW_EXPLANATION_GOLD_V1','nk-marrow-explanation-gold-v1','Why the other options are wrong','function nkRenderMarrowExplanationBase(q)','function nkRenderGoldWrongOptions(q,cfg)','function nkGoldConciseText(text,q)','function nkGoldOverlap(a,b)','displayText','homeostatic control system']
     missing=[x for x in required if x not in s]
     assert not missing,missing

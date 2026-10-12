@@ -12,6 +12,7 @@ import subprocess
 from pathlib import Path
 
 from audit_question_structure import load_marrow
+from marrow_bank_data import apply_content_overrides
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / 'data/question_completeness_reviews_v1.json'
@@ -31,14 +32,8 @@ def digest(value):
 def load_inputs():
     records, hashes = load_marrow()
     raw = [copy.deepcopy(q) for record in records for q in record['questions']]
-    owner_path = ROOT / 'tools/apply_marrow_bank_pilot.py'
-    owner = owner_path.read_text()
-    namespace = {'DATA': ROOT / 'data/marrow', 'json': json, 'hashlib': hashlib, 'expanded_records': records}
-    # Same bounded source-verified display-overlay block used by the audit.
-    import contextlib
-    import io
-    with contextlib.redirect_stdout(io.StringIO()):
-        exec(compile(owner[owner.index('CONTENT_OVERRIDE_PATHS='):owner.index('expanded_ids=')], str(owner_path), 'exec'), namespace)
+    # Same source-verified display overrides the app data step applies.
+    apply_content_overrides(records)
     node = r'''
 const fs=require('fs'),vm=require('vm'),input=JSON.parse(fs.readFileSync(0,'utf8'));
 const c={window:{},SUBJECTS:[],esc:v=>String(v??'')};vm.createContext(c);

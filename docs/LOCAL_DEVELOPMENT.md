@@ -34,13 +34,13 @@ PDF transformation chain and treat its output as a complete app.
 The following need the artifacts of the ordered PDF/app pipeline; their Python
 scripts may not import PyMuPDF themselves, but the required generation does:
 
-- Question, session, and whole-app experience contracts.
 - Source visual mappings and CBT invariants.
 - Generated and packaged product contracts, final inline JavaScript validation,
   and APK/PWA artifact checks.
 
-Running these against the ungenerated source checkout reports missing markers or
-mapping files. The local runner labels them `CI_ONLY`. It does not weaken their
+Running these against the source checkout reports missing mapping files. Feature
+tests run against the source page directly: `app/src/main/assets/index.html` is
+edited as source and only `tools/build_app_data.py` writes data into it. The local runner labels them `CI_ONLY`. It does not weaken their
 assertions or manufacture generated artifacts to make them pass.
 
 `.github/workflows/build-apk.yml` runs on Ubuntu with Python 3.12, Node 20,
@@ -52,7 +52,7 @@ python3 tools/verification_preflight.py --require-pdf
 
 This is a strict gate: missing dependencies or an Android runner fail the build.
 The workflow then performs the existing PDF generation, lossless visual mapping,
-ordered app transforms, generated contracts, JavaScript checks, Gradle APK build,
+question-data step, generated contracts, JavaScript checks, Gradle APK build,
 and packaged validation. The engineering gate tests the preflight policy too.
 
 A successful local run is local verification only. Full verification requires the

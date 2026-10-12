@@ -5,8 +5,17 @@ from pathlib import Path
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
-HOME = (ROOT / "tools/apply_home_command_center_v1.py").read_text(encoding="utf-8")
-ANALYSIS = (ROOT / "tools/apply_practice_analysis_v1.py").read_text(encoding="utf-8")
+PAGE = (ROOT / "app/src/main/assets/index.html").read_text(encoding="utf-8")
+
+
+def style_block(style_id: str) -> str:
+    opener = f'<style id="{style_id}">'
+    assert PAGE.count(opener) == 1, f"{style_id} stylesheet missing or duplicated"
+    return opener + PAGE.split(opener, 1)[1].split("</style>", 1)[0] + "</style>"
+
+
+HOME = style_block("nk-home-command-center-v1")
+ANALYSIS = style_block("qbank-practice-analysis-v1")
 
 
 def css_tail(text: str, marker: str, name: str) -> str:
@@ -23,7 +32,7 @@ def balanced(css: str, name: str) -> None:
 
 
 def main() -> None:
-    # Polish markers must exist in their single-owner transforms.
+    # Polish markers must exist in their single-owner stylesheets.
     assert "nk-ui-polish-2026-09-23-home" in HOME, "home polish marker missing"
     assert "nk-ui-polish-2026-09-23-home-v2" in HOME, "home v2 polish marker missing"
     assert "nk-ui-polish-2026-09-23-analysis" in ANALYSIS, "analysis polish marker missing"
@@ -63,14 +72,10 @@ def main() -> None:
     balanced(home_css, "home polish")
     balanced(analysis_css, "analysis polish")
 
-    # Only the two approved owner files may carry the markers.
-    for path in sorted((ROOT / "tools").glob("apply_*.py")):
-        if path.name in ("apply_home_command_center_v1.py",
-                         "apply_practice_analysis_v1.py"):
-            continue
-        text = path.read_text(encoding="utf-8")
-        assert "nk-ui-polish-2026-09-23" not in text, \
-            f"polish leaked into wrong owner: {path.name}"
+    # Only the two approved owner stylesheets may carry the markers.
+    marker = "nk-ui-polish-2026-09-23"
+    assert PAGE.count(marker) == HOME.count(marker) + ANALYSIS.count(marker), \
+        "polish leaked outside the Home / Analysis stylesheets"
 
     print("UI_POLISH_HOME_ANALYSIS_OK css_only=true theme_loyal=true scoped=true reduced_motion=true")
 

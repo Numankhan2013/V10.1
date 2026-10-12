@@ -12,6 +12,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
 import android.webkit.JavascriptInterface;
+import android.content.ClipData;
+import android.content.Intent;
+import android.net.Uri;
+import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
@@ -35,61 +39,45 @@ import java.util.Map;
 
 public class MainActivity extends Activity {
     private WebView webView;
-    private PdfRenderer physiologyRenderer;
-    private ParcelFileDescriptor physiologyPfd;
+    private PdfRenderer biochemistryRenderer, physiologyRenderer, anatomyRenderer;
+    private ParcelFileDescriptor biochemistryPfd, physiologyPfd, anatomyPfd;
     private final Object pdfLock = new Object();
-    private static final String APP_ORIGIN = "https://qbank.local/app/";
-    private static final String MIGRATION_PREFS = "qbank_origin_migration_v1";
+    private static final String APP_ORIGIN="https://qbank.local/app/";
     private SharedPreferences migrationPrefs;
 
     @SuppressLint("SetJavaScriptEnabled")
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Window window = getWindow();
         window.setStatusBarColor(Color.rgb(52, 46, 134));
         window.setNavigationBarColor(Color.rgb(244, 245, 248));
-        preparePhysiologyPdf();
-        migrationPrefs = getSharedPreferences(MIGRATION_PREFS, Context.MODE_PRIVATE);
-
+        preparePdfs();
+        migrationPrefs=getSharedPreferences("qbank_origin_migration_v1",Context.MODE_PRIVATE);
         webView = new WebView(this);
         WebSettings settings = webView.getSettings();
-        settings.setJavaScriptEnabled(true);
-        settings.setDomStorageEnabled(true);
-        settings.setDatabaseEnabled(true);
+        settings.setJavaScriptEnabled(true); settings.setDomStorageEnabled(true); settings.setDatabaseEnabled(true);
         // NK_WEBVIEW_MIGRATION_BOUNDARY_V1: file access is temporary.
         settings.setAllowFileAccess(!migrationPrefs.getBoolean("complete", false));
         settings.setAllowFileAccessFromFileURLs(false);
-        settings.setAllowUniversalAccessFromFileURLs(false);
-        settings.setAllowContentAccess(false);
-        settings.setBuiltInZoomControls(false);
-        settings.setDisplayZoomControls(false);
-        settings.setSupportZoom(false);
-        settings.setLoadsImagesAutomatically(true);
-        settings.setMediaPlaybackRequiresUserGesture(true);
+        settings.setAllowUniversalAccessFromFileURLs(false); settings.setAllowContentAccess(false);
+        settings.setBuiltInZoomControls(false); settings.setDisplayZoomControls(false); settings.setSupportZoom(false);
+        settings.setLoadsImagesAutomatically(true); settings.setMediaPlaybackRequiresUserGesture(true);
         settings.setCacheMode(WebSettings.LOAD_DEFAULT);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) settings.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
-
-        webView.setBackgroundColor(Color.WHITE); webView.setHapticFeedbackEnabled(true);
-        webView.setWebChromeClient(new WebChromeClient());
+        webView.setBackgroundColor(Color.WHITE); webView.setHapticFeedbackEnabled(true); webView.setWebChromeClient(new NoteFileChooserClient());
         if (!migrationPrefs.getBoolean("complete", false)) webView.addJavascriptInterface(new MigrationBridge(), "QBankMigration");
         webView.addJavascriptInterface(new HapticsBridge(), "QBankHaptics");
         webView.setWebViewClient(new WebViewClient() {
             @Override public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) { return !request.getUrl().toString().startsWith(APP_ORIGIN); }
-            @Override public void onPageFinished(WebView view, String url) {
-                super.onPageFinished(view, url);
-                if (url.startsWith(APP_ORIGIN)) injectHomePolish();
-            }
             @Override public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
-                WebResourceResponse response = renderPhysiologyPdfRequest(request);
-                if (response == null) response = serveAppAsset(request);
+                WebResourceResponse response = renderPdfRequest(request);
+                if(response==null)response=serveAppAsset(request);
                 return response != null ? response : super.shouldInterceptRequest(view, request);
             }
         });
-        setContentView(webView);
-        if (migrationPrefs.getBoolean("complete", false)) webView.loadUrl(APP_ORIGIN + "index.html");
-        else webView.loadUrl("file:///android_asset/migrate_local_state.html");
+        setContentView(webView);if(migrationPrefs.getBoolean("complete",false))webView.loadUrl(APP_ORIGIN+"index.html");else webView.loadUrl("file:///android_asset/migrate_local_state.html");
     }
+
 
     // NATIVE_ACTION_HAPTICS_V1: framework effects honor the user's touch setting.
     private final class HapticsBridge {
@@ -111,43 +99,30 @@ public class MainActivity extends Activity {
 
     private final class MigrationBridge {
         @JavascriptInterface public void capture(String state, String subject, String sync, String auth, String backup) {
-            migrationPrefs.edit().putString("state", state).putString("subject", subject)
-                    .putString("sync", sync).putString("auth", auth).putString("backup", backup).apply();
+            migrationPrefs.edit().putString("state", state).putString("subject", subject).putString("sync", sync).putString("auth", auth).putString("backup", backup).apply();
             runOnUiThread(() -> webView.loadUrl(APP_ORIGIN + "index.html"));
         }
         @JavascriptInterface public void complete() {
-            migrationPrefs.edit().putBoolean("complete", true).remove("state").remove("subject")
-                    .remove("sync").remove("auth").remove("backup").apply();
+            migrationPrefs.edit().putBoolean("complete", true).remove("state").remove("subject").remove("sync").remove("auth").remove("backup").apply();
             runOnUiThread(() -> { if (webView != null) { webView.getSettings().setAllowFileAccess(false); webView.removeJavascriptInterface("QBankMigration"); } });
         }
     }
 
     private WebResourceResponse serveAppAsset(WebResourceRequest request) {
-        String url = request.getUrl().toString();
-        if (!url.startsWith(APP_ORIGIN)) return null;
+        String url = request.getUrl().toString(); if (!url.startsWith(APP_ORIGIN)) return null;
         try {
             String path = URLDecoder.decode(request.getUrl().getPath().substring("/app/".length()), "UTF-8");
-            if (path.isEmpty()) path = "index.html";
-            if (path.startsWith("assets/")) path = path.substring(7);
-            if (path.contains("..") || path.startsWith("/")) return appAssetNotFound();
+            if (path.isEmpty()) path = "index.html"; if(path.startsWith("assets/"))path=path.substring(7); if (path.contains("..") || path.startsWith("/")) return appAssetNotFound();
             byte[] bytes;
-            try (InputStream in = getAssets().open(path); ByteArrayOutputStream out = new ByteArrayOutputStream()) {
-                byte[] buffer = new byte[16384]; int count;
-                while ((count = in.read(buffer)) >= 0) out.write(buffer, 0, count);
-                bytes = out.toByteArray();
-            }
+            try (InputStream in = getAssets().open(path); ByteArrayOutputStream out = new ByteArrayOutputStream()) { byte[] buffer=new byte[16384];int count;while((count=in.read(buffer))>=0)out.write(buffer,0,count);bytes=out.toByteArray(); }
             if ("index.html".equals(path) && !migrationPrefs.getBoolean("complete", false)) {
-                String html = new String(bytes, StandardCharsets.UTF_8);
-                String script = "<script>(function(){var p=" + migrationPayload() + ";" +
-                        "Object.keys(p).forEach(function(k){if(p[k]&&!localStorage.getItem(k))localStorage.setItem(k,p[k]);});" +
-                        "try{QBankMigration.complete();}catch(e){}})();</script>";
-                html = html.replace("<head>", "<head>" + script);
-                bytes = html.getBytes(StandardCharsets.UTF_8);
+                String html=new String(bytes,StandardCharsets.UTF_8);
+                String script="<script>(function(){var p="+migrationPayload()+";Object.keys(p).forEach(function(k){if(p[k]&&!localStorage.getItem(k))localStorage.setItem(k,p[k]);});try{QBankMigration.complete();}catch(e){}})();</script>";
+                bytes=html.replace("<head>","<head>"+script).getBytes(StandardCharsets.UTF_8);
             }
             return new WebResourceResponse(mimeType(path), "UTF-8", new ByteArrayInputStream(bytes));
         } catch (Exception ignored) { return appAssetNotFound(); }
     }
-
     private static WebResourceResponse appAssetNotFound() {
         Map<String, String> headers = new HashMap<>();
         headers.put("X-Content-Type-Options", "nosniff");
@@ -156,85 +131,71 @@ public class MainActivity extends Activity {
     }
 
     private String migrationPayload() {
-        try {
-            JSONObject payload = new JSONObject();
-            payload.put("qbank_state_v1", migrationPrefs.getString("state", ""));
-            payload.put("qbank_active_subject_v1", migrationPrefs.getString("subject", ""));
-            payload.put("qbank_sync_v1", migrationPrefs.getString("sync", ""));
-            payload.put("qbank_firebase_auth_v1", migrationPrefs.getString("auth", ""));
-            payload.put("qbank_state_pre_cloud_v1", migrationPrefs.getString("backup", ""));
-            return payload.toString().replace("<","\\u003c").replace(">","\\u003e").replace("&","\\u0026");
-        } catch (Exception ignored) { return "{}"; }
+        try { JSONObject p=new JSONObject();p.put("qbank_state_v1",migrationPrefs.getString("state",""));p.put("qbank_active_subject_v1",migrationPrefs.getString("subject",""));p.put("qbank_sync_v1",migrationPrefs.getString("sync",""));p.put("qbank_firebase_auth_v1",migrationPrefs.getString("auth",""));p.put("qbank_state_pre_cloud_v1",migrationPrefs.getString("backup",""));return p.toString().replace("<","\\u003c").replace(">","\\u003e").replace("&","\\u0026"); } catch(Exception ignored){return "{}";}
     }
-
     private static String mimeType(String path) {
-        String lower = path.toLowerCase();
-        if (lower.endsWith(".html")) return "text/html";
-        if (lower.endsWith(".js") || lower.endsWith(".mjs")) return "application/javascript";
-        if (lower.endsWith(".css")) return "text/css";
-        if (lower.endsWith(".json") || lower.endsWith(".webmanifest")) return "application/manifest+json";
-        if (lower.endsWith(".png")) return "image/png";
-        if (lower.endsWith(".jpg") || lower.endsWith(".jpeg")) return "image/jpeg";
-        if (lower.endsWith(".pdf")) return "application/pdf";
-        return "application/octet-stream";
+        String p=path.toLowerCase();if(p.endsWith(".html"))return "text/html";if(p.endsWith(".js")||p.endsWith(".mjs"))return "application/javascript";if(p.endsWith(".css"))return "text/css";if(p.endsWith(".json")||p.endsWith(".webmanifest"))return "application/manifest+json";if(p.endsWith(".png"))return "image/png";if(p.endsWith(".jpg")||p.endsWith(".jpeg"))return "image/jpeg";if(p.endsWith(".pdf"))return "application/pdf";return "application/octet-stream";
     }
 
-    private void injectHomePolish() {
-        if (webView == null) return;
-        try (InputStream in = getAssets().open("home_polish_v3.js"); ByteArrayOutputStream out = new ByteArrayOutputStream()) {
-            byte[] buf = new byte[8192]; int n;
-            while ((n = in.read(buf)) >= 0) out.write(buf, 0, n);
-            String script = new String(out.toByteArray(), StandardCharsets.UTF_8);
-            webView.evaluateJavascript("eval(" + JSONObject.quote(script) + ")", null);
-        } catch (Exception ignored) { }
+    private void preparePdfs() {
+        File bio = null, phys = null, anatomy = null;
+        try { bio = copyAsset("Biochemistry_QBank_Source.pdf"); } catch (Exception ignored) {}
+        try { phys = copyAsset("Physiology_QBank_Source.pdf"); } catch (Exception ignored) {}
+        try { anatomy = copyAsset("Anatomy_QBank_Source.pdf"); } catch (Exception ignored) {}
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) return;
+        synchronized (pdfLock) {
+            try { if (bio != null) { biochemistryPfd = ParcelFileDescriptor.open(bio, ParcelFileDescriptor.MODE_READ_ONLY); biochemistryRenderer = new PdfRenderer(biochemistryPfd); } } catch (Exception ignored) {}
+            try { if (phys != null) { physiologyPfd = ParcelFileDescriptor.open(phys, ParcelFileDescriptor.MODE_READ_ONLY); physiologyRenderer = new PdfRenderer(physiologyPfd); } } catch (Exception ignored) {}
+            try { if (anatomy != null) { anatomyPfd = ParcelFileDescriptor.open(anatomy, ParcelFileDescriptor.MODE_READ_ONLY); anatomyRenderer = new PdfRenderer(anatomyPfd); } } catch (Exception ignored) {}
+        }
     }
 
-    private void preparePhysiologyPdf() {
-        try {
-            File out = new File(getCacheDir(), "Physiology_QBank_Source.pdf");
-            if (!out.exists() || out.length() < 100000) {
-                try (InputStream in = getAssets().open("Physiology_QBank_Source.pdf"); FileOutputStream fos = new FileOutputStream(out)) {
-                    byte[] buf = new byte[8192]; int n;
-                    while ((n = in.read(buf)) >= 0) fos.write(buf, 0, n);
-                }
+    private File copyAsset(String name) throws Exception {
+        File out = new File(getCacheDir(), name);
+        if (!out.exists() || out.length() < 100000) {
+            try (InputStream in = getAssets().open(name); FileOutputStream fos = new FileOutputStream(out)) {
+                byte[] buf = new byte[8192]; int n; while ((n = in.read(buf)) >= 0) fos.write(buf, 0, n);
             }
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                synchronized (pdfLock) {
-                    physiologyPfd = ParcelFileDescriptor.open(out, ParcelFileDescriptor.MODE_READ_ONLY);
-                    physiologyRenderer = new PdfRenderer(physiologyPfd);
-                }
-            }
-        } catch (Exception ignored) { physiologyRenderer = null; }
+        }
+        return out;
     }
 
-    private WebResourceResponse renderPhysiologyPdfRequest(WebResourceRequest request) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP || physiologyRenderer == null) return null;
-        if (!request.getUrl().toString().startsWith("https://qbank.local/physiology/pdf")) return null;
+    private WebResourceResponse renderPdfRequest(WebResourceRequest request) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) return null;
+        String url = request.getUrl().toString();
+        PdfRenderer renderer;
+        if (url.startsWith("https://qbank.local/biochemistry/pdf")) renderer = biochemistryRenderer;
+        else if (url.startsWith("https://qbank.local/physiology/pdf")) renderer = physiologyRenderer;
+        else if (url.startsWith("https://qbank.local/anatomy/pdf")) renderer = anatomyRenderer;
+        else return null;
+        if (renderer == null) return null;
         try {
             Map<String,String> q = query(request.getUrl().getQuery());
             int page = Math.max(1, Integer.parseInt(q.getOrDefault("page", "1"))) - 1;
-            float scale = Math.max(1f, Math.min(3f, Float.parseFloat(q.getOrDefault("scale", "2.5"))));
-            float top=parseFloat(q.get("top"),0), bottom=parseFloat(q.get("bottom"),-1), left=parseFloat(q.get("left"),0), right=parseFloat(q.get("right"),-1);
-            byte[] jpeg;
+            float scale = Math.max(1f, Math.min(4f, Float.parseFloat(q.getOrDefault("scale", "3"))));
             synchronized (pdfLock) {
-                if (page < 0 || page >= physiologyRenderer.getPageCount()) return null;
-                PdfRenderer.Page p=physiologyRenderer.openPage(page);
-                int w=Math.max(1,Math.round(p.getWidth()*scale)), h=Math.max(1,Math.round(p.getHeight()*scale));
-                Bitmap full=Bitmap.createBitmap(w,h,Bitmap.Config.ARGB_8888); full.eraseColor(Color.WHITE);
-                p.render(full,null,null,PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY); p.close();
-                int x0=Math.max(0,Math.round(left*scale)), y0=Math.max(0,Math.round(top*scale));
-                int x1=right>left?Math.min(w,Math.round(right*scale)):w, y1=bottom>top?Math.min(h,Math.round(bottom*scale)):h;
-                if(x1<=x0||y1<=y0){x0=0;y0=0;x1=w;y1=h;}
-                Bitmap crop=(x0==0&&y0==0&&x1==w&&y1==h)?full:Bitmap.createBitmap(full,x0,y0,x1-x0,y1-y0);
-                ByteArrayOutputStream out=new ByteArrayOutputStream(Math.max(32768,crop.getWidth()*crop.getHeight()/4)); crop.compress(Bitmap.CompressFormat.JPEG,92,out); jpeg=out.toByteArray();
-                if(crop!=full)crop.recycle(); full.recycle();
+                if (page < 0 || page >= renderer.getPageCount()) return null;
+                PdfRenderer.Page p = renderer.openPage(page);
+                int w = Math.max(1, Math.round(p.getWidth() * scale));
+                int h = Math.max(1, Math.round(p.getHeight() * scale));
+                Bitmap full = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888); full.eraseColor(Color.WHITE);
+                p.render(full, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY); p.close();
+                float top=Float.parseFloat(q.getOrDefault("top", "0"));
+                float bottom=Float.parseFloat(q.getOrDefault("bottom", Float.toString(h/scale)));
+                int y1=Math.max(0,Math.min(h-1,Math.round(top*scale)));
+                int y2=Math.max(y1+1,Math.min(h,Math.round(bottom*scale)));
+                if(y1>0 || y2<h){ Bitmap crop=Bitmap.createBitmap(full,0,y1,w,y2-y1); full.recycle(); full=crop; }
+                ByteArrayOutputStream out = new ByteArrayOutputStream(Math.max(65536, w*Math.max(1,y2-y1)/3));
+                full.compress(Bitmap.CompressFormat.PNG, 100, out); full.recycle();
+                return new WebResourceResponse("image/png", null, new ByteArrayInputStream(out.toByteArray()));
             }
-            return new WebResourceResponse("image/jpeg","UTF-8",new ByteArrayInputStream(jpeg));
-        } catch(Exception ignored){ return null; }
+        } catch (Exception ignored) { return null; }
     }
-    private static float parseFloat(String s,float d){try{return s==null?d:Float.parseFloat(s);}catch(Exception e){return d;}}
-    private static Map<String,String> query(String raw)throws Exception{Map<String,String>m=new HashMap<>();if(raw==null)return m;for(String part:raw.split("&")){int k=part.indexOf('=');if(k<0)continue;m.put(URLDecoder.decode(part.substring(0,k),"UTF-8"),URLDecoder.decode(part.substring(k+1),"UTF-8"));}return m;}
-
+    private static Map<String,String> query(String raw) throws Exception {
+        Map<String,String> m = new HashMap<>(); if (raw == null) return m;
+        for (String part : raw.split("&")) { int k=part.indexOf('='); if(k<0) continue; m.put(URLDecoder.decode(part.substring(0,k),"UTF-8"), URLDecoder.decode(part.substring(k+1),"UTF-8")); }
+        return m;
+    }
     // NATIVE_BACK_SESSION_GUARD_V1: inspect the live route before system Back leaves a question.
     private boolean backCheckPending;
     private AlertDialog backDialog;
@@ -273,5 +234,52 @@ public class MainActivity extends Activity {
             });
     }
 
-    @Override protected void onDestroy(){synchronized(pdfLock){try{if(physiologyRenderer!=null)physiologyRenderer.close();}catch(Exception ignored){}try{if(physiologyPfd!=null)physiologyPfd.close();}catch(Exception ignored){}physiologyRenderer=null;physiologyPfd=null;}if(webView!=null){webView.loadUrl("about:blank");webView.stopLoading();webView.setWebChromeClient(null);webView.setWebViewClient(null);webView.destroy();webView=null;}super.onDestroy();}
+    // NOTE_FILE_CHOOSER_V1: a plain WebChromeClient ignores <input type=file>.
+    private static final int NOTE_FILE_REQUEST = 4107;
+    private ValueCallback<Uri[]> noteFileCallback;
+
+    private final class NoteFileChooserClient extends WebChromeClient {
+        @Override public boolean onShowFileChooser(WebView view, ValueCallback<Uri[]> callback, FileChooserParams params) {
+            if (noteFileCallback != null) noteFileCallback.onReceiveValue(null);
+            noteFileCallback = callback;
+            java.util.ArrayList<String> mimes = new java.util.ArrayList<>();
+            for (String raw : params.getAcceptTypes()) {
+                for (String part : raw.split(",")) {
+                    String type = part.trim().toLowerCase(java.util.Locale.ROOT);
+                    if (type.equals(".pdf")) type = "application/pdf";
+                    if (type.contains("/") && !mimes.contains(type)) mimes.add(type);
+                }
+            }
+            Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+            intent.addCategory(Intent.CATEGORY_OPENABLE);
+            intent.setType(mimes.size() == 1 ? mimes.get(0) : "*/*");
+            if (mimes.size() > 1) intent.putExtra(Intent.EXTRA_MIME_TYPES, mimes.toArray(new String[0]));
+            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, params.getMode() == FileChooserParams.MODE_OPEN_MULTIPLE);
+            try {
+                startActivityForResult(Intent.createChooser(intent, "Add to note"), NOTE_FILE_REQUEST);
+                return true;
+            } catch (Exception error) {
+                noteFileCallback = null;
+                return false;
+            }
+        }
+    }
+
+    @Override protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode != NOTE_FILE_REQUEST) { super.onActivityResult(requestCode, resultCode, data); return; }
+        ValueCallback<Uri[]> callback = noteFileCallback;
+        noteFileCallback = null;
+        if (callback == null) return;
+        Uri[] result = null;
+        ClipData clip = data == null ? null : data.getClipData();
+        if (resultCode == RESULT_OK && clip != null && clip.getItemCount() > 0) {
+            result = new Uri[clip.getItemCount()];
+            for (int i = 0; i < clip.getItemCount(); i++) result[i] = clip.getItemAt(i).getUri();
+        } else {
+            result = WebChromeClient.FileChooserParams.parseResult(resultCode, data);
+        }
+        callback.onReceiveValue(result);
+    }
+
+    @Override protected void onDestroy(){synchronized(pdfLock){try{if(biochemistryRenderer!=null)biochemistryRenderer.close();}catch(Exception ignored){}try{if(biochemistryPfd!=null)biochemistryPfd.close();}catch(Exception ignored){}try{if(physiologyRenderer!=null)physiologyRenderer.close();}catch(Exception ignored){}try{if(physiologyPfd!=null)physiologyPfd.close();}catch(Exception ignored){}try{if(anatomyRenderer!=null)anatomyRenderer.close();}catch(Exception ignored){}try{if(anatomyPfd!=null)anatomyPfd.close();}catch(Exception ignored){}}if(webView!=null){webView.loadUrl("about:blank");webView.stopLoading();webView.setWebChromeClient(null);webView.setWebViewClient(null);webView.destroy();webView=null;}super.onDestroy();}
 }

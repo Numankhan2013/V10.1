@@ -69,9 +69,10 @@ console.log('QUESTION_CONTENT_HYGIENE_BEHAVIOR_OK');
         handle.flush()
         subprocess.run(["node", handle.name], check=True)
 
-    lines = source.splitlines()
-    base_line = next(line for line in lines if line.startswith("window.QBANK_DATA = "))
-    subjects_line = next(line for line in lines if line.startswith("window.SUBJECT_QBANK_DATA="))
+    assets = ROOT / "app/src/main/assets"
+    base_line = (assets / "qbank_data.js").read_text(encoding="utf-8").strip()
+    subjects_line = (assets / "subjects_qbank_data.js").read_text(encoding="utf-8").strip()
+    assert base_line.startswith("window.QBANK_DATA = ") and subjects_line.startswith("window.SUBJECT_QBANK_DATA=")
     base = json.loads(base_line[base_line.find("{") : base_line.rfind(";")])
     subjects = json.loads(subjects_line[subjects_line.find("{") : subjects_line.rfind(";")])
     questions = list(base.get("questions", []))
@@ -203,34 +204,28 @@ console.log('MARROW_CONTENT_CORPUS_HYGIENE_OK questions=2711 fields='+fields);
         handle.flush()
         subprocess.run(["node", handle.name], check=True)
 
-    installed = "NK_QUESTION_CONTENT_HYGIENE_V1_START" in source or "NK_QUESTION_CONTENT_HYGIENE_V1_END" in source
-    if installed:
-        required = [
-            "function nkSanitizeMarrowText(value)",
-            "function nkSanitizeMarrowStructuredExplanation(value)",
-            "function nkSanitizeMarrowQuestion(question)",
-            "function nkCleanQuestionStem(value)",
-            "function nkTableTakeaway(lines,tokens,answer)",
-            "SUBJECTS.forEach(record=>(record.questions||[]).forEach(question=>nkSanitizeMarrowQuestion(question)))",
-        ]
-        for marker in required:
-            if marker not in source:
-                raise SystemExit(f"Generated content hygiene marker missing: {marker}")
-        if source.count("NK_QUESTION_CONTENT_HYGIENE_V1_START") != 1 or source.count("NK_QUESTION_CONTENT_HYGIENE_V1_END") != 1:
-            raise SystemExit("Generated app must contain exactly one hygiene marker pair")
+    if CORE.read_text(encoding="utf-8").rstrip() not in source:
+        raise SystemExit("Shipped app must carry the content hygiene core verbatim")
+    required = [
+        "function nkSanitizeMarrowText(value)",
+        "function nkSanitizeMarrowStructuredExplanation(value)",
+        "function nkSanitizeMarrowQuestion(question)",
+        "function nkCleanQuestionStem(value)",
+        "function nkTableTakeaway(lines,tokens,answer)",
+        "SUBJECTS.forEach(record=>(record.questions||[]).forEach(question=>nkSanitizeMarrowQuestion(question)))",
+    ]
+    for marker in required:
+        if marker not in source:
+            raise SystemExit(f"Generated content hygiene marker missing: {marker}")
+    if source.count("NK_QUESTION_CONTENT_HYGIENE_V1_START") != 1 or source.count("NK_QUESTION_CONTENT_HYGIENE_V1_END") != 1:
+        raise SystemExit("Generated app must contain exactly one hygiene marker pair")
 
-        has_marrow = "const MARROW_DATA = " in source
-        generated_bank_hooks = source.count("(record.questions||[]).forEach(question=>{\n      nkSanitizeMarrowQuestion(question);")
-        if has_marrow and generated_bank_hooks != 2:
-            raise SystemExit(f"Post-Marrow app must sanitize both generated bank registry paths; found {generated_bank_hooks}")
-        if not has_marrow and generated_bank_hooks != 0:
-            raise SystemExit(f"Pre-Marrow app unexpectedly has generated-bank hooks: {generated_bank_hooks}")
-        print(
-            "QUESTION_CONTENT_HYGIENE_INTEGRATION_OK: "
-            f"phase={'post-marrow' if has_marrow else 'pre-marrow'} generated_bank_hooks={generated_bank_hooks}"
-        )
-    else:
-        print("QUESTION_CONTENT_HYGIENE_SOURCE_SHELL_OK: behavior tested; integration markers are installed during the deterministic build")
+    if "const MARROW_DATA = " not in source:
+        raise SystemExit("Shipped app must register the generated Marrow bank")
+    generated_bank_hooks = source.count("(record.questions||[]).forEach(question=>{\n      nkSanitizeMarrowQuestion(question);")
+    if generated_bank_hooks != 2:
+        raise SystemExit(f"Post-Marrow app must sanitize both generated bank registry paths; found {generated_bank_hooks}")
+    print(f"QUESTION_CONTENT_HYGIENE_INTEGRATION_OK: phase=post-marrow generated_bank_hooks={generated_bank_hooks}")
 
 
 if __name__ == "__main__":

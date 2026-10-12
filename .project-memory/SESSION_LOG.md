@@ -2521,3 +2521,17 @@ User asked for a thorough functional audit, especially whether FSRS is as good a
 - Collection icons replace universal DNA. Topics resumes exact-bank durable Practice IDs/position/answers, excludes special modes and hides completed-bank zero-left actions. Today's Focus uses saved context while retaining timed priority/multi-session choice.104 local checks, scoped Topics/Home390/820/1440 and combined390/820/1194/1440 pass.
 - Engineering37205213243 and complete build/package job37205213240 pass. Original full-run Android installation hits Playwright's string limit before launch; recovery33642325/run37208580256 hash-checks/reuses that exact674756225-byte APK, streams installation via adb and passes phone/tablet/native Back/restart/FSRS/CBT checks. Full original run is not reported as success. Verification-only owners are retained for future main builds.
 - https://f0ec5f5d.nk-qbank.pages.dev passes actual four-width flows/all133 new questions and all589 media hashes/offline paths; prior283 images are unchanged. Hosted HTML d65c4ced30a2aff44cb8494fbd350fb70b11612fe3497ec87df266ef7ea8a6a5 matches CI. Main-domain production086b04f4 remains unchanged after upload. No physical-device, authenticated-account or clinical acceptance is inferred; docs-only handoff preserves exact application bytes.
+
+## 2026-10-12 — Bake the app page into source (stage 1)
+
+- Branch `feature/home-v12-redesign` from `eb84d7f6` (run 1549 green). `index.html`,
+  `MainActivity.java` and `source_visual_renderer.js` now hold the form the old
+  pipeline generated; 62 patch scripts and their workflow steps removed.
+- Data at `__NK_DATA_*__` tokens, filled by `tools/build_app_data.py`; filled page
+  is byte-identical to the old generated page. Feature tests now read the page and
+  core modules directly; `test_app_source_parity.py` keeps `tools/*_core.js` and
+  feature CSS in step with the page.
+- Verified locally: 70 of 72 non-browser test commands pass (the two left need
+  CI-generated PDF assets); the new pipeline's `app/` tree and `build_web_dist`
+  output were compared with the old pipeline's.
+- Next: stage 2 (include directives), stage 3 (merged stylesheet).
