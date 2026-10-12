@@ -52,7 +52,9 @@ def main() -> None:
 
     require(html, [
         ".bottom-nav", ".navigator", ".question-shell", ".question-card",
-        ".question-text", ".option-list", ".feedback", ".q-footer",
+        # The question footer has been .fixed-actions for many releases; the old
+        # .q-footer marker only survived as unreachable CSS, which the web build prunes.
+        ".question-text", ".option-list", ".feedback", "fixed-actions",
         "localStorage", "activeSession",
     ], "source contract")
     require(manifest, ['android:label="NK QBank"', 'android:usesCleartextTraffic="false"', 'android.permission.INTERNET'], "Android manifest")
