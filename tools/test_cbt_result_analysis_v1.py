@@ -4,7 +4,7 @@
 from pathlib import Path
 import re
 import subprocess
-from app_page import app_page
+from app_page import app_source
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -13,9 +13,9 @@ CORE = ROOT / "app/src/main/modules/cbt_result_analysis.js"
 
 
 def main() -> None:
-    page = app_page()
+    page = app_source()
     assert page.count(CORE.read_text(encoding="utf-8").strip()) == 1, "result analysis core ships verbatim once"
-    for marker in ("NK_CBT_RESULT_ANALYSIS_V1_START", 'id="nk-cbt-result-analysis-v1"',
+    for marker in ("NK_CBT_RESULT_ANALYSIS_V1_START", '/* ── nk-cbt-result-analysis-v1 ── */',
                    "      ${nkCbtComparisonSection(t)}\n      ${nkCbtResultSection(t)}\n"
                    "      ${studyModule?nkModuleResultExtras(t,studyModule):''}"):
         assert page.count(marker) == 1, marker

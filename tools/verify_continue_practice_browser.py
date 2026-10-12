@@ -7,6 +7,7 @@ from pathlib import Path
 import threading
 
 from playwright.sync_api import sync_playwright
+from app_page import built_page
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -17,7 +18,7 @@ def button_labels(locator):
 
 def main() -> None:
     web = ROOT / "build/web"
-    html = (web / "index.html").read_text(encoding="utf-8")
+    html = built_page(web)
     for marker in ("NK_CONTINUE_PRACTICE_RESUME_V1_START", "NK_PRACTICE_SINGLE_REVIEW_GRID_V1_START"):
         if marker not in html:
             raise SystemExit(f"Practice flow layer missing from built PWA: {marker}")

@@ -40,8 +40,8 @@ scripts may not import PyMuPDF themselves, but the required generation does:
 
 Running these against the source checkout reports missing mapping files. Feature
 tests run against the source page directly: `app/src/main/assets/index.html` is
-edited as source (feature modules in `app/src/main/modules/`, read through
-`tools/app_page.py`) and only `tools/build_app_data.py` assembles it and writes
+edited as source (feature modules in `app/src/main/modules/`, all CSS in
+`app/src/main/assets/app.css`, read through `tools/app_page.py`) and only `tools/build_app_data.py` assembles it and writes
 data into it. The local runner labels them `CI_ONLY`. It does not weaken their
 assertions or manufacture generated artifacts to make them pass.
 

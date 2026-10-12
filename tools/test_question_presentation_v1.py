@@ -6,7 +6,7 @@ import subprocess
 import tempfile
 
 import re
-from app_page import app_page
+from app_page import app_source
 
 ROOT = Path(__file__).resolve().parents[1]
 CORE = ROOT / "app/src/main/modules/question_presentation.js"
@@ -561,7 +561,7 @@ console.log('QUESTION_PRESENTATION_BEHAVIOR_OK repaired='+repaired+' invalid='+i
 
 
 def test_shipped_page() -> None:
-    updated = app_page()
+    updated = app_source()
     assert updated.count(CORE.read_text(encoding="utf-8").rstrip()) == 1
     assert updated.index("NK_QUESTION_PRESENTATION_V1_START") < updated.index("  window.QB={")
     assert updated.count("${nkQuestionStemMarkup(q)}") == 3
@@ -576,7 +576,7 @@ def test_shipped_page() -> None:
     # The gold distractor label keeps its plain escaped boundary; its rationale shares notation.
     assert "<strong>'+esc(o.text||'')+'</strong>" in updated
     assert "nkScientificMarkup(reason)" in updated and "esc(reason)" not in updated
-    assert updated.count('<style id="nk-question-presentation-v1">') == 1
+    assert updated.count('/* ── nk-question-presentation-v1 ── */') == 1
     assert ".nk-sci-sub,.nk-sci-sup" in updated
     for marker in ("nkQuestionPresentationFor", "nkQuestionMatchingTable"):
         assert marker in updated

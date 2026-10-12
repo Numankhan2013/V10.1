@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 """Late owner preserves existing routes and ships without a duplicate route listener."""
 from pathlib import Path
-from app_page import app_page
+from app_page import css_section, app_source
 ROOT=Path(__file__).resolve().parents[1]
 def main():
-    result=app_page()
-    css=(ROOT/'app/src/main/modules/interaction_polish.css').read_text();core=(ROOT/'app/src/main/modules/interaction_polish.js').read_text()
-    style='<style id="nk-interaction-polish-v1">\n'+css+'\n</style>'
-    assert result.count(style)==1 and result.index(style)<result.index('</head>')
+    result=app_source()
+    css=css_section('nk-interaction-polish-v1');core=(ROOT/'app/src/main/modules/interaction_polish.js').read_text()
+    assert css and result.index('<link rel="stylesheet" href="app.css">')<result.index('</head>')
     assert result.count(core)==1 and result.count('NK_INTERACTION_POLISH_V1_START')==1
     assert result.index('NK_REFINED_ANALYSIS_V1_START')<result.index(core)<result.index('  window.QB={')
     assert "window.addEventListener('hashchange', () => { route = parseHash(); render(); });" not in result

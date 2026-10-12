@@ -5,6 +5,7 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 import threading
 from playwright.sync_api import sync_playwright, expect
+from app_page import built_page
 
 ROOT = Path(__file__).resolve().parents[1]
 PROBE = 'window.__nkLearningTest={model:()=>nkLearningModel(),questions:()=>nkAllStudyQuestions().filter(q=>nkQuestionPresentationFor(q).valid)};\n'
@@ -59,7 +60,7 @@ def geist_choose(page, label, value):
 
 def main():
     web = ROOT / 'build/web'
-    html = (web / 'index.html').read_text()
+    html = built_page(web)
     assert 'NK_LEARNING_INSIGHTS_V1_START' in html
     diagnostic = html.replace('  window.QB={', PROBE + '  window.QB={', 1).encode()
     class Handler(SimpleHTTPRequestHandler):

@@ -4,13 +4,13 @@ from pathlib import Path
 import re
 import subprocess
 import tempfile
-from app_page import app_page
+from app_page import app_source
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def main():
-    html = app_page()
+    html = app_source()
     names = ('selectPractice', 'selectExam', 'submitPractice', 'retryCurrent', 'nextQ', 'prevQ', 'goIndex', 'toggleBookmark')
     handlers = '\n'.join(re.search(r'  function ' + name + r'\([^\n]+', html)[0] for name in names)
     fsrs = (ROOT / 'app/src/main/modules/fsrs_scheduler.js').read_text()

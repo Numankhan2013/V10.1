@@ -7,13 +7,14 @@ import json
 import threading
 from playwright.sync_api import sync_playwright, expect, TimeoutError as PlaywrightTimeoutError
 from verify_learning_insights_browser import PROBE, SEED, geist_choose
+from app_page import built_page
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def main():
     web = ROOT / 'build/web'
-    html = (web / 'index.html').read_text()
+    html = built_page(web)
     probe = PROBE + 'window.__nkQuality={question:()=>nkCurrentQuestion()};\n'
     diagnostic = html.replace('  window.QB={', probe + '  window.QB={', 1).encode()
 

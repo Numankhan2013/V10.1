@@ -46,6 +46,9 @@ def main() -> None:
 
     html_path = args.html if args.html.is_absolute() else ROOT / args.html
     html = assemble(html_path.read_text(encoding="utf-8"))
+    if (html_path.parent / "app.css").is_file():
+        # Every style of the page lives in the stylesheet beside it.
+        html += "\n" + (html_path.parent / "app.css").read_text(encoding="utf-8")
     if args.stage == "packaged":
         # The web build ships question data beside index.html (build_web_dist.externalize_data).
         html += "".join(p.read_text(encoding="utf-8") for p in sorted((html_path.parent / "data").glob("*.js")))

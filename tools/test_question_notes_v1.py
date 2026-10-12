@@ -3,7 +3,7 @@
 
 from pathlib import Path
 import subprocess
-from app_page import app_page
+from app_page import app_source
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -13,7 +13,7 @@ HTML = ROOT / "app/src/main/assets/index.html"
 
 
 def main() -> None:
-    page = app_page()
+    page = app_source()
     for core in (CORE, MEDIA):
         assert page.count(core.read_text(encoding="utf-8").strip()) == 1, core.name
     start = page.index("  window.QB={")
@@ -22,7 +22,7 @@ def main() -> None:
         "NK_QUESTION_NOTES_V1_START",
         "    app.innerHTML=out;\n    nkMountQuestionNote();",
         "    bookmarks: {},\n    questionNotes: {},",
-        'id="nk-question-notes-v1"',
+        '/* ── nk-question-notes-v1 ── */',
         "NK_NOTE_MEDIA_V1_START",
         "function nkNoteImportPdf(",
         ".nk-note-viewer-stage",

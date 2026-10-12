@@ -7,10 +7,10 @@ import json
 from pathlib import Path
 import re
 import subprocess
-from app_page import app_page
+from app_page import app_source
 
 ROOT = Path(__file__).resolve().parents[1]
-page = app_page()
+page = app_source()
 
 
 def section(start, end):

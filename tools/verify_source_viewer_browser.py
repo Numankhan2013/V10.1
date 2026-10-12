@@ -7,6 +7,7 @@ from pathlib import Path
 import threading
 
 from playwright.sync_api import expect, sync_playwright
+from app_page import built_page
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -35,7 +36,7 @@ def drag(page, x0: float, y0: float, dx: float, dy: float) -> None:
 
 def main() -> None:
     web = ROOT / "build/web"
-    assert "redesign/nk-viewer.js" in (web / "index.html").read_text(encoding="utf-8")
+    assert "redesign/nk-viewer.js" in built_page(web)
     output = ROOT / "build/ui-checks"
     output.mkdir(parents=True, exist_ok=True)
     server = ThreadingHTTPServer(("127.0.0.1", 0), partial(Quiet, directory=str(web)))

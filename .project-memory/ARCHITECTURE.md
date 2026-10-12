@@ -286,10 +286,19 @@ source: the output of the old 62-step patch chain (`fix_review_build` →
 … → `apply_uworld_biochemistry_v1`) was baked into them and those scripts were
 removed. Mentions of an `apply_*`/`install_*` script below name the feature's
 original owner; its code now lives in index.html (read the old script with
-`git show eb84d7f6:tools/<name>.py`). Feature modules and
-stylesheets live in `app/src/main/modules/` and sit in the page as
+`git show eb84d7f6:tools/<name>.py`). Feature script
+modules live in `app/src/main/modules/` and sit in the page as
 `/* @module <file> */` markers (`tools/app_page.py` assembles them;
-`tools/test_app_source_parity.py` requires each module exactly once).
+`tools/test_app_source_parity.py` requires each module exactly once). All CSS
+is one stylesheet, `app/src/main/assets/app.css`: the former Geist files
+(tokens, theme, redesign, polish, PDF loader, viewer) followed by the former
+inline style blocks, in their original cascade order, each headed
+`/* ── <name> ── */`. Declarations that lost on every element to a later
+same-selector rule or to the Geist twin (`html[data-nk-ui="geist"] X`,
+`html[data-nk-ui="geist"] :is(body,#nkg-root) X`) were removed; a computed-style
+comparison over every browser-verifier screenshot (light and dark) showed no
+change. `source_visual_renderer.js` and `marrow_visual_renderer.js` still add
+their own small style elements at runtime.
 
 `tools/build_app_data.py` is the only step that changes the page: it puts the
 modules in place and fills the

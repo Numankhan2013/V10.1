@@ -3,13 +3,13 @@
 from pathlib import Path
 import subprocess
 import tempfile
-from app_page import app_page
+from app_page import app_source
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def main():
-    app=app_page();core=(ROOT/'app/src/main/modules/icon_refinement.js').read_text()
+    app=app_source();core=(ROOT/'app/src/main/modules/icon_refinement.js').read_text()
     assert app.count(core)==1 and app.count('NK_ICON_REFINEMENT_V1_START')==1
     assert app.index('NK_INTERACTION_POLISH_V1_END')<app.index(core)<app.index('  window.QB={')
     for anchor in ['NK_INTERACTION_POLISH_V1_END','  window.QB={','function nkSubjectGraphic(','function nkAnalysisIcon(','function navIcon(']:

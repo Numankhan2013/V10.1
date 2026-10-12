@@ -1,8 +1,8 @@
 from pathlib import Path
 import re
-from app_page import app_page
+from app_page import app_source
 
-html = app_page()
+html = app_source()
 
 required = [
     'cbt-canonical-review',

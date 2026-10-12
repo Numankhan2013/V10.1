@@ -7,6 +7,7 @@ from pathlib import Path
 import threading
 
 from playwright.sync_api import expect, sync_playwright
+from app_page import built_page
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -16,7 +17,7 @@ STOP_TIMERS='()=>{const top=setTimeout(()=>{},0);for(let id=1;id<=top;id++)clear
 
 def main() -> None:
     web = ROOT / 'build/web'
-    assert 'NK_BANK_AWARE_CBT_BUILDER_V1_START' in (web / 'index.html').read_text(encoding='utf-8')
+    assert 'NK_BANK_AWARE_CBT_BUILDER_V1_START' in built_page(web)
     output = ROOT / 'build/ui-checks'
     output.mkdir(parents=True, exist_ok=True)
     server = ThreadingHTTPServer(('127.0.0.1', 0), partial(SimpleHTTPRequestHandler, directory=str(web)))
