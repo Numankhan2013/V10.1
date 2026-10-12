@@ -401,9 +401,21 @@
     if(typeof nkCheckpointFromSession==='function')return nkCheckpointFromSession(payload,existing,String(payload.lifecycle||'active'));
     const ids=(payload.sessionQuestionIds?.length?payload.sessionQuestionIds:payload.questionIds||[]).map(String);return {version:1,sessionId:String(payload.id),sessionQuestionIds:ids,membershipHash:ids.join('\u001f'),context:payload.practiceContext||{},position:{index:Number(payload.index||0),currentQuestionId:String(payload.questionIds?.[Number(payload.index)||0]||'')},answers:payload.answers||{},submitted:payload.submitted||{},questionTimes:payload.questionTimes||{},pendingFsrsRatings:payload.pendingRating||{},questionUpdates:{},lifecycle:String(payload.lifecycle||'active'),updatedAt:Number(updatedAt||Date.now())};
   }
+  // Synced ids end up inside inline onclick handlers; refuse records whose
+  // id-like fields could break out of a quoted handler argument.
+  const NK_SYNC_UNSAFE=/['"`<>\\]/;
+  function nkSyncIdsSafe(value,key='',depth=0){
+    if(depth>6||value==null)return true;
+    const idKey=/^(id|.*Id|originRoute)$/.test(key),idsKey=/Ids$/.test(key);
+    if(typeof value==='string')return !(idKey||idsKey)||!NK_SYNC_UNSAFE.test(value);
+    if(Array.isArray(value))return value.every(item=>nkSyncIdsSafe(item,idsKey?key:'',depth+1));
+    if(typeof value==='object')return Object.entries(value).every(([k,v])=>nkSyncIdsSafe(v,k,depth+1));
+    return true;
+  }
   function nkApplyCloudEnvelope(remote){
     const winner=['attempts','practiceSessions'].includes(remote.kind)?remote:nkChooseWinner(remote);if(winner!==remote&&nkHash(winner)!==nkHash(remote))return false;
     const payload=winner.deleted?null:nkJson(winner.payload,null),id=winner.entityId;
+    if(NK_SYNC_UNSAFE.test(String(id??''))||!nkSyncIdsSafe(payload)){console.warn('Skipped unsafe synced record',winner.kind);return false;}
     if(winner.kind==='attempts'&&payload?.attempt?.id){
       const qid=String(payload.qid),attempt=payload.attempt;
       if(attempt.isRatingRevision&&(!attempt.ratingOf||![2,3,4].includes(Number(attempt.rating))))return false;
