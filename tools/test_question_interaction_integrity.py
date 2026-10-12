@@ -4,16 +4,17 @@ from pathlib import Path
 import re
 import subprocess
 import tempfile
+from app_page import app_page
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def main():
-    html = (ROOT / 'app/src/main/assets/index.html').read_text()
+    html = app_page()
     names = ('selectPractice', 'selectExam', 'submitPractice', 'retryCurrent', 'nextQ', 'prevQ', 'goIndex', 'toggleBookmark')
     handlers = '\n'.join(re.search(r'  function ' + name + r'\([^\n]+', html)[0] for name in names)
-    fsrs = (ROOT / 'tools/fsrs_scheduler_core.js').read_text()
-    integrity = ROOT / 'tools/question_interaction_core.js'
+    fsrs = (ROOT / 'app/src/main/modules/fsrs_scheduler.js').read_text()
+    integrity = ROOT / 'app/src/main/modules/question_interaction.js'
     runtime = r'''
 const assert=require('assert');global.window=globalThis;
 const events={},windowEvents={};window.FSRS=require(process.argv[2]);window.addEventListener=(name,fn)=>{windowEvents[name]=fn};

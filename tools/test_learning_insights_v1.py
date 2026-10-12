@@ -5,14 +5,15 @@ import os
 from pathlib import Path
 import re
 import subprocess
+from app_page import app_page
 
 ROOT = Path(__file__).resolve().parents[1]
-core = (ROOT / 'tools/learning_insights_core.js').read_text()
-fsrs = (ROOT / 'tools/fsrs_scheduler_core.js').read_text()
+core = (ROOT / 'app/src/main/modules/learning_insights.js').read_text()
+fsrs = (ROOT / 'app/src/main/modules/fsrs_scheduler.js').read_text()
 active = fsrs[fsrs.index('  function nkFsrsActiveAttempts('):fsrs.index('  function nkFsrsUnresolvedMistake(')]
-page = (ROOT / 'app/src/main/assets/index.html').read_text(encoding='utf-8')
+page = app_page()
 assert page.count(core.strip()) == 1, 'Insights core ships verbatim once'
-assert page.count('<style id="nk-learning-insights-v1">\n' + (ROOT / 'tools/learning_insights.css').read_text().strip()) == 1
+assert page.count('<style id="nk-learning-insights-v1">\n' + (ROOT / 'app/src/main/modules/learning_insights.css').read_text().strip()) == 1
 assert page.count('function analytics(') == 1, 'Learning Insights owns the only analytics renderer'
 assert page.count('sessionId:s.id') == 2
 for marker in ("kind:'practice', studyModuleId:s.studyModuleId||null, sessionId:s.id,",

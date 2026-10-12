@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-"""Write the question data into the app page.
+"""Assemble the app page and write the question data into it.
 
 app/src/main/assets/index.html is the app's source: markup, styles and scripts,
-edited directly. Data it embeds is generated from data/ and replaced here, each
-at a `__NK_DATA_<NAME>__` token, so a data change never needs a code change:
+edited directly. Its larger features live in app/src/main/modules/ and are put
+in place at their `/* @module <file> */` markers (tools/app_page.py). Data it
+embeds is generated from data/ and replaced here, each at a
+`__NK_DATA_<NAME>__` token, so a data change never needs a code change:
 
   SUBJECT_QBANK_DATA, QBANK_DATA   assets/subjects_qbank_data.js, qbank_data.js
   MARROW_DATA                      data/marrow expanded banks + reviewed overrides
@@ -17,7 +19,7 @@ It also writes the generated data files those tokens point at (UWorld
 collections, Marrow figures). Every token must be replaced; any token left over
 fails the build.
 
-  python3 tools/build_app_data.py            # fill index.html in place
+  python3 tools/build_app_data.py            # assemble and fill index.html in place
   python3 tools/build_app_data.py --check    # list the tokens without writing
 """
 from __future__ import annotations
@@ -26,6 +28,8 @@ import argparse
 import json
 import re
 from pathlib import Path
+
+from app_page import assemble
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "app/src/main/assets"
@@ -103,7 +107,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--check", action="store_true", help="report the tokens in index.html without writing")
     args = parser.parse_args()
-    page = HTML.read_text(encoding="utf-8")
+    page = assemble(HTML.read_text(encoding="utf-8"))
     found = TOKEN.findall(page)
     unknown = sorted(set(found) - set(BUILDERS))
     missing = sorted(set(BUILDERS) - set(found))

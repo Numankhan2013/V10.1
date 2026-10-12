@@ -3,6 +3,7 @@
 
 from pathlib import Path
 import re
+from app_page import app_page
 
 
 HTML = Path("app/src/main/assets/index.html")
@@ -23,7 +24,7 @@ def function_section(source: str, start: str) -> str:
 
 
 def main() -> None:
-    source = HTML.read_text(encoding="utf-8")
+    source = app_page()
     required = [
         'id="nk-whole-app-vision-v114"',
         "function nkAppSubjectMeta(name=activeSubject)",

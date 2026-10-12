@@ -1,7 +1,7 @@
 # Learning Insights
 
 The final Insights screen is owned by `tools/apply_learning_insights_v1.py`,
-`tools/learning_insights_core.js`, and `tools/learning_insights.css`.
+`app/src/main/modules/learning_insights.js`, and `app/src/main/modules/learning_insights.css`.
 It preserves the shared study engines and derives analytics without a second
 persisted progress model.
 

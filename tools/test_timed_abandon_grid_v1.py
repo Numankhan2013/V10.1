@@ -4,14 +4,15 @@ from pathlib import Path
 import json
 import re
 import subprocess
+from app_page import app_page
 
 ROOT=Path(__file__).resolve().parents[1]
-CORE=ROOT/'tools/timed_abandon_grid_core.js'
+CORE=ROOT/'app/src/main/modules/timed_abandon_grid.js'
 HTML=ROOT/'app/src/main/assets/index.html'
 
 
 def main():
-    page=HTML.read_text(encoding='utf-8')
+    page=app_page()
     assert page.count(CORE.read_text(encoding='utf-8').strip())==1,'abandon core ships verbatim once'
     for marker in ('NK_TIMED_ABANDON_GRID_V1_START','id="nk-timed-abandon-grid-v1"'):
         assert page.count(marker)==1,marker

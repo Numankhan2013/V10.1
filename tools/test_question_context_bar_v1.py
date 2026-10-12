@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from pathlib import Path
 import re
+from app_page import app_page
 
 
 HTML = Path("app/src/main/assets/index.html")
@@ -13,7 +14,7 @@ def section(source: str, start: str, end: str) -> str:
 
 
 def main() -> None:
-    source = HTML.read_text(encoding="utf-8")
+    source = app_page()
     if not re.search(r"function nkQuestionContext\(q\)\s*\{\s*return\s+['\"]{2};\s*\}", source):
         raise SystemExit("Question context helper must render nothing")
     renderers = "".join((

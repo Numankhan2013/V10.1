@@ -3,6 +3,7 @@
 from __future__ import annotations
 import argparse, base64, hashlib, json, re, subprocess, tempfile, zlib
 from pathlib import Path
+from app_page import app_page
 ROOT=Path(__file__).resolve().parents[1]
 HTML=ROOT/'app/src/main/assets/index.html'
 DATA=ROOT/'data/marrow'
@@ -132,7 +133,7 @@ def main():
     assert len(gold_q)+len(phys_gold_q)==142
     if args.data_only:
         print('MARROW_DATA_OK anatomy=1115/63 biochemistry=582/28 physiology=1014/43 total=2711 pilot_enhanced=142 rationales=426 repaired=3');return
-    s=HTML.read_text(encoding='utf-8')
+    s=app_page()
     # Source index.html carries data tokens; CI fills them (build_app_data.py). Fill
     # the Marrow ones the same way so data-dependent markers are checked either way.
     import build_app_data

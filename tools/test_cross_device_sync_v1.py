@@ -5,12 +5,13 @@ from pathlib import Path
 import json
 import subprocess
 import tempfile
+from app_page import app_page
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CORE = ROOT / "tools/cross_device_sync_core.js"
-STORAGE_CORE = ROOT / "tools/durable_persistence_core.js"
-NOTES_CORE = ROOT / "tools/question_notes_core.js"
+CORE = ROOT / "app/src/main/modules/cross_device_sync.js"
+STORAGE_CORE = ROOT / "app/src/main/modules/durable_persistence.js"
+NOTES_CORE = ROOT / "app/src/main/modules/question_notes.js"
 
 
 def test_durable_persistence() -> None:
@@ -410,8 +411,8 @@ function nkDurablePersist(v){localStorage.setItem(LS_KEY,JSON.stringify(v));retu
     install = worker.split("self.addEventListener('install'", 1)[1].split("self.addEventListener('activate'", 1)[0]
     if "skipWaiting" in install:
         raise SystemExit("PWA installation must wait for an explicit update action")
-    generated = (ROOT / "app/src/main/assets/index.html").read_text(encoding="utf-8")
-    if generated.count((ROOT / "tools/pwa_update_core.js").read_text(encoding="utf-8")) != 1 or "NK_QBANK_VERSION" not in worker:
+    generated = app_page()
+    if generated.count((ROOT / "app/src/main/modules/pwa_update.js").read_text(encoding="utf-8")) != 1 or "NK_QBANK_VERSION" not in worker:
         raise SystemExit("PWA updates must compare the waiting build with the running page")
     sync_core = CORE.read_text(encoding="utf-8")
     pull_at = sync_core.find("pulled=await nkPullCloud(token)")

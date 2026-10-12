@@ -3,9 +3,10 @@
 
 from pathlib import Path
 import re
+from app_page import app_page
 
 ROOT = Path(__file__).resolve().parents[1]
-PAGE = (ROOT / "app/src/main/assets/index.html").read_text(encoding="utf-8")
+PAGE = app_page()
 
 
 def style_block(style_id: str) -> str:

@@ -5,16 +5,17 @@ import json
 from pathlib import Path
 import re
 import subprocess
+from app_page import app_page
 
 
 ROOT = Path(__file__).resolve().parents[1]
 HTML = ROOT / "app/src/main/assets/index.html"
-CORE = ROOT / "tools/practice_correction_core.js"
+CORE = ROOT / "app/src/main/modules/practice_correction.js"
 REVIEW_ANCHOR = '      <section class="nk-section"><div class="nk-section-head"><div><div class="nk-kicker">QUESTION REVIEW</div>'
 
 
 def main() -> None:
-    page = HTML.read_text(encoding='utf-8')
+    page = app_page()
     assert page.count(CORE.read_text(encoding='utf-8').strip()) == 1, 'correction core ships verbatim once'
     for marker in ('NK_PRACTICE_CORRECTION_V1_START', 'id="nk-practice-correction-v1"',
                    '      ${nkCorrectionResultSection(t)}\n' + REVIEW_ANCHOR):

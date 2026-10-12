@@ -4,10 +4,11 @@ from pathlib import Path
 import re
 import subprocess
 import tempfile
+from app_page import app_page
 
 ROOT = Path(__file__).resolve().parents[1]
-home = (ROOT / "app/src/main/assets/index.html").read_text(encoding="utf-8")
-interaction = (ROOT / "tools/question_interaction_core.js").read_text(encoding="utf-8")
+home = app_page()
+interaction = (ROOT / "app/src/main/modules/question_interaction.js").read_text(encoding="utf-8")
 
 if home.count("function nkMarkSkippedFromSession(") != 1:
     raise SystemExit("nkMarkSkippedFromSession missing or duplicated in the app page")

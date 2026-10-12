@@ -4,15 +4,16 @@
 from pathlib import Path
 import re
 import subprocess
+from app_page import app_page
 
 
 ROOT = Path(__file__).resolve().parents[1]
 HTML = ROOT / "app/src/main/assets/index.html"
-CORE = ROOT / "tools/qbank_coverage_core.js"
+CORE = ROOT / "app/src/main/modules/qbank_coverage.js"
 
 
 def main() -> None:
-    page = HTML.read_text(encoding="utf-8")
+    page = app_page()
     assert page.count(CORE.read_text(encoding="utf-8").strip()) == 1, "coverage core ships verbatim once"
     assert "CHAPTER PERFORMANCE" not in page, "old active-bank chapter list stays removed"
     for marker in ("NK_QBANK_COVERAGE_V1_START", 'id="nk-qbank-coverage-v1"'):
@@ -23,7 +24,7 @@ def main() -> None:
     # Learning Insights later replaced the analytics() that placed ${nkCoverageSection()};
     # the tracker API stays installed and Insights is owned by the Learning Insights page.
     assert page.count("function analytics(){") == 1
-    assert page.count((ROOT / "tools/learning_insights_core.js").read_text(encoding="utf-8").strip()) == 1
+    assert page.count((ROOT / "app/src/main/modules/learning_insights.js").read_text(encoding="utf-8").strip()) == 1
     for match in re.finditer(r"<script(?![^>]*\bsrc=)[^>]*>", page):
         inline = page[match.end():page.index("</script>", match.end())]
         if inline.strip():

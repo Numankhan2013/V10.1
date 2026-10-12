@@ -2535,3 +2535,15 @@ User asked for a thorough functional audit, especially whether FSRS is as good a
   CI-generated PDF assets); the new pipeline's `app/` tree and `build_web_dist`
   output were compared with the old pipeline's.
 - Next: stage 2 (include directives), stage 3 (merged stylesheet).
+
+## 2026-10-12 — Page modules (bake stage 2)
+
+- The 29 `tools/*_core.js` modules and 6 feature stylesheets moved to
+  `app/src/main/modules/` (without the `_core` suffix). The page holds a
+  `/* @module <file> */` marker for each instead of a copy: 1.1 MB → 450 KB.
+- `tools/app_page.py` assembles the page; tests and the source product contract
+  read through it, and `build_app_data.py` assembles before filling data. The
+  assembled page is identical to stage 1, and the filled page to the old 19 MB
+  page.
+- Removed six unused scripts that still patched index.html and two workflows
+  for retired branches whose scripts no longer exist.

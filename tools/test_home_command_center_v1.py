@@ -5,6 +5,7 @@ from pathlib import Path
 import subprocess
 import json
 import re
+from app_page import app_page
 
 ROOT=Path(__file__).resolve().parents[1]
 HTML=ROOT/'app/src/main/assets/index.html'
@@ -13,7 +14,7 @@ STYLE_ID='nk-home-command-center-v1'
 
 
 def main():
-    html=HTML.read_text(encoding='utf-8')
+    html=app_page()
     script=next(x for x in re.findall(r'<script>(.*?)</script>',html,re.S) if f'{FLOW_MARKER}_START' in x)
     subprocess.run(['node','--check'],input=script,text=True,check=True)
 

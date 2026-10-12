@@ -87,8 +87,11 @@ commit/run when useful and tell the next agent to resolve live HEAD from Git.
   2026-10-12; `verify_build_pipeline.py` rejects new ones). Question data never
   lives in the page: it carries `__NK_DATA_*__` tokens that
   `tools/build_app_data.py` (the single data owner) fills in CI.
-- A block that ships verbatim from `tools/*_core.js` or a feature stylesheet
-  must be edited in both places; `tools/test_app_source_parity.py` fails on drift.
+- Larger features live in `app/src/main/modules/` (one `.js` or `.css` per
+  feature, unit-tested on their own) and sit in the page as
+  `/* @module <file> */` markers. Edit the module file; tests read the page
+  through `tools/app_page.py`, which puts the modules in place, and
+  `build_app_data.py` writes the assembled page in CI.
 - Protected: Practice, Timed CBT, session review + navigator, Review
   Solutions + grid + Previous/Next + End Review, persistence, Home/Topics/
   Tests/Insights/More + subject switching, source-faithful renderers,

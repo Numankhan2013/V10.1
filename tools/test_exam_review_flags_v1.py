@@ -4,13 +4,14 @@ from pathlib import Path
 import json
 import re
 import subprocess
+from app_page import app_page
 
 ROOT=Path(__file__).resolve().parents[1]
-CORE=ROOT/'tools/exam_review_flags_core.js'
+CORE=ROOT/'app/src/main/modules/exam_review_flags.js'
 HTML=ROOT/'app/src/main/assets/index.html'
 
 def main():
-    page=HTML.read_text(encoding='utf-8')
+    page=app_page()
     assert page.count(CORE.read_text(encoding='utf-8').strip())==1,'review flag core ships verbatim once'
     for marker in ('NK_EXAM_REVIEW_FLAGS_V1_START','id="nk-exam-review-flags-v1"',
                    '<div class="option-list">${options}</div>${nkExamReviewButton(q,s)}</section>',

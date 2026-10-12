@@ -4,15 +4,16 @@
 from pathlib import Path
 import re
 import subprocess
+from app_page import app_page
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CORE = ROOT / "tools/insights_focus_core.js"
+CORE = ROOT / "app/src/main/modules/insights_focus.js"
 HTML = ROOT / "app/src/main/assets/index.html"
 
 
 def main() -> None:
-    page = HTML.read_text(encoding="utf-8")
+    page = app_page()
     assert page.count(CORE.read_text(encoding="utf-8").strip()) == 1, "focus core ships verbatim once"
     for marker in ("NK_INSIGHTS_FOCUS_V1_START", 'id="nk-insights-focus-v1"',
                    "else if(route.page==='analytics') out=analytics();"):
@@ -22,7 +23,7 @@ def main() -> None:
     # Learning Insights later replaced the old analytics() that rendered this section;
     # its focus API stays installed and Insights is owned by the Learning Insights page.
     assert page.count("function analytics(){") == 1
-    assert page.count((ROOT / "tools/learning_insights_core.js").read_text(encoding="utf-8").strip()) == 1
+    assert page.count((ROOT / "app/src/main/modules/learning_insights.js").read_text(encoding="utf-8").strip()) == 1
     assert "CHAPTER PERFORMANCE" not in page
     for match in re.finditer(r"<script(?![^>]*\bsrc=)[^>]*>", page):
         inline = page[match.end():page.index("</script>", match.end())]

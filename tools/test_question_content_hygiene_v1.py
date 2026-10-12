@@ -8,15 +8,16 @@ import json
 import zlib
 import subprocess
 import tempfile
+from app_page import app_page
 
 
 ROOT = Path(__file__).resolve().parents[1]
 HTML = ROOT / "app/src/main/assets/index.html"
-CORE = ROOT / "tools/question_content_hygiene_core.js"
+CORE = ROOT / "app/src/main/modules/question_content_hygiene.js"
 
 
 def main() -> None:
-    source = HTML.read_text(encoding="utf-8")
+    source = app_page()
 
     behavior = CORE.read_text(encoding="utf-8") + r'''
 const q={

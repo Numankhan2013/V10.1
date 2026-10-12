@@ -16,7 +16,7 @@ from marrow_bank_data import apply_content_overrides
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / 'data/question_completeness_reviews_v1.json'
-CORE = ROOT / 'tools/question_presentation_core.js'
+CORE = ROOT / 'app/src/main/modules/question_presentation.js'
 START = '  /* NK_QUESTION_COMPLETENESS_REVIEWS_START */'
 END = '  /* NK_QUESTION_COMPLETENESS_REVIEWS_END */'
 
@@ -49,7 +49,7 @@ const normalized=clean.map(q=>{const value=clone(q);c.nkQuestionPresentationFor(
 process.stdout.write(JSON.stringify({raw:originals,learner,clean,normalized}));
 '''
     payload = {'prepFiles': [str(ROOT / 'app/src/main/assets' / name) for name in ('qbank_data.js', 'subjects_qbank_data.js')],
-               'hygiene': (ROOT / 'tools/question_content_hygiene_core.js').read_text(),
+               'hygiene': (ROOT / 'app/src/main/modules/question_content_hygiene.js').read_text(),
                'core': CORE.read_text(),
                'rawMarrow': raw, 'marrow': [q for record in records for q in record['questions']]}
     data = json.loads(subprocess.run(['node', '-e', node], input=json.dumps(payload), text=True,

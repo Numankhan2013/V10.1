@@ -9,6 +9,8 @@ import subprocess
 import tempfile
 from pathlib import Path
 
+from app_page import assemble
+
 ROOT = Path(__file__).resolve().parents[1]
 HTML = ROOT / "app/src/main/assets/index.html"
 MAIN = ROOT / "app/src/main/java/com/qbank/biochemistry/MainActivity.java"
@@ -43,7 +45,7 @@ def main() -> None:
     args = parser.parse_args()
 
     html_path = args.html if args.html.is_absolute() else ROOT / args.html
-    html = html_path.read_text(encoding="utf-8")
+    html = assemble(html_path.read_text(encoding="utf-8"))
     if args.stage == "packaged":
         # The web build ships question data beside index.html (build_web_dist.externalize_data).
         html += "".join(p.read_text(encoding="utf-8") for p in sorted((html_path.parent / "data").glob("*.js")))

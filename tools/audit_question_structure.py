@@ -177,7 +177,7 @@ def main() -> None:
             raise ValueError("Generated Marrow IDs differ from canonical 2711 scope")
     assets = args.generated_dir or ROOT / "app/src/main/assets"
     files = [assets / "qbank_data.js", assets / "subjects_qbank_data.js"]
-    core_paths = [ROOT / "tools/question_presentation_core.js", ROOT / "tools/question_content_hygiene_core.js"]
+    core_paths = [ROOT / "app/src/main/modules/question_presentation.js", ROOT / "app/src/main/modules/question_content_hygiene.js"]
     tracked_inputs = files + core_paths + [
         owner_path,
         ROOT / "data/marrow/content_hygiene_overrides_v1.json",

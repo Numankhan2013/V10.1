@@ -4,16 +4,17 @@
 from pathlib import Path
 import re
 import subprocess
+from app_page import app_page
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CORE = ROOT / "tools/revision_desk_core.js"
-SESSION_CORE = ROOT / "tools/revision_session_core.js"
+CORE = ROOT / "app/src/main/modules/revision_desk.js"
+SESSION_CORE = ROOT / "app/src/main/modules/revision_session.js"
 HTML = ROOT / "app/src/main/assets/index.html"
 
 
 def main() -> None:
-    page = HTML.read_text(encoding="utf-8")
+    page = app_page()
     start = page.index("function bottomNav(active){")
     bottom_nav = page[start:page.index("\n  }\n", start) + 4]
     assert page.count('class="bottom-nav ') == 1

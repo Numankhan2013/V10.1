@@ -7,9 +7,10 @@ import json
 from pathlib import Path
 import re
 import subprocess
+from app_page import app_page
 
 ROOT = Path(__file__).resolve().parents[1]
-page = (ROOT / "app/src/main/assets/index.html").read_text(encoding="utf-8")
+page = app_page()
 
 
 def section(start, end):

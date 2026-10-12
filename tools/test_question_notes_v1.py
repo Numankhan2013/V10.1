@@ -3,16 +3,17 @@
 
 from pathlib import Path
 import subprocess
+from app_page import app_page
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CORE = ROOT / "tools/question_notes_core.js"
-MEDIA = ROOT / "tools/question_note_media_core.js"
+CORE = ROOT / "app/src/main/modules/question_notes.js"
+MEDIA = ROOT / "app/src/main/modules/question_note_media.js"
 HTML = ROOT / "app/src/main/assets/index.html"
 
 
 def main() -> None:
-    page = HTML.read_text(encoding="utf-8")
+    page = app_page()
     for core in (CORE, MEDIA):
         assert page.count(core.read_text(encoding="utf-8").strip()) == 1, core.name
     start = page.index("  window.QB={")

@@ -4,15 +4,16 @@
 from pathlib import Path
 import re
 import subprocess
+from app_page import app_page
 
 
 ROOT = Path(__file__).resolve().parents[1]
 HTML = ROOT / "app/src/main/assets/index.html"
-CORE = ROOT / "tools/bank_aware_cbt_builder_core.js"
+CORE = ROOT / "app/src/main/modules/bank_aware_cbt_builder.js"
 
 
 def main() -> None:
-    page = HTML.read_text(encoding="utf-8")
+    page = app_page()
     assert page.count(CORE.read_text(encoding="utf-8").strip()) == 1, "CBT builder core ships verbatim once"
     for marker in ("NK_BANK_AWARE_CBT_BUILDER_V1_START", 'id="nk-bank-aware-cbt-builder-v1"',
                    "    else if(route.page==='test-builder') out=nkCbtBuilderPage();\n"

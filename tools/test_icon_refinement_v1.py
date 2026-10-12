@@ -3,19 +3,20 @@
 from pathlib import Path
 import subprocess
 import tempfile
+from app_page import app_page
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def main():
-    app=(ROOT/'app/src/main/assets/index.html').read_text();core=(ROOT/'tools/icon_refinement_core.js').read_text()
+    app=app_page();core=(ROOT/'app/src/main/modules/icon_refinement.js').read_text()
     assert app.count(core)==1 and app.count('NK_ICON_REFINEMENT_V1_START')==1
     assert app.index('NK_INTERACTION_POLISH_V1_END')<app.index(core)<app.index('  window.QB={')
     for anchor in ['NK_INTERACTION_POLISH_V1_END','  window.QB={','function nkSubjectGraphic(','function nkAnalysisIcon(','function navIcon(']:
         assert app.count(anchor)==1,f'Icon owner anchor mismatch: {anchor}'
     nav=app[app.index('  function navIcon('):app.index('\n  function logo')]
     subject=app[app.index('function nkAppSubjectMeta('):app.index('  function nkFlameGraphic')]
-    analysis=(ROOT/'tools/refined_analysis_core.js').read_text().split('  function nkAnalysisTest')[0]
+    analysis=(ROOT/'app/src/main/modules/refined_analysis.js').read_text().split('  function nkAnalysisTest')[0]
     checks=r'''
 const assert=require('node:assert/strict');
 const names=['menu','bell','search','home','book','test','chart','bookmark','back','chevron','share','star','check','close','more','clock','trash','refresh','grid','heart','body','molecule','dna','bulb','pause'];

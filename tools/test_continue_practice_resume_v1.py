@@ -4,6 +4,7 @@
 from pathlib import Path
 import subprocess
 import tempfile
+from app_page import app_page
 
 ROOT = Path(__file__).resolve().parents[1]
 HTML = ROOT / "app/src/main/assets/index.html"
@@ -12,8 +13,8 @@ START = "/* NK_CONTINUE_PRACTICE_RESUME_V1_START */"
 END = "/* NK_CONTINUE_PRACTICE_RESUME_V1_END */"
 FLOW_START = "/* NK_PRACTICE_SINGLE_REVIEW_GRID_V1_START */"
 FLOW_END = "/* NK_PRACTICE_SINGLE_REVIEW_GRID_V1_END */"
-CORE = (ROOT / "tools/continue_practice_resume_core.js").read_text(encoding="utf-8")
-FLOW_CORE = (ROOT / "tools/practice_single_review_grid_core.js").read_text(encoding="utf-8")
+CORE = (ROOT / "app/src/main/modules/continue_practice_resume.js").read_text(encoding="utf-8")
+FLOW_CORE = (ROOT / "app/src/main/modules/practice_single_review_grid.js").read_text(encoding="utf-8")
 
 
 def run_node_behavior() -> None:
@@ -307,7 +308,7 @@ console.log('CONTINUE_PRACTICE_BEHAVIOR_OK single_grid=true footer=previous_next
 
 
 def test_shipped_page() -> None:
-    html = HTML.read_text(encoding="utf-8")
+    html = app_page()
     for marker in (START, END, FLOW_START, FLOW_END, f'<style id="{STYLE_ID}">', "/* NK_HOME_FLOW_V3_END */"):
         assert html.count(marker) == 1, marker
     # The resume core overrides Home V3 helpers, so it must ship after that flow.

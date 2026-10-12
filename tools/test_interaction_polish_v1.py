@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Late owner preserves existing routes and ships without a duplicate route listener."""
 from pathlib import Path
+from app_page import app_page
 ROOT=Path(__file__).resolve().parents[1]
 def main():
-    result=(ROOT/'app/src/main/assets/index.html').read_text()
-    css=(ROOT/'tools/interaction_polish.css').read_text();core=(ROOT/'tools/interaction_polish_core.js').read_text()
+    result=app_page()
+    css=(ROOT/'app/src/main/modules/interaction_polish.css').read_text();core=(ROOT/'app/src/main/modules/interaction_polish.js').read_text()
     style='<style id="nk-interaction-polish-v1">\n'+css+'\n</style>'
     assert result.count(style)==1 and result.index(style)<result.index('</head>')
     assert result.count(core)==1 and result.count('NK_INTERACTION_POLISH_V1_START')==1

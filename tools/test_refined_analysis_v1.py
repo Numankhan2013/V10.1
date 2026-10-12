@@ -3,12 +3,13 @@
 from pathlib import Path
 import json
 import subprocess
+from app_page import app_page
 
 ROOT = Path(__file__).resolve().parents[1]
-core = (ROOT / 'tools/refined_analysis_core.js').read_text()
-page = (ROOT / 'app/src/main/assets/index.html').read_text(encoding='utf-8')
+core = (ROOT / 'app/src/main/modules/refined_analysis.js').read_text()
+page = app_page()
 assert page.count(core.strip()) == 1, 'refined analysis core ships verbatim once'
-assert page.count('<style id="nk-refined-analysis-v1">\n' + (ROOT / 'tools/refined_analysis.css').read_text().strip()) == 1
+assert page.count('<style id="nk-refined-analysis-v1">\n' + (ROOT / 'app/src/main/modules/refined_analysis.css').read_text().strip()) == 1
 assert page.count('NK_REFINED_ANALYSIS_V1_START') == 1
 qb = page[page.index('  window.QB={'):]
 assert ('nkAnalysisSetTab,nkAnalysisSetTime,nkAnalysisRename,nkMockName,nkMockSaveDraft,nkMockStart,nkMockSaveResult,nkMockRemove,'

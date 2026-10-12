@@ -24,7 +24,7 @@ const NK_UWORLD_COLLECTIONS=[NK_UWORLD_BIOCHEMISTRY_BANK];
 let nkValidQuestionOption=(q,n)=>Boolean(q)&&Number.isInteger(Number(n)),studyModuleDraft=null;
 const state={activeSession:null},location={hostname:'localhost'};
 const document={addEventListener:()=>{},querySelectorAll:()=>[],querySelector:()=>null};
-''' +(ROOT/'tools/question_presentation_core.js').read_text()+ '\n'+(ROOT/'tools/uworld_biochemistry_core.js').read_text()+'\nconst RECORD='+json.dumps(record,ensure_ascii=False)+r''';
+''' +(ROOT/'app/src/main/modules/question_presentation.js').read_text()+ '\n'+(ROOT/'app/src/main/modules/uworld_biochemistry.js').read_text()+'\nconst RECORD='+json.dumps(record,ensure_ascii=False)+r''';
 for(const source of RECORD.questions){
  const q=JSON.parse(JSON.stringify(source)),before=JSON.stringify(q),p=nkQuestionPresentationFor(q);
  assert.equal(p.valid,!q.uworldPilot.requiresVisual,q.id);assert(!p.repaired);assert.deepEqual(p.options,q.options);

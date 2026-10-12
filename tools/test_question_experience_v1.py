@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from pathlib import Path
 import re
+from app_page import app_page
 
 
 HTML = Path("app/src/main/assets/index.html")
@@ -13,7 +14,7 @@ def require(source: str, markers: list[str]) -> None:
 
 
 def main() -> None:
-    source = HTML.read_text(encoding="utf-8")
+    source = app_page()
     require(source, [
         # The shared session experience (V11.4) superseded the V11.3 stylesheet and context bar.
         'id="nk-session-experience-v114"',

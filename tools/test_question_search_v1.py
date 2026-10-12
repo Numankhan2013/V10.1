@@ -5,17 +5,18 @@ from pathlib import Path
 import json
 import re
 import subprocess
+from app_page import app_page
 
 
 ROOT = Path(__file__).resolve().parents[1]
 HTML = ROOT / "app/src/main/assets/index.html"
-CORE = ROOT / "tools/question_search_core.js"
+CORE = ROOT / "app/src/main/modules/question_search.js"
 NOTES_ROW = "${row('book','My notes',`${fmtNum(nkSavedQuestionNotes().length)} recall cues`,\"window.QB.nav('notes')\",'is-violet')}"
 SEARCH_ROW = "${row('search','Find a question','Search every subject and bank',\"window.QB.nav('question-search')\",'is-blue')}"
 
 
 def main() -> None:
-    page = HTML.read_text(encoding="utf-8")
+    page = app_page()
     assert page.count(CORE.read_text(encoding="utf-8").strip()) == 1, "search core ships verbatim once"
     for marker in ("NK_QUESTION_SEARCH_V1_START", 'id="nk-question-search-v1"',
                    "else if(route.page==='question-search') out=nkQuestionSearchPage();\n"

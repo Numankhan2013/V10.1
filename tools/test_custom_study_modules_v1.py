@@ -4,10 +4,11 @@
 from pathlib import Path
 import json
 import subprocess
+from app_page import app_page
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CORE = (ROOT / "tools/study_modules_core.js").read_text(encoding="utf-8")
+CORE = (ROOT / "app/src/main/modules/study_modules.js").read_text(encoding="utf-8")
 HTML = ROOT / "app/src/main/assets/index.html"
 
 
@@ -136,7 +137,7 @@ def main() -> None:
         text=True,
         check=True,
     )
-    html = HTML.read_text(encoding="utf-8")
+    html = app_page()
     if html.count('id="nk-custom-study-modules-v1"') != 1:
         raise SystemExit("Custom Study Modules stylesheet missing or duplicated")
     required = [

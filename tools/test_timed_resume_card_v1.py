@@ -4,13 +4,14 @@ from pathlib import Path
 import json
 import re
 import subprocess
+from app_page import app_page
 
 ROOT=Path(__file__).resolve().parents[1]
-CORE=ROOT/'tools/timed_resume_card_core.js'
+CORE=ROOT/'app/src/main/modules/timed_resume_card.js'
 HTML=ROOT/'app/src/main/assets/index.html'
 
 def main():
-    page=HTML.read_text(encoding='utf-8')
+    page=app_page()
     assert page.count(CORE.read_text(encoding='utf-8').strip())==1,'resume card core ships verbatim once'
     for marker in ('NK_TIMED_RESUME_CARD_V1_START','id="nk-timed-resume-card-v1"',
                    "${nkTimedResumeCard('tests')}<section class=\"nk-v3-section nk-test-main-action\">",
