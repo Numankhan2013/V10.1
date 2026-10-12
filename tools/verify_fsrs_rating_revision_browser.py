@@ -4,7 +4,7 @@ from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 import threading
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import expect, sync_playwright
 
 ROOT = Path(__file__).resolve().parents[1]
 PROBE = '''window.__nkFsrsTest={
@@ -107,7 +107,8 @@ def main():
                 assert after['correct']==21 and after['incorrect']==3
                 page.evaluate('window.QB.nkOpenRevisionHub()')
                 page.get_by_role('heading',name='Revision',exact=True).wait_for()
-                assert page.locator('.nk-revision-card.is-red b').inner_text()=='0'
+                # Geist counts revision figures up from their previous value; wait for the settled count.
+                expect(page.locator('.nk-revision-card.is-red b')).to_have_text('0')
                 # A fresh wrong retry restores the unresolved mistake and Again.
                 q=by_id[qid]
                 page.evaluate('id=>window.QB.practiceOne(id)',qid)
@@ -115,7 +116,8 @@ def main():
                 assert page.evaluate('id=>window.__nkFsrsTest.active(id).at(-1).rating',qid)==1
                 page.evaluate('window.QB.endSession();window.QB.nkOpenRevisionHub()')
                 page.get_by_role('heading',name='Revision',exact=True).wait_for()
-                assert page.locator('.nk-revision-card.is-red b').inner_text()=='1'
+                # Geist counts revision figures up from their previous value; wait for the settled count.
+                expect(page.locator('.nk-revision-card.is-red b')).to_have_text('1')
                 context.close()
             browser.close()
     finally:server.shutdown()

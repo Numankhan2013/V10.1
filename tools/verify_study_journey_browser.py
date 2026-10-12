@@ -55,7 +55,9 @@ def main():
                 }""")
                 expect(focus.get_by_role("button", name="Resume timed test")).to_be_visible()
                 assert "Study journey CBT" in focus.inner_text()
-                assert "1 of 3 answered · 1 marked for review" in focus.inner_text()
+                # The learner must see how far the running test has got before resuming it.
+                assert "1 of 3 answered · 1 marked for review" in focus.inner_text(), \
+                    f"{label}: timed-test progress is not visible on the Home focus card: {focus.inner_text()!r}"
                 assert page.locator(".nk-timed-resume.is-home").count() == 0
                 page.screenshot(path=str(output / f"{label}-home-timed.png"), full_page=True, animations="disabled")
                 focus.get_by_role("button", name="Resume timed test").click()

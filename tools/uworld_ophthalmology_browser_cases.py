@@ -13,7 +13,10 @@ def verify_ophthalmology(page, output, width, reset_practice, open_question):
     expect(page.locator('button.nk-library-row')).to_have_count(30)
     reset_practice()
     page.locator('.nk-chapter-actions').get_by_role('button', name='Practice', exact=False).click()
-    page.locator('#modal').get_by_role('button', name='Start Practice', exact=True).click()
+    # Geist starts the whole block straight from the topic page's Practice action;
+    # the legacy "Start Practice" confirmation modal is gone.
+    page.wait_for_function('QB.getState().activeSession?.mode==="practice"')
+    expect(page.locator('#modal').get_by_role('button', name='Start Practice', exact=True)).to_have_count(0)
     page.locator('.option-list button').first.wait_for()
     original = page.evaluate('QB.getState().activeSession')
     assert len(original['questionIds']) == 30

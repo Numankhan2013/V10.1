@@ -12,6 +12,8 @@ from playwright.sync_api import expect, sync_playwright
 ROOT = Path(__file__).resolve().parents[1]
 
 
+STOP_TIMERS='()=>{const top=setTimeout(()=>{},0);for(let id=1;id<=top;id++)clearInterval(id);}'
+
 def main() -> None:
     web = ROOT / 'build/web'
     assert 'NK_BANK_AWARE_CBT_BUILDER_V1_START' in (web / 'index.html').read_text(encoding='utf-8')
@@ -37,17 +39,43 @@ def main() -> None:
                     page.get_by_role('button', name='Choose subjects and topics').click()
                     page.wait_for_url('**/#test-builder')
 
+                def bank_row(bank, subject):
+                    # Geist groups bank rows under a per-bank heading instead of repeating
+                    # the bank name on every row: pick the subject row inside that group.
+                    group = page.locator('.nk-cbt-builder .nkg-bank-group').filter(has=page.locator('header h3', has_text=bank))
+                    expect(group).to_have_count(1)
+                    row = group.locator('.nk-module-subject').filter(has_text=subject)
+                    expect(row).to_have_count(1)
+                    return row
+
                 def choose_prep(subject):
                     page.get_by_role('button', name='Clear all').click()
-                    page.locator('.nk-cbt-builder .nk-module-subject').filter(has_text=subject).filter(has_text='PrepLadder').click()
+                    bank_row('PrepLadder', subject).click()
                     page.get_by_role('button', name='Continue to topics').click()
 
                 for subject, topics, questions in (('Anatomy', 10, 410), ('Physiology', 9, 362), ('Biochemistry', 8, 346)):
                     open_builder()
                     choose_prep(subject)
                     toggle = page.locator('#nk-cbt-pyq-toggle')
-                    tool_tops = page.locator('.nk-cbt-topic-tools button').evaluate_all('(nodes)=>nodes.map(node=>node.getBoundingClientRect().top)')
-                    assert len(tool_tops) == 3 and max(tool_tops) - min(tool_tops) < 3, tool_tops
+                    # Geist renders the topic tools as wrapping chips: on a phone the PYQ chip may
+                    # take its own row, but every chip must stay fully on screen, unclipped,
+                    # non-overlapping and aligned with the other chips in its row.
+                    tools = page.locator('.nk-cbt-topic-tools button').evaluate_all("""(nodes)=>nodes.map(node=>{const r=node.getBoundingClientRect();
+                        return {top:r.top,left:r.left,right:r.right,bottom:r.bottom,clipped:node.scrollWidth>node.clientWidth+1}})""")
+                    assert len(tools) == 3, tools
+                    viewport_width = page.evaluate('innerWidth')
+                    assert all(t['left'] >= 0 and t['right'] <= viewport_width and not t['clipped'] for t in tools), tools
+                    assert all(a['right'] <= b['left'] or b['right'] <= a['left'] or a['bottom'] <= b['top'] or b['bottom'] <= a['top']
+                               for i, a in enumerate(tools) for b in tools[i + 1:]), tools
+                    rows = []
+                    for t in sorted(tools, key=lambda t: t['top']):
+                        if rows and abs(t['top'] - rows[-1][0]['top']) < 3:
+                            rows[-1].append(t)
+                        else:
+                            rows.append([t])
+                    assert len(rows) <= 2 and all(abs(t['top'] - row[0]['top']) < 3 for row in rows for t in row), tools
+                    if width >= 768:
+                        assert len(rows) == 1, ('tablet keeps the topic tools on one row', tools)
                     expect(toggle.locator('small')).to_have_text(f'{topics} topics · {questions} Q')
                     toggle.click()
                     expect(toggle).to_have_attribute('aria-pressed', 'true')
@@ -58,7 +86,7 @@ def main() -> None:
 
                 open_builder()
                 page.get_by_role('button', name='Clear all').click()
-                page.locator('.nk-cbt-builder .nk-module-subject').filter(has_text='Anatomy').filter(has_text='Marrow').click()
+                bank_row('Marrow', 'Anatomy').click()
                 page.get_by_role('button', name='Continue to topics').click()
                 before_empty = page.locator('#nk-cbt-footer-count').inner_text()
                 expect(page.locator('#nk-cbt-pyq-toggle')).to_be_disabled()
@@ -142,6 +170,9 @@ def main() -> None:
                     page.wait_for_function("window.QB.getState().activeSession?.timerMode==='per-question'")
                     strict = page.evaluate('window.QB.getState().activeSession')
                     assert len(strict['questionIds']) > 1
+                    # Stop this page's 250 ms exam ticker first: the expiry must be found by the
+                    # reloaded page's boot recovery, not raced by the old page just before reload.
+                    page.evaluate(STOP_TIMERS)
                     page.evaluate('''()=>{const s=window.QB.getState().activeSession;
                       s.strictQuestionStartedAt=Date.now()-61000;window.QB.saveState();}''')
                     page.reload(wait_until='domcontentloaded')
@@ -149,6 +180,7 @@ def main() -> None:
                     after_reload = page.evaluate('window.QB.getState().activeSession')
                     assert after_reload['strictExpired'][strict['questionIds'][0]] is True
                     assert page.locator('.option-list .correct').count() == 0
+                    page.evaluate(STOP_TIMERS)
                     page.evaluate('''()=>{const s=window.QB.getState().activeSession;
                       s.index=s.questionIds.length-1;
                       for(const id of s.questionIds.slice(0,-1)){s.strictExpired[id]=true;s.strictQuestionTime[id]=60000;}

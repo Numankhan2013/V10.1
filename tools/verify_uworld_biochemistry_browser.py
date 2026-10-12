@@ -153,7 +153,11 @@ def main():
                 expect(page.locator('.option-list .nk-uworld-option-percent')).to_have_count(5)
                 assert page.locator('.option-list .correct .nk-uworld-option-percent').inner_text()=='78%'
                 assert page.locator('.option-list .nk-uworld-option-percent').first.inner_text()=='6%'
-                assert '78% answered correctly' in page.locator('.nk-uworld-cohort').inner_text()
+                # Geist restyles the source cohort line as a chip ("78% got it right" plus
+                # a bar) and keeps the full statement as its accessible name.
+                cohort=page.locator('.nk-uworld-cohort')
+                expect(cohort).to_have_attribute('aria-label','78% of UWorld users answered correctly')
+                assert '78%' in cohort.inner_text(), cohort.inner_text()
                 assert page.locator('.nk-uworld-statistics').count()==0
                 after_widths=page.locator('.option-list .option-text').evaluate_all('nodes=>nodes.map(n=>n.getBoundingClientRect().width)')
                 assert all(abs(a-b)<2 for a,b in zip(option_widths,after_widths)), 'Percentages rewrapped option text'

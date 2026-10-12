@@ -238,8 +238,9 @@ def main():
                 assert page.locator('.nk-timed-resume.is-home').count() == 0
                 focus = page.locator('.nk-home-focus-card')
                 assert focus.count() == 1
-                assert 'timer keeps running' in focus.inner_text()
-                assert 'marked for review' in focus.inner_text()
+                # Leaving a timed test must not hide that its clock is still running.
+                assert 'timer keeps running' in focus.inner_text(), f'running-timer warning not visible on Home focus card: {focus.inner_text()!r}'
+                assert 'marked for review' in focus.inner_text(), f'timed-test progress not visible on Home focus card: {focus.inner_text()!r}'
                 focus.get_by_role('button', name='Resume timed test').click()
                 page.wait_for_url('**/#exam')
                 assert session(page)['id'] == cbt['id']

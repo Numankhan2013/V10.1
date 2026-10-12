@@ -67,7 +67,10 @@ def main():
                 page.screenshot(path=str(output/f'analysis-refined-top-{width}.png'))
                 totals=page.evaluate("[...document.querySelectorAll('.nk-na-row header b')].map(n=>n.innerText)")
                 assert totals
-                outcome_colors={'is-correct':'rgb(21, 153, 117)','is-incorrect':'rgb(212, 72, 99)','is-omitted':'rgb(219, 163, 58)'}
+                # Geist keeps colour for meaning only: outcomes use its green/red/amber tokens.
+                token=lambda name: page.evaluate("n=>{const d=document.createElement('i');d.style.color='var('+n+')';document.body.appendChild(d);const c=getComputedStyle(d).color;d.remove();return c}",name)
+                outcome_colors={'is-correct':token('--nkg-green'),'is-incorrect':token('--nkg-red'),'is-omitted':token('--nkg-amber')}
+                assert len(set(outcome_colors.values()))==3,outcome_colors
                 for tone,color in outcome_colors.items():
                     for segment in page.locator(f'.nk-na-row-bar .{tone}').all():
                         assert segment.evaluate('(n)=>getComputedStyle(n).backgroundColor')==color
@@ -75,8 +78,9 @@ def main():
                 assert page.locator('.nk-na-row-counts').count()==page.locator('.nk-na-row').count()
                 # Read the final cascade: legacy gradient rules caused the unreadable CTA.
                 review=page.get_by_role('button',name='Review Solutions',exact=True)
-                assert review.evaluate('(n)=>getComputedStyle(n).color')=='rgb(255, 255, 255)'
-                assert review.evaluate('(n)=>getComputedStyle(n).backgroundColor')=='rgb(73, 51, 148)'
+                # Geist primary action: inverse surface (near-black) with inverse (white) text.
+                assert review.evaluate('(n)=>getComputedStyle(n).color')==token('--nkg-inverse-fg')
+                assert review.evaluate('(n)=>getComputedStyle(n).backgroundColor')==token('--nkg-inverse-bg')
                 assert review.evaluate('(n)=>getComputedStyle(n).backgroundImage')=='none'
                 page.get_by_role('button',name='Subject-wise',exact=True).click()
                 expect(page.get_by_role('heading',name='Subject breakdown')).to_be_visible()
@@ -101,8 +105,13 @@ def main():
                 assert page.get_by_role('button',name='Correct my misses').count()==1
                 page.screenshot(path=str(output/f'analysis-practice-{width}.png'),full_page=True)
                 page.evaluate("window.QB.nav('analytics')")
+                def choose_period(period):
+                    # Geist replaces the native period <select> with a segmented control.
+                    page.locator('.nk-li-period-nav .nkg-seg').get_by_role('button',name=period.capitalize(),exact=True).click()
+                    page.wait_for_function("p=>document.querySelector('#nk-li-period')?.value===p&&document.querySelector('.nk-li-outcomes h3')?.textContent==='This '+p",arg=period)
+                    assert page.locator('.nk-li-period-nav .nkg-seg [aria-pressed="true"]').inner_text()==period.capitalize()
                 for period in ['week','month','year']:
-                    page.locator('#nk-li-period').select_option(period)
+                    choose_period(period)
                     assert page.locator('.nk-li-outcomes h3').all_text_contents()==[f'This {period}',f'Previous {period}']
                     for key in page.locator('.nk-li-key').all_text_contents():
                         assert f'This {period}' in key and f'Previous {period}' in key
@@ -114,7 +123,7 @@ def main():
                         left=min(x.bounding_box()['x'] for x in bars);right=max(x.bounding_box()['x']+x.bounding_box()['width'] for x in bars)
                         label=button.locator('small').bounding_box()
                         assert abs((left+right)/2-(label['x']+label['width']/2))<1,'Visible bars must centre on labels'
-                page.locator('#nk-li-period').select_option('week')
+                choose_period('week')
                 page.locator('.nk-li-donut-pair').evaluate("n=>n.scrollIntoView({block:'center'})")
                 page.locator('.nk-li-donut-pair').screenshot(path=str(output/f'donuts-refined-{width}.png'))
                 page.locator('.nk-li-bars').evaluate("n=>n.scrollIntoView({block:'center'})")
@@ -158,6 +167,7 @@ def main():
                 # A named builder draft can be saved without starting a session.
                 page.evaluate("window.QB.nav('tests');window.QB.openTestBuilder();window.QB.nkCbtSetStep(3)")
                 page.get_by_label('Mock name Optional',exact=True).fill('Weekend mock')
+                # A real tap (this context prefers reduced motion): the dock must not move under the finger.
                 page.get_by_role('button',name='Save mock',exact=True).click()
                 expect(page.get_by_role('heading',name='Saved mocks')).to_be_visible()
                 assert page.evaluate('window.QB.getState().activeSession') is None

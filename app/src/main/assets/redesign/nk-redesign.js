@@ -9,8 +9,8 @@
  *
  * Switches:
  *   ?ui=legacy / ?ui=geist  persist the choice in localStorage "nkq.ui".
- *   Without a stored choice the redesign is on, except under browser
- *   automation (navigator.webdriver), where the legacy contract suites run.
+ *   Without a stored choice the redesign is on, browser automation included,
+ *   so the verification suites exercise the UI people actually use.
  *   localStorage "nkq.theme" = light | dark | system (default system).
  */
 (function () {
@@ -24,7 +24,7 @@
   var forced = (location.search.match(/[?&]ui=(geist|legacy)(?:&|$)/) || [])[1];
   if (forced) lsSet(UI_KEY, forced);
   var stored = lsGet(UI_KEY);
-  var mode = stored === 'geist' || stored === 'legacy' ? stored : (navigator.webdriver ? 'legacy' : 'geist');
+  var mode = stored === 'legacy' ? 'legacy' : 'geist';
 
   window.NKQ_UI = {
     mode: mode,

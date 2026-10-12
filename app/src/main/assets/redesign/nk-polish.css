@@ -1277,7 +1277,7 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-subjects-empty { margin: 4px
    another card's numbers, are hidden in Geist. Legacy UI keeps them. */
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-hidden { display: none !important; }
 /* Home */
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-streak-copy small, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-focus-card > p, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-uworld-entry-action { display: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-streak-copy small, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-focus-card:not(.nk-home-timed-focus) > p, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-uworld-entry-action { display: none !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-delta.is-neutral, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-delta.is-neutral { display: none !important; }
 /* Revision */
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-revision-detail, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-revision-card.is-empty .nk-revision-actions, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-revision-forecast-foot small { display: none !important; }
@@ -1873,3 +1873,6 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-restore-empty { margin: 16px 0
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-restore-rows[aria-busy="true"] { min-height: 120px; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-restore-meta { margin: 24px 0 0 !important; font: 400 var(--nkg-t-xs)/1.4 var(--nkg-font-sans) !important; color: var(--nkg-fg-3) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-restore-meta:empty { display: none; }
+
+/* Text fields stay at 16px: below that iOS Safari zooms the page on focus. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(#app, body) :is(input:not([type="checkbox"], [type="radio"], [type="range"], [type="color"], [type="file"]), textarea, select) { font-size: 16px !important; }

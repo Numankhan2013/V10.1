@@ -42,7 +42,15 @@ def main() -> None:
             expect(banks.filter(has_text="Anatomy").filter(has_text="UWorld")).to_have_count(0)
             expect(banks.filter(has_text="Physiology").filter(has_text="UWorld")).to_have_count(0)
             page.get_by_role("button", name="Clear all").click()
-            marrow = page.locator(".nk-cbt-builder .nk-module-subject").filter(has_text="Anatomy").filter(has_text="Marrow")
+            # Geist groups bank rows under a per-bank heading (PrepLadder / Marrow / UWorld)
+            # instead of repeating the bank name on each row, so the Marrow Anatomy row is
+            # the Anatomy row inside the Marrow group.
+            bank_groups = page.locator(".nk-cbt-builder .nkg-bank-group")
+            expect(bank_groups).to_have_count(3)
+            marrow_group = bank_groups.filter(has=page.locator("header h3", has_text="Marrow"))
+            expect(marrow_group).to_have_count(1)
+            marrow = marrow_group.locator(".nk-module-subject").filter(has_text="Anatomy")
+            expect(marrow).to_have_count(1)
             marrow.click()
             assert marrow.get_attribute("aria-pressed") == "true"
             bank_bounds = page.evaluate("""() => {
