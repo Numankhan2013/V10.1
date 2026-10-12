@@ -33,7 +33,9 @@ def main() -> None:
                 page.route("**/*", lambda route: route.continue_() if route.request.url.startswith(origin) else route.abort())
                 page.goto(origin + "/#more", wait_until="domcontentloaded")
                 page.wait_for_function("window.QB && window.QB.getState")
-                page.get_by_role("button", name="Find a question").click()
+                # Geist's top bar also carries a "Find a question" search icon; this flow
+                # starts from the More screen's own entry, so scope to the page content.
+                page.locator("#app").get_by_role("button", name="Find a question").click()
                 page.get_by_role("searchbox", name="Search all questions").fill(QUESTION_ID)
                 page.wait_for_function("document.querySelectorAll('.nk-question-search-item').length>0")
                 item = page.locator(".nk-question-search-item").first

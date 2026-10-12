@@ -37,7 +37,10 @@ def main():
                 chapter=page.evaluate('__topicContinue.record("Anatomy","Marrow").topics[0].id')
                 page.evaluate('id=>QB.openChapter(id)',chapter)
                 page.locator('.nk-chapter-actions').get_by_role('button',name='Practice',exact=False).click()
-                page.locator('#modal').get_by_role('button',name='Start Practice',exact=True).click()
+                # Geist starts topic Practice straight from the topic page; the legacy
+                # "Start Practice" confirmation modal is gone.
+                page.wait_for_function('QB.getState().activeSession?.mode==="practice"')
+                expect(page.locator('#modal').get_by_role('button',name='Start Practice',exact=True)).to_have_count(0)
                 page.locator('.option-list button').first.wait_for()
                 original=page.evaluate('QB.getState().activeSession')
                 assert len(original['questionIds'])>1

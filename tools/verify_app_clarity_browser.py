@@ -49,7 +49,14 @@ def main():
                         assert 'Scheduled reviews for this focus' not in page.locator('.nk-revision-forecast').inner_text()
                         page.get_by_role('button',name='Hide focus',exact=True).click()
                     if route=='analytics':
-                        assert page.locator('.nk-li-year-activity').bounding_box()['y']<280,(width,'heatmap starts too low')
+                        # Geist adds a 57px top bar and a display-size page title above the
+                        # controls, so the compact-geometry bound is measured from those:
+                        # the heatmap must be the first card after the period controls and
+                        # start well inside the first phone screen.
+                        heat_y=page.locator('.nk-li-year-activity').bounding_box()['y']
+                        note=page.locator('.nk-li-period-note').bounding_box()
+                        assert heat_y<360,(width,heat_y,'heatmap starts too low')
+                        assert heat_y-(note['y']+note['height'])<=32,(width,heat_y,note,'nothing may sit between the period controls and the heatmap')
                         assert page.locator('.nk-li-year-grid button').count()>=365
                         assert page.locator('.nk-li-card').count()==8
                         assert page.get_by_role('heading',name='Missed-question revision',exact=True).count()==0

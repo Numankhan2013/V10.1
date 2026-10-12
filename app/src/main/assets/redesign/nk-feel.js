@@ -183,6 +183,7 @@
       window.clearTimeout(seg.__nkgCommit);
       seg.__nkgCommit = window.setTimeout(function () {
         if (select.value === value) return;
+        keepFocus(select);
         select.value = value;
         select.dispatchEvent(new Event('change', { bubbles: true }));
       }, RM.matches ? 0 : 140);
@@ -245,6 +246,7 @@
       closeDd(true);
       if (!opt || opt.getAttribute('aria-selected') === 'true') return;
       haptic('selection');
+      keepFocus(select);
       select.value = opt.dataset.value;
       select.dispatchEvent(new Event('change', { bubbles: true }));
       if (dd.isConnected) {
@@ -270,6 +272,24 @@
     select.setAttribute('tabindex', '-1');
     select.setAttribute('aria-hidden', 'true');
     return dd;
+  }
+  /* A change can rebuild the page around its control (Insights filters narrow each other);
+     remember which native select changed so focus lands on its rebuilt Geist control. */
+  var focusIntent = null;
+  function keepFocus(select) {
+    focusIntent = { id: select.id, label: select.getAttribute('aria-label'), at: Date.now() };
+  }
+  function restoreFocus(root) {
+    var f = focusIntent;
+    if (!f || Date.now() - f.at > 2000) return;
+    var a = document.activeElement;
+    if (a && a !== document.body && a.isConnected) { focusIntent = null; return; }
+    var s = f.id ? root.querySelector('#' + CSS.escape(f.id)) : null;
+    if (!s && f.label) each(root.querySelectorAll('select'), function (x) { if (!s && x.getAttribute('aria-label') === f.label) s = x; });
+    if (!s) return;
+    var target = s.__nkgDd && s.__nkgDd.isConnected ? s.__nkgDd.querySelector('.nkg-dd-btn') : null;
+    if (!target) { var nav = s.closest('.nk-li-period-nav') || (s.id === 'nk-li-period' && root.querySelector('.nk-li-period-nav')); target = nav && nav.querySelector('.nkg-seg [aria-pressed="true"]'); }
+    if (target) { focusIntent = null; target.focus({ preventScroll: true }); }
   }
   function displayLabel(o) { return o ? o.textContent.replace(/^UWorld · /, 'UWorld: ') : ''; }
   function labelText(select) { var l = select.closest('label'); var s = l && l.querySelector('.nk-li-sr'); return s ? s.textContent.trim() : ''; }
@@ -470,8 +490,10 @@
     if (yearSel && !yearSel.classList.contains('nkg-hidden-native')) {
       var yl = yearSel.closest('label');
       var ydd = ddFromSelect(yearSel, { cls: 'is-right' });
+      yearSel.__nkgDd = ydd;
       (yl || yearSel).parentNode.insertBefore(ydd, yl || yearSel);
     }
+    restoreFocus(root);
     var periodKey = (period && period.value || '') + '|' + txt(nav && nav.querySelector('strong'));
     /* Figures count from their previous value when the period changes. */
     each(root.querySelectorAll('.nk-li-stats > article'), function (a) { countUp(a.querySelector(':scope > b'), 'li-stat-' + a.getAttribute('data-metric'), true); });
@@ -1661,7 +1683,9 @@
     each(document.querySelectorAll('nav, footer, [class*="actions"], [class*="dock"], [class*="footer"], .bottom-nav'), function (b) {
       if (b === toastLayer || toastLayer.contains(b)) return;
       var cs = getComputedStyle(b); if (cs.position !== 'fixed' || cs.display === 'none' || cs.visibility === 'hidden') return;
-      var r = b.getBoundingClientRect(); if (r.height && r.bottom >= window.innerHeight - 140 && r.top < top) top = r.top;
+      var r = b.getBoundingClientRect();
+      if (r.height > window.innerHeight / 2) return; /* tablet side rail, not a bottom bar */
+      if (r.height && r.bottom >= window.innerHeight - 140 && r.top < top) top = r.top;
     });
     toastLayer.style.bottom = Math.max(12, window.innerHeight - top + 12) + 'px';
     if (!action && toastCur && toastCur.__msg === msg && !toastCur.__leaving) { toastCur.classList.remove('is-bump'); void toastCur.offsetWidth; toastCur.classList.add('is-bump'); }

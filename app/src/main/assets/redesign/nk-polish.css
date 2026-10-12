@@ -703,7 +703,7 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-cbt-bank-intro, ht
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder :is(.nk-cbt-bank-intro, .nk-module-topic-intro) strong { font: 600 var(--nkg-t-base)/1.3 var(--nkg-font-sans) !important; color: var(--nkg-fg) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder :is(.nk-cbt-bank-intro, .nk-module-topic-intro) span { font: 500 var(--nkg-t-sm)/1.3 var(--nkg-font-sans) !important; color: var(--nkg-fg-3) !important; font-variant-numeric: tabular-nums; white-space: nowrap; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-module-select-tools { display: flex !important; flex-wrap: wrap; gap: 8px !important; margin: 0 0 18px !important; padding: 0 !important; background: none !important; border: 0 !important; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-module-select-tools > button, html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-module-group-action { display: inline-flex !important; align-items: center; gap: 6px; width: auto !important; min-height: 32px !important; height: auto !important; padding: 6px 12px !important; border: 1px solid var(--nkg-border) !important; border-radius: 999px !important; background: var(--nkg-surface) !important; color: var(--nkg-fg) !important; font: 500 var(--nkg-t-sm)/1.2 var(--nkg-font-sans) !important; box-shadow: none !important; transition: background-color var(--nkg-dur) var(--nkg-ease), border-color var(--nkg-dur) var(--nkg-ease); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-module-select-tools > button, html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-module-group-action { display: inline-flex !important; align-items: center; gap: 6px; width: auto !important; min-height: 44px !important; height: auto !important; padding: 10px 14px !important; border: 1px solid var(--nkg-border) !important; border-radius: 999px !important; background: var(--nkg-surface) !important; color: var(--nkg-fg) !important; font: 500 var(--nkg-t-sm)/1.2 var(--nkg-font-sans) !important; box-shadow: none !important; transition: background-color var(--nkg-dur) var(--nkg-ease), border-color var(--nkg-dur) var(--nkg-ease); }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-module-select-tools > button:active, html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-module-group-action:active { background: var(--nkg-hover) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-cbt-pyq-toggle small { font: 500 var(--nkg-t-xs)/1 var(--nkg-font-mono) !important; color: var(--nkg-fg-3) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-cbt-pyq-toggle.is-selected { background: var(--nkg-inverse-bg) !important; border-color: var(--nkg-inverse-bg) !important; color: var(--nkg-inverse-fg) !important; }
@@ -795,7 +795,7 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder.is-questions .nk-cbt-m
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-module-topic-group { border: 1px solid var(--nkg-border) !important; border-radius: var(--nkg-r-lg) !important; background: var(--nkg-surface) !important; overflow: hidden; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-module-topic-group > header, html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-module-topic-group.is-collapsed > header { padding: 10px 8px 10px 14px !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-module-topic-group .nk-module-topic-list { border: 0 !important; border-top: 1px solid var(--nkg-border) !important; border-radius: 0 !important; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-module-group-action { min-height: 28px !important; padding: 4px 10px !important; font-size: var(--nkg-t-xs) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-module-group-action { min-height: 44px !important; padding: 4px 12px !important; font-size: var(--nkg-t-xs) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder.is-questions .nk-module-builder-card { display: flex !important; flex-direction: column; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder.is-questions .nk-cbt-count { order: 1; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder.is-questions .nk-cbt-timing { order: 2; margin-bottom: 18px !important; }
@@ -1277,7 +1277,7 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-subjects-empty { margin: 4px
    another card's numbers, are hidden in Geist. Legacy UI keeps them. */
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-hidden { display: none !important; }
 /* Home */
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-streak-copy small, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-focus-card > p, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-uworld-entry-action { display: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-streak-copy small, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-focus-card:not(.nk-home-timed-focus) > p, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-uworld-entry-action { display: none !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-delta.is-neutral, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-delta.is-neutral { display: none !important; }
 /* Revision */
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-revision-detail, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-revision-card.is-empty .nk-revision-actions, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-revision-forecast-foot small { display: none !important; }
@@ -1873,3 +1873,6 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-restore-empty { margin: 16px 0
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-restore-rows[aria-busy="true"] { min-height: 120px; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-restore-meta { margin: 24px 0 0 !important; font: 400 var(--nkg-t-xs)/1.4 var(--nkg-font-sans) !important; color: var(--nkg-fg-3) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-restore-meta:empty { display: none; }
+
+/* Text fields stay at 16px: below that iOS Safari zooms the page on focus. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(#app, body) :is(input:not([type="checkbox"], [type="radio"], [type="range"], [type="color"], [type="file"]), textarea, select) { font-size: 16px !important; }

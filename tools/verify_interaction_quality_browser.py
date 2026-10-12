@@ -5,8 +5,8 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 import json
 import threading
-from playwright.sync_api import sync_playwright, expect
-from verify_learning_insights_browser import PROBE, SEED
+from playwright.sync_api import sync_playwright, expect, TimeoutError as PlaywrightTimeoutError
+from verify_learning_insights_browser import PROBE, SEED, geist_choose
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -51,14 +51,22 @@ def main():
                 page.evaluate(SEED)
                 saved = page.evaluate('JSON.stringify(QB.getState())')
                 page.locator('.nk-li-methods').evaluate('n=>n.open=true')
+                # Geist renders the period as a segmented group and the scope filters as
+                # listbox dropdowns over hidden native selects. Picking a value must keep
+                # keyboard focus on that visible control (the segment button / the dropdown
+                # button) and must not rebuild the app shell.
                 for label, value in [('Time period','month'),('Insights subject','Anatomy'),('Insights bank','Marrow')]:
-                    control = page.get_by_label(label, exact=True)
-                    control.focus()
-                    page.evaluate('window.__control=document.activeElement;window.__shell=document.querySelector(".bottom-nav")')
-                    control.select_option(value)
-                    assert page.evaluate('__control.isConnected && __control===document.activeElement'), label
+                    page.evaluate('window.__shell=document.querySelector(".bottom-nav")')
+                    geist_choose(page, label, value)
+                    # Allow the post-change rerender (and any focus hand-back) to settle.
+                    try:
+                        page.wait_for_function("""([label,value])=>{const el=document.activeElement;
+                            if(label==='Time period')return !!el&&el.closest('[role="group"][aria-label="Time period"]')!==null&&el.dataset.value===value&&el.getAttribute('aria-pressed')==='true';
+                            return !!el&&el.matches('.nkg-dd-btn')&&(el.getAttribute('aria-label')||'').startsWith(label+': ');}""", arg=[label, value], timeout=2000)
+                    except PlaywrightTimeoutError:
+                        raise AssertionError((label, 'focus left the filter control', page.evaluate('document.activeElement&&document.activeElement.outerHTML.slice(0,160)')))
                     assert page.evaluate('__shell===document.querySelector(".bottom-nav")')
-                    assert control.input_value() == value
+                    assert page.locator(f'select[aria-label="{label}"]').input_value() == value
                     assert page.locator('.nk-li-methods').evaluate('n=>n.open')
                 previous = page.get_by_role('button', name='Previous month', exact=True)
                 previous.focus(); previous.click()
@@ -71,9 +79,11 @@ def main():
                 assert page.evaluate('document.activeElement.textContent.trim()') == 'Top performing'
                 assert abs(page.evaluate('scrollY')-y) <= 1
                 assert page.get_by_role('button',name='Top performing',exact=True).get_attribute('aria-pressed') == 'true'
-                year = page.get_by_label('Activity year',exact=True)
-                year.focus();year.select_option(str(page.evaluate('new Date().getFullYear()')))
-                assert page.evaluate('document.activeElement.getAttribute("aria-label")') == 'Activity year'
+                geist_choose(page, 'Activity year', str(page.evaluate('new Date().getFullYear()')))
+                try:
+                    page.wait_for_function('(document.activeElement.getAttribute("aria-label")||"").startsWith("Activity year: ")', timeout=2000)
+                except PlaywrightTimeoutError:
+                    raise AssertionError(('Activity year', 'focus left the filter control', page.evaluate('document.activeElement&&document.activeElement.outerHTML.slice(0,160)')))
                 days = page.locator('.nk-li-year-grid button:not(:disabled)')
                 assert page.locator('.nk-li-year-grid button[tabindex="0"]').count() == 1
                 days.last.focus();page.keyboard.press('ArrowUp')

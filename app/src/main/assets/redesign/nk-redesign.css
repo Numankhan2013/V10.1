@@ -402,7 +402,9 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-empty { padding: 28px 16px; te
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-profile { animation: nkgPageIn 200ms var(--nkg-ease) both; }
 @media (prefers-reduced-motion: reduce) {
   html[data-nk-ui="geist"] :is(body,#nkg-root) *, html[data-nk-ui="geist"] :is(body,#nkg-root) *::before, html[data-nk-ui="geist"] :is(body,#nkg-root) *::after { animation-duration: 1ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
-  html[data-nk-ui="geist"] :is(body,#nkg-root) [class]:active { transform: none !important; }
+  /* Only controls: a blanket [class]:active also stripped translateX(-50%) from centred
+     fixed bars that contain the pressed button, so the bar jumped mid-tap and the click was lost. */
+  html[data-nk-ui="geist"] :is(body,#nkg-root) :is(button, a, label, [role="button"], [onclick], .option, .nav-icon-wrap, .nk-topic-cell, span[onclick] > i):active { transform: none !important; }
 }
 
 /* -------------------------------------------- charts & inline SVG colours */

@@ -21,6 +21,11 @@ def contrast(a, b):
     return (b+.05)/(a+.05)
 
 
+# Geist pushes screens in with a ~340 ms slide (WAAPI on main.page); measure once it settles.
+SETTLED = '''sel => { const nodes=[document.querySelector('main.page'),...document.querySelectorAll(sel||'main.page')].filter(Boolean);
+  return nodes.length>1 && nodes.every(n=>n.getAnimations().every(a=>a.playState!=='running'&&a.playState!=='pending')); }'''
+
+
 PAIRS = '''selector => [...document.querySelectorAll(selector)].filter(n=>n.getClientRects().length).map(n=>{
  const c=getComputedStyle(n);let parent=n,bg=c.backgroundColor;
  while(bg==='rgba(0, 0, 0, 0)'&&parent.parentElement){parent=parent.parentElement;bg=getComputedStyle(parent).backgroundColor;}
@@ -82,6 +87,7 @@ def main():
                     page.screenshot(path=str(output/f'visual-{route}-{width}.png'))
                 assert page.evaluate('JSON.stringify(QB.getState())') == saved,'visual navigation changed study data'
                 page.evaluate('QB.startAllPractice()');page.wait_for_selector('.option-list button')
+                page.wait_for_function(SETTLED,arg='.question-text')
                 geometry=page.evaluate('''()=>{
                   const q=document.querySelector('.question-text').getBoundingClientRect(),f=document.querySelector('.fixed-actions-inner').getBoundingClientRect();
                   return {q:{x:q.x,w:q.width},f:{x:f.x,w:f.width},background:getComputedStyle(document.body).backgroundColor};
@@ -89,15 +95,24 @@ def main():
                 assert geometry['q']['w']<=740.5,geometry
                 assert abs(geometry['q']['x']-geometry['f']['x'])<=1,geometry
                 assert abs(geometry['q']['w']-geometry['f']['w'])<=1,geometry
-                assert geometry['background']=='rgb(255, 254, 253)',geometry
+                # Geist reading surface: the --nkg-bg token (white in light theme).
+                bg_token=page.evaluate("()=>{const d=document.createElement('i');d.style.backgroundColor='var(--nkg-bg)';document.body.appendChild(d);const c=getComputedStyle(d).backgroundColor;d.remove();return c}")
+                assert geometry['background']==bg_token,(geometry,bg_token)
                 for pair in page.evaluate(PAIRS,'.question-text,.option-text,.nk-session-footer .primary-btn'):
                     assert contrast(pair['color'],pair['bg'])>=4.5,pair
                 q=page.evaluate('__visualQuestion()');correct=int(q['correctOption'])
-                assert page.locator('.nk-grid-trigger .nk-icon-tone rect').count()==4
-                assert page.locator('.bookmark-toggle .nk-icon-tone path').count()==2
+                # Geist swaps the duotone glyphs for Phosphor ones: a four-square navigator icon and a
+                # bookmark carrying both outline (unsaved) and filled (saved) shapes.
+                assert page.locator('.nk-grid-trigger svg[data-nkg-icon="squares-four"][aria-hidden="true"] path').count()==1
+                bookmark=page.locator('.bookmark-toggle').first
+                assert bookmark.locator('svg[data-nkg-icon="bookmark-simple"][aria-hidden="true"] .nkg-off path').count()==1
+                assert bookmark.locator('svg[data-nkg-icon="bookmark-simple"] .nkg-on path').count()==1
+                assert bookmark.get_attribute('aria-pressed')=='false' and bookmark.locator('.nkg-on').evaluate('n=>getComputedStyle(n).display')=='none'
+                assert bookmark.locator('.nkg-off').evaluate('n=>getComputedStyle(n).display')!='none'
                 page.locator('.option-list button').nth(correct-1).click()
                 assert page.locator('.option.correct').count()==1
                 dock=page.locator('.nk-fsrs-rating');assert dock.count()==1
+                page.wait_for_function(SETTLED,arg='.nk-fsrs-rating')
                 d=dock.bounding_box();assert abs(d['x']-geometry['q']['x'])<=1,(d,geometry)
                 assert abs(d['width']-geometry['q']['w'])<=1,(d,geometry)
                 page.screenshot(path=str(output/f'visual-practice-{width}.png'))

@@ -407,7 +407,7 @@ jobs:
           path: |
             app/src/main/assets/source_visuals/uworld
             app/src/main/assets/uworld_figure_inventory.json
-          key: uworld-figures-v1-${{ hashFiles('data/uworld/**', 'tools/build_uworld_reviewed_figures.py', 'tools/uworld_*.py', 'tools/verification_preflight.py') }}
+          key: uworld-figures-v1-${{ hashFiles('data/uworld/**', 'tools/build_uworld_reviewed_figures.py', 'tools/uworld_*.py', '!tools/uworld_*_browser_cases.py', 'tools/verification_preflight.py') }}
       - name: Recover source-reviewed UWorld scientific exhibits
         if: ${{ steps.uworld_figures.outputs.cache-hit != 'true' }}
         run: |

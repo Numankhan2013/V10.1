@@ -46,7 +46,9 @@ def main():
                 page.evaluate('(id)=>{QB.getState().bookmarks[id]={addedAt:Date.now()};QB.saveState();QB.nav("quick-revision");}',q['id'])
                 page.get_by_role('button',name='View all bookmarks',exact=True).click()
                 search=page.locator('.nk-revision-search input');search.fill(q['subject'])
-                assert search.evaluate('n=>getComputedStyle(n).fontSize')=='16px'
+                # 16px keeps iOS from zooming the page when the field is focused.
+                size=search.evaluate('n=>getComputedStyle(n).fontSize')
+                assert float(size[:-2])>=16,f'revision search input is {size}; below 16px iOS zooms on focus'
                 page.locator('.nk-revision-item:visible button').first.click();page.wait_for_selector('.option')
                 sid=page.evaluate('QB.getState().activeSession.id')
                 assert page.evaluate('QB.getState().activeSession.originRoute')=='revision-browse/bookmarks'
@@ -86,7 +88,7 @@ def main():
                 assert 'Enter a test name' in page.locator('#nk-na-rename-status').inner_text()
                 title.fill('New title with α and العربية')
                 assert title.get_attribute('aria-invalid') is None
-                assert title.evaluate('n=>getComputedStyle(n).fontSize')=='16px'
+                assert float(title.evaluate('n=>getComputedStyle(n).fontSize')[:-2])>=16
                 page.evaluate('__returnFailSave()');page.get_by_role('button',name='Save name',exact=True).click()
                 assert 'Your text is still here' in page.locator('#nk-na-rename-status').inner_text()
                 assert title.input_value()=='New title with α and العربية'
@@ -108,7 +110,11 @@ def main():
                 assert rows.count()==2 and page.locator('#nk-mock-sheet').count()==1
                 page.evaluate('__returnSave()');page.get_by_role('button',name='Delete',exact=True).click()
                 assert rows.count()==1 and page.locator('#nk-mock-sheet').count()==0
-                page.get_by_role('button',name='Undo',exact=True).click()
+                # Geist mirrors the app's hidden toast into its own toast; its Undo must be on screen.
+                undo=page.get_by_role('button',name='Undo',exact=True);undo.wait_for(state='visible')
+                box=undo.bounding_box()
+                assert box and box['y']>=0 and box['y']+box['height']<=height and box['x']>=0 and box['x']+box['width']<=width,f'Undo toast is off screen at {width}x{height}: {box}'
+                undo.click()
                 assert rows.count()==2
                 assert page.evaluate('QB.getState().savedMocks.map(m=>m.id)')==['return-one','return-two']
                 assert not page.evaluate('document.documentElement.scrollWidth>innerWidth')
