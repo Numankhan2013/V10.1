@@ -6,7 +6,7 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 import threading
 
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import expect, sync_playwright
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -96,8 +96,8 @@ def main() -> None:
                 page.screenshot(path=str(output / f"source-viewer-{width}.png"))
 
                 page.keyboard.press("0")
-                page.wait_for_timeout(400)
-                assert page.locator("#spz-reset").inner_text() == "100%"
+                # The fit is a 300 ms tween; under load its last frame can land later.
+                expect(page.locator("#spz-reset")).to_have_text("100%")
                 page.keyboard.press("Escape")
                 page.locator("#source-pdf-zoom").wait_for(state="detached")
                 assert page.evaluate("document.documentElement.style.overflow") in ("", "visible"), "page scroll must be restored"
