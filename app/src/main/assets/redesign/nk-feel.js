@@ -1454,8 +1454,17 @@
 
   /* ---- Save: the pill springs into a small circle and draws a check; the note then
      settles in place while the actions fade out with it. */
+  /* The save itself waits for the animation. Anything that could close the sheet
+     first (another tap, Escape, navigation, leaving the app) commits it now. */
+  var pendingSave = null;
+  function flushSave() { if (pendingSave) { var f = pendingSave; pendingSave = null; f(); } }
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') flushSave(); }, true);
+  window.addEventListener('hashchange', flushSave);
+  window.addEventListener('pagehide', flushSave);
+  document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'hidden') flushSave(); });
   document.addEventListener('click', function (e) {
     var b = e.target.closest && e.target.closest('.nk-note-page [data-act="save-edit"]');
+    if (pendingSave && !b) flushSave();
     if (!b || document.documentElement.getAttribute('data-nk-ui') !== 'geist') return;
     var card = b.closest('.nk-nb'), sheet = b.closest('.nk-note-page');
     if (b.__nkgGo) return;
@@ -1469,7 +1478,7 @@
     b.style.width = w + 'px'; b.classList.add('nkg-saving');
     b.insertAdjacentHTML('beforeend', '<svg class="nkg-save-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 12.5l4.2 4.2L18.5 7.8"/></svg>');
     M.animate(b, { width: [w + 'px', h + 'px'] }, { type: 'spring', bounce: 0.25, duration: 0.45 });
-    window.setTimeout(function () {
+    pendingSave = function () {
       if (!b.isConnected) return;
       planNotes(sheet, 'save');
       var row = card.querySelector('.nk-nb-edit-actions');
@@ -1479,7 +1488,8 @@
       notePlan = null;
       b.classList.remove('nkg-saving'); b.style.width = ''; if (area) area.readOnly = false;
       var c = b.querySelector('.nkg-save-check'); if (c) c.remove();
-    }, 560);
+    };
+    window.setTimeout(flushSave, 560);
   }, true);
 
   function noteSheet(sheet) {
