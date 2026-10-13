@@ -2566,8 +2566,17 @@ User asked for a thorough functional audit, especially whether FSRS is as good a
 
 ## 2026-10-13 — Post-bake fixes before promotion
 
-- My Subjects gains a Mixed practice row wired to `startAllSubjectPractice`, which now
-  draws from `nkAllStudyQuestions()` (all banks) and registers the picked questions in `BY_ID`.
+- `startAllSubjectPractice` draws from `nkAllStudyQuestions()` (all banks) and registers the
+  picked questions in `BY_ID`. A Mixed practice row on My Subjects was added and then removed
+  at the user's request: no new UI entry points without asking first.
+- My Subjects now shows the same per-bank (PrepLadder / Marrow) progress bars as Home.
+  `nk-feel.js` had two functions named `enhanceSubjects`; the Home bank one shadowed the
+  Insights one, which never ran. The bank one is now `enhanceSubjectBanks` (Home and My
+  Subjects); the dead Insights one and its CSS were removed, so Insights is unchanged.
+- Compared against the production artifact (39cc7161) with the study UI capture and an
+  11-route light/dark phone/tablet pass: the only differences are intended (44px builder
+  targets, 16px inputs, Restore points, per-bank bars on My Subjects) or environmental
+  (CI-injected sync config, random CBT questions).
 - Gold "why the other options are wrong" labels use `nkScientificMarkup` like the options.
 - Removed the unused `nkInsightsExpanded` / `nkToggleInsightsExpanded`.
 - Insights focus/coverage sections stay retired (deliberate since the 2026-10-01 Insights

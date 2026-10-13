@@ -502,7 +502,6 @@
     enhanceBars(root, periodKey);
     each(root.querySelectorAll('svg.nk-li-trend'), function (svg) { enhanceTrend(svg, periodKey); });
     enhanceTopics(root);
-    enhanceSubjects(root.querySelector('.nk-li-subjects'));
     enhanceComparison(root.querySelector('.nk-li-comparison'), periodKey);
     each(root.querySelectorAll('.nk-li-forecast'), function (f) { enhanceForecast(f, 'li'); });
     enhanceHeatmap(root.querySelector('.nk-li-year-activity'));
@@ -655,18 +654,6 @@
     var keys = Object.keys(props);
     node.style.transition = keys.map(function (k) { return k.replace(/[A-Z]/g, function (c) { return '-' + c.toLowerCase(); }) + ' ' + dur + 'ms ' + (ease || 'cubic-bezier(.23,1,.32,1)') + ' ' + (delay || 0) + 'ms'; }).join(',');
     window.requestAnimationFrame(function () { window.requestAnimationFrame(function () { keys.forEach(function (k) { node.style[k] = props[k]; }); }); });
-  }
-
-  /* Subject performance: rows without answers collapse to one quiet line, after the rows with data. */
-  function enhanceSubjects(box) {
-    if (!box || box.__nkg) return; box.__nkg = true;
-    var empty = [];
-    each(box.children, function (r) {
-      var b = r.querySelector(':scope > b');
-      if (b && /^[\u2014-]$/.test(txt(b))) { r.classList.add('nkg-empty-row'); empty.push(r); }
-    });
-    empty.forEach(function (r) { box.appendChild(r); });
-    if (empty.length && empty.length < box.children.length) empty[0].classList.add('nkg-first-empty');
   }
 
   /* 05 · topic tabs + rows */
@@ -862,9 +849,9 @@
 
 
 
-  /* ================================================= Home · subject banks */
+  /* ===================================== Home and My Subjects · subject banks */
   /* Each subject shows how far you are through every bank it comes from. */
-  function enhanceSubjects(app) {
+  function enhanceSubjectBanks(app) {
     each(app.querySelectorAll('.nk-v3-subject-card[data-nk-banks]'), function (card) {
       if (card.__nkgBanks) return;
       var banks; try { banks = JSON.parse(card.getAttribute('data-nk-banks')); } catch (e) { return; }
@@ -1641,7 +1628,8 @@
       watchToasts();
       syncTopbar(app, page, session);
       pageEnter(app, page, session);
-      if (page === 'dashboard') { enhanceHome(app); enhanceSubjects(app); }
+      if (page === 'dashboard') { enhanceHome(app); enhanceSubjectBanks(app); }
+      else if (page === 'study-library') enhanceSubjectBanks(app);
       else if (page === 'analytics') enhanceInsights(app);
       else if (page === 'tests' || page === 'test-builder') enhanceTests(app);
       else if (page === 'quick-revision' || page === 'fsrs') enhanceRevision(app);

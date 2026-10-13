@@ -2914,14 +2914,6 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-subjects > div > b { grid-ar
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-subjects > div > i { grid-area: bar; width: 100% !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-subjects > div > small { grid-area: prev; color: var(--nkg-fg-3) !important; font-size: var(--nkg-t-xs) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-subjects > div > .nk-li-delta { grid-area: delta; justify-self: end; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-subjects > div.nkg-empty-row { grid-template-areas: "name val" !important; padding: 9px 0 !important; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-subjects > div.nkg-empty-row > :is(i, small, .nk-li-delta) { display: none !important; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-subjects > div.nkg-empty-row > span:first-child { flex-direction: row; align-items: baseline; gap: 8px; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-subjects > div.nkg-empty-row > span:first-child strong { font-weight: 500 !important; color: var(--nkg-fg-2) !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-subjects > div.nkg-empty-row > span:first-child small { display: none !important; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-subjects > div.nkg-empty-row > b { color: var(--nkg-fg-3) !important; font-size: var(--nkg-t-sm) !important; font-weight: 500 !important; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-subjects > div.nkg-empty-row > b::after { content: " no answers"; font: 400 var(--nkg-t-xs)/1 var(--nkg-font-sans); color: var(--nkg-fg-3); letter-spacing: 0; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-subjects > div.nkg-first-empty { border-top: 1px solid var(--nkg-border) !important; margin-top: 4px; }
 
 /* Review forecast (09) — Insights + Revision share one interactive chart. */
 html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-li-forecast, .nk-review-chart) {
@@ -6469,11 +6461,6 @@ html,body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 
 /* ── final-source-zoom-css ── */
 .source-pdf-zoom{position:fixed;inset:0;z-index:10000;background:rgba(8,9,17,.97);display:flex;flex-direction:column}.source-pdf-zoombar{height:58px;display:flex;align-items:center;justify-content:space-between;padding:7px 10px;flex:none}.source-pdf-zoombar>div:last-child{display:flex;flex-shrink:0;align-items:center}.source-pdf-zoomtitle{flex:1;min-width:0;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.source-pdf-zoombar button{min-width:38px;height:38px;margin-left:5px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);font-size:19px}.source-pdf-zoomstage{position:relative;flex:1;overflow:hidden;touch-action:none;display:block}.source-pdf-zoomimg{position:absolute;left:0;top:0;max-width:none;max-height:none;width:auto;height:auto;transform-origin:0 0;user-select:none;-webkit-user-drag:none;will-change:transform}
-
-/* ── nk-mixed-practice ── */
-.nk-v3-mixed-practice{margin-top:8px}
-.nk-v3-mixed-practice .nk-v3-subject-card{grid-template-columns:44px 1fr 18px}
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-mixed-practice .nk-v3-subject-icon{background:var(--nkg-bg-subtle) !important;color:var(--nkg-fg) !important}
 
 /* ── nk-visual-refinement-v1 ── */
 /* NK QBank: the incumbent violet identity, composed for long study sessions. */
