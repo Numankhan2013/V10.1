@@ -3,7 +3,7 @@ from pathlib import Path
 p = Path('app/src/main/assets/index.html')
 s = p.read_text(encoding='utf-8')
 
-if 'id="v102-next-ui"' not in s:
+if '/* ── v102-next-ui ── */' not in s:
     css = r'''<style id="v102-next-ui">
 :root{--v102-brand:#5146df;--v102-ink:#151827;--v102-muted:#6b7285;--v102-line:#dfe4ec;--v102-soft:#f5f7fb;--v102-success:#0f9d78;--v102-success-bg:#e4f8f0;--v102-danger:#d94950;--v102-danger-bg:#fde9eb;--v102-shadow:0 10px 28px rgba(23,29,61,.08)}
 html,body{background:var(--v102-soft);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}

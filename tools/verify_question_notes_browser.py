@@ -7,6 +7,7 @@ from pathlib import Path
 import threading
 
 from playwright.sync_api import sync_playwright
+from app_page import built_page
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -15,7 +16,7 @@ QUESTION_ID = "physiology-9-6"
 
 def main() -> None:
     web = ROOT / "build/web"
-    html = (web / "index.html").read_text(encoding="utf-8")
+    html = built_page(web)
     assert "NK_QUESTION_NOTES_V1_START" in html
     output = ROOT / "build/ui-checks"
     output.mkdir(parents=True, exist_ok=True)
@@ -47,7 +48,13 @@ def main() -> None:
             sheet.locator(".nk-np-add-menu").get_by_role("menuitem", name="Text", exact=True).click()
             sheet.locator("textarea").fill("My recall cue: compare the two fibres.")
             sheet.get_by_role("button", name="Save", exact=True).click()
-            assert page.evaluate("id => window.QB.getState().questionNotes?.[id]?.text", QUESTION_ID) == "My recall cue: compare the two fibres."
+            # Geist plays a short save animation before committing the note; wait for the real save.
+            page.wait_for_function(
+                "([id, text]) => window.QB.getState().questionNotes?.[id]?.text === text",
+                arg=[QUESTION_ID, "My recall cue: compare the two fibres."],
+                timeout=5000,
+            )
+            sheet.locator("textarea").wait_for(state="detached", timeout=5000)
             assert sheet.locator("textarea").count() == 0
             assert sheet.locator(".nk-note-readonly").inner_text() == "My recall cue: compare the two fibres."
             sheet.get_by_role("button", name="Close notes").click()
@@ -101,7 +108,12 @@ def main() -> None:
             assert page.evaluate("id => window.QB.getState().questionNotes?.[id]?.deleted", QUESTION_ID), "Removing a note needs a sync tombstone"
             assert sheet.locator(".nk-np-empty").is_visible()
             sheet.get_by_role("button", name="Close notes").click()
-            assert "Add text, images or PDF pages" in note.inner_text()
+            # Geist hides the legacy "Add text, images or PDF pages" hint (it explains the obvious),
+            # so assert the bar's empty state structurally instead.
+            note.locator(".nk-note-bar:not(.has-note)").wait_for(state="visible")
+            assert note.locator(".nk-note-bar-count").count() == 0, "Deleted note still counted on the bar"
+            assert "My recall cue" not in note.inner_text(), "Deleted note text still shown on the bar"
+            assert "Add text, images or PDF pages" in note.locator(".nk-note-bar-copy small").text_content()
             page.screenshot(path=str(output / "question-notes-review-phone.png"), full_page=True)
             assert not errors, f"Browser errors: {errors!r}"
             print("QUESTION_NOTES_BROWSER_OK bar=true practice=true reload=true review=true removal=true")

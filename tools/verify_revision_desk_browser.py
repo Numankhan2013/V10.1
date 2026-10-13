@@ -7,7 +7,8 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 import threading
 
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import expect, sync_playwright
+from app_page import built_page
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -17,7 +18,7 @@ BOOKMARK_ID = "physiology-9-6"
 
 def main() -> None:
     web = ROOT / "build/web"
-    html = (web / "index.html").read_text(encoding="utf-8")
+    html = built_page(web)
     assert "NK_REVISION_DESK_V1_START" in html
     output = ROOT / "build/ui-checks"
     output.mkdir(parents=True, exist_ok=True)
@@ -48,7 +49,12 @@ def main() -> None:
                 card=page.locator('.nk-home-streak-card')
                 card.wait_for()
                 assert card.get_attribute('data-streak-level')==level
-                assert card.locator('strong').inner_text()==f'{streak} day streak'
+                # Geist lays the number out as its own flex item and counts it up when the
+                # streak grows, so compare the settled, whitespace-normalised label.
+                page.wait_for_function(
+                    "text=>{const n=document.querySelector('.nk-home-streak-card .nk-home-streak-copy strong');return n&&n.textContent.replace(/\\s+/g,' ').trim()===text}",
+                    arg=f'{streak} day streak',timeout=5000)
+                assert card.get_attribute('aria-label').startswith(f'{streak} day study streak')
                 if streak>=7:
                     assert card.locator('.is-linked').count()==datetime.now().weekday()
                 for width,height,name in [(320,844,'small-phone'),(390,844,'phone'),(889,1280,'tablet')]:
@@ -60,22 +66,37 @@ def main() -> None:
             frontier=page.locator('.nk-home-week-day.is-frontier')
             assert frontier.count()==(0 if datetime.now().weekday()==6 else 1)
             if frontier.count():
-                before=frontier.evaluate('(n)=>getComputedStyle(n,"::before").transform')
-                page.wait_for_timeout(350)
-                after=frontier.evaluate('(n)=>getComputedStyle(n,"::before").transform')
-                assert before!=after,'liquid edge should visibly move toward the next day'
                 assert frontier.evaluate('(n)=>!n.nextElementSibling.classList.contains("is-done")'),'motion never marks a future day studied'
             linked=page.locator('.nk-home-week-day.is-linked')
-            if linked.count():
-                assert linked.first.evaluate('(n)=>getComputedStyle(n,"::after").animationName')=='nkStreakLiquidFlow'
-            else:
+            if not linked.count():
                 assert datetime.now().weekday()==0,'linked connector should only be absent on Monday'
+            # Geist draws the week as calm dots: studied days filled, the rest dashed rings.
+            # It intentionally drops the legacy liquid connector/edge (::before/::after).
+            dots=page.locator('.nk-home-week-day').evaluate_all("""nodes=>nodes.map(n=>{const i=getComputedStyle(n.querySelector('i'));
+              return {done:n.classList.contains('is-done'),bg:i.backgroundColor,border:i.borderStyle,
+                      pseudo:[getComputedStyle(n,'::before').display,getComputedStyle(n,'::after').display]}})""")
+            assert len(dots)==7
+            assert all((d['bg'] not in ('rgba(0, 0, 0, 0)','transparent'))==d['done'] for d in dots),dots
+            assert all(d['border']=='dashed' for d in dots if not d['done']),dots
+            assert all(p=='none' for d in dots for p in d['pseudo']),dots
+            # Geist's living flame: a slow flicker driven by Motion while the streak is alive.
+            flame=page.locator('.nk-home-streak-flame svg')
+            before=flame.evaluate('(n)=>n.style.transform')
+            page.wait_for_timeout(350)
+            after=flame.evaluate('(n)=>n.style.transform')
+            assert before!=after,'living flame should flicker while a streak is alive'
             page.emulate_media(reduced_motion='reduce')
+            # Motion is decided when Home renders, so re-open Home under reduced motion.
+            page.evaluate("window.QB.nav('more')")
+            page.get_by_role('heading',name='More',exact=True).wait_for()
+            page.locator('.bottom-nav button').filter(has_text='Home').click()
+            page.wait_for_function("document.querySelector('.nk-home-streak-card')&&document.querySelector('.nk-home-streak-card').__nkg")
+            flame=page.locator('.nk-home-streak-flame svg')
+            before=flame.evaluate('(n)=>n.style.transform')
+            page.wait_for_timeout(350)
+            assert flame.evaluate('(n)=>n.style.transform')==before=='','reduced motion must keep the flame still'
             assert page.locator('.nk-streak-flame-svg').evaluate('(n)=>getComputedStyle(n).animationName')=='none'
             assert page.locator('.nk-home-week-day.is-today i').evaluate('(n)=>getComputedStyle(n).animationName')=='none'
-            if linked.count():
-                assert linked.first.evaluate('(n)=>getComputedStyle(n,"::after").animationName')=='none'
-            if frontier.count():assert frontier.evaluate('(n)=>getComputedStyle(n,"::before").display')=='none'
             page.emulate_media(reduced_motion='no-preference')
             page.evaluate('(attempts)=>{window.QB.getState().attempts=attempts;window.QB.saveState();window.QB.nav("more");}',original_attempts)
             page.get_by_role('heading',name='More',exact=True).wait_for()
@@ -87,7 +108,9 @@ def main() -> None:
             assert page.locator('.nk-revision-card.is-red b').inner_text()=='0'
             assert page.locator('.nk-revision-card.is-green b').inner_text()=='0'
             assert page.locator('.nk-revision-card.is-green button').is_disabled()
-            assert page.locator('.nk-revision-forecast .nk-review-chart i').evaluate_all('(nodes)=>nodes.every(n=>n.getBoundingClientRect().height===0)')
+            # Geist draws empty days as a 2px baseline stub (span.nkg-zero) instead of nothing.
+            assert page.locator('.nk-revision-forecast .nk-review-chart > span').evaluate_all(
+                "(nodes)=>nodes.length===7&&nodes.every(n=>n.classList.contains('nkg-zero')&&n.querySelector('b').textContent.trim()==='0'&&n.querySelector('i').style.height==='0px'&&n.querySelector('i').getBoundingClientRect().height<=2)")
             page.wait_for_function("getComputedStyle(document.querySelector('.page')).opacity==='1'")
             page.screenshot(path=str(output/'revision-empty-phone.png'),full_page=True)
             page.evaluate("""([wrong,bookmark]) => {
@@ -119,7 +142,11 @@ def main() -> None:
             page.wait_for_function("getComputedStyle(document.querySelector('.page')).opacity==='1'")
             assert page.locator('.bottom-nav button[aria-current="page"]').inner_text().startswith('Revision')
             assert page.locator('.nk-revision-forecast .nk-review-chart span').count() == 7
-            assert page.locator('.nk-revision-forecast [role="img"]').get_attribute('aria-label').startswith('Today: 1 reviews')
+            # Geist turns the forecast image into a group of selectable day columns with a live readout.
+            forecast=page.locator('.nk-revision-forecast .nk-review-chart')
+            assert forecast.get_attribute('role')=='group'
+            assert forecast.locator('> span').first.get_attribute('aria-label').startswith('Today: 1 review')
+            assert '1 review due' in ' '.join(page.locator('.nk-revision-forecast .nkg-fc-readout').inner_text().split())
             cards = page.locator(".nk-revision-card")
             assert cards.count() == 4, "Revision desk should show mistakes, bookmarks, unseen, and due"
             assert cards.nth(0).locator("b").inner_text() == "1"
@@ -165,7 +192,8 @@ def main() -> None:
             page.locator(".nk-back-link").filter(has_text="Revision").click()
             page.get_by_role("button", name="Clear focus").click()
             assert " ".join(page.locator(".nk-revision-scope").inner_text().split()) == "All subjects · All question banks"
-            assert cards.nth(1).locator("b").inner_text() == "1"
+            # Geist re-renders the counts a frame after the scope clears.
+            expect(cards.nth(1).locator("b")).to_have_text("1")
 
             cards.nth(0).get_by_role("button", name="View all mistakes").click()
             page.get_by_role("heading", name="Mistakes").wait_for(state="visible")

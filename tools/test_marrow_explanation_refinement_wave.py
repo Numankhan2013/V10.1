@@ -6,7 +6,7 @@ import re
 from pathlib import Path
 
 from inventory_marrow_explanations import BANKS, DATA, enhanced_ids, load_sharded
-from apply_canonical_bank_explanation_wiring_v1 import reviewed_table_sources
+from marrow_bank_data import reviewed_table_sources
 
 ROOT = DATA.parents[1]
 MANIFEST = DATA / 'explanation_refinement_wave_20260930.json'
@@ -104,7 +104,7 @@ def load_wave(manifest_path=None, *, require_complete=True):
     assert len(wave) == manifest['newEnhancedCount'], 'Wave count drift'
     assert not set(manifest.get('withheldSourceLimitedIds', [])).intersection(wave), 'Incomplete question counted as refined'
     if 'queueFile' in manifest:
-        from apply_canonical_bank_explanation_wiring_v1 import merged_explanations
+        from marrow_bank_data import merged_explanations
         queue = json.loads((ROOT / manifest['queueFile']).read_text())
         assert digest(queue) == manifest['queueSha256'], 'Resume assignment changed'
         assert set(queue['baselineEnhancedIds']) == baseline, 'Resume checkpoint changed'

@@ -49,7 +49,7 @@ def main():
     by_id = {q['id']: q for q in bank['questions']}
     assert by_id['UWORLD_2089']['uworldQuestionSet']['depends_on_question_id'] == 'UWORLD_2088'
     # Execute the actual shared presenter against every real second-collection record.
-    js = "const assert=require('assert');\n" + (ROOT / 'tools/question_presentation_core.js').read_text()
+    js = "const assert=require('assert');\n" + (ROOT / 'app/src/main/modules/question_presentation.js').read_text()
     js += '\nconst BANK=' + json.dumps(bank, ensure_ascii=False) + ';\n'
     js += "for(const q of BANK.questions){assert(nkQuestionPresentationFor(q).valid,q.id);assert.equal(nkQuestionPresentationFor(q).options.length,q.options.length);}\n"
     js += "const q=BANK.questions.find(q=>q.id==='UWORLD_1321');assert.equal(nkQuestionPresentationFor(q).options[8].letter,'I');console.log('POISONING_SHARED_PRESENTER_OK records=33 choices=A-I');"

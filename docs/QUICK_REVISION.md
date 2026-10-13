@@ -25,7 +25,7 @@ queue before selecting cards while its daily limit remains global.
 Each created session freezes its question IDs through the existing Practice
 engine. No new scheduler, category tags, or Home actions are introduced.
 
-Implementation: `tools/revision_desk_core.js` and
+Implementation: `app/src/main/modules/revision_desk.js` and
 `tools/apply_revision_desk_v1.py`. Verification: the behavior/transform check
 `tools/test_revision_desk_v1.py` and generated-app browser journey
 `tools/verify_revision_desk_browser.py`.

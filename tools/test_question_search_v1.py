@@ -1,32 +1,35 @@
 #!/usr/bin/env python3
-"""Verify all-bank question search selection, safety, and transform anchors."""
+"""Verify all-bank question search selection, safety, and shipped install points."""
 
 from pathlib import Path
 import json
+import re
 import subprocess
-
-from apply_question_search_v1 import CORE, NOTES_ROW, transform
+from app_page import app_source
 
 
 ROOT = Path(__file__).resolve().parents[1]
+HTML = ROOT / "app/src/main/assets/index.html"
+CORE = ROOT / "app/src/main/modules/question_search.js"
+NOTES_ROW = "${row('book','My notes',`${fmtNum(nkSavedQuestionNotes().length)} recall cues`,\"window.QB.nav('notes')\",'is-violet')}"
+SEARCH_ROW = "${row('search','Find a question','Search every subject and bank',\"window.QB.nav('question-search')\",'is-blue')}"
 
 
 def main() -> None:
-    fixture = (
-        '<html><head></head><script>/* NK_QBANK_COVERAGE_V1_START NK_REVISION_DESK_V1_START */'
-        "let route={page:'question-search'};function render(){let out='';if(false){} "
-        "else if(route.page==='quick-revision') out=nkRevisionDeskPage();}"
-        "function morePage(){return `<div>" + NOTES_ROW + "</div>`;}"
-        "  window.QB={};</script></html>"
-    )
-    installed = transform(fixture)
-    assert transform(installed) == installed
-    for marker in ("NK_QUESTION_SEARCH_V1_START", "route.page==='question-search'",
-                   "window.QB.nav('question-search')", "nkQuestionSearchPracticeMatches",
-                   "Search every subject and bank", "nk-question-search-v1"):
-        assert marker in installed, marker
-    inline = installed.split("<script>", 1)[1].split("</script>", 1)[0]
-    subprocess.run(["node", "--check"], input=inline, text=True, check=True)
+    page = app_source()
+    assert page.count(CORE.read_text(encoding="utf-8").strip()) == 1, "search core ships verbatim once"
+    for marker in ("NK_QUESTION_SEARCH_V1_START", '/* ── nk-question-search-v1 ── */',
+                   "else if(route.page==='question-search') out=nkQuestionSearchPage();\n"
+                   "    else if(route.page==='quick-revision') out=nkRevisionDeskPage();",
+                   NOTES_ROW + SEARCH_ROW):
+        assert page.count(marker) == 1, marker
+    qb = page[page.index("  window.QB={"):]
+    assert ("nkQuestionSearchQuery,nkQuestionSearchSetFilter,nkQuestionSearchMore,nkQuestionSearchOpen,"
+            "nkQuestionSearchPracticeMatches,") in qb[:qb.index("};")]
+    for match in re.finditer(r"<script(?![^>]*\bsrc=)[^>]*>", page):
+        inline = page[match.end():page.index("</script>", match.end())]
+        if inline.strip():
+            subprocess.run(["node", "--check"], input=inline, text=True, check=True)
 
     source = json.dumps(CORE.read_text(encoding="utf-8"))
     script = r'''

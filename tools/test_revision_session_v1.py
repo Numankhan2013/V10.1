@@ -5,7 +5,7 @@ import subprocess
 ROOT=Path(__file__).resolve().parents[1]
 
 def main():
-    source=(ROOT/'tools/revision_session_core.js').read_text()
+    source=(ROOT/'app/src/main/modules/revision_session.js').read_text()
     script=r'''
 const assert=require('node:assert/strict'),vm=require('node:vm');
 const questions=Array.from({length:27},(_,i)=>({id:'q'+i,correctOption:2}));

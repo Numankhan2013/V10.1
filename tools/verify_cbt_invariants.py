@@ -1,7 +1,8 @@
 from pathlib import Path
 import re
+from app_page import app_source
 
-html = Path('app/src/main/assets/index.html').read_text(encoding='utf-8')
+html = app_source()
 
 required = [
     'cbt-canonical-review',

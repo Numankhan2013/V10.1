@@ -13,7 +13,7 @@ the recommendation disappears. The empty state distinguishes too little study
 history from topics with no current retry signal. No new persisted analytics
 model or Home action is added.
 
-Implementation: `tools/insights_focus_core.js` and
+Implementation: `app/src/main/modules/insights_focus.js` and
 `tools/apply_insights_focus_v1.py`. Checks: `tools/test_insights_focus_v1.py`
 and the generated browser journey `tools/verify_insights_focus_browser.py`.
 

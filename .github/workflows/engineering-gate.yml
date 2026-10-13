@@ -23,6 +23,8 @@ jobs:
         run: python3 tools/verify_project_memory.py
       - name: Test local and CI verification preflight
         run: python3 tools/test_verification_preflight.py
+      - name: Check the app page against its tested modules
+        run: python3 tools/test_app_source_parity.py
       - name: Compile Python tooling
         run: python3 -m compileall -q tools
       - name: Test study metrics behavior

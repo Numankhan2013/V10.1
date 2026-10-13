@@ -15,7 +15,7 @@ from playwright.sync_api import sync_playwright
 ROOT = Path(__file__).resolve().parents[1]
 WEB = ROOT / "build/web"
 OUT = ROOT / "build/marrow-ui-checks"
-PRESENTATION_CORE = (ROOT / "tools/question_presentation_core.js").read_text(encoding="utf-8")
+PRESENTATION_CORE = (ROOT / "app/src/main/modules/question_presentation.js").read_text(encoding="utf-8")
 SCIENTIFIC_CORE = PRESENTATION_CORE[:PRESENTATION_CORE.index("  function nkQuestionOptionRuns")]
 OVERRIDE_PATHS = (
     ROOT / "data/marrow/content_hygiene_overrides_v1.json",

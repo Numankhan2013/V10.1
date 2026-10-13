@@ -7,6 +7,7 @@ from pathlib import Path
 import threading
 
 from playwright.sync_api import sync_playwright
+from app_page import built_page
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -15,7 +16,7 @@ QUESTION_ID = "1-1"  # PrepLadder Biochemistry source answer B; first pass choos
 
 def main() -> None:
     web = ROOT / "build/web"
-    assert "NK_PRACTICE_CORRECTION_V1_START" in (web / "index.html").read_text(encoding="utf-8")
+    assert "NK_PRACTICE_CORRECTION_V1_START" in built_page(web)
     output = ROOT / "build/ui-checks"
     output.mkdir(parents=True, exist_ok=True)
     server = ThreadingHTTPServer(("127.0.0.1", 0), partial(SimpleHTTPRequestHandler, directory=str(web)))
@@ -33,7 +34,9 @@ def main() -> None:
                 page.route("**/*", lambda route: route.continue_() if route.request.url.startswith(origin) else route.abort())
                 page.goto(origin + "/#more", wait_until="domcontentloaded")
                 page.wait_for_function("window.QB && window.QB.getState")
-                page.get_by_role("button", name="Find a question").click()
+                # Geist's top bar also carries a "Find a question" search icon; this flow
+                # starts from the More screen's own entry, so scope to the page content.
+                page.locator("#app").get_by_role("button", name="Find a question").click()
                 page.get_by_role("searchbox", name="Search all questions").fill(QUESTION_ID)
                 page.wait_for_function("document.querySelectorAll('.nk-question-search-item').length>0")
                 item = page.locator(".nk-question-search-item").first

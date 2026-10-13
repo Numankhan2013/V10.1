@@ -2,29 +2,33 @@
 """Verify cross-bank evidence, latest-answer recovery, and direct Practice entry."""
 
 from pathlib import Path
+import re
 import subprocess
-
-from apply_insights_focus_v1 import transform
+from app_page import app_source
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CORE = ROOT / "tools/insights_focus_core.js"
+CORE = ROOT / "app/src/main/modules/insights_focus.js"
+HTML = ROOT / "app/src/main/assets/index.html"
 
 
 def main() -> None:
-    fixture = (
-        '<html><head></head><script>/* NK_REVISION_DESK_V1_START */'
-        'function analytics(){return `<main>'
-        '      <section class="nk-section"><div class="nk-section-head"><div><div class="nk-kicker">CHAPTER PERFORMANCE</div>'
-        '</main>`;}  window.QB={nav:()=>{}};</script></html>'
-    )
-    generated = transform(fixture)
-    assert transform(generated) == generated
-    for marker in ("NK_INSIGHTS_FOCUS_V1_START", "${nkInsightsFocusSection()}",
-                   "nkPracticeInsightFocus", "nk-insights-focus-v1"):
-        assert marker in generated, marker
-    inline = generated.split("<script>", 1)[1].split("</script>", 1)[0]
-    subprocess.run(["node", "--check"], input=inline, text=True, check=True)
+    page = app_source()
+    assert page.count(CORE.read_text(encoding="utf-8").strip()) == 1, "focus core ships verbatim once"
+    for marker in ("NK_INSIGHTS_FOCUS_V1_START", '/* ── nk-insights-focus-v1 ── */',
+                   "else if(route.page==='analytics') out=analytics();"):
+        assert marker in page, marker
+    qb = page[page.index("  window.QB={"):]
+    assert "nkPracticeInsightFocus," in qb[:qb.index("};")]
+    # Learning Insights later replaced the old analytics() that rendered this section;
+    # its focus API stays installed and Insights is owned by the Learning Insights page.
+    assert page.count("function analytics(){") == 1
+    assert page.count((ROOT / "app/src/main/modules/learning_insights.js").read_text(encoding="utf-8").strip()) == 1
+    assert "CHAPTER PERFORMANCE" not in page
+    for match in re.finditer(r"<script(?![^>]*\bsrc=)[^>]*>", page):
+        inline = page[match.end():page.index("</script>", match.end())]
+        if inline.strip():
+            subprocess.run(["node", "--check"], input=inline, text=True, check=True)
 
     script = r'''
 const assert=require('node:assert/strict'),vm=require('node:vm');

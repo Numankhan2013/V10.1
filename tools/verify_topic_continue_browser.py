@@ -6,12 +6,13 @@ from pathlib import Path
 import json
 import threading
 from playwright.sync_api import sync_playwright, expect
+from app_page import built_page
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def main():
     web = ROOT / 'build/web'
-    html = (web / 'index.html').read_text()
+    html = built_page(web)
     probe = 'window.__topicContinue={current:()=>nkCurrentQuestion(),context:()=>nkLatestPracticeContext(),record:(s,b)=>nkBankRecord(s,b)};\n'
     diagnostic = html.replace('  window.QB={', probe + '  window.QB={', 1).encode()
     class Handler(SimpleHTTPRequestHandler):
@@ -37,7 +38,10 @@ def main():
                 chapter=page.evaluate('__topicContinue.record("Anatomy","Marrow").topics[0].id')
                 page.evaluate('id=>QB.openChapter(id)',chapter)
                 page.locator('.nk-chapter-actions').get_by_role('button',name='Practice',exact=False).click()
-                page.locator('#modal').get_by_role('button',name='Start Practice',exact=True).click()
+                # Geist starts topic Practice straight from the topic page; the legacy
+                # "Start Practice" confirmation modal is gone.
+                page.wait_for_function('QB.getState().activeSession?.mode==="practice"')
+                expect(page.locator('#modal').get_by_role('button',name='Start Practice',exact=True)).to_have_count(0)
                 page.locator('.option-list button').first.wait_for()
                 original=page.evaluate('QB.getState().activeSession')
                 assert len(original['questionIds'])>1

@@ -5,7 +5,7 @@ import hashlib
 import json
 from pathlib import Path
 
-from apply_canonical_bank_explanation_wiring_v1 import canonical_source_questions, validate_augmented_question
+from marrow_bank_data import canonical_source_questions, validate_augmented_question
 from test_marrow_explanation_refinement_wave import validate_source_retention
 
 ROOT = Path(__file__).resolve().parents[1]

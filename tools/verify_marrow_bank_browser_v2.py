@@ -156,6 +156,14 @@ helper = helper_anchor + """            def open_library_question(row, wait_ms=8
                 if replacement.count() and replacement.is_visible():
                     replacement.get_by_role('button',name='Discard and start new',exact=True).click()
                     page.wait_for_timeout(wait_ms)
+            def wait_settled(timeout=5000):
+                # Geist pushes screens and sheets in with finite WAAPI/Motion
+                # animations; geometry checks must measure the settled layout.
+                page.wait_for_function(
+                    "() => document.getAnimations().every(a => a.playState !== 'running' || (a.effect && a.effect.getTiming().iterations === Infinity))",
+                    timeout=timeout,
+                )
+                page.evaluate("() => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)))")
 """
 if source.count(helper_anchor) != 1:
     raise SystemExit(f"Practice replacement helper anchor count={source.count(helper_anchor)}")
@@ -174,6 +182,47 @@ source, library_click_count = library_click.subn(
 )
 if library_click_count < 20:
     raise SystemExit(f"Expected at least 20 Practice-aware library clicks, found {library_click_count}")
+
+# Geist is the learner UI. Answer feedback still has to be one green correct
+# option and one red wrong option, now drawn with Geist's semantic tokens
+# (nk-tokens.css: --nkg-green #0a7d35, --nkg-red #c9252c) instead of the
+# retired legacy palette.
+source = source.replace("'rgb(16, 154, 99)'", "'rgb(10, 125, 53)'")
+source = source.replace("'rgb(201, 75, 87)'", "'rgb(201, 37, 44)'")
+
+# Geist folds the legacy FSRS settings card on More into its single tools list
+# as a "Revision settings" row (same QB.nav('fsrs-settings') action). Open it the
+# way a learner does and wait for the pushed screen instead of a fixed delay.
+_fsrs_entry_old = "page.locator('.nk-fsrs-settings-entry').click();page.wait_for_timeout(100)"
+_fsrs_entry_new = (
+    "page.get_by_role('button',name='Revision settings',exact=True).click();"
+    "page.wait_for_url('**#fsrs-settings',timeout=5000);"
+    "page.locator('.nk-fsrs-settings input').first.wait_for(state='visible',timeout=5000)"
+)
+if source.count(_fsrs_entry_old) != 2:
+    raise SystemExit(f"FSRS settings entry adapter count={source.count(_fsrs_entry_old)}")
+source = source.replace(_fsrs_entry_old, _fsrs_entry_new)
+# The Save bar must sit fully above the bottom navigation once the screen has
+# settled; measuring mid-push reads the animated offset instead.
+_save_probe = "            print('SETTINGS_SAVE_POSITION'"
+if source.count(_save_probe) != 1:
+    raise SystemExit(f"FSRS save-bar probe anchor count={source.count(_save_probe)}")
+source = source.replace(_save_probe, "            wait_settled()\n" + _save_probe, 1)
+
+# Geist's source viewer (nk-viewer.js) keeps the #source-pdf-zoom /
+# .source-pdf-zoomimg / #spz-* contract but opens instantly from a copy of the
+# inline canvas and then swaps in the sharper render (data-quality="high"),
+# which may be a <canvas> rather than an <img>. Still require that sharper,
+# higher-resolution page, measured by its intrinsic pixel width.
+for _old, _new in (
+    ("page.wait_for_function(\"document.querySelector('.source-pdf-zoomimg')?.naturalWidth>0\")",
+     "page.wait_for_function(\"document.querySelector('#source-pdf-zoom')?.dataset.quality==='high' && ((n)=>n && (n.naturalWidth || (n.tagName==='CANVAS' ? n.width : 0))>0)(document.querySelector('.source-pdf-zoomimg'))\",timeout=90000)"),
+    ("assert zoom.evaluate('(n)=>n.naturalWidth')>metrics['pixels']",
+     "assert zoom.evaluate('(n)=>n.naturalWidth || (n.tagName===\\'CANVAS\\' ? n.width : 0)')>metrics['pixels']"),
+):
+    if source.count(_old) != 1:
+        raise SystemExit(f"Source viewer adapter anchor count={source.count(_old)} for {_old!r}")
+    source = source.replace(_old, _new, 1)
 '''
 
 wrapper = wrapper.replace(anchor, "\n" + compat + anchor, 1)

@@ -2,32 +2,33 @@
 """Check source-exact coverage, latest-answer evidence, and tracker installation."""
 
 from pathlib import Path
+import re
 import subprocess
-
-from apply_qbank_coverage_v1 import transform
+from app_page import app_source
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CORE = ROOT / "tools/qbank_coverage_core.js"
+HTML = ROOT / "app/src/main/assets/index.html"
+CORE = ROOT / "app/src/main/modules/qbank_coverage.js"
 
 
 def main() -> None:
-    fixture = (
-        '<html><head></head><script>/* NK_CBT_RESULT_ANALYSIS_V1_START */'
-        'function analytics(){return `<main>      ${nkInsightsFocusSection()}\n'
-        '      <section class="nk-section"><div class="nk-section-head"><div><div class="nk-kicker">CHAPTER PERFORMANCE</div></div></section>'
-        '      <section class="nk-section"><div class="nk-section-head"><div><div class="nk-kicker">RECENT</div></div></section>'
-        '</main>`;}  window.QB={nav:()=>{}};</script></html>'
-    )
-    generated = transform(fixture)
-    assert transform(generated) == generated
-    assert "${nkCoverageSection()}" in generated
-    assert "CHAPTER PERFORMANCE" not in generated
-    for marker in ("NK_QBANK_COVERAGE_V1_START", "nk-coverage-v1",
-                   "nkCoverageSelectBank", "nkCoverageOpen"):
-        assert marker in generated, marker
-    inline = generated.split("<script>", 1)[1].split("</script>", 1)[0]
-    subprocess.run(["node", "--check"], input=inline, text=True, check=True)
+    page = app_source()
+    assert page.count(CORE.read_text(encoding="utf-8").strip()) == 1, "coverage core ships verbatim once"
+    assert "CHAPTER PERFORMANCE" not in page, "old active-bank chapter list stays removed"
+    for marker in ("NK_QBANK_COVERAGE_V1_START", '/* ── nk-qbank-coverage-v1 ── */'):
+        assert page.count(marker) == 1, marker
+    qb = page[page.index("  window.QB={"):]
+    assert ("nkCoverageSelectBank,nkCoverageSetSearch,nkCoverageSetStatus,nkCoverageShowMore,nkCoverageOpen,"
+            in qb[:qb.index("};")])
+    # Learning Insights later replaced the analytics() that placed ${nkCoverageSection()};
+    # the tracker API stays installed and Insights is owned by the Learning Insights page.
+    assert page.count("function analytics(){") == 1
+    assert page.count((ROOT / "app/src/main/modules/learning_insights.js").read_text(encoding="utf-8").strip()) == 1
+    for match in re.finditer(r"<script(?![^>]*\bsrc=)[^>]*>", page):
+        inline = page[match.end():page.index("</script>", match.end())]
+        if inline.strip():
+            subprocess.run(["node", "--check"], input=inline, text=True, check=True)
 
     script = r'''
 const assert=require('node:assert/strict'),vm=require('node:vm');

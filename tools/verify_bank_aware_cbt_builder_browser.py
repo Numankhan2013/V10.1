@@ -8,6 +8,7 @@ import threading
 
 from playwright.sync_api import expect, sync_playwright
 from uworld_collections import bank_records
+from app_page import built_page
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -15,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def main() -> None:
     web = ROOT / "build/web"
-    assert "NK_BANK_AWARE_CBT_BUILDER_V1_START" in (web / "index.html").read_text(encoding="utf-8")
+    assert "NK_BANK_AWARE_CBT_BUILDER_V1_START" in built_page(web)
     output = ROOT / "build/ui-checks"
     output.mkdir(parents=True, exist_ok=True)
     server = ThreadingHTTPServer(("127.0.0.1", 0), partial(SimpleHTTPRequestHandler, directory=str(web)))
@@ -42,7 +43,15 @@ def main() -> None:
             expect(banks.filter(has_text="Anatomy").filter(has_text="UWorld")).to_have_count(0)
             expect(banks.filter(has_text="Physiology").filter(has_text="UWorld")).to_have_count(0)
             page.get_by_role("button", name="Clear all").click()
-            marrow = page.locator(".nk-cbt-builder .nk-module-subject").filter(has_text="Anatomy").filter(has_text="Marrow")
+            # Geist groups bank rows under a per-bank heading (PrepLadder / Marrow / UWorld)
+            # instead of repeating the bank name on each row, so the Marrow Anatomy row is
+            # the Anatomy row inside the Marrow group.
+            bank_groups = page.locator(".nk-cbt-builder .nkg-bank-group")
+            expect(bank_groups).to_have_count(3)
+            marrow_group = bank_groups.filter(has=page.locator("header h3", has_text="Marrow"))
+            expect(marrow_group).to_have_count(1)
+            marrow = marrow_group.locator(".nk-module-subject").filter(has_text="Anatomy")
+            expect(marrow).to_have_count(1)
             marrow.click()
             assert marrow.get_attribute("aria-pressed") == "true"
             bank_bounds = page.evaluate("""() => {

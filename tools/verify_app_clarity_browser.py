@@ -5,10 +5,11 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 import threading
 from playwright.sync_api import sync_playwright, expect
+from app_page import built_page
 ROOT=Path(__file__).resolve().parents[1]
 
 def main():
-    web=ROOT/'build/web';assert 'NK_APP_CLARITY_V1_START' in (web/'index.html').read_text()
+    web=ROOT/'build/web';assert 'NK_APP_CLARITY_V1_START' in built_page(web)
     class Quiet(SimpleHTTPRequestHandler):
         def log_message(self,*args):pass
     server=ThreadingHTTPServer(('127.0.0.1',0),partial(Quiet,directory=str(web)))
@@ -49,7 +50,14 @@ def main():
                         assert 'Scheduled reviews for this focus' not in page.locator('.nk-revision-forecast').inner_text()
                         page.get_by_role('button',name='Hide focus',exact=True).click()
                     if route=='analytics':
-                        assert page.locator('.nk-li-year-activity').bounding_box()['y']<280,(width,'heatmap starts too low')
+                        # Geist adds a 57px top bar and a display-size page title above the
+                        # controls, so the compact-geometry bound is measured from those:
+                        # the heatmap must be the first card after the period controls and
+                        # start well inside the first phone screen.
+                        heat_y=page.locator('.nk-li-year-activity').bounding_box()['y']
+                        note=page.locator('.nk-li-period-note').bounding_box()
+                        assert heat_y<360,(width,heat_y,'heatmap starts too low')
+                        assert heat_y-(note['y']+note['height'])<=32,(width,heat_y,note,'nothing may sit between the period controls and the heatmap')
                         assert page.locator('.nk-li-year-grid button').count()>=365
                         assert page.locator('.nk-li-card').count()==8
                         assert page.get_by_role('heading',name='Missed-question revision',exact=True).count()==0

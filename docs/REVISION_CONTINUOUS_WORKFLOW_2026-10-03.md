@@ -27,7 +27,7 @@ and rating behavior.
 
 ## Implementation
 
-`tools/revision_session_core.js` is installed by the existing deterministic
+`app/src/main/modules/revision_session.js` is installed by the existing deterministic
 `tools/apply_revision_desk_v1.py` owner, after the shared Practice/persistence/FSRS
 owners. It opts in only explicitly tagged hub queues. Chapter Practice, one-off
 browse questions, Custom Study Modules, CBT and Review Solutions retain their

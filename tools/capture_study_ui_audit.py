@@ -19,6 +19,11 @@ SIZES = (("small-phone", 320, 640, False), ("phone", 390, 844, False),
          ("large-text-phone", 390, 844, True), ("tablet", 820, 1180, False))
 
 
+
+def bank_rows(page, bank, state=""):
+    # Geist groups source rows under a per-bank heading instead of naming the bank on each row.
+    return page.locator(".nkg-bank-group").filter(has=page.locator("header h3", has_text=bank)).locator("button.nk-module-subject" + state)
+
 def capture(page, name, observations, *, full_page=False):
     page.wait_for_timeout(120)
     path = OUT / f"{name}.png"
@@ -121,7 +126,7 @@ def main():
                     assert page.locator(".nk-module-group-action").count() == 0, \
                         f"Single-bank picker duplicates Select all at {label}"
                     page.evaluate("window.QB.nkModuleBuilderStep(1)")
-                    page.locator("button.nk-module-subject").filter(has_text="Marrow").first.click()
+                    bank_rows(page, "Marrow").first.click()
                     page.evaluate("window.QB.nkModuleBuilderStep(2)")
                     assert page.locator(".nk-module-topic-group").count() == 2, f"Second bank is missing at {label}"
                     page.locator(".nk-module-topic-group").nth(1).locator(".nk-module-group-action").click()
@@ -133,8 +138,8 @@ def main():
                     page.evaluate("window.QB.nkModuleBuilderStep(4)")
                     capture(page, f"{label}-01f-module-finish", observations)
                     page.evaluate("window.QB.nav('dashboard');window.QB.openStudyModuleBuilder()")
-                    if page.locator("button.nk-module-subject.is-selected").filter(has_text="PrepLadder").count() == 0:
-                        page.locator("button.nk-module-subject").filter(has_text="PrepLadder").first.click()
+                    if bank_rows(page, "PrepLadder", ".is-selected").count() == 0:
+                        bank_rows(page, "PrepLadder").first.click()
                     page.evaluate("window.QB.nkModuleBuilderStep(2)")
                     page.locator(".nk-module-topic").first.click()
                     page.evaluate("window.QB.nkSelectModulePyqTopics();window.QB.nkModuleBuilderStep(3)")
@@ -214,10 +219,15 @@ def main():
                 # The full-bank overview is captured above. The interaction
                 # fixture must not randomly land on a deliberately gated item.
                 page.evaluate("window.QB.nkCbtSetBanks(false)")
-                page.locator(".nk-cbt-builder .nk-module-subject").filter(has_text="Biochemistry").filter(has_text="Marrow").click()
+                # Geist groups bank rows under a per-bank heading instead of naming the bank on each row.
+                page.locator(".nk-cbt-builder .nkg-bank-group").filter(has=page.locator("header h3", has_text="Marrow")).locator(".nk-module-subject").filter(has_text="Biochemistry").click()
                 page.evaluate("window.QB.nkCbtSetStep(2)")
                 page.locator(".nk-cbt-topic-group").first.wait_for(state="visible")
                 page.locator(".nk-cbt-topic-group .nk-module-group-action").click()
+                # Geist collapses topic groups to their header; open it before picking a topic.
+                group = page.locator(".nk-cbt-topic-group").first
+                if "is-collapsed" in (group.get_attribute("class") or ""):
+                    group.locator(".nkg-group-toggle").click()
                 page.locator(".nk-cbt-topic-group .nk-module-topic").first.click()
                 if label in ("phone", "tablet"):
                     capture(page, f"{label}-13c-test-topics", observations)
@@ -243,7 +253,9 @@ def main():
                 assert [int(v) for v in cells.locator("span").all_inner_texts()] == list(range(1, cells.count() + 1)), \
                     f"CBT grid does not use session positions at {label}"
                 assert cells.evaluate_all("""nodes => nodes.every(node => {
-                  const label=node.querySelector('small'),outer=node.getBoundingClientRect(),inner=label.getBoundingClientRect();
+                  // Geist shows status through the cell style and hides the label text.
+                  const label=node.querySelector('small');if(!label||getComputedStyle(label).display==='none')return true;
+                  const outer=node.getBoundingClientRect(),inner=label.getBoundingClientRect();
                   return inner.left>=outer.left-1 && inner.right<=outer.right+1;
                 })"""), f"CBT grid status text escapes a cell at {label}"
                 page.locator("#nk-session-review").get_by_role("button", name="Submit Test", exact=True).click()

@@ -5,10 +5,11 @@ from functools import partial
 from http.server import ThreadingHTTPServer,SimpleHTTPRequestHandler
 import threading,json
 from playwright.sync_api import sync_playwright
+from app_page import built_page
 ROOT=Path(__file__).resolve().parents[1]
 
 def main():
-    web=ROOT/'build/web';html=(web/'index.html').read_text()
+    web=ROOT/'build/web';html=built_page(web)
     assert 'NK_INTERACTION_POLISH_V1_START' in html
     probe="window.__nkInteractionProbe={question:()=>nkCurrentQuestion(),render:()=>render()};"
     diagnostic=html.replace('  window.QB={',probe+'\n  window.QB={',1).encode()
@@ -38,7 +39,13 @@ def main():
                 page.evaluate("QB.practiceOne('1-1')");page.wait_for_selector('.option-list button');question=page.evaluate('__nkInteractionProbe.question()');option=page.locator('.option-list button').nth(int(question['correctOption'])-1)
                 option.dispatch_event('pointerdown',{'pointerId':1,'isPrimary':True,'pointerType':'touch','button':0,'clientX':30,'clientY':30})
                 assert option.evaluate("el=>el.classList.contains('nk-pressed')"),'press has no immediate feedback'
-                assert option.evaluate("el=>getComputedStyle(el).transitionDuration")=="0s",'touch-down scale must be immediate'
+                # Geist eases the press scale with its fast motion token (--nkg-dur-fast,
+                # 140ms) instead of snapping it; the press must still start on the
+                # touch-down frame and never use a slower curve.
+                press=option.evaluate("""el=>{const s=getComputedStyle(el),p=s.transitionProperty.split(',').map(x=>x.trim()),d=s.transitionDuration.split(',').map(x=>parseFloat(x)*(x.trim().endsWith('ms')?1:1000));
+                    const fast=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nkg-dur-fast'))||140;
+                    const i=p.findIndex(x=>x==='transform'||x==='all');return {fast,transformMs:i<0?0:d[i%d.length]};}""")
+                assert press['transformMs']<=press['fast'],('touch-down scale must be immediate or use the fast press token',press)
                 option_transform=option.evaluate("el=>getComputedStyle(el).transform")
                 if reduced:assert option_transform=='none','reduced-motion press moved the answer'
                 else:assert option_transform!='none','answer option lost the prior tactile press scale'
@@ -63,18 +70,26 @@ def main():
                 page.evaluate('QB.openTestBuilder();QB.nkCbtSetStep(2);QB.nkCbtSelectVerifiedPyqs();QB.nkCbtSetStep(3);QB.nkCbtSetCount(10);QB.nkCbtStart()');page.wait_for_selector('.is-exam .option-list button')
                 page.evaluate("window.__stem=document.querySelector('.question-text')")
                 choices=page.locator('.is-exam .option-list button');choices.nth(0).tap();choices.nth(1).tap();assert page.evaluate("__stem===document.querySelector('.question-text')");assert choices.nth(1).get_attribute('aria-pressed')=='true'
+                # Geist marks the committed exam choice with an inset ring (box-shadow) that is
+                # never transitioned, so it must flip on the same frame as the selection;
+                # its border/background tint may only ease with the standard --nkg-dur token.
                 appearance=page.evaluate("""async() => {
                     const b=document.querySelectorAll('.is-exam .option-list button')[1];
-                    const color=getComputedStyle(b).backgroundColor;
+                    const ring=getComputedStyle(b).boxShadow;
                     QB.selectExam(1);
-                    const immediate=getComputedStyle(b).backgroundColor;
+                    const immediate=getComputedStyle(b).boxShadow;
                     await new Promise(requestAnimationFrame);
                     const style=getComputedStyle(b);
-                    return {changed:color!==immediate,firstFrame:style.backgroundColor===immediate,
-                        property:style.transitionProperty,duration:style.transitionDuration};
+                    const dur=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nkg-dur'))||180;
+                    const ms=style.transitionDuration.split(',').map(x=>parseFloat(x)*(x.trim().endsWith('ms')?1:1000));
+                    return {changed:ring!==immediate,firstFrame:style.boxShadow===immediate,ring,immediate,
+                        property:style.transitionProperty,duration:style.transitionDuration,maxMs:Math.max(...ms),dur,
+                        pressed:b.getAttribute('aria-pressed')};
                 }""")
                 assert appearance['changed'] and appearance['firstFrame'],appearance
-                assert 'background' not in appearance['property'] and 'border' not in appearance['property'] and 'box-shadow' not in appearance['property'],appearance
+                assert appearance['pressed']=='false',appearance
+                assert 'box-shadow' not in appearance['property'] and 'all' not in appearance['property'].split(', '),appearance
+                assert appearance['maxMs']<=appearance['dur'],appearance
                 timing=page.evaluate("""() => {const ms=[];for(let i=0;i<12;i++){const t=performance.now();QB.selectExam(i%2+1);ms.push(performance.now()-t);}return ms.sort((a,b)=>a-b)[6];}""")
                 assert page.evaluate("__stem===document.querySelector('.question-text')")
                 page.locator('.nk-exam-review-toggle').tap();assert page.locator('.nk-exam-review-toggle').get_attribute('aria-pressed')=='true';assert page.evaluate("__stem===document.querySelector('.question-text')");pulses=page.evaluate('__vibrations.length')

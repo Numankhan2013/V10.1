@@ -1,19 +1,26 @@
 #!/usr/bin/env python3
 """Exercise actual table normalizer against both immutable source schemas."""
-import ast
 import json
+import re
 import subprocess
 from pathlib import Path
 
 from inventory_marrow_explanations import load_sharded
+from app_page import app_source
 
 ROOT = Path(__file__).resolve().parents[1]
+HTML = ROOT / 'app/src/main/assets/index.html'
+MARKER = '  // NK_MARROW_STRUCTURED_TABLE_RENDERER_V1'
 
 
 def main():
-    tree = ast.parse((ROOT / 'tools/apply_marrow_structured_table_renderer_v1.py').read_text())
-    helper = next(ast.literal_eval(node.value) for node in tree.body
-                  if isinstance(node, ast.Assign) and any(isinstance(t, ast.Name) and t.id == 'helper' for t in node.targets))
+    page = app_source()
+    assert page.count(MARKER) == 1, 'Marrow structured-table renderer missing'
+    start = page.index(MARKER)
+    helper = page[start:page.index('  const NK_MARROW_EXPLANATION_GOLD_V1=', start)]
+    assert 'function nkRenderMarrowTableCompat(table)' in helper
+    calls = re.findall(r"tables\.map\(\s*(nkRenderMarrowTable\w*)\s*\)\.join\(\s*''\s*\)", page)
+    assert calls == ['nkRenderMarrowTableCompat'] * 2, calls
     anatomy, _ = load_sharded('anatomy_ch001_063')
     physio, _ = load_sharded('physiology_ch001_043')
     sources = {q['id']: q for q in anatomy['questions'] + physio['questions']}

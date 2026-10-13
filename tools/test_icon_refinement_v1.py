@@ -3,27 +3,20 @@
 from pathlib import Path
 import subprocess
 import tempfile
-from apply_icon_refinement_v1 import transform, MARKER
-from apply_whole_app_vision_v1 import FOUNDATION_AND_DASHBOARD
+from app_page import app_source
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def main():
-    source = '<html><body><script>/* NK_INTERACTION_POLISH_V1_END */\nfunction nkSubjectGraphic(){}\nfunction nkAnalysisIcon(){}\n  window.QB={};</script><button onclick="QB.goIndex(1)">Next</button></body></html>'
-    result=transform(source);core=(ROOT/'tools/icon_refinement_core.js').read_text()
-    assert result.replace(core+'\n','',1)==source
-    assert transform(result)==result
-    try:
-        transform(source.replace('function nkSubjectGraphic(','unexpectedOwner('))
-    except ValueError:
-        pass
-    else:
-        raise AssertionError('missing canonical factory accepted')
-    app=(ROOT/'app/src/main/assets/index.html').read_text()
+    app=app_source();core=(ROOT/'app/src/main/modules/icon_refinement.js').read_text()
+    assert app.count(core)==1 and app.count('NK_ICON_REFINEMENT_V1_START')==1
+    assert app.index('NK_INTERACTION_POLISH_V1_END')<app.index(core)<app.index('  window.QB={')
+    for anchor in ['NK_INTERACTION_POLISH_V1_END','  window.QB={','function nkSubjectGraphic(','function nkAnalysisIcon(','function navIcon(']:
+        assert app.count(anchor)==1,f'Icon owner anchor mismatch: {anchor}'
     nav=app[app.index('  function navIcon('):app.index('\n  function logo')]
-    subject=FOUNDATION_AND_DASHBOARD.split('  function nkFlameGraphic')[0]
-    analysis=(ROOT/'tools/refined_analysis_core.js').read_text().split('  function nkAnalysisTest')[0]
+    subject=app[app.index('function nkAppSubjectMeta('):app.index('  function nkFlameGraphic')]
+    analysis=(ROOT/'app/src/main/modules/refined_analysis.js').read_text().split('  function nkAnalysisTest')[0]
     checks=r'''
 const assert=require('node:assert/strict');
 const names=['menu','bell','search','home','book','test','chart','bookmark','back','chevron','share','star','check','close','more','clock','trash','refresh','grid','heart','body','molecule','dna','bulb','pause'];

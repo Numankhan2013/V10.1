@@ -7,13 +7,14 @@ from pathlib import Path
 import threading
 
 from playwright.sync_api import sync_playwright
+from app_page import built_page
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def main() -> None:
     web = ROOT / "build/web"
-    html = (web / "index.html").read_text(encoding="utf-8")
+    html = built_page(web)
     for marker in ("NK_QUESTION_PRESENTATION_V1_START", "nk-question-presentation-v1"):
         if marker not in html:
             raise SystemExit(f"Question presentation layer missing from built PWA: {marker}")

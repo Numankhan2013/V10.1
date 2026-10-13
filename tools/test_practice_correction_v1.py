@@ -1,26 +1,31 @@
 #!/usr/bin/env python3
-"""Check exact saved-result selection and install the correction action."""
+"""Check exact saved-result selection and the shipped correction action."""
 
 import json
 from pathlib import Path
+import re
 import subprocess
-
-from apply_practice_correction_v1 import CORE, REVIEW_ANCHOR, transform
+from app_page import app_source
 
 
 ROOT = Path(__file__).resolve().parents[1]
+HTML = ROOT / "app/src/main/assets/index.html"
+CORE = ROOT / "app/src/main/modules/practice_correction.js"
+REVIEW_ANCHOR = '      <section class="nk-section"><div class="nk-section-head"><div><div class="nk-kicker">QUESTION REVIEW</div>'
 
 
 def main() -> None:
-    fixture = ('<html><head></head><script>/* NK_CONTINUE_PRACTICE_RESUME_V1_START '
-               'NK_QUESTION_SEARCH_V1_START */function resultPage(t){return `'
-               + REVIEW_ANCHOR + '</div>`;}  window.QB={};</script></html>')
-    installed = transform(fixture)
-    assert transform(installed) == installed
-    assert installed.count('${nkCorrectionResultSection(t)}') == 1
-    assert 'window.QB={nkCorrectionStart,' in installed
-    inline = installed.split('<script>', 1)[1].split('</script>', 1)[0]
-    subprocess.run(['node', '--check'], input=inline, text=True, check=True)
+    page = app_source()
+    assert page.count(CORE.read_text(encoding='utf-8').strip()) == 1, 'correction core ships verbatim once'
+    for marker in ('NK_PRACTICE_CORRECTION_V1_START', '/* ── nk-practice-correction-v1 ── */',
+                   '      ${nkCorrectionResultSection(t)}\n' + REVIEW_ANCHOR):
+        assert page.count(marker) == 1, marker
+    qb = page[page.index('  window.QB={'):]
+    assert 'nkCorrectionStart,' in qb[:qb.index('};')]
+    for match in re.finditer(r'<script(?![^>]*\bsrc=)[^>]*>', page):
+        inline = page[match.end():page.index('</script>', match.end())]
+        if inline.strip():
+            subprocess.run(['node', '--check'], input=inline, text=True, check=True)
 
     source = json.dumps(CORE.read_text(encoding='utf-8'))
     script = r'''

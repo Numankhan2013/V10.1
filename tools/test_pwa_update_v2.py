@@ -5,7 +5,7 @@ import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-core = (ROOT / 'tools/pwa_update_core.js').read_text()
+core = (ROOT / 'app/src/main/modules/pwa_update.js').read_text()
 program = r'''
 const vm=require('node:vm'),assert=require('node:assert/strict');
 async function scenario(pageVersion,workerVersion,mode=null){

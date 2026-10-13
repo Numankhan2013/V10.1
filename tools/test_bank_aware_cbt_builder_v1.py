@@ -2,27 +2,30 @@
 """Check timed CBT installation and exact bank/topic pool behavior."""
 
 from pathlib import Path
+import re
 import subprocess
-
-from apply_bank_aware_cbt_builder_v1 import transform
+from app_page import app_source
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CORE = ROOT / "tools/bank_aware_cbt_builder_core.js"
+HTML = ROOT / "app/src/main/assets/index.html"
+CORE = ROOT / "app/src/main/modules/bank_aware_cbt_builder.js"
 
 
 def main() -> None:
-    fixture = ("<html><head></head><script>/* NK_CUSTOM_STUDY_MODULES_V1_START */"
-               "/* NK_INSIGHTS_FOCUS_V1_START */"
-               "function render(){if(false){}\n    else if(route.page==='module-builder') out=studyModuleBuilderPage();}"
-               "  window.QB={nav:()=>{}};</script></html>")
-    generated = transform(fixture)
-    assert transform(generated) == generated
-    for marker in ("NK_BANK_AWARE_CBT_BUILDER_V1_START", "route.page==='test-builder'",
-                   "nkCbtToggleTopic", "nkCbtSelectVerifiedPyqs", "nk-bank-aware-cbt-builder-v1"):
-        assert marker in generated, marker
-    inline = generated.split("<script>", 1)[1].split("</script>", 1)[0]
-    subprocess.run(["node", "--check"], input=inline, text=True, check=True)
+    page = app_source()
+    assert page.count(CORE.read_text(encoding="utf-8").strip()) == 1, "CBT builder core ships verbatim once"
+    for marker in ("NK_BANK_AWARE_CBT_BUILDER_V1_START", '/* ── nk-bank-aware-cbt-builder-v1 ── */',
+                   "    else if(route.page==='test-builder') out=nkCbtBuilderPage();\n"
+                   "    else if(route.page==='module-builder') out=studyModuleBuilderPage();"):
+        assert page.count(marker) == 1, marker
+    qb = page[page.index("  window.QB={"):]
+    assert ("nkCbtSetBanks,nkCbtToggleBank,nkCbtSetStep,nkCbtSetTopics,nkCbtSelectVerifiedPyqs,nkCbtToggleGroup,"
+            "nkCbtToggleTopic,nkCbtFilterTopics,nkCbtSetCount,nkCbtStart,") in qb[:qb.index("};")]
+    for match in re.finditer(r"<script(?![^>]*\bsrc=)[^>]*>", page):
+        inline = page[match.end():page.index("</script>", match.end())]
+        if inline.strip():
+            subprocess.run(["node", "--check"], input=inline, text=True, check=True)
 
     source = CORE.read_text(encoding="utf-8")
     script = r'''
@@ -40,7 +43,7 @@ const context={BANKS_BY_SUBJECT:{Anatomy:[prep,marrow],Physiology:[phys]},
   document:{querySelectorAll:()=>[],getElementById:()=>null},
   navigate:p=>{route=p},render:()=>{},resetScrollPosition:()=>{},
   showToast:()=>{},fmtNum:String,esc:String,navIcon:()=>'',nkAppSubjectMeta:()=>({key:'anatomy'}),
-  nkAppSubjectIcon:()=>'',nkAppPageHead:()=>'',shell:x=>x,
+  nkAppSubjectIcon:()=>'',nkAppPageHead:()=>'',shell:x=>x,nkTimedResumeCard:where=>'<!--resume:'+where+'-->',
   BY_ID:{},state:{activeSession:null},saveState:()=>{saved++},
   startSession:(ids,mode,title)=>{started={ids,mode,title};context.state.activeSession={mode,questionIds:ids}},
   openTestBuilder:()=>{},openMultiSubjectTestBuilder:()=>{},Math,JSON,Set,Map,Object};
@@ -49,6 +52,7 @@ const call=code=>vm.runInContext(code,context),ids=()=>Array.from(call('nkCbtPoo
 call('openTestBuilder()');assert.equal(route,'test-builder');
 assert.deepEqual(ids().sort(),['marrow1','marrow2','phys1','prep1','prep2']);
 assert(call('nkCbtBuilderPage()').includes('Only verified PYQ topics')===false);
+assert(call('nkCbtBuilderPage()').includes('<!--resume:builder-->'),'builder shows the active timed test card');
 call('nkCbtSetStep(2)');
 assert(call('nkCbtBuilderPage()').includes('1 topics · 1 Q'));
 assert(call('nkCbtBuilderPage()').includes('nk-cbt-topic-tools'));

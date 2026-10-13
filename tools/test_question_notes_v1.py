@@ -1,31 +1,35 @@
 #!/usr/bin/env python3
-"""Check personal note behavior and additive generated-app installation."""
+"""Check personal note behavior and its installation in the shipped page."""
 
 from pathlib import Path
 import subprocess
-
-from apply_question_notes_v1 import transform
+from app_page import app_source
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CORE = ROOT / "tools/question_notes_core.js"
+CORE = ROOT / "app/src/main/modules/question_notes.js"
+MEDIA = ROOT / "app/src/main/modules/question_note_media.js"
 HTML = ROOT / "app/src/main/assets/index.html"
 
 
 def main() -> None:
-    source = HTML.read_text(encoding="utf-8")
-    generated = transform(source)
-    assert transform(generated) == generated
+    page = app_source()
+    for core in (CORE, MEDIA):
+        assert page.count(core.read_text(encoding="utf-8").strip()) == 1, core.name
+    start = page.index("  window.QB={")
+    assert "nkFilterNotes,nkOpenNotedQuestion," in page[start:page.index("};", start)]
     for marker in (
         "NK_QUESTION_NOTES_V1_START",
-        "nkMountQuestionNote();",
-        "questionNotes: {}",
-        'id="nk-question-notes-v1"',
+        "    app.innerHTML=out;\n    nkMountQuestionNote();",
+        "    bookmarks: {},\n    questionNotes: {},",
+        '/* ── nk-question-notes-v1 ── */',
         "NK_NOTE_MEDIA_V1_START",
         "function nkNoteImportPdf(",
         ".nk-note-viewer-stage",
+        "else if(route.page==='notes') out=nkNotesPage();",
+        "${row('book','My notes',`${fmtNum(nkSavedQuestionNotes().length)} recall cues`,\"window.QB.nav('notes')\"",
     ):
-        assert marker in generated, marker
+        assert marker in page, marker
 
     script = r'''
 const assert=require('node:assert/strict');

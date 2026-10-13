@@ -1,15 +1,20 @@
 #!/usr/bin/env python3
-"""Verify exact-set mocks, truthful result groups, timing and deterministic install."""
+"""Verify exact-set mocks, truthful result groups, timing and the shipped install."""
 from pathlib import Path
 import json
 import subprocess
-from apply_refined_analysis_v1 import transform
+from app_page import css_section, app_source
 
 ROOT = Path(__file__).resolve().parents[1]
-core = (ROOT / 'tools/refined_analysis_core.js').read_text()
-fixture = '<html><head></head><script>/* NK_APP_CLARITY_V1_START NK_CBT_RESULT_ANALYSIS_V1_START NK_PRACTICE_CORRECTION_V1_START */\n  window.QB={};</script></html>'
-generated = transform(fixture)
-assert transform(generated) == generated
+core = (ROOT / 'app/src/main/modules/refined_analysis.js').read_text()
+page = app_source()
+assert page.count(core.strip()) == 1, 'refined analysis core ships verbatim once'
+assert css_section('nk-refined-analysis-v1')
+assert page.count('NK_REFINED_ANALYSIS_V1_START') == 1
+qb = page[page.index('  window.QB={'):]
+assert ('nkAnalysisSetTab,nkAnalysisSetTime,nkAnalysisRename,nkMockName,nkMockSaveDraft,nkMockStart,nkMockSaveResult,nkMockRemove,'
+        'nkMockRenameInline,nkMockRename,nkMockOpen,nkMockClose,nkMockLaunch,nkMockSheetRename,nkMockAskDelete,nkMockUndo,'
+        'nkMockFilter,nkMockShowAll,') in qb[:qb.index('};')]
 subprocess.run(['node', '--check'], input=core, text=True, check=True)
 program = r'''
 const vm=require('vm'),assert=require('node:assert/strict');
@@ -53,4 +58,4 @@ fail=false;run("nkMockRemove('keep')");assert.equal(ctx.state.savedMocks.length,
 console.log('REFINED_ANALYSIS_BEHAVIOR_OK exact_sets=true missing_questions=true save_failure=true timing_boundaries=true subject_totals=true truthful_zero=true');
 '''.replace('CORE', json.dumps(core))
 subprocess.run(['node'], input=program, text=True, check=True)
-print('REFINED_ANALYSIS_INSTALL_OK idempotent=true')
+print('REFINED_ANALYSIS_INSTALL_OK shipped=true')

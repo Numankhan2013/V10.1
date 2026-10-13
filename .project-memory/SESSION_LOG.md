@@ -2513,3 +2513,64 @@ User asked for a thorough functional audit, especially whether FSRS is as good a
 - Cause of delay: each tap re-rendered a 12 MP raster, ran the tone curve synchronously, PNG-encoded and decoded it before opening. Now the viewer opens from a copy of the inline canvas, the sharp render starts after the opening motion, is cached (last two), and the tone curve yields in bands.
 - Panning now follows the finger and clamps at edges (no rubber band/bounce; flick glide stops at edges). Note images use the same viewer (`NKViewer.show`), with prev/next and sideways swipe. Fixed: an early gesture during the opening motion blocked the sharp render.
 - Added `tools/verify_source_viewer_browser.py` (Geist: open within two frames, sharpen, exact edges, cached reopen).
+
+## 2026-10-04 — Verified reproductive feature preview (moved from STATE.md)
+
+- Feature app candidatee9a1c15 is based on docs93a8196/product315cfcc. User authorizes two locally verified additions and one combined preview, explicitly no production promotion. Male52/281pages and Female81/595pages retain two blocks each; original JSONLs/PDFs are pinned to source56fe817. Pregnancy placeholder files are excluded. Report: `docs/UWORLD_REPRODUCTIVE_BATCH.md`.
+- Reusable imported owner validates source/normalized hashes, keys, page ownership and complete overlays. Six Luna/high batches review all133 questions/876pages;46 native tables/306 source figure placements. Root reviews every crop sheet and repairs289 bounds, recovering missing exhibits. Female1830's six-choice repair has an explicit PDF/row-pinned ledger; original JSONL bytes remain immutable. Missing stats/source editorial inconsistencies remain documented.
+- Collection icons replace universal DNA. Topics resumes exact-bank durable Practice IDs/position/answers, excludes special modes and hides completed-bank zero-left actions. Today's Focus uses saved context while retaining timed priority/multi-session choice.104 local checks, scoped Topics/Home390/820/1440 and combined390/820/1194/1440 pass.
+- Engineering37205213243 and complete build/package job37205213240 pass. Original full-run Android installation hits Playwright's string limit before launch; recovery33642325/run37208580256 hash-checks/reuses that exact674756225-byte APK, streams installation via adb and passes phone/tablet/native Back/restart/FSRS/CBT checks. Full original run is not reported as success. Verification-only owners are retained for future main builds.
+- https://f0ec5f5d.nk-qbank.pages.dev passes actual four-width flows/all133 new questions and all589 media hashes/offline paths; prior283 images are unchanged. Hosted HTML d65c4ced30a2aff44cb8494fbd350fb70b11612fe3497ec87df266ef7ea8a6a5 matches CI. Main-domain production086b04f4 remains unchanged after upload. No physical-device, authenticated-account or clinical acceptance is inferred; docs-only handoff preserves exact application bytes.
+
+## 2026-10-12 — Bake the app page into source (stage 1)
+
+- Branch `feature/home-v12-redesign` from `eb84d7f6` (run 1549 green). `index.html`,
+  `MainActivity.java` and `source_visual_renderer.js` now hold the form the old
+  pipeline generated; 62 patch scripts and their workflow steps removed.
+- Data at `__NK_DATA_*__` tokens, filled by `tools/build_app_data.py`; filled page
+  is byte-identical to the old generated page. Feature tests now read the page and
+  core modules directly; `test_app_source_parity.py` keeps `tools/*_core.js` and
+  feature CSS in step with the page.
+- Verified locally: 70 of 72 non-browser test commands pass (the two left need
+  CI-generated PDF assets); the new pipeline's `app/` tree and `build_web_dist`
+  output were compared with the old pipeline's.
+- Next: stage 2 (include directives), stage 3 (merged stylesheet).
+
+## 2026-10-12 — Page modules (bake stage 2)
+
+- The 29 `tools/*_core.js` modules and 6 feature stylesheets moved to
+  `app/src/main/modules/` (without the `_core` suffix). The page holds a
+  `/* @module <file> */` marker for each instead of a copy: 1.1 MB → 450 KB.
+- `tools/app_page.py` assembles the page; tests and the source product contract
+  read through it, and `build_app_data.py` assembles before filling data. The
+  assembled page is identical to stage 1, and the filled page to the old 19 MB
+  page.
+- Removed six unused scripts that still patched index.html and two workflows
+  for retired branches whose scripts no longer exist.
+
+## 2026-10-12 — One stylesheet (bake stage 3)
+
+- All CSS moved into `app/src/main/assets/app.css` (59 sheets: Geist tokens/theme/
+  redesign/polish/PDF loader/viewer, then 52 former inline blocks, original cascade
+  order). Declarations that lose on every element they match (a later same-selector
+  rule or the `html[data-nk-ui="geist"]` twin) were removed: 904 KB → 808 KB source.
+  `redesign_generate_theme_css.py` and the six feature `.css` modules were removed;
+  `app_page.py` gained `app_css`, `css_section`, `built_page`.
+- Verified with a computed-style fingerprint of every element at every browser-verifier
+  screenshot, light and dark, stage 2 build vs merged build, against run-to-run noise:
+  no real differences across 15 verifiers. A first version of the cleanup (a regex that
+  dropped emptied rules) fused a selector and broke `.nk-na-metrics`; the comparison
+  caught it and it was replaced by a brace-matched pass.
+- Local gotcha: a full disk makes browser verifiers fail with
+  `ERR_INSUFFICIENT_RESOURCES`; keep scratch web builds (~900 MB each) trimmed.
+
+## 2026-10-13 — Post-bake fixes before promotion
+
+- My Subjects gains a Mixed practice row wired to `startAllSubjectPractice`, which now
+  draws from `nkAllStudyQuestions()` (all banks) and registers the picked questions in `BY_ID`.
+- Gold "why the other options are wrong" labels use `nkScientificMarkup` like the options.
+- Removed the unused `nkInsightsExpanded` / `nkToggleInsightsExpanded`.
+- Insights focus/coverage sections stay retired (deliberate since the 2026-10-01 Insights
+  rebuild; `verify_learning_insights_browser.py` asserts they are absent).
+- Local gotcha: `python3 tools/build_app_data.py` without `--check` writes the filled page
+  over `app/src/main/assets/index.html`; build in a scratch worktree, never the source tree.

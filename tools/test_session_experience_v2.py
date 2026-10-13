@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from pathlib import Path
 import re
+from app_page import app_source
 
 
 HTML=Path("app/src/main/assets/index.html")
@@ -12,9 +13,9 @@ def section(source: str, start: str, end: str) -> str:
 
 
 def main() -> None:
-    source=HTML.read_text(encoding="utf-8")
+    source=app_source()
     required=[
-      'id="nk-session-experience-v114"',
+      '/* ── nk-session-experience-v114 ── */',
       "function nkSourceTakeaway(q)",
       "function nkSessionHeader(q,s,mode,timerHtml='',gridAttrs=",
       "function nkSessionOptions(q,selected,mode,submitted)",
@@ -33,7 +34,7 @@ def main() -> None:
       ".nk-v114-session button.option:hover{transform:none!important}",
       "dna:`<svg ${common}>",
       "renderExplanationText(q.explanation,q)",
-      ".source-pdf-page>img,.source-pdf-page>canvas,.source-pdf-zoomimg{filter:contrast(1.16) saturate(1.12)}",
+      ".source-pdf-zoomimg{filter:contrast(1.16) saturate(1.12)}",
       "&scale=4",
     ]
     missing=[x for x in required if x not in source]
@@ -47,7 +48,7 @@ def main() -> None:
     if "nkStudySupport" in exam or "renderExplanationText" in exam or "correctOption" in exam:raise SystemExit("CBT correctness/explanation leakage risk")
     if "option?.text?String(option.text)" in source:raise SystemExit("Correct-option takeaway fallback remains")
     if "s.mode==='exam'" not in navigator or "else if(submitted)" not in navigator:raise SystemExit("Mode-specific navigator states missing")
-    if source.count('id="nk-session-experience-v114"')!=1:raise SystemExit("Shared-session style duplicated")
+    if source.count('/* ── nk-session-experience-v114 ── */')!=1:raise SystemExit("Shared-session style duplicated")
     print("SESSION_EXPERIENCE_OK: docked footer, no holes, functional grid, shared modes, CBT privacy, source takeaways")
 
 

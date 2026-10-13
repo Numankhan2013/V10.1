@@ -10,6 +10,9 @@ from playwright.sync_api import sync_playwright, expect
 
 ROOT = Path(__file__).resolve().parents[1]
 PAYLOAD = '<img src=x onerror="window.__auditXss=1"> learner note'
+# Geist pushes each screen in (a ~300 ms transform on main.page); measure geometry
+# only once that entrance animation has finished.
+SCREEN_SETTLED = "(() => {const p=document.querySelector('.page');return !!p && !p.getAnimations().some(a=>a.playState==='running'||a.playState==='pending')})()"
 
 
 def main():
@@ -58,6 +61,7 @@ def main():
                 assert page.evaluate("!localStorage.getItem('qbank_firebase_auth_v1')"), 'Unauthenticated navigation stored credentials'
 
                 page.evaluate("QB.openBank('Biochemistry','Marrow'); scrollTo(0,0)")
+                page.wait_for_function(SCREEN_SETTLED)
                 controls = page.locator('.nk-journey-heading button')
                 bounds = controls.evaluate_all('nodes=>nodes.map(n=>{const r=n.getBoundingClientRect();return {x:r.x,right:r.right,width:r.width,height:r.height}})')
                 assert len(bounds) == 3 and all(r['x'] >= 0 and r['right'] <= width and r['width'] >= 44 and r['height'] >= 44 for r in bounds), bounds

@@ -12,6 +12,7 @@ from playwright.sync_api import sync_playwright, expect
 from uworld_poisoning_browser_cases import verify_poisoning
 from uworld_ophthalmology_browser_cases import verify_ophthalmology
 from uworld_imported_browser_cases import verify_imported_collections
+from app_page import built_page
 
 ROOT = Path(__file__).resolve().parents[1]
 PROBE = '''window.__uworldTest={wrong:()=>nkRevisionDeskData().wrong.map(q=>q.id),questions:()=>nkAllStudyQuestions(),current:()=>nkCurrentQuestion(),presentation:id=>nkQuestionPresentationFor(BY_ID[id]),records:()=>Object.values(BANKS_BY_SUBJECT).flat().map(r=>({subject:r.subject,bank:r.bank,questions:r.questions.length,topics:(r.topics||r.chapters||[]).length}))};\n'''
@@ -20,9 +21,10 @@ PROBE = '''window.__uworldTest={wrong:()=>nkRevisionDeskData().wrong.map(q=>q.id
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--url',help='Verify the actual hosted preview and its source media')
+    parser.add_argument('--widths',default='390,820,1194,1440',help='Comma-separated viewport widths, so CI can split the sizes across workers')
     args=parser.parse_args()
     web = ROOT / 'build/web'
-    html = urlopen(args.url.rstrip('/')+'/index.html').read().decode() if args.url else (web / 'index.html').read_text()
+    html = urlopen(args.url.rstrip('/')+'/index.html').read().decode() if args.url else built_page(web)
     html_hash=hashlib.sha256(html.encode()).hexdigest()
     assert 'NK_UWORLD_BIOCHEMISTRY_V1_START' in html
     anchor = '  window.QB={'
@@ -54,7 +56,8 @@ def main():
     try:
         with sync_playwright() as pw:
             browser = pw.chromium.launch()
-            for width, height in [(390, 844), (820, 1180), (1194, 900), (1440, 1000)]:
+            sizes = {390: 844, 820: 1180, 1194: 900, 1440: 1000}
+            for width, height in [(int(w), sizes[int(w)]) for w in args.widths.split(',')]:
                 context = browser.new_context(viewport={'width': width, 'height': height}, service_workers='block', has_touch=width<=820, is_mobile=width<=820)
                 page = context.new_page()
                 errors = []
@@ -151,7 +154,11 @@ def main():
                 expect(page.locator('.option-list .nk-uworld-option-percent')).to_have_count(5)
                 assert page.locator('.option-list .correct .nk-uworld-option-percent').inner_text()=='78%'
                 assert page.locator('.option-list .nk-uworld-option-percent').first.inner_text()=='6%'
-                assert '78% answered correctly' in page.locator('.nk-uworld-cohort').inner_text()
+                # Geist restyles the source cohort line as a chip ("78% got it right" plus
+                # a bar) and keeps the full statement as its accessible name.
+                cohort=page.locator('.nk-uworld-cohort')
+                expect(cohort).to_have_attribute('aria-label','78% of UWorld users answered correctly')
+                assert '78%' in cohort.inner_text(), cohort.inner_text()
                 assert page.locator('.nk-uworld-statistics').count()==0
                 after_widths=page.locator('.option-list .option-text').evaluate_all('nodes=>nodes.map(n=>n.getBoundingClientRect().width)')
                 assert all(abs(a-b)<2 for a,b in zip(option_widths,after_widths)), 'Percentages rewrapped option text'
@@ -341,7 +348,8 @@ def main():
     finally:
         server.shutdown()
         server.server_close()
-    (output / 'report.json').write_text(json.dumps(reports, indent=2))
+    name = 'report.json' if args.widths == parser.get_default('widths') else f"report-{args.widths.replace(',', '-')}.json"
+    (output / name).write_text(json.dumps(reports, indent=2))
     print('UWORLD_BIOCHEMISTRY_BROWSER_OK', json.dumps(reports))
 
 

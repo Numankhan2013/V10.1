@@ -49,7 +49,7 @@ def main():
     assert all(o.get('figure', {}).get('role') == 'option' for o in fields['options'])
     assert fields['statistics']['selection_percent'] == {'A': 3, 'B': 6, 'C': 24, 'D': 57, 'E': 7}
     # Execute the actual incumbent presenter against every real new record.
-    js = "const assert=require('assert');\n" + (ROOT / 'tools/question_presentation_core.js').read_text()
+    js = "const assert=require('assert');\n" + (ROOT / 'app/src/main/modules/question_presentation.js').read_text()
     js += '\nconst BANK=' + json.dumps(bank, ensure_ascii=False) + ';\n'
     js += "for(const q of BANK.questions){assert(nkQuestionPresentationFor(q).valid,q.id);assert.deepEqual(nkQuestionPresentationFor(q).options,q.options);}\n"
     js += "console.log('OPHTHALMOLOGY_SHARED_PRESENTER_OK records=30 source_exhibits=true');"

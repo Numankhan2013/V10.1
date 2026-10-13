@@ -12,10 +12,11 @@ import subprocess
 from pathlib import Path
 
 from audit_question_structure import load_marrow
+from marrow_bank_data import apply_content_overrides
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / 'data/question_completeness_reviews_v1.json'
-CORE = ROOT / 'tools/question_presentation_core.js'
+CORE = ROOT / 'app/src/main/modules/question_presentation.js'
 START = '  /* NK_QUESTION_COMPLETENESS_REVIEWS_START */'
 END = '  /* NK_QUESTION_COMPLETENESS_REVIEWS_END */'
 
@@ -31,14 +32,8 @@ def digest(value):
 def load_inputs():
     records, hashes = load_marrow()
     raw = [copy.deepcopy(q) for record in records for q in record['questions']]
-    owner_path = ROOT / 'tools/apply_marrow_bank_pilot.py'
-    owner = owner_path.read_text()
-    namespace = {'DATA': ROOT / 'data/marrow', 'json': json, 'hashlib': hashlib, 'expanded_records': records}
-    # Same bounded source-verified display-overlay block used by the audit.
-    import contextlib
-    import io
-    with contextlib.redirect_stdout(io.StringIO()):
-        exec(compile(owner[owner.index('CONTENT_OVERRIDE_PATHS='):owner.index('expanded_ids=')], str(owner_path), 'exec'), namespace)
+    # Same source-verified display overrides the app data step applies.
+    apply_content_overrides(records)
     node = r'''
 const fs=require('fs'),vm=require('vm'),input=JSON.parse(fs.readFileSync(0,'utf8'));
 const c={window:{},SUBJECTS:[],esc:v=>String(v??'')};vm.createContext(c);
@@ -54,7 +49,7 @@ const normalized=clean.map(q=>{const value=clone(q);c.nkQuestionPresentationFor(
 process.stdout.write(JSON.stringify({raw:originals,learner,clean,normalized}));
 '''
     payload = {'prepFiles': [str(ROOT / 'app/src/main/assets' / name) for name in ('qbank_data.js', 'subjects_qbank_data.js')],
-               'hygiene': (ROOT / 'tools/question_content_hygiene_core.js').read_text(),
+               'hygiene': (ROOT / 'app/src/main/modules/question_content_hygiene.js').read_text(),
                'core': CORE.read_text(),
                'rawMarrow': raw, 'marrow': [q for record in records for q in record['questions']]}
     data = json.loads(subprocess.run(['node', '-e', node], input=json.dumps(payload), text=True,

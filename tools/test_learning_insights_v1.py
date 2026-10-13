@@ -3,26 +3,30 @@
 import json
 import os
 from pathlib import Path
+import re
 import subprocess
-from apply_learning_insights_v1 import transform
+from app_page import css_section, app_source
 
 ROOT = Path(__file__).resolve().parents[1]
-core = (ROOT / 'tools/learning_insights_core.js').read_text()
-fsrs = (ROOT / 'tools/fsrs_scheduler_core.js').read_text()
+core = (ROOT / 'app/src/main/modules/learning_insights.js').read_text()
+fsrs = (ROOT / 'app/src/main/modules/fsrs_scheduler.js').read_text()
 active = fsrs[fsrs.index('  function nkFsrsActiveAttempts('):fsrs.index('  function nkFsrsUnresolvedMistake(')]
-fixture = '''<html><head></head><script>
-/* NK_QBANK_COVERAGE_V1_START NK_PRACTICE_CORRECTION_V1_START */
-function analytics() { return 'old';
-  }
-function practice(s){const test={kind:'practice', studyModuleId:s.studyModuleId||null,};return test;}
-function exam(s,qt){const test={title:s.title,questionIds:[...s.questionIds],answers:{...s.answers},questionTimes:{...qt},correct,incorrect,unattempted,total:1};return test;}
-  window.QB={};
-</script></html>'''
-generated = transform(fixture)
-assert transform(generated) == generated
-assert generated.count('function analytics(') == 1
-assert generated.count('sessionId:s.id') == 2
-subprocess.run(['node', '--check'], input=generated.split('<script>')[1].split('</script>')[0], text=True, check=True)
+page = app_source()
+assert page.count(core.strip()) == 1, 'Insights core ships verbatim once'
+assert css_section('nk-learning-insights-v1')
+assert page.count('function analytics(') == 1, 'Learning Insights owns the only analytics renderer'
+assert page.count('sessionId:s.id') == 2
+for marker in ("kind:'practice', studyModuleId:s.studyModuleId||null, sessionId:s.id,",
+               'title:s.title,sessionId:s.id,questionIds:[...s.questionIds],answers:{...s.answers},questionTimes:{...qt},correct,incorrect,unattempted,total:',
+               'NK_LEARNING_INSIGHTS_V1_START', "else if(route.page==='analytics') out=analytics();"):
+    assert page.count(marker) == 1, marker
+qb = page[page.index('  window.QB={'):]
+assert ('nkLearningSetPeriod,nkLearningMove,nkLearningSetScope,nkLearningSelectBin,nkLearningSetTopics,'
+        'nkLearningOpenTopic,nkLearningSetHeatYear,nkLearningYearDetail,') in qb[:qb.index('};')]
+for start in re.finditer(r'<script(?![^>]*\bsrc=)[^>]*>', page):
+    inline = page[start.end():page.index('</script>', start.end())]
+    if inline.strip():
+        subprocess.run(['node', '--check'], input=inline, text=True, check=True)
 program = r'''
 const assert=require('node:assert/strict'),vm=require('node:vm');
 const at=(y,m,d,h=12)=>+new Date(y,m-1,d,h),now=at(2026,10,1);
@@ -88,4 +92,4 @@ console.log('LEARNING_INSIGHTS_BEHAVIOR_OK calendar=true DST=true elapsed_compar
 program = 'const CORE=' + json.dumps(core) + ',ACTIVE=' + json.dumps(active) + ';\n' + program
 for tz in ['UTC', 'America/New_York']:
     subprocess.run(['node', '-'], input=program, text=True, env={**os.environ, 'TZ': tz}, check=True)
-print('LEARNING_INSIGHTS_INSTALL_OK idempotent=true')
+print('LEARNING_INSIGHTS_INSTALL_OK shipped=true')

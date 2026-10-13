@@ -94,14 +94,14 @@ closed. Raw question bundles and audit metadata remain unchanged.
   answer gates for demonstrated source omissions. Native question images use
   the existing hashed Marrow registry and role/owner pipeline. Raw imports and
   PDFs remain immutable; optional archival region sheets are dispatch-only.
-- Account reset/switching is owned by `tools/cross_device_sync_core.js`:
+- Account reset/switching is owned by `app/src/main/modules/cross_device_sync.js`:
   reset generation fences remote progress before sweeping payloads with
   tombstones; per-UID local snapshots and a switch journal isolate accounts
   and recover interrupted writes. New accounts pull before sending empty
   active-session/preferences state. Sign-in UI is owned by the existing
   cross-device PWA transformer.
 - `tools/apply_practice_correction_v1.py` installs
-  `practice_correction_core.js`: exact missed IDs start a fresh Practice pass,
+  `modules/practice_correction.js`: exact missed IDs start a fresh Practice pass,
   save a separate linked result, and preserve the parent through the existing
   checkpoint/sync model. Original results are immutable.
 - Timed-test recovery occupies Home Today's Focus through the existing
@@ -116,7 +116,7 @@ closed. Raw question bundles and audit metadata remain unchanged.
   accuracy, and study time; result score/accuracy expose their denominators.
   Result actions retain repeated-tap guards without the 900 ms delay.
 - All-bank question finder: `tools/apply_question_search_v1.py` installs
-  `question_search_core.js` after the coverage and revision transforms. More →
+  `modules/question_search.js` after the coverage and revision transforms. More →
   Find a question searches existing bank records and starts the shared Practice
   engine with exact IDs; it protects an active timed test. No new persisted
   question or progress model is introduced.
@@ -145,30 +145,30 @@ closed. Raw question bundles and audit metadata remain unchanged.
   `tests`, `activeSession`, `questionNotes` (stable question ID keyed learner
   text/tombstone), and versioned `normalPracticeCheckpoint`;
   `qbank_active_subject_v1` for subject. State writes use the durable pending →
-  primary → last-known-good transaction in `tools/durable_persistence_core.js`;
+  primary → last-known-good transaction in `app/src/main/modules/durable_persistence.js`;
   callers receive success/failure and malformed primary state recovers visibly.
   `studyModules` (max 100, normalized; see `docs/CUSTOM_STUDY_MODULES.md`).
-  Question notes use `tools/question_notes_core.js` and one independent cloud
+  Question notes use `app/src/main/modules/question_notes.js` and one independent cloud
   envelope per question; see `docs/QUESTION_NOTES.md`. Notes may hold ordered
   text/image/PDF-page parts (`blocks`, `blocksAt`; `text` stays a legacy
   summary). Image bytes live only in IndexedDB `qbank_note_media_v1`
-  (`tools/question_note_media_core.js`) and sync as chunked
+  (`app/src/main/modules/question_note_media.js`) and sync as chunked
   `users/{uid}/noteAssets/{assetId}~{n}` documents uploaded/downloaded once,
   outside `NK_SYNC_KINDS`; parts sync as the `noteBlocks` kind. Android gets
   a native `<input type=file>` chooser from `tools/apply_android_file_picker_v1.py`.
   Revision keeps its optional subject/bank/topic focus in page memory;
-  `tools/revision_desk_core.js` filters question pools and passes the same
+  `app/src/main/modules/revision_desk.js` filters question pools and passes the same
   scope to `nkFsrsQueue`, whose daily cap still counts reviews across all banks.
   The same revision owner installs primary navigation and global Home counts;
   `nkOpenRevisionHub` resets focus when entered from Home or primary navigation.
   The embedded forecast uses the existing eligible review pool and saved due
   timestamps, filters by the revision scope, and uses local calendar boundaries.
   Full FSRS and legacy `quick-revision` links remain reachable.
-  `tools/insights_focus_core.js` groups all-bank questions by exact subject,
+  `app/src/main/modules/insights_focus.js` groups all-bank questions by exact subject,
   bank, and source topic; it reads active attempts and launches the shared
   Practice engine without persisting a second analytics model.
   `tools/apply_learning_insights_v1.py` owns the final Insights renderer after
-  coverage/correction transforms. `learning_insights_core.js` derives all metrics
+  coverage/correction transforms. `modules/learning_insights.js` derives all metrics
   from effective answer events, saved results, current modules and FSRS schedules;
   period/scope UI state is transient. Legacy coverage/focus functions remain
   historical helpers, but neither section is rendered in Insights.
@@ -202,7 +202,7 @@ closed. Raw question bundles and audit metadata remain unchanged.
   `nkSetMultiExamScope`, `nkUpdateMultiExamPool`, `nkSelectAllMultiTopics`,
   `nkConfirmMultiSubjectExam`, modal/search/filter/exam-scope helpers,
   session/nav/bookmark/submit/test/review/reset controls.
-- Study modules (`tools/study_modules_core.js`, `NK_CUSTOM_STUDY_MODULES_V1`):
+- Study modules (`app/src/main/modules/study_modules.js`, `NK_CUSTOM_STUDY_MODULES_V1`):
   `nkStudyModuleList`, `nkFindStudyModule`, `nkNormalizeStudyModule(s)`,
   `nkModuleValidQuestionIds`, `nkModuleProgress`, `nkSyncModuleFromSession`,
   draft/builder/persistence/resume/finish/restart + Home prioritization. The
@@ -211,7 +211,7 @@ closed. Raw question bundles and audit metadata remain unchanged.
   `studyCollections` facets to discover PYQ topics. The Topics selection alone
   determines module question scope; PrepLadder `pyq` comes from explicit source
   topic titles in `apply_marrow_bank_pilot.py`.
-- Timed CBT builder (`tools/bank_aware_cbt_builder_core.js`,
+- Timed CBT builder (`app/src/main/modules/bank_aware_cbt_builder.js`,
   `NK_BANK_AWARE_CBT_BUILDER_V1`): the Tests entry opens a three-step full-page
   route. It uses the shared bank registry and bank-qualified topic keys to
   derive exact question IDs, then starts the existing exam engine. Topic taps
@@ -224,7 +224,7 @@ closed. Raw question bundles and audit metadata remain unchanged.
   the saved “PYQ CBT” title.
   The chapter Topic Test keeps cumulative per-question time and an absolute
   entry timestamp so navigation and reload cannot reset its 60-second limit.
-- CBT result analysis (`tools/cbt_result_analysis_core.js`,
+- CBT result analysis (`app/src/main/modules/cbt_result_analysis.js`,
   `NK_CBT_RESULT_ANALYSIS_V1`) derives topic rows and missed IDs from each
   saved test's frozen `questionIds` and `answers`, resolving question metadata
   through the shared bank registry. Keys combine subject, bank, and topic ID.
@@ -233,7 +233,7 @@ closed. Raw question bundles and audit metadata remain unchanged.
   Exact CBT retakes reuse `startSession` with a context carrying the initial
   saved test ID; `submitExam` copies that ID to the saved result's `retakeOf`.
   The result view compares the two saved answer snapshots and topic keys.
-- Continue Practice (`tools/continue_practice_resume_core.js`,
+- Continue Practice (`app/src/main/modules/continue_practice_resume.js`,
   NK_CONTINUE_PRACTICE_RESUME_V1): regular topic Practice owns explicit
   activeSession.lifecycle, immutable original-order sessionQuestionIds, and a
   mirrored normal-Practice checkpoint with per-question revisions and
@@ -250,7 +250,7 @@ closed. Raw question bundles and audit metadata remain unchanged.
   guard is applied after secure-origin generation and verified in the packaged
   Android phone/tablet journey.
 - Browser/PWA system Back is guarded by the shared
-  `tools/question_interaction_core.js` popstate boundary. A declined exit
+  `app/src/main/modules/question_interaction.js` popstate boundary. A declined exit
   restores the question history entry before hashchange renders another route;
   accepted exit keeps the existing history and persistence path. `qbank.local`
   uses the native Android dialog, so the two warnings do not stack.
@@ -279,32 +279,37 @@ closed. Raw question bundles and audit metadata remain unchanged.
   exercises graph, table, clinical, diagram and multi-panel representatives at
   phone/tablet sizes plus fullscreen zoom.
 
-## Deterministic build pipeline (order enforced)
+## Build pipeline (order enforced)
 
-`tools/verify_build_pipeline.py` requires the protected transform order:
+Since 2026-10-12 `app/src/main/assets/index.html` and `MainActivity.java` are
+source: the output of the old 62-step patch chain (`fix_review_build` →
+… → `apply_uworld_biochemistry_v1`) was baked into them and those scripts were
+removed. Mentions of an `apply_*`/`install_*` script below name the feature's
+original owner; its code now lives in index.html (read the old script with
+`git show eb84d7f6:tools/<name>.py`). Feature script
+modules live in `app/src/main/modules/` and sit in the page as
+`/* @module <file> */` markers (`tools/app_page.py` assembles them;
+`tools/test_app_source_parity.py` requires each module exactly once). All CSS
+is one stylesheet, `app/src/main/assets/app.css`: the former Geist files
+(tokens, theme, redesign, polish, PDF loader, viewer) followed by the former
+inline style blocks, in their original cascade order, each headed
+`/* ── <name> ── */`. Declarations that lost on every element to a later
+same-selector rule or to the Geist twin (`html[data-nk-ui="geist"] X`,
+`html[data-nk-ui="geist"] :is(body,#nkg-root) X`) were removed; a computed-style
+comparison over every browser-verifier screenshot (light and dark) showed no
+change. `source_visual_renderer.js` and `marrow_visual_renderer.js` still add
+their own small style elements at runtime.
 
-`fix_review_build` → `harden_review_renderer` →
-`build_source_visual_metadata` → `improve_source_visual_assets_v1` →
-`install_source_visual_renderer` → `cbt_canonical` →
-`apply_question_ui_v2` → `apply_home_visual_redesign_v4` →
-`apply_home_v5_fixes` → `remove_legacy_streak_layer` →
-`apply_home_streak_and_header_v1` → `apply_home_actions_v1` →
-`apply_cbt_boundary_and_toast_fix_v1` → `harden_cbt_review_footer_v1` →
-`add_review_solution_grid` → `apply_question_experience_v1` →
-`test_question_experience_v1` → `apply_session_experience_v2` →
-`test_session_experience_v2` → `apply_whole_app_vision_v1` →
-`test_whole_app_vision_v1` → `apply_custom_study_modules_v1` →
-`test_custom_study_modules_v1` → `apply_home_command_center_v1` →
-`test_home_command_center_v1` → `apply_continue_practice_resume_v1` →
-`test_continue_practice_resume_v1` → `apply_question_content_hygiene_v1` →
-Android/sync/FSRS layers → `fix_boot_syntax` → Marrow registration →
-`apply_marrow_structured_table_renderer_v1` →
-`apply_question_presentation_v1` → `test_question_presentation_v1` →
-image installation → notes → revision → Insights →
-`apply_bank_aware_cbt_builder_v1` → `test_bank_aware_cbt_builder_v1` →
-`apply_cbt_result_analysis_v1` → `test_cbt_result_analysis_v1` →
-`verify_product_contract --stage generated` →
-`verify_cbt_invariants`.
+`tools/build_app_data.py` is the only step that changes the page: it puts the
+modules in place and fills the
+`__NK_DATA_*__` tokens (PrepLadder data, Marrow banks and explanations from
+`tools/marrow_bank_data.py`, topic taxonomy, UWorld collection scripts from
+`tools/uworld_app_data.py`) and releases Marrow figures.
+`tools/verify_build_pipeline.py` requires: source contract → parity check →
+data step → PDF maps (`build_biochem_solution_map`, `final_hardening`) →
+source visuals → feature tests → `verify_product_contract --stage generated` →
+`verify_cbt_invariants` → `build_web_dist` → browser suite, and rejects any
+step that patches the page.
 
 Full `build-apk.yml` additionally runs: study-metrics test, source contract,
 PDF renderers + `PyMuPDF`/`Pillow` maps (`build_biochem_solution_map`,
@@ -335,7 +340,7 @@ generated-app/package checks remain mandatory there. See `docs/LOCAL_DEVELOPMENT
 
 ## FSRS smart-review extension
 
-- `question_interaction_core.js`, installed immediately after the FSRS core by
+- `modules/question_interaction.js`, installed immediately after the FSRS core by
   `apply_fsrs_v1.py`, wraps question commands in nested transactions. Inner saves,
   rendering, navigation and success feedback are deferred until one complete state
   commit succeeds; failed actions restore the pre-action state. Option callbacks
@@ -345,7 +350,7 @@ generated-app/package checks remain mandatory there. See `docs/LOCAL_DEVELOPMENT
   Pause retains them. Special-mode origin/context never replaces the normal
   Practice checkpoint. Content and option rendering styles are unchanged.
 
-- `tools/apply_fsrs_v1.py` installs `tools/fsrs_scheduler_core.js` after the
+- `tools/apply_fsrs_v1.py` installs `app/src/main/modules/fsrs_scheduler.js` after the
   cross-device layer and loads vendored `ts-fsrs` 5.4.2 UMD plus its MIT license
   from `app/src/main/assets/vendor/ts-fsrs/`; there is no runtime CDN.
 - Attempts remain synchronization truth. Rated attempts carry FSRS audit snapshots;
@@ -373,7 +378,7 @@ generated-app/package checks remain mandatory there. See `docs/LOCAL_DEVELOPMENT
 ## Shared question-presentation normalization
 
 - `tools/apply_question_presentation_v1.py` installs
-  `question_presentation_core.js` after all PrepLadder/Marrow records exist.
+  `modules/question_presentation.js` after all PrepLadder/Marrow records exist.
 - It finds coherent A–D/A–E answer runs, separates extraction-owned table or
   explanation fragments, and wires one semantic stem renderer into Practice,
   CBT, and Review. Source records remain unchanged on disk.
@@ -470,7 +475,7 @@ generated-app/package checks remain mandatory there. See `docs/LOCAL_DEVELOPMENT
   routing, local links, state length, verification vocabulary, and forbids a
   self-staling hardcoded HEAD field.
 - V11.6 content-quality implementation lives on separate branch
-  `v11.6-content-quality` at `125d68b`: `question_content_hygiene_core.js` plus
+  `v11.6-content-quality` at `125d68b`: `modules/question_content_hygiene.js` plus
   its deterministic apply/test scripts. It is not present in this V11.5 tree
   until deliberately consolidated.
 
@@ -481,7 +486,7 @@ generated-app/package checks remain mandatory there. See `docs/LOCAL_DEVELOPMENT
 - Android uses a private `https://qbank.local/app/` intercepted asset origin. A
   one-time native bridge migrates prior `file://` localStorage before boot and is
   then removed; no universal file-origin network access is enabled.
-- `tools/cross_device_sync_core.js` is injected late by
+- `app/src/main/modules/cross_device_sync.js` is injected late by
   `apply_cross_device_pwa_v1.py`: local-first outbox, Firebase email/password
   REST auth, normalized Firestore entity collections, per-device revisions,
   immutable attempt union, tombstones, and deterministic conflict handling.
@@ -549,7 +554,7 @@ Individual review evidence lives in `docs/question-completeness/`; accepted disp
 contracts live in `data/question_completeness_reviews_v1.json`.
 `tools/build_question_completeness_reviews.py` verifies raw question fingerprints,
 canonical shard hashes and source PDF hashes/pages, then compiles bounded contracts
-into the shared `tools/question_presentation_core.js`. Raw imports remain immutable.
+into the shared `app/src/main/modules/question_presentation.js`. Raw imports remain immutable.
 Runtime contracts fail closed on fingerprint drift; demonstrated source omissions
 receive explicit incomplete-source presentation and scored-answer gates through the
 shared presentation/interaction path. Heuristic flags alone do not gate questions.
@@ -605,11 +610,11 @@ docs/INTERACTION_POLISH_2026-10-02.md.
 
 ## Analysis and PWA update identity — 2026-10-03
 
-`refined_analysis_core.js` owns fixed outcome segments and labeled counts plus
-saved-timing distributions/running totals. `learning_insights_core.js` keeps
+`modules/refined_analysis.js` owns fixed outcome segments and labeled counts plus
+saved-timing distributions/running totals. `modules/learning_insights.js` keeps
 period-scoped rankings/denominators with a consistent accuracy fill and omits
 its revision prompt card. Result-specific missed/marked/correction APIs remain.
-`pwa_update_core.js` is injected by the existing cross-device owner. Web packaging
+`modules/pwa_update.js` is injected by the existing cross-device owner. Web packaging
 adds `nk-qbank-build` metadata; the service worker replies to `NK_QBANK_VERSION`
 through MessageChannel. Only a verified different waiting worker gets a notice;
 Later is tab/build-scoped and active study defers it. Activation/reload remains
@@ -624,7 +629,7 @@ exclude blocked references before sampling; individual references use the
 existing modal/focus model without changing study state.
 See `docs/UWORLD_BIOCHEMISTRY_PILOT.md` for source limits and scale requirements.
 
-The Revision owner includes `revision_session_core.js`: explicitly tagged full
+The Revision owner includes `modules/revision_session.js`: explicitly tagged full
 eligible Mistakes/Bookmarks/Due snapshots use the existing checkpoint collection
 and restore exact membership/position. Due keeps scheduler priority and daily
 cap. Finish records answered work only. No new persistence schema is introduced.

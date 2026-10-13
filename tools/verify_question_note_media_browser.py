@@ -18,6 +18,7 @@ import time
 import fitz
 from PIL import Image, ImageDraw
 from playwright.sync_api import sync_playwright
+from app_page import built_page
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -111,9 +112,20 @@ def add_from_menu(sheet, item: str) -> None:
     menu.get_by_role("menuitem", name=item, exact=True).click()
 
 
+def live_menu(page):
+    # Geist replays a dismissed block menu on a short-lived, inert ".is-ghost" copy.
+    return page.locator(".nk-nb-menu:not(.is-ghost)")
+
+
 def block_menu(page, sheet, index: int, item: str) -> None:
     sheet.locator(f'.nk-nb[data-i="{index}"] .nk-nb-dots').click()
-    page.locator(".nk-nb-menu").get_by_role("menuitem", name=item, exact=True).click()
+    live_menu(page).get_by_role("menuitem", name=item, exact=True).click()
+
+
+def save_text(sheet) -> None:
+    # Geist commits a text save after its ~560 ms check animation; wait for the real save.
+    sheet.get_by_role("button", name="Save", exact=True).click()
+    sheet.locator("textarea").wait_for(state="detached", timeout=5000)
 
 
 def wait_until(page, check, timeout: float = 30, message: str = "condition") -> None:
@@ -156,7 +168,7 @@ def local_flow(browser, origin: str, screenshot: Path, pdf: Path, output: Path, 
     assert sheet.locator(".nk-np-empty").is_visible() and sheet.locator(".nk-np-add-menu").is_visible(), "an empty note offers the add menu"
     add_from_menu(sheet, "Text")
     sheet.locator("textarea").fill("Starling curve: look at the shaded zone.")
-    sheet.get_by_role("button", name="Save", exact=True).click()
+    save_text(sheet)
     assert sheet.locator(".nk-nb-text").inner_text() == "Starling curve: look at the shaded zone."
 
     sheet.locator(".nk-note-file-image").set_input_files(str(screenshot))
@@ -183,11 +195,12 @@ def local_flow(browser, origin: str, screenshot: Path, pdf: Path, output: Path, 
     page.mouse.down()
     page.wait_for_timeout(700)
     page.mouse.up()
-    menu = page.locator(".nk-nb-menu")
+    menu = live_menu(page)
     menu.wait_for(state="visible")
     assert menu.get_by_role("menuitem", name="Edit").count() == 1 and menu.get_by_role("menuitem", name="Move up").is_disabled()
     page.keyboard.press("Escape")
     assert menu.count() == 0
+    page.locator(".nk-nb-menu").wait_for(state="detached", timeout=3000)
     loaded(page, ".nk-note-page .nk-nb-open img", 3)
     page.screenshot(path=str(output / f"note-media-page-{width}.png"), full_page=False)
 
@@ -196,6 +209,8 @@ def local_flow(browser, origin: str, screenshot: Path, pdf: Path, output: Path, 
     assert blocks[2]["source"] == "pdf" and blocks[2]["label"] == "reference · page 3"
     stored = page.evaluate("() => Object.keys(localStorage).reduce((n,k)=>n+(localStorage.getItem(k)||'').length,0)")
     assert stored < 2_000_000 and "base64" not in page.evaluate("() => localStorage.getItem('qbank_state_v1')||''"), "image bytes must stay out of localStorage"
+    # Progress now lives in IndexedDB (nk-store.js); the saved state itself must only reference assets.
+    assert page.evaluate("id => !/data:|base64|blob:/.test(JSON.stringify(window.QB.getState().questionNotes[id]))", QUESTION_ID), "image bytes must stay out of the saved state"
     metas = {m["id"]: m for m in idb_metas(page)}
     pdf_meta = metas[blocks[2]["asset"]["id"]]
     assert max(pdf_meta["w"], pdf_meta["h"]) >= 3000, f"PDF pages need high resolution for small handwriting: {pdf_meta}"
@@ -280,7 +295,7 @@ def sync_flow(browser, origin: str, screenshot: Path, output: Path) -> None:
     sheet = open_notes(page_a)
     add_from_menu(sheet, "Text")
     sheet.locator("textarea").fill("Synced cue")
-    sheet.get_by_role("button", name="Save", exact=True).click()
+    save_text(sheet)
     sheet.locator(".nk-note-file-image").set_input_files(str(screenshot))
     page_a.wait_for_function("document.querySelectorAll('.nk-nb.is-image').length===1", timeout=20000)
     asset = page_a.evaluate("id => window.QB.getState().questionNotes[id].blocks[1].asset", QUESTION_ID)
@@ -316,7 +331,7 @@ def sync_flow(browser, origin: str, screenshot: Path, output: Path) -> None:
 
 def main() -> None:
     web = ROOT / "build/web"
-    html = (web / "index.html").read_text(encoding="utf-8")
+    html = built_page(web)
     assert "NK_NOTE_MEDIA_V1_START" in html
     output = ROOT / "build/ui-checks"
     output.mkdir(parents=True, exist_ok=True)

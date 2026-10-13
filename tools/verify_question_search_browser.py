@@ -7,6 +7,7 @@ from pathlib import Path
 import threading
 
 from playwright.sync_api import sync_playwright
+from app_page import built_page
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -16,7 +17,7 @@ PREP_ID = "physiology-9-6"
 
 def main() -> None:
     web = ROOT / "build/web"
-    assert "NK_QUESTION_SEARCH_V1_START" in (web / "index.html").read_text(encoding="utf-8")
+    assert "NK_QUESTION_SEARCH_V1_START" in built_page(web)
     output = ROOT / "build/ui-checks"
     output.mkdir(parents=True, exist_ok=True)
     server = ThreadingHTTPServer(("127.0.0.1", 0), partial(SimpleHTTPRequestHandler, directory=str(web)))
@@ -34,9 +35,18 @@ def main() -> None:
                 page.route("**/*", lambda route: route.continue_() if route.request.url.startswith(origin) else route.abort())
                 page.goto(origin + "/#more", wait_until="domcontentloaded")
                 page.wait_for_function("window.QB && window.QB.getState")
-                page.get_by_role("button", name="Find a question").click()
+                # Geist adds a top-bar search button with the same name; the More row is the
+                # entry this check protects, and the top-bar button must lead to the same place.
+                topbar_search = page.locator(".nkg-topbar").get_by_role("button", name="Find a question")
+                assert topbar_search.is_visible(), "Geist top bar lost its Find a question button"
+                page.locator("#app").get_by_role("button", name="Find a question").click()
                 page.get_by_role("heading", name="Find a question").wait_for(state="visible")
                 assert page.locator(".nk-question-search-item").count() == 0
+                page.evaluate("window.QB.nav('more')")
+                page.wait_for_function("location.hash==='#more'")
+                topbar_search.click()
+                page.wait_for_function("location.hash==='#question-search'")
+                page.get_by_role("heading", name="Find a question").wait_for(state="visible")
 
                 search = page.get_by_role("searchbox", name="Search all questions")
                 search.fill(MARROW_ID)

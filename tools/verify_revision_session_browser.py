@@ -3,9 +3,10 @@
 from functools import partial
 from http.server import SimpleHTTPRequestHandler,ThreadingHTTPServer
 from pathlib import Path
-import threading,json
+import threading,json,re
 from playwright.sync_api import sync_playwright
 from verify_learning_insights_browser import PROBE
+from app_page import built_page
 ROOT=Path(__file__).resolve().parents[1]
 
 SEED='''(kind)=>{
@@ -16,7 +17,7 @@ SEED='''(kind)=>{
 }'''
 
 def main():
-    web=ROOT/'build/web';html=(web/'index.html').read_text();assert 'NK_REVISION_SESSION_V1_START' in html
+    web=ROOT/'build/web';html=built_page(web);assert 'NK_REVISION_SESSION_V1_START' in html
     probe=PROBE+'''window.__revisionCurrent=()=>nkCurrentQuestion();window.__revisionRestore=cp=>nkPracticeSessionFromCheckpoint(cp);window.__revisionDue=()=>nkFsrsQueue({});window.__revisionFail=fail=>{window.__NK_STORAGE_ADAPTER=fail?{getItem:k=>localStorage.getItem(k),setItem:()=>{throw new Error('Revision QA storage failure');},removeItem:k=>localStorage.removeItem(k)}:undefined;};\n'''
     diagnostic=html.replace('  window.QB={',probe+'  window.QB={',1).encode()
     class Handler(SimpleHTTPRequestHandler):
@@ -63,7 +64,9 @@ def main():
                 assert resumed['answers']==saved['answers'] and resumed['submitted']==saved['submitted'] and resumed['questionTimes']==saved['questionTimes']
                 rebuilt=page.evaluate('(cp)=>__revisionRestore(cp)',saved);assert rebuilt['revisionQueueKind']=='wrong' and rebuilt['context']=='wrong' and rebuilt['originRoute']=='quick-revision'
                 attempts_before=page.evaluate('JSON.stringify(QB.getState().attempts)');page.evaluate('QB.openQuestionNavigator();__revisionFail(true)')
-                sheet.get_by_role('button',name='Finish session',exact=True).click();assert page.evaluate('location.hash')=='#practice' and page.evaluate('QB.getState().activeSession.id')==session['id']
+                # Geist runs the Finish handler a couple of frames after the tap: wait for the failure to surface.
+                sheet.get_by_role('button',name='Finish session',exact=True).click();page.get_by_role('button',name='Retry save',exact=True).wait_for()
+                assert page.evaluate('location.hash')=='#practice' and page.evaluate('QB.getState().activeSession.id')==session['id']
                 assert page.evaluate('QB.getState().tests.length')==0 and page.evaluate('JSON.stringify(QB.getState().attempts)')==attempts_before
                 page.evaluate('__revisionFail(false)');page.get_by_role('button',name='Retry save',exact=True).click();sheet.get_by_role('button',name='Finish session',exact=True).click();page.locator('.nk-refined-analysis').wait_for()
                 result=page.evaluate('QB.getState().tests.at(-1)');assert result['questionIds']==[q['id']] and result['total']==1 and result['unattempted']==0 and result['correct']==1
@@ -74,7 +77,8 @@ def main():
                 page.evaluate(SEED,'bookmarks');page.get_by_role('button',name='Practice bookmarks',exact=True).click();page.wait_for_selector('.option')
                 assert page.evaluate('QB.getState().activeSession.questionIds.length')==27
                 # A final-question Next uses the identical revision sheet; finishing untouched saves no result.
-                page.evaluate('QB.goIndex(26)');page.get_by_role('button',name='Next',exact=True).click();sheet.wait_for()
+                # Geist labels the last question's Next button "Finish".
+                page.evaluate('QB.goIndex(26)');page.get_by_role('button',name=re.compile(r'^(Next|Finish)$')).click();sheet.wait_for()
                 sheet.get_by_role('button',name='Finish session',exact=True).click();page.get_by_role('heading',name='Revision',exact=True).wait_for()
                 assert page.evaluate('QB.getState().tests.length')==0 and page.locator('.nk-revision-card').nth(1).locator('b').inner_text()=='27'
                 # Go beyond the old twentieth-question boundary and complete the entire bookmarked set.

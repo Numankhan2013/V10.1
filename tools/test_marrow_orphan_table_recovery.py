@@ -2,7 +2,7 @@
 """Recover only table blocks and explanation pages present in immutable source."""
 import copy
 
-from apply_canonical_bank_explanation_wiring_v1 import canonical_source_questions, reviewed_table_sources
+from marrow_bank_data import canonical_source_questions, reviewed_table_sources
 
 
 def main():

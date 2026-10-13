@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
-"""Behavior, corpus, and transform contracts for question presentation."""
+"""Behavior, corpus, and shipped-page contracts for question presentation."""
 
 from pathlib import Path
 import subprocess
 import tempfile
 
-from apply_question_presentation_v1 import transform
+import re
+from app_page import app_source
 
 ROOT = Path(__file__).resolve().parents[1]
-CORE = ROOT / "tools/question_presentation_core.js"
+CORE = ROOT / "app/src/main/modules/question_presentation.js"
 
 
 def run_node_behavior() -> None:
@@ -81,7 +82,7 @@ for(const question of ['During a match he sustained an injury. 1. Pain 2. Swelli
 const barePrefix=nkQuestionMatchingTable('Match each: a Alpha i One b Beta ii Two a Alpha i On');
 assert.deepEqual(barePrefix.rows.map(row=>row.map(cell=>cell.value)),[['Alpha','One'],['Beta','Two']]);
 const startupContext={SUBJECTS:[{questions:malformed.map(source=>({question:'Match the following: '+source,correctOption:1,options:nerveOptions}))}]};
-vm.createContext(startupContext);vm.runInContext(fs.readFileSync('tools/question_presentation_core.js','utf8'),startupContext);
+vm.createContext(startupContext);vm.runInContext(fs.readFileSync('app/src/main/modules/question_presentation.js','utf8'),startupContext);
 for(const q of startupContext.SUBJECTS[0].questions){assert.equal(q.__nkQuestionPresentation.valid,false);assert.equal(q.__nkQuestionPresentation.table,null);}
 const single=nkQuestionMatchingTable('Choose statements: A. Liver B. Kidney C. Muscle D. Heart',true);assert.equal(single.groups.length,1);assert.equal(single.rows.length,4);
 const five={question:'Assertion and reason',correctOption:5,options:'ABCDE'.split('').map(letter=>({letter,text:'Choice '+letter}))};assert.equal(nkQuestionPresentationFor(five).options.length,5);assert(nkQuestionPresentationFor(five).valid);
@@ -232,7 +233,7 @@ const zones=byId['physiology-24-10'].__nkQuestionPresentation.table;
 assert.deepEqual(zones.headers,['Zone','Pressure Relationship','Blood Flow Characteristic']);
 assert.deepEqual(zones.groups[0],[{label:'',value:'1'},{label:'',value:'2'},{label:'',value:'3'}]);
 const completeStartup={SUBJECTS:[{questions:Object.keys(completeSources).map(id=>JSON.parse(rawById[id]))}]};
-vm.createContext(completeStartup);vm.runInContext(fs.readFileSync('tools/question_presentation_core.js','utf8'),completeStartup);
+vm.createContext(completeStartup);vm.runInContext(fs.readFileSync('app/src/main/modules/question_presentation.js','utf8'),completeStartup);
 for(const q of completeStartup.SUBJECTS[0].questions){
   assert(q.__nkQuestionPresentation.valid,q.id+' startup');
   assert.deepEqual(q.__nkQuestionPresentation.table.rows.map(row=>row.flatMap(cell=>[cell.label,cell.value])),completeSources[q.id].rows,q.id);
@@ -240,7 +241,7 @@ for(const q of completeStartup.SUBJECTS[0].questions){
 }
 const hygieneStartup={SUBJECTS:[{questions:Object.keys(completeSources).map(id=>JSON.parse(rawById[id]))}]};
 vm.createContext(hygieneStartup);
-vm.runInContext(fs.readFileSync('tools/question_content_hygiene_core.js','utf8'),hygieneStartup);
+vm.runInContext(fs.readFileSync('app/src/main/modules/question_content_hygiene.js','utf8'),hygieneStartup);
 const sourceHash=q=>{
   const source=JSON.stringify([q.id,q.question,q.options,q.correctOption,q.sourcePage,q.sourcePageEnd]);
   let hash=2166136261;
@@ -256,7 +257,7 @@ for(const cleaned of [false,true]){
   assert.equal(sourceHash(q),cleaned?464611166:1923549704);
   const startup={SUBJECTS:[{questions:[q]}],esc};
   vm.createContext(startup);
-  vm.runInContext(fs.readFileSync('tools/question_presentation_core.js','utf8'),startup);
+  vm.runInContext(fs.readFileSync('app/src/main/modules/question_presentation.js','utf8'),startup);
   const p=q.__nkQuestionPresentation,markup=startup.nkQuestionStemMarkup(q);
   assert(p.valid);assert(!p.repaired);assert.equal(p.stem,glucosePrompt);assert.equal(p.table,null);
   assert.equal(markup,'<span class="nk-question-prompt">'+glucosePrompt+'</span>');
@@ -310,7 +311,7 @@ for(const cleaned of [false,true]){
   assert(nkScientificMarkup(q.question).includes('■-1,4'));
   const startup={SUBJECTS:[{questions:[q]}],esc};
   vm.createContext(startup);
-  vm.runInContext(fs.readFileSync('tools/question_presentation_core.js','utf8'),startup);
+  vm.runInContext(fs.readFileSync('app/src/main/modules/question_presentation.js','utf8'),startup);
   const p=q.__nkQuestionPresentation,markup=startup.nkQuestionStemMarkup(q);
   assert(p.valid);assert(!p.repaired);assert.equal(startup.nkQuestionStemOverride(q).prompt,glycogenPrompt);
   assert.deepEqual(p.table.groups[0].map(cell=>[cell.label,cell.value]),[
@@ -369,7 +370,7 @@ for(const cleaned of [false,true]){
   assert.equal(nkNormalizeScientificDisplayText(q.options[1].text),phosphorylaseRaw);
   const startup={SUBJECTS:[{questions:[q]}],esc};
   vm.createContext(startup);
-  vm.runInContext(fs.readFileSync('tools/question_presentation_core.js','utf8'),startup);
+  vm.runInContext(fs.readFileSync('app/src/main/modules/question_presentation.js','utf8'),startup);
   const p=q.__nkQuestionPresentation;
   assert(p.valid);assert(!p.repaired);assert.equal(p.stem,undefined);assert.equal(p.table,null);
   assert.equal(q.options[1].text,phosphorylaseFixed);assert.equal(p.options[1].text,phosphorylaseFixed);
@@ -426,7 +427,7 @@ for(const cleaned of [false,true]){
   assert.equal(q.correctOption,3);assert.equal(q.sourcePage,85);
   const startup={SUBJECTS:[{questions:[q]}],esc};
   vm.createContext(startup);
-  vm.runInContext(fs.readFileSync('tools/question_presentation_core.js','utf8'),startup);
+  vm.runInContext(fs.readFileSync('app/src/main/modules/question_presentation.js','utf8'),startup);
   const p=q.__nkQuestionPresentation;
   assert(p.valid);assert(!p.repaired);assert.equal(p.stem,undefined);assert.equal(p.table,null);
   assert.equal((q.explanation.match(/α-1,4/g)||[]).length,2);
@@ -477,7 +478,7 @@ for(const q of hygieneStartup.SUBJECTS[0].questions){
   assert.equal(JSON.stringify(q),cleaned,q.id+' hygiene idempotence');
   console.log('OVERRIDE_HYGIENE_HASH id='+q.id+' raw='+before+' cleaned='+sourceHash(q));
 }
-vm.runInContext(fs.readFileSync('tools/question_presentation_core.js','utf8'),hygieneStartup);
+vm.runInContext(fs.readFileSync('app/src/main/modules/question_presentation.js','utf8'),hygieneStartup);
 for(const q of hygieneStartup.SUBJECTS[0].questions){
   const raw=JSON.parse(rawById[q.id]);
   assert(q.__nkQuestionPresentation.valid,q.id+' hygiene-before-presentation startup');
@@ -559,37 +560,29 @@ console.log('QUESTION_PRESENTATION_BEHAVIOR_OK repaired='+repaired+' invalid='+i
         test_path.unlink(missing_ok=True)
 
 
-def test_transform() -> None:
-    fixture = r'''<html><head></head><body><script>
-  function richText(text) {
-    return esc(String(text||'')).replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');
-  }
-function nkSessionOptions(q,selected,mode,submitted) {
-    const locked=true;return `<span class="option-text">${esc(o.text)}</span>`;}
-function nkGoldText(text){let html=esc(String(text||''));return html;}
-function nkGoldWrong(o,reason){return '<strong>'+esc(o.text||'')+'</strong><p>'+esc(reason)+'</p>';}
-function nkTakeaway(takeaway){return `<p>${esc(takeaway)}</p>`;}
-function practicePage(){return `<div class="question-text">${esc(q.question)}</div>`}
-function examPage(){return `<div class="question-text" data-marrow-question="">${esc(q.question)}</div>`}
-function reviewTestPage(){return `<div class="question-text">${esc(q.question)}</div>`}
-  window.QB={};
-</script></body></html>'''
-    updated = transform(fixture)
-    assert transform(updated) == updated
+def test_shipped_page() -> None:
+    updated = app_source()
+    assert updated.count(CORE.read_text(encoding="utf-8").rstrip()) == 1
+    assert updated.index("NK_QUESTION_PRESENTATION_V1_START") < updated.index("  window.QB={")
     assert updated.count("${nkQuestionStemMarkup(q)}") == 3
-    assert "if(!presentation.valid)return '';" in updated
-    assert "return nkScientificMarkup(text)" in updated
-    assert "${nkScientificMarkup(o.text)}" in updated
-    assert "${nkScientificMarkup(takeaway)}" in updated
-    assert "let html=nkScientificMarkup(text);" in updated
-    assert "'<strong>'+nkScientificMarkup(o.text||'')+'</strong>" in updated
-    assert "nkScientificMarkup(reason)" in updated
+    assert not re.search(r'<div class="question-text"[^>]*>\$\{esc\(q\.question\)\}', updated)
+    assert "function nkSessionOptions(q,selected,mode,submitted) {\n    const presentation=nkQuestionPresentationFor(q);if(!presentation.valid)return '';\n    const locked=" in updated
+    assert "return nkScientificMarkup(text).replace(" in updated
+    assert "esc(String(text||'')).replace(/\\*\\*" not in updated
+    assert "nkScientificMarkup(o.text)" in updated and "${esc(o.text)}" not in updated
+    assert "${nkScientificMarkup(takeaway)}" in updated and "${esc(takeaway)}" not in updated
+    assert "let html=nkScientificMarkup(text);" in updated and "let html=esc(String(text||''));" not in updated
+    assert "const needle=nkScientificMarkup(phrase);" in updated
+    # The gold distractor label and its rationale share the options' notation.
+    assert "<strong>'+nkScientificMarkup(o.text||'')+'</strong>" in updated and "esc(o.text||'')" not in updated
+    assert "nkScientificMarkup(reason)" in updated and "esc(reason)" not in updated
+    assert updated.count('/* ── nk-question-presentation-v1 ── */') == 1
     assert ".nk-sci-sub,.nk-sci-sup" in updated
-    for marker in ("NK_QUESTION_PRESENTATION_V1_START", "nk-question-presentation-v1", "nkQuestionPresentationFor", "nkQuestionMatchingTable"):
+    for marker in ("nkQuestionPresentationFor", "nkQuestionMatchingTable"):
         assert marker in updated
 
 
 if __name__ == "__main__":
-    test_transform()
+    test_shipped_page()
     run_node_behavior()
     print("QUESTION_PRESENTATION_V1_TEST_OK shared_renderer=practice,cbt,review source_data=unchanged")

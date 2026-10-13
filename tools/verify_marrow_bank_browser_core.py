@@ -367,7 +367,7 @@ def main():
             assert page.url.endswith('#fsrs-settings')
             page.get_by_role('button',name='Save changes',exact=True).click();page.wait_for_timeout(100)
             assert page.evaluate("window.QB.getState().fsrsPreferences.desiredRetention") == int(value)/100
-            page.reload(wait_until='networkidle')
+            page.reload(wait_until='networkidle');page.wait_for_function('window.QB&&window.QB.getState',timeout=15000)
             assert page.evaluate("window.QB.getState().fsrsPreferences.desiredRetention") == int(value)/100
             # Cancel discards drafts, Save persists across route changes and reload.
             page.locator('.nk-fsrs-settings input').first.fill('91')

@@ -5,6 +5,7 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 import threading
 from playwright.sync_api import sync_playwright, expect
+from app_page import built_page
 
 ROOT = Path(__file__).resolve().parents[1]
 PROBE = 'window.__nkLearningTest={model:()=>nkLearningModel(),questions:()=>nkAllStudyQuestions().filter(q=>nkQuestionPresentationFor(q).valid)};\n'
@@ -33,9 +34,33 @@ SEED = r'''() => {
 }'''
 
 
+def geist_choose(page, label, value):
+    """Pick a filter value through the control Geist renders for it.
+
+    Geist hides the native <select>s on Insights (they stay in the DOM and own the
+    value) and renders the period as a segmented button group and the scope / year
+    filters as listbox dropdowns. Drive those visible controls, then confirm the
+    underlying select committed the value. Returns the control that was used.
+    """
+    native = page.locator(f'select[aria-label="{label}"]')
+    expect(native).to_have_count(1)
+    if label == 'Time period':
+        control = page.get_by_role('group', name=label, exact=True).locator(f'button[data-value="{value}"]')
+        control.click()
+    else:
+        control = page.locator(f'.nkg-dd-btn[aria-label^="{label}: "]')
+        expect(control).to_have_count(1)
+        control.click()
+        panel = page.locator('#' + control.get_attribute('aria-controls'))
+        expect(panel).to_be_visible()
+        panel.locator(f'[role="option"][data-value="{value}"]').click()
+    expect(native).to_have_value(value)
+    return control
+
+
 def main():
     web = ROOT / 'build/web'
-    html = (web / 'index.html').read_text()
+    html = built_page(web)
     assert 'NK_LEARNING_INSIGHTS_V1_START' in html
     diagnostic = html.replace('  window.QB={', PROBE + '  window.QB={', 1).encode()
     class Handler(SimpleHTTPRequestHandler):
@@ -78,9 +103,9 @@ def main():
                 assert page.get_by_role('heading', name='Missed-question revision').count() == 0
                 assert page.get_by_role('button', name='Practise missed questions', exact=False).count() == 0
                 assert page.locator('.nk-li-year-activity').bounding_box()['y'] < page.locator('.nk-li-stats').bounding_box()['y']
-                page.get_by_label('Activity year', exact=True).select_option(str(__import__('datetime').datetime.now().year))
+                geist_choose(page, 'Activity year', str(__import__('datetime').datetime.now().year))
                 assert page.locator('.nk-li-year-grid button').count() >= 365
-                page.get_by_label('Activity year', exact=True).select_option('rolling')
+                geist_choose(page, 'Activity year', 'rolling')
                 page.screenshot(path=str(output / f'learning-insights-week-{width}.png'), full_page=True)
                 page.locator('.nk-li-year-activity').screenshot(path=str(output / f'learning-insights-heatmap-{width}.png'))
                 page.screenshot(path=str(output / f'learning-insights-top-{width}.png'))
@@ -98,7 +123,7 @@ def main():
                 page.get_by_role('button', name='Top performing', exact=True).click()
                 assert page.get_by_role('button', name='Top performing', exact=True).get_attribute('aria-pressed') == 'true'
                 for period, bars in [('month', 5), ('year', 12), ('week', 7)]:
-                    page.locator('#nk-li-period').select_option(period)
+                    geist_choose(page, 'Time period', period)
                     model = page.evaluate('window.__nkLearningTest.model()')
                     assert page.locator('.nk-li-bars button').count() == len(model['bins'])
                     assert not page.evaluate('document.documentElement.scrollWidth>innerWidth')
@@ -107,8 +132,8 @@ def main():
                     assert not page.get_by_role('button', name=f'Next {period}', exact=True).is_disabled()
                     page.get_by_role('button', name='Today', exact=True).click()
                     assert page.get_by_role('button', name=f'Next {period}', exact=True).is_disabled()
-                page.get_by_label('Insights subject', exact=True).select_option('Anatomy')
-                page.get_by_label('Insights bank', exact=True).select_option('Marrow')
+                geist_choose(page, 'Insights subject', 'Anatomy')
+                geist_choose(page, 'Insights bank', 'Marrow')
                 scoped = page.evaluate('window.__nkLearningTest.model()')
                 assert scoped['current']['attempts'] < model['current']['attempts']
                 assert all(t['subject'] == 'Anatomy' and t['bank'] == 'Marrow' for t in scoped['topicRows'])
@@ -118,7 +143,7 @@ def main():
                 page.get_by_role('button', name='Explore FSRS', exact=False).click()
                 expect(page.get_by_role('heading', name='FSRS Review', exact=True)).to_be_visible()
                 page.evaluate("window.QB.nav('analytics')")
-                page.get_by_label('Insights subject', exact=True).select_option('')
+                geist_choose(page, 'Insights subject', '')
                 page.reload(wait_until='domcontentloaded')
                 page.wait_for_function('window.__nkLearningTest && window.QB')
                 assert page.evaluate('window.__nkLearningTest.model().current.attempts') == model['current']['attempts']

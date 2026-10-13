@@ -4,14 +4,17 @@ from pathlib import Path
 import re
 import subprocess
 import tempfile
+from app_page import app_source
 
 ROOT = Path(__file__).resolve().parents[1]
-home = (ROOT / "tools/apply_home_command_center_v1.py").read_text(encoding="utf-8")
-interaction = (ROOT / "tools/question_interaction_core.js").read_text(encoding="utf-8")
+home = app_source()
+interaction = (ROOT / "app/src/main/modules/question_interaction.js").read_text(encoding="utf-8")
 
+if home.count("function nkMarkSkippedFromSession(") != 1:
+    raise SystemExit("nkMarkSkippedFromSession missing or duplicated in the app page")
 match = re.search(r"  function nkMarkSkippedFromSession\(s\)\{.*?\n  \}\n", home, re.S)
 if not match:
-    raise SystemExit("nkMarkSkippedFromSession source owner not found")
+    raise SystemExit("nkMarkSkippedFromSession not found in the app page")
 function = match.group(0)
 if "s.studyModuleId" in function:
     raise SystemExit("the skip rule is shared by modules, Practice, CBT and Revision; no module special case")

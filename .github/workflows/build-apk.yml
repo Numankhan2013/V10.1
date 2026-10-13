@@ -117,14 +117,10 @@ jobs:
         with:
           name: question-completeness-screening
           path: build/question-fidelity/
-      - name: Apply deterministic Review Solutions fix
-        run: python3 tools/fix_review_build.py
-      - name: Harden Review Solutions renderer
-        run: python3 tools/harden_review_renderer.py
-      - name: Fix Physiology WebView boot export
-        run: python3 tools/fix_phys_webview_boot.py
-      - name: Install original source-PDF explanation renderer
-        run: python3 tools/enable_both_pdf_renderers.py
+      - name: Check the app page against its tested modules
+        run: python3 tools/test_app_source_parity.py
+      - name: Write question data into the app page
+        run: python3 tools/build_app_data.py
       - name: Install PDF mapping dependency
         run: python3 -m pip install --disable-pip-version-check PyMuPDF Pillow
       - name: Render claimed Biochemistry batch regions on Ubuntu
@@ -163,9 +159,7 @@ jobs:
         run: python3 tools/verification_preflight.py --require-pdf
       - name: Build exact Biochemistry solution map
         run: python3 tools/build_biochem_solution_map.py
-      - name: Repair source solution renderer
-        run: python3 tools/repair_source_solution_renderer.py
-      - name: Final source-PDF and CBT hardening
+      - name: Map source-PDF solution regions
         run: python3 tools/final_hardening.py
       - name: Generate source visual metadata and lossless figure assets
         run: python3 tools/build_source_visual_metadata.py
@@ -181,98 +175,32 @@ jobs:
             build/prepladder-visual-audit/*.json
           retention-days: 3
           if-no-files-found: warn
-      - name: Install source visual renderer
-        run: python3 tools/install_source_visual_renderer.py
       - name: Verify source visual contract
         run: python3 tools/verify_source_visual_contract.py
-      - name: Apply legacy CBT UI cleanup
-        run: python3 tools/cbt_final_lock.py
-      - name: Install canonical CBT Review renderer
-        run: python3 tools/cbt_canonical.py
-      - name: Apply compact Question UI v2
-        run: python3 tools/apply_question_ui_v2.py
-      - name: Apply Practice Analysis v1
-        run: python3 tools/apply_practice_analysis_v1.py
-      - name: Apply V10.3.7 UI polish
-        run: python3 tools/apply_ui_polish_v1.py
-      - name: Apply V10.3.7 UI polish refinement
-        run: python3 tools/apply_ui_polish_v2.py
-      - name: Apply V10.3.8 Home and Insights polish
-        run: python3 tools/apply_home_insights_polish_v1.py
-      - name: Apply V10.3.9 option feedback polish
-        run: python3 tools/apply_option_feedback_polish_v1.py
-      - name: Apply V10.3.10 focused Practice cleanup
-        run: python3 tools/apply_practice_cleanup_v1.py
-      - name: Apply V10.3.11 option-hole and completion cleanup
-        run: python3 tools/apply_option_hole_cleanup_v1.py
-      - name: Build Home V4 composition directly into app
-        run: python3 tools/apply_home_visual_redesign_v4.py
-      - name: Apply Home V5 functional fixes
-        run: python3 tools/apply_home_v5_fixes.py
-      - name: Remove legacy global streak injector
-        run: python3 tools/remove_legacy_streak_layer.py
-      - name: Add Home streak and remove Home-only QBank header
-        run: python3 tools/apply_home_streak_and_header_v1.py
-      - name: Apply Home three-action hierarchy
-        run: python3 tools/apply_home_actions_v1.py
-      - name: Apply CBT end-of-session review and toast fix
-        run: python3 tools/apply_cbt_boundary_and_toast_fix_v1.py
-      - name: Harden CBT review navigation footer
-        run: python3 tools/harden_cbt_review_footer_v1.py
-      - name: Add question grid to Review Solutions
-        run: python3 tools/add_review_solution_grid.py
-      - name: Apply approved V11.3 question experience
-        run: python3 tools/apply_question_experience_v1.py
       - name: Test approved V11.3 question experience
         run: python3 tools/test_question_experience_v1.py
-      - name: Apply V11.3.1 shared session experience fixes
-        run: python3 tools/apply_session_experience_v2.py
       - name: Test V11.3.1 shared session experience
         run: python3 tools/test_session_experience_v2.py
-      - name: Apply V11.4 whole-app visual system
-        run: python3 tools/apply_whole_app_vision_v1.py
       - name: Test V11.4 whole-app visual system
         run: python3 tools/test_whole_app_vision_v1.py
-      - name: Apply Custom Study Modules
-        run: python3 tools/apply_custom_study_modules_v1.py
       - name: Test Custom Study Modules
         run: python3 tools/test_custom_study_modules_v1.py
-      - name: Apply Home Today’s Focus command center
-        run: python3 tools/apply_home_command_center_v1.py
       - name: Test Home Today’s Focus command center
         run: python3 tools/test_home_command_center_v1.py
       - name: Test cumulative topic-test timing and expiry
         run: python3 tools/test_topic_timer_v1.py
-      - name: Install durable Continue Practice session resume
-        run: python3 tools/apply_continue_practice_resume_v1.py
       - name: Test Continue Practice session resume
         run: python3 tools/test_continue_practice_resume_v1.py
-      - name: Apply question content hygiene
-        run: python3 tools/apply_question_content_hygiene_v1.py
       - name: Test question content hygiene
         run: python3 tools/test_question_content_hygiene_v1.py
-      - name: Apply source-aligned Marrow topic numbering
-        run: python3 tools/apply_marrow_topic_numbering_v1.py
-      - name: Install secure Android asset origin and migrate existing local data
-        run: python3 tools/apply_android_secure_origin_v1.py
-      - name: Confirm Android Back before leaving active question sessions
-        run: python3 tools/apply_android_back_guard_v1.py
-      - name: Install native action haptics
-        run: python3 tools/apply_android_haptics_v1.py
       - name: Verify native action haptics
         run: python3 tools/test_android_haptics_v1.py
-      - name: Install Android note file chooser
-        run: python3 tools/apply_android_file_picker_v1.py
       - name: Verify Android note file chooser
         run: python3 tools/test_android_file_picker_v1.py
-      - name: Apply cross-device sync and responsive PWA layer
-        run: python3 tools/apply_cross_device_pwa_v1.py
       - name: Test cross-device merge and PWA contracts
         run: python3 tools/test_cross_device_sync_v1.py
       - name: Test verified PWA update identity and dismissal
         run: python3 tools/test_pwa_update_v2.py
-      - name: Apply FSRS smart review scheduler
-        run: python3 tools/apply_fsrs_v1.py
       - name: Test FSRS scheduler and queue contracts
         run: python3 tools/test_fsrs_v1.py
       - name: Test question interaction durability and identity
@@ -281,20 +209,10 @@ jobs:
           python3 tools/test_cbt_cleanup_ownership.py
       - name: Verify interaction polish owner
         run: python3 tools/test_interaction_polish_v1.py
-      - name: Repair WebView boot-blocking JavaScript after protected transformations
-        run: python3 tools/fix_boot_syntax.py
-      - name: Install isolated Marrow bank pilot
-        run: python3 tools/apply_marrow_bank_pilot.py
-      - name: Repair canonical Marrow structured-table renderer
-        run: python3 tools/apply_marrow_structured_table_renderer_v1.py
-      - name: Normalize question presentation and matching tables
-        run: python3 tools/apply_question_presentation_v1.py
       - name: Test question presentation contracts
         run: python3 tools/test_question_presentation_v1.py
       - name: Validate Marrow image registry, bindings, and progress
         run: python3 tools/test_marrow_images.py
-      - name: Install reviewed Marrow images
-        run: python3 tools/install_marrow_images.py
       - name: Verify isolated Marrow bank pilot
         run: python3 tools/test_marrow_bank_pilot.py
       - name: Validate explicit Marrow topic taxonomy
@@ -313,68 +231,32 @@ jobs:
         run: python3 tools/test_marrow_biochem_explanation_rollout.py
       - name: Validate Marrow Physiology explanation rollout
         run: python3 tools/test_marrow_physio_explanation_rollout.py
-      - name: Remove subject and chapter bar from question cards
-        run: python3 tools/remove_question_context_bar_v1.py
       - name: Verify question context bar removal
         run: python3 tools/test_question_context_bar_v1.py
-      - name: Install question-linked personal notes
-        run: python3 tools/apply_question_notes_v1.py
       - name: Test question-linked personal notes
         run: python3 tools/test_question_notes_v1.py
-      - name: Install all-bank Quick Revision desk
-        run: python3 tools/apply_revision_desk_v1.py
       - name: Test all-bank Quick Revision desk
         run: python3 tools/test_revision_desk_v1.py
-      - name: Install actionable Insights focus
-        run: python3 tools/apply_insights_focus_v1.py
       - name: Test actionable Insights focus
         run: python3 tools/test_insights_focus_v1.py
-      - name: Install bank-aware timed CBT builder
-        run: python3 tools/apply_bank_aware_cbt_builder_v1.py
       - name: Test bank-aware timed CBT builder
         run: python3 tools/test_bank_aware_cbt_builder_v1.py
-      - name: Install saved-test CBT topic analysis
-        run: python3 tools/apply_cbt_result_analysis_v1.py
       - name: Test saved-test CBT topic analysis
         run: python3 tools/test_cbt_result_analysis_v1.py
-      - name: Install timed-test review marks and follow-up
-        run: python3 tools/apply_exam_review_flags_v1.py
       - name: Test timed-test review marks
         run: python3 tools/test_exam_review_flags_v1.py
-      - name: Add Abandon to timed-test grids
-        run: python3 tools/apply_timed_abandon_grid_v1.py
       - name: Test timed-test grid abandonment
         run: python3 tools/test_timed_abandon_grid_v1.py
-      - name: Install timed-test recovery card
-        run: python3 tools/apply_timed_resume_card_v1.py
       - name: Test timed-test recovery card
         run: python3 tools/test_timed_resume_card_v1.py
-      - name: Install all-bank QBank coverage tracker
-        run: python3 tools/apply_qbank_coverage_v1.py
       - name: Test all-bank QBank coverage tracker
         run: python3 tools/test_qbank_coverage_v1.py
-      - name: Install all-bank question finder
-        run: python3 tools/apply_question_search_v1.py
       - name: Test all-bank question finder
         run: python3 tools/test_question_search_v1.py
-      - name: Install Practice correction pass
-        run: python3 tools/apply_practice_correction_v1.py
       - name: Test Practice correction pass
         run: python3 tools/test_practice_correction_v1.py
-      - name: Install period-aware learning Insights dashboard
-        run: python3 tools/apply_learning_insights_v1.py
       - name: Test learning Insights calculations and calendar comparisons
         run: python3 tools/test_learning_insights_v1.py
-      - name: Compact navigation screens and remove redundant copy
-        run: python3 tools/apply_app_clarity_v1.py
-      - name: Install refined analysis and named reusable mocks
-        run: python3 tools/apply_refined_analysis_v1.py
-      - name: Install shared interaction polish
-        run: python3 tools/apply_interaction_polish_v1.py
-      - name: Refine incumbent visual identity
-        run: python3 tools/apply_visual_refinement_v1.py
-      - name: Enrich shared offline icon geometry
-        run: python3 tools/apply_icon_refinement_v1.py
       - name: Verify shared icon factories preserve labels and dimensions
         run: python3 tools/test_icon_refinement_v1.py
       - name: Verify visual refinement preserves the application
@@ -397,7 +279,19 @@ jobs:
           python3 tools/test_uworld_biostatistics.py
           python3 -m pip install --disable-pip-version-check numpy
           python3 tools/test_uworld_auto.py
+      # The crops are a pure function of the reviewed coordinates, manifests,
+      # source PDFs (LFS pointers) and this builder; reuse them when none changed.
+      # The offline-cache step later re-hashes every restored byte.
+      - name: Restore source-reviewed UWorld exhibits
+        id: uworld_figures
+        uses: actions/cache@v4
+        with:
+          path: |
+            app/src/main/assets/source_visuals/uworld
+            app/src/main/assets/uworld_figure_inventory.json
+          key: uworld-figures-v1-${{ hashFiles('data/uworld/**', 'tools/build_uworld_reviewed_figures.py', 'tools/uworld_*.py', '!tools/uworld_*_browser_cases.py', 'tools/verification_preflight.py') }}
       - name: Recover source-reviewed UWorld scientific exhibits
+        if: ${{ steps.uworld_figures.outputs.cache-hit != 'true' }}
         run: |
           git lfs pull --include="data/uworld/Source_pdfs/biochemistry/UW 2024 - Biochemistry - 3 blocks - OCR.pdf" --exclude=""
           git lfs pull --include="data/uworld/Source_pdfs/Poisioning_environmental_exposure/UW_2024_Poisoning_&_Environmental_Exposure_1_block_OCR.pdf" --exclude=""
@@ -406,9 +300,7 @@ jobs:
           git lfs pull --include="data/uworld/Source_pdfs/Female_reproductive_system_breast/UW_2024_Female_Reproductive_System_&_Breast_2_blocks_OCR.pdf" --exclude=""
           git lfs pull --include="data/uworld/Source_pdfs/biostatistics_epidemiology/UW 2024 - Biostatistics & Epidemiology - 3 blocks - OCR.pdf" --exclude=""
           python3 tools/build_uworld_reviewed_figures.py
-      - name: Install bounded UWorld collections
-        run: python3 tools/apply_uworld_biochemistry_v1.py
-      - name: Verify final JavaScript syntax after all transformations
+      - name: Verify inline JavaScript syntax with the data in place
         run: |
           python3 - <<'PY'
           from pathlib import Path
@@ -431,63 +323,63 @@ jobs:
         run: python3 tools/verify_cbt_invariants.py
       - name: Verify final generated app
         run: |
-          grep -q 'NK_QUESTION_PRESENTATION_V1_START' app/src/main/assets/index.html
-          grep -q 'SOURCE_PDF_EXPLANATION_V18' app/src/main/assets/index.html
-          grep -q 'BIOCHEM_SOURCE_SOLUTIONS' app/src/main/assets/index.html
-          grep -q 'SUBJECT_SOURCE_SOLUTIONS' app/src/main/assets/index.html
-          grep -q 'anatomy-' app/src/main/assets/index.html
+          grep -q 'NK_QUESTION_PRESENTATION_V1_START' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'SOURCE_PDF_EXPLANATION_V18' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'BIOCHEM_SOURCE_SOLUTIONS' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'SUBJECT_SOURCE_SOLUTIONS' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'anatomy-' app/src/main/assets/index.html app/src/main/assets/app.css
           grep -q 'qbank.local/anatomy/pdf' app/src/main/java/com/qbank/biochemistry/MainActivity.java
-          grep -q 'qbank-question-ui-v2' app/src/main/assets/index.html
-          grep -q 'qbank-practice-analysis-v1' app/src/main/assets/index.html
-          grep -q 'qbank-ui-polish-v1' app/src/main/assets/index.html
-          grep -q 'qbank-ui-polish-v2' app/src/main/assets/index.html
-          grep -q 'qbank-home-insights-polish-v1' app/src/main/assets/index.html
-          grep -q 'qbank-option-feedback-polish-v1' app/src/main/assets/index.html
-          grep -q 'qbank-practice-cleanup-v1' app/src/main/assets/index.html
-          grep -q 'qbank-option-hole-cleanup-v1' app/src/main/assets/index.html
-          grep -q 'nk-home-v4' app/src/main/assets/index.html
-          grep -q 'nk-home-v4-style' app/src/main/assets/index.html
-          grep -q 'NK_HOME_V5_FIXES' app/src/main/assets/index.html
-          grep -q 'nk-topics-v2' app/src/main/assets/index.html
-          grep -q 'openSubjectTopics' app/src/main/assets/index.html
-          grep -q 'resetScrollPosition' app/src/main/assets/index.html
-          grep -q 'requestAnimationFrame(() => window.scrollTo(0,0)' app/src/main/assets/index.html
-          grep -q 'nk-home-streak-header-v1' app/src/main/assets/index.html
-          grep -q 'nk-home-streak' app/src/main/assets/index.html
-          grep -q 'currentStreak()' app/src/main/assets/index.html
-          grep -q 'body:has(.nk-home-v4) .topbar' app/src/main/assets/index.html
-          grep -q 'nk-home-actions-v1' app/src/main/assets/index.html
-          grep -q 'Continue Practice' app/src/main/assets/index.html
-          grep -q 'Choose subjects and topics' app/src/main/assets/index.html
-          grep -q 'Quick test' app/src/main/assets/index.html
-          ! grep -q 'id="v102-streak-layer-script"' app/src/main/assets/index.html
-          ! grep -q 'id="v102-streak-layer"' app/src/main/assets/index.html
+          grep -q 'qbank-question-ui-v2' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'qbank-practice-analysis-v1' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'qbank-ui-polish-v1' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'qbank-ui-polish-v2' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'qbank-home-insights-polish-v1' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'qbank-option-feedback-polish-v1' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'qbank-practice-cleanup-v1' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'qbank-option-hole-cleanup-v1' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'nk-home-v4' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'nk-home-v4-style' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'NK_HOME_V5_FIXES' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'nk-topics-v2' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'openSubjectTopics' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'resetScrollPosition' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'requestAnimationFrame(() => window.scrollTo(0,0)' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'nk-home-streak-header-v1' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'nk-home-streak' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'currentStreak()' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'body:has(.nk-home-v4) .topbar' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'nk-home-actions-v1' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'Continue Practice' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'Choose subjects and topics' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'Quick test' app/src/main/assets/index.html app/src/main/assets/app.css
+          ! grep -q 'id="v102-streak-layer-script"' app/src/main/assets/index.html app/src/main/assets/app.css
+          ! grep -q 'id="v102-streak-layer"' app/src/main/assets/index.html app/src/main/assets/app.css
           ! grep -q 'home_polish_v3.js' app/src/main/java/com/qbank/biochemistry/MainActivity.java
-          grep -q 'NK_SOURCE_VISUALS_V11' app/src/main/assets/index.html
-          grep -q 'closeQuestionNavigator();' app/src/main/assets/index.html
-          grep -q 'sessionShell' app/src/main/assets/index.html
-          grep -q 'qb-nav-submit' app/src/main/assets/index.html
-          grep -q "s.mode==='practice'" app/src/main/assets/index.html
-          grep -q 'nk-session-review' app/src/main/assets/index.html
-          grep -q 'nk-cbt-review-footer-v1' app/src/main/assets/index.html
-          grep -q 'review-fixed-actions' app/src/main/assets/index.html
-          grep -q 'nk-review-solution-grid-style' app/src/main/assets/index.html
-          grep -q 'nk-session-experience-v114' app/src/main/assets/index.html
-          grep -q 'nk-whole-app-vision-v114' app/src/main/assets/index.html
-          grep -q 'startAllSubjectPractice' app/src/main/assets/index.html
-          grep -q 'openMultiSubjectTestBuilder' app/src/main/assets/index.html
-          grep -q 'aria-label="NK QBank"' app/src/main/assets/index.html
-          grep -q 'nk-flame-svg' app/src/main/assets/index.html
-          grep -q 'nk-custom-study-modules-v1' app/src/main/assets/index.html
-          grep -q 'openStudyModuleBuilder' app/src/main/assets/index.html
-          grep -q 'nkSelectModuleQuestionIds' app/src/main/assets/index.html
-          grep -q "route.page==='module-builder'" app/src/main/assets/index.html
-          grep -q '&scale=4' app/src/main/assets/index.html
-          grep -q 'id="cr-grid"' app/src/main/assets/index.html
-          grep -q 'window.QB.openQuestionNavigator()' app/src/main/assets/index.html
-          grep -q 'showToast(msg,type' app/src/main/assets/index.html
-          grep -q 'root.innerHTML=' app/src/main/assets/index.html
-          grep -q 'NK_MARROW_STRUCTURED_TABLE_RENDERER_V1' app/src/main/assets/index.html
+          grep -q 'NK_SOURCE_VISUALS_V11' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'closeQuestionNavigator();' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'sessionShell' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'qb-nav-submit' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q "s.mode==='practice'" app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'nk-session-review' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'nk-cbt-review-footer-v1' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'review-fixed-actions' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'nk-review-solution-grid-style' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'nk-session-experience-v114' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'nk-whole-app-vision-v114' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'startAllSubjectPractice' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'openMultiSubjectTestBuilder' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'aria-label="NK QBank"' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'nk-flame-svg' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'nk-custom-study-modules-v1' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'openStudyModuleBuilder' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'nkSelectModuleQuestionIds' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q "route.page==='module-builder'" app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q '&scale=4' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'id="cr-grid"' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'window.QB.openQuestionNavigator()' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'showToast(msg,type' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'root.innerHTML=' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'NK_MARROW_STRUCTURED_TABLE_RENDERER_V1' app/src/main/assets/index.html app/src/main/assets/app.css
           test -s app/src/main/assets/biochemistry_source_solution_map.js
           test -s app/src/main/assets/subject_source_solution_maps.js
           test -s app/src/main/assets/source_visual_metadata.js
@@ -500,7 +392,9 @@ jobs:
           test -f app/src/main/assets/Anatomy_QBank_Source.pdf
           test -s app/src/main/assets/vendor/ts-fsrs/ts-fsrs-5.4.2.umd.js
           test -s app/src/main/assets/vendor/ts-fsrs/LICENSE
-          grep -q 'NK_FSRS_V6_START' app/src/main/assets/index.html
+          grep -q 'NK_FSRS_V6_START' app/src/main/assets/index.html app/src/main/assets/app.css
+      - name: Test unreachable CSS pruning
+        run: python3 tools/test_prune_unreachable_css.py
       - name: Build Cloudflare Pages PWA artifact
         run: python3 tools/build_web_dist.py --version ${{ github.sha }}
       - name: Verify Marrow image bytes and offline cache
@@ -517,78 +411,57 @@ jobs:
         run: |
           python3 -m pip install --disable-pip-version-check playwright
           python3 -m playwright install --with-deps chromium
-      - name: Verify PWA updates stay quiet until a different build is ready
+      # Every verifier serves build/web on its own port and writes its own
+      # build/ folder, so the suite runs four at a time instead of one by one.
+      - name: Verify every study flow in phone and tablet browsers
         if: ${{ !cancelled() && steps.browser_dependencies.outcome == 'success' }}
-        run: python3 tools/verify_pwa_update_browser.py
-      - name: Verify generated recall dock in browser
-        if: ${{ !cancelled() && steps.browser_dependencies.outcome == 'success' }}
-        run: python3 tools/verify_recall_dock_browser.py
-      - name: Verify Marrow bank selector and native explanation in browser
-        if: ${{ !cancelled() && steps.browser_dependencies.outcome == 'success' }}
-        run: python3 tools/verify_marrow_bank_browser.py
-      - name: Verify UWorld Biochemistry shared study flows on phone and tablet
-        run: python3 tools/verify_uworld_biochemistry_browser.py
-      - name: Verify Marrow learner content hygiene in browser
-        if: ${{ !cancelled() && steps.browser_dependencies.outcome == 'success' }}
-        run: python3 tools/verify_marrow_content_hygiene_browser.py
-      - name: Verify populated Marrow structured table in browser
-        if: ${{ !cancelled() && steps.browser_dependencies.outcome == 'success' }}
-        run: python3 tools/verify_marrow_structured_table_browser.py
-      - name: Verify PrepLadder matching question presentation in browser
-        if: ${{ !cancelled() && steps.browser_dependencies.outcome == 'success' }}
-        run: python3 tools/verify_question_presentation_browser.py
-      - name: Verify reviewed question completeness on phone and tablet
-        if: ${{ !cancelled() && steps.browser_dependencies.outcome == 'success' }}
-        run: python3 tools/verify_question_completeness_browser.py
-      - name: Verify Continue Practice controls and pause resume in browser
-        if: ${{ !cancelled() && steps.browser_dependencies.outcome == 'success' }}
-        run: |
-          python3 tools/verify_continue_practice_browser.py
-          python3 tools/verify_topic_continue_browser.py
-      - name: Verify question interaction integrity on phone and tablet
-        if: ${{ !cancelled() && steps.browser_dependencies.outcome == 'success' }}
-        run: python3 tools/verify_question_interaction_browser.py
-      - name: Verify touch polish on phone and tablet
-        run: python3 tools/verify_interaction_polish_browser.py
-      - name: Verify immediate outcomes and interaction continuity
-        run: python3 tools/verify_interaction_quality_browser.py
-      - name: Verify reading composition and visual contrast
-        run: python3 tools/verify_visual_refinement_browser.py
-
-      - name: Verify study-flow continuity
-        run: python3 tools/verify_study_flow_browser.py
-      - name: Verify study return destinations and saved-test feedback
-        run: python3 tools/verify_return_flow_browser.py
-      - name: Verify personal notes in Practice and Review
-        run: python3 tools/verify_question_notes_browser.py
-      - name: Verify image and PDF-page notes, viewer and two-device sync
-        run: python3 tools/verify_question_note_media_browser.py
-      - name: Verify the Geist source-PDF viewer opens at once and pans edge to edge
-        run: python3 tools/verify_source_viewer_browser.py
-      - name: Verify audited account controls and safe learner text
-        run: python3 tools/verify_preproduction_browser.py
-      - name: Verify all-bank Quick Revision queues
-        run: python3 tools/verify_revision_desk_browser.py
-      - name: Verify editable FSRS ratings and resolved mistakes
-        run: python3 tools/verify_fsrs_rating_revision_browser.py
-      - name: Verify all-bank question search on phone and tablet
-        run: python3 tools/verify_question_search_browser.py
-      - name: Verify Practice correction journey on phone and tablet
-        run: python3 tools/verify_practice_correction_browser.py
-      - name: Verify learning Insights on phone and tablet
-        run: python3 tools/verify_learning_insights_browser.py
-      - name: Verify result analysis and saved mocks in phone and tablet browsers
-        run: python3 tools/verify_refined_analysis_browser.py
-      - name: Verify compact screens and visible Revision queues
-        run: python3 tools/verify_app_clarity_browser.py
-      - name: Verify bank-aware timed CBT selection and exam launch
-        run: python3 tools/verify_bank_aware_cbt_builder_browser.py
-      - name: Verify PYQ and mixed CBT journeys on phone and tablet
-        run: python3 tools/verify_pyq_exam_journey_browser.py
-      - name: Verify saved-test CBT topic analysis and follow-up
-        run: python3 tools/verify_cbt_result_analysis_browser.py
-      - name: Verify study journey and capture device-size views
-        run: python3 tools/verify_study_journey_browser.py
+        run: >-
+          python3 tools/run_browser_suite.py
+          tools/verify_pwa_update_browser.py
+          tools/verify_recall_dock_browser.py
+          tools/verify_marrow_bank_browser_v2.py
+          tools/verify_phys_final_images_browser.py
+          tools/verify_marrow_anatomy_ch06_q002_browser.py
+          tools/verify_marrow_anatomy_ch06_q018_browser.py
+          tools/verify_marrow_anatomy_ch07_q010_browser.py
+          tools/verify_marrow_anatomy_ch07_q019_browser.py
+          tools/verify_marrow_physio_ch11_q001_q006_browser.py
+          tools/verify_marrow_explanation_refinement_browser.py
+          tools/verify_uworld_biochemistry_browser.py:--widths=390
+          tools/verify_uworld_biochemistry_browser.py:--widths=820
+          tools/verify_uworld_biochemistry_browser.py:--widths=1194
+          tools/verify_uworld_biochemistry_browser.py:--widths=1440
+          tools/verify_marrow_content_hygiene_browser.py
+          tools/verify_marrow_structured_table_browser.py
+          tools/verify_question_presentation_browser.py
+          tools/verify_question_completeness_browser.py
+          tools/verify_continue_practice_browser.py
+          tools/verify_topic_continue_browser.py
+          tools/verify_question_interaction_browser.py
+          tools/verify_interaction_polish_browser.py
+          tools/verify_interaction_quality_browser.py
+          tools/verify_visual_refinement_browser.py
+          tools/verify_study_flow_browser.py
+          tools/verify_return_flow_browser.py
+          tools/verify_question_notes_browser.py
+          tools/verify_progress_store_browser.py
+          tools/verify_question_note_media_browser.py
+          tools/verify_source_viewer_browser.py
+          tools/verify_preproduction_browser.py
+          tools/verify_revision_desk_browser.py
+          tools/verify_fsrs_rating_revision_browser.py
+          tools/verify_question_search_browser.py
+          tools/verify_practice_correction_browser.py
+          tools/verify_learning_insights_browser.py
+          tools/verify_refined_analysis_browser.py
+          tools/verify_app_clarity_browser.py
+          tools/verify_bank_aware_cbt_builder_browser.py
+          tools/verify_pyq_exam_journey_browser.py
+          tools/verify_cbt_result_analysis_browser.py
+          tools/verify_study_journey_browser.py
+          tools/capture_study_ui_audit.py
+          tools/verify_prepladder_visuals_browser.py
+          tools/capture_marrow_image_review.py
       - name: Upload study journey views
         if: always()
         uses: actions/upload-artifact@v4
@@ -596,9 +469,6 @@ jobs:
           name: study-journey-views
           path: build/study-journey/
           retention-days: 3
-      - name: Capture study UI audit across screen sizes
-        if: ${{ !cancelled() && steps.browser_dependencies.outcome == 'success' }}
-        run: python3 tools/capture_study_ui_audit.py
       - name: Upload study UI audit evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -607,12 +477,6 @@ jobs:
           path: build/study-ui-audit/
           retention-days: 3
           if-no-files-found: warn
-      - name: Verify representative PrepLadder visuals and fullscreen viewer
-        if: ${{ !cancelled() && steps.browser_dependencies.outcome == 'success' }}
-        run: python3 tools/verify_prepladder_visuals_browser.py
-      - name: Capture Marrow image comparisons
-        if: ${{ !cancelled() && steps.browser_dependencies.outcome == 'success' }}
-        run: python3 tools/capture_marrow_image_review.py
       - name: Upload recall dock and Marrow pilot screenshots
         if: always()
         uses: actions/upload-artifact@v4
@@ -673,6 +537,7 @@ jobs:
           test -n "$APK"
           unzip -t "$APK"
           unzip -p "$APK" assets/index.html > /tmp/packaged-index.html
+          unzip -p "$APK" assets/app.css >> /tmp/packaged-index.html
           ! grep -q 'id="v102-streak-layer-script"' /tmp/packaged-index.html
           ! grep -q 'id="v102-streak-layer"' /tmp/packaged-index.html
           grep -q 'nk-home-streak-header-v1' /tmp/packaged-index.html

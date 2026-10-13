@@ -2,29 +2,29 @@
 """Check saved-test recovery on Home, Tests, and builder without restarting."""
 from pathlib import Path
 import json
+import re
 import subprocess
-
-from apply_timed_resume_card_v1 import transform
+from app_page import app_source
 
 ROOT=Path(__file__).resolve().parents[1]
-CORE=ROOT/'tools/timed_resume_card_core.js'
+CORE=ROOT/'app/src/main/modules/timed_resume_card.js'
+HTML=ROOT/'app/src/main/assets/index.html'
 
 def main():
-    fixture='''<html><head></head><script>
-/* NK_EXAM_REVIEW_FLAGS_V1_START */
-function nkHomeFocusSection(focus,focusModule){return `<section class="nk-home-focus-card"></section>`;}
-function dashboard(){return nkHomeFocusSection(null,null);}
-function testsPage(){return `<section class="nk-v3-section nk-test-main-action"></section>`;}
-function nkCbtBuilderPage(){const step=1,titles=['Banks'],description='Build';return `<main>${nkAppPageHead(titles[step-1],description)}<div class="nk-module-stepper">${[1,2,3].join('')}</div></main>`;}
-  window.QB={nav:()=>{}};
-</script></html>'''
-    generated=transform(fixture)
-    assert transform(generated)==generated
-    for marker in ('NK_TIMED_RESUME_CARD_V1_START','function nkTimedFocusCard()',
-                   "nkTimedResumeCard('tests')","nkTimedResumeCard('builder')",'nkResumeTimedTest,','nk-timed-resume-card-v1'):
-        assert marker in generated,marker
-    assert "nkTimedResumeCard('home')" not in generated
-    subprocess.run(['node','--check'],input=generated.split('<script>',1)[1].split('</script>',1)[0],text=True,check=True)
+    page=app_source()
+    assert page.count(CORE.read_text(encoding='utf-8').strip())==1,'resume card core ships verbatim once'
+    for marker in ('NK_TIMED_RESUME_CARD_V1_START','/* ── nk-timed-resume-card-v1 ── */',
+                   "${nkTimedResumeCard('tests')}<section class=\"nk-v3-section nk-test-main-action\">",
+                   "titles[step-1],description)}${nkTimedResumeCard('builder')}<div class=\"nk-module-stepper\">${[1,2,3]",
+                   "${nkHomeFocusSection(focus,focusModule)}",
+                   "if(state.activeSession?.mode==='exam'&&typeof nkTimedFocusCard==='function')return nkTimedFocusCard();"):
+        assert page.count(marker)==1,marker
+    qb=page[page.index('  window.QB={'):]
+    assert 'nkResumeTimedTest,' in qb[:qb.index('};')]
+    assert "nkTimedResumeCard('home')" not in page
+    for match in re.finditer(r'<script(?![^>]*\bsrc=)[^>]*>',page):
+        inline=page[match.end():page.index('</script>',match.end())]
+        if inline.strip():subprocess.run(['node','--check'],input=inline,text=True,check=True)
 
     script='''
 const assert=require('node:assert/strict'),vm=require('node:vm');

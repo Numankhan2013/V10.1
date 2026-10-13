@@ -6,6 +6,7 @@ from pathlib import Path
 import json
 import threading
 from playwright.sync_api import sync_playwright
+from app_page import built_page
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'build/ui-checks'
@@ -37,7 +38,7 @@ def fail_storage(page, enabled):
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     web = ROOT / 'build/web'
-    assert 'NK_QUESTION_INTERACTION_INTEGRITY_V1_START' in (web / 'index.html').read_text()
+    assert 'NK_QUESTION_INTERACTION_INTEGRITY_V1_START' in built_page(web)
     server = ThreadingHTTPServer(('127.0.0.1', 0), partial(SimpleHTTPRequestHandler, directory=str(web)))
     threading.Thread(target=server.serve_forever, daemon=True).start()
     origin = f'http://127.0.0.1:{server.server_port}'
@@ -238,8 +239,9 @@ def main():
                 assert page.locator('.nk-timed-resume.is-home').count() == 0
                 focus = page.locator('.nk-home-focus-card')
                 assert focus.count() == 1
-                assert 'timer keeps running' in focus.inner_text()
-                assert 'marked for review' in focus.inner_text()
+                # Leaving a timed test must not hide that its clock is still running.
+                assert 'timer keeps running' in focus.inner_text(), f'running-timer warning not visible on Home focus card: {focus.inner_text()!r}'
+                assert 'marked for review' in focus.inner_text(), f'timed-test progress not visible on Home focus card: {focus.inner_text()!r}'
                 focus.get_by_role('button', name='Resume timed test').click()
                 page.wait_for_url('**/#exam')
                 assert session(page)['id'] == cbt['id']

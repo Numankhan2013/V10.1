@@ -7,11 +7,16 @@ import json
 import threading
 from playwright.sync_api import sync_playwright
 from verify_learning_insights_browser import PROBE
+from app_page import built_page
 ROOT=Path(__file__).resolve().parents[1]
+def assert_no_ios_zoom(field,label):
+    # Text fields below 16px make iOS zoom the page on focus.
+    size=field.evaluate('n=>getComputedStyle(n).fontSize')
+    assert float(size[:-2])>=16,f'{label} input is {size}; below 16px iOS zooms on focus'
 def main():
     web = ROOT/'build/web'
-    html = (web/'index.html').read_text()
-    assert 'id="nk-visual-refinement-v1"' in html
+    html = built_page(web)
+    assert '/* ── nk-visual-refinement-v1 ── */' in html
     probe = PROBE+'window.__visualQuestion=()=>nkCurrentQuestion();window.__studyPersistence=saveState;window.__studyFailSave=()=>{saveState=()=>false;};window.__studyRestoreSave=()=>{saveState=window.__studyPersistence;};\n'
     diagnostic = html.replace('  window.QB={', probe+'  window.QB={', 1).encode()
 
@@ -60,11 +65,13 @@ def main():
                 sheet.locator('.nk-np-add-btn').click();sheet.locator('.nk-np-add-menu').get_by_role('menuitem',name='Text',exact=True).click()
                 assert sheet.locator('textarea').input_value()==''
                 sheet.locator('textarea').fill(draft);save.click()
+                # Geist commits the save after its ~560 ms check animation; wait for the real save.
+                sheet.locator('textarea').wait_for(state='detached',timeout=5000)
                 assert sheet.locator('.nk-note-readonly').inner_text()==draft
                 sheet.locator('.nk-nb[data-i="0"] .nk-nb-dots').click();page.locator('.nk-nb-menu').get_by_role('menuitem',name='Edit',exact=True).click()
                 sheet.locator('textarea').fill('Failed save: keep my recall cue')
                 page.evaluate('__studyFailSave()');sheet.get_by_role('button',name='Save',exact=True).click()
-                assert 'Save failed' in sheet.locator('.nk-nb-edit-actions [role="status"]').inner_text()
+                sheet.locator('.nk-nb-edit-actions [role="status"]').filter(has_text='Save failed').wait_for(timeout=5000)
                 assert sheet.locator('textarea').input_value()=='Failed save: keep my recall cue'
                 assert page.evaluate('Object.values(QB.getState().questionNotes).some(n=>n.text.includes("<script>safe</script>"))')
                 page.evaluate('__studyRestoreSave()');sheet.locator('.nk-note-cancel').click()
@@ -72,7 +79,7 @@ def main():
                 assert 'Recall cue' in bar.inner_text() and page.locator('.nk-note-page').count()==0
                 page.evaluate("QB.nav('notes')")
                 notesSearch=page.locator('.nk-notes-search input');notesSearch.fill('Recall cue')
-                assert notesSearch.evaluate('n=>getComputedStyle(n).fontSize')=='16px'
+                assert_no_ios_zoom(notesSearch,'notes search')
                 assert page.locator('.nk-notes-search svg').count()==1
                 page.locator('.nk-notes-item:visible button').first.click();page.wait_for_selector('.option')
                 assert page.evaluate('QB.getState().activeSession.originRoute')=='notes'
@@ -103,7 +110,7 @@ def main():
                 page.get_by_role('button',name='Continue to questions',exact=True).click()
                 custom=page.get_by_role('button',name='Custom',exact=True);custom.focus();page.keyboard.press('Enter')
                 assert page.evaluate('document.activeElement.textContent==="Custom"')
-                assert page.locator('.nk-module-count-block input').evaluate('n=>getComputedStyle(n).fontSize')=='16px'
+                assert_no_ios_zoom(page.locator('.nk-module-count-block input'),'module custom count')
                 countInput=page.locator('#nk-module-custom-count')
                 for invalid in ['', '0', '501', '1.5']:
                     countInput.fill(invalid)
@@ -114,7 +121,7 @@ def main():
                 assert page.get_by_role('button',name='Continue',exact=True).is_enabled()
                 assert countInput.get_attribute('aria-invalid')=='false'
                 page.get_by_role('button',name='Continue',exact=True).click()
-                assert page.locator('.nk-module-name input').evaluate('n=>getComputedStyle(n).fontSize')=='16px'
+                assert_no_ios_zoom(page.locator('.nk-module-name input'),'module name')
                 assert page.evaluate('document.activeElement.matches(".nk-module-builder h1")')
                 gap=page.locator('.nk-module-builder-card').evaluate('n=>n.getBoundingClientRect().bottom-n.lastElementChild.getBoundingClientRect().bottom')
                 assert gap<=24,('review leaves oversized blank space',width,gap)

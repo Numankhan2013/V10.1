@@ -7,6 +7,7 @@ from pathlib import Path
 import threading
 
 from playwright.sync_api import sync_playwright
+from app_page import built_page
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -17,7 +18,7 @@ def button_labels(locator):
 
 def main() -> None:
     web = ROOT / "build/web"
-    html = (web / "index.html").read_text(encoding="utf-8")
+    html = built_page(web)
     for marker in ("NK_CONTINUE_PRACTICE_RESUME_V1_START", "NK_PRACTICE_SINGLE_REVIEW_GRID_V1_START"):
         if marker not in html:
             raise SystemExit(f"Practice flow layer missing from built PWA: {marker}")
@@ -48,9 +49,22 @@ def main() -> None:
                 footer.wait_for(state="visible")
                 if page.locator(".nk-practice-session-controls").count():
                     raise SystemExit(f"Pause/Submit leaked back onto the question screen at {width}px")
-                labels = button_labels(footer.locator(".fixed-actions-inner button"))
-                if labels != ["Previous", "Next"]:
-                    raise SystemExit(f"Question footer is not Previous/Next only at {width}px: {labels}")
+                # Geist labels the forward action "Finish" on the session's last
+                # question (same QB.nextQ() action); practiceOne() is a one-question
+                # session, so the footer is Previous + Finish there and Previous +
+                # Next anywhere earlier.
+                is_last = page.evaluate("(() => { const s=window.QB.getState().activeSession; return s.index===s.questionIds.length-1; })()")
+                forward = "Finish" if is_last else "Next"
+                footer_buttons = footer.locator(".fixed-actions-inner button")
+                page.wait_for_function(
+                    "label => [...document.querySelectorAll('.nk-session-footer .fixed-actions-inner button')].map(b=>b.innerText.trim()).includes(label)",
+                    arg=forward,
+                )
+                labels = button_labels(footer_buttons)
+                if labels != ["Previous", forward]:
+                    raise SystemExit(f"Question footer is not Previous/{forward} only at {width}px: {labels}")
+                if footer_buttons.nth(1).get_attribute("onclick") != "window.QB.nextQ()":
+                    raise SystemExit(f"Question footer forward action is not QB.nextQ() at {width}px")
 
                 # Opening the grid must go straight to the one final review sheet.
                 page.evaluate("window.QB.openQuestionNavigator()")
@@ -279,11 +293,12 @@ def main() -> None:
             snapshots = {}
             for name, chapter in zip("ABC", chapters):
                 page.evaluate("c => window.QB.nkOpenSubjectChapter(c.subject,c.bank,c.id)", chapter)
+                # Geist starts the chapter's Practice straight from the topic page;
+                # the legacy "Start Practice" confirmation modal is gone.
                 page.locator(".nk-chapter-actions button.is-primary").click()
-                modal = page.locator("#modal")
-                modal.wait_for(state="visible")
-                modal.get_by_role("button", name="Start Practice", exact=True).click()
                 page.wait_for_function("ids => JSON.stringify(window.QB.getState().activeSession?.questionIds)===JSON.stringify(ids)", arg=chapter["ids"])
+                if page.locator("#modal").get_by_role("button", name="Start Practice", exact=True).count():
+                    raise SystemExit("Legacy Start Practice confirmation reappeared in front of topic Practice")
                 session_id = page.evaluate("window.QB.getState().activeSession.id")
                 if name == "A":
                     page.evaluate("id => window.QB.toggleBookmark(id)", chapter["ids"][0])
@@ -386,9 +401,12 @@ def main() -> None:
             two_ids = []
             for chapter in chapters[:2]:
                 page.evaluate("c => window.QB.nkOpenSubjectChapter(c.subject,c.bank,c.id)", chapter)
+                # Geist starts the chapter's Practice straight from the topic page;
+                # the legacy "Start Practice" confirmation modal is gone.
                 page.locator(".nk-chapter-actions button.is-primary").click()
-                page.locator("#modal").get_by_role("button", name="Start Practice", exact=True).click()
                 page.wait_for_function("ids => JSON.stringify(window.QB.getState().activeSession?.questionIds)===JSON.stringify(ids)", arg=chapter["ids"])
+                if page.locator("#modal").get_by_role("button", name="Start Practice", exact=True).count():
+                    raise SystemExit("Legacy Start Practice confirmation reappeared in front of topic Practice")
                 two_ids.append(page.evaluate("window.QB.getState().activeSession.id"))
                 page.evaluate("window.QB.openSessionReview()")
                 page.locator("#nk-session-review").get_by_role("button", name="Pause", exact=True).click()

@@ -7,6 +7,7 @@ from pathlib import Path
 import threading
 
 from playwright.sync_api import sync_playwright
+from app_page import built_page
 
 ROOT = Path(__file__).resolve().parents[1]
 REPRESENTATIVES = {
@@ -26,7 +27,7 @@ def main():
     ledger = json.loads((ROOT / 'data/question_completeness_reviews_v1.json').read_text())
     discoveries = json.loads((ROOT / 'data/marrow/images/source_visual_discoveries.json').read_text())['entries']
     entries = ledger['entries']
-    html = (web / 'index.html').read_text()
+    html = built_page(web)
     marker = 'getState:()=>state,'
     require(html.count(marker) == 1, 'Expected one QB read-only probe insertion point')
     require('NK_QUESTION_COMPLETENESS_REVIEWS_START' in html, 'Generated completeness compiler block missing')

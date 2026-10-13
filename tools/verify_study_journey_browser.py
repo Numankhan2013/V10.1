@@ -7,13 +7,14 @@ from pathlib import Path
 import threading
 
 from playwright.sync_api import expect, sync_playwright
+from app_page import built_page
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def main():
     web = ROOT / "build/web"
-    source = (web / "index.html").read_text(encoding="utf-8")
+    source = built_page(web)
     assert "NK_TIMED_RESUME_CARD_V1_START" in source
     output = ROOT / "build/study-journey"
     output.mkdir(parents=True, exist_ok=True)
@@ -55,7 +56,9 @@ def main():
                 }""")
                 expect(focus.get_by_role("button", name="Resume timed test")).to_be_visible()
                 assert "Study journey CBT" in focus.inner_text()
-                assert "1 of 3 answered · 1 marked for review" in focus.inner_text()
+                # The learner must see how far the running test has got before resuming it.
+                assert "1 of 3 answered · 1 marked for review" in focus.inner_text(), \
+                    f"{label}: timed-test progress is not visible on the Home focus card: {focus.inner_text()!r}"
                 assert page.locator(".nk-timed-resume.is-home").count() == 0
                 page.screenshot(path=str(output / f"{label}-home-timed.png"), full_page=True, animations="disabled")
                 focus.get_by_role("button", name="Resume timed test").click()
