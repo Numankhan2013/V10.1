@@ -2563,3 +2563,14 @@ User asked for a thorough functional audit, especially whether FSRS is as good a
   caught it and it was replaced by a brace-matched pass.
 - Local gotcha: a full disk makes browser verifiers fail with
   `ERR_INSUFFICIENT_RESOURCES`; keep scratch web builds (~900 MB each) trimmed.
+
+## 2026-10-13 — Post-bake fixes before promotion
+
+- My Subjects gains a Mixed practice row wired to `startAllSubjectPractice`, which now
+  draws from `nkAllStudyQuestions()` (all banks) and registers the picked questions in `BY_ID`.
+- Gold "why the other options are wrong" labels use `nkScientificMarkup` like the options.
+- Removed the unused `nkInsightsExpanded` / `nkToggleInsightsExpanded`.
+- Insights focus/coverage sections stay retired (deliberate since the 2026-10-01 Insights
+  rebuild; `verify_learning_insights_browser.py` asserts they are absent).
+- Local gotcha: `python3 tools/build_app_data.py` without `--check` writes the filled page
+  over `app/src/main/assets/index.html`; build in a scratch worktree, never the source tree.

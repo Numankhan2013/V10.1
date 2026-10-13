@@ -573,8 +573,8 @@ def test_shipped_page() -> None:
     assert "${nkScientificMarkup(takeaway)}" in updated and "${esc(takeaway)}" not in updated
     assert "let html=nkScientificMarkup(text);" in updated and "let html=esc(String(text||''));" not in updated
     assert "const needle=nkScientificMarkup(phrase);" in updated
-    # The gold distractor label keeps its plain escaped boundary; its rationale shares notation.
-    assert "<strong>'+esc(o.text||'')+'</strong>" in updated
+    # The gold distractor label and its rationale share the options' notation.
+    assert "<strong>'+nkScientificMarkup(o.text||'')+'</strong>" in updated and "esc(o.text||'')" not in updated
     assert "nkScientificMarkup(reason)" in updated and "esc(reason)" not in updated
     assert updated.count('/* ── nk-question-presentation-v1 ── */') == 1
     assert ".nk-sci-sub,.nk-sci-sup" in updated

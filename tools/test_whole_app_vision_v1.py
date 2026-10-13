@@ -37,6 +37,7 @@ def main() -> None:
         "function nkConfirmMultiSubjectExam()",
         'aria-label="NK QBank"',
         "All Subjects · Random Practice",
+        "onclick=\"window.QB.startAllSubjectPractice()\"",
         "All Subjects CBT",
         'name="nk-multi-subject"',
         'id="nk-multi-scope-topics"',
