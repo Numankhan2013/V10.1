@@ -52,12 +52,17 @@ def jpeg_size(data: bytes) -> tuple[int, int]:
 
 
 def source_images() -> list[tuple[dict, dict]]:
+    """(question, image) pairs from every JSONL part, with pages on the full PDF.
+
+    Uses the bank builder's loader so later parts (split PDFs, own module
+    numbering) are shifted by the same PART_LAYOUT offsets as the questions.
+    """
+    import sys
+    sys.path.insert(0, str(ROOT / "tools"))
+    from build_microbiology_marrow_bank import load_source
     rows = []
-    for path in sorted((MICRO / "source").glob("Microbiology_Marrow_Qbank_*.jsonl")):
-        for line in path.read_text(encoding="utf-8").splitlines():
-            if line.strip():
-                q = json.loads(line)
-                rows.extend((q, image) for image in q.get("images") or [])
+    for q in load_source()[0]:
+        rows.extend((q, image) for image in q.get("images") or [])
     return rows
 
 
@@ -100,7 +105,7 @@ def inventory() -> None:
             "height": height,
             "sourcePage": image.get("source_page"),
             "boundingBox": image.get("bounding_box"),
-            "origin": old.get("origin", "model-extracted crop"),
+            "origin": old.get("origin", "user-supplied model extraction"),
             "review": old.get("review", "pending") if old.get("sha256") == sha(data) else "pending",
         })
     value = {

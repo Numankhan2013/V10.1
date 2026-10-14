@@ -1126,7 +1126,7 @@
     var st = c.querySelector('strong'); var m = st && st.textContent.match(/(\d+)\s*%/); if (!m) return;
     var n = Math.max(0, Math.min(100, +m[1]));
     c.classList.add('nkg-cohort', n >= 70 ? 'is-easy' : n < 40 ? 'is-hard' : 'is-mid');
-    c.setAttribute('aria-label', n + '% of UWorld users answered correctly');
+    c.setAttribute('aria-label', n + '% of ' + (c.getAttribute('data-nk-source') || 'UWorld') + ' users answered correctly');
     st.innerHTML = '<b>' + n + '%</b><small>got it right</small>';
     var bar = el('span', 'nkg-cohort-bar', '<i></i>'); bar.setAttribute('aria-hidden', 'true'); bar.style.setProperty('--nkg-p', String(n));
     c.appendChild(bar);

@@ -2596,3 +2596,10 @@ User asked for a thorough functional audit, especially whether FSRS is as good a
 - Certified predecessor31bff6897b1134274abb8aa8dce299acd3abfb49 remains https://nk-qbank.pages.dev; full PWA37221902987/Engineering37221905764 pass, artifact-only production37224697940 passes, all618 media hash/offline paths preserved. Root HTML SHA-2564fbbdee625e9d621549f9d57276dcc786bdb0e7778d8f7085ed8e36a5226dc32. Old main preview alias is stale; use root. Default builds are web-only; APK/emulator requires explicit `build_apk=true`, existing APKs retained, size optimization deferred.
 - Prior35 PDF/row-pinned display repairs cover33 reproductive questions plus Biochemistry633/12263. Reviewed documents own runtime/search prose; raw OCR is archival only. Previous certification: `docs/UWORLD_HYGIENE_BIOSTATISTICS_2026-10-04.md`.
 
+
+## 2026-10-14 — Microbiology part 02 + Marrow peer statistics (branch `feature/microbiology-marrow`)
+
+- Appended `Microbiology_Marrow_Qbank_02.jsonl` (98 questions; schema-2 field names; split PDF pages 1–21 = full PDF 27–47) through `PART_LAYOUT` in `tools/build_microbiology_marrow_bank.py`. Module 5 merged to 60 questions (source tabs run to 56–60), modules 6 (33/33) and 7 (20/30) added: 200 questions / 7 modules. Part-01 records unchanged except module 5's title. 36 user-supplied figures released (71 total).
+- All 98 part-02 stems, options and poll percentages OCR-matched to the full PDF.
+- Microbiology now shows UWorld-style peer statistics ("% got this right" chip, per-option pick rates after answering) from `sourceStats`.
+- Local: test_microbiology_marrow_bank, test_marrow_topic_taxonomy, test_uworld_runtime_v1, test_marrow_bank_pilot, test_question_presentation_v1, verify_microbiology_marrow_browser pass. CI and device checks pending; not promoted.

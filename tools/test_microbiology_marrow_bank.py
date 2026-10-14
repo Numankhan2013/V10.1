@@ -19,8 +19,9 @@ def main() -> None:
     # The committed shards are exactly what the normalizer makes from the raw JSONL.
     subprocess.run([sys.executable, str(ROOT / "tools/build_microbiology_marrow_bank.py"), "--check"], check=True)
     manifest = json.loads((ROOT / f"data/marrow/{MICROBIOLOGY_PREFIX}_manifest.json").read_text(encoding="utf-8"))
-    raw_rows = [json.loads(line) for part in sorted((ROOT / "data/marrow/microbiology/source").glob("*.jsonl"))
-                for line in part.read_text(encoding="utf-8").splitlines() if line.strip()]
+    # Every JSONL part, mapped onto the full PDF pages and app modules (PART_LAYOUT).
+    from build_microbiology_marrow_bank import load_source, MODULE_OVERRIDES
+    raw_rows = load_source()[0]
 
     record = microbiology_record()
     questions = record["questions"]
@@ -38,7 +39,16 @@ def main() -> None:
         blocks = q["structuredExplanation"]["blocks"]
         assert q["structuredExplanation"]["layout"] == "ordered-blocks" and blocks, q["id"]
         tables = {t["table_id"] for t in q["structuredExplanation"]["tables"]}
-        assert tables == {t["table_id"] for t in raw.get("tables") or []}, q["id"]
+        source_tables = {t["table_id"] for t in raw.get("tables") or []}
+        if raw.get("_schema") == 2:
+            source_tables |= {t["table_id"] for p in raw.get("pearls") or [] for t in p.get("tables") or []}
+        assert tables == source_tables, q["id"]
+        # Source peer statistics travel unchanged; the keyed option's poll is the
+        # "got this right" figure (same check as against the PDF).
+        stats = q["sourceStats"]
+        assert stats["peerAccuracyPercent"] == raw["peer_accuracy_percentage"], q["id"]
+        assert stats["optionPollPercent"] == {o["id"]: o["poll_percentage"] for o in raw["options"]}, q["id"]
+        assert stats["optionPollPercent"]["ABCD"[q["correctOption"] - 1]] == stats["peerAccuracyPercent"], q["id"]
         assert all(t["columns"] and t["rows"] for t in q["structuredExplanation"]["tables"]), q["id"]
 
     # Microbiology joins the app's Marrow records after the canonical ED8 three,
@@ -52,6 +62,10 @@ def main() -> None:
     taxonomy = json.loads((ROOT / "data/marrow/topic_index_taxonomy.json").read_text(encoding="utf-8"))["subjects"]
     assert [t["id"] for t in taxonomy["Microbiology"]["topics"]] == [t["id"] for t in record["topics"]]
 
+    for topic in record["topics"]:
+        override = MODULE_OVERRIDES.get(int(topic["id"]))
+        if override:
+            assert topic["title"] == override["title"] and topic["sourceQuestionTotal"] == override["total"]
     visuals = microbiology_visuals.validate()
     bound = {f["questionId"] for f in visuals["figures"]}
     assert bound <= {q["id"] for q in questions}
@@ -61,6 +75,9 @@ def main() -> None:
     for marker in (
         "SUBJECTS.push(record);",
         "function nkRenderMarrowOrdered(q)",
+        "function nkSourcePollPercent(q,o,revealed=true)",
+        "nkUworldOptionPercentage(q,o,locked):nkSourcePollPercent(q,o,locked)",
+        "${time}${nkSourceCohort(q)}",
         "layout==='ordered-blocks'",
         "if(key.includes('microbiology')) return {key:'microbiology'",
         '<script defer src="microbiology_visual_metadata.js"></script>',

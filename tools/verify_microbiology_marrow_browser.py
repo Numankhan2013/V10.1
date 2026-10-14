@@ -4,8 +4,10 @@
 Home -> My Subjects -> Microbiology -> one Marrow bank -> Topics (Immunology,
 Systemic bacteriology) -> topic -> question -> answer -> Key takeaway +
 ordered structured explanation (Marrow Pearl, table, figure). Also checks the
-question-stem figure, that the three PrepLadder+Marrow subjects still offer two
-banks, and that no page error is raised.
+question-stem figure, the source peer statistics (UWorld-style "% got this
+right" chip and per-option pick rates, hidden until answered), a part-02
+question (Pearl table + footnote), that the three PrepLadder+Marrow subjects
+still offer two banks, and that no page error is raised.
 
   python3 tools/verify_microbiology_marrow_browser.py [--web build/web]
 """
@@ -36,9 +38,24 @@ def open_topic(page, title_part: str) -> None:
     page.evaluate("window.QB.nkOpenSubjectLibrary('Microbiology')")
     page.wait_for_function("() => document.querySelectorAll('button.nk-bank-card').length===1", timeout=8000)
     page.locator("button.nk-bank-card").filter(has_text="Marrow").click()
-    page.wait_for_function("() => document.querySelectorAll('button.nk-topic-row').length===5", timeout=8000)
+    page.wait_for_function("() => document.querySelectorAll('button.nk-topic-row').length===7", timeout=8000)
     page.locator("button.nk-topic-row").filter(has_text=title_part).click()
     page.wait_for_function("() => document.querySelectorAll('button.nk-library-row').length>0", timeout=8000)
+
+
+def check_stats(page, peer: int, polls: list[str]) -> None:
+    page.wait_for_timeout(200)
+    chip = page.locator(".nk-study-support > .nk-uworld-cohort")
+    if chip.count() != 1:
+        fail("'% got this right' chip missing")
+    if f"{peer}%" not in chip.inner_text():
+        fail(f"cohort chip shows {chip.inner_text()!r}, expected {peer}%")
+    label = chip.get_attribute("aria-label") or ""
+    if "UWorld" in label:
+        fail(f"cohort chip credits UWorld: {label!r}")
+    shown = [page.locator(".option-list .option").nth(i).locator(".nk-uworld-option-percent").inner_text().strip() for i in range(4)]
+    if shown != polls:
+        fail(f"option pick rates {shown}, expected {polls}")
 
 
 def main() -> None:
@@ -64,17 +81,17 @@ def main() -> None:
             micro = page.locator(".nk-home-subjects button.nk-v3-subject-card").filter(has_text="Microbiology")
             if micro.count() != 1:
                 fail(f"Microbiology subject card missing; cards={names}")
-            if "102" not in micro.inner_text() or "Marrow" not in micro.inner_text():
+            if "200" not in micro.inner_text() or "Marrow" not in micro.inner_text():
                 fail(f"Microbiology card counts wrong: {micro.inner_text()!r}")
             page.screenshot(path=str(OUT / "micro-00-home.png"), full_page=True)
 
             micro.click()
             page.wait_for_function("() => document.querySelectorAll('button.nk-bank-card').length===1", timeout=8000)
             bank = page.locator("button.nk-bank-card")
-            if "Marrow" not in bank.inner_text() or "102 questions" not in bank.inner_text():
+            if "Marrow" not in bank.inner_text() or "200 questions" not in bank.inner_text():
                 fail(f"Microbiology bank card wrong: {bank.inner_text()!r}")
             bank.click()
-            page.wait_for_function("() => document.querySelectorAll('button.nk-topic-row').length===5", timeout=8000)
+            page.wait_for_function("() => document.querySelectorAll('button.nk-topic-row').length===7", timeout=8000)
             body = page.locator("body").inner_text()
             for section in ("Immunology", "Systemic bacteriology"):
                 if section not in body:
@@ -88,8 +105,13 @@ def main() -> None:
             page.wait_for_function("() => document.querySelectorAll('button.nk-library-row').length===18", timeout=8000)
             page.locator("button.nk-library-row").nth(4).click()
             page.wait_for_function("() => (document.querySelector('.question-text')?.innerText||'').includes('Nitroblue tetrazolium')", timeout=8000)
+            if page.locator(".option-list .nk-uworld-option-percent").count() != 0:
+                fail("pick rates visible before answering")
+            if page.locator(".option-list .nk-uworld-percent-space").count() != 4:
+                fail("pick-rate column not reserved before answering")
             page.locator(".option-list button").nth(2).click()
             page.wait_for_selector(".nk-marrow-ordered", timeout=8000)
+            check_stats(page, 61, ["4%", "18%", "61%", "17%"])
             page.wait_for_timeout(300)
             support = page.locator(".nk-study-support").inner_text()
             if "Key takeaway".lower() not in support.lower():
@@ -113,6 +135,24 @@ def main() -> None:
             page.wait_for_function("() => [...document.querySelectorAll('.nk-marrow-figures img')].some(i => i.complete && i.naturalWidth > 0)", timeout=8000)
             page.screenshot(path=str(OUT / "micro-02-explanation.png"), full_page=True)
 
+            # Part 02, module 5 Q18 (MCQ MA1547): Pearl table with its footnote, wrong answer.
+            open_topic(page, "Staphylococcus, Streptococcus")
+            if page.locator("button.nk-library-row").count() != 60:
+                fail("module 5 should list 60 questions after part 02")
+            page.locator("button.nk-library-row").nth(17).click()
+            page.wait_for_function("() => (document.querySelector('.question-text')?.innerText||'').includes('tricuspid valve vegetation')", timeout=8000)
+            page.locator(".option-list button").nth(1).click()
+            page.wait_for_selector(".nk-marrow-ordered", timeout=8000)
+            check_stats(page, 70, ["70%", "4%", "7%", "19%"])
+            text = page.locator(".nk-marrow-ordered").inner_text()
+            for needle in ("Marrow Pearl · Microbiology of Infective Endocarditis", "Viridans group streptococci", "CoNS includes"):
+                if needle not in text:
+                    fail(f"part-02 explanation missing {needle!r}")
+            for junk in ("clipped at", "[Marrow Pearl", "**"):
+                if junk in text:
+                    fail(f"part-02 explanation shows {junk!r}")
+            page.screenshot(path=str(OUT / "micro-04-part02-stats.png"), full_page=True)
+
             # Ch3 Q15 (MCQ MC4680): the question stem carries its figure.
             open_topic(page, "Hypersensitivity")
             page.locator("button.nk-library-row").nth(14).click()
@@ -128,7 +168,7 @@ def main() -> None:
             if errors:
                 fail("page errors: " + " | ".join(errors[:5]))
             browser.close()
-    print("MICROBIOLOGY_BROWSER_OK subject=Microbiology bank=Marrow topics=5 sections=2 ordered_explanation=on stem_figure=on canonical_banks=2")
+    print("MICROBIOLOGY_BROWSER_OK subject=Microbiology bank=Marrow topics=7 sections=2 peer_stats=on part02=on ordered_explanation=on stem_figure=on canonical_banks=2")
 
 
 if __name__ == "__main__":

@@ -1288,10 +1288,26 @@ function dashboard(){
       const tag=locked?'div':'button';
       const owner=String(state.activeSession?.id||'');
       const action=mode==='exam'?` onclick="window.QB.selectExam(${n},'${q.id}','${owner}')"`:mode==='practice'?` onclick="window.QB.selectPractice('${q.id}',${n},'${owner}')"`:'';
-      return `<${tag} class="${cls}"${action}${tag==='button'?' type="button"':''}><span class="option-letter">${o.letter}</span><span class="option-text">${q.bank==='UWorld'?nkUworldOptionMarkup(q,o):nkScientificMarkup(o.text)}</span>${q.bank==='UWorld'?nkUworldOptionPercentage(q,o,locked):''}</${tag}>`;
+      return `<${tag} class="${cls}"${action}${tag==='button'?' type="button"':''}><span class="option-letter">${o.letter}</span><span class="option-text">${q.bank==='UWorld'?nkUworldOptionMarkup(q,o):nkScientificMarkup(o.text)}</span>${q.bank==='UWorld'?nkUworldOptionPercentage(q,o,locked):nkSourcePollPercent(q,o,locked)}</${tag}>`;
     }).join('');
   }
 
+  // Source peer statistics for non-UWorld banks (Marrow QBank v3: Microbiology).
+  // Same markup and classes as the UWorld pick-rate column and cohort chip, so
+  // the redesign layer styles them identically. Questions without sourceStats
+  // (ED8 Marrow, PrepLadder) render nothing and keep their layout.
+  function nkSourceStats(q){const st=q&&q.bank!=='UWorld'?q.sourceStats:null;return st&&typeof st==='object'?st:null;}
+  function nkSourcePollPercent(q,o,revealed=true){
+    const values=nkSourceStats(q)?.optionPollPercent;
+    if(!values||!Object.values(values).some(v=>v!=null))return '';
+    if(!revealed)return '<span class="nk-uworld-percent-space" aria-hidden="true"></span>';
+    const value=values[o.letter];
+    return value==null?'<span class="nk-uworld-percent-space" aria-hidden="true"></span>':`<span class="nk-uworld-option-percent" aria-label="${esc(value)} percent of ${esc(q.bank)} users chose option ${esc(o.letter)}">${esc(value)}%</span>`;
+  }
+  function nkSourceCohort(q){
+    const value=nkSourceStats(q)?.peerAccuracyPercent;
+    return value==null?'':`<p class="nk-uworld-cohort" data-nk-source="${esc(q.bank)}"><strong>${esc(value)}% got this right</strong><span>Reported in the ${esc(q.bank)} source</span></p>`;
+  }
   function nkMarrowRich(text){return richText(String(text||''));}
   function nkRenderMarrowText(text){
     const lines=String(text||'').replace(/\r/g,'').split('\n'),out=[];let para=[],items=[],ordered=false;
@@ -1325,7 +1341,7 @@ function dashboard(){
       if(b.type==='pearl')pearlTitle=String(b.title||'');
       if(b.type==='table'&&tables.has(String(b.table_id))){const t=tables.get(String(b.table_id));return nkRenderMarrowOrderedTable(pearlTitle&&nkMarrowOrderedSame(t.title,pearlTitle)?{...t,title:''}:t);}
       if(b.type==='paragraph')return `<p>${nkMarrowRich(b.text)}</p>`;
-      if(b.type==='bullets'){const tag=b.ordered?'ol':'ul';return `<${tag}>${(b.items||[]).map(item).join('')}</${tag}>`;}
+      if(b.type==='bullets'){const tag=b.ordered?'ol':'ul',start=b.ordered&&Number(b.start)>1?` start="${Number(b.start)}"`:'';return `<${tag}${start}>${(b.items||[]).map(item).join('')}</${tag}>`;}
       if(b.type==='table')return tables.has(String(b.table_id))?nkRenderMarrowOrderedTable(tables.get(String(b.table_id))):'';
       if(b.type==='pearl')return `<div class="nk-marrow-heading nk-marrow-pearl">${nkMarrowRich('Marrow Pearl · '+String(b.title||''))}</div>`;
       if(b.type==='note')return `<p class="nk-marrow-note">${nkMarrowRich(b.text)}</p>`;
@@ -1529,7 +1545,7 @@ function dashboard(){
     const marrow=q.bank==='Marrow';
     const explanation=marrow?nkRenderMarrowExplanation(q):(q.explanation?`<div class="feedback-body source-explanation">${renderedSource||renderExplanationText(q.explanation,q)}</div>`:'<div class="nk-source-empty">No source explanation was provided for this question.</div>');
     const sourceHeader=marrow?`<section class="nk-source-section is-marrow"><header><div>${navIcon('book',19)}<strong>Detailed explanation</strong></div><span>Structured text</span></header>${explanation}</section>`:`<section class="nk-source-section"><header><div>${navIcon('book',19)}<strong>Source explanation</strong></div><span>Original PDF</span></header>${explanation}</section>`;
-    return `<div class="nk-study-support">${time}${takeaway?`<section class="nk-key-takeaway"><span class="nk-takeaway-icon">${navIcon('bulb',22)}</span><div><div class="nk-takeaway-label">Key takeaway</div><p>${nkScientificMarkup(takeaway)}</p></div></section>`:''}${sourceHeader}</div>`;
+    return `<div class="nk-study-support">${time}${nkSourceCohort(q)}${takeaway?`<section class="nk-key-takeaway"><span class="nk-takeaway-icon">${navIcon('bulb',22)}</span><div><div class="nk-takeaway-label">Key takeaway</div><p>${nkScientificMarkup(takeaway)}</p></div></section>`:''}${sourceHeader}</div>`;
   }
 
   function nkSessionActionBar(s,mode) {
