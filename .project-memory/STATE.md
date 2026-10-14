@@ -2,6 +2,13 @@
 
 > Operational state only. Resolve the live branch/commit and CI from Git before acting. Historical detail belongs in `SESSION_LOG.md` and dedicated handoffs.
 
+## Microbiology Marrow subject — 2026-10-14
+
+- Branch `feature/microbiology-marrow` (from main `b064fec`) adds **Microbiology** as a fourth My Subjects entry with one bank, Marrow (no PrepLadder). Source: `data/marrow/microbiology/source/Microbiology_Marrow_Qbank_01.jsonl` (raw, immutable) cross-checked against `data/marrow/source_pdfs/Microbiology Marrow Qbank.pdf` (LFS; JSONL pages 1–26 = PDF pages 1–26). Part 01 = 102 questions / 5 modules; module 5 (Staphylococcus) holds 15 of its 30 questions — later JSONL parts append through the same builder.
+- `tools/build_microbiology_marrow_bank.py` normalizes to `marrow-bank-1.0` (IDs `marrow__MICRO_CHmm_Qnnn`, MCQ ID kept as `mcqId`, `keyTakeaway` = source answer summary, explanation as ordered blocks with tables/Marrow Pearls/notes) and writes hash-pinned shards `data/marrow/microbiology_marrow_qbank*`. `marrow_bank_data.app_marrow_records()` appends it after the canonical ED8 three, so every 2,711-question ED8 gate is unchanged. Display hygiene only: extractor table annotations removed, bracketed clipped-word completions merged, one source-checked typo fix (MA1527).
+- App: Marrow-only subjects join `SUBJECTS`/`SUBJECT_BY_NAME`; same Practice/CBT/Review/FSRS/modules engines. Explanation layout `ordered-blocks` renders through `nkRenderMarrowOrdered` (other banks untouched). Topics taxonomy: Immunology, Systemic bacteriology. 35 figures: `data/marrow/microbiology/visuals.json` + `tools/microbiology_visuals.py` → `marrow_visuals/<sha>.jpg` + `microbiology_visual_metadata.js` (merged into `MARROW_VISUALS`; ED8 image registry untouched). Crop review pending.
+- Verified locally: `test_microbiology_marrow_bank.py`, `verify_microbiology_marrow_browser.py`, taxonomy/bank tests and core browser flows. CI, preview and device checks pending; not promoted.
+
 ## Production, IndexedDB progress and faster CI — 2026-10-12
 
 - User-authorized production: PR #109 merged as `39cc716166f1551175d7703af44c16aa747683e1`; dispatch run 38201928452 verified and promoted it (Pages production branch `main`). The production domain is behind Cloudflare Access (email PIN / Google, owner only); `*.nk-qbank.pages.dev` previews are not covered by that Access app.
@@ -14,15 +21,6 @@
 
 - Main has question notes with images/PDF pages (#103: My notes bar, block note page, IndexedDB + chunked `noteAssets` sync, Android file chooser). Branch `ccr-47681b8d-1aikn7` adds the PDF loader/glyph repair work from `feature/home-pdf-loader` and one shared viewer (`redesign/nk-viewer.js`) for Geist source PDFs and note images: opens at once from the on-screen canvas, swaps in a cached sharp render, firm edge-to-edge panning. Details: `docs/PDF_RENDERING.md`, `docs/QUESTION_NOTES.md`.
 - Build-verified notes on main (full run 38057009229). Viewer branch: local checks and local browser checks (`verify_source_viewer_browser`, notes media) pass; CI, production promotion and iPad/Android device checks pending. Production promotion was user-authorized on 2026-10-10 after this viewer work.
-
-## My UWorld Home and Block 2 candidate — 2026-10-05
-
-- User authorizes moderate next content, compact Home → My UWorld library, Impeccable refinement, local/hosted verification and promotion to main/canonical root. Active candidate: `feature/home-uworld-block2-20261005`, based on certified product31bff68 and docs197bdac. Main/root remain31bff68 until full qualification; resolve live Git/CI.
-- Home/Study Library use one accessible My UWorld entry instead of six collection rows; names, source blocks and saved progress remain in the existing library. Shared study engines are preserved.
-- Biostatistics now60 questions/pages1–277 in six10-question batches: all40 Block1 plus first20 Block2. All95 new native pages and12 figures/17 typed tables are reviewed; original JSONL/PDF/keys/percentages and previous40 rows/four batches are immutable. Registry388 questions/12 topics/6 collections; remaining61 complete source items queued. Report: `docs/UWORLD_BLOCK2_HOME_2026-10-05.md`.
-- All108 local checks pass. Four-width generated learner flows, full Ubuntu PWA/Engineering qualification, actual hosted media/preview confirmation and production promotion are pending. No new physical-device/account-sync/clinical acceptance is inferred.
-- Certified predecessor31bff6897b1134274abb8aa8dce299acd3abfb49 remains https://nk-qbank.pages.dev; full PWA37221902987/Engineering37221905764 pass, artifact-only production37224697940 passes, all618 media hash/offline paths preserved. Root HTML SHA-2564fbbdee625e9d621549f9d57276dcc786bdb0e7778d8f7085ed8e36a5226dc32. Old main preview alias is stale; use root. Default builds are web-only; APK/emulator requires explicit `build_apk=true`, existing APKs retained, size optimization deferred.
-- Prior35 PDF/row-pinned display repairs cover33 reproductive questions plus Biochemistry633/12263. Reviewed documents own runtime/search prose; raw OCR is archival only. Previous certification: `docs/UWORLD_HYGIENE_BIOSTATISTICS_2026-10-04.md`.
 
 ## Previous certified production reference — 2026-10-04
 

@@ -373,6 +373,38 @@ def expanded_marrow_records() -> list[dict]:
     return records
 
 
+# Microbiology is a Marrow-only subject (no PrepLadder bank). It is built from the
+# extracted Marrow QBank JSONL by tools/build_microbiology_marrow_bank.py and is
+# kept outside the canonical ED8 corpus above, so the 2,711-question ED8 gates
+# (explanation inventory, image registry, content overrides) are unchanged.
+MICROBIOLOGY_PREFIX = "microbiology_marrow_qbank"
+
+
+def microbiology_record() -> dict:
+    """The hash-verified Microbiology Marrow bank."""
+    record, manifest = load_expanded_bank(MICROBIOLOGY_PREFIX, "Microbiology")
+    counts = {str(t["id"]): int(t.get("questionCount", 0)) for t in record["topics"]}
+    actual = {}
+    for q in record["questions"]:
+        actual[str(q["chapterId"])] = actual.get(str(q["chapterId"]), 0) + 1
+        if not str(q["id"]).startswith("marrow__MICRO_CH") or q.get("subject") != "Microbiology":
+            fail(f"Microbiology question identity mismatch: {q.get('id')}")
+        structured = q.get("structuredExplanation") or {}
+        table_ids = {t.get("table_id") for t in structured.get("tables", [])}
+        for block in structured.get("blocks", []):
+            if block.get("type") == "table" and block.get("table_id") not in table_ids:
+                fail(f"Microbiology table block without table: {q['id']} {block.get('table_id')}")
+    if counts != actual or counts != manifest.get("topicCounts"):
+        fail(f"Microbiology topic counts mismatch: topics={counts} questions={actual}")
+    print(f"MICROBIOLOGY_MARROW_BANK_OK questions={len(record['questions'])} topics={len(record['topics'])}")
+    return record
+
+
+def app_marrow_records() -> list[dict]:
+    """Every Marrow bank the app embeds: the canonical ED8 three, then Microbiology."""
+    return expanded_marrow_records() + [microbiology_record()]
+
+
 def validate_biochemistry_batches(expanded_biochemistry: dict) -> dict:
     """Biochemistry batches must all be approved; a candidate batch fails the build."""
     biochem_paths=sorted(DATA.glob("explanation_biochem_*_v1.json"))

@@ -369,3 +369,24 @@ When explanation fine-tuning begins, follow
 `docs/MARROW_EXPLANATION_FINE_TUNING.md`. Raw imported records stay immutable;
 the existing 142-question enhanced layer is the reference presentation grammar.
 Remaining chapters/questions and figure binaries are later, separate work.
+
+
+## Microbiology — Marrow-only subject (2026-10-14)
+
+Microbiology has no PrepLadder bank. Its Marrow record joins `SUBJECTS` and
+`SUBJECT_BY_NAME` after the Marrow registry loop, so Home, Topics, bank chooser
+(one card), Practice, CBT, Review, FSRS, modules and Insights treat it like the
+other subjects.
+
+Adding the next JSONL part:
+1. put it in `data/marrow/microbiology/source/` as `Microbiology_Marrow_Qbank_NN.jsonl`
+   (raw, never edited; parts are read in name order);
+2. add its figure crops to `data/marrow/microbiology/visuals/<image_id>.jpg`;
+3. `python3 tools/build_microbiology_marrow_bank.py` (shards + manifest);
+4. add new modules to the `Microbiology` entry of `data/marrow/topic_index_taxonomy.json`;
+5. `python3 tools/microbiology_visuals.py inventory`;
+6. `python3 tools/test_microbiology_marrow_bank.py` and the browser verifier.
+
+Question IDs are `marrow__MICRO_CH<module>_Q<number>`, so appending the rest of a
+module keeps earlier IDs (and progress) stable. A replaced figure crop only needs
+step 5. Source corrections go in `SOURCE_CORRECTIONS` with page evidence.

@@ -2574,3 +2574,25 @@ User asked for a thorough functional audit, especially whether FSRS is as good a
   rebuild; `verify_learning_insights_browser.py` asserts they are absent).
 - Local gotcha: `python3 tools/build_app_data.py` without `--check` writes the filled page
   over `app/src/main/assets/index.html`; build in a scratch worktree, never the source tree.
+
+## 2026-10-14 — Microbiology Marrow subject (branch feature/microbiology-marrow)
+
+- Integrated Microbiology Marrow QBank part 01 (102 questions, 5 modules) as a Marrow-only
+  subject through the shared bank registry; no new study engine. Details in STATE.md and
+  `docs/MARROW_BANK_INTEGRATION.md` (Microbiology section).
+- Source cross-check: every stem and option was OCR-matched to the PDF pages; every answer
+  key matches the source "x% got this right" poll for the keyed option. One extraction typo
+  (MA1527 "Pemphighus") is corrected with page evidence in the builder.
+- Local gotcha: `/tmp` is wiped between agent runs here; keep scratch builds under the workspace.
+
+## Moved from STATE.md on 2026-10-14 (superseded handoff)
+
+### My UWorld Home and Block 2 candidate — 2026-10-05
+
+- User authorizes moderate next content, compact Home → My UWorld library, Impeccable refinement, local/hosted verification and promotion to main/canonical root. Active candidate: `feature/home-uworld-block2-20261005`, based on certified product31bff68 and docs197bdac. Main/root remain31bff68 until full qualification; resolve live Git/CI.
+- Home/Study Library use one accessible My UWorld entry instead of six collection rows; names, source blocks and saved progress remain in the existing library. Shared study engines are preserved.
+- Biostatistics now60 questions/pages1–277 in six10-question batches: all40 Block1 plus first20 Block2. All95 new native pages and12 figures/17 typed tables are reviewed; original JSONL/PDF/keys/percentages and previous40 rows/four batches are immutable. Registry388 questions/12 topics/6 collections; remaining61 complete source items queued. Report: `docs/UWORLD_BLOCK2_HOME_2026-10-05.md`.
+- All108 local checks pass. Four-width generated learner flows, full Ubuntu PWA/Engineering qualification, actual hosted media/preview confirmation and production promotion are pending. No new physical-device/account-sync/clinical acceptance is inferred.
+- Certified predecessor31bff6897b1134274abb8aa8dce299acd3abfb49 remains https://nk-qbank.pages.dev; full PWA37221902987/Engineering37221905764 pass, artifact-only production37224697940 passes, all618 media hash/offline paths preserved. Root HTML SHA-2564fbbdee625e9d621549f9d57276dcc786bdb0e7778d8f7085ed8e36a5226dc32. Old main preview alias is stale; use root. Default builds are web-only; APK/emulator requires explicit `build_apk=true`, existing APKs retained, size optimization deferred.
+- Prior35 PDF/row-pinned display repairs cover33 reproductive questions plus Biochemistry633/12263. Reviewed documents own runtime/search prose; raw OCR is archival only. Previous certification: `docs/UWORLD_HYGIENE_BIOSTATISTICS_2026-10-04.md`.
+

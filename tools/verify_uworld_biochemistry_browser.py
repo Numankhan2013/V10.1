@@ -71,6 +71,7 @@ def main():
                 records = page.evaluate('__uworldTest.records()')
                 expected = {('Anatomy', 'PrepLadder'): 1068, ('Physiology', 'PrepLadder'): 899, ('Biochemistry', 'PrepLadder'): 719,
                             ('Anatomy', 'Marrow'): 1115, ('Physiology', 'Marrow'): 1014, ('Biochemistry', 'Marrow'): 582,
+                            ('Microbiology', 'Marrow'): __import__('json').loads((Path(__file__).resolve().parents[1] / 'data/marrow/microbiology_marrow_qbank_manifest.json').read_text())['questions'],
                             ('UWorld · Biochemistry', 'UWorld'): 132,
                             ('UWorld · Poisoning & Environmental Exposure', 'UWorld'): 33,
                             ('UWorld · Ophthalmology', 'UWorld'): 30,
@@ -100,8 +101,9 @@ def main():
                     page.evaluate('QB.nav("practice")')
                     page.locator('.option-list button').first.wait_for()
 
-                # Incumbent subjects remain separate from UWorld collections.
-                expect(page.locator('.nk-home-subjects button.nk-v3-subject-card')).to_have_count(3)
+                # Incumbent subjects (three PrepLadder+Marrow, plus Marrow-only
+                # Microbiology) remain separate from UWorld collections.
+                expect(page.locator('.nk-home-subjects button.nk-v3-subject-card')).to_have_count(4)
                 page.locator('.nk-home-subjects button.nk-v3-subject-card').filter(has_text='Biochemistry').click()
                 expect(page.locator('button.nk-bank-card')).to_have_count(2)
                 assert page.locator('button.nk-bank-card').filter(has_text='UWorld').count()==0

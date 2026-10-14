@@ -13,7 +13,9 @@ BANKS = {
     "Anatomy": "anatomy_ch001_063",
     "Biochemistry": "biochemistry_ch001_028",
     "Physiology": "physiology_ch001_043",
+    "Microbiology": "microbiology_marrow_qbank",
 }
+MICROBIOLOGY_SECTION_ORDER = ["Immunology", "Systemic bacteriology"]
 
 ANATOMY_SECTION_ORDER = [
     "Embryology", "Histology", "Neuroanatomy", "Head, neck, and face",
@@ -278,9 +280,17 @@ def main() -> None:
     assert {str(item["id"]): item["plannedSlots"] for item in phys["topics"]} == PHYSIOLOGY_SLOT_MAP
     assert set(PHYSIOLOGY_VISIBLE_IDS) == {str(i) for i in range(1, 44)}
 
-    assert total == 134
+    micro = subjects["Microbiology"]
+    assert micro["catalogVersion"] == 2 and micro["displayNumbering"] == "visible-contiguous"
+    assert micro["sectionOrder"] == MICROBIOLOGY_SECTION_ORDER
+    assert nonempty_sections(micro) == MICROBIOLOGY_SECTION_ORDER
+    assert flatten_current(micro) == [str(i) for i in range(1, len(micro["topics"]) + 1)]
+    micro_slots = {topic["slot"] for section in micro["plannedIndex"] for topic in section["topics"]}
+    assert all(set(item["plannedSlots"]) <= micro_slots for item in micro["topics"])
+
+    assert total == 134 + len(micro["topics"])
     print(
-        "MARROW_TOPIC_TAXONOMY_OK subjects=3 current_topics=134 "
+        f"MARROW_TOPIC_TAXONOMY_OK subjects=4 current_topics={total} microbiology_visible={len(micro['topics'])} "
         "anatomy_plan=71 anatomy_visible=63 biochemistry_plan=32 biochemistry_visible=28 "
         "physiology_plan=42 physiology_visible=43 numbering=contiguous placeholders=none"
     )

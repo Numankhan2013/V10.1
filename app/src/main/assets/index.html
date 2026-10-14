@@ -69,6 +69,7 @@
 
 <!-- NK_MARROW_IMAGES_V1 -->
 <script defer src="marrow_visual_metadata.js"></script>
+<script defer src="microbiology_visual_metadata.js"></script>
 <script defer src="marrow_visual_renderer.js"></script>
 </head>
 <body>
@@ -139,6 +140,13 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
     if(!record.subject||!record.questions.length)return;
     const list=BANKS_BY_SUBJECT[record.subject]||(BANKS_BY_SUBJECT[record.subject]=[]);
     list.push(record);
+  });
+  // A Marrow-only subject (Microbiology) has no PrepLadder record, so it joins
+  // My Subjects with its Marrow record as the subject's one bank.
+  Object.values(MARROW_BY_SUBJECT).forEach(record=>{
+    if(!record.subject||!record.questions.length||SUBJECT_BY_NAME[record.subject])return;
+    SUBJECTS.push(record);
+    SUBJECT_BY_NAME[record.subject]=record;
   });
   function nkBankRecords(name){
     return (BANKS_BY_SUBJECT[name]||[]).slice();
@@ -521,6 +529,7 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
     }
     if(key.includes('physiology')) return {key:'physiology',icon:'heart',tone:'red'};
     if(key.includes('anatomy')) return {key:'anatomy',icon:'body',tone:'blue'};
+    if(key.includes('microbiology')) return {key:'microbiology',icon:'virus',tone:'green'};
     return {key:'biochemistry',icon:'dna',tone:'magenta'};
   }
 
@@ -543,6 +552,7 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
       uworld:'<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21V5.5ZM4 19h16M9 7h7M9 11h5"/>',
       biochemistry:'<path d="M17 3v1c-.01 3.352 -1.68 6.023 -5.008 8.014c-3.328 1.99 3.336 -2 .008 -.014c-3.328 1.99 -5 4.662 -5.008 8.014v1"/><path d="M17 21.014v-1c-.01 -3.352 -1.68 -6.023 -5.008 -8.014c-3.328 -1.99 3.336 2 .008 .014c-3.328 -1.991 -5 -4.662 -5.008 -8.014v-1"/><path d="M7 4h10M7 20h10M8 8h8M8 16h8"/>',
       physiology:'<path d="M19.5 13.572l-7.5 7.428l-2.896 -2.868m-6.117 -8.104a5 5 0 0 1 9.013 -3.022a5 5 0 1 1 7.5 6.572"/><path d="M3 13h2l2 3l2 -6l1 3h3"/>',
+      microbiology:'<circle cx="12" cy="12" r="5"/><path d="M12 7V3M11 3h2M15.536 8.464l2.828-2.828M17.657 4.929l1.414 1.414M17 12h4M21 11v2M15.535 15.536l2.829 2.828M19.071 17.657l-1.414 1.414M12 17v4M13 21h-2M8.465 15.536l-2.829 2.828M6.343 19.071l-1.413-1.414M7 12H3M3 13v-2M8.464 8.464 5.636 5.636M4.929 6.343l1.414-1.413"/>',
       anatomy:'<path d="M15 3a3 3 0 0 1 3 3a3 3 0 1 1 -2.12 5.122l-4.758 4.758a3 3 0 1 1 -5.117 2.297v-.177h-.176a3 3 0 1 1 2.298 -5.115l4.758 -4.758a3 3 0 0 1 2.12 -5.122z"/>'
     };
     return `<svg class="nk-subject-svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[key]}</svg>`;
@@ -820,7 +830,7 @@ function dashboard(){
     const n=Number((String(chapter?.id||'').match(/(\d+)$/)||[])[1]||0),subject=String(activeSubject||'').toLowerCase();
     const sections=__NK_DATA_TOPIC_SECTIONS__;
     if(typeof activeBank!=='undefined'&&activeBank==='Marrow'){
-      const config=__NK_DATA_MARROW_TOPIC_TAXONOMY__,key=subject.includes('anatomy')?'Anatomy':subject.includes('physiology')?'Physiology':'Biochemistry';
+      const config=__NK_DATA_MARROW_TOPIC_TAXONOMY__,key=config[activeSubject]?activeSubject:subject.includes('anatomy')?'Anatomy':subject.includes('physiology')?'Physiology':'Biochemistry';
       return config[key]?.topics?.[String(chapter?.id||'')]?.section||'Needs classification review';
     }
     const key=subject.includes('anatomy')?'anatomy':subject.includes('physiology')?'physiology':'biochemistry';
@@ -1040,7 +1050,7 @@ function dashboard(){
   }
 
   function openMultiSubjectTestBuilder() {
-    document.body.insertAdjacentHTML('beforeend',`<div class="modal-backdrop nk-modal-v114" id="modal"><div class="modal nk-multi-modal"><button class="nk-modal-close" aria-label="Close" onclick="window.QB.closeModal()">${navIcon('close',20)}</button><div class="nk-modal-title"><span class="nk-modal-mode">${navIcon('test',20)}</span><div><h3>Build timed CBT</h3><p>Mix Biochemistry, Physiology, and Anatomy · 60 seconds per question.</p></div></div>${nkMultiExamBuilderMarkup()}</div></div>`);
+    document.body.insertAdjacentHTML('beforeend',`<div class="modal-backdrop nk-modal-v114" id="modal"><div class="modal nk-multi-modal"><button class="nk-modal-close" aria-label="Close" onclick="window.QB.closeModal()">${navIcon('close',20)}</button><div class="nk-modal-title"><span class="nk-modal-mode">${navIcon('test',20)}</span><div><h3>Build timed CBT</h3><p>Mix ${esc(SUBJECTS.map(x=>x.subject).join(', '))} · 60 seconds per question.</p></div></div>${nkMultiExamBuilderMarkup()}</div></div>`);
     nkUpdateMultiExamPool();
   }
 
@@ -1195,6 +1205,7 @@ function dashboard(){
 
   function nkPracticeSubjectIcon(q) {
     const key=nkPracticeSubjectKey(q);
+    if(key==='microbiology')return nkSubjectGraphic('Microbiology',20);
     return navIcon(key==='physiology'?'heart':key==='anatomy'?'body':'molecule',20);
   }
 
@@ -1219,6 +1230,7 @@ function dashboard(){
   function nkSessionSubjectIcon(q) {
     if(String(q?.subject||activeSubject||'').toLowerCase().startsWith('uworld · '))return nkSubjectGraphic(q?.subject||activeSubject,20);
     const key=nkSessionSubjectKey(q);
+    if(key==='microbiology')return nkSubjectGraphic('Microbiology',20);
     return navIcon(key==='physiology'?'heart':key==='anatomy'?'body':'dna',20);
   }
 
@@ -1291,7 +1303,39 @@ function dashboard(){
     const cols=Array.isArray(table?.columns)?table.columns:[],rows=Array.isArray(table?.rows)?table.rows:[];if(!cols.length||!rows.length)return'';
     return `<div class="nk-marrow-table"><table>${table.title?`<caption>${nkMarrowRich(table.title)}</caption>`:''}<thead><tr>${cols.map(c=>`<th>${nkMarrowRich(c)}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${cols.map((_,i)=>`<td>${nkMarrowRich((r||[])[i]||'')}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
   }
+  // Marrow QBank subjects (Microbiology) carry their explanation as ordered
+  // blocks: paragraphs, nested lists, tables and Marrow Pearls stay in source
+  // order instead of collecting every table at the end. Figures still mount
+  // through MARROW_VISUALS; source wording is rendered unchanged.
+  function nkMarrowOrderedCell(value){return String(value??'').split('\n').map(part=>nkMarrowRich(part.trim())).filter(Boolean).join('<br>');}
+  function nkRenderMarrowOrderedTable(table){
+    const cols=Array.isArray(table?.columns)?table.columns:[],rows=Array.isArray(table?.rows)?table.rows:[];if(!cols.length||!rows.length)return'';
+    return `<div class="nk-marrow-table"><table>${table.title?`<caption>${nkMarrowRich(table.title)}</caption>`:''}<thead><tr>${cols.map(c=>`<th>${nkMarrowOrderedCell(c)}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${cols.map((_,i)=>`<td>${nkMarrowOrderedCell((r||[])[i]||'')}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+  }
+  function nkMarrowOrderedSame(a,b){const n=x=>String(x||'').replace(/\*\*/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();return Boolean(n(a))&&n(a)===n(b);}
+  function nkRenderMarrowOrdered(q){
+    const data=q.structuredExplanation||{},tables=new Map((Array.isArray(data.tables)?data.tables:[]).map(t=>[String(t?.table_id),t]));
+    const blocks=(Array.isArray(data.blocks)?data.blocks:[]).filter(b=>b&&typeof b==='object');
+    // The source opens by restating the answer, which the Key takeaway already shows.
+    const start=blocks[0]?.type==='paragraph'&&blocks.length>1&&nkMarrowOrderedSame(blocks[0].text,nkMarrowTakeaway(q))?1:0;
+    const item=it=>`<li>${nkMarrowRich(it?.text||'')}${Array.isArray(it?.items)&&it.items.length?`<ul>${it.items.map(c=>`<li>${nkMarrowRich(c?.text||'')}</li>`).join('')}</ul>`:''}</li>`;
+    let pearlTitle='';
+    const html=blocks.slice(start).map(b=>{
+      if(b.type!=='table'&&b.type!=='pearl')pearlTitle='';
+      if(b.type==='pearl')pearlTitle=String(b.title||'');
+      if(b.type==='table'&&tables.has(String(b.table_id))){const t=tables.get(String(b.table_id));return nkRenderMarrowOrderedTable(pearlTitle&&nkMarrowOrderedSame(t.title,pearlTitle)?{...t,title:''}:t);}
+      if(b.type==='paragraph')return `<p>${nkMarrowRich(b.text)}</p>`;
+      if(b.type==='bullets'){const tag=b.ordered?'ol':'ul';return `<${tag}>${(b.items||[]).map(item).join('')}</${tag}>`;}
+      if(b.type==='table')return tables.has(String(b.table_id))?nkRenderMarrowOrderedTable(tables.get(String(b.table_id))):'';
+      if(b.type==='pearl')return `<div class="nk-marrow-heading nk-marrow-pearl">${nkMarrowRich('Marrow Pearl · '+String(b.title||''))}</div>`;
+      if(b.type==='note')return `<p class="nk-marrow-note">${nkMarrowRich(b.text)}</p>`;
+      return '';
+    }).join('');
+    const trace=q.provenance||{},pages=Array.isArray(trace.explanationPages)?trace.explanationPages:[];
+    return `<div class="nk-marrow-native nk-marrow-ordered">${html}<div class="nk-marrow-provenance" data-nkg-source="${esc(trace.sourceLabel||'Marrow')}">${esc(trace.sourceLabel||'Marrow')} structured transcription${pages.length?` · explanation page${pages.length===1?'':'s'} ${pages.join(', ')}`:''}.</div></div>`;
+  }
   function nkRenderMarrowExplanationBase(q){
+    if(q?.structuredExplanation?.layout==='ordered-blocks')return nkRenderMarrowOrdered(q);
     const data=q.structuredExplanation||{},text=data.text||q.explanation||'',tables=Array.isArray(data.tables)?data.tables:[];
     const trace=q.provenance||{},pages=Array.isArray(trace.explanationPages)?trace.explanationPages:[];
     return `<div class="nk-marrow-native">${nkRenderMarrowText(text)}${tables.map(nkRenderMarrowTableCompat).join('')}<div class="nk-marrow-provenance">Marrow ED 8 structured transcription${pages.length?` · explanation page${pages.length===1?'':'s'} ${pages.join(', ')}`:''}. Figure metadata is preserved for later image-asset integration.</div></div>`;
