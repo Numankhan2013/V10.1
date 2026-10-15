@@ -6490,6 +6490,30 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot.is-microbiology { backgrou
 .nk-marrow-ordered li > ul{margin-top:4px}
 .nk-marrow-ordered .nk-marrow-note{padding:10px 12px;border-left:3px solid var(--nkg-border,#d4d4d8);background:var(--nkg-bg-subtle,#f6f6f7);border-radius:0 8px 8px 0}
 
+/* ── nk-professional-groups-v1 ── */
+/* My Subjects on Home is grouped by MBBS professional year. The band is
+   structure, not content: a quiet subtle surface and small type, while the
+   subject cards inside keep their own look. Closed until tapped; the chevron
+   turns over and the body unrolls through its own grid row. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-groups{display:flex !important;flex-direction:column !important;gap:10px !important;margin-top:2px}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-group{display:flex !important;flex-direction:column !important}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-head{display:grid !important;grid-template-columns:minmax(0,1fr) auto 18px !important;align-items:center !important;gap:12px !important;width:100% !important;min-height:56px;padding:10px 12px 10px 14px;border:1px solid var(--nkg-border) !important;border-radius:12px !important;background:var(--nkg-bg-subtle) !important;color:var(--nkg-fg) !important;font-family:inherit;font-size:inherit;font-weight:400;text-align:left;cursor:pointer;box-shadow:none !important;transition:transform 260ms var(--nkg-spring),background-color var(--nkg-dur) var(--nkg-ease),border-color var(--nkg-dur) var(--nkg-ease)}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-head:active{background:var(--nkg-active) !important;transform:scale(.985);transition-duration:90ms}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-copy{display:grid;gap:2px;min-width:0}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-copy strong{font-size:var(--nkg-t-base,15px);font-weight:600;letter-spacing:-.01em;line-height:1.25}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-copy small{font-size:var(--nkg-t-xs,12px);color:var(--nkg-fg-3);line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-count{font-size:var(--nkg-t-xs,12px);color:var(--nkg-fg-3);white-space:nowrap}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-chevron{display:flex;align-items:center;justify-content:center;color:var(--nkg-fg-3);transform:rotate(90deg);transition:transform var(--nkg-dur-med,240ms) var(--nkg-ease,ease)}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-group.is-open .nk-prof-chevron{transform:rotate(-90deg)}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-body{display:grid !important;grid-template-rows:0fr;transition:grid-template-rows var(--nkg-dur-med,240ms) var(--nkg-ease,ease)}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-group.is-open .nk-prof-body{grid-template-rows:1fr}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-body>.nk-v3-subject-list{min-height:0;overflow:hidden;padding-top:8px !important}
+@media(prefers-reduced-motion:reduce){
+  html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-body,
+  html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-head,
+  html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-chevron{transition:none}
+}
+
 /* ── nk-visual-refinement-v1 ── */
 /* NK QBank: the incumbent violet identity, composed for long study sessions. */
 :root{

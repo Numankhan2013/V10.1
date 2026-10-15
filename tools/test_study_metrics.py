@@ -20,7 +20,7 @@ def section(start, end):
 
 
 home = (section("function nkPreferredRecord(", "function nkOpenSubjectLibrary(")
-        + section("function nkSubjectCardsV3(", "function nkTopicTitleForQuestion(")
+        + section("function nkSubjectCardV3(", "function nkTopicTitleForQuestion(")
         + section("function chapterStats(", "function wrongQuestions("))
 match = re.search(r"const x=chapterStats\(c.id\),pct=(.*?),status=", page)
 if not match:

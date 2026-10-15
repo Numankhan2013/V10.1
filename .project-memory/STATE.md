@@ -2,6 +2,12 @@
 
 > Operational state only. Resolve the live branch/commit and CI from Git before acting. Historical detail belongs in `SESSION_LOG.md` and dedicated handoffs.
 
+## Home professional groups + Microbiology emphasis fix — 2026-10-15
+
+- Branch `feature/microbiology-marrow`; these changes were uncommitted when written — resolve live HEAD from Git. My Subjects on Home is grouped by MBBS professional year: an explicit `NK_PROF_GROUP_BY_SUBJECT` map, groups open collapsed, per-group open/closed state persists in `qbank_prof_groups_v1`, and `window.QB.nkOpenSubjectLibrary` remains the entry point for tests/deep links. `tools/test_professional_subject_groups.py` is registered in both workflows; browser verifiers that clicked Home subject cards now enter through the app entry point.
+- Microbiology Marrow text no longer shows raw Markdown emphasis. `richText` (index.html) runs the scientific boundary through `nkEmphasisHtml`: `**bold**`, `*italic*`, `***both***`, unmatched markers in derived Key takeaway sentences dropped, multiplication (`900 mg * 100 ml`, `15 g/dL *1.34 mL`) and allele-style text kept literal. Coverage: `tools/test_microbiology_marrow_emphasis.py` (unit guards + all 200 questions, no raw marker, balanced tags) and a marker-bearing Clostridium question in `verify_microbiology_marrow_browser.py` (`emphasis=on`).
+- Local verification of this tree: `python3 tools/verify_local.py` OK (95 checks); the extended browser verifier and the adversarial `build/probe/micro_ux_review.py` probe pass against a locally rebuilt `build/web` (the source page is restored byte-identical after the local data step). CI has not run this work; device checks and user acceptance are pending; not promoted.
+
 ## Microbiology Marrow subject — 2026-10-14
 
 - Branch `feature/microbiology-marrow` (from main `b064fec`) adds **Microbiology** as a fourth My Subjects entry with one bank, Marrow (no PrepLadder). Source: `data/marrow/microbiology/source/Microbiology_Marrow_Qbank_01.jsonl` (raw, immutable) cross-checked against `data/marrow/source_pdfs/Microbiology Marrow Qbank.pdf` (LFS; JSONL pages 1–26 = PDF pages 1–26). Part 01 = 102 questions / 5 modules; module 5 (Staphylococcus) holds 15 of its 30 questions — later JSONL parts append through the same builder.
@@ -31,12 +37,6 @@
 - Ophthalmology30 questions/204 pages/8 native tables/77 source figure placements is source-reviewed from original56fe817 PDF SHA-256ab4aadac54fbc78c9db9fca4b561cb5d0ee0ba4ade3f72066c72bf64021843dc. Three user-authorized Luna/high batches plus independent root checks preserve original keys, prose, percentages, objectives and page provenance;41 crop repairs retain scientific labels. Only this PDF-only block is added; other supplied packages remain queued.
 - Actual main-domain390/820/1194/1440px UWorld flows,320/390/820/1440px audit repairs and phone/tablet Search/focus pass. All 283 UWorld assets match their packaged inventory hashes and offline paths; the prior206 media identities remain unchanged. Streamed source-PDF ranges and security/crawler response headers pass; cross-origin framing is rejected. Shared study engines, scoring, FSRS, stored data, native haptics and accepted appearance remain protected.
 - Audit repairs: account Back/email/contrast, narrow Topics controls/focus, empty FSRS actions, completed-start Android migration/file/private-asset boundaries and hosted frame/MIME/referrer policy. This is build-verified/hosted-verified, not new physical-device or clinical acceptance. Preserve known source gates and public-content/search-exclusion limits. Use the canonical root; the older main preview alias is stale. Reports: `docs/PREPRODUCTION_AUDIT_2026-10-04.md`, `docs/UWORLD_OPHTHALMOLOGY_COLLECTION.md`.
-
-## Certified Biochemistry reference
-
-- Product424e0ca80e57fc946ad96f41d38547bcbc23d089 / PR94 stacks on93 and passes full37158603961 plus both Engineering gates and101 local checks. Actual hosted four-width flows,184 offline assets and crawler headers pass at https://2f165b3a.nk-qbank.pages.dev; HTML SHA-2569bc847becbabe6eb1cf9da681deaa808da1bc4bd1bb58762ab71a6fd48022c02. Details/source limitations: `docs/UWORLD_BIOCHEMISTRY_PILOT.md`.
--132 reviewed records/729pages;131 scored questions;1244 unscored because its essential exhibit is absent. Objectives1486/1071/107111 and figure sections1369/1244 are source-clipped. Missing stats stay null; accepted17px/70ch source-native layout, objective-after-explanation and immediate option percentages remain.
-- Practice mistakes only tracks unresolved ordinary Practice/test misses; FSRS-only lapses affect scheduling without creating or resurrecting ordinary mistakes. Correct answers from any flow resolve an ordinary miss. Continuous Revision/Pause/Finish remains accepted. No new installed-Android, haptic or clinical certification is claimed.
 
 ## Canonical lineage
 

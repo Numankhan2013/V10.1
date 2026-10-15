@@ -145,7 +145,8 @@ def main() -> None:
             ) -> None:
                 page.evaluate("window.QB.nav('dashboard')")
                 page.wait_for_timeout(80)
-                page.locator("button.nk-v3-subject-card").filter(has_text="Physiology").click()
+                # My Subjects opens collapsed; enter the subject through the app entry point.
+                page.evaluate("window.QB.nkOpenSubjectLibrary('Physiology')")
                 page.wait_for_function(
                     "() => document.querySelectorAll('button.nk-bank-card').length===2",
                     timeout=5000,

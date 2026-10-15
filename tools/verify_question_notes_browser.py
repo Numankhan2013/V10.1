@@ -33,7 +33,8 @@ def main() -> None:
             page.route("**/*", lambda route: route.continue_() if route.request.url.startswith(origin) else route.abort())
             page.goto(origin + "/#dashboard", wait_until="domcontentloaded")
             page.wait_for_function("window.QB && window.QB.getState")
-            page.locator("button.nk-v3-subject-card").filter(has_text="Physiology").click()
+            # My Subjects opens collapsed; enter the subject through the app entry point.
+            page.evaluate("window.QB.nkOpenSubjectLibrary('Physiology')")
             page.locator("button.nk-bank-card").filter(has_text="PrepLadder").click()
             page.evaluate("id => window.QB.practiceOne(id)", QUESTION_ID)
             page.wait_for_function("id => window.QB.getState().activeSession?.questionIds?.[0]===id", arg=QUESTION_ID)

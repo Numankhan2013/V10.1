@@ -1,18 +1,21 @@
 #!/usr/bin/env python3
-"""CSS-only UI polish guard for Home + Test Analysis (same theme, no logic)."""
+"""CSS-only UI polish guard for Home + Test Analysis (same theme, no logic).
+
+The polish blocks lived in inline `<style id=...>` elements until the stylesheet
+was consolidated into app.css on 2026-10-12; each surface still owns exactly one
+`/* ── <id> ── */` section and one polish marker.
+"""
 
 from pathlib import Path
-import re
-from app_page import app_source
+from app_page import app_css, app_source, css_section
 
 ROOT = Path(__file__).resolve().parents[1]
 PAGE = app_source()
+SHEET = app_css()
 
 
 def style_block(style_id: str) -> str:
-    opener = f'<style id="{style_id}">'
-    assert PAGE.count(opener) == 1, f"{style_id} stylesheet missing or duplicated"
-    return opener + PAGE.split(opener, 1)[1].split("</style>", 1)[0] + "</style>"
+    return css_section(style_id)
 
 
 HOME = style_block("nk-home-command-center-v1")
@@ -20,10 +23,10 @@ ANALYSIS = style_block("qbank-practice-analysis-v1")
 
 
 def css_tail(text: str, marker: str, name: str) -> str:
+    assert marker in text, f"{name} polish marker missing"
     tail = text.split(marker, 1)[-1]
-    end = tail.find("</style>")
-    assert end > 0, f"{name} polish block is not inside a style element"
-    return tail[:end]
+    end = tail.find("/* ── ")
+    return tail[:end] if end > 0 else tail
 
 
 def balanced(css: str, name: str) -> None:
@@ -39,15 +42,15 @@ def main() -> None:
     assert "nk-ui-polish-2026-09-23-analysis" in ANALYSIS, "analysis polish marker missing"
     assert "nk-ui-polish-2026-09-23-analysis-v2" in ANALYSIS, "analysis v2 polish marker missing"
 
-    # Theme loyalty: foundation tokens must remain untouched.
-    for token in ("#302b78", "#7561ff", "#f6f7fb", "#151852", "#ff8c32",
+    # Theme loyalty: the foundation theme (Geist tokens and the retained Home /
+    # Analysis surfaces) must remain untouched by the polish layer.
+    for token in ("--nkg-fg", "--nkg-bg-subtle", "--nkg-border", "--nkg-amber", "--nkg-orange",
                   ".nk-home-focus-card", ".nk-v3-subject-card",
                   ".result-stat-grid", ".result-stat-completion", ".mode-pill"):
-        assert token in HOME or token in ANALYSIS, f"theme token lost: {token}"
+        assert token in SHEET, f"theme token lost: {token}"
 
     # Polish must be CSS-only: no new JS behavior, no hidden controls,
     # no fixed overlays, no layout-removing display rules on key surfaces.
-    combined = HOME + ANALYSIS
     home_css = css_tail(HOME, "nk-ui-polish-2026-09-23-home", "home")
     analysis_css = css_tail(ANALYSIS, "nk-ui-polish-2026-09-23-analysis", "analysis")
     assert "position:fixed" not in home_css, \

@@ -49,6 +49,8 @@ jobs:
         run: python3 tools/test_bank_aware_cbt_builder_v1.py
       - name: Test Home Today’s Focus command center
         run: python3 tools/test_home_command_center_v1.py
+      - name: Test professional subject groups on Home
+        run: python3 tools/test_professional_subject_groups.py
       - name: Test Continue Practice session resume
         run: python3 tools/test_continue_practice_resume_v1.py
       - name: Test cross-device merge and PWA contracts

@@ -104,7 +104,8 @@ def main():
                 # Incumbent subjects (three PrepLadder+Marrow, plus Marrow-only
                 # Microbiology) remain separate from UWorld collections.
                 expect(page.locator('.nk-home-subjects button.nk-v3-subject-card')).to_have_count(4)
-                page.locator('.nk-home-subjects button.nk-v3-subject-card').filter(has_text='Biochemistry').click()
+                # My Subjects opens collapsed; enter the subject through the app entry point.
+                page.evaluate('QB.nkOpenSubjectLibrary("Biochemistry")')
                 expect(page.locator('button.nk-bank-card')).to_have_count(2)
                 assert page.locator('button.nk-bank-card').filter(has_text='UWorld').count()==0
                 page.evaluate('QB.nav("dashboard")')
@@ -320,7 +321,8 @@ def main():
                 assert page.evaluate('__uworldTest.current().bank') == 'UWorld'
                 page.screenshot(path=str(output / f'module-practice-{width}.png'))
                 page.evaluate('QB.exitStudyModule()')
-                page.locator('.nk-home-subjects button.nk-v3-subject-card').filter(has_text='Biochemistry').click()
+                # My Subjects opens collapsed; enter the subject through the app entry point.
+                page.evaluate('QB.nkOpenSubjectLibrary("Biochemistry")')
                 page.locator('button.nk-bank-card').filter(has_text='PrepLadder').click()
                 expect(page.locator('button.nk-topic-row')).to_have_count(28)
                 assert not page.evaluate('document.documentElement.scrollWidth>innerWidth')

@@ -6,6 +6,7 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright
 ROOT=Path(__file__).resolve().parents[1]
 WEB=ROOT/'build/web'; OUT=ROOT/'build/marrow-ui-checks'; OUT.mkdir(parents=True,exist_ok=True)
+class Threaded(socketserver.ThreadingTCPServer): allow_reuse_address=True;daemon_threads=True
 class Quiet(http.server.SimpleHTTPRequestHandler):
     def log_message(self,*args): pass
     def translate_path(self,path):
@@ -18,7 +19,7 @@ class Quiet(http.server.SimpleHTTPRequestHandler):
 
 def main():
     handler=lambda *a,**k: Quiet(*a,directory=str(WEB),**k)
-    with socketserver.TCPServer(('127.0.0.1',0),handler) as server:
+    with Threaded(('127.0.0.1',0),handler) as server:
         port=server.server_address[1];thread=threading.Thread(target=server.serve_forever,daemon=True);thread.start()
         with sync_playwright() as p:
             browser=p.chromium.launch(headless=True)

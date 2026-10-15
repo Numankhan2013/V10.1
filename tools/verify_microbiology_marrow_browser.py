@@ -83,7 +83,32 @@ def main() -> None:
                 fail(f"Microbiology subject card missing; cards={names}")
             if "200" not in micro.inner_text() or "Marrow" not in micro.inner_text():
                 fail(f"Microbiology card counts wrong: {micro.inner_text()!r}")
+
+            # My Subjects groups the subjects by professional year and both groups
+            # start collapsed; Microbiology is the single Second Prof subject.
+            first = page.locator('.nk-prof-group[data-nk-prof="first"]')
+            second = page.locator('.nk-prof-group[data-nk-prof="second"]')
+            if first.count() != 1 or second.count() != 1:
+                fail("First Prof / Second Prof groups missing on Home")
+            if first.locator(".nk-prof-body[inert]").count() != 1 or second.locator(".nk-prof-body[inert]").count() != 1:
+                fail("subject groups should open collapsed")
+            if "3 subjects" not in first.inner_text() or "Microbiology" not in second.inner_text():
+                fail(f"group summaries wrong: {first.inner_text()!r} / {second.inner_text()!r}")
             page.screenshot(path=str(OUT / "micro-00-home.png"), full_page=True)
+
+            head = second.locator(".nk-prof-head")
+            if head.get_attribute("aria-expanded") != "false":
+                fail("Second Prof band did not start closed")
+            head.click()
+            page.wait_for_function(
+                "() => document.querySelector('.nk-prof-group[data-nk-prof=\"second\"]').classList.contains('is-open')",
+                timeout=5000,
+            )
+            if second.locator(".nk-prof-body[inert]").count() != 0 or head.get_attribute("aria-expanded") != "true":
+                fail("Second Prof did not open for the learner")
+            if not micro.is_visible():
+                fail("Microbiology card is still hidden after opening Second Prof")
+            page.screenshot(path=str(OUT / "micro-00b-home-expanded.png"), full_page=True)
 
             micro.click()
             page.wait_for_function("() => document.querySelectorAll('button.nk-bank-card').length===1", timeout=8000)
@@ -153,6 +178,37 @@ def main() -> None:
                     fail(f"part-02 explanation shows {junk!r}")
             page.screenshot(path=str(OUT / "micro-04-part02-stats.png"), full_page=True)
 
+            # Ch7 Q10 has no reviewed Key takeaway, so the card derives its
+            # sentence from the explanation; both that card and the explanation
+            # carry source emphasis markers (**bold**, *italic*) that must
+            # render as emphasis, never as raw markers.
+            open_topic(page, "Clostridium")
+            if page.locator("button.nk-library-row").count() != 20:
+                fail("chapter 7 should list 20 questions")
+            page.locator("button.nk-library-row").nth(9).click()
+            page.wait_for_function(
+                "() => (document.querySelector('.question-text')?.innerText||'').includes('spontaneous gas gangrene')",
+                timeout=8000,
+            )
+            page.locator(".option-list button").nth(0).click()
+            page.wait_for_selector(".nk-marrow-ordered", timeout=8000)
+            takeaway_card = page.locator(".nk-key-takeaway")
+            if takeaway_card.count() != 1:
+                fail("derived Key takeaway card missing for Ch7 Q10")
+            takeaway_text = takeaway_card.inner_text()
+            if "*" in takeaway_text or "[object Object]" in takeaway_text:
+                fail(f"Key takeaway leaks markers: {takeaway_text!r}")
+            if "<strong>blood should be cultured" not in takeaway_card.inner_html():
+                fail("derived Key takeaway lost its bold span")
+            explanation_surface = page.locator(".nk-marrow-ordered")
+            explanation_html = explanation_surface.inner_html()
+            if "*" in explanation_surface.inner_text():
+                fail("explanation leaks raw emphasis markers")
+            for span in ("<em>C. septicum, C. perfringens</em>", "<em>C. novyi</em>"):
+                if span not in explanation_html:
+                    fail(f"explanation lost its italic span {span!r}")
+            page.screenshot(path=str(OUT / "micro-05-emphasis.png"), full_page=True)
+
             # Ch3 Q15 (MCQ MC4680): the question stem carries its figure.
             open_topic(page, "Hypersensitivity")
             page.locator("button.nk-library-row").nth(14).click()
@@ -168,7 +224,7 @@ def main() -> None:
             if errors:
                 fail("page errors: " + " | ".join(errors[:5]))
             browser.close()
-    print("MICROBIOLOGY_BROWSER_OK subject=Microbiology bank=Marrow topics=7 sections=2 peer_stats=on part02=on ordered_explanation=on stem_figure=on canonical_banks=2")
+    print("MICROBIOLOGY_BROWSER_OK subject=Microbiology bank=Marrow topics=7 sections=2 peer_stats=on part02=on ordered_explanation=on emphasis=on stem_figure=on canonical_banks=2 prof_groups=on")
 
 
 if __name__ == "__main__":

@@ -53,7 +53,8 @@ def main() -> None:
                 page.route("**/*", lambda route: route.continue_() if route.request.url.startswith(origin) else route.abort())
                 page.goto(origin + "/?ui=geist#dashboard", wait_until="domcontentloaded")
                 page.wait_for_function("window.QB && window.QB.getState && document.documentElement.dataset.nkUi==='geist'")
-                page.locator("button.nk-v3-subject-card").filter(has_text="Physiology").click()
+                # My Subjects opens collapsed; enter the subject through the app entry point.
+                page.evaluate("window.QB.nkOpenSubjectLibrary('Physiology')")
                 page.locator("button.nk-bank-card").filter(has_text="PrepLadder").click()
                 page.evaluate("id => window.QB.practiceOne(id)", QUESTION_ID)
                 page.evaluate("window.QB.nav('practice')")

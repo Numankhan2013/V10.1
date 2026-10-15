@@ -462,3 +462,21 @@ and never join the five-minute full pull: they live in IndexedDB and move
 once per device as chunked `noteAssets` documents. Ordered parts sync as a
 separate `noteBlocks` kind so older clients keep reading plain `notes` text
 without echoing changes that would erase images.
+
+## Marrow emphasis conversion lives at the richText boundary (2026-10-15)
+
+The Microbiology Marrow shard is the only source whose explanation text carries
+Markdown emphasis. Conversion stays in one place — `richText` in
+`app/src/main/assets/index.html` — so every Marrow surface (ordered blocks,
+tables, headings, legacy text) and PrepLadder source explanations share it. The
+gold ED8 renderer keeps its own reviewed emphasis anchors.
+
+Pairing is flanking-aware rather than a regex swap: a `*` opens emphasis only at
+a word boundary and never directly before a digit, so `900 mg * 100 ml` and
+`15 g/dL *1.34 mL` stay literal, and HLA/CYP allele text is untouched. Runs of
+`***` toggle bold+italics together because the source uses them for a bold span
+that ends or starts in italics. A derived Key takeaway sentence is cut out of a
+longer span, so an unmatched opener/closer is dropped instead of shown; stars
+that sit where no marker could sit (word-glued, math) are always kept. OCR star
+junk in other banks' raw text disappears as a side effect — the only behavior
+change outside Microbiology per the blast-radius scan.

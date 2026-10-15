@@ -78,7 +78,8 @@ def main() -> None:
                 # inspecting presentation markup.
                 page.evaluate("window.QB.nav('practice')")
 
-            page.locator("button.nk-v3-subject-card").filter(has_text="Physiology").click()
+            # My Subjects opens collapsed; enter the subject through the app entry point.
+            page.evaluate("window.QB.nkOpenSubjectLibrary('Physiology')")
             page.locator("button.nk-bank-card").filter(has_text="PrepLadder").click()
             open_practice("physiology-9-6")
             nerve_session = page.evaluate("""() => {
