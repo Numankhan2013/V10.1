@@ -655,9 +655,22 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
   const NK_PROF_GROUPS_KEY='qbank_prof_groups_v1';
   let nkProfGroupOpenState=(()=>{try{const stored=JSON.parse(localStorage.getItem(NK_PROF_GROUPS_KEY)||'{}');return stored&&typeof stored==='object'&&!Array.isArray(stored)?stored:{};}catch(_error){return{};}})();
   function nkProfGroupSubjects(id){return (SUBJECTS||[]).map(record=>String(record.subject||'')).filter(name=>name&&(NK_PROF_GROUP_BY_SUBJECT[name]||'other')===id);}
+  /* The band's second line is a subject strip: one icon chip per subject
+     (max four, then "+n") over the group's total question count, so the
+     header shows what is inside and how much there is without truncating a
+     name list. The joined names stay in the accessibility tree. */
+  function nkProfGroupQuestions(subjects){
+    let total=0;
+    subjects.forEach(name=>{const stat=typeof nkSubjectStatsV3==='function'?nkSubjectStatsV3(name):null;if(stat)total+=(Number(stat.questions)||0);});
+    return total;
+  }
+  function nkProfGroupStrip(subjects){
+    const shown=subjects.slice(0,4),extra=subjects.length-shown.length;
+    return `<span class="nk-prof-strip" aria-hidden="true">${shown.map((name,i)=>`<span class="nk-prof-strip-chip" style="z-index:${8-i}">${nkAppSubjectIcon(name,14)}</span>`).join('')}${extra>0?`<span class="nk-prof-strip-chip is-extra">+${extra}</span>`:''}</span>`;
+  }
   function nkProfGroupMarkup(group){
     const subjects=nkProfGroupSubjects(group.id),open=Boolean(nkProfGroupOpenState[group.id]);
-    return `<section class="nk-prof-group is-${group.id}${open?' is-open':''}" data-nk-prof="${group.id}"><button type="button" class="nk-prof-head" aria-expanded="${open?'true':'false'}" aria-controls="nk-prof-body-${group.id}" onclick="window.QB.nkToggleProfGroup('${group.id}')"><span class="nk-prof-tile" aria-hidden="true">${group.id==='first'?'1':group.id==='second'?'2':'·'}</span><span class="nk-prof-copy"><strong>${esc(group.title)}</strong><small>${esc(subjects.join(' · '))}</small></span><span class="nk-prof-count">${fmtNum(subjects.length)} ${subjects.length===1?'subject':'subjects'}</span><span class="nk-prof-chevron" aria-hidden="true">${navIcon('chevron',18)}</span></button><div class="nk-prof-body" id="nk-prof-body-${group.id}"${open?'':' inert aria-hidden="true"'}><div class="nk-v3-subject-list">${subjects.map(nkSubjectCardV3).join('')}</div></div></section>`;
+    return `<section class="nk-prof-group is-${group.id}${open?' is-open':''}" data-nk-prof="${group.id}"><button type="button" class="nk-prof-head" aria-expanded="${open?'true':'false'}" aria-controls="nk-prof-body-${group.id}" onclick="window.QB.nkToggleProfGroup('${group.id}')"><span class="nk-prof-tile" aria-hidden="true">${group.id==='first'?'1':group.id==='second'?'2':'·'}</span><span class="nk-prof-copy"><strong>${esc(group.title)}</strong><span class="nk-prof-meta">${nkProfGroupStrip(subjects)}<span class="nk-prof-questions">${fmtNum(nkProfGroupQuestions(subjects))} questions</span></span><span class="nkg-sr-only">${esc(subjects.join(' · '))}</span></span><span class="nk-prof-count">${fmtNum(subjects.length)} ${subjects.length===1?'subject':'subjects'}</span><span class="nk-prof-chevron" aria-hidden="true">${navIcon('chevron',18)}</span></button><div class="nk-prof-body" id="nk-prof-body-${group.id}"${open?'':' inert aria-hidden="true"'}><div class="nk-v3-subject-list">${subjects.map(nkSubjectCardV3).join('')}</div></div></section>`;
   }
   function nkProfGroupsMarkup(){
     const used=new Set((SUBJECTS||[]).map(record=>NK_PROF_GROUP_BY_SUBJECT[String(record.subject||'')]||'other'));

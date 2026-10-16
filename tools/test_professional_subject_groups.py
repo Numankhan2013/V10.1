@@ -30,7 +30,8 @@ def main():
         "Anatomy:'first'", "Physiology:'first'", "Biochemistry:'first'", "Microbiology:'second'",
         "First Prof", "Second Prof", "Other",
         "nkProfGroupSubjects", "nkProfGroupMarkup", "nkProfGroupsMarkup", "nkToggleProfGroup",
-        "nk-prof-groups", "nk-prof-group", "nk-prof-head", "nk-prof-tile", "nk-prof-copy", "nk-prof-count", "nk-prof-chevron", "nk-prof-body",
+        "nk-prof-groups", "nk-prof-group", "nk-prof-head", "nk-prof-tile", "nk-prof-copy", "nk-prof-meta", "nk-prof-strip", "nk-prof-questions", "nk-prof-count", "nk-prof-chevron", "nk-prof-body",
+        "nkProfGroupQuestions", "nkg-sr-only",
         "aria-expanded", "aria-controls", "inert",
         "qbank_prof_groups_v1",
         "nkSubjectCardV3",
@@ -51,7 +52,7 @@ def main():
 
     css = css_section(STYLE_ID)
     for rule in ("grid-template-rows:0fr", ".nk-prof-group.is-open .nk-prof-body", "prefers-reduced-motion", "overflow:hidden",
-                 "nkg-prof-live", "display:block", "nk-prof-tile", "hover:hover"):
+                 "nkg-prof-live", "display:block", "nk-prof-tile", "hover:hover", "nk-prof-strip", "nk-prof-questions"):
         if rule not in css:
             raise SystemExit(f"Professional group stylesheet missing: {rule}")
     if "display:none" in css:
@@ -120,6 +121,8 @@ assert.ok(markup.indexOf('Microbiology')>markup.indexOf('data-nk-prof="second"')
 assert.ok(markup.includes('aria-expanded="false"')&&!markup.includes('is-open'),'groups open collapsed');
 assert.equal((markup.match(/ inert aria-hidden="true"/g)||[]).length,2,'collapsed groups are inert');
 assert.ok(markup.includes('3 subjects')&&markup.includes('1 subject'),'group counts use singular and plural');
+assert.ok(markup.includes('nk-prof-strip')&&markup.includes('6 questions')&&markup.includes('2 questions'),'bands show the subject strip and aggregate question counts');
+assert.ok(markup.includes('nkg-sr-only')&&markup.includes('>Biochemistry · Physiology · Anatomy</span>'),'subject names stay in the accessibility tree');
 assert.ok(markup.includes('data-nk-banks="[]"'),'subject cards keep the bank progress contract');
 assert.equal((markup.match(/<button class="nk-v3-subject-card/g)||[]).length,4,'every subject keeps one card');
 // A subject with no group yet stays reachable under Other.
