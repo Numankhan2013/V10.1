@@ -6647,4 +6647,4 @@ html[data-nk-ui] :is(body,#nkg-root) .nk-study-support > .nk-answer-outcome.nk-a
   background: none !important; box-shadow: none !important;
 }
 /* The cohort chip used to sit beside the banner; it now starts the row on its own. */
-html[data-nk-ui] :is(body,#nkg-root) .nk-study-support > .nk-uworld-cohort.nk-uworld-cohort { grid-column: 1 / -1; justify-self: start; margin-top: 0 !important; }
+html[data-nk-ui] :is(body,#nkg-root) .nk-study-support > .nk-uworld-cohort.nk-uworld-cohort { grid-column: 1 / -1; justify-self: stretch; grid-template-columns: auto 1fr; margin-top: 0 !important; }
