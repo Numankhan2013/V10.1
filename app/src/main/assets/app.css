@@ -6649,41 +6649,49 @@ html[data-nk-ui] :is(body,#nkg-root) .nk-study-support > .nk-answer-outcome.nk-a
 /* The cohort chip used to sit beside the banner; it now starts the row on its own. */
 html[data-nk-ui] :is(body,#nkg-root) .nk-study-support > .nk-uworld-cohort.nk-uworld-cohort { grid-column: 1 / -1; justify-self: stretch; grid-template-columns: auto 1fr; margin-top: 0 !important; }
 /* Rarity tiers (post-answer only). Same compact chip; rarity reads through type, foil and a brief
-   glint across the number and tier word every few seconds. No card-wide overlay, no icons. */
-html[data-nk-ui] :is(body,#nkg-root) .nk-study-support > .nk-uworld-cohort.nk-uworld-cohort:is(.is-legendary,.is-great,.is-rare,.is-easy,.is-review) { grid-template-columns: auto 1fr auto; --nkr-ink: var(--nkg-fg); --nkr-bar: var(--nkg-fg-3); --cycle: 7s; }
+   glint across the number and tier word. The tier is always recorded after answering, but only a
+   correct answer earns it: foil, glow and a glint that fires on reveal. A miss shows the same tier
+   quietly, in neutral type with no motion. No card-wide overlay, no icons. */
+html[data-nk-ui] :is(body,#nkg-root) .nk-study-support > .nk-uworld-cohort.nk-uworld-cohort:is(.is-legendary,.is-great,.is-rare,.is-easy,.is-review) { grid-template-columns: auto 1fr auto; --nkr-ink: var(--nkg-fg-2); --nkr-bar: var(--nkg-border-strong); --nkr-tag: var(--nkg-fg-3); --cycle: 7s; }
 html[data-nk-ui] :is(body,#nkg-root) .nk-study-support > .nk-uworld-cohort.nk-uworld-cohort .nkr-tags { grid-column: 3; grid-row: 1; justify-self: end; align-self: center; display: inline-flex !important; gap: 8px; align-items: center; font-style: normal; }
-html[data-nk-ui] :is(body,#nkg-root) .nk-study-support > .nk-uworld-cohort.nk-uworld-cohort .nkr-tags i { font: 600 10.5px/1 var(--nkg-font-mono, ui-monospace, monospace); letter-spacing: .14em; text-transform: uppercase; font-style: normal; white-space: nowrap; color: var(--nkg-fg-3); }
+html[data-nk-ui] :is(body,#nkg-root) .nk-study-support > .nk-uworld-cohort.nk-uworld-cohort .nkr-tags i { font: 600 10.5px/1 var(--nkg-font-mono, ui-monospace, monospace); letter-spacing: .14em; text-transform: uppercase; font-style: normal; white-space: nowrap; color: var(--nkr-tag); }
 html[data-nk-ui] :is(body,#nkg-root) .nk-study-support > .nk-uworld-cohort.nk-uworld-cohort .nkr-tags .nkr-trap { padding: 3px 6px; border-radius: 99px; letter-spacing: .1em; color: var(--nkg-fg-2); background: var(--nkg-surface-2); box-shadow: inset 0 0 0 1px var(--nkg-border); }
 html[data-nk-ui] :is(body,#nkg-root) .nk-study-support > .nk-uworld-cohort.nk-uworld-cohort:is(.is-legendary,.is-great,.is-rare,.is-easy,.is-review) b { color: var(--nkr-ink) !important; font-weight: 800; }
 html[data-nk-ui] :is(body,#nkg-root) .nk-study-support > .nk-uworld-cohort.nk-uworld-cohort:is(.is-legendary,.is-great,.is-rare,.is-easy,.is-review) .nkg-cohort-bar i { background: var(--nkr-bar); }
-html[data-nk-ui] :is(body,#nkg-root) .nk-study-support > .nk-uworld-cohort.nk-uworld-cohort:is(.is-rare,.is-great,.is-legendary) :is(b,.nkr-tier) {
+/* Missed: the tier is named in its own hue, softly; number and bar stay neutral. */
+html[data-nk-ui] :is(body,#nkg-root) .nk-study-support > .nk-uworld-cohort.nk-uworld-cohort.is-rare { --nkr-tag: #3b82f6aa; }
+html[data-nk-ui] :is(body,#nkg-root) .nk-study-support > .nk-uworld-cohort.nk-uworld-cohort.is-great { --nkr-tag: #8b5cf6aa; }
+html[data-nk-ui] :is(body,#nkg-root) .nk-study-support > .nk-uworld-cohort.nk-uworld-cohort.is-legendary { --nkr-tag: #d97706aa; }
+/* Earned: answered correctly. */
+html[data-nk-ui] :is(body,#nkg-root) .nk-study-support:has(> .nk-answer-outcome.is-correct) > .nk-uworld-cohort.nk-uworld-cohort.is-easy { --nkr-ink: var(--nkg-green); --nkr-bar: var(--nkg-green); --nkr-tag: var(--nkg-green); }
+html[data-nk-ui] :is(body,#nkg-root) .nk-study-support:has(> .nk-answer-outcome.is-correct) > .nk-uworld-cohort.nk-uworld-cohort.is-easy .nkr-tier { opacity: .75; }
+html[data-nk-ui] :is(body,#nkg-root) .nk-study-support:has(> .nk-answer-outcome.is-correct) > .nk-uworld-cohort.nk-uworld-cohort:is(.is-rare,.is-great,.is-legendary) :is(b,.nkr-tier) {
   background: var(--foil); background-size: 300% 100%; background-position: 100% 0; -webkit-background-clip: text; background-clip: text; color: transparent !important;
-  animation: nkr-glint var(--cycle) cubic-bezier(.6,0,.2,1) infinite;
+  animation: nkr-glint var(--cycle) cubic-bezier(.6,0,.2,1) infinite; animation-delay: var(--nkr-start);
 }
-html[data-nk-ui] :is(body,#nkg-root) .nk-study-support > .nk-uworld-cohort.nk-uworld-cohort:is(.is-great,.is-legendary) b { animation: nkr-glint var(--cycle) cubic-bezier(.6,0,.2,1) infinite, nkr-lift var(--cycle) ease-out infinite; }
+html[data-nk-ui] :is(body,#nkg-root) .nk-study-support:has(> .nk-answer-outcome.is-correct) > .nk-uworld-cohort.nk-uworld-cohort:is(.is-great,.is-legendary) b { animation: nkr-glint var(--cycle) cubic-bezier(.6,0,.2,1) infinite, nkr-lift var(--cycle) ease-out infinite; animation-delay: var(--nkr-start), var(--nkr-start); }
+/* The first glint lands ~0.4s after the reveal, then rests for the rest of the cycle. */
+html[data-nk-ui] :is(body,#nkg-root) .nk-study-support:has(> .nk-answer-outcome.is-correct) > .nk-uworld-cohort.nk-uworld-cohort:is(.is-rare,.is-great,.is-legendary) { --nkr-start: calc(var(--cycle) * -0.78); }
 @keyframes nkr-glint { 0%, 84% { background-position: 100% 0; } 97%, 100% { background-position: 0% 0; } }
 @keyframes nkr-lift { 0%, 84% { filter: drop-shadow(0 0 0 transparent); } 91% { filter: drop-shadow(0 0 7px var(--lift)); } 100% { filter: drop-shadow(0 0 0 transparent); } }
-html[data-nk-ui] :is(body,#nkg-root) .nk-study-support > .nk-uworld-cohort.nk-uworld-cohort.is-easy { --nkr-ink: var(--nkg-green); --nkr-bar: var(--nkg-green); }
-html[data-nk-ui] :is(body,#nkg-root) .nk-study-support > .nk-uworld-cohort.nk-uworld-cohort.is-easy .nkr-tier { color: var(--nkg-green); opacity: .75; }
-html[data-nk-ui] :is(body,#nkg-root) .nk-study-support > .nk-uworld-cohort.nk-uworld-cohort.is-review { --nkr-ink: var(--nkg-fg-2); }
-html[data-nk-ui] :is(body,#nkg-root) .nk-study-support > .nk-uworld-cohort.nk-uworld-cohort.is-rare {
+html[data-nk-ui] :is(body,#nkg-root) .nk-study-support:has(> .nk-answer-outcome.is-correct) > .nk-uworld-cohort.nk-uworld-cohort.is-rare {
   --cycle: 9s; --foil: linear-gradient(100deg,#1e3a8a 0%,#1d4ed8 32%,#3b82f6 42%,#e0ecff 50%,#3b82f6 58%,#1d4ed8 68%,#1e3a8a 100%);
   --nkr-bar: linear-gradient(90deg,#1e40af,#60a5fa);
 }
-html[data-nk-ui] :is(body,#nkg-root) .nk-study-support > .nk-uworld-cohort.nk-uworld-cohort.is-great {
+html[data-nk-ui] :is(body,#nkg-root) .nk-study-support:has(> .nk-answer-outcome.is-correct) > .nk-uworld-cohort.nk-uworld-cohort.is-great {
   --cycle: 8s; --foil: linear-gradient(100deg,#4c1d95 0%,#6d28d9 30%,#a855f7 42%,#e9d5ff 47%,#fdfaff 50%,#e9d5ff 53%,#a855f7 58%,#6d28d9 70%,#4c1d95 100%); --lift: #a855f799;
   --nkr-bar: linear-gradient(90deg,#6d28d9,#c084fc);
   border-color: #e4d4fb !important; box-shadow: 0 6px 20px -14px #9333ea88 !important;
 }
-html[data-nk-ui] :is(body,#nkg-root) .nk-study-support > .nk-uworld-cohort.nk-uworld-cohort.is-legendary {
+html[data-nk-ui] :is(body,#nkg-root) .nk-study-support:has(> .nk-answer-outcome.is-correct) > .nk-uworld-cohort.nk-uworld-cohort.is-legendary {
   --cycle: 7s; --foil: linear-gradient(100deg,#92400e 0%,#b45309 28%,#f59e0b 40%,#fde68a 46%,#fffdf5 50%,#fde68a 54%,#f59e0b 60%,#b45309 72%,#92400e 100%); --lift: #f59e0bb3;
   --nkr-bar: linear-gradient(90deg,#a16207,#eab308,#fde68a);
   border-color: #f2d48a !important; box-shadow: 0 6px 22px -12px #eab30888 !important;
 }
 /* Dark theme: lift the foil's dark ends so the type keeps contrast on near-black. */
-html[data-nk-ui][data-nk-theme="dark"] :is(body,#nkg-root) .nk-study-support > .nk-uworld-cohort.nk-uworld-cohort.is-rare { --foil: linear-gradient(100deg,#60a5fa 0%,#93c5fd 32%,#bfdbfe 42%,#ffffff 50%,#bfdbfe 58%,#93c5fd 68%,#60a5fa 100%); }
-html[data-nk-ui][data-nk-theme="dark"] :is(body,#nkg-root) .nk-study-support > .nk-uworld-cohort.nk-uworld-cohort.is-great { --foil: linear-gradient(100deg,#a78bfa 0%,#c4b5fd 30%,#ddd6fe 44%,#ffffff 50%,#ddd6fe 56%,#c4b5fd 70%,#a78bfa 100%); border-color: #4c1d95 !important; }
-html[data-nk-ui][data-nk-theme="dark"] :is(body,#nkg-root) .nk-study-support > .nk-uworld-cohort.nk-uworld-cohort.is-legendary { --foil: linear-gradient(100deg,#f59e0b 0%,#fbbf24 28%,#fde68a 44%,#fffdf5 50%,#fde68a 56%,#fbbf24 72%,#f59e0b 100%); border-color: #78350f !important; }
+html[data-nk-ui][data-nk-theme="dark"] :is(body,#nkg-root) .nk-study-support:has(> .nk-answer-outcome.is-correct) > .nk-uworld-cohort.nk-uworld-cohort.is-rare { --foil: linear-gradient(100deg,#60a5fa 0%,#93c5fd 32%,#bfdbfe 42%,#ffffff 50%,#bfdbfe 58%,#93c5fd 68%,#60a5fa 100%); }
+html[data-nk-ui][data-nk-theme="dark"] :is(body,#nkg-root) .nk-study-support:has(> .nk-answer-outcome.is-correct) > .nk-uworld-cohort.nk-uworld-cohort.is-great { --foil: linear-gradient(100deg,#a78bfa 0%,#c4b5fd 30%,#ddd6fe 44%,#ffffff 50%,#ddd6fe 56%,#c4b5fd 70%,#a78bfa 100%); border-color: #4c1d95 !important; }
+html[data-nk-ui][data-nk-theme="dark"] :is(body,#nkg-root) .nk-study-support:has(> .nk-answer-outcome.is-correct) > .nk-uworld-cohort.nk-uworld-cohort.is-legendary { --foil: linear-gradient(100deg,#f59e0b 0%,#fbbf24 28%,#fde68a 44%,#fffdf5 50%,#fde68a 56%,#fbbf24 72%,#f59e0b 100%); border-color: #78350f !important; }
 @media (prefers-reduced-motion: reduce) {
   html[data-nk-ui] :is(body,#nkg-root) .nk-study-support > .nk-uworld-cohort.nk-uworld-cohort :is(b,.nkr-tier) { animation: none !important; background-position: 50% 0 !important; }
 }

@@ -94,11 +94,16 @@
     return value==null?'<span class="nk-uworld-percent-space" aria-hidden="true"></span>':`<span class="nk-uworld-option-percent" aria-label="${esc(value)} percent of learners chose option ${esc(o.letter)}">${esc(value)}%</span>`;
   }
   function nkUworldStatistics(q){
-    const value=(q.uworldDocument?.statistics||q.uworldSource?.statistics)?.answered_correctly_percent;
-    if(value==null)return '';
     const stats=q.uworldDocument?q.uworldDocument.statistics:null;
     const selection=stats?stats.selection_percent:Object.fromEntries((q.uworldSource?.options||[]).map(item=>[item.label,item.selection_percent]));
-    const rarity=typeof nkQuestionRarity==='function'?nkQuestionRarity({source:'UWorld',percent:value,selection:selection||{},correct:(q.options||[])[(q.correctOption||0)-1]?.letter,optionCount:(q.options||[]).length}):null;
+    const correct=(q.options||[])[(q.correctOption||0)-1]?.letter;
+    // Some source records kept the option pick-rates but lost the "answered correctly" line;
+    // the correct option's pick-rate is the same figure (they agree on 99.7% of records).
+    // Records UWorld marks "Collecting Statistics" have neither, so they show no chip.
+    let value=(stats||q.uworldSource?.statistics)?.answered_correctly_percent;
+    if(value==null&&correct&&selection&&selection[correct]!=null)value=selection[correct];
+    if(value==null)return '';
+    const rarity=typeof nkQuestionRarity==='function'?nkQuestionRarity({source:'UWorld',percent:value,selection:selection||{},correct,optionCount:(q.options||[]).length}):null;
     const attrs=rarity?` data-nk-tier="${rarity.tier}"${rarity.trap?' data-nk-trap="1"':''}`:'';
     return `<p class="nk-uworld-cohort"${attrs}><strong>${esc(value)}% answered correctly</strong><span>Reported in the UWorld source</span></p>`;
   }

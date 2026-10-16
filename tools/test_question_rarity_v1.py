@@ -36,3 +36,11 @@ feel = (ROOT / 'app/src/main/assets/redesign/nk-feel.js').read_text()
 assert "c.getAttribute('data-nk-tier')" in feel and 'nkr-tier' in feel
 assert '@media (prefers-reduced-motion: reduce)' in page and '.is-legendary' in page
 print('QUESTION_RARITY_OK tiers/trap/low-signal/per-source/post-answer')
+# Only a correct answer earns foil and motion; a miss shows the tier quietly.
+css = (ROOT / 'app/src/main/assets/app.css').read_text()
+assert ':has(> .nk-answer-outcome.is-correct) > .nk-uworld-cohort.nk-uworld-cohort:is(.is-rare,.is-great,.is-legendary) :is(b,.nkr-tier)' in css
+assert 'animation: nkr-glint' not in css.split(':has(> .nk-answer-outcome.is-correct)')[0].split('/* Rarity tiers')[-1]
+# Records that lost the overall % fall back to the correct option's pick-rate.
+uw = (ROOT / 'app/src/main/modules/uworld_biochemistry.js').read_text()
+assert 'if(value==null&&correct&&selection&&selection[correct]!=null)value=selection[correct];' in uw
+print('QUESTION_RARITY_EARNED_OK')
