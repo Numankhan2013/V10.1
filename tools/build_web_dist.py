@@ -82,10 +82,9 @@ def main() -> None:
     if anatomy_url:
         worker=worker_source(anatomy_url)
         (out / "_worker.js").write_text(worker)
-        # Pages _headers rules do not apply to Worker-generated responses.
-        # Route all paths through the bridge so fallthrough/error responses
-        # receive the same search-engine exclusion as static assets.
-        (out / "_routes.json").write_text(json.dumps({"version":1,"include":["/*"],"exclude":[]}))
+        # Only the PDF bridge runs the Worker. Every other request is a free static
+        # asset hit, so a script hammering the site cannot spend the Workers quota.
+        (out / "_routes.json").write_text(json.dumps({"version":1,"include":["/anatomy-source.pdf"],"exclude":[]}))
         config["anatomyPdfUrl"]="./anatomy-source.pdf"
         config_path.write_text("window.NK_QBANK_FIREBASE_CONFIG = "+json.dumps(config)+";\n")
     html = out / "index.html"
@@ -115,11 +114,15 @@ def main() -> None:
         ''.join('  '+name+': '+value+'\n' for name,value in HEADERS.items())+
         # Pages adds a wildcard CORS header to static assets; nothing here is meant for other origins.
         "  ! Access-Control-Allow-Origin\n"+
-        "/sw.js\n  Cache-Control: no-cache\n/index.html\n  Cache-Control: no-cache\n/qbank-config.js\n  Cache-Control: no-cache\n/source_visuals/*\n  Cache-Control: public, max-age=31536000, immutable\n/vendor/*\n  Cache-Control: public, max-age=31536000, immutable\n",
+        "/sw.js\n  Cache-Control: no-cache\n/index.html\n  Cache-Control: no-cache\n/qbank-config.js\n  Cache-Control: no-cache\n/source_visuals/*\n  Cache-Control: public, max-age=31536000, immutable\n/vendor/*\n  Cache-Control: public, max-age=31536000, immutable\n"
+        # Content-hashed file names: a new build never reuses a URL.
+        "/data/*\n  Cache-Control: public, max-age=31536000, immutable\n/marrow_visuals/*\n  Cache-Control: public, max-age=31536000, immutable\n",
         encoding="utf-8",
     )
     (out / "robots.txt").write_text("User-agent: *\nDisallow: /\n", encoding="utf-8")
-    (out / "_redirects").write_text("/* /index.html 200\n", encoding="utf-8")
+    # Routes live in the URL hash, so there is no SPA fallback: a missing file is
+    # a real 404 instead of index.html, which the service worker would cache as that file.
+    (out / "404.html").write_text('<!doctype html><meta charset="utf-8"><meta name="robots" content="'+ROBOTS_DIRECTIVES+'"><title>Not found</title><p>Not found. <a href="/">Open NK QBank</a></p>\n', encoding="utf-8")
     # Drop CSS that no markup, script or data in the build can ever match, such
     # as rules for legacy screens Geist replaced. The browser suite runs on this output.
     pruned = prune_build(out)

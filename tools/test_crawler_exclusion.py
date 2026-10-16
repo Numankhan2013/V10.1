@@ -46,9 +46,12 @@ with tempfile.TemporaryDirectory() as directory:
         assert "/vendor/*\n  Cache-Control: public, max-age=31536000, immutable" in headers
         assert (out / "source_visuals/example.png").read_bytes() == b"fixture-image"
         assert (out / "Biochemistry_QBank_Source.pdf").read_bytes() == b"fixture-pdf"
-        assert (out / "_redirects").read_text() == "/* /index.html 200\n"
+        assert not (out / "_redirects").exists()
+        missing = (out / "404.html").read_text()
+        assert f'content="{DIRECTIVES}"' in missing and "<script" not in missing
+        assert "/data/*\n  Cache-Control: public, max-age=31536000, immutable" in headers
         if anatomy_url:
-            assert json.loads((out / "_routes.json").read_text()) == {"version": 1, "include": ["/*"], "exclude": []}
+            assert json.loads((out / "_routes.json").read_text()) == {"version": 1, "include": ["/anatomy-source.pdf"], "exclude": []}
             assert '"anatomyPdfUrl": "./anatomy-source.pdf"' in (out / "qbank-config.js").read_text()
             worker_source = (out / "_worker.js").read_text().replace("export default {", "const worker = {", 1)
             harness = r'''
@@ -66,13 +69,14 @@ const requestHeaders={Range:'bytes=0-3','If-Range':'original','If-None-Match':'o
 let upstreamRequest;
 globalThis.fetch=async(url,options)=>{
   upstreamRequest={url,options};
-  return new Response('%PDF',{status:206,headers:{'Content-Range':'bytes 0-3/100','Accept-Ranges':'bytes','ETag':'original','Cache-Control':'public, max-age=3600'}});
+  return new Response('%PDF',{status:206,headers:{'Content-Range':'bytes 0-3/100','Accept-Ranges':'bytes','ETag':'original','Cache-Control':'public, max-age=3600','Set-Cookie':'upstream=1','Access-Control-Allow-Origin':'*','Server':'upstream'}});
 };
 let response=await worker.fetch(new Request('https://app.example/anatomy-source.pdf',{headers:requestHeaders}),{});
 excluded(response);assert(response.status===206,'range status');assert(await response.text()==='%PDF','stream bytes');
 assert(response.headers.get('Content-Range')==='bytes 0-3/100','range header');
 assert(response.headers.get('ETag')==='original','validator');assert(response.headers.get('Cache-Control')==='public, max-age=3600','upstream cache');
 assert(response.headers.get('Content-Type')==='application/pdf','PDF type');
+for(const key of ['Set-Cookie','Access-Control-Allow-Origin','Server'])assert(!response.headers.has(key),'upstream header leaked: '+key);
 assert(upstreamRequest.url==='https://source.example/anatomy.pdf','source unchanged');
 for(const [key,value] of Object.entries(requestHeaders))assert(upstreamRequest.options.headers.get(key)===value,'forwarded '+key);
 for(const path of ['/index.html','/Biochemistry_QBank_Source.pdf','/source_visuals/example.png','/sw.js','/robots.txt','/unknown/dynamic/path']){

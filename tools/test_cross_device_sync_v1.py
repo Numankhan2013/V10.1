@@ -456,10 +456,14 @@ function nkDurablePersist(v){localStorage.setItem(LS_KEY,JSON.stringify(v));retu
     if generated.count((ROOT / "app/src/main/modules/pwa_update.js").read_text(encoding="utf-8")) != 1 or "NK_QBANK_VERSION" not in worker:
         raise SystemExit("PWA updates must compare the waiting build with the running page")
     sync_core = CORE.read_text(encoding="utf-8")
-    pull_at = sync_core.find("pulled=await nkPullCloud(token)")
+    pull_at = sync_core.find("await nkPullCloud(token)")
     push_at = sync_core.find("pushed=await nkPushOutbox(token)")
     if pull_at < 0 or push_at < 0 or pull_at > push_at:
         raise SystemExit("Synchronization must pull/merge before uploading local revisions")
+    # Quota: saves upload only, and automatic pulls are throttled with error backoff.
+    for marker in ("nkCloudSync(false,true,true),1200", "pulled=pushOnly?0:await nkPullCloud(token)", "if(pushOnly&&(initial||nkSyncMeta.needsInitialPull))pushOnly=false", "60000*2**nkCloudAutoFailures", "document.visibilityState==='hidden')return"):
+        if marker not in sync_core:
+            raise SystemExit("Sync quota guard missing: " + marker)
     if "function nkScheduleCloudSync(){if(!nkAuth)return;nkCaptureCloudChanges();}" not in sync_core:
         raise SystemExit("Local outbox capture must be synchronous with state saves")
     for marker in ("nkResolveFirebaseProjectId", "nkProjectIdFromToken", "nkEnsureAccountGeneration", "nkTombstoneAccountCollections", "nkResetProgress", "NK_RESET_PENDING_KEY", "nkCloudAuthNext", "CREATE ACCOUNT · 2 OF 2", "stage='download'", "HTTP ${response.status}", "method:'PATCH'", "setInterval(nkCloudAutoSync,300000)", "visibilitychange", "fsrsReviewEligible", "nkMergeFsrsReviewEligible", "practiceSessions", "nkMergePracticeCheckpoint", "NK_SYNC_META_LKG_KEY"):
