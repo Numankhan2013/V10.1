@@ -6634,3 +6634,17 @@ html body #app .nk-topics-v114 .nk-filter-tabs button{flex-shrink:0;flex-basis:a
 
 
 html body #app .nk-fsrs-page-v3 .nk-v3-primary:disabled{opacity:.55;cursor:default;}
+
+/* Answer banner removed (2026-10-16, user request): the option highlights already show
+   correct / incorrect, so the "Correct · Answer C" strip no longer takes space in any bank
+   (UWorld, Marrow, PrepLadder). The element stays in the DOM as a screen-reader-only status,
+   so announcements, the answer haptic in nk-feel.js and the browser checks keep working. */
+html body .nk-answer-outcome,
+html[data-nk-ui] :is(body,#nkg-root) .nk-study-support > .nk-answer-outcome.nk-answer-outcome {
+  position: absolute !important; width: 1px !important; height: 1px !important; min-height: 0 !important;
+  margin: -1px !important; padding: 0 !important; border: 0 !important; overflow: hidden !important;
+  clip: rect(0 0 0 0) !important; clip-path: inset(50%) !important; white-space: nowrap !important;
+  background: none !important; box-shadow: none !important;
+}
+/* The cohort chip used to sit beside the banner; it now starts the row on its own. */
+html[data-nk-ui] :is(body,#nkg-root) .nk-study-support > .nk-uworld-cohort.nk-uworld-cohort { grid-column: 1 / -1; justify-self: start; margin-top: 0 !important; }
