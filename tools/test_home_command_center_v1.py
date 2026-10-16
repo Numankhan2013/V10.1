@@ -25,7 +25,7 @@ def main():
         'FSRS','My Subjects','nkSubjectStatsV3','nkOpenSubjectLibrary',
         'STUDY LIBRARY','study-library','complete topic journey','My Progress','Today','This Week','This Month','This Year',
         'FSRS Review','Choose subject','All Subjects','Every answered question is scheduled here','pausing keeps untouched questions out',
-        "['quick-revision','Revision','refresh']",'window.QB.nkOpenRevisionHub()','Timed tests','Choose subjects and topics','Quick test','Wrong questions','Bookmarked questions','Completed tests',
+        "['quick-revision','Revision','refresh']",'window.QB.nkOpenRevisionHub()','Timed tests','Build a test','Quick test','Wrong questions','Bookmarked','Saved mocks','Score trend',
         'openMultiSubjectTestBuilder','Number of questions','[10,20,50,100]',
         "timerMode='global'","timerMode='per-question'",'Topic Test · 60 sec this question','nkExpireTopicQuestion','Time expired','submitExam(true)',
         "state.fsrsReviewEligible", "reason:'skipped'", 'nkReviewEligibility', 'nkReviewDue',

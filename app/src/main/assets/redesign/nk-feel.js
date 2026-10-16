@@ -825,13 +825,6 @@
 
   /* ============================================================== Tests */
   function enhanceTests(app) {
-    each(app.querySelectorAll('.nk-test-source-card'), function (c) {
-      if (c.querySelector('.nkg-check')) return;
-      var chk = el('span', 'nkg-check', icon('check', 13)); chk.setAttribute('aria-hidden', 'true');
-      c.appendChild(chk);
-      c.setAttribute('aria-pressed', c.classList.contains('active') ? 'true' : 'false');
-      c.addEventListener('click', function () { if (!c.disabled) haptic('selection'); });
-    });
     var grid = app.querySelector('.nk-test-count-grid');
     if (grid && !grid.__nkg) {
       grid.__nkg = true;

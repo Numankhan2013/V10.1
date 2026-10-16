@@ -37,7 +37,7 @@ def main() -> None:
 
                 def open_builder():
                     page.evaluate("window.QB.nav('tests')")
-                    page.get_by_role('button', name='Choose subjects and topics').click()
+                    page.get_by_role('button', name='Build a test').click()
                     page.wait_for_url('**/#test-builder')
 
                 def bank_row(bank, subject):

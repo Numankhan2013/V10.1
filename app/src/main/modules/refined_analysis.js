@@ -216,17 +216,4 @@
   nkCbtQuestionsMarkup=function(){return `<label class="nk-na-mock-name" for="nk-cbt-name">Mock name <small>Optional</small><input id="nk-cbt-name" maxlength="80" placeholder="e.g. Biochemistry mock 01" value="${esc(nkCbtDraft?.name||'')}" oninput="window.QB.nkMockName(this.value)"></label>`+nkAnalysisQuestionsMarkup();};
   const nkAnalysisBuilderPage=nkCbtBuilderPage;
   nkCbtBuilderPage=function(){const html=nkAnalysisBuilderPage();return nkCbtDraft?.step===3?html.replace('<div class="nk-cbt-main-actions">','<div class="nk-cbt-main-actions"><button onclick="window.QB.nkMockSaveDraft()">Save mock</button>'):html;};
-  const nkAnalysisTestsPage=testsPage;
-  testsPage=function(){
-    const mocks=nkMockList();if(!mocks.length)return nkAnalysisTestsPage();
-    const map=new Map(nkAllStudyQuestions().map(q=>[String(q.id),q])),many=mocks.length>5;
-    const rows=mocks.slice().reverse().map((m,i)=>{
-      const sum=nkMockSummary(m,map),names=sum.subjects.map(([n])=>n),last=sum.attempts[0];
-      const subjects=names.length>2?`${names.slice(0,2).join(', ')} +${names.length-2}`:names.join(', ');
-      const search=[m.name,...names,...sum.banks.map(([n])=>n),...sum.topics.map(t=>t.title)].join(' ').toLowerCase();
-      return `<div class="nk-na-mock-row${i>=5?' is-extra':''}" data-mock-search="${esc(search)}"><button type="button" data-mock-id="${esc(m.id)}" aria-haspopup="dialog" onclick="window.QB.nkMockOpen(this.getAttribute('data-mock-id'))"><span class="nk-na-mock-icon">${nkMockGraphic(names[0]||'',20)}</span><span class="nk-na-mock-copy"><strong>${esc(m.name)}</strong><small>${[`${sum.total} Qs`,`${sum.total} min`,subjects].filter(Boolean).map(esc).join(' · ')}</small></span><span class="nk-na-mock-state${last?'':' is-new'}">${last?`${nkMockScore(last)}%`:'New'}</span>${navIcon('chevron',18)}</button></div>`;
-    }).join('');
-    const section=`<section class="nk-section nk-na-saved-mocks"><div class="nk-section-head"><h2>Saved mocks</h2><span>${mocks.length}</span></div>${many?`<label class="nk-na-mock-search">${navIcon('search',18)}<input type="search" placeholder="Search name, subject or topic" aria-label="Search saved mocks" oninput="window.QB.nkMockFilter(this.value)"></label>`:''}<div class="nk-session-list">${rows}</div><p class="nk-na-mock-none" hidden>No saved mocks match.</p>${many?`<button type="button" class="nk-na-mock-more" onclick="window.QB.nkMockShowAll()">Show all ${mocks.length}</button>`:''}</section>`;
-    return nkAnalysisTestsPage().replace('<section class="nk-v3-section nk-test-history">',section+'<section class="nk-v3-section nk-test-history">');
-  };
   /* NK_REFINED_ANALYSIS_V1_END */

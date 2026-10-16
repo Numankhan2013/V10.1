@@ -2583,3 +2583,18 @@ User asked for a thorough functional audit, especially whether FSRS is as good a
   rebuild; `verify_learning_insights_browser.py` asserts they are absent).
 - Local gotcha: `python3 tools/build_app_data.py` without `--check` writes the filled page
   over `app/src/main/assets/index.html`; build in a scratch worktree, never the source tree.
+
+## 2026-10-16 — Tests page redesign (Mock shelf + Build)
+
+- The user picked layout 1 of three sketched structures (`.impeccable/mocks/decision/`); the
+  contract is in `.impeccable/surfaces/app-src-main-assets-index-html-tests.md`.
+- `testsPage()` (index.html) now renders: resume card → Saved mocks shelf (newest in ink,
+  "See all" turns it into a searchable grid; cards keep `.nk-na-mock-row > button` →
+  `nkMockOpen`) → Score trend (last 10 timed results, right-aligned 10-slot bars, shown from 2
+  results) → Quick test (Wrong / Bookmarked buttons) → Recent (`.nk-test-history`, 5 + older)
+  → floating "Build a test" pill (`openMultiSubjectTestBuilder`).
+- Quick test opens a real bottom sheet (`#nk-quick-sheet`, `nkQuickTestOpen/Set/Start/Close`);
+  it must NOT reuse the `#nk-mock-sheet` ids/classes, which nk-feel turns into full screens.
+- The saved-mocks wrapper in `refined_analysis.js` was removed (folded into `testsPage`).
+- Browser tests now click "Build a test" instead of "Choose subjects and topics".
+- CSS: section `nk-tests-shelf-v1` in app.css, just before `nk-visual-refinement-v1`.

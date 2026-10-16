@@ -252,7 +252,7 @@ def main():
                 # Timed CBT uses the common builder and withholds every explanation.
                 reset_practice()
                 page.evaluate('QB.nav("tests")')
-                page.get_by_role('button', name='Choose subjects and topics').click()
+                page.get_by_role('button', name='Build a test').click()
                 page.get_by_role('button', name='Clear all', exact=True).click()
                 page.locator('.nk-cbt-builder .nk-module-subject').filter(has_text='Biochemistry').filter(has_text='UWorld').click()
                 page.get_by_role('button', name='Continue to topics', exact=True).click()

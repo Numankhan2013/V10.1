@@ -14,7 +14,7 @@ def main():
     page=app_source()
     assert page.count(CORE.read_text(encoding='utf-8').strip())==1,'resume card core ships verbatim once'
     for marker in ('NK_TIMED_RESUME_CARD_V1_START','/* ── nk-timed-resume-card-v1 ── */',
-                   "${nkTimedResumeCard('tests')}<section class=\"nk-v3-section nk-test-main-action\">",
+                   "${nkTimedResumeCard('tests')}${shelf}${bars}${quick}${history}",
                    "titles[step-1],description)}${nkTimedResumeCard('builder')}<div class=\"nk-module-stepper\">${[1,2,3]",
                    "${nkHomeFocusSection(focus,focusModule)}",
                    "if(state.activeSession?.mode==='exam'&&typeof nkTimedFocusCard==='function')return nkTimedFocusCard();"):

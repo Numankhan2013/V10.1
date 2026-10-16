@@ -120,7 +120,7 @@ def verify_imported_collections(page, output, width, reset_practice, open_questi
 
         reset_practice()
         page.evaluate('QB.nav("tests")')
-        page.get_by_role('button', name='Choose subjects and topics').click()
+        page.get_by_role('button', name='Build a test').click()
         page.get_by_role('button', name='Clear all', exact=True).click()
         page.locator('.nk-cbt-builder .nk-module-subject').filter(has_text=re.compile(re.escape(name))).click()
         page.get_by_role('button', name='Continue to topics', exact=True).click()
