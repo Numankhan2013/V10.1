@@ -115,6 +115,15 @@ def main():
                 uw = {k: v for k, v in expected.items() if k[1] == 'UWorld'}
                 assert f"{len(uw)} collections · {sum(uw.values()):,} questions" in entry.inner_text(), entry.inner_text()
                 assert entry.bounding_box()['height'] >= 44
+                # The entry chevron belongs on the row's right edge. Hiding the
+                # "Open" action must not pull it back into the meta column.
+                chevron_gap = page.evaluate('''() => {
+                  const card = document.querySelector('.nk-home-uworld .nk-uworld-entry');
+                  const chevron = card.querySelector('svg[data-nk-icon="chevron"]');
+                  const pad = parseFloat(getComputedStyle(card).paddingRight) || 0;
+                  return Math.round(card.getBoundingClientRect().right - pad - chevron.getBoundingClientRect().right);
+                }''')
+                assert abs(chevron_gap) <= 2, f"UWorld entry chevron not flush right: gap {chevron_gap}px"
                 assert not page.evaluate('document.documentElement.scrollWidth>innerWidth')
                 page.screenshot(path=str(output / f'home-my-uworld-{width}.png'),full_page=True)
                 entry.focus()

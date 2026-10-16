@@ -3750,6 +3750,10 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-subjects-empty { margin: 4px
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-hidden { display: none !important; }
 /* Home */
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-streak-copy small, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-focus-card:not(.nk-home-timed-focus) > p, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-uworld-entry-action { display: none !important; }
+/* Hiding the UWorld entry action removes a grid child, which would drop the
+   entry chevron into the meta column and float it mid-card; keep the entry on
+   a three-column template so the chevron sits on the row's right edge. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-uworld .nk-uworld-entry { grid-template-columns: 44px minmax(0, 1fr) 18px !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-delta.is-neutral, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-delta.is-neutral { display: none !important; }
 /* Revision */
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-revision-detail, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-revision-card.is-empty .nk-revision-actions, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-revision-forecast-foot small { display: none !important; }
