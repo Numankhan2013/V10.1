@@ -216,7 +216,7 @@ async function main(){
       for(let i=0;i<40&&device.webViews().some(v=>v.pkg()===pkg);i++)await new Promise(resolve=>setTimeout(resolve,250));
       page=await launch();
       await page.evaluate(()=>window.QB.nav('tests'));
-      await page.getByRole('button',{name:'Choose subjects and topics'}).click();
+      await page.getByRole('button',{name:'Build a test'}).click();
       await page.getByRole('button',{name:'Continue to topics'}).click();
       assert.equal(await page.locator('#nk-cbt-pyq-toggle small').innerText(),'27 topics · 1,118 Q');
       await page.locator('#nk-cbt-pyq-toggle').click();

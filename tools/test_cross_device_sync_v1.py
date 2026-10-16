@@ -108,8 +108,37 @@ console.log('DURABLE_PERSISTENCE_BEHAVIOR_OK');
         subprocess.run(["node", str(script)], check=True)
 
 
+def test_payload_hardening() -> None:
+    """Synced records are attacker-controlled: numbers must stay numbers and sessions must be well formed."""
+    page = (ROOT / "app/src/main/assets/index.html").read_text(encoding="utf-8")
+    start = page.index("  const NK_TEST_ORIGINS=")
+    end = page.index("  function testRow(t) {", start)
+    core = CORE.read_text(encoding="utf-8")
+    s_start = core.index("  function nkSyncSessionShapeOk(p){")
+    s_end = core.index("\n  }\n", s_start) + 4
+    script = page[start:end] + core[s_start:s_end] + r'''
+const assert=(c,m)=>{if(!c)throw new Error(m);};
+const evil='<img src=x onerror=alert(1)>';
+const t=nkSafeTest({id:'t1',title:evil,correct:evil,total:'5',incorrect:null,originRoute:"tests');alert(1);('",questionIds:[1,'q2']});
+assert(t.correct===0&&t.total===5&&t.incorrect===0,'numeric fields must be coerced');
+assert(t.originRoute===undefined,'unknown origin routes must be dropped');
+assert(t.questionIds.join(',')==='1,q2','question ids must be strings');
+assert(nkSafeTest({originRoute:'review'}).originRoute==='review','known origins survive');
+assert(!nkSyncSessionShapeOk({id:'s',index:2}),'sessions without questions are rejected');
+assert(!nkSyncSessionShapeOk({id:'s',questionIds:[{}]}),'non-scalar question ids are rejected');
+assert(!nkSyncSessionShapeOk('<script>'),'non-objects are rejected');
+assert(nkSyncSessionShapeOk({id:'s',questionIds:['q1'],answers:{},mode:'exam'}),'real sessions pass');
+console.log('SYNC_PAYLOAD_HARDENING_OK');
+'''
+    with tempfile.TemporaryDirectory() as tmp:
+        path = Path(tmp) / "hardening.js"
+        path.write_text(script, encoding="utf-8")
+        print(subprocess.run(["node", str(path)], check=True, capture_output=True, text=True).stdout.strip())
+
+
 def main() -> None:
     test_durable_persistence()
+    test_payload_hardening()
     core = CORE.read_text(encoding="utf-8")
     harness = r'''
 const assert=(condition,message)=>{if(!condition)throw new Error(message);};
@@ -153,8 +182,8 @@ nkApplyCloudEnvelope({kind:'noteBlocks',entityId:'q5',ownerDevice:'android',upda
 assert(nkNoteBlocks(state.questionNotes.q5).length===1,'older parts must not replace newer parts');
 nkApplyCloudEnvelope({kind:'noteBlocks',entityId:'q6',ownerDevice:'ipad',updatedAt:330,deleted:false,payload:JSON.stringify({blocks:[{type:'image',asset:{id:'../../escape',w:1,h:1}},{type:'text',text:'Safe'}],deleted:false}),schemaVersion:1});
 assert(nkNoteBlocks(state.questionNotes.q6).map(b=>b.type).join()==='text','unsafe image references must be dropped');
-nkApplyCloudEnvelope({kind:'sessions',entityId:'active',ownerDevice:'android',updatedAt:200,deleted:false,payload:JSON.stringify({id:'new',index:4}),schemaVersion:1});
-nkApplyCloudEnvelope({kind:'sessions',entityId:'active',ownerDevice:'ipad',updatedAt:150,deleted:false,payload:JSON.stringify({id:'old',index:1}),schemaVersion:1});
+nkApplyCloudEnvelope({kind:'sessions',entityId:'active',ownerDevice:'android',updatedAt:200,deleted:false,payload:JSON.stringify({id:'new',index:4,questionIds:['q1','q2','q3','q4','q5']}),schemaVersion:1});
+nkApplyCloudEnvelope({kind:'sessions',entityId:'active',ownerDevice:'ipad',updatedAt:150,deleted:false,payload:JSON.stringify({id:'old',index:1,questionIds:['q1','q2']}),schemaVersion:1});
 assert(state.activeSession.id==='new'&&state.activeSession.index===4,'opening an older device must not replace newer session progress');
 const checkpoint=(id,ids,answers,submitted,updates,lifecycle='paused',updatedAt=200)=>({version:1,sessionId:id,sessionQuestionIds:ids,membershipHash:ids.join('\u001f'),context:{subject:'Anatomy',bank:'Marrow',topicId:'t1',title:'Topic'},position:{index:0,currentQuestionId:ids[0]},answers,submitted,questionTimes:{},pendingFsrsRatings:{},questionUpdates:updates,lifecycle,updatedAt});
 const pendingOld=checkpoint('rating-session',['q1'],{q1:2},{q1:true},{q1:{revision:1,updatedAt:20}},'active',20);

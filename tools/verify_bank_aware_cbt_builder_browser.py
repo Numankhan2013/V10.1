@@ -32,7 +32,7 @@ def main() -> None:
             page.route("**/*", lambda route: route.continue_() if route.request.url.startswith(origin) else route.abort())
             page.goto(origin + "/#tests", wait_until="domcontentloaded")
             page.wait_for_function("window.QB && window.QB.getState")
-            page.get_by_role("button", name="Choose subjects and topics").click()
+            page.get_by_role("button", name="Build a test").click()
             page.wait_for_url("**/#test-builder")
             banks = page.locator(".nk-cbt-builder .nk-module-subject")
             # Three PrepLadder + Marrow subjects, Marrow-only Microbiology, then UWorld.

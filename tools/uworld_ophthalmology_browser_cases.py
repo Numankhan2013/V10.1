@@ -73,7 +73,7 @@ def verify_ophthalmology(page, output, width, reset_practice, open_question):
     # A new collection enters the same timed builder and deferred-feedback path.
     reset_practice()
     page.evaluate('QB.nav("tests")')
-    page.get_by_role('button', name='Choose subjects and topics').click()
+    page.get_by_role('button', name='Build a test').click()
     page.get_by_role('button', name='Clear all', exact=True).click()
     page.locator('.nk-cbt-builder .nk-module-subject').filter(has_text=collection).click()
     page.get_by_role('button', name='Continue to topics', exact=True).click()

@@ -1,8 +1,6 @@
 name: Deploy explicitly approved main release
 
 on:
-  push:
-    branches: ['release/approved-production-20261001']
   workflow_run:
     workflows: [Build V11.7 Android + PWA, Build and verify PWA (optional APK)]
     types: [completed]
@@ -17,23 +15,23 @@ concurrency:
 
 jobs:
   deploy:
-    if: ${{ github.event_name == 'push' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' && github.event.workflow_run.event == 'push' && contains(github.event.workflow_run.head_commit.message, '[approved-production]')) }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' && github.event.workflow_run.event == 'push' && contains(github.event.workflow_run.head_commit.message, '[approved-production]') }}
     runs-on: ubuntu-latest
     steps:
       - name: Check out the exact approved release
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
-          ref: ${{ github.event.workflow_run.head_sha || '18e4cd58a09f14169447dd7aaf13a6cc08971ceb' }}
+          ref: ${{ github.event.workflow_run.head_sha }}
       - name: Download the verified build without rebuilding
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
           name: ${{ github.event.workflow_run.name == 'Build and verify PWA (optional APK)' && 'V11.7-pwa' || 'V11.7-android-pwa' }}
           path: ${{ github.event.workflow_run.name == 'Build and verify PWA (optional APK)' && 'build' || '.' }}
-          run-id: ${{ github.event.workflow_run.id || '36883871119' }}
+          run-id: ${{ github.event.workflow_run.id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Verify artifact identity and current main
         env:
-          EXPECTED_RELEASE_SHA: ${{ github.event.workflow_run.head_sha || '18e4cd58a09f14169447dd7aaf13a6cc08971ceb' }}
+          EXPECTED_RELEASE_SHA: ${{ github.event.workflow_run.head_sha }}
         run: |
           set -eu
           test "$(git ls-remote origin refs/heads/main | cut -f1)" = "$EXPECTED_RELEASE_SHA"
@@ -57,7 +55,7 @@ jobs:
           print('PAGES_PRODUCTION_BRANCH_OK main')
           PY
       - name: Deploy the approved artifact to the production domain
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd # v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

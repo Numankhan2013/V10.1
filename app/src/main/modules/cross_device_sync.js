@@ -32,6 +32,10 @@
     value.cursors=value.cursors&&typeof value.cursors==='object'?value.cursors:{};
     return value;
   }
+  // A synced active session replaces local state, so reject anything that is not a well-formed session.
+  function nkSyncSessionShapeOk(p){
+    return !!p&&typeof p==='object'&&!Array.isArray(p)&&p.id!=null&&Array.isArray(p.questionIds)&&p.questionIds.length>0&&p.questionIds.every(id=>typeof id==='string'||typeof id==='number')&&(p.answers==null||typeof p.answers==='object')&&(p.mode==null||typeof p.mode==='string');
+  }
   function nkLoadSyncMeta(){
     const candidates=[NK_SYNC_META_KEY,NK_SYNC_META_PENDING_KEY,NK_SYNC_META_LKG_KEY].map(key=>nkJson(localStorage.getItem(key),null)).filter(value=>value&&typeof value==='object').sort((a,b)=>Number(b.metaRevision||0)-Number(a.metaRevision||0));
     return nkNormalizeSyncMeta(candidates[0]||{});
@@ -444,7 +448,7 @@
       const text=blocks.filter(block=>block.type==='text').map(block=>block.text).join('\n\n').slice(0,2000);
       state.questionNotes[id]=prior?{...prior,blocks,blocksAt:Number(winner.updatedAt)}:{text,updatedAt:Number(winner.updatedAt),deleted:Boolean(payload.deleted),blocks,blocksAt:Number(winner.updatedAt)};
     }
-    else if(winner.kind==='tests'&&payload){const index=(state.tests||[]).findIndex(x=>String(x.id)===id);if(index<0)state.tests.push(payload);else state.tests[index]=payload;state.tests=state.tests.slice(-100);}
+    else if(winner.kind==='tests'&&payload&&typeof payload==='object'){const test=typeof nkSafeTest==='function'?nkSafeTest(payload):payload;const index=(state.tests||[]).findIndex(x=>String(x.id)===id);if(index<0)state.tests.push(test);else state.tests[index]=test;state.tests=state.tests.slice(-100);}
     else if(winner.kind==='savedMocks'){
       const list=Array.isArray(state.savedMocks)?state.savedMocks:[],index=list.findIndex(x=>String(x.id)===id);
       if(winner.deleted){if(index>=0)list.splice(index,1);}
@@ -470,7 +474,7 @@
       const legacy=nkCheckpointFromLegacyCloudSession(payload,winner.updatedAt);
       if(legacy)nkMergePracticeCheckpoint(legacy);
       else if(winner.deleted){if(state.activeSession&&!((typeof nkNormalPracticeSession==='function')&&nkNormalPracticeSession(state.activeSession)))state.activeSession=null;}
-      else if(payload)state.activeSession=payload;
+      else if(nkSyncSessionShapeOk(payload))state.activeSession={...payload,id:String(payload.id),questionIds:payload.questionIds.map(String),index:Math.max(0,Math.min(payload.questionIds.length-1,Number(payload.index)||0))};
     }
     else if(winner.kind==='preferences'&&payload){if(payload.activeSubject&&payload.activeSubject!==activeSubject&&typeof SUBJECT_BY_NAME!=='undefined'&&SUBJECT_BY_NAME[payload.activeSubject])applySubject(payload.activeSubject);if(payload.studyStartedAt)state.studyStartedAt=state.studyStartedAt?Math.min(Number(state.studyStartedAt),Number(payload.studyStartedAt)):Number(payload.studyStartedAt);nkMergeFsrsPreferences(payload.fsrsPreferences,payload.fsrsPreferencesAt);nkMergeFsrsReviewEligible(payload.fsrsReviewEligible,winner.updatedAt);}
     if(typeof nkFsrsPruneCommittedPending==='function')nkFsrsPruneCommittedPending();

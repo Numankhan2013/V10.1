@@ -26,12 +26,12 @@ jobs:
       SOURCE_RUN: ${{ inputs.source_run || '37205213240' }}
       SOURCE_SHA: ${{ inputs.source_sha || 'e9a1c15537fd2bb0542726c60d15b059f574fcc5' }}
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-node@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         with:
           node-version: '20'
       - name: Download the existing artifact without rebuilding
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
           name: V11.7-android-pwa
           run-id: ${{ env.SOURCE_RUN }}
@@ -68,7 +68,7 @@ jobs:
       - name: Enable emulator acceleration
         run: sudo chmod a+rw /dev/kvm
       - name: Exercise the existing APK on Android phone and tablet
-        uses: reactivecircus/android-emulator-runner@v2
+        uses: reactivecircus/android-emulator-runner@a421e43855164a8197daf9d8d40fe71c6996bb0d # v2
         env:
           NODE_PATH: ${{ runner.temp }}/bc4-node/node_modules
         with:
@@ -79,7 +79,7 @@ jobs:
           script: node tools/verify_android_question_interaction.js
       - name: Upload Android interaction evidence
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: exact-artifact-android-interaction
           path: build/android-interaction/

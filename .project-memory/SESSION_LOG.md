@@ -2566,8 +2566,17 @@ User asked for a thorough functional audit, especially whether FSRS is as good a
 
 ## 2026-10-13 — Post-bake fixes before promotion
 
-- My Subjects gains a Mixed practice row wired to `startAllSubjectPractice`, which now
-  draws from `nkAllStudyQuestions()` (all banks) and registers the picked questions in `BY_ID`.
+- `startAllSubjectPractice` draws from `nkAllStudyQuestions()` (all banks) and registers the
+  picked questions in `BY_ID`. A Mixed practice row on My Subjects was added and then removed
+  at the user's request: no new UI entry points without asking first.
+- My Subjects now shows the same per-bank (PrepLadder / Marrow) progress bars as Home.
+  `nk-feel.js` had two functions named `enhanceSubjects`; the Home bank one shadowed the
+  Insights one, which never ran. The bank one is now `enhanceSubjectBanks` (Home and My
+  Subjects); the dead Insights one and its CSS were removed, so Insights is unchanged.
+- Compared against the production artifact (39cc7161) with the study UI capture and an
+  11-route light/dark phone/tablet pass: the only differences are intended (44px builder
+  targets, 16px inputs, Restore points, per-bank bars on My Subjects) or environmental
+  (CI-injected sync config, random CBT questions).
 - Gold "why the other options are wrong" labels use `nkScientificMarkup` like the options.
 - Removed the unused `nkInsightsExpanded` / `nkToggleInsightsExpanded`.
 - Insights focus/coverage sections stay retired (deliberate since the 2026-10-01 Insights
@@ -2680,3 +2689,18 @@ User asked for a thorough functional audit, especially whether FSRS is as good a
 - The user reviewed the promoted Home surface and reported the UWorld entry's `>` chevron floating toward the middle of the "My UWorld" card instead of the card's right edge. Cause: the entry shares the subject-card grid (`44px 1fr 42px 18px`), but the Geist declutter rules hide its "Open" action (`display:none`), removing a grid child — the chevron fell into the meta column and the last column sat empty (~67px gap). The Mixed-practice card already solved the same case with a three-column override; the UWorld entry had missed it.
 - Fix (display only): `app.css` Declutter block gains `html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-uworld .nk-uworld-entry { grid-template-columns: 44px minmax(0, 1fr) 18px !important; }` directly below the rule that hides the action. `tools/test_home_command_center_v1.py` locks the rule; `tools/verify_uworld_biochemistry_browser.py` now asserts the chevron's right edge sits flush with the card's right padding (≤2px) at every CI width (that verifier cannot run fully locally — its exhibits are CI-recovered LFS crops — so geometry was pre-verified with a standalone probe: gap=1px at 390/820/1194/1440, height 72, no horizontal scroll).
 - Evidence: `HOME_V3_CONTRACT_OK`, `PROFESSIONAL_SUBJECT_GROUPS_OK`, `LOCAL_CHECKS_OK checks=95`, light+dark card screenshots from the rebuilt dist. Committed `de1fac70` (branch + main fast-forward), promote dispatch `38865344724` (`build_apk=false`, `promote_production=true`, `release_sha=de1fac70…`) succeeded — published deployment `4e8fe836`; live checks `PREVIEW_CHECK_OK url=https://4e8fe836.nk-qbank.pages.dev/ motion=spring bank=726 topics=25 sections=6 tiles=on pill=on strip=on questions=on` and `LIVE_UWORLD_OK url=https://4e8fe836.nk-qbank.pages.dev/ chevron_gap=1px entry_h=72 hscroll=off`.
+
+## 2026-10-16 — Tests page redesign (Mock shelf + Build)
+
+- The user picked layout 1 of three sketched structures (`.impeccable/mocks/decision/`); the
+  contract is in `.impeccable/surfaces/app-src-main-assets-index-html-tests.md`.
+- `testsPage()` (index.html) now renders: resume card → Saved mocks shelf (newest in ink,
+  "See all" turns it into a searchable grid; cards keep `.nk-na-mock-row > button` →
+  `nkMockOpen`) → Score trend (last 10 timed results, right-aligned 10-slot bars, shown from 2
+  results) → Quick test (Wrong / Bookmarked buttons) → Recent (`.nk-test-history`, 5 + older)
+  → floating "Build a test" pill (`openMultiSubjectTestBuilder`).
+- Quick test opens a real bottom sheet (`#nk-quick-sheet`, `nkQuickTestOpen/Set/Start/Close`);
+  it must NOT reuse the `#nk-mock-sheet` ids/classes, which nk-feel turns into full screens.
+- The saved-mocks wrapper in `refined_analysis.js` was removed (folded into `testsPage`).
+- Browser tests now click "Build a test" instead of "Choose subjects and topics".
+- CSS: section `nk-tests-shelf-v1` in app.css, just before `nk-visual-refinement-v1`.

@@ -28,6 +28,12 @@ on:
 permissions:
   contents: read
 
+# Superseded pushes to a feature branch are cancelled; main pushes and manual
+# dispatches (including production promotions) always run to completion.
+concurrency:
+  group: build-${{ github.ref }}-${{ github.event_name }}
+  cancel-in-progress: ${{ github.event_name == 'push' && github.ref != 'refs/heads/main' }}
+
 jobs:
   android-interaction:
     name: Android WebView interaction regression
@@ -36,11 +42,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-node@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         with:
           node-version: '20'
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
           name: V11.7-android-pwa
           path: build/android-artifact
@@ -49,7 +55,7 @@ jobs:
       - name: Enable emulator acceleration
         run: sudo chmod a+rw /dev/kvm
       - name: Exercise packaged APK on Android phone and tablet
-        uses: reactivecircus/android-emulator-runner@v2
+        uses: reactivecircus/android-emulator-runner@a421e43855164a8197daf9d8d40fe71c6996bb0d # v2
         env:
           NODE_PATH: ${{ runner.temp }}/bc4-node/node_modules
         with:
@@ -60,7 +66,7 @@ jobs:
           script: node tools/verify_android_question_interaction.js
       - name: Upload Android interaction evidence
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: android-question-interaction
           path: build/android-interaction/
@@ -72,7 +78,7 @@ jobs:
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
     steps:
       - name: Checkout V11 source visuals
-        uses: actions/checkout@v5
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
       - name: Validate explicit production release target
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.promote_production }}
         env:
@@ -82,11 +88,11 @@ jobs:
           test -n "$EXPECTED_RELEASE_SHA"
           test "$EXPECTED_RELEASE_SHA" = "$GITHUB_SHA"
       - name: Set up Python for Linux PDF generation
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
           python-version: '3.12'
       - name: Set up Node for behavior and JavaScript checks
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         with:
           node-version: '20'
       - name: Test local and CI verification preflight
@@ -113,7 +119,7 @@ jobs:
           python3 tools/queue_question_completeness.py --require-reviewed
       - name: Upload source completeness screening evidence
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: question-completeness-screening
           path: build/question-fidelity/
@@ -131,7 +137,7 @@ jobs:
           --output build/marrow-manual-region-review
       - name: Upload claimed Marrow source-region review
         if: ${{ always() && hashFiles('build/marrow-manual-region-review/manifest.json') != '' }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: marrow-manual-biochem-ch25-28-regions
           path: build/marrow-manual-region-review/
@@ -150,7 +156,7 @@ jobs:
           done
       - name: Upload claimed Wave 2 source-region review
         if: ${{ always() && hashFiles('build/marrow-wave2-region-review/**/manifest.json') != '' }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: marrow-wave2-regions
           path: build/marrow-wave2-region-review/
@@ -167,7 +173,7 @@ jobs:
         run: python3 tools/improve_source_visual_assets_v1.py
       - name: Upload PrepLadder visual audit diagnostics
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: prepladder-visual-audit-${{ github.sha }}
           path: |
@@ -290,7 +296,7 @@ jobs:
       # The offline-cache step later re-hashes every restored byte.
       - name: Restore source-reviewed UWorld exhibits
         id: uworld_figures
-        uses: actions/cache@v4
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
           path: |
             app/src/main/assets/source_visuals/uworld
@@ -356,7 +362,7 @@ jobs:
           grep -q 'body:has(.nk-home-v4) .topbar' app/src/main/assets/index.html app/src/main/assets/app.css
           grep -q 'nk-home-actions-v1' app/src/main/assets/index.html app/src/main/assets/app.css
           grep -q 'Continue Practice' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'Choose subjects and topics' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'Build a test' app/src/main/assets/index.html app/src/main/assets/app.css
           grep -q 'Quick test' app/src/main/assets/index.html app/src/main/assets/app.css
           ! grep -q 'id="v102-streak-layer-script"' app/src/main/assets/index.html app/src/main/assets/app.css
           ! grep -q 'id="v102-streak-layer"' app/src/main/assets/index.html app/src/main/assets/app.css
@@ -471,14 +477,14 @@ jobs:
           tools/capture_marrow_image_review.py
       - name: Upload study journey views
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: study-journey-views
           path: build/study-journey/
           retention-days: 3
       - name: Upload study UI audit evidence
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: study-ui-audit
           path: build/study-ui-audit/
@@ -486,7 +492,7 @@ jobs:
           if-no-files-found: warn
       - name: Upload recall dock and Marrow pilot screenshots
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: recall-dock-and-marrow-pilot-screenshots
           path: |
@@ -509,7 +515,7 @@ jobs:
       - name: Write PWA reproducibility manifest
         run: python3 tools/write_build_manifest.py --web-only
       - name: Upload verified PWA artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: V11.7-pwa
           retention-days: 3
@@ -519,13 +525,13 @@ jobs:
           if-no-files-found: error
       - name: Set up JDK 17
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_apk }}
-        uses: actions/setup-java@v5
+        uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5
         with:
           distribution: temurin
           java-version: '17'
       - name: Set up Gradle
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_apk }}
-        uses: gradle/actions/setup-gradle@v5
+        uses: gradle/actions/setup-gradle@0723195856401067f7a2779048b490ace7a47d7c # v5
         with:
           gradle-version: '9.5.0'
       - name: Configure side-by-side Marrow pilot APK
@@ -552,7 +558,7 @@ jobs:
           grep -q 'body:has(.nk-home-v4) .topbar' /tmp/packaged-index.html
           grep -q 'nk-home-actions-v1' /tmp/packaged-index.html
           grep -q 'Continue Practice' /tmp/packaged-index.html
-          grep -q 'Choose subjects and topics' /tmp/packaged-index.html
+          grep -q 'Build a test' /tmp/packaged-index.html
           grep -q 'Quick test' /tmp/packaged-index.html
           grep -q 'nk-topics-v2' /tmp/packaged-index.html
           grep -q 'openSubjectTopics' /tmp/packaged-index.html
@@ -616,7 +622,7 @@ jobs:
         run: python3 tools/check_marrow_image_package.py --apk
       - name: Upload debug APK and build manifest
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_apk }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: V11.7-android-pwa
           retention-days: 3
@@ -628,7 +634,7 @@ jobs:
 
       - name: Deploy PWA preview to Cloudflare Pages
         if: ${{ github.ref_name != 'main' && (github.ref_name != 'feature/marrow-bank-pilot' || github.event_name == 'workflow_dispatch') && env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != '' }}
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd # v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -667,7 +673,7 @@ jobs:
       # Automatic pushes stay previews; this exact-SHA dispatch promotes main.
       - name: Promote PWA to Cloudflare Pages production
         if: ${{ github.event_name == 'workflow_dispatch' && github.ref_name == 'main' && inputs.promote_production && inputs.release_sha == github.sha && env.CLOUDFLARE_API_TOKEN != '' && env.CLOUDFLARE_ACCOUNT_ID != '' }}
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd # v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

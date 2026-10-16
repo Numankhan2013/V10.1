@@ -99,7 +99,7 @@ def main() -> None:
             "nk-review-solution-grid-style", 'id="cr-grid"',
             "qb-nav-submit",
             "window.QB.openQuestionNavigator()", "Continue Practice",
-            "Choose subjects and topics", "nk-custom-study-modules-v1",
+            "Build a test", "nk-custom-study-modules-v1",
             "nk-home-command-center-v1", "Quick test",
             "NK_CONTINUE_PRACTICE_RESUME_V1_START", "nk-practice-session-controls",
             "nkPausePractice", "nkSubmitPracticeSession", "sessionQuestionIds", "practiceContext",

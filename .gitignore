@@ -5,3 +5,20 @@ local.properties
 .idea/
 *.iml
 __pycache__/
+
+# Impeccable decision-round scratch
+.impeccable/mocks/
+.impeccable/questions/
+
+# Python and editor noise
+*.pyc
+.DS_Store
+*.tmp
+
+# Secrets and signing material must never be committed
+.env
+.env.*
+*.keystore
+*.jks
+*.p12
+service-account*.json
