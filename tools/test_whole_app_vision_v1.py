@@ -46,7 +46,7 @@ def main() -> None:
         'class="nk-home-approved-v1 nk-home-command-center"',
         'class="nk-app-v114 nk-topics-v114"',
         'class="nk-app-v114 nk-chapter-v114"',
-        'class="nk-new-test-v2 nk-tests-focused"',
+        'class="nk-new-test-v2 nk-tests-focused nk-tests-shelf-page"',
         'class="nk-app-v114 nk-analytics-v114 nk-learning-insights"',
         'class="nk-app-v114 nk-more-v114"',
         'class="nk-app-v114 nk-library-v114"',
