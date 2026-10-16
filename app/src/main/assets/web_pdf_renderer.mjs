@@ -1,7 +1,8 @@
 /* Browser-only source-solution renderer using Mozilla PDF.js. Android keeps native PdfRenderer. */
 if (location.hostname !== 'qbank.local') {
+  await import('./pdf_polyfills.mjs');
   const pdfjs = await import('./vendor/pdfjs/pdf.min.mjs');
-  pdfjs.GlobalWorkerOptions.workerSrc = './vendor/pdfjs/pdf.worker.min.mjs';
+  pdfjs.GlobalWorkerOptions.workerSrc = './pdf_worker.mjs';
   const config = window.NK_QBANK_FIREBASE_CONFIG || {};
   const urls = {
     biochemistry: './Biochemistry_QBank_Source.pdf',

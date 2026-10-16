@@ -57,7 +57,7 @@ jobs:
       - name: Serve the verified PWA to the emulator
         run: |
           WEB=$(dirname "$(find build/android-artifact -path '*build/web/index.html' -print -quit)")
-          nohup python3 -m http.server 8765 --bind 127.0.0.1 --directory "$WEB" > "$RUNNER_TEMP/web.log" 2>&1 &
+          nohup python3 tools/serve_web_ranges.py "$WEB" 8765 > "$RUNNER_TEMP/web.log" 2>&1 &
           for i in $(seq 1 30); do curl -sf http://127.0.0.1:8765/ > /dev/null && exit 0; sleep 1; done
           exit 1
       - name: Install Android interaction driver

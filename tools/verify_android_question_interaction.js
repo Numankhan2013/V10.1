@@ -295,7 +295,12 @@ async function main(){
       const sourcePdf=page.locator('.nk-web-pdf-segment:not([data-subject="anatomy"]) canvas').first();
       if(await sourcePdf.count()){
         await sourcePdf.scrollIntoViewIfNeeded();
-        await page.waitForFunction(()=>document.querySelector('.nk-web-pdf-segment:not([data-subject="anatomy"])[data-rendered="true"] canvas')?.width>0,null,{timeout:60000});
+        await page.waitForFunction(()=>document.querySelector('.nk-web-pdf-segment:not([data-subject="anatomy"])[data-rendered="true"] canvas')?.width>0,null,{timeout:60000}).catch(async error=>{
+          console.log('ANDROID_SOURCE_PDF_STATE '+JSON.stringify(await page.evaluate(()=>[...document.querySelectorAll('.nk-web-pdf-segment')].map(node=>({
+            subject:node.dataset.subject,page:node.dataset.page,rendered:node.dataset.rendered,status:node.querySelector('.nk-web-pdf-status')?.textContent||''
+          })))));
+          throw error;
+        });
         assert.equal(await sourcePdf.evaluate(node=>getComputedStyle(node).filter),'contrast(1.16) saturate(1.12)');
         await sourcePdf.evaluate(node=>node.scrollIntoView({block:'center',behavior:'instant'}));
         await device.screenshot({path:`${output}/${label}-source-pdf-contrast.png`});
