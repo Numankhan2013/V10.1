@@ -3,7 +3,7 @@ const BUILD_VERSION='dev';
 const SHELL_CACHE=`nk-qbank-shell-${BUILD_VERSION}`;
 const RUNTIME_CACHE=`nk-qbank-runtime-${BUILD_VERSION}`;
 // Content-hashed figures live in one unversioned cache that survives deploys.
-// They are filled in the background so installation never waits on ~600 MB.
+// It fills as figures are viewed; NK_MEDIA_SYNC downloads all ~600 MB on request.
 const MEDIA_CACHE='nk-qbank-media';
 const SHELL=['./app.css','./redesign/nk-pdf-loader.js','./redesign/nk-viewer.js','./pdf_glyph_repairs.json','./redesign/nk-feel.js','./redesign/vendor/motion-12.23.12.min.js','./redesign/nk-icons.js','./redesign/nk-redesign.js','./redesign/fonts/Geist-Variable.woff2','./redesign/fonts/GeistMono-Variable.woff2','./vendor/ts-fsrs/ts-fsrs-5.4.2.umd.js','./vendor/ts-fsrs/LICENSE','./','./index.html','./manifest.webmanifest','./qbank-config.js','./nk-store.js','./qbank-icon-192.png','./qbank-icon-512.png','./nk-icon-maskable-192.png','./nk-icon-maskable-512.png','./apple-touch-icon.png','./nk-icon.svg','./favicon-32.png','./subjects_qbank_data.js','./qbank_data.js','./source_visual_metadata.js','./source_visual_renderer.js','./biochemistry_source_solution_map.js','./subject_source_solution_maps.js','./physiology_image_pages.js','./web_pdf_renderer.mjs','./vendor/pdfjs/pdf.min.mjs','./vendor/pdfjs/pdf.worker.min.mjs'];
 const MEDIA=[];

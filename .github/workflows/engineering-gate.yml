@@ -122,6 +122,7 @@ jobs:
       - name: Verify crawler exclusion and bounded UWorld source contracts
         run: |
           python3 tools/test_crawler_exclusion.py
+          python3 tools/test_question_detail_packs.py
           python3 tools/test_uworld_biochemistry_v1.py
           python3 tools/test_uworld_runtime_v1.py
           python3 tools/test_uworld_source_text.py

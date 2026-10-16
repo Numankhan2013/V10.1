@@ -134,6 +134,20 @@ closed. Raw question bundles and audit metadata remain unchanged.
 - Legacy Home polish shims retained as assets: `home_polish_v1/2/3.js`
   (legacy streak layer itself is removed from the packaged app).
 
+### On-demand explanations (web build only) — 2026-10-16
+- `tools/build_web_dist.py` `DetailPacks` moves `explanation`, `structuredExplanation`,
+  `provenance`, `sourceFidelity`, `references` and Marrow gold entries out of the boot
+  data into `data/details/<bank>-<subject>.<hash>.json` (immutable) and marks each
+  question with `detailPack`. Boot question data dropped from ~22 MB to ~5 MB.
+- Any question id named in `modules/question_presentation.js` stays whole, because
+  start-up integrity checks and reviewed rewrites read its explanation.
+- `modules/question_details.js`: `nkDetailsReady`, `nkLoadDetails` (re-applies Marrow
+  hygiene), `nkPrefetchDetails` (Practice starts the download), `nkDetailsPending`
+  (placeholder, then `render()`). The Android build never runs build_web_dist, so it
+  keeps everything inline and the loader is a no-op there.
+- The service worker no longer downloads every figure automatically; figures cache as
+  they are viewed (`NK_MEDIA_SYNC` remains for an explicit offline download).
+
 ## Client model (key globals in `index.html`)
 
 - `SUBJECTS`, `SUBJECT_BY_NAME`, `DATA`/`BASE_DATA`, `QUESTIONS`, `CHAPTERS`,
