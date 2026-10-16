@@ -160,8 +160,8 @@ async function main(){
       const paused={};
       for(const [index,chapter] of chapters.entries()){
         await page.evaluate(c=>window.QB.nkOpenSubjectChapter(c.subject,c.bank,c.id),chapter);
+        // Geist starts chapter practice straight from the topic page.
         await page.locator('.nk-chapter-actions button.is-primary').click();
-        await page.locator('#modal').getByRole('button',{name:'Start Practice',exact:true}).click();
         await page.waitForFunction(ids=>JSON.stringify(window.QB.getState().activeSession?.questionIds)===JSON.stringify(ids),chapter.ids);
         const sessionId=await page.evaluate(()=>window.QB.getState().activeSession.id);
         await page.evaluate(({id,option})=>window.QB.selectPractice(id,option),{id:chapter.ids[0],option:chapter.first});
