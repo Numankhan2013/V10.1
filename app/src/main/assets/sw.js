@@ -9,7 +9,7 @@ const SHELL=['./app.css','./redesign/nk-pdf-loader.js','./redesign/nk-viewer.js'
 const MEDIA=[];
 self.addEventListener('install',event=>event.waitUntil(caches.open(SHELL_CACHE).then(cache=>cache.addAll(SHELL))));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('nk-qbank-')&&key!==MEDIA_CACHE&&!key.endsWith(BUILD_VERSION)).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
-function isCloud(url){return /(?:googleapis\.com|firebaseio\.com|securetoken\.googleapis\.com)$/.test(url.hostname);}
+function isCloud(url){return /(?:^|\.)(?:googleapis\.com|firebaseio\.com)$/.test(url.hostname);}
 let mediaPaths=null;
 function mediaUrl(path){return new URL(path,self.registration.scope).href;}
 function isMedia(url){if(!mediaPaths)mediaPaths=new Set(MEDIA.map(mediaUrl));return mediaPaths.has(url.href.split('#')[0]);}

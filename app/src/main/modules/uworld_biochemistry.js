@@ -3,7 +3,7 @@
     return NK_UWORLD_COLLECTIONS.map(r=>{
     const available=r.questions.filter(nkUworldEligible),answered=available.filter(q=>qAttempts(q.id).length).length;
     const ready=available.length,pct=ready?Math.round(answered/ready*100):0;
-    return `<button class="nk-v3-subject-card nk-uworld-collection" onclick="window.QB.openBank('${esc(r.subject)}','UWorld')"><span class="nk-v3-subject-icon">${nkSubjectGraphic(r.subject,24)}</span><span class="nk-v3-subject-copy"><strong>${esc(r.collection)}</strong><small>${fmtNum(r.topics.length)} ${r.topics.length===1?'block':'blocks'} · ${fmtNum(r.questions.length)} questions</small><span class="nk-v3-subject-progress"><i style="width:${pct}%"></i></span></span><b>${pct}%</b>${navIcon('chevron',18)}</button>`;
+    return `<button class="nk-v3-subject-card nk-uworld-collection" onclick="window.QB.openBank(${esc(JSON.stringify(String(r.subject)))},'UWorld')"><span class="nk-v3-subject-icon">${nkSubjectGraphic(r.subject,24)}</span><span class="nk-v3-subject-copy"><strong>${esc(r.collection)}</strong><small>${fmtNum(r.topics.length)} ${r.topics.length===1?'block':'blocks'} · ${fmtNum(r.questions.length)} questions</small><span class="nk-v3-subject-progress"><i style="width:${pct}%"></i></span></span><b>${pct}%</b>${navIcon('chevron',18)}</button>`;
     }).join('');
   }
   function nkUworldHomeSection(){
@@ -48,7 +48,7 @@
     const caption=node.caption||'Source figure';
     const img=`<img src="${esc(nkUworldAssetUrl(node.asset))}" alt="${esc(caption)}" loading="eager" decoding="async" data-uworld-essential="${option||node.role==='question'?'true':'false'}" data-uworld-qid="${esc(q.id)}">`;
     if(option)return `<span class="nk-uworld-option-figure">${img}</span>`;
-    return `<figure class="nk-uworld-figure"><button type="button" aria-label="Enlarge source figure" onclick="window.QB.uworldFigure('${esc(node.asset)}')">${img}<span>${navIcon('search',16)} Enlarge</span></button>${node.caption||node.source_note?`<figcaption>${nkScientificMarkup(node.caption||'')}${node.source_note?`<span class="nk-uworld-source-note">${nkScientificMarkup(node.source_note)}</span>`:''}</figcaption>`:''}</figure>`;
+    return `<figure class="nk-uworld-figure"><button type="button" aria-label="Enlarge source figure" onclick="window.QB.uworldFigure(${esc(JSON.stringify(String(node.asset)))})">${img}<span>${navIcon('search',16)} Enlarge</span></button>${node.caption||node.source_note?`<figcaption>${nkScientificMarkup(node.caption||'')}${node.source_note?`<span class="nk-uworld-source-note">${nkScientificMarkup(node.source_note)}</span>`:''}</figcaption>`:''}</figure>`;
   }
   function nkUworldFigure(asset){
     const known=nkAllStudyQuestions().filter(q=>q.bank==='UWorld').some(q=>[...(q.uworldDocument?.question_blocks||[]),...(q.uworldDocument?.explanation||[]),...(q.options||[]).map(o=>o.figure)].some(n=>n?.asset===asset));
@@ -107,7 +107,7 @@
   nkQuestionStemMarkup=function(q){
     if(q?.bank!=='UWorld')return nkUworldOriginalStem(q);
     const imageOptions=(q.options||[]).filter(o=>o.figure);
-    const tools=imageOptions.length?`<details class="nk-uworld-option-tools"><summary>Enlarge option diagrams</summary><div>${imageOptions.map(o=>`<button type="button" aria-label="Enlarge option ${esc(o.letter)}" onclick="window.QB.uworldFigure('${esc(o.figure.asset)}')">${esc(o.letter)} ${navIcon('search',16)}</button>`).join('')}</div></details>`:'';
+    const tools=imageOptions.length?`<details class="nk-uworld-option-tools"><summary>Enlarge option diagrams</summary><div>${imageOptions.map(o=>`<button type="button" aria-label="Enlarge option ${esc(o.letter)}" onclick="window.QB.uworldFigure(${esc(JSON.stringify(String(o.figure.asset)))})">${esc(o.letter)} ${navIcon('search',16)}</button>`).join('')}</div></details>`:'';
     const displayQuestion=q.uworldDocument?{...q,question:q.uworldDocument.question}:q;
     return `<div class="nk-uworld-stem">${nkUworldOriginalStem(displayQuestion)}${nkUworldNodes(q.uworldDocument?.question_blocks,q)}${tools}</div>`;
   };

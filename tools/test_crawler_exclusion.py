@@ -56,7 +56,8 @@ const assert=(ok,message)=>{if(!ok)throw Error(message);};
 const tag='noindex, nofollow, noarchive, nosnippet, noimageindex';
 function excluded(response){
   assert(response.headers.get('X-Robots-Tag')===tag,'missing search exclusion');
-  assert(response.headers.get('Content-Security-Policy')==="frame-ancestors 'none'",'missing frame restriction');
+  assert((response.headers.get('Content-Security-Policy')||'').includes("frame-ancestors 'none'"),'missing frame restriction');
+  assert((response.headers.get('Content-Security-Policy')||'').includes("object-src 'none'"),'missing plugin restriction');
   assert(response.headers.get('X-Frame-Options')==='DENY','missing legacy frame restriction');
   assert(response.headers.get('X-Content-Type-Options')==='nosniff','missing MIME protection');
   assert(response.headers.get('Referrer-Policy')==='strict-origin-when-cross-origin','missing referrer restriction');

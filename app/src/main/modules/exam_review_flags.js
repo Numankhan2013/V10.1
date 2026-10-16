@@ -15,7 +15,7 @@
   }
   function nkExamReviewButton(q,s){
     const marked=s.markedForReview?.[String(q.id)]===true;
-    return `<div class="nk-exam-review-row"><button type="button" class="nk-exam-review-toggle ${marked?'is-marked':''}" aria-pressed="${marked}" onclick="window.QB.nkToggleExamReviewFlag('${esc(String(q.id))}','${esc(String(s.id))}')"><span aria-hidden="true">⚑</span>${marked?'Marked for review':'Mark for review'}</button><small>Use this for guesses or questions to revisit after the test.</small></div>`;
+    return `<div class="nk-exam-review-row"><button type="button" class="nk-exam-review-toggle ${marked?'is-marked':''}" aria-pressed="${marked}" onclick="window.QB.nkToggleExamReviewFlag(${esc(JSON.stringify(String(String(q.id))))},${esc(JSON.stringify(String(String(s.id))))})"><span aria-hidden="true">⚑</span>${marked?'Marked for review':'Mark for review'}</button><small>Use this for guesses or questions to revisit after the test.</small></div>`;
   }
   const nkMarkedOriginalSessionReview=openSessionReview;
   openSessionReview=function(){

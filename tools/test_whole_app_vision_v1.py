@@ -51,7 +51,7 @@ def main() -> None:
         'class="nk-app-v114 nk-more-v114"',
         'class="nk-app-v114 nk-library-v114"',
         'class="nk-app-v114 nk-result-v114"',
-        "window.QB.nkOpenSubjectLibrary('${esc(x.subject)}')",
+        "window.QB.nkOpenSubjectLibrary(${esc(JSON.stringify(String(x.subject)))})",
         "window.QB.openMultiSubjectTestBuilder()",
         "startAllSubjectPractice,",
         "window.QB.startLibrary('${kind}')",

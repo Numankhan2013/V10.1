@@ -113,6 +113,8 @@ def main() -> None:
     (out / "_headers").write_text(
         "/*\n  X-Robots-Tag: "+ROBOTS_DIRECTIVES+"\n"+
         ''.join('  '+name+': '+value+'\n' for name,value in HEADERS.items())+
+        # Pages adds a wildcard CORS header to static assets; nothing here is meant for other origins.
+        "  ! Access-Control-Allow-Origin\n"+
         "/sw.js\n  Cache-Control: no-cache\n/index.html\n  Cache-Control: no-cache\n/qbank-config.js\n  Cache-Control: no-cache\n/source_visuals/*\n  Cache-Control: public, max-age=31536000, immutable\n/vendor/*\n  Cache-Control: public, max-age=31536000, immutable\n",
         encoding="utf-8",
     )
