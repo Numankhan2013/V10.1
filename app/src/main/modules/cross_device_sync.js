@@ -227,7 +227,9 @@
     nkSaveSyncMeta();if(nkCloudRevision!==revision&&!nkCloudBusy)nkScheduleCloudFlush();
   }
   function nkScheduleCloudSync(){if(!nkAuth)return;nkCaptureCloudChanges();}
-  function nkScheduleCloudFlush(){clearTimeout(nkCloudTimer);nkCloudTimer=setTimeout(()=>nkCloudSync(false,true),1200);}
+  // Saves only upload: each device writes its own documents, so nothing remote
+  // can be overwritten, and pulling everything after every answer would read the whole account.
+  function nkScheduleCloudFlush(){clearTimeout(nkCloudTimer);nkCloudTimer=setTimeout(()=>nkCloudSync(false,true,true),1200);}
 
   function nkFirestoreValue(value){
     if(typeof value==='boolean')return {booleanValue:value};
@@ -511,8 +513,11 @@
     if(!result)throw new Error(nkSyncMeta.lastError||'Cloud synchronization failed.');
     nkCloudReady=true;nkCaptureCloudChanges();
   }
-  async function nkCloudSync(initial=false,silent=false){
+  let nkCloudAutoAt=0,nkCloudAutoFailures=0;
+  async function nkCloudSync(initial=false,silent=false,pushOnly=false){
     if(nkCloudBusy||nkCloudResetting||!nkAuth||!nkCloudConfigured())return false;
+    if(pushOnly&&(initial||nkSyncMeta.needsInitialPull))pushOnly=false;
+    if(!pushOnly)nkCloudAutoAt=Date.now();
     clearTimeout(nkCloudTimer);nkCloudBusy=true;nkSyncMeta.status='syncing';nkCloudRenderStatus();
     let stage='authentication';
     try{
@@ -524,8 +529,8 @@
       await nkEnsureAccountGeneration(token);
       nkCaptureCloudChanges();
       stage='download';
-      const pulled=await nkPullCloud(token);
-      const changed=nkCloudMergeChanged;
+      const pulled=pushOnly?0:await nkPullCloud(token);
+      const changed=!pushOnly&&nkCloudMergeChanged;
       if(saveState()===false)throw new Error('merged state could not be saved locally');
       if(initial)nkCloudReady=true;
       const firstPull=Boolean(nkSyncMeta.needsInitialPull);
@@ -563,14 +568,19 @@
   }
   function nkCloudAutoSync(){
     if(!nkAuth||!nkCloudConfigured()||!navigator.onLine||nkCloudBusy||nkCloudResetting)return;
-    nkCloudSync(false,true);
+    if(document.visibilityState==='hidden')return;
+    // Every pull reads each synced document, and focus, visibility and the timer
+    // often fire together: one automatic sync a minute, backing off after errors.
+    if(Date.now()-nkCloudAutoAt<Math.min(3600000,60000*2**nkCloudAutoFailures))return;
+    nkCloudAutoAt=Date.now();
+    Promise.resolve(nkCloudSync(false,true)).then(()=>{nkCloudAutoFailures=nkSyncMeta.status==='error'?Math.min(nkCloudAutoFailures+1,6):0;},()=>{nkCloudAutoFailures=Math.min(nkCloudAutoFailures+1,6);});
   }
   function nkStartCloudAutoSync(){
     clearInterval(nkCloudInterval);
     nkCloudInterval=setInterval(nkCloudAutoSync,300000);
   }
   async function nkCloudInit(){
-    window.addEventListener('online',()=>{if(nkAuth)nkCloudSync(false,true);});
+    window.addEventListener('online',()=>{nkCloudAutoAt=0;nkCloudAutoFailures=0;nkCloudAutoSync();});
     window.addEventListener('offline',()=>{nkSyncMeta.status='offline';nkSaveSyncMeta();nkCloudRenderStatus();});
     window.addEventListener('focus',nkCloudAutoSync);
     document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')nkCloudAutoSync();});

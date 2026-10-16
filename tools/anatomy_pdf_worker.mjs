@@ -16,7 +16,10 @@ export default {
     for(const key of ['Range','If-Range','If-None-Match','If-Modified-Since'])if(request.headers.has(key))headers.set(key,request.headers.get(key));
     try {
       const upstream=await fetch(SOURCE_URL,{method:request.method,headers});
-      const out=new Headers(upstream.headers);
+      // Pass through only what byte-range streaming and caching need; upstream
+      // cookies, CORS grants and server banners never reach this origin.
+      const out=new Headers();
+      for(const key of ['Content-Length','Content-Range','Accept-Ranges','ETag','Last-Modified','Cache-Control'])if(upstream.headers.has(key))out.set(key,upstream.headers.get(key));
       out.set('Content-Type','application/pdf');out.set('X-Content-Type-Options','nosniff');
       // Streaming preserves byte ranges and avoids buffering the 46 MB PDF.
       return excludeFromSearch(new Response(upstream.body,{status:upstream.status,headers:out}));
