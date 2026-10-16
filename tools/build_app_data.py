@@ -8,7 +8,8 @@ embeds is generated from data/ and replaced here, each at a
 `__NK_DATA_<NAME>__` token, so a data change never needs a code change:
 
   SUBJECT_QBANK_DATA, QBANK_DATA   assets/subjects_qbank_data.js, qbank_data.js
-  MARROW_DATA                      data/marrow expanded banks + reviewed overrides
+  MARROW_DATA                      data/marrow expanded banks + reviewed overrides,
+                                   plus the Marrow-only Microbiology bank
   MARROW_EXPLANATION_GOLD          data/marrow approved explanation batches
   MARROW_TOPIC_TAXONOMY            data/marrow/topic_index_taxonomy.json
   MARROW_VISIBLE_TOPIC_ORDER       the same taxonomy, in learner order
@@ -47,8 +48,8 @@ def asset_script(name: str) -> str:
 
 
 def marrow_data() -> str:
-    from marrow_bank_data import expanded_marrow_records, validate_biochemistry_batches
-    records = expanded_marrow_records()
+    from marrow_bank_data import app_marrow_records, validate_biochemistry_batches
+    records = app_marrow_records()
     validate_biochemistry_batches(records[1])
     return js_json({"records": records})
 
@@ -89,6 +90,8 @@ def uworld_scripts() -> str:
 def release_marrow_figures() -> None:
     from marrow_images import release
     release(ROOT / "data/marrow/images/registry.json")
+    from microbiology_visuals import release as release_microbiology
+    release_microbiology()
 
 
 BUILDERS = {

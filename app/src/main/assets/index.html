@@ -69,6 +69,7 @@
 
 <!-- NK_MARROW_IMAGES_V1 -->
 <script defer src="marrow_visual_metadata.js"></script>
+<script defer src="microbiology_visual_metadata.js"></script>
 <script defer src="marrow_visual_renderer.js"></script>
 </head>
 <body>
@@ -139,6 +140,13 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
     if(!record.subject||!record.questions.length)return;
     const list=BANKS_BY_SUBJECT[record.subject]||(BANKS_BY_SUBJECT[record.subject]=[]);
     list.push(record);
+  });
+  // A Marrow-only subject (Microbiology) has no PrepLadder record, so it joins
+  // My Subjects with its Marrow record as the subject's one bank.
+  Object.values(MARROW_BY_SUBJECT).forEach(record=>{
+    if(!record.subject||!record.questions.length||SUBJECT_BY_NAME[record.subject])return;
+    SUBJECTS.push(record);
+    SUBJECT_BY_NAME[record.subject]=record;
   });
   function nkBankRecords(name){
     return (BANKS_BY_SUBJECT[name]||[]).slice();
@@ -522,6 +530,7 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
     }
     if(key.includes('physiology')) return {key:'physiology',icon:'heart',tone:'red'};
     if(key.includes('anatomy')) return {key:'anatomy',icon:'body',tone:'blue'};
+    if(key.includes('microbiology')) return {key:'microbiology',icon:'virus',tone:'green'};
     return {key:'biochemistry',icon:'dna',tone:'magenta'};
   }
 
@@ -544,6 +553,7 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
       uworld:'<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21V5.5ZM4 19h16M9 7h7M9 11h5"/>',
       biochemistry:'<path d="M17 3v1c-.01 3.352 -1.68 6.023 -5.008 8.014c-3.328 1.99 3.336 -2 .008 -.014c-3.328 1.99 -5 4.662 -5.008 8.014v1"/><path d="M17 21.014v-1c-.01 -3.352 -1.68 -6.023 -5.008 -8.014c-3.328 -1.99 3.336 2 .008 .014c-3.328 -1.991 -5 -4.662 -5.008 -8.014v-1"/><path d="M7 4h10M7 20h10M8 8h8M8 16h8"/>',
       physiology:'<path d="M19.5 13.572l-7.5 7.428l-2.896 -2.868m-6.117 -8.104a5 5 0 0 1 9.013 -3.022a5 5 0 1 1 7.5 6.572"/><path d="M3 13h2l2 3l2 -6l1 3h3"/>',
+      microbiology:'<circle cx="12" cy="12" r="5"/><path d="M12 7V3M11 3h2M15.536 8.464l2.828-2.828M17.657 4.929l1.414 1.414M17 12h4M21 11v2M15.535 15.536l2.829 2.828M19.071 17.657l-1.414 1.414M12 17v4M13 21h-2M8.465 15.536l-2.829 2.828M6.343 19.071l-1.413-1.414M7 12H3M3 13v-2M8.464 8.464 5.636 5.636M4.929 6.343l1.414-1.413"/>',
       anatomy:'<path d="M15 3a3 3 0 0 1 3 3a3 3 0 1 1 -2.12 5.122l-4.758 4.758a3 3 0 1 1 -5.117 2.297v-.177h-.176a3 3 0 1 1 2.298 -5.115l4.758 -4.758a3 3 0 0 1 2.12 -5.122z"/>'
     };
     return `<svg class="nk-subject-svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[key]}</svg>`;
@@ -628,9 +638,57 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
     if(typeof openBank==='function'&&bank)openBank(subject,bank);else if(typeof openSubjectTopics==='function')openSubjectTopics(subject);
     setTimeout(()=>{if(typeof openChapter==='function')openChapter(topicId);},0);
   }
-  function nkSubjectCardsV3(){
-    return (SUBJECTS||[]).map(r=>{const s=nkSubjectStatsV3(r.subject),m=nkAppSubjectMeta(r.subject);const banks=(typeof nkBankRecords==='function'?nkBankRecords(r.subject):[]).filter(b=>b&&b.bank&&Array.isArray(b.questions)).map(b=>[b.bank,b.questions.filter(q=>qAttempts(q.id).length>0).length,b.questions.length]);return `<button class="nk-v3-subject-card is-${m.key}" data-nk-banks="${esc(JSON.stringify(banks))}" onclick="window.QB.nkOpenSubjectLibrary('${esc(r.subject)}')"><span class="nk-v3-subject-icon">${nkAppSubjectIcon(r.subject,24)}</span><span class="nk-v3-subject-copy"><strong>${esc(r.subject)}</strong><small>${fmtNum(s.topics)} topics · ${fmtNum(s.questions)} questions</small><span class="nk-v3-subject-progress"><i style="width:${s.pct}%"></i></span></span><b>${s.pct}%</b>${navIcon('chevron',18)}</button>`;}).join('');
+  function nkSubjectCardV3(name){
+    const s=nkSubjectStatsV3(name),m=nkAppSubjectMeta(name);
+    const banks=(typeof nkBankRecords==='function'?nkBankRecords(name):[]).filter(b=>b&&b.bank&&Array.isArray(b.questions)).map(b=>[b.bank,b.questions.filter(q=>qAttempts(q.id).length>0).length,b.questions.length]);
+    return `<button class="nk-v3-subject-card is-${m.key}" data-nk-banks="${esc(JSON.stringify(banks))}" onclick="window.QB.nkOpenSubjectLibrary('${esc(name)}')"><span class="nk-v3-subject-icon">${nkAppSubjectIcon(name,24)}</span><span class="nk-v3-subject-copy"><strong>${esc(name)}</strong><small>${fmtNum(s.topics)} topics · ${fmtNum(s.questions)} questions</small><span class="nk-v3-subject-progress"><i style="width:${s.pct}%"></i></span></span><b>${s.pct}%</b>${navIcon('chevron',18)}</button>`;
   }
+  function nkSubjectCardsV3(){return (SUBJECTS||[]).map(r=>nkSubjectCardV3(r.subject)).join('');}
+
+  /* NK_PROF_GROUPS_V1_START */
+  /* My Subjects is grouped by MBBS professional year. The map is explicit and
+     short on purpose: a subject that is not listed yet still gets its card under
+     "Other", so a new bank can never disappear from Home. A group is a
+     presentation wrapper only - the subject cards themselves are unchanged -
+     and it opens collapsed until the reader taps it. */
+  const NK_PROF_GROUP_BY_SUBJECT={Anatomy:'first',Physiology:'first',Biochemistry:'first',Microbiology:'second'};
+  const NK_PROF_GROUPS=[{id:'first',title:'First Prof'},{id:'second',title:'Second Prof'},{id:'other',title:'Other'}];
+  const NK_PROF_GROUPS_KEY='qbank_prof_groups_v1';
+  let nkProfGroupOpenState=(()=>{try{const stored=JSON.parse(localStorage.getItem(NK_PROF_GROUPS_KEY)||'{}');return stored&&typeof stored==='object'&&!Array.isArray(stored)?stored:{};}catch(_error){return{};}})();
+  function nkProfGroupSubjects(id){return (SUBJECTS||[]).map(record=>String(record.subject||'')).filter(name=>name&&(NK_PROF_GROUP_BY_SUBJECT[name]||'other')===id);}
+  /* The band's second line is a subject strip: one icon chip per subject
+     (max four, then "+n") over the group's total question count, so the
+     header shows what is inside and how much there is without truncating a
+     name list. The joined names stay in the accessibility tree. */
+  function nkProfGroupQuestions(subjects){
+    let total=0;
+    subjects.forEach(name=>{const stat=typeof nkSubjectStatsV3==='function'?nkSubjectStatsV3(name):null;if(stat)total+=(Number(stat.questions)||0);});
+    return total;
+  }
+  function nkProfGroupStrip(subjects){
+    const shown=subjects.slice(0,4),extra=subjects.length-shown.length;
+    return `<span class="nk-prof-strip" aria-hidden="true">${shown.map((name,i)=>`<span class="nk-prof-strip-chip" style="z-index:${8-i}">${nkAppSubjectIcon(name,14)}</span>`).join('')}${extra>0?`<span class="nk-prof-strip-chip is-extra">+${extra}</span>`:''}</span>`;
+  }
+  function nkProfGroupMarkup(group){
+    const subjects=nkProfGroupSubjects(group.id),open=Boolean(nkProfGroupOpenState[group.id]);
+    return `<section class="nk-prof-group is-${group.id}${open?' is-open':''}" data-nk-prof="${group.id}"><button type="button" class="nk-prof-head" aria-expanded="${open?'true':'false'}" aria-controls="nk-prof-body-${group.id}" onclick="window.QB.nkToggleProfGroup('${group.id}')"><span class="nk-prof-tile" aria-hidden="true">${group.id==='first'?'1':group.id==='second'?'2':'·'}</span><span class="nk-prof-copy"><strong>${esc(group.title)}</strong><span class="nk-prof-meta">${nkProfGroupStrip(subjects)}<span class="nk-prof-questions">${fmtNum(nkProfGroupQuestions(subjects))} questions</span></span><span class="nkg-sr-only">${esc(subjects.join(' · '))}</span></span><span class="nk-prof-count">${fmtNum(subjects.length)} ${subjects.length===1?'subject':'subjects'}</span><span class="nk-prof-chevron" aria-hidden="true">${navIcon('chevron',18)}</span></button><div class="nk-prof-body" id="nk-prof-body-${group.id}"${open?'':' inert aria-hidden="true"'}><div class="nk-v3-subject-list">${subjects.map(nkSubjectCardV3).join('')}</div></div></section>`;
+  }
+  function nkProfGroupsMarkup(){
+    const used=new Set((SUBJECTS||[]).map(record=>NK_PROF_GROUP_BY_SUBJECT[String(record.subject||'')]||'other'));
+    return NK_PROF_GROUPS.filter(group=>used.has(group.id)).map(nkProfGroupMarkup).join('');
+  }
+  function nkToggleProfGroup(id){
+    const group=document.querySelector(`.nk-prof-group[data-nk-prof="${id}"]`);
+    if(!group)return;
+    const open=!group.classList.contains('is-open');
+    nkProfGroupOpenState={...nkProfGroupOpenState,[id]:open};
+    try{localStorage.setItem(NK_PROF_GROUPS_KEY,JSON.stringify(nkProfGroupOpenState));}catch(_error){}
+    group.classList.toggle('is-open',open);
+    const head=group.querySelector('.nk-prof-head'),body=group.querySelector('.nk-prof-body');
+    if(head)head.setAttribute('aria-expanded',open?'true':'false');
+    if(body){body.toggleAttribute('inert',!open);if(open)body.removeAttribute('aria-hidden');else body.setAttribute('aria-hidden','true');}
+  }
+  /* NK_PROF_GROUPS_V1_END */
   function nkTopicTitleForQuestion(q){
     if(!q)return'';const r=nkPreferredRecord(q.subject),t=(r?.topics||[]).find(x=>String(x.id)===String(q.chapterId));return t?.title||q.topic||q.chapter||'';
   }
@@ -809,7 +867,7 @@ function dashboard(){
     const accuracyPct=progress.accuracy===null?null:Math.min(100,Math.round(progress.accuracy)),mins=Math.floor(progress.studyMs/60000),studyText=progress.studyMs?`${Math.floor(mins/60)?Math.floor(mins/60)+'h ':''}${mins%60}m`:'—';
 
     const rangeLabels={today:'Today',week:'This Week',month:'This Month',year:'This Year'};
-    return shell(`<div class="nk-home-approved-v1 nk-home-command-center" role="main" aria-label="Home"><header class="nk-home-brandbar"><div class="nk-home-brand"><span class="nk-home-brand-icon">${navIcon('book',22)}</span><span><strong>NK QBank</strong><small>Your Personal Study App</small></span></div></header><section class="nk-home-greeting"><h1>${greetingCopy()} <span>☀️</span></h1><p>Small steps every day lead to big results.</p></section>${nkHomeStreakMarkup()}${nkHomeFocusSection(focus,focusModule)}${nkStudySetsSection(focusModule?.id)}<section class="nk-v3-section nk-home-subjects"><div class="nk-v3-section-head"><div><small>STUDY LIBRARY</small><h2>My Subjects</h2></div><span>${SUBJECTS.length} subjects</span></div><div class="nk-v3-subject-list">${nkSubjectCardsV3()}</div></section><section class="nk-home-progress"><div class="nk-home-progress-head"><h2>My Progress</h2><label class="nk-home-range"><select aria-label="Progress range" onchange="window.QB.nkSetHomeProgressRange(this.value)">${['today','week','month','year'].map(x=>`<option value="${x}" ${nkHomeProgressRange===x?'selected':''}>${rangeLabels[x]}</option>`).join('')}</select><span>⌄</span></label></div><div class="nk-home-progress-card"><div class="nk-home-progress-row"><span class="nk-home-progress-icon">${navIcon('chart',21)}</span><div><div class="nk-home-progress-copy"><strong>Unique questions answered</strong><b>${fmtNum(progress.attempted)}</b></div></div></div><div class="nk-home-progress-row"><span class="nk-home-progress-icon is-green">${navIcon('check',21)}</span><div><div class="nk-home-progress-copy"><strong>Answer accuracy</strong><b>${accuracyPct===null?'—':fmtPct(accuracyPct)}</b></div></div></div><div class="nk-home-progress-row"><span class="nk-home-progress-icon is-blue">${navIcon('clock',21)}</span><div><div class="nk-home-progress-copy"><strong>Study Time</strong><b>${studyText}</b></div></div></div></div></section></div>`,'dashboard');
+    return shell(`<div class="nk-home-approved-v1 nk-home-command-center" role="main" aria-label="Home"><header class="nk-home-brandbar"><div class="nk-home-brand"><span class="nk-home-brand-icon">${navIcon('book',22)}</span><span><strong>NK QBank</strong><small>Your Personal Study App</small></span></div></header><section class="nk-home-greeting"><h1>${greetingCopy()} <span>☀️</span></h1><p>Small steps every day lead to big results.</p></section>${nkHomeStreakMarkup()}${nkHomeFocusSection(focus,focusModule)}${nkStudySetsSection(focusModule?.id)}<section class="nk-v3-section nk-home-subjects"><div class="nk-v3-section-head"><div><small>STUDY LIBRARY</small><h2>My Subjects</h2></div><span>${SUBJECTS.length} subjects</span></div><div class="nk-prof-groups">${nkProfGroupsMarkup()}</div></section><section class="nk-home-progress"><div class="nk-home-progress-head"><h2>My Progress</h2><label class="nk-home-range"><select aria-label="Progress range" onchange="window.QB.nkSetHomeProgressRange(this.value)">${['today','week','month','year'].map(x=>`<option value="${x}" ${nkHomeProgressRange===x?'selected':''}>${rangeLabels[x]}</option>`).join('')}</select><span>⌄</span></label></div><div class="nk-home-progress-card"><div class="nk-home-progress-row"><span class="nk-home-progress-icon">${navIcon('chart',21)}</span><div><div class="nk-home-progress-copy"><strong>Unique questions answered</strong><b>${fmtNum(progress.attempted)}</b></div></div></div><div class="nk-home-progress-row"><span class="nk-home-progress-icon is-green">${navIcon('check',21)}</span><div><div class="nk-home-progress-copy"><strong>Answer accuracy</strong><b>${accuracyPct===null?'—':fmtPct(accuracyPct)}</b></div></div></div><div class="nk-home-progress-row"><span class="nk-home-progress-icon is-blue">${navIcon('clock',21)}</span><div><div class="nk-home-progress-copy"><strong>Study Time</strong><b>${studyText}</b></div></div></div></div></section></div>`,'dashboard');
   }
 
   function testRow(t) {
@@ -821,7 +879,7 @@ function dashboard(){
     const n=Number((String(chapter?.id||'').match(/(\d+)$/)||[])[1]||0),subject=String(activeSubject||'').toLowerCase();
     const sections=__NK_DATA_TOPIC_SECTIONS__;
     if(typeof activeBank!=='undefined'&&activeBank==='Marrow'){
-      const config=__NK_DATA_MARROW_TOPIC_TAXONOMY__,key=subject.includes('anatomy')?'Anatomy':subject.includes('physiology')?'Physiology':'Biochemistry';
+      const config=__NK_DATA_MARROW_TOPIC_TAXONOMY__,key=config[activeSubject]?activeSubject:subject.includes('anatomy')?'Anatomy':subject.includes('physiology')?'Physiology':'Biochemistry';
       return config[key]?.topics?.[String(chapter?.id||'')]?.section||'Needs classification review';
     }
     const key=subject.includes('anatomy')?'anatomy':subject.includes('physiology')?'physiology':'biochemistry';
@@ -1080,7 +1138,7 @@ function dashboard(){
   }
 
   function openMultiSubjectTestBuilder() {
-    document.body.insertAdjacentHTML('beforeend',`<div class="modal-backdrop nk-modal-v114" id="modal"><div class="modal nk-multi-modal"><button class="nk-modal-close" aria-label="Close" onclick="window.QB.closeModal()">${navIcon('close',20)}</button><div class="nk-modal-title"><span class="nk-modal-mode">${navIcon('test',20)}</span><div><h3>Build timed CBT</h3><p>Mix Biochemistry, Physiology, and Anatomy · 60 seconds per question.</p></div></div>${nkMultiExamBuilderMarkup()}</div></div>`);
+    document.body.insertAdjacentHTML('beforeend',`<div class="modal-backdrop nk-modal-v114" id="modal"><div class="modal nk-multi-modal"><button class="nk-modal-close" aria-label="Close" onclick="window.QB.closeModal()">${navIcon('close',20)}</button><div class="nk-modal-title"><span class="nk-modal-mode">${navIcon('test',20)}</span><div><h3>Build timed CBT</h3><p>Mix ${esc(SUBJECTS.map(x=>x.subject).join(', '))} · 60 seconds per question.</p></div></div>${nkMultiExamBuilderMarkup()}</div></div>`);
     nkUpdateMultiExamPool();
   }
 
@@ -1099,8 +1157,95 @@ function dashboard(){
 
   /* @module study_modules.js */
 
+  // Marrow Microbiology source text carries Markdown emphasis (**bold**,
+  // *italic*) that the reader must never see raw. nkScientificMarkup has
+  // already escaped the HTML, so this only inserts <strong>/<em> tags. Marker
+  // runs pair by flanking rules, which keeps multiplication ("900 mg * 100 ml")
+  // and allele-style text literal, and a Key takeaway sentence cut out of a
+  // longer bold span loses its unmatched marker instead of showing it.
+  function nkEmphasisHtml(html){
+    let text=String(html||'');
+    if(text.indexOf('*')<0)return text;
+    const opener=(prev,next)=>{
+      if(next===undefined||/\s/.test(next))return false;
+      // ";" as the previous character means escaped HTML punctuation
+      // ("'**Myeloma**" reaches this parser as "&#39;**Myeloma**" after
+      // nkScientificMarkup), which is the same word boundary as the
+      // apostrophe or quote it stands for.
+      return prev===undefined||/[\s(\[{'"«“‘—–\-*>;]/.test(prev);
+    };
+    const closer=(prev,next)=>{
+      if(prev===undefined||/\s/.test(prev))return false;
+      // "&" after the marker starts an escaped punctuation entity
+      // ("**word**'s" -> "**word**&#39;s"), another boundary.
+      return next===undefined||/[\s.,;:!?)\]}>»”’…—–\-*&]/.test(next);
+    };
+    const emit={
+      'open-both':'<strong><em>','close-both':'</em></strong>',
+      'open-bold':'<strong>','close-bold':'</strong>',
+      'open-em':'<em>','close-em':'</em>','drop':'',
+      'bold-then-italic':'</strong><em>',
+    };
+    for(let pass=0;pass<6;pass++){
+      const runs=[];
+      let bold=false,em=false,dangleBold=-1,dangleEm=-1;
+      for(let i=0;i<text.length;i++){
+        if(text[i]!=='*')continue;
+        let j=i;while(text[j]==='*')j++;
+        const run=j-i,prev=text[i-1],next=text[j];
+        let kind='literal';
+        if(run>=3){
+          if(bold&&em){kind='close-both';bold=false;em=false;}
+          else if(bold){kind='bold-then-italic';bold=false;em=true;dangleEm=i;}
+          else{kind='open-both';bold=true;em=true;dangleBold=i;dangleEm=i;}
+        }else if(run===2){
+          if(bold){kind='close-bold';bold=false;}
+          else if(opener(prev,next)){kind='open-bold';bold=true;dangleBold=i;}
+          // An extractor can glue a bold opener to the word before it
+          // ("resembling**"flow of seed"**"): a mid-word ** directly before
+          // an opening quote or bracket is still an opener, while "word**."
+          // stays a closer-shaped source artifact.
+          else if(next!==undefined&&/["'«“‘(\[{]/.test(next)){kind='open-bold';bold=true;dangleBold=i;}
+          else if(closer(prev,next)){kind='drop';}
+        }else{
+          if(em){kind='close-em';em=false;}
+          // A single star directly before a number is multiplication
+          // ("15 g/dL *1.34 mL"), not an emphasis opener.
+          else if(opener(prev,next)&&!/[0-9]/.test(next||'')){kind='open-em';em=true;dangleEm=i;}
+        }
+        runs.push({at:i,len:run,kind});
+        i=j;
+      }
+      if(!bold&&!em){
+        let out='',tail=0;
+        for(const r of runs){
+          out+=text.slice(tail,r.at);
+          if(r.kind==='literal'){
+            // A star that sits where a marker would sit but has no partner is
+            // a source artifact (for example "(CoNS)*" cut to one side).
+            // Multiplication and allele signs keep word characters instead.
+            const prev=text[r.at-1],next=text[r.at+r.len];
+            const markerLike=(r.len===1?opener(prev,next)&&!/[0-9]/.test(next||''):opener(prev,next))||closer(prev,next);
+            out+=markerLike?'':text.slice(r.at,r.at+r.len);
+          }else{
+            out+=emit[r.kind];
+          }
+          tail=r.at+r.len;
+        }
+        return out+text.slice(tail);
+      }
+      // A cut Key takeaway sentence can keep only the opening half of a bold
+      // span. Drop just that dangling opener and pair the rest again.
+      const useBold=bold&&(dangleBold>=dangleEm||!em);
+      const pos=useBold?dangleBold:dangleEm;
+      let len=0;{let k=pos;while(text[k]==='*')k++;len=k-pos;}
+      text=text.slice(0,pos)+text.slice(pos+(useBold?Math.min(2,len):1));
+    }
+    return text.replace(/\*/g,'');
+  }
+
   function richText(text) {
-    return nkScientificMarkup(text).replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');
+    return nkEmphasisHtml(nkScientificMarkup(text));
   }
 
   function splitSourceParagraphs(text){
@@ -1235,6 +1380,7 @@ function dashboard(){
 
   function nkPracticeSubjectIcon(q) {
     const key=nkPracticeSubjectKey(q);
+    if(key==='microbiology')return nkSubjectGraphic('Microbiology',20);
     return navIcon(key==='physiology'?'heart':key==='anatomy'?'body':'molecule',20);
   }
 
@@ -1259,6 +1405,7 @@ function dashboard(){
   function nkSessionSubjectIcon(q) {
     if(String(q?.subject||activeSubject||'').toLowerCase().startsWith('uworld · '))return nkSubjectGraphic(q?.subject||activeSubject,20);
     const key=nkSessionSubjectKey(q);
+    if(key==='microbiology')return nkSubjectGraphic('Microbiology',20);
     return navIcon(key==='physiology'?'heart':key==='anatomy'?'body':'dna',20);
   }
 
@@ -1316,10 +1463,26 @@ function dashboard(){
       const tag=locked?'div':'button';
       const owner=String(state.activeSession?.id||'');
       const action=mode==='exam'?` onclick="window.QB.selectExam(${n},'${q.id}','${owner}')"`:mode==='practice'?` onclick="window.QB.selectPractice('${q.id}',${n},'${owner}')"`:'';
-      return `<${tag} class="${cls}"${action}${tag==='button'?' type="button"':''}><span class="option-letter">${o.letter}</span><span class="option-text">${q.bank==='UWorld'?nkUworldOptionMarkup(q,o):nkScientificMarkup(o.text)}</span>${q.bank==='UWorld'?nkUworldOptionPercentage(q,o,locked):''}</${tag}>`;
+      return `<${tag} class="${cls}"${action}${tag==='button'?' type="button"':''}><span class="option-letter">${o.letter}</span><span class="option-text">${q.bank==='UWorld'?nkUworldOptionMarkup(q,o):nkScientificMarkup(o.text)}</span>${q.bank==='UWorld'?nkUworldOptionPercentage(q,o,locked):nkSourcePollPercent(q,o,locked)}</${tag}>`;
     }).join('');
   }
 
+  // Source peer statistics for non-UWorld banks (Marrow QBank v3: Microbiology).
+  // Same markup and classes as the UWorld pick-rate column and cohort chip, so
+  // the redesign layer styles them identically. Questions without sourceStats
+  // (ED8 Marrow, PrepLadder) render nothing and keep their layout.
+  function nkSourceStats(q){const st=q&&q.bank!=='UWorld'?q.sourceStats:null;return st&&typeof st==='object'?st:null;}
+  function nkSourcePollPercent(q,o,revealed=true){
+    const values=nkSourceStats(q)?.optionPollPercent;
+    if(!values||!Object.values(values).some(v=>v!=null))return '';
+    if(!revealed)return '<span class="nk-uworld-percent-space" aria-hidden="true"></span>';
+    const value=values[o.letter];
+    return value==null?'<span class="nk-uworld-percent-space" aria-hidden="true"></span>':`<span class="nk-uworld-option-percent" aria-label="${esc(value)} percent of ${esc(q.bank)} users chose option ${esc(o.letter)}">${esc(value)}%</span>`;
+  }
+  function nkSourceCohort(q){
+    const value=nkSourceStats(q)?.peerAccuracyPercent;
+    return value==null?'':`<p class="nk-uworld-cohort" data-nk-source="${esc(q.bank)}"><strong>${esc(value)}% got this right</strong><span>Reported in the ${esc(q.bank)} source</span></p>`;
+  }
   function nkMarrowRich(text){return richText(String(text||''));}
   function nkRenderMarrowText(text){
     const lines=String(text||'').replace(/\r/g,'').split('\n'),out=[];let para=[],items=[],ordered=false;
@@ -1331,7 +1494,39 @@ function dashboard(){
     const cols=Array.isArray(table?.columns)?table.columns:[],rows=Array.isArray(table?.rows)?table.rows:[];if(!cols.length||!rows.length)return'';
     return `<div class="nk-marrow-table"><table>${table.title?`<caption>${nkMarrowRich(table.title)}</caption>`:''}<thead><tr>${cols.map(c=>`<th>${nkMarrowRich(c)}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${cols.map((_,i)=>`<td>${nkMarrowRich((r||[])[i]||'')}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
   }
+  // Marrow QBank subjects (Microbiology) carry their explanation as ordered
+  // blocks: paragraphs, nested lists, tables and Marrow Pearls stay in source
+  // order instead of collecting every table at the end. Figures still mount
+  // through MARROW_VISUALS; source wording is rendered unchanged.
+  function nkMarrowOrderedCell(value){return String(value??'').split('\n').map(part=>nkMarrowRich(part.trim())).filter(Boolean).join('<br>');}
+  function nkRenderMarrowOrderedTable(table){
+    const cols=Array.isArray(table?.columns)?table.columns:[],rows=Array.isArray(table?.rows)?table.rows:[];if(!cols.length||!rows.length)return'';
+    return `<div class="nk-marrow-table"><table>${table.title?`<caption>${nkMarrowRich(table.title)}</caption>`:''}<thead><tr>${cols.map(c=>`<th>${nkMarrowOrderedCell(c)}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${cols.map((_,i)=>`<td>${nkMarrowOrderedCell((r||[])[i]||'')}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+  }
+  function nkMarrowOrderedSame(a,b){const n=x=>String(x||'').replace(/\*\*/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();return Boolean(n(a))&&n(a)===n(b);}
+  function nkRenderMarrowOrdered(q){
+    const data=q.structuredExplanation||{},tables=new Map((Array.isArray(data.tables)?data.tables:[]).map(t=>[String(t?.table_id),t]));
+    const blocks=(Array.isArray(data.blocks)?data.blocks:[]).filter(b=>b&&typeof b==='object');
+    // The source opens by restating the answer, which the Key takeaway already shows.
+    const start=blocks[0]?.type==='paragraph'&&blocks.length>1&&nkMarrowOrderedSame(blocks[0].text,nkMarrowTakeaway(q))?1:0;
+    const item=it=>`<li>${nkMarrowRich(it?.text||'')}${Array.isArray(it?.items)&&it.items.length?`<ul>${it.items.map(c=>`<li>${nkMarrowRich(c?.text||'')}</li>`).join('')}</ul>`:''}</li>`;
+    let pearlTitle='';
+    const html=blocks.slice(start).map(b=>{
+      if(b.type!=='table'&&b.type!=='pearl')pearlTitle='';
+      if(b.type==='pearl')pearlTitle=String(b.title||'');
+      if(b.type==='table'&&tables.has(String(b.table_id))){const t=tables.get(String(b.table_id));return nkRenderMarrowOrderedTable(pearlTitle&&nkMarrowOrderedSame(t.title,pearlTitle)?{...t,title:''}:t);}
+      if(b.type==='paragraph')return `<p>${nkMarrowRich(b.text)}</p>`;
+      if(b.type==='bullets'){const tag=b.ordered?'ol':'ul',start=b.ordered&&Number(b.start)>1?` start="${Number(b.start)}"`:'';return `<${tag}${start}>${(b.items||[]).map(item).join('')}</${tag}>`;}
+      if(b.type==='table')return tables.has(String(b.table_id))?nkRenderMarrowOrderedTable(tables.get(String(b.table_id))):'';
+      if(b.type==='pearl')return `<div class="nk-marrow-heading nk-marrow-pearl">${nkMarrowRich('Marrow Pearl · '+String(b.title||''))}</div>`;
+      if(b.type==='note')return `<p class="nk-marrow-note">${nkMarrowRich(b.text)}</p>`;
+      return '';
+    }).join('');
+    const trace=q.provenance||{},pages=Array.isArray(trace.explanationPages)?trace.explanationPages:[];
+    return `<div class="nk-marrow-native nk-marrow-ordered">${html}<div class="nk-marrow-provenance" data-nkg-source="${esc(trace.sourceLabel||'Marrow')}">${esc(trace.sourceLabel||'Marrow')} structured transcription${pages.length?` · explanation page${pages.length===1?'':'s'} ${pages.join(', ')}`:''}.</div></div>`;
+  }
   function nkRenderMarrowExplanationBase(q){
+    if(q?.structuredExplanation?.layout==='ordered-blocks')return nkRenderMarrowOrdered(q);
     const data=q.structuredExplanation||{},text=data.text||q.explanation||'',tables=Array.isArray(data.tables)?data.tables:[];
     const trace=q.provenance||{},pages=Array.isArray(trace.explanationPages)?trace.explanationPages:[];
     return `<div class="nk-marrow-native">${nkRenderMarrowText(text)}${tables.map(nkRenderMarrowTableCompat).join('')}<div class="nk-marrow-provenance">Marrow ED 8 structured transcription${pages.length?` · explanation page${pages.length===1?'':'s'} ${pages.join(', ')}`:''}. Figure metadata is preserved for later image-asset integration.</div></div>`;
@@ -1525,7 +1720,7 @@ function dashboard(){
     const marrow=q.bank==='Marrow';
     const explanation=marrow?nkRenderMarrowExplanation(q):(q.explanation?`<div class="feedback-body source-explanation">${renderedSource||renderExplanationText(q.explanation,q)}</div>`:'<div class="nk-source-empty">No source explanation was provided for this question.</div>');
     const sourceHeader=marrow?`<section class="nk-source-section is-marrow"><header><div>${navIcon('book',19)}<strong>Detailed explanation</strong></div><span>Structured text</span></header>${explanation}</section>`:`<section class="nk-source-section"><header><div>${navIcon('book',19)}<strong>Source explanation</strong></div><span>Original PDF</span></header>${explanation}</section>`;
-    return `<div class="nk-study-support">${time}${takeaway?`<section class="nk-key-takeaway"><span class="nk-takeaway-icon">${navIcon('bulb',22)}</span><div><div class="nk-takeaway-label">Key takeaway</div><p>${nkScientificMarkup(takeaway)}</p></div></section>`:''}${sourceHeader}</div>`;
+    return `<div class="nk-study-support">${time}${nkSourceCohort(q)}${takeaway?`<section class="nk-key-takeaway"><span class="nk-takeaway-icon">${navIcon('bulb',22)}</span><div><div class="nk-takeaway-label">Key takeaway</div><p>${richText(takeaway)}</p></div></section>`:''}${sourceHeader}</div>`;
   }
 
   function nkSessionActionBar(s,mode) {
@@ -1887,7 +2082,7 @@ function dashboard(){
   /* @module icon_refinement.js */
 
   /* @module uworld_biochemistry.js */
-  window.QB={uworldFigure:nkUworldFigure,uworldRetryFigures:nkUworldRetryFigures,uworldReference:nkUworldReference,nkAnalysisSetTab,nkAnalysisSetTime,nkAnalysisRename,nkMockName,nkMockSaveDraft,nkMockStart,nkMockSaveResult,nkMockRemove,nkMockRenameInline,nkMockRename,nkMockOpen,nkMockClose,nkMockLaunch,nkMockSheetRename,nkMockAskDelete,nkMockUndo,nkMockFilter,nkMockShowAll,nkLearningSetPeriod,nkLearningMove,nkLearningSetScope,nkLearningSelectBin,nkLearningSetTopics,nkLearningOpenTopic,nkLearningSetHeatYear,nkLearningYearDetail,nkCorrectionStart,nkQuestionSearchQuery,nkQuestionSearchSetFilter,nkQuestionSearchMore,nkQuestionSearchOpen,nkQuestionSearchPracticeMatches,nkCoverageSelectBank,nkCoverageSetSearch,nkCoverageSetStatus,nkCoverageShowMore,nkCoverageOpen,nkResumeTimedTest,nkAbandonTimedTest,nkToggleExamReviewFlag,nkCbtPracticeMarked,nkCbtRetake,nkCbtPracticeMisses,nkCbtSetBanks,nkCbtToggleBank,nkCbtSetStep,nkCbtSetTopics,nkCbtSelectVerifiedPyqs,nkCbtToggleGroup,nkCbtToggleTopic,nkCbtFilterTopics,nkCbtSetCount,nkCbtStart,nkPracticeInsightFocus,nkFinishRevisionSession,nkFilterNotes,nkOpenNotedQuestion,nkStartRevisionQueue,nkFilterRevisionBrowse,nkOpenRevisionQuestion,nkToggleRevisionFocus,nkSetRevisionScope,nkOpenRevisionHub,nkRateCurrent,nkStartTodaysReview,nkFsrsQueueDialog,nkFsrsTopicOptions,nkFsrsSetPreference,nkFsrsSaveSettings,nkFsrsUndo,nkFsrsEditSetting,nkFsrsCancelSettings,nkFsrsLeaveSettings,saveState,nkRetryPersistence,nkCloudAuthenticate,nkCloudAuthNext,nkCloudAuthStartCreate,nkCloudAuthBack,nkCloudSignOut,nkCloudSyncNow,nkPausePractice,nkSubmitPracticeSession,nkDiscardNormalPractice,nkPracticeConfirmDiscard,nkResumePracticeById,nkPracticeSavedSessionsDialog,nkResolvePracticeReplacement,nkResolveTimedSession,nkOpenSubjectLibrary,nkOpenSubjectChapter,nkContinueRecentPractice,nkSetHomeProgressRange,nkSetFsrsSubject,nkStartReviewOnly,nkOpenNewTest,nkSetTestMode,nkSetTestSource,nkSetTestCount,nkQuickTestOpen,nkQuickTestClose,nkQuickTestSet,nkQuickTestStart,nkOpenCustomSource,nkStartConfiguredTest,nkStartTopicTimedTest,nkExpireTopicQuestion,openStudyModuleBuilder,nkOpenQuickStudy,nkToggleModuleSubject,nkToggleModuleTopic,nkFilterModuleTopics,nkSetModuleBankTopics,nkSetAllModuleTopics,nkSelectModulePyqTopics,nkSetModulePool,nkSetModuleCount,nkSetCustomModuleCount,nkSetModuleName,nkModuleBuilderStep,nkCreateStudyModule,startStudyModule,exitStudyModule,finishStudyModuleEarly,restartStudyModule,renameStudyModule,deleteStudyModule,getState:()=>state,startAllSubjectPractice,nkTopicPracticeSet,openMultiSubjectTestBuilder,nkSetMultiExamScope,nkUpdateMultiExamPool,nkSelectAllMultiTopics,nkConfirmMultiSubjectExam,nav:navigate,setSubject,openSubjectTopics,openBank,toggleMenu,notify,openQuestionNavigator,closeQuestionNavigator,jumpFromNavigator,closeModal,confirmSession,openSessionBuilder,openTestBuilder,openModeBuilder,setExamScope,selectAllExamTopics,updateExamPoolCount,practiceOne,startLibrary,startAllPractice,continuePractice,goIndex,selectPractice,submitPractice,retryCurrent,nextQ,prevQ,selectExam,toggleBookmark,submitExam,endSession,resetProgress,openTest,setSearch,setTopicFilter,openChapter,reviewTest,__sessionReviewGo:sessionReviewGo,__sessionReviewFirstUnanswered:sessionReviewFirstUnanswered,__sessionReviewClose:closeSessionReview,__sessionReviewSubmit:sessionReviewSubmit,openSessionReview:openSessionReview,endReview:endReview};
+  window.QB={uworldFigure:nkUworldFigure,uworldRetryFigures:nkUworldRetryFigures,uworldReference:nkUworldReference,nkAnalysisSetTab,nkAnalysisSetTime,nkAnalysisRename,nkMockName,nkMockSaveDraft,nkMockStart,nkMockSaveResult,nkMockRemove,nkMockRenameInline,nkMockRename,nkMockOpen,nkMockClose,nkMockLaunch,nkMockSheetRename,nkMockAskDelete,nkMockUndo,nkMockFilter,nkMockShowAll,nkLearningSetPeriod,nkLearningMove,nkLearningSetScope,nkLearningSelectBin,nkLearningSetTopics,nkLearningOpenTopic,nkLearningSetHeatYear,nkLearningYearDetail,nkCorrectionStart,nkQuestionSearchQuery,nkQuestionSearchSetFilter,nkQuestionSearchMore,nkQuestionSearchOpen,nkQuestionSearchPracticeMatches,nkCoverageSelectBank,nkCoverageSetSearch,nkCoverageSetStatus,nkCoverageShowMore,nkCoverageOpen,nkResumeTimedTest,nkAbandonTimedTest,nkToggleExamReviewFlag,nkCbtPracticeMarked,nkCbtRetake,nkCbtPracticeMisses,nkCbtSetBanks,nkCbtToggleBank,nkCbtSetStep,nkCbtSetTopics,nkCbtSelectVerifiedPyqs,nkCbtToggleGroup,nkCbtToggleTopic,nkCbtFilterTopics,nkCbtSetCount,nkCbtStart,nkPracticeInsightFocus,nkFinishRevisionSession,nkFilterNotes,nkOpenNotedQuestion,nkStartRevisionQueue,nkFilterRevisionBrowse,nkOpenRevisionQuestion,nkToggleRevisionFocus,nkSetRevisionScope,nkOpenRevisionHub,nkRateCurrent,nkStartTodaysReview,nkFsrsQueueDialog,nkFsrsTopicOptions,nkFsrsSetPreference,nkFsrsSaveSettings,nkFsrsUndo,nkFsrsEditSetting,nkFsrsCancelSettings,nkFsrsLeaveSettings,saveState,nkRetryPersistence,nkCloudAuthenticate,nkCloudAuthNext,nkCloudAuthStartCreate,nkCloudAuthBack,nkCloudSignOut,nkCloudSyncNow,nkPausePractice,nkSubmitPracticeSession,nkDiscardNormalPractice,nkPracticeConfirmDiscard,nkResumePracticeById,nkPracticeSavedSessionsDialog,nkResolvePracticeReplacement,nkResolveTimedSession,nkOpenSubjectLibrary,nkToggleProfGroup,nkOpenSubjectChapter,nkContinueRecentPractice,nkSetHomeProgressRange,nkSetFsrsSubject,nkStartReviewOnly,nkOpenNewTest,nkSetTestMode,nkSetTestSource,nkSetTestCount,nkQuickTestOpen,nkQuickTestClose,nkQuickTestSet,nkQuickTestStart,nkOpenCustomSource,nkStartConfiguredTest,nkStartTopicTimedTest,nkExpireTopicQuestion,openStudyModuleBuilder,nkOpenQuickStudy,nkToggleModuleSubject,nkToggleModuleTopic,nkFilterModuleTopics,nkSetModuleBankTopics,nkSetAllModuleTopics,nkSelectModulePyqTopics,nkSetModulePool,nkSetModuleCount,nkSetCustomModuleCount,nkSetModuleName,nkModuleBuilderStep,nkCreateStudyModule,startStudyModule,exitStudyModule,finishStudyModuleEarly,restartStudyModule,renameStudyModule,deleteStudyModule,getState:()=>state,startAllSubjectPractice,nkTopicPracticeSet,openMultiSubjectTestBuilder,nkSetMultiExamScope,nkUpdateMultiExamPool,nkSelectAllMultiTopics,nkConfirmMultiSubjectExam,nav:navigate,setSubject,openSubjectTopics,openBank,toggleMenu,notify,openQuestionNavigator,closeQuestionNavigator,jumpFromNavigator,closeModal,confirmSession,openSessionBuilder,openTestBuilder,openModeBuilder,setExamScope,selectAllExamTopics,updateExamPoolCount,practiceOne,startLibrary,startAllPractice,continuePractice,goIndex,selectPractice,submitPractice,retryCurrent,nextQ,prevQ,selectExam,toggleBookmark,submitExam,endSession,resetProgress,openTest,setSearch,setTopicFilter,openChapter,reviewTest,__sessionReviewGo:sessionReviewGo,__sessionReviewFirstUnanswered:sessionReviewFirstUnanswered,__sessionReviewClose:closeSessionReview,__sessionReviewSubmit:sessionReviewSubmit,openSessionReview:openSessionReview,endReview:endReview};
 
   nkFsrsInit();
   nkReliabilityInit();

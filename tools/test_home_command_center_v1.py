@@ -33,7 +33,8 @@ def main():
         'due reviews roll forward under your daily limit.',
         "if(!answered)state.fsrsReviewEligible[key]", 'nkMarkSkippedFromSession(s)',
         "route.page==='study-library'", "route.page==='fsrs'", "window.QB.nkStartTopicTimedTest('${c.id}')",
-        "window.QB.nkOpenSubjectLibrary('${esc(x.subject)}')", '@media(max-width:560px)','@media(prefers-reduced-motion:reduce)'
+        "window.QB.nkOpenSubjectLibrary('${esc(x.subject)}')", '@media(max-width:560px)','@media(prefers-reduced-motion:reduce)',
+        '.nk-home-uworld .nk-uworld-entry { grid-template-columns: 44px minmax(0, 1fr) 18px !important; }'
     )
     missing=[x for x in required if x not in html]
     if missing:raise SystemExit(f'Home V3 contract missing: {missing}')

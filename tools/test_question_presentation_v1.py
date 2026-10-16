@@ -567,10 +567,12 @@ def test_shipped_page() -> None:
     assert updated.count("${nkQuestionStemMarkup(q)}") == 3
     assert not re.search(r'<div class="question-text"[^>]*>\$\{esc\(q\.question\)\}', updated)
     assert "function nkSessionOptions(q,selected,mode,submitted) {\n    const presentation=nkQuestionPresentationFor(q);if(!presentation.valid)return '';\n    const locked=" in updated
-    assert "return nkScientificMarkup(text).replace(" in updated
+    assert "function nkEmphasisHtml(html){" in updated
+    assert "return nkEmphasisHtml(nkScientificMarkup(text));" in updated
     assert "esc(String(text||'')).replace(/\\*\\*" not in updated
     assert "nkScientificMarkup(o.text)" in updated and "${esc(o.text)}" not in updated
-    assert "${nkScientificMarkup(takeaway)}" in updated and "${esc(takeaway)}" not in updated
+    assert "${richText(takeaway)}" in updated and "${esc(takeaway)}" not in updated
+    assert "${nkScientificMarkup(takeaway)}" not in updated
     assert "let html=nkScientificMarkup(text);" in updated and "let html=esc(String(text||''));" not in updated
     assert "const needle=nkScientificMarkup(phrase);" in updated
     # The gold distractor label and its rationale share the options' notation.

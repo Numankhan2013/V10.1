@@ -656,6 +656,130 @@
     window.requestAnimationFrame(function () { window.requestAnimationFrame(function () { keys.forEach(function (k) { node.style[k] = props[k]; }); }); });
   }
 
+  /* ============================================ Professional-year bands (Home)
+     First Prof / Second Prof on Home reveal their subject cards. The app owns
+     the state (is-open class, aria-expanded, inert, persistence); this layer
+     makes the reveal physical by composing three published open-source
+     recipes on the vendored Motion spring:
+
+     - measured height, the Radix / Base UI collapsible pattern: freeze the
+       band's pixel geometry before the class flips, spring the height between
+       the two measured numbers, and hand back to auto once open;
+     - transitions.dev "Accordion" and "Texts reveal": the cards cross-blur
+       (3px -> 0), rise 12px and fade in on a 40ms per-card stagger over the
+       shared cubic-bezier(.22,1,.36,1) token; close is the same family run
+       short and quick (exits are faster than entrances);
+     - motion-primitives accordion trigger: the chevron turns on its own
+       spring, separate from the panel.
+
+     app.css keeps its grid-rows cross-fade as the reduced-motion / no-Motion
+     fallback, and a live band rests at an explicit 0px when closed so list
+     spacing can never bleed into the header. */
+  var PROF_EASE = [0.22, 1, 0.36, 1];
+  var PROF_STAGGER = 0.04;
+  var PROF_PANEL = { type: 'spring', stiffness: 330, damping: 32, mass: 0.95 };
+  var PROF_CHEVRON = { type: 'spring', stiffness: 300, damping: 20 };
+  var profBound = false;
+
+  function nkProfCards(body) {
+    var list = body && body.querySelector('.nk-v3-subject-list');
+    return list ? Array.prototype.slice.call(list.children) : [];
+  }
+  function nkProfClear(group) {
+    var body = group.querySelector('.nk-prof-body');
+    var inner = body && body.querySelector('.nk-v3-subject-list');
+    if (inner) inner.style.opacity = '';
+    each(nkProfCards(body), function (card) {
+      card.style.opacity = '';
+      card.style.transform = '';
+      card.style.filter = '';
+    });
+  }
+  function nkProfStop(group) {
+    var run = group.__nkgProfRun;
+    if (!run) return;
+    each(run, function (a) { if (a && a.stop) { try { a.stop(); } catch (e) {} } });
+    group.__nkgProfRun = null;
+  }
+  function nkProfTarget(e) {
+    if (!e.target || !e.target.closest) return null;
+    var head = e.target.closest('.nk-prof-head');
+    return head && head.closest('.nk-prof-group.nkg-prof-live');
+  }
+  /* Runs before the app's own handler flips the class: freeze today's geometry
+     so the springs have explicit numbers to leave from (auto height cannot be
+     animated) and keep the chevron where the eye last saw it. */
+  function nkProfPin(e) {
+    var group = nkProfTarget(e);
+    if (!group) return;
+    var body = group.querySelector('.nk-prof-body');
+    if (!body) return;
+    var open = group.classList.contains('is-open');
+    nkProfStop(group);
+    nkProfClear(group);
+    body.style.height = body.getBoundingClientRect().height + 'px';
+    var chev = group.querySelector('.nk-prof-head .nk-prof-chevron');
+    if (chev) chev.style.transform = 'rotate(' + (open ? -90 : 90) + 'deg)';
+    group.__nkgProfPin = true;
+  }
+  /* Runs after it: spring the band to its new resting state. */
+  function nkProfSettle(e) {
+    var group = nkProfTarget(e);
+    if (!group || !group.__nkgProfPin) return;
+    delete group.__nkgProfPin;
+    var body = group.querySelector('.nk-prof-body');
+    if (!body) return;
+    var inner = body.querySelector('.nk-v3-subject-list');
+    var chev = group.querySelector('.nk-prof-head .nk-prof-chevron');
+    var open = group.classList.contains('is-open');
+    nkProfStop(group);
+    if (!motionOK()) {
+      /* Reduced motion: settle at once and let the stylesheet own the state. */
+      nkProfClear(group);
+      body.style.height = open ? '' : '0px';
+      if (chev) chev.style.transform = '';
+      return;
+    }
+    var run = [];
+    if (open) {
+      var from = parseFloat(body.style.height) || 0;
+      var h = body.scrollHeight;
+      var grow = M.animate(body, { height: [from + 'px', h + 'px'] }, PROF_PANEL);
+      run.push(grow);
+      if (grow && grow.finished) grow.finished.then(function () { body.style.height = ''; }, function () {});
+      nkProfClear(group);
+      each(nkProfCards(body), function (card, i) {
+        run.push(anim(card, {
+          opacity: [0, 1],
+          transform: ['translateY(12px)', 'translateY(0px)'],
+          filter: ['blur(3px)', 'blur(0px)']
+        }, { duration: 0.5, delay: 0.05 + Math.min(i, 8) * PROF_STAGGER, ease: PROF_EASE }));
+      });
+      if (chev) run.push(anim(chev, { transform: ['rotate(90deg)', 'rotate(-90deg)'] }, PROF_CHEVRON));
+    } else {
+      var h0 = body.getBoundingClientRect().height;
+      var shrink = M.animate(body, { height: [h0 + 'px', '0px'] }, { duration: 0.26, ease: PROF_EASE });
+      run.push(shrink);
+      if (shrink && shrink.finished) shrink.finished.then(function () { body.style.height = '0px'; }, function () {});
+      if (inner) run.push(anim(inner, { opacity: [1, 0] }, { duration: 0.15, ease: PROF_EASE }));
+      if (chev) run.push(anim(chev, { transform: ['rotate(-90deg)', 'rotate(90deg)'] }, { duration: 0.28, ease: PROF_EASE }));
+    }
+    group.__nkgProfRun = run;
+  }
+  function enhanceProfGroups(app) {
+    if (!M || !M.animate || !app || !app.querySelector) return;
+    each(app.querySelectorAll('.nk-prof-group'), function (group) {
+      var body = group.querySelector('.nk-prof-body');
+      if (!body) return;
+      group.classList.add('nkg-prof-live');
+      if (!group.classList.contains('is-open') && !group.__nkgProfPin && !group.__nkgProfRun) body.style.height = '0px';
+    });
+    if (profBound) return;
+    profBound = true;
+    document.addEventListener('click', nkProfPin, true);
+    document.addEventListener('click', nkProfSettle, false);
+  }
+
   /* 05 · topic tabs + rows */
   function enhanceTopics(root) {
     var tabs = root.querySelector('.nk-li-tabs');
@@ -1106,7 +1230,7 @@
     var st = c.querySelector('strong'); var m = st && st.textContent.match(/(\d+)\s*%/); if (!m) return;
     var n = Math.max(0, Math.min(100, +m[1]));
     c.classList.add('nkg-cohort', n >= 70 ? 'is-easy' : n < 40 ? 'is-hard' : 'is-mid');
-    c.setAttribute('aria-label', n + '% of UWorld users answered correctly');
+    c.setAttribute('aria-label', n + '% of ' + (c.getAttribute('data-nk-source') || 'UWorld') + ' users answered correctly');
     st.innerHTML = '<b>' + n + '%</b><small>got it right</small>';
     var bar = el('span', 'nkg-cohort-bar', '<i></i>'); bar.setAttribute('aria-hidden', 'true'); bar.style.setProperty('--nkg-p', String(n));
     c.appendChild(bar);
@@ -1621,7 +1745,7 @@
       watchToasts();
       syncTopbar(app, page, session);
       pageEnter(app, page, session);
-      if (page === 'dashboard') { enhanceHome(app); enhanceSubjectBanks(app); }
+      if (page === 'dashboard') { enhanceHome(app); enhanceSubjectBanks(app); enhanceProfGroups(app); }
       else if (page === 'study-library') enhanceSubjectBanks(app);
       else if (page === 'analytics') enhanceInsights(app);
       else if (page === 'tests' || page === 'test-builder') enhanceTests(app);

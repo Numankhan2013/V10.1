@@ -40,6 +40,10 @@ def main() -> None:
             anatomy = page.locator("button.nk-v3-subject-card").filter(has_text="Anatomy")
             if anatomy.count() != 1:
                 raise SystemExit(f"Expected one Anatomy subject card, found {anatomy.count()}")
+            # My Subjects starts collapsed: open Anatomy's professional-year group.
+            first_prof = page.locator('.nk-prof-group[data-nk-prof="first"] .nk-prof-head')
+            if first_prof.get_attribute("aria-expanded") != "true":
+                first_prof.click()
             anatomy.click()
             page.wait_for_function(
                 "() => document.querySelectorAll('button.nk-bank-card').length===2",

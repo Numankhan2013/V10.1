@@ -369,3 +369,45 @@ When explanation fine-tuning begins, follow
 `docs/MARROW_EXPLANATION_FINE_TUNING.md`. Raw imported records stay immutable;
 the existing 142-question enhanced layer is the reference presentation grammar.
 Remaining chapters/questions and figure binaries are later, separate work.
+
+
+## Microbiology — Marrow-only subject (2026-10-14)
+
+Microbiology has no PrepLadder bank. Its Marrow record joins `SUBJECTS` and
+`SUBJECT_BY_NAME` after the Marrow registry loop, so Home, Topics, bank chooser
+(one card), Practice, CBT, Review, FSRS, modules and Insights treat it like the
+other subjects.
+
+Adding the next JSONL part:
+1. put it in `data/marrow/microbiology/source/` as `Microbiology_Marrow_Qbank_NN.jsonl`
+   (raw, never edited; parts are read in name order);
+2. add its figure crops to `data/marrow/microbiology/visuals/<image_id>.jpg`;
+3. add the part to `PART_LAYOUT` in the builder: `schema` (1 = part-01 field
+   names, 2 = part-02 field names), `pageOffset` (split-PDF page 1 = which page of
+   the full PDF; confirm by OCR of the first MCQ ID) and `moduleOffset` (part's
+   module 1 = which app module). A module that continues across parts gets one
+   title and the true total in `MODULE_OVERRIDES`;
+4. `python3 tools/build_microbiology_marrow_bank.py` (shards + manifest);
+5. add new modules to the `Microbiology` entry of `data/marrow/topic_index_taxonomy.json`;
+6. `python3 tools/microbiology_visuals.py inventory` then `release`;
+7. `python3 tools/test_microbiology_marrow_bank.py` and the browser verifier.
+
+Schema 2 (part 02 onward) explanations: `explanation_blocks` give the order
+(text, list, image, table, pearl, callout); `explanation_markdown` gives the
+text formatting and one `[Marrow Pearl #N: Title]` line per pearl. Media are
+slotted after the markdown line that ends the preceding text block; each pearl
+expands to heading, body (`body_text`), tables (at a `[Tables: …]` slot when the
+body has one; footnote-only bodies follow the table) and pearl images. Clipped
+screenshot text kept as `visible [full]` is shown as the full reconstruction;
+`[clipped at …]` notes are dropped. Raw JSONL is unchanged.
+
+Peer statistics: every Microbiology record carries `sourceStats`
+(`peerAccuracyPercent`, `optionPollPercent`). The app shows them with the UWorld
+components (`.nk-uworld-cohort` chip, `.nk-uworld-option-percent` column hidden
+until the question is answered, reviewed or locked) through
+`nkSourceCohort`/`nkSourcePollPercent`; banks without `sourceStats` render
+nothing new.
+
+Question IDs are `marrow__MICRO_CH<module>_Q<number>`, so appending the rest of a
+module keeps earlier IDs (and progress) stable. A replaced figure crop only needs
+step 6. Source corrections go in `SOURCE_CORRECTIONS` with page evidence.

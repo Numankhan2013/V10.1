@@ -167,6 +167,7 @@
     if (/^marrow__ANAT|^anatomy-/i.test(id)) return 'Anatomy';
     if (/^marrow__PHYS|^physiology-/i.test(id)) return 'Physiology';
     if (/^marrow__BIOCHEM|^\d+-\d+$/i.test(id)) return 'Biochemistry';
+    if (/^marrow__MICRO/i.test(id)) return 'Microbiology';
     if (/^UWORLD_/i.test(id)) return 'My UWorld';
     return 'Other';
   }
@@ -358,7 +359,7 @@
     var stat = function (label, value, sub) {
       return '<div class="nkg-stat"><span class="nkg-stat-label">' + label + '</span><strong class="nkg-num">' + value + '</strong>' + (sub ? '<small>' + sub + '</small>' : '') + '</div>';
     };
-    var order = ['Anatomy', 'Physiology', 'Biochemistry', 'My UWorld', 'Other'];
+    var order = ['Anatomy', 'Physiology', 'Biochemistry', 'Microbiology', 'My UWorld', 'Other'];
     var subjRows = order.filter(function (k) { return m.subjects[k]; }).map(function (k) {
       var r = m.subjects[k], acc = r.answered ? Math.round(r.correct / r.answered * 100) : 0;
       var key = k.toLowerCase().replace(/[^a-z]/g, '');
@@ -608,7 +609,7 @@
     var prov = app.querySelectorAll('.nk-marrow-provenance:not([data-nkg-copy])');
     for (var i = 0; i < prov.length; i++) {
       var pages = (prov[i].textContent.match(/explanation pages? ([\d,\s]+)/) || [])[1];
-      prov[i].textContent = 'Source: Marrow ED8' + (pages ? ' · page' + (/,/.test(pages) ? 's ' : ' ') + pages.trim().replace(/,\s*/g, ', ') : '');
+      prov[i].textContent = 'Source: ' + (prov[i].getAttribute('data-nkg-source') || 'Marrow ED8') + (pages ? ' · page' + (/,/.test(pages) ? 's ' : ' ') + pages.trim().replace(/,\s*/g, ', ') : '');
       prov[i].setAttribute('data-nkg-copy', '');
     }
   }

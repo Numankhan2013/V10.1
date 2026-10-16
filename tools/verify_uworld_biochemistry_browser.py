@@ -71,6 +71,7 @@ def main():
                 records = page.evaluate('__uworldTest.records()')
                 expected = {('Anatomy', 'PrepLadder'): 1068, ('Physiology', 'PrepLadder'): 899, ('Biochemistry', 'PrepLadder'): 719,
                             ('Anatomy', 'Marrow'): 1115, ('Physiology', 'Marrow'): 1014, ('Biochemistry', 'Marrow'): 582,
+                            ('Microbiology', 'Marrow'): __import__('json').loads((Path(__file__).resolve().parents[1] / 'data/marrow/microbiology_marrow_qbank_manifest.json').read_text())['questions'],
                             ('UWorld · Biochemistry', 'UWorld'): 132,
                             ('UWorld · Poisoning & Environmental Exposure', 'UWorld'): 33,
                             ('UWorld · Ophthalmology', 'UWorld'): 30,
@@ -100,9 +101,11 @@ def main():
                     page.evaluate('QB.nav("practice")')
                     page.locator('.option-list button').first.wait_for()
 
-                # Incumbent subjects remain separate from UWorld collections.
-                expect(page.locator('.nk-home-subjects button.nk-v3-subject-card')).to_have_count(3)
-                page.locator('.nk-home-subjects button.nk-v3-subject-card').filter(has_text='Biochemistry').click()
+                # Incumbent subjects (three PrepLadder+Marrow, plus Marrow-only
+                # Microbiology) remain separate from UWorld collections.
+                expect(page.locator('.nk-home-subjects button.nk-v3-subject-card')).to_have_count(4)
+                # My Subjects opens collapsed; enter the subject through the app entry point.
+                page.evaluate('QB.nkOpenSubjectLibrary("Biochemistry")')
                 expect(page.locator('button.nk-bank-card')).to_have_count(2)
                 assert page.locator('button.nk-bank-card').filter(has_text='UWorld').count()==0
                 page.evaluate('QB.nav("dashboard")')
@@ -112,6 +115,15 @@ def main():
                 uw = {k: v for k, v in expected.items() if k[1] == 'UWorld'}
                 assert f"{len(uw)} collections · {sum(uw.values()):,} questions" in entry.inner_text(), entry.inner_text()
                 assert entry.bounding_box()['height'] >= 44
+                # The entry chevron belongs on the row's right edge. Hiding the
+                # "Open" action must not pull it back into the meta column.
+                chevron_gap = page.evaluate('''() => {
+                  const card = document.querySelector('.nk-home-uworld .nk-uworld-entry');
+                  const chevron = card.querySelector('svg[data-nk-icon="chevron"]');
+                  const pad = parseFloat(getComputedStyle(card).paddingRight) || 0;
+                  return Math.round(card.getBoundingClientRect().right - pad - chevron.getBoundingClientRect().right);
+                }''')
+                assert abs(chevron_gap) <= 2, f"UWorld entry chevron not flush right: gap {chevron_gap}px"
                 assert not page.evaluate('document.documentElement.scrollWidth>innerWidth')
                 page.screenshot(path=str(output / f'home-my-uworld-{width}.png'),full_page=True)
                 entry.focus()
@@ -318,7 +330,8 @@ def main():
                 assert page.evaluate('__uworldTest.current().bank') == 'UWorld'
                 page.screenshot(path=str(output / f'module-practice-{width}.png'))
                 page.evaluate('QB.exitStudyModule()')
-                page.locator('.nk-home-subjects button.nk-v3-subject-card').filter(has_text='Biochemistry').click()
+                # My Subjects opens collapsed; enter the subject through the app entry point.
+                page.evaluate('QB.nkOpenSubjectLibrary("Biochemistry")')
                 page.locator('button.nk-bank-card').filter(has_text='PrepLadder').click()
                 expect(page.locator('button.nk-topic-row')).to_have_count(28)
                 assert not page.evaluate('document.documentElement.scrollWidth>innerWidth')

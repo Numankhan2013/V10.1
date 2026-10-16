@@ -13,6 +13,35 @@ BANKS = {
     "Anatomy": "anatomy_ch001_063",
     "Biochemistry": "biochemistry_ch001_028",
     "Physiology": "physiology_ch001_043",
+    "Microbiology": "microbiology_marrow_qbank",
+}
+MICROBIOLOGY_SECTION_ORDER = ["Immunology", "Systemic bacteriology", "Virology", "Mycology", "Parasitology", "Applied microbiology"]
+MICROBIOLOGY_SLOT_MAP = {
+    "1": ["immunology:01"],
+    "2": ["immunology:02"],
+    "3": ["immunology:03"],
+    "4": ["immunology:04"],
+    "5": ["systemic-bacteriology:01"],
+    "6": ["systemic-bacteriology:02"],
+    "7": ["systemic-bacteriology:03"],
+    "8": ["systemic-bacteriology:04"],
+    "9": ["systemic-bacteriology:05"],
+    "10": ["systemic-bacteriology:06"],
+    "11": ["systemic-bacteriology:07"],
+    "12": ["systemic-bacteriology:08"],
+    "13": ["systemic-bacteriology:09"],
+    "14": ["systemic-bacteriology:10"],
+    "15": ["virology:01"],
+    "16": ["virology:02"],
+    "17": ["virology:03"],
+    "18": ["virology:04"],
+    "19": ["virology:05"],
+    "20": ["virology:06"],
+    "21": ["virology:07"],
+    "22": ["mycology:01"],
+    "23": ["parasitology:01"],
+    "24": ["parasitology:02"],
+    "25": ["applied-microbiology:01"],
 }
 
 ANATOMY_SECTION_ORDER = [
@@ -278,9 +307,22 @@ def main() -> None:
     assert {str(item["id"]): item["plannedSlots"] for item in phys["topics"]} == PHYSIOLOGY_SLOT_MAP
     assert set(PHYSIOLOGY_VISIBLE_IDS) == {str(i) for i in range(1, 44)}
 
-    assert total == 134
+    micro = subjects["Microbiology"]
+    assert micro["catalogVersion"] == 2 and micro["displayNumbering"] == "visible-contiguous"
+    assert micro["sectionOrder"] == MICROBIOLOGY_SECTION_ORDER
+    assert nonempty_sections(micro) == MICROBIOLOGY_SECTION_ORDER
+    assert flatten_current(micro) == [str(i) for i in range(1, len(micro["topics"]) + 1)]
+    micro_slots = [topic["slot"] for section in micro["plannedIndex"] for topic in section["topics"]]
+    assert len(micro_slots) == len(set(micro_slots)), "duplicate planned slots"
+    slot_set = set(micro_slots)
+    assert all(set(item["plannedSlots"]) <= slot_set for item in micro["topics"])
+    # Lock the chapter-to-slot mapping: the systemic list once restarted its
+    # numbering mid-section, which only a map assertion can catch.
+    assert {str(item["id"]): item["plannedSlots"] for item in micro["topics"]} == MICROBIOLOGY_SLOT_MAP
+
+    assert total == 134 + len(micro["topics"])
     print(
-        "MARROW_TOPIC_TAXONOMY_OK subjects=3 current_topics=134 "
+        f"MARROW_TOPIC_TAXONOMY_OK subjects=4 current_topics={total} microbiology_visible={len(micro['topics'])} "
         "anatomy_plan=71 anatomy_visible=63 biochemistry_plan=32 biochemistry_visible=28 "
         "physiology_plan=42 physiology_visible=43 numbering=contiguous placeholders=none"
     )
