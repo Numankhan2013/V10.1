@@ -116,6 +116,9 @@
     const q=BY_ID[String(qid)]||nkFsrsAllById()[String(qid)];if(!q||!selected)return false;
     const correct=Number(q.correctOption)===Number(selected),grade=correct&&[2,3,4].includes(Number(rating))?Number(rating):(correct?3:1),now=Number(reviewedAt||Date.now());
     if(attemptId&&(state.attempts[qid]||[]).some(a=>a.id===attemptId))return correct;
+    // Heal a missing derived cache (interrupted write, damaged import): replay the
+    // stored attempts so this rating extends the true chain, not an empty card.
+    if(!state.reviews[qid]&&nkFsrsActiveAttempts(qid).length)nkFsrsReplay(qid,false);
     const before=nkFsrsCardFromReview(state.reviews[qid],now),out=nkFsrsEngine().next(before,new Date(now),grade),after=nkFsrsCardSnapshot(out.card);
     const entry={id:attemptId||`${now}_${Math.random().toString(16).slice(2)}`,sessionId:state.activeSession?.id||null,selected:Number(selected),correct,timeSpent:Math.max(0,Number(timeSpent||0)),at:now,reviewedAt:now,source,rating:grade,ratingLabel:['','Again','Hard','Good','Easy'][grade],schedulerVersion:NK_FSRS_VERSION,schedulerPreferences:{...nkFsrsPreferences()},schedulerBefore:nkFsrsCardSnapshot(before),schedulerAfter:after};
     if(!state.attempts[qid])state.attempts[qid]=[];state.attempts[qid].push(entry);
@@ -153,7 +156,7 @@
     render();return true;
   }
   function nkFsrsRecoverPending(){const s=state.activeSession;if(!s?.pendingRating)return;Object.keys(s.pendingRating).forEach(qid=>nkFsrsCommitPending(qid,3));}
-  function nkFsrsRetrievability(review,now=Date.now()){try{return nkFsrsEngine().get_retrievability(nkFsrsCardFromReview(review,now),new Date(now),false);}catch(_){return 1;}}
+  function nkFsrsRetrievability(review,now=Date.now(),engine){try{return (engine||nkFsrsEngine()).get_retrievability(nkFsrsCardFromReview(review,now),new Date(now),false);}catch(_){return 1;}}
   function nkFsrsQueue(filters={}){
     const now=Date.now(),prefs=nkFsrsPreferences(),all=nkFsrsAllQuestions().filter(q=>(!filters.subject||q.subject===filters.subject)&&(!filters.bank||q.bank===filters.bank)&&(!filters.topic||String(q.chapterId)===String(filters.topic))&&nkFsrsEligibility(q)),due=[];
     all.forEach(q=>{if(nkFsrsIsDue(state.reviews[q.id],now))due.push(q);});
@@ -161,9 +164,16 @@
     // retrievable, then submitted-as-skipped questions that have never been
     // answered (no memory to protect yet, so they never crowd out real reviews).
     const rank=r=>!r?2:nkFsrsIsLearning(r)?0:1;
-    due.sort((a,b)=>{const ar=state.reviews[a.id],br=state.reviews[b.id],ak=rank(ar),bk=rank(br);if(ak!==bk)return ak-bk;if(ak===0)return Number(ar?.due||0)-Number(br?.due||0)||String(a.id).localeCompare(String(b.id));return nkFsrsRetrievability(ar,now)-nkFsrsRetrievability(br,now)||Number(ar?.due||0)-Number(br?.due||0)||String(a.id).localeCompare(String(b.id));});
+    // One engine and one retrievability value per card: the comparator used to
+    // build an engine per comparison, which cost hundreds of milliseconds on a
+    // large due backlog (the queue is rebuilt on every Home/Revision render).
+    const retrEngine=nkFsrsEngine(prefs),retrOf=new Map();
+    due.forEach(q=>{const r=state.reviews[q.id];retrOf.set(String(q.id),rank(r)===0?0:Number(nkFsrsRetrievability(r,now,retrEngine))||0);});
+    due.sort((a,b)=>{const ar=state.reviews[a.id],br=state.reviews[b.id],ak=rank(ar),bk=rank(br);if(ak!==bk)return ak-bk;if(ak===0)return Number(ar?.due||0)-Number(br?.due||0)||String(a.id).localeCompare(String(b.id));return retrOf.get(String(a.id))-retrOf.get(String(b.id))||Number(ar?.due||0)-Number(br?.due||0)||String(a.id).localeCompare(String(b.id));});
     const today=new Date(now).toDateString(),seen=new Set();
-    nkFsrsAllQuestions().forEach(q=>{const daily=nkFsrsActiveAttempts(q.id).filter(a=>a.schedulerVersion===NK_FSRS_VERSION&&['fsrs-review','spaced-review'].includes(a.source)&&new Date(a.at).toDateString()===today);if(daily.length)seen.add(String(q.id));});
+    // Only due cards can be filtered by `seen`, so scan that subset: the pool
+    // is ~4x larger once every bank is loaded.
+    due.forEach(q=>{const daily=nkFsrsActiveAttempts(q.id).filter(a=>a.schedulerVersion===NK_FSRS_VERSION&&['fsrs-review','spaced-review'].includes(a.source)&&new Date(a.at).toDateString()===today);if(daily.length)seen.add(String(q.id));});
     const repeatIds=new Set(due.filter(q=>seen.has(String(q.id))&&[1,3].includes(Number(state.reviews?.[q.id]?.state))).map(q=>String(q.id)));
     const firstToday=due.filter(q=>!seen.has(String(q.id))),remaining=Math.max(0,prefs.dailyCap-seen.size),admittedIds=new Set(firstToday.slice(0,remaining).map(q=>String(q.id)));
     const cards=due.filter(q=>repeatIds.has(String(q.id))||admittedIds.has(String(q.id)));
@@ -189,7 +199,7 @@
     if(hit.isRatingRevision)state.fsrsRatingRevisions[qid].push({...event,isRatingRevision:true,ratingOf:hit.ratingOf,rating:hit.rating,revisedAt:now});else state.attempts[qid].push(event);
     nkFsrsReplay(qid,false);saveState();showToast('Most recent rating undone.');render();
   }
-  function nkFsrsSetPreference(name,value){const p=nkFsrsPreferences(),n=Number(value),bounds={desiredRetention:[80,97],dailyCap:[20,300],maximumInterval:[30,3650]},b=bounds[name];if(!b)return;p[name]=name==='desiredRetention'?Math.min(b[1],Math.max(b[0],n))/100:Math.round(Math.min(b[1],Math.max(b[0],n)));}
+  function nkFsrsSetPreference(name,value){const p=nkFsrsPreferences(),n=Number(value),bounds={desiredRetention:[80,97],dailyCap:[20,300],maximumInterval:[30,3650]},b=bounds[name];if(!b)return;p[name]=name==='desiredRetention'?Math.min(b[1],Math.max(b[0],n))/100:Math.round(Math.min(b[1],Math.max(b[0],n)));state.fsrsPreferencesAt={...(state.fsrsPreferencesAt||{}),[name]:Date.now()};}
   let nkFsrsDraft=null,nkFsrsPendingRoute=null;
   const nkFsrsFields=[['desiredRetention','Desired retention','%',80,97,'How often you aim to remember a card. Higher retention means more reviews.'],['dailyCap','Daily review limit','cards',20,300,'Limits due review work. Excess due questions roll forward.'],['maximumInterval','Longest review interval','days',30,3650,'The maximum gap before a question returns for review.']];
   function nkFsrsReadSettings(){const p=nkFsrsPreferences();return {desiredRetention:String(Math.round(p.desiredRetention*100)),dailyCap:String(p.dailyCap),maximumInterval:String(p.maximumInterval)};}

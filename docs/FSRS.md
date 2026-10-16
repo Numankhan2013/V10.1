@@ -15,10 +15,11 @@ NK QBank includes a functional offline FSRS v6 review system in both the Android
 - Questions that accept no answer (incomplete-source gates) are never review-eligible, never marked skipped and never listed as Unseen or as remaining Continue Practice work.
 - The recall dock shows each grade's next interval on the button (for example Hard 15m · Good 2d · Easy 7d).
 - Settings change future ratings without rewriting past attempt history. Undo records a reversible event rather than deleting synchronized history.
+- Settings synchronize per field: each edit stamps `state.fsrsPreferencesAt[field]`, cross-device merge keeps the newest value for each field independently, and payloads without stamps keep the whole-block merge so older clients are unaffected.
 
 ## Build and verification
 
-The deterministic pipeline installs FSRS after cross-device integration and verifies the generated source, web artifact, and packaged APK assets. `tools/test_fsrs_v1.py` covers migration, replay, all-attempt eligibility, ratings, queue caps and filters, preferences, undo, pending-rating recovery, and the offline vendor assets. The generated-browser Continue Practice regression owns the Pause-versus-Submit boundary.
+The deterministic pipeline installs FSRS after cross-device integration and verifies the generated source, web artifact, and packaged APK assets. `tools/test_fsrs_v1.py` covers migration, replay, all-attempt eligibility, ratings, queue caps and filters, preferences, undo, pending-rating recovery, and the offline vendor assets. `tools/test_fsrs_audit_v1.py` adds the adversarial audit battery: due/learn-ahead boundaries, cap arithmetic, revision chains against engine replays, undo, fuzz, cold-rebuild determinism, damaged-cache healing, preference stamps and a queue performance canary. The generated-browser Continue Practice regression owns the Pause-versus-Submit boundary.
 
 FSRS acceptance status as of 2026-09-07: the new APK was installed and confirmed working, and the website/PWA was opened and confirmed functional. The separate Firebase cross-device synchronization acceptance remains tracked in the project memory and deployment handoff.
 

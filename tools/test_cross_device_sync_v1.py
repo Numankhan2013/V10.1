@@ -366,6 +366,18 @@ async function testRequests(){
   globalThis.fetch=async(url,options)=>({ok:true,text:async()=>JSON.stringify({localId:'new-user',email:'new@example.com',idToken:'not-saved',refreshToken:'not-saved',expiresIn:'3600'})});
   await nkCloudAuthenticate('create');
   assert(nkAuthView==='signin'&&nkSignInEmail==='new@example.com'&&!nkAuth&&!localStorage.getItem('qbank_firebase_auth_v1'),'creating an account must return to the sign-in step without auto-signing in');
+  // Per-field preference stamps: concurrent edits on two devices must merge
+  // field-wise instead of losing the newer edit with a whole-block overwrite.
+  state.fsrsPreferences={desiredRetention:0.95,dailyCap:150,maximumInterval:365};
+  state.fsrsPreferencesAt={desiredRetention:500};
+  nkApplyCloudEnvelope(nkEnvelope('preferences','main',{activeSubject:null,studyStartedAt:null,fsrsPreferences:{desiredRetention:0.9,dailyCap:200,maximumInterval:365},fsrsPreferencesAt:{desiredRetention:100,dailyCap:400}},Date.now()+20000));
+  assert(state.fsrsPreferences.desiredRetention===0.95&&state.fsrsPreferencesAt.desiredRetention===500,'newer local preference edit must survive an older remote snapshot');
+  assert(state.fsrsPreferences.dailyCap===200&&state.fsrsPreferencesAt.dailyCap===400,'remote preference edit must merge per field with its stamp');
+  assert(state.fsrsPreferences.maximumInterval===365&&state.fsrsPreferencesAt.maximumInterval===undefined,'untouched fields must not gain stamps');
+  // Legacy payloads without stamps keep the previous whole-block merge.
+  state.fsrsPreferences={desiredRetention:0.95,dailyCap:150,maximumInterval:365};state.fsrsPreferencesAt=null;
+  nkApplyCloudEnvelope(nkEnvelope('preferences','main',{activeSubject:null,studyStartedAt:null,fsrsPreferences:{desiredRetention:0.9,dailyCap:200,maximumInterval:365}},Date.now()+30000));
+  assert(state.fsrsPreferences.desiredRetention===0.9&&state.fsrsPreferences.dailyCap===200,'legacy payload must keep the whole-block merge');
   console.log('CROSS_DEVICE_SYNC_BEHAVIOR_OK');
 }
 testRequests().catch(error=>{console.error(error);process.exitCode=1;});

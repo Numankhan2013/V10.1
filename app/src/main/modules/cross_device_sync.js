@@ -217,7 +217,8 @@
     const special=state.activeSession&&!(typeof nkNormalPracticeSession==='function'&&nkNormalPracticeSession(state.activeSession))?state.activeSession:null;
     if(special||!nkSyncMeta.needsInitialPull)nkQueueEnvelope(nkEnvelope('sessions','active',special,nkEntityTimestamp(special,Date.now()),!special));
     const fsrsReviewEligible=state.fsrsReviewEligible&&Object.keys(state.fsrsReviewEligible).length?state.fsrsReviewEligible:null;
-    const preferencesPayload={activeSubject,studyStartedAt:state.studyStartedAt||null,fsrsPreferences:state.fsrsPreferences||null,...(fsrsReviewEligible?{fsrsReviewEligible}:{})};
+    const fsrsPreferencesAt=state.fsrsPreferencesAt&&Object.keys(state.fsrsPreferencesAt).length?state.fsrsPreferencesAt:null;
+    const preferencesPayload={activeSubject,studyStartedAt:state.studyStartedAt||null,fsrsPreferences:state.fsrsPreferences||null,...(fsrsPreferencesAt?{fsrsPreferencesAt}:{}),...(fsrsReviewEligible?{fsrsReviewEligible}:{})};
     if(!nkSyncMeta.needsInitialPull)nkQueueEnvelope(nkEnvelope('preferences','main',preferencesPayload,Date.now()));
     nkSaveSyncMeta();if(nkCloudRevision!==revision&&!nkCloudBusy)nkScheduleCloudFlush();
   }
@@ -358,6 +359,14 @@
     Object.entries(incoming).forEach(([qid,entry])=>{if(entry?.reason!=='skipped')return;const key=String(qid),nextAt=Math.max(1,Number(entry.at||fallbackAt)),current=merged[key];if(!current||Number(current.at||0)<=nextAt)merged[key]={reason:'skipped',at:nextAt};});
     state.fsrsReviewEligible=merged;
   }
+  function nkMergeFsrsPreferences(incoming,at){
+    if(!incoming||typeof incoming!=='object')return;
+    const base={...(state.fsrsPreferences||{})};
+    if(!at||typeof at!=='object'){state.fsrsPreferences={...base,...incoming};return;}
+    const stamps={...(state.fsrsPreferencesAt||{})};
+    ['desiredRetention','dailyCap','maximumInterval'].forEach(field=>{if(!(field in incoming))return;const remoteAt=Number(at[field]||0),localAt=Number(stamps[field]||0);if(remoteAt>=localAt){base[field]=incoming[field];if(remoteAt>0)stamps[field]=remoteAt;}});
+    state.fsrsPreferences=base;state.fsrsPreferencesAt=stamps;
+  }
   function nkSyncPracticeCheckpoint(value){
     if(typeof nkNormalizeCheckpoint==='function')return nkNormalizeCheckpoint(value);
     if(!value||!value.sessionId||!Array.isArray(value.sessionQuestionIds)||!value.sessionQuestionIds.length)return null;
@@ -463,7 +472,7 @@
       else if(winner.deleted){if(state.activeSession&&!((typeof nkNormalPracticeSession==='function')&&nkNormalPracticeSession(state.activeSession)))state.activeSession=null;}
       else if(payload)state.activeSession=payload;
     }
-    else if(winner.kind==='preferences'&&payload){if(payload.activeSubject&&payload.activeSubject!==activeSubject&&typeof SUBJECT_BY_NAME!=='undefined'&&SUBJECT_BY_NAME[payload.activeSubject])applySubject(payload.activeSubject);if(payload.studyStartedAt)state.studyStartedAt=state.studyStartedAt?Math.min(Number(state.studyStartedAt),Number(payload.studyStartedAt)):Number(payload.studyStartedAt);if(payload.fsrsPreferences)state.fsrsPreferences={...(state.fsrsPreferences||{}),...payload.fsrsPreferences};nkMergeFsrsReviewEligible(payload.fsrsReviewEligible,winner.updatedAt);}
+    else if(winner.kind==='preferences'&&payload){if(payload.activeSubject&&payload.activeSubject!==activeSubject&&typeof SUBJECT_BY_NAME!=='undefined'&&SUBJECT_BY_NAME[payload.activeSubject])applySubject(payload.activeSubject);if(payload.studyStartedAt)state.studyStartedAt=state.studyStartedAt?Math.min(Number(state.studyStartedAt),Number(payload.studyStartedAt)):Number(payload.studyStartedAt);nkMergeFsrsPreferences(payload.fsrsPreferences,payload.fsrsPreferencesAt);nkMergeFsrsReviewEligible(payload.fsrsReviewEligible,winner.updatedAt);}
     if(typeof nkFsrsPruneCommittedPending==='function')nkFsrsPruneCommittedPending();
     // Received revisions are already synchronized; do not echo them as new edits.
     nkSyncMeta.localHashes[nkWinnerKey(winner)]=nkHash({deleted:winner.deleted,payload:winner.payload});
