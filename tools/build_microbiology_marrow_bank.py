@@ -80,9 +80,16 @@ def sha256(data: bytes) -> str:
 
 
 def source_parts() -> list[Path]:
-    parts = sorted(SOURCE_DIR.glob("Microbiology_Marrow_Qbank_*.jsonl"))
+    # Only parts with a PART_LAYOUT entry are integrated. Source parts that are
+    # uploaded but not integrated yet stay in the directory (their layout
+    # offsets are added when they are built in) and must not fail the build.
+    found = sorted(SOURCE_DIR.glob("Microbiology_Marrow_Qbank_*.jsonl"))
+    parts = [path for path in found if path.name in PART_LAYOUT]
+    pending = [path.name for path in found if path.name not in PART_LAYOUT]
+    if pending:
+        print("MICROBIOLOGY_MARROW_PARTS_PENDING " + " ".join(pending))
     if not parts:
-        fail(f"no source JSONL under {SOURCE_DIR.relative_to(ROOT)}")
+        fail(f"no integrated source JSONL under {SOURCE_DIR.relative_to(ROOT)}")
     return parts
 
 
