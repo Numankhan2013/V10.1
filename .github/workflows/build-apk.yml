@@ -356,7 +356,7 @@ jobs:
           grep -q 'body:has(.nk-home-v4) .topbar' app/src/main/assets/index.html app/src/main/assets/app.css
           grep -q 'nk-home-actions-v1' app/src/main/assets/index.html app/src/main/assets/app.css
           grep -q 'Continue Practice' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'Choose subjects and topics' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'Build a test' app/src/main/assets/index.html app/src/main/assets/app.css
           grep -q 'Quick test' app/src/main/assets/index.html app/src/main/assets/app.css
           ! grep -q 'id="v102-streak-layer-script"' app/src/main/assets/index.html app/src/main/assets/app.css
           ! grep -q 'id="v102-streak-layer"' app/src/main/assets/index.html app/src/main/assets/app.css
@@ -552,7 +552,7 @@ jobs:
           grep -q 'body:has(.nk-home-v4) .topbar' /tmp/packaged-index.html
           grep -q 'nk-home-actions-v1' /tmp/packaged-index.html
           grep -q 'Continue Practice' /tmp/packaged-index.html
-          grep -q 'Choose subjects and topics' /tmp/packaged-index.html
+          grep -q 'Build a test' /tmp/packaged-index.html
           grep -q 'Quick test' /tmp/packaged-index.html
           grep -q 'nk-topics-v2' /tmp/packaged-index.html
           grep -q 'openSubjectTopics' /tmp/packaged-index.html
