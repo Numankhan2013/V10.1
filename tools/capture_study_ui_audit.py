@@ -171,7 +171,9 @@ def main():
                     }""")
                     assert home_action["visible"], f"Home study action is obscured by bottom navigation at 320px: {home_action}"
 
-                page.locator(".nk-home-subjects button.nk-v3-subject-card").filter(has_text="Biochemistry").click()
+                # My Subjects opens collapsed; enter the subject through the
+                # app entry point instead of a Home card click.
+                page.evaluate("window.QB.nkOpenSubjectLibrary('Biochemistry')")
                 capture(page, f"{label}-01b-subject-destination", observations)
                 # The current Home card can enter the preferred bank directly.
                 # Open the chooser explicitly to capture both bank paths.
