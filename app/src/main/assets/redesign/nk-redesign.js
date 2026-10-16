@@ -22,6 +22,10 @@
   try { window.localStorage.removeItem('nkq.ui'); } catch (e) { /* storage blocked */ }
   window.NKQ_UI = { mode: 'geist' };
   doc.setAttribute('data-nk-ui', 'geist');
+  /* Android app shell (MainActivity NK_NATIVE_FEEL_V1): app-like touch
+     behaviour, and the system bars follow the theme below. */
+  var shell = window.QBankShell && typeof window.QBankShell.platform === 'function' ? window.QBankShell : null;
+  if (shell) doc.classList.add('nk-android-shell');
   /* Route attribute is set before the app's first render and before its own
      hashchange handler, so route-scoped CSS (e.g. #profile) never flashes. */
   (function () {
@@ -44,6 +48,7 @@
     var color = t === 'dark' ? '#0a0a0a' : '#ffffff';
     var metas = document.querySelectorAll('meta[name="theme-color"]');
     for (var i = 0; i < metas.length; i++) metas[i].setAttribute('content', color);
+    if (shell && shell.theme) { try { shell.theme(t === 'dark'); } catch (e) { /* older shell */ } }
     syncThemeControls();
   }
   var themePt = null;

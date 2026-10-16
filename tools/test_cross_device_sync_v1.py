@@ -489,7 +489,7 @@ function nkDurablePersist(v){localStorage.setItem(LS_KEY,JSON.stringify(v));retu
     android = (ROOT / "app/src/main/java/com/qbank/biochemistry/MainActivity.java").read_text(encoding="utf-8")
     # The Android app is a shell around the web build, so progress lives on the
     # web origin and moves between devices through this sync, not native storage.
-    for marker in ("NK_THIN_SHELL_V1", "BuildConfig.APP_URL", 'addJavascriptInterface(new ShellBridge(), "QBankShell")', "setAllowFileAccess(false)"):
+    for marker in ("NK_THIN_SHELL_V1", "BuildConfig.APP_URL", 'addJavascriptInterface(new ShellBridge(), "QBankShell")', "setAllowFileAccess(false)", "NK_NATIVE_FEEL_V1", "applySystemBars", "Toast.makeText"):
         if marker not in android:
             raise SystemExit(f"Android shell contract missing: {marker}")
     if "QBankMigration" in android or "serveAppAsset" in android:

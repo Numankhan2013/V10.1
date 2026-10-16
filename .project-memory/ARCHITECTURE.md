@@ -707,3 +707,11 @@ is refused inside WebViews, so Access must use its one-time email PIN.
   pointed at `http://127.0.0.1:8765/`. The emulator job serves the verified
   `build/web` there and `adb reverse`s the port, then runs
   `tools/verify_android_question_interaction.js` with `NK_ANDROID_APK_DIR`.
+- Native feel (`NK_NATIVE_FEEL_V1`, user's choice "polish the shell" over a
+  native rewrite): system splash held until first paint (4 s cap), window,
+  status and navigation bars follow the in-app theme via `QBankShell.theme()`
+  (called from `redesign/nk-redesign.js` `applyTheme`), Geist colours in
+  `res/values{,-night,-v31,-night-v31}`, a native offline screen, `showToast`
+  routed to Android toasts, `html.nk-android-shell` turns off text selection
+  and link/image long-press outside editable fields, `adjustResize` for the
+  keyboard. Navigations fall back to the cached page after 3 s on a slow network.

@@ -1,0 +1,15 @@
+<resources>
+    <!-- Android 12+ system splash: app icon on the theme colour, held by
+         MainActivity until the first page paint. -->
+    <style name="Theme.QBankBiochemistry" parent="android:style/Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/qbank_background</item>
+        <item name="android:statusBarColor">@color/qbank_background</item>
+        <item name="android:navigationBarColor">@color/qbank_background</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:colorAccent">@color/qbank_foreground</item>
+        <item name="android:windowSplashScreenBackground">@color/qbank_background</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/nk_qbank_icon</item>
+    </style>
+</resources>

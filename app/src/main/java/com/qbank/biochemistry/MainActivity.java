@@ -5,12 +5,21 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ClipData;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.HapticFeedbackConstants;
+import android.view.View;
+import android.view.ViewTreeObserver;
 import android.view.Window;
+import android.view.WindowInsetsController;
 import android.webkit.JavascriptInterface;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
@@ -19,12 +28,24 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 // NK_THIN_SHELL_V1: the app is the web build at BuildConfig.APP_URL. Questions,
 // explanations, figures and PDFs load on demand there and the service worker
 // keeps what has been opened for offline use, so the APK bundles no content.
+// NK_NATIVE_FEEL_V1: the shell should read as an Android app, not a browser tab:
+// the system splash stays until the first paint, system bars and window follow
+// the app theme, offline is a native screen and toasts are Android toasts.
 public class MainActivity extends Activity {
     private WebView webView;
+    private View offlineView;
+    private boolean firstPaint;
+    private Boolean dark;
+    private final Handler ui = new Handler(Looper.getMainLooper());
     private static final Uri APP_URL = Uri.parse(BuildConfig.APP_URL);
     // Production sits behind Cloudflare Access; its one-time-PIN login runs in the WebView.
     private static final String ACCESS_DOMAIN = ".cloudflareaccess.com";
@@ -32,10 +53,9 @@ public class MainActivity extends Activity {
     @SuppressLint("SetJavaScriptEnabled")
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Window window = getWindow();
-        window.setStatusBarColor(Color.rgb(52, 46, 134));
-        window.setNavigationBarColor(Color.rgb(244, 245, 248));
+        applySystemBars((getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES);
         webView = new WebView(this);
+        webView.setBackgroundColor(background());
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true); settings.setDomStorageEnabled(true); settings.setDatabaseEnabled(true);
         settings.setAllowFileAccess(false); settings.setAllowFileAccessFromFileURLs(false);
@@ -44,7 +64,7 @@ public class MainActivity extends Activity {
         settings.setLoadsImagesAutomatically(true); settings.setMediaPlaybackRequiresUserGesture(true);
         settings.setCacheMode(WebSettings.LOAD_DEFAULT);
         settings.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
-        webView.setBackgroundColor(Color.WHITE); webView.setHapticFeedbackEnabled(true); webView.setWebChromeClient(new NoteFileChooserClient());
+        webView.setHapticFeedbackEnabled(true); webView.setWebChromeClient(new NoteFileChooserClient());
         webView.addJavascriptInterface(new HapticsBridge(), "QBankHaptics");
         webView.addJavascriptInterface(new ShellBridge(), "QBankShell");
         webView.setWebViewClient(new WebViewClient() {
@@ -55,12 +75,119 @@ public class MainActivity extends Activity {
                 try { startActivity(new Intent(Intent.ACTION_VIEW, url)); } catch (Exception ignored) {}
                 return true;
             }
+            @Override public void onPageCommitVisible(WebView view, String url) {
+                if (url != null && url.startsWith("http")) { offlineView.setVisibility(View.GONE); markPainted(); }
+            }
             @Override public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
-                if (request.isForMainFrame()) showOffline();
+                if (request.isForMainFrame()) { offlineView.setVisibility(View.VISIBLE); markPainted(); }
             }
         });
-        setContentView(webView);
+        FrameLayout root = new FrameLayout(this);
+        root.addView(webView, new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT));
+        offlineView = buildOfflineView();
+        offlineView.setVisibility(View.GONE);
+        root.addView(offlineView, new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT));
+        setContentView(root);
+        // Keep the system splash (Android 12+) or plain themed window up until the
+        // page paints, instead of flashing an empty WebView; never longer than 4 s.
+        root.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
+            @Override public boolean onPreDraw() {
+                if (!firstPaint) return false;
+                root.getViewTreeObserver().removeOnPreDrawListener(this);
+                return true;
+            }
+        });
+        ui.postDelayed(this::markPainted, 4000);
         if (savedInstanceState == null || webView.restoreState(savedInstanceState) == null) webView.loadUrl(APP_URL.toString());
+    }
+
+    private void markPainted() {
+        if (firstPaint) return;
+        firstPaint = true;
+        View content = findViewById(android.R.id.content);
+        if (content != null) content.invalidate();
+    }
+
+    private int dp(int value) { return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, value, getResources().getDisplayMetrics())); }
+
+    // Same palette as the web theme (Geist monochrome).
+    private int background() { return Boolean.TRUE.equals(dark) ? Color.rgb(10, 10, 10) : Color.WHITE; }
+    private int foreground() { return Boolean.TRUE.equals(dark) ? Color.rgb(237, 237, 237) : Color.rgb(23, 23, 23); }
+    private int muted() { return Boolean.TRUE.equals(dark) ? Color.rgb(161, 161, 161) : Color.rgb(102, 102, 102); }
+
+    // The first launch needs a connection to sign in and load the app; after
+    // that the service worker serves it offline and this screen is not reached.
+    private View buildOfflineView() {
+        LinearLayout box = new LinearLayout(this);
+        box.setOrientation(LinearLayout.VERTICAL);
+        box.setGravity(Gravity.CENTER);
+        box.setPadding(dp(32), dp(32), dp(32), dp(32));
+        box.setClickable(true);
+        TextView title = new TextView(this);
+        title.setText("You're offline");
+        title.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+        title.setTypeface(android.graphics.Typeface.DEFAULT_BOLD);
+        title.setGravity(Gravity.CENTER);
+        TextView body = new TextView(this);
+        body.setText("Connect to the internet to open NK QBank for the first time. Questions you have opened before stay available offline.");
+        body.setTextSize(TypedValue.COMPLEX_UNIT_SP, 15);
+        body.setGravity(Gravity.CENTER);
+        body.setLineSpacing(0, 1.2f);
+        body.setPadding(0, dp(8), 0, dp(24));
+        Button retry = new Button(this);
+        retry.setText("Try again");
+        retry.setAllCaps(false);
+        retry.setTextSize(TypedValue.COMPLEX_UNIT_SP, 15);
+        retry.setStateListAnimator(null);
+        retry.setPadding(dp(24), 0, dp(24), 0);
+        retry.setOnClickListener(v -> {
+            v.performHapticFeedback(HapticFeedbackConstants.KEYBOARD_TAP);
+            webView.loadUrl(APP_URL.toString());
+        });
+        box.addView(title);
+        box.addView(body, new LinearLayout.LayoutParams(Math.min(dp(320), getResources().getDisplayMetrics().widthPixels - dp(64)), LinearLayout.LayoutParams.WRAP_CONTENT));
+        box.addView(retry, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, dp(44)));
+        box.setTag(new View[] {title, body, retry});
+        paintOffline(box);
+        return box;
+    }
+
+    private void paintOffline(View box) {
+        if (box == null) return;
+        View[] parts = (View[]) box.getTag();
+        box.setBackgroundColor(background());
+        ((TextView) parts[0]).setTextColor(foreground());
+        ((TextView) parts[1]).setTextColor(muted());
+        GradientDrawable shape = new GradientDrawable();
+        shape.setCornerRadius(dp(10));
+        shape.setColor(foreground());
+        parts[2].setBackground(shape);
+        ((TextView) parts[2]).setTextColor(background());
+    }
+
+    // Status bar, navigation bar, window and WebView backdrop follow the app theme.
+    private void applySystemBars(boolean isDark) {
+        if (dark != null && dark == isDark) return;
+        dark = isDark;
+        int color = background();
+        Window window = getWindow();
+        window.setStatusBarColor(color);
+        window.setNavigationBarColor(color);
+        window.getDecorView().setBackgroundColor(color);
+        if (webView != null) webView.setBackgroundColor(color);
+        if (Build.VERSION.SDK_INT >= 30) {
+            WindowInsetsController bars = window.getInsetsController();
+            if (bars != null) {
+                int light = WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS | WindowInsetsController.APPEARANCE_LIGHT_NAVIGATION_BARS;
+                bars.setSystemBarsAppearance(isDark ? 0 : light, light);
+            }
+        } else {
+            View decor = window.getDecorView();
+            int flags = decor.getSystemUiVisibility();
+            int light = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | (Build.VERSION.SDK_INT >= 26 ? View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR : 0);
+            decor.setSystemUiVisibility(isDark ? flags & ~light : flags | light);
+        }
+        paintOffline(offlineView);
     }
 
     @Override protected void onSaveInstanceState(Bundle outState) { super.onSaveInstanceState(outState); if (webView != null) webView.saveState(outState); }
@@ -72,20 +199,13 @@ public class MainActivity extends Activity {
         return app || ("https".equals(url.getScheme()) && host.endsWith(ACCESS_DOMAIN));
     }
 
-    // The first launch needs a connection to sign in and load the app; after
-    // that the service worker serves it offline and this page is not reached.
-    private void showOffline() {
-        String html = "<!doctype html><meta name=viewport content='width=device-width,initial-scale=1'>"
-            + "<body style='font:16px system-ui,sans-serif;margin:0;display:grid;place-items:center;min-height:100vh;background:#fff;color:#111'>"
-            + "<div style='max-width:320px;padding:24px;text-align:center'><h1 style='font-size:20px'>NK QBank is offline</h1>"
-            + "<p style='color:#555'>Connect to the internet to open the app. Questions you have opened before stay available offline.</p>"
-            + "<button onclick='QBankShell.retry()' style='font:inherit;padding:12px 20px;border-radius:10px;border:1px solid #111;background:#111;color:#fff'>Try again</button></div>";
-        webView.loadDataWithBaseURL(null, html, "text/html", "UTF-8", null);
-    }
-
     private final class ShellBridge {
         @JavascriptInterface public String platform() { return "android"; }
-        @JavascriptInterface public void retry() { runOnUiThread(() -> { if (webView != null) webView.loadUrl(APP_URL.toString()); }); }
+        @JavascriptInterface public void theme(boolean isDark) { runOnUiThread(() -> applySystemBars(isDark)); }
+        @JavascriptInterface public void toast(String message) {
+            if (message == null || message.isEmpty()) return;
+            runOnUiThread(() -> Toast.makeText(MainActivity.this, message, message.length() > 60 ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT).show());
+        }
     }
 
     // NATIVE_ACTION_HAPTICS_V1: framework effects honor the user's touch setting.
@@ -192,6 +312,7 @@ public class MainActivity extends Activity {
     }
 
     @Override protected void onDestroy() {
+        ui.removeCallbacksAndMessages(null);
         if (noteFileCallback != null) { noteFileCallback.onReceiveValue(null); noteFileCallback = null; }
         if (webView != null) { webView.setWebChromeClient(null); webView.destroy(); webView = null; }
         super.onDestroy();
