@@ -15,7 +15,7 @@ BANKS = {
     "Physiology": "physiology_ch001_043",
     "Microbiology": "microbiology_marrow_qbank",
 }
-MICROBIOLOGY_SECTION_ORDER = ["Immunology", "Systemic bacteriology"]
+MICROBIOLOGY_SECTION_ORDER = ["Immunology", "Systemic bacteriology", "Virology", "Mycology"]
 
 ANATOMY_SECTION_ORDER = [
     "Embryology", "Histology", "Neuroanatomy", "Head, neck, and face",

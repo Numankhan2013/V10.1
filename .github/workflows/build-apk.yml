@@ -220,7 +220,9 @@ jobs:
       - name: Validate explicit Marrow topic taxonomy
         run: python3 tools/test_marrow_topic_taxonomy.py
       - name: Validate Microbiology Marrow bank and figures
-        run: python3 tools/test_microbiology_marrow_bank.py
+        run: |
+          python3 tools/test_microbiology_marrow_bank.py
+          python3 tools/test_microbiology_marrow_emphasis.py
       - name: Validate Marrow explanation inventory
         run: python3 tools/test_marrow_explanation_inventory.py
       - name: Validate reviewed parallel explanation batches

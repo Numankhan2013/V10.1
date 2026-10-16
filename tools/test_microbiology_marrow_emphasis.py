@@ -77,6 +77,8 @@ same('*italic*','<em>italic</em>','italic');
 same('***both***','<strong><em>both</em></strong>','bold+italic');
 same('**a) *Streptococcus pyogenes***','<strong>a) <em>Streptococcus pyogenes</em></strong>','bold span ending in italic');
 same('***Staphylococcus* is pathogenic.**','<strong><em>Staphylococcus</em> is pathogenic.</strong>','bold span starting with italic');
+// An extractor-glued bold opener before a bracket still opens a span.
+same('resembling**(macrophages)** activity','resembling<strong>(macrophages)</strong> activity','glued bold opener before a bracket');
 // A Key takeaway sentence cut out of a longer bold span keeps one marker only.
 same('start **blood should be cultured.','start blood should be cultured.','dangling bold opener');
 same('growth was seen.**','growth was seen.','dangling bold closer');

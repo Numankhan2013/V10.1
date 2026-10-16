@@ -57,17 +57,29 @@ V2_TOKEN = re.compile(r"^@@V2BLOCK:(\d+)@@$")
 # module list. Every part after 01 was extracted from its own split PDF
 # ("Microbiology Marrow Qbank-0N.pdf", pages from 1) and numbers its modules
 # from 1. `pageOffset` turns a split-PDF page into the page of
-# data/marrow/source_pdfs/Microbiology Marrow Qbank.pdf (checked by OCR: split
-# page 1 of part 02 = full page 27, MA1545); `moduleOffset` turns the part's
-# module index into the app module (part 02 module 1 continues module 5 at Q16).
+# data/marrow/source_pdfs/Microbiology Marrow Qbank.pdf; the splits partition
+# the 173-page PDF contiguously, and each split's page 1 was matched against
+# the full PDF by its embedded page-image hash (part 02 = full 27 [MA1545 OCR
+# cross-check], 03 = 48, 04 = 74, 05 = 100, 06 = 126). `moduleOffset` turns the
+# part's module index into the app module; a part whose first module continues
+# the previous part's last module joins it (part 03 module 1 = module 7 Q21).
 PART_LAYOUT = {
     "Microbiology_Marrow_Qbank_01.jsonl": {"schema": 1, "pageOffset": 0, "moduleOffset": 0},
     "Microbiology_Marrow_Qbank_02.jsonl": {"schema": 2, "pageOffset": 26, "moduleOffset": 4},
+    "Microbiology_Marrow_Qbank_03.jsonl": {"schema": 2, "pageOffset": 47, "moduleOffset": 6},
+    "Microbiology_Marrow_Qbank_04.jsonl": {"schema": 2, "pageOffset": 73, "moduleOffset": 9},
+    "Microbiology_Marrow_Qbank_05.jsonl": {"schema": 2, "pageOffset": 99, "moduleOffset": 12},
+    "Microbiology_Marrow_Qbank_06.jsonl": {"schema": 2, "pageOffset": 125, "moduleOffset": 16},
 }
-# A module that spans two parts gets one app title. Part 01 saw only its first
-# 15 questions and reported 30; part 02 continues it to Q60 and reports 60.
+# A module that spans two parts gets one app title: the continuation's name
+# without "(continued)" (module 5) or the two halves combined (module 13, 17),
+# with the true total from the final part.
 MODULE_OVERRIDES = {
     5: {"title": "Staphylococcus, Streptococcus, Enterococcus & Pneumococcus", "total": 60},
+    7: {"title": "Clostridium, Bacillus, Lactobacillus & Nocardia", "total": 44},
+    10: {"title": "Vibrio, Campylobacter, Helicobacter pylori, Legionella & Bartonella", "total": 38},
+    13: {"title": "Rickettsiaceae, Orientia tsutsugamushi, Coxiella burnetii, Bartonella, Ehrlichia, Chlamydia & Mycoplasma", "total": 29},
+    17: {"title": "Hepatitis Viruses (HAV, HBV, HCV, HDV & HEV)", "total": 25},
 }
 
 
@@ -126,6 +138,9 @@ class Hygiene:
 CLIPPED_NOTE = re.compile(r"\s*\[clipped[^\]]*\]", re.I)
 CELL_RECONSTRUCTION = re.compile(r"^(.*?)\s*\[([^\]\n]+)\]$")
 WORD_RECONSTRUCTION = re.compile(r"(\S+) \[([^\]\n]+)\]")
+# An extractor can eat the space before a bold opener, gluing it to the word
+# ("resembling**\"flow of seed\"**"). Keep the marker but separate it.
+GLUED_BOLD_OPENER = re.compile(r"(\w)\*\*(?=[\"'«“‘(\[{])")
 
 
 def _fold(text: str) -> str:
@@ -143,6 +158,10 @@ def clean_v2(text: str, hygiene: "Hygiene", cell: bool = False) -> str:
     out = CLIPPED_NOTE.sub("", value)
     if out != value:
         hygiene.notes.add("removed extractor clipping notes")
+    separated = GLUED_BOLD_OPENER.sub(r"\1 **", out)
+    if separated != out:
+        hygiene.notes.add("separated an extractor-glued bold opener")
+    out = separated
     if cell:
         lines = []
         for line in out.split("\n"):
@@ -257,6 +276,7 @@ def parse_v2(q: dict, hygiene: "Hygiene") -> tuple[list[dict], list[dict]]:
     payloads: list[list[dict]] = []
     tables: list[dict] = []
     used_tables: set[str] = set()
+    figures_seen: set[str] = set()
     inserts: dict[int, list[int]] = {}
     cursor = 0
     misses = 0
@@ -274,6 +294,7 @@ def parse_v2(q: dict, hygiene: "Hygiene") -> tuple[list[dict], list[dict]]:
         meta = images.get(image_id)
         if not meta:
             fail(f"{q['id']}: image {image_id} has no image metadata")
+        figures_seen.add(image_id)
         return {"type": "figure", "figure_id": image_id, "caption": str(meta.get("caption") or "").strip()}
 
     def pearl_blocks(pearl_id: str, number: str, title: str) -> list[dict]:
@@ -345,6 +366,10 @@ def parse_v2(q: dict, hygiene: "Hygiene") -> tuple[list[dict], list[dict]]:
             cursor = hit + 1
             continue
         if kind == "image":
+            # Some extractions repeat a pearl's embedded figure as a standalone
+            # image block; the pearl placement (in_pearl metadata) wins.
+            if block["image_id"] in figures_seen:
+                continue
             payload = [figure(block["image_id"])]
         elif kind == "table":
             meta = table_meta.get(block.get("table_id"))

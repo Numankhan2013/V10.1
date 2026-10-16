@@ -1142,6 +1142,11 @@ function dashboard(){
         }else if(run===2){
           if(bold){kind='close-bold';bold=false;}
           else if(opener(prev,next)){kind='open-bold';bold=true;dangleBold=i;}
+          // An extractor can glue a bold opener to the word before it
+          // ("resembling**"flow of seed"**"): a mid-word ** directly before
+          // an opening quote or bracket is still an opener, while "word**."
+          // stays a closer-shaped source artifact.
+          else if(next!==undefined&&/["'«“‘(\[{]/.test(next)){kind='open-bold';bold=true;dangleBold=i;}
           else if(closer(prev,next)){kind='drop';}
         }else{
           if(em){kind='close-em';em=false;}

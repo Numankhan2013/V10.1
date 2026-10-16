@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "subject": "Microbiology",
   "bank": "Marrow",
-  "scope": "modules_001_007",
+  "scope": "modules_001_022",
   "sourcePdf": "data/marrow/source_pdfs/Microbiology Marrow Qbank.pdf",
   "sourceJsonl": [
     {
@@ -20,17 +20,49 @@
       "schema": 2,
       "pageOffset": 26,
       "moduleOffset": 4
+    },
+    {
+      "file": "Microbiology_Marrow_Qbank_03.jsonl",
+      "sha256": "36bdfd994f66b8e6978cea84ffb8a041f4429d40348d6f126b493ee5a381b1fc",
+      "questions": 114,
+      "schema": 2,
+      "pageOffset": 47,
+      "moduleOffset": 6
+    },
+    {
+      "file": "Microbiology_Marrow_Qbank_04.jsonl",
+      "sha256": "b026fd89328429bcf19ff143dc58bc9ebd4a7fae77b8e8dde5a81401454fec81",
+      "questions": 109,
+      "schema": 2,
+      "pageOffset": 73,
+      "moduleOffset": 9
+    },
+    {
+      "file": "Microbiology_Marrow_Qbank_05.jsonl",
+      "sha256": "9994dc46caf7a0bcd98dd7fac011211d9919e055dc033d153671b9e69f2ac9f5",
+      "questions": 102,
+      "schema": 2,
+      "pageOffset": 99,
+      "moduleOffset": 12
+    },
+    {
+      "file": "Microbiology_Marrow_Qbank_06.jsonl",
+      "sha256": "c998d30190efc5c61943af85dd6bb295f18acf034343cc8ae4c533499da6661e",
+      "questions": 111,
+      "schema": 2,
+      "pageOffset": 125,
+      "moduleOffset": 16
     }
   ],
   "builder": "tools/build_microbiology_marrow_bank.py",
-  "topics": 7,
-  "questions": 200,
-  "parts": 3,
-  "base64_chars": 148016,
-  "compressed_bytes": 111011,
-  "compressed_sha256": "c656aad133dda2d6f55150e0ac48db8da11914f971dc5b8ec055f638bf6b1b06",
-  "raw_bytes": 821909,
-  "raw_sha256": "735f0dd3455ca1a8c31d6d9da5606f45d6c22818f80b3e3f11b6d3235e2a41e7",
+  "topics": 22,
+  "questions": 636,
+  "parts": 8,
+  "base64_chars": 459616,
+  "compressed_bytes": 344711,
+  "compressed_sha256": "2fd5540d53c51c7e62174390333d2e3b5d55bf8a516892001684327cfd9433c2",
+  "raw_bytes": 2472115,
+  "raw_sha256": "c39def21de03e3a13c2f0cda66e095a092980c9bdcac075096665f21f6e71ff9",
   "topicCounts": {
     "1": 26,
     "2": 27,
@@ -38,9 +70,24 @@
     "4": 18,
     "5": 60,
     "6": 33,
-    "7": 20
+    "7": 44,
+    "8": 26,
+    "9": 44,
+    "10": 38,
+    "11": 49,
+    "12": 27,
+    "13": 29,
+    "14": 21,
+    "15": 21,
+    "16": 36,
+    "17": 25,
+    "18": 21,
+    "19": 18,
+    "20": 20,
+    "21": 22,
+    "22": 15
   },
   "incompleteTopics": {
-    "7": "20/30"
+    "22": "15/30"
   }
 }

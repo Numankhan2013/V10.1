@@ -38,7 +38,7 @@ def open_topic(page, title_part: str) -> None:
     page.evaluate("window.QB.nkOpenSubjectLibrary('Microbiology')")
     page.wait_for_function("() => document.querySelectorAll('button.nk-bank-card').length===1", timeout=8000)
     page.locator("button.nk-bank-card").filter(has_text="Marrow").click()
-    page.wait_for_function("() => document.querySelectorAll('button.nk-topic-row').length===7", timeout=8000)
+    page.wait_for_function("() => document.querySelectorAll('button.nk-topic-row').length===22", timeout=8000)
     page.locator("button.nk-topic-row").filter(has_text=title_part).click()
     page.wait_for_function("() => document.querySelectorAll('button.nk-library-row').length>0", timeout=8000)
 
@@ -81,7 +81,7 @@ def main() -> None:
             micro = page.locator(".nk-home-subjects button.nk-v3-subject-card").filter(has_text="Microbiology")
             if micro.count() != 1:
                 fail(f"Microbiology subject card missing; cards={names}")
-            if "200" not in micro.inner_text() or "Marrow" not in micro.inner_text():
+            if "636" not in micro.inner_text() or "Marrow" not in micro.inner_text():
                 fail(f"Microbiology card counts wrong: {micro.inner_text()!r}")
 
             # My Subjects groups the subjects by professional year and both groups
@@ -113,12 +113,12 @@ def main() -> None:
             micro.click()
             page.wait_for_function("() => document.querySelectorAll('button.nk-bank-card').length===1", timeout=8000)
             bank = page.locator("button.nk-bank-card")
-            if "Marrow" not in bank.inner_text() or "200 questions" not in bank.inner_text():
+            if "Marrow" not in bank.inner_text() or "636 questions" not in bank.inner_text():
                 fail(f"Microbiology bank card wrong: {bank.inner_text()!r}")
             bank.click()
-            page.wait_for_function("() => document.querySelectorAll('button.nk-topic-row').length===7", timeout=8000)
+            page.wait_for_function("() => document.querySelectorAll('button.nk-topic-row').length===22", timeout=8000)
             body = page.locator("body").inner_text()
-            for section in ("Immunology", "Systemic bacteriology"):
+            for section in ("Immunology", "Systemic bacteriology", "Virology", "Mycology"):
                 if section not in body:
                     fail(f"Topics section {section!r} missing")
             if "Needs classification review" in body:
@@ -183,8 +183,8 @@ def main() -> None:
             # carry source emphasis markers (**bold**, *italic*) that must
             # render as emphasis, never as raw markers.
             open_topic(page, "Clostridium")
-            if page.locator("button.nk-library-row").count() != 20:
-                fail("chapter 7 should list 20 questions")
+            if page.locator("button.nk-library-row").count() != 44:
+                fail("chapter 7 should list 44 questions after parts 02-03")
             page.locator("button.nk-library-row").nth(9).click()
             page.wait_for_function(
                 "() => (document.querySelector('.question-text')?.innerText||'').includes('spontaneous gas gangrene')",
@@ -224,7 +224,7 @@ def main() -> None:
             if errors:
                 fail("page errors: " + " | ".join(errors[:5]))
             browser.close()
-    print("MICROBIOLOGY_BROWSER_OK subject=Microbiology bank=Marrow topics=7 sections=2 peer_stats=on part02=on ordered_explanation=on emphasis=on stem_figure=on canonical_banks=2 prof_groups=on")
+    print("MICROBIOLOGY_BROWSER_OK subject=Microbiology bank=Marrow topics=22 sections=4 questions=636 peer_stats=on part02=on ordered_explanation=on emphasis=on stem_figure=on canonical_banks=2 prof_groups=on")
 
 
 if __name__ == "__main__":
