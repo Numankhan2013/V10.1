@@ -23,7 +23,7 @@ on:
         type: boolean
         default: false
   push:
-    branches: [main, 'consolidation/**', v11-source-visuals, v11-home-polish, v11.1-engineering-foundation, v11.2-study-clarity, v11.3-question-experience, v11.4-whole-app-vision, v11.5-custom-study-modules, v11.6-content-quality, v11.7-cross-device-pwa-sync, 'feature/home-*', 'feature/marrow-*']
+    branches: [main, 'feature/**']
 
 permissions:
   contents: read

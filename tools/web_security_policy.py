@@ -2,12 +2,12 @@
 import json
 from pathlib import Path
 
-# The app renders with inline handlers and pdf.js, so scripts keep 'unsafe-inline'
-# and 'unsafe-eval'; every other directive is locked to this origin plus the
-# Firebase endpoints the sync module calls.
+# The app renders with inline handlers, so scripts keep 'unsafe-inline'; eval is
+# forbidden, and every other directive is locked to this origin plus the Firebase
+# endpoints the sync module calls.
 CONTENT_SECURITY_POLICY = '; '.join([
     "default-src 'self'",
-    "script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:",
+    "script-src 'self' 'unsafe-inline'",
     "style-src 'self' 'unsafe-inline'",
     "img-src 'self' data: blob: https:",
     "font-src 'self' data:",

@@ -2704,3 +2704,22 @@ User asked for a thorough functional audit, especially whether FSRS is as good a
 - The saved-mocks wrapper in `refined_analysis.js` was removed (folded into `testsPage`).
 - Browser tests now click "Build a test" instead of "Choose subjects and topics".
 - CSS: section `nk-tests-shelf-v1` in app.css, just before `nk-visual-refinement-v1`.
+
+## 2026-10-16 — Security and repository hygiene audit
+
+- Round 1 (PR #111, merged `2c4cdd69`): synced test records pass through `nkSafeTest` before
+  rendering and synced sessions must pass `nkSyncSessionShapeOk`; inline handler arguments use
+  `${esc(JSON.stringify(String(x)))}` (never `'${esc(x)}'`, which the browser decodes back to
+  quotes); full CSP + HSTS/COOP/CORP/Permissions-Policy in `tools/web_security_policy.py`, and
+  `_headers` detaches Pages' wildcard CORS header; 14 dead workflows deleted, actions pinned to
+  commit SHAs, concurrency added; bytecode/trigger/placeholder files removed; SECURITY.md added.
+- 40 stale PRs closed. Branches cut from 246 to 6 (main, feature/home-v12-redesign,
+  feature/no-answer-banner, feature/rarity-tiers, wip/bake-source, wip/geist-verifiers): 143
+  merged branches deleted, 97 unmerged ones kept as `archive/<branch>` tags (restore with
+  `git push origin archive/<b>:refs/heads/<b>`).
+- Round 2: CSP forbids eval (the PDF tone fallback no longer uses `new Function`; Playwright's
+  string `wait_for_function` needs report-only mode to test under the CSP); CI triggers are
+  `main` + `feature/**`; 29 unreferenced tool scripts removed; CODEOWNERS added.
+- Owner actions that cannot be done from the repo: Cloudflare Access on preview deployments
+  and removing old previews; Firebase API-key restriction, App Check and a budget alert; a
+  ruleset on `main`; a noreply commit email.
