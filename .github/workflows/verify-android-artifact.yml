@@ -37,12 +37,19 @@ jobs:
           run-id: ${{ env.SOURCE_RUN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           path: build/android-artifact
-      - name: Verify the exact product, APK and packaged HTML
+      - name: Download the regression shell from the same run
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: android-regression-apk
+          run-id: ${{ env.SOURCE_RUN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: build/android-regression
+      - name: Verify the exact product, APK and web build
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python3 - <<'PY'
-          import hashlib, json, os, urllib.request, zipfile
+          import hashlib, json, os, urllib.request
           from pathlib import Path
           url = f"https://api.github.com/repos/{os.environ['GITHUB_REPOSITORY']}/actions/runs/{os.environ['SOURCE_RUN']}"
           headers = {'Authorization': 'Bearer ' + os.environ['GH_TOKEN'], 'Accept': 'application/vnd.github+json'}
@@ -58,11 +65,16 @@ jobs:
           apk = root / items[0]['path']
           with apk.open('rb') as stream:
               assert hashlib.file_digest(stream, 'sha256').hexdigest() == items[0]['sha256'], 'APK hash mismatch'
-          index = next(item for item in manifest['files'] if item['path'] == 'app/src/main/assets/index.html')
-          with zipfile.ZipFile(apk) as archive:
-              assert hashlib.sha256(archive.read('assets/index.html')).hexdigest() == index['sha256'], 'Packaged HTML mismatch'
+          # The APK is a thin shell; the web page it was verified against is recorded instead.
+          index = next(item for item in manifest['files'] if item['path'] == 'build/web/index.html')
+          assert hashlib.sha256((root / 'build/web/index.html').read_bytes()).hexdigest() == index['sha256'], 'Web build mismatch'
           print('EXACT_ANDROID_ARTIFACT_OK', manifest['git_commit'], 'apk_bytes=' + str(apk.stat().st_size))
           PY
+      - name: Serve the verified PWA to the emulator
+        run: |
+          nohup python3 -m http.server 8765 --bind 127.0.0.1 --directory build/android-artifact/build/web > "$RUNNER_TEMP/web.log" 2>&1 &
+          for i in $(seq 1 30); do curl -sf http://127.0.0.1:8765/ > /dev/null && exit 0; sleep 1; done
+          exit 1
       - name: Install Android interaction driver
         run: npm install --no-package-lock --prefix "$RUNNER_TEMP/bc4-node" playwright@1.55.1
       - name: Enable emulator acceleration
@@ -71,12 +83,13 @@ jobs:
         uses: reactivecircus/android-emulator-runner@a421e43855164a8197daf9d8d40fe71c6996bb0d # v2
         env:
           NODE_PATH: ${{ runner.temp }}/bc4-node/node_modules
+          NK_ANDROID_APK_DIR: build/android-regression
         with:
           api-level: 35
           target: google_apis
           arch: x86_64
           disable-animations: true
-          script: node tools/verify_android_question_interaction.js
+          script: adb reverse tcp:8765 tcp:8765 && node tools/verify_android_question_interaction.js
       - name: Upload Android interaction evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4

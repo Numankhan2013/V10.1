@@ -1,4 +1,6 @@
-/* Exercise the actual packaged Android WebView, including native Back/restart. */
+/* Exercise the Android shell's WebView, including native Back/restart.
+   The shell loads its configured URL; CI builds a regression APK pointed at
+   the verified web build served on the emulator's 127.0.0.1:8765. */
 const {_android: android}=require('playwright');
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
@@ -6,7 +8,7 @@ const path=require('node:path');
 const {execFileSync}=require('node:child_process');
 
 async function main(){
-  const artifact=path.resolve('build/android-artifact');
+  const artifact=path.resolve(process.env.NK_ANDROID_APK_DIR||'build/android-artifact');
   const apks=fs.readdirSync(artifact,{recursive:true}).filter(p=>p.endsWith('.apk'));
   assert.equal(apks.length,1,'exactly one candidate APK is required');
   const apk=path.join(artifact,apks[0]);
@@ -31,12 +33,12 @@ async function main(){
         await device.shell(`am start -W -n ${pkg}/com.qbank.biochemistry.MainActivity`);
         const view=await device.webView({pkg,timeout:60000});
         const page=await view.page();page.setDefaultTimeout(30000);
-        await page.waitForFunction(()=>location.hostname==='qbank.local'&&window.QB?.getState);
-        await page.waitForFunction(()=>typeof window.QBankMigration==='undefined');
+        await page.waitForFunction(()=>location.hostname==='127.0.0.1'&&window.QB?.getState);
         assert.equal(await page.evaluate(()=>typeof window.QBankHaptics.play),'function','existing native haptics must remain available');
-        const missing=await page.evaluate(async()=>{const response=await fetch('/app/security-audit-missing-asset.txt');return {status:response.status,text:await response.text()};});
-        assert.equal(missing.status,404,'missing private-origin assets must fail locally');
-        assert.equal(missing.text,'App asset unavailable');
+        assert.equal(await page.evaluate(()=>typeof window.QBankShell?.platform),'function','the shell bridge must be exposed');
+        assert.equal(await page.evaluate(()=>typeof window.QBankMigration),'undefined','the bundled-app migration bridge is gone');
+        const missing=await page.evaluate(async()=>(await fetch('/security-audit-missing-asset.txt',{cache:'no-store'})).status);
+        assert.equal(missing,404,'missing assets must be real 404s');
         return page;
       }catch(error){
         lastError=error;
@@ -288,19 +290,16 @@ async function main(){
       await page.getByRole('button',{name:'Review Solutions',exact:true}).click();
       await page.waitForFunction(()=>window.QB.getState().activeSession?.mode==='review');
       await device.screenshot({path:`${output}/${label}-pyq-review.png`});
-      const sourcePdf=page.locator('.source-pdf-page img').first();
-      await sourcePdf.scrollIntoViewIfNeeded();
-      await page.waitForFunction(()=>document.querySelector('.source-pdf-page img')?.naturalWidth>0);
-      assert.equal(await sourcePdf.evaluate(node=>getComputedStyle(node).filter),'contrast(1.16) saturate(1.12)');
-      // Capture the visible Android surface like the other evidence above.
-      // A full PDF-image locator capture can resize/scroll the WebView beyond
-      // its viewport and disconnect Chromium on the tablet emulator.
-      await sourcePdf.evaluate(node=>node.scrollIntoView({block:'center',behavior:'instant'}));
-      await page.waitForFunction(()=>{
-        const bounds=document.querySelector('.source-pdf-page img')?.getBoundingClientRect();
-        return bounds&&bounds.top<innerHeight&&bounds.bottom>0&&bounds.width>0;
-      });
-      await device.screenshot({path:`${output}/${label}-source-pdf-contrast.png`});
+      // The web build renders source PDFs with pdf.js onto a canvas. Anatomy
+      // streams through the Pages Worker, which the local server does not run.
+      const sourcePdf=page.locator('.nk-web-pdf-segment:not([data-subject="anatomy"]) canvas').first();
+      if(await sourcePdf.count()){
+        await sourcePdf.scrollIntoViewIfNeeded();
+        await page.waitForFunction(()=>document.querySelector('.nk-web-pdf-segment:not([data-subject="anatomy"])[data-rendered="true"] canvas')?.width>0,null,{timeout:60000});
+        assert.equal(await sourcePdf.evaluate(node=>getComputedStyle(node).filter),'contrast(1.16) saturate(1.12)');
+        await sourcePdf.evaluate(node=>node.scrollIntoView({block:'center',behavior:'instant'}));
+        await device.screenshot({path:`${output}/${label}-source-pdf-contrast.png`});
+      }else console.log('ANDROID_SOURCE_PDF_SKIPPED first review question has no locally served source PDF');
       const initialPyqTest=await page.evaluate(()=>window.QB.getState().tests.at(-1));
       await page.evaluate(id=>window.QB.nav('result',id),initialPyqTest.id);
       await page.getByRole('button',{name:'Retry Test'}).click();

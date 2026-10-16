@@ -4,7 +4,8 @@ import json
 import sys
 
 ROOT = Path('app/src/main')
-java = (ROOT / 'java/com/qbank/biochemistry/MainActivity.java').read_text(encoding='utf-8')
+# The Android app is a shell around the web build; source PDFs render in the browser.
+web_pdf = (ROOT / 'assets/web_pdf_renderer.mjs').read_text(encoding='utf-8')
 meta = ROOT / 'assets/source_visual_metadata.js'
 report_file = ROOT / 'assets/source_visual_mapping_report.json'
 inventory_file = ROOT / 'assets/source_visual_inventory.json'
@@ -13,8 +14,8 @@ checks = {
     'metadata contract': meta.exists(),
     'mapping report': report_file.exists(),
     'full visual inventory': inventory_file.exists(),
-    'anatomy PDF route': 'qbank.local/anatomy/pdf' in java,
-    'physiology PDF route': 'qbank.local/physiology/pdf' in java,
+    'anatomy PDF route': 'anatomy: String(config.anatomyPdfUrl' in web_pdf,
+    'physiology PDF route': "physiology: './Physiology_QBank_Source.pdf'" in web_pdf,
     'biochemistry PDF asset': (ROOT / 'assets/Biochemistry_QBank_Source.pdf').exists(),
     'physiology PDF asset': (ROOT / 'assets/Physiology_QBank_Source.pdf').exists(),
     'anatomy PDF asset': (ROOT / 'assets/Anatomy_QBank_Source.pdf').exists(),

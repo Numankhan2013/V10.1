@@ -12,6 +12,21 @@ android {
         targetSdk 35
         versionCode 1
         versionName '1.0.0'
+        // The app is the web build served from this URL (MainActivity NK_THIN_SHELL_V1).
+        // CI's emulator regression points a separate build at a local server.
+        buildConfigField 'String', 'APP_URL', "\"${project.findProperty('qbankAppUrl') ?: 'https://nk-qbank.pages.dev/'}\""
+        manifestPlaceholders = [usesCleartextTraffic: project.hasProperty('qbankLocalRegression') ? 'true' : 'false']
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+
+    // app/src/main/assets is the web build's source; none of it ships in the APK.
+    sourceSets {
+        main {
+            assets.srcDirs = []
+        }
     }
 
     buildTypes {

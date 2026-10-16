@@ -23,8 +23,8 @@ ROBOTS_DIRECTIVES = "noindex, nofollow, noarchive, nosnippet, noimageindex"
 
 # Explanations are read only once an answer is shown, yet they are three quarters
 # of the question data. The web build moves them into per-subject packs that the
-# app fetches on demand (modules/question_details.js); the Android build, which
-# never runs this script, keeps them inline.
+# app fetches on demand (modules/question_details.js). The Android shell loads
+# this same build.
 DETAIL_FIELDS = ("explanation", "structuredExplanation", "provenance", "sourceFidelity", "references")
 PRESENTATION = ROOT / "app/src/main/modules/question_presentation.js"
 
