@@ -1727,6 +1727,7 @@ function dashboard(){
   }
 
   function nkStudySupport(q,timeMs,unattempted=false,renderedSource='') {
+    if(!nkDetailsReady(q))return nkDetailsPending(q);
     const takeaway=q.bank==='Marrow'?nkMarrowTakeaway(q):nkSourceTakeaway(q);
     const time=unattempted
       ? `<div class="nk-answer-time is-empty">${navIcon('clock',19)}<span>Not answered in this test</span></div>`
@@ -1746,6 +1747,7 @@ function dashboard(){
     const s=state.activeSession;
     if(!s || s.mode!=='practice') return dashboard();
     const q=BY_ID[s.questionIds[s.index]]; if(!q) return dashboard();
+    nkPrefetchDetails(q);
     const selected=s.answers[q.id]||null,submitted=Boolean(s.submitted[q.id]);
     return sessionShell(`<div class="nk-v114-session is-practice">${nkSessionHeader(q,s,'practice')}<div class="question-shell"><section class="question-card">${s.studyModuleId?nkStudyModuleSessionContext(s):''}${nkQuestionContext(q)}<div class="question-text" data-marrow-question="${q.bank!=='PrepLadder'?esc(String(q.id)):''}">${nkQuestionStemMarkup(q)}</div><div class="option-list">${nkSessionOptions(q,selected,'practice',submitted)}</div>${submitted?nkStudySupport(q,s.questionTimes?.[q.id]||0,false):''}</section></div></div>`,'topics')+practiceActionBar(s,q,selected,submitted);
   }
@@ -1811,7 +1813,7 @@ function dashboard(){
     }
     const q=BY_ID[s.questionIds[s.index]];if(!q)return testsPage();
     const selected=s.answers[q.id]||null;
-    const renderedSource=q.explanation?renderExplanationText(q.explanation,q):'';
+    const renderedSource=nkDetailsReady(q)&&q.explanation?renderExplanationText(q.explanation,q):'';
     const gridAttrs='id="cr-grid" title="Question Navigator" onclick="window.QB.openQuestionNavigator()"';
     const headerClass='practice-focus-head nk-session-head';
     return sessionShell(`<div class="nk-v114-session is-review">${nkSessionHeader(q,s,'review','',gridAttrs,headerClass)}<div class="question-shell"><section class="question-card">${nkQuestionContext(q)}<div class="question-text" data-marrow-question="${q.bank!=='PrepLadder'?esc(String(q.id)):''}">${nkQuestionStemMarkup(q)}</div><div class="option-list">${nkSessionOptions(q,selected,'review',true)}</div>${nkStudySupport(q,s.questionTimes?.[q.id]||0,!selected,renderedSource)}</section></div></div>`,'tests')+nkSessionActionBar(s,'review');
@@ -2059,6 +2061,8 @@ function dashboard(){
   /* @module question_interaction.js */
 
   /* @module question_presentation.js */
+
+  /* @module question_details.js */
 
   /* @module question_notes.js */
 

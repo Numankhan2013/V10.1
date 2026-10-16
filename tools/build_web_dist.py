@@ -21,7 +21,68 @@ PAGES_FILE_LIMIT = 25 * 1024 * 1024
 ROBOTS_DIRECTIVES = "noindex, nofollow, noarchive, nosnippet, noimageindex"
 
 
-def externalize_data(page: str, out: Path) -> tuple[str, list[str]]:
+# Explanations are read only once an answer is shown, yet they are three quarters
+# of the question data. The web build moves them into per-subject packs that the
+# app fetches on demand (modules/question_details.js); the Android build, which
+# never runs this script, keeps them inline.
+DETAIL_FIELDS = ("explanation", "structuredExplanation", "provenance", "sourceFidelity", "references")
+PRESENTATION = ROOT / "app/src/main/modules/question_presentation.js"
+
+
+class DetailPacks:
+    def __init__(self, out: Path):
+        self.out = out
+        self.packs: dict[str, dict] = {}
+        self.pack_of: dict[str, str] = {}
+        # Start-up integrity checks and reviewed rewrites read these questions'
+        # explanations, so any question the presentation module names stays whole.
+        self.pinned = PRESENTATION.read_text(encoding="utf-8")
+
+    def split(self, key: str, question: dict) -> None:
+        qid = str(question.get("id", ""))
+        if not qid or f'"{qid}"' in self.pinned or f"'{qid}'" in self.pinned:
+            return
+        fields = {name: question.pop(name) for name in DETAIL_FIELDS if name in question}
+        if not fields:
+            return
+        pack = self.packs.setdefault(key, {"index": len(self.packs), "q": {}, "gold": {}})
+        pack["q"][qid] = fields
+        question["detailPack"] = pack["index"]
+        self.pack_of[qid] = key
+
+    def split_gold(self, gold: dict) -> None:
+        for qid in [qid for qid in gold if qid in self.pack_of]:
+            self.packs[self.pack_of[qid]]["gold"][qid] = gold.pop(qid)
+
+    def write(self) -> list[str]:
+        names = []
+        for key, pack in self.packs.items():
+            body = json.dumps({"q": pack["q"], "gold": pack["gold"]}, ensure_ascii=False, separators=(",", ":"))
+            slug = re.sub(r"[^a-z0-9]+", "-", key.lower()).strip("-")
+            name = f"data/details/{slug}.{hashlib.sha256(body.encode()).hexdigest()[:10]}.json"
+            (self.out / name).parent.mkdir(parents=True, exist_ok=True)
+            (self.out / name).write_text(body, encoding="utf-8")
+            names.append(name)
+        return names
+
+
+def split_script_data(path: Path, packs: DetailPacks) -> None:
+    """Split a `window.X = {...};` data script in place."""
+    text = path.read_text(encoding="utf-8")
+    match = re.fullmatch(r"\s*(window\.\w+)\s*=\s*(\{.*\})\s*;?\s*", text, re.S)
+    if not match:
+        raise SystemExit(f"{path.name}: unexpected data script shape")
+    data = json.loads(match.group(2))
+    if "questions" in data:  # Biochemistry PrepLadder
+        for question in data["questions"]:
+            packs.split("prepladder-biochemistry", question)
+    for record in data.get("subjects", []):
+        for question in record.get("questions", []):
+            packs.split(f"{question.get('bank') or 'PrepLadder'}-{record.get('subject', '')}", question)
+    path.write_text(match.group(1) + "=" + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + ";\n", encoding="utf-8")
+
+
+def externalize_data(page: str, out: Path, packs: DetailPacks | None = None) -> tuple[str, list[str]]:
     """Move the large question data out of index.html into cacheable scripts.
 
     Inline scripts are re-parsed on every launch and never get V8's code cache;
@@ -35,13 +96,23 @@ def externalize_data(page: str, out: Path) -> tuple[str, list[str]]:
         match = re.search(r'<script>(\s*window\.' + var + r'\s*=.*?)</script>', page, re.S)
         if match and match.group(1).strip() == (out / source).read_text(encoding="utf-8").strip():
             page = page[:match.start()] + f'<script src="{source}"></script>' + page[match.end():]
+            if packs:
+                split_script_data(out / source, packs)
     loaders = []
     for const in ("MARROW_DATA", "NK_MARROW_EXPLANATION_GOLD_V1"):
         match = re.search(r'\n(\s*)const ' + const + r'\s*=\s*(\{.*?\});\n', page)
         if not match:
             continue
         literal = match.group(2)
-        json.loads(literal)  # fails the build rather than shipping broken data
+        data = json.loads(literal)  # fails the build rather than shipping broken data
+        if packs and const == "MARROW_DATA":
+            for record in data.get("records", [data]):
+                for question in record.get("questions", []):
+                    packs.split(f"Marrow-{record.get('subject', '')}", question)
+            literal = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
+        elif packs:
+            packs.split_gold(data)
+            literal = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
         body = "window.NK_DATA_" + const + "=JSON.parse(" + json.dumps(literal) + ");\n"
         name = f"data/{const.lower()}.{hashlib.sha256(body.encode()).hexdigest()[:10]}.js"
         (out / "data").mkdir(exist_ok=True)
@@ -92,7 +163,9 @@ def main() -> None:
     html.write_text(html.read_text(encoding="utf-8").replace('</head>', '<meta name="nk-qbank-build" content="'+html_escape.escape(args.version, quote=True)+'">\n</head>', 1), encoding="utf-8")
     page = html.read_text(encoding="utf-8")
     page = re.sub(r'<meta\b[^>]*\bname\s*=\s*[\"\']robots[\"\'][^>]*>', '', page, flags=re.IGNORECASE)
-    page, data_files = externalize_data(page, out)
+    packs = DetailPacks(out)
+    page, data_files = externalize_data(page, out, packs)
+    page = page.replace('</head>', '<script>window.NK_DETAIL_PACKS='+json.dumps(packs.write())+';</script>\n</head>', 1)
     html.write_text(page.replace('</head>', '<meta name="robots" content="'+ROBOTS_DIRECTIVES+'">\n</head>', 1), encoding="utf-8")
     sw = out / "sw.js"
     sw_text=sw.read_text(encoding="utf-8").replace("const BUILD_VERSION='dev';", f"const BUILD_VERSION={args.version!r};", 1)

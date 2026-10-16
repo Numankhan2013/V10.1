@@ -51,7 +51,8 @@ def main():
     html = built_page(web)
     marker = 'getState:()=>state,'
     require(html.count(marker) == 1, 'Read-only runtime probe insertion point changed')
-    probe = """__explanationWave:id=>{const q=BY_ID[id];if(!q)return null;return {id:q.id,cfg:NK_MARROW_EXPLANATION_GOLD_V1[id],blocked:!nkQuestionPresentationFor(q).valid,tables:q.structuredExplanation?.tables||[]};},__wavePlain:t=>{const d=document.createElement('div');d.innerHTML=nkScientificMarkup(t);return d.textContent;},"""
+    # Explanations arrive on demand in the web build; load them as Practice does.
+    probe = """__explanationWave:async id=>{const q=BY_ID[id];if(!q)return null;await nkLoadDetails(q);return {id:q.id,cfg:NK_MARROW_EXPLANATION_GOLD_V1[id],blocked:!nkQuestionPresentationFor(q).valid,tables:q.structuredExplanation?.tables||[]};},__wavePlain:t=>{const d=document.createElement('div');d.innerHTML=nkScientificMarkup(t);return d.textContent;},"""
     html = html.replace(marker, marker + probe, 1)
     output = ROOT / 'build/ui-checks/explanation-refinement'
     output.mkdir(parents=True, exist_ok=True)
@@ -84,7 +85,7 @@ def main():
                     page.locator('button.nk-bank-card').filter(has_text='Marrow').click()
                     page.locator('button.nk-topic-row').first.wait_for(state='visible')
                     ids = [qid for qid in wave if sources[qid]['subject'] == subject]
-                    actuals = page.evaluate('ids=>ids.map(id=>window.QB.__explanationWave(id))', ids)
+                    actuals = page.evaluate('ids=>Promise.all(ids.map(id=>window.QB.__explanationWave(id)))', ids)
                     blocked = set()
                     for qid, actual in zip(ids, actuals):
                         require(actual and actual['id'] == qid, f'{qid}: missing active-bank record')
