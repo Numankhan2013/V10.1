@@ -660,22 +660,46 @@
   /* ============================================ Professional-year bands (Home)
      First Prof / Second Prof on Home reveal their subject cards. The app owns
      the state (is-open class, aria-expanded, inert, persistence); this layer
-     makes the reveal physical. It adapts the measured-height accordion that
-     Radix/shadcn and Ark UI use (animate the panel height between 0 and its
-     content, turn the chevron) but runs it on the vendored Motion spring, so
-     the band rolls open with momentum, the cards settle in after it and the
-     chevron turns on the same spring. The grid-template-rows rules in app.css
-     stay as the reduced-motion / no-Motion fallback, and a live band rests at
-     an explicit 0px when closed so the list spacing can never bleed into the
-     header. */
-  var PROF_EASE = [0.22, 1, 0.36, 1];
-  var profBound = false;
-  var profClosed = { type: 'spring', stiffness: 360, damping: 30, mass: 0.9 };
+     makes the reveal physical by composing three published open-source
+     recipes on the vendored Motion spring:
 
+     - measured height, the Radix / Base UI collapsible pattern: freeze the
+       band's pixel geometry before the class flips, spring the height between
+       the two measured numbers, and hand back to auto once open;
+     - transitions.dev "Accordion" and "Texts reveal": the cards cross-blur
+       (3px -> 0), rise 12px and fade in on a 40ms per-card stagger over the
+       shared cubic-bezier(.22,1,.36,1) token; close is the same family run
+       short and quick (exits are faster than entrances);
+     - motion-primitives accordion trigger: the chevron turns on its own
+       spring, separate from the panel.
+
+     app.css keeps its grid-rows cross-fade as the reduced-motion / no-Motion
+     fallback, and a live band rests at an explicit 0px when closed so list
+     spacing can never bleed into the header. */
+  var PROF_EASE = [0.22, 1, 0.36, 1];
+  var PROF_STAGGER = 0.04;
+  var PROF_PANEL = { type: 'spring', stiffness: 330, damping: 32, mass: 0.95 };
+  var PROF_CHEVRON = { type: 'spring', stiffness: 300, damping: 20 };
+  var profBound = false;
+
+  function nkProfCards(body) {
+    var list = body && body.querySelector('.nk-v3-subject-list');
+    return list ? Array.prototype.slice.call(list.children) : [];
+  }
+  function nkProfClear(group) {
+    var body = group.querySelector('.nk-prof-body');
+    var inner = body && body.querySelector('.nk-v3-subject-list');
+    if (inner) inner.style.opacity = '';
+    each(nkProfCards(body), function (card) {
+      card.style.opacity = '';
+      card.style.transform = '';
+      card.style.filter = '';
+    });
+  }
   function nkProfStop(group) {
     var run = group.__nkgProfRun;
     if (!run) return;
-    each(['body', 'inner', 'chev'], function (k) { if (run[k] && run[k].stop) { try { run[k].stop(); } catch (e) {} } });
+    each(run, function (a) { if (a && a.stop) { try { a.stop(); } catch (e) {} } });
     group.__nkgProfRun = null;
   }
   function nkProfTarget(e) {
@@ -690,12 +714,10 @@
     var group = nkProfTarget(e);
     if (!group) return;
     var body = group.querySelector('.nk-prof-body');
-    var inner = body && body.querySelector('.nk-v3-subject-list');
-    if (!body || !inner) return;
+    if (!body) return;
     var open = group.classList.contains('is-open');
     nkProfStop(group);
-    inner.style.opacity = '';
-    inner.style.transform = '';
+    nkProfClear(group);
     body.style.height = body.getBoundingClientRect().height + 'px';
     var chev = group.querySelector('.nk-prof-head .nk-prof-chevron');
     if (chev) chev.style.transform = 'rotate(' + (open ? -90 : 90) + 'deg)';
@@ -707,30 +729,41 @@
     if (!group || !group.__nkgProfPin) return;
     delete group.__nkgProfPin;
     var body = group.querySelector('.nk-prof-body');
-    var inner = body && body.querySelector('.nk-v3-subject-list');
-    if (!body || !inner) return;
+    if (!body) return;
+    var inner = body.querySelector('.nk-v3-subject-list');
     var chev = group.querySelector('.nk-prof-head .nk-prof-chevron');
     var open = group.classList.contains('is-open');
     nkProfStop(group);
     if (!motionOK()) {
       /* Reduced motion: settle at once and let the stylesheet own the state. */
+      nkProfClear(group);
       body.style.height = open ? '' : '0px';
       if (chev) chev.style.transform = '';
       return;
     }
-    var run = {};
+    var run = [];
     if (open) {
+      var from = parseFloat(body.style.height) || 0;
       var h = body.scrollHeight;
-      run.body = M.animate(body, { height: ['0px', h + 'px'] }, profClosed);
-      if (run.body && run.body.finished) run.body.finished.then(function () { body.style.height = ''; }, function () {});
-      run.inner = anim(inner, { opacity: [0, 1], transform: ['translateY(-6px)', 'translateY(0px)'] }, { duration: 0.26, delay: 0.04, ease: PROF_EASE });
-      run.chev = anim(chev, { transform: ['rotate(90deg)', 'rotate(-90deg)'] }, { type: 'spring', stiffness: 420, damping: 26 });
+      var grow = M.animate(body, { height: [from + 'px', h + 'px'] }, PROF_PANEL);
+      run.push(grow);
+      if (grow && grow.finished) grow.finished.then(function () { body.style.height = ''; }, function () {});
+      nkProfClear(group);
+      each(nkProfCards(body), function (card, i) {
+        run.push(anim(card, {
+          opacity: [0, 1],
+          transform: ['translateY(12px)', 'translateY(0px)'],
+          filter: ['blur(3px)', 'blur(0px)']
+        }, { duration: 0.5, delay: 0.05 + Math.min(i, 8) * PROF_STAGGER, ease: PROF_EASE }));
+      });
+      if (chev) run.push(anim(chev, { transform: ['rotate(90deg)', 'rotate(-90deg)'] }, PROF_CHEVRON));
     } else {
       var h0 = body.getBoundingClientRect().height;
-      run.body = M.animate(body, { height: [h0 + 'px', '0px'] }, { duration: 0.24, ease: PROF_EASE });
-      if (run.body && run.body.finished) run.body.finished.then(function () { body.style.height = '0px'; }, function () {});
-      run.inner = anim(inner, { opacity: [1, 0] }, { duration: 0.14, ease: PROF_EASE });
-      run.chev = anim(chev, { transform: ['rotate(-90deg)', 'rotate(90deg)'] }, { duration: 0.3, ease: PROF_EASE });
+      var shrink = M.animate(body, { height: [h0 + 'px', '0px'] }, { duration: 0.26, ease: PROF_EASE });
+      run.push(shrink);
+      if (shrink && shrink.finished) shrink.finished.then(function () { body.style.height = '0px'; }, function () {});
+      if (inner) run.push(anim(inner, { opacity: [1, 0] }, { duration: 0.15, ease: PROF_EASE }));
+      if (chev) run.push(anim(chev, { transform: ['rotate(-90deg)', 'rotate(90deg)'] }, { duration: 0.28, ease: PROF_EASE }));
     }
     group.__nkgProfRun = run;
   }

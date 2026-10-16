@@ -30,7 +30,7 @@ def main():
         "Anatomy:'first'", "Physiology:'first'", "Biochemistry:'first'", "Microbiology:'second'",
         "First Prof", "Second Prof", "Other",
         "nkProfGroupSubjects", "nkProfGroupMarkup", "nkProfGroupsMarkup", "nkToggleProfGroup",
-        "nk-prof-groups", "nk-prof-group", "nk-prof-head", "nk-prof-copy", "nk-prof-count", "nk-prof-chevron", "nk-prof-body",
+        "nk-prof-groups", "nk-prof-group", "nk-prof-head", "nk-prof-tile", "nk-prof-copy", "nk-prof-count", "nk-prof-chevron", "nk-prof-body",
         "aria-expanded", "aria-controls", "inert",
         "qbank_prof_groups_v1",
         "nkSubjectCardV3",
@@ -51,16 +51,19 @@ def main():
 
     css = css_section(STYLE_ID)
     for rule in ("grid-template-rows:0fr", ".nk-prof-group.is-open .nk-prof-body", "prefers-reduced-motion", "overflow:hidden",
-                 "nkg-prof-live", "display:block"):
+                 "nkg-prof-live", "display:block", "nk-prof-tile", "hover:hover"):
         if rule not in css:
             raise SystemExit(f"Professional group stylesheet missing: {rule}")
     if "display:none" in css:
         raise SystemExit("Professional groups must stay in the accessibility tree, not display:none")
 
     # The Motion layer (nk-feel) springs the measured-height reveal open and
-    # closed; the grid rows above remain its reduced-motion fallback.
+    # closed, staggers the cards in with a cross-blur (transitions.dev sizes)
+    # and turns the chevron on its own spring; the grid rows above remain its
+    # reduced-motion fallback.
     feel = (ROOT / "app/src/main/assets/redesign/nk-feel.js").read_text(encoding="utf-8")
-    for token in ("enhanceProfGroups", "nkg-prof-live", "nkProfPin", "nkProfSettle", "M.animate(body, { height:"):
+    for token in ("enhanceProfGroups", "nkg-prof-live", "nkProfPin", "nkProfSettle", "M.animate(body, { height:",
+                  "PROF_STAGGER", "blur(3px)", "nkProfCards", "translateY(12px)"):
         if token not in feel:
             raise SystemExit(f"professional group Motion layer missing: {token}")
 
