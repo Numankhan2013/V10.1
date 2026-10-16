@@ -159,6 +159,9 @@ def main():
                 cohort=page.locator('.nk-uworld-cohort')
                 expect(cohort).to_have_attribute('aria-label','78% of UWorld users answered correctly')
                 assert '78%' in cohort.inner_text(), cohort.inner_text()
+                # Rarity tier: per-source percentile cutoffs; 78% is an Easy UWorld question.
+                expect(cohort).to_have_attribute('data-nk-tier','easy')
+                expect(cohort.locator('.nkr-tier')).to_have_text('Easy')
                 assert page.locator('.nk-uworld-statistics').count()==0
                 after_widths=page.locator('.option-list .option-text').evaluate_all('nodes=>nodes.map(n=>n.getBoundingClientRect().width)')
                 assert all(abs(a-b)<2 for a,b in zip(option_widths,after_widths)), 'Percentages rewrapped option text'

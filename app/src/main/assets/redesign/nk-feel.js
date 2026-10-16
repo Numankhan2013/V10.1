@@ -1133,7 +1133,8 @@
     var trap = tier && c.getAttribute('data-nk-trap') === '1';
     c.classList.add('nkg-cohort', tier ? 'is-' + tier : (n >= 70 ? 'is-easy' : n < 40 ? 'is-hard' : 'is-mid'));
     if (trap) c.classList.add('is-trap');
-    c.setAttribute('aria-label', n + '% of UWorld users answered correctly' + (tier ? '. ' + labels[tier] + ' question' : '') + (trap ? ', most misses chose the same wrong option' : ''));
+    c.setAttribute('aria-label', n + '% of UWorld users answered correctly');
+    if (tier) c.setAttribute('aria-description', labels[tier] + ' question' + (trap ? '; most misses chose the same wrong option' : ''));
     st.innerHTML = '<b>' + n + '%</b><small>got it right</small>' +
       (tier ? '<em class="nkr-tags" aria-hidden="true">' + (trap ? '<i class="nkr-trap">Trap</i>' : '') + '<i class="nkr-tier">' + labels[tier] + '</i></em>' : '');
     var bar = el('span', 'nkg-cohort-bar', '<i></i>'); bar.setAttribute('aria-hidden', 'true'); bar.style.setProperty('--nkg-p', String(n));
