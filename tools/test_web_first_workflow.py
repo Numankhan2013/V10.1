@@ -18,12 +18,17 @@ def main():
     android = ['Set up JDK 17','Set up Gradle','Configure side-by-side Marrow pilot APK',
                'Build debug APK','Restore production Android source identity','Verify packaged APK',
                'Verify packaged product contract','Write reproducibility manifest',
-               'Verify packaged Marrow image bytes','Upload debug APK and build manifest']
+               'Upload debug APK and build manifest','Upload Android regression shell']
     for name in android:
         assert 'workflow_dispatch' in steps[name].split('if: ', 1)[1].split('\n', 1)[0] and 'inputs.build_apk' in steps[name].split('if: ', 1)[1].split('\n', 1)[0], name
     for name in ['Verify packaged PWA product contract','Write PWA reproducibility manifest','Upload verified PWA artifact']:
         assert '        if:' not in steps[name], name
     assert 'name: V11.7-pwa' in steps['Upload verified PWA artifact']
+    # The APK is a thin shell: no bundled assets, and the emulator drives a
+    # regression copy against the verified web build.
+    assert "grep '^assets/'" in steps['Verify packaged APK']
+    assert '-PqbankLocalRegression' in steps['Build debug APK'] and 'https://nk-qbank.pages.dev/' in steps['Build debug APK']
+    assert 'adb reverse tcp:8765 tcp:8765' in android_job and 'NK_ANDROID_APK_DIR: build/android-regression' in android_job
     assert '--web-only' in steps['Write PWA reproducibility manifest']
     assert '--html build/web/index.html' in steps['Verify packaged PWA product contract']
     assert 'inputs.build_apk' not in steps['Deploy PWA preview to Cloudflare Pages']

@@ -1,7 +1,7 @@
 /* NK_QUESTION_DETAILS_V1_START */
   // The web build moves explanation fields into per-subject packs fetched on
   // demand (tools/build_web_dist.py DetailPacks) and marks each question with
-  // its pack. Questions without a mark, and the Android build, carry them inline.
+  // its pack. Questions without a mark (and local, unsplit builds) carry them inline.
   const nkDetailPacks=new Map();
   function nkDetailsReady(q){return !q||!Number.isInteger(q.detailPack);}
   function nkDetailPack(index){

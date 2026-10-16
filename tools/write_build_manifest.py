@@ -36,7 +36,9 @@ def main():
         apk_files = sorted((ROOT / "app/build/outputs/apk/debug").glob("*.apk"))
         if len(apk_files) != 1:
             raise SystemExit(f"Expected exactly one debug APK, found {len(apk_files)}")
-        tracked = [ROOT / "app/src/main/assets/index.html",
+        # The APK is a shell that loads the PWA; record the page it was verified with.
+        tracked = [ROOT / "build/web/index.html",
+                   ROOT / "app/build.gradle",
                    ROOT / "app/src/main/AndroidManifest.xml",
                    ROOT / "app/src/main/java/com/qbank/biochemistry/MainActivity.java",
                    ROOT / ".github/workflows/build-apk.yml", apk_files[0]]

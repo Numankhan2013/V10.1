@@ -487,9 +487,13 @@ function nkDurablePersist(v){localStorage.setItem(LS_KEY,JSON.stringify(v));retu
     if hits:
         raise SystemExit(f"Generated app bypasses durable state persistence: {hits}")
     android = (ROOT / "app/src/main/java/com/qbank/biochemistry/MainActivity.java").read_text(encoding="utf-8")
-    for marker in ("APP_ORIGIN", "migrate_local_state.html", "QBankMigration", "\\u003c", 'if (!migrationPrefs.getBoolean("complete", false)) webView.addJavascriptInterface(new MigrationBridge(), "QBankMigration");'):
+    # The Android app is a shell around the web build, so progress lives on the
+    # web origin and moves between devices through this sync, not native storage.
+    for marker in ("NK_THIN_SHELL_V1", "BuildConfig.APP_URL", 'addJavascriptInterface(new ShellBridge(), "QBankShell")', "setAllowFileAccess(false)"):
         if marker not in android:
-            raise SystemExit(f"Android migration contract missing: {marker}")
+            raise SystemExit(f"Android shell contract missing: {marker}")
+    if "QBankMigration" in android or "serveAppAsset" in android:
+        raise SystemExit("Android shell must not serve bundled app assets")
     rules = (ROOT / "firestore.rules").read_text(encoding="utf-8")
     if "request.auth.uid == userId" not in rules or "allow delete: if false" not in rules:
         raise SystemExit("Firestore ownership/tombstone rules are not protected")

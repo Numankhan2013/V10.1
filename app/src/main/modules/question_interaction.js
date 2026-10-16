@@ -13,7 +13,7 @@
     // Feedback accompanies meaningful committed changes, never general taps.
     const now=Date.now();if(now-nkFeedbackAt<60)return;nkFeedbackAt=now;
     try{
-      if(location.hostname==='qbank.local'&&window.QBankHaptics?.play){window.QBankHaptics.play(kind);return;}
+      if(window.QBankHaptics?.play){window.QBankHaptics.play(kind);return;}
       if(typeof navigator!=='undefined'&&typeof navigator.vibrate==='function')navigator.vibrate(nkFeedbackPatterns[kind]);
     }catch(_){}
   }
@@ -181,9 +181,9 @@
   },true);
   // Browser/PWA system Back changes history before hashchange renders the next
   // route. Keep the question entry when the learner declines to leave.
-  // Packaged Android uses its native Back confirmation at qbank.local.
+  // The Android app asks with its native Back confirmation instead.
   window.addEventListener('popstate',()=>{
-    if(location.hostname==='qbank.local')return;
+    if(location.hostname==='qbank.local'||window.QBankShell)return;
     if(location.hash===nkAppNavigationTarget){nkAppNavigationTarget=null;return;}
     const s=state.activeSession;
     if(!s||!['practice','exam'].includes(s.mode)||route.page!==s.mode)return;

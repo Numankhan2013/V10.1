@@ -62,9 +62,11 @@ def main() -> None:
         ".question-text", ".option-list", ".feedback", "fixed-actions",
         "localStorage", "activeSession",
     ], "source contract")
-    require(manifest, ['android:label="NK QBank"', 'android:usesCleartextTraffic="false"', 'android.permission.INTERNET'], "Android manifest")
+    require(manifest, ['android:label="NK QBank"', 'android:usesCleartextTraffic="${usesCleartextTraffic}"', 'android.permission.INTERNET'], "Android manifest")
+    # Cleartext is only for CI's local emulator regression build; every other APK forbids it.
+    require((ROOT / "app/build.gradle").read_text(encoding="utf-8"), ["usesCleartextTraffic: project.hasProperty('qbankLocalRegression') ? 'true' : 'false'", "assets.srcDirs = []"], "Android build")
     require(native, ["setJavaScriptEnabled(true)", "setDomStorageEnabled(true)",
-                     "setAllowContentAccess(false)", "MIXED_CONTENT_NEVER_ALLOW", "APP_ORIGIN", "serveAppAsset", "qbank_origin_migration_v1",
+                     "setAllowContentAccess(false)", "setAllowFileAccess(false)", "MIXED_CONTENT_NEVER_ALLOW", "NK_THIN_SHELL_V1", "BuildConfig.APP_URL", ".cloudflareaccess.com",
                      "NATIVE_BACK_SESSION_GUARD_V1", "Do you want to exit?", "setNegativeButton(\"Stay\"", "setPositiveButton(\"Exit\""], "WebView contract")
 
     for asset in (

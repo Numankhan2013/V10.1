@@ -29,7 +29,7 @@ BRIDGE = '''    // NATIVE_ACTION_HAPTICS_V1: framework effects honor the user's 
 def main():
     current = JAVA.read_text(encoding='utf-8')
     assert current.count(BRIDGE) == 1, 'haptics bridge must ship once with prior answer haptics'
-    assert current.index(BRIDGE) < current.index('    private final class MigrationBridge')
+    assert current.index(BRIDGE) < current.index('    // NATIVE_BACK_SESSION_GUARD_V1')
     assert current.count('import android.view.HapticFeedbackConstants;') == 1
     for contract in ('addJavascriptInterface(new HapticsBridge(), "QBankHaptics")',
                      'webView.performHapticFeedback(effect)', 'HapticFeedbackConstants.CONFIRM',
