@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "subject": "Microbiology",
   "bank": "Marrow",
-  "scope": "modules_001_022",
+  "scope": "modules_001_025",
   "sourcePdf": "data/marrow/source_pdfs/Microbiology Marrow Qbank.pdf",
   "sourceJsonl": [
     {
@@ -52,17 +52,25 @@
       "schema": 2,
       "pageOffset": 125,
       "moduleOffset": 16
+    },
+    {
+      "file": "Microbiology_Marrow_Qbank_07.jsonl",
+      "sha256": "78ae9b8cf247bf6e20b3764d6090e8db790f82b1ea78beeb631bc88010fcbdf4",
+      "questions": 90,
+      "schema": 2,
+      "pageOffset": 151,
+      "moduleOffset": 21
     }
   ],
   "builder": "tools/build_microbiology_marrow_bank.py",
-  "topics": 22,
-  "questions": 636,
-  "parts": 8,
-  "base64_chars": 459616,
-  "compressed_bytes": 344711,
-  "compressed_sha256": "2fd5540d53c51c7e62174390333d2e3b5d55bf8a516892001684327cfd9433c2",
-  "raw_bytes": 2472115,
-  "raw_sha256": "c39def21de03e3a13c2f0cda66e095a092980c9bdcac075096665f21f6e71ff9",
+  "topics": 25,
+  "questions": 726,
+  "parts": 9,
+  "base64_chars": 525876,
+  "compressed_bytes": 394405,
+  "compressed_sha256": "299dabc5855933aa58f3554d1e845da8353a34d0631a1460f2b540d6e50df420",
+  "raw_bytes": 2827200,
+  "raw_sha256": "9f3dbb0b255aff93ccd70493535dd62726ec26a13d6e96cc11f538b39d950c17",
   "topicCounts": {
     "1": 26,
     "2": 27,
@@ -85,9 +93,10 @@
     "19": 18,
     "20": 20,
     "21": 22,
-    "22": 15
+    "22": 35,
+    "23": 16,
+    "24": 39,
+    "25": 15
   },
-  "incompleteTopics": {
-    "22": "15/30"
-  }
+  "incompleteTopics": {}
 }

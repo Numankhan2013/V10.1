@@ -60,9 +60,10 @@ V2_TOKEN = re.compile(r"^@@V2BLOCK:(\d+)@@$")
 # data/marrow/source_pdfs/Microbiology Marrow Qbank.pdf; the splits partition
 # the 173-page PDF contiguously, and each split's page 1 was matched against
 # the full PDF by its embedded page-image hash (part 02 = full 27 [MA1545 OCR
-# cross-check], 03 = 48, 04 = 74, 05 = 100, 06 = 126). `moduleOffset` turns the
-# part's module index into the app module; a part whose first module continues
-# the previous part's last module joins it (part 03 module 1 = module 7 Q21).
+# cross-check], 03 = 48, 04 = 74, 05 = 100, 06 = 126, 07 = 152). `moduleOffset`
+# turns the part's module index into the app module; a part whose first module
+# continues the previous part's last module joins it (part 03 module 1 = module
+# 7 Q21, part 07 module 1 = module 22 Q16).
 PART_LAYOUT = {
     "Microbiology_Marrow_Qbank_01.jsonl": {"schema": 1, "pageOffset": 0, "moduleOffset": 0},
     "Microbiology_Marrow_Qbank_02.jsonl": {"schema": 2, "pageOffset": 26, "moduleOffset": 4},
@@ -70,16 +71,18 @@ PART_LAYOUT = {
     "Microbiology_Marrow_Qbank_04.jsonl": {"schema": 2, "pageOffset": 73, "moduleOffset": 9},
     "Microbiology_Marrow_Qbank_05.jsonl": {"schema": 2, "pageOffset": 99, "moduleOffset": 12},
     "Microbiology_Marrow_Qbank_06.jsonl": {"schema": 2, "pageOffset": 125, "moduleOffset": 16},
+    "Microbiology_Marrow_Qbank_07.jsonl": {"schema": 2, "pageOffset": 151, "moduleOffset": 21},
 }
 # A module that spans two parts gets one app title: the continuation's name
-# without "(continued)" (module 5) or the two halves combined (module 13, 17),
-# with the true total from the final part.
+# without "(continued)" (module 5) or the two halves combined (module 13, 17,
+# 22), with the true total from the final part (module 22: 30 → 35).
 MODULE_OVERRIDES = {
     5: {"title": "Staphylococcus, Streptococcus, Enterococcus & Pneumococcus", "total": 60},
     7: {"title": "Clostridium, Bacillus, Lactobacillus & Nocardia", "total": 44},
     10: {"title": "Vibrio, Campylobacter, Helicobacter pylori, Legionella & Bartonella", "total": 38},
     13: {"title": "Rickettsiaceae, Orientia tsutsugamushi, Coxiella burnetii, Bartonella, Ehrlichia, Chlamydia & Mycoplasma", "total": 29},
     17: {"title": "Hepatitis Viruses (HAV, HBV, HCV, HDV & HEV)", "total": 25},
+    22: {"title": "Mycology (General Properties, Cryptococcus, Piedra, Dermatophytes, Chromoblastomycosis, Sporotrichosis, Histoplasmosis, Dimorphic Fungi, Opportunistic Mycoses, Mycetoma & Fungal Diagnostics)", "total": 35},
 }
 
 

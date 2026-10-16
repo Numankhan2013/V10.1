@@ -38,8 +38,11 @@ def open_topic(page, title_part: str) -> None:
     page.evaluate("window.QB.nkOpenSubjectLibrary('Microbiology')")
     page.wait_for_function("() => document.querySelectorAll('button.nk-bank-card').length===1", timeout=8000)
     page.locator("button.nk-bank-card").filter(has_text="Marrow").click()
-    page.wait_for_function("() => document.querySelectorAll('button.nk-topic-row').length===22", timeout=8000)
-    page.locator("button.nk-topic-row").filter(has_text=title_part).click()
+    page.wait_for_function("() => document.querySelectorAll('button.nk-topic-row').length===25", timeout=8000)
+    row = page.locator("button.nk-topic-row").filter(has_text=title_part)
+    if row.count() != 1:
+        fail(f"topic filter {title_part!r} matched {row.count()} rows")
+    row.click()
     page.wait_for_function("() => document.querySelectorAll('button.nk-library-row').length>0", timeout=8000)
 
 
@@ -81,7 +84,7 @@ def main() -> None:
             micro = page.locator(".nk-home-subjects button.nk-v3-subject-card").filter(has_text="Microbiology")
             if micro.count() != 1:
                 fail(f"Microbiology subject card missing; cards={names}")
-            if "636" not in micro.inner_text() or "Marrow" not in micro.inner_text():
+            if "726" not in micro.inner_text() or "Marrow" not in micro.inner_text():
                 fail(f"Microbiology card counts wrong: {micro.inner_text()!r}")
 
             # My Subjects groups the subjects by professional year and both groups
@@ -146,12 +149,12 @@ def main() -> None:
             micro.click()
             page.wait_for_function("() => document.querySelectorAll('button.nk-bank-card').length===1", timeout=8000)
             bank = page.locator("button.nk-bank-card")
-            if "Marrow" not in bank.inner_text() or "636 questions" not in bank.inner_text():
+            if "Marrow" not in bank.inner_text() or "726 questions" not in bank.inner_text():
                 fail(f"Microbiology bank card wrong: {bank.inner_text()!r}")
             bank.click()
-            page.wait_for_function("() => document.querySelectorAll('button.nk-topic-row').length===22", timeout=8000)
+            page.wait_for_function("() => document.querySelectorAll('button.nk-topic-row').length===25", timeout=8000)
             body = page.locator("body").inner_text()
-            for section in ("Immunology", "Systemic bacteriology", "Virology", "Mycology"):
+            for section in ("Immunology", "Systemic bacteriology", "Virology", "Mycology", "Parasitology", "Applied microbiology"):
                 if section not in body:
                     fail(f"Topics section {section!r} missing")
             if "Needs classification review" in body:
@@ -249,6 +252,27 @@ def main() -> None:
             page.wait_for_function("() => { const f=document.querySelector('.question-text + .nk-marrow-figures img'); return f && f.complete && f.naturalWidth>0; }", timeout=8000)
             page.screenshot(path=str(OUT / "micro-03-stem-figure.png"), full_page=True)
 
+            # Part 07 completes the merged Mycology module (15+20=35) and adds
+            # Protozoology (39): both must answer with peer statistics.
+            open_topic(page, "Mycology")
+            if page.locator("button.nk-library-row").count() != 35:
+                fail("Mycology should list 35 questions after part 07")
+            open_topic(page, "Protozoology (Entamoeba")
+            if page.locator("button.nk-library-row").count() != 39:
+                fail("Protozoology should list 39 questions after part 07")
+            page.locator("button.nk-library-row").first.click()
+            page.wait_for_function("() => (document.querySelector('.question-text')?.innerText||'').length > 20", timeout=8000)
+            page.locator(".option-list button").nth(0).click()
+            page.wait_for_selector(".nk-marrow-ordered", timeout=8000)
+            page.wait_for_timeout(250)
+            chip = page.locator(".nk-study-support > .nk-uworld-cohort")
+            if chip.count() != 1 or "%" not in chip.inner_text():
+                fail("part-07 question shows no peer chip")
+            pcts = [page.locator(".option-list .option").nth(i).locator(".nk-uworld-option-percent").inner_text().strip() for i in range(4)]
+            if any(not p.endswith("%") for p in pcts):
+                fail(f"part-07 pick rates missing: {pcts}")
+            page.screenshot(path=str(OUT / "micro-06-part07.png"), full_page=True)
+
             # The canonical subjects still offer PrepLadder + Marrow.
             for subject in ("Anatomy", "Physiology", "Biochemistry"):
                 page.evaluate(f"window.QB.nkOpenSubjectLibrary('{subject}')")
@@ -257,7 +281,7 @@ def main() -> None:
             if errors:
                 fail("page errors: " + " | ".join(errors[:5]))
             browser.close()
-    print("MICROBIOLOGY_BROWSER_OK subject=Microbiology bank=Marrow topics=22 sections=4 questions=636 peer_stats=on part02=on ordered_explanation=on emphasis=on stem_figure=on canonical_banks=2 prof_groups=on")
+    print("MICROBIOLOGY_BROWSER_OK subject=Microbiology bank=Marrow topics=25 sections=6 questions=726 peer_stats=on part02=on ordered_explanation=on emphasis=on stem_figure=on part07=on canonical_banks=2 prof_groups=on")
 
 
 if __name__ == "__main__":

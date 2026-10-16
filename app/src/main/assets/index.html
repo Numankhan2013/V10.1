@@ -1115,11 +1115,17 @@ function dashboard(){
     if(text.indexOf('*')<0)return text;
     const opener=(prev,next)=>{
       if(next===undefined||/\s/.test(next))return false;
-      return prev===undefined||/[\s(\[{'"«“‘—–\-*>]/.test(prev);
+      // ";" as the previous character means escaped HTML punctuation
+      // ("'**Myeloma**" reaches this parser as "&#39;**Myeloma**" after
+      // nkScientificMarkup), which is the same word boundary as the
+      // apostrophe or quote it stands for.
+      return prev===undefined||/[\s(\[{'"«“‘—–\-*>;]/.test(prev);
     };
     const closer=(prev,next)=>{
       if(prev===undefined||/\s/.test(prev))return false;
-      return next===undefined||/[\s.,;:!?)\]}>»”’…—–\-*]/.test(next);
+      // "&" after the marker starts an escaped punctuation entity
+      // ("**word**'s" -> "**word**&#39;s"), another boundary.
+      return next===undefined||/[\s.,;:!?)\]}>»”’…—–\-*&]/.test(next);
     };
     const emit={
       'open-both':'<strong><em>','close-both':'</em></strong>',

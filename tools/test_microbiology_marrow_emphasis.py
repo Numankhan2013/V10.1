@@ -79,6 +79,12 @@ same('**a) *Streptococcus pyogenes***','<strong>a) <em>Streptococcus pyogenes</e
 same('***Staphylococcus* is pathogenic.**','<strong><em>Staphylococcus</em> is pathogenic.</strong>','bold span starting with italic');
 // An extractor-glued bold opener before a bracket still opens a span.
 same('resembling**(macrophages)** activity','resembling<strong>(macrophages)</strong> activity','glued bold opener before a bracket');
+// Markup escaping turns a leading apostrophe or quote into an entity
+// ("'**Myeloma**" -> "&#39;**Myeloma**"): the entity still bounds the marker,
+// both for openers (MB8721, part 07) and closers before an escaped quote.
+same("'**Myeloma** cells lack HGPRT",'&#39;<strong>Myeloma</strong> cells lack HGPRT','entity-led bold opener');
+same('"**S. aureus**" in blood','&quot;<strong>S. aureus</strong>&quot; in blood','entity-quoted bold opener');
+same("'*Giardia lamblia*' cysts",'&#39;<em>Giardia lamblia</em>&#39; cysts','entity-wrapped italic');
 // A Key takeaway sentence cut out of a longer bold span keeps one marker only.
 same('start **blood should be cultured.','start blood should be cultured.','dangling bold opener');
 same('growth was seen.**','growth was seen.','dangling bold closer');
@@ -151,10 +157,12 @@ console.log('MICROBIOLOGY_MARROW_EMPHASIS_OK questions='+QUESTIONS.length+' chun
         result = subprocess.run(
             ["node", str(test_path), str(payload_path)],
             cwd=ROOT,
-            check=True,
+            check=False,
             capture_output=True,
             text=True,
         )
+        if result.returncode != 0:
+            raise SystemExit("MICROBIOLOGY_MARROW_EMPHASIS_FAIL:\n" + (result.stderr.strip() or result.stdout.strip()))
         print(result.stdout.strip())
     finally:
         test_path.unlink(missing_ok=True)
