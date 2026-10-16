@@ -87,10 +87,9 @@ if text.find("Verify packaged APK") < text.find("Build debug APK"):
 page_writers = sorted(set(re.findall(r"python3\s+(tools/(?:apply|install|fix|harden|remove|add|cbt)_[A-Za-z0-9_]+\.py)", text)))
 if page_writers:
     raise SystemExit(f"index.html is source; these steps patch it: {page_writers}")
-if "v11.1-engineering-foundation" not in text:
-    raise SystemExit("Engineering branch is not protected by the build workflow")
+if "branches: [main, 'feature/**']" not in text:
+    raise SystemExit("Feature branches are not built by the build workflow")
 for marker in (
-    "branches: [main, 'consolidation/**'",
     "promote_production:",
     "release_sha:",
     'github.ref_name == \'main\'',

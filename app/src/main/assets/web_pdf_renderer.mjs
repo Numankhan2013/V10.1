@@ -48,7 +48,14 @@ if (location.hostname !== 'qbank.local') {
   const TONE_SRC = 'const T=new Uint8ClampedArray(256).map((_,v)=>Math.round(255*Math.pow(v/255,1.7)));' +
     'function tone(d){const u=new Uint32Array(d.buffer,d.byteOffset,d.length>>2);for(let j=0;j<u.length;j++){if(u[j]===0xFFFFFFFF)continue;const i=j<<2;d[i]=T[d[i]];d[i+1]=T[d[i+1]];d[i+2]=T[d[i+2]];}}';
   const TONE = new Uint8ClampedArray(256).map((_, v) => Math.round(255 * Math.pow(v / 255, 1.7)));
-  const toneHere = new Function('T', TONE_SRC.slice(TONE_SRC.indexOf('function')) + 'return tone;')(TONE);
+  // Same curve as TONE_SRC, for the page-thread fallback (kept out of eval so the CSP can forbid it).
+  function toneHere(d) {
+    const u = new Uint32Array(d.buffer, d.byteOffset, d.length >> 2);
+    for (let j = 0; j < u.length; j++) {
+      if (u[j] === 0xFFFFFFFF) continue;
+      const i = j << 2; d[i] = TONE[d[i]]; d[i + 1] = TONE[d[i + 1]]; d[i + 2] = TONE[d[i + 2]];
+    }
+  }
   let toneWorker = null, toneSeq = 0;
   const toneJobs = new Map();
   if (typeof Worker !== 'undefined' && typeof OffscreenCanvas !== 'undefined' && typeof createImageBitmap === 'function') {
