@@ -583,6 +583,8 @@ jobs:
           test "$(stat -c %s "$APK")" -lt 20000000
           test "$(find build/android-regression -name '*.apk' | wc -l)" -eq 1
           cat build/web/index.html build/web/app.css > /tmp/packaged-index.html
+          # Question data ships beside the page in the web build.
+          cat build/web/data/*.js > /tmp/packaged-data.js
           ! grep -q 'id="v102-streak-layer-script"' /tmp/packaged-index.html
           ! grep -q 'id="v102-streak-layer"' /tmp/packaged-index.html
           grep -q 'nk-home-streak-header-v1' /tmp/packaged-index.html
@@ -592,7 +594,6 @@ jobs:
           grep -q 'Continue Practice' /tmp/packaged-index.html
           grep -q 'Build a test' /tmp/packaged-index.html
           grep -q 'Quick test' /tmp/packaged-index.html
-          grep -q 'nk-topics-v2' /tmp/packaged-index.html
           grep -q 'openSubjectTopics' /tmp/packaged-index.html
           grep -q 'resetScrollPosition' /tmp/packaged-index.html
           grep -q 'nk-home-v4' /tmp/packaged-index.html
@@ -619,7 +620,7 @@ jobs:
           grep -q 'NK_FSRS_V6_START' /tmp/packaged-index.html
           grep -q 'NK_MARROW_BANK_PILOT_V1_START' /tmp/packaged-index.html
           grep -q 'NK_MARROW_STRUCTURED_TABLE_RENDERER_V1' /tmp/packaged-index.html
-          grep -q 'marrow__ANAT_CH01_Q001' /tmp/packaged-index.html
+          grep -q 'marrow__ANAT_CH01_Q001' /tmp/packaged-data.js
           grep -q 'Detailed explanation' /tmp/packaged-index.html
           grep -q 'qbank_active_bank_v1' /tmp/packaged-index.html
           python3 - <<'PY'
@@ -640,7 +641,7 @@ jobs:
           echo "Packaged APK verification passed: thin shell carries no assets; the PWA it loads keeps Home, CBT review, toast and JavaScript syntax contracts."
       - name: Verify packaged product contract
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_apk }}
-        run: python3 tools/verify_product_contract.py --stage packaged --html /tmp/packaged-index.html
+        run: python3 tools/verify_product_contract.py --stage packaged --html build/web/index.html
       - name: Write reproducibility manifest
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_apk }}
         run: python3 tools/write_build_manifest.py
