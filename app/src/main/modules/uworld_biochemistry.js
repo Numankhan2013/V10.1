@@ -95,7 +95,12 @@
   }
   function nkUworldStatistics(q){
     const value=(q.uworldDocument?.statistics||q.uworldSource?.statistics)?.answered_correctly_percent;
-    return value==null?'':`<p class="nk-uworld-cohort"><strong>${esc(value)}% answered correctly</strong><span>Reported in the UWorld source</span></p>`;
+    if(value==null)return '';
+    const stats=q.uworldDocument?q.uworldDocument.statistics:null;
+    const selection=stats?stats.selection_percent:Object.fromEntries((q.uworldSource?.options||[]).map(item=>[item.label,item.selection_percent]));
+    const rarity=typeof nkQuestionRarity==='function'?nkQuestionRarity({source:'UWorld',percent:value,selection:selection||{},correct:(q.options||[])[(q.correctOption||0)-1]?.letter,optionCount:(q.options||[]).length}):null;
+    const attrs=rarity?` data-nk-tier="${rarity.tier}"${rarity.trap?' data-nk-trap="1"':''}`:'';
+    return `<p class="nk-uworld-cohort"${attrs}><strong>${esc(value)}% answered correctly</strong><span>Reported in the UWorld source</span></p>`;
   }
   function nkUworldReading(q){
     const doc=q.uworldDocument;
