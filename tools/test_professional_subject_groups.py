@@ -50,11 +50,19 @@ def main():
         raise SystemExit("My Subjects section head changed shape")
 
     css = css_section(STYLE_ID)
-    for rule in ("grid-template-rows:0fr", ".nk-prof-group.is-open .nk-prof-body", "prefers-reduced-motion", "overflow:hidden"):
+    for rule in ("grid-template-rows:0fr", ".nk-prof-group.is-open .nk-prof-body", "prefers-reduced-motion", "overflow:hidden",
+                 "nkg-prof-live", "display:block"):
         if rule not in css:
             raise SystemExit(f"Professional group stylesheet missing: {rule}")
     if "display:none" in css:
         raise SystemExit("Professional groups must stay in the accessibility tree, not display:none")
+
+    # The Motion layer (nk-feel) springs the measured-height reveal open and
+    # closed; the grid rows above remain its reduced-motion fallback.
+    feel = (ROOT / "app/src/main/assets/redesign/nk-feel.js").read_text(encoding="utf-8")
+    for token in ("enhanceProfGroups", "nkg-prof-live", "nkProfPin", "nkProfSettle", "M.animate(body, { height:"):
+        if token not in feel:
+            raise SystemExit(f"professional group Motion layer missing: {token}")
 
     # Behavior: render, Other fallback, toggle, persistence and the QB export.
     section = (

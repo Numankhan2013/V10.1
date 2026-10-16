@@ -6507,7 +6507,15 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-chevron{display:flex;align
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-group.is-open .nk-prof-chevron{transform:rotate(-90deg)}
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-body{display:grid !important;grid-template-rows:0fr;transition:grid-template-rows var(--nkg-dur-med,240ms) var(--nkg-ease,ease)}
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-group.is-open .nk-prof-body{grid-template-rows:1fr}
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-body>.nk-v3-subject-list{min-height:0;overflow:hidden;padding-top:8px !important}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-body>.nk-v3-subject-list{min-height:0;overflow:hidden;padding-top:0 !important}
+/* The reveal gap lives on the first card, not as list padding: padding would
+   still paint an 8px stub under the header when the row is collapsed. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-body>.nk-v3-subject-list>:first-child{margin-top:8px !important}
+/* Motion-driven reveal (nk-feel adds .nkg-prof-live when Motion is present):
+   height, inner fade and chevron spring run from JS; the grid rows above stay
+   as the fallback for reduced motion or a missing Motion build. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-group.nkg-prof-live .nk-prof-body{display:block !important;overflow:hidden;transition:none !important}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-group.nkg-prof-live .nk-prof-chevron{transition:none}
 @media(prefers-reduced-motion:reduce){
   html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-body,
   html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-head,

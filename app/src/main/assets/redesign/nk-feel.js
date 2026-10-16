@@ -657,6 +657,97 @@
     window.requestAnimationFrame(function () { window.requestAnimationFrame(function () { keys.forEach(function (k) { node.style[k] = props[k]; }); }); });
   }
 
+  /* ============================================ Professional-year bands (Home)
+     First Prof / Second Prof on Home reveal their subject cards. The app owns
+     the state (is-open class, aria-expanded, inert, persistence); this layer
+     makes the reveal physical. It adapts the measured-height accordion that
+     Radix/shadcn and Ark UI use (animate the panel height between 0 and its
+     content, turn the chevron) but runs it on the vendored Motion spring, so
+     the band rolls open with momentum, the cards settle in after it and the
+     chevron turns on the same spring. The grid-template-rows rules in app.css
+     stay as the reduced-motion / no-Motion fallback, and a live band rests at
+     an explicit 0px when closed so the list spacing can never bleed into the
+     header. */
+  var PROF_EASE = [0.22, 1, 0.36, 1];
+  var profBound = false;
+  var profClosed = { type: 'spring', stiffness: 360, damping: 30, mass: 0.9 };
+
+  function nkProfStop(group) {
+    var run = group.__nkgProfRun;
+    if (!run) return;
+    each(['body', 'inner', 'chev'], function (k) { if (run[k] && run[k].stop) { try { run[k].stop(); } catch (e) {} } });
+    group.__nkgProfRun = null;
+  }
+  function nkProfTarget(e) {
+    if (!e.target || !e.target.closest) return null;
+    var head = e.target.closest('.nk-prof-head');
+    return head && head.closest('.nk-prof-group.nkg-prof-live');
+  }
+  /* Runs before the app's own handler flips the class: freeze today's geometry
+     so the springs have explicit numbers to leave from (auto height cannot be
+     animated) and keep the chevron where the eye last saw it. */
+  function nkProfPin(e) {
+    var group = nkProfTarget(e);
+    if (!group) return;
+    var body = group.querySelector('.nk-prof-body');
+    var inner = body && body.querySelector('.nk-v3-subject-list');
+    if (!body || !inner) return;
+    var open = group.classList.contains('is-open');
+    nkProfStop(group);
+    inner.style.opacity = '';
+    inner.style.transform = '';
+    body.style.height = body.getBoundingClientRect().height + 'px';
+    var chev = group.querySelector('.nk-prof-head .nk-prof-chevron');
+    if (chev) chev.style.transform = 'rotate(' + (open ? -90 : 90) + 'deg)';
+    group.__nkgProfPin = true;
+  }
+  /* Runs after it: spring the band to its new resting state. */
+  function nkProfSettle(e) {
+    var group = nkProfTarget(e);
+    if (!group || !group.__nkgProfPin) return;
+    delete group.__nkgProfPin;
+    var body = group.querySelector('.nk-prof-body');
+    var inner = body && body.querySelector('.nk-v3-subject-list');
+    if (!body || !inner) return;
+    var chev = group.querySelector('.nk-prof-head .nk-prof-chevron');
+    var open = group.classList.contains('is-open');
+    nkProfStop(group);
+    if (!motionOK()) {
+      /* Reduced motion: settle at once and let the stylesheet own the state. */
+      body.style.height = open ? '' : '0px';
+      if (chev) chev.style.transform = '';
+      return;
+    }
+    var run = {};
+    if (open) {
+      var h = body.scrollHeight;
+      run.body = M.animate(body, { height: ['0px', h + 'px'] }, profClosed);
+      if (run.body && run.body.finished) run.body.finished.then(function () { body.style.height = ''; }, function () {});
+      run.inner = anim(inner, { opacity: [0, 1], transform: ['translateY(-6px)', 'translateY(0px)'] }, { duration: 0.26, delay: 0.04, ease: PROF_EASE });
+      run.chev = anim(chev, { transform: ['rotate(90deg)', 'rotate(-90deg)'] }, { type: 'spring', stiffness: 420, damping: 26 });
+    } else {
+      var h0 = body.getBoundingClientRect().height;
+      run.body = M.animate(body, { height: [h0 + 'px', '0px'] }, { duration: 0.24, ease: PROF_EASE });
+      if (run.body && run.body.finished) run.body.finished.then(function () { body.style.height = '0px'; }, function () {});
+      run.inner = anim(inner, { opacity: [1, 0] }, { duration: 0.14, ease: PROF_EASE });
+      run.chev = anim(chev, { transform: ['rotate(-90deg)', 'rotate(90deg)'] }, { duration: 0.3, ease: PROF_EASE });
+    }
+    group.__nkgProfRun = run;
+  }
+  function enhanceProfGroups(app) {
+    if (!M || !M.animate || !app || !app.querySelector) return;
+    each(app.querySelectorAll('.nk-prof-group'), function (group) {
+      var body = group.querySelector('.nk-prof-body');
+      if (!body) return;
+      group.classList.add('nkg-prof-live');
+      if (!group.classList.contains('is-open') && !group.__nkgProfPin && !group.__nkgProfRun) body.style.height = '0px';
+    });
+    if (profBound) return;
+    profBound = true;
+    document.addEventListener('click', nkProfPin, true);
+    document.addEventListener('click', nkProfSettle, false);
+  }
+
   /* Subject performance: rows without answers collapse to one quiet line, after the rows with data. */
   function enhanceSubjects(box) {
     if (!box || box.__nkg) return; box.__nkg = true;
@@ -1641,7 +1732,7 @@
       watchToasts();
       syncTopbar(app, page, session);
       pageEnter(app, page, session);
-      if (page === 'dashboard') { enhanceHome(app); enhanceSubjects(app); }
+      if (page === 'dashboard') { enhanceHome(app); enhanceSubjects(app); enhanceProfGroups(app); }
       else if (page === 'analytics') enhanceInsights(app);
       else if (page === 'tests' || page === 'test-builder') enhanceTests(app);
       else if (page === 'quick-revision' || page === 'fsrs') enhanceRevision(app);

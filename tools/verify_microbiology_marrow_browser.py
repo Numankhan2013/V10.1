@@ -94,6 +94,16 @@ def main() -> None:
                 fail("subject groups should open collapsed")
             if "3 subjects" not in first.inner_text() or "Microbiology" not in second.inner_text():
                 fail(f"group summaries wrong: {first.inner_text()!r} / {second.inner_text()!r}")
+            # The Motion layer (nk-feel) pins the reveal: a live band rests at a
+            # true 0px when closed, and springs 0 <-> content height when tapped.
+            page.wait_for_function(
+                "() => document.querySelector('.nk-prof-group[data-nk-prof=\"second\"]').classList.contains('nkg-prof-live')",
+                timeout=8000,
+            )
+            if first.evaluate("g => g.classList.contains('nkg-prof-live')") is not True:
+                fail("professional bands are missing the Motion reveal layer")
+            if first.locator(".nk-prof-body").evaluate("n => n.style.height") != "0px":
+                fail("a closed band should rest at a true 0 height")
             page.screenshot(path=str(OUT / "micro-00-home.png"), full_page=True)
 
             head = second.locator(".nk-prof-head")
@@ -106,6 +116,29 @@ def main() -> None:
             )
             if second.locator(".nk-prof-body[inert]").count() != 0 or head.get_attribute("aria-expanded") != "true":
                 fail("Second Prof did not open for the learner")
+            page.wait_for_function(
+                "() => document.querySelector('.nk-prof-group[data-nk-prof=\"second\"] .nk-prof-body').style.height === ''",
+                timeout=5000,
+            )
+            # One close/reopen cycle: both spring paths end in the right resting state.
+            head.click()
+            page.wait_for_function(
+                "() => !document.querySelector('.nk-prof-group[data-nk-prof=\"second\"]').classList.contains('is-open')",
+                timeout=5000,
+            )
+            page.wait_for_function(
+                "() => document.querySelector('.nk-prof-group[data-nk-prof=\"second\"] .nk-prof-body').style.height === '0px'",
+                timeout=5000,
+            )
+            head.click()
+            page.wait_for_function(
+                "() => document.querySelector('.nk-prof-group[data-nk-prof=\"second\"]').classList.contains('is-open')",
+                timeout=5000,
+            )
+            page.wait_for_function(
+                "() => document.querySelector('.nk-prof-group[data-nk-prof=\"second\"] .nk-prof-body').style.height === ''",
+                timeout=5000,
+            )
             if not micro.is_visible():
                 fail("Microbiology card is still hidden after opening Second Prof")
             page.screenshot(path=str(OUT / "micro-00b-home-expanded.png"), full_page=True)
