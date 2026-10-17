@@ -2768,3 +2768,9 @@ User asked for a thorough functional audit, especially whether FSRS is as good a
   (3 Pathology questions now show their figure without the "no explanation" note, 17 → 14); text after the
   references joins them; "Correct Option. C" lead removed; the app keeps an opening note when only references follow.
 - Pins: PYQ journey 76 topics · 2,993 Q; 6 subject cards; builder bank count 10 + UWorld.
+
+## 2026-10-17 — PrepLadder matching questions keep their options
+
+- User report: Pharmacology "Clinical Trials and Miscellaneous" Q4/Q5 showed "Answer choices unavailable".
+- Cause: `nkQuestionPresentationFor` blocks any "match" stem whose table parse fails; 34 PrepLadder text-bank questions (Pharma 11, Patho 18, Micro 5) hit it despite complete options.
+- Fix: text banks (`bank=PrepLadder`, `explanationFormat=structured`) fall back to the plain stem; other banks unchanged. Pharmacology browser verifier checks Clinical Trials Q4 shows 4 options.
