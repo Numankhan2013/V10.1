@@ -252,7 +252,15 @@
     ["Trisomy 21 (Option C)", "Down syndrome", "47", "2n + 1"],
     ["Klinefelter syndrome (Option D)", "47,XXY (extra X chromosome in males)", "47", "2n + 1 (sex chromosome)"]]}
   ]},
-  {"id": "pathology-13-17", "unchanged": true},
+  {"id": "pathology-13-17", "blocks": [
+    {"type": "paragraph", "text": "In standard pedigree notation: An individual marked with brackets around the symbol indicates adoption. If the brackets are dashed, it usually means adopted in (from another family). If the brackets are solid, it usually means adopted out (given to another family)."},
+    {"type": "bullets", "items": [
+      {"text": "**Has a disease of chronic origin / Curable disease (Option B, C):** would be indicated by shading or other symbols, not brackets."},
+      {"text": "**Twin (Option D):** represented by two siblings connected by a triangle or horizontal bar, not brackets."}]},
+    {"type": "figure", "figure_id": "PREPLADDER_PATHO_L13_Q017_explanation_1"},
+    {"type": "figure", "figure_id": "PREPLADDER_PATHO_L13_Q017_explanation_2"},
+    {"type": "figure", "figure_id": "PREPLADDER_PATHO_L13_Q017_explanation_3"}
+  ]},
   {"id": "pathology-13-18", "blocks": [
    {"type": "paragraph", "text": "The most likely diagnosis is Von Hippel-Lindau (VHL) disease, a hereditary condition characterised by the development of multiple cysts in the kidneys, pancreas, and other organs."},
    {"type": "paragraph", "text": "Genetics and pathogenesis:"},
