@@ -84,7 +84,7 @@ def main() -> None:
             micro = page.locator(".nk-home-subjects button.nk-v3-subject-card").filter(has_text="Microbiology")
             if micro.count() != 1:
                 fail(f"Microbiology subject card missing; cards={names}")
-            if "1,768" not in micro.inner_text() or "Marrow" not in micro.inner_text() or "PrepLadder" not in micro.inner_text():
+            if "1,928" not in micro.inner_text() or "Marrow" not in micro.inner_text() or "PrepLadder" not in micro.inner_text():
                 fail(f"Microbiology card counts wrong: {micro.inner_text()!r}")
 
             # My Subjects groups the subjects by professional year and both groups

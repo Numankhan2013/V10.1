@@ -54,7 +54,7 @@ def main() -> None:
                     bank_row('PrepLadder', subject).click()
                     page.get_by_role('button', name='Continue to topics').click()
 
-                for subject, topics, questions in (('Anatomy', 10, 410), ('Physiology', 9, 362), ('Biochemistry', 8, 346), ('Microbiology', 6, 474)):
+                for subject, topics, questions in (('Anatomy', 10, 410), ('Physiology', 9, 362), ('Biochemistry', 8, 346), ('Microbiology', 6, 610)):
                     open_builder()
                     choose_prep(subject)
                     toggle = page.locator('#nk-cbt-pyq-toggle')
@@ -96,10 +96,10 @@ def main() -> None:
 
                 open_builder()
                 page.get_by_role('button', name='Continue to topics').click()
-                expect(page.locator('#nk-cbt-pyq-toggle small')).to_have_text('33 topics · 1,592 Q')
+                expect(page.locator('#nk-cbt-pyq-toggle small')).to_have_text('33 topics · 1,728 Q')
                 page.locator('#nk-cbt-pyq-toggle').click()
                 expect(page.locator('#nk-cbt-pyq-toggle')).to_have_attribute('aria-pressed', 'true')
-                expect(page.locator('#nk-cbt-footer-count')).to_have_text('33 topics · 1,592 questions')
+                expect(page.locator('#nk-cbt-footer-count')).to_have_text('33 topics · 1,728 questions')
                 page.screenshot(path=str(output / f'pyq-topics-{width}.png'), full_page=True)
                 page.get_by_role('button', name='Continue to questions').click()
                 page.locator('#nk-cbt-custom-count').fill('2')
@@ -196,7 +196,7 @@ def main() -> None:
             browser.close()
     finally:
         server.shutdown()
-    print('PYQ_EXAM_JOURNEY_BROWSER_OK verified=1592/33 subsets=true pyq=true mixed=true history=true review=true followup=true phone_tablet=true')
+    print('PYQ_EXAM_JOURNEY_BROWSER_OK verified=1728/33 subsets=true pyq=true mixed=true history=true review=true followup=true phone_tablet=true')
 
 
 if __name__ == '__main__':
