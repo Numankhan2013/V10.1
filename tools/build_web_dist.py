@@ -172,7 +172,7 @@ def main() -> None:
     sw = out / "sw.js"
     sw_text=sw.read_text(encoding="utf-8").replace("const BUILD_VERSION='dev';", f"const BUILD_VERSION={args.version!r};", 1)
     data_shell=(
-        ['./marrow_visual_metadata.js','./microbiology_visual_metadata.js','./prepladder_microbiology_visual_metadata.js','./marrow_visual_renderer.js','./source_visual_inventory.json']
+        ['./marrow_visual_metadata.js','./microbiology_visual_metadata.js','./prepladder_microbiology_visual_metadata.js','./prepladder_pathology_visual_metadata.js','./marrow_visual_renderer.js','./source_visual_inventory.json']
         + ['./'+name for name in data_files]
     )
     # Figures are content-hashed: the worker fills them into a persistent cache

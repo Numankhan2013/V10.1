@@ -226,10 +226,10 @@ async function main(){
       await page.evaluate(()=>window.QB.nav('tests'));
       await page.getByRole('button',{name:'Build a test'}).click();
       await page.getByRole('button',{name:'Continue to topics'}).click();
-      assert.equal(await page.locator('#nk-cbt-pyq-toggle small').innerText(),'33 topics · 1,728 Q');
+      assert.equal(await page.locator('#nk-cbt-pyq-toggle small').innerText(),'60 topics · 2,343 Q');
       await page.locator('#nk-cbt-pyq-toggle').click();
       assert.equal(await page.locator('#nk-cbt-pyq-toggle').getAttribute('aria-pressed'),'true');
-      assert.equal(await page.locator('#nk-cbt-footer-count').innerText(),'33 topics · 1,728 questions');
+      assert.equal(await page.locator('#nk-cbt-footer-count').innerText(),'60 topics · 2,343 questions');
       await page.locator('#nk-cbt-pyq-toggle').click();
       assert.equal(await page.locator('#nk-cbt-pyq-toggle').getAttribute('aria-pressed'),'false');
       assert.equal(await page.locator('#nk-cbt-footer-count').innerText(),'0 topics · 0 questions');

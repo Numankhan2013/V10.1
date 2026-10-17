@@ -2748,3 +2748,12 @@ User asked for a thorough functional audit, especially whether FSRS is as good a
 - Missing Part 2–4 figures were taken from the PDFs (original embedded JPEG bytes);
   ■ glyph losses restored or dropped; bank test fails on any leftover ■.
 - Local: bank test, `verify_local.py` (95), unit suite (4 known local-only failures).
+
+## 2026-10-17 — PrepLadder Pathology added (new Second Prof subject)
+
+- Branch `feature/prepladder-pathology` from main `a996e775` (Microbiology edition merge, PR #120).
+- Source: Drive folder `PrepLadder_Pathology_Qbank_v2` (master JSONL 1,459 Q, manifest, 48 figure zips, 1,676 figures).
+- New builder/test/browser verifier; Pathology identity (microscope icon, orange accent, Second Prof);
+  global count pins updated (PYQ journey 60 topics · 2,343 Q; 5 subject cards).
+- Fixed: lesson-title casing, `&x;=` URL leaks, long URLs widening structured explanations on phones.
+- Gaps: 17 lost explanations (marked), 9 image-only option sets (`needs_review`), no PDF answer check.

@@ -51,6 +51,7 @@ html[data-nk-ui="geist"] {
   --nkg-subj-physiology: #e11d48;
   --nkg-subj-biochemistry: #0d9488;
   --nkg-subj-microbiology: #4d7c0f;
+  --nkg-subj-pathology: #c2410c;
   --nkg-subj-uworld: #737373;
 
   --nkg-shadow-sm: 0 1px 2px rgba(0, 0, 0, .05);
@@ -92,6 +93,7 @@ html[data-nk-ui="geist"][data-nk-theme="dark"] {
   --nkg-subj-physiology: #fb7185;
   --nkg-subj-biochemistry: #2dd4bf;
   --nkg-subj-microbiology: #a3e635;
+  --nkg-subj-pathology: #fb923c;
   --nkg-subj-uworld: #a3a3a3;
 
   --nkg-shadow-sm: 0 0 0 1px rgba(255, 255, 255, .04);
@@ -6571,7 +6573,21 @@ html[data-nk-ui="geist"] .nk-module-subject.is-microbiology > span{background-im
 html[data-nk-ui="geist"] .nk-v3-subject-card.is-microbiology .nk-v3-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-fg)}
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.is-microbiology .nk-v3-subject-icon { color: var(--nkg-subj-microbiology) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot.is-microbiology { background: var(--nkg-subj-microbiology); }
+
+/* ── pathology subject ── */
+/* Pathology is a PrepLadder-only subject; same identity treatment, its own accent. */
+html[data-nk-ui="geist"] .nk-multi-subject-card.is-pathology .nk-multi-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-pathology)}
+html[data-nk-ui="geist"] .nk-multi-topic-group > header .is-pathology{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-pathology)}
+html[data-nk-ui="geist"] .nk-module-subject.is-pathology > span{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-pathology)}
+html[data-nk-ui="geist"] .nk-v3-subject-card.is-pathology .nk-v3-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-fg)}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.is-pathology .nk-v3-subject-icon { color: var(--nkg-subj-pathology) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot.is-pathology { background: var(--nkg-subj-pathology); }
 .nk-marrow-ordered .nk-marrow-pearl{margin-top:22px}
+/* Source references carry long unbroken URLs. The ordered explanation is a
+   grid, whose one column would grow to the longest unbreakable string and
+   widen the page; the column is held to the container and the text wraps. */
+html .nk-source-section .nk-marrow-ordered{grid-template-columns:minmax(0,1fr)}
+html .nk-source-section .nk-marrow-ordered :is(p,li,td,th){overflow-wrap:anywhere}
 .nk-marrow-ordered li > ul{margin-top:4px}
 .nk-marrow-ordered .nk-marrow-note{padding:10px 12px;border-left:3px solid var(--nkg-border,#d4d4d8);background:var(--nkg-bg-subtle,#f6f6f7);border-radius:0 8px 8px 0}
 

@@ -71,6 +71,7 @@
 <script defer src="marrow_visual_metadata.js"></script>
 <script defer src="microbiology_visual_metadata.js"></script>
 <script defer src="prepladder_microbiology_visual_metadata.js"></script>
+<script defer src="prepladder_pathology_visual_metadata.js"></script>
 <script defer src="marrow_visual_renderer.js"></script>
 </head>
 <body>
@@ -541,6 +542,7 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
     if(key.includes('physiology')) return {key:'physiology',icon:'heart',tone:'red'};
     if(key.includes('anatomy')) return {key:'anatomy',icon:'body',tone:'blue'};
     if(key.includes('microbiology')) return {key:'microbiology',icon:'virus',tone:'green'};
+    if(key.includes('pathology')) return {key:'pathology',icon:'microscope',tone:'amber'};
     return {key:'biochemistry',icon:'dna',tone:'magenta'};
   }
 
@@ -564,6 +566,7 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
       biochemistry:'<path d="M17 3v1c-.01 3.352 -1.68 6.023 -5.008 8.014c-3.328 1.99 3.336 -2 .008 -.014c-3.328 1.99 -5 4.662 -5.008 8.014v1"/><path d="M17 21.014v-1c-.01 -3.352 -1.68 -6.023 -5.008 -8.014c-3.328 -1.99 3.336 2 .008 .014c-3.328 -1.991 -5 -4.662 -5.008 -8.014v-1"/><path d="M7 4h10M7 20h10M8 8h8M8 16h8"/>',
       physiology:'<path d="M19.5 13.572l-7.5 7.428l-2.896 -2.868m-6.117 -8.104a5 5 0 0 1 9.013 -3.022a5 5 0 1 1 7.5 6.572"/><path d="M3 13h2l2 3l2 -6l1 3h3"/>',
       microbiology:'<circle cx="12" cy="12" r="5"/><path d="M12 7V3M11 3h2M15.536 8.464l2.828-2.828M17.657 4.929l1.414 1.414M17 12h4M21 11v2M15.535 15.536l2.829 2.828M19.071 17.657l-1.414 1.414M12 17v4M13 21h-2M8.465 15.536l-2.829 2.828M6.343 19.071l-1.413-1.414M7 12H3M3 13v-2M8.464 8.464 5.636 5.636M4.929 6.343l1.414-1.413"/>',
+      pathology:'<path d="M5 21h14M6 18h2M7 18v3M9 11l3 3l6 -6l-3 -3zM10.5 12.5l-1.5 1.5M17 3l3 3M12 21a6 6 0 0 0 3.715 -10.712"/>',
       anatomy:'<path d="M15 3a3 3 0 0 1 3 3a3 3 0 1 1 -2.12 5.122l-4.758 4.758a3 3 0 1 1 -5.117 2.297v-.177h-.176a3 3 0 1 1 2.298 -5.115l4.758 -4.758a3 3 0 0 1 2.12 -5.122z"/>'
     };
     return `<svg class="nk-subject-svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[key]}</svg>`;
@@ -661,7 +664,7 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
      "Other", so a new bank can never disappear from Home. A group is a
      presentation wrapper only - the subject cards themselves are unchanged -
      and it opens collapsed until the reader taps it. */
-  const NK_PROF_GROUP_BY_SUBJECT={Anatomy:'first',Physiology:'first',Biochemistry:'first',Microbiology:'second'};
+  const NK_PROF_GROUP_BY_SUBJECT={Anatomy:'first',Physiology:'first',Biochemistry:'first',Microbiology:'second',Pathology:'second'};
   const NK_PROF_GROUPS=[{id:'first',title:'First Prof'},{id:'second',title:'Second Prof'},{id:'other',title:'Other'}];
   const NK_PROF_GROUPS_KEY='qbank_prof_groups_v1';
   let nkProfGroupOpenState=(()=>{try{const stored=JSON.parse(localStorage.getItem(NK_PROF_GROUPS_KEY)||'{}');return stored&&typeof stored==='object'&&!Array.isArray(stored)?stored:{};}catch(_error){return{};}})();
@@ -1405,7 +1408,7 @@ function dashboard(){
 
   function nkPracticeSubjectIcon(q) {
     const key=nkPracticeSubjectKey(q);
-    if(key==='microbiology')return nkSubjectGraphic('Microbiology',20);
+    if(key==='microbiology'||key==='pathology')return nkSubjectGraphic(key,20);
     return navIcon(key==='physiology'?'heart':key==='anatomy'?'body':'molecule',20);
   }
 
@@ -1430,7 +1433,7 @@ function dashboard(){
   function nkSessionSubjectIcon(q) {
     if(String(q?.subject||activeSubject||'').toLowerCase().startsWith('uworld · '))return nkSubjectGraphic(q?.subject||activeSubject,20);
     const key=nkSessionSubjectKey(q);
-    if(key==='microbiology')return nkSubjectGraphic('Microbiology',20);
+    if(key==='microbiology'||key==='pathology')return nkSubjectGraphic(key,20);
     return navIcon(key==='physiology'?'heart':key==='anatomy'?'body':'dna',20);
   }
 
