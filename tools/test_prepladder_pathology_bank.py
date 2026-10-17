@@ -113,8 +113,8 @@ def main() -> None:
     # Some restructures only split paragraphs; most gain points or tables.
     structured = sum(1 for qid in overlay
                      if {b["type"] for b in by_id[qid]["structuredExplanation"]["blocks"]} & {"bullets", "table"})
-    assert len(overlay) == 1218 and structured == 1041, (len(overlay), structured)
-    assert sum(len(by_id[qid]["structuredExplanation"]["tables"]) for qid in overlay) == 312
+    assert len(overlay) == 1321 and structured == 1135, (len(overlay), structured)
+    assert sum(len(by_id[qid]["structuredExplanation"]["tables"]) for qid in overlay) == 343
     assert by_id["pathology-6-12"]["structuredExplanation"]["tables"][0]["columns"] == ["Features", "Transudate", "Exudate"]
 
     page = assemble((ROOT / "app/src/main/assets/index.html").read_text(encoding="utf-8"))

@@ -87,10 +87,10 @@ by an external agent into a master JSONL, a manifest and 48 figure archives.
 
 ## Restructure run (2026-10-17)
 
-Outside agents returned 66 of the 73 batches on `restructure/pathology-all`.
-Every question passed the word-for-word gate: 1,218 restructured (1,041 with
-points or tables; 312 tables in all), 99 marked unchanged, none rejected.
-Batches 065 and 068–073 (about 140 questions) are still to come; drop their
-result files into `restructure/results/` and run
-`tools/explanation_restructure.py import` again. Wide tables scroll inside
+Outside agents returned 66 of the 73 batches on `restructure/pathology-all`;
+batches 065 and 068–073 were finished in-session, and the 3 questions batch 062
+had left out (76-8, 76-9, 77-1) were done by hand. All 73 batches are imported.
+Every question passed the word-for-word gate: 1,321 restructured (1,135 with
+points or tables; 343 tables in all), 121 marked unchanged, none rejected.
+Wide tables scroll inside
 their own box on a phone.
