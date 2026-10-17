@@ -2769,6 +2769,19 @@ User asked for a thorough functional audit, especially whether FSRS is as good a
   references joins them; "Correct Option. C" lead removed; the app keeps an opening note when only references follow.
 - Pins: PYQ journey 76 topics · 2,993 Q; 6 subject cards; builder bank count 10 + UWorld.
 
+## 2026-10-17 — Pathology restructure imported (66/73 batches)
+
+- Branch `feature/pathology-restructure-import` from main `c2833fb3`; result files taken from `restructure/pathology-all`.
+- `tools/explanation_restructure.py check`: 1,218 passed, 99 unchanged, 0 rejected; imported into `restructured.json`.
+- Pathology test now pins overlay 1,218 / 1,041 with points or tables / 312 tables; browser width checks ignore a table scrolling in its own box.
+- Pending: batches 065, 068–073.
+
+## 2026-10-17 — Pathology restructure complete (73/73 batches)
+
+- Batches 065 and 068–073 restructured by in-session agents; batch 062's 3 skipped questions (76-8, 76-9, 77-1) done by hand.
+- Import: 1,321 passed, 121 unchanged, 0 rejected. Test pins: overlay 1,321 / 1,135 with points or tables / 343 tables.
+- Pathology and Pharmacology browser verifiers pass locally.
+
 ## 2026-10-17 — PrepLadder matching questions keep their options
 
 - User report: Pharmacology "Clinical Trials and Miscellaneous" Q4/Q5 showed "Answer choices unavailable".

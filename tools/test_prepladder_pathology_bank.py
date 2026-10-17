@@ -110,9 +110,11 @@ def main() -> None:
                                 source[1]])
     assert rs.problems(source, source[:1])
     overlay = json.loads(rs.OVERLAY.read_text(encoding="utf-8"))
-    for qid in overlay:
-        kinds = {b["type"] for b in by_id[qid]["structuredExplanation"]["blocks"]}
-        assert kinds & {"bullets", "table"}, qid
+    # Some restructures only split paragraphs; most gain points or tables.
+    structured = sum(1 for qid in overlay
+                     if {b["type"] for b in by_id[qid]["structuredExplanation"]["blocks"]} & {"bullets", "table"})
+    assert len(overlay) == 1321 and structured == 1135, (len(overlay), structured)
+    assert sum(len(by_id[qid]["structuredExplanation"]["tables"]) for qid in overlay) == 343
     assert by_id["pathology-6-12"]["structuredExplanation"]["tables"][0]["columns"] == ["Features", "Transudate", "Exudate"]
 
     page = assemble((ROOT / "app/src/main/assets/index.html").read_text(encoding="utf-8"))

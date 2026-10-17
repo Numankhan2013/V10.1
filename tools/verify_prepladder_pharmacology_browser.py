@@ -120,7 +120,8 @@ def main() -> None:
                 fail("references are not below the figure")
             if page.locator(".nk-explain-refs cite").inner_text() != "K D Tripathi, Essentials of Medical Pharmacology":
                 fail(f"reference title not italic: {page.locator('.nk-explain-refs').inner_html()!r}")
-            if page.evaluate("Math.max(...[...document.querySelectorAll('.nk-marrow-ordered *')].map(e => e.getBoundingClientRect().right))") > 390:
+            # (A wide table scrolls inside its own box.)
+            if page.evaluate("Math.max(document.scrollingElement.scrollWidth, ...[...document.querySelectorAll('.nk-marrow-ordered *')].filter(e => !e.closest('.nk-marrow-table table')).map(e => e.getBoundingClientRect().right))") > 390:
                 fail("the explanation widens the page past the phone width")
             page.screenshot(path=str(OUT / "plpharma-03-explanation.png"), full_page=True)
 
