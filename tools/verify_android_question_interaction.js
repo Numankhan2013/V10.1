@@ -39,6 +39,11 @@ async function main(){
         assert.equal(await page.evaluate(()=>typeof window.QBankMigration),'undefined','the bundled-app migration bridge is gone');
         const missing=await page.evaluate(async()=>(await fetch('/security-audit-missing-asset.txt',{cache:'no-store'})).status);
         assert.equal(missing,404,'missing assets must be real 404s');
+        // A wm size/density change can land after launch and recreate the
+        // activity, closing this WebView target; retry on a fresh one.
+        await new Promise(resolve=>setTimeout(resolve,1500));
+        if(page.isClosed())throw new Error('WebView page closed after launch');
+        await page.evaluate(()=>window.QB.getState());
         return page;
       }catch(error){
         lastError=error;
@@ -84,6 +89,7 @@ async function main(){
     for(const [label,size,density] of [['phone','1080x2400',440],['tablet','1600x2560',320]]){
       await device.shell(`am force-stop ${pkg}`);
       await device.shell(`wm size ${size}`);await device.shell(`wm density ${density}`);
+      await new Promise(resolve=>setTimeout(resolve,2000));
       await device.shell(`pm clear ${pkg}`);
       let page=await launch();
       await page.evaluate(()=>window.QB.startAllPractice());
