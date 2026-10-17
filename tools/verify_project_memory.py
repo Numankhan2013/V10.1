@@ -79,12 +79,11 @@ def main() -> None:
         if "python3 tools/verify_project_memory.py" not in workflow:
             fail(f"memory verification is not wired into {workflow_name}")
 
-    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    # README.md is the public front page; release pins live in STATE.md, memory.md and the baseline.
     legacy = (ROOT / "memory.md").read_text(encoding="utf-8")
     state_commit = re.search(r"Accepted product commit:\s*`([0-9a-f]{7,40})`", state)
-    readme_commit = re.search(r"Accepted product commit:\s*`([0-9a-f]{7,40})`", readme)
-    if not state_commit or not readme_commit or state_commit.group(1) != readme_commit.group(1):
-        fail("accepted product commit is not aligned between STATE.md and README.md")
+    if not state_commit:
+        fail("accepted product commit is missing from STATE.md")
     engineering = (ROOT / "docs/ENGINEERING_BASELINE.md").read_text(encoding="utf-8")
     if state_commit.group(1) not in "\n".join(legacy.splitlines()[:12]):
         fail("legacy memory.md header is not aligned with the accepted product commit")
