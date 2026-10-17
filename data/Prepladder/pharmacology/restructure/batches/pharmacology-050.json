@@ -1,0 +1,617 @@
+{
+ "batch": "pharmacology-050",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pharmacology-050",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pharmacology-42-59",
+   "question": "A TB patient with HIV begins ART and experiences deterioration in health after 2 months. What is the likely cause?",
+   "options": {
+    "A": "Development of drug resistance to TB drugs",
+    "B": "Drug-drug interactions between TB and ART medications",
+    "C": "Immunological changes in the body",
+    "D": "Development of drug resistance to ART"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The deterioration of health after starting ART in an HIV-TB co-infected patient is most likely due to Immune Reconstitution Inflammatory Syndrome (IRIS), which is caused by immunological changes in response to ART. Mechanism: ART restores CD4+ T-cell function and improves the immune response. This leads to a stronger inflammatory response against pre-existing TB infection, worsening symptoms. IRIS typically occurs 2–12 weeks after ART initiation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Clinical Presentation: Worsening TB symptoms (fever, lymphadenopathy, worsening respiratory symptoms). New inflammatory lesions (e.g., enlarging TB lymph nodes, worsening pleural effusions). No evidence of drug resistance. Management: Continue both TB treatment and ART. NSAIDs or corticosteroids may be used for severe cases."
+    },
+    {
+     "type": "paragraph",
+     "text": "HIV-positive individuals face an 8-fold increased risk of developing TB and are prone to more severe and potentially fatal extrapulmonary TB. To manage co-infection, ATT is initiated first, followed by ART after 2 weeks to mitigate the risk of Immune Reconstitution Inflammatory Syndrome (IRIS), an exaggerated inflammatory response."
+    },
+    {
+     "type": "paragraph",
+     "text": "Rifampin, a potent CYP inducer in ATT, accelerates the metabolism of certain ART drugs like nevirapine (NNRTI), dolutegravir (integrase inhibitor), and protease inhibitors (e.g., Ritonavir, Indinavir, lopinavir), reducing their effectiveness. However, nucleoside reverse transcriptase inhibitors (NRTIs) and efavirenz can be safely combined with Rifampin."
+    },
+    {
+     "type": "paragraph",
+     "text": "Rifabutin, a weaker enzyme inducer, is often used as an alternative to mitigate drug interactions in ART. All HIV-positive TB patients should also receive cotrimoxazole preventive therapy to guard against Pneumocystis jirovecii infection."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Development of drug resistance to TB drugs (Option A):** is incorrect because TB drug resistance develops over months to years, whereas IRIS occurs within weeks of ART initiation."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Drug-drug interactions between TB and ART medications (Option B):** is incorrect because although interactions (e.g., rifampicin reducing ART levels ) are common, they usually lead to virologic failure, not an inflammatory worsening."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Development of drug resistance to ART (Option D):** is incorrect because ART resistance presents with viral load rebound and worsening HIV, not a paradoxical inflammatory response."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-60",
+   "question": "A patient with penicillin allergy presents with fever, burning micturition, and hearing problems accompanied by dizziness. Which drug is the most appropriate for the management?",
+   "options": {
+    "A": "Azithromycin",
+    "B": "Amikacin",
+    "C": "Ciprofloxacin",
+    "D": "Ampicillin-Clavulanic acid"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient presents with fever, burning micturition (suggestive of a urinary tract infection, UTI), and hearing problems with dizziness (suggestive of ototoxicity). Given the penicillin allergy, the most appropriate alternative is Ciprofloxacin (a fluoroquinolone), which is: Effective against common UTI pathogens ( E. coli, Klebsiella, Proteus, Pseudomonas ). Safe in penicillin-allergic patients."
+    },
+    {
+     "type": "paragraph",
+     "text": "Less likely to exacerbate hearing loss compared to aminoglycosides."
+    },
+    {
+     "type": "paragraph",
+     "text": "Ciprofloxacin Pharmacokinetics Good oral absorption Bioavailability ~70%,Moderate half-life (~4-5 hours) Widely distributed in tissues and body fluids Renal excretion Uses Urinary tract infections Prostatitis Pseudomonas aeruginosa (DOC) Anthrax (Bacillus anthracis) (DOC) Gastrointestinal infections (e.g., traveller's diarrhoea) Bone and joint infections Side Effects Gastrointestinal disturbances (nausea, diarrhoea)."
+    },
+    {
+     "type": "paragraph",
+     "text": "CNS effects (headache, dizziness). Tendonitis and tendon rupture. Photosensitivity. Contraindications Pregnancy Children (due to potential for cartilage damage) Myasthenia gravis (can exacerbate muscle weakness) Azithromycin (Option A) is incorrect because macrolides are not first-line for UTIs, as they have poor urinary penetration and limited coverage against Gram-negative uropathogens."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Amikacin (Option B):** is incorrect because although aminoglycosides are effective against UTIs, they are highly ototoxic and nephrotoxic, which is risky given the patient’s hearing problems and dizziness."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Ampicillin-Clavulanic Acid (Option D):** is incorrect because the patient has a penicillin allergy, making this option unsuitable."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-61",
+   "question": "Which anti-tubercular drug is associated with mutations in the KATG gene?",
+   "options": {
+    "A": "Rifampicin",
+    "B": "Isoniazid",
+    "C": "Moxifloxacin",
+    "D": "Ethambutol"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Isoniazid (INH) resistance in Mycobacterium tuberculosis is commonly associated with mutations in the KATG gene, which encodes catalase-peroxidase. Mechanism of Action: Isoniazid is a prodrug that requires activation by KatG (catalase-peroxidase enzyme). Activated INH inhibits mycolic acid synthesis, disrupting the mycobacterial cell wall."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mechanism of Resistance: Mutations in KATG (especially Ser315Thr mutation ) prevent isoniazid activation, leading to drug resistance. Other mutations involve inhA gene (affecting the target enzyme enoyl-ACP reductase), leading to low-level resistance. The mechanisms of resistance with Isoniazid are given below."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mechanism of resistance KatG gene mutation INH is a prodrug, converted to the active form by catalase-peroxidase produced by the KATg gene. The mutated catalase enzyme does not form the active drug KasA gene mutation Component of cell wall mycolic acid InhA gene overexpression Causes cross-resistance to Ethionamide (second-line drug) Rifampicin (Option A) is incorrect because resistance is due to rpoB gene mutations, affecting RNA polymerase."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Moxifloxacin (Option C):** is incorrect because fluoroquinolone resistance is linked to mutations in gyrA and gyrB genes, which encode DNA gyrase."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Ethambutol (Option D):** is incorrect because resistance involves mutations in the embB gene, which encodes arabinosyl transferase, affecting cell wall synthesis."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L42_Q061_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-62",
+   "question": "Pretomanid is used in the treatment of which condition?",
+   "options": {
+    "A": "MDR TB",
+    "B": "Malaria",
+    "C": "Fungal Infections",
+    "D": "Leprosy"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Pretomanid is an antibiotic primarily used in the treatment of multi-drug-resistant tuberculosis (MDR-TB). It is part of a combination therapy for drug-resistant TB, often used alongside other medications like bedaquiline and linezolid. Pretomanid works by inhibiting the bacterial cell wall and DNA processes, making it effective against Mycobacterium tuberculosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mechanism of action Side effects Delamanid Inhibits the synthesis of mycolic acid by nitric oxide production, an essential component of the cell wall of M.tuberculosis Nausea, vomiting, abdominal pain, headache, and elevated liver enzymes."
+    },
+    {
+     "type": "paragraph",
+     "text": "QT prolongation, which can increase the risk of cardiac arrhythmias Monitoring of liver function and ECG is recommended during treatment Pretomanid Inhibiting the synthesis of mycolic acid by disrupting the synthesis of fatty acids in the cell wall of M.tuberculosis Nausea, vomiting, and diarrhea Peripheral neuropathy Hepatotoxicity Acne Second-line ATT drugs Group A Group B Group C Bedaquilin Levofloxacin or Moxifloxacin Linezolid Cycloserine Clofazimine Delamanid Amikacin Meropenem or Imipenem-cilastatin PAS Ethionamide Ethambutol Pyrazinamide"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-63",
+   "question": "What is the mechanism of action of doxycycline?",
+   "options": {
+    "A": "Cell wall synthesis inhibitor",
+    "B": "Protein synthesis inhibitor",
+    "C": "DNA gyrase inhibitor",
+    "D": "Leucyl-tRNA synthetase inhibitor"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Chlamydial Infections: Urethritis, Endocervicitis, Lymphogranuloma venereum, granuloma inguinale. Atypical Pneumonia: Mycoplasma pneumonia, Psittacosis. Rickettsial Infections. Pleurodesis: Doxycycline for pneumothorax. H. pylori Infection: Part of quadruple therapy. Anthrax, Plague, Borrelia."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Cell wall synthesis inhibitor (Option A):** This is the mechanism of action of antibiotics like penicillins and cephalosporins, not doxycycline. DNA gyrase inhibitors (Option C), such as fluoroquinolones (e.g., ciprofloxacin), target bacterial DNA replication, not doxycycline."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Leucyl-tRNA synthetase inhibitor (Option D):** This mechanism is not associated with doxycycline. Drugs like mupirocin target leucyl-tRNA synthetase."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L42_Q063_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-64",
+   "question": "The given diagram shows the steps in bacterial cell wall formation. Identify the site of action of beta-lactam antibiotics.",
+   "options": {
+    "A": "1",
+    "B": "2",
+    "C": "3",
+    "D": "4"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Beta-lactam antibiotics work by inhibiting the action of enzymes involved in cell wall synthesis, weakening the cell wall and making it more susceptible to osmotic pressure. The given diagram shows the steps in bacterial cell wall formation. The various steps involved in bacterial cell wall formation are: UDP-N-acetylglucosamine (UDP-NAG) and UDP-N-acetylmuramic acid (UDP-NAM) are synthesized in the cytoplasm of the bacterial cell."
+    },
+    {
+     "type": "paragraph",
+     "text": "UDP-NAM is linked to a lipid carrier molecule called bactoprenol phosphate, which forms lipid II. Lipid II is flipped across the cytoplasmic membrane to the outer surface, where it is incorporated into the growing cell wall. The peptide chains of adjacent lipid II molecules are cross-linked by enzymes called transpeptidases, also known as penicillin-binding proteins (PBPs)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Based on the above steps, the site of action of beta-lactam antibiotics is option 4, which is the site where transpeptidases or PBPs are involved in cross-linking the peptide chains of adjacent lipid II molecules. Beta-lactam antibiotics, such as penicillins, cephalosporins, and carbapenems, work by irreversibly binding to the active site of PBPs, thereby inhibiting their function. This leads to a weakened cell wall and eventual cell death"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-65",
+   "question": "The image below shows the life cycle of a virus. Which of the following drugs acts at step 5?",
+   "options": {
+    "A": "Raltegravir",
+    "B": "Enfuvirtide",
+    "C": "Tenofovir",
+    "D": "Zidovudine"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "In the given image, step 5 represents the integration of the viral DNA into the host genome. This step is crucial for the virus to establish a persistent infection. Raltegravir belongs to a class of antiviral drugs called integrase inhibitors. It inhibits the integration of viral DNA into the host genome by targeting the viral integrase enzyme."
+    },
+    {
+     "type": "paragraph",
+     "text": "Therefore, raltegravir acts at step 5 Integrase inhibitors MOA Prevent the formation of covalent bonds between host and viral DNA Inhibit the process known as strand transfer, which is a critical step in the integration of viral DNA into the host genome."
+    },
+    {
+     "type": "paragraph",
+     "text": "Drugs Ends with the word -gravir: BCDER Bictegravir Cabotegravir Dolutegravir (most used in India and safe during pregnancy) Elvitegravir (used in combination with cobicistat) Raltegravir Route All oral drugs except Cabotegravir (IM, once every 3 months) Metabolism CYP3A4 substrates Rifampicin reduces the effect, hence increasing the dose of the integrase inhibitor Uses Treatment and post-exposure prophylaxis of HIV Dolutegravir and Lamivudine: First line in treatment-naive HIV patients Side effects Rashes Steven Johnson syndrome: Epidermis of the skin is damaged Raltegravir: Rhabdomyolysis, DRESS Bictegravir: Increase metformin concentration, hepatoxicity Avoid administration with divalent cations (magnesium- or aluminium-containing antacids, iron supplements) Enfuvirtide (Option B) is a fusion inhibitor."
+    },
+    {
+     "type": "paragraph",
+     "text": "It prevents the virus from entering the host cell by blocking the fusion of the viral envelope with the host cell membrane, acting at Step 2 of the viral life cycle."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Tenofovir (Option C):** is a nucleoside reverse transcriptase inhibitor (NRTI). It blocks the reverse transcription of viral RNA into DNA, acting at Step 3 of the viral cycle."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Zidovudine (Option D):** is also a nucleoside reverse transcriptase inhibitor (NRTI). It blocks the reverse transcription of viral RNA into DNA, acting at Step 3 of the viral cycle."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-66",
+   "question": "A patient who is a known case of HIV is started on active antiretroviral therapy (cART). After 5 months of treatment, he developed hyperpigmentation in the palms and soles. What is likely the drug causing it?",
+   "options": {
+    "A": "Nelfinavir",
+    "B": "Emtricitabine",
+    "C": "Abacavir",
+    "D": "Zidovudine"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The most likely drug causing hyperpigmentation in sun-exposed areas in a patient who is on combined active antiretroviral therapy (cART) is Emtricitabine. Emtricitabine is a nucleoside reverse transcriptase inhibitor (NRTI) that is commonly used in the treatment of HIV. It has been associated with the development of hyperpigmentation in some patients."
+    },
+    {
+     "type": "paragraph",
+     "text": "The hyperpigmentation is usually seen on the palms and soles and may be accompanied by nail discoloration. This side effect is thought to be due to the drug's effects on melanin synthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Common side-effects Name of Drug Class Side-effects Abacavir (Option C):** Nucleoside-Reverse Transcriptase Inhibitors (NRTIs) Hypersensitivity reaction, headache, nausea, fatigue Zidovudine (Option D) Nausea, headache, and fatigue Nelfinavir (Option A) Protease Inhibitors Diarrhea, nausea, and abdominal pain"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-67",
+   "question": "A patient was diagnosed with pulmonary tuberculosis and was started on first-time antitubercular drugs. Which of the following drugs acts by inhibiting the synthesis of the marked layer shown in the image?",
+   "options": {
+    "A": "Isoniazid",
+    "B": "Rifampicin",
+    "C": "Pyrazinamide",
+    "D": "Ethambutol"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The marked layer in the image is the mycolic acid layer, which is a characteristic feature of the cell wall of Mycobacterium species. Isoniazid is a first-line antitubercular drug that is commonly used in the treatment of TB. It works by targeting the synthesis of mycolic acids. Isoniazid inhibits the synthesis of mycolic acids by targeting the enzyme enoyl-ACP reductase, which is involved in the s ynthesis of long-chain fatty acids."
+    },
+    {
+     "type": "paragraph",
+     "text": "By inhibiting this enzyme, isoniazid disrupts the synthesis of mycolic acids, leading to the loss of structural integrity and permeability barrier of the mycobacterial cell wall. This, in turn, leads to the death of the bacterial cell."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Name of drug Isoniazid (Option A):** Rifampin (Option B) Pyrazinamide (Option C) Ethambutol (Option D) Streptomycin MOA Inhibition of synthesis of mycolic acids (cell wall). It also inhibits mycobacterium DHFR, thereby interfering with nucleic acid synthesis. Interrupts RNA synthesis by binding to mycobacterial DNA-dependent RNA polymerase Blocks mycolic acid synthesis by getting converted into pyrazinoic acid Inhibits arabinosyl transferases involved in mycolic acid incorporation in the cell wall Inhibits 30S ribosomal protein synthesis ROA Oral Oral Oral Oral Intramuscular Hepatotoxicity Yes Yes Yes No No Cellularity Intracellular and extracellular Intracellular and extracellular Intracellular Extracellular Extracellular Bactericidal/ Bacteriostatic Bactericidal Bactericidal Bactericidal Bacteriostatic Bactericidal Bacteria inhibited Rapidly dividing M.TB Slow growers Slow growers Rapidly dividing M.TB Rapidly dividing M.TB"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L42_Q067_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-68",
+   "question": "In the treatment of bacterial vaginosis (BV), which antibiotic is not recommended by the Centers for Disease Control and Prevention (CDC) guidelines?",
+   "options": {
+    "A": "Metronidazole",
+    "B": "Tinidazole",
+    "C": "Clindamycin",
+    "D": "Erythromycin"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Erythromycin is not typically recommended for the treatment of bacterial vaginosis. While it is an antibiotic, it is not as effective against the specific bacteria that contribute to BV compared to metronidazole, tinidazole, or clindamycin. Therefore, according to CDC guidelines, erythromycin is not a preferred or alternative treatment option for bacterial vaginosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Metronidazole: Metronidazole is commonly used as a first-line treatment for bacterial vaginosis. It has been shown to effectively target the anaerobic bacteria that contribute to BV. CDC guidelines recommend oral metronidazole (500 mg twice daily for 7 days) or metronidazole gel (0.75%, once daily for 5 days) as a preferred treatment option."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Tinidazole: Tinidazole is another antibiotic that is effective against the bacteria associated with bacterial vaginosis. It is generally considered an alternative to metronidazole, especially for patients who cannot tolerate metronidazole. CDC guidelines suggest a single 2 g dose of oral tinidazole as an alternative treatment option."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Clindamycin: Clindamycin, in the form of both oral and vaginal preparations, is also used for the treatment of bacterial vaginosis. It has been shown to be effective against the condition by suppressing the overgrowth of certain bacteria. CDC guidelines recommend oral clindamycin (300 mg twice daily for 7 days) or clindamycin vaginal cream (2%, once daily for 7 days) as alternative treatment options."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-69",
+   "question": "Antibiotics to use for procedures done on cardiac patients:",
+   "options": {
+    "A": "Cefazolin",
+    "B": "Azithromycin",
+    "C": "Penicillin",
+    "D": "Doxycycline"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "site. It is used in infections like pleurodesis, H. pylori Infection, leprosy, plague, borrelia, etc."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-70",
+   "question": "A bronchial asthma patient on inhalational steroids with white patchy lesions on the tongue and buccal mucosa. Which of the following drugs can be used to treat this condition?",
+   "options": {
+    "A": "Clotrimazole",
+    "B": "Griseofulvin",
+    "C": "Terbinafine",
+    "D": "Flucytosine"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Clotrimazole is a topical antifungal medication (imidazole) that effectively penetrates the skin layers to treat superficial fungal infections. Mechanism of action: Inhibit 14 alpha demethylase enzyme (CYP), which converts lanosterol into ergosterol cell membrane, hence decreasing cell membrane synthesis. All azoles are metabolized by the CYP2C19 enzyme."
+    },
+    {
+     "type": "paragraph",
+     "text": "It is commonly used in the treatment of conditions such as oral thrush, tinea, and candidiasis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Griseofulvin (Option B):** acts by inhibiting microtubules within fungal cells, thereby disrupting mitosis. It is the drug of choice for superficial fungal infections, such as tinea. However, it can cause side effects, including headache, neuritis, hepatitis, photosensitivity, and a disulfiram-like reaction."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Terbinafine (Option C):** is an allylamine antifungal that inhibits squalene epoxidase, reducing ergosterol synthesis and disrupting cell membrane integrity. It is the drug of choice for onychomycosis (fungal nail infections), tinea capitis (scalp ringworm), and extensive fungal lesions."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Flucytosine (Option D):** acts as an inhibitor of thymidylate synthase and is a narrow-spectrum fungistatic agent effective against Cryptococcus neoformans and chromoblastomycosis."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L42_Q070_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-71",
+   "question": "Which of the following drugs is not considered safe for a pregnant woman diagnosed with extensively drug-resistant TB?",
+   "options": {
+    "A": "Amoxicillin",
+    "B": "Clofazimine",
+    "C": "Kanamycin",
+    "D": "Linezolid"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Antibiotics safe in pregnancy: Penicillin group Cephalosporins Erythromycin Metronidazole (Except 1st trimester) Antibiotics unsafe in pregnancy: Tetracycline Aminoglycosides Chloramphenicol Metronidazole (First trimester) Fluoroquinolones"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-72",
+   "question": "Patients receiving which of the following antimicrobial drugs are least likely to develop seizures?",
+   "options": {
+    "A": "Beta-lactam compounds",
+    "B": "Quinolones",
+    "C": "Macrolides",
+    "D": "Isoniazid"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Antimicrobials associated with Seizures: Penicillins (e.g., Piperacillin, Nafcillin) (Option A) Cephalosporins (e.g., Cefepime) Carbapenems (e.g., Imipenem, Meropenem) Quinolones (e.g., Ciprofloxacin, Levofloxacin, Moxifloxacin) (Option B) Isoniazid (Option D) Acyclovir Gancyclovir"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-73",
+   "question": "A 32-year-old man who had travelled to Assam recently presents with fever, chills, seizures, and altered sensorium. On examination, his blood pressure is 70/50 mm Hg, and laboured breathing is observed. A blood smear reveals Plasmodium falciparum. What is the drug of choice in this condition?",
+   "options": {
+    "A": "Chloroquine",
+    "B": "Quinine",
+    "C": "Intravenous artesunate",
+    "D": "Artemether"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "IV Artemisinin 2nd: IM artemether/arteether 3rd: IV Quinine in 5% dextrose (quinine is hypoglycemic) NVBDCP guidelines: Scenario Treatment Uncomplicated P. Vivax malaria Chloroquine 25 mg/kg over 3 days (10-10-5) + Primaquine oral 0.25 mg/kg for 14 days Complicated malaria Parenteral ACT-Artesunate IV given for 2 days, followed by a full course of oral ACT. (OR) Parenteral quinine IV given for 2 days, and oral quinine given for 5 days."
+    },
+    {
+     "type": "paragraph",
+     "text": "Add on oral doxycycline Mixed infection (P. vivax/ovale/falciparum) ACT+ Primaquine for 14 days Pregnancy 1st trimester: Parenteral quinine 2nd and 3rd trimester: Parenteral artemisinin Chloroquine (Option A) is primarily used to treat conditions like rheumatoid arthritis, extraintestinal amebiasis, and lupus erythematosus, but it is not effective for severe Plasmodium falciparum malaria, especially in regions with resistance."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Quinine (Option B):** is used for treating complicated malaria, including cerebral malaria, but intravenous artesunate is preferred due to its faster action and better efficacy in severe cases."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Artemether (Option D):** While artemether, another artemisinin derivative, is used to treat malaria, intravenous artesunate is preferred for severe cases of Plasmodium falciparum malaria due to its superior speed of action and effectiveness."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-74",
+   "question": "Which of the following pathogens correctly matches its intrinsic drug resistance?",
+   "options": {
+    "A": "Fluconazole - Candida krusei",
+    "B": "Amphotericin B - Candida glabrata",
+    "C": "Voriconazole - Aspergillus fumigatus",
+    "D": "Itraconazole - Sporothrix"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Fluconazole - Candida krusei Fluconazole is an antifungal (azole) that does not work on Candida krusei (resistance is due to efflux pump overexpression) Mechanism of action: Inhibits ergosterol synthesis, affecting cell membrane function. Use: Candida infections. Adverse Effect: QT prolongation Amphotericin B - Candida glabrata (Option B) is incorrect as amphotericin B is effective against Candida glabrata."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Voriconazole - Aspergillus fumigatus (Option C):** is incorrect as voriconazole is effective against Aspergillus fumigatus."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Itraconazole - Sporothrix (Option D):** is incorrect as itraconazole is effective against Sporothrix."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-75",
+   "question": "Which of the following diseases does not involve the use of antimicrobial combinations?",
+   "options": {
+    "A": "Uncomplicated gonorrhea",
+    "B": "Tuberculosis",
+    "C": "Intra-abdominal infections",
+    "D": "Malaria"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "According to CDC, uncomplicated gonorrhea is managed by a single drug therapy of IM injection of 500 mg of Ceftriaxone rather than the previously used dual therapy of ceftriaxone and azithromycin. However, monotherapy should be given when concurrent chlamydia infection is ruled out; if not, presumptive treatment of chlamydia is also done by using oral Doxycyclin 100mg for 7 days."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Tuberculosis (Option B):** is a bacterial infection that is typically treated with a combination of antibiotics. This is because TB bacteria can develop resistance to single antibiotics if used alone. The standard treatment for active TB includes a combination of isoniazid, rifampin, pyrazinamide, and ethambutol, taken for several months."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Intra-abdominal infections (Option C):** are treated using antimicrobial combinations as the infection may be caused by a variety of bacteria. The combination of antibiotics used depends on the type of infection and the bacteria causing it. For example, in cases of complicated intra-abdominal infections, a combination of piperacillin-tazobactam plus metronidazole or cefotaxime plus metronidazole may be used."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Malaria (Option D):** is treated with antimicrobial combinations, especially in areas where drug resistance is high. This is because using a single antimalarial drug can lead to the development of drug-resistant strains of the malaria parasite. Examples of antimalarial combinations include atovaquone-proguanil, artemether-lumefantrine, and mefloquine-artesunate."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-76",
+   "question": "Which of the following antibiotics acts by inhibiting the 50s ribosome?",
+   "options": {
+    "A": "Linezolid",
+    "B": "Rifampicin",
+    "C": "Aztreonam",
+    "D": "Daptomycin"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Linezolid Linezolid is a protein synthesis inhibitor (oxazolidinones), that acts by binding to the bacterial 23S ribosomal RNA of the 50S subunit, which prevents the formation of a functional 70S initiation complex, ultimately inhibiting bacterial protein synthesis. It is a narrow-spectrum protein synthesis inhibitor that targets only gram-positive bacteria."
+    },
+    {
+     "type": "paragraph",
+     "text": "Linezolid Aspect Description Mechanism of Action It inhibits bacterial protein synthesis by binding to the 23S ribosomal RNA of the 50S ribosomal subunit. It interferes with the formation of the ternary N-formylmethionyl-tRNA (tRNAf-Met)-70S initiation complex, preventing the initiation of protein synthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Spectrum of Activity Gram-positive cocci (aerobic and anaerobic): MRSA, VRSA, VRE, Strep. viridans, Strep. pneumoniae Other sensitive bacteria: Clostridia, B. fragilis, M. tuberculosis. Common Uses Uncomplicated and complicated skin and soft tissue infections Hospital-acquired pneumonia (HAPs) Bacteremia. Side Effects Mild abdominal pain, nausea and diarrhoea."
+    },
+    {
+     "type": "paragraph",
+     "text": "Chorioretinitis Optic neuritis Bone marrow suppression (monitor platelet count) Caution is advised when used concurrently with MAO inhibitors due to the risk of serotonin syndrome."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Rifampicin (Option B):** inhibits DNA-dependent RNA polymerase: Aztreonam (Option C) works by inhibiting cell wall synthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Daptomycin (Option D):** causes depolarisation of membranes."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-77",
+   "question": "A 40-year-old woman with MDR tuberculosis presents with fatigue, constipation, weight gain, and neck swelling. Which of the following drugs is implicated in this case?",
+   "options": {
+    "A": "Cycloserine",
+    "B": "Ethionamide",
+    "C": "Streptomycin",
+    "D": "Pyrazinamide"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Ethionamide The patient’s symptoms suggest hypothyroidism, which can be due to ethionamide. Ethionamide: It acts similarly to isoniazid, a first-line anti-TB drug (group C drugs in MDR TB treatment). Works by inhibiting the synthesis of mycolic acids, which are essential components of the bacterial cell wall of Mycobacterium tuberculosis. It is used to treat multidrug-resistant tuberculosis (MDR-TB)."
+    },
+    {
+     "type": "paragraph",
+     "text": "It can cause hepatotoxicity and disrupt thyroid function, leading to these adverse effects. Side effects: Nausea, vomiting, and loss of appetite Hepatotoxicity Neurological symptoms include peripheral neuropathy, dizziness, and confusion. These are treated with pyridoxine (Vitamin B6)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Erectile dysfunction Hypothyroidism Cycloserine (Option A):** is associated with neurological and psychiatric side effects, such as depression, anxiety, psychosis, and seizures. It does not cause hypothyroidism or thyroid-related symptoms."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Streptomycin (Option C):** , an aminoglycoside, is primarily associated with ototoxicity and nephrotoxicity. It has no effect on thyroid function or related symptoms."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Pyrazinamide (Option D):** is a first-line anti-TB drug linked to hyperuricemia and hepatotoxicity. It does not cause hypothyroidism or thyroid enlargement."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-78",
+   "question": "A patient with hemophilia on antiretroviral therapy is brought in with altered mental status following complaints of nausea, vomiting and headache. Which of the following medications was he taking?",
+   "options": {
+    "A": "Tenofovir",
+    "B": "Saquinavir",
+    "C": "Tipranavir",
+    "D": "Darunavir"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Tipranavir Tipranavir (Protease inhibitor) can cause altered mental status, headache, nausea, vomiting, and intracranial bleeding."
+    },
+    {
+     "type": "paragraph",
+     "text": "Protease inhibitors (PI): (-navir-) MOA Inhibits the assembly/packaging of viral proteins Competitively inhibits the action of HIV aspartyl protease Pharmacokinetics All are CYP3A4 inhibitors: [Except Nelfinavir (CYP2C9)] Increases toxicity of other drugs Simvastatin: Risk of myopathy Midazolam: Causes respiratory depression Uses HIV treatment and 2nd line Post-exposure prophylaxis Drugs: RAFTISLAND Ritonavir Maximum CYP inhibition → inhibits metabolism of other PI Low-dose ritonavir boosts other protease inhibitors (Lopinavir) Amprenavir Fos-amprenavir Tipranavir Indinavir Saquinavir (least CYP inhibitor) Lopinavir Atazanavir (no dyslipidemia) Nelfinavir Darunavir (maximum bioavailability, taken with food) Side effects Lipodystrophy Indinavir is a protease inhibitor associated with developing nephrolithiasis Tipranavir can cause altered mental status, headache, intracranial bleeding and hepatotoxicity."
+    },
+    {
+     "type": "paragraph",
+     "text": "Ritonavir causes gastrointestinal disturbances, hyperlipidemia, hepatotoxicity. Atazanavir causes Indirect hyperbilirubinemia (jaundice). Darunavir causes rash, liver function abnormalities, gastrointestinal disturbances Resistance P-glycoprotein efflux transporter Cross-resistance with other protease inhibitors."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Tenofovir (Option A):** is a nucleotide reverse transcriptase inhibitor (NRTI) commonly used in antiretroviral therapy. While it can cause side effects like nephrotoxicity and bone mineral loss, it is not associated with an increased risk of intracranial hemorrhage or bleeding disorders."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Saquinavir (Option B):** is incorrect as it does not affect blood vessels."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Darunavir (Option D):** is a protease inhibitor that may cause gastrointestinal disturbances and metabolic abnormalities. However, it does not have a strong association with intracranial hemorrhage or bleeding risks."
+    }
+   ]
+  }
+ ]
+}

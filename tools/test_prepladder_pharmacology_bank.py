@@ -92,6 +92,17 @@ def main() -> None:
     assert not any(q["reviewStatus"] == "needs_review" for q in questions)
 
     by_id = {q["id"]: q for q in questions}
+    # Openings the PDF cut off: a first word missing its first letters is restored
+    # ("ue to" -> "Due to"); a lost label only loses its stray punctuation.
+    noted = lambda phrase: sum(1 for q in questions if any(phrase in n for n in q.get("reviewNotes", [])))
+    assert noted("restored as") == 74 and noted("not recoverable") == 38, (noted("restored as"), noted("not recoverable"))
+    opening = lambda qid: by_id[qid]["structuredExplanation"]["blocks"][0]["text"]
+    assert opening("pharmacology-10-5").startswith("Due to alpha 1a receptors blockade")
+    assert opening("pharmacology-5-10").startswith("There is no significant interaction")
+    # The restructure pack's worked examples pass its checker.
+    subprocess.run([sys.executable, str(ROOT / "tools/explanation_restructure.py"), "check",
+                    str(ROOT / "data/Prepladder/pharmacology/restructure/examples/example-result.json")],
+                   check=True, stdout=subprocess.DEVNULL)
     figures = json.loads(INVENTORY.read_text(encoding="utf-8"))["figures"]
     assert len(figures) == 272 and len({f["imageId"] for f in figures}) == 272
     for figure in figures:

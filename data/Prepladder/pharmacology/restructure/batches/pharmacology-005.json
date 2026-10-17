@@ -1,0 +1,609 @@
+{
+ "batch": "pharmacology-005",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pharmacology-005",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pharmacology-5-30",
+   "question": "Which parameter is utilized to evaluate the level of drug absorption in a graph demonstrating plasma concentration versus time?",
+   "options": {
+    "A": "Tmax",
+    "B": "Cmax",
+    "C": "T1/2",
+    "D": "Area under the curve"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "AUC (Area under the curve): AUC measures total drug exposure in the bloodstream over time. It integrates plasma concentration-time curve, indicating both rate and extent of drug absorption. Larger AUC suggests greater drug exposure, providing comprehensive pharmacokinetic assessment."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Tmax (Time to reach maximum concentration): Time taken to reach Cmax after drug administration, reflecting absorption rate."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Cmax (Maximum concentration): Peak concentration achieved in bloodstream after administration, influencing efficacy and side effects."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - T1/2 (Half-life): Time taken for drug concentration to decrease by half, reflecting elimination rate and dosing interval determination."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-31",
+   "question": "A 75 kg person is administered a drug with a half-life of 3 hours. What is the approximate clearance of the drug?",
+   "options": {
+    "A": "210 mL/min",
+    "B": "1670 mL/min",
+    "C": "6770 mL/min",
+    "D": "23 mL/min"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Clearance: Here Vd = 100 mL/kg = 100 × 70kg = 7000 mL Cl = 0.693 × 7000/ 3hr = 1617 ml/hr ~ 23 mL/min"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L05_Q031_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-32",
+   "question": "Anionic and weakly acidic drugs bind to which of the following?",
+   "options": {
+    "A": "Albumin",
+    "B": "Globulin",
+    "C": "Lipoprotein",
+    "D": "Alpha-1-glycoprotein"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Anionic and weakly acidic drugs bind to Albumin. After absorption or injection of the drug into the bloodstream, the drug binds to plasma proteins, especially albumin and alpha-1- acid glycoprotein."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Albumin binds to acidic drugs such as Aspirin and Phenytoin (Option A):** Alpha-1 acid glycoprotein binds to basic drugs such as lignocaine, quinidine and propranolol (Option D). Binding to plasma protein affects the distribution of the drug in the body. Drugs bound to plasma protein are kept in the bloodstream and cannot cross membranes. Unbound drugs can exit the bloodstream and enter target organs where they provide therapeutic effects, get metabolised and excreted. Several drugs can displace other drugs bound to plasma protein, leading to increased pharmacological effects from the displaced drugs."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Globulin (Option B):** are of three types - alpha, beta and gamma, and they can bind sex hormones and steroids."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Lipoprotein (Option C):** , like VLDL and LDL, can bind anticancer drugs such as 5-Fluorouracil and Doxorubicin."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-33",
+   "question": "Which of the following drugs is absolutely contraindicated in pregnancy?",
+   "options": {
+    "A": "Captopril",
+    "B": "Paracetamol",
+    "C": "Ranitidine",
+    "D": "Cefixime"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Captopril is an angiotensin-converting enzyme (ACE) inhibitor, which is contraindicated during pregnancy because it can cause fetal growth retardation, Renal dysgenesis, oligohydramnios, lung hypoplasia, and skull hypoplasia. (Teratogenic) It can lead to fetal death if taken, especially in 2 and 3rd trimester."
+    },
+    {
+     "type": "paragraph",
+     "text": "Teratogenic drugs are substances that can cause developmental abnormalities (teratogenesis) in a developing fetus when a pregnant woman is exposed to them. Teratogenic drugs Drug Teratogenic Disorder Acitretin Craniofacial anomalies, heart defects, CNS malformations. Alcohol Fetal Alcohol Syndrome (growth retardation, facial anomalies, CNS dysfunction, ASD, VSD)."
+    },
+    {
+     "type": "paragraph",
+     "text": "ACE inhibitors & Angiotensin-receptor blockers Renal dysgenesis, oligohydramnios, lung hypoplasia, skull hypoplasia. Carbamazepine Neural tube defects (spina bifida), craniofacial defects. Isotretinoin Craniofacial anomalies, heart defects, CNS malformations. Lithium Ebstein's anomaly (tricuspid valve malformation). Thalidomide Severe limb defects (phocomelia), ear, cardiac, and genitourinary malformations."
+    },
+    {
+     "type": "paragraph",
+     "text": "Carbimazole & methimazole Choanal atresia, aplasia cutis, and fetal goitre. Penicillamine Cutis laxa syndrome. Statins Vertebral, anal, cardiac, tracheo-oesophageal fistula, renal, arterial, and limb defects ( VACTERAL defects). SSRIs Persistent pulmonary hypertension of the newborn. Valproic acid Neural tube defects (spina bifida), craniofacial defects, cardiovascular malformations, and developmental delay."
+    },
+    {
+     "type": "paragraph",
+     "text": "Warfarin Fetal warfarin syndrome: Nasal hypoplasia, stippled epiphyses, limb hypoplasia, and central nervous system abnormalities."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Paracetamol (Option B):** is an antipyretic and an analgesic that is considered to be very safe in pregnancy. It is the preferred analgesic during pregnancy, as it has not been associated with malformations or significant risks when taken at therapeutic doses."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Ranitidine (Option C):** is an H-2 receptor antagonist that is used to treat acid reflux, gastric ulcers, and GERD. It is considered safe for use during pregnancy."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Cefixime (Option D):** is a 3rd generation cephalosporin. It is used to treat bacterial infections and is considered generally safe to use during pregnancy. There is no significant evidence to suggest that cefixime has teratogenic or harmful effects on the fetus."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-34",
+   "question": "A 65-year-old patient with hypertension has been prescribed Drug X, which has a bioavailability of 30%. Which of the following is the most appropriate statement for this patient's drug prescription?",
+   "options": {
+    "A": "70% of drugs reach systemic circulation in unchanged form",
+    "B": "30% of the drug is pure",
+    "C": "70% of drugs is potent in giving therapeutic effect",
+    "D": "70% of the drug undergoes 1 st pass metabolism in the liver"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Bioavailability is the fraction of an orally administered drug that reaches the systemic circulation in its unchanged form. 30% bioavailability means that only 30% of the drug reaches the bloodstream unmetabolized. (Option A ruled out) The remaining 70% of the drug is either metabolized by the liver (during the first pass through the liver) or is otherwise eliminated before it can reach the systemic circulation."
+    },
+    {
+     "type": "paragraph",
+     "text": "When a drug is taken orally, it first passes through the liver via the portal circulation, where it is partially metabolized before entering the systemic circulation. This is known as the first-pass metabolism."
+    },
+    {
+     "type": "paragraph",
+     "text": "**30% of the drug is pure (Option B):** This is incorrect because Bioavailability refers to the portion of the drug that reaches the bloodstream in unchanged form, not the \"purity\" of the drug."
+    },
+    {
+     "type": "paragraph",
+     "text": "**70% of drug is potent in giving therapeutic effect (Option C):** This statement misinterprets bioavailability. Potency refers to the drug's ability to produce a therapeutic effect at a given dose, not the percentage that reaches systemic circulation."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-35",
+   "question": "A log dose-response curve (DRC) was plotted with isoprenaline alone and with isoprenaline in the presence of propranolol, as shown below. The graph shows that propranolol is a:",
+   "options": {
+    "A": "Partial agonist",
+    "B": "Agonist",
+    "C": "Competitive antagonist",
+    "D": "Non-competitive antagonist"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The graph shows a parallel shift to the right, indicating that propranolol is a competitive antagonist of isoprenaline. Competitive antagonists work by reversibly binding to the same receptor as the agonist (in this case, isoprenaline ) but without activating the receptor. They compete with the agonist for binding sites. The agonist's maximum response can still be reached but at a higher dose of the agonist."
+    },
+    {
+     "type": "paragraph",
+     "text": "In the presence of propranolol, the DRC for isoprenaline would shift to the right, indicating that higher concentrations of isoprenaline are required to achieve the same effect due to the competition for the receptor."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Partial agonist (Option A):** binds to the receptor and elicits a submaximal response, even when all receptors are occupied. This is not the behaviour described for propranolol, which is a beta-blocker and not a partial agonist."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Agonist (Option B):** activates a receptor to produce an effect similar to the physiological signal molecule. Propranolol is not an agonist because it does not activate the receptor. It is a beta-blocker and prevents isoprenaline from binding to and activating the beta receptors."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Non-competitive antagonist (Option D):** binds to a site on the receptor that is distinct from the agonist binding site and reduces the maximum response even if the agonist concentration is increased. In contrast, a competitive antagonist can be displaced by increasing the concentration of the agonist."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-36",
+   "question": "Which of the following acts by suicide inhibition? 1) Spironolactone 2) Ethinyl estradiol 3) Benzbromarone 4) Ritonavir",
+   "options": {
+    "A": "1, 2, and 3",
+    "B": "1 and 2",
+    "C": "3 and 4",
+    "D": "1, 3, and 4"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Suicide inhibition is a type of enzyme inhibition in which the inhibitor forms a covalent bond with the enzyme, essentially inactivating it irreversibly. 1) Spironolactone: Drugs such as spironolactone, eplerenone, and finerenone competitively inhibit the binding of aldosterone to the mineralocorticoid receptors. 2) Ethinyl estradiol: Ethinyl estradiol is a synthetic estrogen used in contraceptive pills."
+    },
+    {
+     "type": "paragraph",
+     "text": "It does not act by suicide inhibition. 3) Benzbromarone: Benzbromarone is a uricosuric agent used to treat gout. It inhibits xanthine oxidase irreversibly, making it a suicide inhibitor. 4) Ritonavir: Ritonavir is a protease inhibitor used to treat HIV/AIDS. It inhibits the HIV protease enzyme irreversibly, making it a suicide inhibitor."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Options A, B, and D are incorrect."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-37",
+   "question": "Which of the following drugs acts by inhibiting ATP-binding cassette transporter?",
+   "options": {
+    "A": "Tacrolimus",
+    "B": "Nifedipine",
+    "C": "Diltiazem",
+    "D": "Verapamil"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "R1 ), is an efflux transporter protein. Its primary function is to pump out a wide range of substances, including drugs, from inside the cell to outside the cell (drug efflux). When Pgp is overexpressed or hyperactive in cancer cells, it leads to increased efflux of chemotherapeutic drugs out of the cells (leads to drug resistance). Location of Pgp in various body tissues: GIT: Decreases absorption of the drug."
+    },
+    {
+     "type": "paragraph",
+     "text": "Kidney: Increases urinary excretion of the drug. Liver: Increases bile excretion of the drug. Blood-brain-barrier/Placenta: Decreases drug entry into the brain/placental cells. Substrate of p-glycoprotein transporter: E.g. Digoxin. P-glycoprotein Inducer P-glycoprotein Inhibitor Activity Increases the activity of Pgp Decreases the activity of Pgp Drugs Rifampicin. Phenobarbitone."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mnemonic: QVACKER Quinidine Verapamil Amiodarone Clarithromycin Ketoconazole Erythromycin Ritonavir Combined with Substrate of p-glycoprotein (Digoxin) Increases the activity of P-gp. Increased urinary excretion. Digoxin is excreted. Reduces the activity of P-gp. Reduced urinary excretion. Increased plasma concentration of the drug. Toxicity of digoxin: Arrhythmias."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Tacrolimus (Option A):** is a calcineurin inhibitor that suppresses T-cell activation by inhibiting IL-2 production. It does not interact with the ATP-binding cassette transporters like P-glycoprotein."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Nifedipine (Option B):** is a dihydropyridine calcium channel blocker that primarily acts by inhibiting L-type calcium channels, leading to vasodilation. It has no inhibitory effect on ATP-binding cassette transporters."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Diltiazem (Option C):** is a non-dihydropyridine calcium channel blocker that acts on both vascular smooth muscle and the heart. Its mechanism involves calcium channel inhibition, and it does not inhibit ATP-binding cassette transporters like P-gp."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-38",
+   "question": "Which of the following acts via the JAK-STAT pathway?",
+   "options": {
+    "A": "Calcitonin",
+    "B": "Vasopressin",
+    "C": "Aldosterone",
+    "D": "Leptin"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "is a nuclear receptor (a type of intracellular receptor). Intracellular receptors can increase or decrease gene transcription through coactivators and corepressors and are known for their slow and sustained effects."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-39",
+   "question": "Cyclosporine-induced cholestasis is due to which receptor?",
+   "options": {
+    "A": "BRCA",
+    "B": "OATP1B1",
+    "C": "MDR1",
+    "D": "MRP1"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "R1) It is an efflux transporter protein. Its primary function is to pump out a wide range of substances, including drugs, from inside the cell to outside the cell (drug efflux). When Pgp is overexpressed or hyperactive in cancer cells, it leads to increased efflux of chemotherapeutic drugs out of the cells (leads to drug resistance). Location of Pgp in various body tissues: GIT: Decreases absorption of the drug."
+    },
+    {
+     "type": "paragraph",
+     "text": "Kidney: Increases urinary excretion of the drug. Liver: Increases bile excretion of the drug. Blood-brain-barrier/Placenta: Decreases drug entry into the brain/placental cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "Substrates: Etoposide, doxorubicin, vincristine; diltiazem, verapamil; indinavir, ritonavir; erythromycin, ketoconazole; testosterone, progesterone; cyclosporine (Option C), tacrolimus; digoxin, quinidine, fexofenadine, loperamide BRCA (Option A), or breast cancer susceptibility gene, mutation can lead to carcinoma of the breast, ovaries, pancreas and prostate. The target drugs which can be used are olaparib, rucaparib, talazoparib."
+    },
+    {
+     "type": "paragraph",
+     "text": "**OATP1B1 (Option B):** Organic Anion Transporting Polypeptide 1B1 (OATP1B1) is a protein encoded by the SLCO1B1 gene in humans. It is a type of transporter protein found primarily in the liver and plays a crucial role in the uptake of various compounds, including drugs, bile acids, and other organic anions, into liver cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "**MRP1 (Option D):** Multidrug Resistance-associated Protein 1 (MRP1), also known as ABCC1 (ATP-Binding Cassette Sub-family C Member 1), is a protein that plays a significant role in cellular drug transport and the efflux of various substances from cells. Its substrates include vincristine (with GSH), methotrexate; GSH conjugate of LTC4, ethacrynic acid; glucuronide of estradiol, bilirubin; estrone-3-sulfate; saquinavir; grepafloxacin; folate."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-40",
+   "question": "Which of the following is true about therapeutic index of a drug?",
+   "options": {
+    "A": "Denotes safety and efficacy in population",
+    "B": "Denotes safety and efficacy in individual",
+    "C": "Ratio of median lethal dose in 50% of population to median effective dose in 50% of population",
+    "D": "Denotes safety and efficacy after experiments in humans"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Denotes safety and efficacy in population The therapeutic index of a drug denotes safety and efficacy in a population. The Therapeutic Index (TI) is a measure used to assess a drug's safety. It represents the relationship between the dose of a drug that produces therapeutic effects (efficacy) and the dose that produces adverse effects (toxicity), i.e., it indicates the range between the therapeutic dose and the toxic dose of a drug."
+    },
+    {
+     "type": "paragraph",
+     "text": "TI= median toxic dose /median effective dose; (TD50/ED50) The therapeutic window is the range of drug concentrations that can safely and effectively treat the disease. If the TI window for a drug is narrow, it requires frequent monitoring. E.g., W arfarin, T heophylline, D igoxin, L ithium ( W arning T hese D rugs are L ethal) Denotes safety and efficacy in individual (Option B): It denotes safety and efficacy in population not individual."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Ratio of median lethal dose in 50% of population to median effective dose in 50% of population (Option C):** It is the relationship between the dose of a drug that produces therapeutic effects (efficacy) and the dose that produces adverse effects (toxicity), i.e., between effective and toxic dose, not the lethal dose."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Denotes safety and efficacy after experiments in humans (Option D):** Therapeutic index has nothing to do with the experiments."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L05_Q040_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-41",
+   "question": "A patient was given digoxin and started having side effects like nausea and vomiting. The serum concentration of digoxin was 4 ng/ml, and the plasma therapeutic range was 1 ng/ml. If the half-life of digoxin is 40 hours, what time is required till you can safely start digoxin again?",
+   "options": {
+    "A": "40 hours",
+    "B": "80 hours",
+    "C": "120 hours",
+    "D": "140-180 hours"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "- 80 hours The Plasma half-life (t½) of a drug is the time taken for its plasma concentration to be reduced to half of its original value. In the scenario, the digoxin serum concentration of 4 ng/ml is significantly above the therapeutic range. Therefore, we should wait at least 80 hours before resuming treatment, considering digoxin’s half-life of 40 hours."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-42",
+   "question": "Which vitamin deficiency is most likely responsible for the chronic alcoholic patient’s presentation with confusion, aphasia, unstable gait, and symptoms related to Wernicke’s encephalopathy?",
+   "options": {
+    "A": "Vit B1",
+    "B": "Vit C",
+    "C": "Vit D",
+    "D": "Vit B3"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Encephalopathy: Symptoms: Ophthalmoplegia, nystagmus, cerebellar ataxia, global confusion. Korsakoff Psychosis: Symptoms: Anterograde and retrograde amnesia, sensory agnosia, and confabulation. Causes of Thiamine Deficiency in Alcoholics Increased thiamine requirements due to alcohol consumption. Alcohol is a source of empty calories. Inhibition of intestinal thiamine absorption by alcohol."
+    },
+    {
+     "type": "paragraph",
+     "text": "Metabolic Implications Impaired conversion of pyruvate to acetyl-CoA. Accumulation of pyruvate and lactate in the blood. Potential for life-threatening lactic acidosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Vit C (Option B):** is also known as ascorbic acid. Its deficiency results in scurvy, bleeding gums, impaired healing, bone weakness and anaemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Vit D (Option C):** is essential for calcium homeostasis and bone health; its deficiency leads to rickets in children and osteomalacia in adults."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Vit B3 (Option D):** is also known as niacin. Its deficiency causes pellagra, characterised by the \"4 D's\": dermatitis, dementia, diarrhoea, and can be fatal (Death)."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-43",
+   "question": "Identify the true statement about the given dose-response curve.",
+   "options": {
+    "A": "Drug C is the most potent",
+    "B": "Drug B is the most efficacious",
+    "C": "Drug C is as efficacious as drug D",
+    "D": "Drug D is more potent than drug C"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Potency determined by EC50 value, inversely proportional, so Drug C is not the most potent."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Drug C is as efficacious as Drug D (Option C):** EC50 value affects potency, not efficacy, so Drug C is not equally efficacious as Drug D."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Drug D is more potent than Drug C (Option D):** Potency is determined by EC50 value, so Drug D is not necessarily more potent than Drug C."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L05_Q043_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-44",
+   "question": "Which of the following describes LD 50?",
+   "options": {
+    "A": "50% animal mortality is an experiment after exposure to the drug",
+    "B": "50% reduction of infection in the given population of experimental animals",
+    "C": "Dose of the drug that causes adverse effects in 50% of the population",
+    "D": "Range of concentration at which the likelihood of efficacy is high and the probability of adverse effects is low"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "LD50 stands for \"lethal dose 50,\" indicating the dose or concentration of a substance lethal to 50% of the exposed population in animal testing. It measures acute toxicity."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - 50% reduction of infection in experimental animals: Unrelated to LD50."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Dose causing adverse effects in 50% of the population: Refers to TD50, not LD50."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Range where efficacy is high and adverse effects are low: Pertains to therapeutic window, not LD50."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-45",
+   "question": "A young man sustained a scorpion sting 2 hours ago. On examination, his blood pressure is 168/100 mm Hg; HR, 72 beats/minute and respiratory rate, 32 breaths/ minute. He also complains of breathlessness. How do you manage this patient?",
+   "options": {
+    "A": "Metoprolol",
+    "B": "Ivabradine",
+    "C": "Prazosin",
+    "D": "Frusemide"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Prazosin is an alpha-1 blocker that can reduce blood pressure by causing vasodilation and stabilized blood pressure. It is commonly used in the management of scorpion sting-induced hypertension and pulmonary edema, as it helps to reduce vascular resistance, lower blood pressure, and improve tissue perfusion. It is a useful choice for managing hypertension and potential pulmonary edema in this patient."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Metoprolol (Option A):** is a beta blocker, which, by blocking beta receptors, can fail to address the underlying cause of hypertension (which is largely driven by alpha-adrenergic stimulation), and this may lead to poor blood pressure control or even worsening of hypertension."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Ivabradine (Option B):** is an If-channel inhibitor used mainly for heart rate control in conditions like chronic heart failure or angina, but it's not effective for managing blood pressure or respiratory distress."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Furosemide (Option D):** is a loop diuretic that helps reduce fluid volume and can lower blood pressure. However, they don't directly counteract the underlying causes of hypertension (such as sympathetic overstimulation in scorpion stings) or improve respiratory distress related to bronchoconstriction."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-46",
+   "question": "Match the following drugs in Column A with their contraindications in Column B. Column A Column B Morphine Amiodarone Vigabatrin Estrogen preparations QT prolongation Thromboembolism Pregnancy Haad injury",
+   "options": {
+    "A": "A-1, B-3, C-2, D4",
+    "B": "A-4, B-1,C-3, D-2",
+    "C": "A-2, B-4, C-1, D-3",
+    "D": "A-3, B-2, C-4, D-1"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Correct match of contraindications: A. Morphine → 4. Head injury: morphine and other opioids depress the respiratory system. This effect can worsen intracranial pressure (ICP), which is a significant concern in patients with head injuries. B. Amiodarone → 1. QT prolongation: Prolongs QT interval, potentially leading to arrhythmias like Torsades de pointes. C. Vigabatrin → 3."
+    },
+    {
+     "type": "paragraph",
+     "text": "Pregnancy: Vigabatrin is contraindicated in pregnancy as it increases the risk of fetal malformations. D. Estrogen preparations → 2. Thromboembolism: Estrogen can increase the coagulability of the blood, leading to a higher risk of clot formation. This risk is particularly significant in individuals who are already at risk for thromboembolic events hence it is contraindicated."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-47",
+   "question": "Match the following teratogenic drug with their teratogenic effects: Column A Column B Lithium Chloramphenicol Warfarin Thalidomide Phocomelia Depressed nasal bridge Gray baby syndrome Ebstein anomaly",
+   "options": {
+    "A": "1-a, 2-b, 3-c, 4-d",
+    "B": "1-d, 2-c, 3-b, 4-a",
+    "C": "1-d, 2-a, 3-d, 4-c",
+    "D": "1-c, 2-d, 3-a, 4-b"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Teratogenic drugs: Teratogenic drugs are substances that can cause developmental abnormalities (teratogenesis) in a developing fetus when a pregnant woman is exposed to them. Drug Teratogenic Disorder Warfarin Fetal warfarin syndrome: Nasal hypoplasia, stippled epiphyses, limb hypoplasia, and central nervous system abnormalities. Lithium Ebstein's anomaly (tricuspid valve malformation)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Thalidomide Severe limb defects ( phocomelia ), ear, cardiac, and genitourinary malformations. Chloramphenicol Gray Baby Syndrome: abdominal distension cyanosis, respiratory distress, lethargy Acitretin Craniofacial anomalies, heart defects, CNS malformations. Alcohol Fetal Alcohol Syndrome (growth retardation, facial anomalies, CNS dysfunction, ASD, VSD)."
+    },
+    {
+     "type": "paragraph",
+     "text": "ACE inhibitors & Angiotensin-receptor blockers Renal dysgenesis, oligohydramnios, lung hypoplasia, skull hypoplasia. Carbamazepine Neural tube defects (spina bifida), craniofacial defects. Isotretinoin Craniofacial anomalies, heart defects, CNS malformations. Carbimazole & methimazole Choanal atresia, aplasia cutis, and fetal goitre. Penicillamine Cutis laxa syndrome."
+    },
+    {
+     "type": "paragraph",
+     "text": "Statins Vertebral, anal, cardiac, tracheo-oesophageal fistula, renal, arterial, and limb defects (VACTERAL defects). SSRIs Persistent pulmonary hypertension of the newborn. Valproic acid Neural tube defects (spina bifida), craniofacial defects, cardiovascular malformations, and developmental delay."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-48",
+   "question": "Category A, B, C, D, and X in drug classification are indicative of which of the following?",
+   "options": {
+    "A": "Safety in pregnancy",
+    "B": "Dose adjustment in renal failure",
+    "C": "Cost ratio from cheap to expensive",
+    "D": "As per the safety or therapeutic index"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Category A, B, C, D, X in drug classification are indicative of the safety of a drug during pregnancy, with category A being the safest and category X being the most unsafe. Category A Adequate and well-controlled studies have failed to demonstrate a risk to the fetus in the first trimester of pregnancy, and there is no evidence of risk in later trimesters."
+    },
+    {
+     "type": "paragraph",
+     "text": "Examples - Doxylamine, Folate and Levothyroxine Category B Animal reproduction studies have failed to demonstrate a risk to the fetus, but there are no adequate and well-controlled studies in pregnant women. Animal reproduction studies have shown an adverse effect on the fetus, but adequate and well-controlled studies in pregnant women have failed to demonstrate a risk to the fetus in any trimester."
+    },
+    {
+     "type": "paragraph",
+     "text": "Examples - Amoxicillin and Ondansetron Category C Animal reproduction studies have shown an adverse effect on the fetus, and there are no adequate and well-controlled studies in humans, but potential benefits may warrant use of the drug in pregnant women despite potential risks."
+    },
+    {
+     "type": "paragraph",
+     "text": "Examples - Metoprolol and fluconazole Category D There is positive evidence of human fetal risk based on adverse reaction data from investigational or marketing experience or studies in humans, but potential benefits may warrant the use of the drug in pregnant women despite potential risks."
+    },
+    {
+     "type": "paragraph",
+     "text": "Examples - ACE inhibitors, Lithium and Phenytoin Category X Studies in animals or humans have demonstrated fetal abnormalities, and there is positive evidence of human fetal risk based on adverse reaction data from investigational or marketing experience."
+    },
+    {
+     "type": "paragraph",
+     "text": "Risks involved inthe use of the drug in pregnant women clearly outweigh the potential benefit.s Examples - Methotrexate, Warfarin and Statins Schedules of drugs as per the Drugs and Cosmetics Act of India: Schedule Description Schedule C Biological and Special Products: Includes sera, vaccines, toxins, antitoxins, insulin, etc. Schedule D Drugs: Extends to diagnostic kits and reagents, including various biotechnological products."
+    },
+    {
+     "type": "paragraph",
+     "text": "Schedule E Substances: These include toxic substances such as poisonous plants and their preparations. Schedule F Vaccines and Sera: Specifies standards for blood products and diagnostic antigens. Schedule G Prescription Drugs: Drugs that should be taken under medical supervision only and must carry a warning. Schedule H Prescription Only Drugs: Sale is restricted to prescriptions from a registered medical practitioner."
+    },
+    {
+     "type": "paragraph",
+     "text": "Schedule J Diseases: List of diseases for which medicines cannot be claimed to cure or treat, such as cancer, AIDS, etc. Schedule O Disinfectants and Insecticides Schedule R Standards for Cosmetics: Specifies standards for soaps, shampoos, creams, etc. Schedule W Drugs marketed under generic names. Schedule X Narcotic and Psychotropic Substances Schedule Y Requirement and guidelines for import/manufacture or Clinical trials in India"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-49",
+   "question": "The table given below gives the AUC of Drug B alone and that of Drug B when given along with Drug A. If the p-value is < 0.01, which of the following statements is true? Drugs Area under curve B 570 seconds +/- 127 seconds B + A 820 seconds +/- 124 seconds",
+   "options": {
+    "A": "Drug A decreases intestinal absorption of Drug B",
+    "B": "Drug A reduces the first-pass metabolism of Drug B",
+    "C": "Drug A increases the metabolism of Drug B",
+    "D": "Drug A increases renal elimination of Drug B"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "B Based on the values given in the table and the p-value, Drug A reduces the first-pass metabolism of Drug B. The area under the plot of plasma concentration of a drug vs time is known as the area under the curve (AUC). It can be used as a measure of the bioavailability of a drug and to calculate the clearance rate from the body."
+    },
+    {
+     "type": "paragraph",
+     "text": "The null hypothesis for the above question is that Drug A does not increase the AUC for Drug B, and for this to be tru, thee p-value should be > 0.05. For the above drugs, since the p-value is <0.01, the null hypothesis is rejected, which means that Drug A has increased the AUC for Drug B. Bioavailability of a drug: Percentage of the administered dose the that reaches its site of action."
+    },
+    {
+     "type": "paragraph",
+     "text": "If the drug is metabolized largely in the liver and the intestine, the bioavailability is substantially reduced, and this is called first-pass metabolism However, if the intestinal absorption of the drug is increased, the bioavailability will also increase. So based on this, Drug A has either increased the intestinal absorption of Drug B, or it has reduced first-pass metabolism of Drug B."
+    }
+   ]
+  }
+ ]
+}

@@ -29,6 +29,7 @@ import json
 import re
 import sys
 import zlib
+from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -46,6 +47,16 @@ SMALL = {"and", "of", "to", "in", "the", "with", "for", "or", "on", "at", "by", 
 # fragment goes; the question says so instead of showing it.
 FRAGMENT = re.compile(r"^[a-z][^.]{0,40}\.$")
 NO_EXPLANATION = "The source PDF prints no explanation for this question."
+
+# Some explanations the PDF prints with their start cut off: a word missing its
+# first letters ("ue to alpha 1a…", "drenaline works…") or a whole label gone
+# (": There is no…", "is a prodrug…"). A word whose tail occurs nowhere else
+# in the bank and that completes to a word of the bank by one or two letters is
+# restored, capitalised ("Due", "Adrenaline"); a lost label cannot be, so only
+# its stray leading punctuation goes and a note says so.
+CUT_PUNCT = re.compile(r"^\s*[:;,]\s*")
+CUT_WORD = re.compile(r"^([a-z]{2,})(?![a-z]*[()])")
+LIST_LABEL = re.compile(r"^[a-z]{1,3}[)(\-]")
 
 # The extraction turned "&source=" in reference URLs into "&source;=" (the
 # PDF also wraps URLs with spaces, so the fix cannot look for whole URLs);
@@ -179,6 +190,42 @@ class TextBank:
         return out + [b for b in blocks if b not in body]
 
     @staticmethod
+    def vocabulary(rows: list[dict]) -> Counter:
+        """Every word of the bank, less the cut-off openings ("rugs" opens several)."""
+        words: Counter = Counter()
+        for q in rows:
+            text = json.dumps([q["question"], q["options"], q["explanation_blocks"]], ensure_ascii=False)
+            # Mnemonics print spaced initials ("A spirin N itro D rugs").
+            words.update(re.findall(r"[A-Za-z]+", re.sub(r"\b([A-Z]) (?=[a-z])", r"\1", text)))
+            first = q["explanation_blocks"][0].get("content", "") if q["explanation_blocks"] else ""
+            if tail := CUT_WORD.match(str(first)):
+                words[tail.group(1)] -= 1
+        return words
+
+    @staticmethod
+    def repair_opening(blocks: list[dict], words: Counter) -> str | None:
+        """Mend an explanation whose start the PDF cut off; the review note, if any."""
+        if not blocks or blocks[0]["type"] != "paragraph":
+            return None
+        text = blocks[0]["text"]
+        if CUT_PUNCT.match(text):
+            blocks[0] = {**blocks[0], "text": CUT_PUNCT.sub("", text)}
+            return "source PDF explanation starts after a lost label; the lost words are not recoverable"
+        if not "a" <= text[:1] <= "z" or LIST_LABEL.match(text):
+            return None
+        tail = CUT_WORD.match(text)
+        if tail and words[tail.group(1)] <= 0:
+            fragment = tail.group(1)
+            whole = sorted(((n, w) for w, n in words.items() if n > 0 and len(w) - len(fragment) in (1, 2)
+                            and w.lower().endswith(fragment) and w[0].isalpha()),
+                           key=lambda c: (0 if c[1].istitle() else 1 if c[1].islower() else 2, len(c[1]), -c[0]))
+            if whole:
+                word = whole[0][1][:1].upper() + whole[0][1][1:]
+                blocks[0] = {**blocks[0], "text": word + text[len(fragment):]}
+                return f"source PDF drops the start of the explanation's first word; restored as \"{word}\""
+        return "source PDF explanation starts mid-sentence; the lost words are not recoverable"
+
+    @staticmethod
     def join_reference_tail(blocks: list[dict]) -> list[dict]:
         """The extraction sometimes starts a new paragraph inside the references
         ("... Effects of aspirin at different dosages. While aspirin acts as an...");
@@ -199,6 +246,7 @@ class TextBank:
         restructured = json.loads(self.overlay.read_text(encoding="utf-8")) if overlay and self.overlay.exists() else {}
         micro.count_words(rows)
         rows = [fix_record(q) for q in rows]
+        words = self.vocabulary(rows)
         topics: dict[int, dict] = {}
         for q in rows:
             k = int(q["module_index"])
@@ -221,6 +269,7 @@ class TextBank:
                 fragment = bool(blocks) and blocks[0]["type"] == "paragraph" and bool(FRAGMENT.match(blocks[0]["text"]))
                 if fragment:
                     blocks.pop(0)
+                opening = None if fragment else self.repair_opening(blocks, words)
                 # Some print nothing else, or only references, after "Explanation:"
                 # (a figure alone is an explanation).
                 bare = not any(b["type"] == "figure" or b["type"] == "paragraph" and not REFERENCES.match(b["text"])
@@ -244,6 +293,8 @@ class TextBank:
                     notes.append("source PDF prints no explanation, only references")
                 elif fragment:
                     notes.append("source PDF explanation opens mid-sentence; the fragment is left out")
+                elif opening:
+                    notes.append(opening)
                 if len(flagged) > 1:
                     notes.append(f"source key lists {len(flagged)} correct options; scored on {letters[key - 1]}")
                 record = {

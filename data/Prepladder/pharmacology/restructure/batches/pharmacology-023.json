@@ -1,0 +1,585 @@
+{
+ "batch": "pharmacology-023",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pharmacology-023",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pharmacology-20-16",
+   "question": "Which of the following is the drug of choice for treating ventricular tachyarrhythmias induced by digoxin toxicity?",
+   "options": {
+    "A": "Amiodarone",
+    "B": "Lidocaine",
+    "C": "Procainamide",
+    "D": "Verapamil"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "MOA of lidocaine in treating digoxin induced VT: Sodium Channel Blockade: Digoxin toxicity ➜ Excessive intracellular calcium ➜ ↑ automaticity and triggered activity in ventricular myocardium. Lidocaine ➜ Blocks sodium channels in cardiac cells ➜ Stabilizes the membrane potential and ↓ automaticity, particularly during depolarisation. Decreased Ectopic Activity: Digoxin toxicity can cause ectopic pacemaker activity."
+    },
+    {
+     "type": "paragraph",
+     "text": "Lidocaine suppresses ectopic pacemaker activity by decreasing cardiac cell excitability, and preventing abnormal electrical impulses. Reduced Reentry: By inhibiting reentrant pathways in the myocardium, lidocaine helps terminate sustained ventricular arrhythmias. Fast Onset of Action: Administered intravenously, lidocaine rapidly acts to manage acute ventricular arrhythmias induced by digoxin toxicity."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Amiodarone (Option A):** is not the preferred choice for ventricular tachyarrhythmias induced by digoxin toxicity due to potential drug interactions and exacerbation of digoxin toxicity."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Procainamide (Option C):** is an antiarrhythmic that can treat ventricular arrhythmias, but it is not preferred in digoxin toxicity due to its potential to exacerbate the condition and cause further complications."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Verapamil (Option D):** is a calcium channel blocker for supraventricular arrhythmias and hypertension. It is contraindicated in digoxin toxicity as it can increase digoxin levels and worsen ventricular arrhythmias."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-21-1",
+   "question": "Which of the following side effects are likely to be observed when a patient already taking metoprolol is prescribed verapamil? a) Bradycardia with Av Block b) Torsades De Pointes c) Tachycardia d) Ventricular Fibrillation",
+   "options": {
+    "A": "a only",
+    "B": "a & b",
+    "C": "a & c",
+    "D": "b & d"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Both metoprolol and verapamil have negative chronotropic effects, meaning they lower the heart rate. As a result, combining these drugs is unlikely to cause tachycardia (an increased heart rate)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Ventricular fibrillation (Option D):** is a severe, life-threatening arrhythmia marked by rapid, irregular ventricular contractions. While both metoprolol and verapamil affect heart conduction, their combination is not commonly associated with ventricular fibrillation."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-21-2",
+   "question": "Identify the correct match, regarding the drug and its adverse effect.:",
+   "options": {
+    "A": "Hydralazine - heart failure",
+    "B": "Atenolol - hemolytic anemia",
+    "C": "Aliskiren - hypokalemia",
+    "D": "Verapamil - Constipation"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Verapamil is a calcium channel blocker used for the treatment of hypertension, angina, and arrhythmias. One of the most common gastrointestinal side effects of verapamil is constipation. It works by blocking the influx of calcium ions into smooth muscle cells, which reduces the force of contraction and dilates the blood vessels."
+    },
+    {
+     "type": "paragraph",
+     "text": "This is thought to occur because verapamil can slow down the contractions of the intestinal muscles, leading to reduced motility and increased transit time. Other gastrointestinal side effects of verapamil may include nausea, vomiting, abdominal discomfort and diarrhea."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Hydralazine - heart failure (Option A):** Hydralazine is a vasodilator that is used to treat hypertension and heart failure. It works by relaxing the smooth muscle cells in the blood vessels, which reduces peripheral resistance and increases blood flow to the heart. Hydralazine is not known to cause heart failure; it may be used to treat heart failure in certain patients."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Atenolol - hemolytic anemia (Option B):** Atenolol is a beta-blocker used to treat hypertension, angina, and certain arrhythmias. It works by blocking the action of the beta-adrenergic receptors, which reduces the heart rate and cardiac output. Hemolytic anemia is not a known side effect of atenolol."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Aliskiren - hypokalemia (Option C):** Aliskiren is a direct renin inhibitor used to treat hypertension. It works by blocking the activity of renin, an enzyme that plays a key role in regulating blood pressure. Hypokalemia (low potassium levels in the blood) is not a known side effect of aliskiren. Aliskiren can, however, cause other electrolyte imbalances, such as hyperkalemia (high potassium levels in the blood)."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-21-3",
+   "question": "An anti–arrhythmic drug is shown to have the following effect. It is effective in both atrial and ventricular arrhythmias. Identify the drug.",
+   "options": {
+    "A": "Tocainide",
+    "B": "Propranolol",
+    "C": "Quinidine",
+    "D": "Lignocaine"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Quinidine is a Class 1a antiarrhythmic and is effective in treating both atrial and ventricular arrhythmias. It works by blocking sodium channels, which leads to decreases in the influx of sodium ions during the depolarization phase of the cardiac action potential. This leads to a reduction in the conduction velocity and prolongation of the refractory period in cardiac tissues, helping to suppress abnormal electrical impulses and arrhythmias."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Tocainide (Option A):** is also a sodium channel blocker that belongs to class 1b antiarrhythmics,and it is used to treat only ventricular tachycardia."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Propranolol (Option B):** is a non-selective beta-blocker and belongs to class 2 antiarrhythmics, it is used in chronic treatment to prevent arrhythmias in Long QT Syndrome (LQTS) and Catecholaminergic Polymorphic Ventricular Tachycardia (CPVT). It is also used in Atrial Fibrillation, but is not as effective as quinidine in treating ventricular arrhythmias."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Lignocaine (Option D):** is also a Class 1b antiarrhythmi c that is primarily effective in treating ventricular arrhythmias, but It is not typically used for atrial arrhythmias."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-21-4",
+   "question": "Match the following antiarrhythmic drugs with their mechanism of action: Mechanism of action Drug Na + channel blocker K + channel blocker Na +, K + ATPase inhibitor Beta-blocker Quinidine Digoxin Esmolol Ibutilde",
+   "options": {
+    "A": "1-d, 2-b, 3-a, 4-c",
+    "B": "1-a, 2-c, 3-d, 4-b",
+    "C": "1-a, 2-d, 3-b, 4-c",
+    "D": "1-d, 2-c, 3-a, 4-b"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Drug MOA Quinidine Is a Na + channel blocker, which is a class I antiarrhythmic drug that acts by blocking sodium channels in the cardiac cells. By blocking these channels, it decreases the influx of sodium ions during the depolarization phase of the cardiac action potential. Digoxin It is a Na + K + ATPase inhibitor, which is not primarily considered an antiarrhythmic drug but rather a cardiac glycoside."
+    },
+    {
+     "type": "paragraph",
+     "text": "However, it does have some antiarrhythmic effects. Digoxin inhibits the activity of the Na + K + ATPase pump, and increases intracellular calcium levels, leading to increased contractility of the heart. This indirectly helps to control certain arrhythmias, such as atrial fibrillation Esmolol It belongs to the class of beta-blockers, specifically a short-acting selective beta-1 adrenergic receptor blocker."
+    },
+    {
+     "type": "paragraph",
+     "text": "It works by blocking the beta-1 adrenergic receptors in the heart, thereby reducing the effects of sympathetic stimulation. Ibutilide It is a potassium channel blocker, which is a class III antiarrhythmic drug that primarily blocks potassium channels in the heart."
+    },
+    {
+     "type": "paragraph",
+     "text": "By inhibiting these channels, it prolongs the repolarization phase of the cardiac action potential, resulting in an increase in the action potential duration and effective refractory period."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-21-5",
+   "question": "Which of the medications listed below is considered safe for the treatment of pregnancy-induced hypertension?",
+   "options": {
+    "A": "Lisinopril",
+    "B": "Propranolol",
+    "C": "Alpha methyldopa",
+    "D": "Losartan"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Labetaolol (Beta-blocker) If chronic hypertension develops, Alpha methyldopa Safe antihypertensives during pregnancy Labetalol, Hydralazine, Methyldopa, and Calcium channel blockers like Nifedipine. (LHMC- Lady Hardinge Medical College) Unsafe antihypertensive drugs during pregnancy: ACE inhibitors (Option A) & ARBs (Option D): Can lead to renal agenesis in the fetus, causing oligohydramnios and leading to POTTER sequence (Pulmonary hypoplasia, Oligohydramnios, Twisted/wrinkled skin, Twisted Potter faces, Extremity defects, Renal agenesis)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Thiazides/Loop diuretics/Beta-blockers (Option B):** Bear the risk of placental ischemia, which can be fatal to the fetus."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-21-6",
+   "question": "A patient presents to the OPD with a chronic dry cough with no fever or other associated symptoms. He had recently been started on an antihypertensive for hypertension. Which among the following is most likely responsible for causing these symptoms?",
+   "options": {
+    "A": "Bradykinin and renin",
+    "B": "Angiotensin II and bradykinin",
+    "C": "Only bradykinin",
+    "D": "Histamine"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Adverse Effect Description Hypotension Decrease in blood pressure, especially upon initiation of therapy or with dosage increases. Hyperkalemia Increased serum potassium levels due to reduced aldosterone secretion. Cough Persistent dry cough, possibly due to bradykinin buildup in the lungs. Angioedema Due to increased bradykinin levels, swelling of deeper layers of skin, particularly around the eyes and lips, can be life-threatening."
+    },
+    {
+     "type": "paragraph",
+     "text": "Rashes/Urticaria Skin reactions like rashes or hives occur in a small percentage of users. Dysgeusia Reversible taste changes are more common with captopril. Rare Effects Granulocytopenia (low white blood cells) and proteinuria (excess protein in urine) are more concerning in patients with kidney disease. Acute Renal Failure Possible in patients with bilateral renal artery stenosis due to decreased kidney filtration."
+    },
+    {
+     "type": "paragraph",
+     "text": "Fetal Effects ACE inhibitors are contraindicated during pregnancy due to potential harm to the fetus, including fetal renal damage due to inhibition of the fetal renin-angiotensin system."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-21-7",
+   "question": "In patients with indications for warfarin usage, what is the recommended range of INR in a patient with mechanical heart valves?",
+   "options": {
+    "A": "1.0-1.5",
+    "B": "2.0-3.0",
+    "C": "2.5-3.5",
+    "D": "3.5-4.5"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "This INR range is too low to achieve the desired therapeutic effect of warfarin. 2.0-3.0 (Option B): For patients on regular warfarin therapy, the recommended INR range is typically between 2.0 and 3.0. 3.5-4.5 (Option D): An INR above 3.5 is generally not recommended, as it significantly increases the risk of bleeding."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-21-8",
+   "question": "What is the preferred medication for managing ventricular arrhythmia caused by digoxin?",
+   "options": {
+    "A": "Procainamide",
+    "B": "Lignocaine",
+    "C": "Atropine",
+    "D": "Propranolol"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "is a non-selective beta-blocker used to treat various conditions such as high blood pressure, tremors, and irregular heartbeats and to prevent migraines. While effective for managing certain cardiac conditions, it is not recommended for managing ventricular arrhythmias induced by digoxin, as it may exacerbate the toxicity."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-21-9",
+   "question": "A patient who has recently had a myocardial infarction (MI) presents for a follow-up. His cholesterol levels are as follows: total cholesterol 238 mg/dL, triglycerides 125 mg/dL, and HDL 50 mg/dL. He is currently taking atorvastatin, metoprolol, and aspirin. Which of the following medications should be added to his regimen? Ezetimibe Bempedoic acid Evolocumab Gemfibrozil",
+   "options": {
+    "A": "1,2",
+    "B": "2,3",
+    "C": "1,2,3",
+    "D": "1,2,4"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Gemfibrozil is mainly used to treat high triglycerides (Severe Hypertriglyceridemia) and low HDL cholesterol, but it is not the first-line agent for LDL cholesterol reduction in post-MI patients & also the patient has normal triglyceride levels. Ezetimibe (1): Inhibits cholesterol absorption in the small intestine, reducing total cholesterol and LDL levels."
+    },
+    {
+     "type": "paragraph",
+     "text": "Bempedoic acid (2): Inhibits ATP-citrate lyase, which reduces cholesterol synthesis in the liver, leading to lower LDL levels. Evolocumab (3): A PCSK9 inhibitor that binds to PCSK9, preventing it from degrading LDL receptors, thereby increasing the liver’s ability to clear LDL cholesterol from the bloodstream."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-21-10",
+   "question": "Which of the following thiazide diuretics is appropriate for a 34-year-old man with hypertension and stage 4 chronic kidney disease, characterized by an estimated glomerular filtration rate (eGFR) below 30?",
+   "options": {
+    "A": "Chlorothiazide",
+    "B": "Chlorthalidone",
+    "C": "Metolazone",
+    "D": "Hydrocholorothiazide"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "such as stage 4, thiazide diuretics may be less effective as the kidneys are not able to excrete sodium and water as efficiently, and the risk of electrolyte imbalances may also be higher."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-21-11",
+   "question": "Inhaled Nitric oxide is approved for the treatment of?",
+   "options": {
+    "A": "Labile hypertension",
+    "B": "Pulmonary hypertension",
+    "C": "Treatment of resistant migraine",
+    "D": "Resistant Parkinson’s disease"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Adverse effects Headache, nausea and vomiting Methemoglobinemia It may worsen left ventricular performance in those with impaired ventricular function."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L21_Q011_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-21-12",
+   "question": "A 35-year-old chronic hypertensive woman comes to the OPD for preconception counselling. Which of the following antihypertensives should be discontinued in this patient?",
+   "options": {
+    "A": "Labetalol",
+    "B": "Calcium channel blocker",
+    "C": "Angiotensin-converting enzyme inhibitor",
+    "D": "Alpha - methyldopa"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Angiotensin-converting enzyme inhibitors (ACEI) should be discontinued in women planning for pregnancy or immediately upon confirmation of pregnancy, as they are teratogenic and associated with risks of fetal malformations, growth retardation, renal agenesis, and reduced amniotic fluid levels."
+    },
+    {
+     "type": "paragraph",
+     "text": "Antihypertensives in pregnancy To be used To be avoided Labetalol (α + β receptor antagonist) Nifedipine (Calcium channel blocker *) α - Methyldopa Hydralazine Thiazides can be used in chronic hypertension in pregnant women ACEi and ARB - teratogenic Diuretic - reduces uteroplacental perfusion Non-selective beta-blocker * CCB can be useful in preeclampsia, but they must be stopped before labour as they can weaken uterine contractions"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-21-13",
+   "question": "A patient who was recently started on an antihypertensive presented with the following presentation, as shown in the image below. Which of the following antihypertensive medications was most likely prescribed to him?",
+   "options": {
+    "A": "Lisinopril",
+    "B": "Nifedipine",
+    "C": "Atenolol",
+    "D": "Clonidine"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Based on the history and clinical presentation, this patient is most likely suffering from angioedema, which is associated with Lisinopril, an angiotensin-converting enzyme inhibitor. It presents with swelling of the face, lips, tongue, throat and extremities. Although rare, it is a serious allergic reaction that requires immediate medical attention. It is treated with antihistamines and corticosteroids."
+    },
+    {
+     "type": "paragraph",
+     "text": "If laryngospasm has occurred, subcutaneous injection of epinephrine can be used. Adverse effects of angiotensin-converting enzyme inhibitors Hypotension Decrease in blood pressure, especially upon initiation of therapy or with dosage increases. Hyperkalemia Increased serum potassium levels due to reduced aldosterone secretion. Cough Persistent dry cough, possibly due to bradykinin buildup in the lungs."
+    },
+    {
+     "type": "paragraph",
+     "text": "Angioedema Due to increased bradykinin levels, swelling of deeper layers of skin, particularly around the eyes and lips, can be life-threatening. Rashes/Urticaria Skin reactions like rashes or hives occur in a small percentage of users. Dysgeusia Reversible taste changes are more common with captopril."
+    },
+    {
+     "type": "paragraph",
+     "text": "Rare Effects Granulocytopenia (low white blood cells) and proteinuria (excess protein in urine) are more concerning in patients with kidney disease. Acute Renal Failure Possible in patients with bilateral renal artery stenosis due to decreased kidney filtration. Fetal Effects ACE inhibitors are contraindicated during pregnancy due to potential harm to the fetus, including fetal renal damage due to inhibition of the fetal renin-angiotensin system."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Nifedipine (Option B):** is a calcium channel blocker that reduces calcium influx into the smooth muscle cell of arterial walls, causing vasodilation, which reduces blood pressure. It is associated with headache, flushing and dizziness."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Atenolol (Option C):** is a beta-1-selective blocker that reduces the effects of catechol on the heart. It reduces heart rate, blood pressure and cardiac output. It is associated with bradycardia, cold extremities and fatigue."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Clonidine (Option D):** is an alpha-2 adrenergic receptor agonist that acts centrally and results in inhibition of the release of norepinephrine in the terminal nerves and reduction in sympathetic outflow from the CNS. It is associated with bradycardia and sexual dysfunction."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-21-14",
+   "question": "Which anti-hypertensive medication is suitable for administration to a patient suffering from renal insufficiency, exhibiting symptoms of significantly reduced urine output, pedal edema, headache, and a blood pressure reading of 160/90?",
+   "options": {
+    "A": "Aliskiren",
+    "B": "Chlorthalidone",
+    "C": "Amlodipine",
+    "D": "Prazosin"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Based on the clinical presentation and findings in this patient, the most appropriate anti-hypertensive drug would be Amlodipine. Calcium channel blockers achieve better blood pressure control in the long term. It can be used as an add-on therapy with other antihypertensive agents, and its once-daily dosing improves patient compliance. Amlodipine is often well-tolerated and can be used in patients with renal insufficiency."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mechanism of action of CCB (Dihydropyridines): It blocks the entry of calcium ions through the L-type calcium channels in vascular smooth muscle cells, causing vasodilation and a reduction in peripheral vascular resistance. Drug Use Rationale for Choice Nifedipine (Short-acting) Primarily used for angina pectoris. It is not recommended for long-term hypertension management due to its short duration of action and potential for reflex tachycardia."
+    },
+    {
+     "type": "paragraph",
+     "text": "Nicardipine (Short-acting) It is commonly used in the management of hypertensive emergencies and perioperative hypertension or severe hypertension in the intensive care unit. The short duration of action makes it less suitable for long-term hypertension management. Clevidipine (Ultra-short-acting) Very short half-life makes it unsuitable for long-term hypertension management."
+    },
+    {
+     "type": "paragraph",
+     "text": "Amlodipine (Long-acting) Recommended as a first-line or add-on therapy for the long-term management of hypertension. Preferred choice due to its long duration of action (up to 24 hours), once-daily dosing, and effectiveness in lowering blood pressure with good tolerability."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Aliskiren (Option A):** is a direct renin inhibitor that can be used to treat hypertension. However, it is generally not recommended in patients with renal insufficiency, as it can further decrease kidney function."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Chlorthalidone (Option B):** is a thiazide-like diuretic that is often used to treat hypertension. However, in a patient with very low urine output and pedal edema, adding a diuretic may not be the initial choice, as it may exacerbate fluid and electrolyte imbalances."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Prazosin (Option D):** is an alpha-1 adrenergic blocker that is used to treat high blood pressure. However, in this scenario, with symptoms of renal insufficiency and very low urine output, the focus should be on addressing the underlying renal issue and controlling blood pressure with other medications."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-21-15",
+   "question": "A 57-year-old man was brought to the hospital with complaints of dizziness and breathlessness. During the physical examination, his face appears to be discoloured. His current medication includes Amiodarone, Metoprolol, Verapamil, Lisinopril and Amlodipine. Which of the following drugs is responsible for these skin changes?",
+   "options": {
+    "A": "Amiodarone",
+    "B": "Amlodipine",
+    "C": "Metoprolol",
+    "D": "Verapamil"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The grey-blue discolouration over this patient's face is most likely due to Amiodarone. Long-term treatment with amiodarone is responsible for skin pigmentation. Ultraviolet light reacts with amiodarone and its metabolites to cause local vasodilatation. This increases the diffusion of amiodarone and its metabolites, resulting in their deposition in the tissues and causing pigmentation."
+    },
+    {
+     "type": "paragraph",
+     "text": "It is usually seen in sun-exposed areas,and elderly men are at an increased risk. Cessation of amiodarone and avoiding exposure to sunlight using sunscreen cream is recommended. Amiodarone MOA Prolonged action potential duration and QT interval by blocking delayed rectifier K+ channels. Blocks inactivated Na+ channels, with rapid channel recovery (Decrease phase 0 slope)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Partially inhibits myocardial Ca2+ channels, adding to its antiarrhythmic effects. Used to treat both atrial and ventricular fibrillation Uses To maintain normal sinus rhythm during atrial fibrillation and prevent recurrent ventricular tachycardia."
+    },
+    {
+     "type": "paragraph",
+     "text": "Adverse effects Hypotension and Bradycardia (with i.v administration or after drug accumulation) Photosensitivity: Skin pigmentation - Purple colour (purple man syndrome, smurf syndrome) Corneal microdeposits: Reversible upon drug discontinuation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Pulmonary alveolitis and fibrosis (On long-term use) Peripheral neuropathy Thyroid Dysfunction: Interfere with thyroid function as it acts as a source of iodine and can potentially lead to goitre, hypothyroidism (Wolf Chaikoff effect), or, in rare cases, hyperthyroidism (Jos-Basedow effect). Interactions Inhibits CYP3A4, CYP2C9, and P-glycoprotein, leading to potential interactions with drugs metabolized by this system."
+    },
+    {
+     "type": "paragraph",
+     "text": "Increases plasma levels of digoxin and warfarin. Additive AV block with beta-blockers or calcium channel blockers."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-21-16",
+   "question": "Which of the following drugs acts by inhibiting the late sodium current in the heart?",
+   "options": {
+    "A": "Ivabradine",
+    "B": "Ranolazine",
+    "C": "Trimetazidine",
+    "D": "Fasudil"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Ranolazine acts by inhibiting the late sodium current in the heart. Ranolazine MOA Inhibits the late sodium current in cardiomyocytes, which helps to reduce intracellular sodium accumulation during ischemic conditions Indirectly reduces calcium overload in cardiac cells and improves myocardial relaxation, leading to an anti-ischemic effect."
+    },
+    {
+     "type": "paragraph",
+     "text": "It decreases ventricular diastolic tension, reduces myocardial oxygen consumption, and improves myocardial perfusion Uses Used as add-on therapy as an Antianginal agent for Chronic stable angina. Reduces the frequency of angina pectoris and improves exercise tolerance. Ventricular tachycardia."
+    },
+    {
+     "type": "paragraph",
+     "text": "Improves glycemic control (lower HbA1c and increase insulin) Adverse effect Dizziness, headache, nausea and asthenia Constipation and Liver failure QT-prolongation and rarely Ventricular arrhythmia such as Torsades de pointes."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Ivabradine (Option A):** acts as a selective inhibitor of the pacemaker if it is current in the sinoatrial node, leading to heart rate reduction. It is primarily used for the treatment of stable angina and heart failure with reduced ejection fraction."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Trimetazidine (Option C):** is a metabolic agent that improves myocardial energy metabolism by enhancing glucose oxidation and reducing fatty acid oxidation. It does not directly inhibit the late sodium current."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Fasudil (Option D):** is a calcium channel blocker that primarily acts by inhibiting Rho-kinase, an enzyme involved in regulating smooth muscle contraction. It is mainly used for the treatment of cerebral vasospasm after subarachnoid haemorrhage and is not directly related to inhibiting the late sodium current in the heart."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-21-17",
+   "question": "Which of the following antiarrhythmic drugs is contraindicated in a patient with interstitial lung disease?",
+   "options": {
+    "A": "Amiodarone",
+    "B": "Sotalol",
+    "C": "Quinidine",
+    "D": "Lignocaine"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Amiodarone is contraindicated in a patient with interstitial lung disease. It is a class III antiarrhythmic medication that is associated with the development or exacerbation of interstitial lung disease, a condition characterised by inflammation and scarring of lung tissue."
+    },
+    {
+     "type": "paragraph",
+     "text": "Side effects of amiodarone: Pulmonary fibrosis Hypotension Torsades de pointes Corneal microdeposits Hepatotoxicity Neuropathy Photosensitivity Thyroid dysfunction Drugs associated with Lung disorders: Drugs Lung disorders Amniodarone Pulmonary fibrosis Bleomycin Busulfan Nitrofurantoin Rarely associated with chronic pulmonary fibrosis Cyclophosphamide Interstitial pneumonitis, which can lead to pulmonary fibrosis Methotrexate Sotalol (Option B) is a class III antiarrhythmic that primarily blocks potassium channels."
+    },
+    {
+     "type": "paragraph",
+     "text": "It does not have significant pulmonary toxicity."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Quinidine (Option C):** is a class I antiarrhythmic, and it is not associated with pulmonary toxicity and is therefore not contraindicated in ILD. Lignocaine (Option D) is a class Ib antiarrhythmic which is mainly used for ventricular arrhythmias and is not associated with pulmonary toxicity."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-21-18",
+   "question": "A person presents with acute chest pain. Nitro-glycerine was given sublingually, and pain relief occurred within a minute. What is the mechanism of this drug?",
+   "options": {
+    "A": "Release of endothelin",
+    "B": "Release of nitric oxide",
+    "C": "Calcium channel blockade",
+    "D": "Beta blockade"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Relief from chest pain by use of sublingual Nitro-glycerine occurs due to the release of nitric oxide, which causes vasodilation of coronary arteries, thus causing increased blood flow to the ischemic region of the myocardium. Nitrates Drugs Glyceryl trinitrate Isosorbide dinitrate Isosorbide mononitrate Pentaerythritol tetranitrate MOA Venodilation → Reduce preload → Reduce myocardial contractility → Decreased O 2 demand."
+    },
+    {
+     "type": "paragraph",
+     "text": "Dilates coronary artery (increase cGMP): effective in vasospastic angina. Redistribution of coronary blood flow to the ischemic area ( Robinhood phenomenon ). Uses Angina (stable, vasospastic and chronic) Acute coronary syndrome or myocardial infarction (STEMI/NSTEMI) Acute pulmonary edema Abdominal colicky pain Release of endothelin (Option A) by endothelial cells leads to potent vasoconstrictor. It increases vascular tone and blood pressure."
+    },
+    {
+     "type": "paragraph",
+     "text": "It is not used for the treatment of angina."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Calcium channel blockade (Option C):** by Calcium channel blockers (e.g., amlodipine, verapamil) inhibits L-type calcium channels in vascular smooth muscle and cardiac myocytes, leading to vasodilation, decreased heart rate, and reduced contractility. It is not used for the treatment of angina."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Beta blockade (Option D):** by Beta-blockers (e.g., atenolol, metoprolol) antagonise beta-adrenergic receptors, reducing heart rate, myocardial contractility, and oxygen demand. Nitroglycerine does not interact with beta-adrenergic receptors."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L21_Q018_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-21-19",
+   "question": "A patient has pain in the facial nerve distribution while chewing and speaking. Which of the following drugs should be given for the treatment?",
+   "options": {
+    "A": "Lamotrigine",
+    "B": "Carbamazepine",
+    "C": "Phenobarbitone",
+    "D": "Haloperidol"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient's symptoms are indicative of trigeminal neuralgia, and Carbamazepine is the drug of choice for managing this condition due to its proven efficacy in reducing pain. Drugs for trigeminal neuralgia Drug Mechanism of Action Uses Side Effects Carbamazepine Inhibits high-frequency neuronal discharges and modulates voltage-gated sodium channels. Trigeminal neuralgia GTCS, partial seizures, bipolar disorder."
+    },
+    {
+     "type": "paragraph",
+     "text": "Sedation, dizziness, ataxia, GI disturbances, bone marrow suppression, hypersensitivity reactions, water retention. Gabapentin Enhances GABA release modulates voltage-sensitive Ca2+ channels. Partial seizures, post-herpetic neuralgia, migraine prophylaxis. Sedation, tiredness, dizziness, tremor, unsteadiness. Diazepam Enhances GABAergic neurotransmission. Status epilepticus, Febrile seizure. Thrombophlebitis, hypotension, respiratory depression."
+    },
+    {
+     "type": "paragraph",
+     "text": "Topiramate Multiple mechanisms, including sodium channel inactivation, GABA potentiation, glutamate receptor antagonism, and potassium channel modulation. GTCS, myoclonic epilepsy, and absence of seizures. Impairment of attention, sedation, ataxia, word-finding difficulties, poor memory, weight loss, paresthesias, renal stones."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Lamotrigine (Option A):** is an anticonvulsant medication used in the treatment of epilepsy and bipolar disorder. While it has some efficacy in neuropathic pain, it is not used for the treatment of trigeminal neuralgia."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Phenobarbital (Option C):** is a barbiturate that is primarily used as an anticonvulsant. It is not commonly used for the treatment of trigeminal neuralgia."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Haloperidol (Option D):** is an antipsychotic used primarily to treat psychotic disorders like schizophrenia. It has no role in the treatment of trigeminal neuralgia."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,581 @@
+{
+ "batch": "pharmacology-058",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pharmacology-058",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pharmacology-50-2",
+   "question": "A 58-year-old woman with a history of mitral valve replacement (on warfarin) and trigeminal neuralgia (on carbamazepine) has been prescribed clarithromycin for a chest infection. Her regular medications include amlodipine and atorvastatin. Her INR is 1.3 (target > 3 for mechanical heart valve). Which drug most likely interacted with warfarin to give this INR?",
+   "options": {
+    "A": "Amlodipine",
+    "B": "Atorvastatin",
+    "C": "Clarithromycin",
+    "D": "Carbamazepine"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Carbamazepine is a strong enzyme inducer, particularly of CYP2C9 and CYP3A4, which are responsible for metabolizing warfarin. Enzyme induction leads to increased metabolism of warfarin, resulting in reduced plasma levels and a lower INR (as seen in this case: INR 1.3). This is dangerous in patients with mechanical heart valves who require INR > 3 to prevent thromboembolic complications."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mechanism table: Drug Effect on Warfarin Mechanism Carbamazepine ↓ INR (↓ warfarin effect) CYP inducer → ↑ warfarin metabolism Clarithromycin ↑ INR (↑ warfarin effect) CYP inhibitor → ↓ warfarin metabolism Amlodipine No significant effect No major CYP interaction Atorvastatin Mild unpredictable changes Competes with warfarin at CYP enzymes Pharmacokinetics of Warfarin: Parameter Details Absorption Oral Kinetics Zero-order kinetics at high doses Excretion Excreted in bile, safe in renal failure Protein Binding 99% bound to albumin Dialysis Removal Not dialyzable due to high protein binding Important Drug Interactions with Warfarin: Enzyme Inhibitors (↑ INR) – Mnemonic: SICKFACES.COM Drug Sodium Valproate Isoniazid Cimetidine Ketoconazole Fluconazole Alcohol (binge) Chloramphenicol Erythromycin Sulfonamides Ciprofloxacin Omeprazole Metronidazole Enzyme Inducers (↓ INR) – Mnemonic: CRAP GPS Drug Carbamazepine Rifampin Alcohol (chronic) Phenytoin Griseofulvin Phenobarbital Sulphonylureas Amlodipine (Option A): Incorrect."
+    },
+    {
+     "type": "paragraph",
+     "text": "No major effect on INR or warfarin metabolism."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Atorvastatin (Option B):** Incorrect. May have minor interactions but not a strong inducer/inhibitor."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Clarithromycin (Option C):** Incorrect. Would increase INR, not decrease it."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-50-3",
+   "question": "An 82-year-old man presents to the emergency department with a sudden onset of severe headache and altered mental status. His CT Scan reveals an intracranial haemorrhage. He has a history of atrial fibrillation and has been taking warfarin. His INR is 5.8. Which of the following is the most appropriate treatment?",
+   "options": {
+    "A": "Fresh Frozen Plasma",
+    "B": "Tranexamic acid",
+    "C": "Vitamin K",
+    "D": "Prothrombin complex concentrate"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "An intracranial haemorrhage in a patient on warfarin is considered a major bleed, necessitating the rapid reversal of anticoagulation. Prothrombin complex concentrate (PCC) is a concentrated source of clotting factors. PCC acts faster than fresh frozen plasma and vitamin K to restore the clotting factors and reduce the INR. Warfarin and high INR management: Major bleeding Stop warfarin. Administer prothrombin complex concentrate."
+    },
+    {
+     "type": "paragraph",
+     "text": "Administer intravenous vitamin K1. If prothrombin complex concentrate is not available, give fresh frozen plasma. INR > 8 with minor or no bleeding Stop warfarin. Administer intravenous or oral vitamin K1. Restart warfarin when INR is < 5. INR 5 - 8 with minor bleeding INR 5 - 8 with no bleeding Stop warfarin. Restart warfarin when INR is < 5. INR above target range but < 5 Reduce or omit one or two doses of warfarin Measure INR in 2-3 days"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-50-4",
+   "question": "A 68-year-old patient is being evaluated for the initiation of warfarin therapy for various indications. Which of the following indications for warfarin therapy requires the highest target INR range?",
+   "options": {
+    "A": "Atrial fibrillation (non-valvular)",
+    "B": "Deep vein thrombosis (DVT) prophylaxis",
+    "C": "Mechanical heart valve replacement",
+    "D": "Myocardial infarction (MI) prevention"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "For patients with mechanical heart valve replacements, warfarin therapy requires a higher target INR range of 3.0 to 3.5. This higher intensity of anticoagulation is necessary to prevent thromboembolic complications associated with mechanical valves."
+    },
+    {
+     "type": "paragraph",
+     "text": "Use Target INR Range Atrial Fibrillation 2.0 - 2.5 Venous Thromboembolism (VTE) Prophylaxis Bioprosthetic Heart Valves (first 3 months) Post-Myocardial Infarction Treatment of DCT, PE, TIA 2.5 - 3.0 Mechanical Prosthetic Heart Valves 3.0 - 3.5 Recurrent Thromboembolism"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-50-5",
+   "question": "A 72-year-old man has been taking Warfarin 7mg daily for the treatment of left arm DVT for the past 2 years. He also takes furosemide 40mg for HTN. He is usually compliant with his medications. What is the most important adverse effect the patient should be careful with?",
+   "options": {
+    "A": "Peripheral Neuropathy",
+    "B": "Phototoxicity",
+    "C": "Headache",
+    "D": "Constipation"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The most important adverse effect of warfarin is headache, which may result from intracranial haemorrhage. Patients should be counselled to report any unusual or persistent headaches while taking Warfarin. HTN is also a risk factor for intracranial haemorrhage. Adverse Effects: Bleeding: Ecchymosis (bruising), Epistaxis, Hematuria, Gastrointestinal bleeding, Intracranial or other internal haemorrhages, which can be fatal."
+    },
+    {
+     "type": "paragraph",
+     "text": "Frequent gastrointestinal disturbances Oral ulceration Dermatitis Urticaria (hives) Alopecia (hair loss) Contraindications for Warfarin: Bleeding disorders. Severe hypertension (risk of cerebral haemorrhage), threatened abortion, piles, gastrointestinal ulcers (risk of aggravated bleeding)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Subacute bacterial endocarditis (risk of embolism), large malignancies (risk of bleeding in the central necrosed area of the tumour), tuberculosis (risk of hemoptysis). Ocular and neurosurgery, lumbar puncture. Chronic alcoholics, cirrhosis, renal failure. Aspirin and other antiplatelet drugs should be used very cautiously during warfarin therapy."
+    },
+    {
+     "type": "paragraph",
+     "text": "Early Pregnancy: Increases birth defects, especially skeletal abnormalities; can produce fetal warfarin syndrome (stippled epiphysis, eye socket, hand bones, and growth retardation). Later in Pregnancy: Can cause CNS defects, fetal haemorrhage, fetal death, and accentuates neonatal hypoprothrombinemia."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-50-6",
+   "question": "Which oral anticoagulant is known for inhibiting activated Factor Xa and is used for prophylaxis and treatment of deep vein thrombosis (DVT)?",
+   "options": {
+    "A": "Warfarin",
+    "B": "Dabigatran",
+    "C": "Apixaban",
+    "D": "Ethylbiscoumacetate"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Apixaban, an oral anticoagulant, directly inhibits activated Factor Xa, thereby reducing clot formation by preventing the conversion of prothrombin to thrombin."
+    },
+    {
+     "type": "paragraph",
+     "text": "NOVEL ORAL ANTICOAGULANTS: Category Direct Factor Xa Inhibitors Direct Thrombin Inhibitors Mechanism of action Inhibit Factor Xa directly Inhibit thrombin (Factor IIa) directly Drugs Apixaban, Rivaroxaban, Edoxaban, Betrixaban Dabigatran, Ximelagatran Uses Prophylaxis of venous thromboembolism following knee or hip replacement surgery. Prophylaxis of stroke in patients with atrial fibrillation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Treatment of deep vein thrombosis and pulmonary embolism. Advantages of novel anticoagulants over warfarin Rapid onset and offset of action. No need for routine laboratory monitoring. Lower risk of bleeding. Fewer drug interactions."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-50-7",
+   "question": "Which form of Vitamin K is used as an antidote for coumarin anticoagulant overdose, such as warfarin?",
+   "options": {
+    "A": "Vitamin K1",
+    "B": "Vitamin K2",
+    "C": "Vitamin K3",
+    "D": "Vitamin K4"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Vitamin K1 (phytonadione) is an antidote for coumarin anticoagulant overdose, such as warfarin, by promoting the synthesis of clotting factors in the liver. VITAMIN K: Forms Use Adverse Effects Vitamin K1 (Phytonadione) Antidote for coumarin anticoagulant overdose (e.g., warfarin). Prophylaxis and treatment of Vitamin K deficiency bleeding. Newborns to prevent hemorrhagic disease of the newborn. Severe anaphylactoid reactions on IV injection."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Vitamin K2 (Menaquinone) (Option B):** Bone metabolism and Calcium regulation in bones and arteries. Used in osteoporosis. Generally considered safe. Very few reported adverse effects."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Vitamin K3 (Menadione) (Option C):** Not commonly used for anticoagulant reversal. Hemolysis (especially in G6PD deficiency). Risk of kernicterus in newborns."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-50-8",
+   "question": "Which drugs exert their anticoagulant effect primarily by binding to antithrombin III (AT-III) to inhibit factor Xa selectively?",
+   "options": {
+    "A": "Lepirudin",
+    "B": "Dabigatran",
+    "C": "Fondaparinux",
+    "D": "Heparin"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Fondaparinux is a synthetic pentasaccharide that exerts its anticoagulant effect by binding to antithrombin III (AT-III) and selectively inhibiting factor Xa through enhanced AT-III activity. It does not directly inhibit thrombin (factor IIa), making it a specific factor Xa inhibitor. Type Mechanism of Action Drugs Direct Thrombin Inhibitors Inhibit thrombin (factor IIa) directly without cofactors. Hirudin derivatives: Hirudin, Lepirudin."
+    },
+    {
+     "type": "paragraph",
+     "text": "Non-hirudin (Synthetic): Argatroban, Bivalirudin. Indirect Thrombin Inhibitors Enhance antithrombin III activity to inhibit thrombin indirectly."
+    },
+    {
+     "type": "paragraph",
+     "text": "Unfractionated Heparin: Heparin Long chain of molecule bind to both factor 2 and 10 Low Molecular Weight Heparin (LMWH): Enoxaparin, Dalteparin, Tinzaparin Long chain of molecule binds to factor 10 > 2 Ultra Low Molecular Weight Heparin (ULMWH): Fondaparinux, Idraparinux, Danaparoid (not commonly used) Long chain of molecule bind selectively to factor 2 Synthetic Direct Factor Xa Inhibitors Bind directly to factor Xa to inhibit its activity."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Fondaparinux, Idraparinux Lepirudin (Option A):** Incorrect- acts as a direct thrombin inhibitor, not through AT-III."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Dabigatran (Option B):** Incorrect- directly inhibits thrombin, and does not bind to AT-III."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Heparin (Option D):** Incorrect- although it binds to AT-III, it inhibits both factor Xa and thrombin, not selectively Xa."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-50-9",
+   "question": "Which of the following statements is not true regarding the features of various types of heparin?",
+   "options": {
+    "A": "ULMW heparin has the shortest half-life.",
+    "B": "LMW heparin is primarily excreted through urine.",
+    "C": "HMW heparin requires monitoring of aPTT.",
+    "D": "Fondaparinux is a synthetic pentasaccharide heparin"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "ULMW (Ultra-low molecular weight) heparin has the longest half-life among the three types (HMW, LMW, and ULMW). Type of Heparin Mechanism of Action Features High Molecular Weight (HMW) Heparin (unfractionated) Binds to antithrombin III, inhibits thrombin and factor Xa. Derived from porcine intestine or bovine lung. Requires monitoring of aPTT Shorter half-life."
+    },
+    {
+     "type": "paragraph",
+     "text": "Safe in renal failure Low Molecular Weight (LMW) Enoxaparin, Dalteparin Preferentially inhibits factor Xa. Derived from LMW fragments of unfractionated heparin. Primarily renal excretion Monitoring of anti-factor Xa levels. Ultra Low Molecular Weight (ULMW) Fondaparinux Selectively inhibits factor Xa. Synthetic pentasaccharide Longer half-life. No routine monitoring is needed for coagulation parameters."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-50-10",
+   "question": "A 65-year-old man who was admitted to the ICU due to septicemia started showing features of disseminated intravascular coagulation. He was then started on a parenteral anticoagulant injection. Which of the following anticoagulants was most probably used in this patient?",
+   "options": {
+    "A": "Fondaparinux",
+    "B": "Enoxaparin",
+    "C": "Unfractionated heparin",
+    "D": "All of the above"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Unfractionated heparin is the drug of choice for Disseminated intravascular coagulation (DIC), as it has Rapid onset of action is crucial during the management of DIC. A short half-life helps in quick cessation of action if needed. Toxicity can be easily reversed with protamine sulfate."
+    },
+    {
+     "type": "paragraph",
+     "text": "The dose can be titrated by monitoring apTT. Uses Contraindication HMWH Unfractionated heparin (Option C) Disseminated intravascular coagulation Hemodialysis Atrial fibrillation Maintain patency of cannulae and shunts."
+    },
+    {
+     "type": "paragraph",
+     "text": "Any major bleed Thrombocytopenia Heparin-induced thrombocytopenia Cerebrovascular accident Aneurysm Recent CNS surgery or ophthalmic surgery Severe renal impairment (except for unfractionated heparin) GIT ulcer Hemophilia Severe uncontrolled hypertension Bacterial endocarditis Hypersensitivity to heparin Large malignancies Liver cirrhosis Tuberculosis LMWH Dalteparin Enoxaparin (Option B) Tinzaparin Prophylaxis of Deep vein thrombosis & Pulmonary embolism Treatment of Acute coronary syndrome & Antiphospholipid syndrome."
+    },
+    {
+     "type": "paragraph",
+     "text": "**ULMWH Fondaparinux (Option A):** Idraparinux"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-50-11",
+   "question": "A 48-year-old man who was recently diagnosed with unstable angina was started on heparin. After 2 days, he developed ‘Heparin-induced thrombocytopenia’. Which of the following types of heparin is not associated with HIT?",
+   "options": {
+    "A": "Unfractionated heparin",
+    "B": "Enoxaparin",
+    "C": "Dalteparin",
+    "D": "Fondaparinux"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Fondaparinux is a synthetic ultra-low molecular weight heparin that is not associated with heparin-induced thrombocytopenia. Adverse effects of heparin: Hemorrhage due to heparin toxicity 1st sign is hematuria, which can affect the GIT, CVS and joints. Antidote - Protamine sulfate (most effective against UFH and least effective against ULMWH)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Heparin-induced thrombocytopenia Serotonin assay shows elevated levels of serotonin (released from platelet) Management - discontinue heparin + start on direct thrombin inhibitor (argatroban, lepirudin) All types of heparin except for Fondaparinux cause HIT Other adverse effects of heparin: Hyperkalemia (due to aldosterone synthesis inhibition) Osteoporosis Transient and reversible alopecia Hypersensitivity reaction (rigor, chills, fever and anaphylaxis)"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L50_Q011_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-50-12",
+   "question": "Which anticoagulant is preferred for treating patients with heparin-induced thrombocytopenia (HIT) due to its specific indication, effectiveness in avoiding cross-reactivity with heparin antibodies, and safety profile?",
+   "options": {
+    "A": "Warfarin",
+    "B": "Fondaparinux",
+    "C": "Argatroban",
+    "D": "Enoxaparin"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Argatroban is a direct thrombin inhibitor that binds directly to the active site of thrombin, inhibiting its activity. Unlike heparin, which enhances the activity of antithrombin III (AT-III), argatroban does not require AT-III for its anticoagulant effect. This makes it effective in patients with heparin-induced thrombocytopenia (HIT), where antibodies to heparin-platelet factor 4 complexes cause immune-mediated thrombosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Aspect Argatroban Mechanism of Action (MOA) It is a direct thrombin inhibitor that binds reversibly to the catalytic site of thrombin, inhibiting its activity. It prevents thrombin-mediated conversion of fibrinogen to fibrin and inhibits platelet activation and aggregation. Adverse Effects Bleeding (ranging from minor to severe haemorrhage). Hypersensitivity reactions. Elevated liver enzymes. Local irritation at the injection site."
+    },
+    {
+     "type": "paragraph",
+     "text": "Uses Prophylaxis and treatment of thrombosis in patients at risk of HIT. Contraindications Active major bleeding Hypersensitivity to Argatroban. Severe hepatic impairment. Concomitant use with strong CYP3A4 inhibitors."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-50-13",
+   "question": "A 28-year-old pregnant female who is in her first trimester was diagnosed with antiphospholipid syndrome. As a prophylaxis for thrombosis and risk of miscarriage, anticoagulant therapy was started. Which of the following anticoagulant agents is unsafe to use during the first trimester of pregnancy?",
+   "options": {
+    "A": "Fondaparinux",
+    "B": "Warfarin",
+    "C": "Dalteparin",
+    "D": "Unfractionated heparin"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Warfarin is contraindicated in the first trimester of pregnancy as it is teratogenic, leading to Congenital warfarin syndrome. If used early in pregnancy Hypoplasia of the nose (saddle nose), eye sockets. Hypoplasia of limbs. Growth retardation. And if used later in pregnancy, it can lead to CNS defects. Fetal haemorrhage. Neonatal hypoprothrombinemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "Heparin is safe to use during pregnancy since it does not cross the placenta, and it is employed in conditions such as antiphospholipid syndrome, deep vein thrombosis, and pulmonary embolism. Novel oral anticoagulants (NOAC) such as Dabigatran and Apixaban are also not preferred during pregnancy or lactation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Gestational period Anticoagulants preferred 0-12 weeks LMW/ULMW heparin 12-36 weeks LMW/ULMW heparin As organogenesis is completed, Warfarin may be used only in cases of patients with mechanical prosthetic valves 36 weeks till delivery LMW/ULMW heparin During delivery No anticoagulant is used due to the risk of postpartum hemorrhage During lactation Warfarin is preferred over heparin"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L50_Q013_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-50-14",
+   "question": "A 78-year-old male patient presents to the emergency department with features of acute deep vein thrombosis. The patient has a history of atrial fibrillation and chronic kidney disease. He is currently on anticoagulant therapy. Which set of anticoagulants is safe to use in this patient?",
+   "options": {
+    "A": "Warfarin and Fondaparinux",
+    "B": "Warfarin and unfractionated heparin",
+    "C": "Unfractionated heparin and Dabigatran",
+    "D": "Rivaroxaban and Fondaparinux"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Warfarin and unfractionated heparin are safe for patients with chronic kidney disease."
+    },
+    {
+     "type": "paragraph",
+     "text": "Drug Excretion Safety in renal disease Warfarin (Vitamin K antagonist) Hepatic excretion Safe Unfractionated heparin (High molecular weight heparin) Reticuloendothelial cells and hepatic excretion Safe Fondaparinux (Ultra-low molecular weight heparin) Renal excretion Unsafe Dabigatran (Direct thrombin inhibitor) Renal excretion Unsafe Rivaroxaban (Direct factor Xa inhibitor) Renal and hepatic excretion Unsafe Warfarin and Fondaparinux (Option A): Fondaparinux is contraindicated or requires dose adjustment in CKD due to renal clearance, increasing bleeding risk."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Unfractionated heparin and Dabigatran (Option C):** Dabigatran is renally excreted and unsafe in significant CKD."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Rivaroxaban and Fondaparinux (Option D):** Both drugs are renally cleared and unsafe in patients with severe CKD."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-50-15",
+   "question": "Match the following anticoagulants with their antidotes. Anticoagulants Antidote 1. Warfarin A. Protamine Sulfate 2. Heparin B. Andexanet Alfa 3. Dabigatran C. Vitamin K 4. Apixaban D. Idarucizumab",
+   "options": {
+    "A": "1-B, 2-C, 3-A, 4-D",
+    "B": "1-C, 2-A, 3-D, 4-B",
+    "C": "1-C, 2-D, 3-B, 4-A",
+    "D": "1-B, 2-A, 3-C, 4-D"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Anticoagulant Antidote Mechanism Warfarin Vitamin K Vitamin K helps reverse the warfarin-induced inhibition of Vitamin K epoxide reductase, resulting in ↑ carboxylation and activation of clotting factors II, VII, IX, and X. Heparin Protamine Sulfate It neutralises and prevents the binding of heparin and antithrombin III. Dabigatran Idarucizumab It is a monoclonal antibody that binds to dabigatran and neutralises its anticoagulant activity."
+    },
+    {
+     "type": "paragraph",
+     "text": "Apixaban Andexanet Alfa It acts as a decoy receptor for apixaban, binds to apixaban, and reverses its anticoagulant effects."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-51-1",
+   "question": "Which of the following features of iron dextran is NOT true?",
+   "options": {
+    "A": "It can be administered intravenously (IV) or intramuscularly (IM).",
+    "B": "It is useful for patients with chronic gastrointestinal blood loss.",
+    "C": "Staining of subcutaneous fat can occur with IM injections",
+    "D": "Allergy testing is not required before administration."
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Allergy testing needed before iron dextran due to severe adverse reactions risk. More prone to hypersensitivity reactions than newer formulations. Not recommended for patients with rheumatoid arthritis or connective tissue diseases."
+    },
+    {
+     "type": "paragraph",
+     "text": "Indications for parenteral iron therapy: Intolerance to oral iron (e.g., severe GI upset) Inability to absorb oral iron (e.g., malabsorption syndromes) Non-compliance with oral iron therapy Severe iron deficiency anemia with chronic bleeding Need for rapid iron repletion (e.g., CKD patients on erythropoietin therapy) Parenteral Iron Formulation & ROA Anaphylaxis Risk Uses Disadvantages Iron dextran (IV, IM) Yes Useful for patients with chronic gastrointestinal blood loss."
+    },
+    {
+     "type": "paragraph",
+     "text": "Subcutaneous fat staining with IM injections (Z-track technique helps prevent staining) Allergy testing required before administration Not preferred in rheumatoid arthritis or connective tissue diseases Iron sorbitol citrate (IM) Yes Iron sucrose (IV) No Safer than iron dextran. Indicated for anemia in patients with kidney disease."
+    },
+    {
+     "type": "paragraph",
+     "text": "Total dose IV infusion not possible Reports of kidney damage exist Avoid oral iron concurrently and for 5 days after the last injection."
+    },
+    {
+     "type": "paragraph",
+     "text": "Ferric gluconate (IV) No About 80% is delivered to transferrin within 24 hours Safer than iron dextran Parenteral Iron Dose Calculation: The Ganzoni formula can be used to calculate the total iron dose needed for a patient: Total iron dose = Weight (kg) x [15 - Current Hb (g/dL)] x 2.4 + 500 (to replenish stores) Where: Hb deficit = 15 - Current Hb (g/dL)"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-51-2",
+   "question": "A 55-year-old male patient with CKD presents complaining of persistent fatigue and weakness. Labs reveal anaemia. After assessing the patient's medical history and conducting further investigations, the physician decides to prescribe an erythropoiesis-stimulating agent to manage the anaemia associated with CKD. Which of the following is the longest-acting erythropoietin analogue?",
+   "options": {
+    "A": "Epoetin alfa",
+    "B": "Darbepoetin",
+    "C": "Peginesatide",
+    "D": "Daprodustat"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Peginesatide is a synthetic erythropoiesis-stimulating agent (ESA), specifically designed with a long half-life, allowing once-monthly dosing. It is a pegylated peptide that binds to and activates the erythropoietin receptor like erythropoietin, stimulating red blood cell production. It is used particularly in anemia of chronic kidney disease (CKD) patients on dialysis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Comparison of erythropoiesis-stimulating agents: Drug Type Dosing Frequency Half-life Epoetin alfa Recombinant human EPO 1–3 times/week ~8 hours (IV), ~24 h (SC) Darbepoetin Modified EPO with added sialic acid Weekly to biweekly ~21–49 hours (SC) Peginesatide Pegylated synthetic EPO receptor agonist Once monthly (longest-acting) ~130 hours Daprodustat Oral HIF-PH inhibitor (not EPO analog) Daily oral ~3–5 hours Epoetin alfa (Option A): Incorrect- short-acting, requires frequent dosing (multiple times per week)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Darbepoetin (Option B):** Incorrect - longer-acting than epoetin but shorter than peginesatide; used weekly or biweekly."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Daprodustat (Option D):** Incorrect- not an EPO analogue; it’s a HIF prolyl hydroxylase inhibitor that increases endogenous EPO production."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-51-3",
+   "question": "A 45-year-old male patient with non-Hodgkin's lymphoma is undergoing high-dose chemotherapy. Post-chemotherapy, he develops severe neutropenia. His oncologist decides to use a hematopoietic drug to stimulate neutrophil production. Which of the following treatments is most appropriate for managing his condition?",
+   "options": {
+    "A": "Erythropoietin",
+    "B": "Vitamin B12 and folic acid",
+    "C": "Filgrastim",
+    "D": "Plerixafor"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Filgrastim (Recombinant human G-CSF) treats severe neutropenia post-autologous hematopoietic stem cell transplantation and high-dose cancer chemotherapy. Drug Name Mechanism of Action Clinical Uses G-CSF (Glycoprotein with 175 amino acids) Stimulates colony forming unit (CFU) granulocytes to increase neutrophil production."
+    },
+    {
+     "type": "paragraph",
+     "text": "Enhances phagocytic and cytotoxic activities of neutrophils Treats severe neutropenia after autologous hematopoietic stem cell transplantation and high-dose cancer chemotherapy Treats severe congenital neutropenias Filgrastim (Recombinant human G-CSF) (Option C) Same use as G-CSF Treats neutropenia in patients with AIDS receiving zidovudine Used in patients undergoing peripheral blood stem cells collection for stem cell transplantation PEG-Filgrastim (Longer acting pegylated form of G-CSF) Prevention of chemotherapy-induced neutropenia Sargramostim (Recombinant human GM-CSF) Stimulates myelopoiesis Autologous marrow transplantation treatment Mobilizes CD34+ progenitor cells for peripheral blood stem cell collection post-myeloablative chemotherapy Treats neutropenia in patients on intensive cancer chemotherapy Supports myelopoiesis in cyclic neutropenia, myelodysplasia, aplastic anemia, and AIDS-associated neutropenia Molgramostim Targets GM-CSF receptors on bone marrow precursor cells Increases granulocytes and monocytes Approved for chemotherapy-induced neutropenia Plerixafor: Mobilizes hematopoietic stem cells to peripheral blood (used with G-CSF, not alone for neutropenia)"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-51-4",
+   "question": "A 60-year-old male patient with chronic hepatitis C is scheduled to undergo a liver biopsy. He has a history of thrombocytopenia, with a platelet count of 45,000/µL, which poses a risk for bleeding during the procedure. His hepatologist decides to use a pharmacological agent to increase his platelet count before the surgery. Which of the following treatments is most appropriate to achieve this goal?",
+   "options": {
+    "A": "Romiplostim",
+    "B": "Eltrombopag",
+    "C": "Erythropoietin",
+    "D": "IV IG (Intravenous Immunoglobulin)"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Eltrombopag is a thrombopoietin receptor agonist that stimulates megakaryocyte proliferation and differentiation, thereby increasing platelet production. It is specifically approved for thrombocytopenia in chronic liver disease patients undergoing invasive procedures like liver biopsy. Platelet counts below 50,000/µL are a contraindication to liver biopsy without intervention; eltrombopag helps temporarily raise platelet counts to safer levels."
+    },
+    {
+     "type": "paragraph",
+     "text": "Management of thrombocytopenia in chronic liver disease Parameter Details Common cause Hypersplenism and decreased thrombopoietin due to liver dysfunction Risk in biopsy Bleeding risk increased if platelets < 50,000/µL Preferred drug Eltrombopag (oral) or Lusutrombopag, both raise platelet count Onset of action ~10–14 days; used pre-procedure Use Temporary elevation before high-risk procedures Eltrombopag (Option B): Correct."
+    },
+    {
+     "type": "paragraph",
+     "text": "Approved for thrombocytopenia in chronic liver disease before surgery."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Erythropoietin (Option C):** Incorrect. Stimulates RBC production, not platelets."
+    },
+    {
+     "type": "paragraph",
+     "text": "**IVIG (Option D):** Incorrect. Used in immune thrombocytopenia (ITP) for rapid increase, not effective or approved for liver disease–related thrombocytopenia."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-51-5",
+   "question": "A 35-year-old female presents with symptoms of fatigue, pallor, and shortness of breath. Laboratory tests reveal a haemoglobin level of 9 g/dL and microcytic hypochromic red blood cells, consistent with iron deficiency anemia. She is prescribed oral ferrous sulfate. What is the earliest sign that indicates a positive response to iron therapy?",
+   "options": {
+    "A": "An increase in serum ferritin levels",
+    "B": "A rise in haemoglobin levels",
+    "C": "An increase in reticulocyte count",
+    "D": "Improvement in symptoms of fatigue"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Early response to iron therapy: Increased reticulocyte count within days to a week. Reticulocytes rise as bone marrow produces more red blood cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "Oral Iron Characteristic Information Factors Increasing Absorption Best in acidic environment, take on empty stomach Taking iron with vitamin C increases absorption Factors Decreasing Absorption PPIs and antacids lowers absorption Tetracycline binds to iron, reducing absorption Food, tea, coffee contain phytates and tannins that decrease iron absorption Calcium reduces iron absorption by forming insoluble complexes with non-heme iron in the intestine, Side Effects Nausea, vomiting, diarrhea, constipation Black stools and tongue indicate regular iron intake Indications for Parenteral Iron Severe GI irritation or poor compliance: Start parenteral iron Iron Content of Preparations Ferrous sulfate (most common, DOC for iron deficiency anemia): 32% iron."
+    },
+    {
+     "type": "paragraph",
+     "text": "Ferrous gluconate: 12% iron. Ferrous fumarate (maximum iron content): 33% iron. Ferrous sulfate hydrate: 20% iron."
+    },
+    {
+     "type": "paragraph",
+     "text": "Ferrous ascorbate - new preparation containing Vitamin C (↑ iron absorption) Earliest Response to Therapy Increase in reticulocyte count: Earliest response to iron therapy Hemoglobin levels increase by 0.5-1% per week in microcytic anemia Oral and parenteral iron equally effective for treating iron deficiency anemia An increase in serum ferritin levels (Option A): Incorrect. Ferritin increases later, after iron stores begin to refill."
+    },
+    {
+     "type": "paragraph",
+     "text": "**A rise in haemoglobin levels (Option B):** Incorrect. Hemoglobin starts rising after 1–2 weeks, not the earliest indicator."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Improvement in symptoms of fatigue (Option D):** Incorrect. Symptomatic relief occurs after several days to weeks."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-51-6",
+   "question": "Match the diseases with their respective chelator of choice for treatment: Poisoning Chelators 1. Bismuth poisoning A. BAL (Dimercaprol) 2. Copper poisoning B. Penicillamine 3. Iron poisoning in thalassemia C. Calcium Disodium EDTA 4. Cadmium poisoning D. Deferoxamine 5. Acute iron poisoning E. Deferiprone",
+   "options": {
+    "A": "1-A, 2-B, 3-E, 4-C, 5-D",
+    "B": "1-D, 2-C, 3-E, 4-B, 5-A",
+    "C": "1-B, 2-D, 3-E, 4-A, 5-C",
+    "D": "1-A, 2-C, 3-E, 4-D, 5-B"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Chelators form stable complexes with metallic ions, used mainly in heavy metal poisonings. They bind to toxic metals, preventing interaction with essential biomolecules. Chelation involves ring structure formation within the molecule. Effective chelating agents possess several key properties: Higher affinity for toxic metals: Must outcompete body ligands for binding."
+    },
+    {
+     "type": "paragraph",
+     "text": "Greater affinity for toxic metals than calcium: Crucial due to calcium abundance in plasma. Appropriate distribution: Aligns with target metal distribution in the body. Water solubility: Essential for effective chelation and excretion."
+    },
+    {
+     "type": "paragraph",
+     "text": "Chelator Uses Other Information Dimercaprol (BAL) Arsenic poisoning Mercury poisoning Gold poisoning Bismuth poisoning Nickel poisoning Antimony poisoning Lead poisoning (as adjuvant to Calcium Disodium EDTA) Wilson's disease (as adjuvant to Penicillamine) C/I in iron and cadmium poisoning because the complexes are toxic."
+    },
+    {
+     "type": "paragraph",
+     "text": "Calcium Disodium EDTA Lead poisoning Zinc poisoning Copper poisoning Manganese poisoning Cadmium poisoning Radioactive metal poisoning DOC for Manganese, lead, Cadmium poisoning Not effective in mercury poisoning due to mercury's tight binding and localization in deep tissues (inaccessible) Doesn't enter brain or CSF, removes toxic metals from accessible sites only."
+    },
+    {
+     "type": "paragraph",
+     "text": "Penicillamine Wilson's disease Copper poisoning Mercury poisoning Lead poisoning (as adjuvant to Calcium Disodium EDTA) Cystinuria and cystine stones Scleroderma DOC for copper poisoning Alternative drug to dimercaprol/succimer for mercury poisoning. Desferoxamine Acute iron poisoning Transfusion siderosis Given parenterally."
+    },
+    {
+     "type": "paragraph",
+     "text": "Not preferred in chronic iron overload (Deferiprone is preferred) Deferiprone Iron poisoning Transfusion siderosis in thalassemia patients Oral drug. Less effective than deferoxamine for iron overload due to repeated blood transfusion. Dimercaptosuccinic acid (Succimer) Arsenic poisoning Mercury poisoning Lead poisoning May chelate some essential metals like copper and zinc."
+    }
+   ]
+  }
+ ]
+}

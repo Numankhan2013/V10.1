@@ -68,3 +68,21 @@ six figure archives.
 - **Option rulings stay inline.** As in Pathology, the PDF prints
   explanations flat; the restructure pack (`docs/EXPLANATION_RESTRUCTURE.md`)
   can be pointed at this bank once Pathology's run is in.
+
+## Cut-off openings and the restructure pack (2026-10-17)
+
+- **112 explanations open mid-word or mid-sentence in the PDF itself**
+  ("Explanation: ue to alpha 1a…", "Explanation: : There is no…"). The shared
+  builder now repairs what it can. In 74, the first word lost one or two
+  letters, and the full word is the only completion found elsewhere in the
+  bank ("ue" → "Due", "drenaline" → "Adrenaline", "losetron" → "Alosetron").
+  In the other 38 a whole label is gone ("is a prodrug…"). Those words cannot
+  be recovered, so only the stray leading punctuation is dropped and a review
+  note says so. Pathology had one such case (25-19, a leading comma).
+- **Restructure pack.** `tools/explanation_restructure.py` takes `--bank`, or
+  reads the bank from the result file's name or folder. Pharmacology batches:
+  `data/Prepladder/pharmacology/restructure/batches/pharmacology-001` … `066`
+  (1,315 questions; the 6 with no explanation are left out). Worked examples:
+  `restructure/examples/example-result.json`. Instructions and prompts:
+  `docs/EXPLANATION_RESTRUCTURE.md`. Only squashed explanations get
+  restructured; clean one-paragraph-per-option explanations stay unchanged.

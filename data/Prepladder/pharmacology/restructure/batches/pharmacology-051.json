@@ -1,0 +1,625 @@
+{
+ "batch": "pharmacology-051",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pharmacology-051",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pharmacology-42-79",
+   "question": "A patient presented with fever and eschar (as shown in the image below). What will be the treatment?",
+   "options": {
+    "A": "Doxycycline",
+    "B": "Doxycycline + Azithromycin",
+    "C": "Ceftriaxone + Doxycycline",
+    "D": "Ceftriaxone"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The given clinical picture with fever and eschar (site of the bite) is suggestive of mild to moderate Scrub Typhus in which only Doxycycline is given. Scrub typhus Causative agent Orientia tsutsugamushi (bacteria) Transmission Chiggers (larval mites) Vector Trombiculid mite ( Leptotrombidium ) Geographical distribution Endemic in the “tsutsugamushi triangle” (parts of Asia, Australia, Pacific Islands)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Clinical manifestations Fever, headache, muscle pain, eschar (dark, scab-like lesion at the site of bite), and lymphadenopathy. Diagnosis Serological tests (ELISA, immunofluorescence) and molecular methods (PCR). Treatment Antibiotics (Doxycycline, Azithromycin) Prevention Avoid mite-infested areas, wearing protective clothing, and using insect repellants."
+    },
+    {
+     "type": "paragraph",
+     "text": "Complications Organ failure, acute respiratory distress syndrome (ARDS), neurological complications."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Doxycycline + Azithromycin (Option B):** (Dual Therapy) is given in severe scrub typhus, which presents with high-grade fever, body pain, and end-organ damage."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Ceftriaxone + Doxycycline (Option C):** is not preferred in scrub typhus."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Ceftriaxone (Option D):** is incorrect because Doxycycline is a preferred drug in this case."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-80",
+   "question": "Which of the following steps does Vancomycin act on?",
+   "options": {
+    "A": "1",
+    "B": "2",
+    "C": "3",
+    "D": "4"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Vancomycin binds to the D-alanyl-D-alanine portion of peptidoglycan, which inhibits transglycosylase enzyme and reduces further elongation of peptidoglycan and cross-linking during the formation of the cell wall and this step is demonstrated by the 4th step in the above image."
+    },
+    {
+     "type": "paragraph",
+     "text": "Vancomycin MOA Cell wall synthesis inhibitor Binds to the D-alanyl-D-alanine portion of peptidoglycan, which inhibits transglycosylase enzyme and reduces further elongation of peptidoglycan and cross-linking during Uses Bactericidal agent against Gram +ve bacteria Pseudomembranous colitis(oral) MRSA E. faecalis Enterococcal endocarditis (Alternative therapy) Resistance Seen in enterococci - due to alteration in its binding side where D-ala is replaced by D-lactate Adverse effects Nephrotoxicity Ototoxicity Red man syndrome Phlebitis Step 1 (Option A) is inhibited by Fosfomycin via inhibition of enolpyruvyl transferase enzyme, which is involved in the synthesis of peptidoglycan precursors."
+    },
+    {
+     "type": "paragraph",
+     "text": "This will prevent the formation of UDP-N-acetyl muramic acid, precursor of N-acetyl muramic acid Step 2 (Option B) is inhibited by Cycloserine, which inhibits the formation of peptidoglycan cross-links by interfering with the synthesis of peptidoglycan. This will inhibit alanine racemase that converts L-alanine to D-alanine."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Step 3 (Option C):** is inhibited by Bacitracin, which blocks the dephosphorylation of the lipid carrier and prevents the recycling of the carrier required for peptidoglycan synthesis."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-81",
+   "question": "A patient who was on warfarin therapy for atrial fibrillation is prescribed a Cephalosporin for the treatment of a lower respiratory tract infection. He comes back to the hospital after having developed hemarthrosis. Which of the following cephalosporins is likely to have caused this?",
+   "options": {
+    "A": "Cefixime",
+    "B": "Cefoperazone",
+    "C": "Ceftobiprole",
+    "D": "Ceftazidime"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "In a patient taking warfarin, the most likely Cephalosporine to cause hemarthrosis is Cefoperazone. Cephalosporins containing a methylthiotetrazole (NMTT) group can prolong the prothrombin time, which causes clinically significant bleeding in patients already on anticoagulant therapy or having vitamin K deficiency."
+    },
+    {
+     "type": "paragraph",
+     "text": "NMTT cephalosporins inhibit the enzyme vitamin K epoxide reductase in the liver, which is the key enzyme for vitamin K-dependent carboxylation, which is essential for the biological activation of coagulation factors. NMTT group containing cephalosporins include latamoxef, cefoperazone, cefotetan and cefamandole."
+    },
+    {
+     "type": "paragraph",
+     "text": "Vitamin K epoxide reductase is also the target of anticoagulants like warfarin thus, when a cephalosporin-containing NMTT group is given to a patient taking warfarin, it can lead to clinically significant bleeding such as Hearthrosis. Oral administration of vitamin K can prevent this bleeding."
+    },
+    {
+     "type": "paragraph",
+     "text": "Cephalosporin and its uses 1st gen 2nd gen 3rd gen 4th gen 5th gen Cephazolin Cephalexin Cefadroxil Cefuroxime Cefoxitin Cefaclor Cefprozil Cefotaxime Ceftizoxime Ceftriaxone Ceftazidime Cefpodoxime proxetil Cefdinir Ceftibuten Ceftamet pivoxil Cefepime Cefpirome Ceftaroline Ceftobiprole First generation ENT, upper respiratory & cutaneous infections Surgical prophylaxis Second generation Mixed aerobic-anaerobic infections Third generation Ceftriaxone/Cefotaxime: empirical therapy for meningitis Ceftazidime: Pseudomonas meningitis STI: Gonorrhea, chancroid, syphilis Enteric fever Patients with neutropenia Fourth generation Nosocomial infections (intensive care borne) Fifth generation Penicillin resistant community acquired and hospital-acquired pneumonia by S.pneumoniae Penicillinase-producing S.aureus infections MRSA"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-82",
+   "question": "Which drug from the options provided is known as a protein synthesis inhibitor?",
+   "options": {
+    "A": "Linezolide",
+    "B": "Nevirapine",
+    "C": "Indinavir",
+    "D": "Ceftriazone"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Linezolid is a protein synthesis inhibitor. It belongs to a class of antibiotics known as oxazolidinones. Linezolid works by binding to the bacterial 23S ribosomal RNA of the 50S subunit, which prevents the formation of a functional 70S initiation complex. This ultimately inhibits bacterial protein synthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Nevirapine: Nevirapine is an antiretroviral medication used in the treatment of HIV/AIDS. It belongs to the class of drugs called non-nucleoside reverse transcriptase inhibitors (NNRTIs). Nevirapine inhibits the reverse transcriptase enzyme, which is necessary for the replication of the HIV virus, but it does not directly inhibit protein synthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Indinavir: Indinavir is an antiretroviral medication used in the treatment of HIV/AIDS. It belongs to the class of drugs called protease inhibitors. Indinavir works by inhibiting the protease enzyme, which is required for the replication of the HIV virus, but it does not directly inhibit protein synthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Ceftriaxone: Ceftriaxone is a broad-spectrum antibiotic belonging to the class of drugs called cephalosporins. It inhibits bacterial cell wall synthesis by binding to penicillin-binding proteins, leading to bacterial cell lysis. Ceftriaxone does not directly inhibit protein synthesis."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-83",
+   "question": "Which of the following anti-tubercular drugs is associated with ophthalmic toxicity?",
+   "options": {
+    "A": "Ethambutol",
+    "B": "Isoniazid",
+    "C": "Kanamycin",
+    "D": "Rifampin"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Ethambutol is an antimycobacterial drug commonly used in the treatment of tuberculosis. While it is effective in combating tuberculosis, it is also associated with ophthalmic toxicity as a potential adverse effect. Ethambutol can cause optic neuritis or retrobulbar neuritis, which involves inflammation of the optic nerve. This can lead to visual disturbances, blurred vision, and changes in color vision."
+    },
+    {
+     "type": "paragraph",
+     "text": "Ocular toxicity from ethambutol is dose-related and more likely at higher doses or with prolonged use. Regular monitoring of visual acuity, color vision, and visual fields is important during ethambutol therapy to detect any ocular toxicity."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Isoniazid: Isoniazid is a primary medication used in the treatment of tuberculosis. It is generally well-tolerated, but it can have adverse effects such as hepatotoxicity (liver damage), peripheral neuropathy (nerve damage in the limbs), and hypersensitivity reactions. However, it is not specifically associated with ophthalmic toxicity."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Kanamycin: Kanamycin is an aminoglycoside antibiotic occasionally used in the treatment of tuberculosis, particularly in cases of drug-resistant tuberculosis. While aminoglycosides can have various side effects, ophthalmic toxicity is not a commonly reported adverse effect associated with kanamycin use."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Rifampin: Rifampin is another primary medication used in the treatment of tuberculosis. It is generally well-tolerated, but it can have side effects such as hepatotoxicity, gastrointestinal disturbances, and flu-like symptoms. Ophthalmic toxicity is not commonly associated with rifampin use."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-84",
+   "question": "Which of the following drugs could potentially be responsible for the patient's development of nephrolithiasis?",
+   "options": {
+    "A": "Ketoconazole",
+    "B": "Indinavir",
+    "C": "Lamivudine",
+    "D": "Zidovudine"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Indinavir is a protease inhibitor used in the treatment of HIV/AIDS. While it is effective in suppressing the HIV virus, it has been associated with the development of nephrolithiasis. Indinavir crystals can precipitate in the urine, leading to kidney stone formation. Nephrolithiasis is a known side effect of indinavir therapy. However, central obesity, hyperlipidemia, and insulin resistance are not typically associated with indinavir use."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Ketoconazole: Ketoconazole is an antifungal medication and is not typically associated with nephrolithiasis. Common side effects of ketoconazole may include gastrointestinal upset, liver function abnormalities, and skin reactions."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Lamivudine: Lamivudine is a nucleoside reverse transcriptase inhibitor (NRTI) used in the treatment of HIV/AIDS. Lamivudine is generally well-tolerated.Common side effects of lamivudine may include gastrointestinal symptoms, headache, and fatigue."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Zidovudine: Zidovudine, also known as AZT, is an NRTI used in the treatment of HIV/AIDS. Zidovudine has been associated with various metabolic abnormalities. It can cause mitochondrial toxicity, which may result in fat redistribution, including central obesity. Zidovudine is also known to cause hyperlipidemia and insulin resistance."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-85",
+   "question": "Identify the incorrect pairing of antifungals with their respective mechanisms of action.:",
+   "options": {
+    "A": "Ketoconazole: Lanosterol-14-demethylase inhibition",
+    "B": "Flucytosine: Inhibits microtubule synthesis and thus hinders mitosis",
+    "C": "Terbinafine: Squalene epoxidase inhibition",
+    "D": "Amphotericin B: Sequesters ergosterol"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The correct mechanism of action of Flucytosine is different. Flucytosine is an antifungal medication that is converted into 5-fluorouracil within fungal cells. It interferes with fungal RNA and protein synthesis by inhibiting fungal DNA and RNA synthesis. It is primarily used in combination with other antifungal drugs for the treatment of systemic fungal infections."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Ketoconazole: Lanosterol-14-demethylase inhibition: Lanosterol-14-demethylase inhibition Ketoconazole is an antifungal medication that works by inhibiting the enzyme lanosterol-14-demethylase. This enzyme is responsible for converting lanosterol into ergosterol, which is an essential component of fungal cell membranes. By inhibiting this enzyme, ketoconazole disrupts the synthesis of ergosterol and leads to the accumulation of abnormal fungal cell membranes, ultimately causing fungal cell death."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Terbinafine: Squalene epoxidase inhibition: Terbinafine is an antifungal drug that inhibits the enzyme squalene epoxidase. This enzyme is involved in the synthesis of ergosterol, an essential component of fungal cell membranes. By inhibiting squalene epoxidase, terbinafine disrupts ergosterol synthesis and leads to the accumulation of squalene, causing fungal cell death."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Amphotericin B: Sequesters ergosterol: Sequesters ergosterol Amphotericin B is a broad-spectrum antifungal medication that binds to ergosterol, a key component of fungal cell membranes. It forms a complex with ergosterol, which results in the formation of pores or channels in the fungal cell membrane. This disruption of the cell membrane integrity leads to the leakage of intracellular contents and ultimately results in fungal cell death."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-86",
+   "question": "Which of the following is gametocidal to all the species causing malaria?",
+   "options": {
+    "A": "Primaquine",
+    "B": "Chloroquine",
+    "C": "Quinine",
+    "D": "None"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Primaquine is gametocidal to all species causing malaria. It is effective against both the asexual blood stages and the sexual forms (gametocytes) of the malaria parasite. It is primarily used for the treatment of Plasmodium vivax and Plasmodium ovale malaria."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Chloroquine: Chloroquine is primarily effective against the asexual blood stages of malaria parasites. It is commonly used for the treatment and prevention of malaria caused by Plasmodium falciparum and Plasmodium vivax. However, it is not gametocidal to all species causing malaria."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Quinine: Quinine is an older antimalarial drug that is primarily effective against the asexual blood stages of malaria parasites. It is used for the treatment of severe malaria caused by Plasmodium falciparum. Like chloroquine, it is not gametocidal to all species causing malaria."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-87",
+   "question": "What is the drug of choice for scrub typhus during pregnancy and otherwise respectively?",
+   "options": {
+    "A": "Chloramphenicol, Doxycycline",
+    "B": "Doxycycline, Doxycycline",
+    "C": "Doxycycline, Azithromycin",
+    "D": "Azithromycin, Doxycycline"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Azithromycin is the drug of choice for treating scrub typhus in pregnant women. It is considered safe for use during pregnancy and has been shown to effectively treat the infection. Doxycycline, on the other hand, is the preferred choice for non-pregnant individuals due to its efficacy Incorrect Options: Option A - Chloramphenicol, Doxycycline: Chloramphenicol is an antibiotic that can be used for the treatment of scrub typhus."
+    },
+    {
+     "type": "paragraph",
+     "text": "However, it is generally not the first-line choice due to its potential side effects, including a rare but serious condition called gray baby syndrome. Doxycycline is a tetracycline antibiotic that is highly effective against the bacteria that cause scrub typhus. It is commonly used in non-pregnant individuals for the treatment of scrub typhus."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Doxycycline, Doxycycline: Doxycycline is the drug of choice for treating scrub typhus in non-pregnant individuals. It is a broad-spectrum antibiotic that is effective against the bacteria causing scrub typhus. It is commonly used due to its efficacy and relatively low risk of adverse effects."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Doxycycline, Azithromycin: Doxycycline, as mentioned earlier, is effective against scrub typhus in non-pregnant individuals. Azithromycin is an alternative option that can be used for the treatment of scrub typhus in pregnant women. It is a macrolide antibiotic that is generally considered safe during pregnancy."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-88",
+   "question": "Which of the following is true about tedizolid?",
+   "options": {
+    "A": "Active against gram positive organisms",
+    "B": "Poor oral bioavailability",
+    "C": "Active against anaerobes",
+    "D": "Causes peripheral neuropathy"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Tedizolid is active against gram-positive organisms: Tedizolid is an antibiotic that belongs to the oxazolidinone class. It exhibits activity against a wide range of gram-positive bacteria, including methicillin-resistant Staphylococcus aureus (MRSA) and vancomycin-resistant Enterococcus faecalis (VRE)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Poor oral bioavailability: Tedizolid has good oral bioavailability, which means it can be effectively absorbed when taken orally."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Active against anaerobes: Tedizolid primarily targets gram-positive organisms and does not have significant activity against anaerobes."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Causes peripheral neuropathy: Peripheral neuropathy is not a known adverse effect of tedizolid."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-89",
+   "question": "A diabetic patient presents with a fungal sinus and peri-orbital region infection with significant visual impairment, as shown below. The most appropriate drug for the treatment of this patient is:",
+   "options": {
+    "A": "Itraconazole",
+    "B": "Liposomal amphotericin B",
+    "C": "Ketoconazole",
+    "D": "Broad spectrum antibiotics"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The most appropriate drug for the treatment of fungal infection in a diabetic patient with peri-orbital region involvement and significant visual impairment is liposomal amphotericin B. Fungal infections are common in diabetic patients due to hyperglycemia, decreased immunity, and impaired blood supply to tissues. Fungal infections can be superficial or systemic, and their treatment depends on the type and severity of the infection."
+    },
+    {
+     "type": "paragraph",
+     "text": "Amphotericin B is a broad-spectrum antifungal drug that is used to treat severe and life-threatening fungal infections. It is particularly effective against invasive fungal infections such as aspergillosis, candidiasis, and mucormycosis, which are more common in immunocompromised patients such as those with diabetes."
+    },
+    {
+     "type": "paragraph",
+     "text": "Liposomal amphotericin B is a newer formulation of amphotericin B that has a lower incidence of adverse effects such as nephrotoxicity and infusion-related reactions."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Itraconazole: Itraconazole is a triazole antifungal drug that is used to treat superficial and systemic fungal infections. It is particularly effective against dermatophyte infections such as tinea corporis, tinea cruris, and tinea pedis. It is less effective against invasive fungal infections such as aspergillosis and mucormycosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Ketoconazole: Ketoconazole is an imidazole antifungal drug that is used to treat superficial fungal infections such as dermatophytosis, candidiasis, and pityriasis versicolor. It is not effective against invasive fungal infections."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Broad spectrum antibiotics: Broad-spectrum antibiotics are ineffective against fungal infections and may even worsen the infection by killing beneficial bacteria and allowing fungal overgrowth."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-90",
+   "question": "Which of the following antimicrobials is effective against an organism producing extended-spectrum beta-lactamases?",
+   "options": {
+    "A": "Amoxicillin – Clavulanic acid",
+    "B": "Penicillin",
+    "C": "Piperacillin – Tazobactam",
+    "D": "Ceftriaxone"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Extended-spectrum beta-lactamases (ESBLs) are enzymes produced by certain bacteria that confer resistance to a broad range of beta-lactam antibiotics, including penicillins and cephalosporins. Piperacillin-Tazobactam: This combination antibiotic consists of piperacillin, a penicillin, and tazobactam, a beta-lactamase inhibitor."
+    },
+    {
+     "type": "paragraph",
+     "text": "Tazobactam inhibits the activity of beta-lactamases, including ESBLs, thereby restoring the efficacy of piperacillin against ESBL-producing bacteria."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Amoxicillin-Clavulanic acid: This combination antibiotic consists of amoxicillin, a penicillin, and clavulanic acid, a beta-lactamase inhibitor. While it is effective against some beta-lactamase-producing organisms, it may not be effective against ESBL-producing bacteria, as ESBLs can still hydrolyze the amoxicillin component."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Penicillin: Penicillin antibiotics are not effective against bacteria producing ESBLs, as these enzymes can hydrolyze and inactivate penicillins."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Ceftriaxone: Ceftriaxone is a cephalosporin antibiotic and is not effective against ESBL-producing bacteria. ESBLs can hydrolyze and inactivate cephalosporins, including ceftriaxone."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-91",
+   "question": "Which of the following is the drug of choice for scrub typhus?",
+   "options": {
+    "A": "Doxycycline",
+    "B": "Azithromycin",
+    "C": "Chloramphenicol",
+    "D": "Ciprofloxacin"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "This is the drug of choice for scrub typhus. Doxycycline is effective against Orientia tsutsugamushi and is commonly used as the first-line treatment."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Azithromycin: Azithromycin can be an alternative treatment option for scrub typhus, especially in cases where doxycycline is contraindicated or not tolerated. However, doxycycline is generally preferred due to its established efficacy."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Chloramphenicol: Chloramphenicol was previously considered the drug of choice for scrub typhus. However, due to its potential side effects and the availability of safer and more effective alternatives, such as doxycycline, it is no longer recommended as the first-line treatment."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Ciprofloxacin: Ciprofloxacin is not typically used as the first-line treatment for scrub typhus. Other antibiotics, such as doxycycline and azithromycin, are more commonly recommended."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-92",
+   "question": "An example of a bacteriostatic drug is ________________:",
+   "options": {
+    "A": "Aminoglycoside",
+    "B": "Vancomycin",
+    "C": "Metronidazole",
+    "D": "Linezolid"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Linezolid is an example of a bacteriostatic drug. It inhibits bacterial protein synthesis by binding to the 50S subunit of the bacterial ribosome, preventing the formation of functional ribosomes. This inhibits bacterial growth and replication without necessarily killing the bacteria. Therefore, linezolid is a bacteriostatic drug."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Aminoglycoside: Aminoglycosides such as gentamicin and amikacin are examples of bactericidal drugs. They work by inhibiting bacterial protein synthesis and killing the bacteria, rather than just inhibiting their growth. Therefore, aminoglycosides are not bacteriostatic drugs."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Vancomycin: Vancomycin is primarily a bactericidal drug. It interferes with bacterial cell wall synthesis, leading to cell lysis and bacterial death. Therefore, vancomycin is not a bacteriostatic drug."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Metronidazole: Metronidazole is primarily a bactericidal drug. It acts by disrupting the DNA structure and inhibiting nucleic acid synthesis in susceptible bacteria, leading to their death. Therefore, metronidazole is not a bacteriostatic drug."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-93",
+   "question": "Which of the following carbapenems has increased risk of causing seizures?",
+   "options": {
+    "A": "Meropenem",
+    "B": "Imipenem",
+    "C": "Etrapenem",
+    "D": "Doripenem"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Imipenem is a carbapenem antibiotic that has a higher risk of causing seizures compared to other carbapenems. It can lower the seizure threshold, especially at higher doses or in patients with underlying risk factors for seizures."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Meropenem: Meropenem is a carbapenem antibiotic that is generally associated with a lower risk of causing seizures compared to imipenem."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Etrapenem: Etrapenem is not a commonly used carbapenem. It has similar properties to other carbapenems but is less frequently prescribed."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Doripenem: Doripenem is a carbapenem antibiotic that is generally associated with a lower risk of causing seizures compared to imipenem"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-94",
+   "question": "What is the mechanism of triazoles?",
+   "options": {
+    "A": "Interferes with DNA and RNA synthesis",
+    "B": "Inhibition of ergosterol synthesis",
+    "C": "Forms pores in fungal membranes",
+    "D": "Inhibits epoxidation of squalene in fungi"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Option B - Inhibition of ergosterol synthesis: Triazoles are a class of antifungal medications that work by inhibiting the synthesis of ergosterol, a vital component of the fungal cell membrane. Ergosterol is the fungal equivalent of cholesterol in human cell membranes. Disruption of ergosterol synthesis impairs the integrity and function of the fungal cell membrane, leading to cell death and inhibition of fungal growth."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Interferes with DNA and RNA synthesis: Some antifungal medications, such as nucleoside analogs, do interfere with DNA and RNA synthesis in fungi, but this is not the mechanism of action of triazoles."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Forms pores in fungal membranes: This is the mechanism of action of polyenes, not triazoles. Polyenes like amphotericin B create pores in fungal membranes, disrupting their integrity."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Inhibits epoxidation of squalene in fungi: This describes the mechanism of allylamines, another class of antifungal drugs. Allylamines inhibit the conversion of squalene to ergosterol, but this is different from the mechanism of action of triazoles, which directly inhibit ergosterol synthesis."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-95",
+   "question": "Which of the following fluoroquinolones has maximum bioavailability?",
+   "options": {
+    "A": "Ciprofloxacin",
+    "B": "Levofloxacin",
+    "C": "Gatifloxacin",
+    "D": "Norfloxacin"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Levofloxacin is a fluoroquinolone antibiotic that exhibits high oral bioavailability. It is the L-isomer of ofloxacin and has a longer half-life compared to other fluoroquinolones. Due to its excellent bioavailability, it is widely used for various infections."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Ciprofloxacin: Ciprofloxacin is a commonly used fluoroquinolone antibiotic. While it has good bioavailability, it is not the fluoroquinolone with the maximum bioavailability."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Gatifloxacin: Gatifloxacin is another fluoroquinolone antibiotic. While it has good bioavailability, it is not the fluoroquinolone with the maximum bioavailability."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Norfloxacin: Norfloxacin is an older fluoroquinolone antibiotic. It has lower bioavailability compared to some of the newer fluoroquinolones and is typically used for urinary tract infections."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-96",
+   "question": "What is the mechanism of action of oseltamivir and zanamivir?",
+   "options": {
+    "A": "DNA polymerase inhibition",
+    "B": "Protein synthesis inhibition",
+    "C": "Nucleotide analogue",
+    "D": "Neuraminidase inhibition"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Both oseltamivir and zanamivir are neuraminidase inhibitors. Neuraminidase is an enzyme found on the surface of influenza viruses. By inhibiting neuraminidase, these drugs prevent the release of newly formed viral particles from infected cells, reducing the spread of the virus within the body."
+    },
+    {
+     "type": "paragraph",
+     "text": "This mechanism of action helps to decrease the severity and duration of influenza symptoms and can be effective in treating and preventing influenza infections."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - DNA polymerase inhibition: Oseltamivir and zanamivir do not inhibit DNA polymerase. DNA polymerase is an enzyme involved in DNA replication and is targeted by antiviral drugs used to treat viral infections such as herpes or hepatitis B."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Protein synthesis inhibition: Oseltamivir and zanamivir do not inhibit protein synthesis. Protein synthesis inhibitors are antibiotics that target bacterial ribosomes and interfere with the process of protein production."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Nucleotide analogue: Oseltamivir and zanamivir are not nucleotide analogues. Nucleotide analogues are compounds that mimic the structure of nucleotides and can be incorporated into viral DNA or RNA during replication, leading to chain termination and inhibition of viral replication."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-97",
+   "question": "What is the drug of choice for diphtheria carrier state?",
+   "options": {
+    "A": "Amoxicillin",
+    "B": "Erythromycin",
+    "C": "Rifampicin",
+    "D": "Tetracycline"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Erythromycin is the drug of choice for the diphtheria carrier state. It is effective against the Corynebacterium diphtheriae bacterium responsible for diphtheria. Erythromycin is typically used to treat carriers to prevent the spread of the disease to others, as carriers can still transmit the bacteria even if they do not exhibit symptoms of the disease."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options Option A - Amoxicillin: Amoxicillin is not the drug of choice for the diphtheria carrier state. While amoxicillin is an antibiotic commonly used to treat bacterial infections, it is not the preferred treatment for diphtheria carriers."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Rifampicin: Rifampicin is not the drug of choice for the diphtheria carrier state. rifampicin is a broad-spectrum antibiotic used to treat various bacterial infections."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Tetracycline: Tetracycline is not the drug of choice for the diphtheria carrier state. Although tetracycline is an antibiotic with a broad spectrum of activity against various bacteria, including some Corynebacterium species, it is not the recommended treatment for diphtheria carriers."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-42-98",
+   "question": "Drug of choice for nasal carriers of MRSA is:",
+   "options": {
+    "A": "Vancomycin",
+    "B": "Teicoplanin",
+    "C": "Mupirocin",
+    "D": "Linezolid"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Mupirocin is the drug of choice for nasal carriers of methicillin-resistant Staphylococcus aureus (MRSA). It is used topically in the nostrils to eliminate the colonization of MRSA."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Vancomycin: Vancomycin is an antibiotic used to treat systemic infections caused by MRSA. It is not specifically indicated for nasal carriers."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Teicoplanin: Teicoplanin is another antibiotic with activity against MRSA. Like Vancomycin, it is not the preferred choice for nasal carriers."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Linezolid: Linezolid is an antibiotic used for the treatment of infections caused by MRSA. However, Mupirocin is the specific drug of choice for nasal carriers in this context"
+    }
+   ]
+  }
+ ]
+}

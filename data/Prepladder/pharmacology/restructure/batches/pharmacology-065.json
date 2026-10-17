@@ -1,0 +1,525 @@
+{
+ "batch": "pharmacology-065",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pharmacology-065",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pharmacology-55-44",
+   "question": "Which is the anticoagulant of choice for the management of cancer–associated thromboembolism?",
+   "options": {
+    "A": "Unfractionated Heparin",
+    "B": "Warfarin",
+    "C": "Low molecular weight heparin",
+    "D": "Dabigatran"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "LMWH is derived from unfractionated heparin but has a smaller molecular size, which allows for more predictable anticoagulant effects and longer half-life. LMWH, such as enoxaparin or dalteparin, is typically administered subcutaneously once or twice daily and does not require routine monitoring."
+    },
+    {
+     "type": "paragraph",
+     "text": "It has demonstrated efficacy and safety in preventing and treating venous thromboembolism in cancer patients and is considered the anticoagulant of choice in this population."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Unfractionated Heparin: Unfractionated Heparin UFH requires continuous intravenous infusion or subcutaneous injections and necessitates monitoring of the activated partial thromboplastin time (aPTT) to adjust the dose. While UFH can be used in cancer-associated thromboembolism, it is generally less preferred compared to low molecular weight heparin (LMWH) due to the need for frequent monitoring and a higher risk of heparin-induced thrombocytopenia."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Warfarin: Warfarin is an oral vitamin K antagonist that inhibits the production of clotting factors in the liver. It requires regular monitoring of the international normalized ratio (INR) to maintain the desired level of anticoagulation. While warfarin is commonly used for long-term anticoagulation in various conditions, its use in cancer-associated thromboembolism is limited due to drug interactions, variable response, and the need for careful dose adjustment. Additionally, cancer patients may have an increased bleeding risk, which can complicate the use of warfarin."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Dabigatran: Dabigatran is a direct oral anticoagulant (DOAC) that directly inhibits thrombin, a key enzyme in the blood clotting process. While DOACs have gained popularity in various clinical settings, including non-valvular atrial fibrillation and venous thromboembolism, their use in cancer-associated thromboembolism is limited. The evidence for DOACs in this specific population is limited, and they may have interactions with certain cancer treatments."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-55-45",
+   "question": "Which of the following anti-CD 20 monoclonal antibodies is used in cancer therapy?",
+   "options": {
+    "A": "Methotrexate",
+    "B": "Rituximab",
+    "C": "Cisplatin",
+    "D": "5-Fluorouracil"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Rituximab is an anti-CD 20 monoclonal antibody used in cancer treatments. It blocks the CD20 receptor, which is a marker of B-lymphocyte. Incorrect options: Option A. Methotrexate is an antimetabolite. It is also a chemotherapy agent and immune suppressant. Option C. Cisplatin is an antineoplastic agent. Option D. 5-Fluorouracil is a cytotoxic drug."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-55-46",
+   "question": "Monoclonal antibody used in cancer?",
+   "options": {
+    "A": "Rituximab",
+    "B": "Cisplatin",
+    "C": "5-Fluorouracil",
+    "D": "Methotrexate"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Rituximab is a monoclonal antibody used in the treatment of certain types of cancer. It specifically targets and binds to a protein called CD20, which is found on the surface of B-lymphocytes. Rituximab works by promoting the destruction of cancerous B-cells and modulating the immune response against cancer."
+    },
+    {
+     "type": "paragraph",
+     "text": "Rituximab is primarily used in the treatment of B-cell non-Hodgkin lymphoma (NHL), including follicular lymphoma, diffuse large B-cell lymphoma, and chronic lymphocytic leukemia (CLL). It is also utilized in the management of certain autoimmune disorders, such as rheumatoid arthritis and pemphigus vulgaris."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Cisplatin: Cisplatin is a platinum-based chemotherapy drug that is not a monoclonal antibody. It works by damaging the DNA in cancer cells, leading to their death."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - 5-Fluorouracil: 5-Fluorouracil is a chemotherapy drug that inhibits the synthesis of DNA and RNA, leading to the destruction of cancer cells. It is not a monoclonal antibody."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Methotrexate: Methotrexate is a chemotherapy drug that interferes with DNA synthesis and cell division. It is used in the treatment of various cancers, as well as autoimmune conditions. However, it is not a monoclonal antibody."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-55-47",
+   "question": "Which is most cardiotoxic anticancer drug?",
+   "options": {
+    "A": "Anthracyclines",
+    "B": "Cyclophosphamide",
+    "C": "Tamoxifen",
+    "D": "Imatinib"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Daunorubicin and doxorubicin are anthracyclines. Epirubicin, idarubicin, and mitoxantrone are other anthracycline analogs. Doxorubicin's cardiotoxicity is primarily associated with its potential to cause damage to the heart muscle, leading to a condition called cardiomyopathy. It can result in symptoms such as shortness of breath, fatigue, chest pain, and fluid retention."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Cyclophosphamide: Cyclophosphamide belongs to alkylating agents Option C - Tamoxifen: Tamoxifen is a selective estrogen receptor modulator Option D - Imatinib: Imatinib is a tyrosine kinase inhibitor. All these drugs are less cardiotoxic than anthracyclines."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-55-48",
+   "question": "Which of the following drugs is associated with untoward side effects of renal tubular damage?",
+   "options": {
+    "A": "Cisplatin",
+    "B": "Streptozocin",
+    "C": "Methysergide",
+    "D": "Cyclophosphamide"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Cisplatin is a potent chemotherapy agent used to treat various cancers, including testicular, ovarian, bladder, and lung cancers. Renal tubular damage is a well-known side effect of cisplatin. Cisplatin is taken up by the proximal tubular cells in the kidney, where it accumulates and causes the tubular cells' oxidative stress, inflammation, and apoptosis. This can lead to acute kidney injury, electrolyte imbalances, and chronic kidney disease."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Streptozocin: Streptozocin is an alkylating agent used to treat pancreatic islet cell carcinoma. It causes diabetes mellitus due to destruction of beta cells of pancreas. It can cause kidney damage, but this is typically due to its effects on the glomerulus rather than the renal tubules."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Methysergide: Methysergide is a serotonin antagonist that is used to treat migraines. It is associated with retroperitoneal fibrosis not renal tubular damage."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Cyclophosphamide: Cyclophosphamide is an alkylating agent that is used to treat a variety of cancers and autoimmune diseases. It causes hemorrhagic cystitis."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-56-1",
+   "question": "Which of the following is not responsible for teratogenicity due to thalidomide?",
+   "options": {
+    "A": "Release of reactive oxygen species and free radicals",
+    "B": "Suppression of angiogenesis",
+    "C": "Cereblon binding",
+    "D": "Inhibition of IL2, IL4, IL5"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Inhibition of IL2, IL4, IL5 The teratogenic effects of thalidomide are primarily linked to oxidative stress, suppression of angiogenesis, and cereblon binding. Immunomodulatory effects, such as inhibition of IL2, IL4, and IL5, are unrelated to its teratogenicity. Thalidomide is known for its ability to inhibit angiogenesis, which is the formation of new blood vessels."
+    },
+    {
+     "type": "paragraph",
+     "text": "It acts by inhibiting the production of vascular endothelial growth factor (VEGF) and basic fibroblast growth factor (bFGF), both of which play crucial roles in angiogenesis. It is a hypnotic drug that was taken early in pregnancy for morning sickness, which lead to an epidemic phocomelia (seal limb), in which limbs are malformed."
+    },
+    {
+     "type": "paragraph",
+     "text": "**The properties of thalidomide, like the release of reactive oxygen species and free radicals (Option A):** , Suppression of angiogenesis (Option B) and Cereblon binding (Option C) can lead to teratogenicity."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-56-2",
+   "question": "Which of the following is not an immune checkpoint inhibitor?",
+   "options": {
+    "A": "Nivolumab",
+    "B": "Pembrolizumab",
+    "C": "Atezolimumab",
+    "D": "Cetuximab"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Cetuximab is not an immune checkpoint inhibitor. It is a monoclonal antibody that targets the epidermal growth factor receptor (EGFR) in cancer cells, thus preventing cell proliferation. It treats certain types of colorectal and head and neck cancers that overexpress EGFR rather than HER2."
+    },
+    {
+     "type": "paragraph",
+     "text": "Nivolumab, Pembrolizumab & Atezolimumab are all immune checkpoint inhibitors. (Other options ruled out) Immune checkpoint inhibitors: They are a class of cancer immunotherapy drugs that target the PD-1 receptor on T-cells. MOA: Immune Checkpoint Inhibitors and their uses:"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L56_Q002_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L56_Q002_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-56-4",
+   "question": "Which of the following statements regarding Thalidomide is correct? a. It acts as an antimetabolite and is useful as an immunosuppressant b. It is used in the treatment of multiple myeloma c. It is used in the management of Type 2 lepra reaction (ENL) d. It is teratogenic",
+   "options": {
+    "A": "a, b, c",
+    "B": "b, c, d",
+    "C": "a, c, d",
+    "D": "a, b, d"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Statements b, c, and d about Thalidomide are accurate It is an anti-inflammatory. cytokine (TNF-alpha, ILs, interferon) modulating drug with anxiolytic, antiemetic properties. MOA: Acts by suppressing TNF-alpha and modulating IL-2. It is highly teratogenic (Statement d) Phocomelia (seal limb): Limbs are severely shortened or absent."
+    },
+    {
+     "type": "paragraph",
+     "text": "Uses: Erythema nodosum leprosum (ENL) as an alternative to prednisolone. (Statement c) Multiple myeloma (Statement b) Conditions in which cytokine play an important role like cancer-associated cachexia."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-56-5",
+   "question": "Benralizumab acts on which receptor?",
+   "options": {
+    "A": "IL 5",
+    "B": "IL4",
+    "C": "IL1",
+    "D": "TNF alpha"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Benralizumab specifically binds to the α-subunit of the interleukin-5 receptor (IL-5Rα) present on eosinophils and basophils. By binding to IL-5Rα, it blocks IL-5 signalling and also triggers antibody-dependent cell-mediated cytotoxicity (ADCC), leading to direct depletion of eosinophils. This reduces airway inflammation in eosinophilic asthma."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - IL-4: Targeted by drugs like dupilumab, used in atopic dermatitis and asthma. IL-4 is important in IgE class switching and Th2 immune responses — not the main target for eosinophil depletion."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - IL-1: Blocked by anakinra (IL-1 receptor antagonist) and others, used in autoinflammatory conditions (e.g., rheumatoid arthritis, systemic JIA). IL-1 blockade has no major role in eosinophilic asthma."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - TNF alpha: Targeted by drugs like infliximab, adalimumab, and etanercept in autoimmune diseases (RA, IBD, psoriasis). TNF-α inhibitors are not used for eosinophil-specific asthma management."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-57-1",
+   "question": "Match the following drugs with the conditions they are used to treat: Conditions Drugs 1. Delirium Tremens a. Naloxone 2. Acute Alcoholism b. Oxazepam 3. Smoking Cessation c. Acamprosate 4. Opioid Poisoning d. Varenicline",
+   "options": {
+    "A": "1-a, 2-b, 3-c, 4-d",
+    "B": "1-b, 2-a, 3-d, 4-c",
+    "C": "1-c, 2-b, 3-a, 4-d",
+    "D": "1-b, 2-c, 3-d, 4-a"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Conditions Drugs Delirium Tremens Oxazepam Acute Alcoholism Acamprosate Smoking Cessation Varenicline Opioid Poisoning Naloxone"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-57-2",
+   "question": "A patient is brought to the emergency department with signs suggest opioid poisoning. What is the antidote of choice?",
+   "options": {
+    "A": "Flumazenil",
+    "B": "Atropine",
+    "C": "Naloxone",
+    "D": "Physostigmine"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Naloxone is the opioid antagonist that rapidly reverses opioid-induced respiratory depression and miosis — it is the antidote of choice in suspected opioid overdose. Opioid Overdose/ Poisoning Cause Clinical, accidental, or suicidal overdose."
+    },
+    {
+     "type": "paragraph",
+     "text": "Symptoms Unconsiousness/coma Miosis: Pin point pupil Respiratory depression Dry secretion in the eye/mouth Urinary retention Constipation Flaccid muscles Convulsions (in children) Management Acute overdose/poisoning: IV Naloxone (Antidote) ↓ Maintenance (Detoxification phase: To prevent withdrawal): Opioids: Buprenorphine, Methadone, Tramadol Non-Opioids- Clonidine, Lofexidine ↓ Abstinence (Prevent relapse): DOC: Oral Naltrexone Incorrect Options: Flumazenil (Option A): Antagonizes benzodiazepines, not opioids."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Atropine (Option B):** Anticholinergic agent - not the antidote for opioids."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Physostigmine (Option D):** For anticholinergic overdose; not for opioid toxicity."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-58-1",
+   "question": "A 45-year-old male patient with a history of hyperthyroidism is diagnosed with a brain tumor and is scheduled for neurosurgery. Thiopentone has been chosen as the induction agent for this surgery. Which of the following is an incorrect statement about Thiopentone?",
+   "options": {
+    "A": "Thiopentone decreases intracranial pressure, making it suitable for neurosurgical procedures",
+    "B": "Porphyria is a relative contraindication for thiopentone",
+    "C": "The mechanism for termination of action is by redistribution from brain to fat cells",
+    "D": "Thiopentone has antithyroid properties and thus is an agent of choice for hyperthyroid patients"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Porphyria is not a relative contraindication but an absolute contraindication for the use of Thiopentone due to the risk of inducing acute porphyric crisis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Contraindications for thiopentone: Absolute Relative Porphyria Heart Blocks Hypotension Asthma Thiopentone decreases intracranial pressure, making it suitable for neurosurgical procedures (Option A): Thiopentone, an intravenous barbiturate, is used as an induction agent of choice for neurosurgeries for the following reasons: Causes maximum decrease in ICP Anticonvulsant properties Decreases cerebral metabolic rate Maximum neuroprotective among IV anaesthetics The mechanism for termination of action is by redistribution from brain to fat cells (Option C): The primary mechanism for the termination of its action is redistribution from the brain to fat and muscle tissues."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mechanism of Termination Redistribution from the brain to fat and muscle tissues Metabolism Metabolised in the liver by hydroxylation Excretion Excreted by the kidneys Thiopentone has antithyroid properties and thus is an agent of choice for hyperthyroid patients (Option D): Thiopentone has antithyroid properties, making it an induction agent of choice for hyperthyroid patients."
+    },
+    {
+     "type": "paragraph",
+     "text": "All i/v anaesthetics cause: Decreased Cerebral metabolic O2 demand Decreased ICP and CBF Decreased Respiratory drive Myocardial depression Exceptions KETAMINE: Sympathomimetic drug, increase all of the above ETOMIDATE: Cardio-stable"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-58-2",
+   "question": "A 45 year old male undergoes a minor surgical procedure for lipoma excision under local anesthesia with bupivacaine. Shortly after administration, he complains of tinnitus, dizziness and a metallic taste in his mouth. What is the most appropriate treatment for this patient's condition?",
+   "options": {
+    "A": "Intravenous atropine",
+    "B": "Intravenous epinephrine",
+    "C": "20% lipid emulsion therapy",
+    "D": "Intravenous sodium bicarbonate"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "20% lipid emulsion therapy is the most appropriate treatment for bupivacaine toxicity. Lipid emulsion acts as a \"lipid sink\", sequestering the lipophilic bupivacaine, thus reducing its concentration in tissues and mitigating toxicity. Bupivacaine is a long-acting local anesthetic. Toxicity often results from overdose or accidental intravascular injection, leading to serious and potentially life-threatening complications."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mechanism of Toxicity Lipophilic nature leads to slow dissociation/prolonged blocking from cardiac sodium channels. Persistent channel blockage causes cumulative cardiotoxicity. Symptoms CNS: Tinnitus, metallic taste, dizziness, seizures. Cardiovascular: Bradycardia, dysrhythmias, asystole. Treatment 20% lipid emulsion therapy acts as a \"lipid sink\" to reduce tissue concentration of bupivacaine."
+    },
+    {
+     "type": "paragraph",
+     "text": "Effective airway management is vital, especially in the presence of acidosis, hypercarbia, or hypoxemia. Exacerbating Factors Acidosis, hypercarbia, hypoxemia can worsen cardiac toxicity."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Intravenous atropine (Option A):** and Intravenous epinephrine (Option B) may be used for bradycardia and cardiac arrest, but they are not the primary treatment for bupivacaine toxicity."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Intravenous sodium bicarbonate (Option D):** can be helpful in managing acidosis, which may exacerbate toxicity, but it is not the primary antidote."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-58-3",
+   "question": "A 55-year-old male patient with a history of chronic kidney disease and liver cirrhosis is scheduled for elective abdominal surgery. The anesthesiologist must choose an appropriate muscle relaxant for intubation and intraoperative muscle relaxation. Considering the patient's comorbidities, the anesthesiologist is evaluating the use of cisatracurium instead of atracurium. Which of the following statements is true regarding Atracurium?",
+   "options": {
+    "A": "Metabolised by Hoffman elimination only",
+    "B": "Dose-dependent histamine release",
+    "C": "Preferred muscle relaxant in liver/ kidney disease",
+    "D": "Made of only one isomer"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Differences between Atracurium and Cisatracurium: Atracurium Cisatracurium Mixture of >10 isomers Metabolized by Hoffmann elimination and plasma esterase Dose-dependent histamine release ➞ allergy (Option B) Should be avoided in patients with kidney/ liver disease, as its toxic metabolite laudanosine gets accumulated ➞ CNS toxicity ➞ seizures Made of one isomer (Option D) 100% of the drug is metabolized by Hofmann elimination (Option A) No histamine release Safe in patients with kidney/ liver disease (Option C)."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-58-4",
+   "question": "A 40-year-old male patient is brought to the emergency department for an urgent intubation due to respiratory failure. The anesthesiologist decides to use succinylcholine to facilitate rapid sequence intubation. Which of the following statements is false regarding succinylcholine?",
+   "options": {
+    "A": "Toxicity causes diaphragm paralysis",
+    "B": "Toxicity causes hyperkalemia",
+    "C": "Contraindicated in muscular dystrophy",
+    "D": "Drug of choice in stroke and hemiplegia"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Succinylcholine: It is a depolarising neuromuscular blocking agent It is the fastest and shortest-acting neuromuscular blocking agent Causes initial fasciculations It is metabolized by pseudocholinesterase. Its actions cannot be reversed by neostigmine."
+    },
+    {
+     "type": "paragraph",
+     "text": "Toxicity of succinylcholine: Diaphragm paralysis ➞ Scoline apnea (Option A) Hyperkalemia (Option B) Due to potassium release ➞ cardiac arrest Increased in trauma, burns, rhabdomyolysis Malignant hyperthermia Treated by Dantrolene Histamine release SA node partial agonist leads to bradycardia, junctional rhythm - treatment: i/v atropine Contraindications: Muscle dystrophy (Option C) Neurological disease Hemiplegia Stroke (Option D) Contraindicated in head injury, glaucoma Increases ICP, IOP"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-58-5",
+   "question": "A 32-year-old female undergoing elective laparoscopic cholecystectomy develops muscle fasciculations followed by flaccid paralysis after a neuromuscular blocking agent is administered. Despite neostigmine administration, the muscle relaxation persists. Which muscle relaxant was administered?",
+   "options": {
+    "A": "Suxamethonium",
+    "B": "Pancuronium",
+    "C": "Pipecuronium",
+    "D": "Vecuronium"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "This patient is administered a neuromuscular blocking agent during intubation for muscle relaxation and develops muscle fasciculations followed by flaccid paralysis, and neostigmine does not reverse the neuromuscular blockade. These findings suggest that the drug administered is a depolarizing blocking agent such as Suxamethonium/ Succinylcholine."
+    },
+    {
+     "type": "paragraph",
+     "text": "Difference between depolarizing and non-depolarizing blockers: Depolarizing Blockers Non-Depolarizing Blockers Drugs Suxamethonium/ succinylcholine Curonium, curium, curare MOA Phase1 Opening of Nm receptor (like Ach) Initial muscle contraction- fasciculation Depolarizing SMR Enters into phase 2 Desensitization of the Nm receptor ➞ flaccid paralysis of the muscle Competitively block Nm receptor of Ach They are non-depolarizing and cause flaccid paralysis Role of Neostigmine Neostigmine cannot reverse the effect of succinylcholine For reversal of NDMR: increase Ach o Neostigmine o Edrophonium Initial Fasciculations Present Absent Postoperative myalgia Present Absent Cold Temperature Increase the effect Decrease the effect Muscle sensitivity 1st to paralyze: Neck muscle Last to paralyze: Diaphragm (Most resistant, 1st to recover) 1st: Fingers Last: Diaphragm"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-58-6",
+   "question": "Which of the following local anaesthetics is used to diagnose pseudocholinesterase deficiency?",
+   "options": {
+    "A": "Ropivacaine",
+    "B": "Bupivacaine",
+    "C": "Etidocaine",
+    "D": "Dibucaine"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "To diagnose pseudocholinesterase deficiency, the local anesthetic used is dibucaine. Dibucaine test to diagnose pseudocholinesterase deficiency: A laboratory analysis for pseudocholinesterase deficiency involves taking a plasma sample from the patient and subjecting it to a qualitative test to assess the activity of the pseudocholinesterase enzyme."
+    },
+    {
+     "type": "paragraph",
+     "text": "Dibucaine is a long-acting & highly potent local anesthetic that inhibits about 80% of pseudocholinesterase (PChE) activity in normal individuals. In heterozygotes (with 1 variant allele), PChE activity is inhibited by approximately 40-60%. In homozygotes (with 2 variant alleles), PChE activity is inhibited by around 20%. The percentage of inhibition is known as the dibucaine number."
+    },
+    {
+     "type": "paragraph",
+     "text": "A lower dibucaine number indicates a longer duration of residual neuromuscular blockade after administration of succinylcholine (SCh) or mivacurium."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-58-7",
+   "question": "In the context of differential sensitivity of nerve fibers to local anaesthetics, which of the following sequences correctly represents the order in which different types of nerve fibres are blocked, starting from the most sensitive to the least sensitive?",
+   "options": {
+    "A": "Type A alpha, Type A beta, Type A gamma, Type A delta, Type C",
+    "B": "Type A delta, Type A gamma, Type A beta, Type A alpha,Type C",
+    "C": "Type A delta, Type A alpha, Type A beta, Type A gamma, Type C",
+    "D": "Type C, Type A gamma, Type A delta, Type A beta, Type A alpha"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Local anaesthetics block nerve fibres in a specific order based on their diameter and myelination. B fibres are the most sensitive and are blocked first, followed by small unmyelinated C fibres and small myelinated A-delta fibres. Subsequently, A gamma, A beta, and finally, the large, heavily myelinated A alpha fibres are blocked."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L58_Q007_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-58-8",
+   "question": "A 12-year-old patient was sedated for more than 48 hours following status epilepticus. He developed refractory bradycardia, hyperlipidemia, and renal failure. Arterial blood gas (ABG) analysis showed metabolic acidosis. Which of the following sedatives is most likely responsible for these symptoms?",
+   "options": {
+    "A": "Midazolam",
+    "B": "Propofol",
+    "C": "Dexmedetomidine",
+    "D": "Fentanyl"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient's presentation is indicative of Propofol Infusion Syndrome (PRIS), which can occur with prolonged propofol sedation. PRIS is characterized by symptoms such as refractory bradycardia, hyperlipidemia, renal failure, and metabolic acidosis. PRIS typically occurs when a dose of >4 mg/kg/hr of propofol is given for >48 hours."
+    },
+    {
+     "type": "paragraph",
+     "text": "Additional features of PRIS include: Hyperlipidemia (first sign to get detected) Refractory bradycardia and asystole Acute renal failure Rhabdomyolysis Severe metabolic acidosis Green-coloured urine can also be seen. Recognizing these signs is crucial for diagnosing and managing PRIS, as this is potentially fatal."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Midazolam (Option A):** While midazolam can cause prolonged sedation and respiratory depression, it is not typically associated with hyperlipidemia, metabolic acidosis, or renal failure."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Dexmedetomidine (Option B):** It can cause bradycardia, but it does not cause hyperlipidemia, metabolic acidosis, or renal failure."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Fentanyl (Option D):** It can cause respiratory depression and hypotension but is not associated with hyperlipidemia, metabolic acidosis, or renal failure."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-58-9",
+   "question": "A 40-year-old patient is administered an intermediate-acting amide as a local anesthetic during a minor surgical procedure on the upper extremity. Shortly after administration, the patient develops cyanosis and complains of shortness of breath. Which of the following is most likely the local anesthetic based on the above symptoms?",
+   "options": {
+    "A": "Prilocaine",
+    "B": "Mepivacaine",
+    "C": "Lidocaine",
+    "D": "Bupivacaine"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Prilocaine, a local anaesthetic, can cause methemoglobinemia, where haemoglobin is oxidised to methemoglobin, reducing blood’s oxygen-carrying capacity. This leads to symptoms like cyanosis and shortness of breath. Benzocaine also causes methemoglobinemia Methemoglobinemia typically develops after administering prilocaine at a dose of 8 mg/kg. Methemoglobinemia can be treated with intravenous methylene blue at a dose of 1–2 mg/kg."
+    },
+    {
+     "type": "paragraph",
+     "text": "Duration of Action Local Anaesthetic Ultra Short Chloroprocaine ( shortest ) Short Procaine Intermediate Lidocaine, Prilocaine, Mepivacaine Long Bupivacaine, Ropivacaine, Etidocaine, Tetracaine, Dibucaine ( longest ) Amides Esters Physical property Stable solution Unstable, structurally similar to PABA. Metabolism By liver Esterase enzyme Exceptions Artikane by esterase Cocaine in liver Examples Prilocaine, lignocaine Procaine"
+    }
+   ]
+  }
+ ]
+}

@@ -2781,3 +2781,9 @@ User asked for a thorough functional audit, especially whether FSRS is as good a
 - Batches 065 and 068–073 restructured by in-session agents; batch 062's 3 skipped questions (76-8, 76-9, 77-1) done by hand.
 - Import: 1,321 passed, 121 unchanged, 0 rejected. Test pins: overlay 1,321 / 1,135 with points or tables / 343 tables.
 - Pathology and Pharmacology browser verifiers pass locally.
+
+## 2026-10-17 — Pharmacology restructure pack + cut-off openings
+
+- `tools/explanation_restructure.py` now covers any text bank (`--bank`, or read from the result file's name or folder); 66 Pharmacology batches exported; examples in `data/Prepladder/pharmacology/restructure/examples/`.
+- `docs/EXPLANATION_RESTRUCTURE.md` prompts now target Pharmacology: rulings written "Incorrect options: Option B. …" become bold-label bullets; clean "**Drug (Option B):**" paragraphs stay unchanged; cut-off openings are left as they are.
+- `TextBank.repair_opening`: 74 Pharmacology first words restored, 38 lost labels noted (leading punctuation dropped). Pathology 25-19's overlay entry got a new hash (only its leading comma changed). Microbiology (own builder) has 5 such openings, untouched.
