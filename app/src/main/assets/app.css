@@ -6529,7 +6529,9 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-tests-shelf-page .nk-tests-quic
 
 /* Floating Build button */
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-tests-shelf-page .nk-tests-build { position: fixed !important; z-index: 80; right: max(16px, calc((100vw - 1120px) / 2 + 24px)); bottom: calc(var(--nkg-dock-h, 64px) + 16px + env(safe-area-inset-bottom, 0px)); display: inline-flex !important; align-items: center; gap: 8px; height: 52px; padding: 0 22px 0 18px !important; border: 0 !important; border-radius: 999px !important; background: var(--nkg-inverse-bg) !important; color: var(--nkg-inverse-fg) !important; font: 600 var(--nkg-t-base)/1 var(--nkg-font-sans) !important; box-shadow: 0 10px 28px -8px rgba(0,0,0,.35), 0 2px 6px rgba(0,0,0,.12) !important; transition: transform var(--nkg-dur-fast) var(--nkg-ease); }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-tests-shelf-page .nk-tests-build:active { transform: scale(.97); }
+/* A large floating pill reads better with a slightly deeper press; the instant
+   commit and the eased return stay with the shared interaction-polish layer. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-tests-shelf-page .nk-tests-build:is(:active,.nk-pressed) { transform: scale(.95) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-tests-shelf-page .nk-tests-build:focus-visible { outline: 2px solid var(--nkg-focus, var(--nkg-fg)) !important; outline-offset: 3px; }
 
 /* Quick test bottom sheet */
@@ -6589,7 +6591,10 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-head{display:grid !importa
 @media(hover:hover){
   html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-head:hover{background:var(--nkg-hover) !important;border-color:var(--nkg-border-strong) !important}
 }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-head:active{background:var(--nkg-active) !important;transform:scale(.985);transition-duration:90ms}
+/* Press on the band keeps only the tactile scale (nk-interaction-polish commits
+   it immediately). A shading fill over a full-width row reads as a grey flash,
+   so the region never changes color on touch. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-head:active{transform:scale(.985);transition-duration:90ms}
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-group.is-open .nk-prof-head{border-color:var(--nkg-border-strong) !important}
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-tile{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid var(--nkg-border);border-radius:10px;background:var(--nkg-surface);color:var(--nkg-fg-2);font-size:13.5px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1;box-shadow:var(--nkg-shadow-sm)}
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-copy{display:grid;gap:3px;min-width:0}

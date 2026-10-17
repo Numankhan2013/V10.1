@@ -187,9 +187,9 @@
     const selected=new Set(nkCbtDraft.bankKeys),records=nkCbtRecords();
     return `<div class="nk-cbt-bank-intro"><strong>Choose the sources for this test</strong><span>${selected.size} of ${records.length} banks selected</span></div><div class="nk-module-select-tools nk-cbt-bank-tools"><button type="button" onclick="window.QB.nkCbtSetBanks(true)">Select all</button><button type="button" onclick="window.QB.nkCbtSetBanks(false)">Clear all</button></div><div class="nk-module-choice-grid">${records.map((record,index)=>{const picked=selected.has(nkCbtRecordKey(record)),meta=nkAppSubjectMeta(record.subject);return `<button type="button" class="nk-module-subject is-${meta.key} ${picked?'is-selected':''}" aria-pressed="${picked}" onclick="window.QB.nkCbtToggleBank(${index})"><span>${nkAppSubjectIcon(record.subject,23)}</span><strong>${esc(record.subject)}</strong><small>${esc(record.bank)} · ${fmtNum(record.questions.length)} questions · ${fmtNum(nkModuleTopics(record).length)} topics</small><i>${picked?navIcon('check',15):''}</i></button>`;}).join('')}</div>`;
   }
-  function nkCbtTopicsMarkup(){
+  function nkCbtTopicsMarkup(poolLength){
     const records=nkCbtRecords(),selected=new Set(nkCbtDraft.topicKeys),active=nkCbtSelectedRecords();
-    const total=active.reduce((sum,record)=>sum+nkModuleTopics(record).length,0),pool=nkCbtPool().length;
+    const total=active.reduce((sum,record)=>sum+nkModuleTopics(record).length,0),pool=poolLength===undefined?nkCbtPool().length:poolLength;
     const pyqTopics=nkCbtVerifiedPyqTopics(),pyqQuestions=pyqTopics.reduce((sum,{record,topic})=>sum+nkCbtTopicCount(record,topic),0);
     const groups=records.map((record,recordIndex)=>{
       if(!nkCbtDraft.bankKeys.includes(nkCbtRecordKey(record)))return'';
@@ -198,8 +198,8 @@
     }).join('');
     return `<div class="nk-module-topic-intro"><strong>${fmtNum(total)} topics in ${active.length} selected bank${active.length===1?'':'s'}</strong><span id="nk-cbt-selected-count">${selected.size} topics · ${fmtNum(pool)} questions</span></div><label class="nk-module-topic-search"><span>Search topics</span><input type="search" placeholder="Search by chapter or topic name" autocomplete="off" oninput="window.QB.nkCbtFilterTopics(this.value)"></label><div class="nk-module-select-tools nk-cbt-topic-tools"><button type="button" onclick="window.QB.nkCbtSetTopics(true)">Select all</button><button type="button" onclick="window.QB.nkCbtSetTopics(false)">Clear all</button><button type="button" id="nk-cbt-pyq-toggle" class="nk-cbt-pyq-toggle ${nkCbtDraft.pyqSelected?'is-selected':''}" aria-pressed="${Boolean(nkCbtDraft.pyqSelected)}" aria-label="Only verified PYQ topics, ${pyqTopics.length} eligible topics, ${fmtNum(pyqQuestions)} questions" ${pyqTopics.length?'':'disabled'} onclick="window.QB.nkCbtSelectVerifiedPyqs()"><span>Only PYQ</span><small>${fmtNum(pyqTopics.length)} topics · ${fmtNum(pyqQuestions)} Q</small></button></div>${pyqTopics.length?'':'<p class="nk-cbt-pyq-empty" role="status">No verified PYQ topics in the selected banks. Your draft is unchanged.</p>'}<div id="nk-cbt-search-status" class="nk-module-search-status" role="status"></div><div class="nk-module-topic-groups">${groups}</div><div id="nk-cbt-search-empty" class="nk-module-search-empty" hidden>No topics match your search.</div>`;
   }
-  function nkCbtQuestionsMarkup(){
-    const pool=nkCbtPool().length,actual=Math.min(nkCbtDraft.count,pool),records=nkCbtSelectedRecords();
+  function nkCbtQuestionsMarkup(poolLength){
+    const pool=poolLength===undefined?nkCbtPool().length:poolLength,actual=Math.min(nkCbtDraft.count,pool),records=nkCbtSelectedRecords();
     const banksBySubject=new Map();records.forEach(record=>{
       const list=banksBySubject.get(record.subject)||[];list.push(record.bank);banksBySubject.set(record.subject,list);
     });
@@ -210,8 +210,11 @@
   function nkCbtBuilderPage(){
     if(!nkCbtDraft)nkCbtDraft=nkCbtFreshDraft();
     const step=nkCbtDraft.step,titles=['Choose question banks','Choose topics','Set question count'];
-    const content=step===1?nkCbtBanksMarkup():step===2?nkCbtTopicsMarkup():nkCbtQuestionsMarkup();
-    const action=step===2?`<div class="nk-module-builder-actions nk-module-topic-actions nk-cbt-actions"><span id="nk-cbt-footer-count">${nkCbtDraft.topicKeys.length} topics · ${fmtNum(nkCbtPool().length)} questions</span><button id="nk-cbt-topics-continue" class="is-primary" ${nkCbtPool().length?'':'disabled'} onclick="window.QB.nkCbtSetStep(3)">Continue to questions</button></div>`:step===1?`<div class="nk-cbt-main-actions"><button class="is-primary" ${nkCbtDraft.bankKeys.length?'':'disabled'} onclick="window.QB.nkCbtSetStep(2)">Continue to topics</button></div>`:`<div class="nk-cbt-main-actions"><button class="is-primary" onclick="window.QB.nkCbtStart()">Start timed CBT</button></div>`;
+    /* One pool scan per render: the topic and count screens share it instead of
+       re-walking every selected question's topic. */
+    const poolLength=step>1?nkCbtPool().length:0;
+    const content=step===1?nkCbtBanksMarkup():step===2?nkCbtTopicsMarkup(poolLength):nkCbtQuestionsMarkup(poolLength);
+    const action=step===2?`<div class="nk-module-builder-actions nk-module-topic-actions nk-cbt-actions"><span id="nk-cbt-footer-count">${nkCbtDraft.topicKeys.length} topics · ${fmtNum(poolLength)} questions</span><button id="nk-cbt-topics-continue" class="is-primary" ${poolLength?'':'disabled'} onclick="window.QB.nkCbtSetStep(3)">Continue to questions</button></div>`:step===1?`<div class="nk-cbt-main-actions"><button class="is-primary" ${nkCbtDraft.bankKeys.length?'':'disabled'} onclick="window.QB.nkCbtSetStep(2)">Continue to topics</button></div>`:`<div class="nk-cbt-main-actions"><button class="is-primary" onclick="window.QB.nkCbtStart()">Start timed CBT</button></div>`;
     const description=step===1?'Choose the question banks you want to study.':step===2?'Search or scroll, then tap the topics you want to test.':'Set the number of questions. Your time limit updates with it.';
     return shell(`<main class="nk-app-v114 nk-module-builder nk-cbt-builder ${step===2?'is-topics':step===3?'is-questions':'is-banks'}" aria-label="Build timed test"><button class="nk-back-link" onclick="${step===1?"window.QB.nav('tests')":`window.QB.nkCbtSetStep(${step-1})`}">${navIcon('back',18)} ${step===1?'Tests':'Back'}</button>${nkAppPageHead(`TIMED CBT · STEP ${step} OF 3`,titles[step-1],description)}${nkTimedResumeCard('builder')}<div class="nk-module-stepper">${[1,2,3].map(n=>`<span class="${n===step?'is-current':n<step?'is-done':''}"${n===step?' aria-current="step"':` tabindex="0" aria-label="Go to ${['Banks','Topics','Questions'][n-1]}" onclick="window.QB.nkCbtSetStep(${n})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}"`}><i>${n<step?navIcon('check',12):n}</i><b>${['Banks','Topics','Questions'][n-1]}</b></span>`).join('')}</div><section class="nk-module-builder-card">${content}</section>${action}</main>`,'tests');
   }
