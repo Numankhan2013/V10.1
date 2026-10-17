@@ -74,7 +74,7 @@ def main() -> None:
             page.screenshot(path=str(OUT / "plmicro-01-topics.png"), full_page=True)
 
             open_lesson(page, "Scientists, Stains")
-            page.locator("button.nk-library-row").first.click()
+            page.locator("button.nk-library-row").nth(8).click()
             page.wait_for_function("() => (document.querySelector('.question-text')?.innerText||'').includes('pseudomembrane')", timeout=8000)
             page.wait_for_function("() => { const f=document.querySelector('.question-text + .nk-marrow-figures img'); return f && f.complete && f.naturalWidth>0; }", timeout=8000)
             page.locator(".option-list button").first.click()
@@ -97,7 +97,7 @@ def main() -> None:
             page.screenshot(path=str(OUT / "plmicro-02-explanation.png"), full_page=True)
 
             open_lesson(page, "Bacterial Anatomy")
-            page.locator("button.nk-library-row").nth(10).click()
+            page.locator("button.nk-library-row").nth(18).click()
             page.wait_for_function("() => (document.querySelector('.question-text')?.innerText||'').includes('types of motility')", timeout=8000)
             table = page.locator(".question-text .nk-match-table")
             if table.count() != 1 or "Twitching motility" not in table.inner_text() or table.locator("tbody tr").count() != 4:
@@ -105,8 +105,8 @@ def main() -> None:
             page.screenshot(path=str(OUT / "plmicro-03-stem-table.png"), full_page=True)
 
             open_lesson(page, "Previous Year Questions")
-            if page.locator("button.nk-library-row").count() != 47:
-                fail("General Microbiology PYQ lesson should list 47 questions")
+            if page.locator("button.nk-library-row").count() != 61:
+                fail("General Microbiology PYQ lesson should list 61 questions")
 
             if errors:
                 fail("page errors: " + " | ".join(errors[:5]))
