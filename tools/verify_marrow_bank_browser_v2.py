@@ -211,6 +211,13 @@ if source.count(_save_probe) != 1:
     raise SystemExit(f"FSRS save-bar probe anchor count={source.count(_save_probe)}")
 source = source.replace(_save_probe, "            wait_settled()\n" + _save_probe, 1)
 
+# The Continue bar is position:fixed; while the Topics page slides in, its
+# transformed ancestor makes it lay out in the page flow instead.
+_continue_probe = "                box=page.locator('.nk-continue-learning').bounding_box()"
+if source.count(_continue_probe) != 1:
+    raise SystemExit(f"Continue bar probe anchor count={source.count(_continue_probe)}")
+source = source.replace(_continue_probe, "                wait_settled()\n" + _continue_probe, 1)
+
 # Geist's source viewer (nk-viewer.js) keeps the #source-pdf-zoom /
 # .source-pdf-zoomimg / #spz-* contract but opens instantly from a copy of the
 # inline canvas and then swaps in the sharper render (data-quality="high"),
