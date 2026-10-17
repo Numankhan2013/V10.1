@@ -294,7 +294,8 @@ async function main(){
       // streams through the Pages Worker, which the local server does not run.
       const sourcePdf=page.locator('.nk-web-pdf-segment:not([data-subject="anatomy"]) canvas').first();
       if(await sourcePdf.count()){
-        await sourcePdf.scrollIntoViewIfNeeded();
+        // Scroll the segment, not its canvas: rendering swaps the placeholder canvas out.
+        await page.locator('.nk-web-pdf-segment:not([data-subject="anatomy"])').first().scrollIntoViewIfNeeded();
         await page.waitForFunction(()=>document.querySelector('.nk-web-pdf-segment:not([data-subject="anatomy"])[data-rendered="true"] canvas')?.width>0,null,{timeout:60000}).catch(async error=>{
           console.log('ANDROID_SOURCE_PDF_STATE '+JSON.stringify(await page.evaluate(()=>[...document.querySelectorAll('.nk-web-pdf-segment')].map(node=>({
             subject:node.dataset.subject,page:node.dataset.page,rendered:node.dataset.rendered,status:node.querySelector('.nk-web-pdf-status')?.textContent||''
