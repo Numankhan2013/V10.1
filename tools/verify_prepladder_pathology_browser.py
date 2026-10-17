@@ -5,7 +5,7 @@ Home: Pathology sits in Second Prof beside Microbiology -> Pathology ->
 PrepLadder bank ("Text explanations") -> 90 lessons in four sections, 27 PYQ
 lessons -> Cell Death Q3: stem figure -> Acute Inflammation Q3: answer, ordered
 text explanation with option analysis in bold and an explanation figure -> a
-PYQ question whose explanation the extraction lost shows the plain note.
+PYQ question the source PDF prints no explanation for shows the plain note.
 
   python3 tools/verify_prepladder_pathology_browser.py [--web build/web]
 """
@@ -125,7 +125,7 @@ def main() -> None:
             page.locator(".option-list button").first.click()
             page.wait_for_selector(".nk-marrow-ordered", timeout=8000)
             if "The source PDF prints no explanation for this question." not in page.locator(".nk-marrow-ordered").inner_text():
-                fail("lost explanation is not marked")
+                fail("missing explanation is not marked")
 
             if errors:
                 fail("page errors: " + " | ".join(errors[:5]))

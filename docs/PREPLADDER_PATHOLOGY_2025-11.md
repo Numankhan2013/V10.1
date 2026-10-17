@@ -34,6 +34,13 @@ by an external agent into a master JSONL, a manifest and 48 figure archives.
   extraction borders from 1,127.
 - **Text.** No ■ placeholder, leaked image markup or "Correct answer" lead
   reaches the learner (the bank test fails otherwise).
+- **Against the PDF.** The combined `pathoprep11.pdf` was parsed separately
+  and matched by QID. All 1,450 printed "Correct Answer" lines agree with the
+  bank's key, letter and text; the 9 blank ones are the 9 `needs_review`
+  questions. Explanations match the PDF apart from removed debris (data-hash
+  leaks, `{{caption_text}}`, glyph runs). Options match apart from 2 Unicode
+  subscripts (O₂•⁻), 1 restored CBC and the 8 image-only option sets, which
+  the PDF does not print as text.
 - **Browser.** `tools/verify_prepladder_pathology_browser.py` walks Home →
   bank → lessons → a stem figure → an explanation → a PYQ lesson.
 
@@ -51,16 +58,14 @@ by an external agent into a master JSONL, a manifest and 48 figure archives.
 
 ## Known gaps
 
-- **17 lost explanations.** Only the tail of a sentence survived ("of the
-  correct answer.", "for Assertion."). The fragment is replaced by "The source
-  PDF prints no explanation for this question." and a review note; any figure
-  and references stay. The source PDFs would let these be recovered.
+- **17 explanations missing in the source.** The PDF prints only the tail of
+  a sentence ("Explanation: of the correct answer.", "for Assertion."), so
+  there is nothing to recover. The fragment is replaced by "The source PDF
+  prints no explanation for this question." and a review note; any figure and
+  references stay.
 - **9 image-only option sets.** The PDF printed the options as images and left
   the answer line blank; the extraction rebuilt the options and key from the
   explanation. These stay `needs_review`.
-- **Not verified against the PDFs.** The source PDFs were not in the shared
-  folder, so answers were not checked against each PDF's "Correct Answer"
-  line as they were for Microbiology.
 - **Flat explanations.** As with Microbiology's November 2025 edition, the PDF
   prints explanations as running text, so they show as paragraphs; option
   analyses get a bold label.

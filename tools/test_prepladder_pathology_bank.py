@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """PrepLadder Pathology bank: shards current, counts, PYQ lessons, clean text,
-lost explanations marked, figure inventory and app wiring.
+explanations missing in the source marked, figure inventory and app wiring.
 
   python3 tools/test_prepladder_pathology_bank.py
 """
@@ -64,7 +64,7 @@ def main() -> None:
         assert not re.match(r"[a-z][^.]{0,40}\.$", first), q["id"]
         if first == NO_EXPLANATION:
             lost += 1
-            assert any("explanation lost" in n for n in q["reviewNotes"]), q["id"]
+            assert any("prints no explanation" in n for n in q["reviewNotes"]), q["id"]
     assert lost == 17
     # Image-only options rebuilt from the explanation stay flagged.
     assert sum(1 for q in questions if q["reviewStatus"] == "needs_review") == 9

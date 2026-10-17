@@ -59,8 +59,8 @@ ACRONYMS = {"er": "ER", "rhd": "RHD", "git": "GIT", "ibd": "IBD", "cns": "CNS", 
 SMALL = {"and", "of", "to", "in", "the", "with", "for", "or"}
 
 
-# 17 explanations survive only as the tail of a lost sentence ("of the correct
-# answer.", "for Assertion."): the extraction lost the text before it. The
+# For 17 questions the source PDF itself prints only a sentence tail as the
+# explanation ("Explanation: of the correct answer.", "for Assertion."). The
 # fragment goes; the question says so instead of showing it.
 FRAGMENT = re.compile(r"^[a-z][^.]{0,40}\.$")
 NO_EXPLANATION = "The source PDF prints no explanation for this question."
@@ -175,7 +175,7 @@ def normalize(rows: list[dict]) -> tuple[dict, list[dict]]:
                 topic["startPage"] = q["pages"]["question_pages"][0]
             notes = list(q["quality_flags"])
             if lost:
-                notes.append("source explanation lost in extraction; only a sentence fragment survived")
+                notes.append("source PDF prints no explanation, only a sentence fragment")
             if len(flagged) > 1:
                 notes.append(f"source key lists {len(flagged)} correct options; scored on {letters[key - 1]}")
             record = {
