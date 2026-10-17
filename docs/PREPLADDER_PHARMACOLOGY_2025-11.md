@@ -75,3 +75,29 @@ six figure archives.
   banks the stem now stays plain text and the question stays answerable; the
   82 tables that already rendered are unchanged. Older OCR banks keep the
   fail-closed rule.
+
+## Cut-off openings and the restructure pack (2026-10-17)
+
+- **112 explanations open mid-word or mid-sentence in the PDF itself**
+  ("Explanation: ue to alpha 1a…", "Explanation: : There is no…"). The shared
+  builder now repairs what it can. In 74, the first word lost one or two
+  letters, and the full word is the only completion found elsewhere in the
+  bank ("ue" → "Due", "drenaline" → "Adrenaline", "losetron" → "Alosetron").
+  In the other 38 a whole label or sentence is gone ("is a prodrug…"). Those
+  openings are written by hand in `data/Prepladder/pharmacology/openings.json`
+  (`{"from": exact start, "to": new start}`; empty `from` prepends), worked out
+  from the question, its answer and the rest of the explanation. Where the
+  surviving text covered only wrong options, the new opening also says why the
+  key is right (5-7, 5-43, 42-32). Two (28-7, 31-6) already read complete and
+  only get a note. The builder applies openings after any restructure and fails
+  if an explanation no longer starts with `from`, so restructure batches and
+  their hashes stay on the PDF text. Each carries a review note saying the
+  opening was written by hand. Pathology had one such case (25-19,
+  "Castleman disease, …"), in `data/Prepladder/pathology/openings.json`.
+- **Restructure pack.** `tools/explanation_restructure.py` takes `--bank`, or
+  reads the bank from the result file's name or folder. Pharmacology batches:
+  `data/Prepladder/pharmacology/restructure/batches/pharmacology-001` … `066`
+  (1,315 questions; the 6 with no explanation are left out). Worked examples:
+  `restructure/examples/example-result.json`. Instructions and prompts:
+  `docs/EXPLANATION_RESTRUCTURE.md`. Only squashed explanations get
+  restructured; clean one-paragraph-per-option explanations stay unchanged.

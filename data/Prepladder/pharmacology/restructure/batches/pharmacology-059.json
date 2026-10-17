@@ -1,0 +1,573 @@
+{
+ "batch": "pharmacology-059",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pharmacology-059",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pharmacology-51-7",
+   "question": "Which of the following does not reduce oral iron absorption?",
+   "options": {
+    "A": "Tea",
+    "B": "Coffee",
+    "C": "Pantoprazole",
+    "D": "Amla"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Amla (Vitamin C): Vitamin C (ascorbic acid) enhances iron absorption by reducing ferric iron (Fe3+) to ferrous iron (Fe2+), which is more readily absorbed in the gastrointestinal tract. This makes Amla (Vitamin C) beneficial for iron absorption. Non-heme iron in food is primarily found in the ferric state (Fe3+), which needs to be converted to the ferrous state (Fe2+) to be absorbed effectively."
+    },
+    {
+     "type": "paragraph",
+     "text": "Iron salts have low solubility at the neutral pH of the small intestine, but in the stomach's acidic environment, iron dissolves and attaches to a protein carrier. Vitamin C releases iron from the carrier, creates soluble iron-ascorbate complexes, and converts ferric iron (Fe3+) to the more absorbable ferrous iron (Fe2+)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Tea (Option A):** contains tannins that bind to iron, forming insoluble complexes that cannot be absorbed by the body. Thus, tea reduces iron absorption."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Coffee (Option B):** contains polyphenols that inhibit iron absorption by binding to iron and forming insoluble complexes."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Pantoprazole (Option C):** is a proton pump inhibitor (PPI) that reduces stomach acidity. An acidic environment in the stomach is crucial for iron absorption, and by reducing stomach acid, pantoprazole decreases iron absorption."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-51-8",
+   "question": "Which of the following statements on thrombolytics is false?",
+   "options": {
+    "A": "Activates plasminogen to plasmin",
+    "B": "Acts via tissue plasminogen activator",
+    "C": "Contraindicated in pregnancy",
+    "D": "Can be used in NSTEMI"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Thrombolytics are contraindicated in NSTEMI, it is used only in STEMI Fibrinolytic Drugs (Thrombolytics): Mechanism Activate plasminogen to plasmin via tissue plasminogen activator (t-PA)→ digests fibrin →lyse thrombi to recanalize occluded blood vessels, primarily coronary arteries Examples Streptokinase (not in use) Urokinase (not in use) Alteplase Reteplase Tenecteplase Uses Acute Myocardial Infarction (STEMI) The chief indication is for STEMI. Not indicated for unstable angina (UA) and low-risk NSTEMI. Alternative to emergency PCI. Deep Vein Thrombosis (DVT) Pulmonary Embolism (PE) Indicated for large, life-threatening PE Peripheral Arterial Occlusion Indicated when surgical thrombectomy is not possible."
+    },
+    {
+     "type": "paragraph",
+     "text": "Stroke (Ischemic Stroke) Alteplase is approved Contraindicated after 4.5 hours of symptom onset due to increased intracranial hemorrhage risk. Contraindications History of intracranial hemorrhage. History of ischemic stroke in the past 3 months. History of head injury in the past 3 months. Intracranial tumor/vascular abnormality/aneurysms. Active bleeding/bleeding disorders. Patients on anticoagulants. Peptic ulcer, esophageal varices."
+    },
+    {
+     "type": "paragraph",
+     "text": "Recent wound, fracture, or tooth extraction. Major surgery within the past 3 weeks. Uncontrolled hypertension. Pregnancy."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-51-9",
+   "question": "Which of the following statements regarding Epsilon Amino-Caproic Acid (EACA) is true?",
+   "options": {
+    "A": "It is an antidote for fibrinolytic agents",
+    "B": "Promotes clot dissolution",
+    "C": "Activates plasminogen",
+    "D": "It is an example of a thrombolytic agent"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Epsilon Amino-Caproic Acid (EACA) is used as an antidote for fibrinolytic agents."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Antifibrionoytic (Option D):** drugs: Mechanism Inhibits plasminogen activation (Option C) →plasmin not synthesized→fibrin not lysed→prevents clot dissolution (Option B) Examples and its uses Epsilon Amino-Caproic Acid (EACA) Antidote for fibrinolytic agents Hyperplasminaemic states with excessive fibrinolysis Adjunctive in hemophiliacs for bleeding control (e.g., tooth extraction, prostatectomy, trauma) Tranexamic Acid Prevention/control of bleeding due to fibrinolytic drugs Cardiopulmonary bypass surgery Tonsillectomy, prostatic surgery, tooth extraction in hemophiliacs Menorrhagia, recurrent epistaxis, hyphema due to ocular trauma, peptic ulcer"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-52-1",
+   "question": "Which of the following is not correctly matched?",
+   "options": {
+    "A": "Andexanet alfa: Edoxaban",
+    "B": "Andexanet alfa: Rivaroxaban",
+    "C": "Idarucizumab: Dabigatran",
+    "D": "Ciraparantag: Fondaparinux"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Ciraparantag: Fondaparinux Ciraparantag is a reversal agent for all several anticoagulants such as direct factor Xa inhibitors (rivaroxaban, apixaban and edoxaban), dabigatran, and heparins Fondaparinux is an indirect factor Xa inhibitor that is used to prevent blood clots in patients undergoing surgery, those with acute coronary syndromes, and those at risk for deep vein thrombosis and pulmonary embolism."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Andexanet alfa (Option A and B):** is a recombinant modified human factor Xa protein that acts as a decoy molecule to bind and sequester factor Xa inhibitors such as edoxaban and rivaroxaban. This effectively reverses their anticoagulant effect and restores normal blood clotting in patients who are experiencing bleeding or require urgent surgery."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Idarucizumab (Option C):** is a monoclonal antibody fragment that specifically binds to dabigatran, a direct thrombin inhibitor, and neutralises its anticoagulant effect. It was approved by the FDA in 2015 for the reversal of dabigatran in emergency situations such as life-threatening bleeding or the need for urgent surgery."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-52-2",
+   "question": "A patient with known rheumatic heart disease is now found to have a 1–2 cm aneurysm on imaging. What is the most appropriate next step in management?",
+   "options": {
+    "A": "Aspirin lifelong",
+    "B": "Aspirin + Clopidogrel",
+    "C": "Aspirin for 3 weeks",
+    "D": "IV antibiotics"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "A 1–2 cm coronary artery aneurysm (10–20 mm) falls in the category of a large aneurysm, which significantly increases the risk of intraluminal thrombosis, distal embolization, and myocardial infarction. Long-term antiplatelet therapy with low-dose aspirin is recommended to reduce thrombotic risk in such patients."
+    },
+    {
+     "type": "paragraph",
+     "text": "In the absence of active infection, acute thrombosis, or other complicating factors, lifelong aspirin remains the cornerstone of therapy."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Incorrect Options: Aspirin + Clopidogrel (Option B):** Dual antiplatelet therapy (DAPT) is used in acute coronary syndromes, stenting, or in certain high-risk giant aneurysms, but not routinely for stable large aneurysms without acute events."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Aspirin for 3 weeks (Option C):** This short course is inadequate for an aneurysm of this size because thrombotic risk persists long-term."
+    },
+    {
+     "type": "paragraph",
+     "text": "**IV antibiotics (Option D):** Indicated for infective endocarditis or infected aneurysms; not required here as there are no signs of infection."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-52-3",
+   "question": "At what point should we transition a pregnant woman with a prosthetic valve and rheumatic heart disease from warfarin to heparin?",
+   "options": {
+    "A": "32 weeks",
+    "B": "36 weeks",
+    "C": "37 weeks",
+    "D": "40 weeks"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Option C: 37 Weeks When managing a pregnant female with rheumatic heart disease, especially with a prosthetic valve, the management of anticoagulation therapy is crucial to balance the risks of thromboembolic events and bleeding complications. Before 36 weeks of gestation Oral VKA therapy is recommended: daily warfarin dose requirement of ≤ 5mg Replace VKAs by LMWH and UFH if warfarin dose > 5mg After 36 weeks of gestation The ACC/AHA guidelines suggest stopping warfarin at 36 weeks and starting Continuous IV UFH In the absence of significant bleeding, oral warfarin should then be initiated 24 hours after the birth So the correct answer is 37 weeks Incorrect Options: Option A, B and D: In a rheumatic heart disease pregnant female with prosthetic valve, we should switch to heparin at 37 weeks (After 36 weeks of gestation), so these options are incorrect"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-52-4",
+   "question": "Which of the statements below correctly describes pegylated filgrastim?",
+   "options": {
+    "A": "Duration of action is shorter than normal filgrastim",
+    "B": "Added advantage is that it can be taken orally",
+    "C": "It should not be administered in sickle cell patients",
+    "D": "It is not effective in the treatment of severe neutropenia"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Pegylated-filgrastim should not be administered in sickle cell patients. Option C. It should not be administered in sickle cell patients: Pegylated-filgrastim is contraindicated in sickle cell patients. It can potentially stimulate the production of sickled red blood cells, leading to vaso-occlusive crises and worsening of sickle cell disease symptoms."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect options: Option A. Duration of action is shorter than normal filgrastim: Pegylated-filgrastim has a longer duration of action compared to normal filgrastim. The addition of polyethylene glycol (PEG) to filgrastim prolongs its half-life, resulting in sustained release and a longer duration of action. Option B. Added advantage is that it can be taken orally: Pegylated-filgrastim is not available in an oral form."
+    },
+    {
+     "type": "paragraph",
+     "text": "It is typically administered via subcutaneous injection. Option D. It is not effective in the treatment of severe neutropenia: Pegylated-filgrastim is effective in the treatment of severe neutropenia. It stimulates the production of neutrophils and helps reduce the duration and severity of neutropenia, which is a condition characterized by a low neutrophil count."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-52-5",
+   "question": "A child accidentally took a bottle full of iron tablets. Which of the drugs is used as an antidote for iron poisoning?",
+   "options": {
+    "A": "Luspatercept",
+    "B": "Deferoxamine",
+    "C": "Deferiprone",
+    "D": "DMSA"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Acute iron poisoning can occur when a person ingests a toxic amount of iron tablets or other iron-containing substances. Deferoxamine is a chelating agent that is used as the antidote for Acute iron poisoning. Mechanism: Binds iron in the body and forms a stable complex that can be excreted through urine and faeces. Deferoxamine helps to remove excess iron from the body and prevent its toxic effects."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Luspatercept (Option A):** is a medication used for the treatment of anemia in certain blood disorders and is not indicated for the treatment of iron poisoning."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Deferiprone (Option C):** is an oral chelating agent used to treat iron overload in disorders like thalassemia. However, deferoxamine is the preferred antidote for acute iron poisoning."
+    },
+    {
+     "type": "paragraph",
+     "text": "**DMSA (Dimercaptosuccinic acid) (Option D):** is another chelating agent used for heavy metal poisoning, but it is not the preferred antidote for iron poisoning. It is more commonly used for lead or mercury poisoning."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-52-6",
+   "question": "A patient on anti-cancer therapy developed an infection. Blood analysis revealed a total leucocyte count of 2000/mm3. Which of the following drugs is likely to be effective in this patient?",
+   "options": {
+    "A": "Romiplostim",
+    "B": "Oprelvekin",
+    "C": "Filgrastim",
+    "D": "Erythropoietin"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "In patients with chemotherapy-induced neutropenia (low white blood cell count, particularly neutrophils), Filgrastim is most likely to be effective in this patient. Drugs promoting WBC formation Drug Name Mechanism of Action Clinical Uses G-CSF (Glycoprotein with 175 amino acids) Stimulates colony-forming unit (CFU) granulocytes to increase neutrophil production. Enhances phagocytic and cytotoxic activities of neutrophils."
+    },
+    {
+     "type": "paragraph",
+     "text": "Treats severe neutropenia after autologous hematopoietic stem cell transplantation and high-dose cancer chemotherapy Treats severe congenital neutropenias Filgrastim (Recombinant human G-CSF) Same use as G-CSF Treats neutropenia in patients with AIDS receiving zidovudine Used in patients undergoing peripheral blood stem cell collection for stem cell transplantation PEG-Filgrastim (Longer acting pegylated form of G-CSF) Prevention of chemotherapy-induced neutropenia Sargramostim (Recombinant human GM-CSF) Stimulates myelopoiesis Autologous marrow transplantation treatment Mobilizes CD34+ progenitor cells for peripheral blood stem cell collection post-myeloablative chemotherapy Treats neutropenia in patients on intensive cancer chemotherapy Supports myelopoiesis in cyclic neutropenia, myelodysplasia, aplastic anemia, and AIDS-associated neutropenia Molgramostim Targets GM-CSF receptors on bone marrow precursor cells Increases granulocytes and monocytes Approved for chemotherapy-induced neutropenia Romiplostim & Oprelvekin (Option A and B) are not indicated for the treatment of infection or low leukocyte count."
+    },
+    {
+     "type": "paragraph",
+     "text": "Romiplostim is a thrombopoietin receptor agonist used to increase platelet production in patients with thrombocytopenia and low platelet count. Oprelvekin is a recombinant interleukin-11 that stimulates platelet production in patients with severe thrombocytopenia."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Erythropoietin (Option D):** is a hormone that stimulates the production of red blood cells and is used to treat anemia, not low leukocyte count or infection."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-52-7",
+   "question": "Which drug acts on the rounded up enzyme?",
+   "options": {
+    "A": "Aminocapric acid",
+    "B": "Tenecteplase",
+    "C": "Streptokinase",
+    "D": "Apixaban"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Aminocaproic acid is an antifibrinolytic agent that competitively inhibits plasminogen activators and, to a lesser extent, binds to plasminogen, preventing its conversion to plasmin. This stabilizes fibrin clots by reducing fibrinolysis, similar to PAI-1’s effect of inhibiting tPA/uPA to limit plasmin formation."
+    },
+    {
+     "type": "paragraph",
+     "text": "By blocking fibrinolysis at the plasminogen activation step, aminocaproic acid complements PAI-1’s role in maintaining clot integrity, making it the drug of choice in conditions of excessive fibrinolysis (e.g., bleeding disorders like hemophilia or post-surgical bleeding)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Tenecteplase (Option B):** is a fibrinolytic (thrombolytic) agent that works by directly activating plasminogen to plasmin, which breaks down fibrin clots. Tenecteplase does not act on PAI-1; instead, its action would be opposed by PAI-1 because PAI-1 inhibits tissue plasminogen activator (tPA), reducing the activation of plasminogen."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Streptokinase (Option C):** is another fibrinolytic agent that works by forming a complex with plasminogen, leading to the formation of plasmin and subsequent breakdown of clots. Like tenecteplase, streptokinase's action is not directly on PAI-1, but rather on plasminogen, and its activity can be inhibited by PAI-1."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Apixaban (Option D):** is an anticoagulant that works by directly inhibiting Factor Xa, an essential enzyme in the coagulation cascade. Apixaban does not interact with the fibrinolytic system or PAI-1, and its mechanism of action is unrelated to PAI-1 or plasminogen activation."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-52-8",
+   "question": "A patient with a history of ischemic stroke was started on clopidogrel. However, she had another stroke after 6 months. Which of the following could be responsible for the failure of clopidogrel in this patient?",
+   "options": {
+    "A": "Reduced activity of CYP2C19",
+    "B": "Downregulation of CYP2D6",
+    "C": "Upregulation of CYP1A1",
+    "D": "Downregulation of CYP2E1"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Clopidogrel is a prodrug that requires activation by CYP2C19 to become an active antiplatelet medication thus, reduced activity of the CYP2C19 is most likely the reason for the failure of clopidogrel in this patien.t Clopidogrel Clopidogrel is a prodrug that requires activation by CYP2C19 to become an active antiplatelet drug. Activation CYP2C19 is an enzyme found in the liver and is responsible for converting clopidogrel into its active form."
+    },
+    {
+     "type": "paragraph",
+     "text": "Certain genetic polymorphisms or drug interactions can lead to reduced activity of CYP2C19, and the activation of clopidogrel may be reduced Uses Post Myocardial infarction Post cerebrovascular accidents Peripheral arterial diseases Acute coronary syndrome Adverse effects Risk of bleeding if used with anticoagulants or antiplatelets Rare - thrombotic thrombocytopenic purpura Enzyme Substrate CYP2D6 SSRIs, Opiates, Beta-blockers, tricyclic antidepressants CYP1A1/2 Theophylline, Paracetamol, caffeine CYP2E1 Alcohol, halothane, Paracetamol"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-52-9",
+   "question": "What is the mechanism of action of alteplase, a tissue plasminogen activator (tPA)?",
+   "options": {
+    "A": "Inhibits Vitamin K-dependent factors",
+    "B": "Inhibits factor X",
+    "C": "Promotes fibrinolysis",
+    "D": "Activation of thrombin"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Alteplase does not activate thrombin. Instead, it promotes fibrinolysis by activating plasminogen, which cleaves fibrin and dissolves clots."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-52-10",
+   "question": "A young boy with a history of multiple blood transfusions presents with bone pain for the past 6 months. A peripheral smear showed sickle-shaped RBCs. Which of the following drugs are not used in the treatment of his condition?",
+   "options": {
+    "A": "Bebtelovimab",
+    "B": "Voxelotor",
+    "C": "Hydroxyurea",
+    "D": "L-glutamine"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The drug not used in treating sickle cell disease (SCD) in the given scenario is Bebtelovimab. Bebtelovimab is a monoclonal antibody against the spike protein of SARS-CoV2. It is used for the treatment of COVID-19 and reduces the risk of hospitalisation and death. Pharmacological Treatments for sickle cell anemia Drug Hydroxyurea Voxelotor Crizanlizumab L-Glutamine MOA Increases fetal hemoglobin (HbF) levels."
+    },
+    {
+     "type": "paragraph",
+     "text": "Reduces sickle hemoglobin (HbS) polymerization. Increases hemoglobin's affinity for oxygen. Reduces sickling and hemolysis. Blocks P-selectin to prevent sickle cell-endothelial adhesion. Reduces oxidative stress in sickle erythrocytes. Use Standard care for all patients with sickle cell anemia and HbS-β0 thalassemia. It is used for patients of all ages regardless of the symptoms. Improves hemoglobin levels in sickle cell disease patients."
+    },
+    {
+     "type": "paragraph",
+     "text": "It is added with hydroxyurea for additive results especially in adults when the symptoms are not sufficiently reduced by hydroxyurea alone. Reduces frequency of painful crises. Can be added with hydroxyurea and Voxelotor for additive results when the vaso occlusive complications still continue with these medications at the right doses. Helps manage pain episodes. Dosage Start at ~20 mg/kg for children."
+    },
+    {
+     "type": "paragraph",
+     "text": "Titrate to the maximum tolerated dose based on blood counts. 1500 mg daily. Administer intravenously once a month. Specific dosage determined in clinical trials. Important Details Reduces pain crises and acute chest syndrome by ~50%. Treatment is initiated in the first year of life. Long-term use has decreased mortality. Increases hemoglobin by about 1 gm/dL. Associated with a 1 g/dL increase in hemoglobin in 59% of patients."
+    },
+    {
+     "type": "paragraph",
+     "text": "Long-term benefits and safety are under investigation. Associated with a ~45% reduction in acute painful episodes. No significant effect on hemolysis is observed. Shows a 25% reduction in painful episodes. Associated with a 33% decrease in hospitalizations compared to placebo."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-52-11",
+   "question": "G6PD (Glucose 6-phosphate dehydrogenase) can manifest with which of the following drugs?",
+   "options": {
+    "A": "Primaquine",
+    "B": "Mefloquine",
+    "C": "Penicillin",
+    "D": "Tetracycline"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Primaquine is an antimalarial drug that can cause hemolysis in individuals with G6PD deficiency. Glucose-6-phosphate dehydrogenase (G6PD) deficiency is an X-linked genetic disorder that impairs red blood cell protection against oxidative stress, leading to hemolytic anemia when exposed to certain triggers like medications, foods, or infections."
+    },
+    {
+     "type": "paragraph",
+     "text": "Primaquine generates reactive oxygen species (ROS), which normally would be neutralized by G6PD, but in G6PD deficiency, oxidative damage accumulates, leading to hemolytic anemia in these individuals."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Mefloquine (Option B):** is another antimalarial drug, it is generally not known to cause hemolysis in G6PD-deficient individuals."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Penicillin (Option C):** is an antibiotic that is not typically associated with hemolysis in G6PD-deficient individuals."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Tetracycline (Option D):** is an antibiotic, and there is no significant association between tetracycline use and hemolysis in G6PD-deficient individuals. It does not cause oxidative stress in red blood cells in the same way as drugs like primaquine."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-52-12",
+   "question": "What is the mechanism of action of dicumarol?",
+   "options": {
+    "A": "Activates antithrombin III",
+    "B": "Inhibits vitamin K-dependent clotting factors",
+    "C": "Inhibits tissue plasminogen activator",
+    "D": "Inhibitor of factor Xa"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Heparin is an indirect thrombin inhibitor that activates antithrombin III activity to inhibit thrombin indirectly. Dicumarol does not activate antithrombin III."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Inhibits tissue plasminogen activator (Option C):** Epsilon Amino-Caproic Acid (EACA) is an anti-fibrinolytic drug that inhibits tissue plasminogen activator and is used as an antidote for fibrinolytic. Dicumarol does not inhibit the action of the tissue plasminogen activator."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Inhibitor of factor Xa (Option D):** Apixaban, Rivaroxaban, Edoxaban, and Betrixaban are direct inhibitors of factor Xa. They are used in the treatment of DVT (deep vein thrombosis). Dicumarol does not directly inhibit factor Xa. Instead, it indirectly inhibits the production of factor Xa by inhibiting the production of vitamin K-dependent clotting factors."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-52-13",
+   "question": "The mechanism of action of tissue plasminogen activator is:",
+   "options": {
+    "A": "Inhibit extrinsic pathway",
+    "B": "Inhibits platelet aggregation",
+    "C": "Enhance fibrin degradation",
+    "D": "Inhibit clot formation"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Tissue factor pathway inhibitor (TFPI) is the inhibitor of the extrinsic pathway of coagulation. It inhibits the formation of factor Xa and thus prevents thrombin formation."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Inhibits platelet aggregation (Option B):** Antiplatelet agents like aspirin and clopidogrel inhibit platelet aggregation and prevent the formation of blood clots."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Inhibit clot formation (Option D):** Anticoagulant drugs like heparin and warfarin inhibit the formation of blood clots by interfering with the coagulation cascade at different points. They do not directly break down existing clots."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L52_Q013_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-52-14",
+   "question": "A first-trimester pregnant female has DVT and needs anticoagulation. Which of the following anticoagulants is preferred?",
+   "options": {
+    "A": "Enoxaparin",
+    "B": "Clopidogrel",
+    "C": "Betrixaban",
+    "D": "Warfarin"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Enoxaparin is a low molecular weight heparin (LMWH) that inhibits clotting factors 10 and 2 (10 >> 2), which is the preferred anticoagulant during pregnancy for the treatment of DVT. LMWHs like enoxaparin do not cross the placenta, making them safe for use in pregnant women."
+    },
+    {
+     "type": "paragraph",
+     "text": "Anticoagulants in pregnancy Gestational period Anticoagulants preferred 0-12 weeks LMW/ULMW heparin 12-36 weeks LMW/ULMW heparin As organogenesis is completed, Warfarin may be used only in cases of patients with mechanical prosthetic valves 36 weeks till delivery LMW/ULMW heparin During delivery No anticoagulant is used due to the risk of postpartum hemorrhage During lactation Warfarin is preferred over heparin Clopidogrel (Option B) is an antiplatelet agent, not an anticoagulant."
+    },
+    {
+     "type": "paragraph",
+     "text": "It is useful in the prevention of arterial thromboembolism, but it is not typically used for the treatment of DVT in pregnancy."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Betrixaban (Option C):** is a direct factor Xa inhibitor. It is not used in pregnancy."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Warfarin (Option D):** is contraindicated in the first trimester of pregnancy as it is teratogenic, leading to Congenital warfarin syndrome."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-52-15",
+   "question": "Which among the following anticoagulants requires aPTT monitoring?",
+   "options": {
+    "A": "Lepirudin",
+    "B": "Enoxaparin",
+    "C": "Dabigatran",
+    "D": "Apixaban"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Lepirudin is a recombinant form of hirudin. Desirudin and lepirudin are medications used to treat thrombosis in patients with heparin-induced thrombocytopenia. They are eliminated by the kidneys, with a half-life of about 2 hours after subcutaneous administration and approximately 10 minutes after intravenous infusion."
+    },
+    {
+     "type": "paragraph",
+     "text": "Caution should be exercised when using these drugs in patients with decreased renal function, and daily monitoring of serum creatinine and aPTT levels is recommended."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Enoxaparin: This is a low molecular weight heparin (LMWH). LMWH usually produces a predictable anticoagulant response, so routine monitoring is not needed. However, patients with renal impairment, obesity, pregnancy, and children may require monitoring using an anti-factor Xa assay due to potential variations in the drug's effects."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Dabigatran: While dabigatran prolongs the aPTT, routine monitoring is not required due to its predictable anticoagulant response at fixed doses. Thrombin time is too sensitive for monitoring dabigatran, and a diluted thrombin time assay has been developed for quantifying plasma dabigatran concentrations, but these are not routinely used."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Apixaban: This is an oral direct factor Xa inhibitor. Apixaban is given in fixed doses and does not require routine coagulation monitoring. The drugs affect the PT more than the aPTT, but the PT does not reliably measure their anticoagulant activity. Anti-factor Xa assays can measure drug levels. It's important to assess renal function at least yearly in patients taking oral factor Xa inhibitors or more frequently in patients with renal dysfunction."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-52-16",
+   "question": "What is the mechanism of action (MOA) of Rivaroxaban?",
+   "options": {
+    "A": "Inhibition of thrombin (Factor IIa)",
+    "B": "Inhibition of Factor Xa",
+    "C": "Activation of antithrombin III",
+    "D": "Inhibition of platelet aggregation"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Rivaroxaban is an oral factor Xa inhibitor. It works by inhibiting factor Xa, which is an important component in the coagulation cascade. It is used for various indications, including prevention and treatment of deep vein thrombosis, pulmonary embolism, and prevention of stroke and systemic embolism in patients with atrial fibrillation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Type Mechanism of Action Drugs Direct Thrombin Inhibitors Inhibit thrombin (factor IIa) directly without cofactors. (Option A) Hirudin derivatives: Hirudin, Lepirudin. Non-hirudin (Synthetic): Argatroban, Bivalirudin."
+    },
+    {
+     "type": "paragraph",
+     "text": "Indirect Thrombin Inhibitors Enhance antithrombin III activity to inhibit thrombin indirectly. (Option C) Unfractionated Heparin: Heparin Low Molecular Weight Heparin (LMWH): Enoxaparin, Dalteparin, Tinzaparin Ultra Low Molecular Weight Heparin (ULMWH): Fondaparinux, Idraparinux, Danaparoid (not commonly used) Inhibition of platelet aggregation (Option D): Platelet aggregation is primarily mediated by platelet receptors (like the ADP receptor or thromboxane A2), and drugs that inhibit platelet aggregation include aspirin and P2Y12 inhibitors (like clopidogrel)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Rivaroxaban works on the coagulation cascade by inhibiting Factor Xa and not through platelet inhibition."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-52-17",
+   "question": "Which of the following drugs is beneficial in reducing the painful crisis of sickle cell anemia?",
+   "options": {
+    "A": "Methionine",
+    "B": "Hydroxyurea",
+    "C": "Methotrexate + Leucovorin",
+    "D": "Eltrombopag"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Action: Hydroxyurea blocks the conversion of ribonucleotides to deoxyribonucleotides by inhibiting the enzyme ribonucleoside diphosphate reductase (RNR), thereby interfering with DNA synthesis. Other Uses of Hydroxyurea: Chronic myeloid leukemia, Psoriasis, Polycythemia vera, Occasionally used in some solid tumors as a radiosensitizer before radiotherapy."
+    },
+    {
+     "type": "paragraph",
+     "text": "Dosage of Hydroxyurea: Daily dose: 20-30 mg/kg Twice weekly dose: 80 mg/kg Methionine (Option A) is incorrect as this drug is of no use in preventing painful vaso-occlusive crises and preventing long-term complications in sickle cell anemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Methotrexate + Leucovorin (Option C):** is incorrect as this drug is of no use in preventing painful vaso-occlusive crises and preventing long-term complications in sickle cell anemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Eltrombopag (Option D):** is incorrect as this drug is of no use in preventing painful vaso-occlusive crises and preventing long-term complications in sickle cell anemia."
+    }
+   ]
+  }
+ ]
+}

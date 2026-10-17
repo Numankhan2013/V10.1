@@ -1,0 +1,625 @@
+{
+ "batch": "pharmacology-064",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pharmacology-064",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pharmacology-55-24",
+   "question": "Which of the following drugs used in the treatment of Multiple Myeloma is associated with an increased risk of developing Herpes zoster infection?",
+   "options": {
+    "A": "Bortezomib",
+    "B": "Daratumumab",
+    "C": "Lomitapide",
+    "D": "Lenalidomide"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Mechanism of Action: Bortezomib is a proteasome inhibitor used in the treatment of multiple myeloma and mantle cell lymphoma. Association with Herpes Zoster: Bortezomib has been associated with an increased risk of reactivation of the varicella-zoster virus (VZV), leading to Herpes zoster infection. This is due to the immunosuppressive effects of bortezomib, which can impair the immune system's ability to keep latent infections in check."
+    },
+    {
+     "type": "paragraph",
+     "text": "Prophylaxis: Patients receiving bortezomib are often prescribed antiviral prophylaxis (e.g., acyclovir) to reduce the risk of Herpes zoster reactivation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Daratumumab: Mechanism of Action: Daratumumab is a monoclonal antibody that targets CD38 on plasma cells, used in the treatment of multiple myeloma. Infection Risk: While daratumumab is associated with an increased risk of respiratory infections due to its immunomodulatory effects, it is not specifically linked to a higher risk of Herpes zoster infection."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Lomitapide: Mechanism of Action: Lomitapide is a microsomal triglyceride transfer protein (MTP) inhibitor used to treat homozygous familial hypercholesterolemia, not multiple myeloma. Relevance: Lomitapide is not associated with an increased risk of Herpes zoster, nor is it relevant in the context of multiple myeloma treatment."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Lenalidomide: Mechanism of Action: Lenalidomide is an immunomodulatory drug used in multiple myeloma. Infection Risk: Although lenalidomide is associated with an increased risk of neutropenia and infections, it is not specifically associated with an increased risk of Herpes zoster infection compared to bortezomib."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-55-25",
+   "question": "A 60-year-old patient undergoing treatment with Mycophenolate mofetil (MMF) presents with a serum calcium level of 13.5 mg/dL. He also has myasthenia gravis. What is the most likely cause of the hypercalcemia in this patient?",
+   "options": {
+    "A": "Drug-induced hypercalcemia",
+    "B": "Primary hyperparathyroidism",
+    "C": "Small cell lung cancer",
+    "D": "Thymoma"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Thymoma is a tumor originating from the thymus gland and is frequently associated with myasthenia gravis. Hypercalcemia can occur in patients with thymoma due to the production of parathyroid hormone-related peptide (PTHrP) by the tumor or associated paraneoplastic syndromes. Given the patient's history of myasthenia gravis, which is strongly associated with thymoma, the presence of hypercalcemia points to thymoma as the most likely cause."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Drug-induced Hypercalcemia: Mycophenolate mofetil (MMF) is an immunosuppressant that is not typically associated with hypercalcemia. Drug-induced hypercalcemia is less likely in this scenario, particularly since MMF does not have hypercalcemia as a known side effect."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Primary Hyperparathyroidism: Primary hyperparathyroidism is a common cause of hypercalcemia and would be a strong consideration in many patients. However, the association between myasthenia gravis and thymoma, along with the presence of hypercalcemia, makes thymoma a more likely diagnosis in this specific context."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Small Cell Lung Cancer: Small cell lung cancer is more commonly associated with ectopic hormone production, such as ACTH or ADH, rather than PTHrP, which leads to hypercalcemia. Additionally, there is no direct link between myasthenia gravis and small cell lung cancer. Therefore, small cell lung cancer is an unlikely cause in this patient."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-55-26",
+   "question": "Which of the following anti-cancer medications is used for the treatment of Gastrointestinal Stromal Tumors (GIST) and Chronic Myeloid Leukemia (CML)?",
+   "options": {
+    "A": "Imatinib",
+    "B": "Methotrexate",
+    "C": "Doxorubicin",
+    "D": "Cisplatin"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Imatinib is a drug of choice in the management of Chronic Myeloid Leukemia (CML). CML is a myeloproliferative disorder characterized by the presence of the Philadelphia chromosome, resulting from a reciprocal translocation between chromosomes 9 and 22 [t(9;22)(q34;q11)], which generates the BCR-ABL fusion gene. This fusion gene encodes a constitutively active tyrosine kinase that drives the uncontrolled proliferation of myeloid cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "Imatinib binds to the ABL kinase portion of the BCR-ABL tyrosine kinase receptor, inhibiting its attachment and preventing cell division. By inhibiting this aberrant tyrosine kinase activity, imatinib selectively targets the underlying cause of CML, leading to inhibition of leukemic cell proliferation and induction of apoptosis. It is also used for the treatment of GIST (Gastrointestinal stromal tumors)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Methotrexate (Option B):** is a folate antimetabolite commonly used in the treatment of various cancers and autoimmune conditions. However, it is not used for GIST or CML. Doxorubicin (Option C) is an anthracycline antibiotic that is commonly used in the ABVD regimen for Hodgkin's lymphoma, but it is not specifically used for GIST or CML. Cisplatin (Option D) is a platinum-based chemotherapy drug used to treat cancers like testicular cancer, ovarian cancer, and lung cancer. It is not used for the treatment of GIST or CML."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-55-27",
+   "question": "Which among the following is an HER-1 inhibitor?",
+   "options": {
+    "A": "Panitumumab",
+    "B": "Crizotinib",
+    "C": "Alectinib",
+    "D": "Lorlatinib"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Panitumumab is a human IgG2κ monoclonal antibody that binds to the extracellular domain III of the epidermal growth factor receptor (EGFR or HER-1). By binding to this receptor, panitumumab prevents ligand-dependent signaling, effectively inhibiting the EGFR pathway, which is often upregulated in certain types of cancer."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Options B, C, and D are not inhibitors of EGFR or HER-1. They inhibit tyrosine kinase receptors."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Crizotinib: Crizotinib is an orally bioavailable inhibitor of several receptor tyrosine kinases, including ROS1, HGFR/cMET, and ALK. It is Primarily used for non-small cell lung cancer (NSCLC) that is ALK-positive or ROS1-positive."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Alectinib: Alectinib is also an orally bioavailable inhibitor of ALK kinase activity. It shows a higher selectivity for ALK than crizotinib and is active against mutant forms of ALK found in tumors resistant to crizotinib."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Lorlatinib: Lorlatinib is a third-generation ALK inhibitor that targets ALK and ROS1."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-55-28",
+   "question": "What is the primary mechanism of action of methotrexate?",
+   "options": {
+    "A": "Inhibits DNA synthesis by blocking thymidylate synthase",
+    "B": "Inhibits dihydrofolate reductase, leading to decreased DNA synthesis",
+    "C": "Inhibits RNA synthesis by blocking RNA polymerase",
+    "D": "Interferes with microtubule formation during cell division"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Methotrexate is an antimetabolite and antifolate drug that primarily inhibits the enzyme dihydrofolate reductase (DHFR). DHFR is responsible for converting dihydrofolate (DHF) into tetrahydrofolate (THF). THF is essential for the synthesis of purine nucleotides and thymidylate, which are crucial for DNA synthesis and repair. (Option A) By inhibiting DHFR, methotrexate decreases the production of THF, leading to a reduction in DNA synthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Inhibits RNA synthesis by blocking RNA polymerase (Option C):** Methotrexate does not inhibit RNA polymerase directly. It primarily affects DNA synthesis by inhibiting DHFR."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Interferes with microtubule formation during cell division (Option D):** This mechanism is associated with drugs like taxanes and vinca alkaloids, which disrupt microtubule dynamics and mitosis. Methotrexate does not work through this mechanism."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-55-29",
+   "question": "Which is true about the KEYNOTE 189 trial?",
+   "options": {
+    "A": "Pembrolizumab plus chemotherapy used in NSCLC",
+    "B": "Nivolumab plus chemotherapy used in NSCLC",
+    "C": "Pembrolizumab is used in NSCLC",
+    "D": "Nivolumab is used in NSCLC"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "CONCLUSION of trial: In patients with previously untreated metastatic nonsquamous NSCLC without EGFR or ALK mutations, the addition of pembrolizumab to standard chemotherapy of pemetrexed and a platinum-based drug resulted in significantly longer overall survival and progression-free survival than chemotherapy alone."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Nivolumab plus chemotherapy used in NSCLC (Option B):** The KEYNOTE-189 trial specifically focused on pembrolizumab and not nivolumab."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Pembrolizumab is used in NSCLC (Option C):** The KEYNOTE-189 trial investigated the combination of pembrolizumab with chemotherapy, not pembrolizumab alone, to treat NSCLC. The study had two treatment arms: one receiving pembrolizumab plus chemotherapy and the other receiving a placebo alongside chemotherapy."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Nivolumab is used in NSCLC (Option D):** The KEYNOTE-189 trial did not evaluate nivolumab for the treatment of NSCLC."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-55-30",
+   "question": "A patient undergoing chemotherapy was given an antiemetic, after which he developed symptoms like acute dystonia, bradykinesia, and tremors. Which of the following drugs would have caused these symptoms?",
+   "options": {
+    "A": "Ondansetron",
+    "B": "Metoclopramide",
+    "C": "Meclizine",
+    "D": "Scopolamine"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Metoclopramide is the drug that is most likely to cause the symptoms described in the given scenario. Metoclopramide is an antiemetic medication that is often used to treat nausea and vomiting associated with chemotherapy. It can cause acute dystonia (sudden, involuntary muscle contractions), bradykinesia (slowness of movement) and tremors."
+    },
+    {
+     "type": "paragraph",
+     "text": "These symptoms are known as extrapyramidal side effects and are related to the drug's dopamine receptor antagonism in the brain."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Ondansetron: Ondansetron works by blocking serotonin receptors, not dopamine receptors. Hence, extrapyramidal side effects are not seen."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Meclizine: Meclizine is an antihistamine medication that is used to treat motion sickness and is not associated with extrapyramidal side effects."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Scopolamine: Scopolamine is an anticholinergic medication. Hence, extrapyramidal side effects are not seen"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-55-31",
+   "question": "What is the key difference between Cisplatin and Carboplatin?",
+   "options": {
+    "A": "Cisplatin is less neurotoxic than Carboplatin",
+    "B": "Cisplatin causes fewer gastric issues compared to Carboplatin",
+    "C": "Carboplatin is more neurotoxic than Cisplatin",
+    "D": "Cisplatin has more nephrotoxic side effects compared to Carboplatin"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Cisplatin and Carboplatin are platinum-based chemotherapy agents, but Cisplatin is more nephrotoxic due to its accumulation in renal tubular cells. Key Differences: Cisplatin: More nephrotoxic → Causes acute tubular necrosis (ATN) and requires aggressive hydration with mannitol or amifostine to reduce damage. More neurotoxic and ototoxic → Causes peripheral neuropathy and sensorineural hearing loss (ototoxicity). More severe nausea and vomiting."
+    },
+    {
+     "type": "paragraph",
+     "text": "Carboplatin: Less nephrotoxic and does not require aggressive hydration. Less neurotoxic compared to cisplatin. More myelosuppressive (causes thrombocytopenia ). Cisplatin is known for its nephrotoxic effects, which can lead to acute kidney injury."
+    },
+    {
+     "type": "paragraph",
+     "text": "The management of cisplatin-induced nephrotoxicity includes Adequate i.v. fluids - Chloride diuresis (Cl inactivates cisplatin) Mannitol - diuresis of inactivated cisplatin Use of nephroprotective agents like amifostine (only i.v.) Cisplatin is less neurotoxic than Carboplatin (Option A): Incorrect because Cisplatin is more neurotoxic (causing peripheral neuropathy )."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Cisplatin causes fewer gastric issues compared to Carboplatin (Option B):** Incorrect because Cisplatin causes more nausea and vomiting (highly emetogenic)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Carboplatin is more neurotoxic than Cisplatin (Option C):** Incorrect because Cisplatin is more neurotoxic than Carboplatin."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-55-32",
+   "question": "Which of the following is the most common side effect induced by cisplatin chemotherapy?",
+   "options": {
+    "A": "GI symptoms",
+    "B": "Neuropathy",
+    "C": "Cardiotoxicity",
+    "D": "Myopathy"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Gastrointestinal (GI) symptoms are the most common side effects associated with cisplatin treatment. These symptoms may include nausea, vomiting, and loss of appetite. Cisplatin can irritate the stomach lining and trigger the body's vomiting reflex, leading to these discomforting GI effects."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Neuropathy: Neuropathy, characterized by nerve damage and resulting in symptoms like numbness, tingling, and weakness, is a known side effect of cisplatin. However, it is not the most common side effect."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Cardiotoxicity: While cisplatin can have cardiovascular side effects, such as abnormal heart rhythms and changes in blood pressure, cardiotoxicity is not typically the most common side effect of cisplatin."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Myopathy: Myopathy refers to muscle-related side effects, including muscle weakness or pain. Although cisplatin can lead to myopathy, it is not the most common side effect."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-55-33",
+   "question": "In Carcinoma cervix, which chemotherapeutic agent is used?",
+   "options": {
+    "A": "Paclitaxel",
+    "B": "Cyclophosphamide",
+    "C": "Cisplatin",
+    "D": "Topotecan"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Cisplatin is a platinum-containing chemotherapy drug that is commonly used in the treatment of Carcinoma cervix, particularly in combination with other drugs or radiation therapy. It works by interfering with the DNA in cancer cells, preventing their growth and division. Cisplatin is often a key component in the treatment regimen for cervical cancer."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Paclitaxel: Paclitaxel is a chemotherapy drug often used in the treatment of various cancers, including ovarian, breast, and lung cancers. While it may be used in combination with other drugs for certain gynecological cancers, it is not typically the primary chemotherapeutic agent used for Carcinoma cervix."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Cyclophosphamide: Cyclophosphamide is a chemotherapy drug used to treat a variety of cancers, including some types of lymphoma and leukemia, as well as autoimmune disorders. It is not the primary chemotherapeutic agent used for Carcinoma cervix."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Topotecan: Topotecan is a chemotherapy drug that is used in the treatment of various cancers, including ovarian and lung cancers. While it might be used in certain cases of recurrent or advanced cervical cancer, it is not typically the first-line chemotherapeutic agent of choice."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-55-34",
+   "question": "Which of the following medications limit the accessibility of thymidylate?",
+   "options": {
+    "A": "Rituximab",
+    "B": "Cisplatin",
+    "C": "5-fluorouracil",
+    "D": "Methotrexate"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "5-fluorouracil (5-FU) is an antimetabolite chemotherapy drug that is used in the treatment of various cancers, including colorectal cancer and breast cancer."
+    },
+    {
+     "type": "paragraph",
+     "text": "It exerts its anticancer effects by inhibiting thymidylate synthase, an enzyme that plays a crucial role in the synthesis of thymidine, a building block of DNA. By inhibiting thymidylate synthase, 5-FU reduces the availability of thymidine, thereby interfering with DNA synthesis and inhibiting the growth of cancer cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Rituximab: Rituximab is a monoclonal antibody used in the treatment of certain types of cancer, such as non-Hodgkin lymphoma, and autoimmune diseases like rheumatoid arthritis. It does not inhibit thymidylate synthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Cisplatin: Cisplatin is a chemotherapy drug used to treat various cancers, including testicular, ovarian, bladder, and lung cancer. It works by forming covalent bonds with DNA, causing cross-links and inhibiting DNA synthesis, but it does not directly inhibit thymidylate synthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Methotrexate: Methotrexate is an antimetabolite drug used in cancer chemotherapy and to treat autoimmune diseases like rheumatoid arthritis. It inhibits dihydrofolate reductase, which reduces the availability of tetrahydrofolate, an essential cofactor for thymidylate synthesis. However, it is not primarily known for restricting thymidylate availability."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-55-35",
+   "question": "Which chemotherapeutic medication may lead to renal tubular damage in a patient?",
+   "options": {
+    "A": "Cisplatin",
+    "B": "Streptozocin",
+    "C": "Methysergide",
+    "D": "Cyclophosphamide"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Cisplatin is a chemotherapy drug that is well-known for its nephrotoxic (kidney-damaging) effects. It is widely used in the treatment of various cancers, including testicular, ovarian, and bladder cancer. The nephrotoxicity of cisplatin is primarily due to its accumulation in the renal tubules, leading to cellular damage and impairment of renal function."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Streptozocin: Streptozocin, is not typically associated with renal tubular damage. It is used in the treatment of pancreatic neuroendocrine tumors."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Methysergide: Methysergide, is not a common chemotherapeutic medication. It is primarily used for the prevention of vascular headaches."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Cyclophosphamide: Cyclophosphamide, can lead to hemorrhagic cystitis, but it is less commonly associated with renal tubular damage compared to Cisplatin."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-55-36",
+   "question": "Osimertinib is used in NSCLC with mutation due to:",
+   "options": {
+    "A": "ROS1 mutation",
+    "B": "T890M mutation",
+    "C": "T790M mutation",
+    "D": "M790T mutation"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "T790M mutation Osimertinib is used in NSCLC (non-small cell lung cancer) with T790M mutation. It is a third-generation epidermal growth factor receptor (EGFR) tyrosine kinase inhibitor (TKI) primarily used in NSCLC (non-small cell lung cancer). It is specifically effective against NSCLC that harbours the T790M mutation in the EGFR gene."
+    },
+    {
+     "type": "paragraph",
+     "text": "The T790M mutation is commonly associated with resistance to first-generation EGFR TKIs like gefitinib and erlotinib. Osimertinib works by selectively inhibiting mutant forms of EGFR, including those with the T790M mutation while sparing wild-type EGFR, which helps reduce toxicity. Clinical trials have demonstrated the efficacy of osimertinib in patients with NSCLC who have developed resistance to previous EGFR TKIs due to the T790M mutation."
+    },
+    {
+     "type": "paragraph",
+     "text": "**ROS1 mutation (Option A):** Osimertinib is not indicated for NSCLC with ROS1 mutations. ROS1 rearrangements are a distinct molecular subtype of NSCLC and targeted therapies like crizotinib, ceritinib, and entrectinib are more commonly used in this case."
+    },
+    {
+     "type": "paragraph",
+     "text": "**T890M mutation (Option B):** There is no known mutation referred to as T890M. The correct mutation associated with osimertinib efficacy is T790M."
+    },
+    {
+     "type": "paragraph",
+     "text": "**M790T mutation (Option D):** Similarly, there is no known mutation termed M790T. The correct mutation is T790M."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-55-37",
+   "question": "What is the treatment for HER-2-positive trastuzumab-resistant breast cancer?",
+   "options": {
+    "A": "Lapatinib",
+    "B": "Sorafenib",
+    "C": "Vemurafenib",
+    "D": "Erlotinib"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "**HER1 (EGFR) - Non-Small Cell Lung Cancer Erlotinib, Gefitinib (Option D):** 1st Generation Given in EGFR (+)ve lung cancer, pancreatic cancer. Afatinib, Dacomitinib 2nd Generation Given in resistance of Erlotinib & Gefitinib. Osimertinib 3rd Generation Given in resistant cases of Afatinib & Dacomitinib. Given in T790M mutation in EGFR receptor. Mobocertinib 4th Generation Given in resistant cases of Osimertinib. Cetuximab, Panitumumab, Necitumumab MAB Approved Blocks EGFR. HER2+ve - Breast Cancer Lapatinib Given in Trastuzumab-resistant cases. Neratinib, Tucatinib Used in HER2 (+)ve breast cancer."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Sorafenib (Option B):** is a multi-kinase inhibitor primarily used for the treatment of advanced kidney cancer and liver cancer. While it has shown activity against various kinases involved in tumor growth and angiogenesis, it is not a standard treatment for trastuzumab-resistant breast cancer."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Vemurafenib (Option C):** is a targeted therapy used for the treatment of metastatic melanoma with a specific mutation (BRAF V600E). It is not indicated or effective in the treatment of HER-2 positive breast cancer."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-55-38",
+   "question": "Which of the following is the most common side effect induced by cisplatin chemotherapy?",
+   "options": {
+    "A": "GI symptoms",
+    "B": "Neuropathy",
+    "C": "Cardiotoxicity",
+    "D": "Myopathy"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Cisplatin (platinum-containing chemotherapy drug) treatment, including symptoms like nausea, vomiting, and loss of appetite. Mechanism of action: It works by interfering with the DNA in cancer cells, preventing their growth and division. Uses: It is widely used in the treatment of various cancers, including testicular, ovarian, bladder cancer, and carcinoma cervix (in combination with other drugs or radiation therapy)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Adverse Effects: Nephrotoxicity Ototoxicity GI symptoms (nausea, vomiting) Progressive peripheral motor and sensory neuropathy Myelosuppression (leukopenia, thrombocytopenia, anemia Electrolyte disturbances (hypomagnesemia, hypocalcemia, hypokalemia, and hypophosphatemia) Hyperuricemia, hemolytic anemia, and cardiac abnormalities are rare side effects. Anaphylactic-like reactions (facial edema, bronchoconstriction, tachycardia, and hypotension)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Neuropathy (Option B):** is characterised by nerve damage and resulting in symptoms like numbness, tingling, and weakness, which is a known side effect of cisplatin. However, it is not the most common side effect."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Cardiotoxicity (Option C):** While cisplatin can have cardiovascular side effects, such as abnormal heart rhythms and changes in blood pressure, cardiotoxicity is not typically the most common side effect of cisplatin. Myopathy (Option D) refers to muscle-related side effects, including muscle weakness or pain. Although cisplatin can lead to myopathy, it is not the most common side effect."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L55_Q038_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-55-39",
+   "question": "Which of the following drugs are used to treat chemotherapy-induced nausea and vomiting?",
+   "options": {
+    "A": "Doxylamine + domperidone + aprepitant",
+    "B": "Prochlorperazine + metoclopramide + domperidone",
+    "C": "Dexamethasone + metoclopramide + domperidone",
+    "D": "Granisteron + dexamethasone + aprepitant"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Doxylamine is primarily an antihistamine used for morning sickness in pregnant women and is not commonly used to treat chemotherapy-induced nausea and vomiting. Domperidone is a medication used to treat nausea and vomiting but is not the first-line treatment for chemotherapy-induced nausea and vomiting."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Prochlorperazine + metoclopramide + domperidone (Option B):** Prochlorperazine is an antipsychotic medication used to treat schizophrenia and other psychiatric disorders. While it can be used to treat nausea and vomiting, it is not a first-line treatment for chemotherapy-induced nausea and vomiting."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Dexamethasone + metoclopramide + domperidone (Option C):** Dexamethasone and metoclopramide can be used to treat chemotherapy-induced nausea and vomiting; they are not first-line treatments. Additionally, the addition of domperidone is not typically recommended for the treatment of chemotherapy-induced nausea and vomiting."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-55-40",
+   "question": "The active metabolite of cyclophosphamide is:",
+   "options": {
+    "A": "Aldophosphamide",
+    "B": "4- hydroxy cyclophosphamide",
+    "C": "4-Ketocyclophosphamide",
+    "D": "Carboxyphosphamide"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The active metabolite of cyclophosphamide is 4-hydroxy cyclophosphamide."
+    },
+    {
+     "type": "paragraph",
+     "text": "Cyclophosphamide is a chemotherapy drug that requires metabolism in the liver by CYP2B6 to form its active metabolite. 4-hydroxy cyclophosphamide can then spontaneously decompose to form aldophosphamide, which is ultimately converted into phosphoramide mustard, a highly reactive compound that causes DNA crosslinking and kills rapidly dividing cells, which is the mechanism by which cyclophosphamide exerts its anti-cancer effect."
+    },
+    {
+     "type": "paragraph",
+     "text": "Hemorrhagic cystitis is a known adverse effect of cyclophosphamide. It occurs when acrolein, a toxic metabolite, forms, irritating the bladder mucosa and causing hemorrhage."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Aldophosphamide (Option A):** is an intermediate metabolite but not the primary active metabolite. It is formed from 4-hydroxy cyclophosphamide. Aldophosphamide undergoes spontaneous breakdown to form phosphoramide mustard, which is the ultimate active cytotoxic agent. 4-Ketocyclophosphamide (Option C) is an inactive metabolite formed by oxidation of 4-hydroxy cyclophosphamide."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Carboxyphosphamide (Option D):** is also an inactive metabolite, formed by oxidation of cyclophosphamide. It is a non-toxic metabolite and has no role in the drug's cytotoxic effects."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L55_Q040_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-55-41",
+   "question": "Which among the following drugs is the new FDA-approved immune checkpoint inhibitor for carcinoma endometrium?",
+   "options": {
+    "A": "Nivolumab",
+    "B": "Pembrolizumab",
+    "C": "Ipilimumab",
+    "D": "Trastuzumab"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Pembrolizumab is a monoclonal antibody that targets the programmed cell death protein 1 (PD-1) receptor on T cells. It is a type of immunotherapy known as an immune checkpoint inhibitor, which works by blocking the PD-1 receptor, thereby enabling the immune system to recognize and attack cancer cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "It was approved by the FDA in 2019 for the treatment of advanced or recurrent endometrial cancer that is microsatellite instability-high (MSI-H) or mismatch repair deficient (dMMR)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Nivolumab (Option A) & Ipilimumab (Option C):** They both are other immune checkpoint inhibitors that the FDA has approved for the treatment of various types of cancer, including melanoma and lung cancer, but they have not been specifically approved for the treatment of endometrial cancer. Trastuzumab (Option D) is a HER2-targeted therapy (monoclonal antibody) used in HER2-positive breast cancer and gastric cancer, but it is not relevant for endometrial carcinoma."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L55_Q041_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-55-42",
+   "question": "The Nobel Prize in Physiology or Medicine, 2018 was awarded to James P. Allison and Tasuku Honjo for which of the following discoveries?",
+   "options": {
+    "A": "Discovery of mechanisms of autophagy",
+    "B": "Discoveries of molecular mechanisms controlling the circadian rhythm",
+    "C": "Discovery of cancer therapy by inhibition of negative immune regulation",
+    "D": "The discovery that matures cells can be reprogrammed to become pluripotent"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Discovery of cancer therapy by inhibition of negative immune regulation: The Nobel Prize in Physiology or Medicine, 2018 was awarded to James P. Allison and Tasuku Honjo for their discovery of cancer therapy by inhibition of negative immune regulation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Their work led to the development of immune checkpoint inhibitors, which are drugs that can block the interaction between checkpoint proteins and their receptors, unleashing the immune system's ability to attack cancer cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Discovery of mechanisms of autophagy: The Nobel Prize in Physiology or Medicine, 2016 was awarded to Yoshinori Ohsumi for his discoveries of mechanisms of autophagy."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Discoveries of molecular mechanisms controlling the circadian rhythm: The Nobel Prize in Physiology or Medicine, 2017 was awarded to Jeffrey C. Hall, Michael Rosbash, and Michael W. Young for their discoveries of molecular mechanisms controlling the circadian rhythm."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Discovery that mature cells can be reprogrammed to become pluripotent: The Nobel Prize in Physiology or Medicine, 2012 was awarded to Sir John B. Gurdon and Shinya Yamanaka for their discovery that mature cells can be reprogrammed to become pluripotent."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-55-43",
+   "question": "Which of the following drugs causes flagellate pigmentation?",
+   "options": {
+    "A": "Bleomycin",
+    "B": "Doxorubicin",
+    "C": "Vincristine",
+    "D": "Minocycline"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Bleomycin is an anticancer medication used in the treatment of various malignancies, including lymphomas, testicular cancer, and squamous cell carcinomas. One of the known side effects of Bleomycin is flagellate pigmentation, which refers to a distinctive linear pattern of pigmentation resembling whip-like streaks on the skin. It is an uncommon side effect but can occur with prolonged use of the drug."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Doxorubicin: Doxorubicin is an anthracycline chemotherapy drug used to treat various types of cancer, including breast cancer, lung cancer, and leukemia. While doxorubicin can cause various side effects, including hair loss and discoloration of nails, it is not associated with flagellate pigmentation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Vincristine: Vincristine is a chemotherapy drug commonly used in the treatment of leukemia, lymphoma, and solid tumors. It is not known to cause flagellate pigmentation. However, vincristine can cause other side effects, such as peripheral neuropathy, constipation, and hair loss."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Minocycline: Minocycline is an antibiotic in the tetracycline class, commonly used to treat bacterial infections, including acne. Prolonged use of minocycline has been associated with a side effect known as minocycline-induced pigmentation. This pigmentation can be present in various types, including blue-gray pigmentation of the skin, mucous membranes, and nails. However, it does not specifically cause flagellate pigmentation."
+    }
+   ]
+  }
+ ]
+}

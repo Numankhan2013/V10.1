@@ -1,0 +1,545 @@
+{
+ "batch": "pharmacology-017",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pharmacology-017",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pharmacology-14-28",
+   "question": "Which among the following is not preferred as an analgesic in rheumatoid arthritis?",
+   "options": {
+    "A": "Tramadol",
+    "B": "Ketorolac",
+    "C": "Naproxen",
+    "D": "Oxycodone"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Rheumatoid arthritis is a chronic autoimmune disorder characterized by joint inflammation and pain. The goal of treatment in rheumatoid arthritis is to reduce pain, inflammation, and joint damage. Analgesics are medications that are used to relieve pain. Ketorolac is also an NSAID, but it is not preferred for use in rheumatoid arthritis due to its potential side effects."
+    },
+    {
+     "type": "paragraph",
+     "text": "It is a potent analgesic that works by blocking the production of prostaglandins. However, it is associated with a higher risk of gastrointestinal bleeding, kidney damage, and other serious adverse effects. Ketorolac is typically used for short-term pain relief in conditions such as postoperative pain, renal colic, and migraines."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Tramadol: Tramadol is an opioid analgesic commonly used to manage pain in rheumatoid arthritis. It has both opioid and non-opioid mechanisms of action and is considered effective for moderate to severe pain."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Naproxen: Naproxen is a nonsteroidal anti-inflammatory drug (NSAID) commonly used to manage pain and inflammation in rheumatoid arthritis. It works by blocking the production of prostaglandins, which are responsible for pain and inflammation. However, long-term use of NSAIDs may increase the risk of gastrointestinal bleeding, cardiovascular events, and kidney damage."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Oxycodone: Oxycodone is another opioid analgesic sometimes used to manage pain in rheumatoid arthritis. It is more potent than tramadol and may be used for severe pain. However, tramadol may cause side effects such as nausea, dizziness, and constipation."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-14-29",
+   "question": "A patient with chronic kidney disease underwent a nephrectomy. Which of the following can be administered as a postoperative analgesic in this patient?",
+   "options": {
+    "A": "Naproxen",
+    "B": "Indomethacin",
+    "C": "Diclofenac",
+    "D": "Acetaminophen"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "As this patient has recently undergone nephrectomy due to chronic kidney disease, Acetaminophen is the most appropriate postoperative analgesic. It inhibits COX-3, increases endogenous cannabinoids, and stimulates TRP-V1 receptors, resulting in analgesia and antipyretic properties. It is generally considered safe and well-tolerated in patients with chronic kidney disease."
+    },
+    {
+     "type": "paragraph",
+     "text": "Patients with chronic kidney disease often have reduced kidney function and impaired clearance of certain medications, including NSAIDs and NSAIDs, which can cause further kidney damage and potentially worsen renal function, so their use is generally avoided in this patient population. NSAIDs cause impairment of prostaglandin-induced inhibition of chlorine reabsorption and ADH action, which results in salt and water retention."
+    },
+    {
+     "type": "paragraph",
+     "text": "It also inhibits COX-2-derived prostaglandins, which regulate renal medullary blood flow, resulting in elevated blood pressure and increased risk of cardiac failure. However, acetaminophen is considered a safer alternative as it is primarily metabolized in the liver and excreted by the kidneys in a non-toxic form."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Naproxen (Option A):** , Indomethacin (Option B), and Diclofenac (Option C), are NSAIDs that are not safe to be used in CKD."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-14-30",
+   "question": "Urine alkalinization will be most useful in toxicity of which of the following drugs?",
+   "options": {
+    "A": "Beta-blockers",
+    "B": "Calcium channel blockers",
+    "C": "Acetaminophen",
+    "D": "Aspirin"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Urinary alkalinization is a technique used to increase the pH of urine, which can increase the excretion of weakly acidi c drugs that are cleared by the kidneys such as aspirin. Urine alkalinization involves administering bicarbonate (usually sodium bicarbonate) to make the urine more basic. This raises the pH of the urine, causing acidic drugs like aspirin to become more ionized and thus increase renal excretion. Aspirin Toxicity:"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L14_Q030_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-14-31",
+   "question": "What medication is administered to prevent chemotherapy-induced nausea and vomiting in a 45-year-old woman with lung adenocarcinoma who has experienced these symptoms during her previous treatment visits?",
+   "options": {
+    "A": "Metoclopramide",
+    "B": "Ropinirole",
+    "C": "Domperidone",
+    "D": "Palonosetron"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Alosetron Gastroparesis Gastroesophageal reflux disease (GERD) Functional dyspepsia Chronic constipation Postoperative ileus Headache Constipation Dizziness Fatigue Prolonged QT interval (rare) Diarrhea Abdominal pain Nausea Headache Prolonged QT interval (Cisapride, Tegaserod) Metoclopramide (Option A) is a prokinetic agent that works by increasing gastric motility, but it is not as effective as 5-HT3 antagonists like palonosetron in preventing chemotherapy-induced nausea and vomiting."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Ropinirole (Option B):** is a dopamine agonist used primarily for Parkinson's disease and restless leg syndrome. It is not used to prevent nausea and vomiting associated with chemotherapy."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Domperidone (Option C):** is a dopamine antagonist that can be used to treat nausea and vomiting, but it is generally less effective than 5-HT3 antagonists for chemotherapy-induced nausea and vomiting and is not the first-line treatment."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-14-32",
+   "question": "A 40-year-old male presents with diffuse abdominal pain. He has a known history of chronic NSAID usage. Physical examination reveals rigidity. An X-ray of the abdomen is shown below. What is the diagnosis?",
+   "options": {
+    "A": "Intestinal obstruction",
+    "B": "Pericarditis",
+    "C": "Peptic ulcer perforation",
+    "D": "Gallstones"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "OX-2 inhibitors: Less likely to cause GI side effects GI hemorrhage, erosion, Ulcers Due to ↓prostaglandin synthesis, leading to loss of mucosal protection Hematological Platelet dysfunction → Increased bruising and hemorrhage risk From reduced thromboxane A2 activity Renal Renal dysfunction/failure Reduction in efficacy of loop diuretics & antihypertensives Salt and water retention Hyperkalemia Acute tubular necrosis Renal papillary necrosis Interstitial nephritis Analgesic nephropathy Analgesic nephropathy leads to renal failure with papillary necrosis and chronic interstitial nephritis, which is less common since the ban of phenacetin."
+    },
+    {
+     "type": "paragraph",
+     "text": "Cardiovascular Precipitate heart failure Edema Hepatic Elevated liver enzymes Hepatic failure Hypersensitivity Urticaria Flushing Anaphylaxis Dermatological Steven-Johnson syndrome Photosensitivity"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-14-33",
+   "question": "A patient presents with acute swelling in the big toe, and his serum uric acid levels were increased. The doctor prescribed medicine to manage this acute condition. What is the mechanism of this drug?",
+   "options": {
+    "A": "Pyrimidine antimetabolite",
+    "B": "Uricosuric drug",
+    "C": "Xanthine oxidase inhibitor",
+    "D": "Neutrophil chemotaxis prevention"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Colchicine prevents neutrophil chemotaxis and degranulation by disrupting microtubule polymerisation. This reduces the inflammatory response triggered by urate crystals in the joint."
+    },
+    {
+     "type": "paragraph",
+     "text": "Drugs for acute attack of gout DOC- NSAIDS (All types) Except for aspirin and paracetamol Anti-inflammatory Colchicine (spindle poison) MOA: Microtubule inhibitor Used in acute attacks of gout and familial Mediterranean fever and is also the DOC for karyotyping Corticosteroids Intra articular injections, avoid oral route Immunosuppressive and anti-inflammatory Drugs for chronic gout Xanthine oxidase inhibitors (Option C) Drugs include Allopurinol (DOC), Oxipurinol, Febuxostat MOA: Blocks xanthine oxidase enzyme → Inhibits the conversion of hypoxanthine to uric acid in the liver."
+    },
+    {
+     "type": "paragraph",
+     "text": "Uric acid oxidase enzyme Drugs include Pegloticase and Rasburicase MOA: Uric acid is converted to allantoin and excreted in urine Uricosuric agents (Option B) Drugs include Probenecid, Benzbromaron, Sulfinpyrazone, Lesinurad MOA: Inhibit OATP transporter/URAT-1 in the kidney → inhibits reabsorption of uric acid → increased excretion of uric acid. (OATP - Organic anion transport protein, URAT-1 - Uric acid transporter)"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-14-34",
+   "question": "Which of the following drugs is used in the closure of patent ductus arteriosus?",
+   "options": {
+    "A": "Magnesium sulfate",
+    "B": "Alprostadil",
+    "C": "Indomethacin",
+    "D": "Paracetamol"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "is an analgesic and antipyretic used for pain relief and reducing fever. It does not facilitate the closure of the patent ductus arteriosus, as it does not impact prostaglandin synthesis."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-14-35",
+   "question": "A student complains of developing urticaria following the consumption of seafood. Considering the need for non-sedating medication due to an upcoming exam, which of the following drugs would you choose to prescribe?",
+   "options": {
+    "A": "Chlorpheniramine",
+    "B": "Diphenhydramine",
+    "C": "Hydroxyzine",
+    "D": "Fexofenadine"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Drugs that act by blocking Histamine H1 receptors: Generation Drug Side Effects Generalised Uses 1st Generation Diphenhydramine ( Option B) Sedation, drowsiness, dry mouth, blurred vision Allergy symptoms, Insomnia, Motion sickness Chlorpheniramine ( Option A) Sedation, drowsiness, dry mouth Allergy symptoms Hydroxyzine ( Option C) Anxiety, Allergy symptoms, Pruritus 2nd Generation Loratadine Minimal sedation, dry mouth Allergy symptoms, Urticaria Cetirizine Allergy symptoms, Itchiness, Urticaria Fexofenadine Non-sedating, minimal side effects Allergy symptoms, Chronic idiopathic urticaria"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-14-36",
+   "question": "An HIV-positive woman on ART was prescribed ergotamine for a migraine attack four days ago. She presented with complaints that she has been unable to feel her legs, from the mid-thigh to her toes, for the past two days. The angiographic image is given below. What is the likely diagnosis?",
+   "options": {
+    "A": "Atherosclerosis",
+    "B": "Ergotism",
+    "C": "Polyradicular neuropathy",
+    "D": "Herniated disc"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "typically causes radicular pain and motor weakness, not ischemic limb findings or angiographic evidence of vasoconstriction."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-14-37",
+   "question": "A pregnant woman was prescribed indomethacin. Which of the following effects will the drug have on the fetus?",
+   "options": {
+    "A": "Premature closure of ductus arteriosus",
+    "B": "Keeps ductus arteriosus patent",
+    "C": "Closure of fossa ovalis",
+    "D": "Premature closure of ductus venosus"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Indomethacin is a non-selective COX inhibitor that causes premature closure of ductus arteriosus if used in pregnant women. It is a nonselective COX inhibitor that has anti-inflammatory, antipyretic and analgesic properties."
+    },
+    {
+     "type": "paragraph",
+     "text": "It is an approved treatment for the closure of persistent ductus arteriosus in premature infants and is given intravenously, but if used by a pregnant woman, it can prematurely close the ductus arteriosus, which is essential for fetal circulation and can be fatal to the fetus. Uses Arthritis: Rheumatoid, Gout and Osteoarthritis Ankylosing spondylitis It has limited use due to the availability of safer, well-tolerated and effective alternatives."
+    },
+    {
+     "type": "paragraph",
+     "text": "Adverse effects Frontal headache Dizziness Diarrhoea Acute pancreatitis Hepatitis Neutropenia and thrombocytopenia Rarely aplastic anemia"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-14-38",
+   "question": "A patient on aspirin presented with occult blood in the stool. This occurs due to the inhibition of ________ by aspirin.",
+   "options": {
+    "A": "Phospholipase A2",
+    "B": "Thromboxane",
+    "C": "Phospholipase C",
+    "D": "Phospholipase D"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Inhibition of thromboxane by aspirin results in bleeding within the gastrointestinal tract, which leads to the presence of occult blood in the stool. Aspirin MOA Inhibits cyclooxygenase (COX) enzymes, particularly COX-1 and COX-2. COX-1 is involved in the production of prostaglandins and thromboxane. Effect on platelets Thromboxane A2 is a potent pro-inflammatory and pro-thrombotic molecule that promotes platelet aggregation and vasoconstriction."
+    },
+    {
+     "type": "paragraph",
+     "text": "By inhibiting COX-1, aspirin reduces the production of thromboxane A2, which leads to decreased platelet aggregation and a reduced tendency for blood clot formation, which can contribute to gastrointestinal bleeding, including the presence of occult blood in the stool."
+    },
+    {
+     "type": "paragraph",
+     "text": "Uses Analgesic: Rheumatoid arthritis Antipyretic Antiplatelet: Post Myocardial infraction and CVA Adverse effects 0.5-2 g/day - analgesic dose Nausea and vomiting Epigastric discomfort 3-5 g/day - anti-inflammatory dose Salicylism - vertigo, hyperventilation, tinnitus, reversible loss of hearing Hepatitis Hypersensitivity Reye’s syndrome: A rare condition seen when salicylates are given in children suffering from viral infections such as influenza, presenting as acute liver failure."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Phospholipase A2 (Option A):** plays a crucial role in the release of arachidonic acid from cell membrane phospholipids, which is a precursor for prostaglandins, thromboxanes, and leukotrienes. Aspirin does not inhibit PLA2 directly; rather, it acts downstream of this enzyme by irreversibly inhibiting cyclooxygenase (COX) enzymes that convert arachidonic acid into prostaglandins and thromboxanes."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Phospholipase C (Option C):** is involved in cellular signal transduction, where it cleaves phosphatidylinositol 4,5-bisphosphate (PIP2) into diacylglycerol (DAG) and inositol trisphosphate (IP3). These molecules act as second messengers in pathways regulating calcium signalling and protein kinase C activation."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Phospholipase D (Option D):** is involved in lipid signalling pathways. It hydrolyzes phosphatidylcholine to produce phosphatidic acid, a precursor for several signalling molecules."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-14-39",
+   "question": "A 56-year-old male comes to the outpatient department for a routine health check-up. The patient is obese and has smoked for 30 years. His past medical history includes hypertension for 10 years and diabetes mellitus for 8 years, for which he takes amlodipine and metformin pills regularly. On examination, his blood pressure is 140/90 mmHg, and lab findings reveal a cholesterol level of 170 mg/dL. The physician prescribes aspirin to prevent ischemic heart disease. This drug prevents ischemic heart disease by which of the following mechanism of action?",
+   "options": {
+    "A": "Inhibiting TXA2 synthesis by platelets",
+    "B": "Inhibiting prostacyclin synthesis",
+    "C": "Inhibiting the release of EDRF",
+    "D": "Inhibiting the synthesis of endothelins"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Aspirin, also known as acetylsalicylic acid, prevents ischemic heart disease by inhibiting the synthesis of thromboxane A2 (TXA2) by platelets. TXA2 is a potent platelet aggregator and vasoconstrictor. By irreversibly inhibiting the enzyme cyclooxygenase (COX) in platelets, aspirin reduces the production of TXA2, which helps to prevent platelet aggregation and the formation of blood clots in coronary arteries."
+    },
+    {
+     "type": "paragraph",
+     "text": "This mechanism of action makes aspirin an effective antiplatelet medication for reducing the risk of cardiovascular events, including heart attacks and strokes."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Inhibiting prostacyclin synthesis: Prostacyclin, also known as prostaglandin I2 (PGI2), is a potent vasodilator and inhibitor of platelet aggregation. In contrast to inhibiting prostacyclin synthesis, aspirin actually inhibits the synthesis of thromboxane A2, which is derived from arachidonic acid by platelets and has proaggregatory effects. The inhibition of prostacyclin synthesis by aspirin is not its primary mechanism of action in preventing ischemic heart disease."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Inhibiting the release of EDRF: Endothelium-derived relaxing factor (EDRF) refers to nitric oxide (NO), which is a potent vasodilator released by the endothelial cells lining blood vessels. While NO plays a crucial role in vascular health and regulation of blood flow, aspirin's mechanism of action in preventing ischemic heart disease is not directly related to inhibiting the release of EDRF."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Inhibiting the synthesis of endothelins: Endothelins are vasoconstrictor peptides produced by endothelial cells. They play a role in regulating vascular tone and blood pressure. However, aspirin's mechanism of action in preventing ischemic heart disease does not involve inhibiting the synthesis of endothelins."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-14-40",
+   "question": "A patient presents with swelling in his big toe, and his serum uric acid levels were found to be elevated. After acute treatment, the patient was put on a maintenance regimen with a drug which is considered first-line management for chronic gout; What is the mechanism of action of this drug?",
+   "options": {
+    "A": "Pyrimidine antimetabolite",
+    "B": "Inhibitor of neutrophil recruitment",
+    "C": "Uricosuric drug",
+    "D": "Xanthine oxidase inhibitor"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "This patient after initial treatment of acute gout flare should be treated with Xanthine oxidase inhibitors which are considered first-line in management of chronic gout, to prevent relapses. Gout is a type of arthritis caused by an accumulation of uric acid crystals in the joints, leading to inflammation and pain. Xanthine oxidase is an enzyme involved in the metabolism of purines, which are converted to uric acid."
+    },
+    {
+     "type": "paragraph",
+     "text": "Xanthine oxidase inhibitors block the activity of this enzyme, resulting in reduced uric acid production and lower levels of uric acid in the blood. Allopurinol and febuxostat are two commonly used xanthine oxidase inhibitors in treating gout. These drugs are considered first-line agents for managing gout in chronic gout, because they effectively reduce serum uric acid levels and prevent gout flares."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Pyrimidine antimetabolites: Pyrimidine antimetabolites are drugs that interfere with the synthesis of nucleic acids, specifically pyrimidines, and are used in cancer treatment. They have no role in the treatment of gout."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Inhibitor of neutrophil recruitment: Inhibitors of neutrophil recruitment are drugs that prevent the migration of white blood cells called neutrophils to the site of inflammation. colchicine works by this mechanism of action, but it is not used in maintenance treatment of gout, instead it is used in acute gout flare."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Uricosuric drug: Uricosuric drugs are a class of medications that increase the excretion of uric acid by the kidneys, resulting in lower serum uric acid levels. They are used in patients with gout who have under-excretion of uric acid as the cause of their hyperuricemia. However, they are not considered first-line agents in gout treatment and are generally used in combination with xanthine oxidase inhibitors or as an alternative in patients who cannot tolerate xanthine oxidase inhibitors."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-15-1",
+   "question": "A 45-year-old male patient has hypertension and hypokalemia. His blood pressure is consistently elevated despite being on multiple antihypertensive medications. Laboratory tests reveal elevated plasma aldosterone concentration and suppressed plasma renin activity. A CT scan of the abdomen shows an adrenal adenoma. Which is the most appropriate pharmacologic treatment for this patient's condition?",
+   "options": {
+    "A": "Lisinopril",
+    "B": "Hydrochlorothiazide",
+    "C": "Amlodipine",
+    "D": "Spironolactone"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Primary hyperaldosteronism (Conn's syndrome) is characterised by excessive production of aldosterone from the adrenal glands, leading to hypertension and hypokalemia. Spironolactone, an aldosterone antagonist and a potassium-sparing diuretic, is the most appropriate drug of choice."
+    },
+    {
+     "type": "paragraph",
+     "text": "Spironolactone: Aldosterone combines with an intracellular mineralocorticoid (MR) receptor and induces the formation of aldosterone-induced proteins (AIPs), which promote Na+ reabsorption."
+    },
+    {
+     "type": "paragraph",
+     "text": "Spironolactone acts as a competitive antagonist and inhibits the formation of AIP by combining with MR. This prevents aldosterone from promoting sodium reabsorption and potassium excretion, which are the primary mechanisms by which aldosterone increases blood pressure and causes hypokalemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Lisinopril (Option A):** is an angiotensin-converting enzyme (ACE) inhibitor that reduces aldosterone levels by inhibiting the production of angiotensin II. However, in primary hyperaldosteronism, there is an autonomous overproduction of aldosterone. Thus, lisinopril will be ineffective."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Hydrochlorothiazide (Option B):** is a thiazide diuretic that inhibits the reabsorption of sodium and potassium, thus hyperaldosteronism induced hypokalemia will be worsened."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Amlodipine (Option C):** is a calcium channel blocker that works by relaxing the smooth muscle. While effective for managing hypertension, it does not influence aldosterone levels or activity."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-15-2",
+   "question": "Which of the following drugs is not used in the treatment of central diabetes insipidus?",
+   "options": {
+    "A": "Carbamazepine",
+    "B": "Desmopressin",
+    "C": "Chlorpropamide",
+    "D": "Indomethacin"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Indomethacin, a prostaglandin synthase inhibitor, is used for the treatment of nephrogenic diabetes insipidus, especially lithium-induced nephrogenic DI. It works by attenuating prostaglandin synthesis in the renal tubules, thereby potentiating the effects of antidiuretic hormone (ADH)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Oral carbamazepine (Option A):** has shown antidiuretic activity in patients with neurohypophyseal diabetes insipidus. It is suggested for initial use in neurohypophyseal diabetes insipidus if oral therapy is indicated, although its exact mechanism of antidiuretic action is unclear."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Antidiuretic peptides (Option B):** are the primary treatment for central DI, with desmopressin being the peptide of choice."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Chlorpropamide (Option C):** , an oral sulfonylurea, potentiates the action of small or residual amounts of circulating vasopressin and reduces urine volume in more than half of all patients with central DI. If polyuria is not controlled satisfactorily with chlorpropamide alone, adding a thiazide diuretic to the regimen usually results in an adequate reduction in urine volume."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-15-3",
+   "question": "A 68-year-old patient presents with symptoms of lethargy, nausea, and muscle cramps. laboratory tests reveal hyponatremia and plasma hypoosmolality. He has a history of lung cancer and was recently started on selective serotonin reuptake inhibitors (SSRIs) for depression. He is diagnosed with the syndrome of inappropriate antidiuretic hormone (SIADH). Which of the following statements regarding the management of SIADH is incorrect?",
+   "options": {
+    "A": "Fluid restriction to less than 800ml/day is the first-line treatment for Mild to Moderate SIADH.",
+    "B": "Severe SIADH is corrected with administration of 100 ml iv bolus of 3% NaCl",
+    "C": "Targeted sodium correction should be >1mEq/L per hour in case of severe SIADH",
+    "D": "Demeclocycline and lithium can be used in the treatment of mild to moderate SIADH."
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Sodium correction should not increase 0.5-1mEq/L per hour, as it can cause severe consequences such as osmotic demyelination syndrome, which can even lead to quadriplegia."
+    },
+    {
+     "type": "paragraph",
+     "text": "Severity of SIADH Symptoms Management Mild Asymptomatic, Mild lethargy, nausea Fluid Restriction Moderate Pronounced Lethargy, Confusion, Cramps, Nausea and Vomiting Fluid Restriction, Loop Diuretics, Vasopressin Antagonists(VAPTANS), Demeclocycline, Lithium Severe Severe symptoms (e.g., severe confusion, seizures, coma) Hypertonic saline, fluid restriction, Vasopressin Antagonist Fluid restriction is the mainstay of treatment for mild to moderate SIADH, which is to be kept below 800ml/day. ( Option A) In cases of severe SIADH,100ml i.v. bolus of 3% NaCl is used to correct hyponatremia. (Option B) Demeclocycline (Tetracycline) and lithium (Option D) can be used in the treatment of mild to moderate SIADH but not routinely preferred due to nephrotoxicity and availability of better drugs such as loop diuretics and vasopressin antagonists."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-15-4",
+   "question": "Which of the following is the incorrect statement with respect to vasopressin inhibitors?",
+   "options": {
+    "A": "Conivaptan is used only as an intravenous formulation for hospitalised patients of hypovolemic/euvolemic hyponatremia.",
+    "B": "Tolvaptan is given a black box warning and is intended to be given under close monitoring of serum Na+",
+    "C": "Osmotic demyelination syndrome is one of the serious adverse effects of the usage of vasopressin antagonists.",
+    "D": "Tolvaptan is a non-selective V1/V2 antagonist, while conivaptan is a selective V2 antagonist"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Tolvaptan is a selective V2 antagonist while conivaptan is non selective V1/V2 antagonist. Since ADH acts on V2 receptors which reabsorbs water, tolvaptan helps in improving volume overload status by blocking those receptors."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Conivaptan (Option A):** is FDA-approved for the treatment of hospitalised patients diagnosed with hypervolemic/euvolemic hyponatremia. It is also used in cases of emergency treatment of SIADH. Tolvaptan and mozavaptan are oral vasopressin antagonists used for long term management of the same."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Tolvaptan (Option B):** is given a Black box warning as it can cause serious consequences by rapidly correcting hyponatremia. It is also hepatotoxic, thus should be used for a maximum of 30 days and should not be used in patients with liver disease."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Osmotic demyelination syndrome (Option C):** can occur with the usage of vasopressin antagonists due to the risk of rapid correction of hyponatremia."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-15-5",
+   "question": "A 7-year-old child presents with a history of bed-wetting three to four times a week. The child has no significant medical history and physical examination is normal. Which of the following is an incorrect statement with respect to initial management for nocturnal enuresis in this child?",
+   "options": {
+    "A": "The drug of choice for nocturnal enuresis is intranasal desmopressin, administered at bedtime.",
+    "B": "Primary nocturnal enuresis is the most common type where the child has never developed bladder control.",
+    "C": "Initial management, in this case, is reducing water intake in the evening and doing bladder exercises.",
+    "D": "Allergic reactions similar to urticaria or anaphylaxis can occur due to desmopressin administration."
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The drug of choice for nocturnal enuresis is oral desmopressin administered at bedtime that too only if behavioral and training methods fail. Intranasal desmopressin is no longer recommended because of the risk of hyponatremia in children. Nocturnal Enuresis is of 2 types- Primary and Secondary."
+    },
+    {
+     "type": "paragraph",
+     "text": "Primary nocturnal enuresis is 3-5/ week incidences of bedwetting in children aged more than 5 years, indicating the child has not developed bladder control. (Option B) Secondary nocturnal enuresis is a bedwetting incident occurring after the child has been dry for a period of at least 6 months, indicating the child has developed bladder control before"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-15-6",
+   "question": "A 42-year-old patient, previously operated on for pituitary adenoma, was diagnosed with post-operative central diabetes insipidus. All of the following are true regarding the drug of choice for this patient, except?",
+   "options": {
+    "A": "The drug acts on V1 Receptor located in renal tubules",
+    "B": "The preferred route is intranasal, as the drug is metabolised by trypsin in the gut",
+    "C": "Cerebral oedema can occur as a serious adverse effect of this drug",
+    "D": "The drug is contraindicated in patients with acute renal failure"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Desmopressin, which is the drug of choice in central diabetes insipidus, acts on V2 receptors located in renal tubules, not on V1 Receptor Type G Subtype Location Actions V1 (V1a) Gq Vascular smooth muscle, liver, CNS Vasoconstriction, glycogenolysis, platelet aggregation, GIT smooth muscle constriction V2 Gs Renal collecting ducts Increase water reabsorption V3 (V1b) Gq Anterior pituitary, Pancreas, Adrenal Medulla Release of ACTH Preferred route for Desmopressin (Option B) is nasal or intravenous, as oral route is less efficacious due to getting metabolized by trypsin in the gut."
+    },
+    {
+     "type": "paragraph",
+     "text": "However, in patients of acute rhinitis, oral route can also be used."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Since desmopressin (Option C):** helps in absorbing more water, rapid correction of hypernatremia might occur, leading to cerebral oedema Desmopressin (Option D) is not used in patients of acute renal failure as rapid increase in extracellular water can cause volume overload due to reduced renal function. Also, it is to be used very cautiously in patients of angina, hypertension and heart failure."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-15-7",
+   "question": "A 55-year-old man with a history of alcoholic cirrhosis presents with progressively worsening abdominal distention, decreased urine output, and swelling in his legs. On examination, his abdomen is tense and distended with caput medusa and ascites, and his chest shows spider angioma. Laboratory tests reveal elevated serum creatinine levels. Which of the following is the drug of choice for this patient?",
+   "options": {
+    "A": "Terlipressin",
+    "B": "Spironolactone",
+    "C": "Furosemide",
+    "D": "Lactulose"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Terlipressin is a vasopressin analogue that acts as a V1 receptor agonist, leading to vasoconstriction of splanchnic vessels and reducing portal hypertension. It is the drug of choice for treating hepatorenal syndrome, as it helps improve renal perfusion and function in patients with advanced liver disease."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Spironolactone (Option B):** is a potassium-sparing diuretic commonly used in the management of cirrhotic ascites. It can help manage fluid overload but not the renal dysfunction seen in hepatorenal syndrome."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Furosemide (Option C):** is a loop diuretic used to treat fluid overload in patients with cirrhosis and ascites. However, in hepatorenal syndrome, loop diuretics may worsen renal perfusion and should be avoided."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Lactulose (Option D):** is a non-absorbable sugar used to treat hepatic encephalopathy by reducing ammonia levels in the colon. While hepatic encephalopathy can occur in patients with advanced liver disease, it is not the primary concern in hepatorenal syndrome, which involves renal dysfunction secondary to portal hypertension."
+    }
+   ]
+  }
+ ]
+}

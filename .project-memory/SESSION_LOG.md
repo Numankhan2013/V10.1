@@ -2787,3 +2787,10 @@ User asked for a thorough functional audit, especially whether FSRS is as good a
 - User report: Pharmacology "Clinical Trials and Miscellaneous" Q4/Q5 showed "Answer choices unavailable".
 - Cause: `nkQuestionPresentationFor` blocks any "match" stem whose table parse fails; 34 PrepLadder text-bank questions (Pharma 11, Patho 18, Micro 5) hit it despite complete options.
 - Fix: text banks (`bank=PrepLadder`, `explanationFormat=structured`) fall back to the plain stem; other banks unchanged. Pharmacology browser verifier checks Clinical Trials Q4 shows 4 options.
+
+## 2026-10-17 — Pharmacology restructure pack + cut-off openings
+
+- `tools/explanation_restructure.py` now covers any text bank (`--bank`, or read from the result file's name or folder); 66 Pharmacology batches exported; examples in `data/Prepladder/pharmacology/restructure/examples/`.
+- `docs/EXPLANATION_RESTRUCTURE.md` prompts now target Pharmacology: rulings written "Incorrect options: Option B. …" become bold-label bullets; clean "**Drug (Option B):**" paragraphs stay unchanged; cut-off openings are left as they are.
+- `TextBank.repair_opening`: 74 Pharmacology first words restored, 38 lost labels noted (leading punctuation dropped). Pathology 25-19's overlay entry got a new hash (only its leading comma changed). Microbiology (own builder) has 5 such openings, untouched.
+- Per the user, the 38 lost openings are not left as they are: written by hand in `data/Prepladder/pharmacology/openings.json` (36 new openings, 2 already complete; 5-7, 5-43, 42-32 also explain the key), plus Pathology 25-19. `TextBank.reopen` applies them after the overlay; `overlay=False` (the restructure source) skips them, so the 66 exported batches are byte-identical and running agents are unaffected.
