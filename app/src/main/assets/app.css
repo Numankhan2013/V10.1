@@ -6589,6 +6589,11 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot.is-pathology { background:
 html .nk-source-section .nk-marrow-ordered{grid-template-columns:minmax(0,1fr)}
 html .nk-source-section .nk-marrow-ordered :is(p,li,td,th){overflow-wrap:anywhere}
 .nk-marrow-ordered li > ul{margin-top:4px}
+/* References: below figures, smaller and quieter than the explanation. */
+html .nk-marrow-ordered>.nk-explain-refs{margin:8px 0 0;padding-top:12px;border-top:1px solid var(--nkg-border,#e5e5e5);display:grid;grid-template-columns:minmax(0,1fr);gap:4px}
+html .nk-marrow-ordered>.nk-explain-refs .nk-explain-refs-label{font-size:12px;font-weight:600;color:var(--nkg-fg-3,#666)}
+html .nk-source-section .nk-marrow-ordered>.nk-explain-refs p{margin:0;font-size:13px;line-height:1.5;font-weight:400;letter-spacing:0;color:var(--nkg-fg-2,#4d4d4d)}
+html .nk-marrow-ordered>.nk-explain-refs cite{font-style:italic}
 .nk-marrow-ordered .nk-marrow-note{padding:10px 12px;border-left:3px solid var(--nkg-border,#d4d4d8);background:var(--nkg-bg-subtle,#f6f6f7);border-radius:0 8px 8px 0}
 
 /* ── nk-professional-groups-v1 ── */

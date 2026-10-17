@@ -52,6 +52,12 @@ by an external agent into a master JSONL, a manifest and 48 figure archives.
   nothing else changes.
 - **Reference URLs.** The extraction turned `&source=` into `&source;=`; the
   stray `;` is removed.
+- **References.** The "References:" line becomes its own block: one line per
+  source (split on ";"), book titles in italics, smaller muted text, and
+  always below the explanation figures (1,262 questions; 1,149 titles).
+- **"P - K - K" read as an ion.** The app's charge formatter turned a spaced
+  "K -" into K⁻. A hyphen now counts as a charge only when attached ("Cl-");
+  this applies to every bank.
 - **Long URLs on phones.** An unbroken reference URL widened the explanation
   past the screen. The explanation column is now held to the container and
   long strings wrap (applies to every structured explanation).
@@ -66,6 +72,10 @@ by an external agent into a master JSONL, a manifest and 48 figure archives.
 - **9 image-only option sets.** The PDF printed the options as images and left
   the answer line blank; the extraction rebuilt the options and key from the
   explanation. These stay `needs_review`.
+- **Option rulings stay inline.** About half of the paragraphs with
+  "(Option X ruled out)" markers are tables the PDF flattened into one line,
+  so splitting them into points by script produced nonsense; they need a
+  reader (a model pass checked word for word against the source).
 - **Flat explanations.** As with Microbiology's November 2025 edition, the PDF
   prints explanations as running text, so they show as paragraphs; option
   analyses get a bold label.

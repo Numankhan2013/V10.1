@@ -76,6 +76,29 @@ def fix_urls(text: str) -> str:
     return ENTITY_LEAK.sub("", text)
 
 
+# "References: Robbins and Cotran Pathologic Basis of Disease, 10th edition,
+# Page 37; https://..." becomes a references block, one item per source. A
+# book's title (the text before its edition, page or chapter) shows in italics;
+# URLs and "PrepLadder Notes" stay plain. The app draws it below the figures.
+REFERENCES = re.compile(r"^References?\s*:\s*", re.I)
+LOCATOR = re.compile(r",?\s*(?:\d+(?:st|nd|rd|th)\s+ed(?:ition)?\b|pages?\b|pg\.|chapter\b)", re.I)
+
+
+def reference_item(text: str) -> dict:
+    m = LOCATOR.search(text)
+    title = text[:m.start()] if m else ""
+    if len(title) < 3 or "(" in title or "http" in text.lower() or "prepladder" in title.lower():
+        return {"rest": text}
+    return {"title": title, "rest": text[m.start():]}
+
+
+def references_block(block: dict) -> dict:
+    if block["type"] != "paragraph" or not REFERENCES.match(block["text"]):
+        return block
+    items = [reference_item(part.strip()) for part in REFERENCES.sub("", block["text"]).split(";") if part.strip()]
+    return {"type": "references", "text": block["text"], "items": items} if items else block
+
+
 def fail(message: str) -> None:
     raise SystemExit(f"PREPLADDER_PATHOLOGY_FAIL: {message}")
 
@@ -195,7 +218,8 @@ def normalize(rows: list[dict]) -> tuple[dict, list[dict]]:
                 "correctOption": key,
                 "correctAnswerText": texts[key - 1],
                 "explanation": micro.plain_text(blocks),
-                "structuredExplanation": {"layout": "ordered-blocks", "blocks": blocks, "tables": tables,
+                "structuredExplanation": {"layout": "ordered-blocks", "blocks": [references_block(b) for b in blocks],
+                                          "tables": tables,
                                           "figures": sorted(i["image_id"] for i in stem_images + explain_images)},
                 "provenance": {"sourceFile": SOURCE_PDFS, "sourceLabel": SOURCE_LABEL,
                                "questionPages": q["pages"]["question_pages"],

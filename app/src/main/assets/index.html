@@ -1549,6 +1549,8 @@ function dashboard(){
       if(b.type==='table')return tables.has(String(b.table_id))?nkRenderMarrowOrderedTable(tables.get(String(b.table_id))):'';
       if(b.type==='pearl')return `<div class="nk-marrow-heading nk-marrow-pearl">${nkMarrowRich('Marrow Pearl · '+String(b.title||''))}</div>`;
       if(b.type==='note')return `<p class="nk-marrow-note">${nkMarrowRich(b.text)}</p>`;
+      // Book titles in italics; explanation figures mount above this block.
+      if(b.type==='references')return `<div class="nk-explain-refs"><div class="nk-explain-refs-label">References</div>${(b.items||[]).map(it=>`<p>${it.title?`<cite>${nkMarrowRich(it.title)}</cite>`:''}${nkMarrowRich(it.rest||'')}</p>`).join('')}</div>`;
       return '';
     }).join('');
     const trace=q.provenance||{},pages=Array.isArray(trace.explanationPages)?trace.explanationPages:[];
