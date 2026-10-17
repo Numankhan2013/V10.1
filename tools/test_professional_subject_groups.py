@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Contract and behavior for My Subjects professional-year groups on Home.
 
-Anatomy, Physiology and Biochemistry sit under First Prof; Microbiology sits
-under Second Prof. Groups open collapsed, remember their state per device, and
+Anatomy, Physiology and Biochemistry sit under First Prof; Microbiology and
+Pathology sit under Second Prof. Groups open collapsed, remember their state per device, and
 a subject that has no group yet still gets a card under Other, so a new bank
 can never disappear from Home.
 """
@@ -27,7 +27,7 @@ def main():
     required = (
         MARKER,
         "NK_PROF_GROUP_BY_SUBJECT",
-        "Anatomy:'first'", "Physiology:'first'", "Biochemistry:'first'", "Microbiology:'second'",
+        "Anatomy:'first'", "Physiology:'first'", "Biochemistry:'first'", "Microbiology:'second'", "Pathology:'second'",
         "First Prof", "Second Prof", "Other",
         "nkProfGroupSubjects", "nkProfGroupMarkup", "nkProfGroupsMarkup", "nkToggleProfGroup",
         "nk-prof-groups", "nk-prof-group", "nk-prof-head", "nk-prof-tile", "nk-prof-copy", "nk-prof-meta", "nk-prof-strip", "nk-prof-questions", "nk-prof-count", "nk-prof-chevron", "nk-prof-body",
@@ -126,10 +126,10 @@ assert.ok(markup.includes('nkg-sr-only')&&markup.includes('>Biochemistry · Phys
 assert.ok(markup.includes('data-nk-banks="[]"'),'subject cards keep the bank progress contract');
 assert.equal((markup.match(/<button class="nk-v3-subject-card/g)||[]).length,4,'every subject keeps one card');
 // A subject with no group yet stays reachable under Other.
-context.SUBJECTS=context.SUBJECTS.concat([{subject:'Pathology',topics:[],questions:[]}]);
+context.SUBJECTS=context.SUBJECTS.concat([{subject:'Forensic Medicine',topics:[],questions:[]}]);
 markup=vm.runInContext('nkProfGroupsMarkup()',context);
-assert.ok(markup.includes('data-nk-prof="other"')&&markup.includes('Pathology'),'unknown subjects fall back to Other');
-assert.deepEqual(vm.runInContext("nkProfGroupSubjects('other')",context),['Pathology']);
+assert.ok(markup.includes('data-nk-prof="other"')&&markup.includes('Forensic Medicine'),'unknown subjects fall back to Other');
+assert.deepEqual(vm.runInContext("nkProfGroupSubjects('other')",context),['Forensic Medicine']);
 assert.deepEqual(vm.runInContext("nkProfGroupSubjects('second')",context),['Microbiology']);
 // Toggle updates the DOM contract and remembers the choice per device.
 vm.runInContext("nkToggleProfGroup('second')",context);

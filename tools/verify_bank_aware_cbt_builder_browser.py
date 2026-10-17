@@ -35,8 +35,8 @@ def main() -> None:
             page.get_by_role("button", name="Build a test").click()
             page.wait_for_url("**/#test-builder")
             banks = page.locator(".nk-cbt-builder .nk-module-subject")
-            # Four PrepLadder + Marrow subjects, then UWorld.
-            expect(banks).to_have_count(8 + len(bank_records()))
+            # Four PrepLadder + Marrow subjects, PrepLadder Pathology, then UWorld.
+            expect(banks).to_have_count(9 + len(bank_records()))
             for record in bank_records():
                 expect(banks.filter(has=page.get_by_text(record["subject"], exact=True))).to_have_count(1)
             expect(banks.filter(has_text="Biochemistry").filter(has_text="UWorld")).to_have_count(1)
