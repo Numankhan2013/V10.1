@@ -76,7 +76,8 @@ if 'window.QB.openQuestionNavigator()' not in review:
 if 'practice-focus-head' not in review:
     raise SystemExit('Review Solutions grid/header is not placed on the normal question surface')
 
-if 'qbank.local/anatomy/pdf' not in Path('app/src/main/java/com/qbank/biochemistry/MainActivity.java').read_text(encoding='utf-8'):
+# Every surface, including the Android shell, renders source PDFs in the browser.
+if 'anatomy: String(config.anatomyPdfUrl' not in Path('app/src/main/assets/web_pdf_renderer.mjs').read_text(encoding='utf-8'):
     raise SystemExit('Anatomy PDF renderer route missing')
 
 for p in ('app/src/main/assets/Biochemistry_QBank_Source.pdf','app/src/main/assets/Physiology_QBank_Source.pdf','app/src/main/assets/Anatomy_QBank_Source.pdf','app/src/main/assets/biochemistry_source_solution_map.js','app/src/main/assets/subject_source_solution_maps.js'):

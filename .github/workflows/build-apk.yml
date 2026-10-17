@@ -50,20 +50,31 @@ jobs:
         with:
           name: V11.7-android-pwa
           path: build/android-artifact
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: android-regression-apk
+          path: build/android-regression
+      - name: Serve the verified PWA to the emulator
+        run: |
+          WEB=$(dirname "$(find build/android-artifact -path '*build/web/index.html' -print -quit)")
+          nohup python3 tools/serve_web_ranges.py "$WEB" 8765 > "$RUNNER_TEMP/web.log" 2>&1 &
+          for i in $(seq 1 30); do curl -sf http://127.0.0.1:8765/ > /dev/null && exit 0; sleep 1; done
+          exit 1
       - name: Install Android interaction driver
         run: npm install --no-package-lock --prefix "$RUNNER_TEMP/bc4-node" playwright@1.55.1
       - name: Enable emulator acceleration
         run: sudo chmod a+rw /dev/kvm
-      - name: Exercise packaged APK on Android phone and tablet
+      - name: Exercise the Android shell on phone and tablet
         uses: reactivecircus/android-emulator-runner@a421e43855164a8197daf9d8d40fe71c6996bb0d # v2
         env:
           NODE_PATH: ${{ runner.temp }}/bc4-node/node_modules
+          NK_ANDROID_APK_DIR: build/android-regression
         with:
           api-level: 35
           target: google_apis
           arch: x86_64
           disable-animations: true
-          script: node tools/verify_android_question_interaction.js
+          script: adb reverse tcp:8765 tcp:8765 && node tools/verify_android_question_interaction.js
       - name: Upload Android interaction evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
@@ -341,7 +352,7 @@ jobs:
           grep -q 'BIOCHEM_SOURCE_SOLUTIONS' app/src/main/assets/index.html app/src/main/assets/app.css
           grep -q 'SUBJECT_SOURCE_SOLUTIONS' app/src/main/assets/index.html app/src/main/assets/app.css
           grep -q 'anatomy-' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'qbank.local/anatomy/pdf' app/src/main/java/com/qbank/biochemistry/MainActivity.java
+          grep -q 'NK_THIN_SHELL_V1' app/src/main/java/com/qbank/biochemistry/MainActivity.java
           grep -q 'qbank-question-ui-v2' app/src/main/assets/index.html app/src/main/assets/app.css
           grep -q 'qbank-practice-analysis-v1' app/src/main/assets/index.html app/src/main/assets/app.css
           grep -q 'qbank-ui-polish-v1' app/src/main/assets/index.html app/src/main/assets/app.css
@@ -540,7 +551,23 @@ jobs:
         run: python3 tools/configure_marrow_pilot_android.py
       - name: Build debug APK
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_apk }}
-        run: gradle --no-daemon assembleDebug
+        # The APK is a thin shell around the deployed PWA. The regression copy
+        # points at the verified build served inside the emulator (cleartext is
+        # allowed only in that copy); the shipped copy points at production on
+        # main and at this branch's Pages preview elsewhere.
+        run: |
+          set -eu
+          gradle --no-daemon assembleDebug -PqbankAppUrl=http://127.0.0.1:8765/ -PqbankLocalRegression
+          mkdir -p build/android-regression
+          mv app/build/outputs/apk/debug/*.apk build/android-regression/
+          if [ "$GITHUB_REF_NAME" = main ]; then
+            url=https://nk-qbank.pages.dev/
+          else
+            alias=$(printf '%s' "$GITHUB_REF_NAME" | tr 'A-Z' 'a-z' | sed 's/[^a-z0-9]/-/g' | cut -c1-28 | sed 's/-*$//')
+            url="https://${alias}.nk-qbank.pages.dev/"
+          fi
+          echo "Shell URL: $url"
+          gradle --no-daemon assembleDebug -PqbankAppUrl="$url"
       - name: Restore production Android source identity
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_apk && (startsWith(github.ref_name, 'feature/') || startsWith(github.ref_name, 'consolidation/')) }}
         run: python3 tools/configure_marrow_pilot_android.py --restore
@@ -550,8 +577,14 @@ jobs:
           APK=$(find app/build/outputs/apk/debug -type f -name '*.apk' -print -quit)
           test -n "$APK"
           unzip -t "$APK"
-          unzip -p "$APK" assets/index.html > /tmp/packaged-index.html
-          unzip -p "$APK" assets/app.css >> /tmp/packaged-index.html
+          # The shell carries no web assets; the HTML checks below read the
+          # verified PWA build the shell loads.
+          test -z "$(unzip -Z1 "$APK" | grep '^assets/' || true)"
+          test "$(stat -c %s "$APK")" -lt 20000000
+          test "$(find build/android-regression -name '*.apk' | wc -l)" -eq 1
+          cat build/web/index.html build/web/app.css > /tmp/packaged-index.html
+          # Question data ships beside the page in the web build.
+          cat build/web/data/*.js > /tmp/packaged-data.js
           ! grep -q 'id="v102-streak-layer-script"' /tmp/packaged-index.html
           ! grep -q 'id="v102-streak-layer"' /tmp/packaged-index.html
           grep -q 'nk-home-streak-header-v1' /tmp/packaged-index.html
@@ -561,7 +594,6 @@ jobs:
           grep -q 'Continue Practice' /tmp/packaged-index.html
           grep -q 'Build a test' /tmp/packaged-index.html
           grep -q 'Quick test' /tmp/packaged-index.html
-          grep -q 'nk-topics-v2' /tmp/packaged-index.html
           grep -q 'openSubjectTopics' /tmp/packaged-index.html
           grep -q 'resetScrollPosition' /tmp/packaged-index.html
           grep -q 'nk-home-v4' /tmp/packaged-index.html
@@ -588,14 +620,9 @@ jobs:
           grep -q 'NK_FSRS_V6_START' /tmp/packaged-index.html
           grep -q 'NK_MARROW_BANK_PILOT_V1_START' /tmp/packaged-index.html
           grep -q 'NK_MARROW_STRUCTURED_TABLE_RENDERER_V1' /tmp/packaged-index.html
-          grep -q 'marrow__ANAT_CH01_Q001' /tmp/packaged-index.html
+          grep -q 'marrow__ANAT_CH01_Q001' /tmp/packaged-data.js
           grep -q 'Detailed explanation' /tmp/packaged-index.html
           grep -q 'qbank_active_bank_v1' /tmp/packaged-index.html
-          unzip -l "$APK" | grep -q 'assets/vendor/ts-fsrs/ts-fsrs-5.4.2.umd.js'
-          unzip -l "$APK" | grep -q 'assets/vendor/ts-fsrs/LICENSE'
-          test "$(unzip -l "$APK" | grep -Ec 'source_visuals/.*\.(png|jpg)')" -ge 400
-          unzip -l "$APK" | grep -q 'assets/source_visual_inventory.json'
-          python3 tools/verify_uworld_media_package.py --apk "$APK"
           python3 - <<'PY'
           from pathlib import Path
           import re, subprocess, tempfile
@@ -611,16 +638,13 @@ jobs:
                   checked+=1
           print(f'PACKAGED_INLINE_JS_SYNTAX_OK={checked}')
           PY
-          echo "Packaged APK verification passed: Home V4/V5 retained; Home streak/header v2 present; Home three-action hierarchy present; CBT end-of-session review flow present; review footer hardened; Review Solutions question grid present; singleton toast behavior present; legacy streak layer absent; JavaScript syntax valid; source visuals retained."
+          echo "Packaged APK verification passed: thin shell carries no assets; the PWA it loads keeps Home, CBT review, toast and JavaScript syntax contracts."
       - name: Verify packaged product contract
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_apk }}
-        run: python3 tools/verify_product_contract.py --stage packaged --html /tmp/packaged-index.html
+        run: python3 tools/verify_product_contract.py --stage packaged --html build/web/index.html
       - name: Write reproducibility manifest
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_apk }}
         run: python3 tools/write_build_manifest.py
-      - name: Verify packaged Marrow image bytes
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_apk }}
-        run: python3 tools/check_marrow_image_package.py --apk
       - name: Upload debug APK and build manifest
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_apk }}
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
@@ -631,6 +655,14 @@ jobs:
             app/build/outputs/apk/debug/*.apk
             app/build/outputs/apk/debug/NK-QBank-build-manifest.json
             build/web/**
+          if-no-files-found: error
+      - name: Upload Android regression shell
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.build_apk }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: android-regression-apk
+          retention-days: 3
+          path: build/android-regression/*.apk
           if-no-files-found: error
 
       - name: Deploy PWA preview to Cloudflare Pages

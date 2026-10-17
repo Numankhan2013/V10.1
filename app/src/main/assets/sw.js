@@ -67,13 +67,32 @@ function syncMedia(){
   })().finally(()=>{mediaRun=null;});
   return mediaRun;
 }
+// PDF.js reads source PDFs in byte ranges. caches.match ignores the Range header, so a
+// cached full PDF would answer every range with the whole file; slice it instead.
+async function rangeResponse(request){
+  const cached=await caches.match(request.url);
+  const m=/^bytes=(\d*)-(\d*)$/.exec(request.headers.get('range')||'');
+  if(!cached||cached.status!==200||!m||(!m[1]&&!m[2]))return fetch(request);
+  const blob=await cached.blob(),size=blob.size;
+  const start=m[1]?Number(m[1]):Math.max(0,size-Number(m[2]));
+  const end=m[1]&&m[2]?Math.min(Number(m[2]),size-1):size-1;
+  if(start>end)return new Response(null,{status:416,headers:{'Content-Range':`bytes */${size}`}});
+  return new Response(blob.slice(start,end+1),{status:206,headers:{
+    'Content-Type':cached.headers.get('content-type')||'application/octet-stream',
+    'Content-Range':`bytes ${start}-${end}/${size}`,'Content-Length':String(end-start+1),'Accept-Ranges':'bytes'}});
+}
 self.addEventListener('fetch',event=>{
   if(event.request.method!=='GET')return;
   const url=new URL(event.request.url);if(isCloud(url))return;
   if(event.request.mode==='navigate'){
-    event.respondWith(fetch(event.request).then(response=>{const scope=new URL(self.registration.scope).pathname,path=url.pathname;const appShell=path===scope||path===scope+'index.html';if(appShell&&storable(response,url)){const copy=response.clone();caches.open(SHELL_CACHE).then(cache=>cache.put('./index.html',copy));}return response;}).catch(()=>caches.match('./index.html')));return;
+    const network=fetch(event.request).then(response=>{const scope=new URL(self.registration.scope).pathname,path=url.pathname;const appShell=path===scope||path===scope+'index.html';if(appShell&&storable(response,url)){const copy=response.clone();caches.open(SHELL_CACHE).then(cache=>cache.put('./index.html',copy));}return response;});
+    // On a slow connection the saved copy opens after 3 s instead of a blank wait;
+    // the network copy still refreshes the cache for next time.
+    const slow=new Promise(resolve=>setTimeout(resolve,3000)).then(()=>caches.match('./index.html')).then(cached=>cached||network);
+    event.respondWith(Promise.race([network,slow]).catch(()=>caches.match('./index.html')));return;
   }
   if(url.origin!==self.location.origin)return;
+  if(event.request.headers.has('range')){event.respondWith(rangeResponse(event.request));return;}
   event.respondWith(caches.match(event.request).then(cached=>cached||fetch(event.request).then(response=>{if(storable(response,url)){const copy=response.clone(),media=isMedia(url);caches.open(media?MEDIA_CACHE:RUNTIME_CACHE).then(cache=>cache.put(event.request,copy)).then(()=>{if(!media)trimRuntime();});}return response;})));
 });
 self.addEventListener('message',event=>{

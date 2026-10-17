@@ -143,8 +143,8 @@ closed. Raw question bundles and audit metadata remain unchanged.
   start-up integrity checks and reviewed rewrites read its explanation.
 - `modules/question_details.js`: `nkDetailsReady`, `nkLoadDetails` (re-applies Marrow
   hygiene), `nkPrefetchDetails` (Practice starts the download), `nkDetailsPending`
-  (placeholder, then `render()`). The Android build never runs build_web_dist, so it
-  keeps everything inline and the loader is a no-op there.
+  (placeholder, then `render()`). Unsplit local builds keep everything inline and
+  the loader is a no-op there; the Android shell loads the split web build.
 - The service worker no longer downloads every figure automatically; figures cache as
   they are viewed (`NK_MEDIA_SYNC` remains for an explicit offline download).
 
@@ -682,3 +682,36 @@ The default full workflow now verifies/packages the PWA independently. Manual `b
 ## Compact UWorld entry and Block 2 scope — 2026-10-05
 
 `nkUworldHomeSection` renders one keyboard-accessible button routed through `QB.nav('uworld')`, with totals computed from the collection registry. Existing library/progress and shared engines remain the owners. Biostatistics owner accepts60 records/pages1–277 with block counts40/20; its wrapper gives the partially reviewed second block an explicit scope title without changing IDs. Original40 records/batches are unchanged; two new ten-record documents own display. Browser regressions cover multi-question Pause/Continue independently for each imported source block.
+
+## Thin Android shell — 2026-10-16
+
+The APK no longer bundles the app. `MainActivity` (`NK_THIN_SHELL_V1`) is a
+WebView that loads `BuildConfig.APP_URL` (Gradle property `qbankAppUrl`,
+default `https://nk-qbank.pages.dev/`), so Android gets the same PWA, data,
+explanation packs and figures as the web, on demand. Cloudflare Access login
+runs inside the WebView; navigation stays in-app only for the app origin and
+`*.cloudflareaccess.com`, everything else opens in the browser. Google sign-in
+is refused inside WebViews, so Access must use its one-time email PIN.
+
+- `assets.srcDirs = []`: no web assets ship in the APK; file/content access is off
+  and cleartext is allowed only when `-PqbankLocalRegression` is set.
+- Kept native pieces: `QBankHaptics`, the native Back/exit confirmation and the
+  note file chooser. New `QBankShell` bridge (`platform()`, `retry()`) lets the
+  page detect the shell; an inline offline page offers "Try again".
+- The old bundled build's `qbank.local` origin and its migration bridge are gone.
+  Progress moves from the old APK through QBank Sync (sign in, Sync now, then
+  install the shell); it cannot be exported across because the old app runs
+  its own bundled code.
+- CI (`build_apk` dispatch) builds two APKs: the shipped one (production on
+  main, the branch's Pages preview alias elsewhere) and `android-regression-apk`
+  pointed at `http://127.0.0.1:8765/`. The emulator job serves the verified
+  `build/web` there and `adb reverse`s the port, then runs
+  `tools/verify_android_question_interaction.js` with `NK_ANDROID_APK_DIR`.
+- Native feel (`NK_NATIVE_FEEL_V1`, user's choice "polish the shell" over a
+  native rewrite): system splash held until first paint (4 s cap), window,
+  status and navigation bars follow the in-app theme via `QBankShell.theme()`
+  (called from `redesign/nk-redesign.js` `applyTheme`), Geist colours in
+  `res/values{,-night,-v31,-night-v31}`, a native offline screen, `showToast`
+  routed to Android toasts, `html.nk-android-shell` turns off text selection
+  and link/image long-press outside editable fields, `adjustResize` for the
+  keyboard. Navigations fall back to the cached page after 3 s on a slow network.

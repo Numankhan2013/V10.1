@@ -6795,3 +6795,7 @@ html body #app .nk-fsrs-page-v3 .nk-v3-primary:disabled{opacity:.55;cursor:defau
   .nk-source-section.is-marrow .nk-marrow-ordered>p{font-size:16px;line-height:1.65}
   .nk-source-section.is-marrow .nk-marrow-ordered>ul li,.nk-source-section.is-marrow .nk-marrow-ordered>ol li{font-size:15.5px}
 }
+/* Android app shell: no text selection, link previews or image drags outside editable fields. */
+html.nk-android-shell{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+html.nk-android-shell :is(input,textarea,select,[contenteditable]),html.nk-android-shell [contenteditable] *{-webkit-user-select:text;user-select:text}
+html.nk-android-shell :is(a,img,canvas){-webkit-user-drag:none}

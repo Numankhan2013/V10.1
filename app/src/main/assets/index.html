@@ -1928,7 +1928,7 @@ function dashboard(){
 
   function toggleMenu(){ showToast('Use the bottom navigation to switch sections.'); }
   function notify(){ showToast('QBank is running offline on this device.'); }
-  function showToast(msg,type='') { const root=document.getElementById('toast-root'); if(!root)return; root.innerHTML=''; clearTimeout(toastTimer); const el=document.createElement('div'); el.className='toast '+type; el.textContent=msg; root.appendChild(el); toastTimer=setTimeout(()=>{root.innerHTML='';},2600); }
+  function showToast(msg,type='') { if(window.QBankShell?.toast){window.QBankShell.toast(String(msg));return;} const root=document.getElementById('toast-root'); if(!root)return; root.innerHTML=''; clearTimeout(toastTimer); const el=document.createElement('div'); el.className='toast '+type; el.textContent=msg; root.appendChild(el); toastTimer=setTimeout(()=>{root.innerHTML='';},2600); }
   function closeModal(){ document.getElementById('modal')?.remove(); }
 
   function examPoolIds() {
