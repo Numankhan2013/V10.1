@@ -17,6 +17,8 @@ throws out any question whose words changed, so the model can only rearrange.
 
 ## How to run it: coding agents on GitHub (Termux)
 
+### One agent per range of batches
+
 Give each agent its own range of batches, e.g. 001–010, 011–020, … 071–073,
 and paste the box below with the range filled in. Each agent works on its own
 branch `restructure/pathology-<first>-<last>`, checks its own answers with the
@@ -59,6 +61,79 @@ RULES
 - Do not run the bank builder, do not open a pull request, do not merge,
   do not push to main.
 - When your range is done, reply with each batch and its final check line.
+```
+
+### One agent running parallel subagents (recommended)
+
+Paste this into one agent; it splits the 73 batches across subagents and is
+the only one that commits, so they never collide.
+
+```text
+You are the lead agent for a formatting job in the GitHub repo
+Numankhan2013/V10.1. You will run subagents in parallel. Work carefully:
+correctness matters more than speed.
+
+SETUP (once; small checkout, the full repo is too big for a phone)
+  git clone --depth 1 --filter=blob:none --sparse https://github.com/Numankhan2013/V10.1.git v10
+  cd v10
+  git sparse-checkout set tools data/Prepladder/pathology/source data/Prepladder/pathology/restructure docs
+  git fetch --depth 1 origin restructure/pathology-all:restructure/pathology-all && git checkout restructure/pathology-all \
+    || git checkout -b restructure/pathology-all
+Read docs/EXPLANATION_RESTRUCTURE.md, section "The prompt" (the formatting
+rules), and the worked examples in
+data/Prepladder/pathology/restructure/examples/example-result.json.
+
+THE WORK
+- Batches: data/Prepladder/pathology/restructure/batches/pathology-001.json
+  to pathology-073.json (20 questions each).
+- Skip any batch that already has
+  data/Prepladder/pathology/restructure/results/pathology-NNN.result.json
+  passing the check (this lets you resume).
+- Run up to 6 subagents at a time. Give each one ONE batch; when it finishes,
+  give it the next unassigned batch. Paste the SUBAGENT BRIEF below to each,
+  with NNN filled in.
+
+AFTER EACH SUBAGENT FINISHES, YOU (the lead) MUST
+1. Run: python3 tools/explanation_restructure.py check data/Prepladder/pathology/restructure/results/pathology-NNN.result.json
+   Trust only this output, never the subagent's report.
+2. If it is not RESTRUCTURE_CHECK_OK, send the REJECTED lines back to the
+   same subagent to fix (up to 2 rounds). Still failing: replace each failing
+   question with {"id": "...", "unchanged": true} yourself and re-check.
+3. Open the file and spot-check two questions against the batch: the layout
+   follows the rules, prose was not chopped into bullets, tables have the
+   right columns. If a batch marks more than 15 of 20 questions "unchanged",
+   send it back with: "Restructure every question that has option rulings,
+   lists or a squashed table."
+4. Commit that one file and push (only you run git):
+     git add data/Prepladder/pathology/restructure/results/pathology-NNN.result.json
+     git commit -m "Restructure pathology-NNN"
+     git push -u origin restructure/pathology-all
+   If the push is rejected, run git pull --rebase origin restructure/pathology-all and push again.
+
+RULES FOR EVERYONE
+- Only files under data/Prepladder/pathology/restructure/results/ may be
+  created. Do not edit, move or delete any other file.
+- Do not run the bank builder, open a pull request, merge, or push to main.
+- Answers are written by reading each question. No script may generate,
+  split or rewrite answers (scripts may only run the checker).
+
+WHEN ALL 73 ARE DONE
+Reply with a table: batch, check line (passed / unchanged / rejected), and any
+batch you had to patch.
+
+SUBAGENT BRIEF (paste to each subagent)
+  You format one batch of medical explanations. Repo checkout: ./v10.
+  1. Read docs/EXPLANATION_RESTRUCTURE.md section "The prompt" and follow it
+     exactly, and read the worked examples in
+     data/Prepladder/pathology/restructure/examples/example-result.json.
+  2. Read data/Prepladder/pathology/restructure/batches/pathology-NNN.json.
+  3. Format every question yourself, by reading it. Keep every word exactly.
+  4. Write the JSON reply to
+     data/Prepladder/pathology/restructure/results/pathology-NNN.result.json
+  5. Run: python3 tools/explanation_restructure.py check data/Prepladder/pathology/restructure/results/pathology-NNN.result.json
+     Fix every REJECTED question and re-run until RESTRUCTURE_CHECK_OK.
+  6. Do not run git and do not touch any other file. Reply with the final
+     check line only.
 ```
 
 You can also use a chat model: paste the prompt box below, attach one batch,
