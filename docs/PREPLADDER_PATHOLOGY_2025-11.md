@@ -66,9 +66,10 @@ by an external agent into a master JSONL, a manifest and 48 figure archives.
 
 - **17 explanations missing in the source.** The PDF prints only the tail of
   a sentence ("Explanation: of the correct answer.", "for Assertion."), so
-  there is nothing to recover. The fragment is replaced by "The source PDF
-  prints no explanation for this question." and a review note; any figure and
-  references stay.
+  there is nothing to recover. The fragment is left out. For 14 nothing else
+  is printed but references: they show "The source PDF prints no explanation
+  for this question." and a review note. The other 3 print a figure, which is
+  the explanation; they carry a review note only.
 - **9 image-only option sets.** The PDF printed the options as images and left
   the answer line blank; the extraction rebuilt the options and key from the
   explanation. These stay `needs_review`.

@@ -72,6 +72,7 @@ def main():
                 expected = {('Anatomy', 'PrepLadder'): 1068, ('Physiology', 'PrepLadder'): 899, ('Biochemistry', 'PrepLadder'): 719,
                             ('Anatomy', 'Marrow'): 1115, ('Physiology', 'Marrow'): 1014, ('Biochemistry', 'Marrow'): 582,
                             ('Microbiology', 'PrepLadder'): 1202, ('Pathology', 'PrepLadder'): 1459,
+                            ('Pharmacology', 'PrepLadder'): 1321,
                             ('Microbiology', 'Marrow'): __import__('json').loads((Path(__file__).resolve().parents[1] / 'data/marrow/microbiology_marrow_qbank_manifest.json').read_text())['questions'],
                             ('UWorld · Biochemistry', 'UWorld'): 132,
                             ('UWorld · Poisoning & Environmental Exposure', 'UWorld'): 33,
@@ -102,9 +103,9 @@ def main():
                     page.evaluate('QB.nav("practice")')
                     page.locator('.option-list button').first.wait_for()
 
-                # Incumbent subjects (four PrepLadder+Marrow, PrepLadder Pathology)
-                # remain separate from UWorld collections.
-                expect(page.locator('.nk-home-subjects button.nk-v3-subject-card')).to_have_count(5)
+                # Incumbent subjects (four PrepLadder+Marrow, PrepLadder Pathology and
+                # Pharmacology) remain separate from UWorld collections.
+                expect(page.locator('.nk-home-subjects button.nk-v3-subject-card')).to_have_count(6)
                 # My Subjects opens collapsed; enter the subject through the app entry point.
                 page.evaluate('QB.nkOpenSubjectLibrary("Biochemistry")')
                 expect(page.locator('button.nk-bank-card')).to_have_count(2)

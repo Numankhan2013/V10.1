@@ -274,7 +274,7 @@ OPTION_ANALYSIS = re.compile(r"^(.{1,160}?\(Options? [A-E](?:[,/ &and]+[A-E])*\)
 ANSWER_LINE = re.compile(r"^\s*(?:Correct\s+)?Answer\s*(?::|[A-E]\))", re.I)
 # The November 2025 PDF prints each explanation as one run of text, sometimes
 # opening "correct answer (D) <option>." again.
-ANSWER_LEAD = re.compile(r"^\s*(?:correct\s+)?(?:answer|ans|naswer|options?)\s*[:\-–]?\s*(?:is\s+)?(?:option\s+)?[:\-–]?\s*"
+ANSWER_LEAD = re.compile(r"^\s*(?:correct\s+)?(?:answer|ans|naswer|options?)\s*[:\-–.]?\s*(?:is\s+)?(?:option\s+)?[:\-–]?\s*"
                          r"\(?([A-E])\)?(?:\s*[A-E]\))?\s*[:\-–.]?\s*", re.I)
 SENTENCE_END = re.compile(r"(?<=[a-z0-9)\]][.!?]) (?=[A-Z])")
 PARAGRAPH_CHARS = 450

@@ -2757,3 +2757,14 @@ User asked for a thorough functional audit, especially whether FSRS is as good a
   global count pins updated (PYQ journey 60 topics · 2,343 Q; 5 subject cards).
 - Fixed: lesson-title casing, `&x;=` URL leaks, long URLs widening structured explanations on phones.
 - Gaps: 17 lost explanations (marked), 9 image-only option sets (`needs_review`), no PDF answer check.
+
+## 2026-10-17 — PrepLadder Pharmacology added (Second Prof)
+
+- Branch `feature/prepladder-pharmacology` from main `27536cb3` (PR #122).
+- Source: Drive folder of the Pharmacology extraction (master JSONL 1,321 Q, manifest, 6 figure zips, 272 figures, `pharmaprep11.pdf`).
+- The Pathology builder became a shared `tools/prepladder_text_bank.py` (Pathology shards byte-identical before the rule changes below).
+- Checked against the PDF: all 1,321 keys match; 16 PYQ lessons (report said 17); 4 five-option questions.
+- Rule fixes for every text bank: references-only explanations marked; a fragment followed by text is dropped
+  (3 Pathology questions now show their figure without the "no explanation" note, 17 → 14); text after the
+  references joins them; "Correct Option. C" lead removed; the app keeps an opening note when only references follow.
+- Pins: PYQ journey 76 topics · 2,993 Q; 6 subject cards; builder bank count 10 + UWorld.

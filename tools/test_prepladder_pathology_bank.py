@@ -74,7 +74,7 @@ def main() -> None:
                 refs += 1
                 assert b["items"] and all(it["rest"] or it.get("title") for it in b["items"]), q["id"]
                 cited += sum(1 for it in b["items"] if it.get("title"))
-    assert lost == 17
+    assert lost == 14
     assert refs == 1262 and cited == 1149, (refs, cited)
     # Image-only options rebuilt from the explanation stay flagged.
     assert sum(1 for q in questions if q["reviewStatus"] == "needs_review") == 9
@@ -118,7 +118,7 @@ def main() -> None:
     page = assemble((ROOT / "app/src/main/assets/index.html").read_text(encoding="utf-8"))
     for marker in (
         '<script defer src="prepladder_pathology_visual_metadata.js"></script>',
-        "Microbiology:'second',Pathology:'second'}",
+        "Microbiology:'second',Pathology:'second',Pharmacology:'second'}",
         "if(key.includes('pathology')) return {key:'pathology',icon:'microscope',tone:'amber'};",
     ):
         assert page.count(marker) == 1, marker
