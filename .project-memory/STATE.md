@@ -2,6 +2,12 @@
 
 > Operational state only. Resolve the live branch/commit and CI from Git before acting. Historical detail belongs in `SESSION_LOG.md` and dedicated handoffs.
 
+## PrepLadder Microbiology bank (1,042 questions / 42 lessons / 6 sections) — 2026-10-17
+
+- Branch `feature/prepladder-microbiology` (on top of PR #115's branch); resolve live HEAD from Git. Source: the user's Drive extraction (master JSONL + images), imported with `python3 tools/build_prepladder_microbiology_bank.py import <master.jsonl> <images-dir>`; the slim source lives in `data/Prepladder/microbiology/source/` and figures in `data/Prepladder/microbiology/visuals/` (849, 452 auto-trimmed by `tools/figure_trim.py`). Build/check: `build_prepladder_microbiology_bank.py [--check|release]`; tests `tools/test_prepladder_microbiology_bank.py` and `tools/verify_prepladder_microbiology_browser.py`.
+- The app record is appended to `MARROW_DATA.records` with `bank:'PrepLadder'`, `explanationFormat:'structured'` (text explanations through the Marrow ordered-block renderer, plus a new `heading` block and `stemTables`). It shows as a second bank card beside Marrow; 6 PYQ lessons (474 Q) join the PYQ journey. Detail packs are keyed `${bank}-${subject}`.
+- Marrow Microbiology's 235 figures were border-trimmed with the same trimmer (2026-10-17). ED8 registry images were deliberately not touched: the registry requires byte-identical production for native medical JPEGs.
+
 ## Microbiology Marrow complete — part 07 integrated (726 questions / 25 topics / 6 sections) — 2026-10-16
 
 - Branch `feature/microbiology-marrow`; resolve live HEAD from Git. All uploaded parts are integrated in `tools/build_microbiology_marrow_bank.py` (`PART_LAYOUT`, schema 2); split page offsets pinned by embedded page-image SHA-256 against the full 173-page Qbank (03→48, 04→74, 05→100, 06→126, 07→152). Built bank: **726 questions / 25 topics / 6 sections / 235 figures**, `incomplete={}`. Part 07's first module joins part-06's Mycology half (module 22 = Q1–35, combined title, true total 35); new topics: 23 General Parasitology & Helminthology (16), 24 Protozoology (39), 25 Applied & Clinical Microbiology (15). Parts 01–02 IDs unchanged; learner progress carries over. `source_parts()` still prints `MICROBIOLOGY_MARROW_PARTS_PENDING` for future un-integrated uploads.
