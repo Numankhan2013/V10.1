@@ -4,92 +4,284 @@
   {
    "id": "pathology-36-13",
    "blocks": [
-    {"type": "paragraph", "text": "Silicosis is a type of pneumoconiosis caused by inhalation of crystalline silica dust, which is commonly found in industries like sandblasting. It is associated with a higher risk of developing tuberculosis due to the impairment of the immune response in the lung"},
-    {"type": "paragraph", "text": "**Silicosis:** It is the most prevalent occupational lung disease in the world."},
-    {"type": "paragraph", "text": "**Cause:** Inhalation of proinflammatory crystalline silicon dioxide (silica)."},
-    {"type": "paragraph", "text": "After decades of exposure, it usually presents as slowly progressing, nodular, fibrosing pneumoconiosis."},
-    {"type": "paragraph", "text": "**Occupations at risk:**"},
-    {"type": "bullets", "items": [
-     {"text": "Foundry work."},
-     {"text": "Sandblasting."},
-     {"text": "Hard rock mining."},
-     {"text": "Stone cutting."},
-     {"text": "Jewellers using chalk moulds."}
-    ]},
-    {"type": "paragraph", "text": "**Pathogenesis:** Phagocytosis of inhaled silica crystals by macrophages activates the inflammasome and stimulates the release of inflammatory mediators, particularly IL-1 and IL-18."},
-    {"type": "paragraph", "text": "This, in turn, recruits additional inflammatory cells and activates interstitial fibroblasts, leading to collagen deposition."},
-    {"type": "paragraph", "text": "**Forms of silica:**"},
-    {"type": "bullets", "items": [
-     {"text": "Amorphous."},
-     {"text": "Crystalline (quartz, cristobalite, and tridymite)- more fibrogenic."}
-    ]},
-    {"type": "paragraph", "text": "**Forms of silicosis:**"},
-    {"type": "bullets", "items": [
-     {"text": "**Acute:** Heavy exposure in closed spaces"},
-     {"text": "Associated with Silico-tuberculosis and Secondary pulmonary alveolar proteinosis ( SPAP)"},
-     {"text": "Can present within 2 years."},
-     {"text": "**Chronic (simple):** Long-term (10-30 years) less intense exposure."},
-     {"text": "**Chronic Complicated:** Chronic cough and progressive dyspnea on exertion."}
-    ]},
-    {"type": "paragraph", "text": "**Morphology:**"},
-    {"type": "bullets", "items": [
-     {"text": "Discrete nodules in hilar nodes and upper zones of lungs."},
-     {"text": "Hard collagenous scars."},
-     {"text": "Fibrotic lesions in nodes and pleura (pleural thickening)."},
-     {"text": "Eggshell calcification (thin sheets of calcification in lymph nodes; calcium surrounding a zone lacking calcification)."},
-     {"text": "Progressive massive fibrosis (1-10 cm)."}
-    ]},
-    {"type": "bullets", "items": [
-     {"text": "Lung cancer (2-fold risk)."},
-     {"text": "Increased susceptibility to tuberculosis infection."}
-    ]},
-    {"type": "paragraph", "text": "**Histological hallmark:** Central collagen with a peripheral zone of dust-laden macrophages."},
-    {"type": "paragraph", "text": "**Polarized microscopy:** Weakly birefringent silicate particles."},
-    {"type": "paragraph", "text": "**CT scan:** Crazy pavement pattern and interstitial fibrosis."},
-    {"type": "paragraph", "text": "**Asbestosis (Option A):** is caused by inhaling asbestos fibres, primarily leading to lung fibrosis and increasing the risk of lung cancer and mesothelioma. However, it is not directly linked to an increased risk of tuberculosis."},
-    {"type": "paragraph", "text": "**Anthracosis (Option C):** , or \"coal miner\u2019s lung,\" results from inhaling coal dust. It can cause chronic bronchitis or emphysema but does not have a direct association with tuberculosis."},
-    {"type": "paragraph", "text": "**Siderosis (Option D):** is caused by inhaling iron oxide dust, typically seen in occupations like welding. It can lead to pulmonary fibrosis but does not significantly increase the risk of tuberculosis."},
-    {"type": "figure", "figure_id": "PREPLADDER_PATHO_L36_Q013_explanation_1"},
-    {"type": "figure", "figure_id": "PREPLADDER_PATHO_L36_Q013_explanation_2"},
-    {"type": "figure", "figure_id": "PREPLADDER_PATHO_L36_Q013_explanation_3"},
-    {"type": "figure", "figure_id": "PREPLADDER_PATHO_L36_Q013_explanation_4"},
-    {"type": "figure", "figure_id": "PREPLADDER_PATHO_L36_Q013_explanation_5"}
+    {
+     "type": "paragraph",
+     "text": "Silicosis is a type of pneumoconiosis caused by inhalation of crystalline silica dust, which is commonly found in industries like sandblasting. It is associated with a higher risk of developing tuberculosis due to the impairment of the immune response in the lung"
+    },
+    {
+     "type": "paragraph",
+     "text": "**Silicosis:** It is the most prevalent occupational lung disease in the world."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Cause:** Inhalation of proinflammatory crystalline silicon dioxide (silica)."
+    },
+    {
+     "type": "paragraph",
+     "text": "After decades of exposure, it usually presents as slowly progressing, nodular, fibrosing pneumoconiosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Occupations at risk:**"
+    },
+    {
+     "type": "bullets",
+     "items": [
+      {
+       "text": "Foundry work."
+      },
+      {
+       "text": "Sandblasting."
+      },
+      {
+       "text": "Hard rock mining."
+      },
+      {
+       "text": "Stone cutting."
+      },
+      {
+       "text": "Jewellers using chalk moulds."
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "**Pathogenesis:** Phagocytosis of inhaled silica crystals by macrophages activates the inflammasome and stimulates the release of inflammatory mediators, particularly IL-1 and IL-18."
+    },
+    {
+     "type": "paragraph",
+     "text": "This, in turn, recruits additional inflammatory cells and activates interstitial fibroblasts, leading to collagen deposition."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Forms of silica:**"
+    },
+    {
+     "type": "bullets",
+     "items": [
+      {
+       "text": "Amorphous."
+      },
+      {
+       "text": "Crystalline (quartz, cristobalite, and tridymite)- more fibrogenic."
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "**Forms of silicosis:**"
+    },
+    {
+     "type": "bullets",
+     "items": [
+      {
+       "text": "**Acute:** Heavy exposure in closed spaces"
+      },
+      {
+       "text": "Associated with Silico-tuberculosis and Secondary pulmonary alveolar proteinosis ( SPAP)"
+      },
+      {
+       "text": "Can present within 2 years."
+      },
+      {
+       "text": "**Chronic (simple):** Long-term (10-30 years) less intense exposure."
+      },
+      {
+       "text": "**Chronic Complicated:** Chronic cough and progressive dyspnea on exertion."
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "**Morphology:**"
+    },
+    {
+     "type": "bullets",
+     "items": [
+      {
+       "text": "Discrete nodules in hilar nodes and upper zones of lungs."
+      },
+      {
+       "text": "Hard collagenous scars."
+      },
+      {
+       "text": "Fibrotic lesions in nodes and pleura (pleural thickening)."
+      },
+      {
+       "text": "Eggshell calcification (thin sheets of calcification in lymph nodes; calcium surrounding a zone lacking calcification)."
+      },
+      {
+       "text": "Progressive massive fibrosis (1-10 cm)."
+      }
+     ]
+    },
+    {
+     "type": "bullets",
+     "items": [
+      {
+       "text": "Lung cancer (2-fold risk)."
+      },
+      {
+       "text": "Increased susceptibility to tuberculosis infection."
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "**Histological hallmark:** Central collagen with a peripheral zone of dust-laden macrophages."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Polarized microscopy:** Weakly birefringent silicate particles."
+    },
+    {
+     "type": "paragraph",
+     "text": "**CT scan:** Crazy pavement pattern and interstitial fibrosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Asbestosis (Option A):** is caused by inhaling asbestos fibres, primarily leading to lung fibrosis and increasing the risk of lung cancer and mesothelioma. However, it is not directly linked to an increased risk of tuberculosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Anthracosis (Option C):** , or \"coal miner’s lung,\" results from inhaling coal dust. It can cause chronic bronchitis or emphysema but does not have a direct association with tuberculosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Siderosis (Option D):** is caused by inhaling iron oxide dust, typically seen in occupations like welding. It can lead to pulmonary fibrosis but does not significantly increase the risk of tuberculosis."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q013_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q013_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q013_explanation_3"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q013_explanation_4"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q013_explanation_5"
+    }
    ]
   },
   {
    "id": "pathology-36-14",
    "blocks": [
-    {"type": "paragraph", "text": "Mesothelioma is primarily caused by exposure to asbestos fibres, which is a known risk factor for this type of cancer. Long-term exposure to asbestos, especially in industries such as cement factories, is the most common occupational cause of mesothelioma. Asbestos exposure is a well-established risk factor for developing laryngeal, ovarian, colon, lung, and pleural cancers."},
-    {"type": "paragraph", "text": "Lung mesothelioma is a more specific tumour associated with asbestos exposure. It is common but is less prevalent than Adenocarcinoma."},
-    {"type": "paragraph", "text": "**Mesothelioma:** A rare cancer arising from mesothelial cells that most commonly affects the pleura, and it can also affect the peritoneum, pericardium, and tunica vaginalis"},
-    {"type": "paragraph", "text": "**Etiology:** Mesothelioma is the most specific asbestos-associated cancer"},
-    {"type": "paragraph", "text": "**Pathology:** Advanced pleural mesothelioma can cause extensive pleural fibrosis and thickening, making the affected side rigid and immobile"},
-    {"type": "paragraph", "text": "Later stages fix the mediastinum in place due to pleural thickening and fibrosis."},
-    {"type": "paragraph", "text": "A mediastinal shift is not a characteristic feature of mesothelioma."},
-    {"type": "paragraph", "text": "**Clinical features:**"},
-    {"type": "bullets", "items": [
-     {"text": "Progressive dyspnea, chest pain, weight loss, chronic cough, hemoptysis"},
-     {"text": "Decreased breath sounds and dullness to percussion (due to pleural effusion or thickening)."}
-    ]},
-    {"type": "paragraph", "text": "**Diagnosis:**"},
-    {"type": "bullets", "items": [
-     {"text": "CT scan shows Pleural thickening, effusion, or frozen hemithorax (not causing a mediastinal shift in the presence of effusion)"},
-     {"text": "Biopsy (Diagnosis can be confirmed)"}
-    ]},
-    {"type": "paragraph", "text": "Epithelioid mesothelioma shows tubules, nests, or papillary structures with uniform round to oval nuclei and eosinophilic cytoplasm. Sarcomatoid mesothelioma consists of spindle-shaped cells resembling fibrosarcoma. Biphasic mesothelioma displays a mixture of both patterns."},
-    {"type": "paragraph", "text": "**Specific markers for mesothelioma:**"},
-    {"type": "bullets", "items": [
-     {"text": "Calretinin"},
-     {"text": "Epithelial membrane antigen"},
-     {"text": "Cytokeratin"},
-     {"text": "Mesothelin"}
-    ]},
-    {"type": "paragraph", "text": "**Prognosis:** Poor - median survival of 9-21 months"},
-    {"type": "paragraph", "text": "**Incorrect Options: Silicosis (Option A):** is caused by the inhalation of silica dust, commonly seen in industries such as mining and construction. While silica exposure can lead to lung fibrosis, it is not a direct cause of mesothelioma."},
-    {"type": "paragraph", "text": "**Coal worker pneumoconiosis (Option C):** , also known as black lung disease, results from the inhalation of coal dust. This condition affects the lungs but is not linked to mesothelioma."},
-    {"type": "paragraph", "text": "**Bagassosis (Option D):** is caused by the inhalation of mouldy sugarcane dust and can lead to lung disease, but it is not associated with mesothelioma."},
-    {"type": "figure", "figure_id": "PREPLADDER_PATHO_L36_Q014_explanation_1"},
-    {"type": "figure", "figure_id": "PREPLADDER_PATHO_L36_Q014_explanation_2"}
+    {
+     "type": "paragraph",
+     "text": "Mesothelioma is primarily caused by exposure to asbestos fibres, which is a known risk factor for this type of cancer. Long-term exposure to asbestos, especially in industries such as cement factories, is the most common occupational cause of mesothelioma. Asbestos exposure is a well-established risk factor for developing laryngeal, ovarian, colon, lung, and pleural cancers."
+    },
+    {
+     "type": "paragraph",
+     "text": "Lung mesothelioma is a more specific tumour associated with asbestos exposure. It is common but is less prevalent than Adenocarcinoma."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Mesothelioma:** A rare cancer arising from mesothelial cells that most commonly affects the pleura, and it can also affect the peritoneum, pericardium, and tunica vaginalis"
+    },
+    {
+     "type": "paragraph",
+     "text": "**Etiology:** Mesothelioma is the most specific asbestos-associated cancer"
+    },
+    {
+     "type": "paragraph",
+     "text": "**Pathology:** Advanced pleural mesothelioma can cause extensive pleural fibrosis and thickening, making the affected side rigid and immobile"
+    },
+    {
+     "type": "paragraph",
+     "text": "Later stages fix the mediastinum in place due to pleural thickening and fibrosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "A mediastinal shift is not a characteristic feature of mesothelioma."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Clinical features:**"
+    },
+    {
+     "type": "bullets",
+     "items": [
+      {
+       "text": "Progressive dyspnea, chest pain, weight loss, chronic cough, hemoptysis"
+      },
+      {
+       "text": "Decreased breath sounds and dullness to percussion (due to pleural effusion or thickening)."
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "**Diagnosis:**"
+    },
+    {
+     "type": "bullets",
+     "items": [
+      {
+       "text": "CT scan shows Pleural thickening, effusion, or frozen hemithorax (not causing a mediastinal shift in the presence of effusion)"
+      },
+      {
+       "text": "Biopsy (Diagnosis can be confirmed)"
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "Epithelioid mesothelioma shows tubules, nests, or papillary structures with uniform round to oval nuclei and eosinophilic cytoplasm. Sarcomatoid mesothelioma consists of spindle-shaped cells resembling fibrosarcoma. Biphasic mesothelioma displays a mixture of both patterns."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Specific markers for mesothelioma:**"
+    },
+    {
+     "type": "bullets",
+     "items": [
+      {
+       "text": "Calretinin"
+      },
+      {
+       "text": "Epithelial membrane antigen"
+      },
+      {
+       "text": "Cytokeratin"
+      },
+      {
+       "text": "Mesothelin"
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "**Prognosis:** Poor - median survival of 9-21 months"
+    },
+    {
+     "type": "paragraph",
+     "text": "**Incorrect Options: Silicosis (Option A):** is caused by the inhalation of silica dust, commonly seen in industries such as mining and construction. While silica exposure can lead to lung fibrosis, it is not a direct cause of mesothelioma."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Coal worker pneumoconiosis (Option C):** , also known as black lung disease, results from the inhalation of coal dust. This condition affects the lungs but is not linked to mesothelioma."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Bagassosis (Option D):** is caused by the inhalation of mouldy sugarcane dust and can lead to lung disease, but it is not associated with mesothelioma."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q014_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q014_explanation_2"
+    }
    ]
   },
   {
@@ -103,123 +295,342 @@
   {
    "id": "pathology-36-17",
    "blocks": [
-    {"type": "paragraph", "text": "The given image shows dumbbell-shaped asbestos bodies, which, along with the history, suggests asbestosis."},
-    {"type": "paragraph", "text": "**Incorrect Options:**"},
-    {"type": "bullets", "items": [
-     {"text": "**Option A \u2013 Stanosis:** Stanosis occurs due to tin/lead exposure."},
-     {"text": "**Option B \u2013 Silicosis:** Silicosis will show silicon particles on polarizing microscopy."},
-     {"text": "**Option C \u2013 Byssinosis:** Byssinosis occurs due to cotton dust/organic dust exposure, which is not mentioned in the patient\u2019s history."}
-    ]},
-    {"type": "figure", "figure_id": "PREPLADDER_PATHO_L36_Q017_explanation_1"}
+    {
+     "type": "paragraph",
+     "text": "The given image shows dumbbell-shaped asbestos bodies, which, along with the history, suggests asbestosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Incorrect Options:**"
+    },
+    {
+     "type": "bullets",
+     "items": [
+      {
+       "text": "**Option A – Stanosis:** Stanosis occurs due to tin/lead exposure."
+      },
+      {
+       "text": "**Option B – Silicosis:** Silicosis will show silicon particles on polarizing microscopy."
+      },
+      {
+       "text": "**Option C – Byssinosis:** Byssinosis occurs due to cotton dust/organic dust exposure, which is not mentioned in the patient’s history."
+      }
+     ]
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q017_explanation_1"
+    }
    ]
   },
   {
    "id": "pathology-36-18",
    "blocks": [
-    {"type": "paragraph", "text": "The patient's presentation with fever and breathlessness for 2 weeks and history of HIV with owl eye appearance in the image is suggestive of CMV (cytomegalovirus) pneumonia."},
-    {"type": "paragraph", "text": "**CMV (cytomegalovirus):** Class Betaherpesvirinae subfamily of the Herpesviridae family."},
-    {"type": "paragraph", "text": "**Modes of transmission:**"},
-    {"type": "bullets", "items": [
-     {"text": "Oral route, respiratory & body secretions (most common)"},
-     {"text": "Vertical transmission"},
-     {"text": "Sexual transmission"},
-     {"text": "Organ transplantation"},
-     {"text": "Blood transfusion"}
-    ]},
-    {"type": "paragraph", "text": "**Host cells:**"},
-    {"type": "bullets", "items": [
-     {"text": "Salivary gland"},
-     {"text": "Kidney"}
-    ]},
-    {"type": "paragraph", "text": "**Clinical features:**"},
-    {"type": "paragraph", "text": "**Congenital infection:** Most common intrauterine infection with congenital defects."},
-    {"type": "paragraph", "text": "**Common presentation:**"},
-    {"type": "bullets", "items": [
-     {"text": "Petechiae"},
-     {"text": "Hepatosplenomegaly"},
-     {"text": "Jaundice"}
-    ]},
-    {"type": "paragraph", "text": "**Less common presentation:**"},
-    {"type": "bullets", "items": [
-     {"text": "Microcephaly"},
-     {"text": "Cerebral calcifications"},
-     {"text": "Intrauterine growth retardation"},
-     {"text": "Prematurity"}
-    ]},
-    {"type": "paragraph", "text": "**Other defects:** Sensorineural hearing loss."},
-    {"type": "paragraph", "text": "**Perinatal infection:** Commonly asymptomatic. Occasionally, premature infants present with interstitial pneumonitis."},
-    {"type": "paragraph", "text": "**Immunocompromised:** This is seen in AIDS, HIV, organ transplant patients and cancer patients undergoing chemotherapy."},
-    {"type": "paragraph", "text": "**Presentations in AIDS and HIV:**"},
-    {"type": "bullets", "items": [
-     {"text": "CMV chorioretinitis"},
-     {"text": "Progressive dementia"},
-     {"text": "Cranial nerve defects"}
-    ]},
-    {"type": "paragraph", "text": "**Presentations in Organ transplant:**"},
-    {"type": "bullets", "items": [
-     {"text": "Bilateral interstitial pneumonia"},
-     {"text": "Febrile leukopenia"},
-     {"text": "Obliterative bronchiolitis"},
-     {"text": "Graft atherosclerosis"},
-     {"text": "Rejection of renal allografts."}
-    ]},
-    {"type": "paragraph", "text": "**Immunocompetent:** Usually, it occurs following a blood transfusion. It presents similar to infectious mononucleosis, but heterophile antibody tests would be negative."},
-    {"type": "paragraph", "text": "**Investigations:**"},
-    {"type": "bullets", "items": [
-     {"text": "**Peripheral smear:** Owl\u2019s eye appearance of inclusion bodies."},
-     {"text": "**Virus isolation:** It is done by Human fibroblast cell line culture; Shell vial culture"},
-     {"text": "**Antigen detected:** PP65"},
-     {"text": "**Antibody detection:** It is done by ELISA, and the antibodies detected are CMV IgM antibodies; CMV IgG antibodies: Against PP150 and PP65, Against the PP52"},
-     {"text": "**PCR:** Used in detecting CMV DNA. Quantitative nucleic acid testing ( QNAT) by PCR is the most sensitive and specific testing."}
-    ]},
-    {"type": "paragraph", "text": "**Treatment:**"},
-    {"type": "bullets", "items": [
-     {"text": "Ganciclovir (Drug of choice)"},
-     {"text": "Foscarnet (in Ganciclovir resistance)"},
-     {"text": "CMV immunoglobulins and Ganciclovir are given to bone marrow transplant patients."}
-    ]},
-    {"type": "paragraph", "text": "**EBV (Epstein Barr virus) (Option A):** primarily causes infectious mononucleosis, marked by fever, sore throat, swollen lymph nodes, and fatigue, and usually does not lead to pneumonia. Downey cells, or atypical lymphocytes, are large, vacuolated, and often display a ballerina skirt appearance."},
-    {"type": "paragraph", "text": "**Pox virus (Option C):** , like smallpox (eradicated) and molluscum contagiosum, causes skin lesions such as pustules or bumps. While they don't typically cause pneumonia, they can lead to systemic infections, especially in immunocompromised individuals."},
-    {"type": "paragraph", "text": "**Chickenpox (Option D):** , caused by varicella-zoster virus (VZV), leads to a rash of red spots and blisters. In immunocompromised patients, it can cause severe complications like varicella pneumonia, though less commonly than CMV or bacterial pneumonia, and may require antiviral treatment."},
-    {"type": "figure", "figure_id": "PREPLADDER_PATHO_L36_Q018_explanation_1"},
-    {"type": "figure", "figure_id": "PREPLADDER_PATHO_L36_Q018_explanation_2"}
+    {
+     "type": "paragraph",
+     "text": "The patient's presentation with fever and breathlessness for 2 weeks and history of HIV with owl eye appearance in the image is suggestive of CMV (cytomegalovirus) pneumonia."
+    },
+    {
+     "type": "paragraph",
+     "text": "**CMV (cytomegalovirus):** Class Betaherpesvirinae subfamily of the Herpesviridae family."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Modes of transmission:**"
+    },
+    {
+     "type": "bullets",
+     "items": [
+      {
+       "text": "Oral route, respiratory & body secretions (most common)"
+      },
+      {
+       "text": "Vertical transmission"
+      },
+      {
+       "text": "Sexual transmission"
+      },
+      {
+       "text": "Organ transplantation"
+      },
+      {
+       "text": "Blood transfusion"
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "**Host cells:**"
+    },
+    {
+     "type": "bullets",
+     "items": [
+      {
+       "text": "Salivary gland"
+      },
+      {
+       "text": "Kidney"
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "**Clinical features:**"
+    },
+    {
+     "type": "paragraph",
+     "text": "**Congenital infection:** Most common intrauterine infection with congenital defects."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Common presentation:**"
+    },
+    {
+     "type": "bullets",
+     "items": [
+      {
+       "text": "Petechiae"
+      },
+      {
+       "text": "Hepatosplenomegaly"
+      },
+      {
+       "text": "Jaundice"
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "**Less common presentation:**"
+    },
+    {
+     "type": "bullets",
+     "items": [
+      {
+       "text": "Microcephaly"
+      },
+      {
+       "text": "Cerebral calcifications"
+      },
+      {
+       "text": "Intrauterine growth retardation"
+      },
+      {
+       "text": "Prematurity"
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "**Other defects:** Sensorineural hearing loss."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Perinatal infection:** Commonly asymptomatic. Occasionally, premature infants present with interstitial pneumonitis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Immunocompromised:** This is seen in AIDS, HIV, organ transplant patients and cancer patients undergoing chemotherapy."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Presentations in AIDS and HIV:**"
+    },
+    {
+     "type": "bullets",
+     "items": [
+      {
+       "text": "CMV chorioretinitis"
+      },
+      {
+       "text": "Progressive dementia"
+      },
+      {
+       "text": "Cranial nerve defects"
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "**Presentations in Organ transplant:**"
+    },
+    {
+     "type": "bullets",
+     "items": [
+      {
+       "text": "Bilateral interstitial pneumonia"
+      },
+      {
+       "text": "Febrile leukopenia"
+      },
+      {
+       "text": "Obliterative bronchiolitis"
+      },
+      {
+       "text": "Graft atherosclerosis"
+      },
+      {
+       "text": "Rejection of renal allografts."
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "**Immunocompetent:** Usually, it occurs following a blood transfusion. It presents similar to infectious mononucleosis, but heterophile antibody tests would be negative."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Investigations:**"
+    },
+    {
+     "type": "bullets",
+     "items": [
+      {
+       "text": "**Peripheral smear:** Owl’s eye appearance of inclusion bodies."
+      },
+      {
+       "text": "**Virus isolation:** It is done by Human fibroblast cell line culture; Shell vial culture"
+      },
+      {
+       "text": "**Antigen detected:** PP65"
+      },
+      {
+       "text": "**Antibody detection:** It is done by ELISA, and the antibodies detected are CMV IgM antibodies; CMV IgG antibodies: Against PP150 and PP65, Against the PP52"
+      },
+      {
+       "text": "**PCR:** Used in detecting CMV DNA. Quantitative nucleic acid testing ( QNAT) by PCR is the most sensitive and specific testing."
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "**Treatment:**"
+    },
+    {
+     "type": "bullets",
+     "items": [
+      {
+       "text": "Ganciclovir (Drug of choice)"
+      },
+      {
+       "text": "Foscarnet (in Ganciclovir resistance)"
+      },
+      {
+       "text": "CMV immunoglobulins and Ganciclovir are given to bone marrow transplant patients."
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "**EBV (Epstein Barr virus) (Option A):** primarily causes infectious mononucleosis, marked by fever, sore throat, swollen lymph nodes, and fatigue, and usually does not lead to pneumonia. Downey cells, or atypical lymphocytes, are large, vacuolated, and often display a ballerina skirt appearance."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Pox virus (Option C):** , like smallpox (eradicated) and molluscum contagiosum, causes skin lesions such as pustules or bumps. While they don't typically cause pneumonia, they can lead to systemic infections, especially in immunocompromised individuals."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Chickenpox (Option D):** , caused by varicella-zoster virus (VZV), leads to a rash of red spots and blisters. In immunocompromised patients, it can cause severe complications like varicella pneumonia, though less commonly than CMV or bacterial pneumonia, and may require antiviral treatment."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q018_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q018_explanation_2"
+    }
    ]
   },
   {
    "id": "pathology-36-19",
    "blocks": [
-    {"type": "paragraph", "text": "The presence of glands in the given histopatholgy image indicates adenocarcinoma of the lung. In adenocarcinoma of the lung, neoplastic epithelial cells proliferate in a glandular pattern, forming well-differentiated tumors characterized by distinct glandular structures."},
-    {"type": "paragraph", "text": "**Incorrect Options:**"},
-    {"type": "bullets", "items": [
-     {"text": "**Option B - Squamous cell carcinoma:** The absence of keratin pearls and desmosomes in the image indicates that it does not correspond to squamous cell carcinoma."},
-     {"text": "**Option C - Small cell carcinoma:** The image does not exhibit the salt and pepper appearance of chromatin or the Azzopardi Effect, features of small cell carcinoma."},
-     {"text": "**Option D - Large cell carcinoma:** Large cell carcinoma is an undifferentiated tumor characterized by the presence of large nuclei."}
-    ]}
+    {
+     "type": "paragraph",
+     "text": "The presence of glands in the given histopatholgy image indicates adenocarcinoma of the lung. In adenocarcinoma of the lung, neoplastic epithelial cells proliferate in a glandular pattern, forming well-differentiated tumors characterized by distinct glandular structures."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Incorrect Options:**"
+    },
+    {
+     "type": "bullets",
+     "items": [
+      {
+       "text": "**Option B - Squamous cell carcinoma:** The absence of keratin pearls and desmosomes in the image indicates that it does not correspond to squamous cell carcinoma."
+      },
+      {
+       "text": "**Option C - Small cell carcinoma:** The image does not exhibit the salt and pepper appearance of chromatin or the Azzopardi Effect, features of small cell carcinoma."
+      },
+      {
+       "text": "**Option D - Large cell carcinoma:** Large cell carcinoma is an undifferentiated tumor characterized by the presence of large nuclei."
+      }
+     ]
+    }
    ]
   },
   {
    "id": "pathology-36-20",
    "blocks": [
-    {"type": "paragraph", "text": "The given histopathological image shows signs of chronic granulomatous inflammation, along with areas of caseous necrosis (seen as pink-colored areas) and Langerhans giant cells. All these findings are suggestive of Tuberculosis."},
-    {"type": "paragraph", "text": "**Incorrect Options:**"},
-    {"type": "bullets", "items": [
-     {"text": "**Sarcoidosis (Option A):** Sarcoidosis typically presents with non-caseating granuloma or naked granuloma (lymphocytic collar absent)."},
-     {"text": "**Histoplasmosis (Option C):** Histoplasmosis shows the presence of small Histoplasma capsulatum yeasts."},
-     {"text": "**Brucellosis (Option D):** Brucellosis does not show caseous necrosis and Langerhans giant cells."}
-    ]},
-    {"type": "figure", "figure_id": "PREPLADDER_PATHO_L36_Q020_explanation_1"},
-    {"type": "figure", "figure_id": "PREPLADDER_PATHO_L36_Q020_explanation_2"}
+    {
+     "type": "paragraph",
+     "text": "The given histopathological image shows signs of chronic granulomatous inflammation, along with areas of caseous necrosis (seen as pink-colored areas) and Langerhans giant cells. All these findings are suggestive of Tuberculosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Incorrect Options:**"
+    },
+    {
+     "type": "bullets",
+     "items": [
+      {
+       "text": "**Sarcoidosis (Option A):** Sarcoidosis typically presents with non-caseating granuloma or naked granuloma (lymphocytic collar absent)."
+      },
+      {
+       "text": "**Histoplasmosis (Option C):** Histoplasmosis shows the presence of small Histoplasma capsulatum yeasts."
+      },
+      {
+       "text": "**Brucellosis (Option D):** Brucellosis does not show caseous necrosis and Langerhans giant cells."
+      }
+     ]
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q020_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q020_explanation_2"
+    }
    ]
   },
   {
    "id": "pathology-36-21",
    "blocks": [
-    {"type": "paragraph", "text": "**A. Caplan\u2019s syndrome:** It is characterised by the formation of multiple well-defined pulmonary nodules, typically located in the lung periphery, in individuals with rheumatoid arthritis who have been exposed to inorganic dust. It is primarily associated with coal worker's pneumoconiosis but can also occur in other forms of pneumoconiosis."},
-    {"type": "paragraph", "text": "**B. Asbestosis:** It primarily affects the lower lobes of the lungs and increases the risk of laryngeal, ovarian, colon, lung, and pleural cancers, with lung cancer risk significantly heightened in smokers. Asbestos-related lung carcinoma typically targets the lower lobes, unlike other occupational lung diseases that affect the upper lobes."},
-    {"type": "paragraph", "text": "**C. Mesothelioma:** It is a rare cancer originating from mesothelial cells, most commonly affecting the pleura."},
-    {"type": "paragraph", "text": "CT scan typically shows pleural thickening, effusion, or frozen hemithorax. It can also involve the peritoneum, pericardium, and tunica vaginalis."},
-    {"type": "paragraph", "text": "**D. Silicosis:** It is the most prevalent occupational lung disease and is caused by inhaling proinflammatory crystalline silica. After decades of exposure, it typically presents as slowly progressing, nodular, fibrosing pneumoconiosis."},
-    {"type": "paragraph", "text": "The CT scan shows a \"crazy pavement\" pattern and interstitial fibrosis."}
+    {
+     "type": "paragraph",
+     "text": "**A. Caplan’s syndrome:** It is characterised by the formation of multiple well-defined pulmonary nodules, typically located in the lung periphery, in individuals with rheumatoid arthritis who have been exposed to inorganic dust. It is primarily associated with coal worker's pneumoconiosis but can also occur in other forms of pneumoconiosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**B. Asbestosis:** It primarily affects the lower lobes of the lungs and increases the risk of laryngeal, ovarian, colon, lung, and pleural cancers, with lung cancer risk significantly heightened in smokers. Asbestos-related lung carcinoma typically targets the lower lobes, unlike other occupational lung diseases that affect the upper lobes."
+    },
+    {
+     "type": "paragraph",
+     "text": "**C. Mesothelioma:** It is a rare cancer originating from mesothelial cells, most commonly affecting the pleura."
+    },
+    {
+     "type": "paragraph",
+     "text": "CT scan typically shows pleural thickening, effusion, or frozen hemithorax. It can also involve the peritoneum, pericardium, and tunica vaginalis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**D. Silicosis:** It is the most prevalent occupational lung disease and is caused by inhaling proinflammatory crystalline silica. After decades of exposure, it typically presents as slowly progressing, nodular, fibrosing pneumoconiosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "The CT scan shows a \"crazy pavement\" pattern and interstitial fibrosis."
+    }
    ]
   },
   {
@@ -233,52 +644,212 @@
   {
    "id": "pathology-36-24",
    "blocks": [
-    {"type": "paragraph", "text": "An elderly male smoker with chronic cough, weight loss, fatigue, and elevated serum calcium likely has squamous cell carcinoma of the lung. This cancer is associated with paraneoplastic hypercalcemia due to PTHrP secretion. The biopsy showing large atypical cells with hyperchromasia supports this diagnosis."},
-    {"type": "paragraph", "text": "Smoking significantly increases the risk of squamous cell carcinoma of the lung as it has a strong association, resulting in chromosomal deletions involving tumour suppressor loci involving 3p,9p and 17p."},
-    {"type": "paragraph", "text": "**Squamous cell carcinoma:** Squamous Cell Carcinoma is typically found in the central regions of the lungs (Not peripheral), often originating in the major bronchi near the hilum. It can cause symptoms by obstructing airways."},
-    {"type": "paragraph", "text": "Histopathologically, it is characterised by keratin pearls, intercellular bridges, and nests of malignant squamous cells with abundant eosinophilic cytoplasm."},
-    {"type": "paragraph", "text": "**Location of lung carcinomas:**"},
-    {"type": "bullets", "items": [
-     {"text": "**Central:** Squamous cell carcinoma, Small cell carcinoma, and Bronchial carcinoids."},
-     {"text": "**Peripheral:** Adenocarcinoma and Large-cell carcinoma."}
-    ]},
-    {"type": "table", "title": "", "columns": ["Type of Lung Carcinoma", "Paraneoplastic Syndrome"], "rows": [
-     ["Squamous cell carcinoma", "Hypercalcemia"],
-     ["Adenocarcinoma", "Migratory thrombophlebitis ( Trousseau syndrome )"],
-     ["Small cell or oat cell Carcinoma", "SIADH (syndrome of inappropriate anti-diuretic hormone secretion)\nCushing's syndrome\nLambert Eaton syndrome"],
-     ["Large cell carcinoma", "Gynaecomastia"]
-    ]},
-    {"type": "table", "title": "", "columns": ["Characteristic", "Small Cell Carcinoma (Option B)", "Squamous Cell Carcinoma (Option D)", "Carcinoid Tumor (Option A)", "Adenocarcinoma (Option C)"], "rows": [
-     ["Origin", "Neuroendocrine cells of the lung.", "Squamous cells of the lung.", "Neuroendocrine cells of bronchial epithelium.", "Glandular cells of the lung."],
-     ["Cells in histopathology", "Small, round to oval, blue cells with scant cytoplasm and finely granular chromatin with a “salt and pepper” appearance.", "Sheets of polygonal cells with keratinisation and intercellular bridges", "Nesting (organoid) growth pattern with uniform round nuclei, moderate eosinophilic cytoplasm, and a “ salt-and-pepper” chromatin pattern.", "Glandular or epithelial cells forming acinar, papillary, or solid patterns"],
-     ["Mitotic rate", "High", "Variable", "Low to moderate", "Variable"],
-     ["Electron microscopy findings", "Dense core neurosecretory granules.", "Desmosomes, tonofilaments, keratinisation", "Dense core neurosecretory granules.", "Variable organelles, sometimes containing mucin vacuoles"],
-     ["IHC markers", "Positive for neuroendocrine markers (e.g., chromogranin, synaptophysin ).", "P63, p40, CK5/6", "Positive for neuroendocrine markers (e.g., chromogranin, synaptophysin )", "Variable (e.g., TTF-1, Napsin A for primary lung adenocarcinoma)"]
-    ]},
-    {"type": "figure", "figure_id": "PREPLADDER_PATHO_L36_Q024_explanation_1"},
-    {"type": "figure", "figure_id": "PREPLADDER_PATHO_L36_Q024_explanation_2"},
-    {"type": "figure", "figure_id": "PREPLADDER_PATHO_L36_Q024_explanation_3"},
-    {"type": "figure", "figure_id": "PREPLADDER_PATHO_L36_Q024_explanation_4"},
-    {"type": "figure", "figure_id": "PREPLADDER_PATHO_L36_Q024_explanation_5"}
+    {
+     "type": "paragraph",
+     "text": "An elderly male smoker with chronic cough, weight loss, fatigue, and elevated serum calcium likely has squamous cell carcinoma of the lung. This cancer is associated with paraneoplastic hypercalcemia due to PTHrP secretion. The biopsy showing large atypical cells with hyperchromasia supports this diagnosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Smoking significantly increases the risk of squamous cell carcinoma of the lung as it has a strong association, resulting in chromosomal deletions involving tumour suppressor loci involving 3p,9p and 17p."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Squamous cell carcinoma:** Squamous Cell Carcinoma is typically found in the central regions of the lungs (Not peripheral), often originating in the major bronchi near the hilum. It can cause symptoms by obstructing airways."
+    },
+    {
+     "type": "paragraph",
+     "text": "Histopathologically, it is characterised by keratin pearls, intercellular bridges, and nests of malignant squamous cells with abundant eosinophilic cytoplasm."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Location of lung carcinomas:**"
+    },
+    {
+     "type": "bullets",
+     "items": [
+      {
+       "text": "**Central:** Squamous cell carcinoma, Small cell carcinoma, and Bronchial carcinoids."
+      },
+      {
+       "text": "**Peripheral:** Adenocarcinoma and Large-cell carcinoma."
+      }
+     ]
+    },
+    {
+     "type": "table",
+     "title": "",
+     "columns": [
+      "Type of Lung Carcinoma",
+      "Paraneoplastic Syndrome"
+     ],
+     "rows": [
+      [
+       "Squamous cell carcinoma",
+       "Hypercalcemia"
+      ],
+      [
+       "Adenocarcinoma",
+       "Migratory thrombophlebitis ( Trousseau syndrome )"
+      ],
+      [
+       "Small cell or oat cell Carcinoma",
+       "SIADH (syndrome of inappropriate anti-diuretic hormone secretion)\nCushing's syndrome\nLambert Eaton syndrome"
+      ],
+      [
+       "Large cell carcinoma",
+       "Gynaecomastia"
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "title": "",
+     "columns": [
+      "Characteristic",
+      "Small Cell Carcinoma (Option B)",
+      "Squamous Cell Carcinoma (Option D)",
+      "Carcinoid Tumor (Option A)",
+      "Adenocarcinoma (Option C)"
+     ],
+     "rows": [
+      [
+       "Origin",
+       "Neuroendocrine cells of the lung.",
+       "Squamous cells of the lung.",
+       "Neuroendocrine cells of bronchial epithelium.",
+       "Glandular cells of the lung."
+      ],
+      [
+       "Cells in histopathology",
+       "Small, round to oval, blue cells with scant cytoplasm and finely granular chromatin with a “salt and pepper” appearance.",
+       "Sheets of polygonal cells with keratinisation and intercellular bridges",
+       "Nesting (organoid) growth pattern with uniform round nuclei, moderate eosinophilic cytoplasm, and a “ salt-and-pepper” chromatin pattern.",
+       "Glandular or epithelial cells forming acinar, papillary, or solid patterns"
+      ],
+      [
+       "Mitotic rate",
+       "High",
+       "Variable",
+       "Low to moderate",
+       "Variable"
+      ],
+      [
+       "Electron microscopy findings",
+       "Dense core neurosecretory granules.",
+       "Desmosomes, tonofilaments, keratinisation",
+       "Dense core neurosecretory granules.",
+       "Variable organelles, sometimes containing mucin vacuoles"
+      ],
+      [
+       "IHC markers",
+       "Positive for neuroendocrine markers (e.g., chromogranin, synaptophysin ).",
+       "P63, p40, CK5/6",
+       "Positive for neuroendocrine markers (e.g., chromogranin, synaptophysin )",
+       "Variable (e.g., TTF-1, Napsin A for primary lung adenocarcinoma)"
+      ]
+     ]
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q024_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q024_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q024_explanation_3"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q024_explanation_4"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q024_explanation_5"
+    }
    ]
   },
   {
    "id": "pathology-36-25",
    "blocks": [
-    {"type": "paragraph", "text": "The patient's clinical presentation and positive staining for neuroendocrine markers such as Chromogranin and synaptophysin are highly suggestive of Small-cell lung cancer (SCLC) originating from neuroendocrine cells. It is a highly malignant form of lung cancer associated with smoking and is known for its aggressive behaviour and early metastasis. The genetic landscape of SCLC typically involves the inactivation of TP53 and RB genes."},
-    {"type": "paragraph", "text": "L-MYC amplification is a common feature in some SCLC cases, contributing to the tumour's rapid growth and aggressive nature."},
-    {"type": "table", "title": "", "columns": ["Characteristic", "Small Cell Carcinoma", "Squamous Cell Carcinoma (Option B)", "Carcinoid Tumor", "Adenocarcinoma (Option A)"], "rows": [
-     ["Origin", "Neuroendocrine cells of the lung.", "Squamous cells of the lung.", "Neuroendocrine cells of bronchial epithelium.", "Glandular cells of the lung."],
-     ["Cells in histopathology", "Small, round to oval, blue cells with scant cytoplasm and finely granular chromatin with a “salt and pepper” appearance.", "Sheets of polygonal cells with keratinization and intercellular bridges", "Nesting (organoid) growth pattern with uniform round nuclei, moderate eosinophilic cytoplasm, and a “ salt-and-pepper” chromatin pattern.", "Glandular or epithelial cells forming acinar, papillary, or solid patterns"],
-     ["Mitotic rate", "High", "Variable", "Low to moderate", "Variable"],
-     ["Electron microscopy findings", "Dense core neurosecretory granules.", "Desmosomes, tonofilaments, keratinisation", "Dense core neurosecretory granules.", "Variable organelles, sometimes containing mucin vacuoles"],
-     ["IHC markers", "Positive for neuroendocrine markers (e.g., chromogranin, synaptophysin ).", "P63, p40, CK5/6", "Positive for neuroendocrine markers (e.g., chromogranin, synaptophysin )", "Variable (e.g., TTF-1, Napsin A for primary lung adenocarcinoma)"]
-    ]},
-    {"type": "paragraph", "text": "**Mesothelioma (Option C):** is a cancer associated with asbestos exposure, not typically associated with smoking. Additionally, it does not usually show chromogranin positivity. It usually arises from the pleura and presents with different symptoms, such as pleuritic chest pain and shortness of breath."},
-    {"type": "figure", "figure_id": "PREPLADDER_PATHO_L36_Q025_explanation_1"},
-    {"type": "figure", "figure_id": "PREPLADDER_PATHO_L36_Q025_explanation_2"},
-    {"type": "figure", "figure_id": "PREPLADDER_PATHO_L36_Q025_explanation_3"},
-    {"type": "figure", "figure_id": "PREPLADDER_PATHO_L36_Q025_explanation_4"}
+    {
+     "type": "paragraph",
+     "text": "The patient's clinical presentation and positive staining for neuroendocrine markers such as Chromogranin and synaptophysin are highly suggestive of Small-cell lung cancer (SCLC) originating from neuroendocrine cells. It is a highly malignant form of lung cancer associated with smoking and is known for its aggressive behaviour and early metastasis. The genetic landscape of SCLC typically involves the inactivation of TP53 and RB genes."
+    },
+    {
+     "type": "paragraph",
+     "text": "L-MYC amplification is a common feature in some SCLC cases, contributing to the tumour's rapid growth and aggressive nature."
+    },
+    {
+     "type": "table",
+     "title": "",
+     "columns": [
+      "Characteristic",
+      "Small Cell Carcinoma",
+      "Squamous Cell Carcinoma (Option B)",
+      "Carcinoid Tumor",
+      "Adenocarcinoma (Option A)"
+     ],
+     "rows": [
+      [
+       "Origin",
+       "Neuroendocrine cells of the lung.",
+       "Squamous cells of the lung.",
+       "Neuroendocrine cells of bronchial epithelium.",
+       "Glandular cells of the lung."
+      ],
+      [
+       "Cells in histopathology",
+       "Small, round to oval, blue cells with scant cytoplasm and finely granular chromatin with a “salt and pepper” appearance.",
+       "Sheets of polygonal cells with keratinization and intercellular bridges",
+       "Nesting (organoid) growth pattern with uniform round nuclei, moderate eosinophilic cytoplasm, and a “ salt-and-pepper” chromatin pattern.",
+       "Glandular or epithelial cells forming acinar, papillary, or solid patterns"
+      ],
+      [
+       "Mitotic rate",
+       "High",
+       "Variable",
+       "Low to moderate",
+       "Variable"
+      ],
+      [
+       "Electron microscopy findings",
+       "Dense core neurosecretory granules.",
+       "Desmosomes, tonofilaments, keratinisation",
+       "Dense core neurosecretory granules.",
+       "Variable organelles, sometimes containing mucin vacuoles"
+      ],
+      [
+       "IHC markers",
+       "Positive for neuroendocrine markers (e.g., chromogranin, synaptophysin ).",
+       "P63, p40, CK5/6",
+       "Positive for neuroendocrine markers (e.g., chromogranin, synaptophysin )",
+       "Variable (e.g., TTF-1, Napsin A for primary lung adenocarcinoma)"
+      ]
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "**Mesothelioma (Option C):** is a cancer associated with asbestos exposure, not typically associated with smoking. Additionally, it does not usually show chromogranin positivity. It usually arises from the pleura and presents with different symptoms, such as pleuritic chest pain and shortness of breath."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q025_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q025_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q025_explanation_3"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q025_explanation_4"
+    }
    ]
   },
   {
@@ -288,19 +859,64 @@
   {
    "id": "pathology-36-27",
    "blocks": [
-    {"type": "paragraph", "text": "The patient's history of working in a factory for a prolonged period, along with the HRCT chest findings of pleural thickening and fibrosis, points towards the diagnosis of asbestosis. Asbestosis is a lung disease caused by the inhalation of asbestos fibers, commonly encountered in occupational settings."},
-    {"type": "paragraph", "text": "Prolonged exposure to asbestos can lead to the deposition of fibers in the lungs, triggering an inflammatory response that results in fibrosis and scarring of lung tissue, including the pleura."},
-    {"type": "paragraph", "text": "**Incorrect Options:** Options B, C, and D do not cause pleural thickening and fibrosis."},
-    {"type": "bullets", "items": [
-     {"text": "**Option B - Coal worker pneumoconiosis:** Coal worker pneumoconiosis, also known as black lung disease, is caused by the inhalation of coal dust. It typically presents with coal macules and nodules in the lungs."},
-     {"text": "**Option C - Silicosis:** Silicosis is a lung disease caused by the inhalation of crystalline silica dust. It results in the formation of fibrotic nodules in the lungs."},
-     {"text": "**Option D - Berylliosis:** Berylliosis is a lung disease caused by exposure to beryllium. It primarily affects the lung parenchyma."}
-    ]}
+    {
+     "type": "paragraph",
+     "text": "The patient's history of working in a factory for a prolonged period, along with the HRCT chest findings of pleural thickening and fibrosis, points towards the diagnosis of asbestosis. Asbestosis is a lung disease caused by the inhalation of asbestos fibers, commonly encountered in occupational settings."
+    },
+    {
+     "type": "paragraph",
+     "text": "Prolonged exposure to asbestos can lead to the deposition of fibers in the lungs, triggering an inflammatory response that results in fibrosis and scarring of lung tissue, including the pleura."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Incorrect Options:** Options B, C, and D do not cause pleural thickening and fibrosis."
+    },
+    {
+     "type": "bullets",
+     "items": [
+      {
+       "text": "**Option B - Coal worker pneumoconiosis:** Coal worker pneumoconiosis, also known as black lung disease, is caused by the inhalation of coal dust. It typically presents with coal macules and nodules in the lungs."
+      },
+      {
+       "text": "**Option C - Silicosis:** Silicosis is a lung disease caused by the inhalation of crystalline silica dust. It results in the formation of fibrotic nodules in the lungs."
+      },
+      {
+       "text": "**Option D - Berylliosis:** Berylliosis is a lung disease caused by exposure to beryllium. It primarily affects the lung parenchyma."
+      }
+     ]
+    }
    ]
   },
   {
    "id": "pathology-36-28",
-   "unchanged": true
+   "blocks": [
+    {
+     "type": "paragraph",
+     "text": "The patient's presentation with sudden fever, cough, and difficulty breathing and then improving and again deteriorating with diffuse ground glass changes on CT and multiple small granulomas on transbronchial biopsies suggests hypersensitivity pneumonitis. The most likely causative agent for the disease in this case is Thermoactinomyces sacchari."
+    },
+    {
+     "type": "paragraph",
+     "text": "Hypersensitivity pneumonitis (HP), classified as an interstitial lung disease, is characterized by a complex immunological reaction of the lung parenchyma in response to repetitive inhalation of a sensitized allergen."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Incorrect Options:**"
+    },
+    {
+     "type": "bullets",
+     "items": [
+      {
+       "text": "**Aspergillus fumigatus (Option B):** Causes a range of lung diseases including allergic bronchopulmonary aspergillosis (ABPA) in asthmatics, aspergilloma in patients with lung cavities, and invasive pulmonary aspergillosis in immunocompromised individuals."
+      },
+      {
+       "text": "**Actinobacteria (Option C):** causes pulmonary actinomycosis, a chronic lung infection that mimics TB or cancer."
+      },
+      {
+       "text": "**Aspergillus flavus (Option D):** causes invasive pulmonary aspergillosis in immunocompromised patients and may also contribute to aspergilloma or ABPA, similar to A. fumigatus, though it's less common."
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "pathology-36-29",
@@ -317,10 +933,22 @@
   {
    "id": "pathology-36-32",
    "blocks": [
-    {"type": "paragraph", "text": "Fibroblastic foci are not a characteristic feature of bronchial asthma. Fibroblastic foci are commonly seen in idiopathic pulmonary fibrosis (IPF), a distinct disease characterized by progressive lung scarring and fibrosis."},
-    {"type": "paragraph", "text": "**Incorrect Options: Option A - Thickening of bronchial wall:** In bronchial asthma, chronic inflammation of the airways leads to hypertrophy and hyperplasia of smooth muscle cells, along with edema and infiltration of inflammatory cells. This contributes to the thickening of the bronchial wall."},
-    {"type": "paragraph", "text": "**Option B - Increase in the number of airway goblet cells:** Goblet cells produce and secrete mucus in the respiratory tract. In asthma, there is an increase in goblet cell hyperplasia, leading to excessive mucus production and airway obstruction."},
-    {"type": "paragraph", "text": "**Option D - Sub-basement membrane fibrosis:** Chronic inflammation in asthma can lead to remodelling of the airway wall, including thickening of the sub-basement membrane due to the deposition of collagen and other extracellular matrix components. This contributes to airway narrowing."}
+    {
+     "type": "paragraph",
+     "text": "Fibroblastic foci are not a characteristic feature of bronchial asthma. Fibroblastic foci are commonly seen in idiopathic pulmonary fibrosis (IPF), a distinct disease characterized by progressive lung scarring and fibrosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Incorrect Options: Option A - Thickening of bronchial wall:** In bronchial asthma, chronic inflammation of the airways leads to hypertrophy and hyperplasia of smooth muscle cells, along with edema and infiltration of inflammatory cells. This contributes to the thickening of the bronchial wall."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Option B - Increase in the number of airway goblet cells:** Goblet cells produce and secrete mucus in the respiratory tract. In asthma, there is an increase in goblet cell hyperplasia, leading to excessive mucus production and airway obstruction."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Option D - Sub-basement membrane fibrosis:** Chronic inflammation in asthma can lead to remodelling of the airway wall, including thickening of the sub-basement membrane due to the deposition of collagen and other extracellular matrix components. This contributes to airway narrowing."
+    }
    ]
   }
  ]
