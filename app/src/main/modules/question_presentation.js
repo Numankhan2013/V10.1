@@ -66,8 +66,10 @@
 
     // Ionic charge is a superscript. For monatomic ions the numeral is charge
     // magnitude (Ca2+), not an atom count; molecular ions are handled below.
-    html=html.replace(/(^|[^A-Za-z0-9])(Ca|Mg|Fe|Cu|Zn|Mn)\s*([23])\s*([+−-])(?![A-Za-z0-9])/g,(_,lead,ion,magnitude,charge)=>lead+ion+stash('sup',magnitude+charge.replace(/-/g,'−')));
-    html=html.replace(/(^|[^A-Za-z0-9])(H|Na|K|Cl)\s*([+−-])(?![A-Za-z0-9])/g,(_,lead,ion,charge)=>lead+ion+stash('sup',charge.replace(/-/g,'−')));
+    // A hyphen is a charge only when attached ("Cl-"); spaced, it is a dash
+    // ("P - K - K", "vitamin K - deficiency").
+    html=html.replace(/(^|[^A-Za-z0-9])(Ca|Mg|Fe|Cu|Zn|Mn)\s*([23])(?:\s*([+−])|(-))(?![A-Za-z0-9])/g,(_,lead,ion,magnitude,charge,dash)=>lead+ion+stash('sup',magnitude+(charge||dash).replace(/-/g,'−')));
+    html=html.replace(/(^|[^A-Za-z0-9])(H|Na|K|Cl)(?:\s*([+−])|(-))(?![A-Za-z0-9])/g,(_,lead,ion,charge,dash)=>lead+ion+stash('sup',(charge||dash).replace(/-/g,'−')));
 
     // Common biochemical and physiological formulae are deliberately bounded.
     // This avoids turning ordinary identifiers and question numbers into maths.

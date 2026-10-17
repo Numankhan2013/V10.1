@@ -1,0 +1,697 @@
+{
+ "batch": "pathology-066",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pathology-066",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pathology-80-21",
+   "question": "What is the type of cell from which the cell displayed below originates?",
+   "options": {
+    "A": "NK cells",
+    "B": "CD4 cells",
+    "C": "B cells",
+    "D": "CD8 cells"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "B cells express CD19, CD20, and CD21 markers. When activated, they differentiate into plasma cells, which have an eccentric nucleus, basophilic cytoplasm, and a perinuclear halo (indicative of the Golgi apparatus involved in antibody production). Plasma cells secrete immunoglobulins (IgG, IgA, etc.), essential for humoral immunity."
+    },
+    {
+     "type": "paragraph",
+     "text": "**NK (Natural Killer) (Option A):** cells are innate immune cells. NK cells are lymphocytes that arise from the same common lymphoid progenitor that gives rise to T lymphocytes and B lymphocytes."
+    },
+    {
+     "type": "paragraph",
+     "text": "**CD4 (Option B):** and CD8 (Option D) are expressed on distinct T-cell subsets and act as coreceptors during T-cell activation.CD4 is expressed in 50% to 60% of T cells, whereas CD8 is expressed in about 40% of T cells. The CD4- and CD8-expressing T cells—called CD4+ and CD8+ cells, respectively"
+    }
+   ]
+  },
+  {
+   "id": "pathology-80-22",
+   "question": "Which CD markers are typically positive in Chronic Lymphocytic Leukaemia (CLL)?.",
+   "options": {
+    "A": "CD3, CD5, CD8",
+    "B": "CD10, CD19, CD22",
+    "C": "CD19, CD20, CD23, CD5",
+    "D": "CD13, CD33, CD117"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "In Chronic Lymphocytic Leukaemia (CLL), the hallmark immunophenotype is: B-cell markers: CD19, CD20, CD23 Aberrant co-expression of T-cell marker: CD5 (this is unusual for B-cells and is a diagnostic clue) CLL is a mature B-cell neoplasm → expresses typical B-cell surface antigens (CD19, CD20, CD23). Uniquely, it abnormally expresses CD5, which is normally a T-cell marker, this feature helps distinguish CLL from other B-cell leukemias/lymphomas."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Incorrect Options: CD3, CD5, CD8 (Option A):** T-cell markers (CD8 = cytotoxic T cells), not CLL."
+    },
+    {
+     "type": "paragraph",
+     "text": "**CD10, CD19, CD22 (Option B):** seen in precursor B-cell ALL (CD10 - CALLA antigen), not mature CLL."
+    },
+    {
+     "type": "paragraph",
+     "text": "**CD13, CD33, CD117 (Option D):** myeloid lineage markers (seen in AML), not lymphoid."
+    }
+   ]
+  },
+  {
+   "id": "pathology-80-23",
+   "question": "2-year-old with fever, lymphadenopathy and H&E has hallmark cells. The diagnosis of anaplastic large cell lymphoma was made. Most likely translocation?",
+   "options": {
+    "A": "t(8;14)",
+    "B": "t(8;22)",
+    "C": "t(2;5)",
+    "D": "t(14;18)"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Anaplastic Large Cell Lymphoma (ALCL) is most often associated with the t(2;5) translocation. t(2;5) → creates the NPM-ALK fusion gene NPM - nucleophosmin (chromosome 5) ALK - anaplastic lymphoma kinase (chromosome 2) This fusion leads to constitutive activation of ALK tyrosine kinase, driving uncontrolled cell growth. ALCL histology shows hallmark cells, large pleomorphic cells with horseshoe- or kidney-shaped nuclei and abundant cytoplasm."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Incorrect Options: t(8;14) (Option A):** Seen in Burkitt lymphoma. MYC gene on chromosome 8 translocates to Ig heavy chain locus on chromosome 14 → MYC overexpression. It is a very aggressive B-cell lymphoma; common in children in malaria-endemic areas. t(8;22) (Option B): Variant of Burkitt lymphoma involving MYC and Ig lambda light chain locus (chromosome 22). t(14;18) (Option D): Seen in Follicular lymphoma. BCL2 gene (chromosome 18) translocates to Ig heavy chain locus (chromosome 14) → BCL2 overexpression → apoptosis inhibition. It usually has an indolent course."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L80_Q023_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-80-24",
+   "question": "A 68-year-old man presents with bleeding manifestations. The peripheral smear shows the presence of the cells shown below. Which of the following is the most common chromosomal abnormality seen in this condition?",
+   "options": {
+    "A": "t(8;21)",
+    "B": "t(15;17)",
+    "C": "t(14;18)",
+    "D": "inv(16)"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "This patient's history of 68 year old man with bleeding manifestations and Auer-rods on blood smear suggests disseminated intravascular coagulation secondary to acute promyelocytic leukaemia associated with t(15:17) translocation. M3 AML/ Acute promyelocytic leukaemia: Genetics: t(15:17) translocation causes PML-RARA (retinoic acid receptor alpha) fusion protein formation. Blocks promyelocyte → myelocyte maturation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Diagnosis of choice: FISH Smear findings: Increased promyelocytes. Auer Rods: Fused granules in promyelocytes Faggot Cells: Auer rods with a crisscross pattern. Laboratory: Low haemoglobin and platelets. > 20% blasts on peripheral and bone marrow smear Stain: PAS + CD markers: CD 13, 33 + Complication: Disseminated intravascular coagulation; therefore, chemotherapy is not recommended."
+    },
+    {
+     "type": "paragraph",
+     "text": "Treatment: ATRA (All-trans-retinoic-acid) + As 2 O 3 (arsenic trioxide) Best prognosis among all AML."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Incorrect Options: t(8;21) (Option A):** AML with maturation (FAB M2); often associated with large myeloblasts and abundant Auer rods, but not the classic multiple “faggot cell” picture of APL. It is associated with Chloroma. t(14;18) (Option C): Follicular lymphoma; involves BCL2 gene rearrangement, unrelated to AML. inv(16) (Option D): Associated with AML with abnormal eosinophils (FAB M4Eo), not APL."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L80_Q024_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-80-25",
+   "question": "A 70 year old male presents with low back ache and progressive pallor. On work up: KFT is deranged, LFT is normal with normal level of albumin and gamma globulin increased disproportionately. X-ray spine shows multiple lytic lesions. Which of the following is the most probable diagnosis?",
+   "options": {
+    "A": "Multiple myeloma",
+    "B": "MGUS",
+    "C": "Immunoglobulin light chain amyloidosis (AL)",
+    "D": "Solitary plasmacytoma."
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Multiple myeloma is a malignancy of plasma cells, a type of white blood cell that produces antibodies. It is characterized by the presence of abnormal plasma cells in the bone marrow, which can lead to bone destruction and the release of monoclonal (abnormal) immunoglobulins or light chains into the bloodstream."
+    },
+    {
+     "type": "paragraph",
+     "text": "The clinical presentation of low back ache, progressive pallor (anemia), deranged kidney function tests (KFT), disproportionately increased gamma globulin levels, and lytic lesions on X-ray spine are all consistent with multiple myeloma."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - MGUS (Monoclonal Gammopathy of Undetermined Significance): MGUS is a benign condition where a small amount of abnormal plasma cells produce a monoclonal protein (usually immunoglobulin) in the blood. It is generally asymptomatic and does not cause significant organ damage. The patient in the scenario has more severe symptoms and findings that are not typical for MGUS."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Immunoglobulin Light Chain Amyloidosis (AL): AL amyloidosis is a rare condition where abnormal light chain proteins are deposited as amyloid in various organs, including the kidneys. This can lead to organ dysfunction. While AL amyloidosis can cause kidney involvement and abnormal levels of light chains, the lytic bone lesions seen on X-ray and the disproportionately increased gamma globulin levels are not characteristic of AL amyloidosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Solitary Plasmacytoma: Solitary plasmacytoma is a localized tumor of plasma cells that typically presents as a single mass in bone or soft tissue. It is less likely in this case because the patient has multiple lytic lesions on X-ray spine, which indicates widespread bone involvement. Solitary plasmacytoma typically doesn't show this pattern of multiple bone lesions."
+    }
+   ]
+  },
+  {
+   "id": "pathology-80-26",
+   "question": "Which gene mutation is most commonly associated with Burkitt's lymphoma?",
+   "options": {
+    "A": "C-myc",
+    "B": "P-21",
+    "C": "Rb",
+    "D": "p53"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Burkitt's lymphoma is a highly aggressive B-cell non-Hodgkin lymphoma that is strongly associated with a translocation involving the C-myc oncogene. Burkitt’s lymphoma. Burkitt's lymphoma is a highly aggressive B-cell non-Hodgkin lymphoma associated with the translocations of the MYC gene on chromosome 8, t(8:14)."
+    },
+    {
+     "type": "paragraph",
+     "text": "It has three primary subtypes: Endemic Burkitt's lymphoma: Commonly affects children in malaria-endemic areas of Africa, often presenting with tumours in the jaw or facial bones. Sporadic Burkitt's lymphoma: More frequently seen in non-endemic regions and usually involving the ileocaecal region and peritoneum. Immunodeficiency-associated Burkitt's lymphoma: Found in patients with conditions such as HIV/AIDS or other forms of immunodeficiency."
+    },
+    {
+     "type": "paragraph",
+     "text": "**P-21 (Option B):** P-21 (CDKN1A) is a cyclin-dependent kinase inhibitor that regulates the cell cycle by inhibiting cyclin-CDK complexes. It plays a role in cell cycle arrest but is not primarily associated with Burkitt's lymphoma."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Rb (Option C):** The Retinoblastoma (Rb) gene is a tumor suppressor that controls the G1/S checkpoint of the cell cycle. Its mutations are primarily associated with retinoblastoma and osteosarcoma, not Burkitt's lymphoma. p53 (Option D): The p53 gene (TP53) is a tumor suppressor involved in DNA repair and apoptosis. While TP53 mutations are found in various cancers, they are not the characteristic mutation seen in Burkitt's lymphoma."
+    }
+   ]
+  },
+  {
+   "id": "pathology-80-27",
+   "question": "A 34-year-old female presents with low hemoglobin, platelet count of 25,000/mm 3, and raised PT and APTT. The peripheral smear image is shown below. Which of the following fusion genes is likely affected?",
+   "options": {
+    "A": "PML-RARA",
+    "B": "RUNX1-RUNX1T1",
+    "C": "INV 16",
+    "D": "IGH-NSD2"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The given image shows faggot cells containing Auer rods, which is a characteristic feature of Acute myeloid leukemia M3. In AML M3, t(15:17) - PML-RARA fusion gene is affected."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Options B, C, and D are not affected in AML M3."
+    }
+   ]
+  },
+  {
+   "id": "pathology-80-28",
+   "question": "A patient presents with fever, hepatosplenomegaly, abdominal pain, and WBC count > 50,000/mm 3. Which of the following genetic abnormalities is involved?",
+   "options": {
+    "A": "t(9;22)",
+    "B": "del(1q)",
+    "C": "t(15;17)",
+    "D": "del 3q"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The given clinical features are suggestive of chronic myeloid leukemia, and the genetic abnormality associated with it is translocation of t(9;22)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Options B, C, and D are not associated with CML."
+    }
+   ]
+  },
+  {
+   "id": "pathology-80-29",
+   "question": "An elderly patient presents with elevated calcium levels, increased serum creatinine levels, and decreased hemoglobin. Electrophoresis reveals a monoclonal spike. Her immunofixation test findings are given below. Which of the following best describes her condition?",
+   "options": {
+    "A": "MM with increased IgG",
+    "B": "MM with increased IgM",
+    "C": "MM with increased IgA",
+    "D": "Monoclonal gammopathy of unknown significance"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Multiple myeloma is characterized by a monoclonal spike on electrophoresis, and the immunofixation test revealed increased IgM levels (a distinct band can be seen, whereas the smear pattern without any band formation above IgG is insignificant) Serum Protein Electrophoresis in Multiple Sclerosis: The gamma (Ig) will increase and show a spike an M spike - monoclonal or myeloma spike Immunofixation - will tell the type of immunoglobulin Immunofixation of MM with increased IgG Incorrect Options: MM with increased IgG (Option A): Smear pattern without any bands, so its not IgG MM with increased IgA (Option C): No protein fixation, so its not IgA MGUS (Option D): In MGUS, gammaglobulins levels are <3gm/dL"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L80_Q029_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L80_Q029_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pathology-80-30",
+   "question": "Which of the following is the investigation of choice for CML?",
+   "options": {
+    "A": "LAP score",
+    "B": "FISH",
+    "C": "Karyotyping",
+    "D": "Reciprocal translocation"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Fluorescence in situ hybridisation (FISH) is the choice of investigation for detecting the Philadelphia chromosome in CML. It makes a cytogenetic analysis of the Philadelphia chromosome."
+    },
+    {
+     "type": "paragraph",
+     "text": "The presence of the Philadelphia chromosome, resulting from the reciprocal translocation between chromosomes 9 and 22 [t(9;22)(q34;q11)], or detection of the BCR-ABL1 fusion gene on mRNA, confirms the diagnosis of CML. Diagnosis of Chronic Myeloid Leukemia (CML) CBC Normal RBC + Elevated TLC + Elevated platelets Peripheral smear Left shift with predominant segmented neutrophils, myelocytes, and metamyelocytes."
+    },
+    {
+     "type": "paragraph",
+     "text": "College girl/garden party appearance: Due to non-uniform appearance (every cell appears different). Bone marrow aspirate Increased Myeloid: Erythroid ratio. Dwarf megakaryocytes. Sea blue histiocytes (blue-coloured cytoplasm) Pseudo Gaucher cells The image shows Pseudo-Gaucher cells NAP (Neutrophil Alkaline Phosphatase)/LAP score (Leukocyte Alkaline Phosphatase) (Option A ruled out) Decreased FISH (IOC) (Option B) Confirms t(9:22) translocation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Analysis to quantify Philadelphia chromosome-positive cells. Estimates the tumour load. The image shows BCR-ABL gene fusion (red + green) in fluorescence in-situ hybridisation (FISH; the ABL gene is red, and the BCR gene is green)."
+    },
+    {
+     "type": "paragraph",
+     "text": "PCR To quantify BCR-ABL-1 It can be a false negative or false positive False negative: Early part of the disease Karyotyping (Option C) examines chromosomes to detect abnormalities like Down syndrome or the Philadelphia chromosome in CML. While it can identify chromosomal abnormalities, it is less sensitive than FISH for detecting the Philadelphia chromosome."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Reciprocal translocation (Option D):** is a chromosomal abnormality where segments of two chromosomes are exchanged, such as the Philadelphia chromosome in CML. It results in the BCR-ABL fusion gene, detectable by FISH or karyotyping, but is not an independent diagnostic test."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L80_Q030_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L80_Q030_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L80_Q030_explanation_3"
+    }
+   ]
+  },
+  {
+   "id": "pathology-80-31",
+   "question": "Mark the incorrect statement regarding Hodgkin Lymphoma:",
+   "options": {
+    "A": "Reed Sternberg cells are of B-cell origin",
+    "B": "Waldeyer's ring is involved",
+    "C": "Nodular sclerosing is the most commonsubtype and involves mediastinum",
+    "D": "CD 15, 30 Positivity in Reed Sternberg cells"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Waldeyer's ring is usually involved in non-Hodgkin’s lymphoma. Hodgkin Lymphoma usually involves the Cervical, Axillary, and Inguinal lymph nodes."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Reed Sternberg cells are of B-cell origin: T Hodgkin’s lymphoma is type B-cell lymphoma involving the Reed-Sternberg cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Nodular sclerosing is the most common subtype and involves mediastinum: Nodular sclerosing is the most common subtype of Hodgkin's lymphoma and involves the mediastinum."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - CD 15, 30 Positivity in Reed Sternberg cells: Reed Sternberg cells are CD-15, 30 positive."
+    }
+   ]
+  },
+  {
+   "id": "pathology-80-32",
+   "question": "A patient with elevated calcium and normal alkaline phosphatase undergoes a skull X-ray. What is the likely diagnosis?",
+   "options": {
+    "A": "Grave’s disease",
+    "B": "Paget’s disease",
+    "C": "Multiple myeloma",
+    "D": "CML"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical scenario of a patient with elevated calcium, normal alkaline phosphatase, and osteolytic lesions on a skull X-ray suggests Multiple Myeloma. It is a plasma cell neoplasm associated with (Mnemonic: CRAB features with immune abnormalities) C - Hyper c alcemia R - R enal failure A - A naemia B - Lytic b one lesions, and Immune abnormalities."
+    },
+    {
+     "type": "paragraph",
+     "text": "Antibodies in Multiple Myeloma: Monoclonal Immunoglobulins Free Light Chains IgG: Most common (55% of patients). IgA: Seen in 25% of cases. IgM, IgD, IgE: Less common. Often produced in excess, these are called Bence Jones proteins. It can cause myeloma kidney (renal disease). Pathogenesis of Multiple Myeloma: There are 3 main cytogenetic abnormalities seen in MM. Deletion of chromosome 13q (also seen in CLL)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Translocation t (11;14) (also seen in mantle cell lymphoma). Deletion of chromosome 17p (TP53). IL-6 is essential for plasma cell growth, and its elevated levels are linked to poor prognosis. Clinical features: It is seen in patients 60-70 years of age. Increased osteoclastic activity leads to bone resorption hypercalcemia and lytic punched-out lesions. Decreased osteoblastic activity (Normal or ↓ ALP levels)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Multiple Punched-out Osteolytic Lesions on the Lateral Skull Radiograph in a patient with Multiple Myeloma Grave’s disease (Option A) is an autoimmune disorder that causes hyperthyroidism, characterised by an overactive thyroid gland. It results in symptoms like weight loss, heat intolerance, tremors, and bulging eyes (exophthalmos). It is caused by autoantibodies that stimulate the thyroid-stimulating hormone (TSH) receptor."
+    },
+    {
+     "type": "paragraph",
+     "text": "It involves thyroid hormone imbalance and does not typically cause hypercalcemia or specific bone lesions on X-ray."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Paget’s disease (Option B):** is a bone disorder marked by abnormal bone remodelling, leading to enlarged and weakened bones. It causes bone pain, deformities, and fractures with elevated alkaline phosphatase levels. It typically causes elevated alkaline phosphatase due to abnormal bone remodelling."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Chronic myeloid leukaemia (CML) (Option D):** is a bone marrow cancer characterised by excessive white blood cell production and the presence of the Philadelphia chromosome. It typically causes fatigue, weight loss, and splenomegaly but does not present with hypercalcemia or lytic bone lesions."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L80_Q032_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L80_Q032_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pathology-80-33",
+   "question": "A 50-year-old male complains of lower back pain with a 1-1.5 mm osteolytic lesion at the T10 vertebra. Histopathological findings are given below. Which of the following options is correct regarding this condition?",
+   "options": {
+    "A": "Presence of Bence-Jones proteinuria",
+    "B": "Absence of Rouleaux formation",
+    "C": "Absence of free light chains",
+    "D": "Decreased Calcium levels in the blood"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The scenario describing lower back pain with a 1-1.5 mm osteolytic lesion at the T10 vertebra and a histopathological image showing intracytoplasmic inclusions (Russell bodies) suggests Multiple Myeloma, which is characterised by the presence of Bence-Jones proteinuria. It is caused by increased antibody production."
+    },
+    {
+     "type": "paragraph",
+     "text": "It is a plasma cell neoplasm associated with (Mnemonic: CRAB features with immune abnormalities) C - Hyper c alcemia (Option D ruled out) R - R enal failure A - A naemia B - Lytic b one lesions, and Immune abnormalities."
+    },
+    {
+     "type": "paragraph",
+     "text": "The cells produce excess free light chains, either alongside complete immunoglobulins or independently. (Option C ruled out) Due to their small size, free light chains ( Bence Jones proteins ) can pass through the glomeruli of the kidneys and appear in the urine. This is a diagnostic marker for multiple myeloma."
+    },
+    {
+     "type": "paragraph",
+     "text": "Inclusion Bodies Seen In Multiple Myeloma Russel bodies: Location: Intracytoplasmic Composition: Eosinophilic Round Dilated endoplasmic reticulum cisternae filled with condensed immunoglobulin.. Dutcher bodies Location: Intranuclear. Composition: Globular inclusions containing accumulated immunoglobulin. Plasma Cell Variants In Multiple Myeloma Mott cells Contain Grape-like cytoplasmic droplets."
+    },
+    {
+     "type": "paragraph",
+     "text": "Composition: Inclusion bodies, fibrils, crystalline rods, and globules. Flame cells Appearance: Fiery red cytoplasm. Cause: High concentration of immunoglobulin as bright red granules within the cytoplasm. Often seen in IgA subtype myeloma."
+    },
+    {
+     "type": "paragraph",
+     "text": "Rouleaux formation High levels of M protein in the blood cause red cells to stick to one another in linear arrays in smears, a finding referred to as rouleaux formation. (Option B ruled out) It is also seen in s lupus erythematosus and early HIV infection."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L80_Q033_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L80_Q033_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L80_Q033_explanation_3"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L80_Q033_explanation_4"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L80_Q033_explanation_5"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L80_Q033_explanation_6"
+    }
+   ]
+  },
+  {
+   "id": "pathology-80-34",
+   "question": "Which among the following is associated with Cryoglobulinemia?",
+   "options": {
+    "A": "Hepatitis C infection",
+    "B": "Ovarian cancer",
+    "C": "Diabetes",
+    "D": "Leukaemia"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Hepatitis C infection is associated with Cryoglobulinemia. Cryoglobulinemia: Cryoglobulins are proteins that precipitate from serum or plasma at low temperatures (<37°C). They can be a mixture of immunoglobulin and complement components or immunoglobulins alone. They deposit in medium and large-sized blood vessels throughout the body, causing endothelial injury and end-organ damage known as cryoglobulinemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "It is often associated with Hepatitis C virus infection Hepatitis B virus infection HIV Autoimmune diseases ( mainly SLE and Sjogren’s syndrome) Lymphoproliferative disorders."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Ovarian cancer (Option B):** is a type of cancer that begins in the ovaries (female reproductive organs). It often goes undiagnosed in the early stages due to vague symptoms like abdominal bloating, pelvic pain, and early satiety. Risk factors include age, family history, and genetic mutations (such as BRCA1 and BRCA2)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Diabetes (Option C):** is a chronic condition where the body can't properly regulate blood sugar. Type 1 is insulin deficiency due to an autoimmune response, while Type 2 is caused by insulin resistance, often linked to obesity. Symptoms include thirst, frequent urination, and fatigue. Treatment involves lifestyle changes and medication, with long-term risks to organs like the heart and kidneys."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Leukaemia (Option D):** is a type of cancer that affects the blood and bone marrow, leading to the abnormal production of white blood cells. It is classified into acute and chronic forms, with acute leukaemia progressing rapidly and chronic leukaemia developing more slowly. Symptoms include fatigue, fever, frequent infections, easy bruising, and weight loss."
+    }
+   ]
+  },
+  {
+   "id": "pathology-80-35",
+   "question": "Which of the following cells is shown in the given image?",
+   "options": {
+    "A": "Hairy cell",
+    "B": "Gaucher cell",
+    "C": "Sickle cell",
+    "D": "Target cell"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The given image depicts a Hairy cell, which is characterised by the presence of fine, hair-like projections on the surface of the cell. It is a characteristic type of cell found in Hairy Cell Leukemia, which involves abnormal proliferation of Mature B cells. These cells have a round, oblong, or reniform nucleus and pale blue cytoplasm."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Gaucher cells (Option B):** are lipid-laden macrophages found in Gaucher's disease, an autosomal recessive disorder caused by mutations in the GBA1 gene, resulting in deficient glucocerebrosidase enzyme activity. These cells appear as foamy macrophages with a crumpled tissue-paper appearance due to the accumulation of glucocerebroside in the cytoplasm."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Crinkled paper macrophages in the marrow space Sickle cells (Option C):** are abnormally shaped red blood cells that resemble a crescent or sickle due to the presence of abnormal haemoglobin (haemoglobin S). These cells are not characterized by cytoplasmic projections like hairy cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Target cells (Option D):** are red blood cells that have a bull's-eye appearance due to an increase in cell membrane relative to the volume of the cytoplasm. This condition can occur in several disorders, such as thalassemia, but they do not have the cytoplasmic projections seen in hairy cells."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L80_Q035_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L80_Q035_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L80_Q035_explanation_3"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L80_Q035_explanation_4"
+    }
+   ]
+  },
+  {
+   "id": "pathology-80-36",
+   "question": "A 60-year-old male presents with easy fatigability, back pain, and multiple lytic lesions in the skull. The bone marrow biopsy finding is given below. What is the most probable diagnosis?",
+   "options": {
+    "A": "CML (Chronic Myelogenous Leukemia)",
+    "B": "CLL (Chronic Lymphocytic Leukemia)",
+    "C": "Multiple Myeloma",
+    "D": "Hairy Cell Leukemia"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical presentation of easy fatigability, back pain, and skull lytic lesions, along with Russell bodies in bone marrow biopsy, strongly suggests multiple myeloma, which commonly causes bone pain and elevated serum proteins. Multiple myeloma is a cancer of plasma cells, which normally produce antibodies to fight infections."
+    },
+    {
+     "type": "paragraph",
+     "text": "In this disease, malignant plasma cells proliferate uncontrollably in the bone marrow, crowding out healthy blood cells and producing abnormal proteins that cause complications."
+    },
+    {
+     "type": "paragraph",
+     "text": "Early symptoms may be absent, but when present, they include: Bone pain, especially in the spine or chest Nausea Constipation Loss of appetite Confusion or mental fogginess Fatigue Frequent infections Weight loss Weakness or numbness in the legs Excessive thirst CML (Chronic Myelogenous Leukemia) (Option A) is a blood and bone marrow cancer that leads to an overproduction of white blood cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "In its chronic phase, the disease can often go unnoticed until detected by a blood test. Symptoms include: Weakness Fatigue Shortness of breath with daily activities Fever Bone pain Unexplained weight loss Pain or fullness in the left side of the abdomen due to an enlarged spleen Night sweats CLL (Chronic Lymphocytic Leukemia) (Option B) is a slow-progressing blood and bone marrow cancer, typically occurring in older adults."
+    },
+    {
+     "type": "paragraph",
+     "text": "It may not cause symptoms in the early stages and is often discovered during a routine blood test. Later symptoms include: Painless swelling of lymph nodes Weakness or fatigue Feeling full due to spleen or liver enlargement Fever and frequent infections Easy bruising or bleeding Unexplained weight loss Drenching night sweats Hairy Cell Leukemia (Option D) is a cancer of the B lymphocytes (a type of white blood cell)."
+    },
+    {
+     "type": "paragraph",
+     "text": "The leukaemia cells in this condition look \"hairy\" under a microscope. Symptoms may be absent or include: A feeling of fullness in the abdomen, making it difficult to eat large meals Fatigue Easy bruising Frequent infections Weakness Unintentional weight loss"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L80_Q036_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L80_Q036_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L80_Q036_explanation_3"
+    }
+   ]
+  },
+  {
+   "id": "pathology-80-37",
+   "question": "A 55-year-old male patient presents with fever, night sweats, and pleural effusion. On further investigation, he is diagnosed with Primary Effusion Lymphoma. What is the most likely causative agent responsible for this condition?",
+   "options": {
+    "A": "HHV-8",
+    "B": "EBV",
+    "C": "HPV",
+    "D": "HIV"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "(Human Herpesvirus 8): This is the most likely causative agent responsible for Primary Effusion Lymphoma (PEL), a rare and aggressive form of non-Hodgkin lymphoma. PEL primarily affects immunocompromised individuals, such as those with advanced HIV infection."
+    },
+    {
+     "type": "paragraph",
+     "text": "HHV-8 is also known as Kaposi's sarcoma-associated herpesvirus (KSHV) and is strongly associated with both Kaposi's sarcoma and Primary Effusion Lymphoma Incorrect Options: Option B - EBV (Epstein-Barr Virus): Epstein-Barr virus is associated with several types of lymphomas, including Burkitt lymphoma, Hodgkin lymphoma, and some cases of non-Hodgkin lymphoma. However, it is not typically associated with Primary Effusion Lymphoma."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - HPV (Human Papillomavirus): Human Papillomavirus is known to cause cervical cancer and is not associated with Primary Effusion Lymphoma."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - HIV (Human Immunodeficiency Virus): While HIV infection can lead to immunosuppression and an increased risk of certain infections and cancers, including Primary Effusion Lymphoma, it is not the direct causative agent. The underlying infection in this case would be HHV-8."
+    }
+   ]
+  },
+  {
+   "id": "pathology-80-38",
+   "question": "What further test should be conducted for a 60-year-old male patient who has presented with widespread lymph node enlargement, elevated white blood cell count, and smudge cells observed on peripheral smear?",
+   "options": {
+    "A": "Cytogenic study",
+    "B": "Bone marrow biopsy",
+    "C": "Flow cytometry from peripheral blood",
+    "D": "X-ray crystallography"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The given clinical presentation of a 60-year-old male with lymph node enlargement, elevated WBC, and smudge cells (characteristic cells) on the peripheral smear strongly suggests Chronic Lymphocytic Leukemia ( CLL). Flow cytometry is a highly sensitive technique used to identify the specific cell surface markers on the abnormal lymphocytes in CLL. It helps distinguish CLL from other types of lymphoma and leukaemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "Flow cytometry markers of CLL include CD 5+, CD10-, CD19+, CD20+, CD 23+ and CD 200+ Cytogenic studies (Option A), including Fluorescence In Situ Hybridization ( FISH), are helpful in identifying specific genetic mutations associated with CLL, which have prognostic implications. However, flow cytometry is a more immediate and critical step for diagnosis, as it directly assesses the immunophenotype of the cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Bone marrow biopsy (Option B):** might be performed later to evaluate marrow involvement or disease progression, but it is not the first-line investigation for CLL. Given the peripheral smear findings, Flow cytometry helps to assess the immunophenotype of the lymphocytes."
+    },
+    {
+     "type": "paragraph",
+     "text": "**X-ray crystallography (Option D):** is a technique used to determine the atomic and molecular structure of crystals. It is irrelevant in the context of diagnosing CLL."
+    }
+   ]
+  },
+  {
+   "id": "pathology-80-39",
+   "question": "An African child is found to have a mass in the jaw. A biopsy of the mass was done, and it appears as shown in the image below. The child also has a translocation, t(8;14). What is the probable diagnosis?",
+   "options": {
+    "A": "Acute myeloid leukemia",
+    "B": "Follicular lymphoma",
+    "C": "Multiple myeloma",
+    "D": "Burkitt lymphoma"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The \"starry sky\" appearance and t(8;14) translocation are characteristic of Burkitt lymphoma, a high-grade B-cell lymphoma. The translocation involves the MYC gene on chromosome 8, leading to uncontrolled cell proliferation. All forms of Burkitt’s lymphoma (Endemic, Sporadic, and HIV associated) are associated with such translocations."
+    },
+    {
+     "type": "paragraph",
+     "text": "The most common translocations are t (8:2), t(8:14), and t(8:22) Burkitt's lymphoma is a highly aggressive B-cell non-Hodgkin lymphoma associated with the translocations of the MYC gene on chromosome 8, t(8:14). It has three primary subtypes: Endemic Burkitt's lymphoma: Commonly affects children in malaria-endemic areas of Africa, often presenting with tumours in the jaw or facial bones."
+    },
+    {
+     "type": "paragraph",
+     "text": "Sporadic Burkitt's lymphoma: More frequently seen in non-endemic regions and usually involving the ileocaecal region and peritoneum. Immunodeficiency-associated Burkitt's lymphoma: Found in patients with conditions such as HIV/AIDS or other forms of immunodeficiency."
+    }
+   ]
+  },
+  {
+   "id": "pathology-80-40",
+   "question": "An elderly male presents for a routine medical examination. Laboratory investigations reveal a very high total leukocyte count (TLC). The peripheral smear shows findings as shown in the image. What is the appropriate next step for this patient?",
+   "options": {
+    "A": "Stem cell transplantation",
+    "B": "Bone marrow biopsy",
+    "C": "Flow cytometry",
+    "D": "Start high-dose chemotherapy"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "An elderly male with a high total leukocyte count (TLC) and the presence of smudge cells on the peripheral smear is likely to have Chronic Lymphocytic Leukemia (CLL)."
+    },
+    {
+     "type": "paragraph",
+     "text": "The next appropriate step for confirming the diagnosis is flow cytometry, which analyses cell surface markers and helps identify abnormal lymphocytes characteristic of CLL. Chronic Lymphocytic Leukemia Genetics: Trisomy 12, deletion 13q14, and others Origin: Post–germinal centre memory B cell or naive B Cells in the mantle zone of the lymph node. Etiopathogenesis Antiapoptotic protein BCL2 overexpression."
+    },
+    {
+     "type": "paragraph",
+     "text": "CLL cell growth depends on Bruton Tyrosine kinase (BTK) activity. No association with radiation exposure Clinical Presentation Most common Leukemia in the elderly. Frequently asymptomatic at diagnosis. May present with fatigue, lymphadenopathy, hepatosplenomegaly, or infection due to immunosuppression."
+    },
+    {
+     "type": "paragraph",
+     "text": "Associated with autoimmune hemolytic anemia- spherocytes can be seen on peripheral smear Can l/t Hypogammaglobulinemia( highlight )as B cells are abnormal - Infection is the M/C/C of death in CLL Laboratory diagnosis: Absolute lymphocyte count (ALC) > 5000/mm3 Bone marrow lymphocytes >30% Surface markers using flow cytometry were positive for CD5, CD23, CD19, and CD20."
+    },
+    {
+     "type": "paragraph",
+     "text": "CLL co-expresses both T cell (CD5) and B cell (CD20, CD19) markers Incorrect Options: Stem cell transplantation (Option A): This is not the first-line treatment for CLL. It is typically considered in more advanced or refractory cases, but the initial approach for most patients involves observation or targeted therapy."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Bone marrow biopsy (Option B):** Although bone marrow biopsy can help in finding the extent of infiltration., it is not the first choice for diagnosing CLL. Flow cytometry usually confirms the diagnosis, which is more specific for CLL. High-dose chemotherapy (Option D) is generally not the first treatment for CLL. Most patients with early-stage CLL are observed without immediate chemotherapy. Treatment is usually initiated if there are symptoms or complications and targeted therapies are often used instead of high-dose chemotherapy."
+    }
+   ]
+  }
+ ]
+}

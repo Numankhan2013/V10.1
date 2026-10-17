@@ -1,0 +1,597 @@
+{
+ "batch": "pathology-055",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pathology-055",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pathology-69-1",
+   "question": "Which of the following sequences correctly represents the progression of hemoglobin handling in the body during intravascular hemolysis (IVH)? A. Hemoglobin binds to albumin, forming meth albuminemia B. Hemoglobin combines with haptoglobin C. Haptoglobin saturation and hemoglobin binding to hemopexin. D. RBC lysis causes hemoglobin to leak out.",
+   "options": {
+    "A": "D → B → C→ A",
+    "B": "D → B → A → C",
+    "C": "D → C → A → B",
+    "D": "D → C → B → A"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Intravascular hemolysis involves the destruction of RBCs within blood vessels. Hemoglobin(Hb) is released and free Hb in the blood is toxic. Several mechanisms come into play to sequester this free Hb as shown below."
+    },
+    {
+     "type": "paragraph",
+     "text": "Clinical and laboratory findings include: Hemoglobinemia Hemoglobinuria Hemosiderinuria - Hemoglobin filtered into the urine → absorbed by renal tubular cells → broken down to iron→ accumulated as hemosiderin→ shedding of tubular cells → hemosiderinuria. Decreased serum haptoglobin Increased LDH"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L69_Q001_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-69-2",
+   "question": "Which of the following conditions can cause intravascular hemolysis (IVH)? Select all that apply. a. Paroxysmal Nocturnal Hemoglobinuria (PNH) b. Glucose-6-Phosphate Dehydrogenase (G6PD) deficiency c. Hereditary spherocytosis d. Paroxysmal Cold Hemoglobinuria (PCH) e. Hemolytic Uremic Syndrome (HUS) f. Thrombotic Thrombocytopenic Purpura (TTP)",
+   "options": {
+    "A": "b, c, d, e and f",
+    "B": "a, b, d, e, and f",
+    "C": "a, b, c, e, and f",
+    "D": "a, b, c, d, and f"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Among the given options, Paroxysmal Nocturnal Hemoglobinuria (PNH), Paroxysmal Cold Hemoglobinuria (PCH), Hemolytic Uremic Syndrome (HUS), and Thrombotic Thrombocytopenic Purpura (TTP) cause intravascular hemolysis. Intravascular hemolysis is caused by mechanical injury, complement fixation, intracellular parasites, or exogenous toxins. Extravascular hemolysis is due to changes that make red cells less deformable."
+    },
+    {
+     "type": "paragraph",
+     "text": "This makes their passage difficult, leading to red cell sequestration and phagocytosis by macrophages located within the splenic cords. Splenomegaly and jaundice are prominent features. Intravascular hemolysis Extravascular hemolysis Hemolysis occurs inside a vessel Hepatomegaly or splenomegaly are usually absent Serum haptoglobin is reduced Hemoglobinuria and hemosiderinuria are seen Hemolysis occurs outside a vessel."
+    },
+    {
+     "type": "paragraph",
+     "text": "Example: Liver, spleen Hepatomegaly or splenomegaly are usually present Serum haptoglobin is usually not decreased Hemoglobinuria and hemosiderinuria are absent Causes of hemolytic anemia: Extravascular Hemolysis Intravascular hemolysis Hereditary spherocytosis Sickle cell anemia Thalassemia G6PD deficiency Warm autoimmune hemolytic anemia (AIHA) Cold agglutinin type AIHA Paroxysmal Nocturnal Hemoglobinuria (PNH) Microangiopathic Hemolytic Anemia (MAHA)- HUS, TTP, DIC Paroxysmal cold hemoglobinuria/Cold hemolysin type AIHA G6PD deficiency"
+    }
+   ]
+  },
+  {
+   "id": "pathology-69-3",
+   "question": "Match the following causes of hemolysis with their corresponding categories. Categories Causes of hemolysis a. Intracorpuscular defect b. Extracorpuscular defect 1. Hereditary Spherocytosis (HS) 2. G6PD Deficiency 3. Thrombotic Thrombocytopenic Purpura (TTP) 4. Hemoglobin C Disease 5. Hemolytic Uremic Syndrome (HUS) 6. Sickle Cell Anemia",
+   "options": {
+    "A": "1-a, 2-b, 3-b, 4-a, 5-a, 6-b",
+    "B": "1-b, 2-a, 3-b, 4-a, 5-a, 6-a",
+    "C": "1-a, 2-a, 3-b, 4-a, 5-b, 6-a",
+    "D": "1-a, 2-b, 3-a, 4-b, 5-a, 6-a"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Hemolytic anemias can be classified based on defects in RBCs. Intracorpuscular defect: Refer to abnormalities in the red blood cell itself. Extracorpuscular defects: Refer to defects that are influenced by external factors, including mechanical, immune-mediated, or infectious causes."
+    },
+    {
+     "type": "paragraph",
+     "text": "Intracorpuscular defect Extracorpuscular defect Inherited: membrane, enzymes or hemoglobin defects Membrane defects: Hereditary spherocytosis (HS), Hereditary elliptocytosis Enzyme defects: G6PD deficiency, Pyruvate kinase deficiency, Hexokinase deficiency Hemoglobinopathies: Sickle cell anemias, Thalassemias, HbC disease, and HbD disease."
+    },
+    {
+     "type": "paragraph",
+     "text": "Acquired: PNH (Paroxysmal Nocturnal Hemoglobinuria) AIHA (Autoimmune hemolytic anemia) MAHA (Microangiopathic hemolytic anemia)-HUS, TTP, DIC (leads to clotting) Malaria (Blackwater fever) March Hemoglobinuria (capillaries present in the heels of soldiers break down)"
+    }
+   ]
+  },
+  {
+   "id": "pathology-69-4",
+   "question": "Examine the provided histopathology image of a blood smear containing two types of abnormal red blood cells. Identify the diseases associated with each cell type.",
+   "options": {
+    "A": "a: Pyruvate kinase deficiency, burns, and uremia; b: Abetalipoproteinemia, liver disease, and vitamin E deficiency.",
+    "B": "a: Abetalipoproteinemia, liver disease, and vitamin E deficiency; b: Pyruvate kinase deficiency, burns, and uremia.",
+    "C": "a: Abetalipoproteinemia and burns; b: Pyruvate kinase deficiency and uremia.",
+    "D": "a: Pyruvate kinase deficiency and liver disease; b: Abetalipoproteinemia and vitamin E deficiency."
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The structure marked A is an echinocyte seen in pyruvate kinase deficiency, burns, and uremia and B is an acanthocyte seen in abetalipoproteinemia, liver disease, and vitamin E deficiency."
+    },
+    {
+     "type": "paragraph",
+     "text": "Echinocytes (aka Burr cells) Acanthocytes (aka Spur cells) Description Echinocytes are red blood cells with uniformly spaced, short projections over the cell surface Acanthocytes are red blood cells with irregularly spaced, spiky projections of varying lengths Associated conditions Pyruvate kinase deficiency Burns Liver disease Uremia Abetalipoproteinemia Liver Disease Vitamin E Deficiency"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L69_Q004_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L69_Q004_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pathology-69-5",
+   "question": "A 28-year-old male presents with fatigue, jaundice, splenomegaly, and anemia with elevated MCHC. A peripheral smear is done which is shown below. What is the most common protein defect in this condition?",
+   "options": {
+    "A": "Spectrin",
+    "B": "Band 3 protein",
+    "C": "Ankyrin",
+    "D": "Glycophorin A"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The peripheral smear in this scenario indicates hereditary spherocytosis, and ankyrin is the most common or important protein defective in hereditary spherocytosis. IMPORTANT PROTEINS IN RBC MEMBRANE: Spectrin: Responsible for RBC stability and biconcave shape (Option A) Ankyrin: The most important or common protein defective in hereditary spherocytosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Band 3 protein (Option B):** Glycophorin A: The most abundant protein present in the RBC membrane, rarely(almost never) undergoes mutation in hereditary spherocytosis (Option D) Actin, Band 4.1, and Band 4.2 Proteins present at the head end of spectrin: Ankyrin, Band 4.2, Band 3 Proteins present at the tail end of spectrin: Actin, Band 4.1, Glycophorin A"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L69_Q005_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-69-6",
+   "question": "A 10-year-old child presents with a history of recurrent episodes of jaundice, fatigue, and abdominal pain. Physical examination reveals splenomegaly, and peripheral blood smear shows the following picture. Coomb's test is negative. What is the most likely diagnosis?",
+   "options": {
+    "A": "Hereditary spherocytosis",
+    "B": "Autoimmune hemolytic anemia",
+    "C": "Glucose-6-phosphate dehydrogenase (G6PD) deficiency",
+    "D": "Thalassemia"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The given clinical scenario and peripheral smear showing spherocytes most likely suggest a diagnosis of hereditary spherocytosis. Hereditary spherocytosis (HS) is an inherited disorder caused by intrinsic defects in the red cell membrane skeleton that render red cells spheroid, less deformable, and vulnerable to splenic sequestration and destruction."
+    },
+    {
+     "type": "paragraph",
+     "text": "It has an autosomal dominant inheritance(75%) characterized by ankyrin mutation and an autosomal recessive inheritance characterized by spectrin mutation. Pathophysiology of hereditary spherocytosis: The most specific morphologic finding is spherocytosis: Dark-staining (hyperchromic) spherocytes lacking the central zone of pallor. Other features include reticulocytosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "The characteristic clinical features are anemia, splenomegaly, jaundice, and an increased risk of gallstones. Severity ranges from asymptomatic to severe hemolytic anemia requiring transfusions. Early complications include neonatal jaundice and hemolytic crises. Late complications include gallstones and rarely iron overload."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Autoimmune hemolytic anemia (AIHA) (Option B):** AIHA involves antibodies targeting red blood cells and typically has a positive Coombs test, which is not mentioned. It usually presents with acute rather than recurrent hemolysis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Glucose-6-phosphate dehydrogenase (G6PD) deficiency (Option C):** It is characterized by bite cells, not hyperchromic spherocytes lacking a central pallor."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Thalassemia (Option D):** It is characterized by target cells rather than sperocytes on peripheral smear."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L69_Q006_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L69_Q006_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pathology-69-7",
+   "question": "Which of the following is not a typical change in blood indices in patients with hereditary spherocytosis?",
+   "options": {
+    "A": "MCV decreases",
+    "B": "MCHC increases",
+    "C": "RDW decreases",
+    "D": "Hemoglobin decreases"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The RDW (red cell distribution width) increases, not decreases, in hereditary spherocytosis due to anisocytosis- a heterogeneous population of red blood cells, including both normal-sized and smaller, denser spherocytes."
+    },
+    {
+     "type": "paragraph",
+     "text": "The MCV decreases due to the presence of smaller, more dense red blood cells (spherocytes). (Option A) The MCHC increases due to dehydration of RBCs, leading to a higher concentration of hemoglobin per unit volume of the cell. (Option B) Hemoglobin levels may decrease in hereditary spherocytosis due to the hemolysis, but they do not increase. (Option D) Blood indices in hereditary spherocytosis: Reduced Hemoglobin Reduced MCV Normal or increased MCH Increased MCHC due to water loss Increased RDW (variation in size) Increased reticulocyte count"
+    }
+   ]
+  },
+  {
+   "id": "pathology-69-8",
+   "question": "A 6-year-old child presents with a history of recurrent episodes of jaundice, fatigue, and abdominal pain. Physical examination reveals splenomegaly. The child's blood work shows the presence of spherocytes on the peripheral blood smear. An osmotic fragility test is performed. Identify the correct statement about this test.",
+   "options": {
+    "A": "It is a diagnostic test.",
+    "B": "In thalassemia patients, low osmotic fragility leads to a right shift on the graph.",
+    "C": "In HS patients, high osmotic fragility leads to a right shift on the graph.",
+    "D": "Normally, RBC lysis begins at 0.7% NaCl."
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The correct statement regarding the osmotic fragility test is high osmotic fragility leads to a right shift on the graph in patients with HS. Osmotic Fragility Test: Assesses RBC susceptibility to hemolysis in hypotonic saline. Used for screening HS and thalassemia. RBCs are incubated in hypotonic saline of varying osmolarities. Measures hemolysis as saline enters RBCs, causing swelling and lysis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Normal RBC Response: It begins to lyse around 0.5% NaCl concentration. (Option D) Maintain shape due to balance between membrane integrity and osmotic pressure. Hereditary Spherocytosis (HS): RBCs are more fragile due to reduced surface-to-volume ratio. The osmotic fragility curve shifts to the right. More susceptible to hemolysis at higher saline concentrations. Thalassemia: Characterized by smaller and more rigid RBCs."
+    },
+    {
+     "type": "paragraph",
+     "text": "The osmotic fragility curve shifts to the left. (Option B) Lyses at lower saline concentrations compared to normal RBCs. However, this test is just a screening method, and the Eosin-5-maleimide (EMA) binding test is the gold standard for diagnosing hereditary spherocytosis. (Option A)"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L69_Q008_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-69-9",
+   "question": "A 30-year-old male presents with severe fatigue, shortness of breath, and dark urine after eating fava beans. He has a history of recurrent hemolytic anemia. On examination, he appears pale and jaundiced. Which statement correctly describes the pathogenesis of his condition?",
+   "options": {
+    "A": "Deficiency in an enzyme leads to oxidative stress-induced hemolysis.",
+    "B": "Excessive production of glutathione leads to the destruction of red blood cells.",
+    "C": "Decreased levels of reactive oxygen species (ROS) lead to decreased oxidative damage.",
+    "D": "The severity is not influenced by environmental factors or dietary triggers like fava beans."
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical scenario is suggestive of glucose-6-phosphate dehydrogenase deficiency that leads to oxidative stress-induced hemolysis Glucose-6-phosphate dehydrogenase (G6PD) deficiency is an X-linked recessive disorder characterised by a deficiency in the G6PD enzyme, which protects red blood cells from oxidative damage."
+    },
+    {
+     "type": "paragraph",
+     "text": "This reduces the ability to generate NADPH via the pentose phosphate pathway and impairs glutathione regeneration, exacerbating oxidative stress and hemolysis. (Option B) When exposed to oxidative stressors, there is an imbalance between the production of reactive oxygen species (ROS) and antioxidants that neutralize them."
+    },
+    {
+     "type": "paragraph",
+     "text": "This leads to oxidative damage to red blood cell membranes and proteins, resulting in hemolysis. (Option C) It presents with episodes of acute hemolytic anemia triggered by oxidative stressors such as infections, certain medications (e.g., antimalarials, sulfonamides), or ingestion of certain foods (e.g., fava beans). (Option D) Clinical manifestations include fatigue, pallor, jaundice, and dark urine (due to hemoglobinuria)."
+    },
+    {
+     "type": "paragraph",
+     "text": "The severity of hemolysis varies depending on the degree of enzyme deficiency and the magnitude of the oxidative insult, with some individuals experiencing life-threatening hemolytic crises. G6PD deficiency causes both intra and extravascular hemolysis."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L69_Q009_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-69-10",
+   "question": "A 45-year-old male presents to the emergency department with symptoms of acute hemolytic anemia. A methemoglobin reduction test is performed, revealing a delayed rate of methemoglobin reduction. What is the underlying principle of the above-mentioned screening test used to diagnose G6PD deficiency?",
+   "options": {
+    "A": "Measures the levels of methemoglobin in red blood cells.",
+    "B": "Evaluates the ability of red blood cells to reduce methemoglobin back to haemoglobin.",
+    "C": "Detects G6PD activity by measuring the rate of reduction of a fluorescent dye.",
+    "D": "Measures the actual activity levels of the G6PD enzyme."
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Purpose of Methemoglobin Reduction Test: Used to detect glucose-6-phosphate dehydrogenase (G6PD) deficiency. Measures the ability of red blood cells to convert methemoglobin back to hemoglobin. Helps assess the enzymatic activity crucial for protecting cells from oxidative stress. Mechanism in G6PD Deficiency: Individuals with G6PD deficiency have reduced enzyme activity. Red blood cells are more vulnerable to oxidative damage."
+    },
+    {
+     "type": "paragraph",
+     "text": "Impaired reduction of methemoglobin indicates decreased G6PD function. Testing Procedure: The blood sample is exposed to a chemical that induces methemoglobin formation. The rate of reduction back to hemoglobin is measured. The slower reduction compared to normal suggests G6PD deficiency. Clinical Application: Used to confirm diagnosis in patients suspected of having G6PD deficiency."
+    },
+    {
+     "type": "paragraph",
+     "text": "Helps guide management decisions in conditions where oxidative stress can trigger hemolysis. Provides insight into the enzymatic function critical for maintaining red blood cell integrity. Other tests used for screening include: Fluorescent Spot Test (FST): This is a quick screening test that detects G6PD activity by measuring the rate of reduction of a fluorescent dye. (Option C) NADPH is autofluorescent In normal cases: fluorescence is seen."
+    },
+    {
+     "type": "paragraph",
+     "text": "In G6PD deficiency: Fluorescence not seen Quantitative Enzyme Assays: These tests measure the actual activity levels of G6PD enzyme in the blood. They provide a more accurate assessment but are often more expensive and time-consuming. (Option D)"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L69_Q010_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L69_Q010_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pathology-69-11",
+   "question": "Which of the following statements regarding Paroxysmal Nocturnal Hemoglobinuria (PNH) is true?",
+   "options": {
+    "A": "Causes extravascular hemolysis",
+    "B": "Splenectomy would be beneficial",
+    "C": "Causes hemolysis only at night",
+    "D": "Acquired intracorpuscular defect"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The true statement regarding PNH is that it is an acquired intracorpuscular defect. PNH is the \"ONLY\" acquired intracorpuscular defect (defect within the RBCs) among hemolytic anemia, making them susceptible to destruction by the complement system."
+    },
+    {
+     "type": "paragraph",
+     "text": "It causes intravascular hemolysis due to complement activation that attacks RBCs. (Option A) Hence, splenectomy, which would be beneficial in some cases of extravascular hemolysis, would not be of any use in PNH. (Option B) Contrary to the name, only 25% of cases show paroxysmal and nocturnal hemolysis. (Option C) Red cell lysis at night is explained by a slight decrease in blood pH during sleep, which increases complement activation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Chronic hemolysis without dramatic hemoglobinuria is more typical."
+    }
+   ]
+  },
+  {
+   "id": "pathology-69-12",
+   "question": "Which of the following defects is seen in paroxysmal nocturnal hemoglobinuria?",
+   "options": {
+    "A": "Spectrin",
+    "B": "CD 45 and CD 95",
+    "C": "G6PD enzyme",
+    "D": "PIGA gene"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Paroxysmal nocturnal hemoglobinuria is due to a mutation in the PIGA gene. Pathogenesis of PNH: PNH is caused by an acquired mutation in the PIGA gene leading to defective synthesis of (GPI) anchors."
+    },
+    {
+     "type": "paragraph",
+     "text": "GPI anchors are essential for attaching certain proteins to the cell surface, including CD55 (decay-accelerating factor), CD59 (membrane inhibitor of reactive lysis), and C8-binding protein. (Option B) These proteins regulate the complement system and inhibit the formation of the membrane attack complex (MAC) that leads to cell lysis. In PNH, the deficiency of these regulators increases susceptibility to complement-mediated hemolysis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Subsequent lysis by the MAC leads to intravascular hemolysis Hemoglobin from lysed RBCs appears in the urine (hemoglobinuria) and is more pronounced during periods of increased complement activation, such as at night ( Nocturnal ) or stress. Clinical manifestations: Fatigue, weakness, dyspnea Pallor due to anemia Hemoglobinuria may cause urine to appear dark or cola-colored."
+    },
+    {
+     "type": "paragraph",
+     "text": "Abdominal pain, thrombosis (due to platelet activation and endothelial injury)"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L69_Q012_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-69-13",
+   "question": "Which of the following is the most common cause of death in Paroxysmal Nocturnal Hemoglobinuria?",
+   "options": {
+    "A": "Pancytopenia",
+    "B": "Acute Myeloid Leukemia",
+    "C": "Hepatic vein thrombosis",
+    "D": "Myelodysplastic syndrome"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Hepatic vein thrombosis is the most common cause of death in PNH. Complications of PNH Bone marrow failure Pancytopenia (Option A) Aplastic anemia Thrombosis (Most common cause of death in PNH) Cerebral vein thrombosis Hepatic and portal vein thrombosis - Budd Chiari Syndrome Clonal expansion Acute Myeloid Leukemia(AML). (Option B) Myelodysplastic syndrome (Option D)"
+    }
+   ]
+  },
+  {
+   "id": "pathology-69-14",
+   "question": "Which of the following treatments is commonly used for Paroxysmal Nocturnal Hemoglobinuria?",
+   "options": {
+    "A": "Rituximab",
+    "B": "Bevacizumab",
+    "C": "Eculizumab",
+    "D": "Trastuzumab"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Monoclonal antibody-Eculizumab is commonly used for Paroxysmal Nocturnal Hemoglobinuria. Mechanism of action: By binding to C5, eculizumab blocks the enzymatic activity of the C5 convertase, which is responsible for cleaving C5 into two fragments, C5a and C5b. Inhibition of C5 cleavage prevents the formation of (Membrane Attack Complex), which is involved in cell lysis."
+    },
+    {
+     "type": "paragraph",
+     "text": "It also lowers the risk of thrombosis by up to 90% Drawback: Increased risk of serious or fatal meningococcal infection The only cure is hematopoietic stem cell transplantation. Monoclonal Antibody Disorders Mechanism of Action Eculizumab Paroxysmal Nocturnal Hemoglobinuria (PNH) Inhibits complement protein C5, preventing terminal complement activation and reducing hemolysis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Rituximab (Option A):** Non-Hodgkin lymphoma Chronic lymphocytic leukemia (CLL) Rheumatoid arthritis Idiopathic thrombocytopenic purpura (ITP) Targets CD20 antigen on B cells, leading to B cell depletion and modulation of immune response."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Bevacizumab (Option B):** Colorectal cancer Lung cancer Renal cell carcinoma Age-related macular degeneration Targets vascular endothelial growth factor (VEGF), inhibiting angiogenesis and tumor growth."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Trastuzumab (Option D):** Breast cancer Gastric cancer Targets HER2/neu receptor on cancer cells, inhibiting cell proliferation and promoting antibody-dependent cellular cytotoxicity."
+    }
+   ]
+  },
+  {
+   "id": "pathology-69-15",
+   "question": "Match the following histopathological findings with their correct diagnosis: 1. A. Sickle Cell Anemia 2. B. Hereditary Spherocytosis 3. C. G6PD deficiency 4. D. Thalassemia",
+   "options": {
+    "A": "1-C, 2-D, 3-A, 4-B",
+    "B": "1-D, 2-C, 3-B, 4-A",
+    "C": "1-B, 2-A, 3-D, 4-C",
+    "D": "1-A, 2-B, 3-C, 4-D"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Red Blood Cell Abnormality Condition Reason 1. Bite cells C. G6PD deficiency Oxidative stress leads to denaturation of hemoglobin → Heinz bodies 2."
+    },
+    {
+     "type": "paragraph",
+     "text": "Target cells D. Thalassemia ↓ Hemoglobin content in RBCs → ↓ RBC volume → Surface area relatively unchanged → ↑ Surface area to volume ratio→ Altered lipid composition → ↑ Formation of membrane protrusions→ ↑ Membrane instability → ↓ Hemoglobin accumulation in certain membrane areas → Central area with hemoglobin, clear zone, outer ring Uneven distribution of hemoglobin and lipids → Characteristic \"bull's-eye\" appearance of Target cells 3."
+    },
+    {
+     "type": "paragraph",
+     "text": "Sickle-shaped red blood cells A. Sickle Cell Anemia Abnormal Hemoglobin (HbS) →HbS molecules polymerize under low oxygen→RBCs become rigid and assume a sickle shape. 4. Spherocytes B. Hereditary Spherocytosis Genetic defect in RBC membrane protein(spectrin) • Loss of membrane surface area • RBCs become spherical"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L69_Q015_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L69_Q015_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L69_Q015_explanation_3"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L69_Q015_explanation_4"
+    }
+   ]
+  },
+  {
+   "id": "pathology-70-1",
+   "question": "A 1-year-old boy, previously healthy until five months ago, presents with a three-hour history of severe swelling and tenderness of hands and feet. The family history is significant for an older brother who had transfusion-dependent anaemia and died of pneumococcal sepsis at the age of 6. Which haemoglobin molecule composition protected him from developing symptoms until recently?",
+   "options": {
+    "A": "α2γ2",
+    "B": "α2β2",
+    "C": "α2δ2",
+    "D": "α2ε2"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The given scenario is most likely suggestive of sickle cell anaemia. This child did not present with the disease earlier because of the presence of fetal haemoglobin (HbF) containing α2γ2 HbF inhibits the polymerisation of HbS more effectively than HbA, so infants with sickle cell disease typically remain asymptomatic until 5 or 6 months of age when HbF levels naturally decline."
+    },
+    {
+     "type": "paragraph",
+     "text": "In some individuals, higher levels of HbF persist, a condition known as hereditary persistence of fetal haemoglobin, which makes sickle cell disease less severe. α2β2 & α2δ2 are variants of normal adult haemoglobin present in the circulation ( Options B &C) Normal adult red cells contain HbA/Adult Hemoglobin A -α2β2 [constitute 95% and above of all Hb] HbA2/Hemoglobin A2 -α2δ2 [constitutes <3%] HbF/Fetal hemoglobin- α2γ2."
+    },
+    {
+     "type": "paragraph",
+     "text": "Fetal hemoglobin is the major hemoglobin in fetal RBCs during gestation and constitutes 60 to 80 percent of total hemoglobin in the full-term newborn. By approximately 6 to 12 months of age, Hb F is almost completely replaced by adult hemoglobin. ζ2ε2 (Hb Gower-1) and α2ε2 (Hb Gower-2) are hemoglobin chins seen in the embryonal period (Option D)."
+    }
+   ]
+  },
+  {
+   "id": "pathology-70-2",
+   "question": "Which of the following points best describes the pathogenesis of sickle cell disease (SCD)? Select all that apply. Nonsense point mutation in 6th position of β-globin chain Mutation promotes the polymerization of oxygenated hemoglobin Glutamic acid is changed to valine at the 6th position of β-globin chain Presence of HbF and HbS is protective against SCD. Patients heterozygous for HbS have more severe diseases than homozygous HbS. Individuals with coexistent α-thalassemia have less severe disease.",
+   "options": {
+    "A": "1, 5, 4, and 6",
+    "B": "3, 4, and 6",
+    "C": "2, 5, and 6",
+    "D": "1, 2, 5, and 6"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Sickle cell disease is a hemoglobinopathy caused by a missense point mutation in the 6th position of the β-globin chain This replaces the amino acid glutamine with valine which promotes the polymerization of deoxygenated hemoglobin. Heterozygous patients (HbAS) are said to have sickle cell trait where about 40% of the hemoglobin is HbS and the rest is HbA, which interferes with HbS polymerization."
+    },
+    {
+     "type": "paragraph",
+     "text": "Therefore they have less severe disease than their homozygous counterparts who have more HbS. HbF inhibits HbS polymerization more effectively than HbA, keeping infants with sickle cell disease asymptomatic until 5-6 months when HbF levels decline."
+    },
+    {
+     "type": "paragraph",
+     "text": "Metabolically active intracellular parasites consume oxygen and decrease intracellular pH, promoting sickling of HbAS red cells, which are then rapidly cleared by splenic and hepatic phagocytes, reducing parasite loads. In individuals with coexistent α-thalassemia, reduced Hb synthesis results in milder disease."
+    }
+   ]
+  },
+  {
+   "id": "pathology-70-3",
+   "question": "Which of the following conditions does not lead to sickling of RBCs in patients with sickle cell disease?",
+   "options": {
+    "A": "Dehydration",
+    "B": "Hypoxia",
+    "C": "Increased pH",
+    "D": "Decreased HbF"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Among the given options, increased pH/alkalosis does not lead to sickling, but rather decreased pH or acidosis. Factors affecting sickling: Dehydration - Higher HbS concentrations and increased MCHC due to intracellular dehydration enhance the likelihood of HbS aggregation and polymerization during deoxygenation, facilitating sickling."
+    },
+    {
+     "type": "paragraph",
+     "text": "Hypoxia - Hypoxia induces sickling of cells Less pH (acidic environment): A decrease in pH reduces hemoglobin's oxygen affinity, increasing deoxygenated HbS and enhancing the tendency for sickling. Amount of HbS: Homozygous>heterozygous Interaction of HbS with the other types of hemoglobin: HbSC> HbSA/HbSA2 > HbSF (Fetal hemoglobin has more affinity towards oxygen, thus reducing sickling)"
+    }
+   ]
+  },
+  {
+   "id": "pathology-70-4",
+   "question": "A 28-year-old man who has received blood transfusions on some occasions and has experienced severe pain in his hands and legs came to follow up. He is currently fine with no complaints and has been receiving treatment that has increased his HbF levels for the past 5 years. Which of the following would be seen in the peripheral smear of this patient?",
+   "options": {
+    "A": "Bite cells",
+    "B": "Heinz bodies",
+    "C": "Howell-Jolly bodies",
+    "D": "Spherocytes"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The peripheral smear of this patient would show Howell-Jolly bodies.They are basophilic nuclear remnants present in the RBC seen in conditions causing asplenia. Given the patient's age and history of blood transfusions, severe pain episodes in his hands and legs, and treatment aimed at increasing HbF (fetal hemoglobin) levels, it is likely that he has sickle cell disease along with asplenia due to recurrent vaso-occlusive crises."
+    },
+    {
+     "type": "paragraph",
+     "text": "There is massive splenomegaly in early childhood due to sequestration. Repeated microvascular infarcts due to chronic erythrostasis and fibrosis causes it to atrophy and shrink over the years resulting in asplenia. This process is called autosplenectomy."
+    },
+    {
+     "type": "paragraph",
+     "text": "Complications of asplenia: Susceptible to severe infections and sepsis by organisms: Encapsulated bacteria Pneumococcus Haemophilus influenzae type b Neisseria meningitidis Bordetella holmesii Bloodborne parasites Babesia spp Plasmodium spp Preventive measures include vaccination against S. pneumoniae, H. influenzae type b, N. meningitidis, influenza, and SARS-CoV-2; and prophylactic antibiotics."
+    },
+    {
+     "type": "paragraph",
+     "text": "Heinz bodies are denatured and precipitated hemoglobin found inside RBCs seen in G6PD deficiency."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Bite cells are formed due to removal of Heinz bodies by splenic macrophages (Options A and B):** . Spherocytes are small, spherical RBCs without central pallor seen mainly in AIHA and hereditary spherocytosis (Option D)."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L70_Q004_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-70-5",
+   "question": "Match the complications of sickle cell disease (SCD) with their corresponding crises: Complications Crises 1. Acute chest syndrome A. Vaso-occlusive crises 2. Parvovirus B19 infection B. Aplastic crises 3. Splenic enlargement C. Sequestration crisis 4. Splenic fibrosis",
+   "options": {
+    "A": "1-A, 2-B, 3-C, 4-C",
+    "B": "1-A, 2-B, 3-C, 4-A",
+    "C": "1-A, 2-A, 3-B, 4-C",
+    "D": "1-A, 2-C, 3-B, 4-A"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Vaso-occlusive crises include: 1. Bone crises: Common in children, presenting as hand-foot syndrome or dactylitis. 2. Acute chest syndrome: Affecting the lungs, it presents with fever, cough, chest pain, and pulmonary infiltrates, potentially leading to life-threatening hypoxemia. 3. Renal papillary necrosis: Causes abrupt onset gross hematuria due to microvascular occlusion in the kidney. 4."
+    },
+    {
+     "type": "paragraph",
+     "text": "Cerebrovascular accidents: Occlusions in the brain result in stroke. 5. Priapism: Painful, prolonged erection due to blood vessel occlusion in the penis. 6. Autosplenectomy - Repeated infarctions cause atrophy of the spleen. Aplastic crisis in SCD - Aplastic crises occur when red cell progenitors are infected by parvovirus B19, leading to a temporary halt in erythropoiesis and a sudden exacerbation of anemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "Sequestration crisis in SCD - Sequestration crisis affect children with intact spleens, characterized by significant trapping of sickled red cells, resulting in swift splenic enlargement, hypovolemia, and occasionally shock."
+    }
+   ]
+  }
+ ]
+}

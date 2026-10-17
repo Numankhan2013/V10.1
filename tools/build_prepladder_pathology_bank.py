@@ -28,6 +28,7 @@ from __future__ import annotations
 
 import argparse
 import base64
+import hashlib
 import json
 import re
 import sys
@@ -74,6 +75,56 @@ ENTITY_LEAK = re.compile(r"(?<=[A-Za-z]);(?=[=_])")
 
 def fix_urls(text: str) -> str:
     return ENTITY_LEAK.sub("", text)
+
+
+# "References: Robbins and Cotran Pathologic Basis of Disease, 10th edition,
+# Page 37; https://..." becomes a references block, one item per source. A
+# book's title (the text before its edition, page or chapter) shows in italics;
+# URLs and "PrepLadder Notes" stay plain. The app draws it below the figures.
+REFERENCES = re.compile(r"^References?\s*:\s*", re.I)
+LOCATOR = re.compile(r",?\s*(?:\d+(?:st|nd|rd|th)\s+ed(?:ition)?\b|pages?\b|pg\.|chapter\b)", re.I)
+
+
+def reference_item(text: str) -> dict:
+    m = LOCATOR.search(text)
+    title = text[:m.start()] if m else ""
+    if len(title) < 3 or "(" in title or "http" in text.lower() or "prepladder" in title.lower():
+        return {"rest": text}
+    return {"title": title, "rest": text[m.start():]}
+
+
+# Explanations restructured by an outside model (tools/explanation_restructure.py):
+# the same words as paragraphs, points and tables. Each entry names the hash
+# of the source body it was made from, so a changed source cannot keep a stale
+# restructure.
+OVERLAY = DATA / "restructure" / "restructured.json"
+
+
+def source_hash(body: list[dict]) -> str:
+    return hashlib.sha256(json.dumps(body, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:16]
+
+
+def apply_overlay(app_id: str, blocks: list[dict], tables: list[dict], entry: dict) -> list[dict]:
+    body = [b for b in blocks if not (b["type"] == "paragraph" and REFERENCES.match(b["text"]))]
+    if source_hash(body) != entry["sourceHash"]:
+        fail(f"{app_id}: restructured explanation was made from a different source; re-run it")
+    out = []
+    for block in entry["blocks"]:
+        if block["type"] == "table":
+            table_id = f"{app_id}-t{len(tables) + 1}"
+            tables.append({"table_id": table_id, "title": block.get("title", ""),
+                           "columns": block["columns"], "rows": block["rows"]})
+            out.append({"type": "table", "table_id": table_id})
+        else:
+            out.append(block)
+    return out + [b for b in blocks if b not in body]
+
+
+def references_block(block: dict) -> dict:
+    if block["type"] != "paragraph" or not REFERENCES.match(block["text"]):
+        return block
+    items = [reference_item(part.strip()) for part in REFERENCES.sub("", block["text"]).split(";") if part.strip()]
+    return {"type": "references", "text": block["text"], "items": items} if items else block
 
 
 def fail(message: str) -> None:
@@ -142,8 +193,9 @@ def topic_id(module: int) -> str:
     return f"pathology-{module}"
 
 
-def normalize(rows: list[dict]) -> tuple[dict, list[dict]]:
-    """The app record and the figures in use."""
+def normalize(rows: list[dict], overlay: bool = True) -> tuple[dict, list[dict]]:
+    """The app record and the figures in use; `overlay` applies restructured explanations."""
+    restructured = json.loads(OVERLAY.read_text(encoding="utf-8")) if overlay and OVERLAY.exists() else {}
     micro.count_words(rows)
     rows = [fix_record(q) for q in rows]
     topics: dict[int, dict] = {}
@@ -168,9 +220,12 @@ def normalize(rows: list[dict]) -> tuple[dict, list[dict]]:
             lost = bool(blocks) and blocks[0]["type"] == "paragraph" and bool(FRAGMENT.match(blocks[0]["text"]))
             if lost:
                 blocks[0] = {"type": "paragraph", "text": NO_EXPLANATION}
+            explanation = micro.plain_text(blocks)
+            app_id = f"{topic['id']}-{number}"
+            if app_id in restructured:
+                blocks = apply_overlay(app_id, blocks, tables, restructured[app_id])
             if not stem or not all(texts):
                 fail(f"{q['id']}: blank stem or option")
-            app_id = f"{topic['id']}-{number}"
             if topic["startPage"] is None and q["pages"]["question_pages"]:
                 topic["startPage"] = q["pages"]["question_pages"][0]
             notes = list(q["quality_flags"])
@@ -194,8 +249,9 @@ def normalize(rows: list[dict]) -> tuple[dict, list[dict]]:
                 "options": [{"letter": letters[i], "text": texts[i]} for i in range(len(texts))],
                 "correctOption": key,
                 "correctAnswerText": texts[key - 1],
-                "explanation": micro.plain_text(blocks),
-                "structuredExplanation": {"layout": "ordered-blocks", "blocks": blocks, "tables": tables,
+                "explanation": explanation,
+                "structuredExplanation": {"layout": "ordered-blocks", "blocks": [references_block(b) for b in blocks],
+                                          "tables": tables,
                                           "figures": sorted(i["image_id"] for i in stem_images + explain_images)},
                 "provenance": {"sourceFile": SOURCE_PDFS, "sourceLabel": SOURCE_LABEL,
                                "questionPages": q["pages"]["question_pages"],

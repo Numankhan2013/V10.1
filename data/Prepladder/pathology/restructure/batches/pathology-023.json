@@ -1,0 +1,541 @@
+{
+ "batch": "pathology-023",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pathology-023",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pathology-25-48",
+   "question": "Which of the following statements is true regarding amyloidosis?",
+   "options": {
+    "A": "SAA forms amyloid in multiple myeloma",
+    "B": "On Congo red staining, amyloid shows apple green birefringence",
+    "C": "In AL type amyloid is most commonly formed from kappa chain",
+    "D": "β2 - macroglobulin forms amyloid in systemic senile amyloidosis"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Congo red, when used in conjunction with polarized light microscopy, produces a characteristic apple green birefringence in amyloid deposits. This staining property is a key diagnostic feature of amyloidosis and helps differentiate amyloid deposits from other substances."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - SAA forms amyloid in multiple myeloma: In multiple myeloma, amyloidosis is usually associated with the deposition of immunoglobulin light chains, specifically the lambda chain, known as AL amyloidosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - In AL type amyloid is most commonly formed from kappa chain: In AL amyloidosis, the amyloid fibrils are most commonly formed from the lambda chain."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - β2-macroglobulin forms amyloid in systemic senile amyloidosis: Systemic senile amyloidosis is most commonly associated with the deposition of amyloid fibrils derived from transthyretin."
+    }
+   ]
+  },
+  {
+   "id": "pathology-25-49",
+   "question": "Which gene is not involved in SCID?",
+   "options": {
+    "A": "BTK",
+    "B": "JAK-3",
+    "C": "RAG1",
+    "D": "IL-7Rα"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "BTK is involved in X-linked agammaglobulinemia (XLA), which is a primary immunodeficiency disorder characterized by the absence or significantly reduced levels of mature B cells. Mutations in the BTK gene impair B cell development and function, leading to a lack of antibody production. XLA is not considered severe combined immunodeficiency (SCID)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - JAK-3: Mutations in the JAK-3 gene can cause severe combined immunodeficiency (SCID). JAK-3 is involved in the signalling pathway of certain cytokines important for immune cell development and function. Loss-of-function mutations in JAK-3 disrupt the development of T cells, B cells, and natural killer (NK) cells, resulting in SCID."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - RAG1: Mutations in the RAG1 gene can cause severe combined immunodeficiency (SCID). RAG1 is crucial for the rearrangement of immunoglobulin and T cell receptor genes during lymphocyte development. Loss-of-function mutations in RAG1 impair the development of functional T and B cells, leading to SCID."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - IL-7Rα: Mutations in the IL-7Rα gene can cause severe combined immunodeficiency (SCID). IL-7Rα is a subunit of the receptor for interleukin-7, a cytokine involved in the development and survival of T cells. Defects in IL-7Rα lead to impaired T cell development, resulting in SCID."
+    }
+   ]
+  },
+  {
+   "id": "pathology-25-50",
+   "question": "Which of the following is a type-2 hypersensitivity reaction?",
+   "options": {
+    "A": "Chronic kidney rejection",
+    "B": "Autoimmune hemolytic anaemia",
+    "C": "Arthus reaction",
+    "D": "Mantoux test"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Type-2 hypersensitivity reactions are mediated by antibodies, particularly IgG or IgM, binding to antigens on the surface of target cells, leading to their destruction or dysfunction. Autoimmune hemolytic anemia is an example of a type-2 hypersensitivity reaction."
+    },
+    {
+     "type": "paragraph",
+     "text": "In autoimmune hemolytic anemia, autoantibodies are produced against the antigens on the surface of red blood cells, resulting in their premature destruction by phagocytes in the spleen and liver."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Chronic kidney rejection: Chronic kidney rejection involves a complex immune response, including cellular and humoral components."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Arthus reaction: Arthus reaction is a localized immune complex-mediated hypersensitivity reaction that occurs when preformed antibodies react with antigens in the blood vessel walls, leading to inflammation and tissue damage. It is considered a type-3 hypersensitivity reaction."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Mantoux test: Mantoux test is a type-4 hypersensitivity reaction."
+    }
+   ]
+  },
+  {
+   "id": "pathology-25-51",
+   "question": "Which of the following about γ δ T-cells is incorrect?",
+   "options": {
+    "A": "Kills extracellular bacteria by granulysin and perforin",
+    "B": "Need antigen processing and presentation for its recognition",
+    "C": "Direct killing of infected macrophages",
+    "D": "Provide protection against mycobacteria"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "αβ T-cells and γδ T-cells do not require antigen processing and presentation by major histocompatibility complex (MHC) molecules for recognition. They can recognize and respond to antigens directly, including certain stress-induced molecules and microbial products."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Incorrect Options: Kills extracellular bacteria by granulysin and perforin (Option A):** γδ T-cells can kill extracellular bacteria through the release of granulysin and perforin, which are cytotoxic molecules."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Direct killing of infected macrophages (Option C):** γδ T-cells can directly kill infected macrophages, which helps in the control of intracellular infections."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Provide protection against mycobacteria (Option D):** γδ T-cells have been shown to provide protection against mycobacterial infections, including Mycobacterium tuberculosis, the causative agent of tuberculosis. They contribute to the immune response by producing cytokines and exerting cytotoxic effects."
+    }
+   ]
+  },
+  {
+   "id": "pathology-25-53",
+   "question": "What is the single most important long-term limitation of cardiac transplantation?",
+   "options": {
+    "A": "Allograft rejection",
+    "B": "Allograft arteriopathy",
+    "C": "Infection",
+    "D": "Malignancy"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The single most important long-term limitation of cardiac transplantation is allograft arteriopathy, also known as cardiac allograft vasculopathy (CAV). Allograft arteriopathy refers to the progressive narrowing and occlusion of the coronary arteries of the transplanted heart."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Options A, C, and D are incorrect."
+    }
+   ]
+  },
+  {
+   "id": "pathology-25-54",
+   "question": "A 12-year-old boy presents to the clinic complaining of severe abdominal pain and headaches for the past two days. He has a history of myalgia and several episodes of vomiting. His parents self-medicated with paracetamol, but the patient had no relief. A dengue NS-1 antigen test was ordered, which came out positive. What is the first line of defence for the body in the given scenario?",
+   "options": {
+    "A": "Natural Killer cells",
+    "B": "T cell",
+    "C": "Histiocyte",
+    "D": "Macrophage"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "In the given case of a positive dengue NS-1 antigen test, the first line of defense of the body would involve the activation of NK cells. NK cells are a type of lymphocyte that plays a crucial role in the innate immune response against viral infections. They can recognize and eliminate virus-infected cells without prior exposure or specific recognition of the virus."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Options B, C, and D are not the primary first-line defense against viral infections in the given case."
+    }
+   ]
+  },
+  {
+   "id": "pathology-25-55",
+   "question": "Type II Hypersensitivity is seen in:",
+   "options": {
+    "A": "Pernicious anaemia",
+    "B": "Serum sickness",
+    "C": "Arthus phenomenon",
+    "D": "Pathergy phenomenon"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "In pernicious anemia, the immune system produces antibodies against intrinsic factors or parietal cells in the stomach. These antibodies interfere with the absorption of vitamin B12, leading to its deficiency. It is an example of type II hypersensitivity."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Serum sickness: Serum sickness is a type III hypersensitivity reaction that occurs in response to the administration of certain medications or the injection of foreign proteins, such as antivenoms or serum. It involves the formation of immune complexes that deposit in various tissues and activate the complement system."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Arthus phenomenon: Arthus phenomenon is a localized immune complex-mediated hypersensitivity reaction. It occurs when there is an excessive immune response at the site of antigen exposure, usually due to repeated exposure to an antigen."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Pathergy phenomenon: Pathergy phenomenon refers to the development of a skin lesion in response to minor trauma or injury. It is commonly seen in certain conditions, like Behçet's disease."
+    }
+   ]
+  },
+  {
+   "id": "pathology-25-56",
+   "question": "Basophils are activated by?",
+   "options": {
+    "A": "IL-5",
+    "B": "INF-gamma",
+    "C": "TNF-alpha",
+    "D": "IL-2"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Basophils, along with eosinophils and mast cells, are activated by IL-5, which is an interleukin involved in the regulation of immune responses, particularly in allergic reactions and parasitic infections."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - INF-gamma: INF-gamma primarily activates macrophages and plays a role in cellular immune responses."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - TNF-alpha: TNF-alpha is a cytokine produced by activated macrophages and other immune cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - IL-2: IL-2 stimulates the proliferation and activation of T-cells and natural killer (NK) cells."
+    }
+   ]
+  },
+  {
+   "id": "pathology-26-1",
+   "question": "A 60-year-old male with a chronic history of diabetes, hypertension and hypercholesterolemia came to the clinic for follow-up. His BP has not been under control for many years. He has a vascular lesion similar to the image shown below. What does this image indicate?",
+   "options": {
+    "A": "Atheromatous plaques",
+    "B": "Thick arterial wall due to deposition of pink, hyaline material",
+    "C": "Onion-skin appearance",
+    "D": "Lipid deposition within the vessel wall"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The HPE of blood vessels in the background of uncontrolled hypertension shows an onion-skin appearance. Usually seen in malignant hypertension. There are 2 types of hypertension: Benign HTN: Hyaline arteriosclerosis Malignant HTN: Hyperplastic arteriosclerosis Hyperplastic arteriosclerosis: It is characterized by concentric thickening of the arteriolar walls due to smooth muscle hyperplasia."
+    },
+    {
+     "type": "paragraph",
+     "text": "Because of long-term HTN and sudden spikes in blood pressure, proliferation of smooth muscles and fibroblasts occurs. This results in the narrowing of the lumen and onion skin appearance."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Seen in Malignant Hypertension Thick arterial wall due to deposition of pink, hyaline material (Option B):** Hyaline arteriosclerosis is characterized by the thickening of arterial walls caused by the deposition of a pink hyaline substance due to leakage of plasma proteins through damaged endothelial cells. Seen in benign hypertension and diabetes mellitus."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L26_Q001_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L26_Q001_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pathology-26-2",
+   "question": "A 65-year-old male presents with high pulse pressure. Histopathological examination is shown below. The arteries appear thickened, but there is no significant luminal narrowing. Which of the following conditions is the likely cause?",
+   "options": {
+    "A": "Atherosclerosis",
+    "B": "Monckeberg medial calcific sclerosis",
+    "C": "Hyperplastic arteriosclerosis",
+    "D": "Hyaline arteriosclerosis"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Monckeberg medial calcific sclerosis, also known as calcific medial degeneration: Calcific: Blue coloured dystrophic calcification due to old age. Medial: Calcium is getting deposited into the tunica media of the blood vessel. Degeneration: Degeneration occurring due to old age and not due to any pathology. It is often asymptomatic and discovered incidentally in imaging studies such as X-rays or histopathological examinations."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Atherosclerosis (Option A):** Due to hypercholesterolemia, and on HPE foam cells are seen in blood vessels."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Hyperplastic arteriosclerosis (Option C):** Seen in malignant hypertension."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Hyaline arteriosclerosis (Option D):** Seen in benign hypertension and diabetes."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L26_Q002_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L26_Q002_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pathology-26-3",
+   "question": "Arrange the following steps of atherosclerosis formation in the correct order. Endothelial injury and dysfunction Accumulation of lipoproteins Platelet adhesion and factor release Smooth muscle and collagen formation",
+   "options": {
+    "A": "1>2>3>4",
+    "B": "1>2>4>3",
+    "C": "2>3>4>1",
+    "D": "1>3>2>4"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Atherosclerosis is the thickening or hardening of the arteries caused by a buildup of plaque in the inner lining of an artery. It is the arterial wall's chronic inflammatory and healing response to endothelial injury."
+    },
+    {
+     "type": "paragraph",
+     "text": "Risk factors: Nonmodifiable (Constitutional) Genetic abnormalities Family history Increasing age Male gender Modifiable Hyperlipidemia Hypertension Cigarette smoking Diabetes Inflammation Hyperhomocysteinemia Metabolic syndrome The pathogenesis of atherosclerosis is as follows: Endothelial injury and dysfunction cause increased vascular permeability, leukocyte adhesion, and thrombosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Accumulation of lipoproteins (LDL) Monocyte adhesion to the endothelium, migration into intima and transformation into macrophages and foam cells. Platelet adhesion. Factor release from activated platelets, macrophages inducing SMC(smooth muscle cell) recruitment SMC proliferation, extracellular matrix production(ECM) Lipid accumulation is both extracellular and within macrophages and SMC. Calcification of ECM and necrotic debris."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L26_Q003_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-26-4",
+   "question": "A 65-year-old male presents with sudden-onset severe abdominal pain radiating to his back. On physical examination, a pulsatile mass is palpated in his abdomen. He has a history of hypertension, hyperlipidemia, and smoking. Based on the clinical presentation and risk factors, which of the following is the most likely diagnosis?",
+   "options": {
+    "A": "Takayasu's arteritis",
+    "B": "Diverticulitis",
+    "C": "Abdominal aortic aneurysm",
+    "D": "Pancreatitis"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical presentation of sudden-onset severe abdominal pain radiating to the back, along with a pulsatile abdominal mass, is highly suggestive of an abdominal aortic aneurysm (AAA). The primary cause of aneurysms is atherosclerosis, with other factors including genetic predisposition, connective tissue disorders: Marfan syndrome, Ehlers-Danlos syndrome, trauma, and infection: Mycotic aneurysms."
+    },
+    {
+     "type": "paragraph",
+     "text": "Pathogenesis: Aneurysms result from medial degeneration due to chronic inflammation, oxidative stress, and atherosclerosis. This process weakens the arterial wall, particularly in the abdominal aorta, leading to dilation and aneurysm formation. Clinical Features: Asymptomatic cases may be incidentally discovered during imaging studies."
+    },
+    {
+     "type": "paragraph",
+     "text": "Sudden-onset severe abdominal or back pain Pulsatile abdominal mass on physical examination, Hypotension or shock due to rupture in severe cases. Management: Depending on the aneurysm size, symptoms, and patient’s condition."
+    },
+    {
+     "type": "paragraph",
+     "text": "Small asymptomatic AAAs (<5.5 cm)-Monitoring with periodic imaging Symptomatic, rapidly expanding (>1 cm/year), or large (>5.5 cm) AAAs- Elective repair via open or endovascular procedure Medical management- Slow atherosclerosis progression and reduce aneurysm risk."
+    }
+   ]
+  },
+  {
+   "id": "pathology-26-5",
+   "question": "Match the following types of aortic dissections. a. 1. Stanford Type A b. 2. Debakey type I c. 3. Debakey II 4. Debakey III",
+   "options": {
+    "A": "A-2, B-4, C-1",
+    "B": "A-3, B-1, C-4",
+    "C": "A-2, B-1, C-4",
+    "D": "A-4, B-3, C-1"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Aortic aneurysms are divided into various types with respect to Stanford and DeBakey classification as follows: DeBakey Classification Stanford Classification DeBakey Classification: Type Origin Extent Type I (Option A) Ascending aorta Extends into arch and descending aorta Type II Ascending aorta Confined to ascending aorta Type III (Option C) Descending aorta Starts distal to left subclavian artery IIIa Limited to thoracic aorta IIIb Extends below diaphragm Stanford Classification: Type Description Management Implication Type A (Option B) Involves the ascending aorta (± arch, descending aorta) Surgical emergency Type B Involves only the descending aorta, distal to the left subclavian artery Medical management unless complications arise Relation Between Stanford and DeBakey: Stanford Type A = DeBakey Type I and II Stanford Type B = DeBakey Type III"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L26_Q005_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-26-6",
+   "question": "Which of the following is an intermediate-grade vascular tumour?",
+   "options": {
+    "A": "Kaposi sarcoma",
+    "B": "Angiosarcoma",
+    "C": "Hemangiopericytoma",
+    "D": "Pyogenic granuloma"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Classification of vascular tumours: Benign vascular tumour: Hemangioma, pyogenic granuloma, etc. Intermediate vascular tumour: Kaposi sarcoma Malignant vascular tumour: Angiosarcoma, hemangiopericytoma Kaposi sarcoma is an intermediate-grade vascular tumour. It is caused by Human Herpes Virus 8. (HHV8) It is associated with HIV/Immunodeficiency. M/c location is skin of lower limbs > lymph nodes"
+    }
+   ]
+  },
+  {
+   "id": "pathology-26-7",
+   "question": "A 6-month-old infant is brought to the clinic with a rapidly expanding, clearly defined, bright red lesion on the face. Upon examination, the lesion feels soft, yields to pressure, and temporarily loses color when pressure is applied. Which of the following is the most likely diagnosis?",
+   "options": {
+    "A": "Pyogenic granuloma",
+    "B": "Infantile hemangioma",
+    "C": "Nevus flammeus",
+    "D": "Venous malformation"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The given clinical scenario suggests infantile/capillary hemangioma. Capillary hemangiomas or infantile hemangiomas are frequently encountered in benign vascular growth in infants. While most capillary hemangiomas are isolated, they can also occur as part of syndromes such as PHACE syndrome (posterior fossa malformations, hemangiomas, arterial anomalies, cardiac defects, eye abnormalities, and sternal clefting)."
+    },
+    {
+     "type": "paragraph",
+     "text": "They typically present as swiftly enlarging, vivid red lesions. A key distinguishing trait is their soft, yielding texture, which momentarily loses colour under pressure due to their abundant blood supply. They follow a pattern of rapid growth followed by spontaneous regression."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L26_Q007_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-26-8",
+   "question": "A 30-year-old patient presents with a history of multiple tumours in various organs, including the brain, retina, and kidneys. On examination, retinal angiomas and cerebellar hemangioblastomas are noted. The patient's family history reveals similar manifestations in relatives. Which of the following lesions is commonly associated with this syndrome?",
+   "options": {
+    "A": "Glioblastoma multiforme",
+    "B": "Adenomatous polyps",
+    "C": "Capillary hemangioma",
+    "D": "Cavernous hemangioma"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical scenario represents von Hippel-Lindau syndrome, commonly associated with cavernous hemangiomas. VHL Syndrome is associated with the deletion of chromosome 3p. Inheritance: Autosomal dominant It is associated with Cavernous hemangiomas."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L26_Q008_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-26-9",
+   "question": "A 45-year-old individual complains of a throbbing mass on the tip of their index finger. Upon examination, the lesion is bluish and extremely tender to the touch. Which of the following is the most probable diagnosis?",
+   "options": {
+    "A": "Ganglion cyst",
+    "B": "Bacillary angiomatosis",
+    "C": "Glomus tumour",
+    "D": "Cavernous lymphangioma"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Glomus tumours are benign tumours originating from the glomus bodies of blood vessels. -modified smooth muscle cells specialised in temperature regulation. Glomus bodies: These are the arterio-venous (A-V) anastomoses responsible for thermoregulation of the body. Usually present at the tip of fingers, They typically manifest as excruciatingly painful, pulsating masses, often found under the nails of the fingers ( subungual swelling )."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L26_Q009_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-26-10",
+   "question": "A 60-year-old HIV-positive patient presents with multiple reddish-purple nodules on the lower extremities. On examination, the lesions are non-tender, non-pruritic, and do not blanch with pressure. There is also evidence of mucosal involvement in the oral cavity. Which of the following is the most likely diagnosis?",
+   "options": {
+    "A": "Hemangiopericytoma",
+    "B": "Hemangioendothelioma",
+    "C": "Kaposi sarcoma",
+    "D": "Angiosarcoma"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Kaposi sarcoma is an intermediate-grade vascular tumour. Most commonly associated with immunocompromised individuals, particularly those with HIV/AIDS. It arises from blood vessels and typically presents with multiple reddish-purple nodules on the skin. It is caused by Human Herpes Virus 8 (HHV8) M/c location is skin of lower limbs > lymph nodes The Latency Associated Nuclear Antigen (LANA) is positive, it is an antigen for HHV8."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L26_Q010_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-26-11",
+   "question": "A 28-year-old woman, 20 weeks pregnant, presents with a painful, growing, reddish lump on her gums (as shown below) that bleeds when brushing or eating. The lesion is tender, and she denies any history of trauma or irritation. What is the most likely diagnosis?",
+   "options": {
+    "A": "Hemangiopericytoma",
+    "B": "Kasabach-Merritt Syndrome",
+    "C": "Angiosarcoma",
+    "D": "Lobular Capillary Hemangioma"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The scenario and image are consistent with a diagnosis of Lobular Capillary Hemangioma (also known as Pyogenic Granuloma or Granuloma Gravidarum or Pregnancy Tumor). It regresses after pregnancy, so in most cases, surgical ressection or any treatment is not needed. Microscopically: Lobular capillary hemangioma (LCH)"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L26_Q011_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L26_Q011_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pathology-27-1",
+   "question": "A 65-year-old male with a history of hypertension and coronary artery disease presents with worsening shortness of breath and orthopnea. Chest X-ray reveals pulmonary congestion. Bronchoalveolar lavage shows hemosiderin-laden macrophages, as shown in the image below. What is the most likely diagnosis?",
+   "options": {
+    "A": "Right-sided heart failure",
+    "B": "Left-sided heart failure",
+    "C": "Pulmonary embolism",
+    "D": "Acute myocardial infarction"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient's symptoms and the histopathological findings of hemosiderin - laden macrophages known as ‘ Heart failure cells ’ are consistent with Left-sided heart failure. This condition is characterized by the heart's inability to pump blood effectively, leading to pulmonary congestion and oedema. Chronic congestion and microhemorrhages in the lungs result in the accumulation of hemosiderin - laden macrophages (Heart failure cells)."
+    },
+    {
+     "type": "paragraph",
+     "text": "These cells can be identified using special stains such as Perl's or Prussian blue, which detect hemosiderin's presence. Left heart failure is commonly associated with underlying conditions such as ischemic heart disease, hypertension, or valvular heart disease."
+    }
+   ]
+  }
+ ]
+}

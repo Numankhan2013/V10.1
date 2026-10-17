@@ -1,0 +1,477 @@
+{
+ "batch": "pathology-009",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pathology-009",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pathology-10-3",
+   "question": "A couple visits a genetics counselor due to concerns about their baby's blood type. The father has blood type A (genotype I A I A ), and the mother has blood type B (genotype I B I B ). The counselor explains that blood type is determined by codominant alleles, where both alleles contribute equally to the phenotype in the heterozygous condition. Which of the following best describes codominance?",
+   "options": {
+    "A": "One allele completely masks the expression of the other allele",
+    "B": "The phenotype of the heterozygote is intermediate between the phenotypes of the homozygotes",
+    "C": "Only one allele is expressed, while the other remains silent",
+    "D": "Both alleles contribute to the phenotype equally in the heterozygous condition"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Codominance can be defined as a condition in which both the alleles of a gene pair in a heterozygote are equally expressed. Examples: ABO blood group system In the ABO blood group system, the I A and I B alleles are codominant in producing the AB blood group phenotype, in which both A and B-type antigens are produced. The genes responsible for the ABO blood group are located in chromosome 9."
+    },
+    {
+     "type": "paragraph",
+     "text": "The presence of both I A and I B causes the expression of both, forming the AB blood group. HLA gene also shows co dominance"
+    }
+   ]
+  },
+  {
+   "id": "pathology-10-4",
+   "question": "A 30-year-old man presents to the clinic with a history of tall stature, long limbs, and joint hypermobility. Upon further examination, he also exhibits features such as a high-arched palate, arachnodactyly (long, slender fingers), and aortic root dilation. His father has a similar appearance. Which of the following statements is true regarding the inheritance pattern seen in this condition?",
+   "options": {
+    "A": "Males are more commonly affected than females.",
+    "B": "Most mutations lead to reduced production of a gene product or give rise to a dysfunctional or inactive protein.",
+    "C": "Complete penetrance can be seen",
+    "D": "The least common mode of inheritance"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The given clinical scenario of a male with tall stature, long limbs, joint hypermobility, arachnodactyly, aortic root dilatation, and similar features in his father suggests Marfan’s syndrome, an autosomal dominant condition and gene FBN1 (fibrillin-1) on chromosome 15. The true statement regarding autosomal dominant inheritance is that most proteins lead to reduced production of a gene product or give rise to a dysfunctional or inactive protein."
+    },
+    {
+     "type": "paragraph",
+     "text": "Autosomal dominant inheritance: Autosomal dominant disorders are manifested in the heterozygous state, so at least one parent of an index case is usually affected. It is the most common mode of inheritance. (Option D) Both males and females are affected, and both can transmit the condition. (Option A) They are characterized by: With every autosomal dominant disorder, some proportion of patients do not have affected parents."
+    },
+    {
+     "type": "paragraph",
+     "text": "Clinical features can be modified by variations in penetrance and expressivity: Some individuals inherit the mutant gene but are phenotypically normal. This is referred to as incomplete penetrance. (Option C) If a trait is seen in all individuals carrying the mutant gene but is expressed differently among individuals, the phenomenon is called variable expressivity."
+    },
+    {
+     "type": "paragraph",
+     "text": "In many conditions the age at onset is delayed; symptoms and signs may not appear until adulthood. Pedigree chart: Some examples of autosomal dominant disorders:"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L10_Q004_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L10_Q004_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pathology-10-5",
+   "question": "A 6-month-old male infant presents to the pediatric clinic with failure to thrive, recurrent respiratory infections, and hepatosplenomegaly. Upon further examination, the infant also displays signs of skeletal abnormalities including bowed legs and frontal bossing. Lab investigations reveal pancytopenia with markedly decreased platelet count. Genetic testing confirms a diagnosis of Gaucher disease. What is the pattern of inheritance and underlying genetic defect leading to this disorder?",
+   "options": {
+    "A": "Autosomal Dominant Inheritance, Mutation in the CFTR Gene",
+    "B": "X-linked Recessive Inheritance, Mutation in the GBA Gene",
+    "C": "Autosomal Dominant Inheritance, Mutation in the HEXA Gene",
+    "D": "Autosomal Recessive Inheritance, Mutation in the GBA Gene"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Gaucher disease is an autosomal recessive inborn error of metabolism caused by mutations in the glucocerebrosidase - GBA1 gene."
+    },
+    {
+     "type": "paragraph",
+     "text": "All lysosomal storage diseases are autosomal recessive Exceptions (X-linked recessive): Fabry disease & Hunter syndrome Autosomal Dominant Inheritance, Mutation in the CFTR Gene (Option A): Cystic fibrosis (CF) is inherited as an autosomal recessive disorder caused by mutations in the CFTR gene. (chromosome 7) X-linked Recessive Inheritance, Mutation in the GBA Gene (Option B): Gaucher disease is not associated with X-linked inheritance; instead, it follows autosomal recessive inheritance."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Autosomal Dominant Inheritance, Mutation in the HEXA Gene (Option C):** Tay-Sachs disease is an autosomal recessive disorder caused by mutations in the HEXA gene, resulting in deficient activity of the enzyme β-hexosaminidase A."
+    }
+   ]
+  },
+  {
+   "id": "pathology-10-6",
+   "question": "A 6-month-old infant presents with hepatosplenomegaly, failure to thrive, and hypotonia. The infant has a cherry-red spot on the macula and exhibits poor startle reflexes on physical examination. Further evaluation reveals foam cells in the bone marrow. What is the diagnosis and associated enzyme deficiency?",
+   "options": {
+    "A": "Diagnosis: Niemann-Pick disease type A, Enzyme Deficiency: Acid sphingomyelinase",
+    "B": "Diagnosis: Tay-Sachs disease, Enzyme Deficiency: Hexosaminidase A",
+    "C": "Diagnosis: Gaucher disease, Enzyme Deficiency: Glucocerebrosidase",
+    "D": "Diagnosis: Metachromatic leukodystrophy, Enzyme Deficiency: Arylsulfatase A"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Cause – Niemann–Pick disease is due to sphingomyelinase deficiency, leading to sphingomyelin accumulation. Type A is a severe infantile form with extensive neurologic involvement, marked visceral accumulations of sphingomyelin, progressive wasting and early death within the first 3 years of life. In contrast, patients with type B disease have organomegaly but generally no central nervous system involvement."
+    },
+    {
+     "type": "paragraph",
+     "text": "Patients usually survive into adulthood. Affected cells become enlarged, due to the distention of lysosomes with sphingomyelin and cholesterol, imparting foaminess to the cytoplasm. Image: Niemann-Pick disease in the liver. The hepatocytes and Kupffer cells have a foamy, vacuolated appearance due to the deposition of lipids. Electron microscopy confirms that the vacuoles are engorged secondary lysosomes called zebra bodies. Image: Zebra bodies"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L10_Q006_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L10_Q006_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pathology-10-7",
+   "question": "Sarah is a 3-year-old girl who is brought to her pediatrician by her parents due to concerns about her development. Her parents report that Sarah has been experiencing a loss of previously acquired skills, such as hand skills and language, stereotypic hand movements and seizure episodes. What is the mode of inheritance?",
+   "options": {
+    "A": "X-linked dominant",
+    "B": "X-linked recessive",
+    "C": "Autosomal recessive",
+    "D": "Autosomal dominant"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical manifestations in the patients point to Rett Syndrome. It has X-linked dominant inheritance. X-linked dominant disorders affect both males and females. All fathers that are affected by an X-linked dominant disorder will have affected daughters but not affected sons. However, if the mother is also affected then sons will have a chance of being affected, depending on whether a dominant or recessive X chromosome is passed on."
+    },
+    {
+     "type": "paragraph",
+     "text": "When the son is affected, the mother will always be affected. Examples of X-linked dominant disorders ( Mnemonic: RAVI-C): Rett Syndrome Alport Syndrome (X-linked) Vitamin D-dependent rickets Incontinentia Pigmenti Charcot-Marie-Tooth disease"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L10_Q007_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-10-8",
+   "question": "A 25-year-old male presents with severe hypotonia at birth, joint hypermobility, scoliosis, fragile skin, and ocular fragility. Genetic testing reveals mutations in the gene encoding Lysyl Hydroxylase. Which subtype of Ehlers-Danlos Syndrome (EDS) is most likely present in this patient and its mode of inheritance?",
+   "options": {
+    "A": "Classical EDS - Autosomal Dominant",
+    "B": "Hypermobility EDS - Autosomal Dominant",
+    "C": "Kyphoscoliotic EDS - Autosomal Dominant",
+    "D": "Kyphoscoliotic EDS - Autosomal Recessive"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "A young male with severe hypotonia at birth, joint hypermobility, scoliosis, fragile skin, ocular fragility and mutations in the gene encoding Lysyl Hydroxylase points towards Kyphoscoliotic EDS (Type VI), which is Autosomal Recessive."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L10_Q008_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-10-9",
+   "question": "What type of inheritance pattern is associated with hypertrichosis pinnae?",
+   "options": {
+    "A": "Autosomal Dominant",
+    "B": "Autosomal Recessive",
+    "C": "X-Linked Dominant",
+    "D": "Holandric"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Hypertrichosis, characterized by excessive hair growth on ears, is a rare genetic condition that can be associated with genes located on the Y chromosome. Since the Y chromosome is only present in males and is passed from fathers to sons, holandric traits are exclusively observed in males and are inherited from fathers."
+    }
+   ]
+  },
+  {
+   "id": "pathology-10-10",
+   "question": "A 5-year-old boy is brought to the emergency department due to excessive bleeding after a minor injury. His mother reports that his grandfather also had similar bleeding episodes. Laboratory tests reveal a deficiency in factor IX. What is the mode of inheritance for this condition?",
+   "options": {
+    "A": "Autosomal dominant",
+    "B": "Autosomal recessive",
+    "C": "X-linked recessive",
+    "D": "X-linked dominant"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Factor IX deficiency, associated with Hemophilia B, is an X-linked recessive disorder that predominantly affects males, as evidenced by the family history. X-Linked Recessive: The gene for Hemophilia B is located on the X chromosome. Males (XY) express the disorder if they inherit the affected X chromosome since they lack a second X for compensation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Females (XX) can be carriers if they inherit one affected X chromosome, often showing no symptoms due to the normal allele on the other X. Affected males cannot pass the disorder to sons but can pass the affected X to daughters, making them carriers. Hemophilia A and B is X linked recessive Hemophilia C is autosomal recessive X-linked Recessive (WISE ABCDEFGH) Wise- Wiskott Aldrich Syndrome AB- Hemophilia A, B B- Bruton's Hypogammaglobulinemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "C- Chronic Granulomatous Disease, Red Green Color Blindness D- DMD, BMD E- Lesch Nyhan Syndrome F- Fabry Disease, Fragile X Syndrome G- G6PD Deficiency H- Hunter Disease"
+    }
+   ]
+  },
+  {
+   "id": "pathology-10-11",
+   "question": "If the mother and father have the β-thalassemia trait, what percentage of their children are expected to have β-thalassemia major?",
+   "options": {
+    "A": "25%",
+    "B": "50%",
+    "C": "75%",
+    "D": "100%"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "There is a 25% chance that their child will inherit the genotype β⁰/β⁰, corresponding to β-thalassemia major. Mother's Genotype: β/β⁰ (carrier for β-thalassemia) Father's Genotype: β/β⁰ (carrier for β-thalassemia) Punnett Square Analysis: β β⁰ β β/β β/β⁰ β⁰ β/β⁰ β⁰/β⁰ Possible Outcomes: β/β (Normal): 25% β/β⁰ (Carrier): 50% β⁰/β⁰ (β-thalassemia major): 25%"
+    }
+   ]
+  },
+  {
+   "id": "pathology-10-12",
+   "question": "If a mother has sickle cell trait and the father has sickle cell disease, what percentage of their children are expected to have sickle cell disease?",
+   "options": {
+    "A": "25%",
+    "B": "50%",
+    "C": "75%",
+    "D": "100%"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "There is a 50% chance that their child will inherit the genotype SS, which corresponds to sickle cell disease. Mother's Genotype: AS (carrier) Father's Genotype: SS (sickle cell disease) Punnett Square Analysis: S S A AS AS S SS SS Possible Outcomes: AS (Sickle cell trait): 50% SS (Sickle cell disease): 50%"
+    }
+   ]
+  },
+  {
+   "id": "pathology-11-1",
+   "question": "A young male patient presented with recurrent episodes of acute neurologic dysfunction, cognitive changes, muscle weakness, and lactic acidosis. There is a family history of similar conditions depicted in the pedigree chart below. What is the most likely diagnosis?",
+   "options": {
+    "A": "MELAS",
+    "B": "MERRF",
+    "C": "Metachromatic leukodystrophy",
+    "D": "Adrenoleukodystrophy"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "MELAS -Mitochondrial encephalomyopathy, lactic acidosis, and stroke-like episodes: MELAS follows a unique non-Mendelian pattern of inheritance called maternal inheritance, as mitochondrial DNA is derived entirely from the ovum."
+    },
+    {
+     "type": "paragraph",
+     "text": "Affected mothers and daughters transmit the disease to both male and female children, whereas the affected sons don't transmit the affected DNA. (Mother to all, Father to none.) The most common mitochondrial disease is MELAS."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L11_Q001_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-11-2",
+   "question": "What is the most likely diagnosis of a 5-year-old child with hyperphagia, delayed milestones, and growth retardation?",
+   "options": {
+    "A": "Angelman syndrome",
+    "B": "Prader-Willi syndrome",
+    "C": "Fragile X syndrome",
+    "D": "Patau syndrome"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Prader-Willi syndrome (PWS) affects the SNORP gene on chromosome 15q. PWS is due to paternal deletion and maternal imprinting of the given gene. Subset of PWS can also occur due to maternal disomy Clinical features: Mental retardation (Delayed milestones) Short stature Hypotonia Obesity (Due to increased levels of ghrelin) Ghrelin is an appetite-stimulating hormone that leads to overeating and finally obesity."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Angelman syndrome (Option A):** has a similar genetic basis to PWS but is caused by absent maternal expression of 15q11-q13, while the paternal allele is imprinted."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L11_Q002_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L11_Q002_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pathology-11-3",
+   "question": "Which of the following does not show the same pattern of inheritance as Leber hereditary optic neuropathy?",
+   "options": {
+    "A": "MERRF",
+    "B": "MELAS",
+    "C": "Fragile-X syndrome",
+    "D": "NARP"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Fragile-X syndrome shows X-linked Recessive > X-linked dominant inheritance. Leber hereditary optic neuropathy (LHON) is characterized by permanent loss of vision in young men due to progressive, bilateral optic neuropathy. LHON demonstrates mitochondrial inheritance."
+    },
+    {
+     "type": "paragraph",
+     "text": "Some other examples of mitochondrial inheritance disorders are: Chronic progressive external ophthalmoplegia (CPEO)/ Kearns-Sayre syndrome (KSS) Leigh syndrome Mitochondrial encephalomyopathy with lactic acidosis and stroke-like episodes (MELAS) (Option B ruled out) Myoclonic epilepsy with ragged red fibers (MERRF) (Option A ruled out) Neuropathy, ataxia, and retinitis pigmentosa (NARP) (Option D ruled out) Primary coenzyme Q10 (CoQ10) deficiency"
+    }
+   ]
+  },
+  {
+   "id": "pathology-11-4",
+   "question": "Match the following Disease Trinucleotide repeats a. Fragile X syndrome 1. CAG b. Friedreich ataxia 2. CTG c. Myotonic dystrophy 3. GAA d. Huntington disease 4. CGG",
+   "options": {
+    "A": "a-2, b-1, c-4, d-3",
+    "B": "a-4, b-3, c-2, d-1",
+    "C": "a-3, b-2, c-1, d-4",
+    "D": "a-4, b-1, c-3, d-2"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The below-mentioned disorders are trinucleotide repeat disorders where there is excessive repetition of trinucleotides. In Introns/ Non coding region: Fragile X syndrome - CGG Friedreich ataxia - GAA Myotonic dystrophy -CTG In Exons/ Coding region: Huntington's disease - CAG (Mnemonic- Hunter in a Cage)"
+    }
+   ]
+  },
+  {
+   "id": "pathology-11-5",
+   "question": "A 25-year-old male presents with brief, abrupt, involuntary movements of his arms and face for the last 2 months. A history of Huntington's disease in his father, who was diagnosed at 40 years of age and passed away at the age of 50, is found. What is the mechanism behind this patient’s earlier presentation?",
+   "options": {
+    "A": "Anticipation",
+    "B": "Mosaicism",
+    "C": "Imprinting",
+    "D": "Non-penetrance"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "HD is a CAG trinucleotide repeat disorder, seen in the axon region of a gene present on chromosome 4. HD is characterised by the Anticipation/Sherman Paradox. The number of repeats increases with every generation, leading to early and more severe presentation in the next generation. HD features psychiatric disturbances and choreoathetosis early on, with cognitive disturbance and death later."
+    },
+    {
+     "type": "paragraph",
+     "text": "Examples of diseases showing anticipation include: Autosomal Dominant Autosomal Recessive Multiple spinocerebellar ataxias Huntington’s disease – CAG repeats Myotonic dystrophy – CTG Congenital dyskeratosis – TTAGGG (telomere repeating sequence) Friedreich’s ataxia – GAA X-linked Fragile X Syndrome – CGG Others Crohn’s disease Behcet’s disease Mosaicism (Option B) refers to the presence of multiple genetically different cell lines in the same individual."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Imprinting (Option C):** refers to a gene silencing."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Non-penetrance (Option D):** It means that the Gene is received from parents but no symptoms are seen in patient."
+    }
+   ]
+  },
+  {
+   "id": "pathology-11-6",
+   "question": "A 4-year-old girl is brought to the pediatrician’s office for evaluation of developmental delay and seizures. She is very jovial, has microcephaly and is diagnosed with happy puppet syndrome. What is the genetic basis for this child’s diagnosis?",
+   "options": {
+    "A": "Imprinting",
+    "B": "Robertsonian translocation",
+    "C": "Trinucleotide repeats",
+    "D": "Monosomy"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The given clinical scenario likely describes Angelman syndrome. Classical symptom of Angelman syndrome: Happy puppet syndrome (inappropriate laughter). 2 main disorders of genomic imprinting: Angelman syndrome (AS): Paternal 15q11-q13 region is imprinted, while the maternal region is deleted Prader-Willi syndrome (PWS): Paternal deletion and maternal imprinting on chromosome 15."
+    }
+   ]
+  },
+  {
+   "id": "pathology-11-7",
+   "question": "Which of the following explains a single mutant gene leading to different end effects in sickle cell anemia?",
+   "options": {
+    "A": "Variable expressivity",
+    "B": "Variable penetrance",
+    "C": "Pleiotropy",
+    "D": "Genetic heterogeneity"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "A single mutant gene leading to many end effects is called pleiotropism, whereas mutations at several genetic loci producing a similar phenotypic effect are called genetic heterogeneity. Sickle cell anemia is an example of pleiotropy with a single gene mutation causing multiple physical effects: Mutation at beta-7 position: Glutamic acid is replaced by valine."
+    },
+    {
+     "type": "paragraph",
+     "text": "The mutation produces hemoglobin S (HbS), which makes red blood cells prone to hemolysis. Additionally, it can lead to complications like splenic fibrosis, organ infarcts, and bone pains."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L11_Q007_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-11-8",
+   "question": "A group of researchers studying genetic material noticed the presence of both wild-type and mutated mitochondrial genomes in different mitochondria of the same cells. What does this finding indicate?",
+   "options": {
+    "A": "Copy number variation",
+    "B": "Heteroplasmy",
+    "C": "Trinucleotide expansion",
+    "D": "Imprinting"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The presence of both wild-type and mutated mitochondrial genomes in different mitochondria of the same cell is called heteroplasmy. A minimum number of mutant mtDNAs must be present in a cell to give rise to a disease. This is called the “threshold effect.”"
+    }
+   ]
+  },
+  {
+   "id": "pathology-11-9",
+   "question": "A 50-year-old man presents with intentional tremors, cerebellar ataxia, and intellectual disability. His father had similar symptoms at 60 and died due to aortic dissection. The patient's son started showing tremors and has an intellectual disability and aggressive behavior. Additionally males of the family have large ears and mandibles. What condition is most likely affecting him?",
+   "options": {
+    "A": "Fragile X syndrome",
+    "B": "Huntington's disease",
+    "C": "Parkinson's disease",
+    "D": "Alzheimer's disease"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Fragile X Syndrome (FXS) results from CGG trinucleotide repeat disorder. CGG repeats <55: Normal individual CGG repeats are between 55-200: Fragile X–-associated tremor/ataxia syndrome CGG repeats >200: Fragile X syndrome Fragile X syndrome: A very common cause of intellectual disability which is seen in all members of the family. IQ = 20-60 Mostly males are affected because it is an X-linked recessive (XLR) disorder. Females mostly are carriers."
+    },
+    {
+     "type": "paragraph",
+     "text": "Physical phenotype: Includes a long face with a large mandible, large ears, and macroorchidism (enlarged testicles). Investigation of choice: Polymerase chain reaction (PCR) If PCR fails then we go for Southern blotting."
+    }
+   ]
+  },
+  {
+   "id": "pathology-11-10",
+   "question": "A one-month-old infant presents with developmental delays and physical features such as a prominent occiput, low-set ears, clenched hands with overlapping fingers, and a small mouth with a protruding tongue. Heart murmurs and rocker-bottom foot deformity are also noted. Which syndrome is the most likely cause of these features?",
+   "options": {
+    "A": "Noonan syndrome",
+    "B": "Down syndrome",
+    "C": "Patau syndrome",
+    "D": "Edward syndrome"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Edward syndrome is caused by the presence of an extra copy of chromosome 18- Trisomy 18. On USG: Strawberry skull is seen: Prominent occiput and small chin. Features: Low birth weight Clenched fists with overlapping fingers Rocker-bottom feet (seen in trisomy 18 and trisomy 13) Microcephaly Micrognathia Macroglosia (Big protruding tongue) Cardiac and renal malformations Mental retardation"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L11_Q010_explanation_1"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,617 @@
+{
+ "batch": "pathology-007",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pathology-007",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pathology-8-6",
+   "question": "Which of the following mediators is responsible for cancer cachexia?",
+   "options": {
+    "A": "TNF-alpha",
+    "B": "IFN-gamma",
+    "C": "IL-8",
+    "D": "TGF-beta"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "TNF-alpha is responsible for cancer cachexia. Cancer cachexia means weight loss in cancer patients due to the elevation of TNF-alpha mediators. TNF-alpha also learned as no food appetite, because whenever TNF-alpha is raised in the body (can be due to fever or cancer), appetite of patient decreases and they stop feeling hungry."
+    },
+    {
+     "type": "paragraph",
+     "text": "**IFN-gamma (Option B):** is responsible for granuloma formation."
+    },
+    {
+     "type": "paragraph",
+     "text": "**IL-8 (Option C):** is for neutrophil recruitment."
+    },
+    {
+     "type": "paragraph",
+     "text": "**TGF-beta (Option D):** is the most fibrogenic cytokine."
+    }
+   ]
+  },
+  {
+   "id": "pathology-8-7",
+   "question": "A 20-year-old male is prescribed naproxen for a musculoskeletal injury. What is naproxen’s mechanism of action?",
+   "options": {
+    "A": "Lipoxygenase inhibition",
+    "B": "COX-2 inhibition",
+    "C": "Cycloxygenase (COX) 1 and COX-2 inhibition",
+    "D": "Prostaglandin (PG) F2 inhibition"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Naproxen is a non-steroidal anti-inflammatory drug (NSAID). The predominant action of NSAIDs is via COX-1 and COX-2 inhibition, resulting in analgesia and anti-inflammatory effects which is required in this case of musculoskeletal injury. One major adverse effect of NSAIDs is gastric irritation, including ulcers and bleeding. This occurs due to the loss of gastroprotective PGs i.e., PGE2, formed by COX-1."
+    },
+    {
+     "type": "paragraph",
+     "text": "Thus, in patients with previous history of gastric ulcers, selective COX-2 inhibitors may be used - celecoxib, etoricoxib, etc."
+    }
+   ]
+  },
+  {
+   "id": "pathology-8-8",
+   "question": "Select the correct statements about the complement system. 1) The complement system primarily functions by adaptive immunity. 2) Complement proteins are solely produced in the liver. 3) All complement proteins are synthesized in inactive forms and are activated by proteolysis. 4) Complement activation occurs through three pathways. 5) Complements have two equal fragments.",
+   "options": {
+    "A": "1,2,3",
+    "B": "2,4",
+    "C": "2,3,5",
+    "D": "3,4"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The correct statements regarding the complement system are statements 3 and 4. Complement System: The complement proteins function in both innate and adaptive immunity for defense against microbial pathogens. (Statement 1 ruled out) Site of synthesis: (Statement 2 ruled out) Liver (major site). Monocytes. Tissue macrophages. Epithelial cells of GIT and genitourinary tract."
+    },
+    {
+     "type": "paragraph",
+     "text": "Activation of complement proteins occurs by three pathways: (Statement 4) Classical pathway. Alternative pathway. Lectin pathway."
+    },
+    {
+     "type": "paragraph",
+     "text": "Activation of complement pathway: All complement proteins are synthesized in inactive forms and are activated by proteolysis. (Statement 3) E.g.: Inactive C3 splitting into active C3a and C3b Complements have two unequal fragments (small and large fragments). (Statement 5 ruled out) The larger fragments are designated as ‘b’ (e.g., C3b), and the smaller fragments are designated as ‘a' (e.g., C3a) ( exception: C2a —larger fragment)."
+    }
+   ]
+  },
+  {
+   "id": "pathology-8-9",
+   "question": "A 45-year-old male presents to the clinic with a high fever, chills, and malaise. He reports feeling unwell for the past few days and has noticed redness and swelling around a cut on his forearm. On examination, the healthcare provider observes a localized area of erythema and induration at the site of the wound. Which of the following events is a crucial step in the activation of the complement system in response to the patient's initial condition?",
+   "options": {
+    "A": "Binding of C1q to antigen-antibody complexes",
+    "B": "Formation of membrane attack complex",
+    "C": "Cleavage of C3 into C3a and C3b",
+    "D": "Cleavage of C5 by C5 convertase"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "A 5-year-old male presents with fever, chills, and a swollen, red wound on his forearm; in response to this localized infection, a key step in complement system activation is the cleavage of C3 into C3a and C3b. Complement system It is a plasma-derived mediator of inflammation."
+    },
+    {
+     "type": "paragraph",
+     "text": "The complement system can be activated by three pathways: Classical pathway Alternate pathway Lectin pathway The cleavage of C3 into its active fragments, C3a and C3b, is the critical event in the complement system and serves as a central step in all three complement activation pathways. The image below shows an overview of the complement pathways."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L08_Q009_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-8-10",
+   "question": "Match the following with their correct answers. 1 C3a i Decay accelerating factor 2 C3b ii EBV receptor 3 CR2 iii Anaphylatoxin 4 CD55 iv Opsonin",
+   "options": {
+    "A": "1-iii, 2-iv, 3-ii, 4-i",
+    "B": "1-iii, 2-iv, 3-i, 4-ii",
+    "C": "1-iv, 2-iii, 3-i, 4-ii",
+    "D": "1-iv, 2-iii, 3-ii, 4-i"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Anaphylatoxins: C3a, C4a, and C5a. Opsonins: C3b, C4b, and C5b. Opsonins when coats the bacteria, makes it more tasty for phagocytosis. Overall most important opsonin: IgG Most important complement opsonin: C3b CR2/CD21/C3d: Complement receptor 2 for EBV When EBV enters the body, it attacks the B-cells. To enter into B-cells, it uses CD21/CR2. CD55: Decay-accelerating factor (DAF)."
+    },
+    {
+     "type": "paragraph",
+     "text": "CD59: Membrane inhibitor of reactive lysis (MIRL) Missing CD55 and CD59 leads to Paroxysmal nocturnal hemoglobinuria (PNH)."
+    }
+   ]
+  },
+  {
+   "id": "pathology-8-11",
+   "question": "Which of the following is false regarding the alternate complement pathway?",
+   "options": {
+    "A": "Teichoic acid is an initiator of the alternate complement pathway.",
+    "B": "The first complement protein to be activated is C1.",
+    "C": "The C3 convertase of the alternate pathway is C3bBb.",
+    "D": "Properdin deficiency involves the alternate pathway."
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The first complement protein to be activated is C1 in the classical complement pathway and not in the alternative complement pathway. The complements involved in the alternate pathway are: Free C3 in the serum (alternate complement pathway starts from C3). Factor B. Factor D. Properdin. Activators (Initiators) of the alternate pathway: Pathogens from microbes Non-microbial initiators Gram (-ve) bacteria: Endotoxins or lipopolysaccharides."
+    },
+    {
+     "type": "paragraph",
+     "text": "Gram (+ve) bacteria: Teichoic acid Fungal cells: Yeast cells. Parasites: Trypanosoma. Virus-infected cells. Human antibodies in complexes: IgA, IgD. Tumor cells. Cobra venom factor. Heterologous RBCs from mice, rabbits, and chickens. Anion polymer like dextran sulfate. Pure carbohydrates like agar and inulin. The image below shows the three complement pathways."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L08_Q011_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-8-12",
+   "question": "A 25-year-old female presents to the emergency department with sudden-onset swelling of her face, lips, and tongue. She reports a history of similar episodes occurring intermittently since childhood, often triggered by stress or trauma. On examination, she appears anxious and has marked swelling of her lips and tongue, with difficulty speaking and swallowing. There are no signs of urticaria or pruritus. Her vital signs are stable. Which of the following deficiencies is seen in this condition?",
+   "options": {
+    "A": "Deficiency of properdin",
+    "B": "Deficiency of C1, C2, C3, C4",
+    "C": "Deficiency of C1 esterase inhibitor",
+    "D": "Deficiency of C5-C9"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "A 25-year-old female presents with sudden facial, lip, and tongue swelling without urticaria or pruritus, and a history of similar episodes since childhood; this condition is associated with a deficiency of C1 esterase inhibitor. The entire complement pathway, especially the classical pathway, is controlled by C1 inhibitor, which prevents the initiation of the complement pathway."
+    },
+    {
+     "type": "paragraph",
+     "text": "If C1 esterase inhibitor is missing from the body, it will lead to Hereditary angioneurotic edema, which is a rare autosomal dominant disorder characterised by recurrent episodes of non-pitting, non-pruritic swelling of the skin and mucous membranes. Deficiency of C1 esterase inhibitor leads to elevated plasma levels of bradykinin, leading to angioedema, and excessive activation of C1 results in a decline in plasma C4 and C2 levels."
+    },
+    {
+     "type": "paragraph",
+     "text": "Swelling in HAE commonly affects areas such as the face, lips, tongue, throat, and extremities, and can lead to airway compromise if it involves the upper respiratory tract (laryngeal edema)."
+    }
+   ]
+  },
+  {
+   "id": "pathology-8-13",
+   "question": "Which of the following deficiencies is seen in paroxysmal nocturnal hemoglobinuria?",
+   "options": {
+    "A": "C5-C9",
+    "B": "CD59",
+    "C": "C1",
+    "D": "Factor H"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "This case is suggestive of paroxysmal nocturnal hemoglobinuria (PNH), which is due to the deficiency of CD55 and CD59. PNH is a rare acquired hematologic disorder characterized by a mutation of the PIG-A gene. This mutation results in a deficiency of glycosylphosphatidylinositol (GPI)- anchored proteins on the surface of blood cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "This deficiency leads to the absence of important complement regulatory proteins, such as CD55 aka DAF (decay-accelerating factor) and CD59 aka RIML (reactive inhibitor of membrane lysis), which normally protect red blood cells from complement-mediated destruction. Red coloured uring is passed during night Flow cytometry (the gold standard for diagnosis): Shows the absence of CD55 and CD59."
+    },
+    {
+     "type": "paragraph",
+     "text": "**C5-C9 (Option A):** is a composition of Membrane Attack Complex (MAC), and its deficiency makes the patient prone to Neisseria meningitidis infections."
+    },
+    {
+     "type": "paragraph",
+     "text": "**C1 (Option C):** is associated with autoimmune disorders like SLE. Factor H (Option D) deficiency causes atypical hemolytic uremic syndrome (Atypical HUS)."
+    }
+   ]
+  },
+  {
+   "id": "pathology-8-14",
+   "question": "Pain during inflammation is mediated by?",
+   "options": {
+    "A": "Serotonin",
+    "B": "Leukotrienes",
+    "C": "Interleukin-1",
+    "D": "Bradykinin"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Bradykinin mediates pain during an inflammatory response Two main mediators of pain are Prostaglandin E2 and Bradykinin. (Serotonin) (Option A ruled out) It is responsible for vasodilation, increased vascular permeability, and smooth muscle contraction. In the pathogenesis of asthma, it is responsible for bronchoconstriction."
+    },
+    {
+     "type": "paragraph",
+     "text": "It works similarly to histamine. (Leukotrienes) (Option B ruled out) Leukotrienes are lipid mediators synthesized from arachidonic acid metabolism, primarily by the 5-lipoxygenase pathway. Leukotriene B4 is a chemoattractant. Leukotriene C4, D4 and E4 are slow-reacting substances of anaphylaxis playing role in asthma. (Interleukin-1) (Option C ruled out) Interleukin-1 (IL-1) is responsible for fever."
+    }
+   ]
+  },
+  {
+   "id": "pathology-9-1",
+   "question": "All of the following are correct about NETs except?",
+   "options": {
+    "A": "May result in SLE",
+    "B": "Phagocytosis",
+    "C": "Sepsis",
+    "D": "Arginine needed"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "NETs (Neutrophil Extracellular Traps) do not directly engulf pathogens through phagocytosis but instead trap and immobilise them, allowing other immune cells to clear the infection. They are extracellular fibrillar networks that concentrate antimicrobial substances at sites of infection and trap microbes, helping to prevent their spread."
+    },
+    {
+     "type": "paragraph",
+     "text": "They don’t directly phagocytose pathogens but trap and immobilise them, allowing immune cells like macrophages to eliminate them. (Option B) They are produced by neutrophils in response to pathogens and inflammatory mediators."
+    },
+    {
+     "type": "paragraph",
+     "text": "NET formation begins with ROS-induced activation of arginine deaminase, leading to chromatin decondensation. (Option D ruled out) They are composed of nuclear chromatin and granule proteins, including antimicrobial peptides and enzymes."
+    },
+    {
+     "type": "paragraph",
+     "text": "**They are implicated in conditions like sepsis (Option C ruled out):** and autoimmune diseases like lupus (Option A ruled out), where they may contribute to autoimmunity. A neutrophil granulocyte (yellow) has ejected a NET (green) to capture bacteria (purple). A red blood cell (orange) is also trapped in the NET."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L09_Q001_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L09_Q001_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pathology-9-2",
+   "question": "Both intrinsic and extrinsic pathways are seen in:",
+   "options": {
+    "A": "Apoptosis",
+    "B": "Necrosis",
+    "C": "Necroptosis",
+    "D": "Pyroptosis"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "This option is correct. Apoptosis is a programmed cell death process characterized by controlled and regulated cell dismantling. It can be initiated through both intrinsic and extrinsic pathways. The intrinsic pathway is triggered by internal signals, such as DNA damage or cellular stress, leading to the release of cytochrome c from the mitochondria."
+    },
+    {
+     "type": "paragraph",
+     "text": "The extrinsic pathway is initiated by external signals, such as binding of death ligands (e.g., Fas ligand) to death receptors on the cell surface."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B: Necrosis: This option is incorrect. Necrosis is a form of cell death that occurs due to uncontrolled injury or damage. It is characterized by cell swelling, membrane rupture, and the release of cellular contents into the surrounding tissue. Necrosis does not involve the intrinsic or extrinsic pathways seen in apoptosis, as it is not a programmed process."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C: Necroptosis: This option is incorrect. Necroptosis is a programmed form of necrosis, distinct from apoptosis, that occurs under specific conditions. It is triggered by certain death receptors, such as tumor necrosis factor receptor 1 (TNFR1) and involves a cascade of intracellular events leading to cell death. However, necroptosis does not involve the intrinsic or extrinsic pathways associated with apoptosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D: Pyroptosis: This option is incorrect. Pyroptosis is a highly inflammatory form of programmed cell death that occurs in response to infection or cellular stress. It is characterized by the formation of large pores in the plasma membrane, leading to cell lysis and the release of pro-inflammatory cytokines. Pyroptosis is distinct from apoptosis and does not involve the intrinsic or extrinsic pathways seen in apoptosis."
+    }
+   ]
+  },
+  {
+   "id": "pathology-9-3",
+   "question": "A 12-year-old child presented with 15 days of cough. On examination, cervical lymphadenopathy was noted, and the lymph node biopsy showed the following features. What is the most probable diagnosis?",
+   "options": {
+    "A": "Tuberculosis",
+    "B": "Leprosy",
+    "C": "Sarcoidosis",
+    "D": "Syphilis"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical presentation, along with the presence of caseating granuloma (Characterized by central necrosis (caseation) surrounded by a ring of macrophages (epithelioid cells) and lymphocytes) in the biopsy, strongly suggests tuberculosis as the most probable diagnosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Type of Granuloma Examples Caseating Granuloma Tuberculosis, Histoplasmosis, Coccidioidomycosis, Syphilis Non-caseating Granuloma Sarcoidosis, Crohn’s disease, Leprosy Foreign Body Granuloma Silicosis, Asbestos-related diseases, Foreign body reactions Immune Granuloma Wegener’s granulomatosis, Giant cell arteritis Durck’s Granuloma Cerebral malaria Stellate Granuloma Cat scratch disease"
+    }
+   ]
+  },
+  {
+   "id": "pathology-9-4",
+   "question": "Arrange the following cellular events of inflammation in the correct sequence: Rolling Cytokine-mediated integrin activation Adhesion Migration",
+   "options": {
+    "A": "1, 2, 3, 4",
+    "B": "2, 1, 4, 3",
+    "C": "4, 1, 3, 2",
+    "D": "3, 4, 1, 2"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The correct sequence of cellular events of inflammation is as follows: Rolling: It involves the interaction between selectins on endothelial cells and their ligands on leukocytes. This interaction causes leukocytes to roll along the endothelial surface. Cytokine-mediated integrin activation: Inflammatory cytokines, such as TNF-alpha and IL-1, are released at the site of inflammation."
+    },
+    {
+     "type": "paragraph",
+     "text": "These cytokines induce the activation of integrins in leukocytes. Integrins are cell adhesion molecules that bind to their ligands on endothelial cells, promoting stronger adhesion. Adhesion: Activated integrins on leukocytes bind to their ligands on endothelial cells, such as ICAM-1 and VCAM-1. This adhesion stabilizes the interaction between leukocytes and endothelial cells, allowing leukocytes to adhere firmly to the endothelial surface."
+    },
+    {
+     "type": "paragraph",
+     "text": "Migration: Leukocytes undergo diapedesis, or transmigration, after firmly adhering to the endothelial cells. They migrate through the endothelial junctions and move towards tissue injury or infection sites, guided by chemotactic signals."
+    },
+    {
+     "type": "paragraph",
+     "text": "Leukocyte migration involves multiple steps: neutrophils first roll, then activate and adhere to the endothelium, transmigrate across it, pierce the basement membrane, and migrate toward chemoattractants from the injury site."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L09_Q004_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-9-5",
+   "question": "During wound healing, the cells that appear first, due to chemotaxis, at the site of the wound are:",
+   "options": {
+    "A": "Neutrophils",
+    "B": "Monocytes",
+    "C": "Macrophages",
+    "D": "Lymphocytes"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Neutrophils are the first cells to migrate to the site of injury due to chemotaxis during the inflammatory response. They are crucial in the initial stages of wound healing, where they help to clear debris, bacteria, and other pathogens. Events in wound healing Day 0 Platelets and Fibrin form blood clots. Day 1 Blood clot remains and recruitment of neutrophils (acute inflammation)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Day 2 Blood clots remain; neutrophils accumulate, followed by the formation of a thin epithelial layer. Day 3 Chronic inflammation sets in, and macrophages replace neutrophils. Granulation tissue begins (blood vessel formation starts) Day 5 Maximum granulation tissue (Maximum neovascularisation) Collagen bridging starts Day 21(3rd Week) Maximum collagen deposition (Type I collagen.)"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L09_Q005_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-9-6",
+   "question": "Which of the following molecules helps in the adhesion of the leukocyte to the endothelium during inflammation?",
+   "options": {
+    "A": "P-selectin",
+    "B": "Platelet-activating factor",
+    "C": "VCAM-1",
+    "D": "Complements"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "VCAM-1 (Vascular Cell Adhesion Molecule-1) is involved in the adhesion of leukocytes to the endothelium during inflammation. It binds to integrins on the surface of leukocytes, facilitating their migration through the endothelium to the site of injury or infection. Leukocyte Adhesion to Endothelium: In normal blood flow, leukocytes are pushed to the edges of the vessel."
+    },
+    {
+     "type": "paragraph",
+     "text": "In inflammation, stasis causes leukocytes to slow down and interact with endothelial cells. This interaction involves selectins and integrins, which mediate the rolling and firm adhesion of leukocytes. Selectins: These are responsible for the initial rolling interactions."
+    },
+    {
+     "type": "paragraph",
+     "text": "There are three types: L-selectin on leukocytes E-selectin on endothelial cells P-selectin (Option A) on both platelets and endothelial cells The ligands for selectins are sialylated oligosaccharides on mucin-like glycoproteins. Cytokines like TNF and IL-1 upregulate the expression of selectins, promoting leukocyte rolling along the vessel wall."
+    },
+    {
+     "type": "paragraph",
+     "text": "Integrins: After rolling, leukocytes bind more firmly to the endothelium via integrins, such as VLA-4 and LFA-1 (CD11a & CD18), which interact with endothelial ligands like VCAM-1 and ICAM-1. This firm adhesion halts the rolling process and allows leukocytes to flatten and spread on the endothelial surface."
+    },
+    {
+     "type": "paragraph",
+     "text": "Migration: Once firmly adhered, leukocytes migrate through the endothelial layer (transmigration), facilitated by adhesion molecules like PECAM-1 (CD31). After exiting the vessel, they follow the chemotactic gradient toward the site of inflammation."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Platelet-activating factor (PAF) (Option B):** is a potent mediator of inflammation, influencing various processes like platelet aggregation, vasodilation, and immune cell activation, but it does not directly contribute to leukocyte adhesion to the endothelium."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Complement (Option D):** proteins are part of the immune system and are involved in opsonisation, lysis of pathogens, and inflammation. However, they do not directly mediate the adhesion of leukocytes to the endothelium."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L09_Q006_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-9-7",
+   "question": "Cyclooxygenase plays a role in which of the following pathways?",
+   "options": {
+    "A": "Kreb’s cycle",
+    "B": "Prostaglandin",
+    "C": "Leukotriene",
+    "D": "Vitamin K"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Cyclooxygenase (COX) is an enzyme that plays a key role in the prostaglandin synthesis pathway. It converts arachidonic acid into prostaglandins, which are involved in inflammation, pain, and fever. Arachidonic Acid Metabolites: Arachidonic acid (AA) is a 20-carbon polyunsaturated fatty acid (5,8,11,14-eicosatetraenoic acid). It is stored in membrane phospholipids and released through the action of phospholipase A2."
+    },
+    {
+     "type": "paragraph",
+     "text": "AA is then converted into lipid mediators, known as eicosanoids, through the action of cyclooxygenases and lipoxygenases. Prostaglandins (PGs): Produced by Mast cells, macrophages, endothelial cells, and other cell types. Involved in Vascular and systemic reactions of inflammation. Enzymes: Prostaglandins are synthesized via cyclooxygenase enzymes (COX-1 and COX-2)."
+    },
+    {
+     "type": "paragraph",
+     "text": "COX-1 is constitutively expressed and performs homeostatic functions, while COX-2 is induced in response to inflammation. Key Prostaglandins: PGI2 (prostacyclin) is produced by the vascular endothelium and acts as a vasodilator and inhibitor of platelet aggregation. TXA2 is produced by platelets and causes platelet aggregation and vasoconstriction."
+    },
+    {
+     "type": "paragraph",
+     "text": "PGD2 and PGE2 cause vasodilation and increase the permeability of postcapillary venules, promoting oedema formation. PGE2 also contributes to pain and fever during inflammation. Leukotrienes: Produced by: Leukocytes and mast cells through the action of lipoxygenase enzymes, particularly 5-lipoxygenase. Involved in vascular reactions, smooth muscle contraction, and leukocyte recruitment."
+    },
+    {
+     "type": "paragraph",
+     "text": "Key Leukotrienes: LTB4 is a potent chemotactic agent that activates neutrophils and promotes adhesion, generates reactive oxygen species (ROS), and releases lysosomal enzymes. Cysteinyl leukotrienes (LTC4, LTD4, LTE4) cause vasoconstriction, bronchospasm (important in asthma), and increase vascular permeability."
+    },
+    {
+     "type": "paragraph",
+     "text": "Lipoxins: Produced by: Lipoxins are synthesized via the lipoxygenase pathway, involving both neutrophils and platelets for transcellular biosynthesis. Function: Lipoxins suppress inflammation by inhibiting neutrophil chemotaxis and adhesion to the endothelium, thus limiting the inflammatory response."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Kreb’s cycle (Option A):** is part of cellular respiration and involves the metabolism of carbohydrates, fats, and proteins to generate energy. Cyclooxygenase is not involved in this cycle."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Leukotriene (Option C):** is another class of eicosanoids derived from arachidonic acid, but it is produced via the 5-lipoxygenase pathway, not the cyclooxygenase pathway."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Vitamin K (Option D):** is involved in the coagulation cascade and is not related to the action of cyclooxygenase."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L09_Q007_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-9-8",
+   "question": "Match the following cells with their locations: Cells Locations 1. Kupffer cells a. Stomach 2. Parietal cells b. Liver 3. Dust cells c. Alveoli 4. Clara cells d. Bronchioles",
+   "options": {
+    "A": "1-a, 2-b, 3-c, 4-d",
+    "B": "1-c, 2-d, 3-a, 4-b",
+    "C": "1-d, 2-a, 3-d, 4-c",
+    "D": "1-b, 2-a, 3-c, 4-d"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Cells Locations Kupffer cells Liver Parietal cells Stomach Dust cells Alveoli Clara cells Bronchioles Kupffer cells are specialized macrophages located in the liver. They are part of the liver's immune system and help filter blood and remove pathogens and debris. Parietal cells are found in the stomach lining and secrete hydrochloric acid and intrinsic factors, which are essential for digestion and absorption of vitamin B12."
+    },
+    {
+     "type": "paragraph",
+     "text": "Dust cells: These are alveolar macrophages located in the lungs, specifically in the alveoli. They play a role in clearing out inhaled particles, bacteria, and debris from the lungs. Clara cells are located in the bronchioles (small air passages in the lungs), protect the lungs from oxidative stress and have a role in detoxification by secreting various substances, including surfactant components."
+    }
+   ]
+  },
+  {
+   "id": "pathology-9-9",
+   "question": "Match the cytokines with the effector cells IL-4 Eosinophils IL-5 b. Mast cells IL-9 c. B cells IL-13 d. Dendritic cells",
+   "options": {
+    "A": "1-c, 2-a, 3-b, 4-d",
+    "B": "1-a, 2-c, 3-d, 4-b",
+    "C": "1-b, 2-d, 3-c, 4-a",
+    "D": "1-d, 2-b, 3-a, 4-c"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Cytokine Effector Cell IL-4 B cells IL-5 Eosinophils IL-9 Mast cells IL-13 Dendritic cells Interleukins & functions: Interleukin (IL) Function IL-1 Promotes fever and inflammation and activates T cells and macrophages. IL-2 Stimulates growth and activation of T cells, critical for adaptive immunity. IL-3 Supports growth and differentiation of hematopoietic cells (blood cell precursors)."
+    },
+    {
+     "type": "paragraph",
+     "text": "IL-4 Stimulates B cell differentiation and promotes IgE production and Th2 response. IL-5 Stimulates eosinophil differentiation and activation. IL-6 Induces fever and acute-phase reactant production and supports B cell differentiation. IL-7 Essential for T and B cell development and survival. IL-8 (CXCL8) Attracts neutrophils to sites of infection (chemotaxis). IL-9 Promotes mast cell growth and regulates Th2 responses."
+    },
+    {
+     "type": "paragraph",
+     "text": "IL-10 Anti-inflammatory; inhibits Th1 responses and macrophage activity. IL-12 Stimulates Th1 cell differentiation and enhances cytotoxic activity of T and NK cells. IL-13 Modulates immune responses and activates macrophages. IL-17 Promotes inflammation and recruitment of neutrophils, which are involved in autoimmunity. IL-21 Stimulates B cell differentiation, plasma cell generation, and Th17 response."
+    },
+    {
+     "type": "paragraph",
+     "text": "IL-22 Induces antimicrobial peptide production and supports tissue repair. IL-23 Promotes Th17 differentiation and inflammatory responses."
+    }
+   ]
+  },
+  {
+   "id": "pathology-9-10",
+   "question": "Which of the following molecules helps leukocytes roll over endothelial cells in vessels?",
+   "options": {
+    "A": "Cadherins",
+    "B": "PECAM-1",
+    "C": "E-selectin",
+    "D": "CD11a"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "E-selectin is a molecule expressed on endothelial cells that facilitates the initial rolling of leukocytes along the vessel wall during the inflammatory response. Leukocyte Adhesion to Endothelium: In normal blood flow, leukocytes are pushed to the edges of the vessel. In inflammation, stasis causes leukocytes to slow down and interact with endothelial cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "This interaction involves selectins and integrins, which mediate the rolling and firm adhesion of leukocytes. Selectins: These are responsible for the initial rolling interactions. There are three types: L-selectin on leukocytes E-selectin on endothelial cells P-selectin on both platelets and endothelial cells The ligands for selectins are sialylated oligosaccharides on mucin-like glycoproteins."
+    },
+    {
+     "type": "paragraph",
+     "text": "Cytokines like TNF and IL-1 upregulate the expression of selectins, promoting leukocyte rolling along the vessel wall. Integrins: After rolling, leukocytes bind more firmly to the endothelium via integrins, such as VLA-4 and LFA-1 (CD11a (Option D) & CD18), which interact with endothelial ligands like VCAM-1 and ICAM-1. This firm adhesion halts the rolling process and allows leukocytes to flatten and spread on the endothelial surface."
+    },
+    {
+     "type": "paragraph",
+     "text": "Migration: Once firmly adhered, leukocytes migrate through the endothelial layer in a process called transmigration."
+    },
+    {
+     "type": "paragraph",
+     "text": "**It is facilitated by adhesion molecules like PECAM-1 (CD31) (Option B):** . After exiting the vessel, leukocytes follow the chemotactic gradient toward the site."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Cadherins (Option A):** are adhesion molecules involved in maintaining cell-cell interactions in tissues, especially in epithelial cells, but they are not directly involved in the rolling of leukocytes on endothelial cells during inflammation."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L09_Q010_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-9-11",
+   "question": "A patient presents with complaints of cough, night sweats, and fever. A lung biopsy demonstrates the following histological findings. What is the most likely cytokine involved?",
+   "options": {
+    "A": "Interferon-γ",
+    "B": "Complement C5a",
+    "C": "Histamine",
+    "D": "Bradykinin"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient's presentation with cough, night sweats, and fever, along with the histological finding of granulomas and multinucleated giant cells, is highly indicative of a granulomatous condition like Tuberculosis (TB), which is typically driven by the immune response, specifically by the cytokine interferon-γ (IFN-γ) T-lymphocytes release IFN-γ when exposed to M. tuberculosis antigens, which activate macrophages, enhancing their ability to kill intracellular bacteria."
+    },
+    {
+     "type": "paragraph",
+     "text": "Despite IFN-γ activation of macrophages, the bacteria are often not completely eliminated, and they can survive inside the macrophages, evading complete eradication. This results in a chronic infection, leading to continued replication of M. tuberculosis and the formation of granulomas."
+    },
+    {
+     "type": "paragraph",
+     "text": "The granuloma acts as a protective structure around the bacteria, but in some cases, it can break down, leading to active disease and further spread of the infection."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Complement C5a (Option B):** is a chemotactic factor in the complement system. It helps attract neutrophils and other immune cells to the site of infection. However, it does not directly contribute to granuloma formation or the activation of macrophages needed for multinucleated giant cell formation."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Histamine (Option C):** is involved in the acute inflammatory response, causing vasodilation and increasing vascular permeability. It does not play a direct role in the formation of granulomas or the differentiation of macrophages into giant cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Bradykinin (Option D):** is part of the acute inflammatory response, not the chronic inflammatory response seen in granulomatous diseases. It does not play a role in granuloma formation."
+    }
+   ]
+  }
+ ]
+}

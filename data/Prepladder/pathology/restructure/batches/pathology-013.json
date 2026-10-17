@@ -1,0 +1,497 @@
+{
+ "batch": "pathology-013",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pathology-013",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pathology-13-41",
+   "question": "Identify the syndrome associated with the chromosomal pattern shown in the image below:",
+   "options": {
+    "A": "Angelman syndrome",
+    "B": "Prader-Willi syndrome",
+    "C": "Rett syndrome",
+    "D": "Cri-du-chat syndrome"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The given image shows a part of paternal chromosome 15 deleted, which is seen in Prader-Willi syndrome. Prader Willi Syndrome In Prader-Willi syndrome, maternal imprinting is done, and paternal deletion happens."
+    },
+    {
+     "type": "paragraph",
+     "text": "Clinical features: Mental Retardation Short Stature Obesity/hyperphagia (because of an increase in the hormone called Ghrelin) Incorrect Options: Angelman syndrome (Option A): In Angelman syndrome, the maternal region of chromosome 15 is deleted."
+    },
+    {
+     "type": "paragraph",
+     "text": "Rett Syndrome (Option C ): Caused by mutation in the MECP2 gene Chromosomal Location: X chromosome (Xq28) Type of Abnormality: Single-gene mutation (not a chromosomal structural abnormality) Cri du Chat Syndrome (Option D): Cause: Deletion of the short arm of chromosome 5 Chromosomal Abnormality: 46,XX or 46,XY, del(5p)"
+    }
+   ]
+  },
+  {
+   "id": "pathology-13-42",
+   "question": "All of the following are features of fragile X syndrome, except:",
+   "options": {
+    "A": "Trinucleotide mutation in FMR-1 gene",
+    "B": "Mental retardation",
+    "C": "Microorchidism",
+    "D": "Large everted ears"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Fragile X syndrome is not associated with microorchidism. However, it is associated with macroorchidism. Macroorchidism becomes more evident during puberty and is a characteristic finding in males with fragile X syndrome."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Trinucleotide mutation in FMR-1 gene: Fragile X syndrome is caused by an expansion of CGG trinucleotide repeats in the FMR-1 gene. This expansion leads to a decreased production of fragile X mental retardation protein (FMRP), resulting in the characteristic features of the syndrome."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Mental retardation: Intellectual disability is a hallmark feature of fragile X syndrome. It can range from mild to severe and is often associated with learning difficulties, speech and language delays, and behavioural challenges."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Large everted ears: Individuals with fragile X syndrome commonly exhibit large, prominent ears that are described as everted."
+    }
+   ]
+  },
+  {
+   "id": "pathology-13-45",
+   "question": "With which pattern of disease inheritance is consanguinity associated?",
+   "options": {
+    "A": "Autosomal recessive",
+    "B": "Autosomal dominant",
+    "C": "X-linked recessive",
+    "D": "X-linked dominant"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Consanguinity refers to a close blood relationship between the parents. Autosomal recessive diseases are more likely to occur in the offspring of consanguineous couples. This is because the parents may both carry a single copy of a recessive gene mutation, and when they have children together, there is an increased chance of both parents passing on the mutated gene, resulting in the expression of the disease phenotype in the offspring."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Autosomal Dominant: Autosomal dominant diseases can occur in the offspring of consanguineous couples, but they are not specifically associated with consanguinity. Autosomal dominant diseases can also arise from de novo mutations or occur in non-consanguineous families."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - X-Linked Recessive: X-linked recessive diseases are inherited through the X chromosome. Although consanguinity can increase the likelihood of inheriting X-linked recessive diseases, it is not the characteristic pattern associated with consanguinity."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - X-Linked Dominant: X-linked dominant diseases can also occur in the offspring of consanguineous couples, but they are less common and not specifically associated with consanguinity."
+    }
+   ]
+  },
+  {
+   "id": "pathology-13-46",
+   "question": "Which of the following diseases has an X-linked recessive pattern of inheritance?",
+   "options": {
+    "A": "Hurler syndrome",
+    "B": "Thalassemia",
+    "C": "Hereditary spherocytosis",
+    "D": "G6PD deficiency"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "G6PD deficiency is characterized by impaired function of the enzyme glucose-6-phosphate dehydrogenase. It follows an X-linked recessive pattern of inheritance."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Hurler Syndrome: Hurler syndrome is an autosomal recessive disorder caused by a deficiency of the enzyme alpha-L-iduronidase."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Thalassemia: Thalassemia is inherited in an autosomal recessive manner."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Hereditary Spherocytosis: Hereditary spherocytosis is an autosomal dominant disorder characterized by abnormalities in red blood cell shape and function."
+    }
+   ]
+  },
+  {
+   "id": "pathology-13-47",
+   "question": "Which chromosome is involved in myotonic dystrophy?",
+   "options": {
+    "A": "Chromosome 19",
+    "B": "Chromosome 20",
+    "C": "Chromosome 21",
+    "D": "Chromosome 22"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Myotonic dystrophy is caused by an expansion of CTG trinucleotide repeats in the DMPK gene, which is located on chromosome 19. This genetic mutation leads to the production of an abnormal form of the myotonic dystrophy protein kinase (DMPK) and results in the characteristic symptoms of myotonic dystrophy."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Options B, C, and D are incorrect."
+    }
+   ]
+  },
+  {
+   "id": "pathology-13-48",
+   "question": "Which of the following diseases is most commonly associated with Down syndrome?",
+   "options": {
+    "A": "Parkinson Disease",
+    "B": "Alzheimer disease",
+    "C": "Schizophrenia",
+    "D": "Huntington disease"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Alzheimer disease is the most commonly observed in individuals with Down syndrome. The accumulation of beta-amyloid plaques and neurofibrillary tangles in the brain, characteristic of Alzheimer disease, occurs at an earlier age and progresses more rapidly in individuals with Down syndrome."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Options A, C, and D are incorrect."
+    }
+   ]
+  },
+  {
+   "id": "pathology-13-49",
+   "question": "Alpha-1 antitrypsin is the major inhibitor of which enzyme?",
+   "options": {
+    "A": "Catalase",
+    "B": "Collagenase",
+    "C": "Elastase",
+    "D": "Phospholipase"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Elastase is an enzyme that breaks down elastin, a protein found in elastic tissues such as the lungs and blood vessels. Alpha-1 antitrypsin is a potent inhibitor of elastase, preventing its excessive activity and protecting tissues from damage."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Options A, B, and D are incorrect."
+    }
+   ]
+  },
+  {
+   "id": "pathology-14-1",
+   "question": "A 45-year-old female presents with a palpable lump in her left breast which is freely mobile and painless. A biopsy of the lump was performed, and a histopathological examination was done. Which feature from the biopsy report is most likely to differentiate between benign and malignant breast lesions?",
+   "options": {
+    "A": "Presence of well-defined glandular structures",
+    "B": "Evidence of invasion into surrounding tissues",
+    "C": "Low mitotic rate",
+    "D": "Presence of fibrous stroma"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "We differentiate benign and malignant tumours based on whether the basement membrane is intact or broken: In benign tumours: The basement membrane is completely intact and normal. In malignant tumours: The basement membrane is broken, so the cancer cells can invade surrounding tissues."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Feature Benign Lesions Malignant Lesions Growth Localised Invasive (Option B):** Microscopic Appearance Resemble normal tissue and maintain differentiated features. (Option A) Cellular atypia, mitotic figures, loss of tissue organisation. Macroscopic Appearance Well-defined borders Irregular borders, necrosis, hemorrhage. Histological Features Cells are typically uniform in size and shape, with minimal nuclear atypia and low mitotic rate. (Option C) Cells may display pleomorphism, increased nuclear-to-cytoplasmic ratio, high mitotic rate, and evidence of invasion or metastasis."
+    }
+   ]
+  },
+  {
+   "id": "pathology-14-2",
+   "question": "Which of the following tumour is of mesenchymal origin?",
+   "options": {
+    "A": "Adenoma",
+    "B": "Papilloma",
+    "C": "Seminoma",
+    "D": "Leiomyoma"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Leiomyoma is a benign tumour of mesenchymal origin, originating from the smooth muscles of the uterus."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Adenoma (Option A):** Arises from gland: Epithelial Tumour Papilloma (Option B): Usually arises from surfaces like skin: Epithelial Tumour Seminoma (Option C): Germ cell tumour in testes: Epithelial Tumour Mesenchymal Tumours Epithelial Tumours Origin Connective tissues and derivatives Blood and lymph vessels Hematopoietic stem cells and lymphoid tissue Meninges Mesothelium Smooth muscles and Skeletal muscles Stratified squamous epithelium Melanocytes and basal cells of the skin Glandular epithelium and epithelium of ducts Respiratory, Hepatic, Renal, Transitional, Testicular, Placental epithelium Examples Leiomyosarcoma Lipoma Osteosarcoma Rhabdomyosarcoma Fibrosarcoma Meningioma Synovial sarcoma Adenocarcinoma Squamous cell carcinoma Adenoma Papilloma Seminoma Hepatocellular carcinoma Transitional cell carcinoma Markers Vimentin Desmin S100 Protein Fibronectin Myogenin Cytokeratin Epithelial Membrane Antigen (EMA) E-Cadherin P63, P40 Carcinoembryonic Antigen (CEA)"
+    }
+   ]
+  },
+  {
+   "id": "pathology-14-3",
+   "question": "What is the most likely diagnosis of a patient with a painless, slowly enlarging mass in the right parotid gland region that is well-defined and heterogeneous, with both epithelial and mesenchymal components present in the biopsy?",
+   "options": {
+    "A": "Pleomorphic adenoma",
+    "B": "Mucoepidermoid carcinoma",
+    "C": "Acinic cell carcinoma",
+    "D": "Warthin tumour"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Pleomorphic adenoma is the most common benign tumour of the salivary glands, often found in the parotid gland. Pleomorphic adenoma, also known as a mixed tumour, typically contains epithelial components (such as glandular cells) and mesenchymal components (such as myxoid stroma, islands of cartilage, or bone). Pleomorphic adenoma is more commonly found in females."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L14_Q003_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-14-4",
+   "question": "A 30-year-old female presents with pelvic pain and irregular menstrual cycles. She undergoes surgical resection of the mass, and histopathological examination reveals a tumour composed of mature tissues derived from multiple germ layers, including hair, teeth, and sebaceous material. Based on the histopathological findings described, which of the following tumours is the most likely diagnosis?",
+   "options": {
+    "A": "Teratoma",
+    "B": "Serous cystadenoma",
+    "C": "Mucinous cystadenoma",
+    "D": "Granulosa cell tumour"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Teratomas arise from 2 or more germ layers Teratomas are commonly seen in the ovaries, but can also be seen in other organs of the body. Teratomas are of 2 types: Mature teratoma: Benign and has all the mature tissues Immature teratoma: Has neuroepithelial cells and has the potential to cause cancer."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L14_Q004_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-14-5",
+   "question": "A 55-year-old man presents with chronic heartburn and difficulty swallowing. Upon examination, the physician suspects gastroesophageal reflux disease (GERD) and orders an upper GI endoscopic biopsy, which reveals the presence of columnar epithelium in the lower oesophagus, replacing the normal squamous epithelium. Which of the following terms describes the observed cellular change?",
+   "options": {
+    "A": "Metaplasia",
+    "B": "Dysplasia",
+    "C": "Anaplasia",
+    "D": "Desmoplasia"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Metaplasia is defined as the replacement of one type of epithelium with another. Metaplasia is 100% reversible. Until the trigger (GERD in this case) is present, metaplasia will stay, and metaplasia will be reversed when the trigger is treated. The terminology of metaplasia is based on the end epithelium it forms. Intestinal columnar epithelium has goblet cells. Acidic mucin is present inside goblet cells, which is Alcian blue positive."
+    },
+    {
+     "type": "paragraph",
+     "text": "Barrett's esophagus is a precancerous condition, and if not treated, it may turn into Adenocarcinoma of esophagus."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L14_Q005_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-14-6",
+   "question": "Which of the following features is not a characteristic of anaplasia?",
+   "options": {
+    "A": "Pleomorphism",
+    "B": "Loss of polarity",
+    "C": "Increased nuclear-to-cytoplasmic ratio",
+    "D": "Intact basement membrane"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Differentiation between precancer and cancer is based on the basement membrane. If the basement membrane is intact: Precancer/Dysplasia If the basement membrane is broken or breached: Cancer cells can invade into surrounding tissue and spread anywhere: Cancer/Anaplaisa Image showing Mitosis: Mercedes Benz sign Image showing Mitosis: Starburst mitosis"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L14_Q006_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L14_Q006_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pathology-14-7",
+   "question": "Which of the following statements is/are True? The basement membrane remains intact in dysplasia. Dysplasia is always irreversible. Pleomorphism is observed in metaplasia. Myositis ossificans is an example of dysplasia.",
+   "options": {
+    "A": "1, 3 and 4",
+    "B": "1 only",
+    "C": "2 and 4",
+    "D": "1, 2 and 3"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Feature Metaplasia Dysplasia Anaplasia Definition Differentiated cell type (epithelial or mesenchymal) is replaced by another cell type Disordered growth and loss of architectural orientation of cells Lack of cellular differentiation and organisation Nature (Statement 2) Adaptive response to stress or injury Preneoplastic Associated with malignant transformation Reversibility Reversible Reversible in early stages (irreversible if whole the epithelium is involved) Irreversible Pleomorphism (Statement 3) Absent Present in low-grade Present in high-grade Nuclear-to-cytoplasmic ratio Normal (1:4 to 1:6) Increased (↑) Increased (↑↑↑) Mitotic figures Absent/minimal at normal places Typical mitotic figures present at abnormal places Atypical, bizarre mitotic figures present at abnormal places Basement membrane integrity Intact Intact Breached Example (Statement 4) Barret’s oesophagus, myositis ossificans Cervical dysplasia of squamous cells Carcinoma of the cervix, carcinoma oesophagus"
+    }
+   ]
+  },
+  {
+   "id": "pathology-14-8",
+   "question": "Which of the following characteristics distinguishes hemangiomas from other benign tumors?",
+   "options": {
+    "A": "Rapid growth rate",
+    "B": "Presence of extracellular matrix (ECM) deposited by stromal cells",
+    "C": "Easily resected by excision",
+    "D": "Unencapsulated"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "A hemangioma is a benign vascular tumour caused by an abnormal overgrowth of blood vessels that is distinguished from other benign tumours by: Lack of well-defined capsule (Hemangiomas are uncapsulated). Tendency to permeate the site of origin making it difficult for surgical excision."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Rapid growth rate (Option A):** The rapid growth rate is a feature of malignant tumors, not benign tumors which grow slowly and localized to the site of origin."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Presence of extracellular matrix (ECM) deposited by stromal cells (Option B):** Benign tumours usually has a capsule, which consists of an extracellular matrix (ECM) deposited by stromal cells such as fibroblasts. Since hemangioma is unencapsulated, it is not associated with the deposition of extracellular matrix by stromal cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Easily resected by excision (Option C):** Encapsulation makes benign tumours easily resectable but since hemangiomas are unencapsulated,they permeate site of origin making it difficult to resect."
+    }
+   ]
+  },
+  {
+   "id": "pathology-14-9",
+   "question": "Which of the following types of cancer is least likely to exhibit distant metastasis?",
+   "options": {
+    "A": "Renal cell carcinoma",
+    "B": "Melanoma",
+    "C": "Basal cell carcinoma",
+    "D": "Prostatic carcinoma"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Metastasis means the distant spread of cancer. All cancers are capable of showing metastasis except 2 cancers, which show local invasion: Basal cell cancer/Rodent's ulcer, which occurs on face. Gliomas: Brain tumour."
+    }
+   ]
+  },
+  {
+   "id": "pathology-14-10",
+   "question": "Which of the following tumours do not typically exhibit direct seeding of body cavities?",
+   "options": {
+    "A": "Pseudomyxoma peritonei",
+    "B": "Gastric carcinoma",
+    "C": "Hepatocellular carcinoma",
+    "D": "Medulloblastoma"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Hepatocellular carcinoma typically exhibits metastasis by hematogenous spread rather than direct seeding of body cavities. Direct Seeding of Body Cavities or Surfaces: Pseudomyxoma peritonei (Option A) is characterized by the presence of a gelatinous neoplastic mass filling the peritoneal cavity arising from the rupture of mucin-secreting adenocarcinoma of the appendix (most common cause) or mucin-secreting adenocarcinoma of ovarian."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Gastric carcinoma (Option B):** can spread to the distal end of the peritoneal cavity (Pouch of Douglas) and is known as the ‘Blummer shelf.’ Medulloblastoma (Option D) from the cerebellum spreads to the spinal cord by ‘Drop metastasis.’"
+    }
+   ]
+  },
+  {
+   "id": "pathology-14-11",
+   "question": "Which of the following tumours does not follow the lymphatic metastatic pathway?",
+   "options": {
+    "A": "Rhabdomyosarcoma",
+    "B": "Krukenberg tumor",
+    "C": "Follicular thyroid carcinoma",
+    "D": "Synovial sarcoma"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Hematogenous spread Lymphatic spread Transcoelomic spread Veins are more prone to invasion than arteries due to their thinner walls. Tumours use existing lymphatic vessels at their margins. Follows natural routes of lymphatic drainage. Invades the serosal wall of the coelomic cavity, releasing tumour fragments into coelomic fluid, which is implanted elsewhere in the body cavity. Seen in most of the sarcomas. Seen in most carcinomas."
+    },
+    {
+     "type": "paragraph",
+     "text": "Krukenberg tumour is a metastatic tumour to the ovary that can show lymphatic or transcoelomic spread. (Option B) Exceptions: Synovial sarcoma (Option D) Rhabdomyosarcoma (Option A) These tumours are spread by the lymphatic route. Exceptions: HCC RCC Follicular carcinoma of the thyroid (Option C) These tumours are spread by a hematogenous route."
+    }
+   ]
+  },
+  {
+   "id": "pathology-14-12",
+   "question": "Which of the following is true regarding the Sentinel lymph node?",
+   "options": {
+    "A": "The first lymph node to receive metastasis from a secondary tumour.",
+    "B": "Also helpful in identifying metastasis in Melanoma.",
+    "C": "Commonly involved in skip metastasis",
+    "D": "The presence of cancer cells indicates a good prognosis"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Sentinel lymph node (SLN): The first lymph node to receive drainage from a primary tumor site. Example: In breast cancer, usually axillary lymph node is the first lymph node where the lymphatics are drained. Hence, it is the sentinel lymph node. Sometimes, cancer may bypass the sentinel lymph node and spread directly to other lymph nodes."
+    },
+    {
+     "type": "paragraph",
+     "text": "This can occur in patients who have received radiotherapy, as radiation can cause fibrosis and blockage of the lymphatic channels. If the pathway to the sentinel node is obstructed, tumour cells are diverted to alternative routes, resulting in what is known as skip metastasis. Tumors where SLN biopsy is validated are Breast cancer, Melanoma, Vulvar cancer, and Colon cancer."
+    },
+    {
+     "type": "paragraph",
+     "text": "**The first lymph node to receive metastasis from a secondary tumour (Option A):** Sentinal lymph node is the first lymph node to receive drainage from a primary tumor site."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Commonly involved in skip metastasis (Option C):** Skip metastasis is not a very common phenomenon; it's rather rare."
+    },
+    {
+     "type": "paragraph",
+     "text": "**The presence of cancer cells indicates a good prognosis (Option D):** Cancer spreading to the sentinel or any other lymph node is always a bad prognosis."
+    }
+   ]
+  },
+  {
+   "id": "pathology-15-1",
+   "question": "A 60-year-old man who has worked in the zinc mines presents to his urologist with urinary symptoms, including increased frequency, hesitancy, and nocturia. During a digital rectal examination, he is found to have an enlarged prostate with a palpable nodule. Which environmental exposure is most likely associated with his prostate cancer risk?",
+   "options": {
+    "A": "Zinc",
+    "B": "Benzopyrene",
+    "C": "Arsenic",
+    "D": "Cadmium"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Occupational exposure to cadmium, commonly found in industries such as zinc mining, smelting of zinc ores, and battery manufacturing, has been associated with an increased risk of prostate cancer."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Zinc (Option A):** Excessive zinc exposure does not have a direct association with prostate cancer."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Benzopyrene (Option B):** It is associated with increased risks of lung cancer, bladder cancer, skin cancer, and other malignancies."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Arsenic (Option C):** It is associated with an increased risk of angiosarcoma of the liver."
+    }
+   ]
+  }
+ ]
+}

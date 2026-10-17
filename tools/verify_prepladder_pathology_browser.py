@@ -95,6 +95,27 @@ def main() -> None:
             page.wait_for_function("() => { const f=document.querySelector('.question-text + .nk-marrow-figures img'); return f && f.complete && f.naturalWidth>0; }", timeout=8000)
             page.screenshot(path=str(OUT / "plpatho-02-stem-figure.png"), full_page=True)
 
+            # Q4: "P - K - K" keeps its dashes (no K⁻ ion superscript); the
+            # references sit below the figure, with the book title in italics.
+            open_lesson(page, "Cell Injury, Free Radical")
+            open_question(page, 3, "nuclear changes")
+            page.locator(".option-list button").first.click()
+            page.wait_for_selector(".nk-marrow-ordered .nk-explain-refs", timeout=8000)
+            page.wait_for_selector(".nk-marrow-ordered .nk-marrow-figures img", timeout=8000)
+            ordered = page.locator(".nk-marrow-ordered")
+            if "P - K - K: Pyknosis" not in ordered.inner_text() or "nk-sci-sup" in ordered.inner_html():
+                fail("P - K - K is not shown as written")
+            if not page.evaluate("(() => { const f=document.querySelector('.nk-marrow-ordered .nk-marrow-figures'), r=document.querySelector('.nk-marrow-ordered .nk-explain-refs'); return f.compareDocumentPosition(r) & Node.DOCUMENT_POSITION_FOLLOWING; })()"):
+                fail("references are not below the figure")
+            refs = page.locator(".nk-explain-refs")
+            if refs.locator("cite").inner_text() != "Robbins and Cotran, Pathologic Basis of Disease":
+                fail(f"reference title not italic: {refs.inner_html()!r}")
+            body_size = page.evaluate("parseFloat(getComputedStyle(document.querySelector('.nk-marrow-ordered > p')).fontSize)")
+            ref_size = page.evaluate("parseFloat(getComputedStyle(document.querySelector('.nk-explain-refs p')).fontSize)")
+            if not ref_size < body_size:
+                fail(f"references ({ref_size}px) should be smaller than the explanation ({body_size}px)")
+            page.screenshot(path=str(OUT / "plpatho-025-references.png"), full_page=True)
+
             open_lesson(page, "Acute Inflammation")
             open_question(page, 2, "Leukocyte Adhesion Deficiency")
             page.locator(".option-list button").first.click()
@@ -104,7 +125,7 @@ def main() -> None:
                 fail("explanation surface label wrong")
             explanation = page.locator(".nk-marrow-ordered")
             text = explanation.inner_text()
-            for needle in ("β2 integrin", "Myeloperoxidase deficiency (Option D):", "References:"):
+            for needle in ("β2 integrin", "Myeloperoxidase deficiency (Option D):", "References"):
                 if needle not in text:
                     fail(f"explanation missing {needle!r}")
             for junk in ("**", "Correct Answer", "[object Object]", "data-", ";="):
@@ -131,7 +152,7 @@ def main() -> None:
                 fail("page errors: " + " | ".join(errors[:5]))
             browser.close()
     print("PREPLADDER_PATHOLOGY_BROWSER_OK bank=PrepLadder topics=90 sections=4 second_prof=on stem_figure=on "
-          "ordered_explanation=on pyq=27 lost_note=on")
+          "ordered_explanation=on references=on pyq=27 lost_note=on")
 
 
 if __name__ == "__main__":

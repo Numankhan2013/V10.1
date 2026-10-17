@@ -1,0 +1,669 @@
+{
+ "batch": "pathology-019",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pathology-019",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pathology-21-6",
+   "question": "A 45-year-old woman with SLE complains of red, frothy urine for the past two months despite being on treatment. Urine analysis shows RBCs and proteins. An image of renal biopsy is given below. Which of the following accurately describes the histopathological findings?",
+   "options": {
+    "A": "Diffuse capillary wall thickening.",
+    "B": "Wire loop lesions",
+    "C": "Glomerular crescents",
+    "D": "Kimmelstiel-Wilson lesion"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Wire loop lesions are a characteristic histopathological finding in lupus nephritis. Wire loop means that capillary loop has become thicker due to subendothelial deposits. Seen more commonly in classes 3,4, and 5 of lupus nephritis (There are a total of 6 classes)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Glomerular crescents (Option C):** are seen in crescentic/Rapidly Progressive Glomerulonephritis(RPGN), Kimmelstiel-Wilson lesion (Option D) is a feature of diabetic nephropathy."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L21_Q006_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L21_Q006_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pathology-21-7",
+   "question": "A 55-year-old woman has had persistent dry eyes and mouth for the past several months. She also reports difficulty in swallowing solid foods and occasional blurred vision. On examination, she has bilateral parotid gland enlargement. She has a history of rheumatoid arthritis. Which antibodies are specific for this disease?",
+   "options": {
+    "A": "Anti-Sm",
+    "B": "Anti La",
+    "C": "Anti-Scl 70",
+    "D": "Anti-U1 RNP"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Based on the above clinical scenario, the patient can be diagnosed with Sjogren’s syndrome. Symptoms include blurred vision, difficulty swallowing, decreased taste, cracks and fissures in the mouth, and parotid gland enlargement. Patient presents with: Dry eyes due to antibodies attacking the lacrimal gland. Dry mouth due to antibodies attacking the lacrimal gland."
+    },
+    {
+     "type": "paragraph",
+     "text": "Antibodies are of 2 types: Anti-SS-A (Anti-Ro) antibodies: Most sensitive Anti-SS-B (Anti-La) antibodies: Most specific Autoantibody Associated Autoimmune Condition Anti-Sm (Smith) (Option A) Systemic lupus erythematosus (SLE) Anti-Scl-70 (anti-topoisomerase I) (Option C) Diffuse systemic sclerosis (scleroderma) Anti-U1 RNP (Ribonucleoprotein) (Option D) Mixed connective tissue disease (MCTD)"
+    }
+   ]
+  },
+  {
+   "id": "pathology-21-8",
+   "question": "A 20-year-old female complains of recurrent episodes of her fingers turning symmetrically white, which are associated with pain and a tingling sensation. This is worse when exposed to cold water and is relieved when she dips her fingers in warm water. The autoimmune panel is negative. What is the likely diagnosis?",
+   "options": {
+    "A": "Primary Raynaud phenomenon",
+    "B": "Dermatomyositis",
+    "C": "Secondary Raynaud phenomenon",
+    "D": "Calcinosis cutis"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The given clinical scenario describes the Raynaud phenomenon (an exaggerated vasoconstriction of arteries and arterioles in response to cold or emotional stress. The fingers classically show these colour changes in this order: Red: Proximal vasodilation White: Central vasoconstriction Blue: Distal cyanosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Primary Raynaud's phenomenon is characterized by symmetric episodes of finger whitening induced by cold, resulting from hyper reactive smooth muscle cells in the blood vessel walls. It occurs without an underlying disorder and typically does not lead to ulcers. Tests for autoimmune conditions yield negative results in such cases."
+    },
+    {
+     "type": "paragraph",
+     "text": "Secondary Raynaud's phenomenon results from underlying arterial disease seen in autoimmune disorders like mixed connective tissue disease, CREST syndrome, and SLE. It shows asymmetric finger involvement and progressive worsening of symptoms over time. (Option C) Dermatomyositis (Option B) may involve the hands, with classical lesions being Gottron papules (multiple hyperkeratotic, flat, red papules over the dorsum of the metacarpophalangeal joints) and mechanic hands (fissuring with hyperkeratotic papules, scaling, and fissures along the sides of the fingers and palms)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Autoimmune panel is positive."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Calcinosis cutis (Option D):** is a characteristic lesion of CREST syndrome, referring to the deposition of calcific nodules in the skin of the hands. It is an autoimmune disorder because of anti-centromeric antibody."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L21_Q008_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L21_Q008_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pathology-21-9",
+   "question": "A 60-year-old woman complains of bilateral hand pain and stiffness, especially in the morning. On examination, you notice diffuse thickening and tightening of the skin all over her body. Echo showed pulmonary hypertension. Laboratory tests show positive Anti-SCL-70 antibodies What is the most likely diagnosis?",
+   "options": {
+    "A": "Rheumatoid arthritis",
+    "B": "Osteoarthritis",
+    "C": "CREST syndrome",
+    "D": "Systemic sclerosis"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient's presentation of diffuse sclerosis and echo showing pulmonary hypertension is highly suggestive of systemic sclerosis, also known as scleroderma. Scleroderma, also known as systemic sclerosis, is a rare autoimmune disease characterized by excessive collagen production, which leads to thickening and hardening of the skin and other organs."
+    },
+    {
+     "type": "paragraph",
+     "text": "Subtypes In systemic sclerosis: Limited systemic sclerosis (CREST syndrome) features calcinosis, Raynaud phenomenon, oesophagal dysmotility, sclerodactyly, and telangiectasia."
+    },
+    {
+     "type": "paragraph",
+     "text": "It is characterized by a positive anti-centromere antibody (option C) Diffuse systemic sclerosis (scleroderma) features widespread skin thickening starting from fingers, positive Anti-SCL-70/Anti-topoisomerase antibody, and extensive organ involvement: GIT dysfunction, musculoskeletal inflammation, scleroderma renal crisis, interstitial lung fibrosis, pulmonary hypertension, and cardiac manifestations."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Rheumatoid arthritis (Option A):** This condition is characterized by symmetrical joint pain and swelling and is distinguished by the presence of rheumatoid factor and anti-cyclic citrullinated peptide. Osteoarthritis (Option B) is a degenerative joint disease affecting weight-bearing joints without skin involvement or autoimmune features."
+    }
+   ]
+  },
+  {
+   "id": "pathology-21-10",
+   "question": "A 45-year-old woman presents with progressive proximal muscle weakness over the past 6 months. On examination, the hip and shoulder girdle muscles have symmetrical weakness. Laboratory investigations show elevated serum creatine kinase (CK) levels. A muscle biopsy reveals endomysial inflammation with CD8+ T lymphocytes and muscle fiber necrosis. Which of the following is the most likely diagnosis?",
+   "options": {
+    "A": "Dermatomyositis",
+    "B": "Myasthenia gravis",
+    "C": "Inclusion body myositis",
+    "D": "Polymyositis"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The features of progressive proximal muscle weakness along with the findings of endomysial inflammation on biopsy and no dermatological findings, suggest the diagnosis of polymyositis. In Polymyositis, endomysial inflammation is seen with no skin findings and no atrophy.It presents with proximal muscle weakness."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Dermatomyositis (Option A):** also presents with proximal muscle weakness and elevated CK levels, but it typically includes skin manifestations (e.g., heliotrope rash, Gottron's papules on hands, mechanic's hands), which are not mentioned here. Muscle biopsy in dermatomyositis typically shows perifascicular atrophy and inflammation."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Inclusion Body Myositis (IBM) (Option C):** Involves the distal muscles. Muscle biopsy shows inclusion bodies (amyloid-like material which forms inclusions in muscle fibres), which are positive for Congo-red staining."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L21_Q010_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-21-11",
+   "question": "A 32-year-old woman presents with fatigue, muscle weakness, and joint pain. On examination, she has a rash over her cheeks, along with Raynaud's phenomenon and swollen fingers. Laboratory tests reveal positive anti-U1 RNP antibodies. Which of the following conditions is this patient most likely suffering from?",
+   "options": {
+    "A": "Systemic lupus erythematosus",
+    "B": "Scleroderma",
+    "C": "Mixed connective tissue disease",
+    "D": "Sjögren's syndrome"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Mixed connective tissue disease (MCTD) is characterised by a combination of features, including muscle weakness, joint pain, a rash over the cheeks (often referred to as a butterfly or malar rash), Raynaud's phenomenon, and anti-U1 RNP antibodies. MCTD features overlap between systemic lupus erythematosus, scleroderma (systemic sclerosis), and polymyositis."
+    },
+    {
+     "type": "paragraph",
+     "text": "It is characterised by synovitis in the fingers, Raynaud's phenomenon, myositis, and mild renal involvement. Over time, MCTD may progress to classic systemic lupus erythematosus (SLE) or systemic sclerosis. Antibody: Anti-U1 RNP (ribonucleoprotein) antibody. Treatment: Corticosteroids."
+    }
+   ]
+  },
+  {
+   "id": "pathology-21-12",
+   "question": "A 30-year-old woman is being evaluated for proximal muscle weakness. Which of the following is consistent with a diagnosis of polymyositis?",
+   "options": {
+    "A": "CD4+ T cell infiltration in affected tissue",
+    "B": "Endomysial inflammation",
+    "C": "Associated with underlying malignancies",
+    "D": "Vascular injury involved in pathogenesis"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Endomysial inflammation is a consistent feature of polymyositis. Polymyositis is an inflammatory myopathy that typically presents with proximal muscle weakness. It is mediated by CD8+ T lymphocytes. Histologically, it is characterized by an endomysial inflammatory infiltrate with patchy necrosis. Dermatomyositis Histologic findings include peripheral or peri fascicular infiltrates and atrophy in a segmental pattern."
+    },
+    {
+     "type": "paragraph",
+     "text": "Perifascicular infiltrates: Perifascicular atrophy:"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L21_Q012_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L21_Q012_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L21_Q012_explanation_3"
+    }
+   ]
+  },
+  {
+   "id": "pathology-21-13",
+   "question": "A 28-year-old female presents with fatigue, joint pain, and a rash. A blood test reveals positive anti-nuclear antibodies. Which of the following fluorescence patterns is most commonly associated with systemic lupus erythematosus (SLE)?",
+   "options": {
+    "A": "[ANA immunofluorescence image: Homogeneous / diffuse nuclear staining]",
+    "B": "[ANA immunofluorescence image: Speckled pattern]",
+    "C": "[ANA immunofluorescence image: Nucleolar pattern]",
+    "D": "[ANA immunofluorescence image: Centromere pattern]"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The homogeneous fluorescence pattern of ANA is often associated with SLE, reflecting uniform nucleus staining. The most widely used method for detecting ANAs is indirect immunofluorescence, which can identify antibodies that bind to a variety of nuclear antigens, including DNA, RNA, and proteins (collectively called generic ANAs). The pattern of nuclear fluorescence suggests the type of antibody present in the patient’s serum."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Four basic patterns are recognized Homogeneous or diffuse staining of nuclei (Option A):** Antibodies reactive with dsDNA, nucleosomes, and histones, and is common in systemic lupus erythematosus Speckled pattern (Option B) Antibodies against various nuclear antigens, including Sm and RNPs Nucleolar pattern (Option C) Antibodies against nucleolar proteins Anti-centromere antibodies (Option D) Systemic sclerosis, Sjögren syndrome, and other diseases"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L21_Q013_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L21_Q013_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L21_Q013_explanation_3"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L21_Q013_explanation_4"
+    }
+   ]
+  },
+  {
+   "id": "pathology-21-14",
+   "question": "Which of the following is not a feature of dermatomyositis?",
+   "options": {
+    "A": "[Clinical image: Gottron papules]",
+    "B": "[Clinical image: Panniculitis / Erythema nodosum]",
+    "C": "[Clinical image: Heliotrope rash]",
+    "D": "[Clinical image: Mechanic's hands]"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Image B represents panniculitis (raised reddish lesions on skin) which is commonly seen in diseases like erythema nodosum. Dermatomyositis: An inflammatory myopathy that affects skin as well as skeletal muscles. Proximal muscles will be involved. Characteristic rashes include: Gottron papules (Option A) - Raised erythematous rash over metacarphalangeal and interphalangeal joints."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Heliotrope rash (Option C):** Erythematous discoloration of eyelids with periorbital edema."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Mechanic's hands (Option D):** Presence of fissures/cracks on hands and palms. V-sign (Necklace sign) - Rash on the sun-exposed anterior neck and chest. Shawl sign over the back of the neck and shoulders. Nail bed changes with dilated capillaries. The histological hallmark of dermatomyositis: Perifascicular atrophy (Atrophy of the muscle fibers which are located at the periphery)."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L21_Q014_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L21_Q014_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L21_Q014_explanation_3"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L21_Q014_explanation_4"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L21_Q014_explanation_5"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L21_Q014_explanation_6"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L21_Q014_explanation_7"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L21_Q014_explanation_8"
+    }
+   ]
+  },
+  {
+   "id": "pathology-22-1",
+   "question": "An 8-month-old male infant presents with a history of severe, recurrent bacterial infections. On physical examination, the tonsils were found to be absent. Peripheral blood examination reveals an absence of B cells, while the T cell count is normal. Additionally, serum analysis reveals undetectable levels of immunoglobulins (IgG, IgA, and IgM). Which of the following most accurately explains the molecular mechanism responsible for this patient's immunodeficiency?",
+   "options": {
+    "A": "BTK gene mutation",
+    "B": "RAG1/2 gene mutation",
+    "C": "CD40L deficiency",
+    "D": "BAFF receptor abnormality"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical vignette suggests that the infant is suffering from Bruton's agammaglobulinemia, which is characterized by the failure of B-cell precursors (pro–B cells and pre–B cells) to develop into mature B cells due to the defect in BTK gene. Bruton’s agammaglobulinemia or hypogammaglobulinemia: X-linked recessive, most commonly seen in boys."
+    },
+    {
+     "type": "paragraph",
+     "text": "Pathophysiology: Failure of pre-B cells to differentiate into immature B cells in the bone marrow - due to the absence of Bruton’s tyrosine kinase (BTK) enzyme. As a result, there is a total absence of B cells and plasma cells in the circulation, with depressed serum levels of all classes of immunoglobulins. However, Pre-B cells are found in normal numbers in bone marrow and the T cell-mediated responses are also normal."
+    },
+    {
+     "type": "paragraph",
+     "text": "The B cell maturation stops at pre-B cell stage; after the synthesis of heavy-chain without forming the light chains. Hence the cytoplasm of pre-B cell may have incomplete immunoglobulins Clinical features: Recurrent bacterial infections. Infections do not develop until 6 months of age (when maternal antibodies are no longer active). On examination: Tonsils may be difficult to visualize. Cervical/inguinal lymph nodes may not be palpable."
+    },
+    {
+     "type": "paragraph",
+     "text": "Laboratory findings and other features: Marked reduction or absence of B cells in the peripheral circulation. Immunoglobulin levels (IgG, IgM, and IgA) are low or undetectable. Plasma cells are absent throughout the body. T-cell mediated reactions are normal. Management: Immunoglobulin replacement therapy. Antibiotics to treat infections."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Live vaccines are contraindicated RAG1/2 gene mutation (Option B):** leads to severe combined immunodeficiency (SCID), where both B and T cell functions are impaired due to defective V(D)J recombination."
+    },
+    {
+     "type": "paragraph",
+     "text": "**CD40 ligand deficiency (Option C):** leads to Hyper IgM syndrome, where T-B cell interactions are defective, but B cells are still present."
+    },
+    {
+     "type": "paragraph",
+     "text": "**BAFF (B-cell activating factor) receptor abnormality (Option D):** can contribute to common variable immunodeficiency (CVID). However, CVID typically presents later in childhood or adulthood and is characterized by low serum immunoglobulin levels and impaired antibody responses with the presence of B cells."
+    }
+   ]
+  },
+  {
+   "id": "pathology-22-2",
+   "question": "In a pediatric clinic, a six-year-old male presents with a history of frequent respiratory and skin infections, eczema flare-ups, and macrothrombocytopenia. Given these symptoms, which genetic evaluation method would be the most effective for confirming the suspected diagnosis?",
+   "options": {
+    "A": "WASP gene mutation analysis",
+    "B": "ANA titer",
+    "C": "FISH",
+    "D": "B cell tyrosine kinase activity detection"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "WASP gene mutation analysis, specific to Wiskott-Aldrich syndrome. Wiskott-Aldrich syndrome is an X-linked recessive disease characterized by the triad of: Thrombocytopenia Eczema Recurrent infections Wiskott-Aldrich syndrome is caused by mutations in the gene located at Xp11.23, which encodes the Wiskott-Aldrich syndrome protein (WASP)."
+    },
+    {
+     "type": "paragraph",
+     "text": "WASP belongs to a family of proteins that are believed to link membrane receptors, such as antigen receptors, to cytoskeletal elements. Patients do not make antibodies to polysaccharide antigens, and the response to protein antigens is poor. IgM levels in the serum are low, but levels of IgG are usually normal. Paradoxically, the levels of IgA and IgE are often elevated. Patients are also prone to developing B-cell lymphomas."
+    },
+    {
+     "type": "paragraph",
+     "text": "WASP may be involved in cytoskeleton-dependent responses, including cell migration and signal transduction, but the essential functions of this protein in lymphocytes and platelets are unclear. It may lead to early death. The only treatment is HSC transplantation."
+    },
+    {
+     "type": "paragraph",
+     "text": "ANA titre ( OPTION B ) These are typically associated with SLE ( systemic lupus erythematosus ) FISH (OPTION C ) FISH (Fluorescence In Situ Hybridization) is a molecular cytogenetic technique used to detect and localize specific DNA sequences within the chromosomes."
+    },
+    {
+     "type": "paragraph",
+     "text": "It uses fluorescently labelled probes that bind to their complementary sequences on chromosomes, allowing for visualization of specific genes or regions of interest under a fluorescence microscope Also used in microdeletion, amplification or translocation. FISH is an investigation of choice for Di-George syndrome."
+    },
+    {
+     "type": "paragraph",
+     "text": "B cell tyrosine kinase activity detection: (OPTION D ) Detection of B cell tyrosine kinase activity is relevant for X-linked agammaglobulinemia (XLA), characterized by the absence of mature B cells and low levels of immunoglobulins."
+    }
+   ]
+  },
+  {
+   "id": "pathology-22-4",
+   "question": "A 35-year-old male with a known history of selective IgA deficiency receives a blood transfusion during surgery. Shortly after the transfusion, he develops acute allergic reactions, including hives and difficulty breathing. Given his IgA deficiency, which blood products should have been considered to minimize the risk of such complications?",
+   "options": {
+    "A": "Standard red blood cells with no modification",
+    "B": "Plasma products that are rich in IgA",
+    "C": "Washed red blood cells",
+    "D": "Fresh frozen plasma"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Patients with selective IgA deficiency risk developing anaphylactic reactions if they receive IgA blood products. To minimize this risk, it is essential to transfuse blood products that have been processed to reduce IgA levels, such as washed red blood cells with normal saline multiple times to remove plasma components. In contrast, standard red blood cells or IgA-rich products could trigger severe allergic reactions, as seen in this patient."
+    },
+    {
+     "type": "paragraph",
+     "text": "Selective IgA deficiency: It is caused by impaired differentiation of naïve B lymphocytes to IgA-producing plasma cells. Most individuals are asymptomatic. IgA is the primary antibody found in mucosal secretions, and its deficiency weakens mucosal defences. This can lead to infections in the respiratory, gastrointestinal, and urogenital tracts. Symptomatic patients often experience recurrent sinus and lung infections, as well as diarrhoea."
+    },
+    {
+     "type": "paragraph",
+     "text": "Patients with IgA deficiency frequently suffer from respiratory allergies and a range of autoimmune diseases, including systemic lupus erythematosus (SLE) and rheumatoid arthritis. When transfused with blood containing normal IgA, some individuals may experience severe and potentially fatal anaphylactic reactions, as their immune system treats the IgA as a foreign antigen."
+    },
+    {
+     "type": "paragraph",
+     "text": "In this situation, the safest method is to use washed red blood cells, plasma, or platelets from known IgA-deficient donors."
+    }
+   ]
+  },
+  {
+   "id": "pathology-22-5",
+   "question": "A 7-year-old child presents with recurrent skin abscesses and pneumonia. He also has a history of skeletal abnormalities, including scoliosis and delayed shedding of primary teeth. His lab work shows elevated serum IgE levels. What is the most likely diagnosis?",
+   "options": {
+    "A": "Job syndrome",
+    "B": "Chronic granulomatous disease",
+    "C": "Wiskott-Aldrich syndrome",
+    "D": "Ataxia-Telangiectasia"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical presentation of recurrent infections with delayed shedding of primary teeth, along with the findings of elevated serum IgE levels, indicates the diagnosis of Job syndrome or hyper IgE syndrome. Hyper IgE syndrome (Job syndrome): Deficiency of Th17 cells due to STAT3 mutation → impaired recruitment of neutrophils to sites of infections."
+    },
+    {
+     "type": "paragraph",
+     "text": "Features (mnemonic: “Learn ABCDEF to get a Job stat! ”): Cold Abscess (noninflamed) Retained Baby teeth Coarse facies D ermatological problems (eczema) Elevated serum Ig E levels Characteristic Facies with a broad nose"
+    }
+   ]
+  },
+  {
+   "id": "pathology-22-6",
+   "question": "A 4-year-old boy presents with recurrent bacterial infections, including pneumonia and otitis media. He also has a history of chronic diarrhoea. Laboratory tests reveal elevated IgM levels with markedly reduced IgG, IgA, and IgE levels. Flow cytometry shows normal numbers of CD19+ B cells and CD3+ T cells. Genetic testing reveals a mutation in the CD40L gene. Which of the following pathogens is the patient most at risk for developing severe infections with?",
+   "options": {
+    "A": "Streptococcus pneumoniae",
+    "B": "Haemophilus influenzae",
+    "C": "Staphylococcus aureus",
+    "D": "Pneumocystis jirovecii"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical presentation of recurrent infections along with the findings of mutation in CD40L gene suggests the diagnosis of Hyper IgM syndrome. Hyper IgM syndrome: Normally, the antigen binds to the antibody on B cells and is then presented to the T cells. CD40L (also known as CD154) on antigen-activated CD4+ helper T cells binds to CD40 on B cells, macrophages, and dendritic cells (DCs)."
+    },
+    {
+     "type": "paragraph",
+     "text": "This interaction is crucial for triggering Ig class switching (from IgM to IgG, IgA, and IgE) and affinity maturation in B cells. In hyper IgM syndrome, there is a defect in the CD40 receptor or CD40 ligand (most common). As a result, patients have high IgM levels but low levels of IgG, IgA, and IgE, and are prone to recurrent infections. In addition, these patients are also susceptible to pneumonia caused by Pneumocystis jirovecii."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L22_Q006_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-22-7",
+   "question": "A patient presents with autoimmune hemolytic anemia, thrombocytopenia and neutropenia. Based on the flow cytometry findings, what is the most likely diagnosis?",
+   "options": {
+    "A": "Paroxysmal Nocturnal Hemoglobinuria",
+    "B": "Hyper IgE syndrome",
+    "C": "Hyper IgM syndrome",
+    "D": "Glanzmann Thrombasthenia"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical presentation of autoimmune hemolytic anaemia, thrombocytopenia and neutropenia with the flow cytometry findings showing CD40 negative and CD19 negative, is most likely suggestive of Hyper IgM syndrome. Hyper IgM syndrome: In hyper IgM syndrome, mature B cells are present, but they are incapable of Ig class switching and affinity maturation because of a defect in the CD40 receptor or CD40 ligand."
+    },
+    {
+     "type": "paragraph",
+     "text": "The patient’s serum will have elevated levels of IgM but no IgA or IgE and extremely low levels of IgG. Occasionally, the IgM antibodies react with blood cells, giving rise to autoimmune hemolytic anemia, thrombocytopenia, and neutropenia. Flow cytometry: Flow cytometry results are typically represented as histograms or dot plots: Histograms: Represent the frequency distribution of a single parameter."
+    },
+    {
+     "type": "paragraph",
+     "text": "Dot plots: Display two parameters on the x- and y-axes. The given image is a dot plot and it has 4 quadrants as follows: Quadrant 1 (green) Negative for antigen A, positive for antigen B Quadrant 2 (purple) Negative for both antigens Quadrant 3 (yellow) Positive for both antigens Quadrant 4 (red) Positive for antigen A, negative for antigen B The dot plot in the question has CD19 (pan B-cell marker) on the X-axis and CD40 on the Y-axis."
+    },
+    {
+     "type": "paragraph",
+     "text": "The majority of the cells are in the double negative quadrant, indicating that both CD40 and CD19 are almost negative in this patient, suggesting the diagnosis of hyper IgM syndrome."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Hyper IgM syndrome (Option C):** is characterized by CD40L deficiency (X-linked) or CD40 deficiency (autosomal recessive), which affects both B and T cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Paroxysmal Nocturnal Hemoglobinuria (Option A):** A flow cytogram of blood from a patient with PNH shows a population of red cells that is deficient in both CD55 and CD59."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Glanzmann Thrombasthenia (Option D):** It is a platelet disorder characterized by glycoprotein IIb/IIIa defect, also known as CD41 (GpIIb) and CD61 (GpIIIa). Hence CD41 and CD61 are both negative on flow cytometry."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L22_Q007_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L22_Q007_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L22_Q007_explanation_3"
+    }
+   ]
+  },
+  {
+   "id": "pathology-22-8",
+   "question": "A 7-year-old boy is brought to the pediatric clinic due to recurrent infections, including pneumonia and abscesses. He has a history of photophobia and exhibits partial oculocutaneous albinism. On examination, he has notable nystagmus and ataxia. Genetic testing confirms a defect in the LYST gene. Which of the following laboratory findings would be most characteristic of this patient's condition?",
+   "options": {
+    "A": "Decreased immunoglobulin levels",
+    "B": "Elevated eosinophil count",
+    "C": "Presence of giant granules in leukocytes",
+    "D": "Elevated platelet count"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient’s history suggests Chediak Higashi syndrome, characterized by defective fusion of phagosomes and lysosomes, which results in defective phagocyte function and susceptibility to infections. Chediak Higashi syndrome: Inheritance pattern: Autosomal recessive."
+    },
+    {
+     "type": "paragraph",
+     "text": "Defect in lysosomal trafficking regulator gene ( LYST ) Defective fusion of phagosomes and lysosomes The main leukocyte abnormalities are neutropenia, defective degranulation, and delayed microbial killing. Leukocytes exhibit giant granules that are easily observed in peripheral blood smears and are believed to arise from abnormal fusion of phagolysosomes."
+    },
+    {
+     "type": "paragraph",
+     "text": "Abnormalities in melanocytes (leading to albinism ), cells of the nervous system (associated with nerve defects ), and platelets (causing bleeding disorders ) The image below shows giant granules in a neutrophil in Chediak-Higashi syndrome."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L22_Q008_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-22-9",
+   "question": "Match the following. i) X-linked Agammaglobulinemia a) WAS ii) Job syndrome b) LYST iii) Wiskott-Aldrich syndrome c) STAT3 iv) Ataxia Telangiectasia d) BTK v) Chediak-Higashi syndrome e) ATM",
+   "options": {
+    "A": "i-d, ii-c, iii-b, iv-e, v-a",
+    "B": "i-c, ii-d, iii-a, iv-e, v-b",
+    "C": "i-d, ii-b, iii-a, iv-e, v-c",
+    "D": "i-d, ii-c, iii-a, iv-e, v-b"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "X-linked (Bruton) Agammaglobulinemia BTK Job syndrome (Hyper IgE syndrome) STAT3 Wiskott-Aldrich syndrome WAS Ataxia Telangiectasia ATM Chediak-Higashi syndrome LYST"
+    }
+   ]
+  },
+  {
+   "id": "pathology-22-10",
+   "question": "In a pediatric clinic, a six-year-old male presents with a history of frequent respiratory and skin infections, eczema flare-ups, and thrombocytopenia. Given these symptoms, which genetic evaluation method would be the most effective for confirming the suspected diagnosis?",
+   "options": {
+    "A": "WASP gene mutation analysis",
+    "B": "ANA titer",
+    "C": "FISH",
+    "D": "B cell tyrosine kinase activity detection"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "WASP gene mutation analysis, specific to Wiskott-Aldrich syndrome. Wiskott-Aldrich syndrome is an X-linked recessive disease characterised by the triad of: Thrombocytopenia Eczema Recurrent infections Wiskott-Aldrich syndrome is caused by mutations in the gene located at Xp11.23, which encodes the Wiskott-Aldrich syndrome protein (WASP)."
+    },
+    {
+     "type": "paragraph",
+     "text": "WASP belongs to a family of proteins that are believed to link membrane receptors, such as antigen receptors, to cytoskeletal elements. Patients do not make antibodies to polysaccharide antigens, and the response to protein antigens is poor. IgM levels in the serum are low, but levels of IgG are usually normal. Paradoxically, the levels of IgA and IgE are often elevated. Patients are also prone to developing B-cell lymphomas."
+    },
+    {
+     "type": "paragraph",
+     "text": "WASP may be involved in cytoskeleton-dependent responses, including cell migration and signal transduction, but the essential functions of this protein in lymphocytes and platelets are unclear. It may lead to early death. The only treatment is HSC transplantation."
+    },
+    {
+     "type": "paragraph",
+     "text": "**ANA titer (Option B):** These are typically associated with SLE ( systemic lupus erythematosus ) FISH (Option C): FISH (Fluorescence In Situ Hybridization) is a molecular cytogenetic technique used to detect and localize specific DNA sequences within the chromosomes. It uses fluorescently labelled probes that bind to their complementary sequences on chromosomes, allowing for visualization of specific genes or regions of interest under a fluorescence microscope Also used in microdeletion, amplification or translocation. FISH is an investigation of choice for Di-George syndrome."
+    },
+    {
+     "type": "paragraph",
+     "text": "**B cell tyrosine kinase activity detection (Option D):** Detection of B cell tyrosine kinase activity is relevant for X-linked agammaglobulinemia (XLA), characterized by the absence of mature B cells and low levels of immunoglobulins."
+    }
+   ]
+  },
+  {
+   "id": "pathology-22-11",
+   "question": "A 30-year-old patient presents with a history of recurrent respiratory infections, chronic diarrhoea, and autoimmune manifestations. Laboratory investigations reveal low levels of serum immunoglobulins (IgG, IgA, and IgM). Which of the following immunodeficiency disorders is most likely associated with these clinical findings?",
+   "options": {
+    "A": "X-linked agammaglobulinemia (XLA)",
+    "B": "Common variable immunodeficiency (CVID)",
+    "C": "Hyper IgM syndrome",
+    "D": "Severe Combined Immunodeficiency (SCID)"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Common Variable Immunodeficiency (CVID): Nature: A group of disorders characterised by hypogammaglobulinemia, affecting all antibody classes or just IgG. Diagnosis: Exclusionary process, ruling out other causes of low antibody production. B Cell Count: Normal or near-normal B cell counts in blood and lymphoid tissues, but these B cells struggle to differentiate into plasma cells. Clinical Presentation: Recurring pyogenic sinopulmonary infections."
+    },
+    {
+     "type": "paragraph",
+     "text": "About 20% have recurring herpesvirus infections and Giardia lamblia-induced diarrhoea. Higher prevalence of autoimmune diseases like rheumatoid arthritis. Causes: Intrinsic B cell defects (BAFF gene defect) Issues with helper T cell activation ( ICOS gene defect) No consistent inheritance pattern, but relatives often have selective IgA deficiency."
+    },
+    {
+     "type": "paragraph",
+     "text": "Demographics: Affects both genders equally, with symptoms typically appearing in childhood or adolescence. Histology: Hyperplastic germinal centres in lymphoid tissues due to cells that can proliferate but not mature fully. Risks: Increased likelihood of autoimmune diseases (20% with rheumatoid arthritis), lymphoid malignancy, and gastric cancer."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Hyper IgM Syndrome(Option C):** Cause: Impaired class switching and affinity maturation of antibodies. Characteristics: Elevated IgM levels and reduced IgG and IgA. Clinical Presentation: Recurrent bacterial infections. A hallmark of it is elevated IgM levels, not low levels of all immunoglobulins."
+    }
+   ]
+  },
+  {
+   "id": "pathology-22-12",
+   "question": "A 6-year-old child presents with recurrent bacterial infections, delayed wound healing, and poor pus formation. Genetic testing reveals a mutation in the SLC35C1 gene, leading to the deficient synthesis of Sialyl Lewis X (SLex). Which of the following is the most likely consequence of this deficiency?",
+   "options": {
+    "A": "Impaired leukocyte rolling and weak adhesion",
+    "B": "Defective opsonisation",
+    "C": "Reduced chemokine production",
+    "D": "Increased neutrophil apoptosis"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Leukocyte adhesion deficiency: Leukocyte adhesion deficiency 1 Defective leukocyte adhesion because of mutations in the β chain of CD11/CD18 integrins Leukocyte adhesion deficiency 2 Defective leukocyte rolling and weak adhesion because of mutations in fucosyl transferase required for the synthesis of sialylated oligosaccharide (receptor for selectins) Leukocyte adhesion deficiency 3 LAD-III is caused by mutations in the FERMT3 gene, which encodes kindlin-3, a cytoskeletal protein."
+    },
+    {
+     "type": "paragraph",
+     "text": "These mutations disrupt the signalling of integrins on platelets and leukocytes, which impairs cellular adhesion The deficiency of Sialyl Lewis X (SLex), caused by mutations in the SLC35C1 gene in Leukocyte Adhesion Deficiency Type 2 (LAD-2), leads to impaired leukocyte adhesion."
+    },
+    {
+     "type": "paragraph",
+     "text": "SLex is a crucial glycoconjugate involved in the adhesion of leukocytes to endothelial cells, facilitating their migration from the bloodstream into tissues during inflammation or infection."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Defective opsonisation (Option B):** Opsonisation is the process by which immune cells, particularly phagocytes like neutrophils and macrophages, mark pathogens or foreign particles for phagocytosis. This marking is often facilitated by opsonins such as antibodies or complement proteins. A defect in opsonisation would lead to impaired recognition and clearance of pathogens by phagocytes, potentially increasing susceptibility to infections."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Reduced chemokine production (Option C):** Chemokines are signalling molecules that play a key role in immune cell migration, including leukocyte recruitment to sites of infection or inflammation. Reduced production of chemokines could result in inadequate recruitment of leukocytes to sites of infection, potentially leading to compromised immune responses."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Increased neutrophil apoptosis (Option D):** Apoptosis, or programmed cell death, is a regulated process in various cell types, including neutrophils. Increased neutrophil apoptosis could affect the lifespan and function of these immune cells, potentially impacting immune responses and pathogen clearance."
+    }
+   ]
+  }
+ ]
+}

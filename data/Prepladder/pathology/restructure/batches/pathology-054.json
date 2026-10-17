@@ -1,0 +1,509 @@
+{
+ "batch": "pathology-054",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pathology-054",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pathology-68-1",
+   "question": "What is the most common reason for an elevated reticulocyte count among the conditions?",
+   "options": {
+    "A": "Aplastic anemia",
+    "B": "Hemolytic anemia",
+    "C": "Megaloblastic anemia",
+    "D": "Myelophthisic anemia"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Hemolytic anaemia is the most common cause of elevated reticulocyte count amongst the above conditions, as it occurs due to excessive destruction of RBC while the bone marrow is still functional and it contains all the required components to produce reticulocytes. Thus, peripheral smear shows reticulocytosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Reticulocytosis Reticulocytopenia Hemolytic anemia Acute blood loss Therapeutic response to nutritional anaemia Aplastic anemia Nutritional anaemia Iron deficiency Vitamin B12 / B6 deficiency Myelophthisic anemia Myelodysplastic syndromes Anaemia of chronic disease"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L68_Q001_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-68-2",
+   "question": "What is the most likely interpretation if Hemoglobin is 9 g/dL, MCV is 104 fL, MCH is 22 pg, and MCHC is 31 g/dL?",
+   "options": {
+    "A": "Microcytic Hypochromic Anaemia",
+    "B": "Normocytic Normochromic Anaemia",
+    "C": "Macrocytic Hypochromic Anaemia",
+    "D": "Microcytic Normochromic Anaemia"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Parameter Values Normal Range Interpretation Haemoglobin (Hb) 9 g/dL 12-16 g/dL Low Mean Corpuscular Volume (MCV) 104 fL 80-100 fL High (Macrocytic) Mean Corpuscular Hemoglobin (MCH) 22 pg 27-33 pg Low (Hypochromic) Mean Corpuscular Hemoglobin Concentration (MCHC) 31 g/dL 32-36 g/dL Low (Hypochromic)"
+    }
+   ]
+  },
+  {
+   "id": "pathology-68-3",
+   "question": "What is the Mean Corpuscular Hemoglobin Concentration (MCHC) using Hemoglobin (Hb) level is 15 g/dL and Hematocrit (Hct) is 45%?",
+   "options": {
+    "A": "33.3 g/dL",
+    "B": "34.0 g/dL",
+    "C": "32.0 g/dL",
+    "D": "30.0 g/dL"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "MCHC indicates the amount of haemoglobin per unit volume. In contrast to MCH, MCHC correlates the haemoglobin content with the volume of the cells. It is expressed as g/dl of red blood cells or as a percentage value. MCHC (g/dl) = Hb x 100/ PCV or Hematocrit Given: Hemoglobin (Hb) = 15 g/dL; Hematocrit (Hct) = 45% Using the formula for MCHC: MCHC(g/dL)=Hemoglobin (g/dL)×100/Hematocrit (%) MCHC=15×100/45 MCHC=1500/45 MCHC=33.3 g/dL"
+    }
+   ]
+  },
+  {
+   "id": "pathology-68-4",
+   "question": "A 45-year-old male patient presents for a routine check-up. His laboratory results show that his Hemoglobin (Hb) level is 14 g/dL, and his RBC count is 4.7 million cells/μL. Using these values, calculate the Mean Corpuscular Hemoglobin (MCH).",
+   "options": {
+    "A": "29.8 pg",
+    "B": "29.0 pg",
+    "C": "30.0 pg",
+    "D": "28.5 pg"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "MCH (Mean Corpuscular Hemoglobin) measures the average amount of haemoglobin per red blood cell, expressed in picograms (pg) per cell. MCH provides important information about the hemoglobin content in individual red blood cells, which is crucial for diagnosing and classifying types of anemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "MCH (pg) = Hb x 10/ RBC count Given: Hemoglobin (Hb) = 14 g/dL; RBC count = 4.7 million cells/μL Using the formula for MCH: MCH(pg)=Hemoglobin (g/dL)×10/RBC count (millions/μL) MCH=14 ×10/4.7 MCH=140/4.7• MCH=29.8 pg"
+    }
+   ]
+  },
+  {
+   "id": "pathology-68-5",
+   "question": "Calculate MCV in a patient where RBC count is 4.5 million cells per microliter (cells/μL), Hb 9gm/dl and Hematocrit is 30%",
+   "options": {
+    "A": "65.7 fL",
+    "B": "66.7 fL",
+    "C": "67.7 fL",
+    "D": "68.7 fL"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The mean corpuscular volume (MCV) is a critical measurement to identify the underlying cause of anaemia. MCV is a laboratory value that measures the average size and volume of red blood cells expressed as femtoliters (fL). It provides essential information in the diagnostic process for anaemia. To calculate the MCV value, the per cent hematocrit is divided by the erythrocyte count and multiplied by 10."
+    },
+    {
+     "type": "paragraph",
+     "text": "MCV (fL) = PCV x 10/ RBC count Given: RBC count: 4.5 million cells/μL; Hematocrit/ PCV: 40% Using the formula for MCV: MCV (in fL) = (Hematocrit %)×10/(RBC×10 12 /L) MCV (fL) = Hematocrit(%)×10/RBC count(millions/μL) MCV = 30×10/4.5 MCV = 300/4.5• MCV = 66.7 fL From the calculated MCV, the patient is likely to have Microcytic anaemia."
+    }
+   ]
+  },
+  {
+   "id": "pathology-68-6",
+   "question": "RBC indices Definitions 1. MCV a) Indicates the variation in the size of red blood cells. 2. MCH b) Reflects the average volume of a red blood cell. 3. MCHC c) Measures the average amount of haemoglobin in a single red blood cell. 4. RDW d) Represents the amount of haemoglobin per unit volume of red blood cells.",
+   "options": {
+    "A": "1-b, 2-c, 3-d, 4-a",
+    "B": "1-c, 2-a, 3-b, 4-d",
+    "C": "1-d, 2-a, 3-c, 4-b",
+    "D": "1-b, 2-d, 3-c, 4-a"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "RBC INDICES DEFINITION INTERPRETATION MCV (Mean Corpuscular Volume) Reflects the average volume of a red blood cell and is expressed as femtoliters (fl) or cubic microns (μm³). MCV= PCV/RBC <80fl= Microcytic 80-100 fl= Normocytic >80= Macrocytic MCH (Mean Corpuscular Hemoglobin) Measures the average amount of haemoglobin in a single red blood cell, expressed in picograms (pg)."
+    },
+    {
+     "type": "paragraph",
+     "text": "MCH= Hb/ RBC <27 pg = Hypochromic 27-32 pg = Normochromic >32 pg = Hyperchromic MCHC (Mean Corpuscular Hemoglobin Concentration) Represents the average concentration of haemoglobin in a given volume of red blood cells, expressed as grams per deciliter (g/dl). MCHC= MCH/MCV Normal value: 33-37g/dl RDW (Red Cell Distribution Width) Indicates the variation in the size of red blood cells (Anisocytosis), expressed as a percentage."
+    },
+    {
+     "type": "paragraph",
+     "text": "Normal Value: 11.5-14.5%"
+    }
+   ]
+  },
+  {
+   "id": "pathology-68-7",
+   "question": "A 5-year-old child presented with a fever and his blood sample was taken to measure ESR using the Wintrobe tube. What are the advantages of the instrument (A) over instrument (B)?",
+   "options": {
+    "A": "The test is more sensitive",
+    "B": "Does not need anticoagulant",
+    "C": "Useful for estimation of both PCV and ESR",
+    "D": "More volume of the tube"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Features Wintrobe (A) Westergren (B) Structure Tube - closed at one end Pipette - open at both ends Length 11cm 30cm Diameter 2.5mm 2.5mm Volume (Option D) Less volume More volume Anticoagulant (Option B) EDTA Sodium citrate Uses PCV, ESR estimation, buffy coat smear preparation ESR estimation Sensitivity (Option A) Less More Image"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L68_Q007_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L68_Q007_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pathology-68-8",
+   "question": "Which statement accurately describes ESR (Erythrocyte Sedimentation Rate)?",
+   "options": {
+    "A": "Non-specific marker of inflammation",
+    "B": "Proportion of red blood cells in the total blood volume",
+    "C": "Reflects the oxygen-carrying capacity of the blood",
+    "D": "Reported in percentage"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "ESR (Erythrocyte Sedimentation Rate) PCV (Packed Cell Volume) Definition It measures the rate at which red blood cells (erythrocytes) settle at the bottom of a test tube over a specified period, usually one hour. PCV, also known as hematocrit, measures the proportion of blood volume occupied by red blood cells. (Option B) Significance Non-specific marker of inflammation No specific role in inflammation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Increases in Inflammation, fever, pregnancy, cancer Polycythemia Decreases in Sickle cell disease, polycythemia, hypoproteinemia Anemia Reported in Millimeter percentage % (Option D) Reference range Male ≤15 mm/hr Female ≤ 20 mm/hr Child ≤10 mm/h Male = 40% to 54% Female = 36% to 48%."
+    }
+   ]
+  },
+  {
+   "id": "pathology-68-9",
+   "question": "A 48-year-old man presents to the clinic with fatigue, palpitations, and shortness of breath. Examination reveals pallor. Using the following values, calculate the reticulocyte production index: Reticulocyte count: 5% Hemoglobin: 9 g/dL Hematocrit: 28%",
+   "options": {
+    "A": "1.8",
+    "B": "1.5",
+    "C": "2.5",
+    "D": "2.0"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The reticulocyte production index (RPI) is a calculated value used to assess the bone marrow's response to anaemia by correcting the reticulocyte count for the degree of anaemia and the maturation time of reticulocytes. RPI = CRC / maturation time in peripheral blood in days CRC = Observed reticulocyte count x Patient’s haemoglobin / standard haemoglobin."
+    },
+    {
+     "type": "paragraph",
+     "text": "Reticulocyte maturation time: Hematocrit Maturation time ≥ 40% 1 Day 30-40% 1.5 Days 20-30% 2 Days < 20% 2.5 Days From the given Clinical scenario, Reticulocyte count: 5%; Hemoglobin: 9 g/dL; Hematocrit: 28% CRC = 5 x 9 / 15 = 3.0 RPI = CRC / 2= 1.5"
+    }
+   ]
+  },
+  {
+   "id": "pathology-68-10",
+   "question": "A 30-year-old man presents to the OPD with fatigue, weakness, and breathlessness. He shows pallor and icterus on examination. Given his hemogram results, reticulocyte count of 5%, haemoglobin of 9 g/dL, and hematocrit of 28%, calculate his corrected reticulocyte count.",
+   "options": {
+    "A": "4.0",
+    "B": "5.1",
+    "C": "4.5",
+    "D": "3.0"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Normal reticulocyte count is 0.5-1.5%. Corrected reticulocyte count (CRC) is the correction for the degree of anaemia, and it's calculated using the following formula."
+    },
+    {
+     "type": "paragraph",
+     "text": "CRC= Observed reticulocyte count x Patient’s haemoglobin / Standard haemoglobin Standard hemoglobin for men= 15g/dl; for women=13g/dl For the the above patient: CRC = 5 x 9 / 15 = 3.0 Significance of Corrected Reticulocyte Count The corrected reticulocyte count is essential in evaluating anaemia to avoid misleadingly high percentages. Anaemia decreases RBCs, potentially inflating the reticulocyte percentage without increased erythropoiesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "The correction adjusts the reticulocyte percentage relative to the reduced RBC count, providing a more accurate assessment of bone marrow response. An increased corrected reticulocyte count indicates effective erythropoiesis. Low reticulocyte production may suggest bone marrow issues, iron, vitamin B12, or folate deficiencies."
+    }
+   ]
+  },
+  {
+   "id": "pathology-68-11",
+   "question": "At which site does erythropoiesis primarily occur in an adult human?",
+   "options": {
+    "A": "Bone marrow of long bones",
+    "B": "Bone marrow of all bones",
+    "C": "Yolk sac",
+    "D": "Liver"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Primary Sites of Erythropoiesis 1st trimester: Yolksac (Option C) 2nd trimester onwards: Liver (Option D) Children: Bone marrow of almost all bones (Option B) Adults: Only in the bone marrow of the long bones (e.g., femur, tibia), as well as in the pelvis, vertebrae, and sternum."
+    }
+   ]
+  },
+  {
+   "id": "pathology-68-12",
+   "question": "What is the approximate maturation time for reticulocytes in the bloodstream to form mature red blood cells?",
+   "options": {
+    "A": "1-2 days",
+    "B": "2-5 days",
+    "C": "6-7 days",
+    "D": "8-10 days"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Reticulocytes need 1-2 days to form mature red blood cells."
+    }
+   ]
+  },
+  {
+   "id": "pathology-68-13",
+   "question": "What is the normal range for reticulocyte count in adults?",
+   "options": {
+    "A": "0.5-2%",
+    "B": "2-6%",
+    "C": "2-3%",
+    "D": "0-0.1%"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Reticulocytes are RBC precursors with no nucleus. 0.5-2% is the normal range of reticulocyte count in adults."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L68_Q013_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-68-14",
+   "question": "A 25-year-old woman experiences ongoing fatigue and weakness, appearing pale upon examination. Laboratory investigations reveal low haemoglobin levels, and a peripheral blood smear is ordered. Which stain is most effective for visualising reticulocytes in peripheral blood smears?",
+   "options": {
+    "A": "Prussian Blue",
+    "B": "New Methylene Blue",
+    "C": "Periodic acid-Schiff (PAS) stain",
+    "D": "Wright stain"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The presence of anaemia typically triggers the body's response by increasing erythropoiesis, releasing reticulocytes into circulation early as part of the compensatory mechanism to replenish red blood cells and enhance tissue oxygenation. New Methylene blue is used to visualise reticulocytes in peripheral blood smears. It is a supravital stain that stains living states like the RNA in reticulocytes."
+    },
+    {
+     "type": "paragraph",
+     "text": "It picks up RNA as a bluish reticulated network within erythrocytes. This stain is useful in assessing bone marrow function and erythropoietic activity."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Prussian blue (Option A):** Prussian blue stain detects iron in hemosiderin-containing cells. Iron is chemically reactive and turns blue-black when exposed to potassium ferrocyanide, which is present in Prussian blue."
+    },
+    {
+     "type": "paragraph",
+     "text": "**PAS Stain (Option C):** A periodic acid-Schiff (PAS) stain detects polysaccharides, such as glycogen, glycoproteins, glycolipids, and mucin in tissues."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Wright's stain (Option D):** Wright’s stain is a mixture of eosin (red) and methylene blue dyes. It is used in blood smears and bone marrow aspirates to detect RBCs, WBCs, and Platelets abnormalities."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L68_Q014_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L68_Q014_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L68_Q014_explanation_3"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L68_Q014_explanation_4"
+    }
+   ]
+  },
+  {
+   "id": "pathology-68-15",
+   "question": "Which stage of erythropoiesis is characterised by the expulsion of the nucleus, resulting in a smaller, pyknotic cell with increased haemoglobin content?",
+   "options": {
+    "A": "Reticulocyte",
+    "B": "Normoblast",
+    "C": "Basophilic erythroblast",
+    "D": "Proerythroblast"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Reticulocytes are smaller pyknotic cells with increased haemoglobin content and have no nucleus. Increased RBC production occurs as a compensatory mechanism in anaemia, initiating erythropoiesis, which is stimulated by the release of erythropoietin from the kidneys."
+    },
+    {
+     "type": "paragraph",
+     "text": "Erythropoietin prompts bone marrow to increase red blood cell production by promoting the proliferation and differentiation of hematopoietic stem cells into erythroid progenitor cells, ultimately leading to the maturation of red blood cells. Stages of Erythropoiesis It starts with Hematopoietic stem cells(HSC)→Common Myeloid Progenitor cells(CMP)→Proerythroblasts."
+    },
+    {
+     "type": "paragraph",
+     "text": "Once the proerythroblast has been formed, it divides multiple times, eventually forming many mature RBCs. Proerythroblast- first cell in which Hb is visualised on Electron microscopy. Intermediate normoblast- first cell in which Hb is visualised on Light microscopy. The first-generation cells are called basophil erythroblasts because they stain with basic dyes."
+    },
+    {
+     "type": "paragraph",
+     "text": "Haemoglobin first appears in polychromatophilic erythroblasts and progressively increases. As erythropoiesis progresses, the cell and nucleus size progressively decreases. The reticulocyte is the first cell without a nucleus."
+    },
+    {
+     "type": "paragraph",
+     "text": "During the reticulocyte stage, the cells pass from the bone marrow into the blood capillaries by diapedesis (squeezing through the pores of the capillary membrane). factors affecting erythropoiesis increasing- EPO, Growth hormone, T3, Cortisol, Testosterone decreasing- estrogen"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L68_Q015_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-68-16",
+   "question": "Which condition is NOT typically associated with a dry tap during bone marrow aspiration?",
+   "options": {
+    "A": "Aplastic anaemia",
+    "B": "Hairy cell leukemia",
+    "C": "Myelofibrosis",
+    "D": "Chronic Myeloid Leukemia"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Chronic Myeloid Leukemia (CML) is a myeloproliferative neoplasm characterised by the presence of the Philadelphia chromosome, resulting in the abnormal proliferation of myeloid cells. The marrow in CML is hypercellular due to increased numbers of maturing granulocytic precursors (promyelocytes, myelocytes, eosinophils and basophils)."
+    },
+    {
+     "type": "paragraph",
+     "text": "A characteristic finding is the presence of scattered macrophages with abundant wrinkled, green-blue cytoplasm (sea-blue histiocytes). CML can lead to increased cellularity in the bone marrow, it typically does not cause significant fibrosis or hypocellularity, the primary factor contributing to dry taps."
+    },
+    {
+     "type": "paragraph",
+     "text": "Causes of Dry Tap: Aplastic anaemia Hairy cell Leukemia Myelofibrosis Myelophthisic anaemia AML-M7 Bone marrow biopsy (instead of BM aspiration) will be helpful in these conditions."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L68_Q016_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-68-17",
+   "question": "If a person is 45 years old, what would be the expected percentage of cellularity in their bone marrow biopsy?",
+   "options": {
+    "A": "45%",
+    "B": "55%",
+    "C": "65%",
+    "D": "75%"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The expected percentage of cellularity in a bone marrow biopsy can be estimated using the formula: % Cellularity =100 − age of the patient So, for a 45-year-old person: Cellularity = 100 − 45 = 55% Therefore, the expected percentage of cellularity in their bone marrow biopsy would be 55%."
+    }
+   ]
+  },
+  {
+   "id": "pathology-68-18",
+   "question": "A 35-year-old man presents undergoes a bone marrow biopsy, which shows a composition of cells and fat. What is the ratio of hematopoietic cells to fat cells expected in an adult?",
+   "options": {
+    "A": "1:1",
+    "B": "1:3",
+    "C": "2:3",
+    "D": "3:1"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "This ratio tends to be more evenly distributed in adults, with around 50% of each cell type present. (1:1) (Option A) Two primary constituents Within the bone marrow are hematopoietic and fat cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "A child's marrow typically consists of 75% hematopoietic cells and 25% fat cells (3:1) (Option D), contrasting with an elderly individual's marrow, which contains approximately 25% hematopoietic and 75% fat cells (1:3). (Option B) These proportions vary with age and health conditions, illustrating the dynamic nature of bone marrow composition."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L68_Q018_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-68-19",
+   "question": "A 56-year-old male presents with pancytopenia and is scheduled for a bone marrow biopsy to determine the underlying cause. What is the most common site for performing a bone marrow biopsy in this patient?",
+   "options": {
+    "A": "Anterior Superior Iliac spine",
+    "B": "Posterior Superior Iliac spine",
+    "C": "Proximal femur",
+    "D": "Proximal tibia"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The posterior superior iliac spine is the preferred site for obtaining bone marrow in adults because it contains the most cellular marrow, there are no vital organs in close proximity, and it is a non-weight-bearing structure."
+    }
+   ]
+  },
+  {
+   "id": "pathology-68-20",
+   "question": "Identify the instrument shown in the image below.",
+   "options": {
+    "A": "Salah needle",
+    "B": "Klima needle",
+    "C": "Jamshidi needle",
+    "D": "Quincke needle"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The Jamshidi Needle (T-shaped needle) is the most commonly used needle for bone marrow aspiration and biopsy due to its design, which allows for minimal trauma and obtaining an intact core biopsy."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Salah needle (Option A):** This needle is used for only bone marrow aspiration and not for biopsy."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Klima needle (Option B):** The Klima needle is also used for bone marrow aspiration. It functions similarly to the Salah needle in aspirating bone marrow cells but is not the primary tool for obtaining a core biopsy Quincke needle (Option D): The Quincke needle is used primarily for lumbar puncture procedures (spinal taps) to collect cerebrospinal fluid (CSF). It is not used for bone marrow biopsies."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L68_Q020_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L68_Q020_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L68_Q020_explanation_3"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L68_Q020_explanation_4"
+    }
+   ]
+  }
+ ]
+}

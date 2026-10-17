@@ -1,0 +1,685 @@
+{
+ "batch": "pathology-058",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pathology-058",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pathology-72-8",
+   "question": "Which of the following helps differentiate megaloblastic anaemia caused by vitamin B12 deficiency, not folate?",
+   "options": {
+    "A": "Reduced plasma homocysteine levels",
+    "B": "Neurological symptoms improve after folate administration",
+    "C": "Raised urinary methylmalonic acid levels",
+    "D": "Anaemia doesn’t improve after folate administration"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Plasma and urinary methylmalonic acid levels will be elevated in case of vitamin B12 deficiency but not with folate deficiency. This is because the enzyme methylmalonyl coenzyme A mutase's isomerisation of methylmalonyl coenzyme A to succinyl coenzyme A requires adenosylcobalamin (a form of vitamin B12) as a cofactor. A deficiency of vitamin B12 thus leads to increased plasma and urine levels of methylmalonic acid."
+    },
+    {
+     "type": "paragraph",
+     "text": "Vitamin B12 is key in converting homocysteine to methionine; hence, its deficiency will lead to elevated homocysteine levels (Option A) rather than reduction. Neurological symptoms will remain the same, if not worsen, after folate administration in case of Vitamin B12 deficient megaloblastic anaemia (Option B)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Improvement in symptoms and reduction in megaloblastic count occur after folate administration, even if the anaemia is due to Vitamin B12 deficiency (Option D)."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L72_Q008_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-72-9",
+   "question": "Which of the following is true when increased urinary formiminoglutamic acid is detected in a patient to whom histidine is given?",
+   "options": {
+    "A": "Presence of antibodies against intrinsic factor",
+    "B": "Deficiency of folic acid is present",
+    "C": "Neurological symptoms are common",
+    "D": "Presence of worm infestation"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Elevated urinary levels of formiminoglutamic acid (FIGlu) in a patient to whom histidine is given suggests the presence of folic acid deficiency. This is called the FIGlu test. Folic acid is normally required in its tetrahydrofolate form to regulate DNA synthesis and the production of methionine, glutamate, etc. Formiminoglutamic acid derived from histidine will be converted to glutamate in the presence of folic acid."
+    },
+    {
+     "type": "paragraph",
+     "text": "If there is a folic acid deficiency, this conversion will not occur, leading to elevated urinary formiminoglutamic acid."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Presence of antibodies against intrinsic factor (Option A):** Antibodies to intrinsic factor will be seen in pernicious anaemia in which there will be vitamin B12 deficiency."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Neurological symptoms are common (Option C):** Neurological symptoms will be seen in Vitamin B12 deficiency, not folate deficiency."
+    }
+   ]
+  },
+  {
+   "id": "pathology-72-10",
+   "question": "A patient presents with inflammation of the mouth and tongue. He is a non-vegetarian. As part of the evaluation, a Schilling test was done and found unremarkable. Which of the following investigations could lead to the aetiology behind this presentation?",
+   "options": {
+    "A": "Serum folate levels",
+    "B": "Peripheral blood smear",
+    "C": "Anti-IF antibody levels",
+    "D": "Serum Vitamin B12 levels"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "It is a scenario of possible megaloblastic anaemia due to folate deficiency. Hence, serum/red cell folate can lead to the aetiology behind this presentation. Schilling test is done by orally administering the patient with radioactive vitamin B12 and checking its presence in the urine. If present, as with this case, it is understood that there is no problem with the absorption."
+    },
+    {
+     "type": "paragraph",
+     "text": "In addition to an unremarkable Schilling test, the fact that vitamin B12 deficiency is uncommon among non-vegetarians suggests a diagnosis of folate-deficient megaloblastic anaemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "Stage of test 24-hour urinary excretion of radiolabelled B12 Inference Stage 1: Oral radiolabelled B12 + IM dose of unlabelled B12 (to saturate liver stores) >10% (Normal) Malnutrition <10% Stage 2 of the test is done Stage 2: Oral radiolabelled B12 + Intrinsic factor >10% Pernicious anaemia <10% Stage 3 of the test is done Stage 3: Oral radiolabelled B12 + Antibiotics (5-day course) >10% Small intestinal bacterial overgrowth <10% Stage 4 of the test is done Stage 4: Oral radiolabelled B12 + Recombinant pancreatic enzymes >10% Pancreatic insufficiency (Cystic fibrosis, chronic pancreatitis) <10% Consider other ileal diseases Peripheral blood smear (Option B) may exhibit megalocytes with hyper-segmented neutrophils suggestive of megaloblastic anaemia, but the aetiology cannot be identified based on this."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Anti-IF (intrinsic factor) antibodies (Option C):** are found in patients with pernicious anaemia, and since the Schilling test is unremarkable, it can be ruled out."
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-1",
+   "question": "A software engineer presents to the outpatient department with easy fatiguability. He gives a history of sitting in front of the computer for 12-14 hours. He consumes a lot of junk food with very few fruits and vegetables. Hb is 9 g/dl, and MCV is 80 fl. What is the most likely cause of this patient’s anemia?",
+   "options": {
+    "A": "Cyanocobalamin deficiency",
+    "B": "Iron deficiency",
+    "C": "Folic acid deficiency",
+    "D": "Hereditary spherocytosis"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "This patient’s symptoms with a history of poor dietary habits and laboratory findings of Hb 9 g/dL with an MCV of 80 fl (microcytic anaemia) strongly suggest iron deficiency anaemia. Iron deficiency anaemia can result from dietary lack, impaired absorption, increased iron requirement (e.g., during pregnancy), or chronic blood loss (e.g., gastrointestinal bleeding)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Clinical features include Koilonychia, alopecia, atrophic glossitis, esophageal webs, pica and intestinal malabsorption, affecting overall nutritional status."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Cyanocobalamin deficiency (Option A):** causes megaloblastic anemia, which typically presents with macrocytic anemia (elevated MCV), not the microcytic anemia seen in this patient."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Folic acid deficiency (Option B):** also causes megaloblastic anemia, which presents with macrocytic anemia (high MCV), not microcytic anemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Hereditary spherocytosis (Option D):** is a condition where red blood cells are abnormally shaped (spherocytes), leading to hemolysis and normocytic anemia (normal MCV)."
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-2",
+   "question": "A patient is diagnosed with B-cell leukaemia. Which of the following are poor prognostic factors? Hyperdiploidy Age <1 year t(9:22) t(4:11)",
+   "options": {
+    "A": "A, C, D",
+    "B": "C, D",
+    "C": "A, B, C, D",
+    "D": "B, C, D"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Hyperdiploidy is generally associated with a better prognosis in B-cell leukaemia, particularly in acute lymphoblastic leukaemia (ALL) Prognostic factors in ALL: Favorable Prognostic factors Unfavorable prognostic factors Age: 1-10 years Leucocyte count < 50000/µl Hyperploidy t (12:21) L1 ALL Response to treatment Early Pre B-cell ALL Female Extreme age group: <1 year or >10 years Hypoploidy t(9:22) and t(4:11) L2 and L3 ALL and mature B cell ALL Total leukocyte count >50,000/cubic.mm Black males Organomegaly CNS Leukemia Absence of CD10 Remission> 14 days"
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-3",
+   "question": "All of the following are seen in the anaemia of chronic disease, except:",
+   "options": {
+    "A": "High serum hepcidin",
+    "B": "Low serum ferritin",
+    "C": "Chronic infection",
+    "D": "Normal iron stores"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "In anaemia of chronic disease, ferritin levels are typically normal or elevated due to the inflammatory response, while hepcidin levels are increased, leading to impaired iron absorption and reduced availability of iron for erythropoiesis. Anaemia of Chronic Disease (AOCD): Interleukin-6 is the most important inflammatory mediator linked to the pathogenesis of anaemia of chronic disease (AOCD)."
+    },
+    {
+     "type": "paragraph",
+     "text": "In chronic conditions, Interleukin-6 will increase and act on the liver. Releases Hepcidin (Master regulator of Iron metabolism) Inhibits Fe absorption. Serum iron levels and transferrin saturation are decreased. Inhibits the release of Fe from ferritin. Therefore, ferritin levels increase."
+    },
+    {
+     "type": "paragraph",
+     "text": "This leads to a decrease in TIBC. Anemia Serum Iron Transferrin saturation Serum Ferritin TIBC Sideroblastic Anemia High High High Low Iron Deficiency Anemia Low Low Low High Anaemia of Chronic Disease Low Low High Low Hemolytic Anemia High Low High Low"
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-4",
+   "question": "A 10-year-old boy presents with fatigue. Investigations reveal the following: Hemoglobin: 9 g/dL MCV: 80 fL MCH: 29 pg Serum ferritin: 185 μg/L TLC: Elevated with predominant lymphocytes and neutrophils. What is the likely diagnosis for this patient?",
+   "options": {
+    "A": "Thalassemia",
+    "B": "Anemia of chronic disorder",
+    "C": "Iron deficiency anaemia",
+    "D": "Sickle cell anemia"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient has normocytic, normochromic anaemia with normal MCV (80 fL) and MCH (29 pg). Elevated serum ferritin (185 μg/L) suggests adequate iron stores, ruling out iron deficiency anaemia. The elevated TLC with predominant lymphocytes and neutrophils indicates an underlying chronic inflammatory or infectious condition consistent with anaemia of chronic disease (ACD)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Serum Iron Transferrin saturation Serum Ferritin TIBC Sideroblastic Anemia High High High Low Iron Deficiency Anemia Low Low Low High Anemia of Chronic Disease Low Low High Low Hemolytic Anemia High Low High Low Thalassemia (Option A) typically presents with microcytic anaemia and reduced MCV, which is not seen here."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Iron deficiency anaemia (Option C):** typically presents with low ferritin levels, which is not consistent with the patient's ferritin level."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Sickle cell anaemia (Option D):** usually results in normocytic anaemia but would typically show sickle-shaped cells on a peripheral blood smear, which is not described in this case."
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-5",
+   "question": "What is the most likely diagnosis for an 18-year-old male with gum bleeding, fever for two months, pallor, low haemoglobin (3 gm/dL), low TLC (1500/microL), low platelet count (15000/microL), macrocytes on peripheral smear, 0.5% reticulocyte count, and bone marrow examination showing fatty streaks and a lack of megakaryocytes but no immature cells?",
+   "options": {
+    "A": "Idiopathic acquired aplastic anemia",
+    "B": "Paroxysmal nocturnal hemoglobinuria",
+    "C": "Myelodysplastic syndrome",
+    "D": "Tuberculosis"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient presents with gum bleeding, prolonged fever, pallor, and pancytopenia. Bone marrow examination shows fatty streaks, a lack of megakaryocytes, and no immature cells, suggesting idiopathic acquired aplastic anemia, where bone marrow failure leads to hematologic abnormalities."
+    },
+    {
+     "type": "paragraph",
+     "text": "Aplastic anaemia is a condition of primary hematopoietic failure resulting in pancytopenia (anaemia, neutropenia, thrombocytopenia), often due to autoimmune mechanisms or inherited/acquired abnormalities in hematopoietic stem cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "Etiology: Common causes: Chemical and drug exposure (e.g., chemotherapy, benzene) Viral infections (e.g., hepatitis, linked to 5% of cases) Radiation exposure (e.g., therapeutic or nuclear accidents) Genetic causes: Fanconi anaemia: Rare autosomal recessive disorder with congenital anomalies (kidney, spleen hypoplasia, bone anomalies)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Telomerase defects: Found in 5-10% of adult-onset cases, causing premature exhaustion of hematopoietic stem cells. Idiopathic cases: No identifiable cause in ~65% of cases. Morphology: Bone Marrow: Hypocellular marrow with fat cells, fibrous stroma, and scattered lymphocytes/plasma cells. \"Dry tap\" on marrow aspirates (due to lack of hematopoietic cells). Peripheral Blood: Macrocytic, normochromic red cells with reticulocytopenia."
+    },
+    {
+     "type": "paragraph",
+     "text": "Granulocytopenia (leading to infections) and thrombocytopenia (leading to bleeding). Clinical features: Onset: Insidious, with progressive pancytopenia. Anaemia: Weakness, pallor, dyspnea. Thrombocytopenia: Petechiae, ecchymosis. Neutropenia: Frequent infections, chills, fever. Splenomegaly: Generally absent. Red Cells: Slightly macrocytic and normochromic. Diagnosis: Based on bone marrow biopsy, showing hypocellularity."
+    },
+    {
+     "type": "paragraph",
+     "text": "Must differentiate from other causes of pancytopenia, like leukaemia or myelodysplastic syndrome, where the marrow is typically hypercellular."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Paroxysmal nocturnal hemoglobinuria (PNH) (Option B):** is a rare acquired disorder where red blood cells are destroyed by complement. It often presents with hemolysis and episodes of dark urine, especially at night. The peripheral smear in PNH shows evidence of hemolysis and pancytopenia, but bone marrow findings would not show fatty streaks with a lack of megakaryocytes, as in this case."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Myelodysplastic syndrome (MDS) (Option C):** typically presents with cytopenias and abnormal blood cell morphology. Bone marrow findings in MDS often show dysplastic changes in blood cells, which would not correlate with the lack of immature cells seen here. Additionally, the absence of megakaryocytes and the presence of fatty streaks suggest aplasia rather than dysplastic hematopoiesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Tuberculosis (TB) (Option D):** While TB can cause systemic symptoms like fever and weight loss, it is not typically associated with pancytopenia, macrocytic anaemia, and bone marrow findings of fatty streaks with a lack of megakaryocytes. TB may affect bone marrow in disseminated forms, but the presentation and lab findings here point more to an intrinsic hematopoietic failure like aplastic anaemia."
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-6",
+   "question": "A 24-year-old male patient presents with anaemia. Both his father and paternal aunt experienced similar illnesses and were effectively treated with splenectomy. The patient's peripheral blood smear resembles the one depicted in the accompanying illustration, showing spherocytes. What other abnormalities can be anticipated?",
+   "options": {
+    "A": "Decreased osmotic fragility",
+    "B": "Decreased reticulocytes",
+    "C": "Heinz bodies",
+    "D": "Howell-Jolly bodies"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical presentation, along with microscopic findings, indicates hereditary spherocytosis. Howell-Jolly bodies, remnants of nuclear material normally removed by the spleen, persist in red blood cells in splenectomised patients and can be seen on a peripheral blood smear."
+    },
+    {
+     "type": "paragraph",
+     "text": "Hereditary spherocytosis (HS) is an inherited disorder caused by intrinsic defects in the red cell membrane skeleton that render red cells spheroid, less deformable, and vulnerable to splenic sequestration and destruction. It has an autosomal dominant inheritance(75%) characterised by ankyrin mutation and an autosomal recessive inheritance characterised by spectrin mutation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Pathophysiology of hereditary spherocytosis: The most specific morphologic finding is spherocytosis: Dark-staining (hyperchromic) spherocytes lacking the central zone of pallor. Other features include reticulocytosis. The characteristic clinical features are anaemia, splenomegaly, jaundice, and an increased risk of gallstones. Severity ranges from asymptomatic to severe hemolytic anaemia requiring transfusions."
+    },
+    {
+     "type": "paragraph",
+     "text": "Early complications include neonatal jaundice and hemolytic crises. Late complications include gallstones and rarely iron overload."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Decreased osmotic fragility (Option A):** In hereditary spherocytosis, osmotic fragility increases, not decreases. Red blood cells are more prone to bursting in hypotonic solutions."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Decreased reticulocytes (Option B):** Reticulocyte count is typically increased in hereditary spherocytosis, especially in cases of hemolysis, as the bone marrow compensates by producing more immature red blood cells. Heinz bodies (Option C) are formed due to oxidative damage to haemoglobin and are typically seen in G6PD deficiency or other conditions involving hemoglobinopathy."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L73_Q006_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L73_Q006_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-7",
+   "question": "Which of the following is not likely to be seen in a patient with paroxysmal nocturnal hemoglobinuria (PNH)?",
+   "options": {
+    "A": "Aplastic anemia",
+    "B": "Leukaemia",
+    "C": "Thrombosis",
+    "D": "Hemolysis"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Leukaemia is not likely to be seen in a patient with Paroxysmal Nocturnal Hemoglobinuria (PNH). It is a rare acquired hematopoietic stem cell disorder characterized by a deficiency of glycosylphosphatidylinositol (GPI)-anchored proteins on the surface of blood cells, particularly red blood cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "PNH blood cells are deficient in three GPI-linked proteins that regulate complement activity: CD55 (decay-accelerating factor) CD59 (membrane inhibitor of reactive lysis) C8-binding protein. Pathogenesis: It results from acquired mutations in the phosphatidylinositol glycan complementation group A gene (PIGA), an enzyme that is essential for the synthesis of certain membrane-associated complement regulatory proteins."
+    },
+    {
+     "type": "paragraph",
+     "text": "Clinical features: It causes intravascular hemolysis and anaemia. (Option D ruled out) Haemoglobinuria (red-brown colour) (most noticeable in early morning urine) Hypoplastic bone marrow failure, aplastic anaemia (Option A ruled out), thrombosis (Option C ruled out), and myelodysplastic syndrome Management Transfusion Folate supplements Prophylaxis or treatment of thrombosis Anti-complement C5 monoclonal antibody."
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-8",
+   "question": "All are hereditary causes of thrombosis except:",
+   "options": {
+    "A": "PNH",
+    "B": "Protein S deficiency",
+    "C": "Antithrombin deficiency",
+    "D": "Homocystinuria"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Paroxysmal nocturnal hemoglobinuria (PNH) is a rare acquired condition marked by clonal expansion of hematopoietic stem cells lacking GPI anchor proteins and is not a hereditary cause of thrombosis. PNH blood cells are deficient in three GPI-linked proteins that regulate complement activity: CD55 (decay-accelerating factor) CD59 (membrane inhibitor of reactive lysis) C8-binding protein."
+    },
+    {
+     "type": "paragraph",
+     "text": "Pathogenesis: It results from acquired mutations in the phosphatidylinositol glycan complementation group A gene (PIGA), an enzyme that is essential for the synthesis of certain membrane-associated complement regulatory proteins."
+    },
+    {
+     "type": "paragraph",
+     "text": "Clinical features: It causes intravascular haemolysis and anaemia Haemoglobinuria (red-brown colour) (most noticeable in early morning urine) Hypoplastic bone marrow failure, aplastic anaemia and myelodysplastic syndrome Management Transfusion Folate supplements Prophylaxis or treatment of thrombosis Anti-complement C5 monoclonal antibody."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Protein S deficiency (Option B):** is a genetic disorder that increases the risk of abnormal blood clotting (thrombosis). Protein C and its co-factor protein S are vitamin K-dependent natural anticoagulants involved in switching off coagulation factor activation (factors Va and VIIIa) and thrombin generation. Deficiency can lead to deep vein thrombosis (DVT), pulmonary embolism (PE), and other thrombotic events."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Antithrombin deficiency (Option C):** is an autosomal dominant inherited disorder that heightens the risk of abnormal blood clotting (thrombosis). Antithrombin (AT) is a serine protease inhibitor (SERPIN) that inactivates activated coagulation factors IIa, IXa, Xa, and XIa. A deficiency in AT can result in deep vein thrombosis (DVT), pulmonary embolism (PE), and other thrombotic events. Heparins and fondaparinux enhance AT activity to exert their therapeutic effects."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Homocystinuria (Option D):** is an autosomal recessive disorder caused by mutations in the CBS gene, leading to cystathionine β-synthase deficiency that results in the accumulation of homocysteine and methionine in the blood. Symptoms include lens dislocation (ectopia lentis), intellectual disability, seizures, skeletal abnormalities similar to Marfan's syndrome, osteoporosis, thrombosis, and hyperpigmentation."
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-9",
+   "question": "All of the following are associated with massive splenomegaly, except:",
+   "options": {
+    "A": "Chronic myeloid leukemia",
+    "B": "Aplastic anemia",
+    "C": "Hairy cell leukemia",
+    "D": "Lymphoma"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Massive splenomegaly, often linked to haematological disorders, is not typically associated with Aplastic Anemia, a bone marrow failure condition characterized by reduced production of blood cells. Aplastic Anemia It refers to a syndrome of chronic primary hematopoietic failure and attendant pancytopenia."
+    },
+    {
+     "type": "paragraph",
+     "text": "Cause Acquired Idiopathic Acquired stem cell defects Immune-mediated Chemical agents Dose-related (Alkylating agents, antimetabolites, benzene, chloramphenicol, inorganic arsenicals) Idiosyncratic (Chloramphenicol, phenylbutazone, organic arsenicals, methylphenylethylhydantoin, carbamazepine, penicillamine, gold salts) Physical agents Whole-body irradiation Viral infections Hepatitis (unknown virus) Cytomegalovirus infections Epstein-Barr virus infections Herpes zoster (varicella zoster) Inherited Fanconi anemia Telomerase defects Pathogenesis The pathogenesis of aplastic anaemia is not fully understood."
+    },
+    {
+     "type": "paragraph",
+     "text": "However, two major etiologies have been invoked: Extrinsic (immune-mediated suppression of marrow progenitors) Intrinsic (abnormality of stem cells) Clinical features Onset: Insidious. Pancytopenia Anaemia (progressive weakness, pallor, and dyspnea) Thrombocytopenia (petechiae and ecchymoses) Neutropenia (frequent and persistent infections or the sudden onset of chills, fever, and prostration)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Splenomegaly is absent (Option B):** The red cells are usually slightly macrocytic and normochromic. Microscopy Hypocellular bone marrow is largely devoid of hematopoietic cells; often, only fat cells, fibrous stroma, and scattered lymphocytes and plasma cells remain. Marrow aspirates often yield little material (a “dry tap”)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Chronic myeloid leukaemia (Option A):** Extensive extramedullary hematopoiesis often results in significant splenomegaly. Bone marrow findings typically include hypercellularity, an increased myeloid-to-erythroid ratio, and the presence of dwarf megakaryocytes. Additionally, sea-blue histiocytes, also known as pseudo-Gaucher cells, may be observed in the marrow. Hairy cell leukaemia (Option C) presents with fatigue, recurrent infections, easy bruising, and symptoms related to splenomegaly, such as early satiety and abdominal discomfort, along with pancytopenia. Peripheral smear typically shows \"hairy cells\" with round, oblong, or reniform nuclei and pale blue cytoplasm. Bone marrow findings often reveal hypocellular or fibrotic marrow with \"hairy cells\" and a characteristic \"fried egg\" appearance. Lymphoma (Option D) is cancer that originates in the lymphatic system, part of the immune system, and involves the uncontrolled growth of lymphocytes (a type of white blood cell). It can present with splenomegaly. The two main types are Hodgkin lymphoma (HL), characterized by Reed-Sternberg cells, and Non-Hodgkin lymphoma (NHL)."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L73_Q009_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L73_Q009_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L73_Q009_explanation_3"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L73_Q009_explanation_4"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L73_Q009_explanation_5"
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-10",
+   "question": "A child presented with bilateral proptosis. From the peripheral smear, he was suspected to have chloroma. What is the next investigation of choice?",
+   "options": {
+    "A": "Platelet count",
+    "B": "WBC count",
+    "C": "Flow cytometry",
+    "D": "Bone marrow biopsy"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The next investigation of choice for a child suspected to have Chloroma (also known as Granulocytic Sarcoma or Myeloblastoma) is a bone marrow biopsy. It is a localized extramedullary myeloid tumour composed of immature myeloid cells, which can occur in patients with acute myeloid leukaemia (AML) or myelodysplastic syndrome (MDS). It is not a benign tumour, but it has a greenish colour. Site: Soft tissue involvement in orbit leads to proptosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Associated with AML M2 and M5. Bone marrow biopsy: Confirms the diagnosis by revealing the presence of abnormal myeloid cells infiltrating the bone marrow. (Option D) Peripheral smear findings: Myeloblasts. Arbiskov cells: Atypical monocytes/macrophages. Markers: MPO (green colour), CD 43, CD 45 and Lysozyme."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Platelet count (Option A):** , WBC count (Option B) and Flow cytometry (Option C) might be done but they do not confirm the diagnosis of chloroma."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L73_Q010_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L73_Q010_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L73_Q010_explanation_3"
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-11",
+   "question": "Which of the following statements regarding the effect of glucose-6-phosphate dehydrogenase deficiency is correct? Decrease in reduced glutathione Decrease NADPH Decreased lipid peroxidation Decreased RBC membrane damage",
+   "options": {
+    "A": "Only 1 is correct",
+    "B": "1 & 2 are correct",
+    "C": "2 & 3 are correct",
+    "D": "1, 2 & 4 are correct"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "1 & 2 statements are correct regarding Glucose-6-phosphate Dehydrogenase (G6PD) Deficiency. It is an X-linked recessive disorder. Pathogenesis: It is characterized by a deficiency in the G6PD enzyme, which protects red blood cells from oxidative damage. This reduces the ability to generate NADPH (Statement 2) via the pentose phosphate pathway and impairs glutathione regeneration (Statement 1), exacerbating oxidative stress and hemolysis."
+    },
+    {
+     "type": "paragraph",
+     "text": "When exposed to oxidative stressors, there is an imbalance between the production of reactive oxygen species (ROS) and antioxidants that neutralize them."
+    },
+    {
+     "type": "paragraph",
+     "text": "This leads to oxidative damage to red blood cell membranes and proteins, resulting in hemolysis. (Statement 4) Clinical features: Episodes of acute hemolytic anaemia triggered by oxidative stressors such as infections, certain medications (e.g., antimalarials, sulfonamides), or ingestion of certain foods (e.g., fava beans). Fatigue, pallor, jaundice, and dark urine (due to hemoglobinuria)."
+    },
+    {
+     "type": "paragraph",
+     "text": "The severity of hemolysis varies depending on the degree of enzyme deficiency and the magnitude of the oxidative insult, with some individuals experiencing life-threatening hemolytic crises. G6PD deficiency causes both intra and extravascular hemolysis. Decreased lipid peroxidation (Statement 3): G6PD deficiency does not directly lead to a reduction in lipid peroxidation."
+    },
+    {
+     "type": "paragraph",
+     "text": "On the contrary, it can increase susceptibility to oxidative stress and the production of reactive oxygen species (ROS). The reduced levels of NADPH and glutathione in G6PD deficiency impair the cell's antioxidant defence mechanisms, resulting in enhanced lipid peroxidation and oxidative damage."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L73_Q011_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-12",
+   "question": "Which of the following is used in treating sideroblastic anaemia?",
+   "options": {
+    "A": "Vitamin B12",
+    "B": "Vitamin B6",
+    "C": "Vitamin B1",
+    "D": "Iron"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The treatment of Sideroblastic Anemia involves the use of vitamin B6 (pyridoxine). Sideroblastic Anemia It is a condition characterized by defective heme synthesis in the bone marrow, leading to the accumulation of iron within the mitochondria of red blood cell precursors (sideroblasts). Causes Congenital causes: Due to enzyme deficiencies like ALA synthase, ferrochelatase, etc."
+    },
+    {
+     "type": "paragraph",
+     "text": "Acquired causes Vitamin B6 deficiency Drugs like isoniazid and chloramphenicol Lead and alcohol poisoning Pathogenesis Vitamin B6 is crucial for the proper function of enzymes in heme synthesis. As a cofactor for aminolevulinic acid synthase, it aids in the first step of heme production. Ensuring sufficient vitamin B6 restores enzyme activity, supports heme synthesis, and helps alleviate symptoms of sideroblastic anaemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "Microscopy Peripheral Smear: Pappenheimer bodies Multiple basophilic iron aggregates Stain blue with Perl's/ Prussian blue Seen in sideroblastic anaemia, lead poisoning, or hemochromatosis Bone Marrow: Ringed Sideroblasts Blue granules form a full or partial ring Blasts have a nucleus Iron is present in mitochondria in the perinuclear region. Stain blue on Perl's/Prussian blue. Seen with Sideroblastic anemia and Myelodysplastic syndrome."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Associated with SF3B1 mutation Vitamin B1 (Option C):** , or thiamine, plays a key role in carbohydrate metabolism and nerve function. Its deficiency causes conditions like Wernicke-Korsakoff syndrome and Beriberi, but it is not linked to sideroblastic anaemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Vitamin B12 (Option A):** deficiency causes megaloblastic anaemia and neurological symptoms. It results from poor diet, malabsorption, or lack of intrinsic factors. In sideroblastic anaemia, vitamin B6 is used instead of vitamin B12 because it helps correct the heme synthesis defect, while B12 is not involved in this process."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Iron (Option D):** deficiency presents with symptoms like pale skin, shortness of breath, dizziness or lightheadedness, brittle nails, headaches, restless legs syndrome, etc. In sideroblastic anaemia, treatment focuses on addressing the underlying cause, as the main issue is impaired heme synthesis. Iron supplementation is generally ineffective and may worsen the condition by increasing iron accumulation in tissues."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L73_Q012_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L73_Q012_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-13",
+   "question": "In iron deficiency anaemia, all of the following are increased except:",
+   "options": {
+    "A": "Transferrin saturation",
+    "B": "RBC protoporphyrin",
+    "C": "Total iron binding capacity",
+    "D": "Ferritin soluble receptors"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Transferrin saturation is decreased in iron deficiency anaemia. This is because although TIBC is elevated, there is not enough iron to saturate the transferrin molecules, leading to low transferrin saturation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Iron Study Interpretation in Iron Deficiency Anemia Serum Ferritin Low (< 30 ng/mL) Serum Iron (Fe) Low Serum transferrin saturation (Option A) Low Total Iron Binding Capacity (TIBC) (Option C ruled out) Increased: TIBC reflects the increased capacity of transferrin to bind iron in response to low iron stores."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Red Cell Distribution Width (RDW) Increased Ferritin soluble receptors (sTfR)(Option D ruled out):** Increased RBC protoporphyrin (Option B ruled out) Increased Bone Marrow Aspiration and Iron Staining Confirmatory test for Iron deficiency anaemia."
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-14",
+   "question": "An 18-year-old male presented to the outpatient department with gum bleeding and fever for the past 2 months. The general examination showed pallor, and the systemic examination was unremarkable. Laboratory examination revealed a Hb level of 3 g/dl, a TLC of 1500/microL, and a platelet count of 15,000/microL. A peripheral smear shows macrocytes, and the reticulocyte count is 0.5%. A bone marrow examination revealed fatty streaks and absent megakaryocytes with no immature cells. What is the likely diagnosis?",
+   "options": {
+    "A": "Idiopathic acquired aplastic anaemia",
+    "B": "Paroxysmal nocturnal hemoglobinuria",
+    "C": "Myelodysplastic syndrome",
+    "D": "Tuberculosis"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical presentation of gum bleeding, fever, pallor, severe anaemia, leukopenia, and thrombocytopenia, along with the findings of peripheral smear and bone marrow biopsy, strongly point toward idiopathic acquired aplastic anaemia (AAA). Aplastic Anemia is characterised by bone marrow failure, where the bone marrow does not produce enough blood cells, leading to Pancytopenia."
+    },
+    {
+     "type": "paragraph",
+     "text": "In severe cases, the bone marrow may become hypocellular, making it difficult to aspirate sufficient material, leading to a dry tap. The absence of immature cells and the presence of fatty streaks in the bone marrow suggests bone marrow failure, typical of aplastic anemia, where normal hematopoiesis is replaced by fat."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Paroxysmal nocturnal hemoglobinuria (Option B):** is a rare disorder that causes red blood cells to prematurely break down by the complement system. It is characterised by hemolytic anemia and hemoglobinuria. The peripheral smear shows evidence of hemolysis, which is not the case here."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Myelodysplastic syndrome (Option C):** is a group of disorders characterised by ineffective hematopoiesis and dysplastic cells in the bone marrow. While MDS can cause pancytopenia, it would typically show dysplastic features in the marrow, including abnormal shapes of cells, which is not the case here."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Tuberculosis (Option D):** is an infectious disease caused by Mycobacterium tuberculosis that is not commonly associated with severe pancytopenia, fatty marrow, or absence of megakaryocytes. TB-related bone marrow suppression would usually have other findings like granulomas."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L73_Q014_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-15",
+   "question": "A 45-year-old male patient was diagnosed with iron deficiency anaemia. Which of the following is true about the intracellular regulation of iron in the above condition?",
+   "options": {
+    "A": "Ferritin translation is increased by binding IRP to IRE",
+    "B": "Ferritin translation is decreased by binding IRP to IRE",
+    "C": "Transferrin receptor 1 translation is unaffected by binding IRP to IRE",
+    "D": "Transferrin receptor 1 translation is decreased by binding IRP to IRE"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "In iron deficiency anaemia, ferritin translation is decreased by binding iron regulatory protein to iron response elements. Iron regulatory mechanism: IRP: Binds to IREs in specific mRNAs' untranslated regions (UTRs) to control the translation of proteins involved in iron metabolism."
+    },
+    {
+     "type": "paragraph",
+     "text": "IRE: These are sequences found in the mRNAs of proteins involved in iron metabolism, such as ferritin and transferrin receptor 1 Ferritin: Ferritin stores iron inside cells. When iron levels are low, IRPs bind to IREs in the 5' UTR of ferritin mRNA, preventing its translation to conserve iron. Transferrin receptor 1 (TfR1): TfR1 imports iron into cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "When intracellular iron levels are low, IRP binds to the IRE in the ferritin mRNA, preventing its translation. This leads to a decrease in the production of ferritin, which helps conserve iron and prevent its storage when it is limited."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Ferritin translation is increased by binding IRP to IRE (Option A):** In iron deficiency anaemia, the binding of IRP to the IRE in the mRNA of ferritin leads to a decrease in ferritin translation to conserve iron and prevents its storage when it is limited."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Transferrin receptor 1 translation is unaffected by binding IRP to IRE (Option C):** In iron deficiency, IRP binds to the IRE in the mRNA of TfR1, stabilizing the mRNA and increasing its translation, resulting in an increased production of TfR1, which enhances the uptake of iron into cells to compensate for the deficiency."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Transferrin receptor 1 translation is decreased by binding IRP to IRE (Option D):** In iron deficiency anaemia, the binding of IRP to the IRE in the mRNA of TfR1 leads to an increased translation of TfR1, facilitating the increased uptake of iron into cells to overcome the deficiency."
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-16",
+   "question": "Rees and Ecker diluting fluid is used in:",
+   "options": {
+    "A": "Wintrobe tube",
+    "B": "WBC pipette",
+    "C": "RBC pipette",
+    "D": "Hemoglobin pipette"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Rees and Ecker diluting fluid is used in the RBC pipette for platelet counting. Composition of Rees and Ecker diluting fluid: Components Value Sodium citrate 3.8g Formaldehyde (40%) 0.2ml Brilliant cresyl blue 0.1g Distilled water 100ml"
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-17",
+   "question": "What is your diagnosis with respect to the findings shown in the peripheral smear:",
+   "options": {
+    "A": "Iron deficiency anaemia",
+    "B": "Vitamin B12 deficiency",
+    "C": "Hereditary spherocytosis",
+    "D": "Acute myeloid leukemia"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The peripheral blood smear shows enlarged oval-shaped red blood cells (macro-ovalocytes) with hyperchromia and hypersegmented neutrophils, suggesting megaloblastic anaemia caused by B12 deficiency or folic acid deficiency."
+    },
+    {
+     "type": "paragraph",
+     "text": "Causes of megaloblastic anaemia: Vitamin B12 deficiency Folate deficiency Other causes: Orotic aciduria, thiamine-responsive megaloblastic anaemia, arsenic poisoning, nitrous oxide inhalation, chemotherapy Lab findings in B12 deficiency: Bone Marrow Biochemical Tests Hypercellular bone marrow Erythroid Hyperplasia Sieve-like chromatin Hypersegmented neutrophils Reversal of myeloid: erythroid ratio 1:1 or less (Normal: 3:1) Nuclear-cytoplasmic asynchrony."
+    },
+    {
+     "type": "paragraph",
+     "text": "Serum bilirubin: Increases Serum LDH: Increases Vitamin B12: Decreases Folic acid: Decreases Anti-intrinsic factor (IF) antibody: Present (Pernicious anaemia) Methylmalonyl CoA: Increases Homocysteine: Increases Schilling Test: Assess the cause of B12 deficiency."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L73_Q017_explanation_1"
+    }
+   ]
+  }
+ ]
+}

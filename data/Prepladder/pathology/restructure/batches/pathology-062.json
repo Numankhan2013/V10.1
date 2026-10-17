@@ -1,0 +1,661 @@
+{
+ "batch": "pathology-062",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pathology-062",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pathology-75-1",
+   "question": "Which of the following images shows the typical features of a plasma cell in a histopathological examination (HPE) of bone marrow?",
+   "options": {
+    "A": "[HPE image: Bone marrow plasma cells with eccentric nucleus and perinuclear halo]",
+    "B": "[Illustration: Plasma cell morphology]",
+    "C": "[Microscopy image: Fibroblasts]",
+    "D": "[Microscopy image: Mast cells]"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "HPE image"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L75_Q001_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L75_Q001_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L75_Q001_explanation_3"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L75_Q001_explanation_4"
+    }
+   ]
+  },
+  {
+   "id": "pathology-75-2",
+   "question": "A 55-year-old woman presents with 6 months of persistent fatigue, lower back pain and recurrent infections. Laboratory tests show hypercalcemia, elevated creatinine, and normocytic anemia. Serum protein electrophoresis indicates a monoclonal spike. Bone marrow biopsy shows atypical plasma cells with eccentric nuclei and perinuclear halos, as shown in the image below. Which of the following cytogenetic abnormalities is not typically associated with this condition?",
+   "options": {
+    "A": "Deletion of chromosome 13q",
+    "B": "Translocation t(11;14)",
+    "C": "Trisomy 21",
+    "D": "Deletion of chromosome 17p"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient most likely has Multiple myeloma (MM), a plasma cell neoplasm associated with hyper c alcemia, r enal failure, a naemia, lytic b one lesions ( CRAB features) and immune abnormalities. Trisomy 21 is associated with Down’s syndrome and not multiple myeloma. It is seen in patients 60-70 years of age."
+    },
+    {
+     "type": "paragraph",
+     "text": "There are 3 main cytogenetic abnormalities seen in MM. Deletion of chromosome 13q (also seen in CLL) (Option A) Translocation t (11;14) (also seen in mantle cell lymphoma) (Option B) Deletion of chromosome 17p (TP53) (Option D) IL-6 essential for plasma cell growth, elevated IL-6 linked to poor prognosis. Antibodies in Multiple Myeloma: Monoclonal Immunoglobulins Free Light Chains IgG: Most common (55% of patients). IgA: Seen in 25% of cases."
+    },
+    {
+     "type": "paragraph",
+     "text": "IgM, IgD, IgE: Less common. Often produced in excess, called Bence Jones proteins. Can cause myeloma kidney (renal disease). Pathogenesis of Multiple Myeloma: Renal failure in multiple myeloma is usually higher in IgD subtype. Increased plasma cells activate MiP1α, resulting in Increased osteoclastic activity leads to bone resorption hypercalcemia and lytic punched-out lesions."
+    },
+    {
+     "type": "paragraph",
+     "text": "Decreased osteoblastic activity (Normal or ↓ ALP levels) Multiple Punched-out Osteolytic Lesions on the Lateral Skull Radiograph in a patient with Multiple Myeloma"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L75_Q002_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L75_Q002_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pathology-75-3",
+   "question": "A 68-year-old man presents with complaints of persistent bone pain, particularly in his lower back and ribs, along with fatigue and recurrent infections over the past few months. Further workup demonstrates Bence Jones proteinuria. What temperature does it precipitate at?",
+   "options": {
+    "A": "100°C",
+    "B": "60°C",
+    "C": "0°C",
+    "D": "30°C"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical presentation and Bence Jones proteinuria are consistent with Multiple myeloma Multiple myeloma cells produce excess free light chains, either alongside complete immunoglobulins or independently. Due to their small size, free light chains (Bence Jones proteins) can pass through the glomeruli of the kidneys and appear in urine. This is a diagnostic marker for multiple myeloma."
+    },
+    {
+     "type": "paragraph",
+     "text": "Bence Jones Proteinuria: The presence of Bence Jones proteins in urine contributes to myeloma kidney, a form of renal damage. These light chains exert toxic effects on renal tubular epithelial cells, leading to renal impairment. It is a kappa or lambda light chain immunoglobulin that precipitates in the urine at 40-60°C. When boiling, it disappears and reappears when cooling."
+    },
+    {
+     "type": "paragraph",
+     "text": "Urine and serum electrophoresis show a characteristic M spike due to increased levels of monoclonal IgG."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L75_Q003_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-75-4",
+   "question": "A 55-year-old woman presents with bone pain, recurrent infections, elevated serum calcium levels, renal dysfunction, and anaemia. Laboratory tests reveal an M spike on serum protein electrophoresis and the presence of Bence Jones proteins in the urine. Based on this presentation, which of the following is not a criterion for a myeloma-defining event in the diagnostic criteria for this condition?",
+   "options": {
+    "A": "Hypercalcemia",
+    "B": "Anemia",
+    "C": "Renal failure",
+    "D": "Bence jones proteinuria"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical scenario is consistent with Multiple myeloma in which Bence jones proteinuria is not a diagnostic criterion for a myeloma-defining event according to the current diagnostic criteria for the condition Diagnostic Criteria for Multiple Myeloma: ≥10% clonal bone marrow plasma cells (or) a biopsy-proven bony or extra medullary plasmacytoma + (PLUS) Evidence of one or more multiple myeloma defining events (MDE): (CRAB features) Hyper C alcemia (S.Ca2+ >11g/dl) (Option A) R enal failure (S. Creatinine >2mg/dl) (Option C) A naemia (Hb <10gm) (Option B) Lytic B one lesions are attributable to the plasma cell disorder. (OR) One or more biomarkers of malignancy (SLIM criteria) Bone marrow clonal plasmacytosis ≥60% ( S ixty per cent) Serum involved/uninvolved free Light chain (FLC) ratio ≥ 100 (provided involved FLC is ≥100 mg/L) >1 focal lesion on M RI."
+    }
+   ]
+  },
+  {
+   "id": "pathology-75-5",
+   "question": "A 70-year-old woman is being evaluated for monoclonal gammopathy. Bone marrow examination showed abnormal proliferation of plasma cells with evidence of certain microscopic features. Match the following structures with corresponding histopathological images regarding this condition. 1. Flame Cell a) 2. Mott cell b) 3. Russel bodies c) 4. Dutcher bodies d)",
+   "options": {
+    "A": "1-d; 2-a; 3-c; 4-b",
+    "B": "1-d; 2-c; 3-a; 4-b",
+    "C": "1-c; 2-d; 3-a; 4-b",
+    "D": "1-c; 2-d; 3-b; 4-a"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient most likely has multiple myeloma, a plasma cell neoplasm, and can present with characteristic histopathological features such as: INCLUSION BODIES SEEN IN MULTIPLE MYELOMA Russel bodies Location: Intracytoplasmic Composition: Eosinophilic Round Dilated endoplasmic reticulum cisternae filled with condensed immunoglobulin.. Dutcher bodies Location: Intranuclear. Composition: Globular inclusions containing accumulated immunoglobulin."
+    },
+    {
+     "type": "paragraph",
+     "text": "PLASMA CELL VARIANTS IN MULTIPLE MYELOMA Mott cells Contain Grape-like cytoplasmic droplets. Composition: Inclusion bodies, fibrils, crystalline rods, and globules. Flame cells Appearance: Fiery red cytoplasm. Cause: High concentration of immunoglobulin as bright red granules within the cytoplasm. Often seen in IgA subtype myeloma."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L75_Q005_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L75_Q005_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L75_Q005_explanation_3"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L75_Q005_explanation_4"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L75_Q005_explanation_5"
+    }
+   ]
+  },
+  {
+   "id": "pathology-75-6",
+   "question": "A 65-year-old male presents with fatigue, bone pain, and recurrent infections. Laboratory tests show elevated IL-6 and beta-2 microglobulin levels, while imaging reveals multiple lytic bone lesions. Bone marrow biopsy showed a high percentage of plasma cells, and cytogenetic analysis revealed a deletion of chromosome 17p. Flow cytometry is performed to distinguish abnormal plasma cells from normal ones in this patient. Which marker commonly shows increased expression on plasma cells in multiple myeloma, aiding in this differentiation?",
+   "options": {
+    "A": "CD19",
+    "B": "CD38",
+    "C": "CD56",
+    "D": "CD117"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical scenario is consistent with Multiple myeloma with poor prognosis. CD56 is a marker commonly overexpressed on plasma cells in multiple myeloma, and it helps to differentiate malignant cells from normal plasma cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "Prognostic factors of Multiple myeloma Good prognosis: t(11;14) chromosomal abnormality is associated with a better prognosis compared to high-risk cytogenetic features like t(4;14) and del(17p) Poor prognosis: ↑ Beta-2 Microglobulin Level; ↑ IL-6; ↑ Lactate Dehydrogenase; High serum to free light chain levels Deletions of chromosome 17p (TP53) Flow cytometry Markers Normal plasma cells Multiple myeloma plasma cells CD19 + - CD45 + - CD 38 + + CD138 (Syndecan-1) + + CD56 - + CD19 (Option A): It is a pan-B cell marker, absent on malignant plasma cells in multiple myeloma but may be expressed on normal plasma cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "**CD 38 (Option B):** CD38 is a marker highly expressed on plasma cells, both normal and malignant. High levels of CD38 are a characteristic feature of multiple myeloma plasma cells. However, CD38 is also found on other cells, so it is combined with other markers like CD138 to identify malignant plasma cells specifically."
+    },
+    {
+     "type": "paragraph",
+     "text": "**CD 117 (Option D):** CD117, or c-kit, is a receptor tyrosine kinase that is sometimes expressed on hematopoietic stem cells and progenitor cells. CD117 can be expressed in multiple myeloma and is associated with a poorer prognosis. However, its presence is less common than CD56 in multiple myeloma cells. When positive, it can indicate a more aggressive disease course."
+    }
+   ]
+  },
+  {
+   "id": "pathology-75-7",
+   "question": "A 68-year-old man presents with fatigue, bone pain, and recurrent infections. Laboratory tests reveal hypercalcemia and increased beta-2 microglobulin; imaging shows multiple lytic bone lesions. Which biochemical test is most commonly used to assess renal function and evaluate kidney damage in patients with multiple myeloma?",
+   "options": {
+    "A": "Serum protein electrophoresis (SPEP)",
+    "B": "Serum creatinine levels",
+    "C": "Serum calcium levels",
+    "D": "Urine protein electrophoresis"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient presents with multiple myeloma features in which renal involvement is common due to factors like hypercalcemia and the deposition of monoclonal light chains in the renal tubules (light chain cast nephropathy). Serum creatinine levels are the most commonly used biochemical test to assess renal function and detect kidney damage."
+    },
+    {
+     "type": "paragraph",
+     "text": "Biochemical tests useful in the diagnosis of Multiple Myeloma Serum Protein Electrophoresis (SPEP): Detects and measures M-proteins in blood, aiding in multiple myeloma diagnosis and monitoring."
+    },
+    {
+     "type": "paragraph",
+     "text": "But does not help in assessing kidney damage. (Option A) Urine Protein Electrophoresis (UPEP): Identifies Bence Jones proteins in urine, supporting multiple myeloma diagnosis. (Option D) Serum Free Light Chain Assay: Measures free kappa and lambda light chains, useful for diagnosis and treatment monitoring. Serum creatinine: Elevated levels indicate renal impairment. Serum calcium: Commonly elevated due to bone resorption."
+    },
+    {
+     "type": "paragraph",
+     "text": "**But does not assess renal function (Option C):** CBC: Look for anaemia, leukopenia, or thrombocytopenia. Albumin to globulin ratio - reversed Serum Beta 2 microglobulin - Increased"
+    }
+   ]
+  },
+  {
+   "id": "pathology-75-8",
+   "question": "A 62-year-old male with a routine health check-up is found to have a serum M protein level of 3.5 g/dL and plasma cells making up 25% of the marrow cellularity. He reports no bone pain, normal kidney function, normal calcium levels, and no lytic bone lesions on imaging. What is the most likely diagnosis?",
+   "options": {
+    "A": "Monoclonal Gammopathy of Undetermined Significance (MGUS)",
+    "B": "Plasma Cell Leukemia",
+    "C": "Multiple Myeloma",
+    "D": "Smouldering Myeloma"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical findings suggest Smouldering Myeloma. It is a precursor condition to multiple myeloma, lying between Monoclonal Gammopathy of Undetermined Significance (MGUS) and symptomatic multiple myeloma. It is characterised by the presence of monoclonal protein in the absence of end-organ damage, with bone marrow plasma cell infiltration of ≥10% and <30% without myeloma-defining events."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Plasma cell leukemia (Option B):** is a rare and aggressive form of multiple myeloma associated with myc gene mutations."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Criteria MGUS (most common plasma cell abnormality) (Option A):** Plasma Cell Leukemia (Option B) Multiple Myeloma (Option C) Smouldering Myeloma (Option D) Serum M Protein Level Typically < 3 g/dL Variable Variable, often > 3 g/dL > 3 g/dL Plasma Cells in Bone Marrow < 10% Variable Variable, often > 10% 10% to 30% Symptoms Absent Present Present (bone pain, anemia, hypercalcemia) Absent Organ Damage Absent Present Present (renal impairment, bone lesions) Absent Risk of Progression to MM Low High High Intermediate Treatment Observation Chemotherapy, stem cell transplant Chemotherapy, immunotherapy, stem cell transplant Observation or clinical trials Prognosis Favourable Poor Variable Intermediate"
+    }
+   ]
+  },
+  {
+   "id": "pathology-75-9",
+   "question": "A 70-year-old male presents with blurred vision, dizziness, and epistaxis. Physical examination reveals engorged retinal veins and signs of haemorrhage. Laboratory tests show an elevated serum viscosity. Serum protein electrophoresis reveals a monoclonal IgM spike. What is the most likely cause of the patient's symptoms?",
+   "options": {
+    "A": "Multiple Myeloma",
+    "B": "Chronic Lymphocytic Leukemia",
+    "C": "IgA Myeloma",
+    "D": "Waldenstrom’s Macroglobulinemia"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical presentation suggests Waldenstrom’s macroglobulinemia, a lymphoproliferative disorder characterised by the presence of monoclonal IgM antibodies. Waldenström Macroglobulinemia (WM): Increased association with Lymphoplasmacytic Lymphoma (LPL) It is also associated with MYD 88 mutation. Patients may present with symptoms of hyperviscosity syndrome, such as blurred vision, dizziness, and bleeding tendencies."
+    },
+    {
+     "type": "paragraph",
+     "text": "Diagnosis: monoclonal IgM gammopathy on serum protein electrophoresis (SPEP) or immunofixation electrophoresis (IFE) Hyperviscosity Syndrome: Caused by high levels of IgM increasing blood viscosity. Visual Impairment: Sluggish blood flow and venous congestion in the retinal veins cause visual disturbances, retinal haemorrhages, and exudates. Neurological Issues: Reduced brain blood flow leads to headaches, dizziness, deafness, and stupor."
+    },
+    {
+     "type": "paragraph",
+     "text": "Bleeding: Macroglobulins form complexes with clotting factors and interfere with platelet function, increasing bleeding risk. Cryoglobulinemia: Macroglobulins precipitate at low temperatures, causing Raynaud phenomenon and cold urticaria. Treatment: Observation, immunotherapy, chemotherapy, and plasmapheresis for hyperviscosity symptoms."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Multiple Myeloma (Option A):** Multiple myeloma is characterised by the presence of monoclonal IgG or IgA antibodies, not IgM."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Chronic Lymphocytic Leukemia (Option B):** CLL is a B-cell malignancy characterised by the accumulation of monoclonal B lymphocytes and not IgM antibodies."
+    },
+    {
+     "type": "paragraph",
+     "text": "**IgA Myeloma (Option C):** A subtype of multiple myeloma that primarily produces monoclonal IgA. While it can cause hyperviscosity syndrome, it is not characterised by an IgM spike."
+    }
+   ]
+  },
+  {
+   "id": "pathology-75-10",
+   "question": "A 55-year-old male presents with recurrent infections and fatigue. Palatal edema is noted. Laboratory tests show hypogammaglobulinemia and serum protein electrophoresis reveals an absence of normal immunoglobulins but a monoclonal spike in the gamma region. Bone marrow biopsy reveals large lymphoid cells with intracytoplasmic inclusions. Which type of heavy chain disease is most likely causing the patient's symptoms?",
+   "options": {
+    "A": "Alpha Heavy Chain Disease",
+    "B": "Gamma Heavy Chain Disease",
+    "C": "Mu Heavy Chain Disease",
+    "D": "Delta Heavy Chain Disease"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical scenario is consistent with Gamma heavy chain disease (Franklin’s Disease). Heavy-chain diseases are rare monoclonal gammopathies characterized by the production and secretion of free heavy-chain fragments."
+    },
+    {
+     "type": "paragraph",
+     "text": "These diseases can be associated with various disorders, including: Lymphoplasmacytic Lymphoma Small Bowel Marginal Zone Lymphoma Gamma heavy chain disease (Franklin's disease): (Option B) Present with systemic symptoms & sometimes palatal and uvular swelling. Involves the production of abnormal monoclonal gamma heavy chains without associated light chains, resulting in hypogammaglobulinemia and recurrent infections."
+    },
+    {
+     "type": "paragraph",
+     "text": "Serum protein electrophoresis (SPEP) reveals a monoclonal spike in the gamma region."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Alpha heavy chain disease (Seligmann's Disease) (Option A):** The most common type. Often presents as a gastrointestinal immunoproliferative small intestinal disease (IPSID)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Mu heavy chain disease (Option C):** A very rare subtype that resembles chronic lymphocytic leukaemia/small lymphocytic leukaemia Delta heavy chain disease (Option D): Extremely rare subtype."
+    }
+   ]
+  },
+  {
+   "id": "pathology-76-1",
+   "question": "A 50-year-old man presents with complaints of fatigue, easy bruising, and recurrent nosebleeds over the past month. Laboratory investigations reveal leukopenia and thrombocytopenia. Peripheral blood smear examination demonstrates the presence of cells with Auer rods. In which stage of myelopoiesis are Auer rods typically found?",
+   "options": {
+    "A": "Myeloblast",
+    "B": "Myelocyte",
+    "C": "Promyelocyte",
+    "D": "Metamyelocyte"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient most likely has Acute Myeloid Leukemia (AML ), characterised by Myeloblasts with Auer rods, which are needle-like granules in the cytoplasm. Myelopoiesis is the process of WBC formation, which starts with the Pluripotent Stem Cells, which are CD34+."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L76_Q001_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L76_Q001_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pathology-76-2",
+   "question": "A 45-year-old man presents with complaints of persistent fever, chills, and generalized weakness for the past week. Lab reports revealed leukocytosis with a left shift, and peripheral blood smear examination shows cells with kidney-shaped nuclei and parasites in ring forms inside RBCs. What is the cell called?",
+   "options": {
+    "A": "Monocyte",
+    "B": "Neutrophil",
+    "C": "Basophil",
+    "D": "Eosinophil"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient most likely has malaria which presents initially with fever, chills and weakness. On smear examination, there is monocytosis (cells with kidney-shaped nuclei) and parasites in ring forms within RBCs."
+    },
+    {
+     "type": "paragraph",
+     "text": "Different types of WBC a) Granulocytes Neutrophils: 3-5 lobes and are involved in the acute inflammatory response to bacterial infection and the removal of the bacteria by phagocytosis. (Option B) Eosinophils: They have orange-red granules and a bilobed nucleus and are involved in chronic inflammation, allergic reactions, and host defence against parasitic infections. (Option D) Basophils: They have blue-black granules and their primary function is inflammation and allergic reaction."
+    },
+    {
+     "type": "paragraph",
+     "text": "They act similar to Mast cells. (Option C) b) Agranulocytes Lymphocytes: They are part of the adaptive immune system. They are circulating immunocompetent cells that develop the ability to recognise and react to antigens. Monocytes: They have a kidney-shaped nucleus."
+    },
+    {
+     "type": "paragraph",
+     "text": "In tissues, they differentiate into phagocytes, such as macrophages, osteoclasts and Kupffer cells and phagocytose bacteria, cells, and debris and function as antigen-presenting cells."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L76_Q002_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-76-3",
+   "question": "A 6-year-old child is brought up due to concerns about persistent fever, fatigue, and frequent infections over the past few weeks. There is generalised lymphadenopathy. Laboratory investigations reveal leukocytosis with lymphoblasts on peripheral smear examination. Which of the following stains are used to visualise lymphoblasts?",
+   "options": {
+    "A": "Periodic Acid Schiff (PAS) stain",
+    "B": "Myeloperoxidase stain",
+    "C": "Sudan Black stain",
+    "D": "Wright stain"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The child most likely has Acute lymphoblastic leukemia (ALL) which is a neoplasm composed of immature B or T cells, referred to as Lymphoblasts which is visualised by Periodic Acid Schiff (PAS) stain Symptoms related to depression of marrow function and neoplastic infiltration include fatigue (anaemia), fever(infections due to neutropenia), bleeding (thrombocytopenia), generalised lymphadenopathy, splenomegaly, and hepatomegaly, most of which are seen in this patient."
+    },
+    {
+     "type": "paragraph",
+     "text": "Features Lymphoblast Myeloblast Monoblasts Cell Features No Auer rods Auer rods present Lobulated nuclei differentiate it from myeloblasts."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Stains Periodic Acid Schiff (PAS) stain Acid phosphatase for T-lymphoblasts Myeloperoxidase stain (Option B):** Sudan Black stain (Option C) HPE Nucleus with clumped, dark purple chromatin Nucleus with opened up, homogeneous, lighter chromatin Wright's stain (Option D): Wright’s stain is a mixture of eosin (red) and methylene blue dyes and is used in blood smears and bone marrow aspirates to detect RBCs, WBCs and platelet abnormalities."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L76_Q003_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L76_Q003_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L76_Q003_explanation_3"
+    }
+   ]
+  },
+  {
+   "id": "pathology-76-4",
+   "question": "A 55-year-old male presents with persistent fatigue, significant weight loss, and night sweats over the past few months. Examination revealed massive splenomegaly. CBC shows elevated white blood cell count. A bone marrow biopsy confirms the diagnosis of CML. Which of the following types of leukocytosis is most commonly associated with this condition?",
+   "options": {
+    "A": "Neutrophilia",
+    "B": "Eosinophilia",
+    "C": "Lymphocytosis",
+    "D": "Basophilia"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Basophilic leukocytosis (basophilia) is a condition characterised by an increased number of basophils in the blood. This is a rare finding, most commonly associated with myeloproliferative neoplasms, such as Chronic Myeloid Leukemia (CML)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Type of Leukocytosis Causes Neutrophilic leukocytosis (Option A):** Acute bacterial infections (e.g., pyogenic organisms); Sterile inflammation (e.g., tissue necrosis) Burns, Leukemoid reactions Eosinophilic leukocytosis (eosinophilia) (Option B) Allergic disorders (e.g., asthma); Parasitic infestations Hodgkin Lymphoma Hay fever Tropical Pulmonary eosinophilia Basophilic leukocytosis (basophilia) Myeloproliferative neoplasm (e.g., chronic myeloid leukaemia ) Polycythaemia vera Myelofibrosis Monocytosis Chronic infections (e.g., tuberculosis ); Autoimmune disorders (e.g., systemic lupus erythematosus) Lymphocytosis (Option C) Viral infections (e.g., Epstein-Barr virus); Chronic immunologic stimulation (e.g., tuberculosis)"
+    }
+   ]
+  },
+  {
+   "id": "pathology-76-5",
+   "question": "Match the following cells with their respective images a) Hypersegmented neutrophil 1) b) Hyposegmented neutrophil 2) c) Dohle bodies 3) d) Alder Reilly anomaly 4)",
+   "options": {
+    "A": "a-3, b-4, c-1, d-2",
+    "B": "a-2, b-1, c-4, d-3",
+    "C": "a-4, b-3, c-1, d-2",
+    "D": "a-2, b-3, c-4, d-1"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Pathological features"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L76_Q005_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L76_Q005_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L76_Q005_explanation_3"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L76_Q005_explanation_4"
+    }
+   ]
+  },
+  {
+   "id": "pathology-76-6",
+   "question": "A 17-year-old boy presented with complaints of a sore throat, fever, and extreme fatigue for the past two weeks. On examination, he has enlarged cervical lymph nodes and an enlarged spleen. A complete blood count reveals lymphocytosis with atypical lymphocytes and is diagnosed as infectious mononucleosis. Which of the following statements is NOT correct?",
+   "options": {
+    "A": "Caused by Epstein-Barr Virus (EBV)",
+    "B": "The Monospot test is a common diagnostic tool",
+    "C": "Downey cells are characteristic histopathological features.",
+    "D": "Also known as Haemophagocytic Lymphohistiocytosis."
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Hemophagocytic lymphohistiocytosis (HLH) is a reactive condition marked by cytopenias and systemic inflammation due to macrophage activation. It is caused by the dysregulated activation of NK cells, CD8+ cytotoxic T-cells, and macrophages. Epstein-Barr virus infection is a common trigger."
+    },
+    {
+     "type": "paragraph",
+     "text": "Clinical features include acute febrile illness, splenomegaly, hepatomegaly, anaemia, thrombocytopenia, elevated ferritin and IL-2 receptor levels, and liver dysfunction."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Infectious mononucleosis, primarily caused by Epstein-Barr Virus (Option A):** , presents with fever, sore throat, lymphadenopathy, and splenomegaly, predominantly affecting late adolescents and young adults. Diagnosis relies on lymphocytosis with atypical lymphocytes, known as Downey cells (Ballerina skirt appearance) (Option C), which are activated CD8 T lymphocytes responding to EBV-infected cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Positive heterophile antibody reaction (Monospot test) (Option B):** and rising specific antibodies for EBV antigens aid in diagnosis."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L76_Q006_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-76-7",
+   "question": "A 58-year-old patient presents with fatigue, night sweats, and significant weight loss. Physical examination reveals generalized lymphadenopathy and splenomegaly. Blood tests show a markedly elevated white blood cell count. Based on the clinical scenario, which diagnosis is most likely if the bone marrow biopsy reveals over 20% blasts?",
+   "options": {
+    "A": "Chronic Lymphocytic Leukemia (CLL)",
+    "B": "Acute Myeloid Leukemia (AML)",
+    "C": "Hodgkin’s Lymphoma (HL)",
+    "D": "Non-Hodgkin’s Lymphoma (NHL)"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Based on the clinical scenario and the bone marrow findings, the most likely diagnosis is Acute Myeloid Leukemia (AML). Blasts in the bone marrow are a pivotal factor in diagnosing different types of leukaemia. When the bone marrow contains over 20% blasts, it indicates acute leukaemia rather than a chronic condition."
+    },
+    {
+     "type": "paragraph",
+     "text": "Acute Myeloid Leukemia (AML) is characterised by the rapid proliferation of abnormal myeloid blasts (Myeloblasts are identified by the presence of Auer rods), crowding out normal cells and leading to the symptoms observed."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Chronic Lymphocytic Leukemia (CLL) (Option A):** CLL typically presents with mature lymphocytes, not blasts, in the bone marrow, distinguishing it from AML. Histopathology reveals smudge cells. The elevated blast count seen in the bone marrow biopsy is not characteristic of CLL."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Hodgkin’s Lymphoma (Option C):** HL is diagnosed via lymph node biopsy revealing Reed-Sternberg cells, not through a bone marrow biopsy showing high blast counts. The hallmark of HL is the presence of specific large abnormal lymphocytes, not blasts.HL primarily involves lymph nodes, with systemic symptoms such as night sweats and weight loss."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Non-Hodgkin’s Lymphoma (NHL) (Option D):** The diagnosis of NHL involves malignant lymphoid cells in affected tissues, not an increased blast percentage in the bone marrow."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L76_Q007_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L76_Q007_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L76_Q007_explanation_3"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L76_Q007_explanation_4"
+    }
+   ]
+  },
+  {
+   "id": "pathology-76-8",
+   "question": "A 45-year-old female is undergoing routine blood work. The laboratory technician uses different Vacutainers for various tests. Which Vacutainer colour is used for coagulation studies, such as PT and aPTT?",
+   "options": {
+    "A": "[Image: Red top Vacutainer (No anticoagulant)]",
+    "B": "[Image: Light Blue top Vacutainer (Sodium citrate)]",
+    "C": "[Image: Green top Vacutainer (Heparin)]",
+    "D": "[Image: Purple/Lavender top Vacutainer (EDTA)]"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The light blue Vacutainer contains sodium citrate as an anticoagulant and is specifically used for coagulation studies, such as Prothrombin Time (PT) and Activated Partial Thromboplastin Time (aPTT). The anticoagulant preserves the coagulation factors for accurate testing."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Colour Anti-coagulants Uses Purple/Lavender (Option D):** EDTA (Ca2+ chelating anticoagulant) CBC, Peripheral Smear, ESR Light Blue (Option B) Citrate (Ca2+ chelating anticoagulant) ESR, PT, aPTT Red (Option A) No anti-coagulant is added Serum studies (Proteins, enzymes, hormones) Yellow Clot activator/Gel separator Serum studies (Proteins, enzymes, hormones) Grey Sodium Fluoride Blood Glucose Green (Option C) Heparin ABG, Osmotic fragility, flow cytometry, immunophenotyping"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L76_Q008_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L76_Q008_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L76_Q008_explanation_3"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L76_Q008_explanation_4"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L76_Q008_explanation_5"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L76_Q008_explanation_6"
+    }
+   ]
+  },
+  {
+   "id": "pathology-76-9",
+   "question": "Which of the following diluting fluids correctly matches its specific use in haematology?",
+   "options": {
+    "A": "Turk's Solution - Platelets",
+    "B": "Hayem's Solution - WBCs",
+    "C": "Gower's Solution - RBCs",
+    "D": "1% Ammonium Oxalate - WBCs"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Gower's solution is specifically designed for the counting of RBCs. It provides a suitable environment for diluting blood samples while preserving the integrity and morphology of red blood cells. This solution ensures accurate counting of RBCs under a microscope without altering their appearance or function."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Turk's Solution - Platelets (Option A):** Turk's solution causes hemolysis of red blood cells and stains white blood cells for microscopic examination, not for platelet counting."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Hayem's Solution - WBCs (Option B):** Hayem’s solution is used for RBC counting rather than WBC due to its isotonicity preventing hemolysis, fixation, maintaining cell shape, and prevention of agglutination, with a longer shelf life."
+    },
+    {
+     "type": "paragraph",
+     "text": "**1% Ammonium Oxalate - WBCs (Option D):** Ammonium oxalate is used to prevent clotting in blood collection tubes and does not directly aid in white blood cell count in haematology."
+    }
+   ]
+  },
+  {
+   "id": "pathology-77-1",
+   "question": "As per FAB classification, what percentage of blast cells in bone marrow biopsy is required to diagnose a patient with acute leukaemia?",
+   "options": {
+    "A": "10",
+    "B": "20",
+    "C": "25",
+    "D": "30"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "According to the FAB classification, 30% of blast cells must be present in the bone marrow and peripheral smear to diagnose acute leukaemia. Classification for diagnosis of acute lymphoblastic leukaemia: WHO classification FAB (French-American-British) classification Basis of classification It incorporates genetics, immunophenotypic, and morphological features."
+    },
+    {
+     "type": "paragraph",
+     "text": "It is primarily based on morphology and cytochemistry Subtypes B-cell ALL, NOS (not otherwise specified). B-cell ALL with recurrent genetic abnormalities. T-cell ALL. ALL-L1- small uniform cells ALL-L2- large cells with irregular nuclei ALL-L3- large cells with regular nuclei Prognostic information It provides prognostic information based on genetic abnormalities. Limited prognostic information and focused on morphology."
+    },
+    {
+     "type": "paragraph",
+     "text": "Clinical utility Used for diagnosis, treatment, and prognostication. Less commonly used in clinical practice and more historical. Diagnosis threshold >20% blasts in the bone marrow. >30% blasts in the bone marrow."
+    }
+   ]
+  }
+ ]
+}

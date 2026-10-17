@@ -43,7 +43,7 @@ def main() -> None:
     assert lesson_title("Pathology Of Female Genital Tract-Ii") == "Pathology of Female Genital Tract-II"
 
     ids = set()
-    lost = 0
+    lost = refs = cited = 0
     for q in questions:
         assert q["id"] not in ids
         ids.add(q["id"])
@@ -65,7 +65,17 @@ def main() -> None:
         if first == NO_EXPLANATION:
             lost += 1
             assert any("prints no explanation" in n for n in q["reviewNotes"]), q["id"]
+        # References are one block, the last text block, one item per source.
+        kinds = [b["type"] for b in blocks if b["type"] != "figure"]
+        assert kinds.count("references") <= 1 and ("references" not in kinds or kinds[-1] == "references"), q["id"]
+        assert not any(b["type"] == "paragraph" and re.match(r"References?\s*:", b["text"]) for b in blocks), q["id"]
+        for b in blocks:
+            if b["type"] == "references":
+                refs += 1
+                assert b["items"] and all(it["rest"] or it.get("title") for it in b["items"]), q["id"]
+                cited += sum(1 for it in b["items"] if it.get("title"))
     assert lost == 17
+    assert refs == 1262 and cited == 1149, (refs, cited)
     # Image-only options rebuilt from the explanation stay flagged.
     assert sum(1 for q in questions if q["reviewStatus"] == "needs_review") == 9
 
@@ -85,6 +95,25 @@ def main() -> None:
     for rows in payload.values():
         for row in rows:
             assert (ROOT / "app/src/main/assets" / row["src"]).exists(), row["src"]
+
+    # Restructured explanations: the checker accepts the worked examples, refuses
+    # a changed word or a dropped figure, and the builder applies the overlay.
+    import explanation_restructure as rs
+    example = ROOT / "data/Prepladder/pathology/restructure/examples/example-result.json"
+    subprocess.run([sys.executable, str(ROOT / "tools/explanation_restructure.py"), "check", str(example)], check=True,
+                   stdout=subprocess.DEVNULL)
+    source = [{"type": "paragraph", "text": "ATP depletion leads to pump failure (Option B ruled out)"},
+              {"type": "figure", "figure_id": "F1"}]
+    assert not rs.problems(source, [{"type": "paragraph", "text": "ATP depletion leads to pump failure"},
+                                    {"type": "paragraph", "text": "(Option B ruled out)"}, source[1]])
+    assert rs.problems(source, [{"type": "paragraph", "text": "ATP depletion causes pump failure (Option B ruled out)"},
+                                source[1]])
+    assert rs.problems(source, source[:1])
+    overlay = json.loads(rs.OVERLAY.read_text(encoding="utf-8"))
+    for qid in overlay:
+        kinds = {b["type"] for b in by_id[qid]["structuredExplanation"]["blocks"]}
+        assert kinds & {"bullets", "table"}, qid
+    assert by_id["pathology-6-12"]["structuredExplanation"]["tables"][0]["columns"] == ["Features", "Transudate", "Exudate"]
 
     page = assemble((ROOT / "app/src/main/assets/index.html").read_text(encoding="utf-8"))
     for marker in (
