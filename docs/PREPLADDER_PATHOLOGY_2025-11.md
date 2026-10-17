@@ -84,3 +84,13 @@ by an external agent into a master JSONL, a manifest and 48 figure archives.
   prints explanations as running text, so they show as paragraphs; option
   analyses get a bold label.
 - No physical-device review.
+
+## Restructure run (2026-10-17)
+
+Outside agents returned 66 of the 73 batches on `restructure/pathology-all`.
+Every question passed the word-for-word gate: 1,218 restructured (1,041 with
+points or tables; 312 tables in all), 99 marked unchanged, none rejected.
+Batches 065 and 068–073 (about 140 questions) are still to come; drop their
+result files into `restructure/results/` and run
+`tools/explanation_restructure.py import` again. Wide tables scroll inside
+their own box on a phone.

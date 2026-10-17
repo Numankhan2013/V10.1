@@ -135,7 +135,8 @@ def main() -> None:
                 fail("option analysis lost its bold label")
             page.wait_for_function("() => { const f=document.querySelector('.nk-marrow-ordered img'); return f && f.complete && f.naturalWidth>0; }", timeout=8000)
             # Reference URLs are long and unbroken; they must wrap on a phone.
-            if page.evaluate("Math.max(...[...document.querySelectorAll('.nk-marrow-ordered *')].map(e => e.getBoundingClientRect().right))") > 390:
+            # (A wide table scrolls inside its own box.)
+            if page.evaluate("Math.max(document.scrollingElement.scrollWidth, ...[...document.querySelectorAll('.nk-marrow-ordered *')].filter(e => !e.closest('.nk-marrow-table table')).map(e => e.getBoundingClientRect().right))") > 390:
                 fail("the explanation widens the page past the phone width")
             page.screenshot(path=str(OUT / "plpatho-03-explanation.png"), full_page=True)
 
