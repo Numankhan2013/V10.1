@@ -135,6 +135,19 @@ const q2=nkFsrsQueue({});
 CHECK('S4b seen above cap -> no new admissions, repeat still exempt',()=>{assert.deepEqual(q2.cards.map(x=>x.id),['q27']);assert.equal(q2.rolledOver,3);});
 }
 
+// ---------- S4c daily cap after real reviews ----------
+// Reviewing a card moves it out of `due`; it must still spend the cap.
+{
+freshState({},{});
+for(let i=0;i<40;i++){const qid='q'+String(i).padStart(2,'0');state.attempts[qid]=[mkAttempt('a'+i,T-5*DAY,true)];state.reviews[qid]=mkReview({due:T-DAY,lastReview:T-5*DAY,stability:2+i,difficulty:5,state:2,scheduledDays:4,elapsedDays:4,repetitions:2});}
+state.fsrsPreferences={desiredRetention:.9,dailyCap:20,maximumInterval:365};
+const first=nkFsrsQueue({});
+first.cards.forEach(c=>{T+=1000;nkFsrsRecordAttempt(c.id,1,5,'fsrs-review',3,T);});
+const after=nkFsrsQueue({});
+CHECK('S4c reviewed cards leave due but still spend the cap',()=>{assert.equal(first.cards.length,20);assert(first.cards.every(c=>!nkFsrsIsDue(state.reviews[c.id],T)));assert.equal(after.cards.length,0,'admitted '+after.cards.length+' past the cap');assert.equal(after.rolledOver,19);});
+T=T0;
+}
+
 // ---------- S5 rating revisions ----------
 {
 const t1=T-3*DAY,t2=T-DAY,t3=T;
