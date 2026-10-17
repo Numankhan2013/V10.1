@@ -68,3 +68,10 @@ six figure archives.
 - **Option rulings stay inline.** As in Pathology, the PDF prints
   explanations flat; the restructure pack (`docs/EXPLANATION_RESTRUCTURE.md`)
   can be pointed at this bank once Pathology's run is in.
+- **Matching questions keep their options.** 34 "match the…" questions across
+  the three text banks (Pharmacology 11, Pathology 18, Microbiology 5) had
+  complete options but a stem the matching-table parser could not lay out
+  (for example "e:" instead of "e."), and the app hid the options. For these
+  banks the stem now stays plain text and the question stays answerable; the
+  82 tables that already rendered are unchanged. Older OCR banks keep the
+  fail-closed rule.

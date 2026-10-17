@@ -137,6 +137,12 @@ def main() -> None:
             if "Option E: It can cause genital ulceration" not in page.locator(".nk-marrow-ordered").inner_text():
                 fail("five-option explanation missing option E")
 
+            # A matching stem the parser cannot lay out ("e:" for "e.") keeps its options.
+            open_lesson(page, "Clinical Trials")
+            open_question(page, 3, "Match the phases of drug trials")
+            if page.locator(".option-list button").count() != 4 or page.locator(".nk-question-unavailable").count():
+                fail("matching question without a table lost its options")
+
             # Renal PYQs (the fifth PYQ lesson): Q13 prints only references.
             open_lesson(page, "Previous Year Questions", 4)
             open_question(page, 12, "road traffic accident")
@@ -149,7 +155,7 @@ def main() -> None:
                 fail("page errors: " + " | ".join(errors[:5]))
             browser.close()
     print("PREPLADDER_PHARMACOLOGY_BROWSER_OK bank=PrepLadder topics=59 sections=13 second_prof=on stem_figure=on "
-          "ordered_explanation=on references=on five_options=on pyq=16 lost_note=on")
+          "ordered_explanation=on references=on five_options=on matching_options=on pyq=16 lost_note=on")
 
 
 if __name__ == "__main__":
