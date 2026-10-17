@@ -15,21 +15,55 @@ throws out any question whose words changed, so the model can only rearrange.
   `data/Prepladder/pathology/restructure/restructured.json`, which the builder
   applies (`python3 tools/build_prepladder_pathology_bank.py`).
 
-## How to run it
+## How to run it: coding agents on GitHub (Termux)
 
-**Chat model (ChatGPT, Gemini, Claude…).** Start a chat, paste everything in
-the box below, then attach or paste one batch file. Save the reply as
-`pathology-001.result.json` (same number as the batch). One batch per reply;
-start a fresh chat every few batches so the model stays careful.
+Give each agent its own range of batches, e.g. 001–010, 011–020, … 071–073,
+and paste the box below with the range filled in. Each agent works on its own
+branch `restructure/pathology-<first>-<last>`, checks its own answers with the
+checker (plain Python 3, no packages) and pushes. It never touches `main`.
+When a branch is pushed, Claude fetches it, re-runs the check, imports what
+passes, rebuilds the bank and ships it.
 
-**Coding agent with this repo (Codex, Gemini CLI, Claude Code…).** Give it the
-box below plus: "Work through the batches in order. Write each answer to
-`data/Prepladder/pathology/restructure/results/<batch>.result.json`, run
-`python3 tools/explanation_restructure.py check <that file>`, and fix every
-REJECTED line before moving on. Do not edit any other file."
+```text
+You are restructuring medical explanations in the GitHub repo
+Numankhan2013/V10.1. Your batches: pathology-AAA to pathology-BBB.
 
-Then send the result files back (or commit them under `restructure/results/`)
-and run `import` on them; rejected questions simply keep today's layout.
+SETUP (small checkout; the full repo is too big for a phone)
+  git clone --depth 1 --filter=blob:none --sparse https://github.com/Numankhan2013/V10.1.git v10
+  cd v10
+  git sparse-checkout set tools data/Prepladder/pathology/source data/Prepladder/pathology/restructure docs
+  git checkout -b restructure/pathology-AAA-BBB
+Then read docs/EXPLANATION_RESTRUCTURE.md, section "The prompt". Those are
+your formatting rules; follow them exactly.
+
+FOR EACH BATCH, in order
+1. Read data/Prepladder/pathology/restructure/batches/pathology-NNN.json.
+2. Format every question yourself, by reading it. Do not write a script that
+   generates answers, and do not mark a question "unchanged" unless it truly
+   reads well already.
+3. Write the reply JSON to
+   data/Prepladder/pathology/restructure/results/pathology-NNN.result.json
+4. Run: python3 tools/explanation_restructure.py check data/Prepladder/pathology/restructure/results/pathology-NNN.result.json
+   Every REJECTED line names the question and the first word that differs.
+   Fix those questions and run the check again until it prints
+   RESTRUCTURE_CHECK_OK. If one question still fails after three tries, mark
+   it {"id": "...", "unchanged": true} and move on.
+5. Commit only that result file and push:
+     git add data/Prepladder/pathology/restructure/results/pathology-NNN.result.json
+     git commit -m "Restructure pathology-NNN"
+     git push -u origin restructure/pathology-AAA-BBB
+
+RULES
+- Only add files under data/Prepladder/pathology/restructure/results/.
+  Do not edit, move or delete any other file.
+- Do not run the bank builder, do not open a pull request, do not merge,
+  do not push to main.
+- When your range is done, reply with each batch and its final check line.
+```
+
+You can also use a chat model: paste the prompt box below, attach one batch,
+and save the reply as `pathology-NNN.result.json`; Claude checks it the same
+way.
 
 ---
 
