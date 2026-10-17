@@ -51,7 +51,10 @@ def marrow_data() -> str:
     from marrow_bank_data import app_marrow_records, validate_biochemistry_batches
     records = app_marrow_records()
     validate_biochemistry_batches(records[1])
-    return js_json({"records": records})
+    # PrepLadder Microbiology has structured text explanations, so it travels
+    # with the Marrow records; the app files it under PrepLadder by its bank.
+    from build_prepladder_microbiology_bank import app_record
+    return js_json({"records": records + [app_record()]})
 
 
 def marrow_explanation_gold() -> str:
@@ -92,6 +95,8 @@ def release_marrow_figures() -> None:
     release(ROOT / "data/marrow/images/registry.json")
     from microbiology_visuals import release as release_microbiology
     release_microbiology()
+    from build_prepladder_microbiology_bank import release as release_prepladder_microbiology
+    release_prepladder_microbiology()
 
 
 BUILDERS = {

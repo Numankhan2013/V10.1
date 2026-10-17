@@ -240,6 +240,7 @@ jobs:
         run: |
           python3 tools/test_microbiology_marrow_bank.py
           python3 tools/test_microbiology_marrow_emphasis.py
+          python3 tools/test_prepladder_microbiology_bank.py
       - name: Validate Marrow explanation inventory
         run: python3 tools/test_marrow_explanation_inventory.py
       - name: Validate reviewed parallel explanation batches
@@ -458,6 +459,7 @@ jobs:
           tools/verify_marrow_content_hygiene_browser.py
           tools/verify_marrow_structured_table_browser.py
           tools/verify_microbiology_marrow_browser.py
+          tools/verify_prepladder_microbiology_browser.py
           tools/verify_question_presentation_browser.py
           tools/verify_question_completeness_browser.py
           tools/verify_continue_practice_browser.py

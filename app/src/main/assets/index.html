@@ -70,6 +70,7 @@
 <!-- NK_MARROW_IMAGES_V1 -->
 <script defer src="marrow_visual_metadata.js"></script>
 <script defer src="microbiology_visual_metadata.js"></script>
+<script defer src="prepladder_microbiology_visual_metadata.js"></script>
 <script defer src="marrow_visual_renderer.js"></script>
 </head>
 <body>
@@ -101,7 +102,13 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
   const SUBJECT_BY_NAME = Object.fromEntries(SUBJECTS.map(x=>[x.subject,x]));
   SUBJECTS.forEach(record=>(record.questions||[]).forEach(question=>nkSanitizeMarrowQuestion(question)));
   const MARROW_DATA = __NK_DATA_MARROW_DATA__;
-  const MARROW_RECORDS = Array.isArray(MARROW_DATA.records) ? MARROW_DATA.records : [MARROW_DATA];
+  const MARROW_RECORDS = (Array.isArray(MARROW_DATA.records) ? MARROW_DATA.records : [MARROW_DATA]).filter(record=>record&&record.bank!=='PrepLadder');
+  // PrepLadder Microbiology was extracted as structured text, not PDF pages, so
+  // it ships with the Marrow records and joins the PrepLadder subjects here.
+  (Array.isArray(MARROW_DATA.records)?MARROW_DATA.records:[]).filter(record=>record&&record.bank==='PrepLadder'&&record.subject&&!SUBJECT_BY_NAME[record.subject]).forEach(record=>{
+    SUBJECTS.push(record);
+    SUBJECT_BY_NAME[record.subject]=record;
+  });
   const MARROW_BY_SUBJECT = Object.freeze(Object.fromEntries(
     MARROW_RECORDS
       .filter(record=>record&&record.subject)
@@ -141,13 +148,16 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
     const list=BANKS_BY_SUBJECT[record.subject]||(BANKS_BY_SUBJECT[record.subject]=[]);
     list.push(record);
   });
-  // A Marrow-only subject (Microbiology) has no PrepLadder record, so it joins
-  // My Subjects with its Marrow record as the subject's one bank.
+  // A Marrow-only subject (one with no PrepLadder record) joins My Subjects
+  // with its Marrow record as the subject's one bank.
   Object.values(MARROW_BY_SUBJECT).forEach(record=>{
     if(!record.subject||!record.questions.length||SUBJECT_BY_NAME[record.subject])return;
     SUBJECTS.push(record);
     SUBJECT_BY_NAME[record.subject]=record;
   });
+  // Marrow and the structured PrepLadder banks explain in text with figures;
+  // the other PrepLadder banks show the original PDF page.
+  function nkTextExplained(q){return q?.bank==='Marrow'||q?.explanationFormat==='structured';}
   function nkBankRecords(name){
     return (BANKS_BY_SUBJECT[name]||[]).slice();
   }
@@ -320,8 +330,8 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
       const questions=record.questions||[],topics=record.topics||[];
       const attempted=questions.filter(q=>qAttempts(q.id).length>0).length;
       const pct=questions.length?Math.round(attempted/questions.length*100):0;
-      const marrow=record.bank==='Marrow';
-      return `<button class="nk-bank-card ${marrow?'is-marrow':''}" onclick="window.QB.openBank(${esc(JSON.stringify(String(subject)))},${esc(JSON.stringify(String(record.bank)))})"><span class="nk-bank-mark">${record.bank==='UWorld'?'UW':marrow?'M':'PL'}</span><span class="nk-bank-copy"><strong>${esc(record.bank)}</strong><small>${fmtNum(questions.length)} questions · ${fmtNum(topics.length)} topics · ${pct}% completed</small></span><span class="nk-bank-tag">${record.bank==='UWorld'?'Source collection':marrow?'Text explanations':'Original PDF'}</span></button>`;
+      const marrow=record.bank==='Marrow',text=marrow||record.explanationFormat==='structured';
+      return `<button class="nk-bank-card ${marrow?'is-marrow':''}" onclick="window.QB.openBank(${esc(JSON.stringify(String(subject)))},${esc(JSON.stringify(String(record.bank)))})"><span class="nk-bank-mark">${record.bank==='UWorld'?'UW':marrow?'M':'PL'}</span><span class="nk-bank-copy"><strong>${esc(record.bank)}</strong><small>${fmtNum(questions.length)} questions · ${fmtNum(topics.length)} topics · ${pct}% completed</small></span><span class="nk-bank-tag">${record.bank==='UWorld'?'Source collection':text?'Text explanations':'Original PDF'}</span></button>`;
     }).join('');
     return shell(`<div class="nk-app-v114 nk-bank-page"><button class="nk-bank-back" onclick="window.QB.nav('dashboard')">${navIcon('back',17)} Home</button>${nkAppPageHead(`${subject} · QBank source`,'Choose a question bank','Each bank keeps its own progress. Practice, tests and revision work the same in all of them.')}<div class="nk-bank-grid">${cards}</div></div>`,'topics');
   }
@@ -896,6 +906,7 @@ function dashboard(){
       const config=__NK_DATA_MARROW_TOPIC_TAXONOMY__,key=config[activeSubject]?activeSubject:subject.includes('anatomy')?'Anatomy':subject.includes('physiology')?'Physiology':'Biochemistry';
       return config[key]?.topics?.[String(chapter?.id||'')]?.section||'Needs classification review';
     }
+    if(chapter?.section)return chapter.section;
     const key=subject.includes('anatomy')?'anatomy':subject.includes('physiology')?'physiology':'biochemistry';
     return sections[key]?.[String(n)]||'Other topics';
   }
@@ -1530,6 +1541,7 @@ function dashboard(){
       if(b.type==='pearl')pearlTitle=String(b.title||'');
       if(b.type==='table'&&tables.has(String(b.table_id))){const t=tables.get(String(b.table_id));return nkRenderMarrowOrderedTable(pearlTitle&&nkMarrowOrderedSame(t.title,pearlTitle)?{...t,title:''}:t);}
       if(b.type==='paragraph')return `<p>${nkMarrowRich(b.text)}</p>`;
+      if(b.type==='heading')return `<div class="nk-marrow-heading">${nkMarrowRich(b.text)}</div>`;
       if(b.type==='bullets'){const tag=b.ordered?'ol':'ul',start=b.ordered&&Number(b.start)>1?` start="${Number(b.start)}"`:'';return `<${tag}${start}>${(b.items||[]).map(item).join('')}</${tag}>`;}
       if(b.type==='table')return tables.has(String(b.table_id))?nkRenderMarrowOrderedTable(tables.get(String(b.table_id))):'';
       if(b.type==='pearl')return `<div class="nk-marrow-heading nk-marrow-pearl">${nkMarrowRich('Marrow Pearl · '+String(b.title||''))}</div>`;
@@ -1732,7 +1744,7 @@ function dashboard(){
     const time=unattempted
       ? `<div class="nk-answer-time is-empty">${navIcon('clock',19)}<span>Not answered in this test</span></div>`
       : `<div class="nk-answer-time">${navIcon('clock',19)}<span>Answered in <strong>${esc(nkFormatQuestionTime(timeMs||0))}</strong></span></div>`;
-    const marrow=q.bank==='Marrow';
+    const marrow=nkTextExplained(q);
     const explanation=marrow?nkRenderMarrowExplanation(q):(q.explanation?`<div class="feedback-body source-explanation">${renderedSource||renderExplanationText(q.explanation,q)}</div>`:'<div class="nk-source-empty">No source explanation was provided for this question.</div>');
     const sourceHeader=marrow?`<section class="nk-source-section is-marrow"><header><div>${navIcon('book',19)}<strong>Detailed explanation</strong></div><span>Structured text</span></header>${explanation}</section>`:`<section class="nk-source-section"><header><div>${navIcon('book',19)}<strong>Source explanation</strong></div><span>Original PDF</span></header>${explanation}</section>`;
     return `<div class="nk-study-support">${time}${nkSourceCohort(q)}${takeaway?`<section class="nk-key-takeaway"><span class="nk-takeaway-icon">${navIcon('bulb',22)}</span><div><div class="nk-takeaway-label">Key takeaway</div><p>${richText(takeaway)}</p></div></section>`:''}${sourceHeader}</div>`;
@@ -1749,14 +1761,14 @@ function dashboard(){
     const q=BY_ID[s.questionIds[s.index]]; if(!q) return dashboard();
     nkPrefetchDetails(q);
     const selected=s.answers[q.id]||null,submitted=Boolean(s.submitted[q.id]);
-    return sessionShell(`<div class="nk-v114-session is-practice">${nkSessionHeader(q,s,'practice')}<div class="question-shell"><section class="question-card">${s.studyModuleId?nkStudyModuleSessionContext(s):''}${nkQuestionContext(q)}<div class="question-text" data-marrow-question="${q.bank!=='PrepLadder'?esc(String(q.id)):''}">${nkQuestionStemMarkup(q)}</div><div class="option-list">${nkSessionOptions(q,selected,'practice',submitted)}</div>${submitted?nkStudySupport(q,s.questionTimes?.[q.id]||0,false):''}</section></div></div>`,'topics')+practiceActionBar(s,q,selected,submitted);
+    return sessionShell(`<div class="nk-v114-session is-practice">${nkSessionHeader(q,s,'practice')}<div class="question-shell"><section class="question-card">${s.studyModuleId?nkStudyModuleSessionContext(s):''}${nkQuestionContext(q)}<div class="question-text" data-marrow-question="${q.bank!=='PrepLadder'||nkTextExplained(q)?esc(String(q.id)):''}">${nkQuestionStemMarkup(q)}</div><div class="option-list">${nkSessionOptions(q,selected,'practice',submitted)}</div>${submitted?nkStudySupport(q,s.questionTimes?.[q.id]||0,false):''}</section></div></div>`,'topics')+practiceActionBar(s,q,selected,submitted);
   }
 
   function practiceActionBar(s, q, selected, submitted) {
     return nkSessionActionBar(s,'practice');
   }
 
-  function examPage(){const s=state.activeSession;if(!s||s.mode!=='exam')return dashboard();const q=BY_ID[s.questionIds[s.index]]||nkFindStudyQuestion(s.questionIds[s.index]);if(!q)return dashboard();const selected=s.answers[q.id]||null,strict=s.timerMode==='per-question',locked=Boolean(s.strictExpired?.[String(q.id)]);let remaining;if(strict){remaining=Math.max(0,60-Math.floor(nkStrictSpent(s,String(q.id))/1000));}else{remaining=Math.max(0,s.questionIds.length*60-Math.floor((Date.now()-s.startedAt)/1000));}const timer=strict?`<div class="nk-exam-strip"><span>Topic Test · 60 sec this question</span><strong id="exam-timer" class="timer ${remaining<15?'danger':remaining<30?'warn':''}">${locked?'Time expired':formatTimer(remaining)}</strong></div>`:`<div class="nk-exam-strip"><span>Timed Test · ${s.questionIds.length} min total</span><strong id="exam-timer" class="timer ${remaining<120?'danger':remaining<300?'warn':''}">${formatTimer(remaining)}</strong></div>`;const options=locked?q.options.map(o=>{const n=o.letter.charCodeAt(0)-64,chosen=Number(selected)===n;return `<div class="option ${chosen?'selected':''}"><span class="option-letter">${o.letter}</span><span class="option-text">${q.bank==='UWorld'?nkUworldOptionMarkup(q,o):nkScientificMarkup(o.text)}</span></div>`;}).join(''):nkSessionOptions(q,selected,'exam',false);return sessionShell(`<div class="nk-v114-session is-exam">${nkSessionHeader(q,s,'exam',timer)}<div class="question-shell"><section class="question-card">${nkQuestionContext(q)}<div class="question-text" data-marrow-question="${q.bank!=='PrepLadder'?esc(String(q.id)):''}">${nkQuestionStemMarkup(q)}</div><div class="option-list">${options}</div>${nkExamReviewButton(q,s)}</section></div></div>`,'tests')+nkSessionActionBar(s,'exam');}
+  function examPage(){const s=state.activeSession;if(!s||s.mode!=='exam')return dashboard();const q=BY_ID[s.questionIds[s.index]]||nkFindStudyQuestion(s.questionIds[s.index]);if(!q)return dashboard();const selected=s.answers[q.id]||null,strict=s.timerMode==='per-question',locked=Boolean(s.strictExpired?.[String(q.id)]);let remaining;if(strict){remaining=Math.max(0,60-Math.floor(nkStrictSpent(s,String(q.id))/1000));}else{remaining=Math.max(0,s.questionIds.length*60-Math.floor((Date.now()-s.startedAt)/1000));}const timer=strict?`<div class="nk-exam-strip"><span>Topic Test · 60 sec this question</span><strong id="exam-timer" class="timer ${remaining<15?'danger':remaining<30?'warn':''}">${locked?'Time expired':formatTimer(remaining)}</strong></div>`:`<div class="nk-exam-strip"><span>Timed Test · ${s.questionIds.length} min total</span><strong id="exam-timer" class="timer ${remaining<120?'danger':remaining<300?'warn':''}">${formatTimer(remaining)}</strong></div>`;const options=locked?q.options.map(o=>{const n=o.letter.charCodeAt(0)-64,chosen=Number(selected)===n;return `<div class="option ${chosen?'selected':''}"><span class="option-letter">${o.letter}</span><span class="option-text">${q.bank==='UWorld'?nkUworldOptionMarkup(q,o):nkScientificMarkup(o.text)}</span></div>`;}).join(''):nkSessionOptions(q,selected,'exam',false);return sessionShell(`<div class="nk-v114-session is-exam">${nkSessionHeader(q,s,'exam',timer)}<div class="question-shell"><section class="question-card">${nkQuestionContext(q)}<div class="question-text" data-marrow-question="${q.bank!=='PrepLadder'||nkTextExplained(q)?esc(String(q.id)):''}">${nkQuestionStemMarkup(q)}</div><div class="option-list">${options}</div>${nkExamReviewButton(q,s)}</section></div></div>`,'tests')+nkSessionActionBar(s,'exam');}
 
   function resultPage(testId) {
     const t=nkSafeTest(state.tests.find(x=>x.id===testId));if(!t)return testsPage();
@@ -1816,7 +1828,7 @@ function dashboard(){
     const renderedSource=nkDetailsReady(q)&&q.explanation?renderExplanationText(q.explanation,q):'';
     const gridAttrs='id="cr-grid" title="Question Navigator" onclick="window.QB.openQuestionNavigator()"';
     const headerClass='practice-focus-head nk-session-head';
-    return sessionShell(`<div class="nk-v114-session is-review">${nkSessionHeader(q,s,'review','',gridAttrs,headerClass)}<div class="question-shell"><section class="question-card">${nkQuestionContext(q)}<div class="question-text" data-marrow-question="${q.bank!=='PrepLadder'?esc(String(q.id)):''}">${nkQuestionStemMarkup(q)}</div><div class="option-list">${nkSessionOptions(q,selected,'review',true)}</div>${nkStudySupport(q,s.questionTimes?.[q.id]||0,!selected,renderedSource)}</section></div></div>`,'tests')+nkSessionActionBar(s,'review');
+    return sessionShell(`<div class="nk-v114-session is-review">${nkSessionHeader(q,s,'review','',gridAttrs,headerClass)}<div class="question-shell"><section class="question-card">${nkQuestionContext(q)}<div class="question-text" data-marrow-question="${q.bank!=='PrepLadder'||nkTextExplained(q)?esc(String(q.id)):''}">${nkQuestionStemMarkup(q)}</div><div class="option-list">${nkSessionOptions(q,selected,'review',true)}</div>${nkStudySupport(q,s.questionTimes?.[q.id]||0,!selected,renderedSource)}</section></div></div>`,'tests')+nkSessionActionBar(s,'review');
   }
 
   function closeQuestionNavigator(){ document.getElementById('qb-question-navigator')?.remove(); }

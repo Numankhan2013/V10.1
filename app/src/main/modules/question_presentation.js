@@ -499,10 +499,20 @@
     return null;
   }
 
+  // Structured banks carry a stem's table as data (PrepLadder Microbiology).
+  function nkQuestionStemTables(q){
+    const cell=value=>String(value??'').split('\n').map(part=>nkScientificMarkup(part.trim())).filter(Boolean).join('<br>');
+    return (Array.isArray(q?.stemTables)?q.stemTables:[]).map(t=>{
+      const cols=Array.isArray(t?.columns)?t.columns:[],rows=Array.isArray(t?.rows)?t.rows:[];
+      if(!cols.length||!rows.length)return'';
+      return `<div class="nk-match-table-scroll"><table class="nk-match-table"><thead><tr>${cols.map(c=>`<th scope="col">${cell(c)}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${cols.map((_,i)=>`<td><span>${cell((r||[])[i])}</span></td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+    }).join('');
+  }
+
   function nkQuestionStemMarkup(q){
     const presentation=nkQuestionPresentationFor(q),table=presentation.table;
     const unavailable=presentation.valid?'':`<div class="nk-question-unavailable" role="status"><strong>${esc(presentation.unavailableTitle||'Answer choices unavailable')}</strong><span>This source record is incomplete, so answering is disabled instead of recording an unreliable result.</span></div>`;
-    if(!table)return `<span class="nk-question-prompt">${nkScientificMarkup(String(presentation.stem??q?.question??'').replace(/\*\*Type:\*\*\s*Match the Following/ig,'').trim())}</span>${unavailable}`;
+    if(!table)return `<span class="nk-question-prompt">${nkScientificMarkup(String(presentation.stem??q?.question??'').replace(/\*\*Type:\*\*\s*Match the Following/ig,'').trim())}</span>${nkQuestionStemTables(q)}${unavailable}`;
     const headers=table.groups.map((_,index)=>`<th scope="col">${nkScientificMarkup((table.headers||[])[index]||(table.groups.length===1?'Statements':`List ${['I','II','III'][index]||index+1}`))}</th>`).join('');
     const rows=table.rows.map(row=>`<tr>${row.map(cell=>`<td>${cell?`${String(cell.label||'').trim()?`<b>${nkScientificMarkup(cell.label)}</b>`:''}<span>${nkScientificMarkup(cell.value)}</span>`:'<span aria-hidden="true">—</span>'}</td>`).join('')}</tr>`).join('');
     return `<span class="nk-question-prompt">${nkScientificMarkup(table.prompt)}</span><div class="nk-match-table-scroll"><table class="nk-match-table"><thead><tr>${headers}</tr></thead><tbody>${rows}</tbody></table></div>${unavailable}`;

@@ -72,8 +72,10 @@ def main() -> None:
     assert sum(len(r.get("images") or []) for r in raw_rows) == len(visuals["figures"])
 
     page = assemble((ROOT / "app/src/main/assets/index.html").read_text(encoding="utf-8"))
+    # SUBJECTS.push(record) twice: the Marrow-only fallback and the structured
+    # PrepLadder Microbiology record that rides along in MARROW_DATA.
+    assert page.count("SUBJECTS.push(record);") == 2
     for marker in (
-        "SUBJECTS.push(record);",
         "function nkRenderMarrowOrdered(q)",
         "function nkSourcePollPercent(q,o,revealed=true)",
         "nkUworldOptionPercentage(q,o,locked):nkSourcePollPercent(q,o,locked)",
