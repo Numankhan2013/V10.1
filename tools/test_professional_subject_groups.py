@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Contract and behavior for My Subjects professional-year groups on Home.
 
-Anatomy, Physiology and Biochemistry sit under First Prof; Microbiology and
-Pathology sit under Second Prof. Groups open collapsed, remember their state per device, and
+Anatomy, Physiology and Biochemistry sit under First Prof; Microbiology,
+Pathology and Pharmacology sit under Second Prof. Groups open collapsed, remember their state per device, and
 a subject that has no group yet still gets a card under Other, so a new bank
 can never disappear from Home.
 """
@@ -27,7 +27,7 @@ def main():
     required = (
         MARKER,
         "NK_PROF_GROUP_BY_SUBJECT",
-        "Anatomy:'first'", "Physiology:'first'", "Biochemistry:'first'", "Microbiology:'second'", "Pathology:'second'",
+        "Anatomy:'first'", "Physiology:'first'", "Biochemistry:'first'", "Microbiology:'second'", "Pathology:'second'", "Pharmacology:'second'",
         "First Prof", "Second Prof", "Other",
         "nkProfGroupSubjects", "nkProfGroupMarkup", "nkProfGroupsMarkup", "nkToggleProfGroup",
         "nk-prof-groups", "nk-prof-group", "nk-prof-head", "nk-prof-tile", "nk-prof-copy", "nk-prof-meta", "nk-prof-strip", "nk-prof-questions", "nk-prof-count", "nk-prof-chevron", "nk-prof-body",

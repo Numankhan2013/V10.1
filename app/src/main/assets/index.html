@@ -72,6 +72,7 @@
 <script defer src="microbiology_visual_metadata.js"></script>
 <script defer src="prepladder_microbiology_visual_metadata.js"></script>
 <script defer src="prepladder_pathology_visual_metadata.js"></script>
+<script defer src="prepladder_pharmacology_visual_metadata.js"></script>
 <script defer src="marrow_visual_renderer.js"></script>
 </head>
 <body>
@@ -543,6 +544,7 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
     if(key.includes('anatomy')) return {key:'anatomy',icon:'body',tone:'blue'};
     if(key.includes('microbiology')) return {key:'microbiology',icon:'virus',tone:'green'};
     if(key.includes('pathology')) return {key:'pathology',icon:'microscope',tone:'amber'};
+    if(key.includes('pharmacology')) return {key:'pharmacology',icon:'pill',tone:'amber'};
     return {key:'biochemistry',icon:'dna',tone:'magenta'};
   }
 
@@ -567,6 +569,7 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
       physiology:'<path d="M19.5 13.572l-7.5 7.428l-2.896 -2.868m-6.117 -8.104a5 5 0 0 1 9.013 -3.022a5 5 0 1 1 7.5 6.572"/><path d="M3 13h2l2 3l2 -6l1 3h3"/>',
       microbiology:'<circle cx="12" cy="12" r="5"/><path d="M12 7V3M11 3h2M15.536 8.464l2.828-2.828M17.657 4.929l1.414 1.414M17 12h4M21 11v2M15.535 15.536l2.829 2.828M19.071 17.657l-1.414 1.414M12 17v4M13 21h-2M8.465 15.536l-2.829 2.828M6.343 19.071l-1.413-1.414M7 12H3M3 13v-2M8.464 8.464 5.636 5.636M4.929 6.343l1.414-1.413"/>',
       pathology:'<path d="M5 21h14M6 18h2M7 18v3M9 11l3 3l6 -6l-3 -3zM10.5 12.5l-1.5 1.5M17 3l3 3M12 21a6 6 0 0 0 3.715 -10.712"/>',
+      pharmacology:'<path d="M4.5 12.5l8 -8a4.95 4.95 0 0 1 7 7l-8 8a4.95 4.95 0 0 1 -7 -7"/><path d="M8.5 8.5l7 7"/>',
       anatomy:'<path d="M15 3a3 3 0 0 1 3 3a3 3 0 1 1 -2.12 5.122l-4.758 4.758a3 3 0 1 1 -5.117 2.297v-.177h-.176a3 3 0 1 1 2.298 -5.115l4.758 -4.758a3 3 0 0 1 2.12 -5.122z"/>'
     };
     return `<svg class="nk-subject-svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[key]}</svg>`;
@@ -664,7 +667,7 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
      "Other", so a new bank can never disappear from Home. A group is a
      presentation wrapper only - the subject cards themselves are unchanged -
      and it opens collapsed until the reader taps it. */
-  const NK_PROF_GROUP_BY_SUBJECT={Anatomy:'first',Physiology:'first',Biochemistry:'first',Microbiology:'second',Pathology:'second'};
+  const NK_PROF_GROUP_BY_SUBJECT={Anatomy:'first',Physiology:'first',Biochemistry:'first',Microbiology:'second',Pathology:'second',Pharmacology:'second'};
   const NK_PROF_GROUPS=[{id:'first',title:'First Prof'},{id:'second',title:'Second Prof'},{id:'other',title:'Other'}];
   const NK_PROF_GROUPS_KEY='qbank_prof_groups_v1';
   let nkProfGroupOpenState=(()=>{try{const stored=JSON.parse(localStorage.getItem(NK_PROF_GROUPS_KEY)||'{}');return stored&&typeof stored==='object'&&!Array.isArray(stored)?stored:{};}catch(_error){return{};}})();
@@ -1408,7 +1411,7 @@ function dashboard(){
 
   function nkPracticeSubjectIcon(q) {
     const key=nkPracticeSubjectKey(q);
-    if(key==='microbiology'||key==='pathology')return nkSubjectGraphic(key,20);
+    if(key==='microbiology'||key==='pathology'||key==='pharmacology')return nkSubjectGraphic(key,20);
     return navIcon(key==='physiology'?'heart':key==='anatomy'?'body':'molecule',20);
   }
 
@@ -1433,7 +1436,7 @@ function dashboard(){
   function nkSessionSubjectIcon(q) {
     if(String(q?.subject||activeSubject||'').toLowerCase().startsWith('uworld · '))return nkSubjectGraphic(q?.subject||activeSubject,20);
     const key=nkSessionSubjectKey(q);
-    if(key==='microbiology'||key==='pathology')return nkSubjectGraphic(key,20);
+    if(key==='microbiology'||key==='pathology'||key==='pharmacology')return nkSubjectGraphic(key,20);
     return navIcon(key==='physiology'?'heart':key==='anatomy'?'body':'dna',20);
   }
 
@@ -1535,8 +1538,9 @@ function dashboard(){
   function nkRenderMarrowOrdered(q){
     const data=q.structuredExplanation||{},tables=new Map((Array.isArray(data.tables)?data.tables:[]).map(t=>[String(t?.table_id),t]));
     const blocks=(Array.isArray(data.blocks)?data.blocks:[]).filter(b=>b&&typeof b==='object');
-    // The source opens by restating the answer, which the Key takeaway already shows.
-    const start=blocks[0]?.type==='paragraph'&&blocks.length>1&&nkMarrowOrderedSame(blocks[0].text,nkMarrowTakeaway(q))?1:0;
+    // The source opens by restating the answer, which the Key takeaway already shows
+    // (kept when only references would follow).
+    const start=blocks[0]?.type==='paragraph'&&blocks.slice(1).some(b=>b.type!=='references')&&nkMarrowOrderedSame(blocks[0].text,nkMarrowTakeaway(q))?1:0;
     const item=it=>`<li>${nkMarrowRich(it?.text||'')}${Array.isArray(it?.items)&&it.items.length?`<ul>${it.items.map(c=>`<li>${nkMarrowRich(c?.text||'')}</li>`).join('')}</ul>`:''}</li>`;
     let pearlTitle='';
     const html=blocks.slice(start).map(b=>{
