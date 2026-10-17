@@ -93,12 +93,14 @@ def main() -> None:
 
     by_id = {q["id"]: q for q in questions}
     # Openings the PDF cut off: a first word missing its first letters is restored
-    # ("ue to" -> "Due to"); a lost label only loses its stray punctuation.
+    # ("ue to" -> "Due to"); lost words are written by hand (openings.json).
     noted = lambda phrase: sum(1 for q in questions if any(phrase in n for n in q.get("reviewNotes", [])))
-    assert noted("restored as") == 74 and noted("not recoverable") == 38, (noted("restored as"), noted("not recoverable"))
+    assert (noted("restored as"), noted("opening is written"), noted("reads complete"), noted("not recoverable")) == \
+        (74, 36, 2, 0), (noted("restored as"), noted("opening is written"), noted("reads complete"))
     opening = lambda qid: by_id[qid]["structuredExplanation"]["blocks"][0]["text"]
     assert opening("pharmacology-10-5").startswith("Due to alpha 1a receptors blockade")
-    assert opening("pharmacology-5-10").startswith("There is no significant interaction")
+    assert opening("pharmacology-5-10").startswith("Clarithromycin (Option B) raises rosuvastatin levels")
+    assert opening("pharmacology-5-17").startswith("2M HCl: Normality")
     # The restructure pack's worked examples pass its checker.
     subprocess.run([sys.executable, str(ROOT / "tools/explanation_restructure.py"), "check",
                     str(ROOT / "data/Prepladder/pharmacology/restructure/examples/example-result.json")],

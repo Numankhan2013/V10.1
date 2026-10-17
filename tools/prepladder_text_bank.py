@@ -16,6 +16,7 @@ Layout (data/Prepladder/<slug>/):
   prepladder_<slug>_qbank.zlib.b64.partNN   built bank (hash-pinned shards)
   prepladder_<slug>_qbank_manifest.json
   restructure/restructured.json             optional restructured explanations
+  openings.json                             optional hand-written openings the PDF cut off
 
 Each subject's builder (tools/build_prepladder_<slug>_bank.py) makes one
 TextBank and hands its command line to TextBank.main().
@@ -111,6 +112,9 @@ class TextBank:
         # Explanations restructured by an outside model (tools/explanation_restructure.py):
         # the same words as paragraphs, points and tables.
         self.overlay = self.data / "restructure" / "restructured.json"
+        # Openings the PDF cut off past repair, rewritten by hand from the question,
+        # its answer and the rest of the explanation: {app id: {"from": start, "to": new start}}.
+        self.openings = self.data / "openings.json"
 
     def fail(self, message: str) -> None:
         raise SystemExit(f"{self.tag}_FAIL: {message}")
@@ -225,6 +229,28 @@ class TextBank:
                 return f"source PDF drops the start of the explanation's first word; restored as \"{word}\""
         return "source PDF explanation starts mid-sentence; the lost words are not recoverable"
 
+    def reopen(self, app_id: str, blocks: list[dict], entry: dict) -> list[dict]:
+        """Blocks with the hand-written opening in place of the cut-off one. It applies
+        after any restructure, so restructures keep matching the source text."""
+        if not entry["to"]:
+            return blocks
+        blocks = [dict(b) for b in blocks]
+        for block in blocks:
+            if block["type"] in ("paragraph", "heading"):
+                holder = block
+            elif block["type"] == "bullets":
+                block["items"] = [dict(it) for it in block["items"]]
+                holder = block["items"][0]
+            elif block["type"] == "figure":
+                continue
+            else:
+                break
+            if not holder["text"].startswith(entry["from"]):
+                self.fail(f"{app_id}: hand-written opening expects the explanation to start {entry['from']!r}")
+            holder["text"] = entry["to"] + holder["text"][len(entry["from"]):]
+            return blocks
+        self.fail(f"{app_id}: hand-written opening has no text block to open")
+
     @staticmethod
     def join_reference_tail(blocks: list[dict]) -> list[dict]:
         """The extraction sometimes starts a new paragraph inside the references
@@ -242,8 +268,10 @@ class TextBank:
         return out
 
     def normalize(self, rows: list[dict], overlay: bool = True) -> tuple[dict, list[dict]]:
-        """The app record and the figures in use; `overlay` applies restructured explanations."""
+        """The app record and the figures in use; `overlay` applies restructured explanations
+        and hand-written openings (without it, the source text restructures are made from)."""
         restructured = json.loads(self.overlay.read_text(encoding="utf-8")) if overlay and self.overlay.exists() else {}
+        openings = json.loads(self.openings.read_text(encoding="utf-8")) if overlay and self.openings.exists() else {}
         micro.count_words(rows)
         rows = [fix_record(q) for q in rows]
         words = self.vocabulary(rows)
@@ -278,10 +306,18 @@ class TextBank:
                 if bare:
                     blocks.insert(0, {"type": "paragraph", "text": NO_EXPLANATION})
                 blocks = self.join_reference_tail(blocks)
-                explanation = micro.plain_text(blocks)
                 app_id = f"{topic['id']}-{number}"
+                reopened = openings.pop(app_id, None)
+                if reopened and not opening:
+                    self.fail(f"{app_id}: hand-written opening for an explanation that opens whole")
+                explanation = micro.plain_text(self.reopen(app_id, blocks, reopened) if reopened else blocks)
                 if app_id in restructured:
                     blocks = self.apply_overlay(app_id, blocks, tables, restructured[app_id])
+                if reopened:
+                    blocks = self.reopen(app_id, blocks, reopened)
+                    opening = ("source PDF explanation starts after lost words; the opening is written from the "
+                               "question, its answer and the rest of the explanation" if reopened["to"] else
+                               "source PDF explanation starts after lost words; what remains reads complete")
                 if not stem or not all(texts):
                     self.fail(f"{q['id']}: blank stem or option")
                 if topic["startPage"] is None and q["pages"]["question_pages"]:
@@ -337,6 +373,8 @@ class TextBank:
             topic["complete"] = True
         if len(figures) != len({f["imageId"] for f in figures}):
             self.fail("a figure is used twice")
+        if openings:
+            self.fail(f"hand-written openings for unknown questions: {sorted(openings)}")
         record = {"schema_version": "prepladder-text-bank-1.0", "subject": self.subject, "bank": "PrepLadder",
                   "explanationFormat": "structured", "topics": [topics[k] for k in sorted(topics)],
                   "questions": questions}
