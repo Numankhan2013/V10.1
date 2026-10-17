@@ -2782,6 +2782,12 @@ User asked for a thorough functional audit, especially whether FSRS is as good a
 - Import: 1,321 passed, 121 unchanged, 0 rejected. Test pins: overlay 1,321 / 1,135 with points or tables / 343 tables.
 - Pathology and Pharmacology browser verifiers pass locally.
 
+## 2026-10-17 — PrepLadder matching questions keep their options
+
+- User report: Pharmacology "Clinical Trials and Miscellaneous" Q4/Q5 showed "Answer choices unavailable".
+- Cause: `nkQuestionPresentationFor` blocks any "match" stem whose table parse fails; 34 PrepLadder text-bank questions (Pharma 11, Patho 18, Micro 5) hit it despite complete options.
+- Fix: text banks (`bank=PrepLadder`, `explanationFormat=structured`) fall back to the plain stem; other banks unchanged. Pharmacology browser verifier checks Clinical Trials Q4 shows 4 options.
+
 ## 2026-10-17 — Pharmacology restructure pack + cut-off openings
 
 - `tools/explanation_restructure.py` now covers any text bank (`--bank`, or read from the result file's name or folder); 66 Pharmacology batches exported; examples in `data/Prepladder/pharmacology/restructure/examples/`.

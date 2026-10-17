@@ -140,7 +140,10 @@
     const selected=nkQuestionCompleteSourceOverride(q,presentation);
     const generic=selected===null?nkQuestionMatchingTable(matching||continuation,Boolean(continuation)):selected;
     presentation.table=(generic?.valid!==false?generic:null)||nkQuestionMatchingOverride(q);
-    if(generic?.valid===false&&!presentation.table)presentation.valid=false;
+    // PrepLadder text banks carry complete, key-checked options: a matching stem
+    // the parser cannot lay out stays plain text instead of blocking the answer.
+    const textBank=q?.bank==='PrepLadder'&&q?.explanationFormat==='structured';
+    if(generic?.valid===false&&!presentation.table&&!textBank)presentation.valid=false;
     const stem=nkQuestionStemOverride(q);
     if(stem?.valid===false)presentation.valid=false;
     else if(stem)presentation.stem=stem.prompt;
