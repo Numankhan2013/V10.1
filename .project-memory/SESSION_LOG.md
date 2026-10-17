@@ -2738,3 +2738,13 @@ User asked for a thorough functional audit, especially whether FSRS is as good a
 - Reported, not changed: dead legacy `dueQuestions()`/`startLibrary('review')` and `streakMarkup()` (unreachable; removal deferred). Recorded as test-flow artifacts only: the final-review overlay deliberately hides session footers while open, and mocked-clock transitions can stall tooling visibility — the audit closes the overlay and verifies the dock on a real clock; no product change required.
 - New permanent suite `tools/test_fsrs_audit_v1.py` (52 adversarial scenarios; `verify_local.py` now `LOCAL_CHECKS_OK checks=96`). Browser audit final marker `FSRS_BROWSER_AUDIT_OK cap: due=53 learning=40 rollover=13 session=40 | travel: pending->commit->step30m->graduate->undo->next-day-overdue`, plus real-clock dock probes for a review card and a relearning card. Findings ledger: `docs/FSRS_AUDIT_2026-10-16.md` (F1-F5).
 - Shipped: product commit `056046a0` pushed to main; main push CI green (Engineering Gate `38889903337`, PWA `38889903319`); promote dispatch `38919155135` published `https://5f78b822.nk-qbank.pages.dev` — verified live (HTTP 200; the 834,682-byte page contains `retrOf`, the cache-heal and the conditional `fsrsPreferencesAt` payload markers; the previous deployment `4e8fe836` lacks them). Physical-device checks remain open.
+
+## 2026-10-17 — PrepLadder Microbiology November 2025 edition merged
+
+- Branch `feature/micro-prepladder-v2` from main `4063eca8` (FSRS daily-cap fix, PR #117).
+- New edition (4 PDFs, 2,303 pages, 1,100 Q) reconciled onto Version X by
+  `tools/prepladder_microbiology_edition.py`: 811 unchanged, 114 edited, 13 answer
+  changes, 162 new; 102 Version X-only kept, 2 repeats dropped. Bank 1,202 Q / 42 topics.
+- Missing Part 2–4 figures were taken from the PDFs (original embedded JPEG bytes);
+  ■ glyph losses restored or dropped; bank test fails on any leftover ■.
+- Local: bank test, `verify_local.py` (95), unit suite (4 known local-only failures).

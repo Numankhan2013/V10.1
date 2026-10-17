@@ -61,7 +61,7 @@ def main() -> None:
             page.evaluate("window.QB.nkOpenSubjectLibrary('Microbiology')")
             page.wait_for_function("() => document.querySelectorAll('button.nk-bank-card').length===2", timeout=8000)
             card = page.locator("button.nk-bank-card").filter(has_text="PrepLadder")
-            if "1,042 questions" not in card.inner_text() or "Text explanations" not in card.inner_text():
+            if "1,202 questions" not in card.inner_text() or "Text explanations" not in card.inner_text():
                 fail(f"PrepLadder card wrong: {card.inner_text()!r}")
             card.click()
             page.wait_for_function("() => document.querySelectorAll('button.nk-topic-row').length===42", timeout=8000)

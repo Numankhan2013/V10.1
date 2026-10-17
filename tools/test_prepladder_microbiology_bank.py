@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """PrepLadder Microbiology bank: shards current, counts, PYQ lessons, clean text,
-figure inventory and app wiring.
+the edition merge (Version X IDs kept), figure inventory and app wiring.
 
   python3 tools/test_prepladder_microbiology_bank.py
 """
@@ -15,7 +15,8 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 
 from build_app_data import assemble  # noqa: E402
-from build_prepladder_microbiology_bank import INVENTORY, RUNTIME, app_record, jpeg_size, sha256  # noqa: E402
+from build_prepladder_microbiology_bank import (  # noqa: E402
+    INVENTORY, RUNTIME, app_record, jpeg_size, load_edition_map, load_source, sha256, x_app_id)
 
 
 def main() -> None:
@@ -23,11 +24,11 @@ def main() -> None:
     record = app_record()
     topics, questions = record["topics"], record["questions"]
     assert record["bank"] == "PrepLadder" and record["explanationFormat"] == "structured"
-    assert len(topics) == 42 and len(questions) == 1042
+    assert len(topics) == 42 and len(questions) == 1202
     pyq = [t for t in topics if t["pyq"]]
     assert [t["id"] for t in pyq] == [f"microbiology-{n}" for n in (6, 17, 26, 30, 37, 42)]
     assert all(t["title"] == "Previous Year Questions" for t in pyq)
-    assert sum(t["questionCount"] for t in pyq) == 474
+    assert sum(t["questionCount"] for t in pyq) == 610
     assert {t["section"] for t in topics} == {"General Microbiology", "Bacteriology", "Virology", "Mycology",
                                               "Parasitology", "Immunology"}
 
@@ -35,7 +36,8 @@ def main() -> None:
     for q in questions:
         assert q["id"] not in ids
         ids.add(q["id"])
-        assert q["id"] == f"{q['chapterId']}-{q['questionNumber']}", q["id"]
+        # Version X IDs are kept (progress carries over); new ones use the QID.
+        assert q["id"].startswith("microbiology-") and q["chapterId"].startswith("microbiology-"), q["id"]
         assert q["bank"] == "PrepLadder" and q["explanationFormat"] == "structured"
         assert 1 <= q["correctOption"] <= len(q["options"]) and len(q["options"]) in (4, 5), q["id"]
         assert q["structuredExplanation"]["layout"] == "ordered-blocks"
@@ -45,11 +47,23 @@ def main() -> None:
                 assert block["table_id"] in tables, q["id"]
         # Extraction debris never reaches the learner.
         text = json.dumps({k: v for k, v in q.items() if k != "reviewNotes"}, ensure_ascii=False)
-        for junk in ("data-hash", "data-author", "src=", "/>", "![", "(content truncated)", "<br>", "image.prepladder"):
+        for junk in ("data-hash", "data-author", "src=", "/>", "![", "(content truncated)", "<br>", "image.prepladder",
+                     "■", "{{caption_text}}"):
             assert junk not in text, (q["id"], junk)
         first = (q["structuredExplanation"]["blocks"] or [{}])[0]
-        assert not str(first.get("text", "")).startswith(("Correct Answer", "Answer:")), q["id"]
-    assert sum(1 for q in questions if q.get("stemTables")) == 37
+        assert not str(first.get("text", "")).lower().startswith(("correct answer", "answer:")), q["id"]
+        assert q["structuredExplanation"]["blocks"], q["id"]
+    assert sum(1 for q in questions if q.get("stemTables")) == 35
+
+    # Edition merge: every Version X question keeps its app ID unless the
+    # November 2025 edition repeats a matched question word for word.
+    edition = load_edition_map()
+    x_ids = {x_app_id(q) for q in load_source()}
+    dropped = {x_app_id(q) for q in load_source() if q["id"] in edition["xOnlyDuplicates"]}
+    assert len(dropped) == 2 and x_ids - ids == dropped
+    new_ids = ids - x_ids
+    assert len(new_ids) == 162 and all(i.startswith("microbiology-q") for i in new_ids)
+    assert sum(1 for q in questions if q["edition"] == "x") == 102
 
     by_id = {q["id"]: q for q in questions}
     # Words the PDF split across narrow table columns are mended.
@@ -58,7 +72,7 @@ def main() -> None:
 
     inventory = json.loads(INVENTORY.read_text(encoding="utf-8"))
     figures = inventory["figures"]
-    assert len(figures) == 849 and len({f["imageId"] for f in figures}) == 849
+    assert len(figures) == 1552 and len({f["imageId"] for f in figures}) == 1552
     for figure in figures:
         assert figure["questionId"] in by_id, figure["imageId"]
         data = (ROOT / figure["file"]).read_bytes()
@@ -67,7 +81,7 @@ def main() -> None:
         assert figure["role"] in ("question", "explanation")
     runtime = RUNTIME.read_text(encoding="utf-8")
     payload = json.loads(runtime[runtime.index("{", runtime.index("Object.assign")) + 0:].split(",", 1)[1].rsplit(");", 1)[0])
-    assert sum(len(v) for v in payload.values()) == 849
+    assert sum(len(v) for v in payload.values()) == 1552
     for rows in payload.values():
         for row in rows:
             assert (ROOT / "app/src/main/assets" / row["src"]).exists(), row["src"]
