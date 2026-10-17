@@ -82,8 +82,9 @@ def main() -> None:
                 page.locator("#spz-plus").click()
                 page.wait_for_timeout(400)
                 page.locator("#spz-plus").click()
+                # Each step is a 300 ms tween; under load its last frame can land later.
+                expect(page.locator("#spz-reset")).to_have_text("225%")
                 page.wait_for_timeout(400)
-                assert page.locator("#spz-reset").inner_text() == "225%"
                 drag(page, cx, cy, -width * 3, 0)
                 left, right, top, bottom, w = frame_rect(page)
                 assert abs(right - stage["width"]) < 1.5, f"must reach the right edge exactly: {right}"
