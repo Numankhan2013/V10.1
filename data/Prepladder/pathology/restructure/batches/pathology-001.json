@@ -1,0 +1,473 @@
+{
+ "batch": "pathology-001",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pathology-001",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pathology-1-1",
+   "question": "What is the most common cause of cell injury?",
+   "options": {
+    "A": "Hypoxia",
+    "B": "Immunologic reactions",
+    "C": "Drug-induced",
+    "D": "Nutritional imbalance"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Hypoxia is the most common cause of cell injury. The mechanism of hypoxic cell injury is a decrease in oxygen concentration at the tissue level. The most common cause of hypoxia is ischemia. Ischemia is the hampered blood supply."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L01_Q001_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-1-2",
+   "question": "Identify the correct combination of most and least sensitive cells to hypoxia.",
+   "options": {
+    "A": "Most sensitive - hepatocytes and least sensitive - Lymphocytes",
+    "B": "Most sensitive - bone marrow cells and least sensitive - nerve cells",
+    "C": "Most sensitive - retina and least sensitive - adipose tissue",
+    "D": "Most sensitive - neurons and least sensitive - fibroblasts"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The cells most sensitive to hypoxia are neurons and the least sensitive are fibroblasts. Neurons or Brain cells: Features of cell injury can be seen after 3 to 5 minutes of hypoxia. Fibroblasts: Hypoxia can be tolerated for more than 60 minutes."
+    }
+   ]
+  },
+  {
+   "id": "pathology-1-3",
+   "question": "Which among the following is not a feature of reversible cell injury?",
+   "options": {
+    "A": "Large amorphous densities in the mitochondria",
+    "B": "Decrease in ATP generation",
+    "C": "Swelling of the endoplasmic reticulum",
+    "D": "Detachment of ribosomes from granular ER"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Large amorphous densities are seen in the mitochondria in irreversible cell injury. Amorphous densities in the mitochondria mean calcium deposition in mitochondria, which occurs when the cell membrane has been ruptured."
+    },
+    {
+     "type": "paragraph",
+     "text": "The following changes occur in reversible cell injury: Cellular swelling: Earliest change Na and water accumulate within the cell, causing cellular swelling (swelling of the endoplasmic reticulum) (Option C ruled out) ATP depletion leads to sodium-potassium pump failure (Option B ruled out) Due to ATP dysfunction, ribosomes detach from the endoplasmic reticulum, which stops protein synthesis (Option D ruled out)"
+    }
+   ]
+  },
+  {
+   "id": "pathology-1-4",
+   "question": "Match the following descriptions of the nuclear changes in irreversible cell injury. I. Pyknosis a. Nuclear fragmentation II. Karyorrhexis b. Dissolution of nucleus III. Karyolysis c. Shrinking of the nucleus and clumping of nuclear chromatin",
+   "options": {
+    "A": "I-a, II-b, III-c",
+    "B": "I-b, II-c, III-a",
+    "C": "I-c, II-a, III-b",
+    "D": "I-c, II-b, III-a"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The nuclear changes seen in irreversible cell injury are as follows: Pyknosis Shrinking of the nucleus and clumping of nuclear chromatin Karyorrhexis Nuclear fragmentation Karyolysis Dissolution of the nucleus Order of the Events: P - K - K: Pyknosis - Karyorrhexis - Karyolysis"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L01_Q004_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-1-5",
+   "question": "Which of the following is the most important electron microscopic finding in irreversible cell injury?",
+   "options": {
+    "A": "Small amorphous densities in the mitochondria",
+    "B": "Swelling of the endoplasmic reticulum",
+    "C": "Large amorphous densities in the mitochondria",
+    "D": "Detachment of ribosomes from the granular endoplasmic reticulum"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Large amorphous densities in the mitochondria are the most important electron microscopic finding in irreversible cell injury. It occurs due to an increased calcium influx in the mitochondria. Irreversible cell injury: Severe membrane damage leading to influx of calcium. Severe mitochondrial damage leads to the formation of large, flocculant, amorphous densities due to increased calcium influx."
+    },
+    {
+     "type": "paragraph",
+     "text": "Reversible cell injury: Small amorphous densities in the mitochondria Swelling of the endoplasmic reticulum Detachment of ribosomes from the granular endoplasmic reticulum"
+    }
+   ]
+  },
+  {
+   "id": "pathology-1-6",
+   "question": "Which of the following statements regarding free radical injury is true?",
+   "options": {
+    "A": "Free radicals are highly stable molecules with unpaired electrons that contribute positively to cellular functions.",
+    "B": "Free radical injury can lead to cell damage through lipid peroxidation, protein oxidation, and DNA strand breaks.",
+    "C": "Antioxidants play a minor role in protecting cells from free radical damage.",
+    "D": "Free radicals primarily cause cell death through apoptosis and do not contribute to necrosis."
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Free radical injury can indeed lead to cell damage through processes such as lipid peroxidation (which damages cell membranes), protein oxidation (which affects enzyme function and structural integrity), and DNA strand breaks (which can lead to mutations)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Free radicals are highly stable with unpaired electrons that contribute negatively to cellular functions. (Option A ruled out) Antioxidants play a major role in protecting cells from free radical damage; therefore, the diet should be rich in antioxidants, such as vitamins A, C, and E. (Option C ruled out) Free radicals cause cell death through apoptosis and also contribute to necrosis. (Option D ruled out)"
+    }
+   ]
+  },
+  {
+   "id": "pathology-1-7",
+   "question": "A sample of tissue preparation is subjected to oxidative stress under experimental conditions. Different types of free radicals are generated in the process. However, the researcher wants to work on the most potent and reactive free radicals among the ones generated. Which of the following will he be working on?",
+   "options": {
+    "A": "Hydroxyl radical (OH•)",
+    "B": "Nitric oxide radical (NO•)",
+    "C": "Superoxide anion radical (O₂•⁻)",
+    "D": "Peroxyl radical (ROO•)"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "When a tissue sample is exposed to oxidative stress experimentally, various free radicals are produced, with the hydroxyl radical being the most potent and reactive among them."
+    },
+    {
+     "type": "paragraph",
+     "text": "We have a total of 3 free radicals: Superoxide Hydrogen peroxide (H2O2) Hydroxyl (OH) The hydroxyl radical (OH•) is considered the most potent and reactive free radical due to its high reactivity and ability to quickly react with cellular components, leading to oxidative damage."
+    },
+    {
+     "type": "paragraph",
+     "text": "Hydroxyl radicals are primarily formed through the Fenton reaction T he interaction of hydrogen peroxide (H2O2) with transition metal ions such as iron (Fe) or copper (Cu)."
+    }
+   ]
+  },
+  {
+   "id": "pathology-1-8",
+   "question": "Which of the following is a telltale sign of free radical injury in cells?",
+   "options": {
+    "A": "Increased antioxidant levels in the cell",
+    "B": "Decreased lipid peroxidation products",
+    "C": "Generation of Lipofuscin and stress markers such as malondialdehyde (MDA)",
+    "D": "Enhanced cellular energy production."
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The presence of lipofuscin and stress markers like malondialdehyde (MDA) is a telltale sign of free radical-induced cellular injury. Free radical injury results in oxidative stress (Lipid peroxidation), leading to the accumulation of oxidative stress markers such as malondialdehyde (MDA) and the generation of Lipofuscin. Lipofuscin is positive for Oil Red-O stain. These are the tell-tale signs of free radical injury."
+    }
+   ]
+  },
+  {
+   "id": "pathology-1-9",
+   "question": "What is the primary function of superoxide dismutase (SOD) in cells?",
+   "options": {
+    "A": "Activation of inflammatory responses.",
+    "B": "Generation of reactive oxygen species (ROS)",
+    "C": "Neutralization of superoxide anion radicals (O₂•⁻) into hydrogen peroxide (H2O2)",
+    "D": "Promotion of lipid peroxidation."
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Neutralization of superoxide anion radicals (O₂•⁻) into hydrogen peroxide (H2O2) is the primary function of Superoxide Dismutase (SOD) in cells. Dual functions of Superoxide dismutase (SOD): Generation of free radicals by converting superoxide into H2O2 Neutralization (Primary function) (Option C) Its primary function is to catalyze the conversion of superoxide radicals (O₂•⁻) into oxygen (O2) and hydrogen peroxide (H2O2)."
+    },
+    {
+     "type": "paragraph",
+     "text": "The only antioxidant that can break free radicals in the brain is Superoxide dismutase. SOD1 gene mutation in humans is associated with Amyotrophic Lateral Sclerosis (ALS)."
+    }
+   ]
+  },
+  {
+   "id": "pathology-1-10",
+   "question": "A 50-year-old male presents with progressive weakness and muscle atrophy, primarily affecting his arms and legs. He reports difficulty with tasks such as buttoning shirts and lifting objects. On examination, you note fasciculations in his upper extremities and decreased muscle strength. His reflexes are brisk, and there is no sensory deficit. Nerve conduction studies show signs of denervation. Genetic testing reveals a mutation in the SOD1 gene. Based on this clinical scenario, what is the most likely diagnosis for this patient?",
+   "options": {
+    "A": "Multiple sclerosis",
+    "B": "Myasthenia gravis",
+    "C": "Amyotrophic lateral sclerosis",
+    "D": "Guillain-Barré syndrome"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "This clinical scenario, marked by progressive limb weakness, muscle atrophy with fasciculations, brisk reflexes, denervation on nerve studies, and an SOD1 gene mutation, is diagnostic of Amyotrophic Lateral Sclerosis (ALS). It is a disease of both upper and lower motor neurons. The SOD1 gene encodes for the enzyme superoxide dismutase 1 (SOD1), which plays a crucial role in protecting cells (Brain) from oxidative stress."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mutations in the SOD1 gene are associated with familial cases of amyotrophic lateral sclerosis (ALS). ALS is a progressive neurodegenerative disease that affects motor neurons in the brain and spinal cord, leading to muscle weakness, atrophy, and eventually paralysis. Bunina bodies are seen on brain biopsy of ALS patients."
+    }
+   ]
+  },
+  {
+   "id": "pathology-1-11",
+   "question": "Which of the following best describes the primary function of chaperones within the cellular environment?",
+   "options": {
+    "A": "Facilitating the degradation of misfolded proteins",
+    "B": "Promoting protein folding and preventing misfolding",
+    "C": "Catalyzing enzymatic reactions by providing a scaffold",
+    "D": "Transporting proteins across cellular membranes"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The primary role of Chaperones in the cellular environment is to facilitate proper protein folding and prevent misfolding. Chaperones in the ER are responsible for properly folding newly synthesized proteins, and misfolded polypeptides are shuttled into the cytoplasm where they are ubiquitinated and targeted for proteolysis in proteasomes. Chaperons works by the Ubiquitin Proteasome Pathway (UPP): Corrects the misfolding."
+    },
+    {
+     "type": "paragraph",
+     "text": "Bit if the misfolded protein cannot be corrected then it is sent proteolysis or breakdown. Disease Misfolded protein Creutzfeldt-Jacob disease Prions Cystic fibrosis Cystic fibrosis transmembrane conductance regulator (CFTR)"
+    }
+   ]
+  },
+  {
+   "id": "pathology-1-12",
+   "question": "Which of the following pathways are responsible for the pathogenesis of ALS?",
+   "options": {
+    "A": "Autophagy-lysosome pathway",
+    "B": "Ubiquitin-proteasome pathway",
+    "C": "Endocytic pathway",
+    "D": "Apoptotic pathway"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The ubiquitin-proteasome pathway plays a key role in the pathogenesis of ALS (Amyotrophic Lateral Sclerosis). ALS is due to a mutation in the SOD-1 gene. Mutant proteins start accumulating in brain. The ubiquitin-proteasome pathway is primarily responsible for the degradation of misfolded proteins within the cell."
+    },
+    {
+     "type": "paragraph",
+     "text": "In this pathway, misfolded or damaged proteins are tagged with ubiquitin molecules, which target them for degradation by the proteasome, a large multi-subunit protein complex. Dysfunction of the ubiquitin-proteasome pathway can lead to the accumulation of misfolded proteins and contribute to the pathogenesis of neurodegenerative diseases such as amyotrophic lateral sclerosis (ALS) and Parkinson's disease."
+    },
+    {
+     "type": "paragraph",
+     "text": "In the SOD-1 gene defect, UPP is not working because of cellular defect."
+    }
+   ]
+  },
+  {
+   "id": "pathology-2-1",
+   "question": "Which of the following is true about coagulative necrosis?",
+   "options": {
+    "A": "It is the least common type of necrosis",
+    "B": "Brain is most likely to undergo coagulative necrosis",
+    "C": "It causes a wedge-shaped necrosis in the affected organs",
+    "D": "The tissue architecture is lost"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Coagulative Necrosis causes a wedge-shaped necrosis in the affected organs. Most common type of necrosis. (Option A ruled out) Seen in solid organs like the kidney, liver, and heart (Option B ruled out). Brain and Pancreas show liquefactive necrosis Grossly, wedge-shaped necrosis is seen. Usually seen following an infarct (when blood supply is hampered) Tissue architecture is preserved. (Option D ruled out) Microscopically, ghost cells are seen."
+    },
+    {
+     "type": "paragraph",
+     "text": "These show preserved outlines but details are lost."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L02_Q001_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L02_Q001_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pathology-2-2",
+   "question": "A 65 year male presents with weakness on the right half of his body. He is a known case of atrial fibrillation, not on any treatment. CT angiography shows a complete occlusion of a small branch of the middle cerebral artery. What is the most likely change seen in this pathology?",
+   "options": {
+    "A": "Coagulative necrosis",
+    "B": "Liquefactive necrosis",
+    "C": "Apoptosis",
+    "D": "Fibrinoid necrosis"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The given clinical scenario is suggestive of ischemic stroke due to thromboembolism - affected area of the brain shows liquefaction necrosis/colliquative necrosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Coagulative Necrosis (Option A):** is seen in solid organs like the kidney, liver, and heart (Most common) Fibrinoid Necrosis (Option D) is seen in cases where antigen-antibody complexes are formed (E.g., PAN, RHD, Malignant HTN and SLE) Apoptosis (Option C) is a programmed cell death. Physiological: Organogenesis or Embryogenesis. Pathological: 2 bodies: Councilman bodies seen with Hepatitis-C Virus Colloid bodies or Civatte bodies seen in Lichen planus."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L02_Q002_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-2-3",
+   "question": "A 45-year-old man presents to the clinic with a persistent cough, weight loss, and night sweats. A chest X-ray shows cavitary lesions in the upper lobes of the lungs. Sputum analysis is positive for acid-fast bacilli. A biopsy is taken, and a cut section of the lung is shown below.What type of necrosis is most likely present in this patient's lung tissue?",
+   "options": {
+    "A": "Coagulative necrosis",
+    "B": "Caseous necrosis",
+    "C": "Fatty necrosis",
+    "D": "Liquefactive necrosis"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "This is a case of Pulmonary tuberculosis which presents with Caseous Necrosis in the lungs."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Caseous necrosis is characterized by a cheese-like appearance of affected tissues (Option B):** Results from the combination of coagulative necrosis (most common form of necrosis) and liquefactive necrosis. It is associated with high lipid content in the cell walls Commonly seen in conditions (high lipid content) such as Tuberculosis (caseating granuloma with mycolic acid deposition), Fungal infections (histoplasmosis, coccidioidomycosis), Syphilis."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L02_Q003_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-2-4",
+   "question": "Which of the following conditions does not involve fibrinoid necrosis?",
+   "options": {
+    "A": "Systemic Lupus Erythematosus.",
+    "B": "Malignant hypertension",
+    "C": "Atherosclerosis",
+    "D": "Polyarteritis Nodosa (PAN)"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Atherosclerosis (cholesterol or fat deposition in blood vessels) is not involved in Fibrinoid Necrosis. It is associated with antibody-antigen complex—---> immune complex deposition in vessel walls—---> a fibrin-like appearance in vessel walls. It's seen in type I or III hypersensitivity reactions."
+    },
+    {
+     "type": "paragraph",
+     "text": "Observed in conditions like, Polyarteritis nodosa (PAN) Rheumatic heart disease (with Aschoff bodies), Systemic lupus erythematosus (SLE) and Malignant hypertension."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L02_Q004_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-2-5",
+   "question": "Based on the provided image, which features are indicative of the type of gangrene depicted?",
+   "options": {
+    "A": "Presence of gas bubbles in the affected tissue",
+    "B": "Formation of bullae filled with fluid",
+    "C": "Dry, shrunken, and mummified appearance with a clear demarcation",
+    "D": "Presence of foul-smelling discharge and crepitus on palpation"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The image shows dry gangrene, characterized by a dry, shrunken, mummified appearance with a well-defined line of demarcation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Difference between dry gangrene and wet gangrene: Dry gangrene Wet gangrene Site Commonly limbs More common in the bowel Mechanism Arterial occlusion More commonly, venous obstruction Pathology Coagulative necrosis Liquefactive necrosis Macroscopy Organ dry, shrunken, and black Part is moist, soft, swollen, rotten, and dark Line of demarcation Present - at the junction between healthy and gangrenous part No clear-cut line of demarcation Infection No infection, therefore no pus or any fluid Infection present, with pus formation. (Option B ruled out) Prognosis Generally better due to little septicemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "Generally poor due to profound toxaemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Presence of gas bubbles in the affected tissue (Option A):** and Presence of foul-smelling discharge and crepitus on palpation (Option B) describe features more characteristic of gas gangrene because of development of gas or bacterial formation leading to formation of gas bubbles."
+    }
+   ]
+  },
+  {
+   "id": "pathology-2-6",
+   "question": "Identify the correctly matched pair among the following",
+   "options": {
+    "A": "Coagulative necrosis- Leucocytic enzymes- Brain",
+    "B": "Liquefactive necrosis- Lysosomal enzymes - Heart",
+    "C": "Fat necrosis- Pancreatic lipase- Omentum",
+    "D": "Fibrinoid necrosis- Bacterial enzymes- Leg"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Among the given options, the correctly represented pathology is fat necrosis caused by pancreatic lipases in the breast. In cases of acute pancreatitis, lipase is released from the pancreas which goes to omentum and breaks fat there causing fat necrosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Type of necrosis Pathology Conditions Coagulative Lysosomal enzymes derived from infiltrating leukocytes Ischemia in all organs except the brain Liquefactive Microbes stimulating leukocyte enzymes Bacterial and fungal infections Ischemia in brain Caseous Formation of granuloma by lymphocytes and activated macrophages (giant cells, epithelioid cells)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Tuberculosis,Fungal infections( Histoplasmosis, Coccidioidomycosis),Syphilis Gangrenous Ischemia and necrosis Lower and upper limb Fat necrosis Pancreatic enzymes leak out of damaged acinar cells Pancreatitis, traumatic fat necrosis of the breast. Fibrinoid Immune reactions involving blood vessels Polyarteritis nodosa, SLE, Arthus reaction, rheumatic heart disease, malignant hypertension, etc."
+    }
+   ]
+  },
+  {
+   "id": "pathology-2-7",
+   "question": "Which of the following statements about apoptosis is false?",
+   "options": {
+    "A": "Characterized by the activation of caspases leading to DNA fragmentation.",
+    "B": "Inflammatory response and release of damage-associated molecular patterns (DAMPs).",
+    "C": "Chromatin condensation and formation of cytoplasmic blebs.",
+    "D": "Eliminates cells that are injured beyond repair without eliciting a host reaction."
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Apoptosis is a non-inflammatory, programmed cell death process. It does not release DAMPs in away that triggers a strong inflammatory response, unlike necrosis, which does cause inflammation and DAMP release. Apoptosis (Caspase dependent programmed cell death): It is an active process."
+    },
+    {
+     "type": "paragraph",
+     "text": "It eliminates cells that are injured beyond repair without eliciting a host reaction, thus limiting collateral tissue damage. (Option D ruled out) Apoptosis results from the activation of enzymes called caspases leading to DNA fragmentation. (Option A ruled out) Hallmark of apoptosis: Nuclear chromatin condensation and formation of cytoplasmic blebs. (Option C ruled out)"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L02_Q007_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-2-8",
+   "question": "Match the following apoptotic genes with their functions: 1. BCL2, MCL1 a. Allows cytochrome c leakage 2. BAX, BAK b. Initiates apoptosis when upregulated 3. BAD, BID, NOXA c. Prevents leakage of cytochrome C from the cytosol",
+   "options": {
+    "A": "1-b, 2-c, 3-a",
+    "B": "1-c, 2-a, 3-b",
+    "C": "1-a, 2-b, 3-c",
+    "D": "1-b, 2-a, 3-c"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Anti Apoptotic genes:- BCL-2, BCL-XL, MCL-1 Pro Apoptotic genes:- BAX and BAK Apoptosis initiators (Stress sensors):- BAD, BIM, BID, Noxa and Pum"
+    }
+   ]
+  }
+ ]
+}

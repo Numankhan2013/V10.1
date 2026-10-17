@@ -75,7 +75,10 @@ by an external agent into a master JSONL, a manifest and 48 figure archives.
 - **Option rulings stay inline.** About half of the paragraphs with
   "(Option X ruled out)" markers are tables the PDF flattened into one line,
   so splitting them into points by script produced nonsense; they need a
-  reader (a model pass checked word for word against the source).
+  reader. `docs/EXPLANATION_RESTRUCTURE.md` hands that to outside models in
+  73 batches; `tools/explanation_restructure.py` accepts only answers whose
+  words match the source exactly. Two worked examples are applied
+  (pathology-1-3 list, pathology-6-12 table).
 - **Flat explanations.** As with Microbiology's November 2025 edition, the PDF
   prints explanations as running text, so they show as paragraphs; option
   analyses get a bold label.

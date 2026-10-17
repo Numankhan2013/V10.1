@@ -96,6 +96,25 @@ def main() -> None:
         for row in rows:
             assert (ROOT / "app/src/main/assets" / row["src"]).exists(), row["src"]
 
+    # Restructured explanations: the checker accepts the worked examples, refuses
+    # a changed word or a dropped figure, and the builder applies the overlay.
+    import explanation_restructure as rs
+    example = ROOT / "data/Prepladder/pathology/restructure/examples/example-result.json"
+    subprocess.run([sys.executable, str(ROOT / "tools/explanation_restructure.py"), "check", str(example)], check=True,
+                   stdout=subprocess.DEVNULL)
+    source = [{"type": "paragraph", "text": "ATP depletion leads to pump failure (Option B ruled out)"},
+              {"type": "figure", "figure_id": "F1"}]
+    assert not rs.problems(source, [{"type": "paragraph", "text": "ATP depletion leads to pump failure"},
+                                    {"type": "paragraph", "text": "(Option B ruled out)"}, source[1]])
+    assert rs.problems(source, [{"type": "paragraph", "text": "ATP depletion causes pump failure (Option B ruled out)"},
+                                source[1]])
+    assert rs.problems(source, source[:1])
+    overlay = json.loads(rs.OVERLAY.read_text(encoding="utf-8"))
+    for qid in overlay:
+        kinds = {b["type"] for b in by_id[qid]["structuredExplanation"]["blocks"]}
+        assert kinds & {"bullets", "table"}, qid
+    assert by_id["pathology-6-12"]["structuredExplanation"]["tables"][0]["columns"] == ["Features", "Transudate", "Exudate"]
+
     page = assemble((ROOT / "app/src/main/assets/index.html").read_text(encoding="utf-8"))
     for marker in (
         '<script defer src="prepladder_pathology_visual_metadata.js"></script>',

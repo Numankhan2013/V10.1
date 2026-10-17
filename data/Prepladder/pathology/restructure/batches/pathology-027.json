@@ -1,0 +1,613 @@
+{
+ "batch": "pathology-027",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pathology-027",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pathology-31-12",
+   "question": "A 30-year-old football player is brought to the emergency department after he collapsed due to sudden cardiac arrest. Based on the biopsy findings of his cardiac tissue, what is the most likely cause of his death?",
+   "options": {
+    "A": "Hypertrophic obstructive cardiomyopathy",
+    "B": "Dilated cardiomyopathy",
+    "C": "Restrictive cardiomyopathy",
+    "D": "Arrhythmogenic cardiomyopathy"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The given image shows a helter-skelter appearance, which is a characteristic finding of hypertrophic cardiomyopathy."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Dilated cardiomyopathy: Dilated cardiomyopathy will show Ninja Star Nucleus."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Restrictive cardiomyopathy: Restrictive cardiomyopathy does not show a helter-skelter appearance."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Arrhythmogenic cardiomyopathy: Arrhythmogenic cardiomyopathy will show infiltration of fat in the right ventricle."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L31_Q012_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L31_Q012_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pathology-31-13",
+   "question": "A 35-year-old patient presents with colicky abdominal pain, joint pain, and palpable purpura. Urinalysis shows only red blood cells with no other significant findings. Which of the following is the likely diagnosis?",
+   "options": {
+    "A": "IgA vasculitis",
+    "B": "Granulomatosis with polyangiitis",
+    "C": "Microscopic polyangiitis",
+    "D": "Behçet's disease"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The scenario of colicky abdominal pain, joint pain, palpable purpura, and hematuria without proteinuria suggests Henoch-Schönlein Purpura (IgA Vasculitis). It is an IgA-mediated small vessel vasculitis characterized by inflammation of small blood vessels. The exact cause of HSP is unclear, but it is thought to involve an abnormal immune response, where IgA immune complexes deposit in blood vessel walls, causing inflammation and damage."
+    },
+    {
+     "type": "paragraph",
+     "text": "It is more common in children but can occur in adults. It is characterized by Henoch Schonlein purpura (palpable purpura) Purpuric rash in lower limbs Abdominal pain Arthralgia Renal (hematuria) It is associated with elevated serum IgA levels. Urinalysis: The presence of red blood cells cast in urine."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Granulomatosis with polyangiitis (GPA) (Option B):** , also known as Wegener's granulomatosis, is an autoimmune condition that primarily affects the small- to medium-sized blood vessels, leading to granulomatous inflammation and necrosis. It involves respiratory symptoms and renal issues, while Henoch-Schönlein Purpura (HSP) is more likely here due to abdominal pain, joint pain, and palpable purpura, which are hallmark features of HSP with IgA deposition."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Microscopic polyangiitis (MPA) (Option C):** is a small-vessel vasculitis primarily affecting the kidneys and lungs, often presenting with rapidly progressive glomerulonephritis and pulmonary symptoms like hemoptysis, along with ANCA positivity."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Behcet's disease (Option D):** is a systemic vasculitis that presents with oral and genital ulcers, ocular involvement, and skin lesions like erythema nodosum."
+    }
+   ]
+  },
+  {
+   "id": "pathology-31-14",
+   "question": "Which of the following is the earliest marker to rise in a case of myocardial infarction (MI)?",
+   "options": {
+    "A": "CKMB (Creatine Kinase-MB)",
+    "B": "Troponin",
+    "C": "LDH",
+    "D": "Heart fatty acid binding protein"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "H-FABP(Heart fatty acid binding protein) is the earliest marker to rise in a case of myocardial infarction (MI)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Cardiac Markers Cardiac Troponin (Troponin T and I) (Option B ruled out):** Preferred biochemical markers due to their sensitivity and specificity. Troponin levels: Increase within 3-6 hours. Peak at around 36 hours. Remains elevated for 7-10 days after STEMI. Troponin should be measured at presentation and repeated at 1-3 hours (high-sensitivity assays) or 3-6 hours (conventional assays). Cardiac troponin levels remain elevated for several days after an acute myocardial infarction (AMI), making them unreliable for detecting reinfarction."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Creatine Phosphokinase (CK) and CK-MB (Option A ruled out):** CK rises within 4-8 hours. Peaks by 24 hours. Returns to normal within 48-72 hours. CK-MB elevated: Cardiac surgery Myocarditis Electrical cardioversion CK-MB levels normalise within 48 to 72 hours, so a subsequent rise can confirm reinfarction."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Lactate Dehydrogenase (LDH) (Option C ruled out):** Increase in the blood 6 to 12 hours after ACS. Peak within 24 to 72 hours. Normalise within 8 to 14 days. LDH is no longer used to diagnose myocardial infarction because it is not specific to cardiac myocytes."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Heart-type Fatty Acid-Binding Protein (H-FABP) (Option D):** It is the earliest marker to rise in a case of myocardial infarction (MI). It has higher sensitivity than troponin and CK-MB for detecting AMI within 4 hours of symptom onset, but its specificity is lower."
+    }
+   ]
+  },
+  {
+   "id": "pathology-31-15",
+   "question": "A 5-year-old child presents with fever, fatigue, and left ventricular dysfunction. An endomyocardial biopsy is shown below. What is the most likely diagnosis?",
+   "options": {
+    "A": "Acute rheumatic fever",
+    "B": "Chagas cardiomyopathy",
+    "C": "Pyogenic myocarditis",
+    "D": "Lymphocytic myocarditis"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical scenario of a child with complaints of fever, fatigue & LV dysfunction & biopsy showing lymphocytic infiltration is suggestive of Lymphocytic myocarditis, an inflammatory condition of the heart muscle characterised by the infiltration of lymphocytes, which are immune cells involved in viral or autoimmune responses."
+    },
+    {
+     "type": "paragraph",
+     "text": "Etiology: Viral infections (e.g., enteroviruses, adenoviruses) Postviral reactions Autoimmune diseases (e.g., systemic lupus erythematosus, rheumatoid arthritis) Idiopathic cases (unknown cause) Pathological finding: Lymphocytic infiltration: Predominantly, lymphocytes infiltrate the myocardium, especially in the left ventricle. Myocyte necrosis: The inflammation leads to the death of myocardial cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "Fibrosis: Chronic cases may develop fibrosis and scarring in the heart tissue. Dilated cardiomyopathy: Severe cases can lead to heart enlargement and dysfunction. Prognosis: The prognosis depends on the underlying cause, extent of myocardial damage, and response to treatment. Viral myocarditis can resolve with supportive care, but severe cases may lead to heart failure or require a heart transplant."
+    },
+    {
+     "type": "paragraph",
+     "text": "Chronic forms may lead to dilated cardiomyopathy."
+    }
+   ]
+  },
+  {
+   "id": "pathology-31-16",
+   "question": "A 34-year-old female patient presented to the outpatient department with migratory arthritis, and examination revealed a pan-systolic murmur. An echocardiography was performed, which was suggestive of mitral regurgitation. A biopsy specimen was obtained, and the image is provided below. What is the most likely lesion shown in the histopathology slide?",
+   "options": {
+    "A": "Aschoff’s bodies",
+    "B": "Epithelioid granuloma",
+    "C": "Granulomatous vasculitis",
+    "D": "Granuloma inguinale"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "This patient's symptoms of migratory arthritis, pan-systolic murmur (mitral regurgitation), and Aschoff bodies on biopsy are indicative of rheumatic fever, a complication of Group A Streptococcus throat infection. Histopathological features of RHD: Aschoff bodies are focal areas of inflammation with infiltration of lymphocytes, plasma cells and activated macrophages or histiocytes."
+    },
+    {
+     "type": "paragraph",
+     "text": "An endomyocardial biopsy showing Aschoff's bodies helps in confirming the diagnosis of RHD. Anitschkow cells or Caterpillar cells are activated macrophages with elongated and wavy nuclei commonly found within Aschoff bodies. Fibrinoid necrosis is seen in areas of the valves affected by inflammation. Note: Granulation tissue is seen in cases of repair. It comprises proliferating blood vessels, inflammatory cells and fibroblasts."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Epithelioid granuloma (Option B) is typically seen in granulomatous conditions like tuberculosis or sarcoidosis. The clinical presentation given does not align with these conditions. Granulomatous vasculitis (Option C) refers to inflammation of blood vessels with granuloma formation, often seen in diseases like Wegener’s granulomatosis, but again, the clinical signs do not point to these disorders. Granuloma inguinale (Option D), also called Donovanosis, is a sexually transmitted infection caused by Klebsiella granulomatis and typically presents with genital ulcers."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L31_Q016_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-31-17",
+   "question": "A 65-year-old man dies due to a myocardial infarction. Which stains can be used to see the infarct in the heart while conducting an autopsy?",
+   "options": {
+    "A": "Oil Red O",
+    "B": "Triphenyl tetrazolium chloride",
+    "C": "Sudan black B",
+    "D": "Masson's trichrome"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Triphenyl tetrazolium chloride (TTC) is a stain commonly used in autopsies to identify myocardial infarction (MI). In myocardial infarction (MI), within the first 4 hours, gross examination may not show any visible infarcted area. However, immersion of tissue slices in TTC solution can highlight the necrotic area. This histochemical stain imparts a brick-red colour to intact, non-infarcted myocardium with preserved lactate dehydrogenase activity."
+    },
+    {
+     "type": "paragraph",
+     "text": "Conversely, infarcted tissue appears as an unstained pale zone because of leakage of dehydrogenases through the damaged membranes of dead cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Oil Red O (Option A) stain optimally detects lipids in frozen sections by staining them bright red and is commonly used to detect fat accumulation or atherosclerotic plaques, but it is not used for identifying infarcts in myocardial tissue. Sudan black B (Option C) is a lipid-specific stain primarily used to identify lipid-rich substances by staining them black, but it does not detect myocardial infarction. Masson's trichrome (Option D) stain is used to differentiate collagen fibres (stain blue) from other tissue components. It is not specific for visualising glycogen."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L31_Q017_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L31_Q017_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pathology-31-18",
+   "question": "Which of the following histopathological findings is not seen 12 hours after an ischemic injury to the heart?",
+   "options": {
+    "A": "Karyorrhexis of myocytes",
+    "B": "Neocapillary invasion of myocytes",
+    "C": "Hyper-eosinophilia of myocytes",
+    "D": "Coagulation necrosis of myocytes"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Hyper-eosinophilia invasion of myocytes is observed 1-3 days after injury."
+    },
+    {
+     "type": "paragraph",
+     "text": "Time Gross Features Light Microscope Electron Microscope Reversible Injury 0– 1/2 hour None None Relaxation of myofibrils; glycogen loss; mitochondrial swelling Irreversible Injury 1/2 –4 hours None Usually none; variable waviness of fibres at the border; myocyte vacuolisation Sarcolemmal disruption; mitochondrial amorphous densities (Calcium in mitochondria) 4–12 hours Occasional dark mottling Early coagulative necrosis, oedema, haemorrhage 12–24 hours Dark mottling Ongoing coagulative necrosis; pyknosis of nuclei; myocyte hypereosinophilia; marginal contraction band necrosis; early neutrophilic infiltrate 1–3 days Mottling with yellow-tan infarct centre Coagulative necrosis, with loss of nuclei and striations; brisk interstitial infiltrate of neutrophils (Acute inflammation) 3–7 days Hyperemic border; central yellow-tan softening Beginning disintegration of dead myofibers, with dying neutrophils; early phagocytosis of dead cells by macrophages at the infarct border (Chronic inflammation) 7–10 days Maximally yellow-tan and soft, with depressed red-tan margins Well-developed phagocytosis of dead cells; granulation tissue at margins (Repair) 10–14 days Red-gray depressed infarct borders Well-established granulation tissue with new blood vessels and collagen deposition. 2–8 weeks Grey-white scar, progressive from the border toward the core of the infarct Increased collagen deposition, with decreased cellularity. >2 months Scarring complete Dense collagenous scar"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L31_Q018_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L31_Q018_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L31_Q018_explanation_3"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L31_Q018_explanation_4"
+    }
+   ]
+  },
+  {
+   "id": "pathology-31-19",
+   "question": "A 20-year-old athlete suddenly collapsed while playing football and was taken to the hospital, where he was declared dead. His autopsy image is given below. Which of the following is the most likely cause of death?",
+   "options": {
+    "A": "Valvular heart disease due to RHD",
+    "B": "Sudden cardiac death due to arrhythmia",
+    "C": "Sudden cardiac death due to hypertrophic cardiomyopathy",
+    "D": "Sudden cardiac death due to atherosclerosis"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The autopsy image reveals signs of cardiac hypertrophy, indicating hypertrophic cardiomyopathy (HCM) as a likely cause of death, which is a common contributor to Sudden Cardiac Death (SCD) in young athletes due to abnormal thickening of the heart muscle, particularly in the left ventricle."
+    },
+    {
+     "type": "paragraph",
+     "text": "Sudden Cardiac Death (SCD) Sudden Cardiac Death (SCD) is defined as unexpected death occurring within an hour of symptom onset due to cardiac causes, including unwitnessed deaths in individuals who seemed healthy within the last 24 hours. Risk Factors Structural Heart Disease: The presence of structural heart issues or inherited arrhythmia syndromes significantly increases SCD risk."
+    },
+    {
+     "type": "paragraph",
+     "text": "Major Risk Factors: Coronary Heart Disease (CHD) Heart Failure Diabetes Hypertension Smoking Family History of SCD In Athletes Younger Athletes: The leading causes of SCD are inherited cardiac conditions, particularly Hypertrophic Cardiomyopathy (HCM). (Option C) Older Athletes: Risks are primarily associated with atherosclerotic coronary artery disease (CAD)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Precipitating Factors SCD and Sudden Cardiac Arrest (SCA) frequently occur at specific times (e.g., mornings, winter months) and in public places. Vigorous exertion, especially in men, can trigger SCD; however, regular exercise may reduce this risk."
+    },
+    {
+     "type": "paragraph",
+     "text": "Underlying Heart Disease The most common cause of SCD is Ventricular fibrillation Many SCD cases are linked to coronary artery disease (CAD), but non-ischemic cardiomyopathies and other heart conditions also contribute."
+    },
+    {
+     "type": "paragraph",
+     "text": "Common mechanisms leading to SCD include: Acute Myocardial Infarction Bradyarrhythmias Ventricular scars leading to arrhythmias Commotio Cordis Commotio cordis is a specific cause of SCD, often resulting from an impact to the left chest by a hard object, such as a baseball, during sports. This can induce ventricular fibrillation and cardiac arrest in an otherwise structurally normal heart."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Valvular heart disease due to RHD (Option A):** The autopsy image shows no significant abnormalities in the heart valves, excluding valvular heart disease as the cause of death. RHD, which results from untreated or inadequately treated streptococcal infections, leads to inflammation and scarring of the heart valves. However, typical signs of RHD, such as thickened or damaged valves, are not observed in this image."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Sudden cardiac death due to arrhythmia (Option B):** Sudden cardiac death (SCD) is an unexpected and rapid loss of heart function, typically caused by a life-threatening arrhythmia. In athletes, the most frequent cause of SCD is hypertrophic cardiomyopathy (HCM), which is characterized by abnormal thickening of the heart muscle."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Sudden cardiac death due to atherosclerosis (Option D):** Atherosclerosis involves the accumulation of plaques in the arteries, which narrows and restricts blood flow. Although atherosclerosis can lead to heart attacks and sudden cardiac death, the autopsy image shows no signs of significant plaque buildup or obstruction in the coronary arteries."
+    }
+   ]
+  },
+  {
+   "id": "pathology-31-20",
+   "question": "A 34-year-old female patient presented to the outpatient department with migratory arthritis, and examination revealed a pan-systolic murmur. An echocardiography was performed, which was suggestive of mitral regurgitation. A biopsy specimen was obtained, and the image is provided below. What is the most likely lesion shown in the histopathology slide?",
+   "options": {
+    "A": "Aschoff’s bodies",
+    "B": "Epithelioid granuloma",
+    "C": "Granulomatous vasculitis",
+    "D": "Granuloma inguinale"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient's presentation with migratory arthritis, a pan-systolic murmur, and mitral regurgitation is suggestive of rheumatic heart disease. Aschoff's bodies are characteristic histopathological features seen in rheumatic heart disease. Aschoff's bodies are focal areas of chronic inflammation within the myocardium. They consist of a central focus of fibrinoid necrosis, surrounded by Anitschkow cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Epithelioid granuloma: Epithelioid granulomas are associated with granulomatous diseases such as tuberculosis and sarcoidosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Granulomatous vasculitis: Granulomatous vasculitis typically involves inflammation and damage to blood vessels."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Granuloma inguinale: Granuloma inguinale, also known as Donovanosis, is a sexually transmitted infection characterized by genital ulcers."
+    }
+   ]
+  },
+  {
+   "id": "pathology-31-21",
+   "question": "What is the most sensitive and specific marker for myocardial infarction?",
+   "options": {
+    "A": "Troponin I",
+    "B": "Cytokeratin",
+    "C": "Myoglobin",
+    "D": "CK-MB"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Troponin I is the most sensitive and specific marker used in diagnosing myocardial infarction. Troponin I is a regulatory protein found in cardiac muscle cells, and its release into the bloodstream is a specific indicator of cardiac muscle damage. Elevated troponin I levels in the blood indicate cardiac cell death, which occurs during a heart attack."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Cytokeratin: Cytokeratin is a protein found in epithelial cells and is not specific to cardiac muscle."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Myoglobin: Myoglobin is an oxygen-binding protein found in muscle tissues, including cardiac muscle. While it can be released into the bloodstream during a heart attack, it is not as specific or sensitive as troponin I for diagnosing myocardial infarction."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - CK-MB: CK-MB is an enzyme found predominantly in cardiac muscle cells. Elevated CK-MB levels can indicate cardiac muscle damage, including myocardial infarction. Troponin I is considered more sensitive and specific for diagnosing myocardial infarction than CK-MB."
+    }
+   ]
+  },
+  {
+   "id": "pathology-31-22",
+   "question": "An antecedent diagnosis of Group A streptococcal infection in acute rheumatic fever can be made by?",
+   "options": {
+    "A": "ASO",
+    "B": "CRP",
+    "C": "Elevated ESR",
+    "D": "Low C3 levels"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The antecedent diagnosis of Group A streptococcal infection in acute rheumatic fever can be made by testing for ASO (antistreptolysin O) titers. ASO antibodies are produced by the immune system in response to a Group A streptococcal infection. Testing the blood for ASO titers can help determine if the individual had a recent streptococcal infection, which is a prerequisite for the development of acute rheumatic fever."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - CRP: CRP is an acute-phase reactant and a marker of inflammation. While it can be elevated in acute rheumatic fever, it is not specific to Group A streptococcal infection and cannot be used to make an antecedent diagnosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Elevated ESR: ESR is a nonspecific marker of inflammation and can be elevated in various conditions, including acute rheumatic fever. It does not specifically indicate a Group A streptococcal infection and cannot be used as a definitive antecedent diagnosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Low C3 levels: C3 is a component of the complement system, and its levels can be reduced during acute rheumatic fever due to immune system activation. Low C3 levels are not specific to Group A streptococcal infection and cannot be used alone for antecedent diagnosis."
+    }
+   ]
+  },
+  {
+   "id": "pathology-31-23",
+   "question": "Alcohol abuse is strongly associated with the development of which of the following condition?",
+   "options": {
+    "A": "Pericarditis",
+    "B": "Hypertrophic cardiomyopathy",
+    "C": "Dilated cardiomyopathy",
+    "D": "Myocarditis"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Alcohol abuse has been strongly associated with the development of dilated cardiomyopathy. Dilated cardiomyopathy is a condition characterized by the enlargement and weakening of the heart's left ventricle, leading to reduced pumping ability and potential heart failure."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Options A, B, and D are not associated with alcohol abuse."
+    }
+   ]
+  },
+  {
+   "id": "pathology-31-24",
+   "question": "A 47-year-old female patient with a long-standing history of rheumatic heart disease was admitted to the hospital due to severe breathlessness. She died on the third day following admission. The mitral valve shows the following findings on autopsy. What is the cause of these findings?",
+   "options": {
+    "A": "Rupture of valve",
+    "B": "Calcification and fibrosis",
+    "C": "Hypertrophy of ventricular wall",
+    "D": "Hypertrophy of the atrial wall"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The autopsy finding on the mitral valve shows the fish mouth or buttonhole appearance, indicating calcification and fibrosis, which is a characteristic feature of rheumatic heart disease."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Options A, C, and D are incorrect."
+    }
+   ]
+  },
+  {
+   "id": "pathology-31-25",
+   "question": "Which of the following myocardial infarcts causes aneurysm as a post-MI complication?",
+   "options": {
+    "A": "Subendocardial",
+    "B": "Anterior transmural",
+    "C": "Posterior transmural",
+    "D": "Inferior wall"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "An aneurysm is a potential post-MI complication characterized by the formation of a localized, abnormal dilation or bulge in the weakened area of the myocardium. It occurs as a result of the loss of contractile function and the thinning of the infarcted myocardial wall. Anterior transmural myocardial infarction is the most likely to cause an aneurysm."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Options A, C, and D do not cause aneurysm as a post-MI complication."
+    }
+   ]
+  },
+  {
+   "id": "pathology-31-26",
+   "question": "A lady has a reddish, firm nodule on her chest that has not grown in size. The histopathological image is shown below. What is the diagnosis?",
+   "options": {
+    "A": "Lipoma",
+    "B": "Fibroadenoma",
+    "C": "Nevus",
+    "D": "Hemangioma"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Hemangiomas are benign tumors made up of blood vessels. The histopathological image shows a lesion composed of numerous small blood vessels (capillaries), which is characteristic of a hemangioma. The clinical description of a reddish, firm nodule that has not grown in size also supports this diagnosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Lipoma: Lipomas are benign tumors composed of fat cells (adipocytes). Histologically, they show mature adipose tissue with no significant vascular components."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Fibroadenoma: Fibroadenomas are benign breast tumors composed of both glandular and stromal tissues. Histologically, they display a mix of fibrous and glandular elements."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Nevus: Nevi, or moles, are benign proliferations of melanocytes. Histologically, they show nests of melanocytes in the epidermis and/or dermis."
+    }
+   ]
+  },
+  {
+   "id": "pathology-31-27",
+   "question": "Which of the following histopathological findings is not seen 12 hours after an ischemic injury to the heart?",
+   "options": {
+    "A": "Karyorrhexis of myocytes",
+    "B": "Neocapillary invasion of myocytes",
+    "C": "Hyper-eosinophilia of myocytes",
+    "D": "Coagulation necrosis of myocytes"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Hyper-eosinophilia invasion of myocytes is observed 1-3 days after injury."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Options A, B, and D are observed within 12 hours of ischemic injury."
+    }
+   ]
+  },
+  {
+   "id": "pathology-31-29",
+   "question": "Match the following: Column A Column B 1. Boxcar nuclei A. HOCM 2. Myocyte hypertrophy B. Hypertension 3. Myocyte vacuolization C. DCMP 4. Myocyte disarray D. Subendocardial ischemia E. Hypersensitivity myocarditis",
+   "options": {
+    "A": "1-C, 2-B, 3-A, 4-D",
+    "B": "1-C, 2-B, 3-E, 4-A",
+    "C": "1-E, 2-B, 3-C, 4-A",
+    "D": "1-C, 2-D, 3-E, 4-A"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "1. Boxcar nuclei E. Hypersensitivity myocarditis 2. Myocyte hypertrophy B. Hypertension 3. Myocyte vacuolization C. DCMP 4. Myocyte disarray A. HOCM Incorrect Options: Options A, B, and D are incorrect."
+    }
+   ]
+  },
+  {
+   "id": "pathology-32-1",
+   "question": "A 20-year-old male presented with cough and breathing difficulty and was diagnosed with emphysema after radiographic examination. Which of the following genetic conditions should be suspected as a possible cause?",
+   "options": {
+    "A": "Cystic fibrosis",
+    "B": "Asthma",
+    "C": "Alpha-1 antitrypsin deficiency",
+    "D": "Bronchiectasis"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Alpha-1 antitrypsin deficiency is a genetic condition characterized by low levels or dysfunctional alpha-1 antitrypsin protein. Alpha-1 antitrypsin deficiency: It is an autosomal recessive disorder caused by mutations in the alpha-1 antitrypsin gene located on Chromosome 14. Normal individuals have the PiMM genotype, while those with the disease have the PiZZ genotype."
+    },
+    {
+     "type": "paragraph",
+     "text": "This results in significantly reduced levels of functional alpha-1 antitrypsin protein. Carriers possess the PiMZ genotype. The condition primarily affects the lungs, leading to panacinar emphysema and the liver, causing cirrhosis due to abnormal protein accumulation."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Cystic fibrosis (Option A):** is a genetic disorder caused by CFTR gene mutations, leading to thick mucus, chronic lung infections, and bronchiectasis. While it causes obstructive lung disease, emphysema is not typical."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Asthma (Option B):** is a chronic inflammatory condition causing reversible airway obstruction and episodic wheezing, coughing, and breathlessness. It does not typically result in emphysema or structural lung damage."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Bronchiectasis (Option D):** is a condition of permanently dilated bronchi due to chronic infections or inflammation. While it causes cough and sputum production, it does not primarily lead to emphysema."
+    }
+   ]
+  },
+  {
+   "id": "pathology-32-2",
+   "question": "Match the following types of emphysema with their characteristic features: Types of Emphysema Characteristic Features 1) Centriacinar emphysema A) Uniformly affects the entire acinus, commonly associated with alpha 1 antitrypsin deficiency 2) Panacinar emphysema B) Predominantly involves the upper lobes, often associated with bullae formation. Alveolar ducts and sacs are spared 3) Paraseptal emphysema C) Associated with scarring and fibrosis, often seen in patients with chronic inflammation or recurrent infections 4) Irregular emphysema D) Involves the distal airways and is often associated with spontaneous pneumothorax",
+   "options": {
+    "A": "1-a, 2-c, 3-b, 4-d",
+    "B": "1-b, 2-a, 3-d, 4-c",
+    "C": "1-a, 2-b, 3-c, 4-d",
+    "D": "1-d, 2-b, 3-a, 4-c"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Emphysema is classified according to its anatomic distribution within the lobule. Based on the segments of the respiratory units that are involved, emphysema is subdivided into four major types: Features Centriacinar (M/C) Panacinar Paraseptal Irregular Involves Proximal acinus Proximal & distal acini Distal acinus Irregular involvement Site Upper lobes especially apical segments Lower zones & anterior margins of the lung."
+    },
+    {
+     "type": "paragraph",
+     "text": "More severe at the base of the lung. The upper half of the lungs (more severe). Airspaces can form cyst-like structures. Any part of the lung can be involved. Aetiology Smokers Chronic bronchitis α1-antitrypsin deficiency Spontaneous pneumothorax Depends on involvement, most found in autopsy The image below shows centriacinar emphysema. The image below shows paraseptal emphysema."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L32_Q002_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L32_Q002_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L32_Q002_explanation_3"
+    }
+   ]
+  },
+  {
+   "id": "pathology-32-3",
+   "question": "Which of the following mechanisms is not involved in the development of emphysema?",
+   "options": {
+    "A": "Toxic injury and inflammation leading to variable degrees of parenchymal destruction.",
+    "B": "Protease-antiprotease imbalance with a relative deficiency of protective antiproteases.",
+    "C": "The presence of T and B cells in affected parts of the lung indicates a robust adaptive immune response.",
+    "D": "Oxidative stress induced by substances in tobacco smoke, alveolar damage, and inflammatory cells."
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Chronic inflammation in emphysema does lead to the accumulation of T and B cells in affected parts of the lung, but the role of adaptive immunity is currently uncertain. Therefore, it's not considered a defining feature of the disease. Pathophysiology of emphysema: Inhaled cigarette smoke and other noxious particles cause damage to respiratory epithelium and inflammation, resulting in parenchymal destruction, which is a hallmark of emphysema."
+    },
+    {
+     "type": "paragraph",
+     "text": "In patients with emphysema, there is often a relative deficiency of protective antiproteases, which allows proteases released from inflammatory cells and epithelial cells to break down connective tissue components, contributing to tissue destruction."
+    },
+    {
+     "type": "paragraph",
+     "text": "Substances in tobacco smoke, alveolar damage, and inflammatory cells all produce oxidants, which contribute to tissue damage, endothelial dysfunction, and inflammation, further exacerbating the pathology of emphysema."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L32_Q003_explanation_1"
+    }
+   ]
+  }
+ ]
+}

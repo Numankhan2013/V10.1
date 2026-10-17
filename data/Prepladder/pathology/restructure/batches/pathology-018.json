@@ -1,0 +1,569 @@
+{
+ "batch": "pathology-018",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pathology-018",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pathology-19-10",
+   "question": "A newborn delivered by a mother who received no prenatal care is being evaluated. On examination, the baby has severe oedema, icterus, and organomegaly and is in respiratory distress. What immunoglobulin class was responsible for this child’s presentation?",
+   "options": {
+    "A": "IgG",
+    "B": "IgM",
+    "C": "IgA",
+    "D": "IgE"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The given clinical scenario describes Hemolytic disease of the newborn (HDN), also known as erythroblastosis fetalis, occurs when there is an incompatibility between the blood types of a mother and her fetus. This condition is often caused by Rh (Rhesus) blood group incompatibility, where the mother is Rh-negative and the fetus is Rh-positive."
+    },
+    {
+     "type": "paragraph",
+     "text": "During pregnancy, maternal antibodies of the IgG class against the Rh antigen can cross the placenta and attack the fetal red blood cells (RBCs), leading to hemolysis (destruction of RBCs) in the fetus. This results in various degrees of anaemia and potentially severe complications for the newborn."
+    },
+    {
+     "type": "paragraph",
+     "text": "This crossing is facilitated by active transplacental transfer mechanisms, primarily mediated by syncytiotrophoblast cells expressing neonatal Fc receptors (FcRn). These receptors interact with the Fc domain of IgG, permitting their transfer. This phenomenon is also responsible for newborns' passive immunity, with IgG being the most abundant antibody in their circulation."
+    },
+    {
+     "type": "paragraph",
+     "text": "**IgM (Option A):** are multinucleated giant cells found in granulomas. They consist of huge cytoplasm and multiple nuclei that are derived from the fusion of multiple activated macrophages. It cannot cross the placenta due to its large size (pentameric structure)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**IgD and IgE (Option C and D):** are also incapable of crossing the placenta."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L19_Q010_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-19-11",
+   "question": "A 65-year-old male presents to the emergency department with a fever, productive cough, and shortness of breath. He is diagnosed with pneumonia. Which of the following cytokines is most likely to be elevated in this patient due to the activation of classical macrophages in response to the infection?",
+   "options": {
+    "A": "Interleukin- 1",
+    "B": "Interleukin- 2",
+    "C": "Interleukin- 4",
+    "D": "Interleukin- 10"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Interleukin-1 will be elevated in this patient due to the activation of classical macrophages in response to the infection. The two main pathways of macrophage function are classical (M1) and alternative (M2) pathways, each driven by different stimuli and resulting in different macrophage functions."
+    },
+    {
+     "type": "paragraph",
+     "text": "Stimuli Functions and Secretions Role Classical (M1) Activation Microbial products (e.g., LPS), IFN-γ Pro-inflammatory and microbicidal functions: NO, lysosomal enzymes, TNF-α, IL-1, IL-12, IL-23 Host defense Microbial destruction Inflammation Alternative (M2) Activation IL-4, IL-13 (Option C) Tissue repair, resolution of inflammation, secretion of TGF-β, growth factors, IL-10 Tissue remodeling Angiogenesis, Immunoregulation Wound healing Tissue repair and homeostasis Interleukin-2 (IL-2) (Option B) aka T-cell growth factor is a cytokine with pleiotropic effects on the immune system and is not associated with classical macrophage activation."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Interleukin-10 (IL-10) (Option D):** is an anti-inflammatory cytokine released from alternatively activated macrophages."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L19_Q011_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-19-12",
+   "question": "A 10-year-old boy is brought with a history of eating sand. His stool examination showed Ascaris eggs. What type of T-cell is responsible for dealing with this infection?",
+   "options": {
+    "A": "TH1 cells",
+    "B": "TH2 cells",
+    "C": "TH17 cells",
+    "D": "Treg cells"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "TH2 cells (CD4+) are responsible for dealing with helminthic (parasitic) infections. Five major CD4 T helper cell (TH) subsets have been identified: TH1, TH2, TH17, Treg (T regulatory), and Tfh (follicular T helper) cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Subtype Function and Characteristics Key Cytokines TH1 (Option A):** Involved in chronic inflammatory diseases. Activated by IL-12 from APCs. Secrete IFN-gamma, activating macrophages. Stimulates macrophages to form epithelioid cells and giant cells. IFN-gamma TH2 Responsible for the alternative pathway of macrophage activation. Release cytokines IL-4, IL-5, and IL-13. To expel parasites from the body, stimulate eosinophil activation, antibody production (especially IgE), and mucus production."
+    },
+    {
+     "type": "paragraph",
+     "text": "**IL-4, IL-5, IL-13 TH17 (Option C):** Defend against extracellular bacteria and fungi. Secrete IL-17 and IL-22, attracting neutrophils and monocytes."
+    },
+    {
+     "type": "paragraph",
+     "text": "**IL-17, IL-22 Treg (T regulatory) (Option D):** Suppresses immune response, maintains homeostasis and self-tolerance. Inhibit T cell proliferation and cytokine production, preventing autoimmune reaction. IL-10, TGF-beta Tfh (Follicular T helper) Assist B cells in rapid proliferation and antibody production. Help produce antibodies with greater affinity. IL-21"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L19_Q012_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-20-1",
+   "question": "A 35-year-old woman presents to the clinic with sudden hives, facial swelling, and difficulty breathing shortly after eating shrimp at a restaurant. She reports similar reactions in the past. She appears anxious, with pronounced facial swelling and wheezing. Which sequence correctly describes the immunological events in this type of reaction?",
+   "options": {
+    "A": "Allergen exposure → Mast cell activation → IgE production → Th2 cell activation → Release of inflammatory mediators",
+    "B": "Th2 cell activation → Allergen exposure → IgE production → Mast cell activation → Release of inflammatory mediators",
+    "C": "Allergen exposure → Th2 cell activation → IgE production → Mast cell activation → Release of inflammatory mediators",
+    "D": "Allergen exposure → Th2 cell activation → Mast cell activation → IgE production → Release of inflammatory mediators"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The given scenario is an example of anaphylaxis following shrimp intake, which is an example of a type 1 hypersensitivity reaction. Step 1: First Exposure (Sensitization phase) Allergen enters the body. Naive CD4+ T-cells → differentiate into TH2 cells. TH2 cells release cytokines: IL-4 → stimulates B-cells to class switch and produce IgE. IL-5 → activates eosinophils. IL-13 → enhances IgE production and mucus secretion."
+    },
+    {
+     "type": "paragraph",
+     "text": "IgE antibodies bind to FCERI receptors on mast cells (mast cells now become sensitized ). Step 2: Second Exposure (Effector phase) Allergen re-enters the body. It binds to IgE already attached on mast cells. This causes cross-linking (polymerization) of IgE molecules. Cross-linking triggers mast cell degranulation. Mast cells release mediators: Histamine → vasodilation, increased vascular permeability, itching, bronchospasm."
+    },
+    {
+     "type": "paragraph",
+     "text": "Leukotrienes & Prostaglandins → prolonged inflammation. Cytokines → recruit more immune cells"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L20_Q001_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-20-2",
+   "question": "Which of the following cytokines acts on B cells to stimulate class switching to IgE and promotes the development of additional Th2 cells in type I hypersensitivity reactions?",
+   "options": {
+    "A": "IL-4",
+    "B": "IL-5",
+    "C": "IL-13",
+    "D": "IL-10"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Interleukins Role IL-4 Key cytokine in driving the allergic response Enhances Ig E-mediated reaction Stimulates B cells to undergo class switching to IgE and promotes the expansion of Th2 cells IL-5 (Option B) Development and activation of eosinophils→ Recruited to the site of allergen exposure→ Release inflammatory mediators and enzymes→ Tissue damage and inflammation IL-13 (Option C) Amplifies IgE production Acts on epithelial cells to stimulate mucus secretion IL-10 (Option D) Anti-inflammatory cytokine Inhibits cytokine production by Th1 cells and macrophages."
+    }
+   ]
+  },
+  {
+   "id": "pathology-20-3",
+   "question": "A 45-year-old patient with a history of allergic asthma presents with worsening respiratory symptoms. The sputum sample shows the presence of Charcot-Leyden crystals. Which of the following is NOT typically associated with this phase of hypersensitivity reaction?",
+   "options": {
+    "A": "Recruitment of eosinophils to the site of inflammation by chemokines like eotaxin",
+    "B": "Production of IL-5 by Th2 cells to activate eosinophils",
+    "C": "Release of histamine and tryptase by eosinophils",
+    "D": "Liberation of major basic protein and eosinophil cationic protein by activated eosinophils"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The given scenario suggests that the patient's presentation involves eosinophils, particularly the identification of Charcot-Leyden crystals (composed of galectin-10 protein) in the extracellular space, which is derived from eosinophils. (suggestive of delayed phase of type 1 HSR)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Histamine and tryptase are preformed mediators released by mast cells during the early phase of Type I hypersensitivity (Option B), not by eosinophils in the late phase. Early phase reaction Late phase reaction Onset Immediate (within minutes of allergen exposure). Delayed (several hours after exposure) and can last for days. Cells involved Mast cells, basophils. Eosinophils, T lymphocytes. Cellular events Activation of mast cells and basophils."
+    },
+    {
+     "type": "paragraph",
+     "text": "Recruitment and activation of leukocytes, especially eosinophils. Mediators Histamine, leukotrienes (LTB4, LTC4, LTD4), prostaglandins (PGD2) and Platelet-activating factor (PAF). Cytokines (e.g., IL-4, IL-5, TNF), chemokines (e.g., eotaxin) Initiating event Exposure to allergen triggers cross-linking of IgE on mast cells/basophils. Recurrent inflammation, sustained by recruited leukocytes."
+    },
+    {
+     "type": "paragraph",
+     "text": "Effect on tissues Vasodilation, increased vascular permeability, smooth muscle contraction. Sustained inflammation and tissue damage due to leukocyte infiltration. Clinical manifestations Allergic rhinitis (hay fever), urticaria (hives), Angioedema bronchoconstriction. Allergic asthma exacerbation, persistent inflammation, and tissue damage. Therapeutic Approach Antihistamines for symptomatic relief."
+    },
+    {
+     "type": "paragraph",
+     "text": "Adrenaline in anaphylactic shock Broad-spectrum anti-inflammatory drugs (e.g., steroids) to suppress inflammation and prevent tissue damage."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L20_Q003_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L20_Q003_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pathology-20-4",
+   "question": "Which of the following is not an example of a Type I hypersensitivity reaction?",
+   "options": {
+    "A": "Graft rejection",
+    "B": "Vernal Keratoconjunctivitis",
+    "C": "Casoni test",
+    "D": "P-K reactions"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Graft rejection is not an example of a type I hypersensitivity reaction. Acute graft rejection involves Type II and Type IV hypersensitivity reactions. Hyperacute graft rejection involves Type II hypersensitivity reactions. Chronic graft rejection involves Type IV hypersensitivity reactions."
+    },
+    {
+     "type": "paragraph",
+     "text": "Examples of Type I hypersensitivity reactions: Allergic conditions include Allergic rhinitis, Allergic dermatitis, Allergic conjunctivitis, or Vernal Keratoconjunctivitis (Option B). Bronchial asthma Casoni test: Done for detection of Echinococcus granulosus (Hydatid cyst) (Option C)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Drug reactions P-K reactions (Option D):** The PK reaction is a laboratory technique used to demonstrate type I hypersensitivity, which involves IgE antibodies and mast cell degranulation, often leading to immediate allergic reactions. Theobald Smith phenomenon.(Theobald Smith phenomenon is the term for the development of hypersensitivity to bacteria in animals after repeated injections)"
+    }
+   ]
+  },
+  {
+   "id": "pathology-20-5",
+   "question": "Which of the following diseases is not an example of a Type II hypersensitivity reaction?",
+   "options": {
+    "A": "Rheumatic fever",
+    "B": "Multiple sclerosis",
+    "C": "Immune thrombocytopenic purpura",
+    "D": "Pernicious anaemia"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Multiple sclerosis is an example of a type IV hypersensitivity reaction, not type II. Examples of Type II hypersensitivity reactions are: Mnemonic: My Blood Group Is Rh Positive My Myasthenia Gravis Blood Blood transfusion reaction Group Good pasture syndrome, Graves disease Is Immune hemolytic anaemia, Immune thrombocytopenic purpura R Rh incompatibility, Rheumatic fever H Hyperacute transplant rejection Positive Pemphigus (Bullous), Pernicious Anemia"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L20_Q005_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-20-6",
+   "question": "Which of the following statements regarding pernicious anaemia is incorrect?",
+   "options": {
+    "A": "Natural Killer (NK) cells participate in Antibody-dependent cellular cytotoxicity.",
+    "B": "Opsonisation involves IgG antibodies coating cells, enhancing phagocytosis via Fc receptors.",
+    "C": "When antibodies deposit in intracellular tissues, the injury is due to inflammation and not phagocytosis or cell lysis.",
+    "D": "Myasthenia gravis is an example of antibody-mediated cell surface receptor dysfunction."
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "In pernicious anaemia, the type of hypersensitivity involved is Type II hypersensitivity, also known as antibody-mediated hypersensitivity. This type of hypersensitivity occurs when antibodies bind to antigens on host cells, leading to cell destruction or dysfunction."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Mechanisms of Type II hypersensitivity Description Examples Opsonisation and Phagocytosis (Option B):** IgG antibodies coat cells, helping phagocytes recognise circulating antigen-opsonin complexes through Fc receptors or complement activation, leading to phagocytosis. Autoimmune hemolytic anaemia Immune thrombocytopenic purpura Rh hemolytic disease of the newborn."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Complement activation and inflammation (Option C):** Antibody deposition in extracellular tissues triggers inflammation, not phagocytosis or cell lysis. The deposited antibodies activate the complement system, leading to the attraction of neutrophils and monocytes via their Fc receptors. Activated leukocytes release enzymes, resulting in tissue damage."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Goodpasture syndrome Acute rheumatic fever Antibody-dependent cellular cytotoxicity (ADCC) (Option A):** Natural killer cells bind to antibody-antigen complexes, inducing apoptotic cell death."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Pernicious anemia Insulin resistant diabetes Antibody-mediated cellular dysfunction (non-cytotoxic) (Option D):** Antibodies physically impair or dysregulate cellular function by binding to cell surface receptors. This includes both activation (e.g., thyroid hormone receptor in Graves disease) and inhibition (e.g., acetylcholine receptor in Myasthenia gravis). Graves disease Myasthenia gravis Mechanisms of Type II hypersensitivity Description Examples Opsonisation and Phagocytosis (Option B) IgG antibodies coat cells, helping phagocytes recognise circulating antigen-opsonin complexes through Fc receptors or complement activation, leading to phagocytosis. Autoimmune hemolytic anaemia Immune thrombocytopenic purpura Rh hemolytic disease of the newborn."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Complement activation and inflammation (Option C):** Antibody deposition in extracellular tissues triggers inflammation, not phagocytosis or cell lysis. The deposited antibodies activate the complement system, leading to the attraction of neutrophils and monocytes via their Fc receptors. Activated leukocytes release enzymes, resulting in tissue damage."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Goodpasture syndrome Acute rheumatic fever Antibody-dependent cellular cytotoxicity (ADCC) (Option A):** Natural killer cells bind to antibody-antigen complexes, inducing apoptotic cell death."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Pernicious anemia Insulin resistant diabetes Antibody-mediated cellular dysfunction (non-cytotoxic) (Option D):** Antibodies physically impair or dysregulate cellular function by binding to cell surface receptors. This includes both activation (e.g., thyroid hormone receptor in Graves disease) and inhibition (e.g., acetylcholine receptor in Myasthenia gravis). Graves disease Myasthenia gravis Note: Myasthenia gravis and Graves disease are now classified as Type V hypersensitivity (Type V > Type II) Type V hypersensitivity reaction: Antibodies against cellular receptors."
+    }
+   ]
+  },
+  {
+   "id": "pathology-20-7",
+   "question": "An 11-year-old boy presents to the emergency department with swelling in his face and legs, decreased urine output, and dark-colored urine. His parents reported that he had a sore throat about three weeks ago, which resolved without treatment. Urinalysis shows proteinuria and hematuria. Which type of hypersensitivity reaction is associated with this condition?",
+   "options": {
+    "A": "Type I hypersensitivity",
+    "B": "Type II hypersensitivity",
+    "C": "Type III hypersensitivity",
+    "D": "Type IV hypersensitivity"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The given clinical scenario suggests Post-streptococcal glomerulonephritis (PSGN), a classic example of a Type III hypersensitivity reaction. PSGN is an immune complex-mediated disease caused by the deposition of circulating immune complexes (composed of streptococcal antigens and antibodies) in the kidney glomeruli, leading to inflammation and damage."
+    },
+    {
+     "type": "paragraph",
+     "text": "Examples of type III hypersensitivity: (mnemonic- SHARP) Serum sickness, Schick test, SLE (Hematological lesion) Henoch Schonlein purpura Arthus reaction Reactive arthritis Post-streptococcal Glomerulonephritis (PSGN), Polyarteritis Nodosa (PAN)"
+    }
+   ]
+  },
+  {
+   "id": "pathology-20-8",
+   "question": "Which of the following is typically associated with localized immune-complex mediated hypersensitivity?",
+   "options": {
+    "A": "Serum sickness",
+    "B": "Arthus reaction",
+    "C": "Membranous glomerulonephritis",
+    "D": "Reactive arthritis"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The presentation from the given clinical scenario suggests localized immune-complex mediated hypersensitivity or Type III hypersensitivity reaction. The “Arthus reaction” is localized tissue necrosis caused by acute immune complex vasculitis, often occurring in the skin."
+    },
+    {
+     "type": "paragraph",
+     "text": "It occurs when pre-existing antibodies (IgG) interact with antigens locally injected into the skin or other tissues, leading to complement activation, inflammation, and tissue damage. This reaction is typically seen in response to repeated exposure to certain antigens (e.g., vaccines) and results in a localised inflammatory response such as localised swelling, redness, pain, and tissue destruction."
+    },
+    {
+     "type": "paragraph",
+     "text": "Systemic type III hypersensitivity Localised type III hypersensitivity Involves the widespread formation of immune complexes in circulation and can deposit in various tissues and organs throughout the body, including the kidneys (leading to glomerulonephritis), joints, skin, blood vessels, and other sites. (e.g., in chronic infections or autoimmune diseases)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Immune complexes are deposited at specific sites of antigen exposure, such as the skin (as in the Arthus reaction) or joint spaces, leading to local inflammation (localized swelling, redness, pain) and tissue damage."
+    }
+   ]
+  },
+  {
+   "id": "pathology-20-9",
+   "question": "A 40-year-old man presents with jaundice and fatigue, recently diagnosed with hepatitis B infection. Further investigation reveals abnormal liver function tests, indicating hepatic injury. Which of the following statements regarding the mechanisms of hypersensitivity involved in this case is true?",
+   "options": {
+    "A": "CD8+ T cells differentiate into Th1 and Th17 cells upon antigen exposure",
+    "B": "CD4+ T cells differentiate into Th2 cells upon exposure to antigen",
+    "C": "Cytotoxic T-lymphocytes (CTLs) directly kill virus-infected cells via the Fas-Fas ligand pathway",
+    "D": "Perforin-granzyme-dependent killing is a mechanism employed by CD4+ T cells"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The type of hypersensitivity involved in hepatitis B virus (HBV) infection is Type IV. Mechanisms of Type IV hypersensitivity Description Examples Cytokine-mediated inflammation (mediated by CD4+ T cells) CD4+ T cells recognise protein antigens presented by APCs and differentiate into Th1 and Th17 cells (Options A and B ruled out). Th1 cells secrete cytokines like IFN-γ, activating macrophages to cause tissue damage and fibrosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Th17 cells produce IL-17 to recruit neutrophils, promoting inflammation. Tuberculin test (a classic example of delayed-type hypersensitivity) Granulomas Contact dermatitis Rheumatoid arthritis Multiple sclerosis IBD Psoriasis T cell-mediated cytotoxicity (mediated by CD8+ T cells) Cytotoxic T lymphocytes (CTLs) directly kill antigen-bearing target cells, including tumour cells, virus-infected cells, and allogeneic tissue, during graft rejection."
+    },
+    {
+     "type": "paragraph",
+     "text": "**CTLs use perforin-granzyme-dependent killing (Option D ruled out):** and Fas-Fas ligand-dependent killing mechanisms to induce apoptosis in target cells. (Option C) Type 1 DM Hepatic injury in HBV infection Graft vs host disease"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L20_Q009_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L20_Q009_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pathology-20-10",
+   "question": "A 35-year-old woman presents with a history of persistent cough and unintentional weight loss. The physician suspects a TB infection and performs a tuberculin skin test. Which of the following is not an example of the type of hypersensitivity reaction associated with this test?",
+   "options": {
+    "A": "Contact dermatitis from poison ivy exposure.",
+    "B": "Rheumatoid arthritis.",
+    "C": "Crohn's disease.",
+    "D": "Reactive arthritis."
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The tuberculin skin test (TST) mentioned in the scenario represents Delayed type hypersensitivity (Type IV hypersensitivity). Reactive arthritis, on the other hand, shows Type III hypersensitivity."
+    },
+    {
+     "type": "paragraph",
+     "text": "Examples of Type IV hypersensitivity reactions: Contact dermatitis from exposure to Urushiol from poison ivy or poison oak Detergent Artificial jewellery (Ni and Cd) Granuloma Mantoux test Lepromin test Inflammatory Bowel Disease (Crohn’s disease) Rheumatoid arthritis (Type IV > Type III hypersensitivity) Multiple sclerosis Sarcoidosis Psoriasis"
+    }
+   ]
+  },
+  {
+   "id": "pathology-20-11",
+   "question": "Which of the following statements accurately describes Type V hypersensitivity?",
+   "options": {
+    "A": "Antibodies bind to cell surface receptors, leading to altered cellular function",
+    "B": "Immune complexes form and deposit in tissues, triggering localized inflammation and damage.",
+    "C": "Antibodies target cell surface antigens, resulting in complement activation and cell destruction.",
+    "D": "IgE antibodies mediate the release of histamine from mast cells, causing immediate allergic reactions."
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Type V hypersensitivity: Involves IgG antibodies binding to cell surface receptors, altering the normal function of those cells. The antibodies may mimic hormones or block receptor function Leads to altered cellular activity without direct destruction of the cells. It can cause overstimulation or inhibition of normal cellular functions. Graves' disease: Antibodies stimulate the thyroid hormone receptor, causing hyperthyroidism."
+    },
+    {
+     "type": "paragraph",
+     "text": "Myasthenia gravis: Antibodies block acetylcholine receptors at the neuromuscular junction, leading to muscle weakness."
+    },
+    {
+     "type": "paragraph",
+     "text": "IgE antibodies mediate the release of histamine from mast cells, causing immediate allergic reactions (Option B) is a hallmark of Type I hypersensitivity, involving immediate reactions and allergic responses mediated by IgE. Immune complexes form and deposit in tissues, triggering localized inflammation and damage (Option C) describes Type III hypersensitivity, which involves immune complex deposition leading to inflammation."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Antibodies target cell surface antigens, resulting in complement activation and cell destruction (Option D):** is characteristic of Type II hypersensitivity, where antibody binding leads to direct cell damage through complement activation."
+    }
+   ]
+  },
+  {
+   "id": "pathology-20-12",
+   "question": "Which of the following sequences correctly describes the phases of pathogenesis in Type III hypersensitivity?",
+   "options": {
+    "A": "Formation of immune complexes → Inflammation and tissue injury → Deposition in blood vessels.",
+    "B": "Deposition of immune complexes → Formation of antibodies → Tissue injury and inflammation.",
+    "C": "Formation of immune complexes → Deposition in tissues → Inflammation and tissue injury.",
+    "D": "Antibody production → Immune complex formation → Activation of cytotoxic T cells."
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Phases of Type 3 hypersensitivity: 1. Formation of Immune Complexes: After introducing a protein antigen, antibodies are formed (typically within one week) and react with the antigen in circulation, creating antigen-antibody complexes. 2. Deposition of Immune Complexes: These complexes circulate and are deposited in blood vessels, particularly in organs like the kidneys and joints."
+    },
+    {
+     "type": "paragraph",
+     "text": "Medium-sized complexes formed in slight antigen excess are most pathogenic. 3. Inflammation and Tissue Injury: Deposited immune complexes trigger acute inflammation about 10 days post-antigen exposure, leading to symptoms like fever, joint pain, and proteinuria. Complement activation contributes to tissue injury, with serum C3 levels potentially serving as a marker for disease activity."
+    },
+    {
+     "type": "paragraph",
+     "text": "Histopathological lesions: Inflammation and necrotizing vasculitis (fibrinoid necrosis). Type 3 hypersensitivity (Mnemonic - T SHARP ): Type II lepra reaction. S LE. Serum sickness. Henoch Schonlein Purpura. Hypersensitivity pneumonitis. Arthus reaction. Reactive Arthritis. Post streptococcal glomerulonephritis. Polyarteritis nodosa. Parasitic diseases."
+    }
+   ]
+  },
+  {
+   "id": "pathology-21-1",
+   "question": "A 5-year-old boy presents with severe, chronic diarrhoea, failure to thrive, and a rash. His medical history includes a diagnosis of type 1 diabetes mellitus and thyroiditis. Laboratory tests show elevated levels of anti-enterocyte antibodies. Based on these findings, which mechanism is most likely impaired in this patient's condition?",
+   "options": {
+    "A": "Central tolerance",
+    "B": "Peripheral tolerance",
+    "C": "Anergy",
+    "D": "Hidden antigen"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical scenario likely describes IPEX (immune dysregulation, polyendocrinopathy, enteropathy, X-linked) due to defective peripheral tolerance. IPEX is an X-linked immune dysregulation disorder that presents in childhood. It occurs due to defects in the FOXP3 gene, which plays a crucial role in peripheral tolerance mediated by CD4+ T regulatory cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "Defects in FOXP3 lead to dysfunctional CD4+ T regulatory cells, impairing their ability to maintain immune tolerance and resulting in autoimmune reactions against various tissues, particularly within the gastrointestinal tract."
+    }
+   ]
+  },
+  {
+   "id": "pathology-21-2",
+   "question": "Match the following processes in immune tolerance with their associated regulators. Process Regulators 1. Negative selection a. CD-28 2. Anergy b. FOXP3 3. Deletion by apoptosis c. AIRE 4. Suppression by regulatory T cells d. CD95",
+   "options": {
+    "A": "1-c, 2-a, 3-d, 4-b.",
+    "B": "1-a, 2-c, 3-d, 4-b.",
+    "C": "1-c, 2-b, 3-d, 4-a.",
+    "D": "1-a, 2-d, 3-c, 4-b."
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Negative selection or clonal deletion: Process in which T cells expressing receptors for self-antigens encounter these antigens in the thymus and are then killed by apoptosis. AIRE (autoimmune regulator) is a regulator protein critical for deleting these T cells. A defect in AIRE leads to autoimmune polyendocrine syndrome (AIPS). Anergy: A process where lymphocytes that recognise self-antigens are rendered functionally unresponsive."
+    },
+    {
+     "type": "paragraph",
+     "text": "Binding co-stimulatory signals to CD28 leads to T cell proliferation and differentiation. Deletion by apoptosis: T cells that recognise self-antigens receive signals that promote their death by apoptosis. Upon recognition of self-antigens, lymphocytes express the death receptor Fas (CD95). Suppression by regulatory T cells: CD4+/ regulatory T cells prevent immune reactions against self-antigens."
+    },
+    {
+     "type": "paragraph",
+     "text": "Both IL-2 and FOXP3 are required for the functioning of CD4+ regulatory T cells. Mutations in FOXP3 result in an autoimmune disease called IPEX (immune dysregulation, polyendocrinopathy, enteropathy, X-linked )."
+    }
+   ]
+  },
+  {
+   "id": "pathology-21-3",
+   "question": "Which of the following is an immune-privileged site?",
+   "options": {
+    "A": "Heart",
+    "B": "Lung",
+    "C": "Kidney",
+    "D": "Testis"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Among the given options, the testis is an immune-privileged site. The testis, eye, and brain are called immune-privileged sites because antigens are sequestered/isolated from the immune system without communicating with blood and lymph. Brain Blood-brain barrier Eyes Blood-ocular barrier Testes Blood-testicular barrier These tissues fail to elicit immune responses and are ignored by the immune system."
+    },
+    {
+     "type": "paragraph",
+     "text": "If the antigens of these tissues are released as a consequence of trauma or infection, an immune response will result, leading to prolonged inflammation and injury. This is the postulated mechanism for post-traumatic orchitis and uveitis."
+    }
+   ]
+  },
+  {
+   "id": "pathology-21-4",
+   "question": "A 30-year-old woman presents with a history of fatigue, fever, and weight loss. She also reports joint pain, swelling and a rash, as shown below. What is the most likely diagnosis?",
+   "options": {
+    "A": "Dermatomyositis",
+    "B": "Systemic Lupus Erythematosus",
+    "C": "Psoriatic Arthritis",
+    "D": "Ankylosing Spondylitis"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient's clinical presentation suggests systemic lupus erythematosus (SLE)."
+    },
+    {
+     "type": "paragraph",
+     "text": "SLE is a chronic autoimmune disorder, but is also a type 2 and type 3 HSN combination (Type 3 HSN> Type 2 HSN) Most sensitive antibody causing SLE: Antinuclear antibody (ANA) Most specific antibody causing SLE: Anti-Smith antibody (ASA) Antibody that is both sensitive and specific: Anti-double-stranded DNA antibody (Anti-dsDNA) Clinical Manifestations of SLE: Skin: Malar rash (butterfly rash): Present on cheeks and bridge of the nose but sparing the nasolabial regfion."
+    },
+    {
+     "type": "paragraph",
+     "text": "Multi-organ involvement, like: Joints, renal, cardiovascular, pulmonary, neurological and haematological involvements"
+    }
+   ]
+  },
+  {
+   "id": "pathology-21-5",
+   "question": "A 19-year-old woman presents with malaise, joint pain, and fever for the past 3 months. Physical examination shows a malar rash and mouth ulcers. She has significant proteinuria and decreased GFR. Which of the following antibodies are most specific and most sensitive, respectively?",
+   "options": {
+    "A": "ANA, Anti ds DNA",
+    "B": "Anti-Sm, ANA",
+    "C": "Anti- Ro, Anti- La",
+    "D": "Anti-beta-2-glycoprotein, Anticardiolipin"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Based on the above clinical scenario mentioning malar rash and multi-organ involvement, the most likely diagnosis is systemic lupus erythematosus (SLE)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Anti-Smith antibodies (ASA) are most specific for SLE. Anti-double-stranded DNA (dsDNA) antibodies are most sensitive for SLE. Marker/Antibody Clinical Significance Anti-Smith (anti-Sm) antibodies Highly specific for SLE (<30% of patients) Anti-dsDNA antibodies Highly specific for SLE (60-70% of patients); correlates with the disease Antinuclear antibodies (ANA) Highly sensitive but not specific for SLE Anti-Ro (SSA) and Anti-La (SSB) antibodies Found in SLE and Sjögren syndrome; associated with neonatal lupus Anti-ribosomal-P antibodies Specific for neuropsychiatric manifestations in SLE Anti-histone antibodies Seen in drug-induced lupus; less specific for SLE Complements C3 and C4 Low levels indicate complement consumption and disease activity"
+    }
+   ]
+  }
+ ]
+}

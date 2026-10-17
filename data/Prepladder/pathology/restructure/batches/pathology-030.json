@@ -1,0 +1,741 @@
+{
+ "batch": "pathology-030",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pathology-030",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pathology-35-4",
+   "question": "A 55-year-old male presents with a chronic cough, dyspnea, and chest tightness. On examination, fine crackles are heard bilaterally. A lung biopsy reveals collections of carbon-laden macrophages within the respiratory bronchioles and alveolar ducts, along with focal fibrosis and occasional small granulomas. Which of the following is not a condition associated with this patient?",
+   "options": {
+    "A": "Anthracosis",
+    "B": "Simple Coal Worker’s Pneumoconiosis",
+    "C": "Complicated coal Worker’s pneumoconiosis",
+    "D": "Psittacosis"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "As the histopathology shows carbon-laden macrophages, it is not associated with Psittacosis which is a zoonotic bacterial infection caused by Chlamydia psittaci, contracted from exposure to infected birds, such as parrots. Carbon deposits are dark black and are readily visible grossly and microscopically."
+    },
+    {
+     "type": "paragraph",
+     "text": "Inhaled carbon pigment is engulfed by alveolar or interstitial macrophages, accumulating in the connective tissue adjacent to the lymphatics and organised lymphoid tissue adjacent to the bronchi or lung hilum."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Anthracosis (Option A):** is the deposition of carbon particles in the lungs due to chronic inhalation of smoke, soot, or pollution. It is commonly seen in urban dwellers, smokers, and coal workers. HPE shows carbon-laden macrophages."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Coal Worker’s Pneumoconiosis (CWP) Simple CWP (Option B):** Complicated CWP (Option C) It is characterised by coal macules (1 to 2 mm in diameter) and larger coal nodules containing carbon-laden macrophages and a delicate network of collagen fibres. Although these lesions are scattered throughout the lung, the upper lobes and upper zones of the lower lobes are more heavily involved. Dilatation of alveoli adjacent to bronchioles gives rise to centrilobular emphysema. It leads to progressive massive fibrosis and large, dark scars measuring 1 to 10 cm in diameter, often appearing in multiple areas. Microscopically, these lesions contain dense collagen and pigment deposition. Lung function is compromised"
+    }
+   ]
+  },
+  {
+   "id": "pathology-35-5",
+   "question": "A 50-year-old sandblaster presents with chronic cough, dyspnea, and chest pain. Further investigation reveals a history of prolonged exposure to sandblasting. He has also worked for several years in mines, where he was exposed to chronic asbestos and beryllium. A chest X-ray was taken, which is shown below. What is the most likely diagnosis?",
+   "options": {
+    "A": "Byssinosis",
+    "B": "Silicosis",
+    "C": "Asbestosis",
+    "D": "Berylliosis"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The chest X-ray shows calcification of hilar lymph nodes, called eggshell calcification. The clinical picture, along with eggshell calcification, suggests silicosis. Silicosis: It is the most prevalent occupational lung disease in the world. Cause: Inhalation of proinflammatory crystalline silicon dioxide (silica). After decades of exposure, it usually presents as slowly progressing, nodular, fibrosing pneumoconiosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Occupations at risk: Foundry work. Sandblasting. Hard rock mining. Stone cutting. Jewellers using chalk moulds. Pathogenesis: Phagocytosis of inhaled silica crystals by macrophages activates the inflammasome and stimulates the release of inflammatory mediators, particularly IL-1 and IL-18. This, in turn, recruits additional inflammatory cells and activates interstitial fibroblasts, leading to collagen deposition. Forms of silica: Amorphous."
+    },
+    {
+     "type": "paragraph",
+     "text": "Crystalline (quartz, cristobalite, and tridymite)- more fibrogenic. Forms of silicosis: Acute Heavy exposure in closed spaces Associated with Silico-tuberculosis and Secondary pulmonary alveolar proteinosis ( SPAP) Can present within 2 years. Chronic (simple): Long-term (10-30 years) Less intense exposure. Chronic Complicated: Chronic cough and progressive dyspnea on exertion. Morphology: Discrete nodules in hilar nodes and upper zones of lungs."
+    },
+    {
+     "type": "paragraph",
+     "text": "Hard collagenous scars. Fibrotic lesions in nodes and pleura (pleural thickening). Eggshell calcification (thin sheets of calcification in lymph nodes; calcium surrounding a zone lacking calcification). Progressive massive fibrosis (1-10 cm). Lung cancer (2-fold risk). Increased susceptibility to tuberculosis infection. Histological hallmark: Central collagen with a peripheral zone of dust-laden macrophages."
+    },
+    {
+     "type": "paragraph",
+     "text": "Polarized microscopy: Weakly birefringent silicate particles. CT scan: Crazy pavement pattern and interstitial fibrosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Byssinosis (Option A):** Caused by inhalation of cotton dust, common in textile workers. Presents with Monday chest tightness — not associated with eggshell calcification."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Asbestosis (Option C):** Exposure to asbestos leads to lower lobe fibrosis, pleural plaques, and increased risk of mesothelioma — but eggshell calcification is not typical."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Berylliosis (Option D):** Occurs in aerospace, electronics, and nuclear industries. Presents with non-caseating granulomas, similar to sarcoidosis. Eggshell calcification is not characteristic."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L35_Q005_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L35_Q005_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pathology-35-6",
+   "question": "Which of the following is not a cause of eggshell calcification?",
+   "options": {
+    "A": "Silicosis",
+    "B": "Sarcoidosis",
+    "C": "Post-radiation therapy",
+    "D": "Metastatic lymph nodes"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Eggshell calcification is not seen in metastatic lymph nodes. Eggshell calcification refers to a ring of calcification at the periphery of a lymph node (thin sheets of calcification in lymph nodes; calcium surrounding a zone lacking calcification). Causes: Silicosis (Option A) Coal workers pneumoconiosis Sarcoidosis (Option B) Post-radiotherapy (Option C) Post-irradiation lymphoma Tuberculosis Amyloidosis Histoplasmosis Blastomycosis"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L35_Q006_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L35_Q006_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L35_Q006_explanation_3"
+    }
+   ]
+  },
+  {
+   "id": "pathology-35-7",
+   "question": "Which of the following forms of asbestos is more toxic?",
+   "options": {
+    "A": "Serpentine",
+    "B": "Amphibole",
+    "C": "Chrysolite",
+    "D": "Erionite"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Amphibole (crocidolite, amosite) is the most toxic form of asbestos. Asbestos is a family of crystalline hydrated silicates associated with pulmonary fibrosis and various forms of cancer. It occurs in two distinct geometric forms: serpentine and amphibole. Amphiboles are straight and stiffly aligned with the airstream and can be delivered deeper into the lungs. They can penetrate epithelial cells and reach the interstitium."
+    },
+    {
+     "type": "paragraph",
+     "text": "Chrysolites, with their more flexible, curled structure, are likely to become impacted in the upper respiratory passages and removed by the mucociliary elevator. Even if they get trapped in the lungs, they are easily removed as they are more soluble. Both amphiboles and serpentines are fibrogenic and are associated with a higher incidence of asbestos-related diseases."
+    },
+    {
+     "type": "paragraph",
+     "text": "Serpentine/ Chrysolite Amphibole/ Crocidolite/ Amosite Wavy Rigid More common (90% of the asbestos) More pathogenic (amphiboles particularly associated with mesothelioma ) Mnemonic: I am crying (Chrysotile) After looking at a snake (Serpentine) Snake is wavy Snakes can be seen more commonly (more common) Mnemonic: I am on a site (Amosite) Saw a Crocodile (Crocidolite) Which is an Amphibian Crocodile is straight (rigid) Erionite is a naturally occurring fibrous mineral with properties similar to asbestos."
+    },
+    {
+     "type": "paragraph",
+     "text": "Exposure to it is associated with increased risks of lung cancer and mesothelioma."
+    }
+   ]
+  },
+  {
+   "id": "pathology-35-8",
+   "question": "A patient has been experiencing dyspnea for the past few weeks. A biopsy of his lungs has revealed the finding given below. What is the characteristic finding shown below in this patient?",
+   "options": {
+    "A": "Creola body",
+    "B": "Schaumann body",
+    "C": "Ferruginous body",
+    "D": "Asteroid body"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The histopathological slide shows golden brown, fusiform, or beaded rods with a translucent core containing asbestos fibres coated with an iron-containing proteinaceous material suggestive of asbestos (ferruginous) bodies. They arise when macrophages phagocytose asbestos fibres; the iron is presumably derived from phagocyte ferritin."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Laminated concretions composed of calcium and proteins are known as Schaumann bodies (Option B):** and stellate inclusions are known as asteroid bodies (Option D). Both are found within giant cells in patients with sarcoidosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Creola bodies (Option A):** are ciliated columnar cells shed from the bronchial mucosa of patients with asthma."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L35_Q008_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L35_Q008_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pathology-35-9",
+   "question": "A 55-year-old male presents to the clinic with complaints of persistent chest pain, shortness of breath, and unexplained weight loss. He was chronically exposed to minerals when he worked as a shipbuilder. Imaging studies revealed a growth that was subjected to needle biopsy. What is the most common lung malignancy associated with his occupational exposure?",
+   "options": {
+    "A": "Squamous cell carcinoma",
+    "B": "Adenocarcinoma",
+    "C": "Mesothelioma",
+    "D": "Small cell cancer"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient's occupational history where he worked as a Shipbuilder suggests that he was chronically exposed to Asbestos and the most common lung malignancy seen with occupational asbestos exposure is adenocarcinoma. Asbestos exposure is a well-established risk factor for developing laryngeal, ovarian, colon, lung and pleural cancers. Asbestos-related lung carcinoma is markedly magnified by smoking."
+    },
+    {
+     "type": "paragraph",
+     "text": "Thus, asbestos workers (particularly those who smoke) are at much higher risk of dying of lung carcinoma than mesothelioma. Compared to other occupational lung diseases which affect the upper lobes of the lungs, it commonly affects the lower lobes."
+    },
+    {
+     "type": "paragraph",
+     "text": "Adenocarcinoma (primary bronchogenic carcinoma ) is the most common type of cancer that accounts for about 45%, followed by squamous cell carcinoma. (Option A) Lung mesothelioma is a more specific tumour associated with asbestos exposure. It is common but is less prevalent than Adenocarcinoma. (Option C) In contrast to bronchogenic carcinoma, the risk of mesothelioma does not increase with smoking in patients with asbestos."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L35_Q009_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-35-10",
+   "question": "Match the following occupational lung diseases with their characteristics. A) Byssinosis 1. Iron exposure B) Bagassosis 2. Monday disease C) Siderosis 3. Non-caseating granuloma. D) Berylliosis 4. Sugarcane dust exposure",
+   "options": {
+    "A": "A-4, B-2, C-1, D-3",
+    "B": "A-2, B-4, C-1, D-3",
+    "C": "A-3, B-1, C-4, D-2",
+    "D": "A-2, B-1, C-4, D-3"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Byssinosis: Cotton dust/ organic dust exposure. The patient usually complains that the symptoms worsen when they come to work on Monday, hence the name Monday disease. They get better when off work, and symptoms reduce as the week progresses. This cycle is repeated. Bagassosis is caused by inhaling the fibrous cane-sugar residue called bagasse."
+    },
+    {
+     "type": "paragraph",
+     "text": "It occurs in those working with bagasse, such as those in wallboard or paper manufacturing, but is not seen in sugar industry workers. Siderosis is due to exposure to iron oxide in welders. Berylliosis is caused by beryllium exposure. It leads to non-caseating granulomas, as in sarcoidosis and can be differentiated based on industry exposure. Stannosis - Tin/ Lead exposure. Baritosis - Barium exposure."
+    }
+   ]
+  },
+  {
+   "id": "pathology-35-11",
+   "question": "Which of the following is incorrect about mesothelioma?",
+   "options": {
+    "A": "Most specific cancer associated with asbestos exposure",
+    "B": "Can lead to frozen hemithorax",
+    "C": "Leads to a mediastinal shift",
+    "D": "Not associated with smoking"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Mesothelioma A rare cancer arising from mesothelial cells that most commonly affects the pleura. It can also affect the peritoneum, pericardium and tunica vaginalis. Aetiology Asbestos: Mesothelioma is the most specific asbestos-associated cancer (Option A) It is not associated with smoking (Option D) Pathology Advanced pleural mesothelioma can cause extensive pleural fibrosis and thickening, making the affected side rigid and immobile."
+    },
+    {
+     "type": "paragraph",
+     "text": "Later stages fix the mediastinum in place due to pleural thickening and fibrosis. The mediastinal shift is not a characteristic feature of mesothelioma. M/C cytogenetic abnormality in mesothelioma: Homozygous deletion of chromosome 9p, leading to loss of tumour suppressor gene- CDKN2A. Clinical features Progressive dyspnea, chest pain, weight loss, chronic cough, hemoptysis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Decreased breath sounds and dullness to percussion (due to pleural effusion or thickening). Diagnosis CT scan: Pleural thickening, effusion, or frozen hemithorax (not causing a mediastinal shift in the presence of effusion) (Options C and D) Confirmed by biopsy: Epithelioid mesothelioma shows tubules, nests, or papillary structures with uniform round to oval nuclei and eosinophilic cytoplasm."
+    },
+    {
+     "type": "paragraph",
+     "text": "Sarcomatoid mesothelioma consists of spindle-shaped cells resembling fibrosarcoma. Biphasic mesothelioma displays a mixture of both patterns. Specific markers for mesothelioma: Calretinin. Epithelial membrane antigen. Cytokeratin. Mesothelin. Prognosis Poor (median survival of 9-21 months). Mesothelioma- Gross Mesothelioma- H & E stain Mesothelioma- Calretinin stain Lobulated pleural soft tissue mass encasing the right lung."
+    },
+    {
+     "type": "paragraph",
+     "text": "Associated erosion of the right 3rd rib anteriorly. Calcified pleural plaques were noted bilaterally, indicating previous asbestos exposure. Coarse, partially calcified right pleural plaques, accompanied by massive right pleural effusion, causing total right lung collapse and mass effect."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L35_Q011_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L35_Q011_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L35_Q011_explanation_3"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L35_Q011_explanation_4"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L35_Q011_explanation_5"
+    }
+   ]
+  },
+  {
+   "id": "pathology-36-1",
+   "question": "A 45-year-old patient who has been working in a factory for the past 20 years presents with breathlessness. HRCT of the chest shows pleural thickening and fibrosis. What is the person suffering from?",
+   "options": {
+    "A": "Asbestosis",
+    "B": "Coal worker pneumoconiosis",
+    "C": "Silicosis",
+    "D": "Berylliosis"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient's history of working in a factory for a prolonged period, along with the HRCT chest findings of pleural thickening and fibrosis, points towards the diagnosis of Asbestosis, a lung disease caused by the inhalation of asbestos fibres commonly encountered in occupational settings."
+    },
+    {
+     "type": "paragraph",
+     "text": "Prolonged exposure to asbestos can lead to the deposition of fibres in the lungs, triggering an inflammatory response that results in fibrosis and scarring of lung tissue, including the pleura. Occupational Lung Disease Associated Agents Features Diagnostic Tools Preventive Measures Asbestosis (Option A) Asbestos fibers Characterised by progressive pulmonary fibrosis. Symptoms include dyspnea, non-productive cough, and chest pain."
+    },
+    {
+     "type": "paragraph",
+     "text": "Often associated with pleural plaques and increased risk of mesothelioma and lung cancer. HRCT, pulmonary function tests, occupational history Use of protective gear, proper ventilation, asbestos abatement programs Silicosis (Option C ruled out) Crystalline silica (quartz dust) Presents with nodular pulmonary fibrosis, primarily in the upper lobes. Increased risk of TB and other respiratory infections."
+    },
+    {
+     "type": "paragraph",
+     "text": "Chronic exposure can lead to progressive massive fibrosis. Chest X-ray, HRCT, occupational history Dust control measures, respirators, regular health check-ups Coal Worker's Pneumoconiosis (CWP) (Option B ruled out) Coal dust Also known as \"black lung disease.\" Features similar to silicosis but usually affect the upper lungs with coal dust deposition and fibrosis, without the silicotic nodules."
+    },
+    {
+     "type": "paragraph",
+     "text": "Chest X-ray, HRCT, pulmonary function tests Dust control, respiratory protective equipment, regular monitoring Byssinosis Cotton, flax, hemp dust \"Monday fever\" describes worsening symptoms at the beginning of the workweek. Symptoms include chest tightness and wheezing, predominantly in textile workers."
+    },
+    {
+     "type": "paragraph",
+     "text": "Clinical evaluation, occupational history Improved ventilation, dust suppression, health education Berylliosis (Option D ruled out) Beryllium and its compounds Acute or chronic lung disease caused by beryllium. Chronic form mimics sarcoidosis with systemic symptoms and granulomatous inflammation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Lung biopsy, beryllium lymphocyte proliferation test (BeLPT), imaging Limiting exposure, personal protective equipment, medical surveillance Farmer's Lung Moldy hay, crops, and compost dust A type of hypersensitivity pneumonitis caused by inhaling organic dust, presenting with malaise, cough, and breathlessness that may become chronic."
+    },
+    {
+     "type": "paragraph",
+     "text": "HRCT, pulmonary function tests, specific IgG testing for antigens Respiratory protective equipment, proper storage of agricultural products"
+    }
+   ]
+  },
+  {
+   "id": "pathology-36-2",
+   "question": "A chronic smoker who worked in a cement factory for the past 20 years developed mesothelioma. This association is most likely due to?",
+   "options": {
+    "A": "Bagassosis",
+    "B": "Silicosis",
+    "C": "Asbestosis",
+    "D": "Coal worker pneumoconiosis"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Mesothelioma is a malignant tumour of the pleura (and sometimes peritoneum or pericardium) that is strongly associated with asbestos exposure."
+    },
+    {
+     "type": "paragraph",
+     "text": "Asbestos fibres are commonly encountered in: Shipbuilding Construction Cement manufacturing Insulation materials Chronic inhalation of asbestos fibres → fibres lodge in pleura → chronic inflammation & fibrosis → mutations → mesothelioma (and also increased risk of bronchogenic carcinoma, especially in smokers). Asbestos exposure is a well-established risk factor for developing laryngeal, ovarian, colon, lung, and pleural cancers."
+    },
+    {
+     "type": "paragraph",
+     "text": "Asbestos-related lung carcinoma is markedly magnified by smoking. Thus, asbestos workers (particularly those who smoke) are at much higher risk of dying of lung carcinoma than mesothelioma. Compared to other occupational lung diseases, which affect the upper lobes of the lungs, it commonly affects the lower lobes."
+    },
+    {
+     "type": "paragraph",
+     "text": "Adenocarcinoma (primary bronchogenic carcinoma ) is the most common type of cancer, accounting for about 45%, followed by squamous cell carcinoma. Lung mesothelioma is a more specific tumour associated with asbestos exposure but is less prevalent than Adenocarcinoma."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q002_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q002_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pathology-36-3",
+   "question": "A patient working in a factory presented with lung fibrosis and thickening of pleura. Biopsy was done. Diagnosis from the histopathology picture is:",
+   "options": {
+    "A": "Asbestosis",
+    "B": "Silicosis",
+    "C": "Tuberculosis",
+    "D": "Mesothelioma"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Is a lung disease caused by long-term exposure to asbestos fibers. Inhalation of these fibers leads to the formation of scar tissue and fibrosis in the lungs. It is characterized by the presence of asbestos bodies, which are asbestos fibers surrounded by iron-containing proteins, within lung tissue. The disease can cause symptoms such as shortness of breath, coughing, and chest tightness."
+    },
+    {
+     "type": "paragraph",
+     "text": "In the histopathology picture, the presence of lung fibrosis and thickening of the pleura is consistent with the diagnosis of asbestosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Option: Option B. Silicosis: Silicosis is a lung disease caused by the inhalation of crystalline silica dust. It leads to the development of fibrous tissue in the lungs, similar to asbestosis. However, silicosis is characterized by the presence of silica particles within the lung tissue rather than asbestos bodies. Occupational exposure to industries such as mining, sandblasting, or stone cutting is commonly associated with silicosis. Option C. Tuberculosis: Tuberculosis (TB) is an infectious disease caused by Mycobacterium tuberculosis. It primarily affects the lungs but can also involve other organs. TB is characterized by the formation of granulomas, which are nodular inflammatory lesions, in the affected tissues. In the lungs, TB granulomas typically contain caseous necrosis, which appears as cheesy or crumbly material on histopathology. While TB can cause lung fibrosis in advanced cases, the thickening of the pleura mentioned in the question is not a typical finding of tuberculosis. Option D. Mesothelioma: Mesothelioma is a type of cancer that affects the mesothelium, the thin membrane that lines the chest cavity and covers the lungs. It is primarily caused by exposure to asbestos fibers. Histopathologically, mesothelioma is characterized by malignant cells forming a disorganized pattern within the mesothelium. While mesothelioma can cause lung fibrosis in some cases, thickening of the pleura is a more prominent feature associated with asbestosis rather than mesothelioma."
+    }
+   ]
+  },
+  {
+   "id": "pathology-36-4",
+   "question": "A 30-year-old woman with a long history of dyspnea, chronic cough with sputum, and wheezing died of respiratory failure following a bout of lobar pneumonia. She was not a smoker or an alcoholic. The lung at autopsy is shown in the image below. Which of the following is most likely to cause the pathological changes shown?",
+   "options": {
+    "A": "Alpha-1 antitrypsin deficiency",
+    "B": "Cystic fibrosis",
+    "C": "Mutation in dynein arms",
+    "D": "Antibodies against type-IV collagen"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical presentation and the gross specimen showing emphysematous damage involving the enlargement of the entire acinus are consistent with panacinar emphysema. This pattern of emphysema is most commonly associated with alpha-1 antitrypsin deficiency. Alpha-1 antitrypsin deficiency: It is an autosomal recessive disorder caused by mutations in the alpha-1 antitrypsin gene located on Chromosome 14."
+    },
+    {
+     "type": "paragraph",
+     "text": "Normal individuals have the PiMM genotype, while those with the disease have the PiZZ genotype. This results in significantly reduced levels of functional alpha-1 antitrypsin protein. Carriers possess the PiMZ genotype. The condition primarily affects the lungs, leading to panacinar emphysema and the liver, causing cirrhosis due to abnormal protein accumulation. Emphysema is classified according to its anatomic distribution within the lobule."
+    },
+    {
+     "type": "paragraph",
+     "text": "Based on the segments of the respiratory units that are involved, emphysema is subdivided into four major types: Features Centriacinar (M/C) Panacinar Paraseptal Irregular Involves Proximal acinus Proximal & distal acini Distal acinus Irregular involvement Site Upper lobes, especially apical segments Lower zones & anterior margins of the lung. More severe at the base of the lung. The upper half of the lungs (more severe)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Airspaces can form cyst-like structures. Any part of the lung can be involved. Aetiology Smokers Chronic bronchitis α1-antitrypsin deficiency Spontaneous pneumothorax Depends on involvement, most found in autopsy The image below shows centriacinar emphysema."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q004_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q004_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q004_explanation_3"
+    }
+   ]
+  },
+  {
+   "id": "pathology-36-5",
+   "question": "A 55-year-old male presents with a chronic cough, shortness of breath, and chest pain. He has a history of working in construction for several decades, where he was exposed to asbestos. Physical examination reveals decreased breath sounds over the lower lung fields. A chest X-ray shows bilateral, diffuse interstitial opacities. Pulmonary function tests reveal a restrictive pattern. High-resolution computed tomography (HRCT) of the chest demonstrates \"honeycombing\" in the lung parenchyma. What is the diagnosis?",
+   "options": {
+    "A": "Tuberculosis",
+    "B": "Chronic Obstructive Pulmonary Disease (COPD)",
+    "C": "Asbestosis",
+    "D": "Pneumonia"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient’s prolonged asbestos exposure, chronic cough, shortness of breath, and chest pain suggest asbestosis, a form of interstitial lung disease (ILD). Imaging findings, including bilateral interstitial opacities and honeycombing on HRCT, along with a restrictive pattern on pulmonary function tests, support the diagnosis of asbestos-induced pulmonary fibrosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Asbestos exposure is a well-established risk factor for developing laryngeal, ovarian, colon, lung, and pleural cancers. Asbestos-related lung carcinoma is markedly magnified by smoking. Thus, asbestos workers (particularly those who smoke) are at much higher risk of dying of lung carcinoma than mesothelioma. Compared to other occupational lung diseases, which affect the upper lobes of the lungs, it commonly affects the lower lobes."
+    },
+    {
+     "type": "paragraph",
+     "text": "Adenocarcinoma (primary bronchogenic carcinoma ) is the most common type of cancer, accounting for about 45%, followed by squamous cell carcinoma. Lung mesothelioma is a more specific tumour associated with asbestos exposure but is less prevalent than Adenocarcinoma."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q005_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q005_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q005_explanation_3"
+    }
+   ]
+  },
+  {
+   "id": "pathology-36-6",
+   "question": "The most common lung finding in a COVID-19 infection is:",
+   "options": {
+    "A": "Pulmonary infarction",
+    "B": "Diffuse alveolar damage",
+    "C": "Endothelial injury",
+    "D": "Fibrin clots"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The most common lung finding in COVID-19 infections is diffuse alveolar damage (DAD), characterized by injury to the alveolar epithelium and endothelium, leading to pulmonary oedema, inflammation and the formation of hyaline membranes. COVID-19 (SARS-CoV-2): Transmission: It likely originated from a seafood and animal market in Wuhan. Initial animal-to-human transmission, followed by human-to-human spread."
+    },
+    {
+     "type": "paragraph",
+     "text": "Clinical features: Range from mild flu-like symptoms to severe respiratory illness. Severe cases often involve respiratory compromise and bilateral ground-glass opacities on chest imaging. It is more severe in older adults and individuals with comorbidities (e.g., diabetes, COPD, heart failure). Pathology: Histologic analysis of lung tissue shows diffuse alveolar damage and inflammation, primarily with mononuclear cells."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q006_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-36-7",
+   "question": "A 42-year-old female patient presents with a cough, a low-grade fever, and hemoptysis. Investigations reveal a cavitary lesion on her right lung apex, which, on biopsy, reveals caseous necrosis. The underlying pathophysiology is:",
+   "options": {
+    "A": "Enzyme degradation",
+    "B": "Type-4 hypersensitivity reaction",
+    "C": "Fibrinoid deposition",
+    "D": "Sudden cut off of blood supply"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The given scenario of cough, fever, hemoptysis, and a cavitary lesion with caseous necrosis at the right lung apex strongly suggests Pulmonary Tuberculosis, which involves a type-4 hypersensitivity reaction. CD4+ T cells activate macrophages, but Mycobacterium tuberculosis survives within them, causing granuloma formation with caseous necrosis, driven by a type 4 hypersensitivity reaction and resulting in tissue damage."
+    },
+    {
+     "type": "paragraph",
+     "text": "It is a bacterial infection caused by Mycobacterium tuberculosis and can be classified into the following types: 1. Primary tuberculosis It develops in a previously unexposed and, therefore, unsensitized person. The primary organ involved is mostly the lungs. Location: Sub-pleural region. Lower part of the upper lobe & upper part of the lower lobe. Ghon’s focus: Grey-white area of inflammation with consolidation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Ghon’s complex: Ghon’s focus + inflamed regional lymph nodes. Histology: Granulomatous inflammatory reaction with both caseating and non-caseating tubercles. Simon’s focus: Occult hematogenous dissemination to the apex of the lung. Fate: 95% of the cases are controlled by immunity, calcified, healed lesions and hilar lymph nodes (Ranke complex). 5% of the cases are progressive (Progressive primary TB). Resembles acute bacterial pneumonia."
+    },
+    {
+     "type": "paragraph",
+     "text": "Lymphohematogenous dissemination may cause tuberculous meningitis and/or miliary TB. 2. Secondary tuberculosis It arises in a previously sensitised host. It may follow shortly after primary tuberculosis, but more commonly, it appears months to years after the initial infection, usually when the host resistance is weakened. The apical and posterior lobe segments are involved due to high O 2 concentration (Puhl’s focus)."
+    },
+    {
+     "type": "paragraph",
+     "text": "The infraclavicular lesion is called Assman’s focus. Regional lymph node involvement is late. Cavitation occurs readily with the erosion of the cavities into an airway. Histology: Active lesions show coalescent tubercles with central caseation (Caseous necrosis). 3. Disseminated TB: Spread to other organs."
+    },
+    {
+     "type": "paragraph",
+     "text": "The images below show the caseous necrosis seen in TB. Enzyme degradation (Option A) may be involved in the breakdown of tissue during infection. The primary mechanism of tissue damage in tuberculosis is the type-4 hypersensitivity reaction."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Fibrinoid deposition (Option C):** refers to the accumulation of fibrin-like material in the walls of blood vessels. It is typically associated with conditions such as vasculitis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Sudden cutoff of blood supply (Option D):** occurs when the blood supply to a tissue is abruptly interrupted, leading to ischemia and subsequent tissue death. In the case of tuberculosis, the tissue damage is primarily caused by the immune response and the formation of granulomas."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q007_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q007_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q007_explanation_3"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q007_explanation_4"
+    }
+   ]
+  },
+  {
+   "id": "pathology-36-8",
+   "question": "A person working in an industry for a long time develops progressive breathlessness. The histopathological image of his lung biopsy is given below. What industry was the person most likely working in?",
+   "options": {
+    "A": "Silica",
+    "B": "Asbestos",
+    "C": "Coal dust",
+    "D": "Cotton"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The histopathological image shows ferruginous bodies, suggestive of Asbestosis, indicating the person likely worked in the asbestos industry. It is a chronic lung condition caused by the inhalation of asbestos fibres over a prolonged period. These fibres accumulate in the lung tissue, leading to inflammation, fibrosis, and scarring."
+    },
+    {
+     "type": "paragraph",
+     "text": "Symptoms: Includes shortness of breath, coughing, and chest tightness The histopathological features seen in asbestosis include: Interstitial fibrosis: Asbestos fibres cause injury to the lung parenchyma, resulting in the deposition of collagen and fibrous tissue in the interstitium. This fibrosis leads to thickening of the alveolar walls and restrictive lung function."
+    },
+    {
+     "type": "paragraph",
+     "text": "Ferruginous bodies: Asbestos fibres can be recognized in the lung tissue as long, golden-brown, rod-shaped structures called ferruginous bodies. These bodies are composed of asbestos fibre coated with iron and protein."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Silica (Option A):** exposure is associated with a lung disease called silicosis. Histopathological features of silicosis include nodular lesions with silica particles, collagenous fibrosis, and concentric silicotic nodules featuring central collagen and a peripheral zone of dust-laden macrophages."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Coal dust (Option C):** exposure is associated with coal worker's pneumoconiosis (CWP). Histopathological features of CWP include the presence of coal macules (collections of carbon-laden macrophages) and coal nodules (fibrotic lesions with central cores of coal dust)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Cotton (Option D):** exposure can lead to a lung disease known as byssinosis, also called brown lung disease. Histopathological findings in byssinosis include bronchiolitis and chronic bronchitis with peribronchiolar fibrosis."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q008_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q008_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q008_explanation_3"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q008_explanation_4"
+    }
+   ]
+  },
+  {
+   "id": "pathology-36-9",
+   "question": "Below is an electron microscopic image of lung tissue. A patient infected with SARS-CoV2 presents with ARDS. The infection would affect and expand in which of the following labelled layers?",
+   "options": {
+    "A": "B",
+    "B": "A",
+    "C": "D",
+    "D": "None of the above"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "In the electron microscopic image of the lung tissue, the structure labelled \"A\" represents the endothelium, where SARS-CoV-2 infection would impact and cause expansion. It is the virus causing COVID-19. It leads to acute respiratory distress syndrome (ARDS)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mechanism: The virus can directly infect the endothelial cells that line the blood vessels in the lungs, disrupting the normal function and integrity of the endothelial cells, resulting in increased vascular permeability, inflammation, and the onset of pulmonary edema. (Option B) Layer B (Option A) represents the basal lamina, which offers structural support to the epithelial cells and separates them from the underlying connective tissue."
+    },
+    {
+     "type": "paragraph",
+     "text": "However, it is not the primary site of infection in SARS-CoV-2-related ARDS. Layer D (Option C) represents epithelium that lines the airways and plays a key role in the respiratory system's defence mechanisms. However, it is not the primary target in SARS-CoV-2-related ARDS, where the main pathological changes occur in the endothelium."
+    }
+   ]
+  },
+  {
+   "id": "pathology-36-10",
+   "question": "TTF-1 immunohistochemical marker is associated with which of the following cancers?",
+   "options": {
+    "A": "Squamous cell carcinoma",
+    "B": "Lung adenocarcinoma",
+    "C": "Small cell carcinoma",
+    "D": "Large cell carcinoma"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "TTF-1 is an immunohistochemical marker for lung adenocarcinoma."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Options A, C, and D: TTF -1 is not an immunohistochemical marker for these tumors."
+    }
+   ]
+  },
+  {
+   "id": "pathology-36-11",
+   "question": "A 12-year-old child presents with a persistent cough for 15 days. Upon examination, cervical lymphadenopathy is observed. A lymph node biopsy image is given below. What is the most likely diagnosis?",
+   "options": {
+    "A": "Tuberculosis",
+    "B": "Leprosy",
+    "C": "Sarcoidosis",
+    "D": "Syphilis"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical presentation and caseating granulomas (central necrosis surrounded by epithelioid macrophages and lymphocytes) in the biopsy strongly suggest Tuberculosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Type of Granuloma Examples Caseating Granuloma Tuberculosis, Histoplasmosis, Coccidioidomycosis, Syphilis Non-caseating Granuloma Sarcoidosis, Crohn’s disease, Leprosy Foreign Body Granuloma Silicosis, Asbestos-related diseases, Foreign body reactions Immune Granuloma Wegener’s granulomatosis, Giant cell arteritis Durck’s Granuloma Cerebral malaria Stellate Granuloma Cat scratch disease Causes of granuloma formation Infectious causes Non-infectious causes TB (Caseating and non-caseating granuloma) Leprosy Syphilis Malaria (Durck granuloma) Cat-scratch disease and Lymphogranuloma venerum (Stellate granuloma) Q fever (Doughnut granuloma/ Fibrin ring granuloma) Sarcoidosis (Naked granuloma) Giant cell arteritis Crohn’s disease Churg-Strauss syndrome (Eosinophilic granuloma) Berylliosis (Foreign body granuloma)"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q011_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-36-12",
+   "question": "Which malignancy is most commonly associated with asbestosis?",
+   "options": {
+    "A": "Mesothelioma",
+    "B": "Anthracosis",
+    "C": "Hepatocellular carcinoma",
+    "D": "Renal cell carcinoma"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Asbestosis, a pneumoconiosis caused by asbestos inhalation, is strongly associated with mesothelioma, a malignancy of the pleura or peritoneum. Asbestos exposure also increases the risk of lung, laryngeal, ovarian, colon, and pleural cancers. Smoking significantly amplifies the risk of asbestos-related lung carcinoma, making asbestos workers, especially smokers, more likely to die from lung cancer than mesothelioma."
+    },
+    {
+     "type": "paragraph",
+     "text": "Compared to other occupational lung diseases, which affect the upper lobes of the lungs, it commonly affects the lower lobes. Adenocarcinoma (primary bronchogenic carcinoma ) is the most common type of cancer, accounting for about 45%, followed by squamous cell carcinoma. Lung mesothelioma is a more specific tumour associated with asbestos exposure. It is common but is less prevalent than Adenocarcinoma."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Anthracosis (Option B):** , associated with bronchial arthrofibrosis (BAF), is a condition characterised by the black staining of the bronchial mucosa, which can obstruct the bronchial lumen. It typically manifests in elderly non-smokers, either male or female, with a chronic course of symptoms like dyspnea and/or cough. It occurs due to the accumulation of carbon, silica, and quartz particles in macrophages, mucosa, and submucosa, leading to anthracosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Hepatocellular carcinoma (HCC) (Option C):** is the most common form of primary liver cancer. It typically develops in individuals with chronic liver diseases such as cirrhosis, which can be caused by chronic Hepatitis B or C infection. Other causes of cirrhosis include alcohol abuse, autoimmune diseases, chronic liver inflammation, and iron overload (hemochromatosis). HCC arises from long-term liver damage and scarring."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Renal cell carcinoma (RCC) (Option D):** is the most common type, accounting for approximately 90–95% of adult kidney cancers. It originates in the lining of the proximal convoluted tubules (PCTs). Symptoms of RCC include blood in the urine, flank pain, abdominal mass, weight loss, fever, high blood pressure, night sweats, and malaise. When RCC metastasises, it commonly spreads to the lymph nodes, lungs, liver, adrenal glands, brain, or bones."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q012_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q012_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q012_explanation_3"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L36_Q012_explanation_4"
+    }
+   ]
+  }
+ ]
+}

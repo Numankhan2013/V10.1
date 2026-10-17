@@ -1,0 +1,537 @@
+{
+ "batch": "pathology-008",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pathology-008",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pathology-9-12",
+   "question": "Which substance plays a role as a mediator in chronic inflammation?",
+   "options": {
+    "A": "IL-1",
+    "B": "TNF-α",
+    "C": "TGF-β",
+    "D": "None"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "TGF-beta: TGF-β plays a crucial role in regulating immune responses, cell proliferation, differentiation, and tissue repair. In the context of chronic inflammation, TGF-β is involved in tissue repair and fibrosis. It promotes the production of extracellular matrix components and inhibits the activity of immune cells, contributing to the resolution of inflammation but also leading to tissue remodeling and fibrosis over time."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - IL-1: IL-1 is a pro-inflammatory cytokine involved in the initial phase of inflammation. IL-1 helps recruit immune cells to sites of infection or damage and promotes the production of other inflammatory mediators. It is associated with acute inflammation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - TNF-α: TNF-α is involved in systemic inflammation and is part of the acute phase response. TNF-α helps mediate the recruitment of immune cells to inflammation sites and stimulates the production of other cytokines and adhesion molecules. TNF-α is associated with acute inflammation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - None"
+    }
+   ]
+  },
+  {
+   "id": "pathology-9-13",
+   "question": "All of the following are correct about NETs except?",
+   "options": {
+    "A": "May result in SLE",
+    "B": "Phagocytosis",
+    "C": "Sepsis",
+    "D": "Arginine needed"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "NETs (Neutrophil Extracellular Traps) do not directly engulf pathogens through phagocytosis but instead trap and immobilise them, allowing other immune cells to clear the infection. They are extracellular fibrillar networks that concentrate antimicrobial substances at sites of infection and trap microbes, helping to prevent their spread."
+    },
+    {
+     "type": "paragraph",
+     "text": "They don’t directly phagocytose pathogens but trap and immobilise them, allowing immune cells like macrophages to eliminate them. (Option B) They are produced by neutrophils in response to pathogens and inflammatory mediators."
+    },
+    {
+     "type": "paragraph",
+     "text": "NET formation begins with ROS-induced activation of arginine deaminase, leading to chromatin decondensation. (Option D ruled out) They are composed of nuclear chromatin and granule proteins, including antimicrobial peptides and enzymes."
+    },
+    {
+     "type": "paragraph",
+     "text": "**They are implicated in conditions like sepsis (Option C ruled out):** and autoimmune diseases like lupus (Option A ruled out), where they may contribute to autoimmunity. A neutrophil granulocyte (yellow) has ejected a NET (green) to capture bacteria (purple). A red blood cell (orange) is also trapped in the NET."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L09_Q013_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L09_Q013_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pathology-9-14",
+   "question": "Match the following: 1. IL-5 A. Regulates acute phase reactants 2. IL-6 B. T cell maturation 3. IL-7 C. Neutrophil recruitment 4. IL-8 D. Eosinophils activation",
+   "options": {
+    "A": "1-B, 2-C, 3-D, 4-A",
+    "B": "1-D, 2-A, 3-B, 4-C",
+    "C": "1-C, 2-D, 3-B, 4-A",
+    "D": "1-D, 2-C, 3-B, 4-A"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "IL-5 (Interleukin-5) Eosinophils activation IL-6 (Interleukin-6) Regulates acute phase reactants IL-7 (Interleukin-7) T cell maturation IL-8 (Interleukin-8) Neutrophil recruitment"
+    }
+   ]
+  },
+  {
+   "id": "pathology-9-15",
+   "question": "A 50-year-old female presents with cervical lymphadenopathy. A biopsy has revealed granulomatous necrotising inflammation. Which of the following options is correct?",
+   "options": {
+    "A": "Metastatic calcification with normal serum calcium level",
+    "B": "Dystrophic calcification with normal serum calcium level",
+    "C": "Metastatic calcification with increased serum calcium level",
+    "D": "Dystrophic calcification with increased serum calcium level"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The scenario suggests tuberculosis, marked by cervical lymphadenopathy and granulomatous necrotising inflammation, in which Dystrophic Calcification with normal serum calcium levels can be seen. Dystrophic Calcification: It involves the deposition of calcium salts in damaged or abnormal tissues rather than normal tissues."
+    },
+    {
+     "type": "paragraph",
+     "text": "Serum calcium is normal. (Option D ruled out) It is present in the atheromas of advanced atherosclerosis and develops in ageing or damaged heart valves. Macroscopically, the calcium salts appear fine, and white granules or clumps often feel like gritty deposits. Microscopically, calcium salts have a basophilic, amorphous granular, and sometimes clumped appearance."
+    },
+    {
+     "type": "paragraph",
+     "text": "Psammoma bodies are small, round, laminated, calcific structures that resemble onion peels. They can be seen in Papillary carcinoma of the thyroid and kidney, Prolactinoma, Serous ovarian carcinoma, Meningioma, and Mesothelioma."
+    },
+    {
+     "type": "paragraph",
+     "text": "Other examples are: Tuberculosis (Option B) (Option C ruled out) Atheroma Dead parasite Monckeberg Sclerosis Metastatic calcification may occur in normal tissues whenever there is hypercalcemia. (Option A ruled out) There are four principal causes of hypercalcemia: Increased secretion of parathyroid hormone (PTH): Hyperparathyroidism (parathyroid tumours) and ectopic secretion of PTH-related protein (malignant tumours)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Resorption of bone tissue, secondary to primary tumours of bone marrow (e.g., multiple myeloma, leukaemia) or diffuse skeletal metastasis (e.g., breast cancer), accelerated bone turnover (e.g., Paget disease), or immobilisation. Vitamin D–related disorders, including vitamin D intoxication, sarcoidosis, and idiopathic hypercalcemia of infancy (Williams syndrome). Renal failure, which causes retention of phosphate (Secondary hyperparathyroidism)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Less common causes include aluminium intoxication, which occurs in patients on chronic renal dialysis, and milk-alkali syndrome, which is due to excessive ingestion of calcium and absorbable antacids such as milk or calcium carbonate."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L09_Q015_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-9-16",
+   "question": "Which of the following is the most effective enzyme in Acute inflammation?",
+   "options": {
+    "A": "NADPH oxidase",
+    "B": "Defensin",
+    "C": "Catalase",
+    "D": "MPO"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "NADPH oxidase is the most effective enzyme in acute inflammation. The Phox gene produces it and is the key enzyme involved in phagocytosis. Reactive oxygen species (ROS) are produced through the rapid assembly and activation of NADPH oxidase (phagocyte oxidase). This enzyme oxidises NADPH, transferring electrons to molecular oxygen and generating superoxide anion (O₂•⁻)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Defensins (Option B):** are small antimicrobial peptides that help eliminate pathogens, but they are not the main enzyme involved in acute inflammation."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Catalase (Option C):** is an enzyme that decomposes hydrogen peroxide (H₂O₂) to protect cells from oxidative damage, but it is not the primary enzyme involved in the inflammatory response."
+    },
+    {
+     "type": "paragraph",
+     "text": "**MPO (Myeloperoxidase) (Option D):** is an enzyme present in neutrophils that utilises hydrogen peroxide (produced by NADPH oxidase) to generate hypochlorous acid (HOCl), a potent antimicrobial agent. However, the most critical enzyme in acute inflammation is NADPH oxidase."
+    }
+   ]
+  },
+  {
+   "id": "pathology-9-17",
+   "question": "Which of the following parameters decreases acute inflammation?",
+   "options": {
+    "A": "CRP",
+    "B": "Hepcidin",
+    "C": "Fibrinogen",
+    "D": "Albumin"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "During acute inflammation, the liver increases the production of positive acute-phase reactants like C-reactive protein (CRP) (Option A), hepcidin (Option B), and fibrinogen (Option C), which help in immune response and coagulation. However, albumin is a negative acute-phase reactant, meaning its levels decrease during inflammation as the liver prioritizes synthesizing proteins involved in the inflammatory response."
+    },
+    {
+     "type": "paragraph",
+     "text": "They are plasma proteins, mostly synthesized in the liver, whose plasma concentrations may increase several hundred–fold as part of the response to inflammatory stimuli. Few of these examples are: C-reactive protein (CRP) (Option A ruled out) Fibrinogen (Option C ruled out) Serum amyloid A (SAA) protein."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Hepcidin (Option B ruled out):** Thrombopoietin These are increased during the process of inflammation."
+    }
+   ]
+  },
+  {
+   "id": "pathology-9-18",
+   "question": "All of the following are growth-promoting proto-oncogenes, except?",
+   "options": {
+    "A": "FGF",
+    "B": "PDGF",
+    "C": "TGF-α",
+    "D": "TGF-β"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Transforming growth factor-beta (TGF-β) is an anti-inflammatory growth factor and is a marker for repair. It is not a growth-promoting oncogene."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Options A, B, and C: Fibroblast growth factor (FGF), Platelet-derived growth factor (PDGF), and Transforming growth factor-alpha(TGF-α) are growth-promoting oncogenes."
+    }
+   ]
+  },
+  {
+   "id": "pathology-9-19",
+   "question": "Which of the following cytokines does not cause the Jarisch-Herxheimer reaction?",
+   "options": {
+    "A": "TNF alpha",
+    "B": "IL-6",
+    "C": "IL-8",
+    "D": "INF-γ"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "IFN-gamma, produced by activated T cells and NK cells, regulates Th1 immune responses but is not typically involved in the Jarisch-Herxheimer reaction. Instead, TNF-alpha, IL-6, and IL-8 play a key role in this reaction. Jarisch-Herxheimer Reaction: It is a dramatic but self-limited inflammatory response that can occur after the initiation of treatment for syphilis."
+    },
+    {
+     "type": "paragraph",
+     "text": "It is characterized by: Fever Chills Myalgia (muscle pain) Headache Tachycardia (increased heart rate) Increased respiratory rate Elevated circulating neutrophil count Vasodilation with mild hypotension This reaction is believed to be triggered by the release of lipoproteins from dying Treponema pallidum organisms."
+    },
+    {
+     "type": "paragraph",
+     "text": "The reaction occurs in approximately 50% of patients with primary syphilis, 90% of those with secondary syphilis, and in a smaller proportion of individuals with later-stage disease. Symptoms typically subside within 12–24 hours. In patients with secondary syphilis, erythema (redness) and oedema (swelling) of cutaneous lesions may worsen temporarily."
+    },
+    {
+     "type": "paragraph",
+     "text": "**TNF alpha (Option A):** is a pro-inflammatory cytokine produced by macrophages and T cells, playing a central role in inflammation. It is implicated in the Jarisch-Herxheimer reaction, where cytokine release following antibiotic treatment temporarily worsens symptoms."
+    },
+    {
+     "type": "paragraph",
+     "text": "**IL-6 (Option B):** is a pro-inflammatory cytokine produced by immune cells, fibroblasts, and endothelial cells, regulating immune responses and inflammation. It contributes to the Jarisch-Herxheimer reaction by amplifying the systemic inflammatory response."
+    },
+    {
+     "type": "paragraph",
+     "text": "**IL-8 (Option C):** is a chemokine that recruits and activates neutrophils, playing a role in infection and inflammation. It contributes to the Jarisch-Herxheimer reaction by enhancing neutrophil recruitment and activation."
+    }
+   ]
+  },
+  {
+   "id": "pathology-9-20",
+   "question": "Match the following: 1. IL-5 A. Regulates acute phase reactants 2. IL-6 B. T cell maturation 3. IL-7 C. Neutrophil recruitment 4. IL-8 D. Eosinophils activation",
+   "options": {
+    "A": "1-B, 2-C, 3-D, 4-A",
+    "B": "1-D, 2-A, 3-B, 4-C",
+    "C": "1-C, 2-D, 3-B, 4-A",
+    "D": "1-D, 2-C, 3-B, 4-A"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "IL-5 (Interleukin-5) Eosinophils activation IL-6 (Interleukin-6) Regulates acute phase reactants IL-7 (Interleukin-7) T cell maturation IL-8 (Interleukin-8) Neutrophil recruitment"
+    }
+   ]
+  },
+  {
+   "id": "pathology-9-21",
+   "question": "Which of the following is involved in the recognition and clearance of necrotic cells?",
+   "options": {
+    "A": "Inflammasome",
+    "B": "Toll-like receptors (TLRs)",
+    "C": "P-selectin",
+    "D": "Manoreceptor"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Inflammasomes are multiprotein complexes found within cells of the innate immune system. When activated by various danger signals, including necrotic cell debris, inflammasomes assemble and activate caspase-1, which leads to the processing and release of pro-inflammatory cytokines IL-1β and IL-18."
+    },
+    {
+     "type": "paragraph",
+     "text": "While the primary function of inflammasomes is not the direct recognition and clearance of necrotic cells, their activation in response to necrotic cell debris can contribute to the induction of inflammatory responses and the clearance of necrotic cells by attracting immune cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Options B, C, and D are not involved in the recognition and clearance of necrotic cells."
+    }
+   ]
+  },
+  {
+   "id": "pathology-9-22",
+   "question": "Match the following: 1. Howell-Jolly bodies A. Ig inclusions 2. Dohle bodies B. Azurophilic granules 3. Flame cells C. Nuclear material remnants 4. Auer rod cells D. Remnants of ER",
+   "options": {
+    "A": "1-C, 2-D, 3-A, 4-B",
+    "B": "1-A, 2-B, 3-C, 4-D",
+    "C": "1-C, 2-D, 3-B, 4-A",
+    "D": "1-D, 2-B, 3-A, 4-C"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "1. Howell-Jolly bodies C. Nuclear material remnants 2. Dohle bodies D. Remnants of ER 3. Flame cells A. Ig inclusions 4. Auer rod cells B. Azurophilic granules Incorrect Options: Options B, C, and D are incorrect."
+    }
+   ]
+  },
+  {
+   "id": "pathology-9-23",
+   "question": "Which of the following is an opsonin?",
+   "options": {
+    "A": "C3a",
+    "B": "C3b",
+    "C": "C5a",
+    "D": "C6"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "C3b is a component of the complement system. When C3b binds to the surface of pathogens, it acts as an opsonin, facilitating the binding of phagocytic cells to the pathogen. This enhances phagocytosis and promotes the clearance of pathogens."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - C3a: C3a acts as an inflammatory mediator."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - C5a: C5a acts as a potent chemoattractant for immune cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - C6: C6 participates in the formation of the membrane attack complex, which helps destroy pathogens."
+    }
+   ]
+  },
+  {
+   "id": "pathology-9-24",
+   "question": "Fever occurs during inflammation due to all except:",
+   "options": {
+    "A": "IL-1",
+    "B": "Prostaglandins",
+    "C": "TNF",
+    "D": "Histamine"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Histamine is released during allergic reactions and is involved in immediate hypersensitivity reactions."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Fever occurs during inflammation due to options A, B, and C."
+    }
+   ]
+  },
+  {
+   "id": "pathology-9-25",
+   "question": "Stellate granuloma is seen in:",
+   "options": {
+    "A": "Sarcoidosis",
+    "B": "Cat-scratch disease",
+    "C": "Cryptococcosis",
+    "D": "Histoplasmosis"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Stellate granuloma is a characteristic histopathological finding in cat-scratch disease. Cat-scratch disease is caused by the bacteria Bartonella henselae, which is typically transmitted to humans through scratches or bites from infected cats. Stellate granulomas are collections of histiocytes with radiating, slender cytoplasmic projections, giving them a star-shaped appearance."
+    },
+    {
+     "type": "paragraph",
+     "text": "These granulomas are commonly found in the lymph nodes near the site of inoculation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Stellate granuloma is not seen in options A, C, and D."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L09_Q025_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-9-26",
+   "question": "Which of the following is true about fever?",
+   "options": {
+    "A": "Aspirin increases fever by inhibiting prostaglandin synthesis",
+    "B": "PGD2 is responsible for resetting the temperature to a higher level",
+    "C": "IL-1 is an endogenous pyrogen",
+    "D": "Fever occurs during inflammation due to release of histamine"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "IL-1 is released by immune cells in response to infection or inflammation and acts on the hypothalamus to raise the body's temperature set-point, leading to fever."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Aspirin increases fever by inhibiting prostaglandin synthesis: Aspirin reduces fever by inhibiting prostaglandin synthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - PGD2 is responsible for resetting the temperature to a higher level: PGD2 is involved in sleep regulation and inflammation but is not responsible for resetting the temperature to a higher level during fever."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Fever occurs during inflammation due to release of histamine: Histamine release can contribute to the symptoms of inflammation, but it is not the primary cause of fever."
+    }
+   ]
+  },
+  {
+   "id": "pathology-9-27",
+   "question": "IL-1 is activated by:",
+   "options": {
+    "A": "Caspase-1",
+    "B": "Caspase-3",
+    "C": "Caspase-9",
+    "D": "Caspase-8"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Caspase-1 is an enzyme involved in the activation of interleukin-1 (IL-1) in the innate immune response. It cleaves the inactive precursor form of IL-1 into its active form, allowing it to exert its pro-inflammatory effects. IL-1 plays a crucial role in the initiation and regulation of inflammatory responses."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Options B, C, and D are not involved in the activation of IL-1."
+    }
+   ]
+  },
+  {
+   "id": "pathology-9-28",
+   "question": "Which of the following causes vasodilation?",
+   "options": {
+    "A": "Histamine",
+    "B": "Thromboxane A2",
+    "C": "Angiotensin II",
+    "D": "Leukotriene C4"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Histamine is a potent vasodilator released during allergic reactions and inflammation. It acts on histamine receptors in blood vessel walls, causing relaxation of smooth muscle and resulting in vasodilation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Thromboxane A2: Thromboxane A2 is a vasoconstrictor and platelet aggregator. It promotes platelet aggregation and constriction of blood vessels, leading to vasoconstriction rather than vasodilation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Angiotensin II: Angiotensin II is a vasoconstrictor that can cause the narrowing of blood vessels."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Leukotriene C4: Leukotriene C4 is a pro-inflammatory mediator that is associated with vasoconstriction and bronchoconstriction."
+    }
+   ]
+  },
+  {
+   "id": "pathology-9-29",
+   "question": "An acute inflammatory response is not seen in which of the following?",
+   "options": {
+    "A": "Pyroptosis",
+    "B": "Necroptosis",
+    "C": "Apoptosis",
+    "D": "Necrosis"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Apoptosis is a controlled and orderly process of programmed cell death. It does not induce an acute inflammatory response but rather leads to the removal of dying cells by phagocytosis without provoking an intense immune response."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Options A, B, and D can trigger an acute inflammatory response."
+    }
+   ]
+  },
+  {
+   "id": "pathology-10-1",
+   "question": "Match the following with their correct terms. 1 Exon i Non-coding region 2 Intron ii One of the alternate forms of a single gene occupying a given position in a chromosome 3 Locus iii Coding region 4 Allele iv Location of a gene on the chromosome",
+   "options": {
+    "A": "1-iii, 2-i, 3-iv, 4-ii",
+    "B": "1-iii, 2-i, 3-ii, 4-iv",
+    "C": "1-i, 2-iii, 3-iv, 4-ii",
+    "D": "1-i, 2-iii, 3-ii, 4-iv"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Exon: An exon is a coding region of a gene that contains the genetic information necessary for producing a functional protein. Intron: An intron is a non-coding region of a gene that intervenes between exons. During gene expression, introns are removed from the pre-mRNA molecule through splicing, which allows exons to be joined together to form the final mRNA transcript before translation into a protein."
+    },
+    {
+     "type": "paragraph",
+     "text": "Locus: A locus refers to the specific location of a gene or DNA sequence on a chromosome. Allele: An allele is one of the alternate forms of a single gene occupying a given position in a chromosome, which can lead to different traits or characteristics. Alleles can be dominant or recessive."
+    }
+   ]
+  },
+  {
+   "id": "pathology-10-2",
+   "question": "A 25-year-old male from a tribal area of Madhya Pradesh presents to the clinic with complaints of fatigue and shortness of breath. On examination, he appears pale, and jaundice is noted. Laboratory investigations reveal low hemoglobin levels and increased reticulocyte count. The peripheral blood smear shows numerous sickle-shaped erythrocytes. What is the most likely molecular mechanism underlying the pathogenesis of this patient's condition?",
+   "options": {
+    "A": "Chromosomal translocation",
+    "B": "Missense mutation",
+    "C": "Frameshift mutation",
+    "D": "Nonsense mutation"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical presentation of a tribal male with the above-mentioned clinical features and sickle-shaped RBCs in the peripheral smear suggests sickle cell disease. A missense mutation (type of point mutation) is the underlying mechanism in the pathogenesis of this disease. Point mutation: A point mutation is a change in which a single base is substituted with a different base. Sickle cell anaemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "This point mutation involves substituting adenine for thymine at the seventh codon of the β-globin gene (GAG to GTG), replacing glutamic acid with valine in the β-globin chain of haemoglobin. This single nucleotide change results in the formation of abnormal haemoglobin molecules (HbS)."
+    }
+   ]
+  }
+ ]
+}
