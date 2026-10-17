@@ -171,9 +171,11 @@
     due.forEach(q=>{const r=state.reviews[q.id];retrOf.set(String(q.id),rank(r)===0?0:Number(nkFsrsRetrievability(r,now,retrEngine))||0);});
     due.sort((a,b)=>{const ar=state.reviews[a.id],br=state.reviews[b.id],ak=rank(ar),bk=rank(br);if(ak!==bk)return ak-bk;if(ak===0)return Number(ar?.due||0)-Number(br?.due||0)||String(a.id).localeCompare(String(b.id));return retrOf.get(String(a.id))-retrOf.get(String(b.id))||Number(ar?.due||0)-Number(br?.due||0)||String(a.id).localeCompare(String(b.id));});
     const today=new Date(now).toDateString(),seen=new Set();
-    // Only due cards can be filtered by `seen`, so scan that subset: the pool
-    // is ~4x larger once every bank is loaded.
-    due.forEach(q=>{const daily=nkFsrsActiveAttempts(q.id).filter(a=>a.schedulerVersion===NK_FSRS_VERSION&&['fsrs-review','spaced-review'].includes(a.source)&&new Date(a.at).toDateString()===today);if(daily.length)seen.add(String(q.id));});
+    // `seen` counts every card reviewed today, including those a review just
+    // moved out of `due`: the daily cap is spent by them. Only questions with
+    // attempts can count, so scan those instead of the whole pool.
+    const pool=new Set(nkFsrsAllQuestions().map(q=>String(q.id)));
+    Object.keys(state.attempts||{}).forEach(id=>{if(!pool.has(String(id)))return;const daily=nkFsrsActiveAttempts(id).filter(a=>a.schedulerVersion===NK_FSRS_VERSION&&['fsrs-review','spaced-review'].includes(a.source)&&new Date(a.at).toDateString()===today);if(daily.length)seen.add(String(id));});
     const repeatIds=new Set(due.filter(q=>seen.has(String(q.id))&&[1,3].includes(Number(state.reviews?.[q.id]?.state))).map(q=>String(q.id)));
     const firstToday=due.filter(q=>!seen.has(String(q.id))),remaining=Math.max(0,prefs.dailyCap-seen.size),admittedIds=new Set(firstToday.slice(0,remaining).map(q=>String(q.id)));
     const cards=due.filter(q=>repeatIds.has(String(q.id))||admittedIds.has(String(q.id)));

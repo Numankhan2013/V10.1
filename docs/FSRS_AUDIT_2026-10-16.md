@@ -35,6 +35,14 @@ before sorting (`retrOf` map), and the "seen today" scan narrowed to due cards
 same backlog (~5×). Ordering is bit-identical — the battery's ordering, cap,
 and determinism scenarios all stay green.
 
+**Correction (2026-10-17):** narrowing the "seen today" scan to due cards was
+wrong. A card reviewed today usually leaves `due`, but it has still spent the
+daily cap. With the narrowed scan, a cap of 20 let 19 more cards in straight
+after 20 reviews. S4 missed this because its "seen" cards were kept due
+artificially. The scan now walks every question that has attempts; the engine
+and `retrOf` gains are unchanged. New scenario S4c makes 20 real reviews and
+then requires an empty queue.
+
 ### F2 — whole-object preference sync could lose a concurrent setting edit (fixed)
 
 `cross_device_sync.js` merged remote `fsrsPreferences` as
