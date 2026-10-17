@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-"""Learner path for the Marrow-only Microbiology subject in a real browser.
+"""Learner path for Microbiology's Marrow bank in a real browser.
 
-Home -> My Subjects -> Microbiology -> one Marrow bank -> Topics (Immunology,
+Home -> My Subjects -> Microbiology -> Marrow bank (beside PrepLadder) -> Topics (Immunology,
 Systemic bacteriology) -> topic -> question -> answer -> Key takeaway +
 ordered structured explanation (Marrow Pearl, table, figure). Also checks the
 question-stem figure, the source peer statistics (UWorld-style "% got this
 right" chip and per-option pick rates, hidden until answered), a part-02
-question (Pearl table + footnote), that the three PrepLadder+Marrow subjects
-still offer two banks, and that no page error is raised.
+question (Pearl table + footnote), that every PrepLadder+Marrow subject
+offers two banks, and that no page error is raised.
 
   python3 tools/verify_microbiology_marrow_browser.py [--web build/web]
 """
@@ -36,7 +36,7 @@ def fail(message: str) -> None:
 
 def open_topic(page, title_part: str) -> None:
     page.evaluate("window.QB.nkOpenSubjectLibrary('Microbiology')")
-    page.wait_for_function("() => document.querySelectorAll('button.nk-bank-card').length===1", timeout=8000)
+    page.wait_for_function("() => document.querySelectorAll('button.nk-bank-card').length===2", timeout=8000)
     page.locator("button.nk-bank-card").filter(has_text="Marrow").click()
     page.wait_for_function("() => document.querySelectorAll('button.nk-topic-row').length===25", timeout=8000)
     row = page.locator("button.nk-topic-row").filter(has_text=title_part)
@@ -84,7 +84,7 @@ def main() -> None:
             micro = page.locator(".nk-home-subjects button.nk-v3-subject-card").filter(has_text="Microbiology")
             if micro.count() != 1:
                 fail(f"Microbiology subject card missing; cards={names}")
-            if "726" not in micro.inner_text() or "Marrow" not in micro.inner_text():
+            if "1,768" not in micro.inner_text() or "Marrow" not in micro.inner_text() or "PrepLadder" not in micro.inner_text():
                 fail(f"Microbiology card counts wrong: {micro.inner_text()!r}")
 
             # My Subjects groups the subjects by professional year and both groups
@@ -147,8 +147,8 @@ def main() -> None:
             page.screenshot(path=str(OUT / "micro-00b-home-expanded.png"), full_page=True)
 
             micro.click()
-            page.wait_for_function("() => document.querySelectorAll('button.nk-bank-card').length===1", timeout=8000)
-            bank = page.locator("button.nk-bank-card")
+            page.wait_for_function("() => document.querySelectorAll('button.nk-bank-card').length===2", timeout=8000)
+            bank = page.locator("button.nk-bank-card").filter(has_text="Marrow")
             if "Marrow" not in bank.inner_text() or "726 questions" not in bank.inner_text():
                 fail(f"Microbiology bank card wrong: {bank.inner_text()!r}")
             bank.click()
@@ -273,15 +273,15 @@ def main() -> None:
                 fail(f"part-07 pick rates missing: {pcts}")
             page.screenshot(path=str(OUT / "micro-06-part07.png"), full_page=True)
 
-            # The canonical subjects still offer PrepLadder + Marrow.
-            for subject in ("Anatomy", "Physiology", "Biochemistry"):
+            # Every incumbent subject offers PrepLadder + Marrow.
+            for subject in ("Anatomy", "Physiology", "Biochemistry", "Microbiology"):
                 page.evaluate(f"window.QB.nkOpenSubjectLibrary('{subject}')")
                 page.wait_for_function("() => document.querySelectorAll('button.nk-bank-card').length===2", timeout=8000)
 
             if errors:
                 fail("page errors: " + " | ".join(errors[:5]))
             browser.close()
-    print("MICROBIOLOGY_BROWSER_OK subject=Microbiology bank=Marrow topics=25 sections=6 questions=726 peer_stats=on part02=on ordered_explanation=on emphasis=on stem_figure=on part07=on canonical_banks=2 prof_groups=on")
+    print("MICROBIOLOGY_BROWSER_OK subject=Microbiology bank=Marrow topics=25 sections=6 questions=726 peer_stats=on part02=on ordered_explanation=on emphasis=on stem_figure=on part07=on banks=2 prof_groups=on")
 
 
 if __name__ == "__main__":

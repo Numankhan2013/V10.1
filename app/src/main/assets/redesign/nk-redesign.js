@@ -172,7 +172,7 @@
     if (/^marrow__ANAT|^anatomy-/i.test(id)) return 'Anatomy';
     if (/^marrow__PHYS|^physiology-/i.test(id)) return 'Physiology';
     if (/^marrow__BIOCHEM|^\d+-\d+$/i.test(id)) return 'Biochemistry';
-    if (/^marrow__MICRO/i.test(id)) return 'Microbiology';
+    if (/^marrow__MICRO|^microbiology-/i.test(id)) return 'Microbiology';
     if (/^UWORLD_/i.test(id)) return 'My UWorld';
     return 'Other';
   }

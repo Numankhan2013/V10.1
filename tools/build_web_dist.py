@@ -108,7 +108,7 @@ def externalize_data(page: str, out: Path, packs: DetailPacks | None = None) -> 
         if packs and const == "MARROW_DATA":
             for record in data.get("records", [data]):
                 for question in record.get("questions", []):
-                    packs.split(f"Marrow-{record.get('subject', '')}", question)
+                    packs.split(f"{record.get('bank') or 'Marrow'}-{record.get('subject', '')}", question)
             literal = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
         elif packs:
             packs.split_gold(data)
@@ -141,7 +141,9 @@ def main() -> None:
         if not source.is_file():
             continue
         relative = source.relative_to(ASSETS)
-        if source.stat().st_size > PAGES_FILE_LIMIT:
+        # index.html carries the inline question data until externalize_data
+        # moves it out; the output check below covers what it leaves behind.
+        if source.stat().st_size > PAGES_FILE_LIMIT and source.name != "index.html":
             skipped.append(str(relative))
             continue
         target = out / relative
@@ -170,7 +172,7 @@ def main() -> None:
     sw = out / "sw.js"
     sw_text=sw.read_text(encoding="utf-8").replace("const BUILD_VERSION='dev';", f"const BUILD_VERSION={args.version!r};", 1)
     data_shell=(
-        ['./marrow_visual_metadata.js','./microbiology_visual_metadata.js','./marrow_visual_renderer.js','./source_visual_inventory.json']
+        ['./marrow_visual_metadata.js','./microbiology_visual_metadata.js','./prepladder_microbiology_visual_metadata.js','./marrow_visual_renderer.js','./source_visual_inventory.json']
         + ['./'+name for name in data_files]
     )
     # Figures are content-hashed: the worker fills them into a persistent cache
@@ -202,6 +204,9 @@ def main() -> None:
     print(f"UNREACHABLE_CSS_PRUNED rules={pruned.removed_rules} trimmed={pruned.trimmed_rules} kb={pruned.removed_bytes / 1024:.1f}")
     if "Anatomy_QBank_Source.pdf" not in skipped:
         raise SystemExit("Expected oversized Anatomy PDF to be excluded from Pages output")
+    oversize = [p.relative_to(out).as_posix() for p in out.rglob("*") if p.is_file() and p.stat().st_size > PAGES_FILE_LIMIT]
+    if oversize:
+        raise SystemExit(f"Files over the Cloudflare Pages 25 MiB limit: {oversize}")
     print(f"WEB_DIST_OK files={sum(1 for p in out.rglob('*') if p.is_file())} skipped_oversize={','.join(skipped)}")
 
 
