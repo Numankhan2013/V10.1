@@ -37,6 +37,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 
 import build_prepladder_microbiology_bank as micro  # noqa: E402
+import prepladder_stem_tables  # noqa: E402
 from prepladder_microbiology_edition import fix_record  # noqa: E402
 
 ASSETS = ROOT / "app/src/main/assets"
@@ -491,6 +492,8 @@ class TextBank:
             self.release()
             return
         record, _ = self.normalize(self.load_source())
+        prepladder_stem_tables.apply(record, self.data / "stem_tables.json", self.fail)
+        prepladder_stem_tables.apply_options(record, self.data / "option_text.json", self.fail)
         parts, manifest = self.shard(record)
         manifest_path = self.data / f"{self.prefix}_manifest.json"
         manifest_text = json.dumps(manifest, ensure_ascii=False, indent=2) + "\n"

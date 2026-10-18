@@ -117,6 +117,13 @@ def main() -> None:
     assert sum(len(by_id[qid]["structuredExplanation"]["tables"]) for qid in overlay) == 343
     # A lost opening written by hand applies on top of the restructure.
     assert by_id["pathology-25-19"]["structuredExplanation"]["blocks"][0]["text"].startswith("Castleman disease, also known")
+    # Flattened lists laid out as tables, printed order kept (tools/prepladder_stem_tables.py).
+    assert sum(1 for q in questions if q.get("stemTables")) == 41
+    t = by_id["pathology-13-5"]["stemTables"][0]
+    assert by_id["pathology-13-5"]["question"] == "Match the following with the appropriate disorder."
+    assert t["rows"][0] == ["A. Autosomal recessive", "1. Kennedy disease"], t
+    assert by_id["pathology-76-8"]["options"][1]["text"] == "Light blue top"
+    assert not any(o["text"].startswith("[Image") for q in questions for o in q["options"])
     assert by_id["pathology-6-12"]["structuredExplanation"]["tables"][0]["columns"] == ["Features", "Transudate", "Exudate"]
 
     page = assemble((ROOT / "app/src/main/assets/index.html").read_text(encoding="utf-8"))
