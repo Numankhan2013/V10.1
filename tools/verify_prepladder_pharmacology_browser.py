@@ -94,7 +94,10 @@ def main() -> None:
             page.screenshot(path=str(OUT / "plpharma-01-topics.png"), full_page=True)
 
             open_lesson(page, "Pharmacokinetics")
-            open_question(page, 13, "Percentage Bioavailability")
+            open_question(page, 13, "Match the following")
+            header = page.locator(".question-text .nk-match-table th").all_text_contents()
+            if [h.strip().lower() for h in header] != ["route", "percentage bioavailability"]:
+                fail(f"bioavailability matching stem is not a table: {header!r}")
             page.wait_for_function("() => { const f=document.querySelector('.question-text + .nk-marrow-figures img'); return f && f.complete && f.naturalWidth>0; }", timeout=8000)
             page.screenshot(path=str(OUT / "plpharma-02-stem-figure.png"), full_page=True)
 
@@ -137,11 +140,13 @@ def main() -> None:
             if "Option E: It can cause genital ulceration" not in page.locator(".nk-marrow-ordered").inner_text():
                 fail("five-option explanation missing option E")
 
-            # A matching stem the parser cannot lay out ("e:" for "e.") keeps its options.
+            # A matching stem the parser cannot lay out ("e:" for "e.") shows its hand-checked table and keeps its options.
             open_lesson(page, "Clinical Trials")
             open_question(page, 3, "Match the phases of drug trials")
             if page.locator(".option-list button").count() != 4 or page.locator(".nk-question-unavailable").count():
-                fail("matching question without a table lost its options")
+                fail("matching question lost its options")
+            if page.locator(".question-text .nk-match-table tbody tr").count() < 4:
+                fail("drug-trial phases are not laid out as a table")
 
             # Renal PYQs (the fifth PYQ lesson): Q13 prints only references.
             open_lesson(page, "Previous Year Questions", 4)
