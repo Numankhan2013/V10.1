@@ -342,7 +342,7 @@ def extract_question(views_all, pdf_sha):
         scroll = [v for v in scroll if offsets.get(v.n) is not None]
     # ---- question, options, statistics from the answered view
     lines = sorted(ans.body, key=lambda l: (l['y0'], l['x0']))
-    status_i = next((i for i, l in enumerate(lines) if re.search(r'Correct\s*answer|Answered\s*correct|^\s*(In)?correct\s*$', l['text'])), None)
+    status_i = next((i for i, l in enumerate(lines) if re.search(r'Correct\s*answer|\b[Aa]\w{3}ered\s*correct|^\s*(?i:(In)?correct)\s*$', l['text'])), None)
     if status_i is None:
         return None, ['status panel not found']
     opt_box = option_box(ans, lines, lines[status_i]['y0'])
