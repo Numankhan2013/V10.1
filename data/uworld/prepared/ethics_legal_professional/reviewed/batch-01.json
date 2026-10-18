@@ -15,33 +15,28 @@
    "options": [
     {
      "letter": "A",
-     "text": "\"I understand your concern, and I believe that ensuring your children's health and safety is our",
+     "text": "\"I understand your concern, and I believe that ensuring your children's health and safety is our shared goal.\"",
      "selection_percent": 57
     },
     {
      "letter": "B",
-     "text": "hared goal.\" ® 8 . \"I want to reassure you that immunizations are safe, and we should proceed with vaccination",
+     "text": "\"I want to reassure you that immunizations are safe, and we should proceed with vaccination today.\"",
      "selection_percent": 0
     },
     {
      "letter": "C",
-     "text": "oday.\" 0 C. \"I would like to provide you with a list of resources on vaccine safety so you can make the best",
+     "text": "\"I would like to provide you with a list of resources on vaccine safety so you can make the best decision for your child.\"",
      "selection_percent": 16
     },
     {
      "letter": "D",
-     "text": "ecision for your child.\" 0 D. \"I'm sorry that this is a stressful topic. Let's talk about this again at the next visit.\"",
+     "text": "\"I'm sorry that this is a stressful topic. Let's talk about this again at the next visit.\"",
      "selection_percent": 0
     },
     {
      "letter": "E",
-     "text": "24%)",
-     "selection_percent": null
-    },
-    {
-     "letter": "F",
      "text": "\"This must be hard. I know you are concerned about vaccine side effects, but the risk of vaccine-preventable disease is far greater.\"",
-     "selection_percent": null
+     "selection_percent": 24
     }
    ],
    "correct_label": "A",
@@ -91,18 +86,12 @@
      "B": 0,
      "C": 16,
      "D": 0,
-     "E": null,
-     "F": null
+     "E": 24
     }
    },
-   "status": "blocked",
-   "issues": [
-    "choice letters disagree with order: F",
-    "missing choice percent",
-    "suspicious OCR: …hared goal.\" ® 8 . \"I want to reass…",
-    "choices look like pictures or a table"
-   ],
-   "source_record_sha256": "56d936ba8c5a3aac107042d12ec2a7a04afbc51d09b328d47ee083fe2b7a2cde"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "8e066007ba81f6c3f27ffebe35a949d45fb4fa3990bc86e612c0578090caf96f"
   },
   {
    "id": "UWORLD_19253",
@@ -115,33 +104,28 @@
    "options": [
     {
      "letter": "A",
-     "text": "\"I'd like to ask you some questions about your background; could you tell me how far you got in",
+     "text": "\"I'd like to ask you some questions about your background; could you tell me how far you got in school?\"",
      "selection_percent": 8
     },
     {
      "letter": "B",
-     "text": "chool?\" ® 8 . \"I'm concerned about your ability to read and fill out forms; have you always had trouble with",
+     "text": "\"I'm concerned about your ability to read and fill out forms; have you always had trouble with this?\"",
      "selection_percent": 5
     },
     {
      "letter": "C",
-     "text": "his?\" 0 C. \"Sometimes patients have difficulty making appointments; could you please read the instructions",
+     "text": "\"Sometimes patients have difficulty making appointments; could you please read the instructions out loud?\"",
      "selection_percent": 15
     },
     {
      "letter": "D",
-     "text": "ut loud?\" 0 D. \"The forms you get before an appointment help me do a thorough evaluation; could you fill them",
+     "text": "\"The forms you get before an appointment help me do a thorough evaluation; could you fill them out next time?\"",
      "selection_percent": 3
     },
     {
      "letter": "E",
-     "text": "ut next time?\" O E. \"We've discussed a lot of information today; how confident are you with scheduling an",
+     "text": "\"We've discussed a lot of information today; how confident are you with scheduling an appointment for yourself?\"",
      "selection_percent": 67
-    },
-    {
-     "letter": "F",
-     "text": "ppointment for yourself?\"",
-     "selection_percent": null
     }
    ],
    "correct_label": "E",
@@ -176,16 +160,12 @@
      "B": 5,
      "C": 15,
      "D": 3,
-     "E": 67,
-     "F": null
+     "E": 67
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent",
-    "suspicious OCR: …chool?\" ® 8 . \"I'm concerned a…"
-   ],
-   "source_record_sha256": "2b23a3489b5c7a4a8521a0a876a4edd791aab40857e5a8eb24f05ffeea370fa7"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "d7a90f408514f8fd78a82b36c8b7d45724460aa18a9e7749429eaa2e3aee807e"
   },
   {
    "id": "UWORLD_10463",
@@ -198,27 +178,27 @@
    "options": [
     {
      "letter": "A",
-     "text": "Agree to perform the abortion because the procedure is within the physician's scope of training",
+     "text": "Agree to perform the abortion because the procedure is within the physician's scope of training and there is a duty to provide care in a timely manner.",
      "selection_percent": 4
     },
     {
      "letter": "B",
-     "text": "nd there is a duty to provide care in a timely manner. ® 8 . Discuss the risks of age-related fertility decline and encourage the patient to reconsider because",
+     "text": "Discuss the risks of age-related fertility decline and encourage the patient to reconsider because she wants to have children someday.",
      "selection_percent": 1
     },
     {
      "letter": "C",
-     "text": "he wants to have children someday. 0 C. Encourage the patient to take additional time to consider alternate options for the pregnancy.",
+     "text": "Encourage the patient to take additional time to consider alternate options for the pregnancy.",
      "selection_percent": 1
     },
     {
      "letter": "D",
-     "text": "Politely explain that on moral grounds, the physician is unable to perform the abortion or refer",
+     "text": "Politely explain that on moral grounds, the physician is unable to perform the abortion or refer the patient for an abortion.",
      "selection_percent": 16
     },
     {
      "letter": "E",
-     "text": "he patient for an abortion. O E. Refer the patient to another provider who performs abortions.",
+     "text": "Refer the patient to another provider who performs abortions.",
      "selection_percent": 75
     }
    ],
@@ -253,11 +233,9 @@
      "E": 75
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …ty to provide care in a timely manner. ® 8 . Discuss the risk…"
-   ],
-   "source_record_sha256": "e7df1a8ce40cf8a6f085d646a02524e5a471cd0baf505962e282d00f0dcd82c4"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "bc69a19355263102ee390ff744fe46148f300db425f5344d5b2f229de404aba2"
   },
   {
    "id": "UWORLD_10509",
@@ -420,12 +398,12 @@
    "options": [
     {
      "letter": "A",
-     "text": "Ask him to schedule a follow-up appointment and bring a family member to help him make health",
+     "text": "Ask him to schedule a follow-up appointment and bring a family member to help him make health care decisions",
      "selection_percent": 3
     },
     {
      "letter": "B",
-     "text": "are decisions ® 8 . Explain again slowly and simply what surgery entails and why it should be done",
+     "text": "Explain again slowly and simply what surgery entails and why it should be done",
      "selection_percent": 5
     },
     {
@@ -475,11 +453,9 @@
      "E": 30
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …are decisions ® 8 . Explain again sl…"
-   ],
-   "source_record_sha256": "0230a7ae490c49a1a56f5d2906bec82799079306deec9d0dda1b0bfc41014b27"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "e7e5ae3fc9ab91953f5c82466e03e909061d663d487dd074643c8c683ab5b5ee"
   },
   {
    "id": "UWORLD_21177",
@@ -493,12 +469,12 @@
    "options": [
     {
      "letter": "A",
-     "text": "\"I don't want to disturb your lunch now, let me arrange a family meeting later to share your",
+     "text": "\"I don't want to disturb your lunch now, let me arrange a family meeting later to share your results.\"",
      "selection_percent": 7
     },
     {
      "letter": "B",
-     "text": "esults.\" ® 8 . \"Is there anyone you would like to remain in the room while we talk about your results?\"",
+     "text": "\"Is there anyone you would like to remain in the room while we talk about your results?\"",
      "selection_percent": 70
     },
     {
@@ -508,7 +484,7 @@
     },
     {
      "letter": "D",
-     "text": "\"It's good that your family is here to support you now, because I have difficult news to share with",
+     "text": "\"It's good that your family is here to support you now, because I have difficult news to share with you.\"",
      "selection_percent": 2
     },
     {
@@ -552,11 +528,9 @@
      "E": 18
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …esults.\" ® 8 . \"Is there anyone…"
-   ],
-   "source_record_sha256": "f90da4b6b2668daf7172d0fe6f593ad117528314804c68e7ffea13aadeb9648d"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "1cde3eb7204aa0fae56502191b358c1ab418cb248777847e2c335ecf3db0e3ba"
   },
   {
    "id": "UWORLD_107420",
@@ -569,28 +543,23 @@
    "options": [
     {
      "letter": "A",
-     "text": "\"I can evaluate the urinary issue today, but it won't be as thorough because we have limited",
+     "text": "\"I can evaluate the urinary issue today, but it won't be as thorough because we have limited time.\"",
      "selection_percent": 23
     },
     {
      "letter": "B",
-     "text": "ime.\" ® 8 . \"I can't address the urinary issue today because I have many patients after you. We can discuss",
+     "text": "\"I can't address the urinary issue today because I have many patients after you. We can discuss it at your next appointment in a month.\"",
      "selection_percent": 1
     },
     {
      "letter": "C",
-     "text": "t at your next appointment in a month.\" 0 C. \"It is best to tell me all your concerns at the beginning of the visit so that I can better prioritize our",
+     "text": "\"It is best to tell me all your concerns at the beginning of the visit so that I can better prioritize our time. At this point, the visit has ended .\"",
      "selection_percent": 1
     },
     {
      "letter": "D",
-     "text": "ime. At this point, the visit has ended .\" O D. \"It sounds like we should talk about this; however, we are out of time today. Please make",
+     "text": "\"It sounds like we should talk about this; however, we are out of time today. Please make another appointment so I can appropriately evaluate you .\"",
      "selection_percent": 73
-    },
-    {
-     "letter": "E",
-     "text": "nother appointment so I can appropriately evaluate you .\"",
-     "selection_percent": null
     }
    ],
    "correct_label": "D",
@@ -616,16 +585,12 @@
      "A": 23,
      "B": 1,
      "C": 1,
-     "D": 73,
-     "E": null
+     "D": 73
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent",
-    "suspicious OCR: …ime.\" ® 8 . \"I can't address…"
-   ],
-   "source_record_sha256": "bc95626e8653299e528cdfcb188b16da2d2515c38e2bf572787a9300b6c10077"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "36cf8110bf5bbccfef50783209111f8d3a47e29b85115dda9b095c5585eaf23e"
   },
   {
    "id": "UWORLD_21466",
@@ -639,33 +604,28 @@
    "options": [
     {
      "letter": "A",
-     "text": "\"Deciding to get an evaluation takes courage; we should perform a pelvic examination today",
+     "text": "\"Deciding to get an evaluation takes courage; we should perform a pelvic examination today given the circumstances.\"",
      "selection_percent": 2
     },
     {
      "letter": "B",
-     "text": "iven the circumstances.\" ® 8 . \"I'm sorry that this happened to you; have you taken any emergency contraception?\"",
+     "text": "\"I'm sorry that this happened to you; have you taken any emergency contraception?\"",
      "selection_percent": 3
     },
     {
      "letter": "C",
-     "text": "\"It must be difficult talking about what happened; have you been experiencing any nightmares or",
+     "text": "\"It must be difficult talking about what happened; have you been experiencing any nightmares or flashbacks?\"",
      "selection_percent": 2
     },
     {
      "letter": "D",
-     "text": "lashbacks?\" 0 D. \"It's important that you feel safe here; please let me know if you need to stop or take a break at",
+     "text": "\"It's important that you feel safe here; please let me know if you need to stop or take a break at any point.\"",
      "selection_percent": 82
     },
     {
      "letter": "E",
-     "text": "ny point.\" O E. \"You didn't do anything to deserve this; it's normal to forget details after a trauma and shouldn't",
+     "text": "\"You didn't do anything to deserve this; it's normal to forget details after a trauma and shouldn't prevent you from filing a police report.\"",
      "selection_percent": 9
-    },
-    {
-     "letter": "F",
-     "text": "revent you from filing a police report.\"",
-     "selection_percent": null
     }
    ],
    "correct_label": "D",
@@ -696,16 +656,12 @@
      "B": 3,
      "C": 2,
      "D": 82,
-     "E": 9,
-     "F": null
+     "E": 9
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent",
-    "suspicious OCR: …iven the circumstances.\" ® 8 . \"I'm sorry that …"
-   ],
-   "source_record_sha256": "47ccc62d4f2699eb0812ae3ef0904b8692edfc92408df05230abc61f2810bc7b"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "75932f3b82b022f2e38e502a7ee7cee6752aa28d16cf4c252c32bf21c8710b46"
   },
   {
    "id": "UWORLD_784",
@@ -734,18 +690,13 @@
     },
     {
      "letter": "D",
-     "text": "Explain to the woman that the patient's status cannot be disclosed as there is no way to be sure",
+     "text": "Explain to the woman that the patient's status cannot be disclosed as there is no way to be sure she is his spouse",
      "selection_percent": 1
     },
     {
      "letter": "E",
-     "text": "he is his spouse O E. Tell the woman that the patient is stable, but that further details will have to wait until the patient",
+     "text": "Tell the woman that the patient is stable, but that further details will have to wait until the patient can give permission",
      "selection_percent": 67
-    },
-    {
-     "letter": "F",
-     "text": "an give permission",
-     "selection_percent": null
     }
    ],
    "correct_label": "E",
@@ -776,15 +727,12 @@
      "B": 7,
      "C": 22,
      "D": 1,
-     "E": 67,
-     "F": null
+     "E": 67
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent"
-   ],
-   "source_record_sha256": "445ad9f87e2e113557b31c18fbb6723654fb891262b1b7f09b8f4564baee15a6"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "1e435dab411416ca6b882c7b222bf46e7c473ec8d4d695c67ee3fcf0d7dbc8c3"
   },
   {
    "id": "UWORLD_10507",
@@ -961,22 +909,22 @@
    "options": [
     {
      "letter": "A",
-     "text": "\"Given your consistently elevated blood pressure, we'll have to add a second antihypertensive",
+     "text": "\"Given your consistently elevated blood pressure, we'll have to add a second antihypertensive medication.\"",
      "selection_percent": 0
     },
     {
      "letter": "B",
-     "text": "edication.\" O 8 . \"Let's review how to take your medication and set a reminder on your phone so that you don't",
+     "text": "\"Let's review how to take your medication and set a reminder on your phone so that you don't forget.\"",
      "selection_percent": 0
     },
     {
      "letter": "C",
-     "text": "orget.\" ® C. \"Many patients find it difficult to take medication daily. What hassles have you been",
+     "text": "\"Many patients find it difficult to take medication daily. What hassles have you been experiencing with taking your medication?\"",
      "selection_percent": 84
     },
     {
      "letter": "D",
-     "text": "xperiencing with taking your medication?\" O D. \"We can consider switching to a different antihypertensive if you don't like the one you're on now.\"",
+     "text": "\"We can consider switching to a different antihypertensive if you don't like the one you're on now.\"",
      "selection_percent": 0
     },
     {
@@ -986,13 +934,8 @@
     },
     {
      "letter": "F",
-     "text": "\"Your husband is correct to be concerned; what is your understanding of why controlling your",
+     "text": "\"Your husband is correct to be concerned; what is your understanding of why controlling your blood pressure is important for your health?\"",
      "selection_percent": 9
-    },
-    {
-     "letter": "G",
-     "text": "lood pressure is important for your health?\"",
-     "selection_percent": null
     }
    ],
    "correct_label": "C",
@@ -1032,16 +975,12 @@
      "C": 84,
      "D": 0,
      "E": 5,
-     "F": 9,
-     "G": null
+     "F": 9
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent",
-    "suspicious OCR: …orget.\" ® C. \"Many patients fi…"
-   ],
-   "source_record_sha256": "3855df8fdc65523144bc1020f8940614f3cbba5c6efab021dfaec54a1a55b424"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "525ecfa457d1158e869a68c6eb6b48c9c41b12952206c90dcf2f114bd7bd0f94"
   },
   {
    "id": "UWORLD_10289",
@@ -1136,23 +1075,18 @@
     },
     {
      "letter": "C",
-     "text": "\"It's easy to feel lonely and isolated with news like this. Tell me about the people who support",
+     "text": "\"It's easy to feel lonely and isolated with news like this. Tell me about the people who support you during difficult times.\"",
      "selection_percent": 19
     },
     {
      "letter": "D",
-     "text": "ou during difficult times.\" 0 D. \"This must feel very shocking and unexpected. Fortunately, there have been some advances in",
+     "text": "\"This must feel very shocking and unexpected. Fortunately, there have been some advances in treatment recently.\"",
      "selection_percent": 5
     },
     {
      "letter": "E",
-     "text": "reatment recently.\" 0 E. \"This news would be upsetting to anyone. Let's set up an appointment to discuss the next steps",
+     "text": "\"This news would be upsetting to anyone. Let's set up an appointment to discuss the next steps in a few days.\"",
      "selection_percent": 9
-    },
-    {
-     "letter": "F",
-     "text": "n a few days.\"",
-     "selection_percent": null
     }
    ],
    "correct_label": "B",
@@ -1198,15 +1132,12 @@
      "B": 53,
      "C": 19,
      "D": 5,
-     "E": 9,
-     "F": null
+     "E": 9
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent"
-   ],
-   "source_record_sha256": "3a1f723296d8b2db1be4b087a3689efbd33bf9a1cf33691d65ed43a153a3c042"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "c02872312f26981937d9f01969d065d0cb6c7dcb870f8748ef7394ce8c5840ad"
   },
   {
    "id": "UWORLD_106757",
@@ -1220,33 +1151,28 @@
    "options": [
     {
      "letter": "A",
-     "text": "\"I ask all my patients about their gender identity; could you please tell me if you identify as a man",
+     "text": "\"I ask all my patients about their gender identity; could you please tell me if you identify as a man or a woman?\"",
      "selection_percent": 1
     },
     {
      "letter": "B",
-     "text": "r a woman?\" ✓ @ 8 . \"I like to ask my patients about the name they use and their pronouns; how would you like to be",
+     "text": "\"I like to ask my patients about the name they use and their pronouns; how would you like to be addressed?\"",
      "selection_percent": 81
     },
     {
      "letter": "C",
-     "text": "ddressed?\" 0 C. \"I'd like to make sure that I refer to you appropriately; would you prefer that I use male or female",
+     "text": "\"I'd like to make sure that I refer to you appropriately; would you prefer that I use male or female pronouns?\"",
      "selection_percent": 7
     },
     {
      "letter": "D",
-     "text": "ronouns?\" 0 D. \"I've reviewed your chart and wanted to be sure it's accurate; how would you describe your",
+     "text": "\"I've reviewed your chart and wanted to be sure it's accurate; how would you describe your gender identity?\"",
      "selection_percent": 5
     },
     {
      "letter": "E",
-     "text": "ender identity?\" O E. \"To be sure I ask pertinent questions for your symptoms, could you please verify your sex",
+     "text": "\"To be sure I ask pertinent questions for your symptoms, could you please verify your sex assigned at birth?\"",
      "selection_percent": 3
-    },
-    {
-     "letter": "F",
-     "text": "ssigned at birth?\"",
-     "selection_percent": null
     }
    ],
    "correct_label": "B",
@@ -1277,15 +1203,12 @@
      "B": 81,
      "C": 7,
      "D": 5,
-     "E": 3,
-     "F": null
+     "E": 3
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent"
-   ],
-   "source_record_sha256": "af862d0e8dc2ddbcb4a01ed508d8ae1d90e706aac4115bab821e6beab2904b88"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "a640f03758e70c24104e0888ffb2c22e7e1916a93f8416fa43fe75536c5972f0"
   },
   {
    "id": "UWORLD_11533",
@@ -1529,33 +1452,28 @@
    "options": [
     {
      "letter": "A",
-     "text": "\"Could you tell me why you decided to get a bronchoscopy done if you did not wish to know the",
+     "text": "\"Could you tell me why you decided to get a bronchoscopy done if you did not wish to know the results?\"",
      "selection_percent": 5
     },
     {
      "letter": "B",
-     "text": "esults?\" ® 8 . \"Hearing about test results can be stressful. Would you like to speak to the chaplain before",
+     "text": "\"Hearing about test results can be stressful. Would you like to speak to the chaplain before making a decision?\"",
      "selection_percent": 5
     },
     {
      "letter": "C",
-     "text": "aking a decision?\" 0 C. \"I appreciate why you would not want to hear the results, but you could make informed decisions",
+     "text": "\"I appreciate why you would not want to hear the results, but you could make informed decisions about your health if you knew.\"",
      "selection_percent": 14
     },
     {
      "letter": "D",
-     "text": "bout your health if you knew.\" O D. \"I understand that you would not like to be told the results of the biopsy. I will share them with",
+     "text": "\"I understand that you would not like to be told the results of the biopsy. I will share them with your son.\"",
      "selection_percent": 70
     },
     {
      "letter": "E",
-     "text": "our son.\" 0 E. \"Not knowing your results may also cause anxiety; let's discuss this with your son and see what",
+     "text": "\"Not knowing your results may also cause anxiety; let's discuss this with your son and see what he thinks.\"",
      "selection_percent": 5
-    },
-    {
-     "letter": "F",
-     "text": "e thinks.\"",
-     "selection_percent": null
     }
    ],
    "correct_label": "D",
@@ -1586,16 +1504,12 @@
      "B": 5,
      "C": 14,
      "D": 70,
-     "E": 5,
-     "F": null
+     "E": 5
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent",
-    "suspicious OCR: …esults?\" ® 8 . \"Hearing about t…"
-   ],
-   "source_record_sha256": "5fd3ccfbc69e0506851bf585b017a8edc118ed12411497b32430c6573741e531"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "aca5071b1fddb342f3e06b0c53e1b9eb360d33af70d17e3e7afca513bfa51051"
   },
   {
    "id": "UWORLD_2054",
@@ -1609,12 +1523,12 @@
    "options": [
     {
      "letter": "A",
-     "text": "\"I appreciate you sharing this with me; would you consider talking to a therapist about this as",
+     "text": "\"I appreciate you sharing this with me; would you consider talking to a therapist about this as well?\"",
      "selection_percent": 3
     },
     {
      "letter": "B",
-     "text": "ell?\" ® 8 . \"I can see this is upsetting for you; we can talk about this another time when you're ready.\"",
+     "text": "\"I can see this is upsetting for you; we can talk about this another time when you're ready.\"",
      "selection_percent": 5
     },
     {
@@ -1624,12 +1538,12 @@
     },
     {
      "letter": "D",
-     "text": "\"I'm very sorry that happened to you; do you often experience flashbacks or nightmares related to",
+     "text": "\"I'm very sorry that happened to you; do you often experience flashbacks or nightmares related to the abuse?\"",
      "selection_percent": 3
     },
     {
      "letter": "E",
-     "text": "he abuse?\" 0 E. \"This must be very painful to talk about; I'm here to listen and help you through this.\"",
+     "text": "\"This must be very painful to talk about; I'm here to listen and help you through this.\"",
      "selection_percent": 81
     }
    ],
@@ -1668,11 +1582,9 @@
      "E": 81
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …ell?\" ® 8 . \"I can see this …"
-   ],
-   "source_record_sha256": "3e5d18633af543908ee95f6c5a48e2d2b8941a673b2ccac439cd5ef51c7071da"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "f72d1eaf1743cd5696a64ca097b76baead26850cf24684fdf574d14ce84ac6fc"
   },
   {
    "id": "UWORLD_21246",
@@ -1687,33 +1599,28 @@
    "options": [
     {
      "letter": "A",
-     "text": "\"Having a heart attack was frightening. It's great that you've decided to stop smoking, lose",
+     "text": "\"Having a heart attack was frightening. It's great that you've decided to stop smoking, lose weight, and start exercising.\"",
      "selection_percent": 5
     },
     {
      "letter": "B",
-     "text": "eight, and start exercising.\" ® B. \"I suggest we prioritize quitting smoking first. That will decrease your risk significantly and make",
+     "text": "\"I suggest we prioritize quitting smoking first. That will decrease your risk significantly and make it easier to exercise.\"",
      "selection_percent": 2
     },
     {
      "letter": "C",
-     "text": "t easier to exercise.\" 0 C. \"Those are excellent goals. Let's make a comprehensive list of all the health changes you want",
+     "text": "\"Those are excellent goals. Let's make a comprehensive list of all the health changes you want to make.\"",
      "selection_percent": 9
     },
     {
      "letter": "D",
-     "text": "o make.\" O D. \"You've been through a tough time. Would you consider working fewer hours for the time being",
+     "text": "\"You've been through a tough time. Would you consider working fewer hours for the time being so you can focus on your health?\"",
      "selection_percent": 2
     },
     {
      "letter": "E",
-     "text": "o you can focus on your health?\" O E. \"You've brought up important issues. What are one or two small changes you feel most ready to",
+     "text": "\"You've brought up important issues. What are one or two small changes you feel most ready to tackle now?\"",
      "selection_percent": 79
-    },
-    {
-     "letter": "F",
-     "text": "ackle now?\"",
-     "selection_percent": null
     }
    ],
    "correct_label": "E",
@@ -1748,16 +1655,12 @@
      "B": 2,
      "C": 9,
      "D": 2,
-     "E": 79,
-     "F": null
+     "E": 79
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent",
-    "suspicious OCR: …eight, and start exercising.\" ® B. \"I suggest we pri…"
-   ],
-   "source_record_sha256": "6ac3d2c1d4734b6fb3d8a90856b7a754180ceeea1c1237a488e337292efc7cda"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "2d5a9536a006fa9543b54def4fd2af42aec9f3afb209bcf9c8ca387e8267cd33"
   },
   {
    "id": "UWORLD_11515",
@@ -1910,33 +1813,28 @@
    "options": [
     {
      "letter": "A",
-     "text": "\"I understand that having a ministroke was scary. Maybe we can talk about how the medication",
+     "text": "\"I understand that having a ministroke was scary. Maybe we can talk about how the medication can help keep you healthy.\"",
      "selection_percent": 84
     },
     {
      "letter": "B",
-     "text": "an help keep you healthy.\" ® 8 . \"It is your choice whether to take the medication. But for your safety, please discuss your",
+     "text": "\"It is your choice whether to take the medication. But for your safety, please discuss your preferences with me first.\"",
      "selection_percent": 2
     },
     {
      "letter": "C",
-     "text": "references with me first.\" 0 C. \"It sounds like you believe another ministroke is unlikely to happen to you. Is that correct?\"",
+     "text": "\"It sounds like you believe another ministroke is unlikely to happen to you. Is that correct?\"",
      "selection_percent": 10
     },
     {
      "letter": "D",
-     "text": "\"Many patients share your concerns about the medication. However, most people who stop the",
+     "text": "\"Many patients share your concerns about the medication. However, most people who stop the medication later regret not taking it.\"",
      "selection_percent": 0
     },
     {
      "letter": "E",
-     "text": "edication later regret not taking it.\" O E. \"You have a serious condition. Let's talk about some of the consequences if you do not take this",
+     "text": "\"You have a serious condition. Let's talk about some of the consequences if you do not take this medication .\"",
      "selection_percent": 1
-    },
-    {
-     "letter": "F",
-     "text": "edication .\"",
-     "selection_percent": null
     }
    ],
    "correct_label": "A",
@@ -1971,16 +1869,12 @@
      "B": 2,
      "C": 10,
      "D": 0,
-     "E": 1,
-     "F": null
+     "E": 1
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent",
-    "suspicious OCR: …an help keep you healthy.\" ® 8 . \"It is your choi…"
-   ],
-   "source_record_sha256": "85a345be45ec976c3cdfb13d4f3ccc0e1fb6fa8c55c22ad190097a48102088fe"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "7badbcb30c78f3c824b921244d2c12bc13776149065233b2be993f5fde1ea6e6"
   }
  ]
 }

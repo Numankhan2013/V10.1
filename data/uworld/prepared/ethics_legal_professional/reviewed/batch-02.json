@@ -24,23 +24,18 @@
     },
     {
      "letter": "C",
-     "text": "\"There are things you can do to prevent problems like this. I recommend you get an allergy alert",
+     "text": "\"There are things you can do to prevent problems like this. I recommend you get an allergy alert bracelet.\"",
      "selection_percent": 2
     },
     {
      "letter": "D",
-     "text": "racelet.\" 0 D. \"Unfortunately, modern antibiotics can have serious side effects. But I am glad to see you are",
+     "text": "\"Unfortunately, modern antibiotics can have serious side effects. But I am glad to see you are doing better.\"",
      "selection_percent": 1
     },
     {
      "letter": "E",
-     "text": "oing better.\" O E. \"Unfortunately, we did not get information about your medication allergy yesterday. That is why",
+     "text": "\"Unfortunately, we did not get information about your medication allergy yesterday. That is why you received the wrong antibiotic.\"",
      "selection_percent": 21
-    },
-    {
-     "letter": "F",
-     "text": "ou received the wrong antibiotic.\"",
-     "selection_percent": null
     }
    ],
    "correct_label": "B",
@@ -75,15 +70,12 @@
      "B": 49,
      "C": 2,
      "D": 1,
-     "E": 21,
-     "F": null
+     "E": 21
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent"
-   ],
-   "source_record_sha256": "ba5508653b8492fc9c6584e49b705571a364f23cc4ce858c4ff8271694fd0a72"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "14e290b84cda30bd70a4256f5aa440fed290f9b49f1bd83ad8ba37c6e6a9536b"
   },
   {
    "id": "UWORLD_11536",
@@ -343,12 +335,12 @@
     },
     {
      "letter": "C",
-     "text": "Accept the invitation but suggest that the patient change providers if she is uncomfortable",
+     "text": "Accept the invitation but suggest that the patient change providers if she is uncomfortable continuing under his care",
      "selection_percent": 0
     },
     {
      "letter": "D",
-     "text": "ontinuing under his care 0 D. Decline the invitation, explaining that going on a date with her would be unethical",
+     "text": "Decline the invitation, explaining that going on a date with her would be unethical",
      "selection_percent": 64
     },
     {
@@ -358,13 +350,8 @@
     },
     {
      "letter": "F",
-     "text": "Decline the invitation, explaining that the physician-patient relationship must be terminated",
+     "text": "Decline the invitation, explaining that the physician-patient relationship must be terminated before going on a date",
      "selection_percent": 32
-    },
-    {
-     "letter": "G",
-     "text": "efore going on a date",
-     "selection_percent": null
     }
    ],
    "correct_label": "D",
@@ -392,15 +379,12 @@
      "C": 0,
      "D": 64,
      "E": 1,
-     "F": 32,
-     "G": null
+     "F": 32
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent"
-   ],
-   "source_record_sha256": "dba9f2e28af00c9ba79e1cec6aa1c104e13aaa5ff87c504b301215f5639c63de"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "b246e8d5534fbef0c163d484aae33a0464037f1dc3e62c75fe6c2672eb321e31"
   },
   {
    "id": "UWORLD_10532",
@@ -415,33 +399,28 @@
    "options": [
     {
      "letter": "A",
-     "text": "\"I understand why you want to change your wife's previous decision, but the likelihood of her",
+     "text": "\"I understand why you want to change your wife's previous decision, but the likelihood of her regaining consciousness is minimal.\"",
      "selection_percent": 1
     },
     {
      "letter": "B",
-     "text": "egaining consciousness is minimal.\" ® 8 . \"It's normal to want any intervention that could help your wife get better, but going against her",
+     "text": "\"It's normal to want any intervention that could help your wife get better, but going against her wishes would be inappropriate.\"",
      "selection_percent": 17
     },
     {
      "letter": "C",
-     "text": "ishes would be inappropriate.\" 0 C. \"Since you're her husband and you believe that's what she would have wanted, we can proceed",
+     "text": "\"Since you're her husband and you believe that's what she would have wanted, we can proceed with intubation.\"",
      "selection_percent": 1
     },
     {
      "letter": "D",
-     "text": "ith intubation.\" 0 D. \"This is a very difficult situation, and having doubts about her wishes is understandable. Perhaps",
+     "text": "\"This is a very difficult situation, and having doubts about her wishes is understandable. Perhaps you should talk this over with your daughter.\"",
      "selection_percent": 7
     },
     {
      "letter": "E",
-     "text": "ou should talk this over with your daughter.\" O E. \"We're doing everything possible to help your wife recover. However, we should follow and",
+     "text": "\"We're doing everything possible to help your wife recover. However, we should follow and respect her wishes.\"",
      "selection_percent": 71
-    },
-    {
-     "letter": "F",
-     "text": "espect her wishes.\"",
-     "selection_percent": null
     }
    ],
    "correct_label": "E",
@@ -494,16 +473,12 @@
      "B": 17,
      "C": 1,
      "D": 7,
-     "E": 71,
-     "F": null
+     "E": 71
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent",
-    "suspicious OCR: …egaining consciousness is minimal.\" ® 8 . \"It's normal to …"
-   ],
-   "source_record_sha256": "934d698931271191c5e87f4bd66a84e6c941a32dc0c357b5d7ff53063db422d8"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "fdbdbc4f6b17989812c80ea8148e9ed6b49fc565941ae742ac8616e51ff394ce"
   },
   {
    "id": "UWORLD_21708",
@@ -595,22 +570,22 @@
    "options": [
     {
      "letter": "A",
-     "text": "\"Managing heart failure at home can be difficult. What family members are nearby who can",
+     "text": "\"Managing heart failure at home can be difficult. What family members are nearby who can help?\"",
      "selection_percent": 10
     },
     {
      "letter": "B",
-     "text": "elp?\" ® 8 . \"Since you are worried about going home, would you like to go to a nursing home until you feel",
+     "text": "\"Since you are worried about going home, would you like to go to a nursing home until you feel more confident?\"",
      "selection_percent": 2
     },
     {
      "letter": "C",
-     "text": "ore confident?\" 0 C. \"Some people with heart failure have problems due to too much salt intake. Can you tell me",
+     "text": "\"Some people with heart failure have problems due to too much salt intake. Can you tell me about your diet?\"",
      "selection_percent": 0
     },
     {
      "letter": "D",
-     "text": "bout your diet?\" 0 D. \"What do you think are some reasons why your heart failure might be worse at home?\"",
+     "text": "\"What do you think are some reasons why your heart failure might be worse at home?\"",
      "selection_percent": 83
     },
     {
@@ -654,11 +629,9 @@
      "E": 2
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …elp?\" ® 8 . \"Since you are w…"
-   ],
-   "source_record_sha256": "cf5593a8dbb56b347e1242b3fadb13c0c043473d271b0a5ae3d6b7f459275813"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "ff146af0ddddd928b7d6c27bdd7351219731b1f874d32a2edf50f568cad112af"
   },
   {
    "id": "UWORLD_20527",
@@ -673,27 +646,27 @@
    "options": [
     {
      "letter": "A",
-     "text": "Cross-sectional analysis of demographic attributes and health behaviors across community ZIP",
+     "text": "Cross-sectional analysis of demographic attributes and health behaviors across community ZIP codes",
      "selection_percent": 71
     },
     {
      "letter": "B",
-     "text": "Observational study tracking leptin levels and weight outcomes in a representative cohort of",
+     "text": "Observational study tracking leptin levels and weight outcomes in a representative cohort of community residents",
      "selection_percent": 1
     },
     {
      "letter": "C",
-     "text": "ommunity residents ® C. Quality improvement study assessing medical provider adherence to national obesity screening,",
+     "text": "Quality improvement study assessing medical provider adherence to national obesity screening, monitoring, and treatment guidelines across ZIP codes",
      "selection_percent": 4
     },
     {
      "letter": "D",
-     "text": "onitoring, and treatment guidelines across ZIP codes 0 D. Qualitative survey assessing obesity-related beliefs, attitudes, and knowledge in a",
+     "text": "Qualitative survey assessing obesity-related beliefs, attitudes, and knowledge in a representative community sample",
      "selection_percent": 20
     },
     {
      "letter": "E",
-     "text": "epresentative community sample 0 E. Randomized controlled trial examining the relationship between primary care weight counseling (2°-\"<>) and obesity incidence",
+     "text": "Randomized controlled trial examining the relationship between primary care weight counseling (2°-\"<>) and obesity incidence",
      "selection_percent": null
     }
    ],
@@ -734,10 +707,9 @@
    },
    "status": "blocked",
    "issues": [
-    "missing choice percent",
-    "suspicious OCR: …ommunity residents ® C. Quality improveme…"
+    "missing choice percent"
    ],
-   "source_record_sha256": "c8fa576d1a4bc69dd5469118b7216bf9aa511ddb0143439d04e8ab57c1fc198a"
+   "source_record_sha256": "075125c2f69545fb825cec184fa3682864553e93b9d5a0c026d137567ca31a6c"
   },
   {
    "id": "UWORLD_1124",
@@ -756,12 +728,12 @@
     },
     {
      "letter": "B",
-     "text": "Begin full resuscitation because the patient's wife has no official documentation of her husband's",
+     "text": "Begin full resuscitation because the patient's wife has no official documentation of her husband's wishes",
      "selection_percent": 8
     },
     {
      "letter": "C",
-     "text": "ishes 0 C. Inform the nursing staff that the patient is \"do not resuscitate\" and suspend all treatment",
+     "text": "Inform the nursing staff that the patient is \"do not resuscitate\" and suspend all treatment",
      "selection_percent": 15
     },
     {
@@ -823,7 +795,7 @@
    },
    "status": "verified",
    "issues": [],
-   "source_record_sha256": "99b0744900af33d4319e87d1b2c7dfb12b5955a49c14bb5c314f4c3db2545551"
+   "source_record_sha256": "73768e67916bf619c8486ce47e37a75affd9b0e885b9ba88458a5dab96db364c"
   },
   {
    "id": "UWORLD_21678",
@@ -852,18 +824,13 @@
     },
     {
      "letter": "D",
-     "text": "\"As long as your pregnancy remains uncomplicated, I think that a home birth is a good option for",
+     "text": "\"As long as your pregnancy remains uncomplicated, I think that a home birth is a good option for you.\"",
      "selection_percent": 3
     },
     {
      "letter": "E",
-     "text": "\"I think this is something we can consider, but let's readdress this when you are closer to your",
+     "text": "\"I think this is something we can consider, but let's readdress this when you are closer to your due date.\"",
      "selection_percent": 10
-    },
-    {
-     "letter": "F",
-     "text": "ue date.\"",
-     "selection_percent": null
     }
    ],
    "correct_label": "C",
@@ -898,15 +865,12 @@
      "B": 2,
      "C": 82,
      "D": 3,
-     "E": 10,
-     "F": null
+     "E": 10
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent"
-   ],
-   "source_record_sha256": "cf5bf4b207f866a38ccf2301904d6163908700d47c7c4b1901cd6480aa28c256"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "d6b11ba5b29a4e251f383ffec3a4a4ae08167415fd497675e78b2f439ce30632"
   },
   {
    "id": "UWORLD_106486",
@@ -1134,33 +1098,28 @@
    "options": [
     {
      "letter": "A",
-     "text": "\"He seemed hopeful about his treatment when I last saw him; do you know whether he was taking",
+     "text": "\"He seemed hopeful about his treatment when I last saw him; do you know whether he was taking his medication as prescribed?\"",
      "selection_percent": 0
     },
     {
      "letter": "B",
-     "text": "is medication as prescribed?\" ® 8 . \"I can't imagine how difficult this must be for you; I'm here to answer questions you may have",
+     "text": "\"I can't imagine how difficult this must be for you; I'm here to answer questions you may have about your husband's illness and treatment.\"",
      "selection_percent": 77
     },
     {
      "letter": "C",
-     "text": "bout your husband's illness and treatment.\" 0 C. \"I'm so sorry to hear about this; he seemed to be improving, but there can be a risk of suicidal",
+     "text": "\"I'm so sorry to hear about this; he seemed to be improving, but there can be a risk of suicidal thoughts with medication changes.\"",
      "selection_percent": 6
     },
     {
      "letter": "D",
-     "text": "houghts with medication changes.\" O D. \"I'm very surprised by this too, given how well he was doing at his last appointment; can you tell",
+     "text": "\"I'm very surprised by this too, given how well he was doing at his last appointment; can you tell me more about what happened?\"",
      "selection_percent": 9
     },
     {
      "letter": "E",
-     "text": "e more about what happened?\" O E. \"This is definitely upsetting and shocking, and I did not see this coming. Did you notice anything",
+     "text": "\"This is definitely upsetting and shocking, and I did not see this coming. Did you notice anything unusual the week leading up to his suicide?\"",
      "selection_percent": 6
-    },
-    {
-     "letter": "F",
-     "text": "nusual the week leading up to his suicide?\"",
-     "selection_percent": null
     }
    ],
    "correct_label": "B",
@@ -1195,16 +1154,12 @@
      "B": 77,
      "C": 6,
      "D": 9,
-     "E": 6,
-     "F": null
+     "E": 6
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent",
-    "suspicious OCR: …is medication as prescribed?\" ® 8 . \"I can't imagine…"
-   ],
-   "source_record_sha256": "903144ba9090d3fc81cf09a062ceb854537a5bf18806137d36a5304ae8d815cb"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "9c227aad78130f3578f80fbddb420a1693ad0714cfdab83fed7109fc71124765"
   },
   {
    "id": "UWORLD_21168",
@@ -1219,33 +1174,28 @@
    "options": [
     {
      "letter": "A",
-     "text": "\"Alcohol is likely making your depression worse. It will be harder to treat your depression without",
+     "text": "\"Alcohol is likely making your depression worse. It will be harder to treat your depression without addressing alcohol.\"",
      "selection_percent": 0
     },
     {
      "letter": "B",
-     "text": "ddressing alcohol.\" ® B. \"Although you feel alcohol helps you to relax, I am concerned that you are using it to self-",
+     "text": "\"Although you feel alcohol helps you to relax, I am concerned that you are using it to self- medicate your depression.\"",
      "selection_percent": 1
     },
     {
      "letter": "C",
-     "text": "edicate your depression.\" 0 C. \"I can understand your reasons for using alcohol. What are the downsides to drinking from your",
+     "text": "\"I can understand your reasons for using alcohol. What are the downsides to drinking from your perspective?\"",
      "selection_percent": 75
     },
     {
      "letter": "D",
-     "text": "erspective?\" 0 D. \"I get it, but there are other, healthier ways to relax. Would you be willing to discuss those?\"",
+     "text": "\"I get it, but there are other, healthier ways to relax. Would you be willing to discuss those?\"",
      "selection_percent": 5
     },
     {
      "letter": "E",
-     "text": "\"I understand your reasons and see that you are not ready to make a change. I am here to help",
+     "text": "\"I understand your reasons and see that you are not ready to make a change. I am here to help when you feel ready.\"",
      "selection_percent": 15
-    },
-    {
-     "letter": "F",
-     "text": "hen you feel ready.\"",
-     "selection_percent": null
     }
    ],
    "correct_label": "C",
@@ -1291,16 +1241,12 @@
      "B": 1,
      "C": 75,
      "D": 5,
-     "E": 15,
-     "F": null
+     "E": 15
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent",
-    "suspicious OCR: …ddressing alcohol.\" ® B. \"Although you fee…"
-   ],
-   "source_record_sha256": "234fab3b2f8e63fe0efd5e1807a91225a074ea29c87b129a3885bf0e86811c90"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "1c8782b4ab58ffce674dcfd22c4246e50bcdc6ad8137c05b91720d0e611d3230"
   },
   {
    "id": "UWORLD_2057",
@@ -1314,27 +1260,27 @@
    "options": [
     {
      "letter": "A",
-     "text": "\"Because gonorrhea is a reportable illness, I am obligated to report it to the health authorities and",
+     "text": "\"Because gonorrhea is a reportable illness, I am obligated to report it to the health authorities and to your parents.\"",
      "selection_percent": 3
     },
     {
      "letter": "B",
-     "text": "o your parents.\" ® B. \"I don't need to inform your parents that you are sexually active, but I will need their consent to",
+     "text": "\"I don't need to inform your parents that you are sexually active, but I will need their consent to prescribe antibiotic treatment. \"",
      "selection_percent": 5
     },
     {
      "letter": "C",
-     "text": "rescribe antibiotic treatment. \" 0 C. \"I recommend that you tell your parents about today's visit in case your symptoms become more",
+     "text": "\"I recommend that you tell your parents about today's visit in case your symptoms become more serious.\"",
      "selection_percent": 8
     },
     {
      "letter": "D",
-     "text": "erious.\" 0",
+     "text": "\"I will not notify your parents because you can consent to testing and treatment for sexually transmitted infections on your own. \"",
      "selection_percent": 81
     },
     {
      "letter": "E",
-     "text": "\"I will not notify your parents because you can consent to testing and treatment for sexually transmitted infections on your own. \" 0 E. \"You can consent to treatment of gonorrhea, but because you are a minor, I am obligated to notify (2°-\"<>) your parents.\"",
+     "text": "\"You can consent to treatment of gonorrhea, but because you are a minor, I am obligated to notify (2°-\"<>) your parents.\"",
      "selection_percent": null
     }
    ],
@@ -1386,11 +1332,9 @@
    },
    "status": "blocked",
    "issues": [
-    "choice letters disagree with order: E",
-    "missing choice percent",
-    "suspicious OCR: …o your parents.\" ® B. \"I don't need to …"
+    "missing choice percent"
    ],
-   "source_record_sha256": "08f2e5494b48268b95e47833fcbfdfc8cefe4ef07792f27c15219cf4e64389f5"
+   "source_record_sha256": "0385456cd94588d3d6552449db135ed28ae83bbac149dd4d90062a82a14c3894"
   },
   {
    "id": "UWORLD_21423",
@@ -1474,33 +1418,28 @@
    "options": [
     {
      "letter": "A",
-     "text": "Administer the drug as the attending physician has likely considered the risks and benefits of a",
+     "text": "Administer the drug as the attending physician has likely considered the risks and benefits of a beta blocker in combination with cocaine",
      "selection_percent": 0
     },
     {
      "letter": "B",
-     "text": "eta blocker in combination with cocaine 0 8 . Discuss concerns with the nurses, ask for their input, and have them monitor the patient's vital",
+     "text": "Discuss concerns with the nurses, ask for their input, and have them monitor the patient's vital signs when starting the medication",
      "selection_percent": 0
     },
     {
      "letter": "C",
-     "text": "igns when starting the medication ® C. Discuss the risks and benefits of the medication with the patient and let him decide whether to",
+     "text": "Discuss the risks and benefits of the medication with the patient and let him decide whether to take it",
      "selection_percent": 0
     },
     {
      "letter": "D",
-     "text": "ake it O D. Do not order the medication as the most important principle in medicine is to \"do no harm\"",
+     "text": "Do not order the medication as the most important principle in medicine is to \"do no harm\"",
      "selection_percent": 1
     },
     {
      "letter": "E",
-     "text": "Do not order the medication until discussing concerns with the attending physician and asking",
+     "text": "Do not order the medication until discussing concerns with the attending physician and asking how to proceed",
      "selection_percent": 96
-    },
-    {
-     "letter": "F",
-     "text": "ow to proceed",
-     "selection_percent": null
     }
    ],
    "correct_label": "E",
@@ -1535,16 +1474,12 @@
      "B": 0,
      "C": 0,
      "D": 1,
-     "E": 96,
-     "F": null
+     "E": 96
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent",
-    "suspicious OCR: …igns when starting the medication ® C. Discuss the risks…"
-   ],
-   "source_record_sha256": "94a984274b9d208c7666cf07054f857d4658f733269a54b9cd7da910dafa8f20"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "aa6afac4f6ed38d27046bfe8a3d4adeb016e293a8c6ec71c8190ab5681b322bf"
   },
   {
    "id": "UWORLD_1126",
@@ -1625,33 +1560,28 @@
    "options": [
     {
      "letter": "A",
-     "text": "Ask the daughter to make a decision based on what she thinks is the best for the patient because",
+     "text": "Ask the daughter to make a decision based on what she thinks is the best for the patient because he lives with her",
      "selection_percent": 3
     },
     {
      "letter": "B",
-     "text": "e lives with her ® B. Ask the son to make a decision based on what he thinks is the best for the patient because he is",
+     "text": "Ask the son to make a decision based on what he thinks is the best for the patient because he is older and has legal authority",
      "selection_percent": 7
     },
     {
      "letter": "C",
-     "text": "lder and has legal authority 0 C. Ask them both to make a decision based on what they think is in the best interest of the patient",
+     "text": "Ask them both to make a decision based on what they think is in the best interest of the patient",
      "selection_percent": 9
     },
     {
      "letter": "D",
-     "text": "Ask them both to make a decision based on what they think the patient would have wanted if he",
+     "text": "Ask them both to make a decision based on what they think the patient would have wanted if he were able to make the decision",
      "selection_percent": 65
     },
     {
      "letter": "E",
-     "text": "ere able to make the decision O E. Offer to make the decision on the patient's behalf based on the physician's best medical",
+     "text": "Offer to make the decision on the patient's behalf based on the physician's best medical judgment",
      "selection_percent": 13
-    },
-    {
-     "letter": "F",
-     "text": "udgment",
-     "selection_percent": null
     }
    ],
    "correct_label": "D",
@@ -1704,16 +1634,12 @@
      "B": 7,
      "C": 9,
      "D": 65,
-     "E": 13,
-     "F": null
+     "E": 13
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent",
-    "suspicious OCR: …e lives with her ® B. Ask the son to ma…"
-   ],
-   "source_record_sha256": "a27a5501b85e5feab2cd33a9cc91c2f6b6fbaa69ca36397e307088642dab744a"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "3c98931333231ae889daf434fce9b61515d0d4d65f8851371b1e3612fbd5becd"
   },
   {
    "id": "UWORLD_11531",

@@ -192,13 +192,8 @@
     },
     {
      "letter": "E",
-     "text": "\"Speaking to our pain medicine care team can help you feel more comfortable about pain",
+     "text": "\"Speaking to our pain medicine care team can help you feel more comfortable about pain treatment.\"",
      "selection_percent": 2
-    },
-    {
-     "letter": "F",
-     "text": "reatment.\"",
-     "selection_percent": null
     }
    ],
    "correct_label": "D",
@@ -233,15 +228,12 @@
      "B": 12,
      "C": 3,
      "D": 77,
-     "E": 2,
-     "F": null
+     "E": 2
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent"
-   ],
-   "source_record_sha256": "74a49fc26d3db76d506aba727cc3bcd35d69965055e2f2555b66ce744fce19aa"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "720103d7082e268602661b5dc1281fd2ebbb4a2927344c84b1b3f23a472d8173"
   },
   {
    "id": "UWORLD_8457",
@@ -396,33 +388,28 @@
    "options": [
     {
      "letter": "A",
-     "text": "\"Although previous medications have not worked, consultation with a pain specialist may be",
+     "text": "\"Although previous medications have not worked, consultation with a pain specialist may be helpful.\"",
      "selection_percent": 5
     },
     {
      "letter": "B",
-     "text": "elpful.\" 0 8 . \"I understand the difficulty of your situation, but applying for disability will not improve your back",
+     "text": "\"I understand the difficulty of your situation, but applying for disability will not improve your back pain.\"",
      "selection_percent": 3
     },
     {
      "letter": "C",
-     "text": "ain.\" ® C. \"I understand your frustration, but it is difficult to help when you think nothing will work.\"",
+     "text": "\"I understand your frustration, but it is difficult to help when you think nothing will work.\"",
      "selection_percent": 2
     },
     {
      "letter": "D",
-     "text": "\"It must be frustrating to have chronic back pain and feel like there are no options to ease your",
+     "text": "\"It must be frustrating to have chronic back pain and feel like there are no options to ease your suffering.\"",
      "selection_percent": 84
     },
     {
      "letter": "E",
-     "text": "uffering.\" 0 E. \"Your chances of improving would be better if you followed recommendations and remained in",
+     "text": "\"Your chances of improving would be better if you followed recommendations and remained in treatment.\"",
      "selection_percent": 3
-    },
-    {
-     "letter": "F",
-     "text": "reatment.\"",
-     "selection_percent": null
     }
    ],
    "correct_label": "D",
@@ -457,16 +444,12 @@
      "B": 3,
      "C": 2,
      "D": 84,
-     "E": 3,
-     "F": null
+     "E": 3
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent",
-    "suspicious OCR: …ain.\" ® C. \"I understand you…"
-   ],
-   "source_record_sha256": "89fa954dde6a909be60164414ec8777a862fde76fbcf2d4ef2441d501c673ebf"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "e46c9f664610b678601eb92ddf8eb409ad3cb3504d35e83072747c2ed4df6979"
   },
   {
    "id": "UWORLD_11549",
@@ -635,12 +618,12 @@
     },
     {
      "letter": "C",
-     "text": "18%)",
-     "selection_percent": null
+     "text": "\"I understand your concerns about medication side effects, but antibiotic treatment is necessary.\"",
+     "selection_percent": 18
     },
     {
      "letter": "D",
-     "text": "\"I understand your concerns about medication side effects, but antibiotic treatment is necessary.\" 0 D. \"If we don't give your child antibiotics, she could get a brain abscess and die.\"",
+     "text": "\"If we don't give your child antibiotics, she could get a brain abscess and die.\"",
      "selection_percent": 2
     },
     {
@@ -679,18 +662,16 @@
     "selection_percent": {
      "A": 58,
      "B": 17,
-     "C": null,
+     "C": 18,
      "D": 2,
      "E": null
     }
    },
    "status": "blocked",
    "issues": [
-    "choice letters disagree with order: D",
-    "missing choice percent",
-    "choices look like pictures or a table"
+    "missing choice percent"
    ],
-   "source_record_sha256": "c211b28cffcf8b679b6d378322572b31a0aa02843c461cb305c56febf79aafb0"
+   "source_record_sha256": "728e625ea581ad73ebd310e699922a265d8da1cc009485c1a551690c829a4350"
   },
   {
    "id": "UWORLD_21977",
@@ -937,28 +918,23 @@
     },
     {
      "letter": "B",
-     "text": "\"I accept full responsibility for this unfortunate outcome and understand if you feel the need to",
+     "text": "\"I accept full responsibility for this unfortunate outcome and understand if you feel the need to transfer your care elsewhere.\"",
      "selection_percent": 12
     },
     {
      "letter": "C",
-     "text": "ransfer your care elsewhere.\" O C. \"I apologize on our team's behalf for this error; we will waive charges and will identify ways to",
+     "text": "\"I apologize on our team's behalf for this error; we will waive charges and will identify ways to improve our specimen tracking system .\"",
      "selection_percent": 70
     },
     {
      "letter": "D",
-     "text": "mprove our specimen tracking system .\" O D. \"Sometimes these mistakes happen for no clear reason; I am sorry for any distress this causes",
+     "text": "\"Sometimes these mistakes happen for no clear reason; I am sorry for any distress this causes you.\"",
      "selection_percent": 6
     },
     {
      "letter": "E",
-     "text": "\"This mistake was due to staff member inexperience; rest assured that we will take steps to",
+     "text": "\"This mistake was due to staff member inexperience; rest assured that we will take steps to ensure that this will not happen again.\"",
      "selection_percent": 5
-    },
-    {
-     "letter": "F",
-     "text": "nsure that this will not happen again.\"",
-     "selection_percent": null
     }
    ],
    "correct_label": "C",
@@ -993,15 +969,12 @@
      "B": 12,
      "C": 70,
      "D": 6,
-     "E": 5,
-     "F": null
+     "E": 5
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent"
-   ],
-   "source_record_sha256": "03b16ec419083c2dcbc50c78a3c3c62d192e05f13e0af9f4c071567d27d93bba"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "ae6222e418e136ce628934ea04134d6f68684ed36781e501a46ff7f508afe80f"
   },
   {
    "id": "UWORLD_19055",
@@ -1175,27 +1148,27 @@
    "options": [
     {
      "letter": "A",
-     "text": "\"Although you've experienced improvement with antibiotics in the past, your symptoms will likely",
+     "text": "\"Although you've experienced improvement with antibiotics in the past, your symptoms will likely improve with over-the-counter treatment.\"",
      "selection_percent": 5
     },
     {
      "letter": "B",
-     "text": "mprove with over-the-counter treatment.\" ® 8 . \"Antibiotics can be helpful for certain infections, but I'm concerned you may have been prescribed",
+     "text": "\"Antibiotics can be helpful for certain infections, but I'm concerned you may have been prescribed antibiotics inappropriately in the past.\"",
      "selection_percent": 2
     },
     {
      "letter": "C",
-     "text": "ntibiotics inappropriately in the past.\" 0 C. \"Feeling sick is unpleasant; let's talk about why antibiotics are not recommended and what",
+     "text": "\"Feeling sick is unpleasant; let's talk about why antibiotics are not recommended and what treatments can help you feel better.\"",
      "selection_percent": 87
     },
     {
      "letter": "D",
-     "text": "reatments can help you feel better.\" 0 D. \"I understand why you want me to prescribe antibiotics, but this would only lead to antibiotic",
+     "text": "\"I understand why you want me to prescribe antibiotics, but this would only lead to antibiotic resistance.\"",
      "selection_percent": 2
     },
     {
      "letter": "E",
-     "text": "esistance.\" 0 E. \"Many patients think antibiotics can help treat colds; unfortunately, there are no quick fixes for (2°-\"<>) viral infections.\"",
+     "text": "\"Many patients think antibiotics can help treat colds; unfortunately, there are no quick fixes for (2°-\"<>) viral infections.\"",
      "selection_percent": null
     }
    ],
@@ -1236,10 +1209,9 @@
    },
    "status": "blocked",
    "issues": [
-    "missing choice percent",
-    "suspicious OCR: …rove with over-the-counter treatment.\" ® 8 . \"Antibiotics can…"
+    "missing choice percent"
    ],
-   "source_record_sha256": "004303e6e7cc5e0377052c8439fee452b9ab19a17b782b814f70f20132dd8149"
+   "source_record_sha256": "ee009c758d4271c09b53e7441a05772e2be1d6169577cbab1b55314d3336a21f"
   },
   {
    "id": "UWORLD_13968",
@@ -1263,17 +1235,17 @@
     },
     {
      "letter": "C",
-     "text": "The surgeon is acting appropriately as this interaction does not require additional informed",
+     "text": "The surgeon is acting appropriately as this interaction does not require additional informed consent",
      "selection_percent": 2
     },
     {
      "letter": "D",
-     "text": "onsent O D. The surgeon's actions are inappropriate as the nurse has greater fluency and should speak to the",
+     "text": "The surgeon's actions are inappropriate as the nurse has greater fluency and should speak to the patient",
      "selection_percent": 0
     },
     {
      "letter": "E",
-     "text": "atient 0 E. The surgeon's actions are inappropriate as they potentially violate the patient's rights",
+     "text": "The surgeon's actions are inappropriate as they potentially violate the patient's rights",
      "selection_percent": 64
     }
    ],
@@ -1302,7 +1274,7 @@
    },
    "status": "verified",
    "issues": [],
-   "source_record_sha256": "f65eb233002e8cb6984c33e72540acf453757251de722df00bb690f67b0652bb"
+   "source_record_sha256": "ec4268a02c5c289991b7e8cecad0ba505b2627e3876739cfca97bfcbc8b9d967"
   },
   {
    "id": "UWORLD_1237",
@@ -1316,33 +1288,28 @@
    "options": [
     {
      "letter": "A",
-     "text": "\"Hearing you have a lung mass is upsetting; perhaps take some time to think about whether you",
+     "text": "\"Hearing you have a lung mass is upsetting; perhaps take some time to think about whether you really want to undergo this procedure.\"",
      "selection_percent": 2
     },
     {
      "letter": "B",
-     "text": "eally want to undergo this procedure.\" ® 8 . \"I can't imagine how stressful this is for you, but if the results do show cancer, it would be",
+     "text": "\"I can't imagine how stressful this is for you, but if the results do show cancer, it would be important for you to make a decision about treatment.\"",
      "selection_percent": 15
     },
     {
      "letter": "C",
-     "text": "mportant for you to make a decision about treatment.\" 0 C. \"I won't share the results of the procedure if that is your preference, although I would like to",
+     "text": "\"I won't share the results of the procedure if that is your preference, although I would like to understand how you came to that decision .\"",
      "selection_percent": 63
     },
     {
      "letter": "D",
-     "text": "nderstand how you came to that decision .\" O D. \"It's normal to try and avoid hearing bad news; however, the uncertainty of not knowing your",
+     "text": "\"It's normal to try and avoid hearing bad news; however, the uncertainty of not knowing your diagnosis can cause even more anxiety.\"",
      "selection_percent": 1
     },
     {
      "letter": "E",
-     "text": "iagnosis can cause even more anxiety.\" 0",
-     "selection_percent": 16
-    },
-    {
-     "letter": "F",
      "text": "\"You can choose to not hear your results, but you should appoint someone in your family to make decisions on your behalf.\"",
-     "selection_percent": null
+     "selection_percent": 16
     }
    ],
    "correct_label": "C",
@@ -1388,17 +1355,12 @@
      "B": 15,
      "C": 63,
      "D": 1,
-     "E": 16,
-     "F": null
+     "E": 16
     }
    },
-   "status": "blocked",
-   "issues": [
-    "choice letters disagree with order: F",
-    "missing choice percent",
-    "suspicious OCR: …eally want to undergo this procedure.\" ® 8 . \"I can't imagine…"
-   ],
-   "source_record_sha256": "7b472d82b6661f4b1803f966ab029e838e98e88b2de8de8ac2e9acc658826233"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "5da26b931bc19d52e4b1aab521c9b9a155648f187420fb3dc42162d5dd112f10"
   },
   {
    "id": "UWORLD_10975",
@@ -1567,33 +1529,28 @@
    "options": [
     {
      "letter": "A",
-     "text": "\"I appreciate your offer to interpret; however, I need to get a trained medical interpreter before I",
+     "text": "\"I appreciate your offer to interpret; however, I need to get a trained medical interpreter before I start talking with your father.\"",
      "selection_percent": 78
     },
     {
      "letter": "B",
-     "text": "tart talking with your father.\" ® 8 . \"I'll print out the Vietnamese version of the consent form. It would be helpful if you could interpret",
+     "text": "\"I'll print out the Vietnamese version of the consent form. It would be helpful if you could interpret any questions your father may have after reading it.\"",
      "selection_percent": 3
     },
     {
      "letter": "C",
-     "text": "ny questions your father may have after reading it.\" 0 C. \"Thank you. That would be very helpful, especially since you are already familiar with medical",
+     "text": "\"Thank you. That would be very helpful, especially since you are already familiar with medical terminology.\"",
      "selection_percent": 1
     },
     {
      "letter": "D",
-     "text": "erminology.\" 0",
+     "text": "\"That would make things much easier; could you start by asking your father what his understanding of the situation is?\"",
      "selection_percent": 4
     },
     {
      "letter": "E",
-     "text": "\"That would make things much easier; could you start by asking your father what his understanding of the situation is?\" O E. \"That's a kind offer, but I wouldn't be able to have a direct and obj ective discussion with your",
+     "text": "\"That's a kind offer, but I wouldn't be able to have a direct and obj ective discussion with your father if you interpret it.\"",
      "selection_percent": 12
-    },
-    {
-     "letter": "F",
-     "text": "ather if you interpret it.\"",
-     "selection_percent": null
     }
    ],
    "correct_label": "A",
@@ -1624,17 +1581,12 @@
      "B": 3,
      "C": 1,
      "D": 4,
-     "E": 12,
-     "F": null
+     "E": 12
     }
    },
-   "status": "blocked",
-   "issues": [
-    "choice letters disagree with order: E",
-    "missing choice percent",
-    "suspicious OCR: …tart talking with your father.\" ® 8 . \"I'll print out …"
-   ],
-   "source_record_sha256": "d7b894272ced13f9212d42c7c28a9db7a7bd15bf73bd5050e03af5abaacb3cc7"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "629d876705ce7d216d8c001366dcdb883e1e06314d9a52f9dae93b0cd51cca37"
   },
   {
    "id": "UWORLD_10659",
@@ -1653,12 +1605,12 @@
     },
     {
      "letter": "B",
-     "text": "\"I can give you a list of domestic violence programs, but you have to decide if you want to get",
+     "text": "\"I can give you a list of domestic violence programs, but you have to decide if you want to get help.\"",
      "selection_percent": 9
     },
     {
      "letter": "C",
-     "text": "elp.\" 0 C. \"This relationship seems unsafe to me; can you help me understand why you remain in it?\"",
+     "text": "\"This relationship seems unsafe to me; can you help me understand why you remain in it?\"",
      "selection_percent": 4
     },
     {
@@ -1709,7 +1661,7 @@
    },
    "status": "verified",
    "issues": [],
-   "source_record_sha256": "51778ee37e7d545e8a76f0a4bd7af3d7c5e7dc3b9766cf57a08b9d7180ba49f1"
+   "source_record_sha256": "cf402a8e088e67278cc9d354b66d7053489c6df98a27b8bb8892208799cb781b"
   },
   {
    "id": "UWORLD_18874",
@@ -1722,33 +1674,28 @@
    "options": [
     {
      "letter": "A",
-     "text": "\"I can see you're uncomfortable talking about this. We can discuss it at a follow-up appointment",
+     "text": "\"I can see you're uncomfortable talking about this. We can discuss it at a follow-up appointment when you're ready.\"",
      "selection_percent": 2
     },
     {
      "letter": "B",
-     "text": "hen you're ready.\" 0 8 . \"I routinely ask my patients about sexual partners because it helps me fully understand what",
+     "text": "\"I routinely ask my patients about sexual partners because it helps me fully understand what their health needs are.\"",
      "selection_percent": 55
     },
     {
      "letter": "C",
-     "text": "heir health needs are.\" ® C. \"It may be difficult to offer the most appropriate screening and treatment unless you are open",
+     "text": "\"It may be difficult to offer the most appropriate screening and treatment unless you are open about your sexual partners.\"",
      "selection_percent": 4
     },
     {
      "letter": "D",
-     "text": "bout your sexual partners.\" 0 D. \"This can be an uncomfortable topic for patients; tell me why you don't feel comfortable talking",
+     "text": "\"This can be an uncomfortable topic for patients; tell me why you don't feel comfortable talking about your sexual partners.\"",
      "selection_percent": 31
     },
     {
      "letter": "E",
-     "text": "bout your sexual partners.\" O E. \"This is likely a yeast infection, but I need you to tell me about your sexual relationships to be",
+     "text": "\"This is likely a yeast infection, but I need you to tell me about your sexual relationships to be sure it isn't something more serious.\"",
      "selection_percent": 6
-    },
-    {
-     "letter": "F",
-     "text": "ure it isn't something more serious.\"",
-     "selection_percent": null
     }
    ],
    "correct_label": "B",
@@ -1794,16 +1741,12 @@
      "B": 55,
      "C": 4,
      "D": 31,
-     "E": 6,
-     "F": null
+     "E": 6
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent",
-    "suspicious OCR: …heir health needs are.\" ® C. \"It may be diffic…"
-   ],
-   "source_record_sha256": "ceb18cc7939545df678d5f492e70fcdab77f8620199f7e3c9b16faf2c8bf6db4"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "7b9fe5f7d749f708f2ab49927065347702c1b4982ec5c7c8ef661bd0c16a516f"
   },
   {
    "id": "UWORLD_1107",

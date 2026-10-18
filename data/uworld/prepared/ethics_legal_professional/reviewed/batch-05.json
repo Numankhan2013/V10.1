@@ -19,22 +19,22 @@
     },
     {
      "letter": "B",
-     "text": "\"It is common for people with diabetes to eventually need insulin. That doesn't mean it is your",
+     "text": "\"It is common for people with diabetes to eventually need insulin. That doesn't mean it is your fault.\"",
      "selection_percent": 55
     },
     {
      "letter": "C",
-     "text": "ault.\" ® C. \"It seems you are becoming frustrated with your health. Do you feel like you may be",
+     "text": "\"It seems you are becoming frustrated with your health. Do you feel like you may be depressed?\"",
      "selection_percent": 12
     },
     {
      "letter": "D",
-     "text": "epressed?\" O D. \"You should never feel like you are wasting my time. Helping patients get better is what makes",
+     "text": "\"You should never feel like you are wasting my time. Helping patients get better is what makes me happy.\"",
      "selection_percent": 15
     },
     {
      "letter": "E",
-     "text": "e happy.\" O E. \"You shouldn't blame yourself. Your family history is not something you can control.\"",
+     "text": "\"You shouldn't blame yourself. Your family history is not something you can control.\"",
      "selection_percent": 11
     }
    ],
@@ -84,11 +84,9 @@
      "E": 11
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …ault.\" ® C. \"It seems you are…"
-   ],
-   "source_record_sha256": "16c6abe0b49ea6176dc1cdefb7bdd846a8ee29981a7fd3eab1ba23605d6af91c"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "1701f9f4f97df93e06658d683d16ffb8cb4ab34875b30ab532b8c3096647e697"
   },
   {
    "id": "UWORLD_10450",
@@ -102,27 +100,27 @@
    "options": [
     {
      "letter": "A",
-     "text": "\"I can write a prescription so that you have enough medication until you're able to get an",
+     "text": "\"I can write a prescription so that you have enough medication until you're able to get an appointment with your doctor.\"",
      "selection_percent": 1
     },
     {
      "letter": "B",
-     "text": "ppointment with your doctor.\" ® 8 . \"I wish I could help you, but your psychiatric history is too complex for me to feel comfortable",
+     "text": "\"I wish I could help you, but your psychiatric history is too complex for me to feel comfortable prescribing medication for you .\"",
      "selection_percent": 0
     },
     {
      "letter": "C",
-     "text": "rescribing medication for you .\" 0 C. \"Let's schedule a time for you to come in for a full evaluation so that I can make sure sertraline",
+     "text": "\"Let's schedule a time for you to come in for a full evaluation so that I can make sure sertraline is the most appropriate option. \"",
      "selection_percent": 28
     },
     {
      "letter": "D",
-     "text": "s the most appropriate option. \" O D. \"Unfortunately, I'm unable to prescribe medication for you since our relationship prevents me",
+     "text": "\"Unfortunately, I'm unable to prescribe medication for you since our relationship prevents me from providing obj ective treatment.\"",
      "selection_percent": 64
     },
     {
      "letter": "E",
-     "text": "rom providing obj ective treatment.\" 0 E. \"Your doctor should be able to prescribe a refill without an appointment since you've taken this (4°-\"<>) medication before.\"",
+     "text": "\"Your doctor should be able to prescribe a refill without an appointment since you've taken this (4°-\"<>) medication before.\"",
      "selection_percent": null
     }
    ],
@@ -174,10 +172,9 @@
    },
    "status": "blocked",
    "issues": [
-    "missing choice percent",
-    "suspicious OCR: …ppointment with your doctor.\" ® 8 . \"I wish I could …"
+    "missing choice percent"
    ],
-   "source_record_sha256": "8115c3695474427365f519d03ff337ee6446bdaedf37cd205093af1b5df4e877"
+   "source_record_sha256": "393bafca85bd49fe7d8273a511402baa18f793bf8b99c1d50172f97c2397a39e"
   },
   {
    "id": "UWORLD_10534",
@@ -301,13 +298,8 @@
     },
     {
      "letter": "E",
-     "text": "\"You were successful in stopping cocaine. How might your experience help you to quit",
+     "text": "\"You were successful in stopping cocaine. How might your experience help you to quit smoking?\"",
      "selection_percent": 68
-    },
-    {
-     "letter": "F",
-     "text": "moking?\"",
-     "selection_percent": null
     }
    ],
    "correct_label": "E",
@@ -338,15 +330,12 @@
      "B": 25,
      "C": 1,
      "D": 2,
-     "E": 68,
-     "F": null
+     "E": 68
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent"
-   ],
-   "source_record_sha256": "ac10fdc285ce2fd6b6771abecf257a001f96047593f8b17c6e53746076320488"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "c474d007eb44386242899d26a93419fd67e70ba2c9acdd6101fed87c875b073a"
   },
   {
    "id": "UWORLD_10533",
@@ -442,28 +431,23 @@
    "options": [
     {
      "letter": "A",
-     "text": "Defer discussion of both biopsy results and prognosis and tell him you will discuss them once all",
+     "text": "Defer discussion of both biopsy results and prognosis and tell him you will discuss them once all studies are completed",
      "selection_percent": 12
     },
     {
      "letter": "B",
-     "text": "tudies are completed ® 8 . Defer discussion of both biopsy results and prognosis until an oncologist evaluates the patient",
+     "text": "Defer discussion of both biopsy results and prognosis until an oncologist evaluates the patient",
      "selection_percent": 2
     },
     {
      "letter": "C",
-     "text": "Discuss the biopsy results along with an optimistic assessment of prognosis until an unfavorable",
+     "text": "Discuss the biopsy results along with an optimistic assessment of prognosis until an unfavorable prognosis is confirmed with staging studies",
      "selection_percent": 4
     },
     {
      "letter": "D",
-     "text": "rognosis is confirmed with staging studies 0 D. Discuss the biopsy results with the patient, but defer discussion of prognosis until staging",
+     "text": "Discuss the biopsy results with the patient, but defer discussion of prognosis until staging results are available",
      "selection_percent": 79
-    },
-    {
-     "letter": "E",
-     "text": "esults are available",
-     "selection_percent": null
     }
    ],
    "correct_label": "D",
@@ -489,16 +473,12 @@
      "A": 12,
      "B": 2,
      "C": 4,
-     "D": 79,
-     "E": null
+     "D": 79
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent",
-    "suspicious OCR: …tudies are completed ® 8 . Defer discussion…"
-   ],
-   "source_record_sha256": "b17dc784bf70a6a7fe3ef4adba87ff35b1637eb3120a55f3c9576beaab687bc8"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "5ef32ba12531c11f2094fd6288d2f3cc5c7972065b5cacc93aac80b48124f1d0"
   },
   {
    "id": "UWORLD_11847",
@@ -745,33 +725,28 @@
    "options": [
     {
      "letter": "A",
-     "text": "\"Thank you, but I cannot accept any of these gifts from you; it's enough for me to see that you've",
+     "text": "\"Thank you, but I cannot accept any of these gifts from you; it's enough for me to see that you've been sticking with the treatment plan and getting better.\"",
      "selection_percent": 27
     },
     {
      "letter": "B",
-     "text": "een sticking with the treatment plan and getting better.\" ® 8 . \"Thank you for the card and cookies; unfortunately, the tickets are so valuable that my",
+     "text": "\"Thank you for the card and cookies; unfortunately, the tickets are so valuable that my acceptance of them as your physician could affect our relationship.\"",
      "selection_percent": 41
     },
     {
      "letter": "C",
-     "text": "cceptance of them as your physician could affect our relationship.\" O C. \"Thank you for the kind gesture, but I cannot accept any of these gifts; please know that it would",
+     "text": "\"Thank you for the kind gesture, but I cannot accept any of these gifts; please know that it would be unethical for me to do so.\"",
      "selection_percent": 19
     },
     {
      "letter": "D",
-     "text": "e unethical for me to do so.\" O D. \"Thank you for these gifts, but I can accept them only if you understand that this will not change",
+     "text": "\"Thank you for these gifts, but I can accept them only if you understand that this will not change our relationship or the care that I provide you.\"",
      "selection_percent": 4
     },
     {
      "letter": "E",
-     "text": "ur relationship or the care that I provide you.\" 0 E. \"Thank you very much for the cookies and tickets; I will share these with my staff because they",
+     "text": "\"Thank you very much for the cookies and tickets; I will share these with my staff because they are part of your treatment team as well.\"",
      "selection_percent": 6
-    },
-    {
-     "letter": "F",
-     "text": "re part of your treatment team as well.\"",
-     "selection_percent": null
     }
    ],
    "correct_label": "B",
@@ -802,16 +777,12 @@
      "B": 41,
      "C": 19,
      "D": 4,
-     "E": 6,
-     "F": null
+     "E": 6
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent",
-    "suspicious OCR: …he treatment plan and getting better.\" ® 8 . \"Thank you for t…"
-   ],
-   "source_record_sha256": "00cd210875d7155e591583a72e791408f2d60423845a2c9656857c50e02aaf14"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "d1c9c99d736bcd34faa4fb959ef2ee778a37a98ada31b179fb217c1cf3864bee"
   },
   {
    "id": "UWORLD_21165",
@@ -825,12 +796,12 @@
    "options": [
     {
      "letter": "A",
-     "text": "\"Do you think using cocaine again could have a negative impact on your job and going to",
+     "text": "\"Do you think using cocaine again could have a negative impact on your job and going to college?\"",
      "selection_percent": 1
     },
     {
      "letter": "B",
-     "text": "ollege?\" ® 8 . \"It's hard to quit. Let's go over the health effects of cocaine to help motivate you to stay sober.\"",
+     "text": "\"It's hard to quit. Let's go over the health effects of cocaine to help motivate you to stay sober.\"",
      "selection_percent": 2
     },
     {
@@ -840,18 +811,13 @@
     },
     {
      "letter": "D",
-     "text": "\"Socializing with your friend probably contributed to your relapse. Let's look at strategies to deal",
+     "text": "\"Socializing with your friend probably contributed to your relapse. Let's look at strategies to deal with peer pressure.\"",
      "selection_percent": 1
     },
     {
      "letter": "E",
-     "text": "ith peer pressure.\" O E. \"You've been making real progress in quitting. What can we learn from this temporary",
+     "text": "\"You've been making real progress in quitting. What can we learn from this temporary setback?\"",
      "selection_percent": 68
-    },
-    {
-     "letter": "F",
-     "text": "etback?\"",
-     "selection_percent": null
     }
    ],
    "correct_label": "E",
@@ -886,16 +852,12 @@
      "B": 2,
      "C": 25,
      "D": 1,
-     "E": 68,
-     "F": null
+     "E": 68
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent",
-    "suspicious OCR: …ollege?\" ® 8 . \"It's hard to qu…"
-   ],
-   "source_record_sha256": "9fddac43c830f47cc1ece7b9f3917352de5674c8265d7a203cfb8b9ba29efb0f"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "0b18d8abb2c5851c6e9d7a95050c638a4251bb94d685ca3532affd4dc886e0c6"
   },
   {
    "id": "UWORLD_8456",
@@ -1072,33 +1034,28 @@
    "options": [
     {
      "letter": "A",
-     "text": "\"I think it's important for you to know that your symptoms will likely worsen, but we will make sure",
+     "text": "\"I think it's important for you to know that your symptoms will likely worsen, but we will make sure you are as comfortable as possible.\"",
      "selection_percent": 6
     },
     {
      "letter": "B",
-     "text": "ou are as comfortable as possible.\" 0",
+     "text": "\"I'm glad you are able to maintain a positive attitude, but you and your family need to be prepared given your recent decline.\"",
      "selection_percent": 15
     },
     {
      "letter": "C",
-     "text": "\"I'm glad you are able to maintain a positive attitude, but you and your family need to be prepared given your recent decline.\" ® C. \"Let's hope for the best while also making sure we talk about important decisions for your care if",
+     "text": "\"Let's hope for the best while also making sure we talk about important decisions for your care if things turn out differently.\"",
      "selection_percent": 71
     },
     {
      "letter": "D",
-     "text": "hings turn out differently.\" 0 D. \"You've been experiencing more weight loss and fatigue recently, and I want to make sure you",
+     "text": "\"You've been experiencing more weight loss and fatigue recently, and I want to make sure you understand the severity of that.\"",
      "selection_percent": 6
     },
     {
      "letter": "E",
-     "text": "nderstand the severity of that.\" 0 E. \"You've been handling the physical challenges of this illness well but seem to be overlooking the",
+     "text": "\"You've been handling the physical challenges of this illness well but seem to be overlooking the emotional aspects of it.\"",
      "selection_percent": 0
-    },
-    {
-     "letter": "F",
-     "text": "motional aspects of it.\"",
-     "selection_percent": null
     }
    ],
    "correct_label": "C",
@@ -1136,16 +1093,12 @@
      "B": 15,
      "C": 71,
      "D": 6,
-     "E": 0,
-     "F": null
+     "E": 0
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent",
-    "suspicious OCR: …e prepared given your recent decline.\" ® C. \"Let's hope for t…"
-   ],
-   "source_record_sha256": "af622ea5a7bbbf460f1e1f4c1a575f8c3696dd25e931f8fcf25e35211b6e318a"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "bb7a253a1876e1bb017410e4255b008101a162e79e41e1f08019e738b7e6bdae"
   },
   {
    "id": "UWORLD_1129",
