@@ -52,7 +52,6 @@ class Page:
         head = ' '.join(l['text'] for l in self.lines if l['y0'] < self.top + 4)
         m = QID_RE.search(head)
         self.qid = m.group(1) if m else None
-        self.main = 'Mark' in head
         m = ITEM_RE.search(head)
         self.item = (int(m.group(1)), int(m.group(2))) if m else None
         self.exhibit = exhibit_figure(self.a, self.lines)
@@ -63,20 +62,15 @@ class Page:
         body = [l for l in self.lines if self.top <= l['y0'] and l['y1'] <= self.bottom + 2]
         self.body = body
         text = ' '.join(l['text'] for l in body)
-        self.answered = bool(re.search(r'Answered\s*correct', text)) or bool(re.search(r'Correct\s*answer', text))
+        # OCR can garble the stats label ("Aaswered correctly").
+        self.answered = bool(re.search(r'\b[Aa]\w{3}ered\s*correct', text)) or bool(re.search(r'Correct\s*answer', text))
         self.unanswered = not self.answered and any(l['text'].strip().lower() == 'submit' for l in body)
 
 
 def group_pages(pages):
-    # Smooth isolated OCR misreads of the question id.
-    ids = [p.qid for p in pages]
-    for i, p in enumerate(pages):
-        prev = next((ids[j] for j in range(i - 1, -1, -1) if ids[j]), None)
-        nxt = next((ids[j] for j in range(i + 1, len(ids)) if ids[j]), None)
-        if (p.qid is None or (prev == nxt and p.qid != prev)) and prev and (prev == nxt or p.qid is None):
-            p.qid = prev
     # Pages of one item are one question: a digit misread or dropped ("874"/"2299" for "814"/"22599"),
-    # or a popup ("Exhibit Display", no "Mark" in its header) whose header OCR is worse than the main screen's.
+    # a header with no readable id, or a popup ("Exhibit Display", no "Mark" in its header) whose
+    # header OCR is worse than the main screen's.
     def near(a, b):
         if len(a) == len(b):
             return sum(x != y for x, y in zip(a, b)) <= 1
@@ -91,11 +85,25 @@ def group_pages(pages):
             if r.qid:
                 counts[r.qid] = counts.get(r.qid, 0) + (3 if getattr(r, 'main', False) else 1)
         main = max(counts, key=counts.get, default=None)
-        for r in run:
+        last = max((i for i, r in enumerate(run) if r.item), default=-1)
+        for i, r in enumerate(run):
+            if not main:
+                break
+            if r.qid is None:
+                if i <= last:   # trailing pages with no header are left to the smoothing below
+                    r.qid = main
             # Without an item header a changed digit may be the next question (2057, 2058): only a dropped digit counts.
-            if r.qid and main and (r.item and (not getattr(r, 'main', True) or near(r.qid, main)) or not r.item and near(r.qid, main) and len(r.qid) != len(main)):
+            elif r.item and (not getattr(r, 'main', True) or near(r.qid, main)) or \
+                    not r.item and near(r.qid, main) and len(r.qid) != len(main):
                 r.qid = main
         run = [p] if p is not None and p.item else []
+    # Smooth isolated OCR misreads of the question id.
+    ids = [p.qid for p in pages]
+    for i, p in enumerate(pages):
+        prev = next((ids[j] for j in range(i - 1, -1, -1) if ids[j]), None)
+        nxt = next((ids[j] for j in range(i + 1, len(ids)) if ids[j]), None)
+        if (p.qid is None or (prev == nxt and p.qid != prev)) and prev and (prev == nxt or p.qid is None):
+            p.qid = prev
     groups = []
     for p in pages:
         if groups and groups[-1][0].qid == p.qid:
