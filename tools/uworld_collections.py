@@ -15,6 +15,11 @@ import uworld_renal_urinary_electrolytes
 import uworld_gastrointestinal_nutrition
 import uworld_rheumatology_orthopedics_sports
 import uworld_pulmonary_critical_care
+import uworld_immunology
+import uworld_microbiology
+import uworld_dermatology
+import uworld_ethics_legal_professional
+import uworld_ent
 from uworld_content_hygiene import learner_question
 
 COLLECTIONS = (uworld_biochemistry, uworld_poisoning, uworld_ophthalmology,
@@ -23,7 +28,9 @@ COLLECTIONS = (uworld_biochemistry, uworld_poisoning, uworld_ophthalmology,
                uworld_pathology_general_principles, uworld_endocrine_diabetes_metabolism, uworld_pregnancy_childbirth_puerperium, uworld_psychiatric_behavioral_substance_use,
                uworld_cardiovascular_system, uworld_renal_urinary_electrolytes,
                uworld_gastrointestinal_nutrition, uworld_rheumatology_orthopedics_sports,
-               uworld_pulmonary_critical_care)
+               uworld_pulmonary_critical_care,
+               uworld_immunology, uworld_microbiology, uworld_dermatology,
+               uworld_ethics_legal_professional, uworld_ent)
 
 
 def bank_records():
