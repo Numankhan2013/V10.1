@@ -1,0 +1,145 @@
+{
+ "id": "UWORLD_17447",
+ "reviewed_pages": [
+  284,
+  285,
+  286,
+  287,
+  288,
+  289,
+  290,
+  291,
+  292,
+  293
+ ],
+ "question": "A 10-month-old boy is hospitalized for respiratory distress due to Pneumocystis jiroveci pneumonia. The patient has had repeated episodes of otitis media and thrush; weight is below the 5th percentile. Laboratory evaluation reveals normal levels of circulating Band T cells with low levels of all immunoglobulins. Genetic testing reveals a rare autosomal recessive mutation resulting in a defect in the regulation of human leukocyte antigen gene transcription. Flow cytometry of the patient's peripheral blood compared with a healthy control is shown in the illustration below: Patient Which of the following processes is most likely to be impaired by this patient's mutation?",
+ "options": [
+  {
+   "letter": "A",
+   "text": "Development of pharyngeal pouches",
+   "selection_percent": 2
+  },
+  {
+   "letter": "B",
+   "text": "Capability of activated CD4· T cells to express CD40L",
+   "selection_percent": 25
+  },
+  {
+   "letter": "C",
+   "text": "Maturation of pro-B cells into pre-B cells (1 8%) ✓ 0 D. Presentation of antigens processed in lysosomes",
+   "selection_percent": 49
+  },
+  {
+   "letter": "D",
+   "text": "Transport of cytosolic proteins into the endoplasmic reticulum",
+   "selection_percent": 4
+  }
+ ],
+ "correct_label": "C",
+ "question_blocks": [
+  {
+   "type": "figure",
+   "page": 285,
+   "bbox": [
+    428,
+    136,
+    847,
+    574
+   ],
+   "role": "question"
+  },
+  {
+   "type": "figure",
+   "page": 284,
+   "bbox": [
+    160,
+    281,
+    600,
+    657
+   ],
+   "role": "question"
+  }
+ ],
+ "explanation": [
+  {
+   "type": "figure",
+   "page": 290,
+   "bbox": [
+    377,
+    218,
+    884,
+    502
+   ],
+   "role": "explanation"
+  },
+  {
+   "type": "figure",
+   "page": 291,
+   "bbox": [
+    25,
+    131,
+    1214,
+    594
+   ],
+   "role": "explanation"
+  },
+  {
+   "type": "figure",
+   "page": 292,
+   "bbox": [
+    503,
+    111,
+    776,
+    555
+   ],
+   "role": "explanation"
+  },
+  {
+   "type": "figure",
+   "page": 293,
+   "bbox": [
+    498,
+    114,
+    780,
+    573
+   ],
+   "role": "explanation"
+  },
+  {
+   "type": "paragraph",
+   "text": "This patient's flow cytometry shows normal numbers of CD3· cells (reflecting circulating T cells) and CD19· cells (reflecting circulating B cells). However, an absence of HLA-DR• cells indicates defective expression of major histocompatibility complex (MHC) class II molecules. The human leukocyte antigen (HLA) genes encode MHC molecules expressed on the cell surface for antigen presentation. There are 6 major HLA loci: • HLA -DP, HLA-DQ, and HLA-DR genes encode MHC class II molecules, which are expressed on antigenpresenting cells (eg, B cells, macrophages) after an extracellular antigen has been loaded onto the MHC class II molecule in an acidified lysosome. • HLA -A, HLA-8 , and HLA -C genes encode MHC class I molecules, which are expressed on nucleated cells after a cytosolic antigen has been transported into the endoplasmic reticulum and loaded onto the MHC class I molecule (Choice E)."
+  },
+  {
+   "type": "paragraph",
+   "text": "Because expression of the MHC class II-peptide complex is necessary for activation of Band T cells, its absence (eg, bare lymphocyte syndrome type 11) causes a form of severe combined immunodeficiency."
+  },
+  {
+   "type": "paragraph",
+   "text": "(Choice A) DiGeorge syndrome is an autosomal dominant disorder caused by the deletion of a segment of chromosome 22 (22q11.2). Failed development of the thymus results inT cell defi ciency, which would be evident by a reduction in CD3· cells on flow cytometry."
+  },
+  {
+   "type": "paragraph",
+   "text": "(Choice B) CD40 ligand (CD40L) is expressed on activated T helper cells and interacts with CD40 on B cells to promote immunoglobulin class-switching. Impaired CD40L expression can result in hyperimmunoglobulin M syndrome (ie, high lgM levels and low/absent circulating lgG, lgA, and lgE). Although this patient's mutation impairs activation of T cells, his CD4· T cells would still be capable of expressing CD40L upon activation."
+  },
+  {
+   "type": "paragraph",
+   "text": "(Choice C) Maturation of pro-B cells into pre-B cells with resulting expression of B cell-specific surface markers ( eg, CD19, CD40) is dependent on signal transduction by Bruton tyrosine kinases. A mutation in the BTK gene causes X-linked agammaglobulinemia, which is characterized by hypogammaglobulinemia and recurrent infections after maternal lgG is depleted (-3 months of age). Flow cytometry would show a marked decrease in CD19• cells."
+  }
+ ],
+ "educational_objective": "Major histocompatibility complex (MHC) class II molecules are encoded by the HLA-DP, HLA-DQ, and HLA-DR genes and present extracellular antigens processed in acidified lysosomes by antigen-presenting cells (eg, B cells, macrophages). Absence of MHC class II expression impairs activation of Band T cells, resulting in a form of severe combined immunodeficiency.",
+ "statistics": {
+  "answered_correctly_percent": 49,
+  "selection_percent": {
+   "A": 2,
+   "B": 25,
+   "C": 49,
+   "D": 4
+  }
+ },
+ "status": "blocked",
+ "issues": [
+  "choice letters disagree with order: D",
+  "choice percents sum 80"
+ ],
+ "source_record_sha256": "6c54dc39553c63f0290bb2bc204a9cdb301a3d9cafaedf885d7ed5f168964d78"
+}

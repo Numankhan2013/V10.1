@@ -1,0 +1,96 @@
+{
+ "id": "UWORLD_12048",
+ "reviewed_pages": [
+  347,
+  348,
+  349,
+  350,
+  351
+ ],
+ "question": "A 68-year-old man comes to the office for a follow-up appointment. He has a history of advanced melanoma that is unresectable and resistant to adjuvant regimens. The patient recently began receiving monoclonal antibody infusions for advanced melanoma. The monoclonal antibodies block a specific cell surface receptor found on T lymphocytes. As a result, T cells capable of recognizing tumor antigens have improved ability to destroy cancer cells. Which of the following cell surface receptors is most likely blocked by the treatment?",
+ "options": [
+  {
+   "letter": "A",
+   "text": "CCR5",
+   "selection_percent": 13
+  },
+  {
+   "letter": "B",
+   "text": "CD4",
+   "selection_percent": 17
+  },
+  {
+   "letter": "C",
+   "text": "CD19",
+   "selection_percent": 6
+  },
+  {
+   "letter": "D",
+   "text": "CD28",
+   "selection_percent": 25
+  },
+  {
+   "letter": "E",
+   "text": "PD-1",
+   "selection_percent": 36
+  }
+ ],
+ "correct_label": "E",
+ "question_blocks": [],
+ "explanation": [
+  {
+   "type": "figure",
+   "page": 349,
+   "bbox": [
+    375,
+    175,
+    890,
+    538
+   ],
+   "role": "explanation"
+  },
+  {
+   "type": "figure",
+   "page": 351,
+   "bbox": [
+    481,
+    116,
+    796,
+    593
+   ],
+   "role": "explanation"
+  },
+  {
+   "type": "paragraph",
+   "text": "CTLA-4 = cytotoxic T-lymphocyte-associated protein 4: mAb = monoclonal antibody; PD-1 = programmed death receptor-1; PD-L 1 = programmed death ligand• 1. © UWorld Oncogenesis generates proteins not found in healthy cells. Pieces of these proteins (neoantigens) are displayed on the cell surface and may be recognized by cytotoxic T-cells as \"non-self' (leading to cellular apoptosis). However, neoplastic cells can blunt the cytotoxic T-cell response through a variety of mechanisms including the overexpression of programmed death-ligand 1 (PD-L 1 ), which binds to the PD-1 receptor on cytotoxic T cells and inhibits their ability to induce apoptosis (T-cell exhaustion). Treatment with monoclonal antibodies against PD-1 (eg, pembro lizumab, nivolumab) or PD-L 1 (eg, atezolizumab) results in T-cell disinhibition and a restoration of the cytotoxic response (thereby increasing cancer cell apoptosis). Anti-PD-1 therapy is currently used in advanced melanoma, certain types of lung cancer, and renal cell carcinoma but is being explored for many other cancer types."
+  },
+  {
+   "type": "paragraph",
+   "text": "(Choices A and B) HIV uses chemokine coreceptor 5 (CCR5) to bind to CD4 cells. Antagonists to CCR5 have been developed for the management of patients with HIV. CCR5 also appears to promote CD4 cell anti-tumor responses, so antibodies blocking its function may downregulate immune-mediated tumor destruction. Blockade of CD4 itself would inhibit helper T-cell activation and reduce tumor cell destruction."
+  },
+  {
+   "type": "paragraph",
+   "text": "(Choice C) CD19 is expressed primarily on B cells (not T cells) and is important for B-cell signaling and activation."
+  },
+  {
+   "type": "paragraph",
+   "text": "(Choice D) CD28 is aT cell-specific surface protein that interacts with B7 on antigen-presenting cells, providing a costimulatory signal necessary for T-cell activation. Therefore, antibodies blocking CD28 would inhibit T-cell activation. CTLA-4 also binds to B7 but has an inhibitory function on activated T cells."
+  }
+ ],
+ "educational_objective": "The binding of programmed cell death protein 1 (PD-1) to one of its ligands (programmed death-ligand 1 [PD-L 11) downregulates the immune response by inhibiting cytotoxic T cells. Many types of cancers evade immunodetection by increasing expression of PD-L 1 on their surface. Monoclonal antibodies against PD-1 upregulate the T-cell response and promote tumor cell apoptosis.",
+ "statistics": {
+  "answered_correctly_percent": 36,
+  "selection_percent": {
+   "A": 13,
+   "B": 17,
+   "C": 6,
+   "D": 25,
+   "E": 36
+  }
+ },
+ "status": "blocked",
+ "issues": [
+  "suspicious OCR: …; PD-L 1 = programmed death ligand• 1. © UWorld Oncogenesis g…"
+ ],
+ "source_record_sha256": "c2ce0c2ce3c51773633d6a853a672a1229ed3534a847a1c7da1891517617992c"
+}

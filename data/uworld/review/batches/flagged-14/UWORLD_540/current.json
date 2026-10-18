@@ -1,0 +1,110 @@
+{
+ "id": "UWORLD_540",
+ "reviewed_pages": [
+  493,
+  494,
+  495,
+  496,
+  497,
+  498,
+  499
+ ],
+ "question": "lmmunoglobulins of different classes have different structures. Some immunoglobulins have long hinge regions between the Fab and Fe regions, whereas others lack the hinge region, as shown in the image below: The hinge region provides movement flexibility to the Fab regions. This is most likely to affect which of the following immunoglobulin properties?",
+ "options": [
+  {
+   "letter": "A",
+   "text": "Affinity to antigen (1 9%) x @ B. Antibody polymerization",
+   "selection_percent": 19
+  },
+  {
+   "letter": "B",
+   "text": "Avidity to antigen",
+   "selection_percent": 34
+  },
+  {
+   "letter": "C",
+   "text": "Effector cell interaction",
+   "selection_percent": 22
+  },
+  {
+   "letter": "D",
+   "text": "Effector cell specificity",
+   "selection_percent": 4
+  }
+ ],
+ "correct_label": "B",
+ "question_blocks": [
+  {
+   "type": "figure",
+   "page": 494,
+   "bbox": [
+    160,
+    105,
+    600,
+    465
+   ],
+   "role": "question"
+  }
+ ],
+ "explanation": [
+  {
+   "type": "figure",
+   "page": 496,
+   "bbox": [
+    423,
+    116,
+    854,
+    594
+   ],
+   "role": "explanation"
+  },
+  {
+   "type": "figure",
+   "page": 499,
+   "bbox": [
+    406,
+    120,
+    867,
+    593
+   ],
+   "role": "explanation"
+  },
+  {
+   "type": "paragraph",
+   "text": "lmmunoglobulins are composed of a pair of heavy and light chains. Light chains have a variable and constant region; heavy chains have a variable region and 3 or 4 constant regions (CH1 -4) depending on the immunoglobulin type. lmmunoglobulins are generally further d ivided into 2 functional pieces as follows: • The Fab fragment is composed of the entire light-chain and the heavy-chain variable and first constant region. This portion of the immunoglobulin uses the variable region of the light and heavy chain to bind specific antigenic epitopes. lgM has 10 Fab fragments; other immunoglobulins have 2 • The Fe fragment is composed of the remaining constant regions (eg, CH2-4) of the heavy chain. The Fe fragment exerts the effector functions of the molecule, which may include activating the classical complement cascade (eg, CH2 on lgG) or binding the Fe receptor on phagocytic cells (eg, CH4 on lgM, CH3 on lgG)"
+  },
+  {
+   "type": "paragraph",
+   "text": "lgG, lgA, and lgD also have a hinge region between the Fab and the Fe fragments. The hinge region is rich in cysteine and proline amino acids, which provide significant flexibility to the immunoglobulin and allow greater movement of the Fab fragment arms. Fab fragments with long hinge regions are better able to reach multiple epitopes on an antigen; this increases immunoglobulin avidity because avidity is directly proportional to the number of Fab-antigen interactions. However, long hinge regions are more susceptible to destruction by bacterial proteases (eg, lgA protease)."
+  },
+  {
+   "type": "paragraph",
+   "text": "(Choice A) Affinity is the binding strength of the Fab variable region for a given antigenic epitope. Affinity is determined by the hypervariable amino acid sequence of the variable region; the hinge region does not play a role."
+  },
+  {
+   "type": "paragraph",
+   "text": "(Choice B) lgM is a pentamer and lgA is usually dimeric. These multimers form due to disulfide bonds between the Fe chains of the molecule and an additional amino acid sequence called the J chain. Polymerization is not affected by the hinge region."
+  },
+  {
+   "type": "paragraph",
+   "text": "(Choices D and E) The Fe portions of different immunoglobulins interact with different receptors on immune cells. lgE interacts with the Fe epsilon receptor on mast cells, lgG interacts with the Fe gamma receptor on phagocytes and natural killer cells, and lgA interacts with the Fe alpha receptor on neutrophils, macrophages, and eosinophils. The specificity of these interactions is mediated by the heavy-chain constant regions in the Fe portion of the immunoglobulins, not the hinge region."
+  }
+ ],
+ "educational_objective": "lgG, lgA, and lgD have a hinge region between the Fab fragment and the Fe fragment of the immunoglobulin. The hinge region increases flexibility of the Fab arms, which makes the antibody more likely to bind to more than one site on the antigen. This increases the avidity of the immunoglobulin but makes it more susceptible to destruction by bacterial proteases.",
+ "statistics": {
+  "answered_correctly_percent": 34,
+  "selection_percent": {
+   "A": 19,
+   "B": 34,
+   "C": 22,
+   "D": 4
+  }
+ },
+ "status": "blocked",
+ "issues": [
+  "choice letters disagree with order: B,C,D",
+  "correct answer signals disagree: tick B, percent B, text C",
+  "choice percents sum 79"
+ ],
+ "source_record_sha256": "a15340ac6fda93b2ea2031867f5e7c692a826215c985aa1d518133c572439354"
+}

@@ -1,0 +1,89 @@
+{
+ "id": "UWORLD_542",
+ "reviewed_pages": [
+  426,
+  427,
+  428,
+  429,
+  430
+ ],
+ "question": "The acidification of lysosomes within antigen presenting cells is prevented in an experimental setting. Affected cells show impaired interaction with T lymphocytes upon antigen exposure. This impaired interaction is most likely the result of decreased cell surface expression of which of the following molecules?",
+ "options": [
+  {
+   "letter": "A",
+   "text": "Cytokine receptors",
+   "selection_percent": 3
+  },
+  {
+   "letter": "B",
+   "text": "lntegrins",
+   "selection_percent": 2
+  },
+  {
+   "letter": "C",
+   "text": "MHC class I",
+   "selection_percent": 19
+  },
+  {
+   "letter": "D",
+   "text": "MHC class II",
+   "selection_percent": 61
+  },
+  {
+   "letter": "E",
+   "text": "Tcell receptor",
+   "selection_percent": 12
+  }
+ ],
+ "correct_label": "D",
+ "question_blocks": [],
+ "explanation": [
+  {
+   "type": "figure",
+   "page": 428,
+   "bbox": [
+    372,
+    103,
+    905,
+    557
+   ],
+   "role": "explanation"
+  },
+  {
+   "type": "paragraph",
+   "text": "Antigen presenting cells (eg, dendritic cells, macrophages, B lymphocytes) present extracellular antigens (eg, bacterial, viral) on MHC class II molecules. After phagocytosis or endocytosis, the protein is degraded in acidified lysosomes and the antigen is loaded onto an MHC class II molecule. The MHC class II-antigen complexes are then displayed on the surface of antigen presenting cells where they can bind to Tcell receptors (TCR) to initiate aT cell response to the antigen. Without lysosomal acidification, exogenous antigen processing and association with MHC class II molecules would not occur, resulting in impaired interaction between antigen presenting cells and T cells."
+  },
+  {
+   "type": "paragraph",
+   "text": "(Choice A) Cytokine receptors are responsible for exerting the biological effects of the various cytokines (eg, interferons, chemokines, tumor necrosis factors). Expression of these receptors does not depend on lysosomal acidification and would not directly affect Tcell binding to antigen presenting cells."
+  },
+  {
+   "type": "paragraph",
+   "text": "(Choice B) lntegrins are necessary for the binding of inflammatory cells to vascular walls during the process of transmigration through the endothelial layer from the bloodstream to tissues."
+  },
+  {
+   "type": "paragraph",
+   "text": "(Choice C) Most nucleated cells of the human body express MHC Class I molecules on their surfaces. MHC Class I molecules present intracellular antigens produced in tumor or virus-infected cells. Cytoplasmic proteins are degraded by a proteasome and transported into the rough endoplasmic reticulum (via TAP proteins) where they are loaded onto MHC Class I molecules and routed to the cell surface. This pathway does not depend on acidified lysosomes."
+  },
+  {
+   "type": "paragraph",
+   "text": "(Choice E) The Tcell receptor (TCR) is a membrane-bound protein on T cells that is responsible for recognizing specific antigens bound to an MHC molecule. Although the TCR is essential for Tcell activation in response to antigens presented on MHC Class II molecules, prevention of lysosome acidification would have no effect on the expression of TCR on the surface of T cells."
+  }
+ ],
+ "educational_objective": "MHC class II is expressed on the surface of antigen presenting cells (APC) and presents extracellular antigens to T cells after extracellular protein is degraded within acidified lysosomes. Failure to acidify lysosomes would lead to deficient expression of MHC class II-antigen complexes with subsequent impaired interaction between APCs and T cells.",
+ "statistics": {
+  "answered_correctly_percent": 1,
+  "selection_percent": {
+   "A": 3,
+   "B": 2,
+   "C": 19,
+   "D": 61,
+   "E": 12
+  }
+ },
+ "status": "blocked",
+ "issues": [
+  "answered% differs from correct choice%"
+ ],
+ "source_record_sha256": "1167ec97ea935f4f27e9187a24abf3273ecef81e3643709055cba05a80d4718c"
+}

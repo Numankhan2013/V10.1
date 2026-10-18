@@ -1,0 +1,85 @@
+{
+ "id": "UWORLD_16895",
+ "reviewed_pages": [
+  329,
+  330,
+  331,
+  332,
+  333
+ ],
+ "question": "A67-year-old man comes to the office after he noticed several nodules in his left axilla. He has a history of malignant melanoma on his upper back, which was treated with wide surgical excision 4 years ago. The patient undergoes biopsy of an axillary lesion, and histopathology reveals melanoma recurrence. Subsequent whole-body positron emission scan shows diffuse metastatic disease involving the lungs, liver, and left axillary nodes. Checkpoint inhibitor therapy with pembrolizumab is initiated, which leads to significant reduction in the size of the axillary nodules and metastatic lesions. Which of the following best correlates with the treatment response in this patient?",
+ "options": [
+  {
+   "letter": "A",
+   "text": "Increased intratumor macrophages",
+   "selection_percent": 12
+  },
+  {
+   "letter": "B",
+   "text": "Intense desmoplastic reaction",
+   "selection_percent": 8
+  },
+  {
+   "letter": "C",
+   "text": "lschemic tumor necrosis",
+   "selection_percent": 16
+  },
+  {
+   "letter": "D",
+   "text": "CD8+ lymphocyte infiltration",
+   "selection_percent": 57
+  },
+  {
+   "letter": "E",
+   "text": "Peritumoral neutrophilic reaction",
+   "selection_percent": 5
+  }
+ ],
+ "correct_label": "D",
+ "question_blocks": [],
+ "explanation": [
+  {
+   "type": "figure",
+   "page": 331,
+   "bbox": [
+    339,
+    154,
+    907,
+    555
+   ],
+   "role": "explanation"
+  },
+  {
+   "type": "paragraph",
+   "text": "Neoplastic cells produce proteins not found in healthy cells. Pieces of these proteins (neoantigens) are displayed on MHC class I molecules on the cell surface and are subsequently recognized by cytotoxic T cells as \"nonself\" (leading to cellular apoptosis). However, neoplastic cells generally accumulate genetic mutations that allow them to thwart the cytotoxic T-cell response and evade detection/destruction. One common mechanism is the overexpression of programmed death-ligand 1 (PD-L 1) on the cancer cell surface; this ligand binds to the PD-1 receptor on cytotoxic T cells and suppresses their ability to induce apoptosis (T-cell exhaustion). Treatment with monoclonal antibodies that block PD-1 such as pembrolizumab have shown promise in cancers that overexpress PD-L1 (eg, melanoma, renal cell carcinoma). Blockade of PD-1 restores the cytotoxic T-cell response (disinhibition), which promotes tumor cell apoptosis. Patients with advanced melanoma and other susceptible malignancies often have a drastic clinical response (eg, tumor regression, long-term remission) to PD- 1 antagonists."
+  },
+  {
+   "type": "paragraph",
+   "text": "(Choices A and E) Cancer-related inflammation also involves cells of the innate immune system such as macrophages and neutrophils. These cells can have either protumor (eg, release of matrix metalloproteases that facilitate invasion) and antitumor (eg, direct killing of cancer cells) activities depending on the local cytokine milieu. However, PD-1 inhibitors do not increase the antitumor activity of neutrophils or macrophages."
+  },
+  {
+   "type": "paragraph",
+   "text": "(Choice B) Tumor cells often induce desmoplasia, which refers to excessive connective tissue/stroma growth around the tumor. A strong desmoplastic response can reduce the ability of chemotherapeutic agents to penetrate into the tumor, leading to chemoresistance."
+  },
+  {
+   "type": "paragraph",
+   "text": "(Choice C) Angiogenesis inhibitors (eg, bevacizumab) are used to prevent neovascularization of growing tumors, leading to ischemia and tumor necrosis. PD-1 inhibitors cause cytotoxic T-cell activation, leading to increased apoptosis of tumor cells; they do not induce ischemic necrosis."
+  }
+ ],
+ "educational_objective": "Programmed-death receptor 1 (PD-1) is a checkpoint inhibitor that downregulates the cytotoxic T-cell response. Neoplastic cells often exploit this receptor via the overexpression of PD-1 ligand. PD-1 receptor inhibitors {eg, Pembrolizumab) restore the T-cell response, allowing cytotoxic T cells to invade the tumor and induce apoptosis of neoplastic cells.",
+ "statistics": {
+  "answered_correctly_percent": 57,
+  "selection_percent": {
+   "A": 12,
+   "B": 8,
+   "C": 16,
+   "D": 57,
+   "E": 5
+  }
+ },
+ "status": "blocked",
+ "issues": [
+  "suspicious OCR: … PD-1 ligand. PD-1 receptor inhibitors {eg, Pembrolizumab) re…"
+ ],
+ "source_record_sha256": "b0417616e10e455e9c55269b76bf162ad017c6962b72533911684fd4ff29ea88"
+}

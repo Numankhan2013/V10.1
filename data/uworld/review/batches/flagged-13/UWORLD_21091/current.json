@@ -1,0 +1,95 @@
+{
+ "id": "UWORLD_21091",
+ "reviewed_pages": [
+  326,
+  327,
+  328,
+  329,
+  330
+ ],
+ "question": "A 10-month-old boy is brought to the office due to recurrent sinopulmonary infections for the last several months. The infections were caused by encapsulated bacteria, and the patient was also recently hospitalized due to Pneumocystis jiroveci pneumonia. He was born at full term after an uneventful pregnancy. Family history is significant for a maternal uncle's early childhood death due to severe infection. Genetic testing of the patient reveals missense mutation of the CD40 ligand gene. Interaction between which of the following immune components is most likely impaired in this patient?",
+ "options": [
+  {
+   "letter": "A",
+   "text": "B cells and complement proteins",
+   "selection_percent": 8
+  },
+  {
+   "letter": "B",
+   "text": "cells and foreign antigens",
+   "selection_percent": 22
+  },
+  {
+   "letter": "C",
+   "text": "Neutrophils and vascular endothelial cells",
+   "selection_percent": 1
+  },
+  {
+   "letter": "D",
+   "text": "Phagocytes and antigen-bound antibodies",
+   "selection_percent": 4
+  },
+  {
+   "letter": "E",
+   "text": "T cells and antigen-presenting cells",
+   "selection_percent": 63
+  }
+ ],
+ "correct_label": "E",
+ "question_blocks": [],
+ "explanation": [
+  {
+   "type": "figure",
+   "page": 328,
+   "bbox": [
+    430,
+    111,
+    848,
+    532
+   ],
+   "role": "explanation"
+  },
+  {
+   "type": "paragraph",
+   "text": "MHC = mai or h1stocompahb1hty complex; TNF = tumor necros,s factor. Interactions between multiple receptors and ligands are generally required to activate effector cells of the adaptive immune response. This redundancy slows immune cell activation and prevents development of autoimmunity. CO40 ligand (CD40L), a transmembrane protein on the surface of activated CO4 T cells, is the most important costimulatory signal for antigen-presenting cells (APCs) as follows: • B Cells: Binding of CD40L to CD40 on B cells promotes the formation of germinal centers, somatic hypermutation (increased antigen-binding specifi city), and immunoglobulin class switching (secretion of lgG/l gA/lgE instead of lgM). These actions significantly enhance the humeral immune response by generating the full range of effector immunoglobulins. • Macrophages and dendritic cells: Binding of CD40L to CD40 causes the APC to produce proinfl ammatory cytokines, express T-cell costimulatory signals (eg, CD80/86), increase phagocytosis, and increase major histocompatibility complex class II surface expression. These changes promote the activation of additional CD4 T lymphocytes, which are critical for mounting a potent cell-mediated immune response."
+  },
+  {
+   "type": "paragraph",
+   "text": "Because CD40L is required for B-cells to undergo class-switching, mutations to CD40L generally cause B cells to overproduce lgM and dramatically underproduce other immunoglobulin classes (lgA, lgE, lgG). Patients with this disorder (hyper-lgM syndrome) generally have significant deficits in both cell-mediated (eg, prevention of Pneumocystis pneumonia) and humeral (eg, opsonization and destruction of encapsulated bacteria) immunity."
+  },
+  {
+   "type": "paragraph",
+   "text": "(Choice A) Certain complement components can reduce the amount of antigen necessary for B-cell activation by binding CD19 or CD21 on the B-cell surface. This contributes to T-cell- independent B-cell activation and does not involve CD40L."
+  },
+  {
+   "type": "paragraph",
+   "text": "(Choice B) Antigen-specific B-cell receptors bind to foreign antigens, the first step in B-cell activation. CD40L plays a role in costimulation of the Bcell by binding to CD40; it does not significantly alter B-cell antigen-receptor binding."
+  },
+  {
+   "type": "paragraph",
+   "text": "(Choice C) CD18 on neutrophils binds to intercellular adhesion molecule-1 on vascular endothelial cells, allowing the neutrophils to migrate into tissue from the bloodstream. Leukocyte adhesion deficits are usually triggered by mutations to CD18 and marked by recurrent infection. They do not involve CD40L."
+  },
+  {
+   "type": "paragraph",
+   "text": "(Choice D) The Fe receptor (CD16) on phagocytes binds to lgG attached to microorganisms or cellular debris, leading to opsonophagocytosis. Although lgG levels are very low in hyper-lgM syndrome, which significantly reduces lgG-mediated phagocytosis, the interaction between the phagocyte Fe receptor and antigen-bound antibody remains unaffected."
+  }
+ ],
+ "educational_objective": "CD40-ligand (CD40L) is expressed primarily on activated T cells. It binds to CD40 on antigen-presenting cells, including B cells, leading to their full activation (costimulation). Therefore, CD40L plays a vital role in both the cell- mediated and humoral immune response.",
+ "statistics": {
+  "answered_correctly_percent": 63,
+  "selection_percent": {
+   "A": 8,
+   "B": 22,
+   "C": 1,
+   "D": 4,
+   "E": 63
+  }
+ },
+ "status": "blocked",
+ "issues": [
+  "suspicious OCR: … complex; TNF = tumor necros,s factor. ©uworld Interactions b…",
+  "UWorld screenshot text leaked: UWORLD_21091 explanation 1",
+  "screenshot chrome removed automatically"
+ ],
+ "source_record_sha256": "0ec90d996bafbbad051940f574d96f04a26a870cdba6a1c521ed673b06475667"
+}
