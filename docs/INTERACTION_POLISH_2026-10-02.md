@@ -105,3 +105,51 @@ source regression checks all three session boundaries; the generated PYQ
 journey checks the Review navigator survives the full250 ms timer window.
 Local PYQ/mixed/history/Review/follow-up journeys pass phone/tablet. This is a
 new candidate requiring fresh full certification, not a rerun of failedb918.
+
+## 2026-10-18 press language v2 — no movement on press
+
+The user reported that most buttons across the app (subject buttons, QBank
+banks inside subjects, topic rows, the Home Prof expanders) "pushed back" when
+tapped and asked for the fragility to be fixed app-wide without breaking any
+animation or UI component.
+
+Root cause: the tactile press layer. An `:active`/`.nk-pressed` transform
+(scale .92–.995, spread across ~25 rule families plus the shared .98 polish
+scale and a .94 nav shrink) moved every control on touch-down, and one Home
+hover lift stuck after a tap on touch screens (a lingering `translateY(-1px)`
+on subject cards and the UWorld card).
+
+The fix removes every movement-based press state in
+`app/src/main/assets/app.css`:
+
+- the shared polish scale, the nav icon shrink, the answer-option scales, the
+  Bookmark icon shrink, and every family scale (builder, session, insights,
+  tests shelf, auth, notes, toast, chapter actions, topic map, …);
+- the prof-band press scale (its comment now documents that the row answers
+  with its expand animation only);
+- the `.topic-session-btn:active` translate and the Home focus
+  `translateY(0)` helper.
+
+Kept, deliberately: the immediate `.nk-pressed` commit (class + haptics),
+existing color-only press fills where the design already used them (builder
+toggles and module topics keep the #f2f2f2 fill exactly as before — the
+pattern the user liked on the bank-collapse control), the option press ring,
+keyframes and reveal/expand animations. Nine ungated `:hover` lifts on Home,
+Topics, Insights and the tests shelf are now wrapped in
+`@media (hover: hover) and (pointer: fine)`, so touch taps never inherit a
+stuck lift; desktop hover keeps its lift (verified via forced pseudo-state).
+
+Contract tests updated: `tools/test_interaction_polish_v1.py` now asserts the
+polish section has no transform transition and no non-`none` transform on
+`:active`; `tools/verify_interaction_polish_browser.py` now asserts press
+styles are `transform: none` in normal and reduced motion.
+
+Verification (local Chromium against `build/web`): frame-by-frame real-touch
+taps on subject card / Prof band / UWorld card / topic row / bank card are
+pixel-identical from touch-down through release and 650 ms after (0 changed
+pixels; previously the subject card and UWorld card kept a stuck 2901-pixel
+shift). Computed-style press audit: no transform, rect, background, shadow or
+border change and no residue for 14 controls. The interaction-polish browser
+contract passes at 320/390/820/1194 + reduced motion; visual refinement passes
+at 4 widths; `verify_local.py` reports 99 checks green. Physical-device feel
+remains user-verified, not CI-proven.

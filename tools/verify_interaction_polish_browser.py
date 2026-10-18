@@ -33,22 +33,16 @@ def main():
                 nav=page.locator('.bottom-nav button,.nav-item').first
                 nav.dispatch_event('pointerdown',{'isPrimary':True,'button':0,'clientX':20,'clientY':20})
                 nav_transform=nav.evaluate("el=>getComputedStyle(el).transform")
-                if reduced:assert nav_transform=='none'
-                else:assert nav_transform!='none','normal-motion controls should retain tactile press scale'
+                assert nav_transform=='none','press must never move the control'
                 nav.dispatch_event('pointercancel',{'pointerId':1})
                 page.evaluate("QB.practiceOne('1-1')");page.wait_for_selector('.option-list button');question=page.evaluate('__nkInteractionProbe.question()');option=page.locator('.option-list button').nth(int(question['correctOption'])-1)
                 option.dispatch_event('pointerdown',{'pointerId':1,'isPrimary':True,'pointerType':'touch','button':0,'clientX':30,'clientY':30})
                 assert option.evaluate("el=>el.classList.contains('nk-pressed')"),'press has no immediate feedback'
-                # Geist eases the press scale with its fast motion token (--nkg-dur-fast,
-                # 140ms) instead of snapping it; the press must still start on the
-                # touch-down frame and never use a slower curve.
-                press=option.evaluate("""el=>{const s=getComputedStyle(el),p=s.transitionProperty.split(',').map(x=>x.trim()),d=s.transitionDuration.split(',').map(x=>parseFloat(x)*(x.trim().endsWith('ms')?1:1000));
-                    const fast=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nkg-dur-fast'))||140;
-                    const i=p.findIndex(x=>x==='transform'||x==='all');return {fast,transformMs:i<0?0:d[i%d.length]};}""")
-                assert press['transformMs']<=press['fast'],('touch-down scale must be immediate or use the fast press token',press)
+                # The press language never moves a control: no tactile scale/translate on
+                # touch-down in any motion mode; the committed state colors still flip
+                # on the same frame (asserted further down for exam choices).
                 option_transform=option.evaluate("el=>getComputedStyle(el).transform")
-                if reduced:assert option_transform=='none','reduced-motion press moved the answer'
-                else:assert option_transform!='none','answer option lost the prior tactile press scale'
+                assert option_transform=='none','press must never move the answer option'
                 option.dispatch_event('pointercancel',{'pointerId':1,'pointerType':'touch'});assert not option.evaluate("el=>el.classList.contains('nk-pressed')"),'cancelled gesture remained pressed'
                 option.tap();page.wait_for_selector('.nk-fsrs-rating');assert page.evaluate('__vibrations')==[[12,24,16]],'correct answer should retain the prior outcome pattern'
                 assert page.locator('.option-list .correct').count()==1

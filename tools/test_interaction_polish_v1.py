@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Late owner preserves existing routes and ships without a duplicate route listener."""
+import re
 from pathlib import Path
 from app_page import css_section, app_source
 ROOT=Path(__file__).resolve().parents[1]
@@ -16,7 +17,8 @@ def main():
         assert marker in core+css,marker
     assert 'transition:none!important' in css
     assert 'node.animate(' not in core, 'shared polish must not animate route/question publication'
-    assert 'transition:transform 110ms' in css
+    assert 'transition:transform' not in css,'press must not ease movement'
+    assert re.search(r':active[^{]*\{[^}]*transform:(?!none)',css) is None,'active states must not transform'
     assert 'background-color 110ms' not in css
     assert 'border-color 110ms' not in css
     assert 'box-shadow 110ms' not in css
