@@ -44,6 +44,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
+import prepladder_stem_tables  # noqa: E402
 DATA =ROOT / "data/Prepladder/microbiology"
 SOURCE = DATA / "source/prepladder_microbiology_qbank.jsonl.gz"
 V2_SOURCE = DATA / "source/prepladder_microbiology_v2.jsonl.gz"
@@ -654,6 +655,8 @@ def main() -> None:
         release()
         return
     record, _ = normalize(load_source(), load_v2_source(), load_edition_map())
+    prepladder_stem_tables.apply(record, DATA / "stem_tables.json", fail)
+    prepladder_stem_tables.apply_options(record, DATA / "option_text.json", fail)
     parts, manifest = shard(record)
     manifest_path = DATA / f"{PREFIX}_manifest.json"
     manifest_text = json.dumps(manifest, ensure_ascii=False, indent=2) + "\n"
