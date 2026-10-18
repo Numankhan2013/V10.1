@@ -1,19 +1,35 @@
   /* NK_INTERACTION_POLISH_V1_START */
   // Press feedback starts at pointer-down, without waiting for click/persistence.
   // No pointer capture: vertical gestures continue to scroll naturally.
-  let nkPress=null;
-  function nkReleasePress(){nkPress?.node.classList.remove('nk-pressed');nkPress=null;}
+  let nkPress=null,nkPressFade=null;
+  function nkClearFade(){
+    if(!nkPressFade)return;
+    clearTimeout(nkPressFade.timer);nkPressFade.node.classList.remove('nk-pressed-out');nkPressFade=null;
+  }
+  // A completed tap keeps the acknowledgment layer melting off for a beat, so
+  // the eye keeps the target; scroll intents and cancellations clear it now.
+  function nkReleasePress(){
+    if(!nkPress)return;
+    const node=nkPress.node;nkPress=null;node.classList.remove('nk-pressed');
+    nkClearFade();node.classList.add('nk-pressed-out');
+    nkPressFade={node,timer:setTimeout(()=>{node.classList.remove('nk-pressed-out');nkPressFade=null;},220)};
+  }
+  function nkCancelPress(){
+    if(nkPress){nkPress.node.classList.remove('nk-pressed');nkPress=null;}
+    nkClearFade();
+  }
   document.addEventListener('pointerdown',event=>{
-    nkReleasePress();if(event.isPrimary===false||event.button>0)return;
+    nkCancelPress();if(event.isPrimary===false||event.button>0)return;
     const node=event.target.closest?.('button,[role="button"],summary,a[href],[onclick]');
     if(!node||node.disabled||node.getAttribute('aria-disabled')==='true')return;
     nkPress={node,x:event.clientX,y:event.clientY};node.classList.add('nk-pressed');
   },{capture:true,passive:true});
   document.addEventListener('pointermove',event=>{
-    if(nkPress&&Math.hypot(event.clientX-nkPress.x,event.clientY-nkPress.y)>9)nkReleasePress();
+    if(nkPress&&Math.hypot(event.clientX-nkPress.x,event.clientY-nkPress.y)>9)nkCancelPress();
   },{passive:true});
-  ['pointerup','pointercancel','dragstart'].forEach(name=>document.addEventListener(name,nkReleasePress,{capture:true,passive:true}));
-  window.addEventListener('blur',nkReleasePress);
+  document.addEventListener('pointerup',nkReleasePress,{capture:true,passive:true});
+  ['pointercancel','dragstart'].forEach(name=>document.addEventListener(name,nkCancelPress,{capture:true,passive:true}));
+  window.addEventListener('blur',nkCancelPress);
   // Dense activity data stays a compact chart. One tab stop, spatial arrow
   // navigation and explicit activation replace hundreds of tab stops.
   document.addEventListener('keydown',event=>{

@@ -1194,7 +1194,6 @@ html[data-nk-ui="geist"] .nk-cloud-actions button{border-top-left-radius:12px;bo
 html[data-nk-ui="geist"] .nk-cloud-actions .primary-btn{color:var(--nkg-fg)}
 html[data-nk-ui="geist"] .nk-auth-step-label{color:var(--primary-strong,var(--primary));font-weight:600}
 html[data-nk-ui="geist"] .nk-auth-submit{border-top-color:initial;border-right-color:initial;border-bottom-color:initial;border-left-color:initial;border-top-left-radius:12px;border-top-right-radius:12px;border-bottom-right-radius:12px;border-bottom-left-radius:12px;color:var(--nkg-fg);font-family:inherit;font-weight:600;box-shadow:none}
-html[data-nk-ui="geist"] .nk-auth-submit:active{filter:brightness(0.96)}
 html[data-nk-ui="geist"] .nk-auth-link{border-top-color:initial;border-right-color:initial;border-bottom-color:initial;border-left-color:initial;background-image:initial;background-color:transparent;color:var(--primary-strong,var(--primary));font-family:inherit;font-weight:600}
 html[data-nk-ui="geist"] .nk-auth-create-prompt{color:var(--muted)}
 html[data-nk-ui="geist"] .nk-reset-account-btn{color:var(--nkg-red) !important;border-top-color:var(--nkg-red-border) !important;border-right-color:var(--nkg-red-border) !important;border-bottom-color:var(--nkg-red-border) !important;border-left-color:var(--nkg-red-border) !important}
@@ -1726,9 +1725,6 @@ html[data-nk-ui="geist"] .nk-answer-outcome{font-weight:600;color:var(--ink,var(
 html[data-nk-ui="geist"] .nk-answer-outcome.is-correct{color:var(--nkg-green)}
 html[data-nk-ui="geist"] .nk-answer-outcome.is-wrong{color:var(--nkg-red)}
 html[data-nk-ui="geist"] input, html[data-nk-ui="geist"] textarea{caret-color:var(--primary,var(--nkg-fg-3))}
-@media (prefers-reduced-motion: reduce){
-html[data-nk-ui="geist"] body :is(button:not(:disabled), [role="button"], summary, a[href], [onclick]):active, html[data-nk-ui="geist"] body :is(button, [role="button"], summary, a[href], [onclick]).nk-pressed, html[data-nk-ui="geist"] body .option:not(.correct):not(.wrong):active, html[data-nk-ui="geist"] body .option:not(.correct):not(.wrong).nk-pressed, html[data-nk-ui="geist"] body .bottom-nav button:active, html[data-nk-ui="geist"] body .nav-item:active{filter:brightness(0.96)}
-}
 html[data-nk-ui="geist"] .nk-uworld-reading{color:var(--nk-ink,var(--nkg-fg))}
 html[data-nk-ui="geist"] .nk-uworld-reading strong{font-weight:600}
 html[data-nk-ui="geist"] .nk-uworld-choices{border-top:1px solid var(--nk-divider,var(--nkg-border))}
@@ -3157,7 +3153,6 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder :is(.nk-cbt-bank-intro
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder :is(.nk-cbt-bank-intro, .nk-module-topic-intro) span { font: 500 var(--nkg-t-sm)/1.3 var(--nkg-font-sans) !important; color: var(--nkg-fg-3) !important;  white-space: nowrap; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-module-select-tools { display: flex !important; flex-wrap: wrap; gap: 8px !important; margin: 0 0 18px !important; padding: 0 !important; background: none !important; border: 0 !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-module-select-tools > button, html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-module-group-action { display: inline-flex !important; align-items: center; gap: 6px; width: auto !important; min-height: 44px !important; height: auto !important; padding: 10px 14px !important; border: 1px solid var(--nkg-border) !important; border-radius: 999px !important; background: var(--nkg-surface) !important; color: var(--nkg-fg) !important; font: 500 var(--nkg-t-sm)/1.2 var(--nkg-font-sans) !important; box-shadow: none !important; transition: background-color var(--nkg-dur) var(--nkg-ease), border-color var(--nkg-dur) var(--nkg-ease); }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-module-select-tools > button:active, html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-module-group-action:active { background: var(--nkg-hover) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-cbt-pyq-toggle small { font: 500 var(--nkg-t-xs)/1 var(--nkg-font-mono) !important; color: var(--nkg-fg-3) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-cbt-pyq-toggle.is-selected { background: var(--nkg-inverse-bg) !important; border-color: var(--nkg-inverse-bg) !important; color: var(--nkg-inverse-fg) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-cbt-pyq-toggle.is-selected small { color: inherit !important; opacity: .7; }
@@ -3170,7 +3165,6 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-bank-group > header span { fon
 html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nkg-bank-list, .nkg-builder .nk-module-topic-group .nk-module-topic-list) { display: block !important; border: 1px solid var(--nkg-border) !important; border-radius: var(--nkg-r-lg) !important; background: var(--nkg-surface) !important; overflow: hidden; padding: 0 !important; box-shadow: none !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nkg-bank-list > .nk-module-subject { display: grid !important; grid-template-columns: 36px minmax(0, 1fr) 22px !important; grid-template-rows: auto auto; column-gap: 12px !important; row-gap: 2px !important; align-items: center; width: 100% !important; min-height: 62px !important; height: auto !important; margin: 0 !important; padding: 11px 14px !important; border: 0 !important; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; text-align: left; transform: none !important; transition: background-color var(--nkg-dur) var(--nkg-ease); }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nkg-bank-list > .nk-module-subject + .nk-module-subject { border-top: 1px solid var(--nkg-border) !important; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nkg-bank-list > .nk-module-subject:active { background: var(--nkg-hover) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nkg-bank-list > .nk-module-subject > span:first-child { grid-row: 1 / 3; width: 36px !important; height: 36px !important; margin: 0 !important; border-radius: 10px !important; display: grid !important; place-items: center; background: var(--nkg-surface-2) !important; color: var(--nkg-fg-2) !important; border: 0 !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nkg-bank-list > .nk-module-subject > span:first-child svg { width: 19px !important; height: 19px !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nkg-bank-list > .nk-module-subject > strong { grid-column: 2; margin: 0 !important; font: 600 var(--nkg-t-base)/1.25 var(--nkg-font-sans) !important; color: var(--nkg-fg) !important; }
@@ -3195,7 +3189,6 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-module-group-title
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-module-group-count { display: block; font: 400 var(--nkg-t-xs)/1.3 var(--nkg-font-sans) !important; color: var(--nkg-fg-3) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-module-topic { display: flex !important; align-items: center; gap: 12px !important; width: 100% !important; min-height: 54px !important; margin: 0 !important; padding: 10px 14px !important; border: 0 !important; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; text-align: left; transform: none !important; transition: background-color var(--nkg-dur) var(--nkg-ease); }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-module-topic + .nk-module-topic { border-top: 1px solid var(--nkg-border) !important; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-module-topic:active { background: var(--nkg-hover) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-module-topic .nk-module-topic-copy { flex: 1; min-width: 0; display: grid !important; gap: 2px; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-module-topic .nk-module-topic-copy strong { font: 500 var(--nkg-t-base)/1.3 var(--nkg-font-sans) !important; color: var(--nkg-fg) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-module-topic .nk-module-topic-copy small { font: 400 var(--nkg-t-xs)/1.3 var(--nkg-font-sans) !important; color: var(--nkg-fg-3) !important; }
@@ -3232,7 +3225,6 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder.nkg-step-2 .nk-module-
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-cbt-pyq-toggle { flex-direction: row !important; gap: 6px !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-module-topic-group > header { grid-template-columns: 32px minmax(0, 1fr) auto 32px !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-group-toggle { width: 32px; height: 32px; display: grid; place-items: center; padding: 0; border: 0; border-radius: 8px; background: transparent; color: var(--nkg-fg-3); cursor: pointer; transition: background-color var(--nkg-dur) var(--nkg-ease); }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-group-toggle:active { background: var(--nkg-hover); }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-group-toggle svg { transition: transform var(--nkg-dur-med) var(--nkg-ease); }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-module-topic-group.is-collapsed .nkg-group-toggle svg { transform: rotate(-90deg); }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder:not(.nkg-searching) .nk-module-topic-group.is-collapsed .nk-module-topic-list { display: none !important; }
@@ -3284,7 +3276,6 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-module-scope-actio
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-module-pool-grid { display: block !important; margin: 0 0 18px !important; border: 1px solid var(--nkg-border) !important; border-radius: var(--nkg-r-lg) !important; background: var(--nkg-surface) !important; overflow: hidden; padding: 0 !important; gap: 0 !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-module-pool-grid > button { display: grid !important; grid-template-columns: minmax(0, 1fr) 22px; grid-template-rows: auto auto; column-gap: 12px; row-gap: 2px; align-items: center; width: 100% !important; min-height: 58px !important; margin: 0 !important; padding: 10px 14px !important; border: 0 !important; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; text-align: left; transform: none !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-module-pool-grid > button + button { border-top: 1px solid var(--nkg-border) !important; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-module-pool-grid > button:active { background: var(--nkg-hover) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-module-pool-grid strong { grid-column: 1; font: 600 var(--nkg-t-base)/1.25 var(--nkg-font-sans) !important; color: var(--nkg-fg) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-builder .nk-module-pool-grid small { grid-column: 1; font: 400 var(--nkg-t-xs)/1.3 var(--nkg-font-sans) !important; color: var(--nkg-fg-3) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-radio { grid-column: 2; grid-row: 1 / 3; width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid var(--nkg-border-strong); transition: border var(--nkg-dur) var(--nkg-ease); }
@@ -3453,7 +3444,6 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v114-session > .nk-session-head
   border: 0 !important; box-shadow: none !important;
 }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-head .icon-btn { width: 40px !important; height: 40px !important; border-radius: 12px !important; border: 0 !important; background: transparent !important; color: var(--nkg-fg) !important; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-head .icon-btn:active { background: var(--nkg-hover) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-head .nk-session-count { justify-self: center; font: 500 13px/1 var(--nkg-font-mono) !important; color: var(--nkg-fg-3) !important; letter-spacing: 0 !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-head .nk-session-count strong { font: 600 15px/1 var(--nkg-font-sans) !important; color: var(--nkg-fg) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-head .q-actions { display: flex; gap: 2px; }
@@ -3589,7 +3579,6 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-chapter-v114 .nk-chapter-a
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-topic-options { display: flex; flex-direction: column; border: 1px solid var(--nkg-border); border-radius: 14px; background: var(--nkg-surface); overflow: hidden; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-topic-options .nk-topic-option { display: grid !important; grid-template-columns: 20px minmax(0, 1fr) auto 16px; align-items: center; gap: 12px; min-height: 52px !important; padding: 0 14px 0 16px !important; margin: 0 !important; border: 0 !important; border-radius: 0 !important; background: transparent !important; color: var(--nkg-fg) !important; box-shadow: none !important; text-align: left; cursor: pointer; transition: background-color var(--nkg-dur) var(--nkg-ease); }
 html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-topic-options .nk-topic-option + .nk-topic-option { border-top: 1px solid var(--nkg-border) !important; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-topic-options .nk-topic-option:active { background: var(--nkg-hover) !important; }
 @media (hover: hover) and (pointer: fine) { html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-topic-options .nk-topic-option:hover { background: var(--nkg-hover) !important; } }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-topic-option > svg:first-child { width: 18px; height: 18px; color: var(--nkg-fg-2); }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-topic-option > svg:last-child { width: 16px; height: 16px; color: var(--nkg-fg-3); }
@@ -3919,7 +3908,6 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-row > button:first-chil
   transition: background-color var(--nkg-dur-fast) ease;
 }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-row > button:first-child:hover { background: var(--nkg-bg-subtle) !important; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-row > button:first-child:active { background: var(--nkg-surface-2) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-icon { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: var(--nkg-surface-2); color: var(--nkg-fg-2); }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-copy { min-width: 0; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-mock-row strong { display: block; font: 600 15px/1.3 var(--nkg-font-sans) !important; color: var(--nkg-fg) !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -4170,7 +4158,7 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) :is(#nk-practice-sessions, #nk-mock
 /* The app's press feedback (interaction_polish: [onclick]:active, and on touch the
    .nk-pressed class its script adds) scales by .98 and dims. It also matched these
    screens' backdrops, so any tap made the whole page flinch. A page never presses. */
-html[data-nk-ui="geist"] body :is(#nk-practice-sessions, #nk-mock-sheet, #nk-restore-sheet, .modal-backdrop):is(:active, .nk-pressed) { transform: none !important; filter: none !important; transition: none !important; }
+html[data-nk-ui="geist"] body :is(#nk-practice-sessions, #nk-mock-sheet, #nk-restore-sheet, .modal-backdrop):is(:active, .nk-pressed) { transform: none !important; filter: none !important; box-shadow: none !important; transition: none !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) :is(#nk-practice-sessions, #nk-mock-sheet, #nk-restore-sheet).modal-backdrop {
   align-items: stretch !important; justify-content: stretch !important; padding: 0 !important;
   background: var(--nkg-bg) !important;
@@ -5787,7 +5775,6 @@ body:has(.nk-fsrs-settings){background:#f7f4fc!important}
 .nk-notes-no-match{padding:20px;text-align:center;font-size:13px}
 .nk-question-note{margin:18px 0 8px;overflow:visible}
 .nk-question-note .nk-note-bar{width:100%;min-height:64px;display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid #dce3ef;border-radius:14px;background:#fff;color:#17204b;text-align:left;font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background .15s,border-color .15s,transform .1s}
-.nk-question-note .nk-note-bar:active{background:#f6f7fc}
 .nk-note-bar-icon{flex:none;width:38px;height:38px;display:grid;place-items:center;border-radius:11px;}
 .nk-note-bar-copy{flex:1;min-width:0;display:grid;gap:2px}
 .nk-note-bar-copy strong{font-size:15px;font-weight:800}
@@ -5821,7 +5808,6 @@ body:has(.nk-fsrs-settings){background:#f7f4fc!important}
 .nk-nb-caption{flex:1;min-width:0;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .nk-nb-badge{flex:none;width:30px;height:36px;display:grid;place-items:end center;padding-bottom:5px;border-radius:4px 10px 4px 4px;background:#e5484d;color:#fff;font-size:9px;font-weight:800}
 .nk-nb-dots{flex:none;width:40px;height:40px;margin-right:-8px;display:grid;place-items:center;border:0;border-radius:10px;background:transparent;cursor:pointer}
-.nk-nb-dots:active,.nk-np-back:active{background:#eef0f7}
 .nk-nb-open{display:block;width:100%;padding:0;border:1px solid #e1e5ef;border-radius:12px;overflow:hidden;cursor:zoom-in;-webkit-tap-highlight-color:transparent}
 .nk-nb.is-editing{-webkit-user-select:text;user-select:text}
 .nk-nb.is-editing .nk-nb-kind{display:block;margin-bottom:8px}
@@ -6329,6 +6315,19 @@ button,[role="button"],summary,a[href],[onclick]{touch-action:manipulation;-webk
 /* Press states commit immediately and never move the control: the touch
    answer is the action itself (and the haptic), not a visual push-back. */
 html body :is(button,[role="button"],summary,a[href],[onclick],.option,.option-item){transition:none!important}
+/* Press acknowledgment (2026-10-18): on touch-down the control fills with a
+   soft layer of its own ink - its exact shape, never a move. This is the state
+   layer modern kits ship as a brightness/overlay dip instead of a scale,
+   tuned to the tone the builder toggles already used. It rides the polish
+   class, not raw :active, so a sticky touch :active can never leave a control
+   shaded. Overlay backdrops are surfaces, not controls, so they never dip. */
+html body :is(button:not(:disabled),[role="button"],summary,a[href],[onclick]):not(:where(.modal-backdrop,.nk-qs-backdrop,.qb-nav-backdrop,.phys-zoom-backdrop,.nk-session-review-backdrop,.v102-topic-modal,#nk-practice-sessions,#nk-mock-sheet,#nk-restore-sheet,#nk-quick-sheet)).nk-pressed{box-shadow:inset 0 0 0 9999px color-mix(in srgb, currentcolor 5%, transparent)!important}
+html[data-nk-ui="geist"] :is(body,#nkg-root):is(body,#nkg-root) :is(button:not(:disabled),[role="button"],summary,a[href],[onclick]):not(:where(.modal-backdrop,.nk-qs-backdrop,.qb-nav-backdrop,.phys-zoom-backdrop,.nk-session-review-backdrop,.v102-topic-modal,#nk-practice-sessions,#nk-mock-sheet,#nk-restore-sheet,#nk-quick-sheet)).nk-pressed{box-shadow:inset 0 0 0 9999px color-mix(in srgb, currentcolor 5%, transparent)!important}
+/* A completed tap lets that layer melt off (180ms), so the eye keeps the
+   target; scroll intents clear it instantly, and reduced motion suppresses
+   the melt through the media block below. */
+html body :is(button:not(:disabled),[role="button"],summary,a[href],[onclick]):not(:where(.option,.option-item)).nk-pressed-out{transition:box-shadow 180ms var(--nkg-ease,ease)!important}
+html[data-nk-ui="geist"] :is(body,#nkg-root):is(body,#nkg-root) :is(button:not(:disabled),[role="button"],summary,a[href],[onclick]):not(:where(.option,.option-item)).nk-pressed-out{transition:box-shadow 180ms var(--nkg-ease,ease)!important}
 button:focus-visible,[role="button"]:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--primary,#6951ec)!important;outline-offset:3px}
 button:disabled,[aria-disabled="true"]{cursor:default}
 .nk-session-back,.nk-grid-trigger,.bookmark-toggle{min-width:44px!important;min-height:44px!important}
@@ -6354,6 +6353,7 @@ html body :is(.nk-v114-session,.page,.modal,.qb-nav-panel,.nk-session-review-car
  html body .bottom-nav button:active,
  html body .nav-item:active{transform:none!important;transition:none!important;}
  html body .bookmark-toggle:active svg{transform:none!important;transition:none!important}
+ html[data-nk-ui="geist"] :is(body,#nkg-root):is(body,#nkg-root) :is(button:not(:disabled),[role="button"],summary,a[href],[onclick]).nk-pressed-out{transition:none!important}
 }
 
 /* ── nk-uworld-biochemistry-v1 ── */

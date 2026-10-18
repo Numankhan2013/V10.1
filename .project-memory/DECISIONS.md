@@ -480,3 +480,23 @@ longer span, so an unmatched opener/closer is dropped instead of shown; stars
 that sit where no marker could sit (word-glued, math) are always kept. OCR star
 junk in other banks' raw text disappears as a side effect — the only behavior
 change outside Microbiology per the blast-radius scan.
+
+## Press acknowledgment is an ink layer on the polish class (2026-10-18)
+
+Press feedback must tell the user which control they touched without moving
+anything. The layer is `box-shadow: inset 0 0 0 9999px color-mix(in srgb,
+currentcolor 5%, transparent)` — the control's own ink at the builder-toggle
+tone — because it inherits the control's shape for free, layers over gradients
+and media, and lightens inverse surfaces exactly like Material's on-color
+state layer while staying movement-free (shadcn #8960's brightness remedy,
+without the rejected scale). It keys on the polished `.nk-pressed` class,
+never raw `:active`, because real-touch Chromium keeps `:active` sticky and
+would leave controls shaded; the JS lifecycle (down, 9px slop cancel,
+pointercancel, blur) marks presses precisely for touch and mouse. A completed
+tap melts the layer in 180ms (`.nk-pressed-out`) so the acknowledgment
+survives the action that follows; scroll intents clear it instantly; reduced
+motion keeps the instant exit. Overlay backdrops and sheets are surfaces, not
+controls, and never dip. Geist rules use `!important` transitions and shadow
+resets with ID specificity, so every layer rule needs the double
+`:is(body,#nkg-root)` boost `(2,3,2)`, and the reduced-motion suppressor must
+match it.

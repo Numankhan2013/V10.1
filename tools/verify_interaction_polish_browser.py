@@ -34,7 +34,20 @@ def main():
                 nav.dispatch_event('pointerdown',{'isPrimary':True,'button':0,'clientX':20,'clientY':20})
                 nav_transform=nav.evaluate("el=>getComputedStyle(el).transform")
                 assert nav_transform=='none','press must never move the control'
+                # The press acknowledges the touched control with an instant ink
+                # layer (box-shadow), never a move, in every motion mode.
+                assert '9999px' in nav.evaluate("el=>getComputedStyle(el).boxShadow"),'press must acknowledge the touched control'
                 nav.dispatch_event('pointercancel',{'pointerId':1})
+                assert '9999px' not in nav.evaluate("el=>getComputedStyle(el).boxShadow"),'a cancelled gesture clears the layer instantly'
+                # A completed tap melts the layer off briefly; reduced motion
+                # keeps the instant exit (no transition property).
+                nav.dispatch_event('pointerdown',{'isPrimary':True,'button':0,'clientX':20,'clientY':20})
+                nav.dispatch_event('pointerup',{'pointerId':1,'isPrimary':True,'button':0,'clientX':20,'clientY':20})
+                nav_melt=nav.evaluate("el=>getComputedStyle(el).transitionProperty")
+                assert (('box-shadow' not in nav_melt) if reduced else ('box-shadow' in nav_melt)),'the melt must follow the motion preference'
+                page.wait_for_timeout(300)
+                assert not nav.evaluate("el=>el.classList.contains('nk-pressed-out')"),'the melt must end'
+                assert '9999px' not in nav.evaluate("el=>getComputedStyle(el).boxShadow"),'the layer must be gone after the melt'
                 page.evaluate("QB.practiceOne('1-1')");page.wait_for_selector('.option-list button');question=page.evaluate('__nkInteractionProbe.question()');option=page.locator('.option-list button').nth(int(question['correctOption'])-1)
                 option.dispatch_event('pointerdown',{'pointerId':1,'isPrimary':True,'pointerType':'touch','button':0,'clientX':30,'clientY':30})
                 assert option.evaluate("el=>el.classList.contains('nk-pressed')"),'press has no immediate feedback'
@@ -43,6 +56,9 @@ def main():
                 # on the same frame (asserted further down for exam choices).
                 option_transform=option.evaluate("el=>getComputedStyle(el).transform")
                 assert option_transform=='none','press must never move the answer option'
+                # Answer options carry the same instant ink layer as every other
+                # control (the committed exam ring still flips on its own frame).
+                assert '9999px' in option.evaluate("el=>getComputedStyle(el).boxShadow"),'pressed options acknowledge too'
                 option.dispatch_event('pointercancel',{'pointerId':1,'pointerType':'touch'});assert not option.evaluate("el=>el.classList.contains('nk-pressed')"),'cancelled gesture remained pressed'
                 option.tap();page.wait_for_selector('.nk-fsrs-rating');assert page.evaluate('__vibrations')==[[12,24,16]],'correct answer should retain the prior outcome pattern'
                 assert page.locator('.option-list .correct').count()==1

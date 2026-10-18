@@ -2,7 +2,7 @@
 """Late owner preserves existing routes and ships without a duplicate route listener."""
 import re
 from pathlib import Path
-from app_page import css_section, app_source
+from app_page import css_section, app_source, app_css
 ROOT=Path(__file__).resolve().parents[1]
 def main():
     result=app_source()
@@ -16,6 +16,12 @@ def main():
     for marker in ['pointercancel','pointermove','prefers-reduced-motion','preventScroll','nkPolishSubmitted','nkPolishPanels']:
         assert marker in core+css,marker
     assert 'transition:none!important' in css
+    assert 'inset 0 0 0 9999px color-mix(in srgb, currentcolor 5%, transparent)' in css,'press must acknowledge with the instant ink layer'
+    assert 'transition:box-shadow 180ms' in css,'a completed tap must melt the layer'
+    assert '.nk-pressed{box-shadow:inset 0 0 0 9999px' in css,'the layer must ride the polish class'
+    assert ':is(:active,.nk-pressed){box-shadow:inset 0 0 0 9999px' not in css,'never key the layer on sticky touch :active'
+    assert 'nk-pressed-out' in core,'the melt lifecycle lives in the polish module'
+    assert 'brightness(0.96)' not in app_css(),'press feedback never dims by filter alone'
     assert 'node.animate(' not in core, 'shared polish must not animate route/question publication'
     assert 'transition:transform' not in css,'press must not ease movement'
     assert re.search(r':active[^{]*\{[^}]*transform:(?!none)',css) is None,'active states must not transform'
