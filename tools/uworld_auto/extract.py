@@ -43,6 +43,24 @@ def bands(a):
     return top + 2, bottom - 2
 
 
+STATUS_RE = re.compile(r'Correct\s*answer|\b[Aa]\w{3}ered\s*correct|^\s*(?i:(In)?correct)\s*$')
+
+
+def status_band(body):
+    """(top, bottom) of the answered view's status panel ("Correct", "Answered correctly"), or None if unanswered.
+    OCR can garble the whole panel ("Aaswered", "\ufffdrroo"); then three or more choices printed with
+    their percentages and the "Explanation" heading below them still mark an answered view."""
+    lines = sorted(body, key=lambda l: (l['y0'], l['x0']))
+    hit = next((l for l in lines if STATUS_RE.search(l['text'])), None)
+    if hit:
+        return hit['y0'], hit['y0'] + 60
+    pct = [l for l in lines if PCT_RE.search(l['text'])]
+    expl = next((l for l in lines if re.fullmatch(r'\s*Explanation\s*', l['text'])), None)
+    if len(pct) >= 3 and expl and expl['y0'] > pct[-1]['y1']:
+        return pct[-1]['y1'], expl['y0']
+    return None
+
+
 class Page:
     def __init__(self, doc, n):
         self.n = n
@@ -62,8 +80,8 @@ class Page:
         body = [l for l in self.lines if self.top <= l['y0'] and l['y1'] <= self.bottom + 2]
         self.body = body
         text = ' '.join(l['text'] for l in body)
-        # OCR can garble the stats label ("Aaswered correctly").
-        self.answered = bool(re.search(r'\b[Aa]\w{3}ered\s*correct', text)) or bool(re.search(r'Correct\s*answer', text))
+        self.status = status_band(body)
+        self.answered = self.status is not None
         self.unanswered = not self.answered and any(l['text'].strip().lower() == 'submit' for l in body)
 
 
@@ -342,10 +360,7 @@ def extract_question(views_all, pdf_sha):
         scroll = [v for v in scroll if offsets.get(v.n) is not None]
     # ---- question, options, statistics from the answered view
     lines = sorted(ans.body, key=lambda l: (l['y0'], l['x0']))
-    status_i = next((i for i, l in enumerate(lines) if re.search(r'Correct\s*answer|\b[Aa]\w{3}ered\s*correct|^\s*(?i:(In)?correct)\s*$', l['text'])), None)
-    if status_i is None:
-        return None, ['status panel not found']
-    opt_box = option_box(ans, lines, lines[status_i]['y0'])
+    opt_box = option_box(ans, lines, ans.status[0])
     if opt_box is None:
         return None, ['options panel not found']
     opt_lines = [l for l in lines if inside(l, opt_box, 0, pad=2) and l['x0'] > opt_box[0] + 4]
@@ -388,7 +403,7 @@ def extract_question(views_all, pdf_sha):
         issues.append('choice letters disagree with order: ' + ','.join(misread))
     for o in options:
         o.pop('y'); o.pop('y1'); o.pop('read_letter')
-    stat_text = ' '.join(l['text'] for l in lines[status_i:status_i + 14] if l['y0'] < lines[status_i]['y0'] + 60)
+    stat_text = ' '.join(l['text'] for l in lines if ans.status[0] - 1 <= l['y0'] < ans.status[1])
     correct = None
     ca = next((i for i, l in enumerate(lines) if re.search(r'Correct\s*answer', l['text'])), None)
     if ca is not None:
@@ -431,7 +446,7 @@ def extract_question(views_all, pdf_sha):
     expl_start = next((l['y0'] for l in ans.body if re.match(r'^\W*Explanation\W*$', l['text'])), None)
     if expl_start is None:
         notes = ['explanation heading not found']
-        expl_start = lines[status_i]['y1'] + 30
+        expl_start = ans.status[0] + 45   # the status line's bottom plus the old 30 px
     kept = collect(scroll, offsets, zones, expl_start + offsets[ans.n] + 8, 1e9)
     # Subject / system / topic labels follow the objective as one spaced-out row.
     meta_i = next((i for i, k in enumerate(kept) if k.get('pieces', 1) >= 2 and k.get('gap', 0) > 60 and k.get('longest', 99) < 45 and

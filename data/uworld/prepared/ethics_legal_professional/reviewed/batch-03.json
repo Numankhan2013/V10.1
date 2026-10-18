@@ -618,12 +618,12 @@
     },
     {
      "letter": "C",
-     "text": "\"I understand your concerns about medication side effects, but antibiotic treatment is necessary.\"",
-     "selection_percent": 18
+     "text": "18%)",
+     "selection_percent": null
     },
     {
      "letter": "D",
-     "text": "\"If we don't give your child antibiotics, she could get a brain abscess and die.\"",
+     "text": "\"I understand your concerns about medication side effects, but antibiotic treatment is necessary.\" 0 D. \"If we don't give your child antibiotics, she could get a brain abscess and die.\"",
      "selection_percent": 2
     },
     {
@@ -662,16 +662,18 @@
     "selection_percent": {
      "A": 58,
      "B": 17,
-     "C": 18,
+     "C": null,
      "D": 2,
      "E": null
     }
    },
    "status": "blocked",
    "issues": [
-    "missing choice percent"
+    "choice letters disagree with order: D",
+    "missing choice percent",
+    "choices look like pictures or a table"
    ],
-   "source_record_sha256": "728e625ea581ad73ebd310e699922a265d8da1cc009485c1a551690c829a4350"
+   "source_record_sha256": "c211b28cffcf8b679b6d378322572b31a0aa02843c461cb305c56febf79aafb0"
   },
   {
    "id": "UWORLD_21977",
@@ -1544,12 +1546,12 @@
     },
     {
      "letter": "D",
-     "text": "\"That would make things much easier; could you start by asking your father what his understanding of the situation is?\"",
-     "selection_percent": 4
+     "text": "4%)",
+     "selection_percent": null
     },
     {
      "letter": "E",
-     "text": "\"That's a kind offer, but I wouldn't be able to have a direct and obj ective discussion with your father if you interpret it.\"",
+     "text": "\"That would make things much easier; could you start by asking your father what his understanding of the situation is?\" O E. \"That's a kind offer, but I wouldn't be able to have a direct and obj ective discussion with your father if you interpret it.\"",
      "selection_percent": 12
     }
    ],
@@ -1580,13 +1582,17 @@
      "A": 78,
      "B": 3,
      "C": 1,
-     "D": 4,
+     "D": null,
      "E": 12
     }
    },
-   "status": "verified",
-   "issues": [],
-   "source_record_sha256": "629d876705ce7d216d8c001366dcdb883e1e06314d9a52f9dae93b0cd51cca37"
+   "status": "blocked",
+   "issues": [
+    "choice letters disagree with order: E",
+    "missing choice percent",
+    "choices look like pictures or a table"
+   ],
+   "source_record_sha256": "74b100be748b6ea47b781c298ed9cbbd987173f1222a2e72c2f810f5f050baae"
   },
   {
    "id": "UWORLD_10659",
