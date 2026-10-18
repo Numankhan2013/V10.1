@@ -3,6 +3,101 @@
  "source_pdf_sha256": "6919bce5b568c6fb2ce1d5f1d5f89fcf7a75a7662192007e1d7c62b2ac2c31a3",
  "records": [
   {
+   "id": "UWORLD_17600",
+   "reviewed_pages": [
+    301,
+    302,
+    303,
+    304,
+    305,
+    306
+   ],
+   "question": "A 2-year-old boy is brought to the emergency department due to wheezing and difficulty breathing. The patient had been trick-or-treating with his parents and ate several packs of candy containing peanuts. After he receives an intramuscular epinephrine injection, his symptoms resolve. At a follow up appointment, an allergy specialist places droplets of various allergens on the patient's skin and punctures the epidermis at each site. After 15 minutes, the skin at the site with peanut extract is erythematous with a raised, itchy bump that improves by the time the family leaves the office. Three hours later, the parents notice increased swelling at the puncture site. Which of the following is most likely involved in this secondary reaction?",
+   "options": [
+    {
+     "letter": "A",
+     "text": "Cell lysis following lgG autoantibody binding",
+     "selection_percent": 5
+    },
+    {
+     "letter": "B",
+     "text": "Complement activation by immune complexes",
+     "selection_percent": 13
+    },
+    {
+     "letter": "C",
+     "text": "Epithelial damage by major basic protein",
+     "selection_percent": 27
+    },
+    {
+     "letter": "D",
+     "text": "lgE-mediated histamine release from mast cells",
+     "selection_percent": 28
+    },
+    {
+     "letter": "E",
+     "text": "Interferon gamma release from CD4• T cells",
+     "selection_percent": 25
+    }
+   ],
+   "correct_label": "C",
+   "question_blocks": [],
+   "explanation": [
+    {
+     "type": "figure",
+     "page": 303,
+     "bbox": [
+      357,
+      119,
+      913,
+      553
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "figure",
+     "page": 306,
+     "bbox": [
+      414,
+      146,
+      863,
+      522
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "paragraph",
+     "text": "Following skin prick testing, this patient developed an erythematous, edematous welt that was followed 3 hours later by an indurated skin lesion. These findings are consistent with the early and late phases of a type I hypersensitivity reaction. After first exposure to an allergen (eg, peanuts), antigen specific lgE is produced by 8-cells and binds to the surface of mast cells. If repeat exposure occurs, the bound lgE can cross-link and stimulate the release of preformed histamine and leukotrienes that cause vasodilation and increased capillary permeability. The result is a rapid (eg, minutes after exposure) early-phase type I hypersensitivity response characterized by superficial dermal edema and erythema (eg, wheal and flare reaction) that can progress to a more systemic response (eg, anaphylaxis) (Choice D). lgE also initiates the late phase of a type I hypersensitivity reaction by stimulating type 2 helper T cells to release cytokines (eg, IL-5) that activate eosinophils. Cationic proteins (eg, major basic protein, eosinophil peroxidase) released from eosinophils cause tissue damage, which usually manifests as a palpable, indurated lesion 2-10 hours following the early-phase reaction."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice A) Binding of preformed lgG antibodies to cell surface antigens initiates cell lysis mediated by complement and/or natural killer cells (type II hypersensitivity reactions). These reactions can develop hours to days after exposure to an antigen (eg, medications, transfused red blood cells), resulting in destruction of erythrocytes (causing fatigue, pallor), platelets (petechial bleeding), or leukocytes (fever, sepsis)."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice B) Immune complex-mediated complement activation typically causes tissue damage in sites where immune complexes tend to deposit (eg, skin, joints, kidneys) days to weeks after initial antigen exposure in type Ill hypersensitivity reactions. Although an Arthus reaction can cause local swelling within hours of an exposure, it is usually associated with intradermal injection of a vaccine."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice E) In type IV (delayed) hypersensitivity reactions, CD4· T cells release cytokines (eg, interferon gamma) that promote T cell- and macrophage-mediated tissue damage. Although these reactions can also present as an indurated skin lesion (eg, tuberculosis skin testing), type IV hypersensitivity reactions develop over days (rather than hours) because of the time needed for cellular amplification."
+    }
+   ],
+   "educational_objective": "The late phase of dermatologic type I hypersensitivity reactions manifests as an indurated skin lesion hours after exposure to the allergen due to local tissue damage caused by major basic protein released from eosinophils. In contrast, type IV hypersensitivity reactions develop over days because of the time needed to produce a cell- mediated immune response.",
+   "statistics": {
+    "answered_correctly_percent": 27,
+    "selection_percent": {
+     "A": 5,
+     "B": 13,
+     "C": 27,
+     "D": 28,
+     "E": 25
+    }
+   },
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "4a09265bd000d38421dea8ab12edc521066be5b93f2017ceff400dc6617b75bd"
+  },
+  {
    "id": "UWORLD_15331",
    "reviewed_pages": [
     307,
@@ -542,12 +637,12 @@
    "options": [
     {
      "letter": "A",
-     "text": "gM lgG lgA lgE @ A.",
+     "text": "gM lgG lgA lgE @ A. Decreased Decreased Decreased Decreased",
      "selection_percent": 4
     },
     {
      "letter": "B",
-     "text": "ecreased Decreased Decreased Decreased B. 0 Normal Increased Normal Increased",
+     "text": "0 Normal Increased Normal Increased",
      "selection_percent": 7
     },
     {
@@ -639,7 +734,7 @@
    "issues": [
     "choice letters disagree with order: D"
    ],
-   "source_record_sha256": "7e07119552a6f29d99da99f5a2c4c0826572ad3b6bc51c1048143877559b4d94"
+   "source_record_sha256": "5623743e7909be8f96482d0eb02a744f1bfe9ba3c022c580b26ffbeb8056dcb2"
   },
   {
    "id": "UWORLD_116",
@@ -2331,89 +2426,6 @@
    "status": "verified",
    "issues": [],
    "source_record_sha256": "4a6c00209b9a2f24e9b63edc2f58be8c25f6ea79f531e1e3209c673a2ecac6b2"
-  },
-  {
-   "id": "UWORLD_2069",
-   "reviewed_pages": [
-    451,
-    452,
-    453
-   ],
-   "question": "Item 2 of 2 The patient's anaphylactic reaction is determined to be mediated by antigen-specific lgE antibodies attached to high-affinity receptors on the surface of mast cells and basophils. Which of the following mechanisms is most likely to trigger vasoactive substance release by these cells?",
-   "options": [
-    {
-     "letter": "A",
-     "text": "Antibody-receptor covalent binding",
-     "selection_percent": 49
-    },
-    {
-     "letter": "B",
-     "text": "Antibody-receptor dissociation",
-     "selection_percent": 3
-    },
-    {
-     "letter": "C",
-     "text": "Receptor aggregation",
-     "selection_percent": 33
-    },
-    {
-     "letter": "D",
-     "text": "Receptor detachment from the cell surface",
-     "selection_percent": 4
-    },
-    {
-     "letter": "E",
-     "text": "Receptor internalization",
-     "selection_percent": 10
-    }
-   ],
-   "correct_label": "C",
-   "question_blocks": [],
-   "explanation": [
-    {
-     "type": "figure",
-     "page": 452,
-     "bbox": [
-      294,
-      118,
-      969,
-      554
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "paragraph",
-     "text": "Secretory granules Degranulation (\\;)UIM>rld The high-affinity lgE receptor (FcERI) is found on mast cells and basophils and plays a primary role in mediating the allergic response. The receptor normally binds the Fe portion of circulating lgE, coating the cell with various antigen-specifi c lgE molecules. When a multivalent antigen comes in contact with the cell, multiple lgE antibodies become cross-linked, resulting in aggregation of the FcERI receptors on the mast cell surface. This clumping of receptors leads to the activation of non-receptor tyrosine kinases, triggering an intracellular cascade that ultimately results in mast cell and basophil degranulation."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choices A and B) The high strength of the lgE-FcERI bond is a result of the sum of many weak noncovalent forces; it is not associated with the formation of covalent (eg, disulfide, peptide) bonds. The strength of this attachment is such that antibody-receptor dissociation is rare; most of the total lgE in the body is bound to the surface of mast cells and basophils and not circulating freely."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice D) Receptor detachment from the cell surface is not a known mechanism of signal transduction."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice E) Receptor internalization occurs in the process of synaptic desensitization to excessive neurotransmitter stimulation. It also occurs in receptor-mediated endocytosis of substances such as iron (ie, transferrin receptor) and cholesterol (ie, LDL receptor)."
-    }
-   ],
-   "educational_objective": "The high-affinity lgE receptor (FcERI) is found on the surface of mast cells and basophils and normally binds the Fe portion of circulating lgE antibodies. Cross-linking of multiple membrane-bound lgE antibodies by a multivalent antigen results in aggregation of the FcERI receptors, causing degranulation and the release of preformed mediators (eg, histamine, tryptase) that initiate an allergic response.",
-   "statistics": {
-    "answered_correctly_percent": null,
-    "selection_percent": {
-     "A": 49,
-     "B": 3,
-     "C": 33,
-     "D": 4,
-     "E": 10
-    }
-   },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …Secretory granules Degranulation (\\;)UIM>rld The high-af…"
-   ],
-   "source_record_sha256": "c9658101d21fb1b8bbb7abdc761844fc4b8854c0c7eecc573972f69e3523c4e4"
   }
  ]
 }
