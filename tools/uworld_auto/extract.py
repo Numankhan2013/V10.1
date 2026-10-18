@@ -13,6 +13,7 @@ import re
 import numpy as np
 from difflib import SequenceMatcher
 from regions import exhibit_figure, boxes, images
+import header_id
 
 # Header OCR can be lowercase and drop letters ("question l: 19972", "item 3 or40").
 QID_RE = re.compile(r'Question\s*(?:[Il1|]\s*d?|d)\W{0,3}(\d{2,6})', re.I)
@@ -621,6 +622,9 @@ class Stub:
         head = ' '.join(l['text'] for l in self.lines if l['y0'] < 50)
         m = QID_RE.search(head)
         self.qid = m.group(1) if m else None
+        seen, score = header_id.read(doc, n)
+        if seen and score >= header_id.CONFIDENT:
+            self.qid = seen
         self.main = 'Mark' in head
         m = ITEM_RE.search(head)
         self.item = (int(m.group(1)), int(m.group(2))) if m else None
