@@ -142,7 +142,9 @@
     presentation.table=(generic?.valid!==false?generic:null)||nkQuestionMatchingOverride(q);
     // PrepLadder text banks carry complete, key-checked options: a matching stem
     // the parser cannot lay out stays plain text instead of blocking the answer.
+    // A hand-checked stem table (stemTables) always wins over the parser.
     const textBank=q?.bank==='PrepLadder'&&q?.explanationFormat==='structured';
+    if(textBank&&Array.isArray(q.stemTables)&&q.stemTables.length)presentation.table=null;
     if(generic?.valid===false&&!presentation.table&&!textBank)presentation.valid=false;
     const stem=nkQuestionStemOverride(q);
     if(stem?.valid===false)presentation.valid=false;

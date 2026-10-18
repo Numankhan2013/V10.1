@@ -53,7 +53,10 @@ def main() -> None:
         first = (q["structuredExplanation"]["blocks"] or [{}])[0]
         assert not str(first.get("text", "")).lower().startswith(("correct answer", "answer:")), q["id"]
         assert q["structuredExplanation"]["blocks"], q["id"]
-    assert sum(1 for q in questions if q.get("stemTables")) == 35
+    assert sum(1 for q in questions if q.get("stemTables")) == 49  # 35 printed + 14 hand-checked (stem_tables.json)
+    by_qid = {q["id"]: q for q in questions}
+    assert by_qid["microbiology-33-17"]["options"][1]["text"] == "Cryptosporidium parvum"
+    assert not any(o["text"].startswith("[Image") for q in questions for o in q["options"])
 
     # Edition merge: every Version X question keeps its app ID unless the
     # November 2025 edition repeats a matched question word for word.
