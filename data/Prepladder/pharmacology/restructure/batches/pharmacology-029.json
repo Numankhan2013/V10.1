@@ -1,0 +1,537 @@
+{
+ "batch": "pharmacology-029",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pharmacology-029",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pharmacology-25-4",
+   "question": "All of the following are true about the pharmacokinetics of morphine except?",
+   "options": {
+    "A": "Morphine is primarily metabolised by the liver.",
+    "B": "Morphine has a long half-life, typically around 2-4 hours.",
+    "C": "Morphine undergoes extensive first-pass metabolism when administered orally.",
+    "D": "Morphine is primarily eliminated unchanged through the kidneys."
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Morphine is not primarily eliminated unchanged through the kidneys. Instead, it undergoes metabolism in the liver to form glucuronide conjugates, which are then excreted by the kidneys. The majority of morphine in the urine is in the form of morphine-3-glucuronide and morphine-6-glucuronide, not the unchanged drug. The other options are correct: Morphine is primarily metabolized by the liver (Option A): True."
+    },
+    {
+     "type": "paragraph",
+     "text": "Morphine is extensively metabolized in the liver by conjugation with glucuronic acid."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Morphine has a long half-life, typically around 2-4 hours (Option B):** While the half-life of morphine can be around 2-4 hours, it can vary with the route of administration and patient factors."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Morphine undergoes extensive first-pass metabolism when administered orally (Option C):** This is true. Oral morphine undergoes significant first-pass metabolism in the liver, reducing its bioavailability. Pharmacokinetic Aspect"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-25-5",
+   "question": "Which of the following cough suppressants does not have an addictive potential?",
+   "options": {
+    "A": "Codeine",
+    "B": "Oxycodone",
+    "C": "Pholcodine",
+    "D": "Noscapine"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Codeine and oxycodone are opioid-based cough suppressants that have a high potential for addiction due to their narcotic properties. (Option A, B ruled out) Pholcodine, although less potent than codeine, is still an opioid derivative and carries a risk of addiction. (Option C ruled out) Noscapine is a non-narcotic cough suppressant derived from opium, but it lacks the addictive potential seen in opioid-based medications."
+    },
+    {
+     "type": "paragraph",
+     "text": "Antitussives (Cough suppressants): Opioids Non-opioids Anti-histamines Codeine. Ethylmorphine. Pholcodine. Oxycodone. Noscapine Dextromethorphan. Chlorpheniramine. Diphenhydramine. Promethazine."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-25-6",
+   "question": "A 32-year-old woman underwent an elective cesarean section at 39 weeks of gestation under spinal anaesthesia. Following the delivery and surgical procedure, she was transferred to the recovery room. Approximately 30 minutes later, she begins to experience intense shivering. Which of the following medications is most appropriate to treat this condition in this patient?",
+   "options": {
+    "A": "Ondansetron",
+    "B": "Meperidine",
+    "C": "Midazolam",
+    "D": "Ketamine"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Meperidine, also known as pethidine, is an opioid analgesic. Meperidine is considered the most effective drug for this specific purpose (DOC). It is thought to involve both opioid receptor activity and effects on the thermoregulatory center in the hypothalamus."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Ondansetron (Option A):** (antiemetic), commonly used to prevent nausea and vomiting postoperatively or during chemotherapy. It acts as a selective serotonin 5-HT3 receptor antagonist. Ondansetron may reduce post-anesthesia shivering; it is not the first-line treatment for this condition."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Midazolam (Option C):** is a benzodiazepine used for sedation, anxiolysis, and amnesia. It can also have muscle relaxant properties. While it may reduce shivering in some cases, it is not used due to the risk of excessive sedation and respiratory depression, especially in the immediate postoperative period."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Ketamine (Option D):** is a dissociative anaesthetic with analgesic properties. It can also have anti-shivering effects, likely due to its NMDA receptor antagonism and effects on central neurotransmitter systems. Because of its potent psychoactive effects and the potential for hallucinations, it is not considered better for the patient."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-25-7",
+   "question": "A 35-year-old man presents to the clinic with complaints of muscle aches, insomnia, and intense cravings for opioids. He admits to using heroin for the past five years, often injecting multiple times a day. He has attempted to quit several times but has always relapsed due to severe withdrawal symptoms. He expresses a strong desire to stop using heroin and asks for medical help to manage his addiction. Which of the following is the most effective medication for the treatment?",
+   "options": {
+    "A": "Naltrexone",
+    "B": "Lofexidine",
+    "C": "Methadone",
+    "D": "Clonidine"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Methadone: Mechanism: It is a full opioid agonis t that works by binding to the same receptors as other opioids, providing similar effects and thereby preventing withdrawal and reducing cravings. Use: It is highly effective for detoxification and long-term maintenance therapy. Advantages: Methadone has a long half-life, which allows for once-daily dosing."
+    },
+    {
+     "type": "paragraph",
+     "text": "Effectiveness: It is considered one of the most effective medications for opioid addiction, especially for individuals with a long history of high-dose opioid use."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Naltrexone (Option A):** Mechanism: It is an opioid antagonist that blocks the effects of opioids at their receptor sites. Use: It is used primarily for relapse prevention in opioid-dependent patients who have already undergone detoxification. Limitations: It is not effective for managing withdrawal symptoms and requires the patient to be opioid-free for a period before starting treatment."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Lofexidine (Option B):** Mechanism: It is an alpha-2 adrenergic agonist, that helps to reduce the physical symptoms of opioid withdrawal. Use: It is specifically approved for the treatment of opioid withdrawal symptoms. Limitations: While it can ease withdrawal symptoms, it does not address cravings and is not used for long-term maintenance therapy."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Clonidine (Option D):** Mechanism: It is an alpha-2 adrenergic agonist that helps to alleviate some of the physical symptoms of opioid withdrawal, such as anxiety, agitation, and muscle aches. Use: It is used off-label to manage withdrawal symptoms b ut does not address cravings or the underlying addiction."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-25-8",
+   "question": "Match the following drugs based on their receptor activity: Drug Receptor 1. Butorphanol a. Partial Mu Agonist + Kappa Antagonists 2. Nalfurafine b. Pure Antagonists 3. Buprenorphine c. Pure Kappa Agonist 4. Naloxone: d. Partial Kappa Agonist + Mu Antagonist",
+   "options": {
+    "A": "1:a, 2:d, 3:c, 4:b",
+    "B": "1:d, 2:c, 3:a, 4:b",
+    "C": "1:c, 2:d, 3:a, 4:b",
+    "D": "1:b, 2:c, 3:d, 4:a"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Mechanism of action of drugs acting on opioid receptors: Receptor Pure Kappa Agonist Partial Kappa Agonist + Mu Antagonist Partial Mu Agonist + Kappa Antagonists Pure Antagonists (competitive block) Drugs Nalfurafine Fedotozine Eluxadoline Asimadoline Pentazocine (Partial Mu agonist but acts as an antagonist) Nalorphine Butorphanol Buprenorphine (binds mu receptor irreversibly) Dezocine Naloxone Naltrexone (longest acting) Nalmefene (Liver safe) Naloxegol Uses 1."
+    },
+    {
+     "type": "paragraph",
+     "text": "Uremic pruritus in CKD (Nalfurafine) 2. Diarrhoea in IBS 1. Migraine (Intranasal Butorphanol) 1. Opioid deaddiction (Buprenorphine) 2. Analgesia (Dezocine) 1. Antidote for opioid poisoning (IV Naloxone) 2. Prevents relapse (Naltrexone) 3. Alcohol dependence (Nalmefene) 4. Morphine dependence, obesity (Naltrexone) 5."
+    },
+    {
+     "type": "paragraph",
+     "text": "Opioid-induced constipation (Naloxol, methylnaltrexone) S/E Dysphoria or psychosis Dysphoria or psychosis Buprenorphine effects cannot be overcome by naloxone. 1. Naloxone: Hypertension, pulmonary oedema, arrhythmia 2. Naltrexone: Hepatotoxic C/I 1. Opioid deaddiction (precipitate withdrawal) 2. Myocardial ischemia Labor pain (neonatal respiratory depression)"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-25-9",
+   "question": "A 26-year-old student was found unresponsive by his roommate after a party. A physical examination at the hospital revealed constricted pupils with a heart rate of 62 BPM, blood pressure of 90/60 mmHg, and a respiratory rate of 8 per minute. What is the most appropriate initial treatment for this patient's condition?",
+   "options": {
+    "A": "Intravenous flumazenil",
+    "B": "Intravenous naloxone",
+    "C": "Gastric lavage with activated charcoal",
+    "D": "Forced alkaline diuresis with sodium bicarbonate"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Naloxone, a pure opioid antagonist, is the drug of choice for reversing opioid overdose in this patient, who presents with reduced consciousness, constricted pupils, and respiratory depression."
+    },
+    {
+     "type": "paragraph",
+     "text": "Opioid Overdose/ Poisoning Cause Clinical, accidental or suicidal overdose Symptoms Unconsiousness/coma Miosis: Pin point pupil Respiratory depression Dry secretion in the eye/mouth Urinary retention Constipation Flaccid muscles Convulsions (in children) Management Acute overdose/poisoning: IV Naloxone (Antidote) ↓ Maintenance (Detoxification phase: To prevent withdrawal): Opioids: Buprenorphine, Methadone, Tramadol Non-Opioids- Clonidine, Lofexidine ↓ Abstinence (Prevent relapse): DOC: Oral Naltrexone Flumazenil (Option A) is used to reverse benzodiazepine overdose, which includes shallow breathing, dilated pupils, and slow reflexes."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mechanism of action: Flumazenil is a specific benzodiazepine receptor antagonist that reverses most of the CNS effects of benzodiazepines. Flumazenil abolishes the hypnogenic, psychomotor, cognitive and EEG effects of BZD’s Activated charcoal (Option C) is used for certain ingested toxins but is not effective in reversing opioid effects."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Forced alkaline diuresis (Option D):** is recommended in barbiturate poisoning manifesting with coma, severe respiratory depression, and mild dilated pupils."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-25-10",
+   "question": "Which of the following statements regarding opioid withdrawal symptoms is false? It is a life-threatening condition resulting from chronic opioid dependence Anxiety and irritability are common during early periods of opioid withdrawal. Bradycardia and Sweating are typical symptoms of opioid withdrawal. Buprenorphine is used to reduce withdrawal symptoms and cravings Naloxone is used to treat acute withdrawal symptoms and prevent future relapses.",
+   "options": {
+    "A": "3 and 5",
+    "B": "2, 4, and 5",
+    "C": "4 and 5",
+    "D": "3, and 4"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Opioid Withdrawal: A life-threatening condition resulting from opioid dependence. Caused by sudden cessation of opioid use or by the use of opioid partial agonists (buprenorphine) or antagonists (naloxone) by opioid-dependent patients. Opioid withdrawal Causes Abruptly stopping chronic use of opioids, including pain medication or illegal drug abuse."
+    },
+    {
+     "type": "paragraph",
+     "text": "Onset 6-12 hours: Short-acting opioids (heroin, fentanyl) 24-48 hours: Long-acting opioids (oxycodone) Symptoms W (M): Mydriasis I: Increased yawning (increase respiration), irritability T: Hyperthermia, Tachycardia H: Hyperventilation D: Diarrhea R: Rhinorrhea A: Anxiety, sweating W (M): Myalgia L: Lacrimation Management Deaddiction: Start on methadone (long-acting)/ buprenorphine ( reduce craving ) Methadone can be continued safely in pregnant women."
+    },
+    {
+     "type": "paragraph",
+     "text": "Taper the dose Beta-blocker, Clonidine (symptomatic treatment) Naltrexone (Prevent relapse)"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-25-11",
+   "question": "A 35-year-old male came to the clinic complaining of constipation for several days. A few weeks ago, he experienced diarrhoea after returning from Thailand, which was resolved after taking loperamide and ornidazole. What medication is best suited for relieving this patient's symptoms",
+   "options": {
+    "A": "Bisacodyl",
+    "B": "Lactulose",
+    "C": "Alvimopan",
+    "D": "Psyllium"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "This patient's history of diarrhoea treated with loperamide a few weeks ago indicates opioid-induced constipation, which is treated with Alvimopan, a peripherally acting μ-opioid receptor antagonist. Opioid-induced constipation: MOA: Block peripheral opioid receptors in GIT, leaving CNS-mediated pain activity intact."
+    },
+    {
+     "type": "paragraph",
+     "text": "Seen in chronic pain treatment, methadone maintenance, abdominal surgery Drugs Alvimopan: Mu opioid antagonist Oral naloxone blocks local receptors Methylnaltrexone Nalmefene Naloxol Naloxegol Incorrect Options"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-25-12",
+   "question": "A 60-year-old male with a history of Parkinson's disease complained of pain after he underwent a laparoscopic inguinal hernia repair a few hours ago. Shortly after taking medication for pain relief, he became agitated and started sweating. Physical examination revealed tachycardia, hyperreflexia, and myoclonus in the legs. Which of the following drugs was most likely given to this patient?",
+   "options": {
+    "A": "Ibuprofen",
+    "B": "Tramadol",
+    "C": "Morphine",
+    "D": "Oxycodone"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Tramadol, an opioid analgesic used to treat moderate to severe pain, raises the risk of serotonin syndrome (agitation, sweating, tachycardia, hyperreflexia) if taken with MAO inhibitor (anti-Parkinson drug)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Tramadol: MOA: mu-opioid receptor agonist Inhibits reuptake of serotonin (5HT) and norepinephrine (NE) Use: Moderate pain: labour pain, post-op pain Post anaesthesia chills S/E: Serotonin syndrome: In combination with MAO inhibitors (selegiline, etc.) →, elevated 5HT levels Symptoms: agitation, confusion, tachycardia, dilated pupils, muscle rigidity, and sweating."
+    },
+    {
+     "type": "paragraph",
+     "text": "Treatment: Discontinuing the drug and supportive care Nausea and vomiting (activates the vomiting centre in the brain) Seizures Drugs avoided with MAO inhibitors: ( Due to risk of Serotonin syndrome) Tramadol Fentanyl, Meperidine Tricyclic depressants (amitriptyline) SSRI (sertaline, citalopram etc.) Dextromethorphan Linezolid MDMA, LSD, amphetamine Food: soy products, red wine, cheese Pethidine (causes seizure with MAO-) Ibuprofen (Option A) is a non-steroidal anti-inflammatory drug (NSAID) and does not interact with MAOIs to cause serotonin syndrome."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Morphine (Option C):** , an opioid analgesic used in severe pain, causes respiratory depression and constipation and is not associated with serotonin syndrome."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Oxycodone (Option D):** is an opioid analgesic but does not cause serotonin syndrome."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-26-1",
+   "question": "A patient who was diagnosed with rheumatic heart disease now presents with irregular involuntary movements of the upper limbs and head alongside characteristic darting movement of the tongue. Which of the following drugs is least likely to be used in the management of this presentation?",
+   "options": {
+    "A": "Trihexyphenidyl",
+    "B": "Haloperidol",
+    "C": "Sodium valproate",
+    "D": "Carbamazepine"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical presentation, along with the presence of rheumatic heart disease, is suggestive of Sydenham’s chorea and anticholinergics like trihexyphenidyl will not be used in managing this. Sydenham’s chorea is characterised by unexpected, involuntary, and irregular movements of the upper limbs and head and characteristic darting movements of the tongue."
+    },
+    {
+     "type": "paragraph",
+     "text": "This can be due to dopaminergic excess in certain brain areas, and anticholinergics should not be given because central cholinergic excess will worsen symptoms. Drugs used in the management of Sydenham’s chorea: Haloperidol. (Option B ruled out) Sodium valproate. (Option C ruled out) Carbamazepine. (Option D ruled out) Corticosteroids (refractory cases)."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-26-2",
+   "question": "A 70-year-old male presents to the hospital with a 2-year history of tremors and rigidity. Physical examination revealed diminished facial expressions and dragging feet while walking. The tremors were reduced when he moved his hand. What is the mechanism of action used by the first-line and the most effective medication in managing this condition?",
+   "options": {
+    "A": "Increasing dopamine release",
+    "B": "Prevents degradation of dopamine",
+    "C": "Acting as a dopamine precursor",
+    "D": "Blocking acetylcholine receptors"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient's 2-year history of resting hand tremors, muscle rigidity, and shuffling gait suggests primary Parkinson's disease. Levodopa, a dopamine precursor, is the treatment of choice for replenishing brain dopamine levels in this patient. Primary Parkinson's disease: Idiopathic progressive neurodegenerative disease of dopaminergic neurons in the basal ganglia."
+    },
+    {
+     "type": "paragraph",
+     "text": "Symptoms: rigidity, bradykinesia (slow movement), resting tremors, shuffling gait Treatment: Levodopa: DOC in Parkinson’s disease > 65 years The drug is converted into dopamine inside the basal ganglia via dopa decarboxylase. Crosses the BBB and replenishes the dopamine level in the CNS Degraded via MAO-B and COMT enzymes. Alternative treatment options: Amantadine is an NMDA antagonist and increases dopamine release. ( Option A)."
+    },
+    {
+     "type": "paragraph",
+     "text": "COMT inhibitors (Entacapone, Tolcapone) and MAO inhibitors (Rasagiline, Selegiline): Prevent dopamine degradation. ( Option B ) Benztropine: Reduces central cholinergic activity by blocking muscarinic receptors. ( Option D )"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-26-3",
+   "question": "A 60-year-old male with a history of glaucoma was recently diagnosed with primary Parkinson's disease and started treatment with syndopa (levodopa-carbidopa) therapy. The patient inquires about potential adverse events associated with the treatment. Which of the following statements is false? Nausea is the most common adverse effect due to the activation of D2 receptors inside the GIT. Dyskinesias and impulsiveness are common adverse effects associated with long-term levodopa use. Levodopa is contraindicated in this patient with a history of narrow-angle glaucoma. Long-term use of levodopa is associated with fluctuations in motor symptoms. Levodopa increases treatment efficacy with carbidopa.",
+   "options": {
+    "A": "1, 3 and 5",
+    "B": "Only 1",
+    "C": "2 and 5",
+    "D": "3 and 4"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Adverse events associated with Levodopa Side effects 1. Peripheral side effects: Nausea/ vomiting: (Statement 1) Most common Due to D2 receptor activation in CTZ outside the blood-brain barrier."
+    },
+    {
+     "type": "paragraph",
+     "text": "Treat with domperidone (Blocks D2 receptor) Postural hypotension (D1 receptor-induced vasodilation) Mydriasis (Stimulates alpha-1 receptor in the iris) Arrhythmia (Stimulates cardiac beta-1 receptor) Note: Combining Levodopa with peripheral dopa decarboxylase inhibitors (Carbidopa/Bensarazide) prevents peripheral side effects. (Statement 5) 2."
+    },
+    {
+     "type": "paragraph",
+     "text": "CNS side effects: Dyskinesia: Treat with Amantadine, Levetiracetam (Statement 2) Psychosis: Clozapine, Quetiapine Hypersexuality/ impulsiveness 3. Wearing off phenomenon Reduced effect of levodopa with decreased neuron number 4."
+    },
+    {
+     "type": "paragraph",
+     "text": "On-off phenomenon: (Statement 4) Fluctuating course of improved mobility followed by akinesia Contraindications Angle-closure glaucoma (block trabecular outflow) (Statement 3) Melanoma Peptic Ulcer Disease Psychosis In combination with vitamin B6/pyridoxine (increase peripheral conversion and side effects) In combination with MAO inhibitors (hypertensive crisis)"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-26-4",
+   "question": "A patient who was diagnosed with Parkinson’s disease and started on syndopa a few months ago now complains of worsening rigidity and dyskinesia in between brief periods of improvement. Which of the following is the least preferred add-on drug for this patient?",
+   "options": {
+    "A": "Istradefylline",
+    "B": "Entacapone",
+    "C": "Apomorphine",
+    "D": "Tolcapone"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient is showing signs of motor fluctuations, specifically the “on-off” phenomenon seen with chronic levodopa therapy."
+    },
+    {
+     "type": "paragraph",
+     "text": "Tolcapone, though effective as a COMT inhibitor, is least preferred due to: Risk of severe hepatotoxicity Requirement for frequent liver function monitoring Safer alternatives like entacapone and istradefylline are available. “On-Off” Phenomenon in Parkinson’s Disease Phase Description “On” Phase Periods of good motor function after levodopa dose “Off” Phase Sudden return of parkinsonian symptoms as drug effect wanes Wearing Off Gradual decline in drug efficacy before next dose Freezing Temporary inability to initiate movement (usually in “off” state) Add-On Medications in “On-Off” Management Drug Class/Target Mechanism Use in On-Off Remarks Entacapone COMT inhibitor Inhibits peripheral levodopa breakdown Prolongs “on” time Preferred COMT inhibitor Tolcapone COMT inhibitor Inhibits central + peripheral COMT Similar effect but with hepatotoxicity Least preferred Apomorphine Dopamine agonist (rescue) Direct D1/D2 receptor stimulation Used for sudden “off” episodes Rapid-acting, subcutaneous Istradefylline Adenosine A2A antagonist Enhances dopaminergic activity in indirect pathway Reduces “off” periods Favorable side-effect profile Selegiline MAO-B inhibitor Inhibits dopamine metabolism Reduces wearing-off effects Neuroprotective role suggested Amantadine NMDA antagonist Increases dopamine release, reduces glutamate Used for levodopa-induced dyskinesia Add-on in advanced stages Istradefylline (Option A): Incorrect – Well-tolerated adjunct for reducing “off” time via adenosine A2A receptor blockade."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Entacapone (Option B):** Incorrect – Widely used and preferred COMT inhibitor without liver toxicity."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Apomorphine (Option C):** Incorrect – Short-acting dopamine agonist used for rescue in acute “off” episodes."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-26-5",
+   "question": "A patient was diagnosed with Parkinson’s disease and started on drugs for the same 6 months ago. She now presents for a review with complaints of skin discolouration, as shown in the image below. Which of the following antiparkinson agents would have caused this presentation?",
+   "options": {
+    "A": "Rasagiline",
+    "B": "Trihexyphenidyl",
+    "C": "Amantadine",
+    "D": "Ropinirole"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The skin discolouration given above, with a history of treatment for parkinsonism, is suggestive of livedo reticularis, which can occur as a side effect of using amantadine. Livedo reticularis occurs due to the release of catecholamines, which result in peripheral vasoconstriction. Amantadine: Amantadine acts primarily by promoting dopamine release in the brain and NMDA receptor antagonism."
+    },
+    {
+     "type": "paragraph",
+     "text": "Amantadine can be used in milder cases or short courses to supplement levodopa for advanced cases. In the latter situation, it suppresses motor fluctuations and abnormal movements. A fixed dose of 100 mg BO is used (not titrated according to response). The effect of a single dose lasts 8- 12 hours. Other side effects: Insomnia. Restlessness. Confusion. Nightmares. Anticholinergic effects. Hallucinations (rare). Ankle oedema."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-26-6",
+   "question": "All of the following are true regarding non-ergot derivatives used in Parkinson’s disease, except?",
+   "options": {
+    "A": "Symptoms improve with pramipexole much quicker than with bromocriptine",
+    "B": "Ropinirole can be used as an add-on drug during the on-off phase",
+    "C": "The efficacy of apomorphine improves when combined with ondansetron",
+    "D": "Ropinirole proves best in managing restless leg syndrome"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Apomorphine is contraindicated with ondansetron. Apomorphine: This non-ergot derivative is an injectable dopamine agonist which acts predominantly on the D4 dopaminergic receptors. It causes profound hypotension and loss of consciousness when combined with serotonergic antiemetics (5HT3 antagonists like ondansetron) and hence is contraindicated to combine with them. Other side effects: Q T prolongation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Ropinirole and pramipexole are other non-ergot derivatives that are selective dopaminergic D2/D3 receptor agonists. Improvement in symptoms can be seen much quicker (as early as 1-2 weeks) when compared with bromocriptine (which may take months) (OPTION A) Ropinirole is one of the drugs preferred as an add-on during the on/off phase (OPTION C) and is also approved by the FDA for use in restless leg syndrome (OPTION D) Note: Dopamine agonists like bromocriptine and cabergoline are ergot derivatives."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-26-7",
+   "question": "A 55-year-old patient who was diagnosed with schizophrenia and started on risperidone 4 months ago now presents with resting tremors, muscular rigidity in the upper limbs and reduced pace in movements. Which of the following is the most appropriate drug of choice for this patient?",
+   "options": {
+    "A": "Rasagiline",
+    "B": "Bromocriptine",
+    "C": "Amantadine",
+    "D": "Benzhexol"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The above-mentioned clinical vignette is suggestive of drug-induced parkinsonism, and central anticholinergics like benzhexol (trihexyphenidyl) are the only drugs of choice for this condition. Drugs causing Parkinsonism: MOA: Dopaminergic antagonism. Drugs: Metoclopramide. Haloperidol. Domperidone. Prochlorperazine."
+    },
+    {
+     "type": "paragraph",
+     "text": "Central anticholinergics: Patients with Parkinsonism have neurochemical imbalances in the brain, with a reduction in dopamine and an increase in acetylcholine levels together responsible for the symptoms. These drugs have high central: peripheral anticholinergic action, hence used in parkinsonism. They include: Trihexyphenidyl (Benzhexol). Procyclidine. Biperiden, Orphenadrine. Promethazine."
+    },
+    {
+     "type": "paragraph",
+     "text": "Common side effects include urinary retention, acute confusion, blurring of vision (mydriasis), and euphoria (orphenadrine)."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-26-8",
+   "question": "A patient who was diagnosed with rheumatic heart disease now presents with irregular involuntary movements of the upper limbs and head alongside characteristic darting movement of the tongue. Which of the following drugs is least likely to be used in the management of this presentation?",
+   "options": {
+    "A": "Trihexyphenidyl",
+    "B": "Haloperidol",
+    "C": "Sodium valproate",
+    "D": "Carbamazepine"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical presentation, along with the presence of rheumatic heart disease, is suggestive of Sydenham’s chorea and anticholinergics like trihexyphenidyl will not be used in managing this. Sydenham’s chorea is characterised by unexpected, involuntary, and irregular movements of the upper limbs and head and characteristic darting movements of the tongue."
+    },
+    {
+     "type": "paragraph",
+     "text": "This can be due to dopaminergic excess in certain brain areas, and anticholinergics should not be given because central cholinergic excess will worsen symptoms. Drugs used in the management of Sydenham’s chorea: Haloperidol. Sodium valproate. Carbamazepine. Corticosteroids (refractory cases)."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-26-9",
+   "question": "A patient who presented with progressive muscle weakness and atrophy alongside dysarthria is diagnosed with Lou Gehrig’s disease. All of the following drugs can be used to manage this condition except?",
+   "options": {
+    "A": "Tizanidine",
+    "B": "Donepezil",
+    "C": "Edaravone",
+    "D": "Riluzole"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Donepezil will not be used in the management of Lou Gehrig's disease. Lou Gehrig’s disease/amyotrophic lateral sclerosis is an inherited motor neuron disorder affecting both upper and lower motor neurons, leading to progressive muscle weakness, muscular atrophy and dysarthria. Death usually occurs by respiratory failure. Drugs used in the management of ALS: Direct action on the nervous system Symptomatic (relieve spasticity) Riluzole. Edaravone."
+    },
+    {
+     "type": "paragraph",
+     "text": "Baclofen. Tizanidine. Clonazepam (should be used cautiously as it can cause respiratory depression in advanced ALS). Toferson is a recently approved drug for the management of ALS. It is an antisense oligonucleotide that targets SOD1 mRNA to reduce the synthesis of SOD1 protein."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Tizanidine (Option A):** Correct because it is used to manage spasticity in ALS patients, providing symptomatic relief."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Edaravone (Option C):** Correct because it is an antioxidant that reduces oxidative stress and is approved for ALS to slow progression."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Riluzole (Option D):** Correct because it slows disease progression by inhibiting glutamate toxicity, which is involved in ALS."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-26-10",
+   "question": "Which of the following is the drug of choice in a child with Rett syndrome?",
+   "options": {
+    "A": "Lonafarnib",
+    "B": "Omaveloxolone",
+    "C": "Trofinetide",
+    "D": "Ocrelizumab"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Trofinetide is the drug that is approved by the FDA to be used in Rett syndrome. Rett syndrome is a rare inherited neurological disorder which is characterised by: Female predominance. It affects walking, talking and breathing at later stages. Extrapyramidal symptoms: flapping/grasping hands. Behavioural changes."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Drug Use Lonafarnib Progeria Omaveloxolone Friedreich’s ataxia Ocrelizumab Multiple sclerosis"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-27-1",
+   "question": "Which of the following is not an off-label use of risperidone?",
+   "options": {
+    "A": "Obsessive impulsive disorder",
+    "B": "Dementia",
+    "C": "PTSD",
+    "D": "Bipolar disorder"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Risperidone is an FDA-approved treatment for Bipolar disorder. Bipolar disorder is a mental health condition characterized by episodes of mania and depression. Mania is a state of elevated mood, energy, and activity levels and may include symptoms such as grandiosity, reduced need for sleep, racing thoughts, and increased risk-taking behavior."
+    },
+    {
+     "type": "paragraph",
+     "text": "Depression is a mood disorder characterized by persistent feelings of sadness, loss of interest or pleasure in activities, and impairments in daily functioning."
+    },
+    {
+     "type": "paragraph",
+     "text": "Risperidone Risperidone is an atypical antipsychotic medication that is approved by the FDA for the treatment of schizophrenia and bipolar disorder (both manic and mixed episodes) MOA Antagonism at D2 and 5 HT2 receptors Also binds alpha 1 and 2 receptor, and the H1 receptor Uses FDA approved Long-term management of psychosis and schizophrenia Maintenance therapy in mania bipolar disorder Management of irritability in autism spectrum disorder Off label uses Management of psychosis in delirium and dementia (Option B) Obsessive-compulsive disorders (Option A) PTSD (Option C) Adverse effects Hyperprolactinemia Cardiovascular accident Extrapyramidal side effects"
+    }
+   ]
+  }
+ ]
+}

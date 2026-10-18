@@ -1,0 +1,585 @@
+{
+ "batch": "pharmacology-020",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pharmacology-020",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pharmacology-17-5",
+   "question": "A 68-year-old man with congestive heart failure who is on captopril and digoxin is being reviewed for worsening of his symptoms. A potassium channel opener is added along with nitrates to his regimen as a cardioprotective agent. Which of the following is the K+ channel opener most likely to be?",
+   "options": {
+    "A": "Minoxidil",
+    "B": "Diazoxide",
+    "C": "Hydralazine",
+    "D": "Nicorandil"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Nicorandil has a dual mechanism of action: It serves as a nitric oxide donor, which causes vasodilation by increasing cytosolic cGMP in the vascular smooth muscle. It also acts as a potassium channel opener. Nicorandil exhibits cardioprotective activity by stimulating ischemic preconditioning, a process where brief episodes of ischemia followed by reperfusion confer protection against subsequent prolonged ischemic events."
+    },
+    {
+     "type": "paragraph",
+     "text": "This cardioprotective effect is mediated by the activation of mitochondrial ATP-sensitive potassium channels. The opening of these channels during ischemic preconditioning helps to protect the myocardium from the detrimental effects of prolonged ischemia and vascular occlusion."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Minoxidil (Option A):** Minoxidil is a potassium channel opener that causes vasodilation near hair follicles, improving microcirculation and stimulating hair growth, but it does not provide cardioprotection."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Diazoxide (Option B):** Diazoxide opens potassium channels in pancreatic beta cells, reducing insulin secretion. It is primarily used in insulinoma to prevent hyperinsulinemia but does not provide cardioprotection."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Hydralazine (Option C):** Hydralazine is a direct arteriolar vasodilator, reducing afterload and cardiac workload. It has antioxidant properties that reduce oxidative stress. It increases renal blood flow, enhancing GFR and reducing circulating volume, thus decreasing preload. While it helps in heart failure and hypertension, it lacks specific cardioprotective actions related to ischemic heart conditions or dual nitrate-like effects seen with Nicorandil."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-17-6",
+   "question": "A 68-year-old man comes to the ER with complaints of chest pain radiating to his left arm for the last 30 minutes. He has a history of diabetes, hyperlipidemia and hypertension. ECG showed features of stable angina. Sublingual glyceryl trinitrate was administered, which provided pain relief. What is the mechanism of action of this drug?",
+   "options": {
+    "A": "It donates nitric oxide, which activates guanylyl cyclase, thus increasing cytosolic cGMP.",
+    "B": "It hyperphosphorylates Myosin light chain kinase.",
+    "C": "It blocks the L-type voltage-gated calcium channel in the vascular smooth muscle.",
+    "D": "It inhibits the degradation of cytosolic cGMP."
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Glyceryl trinitrate is a potent nitric oxide donor, which in turn activates soluble guanylyl cyclase thus increasing production of cGMP. This results in the activation of cGMP-dependent protein kinase (PKG), which dephosphorylates myosin light chain kinase (Option B), thus interfering with actin-myosin binding, resulting in vascular smooth muscle relaxation."
+    },
+    {
+     "type": "paragraph",
+     "text": "This vasodilating action provides rapid angina relief by reducing the afterload and increasing blood flow to the ischemic myocardium. Classification of vasodilators Type Mechanism of action Drugs Uses Side effects Arterial dilator The K+ channel opener causes K+ to move out of the vascular smooth muscle, causing hyperpolarisation and thus leading to vasodilation. Hydralazine Hypertensive emergency; Preeclampsia; Chronic heart failure."
+    },
+    {
+     "type": "paragraph",
+     "text": "Drug-induced lupus. May precipitate angina in CAD patients. Minoxidil Alopecia (used in combination with aromatase inhibitor: Finasteride) Hirsutism in females. Diazoxide (it blocks K+ channels in the beta cells of the pancreas, thus reducing insulin secretion) Insulinoma Hyperglycemia Fluid retention."
+    },
+    {
+     "type": "paragraph",
+     "text": "Hypotension (with IV injection) Calcium channel blockers blocks the L-type voltage-gated calcium channel in the vascular smooth muscle (Option C) Dihydropyridine (vessels > heart) Nicardipine Nifedipine Felodipine Hypertension and Angina."
+    },
+    {
+     "type": "paragraph",
+     "text": "Edema Flushing Headaches Non-dihydropyridine (heart > vessels) Verapamil Diltiazem Arrhythmia and Angina Bradyarrhythmia Phosphodiesterase inhibitors-5’ It inhibits the enzyme responsible for the degradation of cGMP, thus keeping the cytosolic cGMP elevated Sildenafil Tadalafil Erectile dysfunction and Pulmonary artery hypertension."
+    },
+    {
+     "type": "paragraph",
+     "text": "Flushing Nasal congestion Dyspepsia Hypotension Venous dilator NO donor It increases cytosolic cGMP, which activates protein kinase that dephosphorylates Myosin light chain kinase, thus inhibiting actin-myosin interaction."
+    },
+    {
+     "type": "paragraph",
+     "text": "Nitrates (Enzyme dependent) Angina Cyanide poisoning Flushing Nitroprusside (Enzyme independent.) Hypertensive emergencies (rapid action) Cyanide toxicity Arterial + venous dilator Has Dual action: NO donor + ATP sensitive K+ channel opener. Nicorandil Angina Flushing dizziness Aphthous ulcers"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L17_Q006_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-17-7",
+   "question": "Which of the following medications is contraindicated with metoprolol due to significant drug interactions?",
+   "options": {
+    "A": "Amlodipine",
+    "B": "Verapamil",
+    "C": "Nifedipine",
+    "D": "Nimodipine"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Verapamil, a non-dihydropyridine calcium channel blocker, has the potential for significant drug interactions with medications metabolised by the CYP3A4 enzyme, such as metoprolol (beta-blockers), as verapamil can inhibit CYP3A4 and increase the plasma levels of this drug."
+    },
+    {
+     "type": "paragraph",
+     "text": "Contraindications of Verapamil: Contraindicated in patients with severe left ventricular dysfunction or heart failure due to its negative inotropic effect, which can further depress cardiac function. Contraindicated in patients with sick sinus syndrome or second- or third-degree AV block (unless a pacemaker is present) due to its ability to depress conduction through the AV node."
+    },
+    {
+     "type": "paragraph",
+     "text": "Caution is advised in patients with COPD or other respiratory diseases, as verapamil can potentially worsen respiratory function due to its negative inotropic effect and potential for bronchospasm. Drug Interactions of Verapamil: Direct oral anticoagulants (DOACs) such as dabigatran, rivaroxaban, and apixaban increase bleeding risk when taken with calcium channel blockers like verapamil and diltiazem."
+    },
+    {
+     "type": "paragraph",
+     "text": "This is due to the calcium channel blockers' inhibition of P-glycoprotein (P-gp) and CYP3A4. Calcium channel blockers can enhance the effects of alpha- and beta-adrenergic blockers (increasing blood pressure and heart rate), raise digoxin levels significantly, and elevate the risk of toxicity from quinidine and disopyramide."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-17-8",
+   "question": "A 65-year-old patient with hypertension and stable angina pectoris reports experiencing excessive swelling in the lower extremities, headaches, and overgrowth of gum tissue (gingival hyperplasia) after being on a calcium channel blocker for several months. Which of the following calcium channel blockers most likely cause these adverse effects?",
+   "options": {
+    "A": "Verapamil",
+    "B": "Amlodipine",
+    "C": "Nimodipine",
+    "D": "Diltiazem"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The side effects mentioned in the scenario, including peripheral oedema (excessive swelling in the lower extremities), headaches, and gingival hyperplasia (overgrowth of the gum tissue), are commonly associated with the long-term use of certain calcium channel blockers, particularly non-dihydropyridine CCBs like diltiazem."
+    },
+    {
+     "type": "paragraph",
+     "text": "Adverse effects of Calcium channel blockers: Side Effect Dihydropyridine CCBs (e.g., Amlodipine, Nimodipine) Non-dihydropyridine CCBs (e.g., Verapamil, Diltiazem) Peripheral Edema Common Common Headache Common Less common Flushing Common Less common Gingival Hyperplasia Rare Common (especially with diltiazem) Dizziness Possible Possible Hypotension Possible Possible Reflex Tachycardia Rare Common (due to negative inotropic effect) Constipation Possible Possible Nausea Possible Possible Fatigue Possible Possible"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-17-9",
+   "question": "Which of the following calcium channel blockers is cerebroselective, specifically for preventing and managing cerebral vasospasm following aneurysmal subarachnoid haemorrhage?",
+   "options": {
+    "A": "Amlodipine",
+    "B": "Verapamil",
+    "C": "Nimodipine",
+    "D": "Diltiazem"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Nimodipine is a cerebroselective calcium channel blocker specifically used in managing cerebral vasospasm following aneurysmal subarachnoid haemorrhage (SAH). It is the most appropriate choice as a prophylactic treatment to prevent cerebral vasospasm and improve cerebral blood flow, thereby reducing the risk of ischemic stroke."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mechanism of Action of Nimodipine: It selectively blocks the entry of calcium ions through the L-type calcium channels in the smooth muscle cells of cerebral arteries and arterioles. This results in the following effects: Vasodilation of cerebral blood vessels: Nimodipine causes vasodilation and improves cerebral blood flow by blocking calcium influx into the smooth muscle cells of cerebral arteries and arterioles."
+    },
+    {
+     "type": "paragraph",
+     "text": "Prevention of cerebral vasospasm: Cerebral vasospasm, a common complication after SAH, is characterised by the narrowing of cerebral arteries, leading to decreased cerebral blood flow and an increased risk of ischemic stroke. Nimodipine helps prevent and alleviate cerebral vasospasm by promoting vasodilation and improving cerebral perfusion."
+    },
+    {
+     "type": "paragraph",
+     "text": "Cerebroselective action: Nimodipine has a high affinity for the L-type calcium channels in cerebral blood vessels, making it selective for the cerebral vasculature. This selectivity minimises systemic side effects, such as hypotension and reflex tachycardia, commonly associated with non-selective calcium channel blockers. Administration: Typically given orally or via nasogastric tube, starting within 4 days of the subarachnoid haemorrhage."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-17-10",
+   "question": "A 48-year-old woman with a 10-year history of poorly controlled hypertension visits your clinic for follow-up. Her blood pressure is 158/96 mmHg, despite being on lisinopril and hydrochlorothiazide. Her serum creatinine and potassium levels are within normal limits. Which calcium channel blockers would be the most appropriate addition to her long-term blood pressure control treatment regimen?",
+   "options": {
+    "A": "Nifedipine",
+    "B": "Nicardipine",
+    "C": "Clevidipine",
+    "D": "Amlodipine"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Amlodipine is a long-acting dihydropyridine CCB, and it would be an appropriate choice to achieve better blood pressure control in the long term. It can be used as an add-on therapy with other antihypertensive agents, and its once-daily dosing improves patient compliance."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mechanism of action of CCB (Dihydropyridines): It blocks the entry of calcium ions through the L-type calcium channels in vascular smooth muscle cells, causing vasodilation and a reduction in peripheral vascular resistance."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Drug Use Rationale for Choice Nifedipine (Option A):** Short-acting Primarily used for angina pectoris Not recommended for long-term hypertension management due to its short duration of action and potential for reflex tachycardia."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Nicardipine (Option B):** Short-acting Commonly used in the management of hypertensive emergencies and perioperative hypertension or severe hypertension in the intensive care unit. The short duration of action makes it less suitable for long-term hypertension management."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Clevidipine (Option C):** Ultra-short-acting Very short half-life makes it unsuitable for long-term hypertension management."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Amlodipine (Option D):** Long-acting. Recommended as a first-line or add-on therapy for the long-term management of hypertension Preferred choice due to its long duration of action (up to 24 hours), once-daily dosing, and effectiveness in lowering blood pressure with good tolerability."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-17-11",
+   "question": "Match the following 1. Aliskiren a) Central sympatholytic 2. Lisinopril b) Acts on JG cells of the kidney to reduce renin release 3. Losartan c) Direct renin inhibitor 4. Clonidine d) Prevents formation of Angiotensin 2 5. Beta-blockers e) Block Angiotensin 1 receptor",
+   "options": {
+    "A": "1-a, 2-b, 3-c, 4-d, 5-e",
+    "B": "1-b, 2-c, 3-d, 4-e, 5-a",
+    "C": "1-c, 2-d, 3-e, 4-a, 5-b",
+    "D": "1-d, 2-e, 3-a, 4-b, 5-c"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Name of drug Class Mechanism of action Aliskiren Direct renin inhibitor Blocks the formation of angiotensin 1, which decreases BP. Lisinopril ACE inhibitor Blocks the conversion of angiotensin 1 to angiotensin 2 Losartan ARB Blocks angiotensin 1 receptor Clonidine Central sympatholytic It acts on alpha 2A receptors, decreasing sympathetic discharge from the brain and reducing renin secretion."
+    },
+    {
+     "type": "paragraph",
+     "text": "Metoprolol, Atenolol Beta-blockers Act on JG cells of the kidney to reduce renin release."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L17_Q011_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-17-12",
+   "question": "Which of the following drugs is classified as a non-dihydropyridine (non-DHP) calcium channel blocker?",
+   "options": {
+    "A": "Amlodipine",
+    "B": "Felodipine",
+    "C": "Diltiazem",
+    "D": "Nifedipine"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Diltiazem is an example of non-dihydropyridines (non-DHPs) calcium channel blockers. Calcium channel blockers (CCBs) can be classified into two main groups: dihydropyridines (DHPs) and non-dihydropyridines (non-DHPs). Group Examples Main Effects Non-dihydropyridines (non-DHPs). Diltiazem (Benzothiazepines) Moderate effects on cardiac muscle and vascular smooth muscle."
+    },
+    {
+     "type": "paragraph",
+     "text": "Verapamil (Phenylalkylamines) It primarily affects cardiac muscle, leading to negative inotropic effects and slow conduction through the AV node. Dihydropyridines Amlodipine, Bepridil, Felodipine, Isradipine, Nicardipine, Nifedipine, Nisoldipine It predominantly acts on the smooth vascular muscle, resulting in vasodilation and reduced peripheral vascular resistance; some also affect the cardiac muscle."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-17-13",
+   "question": "Which of the following statements about the pharmacological properties of ARBs is correct? 1) Losartan blocks the thromboxane A2 receptor, resulting in an antiplatelet effect and uricosuric action. 2) Irbesartan blocks the SA node in the heart, making it effective in atrial fibrillation. 3) Telmisartan acts as a PPAR-alpha agonist, which improves insulin sensitivity.",
+   "options": {
+    "A": "1,2,3",
+    "B": "1,2",
+    "C": "Only 3",
+    "D": "1,3"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "ARB’s Mechanism of Action Use Special Features Losartan Acts as a competitive antagonist and inverse agonist at AT1 receptors, demonstrating selectivity for AT1 over AT2 receptors. Hypertension, heart failure It does not interfere with bradykinin degradation, reducing the risk of cough. It possesses an antiplatelet effect by blocking thromboxane A2 receptors. It exhibits uricosuric action, which is potentially beneficial for gout."
+    },
+    {
+     "type": "paragraph",
+     "text": "Irbesartan Functions as a selective competitive antagonist of AT1 receptors. Hypertension, atrial fibrillation Effective in atrial fibrillation by blocking the sinoatrial (SA) node in the heart. Telmisartan Acts as a selective competitive antagonist of AT1 receptors."
+    },
+    {
+     "type": "paragraph",
+     "text": "Hypertension, prevention of cardiovascular events, management of diabetic nephropathy Acts as a peroxisome proliferator-activated receptor-gamma (PPAR-γ) agonist, similar to pioglitazone. Stimulation of PPAR-γ leads to improved insulin sensitivity and reduced risk of type 2 diabetes by decreasing insulin resistance."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-17-14",
+   "question": "Which angiotensin II receptor blocker (ARB) is considered the most potent and has the highest affinity for the AT-1 receptor?",
+   "options": {
+    "A": "Losartan",
+    "B": "Valsartan",
+    "C": "Candesartan",
+    "D": "Irbesartan"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Candesartan is one of the most potent ARBs because of its high affinity for the AT-1 receptor. It has a relatively longer plasma half-life than other ARBs (about 9 hours). The recommended oral dosage of candesartan ranges from 4 to 32 mg once or twice daily. Candesartan: Mechanism of Action Blocks angiotensin II receptors (AT-1), exerting its pharmacological effects."
+    },
+    {
+     "type": "paragraph",
+     "text": "Uses It is commonly prescribed for various conditions, including hypertension, heart failure, and diabetic nephropathy, with off-label uses for conditions such as cerebrovascular accident (stroke), left ventricular hypertrophy, and migraines. Side Effects Dizziness, hypotension, hyperkalemia, cough, headache, back pain, angioedema, upper respiratory tract infections."
+    },
+    {
+     "type": "paragraph",
+     "text": "Specific Characteristics Candesartan is associated with a risk of teratogenicity, evidenced by a boxed warning for fetal toxicity."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-17-15",
+   "question": "Which of the following adverse effects of ACE inhibitors is associated with increased bradykinin levels?",
+   "options": {
+    "A": "Hypotension",
+    "B": "Hyperkalemia",
+    "C": "Cough",
+    "D": "Dysgeusia"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "ACE inhibitors commonly cause a persistent dry cough, which is not dose-related. The mechanism underlying ACE inhibitor-induced cough involves the inhibition of bradykinin breakdown. ACE (angiotensin-converting enzyme) degrades bradykinin, which mediates vasodilation and inflammation. When ACE inhibitors block this enzyme, bradykinin levels increase, irritating the respiratory tract and triggering cough receptors."
+    },
+    {
+     "type": "paragraph",
+     "text": "Additionally, the inhibition of substance P breakdown may contribute to cough. The onset of cough associated with ACE inhibitors can vary but often occurs within weeks to months after initiating therapy. However, it tends to resolve spontaneously within days to weeks after discontinuation of the ACE inhibitor."
+    },
+    {
+     "type": "paragraph",
+     "text": "The management of cough involves switching to an alternative antihypertensive medication, such as an angiotensin II receptor blocker (ARB), which does not affect bradykinin metabolism and is less likely to induce cough. Adverse effects of ACEI: Adverse Effect Description Hypotension Decrease in blood pressure, especially upon initiation of therapy or with dosage increases."
+    },
+    {
+     "type": "paragraph",
+     "text": "Hyperkalemia Increased serum potassium levels due to reduced aldosterone secretion. Cough Persistent dry cough, possibly due to bradykinin buildup in the lungs. Angioedema Due to increased bradykinin levels, swelling of deeper layers of skin, particularly around the eyes and lips, can be life-threatening. Rashes/Urticaria Skin reactions like rashes or hives occur in a small percentage of users."
+    },
+    {
+     "type": "paragraph",
+     "text": "Dysgeusia Reversible taste changes are more common with captopril. Rare Effects Granulocytopenia (low white blood cells) and proteinuria (excess protein in urine) are more concerning in patients with kidney disease. Acute Renal Failure Possible in patients with bilateral renal artery stenosis due to decreased kidney filtration."
+    },
+    {
+     "type": "paragraph",
+     "text": "Fetal Effects ACE inhibitors are contraindicated during pregnancy due to potential harm to the fetus, including fetal renal damage due to inhibition of the fetal renin-angiotensin system."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-17-16",
+   "question": "A 58-year-old female with hypertension and heart failure is prescribed an ACE inhibitor for blood pressure control. What is the most significant drug interaction to be cautious about when prescribing ACE inhibitors?",
+   "options": {
+    "A": "Calcium channel blockers",
+    "B": "Loop diuretics",
+    "C": "Statins",
+    "D": "Potassium-sparing diuretics"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "When prescribing ACE inhibitors, certain drug interactions can pose significant risks, especially the interaction with potassium-sparing diuretics. Here are some key interactions and their clinical implications: Drug Interaction Mechanism Clinical Implication ACE Inhibitors + Potassium Supplements/K-sparing diuretics Risk of hyperkalemia due to reduced aldosterone secretion by ACE inhibitors combined with potassium-retaining agents."
+    },
+    {
+     "type": "paragraph",
+     "text": "Monitoring serum potassium levels is crucial to avoid hyperkalemia, which can cause serious cardiac issues such as arrhythmias. ACE Inhibitors + NSAIDs NSAIDs can reduce the anti-hypertensive effects of ACE inhibitors and decrease renal blood flow, increasing the risk of acute renal failure (ARF) or oliguria. Use caution when combining NSAIDs with ACE inhibitors, and closely monitor renal function, particularly in high-risk patients."
+    },
+    {
+     "type": "paragraph",
+     "text": "ACE Inhibitors + Lithium ACE inhibitors can increase the reabsorption of lithium, potentially leading to lithium toxicity. Monitor lithium levels carefully when starting or adjusting ACE inhibitors in patients taking lithium, and adjust the lithium dosage as needed. ACE Inhibitors + Antacids Reduced bioavailability of ACE inhibitors due to binding with antacids."
+    },
+    {
+     "type": "paragraph",
+     "text": "Administer ACE inhibitors at least two hours before or after antacids to maintain their efficacy. ACE Inhibitors + Diuretics Diuretics enhance the hypotensive effects of ACE inhibitors by depleting sodium and raising renin levels. In patients already on diuretics, start ACE inhibitors at a low dose to minimise the risk of excessive blood pressure reduction initially."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-17-17",
+   "question": "A 62-year-old female presents for management of her hypertension and heart failure. She has a past medical history of type 2 diabetes mellitus, hyperlipidemia, and chronic kidney disease (stage 3). The initiation of an ACE inhibitor is considered. Which of the following are the uses of ACE inhibitors in this scenario?",
+   "options": {
+    "A": "Reduction of proteinuria",
+    "B": "Reduction of preload and afterload",
+    "C": "Prevention of diabetic nephropathy",
+    "D": "All the above"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient has multiple comorbidities that would benefit from the use of ACE inhibitors (ACEIs), including: Reduction of proteinuria: ACEIs help decrease proteinuria, which slows the progression of kidney damage in Chronic Kidney disease (CKD). Reduction of preload and afterload: ACEIs improve symptoms and outcomes in heart failure patients by reducing both preload and afterload on the heart."
+    },
+    {
+     "type": "paragraph",
+     "text": "Prevention of diabetic nephropathy: ACEIs help prevent the progression of diabetic nephropathy by lowering intraglomerular pressure and hyperfiltration, thereby preventing albuminuria. Uses of ACEI: Hypertension: ACEIs are particularly effective in patients with comorbid conditions such as diabetes, CKD, and scleroderma. Myocardial Infarction (MI): ACEIs are used both in the acute management of MI and for long-term secondary prophylaxis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Congestive Heart Failure (CHF): ACEIs improve outcomes by reducing the workload on the heart. Prophylaxis in high cardiovascular-risk individuals: ACEIs protect both the myocardium and vasculature, possibly through improved endothelial function. Scleroderma: ACEIs can prevent the rise in blood pressure and renal function deterioration mediated by angiotensin II in patients with scleroderma."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-17-18",
+   "question": "Which of the following ACEI is not a prodrug?",
+   "options": {
+    "A": "Captopril",
+    "B": "Enalapril",
+    "C": "Fosinopril",
+    "D": "Ramipril"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "A prodrug is an inactive substance metabolised within the body to form an active drug. Most ACE inhibitors (ACEIs) are prodrugs that must be converted in the liver to their active forms. However, some ACEIs are administered in their active form. Captopril and Lisinopril are not prodrugs; they are active in their administered forms. The other ACEIs listed, including Enalapril, Fosinopril, and Ramipril, are prodrugs."
+    },
+    {
+     "type": "paragraph",
+     "text": "They require metabolic conversion to their active forms, enalaprilat, fosinoprilat, and ramiprilat. Enaliprat is the fastest acting ACE inhibitor and can be used intravenously"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-17-19",
+   "question": "Which of the following ACEIs/ARBs are most safe in renal failure?",
+   "options": {
+    "A": "Captopril and Losartan",
+    "B": "Fosinopril and Telmisartan",
+    "C": "Enalapril and Candisartan",
+    "D": "Benazepril and Losartan"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Fosinopril and Telmisartan are considered to be safer in renal failure. ACE inhibitors (ACEIs) and angiotensin II receptor blockers (ARBs) are commonly used in the treatment of hypertension and chronic kidney disease. Their safety in patients with renal failure varies based on their excretion pathways: ACEIs: Most ACE inhibitors, such as enalapril, lisinopril, benazepril, and ramipril, are predominantly excreted by the kidneys."
+    },
+    {
+     "type": "paragraph",
+     "text": "Fosinopril is an exception, as it is excreted by both the kidneys and the liver, making it safer for patients with impaired renal function. ARBs: Some ARBs, such as telmisartan, are largely excreted by the liver, which reduces the strain on the kidneys. In contrast, losartan is primarily excreted by the kidneys, and candesartan is excreted by both the kidneys and the liver."
+    },
+    {
+     "type": "paragraph",
+     "text": "Given these considerations, fosinopril and telmisartan are the safest choices for patients with renal failure due to their respective excretion mechanisms."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-17-20",
+   "question": "A 56-year-old male presents to the emergency department with severe headache, blurred vision, and chest pain. He reports a history of hypertension but admits to poor medication adherence. On examination, his blood pressure is 200/120 mmHg, and he appears diaphoretic and anxious. Which of the following drugs can be used to treat his condition?",
+   "options": {
+    "A": "Lisinopril",
+    "B": "Diltiazem",
+    "C": "Losartan",
+    "D": "Nicardipine"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient is most likely in a hypertensive emergency, an acute, marked elevation in blood pressure associated with signs of target-organ damage. These include pulmonary oedema, cardiac ischemia, neurologic deficits, acute renal failure, aortic dissection, and eclampsia. Nicardipine, a calcium channel blocker, is used to treat hypertensive emergencies."
+    },
+    {
+     "type": "paragraph",
+     "text": "Drugs used to treat hypertensive emergencies include Dihydropyridine calcium channel blockers: Intravenous Nicardipine (DOC), Clevidipine. Nitrates: Sodium nitroprusside and Nitroglycerin. Adrenergic blocking agents: Labetalol (DOC in pregnancy) and Esmolol. Others: Enalaprilat and Hydralazine."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-18-1",
+   "question": "A 60-year-old male with a history of hypertension presents to the emergency with a sudden onset of chest pain radiating to his jaw. The pain started 35 minutes ago while he was walking and has not improved with rest. On physical examination, ECG showed ST-segment depression in the anterior leads. What is the most appropriate initial treatment for managing this condition?",
+   "options": {
+    "A": "Atenolol",
+    "B": "Nitroglycerin",
+    "C": "Aspirin",
+    "D": "Clopidogrel"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "This patient with sudden onset chest pain radiating to the jaw and not improving on rest with ECG showing ST changes suggests acute angina with sublingual nitroglycerin as a drug of choice. Angina pectoris is characterised by chest pain caused by reduced blood flow and oxygen supply to the heart muscle. The pain is elicited by the metabolites that accumulate due to myocardial ischaemia. Nitrates: They are best to abort an acute attack of angina."
+    },
+    {
+     "type": "paragraph",
+     "text": "MOA: Venodilation → Reduce preload → Reduce myocardial contractility → Decreased O 2 demand Other beneficial effects: Dilates coronary artery (increase cGMP): effective in vasospastic angina. Redistribution of coronary blood flow to the ischemic area ( Robinhood phenomenon )."
+    },
+    {
+     "type": "paragraph",
+     "text": "Uses: Angina (stable, vasospastic and chronic) Acute coronary syndrome or myocardial infarction (STEMI/NSTEMI) Acute pulmonary edema Abdominal colicky pain Beta-blockers( OPTION A) like atenolol are important in the long-term management of angina; they are not the immediate treatment for acute pain relief. Aspirin ( OPTION C) prevents platelet aggregation and reduces the risk of future ischemic events but does not relieve acute chest pain."
+    },
+    {
+     "type": "paragraph",
+     "text": "Clopidogrel ( OPTION D) is an antiplatelet agent used to prevent further ischemic events but does not provide immediate relief of acute angina symptoms."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-18-2",
+   "question": "Which of the following statements correctly describes the use of beta-blockers in the management of chronic angina?",
+   "options": {
+    "A": "It dilates coronary blood vessels by blocking beta-2 receptors in the heart.",
+    "B": "It decreases myocardial oxygen demand by reducing heart rate and contractility.",
+    "C": "It dilates coronary arteries directly, improving blood flow to the myocardium.",
+    "D": "It increases the workload on the heart by increasing blood pressure."
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Beta-blockers help manage angina by reducing heart rate and the force of heart contractions. This lowers the heart's oxygen demand, decreasing the likelihood of future angina episodes. They also reduce the heart's workload by lowering blood pressure and heart rate. Chronic stable angina (Common form): Attacks are predictably provoked (stable angina) by exercise, emotion, eating or coitus."
+    },
+    {
+     "type": "paragraph",
+     "text": "Pathogenesis: Atherosclerotic plaque → gradual → ↓ blood supply to myocardium → ↓ O 2 supply to myocardium → Anginal attack Beta-blockers: DOC in chronic stable angina. MOA: Side effects: Risk of vasoconstriction (block beta-2 receptor in coronary arteries). (Option C) Risk of Vasospastic angina. Alternate treatment for chronic angina: Calcium channel blockers and nitrates."
+    },
+    {
+     "type": "paragraph",
+     "text": "Cardioselective beta blocker Non-Selective beta blocker Blocks beta-1 > beta-2 Mnemonic- MAN B Metoprolol Atenolol Nebivolol Bisoprolol Blocks beta-1 and beta-2 equally. Propranolol Contraindications- Vasospastic or prinzmetal angina."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L18_Q002_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-18-3",
+   "question": "A 40-year-old female presents to the emergency with recurrent chest pain over the past few days. The pain occurs at rest, often waking her from sleep and resolves spontaneously. Her resting ECG shows transient ST-segment elevation with a normal coronary angiogram. Which of the following most appropriately matches the treatment and mechanism of action of the drug of choice? Drug Mechanism of Action 1. Nitroglycerin a. Reduce myocardial oxygen demand by decreasing heart rate. 2. Propranolol b. Vasodilates coronary arteries by increasing cGMP. 3. Nifedipine c. Inhibit calcium influx into vascular smooth muscle and cardiac cells. 4. Aspirin d. Inhibits platelet aggregation by irreversibly acetylating cyclooxygenase.",
+   "options": {
+    "A": "3 and c",
+    "B": "2 and b",
+    "C": "1 and d",
+    "D": "4 and a"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "This young female has recurring chest pain with ECG changes and a normal coronary artery angiogram, suggesting prinzmetal angina as the most likely diagnosis, with calcium channel blockers (nifedipine) as the treatment of choice. Chronic Vasospastic angina (Prinzmetal angina) occurs due to recurrent localised (occasionally) coronary vasospasm, which may be superimposed on arteriosclerotic coronary artery disease."
+    },
+    {
+     "type": "paragraph",
+     "text": "Attacks occur at rest or during sleep and are predictable. DOC- Calcium channel blockers (Dihydropyridine type) Calcium channel blockers DHP Non-DHP MOA: Coronary artery dilator Drugs: Amlodipine, Nifedipine and Felodipine. Use: Chronic Vasospastic angina Combined with beta-blockers to reduce the risk of tachycardia. MOA- Decrease heart rate and O 2 demand (heart & coronary artery)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Drugs: Verapamil, Diltiazem Uses: Stable angina, Coronary dilator and Vasospastic angina. Never combined with beta-blockers (marked bradycardia). Other treatment options are long-acting nitrates, oral nitrates and transdermal patches."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Propranolol (Option B):** is a beta-blocker that reduces myocardial oxygen demand by decreasing heart rate but does not cause vasodilation via cGMP. It can worsen coronary vasospasm in Prinzmetal’s angina."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Nitroglycerin (Option C):** causes vasodilation by increasing cGMP, not by inhibiting cyclooxygenase, which is the action of aspirin."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Aspirin (Option D):** inhibits cyclooxygenase, preventing platelet aggregation and does not affect heart rate or myocardial oxygen demand directly."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-18-4",
+   "question": "Which of the following statements about the pharmacokinetics of nitrates is incorrect?",
+   "options": {
+    "A": "Nitrates undergo extensive first-pass metabolism in the liver",
+    "B": "Nitrates are highly lipid-soluble drugs",
+    "C": "Isosorbide mononitrate has 100% bioavailability when taken orally",
+    "D": "Pentaerythritol tetranitrate is the shortest-acting nitrate when administered orally"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Pharmacokinetics of Nitrates: Highly lipid soluble. (OPTION B) High first-pass metabolism in the liver (given sublingual). (OPTION A) Isosorbide mononitrate doesn't have first-pass metabolism (given orally). DOC for acute angina: Nitroglycerin or isosorbide dinitrate."
+    },
+    {
+     "type": "paragraph",
+     "text": "Nitrates Glyceryl trinitrate (Nitroglycerin) Shortest acting Given as oral, sublingual, transdermal, rectal, nasal spray and IV. Isosorbide dinitrate Prodrug; converted to active form (mononitrate). Isosorbide mononitrate Oral route 100% bioavailability (OPTION C) Pentaerythritol tetranitrate Longest acting (OPTION D)"
+    }
+   ]
+  }
+ ]
+}

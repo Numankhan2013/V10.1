@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
-"""Restructure PrepLadder Pathology explanations with an outside model, safely.
+"""Restructure PrepLadder text-bank explanations with an outside model, safely.
 
 The PDF prints every explanation as running text, so lists, option rulings
 and tables arrive as one paragraph. A model reads each explanation and returns
 the same words as paragraphs, points and tables; this tool takes nothing else.
 
-  export              write batches to data/Prepladder/pathology/restructure/batches/
+  export --bank B     write batches to data/Prepladder/B/restructure/batches/
   check  <result...>  validate model output; writes nothing
   import <result...>  validate, then merge passing questions into the overlay
+
+The bank (pathology, pharmacology) comes from --bank or else from the result
+files' names or folders (pharmacology-007.result.json); it defaults to pathology.
 
 A result passes only when its words, read in order, are exactly the source's
 words (punctuation, spacing, case of nothing; see words()). Figures must keep
@@ -17,6 +20,7 @@ explanation has since changed. Instructions: docs/EXPLANATION_RESTRUCTURE.md.
 from __future__ import annotations
 
 import argparse
+import importlib
 import json
 import re
 import sys
@@ -25,11 +29,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 
-from build_prepladder_pathology_bank import source_hash  # noqa: E402
+from prepladder_text_bank import source_hash  # noqa: E402
 
-DIR = ROOT / "data/Prepladder/pathology/restructure"
-BATCHES = DIR / "batches"
-OVERLAY = DIR / "restructured.json"
+BANKS = ("pathology", "pharmacology")
 BATCH_SIZE = 20
 INSTRUCTIONS = "docs/EXPLANATION_RESTRUCTURE.md"
 
@@ -113,27 +115,37 @@ def problems(source: list[dict], result: list[dict]) -> list[str]:
 
 # --- source ---------------------------------------------------------------------
 
-def bank_bodies() -> dict[str, dict]:
+def paths(bank: str) -> tuple[Path, Path]:
+    """The batch folder and the overlay of a bank."""
+    folder = ROOT / "data/Prepladder" / bank / "restructure"
+    return folder / "batches", folder / "restructured.json"
+
+
+BATCHES, OVERLAY = paths("pathology")
+
+
+def bank_bodies(bank: str) -> dict[str, dict]:
     """Every question's explanation body (blocks without references) and context."""
-    from build_prepladder_pathology_bank import NO_EXPLANATION, load_source, normalize
+    builder = importlib.import_module(f"build_prepladder_{bank}_bank")
 
     out = {}
-    for q in normalize(load_source(), overlay=False)[0]["questions"]:
+    for q in builder.normalize(builder.load_source(), overlay=False)[0]["questions"]:
         body = [b for b in q["structuredExplanation"]["blocks"] if b["type"] != "references"]
-        if not body or body[0].get("text") == NO_EXPLANATION:
+        if not body or body[0].get("text") == builder.NO_EXPLANATION:
             continue
         out[q["id"]] = {"q": q, "body": body}
     return out
 
 
-def export() -> None:
-    bodies = bank_bodies()
-    BATCHES.mkdir(parents=True, exist_ok=True)
-    for old in BATCHES.glob("*.json"):
+def export(bank: str) -> None:
+    bodies = bank_bodies(bank)
+    batches, _ = paths(bank)
+    batches.mkdir(parents=True, exist_ok=True)
+    for old in batches.glob("*.json"):
         old.unlink()
     ids = list(bodies)
     for n in range(0, len(ids), BATCH_SIZE):
-        name = f"pathology-{n // BATCH_SIZE + 1:03d}"
+        name = f"{bank}-{n // BATCH_SIZE + 1:03d}"
         questions = []
         for qid in ids[n:n + BATCH_SIZE]:
             q, body = bodies[qid]["q"], bodies[qid]["body"]
@@ -148,8 +160,8 @@ def export() -> None:
                  "reply_with": {"batch": name, "results": [{"id": "<question id>", "blocks": ["..."]},
                                                            {"id": "<question id>", "unchanged": True}]},
                  "questions": questions}
-        (BATCHES / f"{name}.json").write_text(json.dumps(batch, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
-    print(f"RESTRUCTURE_EXPORT_OK questions={len(ids)} batches={-(-len(ids) // BATCH_SIZE)} dir={BATCHES.relative_to(ROOT)}")
+        (batches / f"{name}.json").write_text(json.dumps(batch, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    print(f"RESTRUCTURE_EXPORT_OK questions={len(ids)} batches={-(-len(ids) // BATCH_SIZE)} dir={batches.relative_to(ROOT)}")
 
 
 def load_results(paths: list[Path]) -> list[dict]:
@@ -169,10 +181,10 @@ def load_results(paths: list[Path]) -> list[dict]:
     return rows
 
 
-def judge(paths: list[Path]) -> tuple[dict, list[str], int]:
-    bodies = bank_bodies()
+def judge(bank: str, files: list[Path]) -> tuple[dict, list[str], int]:
+    bodies = bank_bodies(bank)
     passed, report, unchanged = {}, [], 0
-    for r in load_results(paths):
+    for r in load_results(files):
         qid = r.get("id")
         if qid not in bodies:
             report.append(f"{r['_file']}: {qid!r} is not a question in the batches")
@@ -188,15 +200,16 @@ def judge(paths: list[Path]) -> tuple[dict, list[str], int]:
     return passed, report, unchanged
 
 
-def check(paths: list[Path], write: bool) -> None:
-    passed, report, unchanged = judge(paths)
+def check(bank: str, files: list[Path], write: bool) -> None:
+    passed, report, unchanged = judge(bank, files)
     for line in report:
         print("REJECTED", line)
     if write and passed:
-        overlay = json.loads(OVERLAY.read_text(encoding="utf-8")) if OVERLAY.exists() else {}
+        _, target = paths(bank)
+        overlay = json.loads(target.read_text(encoding="utf-8")) if target.exists() else {}
         overlay.update(passed)
-        OVERLAY.parent.mkdir(parents=True, exist_ok=True)
-        OVERLAY.write_text(json.dumps(dict(sorted(overlay.items())), ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(json.dumps(dict(sorted(overlay.items())), ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     verb = "IMPORT" if write else "CHECK"
     print(f"RESTRUCTURE_{verb}_{'OK' if not report else 'REJECTIONS'} passed={len(passed)} unchanged={unchanged} "
           f"rejected={len(report)}")
@@ -208,13 +221,18 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("command", choices=("export", "check", "import"))
     parser.add_argument("results", nargs="*", type=Path)
+    parser.add_argument("--bank", choices=BANKS)
     args = parser.parse_args()
+    named = {b for path in args.results for b in BANKS if path.name.startswith(b + "-") or b in path.resolve().parts}
+    if len(named) > 1:
+        parser.error("result files from more than one bank; check one bank at a time")
+    bank = args.bank or next(iter(named), "pathology")
     if args.command == "export":
-        export()
+        export(bank)
     elif not args.results:
         parser.error(f"{args.command} needs one or more result files")
     else:
-        check(args.results, write=args.command == "import")
+        check(bank, args.results, write=args.command == "import")
 
 
 if __name__ == "__main__":

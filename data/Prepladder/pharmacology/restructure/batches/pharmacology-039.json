@@ -1,0 +1,601 @@
+{
+ "batch": "pharmacology-039",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pharmacology-039",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pharmacology-33-34",
+   "question": "A diabetic patient was on medication and forgot to take his meals before going to the gym. He fainted while exercising, and their blood sugar level was found to be 60 mg/dL. Which of the following antidiabetic drugs can cause hypoglycemia when used in monotherapy?",
+   "options": {
+    "A": "Sulfonylureas",
+    "B": "Metformin",
+    "C": "Acarbose",
+    "D": "Pioglitazone"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Sulfonylureas are insulin secretagogues that stimulate the pancreas to release more insulin, which can lead to an increased risk of hypoglycemia, especially when used in monotherapy, particularly if the patient skips meals, exercises excessively, or has altered insulin sensitivity."
+    },
+    {
+     "type": "paragraph",
+     "text": "Sulfonylureas Site of Action Pancreatic β cells Uses Type 2 Diabetes Mellitus Mechanism of Action Sulfonylureas → Bind to Receptors on Pancreatic β Cells → Closure of ATP-sensitive K + Channels → Membrane depolarization → Opening of Voltage-Gated Ca².+ Channels → Ca² + Influx → Exocytosis of Insulin Granules → Increased Insulin Secretion → Lower Blood Glucose Levels."
+    },
+    {
+     "type": "paragraph",
+     "text": "Drugs 1st Generation Tolbutamide Chlorpropamide 2nd Generation Glibenclamide Glipizide Gliclazide Glimepiride Incorrect Options: Metformin (Option B) primarily decreases hepatic glucose production and increases insulin sensitivity in peripheral tissues. It does not stimulate insulin release from pancreatic beta cells. Hypoglycemia is unlikely with metformin unless it is combined with other medications like sulfonylureas or insulin."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Acarbose (Option C):** is an alpha-glucosidase inhibitor that works by slowing down the digestion and absorption of carbohydrates in the small intestine. It does not cause hypoglycemia on its own and is not associated with hypoglycemic events."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Pioglitazone (Option D):** is a thiazolidinedione that improves insulin sensitivity by acting as an agonist for the(PPAR-γ). This results in increased glucose uptake in muscle and adipose tissue and decreased glucose production in the liver. It does not cause hypoglycemia when used alone."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-33-35",
+   "question": "A diabetic patient was started on a drug that decreased HbA1c from 7.6 to 6.8. She started complaining of itching around the vulvovaginal area. Which drug was she started on?",
+   "options": {
+    "A": "Canagliflozin",
+    "B": "Metformin",
+    "C": "Linagliptin",
+    "D": "Liraglutide"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Canagliflozin has been linked to vulvovaginal pruritus (itching) caused by candidiasis. It belongs to the class of medications known as sodium-glucose co-transporter 2 (SGLT2) inhibitors. These drugs work by reducing glucose reabsorption in the kidneys, leading to increased glucose excretion in the urine. Vulvovaginal candidiasis is common (ncreased excretion of sugar in the urine)."
+    },
+    {
+     "type": "paragraph",
+     "text": "The sugar promotes the growth of pathogens like candida, resulting in: Vulvovaginal pruritis (pruritus in the genital area, including the vulva and vagina). UTI (urinary tract infection) Fournier's gangrene."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Metformin (Option B):** belongs to the class biguanide, which is an oral anti-diabetic medication that stimulates the AMPK enzyme, inhibits hepatic glucose production, and increases peripheral insulin sensitivity. It can lead to adverse effects like megaloblastic anaemia and lactic acidosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Linagliptin (Option C):** is a DPP-4 inhibitor that increases the secretion of Insulin from the pancreas in response to meals (there is no risk of hypoglycemia) and reduces the Secretion of glucose."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Liraglutide (Option D):** is a GLP-1 (glucagon-like peptide-1) analogue that enhances insulin secretion in response to food intake and helps manage postprandial blood glucose levels. It can cause gallstones, pancreatitis, and risk of Pancreatic and thyroid cancer (contraindicated in MEN syndrome)."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-33-36",
+   "question": "A lady who had undergone mastectomy for breast cancer is being treated with tamoxifen. How long should it be stopped before she can conceive?",
+   "options": {
+    "A": "1 month",
+    "B": "3 months",
+    "C": "No need to stop",
+    "D": "Can be stopped and conceived soon after stopping"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Tamoxifen is a selective serotonin receptor inhibitor used in breast cancer. According to the American Association of Clinical Oncology, a woman taking tamoxifen has to discontinue the drug 3 months before planning to conceive."
+    },
+    {
+     "type": "paragraph",
+     "text": "Tamoxifen is contraindicated during pregnancy due to its potential teratogenic effects; it should be stopped 3 months after attempting to conceive to allow it to be sufficiently cleared from the body. (Option A, C, D ruled out)"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-33-37",
+   "question": "A patient presented with anxiety, restlessness, tremors and fever. His BP is 180/110 mmHg and atrial fibrillation is detected on ECG. He also has a history of asthma. What drug should be given next?",
+   "options": {
+    "A": "Esmolol",
+    "B": "Propranolol",
+    "C": "PTU",
+    "D": "Diltiazem"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Controlling heart rate and rhythm: Diltiazem, a calcium channel blocker, is preferred in this case as it effectively slows AV node conduction and does not cause bronchoconstriction, making it safe for patients with asthma."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Beta-blockers such as esmolol or propranolol (Options A and B):** are usually first-line but are contraindicated in asthmatic patients due to their risk of bronchospasm. Reducing thyroid hormone synthesis: Propylthiouracil (PTU) (Option C) is the drug of choice for inhibiting thyroid hormone synthesis in thyroid storm, but it does not address the immediate need to control atrial fibrillation and hypertension."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-33-38",
+   "question": "Which of the following newly approved anti-diabetic drugs can be given for heart failure with reduced ejection fraction and impaired renal function?",
+   "options": {
+    "A": "Empagliflozin",
+    "B": "Linagliptin",
+    "C": "Rosiglitazone",
+    "D": "Insulin degludec"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Empagliflozin Diabetic patients with heart failure best benefit from adding a group of drugs called SGLT-2 (sodium-glucose cotransporter-2) inhibitors, and empagliflozin falls in this group. By inhibiting the SGLT-2 receptors in the proximal tubule of the kidneys, glucose (and sodium) reabsorption can be prevented."
+    },
+    {
+     "type": "paragraph",
+     "text": "Since both sodium and glucose are osmotic molecules, increasing their excretion draws out more water, making these drugs effective in patients with heart failure. Drugs: Dapagliflozin. Empagliflozin. Canagliflozin. Ertugliflozin."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Linagliptin (Option B):** is a dipeptidyl peptidase-4 (DPP-4) inhibitor. It is of no use in chronic heart failure."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Rosiglitazone (Option C):** is a medication used in the management and treatment of type 2 diabetes mellitus. It is in the thiazolidinediones class of medications. It is of no use in chronic heart failure."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Insulin Degludec (Option D):** has no use in chronic heart failure."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-33-39",
+   "question": "A patient presents to the emergency department with a blood pressure of 90/60 mmHg. There was a history of a local doctor prescribing him some drugs for rheumatoid arthritis (RA) a few weeks ago, and he suddenly stopped taking them. On investigations, there was a serum potassium (K) level of 6.5 mEq/L, sodium (Na) level of 139 mEq/L, signs of dehydration, hypotension (90/40), and a blood glucose level of 40 mg/dL. Which of the following drugs should be used for the life-saving treatment of this patient?",
+   "options": {
+    "A": "Hydrocortisone",
+    "B": "Sodium bicarbonate",
+    "C": "Insulin",
+    "D": "Hypertonic saline"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Hydrocortisone The patient's current presentation is likely due to Hypothalamic-Pituitary-Adrenal (HPA) axis suppression from abrupt discontinuation of steroids, and hydrocortisone is administered as it provides both glucocorticoid and mineralocorticoid effects. Hydrocortisone, a synthetic glucocorticoid, has both glucocorticoid and mineralocorticoid effects."
+    },
+    {
+     "type": "paragraph",
+     "text": "Effects of corticosteroids on the body: Anti-inflammatory effects: It inhibits inflammatory mediators, such as prostaglandins and leukotrienes, and suppresses inflammatory cytokine production."
+    },
+    {
+     "type": "paragraph",
+     "text": "Immunosuppressive effects: Inhibition of immune cell proliferation and function, including T-cells, B-cells, and macrophages Metabolic effects: Increased gluconeogenesis, lipolysis, and protein catabolism, leading to hyperglycemia, insulin resistance, and muscle wasting Mineralocorticoid effects: Promotion of sodium and water retention, potassium excretion, and blood pressure elevation (minimal in prednisone due to low mineralocorticoid activity)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Sodium bicarbonate (Option B):** has no role in the initial management of HPA axis suppression."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Insulin (Option C):** Glucocorticoid deficiency causes hypoglycemia; therefore treatment of choice is not insulin. Hypertonic Saline (Option D) has no role in the initial management of HPA axis suppression."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-33-40",
+   "question": "How should the steroid therapy be administered for a 55-year-old male diagnosed with Addison's disease?",
+   "options": {
+    "A": "Bolus dose of 100mg",
+    "B": "Bolus of 100mg, followed by 200mg over 24 hours",
+    "C": "Bolus of 200 mg, followed by 500 mg over 24 hours",
+    "D": "Infusion of 500 mg over 24 hours"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Bolus Dose (100mg): The initial bolus of 100mg aims to quickly elevate cortisol levels, providing an immediate response to address the acute adrenal insufficiency. Infusion (200mg over 24 hours): Following the bolus, a more extended infusion of 200mg over the next 24 hours ensures a sustained and continuous supply of cortisol. This helps maintain cortisol levels within the normal range and provides coverage throughout the day."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-33-41",
+   "question": "A 60-year-old female patient who has been on anti-diabetic therapy for the last 10 years, has experienced three episodes of vaginal candidiasis infections in the past two months. Which hypoglycemic agent should be avoided in this patient?",
+   "options": {
+    "A": "Acarbose",
+    "B": "Metformin",
+    "C": "Gliflozins",
+    "D": "Linagliptin"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Gliflozins, also known as SGLT2 inhibitors, inhibit the sodium-glucose cotransporter 2 in the proximal renal tubules. SGLT2 is a low-affinity, high-capacity sodium-glucose cotransporter that is responsible for reabsorbing approximately 90% of filtered glucose in the proximal tubule."
+    },
+    {
+     "type": "paragraph",
+     "text": "Gliflozins reduce glucose reabsorption and increase glucose excretion in the urine.The presence of excess glucose in the urine creates an environment conducive to the growth of fungi, thereby increasing the risk of infections such as vaginal candidiasis. It includes drugs that end with word - flozin: Dapagliflozin, Empagliflozin, Canagliflozin, Ertugliflozin."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Acarbose (Option A) works by inhibiting enzymes that break down carbohydrates in the intestines, thus slowing glucose absorption and lowering postprandial blood sugar levels. It does not impact the urinary glucose concentration and is not associated with an increased risk of UTIs. Metformin (Option B) is a biguanide and the most commonly used first-line medication for type 2 diabetes. It works by reducing liver glucose production and improving insulin sensitivity. It does not increase the risk of vaginal candidiasis. Linagliptin (Option D) is a DPP-4 inhibitor that increases incretin hormones, which help to increase insulin release and decrease glucagon release. It does not typically cause infections like vaginal candidiasis."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-33-42",
+   "question": "An antidiabetic drug causes a decrease in HbA1c by causing an increase in GIP and GLP-1 levels and decrease in glucagon. It is an oral drug causing reduction in both pre and post-prandial glucose. The drug is:",
+   "options": {
+    "A": "Liraglutide",
+    "B": "Pramlintide",
+    "C": "Voglibose",
+    "D": "Alogliptin"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Acts by inhibiting the enzyme DPP-4, which breaks down incretin hormones such as GLP-1 and GIP. By inhibiting DPP-4, alogliptin increases the levels of GLP-1 and GIP, which stimulate insulin secretion and reduce glucagon secretion. This helps lower blood sugar levels."
+    },
+    {
+     "type": "paragraph",
+     "text": "They are also known to reduce HbA1c levels in patients with diabetes, making it a suitable option based on the provided information of high GIP and GLP1 levels along with low glucagon levels."
+    },
+    {
+     "type": "paragraph",
+     "text": "Drugs: Linagliptin (safe in renal failure) Teneligliptin (safe in renal failure) Vildagliptin (hepatotoxic) Alogliptin Sitagliptin Saxagliptin Side effects: Nausea and vomiting (most common) Pancreatitis (lesser than GLP-1) Risk of pancreatic and thyroid cancer (lesser than GLP-1) Arthritis, Nasopharyngitis: Increase interleukins and cytokines levels (similar structure to CD26) Hypersensitivity reactions: Steven-Johnson syndrome, angioedema Liraglutide (Options A) is a medication in the class of glucagon-like peptide-1 (GLP-1) receptor agonists, which help lower blood sugar levels by increasing insulin secretion, reducing glucagon secretion, slowing gastric emptying, and promoting satiety."
+    },
+    {
+     "type": "paragraph",
+     "text": "It also reduces HbA1c levels and body’s GLP-1 production. The information provided about high GIP (gastric inhibitory peptide) levels and low glucagon levels does not directly indicate the use of liraglutide. Therefore, it is not the most suitable option in this scenario."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Pramlintide (Option B):** is an injectable medication used in the treatment of type 1 and type 2 diabetes. It is a synthetic analog of amylin, a hormone involved in glucose regulation. It helps to lower blood sugar levels by reducing the secretion of glucagon, slowing gastric emptying, and promoting satiety. However, it has no effect on GLP-1 levels."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Voglibose (Option C):** is an oral medication that belongs to the class of alpha-glucosidase inhibitors. It works by inhibiting the enzymes in the intestines that break down carbohydrates, thereby delaying the absorption of glucose and reducing postprandial (after meal) blood sugar spikes. It does not directly affect GLP-1, GIP, or glucagon levels. Therefore, it may not be the most suitable option based on the information provided."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-33-43",
+   "question": "Which medication is commonly used as preoperative management for pheochromocytoma to control blood pressure and prevent hypertensive crises?",
+   "options": {
+    "A": "Captopril",
+    "B": "Propranolol",
+    "C": "Nifedipine",
+    "D": "Phenoxybenzamine"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Phenoxybenzamine is an alpha-adrenergic receptor antagonist and is the preferred choice for preoperative management of pheochromocytoma. By blocking alpha receptors, it prevents the vasoconstrictor effects of catecholamines, reducing the risk of hypertensive crises during surgery. It is initiated before surgery to ensure adequate alpha blockade and blood pressure control."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Captopril: Captopril is an angiotensin-converting enzyme (ACE) inhibitor used to treat hypertension by blocking the conversion of angiotensin I to angiotensin II, a potent vasoconstrictor. However, it is not commonly used as the primary preoperative medication for pheochromocytoma. Other options are more effective in managing the condition."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Propranolol: Propranolol is a beta-blocker that blocks the effects of adrenaline and noradrenaline on beta receptors, leading to decreased heart rate and blood pressure. While it can be used in combination with other medications for preoperative management of pheochromocytoma, it is not the preferred initial choice due to the risk of unopposed alpha-adrenergic stimulation, which can worsen hypertensive crises."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Nifedipine: Nifedipine is a calcium channel blocker that relaxes blood vessels and reduces blood pressure. It can be used as part of the preoperative management of pheochromocytoma to control blood pressure. However, it is often used in combination with other medications, and it may not provide complete alpha-adrenergic blockade, which is crucial for managing pheochromocytoma."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-33-44",
+   "question": "All of the following drugs are used in the management of thyroid storm except:",
+   "options": {
+    "A": "Propranolol",
+    "B": "Lugol’s iodine",
+    "C": "Propylthiouracil",
+    "D": "Aspirin"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Aspirin Aspirin is an antiplatelet drug that displaces thyroxine from thyroxine-binding globulin and increases free T3 and T4 levels,which can be dangerous and worsen thyroid storm. Management of thyroid storm: Large doses of propylthiouracil (500–1000 mg loading dose and 250 mg every 4 h) should be given orally or by nasogastric tube or per rectum; the drug’s inhibitory action on T4 → T3 conversion makes it the antithyroid drug of choice."
+    },
+    {
+     "type": "paragraph",
+     "text": "If not available, methimazole can be used in doses of 20 mg every 6 h. One hour after the first dose of propylthiouracil, stable iodide (5 drops SSKI every 6 h) is given to block thyroid hormone synthesis via the Wolff-Chaikoff effect (the delay allows the antithyroid drug to prevent the excess iodine from being incorporated into new hormone)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Propranolol should also be given to reduce tachycardia and other adrenergic manifestations (60–80 mg PO every 4 h, or 2 mg IV every 4 h). Although other β-adrenergic blockers can be used, high doses of propranolol decrease T4 → T3 conversion, and the doses can be easily adjusted. Short-acting IV esmolol can be used to decrease heart rate while monitoring for signs of heart failure."
+    },
+    {
+     "type": "paragraph",
+     "text": "Additional therapeutic measures include glucocorticoids (e.g., hydrocortisone 300 mg IV bolus, then 100 mg every 8 h), antibiotics if infection is present, cholestyramine to sequester thyroid hormones, cooling, oxygen, and IV fluids."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Propranolol (Option A):** Beta blockers are indicated to manage tachycardia in patients with thyroid storm. Lugol’s Iodine (Option B) inhibits further release of thyroxine. Propylthiouracil (Option C) inhibitsthe conversion of T4 to T3."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-33-45",
+   "question": "In which of the following conditions is non-pulsatile dosing of GnRH agonist not used?",
+   "options": {
+    "A": "Male infertility",
+    "B": "Endometriosis",
+    "C": "Precocious puberty",
+    "D": "Prostate cancer"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Non-pulsatile dosing of GnRH agonist is not used in male infertility because pulsatile release of GnRH is necessary to stimulate the secretion of luteinizing hormone (LH) and follicle-stimulating hormone (FSH), which are essential for spermatogenesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Endometriosis: Non-pulsatile dosing of GnRH agonist is commonly used in endometriosis to suppress the production of estrogen and induce a hypoestrogenic state, which helps in reducing the symptoms and progression of the disease."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Precocious puberty: Non-pulsatile dosing of GnRH agonist is used in precocious puberty to suppress the production of gonadotropins, thereby delaying the onset of puberty and preventing early maturation of secondary sexual characteristics."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Prostate cancer: Non-pulsatile dosing of GnRH agonist is commonly used in prostate cancer to achieve and maintain medical castration by suppressing the production of gonadotropins and reducing testosterone levels, which helps in the treatment of hormone-sensitive prostate cancer."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-33-46",
+   "question": "What is the preferred medication for treating hyperthyroidism during the third trimester of pregnancy?",
+   "options": {
+    "A": "Carbimazole",
+    "B": "Propylthiouracil",
+    "C": "Sodium iodide",
+    "D": "Radioactive iodine"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Drug of choice for Hyperthyroidism in 3rd trimester is Carbimazole Methimazole/Carbimazole can also be used in the third trimester of pregnancy. Carbimazole is a thyroid peroxidase inhibitor It has teratogenic potential in the first trimester and is switched over to propylthiouracil during this period. From the second trimester, it is advised to put the patient back on cabergoline due to the risk of propylthiouracil-induced hepatoxicity."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Propylthiouracil: From the second trimester, it is advised to put the patient back on cabergoline due to the risk of propylthiouracil-induced hepatoxicity."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Sodium iodide: Sodium iodide is not used as a primary treatment for hyperthyroidism in pregnancy. It is not used for a long term management of hyperthyroidism, only short term like in the case of pre operative preparation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Radioactive iodine: Radioactive iodine (RAI) is contraindicated during pregnancy as it can cross the placenta and harm the developing fetal thyroid gland. It is typically avoided in women who are pregnant or planning to become pregnant."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-33-47",
+   "question": "Mechanism of action of exenatide in diabetes mellitus is:",
+   "options": {
+    "A": "It is an analogue of GLP and increases glucose dependent insulin secretion",
+    "B": "It is DPP-4 inhibitor and result in decreased breakdown of GLP",
+    "C": "It inhibits SGLT2 and cause glucosuria",
+    "D": "It is amylin analogue and decrease glucagon"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "It is an analogue of GLP and increases glucose-dependent insulin secretion: It is an analogue of GLP-1 released from the gut and increases glucose-dependent insulin secretion. Exenatide is a medication used in the treatment of type 2 diabetes mellitus."
+    },
+    {
+     "type": "paragraph",
+     "text": "It belongs to the class of drugs known as incretin mimetics or GLP-1 receptor agonists. its mechanism of action: Exenatide is an analogue of glucagon-like peptide-1 (GLP-1), a hormone released from the gut in response to food intake. GLP-1 plays an important role in regulating blood sugar levels. Exenatide acts by mimicking the effects of GLP-1 on the body."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - It is DPP-4 inhibitor and result in decreased breakdown of GLP: Drugs that cast as DPP4 inhibitors include- sitagliptin, vildagliptin etc."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - It inhibits SGLT2 and cause glucosuria: SGLT2 inhibitors examples include empagliflozin and Dapagliflozin Option D - It is amylin analogue and decrease glucagon: Amylin analogs include pramlintide"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-33-48",
+   "question": "Shortest acting corticosteroid is?",
+   "options": {
+    "A": "Dexamethasone",
+    "B": "Hydrocortisone",
+    "C": "Triamcinolone",
+    "D": "Deflazacort"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Hydrocortisone is the shortest acting corticosteroid among the options provided. It has a relatively short duration of action and requires multiple daily doses for optimal effect. With IV injection, peak effect is seen in 2-5 minutes."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Dexamethasone: Dexamethasone has a longer duration of action compared to hydrocortisone."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Triamcinolone: Triamcinolone has a longer duration of action compared to hydrocortisone."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Deflazacort: Deflazacort has a longer duration of action compared to hydrocortisone."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-33-49",
+   "question": "The best approach in the treatment of chronic SIADH is _____________:",
+   "options": {
+    "A": "Tolvaptan",
+    "B": "Reducing fluid intake to <500 ml per day",
+    "C": "Demeclocycline",
+    "D": "Fludrocortisone"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Tolvaptan is a selective vasopressin V2 receptor antagonist that helps to i ncrease free water clearance and reduce the excessive water retention seen in SIADH (syndrome of inappropriate antidiuretic hormone secretion). It promotes water excretion without affecting sodium levels. Tolvaptan has been shown to be effective in treating chronic SIADH."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Reducing fluid intake to <500 ml per day: While reducing fluid intake may help manage symptoms of fluid overload in some cases, it is not considered the primary treatment for chronic SIADH. Limiting fluid intake should be done cautiously and under medical supervision to prevent dehydration and electrolyte imbalances."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Demeclocycline: Demeclocycline is an antibiotic that has been used in the past for SIADH due to its ability to inhibit the action of antidiuretic hormone. However, it is no longer considered a first-line treatment due to concerns about its side effects, including nephrotoxicity and hepatotoxicity. Other treatment options, such as tolvaptan, have shown better efficacy and safety profiles."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Fludrocortisone: Fludrocortisone is a synthetic mineralocorticoid that acts on the kidneys to increase sodium reabsorption and fluid retention. It is not recommended as a first-line treatment for SIADH because it may worsen hyponatremia (low sodium levels) and fluid overload."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-33-50",
+   "question": "What is the prescribed dosage of hydrocortisone for adrenal insufficiency, measured in milligrams per square meter per day?",
+   "options": {
+    "A": "20",
+    "B": "25",
+    "C": "10",
+    "D": "5"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The replacement dose of hydrocortisone for adrenal insufficiency is typically based on the body surface area (BSA) of the individual. The recommended dose is approximately 10-12 mg/m²/day."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - 20 mg/m²/day: This dosage is higher than the recommended replacement dose for hydrocortisone in adrenal insufficiency."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - 25 mg/m²/day: This dosage is also higher than the recommended replacement dose."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - 5 mg/m²/day: This dosage is lower than the recommended replacement dose and may not be sufficient to adequately manage adrenal insufficiency."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-33-51",
+   "question": "Which of the following actions leads to a decrease in bone resorption and an increase in bone formation?",
+   "options": {
+    "A": "Strontium ranelate",
+    "B": "Ibandronate",
+    "C": "Teriparatide",
+    "D": "Calcitonin"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Strontium ranelate is a medication used for the treatment of osteoporosis. It exerts its effects by both decreasing bone resorption (the process of breaking down bone) and increasing bone formation. It enhances osteoblast activity, which is responsible for bone formation, while reducing osteoclast activity, which is responsible for bone resorption. This dual mechanism helps to improve bone density and strength."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Ibandronate: Ibandronate is a bisphosphonate medication that primarily acts by inhibiting osteoclast activity and reducing bone resorption. It does not have a direct effect on bone formation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Teriparatide: Teriparatide is a recombinant form of parathyroid hormone (PTH) and is used in the treatment of osteoporosis. It primarily stimulates bone formation by activating osteoblasts and increasing bone remodeling. However, it does not have a direct effect on reducing bone resorption."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Calcitonin: Calcitonin is a hormone that regulates calcium and phosphate metabolism. It can inhibit osteoclast activity and reduce bone resorption. However, it does not have a significant effect on promoting bone formation."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-33-52",
+   "question": "Which of the options hinders the production of glucocorticoid?",
+   "options": {
+    "A": "Mifepristone",
+    "B": "Flutamide",
+    "C": "Finasteride",
+    "D": "Metyrapone"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Metyrapone is a medication used to inhibit the synthesis of glucocorticoids in the adrenal glands. It acts by inhibiting the enzyme 11-beta-hydroxylase, which is involved in the conversion of 11-deoxycortisol to cortisol, a major glucocorticoid hormone."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Mifepristone: Mifepristone, also known as RU-486, is a medication used for medical abortion and in some cases for the treatment of Cushing's syndrome. It acts as a progesterone and glucocorticoid receptor antagonist, but it does not directly inhibit the synthesis of glucocorticoids."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Flutamide: Flutamide is an antiandrogen medication primarily used in the treatment of prostate cancer. It does not inhibit the synthesis of glucocorticoids."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Finasteride: Finasteride is a medication primarily used for the treatment of benign prostatic hyperplasia (enlarged prostate) and male pattern hair loss. It inhibits the conversion of testosterone to dihydrotestosterone (DHT), but it does not directly inhibit the synthesis of glucocorticoids."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-33-53",
+   "question": "Purpose of adding zinc to insulin in commercial preparations for treatment of diabetes mellitus is:",
+   "options": {
+    "A": "To make it long acting",
+    "B": "To make it short acting",
+    "C": "To make is fast acting",
+    "D": "Addition of zinc make the insulin effective orally"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The purpose of adding zinc to insulin in commercial preparations for the treatment of diabetes mellitus is to make it long acting. Insulin is a hormone that regulates blood sugar levels, and its action can be modified by adding certain substances. Zinc is one such substance that can be added to insulin to prolong its duration of action."
+    },
+    {
+     "type": "paragraph",
+     "text": "When zinc is added to insulin, it forms crystals that delay the absorption of insulin from the injection site into the bloodstream. This delayed absorption results in a slower and more prolonged release of insulin, leading to a long-acting effect. Long-acting insulin formulations are used to provide a steady basal level of insulin throughout the day, mimicking the body's natural insulin secretion patterns."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - To make it short acting: Adding zinc to insulin does not make it short acting. Instead, it has the opposite effect of prolonging its duration of action."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - To make it fast acting: Adding zinc to insulin does not make it fast acting. Fast-acting insulins, such as rapid-acting or short-acting insulins, are formulated differently to provide a rapid onset of action and shorter duration."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Addition of zinc makes the insulin effective orally: Adding zinc to insulin does not make it effective when taken orally. Insulin cannot be taken orally as it is broken down by digestive enzymes in the gastrointestinal tract. Insulin must be administered via subcutaneous injection or other suitable routes to be effective."
+    }
+   ]
+  }
+ ]
+}

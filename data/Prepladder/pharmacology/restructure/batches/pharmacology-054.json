@@ -1,0 +1,557 @@
+{
+ "batch": "pharmacology-054",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pharmacology-054",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pharmacology-45-3",
+   "question": "A 42-year-old man presents with heartburn and epigastric pain, diagnosed with peptic ulcer disease. The doctor opts for a PPI, choosing between Ilaprazole, Lansoprazole, Rabeprazole and Omeprazole. Which of these medications requires the lowest dosage to achieve equivalent therapeutic effects?",
+   "options": {
+    "A": "Ilaprazole",
+    "B": "Lansoprazole",
+    "C": "Rabeprazole",
+    "D": "Omeprazole"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Potency of PPIs - Dex Rabeprazole > Ilaprazole > Lansoprazole > Rabeprazole > Omeprazole > Pantoprazole All PPIs have equal efficacy. Route of Administration: Oral: All PPIs Injectable: IV/IM (Pantoprazole, Es-omeprazole, Rabeprazole) Properties: Acid production reduction persists for 2 to 4 days even after stopping the drug and resumes later. Duration of action is typically 2 to 4 days."
+    },
+    {
+     "type": "paragraph",
+     "text": "Omeprazole is the fastest acting PPI. PPIs are acid labile; Enteric coating can protect from acid degradation. They should be taken on empty stomach when only ~I0% of proton pumps are active, followed 1 hour later by a meal to activate the H+/K+/ATPase at a time when plasma concentration of the PPI is maximal. Metabolism and Interactions: All PPIs are metabolised by the CYP2C19 enzyme. Omeprazole is the maximum CYP inhibitor."
+    },
+    {
+     "type": "paragraph",
+     "text": "Rabeprazole has the lowest CYP inhibition, followed by Pantoprazole. Omeprazole should never be given with Clopidogrel due to potential interactions. Omeprazole inhibits the enzyme CYP2C19, thus preventing the conversion of Clopidogrel to its active metabolite."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-45-4",
+   "question": "A 68-year-old female patient with a history of myocardial infarction is currently on dual antiplatelet therapy, including clopidogrel. She visited a government hospital where an intern prescribed her omeprazole to be taken in the morning, not knowing that omeprazole is contraindicated with clopidogrel. Which Cytochrome P450 enzyme is implicated with respect to the reduced effectiveness of clopidogrel when taking omeprazole?",
+   "options": {
+    "A": "CYP2C9",
+    "B": "CYP2C19",
+    "C": "CYP3A4",
+    "D": "CYP2D6"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "- Omeprazole inhibits the enzyme CYP2C19, which is crucial for converting clopidogrel into its active metabolite. This interaction reduces the effectiveness of clopidogrel, potentially decreasing its ability to prevent blood clots in patients who are at risk, such as those with a history of myocardial infarction."
+    },
+    {
+     "type": "paragraph",
+     "text": "If a patient requires both clopidogrel and a PPI, it is recommended to use pantoprazole or rabeprazole to reduce the risk of interaction. Omeprazole reduces the metabolism of antidepressants and antipsychotics, increasing the chances of toxicity. Alongside, Omeprazole also blocks the activation of Tamoxifen. Omeprazole also inhibits other CYP enzymes like CYP2C9, CYP2D6 & CYP3A4."
+    },
+    {
+     "type": "paragraph",
+     "text": "However, these enzymes are not involved in metabolic activation of Clopidogrel. (Option A, C and D ruled out)"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-45-5",
+   "question": "Which of the following is incorrect with respect to the adverse effects of chronic use of proton pump inhibitors (PPI)?",
+   "options": {
+    "A": "Use of PPI is associated with reduced absorption of B12, Mg, and Iron.",
+    "B": "Long-term use of PPI is associated with an increased risk of bone fractures.",
+    "C": "Increased risk of pseudomembranous enterocolitis is associated with long-term use of PPI.",
+    "D": "Reduced serum gastrin levels can occur due to long-term use of PPI, causing ECL hyperplasia and atrophic gastritis."
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Chronic use of PPIs can lead to hypergastrinemia, which can further result in: ECL hyperplasia Fundic gland polyposis Atrophic gastritis Hypergastrinemia is detected by measuring serum gastrin levels. This condition may predispose individuals to rebound hypersecretion of gastric acid upon discontinuation of therapy and may also promote the growth of gastrointestinal tumours."
+    },
+    {
+     "type": "paragraph",
+     "text": "Other side effects of PPI use include: Gastrointestinal upset (nausea, constipation, diarrhoea). Increased microbial growth leads to a higher risk of hospital-acquired pneumonia, community-acquired Clostridium difficile infection, spontaneous bacterial peritonitis and pseudomembranous enterocolitis (Option C ruled out)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Increased risk of bone fractures due to hypocalcemia (reduced absorption of calcium) (Option B ruled out):** ."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-45-6",
+   "question": "A 38-year-old male with a history of frequent episodes of acidity was prescribed an H2 receptor antagonist. During a follow-up visit, he reports loss of libido and erectile dysfunction. Laboratory tests reveal elevated prolactin levels. Which of the following is the most likely cause of these symptoms?",
+   "options": {
+    "A": "Ranitidine",
+    "B": "Famotidine",
+    "C": "Nizatidine",
+    "D": "Cimetidine"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Cimetidine, an H2 receptor antagonist, can cause anti-androgenic effects, leading to loss of libido and erectile dysfunction. It can also increase prolactin levels, contributing to these symptoms. These side effects are more commonly associated with cimetidine than with other H2 receptor antagonists like Famotidine. Side effects associated with H2 Blockers: Gastrointestinal: Nausea, vomiting, diarrhoea and constipation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Neurological: Headache and dizziness. Endocrine and Reproductive: Gynecomastia, erectile dysfunction, loss of libido and elevated prolactin levels. Hematologic: Thrombocytopenia and agranulocytosis. Hepatic: Elevated Liver Enzymes and hepatotoxicity."
+    },
+    {
+     "type": "paragraph",
+     "text": "Renal: Interstitial Nephritis Drugs causing gynecomastia: D: Dopamine antagonists (e.g., antipsychotics like risperidone, and metoclopramide) I: Isoniazid (antitubercular drug) S: Spironolactone (a potassium-sparing diuretic) C: Cimetidine (an H2 receptor antagonist) O: Oestrogens (including some medications like hormone replacement therapy)"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-45-7",
+   "question": "A 32-year-old woman seeks advice on medication to prevent gastric ulcers. She has a history of rheumatoid arthritis and has been on long-term NSAID therapy. Her medical history reveals no contraindications to the use of prostaglandin analogues. The physician considers prescribing Misoprostol for ulcer prevention. Which of the following is the most appropriate counseling point regarding the use of Misoprostol in this patient?",
+   "options": {
+    "A": "Misoprostol should be taken on an empty stomach to enhance absorption.",
+    "B": "Misoprostol is contraindicated in women of childbearing potential unless they are using effective contraception.",
+    "C": "Misoprostol can be safely used in patients with a history of allergy to prostaglandins.",
+    "D": "Misoprostol works by inhibiting the H2 receptors in the stomach lining to reduce acid secretion."
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Misoprostol is contraindicated for reducing the risk of NSAID-induced ulcers in women of childbearing potential unless the patient is at high risk of complications from gastric ulcers associated with the use of the NSAID. It is also completely contraindicated during pregnancy because it can increase uterine contractility and abort a pregnancy."
+    },
+    {
+     "type": "paragraph",
+     "text": "Misoprostol is a longer-acting synthetic PGE1 derivative that acts on EP receptors (EP2, EP3, and EP4) to increase mucin and bicarbonate production and decrease HCl production. (Option D) It has a shorter duration of action. Taking misoprostol with food may potentially reduce the incidence of systemic side effects by lowering the early high peak plasma concentrations of misoprostol acid. (Option A) Recommended dose: 200 µg four times daily."
+    },
+    {
+     "type": "paragraph",
+     "text": "Primary indication: prevention and treatment of NSAID-associated gastric ulcer and bleeding. But PPI is the DOC. Adverse effects seen with misoprostol use: Diarrhea, abdominal cramps, uterine bleeding, abortion. Contraindicated in Pregnancy, Inflammatory bowel disease (IBD), previous episodes of allergy to prostaglandins (Option C)."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-45-8",
+   "question": "Which of the following statements is true regarding the use of Bismuth compounds in ulcer treatment?",
+   "options": {
+    "A": "They inhibit the proton pump in gastric parietal cells.",
+    "B": "They form a protective layer over the ulcer base, shielding it from acid and pepsin.",
+    "C": "They primarily act as antacids.",
+    "D": "They are H2 receptor antagonists."
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Colloidal bismuth compounds act as ulcer protective agents, which at acidic pH (<5) precipitate mucus glycoprotein, forming a protective layer over the ulcer base. Ulcer Protective Agents: Bismuth Sucralfate Properties Water-soluble, but precipitates when pH <5. Basic aluminium salt of sulfated sucrose. Polymerises at pH <4, forming a sticky gel-like consistency."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mechanism of Action Increases production of gastric mucosal prostaglandin E, mucus, and bicarbonate. Precipitate mucus glycoproteins and coat the ulcer base. Detach and inhibit Helicobacter pylori directly. Precipitates surface proteins at the ulcer base, creating a physical barrier against acid, pepsin, and bile. Does not neutralise acid but delays gastric emptying."
+    },
+    {
+     "type": "paragraph",
+     "text": "Potentially augments gastric mucosal prostaglandin synthesis for additional protection. Dosage and Administration 120 mg taken half an hour before the three major meals and at bedtime for 4-8 weeks. 1 gram taken on an empty stomach one hour before the three major meals and at bedtime for 4-8 weeks. Side Effects Diarrhoea Headachy Dizziness Blackening of the tongue, dentures, and stools."
+    },
+    {
+     "type": "paragraph",
+     "text": "Constipation Hypophosphatemia Dry mouth Nausea Indications Gastritis and non-ulcer dyspepsia associated with H. pylori. Occasionally used as part of a triple-drug regimen. Bile reflux, gastritis and prophylaxis of stress ulcers."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-45-9",
+   "question": "Which of the following clinical features is characteristic of Milk-Alkali Syndrome?",
+   "options": {
+    "A": "Hyperkalemia",
+    "B": "Metabolic acidosis",
+    "C": "Hypercalcemia",
+    "D": "Hypophosphatemia"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Milk-Alkali Syndrome is a condition caused by excessive intake of calcium and absorbable alkali, typically from calcium supplements and antacids (e.g., calcium carbonate). It leads to a classic triad: Hypercalcemia Metabolic alkalosis Renal insufficiency The elevated calcium levels are central to the syndrome and cause various clinical symptoms including fatigue, nausea, polyuria, confusion, and even arrhythmias."
+    },
+    {
+     "type": "paragraph",
+     "text": "Milk-Alkali Syndrome Feature Details Cause Excess intake of calcium + absorbable alkali (e.g., calcium carbonate) Key Lab Findings Hypercalcemia, Metabolic alkalosis, Hypophosphatemia, Low PTH Symptoms Nausea, vomiting, weakness, mental status changes, polyuria, kidney injury Mechanism Calcium-induced diuresis → volume depletion → increased bicarbonate reabsorption Management Discontinue offending agents, IV hydration, loop diuretics if needed Hyperkalemia (Option A): Incorrect – Patients typically have hypokalemia due to renal losses."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Metabolic acidosis (Option B):** Incorrect – Metabolic alkalosis is characteristic, not acidosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Hypophosphatemia (Option D):** Incorrect – While often present, it's not the most characteristic feature; hypercalcemia is the hallmark."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-45-10",
+   "question": "A 68 y/o female presents to the emergency department with severe abdominal pain, bloating and difficulty breathing. She has a H/O CKD and GERD. The patient admits to using sodium bicarbonate antacids frequently to manage her GERD symptoms. On examination, her abdomen is distended and she exhibits signs of peritonitis. An abdominal X-ray reveals free air under the diaphragm. Which of the following is the most likely cause of the patient's symptoms?",
+   "options": {
+    "A": "Hyperkalemia from excessive sodium bicarbonate use.",
+    "B": "Excessive gas production from sodium bicarbonate neutralising stomach acid.",
+    "C": "Hypocalcemia-induced muscle spasms causing bowel rupture.",
+    "D": "Hypermagnesemia from concomitant use of magnesium-containing antacids."
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient’s symptoms, clinical signs of peritonitis and X-ray findings suggest bowel perforation in the patient. Sodium bicarbonate antacids neutralise stomach acid, producing CO2 gas as a byproduct. Excessive gas can lead to significant gastric and intestinal distension in patients who use these antacids frequently or in large amounts."
+    },
+    {
+     "type": "paragraph",
+     "text": "This increased intraluminal pressure can cause discomfort, and bloating, and, in severe cases, lead to perforation of the bowel. This is particularly risky in individuals with predisposing conditions like CKD, where the handling of excess sodium and bicarbonate might be compromised, exacerbating the problem. Hyperkalemia is not caused by sodium bicarbonate use ( Option A ruled out)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Hypocalcemia - induced muscle spasms causing bowel rupture (Option C):** is a rare but severe complication associated with hypoparathyroidism and is not associated with Sodium bicarbonate use."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Hypermagnesemia from concomitant use of magnesium-containing antacids (Option D):** is not related to sodium bicarbonate but to magnesium-containing antacids."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-45-11",
+   "question": "A 25 y/o female, a competitive gymnast presents with complaints of heartburn. She has a history of regular consumption of dairy-based calcium supplements for the past 5 years to help with her athletic lifestyle. She insists the doctor prescribe her calcium-based antacids. The doctor suggests against it and explains to her the reason. Why did the doctor suggest against it?",
+   "options": {
+    "A": "Risk of developing diarrhea",
+    "B": "Risk of developing osteoporosis",
+    "C": "Risk of developing milk-alkali syndrome",
+    "D": "Risk of developing hypertension and edema"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient is already on dairy-based calcium supplements for a prolonged period. Adding calcium-based antacids would put her at risk of developing Milk Alkali syndrome. Milk Alkali Syndrome is a recognized risk with excessive intake of dairy and absorbable alkali (Like CaCO3- a calcium-based antacid), leading to hypercalcemia, alkalosis, and renal insufficiency."
+    },
+    {
+     "type": "paragraph",
+     "text": "Symptoms can include nausea, vomiting, confusion, and in severe cases, kidney failure. Side effects of other antacids Calcium-based antacids typically cause constipation rather than diarrhea. Diarrhea is more commonly associated with magnesium-based antacids. (Option A ruled out) Calcium is essential for bone health, and calcium-based antacids could actually help prevent osteoporosis by supplementing calcium."
+    },
+    {
+     "type": "paragraph",
+     "text": "Osteoporosis is usually a side effect associated with aluminum-based antacids. (Option B ruled out) Calcium-based antacids are not typically associated with causing hypertension or edema. These conditions are more commonly related to sodium-based antacids. Hence should not be given to patients with CHF. ( Option D ruled out)"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-45-12",
+   "question": "A 72-year-old woman with a history of CHF (congestive heart failure) presents to the clinic complaining of heartburn, chest pain, and regurgitation of food after meals for the past week. Her CHF symptoms are currently well-controlled with medication. On examination, there is no evidence of angina pectoris. Which medication would be MOST APPROPRIATE for this patient’s symptoms?",
+   "options": {
+    "A": "Magaldrate",
+    "B": "Sodium Bicarbonate",
+    "C": "Aspirin",
+    "D": "Metoprolol"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient’s symptoms of heartburn, chest pain, and regurgitation of food after meals are suggestive of GERD. Magaldrate is a nonsystemic antacid and is a combination of two antacids: magnesium hydroxide and aluminum hydroxide and can be safely used in patients with heart disease. Magnesium hydroxide reacts quickly with stomach acid to neutralize it, providing rapid relief from heartburn. However, it causes diarrhea as a side effect."
+    },
+    {
+     "type": "paragraph",
+     "text": "Aluminum hydroxide works slower but provides longer-lasting relief. It also coats the esophagus, protecting it from further irritation by stomach acid. However, it causes constipation as a side effect. Hence, Magaldrate is a fixed combination of the two and works by counteracting each other’s adverse effects and hence giving optimum results."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Sodium Bicarbonate (Option B):** is a high sodium antacid, which can worsen fluid retention in CHF patients causing hypertension and edema. It is usually contraindicated in patients with heart disease."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Aspirin (NSAID) (Option C):** can worsen heartburn symptoms and should be avoided."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Metoprolol (Option D):** is a beta-blocker used to treat high blood pressure and angina pectoris, but it is not typically used for GERD."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-45-13",
+   "question": "A 5y/o girl is brought to the emergency department by her parents with complaints of persistent vomiting, confusion, and lethargy. The parents mentioned that she had a viral illness two weeks prior, during which she was given a combination of medications to alleviate her symptoms. On examination, the child is found to be drowsy, with signs of hepatomegaly. Laboratory tests reveal elevated liver enzymes and ammonia levels. Which of the following medications is most likely associated with the child's current presentation?",
+   "options": {
+    "A": "Paracetamol",
+    "B": "Amoxicillin",
+    "C": "Bismuth subsalicylate",
+    "D": "Ranitidine"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient’s symptoms, clinical presentation, and lab values suggest she has Reye’s Syndrome. Reye's syndrome is a rare but serious condition that causes swelling in the liver and brain. It most commonly affects children and teenagers recovering from a viral infection, such as influenza or chickenpox. The use of salicylates during such viral infections has been strongly associated with the development of Reye's syndrome."
+    },
+    {
+     "type": "paragraph",
+     "text": "Bismuth subsalicylate, found in some over-the-counter medications for stomach upset (such as Pepto-Bismol), contains salicylate, which can lead to Reye's syndrome when used in children recovering from viral infections."
+    },
+    {
+     "type": "paragraph",
+     "text": "Other commonly used salicylates include: Aspirin: an NSAID Methyl Salicylate: found in topical relief creams and ointments Other side effects of Bismuth include: Black tongue and black faeces - when bismuth salicylate comes in contact with sulfur compounds in mouth and GIT, it forms Bismuth sulfide which is a black compound. Bone: Osteoporosis Paracetamol ( Option A) is widely used as an analgesic and antipyretic."
+    },
+    {
+     "type": "paragraph",
+     "text": "While an overdose of it can lead to acute liver failure, it is not associated with Reye's syndrome. Amoxicillin ( Option B) is an antibiotic commonly used for URIs and is not associated with Reye's syndrome. Ranitidine ( Option D) is an H2 receptor antagonist used to reduce stomach acid production. It is not linked to Reye's syndrome."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-45-14",
+   "question": "A 45-year-old male patient presents with symptoms of peptic ulcer disease and is diagnosed with H. pylori infection. He is allergic to penicillin. As part of his initial treatment, you decide to start him on triple therapy for H. pylori eradication. Which of the following drugs are used in Triple therapy in this patient?",
+   "options": {
+    "A": "PPI + Clarithromycin + Metronidazole for 14 days",
+    "B": "PPI + Clarithromycin + Amoxicillin for 14 days",
+    "C": "PPI + Levofloxacin + Clarithromycin for 14 days",
+    "D": "PPI + Clarithromycin + Metronidazole for 7 days"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "This patient has been diagnosed with H.Pylori and needs to be started on triple therapy. He is also allergic to penicillin so Amoxicillin is avoided, hence he has to be started on PPI + Clarithromycin + Metronidazole for 14 days."
+    },
+    {
+     "type": "paragraph",
+     "text": "Antibiotics used against H. Pylori: Generation Clarithromycin Amoxicillin Metronidazole 1st generation Tetracycline Levofloxacine 2nd generation Rifabutin Furazolidone 3rd generation Guidelines for treatment of H.Pylori: ≥2 combinations of antibiotics Give PPI> H2 blocker Give for >10-14 days Anti-H.pylori regimens: Drugs used No. of days: Triple therapy: PCA (first line therapy used) PPI + Clarithromycin + Amoxicillin (Option B) BD for 14 days Triple therapy: PCM (in case of penicillin allergy or resistance) PPI + Clarithromycin + Metronidazole BD for 14 days Levofloxacin-based triple therapy: PPI + Levofloxacin + Clarithromycin (PAL) (Option C) BD for 14 days PPI + Tetracycline + Amoxicillin for 14 days (Option D) are not used in combination, instead PPI + Amoxicillin followed by PPI + Metronidazole + Levofloxacine for 14 days (PA ➞ PML) is used as a new concomitant therapy."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-45-15",
+   "question": "Which of the following is the most preferred treatment regimen for H pylori in India?",
+   "options": {
+    "A": "Triple therapy",
+    "B": "Quadruple therapy",
+    "C": "Sequential therapy",
+    "D": "Hybrid therapy"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Quadruple therapy (tetracycline, metronidazole, bismuth, PPI) is effective against metronidazole resistance with a success rate of 90%+ for 10-14 days in India. Due to the risk of development of Clarithromycin resistance in India."
+    },
+    {
+     "type": "paragraph",
+     "text": "Anti-H.pylori regimens: Drugs used No. of days: Triple therapy: PCM (in case of penicillin allergy or resistance) PPI + Clarithromycin + Metronidazole BD for 14 days Triple therapy: PCA PPI + Clarithromycin + Amoxicillin BD for 14 days Quadruple therapy (In clarithromycin resistance) PPI + Bismuth salts + Metronidazole + Tetracycline BD for 14 days Sequential therapy PPI + Amoxicillin (for 7 days) ➞ PPI + Clarithromycin + Metronidazole (for 7 days) BD For 14 days Hybrid therapy PPI + Amoxicillin (for 7 days)➞ PPI + Clarithromycin + Amoxicillin + Metronidazole (for 7 days) BD For 14 days"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-45-16",
+   "question": "A 50-year-old patient with a history of gastroesophageal reflux disease (GERD) reports persistent symptoms despite lifestyle modifications and dietary changes. The physician decides to add alginic acid to the patient's treatment regimen. What is the mechanism of action of alginic acid in the treatment of GERD?",
+   "options": {
+    "A": "Makes a neutral covering over HCL",
+    "B": "Bursts bubbles in the gastrointestinal tract",
+    "C": "Increases prostaglandin synthesis",
+    "D": "Polymerizes with proteins to form a protective covering"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "This patient with a history of GERD has failed lifestyle modifications and dietary changes, so the physician decides to prescribe Alginic acid. Mechanism of action of Alginic acid in GERD: Alginates treat GERD by forming a mechanical barrier. They create a gel in the presence of gastric acid. This gel forms a raft that localizes to the acid pocket in the proximal stomach."
+    },
+    {
+     "type": "paragraph",
+     "text": "This prevents the acid from getting displaced to the esophagus Hence helping patients with symptoms of GERD Bursts bubbles in the gastrointestinal tract (Option B): This is the mechanism of action of surfactant-like molecules e.g; Simethicone and dimethicone Increases prostaglandin synthesis (Option C): This is the mechanism of action of Bismuth salts."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Polymerizes with proteins to form a protective covering (Option D):** This is the mechanism of action of Sucralfate which is ulcer protective."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L45_Q016_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-46-1",
+   "question": "A 45-year-old male patient is scheduled for a colonoscopy. Bowel cleaning is required as part of the preparation. Which of the following laxatives would be most appropriate for this purpose?",
+   "options": {
+    "A": "Bisacodyl",
+    "B": "Lactulose",
+    "C": "Polyethylene glycol (PEG)",
+    "D": "Docusate sodium"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Polyethylene glycol (PEG) is the drug of choice for rapid bowel evacuation before surgery, ultrasound, or X-ray. This results in rapid and complete bowel cleansing, crucial for procedures like colonoscopy. For Bowel Evacuation, the preferred agents are Saline Purgatives (sodium sulphate, sodium picosulphate, Sodium Phosphate) and Osmotic Laxatives (Lactulose, PEG). Saline purgatives are the fastest-acting agents used in Bowel evacuation."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Bisacodyl (Option A):** is a stimulant laxative that is used in patients of Chronic constipation. It is not used in rapid bowel evacuation due to its slow action and incomplete evacuation."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Lactulose (Option B):** is an osmotic laxative, but it is not routinely preferred for bowel evacuation due to its slow action. It is the laxative of choice for patients with hepatic encephalopathy or liver disease because it helps reduce ammonia levels in the blood."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Docusate sodium (Option D):** is a stool softener that helps to moisten the stool, making it easier to pass. It is not effective for the rapid and complete evacuation of the bowel needed before procedures like a colonoscopy. Docusates are the laxative of choice in Pregnancy."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L46_Q001_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L46_Q001_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-46-2",
+   "question": "Which of the following statements is false regarding the mechanism of action of bulk laxatives?",
+   "options": {
+    "A": "Bulk laxatives mainly act by fermenting laxatives by gut bacteria, which produces short-chain fatty acids and increases bacterial mass in the stool.",
+    "B": "Short-chain fatty acids have a prokinetic effect, and bacterial mass increases stool volume.",
+    "C": "The more fermentable the laxative, the more the stool bulk and the faster the transit.",
+    "D": "Dietary fibres such as lignin resist fermentation, and fibres such as pectins are readily fermented."
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The more fermentable the laxative, the less bulky the stool and the slower the transit. The reason behind this is that poorly fermentable fibres (Lignin, Cellulose) absorb more water, resulting in more stool volume. Fibre is that part of food that resists enzymatic digestion and reaches the colon largely unchanged. Colonic bacteria ferment fibre to varying degrees, depending on its chemical nature and water solubility."
+    },
+    {
+     "type": "paragraph",
+     "text": "Fermentation of fibre has two important effects: It produces short-chain fatty acids, which are trophic for colonic epithelium and have a prokinetic effect. It increases bacterial mass, which results in increased stool volume. Fibers have varying degrees of fermentation, which is summarised in the table:- Bulk Laxatives such as Bran, Psyllium husk, & Methylcellulose contain more Lignin, which aids in their effectiveness."
+    },
+    {
+     "type": "paragraph",
+     "text": "Fruits and vegetables contain more pectins and hemicellulose, which is readily fermentable, and has a reduced effect on increasing stool volume."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Fermentation produces SCFAs and bacterial mass (Option A):** Correct. This is true and contributes to motility."
+    },
+    {
+     "type": "paragraph",
+     "text": "**SCFAs are prokinetic, and bacteria increase stool mass (Option B):** Correct. SCFAs enhance colonic motility; increased bacterial biomass adds to bulk."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Lignin resists fermentation; pectins are fermented (Option D):** Correct. This accurately describes fiber fermentability."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L46_Q002_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-46-3",
+   "question": "A 70-year-old male presents with severe abdominal distension and discomfort. He reports that he has not had a bowel movement for over a week and has been experiencing nausea and vomiting. Physical examination reveals a significantly distended abdomen with absent bowel sounds. An abdominal X-ray shows a megacolon. Which of the following treatments is contraindicated in this patient due to the condition of atonic colon?",
+   "options": {
+    "A": "Intravenous fluids for rehydration & parenteral nutrition",
+    "B": "Nasogastric decompression to relieve distension",
+    "C": "Bulk-forming laxatives to increase stool bulk",
+    "D": "Antibiotic therapy for suspected infection"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "In the case of paralytic ileus, where the sensory nerves of the colon are not functional (atonic colon or megacolon), the use of bulk-forming laxatives is an absolute contraindication. These laxatives increase the stool's bulk, requiring active peristalsis to move through the intestines. In a non-functional, atonic colon, this can lead to further distension, increased pressure, and the risk of perforation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Instead, treatment should focus on relieving distension, rehydration, correcting electrolytes, and managing any underlying causes or infections. The rest of the options, intravenous fluids for rehydration & parenteral nutrition, nasogastric decompression to relieve distension and antibiotic therapy for suspected infection are components of the treatment protocol for Paralytic Ileus. (Option A, B and D ruled out)"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-46-4",
+   "question": "A 45-year-old woman with a history of chronic constipation visits her primary care physician. She has been prescribed bisacodyl, a stimulant laxative, to help with her bowel movements. The physician advises her to take the medication before bedtime. What is the BEST explanation for prescribing bisacodyl before bedtime?",
+   "options": {
+    "A": "Bisacodyl takes 6-8 hours to reach the small bowel, thus needs to be given at bedtime for morning evacuation.",
+    "B": "Bisacodyl has an associated sedative effect, thus needs to be prescribed before sleep.",
+    "C": "The drug requires hydrolysis by endogenous esterases in the bowel for activation, which takes 6–10 hours on oral dose.",
+    "D": "Bisacodyl mechanism of action involves the process of fermentation, which needs 6-8 hours to take place."
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Bisacodyl and other Stimulant laxatives require hydrolysis by endogenous esterases in the bowel for activation, so the Bisacodyl effects are seen after 6–10 hours of an oral dose. However, Bisacodyl can also be given via rectal suppositories which act within 15-60 mins. Bisacodyl acts by causing low grade inflammation in small and large bowel, stimulating intestinal motility and promoting accumulation of water and electrolytes."
+    },
+    {
+     "type": "paragraph",
+     "text": "Hence, there’s no relation with the drug reaching the colon to act. (Option A ruled out) Bisacodyl does not have any sedative or sleep inducing effect. ( Option B ruled out) Bisacodyl does not involve fermentation. It is activated by the process of hydrolysis by endogenous esterases. (Option D rule out)"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-46-5",
+   "question": "A 55-year-old woman with a history of chronic constipation has been using over-the-counter laxatives for several months. During a routine colonoscopy, the gastroenterologist observes the following image. Which of the following is the implicated reason for this condition?",
+   "options": {
+    "A": "Bisacodyl",
+    "B": "Isabgol",
+    "C": "Castor Oil",
+    "D": "Senna"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The Image shown is of Melanosis Coli, a benign condition where dark pigmentation of the colonic mucosa is seen on colonoscopy, often associated with the long-term use of anthraquinone-containing laxatives like Senna and Cascara. Senna & Cascara: Herbal Laxatives, which are a type of Stimulant laxatives."
+    },
+    {
+     "type": "paragraph",
+     "text": "It causes low-grade inflammation in the small and large bowel, stimulating intestinal motility and promoting the accumulation of water and electrolytes. Other side effects of Senna/Cascara besides Melanosis Coli are nausea, vomiting and abdominal cramping."
+    },
+    {
+     "type": "paragraph",
+     "text": "Contraindications: Pregnancy (Increased the risk of abortion due to contractions) Intestinal Obstruction (can cause rupture of the intestine) Before Colonoscopy (can interfere with colonoscopy findings)"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-46-6",
+   "question": "A 45-year-old male presents with complaints of chronic indigestion, bloating and delayed gastric emptying. After a thorough evaluation, the physician prescribes a prokinetic agent to improve gastrointestinal motility. Which of the following statements about prokinetic agents is false?",
+   "options": {
+    "A": "Metoclopramide acts as a D2 antagonist and has serotonergic activity, enhancing GI motility.",
+    "B": "Domperidone primarily acts as a peripheral D2 receptor antagonist, facilitating gastric emptying and increasing LES tone.",
+    "C": "Erythromycin acts as a motilin receptor agonist, mimicking the action of motilin to stimulate gastric contractions.",
+    "D": "Cholecystokinin acts on the CCK-A receptor and stimulates stomach contraction, promoting motility."
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Cholecystokinin acts on the CCK A receptor to inhibit stomach contraction and not stimulate it. Prokinetic agents: Class of Drug Drugs Uses Dopamine (D2) Receptor Antagonists Metoclopramide, Domperidone, Levosulpiride GERD, gastroparesis, dyspepsia, antiemetic. (Option A and B ruled out) 5-HT4 agonists Cisapride, Tegaserod (banned due to QT prolongation), Mosapride,Prucalopride, Cinitapride, Metoclopramide. GERD, gastroparesis, dyspepsia."
+    },
+    {
+     "type": "paragraph",
+     "text": "Motilin receptor agonists Erythromycin In Acute Upper GI haemorrhage to promote gastric emptying of blood before endoscopy. (Option C ruled out) CCK - A (CCK -1) inhibitors Dexloxiglumide GERD, IBS, functional dyspepsia, constipation and gastroparesis. ↑ ACh levels Neostigmine Postoperative paralytic ileus"
+    }
+   ]
+  }
+ ]
+}

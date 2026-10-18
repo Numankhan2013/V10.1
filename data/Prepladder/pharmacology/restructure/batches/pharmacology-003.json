@@ -1,0 +1,565 @@
+{
+ "batch": "pharmacology-003",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pharmacology-003",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pharmacology-4-3",
+   "question": "Which of the following statements is true regarding the source of a drug?",
+   "options": {
+    "A": "Atropine and vaccines are developed through rational drug design.",
+    "B": "HIT refers to a synthetic chemical with the potential to become a drug.",
+    "C": "Preclinical trials are not necessary for potential medications.",
+    "D": "The most common way to find a potential drug is by high throughput screening of all available chemicals."
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Drug Sources: All chemicals that have the potential to become drugs are called HIT. (Option B) Pre-clinical trials are required for HIT/potential medicines. (Option C) Sources: Natural High throughput screening Rational drug designing Plants: Morphine, atropine (Option A) Animals: Vaccines, monoclonal antibody Microorganism: Penicillin, streptomycin Screening all available chemicals with the potential to become a drug is the M/C way. (Option D) Developed to bind at target receptors E.g."
+    },
+    {
+     "type": "paragraph",
+     "text": "PPIs."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-4-4",
+   "question": "Match the phases of drug trials with their correct descriptions: Phase Description 1. Phase 0 a. Determines drug efficacy and side effects on a heterogeneous population 2. Phase 1 b. Monitor long-term side effects and drug interaction in hidden populations. 3. Phase 2 c. Human testing to assess drug safety and maximum tolerable dose (MDT). 4. Phase 3 d. Randomized trials to assess drug efficacy and optimal dosing 5. Phase 4 e: Low dosing trials to check drug-target binding.",
+   "options": {
+    "A": "1: e, 2: c, 3: d, 4: a, 5: b",
+    "B": "1: c, 2: e, 3: a, 4: b, 5: a",
+    "C": "1: e, 2: c, 3: a, 4: b, 5: d",
+    "D": "1: c, 2: d, 3: e, 4: a, 5: b"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Phases of clinical trials: Phases Description Phase 0 Design: An open-label trial Purpose: Check the target binding of a drug Check the pharmacokinetics of the drug Called a micro-dosing trial (100 micrograms dose) Non-mandatory clinical trial Phase 1 Design: An open-label trial Purpose: Evaluate drug safety- the most important Evaluate MTD (maximum tolerable dose), loading dose and drug half-life."
+    },
+    {
+     "type": "paragraph",
+     "text": "Evaluate drug pharmacokinetics (absorption, distribution, metabolism and excretion) Called the first human trial Phase 2 Design: Randomized clinical trial (RCT) Purpose: Explore drug efficacy Called a therapeutic exploratory trial or proof of concept trial Phase 3 Design: Double-blinded RCT Purpose: Find the optimal drug dose Confirm efficacy Safety is priority Called a therapeutic confirmatory trial Called multi-site trial (done on a heterogeneous population) Drugs get market approval Phase 4 Design: Open-label Purpose: Find hidden/missed/rare adverse effects."
+    },
+    {
+     "type": "paragraph",
+     "text": "Evaluate compliance: long-term side effects Drug interactions Food interactions Called post-marketing surveillance"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-4-5",
+   "question": "Match the phases of clinical trials with their target populations: Phase Target Population 1. Phase 0 a. Patients with the disease of interest 2. Phase 1 b. General patient population post-marketing 3. Phase 2 c. Healthy volunteers 4. Phase 3 d. Small number of patients with the disease 5. Phase 4 e. Very small number of healthy or diseased individuals",
+   "options": {
+    "A": "1: b, 2: c, 3: d, 4: e, 5: a",
+    "B": "1: e, 2: c, 3: d, 4: a, 5: b",
+    "C": "1: a, 2: d, 3: c, 4: e, 5: b",
+    "D": "1: e, 2: c, 3: a, 4: b, 5: d"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Target Population in Clinical Trials: Phases Number of Volunteers Type of population Phase 0 2-5 Healthy Phase 1 20-50 Healthy Phase 2 200-500 Patients Phase 3 2000-5000 Patients Phase 4 Larger population (cannot be predicted) Patients on the approved drug"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-4-6",
+   "question": "A 68-year-old female on Digoxin presents to the emergency department with symptoms of nausea, vomiting, blurred vision, and severe bradycardia indicative of Digoxin toxicity. She was given antidote DIGIBIND. Which of the following categories does this specific antidote belong?",
+   "options": {
+    "A": "Counterfeit drugs",
+    "B": "Essential drugs",
+    "C": "Orphan drugs",
+    "D": "Over-the-counter drugs"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "History of atrial fibrillation and congestive heart failure with symptoms of nausea, vomiting, blurred vision, and severe bradycardia along with evidence of cardiac dysrhythmias suggests Digoxin toxicity. Digoxin-specific antibody fragments (Digibind or DigiFab) are the specific antidote for digoxin toxicity, which is an orphan drug."
+    },
+    {
+     "type": "paragraph",
+     "text": "Orphan drugs: These are: Drugs or biological agents for diagnosis/treatment/prevention of a rare disease or condition. (or) A more common disease (endemic only in resource-poor countries) for which there is no reasonable expectation that the cost of developing and marketing it will be recovered from the sales of that drug. Rare disease: In India, Rare disease - the prevalence of the disease is <1 per 5 lakh population."
+    },
+    {
+     "type": "paragraph",
+     "text": "In the USA, Rare disease - the prevalence of the disease is <1 per 2 lakh population. In India, the government gives incentives/money to pharmaceutical companies to make orphan drugs."
+    },
+    {
+     "type": "paragraph",
+     "text": "Some examples of orphan drugs: Desferrioxamine Clofazimine Sodium stibogluconate Digibind Colchicine Sodium thiosulfate Fomepizole Eltrombopag Sodium nitrite Felbamate Fomivirsen ThioTEPA Adenosine deaminase Icatibant Succimer Azacitidine Nilotinib Rifabutin Bevacizumab Paromomycin Somatropin Bortezomib Rifaximin Liothyronine Carboprost Rituximab Miltefosine Orphan receptors: These are receptors whose natural ligands are unknown."
+    },
+    {
+     "type": "paragraph",
+     "text": "They are discovered based on their structural similarity to known receptors. Types: GPCRs & nuclear receptors. Importance: To understand their function. Potential targets for new therapeutics, especially for diseases with Undiscovered treatment Examples: GPR40 and GPR55 were once orphan receptors, but they are now known to interact with specific ligands, revealing new physiological roles."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Counterfeit drugs (Option A):** Fake medications that are illegally produced and sold to represent their origin, authenticity, or effectiveness deceptively."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Essential medicines (Option B):** WHO defines essential medicines as “those that satisfy the priority healthcare needs of the population.” The drugs should be Available at all times. Available in all doses. Available in all formulations. Affordable and cost-effective."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Over-the-counter drugs (Option D):** Medications available without a prescription, intended for self-medication and usually for less serious conditions. Examples: Paracetamol, antacids, laxatives, vitamins etc."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-4-7",
+   "question": "Which of the following statements are true about counterfeit drugs? Counterfeit drugs may contain incorrect ingredients. These drugs often have the same therapeutic effect as genuine drugs. Counterfeit drugs are usually subject to rigorous quality control. They can lead to treatment failure and contribute to drug resistance. Counterfeit drugs may be labelled with fake packaging to resemble genuine products.",
+   "options": {
+    "A": "1, 2, and 4",
+    "B": "1, 3, and 5",
+    "C": "1, 4, and 5",
+    "D": "2, 3, and 5"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Counterfeit drugs: Illegal. Given to cheat or harm a person. These drugs do not have the same therapeutic effect as genuine drugs and may lead to treatment failure. Counterfeit drugs are not subjected to proper quality control. People making illegal drugs are punished or jailed. Types Description Example Spurious Drugs Have no active ingredient 500 mg paracetamol tablet → when checked, it contains no paracetamol in it."
+    },
+    {
+     "type": "paragraph",
+     "text": "Made by illegal people other than the manufacturer to copy the drug. Misbranded Drugs Low-quality drugs 500 mg tablet → when checked, it contains only 200 mg. Made by the same manufacturer to increase profit. Adulterated Drugs Addition of harmful or unwanted excipients Cough syrup made in India containing ethylene glycol → when checked, GMP guidelines do not approve these substances."
+    },
+    {
+     "type": "paragraph",
+     "text": "Ethylene glycol is harmful and not approved as an excipient by GMP."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-4-8",
+   "question": "A 28-year-old pregnant woman comes to the antenatal clinic for regular check up. An ultrasound of her abdomen showed craniofacial abnormalities, hypoplasia of the phalanges, and cleft palate. Which of the following medications is most likely to cause this condition?",
+   "options": {
+    "A": "Valproate",
+    "B": "Phenytoin",
+    "C": "Isotretinoin",
+    "D": "Warfarin"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The ultrasound findings in a 28-year-old pregnant woman showing craniofacial abnormalities, hypoplasia of the phalanges, and cleft palate in the fetus are suggestive of fetal hydantoin syndrome caused by phenytoin intake. Fetal hydantoin syndrome: It is associated with the use of phenytoin during pregnancy. The features include Hypertelorism. Low nasal bridge. Hypoplasia of the distal phalanges and nails. Growth impairment."
+    },
+    {
+     "type": "paragraph",
+     "text": "Intellectual disability. Cleft lip/palate. Microcephaly. Teratogenic drugs: Teratogenic drugs are substances that can cause developmental abnormalities (teratogenesis) in a developing fetus when a pregnant woman is exposed to them. Drug Teratogenic Disorder Acitretin Craniofacial anomalies, heart defects, CNS malformations. Alcohol Fetal Alcohol Syndrome (growth retardation, facial anomalies, CNS dysfunction, ASD, VSD)."
+    },
+    {
+     "type": "paragraph",
+     "text": "ACE inhibitors & Angiotensin-receptor blockers Renal dysgenesis, oligohydramnios, lung hypoplasia, skull hypoplasia. Carbamazepine Neural tube defects (spina bifida), craniofacial defects."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Isotretinoin (Option B):** Craniofacial anomalies, heart defects, CNS malformations. Lithium Ebstein's anomaly (tricuspid valve malformation). Thalidomide Severe limb defects (phocomelia), ear, cardiac, and genitourinary malformations. Carbimazole & methimazole Choanal atresia, aplasia cutis, and fetal goitre. Penicillamine Cutis laxa syndrome. Statins Vertebral, anal, cardiac, tracheo-oesophageal fistula, renal, arterial, and limb defects (VACTERAL defects). SSRIs Persistent pulmonary hypertension of the newborn."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Valproic acid (Option A):** Neural tube defects (spina bifida), craniofacial defects, cardiovascular malformations, and developmental delay."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Warfarin (Option D):** Fetal warfarin syndrome: Nasal hypoplasia, stippled epiphyses, limb hypoplasia, and central nervous system abnormalities."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-4-9",
+   "question": "Which of the following is the primary aim of pharmacovigilance?",
+   "options": {
+    "A": "To conduct clinical trials for new drugs",
+    "B": "To ensure the quality and efficacy of pharmaceutical products",
+    "C": "To reduce the risk of drug-related harm to the patient",
+    "D": "To control the marketing and distribution of medications"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Pharmacovigilance plays a critical role in public health by ensuring the safety of pharmaceutical products once they are available to the public. While clinical trials provide initial safety data, pharmacovigilance ensures that adverse effects, which might only appear in larger or diverse populations, are detected and addressed after drugs are marketed."
+    },
+    {
+     "type": "paragraph",
+     "text": "Elements of pharmacovigilance include: Component Description Adverse Drug Reactions (ADR) Monitoring and managing harmful effects caused by drugs. Post-Marketing Surveillance Continuous monitoring of drugs' safety profile after approval. Signal Detection Identifying new potential risks associated with a drug. Risk Management Strategies to minimize risks associated with the use of drugs."
+    },
+    {
+     "type": "paragraph",
+     "text": "Regulatory Actions Involves recommendations for changing labels, withdrawal, or restricting use based on findings."
+    },
+    {
+     "type": "paragraph",
+     "text": "**To conduct clinical trials for new drugs (Option A):** Incorrect because clinical trials are part of the drug development process, occurring before pharmacovigilance. They assess the safety and efficacy of a drug before it is marketed."
+    },
+    {
+     "type": "paragraph",
+     "text": "**To ensure the quality and efficacy of pharmaceutical products (Option B):** Incorrect because ensuring quality and efficacy falls under regulatory oversight during drug approval and manufacturing, not pharmacovigilance. Pharmacovigilance primarily deals with the safety of drugs post-marketing."
+    },
+    {
+     "type": "paragraph",
+     "text": "**To control the marketing and distribution of medications (Option D):** Incorrect because marketing and distribution control is managed by regulatory bodies (like FDA, EMA), which oversee drug approvals and market access. Pharmacovigilance focuses on monitoring drug safety after market approval."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-4-10",
+   "question": "All of the following are true about Placebo drugs except:",
+   "options": {
+    "A": "It is used as a dummy medication",
+    "B": "It contains the active moiety",
+    "C": "It can induce physiological responses",
+    "D": "Placebo helps in blinding"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "A placebo is an inert substance given in a medicine's garb. A placebo is similar to the actual drug. It does not contain any active moiety. It contains inert substances with expicients. It works by psychodynamic rather than pharmacodynamic means and often produces responses equivalent to the active drug (Option C). Placebos are used in two situations: As a control device in clinical trials of drugs ( dummy medication & blinding ) (Options A & D)."
+    },
+    {
+     "type": "paragraph",
+     "text": "To treat a patient who, in the physician's opinion, does not require an active drug. Placebos can induce physiological responses (e.g, releasing endorphins in the brain, causing analgesia). The administration of an active drug produces effects due to both pharmacological and psychodynamic effects; a placebo can supplement the pharmacological effects of active medicines."
+    },
+    {
+     "type": "paragraph",
+     "text": "Examples: Lactose tablets/capsules, distilled water injection, multi-vitamin injections, and sham surgery."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-4-11",
+   "question": "A diabetic patient on regular insulin therapy accidentally injects himself with a higher dose than prescribed. He experiences sweating, trembling, confusion, and dizziness. Which type of adverse drug reaction (ADR) can be seen in this patient?",
+   "options": {
+    "A": "Type A",
+    "B": "Type B",
+    "C": "Type C",
+    "D": "Type D"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "A diabetic patient taking a higher dose of insulin and developing hypoglycemia (symptoms such as sweating, trembling, confusion, and dizziness) is suggestive of a type A adverse drug reaction. Types of drug reactions (mnemonic-ABCDEF): Type of reaction Description Example A ugmented Dose-dependent, predictable, and more common. ↑ Insulin → hypoglycemia. B izzare Dose-independent, non-predictable, less common, and more serious."
+    },
+    {
+     "type": "paragraph",
+     "text": "Allergy & idiosyncracy. Chronic Dose & duration dependent Suppression of hypothalamic-pituitary axis by chronic steroid use. Delayed Duration dependent Kidney disease from long-term NSAID use. E nd of use Withdrawal symptoms Opioid withdrawal. Failure Failure of therapy Enzyme inducers → OCP failure."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-4-12",
+   "question": "A patient who was admitted with acute myocardial infarction is due for discharge. His previous medical records show a defective CYP2C19. Which of his following long-term medications should be avoided in this case?",
+   "options": {
+    "A": "Ticagrelor",
+    "B": "Ramipril",
+    "C": "Clopidogrel",
+    "D": "Atenolol"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Clopidogrel, once enters the blood, is converted into its active form by the CYP2C19 enzyme and hence, people with genetic defects in this enzyme will be “poor metabolisers” of clopidogrel and hence will be ineffective. Pharmacogenetics/pharmacogenomics deals with the variation of drug response due to an individual's genetic makeup. Pharmacogenetics Pharmacogenomics The study of the genetic basis for variability in drug response."
+    },
+    {
+     "type": "paragraph",
+     "text": "It uses genetic information to guide the choice of drug and dose individually. It deals with genetic influences on drug action as well as on drug handling of the body. It tends to identify individuals who are either more likely or less likely to respond to a drug, as well as those who require altered doses of certain drugs. In this patient's case, the defective CYP2C19 gene means they cannot properly metabolise clopidogrel."
+    },
+    {
+     "type": "paragraph",
+     "text": "Pharmacogenomics takes this information to guide the choice and dose of drugs, ensuring that medications are tailored to the patient's genetic profile for optimal effectiveness and safety. Patients can be divided into four types based on the ability to bio-activate clopidogrel. Optimal metabolisers: The usual dose of clopidogrel can be completely effective. Intermediate metabolisers: Therapeutic effect can be achieved by increasing the dose."
+    },
+    {
+     "type": "paragraph",
+     "text": "Poor metabolisers: Clopidogrel will almost always be ineffective. Over metabolisers: They require excessive dosing and can lead to adverse effects. Ticagrelor, Ramipril, and Atenolol are not metabolised by CYP2C19 (Options A, B, and D ruled out)."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-4-13",
+   "question": "Match the following adverse reactions with their causative agents. Image Drug Responsible Sulfonamides Carbamazepine Tetracyclines Griseofulvin",
+   "options": {
+    "A": "1-a, 2-d, 3-b, 4-c",
+    "B": "1-c, 2-b, 3-a, 4-d",
+    "C": "1-b, 2-c, 3-d, 4-a",
+    "D": "1-d, 2-b, 3-d, 4-c"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The images are numbered as: 1. Tetracyclines can commonly cause phototoxic reactions in the right leg. The image below shows phototoxic reactions on the chest. 2. Steven Johnson syndrome is common with many drugs, especially carbamazepine. 3. Erythema nodosum is common with sulfonamides. 4. Erythema multiforme can be caused by griseofulvin. Adverse effects of a drug can manifest in different ways: Toxic effects. Intolerance. Idiosyncrasy."
+    },
+    {
+     "type": "paragraph",
+     "text": "Hypersensitivity. Phototoxicity. Drug dependency and addiction. Teratogenicity. Mutagenicity & carcinogenicity. Withdrawal reactions."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L04_Q013_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L04_Q013_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L04_Q013_explanation_3"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L04_Q013_explanation_4"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-1",
+   "question": "The therapeutic index of a drug serves as a measure for?",
+   "options": {
+    "A": "Potency",
+    "B": "Safety",
+    "C": "Efficacy",
+    "D": "All of these"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Therapeutic Index (TI) is a measure used to assess a drug's safety. It is defined as the ratio of the dose that produces toxicity to the dose that produces a therapeutic effect. TI= median toxic dose /median effective dose; (TD50/ED50) The therapeutic window is the range of drug concentrations that can safely and effectively treat the disease. If the TI window for a drug is narrow, it requires frequent monitoring."
+    },
+    {
+     "type": "paragraph",
+     "text": "E.g., W arfarin, T heophylline, D igoxin, L ithium ( W arning T hese D rugs are L ethal) Potency (Option B) is the amount of drug required to produce a given effect. The lower the drug dose needed, the higher the potency. The graph below helps us estimate the drugs' potency (The lower the drug dose needed, the higher the potency). The left shift of the graph indicates an increase in potency."
+    },
+    {
+     "type": "paragraph",
+     "text": "Thus the order of potency: Drug D > B > C > A. Efficacy (Option C) is the maximal effect a drug can produce, represented by the Vmax /y-axis value. The higher the Vmax, the higher the efficacy. The graph below helps us estimate the efficacy of the drugs (the higher the Vmax, the higher the efficacy, Thus order of efficacy: Drug A > B >C >D."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L05_Q001_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L05_Q001_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L05_Q001_explanation_3"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-2",
+   "question": "What is the half-life of a drug with an elimination rate constant of 0.05 per hour?",
+   "options": {
+    "A": "20.8 hours",
+    "B": "6.9 hours",
+    "C": "13.8 hours",
+    "D": "9.8 hours"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "- 13.8 hours The half-life of the given drug is 13.8 hours. Half-life is the time taken by a drug for the drug plasma concentration to decrease by 50%, and the elimination rate constant of a drug reflects the fraction of drug removed from the body per unitof time. The formula for calculating the half-life of a drug is: t1/2 = 0.693 / K Putting in the given elimination rate constant of 0.05/hr, we get: Half-life = 0.693 / 0.05 = 13.86 hours"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-3",
+   "question": "A female patient recently diagnosed with tuberculosis was started on antitubercular therapy. Since she is using oral contraceptive pills, she was advised also to use a barrier method of contraception. Why was she given this advice?",
+   "options": {
+    "A": "Teratogenicity of Antitubercular drugs",
+    "B": "Failure of Antitubercular drugs",
+    "C": "Rifampicin induces OCP metabolism and causes contraception failure",
+    "D": "Rifampicin decreases OCP metabolism"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Rifampicin is a potent cytochrome P450 enzyme; thus, when given along with OCP, it increases OCP's metabolism, causing contraception failure. To prevent pregnancy, extra precautions must be taken when using barrier methods."
+    },
+    {
+     "type": "paragraph",
+     "text": "Enzyme inducing drugs Enzyme inhibiting drugs Barbiturates Phenytoin Carbamazepine Rifampicin Cigarette smoking Chronic alcoholism Macrolides Azoles Chloramphenicol Omeprazole SSRI’s HIV protease inhibitors Cimetidine Metronidazole Drugs Affecting metabolism of estrogen/oral contraceptives: Induction of CYP450 enzymes in the liver: Rifampicin induces CYP3A4, resulting in increased estrogen metabolism, leading to contraceptive failure."
+    },
+    {
+     "type": "paragraph",
+     "text": "Interruption with enterohepatic cycling: Seen with penicillins, cephalosporins, tetracyclines, macrolides, antifungals, and sulphonamides. Broad-spectrum antibiotics reduce small intestine bacteria."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Teratogenicity of Antitubercular drugs (Option A):** is an incorrect answer, as Antitubercular drugs are not known to be teratogenic."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Failure of Antitubercular drugs (Option B):** does not occur with concurrent use of ATT and OCP; rather, failure of OCP occurs due to enzyme induction by Rifampicin."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L05_Q003_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-4",
+   "question": "A patient on Digoxin, Potassium chloride, Clarithromycin, Atenolol and Triamterene developed atrial fibrillation with controlled ventricular rate. Investigations showed elevated Digoxin levels. Which of the following drugs is responsible for the rise in serum Digoxin?",
+   "options": {
+    "A": "Potassium Chloride",
+    "B": "Clarithromycin",
+    "C": "Atenolol",
+    "D": "Rifampicin"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Atrial fibrillation with controlled ventricular rate along with elevated digoxin levels are suggestive of digoxin toxicity, which has most likely occurred due to concurrent use of Digoxin with Clarithromycin, as clarithromycin inhibits P-glycoprotein. P-glycoprotein (P-gp), also known as ATP-binding cassette sub-family B member 1 ( ABCB1 ) or multidrug resistance protein 1 ( MDR1 ), is an efflux transporter protein."
+    },
+    {
+     "type": "paragraph",
+     "text": "It has a major role in the elimination of Digoxin. Its primary function is to pump out drugs from inside the cell to outside the cell Location of Pgp in various body tissues: GIT: Decreases absorption of the drug. Kidney: Increases urinary excretion of the drug. Liver: Increases bile excretion of the drug. Blood-brain-barrier/Placenta: Decreases drug entry into the brain/placental cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "P-glycoprotein Inducer P-glycoprotein Inhibitor Activity Increases the activity of Pgp Decreases the activity of Pgp Drugs Rifampicin Phenobarbitone. Mnemonic: QVACKER Quinidine Verapamil Amiodarone Clarithromycin Ketoconazole Erythromycin Ritonavir Combined with Substrate of p-glycoprotein (Digoxin) Increases the activity of P-gp. Increased urinary excretion. Digoxin is excreted. Reduces the activity of P-gp. Reduced urinary excretion."
+    },
+    {
+     "type": "paragraph",
+     "text": "Increased plasma concentration of the drug. Toxicity of digoxin: Arrhythmias."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Potassium Chloride (Option A):** is a supplement that is used to correct potassium deficiencies and is not known to interact with digoxin metabolism directly."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Atenolol (Option C):** is a beta-blocker used to treat hypertension and other cardiovascular conditions. While it can interact with digoxin, it typically reduces its effects rather than increasing its effects."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Rifampicin (Option D):** is an antitubercular drug that induces P-glycoprotein; thus, it increases the activity of P-gp, which results in increased excretion of Digoxin."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-5",
+   "question": "As a medical practitioner in India, how will you prescribe Alprazolam to a patient?",
+   "options": {
+    "A": "1mg OD HS for 7 days",
+    "B": "0.5 mg OD HS for 7 days",
+    "C": "0.5 mg BD for 7 days",
+    "D": "0.5 mg once daily before bedtime for 7 days"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The correct method of prescribing alprazolam is 0.5 mg once daily before bedtime for 7 days. The prescription should be legibly written, and the drug should be prescribed in generic names in capital letters, along with details of the patient. Proper dosing and quantity. Duration for which it should be taken. Time when it should be taken. Avoid the use of abbreviations - especially Latin."
+    },
+    {
+     "type": "paragraph",
+     "text": "Leading zero should always be mentioned (0.5 is correct,.5 is incorrect) Parts of a prescription Date Name and address of the doctor Information about the patient Rx - Superscription Name and dose of the drug - inscription Dispensing direction to the pharmacist - subscription Instruction to the patient Signature and stamp of the doctor"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-6",
+   "question": "What is the dosing rate of a drug based on?",
+   "options": {
+    "A": "Clearance / desired peak plasma concentration",
+    "B": "Clearance of drug X desired peak plasma concentration",
+    "C": "Clearance X loading dose",
+    "D": "Clearance/loading dose"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The formula for drug dosing rate is Clearance of drug X desired peak plasma concentration. The equation for dose rate is based on steady-state concentration. When a drug is given repeatedly at short intervals, it will accumulate in the body until the elimination of the drug matches the intake of the drug. Thus, steady-state concentration is the plasma concentration at which drug elimination = drug intake."
+    },
+    {
+     "type": "paragraph",
+     "text": "Steady-state concentration = dosing rate/clearance Loading dose = Volume of distribution X Desired steady-state plasma concentration Maintenance dose = Target plasma concentration X Clearance X Dosing interval Bioavailability (F) Dosing rate = Clearance of drug X desired peak plasma concentration"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-7",
+   "question": "Which of the following is not a prodrug?",
+   "options": {
+    "A": "Proguanil",
+    "B": "Sulindac",
+    "C": "Primidone",
+    "D": "Flurouracil"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "is a prodrug having the active metabolite as fluorouridine monophophate."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-8",
+   "question": "a. 1:1000 1. Cardiac arrest b. 1:10000 2. Anaphylaxis c. 1:100000 3. Local anesthesia",
+   "options": {
+    "A": "a-1, b-2, c-3",
+    "B": "a-2, b-1, c-3",
+    "C": "a-3, b-2, c-1",
+    "D": "a-1, b-3, c-2"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Condition Use Dilution/Concentration Route of Administration Anaphylaxis First-line treatment for severe allergic reactions 1:1000 (1 mg/mL) Intramuscular (IM) Cardiac arrest To restore cardiac rhythm and blood pressure 1:10,000 (0.1 mg/mL) Intravenous (IV) Intraosseous (IO) Asthma Treatment of acute severe asthma attacks 1:1000 (1 mg/mL) Inhalation via nebulizer Intramuscular (IM) subcutaneous (SC) Hypotension To increase blood pressure 1:100,000 (0.01 mg/mL) Intravenous (IV) infusion Local anesthesia Enhance duration and intensity of local anesthetic effect 1:200,000 to 1:100,000 (0.005 to 0.01 mg/mL) Local injection"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-9",
+   "question": "Which of the following is not a use of enteric-coated drugs? a) Protect the acid-labile drug from gastric acidity b) Protect the gastric mucosa from the irritant effects of certain drugs c) Prolongs the half-life of the drug d) Deliver drugs distal to the stomach",
+   "options": {
+    "A": "a, b & c",
+    "B": "b, c & d",
+    "C": "a, c & d",
+    "D": "c"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Enteric-coated drugs are primarily used to: Protect acid-labile drugs from gastric acidity (a), ensuring they pass through the stomach without degradation. Protect the gastric mucosa from irritant effects (b) & prevent gastric distress and vomiting. Deliver drugs distal to the stomach (d), releasing them in the intestine. Minimizing first pass metabolism To provide a delayed-release component for repeat action"
+    }
+   ]
+  }
+ ]
+}

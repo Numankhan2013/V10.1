@@ -1,0 +1,605 @@
+{
+ "batch": "pharmacology-019",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pharmacology-019",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pharmacology-16-11",
+   "question": "A patient who is a known case of liver cirrhosis presents with abdominal distension and swelling of the lower limbs. What is the preferred diuretic for this patient?",
+   "options": {
+    "A": "Triamterene",
+    "B": "Eplerenone",
+    "C": "Chlorthalidone",
+    "D": "Furosemide"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "For a patient with liver cirrhosis presenting with ascites and peripheral edema, the preferred diuretic is Eplerenone. Eplerenone MOA Mineralocorticoid receptor / Aldosterone antagonist resulting in natriuresis and reducing edema Uses Primary hyperaldosteronism leading to hypertension Edema associated with liver cirrhosis, congestive cardiac failure and CKD Reduced mortality in post-MI patients."
+    },
+    {
+     "type": "paragraph",
+     "text": "Use in cirrhosis Patients with liver cirrhosis have reduced effective blood volume due to blood accumulation in the splanchnic vessels due to vasodilatation. This results in activation of RAAS and retention of salt and water - Ascites and resistance to loop diuretics."
+    },
+    {
+     "type": "paragraph",
+     "text": "Aldosterone enters the cells in the late DCT and Collecting ducts via diffusion and binds to specific mineralocorticoid receptors in the cellular cytosol, which mediates sodium reabsorption and potassium and H+ secretion into the tubules. Eplerenone competitively blocks this MR receptor, resulting in natriuresis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Side effects Hyperkalemia No anti-androgenic effects seen Triamterene (Option A):** directly inhibits renal epithelial sodium channels (ENaC) in the late distal tubule and collecting duct. It is a potassium-sparing diuretic and is generally used along with other diuretics in the treatment of hypertension and edema, as well as in the management of Liddle syndrome. It is metabolised in the liver hence triamterene toxicity may be enhanced in patients with hepatic disease."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Chlorthalidone (Option C):** is a thiazide-like diuretic that inhibits the Na+-Cl symporter in the early distal tubule (Early DCT)and increases the excretion of sodium and chloride. Thiazide diuretics may be used for the treatment of hypertension, heart failure, nephrolithiasis due to idiopathic hypercalciuria, and nephrogenic diabetes insipidus."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Furosemide (Option D):** is a loop diuretic that inhibits Na+-K+-2Cl symporter in the thick ascending limb of the loop of Henle,resulting in increased excretion of sodium and chloride. It also has mild carbonic anhydrase inhibitory activity and also increases urinary excretion of bicarbonate and phosphate. Cirrhotic patients are often resistant to loop diuretics due to decreased secretion of the drug into tubular fluid and high aldosterone levels."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-16-12",
+   "question": "A 35-year-old male experiences headache, nausea, and shortness of breath while trekking. The physician prescribes a drug to alleviate his symptoms. The drug administered primarily acts on which part of the nephron?",
+   "options": {
+    "A": "Proximal convoluted tubule (PCT)",
+    "B": "Loop of Henle",
+    "C": "Distal convoluted tubule (DCT)",
+    "D": "Collecting duct (CD)"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient is experiencing symptoms of acute mountain sickness (AMS) due to hypoxia at high altitude. The drug commonly prescribed for AMS is acetazolamide, a carbonic anhydrase inhibitor, which primarily acts on the proximal convoluted tubule (PCT) of the nephron."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mechanism of Acetazolamide in AMS: Inhibits carbonic anhydrase in the PCT, leading to: Decreased bicarbonate (HCO₃⁻) reabsorption → metabolic acidosis Increased renal excretion of bicarbonate → compensatory hyperventilation This enhances ventilation and improves oxygenation, helping alleviate AMS symptoms. Acetazolamide in AMS Symptom Alleviation Inhibits kidney carbonic anhydrase. Increases urine bicarbonate ions excretion → Metabolic acidosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Counteracts respiratory alkalosis from high altitude hyperventilation. Improves oxygenation and alleviates AMS symptoms."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Loop of Henle (Option B):** is incorrect because loop diuretics (e.g., furosemide) act here by inhibiting Na⁺-K⁺-2Cl⁻ cotransport, but they are not used for AMS. Distal Convoluted Tubule (DCT) (Option C) is incorrect because thiazide diuretics act here by inhibiting Na⁺-Cl⁻ symport, but they do not correct AMS-related hypoxia."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Collecting Duct (CD) (Option D):** is incorrect because the collecting duct is the site of aldosterone and ADH regulation, affected by potassium-sparing diuretics (e.g., spironolactone), which do not treat AMS."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L16_Q012_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-16-14",
+   "question": "Match the following Diuretics in column A to their site of action in column B Column A Column B Acetazolamide Torsemide Chlorthalidone Vasopressin Thick ascending loop of Henle Collecting duct Distal convoluted tubule Proximal convoluted tubule",
+   "options": {
+    "A": "A-2, B-3, C-1, D-4",
+    "B": "A-3, B-4, C-2, D-1",
+    "C": "A-1, B-2, C-4, D-3",
+    "D": "A-4, B-1, C-3, D-2"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "1. Acetazolamide is a carbonic anhydrase inhibitor that works in the proximal convoluted tubule of the nephron to inhibit the reabsorption of bicarbonate ions. This results in a mild diuretic effect and the excretion of excess fluids and electrolytes. 2. Torsemide is a loop diuretic that works in the thick ascending limb of the loop of Henle to inhibit the reabsorption of sodium, potassium, and chloride ions."
+    },
+    {
+     "type": "paragraph",
+     "text": "Torsemide blocks the Na + /K + /2Cl - cotransporter, thus decreasing the amount of ions that are reabsorbed into the bloodstream and increasing the amount of ions that are excreted in the urine. 3. Chlorthalidone: This is a thiazide-like diuretic that works in the distal convoluted tubule to inhibit the reabsorption of sodium ions."
+    },
+    {
+     "type": "paragraph",
+     "text": "By blocking the Na + /Cl - cotransporter, chlorthalidone decreases the amount of sodium that is reabsorbed into the bloodstream and increases the amount of sodium that is excreted in the urine. This results in a moderate diuretic effect. 4. Vasopressin: This is not a diuretic, but rather an antidiuretic hormone (ADH) that works in the collecting duct to increase water reabsorption."
+    },
+    {
+     "type": "paragraph",
+     "text": "Vasopressin acts on the V2 receptor in the collecting duct to stimulate the insertion of aquaporin-2 channels into the apical membrane, which allows for the reabsorption of water. This results in a decrease in urine volume and an increase in urine concentration."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-16-15",
+   "question": "Which of the following drugs increases uric acid in urine?",
+   "options": {
+    "A": "Colchicine",
+    "B": "Febuxostat",
+    "C": "Probenecid",
+    "D": "Allopurinol"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Drugs 1. Probenecid: Side effects: diarrhoea, hypersensitivity, uric acid stones Contraindication: nephrolithiasis, renal failure Precaution: take plenty of oral fluids Concomitant colchicine or NSAIDs indicated in attack of gout 2. Sulphinpyrazole: Non-steroidal anti-inflammatory drug Recommended in both acute and chronic gout 3. Benzbromarone: Safe in renal failure Contraindication – Liver diseases 4."
+    },
+    {
+     "type": "paragraph",
+     "text": "Lesinurad Drugs for acute attack of gout DOC- NSAIDS (All types) Except for aspirin and paracetamol Anti-inflammatory Colchicine (spindle poison) (Option A) MOA: microtubule inhibitor Used in acute attacks of gout and familial Mediterranean fever and is also the DOC for karyotyping Corticosteroids Intra articular injections, avoid oral route Immunosuppressive and anti-inflammatory Drugs for chronic gout Xanthine oxidase inhibitors Allopurinol (DOC) (Option D) Oxipurinol Febuxostat (Option B) MOA: Blocks xanthine oxidase enzyme → Inhibits the conversion of hypoxanthine to uric acid in the liver."
+    },
+    {
+     "type": "paragraph",
+     "text": "Uric acid oxidase enzyme Pegloticase Rasburicase MOA: Uric acid is converted to allantoin and excreted in urine Uricosuric agents Probenecid (OptionC) Benzbromaron Sulfinpyrazone Lesinurad MOA: Inhibit OATP transporter/URAT-1 in the kidney → inhibits reabsorption of uric acid → increased excretion of uric acid. (OATP - Organic anion transport protein, URAT-1 - Uric acid transporter)"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-16-16",
+   "question": "Four friends are planning a trip to Ladakh. During their stay, one of them began experiencing headaches, nausea, dizziness, and fatigue. Which of the following is the most appropriate treatment for this patient?",
+   "options": {
+    "A": "Sumatriptan",
+    "B": "Promethazine",
+    "C": "Scopolamine",
+    "D": "Acetazolamide"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Acetazolamide (carbonic acid anhydrase inhibitor) is the drug that provides relief. Mechanism in mountain sickness: Inhibits kidney carbonic anhydrase. Increases urine bicarbonate ions excretion → Metabolic acidosis. Counteracts respiratory alkalosis from high altitude hyperventilation. Improves oxygenation and alleviates AMS symptoms."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Sumatriptan (Option A):** is a 5-HT1B/1D Agonist (triptan) and is used for the treatment of migraine and cluster headaches. It won’t help in relieving mountain sickness symptoms."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Promethazine (Option B):** is a first-generation antihistamine that acts on the basal ganglia and has anticholinergic properties. It is used for its antiemetic and anti-motion sickness properties. It won’t help in mountain sickness."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Scopolamine (Option C):** , or Hyoscine, is a medication with anticholinergic properties. It is used as a truth serum and is the drug of choice for prophylaxis of motion sickness. It won’t help in mountain sickness."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L16_Q016_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-16-17",
+   "question": "A 50-year-old woman was prescribed a diuretic by a doctor to manage hypertension. Which of the following diuretic acts on the site 'A' is marked in the given image?",
+   "options": {
+    "A": "Furosemide",
+    "B": "Hydrochlorothiazide",
+    "C": "Acetazolamide",
+    "D": "Mannitol"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Electrolyte imbalance"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L16_Q017_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-16-18",
+   "question": "A female patient complains of swelling and pain in her great toe. Her uric acid level is found to be high. A drug that reduces uric acid levels is prescribed. Which of the following enzymes should the drug inhibit?",
+   "options": {
+    "A": "Urease",
+    "B": "Homogentisate oxidase",
+    "C": "Lysyl oxidase",
+    "D": "Xanthine oxidase"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "is involved in collagen and elastin cross-linking, unrelated to uric acid metabolism."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L16_Q018_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-16-19",
+   "question": "A patient was started on dialysis, and he developed disequilibrium. Which of the following drugs should be started?",
+   "options": {
+    "A": "Ethacrynic acid",
+    "B": "Mannitol",
+    "C": "Bumetanide",
+    "D": "Nesiritide"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Cerebral edema, acute glaucoma, and dialysis disequilibrium syndrome. Side effects: Dehydration, electrolyte imbalance."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Ethacrynic acid (Option A):** and Bumetanide (Option C) are loop diuretics that inhibit the Na-K-2Cl symporter in the thick ascending loop of Henle. They are used in cases of acute pulmonary edema, chronic heart failure, and hypercalcemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Nesiritide (Option D):** is a recombinant human BNP (B-type Natriuretic Peptide), acts by increasing the levels of cyclic GMP, promoting vasodilation and natriuresis. It does not act on RAAS or NEP pathways."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-16-20",
+   "question": "Which of the following diuretics is matched correctly with its primary site of action? 1) Osmotic diuretics - Distal convoluted tubule. 2) Thiazide diuretics - Proximal convoluted tubule 3) Carbonic anhydrase inhibitors - Proximal convoluted tubule 4) Potassium-sparing diuretics - Collecting duct.",
+   "options": {
+    "A": "1, 2, and 3",
+    "B": "3 and 4",
+    "C": "2, 3, and 4",
+    "D": "1 and 2."
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Osmotic diuretics - Proximal convoluted tubule and descending limb of the loop of Henle, not the distal convoluted tubule. Thiazide diuretics – It mainly acts on the Distal convoluted tubule; the proximal convoluted tubule may be a secondary site of action. Carbonic anhydrase inhibitors – Proximal convoluted tubule. Potassium-sparing diuretics - Collecting duct."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Options A, C, and D are incorrect."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-16-21",
+   "question": "Which of the following is the mechanism of action of thiazides in DCT?",
+   "options": {
+    "A": "Blockade of Na Cl symporter",
+    "B": "Blockade of Na K 2Cl symporter",
+    "C": "Blockade of aldosterone receptors",
+    "D": "Blockade of epithelial sodium channels."
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Thiazide diuretics primarily exert their effects by inhibiting the Na-Cl symporter in the distal convoluted tubule (DCT) of the nephron. Na-Cl symporter normally facilitates the reabsorption of Na+ and Cl- from the filtrate back into the bloodstream. By blocking this, thiazides reduce the reabsorption of Na+ and Cl-, leading to increased excretion of these ions in the urine."
+    },
+    {
+     "type": "paragraph",
+     "text": "This results in diuresis and a reduction in blood volume, helping to lower blood pressure and reduce edema (associated with CHF, hepatic cirrhosis, nephrotic syndrome, chronic renal failure, acute glomerulonephritis) Blockade of Na Cl symporter (Option A): This is the mechanism of action of loop diuretics (like furosemide ), which inhibit the Na-K-2Cl symporter in the thick ascending limb of the loop of Henle, not the distal convoluted tubule."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Blockade of aldosterone receptors (Option C):** This describes the mechanism of aldosterone antagonists (like spironolactone ), which block aldosterone receptors in the collecting duct and distal tubule, leading to increased sodium excretion and potassium retention."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Blockade of epithelial sodium channels (Option D):** This refers to the action of amiloride, which is a potassium-sparing diuretic. They block the epithelial sodium channels in the distal convoluted tubule and collect the duct, reducing sodium reabsorption and preventing potassium loss."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-16-22",
+   "question": "Which of the following drugs is appropriate for treating a 75-year-old woman with urinary incontinence triggered by stress, such as coughing?",
+   "options": {
+    "A": "Ipratropium",
+    "B": "Tolterodine",
+    "C": "Telenzepine",
+    "D": "Tropicamide"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Mechanism of Action: Tolterodine is an antimuscarinic agent that specifically targets muscarinic receptors in the bladder. It reduces involuntary bladder contractions by blocking these receptors, which can help in managing symptoms of urinary incontinence, particularly urge incontinence."
+    },
+    {
+     "type": "paragraph",
+     "text": "Use in Stress Incontinence: While tolterodine is primarily used to treat urge incontinence, it can sometimes be beneficial in mixed incontinence cases where urgency is also a factor. However, the first-line treatment for pure stress incontinence typically involves non-pharmacological approaches like pelvic floor exercises."
+    },
+    {
+     "type": "paragraph",
+     "text": "Pharmacologically, stress incontinence is less commonly treated with medications, but if there is an urgency component, tolterodine may be considered."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Ipratropium: Mechanism of Action: Ipratropium is an anticholinergic drug used mainly as a bronchodilator in the treatment of chronic obstructive pulmonary disease (COPD) and asthma. It has no role in the management of urinary incontinence."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Telenzepine: Mechanism of Action: Telenzepine is a selective M1 muscarinic receptor antagonist used mainly for reducing gastric acid secretion in conditions like peptic ulcer disease. It is not indicated for treating urinary incontinence."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Tropicamide: Mechanism of Action: Tropicamide is an antimuscarinic drug used primarily as a mydriatic agent to dilate the pupil for ophthalmic examinations. It has no effect on bladder function and is not used for urinary incontinence."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-16-23",
+   "question": "Which of the following conditions is not treated with high-ceiling diuretics?",
+   "options": {
+    "A": "Generalized edema",
+    "B": "Cerebral edema",
+    "C": "Acute pulmonary edema",
+    "D": "Pulmonary hypertension"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "High-ceiling diuretics, also known as loop diuretics, are medications commonly used to treat conditions characterized by fluid overload. Loop diuretics act on the ascending limb of loop of Henle, a section of the kidney tubule, to inhibit sodium and chloride reabsorption by the Na + -K + -2Cl-, leading to increased urinary output and fluid loss."
+    },
+    {
+     "type": "paragraph",
+     "text": "They are considered the most potent diuretics available and are effective in rapidly reducing fluid volume in the body. Pulmonary hypertension, on the other hand, is a condition characterized by increased pulmonary vascular resistance in the lungs blood vessels, which can lead to symptoms such as shortness of breath and chest pain. PDE5 inhibitors like sildenafil, vardenafil or tadalafil are used for Pulmonary hypertension treatment."
+    },
+    {
+     "type": "paragraph",
+     "text": "While loop diuretics may be used as adjunctive therapy in treating pulmonary hypertension, they are not typically used as the primary treatment for this condition."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Generalized edema: Generalized edema refers to fluid accumulation in the tissues throughout the body, typically due to conditions such as heart failure, liver disease, or kidney disease. Loop diuretics are commonly used in the treatment of generalized edema."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Cerebral edema: Cerebral edema is characterized by fluid accumulation in the brain, which can lead to increased intracranial pressure and neurological symptoms. Loop diuretics and osmotic diuretics are often used in conjunction with other treatments, such as corticosteroids or osmotic agents, to manage cerebral edema."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Acute pulmonary edema: Acute pulmonary edema is a condition characterized by the accumulation of fluid in the lungs, typically due to heart failure. Loop diuretics are commonly used in the treatment of acute pulmonary edema to reduce fluid accumulation and improve respiratory function."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-16-24",
+   "question": "A 30-year-old man joins a pilgrimage to a shrine at a mountain peak. At the summit, he develops tightness in the chest, associated with breathlessness and altered sensorium. Which of the following can be given for symptomatic relief?",
+   "options": {
+    "A": "Mannitol",
+    "B": "Digoxin",
+    "C": "Diltiazem",
+    "D": "Acetazolamide"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "In the above case, there is chest tightness along with shortness of breath and altered sensorium at the top of a mountain which is suggestive of mountain sickness. The drug that provides relief is acetazolamide. Acetazolamide is a diuretic which inhibits carbonic acid anhydrase. It increases HCO 3 excretion in the kidneys causing a metabolic acidosis that counteracts the respiratory alkalosis (caused by hyperventilation due to hypoxic conditions."
+    },
+    {
+     "type": "paragraph",
+     "text": "This allows for better respiratory response to hypoxic conditions."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A, B and C are not indicated in mountain sickness."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-16-25",
+   "question": "Which one of the listed medications acts as a carbonic anhydrase inhibitor?",
+   "options": {
+    "A": "Acetazolamide",
+    "B": "Hydrochlorothiazide",
+    "C": "Furosemide",
+    "D": "Mannitol"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Acetazolamide is a sulfonamide derivative that inhibits carbonic anhydrase and improves salt, potassium, bicarbonate, and water excretion."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Hydrochlorothiazide: Hydrochlorothiazide is a thiazide diuretic Option C - Furosemide: Furosemide is a loop diuretic Option D - Mannitol: Mannitol is an osmotic diuretic."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-16-26",
+   "question": "What is the preferred medication for treating neurogenic diabetes insipidus?",
+   "options": {
+    "A": "Conivaptan",
+    "B": "Vasopressin",
+    "C": "Terlipressin",
+    "D": "Desmopressin"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Desmopressin is the drug of choice for the treatment of neurogenic diabetes insipidus, a condition characterized by impaired water balance due to decreased vasopressin (ADH) secretion. Desmopressin is a synthetic analog of vasopressin."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Conivaptan: Conivaptan is a medication used for the treatment of hyponatremia but is not typically employed for neurogenic diabetes insipidus. Patients with DI are likely to develop hypernatremia."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Vasopressin: Vasopressin is not commonly used for the treatment of neurogenic diabetes insipidus. Desmopressin is the preferred first choice. Vasopressin may be considered as an alternative."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Terlipressin: Terlipressin is primarily used for the management of bleeding esophageal varices and hepatorenal syndrome. It is not the drug of choice for neurogenic diabetes insipidus."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-16-27",
+   "question": "Which of the following drugs does not require dose reduction in patients with renal failure?",
+   "options": {
+    "A": "Gentamicin",
+    "B": "Vancomycin",
+    "C": "Amphotericin B",
+    "D": "Doxycycline"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Doxycycline is a broad-spectrum antibiotic from the tetracycline class. It is primarily eliminated via non-renal routes, such as hepatic metabolism and fecal excretion. As a result, renal impairment does not significantly affect its clearance. Therefore, dose reduction is not typically necessary in patients with renal failure."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Gentamicin: Gentamicin is an aminoglycoside antibiotic that is eliminated primarily by the kidneys. In patients with renal failure, the clearance of gentamicin is reduced, leading to an increased risk of toxicity. Therefore, dose adjustments are necessary to avoid excessive drug accumulation and potential nephrotoxicity."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Vancomycin: Vancomycin is a glycopeptide antibiotic that is primarily eliminated by the kidneys. In patients with renal impairment, the clearance of vancomycin is decreased, resulting in prolonged drug exposure. Dose adjustments are necessary to maintain therapeutic levels and prevent the risk of nephrotoxicity and other adverse effects."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Amphotericin B: Amphotericin B is an antifungal medication used to treat severe systemic fungal infections. It is primarily excreted by the kidneys, and renal impairment can lead to decreased clearance and increased drug levels. Dose reduction or alternative dosing strategies are often required in patients with renal failure to minimize the risk of nephrotoxicity."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-17-1",
+   "question": "Which of the following drugs is used in the management of angina pectoris and hypertension and has anti-arrhythmic properties?",
+   "options": {
+    "A": "Enalapril",
+    "B": "Amlodipine",
+    "C": "Verapamil",
+    "D": "Hydrochlorothiazide"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Verapamil selectively blocks the entry of calcium ions through the L-type calcium channels in the cell membranes of cardiac muscle cells and vascular smooth muscle cells. This results in the following effects: Negative inotropic effect: It reduces the contractility of the heart muscle, leading to a decrease in myocardial oxygen demand, which is beneficial in angina pectoris."
+    },
+    {
+     "type": "paragraph",
+     "text": "Vasodilatory effect: Verapamil relaxes vascular smooth muscle cells, leading to the dilation of coronary arteries and peripheral blood vessels. This increases blood flow to the myocardium and decreases peripheral vascular resistance, making it useful in treating hypertension and angina pectoris."
+    },
+    {
+     "type": "paragraph",
+     "text": "Anti-arrhythmic effect: Verapamil has Class IV anti-arrhythmic properties, which can slow conduction through the atrioventricular (AV) node and prolong the refractory period of the AV node and atrial muscle fibres. This makes it useful in the management of certain supraventricular tachyarrhythmias, such as atrial fibrillation and atrial flutter."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Metoprolol(Option A):** It is a beta-blocker and would also be an appropriate choice for managing unstable angina and hypertension. However, verapamil is preferred in this case as it is a cardio-specific CCB and has additional benefits in the management of angina pectoris."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Amlodipine(Option B):** It is a dihydropyridine calcium channel blocker, which has a more potent vasodilatory effect but lacks the negative inotropic and anti-arrhythmic properties of verapamil. While it can be used for hypertension, it is not the preferred choice in the management of angina pectoris."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Hydrochlorothiazide(Option C):** It is a thiazide diuretic commonly used in the treatment of hypertension, but it is not the most appropriate choice for managing acute angina pectoris or acute coronary syndrome."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-17-2",
+   "question": "Three patients come to the clinic with hypertension: Patient A: A 52-year-old known hypertensive who has tried maximum doses of three different antihypertensive drugs without success; current BP 168/104 mm Hg. Patient B: A 30-year-old pregnant woman with a BP of 158/98 mm Hg. Patient C: A 65-year-old man with diabetes mellitus and a BP of 160/100 mm Hg. Choose the correct antihypertensive regimen for the above patients.",
+   "options": {
+    "A": "Patient A: Existing regimen + Spironolactone Patient B: Labetalol Patient C: ACE inhibitors",
+    "B": "Patient A: Existing regimen + loop diuretics Patient B: ACE inhibitors Patient C: Beta-blockers",
+    "C": "Patient A: Sodium nitroprusside Patient B: Thiazides Patient C: Labetalol",
+    "D": "Patient A: Labetalol + Spironolactone Patient B: Calcium channel blockers Patient C: Beta-blockers"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Patient A “Resistant hypertension” is not controlled by 3 different drugs (at maximum tolerable dose). Drugs useful in this patient are Thiazides+ ACE Inhibitors/ARBs + Calcium Channel Blockers. Additionally, Potassium-sparing diuretics such as Spironolactone or eplerenone must be added in case of Resistant hypertension. Patient B Pregnant woman with hypertension. DOC: Labetaolol (Beta-blocker) If chronic hypertension develops: Alpha methyldopa."
+    },
+    {
+     "type": "paragraph",
+     "text": "Safe antihypertensives during pregnancy Labetalol, Hydralazine, Methyldopa, and Calcium channel blockers like Nifedipine. (LHMC- Lady Hardinge Medical College) Unsafe antihypertensive drugs during pregnancy: ACE inhibitors: Can lead to renal agenesis in the fetus, causing oligohydramnios and leading to POTTER sequence (Pulmonary hypoplasia, Oligohydramnios, Twisted/wrinkled skin, Twisted Potter faces, Extremity defects, Renal agenesis)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Thiazides/Loop diuretics/Beta-blockers: Bear the risk of placental ischemia, which can be fatal to the fetus. Patient C Hypertensive patients with diabetes as a comorbidity. ACE inhibitors are ideal for this patient because they are nephroprotective against diabetes-induced nephropathy. Beta-blockers should be avoided in diabetic patients as they can mask the sympathetic symptoms of hypoglycemia, which can be fatal."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-17-3",
+   "question": "A 38-year-old woman comes to the emergency department due to a throbbing headache. On vital examination, BP is 210/140 mm Hg. She is started on a Nitroprusside IV drip. After 8 hours, develop lactic acidosis and neurological symptoms. She is diagnosed with nitroprusside-induced cyanide toxicity. Which of the following drug combinations is used to treat this condition?",
+   "options": {
+    "A": "Pralidoxime + atropine",
+    "B": "Sodium nitrite + sodium thiosulfate + hydroxocobalamin",
+    "C": "Activated charcoal + N-acetylcysteine",
+    "D": "Sodium nitrite only"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Sodium nitrite + sodium thiosulfate + hydroxocobalamin is the combination of choice for the management of cyanide toxicity. Haemoglobin combines with sodium nitrite to form methemoglobin, which has a higher affinity for cyanide than haemoglobin. This results in the formation of cyanmethemoglobin."
+    },
+    {
+     "type": "paragraph",
+     "text": "But this can easily dissociate into cyanide again, thus, sodium thiosulfate is given, which will result in the formation of sodium thiocyanate which is more stable and is excreted into the urine. Hydroxocobalamine also has a very high affinity for cyanide leading to formation of cyanocobalamin, which gets excreted into the urine."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option A: Pralidoxime + atropine This combination of drugs serves as an antidote for organophosphate poisoning. Atropine is used for atropinization of all the nicotinic and muscarinic receptors thus preventing their further stimulation, while pralidoxime is used to reverse the inhibited acetylcholinesterase and reactivate the enzyme."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C: Activated charcoal + N-acetyl cysteine This combination of drugs is used to treat acetaminophen/paracetamol poisoning. Activated charcoal binds to the unabsorbed paracetamol present in the gut which can be flushed out using a lavage, while N-acetyl cysteine serves to replenish the glutathione stores which binds to the toxic metabolite of paracetamol N -acetyl- p -benzoquinoneimine."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D: Sodium nitrite only If only sodium nitrite is used, the cyanmethemoglobin formed will dissociate back into cyanide and methemoglobin before being excreted out of the body."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L17_Q003_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-17-4",
+   "question": "A 58-year-old man comes to the emergency department due to loss of consciousness and severe hypotension. He has a history of angina for which he takes nitroglycerin and metoprolol tablets. He was recently prescribed sildenafil to help him with his erectile dysfunction. Which of the following is true about the concomitant use of nitrates and Sildenafil?",
+   "options": {
+    "A": "Sildenafil should be avoided for 24 hours before and after use of nitrates.",
+    "B": "Sildenafil and nitrates can be taken together if doses are low.",
+    "C": "Sildenafil are absolutely contraindicated with those taking nitrates.",
+    "D": "None of the above."
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Sildenafil (PDE-5 inhibitor) should be avoided for 24 hours before and after use of nitrates to prevent severe hypotension."
+    },
+    {
+     "type": "paragraph",
+     "text": "Nitrates are potent donors of nitric oxide, which in turn activates soluble guanylyl cyclase, thus increasing the production of cGMP. This results in the activation of cGMP-dependent protein kinase (PKG), which dephosphorylates myosin light chain kinase, thus interfering with actin-myosin binding, resulting in vascular smooth muscle relaxation PDE-5 inhibitors is responsible for destroying cGMP. This results in the accumulation of cytosolic cGMP, and hence, vasodilation is sustained."
+    },
+    {
+     "type": "paragraph",
+     "text": "If the two drugs are used together, there will be potentiation of the activity of nitric oxide, hence causing marked hypotension and even precipitation of myocardial infarction. Patients on nitrates may use sildenafil, but there should be a gap of at least 24 hours before or after the use of nitrates."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L17_Q004_explanation_1"
+    }
+   ]
+  }
+ ]
+}

@@ -16,6 +16,7 @@ Layout (data/Prepladder/<slug>/):
   prepladder_<slug>_qbank.zlib.b64.partNN   built bank (hash-pinned shards)
   prepladder_<slug>_qbank_manifest.json
   restructure/restructured.json             optional restructured explanations
+  openings.json                             optional hand-written openings the PDF cut off
 
 Each subject's builder (tools/build_prepladder_<slug>_bank.py) makes one
 TextBank and hands its command line to TextBank.main().
@@ -29,6 +30,7 @@ import json
 import re
 import sys
 import zlib
+from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -46,6 +48,16 @@ SMALL = {"and", "of", "to", "in", "the", "with", "for", "or", "on", "at", "by", 
 # fragment goes; the question says so instead of showing it.
 FRAGMENT = re.compile(r"^[a-z][^.]{0,40}\.$")
 NO_EXPLANATION = "The source PDF prints no explanation for this question."
+
+# Some explanations the PDF prints with their start cut off: a word missing its
+# first letters ("ue to alpha 1a…", "drenaline works…") or a whole label gone
+# (": There is no…", "is a prodrug…"). A word whose tail occurs nowhere else
+# in the bank and that completes to a word of the bank by one or two letters is
+# restored, capitalised ("Due", "Adrenaline"); a lost label cannot be, so only
+# its stray leading punctuation goes and a note says so.
+CUT_PUNCT = re.compile(r"^\s*[:;,]\s*")
+CUT_WORD = re.compile(r"^([a-z]{2,})(?![a-z]*[()])")
+LIST_LABEL = re.compile(r"^[a-z]{1,3}[)(\-]")
 
 # The extraction turned "&source=" in reference URLs into "&source;=" (the
 # PDF also wraps URLs with spaces, so the fix cannot look for whole URLs);
@@ -100,6 +112,9 @@ class TextBank:
         # Explanations restructured by an outside model (tools/explanation_restructure.py):
         # the same words as paragraphs, points and tables.
         self.overlay = self.data / "restructure" / "restructured.json"
+        # Openings the PDF cut off past repair, rewritten by hand from the question,
+        # its answer and the rest of the explanation: {app id: {"from": start, "to": new start}}.
+        self.openings = self.data / "openings.json"
 
     def fail(self, message: str) -> None:
         raise SystemExit(f"{self.tag}_FAIL: {message}")
@@ -179,6 +194,64 @@ class TextBank:
         return out + [b for b in blocks if b not in body]
 
     @staticmethod
+    def vocabulary(rows: list[dict]) -> Counter:
+        """Every word of the bank, less the cut-off openings ("rugs" opens several)."""
+        words: Counter = Counter()
+        for q in rows:
+            text = json.dumps([q["question"], q["options"], q["explanation_blocks"]], ensure_ascii=False)
+            # Mnemonics print spaced initials ("A spirin N itro D rugs").
+            words.update(re.findall(r"[A-Za-z]+", re.sub(r"\b([A-Z]) (?=[a-z])", r"\1", text)))
+            first = q["explanation_blocks"][0].get("content", "") if q["explanation_blocks"] else ""
+            if tail := CUT_WORD.match(str(first)):
+                words[tail.group(1)] -= 1
+        return words
+
+    @staticmethod
+    def repair_opening(blocks: list[dict], words: Counter) -> str | None:
+        """Mend an explanation whose start the PDF cut off; the review note, if any."""
+        if not blocks or blocks[0]["type"] != "paragraph":
+            return None
+        text = blocks[0]["text"]
+        if CUT_PUNCT.match(text):
+            blocks[0] = {**blocks[0], "text": CUT_PUNCT.sub("", text)}
+            return "source PDF explanation starts after a lost label; the lost words are not recoverable"
+        if not "a" <= text[:1] <= "z" or LIST_LABEL.match(text):
+            return None
+        tail = CUT_WORD.match(text)
+        if tail and words[tail.group(1)] <= 0:
+            fragment = tail.group(1)
+            whole = sorted(((n, w) for w, n in words.items() if n > 0 and len(w) - len(fragment) in (1, 2)
+                            and w.lower().endswith(fragment) and w[0].isalpha()),
+                           key=lambda c: (0 if c[1].istitle() else 1 if c[1].islower() else 2, len(c[1]), -c[0]))
+            if whole:
+                word = whole[0][1][:1].upper() + whole[0][1][1:]
+                blocks[0] = {**blocks[0], "text": word + text[len(fragment):]}
+                return f"source PDF drops the start of the explanation's first word; restored as \"{word}\""
+        return "source PDF explanation starts mid-sentence; the lost words are not recoverable"
+
+    def reopen(self, app_id: str, blocks: list[dict], entry: dict) -> list[dict]:
+        """Blocks with the hand-written opening in place of the cut-off one. It applies
+        after any restructure, so restructures keep matching the source text."""
+        if not entry["to"]:
+            return blocks
+        blocks = [dict(b) for b in blocks]
+        for block in blocks:
+            if block["type"] in ("paragraph", "heading"):
+                holder = block
+            elif block["type"] == "bullets":
+                block["items"] = [dict(it) for it in block["items"]]
+                holder = block["items"][0]
+            elif block["type"] == "figure":
+                continue
+            else:
+                break
+            if not holder["text"].startswith(entry["from"]):
+                self.fail(f"{app_id}: hand-written opening expects the explanation to start {entry['from']!r}")
+            holder["text"] = entry["to"] + holder["text"][len(entry["from"]):]
+            return blocks
+        self.fail(f"{app_id}: hand-written opening has no text block to open")
+
+    @staticmethod
     def join_reference_tail(blocks: list[dict]) -> list[dict]:
         """The extraction sometimes starts a new paragraph inside the references
         ("... Effects of aspirin at different dosages. While aspirin acts as an...");
@@ -195,10 +268,13 @@ class TextBank:
         return out
 
     def normalize(self, rows: list[dict], overlay: bool = True) -> tuple[dict, list[dict]]:
-        """The app record and the figures in use; `overlay` applies restructured explanations."""
+        """The app record and the figures in use; `overlay` applies restructured explanations
+        and hand-written openings (without it, the source text restructures are made from)."""
         restructured = json.loads(self.overlay.read_text(encoding="utf-8")) if overlay and self.overlay.exists() else {}
+        openings = json.loads(self.openings.read_text(encoding="utf-8")) if overlay and self.openings.exists() else {}
         micro.count_words(rows)
         rows = [fix_record(q) for q in rows]
+        words = self.vocabulary(rows)
         topics: dict[int, dict] = {}
         for q in rows:
             k = int(q["module_index"])
@@ -221,6 +297,7 @@ class TextBank:
                 fragment = bool(blocks) and blocks[0]["type"] == "paragraph" and bool(FRAGMENT.match(blocks[0]["text"]))
                 if fragment:
                     blocks.pop(0)
+                opening = None if fragment else self.repair_opening(blocks, words)
                 # Some print nothing else, or only references, after "Explanation:"
                 # (a figure alone is an explanation).
                 bare = not any(b["type"] == "figure" or b["type"] == "paragraph" and not REFERENCES.match(b["text"])
@@ -229,10 +306,18 @@ class TextBank:
                 if bare:
                     blocks.insert(0, {"type": "paragraph", "text": NO_EXPLANATION})
                 blocks = self.join_reference_tail(blocks)
-                explanation = micro.plain_text(blocks)
                 app_id = f"{topic['id']}-{number}"
+                reopened = openings.pop(app_id, None)
+                if reopened and not opening:
+                    self.fail(f"{app_id}: hand-written opening for an explanation that opens whole")
+                explanation = micro.plain_text(self.reopen(app_id, blocks, reopened) if reopened else blocks)
                 if app_id in restructured:
                     blocks = self.apply_overlay(app_id, blocks, tables, restructured[app_id])
+                if reopened:
+                    blocks = self.reopen(app_id, blocks, reopened)
+                    opening = ("source PDF explanation starts after lost words; the opening is written from the "
+                               "question, its answer and the rest of the explanation" if reopened["to"] else
+                               "source PDF explanation starts after lost words; what remains reads complete")
                 if not stem or not all(texts):
                     self.fail(f"{q['id']}: blank stem or option")
                 if topic["startPage"] is None and q["pages"]["question_pages"]:
@@ -244,6 +329,8 @@ class TextBank:
                     notes.append("source PDF prints no explanation, only references")
                 elif fragment:
                     notes.append("source PDF explanation opens mid-sentence; the fragment is left out")
+                elif opening:
+                    notes.append(opening)
                 if len(flagged) > 1:
                     notes.append(f"source key lists {len(flagged)} correct options; scored on {letters[key - 1]}")
                 record = {
@@ -286,6 +373,8 @@ class TextBank:
             topic["complete"] = True
         if len(figures) != len({f["imageId"] for f in figures}):
             self.fail("a figure is used twice")
+        if openings:
+            self.fail(f"hand-written openings for unknown questions: {sorted(openings)}")
         record = {"schema_version": "prepladder-text-bank-1.0", "subject": self.subject, "bank": "PrepLadder",
                   "explanationFormat": "structured", "topics": [topics[k] for k in sorted(topics)],
                   "questions": questions}

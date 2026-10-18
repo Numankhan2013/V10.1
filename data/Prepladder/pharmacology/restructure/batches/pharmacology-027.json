@@ -1,0 +1,573 @@
+{
+ "batch": "pharmacology-027",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pharmacology-027",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pharmacology-22-10",
+   "question": "A 45-year-old blind patient presents with difficulty falling asleep and maintaining sleep. The patient reports a history of insomnia that has persisted despite trying various lifestyle modifications. Which of the following drugs is approved for the treatment of this condition?",
+   "options": {
+    "A": "Tasimelteon",
+    "B": "Zolpidem",
+    "C": "Etizolam",
+    "D": "Lorazepam"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "This patient’s symptoms of insomnia and the specific mention of being blind suggest a diagnosis of non-24-hour sleep-wake disorder (Non-24), a condition that frequently occurs in individuals who are blind. This disorder is characterized by the absence of synchronization with the natural 24-hour light-dark cycle, leading to difficulty in falling asleep and maintaining sleep."
+    },
+    {
+     "type": "paragraph",
+     "text": "Tasimelteon is a melatonin receptor agonist that has been specifically approved for the treatment of Non-24-hour sleep-wake disorder, particularly in blind individuals. It helps to regulate the circadian rhythm and promote sleep."
+    },
+    {
+     "type": "paragraph",
+     "text": "Non-24-hour Sleep-Wake Disorder and Tasimelteon Feature Details Non-24-hour Sleep-Wake Disorder This disorder occurs predominantly in blind individuals due to the lack of light perception, which helps to regulate the body’s natural circadian rhythm. Without light cues, the individual’s sleep-wake cycle becomes unaligned with the 24-hour day, leading to irregular sleep patterns."
+    },
+    {
+     "type": "paragraph",
+     "text": "Symptoms Common symptoms include difficulty falling asleep, maintaining sleep, and daytime sleepiness. The symptoms worsen as the person’s sleep-wake cycle shifts, typically becoming progressively worse each day. Treatment with Tasimelteon Tasimelteon works by mimicking the action of melatonin at its receptors, specifically the MT1 and MT2 receptors, which help regulate the sleep-wake cycle."
+    },
+    {
+     "type": "paragraph",
+     "text": "It is FDA-approved for blind patients with Non-24-hour sleep-wake disorder to improve sleep onset and maintenance. Administration and Effectiveness Tasimelteon is usually administered at bedtime and has shown effectiveness in improving both sleep onset and sleep duration in patients with Non-24. It aligns the individual’s circadian rhythm with the 24-hour day cycle."
+    },
+    {
+     "type": "paragraph",
+     "text": "Ramelteon and Tasimelteon: Drug Mechanism Uses Half-life Metabolism Ramelteon MT1 & MT2 receptor agonist Insomnia (night shift workers, jet lag) 2 hours Metabolized by CYP1A, CYP2C, and CYP3A4; high first-pass metabolism Tasimelteon MT1 & MT2 receptor agonist Non-24-hour sleep-wake disorder (blind individuals), Smith-Magenis syndrome (night-time disturbances) 2 hours Metabolized by CYP1A2 and CYP3A4 Zolpidem (Option B): Incorrect because zolpidem is a sedative-hypnotic used to treat insomnia, but it is not approved for Non-24-hour sleep-wake disorder."
+    },
+    {
+     "type": "paragraph",
+     "text": "It helps with sleep initiation but does not address the circadian rhythm disruption in blind individuals."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Etizolam (Option C):** Incorrect because etizolam is a thienodiazepine that has anxiolytic and hypnotic effects, but it is not specifically approved for the treatment of Non-24 or any sleep-wake disorder related to blindness."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Lorazepam (Option D):** Incorrect because lorazepam is a benzodiazepine that is used for anxiety and sleep disorders, but it is not indicated for Non-24 sleep-wake disorder. Moreover, it carries risks of dependence and tolerance with long-term use, making it less suitable for chronic insomnia treatment in this context."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-22-11",
+   "question": "A patient with sleep disturbances is prescribed suvorexant. How does this drug help in improving insomnia?",
+   "options": {
+    "A": "Inhibiting H1 histamine receptors",
+    "B": "Serotonergic 5HT2A/2C antagonism",
+    "C": "Orexin receptor antagonism",
+    "D": "Inhibiting serotonergic 5HT2C receptor alone"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Suvorexant acts by inhibiting the orexin receptors 1 & 2. Orexins are produced by neurons in the hypothalamus and play an important role in sleep regulation. These neurons are active during wakefulness and dormant during sleep. Hence, inhibiting orexins will improve insomnia. The drugs include suvorexant and lemborexant. The advantage of orexin antagonists over benzodiazepines is that they don’t cause anterograde amnesia."
+    },
+    {
+     "type": "paragraph",
+     "text": "The most common side effect is daytime somnolence."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-22-12",
+   "question": "A 35-year-old male presents with severe headache, nausea, vomiting, blurred vision, disorientation, and fruity breath odour after consuming homemade liquor 12 hours ago. Blood gas analysis shows pH 7.25, bicarbonate 12 mmol/L, and anion gap metabolic acidosis. What is the drug of choice for his condition?",
+   "options": {
+    "A": "N-acetylcysteine",
+    "B": "Fomepizole",
+    "C": "Atropine",
+    "D": "Naloxone"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical vignette of a patient presenting with severe headache, nausea, vomiting, blurred vision, disorientation, and fruity breath odour after consumption of homemade liquor and blood gas analysis showing anion gap metabolic acidosis is suggestive of methanol poisoning. Fomepizole is the antidote of choice for this condition."
+    },
+    {
+     "type": "paragraph",
+     "text": "Fomepizole inhibits alcohol dehydrogenase, preventing the formation of toxic metabolites such as formaldehyde and formic acid. Methanol: Adulteration in Country liquor. Solvent in industrial processes. Antifreeze. Mechanism of Action Methanol → Formaldehyde (oxidation by alcohol dehydrogenase). Formaldehyde → Formic acid (oxidation by aldehyde dehydrogenase)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Formic Acid → Inhibition of Cytochrome c Oxidase → Cellular Hypoxia and Metabolic Acidosis. Features of Toxicity CNS: Headache, dizziness, confusion, ataxia, seizures Ocular: Blurred ( \"snowfield\" vision)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Gastrointestinal: Nausea, vomiting, fruity breath and abdominal pain Metabolic: Severe metabolic acidosis, elevated anion gap Treatment Mnemonic: SHAFE S odium Bicarbonate to correct metabolic acidosis H emodialysis to remove methanol and its metabolites A ntidote: F omepizole or E thanol to inhibit ADH F olinic acid or folic acid to enhance formate metabolism."
+    },
+    {
+     "type": "paragraph",
+     "text": "**N-acetylcysteine (Option A):** Used as an antidote for acetaminophen (paracetamol) poisoning. Works by replenishing glutathione levels and preventing liver damage."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Atropine (Option C):** Anticholinergic drugs used primarily in the treatment of poisoning (e.g., organophosphate poisoning) Naloxone (Option D): It is an opioid antagonist used to reverse the effects of opioid overdose, such as respiratory depression and sedation."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-22-13",
+   "question": "A 42-year-old man with a history of chronic alcohol abuse is admitted to the hospital due to severe alcohol withdrawal symptoms. After stabilisation, he expresses his desire to overcome his alcohol dependence and seeks assistance from the healthcare team. Which of the following is not an anti-craving drug commonly used in the management of alcohol dependence?",
+   "options": {
+    "A": "Naltrexone",
+    "B": "Acamprosate",
+    "C": "Disulfiram",
+    "D": "Topiramate"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Disulfiram is FDA-approved for alcohol dependence but is not an anti-craving drug, as it works by causing adverse reactions when alcohol is consumed."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Drug Name Mechanism of Action Notes FDA- approved anti-craving drugs Naltrexone (Option A):** Blocks opioid receptors Reduces cravings and desire to drink Acamprosate (Option B) Modulates glutamate & GABA systems Reduces cravings and helps maintain abstinence Not FDA- approved (off-label use) Baclofen GABA agonist Helps with alcohol withdrawal symptoms Gabapentin & Topiramate (Option D) Modulates GABA & glutamate systems Helps with alcohol withdrawal symptoms"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-22-14",
+   "question": "Which of the following statements regarding the mechanism of action of disulfiram is incorrect?",
+   "options": {
+    "A": "Disulfiram inhibits the enzyme aldehyde dehydrogenase, leading to an accumulation of acetaldehyde in the body.",
+    "B": "Acetaldehyde accumulation results in unpleasant symptoms such as nausea, vomiting, and headache when alcohol is consumed.",
+    "C": "Disulfiram increases the production of dopamine in the brain, reducing the desire to consume alcohol.",
+    "D": "Disulfiram therapy is often used as an adjunct in the treatment of alcohol dependence."
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Disulfiram works by inhibiting the enzyme aldehyde dehydrogenase, which is responsible for alcohol metabolism. When alcohol is consumed while on disulfiram therapy, there is an accumulation of acetaldehyde, a toxic metabolite, leading to unpleasant symptoms such as nausea, vomiting, and headache."
+    },
+    {
+     "type": "paragraph",
+     "text": "Disulfiram → Inhibition of Aldehyde Dehydrogenase (ALDH) → Accumulation of Acetaldehyde → Unpleasant symptoms including flushing, nausea, vomiting, headache, palpitations, sweating, shortness of breath, and hypotension → Creates a strong negative association between alcohol consumption and the discomfort. Disulfiram therapy acts as a deterrent to alcohol consumption and is often used as an adjunct in the treatment of alcohol dependence."
+    },
+    {
+     "type": "paragraph",
+     "text": "Disulfiram does not directly affect dopamine production in the brain."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-22-15",
+   "question": "A patient recovering from alcohol dependence on disulfiram developed a fungal infection and was given an antifungal medication. Shortly after, the patient developed symptoms reminiscent of a disulfiram-like reaction. Which of the following antifungal drugs is most likely to have caused this reaction?",
+   "options": {
+    "A": "Fluconazole",
+    "B": "Clotrimazole",
+    "C": "Amphotericin B",
+    "D": "Griseofulvin"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Griseofulvin inhibits aldehyde dehydrogenase, causing acetaldehyde accumulation and resulting in symptoms like flushing, headache, nausea, vomiting, and palpitations when alcohol is consumed. Disulfiram-like reaction: A disulfiram-like reaction refers to an adverse reaction that mimics the effects of disulfiram (Antabuse) when certain substances are consumed together with alcohol."
+    },
+    {
+     "type": "paragraph",
+     "text": "Supports the treatment of chronic alcoholism by producing an acute sensitivity to ethanol. When alcohol is ingested by someone taking disulfiram, it inhibits the enzyme aldehyde dehydrogenase, leading to the accumulation of acetaldehyde in the blood, which causes unpleasant symptoms. Flushing. Headache. Nausea & vomiting. Sweating. Palpitations, chest pain, and dizziness. Dyspnea. Hypotension and circulatory collapse."
+    },
+    {
+     "type": "paragraph",
+     "text": "Drugs causing disulfiram-like reaction: (Mnemonic- CGMP) They are contraindicated in active drinkers. C hlorpropamide. C ephalosporins (mnemonic- PMTX): Cefo P erazone. Cefa M andole. Cefo T etan. Cefo X itin. G riseofulvin. M etronidazole. P rocarbazine."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Other antifungals are not known to cause a disulfiram-like reaction (Options A, B and C):** ."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-23-1",
+   "question": "A 45-year-old man presents with complaints of recurrent episodes of sudden jerking movements involving his arms and legs. He has no other medical conditions and has been prescribed an antiepileptic drug. Which of the following medications acts by blocking sodium channels?",
+   "options": {
+    "A": "Tiagabine",
+    "B": "Levetiracetam",
+    "C": "Phenytoin",
+    "D": "Phenobarbitone"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient is most likely suffering from recurrent seizures. Phenytoin blocks sodium channels and inhibits glutamate release."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mechanism of seizures: Sodium channel blockers Potassium Channel openers Calcium channel blockers Inhibit glutamate release Facilitate GABA-mediated Cl-channel opening Phenytoin Carbamazepine Valproate Topiramate Lamotrigine Lacosamide Retigabine Ezogabine Valproate Ethosuximide Zonisamide (2nd line) Levetiracetam (2nd line) Clonazepam (2nd line) Phenobarbitone Phenytoin Lamotrigine Topiramate Valproate Levetiracetam Lacosamide Barbiturate Benzodiazepine Vigabatrin Valproate Gabapentin Tiagabine"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L23_Q001_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-23-2",
+   "question": "A 10-year-old child is brought by his parents due to episodes of brief staring spells associated with a loss of awareness, lasting 10 to 20 seconds, occurring multiple times a day, especially during stress or fatigue. Which of the following is the drug of choice for this condition?",
+   "options": {
+    "A": "Valproate",
+    "B": "Phenytoin",
+    "C": "Carbamazepine",
+    "D": "Ethosuximide"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical scenario is characteristic of typical absence seizures, a type of generalised onset non-motor seizure with unresponsiveness and staring spells. They are generally seen in children aged 5 to 15 years. A classic EEG finding of a 3-Hz spike and wave discharges is found. Ethosuximide is the drug of choice in typical absence seizures."
+    },
+    {
+     "type": "paragraph",
+     "text": "It blocks T-type calcium channels in the thalamus and prevents the firing of action potential to the cortex."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Valproate (Option A):** is the DOC in atypical absence seizures."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Phenytoin (Option B):** and Carbamazepine (Option C) are contraindicated in the Absence seizures."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-23-3",
+   "question": "A 12-year-old with Lennox-Gastaut syndrome is on valproate for seizure control. During a follow-up, the neurologist reviews valproate's uses and potential side effects. Which of the following is NOT true regarding valproate?",
+   "options": {
+    "A": "Used in the treatment of Dravet syndrome",
+    "B": "Drug of choice in atypical absence seizures",
+    "C": "Used in the treatment of mania",
+    "D": "Causes purple glove syndrome"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Valproate does not cause purple glove syndrome — this condition is classically associated with IV phenytoin, not valproate. Purple glove syndrome presents as pain, swelling, and purple-black discoloration distal to the site of phenytoin injection. Valproate, on the other hand, has its own unique adverse effect profile, including hepatotoxicity, pancreatitis, hyperammonemia, and teratogenicity. Valproate: Key Uses and Side Effects Clinical Use"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-23-4",
+   "question": "Which of the following is not a potential adverse effect of Phenytoin?",
+   "options": {
+    "A": "Generalised lymphadenopathy",
+    "B": "Osteomalacia",
+    "C": "Megaloblastic anemia",
+    "D": "Weight Loss"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Weight Loss is not a side effect of phenytoin use. Phenytoin is an antiepileptic medication primarily used to manage and prevent seizures, particularly in the context of epilepsy. It is a sodium channel blocker that stabilises the neuronal membrane by inhibiting the repetitive firing of action potentials. This action helps to reduce the occurrence and severity of seizures in individuals with epilepsy."
+    },
+    {
+     "type": "paragraph",
+     "text": "Adverse effects of Phenytoin include: Gum Hypertrophy: Overgrowth of gingival collagen fibres can cause significant dental and oral health issues. Hirsutism and Acne: Excessive hair growth and acne are common dermatological side effects. Coarsening of Facial Features: Long-term use can lead to noticeable changes in facial appearance."
+    },
+    {
+     "type": "paragraph",
+     "text": "Hypersensitivity Reactions: These can manifest as rashes, discoid lupus erythematosus, lymphadenopathy, and neutropenia. Megaloblastic Anemia: Phenytoin can interfere with folate absorption, leading to anaemia. Osteomalacia: Bone softening or weakening can occur due to interference with vitamin D metabolism. Hyperglycemia: Inhibition of insulin release can result in elevated blood sugar levels."
+    },
+    {
+     "type": "paragraph",
+     "text": "Toxicity: Symptoms of toxicity include diplopia, nystagmus, and ataxia. During Pregnancy: Fetal hydantoin syndrome is a risk, characterised by hypoplastic phalanges, cleft palate, harelip, and microcephaly. Weight Gain and PCOD"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-23-5",
+   "question": "A 6-month-old infant is brought up due to concerns about episodes of sudden, repetitive muscle contractions involving his arms and legs. An EEG reveals a hypsarrhythmia pattern. Genetic testing reveals a mutation in the TSC1 gene. Which of the following is the drug of choice in this condition?",
+   "options": {
+    "A": "Clonazepam",
+    "B": "Valproate",
+    "C": "Vigabatrin",
+    "D": "Ethosuximide"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The infant most likely has Infantile spasms due to Tuberous sclerosis. Infantile spasms, characterised by intermittent muscle spasms and developmental regression, often present with a characteristic hypsarrhythmia pattern on EEG. These spasms can be associated with tuberous sclerosis, a genetic disorder caused by mutations in the TSC1 or TSC2 genes."
+    },
+    {
+     "type": "paragraph",
+     "text": "Treatment of Infantile Spasms: Vigabatrin It is the drug of choice for treating infantile spasms associated with tuberous sclerosis and drug of choice for infantile spasms without tuberous sclerosis is ACTH It ↑ GABA levels by inhibiting the enzyme GABA transaminase, thereby reducing seizure activity. Corticosteroids: These drugs can offer symptomatic relief but are not suitable for long-term use due to their potential side effects."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Other antiepileptic drugs, Clonazepam (Option A):** and Valproate (Option B), are sometimes used but are not the first-line treatments for this specific condition."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-23-6",
+   "question": "A 60-year-old woman presents with severe, sharp, electric shock-like pain on the right side of her face. The pain, triggered by talking, chewing, and touching her face, lasts a few seconds to minutes and has become increasingly frequent and debilitating. Which of the following medications is the drug of choice for treating her condition?",
+   "options": {
+    "A": "Carbamazepine",
+    "B": "Gabapentin",
+    "C": "Diazepam",
+    "D": "Levetiracetam"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient's symptoms are indicative of trigeminal neuralgia, a neuropathic pain disorder characterised by severe stabbing pain along the trigeminal nerve, typically affecting one side of the face. Carbamazepine is the drug of choice for managing this condition due to its proven efficacy in reducing pain."
+    },
+    {
+     "type": "paragraph",
+     "text": "Drug Mechanism of Action Uses Side Effects Carbamazepine Inhibits high-frequency neuronal discharges and modulates voltage-gated sodium channels. Trigeminal neuralgia, GTCS, partial seizures, bipolar disorder. Sedation, dizziness, ataxia, GI disturbances, bone marrow suppression, hypersensitivity reactions, water retention. Gabapentin Enhances GABA release modulates voltage-sensitive Ca2+ channels."
+    },
+    {
+     "type": "paragraph",
+     "text": "Partial seizures, post-herpetic neuralgia, migraine prophylaxis. Sedation, tiredness, dizziness, tremor, unsteadiness. Diazepam Enhances GABAergic neurotransmission. Status epilepticus, Febrile seizure. Thrombophlebitis, hypotension, respiratory depression. Topiramate Multiple mechanisms, including sodium channel inactivation, GABA potentiation, glutamate receptor antagonism, and potassium channel modulation."
+    },
+    {
+     "type": "paragraph",
+     "text": "GTCS, myoclonic epilepsy, and absence of seizures. Impairment of attention, sedation, ataxia, word-finding difficulties, poor memory, weight loss, paresthesias, renal stones."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-23-7",
+   "question": "Which of the following adverse effects is associated with carbamazepine use?",
+   "options": {
+    "A": "Hypoglycemia",
+    "B": "Hypertension",
+    "C": "Weight gain",
+    "D": "Agranulocytosis"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Agranulocytosis is a severe adverse effect of Carbamazepine, characterised by a dangerously low white blood cell count, which leaves the patient vulnerable to infections. Adverse Effects Description Neurotoxicity Sedation, dizziness, vertigo, diplopia, and ataxia Gastrointestinal Effects Vomiting and diarrhoea occur with higher doses. Acute Intoxication Coma, convulsions, cardiovascular collapse. Haematological Agranulocytosis, aplastic anaemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "Hypersensitivity Reactions Rashes, photosensitivity, hepatitis, lupus-like syndrome. Water Retention and Hyponatremia Due to enhanced antidiuretic hormone (ADH) action, it is more common in the elderly. Teratogenicity Increased incidence of minor fetal malformations."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Hypoglycemia (Option A):** , hypertension (Option B), and weight gain (Option C) are not commonly associated with carbamazepine use."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-23-8",
+   "question": "A 28-year-old pregnant woman with a history of epilepsy presents for a prenatal visit. She is currently taking medication to control her seizures and is concerned about the safety of her medication during pregnancy. Which of the following drugs is considered the drug of choice for managing her condition?",
+   "options": {
+    "A": "Carbamazepine",
+    "B": "Lamotrigine",
+    "C": "Gabapentin",
+    "D": "Levetiracetam"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The drug of choice for managing epilepsy during pregnancy due to its efficacy and safety profile is Levetiracetam. Aspects Description Mechanism of Action Levetiracetam binds to synaptic vesicular protein SV2A, modulating neurotransmitter release (e.g., glutamate, GABA) and inhibiting N-type calcium channels. Uses It is used for the management of partial seizures and myoclonic epilepsy."
+    },
+    {
+     "type": "paragraph",
+     "text": "It is also utilised as adjunctive therapy for refractory partial seizures. Additionally, it serves as second-line adjunctive therapy for generalised tonic-clonic seizures and absence seizures, although it is not approved for children below 4 years. Side effects Sleepiness, dizziness, weakness, behavioural changes (rare) and potential driving impairment."
+    },
+    {
+     "type": "paragraph",
+     "text": "It is generally well-tolerated and is not metabolised by CYP enzymes, resulting in minimal drug interactions."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-23-9",
+   "question": "A 28-year-old male with a history of epilepsy presents to the emergency department with ongoing tonic-clonic seizures that have lasted for the past 20 minutes. What is the initial drug of choice for the management of status epilepticus in this clinical scenario?",
+   "options": {
+    "A": "Phenobarbital",
+    "B": "Lorazepam",
+    "C": "Lamotrigine",
+    "D": "Valproate"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Lorazepam is the drug of choice for the management of status epilepticus due to its rapid onset of action and effectiveness in terminating seizures. It acts by enhancing the effects of gamma-aminobutyric acid (GABA) in the brain, thereby reducing neuronal excitability and terminating seizures."
+    },
+    {
+     "type": "paragraph",
+     "text": "Management of status epilepticus: Position the head, provide oxygen, and monitor vital signs. ↓ Establish vascular access and check glucose levels. ↓ Administer benzodiazepines (preferably lorazepam IV). ↓ If seizures persist after 2 doses of benzodiazepines. ↓ Administer antiepileptic drugs (Fosphenytoin, Phenytoin, Levetiracetam, Valproic acid). ↓ If refractory status epilepticus suspected ↓ Initiate continuous infusion of Midazolam, Pentobarbital, Thiopental, or Propofol."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Phenobarbital (Option A):** and Valproate (Option D) are used in the management of status epilepticus but are not the first-line treatments."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Intravenous administration of Lamotrigine (Option C):** is contraindicated in emergency situations due to its association with Stevens-Johnson syndrome."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-23-10",
+   "question": "What is the recommended therapeutic range for phenytoin?",
+   "options": {
+    "A": "4 to 12 mcg/ml",
+    "B": "5 to 40 mcg/ml",
+    "C": "10 to 20 mcg/ml",
+    "D": "50 to 100 mcg/ml"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Phenytoin's therapeutic range refers to the optimal concentration of the drug in the bloodstream to achieve effective seizure control while minimising the risk of toxicity. The target range for maintaining therapeutic efficacy with phenytoin therapy is commonly accepted to be 10 to 20 mcg/ml. Phenytoin is metabolised in the liver primarily by CYP2C9 and CYP2C19."
+    },
+    {
+     "type": "paragraph",
+     "text": "Over the therapeutic range, its kinetics shift from first-order to zero-order, leading to disproportionately high plasma concentrations with small dose increments. Monitoring plasma levels assists in dosage adjustments due to its capacity-limited metabolism. Therapeutic Drug Monitoring (TDM) involves measuring drug concentrations in the blood to ensure patients are within the therapeutic range and adjusting dosage as needed."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-23-11",
+   "question": "A 28-year-old woman with epilepsy and obesity presents for a follow-up visit. She has been experiencing increased seizure frequency and is concerned about her weight. Which anti-epileptic drug is most likely to cause weight loss and potentially benefit this patient?",
+   "options": {
+    "A": "Carbamazepine",
+    "B": "Gabapentin",
+    "C": "Topiramate",
+    "D": "Phenytoin"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "In the given case scenario, adding topiramate to the patient's existing regimen may help with seizure control and weight management, making it the most appropriate choice. Topiramate and Zonisamide are two anti-epileptic drugs (AEDs) that have been associated with weight loss."
+    },
+    {
+     "type": "paragraph",
+     "text": "**In contrast, many other AEDs, such as Valproic acid, Gabapentin (Option B):** , and Carbamazepine (Option A), are known to cause weight gain, possibly due to their effects on appetite stimulation and metabolic changes."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Category Topiramate (Option C):** Zonisamide Mechanism of Action Acts through various mechanisms, including enhancing GABA-mediated inhibition and inhibiting sodium/calcium channels and carbonic anhydrase. Indications FDA-approved for partial-onset seizures, generalised tonic-clonic seizures, Lennox-Gastaut syndrome, and migraine prophylaxis. FDA-approved for adjunctive treatment of partial-onset seizures in adults. Weight Loss Associated with significant weight loss due to suppression of appetite and increased energy expenditure. Anti-Obesity Drug Combination with phentermine (Qsymia) is FDA-approved for chronic weight management in adults with BMI ≥30 or ≥27 with a weight-related comorbidity. It is investigated as a potential anti-obesity medication but is not currently FDA-approved for this indication."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-23-12",
+   "question": "A 6-year-old boy with infantile spasms has been treated for 6 months, showing improved seizure control. The neurologist is concerned about the potential for permanent peripheral visual field defects with long-term use of his current medication. Which antiepileptic drug is most likely to cause these visual field defects, requiring regular ophthalmologic monitoring?",
+   "options": {
+    "A": "Carbamazepine",
+    "B": "Valproic acid",
+    "C": "Vigabatrin",
+    "D": "Levetiracetam"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Vigabatrin is an antiepileptic drug used for infantile spasms and refractory complex partial seizures. It acts by irreversibly inhibiting GABA transaminase to increase GABA levels in the brain. Vigabatrin is associated with a significant risk of permanent peripheral visual field defects and retinal toxicity, necessitating regular ophthalmologic monitoring to detect and manage potential visual impairments early."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Carbamazepine (Option A):** and Valproic acid (Option B) can cause a few ophthalmic side effects, including visual disturbances such as diplopia and blurred vision, but not associated with permanent visual loss."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Among the given options, Levetiracetam (Option D):** is considered to have a favourable safety profile with minimal ophthalmic side effects."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-23-13",
+   "question": "A 35-year-old woman with a history of anxiety and panic attacks seeks treatment for increased symptoms affecting her daily life. The physician considers prescribing a medication acting on GABA channels. Which medication would be most appropriate?",
+   "options": {
+    "A": "Zolpidem",
+    "B": "Gabapentin",
+    "C": "Alprazolam",
+    "D": "Topiramate"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Alprazolam, a benzodiazepine, is the suitable choice for generalised anxiety disorder and panic attacks as it enhances GABA's effect by modulating GABA-A receptors, thus reducing anxiety symptoms effectively."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Drug Mechanism of Action Uses Alprazolam (Benzodiazepine)(Option C):** Positive allosteric modulator of GABA-A receptors. Enhances the effect of GABA, leading to increased inhibitory neurotransmission. Generalised anxiety disorder. Panic disorder. Short-term treatment of anxiety symptoms."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Zolpidem (Z-drug)(Option A):** Positive allosteric modulator of GABA-A receptors, with selectivity for α1 subunit-containing receptors Enhances the effect of GABA, promoting sleep. Short-term treatment of insomnia."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Gabapentin (Gabapentinoid)(Option B):** The exact mechanism is unclear, but it is believed to involve the modulation of voltage-gated calcium channels and indirect enhancement of GABA activity. Postherpetic neuralgia. Neuropathic pain. Adjunctive therapy for partial seizures."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Topiramate (Antiepileptic)(Option D):** Multiple mechanisms, including enhancement of GABA activity and inhibition of glutamate activity. It also acts on voltage-gated sodium and calcium channels and inhibits carbonic anhydrase. Epilepsy (partial and generalised seizures). Migraine prophylaxis."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-23-14",
+   "question": "A 28-year-old man with a history of alcohol use disorder has been abstinent for the past 2 weeks. He now reports experiencing alcohol cravings, anxiety, and difficulty sleeping. His physician considers prescribing a medication that acts on the glutamate system to help maintain abstinence and reduce the risk of relapse. Which medication would be most appropriate for this patient's condition?",
+   "options": {
+    "A": "Memantine",
+    "B": "Riluzole",
+    "C": "Acamprosate",
+    "D": "Topiramate"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Acamprosate, a glutamate receptor modulator, is the most appropriate choice for this patient with alcohol use disorder, as it helps maintain abstinence and reduces the risk of relapse by targeting the glutamate system."
+    },
+    {
+     "type": "paragraph",
+     "text": "Drugs acting on the Glutamate system: Drug Mechanism of Action Uses Acamprosate (Option C) Modulates glutamate transmission, likely by acting as an antagonist at NMDA receptors and an agonist at GABAA receptors It helps restore the balance between excitatory and inhibitory neurotransmission disrupted by chronic alcohol use. Maintenance of abstinence in alcohol dependence. Reduction of alcohol craving and relapse risk."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Memantine (Option A):** Non-competitive NMDA receptor antagonist. Blocks the effects of excessive glutamate activity."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Moderate to severe Alzheimer's disease Riluzole (Option B):** Glutamate release inhibitor. Blocks voltage-gated sodium channels and reduces glutamate release."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Amyotrophic lateral sclerosis (ALS) Topiramate (Option D):** is primarily utilised as an antiepileptic and for migraine prophylaxis. Although it may reduce alcohol consumption in some cases, it lacks specific indications for maintaining abstinence from alcohol dependence but is not approved for this (OFF LABEL USE)."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,565 @@
+{
+ "batch": "pharmacology-006",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pharmacology-006",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pharmacology-5-50",
+   "question": "Which of the following statements is false about the selection of essential drugs?",
+   "options": {
+    "A": "An adequate safety profile needs to be established",
+    "B": "Cost to benefit has to be considered",
+    "C": "Fixed drug combination is preferred over single drugs",
+    "D": "Disease prevalence is considered"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "During the selection of essential drugs, there is no preference for fixed drug combinations over single drugs."
+    },
+    {
+     "type": "paragraph",
+     "text": "WHO criteria forthe selection of essential medicines are: Adequate data on the safety and efficacy of the drug must be available The drug should be available in a form where its quality and stability during storage is assured Choice of drugs depends on Patterns of prevalent diseases Financial resources Availability of trained personnel and facilities Genetics, demography and environmental factors are also considered Cost-to-benefit ratio Pharmacokinetics of the drug Local manufacturing and storage facilities Essential drugs should preferably be a single compound."
+    },
+    {
+     "type": "paragraph",
+     "text": "The selection of essential drugs is a continuous process, and changes must be made with the development of public health and the availability of better drugs."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-51",
+   "question": "A patient who was diagnosed with epilepsy was put on Retigabine. Now phenytoin is being added. Which of the following changes should be made to Retigabine?",
+   "options": {
+    "A": "Increase the dose",
+    "B": "Decrease the dose",
+    "C": "Stop the drug",
+    "D": "Stop retigabine and start on Carbamazepine"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The dose of Retigabine should be increased when Phenytoin is added to the regimen because Phenytoin can decrease the plasma concentration of Retigabine via enzyme induction, which results in increased clearance of Retigabine. Phenytoin induces CYP2C8/9 and CYP3A4/,5 which increases the metabolism of Retigabine."
+    },
+    {
+     "type": "paragraph",
+     "text": "Retigabine is a Potassium channel opener that enhances transmembrane potassium currents mediated by KNCQ ion channels It is metabolised by glucuronidation and acetylation It has a t1/2 of 7-11 hours Required thrice daily dosing If given along with enzyme induces, its dose should be increased Adverse effects Urinary retention Retinal abnormalities and Blue pigmentation."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-52",
+   "question": "If the dosage of a drug following first-order kinetics is doubled, how would it affect the half-life and plasma concentration?",
+   "options": {
+    "A": "Half-life doubles, and plasma concentration remains the same",
+    "B": "Half-life remains the sam,e and plasma concentration doubles",
+    "C": "Half-life and plasma concentration remain the same",
+    "D": "Half-life and plasma concentration doubles"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "If the dose of a drug following first-order kinetics is doubled, the half-like remains the same while the plasma concentration doubles. First-order kinetics Zero-order kinetics Description A constant fraction of the drug is eliminated per unit of time. A constant amount of the drug is eliminated per unit of time. Rate of clearance Constant More at lower concentrations and less at higher concentrations."
+    },
+    {
+     "type": "paragraph",
+     "text": "Half-life Constant Less at lower concentrations and more at higher concentrations. Rate of elimination Proportional to its plasma concentration. Independent of plasma concentration. Examples Most of the drugs. Alcohol, aspirin, theophylline, tolbutamide, and warfarin. In first-order kinetics, doubling the dose of a drug leads to a doubling of its plasma concentration. However, the drug's half-life remains unchanged."
+    },
+    {
+     "type": "paragraph",
+     "text": "The half-life represents the time taken for the plasma concentration of the drug to decrease by half. In this scenario, the rate of elimination increases proportionally with the increased dose, balancing the elevated plasma concentration."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L05_Q052_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-53",
+   "question": "A patient is on phenytoin for a seizure disorder. He was prescribed sucralfate four times a day for peptic ulcer. What should be the minimum duration of time between consumption of these drugs?",
+   "options": {
+    "A": "30 minutes",
+    "B": "60 minutes",
+    "C": "90 minutes",
+    "D": "120 minutes"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "In order to avoid reduced absorption of phenytoin due to its interaction with sucralfate, the two medications should be consumed at least 120 minutes apart from each other. Sucralfate produces a viscous and sticky polymer in an acidic pH of the stomach. It forms a protective layer over the ulcer craters and epithelial cells for up to 6 hours after a single dose."
+    },
+    {
+     "type": "paragraph",
+     "text": "This can hinder the absorption of other drugs; henc,e a minimum gap of 120 minutes must be maintained between ingestion of phenytoin and sucralfate. Ulcer Protective Agents Bismuth Sucralfate Properties Water-soluble, but precipitates when pH <5 Basic aluminium salt of sulfated sucrose. Polymerises at pH <4, forming a sticky gel-like consistency. Mechanism of Action Increases production of gastric mucosal prostaglandin E, mucus, and bicarbonate."
+    },
+    {
+     "type": "paragraph",
+     "text": "Precipitate mucus glycoproteins and coat the ulcer base. Detach and inhibit Helicobacter pylori directly. Precipitates surface proteins at the ulcer base, creating a physical barrier against acid, pepsin, and bile. Does not neutralise acid but delays gastric emptying. Potentially augments gastric mucosal prostaglandin synthesis for additional protection."
+    },
+    {
+     "type": "paragraph",
+     "text": "Dosage and Administration 120 mg taken half an hour before the three major meals and at bedtime for 4-8 weeks 1 gram taken on an empty stomach one hour before the three major meals and at bedtime for 4-8 weeks Side Effects Diarrhoea, Headache, Dizziness, Blackening of the tongue, dentures, and stools Constipation Hypophosphatemia Dry mouth Nausea Indications gastritis and non-ulcer dyspepsia associated with H. pylori Occasionally used as part of a triple-drug regimen."
+    },
+    {
+     "type": "paragraph",
+     "text": "Bile reflux, gastritis, and prophylaxis of stress ulcers."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-54",
+   "question": "Which of the following statements is true about the dose-response curve?",
+   "options": {
+    "A": "Drug B is the most efficacious",
+    "B": "Drug B is the most potent",
+    "C": "Drug C is more efficacious than drug D",
+    "D": "Drug A is more potent than drug B"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "> A > C > D Efficacy is the maximal effect a drug can produce, represented by the Vmax /y-axis value. The higher the Vmax, the higher the efficacy. Potency is the amount of drug required to produce a given effect. The lower the drug dose needed, the higher the potency. Both are independent of each other; efficacious drugs can have high or low potency and vice versa."
+    },
+    {
+     "type": "paragraph",
+     "text": "The first graph helps us estimate the efficacy of the drugs (the higher the Vmax, the higher the efficacy, Thus order of efficacy: Drug A > B >C >D. The second graph helps us estimate the drugs' potency (The lower the drug dose needed, the higher the potency). The left shift of the graph indicates an increase in potency. Thus, the order of potency: Drug D > B > C > A."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L05_Q054_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-55",
+   "question": "In relation to drug absorption, what does the term \"extent\" signify?",
+   "options": {
+    "A": "T max",
+    "B": "Area under the curve",
+    "C": "C max",
+    "D": "t1/2"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Area under the curve (AUC) is a quantitative representation of the “ extent of drug absorption ” i;e. overall amount of drug that enters the bloodstream and is available for action, in a plasma concentration-time curve."
+    },
+    {
+     "type": "paragraph",
+     "text": "**T max (Option A):** is the time at which the maximum concentration (Cmax) of the drug is reached in the bloodstream."
+    },
+    {
+     "type": "paragraph",
+     "text": "**C max (Option C):** is the maximum concentration of the drug in the bloodstream, indicating the peak of the drug's absorption. t1/2 (Option D) is the time it takes for the drug's concentration in the blood to decrease by half."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-56",
+   "question": "The manufacturer of a drug company labels a drug as having 500 mg of paracetamol. On quantitative analysis of the drug, it actually contained only 200 mg of paracetamol. What is this type of drug called?",
+   "options": {
+    "A": "Spurious drug",
+    "B": "Adulterated drug",
+    "C": "Unethical drug",
+    "D": "Misbranded drug"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "A misbranded drug is one that is labelled incorrectly or in a misleading manner. In this case, the manufacturer labels the drug as containing 500 mg of paracetamol, but quantitative analysis reveals that it actually contains only 200 mg. This discrepancy between the stated and actual content makes the drug misbranded because the label does not reflect the true contents of the product."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Types Description Example Spurious Drugs (Counterfeit Drugs) (Option A):** Have no active ingredient 500 mg paracetamol tablet → when checked, it contains no paracetamol in it. Made by illegal people other than the manufacturer to copy the drug."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Misbranded Drugs (Option D):** Low-quality drugs 500 mg tablet → when checked, it contains only 200 mg. Made by the same manufacturer to increase profit."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Adulterated Drugs (Option B):** Addition of harmful or unwanted excipients Cough syrup made in India containing ethylene glycol → when checked, GMP guidelines do not approve these substances. Ethylene glycol is harmful and not approved as an excipient by GMP."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Unethical Drug (Option D):** The term \"unethical drug\" is not a standard regulatory term. It may informally refer to drugs or drug practices that are deemed unethical for various reasons. However, the issue in the scenario is incorrect labelling, not an ethical concern regarding the drug's use; hence this option is incorrect."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-57",
+   "question": "Which of the following statements regarding the clinical trials is correct?",
+   "options": {
+    "A": "Phase 3 aim is to increase pharmacovigilance",
+    "B": "Phase 4 is also called post marketing surveillance",
+    "C": "Phase 3 is never double blinded",
+    "D": "Phase 2 is done on healthy individuals"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Phase 4 trials occur after the drug has been approved by regulatory agencies (such as the FDA) and is available for general use. The goal is to identify rare or long-term adverse effects, monitor the drug’s safety in a broader population, and ensure that it continues to provide benefits without significant harm."
+    },
+    {
+     "type": "paragraph",
+     "text": "Phase Name Blind & control Subjects Purpose 0 Microdosing study Open-label trial 2 - 5 healthy volunteers Check the target binding and the pharmacokinetics of the drug 1 Human Pharmacology and safety Open-label trial 20 - 50 healthy volunteers To evaluate Drug safety- the most important MTD (maximum tolerable dose), loading dose, and drug half-life. drug pharmacokinetics (absorption, distribution, metabolism and excretion) 2 Therapeutic exploratory Randomized clinical trial (RCT) 200 - 500 patients (Option D) To explore drug efficacy 3 Therapeutic Confirmatory Double-blinded RCT (Option C) 2000 - 5000 patients To Find the optimal drug dose and confirm its efficacy (Option A) 4 Post marketing Surveillance Open-label trial Larger population being treated on the approved drug To Find hidden/missed/rare adverse effects."
+    },
+    {
+     "type": "paragraph",
+     "text": "Evaluate compliance: long-term side effects Drug interactions & Food interactions"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-58",
+   "question": "A hospital is conducting a study to check the efficacy of stains in multiple centers. There are 4-5 patients, and half of them receive the drug, and the other half receive the placebo. Neither the patients nor clinicians know which drug is being administered. What phase of the clinical trial describes the above scenario?",
+   "options": {
+    "A": "Phase -1",
+    "B": "Phase -3",
+    "C": "Phase -2",
+    "D": "Phase -4"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The described study involving multiple centres, placebo control, and double-blinding fits the criteria of Phase 3 clinical trial."
+    },
+    {
+     "type": "paragraph",
+     "text": "Phase-3 trial: Design: Double-blinded RCT Purpose: Find the optimal drug dose Confirm efficacy Safety is priority Called a therapeutic confirmatory trial Called multi-site trial (done on a heterogeneous population) Drugs get market approval Phase Name Blind & control Subjects Purpose 0 Microdosing study Open-label trial 2 - 5 healthy volunteers Check the target binding and the pharmacokinetics of the drug 1 (Option A) Human Pharmacology and Safety Open-label trial 20 - 50 healthy volunteers To evaluate Drug safety- the most important MTD (maximum tolerable dose), loading dose, and drug half-life. drug pharmacokinetics (absorption, distribution, metabolism and excretion) 2 (Option C) Therapeutic exploratory Randomized clinical trial (RCT) 200 - 500 patients To explore drug efficacy 3 Therapeutic Confirmatory Double-blinded RCT 2000 - 5000 patients To Find the optimal drug dose and confirm its efficacy 4 (Option D) Post-marketing Surveillance Open-label trial Larger population being treated on the approved drug To Find hidden/missed/rare adverse effects."
+    },
+    {
+     "type": "paragraph",
+     "text": "Evaluate compliance: long-term side effects Drug interactions & Food interactions"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-59",
+   "question": "Phospholipase C acts via which of the following G proteins – coupled receptors?",
+   "options": {
+    "A": "Gs",
+    "B": "Gi",
+    "C": "Gq",
+    "D": "Go"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Phospholipase C (PLC ) acts via Gq -coupled receptors. When ligand-bound G protein-coupled receptors (GPCRs) are activated, Gq protein stimulates phospholipase C (PLC). PLC hydrolyses phosphatidylinositol 4,5-bisphosphate (PIP2) into inositol trisphosphate (IP3) and diacylglycerol (DAG) which act as second messengers."
+    },
+    {
+     "type": "paragraph",
+     "text": "IP3 binds to receptors on the endoplasmic reticulum, releasing calcium ions (Ca2+), which activate calcium-dependent enzymes and protein kinases."
+    },
+    {
+     "type": "paragraph",
+     "text": "DAG remains in the plasma membrane, activating protein kinase C (PKC) to phosphorylate target proteins, initiating cellular responses like gene expression and cell growth G Protein Type Effector Second Messenger(s) Pathway Gs (Option A) Adenylyl cyclase Cyclic AMP (cAMP) Increases cAMP, activates protein kinase A (PKA) Gi (Option B) Adenylyl cyclase Reduces cyclic AMP (cAMP) Decreases cAMP, inhibits protein kinase A (PKA) Gq Phospholipase C (PLC) Inositol trisphosphate (IP3) and DAG IP3 releases Ca2+ from ER; DAG activates protein kinase C (PKC) Go (Option D) is involved in the inhibition of voltage-gated calcium channels and the regulation of potassium channels, but it does not activate PLC."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-60",
+   "question": "Which of the following statements is correct regarding the given graph?",
+   "options": {
+    "A": "Drug 1 represents agonist and drug 2 represents inverse agonist",
+    "B": "Drug 3 represents agonist and drug 4 represents inverse agonist",
+    "C": "Drug 1 represents agonist and drug 4 represent inverse agonist",
+    "D": "Drug 2 represents partial agonist and drug 3 represents inverse agonist"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "We can see that Drug 1 produces a higher response than Drug 4 at all concentrations and above the baseline. Type of agonists Characteristics Full agonist (Drug 1) It activates a receptor to produce an effect similar to the physiological signal molecule Partial agonist (Drug 2) It activates a receptor to produce a submaximal effect and can block the action of a full agonist."
+    },
+    {
+     "type": "paragraph",
+     "text": "Inverse agonist (Drug 4) It activates a receptor to produce an effect opposite to that of an agonist Neutral antagonist (Drug 3) It prevents the action of an agonist on a receptor or the subsequent response but does not have any effect of its own. Competitive antagonist Competes with agonists for the same binding site, reducing the potency of the agonist."
+    },
+    {
+     "type": "paragraph",
+     "text": "Non-competitive antagonist Prevents the action of an agonist without competing with it for the binding s"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-61",
+   "question": "Dorzolamide is a ………….?",
+   "options": {
+    "A": "Topically applied sulfonamide antibacterial",
+    "B": "Topical ocular carbonic anhydrase inhibitor",
+    "C": "Second–generation sulfonylurea",
+    "D": "Opioid receptor agonist"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Dorzolamide is a carbonic anhydrase inhibitor, an ophthalmic medication, that is used topically (in eye drops) to treat conditions like glaucoma and ocular hypertension. Carbonic anhydrase inhibitors block the enzyme carbonic anhydrase, which is involved in the production of aqueous humor in the eye."
+    },
+    {
+     "type": "paragraph",
+     "text": "By inhibiting this enzyme, dorzolamide reduces the amount of fluid produced, thus helping to lower intraocular pressure and preventing damage to the optic nerve in conditions like glaucoma."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Topically applied sulfonamide antibacterial (Option A):** Although dorzolamide is a sulfonamide, it is not used as an antibacterial agent but as a carbonic anhydrase inhibitor for the eye. Second–generation sulfonylurea (Option C) refers to a class of oral medications used to treat type 2 diabetes, which is unrelated to dorzolamide."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Opioid receptor agonist (Option D):** Dorzolamide does not affect opioid receptors, so this option is incorrect."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-62",
+   "question": "Which medications exhibit zero order kinetics among the options provided?",
+   "options": {
+    "A": "Phenytoin",
+    "B": "Epinephrine",
+    "C": "Morphine",
+    "D": "Propranolol"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Phenytoin exhibits zero-order kinetics, meaning a constant amount of drug is eliminated per unit of time, irrespective of its concentration. This occurs due to saturation of the enzymes responsible for its metabolism."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B, C & D: Epinephrine, Morphine & Propranolol: Follows first-order kinetics, where elimination is proportional to its concentration."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-63",
+   "question": "What does a low apparent volume of distribution of a drug signify?",
+   "options": {
+    "A": "Low t ½",
+    "B": "Low bioavailability",
+    "C": "Low efficacy",
+    "D": "Not extensively distributed to tissues"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "A low apparent volume of distribution indicates that the drug is primarily confined to the plasma or blood and is not extensively distributed into the tissues. This could be due to limited penetration into tissues or high plasma protein binding."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Low t ½ (half-life): Half-life is the time taken for the drug concentration to decrease by half and is not directly related to volume of distribution."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Low bioavailability: Bioavailability is the fraction of a drug reaching systemic circulation after administration and is not directly linked to volume of distribution."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Low efficacy: Efficacy refers to a drug's ability to produce the desired effect and is not determined by volume of distribution"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-64",
+   "question": "Acetazolamide is given to a patient with glaucoma. It is a non-competitive inhibitor of the carbonic anhydrase enzyme. Which of the following would be the effect of this drug?",
+   "options": {
+    "A": "Decrease in Vmax",
+    "B": "Decrease in Km",
+    "C": "Decrease in both Km and Vmax",
+    "D": "No change in Vmax"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Acetazolamide inhibits carbonic anhydrase, reducing its activity and leading to a decreased Vmax. This means the enzyme's maximum rate of catalyzing the reaction is lowered."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Decrease in Km: Diamox, as a non-competitive inhibitor, does not directly affect Km. Km remains unchanged because substrate-binding affinity is unaffected."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Decrease in both Km and Vmax: Diamox only decreases Vmax, not Km."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - No change in Vmax: Diamox, as a non-competitive inhibitor, decreases Vmax."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-65",
+   "question": "Which of the following routes of administration will not bypass hepatic first-pass metabolism?",
+   "options": {
+    "A": "Sublingual",
+    "B": "Oral",
+    "C": "Intravenous",
+    "D": "Transdermal"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Oral administration refers to taking a drug by mouth, where it is swallowed and absorbed through the gastrointestinal tract. After absorption, the drug enters the portal vein and is transported to the liver before reaching the systemic circulation. In the liver, the drug may undergo extensive metabolism by enzymes before it reaches the systemic circulation. This process is known as hepatic first-pass metabolism."
+    },
+    {
+     "type": "paragraph",
+     "text": "Therefore, oral administration can result in significant metabolism of the drug, leading to lower bioavailability compared to other routes that bypass hepatic first-pass metabolism."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Sublingual: Sublingual administration involves placing a drug under the tongue, where it is absorbed directly into the bloodstream through the sublingual mucosa. This route allows the drug to bypass the gastrointestinal tract and liver to some extent, leading to faster onset of action and higher bioavailability compared to oral administration. There can still be some metabolism of the drug by the liver during its passage through the systemic circulation but this is not termed as first pass metabolism Option C - Intravenous: Intravenous administration involves directly injecting a drug into a vein, allowing it to enter the systemic circulation immediately without passing through the gastrointestinal tract or liver. Since the drug bypasses hepatic first-pass metabolism, it reaches the systemic circulation in its active form with maximum bioavailability. IV administration provides rapid and precise drug delivery, making it suitable for drugs that require immediate effects or when precise control over drug levels is necessary."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Transdermal: Transdermal administration involves applying a drug topically to the skin, from which it is absorbed into the systemic circulation. The drug passes through the skin layers and enters the systemic bloodstream. As it doesn't pass through the liver before entering systemic circulation, it is considered to bypass first pass metabolism by the liver"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-66",
+   "question": "The therapeutic index is used for assessing which of the following factors?",
+   "options": {
+    "A": "Safety",
+    "B": "Efficacy",
+    "C": "Patency",
+    "D": "Toxicity"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Safety refers to the extent to which a drug can be used without causing harm or adverse effects to the patient. Assessing safety involves evaluating the potential risks and side effects associated with the use of a drug and determining the appropriate dose and duration of treatment to minimize any potential harm."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Efficacy: Efficacy refers to the ability of a drug to produce the desired therapeutic effect or clinical benefit in treating a specific condition. It measures how well a drug works in achieving its intended purpose, such as relieving symptoms, improving health outcomes, or curing a disease."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Patency: Patency, in the context of drugs, usually refers to the openness or unobstructed flow of blood vessels or other bodily passages. It may not be directly related to the assessment of drug effects or safety."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Toxicity: Toxicity refers to the potential of a drug to cause harmful or adverse effects on the body. It assesses the degree or extent to which a drug can be toxic or poisonous and cause damage to organs, tissues, or physiological processes. Evaluating toxicity helps determine the safe dosage range and monitor for any signs or symptoms of drug-induced harm. While therapeutic index can give an idea of increased risk of toxicity, option A is the better option."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-67",
+   "question": "Aspirin and phenobarbitone are acidic drugs whereas diazepam is a basic drug, mark the false statement about these drugs:",
+   "options": {
+    "A": "Aspirin is present in mainly non – ionized form in stomach, hence can be easily absorbed",
+    "B": "Diazepam is mostly absorbed from intestine",
+    "C": "Phenobarbitone can be absorbed from the stomach.",
+    "D": "Diseases decreasing the transit time of drugs like diarrhea will increase the drug absorption in the small intestine"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Diseases decreasing the transit time of drugs like diarrhoea will increase the drug absorption in the small intestine.: The statement that diseases decreasing the transit time of drugs like diarrhoea will increase drug absorption in the small intestine is incorrect."
+    },
+    {
+     "type": "paragraph",
+     "text": "Diarrhea, which is characterized by increased intestinal motility and decreased transit time, can actually decrease drug absorption as the drug has less time to be absorbed in the intestine."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Aspirin is present in mainly non-ionized form in the stomach, which allows it to be easily absorbed: Non-ionized forms of drugs are generally more lipid-soluble and can readily cross biological membranes."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Diazepam is mostly absorbed from the intestine: Diazepam is a basic drug and is well-absorbed from the gastrointestinal tract, primarily in the small intestine."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Phenobarbital can be absorbed from the stomach. Phenobarbital is an acidic drug. Therefore, its absorption is primarily facilitated in the stomach and upper small intestine, where the pH is relatively lower."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-68",
+   "question": "The technique given in the picture is used for:",
+   "options": {
+    "A": "Synthesis of monoclonal antibodies",
+    "B": "Preparing cell lines for viral culture",
+    "C": "Synthesis of vaccines",
+    "D": "Process of genetic engineering"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Monoclonal antibodies are antibodies that are produced by identical immune cells derived from a single parent cell. They can be synthesized using hybridoma technology, which involves fusing specific antibody-producing cells with immortalized cells to create hybrid cell lines capable of producing a large quantity of identical antibodies. This technique is widely used in medical research, diagnostics, and therapeutic applications."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Preparing cell lines for viral culture: Viral culture involves growing and replicating viruses in laboratory settings. Cell lines derived from various organisms, including human or animal cells, are commonly used as host cells for viral replication. These cell lines are prepared and maintained to support viral growth and study viral behavior."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Synthesis of vaccines: Vaccines are created by different methods depending on the type of vaccine. Common techniques for vaccine production include using weakened or inactivated viruses, recombinant DNA technology, or subunit vaccines. These processes involve the synthesis or manipulation of specific antigens or genetic material to stimulate an immune response and provide protection against specific diseases."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Process of genetic engineering: Genetic engineering involves the manipulation and modification of an organism's genetic material to introduce new traits or characteristics. Techniques such as gene cloning, DNA sequencing, and gene editing (e.g., CRISPR-Cas9) are used in genetic engineering to alter the genetic code of organisms, including plants, animals, and microorganisms."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-69",
+   "question": "Which of the following drugs does not increase the risk of bleeding in patients undergoing warfarin therapy?",
+   "options": {
+    "A": "Cimetidine",
+    "B": "Carbamazepine",
+    "C": "Isoniazid",
+    "D": "Amiodarone"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Carbamazepine can cause a decrease in the level of Warfarin. This is due to it inhibiting CYP2C9/10 enzyme which is involved in warfarin metabolism. This would reduce the bleeding risk with warfarin."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Cimetidine: Cimetidine is an H2 receptor antagonist commonly used to reduce stomach acid production. It has the potential to interact with warfarin, leading to increased levels of warfarin in the blood and an increased risk of bleeding. Therefore, caution is advised, and close monitoring of the patient's international normalized ratio (INR) is necessary when cimetidine and warfarin are used together."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Isoniazid: Isoniazid reduces metabolism of R-enantiomer of warfarin. This is by inhibition of CYP3A4. Reduced metabolism results in higher levels of warfarin and higher bleeding risk. This requires close INR monitoring if both drugs need to be given simultaneously Option D - Amiodarone: Amiodarone is an antiarrhythmic medication used to treat certain heart rhythm disorders. It can interact with warfarin and increase the risk of bleeding. Amiodarone can inhibit enzymes involved in warfarin metabolism, leading to increased levels of warfarin in the blood. Frequent monitoring of the INR is crucial when amiodarone and warfarin are used concomitantly."
+    }
+   ]
+  }
+ ]
+}
