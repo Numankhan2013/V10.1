@@ -52,6 +52,7 @@ class Page:
         head = ' '.join(l['text'] for l in self.lines if l['y0'] < self.top + 4)
         m = QID_RE.search(head)
         self.qid = m.group(1) if m else None
+        self.main = 'Mark' in head
         m = ITEM_RE.search(head)
         self.item = (int(m.group(1)), int(m.group(2))) if m else None
         self.exhibit = exhibit_figure(self.a, self.lines)
@@ -74,6 +75,27 @@ def group_pages(pages):
         nxt = next((ids[j] for j in range(i + 1, len(ids)) if ids[j]), None)
         if (p.qid is None or (prev == nxt and p.qid != prev)) and prev and (prev == nxt or p.qid is None):
             p.qid = prev
+    # Pages of one item are one question: a digit misread or dropped ("874"/"2299" for "814"/"22599"),
+    # or a popup ("Exhibit Display", no "Mark" in its header) whose header OCR is worse than the main screen's.
+    def near(a, b):
+        if len(a) == len(b):
+            return sum(x != y for x, y in zip(a, b)) <= 1
+        s, t = sorted((a, b), key=len)
+        return len(t) - len(s) == 1 and any(t[:i] + t[i + 1:] == s for i in range(len(t)))
+    run = []
+    for p in pages + [None]:
+        if p is not None and run and (not p.item or p.item == run[0].item):
+            run.append(p); continue
+        counts = {}
+        for r in run:
+            if r.qid:
+                counts[r.qid] = counts.get(r.qid, 0) + (3 if getattr(r, 'main', False) else 1)
+        main = max(counts, key=counts.get, default=None)
+        for r in run:
+            # Without an item header a changed digit may be the next question (2057, 2058): only a dropped digit counts.
+            if r.qid and main and (r.item and (not getattr(r, 'main', True) or near(r.qid, main)) or not r.item and near(r.qid, main) and len(r.qid) != len(main)):
+                r.qid = main
+        run = [p] if p is not None and p.item else []
     groups = []
     for p in pages:
         if groups and groups[-1][0].qid == p.qid:
@@ -576,6 +598,7 @@ class Stub:
         head = ' '.join(l['text'] for l in self.lines if l['y0'] < 50)
         m = QID_RE.search(head)
         self.qid = m.group(1) if m else None
+        self.main = 'Mark' in head
         m = ITEM_RE.search(head)
         self.item = (int(m.group(1)), int(m.group(2))) if m else None
 
