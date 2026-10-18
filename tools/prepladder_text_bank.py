@@ -230,9 +230,10 @@ class TextBank:
         return "source PDF explanation starts mid-sentence; the lost words are not recoverable"
 
     def reopen(self, app_id: str, blocks: list[dict], entry: dict) -> list[dict]:
-        """Blocks with the hand-written opening in place of the cut-off one. It applies
-        after any restructure, so restructures keep matching the source text."""
-        if not entry["to"]:
+        """Blocks with the hand-written opening in place of the cut-off one, and an
+        optional "lead" paragraph before them. It applies after any restructure, so
+        restructures keep matching the source text."""
+        if not entry["to"] and not entry.get("lead"):
             return blocks
         blocks = [dict(b) for b in blocks]
         for block in blocks:
@@ -245,9 +246,15 @@ class TextBank:
                 continue
             else:
                 break
-            if not holder["text"].startswith(entry["from"]):
+            # The PDF bolds some cut-off openings ("**ardiomyopathy ...:**"); a
+            # restructure may keep the bold or not.
+            text = holder["text"]
+            bold = "**" if text.startswith("**") and not entry["from"].startswith("**") else ""
+            if not text[len(bold):].startswith(entry["from"]):
                 self.fail(f"{app_id}: hand-written opening expects the explanation to start {entry['from']!r}")
-            holder["text"] = entry["to"] + holder["text"][len(entry["from"]):]
+            holder["text"] = bold + entry["to"] + text[len(bold) + len(entry["from"]):]
+            if entry.get("lead"):
+                blocks.insert(0, {"type": "paragraph", "text": entry["lead"]})
             return blocks
         self.fail(f"{app_id}: hand-written opening has no text block to open")
 
@@ -308,7 +315,7 @@ class TextBank:
                 blocks = self.join_reference_tail(blocks)
                 app_id = f"{topic['id']}-{number}"
                 reopened = openings.pop(app_id, None)
-                if reopened and not opening:
+                if reopened and not opening and not reopened.get("lead"):
                     self.fail(f"{app_id}: hand-written opening for an explanation that opens whole")
                 explanation = micro.plain_text(self.reopen(app_id, blocks, reopened) if reopened else blocks)
                 if app_id in restructured:
