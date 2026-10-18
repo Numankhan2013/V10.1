@@ -3,16 +3,87 @@
  "source_pdf_sha256": "e4e1218e96beced952c77a630c01734121f5ef297d2afb6f743902195441d16c",
  "records": [
   {
-   "id": "UWORLD_19972",
+   "id": "UWORLD_1373",
    "reviewed_pages": [
-    11,
-    12,
-    13,
+    1,
+    2,
+    3
+   ],
+   "question": "A 23-year-old man has 2 days of fever, cough, sore throat, and runny nose. His temperature is 38 C (100.4 F). Lung sounds are clear to auscultation. A nasopharyngeal swab is obtained. Naked viral particles are seen, and purified RNA molecules are extracted from these particles. Once introduced into human cells, the purified RNA molecules induce viral protein synthesis and viral genome replication. Which of the following is the most likely cause of this patient's symptoms?",
+   "options": [
+    {
+     "letter": "A",
+     "text": "HIV",
+     "selection_percent": 5
+    },
+    {
+     "letter": "B",
+     "text": "Influenza virus type A",
+     "selection_percent": 16
+    },
+    {
+     "letter": "C",
+     "text": "c Respiratory syncytial virus",
+     "selection_percent": 6
+    },
+    {
+     "letter": "D",
+     "text": "Rhinovirus",
+     "selection_percent": 68
+    },
+    {
+     "letter": "E",
+     "text": "Rotavirus",
+     "selection_percent": 3
+    }
+   ],
+   "correct_label": "D",
+   "question_blocks": [],
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "For an RNA molecule purified from a virus (ie, without viral capsid or envelope) to be infectious (ie, able to induce viral protein synthesis and genome replication in the host cell) on its own, it must act as mRNA capable of using the host's intracellular machinery for translation. In other words, the purified RNA molecule must be singlestranded (SS) and positive(+) sense, or SS(+). The question describes a naked (ie, nonenveloped) virus with SS(+) RNA. Of the viruses listed, only rhinovirus (a picornavirus) has these features. Generally, only RNA molecules purified from SS(+) viruses are infectious; purified SS negative (-) sense RNA molecules and doublestranded (ds) RNA molecules are not as they require additional enzymes."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice A) HIV is a retrovirus that contains SS(+) RNA. However, viral infectivity requires the action of reverse transcriptase for integration into the host genome; purified RNA by itself cannot cause infection. In addition, HIV is enveloped, unlike the particles isolated from this patient."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choices Band C) Influenza A is an orthomyxovirus that contains SS(--) RNA; similarly, respiratory syncytial virus is a paramyxovirus that contains SS(--) RNA. For these viruses to replicate in a host cell, an RNA-dependent RNA polymerase must also gain entry into the host cell."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice E) Rotavirus is a reovirus containing dsRNA. Its purified RNA is therefore incapable of inducing viral protein synthesis in a host cell on its own (ie, it is non-infectious). For this virus to replicate in a host cell, a specific viral RNA polymerase present in the intact virion must also gain entry into the host cell."
+    }
+   ],
+   "educational_objective": "For a purified RNA molecule to induce viral protein synthesis in a host cell, it must be able to act directly as mRNA using the host's intracellular machinery for translation. Therefore, in general, purified single-stranded positive- sense RNA can be infectious; single-stranded negative sense or double-stranded RNA is not.",
+   "statistics": {
+    "answered_correctly_percent": 68,
+    "selection_percent": {
+     "A": 5,
+     "B": 16,
+     "C": 6,
+     "D": 68,
+     "E": 3
+    }
+   },
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "f21dc2629000f6e74fc4eeed9301bc06bd9d3528236675030304cea8fc4fccc9"
+  },
+  {
+   "id": "UWORLD_18647",
+   "reviewed_pages": [
     14,
     15,
     16,
     17,
-    18
+    18,
+    19,
+    20,
+    21,
+    22
    ],
    "question": "A 62-year-old man comes to the office due to worsening difficulty with swallowing food over the last 3 months. He has smoked a pack of cigarettes daily for the past 45 years. On examination, there is a firm, palpable mass at the base of tongue. Cervical lymph nodes are also palpable. Which of the following histologic features is most likely to be seen on biopsy of the tongue lesion?",
    "options": [
@@ -43,41 +114,7 @@
     }
    ],
    "correct_label": "D",
-   "question_blocks": [
-    {
-     "type": "figure",
-     "page": 11,
-     "bbox": [
-      397,
-      125,
-      866,
-      588
-     ],
-     "role": "question"
-    },
-    {
-     "type": "figure",
-     "page": 12,
-     "bbox": [
-      390,
-      119,
-      864,
-      590
-     ],
-     "role": "question"
-    },
-    {
-     "type": "figure",
-     "page": 13,
-     "bbox": [
-      428,
-      124,
-      809,
-      589
-     ],
-     "role": "question"
-    }
-   ],
+   "question_blocks": [],
    "explanation": [
     {
      "type": "figure",
@@ -91,6 +128,50 @@
      "role": "explanation"
     },
     {
+     "type": "figure",
+     "page": 19,
+     "bbox": [
+      342,
+      123,
+      919,
+      588
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "figure",
+     "page": 20,
+     "bbox": [
+      349,
+      124,
+      908,
+      588
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "figure",
+     "page": 21,
+     "bbox": [
+      346,
+      123,
+      908,
+      588
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "figure",
+     "page": 22,
+     "bbox": [
+      341,
+      166,
+      914,
+      545
+     ],
+     "role": "explanation"
+    },
+    {
      "type": "paragraph",
      "text": "This patient with dysphagia, a base of tongue mass, and cervical lymphadenopathy likely has mucosal head and neck squamous cell carcinoma (HNSCC). HNSCC arises from the mucosa of the upper aerodigestive tract after accrual of multiple somatic mutations, often caused by the mutagens found in tobacco. Other risk factors for HNSCC include age >40, alcohol use, and immunocompromised status. There has also been a dramatic increase in HNSCC due to human papillomavirus (HPV), which may be seen in younger, nonsmoking patients. Characteristic pathologic findings of HNSCC include nests and sheets of polygonal cells with abundant eosinophilic cytoplasm that invade the submucosa and surrounding structures; intercellular bridges and keratin pearls (ie, foci of keratinization) may be seen on light microscopy."
     },
@@ -100,11 +181,11 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice B) Adenocarcinomas arise due to mutation of glandular cells and often retain glandular features and some glandular functions, including the production of mucin. The mucosa of the head and neck is made of stratified squamous cells; therefore, cancers arising from this region often retain some features of squamous cells {eg, production of keratin)."
+     "text": "(Choice B) Adenocarcinomas arise due to mutation of glandular cells and often retain glandular features and some glandular functions, including the production of mucin. The mucosa of the head and neck is made of stratified squamous cells; therefore, cancers arising from this region often retain some features of squamous cells (eg, production of keratin)."
     },
     {
      "type": "paragraph",
-     "text": "(Choice C) Oral candidiasis {ie, thrush) often has an inflammatory infiltrate with pseudohyphae and can present with oral lesions. However, oral candidiasis characteristically appears as white plaques on an erythematous base throughout the mucosa. It does not form a palpable mass or cause firm cervical adenopathy."
+     "text": "(Choice C) Oral candidiasis (ie, thrush) often has an inflammatory infiltrate with pseudohyphae and can present with oral lesions. However, oral candidiasis characteristically appears as white plaques on an erythematous base throughout the mucosa. It does not form a palpable mass or cause firm cervical adenopathy."
     },
     {
      "type": "paragraph",
@@ -124,9 +205,1111 @@
    },
    "status": "blocked",
    "issues": [
-    "suspicious OCR: …retain some features of squamous cells {eg, production of ker…"
+    "suspicious OCR: … lymphoma, such as follicular lymphoma {characterized by nodu…"
    ],
-   "source_record_sha256": "e779a41f8c5421c666be2b632d05db228a76b180726d323f8ee20b1aa4527123"
+   "source_record_sha256": "34474d4fe255e313f7e3f85bb37c3ba4634de065581b330d54089d2f0fef61ec"
+  },
+  {
+   "id": "UWORLD_1345",
+   "reviewed_pages": [
+    23,
+    24,
+    25,
+    26,
+    27
+   ],
+   "question": "A 35-year-old man comes to the physician because of a 2-week history of nasal congestion. He has used a topical decongestant every few hours since his symptoms began. He experienced relief for almost 1 week, but then his nasal congestion returned. The patient has a history of allergic rhinitis and has had episodes of rhinorrhea in the past, but none of them lasted longer than a few days. He denies fever, throat pain, headaches, cough, and lymph node enlargement. Aside from his allergic rhinitis, the patient has no other medical problems. Physical examination shows nasal mucosa that appears edematous and red with a few areas of punctate bleeding. The remainder of the examination reveals no abnormalities. Which of the following is the most appropriate next step in the management of this patient?",
+   "options": [
+    {
+     "letter": "A",
+     "text": "Stop the decongestant",
+     "selection_percent": 67
+    },
+    {
+     "letter": "B",
+     "text": "Switch to ephedrine",
+     "selection_percent": 8
+    },
+    {
+     "letter": "C",
+     "text": "Add oral corticosteroids",
+     "selection_percent": 5
+    },
+    {
+     "letter": "D",
+     "text": "Add antihistamines",
+     "selection_percent": 15
+    },
+    {
+     "letter": "E",
+     "text": "Start antibiotics",
+     "selection_percent": 2
+    }
+   ],
+   "correct_label": "A",
+   "question_blocks": [],
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Vasoconstriction by a-adrenergic agonists is prominent in the vessels of the nasal mucosa, making these medications effective decongestants. Phenylephrine, xylometazoline, and oxymetazoline are used as topical preparations for the treatment of allergic rhinitis and common cold associated congestion and rhinitis. These medications, however, are characterized by rapidly declining effect after a few days of use. This phenomenon is called tachyphylaxis. It occurs because of decreased production of endogenous norepinephrine from the nerve terminals due to a negative feedback mechanism, resulting in relative vasodilation (ie, removal of normal vasoconstrictive tone) and subsequent edema and congestion. This leads to exacerbation of the nasal congestion symptoms. Rebound rhinorrhea (ie, rhinitis medicamentosa) is described as nasal congestion without cough, sneezing, or postnasal drip. Rhinorrhea may or may not be present (note the paradox in naming). Rebound rhinorrhea is associated with the use of topical decongestants for> 3 days. The use of adrenergic agonists should be stopped to allow the restoration of normal norepinephrine feedback pathways. Another medication associated with the phenomenon of tachyphylaxis is nitroglycerine. The decrease in its effect is explained by the diminished release of NO from the target cells. Drug-free intervals of 8--10 hours should be maintained during the use of nitroglycerine to prevent tachyphylaxis."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice B) Ephedrine is an indirect-acting adrenergic agonist used as a decongestant. Like the other adrenergic medications, it causes tachyphylaxis after a few days of treatment. A switch to ephedrine would not improve this patient's rebound rhinorrhea."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice C) This patient has been excessively using a decongestant; if he discontinues it and experiences excessive withdrawal symptoms, a short-term course of topical corticosteroids can be considered for symptom control. However, oral corticosteroids would not be indicated."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice D) Antihistamines are used for the treatment of allergic rhinitis, but they are not effective in treating rebound rhinorrhea."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice E) Antibiotics are effective in the treatment of certain bacterial infections. They are not used in the treatment of rebound rhinorrhea."
+    }
+   ],
+   "educational_objective": "Topical preparations of a-adrenergic agonists cause vasoconstriction of the nasal mucosa vessels and are used as decongestants. Overuse of these drugs causes negative feedback, resulting in decreased norepinephrine synthesis and release from nerve endings, which diminishes their effect (ie, tachyphylaxis).",
+   "statistics": {
+    "answered_correctly_percent": 67,
+    "selection_percent": {
+     "A": 67,
+     "B": 8,
+     "C": 5,
+     "D": 15,
+     "E": 2
+    }
+   },
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "64c496298ed4b8c54607e562ba9dd5a89621ec2afc4215fcf2f98c499b316f99"
+  },
+  {
+   "id": "UWORLD_8342",
+   "reviewed_pages": [
+    28,
+    29,
+    30,
+    31,
+    32
+   ],
+   "question": "A73-year-old woman comes to the physician complaining of progressive, severe pain and discharge from her left ear for the past 2 days. She has had type 2 diabetes for many years and has been noncompliant with her medications and follow-up appointments. On examination, moving or touching the pinna produces extreme pain. Otoscopic examination shows granulation tissue in the left ear canal with a scant amount of discharge. The tympanic membrane is clear, and there is no middle ear effusion. Initial cultures from the ear show a Gramnegative rod. Which of the following microbiological characteristics best describes the infecting organism?",
+   "options": [
+    {
+     "letter": "A",
+     "text": "Comma-shaped and grows well in high pH",
+     "selection_percent": 2
+    },
+    {
+     "letter": "B",
+     "text": "Fast lactose fermenter",
+     "selection_percent": 6
+    },
+    {
+     "letter": "C",
+     "text": "O c Motile and oxidase positive",
+     "selection_percent": 42
+    },
+    {
+     "letter": "D",
+     "text": "Nonmotile and a lactose nonfermenter",
+     "selection_percent": 25
+    },
+    {
+     "letter": "E",
+     "text": "Requires factors V and X for growth",
+     "selection_percent": 22
+    }
+   ],
+   "correct_label": "C",
+   "question_blocks": [],
+   "explanation": [
+    {
+     "type": "figure",
+     "page": 32,
+     "bbox": [
+      399,
+      121,
+      865,
+      579
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "paragraph",
+     "text": "This patient's presentation is consistent with malignant otitis externa (MOE), a severe infection most commonly seen in elderly diabetic patients. It is most frequently caused by Pseudomonas aeruginosa, a nonlactosefermenting, oxidase-positive, motile Gram-negative rod. Patients typically present with exquisite ear pain and drainage. The granulation tissue seen within the ear canal is an important characteristic finding of MOE, and the tympanic membrane is usually intact. Progression of this infection can lead to osteomyelitis of the skull base and cranial nerve damage. Treatment consists of systemic antibiotics such as ciprofloxacin that are effective against P aeruginosa."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice A) Vibrio cho/erae is an oxidase-positive, Gram-negative, comma-shaped rod that can grow on an alkaline medium that kills most organisms. V cho/erae causes a toxin-mediated (stimulates adenylyl cyclase) watery diarrhea."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice B) Gram-negative rods that are fast lactose fermenters include Klebsief/a and Escherichia coli. They commonly cause urinary tract infections."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice D) Shigel/a is a Gram-negative, nonlactose-fermenting, nonmotile, rod-shaped bacterium. It causes shigellosis, a hemorrhagic diarrheal disease."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice E) Haemophi/us influenza is Gram-negative, rod-shaped bacterium that requires factor X (hematin) and factor V (NAD+) for growth. Nontypable (unencapsulated) H influenzae is a frequent cause of acute otitis media in children and adults. Acute otitis media is associated with an inflamed, erythematous, bulging, immobile tympanic membrane due to the presence of infected fluid in the middle ear."
+    }
+   ],
+   "educational_objective": "Pseudomonas aeruginosa is a nonlactose-fermenting, oxidase-positive, motile, Gram-negative rod. It is the most common cause of malignant otitis externa (MOE), a serious infection of the ear seen in elderly diabetic patients. MOE presents with exquisite ear pain and drainage, and granulation tissue is often seen within the ear canal.",
+   "statistics": {
+    "answered_correctly_percent": 42,
+    "selection_percent": {
+     "A": 2,
+     "B": 6,
+     "C": 42,
+     "D": 25,
+     "E": 22
+    }
+   },
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "8de371d6400885fc4446714869761635885b9c52d14b51b79c2cad4a7c8b7b78"
+  },
+  {
+   "id": "UWORLD_15028",
+   "reviewed_pages": [
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40
+   ],
+   "question": "A 7-year-old boy is brought to the office for evaluation of a neck mass. A week ago, the patient was taken to an urgent care clinic for nasal congestion and sore throat. The symptoms resolved after a few days, but his parents noticed a persistent neck swelling. The patient has no prior medical conditions and immunizations are up to date. On physical examination, he appears active and playful and is well nourished. Neck examination shows a mildly tender, 2-cm, anterior midline mass that moves upward when the patient swallows. Which of the following is the most likely cause of this patient's lesion?",
+   "options": [
+    {
+     "letter": "A",
+     "text": "Abnormal migration of neural crest cells",
+     "selection_percent": null
+    },
+    {
+     "letter": "B",
+     "text": "Cervical implantation of thymic tissue",
+     "selection_percent": null
+    },
+    {
+     "letter": "C",
+     "text": "Dilation of cervical lymphatic channels",
+     "selection_percent": null
+    },
+    {
+     "letter": "D",
+     "text": "Incomplete obliteration of a duct",
+     "selection_percent": null
+    },
+    {
+     "letter": "E",
+     "text": "Persistence of second branchial cleft structures",
+     "selection_percent": null
+    },
+    {
+     "letter": "F",
+     "text": "Trapping of skin structures along embryonic fusion lines",
+     "selection_percent": null
+    }
+   ],
+   "correct_label": "D",
+   "question_blocks": [],
+   "explanation": [
+    {
+     "type": "figure",
+     "page": 35,
+     "bbox": [
+      309,
+      124,
+      939,
+      590
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "figure",
+     "page": 38,
+     "bbox": [
+      439,
+      112,
+      810,
+      590
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "figure",
+     "page": 39,
+     "bbox": [
+      341,
+      153,
+      909,
+      562
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "figure",
+     "page": 34,
+     "bbox": [
+      24,
+      218,
+      485,
+      427
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "paragraph",
+     "text": "This patient has a thyroglossal duct cyst (TDC), which classically presents as a midline neck mass that moves superiorly with tongue protrusion or swallowing. A TDC may be identified incidentally during routine examination but is often first noticed when it becomes secondarily infected (eg, erythema, swelling, tenderness) after an upper respiratory infection. In utero, the thyroid gland forms from an outpouching of pharyngeal epithelium at the base of the tongue. It then descends to the base of the anterior neck via the thyroglossal duct, which extends from the foramen cecum at the base of the tongue to the superior border of the isthmus of the thyroid. Normally, the duct then atrophies. Failed atrophy of the thyroglossal duct can result in a TDC from the epithelial remnants within the duct. Because the tract connects to the tongue, tongue protrusion or swallowing causes the TDC to move superiorly. Ectopic thyroid tissue may also be present and can form anywhere along the duct's path."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice A) Abnormal migration of neural crest cells can cause paragangliomas, neuroendocrine tumors that develop from extraadrenal, autonomic paraganglia. They most commonly arise from the carotid body and typically present as a lateral neck mass."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice B) Cervical implantation of thymic tissue is a rare cause of cystic neck mass. Ectopic thymic cysts can arise anywhere along the thymus' descent from the angle of the jaw to the mediastinum, but when they form in the neck they are most commonly found on the left side deep to the sternocleidomastoid muscle."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice C) Cystic hygromas are fluid-filled sacs of dilated lymphatic vessels that result from abnormal lymphatic development. They present at birth as a soft mass at the posterior or lateral aspects of the neck, not the anterior midline."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice E) Branchial cleft cysts are embryologic remnants of branchial cleft structures that often present as a neck mass after becoming secondarily infected. However, they are located laterally (anterior to the sternocleidomastoid muscle), not midline, and do not move with swallowing."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice F) Trapped skin structures (eg, hair follicles, sebaceous glands) along embryonic fusion lines result in formation of dermoid cysts within subcutaneous tissue. They may be located in the midline (eg, submental region, neck), but would not rise with swallowing."
+    }
+   ],
+   "educational_objective": "Failed atrophy of the thyroglossal duct in utero can result in thyroglossal duct cysts that can be located anywhere along the path of thyroid descent (from the tongue base to the thyroid isthmus). They usually present as an anterior midline neck mass that moves superiorly with swallowing or tongue protrusion.",
+   "statistics": {
+    "answered_correctly_percent": null,
+    "selection_percent": {
+     "A": null,
+     "B": null,
+     "C": null,
+     "D": null,
+     "E": null,
+     "F": null
+    }
+   },
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "701e8b621086e6b80531e754e152706f386be7473c7d82c845e56089e666db03"
+  },
+  {
+   "id": "UWORLD_18598",
+   "reviewed_pages": [
+    41,
+    42,
+    43,
+    44,
+    45,
+    46
+   ],
+   "question": "A 30-year-old woman comes to the emergency department after a seizure. The patient reports pain on the left side of her face and is unable to fully open or close her mouth. She is drooling. On examination, the jaw deviates to the right and the left mandibular condyle is very prominent with a palpable depression posterior to it. The patient is diagnosed with an anterior dislocation of the left temporomandibular joint. The jaw is most likely maintained in a dislocated position due to continued spasm of which of the following muscles?",
+   "options": [
+    {
+     "letter": "A",
+     "text": "Buccinator",
+     "selection_percent": 6
+    },
+    {
+     "letter": "B",
+     "text": "Genioglossus",
+     "selection_percent": 0
+    },
+    {
+     "letter": "C",
+     "text": "Lateral pterygoid",
+     "selection_percent": 85
+    },
+    {
+     "letter": "D",
+     "text": "Sternocleidomastoid",
+     "selection_percent": 1
+    },
+    {
+     "letter": "E",
+     "text": "Superior pharyngeal constrictor",
+     "selection_percent": 0
+    },
+    {
+     "letter": "F",
+     "text": "Zygomaticus major",
+     "selection_percent": 4
+    }
+   ],
+   "correct_label": "C",
+   "question_blocks": [],
+   "explanation": [
+    {
+     "type": "figure",
+     "page": 43,
+     "bbox": [
+      431,
+      124,
+      811,
+      590
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "figure",
+     "page": 46,
+     "bbox": [
+      393,
+      125,
+      861,
+      590
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "paragraph",
+     "text": "This patient has an anterior dislocation of the temporomandibular joint (TMJ), the synovial joint that opens and closes the jaw. The joint is formed by the mandibular condyle that sits in the glenoid fossa of the squamous portion of the temporal bone. TMJ opening involves a complex movement that has both hinge and sliding components: • The initial movement is rotational (ie, hinge) and driven by the lateral pterygoid muscles, which are the only muscles of mastication that aid in depressing the mandible (ie, opening the jaw). • As the jaw opens, the ligaments become taut, stopping further rotation. • Further action by the lateral pterygoids results in translational movement (ie, condyle slides anteriorly) that opens the jaw fully."
+    },
+    {
+     "type": "paragraph",
+     "text": "TMJ dislocation occurs when translational movement is exaggerated due to extreme jaw opening (eg, yawning, orotracheal intubation, seizure) that causes displacement of the condyle anteriorly out of the glenoid fossa. Stretching of the ligaments causes significant pain and spasm of the muscles of mastication. This muscle spasm (specifically of the lateral pterygoids that aid jaw opening) prevents spontaneous resolution of the dislocation; manual reduction is usually necessary."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice A) The buccinator muscle underlies the cheek. It holds the cheek close to the teeth to control food boluses during chewing but is not involved in movement of the jaw."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice B) The genioglossus muscles form the body of the tongue. Although they originate on the tubercle of the mandible (and insert into the hyoid bone and the bottom of the tongue), they are responsible for tongue protrusion rather than mandibular movement."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice D) The sternocleidomastoid muscles originate at the sternum and the clavicle and insert on the mastoid tip. They rotate the head (when acting independently) or flex the neck (when acting in concert)."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice E) The superior pharyngeal constrictor forms portions of the posterior and lateral oropharyngeal walls. Muscle contraction propels food and liquid inferiorly into the esophagus during swallowing."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice F) The zygomaticus major originates from the zygomatic bone and inserts onto the angle of the mouth. Contraction pulls the angle of the mouth laterally and superiorly during a smile."
+    }
+   ],
+   "educational_objective": "The lateral pterygoid muscles are the only muscles of mastication that aid in depressing the mandible (ie, opening the jaw). Spasm of the lateral pterygoids prevents spontaneous reduction of an anterior dislocation of the temporomandibular joint.",
+   "statistics": {
+    "answered_correctly_percent": null,
+    "selection_percent": {
+     "A": 6,
+     "B": 0,
+     "C": 85,
+     "D": 1,
+     "E": 0,
+     "F": 4
+    }
+   },
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "d17ca744f7efcc7a9a43c2a5db2f21fa6cf3b9e99460a1376389026699fb5cd5"
+  },
+  {
+   "id": "UWORLD_107970",
+   "reviewed_pages": [
+    47,
+    48,
+    49,
+    50,
+    51,
+    52
+   ],
+   "question": "A 56-year-old man comes to the office due to feeling \"dizzy\" over the past 2 weeks. He works in a warehouse and says he experiences a brief, severe spinning sensation when looking up at objects on a high shelf. Vital signs are normal. Examination shows normal hearing. Ocular movements in a sitting position are normal, but when the patient's head is rotated to the right side off the examination table, he develops vertigo and rotatory nystagmus. The remainder of the examination shows no abnormalities. Which of the following is the most likely cause of this patient's symptoms?",
+   "options": [
+    {
+     "letter": "A",
+     "text": "Carotid baroreceptor dysfunction",
+     "selection_percent": 2
+    },
+    {
+     "letter": "B",
+     "text": "Elevated endolymphatic hydrostatic pressure",
+     "selection_percent": 27
+    },
+    {
+     "letter": "C",
+     "text": "c Elevated hydrostatic pressure in the middle ear",
+     "selection_percent": 6
+    },
+    {
+     "letter": "D",
+     "text": "Loose semicircular canal debris",
+     "selection_percent": 61
+    },
+    {
+     "letter": "E",
+     "text": "Transient cerebellar hypoperfusion",
+     "selection_percent": 3
+    }
+   ],
+   "correct_label": "D",
+   "question_blocks": [],
+   "explanation": [
+    {
+     "type": "figure",
+     "page": 49,
+     "bbox": [
+      325,
+      125,
+      926,
+      588
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "figure",
+     "page": 52,
+     "bbox": [
+      385,
+      118,
+      867,
+      550
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "paragraph",
+     "text": "This patient has vertigo, often described as a spinning (as in this patient), whirling, or tilting sensation that can be due to an underlying disease in either the peripheral or central nervous system. This patient's brief (<1min), episodic vertigo triggered by head position changes (eg, sitting up from bed, looking around a kitchen) is consistent with benign paroxysmal positional vertigo (BPPV), the most common cause of vertigo. Rotational head movement is sensed by the semicircular canals, which are filled with endolymphatic fluid. The relative movement of this fluid stimulates hair cells that generate electrical impulses which are transmitted to the brain. BPPV is most often attributed to canalithiasis, or the presence of crystalline debris (canaliths) in the semicircular canals. These canaliths disrupt the normal flow of fluid in the semicircular canals, leading to contradictory signaling from the corresponding canals. Diagnosis is based on clinical features. The Dix-Hallpike maneuver can help diagnose BPPV: vertigo and nystagmus are triggered as the patient quickly lies back into a supine position with the head rotated 45 degrees. No further workup is needed in patients with classic presentations. Treatment with canalith repositioning maneuvers (eg, Epley) is typically effective."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choices A and E) Carotid baroreceptor dysfunction can lead to wide fluctuations in blood pressure. Hypoperfusion due to this or other causes (eg, arterial stenosis) can lead to lightheadedness, which is frequently interpreted by patients as dizziness. However, this patient's positive Dix-Hallpike and spinning sensation (vs lightheadedness) are more consistent with BPPV."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice B) Elevated endolymphatic pressure in the semicircular canals is thought to underly the development of M~ni~re disease, In contrast to this patient's presentation, M~ni~re disease classically presents with episodic vertigo lasting 20 minutes to 24 hours and is associated with unilateral hearing loss, tinnitus, and aural fullness."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice C) Infected fluid in the middle ear (ie, acute otitis media) can lead to elevated hydrostatic pressure in the middle ear, causing a bulging tympanic membrane and sometimes leading to tympanic membrane rupture. However, acute otitis media presents with pain, fevers, and hearing loss, features absent in this patient."
+    }
+   ],
+   "educational_objective": "Benign paroxysmal positional vertigo causes brief (<1 min) episodes of vertigo triggered by changes in head position. Triggering an episode by using provocative head positioning maneuvers (eg, Dix-Hallpike) is diagnostic.",
+   "statistics": {
+    "answered_correctly_percent": 61,
+    "selection_percent": {
+     "A": 2,
+     "B": 27,
+     "C": 6,
+     "D": 61,
+     "E": 3
+    }
+   },
+   "status": "blocked",
+   "issues": [
+    "suspicious OCR: …thought to underly the development of M~ni~re disease, In con…"
+   ],
+   "source_record_sha256": "6ab3d1e69fb4a6ff95efece8ca326478908bda6ccdde3345e00b482a09ebc459"
+  },
+  {
+   "id": "UWORLD_18627",
+   "reviewed_pages": [
+    53,
+    54,
+    55,
+    56
+   ],
+   "question": "50-year-old lump man the due his that been for 4 and enlarging. On examination, there is a firm, nontender, nonmobile mass in the right anterior neck. Otoscopic examination shows a clear right middle ear effusion. Needle biopsy of the neck mass is consistent with regional nodal spread of squamous cell carcinoma. Which of the following is the most likely site of the primary tumor?",
+   "options": [
+    {
+     "letter": "A",
+     "text": "Base of tongue",
+     "selection_percent": 25
+    },
+    {
+     "letter": "B",
+     "text": "Nasopharynx",
+     "selection_percent": 43
+    },
+    {
+     "letter": "C",
+     "text": "Parotid gland",
+     "selection_percent": 7
+    },
+    {
+     "letter": "D",
+     "text": "Piriform sinus",
+     "selection_percent": 3
+    },
+    {
+     "letter": "E",
+     "text": "Thyroid gland",
+     "selection_percent": 5
+    },
+    {
+     "letter": "F",
+     "text": "Vocal cord",
+     "selection_percent": 14
+    }
+   ],
+   "correct_label": "B",
+   "question_blocks": [],
+   "explanation": [
+    {
+     "type": "figure",
+     "page": 55,
+     "bbox": [
+      353,
+      119,
+      906,
+      550
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "paragraph",
+     "text": "Squamous cell carcinoma that originates in the mucosa of the head and neck typically spreads first to the anterior cervical lymph nodes. An enlarged, firm cervical lymph node is often the presenting symptom of head and neck squamous cell carcinoma (HNSCC). Identification of the primary site of tumor formation is important for staging and to guide treatment strategies. This patient's unilateral middle ear effusion suggests obstruction of the eustachian tube, which connects the middle ear space to the nasopharynx. It opens intermittently, typically during swallowing or yawning to equalize pressure in the middle ear. Failure to adequately open causes negative pressure to build within the middle ear, leading to a transudative effusion (clear, amber, or yellow). Eustachian tube dysfunction can be due to anatomic obstruction from a mass in the nasopharynx or, more commonly, due to functional obstruction from infections, allergic rhinitis, or irritants (eg, tobacco smoke)."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choices A, D, and F) HNSCC can originate from the mucosa of other anatomic sites. Many sites (eg, base of tongue, piriform sinus) initially cause only vague or minor symptoms, but some may present with more specific features (eg, hoarseness in vocal cord cancer). Cancer at any of these other sites (ie, base of tongue, piriform sinus, vocal cord) would not lead to obstruction of the eustachian tube with a resultant middle ear effusion."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice C) Cancer of the parotid gland may spread to the cervical lymph nodes. The superior portion of the parotid gland is near the external auditory canal of the ear, not the eustachian tube. In addition, because the parotid gland is near the skin surface, primary tumors of the parotid are typically palpable."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice E) Cancer of the thyroid gland may spread to the cervical lymph nodes. However, it is very rare to have squamous cell carcinoma in the thyroid, and enlargement of the thyroid gland would not block the eustachian tube."
+    }
+   ],
+   "educational_objective": "The eustachian tube connects the middle ear to the nasopharynx. Cancer located in the nasopharynx can lead to obstruction of the eustachian tube, causing a middle ear effusion.",
+   "statistics": {
+    "answered_correctly_percent": null,
+    "selection_percent": {
+     "A": 25,
+     "B": 43,
+     "C": 7,
+     "D": 3,
+     "E": 5,
+     "F": 14
+    }
+   },
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "c793f1ba03b4b35965d564ece9300e10da9fc6631edadcb6c897a1600f723644"
+  },
+  {
+   "id": "UWORLD_1102",
+   "reviewed_pages": [
+    63,
+    64,
+    65,
+    66,
+    67
+   ],
+   "question": "A 3-year-old boy is brought to the office due to a 1-day history of fever and irritability. The mother states that the boy has been tugging at his right ear. The patient has had 2 previous episodes of acute otitis media. Temperature is 38.1 C (100.6 F). Otoscopic examination shows a perforated right tympanic membrane with erythema and purulent exudate. Cultures from the exudate yield small, oxidase-positive, gram-negative coccobacilli that grow on factor X-- and factor V--supplemented media, consistent with Haemophifus influenzae. The patient's immunizations are up to date. Which of the following best explains this patient's susceptibility to the pathogen causing his current infection?",
+   "options": [
+    {
+     "letter": "A",
+     "text": "No vaccine is effective against H influenzae",
+     "selection_percent": 2
+    },
+    {
+     "letter": "B",
+     "text": "The patient has defective cell-mediated immunity",
+     "selection_percent": 17
+    },
+    {
+     "letter": "C",
+     "text": "The patient has defective neutrophil function",
+     "selection_percent": 9
+    },
+    {
+     "letter": "D",
+     "text": "The strain responsible for this patient's disease does not produce a capsule",
+     "selection_percent": 67
+    },
+    {
+     "letter": "E",
+     "text": "The strain responsible for this patient's disease produces exotoxin",
+     "selection_percent": 3
+    }
+   ],
+   "correct_label": "D",
+   "question_blocks": [],
+   "explanation": [
+    {
+     "type": "figure",
+     "page": 67,
+     "bbox": [
+      390,
+      111,
+      860,
+      551
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "paragraph",
+     "text": "This patient with fever and an inflamed, perforated tympanic membrane with purulent otorrhea has acute otitis media. Middle ear infections occur most commonly in young children (age 6 months to 2 years) and are typically due to Streptococcus pneumoniae or Haemophilus influenzae. H influenzae is a small, oxidase-positive, gram-negative coccobacillus typically classified by the antigens in its polysaccharide capsule. However, there are multiple strains of H influenzae that do not produce a capsule; these nontypeable strains are part of the normal upper respiratory tract flora but can also cause acute otitis media, sinusitis, and bronchitis. Vaccination against H influenzae is with the protein-conjugated Hib vaccine, which confers immunity only to the more invasive type b strain (Choice A). The vaccine is recommended in all children to prevent Hib-associated bacteremia, pneumonia, epiglottitis, and meningitis. In countries with widespread Hib vaccination (eg, United States), most H influenzae strains isolated from children with respiratory mucosal infections (including acute otitis media) are nontypeable."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice B) The Hib vaccine contains capsular polysaccharide components to induce anticapsular antibodies (humeral immune response). Because the antibody response is weak in children, the vaccine is also conjugated with toxoid protein, which stimulates a helper T-cell response to help activate B-cell antibody formation. A cellmediated cytotoxic T-cell response is not induced."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice C) Poor neutrophil function or a low neutrophil count predisposes to bacterial disease. However, neutrophil dysfunction (eg, chronic granulomatous disease, Ch~diak-Higashi syndrome) typically presents with recurrent, severe bacterial infections such as pneumonia and abscesses. Ear infections due to H influenzae infection despite immunization with the Hib vaccine are more likely due to infection with a nontypeable strain than defective neutrophils."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice E) Exotoxins are secreted by certain bacteria (eg, C/ostridium botulinum, Corynebacterium diphtheriae) to promote cell death but are not generally produced by any strain of H influenzae. The Hib vaccine is directed against capsular polysaccharide, not toxin."
+    }
+   ],
+   "educational_objective": "Nontypeable strains of Haemophilus influenzae are part of the normal upper respiratory tract flora and are a common cause of acute otitis media, sinusitis, and bronchitis. Because nontypeable strains do not form a polysaccharide capsule, immunity is not conferred by vaccination with the H influenzae type b vaccine.",
+   "statistics": {
+    "answered_correctly_percent": 67,
+    "selection_percent": {
+     "A": 2,
+     "B": 17,
+     "C": 9,
+     "D": 67,
+     "E": 3
+    }
+   },
+   "status": "blocked",
+   "issues": [
+    "suspicious OCR: … (eg, chronic granulomatous disease, Ch~diak-Higashi syndrome…"
+   ],
+   "source_record_sha256": "55c839318db5a675c2740f957165263384e3e2ca3eb1986310253a70e602cca0"
+  },
+  {
+   "id": "UWORLD_107861",
+   "reviewed_pages": [
+    68,
+    69,
+    70,
+    71,
+    72,
+    73
+   ],
+   "question": "A 28-year-old primigravida at 20 weeks gestation comes to the clinic for follow-up. It is discovered that the fetus has a genetic change that results in developmental disruption of the third pharyngeal pouch. Which of the following would most likely be observed in the child after birth?",
+   "options": [
+    {
+     "letter": "A",
+     "text": "Branchial cleft cyst",
+     "selection_percent": 8
+    },
+    {
+     "letter": "B",
+     "text": "Ectopic thyroid tissue",
+     "selection_percent": 14
+    },
+    {
+     "letter": "C",
+     "text": "c Impaired auditory conduction",
+     "selection_percent": 4
+    },
+    {
+     "letter": "D",
+     "text": "Mandibular hypoplasia",
+     "selection_percent": 7
+    },
+    {
+     "letter": "E",
+     "text": "T-cell dysfunction",
+     "selection_percent": 64
+    }
+   ],
+   "correct_label": "E",
+   "question_blocks": [],
+   "explanation": [
+    {
+     "type": "figure",
+     "page": 73,
+     "bbox": [
+      345,
+      133,
+      919,
+      536
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "paragraph",
+     "text": "The structures of the head and neck are derived from components of the pharyngeal apparatus, an early embryologic structure consisting of pharyngeal arches, pouches, and clefts. The developing embryo forms 6 pairs of pharyngeal arches, each contributing to various musculoskeletal and vascular structures. Evaginations between consecutive arches are referred to as pharyngeal clefts externally and pharyngeal pouches internally. This fetus has a genetic defect that disrupted development of the third pharyngeal pouch, the derivates of which include the inferior parathyroid glands and thymus. Because the thymus is the site of T-cell maturation, patients with abnormal development of the third pharyngeal pouch often develop recurrent viral and fungal infections due to T-cell dysfunction. The most common cause of pharyngeal pouch pathology is DiGeorge syndrome, which results from a chromosome 22q11 microdeletion. This condition affects both the third and the fourth pharyngeal pouches, causing variable immunodeficiency, depending on the degree of thymic hypoplasia (eg, recurrent sinopulmonary infections vs severe combined immunodeficiency). Patients also have hypocalcemia from parathyroid gland hypoplasia, as well as other anomalies (eg, conotruncal cardiac defects, craniofacial abnormalities)."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice A) A branchial cleft cyst is a lateral neck mass anterior to the sternocleidomastoid muscle. It results from incomplete involution of the second pharyngeal cleft; it is not a pharyngeal pouch malformation."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice B) The thyroid gland descends in utero from the base of the tongue to its anatomic position in the neck, and abnormal migration can result in ectopic thyroid tissue along this path. The thyroid gland develops independently of the third pharyngeal pouch."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice C) Impaired auditory conduction can occur with disrupted development of the first pharyngeal arch (gives rise to incus/malleus) and second pharyngeal arch (gives rise to stapes), as well as the first pouch and cleft, which contribute to middle and outer ear structures. The third pharyngeal pouch does not give rise to any structures of the ear."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice D) Mandibular hypoplasia (micrognathia) is related to disrupted development of the first pharyngeal arch, which gives rise to the mandible."
+    }
+   ],
+   "educational_objective": "Derivatives of the third pharyngeal pouch include the thymus and inferior parathyroid glands. Disrupted development of the third pharyngeal pouch (eg, DiGeorge syndrome) leads to thymic hypoplasia/aplasia with impaired T-cell development and immunodeficiency.",
+   "statistics": {
+    "answered_correctly_percent": null,
+    "selection_percent": {
+     "A": 8,
+     "B": 14,
+     "C": 4,
+     "D": 7,
+     "E": 64
+    }
+   },
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "5817557457b8e016b748dc7e9668df19803bd32a54df3211193b93e61260a011"
+  },
+  {
+   "id": "UWORLD_20119",
+   "reviewed_pages": [
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85
+   ],
+   "question": "A 7-year-old boy is brought to the clinic due to 4 days of worsening left ear pain. The patient was healthy until last week, when he developed a low-grade fever and congestion, which resolved prior to the sudden development of left ear pain. Vital signs are normal. On examination, the patient appears uncomfortable but nontoxic. The left external ear is nontender with manipulation and has no visible deformities. Several mobile, 1-cm, anterior cervical lymph nodes are palpated on the left side of the neck. The left tympanic membrane is erythematous and bulging; there are no visible perforations. Right ear examination is unremarkable. Which of the following structures is most likely to become involved with progression of this patient's infection?",
+   "options": [
+    {
+     "letter": "A",
+     "text": "Ethmoid sinus",
+     "selection_percent": 14
+    },
+    {
+     "letter": "B",
+     "text": "External jugular vein",
+     "selection_percent": 4
+    },
+    {
+     "letter": "C",
+     "text": "Facial artery",
+     "selection_percent": 1
+    },
+    {
+     "letter": "D",
+     "text": "Facial nerve",
+     "selection_percent": 56
+    },
+    {
+     "letter": "E",
+     "text": "Glossopharyngeal nerve",
+     "selection_percent": 7
+    },
+    {
+     "letter": "F",
+     "text": "Sphenoid sinus",
+     "selection_percent": 15
+    }
+   ],
+   "correct_label": "D",
+   "question_blocks": [],
+   "explanation": [
+    {
+     "type": "figure",
+     "page": 78,
+     "bbox": [
+      267,
+      124,
+      986,
+      549
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "figure",
+     "page": 81,
+     "bbox": [
+      386,
+      118,
+      867,
+      550
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "figure",
+     "page": 82,
+     "bbox": [
+      341,
+      160,
+      915,
+      508
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "figure",
+     "page": 83,
+     "bbox": [
+      379,
+      107,
+      902,
+      550
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "figure",
+     "page": 84,
+     "bbox": [
+      339,
+      176,
+      914,
+      489
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "figure",
+     "page": 85,
+     "bbox": [
+      341,
+      165,
+      900,
+      504
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "paragraph",
+     "text": "This patient with ear pain and an erythematous, bulging tympanic membrane has acute otitis media (AOM), an infection of the middle ear space. AOM is common in children due to poor drainage through narrow, horizontally positioned eustachian tubes. Most cases are uncomplicated; however, patients are at risk for spread of infection to nearby structures. One such structure is the facial nerve (CN VII), which emerges from the internal auditory meatus and travels through the middle ear into the mastoid air cells. Inflammation of the nerve in the middle ear space during an episode of AOM can result in unilateral facial paralysis. Common signs include inability to raise the eyebrow or close the eye, drooping of the corner of the mouth, and disappearance of the nasolabial fold. Other structures in close proximity to the middle ear space include mastoid air cells; direct extension of infection can cause purulent fluid to fill the air cells, leading to mastoiditis. CNS complications (eg, meningitis, brain abscess) are rare sequelae of intracranial spread."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choices A and F) The ethmoid and sphenoid sinuses open into the superior nasal cavity and can become inflamed and filled with purulent material due to nasal congestion (eg, upper respiratory infection). However, these sinuses are not in direct contact with the middle ear space and are unlikely to be affected by AOM."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice B) The external jugular vein drains blood from the scalp and face. Complications (eg, thrombophlebitis) are rare; jugular thrombosis most often affects the internal jugular vein (Lemierre syndrome)."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice C) The facial artery originates from the external carotid artery at the angle of the mandible and passes upward across the cheek, mouth, and side of the nose. In contrast, the blood supply to the ear is derived primarily from the posterior auricular artery."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice E) The glossopharyngeal nerve (CN IX) travels down the neck with the internal carotid artery before entering the pharynx. The nerve provides innervation to the stylopharyngeus muscle and sensation to the posterior third of the tongue. Pathology of the middle ear is unlikely to affect this deep structure."
+    }
+   ],
+   "educational_objective": "Acute otitis media presents with an erythematous, bulging tympanic membrane and can be complicated by inflammation or infection of nearby structures. Spread of infection to the facial nerve (CN VII), which travels through the middle ear, can result in facial neuritis with unilateral facial paralysis.",
+   "statistics": {
+    "answered_correctly_percent": 56,
+    "selection_percent": {
+     "A": 14,
+     "B": 4,
+     "C": 1,
+     "D": 56,
+     "E": 7,
+     "F": 15
+    }
+   },
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "abac004bcfea4598b83614177a3a08ed71a1ffe68f858b7df0e540a0f7341759"
+  },
+  {
+   "id": "UWORLD_11783",
+   "reviewed_pages": [
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92
+   ],
+   "question": "A 6-year-old boy is brought to the emergency department by his parents due to persistent nasal bleeding. The boy picks his nose frequently and has had several nosebleeds in the past, all of which stopped spontaneously after pinching the nose. The parents say that they have been pinching the nasal alae for over 30 minutes while the boy leans forward. Family history is negative for bleeding disorders. The patient takes no medications and has no allergies. Examination shows continuous blood trickle from his right nostril. Silver nitrate cautery is periormed and the bleeding stops. Cautery was most likely applied to which of the following locations in this patient's nasal cavity?",
+   "options": [
+    {
+     "letter": "A",
+     "text": "Inferior turbinate",
+     "selection_percent": 12
+    },
+    {
+     "letter": "B",
+     "text": "Middle meatus",
+     "selection_percent": 10
+    },
+    {
+     "letter": "C",
+     "text": "Nasal septum",
+     "selection_percent": 45
+    },
+    {
+     "letter": "D",
+     "text": "Posterior choanae",
+     "selection_percent": 10
+    },
+    {
+     "letter": "E",
+     "text": "Posterolateral wall",
+     "selection_percent": 21
+    }
+   ],
+   "correct_label": "C",
+   "question_blocks": [],
+   "explanation": [
+    {
+     "type": "figure",
+     "page": 88,
+     "bbox": [
+      371,
+      118,
+      873,
+      551
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "figure",
+     "page": 91,
+     "bbox": [
+      339,
+      125,
+      910,
+      544
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "figure",
+     "page": 92,
+     "bbox": [
+      424,
+      107,
+      857,
+      551
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "paragraph",
+     "text": "The nasal mucosa is highly vascular and easily irritated by trauma (eg, nose-picking), mucosal dryness, foreign body insertion, and rhinitis (eg, allergy, infection). Epistaxis is very common in children and may be classified as anterior or posterior, depending on the bleeding source. Anterior nosebleeds are by far the most common, and the vast majority occur within the vascular watershed area of the nasal septum (anteroinferior part of the nasal septal mucosa) known as Kiesselbach plexus. Anastomosis of the following vessels occurs in this region: • Septal branch of the anterior ethmoidal artery • Lateral nasal branch of the sphenopalatine artery • Septal branch of the superior labial artery (branch of the facial artery)"
+    },
+    {
+     "type": "paragraph",
+     "text": "Management is directed at stopping the bleeding from Kiesselbach plexus, preferably by direct compression of the nasal alae. Cautery (eg, silver nitrate) of the area surrounding the bleeding site may be necessary for persistent bleeding."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choices A and B) The lateral nasal wall contains the superior, middle, and inferior turbinates (also known as conchae). These 3 bony projections are covered with mucous membrane; they warm, humidify, and filter inspired air and expand and contract in response to environmental changes (eg, temperature, humidity, allergens). The turbinates form corresponding meatuses that serve as drainage pathways. The superior meatus provides drainage for the sphenoidal and posterior ethmoidal sinuses. The middle meatus drains the frontal, maxillary, and anterior ethmoidal sinuses and is the most common site of nasal polyps. The inferior meatus drains the nasolacrimal duct."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choices D and E) Branches of the sphenopalatine artery supply the posterolateral wall and posterior choanae. These posterolateral branches are the most likely source of posterior nosebleeds. Posterior epistaxis is usually severe and cannot be treated with cautery."
+    }
+   ],
+   "educational_objective": "Epistaxis is commonly caused by irritation of the highly vascular mucosa at the anterior nasal septum. The anterior nasal septum contains the Kiesselbach plexus. The anterior ethmoidal, sphenopalatine, and superior labial arteries anastomose in this region.",
+   "statistics": {
+    "answered_correctly_percent": 45,
+    "selection_percent": {
+     "A": 12,
+     "B": 10,
+     "C": 45,
+     "D": 10,
+     "E": 21
+    }
+   },
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "06cb1be83b4e2cbcb65f952ca58c09fae38b46d8409ff583d6ae486e8b42d658"
+  },
+  {
+   "id": "UWORLD_18584",
+   "reviewed_pages": [
+    93,
+    94,
+    95,
+    96
+   ],
+   "question": "A 26-year-old woman comes to the office due to pain in her right jaw that is deep, achy, and worse in the morning. It radiates to her temple and is associated with headaches. The patient also has neck pain and stiffness, especially on the right side. When she chews, she hears a clicking noise in her right ear. The patient is in a competitive graduate study program and has been under significant stress. Her roommate says that she has been grinding her teeth at night. Physical examination will likely reveal spasms of which of the following muscles?",
+   "options": [
+    {
+     "letter": "A",
+     "text": "Buccinator",
+     "selection_percent": 6
+    },
+    {
+     "letter": "B",
+     "text": "Levator veli palatini",
+     "selection_percent": 2
+    },
+    {
+     "letter": "C",
+     "text": "O c Masseter",
+     "selection_percent": 89
+    },
+    {
+     "letter": "D",
+     "text": "Mylohyoid",
+     "selection_percent": 1
+    },
+    {
+     "letter": "E",
+     "text": "Omohyoid",
+     "selection_percent": 0
+    }
+   ],
+   "correct_label": "C",
+   "question_blocks": [],
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "This patient has jaw pain, a clicking noise when she chews, and associated headaches and neck stiffness, which is suggestive of temporomandibular joint (TMJ) syndrome. The underlying etiology of TMJ syndrome is multifactorial and includes TMJ derangement (eg, jaw misalignment, trauma), and hypersensitivity of the mandibular nerve (CN V3). Mechanical derangement of the TMJ can result in irritation and hypersensitivity of CN V3, leading to pathologic contraction of the masseter and pterygoid muscles (which worsens jaw pain and dysfunction). Spasms of these muscles can sometimes be palpated along the mandibular ramus. Repetitive jaw motions (eg, gum chewing, teeth grinding) are thought to contribute to the development of TMJ syndrome due to increased workload and strain on the joint. Similar to some other musculoskeletal pain disorders (eg, tension headache), TMJ pain also seems to be related to psychiatric conditions and emotional distress."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice A) The buccinator muscle underlies the cheek and holds it close to the teeth to control the food bolus when chewing. It is innervated by a branch of the facial nerve (CN VII)."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice B) The levator veli palatini elevates the soft palate during swallowing to prevent food from refluxing into the nasopharynx. It is innervated by the pharyngeal branch of the vagus nerve (CN X)."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice D) The mylohyoid runs from the mandible to the hyoid bone, forming the floor of mouth. Although it is innervated by a branch of CN V3, it does not help close the jaw. It acts during swallowing to elevate the tongue and hyoid bone, which propels the food bolus into the posterior oral cavity and oropharynx."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice E) The omohyoid muscle travels from the hyoid bone to the clavicle and helps depress the hyoid during speech or swallowing. It is innervated by the ansa cervicalis, a branch of the cervical plexus."
+    }
+   ],
+   "educational_objective": "Temporomandibular joint disorder is associated with dysfunction of the temporomandibular joint and hypersensitivity of the mandibular nerve (CN V3). This can result in pathologic contraction of the muscles of mastication, including the masseter and pterygoids.",
+   "statistics": {
+    "answered_correctly_percent": 89,
+    "selection_percent": {
+     "A": 6,
+     "B": 2,
+     "C": 89,
+     "D": 1,
+     "E": 0
+    }
+   },
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "78f4594b9ee2b32cb831eeb5ded72c50bc624db7d3da11d4ed14b0221a9886f5"
   },
   {
    "id": "UWORLD_1195",
@@ -239,359 +1422,133 @@
    "source_record_sha256": "ae4a49912e44f5bad5d4abf8016ced7d1db36af7fbb15ef3524080a4ce500db3"
   },
   {
-   "id": "UWORLD_1102",
+   "id": "UWORLD_18650",
    "reviewed_pages": [
-    63,
-    64,
-    65,
-    66,
-    67,
-    68,
-    69,
-    70,
-    71,
-    72,
-    73,
-    74
-   ],
-   "question": "A 3-year-old boy is brought to the office due to a 1-day history of fever and irritability. The mother states that the boy has been tugging at his right ear. The patient has had 2 previous episodes of acute otitis media. Temperature is 38.1 C (100.6 F). Otoscopic examination shows a perforated right tympanic membrane with erythema and purulent exudate. Cultures from the exudate yield small, oxidase-positive, gram-negative coccobacilli that grow on factor X-- and factor V--supplemented media, consistent with Haemophifus influenzae. The patient's immunizations are up to date. Which of the following best explains this patient's susceptibility to the pathogen causing his current infection?",
-   "options": [
-    {
-     "letter": "A",
-     "text": "No vaccine is effective against H influenzae {2%)",
-     "selection_percent": null
-    },
-    {
-     "letter": "B",
-     "text": "The patient has defective cell-mediated immunity {17%)",
-     "selection_percent": null
-    },
-    {
-     "letter": "C",
-     "text": "The patient has defective neutrophil function {9%)",
-     "selection_percent": null
-    },
-    {
-     "letter": "D",
-     "text": "The strain responsible for this patient's disease does not produce a capsule {67%)",
-     "selection_percent": null
-    },
-    {
-     "letter": "E",
-     "text": "The strain responsible for this patient's disease produces exotoxin",
-     "selection_percent": 3
-    }
-   ],
-   "correct_label": "D",
-   "question_blocks": [],
-   "explanation": [
-    {
-     "type": "figure",
-     "page": 67,
-     "bbox": [
-      390,
-      111,
-      860,
-      551
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "figure",
-     "page": 73,
-     "bbox": [
-      345,
-      133,
-      919,
-      536
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "figure",
-     "page": 74,
-     "bbox": [
-      341,
-      155,
-      911,
-      555
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "figure",
-     "page": 68,
-     "bbox": [
-      24,
-      145,
-      305,
-      321
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "paragraph",
-     "text": "This patient with fever and an inflamed, perforated tympanic membrane with purulent otorrhea has acute otitis media. Middle ear infections occur most commonly in young children (age 6 months to 2 years) and are typically due to Streptococcus pneumoniae or Haemophilus influenzae. H influenzae is a small, oxidase-positive, gram-negative coccobacillus typically classified by the antigens in its polysaccharide capsule. However, there are multiple strains of H influenzae that do not produce a capsule; these nontypeable strains are part of the normal upper respiratory tract flora but can also cause acute otitis media, sinusitis, and bronchitis. Vaccination against H influenzae is with the protein-conjugated Hib vaccine, which confers immunity only to the more invasive type b strain (Choice A). The vaccine is recommended in all children to prevent Hib-associated bacteremia, pneumonia, epiglottitis, and meningitis. In countries with widespread Hib vaccination (eg, United States), most H influenzae strains isolated from children with respiratory mucosal infections (including acute otitis media) are nontypeable."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice B) The Hib vaccine contains capsular polysaccharide components to induce anticapsular antibodies (humeral immune response). Because the antibody response is weak in children, the vaccine is also conjugated with toxoid protein, which stimulates a helper T-cell response to help activate B-cell antibody formation. A cellmediated cytotoxic T-cell response is not induced."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice C) Poor neutrophil function or a low neutrophil count predisposes to bacterial disease. However, neutrophil dysfunction (eg, chronic granulomatous disease, Ch~diak-Higashi syndrome) typically presents with recurrent, severe bacterial infections such as pneumonia and abscesses. Ear infections due to H influenzae infection despite immunization with the Hib vaccine are more likely due to infection with a nontypeable strain than defective neutrophils."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice E) Exotoxins are secreted by certain bacteria {eg, C/ostridium botulinum, Corynebacterium diphtheriae) to promote cell death but are not generally produced by any strain of H influenzae. The Hib vaccine is directed against capsular polysaccharide, not toxin."
-    }
-   ],
-   "educational_objective": "Nontypeable strains of Haemophilus influenzae are part of the normal upper respiratory tract flora and are a common cause of acute otitis media, sinusitis, and bronchitis. Because nontypeable strains do not form a polysaccharide capsule, immunity is not conferred by vaccination with the H influenzae type b vaccine. A 28-year-old primigravida at 20 weeks gestation comes to the clinic for follow-up. It is discovered that the fetus has a genetic change that results in developmental disruption of the third pharyngeal pouch. Which of the following would most likely be observed in the child after birth? (005 secs",
-   "statistics": {
-    "answered_correctly_percent": 67,
-    "selection_percent": {
-     "A": null,
-     "B": null,
-     "C": null,
-     "D": null,
-     "E": 3
-    }
-   },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent",
-    "suspicious OCR: … (eg, chronic granulomatous disease, Ch~diak-Higashi syndrome…"
-   ],
-   "source_record_sha256": "2fc1e4bd89337c663509d1f697d358dc9f2198ad712a5a82301f3a0070e69111"
-  },
-  {
-   "id": "UWORLD_107864",
-   "reviewed_pages": [
-    75,
-    76,
-    77,
-    78,
-    79,
-    80,
-    81,
-    82
-   ],
-   "question": "A 7-year-old boy is brought to the clinic due to 4 days of worsening left ear pain. The patient was healthy until last week, when he developed a low-grade fever and congestion, which resolved prior to the sudden development of left ear pain. Vital signs are normal. On examination, the patient appears uncomfortable but nontoxic. The left external ear is nontender with manipulation and has no visible deformities. Several mobile, 1-cm, anterior cervical lymph nodes are palpated on the left side of the neck. The left tympanic membrane is erythematous and bulging; there are no visible perforations. Right ear examination is unremarkable. Which of the following structures is most likely to become involved with progression of this patient's infection?",
-   "options": [
-    {
-     "letter": "A",
-     "text": "Ethmoid sinus",
-     "selection_percent": 14
-    },
-    {
-     "letter": "B",
-     "text": "External jugular vein",
-     "selection_percent": 4
-    },
-    {
-     "letter": "C",
-     "text": "Facial artery",
-     "selection_percent": 1
-    },
-    {
-     "letter": "D",
-     "text": "Facial nerve",
-     "selection_percent": 56
-    },
-    {
-     "letter": "E",
-     "text": "Glossopharyngeal nerve",
-     "selection_percent": 7
-    },
-    {
-     "letter": "F",
-     "text": "Sphenoid sinus",
-     "selection_percent": 15
-    }
-   ],
-   "correct_label": "D",
-   "question_blocks": [
-    {
-     "type": "figure",
-     "page": 75,
-     "bbox": [
-      439,
-      114,
-      809,
-      589
-     ],
-     "role": "question"
-    }
-   ],
-   "explanation": [
-    {
-     "type": "figure",
-     "page": 78,
-     "bbox": [
-      267,
-      124,
-      986,
-      549
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "figure",
-     "page": 81,
-     "bbox": [
-      386,
-      118,
-      867,
-      550
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "figure",
-     "page": 82,
-     "bbox": [
-      341,
-      160,
-      915,
-      508
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "paragraph",
-     "text": "This patient with ear pain and an erythematous, bulging tympanic membrane has acute otitis media {AOM), an infection of the middle ear space. AOM is common in children due to poor drainage through narrow, horizontally positioned eustachian tubes. Most cases are uncomplicated; however, patients are at risk for spread of infection to nearby structures. One such structure is the facial nerve (CN VII), which emerges from the internal auditory meatus and travels through the middle ear into the mastoid air cells. Inflammation of the nerve in the middle ear space during an episode of AOM can result in unilateral facial paralysis. Common signs include inability to raise the eyebrow or close the eye, drooping of the corner of the mouth, and disappearance of the nasolabial fold. Other structures in close proximity to the middle ear space include mastoid air cells; direct extension of infection can cause purulent fluid to fill the air cells, leading to mastoiditis. CNS complications (eg, meningitis, brain abscess) are rare sequelae of intracranial spread."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choices A and F) The ethmoid and sphenoid sinuses open into the superior nasal cavity and can become inflamed and filled with purulent material due to nasal congestion (eg, upper respiratory infection). However, these sinuses are not in direct contact with the middle ear space and are unlikely to be affected by AOM."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice B) The external jugular vein drains blood from the scalp and face. Complications {eg, thrombophlebitis) are rare; jugular thrombosis most often affects the internal jugular vein {Lemierre syndrome)."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice C) The facial artery originates from the external carotid artery at the angle of the mandible and passes upward across the cheek, mouth, and side of the nose. In contrast, the blood supply to the ear is derived primarily from the posterior auricular artery."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice E) The glossopharyngeal nerve (CN IX) travels down the neck with the internal carotid artery before entering the pharynx. The nerve provides innervation to the stylopharyngeus muscle and sensation to the posterior third of the tongue. Pathology of the middle ear is unlikely to affect this deep structure."
-    }
-   ],
-   "educational_objective": "Acute otitis media presents with an erythematous, bulging tympanic membrane and can be complicated by inflammation or infection of nearby structures. Spread of infection to the facial nerve {CN VII), which travels through the middle ear, can result in facial neuritis with unilateral facial paralysis.",
-   "statistics": {
-    "answered_correctly_percent": 56,
-    "selection_percent": {
-     "A": 14,
-     "B": 4,
-     "C": 1,
-     "D": 56,
-     "E": 7,
-     "F": 15
-    }
-   },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …mpanic membrane has acute otitis media {AOM), an infection of…"
-   ],
-   "source_record_sha256": "26de722890d31291ccb7f8f1a43d34d904c7766dd5c0bf71e6d34a460aa9cd82"
-  },
-  {
-   "id": "UWORLD_11783",
-   "reviewed_pages": [
-    88,
-    89,
-    90,
-    91,
-    92,
-    93,
-    94,
-    95,
-    96,
     97,
     98,
     99,
-    100,
-    101,
-    102,
-    103,
-    104,
-    105,
-    106,
-    107,
-    108,
-    109,
-    110,
-    111,
-    112,
-    113,
-    114,
-    115
+    100
    ],
-   "question": "The nasal mucosa is highly vascular and easily irritated by trauma (eg, nose-picking), mucosal dryness, foreign body insertion, and rhinitis (eg, allergy, infection). Epistaxis is very common in children and may be classified as anterior or posterior, depending on the bleeding source. Anterior nosebleeds are by far the most common, and the vast majority occur within the vascular watershed area of the nasal septum (anteroinferior part of the nasal septal mucosa) known as Kiesselbach plexus. Anastomosis of the following vessels occurs in this region: • Septal branch of the anterior ethmoidal artery • Lateral nasal branch of the sphenopalatine artery • Septal branch of the superior labial artery (branch of the facial artery) Management is directed at stopping the bleeding from Kiesselbach plexus, preferably by direct compression of the nasal alae. Cautery (eg, silver nitrate) of the area surrounding the bleeding site may be necessary for persistent bleeding. (Choices A and B) The lateral nasal wall contains the superior, middle, and inferior turbinates (also known as conchae). These 3 bony projections are covered with mucous membrane; they warm, humidify, and filter inspired air and expand and contract in response to environmental changes {eg, temperature, humidity, allergens). The turbinates form corresponding meatuses that serve as drainage pathways. The superior meatus provides drainage for the sphenoidal and posterior ethmoidal sinuses. The middle meatus drains the frontal, maxillary, and anterior ethmoidal sinuses and is the most common site of nasal polyps. The inferior meatus drains the nasolacrimal duct. (Choices D and E) Branches of the sphenopalatine artery supply the posterolateral wall and posterior choanae. These posterolateral branches are the most likely source of posterior nosebleeds. Posterior epistaxis is usually severe and cannot be treated with cautery. Educational objective: Epistaxis is commonly caused by irritation of the highly vascular mucosa at the anterior nasal septum. The anterior nasal septum contains the Kiesselbach plexus. The anterior ethmoidal, sphenopalatine, and superior labial arteries anastomose in this region. A 26-year-old woman comes to the office due to pain in her right jaw that is deep, achy, and worse in the morning. It radiates to her temple and is associated with headaches. The patient also has neck pain and stiffness, especially on the right side. When she chews, she hears a clicking noise in her right ear. The patient is in a competitive graduate study program and has been under significant stress. Her roommate says that she has been grinding her teeth at night. Physical examination will likely reveal spasms of which of the following muscles?",
+   "question": "A 68-year-old man with a long history of using chewing tobacco comes to the office for follow up of squamous cell carcinoma (SCC) of the oral cavity. A month ago, the patient was diagnosed with SCC of the left lateral tongue. He underwent resection, the surgical specimen showed clear margins, and he started additional treatment. The patient recently noticed a second ulcerative lesion on the right lateral tongue. Biopsy is performed and it also shows SCC. The second tumor most likely arose from which of the following mechanisms?",
    "options": [
     {
      "letter": "A",
-     "text": "Buccinator",
-     "selection_percent": 6
+     "text": "Chemotherapy-induced malignancy",
+     "selection_percent": 3
     },
     {
      "letter": "B",
-     "text": "Levator veli palatini",
-     "selection_percent": 2
+     "text": "Field cancerization",
+     "selection_percent": 57
     },
     {
      "letter": "C",
-     "text": "O c Masseter",
-     "selection_percent": 89
+     "text": "Hematogenous spread",
+     "selection_percent": 9
     },
     {
      "letter": "D",
-     "text": "Mylohyoid",
+     "text": "Immunologic privilege",
+     "selection_percent": 3
+    },
+    {
+     "letter": "E",
+     "text": "Impaired wound healing",
+     "selection_percent": 1
+    },
+    {
+     "letter": "F",
+     "text": "Lymphatic spread",
+     "selection_percent": 23
+    }
+   ],
+   "correct_label": "B",
+   "question_blocks": [],
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "This patient with mucosal head and neck squamous cell carcinoma (HNSCC) has developed a second primary tumor, which is common with HNSCC due to field cancerization. Field cancerization describes a large area of cells within a field (eg, upper aerodigestive tract) that are \"primed\" to develop cancer because of widespread exposure to mutagens (eg, tobacco). Mutations that affect many similar cells can increase the likelihood of developing multiple primary malignancies, analogous to germline mutations in tumor suppressor genes (eg, BRCA 1 or BRCA2 in breast and ovarian cancer). Field cancerization likely underlies the development of many common cancers, including: • HNSCC due to mucosal exposure to tobacco carcinogens • Basal cell carcinoma of the skin due to skin exposure to ultraviolet light • Colorectal carcinoma due to epithelial exposure to dietary carcinogens"
+    },
+    {
+     "type": "paragraph",
+     "text": "Even with adequate treatment of a malignancy, the areas affected by field cancerization remain at higher risk of developing multiple primary malignancies, as seen in this patient. Therefore, patients diagnosed with any of these cancers require comprehensive evaluation and continued surveillance of the at-risk area (eg, colonoscopy, comprehensive skin examination, panendoscopy of the upper aerodigestive tract)."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice A) Chemotherapy can induce secondary malignancies, most commonly leukemia and lymphoma, in cancer survivors. In contrast to the tumors in this patient, secondary malignancies are seen years or even decades later."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choices C and F) Most carcinomas, including HNSCC, spread via the lymphatic system, leading to metastases in the regional (eg, ipsilateral anterior neck) lymph nodes. However, it is unlikely for the carcinoma to spread back up to a contralateral epithelial site. Hematogenous spread is less common with carcinomas and typically results in metastases to distant sites."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice D) Certain anatomic sites (eg, eyes, testes) display inherent immune privilege, in which foreign grafts or cancers that would otherwise induce immunologic rejection are tolerated. Cancers may establish local sites of immune privilege to evade destruction, but this does not cause new tumor formation."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice E) Cancer treatment (eg, chemotherapy, radiation therapy) can result in impaired wound healing, which can result in acutely ulcerative oral lesions due to mucositis. However, these lesions would not be malignant."
+    }
+   ],
+   "educational_objective": "Field cancerization can occur when a large area of cells is exposed to carcinogens that induce mutations, leading to a higher risk of forming cancers.",
+   "statistics": {
+    "answered_correctly_percent": null,
+    "selection_percent": {
+     "A": 3,
+     "B": 57,
+     "C": 9,
+     "D": 3,
+     "E": 1,
+     "F": 23
+    }
+   },
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "684eace303254da6ac85803f56fe71604fc874d54f5f86ab779c42f94cf416c4"
+  },
+  {
+   "id": "UWORLD_8589",
+   "reviewed_pages": [
+    101,
+    102,
+    103,
+    104
+   ],
+   "question": "A 54-year-old woman comes to the clinic due to difficulty hearing for the past few weeks. During the neurologic examination, the physician assesses her hearing using a vibrating tuning fork. The handle of the tuning fork is placed on her left mastoid process until the sound is no longer audible. The tines are then quickly placed near the patient's left auditory meatus, and she reports hearing no sound. When the handle of the vibrating fork is placed on the middle of her forehead, she hears the vibration more strongly in her left ear than her right. This patient is most likely experiencing which of the following types of hearing loss?",
+   "options": [
+    {
+     "letter": "A",
+     "text": "Conductive loss in both ears",
+     "selection_percent": 0
+    },
+    {
+     "letter": "B",
+     "text": "Conductive loss in left ear",
+     "selection_percent": 68
+    },
+    {
+     "letter": "C",
+     "text": "Conductive loss in right ear",
+     "selection_percent": 5
+    },
+    {
+     "letter": "D",
+     "text": "Sensorineural loss in both ears",
      "selection_percent": 1
     },
     {
      "letter": "E",
-     "text": "Omohyoid",
-     "selection_percent": 0
-    }
-   ],
-   "correct_label": "C",
-   "question_blocks": [
-    {
-     "type": "figure",
-     "page": 88,
-     "bbox": [
-      371,
-      118,
-      873,
-      551
-     ],
-     "role": "question"
+     "text": "Sensorineural loss in left ear",
+     "selection_percent": 20
     },
     {
-     "type": "figure",
-     "page": 91,
-     "bbox": [
-      339,
-      125,
-      910,
-      544
-     ],
-     "role": "question"
-    },
-    {
-     "type": "figure",
-     "page": 92,
-     "bbox": [
-      424,
-      107,
-      857,
-      551
-     ],
-     "role": "question"
+     "letter": "F",
+     "text": "Sensorineural loss in right ear",
+     "selection_percent": 3
     }
    ],
+   "correct_label": "B",
+   "question_blocks": [],
    "explanation": [
     {
      "type": "figure",
@@ -605,6 +1562,74 @@
      "role": "explanation"
     },
     {
+     "type": "paragraph",
+     "text": "Hearing loss is classified as either conductive (impaired transmission of air vibrations to inner ear) or sensorineural (involving the cochlea or auditory nerve). The Rinne and Weber tests can be used to help determine the type of hearing loss. The Rinne test compares air versus bone conduction (via the mastoid bone). As the vibration of the tuning fork fades, air-conducted sound is normally louder and heard longer than bone-conducted sound. The Rinne test is considered positive (normal) if the sound is heard best at the external auditory meatus (air conduction) and negative (abnormal) if the patient hears the vibration better at the mastoid (bone conduction). • Bone conduction greater than air conduction suggests conductive hearing loss."
+    },
+    {
+     "type": "paragraph",
+     "text": "The Weber test is performed by placing a vibrating tuning fork on the middle of forehead equidistant from both ears. The vibration carried by bone conduction is normally heard equally in both ears; vibration heard louder in one ear is abnormal. • Conductive hearing loss causes lateralization to the affected ear as the conduction deficit masks the ambient noise in the room, allowing the vibration to be better heard. • Sensorineural hearing loss causes lateralization to the unaffected ear as the unimpaired inner ear can better sense the vibration."
+    },
+    {
+     "type": "paragraph",
+     "text": "The Rinne test is abnormal in this patient's left ear, and the Weber test lateralizes to her left ear. These findings suggest conductive hearing loss in the left ear."
+    }
+   ],
+   "educational_objective": "In conductive hearing loss, bone conduction will be greater than air conduction (abnormal Rinne test), and the Weber test will lateralize to the affected ear. In sensorineural hearing loss, air conduction will be greater than bone conduction (normal Rinne test), and the Weber test will lateralize to the unaffected ear.",
+   "statistics": {
+    "answered_correctly_percent": null,
+    "selection_percent": {
+     "A": 0,
+     "B": 68,
+     "C": 5,
+     "D": 1,
+     "E": 20,
+     "F": 3
+    }
+   },
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "42eb6a8443dc3ca638c2db20b8ab3bb117ce2ac3e3edb62677d03aad023b6450"
+  },
+  {
+   "id": "UWORLD_11628",
+   "reviewed_pages": [
+    105,
+    106,
+    107,
+    108
+   ],
+   "question": "A 48-year-old woman comes to the office due to an intermittent ear discharge over the last 2 years. She has also noticed decreased hearing in the right ear recently. Past medical history is significant for obesity, hyperlipidemia, seasonal allergies, and diet-controlled diabetes mellitus. Otoscopy shows a small perforation in the right tympanic membrane and a pearly mass behind the membrane. Conduction hearing loss is noted in the right ear. The remainder of the ear, nose, and throat examination is normal. Which of the following is the most likely cause of this patient's aural mass?",
+   "options": [
+    {
+     "letter": "A",
+     "text": "Cholesterol and lipid accumulation",
+     "selection_percent": 39
+    },
+    {
+     "letter": "B",
+     "text": "Facial nerve neuroma",
+     "selection_percent": 10
+    },
+    {
+     "letter": "C",
+     "text": "Malignant squamous cell neoplasm",
+     "selection_percent": 6
+    },
+    {
+     "letter": "D",
+     "text": "Noncaseating granuloma",
+     "selection_percent": 5
+    },
+    {
+     "letter": "E",
+     "text": "Squamous cell debris",
+     "selection_percent": 37
+    }
+   ],
+   "correct_label": "E",
+   "question_blocks": [],
+   "explanation": [
+    {
      "type": "figure",
      "page": 108,
      "bbox": [
@@ -616,134 +1641,51 @@
      "role": "explanation"
     },
     {
-     "type": "figure",
-     "page": 110,
-     "bbox": [
-      486,
-      113,
-      773,
-      543
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "figure",
-     "page": 113,
-     "bbox": [
-      394,
-      113,
-      860,
-      550
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "figure",
-     "page": 97,
-     "bbox": [
-      24,
-      194,
-      348,
-      402
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "figure",
-     "page": 101,
-     "bbox": [
-      24,
-      218,
-      319,
-      427
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "figure",
-     "page": 105,
-     "bbox": [
-      24,
-      218,
-      348,
-      394
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "figure",
-     "page": 112,
-     "bbox": [
-      24,
-      401,
-      405,
-      577
-     ],
-     "role": "explanation"
+     "type": "paragraph",
+     "text": "Cholesteatomas are collections of squamous cell debris that form a round, pearly mass behind the tympanic membrane in the middle ear. They can occur congenitally or may develop in adults as either an acquired primary lesion or secondary to infection, trauma, or surgery of the middle ear. Primary cholesteatomas are a result of chronic negative pressure in the middle ear causing retraction pockets in the tympanic membrane that become cystic; as the squamous cell debris accumulates, a cholesteatoma is formed. Secondary cholesteatomas occur after squamous epithelium migrates to or is implanted in the middle ear (\"skin in the wrong place\"). Cholesteatomas most commonly cause painless otorrhea. They also can produce lytic enzymes and are often discovered when they erode through the auditory ossicles, causing conductive hearing loss. If a mass grows sufficiently large, it can erode into the vestibular apparatus or facial nerve, causing vertigo or facial palsies."
     },
     {
      "type": "paragraph",
-     "text": "This patient has jaw pain, a clicking noise when she chews, and associated headaches and neck stiffness, which is suggestive of temporomandibular joint (TMJ) syndrome. The underlying etiology of TMJ syndrome is multifactorial and includes TMJ derangement (eg, jaw misalignment, trauma), and hypersensitivity of the mandibular nerve (CN V3). Mechanical derangement of the TMJ can result in irritation and hypersensitivity of CN V3, leading to pathologic contraction of the masseter and pterygoid muscles (which worsens jaw pain and dysfunction). Spasms of these muscles can sometimes be palpated along the mandibular ramus. Repetitive jaw motions {eg, gum chewing, teeth grinding) are thought to contribute to the development of TMJ syndrome due to increased workload and strain on the joint. Similar to some other musculoskeletal pain disorders {eg, tension headache), TMJ pain also seems to be related to psychiatric conditions and emotional distress."
+     "text": "(Choice A) Cholesterol granulomas can form in the middle ear after hemorrhage but are much less common than cholesteatomas. They appear as bluish-black gelatinous material behind the tympanic membrane. Despite what the name implies, cholesteatomas do not contain any lipid or cholesterol components."
     },
     {
      "type": "paragraph",
-     "text": "(Choice A) The buccinator muscle underlies the cheek and holds it close to the teeth to control the food bolus when chewing. It is innervated by a branch of the facial nerve (CN VII)."
+     "text": "(Choice B) A facial nerve neuroma can grow in the middle ear as the facial nerve courses through this territory. However, it would present with unilateral facial paralysis."
     },
     {
      "type": "paragraph",
-     "text": "(Choice B) The levator veli palatini elevates the soft palate during swallowing to prevent food from refluxing into the nasopharynx. It is innervated by the pharyngeal branch of the vagus nerve (CN X)."
+     "text": "(Choice C) Squamous cell carcinoma is the most common malignant tumor of the ear canal. It typically appears as an ulcerated plaque or nodule. The most common symptom is local or regional pain."
     },
     {
      "type": "paragraph",
-     "text": "(Choice D) The mylohyoid runs from the mandible to the hyoid bone, forming the floor of mouth. Although it is innervated by a branch of CN V3, it does not help close the jaw. It acts during swallowing to elevate the tongue and hyoid bone, which propels the food bolus into the posterior oral cavity and oropharynx."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice E) The omohyoid muscle travels from the hyoid bone to the clavicle and helps depress the hyoid during speech or swallowing. It is innervated by the ansa cervicalis, a branch of the cervical plexus."
+     "text": "(Choice D) Granulomatous disease of the ear can occur but is uncommon and usually develops in conjunction with a systemic disease, such as sarcoidosis, granulomatosis with polyangiitis, or Langerhans cell histiocytosis."
     }
    ],
-   "educational_objective": "Temporomandibular joint disorder is associated with dysfunction of the temporomandibular joint and hypersensitivity of the mandibular nerve {CN V3). This can result in pathologic contraction of the muscles of mastication, including the masseter and pterygoids.",
+   "educational_objective": "Cholesteatomas are collections of squamous cell debris that form a mass behind the tympanic membrane. Cholesteatomas can be congenital or may occur as an acquired primary lesion or following infection, trauma, or",
    "statistics": {
-    "answered_correctly_percent": 89,
+    "answered_correctly_percent": 37,
     "selection_percent": {
-     "A": 6,
-     "B": 2,
-     "C": 89,
-     "D": 1,
-     "E": 0
+     "A": 39,
+     "B": 10,
+     "C": 6,
+     "D": 5,
+     "E": 37
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …t in response to environmental changes {eg, temperature, humi…"
-   ],
-   "source_record_sha256": "388b7c91af23623a3d68f300dd2e98cd10cb6ee2e9a60a9932c9dfcf43ea932f"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "1e51f7358f5ef63e1dbd3d21674dab55cd25f80ff538c8b7aceaf578d48e0b6c"
   },
   {
-   "id": "UWORLD_20020",
+   "id": "UWORLD_8631",
    "reviewed_pages": [
-    116,
-    117,
-    118,
-    119,
-    120,
     121,
     122,
     123,
     124,
     125,
     126,
-    127,
-    128,
-    129,
-    130,
-    131,
-    132,
-    133,
-    134,
-    135,
-    136,
-    137
+    127
    ],
    "question": "A 36-year-old man is rushed to the emergency department after sudden onset of shortness of breath and difficulty swallowing. He has visited the emergency department several times before due to food and skin allergies. The patient is unconscious on arrival. Examination shows excessive accessory respiratory muscle use and edematous swelling of the face, lips, and tongue. There is also scattered urticaria over the upper body. Attempts at intubation are unsuccessful due to massive soft tissue edema involving the pharynx. A decision is made to perform an emergency cricothyrotomy. The incisions made during this procedure will most likely pass through which of the following structures?",
    "options": [
@@ -774,63 +1716,7 @@
     }
    ],
    "correct_label": "E",
-   "question_blocks": [
-    {
-     "type": "figure",
-     "page": 116,
-     "bbox": [
-      427,
-      118,
-      826,
-      548
-     ],
-     "role": "question"
-    },
-    {
-     "type": "figure",
-     "page": 117,
-     "bbox": [
-      386,
-      118,
-      867,
-      549
-     ],
-     "role": "question"
-    },
-    {
-     "type": "figure",
-     "page": 118,
-     "bbox": [
-      380,
-      108,
-      902,
-      549
-     ],
-     "role": "question"
-    },
-    {
-     "type": "figure",
-     "page": 119,
-     "bbox": [
-      441,
-      115,
-      818,
-      551
-     ],
-     "role": "question"
-    },
-    {
-     "type": "figure",
-     "page": 120,
-     "bbox": [
-      451,
-      119,
-      804,
-      550
-     ],
-     "role": "question"
-    }
-   ],
+   "question_blocks": [],
    "explanation": [
     {
      "type": "figure",
@@ -866,61 +1752,6 @@
      "role": "explanation"
     },
     {
-     "type": "figure",
-     "page": 132,
-     "bbox": [
-      341,
-      118,
-      917,
-      551
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "figure",
-     "page": 135,
-     "bbox": [
-      342,
-      184,
-      907,
-      486
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "figure",
-     "page": 128,
-     "bbox": [
-      24,
-      218,
-      273,
-      394
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "figure",
-     "page": 130,
-     "bbox": [
-      94,
-      64,
-      739,
-      357
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "figure",
-     "page": 133,
-     "bbox": [
-      24,
-      218,
-      273,
-      394
-     ],
-     "role": "explanation"
-    },
-    {
      "type": "paragraph",
      "text": "This patient is experiencing acute, life-threatening laryngeal edema as part of an anaphylactic reaction precipitated by exposure to an allergen. Laryngeal edema can initially present with throat tightness, difficulty swallowing, dyspnea, and hoarseness. However, the condition can quickly progress to compromise the airway and cause asphyxiation. Cricothyrotomy is indicated when an emergency airway is required and orotracheal or nasotracheal intubation is either unsuccessful or contraindicated (eg, massive hemorrhage, vomiting, facial trauma, airway obstruction). The procedure establishes an airway through the placement of a tube between the cricoid and thyroid cartilages and requires incision through the following structures: 1. Skin 2. Superficial cervical fascia (including subcutaneous fat and platysma muscle) 3. Investing and pretracheal layers of the deep cervical fascia 4. Cricothyroid membrane"
     },
@@ -937,7 +1768,7 @@
      "text": "(Choice D) The deep cervical fascia is composed of three layers: investing, pretracheal, and prevertebral. The prevertebral layer of the deep fascia surrounds the vertebral column and spinal muscles; it is not penetrated during cricothyrotomy."
     }
    ],
-   "educational_objective": "Cricothyrotomy is indicated when an emergency airway is required and orotracheal or nasotracheal intubation is either unsuccessful or contraindicated. The cricothyrotomy incision passes through the superficial cervical fascia, pretracheal fascia, and the cricothyroid membrane. A 4-year-old boy is brought to the office due to hoarseness. The parents report that he has had worsening hoarseness for the past year, and his voice now sounds very raspy and rough. Flexible laryngoscopy is performed and shows bilateral lesions on the true vocal cords. Removal of these lesions is performed via direct laryngoscopy. Histopathologic analysis shows a fibrovascular core with benign squamous cells. The physician explains to the parents that this is likely due to a viral infection acquired through which of the following routes of transmission? /,06 secs",
+   "educational_objective": "Cricothyrotomy is indicated when an emergency airway is required and orotracheal or nasotracheal intubation is either unsuccessful or contraindicated. The cricothyrotomy incision passes through the superficial cervical fascia, pretracheal fascia, and the cricothyroid membrane.",
    "statistics": {
     "answered_correctly_percent": 63,
     "selection_percent": {
@@ -950,20 +1781,221 @@
    },
    "status": "verified",
    "issues": [],
-   "source_record_sha256": "3bc5041a5ad6903a9e684d186c5a00ed265f0e241055b790b119d7ab5d5f876c"
+   "source_record_sha256": "a25756f1443f6b5dd822101edeaa313447155f70497fbebd8c10c8d7b1e063c0"
+  },
+  {
+   "id": "UWORLD_19035",
+   "reviewed_pages": [
+    128,
+    129,
+    130,
+    131,
+    132
+   ],
+   "question": "A 4-year-old boy is brought to the office due to hoarseness. The parents report that he has had worsening hoarseness for the past year, and his voice now sounds very raspy and rough. Flexible laryngoscopy is performed and shows bilateral lesions on the true vocal cords. Removal of these lesions is performed via direct laryngoscopy. Histopathologic analysis shows a fibrovascular core with benign squamous cells. The physician explains to the parents that this is likely due to a viral infection acquired through which of the following routes of transmission?",
+   "options": [
+    {
+     "letter": "A",
+     "text": "Arthropod vector",
+     "selection_percent": 1
+    },
+    {
+     "letter": "B",
+     "text": "Direct droplet",
+     "selection_percent": 32
+    },
+    {
+     "letter": "C",
+     "text": "Indirect contact",
+     "selection_percent": 12
+    },
+    {
+     "letter": "D",
+     "text": "Vertical direct contact",
+     "selection_percent": 53
+    },
+    {
+     "letter": "E",
+     "text": "Waterborne",
+     "selection_percent": 1
+    }
+   ],
+   "correct_label": "D",
+   "question_blocks": [],
+   "explanation": [
+    {
+     "type": "figure",
+     "page": 132,
+     "bbox": [
+      341,
+      118,
+      917,
+      551
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "figure",
+     "page": 130,
+     "bbox": [
+      94,
+      64,
+      739,
+      357
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "paragraph",
+     "text": "This child has vocal fold lesions that histologically demonstrate a fibrovascular core with benign squamous cells, which is consistent with laryngeal papillomas due to recurrent respiratory papi11omatosis (RRP). These lesions are often warty or grape-like and, as with skin papillomas, have dark-red punctate areas corresponding to blood vessels. Laryngeal papillomas are caused by human papillomavirus (HPV) subtypes 6 and 11, which are also the subtypes most likely to cause genital warts (ie, condyloma acuminatum). A mother with genital warts is the most important risk factor for developing RRP. An infection acquired from a patient's mother during pregnancy, delivery, or the first 4 weeks postpartum is called vertical transmission. HPV infection is often acquired via direct contact during passage through the birth canal. The incidence of RRP is decreasing significantly, which is likely due to increasing HPV vaccination (which typically includes serotypes 6, 11, 16, and 18) in future mothers."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice A) Arthropods can carry an infectious agent from one host and transmit it to another (eg, Borrelia burgdorferi, West Nile virus); some infectious agents require maturation in the arthropod vector prior to being infectious to humans (eg, plasmodium)."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice B) Respiratory droplets are created when an infected person coughs, sneezes, or talks. These large respiratory droplets can contain viruses or bacteria (eg, diphtheria, pertussis, influenza) that can infect others nearby (ie, <2 meters)."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choices C and E) Indirect contact transmission includes diseases that are airborne (eg, measles), and that spread through contaminated objects (eg, viral conjunctivitis), food (eg, C/ostridium botulinum), or contaminated drinking water (eg, cholera)."
+    }
+   ],
+   "educational_objective": "Vertical direct transmission of human papillomavirus subtypes 6 and 11 can cause recurrent respiratory papillomatosis, which results in wart-like growths most commonly on the true vocal cords.",
+   "statistics": {
+    "answered_correctly_percent": 53,
+    "selection_percent": {
+     "A": 1,
+     "B": 32,
+     "C": 12,
+     "D": 53,
+     "E": 1
+    }
+   },
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "4df443fcf5313f61aeffbca751077e13c0db2e3f5de796e46ed8ed8ea74f74fe"
   },
   {
    "id": "UWORLD_19204",
    "reviewed_pages": [
+    133,
+    134,
+    135,
+    136,
+    137,
     138,
-    139,
+    139
+   ],
+   "question": "A newborn girl is evaluated in the neonatal intensive care unit for difficulty breathing. The patient was born at term via spontaneous vaginal delivery. Since birth, she has had difficulty breathing with loud snoring sounds and intermittent oxygen desaturations. She has been unable to breastfeed due to her breathing problems. Breathing improves significantly when the patient is placed in a prone position. On examination, there is a small mandible, posteriorly displaced tongue, and U-shaped cleft palate. The abnormalities described represent an example of which of the following?",
+   "options": [
+    {
+     "letter": "A",
+     "text": "Association",
+     "selection_percent": 6
+    },
+    {
+     "letter": "B",
+     "text": "Disruption",
+     "selection_percent": 15
+    },
+    {
+     "letter": "C",
+     "text": "Imprinting",
+     "selection_percent": 1
+    },
+    {
+     "letter": "D",
+     "text": "Sequence",
+     "selection_percent": 35
+    },
+    {
+     "letter": "E",
+     "text": "Syndrome",
+     "selection_percent": 41
+    }
+   ],
+   "correct_label": "D",
+   "question_blocks": [],
+   "explanation": [
+    {
+     "type": "figure",
+     "page": 135,
+     "bbox": [
+      342,
+      184,
+      907,
+      486
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "figure",
+     "page": 138,
+     "bbox": [
+      549,
+      111,
+      709,
+      269
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "figure",
+     "page": 139,
+     "bbox": [
+      407,
+      117,
+      848,
+      551
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "paragraph",
+     "text": "This patient has a small mandible, posteriorly displaced tongue, and U-shaped cleft palate, which is consistent with Pierre Robin sequence. A sequence occurs when a single developmental defect causes a cascade of additional malformations. In Pierre Robin sequence, hypoplasia of the mandibular prominence leads to micrognathia. Severe micrognathia causes posterior displacement of the tongue (glossoptosis), which blocks fusion of the palatine shelves, resulting in a cleft palate that is characteristically U-shaped. Difficulty breathing occurs because the tongue prolapses into the posterior oropharynx, blocking airflow. Breathing improves when the patient is in a prone position because gravity pulls the tongue anteriorly, opening the airway."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice A) An association is a collection of malformations that are often seen together and do not have a known, common cause (eg, VACTERL association)."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice B) A disruption occurs when an external insult (rather than a genetic defect) interrupts and arrests normal fetal development (eg, when an amniotic band disrupts limb development). No specific external insult has been linked to Pierre Robin sequence, and most cases result from genetic abnormalities."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice C) Genomic imprinting is a normal process that refers to selective activation of gene expression depending on the parent of origin. Aberrant imprinting occurs with uniparental disomy (ie, when a person receives 2 copies of a chromosome from the same parent and no copy from the other parent). Prader-Willi syndrome and Angelman syndrome (15q) are examples of conditions caused by dysfunctional imprinting."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice E) A syndrome is a collection of malformations that have a common cause but are not related anatomically. For example, upslanting palpebral fissures, atrioventricular canal defect, and single palmar crease are all due to trisomy 21."
+    }
+   ],
+   "educational_objective": "Pierre Robin is characterized as a sequence because the primary defect (hypoplasia of the mandibular prominence) leads to a cascade of further malformations (ie, micrognathia, posteriorly displaced tongue, U-shaped cleft palate).",
+   "statistics": {
+    "answered_correctly_percent": 35,
+    "selection_percent": {
+     "A": 6,
+     "B": 15,
+     "C": 1,
+     "D": 35,
+     "E": 41
+    }
+   },
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "86aa14169c1f8e6104a3e23c251fe6ccc4950df9563947171f5465b1b00a332a"
+  },
+  {
+   "id": "UWORLD_20706",
+   "reviewed_pages": [
     140,
     141,
     142,
     143,
-    144,
-    145,
-    146
+    144
    ],
    "question": "A21-year-old man comes to the office due to nasal congestion and rhinorrhea that occurs intermittently and is often accompanied by sneezing and itchy, watery eyes. His symptoms began 2 years ago and have worsened in severity. He has no other medical problems. The patient works as a marketing analyst and travels out of state a few times a year. On examination, the nasal turbinates are edematous with clear rhinorrhea. There is bilateral conjunctival injection. Which of the following additional questions would be the most helpful for determining the underlying cause of this patient's condition?",
    "options": [
@@ -994,30 +2026,7 @@
     }
    ],
    "correct_label": "B",
-   "question_blocks": [
-    {
-     "type": "figure",
-     "page": 138,
-     "bbox": [
-      549,
-      111,
-      709,
-      269
-     ],
-     "role": "question"
-    },
-    {
-     "type": "figure",
-     "page": 139,
-     "bbox": [
-      407,
-      117,
-      848,
-      551
-     ],
-     "role": "question"
-    }
-   ],
+   "question_blocks": [],
    "explanation": [
     {
      "type": "figure",
@@ -1027,17 +2036,6 @@
       118,
       818,
       551
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "figure",
-     "page": 145,
-     "bbox": [
-      24,
-      194,
-      273,
-      370
      ],
      "role": "explanation"
     },
@@ -1062,7 +2060,7 @@
      "text": "(Choice E) Like allergic rhinitis, medication allergies can be type 1 hypersensitivity reactions. However, these allergies typically present with an urticaria! rash shortly after ingestion of the medication; eye symptoms are uncommon."
     }
    ],
-   "educational_objective": "Allergic rhinitis often causes nasal congestion, sneezing, rhinorrhea, and conjunctivitis due to an lgE-mediated hypersensitivity response. Patients can often distinguish patterns that suggest reactions to specific allergens. A 25-year-old woman comes to the office due to right ear pain that has worsened over the past 2 months. The pain is dull and constant and waxes and wanes. It is worse when she chews hard foods such as steak or almonds. In addition to ear pain, her ear feels stuffy and has some ringing. The patient grinds her teeth at night and previously wore a dental guard, but it broke several months ago. Ear examination is normal. Which of the following nerves is most likely responsible for this patient's ear pain? (04secs",
+   "educational_objective": "Allergic rhinitis often causes nasal congestion, sneezing, rhinorrhea, and conjunctivitis due to an lgE-mediated hypersensitivity response. Patients can often distinguish patterns that suggest reactions to specific allergens.",
    "statistics": {
     "answered_correctly_percent": null,
     "selection_percent": {
@@ -1075,7 +2073,255 @@
    },
    "status": "verified",
    "issues": [],
-   "source_record_sha256": "dc097cf2c266a135b14be11b5382700bda557070e58147f88dc593af97e6a9c2"
+   "source_record_sha256": "4bf1df616019f08a6a3db35b50d8aec01d8ddff8608b6d5874b6ed7577af7b7a"
+  },
+  {
+   "id": "UWORLD_18597",
+   "reviewed_pages": [
+    145,
+    146,
+    147,
+    148,
+    149
+   ],
+   "question": "A 25-year-old woman comes to the office due to right ear pain that has worsened over the past 2 months. The pain is dull and constant and waxes and wanes. It is worse when she chews hard foods such as steak or almonds. In addition to ear pain, her ear feels stuffy and has some ringing. The patient grinds her teeth at night and previously wore a dental guard, but it broke several months ago. Ear examination is normal. Which of the following nerves is most likely responsible for this patient's ear pain?",
+   "options": [
+    {
+     "letter": "A",
+     "text": "Glossopharyngeal",
+     "selection_percent": 6
+    },
+    {
+     "letter": "B",
+     "text": "Hypoglossal",
+     "selection_percent": 0
+    },
+    {
+     "letter": "C",
+     "text": "Trigeminal",
+     "selection_percent": 75
+    },
+    {
+     "letter": "D",
+     "text": "Vagus",
+     "selection_percent": 4
+    },
+    {
+     "letter": "E",
+     "text": "Vestibulocochlear",
+     "selection_percent": 12
+    }
+   ],
+   "correct_label": "C",
+   "question_blocks": [],
+   "explanation": [
+    {
+     "type": "figure",
+     "page": 147,
+     "bbox": [
+      372,
+      117,
+      880,
+      550
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "paragraph",
+     "text": "This patient's presentation is most consistent with temporomandibular joint disorder (TMD). The underlying etiology of TMD is multifactorial and includes temporomandibular joint derangement (eg, jaw misalignment, jaw clenching/teeth grinding, trauma) and hypersensitivity of the mandibular nerve (CN V3). In addition to the classic symptoms of dull, waxing-and-waning face/jaw pain (worse with chewing) and clicking/popping noises with jaw movement, TMD can also present with ear-related symptoms (eg, ear pain, ear stuffiness, tinnitus). Many of these clinical findings are due to involvement of the mandibular nerve (CN V3), which is the largest branch of the trigeminal nerve. It supplies sensation to the temporomandibular joint, floor of mouth, anterior tongue, and lower part of the face. In addition, it contributes to the sensory innervation of the external auditory canal; therefore, TMD can present with ear pain that is referred from the jaw joint. Ear stuffiness may be related to hypersensitivity affecting the tensor tympani. Theories regarding tinnitus in TMD include the proximity of the muscles of mastication to the ear and central connections between nerve supply of the temporomandibular joint and the areas of the brain involved in hearing."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice A) The sensory component of the glossopharyngeal nerve (CN IX) carries general sensory information from the tonsils, pharynx, middle ear, and posterior third of the tongue; special sensory information (taste) from the posterior third of the tongue; and visceral sensory information from the carotid bodies and carotid sinus."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice B) The hypoglossal nerve (CN XII) carries general motor efferent information to the intrinsic and extrinsic muscles of the tongue."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice D) The auricular branch of the vagus nerve (CN X) conveys sensory information from the external auditory canal but is not thought to be involved in the pathogenesis of TMD."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice E) The vestibulocochlear nerve (CN VIII) carries only special sensory information (auditory and balance) from the inner ear."
+    }
+   ],
+   "educational_objective": "Temporomandibular joint disorder is associated with derangement of the temporomandibular joint and hypersensitivity of the mandibular nerve (CN V3).",
+   "statistics": {
+    "answered_correctly_percent": 75,
+    "selection_percent": {
+     "A": 6,
+     "B": 0,
+     "C": 75,
+     "D": 4,
+     "E": 12
+    }
+   },
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "a240dc97f851e3141cd8bf1ca4ac3744ff3290a652b599307edb1b1a933019e9"
+  },
+  {
+   "id": "UWORLD_8703",
+   "reviewed_pages": [
+    150,
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160
+   ],
+   "question": "A 23-year-old man comes to the emergency department due to a sensation of food being stuck in his throat. His symptoms started 2 hours ago after eating fish at a local seafood restaurant. He has tried swallowing many times in an attempt to clear the food but has had no relief. The patient has no difficulty with breathing. He does not appear to be in significant distress on physical examination. Laryngoscopy reveals a fish bone lodged in the left piriform recess. During retrieval of the fish bone, a nerve deep to the mucosa overlying the recess is damaged. Which of the following is most likely to be impaired in this patient as a result of his iatrogenic injury?",
+   "options": [
+    {
+     "letter": "A",
+     "text": "Cough reflex",
+     "selection_percent": 32
+    },
+    {
+     "letter": "B",
+     "text": "Gag reflex",
+     "selection_percent": 57
+    },
+    {
+     "letter": "C",
+     "text": "Mastication",
+     "selection_percent": 1
+    },
+    {
+     "letter": "D",
+     "text": "Salivation",
+     "selection_percent": 3
+    },
+    {
+     "letter": "E",
+     "text": "Taste sensation",
+     "selection_percent": 4
+    }
+   ],
+   "correct_label": "A",
+   "question_blocks": [],
+   "explanation": [
+    {
+     "type": "figure",
+     "page": 152,
+     "bbox": [
+      404,
+      107,
+      856,
+      549
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "figure",
+     "page": 155,
+     "bbox": [
+      442,
+      107,
+      815,
+      550
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "figure",
+     "page": 156,
+     "bbox": [
+      444,
+      107,
+      815,
+      551
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "figure",
+     "page": 157,
+     "bbox": [
+      344,
+      157,
+      918,
+      512
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "figure",
+     "page": 158,
+     "bbox": [
+      372,
+      118,
+      879,
+      550
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "figure",
+     "page": 159,
+     "bbox": [
+      371,
+      117,
+      842,
+      550
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "figure",
+     "page": 160,
+     "bbox": [
+      341,
+      174,
+      918,
+      495
+     ],
+     "role": "explanation"
+    },
+    {
+     "type": "paragraph",
+     "text": "The piriform recesses are small cavities that lie on either side of the laryngeal orifice. They are bounded medially by the aryepiglottic folds and laterally by the thyroid cartilage and thyrohyoid membrane. During normal swallowing, food is diverted by the epiglottis laterally through the piriform recesses into the esophagus without endangering the airway. A thin layer of mucosa overlying the piriform recess is all that protects the superficially coursing internal laryngeal nerve, a branch of the superior laryngeal nerve (part of the vagus nerve [CN X]). Unlike the recurrent and external laryngeal nerves that carry motor fibers to the muscles involved in vocal cord function, the internal laryngeal nerve contains only sensory and autonomic fibers. It mediates the afferent limb of the cough reflex by carrying sensation from the mucosa superior to the vocal cords. Damage to the internal laryngeal nerve can occur when foreign bodies (eg, chicken or fish bones) become lodged in the piriform recess or during attempts to retrieve them. The resulting reduction in laryngeal sensation can impair the cough reflex."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice B) The afferent limb of the gag reflex is mediated predominantly by the glossopharyngeal nerve (CN IX), whereas the efferent limb is carried by the vagus nerve (CN X). Although the internal laryngeal nerve is a branch of CNX, it does not carry motor fibers and is not involved in the gag reflex."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice C) The muscles of mastication are innervated by the mandibular branch of the trigeminal nerve (CNV). This nerve is involved in the jaw jerk reflex, which is typically prominent only in patients with upper motor neuron lesions."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice D) Salivation is mediated by the glossopharyngeal nerve (which innervates the parotid gland via the otic ganglion) and the facial nerve {which innervates submandibular and sublingual glands via the submandibular ganglion). These nerves do not lie in close proximity to the piriform recess."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice E) Although the internal laryngeal nerve carries taste sensation from the root of the tongue and epiglottis, its role in the perception of taste is extremely minor. Taste sensation is primarily mediated by glossopharyngeal nerve (posterior one-third of the tongue and oropharynx) and facial nerve (anterior two-thirds of the tongue)."
+    }
+   ],
+   "educational_objective": "The internal laryngeal nerve mediates the afferent limb of the cough reflex above the vocal cords. Foreign bodies (eg, fish bones) can become lodged in the piriform recess and may cause damage to the nerve, impairing the cough reflex.",
+   "statistics": {
+    "answered_correctly_percent": 32,
+    "selection_percent": {
+     "A": 32,
+     "B": 57,
+     "C": 1,
+     "D": 3,
+     "E": 4
+    }
+   },
+   "status": "blocked",
+   "issues": [
+    "suspicious OCR: …he otic ganglion) and the facial nerve {which innervates subm…"
+   ],
+   "source_record_sha256": "4fc14b83d71e6cd79db479564cf593901a5534b767a8ef3b1ff0bfc9bf70fc9a"
   },
   {
    "id": "UWORLD_1740",
@@ -1087,12 +2333,7 @@
     165,
     166,
     167,
-    168,
-    169,
-    170,
-    171,
-    172,
-    173
+    168
    ],
    "question": "A 4-hour-old girl is examined in the newborn nursery. The patient was born vaginally after an uncomplicated pregnancy and delivery. She began breastfeeding after delivery. Physical examination shows a unilateral cleft lip on the left side with an intact palate. The rest of the physical examination is unremarkable. This patient's abnormal findings most likely resulted from which of the following intrauterine processes?",
    "options": [
@@ -1170,28 +2411,6 @@
      "role": "explanation"
     },
     {
-     "type": "figure",
-     "page": 171,
-     "bbox": [
-      440,
-      118,
-      817,
-      550
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "figure",
-     "page": 169,
-     "bbox": [
-      24,
-      243,
-      312,
-      419
-     ],
-     "role": "explanation"
-    },
-    {
      "type": "paragraph",
      "text": "structures: frontonasal prominence, paired maxillary prominences, and paired mandibular prominences. Upper lip development involves the following steps: • The frontonasal prominence (overlies the forebrain) gives rise to the lateral and medial nasal prominences. The medial nasal prominences fuse and give rise to a midline structure, the intermaxillary segment. • The intermaxillary segment fuses with the left and right maxillary prominences beneath the nose to form the upper lip. Failed fusion on either side leads to a unilateral cleft lip, as seen in this patient; failed fusion of both sides creates a bilateral cleft lip."
     },
@@ -1216,7 +2435,7 @@
      "text": "(Choice E) Hypoplasia of the mandibular prominence causes micrognathia. In Pierre Robin sequence, severe micrognathia results in posterior displacement of the tongue, which can prevent fusion of the palatine shelves due to mechanical obstruction, causing cleft palate. Mandibular hypoplasia does not contribute to cleft lip development."
     }
    ],
-   "educational_objective": "Cleft lip occurs due to failed fusion of the left or right maxillary prominence with the intermaxillary segment in early gestation. Cleft palate occurs primarily when the palatine shelves fail to fuse. Cleft lip and palate can occur A 10-year-old girl is brought to the office due to sneezing, rhinorrhea, and nasal congestion and itching. The symptoms began 2 days ago after she arrived at a family farm for a summer vacation. The patient has spent a few days visiting the farm during previous summer seasons. She had no symptoms at her first visit 2 years ago but recalls having similar symptoms last year. She has had no respiratory symptoms while residing in another state the rest of the year. The patient has no prior medical conditions and takes no medications. On physical examination, the nasal turbinates are enlarged and bluish; clear rhinorrhea is present. Allergic response to a farm allergen is suspected. Which of the following processes most likely occurred during the first farm visit 2 years ago? (04secs",
+   "educational_objective": "Cleft lip occurs due to failed fusion of the left or right maxillary prominence with the intermaxillary segment in early gestation. Cleft palate occurs primarily when the palatine shelves fail to fuse. Cleft lip and palate can occur",
    "statistics": {
     "answered_correctly_percent": null,
     "selection_percent": {
@@ -1229,51 +2448,44 @@
    },
    "status": "verified",
    "issues": [],
-   "source_record_sha256": "72cf5a06a9f4aa05f724aeaacda14b2955bdc772b3491452d811643f9620bb5f"
+   "source_record_sha256": "acfc07d79cc5a8b7bf2d83e55805cc029bd6bfd48f60a0dfeeedb1fae39f19f8"
   },
   {
-   "id": "UWORLD_18141",
+   "id": "UWORLD_20705",
    "reviewed_pages": [
-    175,
-    176,
-    177,
-    178,
-    179,
-    180,
-    181,
-    182,
-    183,
-    184,
-    185,
-    186,
-    187
+    169,
+    170,
+    171,
+    172,
+    173,
+    174
    ],
-   "question": "A 3-year-old boy is brought to the clinic due to left ear pain over the past 3 days. Last week, the patient developed a runny nose and cough, which resolved 2 days prior to the development of ear pain. He has no chronic medical conditions. Temperature is 38.4 C(101.1 F) There is purulent drainage from the left ear. Otoscopic examination of the left ear reveals a normal-appearing external canal and an erythematous tympanic membrane with purulent fluid pooling within the distal external canal. Which of the following organisms is the most likely cause of this patient's diagnosis?",
+   "question": "A 10-year-old girl is brought to the office due to sneezing, rhinorrhea, and nasal congestion and itching. The symptoms began 2 days ago after she arrived at a family farm for a summer vacation. The patient has spent a few days visiting the farm during previous summer seasons. She had no symptoms at her first visit 2 years ago but recalls having similar symptoms last year. She has had no respiratory symptoms while residing in another state the rest of the year. The patient has no prior medical conditions and takes no medications. On physical examination, the nasal turbinates are enlarged and bluish; clear rhinorrhea is present. Allergic response to a farm allergen is suspected. Which of the following processes most likely occurred during the first farm visit 2 years ago?",
    "options": [
     {
      "letter": "A",
-     "text": "Klebsief/a pneumoniae {0%) @ B. Moraxella catarrhalis",
-     "selection_percent": 11
+     "text": "Antibody receptor aggregation",
+     "selection_percent": 24
     },
     {
      "letter": "B",
-     "text": "Proteus mirabilis",
-     "selection_percent": 0
+     "text": "Complement activation",
+     "selection_percent": 3
     },
     {
      "letter": "C",
-     "text": "D Pseudomonas aeruginosa",
-     "selection_percent": 17
+     "text": "Mast cell degranulation",
+     "selection_percent": 13
     },
     {
      "letter": "D",
-     "text": "Staphylococcus aureus",
-     "selection_percent": 7
+     "text": "Release of interferon gamma",
+     "selection_percent": 3
     },
     {
      "letter": "E",
-     "text": "Streptococcus pneumoniae",
-     "selection_percent": 61
+     "text": "T-lymphocyte induction",
+     "selection_percent": 53
     }
    ],
    "correct_label": "E",
@@ -1281,935 +2493,53 @@
    "explanation": [
     {
      "type": "figure",
-     "page": 180,
+     "page": 171,
      "bbox": [
-      388,
+      440,
       118,
-      866,
-      549
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "figure",
-     "page": 181,
-     "bbox": [
-      430,
-      119,
-      822,
+      817,
       550
      ],
      "role": "explanation"
     },
     {
      "type": "figure",
-     "page": 182,
-     "bbox": [
-      339,
-      119,
-      914,
-      550
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "figure",
-     "page": 185,
-     "bbox": [
-      295,
-      125,
-      954,
-      586
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "figure",
-     "page": 183,
-     "bbox": [
-      24,
-      218,
-      457,
-      394
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "paragraph",
-     "text": "This patient with an erythematous tympanic membrane and purulent otorrhea has acute otitis media (AOM) complicated by tympanic membrane perforation, which can be obscured due to drainage. Acute middle ear infections occur most commonly in young children (age 6 months to 2 years) and are often due to Streptococcus pneumoniae. A viral upper respiratory infection (URI) typically precedes the development of AOM because it causes inflammatory edema of the respiratory mucosa that can lead to obstruction of the eustachian tube. The eustachian tube normally opens to equalize middle ear pressure and drain secretions. Therefore, obstruction leads to the accumulation of secretions, providing a rich medium for bacterial growth. Bacterial colonizers of the upper respiratory tract (eg, S pneumoniae, Haemophifus influenzae, Moraxella catarrhalis) then proliferate in the middle ear secretions. This overgrowth of bacteria and consequent immune response result in AOM. Suppurative fluid accumulation increases middle ear pressure and causes the tympanic membrane to become inflamed and bulge outward. If the eustachian tube remains obstructed, this increased pressure can rupture the tympanic membrane."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice A) Although Klebsie/fa pneumoniae can be a colonizer of the mouth and throat, it is unlikely to cause AOM in otherwise healthy children. Instead, it more often causes respiratory diseases in older, immunosuppressed patients (eg, pneumonia in patients with alcohol overuse)."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice B) Moraxella catarrhalis is also an upper respiratory colonizer that can cause AOM. However, infection with it is less common than with S pneumoniae."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice C) Proteus mirabi/is classically causes genitourinary infections; its ability to split urea alkalinizes the urine, increasing the formation of kidney stones."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice D) Pseudomonas aeruginosa is more commonly implicated in otitis extema than AOM."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice E) Staphylococcus aureus is typically found as a colonizer of the skin rather than the respiratory tract. Therefore, it is more often implicated in skin and soft tissue infections, including otitis externa."
-    }
-   ],
-   "educational_objective": "Acute otitis media usually occurs after a viral upper respiratory infection causes obstruction of the eustachian tube. This obstruction leads to the accumulation of secretions, which encourages bacterial growth. The most common bacterial causes are respiratory colonizers, including Streptococcus pneumoniae, Haemophilus influenzae, and Moraxella catarrhalis. A 1-year-old boy is brought to the clinic for a painful mass in the neck. The parents noticed a small area of nontender swelling in the neck a month ago. Over the last few days, it has enlarged and become painful, and the patient has a fever. Examination shows a mobile, tender, fluctuant, and warm mass approximately 2 cm in diameter that is located at the right mandibular angle. There is purulent drainage from the skin surface just anterior to the right sternocleidomastoid muscle. This patient's clinical findings are most likely due to which of the following embryologic processes?",
-   "statistics": {
-    "answered_correctly_percent": 61,
-    "selection_percent": {
-     "A": 11,
-     "B": 0,
-     "C": 17,
-     "D": 7,
-     "E": 61
-    }
-   },
-   "status": "blocked",
-   "issues": [
-    "choice letters disagree with order: B,D,E",
-    "correct answer signals disagree: tick E, percent E, text F",
-    "suspicious OCR: …Klebsief/a pneumoniae {0%) @ B. Moraxella ca…"
-   ],
-   "source_record_sha256": "71cf44616cd78ab89230dd626340aee8f8954816f481fdd16e2ca6191f1f9e98"
-  },
-  {
-   "id": "UWORLD_107859",
-   "reviewed_pages": [
-    188,
-    189,
-    190,
-    191,
-    192,
-    193,
-    194,
-    195
-   ],
-   "question": "A 65-year-old man comes to the office with a 4-month history of persistent left ear pain that is slowly worsening. He is also having some difficulty swallowing. The patient has no chronic medical conditions but has smoked 1 pack of cigarettes per day for the last 46 years. On examination, the external auditory canal is patent and the tympanic membrane is clear with no middle ear effusion. There is an enlarged lymph node in the left anterior neck. Flexible fiberoptic laryngoscopy reveals an ulcerative mass on the posterior pharyngeal wall of the hypopharynx. Involvement of which of the following nerves is most likely responsible for this patient's ear pain?",
-   "options": [
-    {
-     "letter": "A",
-     "text": "Trigeminal nerve",
-     "selection_percent": 11
-    },
-    {
-     "letter": "B",
-     "text": "Facial nerve",
-     "selection_percent": 13
-    },
-    {
-     "letter": "C",
-     "text": "c Vestibulocochlear nerve",
-     "selection_percent": 2
-    },
-    {
-     "letter": "D",
-     "text": "Vagus nerve",
-     "selection_percent": 57
-    },
-    {
-     "letter": "E",
-     "text": "Hypoglossal nerve",
-     "selection_percent": 5
-    },
-    {
-     "letter": "F",
-     "text": "Great auricular nerve {9%)",
-     "selection_percent": null
-    }
-   ],
-   "correct_label": "D",
-   "question_blocks": [
-    {
-     "type": "figure",
-     "page": 188,
-     "bbox": [
-      404,
-      113,
-      852,
-      550
-     ],
-     "role": "question"
-    },
-    {
-     "type": "figure",
-     "page": 189,
-     "bbox": [
-      345,
-      131,
-      919,
-      536
-     ],
-     "role": "question"
-    },
-    {
-     "type": "figure",
-     "page": 190,
-     "bbox": [
-      340,
-      146,
-      909,
-      567
-     ],
-     "role": "question"
-    }
-   ],
-   "explanation": [
-    {
-     "type": "figure",
-     "page": 193,
-     "bbox": [
-      371,
-      117,
-      879,
-      550
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "paragraph",
-     "text": "This patient has otalgia in the setting of a normal ear examination, which is likely referred pain (pain perceived at a different site than its true origin). Further evaluation shows an ulcerative mass in the hypopharynx with an enlarged lymph node, which is consistent with mucosal head and neck squamous cell carcinoma (HNSCC). Many sources of pain in the head and neck can be referred to the ear because several cranial nerves also innervate parts of the ear. Common causes of referred ear pain include temporomandibular joint disease, dental disease, or cancer affecting the tongue base, hypopharynx, or larynx. This patient's referred otalgia is most likely due to his hypopharyngeal carcinoma causing irritation of the vagus nerve (CN X). The vagus nerve has afferent fibers innervating the larynx and hypopharynx and also has a branch that provides afferent sensory input from the external auditory canal. Similarly, the glossopharyngeal nerve (CN IX), which innervates the upper pharynx and base of tongue, also provides sensory innervation to the external auditory canal and can contribute to referred otalgia from tumors in these areas."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choices A, B, and F) The trigeminal nerve (CN V) provides sensory innervation for much of the face, including parts of the ear. The facial nerve (CN VII) and great auricular nerve (originates from C2 and C3) innervate portions of the external auditory canal. Although these nerves carry sensation from the ear, they do not provide innervation to the hypopharynx."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice C) The vestibulocochlear nerve (CN VIII) contributes special sensory {hearing, balance) from the ear but does not contribute to general sensation. Therefore, lesions that impact the vestibulocochlear nerve tend to cause hearing loss or imbalance {eg, vertigo) rather than pain."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice E) The hypoglossal nerve {CN XII) innervates the muscles of the tongue. It has motor function only, so dysfunction tends to produce weakness (eg, deviation of the tongue) rather than pain."
-    }
-   ],
-   "educational_objective": "Referred otalgia is common in head and neck pathology because many cranial nerves innervate the ear {eg, CNV, VII, IX, X). In particular, tumors in the hypopharynx, larynx, or base of tongue cause referred otalgia due to sensory contributions from the glossopharyngeal and vagus nerves.",
-   "statistics": {
-    "answered_correctly_percent": 57,
-    "selection_percent": {
-     "A": 11,
-     "B": 13,
-     "C": 2,
-     "D": 57,
-     "E": 5,
-     "F": null
-    }
-   },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent",
-    "suspicious OCR: … (CN VIII) contributes special sensory {hearing, balance) fro…"
-   ],
-   "source_record_sha256": "9eda696f99a56469d721ede86cbe1bdc2b75ca0b21bee1586f7c766436ab1f88"
-  },
-  {
-   "id": "UWORLD_1814",
-   "reviewed_pages": [
-    197,
-    198,
-    199,
-    200
-   ],
-   "question": "A 15-year-old boy comes to the office due to right ear itching and discomfort for the past several days. He has no fever or hearing loss but has noted scant drainage of thin, whitish fluid. The patient has been taking swimming lessons at a local gym. On examination, there is no redness around the ear, but gentle traction of the pinna elicits pain. During inspection of the external auditory canal, a speculum is inserted into the meatus in close contact with its posterior wall, causing the patient to suddenly become lightheaded and faint. He recovers spontaneously within a few minutes with no residual confusion. Which of the following nerves was most likely irritated during the procedure?",
-   "options": [
-    {
-     "letter": "A",
-     "text": "Accessory",
-     "selection_percent": 0
-    },
-    {
-     "letter": "B",
-     "text": "Facial",
-     "selection_percent": 10
-    },
-    {
-     "letter": "C",
-     "text": "Trigeminal",
-     "selection_percent": 6
-    },
-    {
-     "letter": "D",
-     "text": "Vagus",
-     "selection_percent": 50
-    },
-    {
-     "letter": "E",
-     "text": "Vestibulocochlear",
-     "selection_percent": 32
-    }
-   ],
-   "correct_label": "D",
-   "question_blocks": [],
-   "explanation": [
-    {
-     "type": "figure",
-     "page": 199,
-     "bbox": [
-      418,
-      113,
-      849,
-      549
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "paragraph",
-     "text": "The majority of the external ear receives cutaneous innervation from the great auricular nerve, lesser occipital nerve, and auriculotemporal nerve. Most of the external auditory canal, including the external portion of the tympanic membrane, is innervated by the mandibular division of the trigeminal nerve (cranial nerve [CN] V3) via its auriculotemporal branch. However, the posterior part of the external auditory canal, as well as the concavity and posterior eminentia of the concha, is innervated by the small auricular branch of the vagus nerve (CN X). This patient has experienced vasovagal syncope after stimulation of his posterior external auditory canal by an otoscope speculum. In this form of syncope, parasympathetic outflow via the vagus nerve leads to decreased heart rate and blood pressure."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice A) The accessory nerve (CN XI) provides voluntary motor innervation to the trapezius and the sternocleidomastoid."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice B) The facial nerve (CN VII) has a small motor component to the stapedius and muscles behind the ear. It supplies cutaneous sensation to a small area of the auricle, but stimulation here would be unlikely to trigger a vasovagal response."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice C) The mandibular branch of the trigeminal nerve carries sensation from the majority of the external auditory meatus, except for the posterior wall."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice E) The vestibulocochlear nerve {CN VIII) mediates hearing and vestibular proprioception. It does not mediate any cutaneous sensation."
-    }
-   ],
-   "educational_objective": "The vagus nerve provides cutaneous sensation to the posterior external auditory canal via its small auricular branch. Sensation to the rest of the canal is from the mandibular division of the trigeminal nerve.",
-   "statistics": {
-    "answered_correctly_percent": 50,
-    "selection_percent": {
-     "A": 0,
-     "B": 10,
-     "C": 6,
-     "D": 50,
-     "E": 32
-    }
-   },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …(Choice E) The vestibulocochlear nerve {CN VIII) mediates hea…"
-   ],
-   "source_record_sha256": "de9a9f0aa197f4c50935adf88818dd7aca829042d2e07d6240d5bc0f6087be7c"
-  },
-  {
-   "id": "UWORLD_1686",
-   "reviewed_pages": [
-    201,
-    202,
-    203,
-    204,
-    205,
-    206,
-    207,
-    208,
-    209,
-    210,
-    211,
-    212,
-    213,
-    214,
-    215,
-    216,
-    217,
-    218
-   ],
-   "question": "A 44-year-old man comes to the office for evaluation of a neck lump. The patient first noticed the lump 6 months ago while he was shaving and says that it seems to be growing in size. He has no pain, shortness of breath, cough, hoarseness, or difficulty swallowing. The patient had Hodgkin lymphoma 20 years ago, which was successfully treated with radiation therapy to his chest and neck. Physical examination shows a firm mass in the left thyroid lobe. There is no lymphadenopathy. Serum TSH level is normal. Fine-needle aspiration biopsy reveals papillary thyroid cancer. A total thyroidectomy is performed. During an attempt to ligate the inferior thyroid artery, a nervous structure in close proximity is inadvertently damaged. Which of the following was most likely injured during the surgery?",
-   "options": [
-    {
-     "letter": "A",
-     "text": "Accessory nerve",
-     "selection_percent": 0
-    },
-    {
-     "letter": "B",
-     "text": "Ansa cervicalis",
-     "selection_percent": 2
-    },
-    {
-     "letter": "C",
-     "text": "Hypoglossal nerve",
-     "selection_percent": 0
-    },
-    {
-     "letter": "D",
-     "text": "Phrenic nerve",
-     "selection_percent": 1
-    },
-    {
-     "letter": "E",
-     "text": "Recurrent laryngeal nerve",
-     "selection_percent": 81
-    },
-    {
-     "letter": "F",
-     "text": "Superior cervical ganglion",
-     "selection_percent": 0
-    },
-    {
-     "letter": "G",
-     "text": "Superior laryngeal nerve",
-     "selection_percent": 13
-    }
-   ],
-   "correct_label": "E",
-   "question_blocks": [],
-   "explanation": [
-    {
-     "type": "figure",
-     "page": 203,
-     "bbox": [
-      400,
-      120,
-      860,
-      550
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "figure",
-     "page": 208,
-     "bbox": [
-      361,
-      118,
-      888,
-      550
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "figure",
-     "page": 211,
-     "bbox": [
-      354,
-      136,
-      918,
-      541
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "figure",
-     "page": 212,
-     "bbox": [
-      395,
-      126,
-      860,
-      588
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "figure",
-     "page": 213,
-     "bbox": [
-      391,
-      118,
-      854,
-      550
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "figure",
-     "page": 216,
-     "bbox": [
-      455,
-      113,
-      797,
-      549
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "figure",
-     "page": 206,
-     "bbox": [
-      24,
-      169,
-      322,
-      345
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "figure",
-     "page": 214,
-     "bbox": [
-      24,
-      293,
-      295,
-      469
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "paragraph",
-     "text": "The inferior thyroid artery arises from the thyrocervical trunk, a branch of the subclavian artery. Along with the superior thyroid arteries (branches of the external carotid arteries), the inferior thyroid arteries provide blood to the thyroid gland and other structures of the anterior neck. From the thyrocervical trunk, the inferior thyroid artery courses deep to the internal jugular vein, vagus nerve, and common carotid artery before turning toward the thyroid. As it approaches the thyroid, the artery comes in close proximity to the recurrent laryngeal nerve. The recurrent laryngeal nerve is a branch of the vagus nerve that loops below the aortic arch on the left and below the subclavian artery on the right to provide motor innervation to the intrinsic muscles of the larynx (except the cricothyroid). During thyroid surgery, this nerve may be damaged due to its proximity to the inferior thyroid artery. Unilateral nerve injury often causes hoarseness, whereas bilateral injury may cause inspiratory strider and respiratory distress due to complete vocal cord paralysis."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice A) The spinal accessory nerve (CN XI) exits the jugular foramen and courses on top of the levator scapulae muscle to innervate the sternocleidomastoid and trapezius muscles on either side."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice B) The ansa cervicalis is a loop of the cervical plexus that receives contributions from C1-C3. It courses deep to the sternocleidomastoid muscle and loops around the internal jugular vein. Branches from the ansa cervicalis innervate the sternohyoid, sternothyroid, and omohyoid muscles."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice C) The hypoglossal nerve {CN XII) exits the cranium through the hypoglossal canal and innervates all the muscles of the tongue except the palatoglossus."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice D) The phrenic nerve arises from the C3-C5 cervical nerves and innervates the diaphragm. The most common cause of iatrogenic phrenic nerve injury is cardiothoracic surgery, in which the nerve can be damaged where it passes between the pericardium and mediastinal pleura. Manifestations include diaphragmatic paralysis (inspiratory weakness)."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice F) The superior cervical ganglion is part of the sympathetic nervous system. It can be injured by an expanding lung cancer at the superior pulmonary sulcus (Pancoast tumor), leading to Horner syndrome (ie, ipsilateral ptosis, miosis, and anhydrosis)."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice G) The superior laryngeal nerve branches off the vagus nerve high in the neck and divides into an external branch, which supplies the cricothyroid muscle, and an internal branch, which provides sensation over the supraglottic area. The external branch of this nerve may be misligated during thyroid surgery due to its proximity to the superior thyroid artery."
-    }
-   ],
-   "educational_objective": "The recurrent laryngeal nerve travels in close proximity to the inferior thyroid artery and can be injured during thyroid surgery, resulting in vocal cord paralysis (eg, hoarseness).",
-   "statistics": {
-    "answered_correctly_percent": null,
-    "selection_percent": {
-     "A": 0,
-     "B": 2,
-     "C": 0,
-     "D": 1,
-     "E": 81,
-     "F": 0,
-     "G": 13
-    }
-   },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …(Choice C) The hypoglossal nerve {CN XII) exits the cra…"
-   ],
-   "source_record_sha256": "3d6ef125010bc891d92168afe985b18b12f3268c601c8651fd5eb6c0addeef4c"
-  },
-  {
-   "id": "UWORLD_1698",
-   "reviewed_pages": [
-    220,
-    221,
-    222,
-    223,
-    224,
-    225
-   ],
-   "question": "A 30-year-old man comes to the emergency department due to left eye pain after being involved in a street fight. He received a fist blow to the left eye and has since had pain and diplopia. Past medical history is notable for 2 previous gunshot wounds. The patient does not smoke cigarettes but has a history of heavy alcohol intake and frequent marijuana use. On examination, there is significant soft tissue swelling around the left eye. Visual acuity is normal, but extraocular motility of the left eye is limited. Pupillary reflexes are normal. Coronal CT scan of the orbits is shown in the image below. The orbital contents of this patient are most likely to herniate into which of the following sites?",
-   "options": [
-    {
-     "letter": "A",
-     "text": "Ethmoid cells",
-     "selection_percent": 4
-    },
-    {
-     "letter": "B",
-     "text": "Frontal sinus",
-     "selection_percent": 2
-    },
-    {
-     "letter": "C",
-     "text": "c Inferior conchae",
-     "selection_percent": 0
-    },
-    {
-     "letter": "D",
-     "text": "Maxillary sinus",
-     "selection_percent": 85
-    },
-    {
-     "letter": "E",
-     "text": "Sphenoid sinus",
-     "selection_percent": 6
-    }
-   ],
-   "correct_label": "D",
-   "question_blocks": [
-    {
-     "type": "figure",
-     "page": 221,
-     "bbox": [
-      405,
-      107,
-      853,
-      551
-     ],
-     "role": "question"
-    }
-   ],
-   "explanation": [
-    {
-     "type": "figure",
-     "page": 225,
-     "bbox": [
-      404,
-      154,
-      851,
-      515
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "paragraph",
-     "text": "The orbit is bound superiorly by the thick orbital plate of the frontal bone and laterally by the thick bone of the zygoma and greater and lesser sphenoid wings. In contrast, the orbital floor is composed of a very thin layer of bone that separates the orbit from the air-filled maxillary sinus. Similarly, the orbit's medial wall is composed of the thin ethmoid and lacrimal bones, which separate it from the ethmoid air cells. Blunt trauma to the eye causes a rapid increase in pressure that typically does not rupture the globe but is transmitted posteriorly into the orbit. The weakest plates of bone in the orbit, the medial and inferior walls, are common sites of fracture. Fracture is typically evident on radiographic imaging, and fluid (eg, blood) or herniation of the orbital contents can often be visualized in the adjacent normally air-filled sinuses."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice A) The ethmoid air cells are medial to the orbit. They are unaffected in this patient, but they can be affected in blowout fractures of the orbit's medial wall."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice B) The frontal sinus is not pictured above. It lies in the medial part of the supraorbital frontal bone."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice C) The inferior nasal conchae form part of the nasal turbinate system. They are not air-filled sinuses."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice E) The sphenoid sinuses {not pictured above) lie anterior to the optic chiasm and are not in close relation to the orbit."
-    }
-   ],
-   "educational_objective": "Blunt trauma to the globe can cause orbital blowout fractures. These fractures most commonly involve the medial or inferior orbital walls due to the thin bone bordering the ethmoid and maxillary sinuses.",
-   "statistics": {
-    "answered_correctly_percent": 85,
-    "selection_percent": {
-     "A": 4,
-     "B": 2,
-     "C": 0,
-     "D": 85,
-     "E": 6
-    }
-   },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …(Choice E) The sphenoid sinuses {not pictured above) l…"
-   ],
-   "source_record_sha256": "dbb3d42cc6a39fb7c83e569c3a06745e679ab268fe9907558efd3df04f5c7603"
-  },
-  {
-   "id": "UWORLD_1864",
-   "reviewed_pages": [
-    226,
-    227,
-    228,
-    229,
-    230,
-    231,
-    232,
-    233,
-    234,
-    235,
-    236,
-    237
-   ],
-   "question": "A 33-year-old man comes to the office due to trouble swallowing and a chronic sore throat. He has no chronic medical conditions and does not use tobacco or alcohol. Physical examination shows an enlarged, ulcerated right tonsil. Biopsy of the ulcerated lesion reveals infiltrating nests of moderately differentiated squamous cells. lmmunohistochemistry is positive for p16, suggesting that the tumor is likely due to human papilloma virus. Further imaging studies for cancer staging are planned. This patient's tumor is most likely to spread first to which of the following locations?",
-   "options": [
-    {
-     "letter": "A",
-     "text": "Adenoid tissue",
-     "selection_percent": 35
-    },
-    {
-     "letter": "B",
-     "text": "Adrenal glands",
-     "selection_percent": 1
-    },
-    {
-     "letter": "C",
-     "text": "Gray-white matter junction",
-     "selection_percent": 1
-    },
-    {
-     "letter": "D",
-     "text": "Jugular lymph nodes",
-     "selection_percent": 56
-    },
-    {
-     "letter": "E",
-     "text": "Lung parenchyma",
-     "selection_percent": 4
-    },
-    {
-     "letter": "F",
-     "text": "Vertebral bodies",
-     "selection_percent": 1
-    }
-   ],
-   "correct_label": "D",
-   "question_blocks": [],
-   "explanation": [
-    {
-     "type": "figure",
-     "page": 234,
-     "bbox": [
-      339,
-      131,
-      914,
-      579
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "figure",
-     "page": 235,
-     "bbox": [
-      445,
-      116,
-      812,
-      550
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "figure",
-     "page": 237,
-     "bbox": [
-      437,
-      107,
-      806,
-      551
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "figure",
-     "page": 229,
-     "bbox": [
-      24,
-      243,
-      432,
-      419
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "paragraph",
-     "text": "Most carcinomas, including head and neck squamous cell carcinoma, spread first from the primary site of the tumor to regional lymph nodes via the lymphatics. In this patient with a tonsillar squamous cell carcinoma, this spread would be to the upper anterior cervical (ie, jugular) lymph nodes. Assessment of regional lymph node status is important for tumor staging based on the TNM staging system, which evaluates the size and characteristics of the Tumor, regional lymph Node involvement, and distant Metastases."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice A) Similar to the tonsils, adenoid tissue is also lymphatic tissue in the head and neck that can harbor a primary site of head and neck squamous cell carcinoma. However, it is located in the nasopharynx rather than the oropharynx. The spread of cancer is typically to regional lymph nodes rather than to other mucosal sites in the head and neck."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choices B, C, and F) Although these are possible sites of distant cancer metastases, they are less commonly associated with metastatic head and neck cancer. Common primary sources for metastases to these sites include: • Adrenal gland metastases: breast cancer, renal cell carcinoma, and melanoma • Brain metastases (gray-white matter junction): lung cancer • Vertebral body metastases: prostate cancer"
-    },
-    {
-     "type": "paragraph",
-     "text": "However, the first site of spread of most carcinomas {including head and neck cancer) is the regional lymph nodes."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice E) The lung parenchyma is the most common site for distant metastases from head and neck cancer. However, regional lymph node spread is typically seen first."
-    }
-   ],
-   "educational_objective": "Head and neck squamous cell carcinomas typically spread first to the anterior cervical {ie, jugular) lymph nodes via the lymphatics. Distant spread occurs after regional lymph node involvement.",
-   "statistics": {
-    "answered_correctly_percent": 56,
-    "selection_percent": {
-     "A": 35,
-     "B": 1,
-     "C": 1,
-     "D": 56,
-     "E": 4,
-     "F": 1
-    }
-   },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …irst site of spread of most carcinomas {including head and ne…"
-   ],
-   "source_record_sha256": "4bfcf9688c9f0a6879bc8462f32a4ad04de6f668ac47fc98e1ec82bee1858a9f"
-  },
-  {
-   "id": "UWORLD_22476",
-   "reviewed_pages": [
-    250,
-    251,
-    252,
-    253,
-    254,
-    255,
-    256,
-    257,
-    258,
-    259,
-    260,
-    261
-   ],
-   "question": "A 2-hour-old girl is evaluated in the nursery. She was born to a 28-year-old primigravida via spontaneous vaginal delivery. The pregnancy was unremarkable, but family history reveals that the patient's maternal grandmother had an isolated cleft palate. Both parents have no known medical conditions. Examination of the patient shows a cleft palate. The remainder of the examination is unremarkable. The parents inquire about the cause for this anomaly. This patient's clinical findings are most likely a result of which of the following?",
-   "options": [
-    {
-     "letter": "A",
-     "text": "Autosomal recessive inheritance x @ B Disrupted genetic imprinting",
-     "selection_percent": null
-    },
-    {
-     "letter": "B",
-     "text": "Mitochondrial DNA heteroplasmy",
-     "selection_percent": null
-    },
-    {
-     "letter": "C",
-     "text": "Polygenetic and environmental interactions",
-     "selection_percent": null
-    },
-    {
-     "letter": "D",
-     "text": "Skewed X chromosome inactivation",
-     "selection_percent": null
-    }
-   ],
-   "correct_label": "C",
-   "question_blocks": [
-    {
-     "type": "figure",
-     "page": 250,
-     "bbox": [
-      349,
-      119,
-      902,
-      549
-     ],
-     "role": "question"
-    },
-    {
-     "type": "figure",
-     "page": 251,
-     "bbox": [
-      340,
-      131,
-      914,
-      537
-     ],
-     "role": "question"
-    },
-    {
-     "type": "figure",
-     "page": 252,
+     "page": 174,
      "bbox": [
       341,
-      186,
-      914,
-      483
+      154,
+      906,
+      519
      ],
-     "role": "question"
+     "role": "explanation"
+    },
+    {
+     "type": "paragraph",
+     "text": "This patient with allergic rhinitis (eg, location-based sneezing and rhinorrhea; bluish, congested nasal turbinates) likely became sensitized to farm allergens during her first visit. Allergic rhinitis is a form of type I hypersensitivity, a process that involves sensitization and elicitation phases. Sensitization occurs when inhaled antigens penetrate the nasal epithelium and are presented on major histocompatibility complex (MHC) class II molecules, causing activation of naive T-helper (Th) cells. The release of cytokines (eg, IL-25, IL-33) from the nasal epithelium causes Th cells to differentiate into Th2 cells that secrete IL-4, IL-13, and other lymphokines that stimulate B cell maturation and production of lgE antibodies. Antigenspecific lgE antibodies then bind to the high-affinity lgE receptor on mast cells, priming the patient for an allergic response. Repeat exposure to the inhaled antigens (eg, on subsequent visits to the farm) cross-links lgE antibodies on the surface of the mast cell, leading to lgE receptor aggregation, which causes mast cell degranulation (Choices A and C). This releases histamine and other vasoactive mediators that lead to nasal inflammation, producing the allergic response. Subsequent exposure to the same antigen can lead to further allergen priming, worsening symptoms over time."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice B) Complement activation occurs in type Ill hypersensitivity reactions, in which immune complexes deposit in the basement membrane of small blood vessels in the skin, kidneys, or joints, resulting in vasculitis. Complement does not play a significant role in type I hypersensitivity."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice D) Interferon gamma is secreted by Th1 cells, which activates macrophages and, along with IL-2, stimulates COB- cytotoxic cells. It inhibits, rather than enhances, the Th2 cell activity that drives type I hypersensitivity reactions (eg, allergic rhinitis)."
     }
    ],
-   "explanation": [
-    {
-     "type": "figure",
-     "page": 257,
-     "bbox": [
-      384,
-      118,
-      877,
-      550
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "figure",
-     "page": 258,
-     "bbox": [
-      339,
-      160,
-      917,
-      508
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "figure",
-     "page": 259,
-     "bbox": [
-      355,
-      185,
-      899,
-      484
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "figure",
-     "page": 260,
-     "bbox": [
-      342,
-      173,
-      913,
-      494
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "figure",
-     "page": 261,
-     "bbox": [
-      387,
-      113,
-      863,
-      550
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "figure",
-     "page": 254,
-     "bbox": [
-      24,
-      194,
-      401,
-      370
-     ],
-     "role": "explanation"
-    },
-    {
-     "type": "paragraph",
-     "text": "Cleft palate primarily occurs when the palatine shelves (derivatives of the maxillary prominences) fail to fuse with each other or with the primary palate during early gestation. This anomaly may occur in isolation but can be associated with cleft lip, which results from failed fusion of the maxillary prominences and the intermaxillary segment. The pathophysiology of isolated orofacial clefts is usually multifactorial and related to complex interactions between genetic and environmental factors. Failed fusion can result from a range of gene variants involved in cell differentiation, communication, and migration. Specifically, genes encoding for proteins involved in extracellular matrix formation and adhesion have been implicated because normal palatal formation requires fusion of the mesenchyme beneath the epithelial layers of each palatine shelf. In addition, certain environmental factors (eg, antiepileptic drugs, maternal smoking, folate deficiency) may increase the risk for cleft lip and/or palate, particularly in genetically susceptible individuals. Some cases of orofacial clefts are related to genetic syndromes (eg, 22q11 deletion syndrome) with associated multisystem anomalies, but sporadic cases with no family history or identifiable risk factors also occur. In the absence of an identifiable genetic syndrome, the risk of recurrence during subsequent pregnancies is <5%."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice A) Autosomal recessive inheritance can be responsible for rare, syndromic causes of orofacial clefts. This patient's isolated cleft palate and otherwise normal examination make a genetic syndrome (and therefore this mode of inheritance) unlikely."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice B) Genetic imprinting refers to the inactivation of one parent's gene during meiosis, and disrupted imprinting can lead to certain genetic disorders (eg, Prader-Willi syndrome, Angelman syndrome). However, there is no known association with orofacial clefts, especially in the absence of other abnormalities suggestive of an underlying genetic syndrome."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice C) Conditions of mitochondrial inheritance (eg, mitochondrial myopathies, myoclonic epilepsy) are transferred by affected females to offspring. Although this patient's maternal grandmother had a cleft palate, mitochondrial DNA does not contribute to the development of orofacial clefts."
-    },
-    {
-     "type": "paragraph",
-     "text": "(Choice E) In females, a single X chromosome is randomly inactivated in each cell during early embryonic development. Skewed inactivation of the X chromosomes can result in female offspring developing symptoms of an X-linked recessive condition (eg, hemophilia). This mechanism does not contribute to orofacial cleft development."
-    }
-   ],
-   "educational_objective": "Most cases of cleft lip and/or cleft palate have a multifactorial pathophysiology related to complex interactions between genetic and environmental factors.",
+   "educational_objective": "Sensitization to aeroallergens occurs when inhaled antigens induce T-helper (Th) cells to differentiate into Th2 cells. Th2 cells then promote B-cell maturation and isotype class switching to lgE.",
    "statistics": {
-    "answered_correctly_percent": null,
+    "answered_correctly_percent": 53,
     "selection_percent": {
-     "A": null,
-     "B": null,
-     "C": null,
-     "D": null
+     "A": 24,
+     "B": 3,
+     "C": 13,
+     "D": 3,
+     "E": 53
     }
    },
-   "status": "blocked",
-   "issues": [
-    "choice letters disagree with order: B,C,D",
-    "correct answer signals disagree: tick C, percent None, text D"
-   ],
-   "source_record_sha256": "be4ec2a1a899d995db13a8b06c010dbb387b4809e5f4103e1af3d9705b7ac128"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "f4ab4b58a3d31559893b37de25c1b77f2737f2e2177c235e74b9bf72fe057316"
   }
  ]
 }

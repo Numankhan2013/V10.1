@@ -4,148 +4,51 @@
  "source_sha256": "e4e1218e96beced952c77a630c01734121f5ef297d2afb6f743902195441d16c",
  "source_pdf": "data/uworld/Source_pdfs/ent/Ear, Nose & Throat (ENT) - 1 block.pdf",
  "page_count": 261,
- "record_count": 15,
+ "record_count": 38,
  "jsonl_file": "normalized.jsonl",
- "jsonl_sha256": "2f07d942967c053143aeecc5fd69c1c1ff574339e45b9016c8b3c82b95bd6e1f",
+ "jsonl_sha256": "e6ffcbfde0d7986507a6faa60d69c4df9110a4ee2d2f5b86f0cce025590a173f",
  "source_extraction_method": "uworld-auto-extract",
  "blocks": {
-  "1": 15
+  "1": 14,
+  "2": 24
  },
  "unowned_pages": [
   {
    "pages": [
-    1,
-    2,
-    3,
     4,
     5,
     6,
     7,
     8,
     9,
-    10
+    10,
+    11,
+    12,
+    13
    ],
-   "reason": "unidentified pages 1-10"
+   "reason": "choices look like pictures or a table; empty choice text (image option?)"
   },
   {
    "pages": [
-    19,
-    20,
-    21,
-    22,
-    23,
-    24,
-    25,
-    26,
-    27,
-    28,
-    29,
-    30,
-    31,
-    32,
-    33,
-    34,
-    35,
-    36,
-    37,
-    38,
-    39,
-    40,
-    41,
-    42,
-    43,
-    44,
-    45,
-    46,
-    47,
-    48,
-    49,
-    50,
-    51,
-    52,
-    53,
-    54
-   ],
-   "reason": "choice letters disagree with order: B,C; options ['A', 'B', 'C']; missing choice percent; answered% differs from correct choice%; suspicious OCR: \u2026Stop the decongestant {67%) X @ B. Switch to\u2026"
-  },
-  {
-   "pages": [
-    55,
-    56
+    74,
+    75
    ],
    "reason": "no answered page"
   },
   {
    "pages": [
-    83,
-    84,
-    85,
-    86,
-    87
-   ],
-   "reason": "choice letters disagree with order: B,C; correct answer signals disagree: tick B, percent B, text C; options ['A', 'B', 'C']; choice percents sum 76; empty explanation; no educational objective; suspicious OCR: \u2026Inferior turbinate {12%) X @ B. Middle me\u2026"
-  },
-  {
-   "pages": [
-    147,
-    148,
-    149,
-    150,
-    151
-   ],
-   "reason": "choice letters disagree with order: B; options ['A', 'B']; choice percents sum 61; answered% differs from correct choice%; empty explanation; no educational objective; suspicious OCR: \u2026he tongue; special sensory information {taste) from the poste\u2026"
-  },
-  {
-   "pages": [
-    152,
-    153,
-    154,
-    155,
-    156,
-    157,
-    158,
-    159,
-    160
-   ],
-   "reason": "no answered page"
-  },
-  {
-   "pages": [
-    174
-   ],
-   "reason": "no answered page"
-  },
-  {
-   "pages": [
-    196
-   ],
-   "reason": "no answered page"
-  },
-  {
-   "pages": [
-    219
-   ],
-   "reason": "no answered page"
-  },
-  {
-   "pages": [
+    236,
+    237,
     238,
     239,
     240,
     241,
-    242,
-    243,
-    244,
-    245,
-    246,
-    247,
-    248,
-    249
+    242
    ],
-   "reason": "options ['A', 'B', 'C']; choice percents sum 89; suspicious OCR: \u2026A. Auditory nerve @ B. Cochlear cupula {13%) 0 C. Middle ear \u2026"
+   "reason": "no answered page"
   }
  ],
  "figures_dir": "data/uworld/prepared/ent/figures",
- "verified": 4,
- "blocked": 11
+ "verified": 29,
+ "blocked": 9
 }
