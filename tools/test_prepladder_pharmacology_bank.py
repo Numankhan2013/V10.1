@@ -97,13 +97,24 @@ def main() -> None:
     noted = lambda phrase: sum(1 for q in questions if any(phrase in n for n in q.get("reviewNotes", [])))
     assert (noted("restored as"), noted("opening is written"), noted("reads complete"), noted("not recoverable")) == \
         (74, 38, 2, 0), (noted("restored as"), noted("opening is written"), noted("reads complete"))
-    opening = lambda qid: by_id[qid]["structuredExplanation"]["blocks"][0]["text"]
+    def opening(qid: str) -> str:
+        first = by_id[qid]["structuredExplanation"]["blocks"][0]
+        return first["items"][0]["text"] if first["type"] == "bullets" else first["text"]
     assert opening("pharmacology-10-5").startswith("Due to alpha 1a receptors blockade")
     assert opening("pharmacology-5-10").startswith("Clarithromycin (Option B) raises rosuvastatin levels")
     assert opening("pharmacology-5-17").startswith("2M HCl: Normality")
     # A bolded cut-off opening gets a lead paragraph for the key and its first word back.
     assert opening("pharmacology-55-3").startswith("Epirubicin (Option B) is an anthracycline")
-    assert by_id["pharmacology-55-3"]["structuredExplanation"]["blocks"][1]["text"].startswith("**Cardiomyopathy Alopecia")
+    assert by_id["pharmacology-55-3"]["structuredExplanation"]["blocks"][1]["items"][0]["text"] == "Cardiomyopathy"
+    # Restructured explanations (66 batches): most gain points or tables; the
+    # hand-written openings sit on top, a table-first one as its own paragraph.
+    overlay = json.loads((ROOT / "data/Prepladder/pharmacology/restructure/restructured.json").read_text(encoding="utf-8"))
+    structured = sum(1 for qid in overlay
+                     if {b["type"] for b in by_id[qid]["structuredExplanation"]["blocks"]} & {"bullets", "table"})
+    assert len(overlay) == 1155 and structured == 1033, (len(overlay), structured)
+    assert sum(len(by_id[qid]["structuredExplanation"]["tables"]) for qid in overlay) == 422
+    assert opening("pharmacology-27-36") == "Amitriptyline toxicity causes hyperthermia, not hypothermia. Side effects of amitriptyline:"
+    assert by_id["pharmacology-27-36"]["structuredExplanation"]["blocks"][1]["type"] == "table"
     # The restructure pack's worked examples pass its checker.
     subprocess.run([sys.executable, str(ROOT / "tools/explanation_restructure.py"), "check",
                     str(ROOT / "data/Prepladder/pharmacology/restructure/examples/example-result.json")],

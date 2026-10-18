@@ -244,6 +244,12 @@ class TextBank:
                 holder = block["items"][0]
             elif block["type"] == "figure":
                 continue
+            elif not entry["from"]:
+                # A restructure that opens on a table: the new opening is its own paragraph.
+                blocks.insert(0, {"type": "paragraph", "text": entry["to"].strip()})
+                if entry.get("lead"):
+                    blocks.insert(0, {"type": "paragraph", "text": entry["lead"]})
+                return blocks
             else:
                 break
             # The PDF bolds some cut-off openings ("**ardiomyopathy ...:**"); a
