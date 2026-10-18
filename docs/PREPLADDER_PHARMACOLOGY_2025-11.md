@@ -101,3 +101,19 @@ six figure archives.
   `restructure/examples/example-result.json`. Instructions and prompts:
   `docs/EXPLANATION_RESTRUCTURE.md`. Only squashed explanations get
   restructured; clean one-paragraph-per-option explanations stay unchanged.
+
+## Restructure run (2026-10-18)
+
+- All 66 batches restructured by in-session agents (the user's own agents
+  were rate-limited) and re-checked: 1,155 restructured, 160 unchanged, 0
+  rejected; 422 tables. Results in `restructure/results/`, merged into
+  `restructure/restructured.json`.
+- Reviewed by hand: tables where the PDF's cell boundaries were unclear.
+  16-4 (glucocorticoid table, lost merged cells) stays unchanged. Blank
+  cells in other tables mark merged cells of the source.
+- 3-2 opened with the source's own "Correct answer- C) …" line, hidden by
+  bold markup; it is dropped from the overlay, as for every other answer label.
+- Two cut-off openings were also hidden by bold markup (27-56, 55-3). They
+  get hand-written openings with a lead paragraph explaining the key.
+  Openings now also apply when a restructure starts with a table (27-36:
+  the opening becomes its own paragraph).

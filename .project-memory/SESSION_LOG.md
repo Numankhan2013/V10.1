@@ -2795,6 +2795,12 @@ User asked for a thorough functional audit, especially whether FSRS is as good a
 - `TextBank.repair_opening`: 74 Pharmacology first words restored, 38 lost labels noted (leading punctuation dropped). Pathology 25-19's overlay entry got a new hash (only its leading comma changed). Microbiology (own builder) has 5 such openings, untouched.
 - Per the user, the 38 lost openings are not left as they are: written by hand in `data/Prepladder/pharmacology/openings.json` (36 new openings, 2 already complete; 5-7, 5-43, 42-32 also explain the key), plus Pathology 25-19. `TextBank.reopen` applies them after the overlay; `overlay=False` (the restructure source) skips them, so the 66 exported batches are byte-identical and running agents are unaffected.
 
+## 2026-10-18 — Pharmacology restructure complete (66/66 batches)
+
+- User rate-limited; 11 in-session agents (6 batches each, high effort) restructured all 66 batches; the session limit interrupted them once, resumed after reset.
+- Import: 1,155 passed, 160 unchanged, 0 rejected; 422 tables. 16-4 forced unchanged (misaligned table); 3-2's "Correct answer-" line dropped from the overlay.
+- Openings layer: `lead` paragraphs (27-56, 55-3, bolded cut-offs) and table-first restructures (27-36). Tests pin overlay 1,155 / 1,033 with points or tables / 422 tables. Browser verifiers and phone screenshots (light/dark) clean.
+
 ## 2026-10-17 — Builder dock pin, Prof-band press flash, plus-button press — measured, fixed, probed
 
 - The user reported two interactions in the Home / Test Builder flow: the Home "Prof 1/2" expanders grey-flash on touch ("the entire region gets the shading color ... it should have a smooth interaction"), and in the builder the plus-icon press "does not feel very good but it's still okay" plus "the Continue to Questions dock ... appears later. It has a significant delay compared to the screen itself." All three were reproduced and measured with Playwright/CDP probes against the locally rebuilt dist before any edit (probe scripts and timestamped JSON evidence under `/tmp/opencode/`: full-flow displacement sampler, press sampler, DOM-API phase timeline, per-frame pin-debug dump).
