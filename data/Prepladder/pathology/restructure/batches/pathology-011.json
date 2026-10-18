@@ -1,0 +1,641 @@
+{
+ "batch": "pathology-011",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pathology-011",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pathology-13-1",
+   "question": "What is the mode of inheritance in a patient suffering from colour blindness?",
+   "options": {
+    "A": "AD",
+    "B": "AR",
+    "C": "XLR",
+    "D": "XLD"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The mode of inheritance in a patient suffering from colour blindness is X-linked recessive (XLR). X-Linked Recessive: The gene for Color blindness is located on the X chromosome. Males (XY) express the disorder if they inherit the affected X chromosome since they lack a second X for compensation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Females (XX) can be carriers if they inherit one affected X chromosome, often showing no symptoms due to the normal allele on the other X. Affected males cannot pass the disorder to sons but can pass the affected X to daughters, making them carriers. X-linked Recessive (WISE ABCDEFGH) Wise- Wiskott Aldrich Syndrome AB- Hemophilia A, B B- Bruton's Hypogammaglobulinemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "C- Chronic Granulomatous Disease, Red Green Color Blindness D- DMD, BMD E- Lesch Nyhan Syndrome F- Fabry Disease, Fragile X Syndrome G- G6PD Deficiency H- Hunter Disease Incorrect Options: Autosomal Dominant (AD) (Option A) disorders affect both sexes equally, and only one mutated allele is required for the disease to manifest. Examples: Marfan syndrome, Achondroplasia, Familial hypercholesterolemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Autosomal Recessive (AR) (Option B):** disorders require both alleles to be mutated for disease manifestation. Examples: Cystic fibrosis, Sickle cell disease, Phenylketonuria (PKU). Colour blindness is inherited in an X-linked pattern, not AR. X-linked Dominant (XLD) (Option D) affects both males and females, but females more commonly due to having two X chromosomes. Examples: Rett syndrome, Fragile X syndrome, and Hypophosphatemic rickets. Colour blindness is X-linked recessive, not dominant."
+    }
+   ]
+  },
+  {
+   "id": "pathology-13-2",
+   "question": "Which of the following correctly represents the effect of the mutation causing sickle cell anaemia?",
+   "options": {
+    "A": "Glutamate by valine at the 6th position",
+    "B": "Valine by glutamate at the 6th position",
+    "C": "Glutamate by valine at the 5th position",
+    "D": "Valine by glutamate at the 5th position"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Sickle cell anaemia is caused by a point mutation that involves substituting adenine for thymine at the sixth codon of the β-globin gene (GAG to GTG), replacing glutamic acid (glutamate) with valine in the β-globin chain of haemoglobin. This single nucleotide change results in the formation of abnormal haemoglobin molecules (HbS). After deoxygenation, HbS molecules polymerize to form bundles."
+    },
+    {
+     "type": "paragraph",
+     "text": "These polymer bundles cause erythrocytes to adopt a sickle shape and also promote hemolysis of erythrocytes, releasing cell-free Hb into circulation."
+    }
+   ]
+  },
+  {
+   "id": "pathology-13-3",
+   "question": "B cells express IgM and IgD antibodies at the same time. Which phenomenon is it due to?",
+   "options": {
+    "A": "Somatic hypermutation",
+    "B": "Alternative RNA splicing",
+    "C": "Affinity maturation",
+    "D": "Allelic exclusion"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "B cells express IgM and IgD antibodies simultaneously due to alternative RNA splicing. This process allows the same gene for the heavy chain to be spliced in different ways to produce both IgM and IgD isotypes. The IgM and IgD are both produced from the same heavy chain gene but are differentiated through this splicing mechanism."
+    },
+    {
+     "type": "paragraph",
+     "text": "During this process, the RNA transcript for the heavy chain is spliced in two different ways, one to produce IgM and the other to produce IgD. Both these antibodies have the same antigen-binding specificity but differ in their constant regions, which define their isotypes."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Somatic hypermutation (Option A):** occurs after antigen exposure and increases antibody affinity, but it does not affect the simultaneous expression of IgM and IgD. Affinity maturation (Option C) is a process that occurs during the immune response to improve the affinity of antibodies, not to generate multiple antibody classes at the same time."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Allelic exclusion (Option D):** ensures that only one allele of the immunoglobulin gene is expressed in a B cell at any given time, which helps in maintaining clonal specificity, but it does not explain the co-expression of IgM and IgD."
+    }
+   ]
+  },
+  {
+   "id": "pathology-13-4",
+   "question": "Differential expression of a gene depending upon the parent of origin is a feature of:",
+   "options": {
+    "A": "Gonadal mosaicism",
+    "B": "Genomic imprinting",
+    "C": "Anticipation",
+    "D": "Incomplete penetrance"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Genomic imprinting refers to the phenomenon where the expression of a gene depends on which parent the gene was inherited from. In imprinted genes, one allele is silenced depending on the parent of origin, leading to differential expression. Genomic imprinting: Inheritance: We inherit two copies of each autosomal gene, one from each parent, but functional differences can exist between the maternal and paternal alleles."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mechanism: Imprinting is an epigenetic process that selectively inactivates either the maternal or paternal allele. Maternal imprinting silences the maternal allele, while paternal imprinting silences the paternal allele. Imprinting occurs in the ovum or sperm before fertilization. The imprinting pattern is stably transmitted to somatic cells through mitosis. Imprinting is linked to disorders like Prader-Willi syndrome and Angelman syndrome."
+    },
+    {
+     "type": "paragraph",
+     "text": "Prader-Willi syndrome Chromosome 15q SNORP gene Paternal deletion Maternal imprinting Angelman syndrome Chromosome 15q UBE3A gene Maternal deletion Paternal imprinting Gonadal mosaicism (Option A) refers to a condition where some of an individual's gametes (eggs or sperm) carry a mutation that is not present in the somatic cells. It does not involve differential expression based on the parent of origin, which is specific to genomic imprinting."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Anticipation (Option C):** refers to the phenomenon where a genetic disorder becomes more severe or appears at an earlier age with each successive generation. It is seen in trinucleotide repeat disorders."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Incomplete penetrance (Option D):** refers to situations where an individual with a disease-causing genotype does not show the expected phenotype. Example: BRCA1 gene mutations, which increase the risk of breast and ovarian cancer. Some individuals with the mutation never develop cancer despite carrying the gene."
+    }
+   ]
+  },
+  {
+   "id": "pathology-13-5",
+   "question": "Match the following with the appropriate disorder. A. Autosomal recessive Kennedy disease B. Mitochondrial 2. Duchenne’s muscular dystrophy C. X-linked recessive 3. Leber’s disease D. Trinucleotide repeats 4. Cystic fibrosis",
+   "options": {
+    "A": "A-4, B-3, C-1, D-2",
+    "B": "A-4, B-3, C-2, D-1",
+    "C": "A-2, B-1, C-3, D-4",
+    "D": "A-1, B-2, C-4, D-3"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Autosomal recessive Cystic fibrosis Mitochondrial Leber’s disease X-linked recessive Duchenne’s muscular dystrophy Trinucleotide repeats Kennedy disease Other genetic disorders: Autosomal Recessive Disorders (Mnemonic: Pasta Fried Chawal/ Big Fax) P - Phenylketonuria A - Alkaptonuria S - Sickle cell anaemia Ta - Thalassemia Fried - Friedreich's ataxia C - Cystic Fibrosis H - Hemophilia C, Homocystinuria, Hemochromatosis A - Alpha 1 Antitrypsin Deficiency W - Wilson Disease A - Albinism, Congenital Adrenal Hyperplasia L - Lysosomal Storage Disease, Glycogen Storage Disease Big -Bloom syndrome Fa - Fanconi anemia, Ataxia telangiectasia X - Xeroderma pigmentosum X-linked Recessive (Mnemonic: WISE ABCDEFGH) Wise- Wiskott Aldrich Syndrome AB- Hemophilia A, B B- Bruton's Hypogammaglobulinemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "C- Chronic Granulomatous Disease, Red Green Color Blindness D- DMD (Duchenne’s muscular dystrophy), BMD (Becker Muscular Dystrophy) E- Lesch Nyhan Syndrome F- Fabry Disease, Fragile X Syndrome G- G6PD Deficiency H- Hunter Disease Trinucleate-Repeat Disorders Fragile X Syndrome Friedreich ataxia Myotonic dystrophy Spinobulbar muscular atrophy (Kennedy disease) Dentatorubral-pallidoluysian atrophy (Haw River syndrome) Spinocerebellar ataxia Huntington disease"
+    }
+   ]
+  },
+  {
+   "id": "pathology-13-6",
+   "question": "In cystic fibrosis, which of the following structures is affected in the pancreas?",
+   "options": {
+    "A": "A",
+    "B": "B",
+    "C": "C",
+    "D": "D"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "\"B\" represents the acini, the functional units of the exocrine pancreas that produce and secrete digestive enzymes into the pancreatic ducts, and these are affected in Cystic Fibrosis, an autosomal recessive genetic disorder. Pathogenesis: It is caused by mutations in the cystic fibrosis transmembrane conductance regulator (CFTR) gene, resulting in a defect in the production or function of the CFTR protein."
+    },
+    {
+     "type": "paragraph",
+     "text": "This leads to thick, sticky mucus forming in various organs, including the pancreas. In the pancreas, the defective CFTR protein affects the secretion of chloride ions and water, dehydrating pancreatic secretions."
+    },
+    {
+     "type": "paragraph",
+     "text": "This thickened mucus obstructs the pancreatic ducts, preventing the proper flow of digestive enzymes from the acini into the duodenum. (Option B) Consequently, there is a reduction in the production and release of pancreatic enzymes, leading to impaired digestion and malabsorption of nutrients."
+    },
+    {
+     "type": "paragraph",
+     "text": "Clinical features: Respiratory system Gastrointestinal and hepatic Others Progressive airway obstruction Infective exacerbations of bronchiectasis Respiratory failure Spontaneous pneumothorax Haemoptysis Lobar collapse due to secretions Pulmonary hypertension Nasal polyps Malabsorption and steatorrhoea Distal intestinal obstruction syndrome Biliary cirrhosis Portal hypertension, varices, and splenomegaly Gallstones Diabetes Delayed puberty, Male infertility Stress incontinence due to repeated forced cough Psychosocial problems Osteoporosis Arthropathy Cutaneous vasculitis A (Option A) is the islets of Langerhans, responsible for the production and secretion of hormones such as insulin and glucagon."
+    },
+    {
+     "type": "paragraph",
+     "text": "It is not the target of cystic fibrosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**C (Option C):** is the intralobular duct, which is part of the pancreatic duct system and plays a role in transporting pancreatic enzymes. It is not the target of cystic fibrosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**D (Option D):** is the interlobular duct that transports pancreatic secretions and is not the target of cystic fibrosis."
+    }
+   ]
+  },
+  {
+   "id": "pathology-13-7",
+   "question": "A karyotyping image is given below. What are the clinical features most likely to be expected in such patients?",
+   "options": {
+    "A": "Gynecomastia and long limbs",
+    "B": "Flat occiput",
+    "C": "Webbing of neck and lymphedema",
+    "D": "Cleft lip and polydactyly"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The karyotype image reveals an additional X chromosome, confirming the presence of Klinefelter Syndrome (47, XXY), a condition often associated with features like gynecomastia and longer limbs. It is male hypogonadism resulting from two or more X chromosomes and one or more Y chromosomes. It is an important genetic cause of reduced spermatogenesis and male infertility."
+    },
+    {
+     "type": "paragraph",
+     "text": "Karyotype: The most common is 47, XXY, from meiotic nondisjunction; some have mosaic patterns (e.g., 46, XY/47, XXY). X chromosome genes: Some genes escape inactivation, leading to uneven dosage compensation and overexpression. Clinical features of Klinefelter syndrome: Gynecomastia (breast development) Long limbs Infertility (most common cause of male hypogonadism and infertility)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Flat occiput (Option B):** is a feature of Down syndrome (Trisomy 21), a genetic condition caused by an extra chromosome 21, leading to intellectual disability, developmental delays, and physical traits like a flat face and almond-shaped eyes. It’s linked to heart defects, hearing loss, and other health issues."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Webbing of the neck and lymphedema (Option C):** are features of Turner’s syndrome, a genetic condition that occurs when a female is born with only one full X chromosome (45, X instead of the usual 46, XX). It leads to short stature, infertility, and sometimes heart defects, kidney problems, and hearing loss. Individuals may also have learning difficulties, particularly with spatial reasoning."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Cleft lip and polydactyly (Option D):** are features of Patau syndrome (Trisomy 13), a genetic disorder caused by an extra copy of chromosome 13. It leads to severe intellectual disability, cleft lip and palate, polydactyly (extra fingers or toes), heart defects, and brain abnormalities. Most affected infants have a short life expectancy, often not surviving beyond the first year."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L13_Q007_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-13-8",
+   "question": "A girl presents with short stature, a webbed neck, thick calves, a shield-shaped chest, swelling of the ankle, and an increased carrying angle. What is the likely diagnosis?",
+   "options": {
+    "A": "Turner syndrome",
+    "B": "Down syndrome",
+    "C": "Patau syndrome",
+    "D": "Edward syndrome"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical features described are characteristic of Turner syndrome, which is a genetic condition caused by the partial or complete absence of one of the X chromosomes (45 XO karyotype). It leads to hypogonadism in phenotypic females. Features of Turner Syndrome: Down syndrome (Option B) results from Trisomy 21."
+    },
+    {
+     "type": "paragraph",
+     "text": "It is associated with features such as intellectual disability, epicanthal folds, flat facial profile, and congenital heart defects but does not include the specific skeletal and physical features seen in Turner syndrome."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Patau syndrome (Option C):** occurs due to trisomy 13, and its clinical features include microphthalmia, microcephaly, rocker bottom feet, polycystic kidney disease, and congenital heart disease, none of which are consistent with the features described in the question."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Edward syndrome (Option D):** is caused by the presence of an extra copy of chromosome 18 (Trisomy 18) and is characterized by severe developmental delay, clenched fists, rocker-bottom feet, and heart defects, which differ significantly from the features seen in Turner syndrome."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L13_Q008_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L13_Q008_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pathology-13-9",
+   "question": "The family pedigree chart is given below. Identify the mode of inheritance of this condition.",
+   "options": {
+    "A": "Autosomal dominant",
+    "B": "Autosomal recessive",
+    "C": "X-linked dominant",
+    "D": "X-linked recessive"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The disease is transmitted from father to son, ruling out X-linked inheritance & the condition appears in every generation, with both males & females affected, suggesting an autosomal dominant pattern. Autosomal dominant inheritance pattern: The mode of transmission is vertical. An affected person has an affected parent. There is a 50% chance of the dominant trait being transmitted to offspring. Both males and females are equally affected."
+    },
+    {
+     "type": "paragraph",
+     "text": "The dominant gene is expressed in heterozygotes. Delayed age of onset. The trait appears in every generation without skipping. An unaffected offspring does not transmit the disease."
+    },
+    {
+     "type": "paragraph",
+     "text": "Examples of autosomal dominant disorders: Mnemonic Disease He H ereditary spherocytosis H ereditary hemorrhagic telangiectasia H ereditary non-polyposis colorectal cancer (HNPCC/Lynch syndrome) Has Huntington’s disease Hypertrophic cardiomyopathy A Autosomal dominant polycystic kidney disease Very Von Willebrand disease V on Hippel Lindau syndrome Dominant Dystonia myotonica Osteogenesis imperfecta Marfan’s syndrome Intermittent porphyria N F-1 & 2 Achondroplasia Noonan syndrome Tuberous sclerosis Powerful P seudohypoparathyroidism Father F amilial adenomatous polyposis Li Fraumeni syndrome F amilial hypercholesterolemia"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L13_Q009_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-13-10",
+   "question": "Which of the following statements is correct about Huntington's chorea?",
+   "options": {
+    "A": "It is a trinucleotide repeat disorder",
+    "B": "There is a loss of function type of mutation",
+    "C": "There are abnormal length repeats of CUG",
+    "D": "Abnormality is seen due to a defect in chromosome 6"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Huntington's chorea is a trinucleotide repeat disorder caused by the expansion of the CAG repeat in the HTT gene on chromosome 4. Huntington's disease: HD is an autosomal dominant disorder caused by the degeneration of striatal neurons, leading to a progressive movement disorder and dementia. Symptoms include chorea, bradykinesia, and rigidity. It is relentlessly progressive and fatal, typically over 15 years."
+    },
+    {
+     "type": "paragraph",
+     "text": "Pathogenesis: HD is a trinucleotide repeat expansion disease caused by a CAG repeat (Option C) in the HTT gene on chromosome 4p16.3 (Option D), encoding huntingtin protein."
+    },
+    {
+     "type": "paragraph",
+     "text": "Normal HTT genes have 6 to 35 CAG repeats, while pathogenic mutations have expanded repeats, leading to earlier disease onset with paternal transmission causing anticipation & the toxic gain-of-function (Option B) of mutant huntingtin is believed to be the primary pathogenic mechanism. Morphology: The brain exhibits atrophy of the caudate nucleus and putamen, along with ventricular dilation."
+    },
+    {
+     "type": "paragraph",
+     "text": "There is a loss of striatal neurons, particularly affecting GABAergic neurons in the caudate and putamen. Gliosis is more extensive than usual due to neuronal loss. Clinical features: The loss of striatal neurons results in increased motor activity, causing choreoathetosis. Cognitive decline follows, with symptoms such as forgetfulness and dementia."
+    },
+    {
+     "type": "paragraph",
+     "text": "The disease usually manifests in the fourth or fifth decade, and motor symptoms typically precede cognitive symptoms. The leading cause of death is often pneumonia, especially in advanced stages. Suicide rates are higher in HD patients."
+    }
+   ]
+  },
+  {
+   "id": "pathology-13-11",
+   "question": "Premature ageing in Werner syndrome is due to:",
+   "options": {
+    "A": "Increased telomerase activity",
+    "B": "Defects in DNA helicase",
+    "C": "Increase in length of telomere due to decrease in telomerase activity",
+    "D": "Decreased telomerase activity"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Werner syndrome, a rare autosomal recessive disorder, is characterised by premature ageing and accelerated development of age-related diseases. It results from mutations in the WRN gene, which encodes a DNA helicase involved in DNA repair and maintenance of genomic stability. Chromosomal damage accumulates rapidly due to the defective enzyme. This damage mimics normal ageing at a faster rate, leading to premature ageing."
+    },
+    {
+     "type": "paragraph",
+     "text": "Similar conditions like Bloom syndrome and ataxia-telangiectasia also involve mutations in genes responsible for DNA repair. These disorders result in genetic instability and accelerated ageing due to impaired DNA repair mechanisms."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Increased telomerase activity (Option A) is typically seen in some cancers, where it allows cells to maintain telomere length and avoid senescence. Increase in length of telomere due to decrease in telomerase activity (Option C) and Decreased telomerase activity (Option D): In Werner syndrome, telomere shortening occurs due to DNA repair defects rather than telomere maintenance problems. Telomerase activity is not significantly altered."
+    }
+   ]
+  },
+  {
+   "id": "pathology-13-12",
+   "question": "Which of the following disorders is inherited in an X-linked dominant pattern?",
+   "options": {
+    "A": "Rett syndrome",
+    "B": "Duchenne muscular dystrophy",
+    "C": "Huntington’s disease",
+    "D": "Tuberous sclerosis"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Rett syndrome is inherited in an X-linked dominant pattern, primarily affecting females. X-linked dominant inheritance: The gene responsible for the concerned trait or disorder is present on the X chromosome and can express itself both in homozygous and heterozygous conditions. It is more commonly seen in females than males since females have two X chromosomes. An affected male will transmit the disease to all his daughters but not sons."
+    },
+    {
+     "type": "paragraph",
+     "text": "An affected female can transmit the disease to both daughters and sons. Conditions with X-linked dominant inheritance: Rett syndrome. Alport syndrome Vitamin D-resistant rickets. Incontinentia pigmenti. The pedigree chart below shows an X-linked dominant pattern: The affected mother of the first generation transmitted the disease to both son and daughter. The affected father of the second generation transmitted the disease only to the daughters."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Duchenne muscular dystrophy (Option B):** follows an X-linked recessive inheritance pattern."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Huntington’s disease (Option C):** follows an autosomal dominant inheritance pattern."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Tuberous sclerosis (Option D):** is inherited in an autosomal dominant pattern. Learning Objective: X-linked dominance is more common in females. Affected males transmit the disease only to their daughters. Affected females transmit the disease to both daughters and sons."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L13_Q012_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-13-13",
+   "question": "What is the diagnosis of a 14-year-old child who has short stature, widely placed nipples, and primary amenorrhea?",
+   "options": {
+    "A": "Turner syndrome",
+    "B": "Down syndrome",
+    "C": "Edward syndrome",
+    "D": "Pattau syndrome"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Turner syndrome, also known as 45,X or monosomy X, is a genetic condition that affects females. It occurs when one of the two X chromosomes is partially or completely missing. The syndrome can lead to a variety of physical and developmental features. The symptoms mentioned in the question are characteristic of Turner syndrome: Short stature: Girls with Turner syndrome often experience growth failure and have shorter-than-average height."
+    },
+    {
+     "type": "paragraph",
+     "text": "Nipples widely placed: One of the physical features commonly seen in Turner syndrome is a wide spacing between the nipples. Primary amenorrhea: Girls with Turner syndrome typically have delayed or absent puberty, leading to the absence of menstrual periods."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B: Down syndrome (trisomy 21): Down syndrome is a genetic disorder caused by the presence of an extra copy of chromosome 21. It is characterized by distinct physical features, intellectual disability, and various health issues. However, the symptoms mentioned in the question, such as short stature, widely placed nipples, and primary amenorrhea, are not typical of Down syndrome. Therefore, Down syndrome is not the correct diagnosis in this case."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C: Edward syndrome (trisomy 18): Edward syndrome is a genetic disorder caused by the presence of an extra copy of chromosome 18. It is associated with multiple congenital abnormalities affecting various organ systems. However, the symptoms mentioned in the question, including short stature, widely placed nipples, and primary amenorrhea, are not specifically associated with Edward syndrome. Hence, Edward syndrome is not the correct diagnosis for the presented symptoms."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D: Patau syndrome (trisomy 13): Patau syndrome is a genetic disorder caused by the presence of an extra copy of chromosome 13. It is characterized by severe developmental issues, multiple congenital abnormalities, and intellectual disability. However, the symptoms described in the question, such as short stature, widely placed nipples, and primary amenorrhea, are not typically associated with Patau syndrome. Therefore, Patau syndrome is not the correct diagnosis for the given symptoms."
+    }
+   ]
+  },
+  {
+   "id": "pathology-13-14",
+   "question": "Which of the following is the mode of inheritance in a patient suffering from red-green colour blindness?",
+   "options": {
+    "A": "Autosomal dominant",
+    "B": "Autosomal recessive",
+    "C": "X-linked dominant",
+    "D": "X-linked recessive"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Red-Green color blindness is often inherited in an X-linked recessive manner. The genes responsible for color vision are located on the X chromosome, and the condition is more prevalent in males due to their hemizygous nature."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Autosomal dominant: Red-Green color blindness is not typically inherited in an autosomal dominant manner. The condition is more commonly associated with sex-linked inheritance."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Autosomal recessive: Autosomal recessive inheritance is not the typical mode for Red-Green color blindness. The condition is more commonly associated with X-linked inheritance."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - X-linked dominant: X-linked dominant inheritance is not the typical mode for Red-Green color blindness. The condition is more commonly associated with X-linked recessive inheritance."
+    }
+   ]
+  },
+  {
+   "id": "pathology-13-15",
+   "question": "t(11,22) is best diagnosed by …………..",
+   "options": {
+    "A": "Conventional karyotyping",
+    "B": "FISH",
+    "C": "Bone marrow aspiration",
+    "D": "Next generation sequencing"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Is a molecular cytogenetic technique that uses fluorescent probes to visualize specific DNA sequences. In the case of t(11,22) translocation, FISH can identify the rearrangement by detecting the fusion of the genes involved in the translocation. FISH is highly sensitive and specific for detecting chromosomal abnormalities, even at the level of individual genes."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A. Conventional karyotyping: Conventional karyotyping involves examining the chromosomes' structure and number under a microscope. However, it may not provide sufficient resolution to detect small translocations like t(11,22). Option C. Bone marrow aspiration: Bone marrow aspiration is a procedure to obtain a sample of bone marrow for examination under a microscope. While it can help diagnose certain conditions, it is not the primary method for detecting chromosomal translocations like t(11,22). Option D. Next-generation sequencing (NGS): NGS is a powerful sequencing technology that allows the analysis of multiple genes and genetic variants simultaneously. It is primarily used for genetic testing, including the identification of specific mutations and genetic alterations. While NGS can detect genetic abnormalities, it may not be the most efficient method for diagnosing t(11,22) translocation specifically."
+    }
+   ]
+  },
+  {
+   "id": "pathology-13-16",
+   "question": "Which of the following is not an aneuploidy?",
+   "options": {
+    "A": "Bloom syndrome",
+    "B": "Trisomy 13",
+    "C": "Trisomy 21",
+    "D": "Klinefelter syndrome"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Aneuploidy refers to a numerical abnormality in chromosomes — gain or loss of whole chromosomes. Normal human chromosome number: 46 (2n) Trisomy = 2n + 1 (47 chromosomes) Monosomy = 2n – 1 (45 chromosomes) Bloom Syndrome: Genetic defect: Mutation in BLM gene on chromosome 15. Autosomal recessive disorder caused by loss-of-function mutations in a DNA helicase that is required for homologous recombination repair in DNA repair."
+    },
+    {
+     "type": "paragraph",
+     "text": "Result: Defective DNA repair → Chromosomal instability → Predisposition to cancer. Chromosome number is normal (46) - it’s a chromosomal instability disorder, not a numerical abnormality."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Condition Description Chromosome Count Aneuploidy Type Trisomy 13 (Option B):** Patau syndrome 47 2n + 1 Trisomy 21 (Option C) Down syndrome 47 2n + 1 Klinefelter syndrome (Option D) 47,XXY (extra X chromosome in males) 47 2n + 1 (sex chromosome)"
+    }
+   ]
+  },
+  {
+   "id": "pathology-13-17",
+   "question": "What is the status of the marked individual?",
+   "options": {
+    "A": "Adopted from another family",
+    "B": "Has a disease of chronic origin",
+    "C": "Curable disease",
+    "D": "Twin"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "In standard pedigree notation: An individual marked with brackets around the symbol indicates adoption. If the brackets are dashed, it usually means adopted in (from another family). If the brackets are solid, it usually means adopted out (given to another family)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Has a disease of chronic origin / Curable disease (Option B, C):** would be indicated by shading or other symbols, not brackets."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Twin (Option D):** represented by two siblings connected by a triangle or horizontal bar, not brackets."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L13_Q017_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L13_Q017_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L13_Q017_explanation_3"
+    }
+   ]
+  },
+  {
+   "id": "pathology-13-18",
+   "question": "A 25-year-old man presents with headaches, visual disturbances, and hypertension. MRI brain shows a cerebellar hemangioblastoma, and abdominal imaging reveals multiple cysts in the kidneys along with a solid renal mass suggestive of renal cell carcinoma. His father had similar findings and died from a brain tumor in his 40s.Which of the following chromosomal abnormalities is most likely associated with his condition?",
+   "options": {
+    "A": "Deletion on chromosome 13q",
+    "B": "Deletion on chromosome 17p",
+    "C": "Deletion on chromosome 3p",
+    "D": "Trisomy of chromosome 12"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The most likely diagnosis is Von Hippel-Lindau (VHL) disease, a hereditary condition characterised by the development of multiple cysts in the kidneys, pancreas, and other organs. Genetics and pathogenesis: Inheritance: Autosomal dominant Gene: VHL tumour suppressor Chromosomal location: 3p25–26 Pathogenesis: The VHL gene product is part of a complex that degrades hypoxia-inducible factor (HIF) under normal oxygen levels."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mutation or deletion → HIF is not degraded → ↑ VEGF, PDGF → abnormal angiogenesis and tumour formation. Classic tumours/cysts: CNS: Hemangioblastomas (esp. cerebellum, retina, spinal cord) Kidneys: Simple cysts, clear cell RCC Adrenal glands: Pheochromocytoma - headaches, palpitations, and sweating Pancreas: Cysts, neuroendocrine tumours Inner ear: Endolymphatic sac tumours 13q deletion (Option A): RB1 gene loss → retinoblastoma, osteosarcoma."
+    },
+    {
+     "type": "paragraph",
+     "text": "**17p deletion (Option B):** TP53 loss → Li-Fraumeni syndrome (sarcomas, breast cancer, brain tumors, adrenal carcinoma)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Trisomy 12 (Option D):** common cytogenetic change in CLL."
+    }
+   ]
+  },
+  {
+   "id": "pathology-13-19",
+   "question": "FBN1 gene mutation is seen in which of the following genetic disorders?",
+   "options": {
+    "A": "Ehlers-Danlos syndrome",
+    "B": "Marfan syndrome",
+    "C": "Homocystinuria",
+    "D": "von Hippel-Lindau syndrome"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Marfan syndrome is commonly associated with mutations in the FBN1 gene, which encodes the connective protein fibrillin on chromosome 15q21. Pathophysiology: Abnormal fibrillin-1 → defective microfibrils → weakened elastic fibres. This leads to increased TGF-β activity, which contributes to the characteristic features of the syndrome. Mode of inheritance: Autosomal dominant. Multisystem disorder with involvement of the connective tissues."
+    },
+    {
+     "type": "paragraph",
+     "text": "Clinical features: Skeletal abnormalities: Tall, thin build with long limbs ( dolichostenomelia ) Arachnodactyly Chest wall abnormalities like pectus excavatum/Pectus carinatum Thumb sign( On folding the thumb, it will protrude beyond the ulnar border of palm) or wrist sign is positive Increased joint laxity Scoliosis CVS abnormalities: Aortic root dilation → aortic regurgitation Risk of aortic aneurysm and dissection Mitral valve prolapse Arrhythmias Eye abnormalities: Ectopia lentis or subluxation of the lens of the eye Blindness, Myopia Pulmonary involvement: Increased risk of pneumothorax Diagnosis: Marfan syndrome is clinically diagnosed using the Ghent criteria Ehlers-Danlos syndrome (Option A): Usually due to collagen synthesis defects (type III or type V collagen), not FBN1."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Homocystinuria (Option C):** Due to cystathionine β-synthase deficiency → high homocysteine levels; may have marfanoid habitus but with downward lens dislocation and thrombosis risk."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Von Hippel–Lindau syndrome (Option D):** Due to VHL gene mutation on chromosome 3p, not FBN1; characterized by hemangioblastomas, renal cell carcinoma, and pheochromocytomas."
+    }
+   ]
+  },
+  {
+   "id": "pathology-13-20",
+   "question": "A lymphoma characterised by the presence of centrocytes and centroblasts, along with BCL2 positivity and CD10 expression, is most commonly associated with which chromosomal translocation?",
+   "options": {
+    "A": "t(2;5)",
+    "B": "t(8;14)",
+    "C": "t(14;18)",
+    "D": "t(11;14)"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The given HPE findings of the presence of centrocytes and centroblasts are consistent with Follicular lymphoma, which is associated with BCL2- gene translocation and CD10+; the chromosomal translocation associated with it is t(14:18). Follicular lymphoma (FL) is a malignant neoplasm originating from germinal centre B-cells, characterised by the t(14;18) translocation leading to overexpression of BCL2."
+    },
+    {
+     "type": "paragraph",
+     "text": "Clinically, it presents with painless lymphadenopathy and may include systemic symptoms. Histopathologically, FL exhibits a nodular growth pattern with centrocytes(Small cells with cleaved nuclei and scanty cytosol) and centroblasts(Larger cells with open nuclear chromatin, several nucleoli) Immunohistochemistry shows positivity for CD10/19/20, BCL2, and BCL6, and negativity for CD5."
+    },
+    {
+     "type": "paragraph",
+     "text": "Management focuses on palliative approaches due to its indolent but incurable nature."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Incorrect Options: t(2;5) (Option A):** This translocation is associated with Anaplastic large cell lymphoma. It is seen in children or young adults. It is associated with an ALK gene mutation on chromosome 2. Histopathology reveals large anaplastic cells with horseshoe-shaped nuclei and voluminous cytoplasm ( Hallmark cells/Doughnut cells ). It usually presents with soft tissue involvement (mimicking metastatic carcinoma). t(8;14) (Option B): This translocation is associated with Burkitt’s lymphoma. Histopathological examination reveals numerous mitotic and apoptotic cells, nuclear remnants phagocytosed by benign macrophages with abundant clear cytoplasm, creating a characteristic \"starry sky\" pattern. Immunohistochemistry shows positivity for IgM, CD19, CD20, CD10, and BCL6, but negativity for BCL2. t(11;14) (Option D): This translocation is associated with Mantle cell lymphoma. Immunohistochemistry shows positivity for Cyclin D1, CD19, CD20, surface immunoglobulins (usually IgM and IgD), and CD5, but CD23 is negative and HPE shows small lymphoid cells with irregular nuclear outlines, condensed chromatin, and scanty cytoplasm"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L13_Q020_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L13_Q020_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L13_Q020_explanation_3"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L13_Q020_explanation_4"
+    }
+   ]
+  }
+ ]
+}

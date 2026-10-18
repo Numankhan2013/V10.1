@@ -1,0 +1,653 @@
+{
+ "batch": "pathology-060",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pathology-060",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pathology-73-38",
+   "question": "Which of the following cells are located in the centre of the lumen in a venule?",
+   "options": {
+    "A": "Lymphocytes",
+    "B": "RBCs",
+    "C": "Neutrophils",
+    "D": "Platelets"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Red blood cells (RBCs) are located in the centre of the lumen in a venule. In venules with normal blood flow, red blood cells remain in the central axial column, while leukocytes are displaced toward the vessel wall. They are responsible for transporting oxygen from the lungs to the tissues and returning carbon dioxide from the tissues to the lungs."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Lymphocytes (Option A):** are white blood cells essential for immunity, comprising B cells (antibody production), T cells (immune regulation), and Natural Killer cells (targeting infected or cancerous cells). They originate in the bone marrow, circulate in the blood and lymph, and typically adhere to the endothelium of blood vessels rather than residing within the venous lumen."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Neutrophils (Option C):** are white blood cells essential for bacterial defence. Produced in the bone marrow, they rapidly migrate to infection sites and eliminate pathogens via phagocytosis. During inflammation, like lymphocytes, they tend to localize near vessel walls rather than the lumen."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Platelets (Option D):** are small cell fragments produced in the bone marrow that play a key role in blood clotting. They aggregate at injury sites to form clots and stop bleeding, typically found near vessel walls rather than in the centre of the lumen."
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-39",
+   "question": "A 20-year-old female who is a known case of sickle cell anaemia was rushed to the emergency department with a complaint of extreme pain in the legs and fingers for the past 4 hours. Further examination revealed pain and tenderness in the right upper quadrant, and investigations showed sickle cells on peripheral blood smear and high bilirubin(indirect). What is the diagnosis?",
+   "options": {
+    "A": "IDA",
+    "B": "Thalassemia",
+    "C": "Anaemia of chronic disease",
+    "D": "Sickle cell crisis"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient, a known case of sickle cell anaemia, presenting with severe leg and finger pain for the past 4 hours, right upper quadrant tenderness, sickle cells on the peripheral blood smear, and elevated indirect bilirubin is likely undergoing a vaso-occlusive crisis (type of sickle cell crisis), a common complication of Sickle Cell Disease (SCD)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Complications Acute Painful Episodes (Vaso-Occlusive Crisis) Characterised by unprovoked, severe, symmetrical pain often requiring strong opioids The most common acute event in sickle cell disease. Lasting from days to weeks. Sudden death during acute pain episodes can occur, possibly due to arrhythmias or pulmonary embolism. Acute Chest Syndrome: Symptoms include chest pain, cough, fever, hypoxia, and pulmonary infiltrates on x-ray."
+    },
+    {
+     "type": "paragraph",
+     "text": "It can be mild in children (e.g., due to viral infections) or severe with multiple lobes affected. Thrombocytopenia, leukocytosis, and rapid anaemia suggest severe complications like acute respiratory distress syndrome (ARDS) and multiorgan failure. Osteonecrosis: Involves the hips bilaterally. Chronic pain can progress to severe disability; MRI detects early stages, while X-rays are less sensitive."
+    },
+    {
+     "type": "paragraph",
+     "text": "Leg ulcer: Ulcers range from small and superficial to deep, covering most of the lower leg. Painful and difficult to treat if recurrent, long-standing and large ulcer."
+    },
+    {
+     "type": "paragraph",
+     "text": "Other Complications: Priapism Stroke and silent infarction Gallstones/Surgery Hepatic disease Nephropathy Lung/pulmonary hypertension Retinopathy Aplastic crisis: Caused by parvovirus B19 infection Multiorgan failure IDA (Iron Deficiency Anemia) (Option A) presents with microcytic hypochromic anaemia, not sickle cells on the smear. It also lacks acute pain crises and indirect hyperbilirubinemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Thalassemia (Option B):** causes chronic anaemia with target cells, not acute vaso-occlusive pain. It is also associated with ineffective erythropoiesis rather than hemolysis-induced hyperbilirubinemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Anaemia of chronic disease (ACD) (Option C):** is linked to chronic inflammation and cytokine-mediated iron sequestration, typically presenting with normocytic or microcytic anaemia without acute pain crises or hemolysis."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L73_Q039_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-40",
+   "question": "A patient reports to the outpatient department with complaints of fatigue. Investigation results indicate a Hb of 5.9, increased RDW and TIBC, and low ferritin. What is the most likely diagnosis?",
+   "options": {
+    "A": "Sideroblastic anemia",
+    "B": "IDA",
+    "C": "Anaemia of chronic disease",
+    "D": "Hemolytic anemia"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient's presentation with fatigue and investigations showing low haemoglobin, increased RDW, high TIBC, and low ferritin are consistent with a diagnosis of Iron Deficiency Anemia (IDA). It results in inadequate haemoglobin synthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Causes: Dietary lack Impaired absorption Increased requirement Chronic blood loss Pathogenesis: Iron deficiency initially depletes iron stores (low ferritin) while maintaining normal serum iron and transferrin saturation. As depletion progresses, serum iron declines, leading to reduced haemoglobin synthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Hypochromic microcytic anaemia develops once iron stores are exhausted, with low serum iron, ferritin, and transferrin saturation, while total iron-binding capacity (TIBC) increases. Clinical features include koilonychia, alopecia, atrophic glossitis, esophageal webs, pica, malabsorption, fatigue, pale skin, shortness of breath, dizziness, headaches, tachycardia, cold extremities, and restless leg syndrome."
+    },
+    {
+     "type": "paragraph",
+     "text": "Histopathology: Bone marrow aspiration: Increased erythroid progenitors and a lack of stainable iron in macrophages, best assessed by Prussian blue staining. Peripheral blood smears: Red cells are small (microcytic) and pale (hypochromic). Diagnosis: Iron Study Interpretation in Iron Deficiency Anemia Serum Ferritin Low (< 30 ng/mL) (depleted iron stores)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Serum Iron (Fe) Low levels Total Iron Binding Capacity (TIBC) Increased TIBC (increased capacity of transferrin to bind iron in response to low iron stores)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Red Cell Distribution Width (RDW) Increased RDW (Red Cell Distribution Width) Bone Marrow Aspiration and Iron Staining Confirmatory test Lab parameters in various anaemia: Serum Iron Transferrin saturation Serum Ferritin TIBC Sideroblastic Anemia (Option A ruled out) High High High Low Iron Deficiency Anemia (Option B) Low Low Low High Anaemia of Chronic Disease (Option C ruled out) Low Low High Low Hemolytic Anemia (Option D ruled out) High Low High Low"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L73_Q040_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-41",
+   "question": "A 25-year-old female patient presents to the clinic with complaints of fatigue, weakness, and pale skin. On further investigation, her complete blood count reveals a microcytic anemia. What is the likely diagnosis for this patient?",
+   "options": {
+    "A": "Alcoholism",
+    "B": "Chronic Kidney disease",
+    "C": "Hemolytic anemia",
+    "D": "Iron deficiency anemia"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Iron deficiency anemia is characterized by a deficiency of iron, a key component required for hemoglobin synthesis in red blood cells. Microcytic anemia, where the red blood cells are smaller than normal, is a hallmark of iron deficiency. The patient's symptoms of fatigue, weakness, and pale skin are classic signs of anemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "Iron deficiency can be caused by inadequate dietary intake, chronic blood loss (such as from menstruation or gastrointestinal bleeding), or poor iron absorption. Based on the patient's presentation of microcytic anemia along with the symptoms of fatigue, weakness, and pale skin, the most likely diagnosis is D. Iron deficiency anemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Alcoholism: Alcoholism can lead to various health issues, including anemia. However, in this case, the patient's presentation of fatigue, weakness, and pale skin along with microcytic anemia suggests a more specific cause related to iron deficiency."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Chronic Kidney Disease: Chronic kidney disease can cause anemia due to reduced production of erythropoietin (a hormone that stimulates red blood cell production) by the kidneys. However, anemia caused by chronic kidney disease is usually normocytic or normochromic rather than microcytic."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Hemolytic Anemia: Hemolytic anemia results from the destruction of red blood cells at a rate that exceeds their production. It can lead to a variety of symptoms, including fatigue and pale skin. However, microcytic anemia is typically associated with conditions related to impaired hemoglobin synthesis, like iron deficiency anemia, rather than hemolysis"
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-42",
+   "question": "A 45-year-old male patient with a history of chronic inflammatory conditions presents with fatigue, weakness, and pallor. Laboratory investigations reveal microcytic hypochromic anemia. Further evaluation suggests an underlying disorder affecting iron metabolism. Which cytokine is most likely inhibiting the activity of ferroportin in this patient?",
+   "options": {
+    "A": "IL-1",
+    "B": "IL-6",
+    "C": "IFN-gamma",
+    "D": "TNF-Alpha"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "IL-6 stands for Interleukin-6, which is a cytokine that plays a crucial role in inflammation and immune responses. In this scenario, the patient presents with microcytic hypochromic anemia, which is often caused by iron deficiency. Ferroportin is a protein that functions as an iron exporter, allowing iron to exit from cells into the bloodstream, where it can be utilized for various physiological processes including red blood cell production."
+    },
+    {
+     "type": "paragraph",
+     "text": "When ferroportin is inhibited, it leads to reduced iron export from cells and contributes to iron retention within the cells.In chronic inflammatory conditions, such as the one mentioned in the question, there is an increased production of IL-6. IL-6 has been shown to stimulate the production of hepcidin, a peptide hormone synthesized in the liver."
+    },
+    {
+     "type": "paragraph",
+     "text": "Hepcidin regulates iron homeostasis by binding to ferroportin and causing its internalization and degradation. This action reduces iron export from cells, leading to decreased iron availability for erythropoiesis (red blood cell production)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Consequently, chronic inflammation-induced elevation of IL-6 and subsequent increase in hepcidin levels result in reduced iron absorption and availability for red blood cell formation, leading to microcytic hypochromic anemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - IL-1: Interleukin-1 is also involved in inflammation and immune responses, but it does not have a direct role in inhibiting ferroportin. It can contribute to inflammation-induced systemic responses."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - IFN-gamma: Interferon-gamma (IFN-gamma) is primarily involved in immune responses and has not been directly implicated in the inhibition of ferroportin."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - TNF-Alpha: Tumor Necrosis Factor-alpha (TNF-alpha) is another cytokine involved in inflammation. It does contribute to the inflammatory response, but it is not the primary cytokine responsible for inhibiting ferroportin."
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-43",
+   "question": "Serum transferrin saturation level is low. What is the most likely condition?",
+   "options": {
+    "A": "Iron Deficiency Anemia",
+    "B": "Hemochromatosis",
+    "C": "Sideroblastic anemia",
+    "D": "Pernicious anemia"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Serum transferrin saturation is a key marker of iron status in the body. Low serum transferrin saturation indicates low iron stores, which is commonly seen in iron deficiency anaemia. Investigations for IDA Iron Study Interpretation in Iron Deficiency Anemia Serum Ferritin Low (< 30 ng/mL) indicates depleted iron stores. Serum Iron (Fe) Low levels are seen."
+    },
+    {
+     "type": "paragraph",
+     "text": "Total Iron Binding Capacity (TIBC) Increased TIBC reflects the increased capacity of transferrin to bind iron in response to low iron stores."
+    },
+    {
+     "type": "paragraph",
+     "text": "Transferrin saturation Is decreased, which refers to the percentage of transferrin that is bound to iron Red Cell Distribution Width (RDW) Increased RDW is often seen in iron deficiency anaemia Bone Marrow Aspiration and Iron Staining Confirmatory test Type of Anemia Serum Iron Transferrin saturation Serum Ferritin TIBC Sideroblastic Anemia (Option C ruled out) High High High Low Iron Deficiency Anemia Low Low Low High Hemochromatosis (Option B ruled out) High High High Low Pernicious anaemia (Option D) is an autoimmune condition that occurs when the body can't absorb enough vitamin B12."
+    },
+    {
+     "type": "paragraph",
+     "text": "It does not primarily affect iron metabolism, and transferring saturation levels would not be low in this condition."
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-44",
+   "question": "Which of the following is true about hereditary spherocytosis?",
+   "options": {
+    "A": "Gallstones develop by 4-5 years of age",
+    "B": "Splenectomy does not protect against developing gallstones",
+    "C": "At least 25% of cases have a family history of hereditary spherocytosis",
+    "D": "High MCH is pathognomonic of HS"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "25% of cases have a family history, as hereditary spherocytosis is often inherited in an autosomal dominant pattern (75% of cases show an autosomal dominant pattern). Hereditary spherocytosis (HS) is an inherited disorder caused by intrinsic defects in the red cell membrane skeleton that render red cells spheroid, less deformable, and vulnerable to splenic sequestration and destruction."
+    },
+    {
+     "type": "paragraph",
+     "text": "It has an autosomal dominant inheritance (75%) characterized by ankyrin mutation and an autosomal recessive inheritance characterized by spectrin mutation. Pathophysiology of hereditary spherocytosis: Most specific morphologic finding: Spherocytosis – dark-staining (hyperchromic) spherocytes lacking a central zone of pallor. Other features: Reticulocytosis due to increased red cell turnover."
+    },
+    {
+     "type": "paragraph",
+     "text": "Clinical features: Anemia, splenomegaly, jaundice, and increased risk of gallstones. Severity: Ranges from asymptomatic to severe hemolytic anaemia requiring transfusions. Complications: Early: Neonatal jaundice, hemolytic crises. Late: Gallstones, rarely iron overload."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L73_Q044_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L73_Q044_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-45",
+   "question": "Investigations of a patient being evaluated for leukaemia revealed a WBC count of 450,000/μL, with eosinophilia and basophilia. What is the likely diagnosis in this case?",
+   "options": {
+    "A": "Acute Lymphoblastic Leukemia (ALL)",
+    "B": "Chronic Myelogenous Leukemia (CML)",
+    "C": "Chronic Lymphocytic Leukemia (CLL)",
+    "D": "Acute Myelogenous Leukemia (AML)"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "A very high WBC count (450,000/microliter) with eosinophilia and basophilia is suggestive of Chronic Myelogenous Leukemia (CML). Chronic Myeloid Leukemia (CML) Category Description Genetics Philadelphia chromosome t(9;22) Origin Myeloid lineage Etiopathogenesis BCR-ABL fusion gene from t(9;22) increases tyrosine kinase activity, leading to uncontrolled myeloid proliferation. Radiation exposure is a risk factor. Clinical Features Affects adults."
+    },
+    {
+     "type": "paragraph",
+     "text": "Presents with splenomegaly, fatigue, weight loss, night sweats, and abdominal discomfort. It can progress to blast crisis, resembling acute leukaemia. Diagnosis Bone marrow aspirate to confirm. FISH detects the BCR-ABL fusion gene. Bone Marrow aspirate findings. Presence of scattered macrophages with abundant wrinkled, green-blue cytoplasm, called sea-blue histiocytes or pseudo-Gaucher cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "The marrow is markedly hypercellular due to massively increased numbers of maturing granulocytic precursors (elevated eosinophils and basophils ) Increased megakaryocytes, commonly with small, dysplastic forms called dwarf megakaryocytes. Normal or slightly decreased erythroid progenitors (increased myeloid: erythroid ratio). Increased deposition of reticulin fibres. Management Tyrosine kinase inhibitors (TKIs) like Imatinib."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Acute Lymphoblastic Leukemia (ALL) (Option A):** Lymphoblasts in bone marrow >=20% Cytoplasmic vacuolations They contain fat (Oil Red O Positive) Hand mirror-shaped cells Acute Myeloid Leukemia (AML) (Option D): Blasts ≥ 20% Myeloblasts with AuerRods Chronic Lymphocytic Leukemia (CLL) (Option C): Smudge cells (or parachute/basket cell): Due to the fragility of lymphocytes during slide preparation Convent girl appearance: Lot of homogenous, small, mature-like, round lymphocytes with scant cytoplasm Chronic Myeloid Leukemia (CML): Leukocytosis Cell Types: Neutrophils( multilobed nucleus), metamyelocytes (indented nucleus), myelocytes (D-shaped nucleus), and eosinophils (orange cells) College girl/garden party appearance: Due to the variety of cell appearances Shift to the Left: Presence of immature cell types, mainly immature neutrophils, in the blood."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L73_Q045_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L73_Q045_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L73_Q045_explanation_3"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L73_Q045_explanation_4"
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-46",
+   "question": "A 60-year-old woman presents with complaints of fatigue and dyspnea for 2 weeks. On examination, pallor is noted, and haemoglobin is found to be 6 gm/dL. What is the likely finding seen on the peripheral smear?",
+   "options": {
+    "A": "Poikilocytes",
+    "B": "Microcytic hypochromic cells",
+    "C": "Macrocytic cells",
+    "D": "Target cells"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "An elderly woman with fatigue, dyspnea, and severe anaemia (Hb 6 g/dL) suggests iron deficiency anaemia (IDA). The peripheral smear typically shows microcytic hypochromic cells, the hallmark of IDA. While poikilocytosis can be present, microcytosis and hypochromia are more characteristic."
+    },
+    {
+     "type": "paragraph",
+     "text": "Iron deficiency anaemia can result from dietary lack, impaired absorption, the increased iron requirement (pregnancy), or chronic blood loss (gastrointestinal bleeding). Clinical features: Koilonychia, alopecia, atrophic glossitis, oesophagal webs, pica and intestinal malabsorption, affecting overall nutritional status In iron deficiency anaemia (IDA), a peripheral blood smear can reveal characteristic changes."
+    },
+    {
+     "type": "paragraph",
+     "text": "Hypochromic Red Blood Cells: The RBCs appear pale due to decreased haemoglobin content. Microcytic Red Blood Cells: RBCs are smaller than normal due to decreased haemoglobin synthesis. Anisocytosis: There is significant variation in the size of RBCs. Poikilocytosis: RBCs may show abnormal shapes, such as pencil cells, target cells (codocytes), and occasionally, elliptocytes."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L73_Q046_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-47",
+   "question": "A 35-year-old woman presents with fatigue. Investigations reveal the following: Hemoglobin (Hb): 5 gm%, low mean corpuscular haemoglobin (MCH), and low mean corpuscular volume (MCV). The peripheral smear shows microcytic hypochromic red blood cells. What is the most likely diagnosis?",
+   "options": {
+    "A": "Megaloblastic anaemia",
+    "B": "Iron deficiency anaemia",
+    "C": "Thalassemia major",
+    "D": "Essential thrombocytosis"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The laboratory findings and peripheral smear indicate iron deficiency anaemia, characterized by microcytic, hypochromic RBCs, anisocytosis, and poikilocytosis. Iron deficiency anaemia can result from dietary lack, impaired absorption, increased iron requirement (pregnancy), or chronic blood loss (gastrointestinal bleeding)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Clinical features include Koilonychia, alopecia, atrophic glossitis, oesophagal webs, pica and intestinal malabsorption, affecting overall nutritional status. Iron studies commonly used in the diagnosis of iron deficiency anaemia (IDA): Iron Study Interpretation in Iron Deficiency Anemia Serum Ferritin Low (< 30 ng/mL) indicates depleted iron stores. Serum Iron (Fe) Low levels are seen in iron deficiency anaemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "Total Iron Binding Capacity (TIBC) Increased TIBC reflects the increased capacity of transferrin to bind iron in response to low iron stores. Red Cell Distribution Width (RDW) Increased RDW is often seen in iron deficiency anaemia Bone Marrow Aspiration and Iron Staining Confirmatory test Learning Objective: Microcytic Anaemia Normocytic Anaemia Macrocytic Anaemia S ideroblastic anemia. I ron deficiency anaemia. T halassemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "A naemia of chronic disease. L ead poisoning. (Mnemonic- SITAL) Acute Blood Loss Hemolytic Anaemia(hereditary spherocytosis) Anaemia of Chronic Disease Bone Marrow Disorders (e.g., Aplastic Anaemia) Renal Disease Endocrine Disorders (e.g., Hypothyroidism) Early stages of iron deficiency anaemia Vitamin B12 Deficiency Folate Deficiency Alcohol Abuse Liver Disease Hypothyroidism Myelodysplastic Syndrome"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L73_Q047_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-48",
+   "question": "Match the following cell types with their associated malignancy: Cell Type Associated Malignancy 1. Popcorn cell a. Acute promyelocytic leukemia 2. Faggot cell b. Lymphocyte-predominant Hodgkin’s lymphoma 3. Cerebriform nuclei c. Burkitt lymphoma 4. Starry sky appearance d. Sezary syndrome",
+   "options": {
+    "A": "1-b, 2-a, 3-d, 4-c",
+    "B": "1-a, 2-d, 3-c, 4-b",
+    "C": "1-b, 2-c, 3-a, 4-c",
+    "D": "1-a, 2-b, 3-d, 4-c"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Cell Type Associated Malignancy Popcorn cell Lymphocyte-predominant Hodgkin’s lymphoma Faggot cell Acute promyelocytic leukemia Cerebriform nuclei Sezary syndrome Starry sky appearance Burkitt lymphoma Popcorn cells are characteristic of lymphocyte-predominant Hodgkin's lymphoma. These cells have a distinctive appearance with irregular nuclei and are found in the background of reactive lymphocytes."
+    },
+    {
+     "type": "paragraph",
+     "text": "Popcorn cells Cells with multiple infolded nuclear membranes, small nucleoli, fine chromatin, and abundant pale cytoplasm. Seen in Nodular lymphocyte-Predominant Hodgkin lymphoma. Faggot cells are seen in acute promyelocytic leukaemia (APL). These are abnormal promyelocytes that appear as bundles of rods (also called Auer rods) within the cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "AML-M3 Acute promyelocytic leukemia t(15:17) - PML-RARα fusion Blocks promyelocyte → myelocyte transformation Bone marrow: Auer rods form criss-cross called faggot cell Can cause DIC PAS+ Cerebriform nuclei are a feature of Sezary syndrome, a type of cutaneous T-cell lymphoma. The nuclei have a convoluted, brain-like appearance, which is a key histological finding. Starry sky appearance is associated with Burkitt lymphoma."
+    },
+    {
+     "type": "paragraph",
+     "text": "It refers to darkly stained tumour cells with numerous bright spots representing macrophages engulfing apoptotic tumour cells."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L73_Q048_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L73_Q048_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L73_Q048_explanation_3"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L73_Q048_explanation_4"
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-49",
+   "question": "Which of the following for Sickle cell anaemia is correct?",
+   "options": {
+    "A": "Low mechanical fragility, high osmotic fragility",
+    "B": "High mechanical fragility, high osmotic fragility",
+    "C": "Low mechanical fragility, low osmotic fragility",
+    "D": "High mechanical fragility, low osmotic fragility"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Sickle cell disease (SCD) is a hemoglobinopathy characterized by the presence of abnormal haemoglobin, known as haemoglobin S (HbS). Under low oxygen conditions, HbS polymerizes, causing RBCs to assume a sickle shape. Sickle-shaped RBCs are more rigid and less deformable, leading to high mechanical fragility, making them more likely to rupture under stress."
+    },
+    {
+     "type": "paragraph",
+     "text": "Unlike normal RBCs, sickle-shaped RBCs have low osmotic fragility, meaning they are less prone to hemolysis in hypotonic solutions."
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-50",
+   "question": "Which of the following is a feature of hemolytic anaemia?",
+   "options": {
+    "A": "Increased haptoglobin",
+    "B": "Neutropenia",
+    "C": "Reticulocytopenia",
+    "D": "Decreased haptoglobin"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Decreased haptoglobin is a hallmark of hemolytic anaemia and helps distinguish it from other types of anaemia. In hemolytic anaemia, the destruction of RBCs increases the amount of free haemoglobin in the blood, which binds to haptoglobin."
+    },
+    {
+     "type": "paragraph",
+     "text": "Other conditions where haptoglobin is reduced are (intravascular hemolysis): Paroxysmal Nocturnal Hemoglobinuria (PNH) Microangiopathic Hemolytic Anemia (MAHA)- HUS, TTP, DIC Paroxysmal cold hemoglobinuria/Cold hemolysin type AIHA G6PD deficiency Neutropenia (Option B) refers to a low number of neutrophils, a type of white blood cell, which is not directly associated with hemolytic anaemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "Hemolytic anaemia primarily involves RBC destruction, not neutrophil abnormalities."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Reticulocytopenia (Option C):** In hemolytic anaemia, the body responds to RBC destruction by producing more reticulocytes (immature red blood cells) as part of the compensatory mechanism. Thus, you would typically see reticulocytosis, not reticulocytopenia."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L73_Q050_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-51",
+   "question": "A child presents with intermittent jaundice and splenomegaly. There is a history of similar complaints in the elder brother. A peripheral smear shows the following findings. Which of the following is the most appropriate diagnostic test for this condition?",
+   "options": {
+    "A": "Osmotic fragility test - Hereditary spherocytosis",
+    "B": "Coombs test - Autoimmune hemolytic anaemia",
+    "C": "Genetic testing - G6PD deficiency",
+    "D": "Flow cytometry - Paroxysmal nocturnal hemoglobinuria"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The given clinical scenario and peripheral smear showing spherocytes most likely suggest a diagnosis of hereditary spherocytosis. The osmotic fragility test is used to diagnose hereditary spherocytosis, as spherocytes are more fragile and lyse in hypotonic solutions."
+    },
+    {
+     "type": "paragraph",
+     "text": "Hereditary spherocytosis (HS) is an inherited disorder caused by intrinsic defects in the red cell membrane skeleton that render red cells spheroid, less deformable, and vulnerable to splenic sequestration and destruction. It has an autosomal dominant inheritance(75%) characterised by ankyrin mutation and an autosomal recessive inheritance characterised by spectrin mutation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Pathophysiology of hereditary spherocytosis: Mutations of ankyrin, band 3, spectrin, or band 4.2 ↓ Unstable RBC membrane with membrane loss ↓ The surface: volume ratio is reduced ↓ RBC takes up the shape of a sphere to compensate ↓ Spherical RBCs are trapped in splenic sinusoids due to large size ↓ Extravascular hemolysis The most specific morphologic finding is spherocytosis: Dark-staining (hyperchromic) spherocytes lacking the central zone of pallor."
+    },
+    {
+     "type": "paragraph",
+     "text": "Other features include reticulocytosis. The characteristic clinical features are anemia, splenomegaly, jaundice, and an increased risk of gallstones. Severity ranges from asymptomatic to severe hemolytic anemia requiring transfusions. Early complications include neonatal jaundice and hemolytic crises. Late complications include gallstones and rarely iron overload."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L73_Q051_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-52",
+   "question": "What is the most sensitive indicator for iron deficiency anaemia?",
+   "options": {
+    "A": "Serum ferritin",
+    "B": "TIBC",
+    "C": "Percentage saturation of transferrin",
+    "D": "Bone marrow iron"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The most sensitive indicator for iron deficiency anemia is serum ferritin. Ferritin is a protein that stores iron in the body. In cases of iron deficiency, the iron stores are depleted, leading to low levels of serum ferritin."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Options B, C, and D are incorrect."
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-53",
+   "question": "What is correct regarding transfusion of the blood received from the blood bank?",
+   "options": {
+    "A": "It should be started within 4 hours of receiving it from the blood bank",
+    "B": "It should be completed within 4 hours of receiving it from the blood bank",
+    "C": "No such time restraint and can be done anytime",
+    "D": "It should be completed within 6 hours of receiving it from the blood bank"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The transfusion should be completed within 4 hours of receiving the blood from the blood bank. The purpose of this time restriction is to ensure the safety and effectiveness of the transfusion by minimizing the risk of bacterial contamination and maintaining the quality of the blood product."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Options A, C, and D are incorrect."
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-54",
+   "question": "Choose the correct option regarding the storage temperature of blood components.",
+   "options": {
+    "A": "RBC = 20-22ºC, Platelet = 2-6ºC, FFP = 18ºC",
+    "B": "RBC = 2-6ºC, Platelet = 20-24ºC, FFP = -18ºC",
+    "C": "RBC = 30ºC, FFP = 2-6ºC Platelet = 20-22ºC",
+    "D": "RBC = 20-22ºC, FFP = Below -30ºC, Platelet = 2-6ºC"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Red blood cells: The storage temperature mentioned for RBCs is 2-6ºC. Platelets: Platelets are stored at room temperature 20-24ºC. Fresh Frozen Plasma: FFP is typically stored at a temperature of -18ºC or colder."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Options A, C, and D are incorrect."
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-55",
+   "question": "Hepcidin inhibits iron transfer from the enterocyte to the plasma by binding to:",
+   "options": {
+    "A": "Ferroportin",
+    "B": "Transferrin",
+    "C": "Divalent metal transporter-1 (DMT-1)",
+    "D": "Ferritin"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Ferroportin is a transmembrane protein found on the surface of enterocytes and macrophages. It is responsible for exporting iron from these cells into the bloodstream. Hepcidin, a peptide hormone produced by the liver, binds to ferroportin and triggers its internalization and degradation. This inhibits iron transfer from the enterocyte to the plasma, reducing iron absorption."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Transferrin: Transferrin is a plasma protein that binds to iron and transports it in the bloodstream."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Divalent metal transporter-1 (DMT-1): Divalent metal transporter-1 (DMT-1) is a transmembrane protein involved in the uptake of various divalent metals, including iron, into the enterocyte."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Ferritin: Ferritin is an intracellular protein that serves as the primary storage form of iron in cells."
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-57",
+   "question": "CD-59 is involved in:",
+   "options": {
+    "A": "Paroxysmal nocturnal hemoglobinuria",
+    "B": "Chediak-Higashi syndrome",
+    "C": "Essential thrombocythemia",
+    "D": "Primary myelofibrosis"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "CD59 is a regulatory protein that inhibits the complement system, specifically membrane attack complex (MAC) formation. In PNH, there is a deficiency of CD59 on the surface of red blood cells, making them susceptible to complement-mediated lysis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Options B, C, and D are incorrect."
+    }
+   ]
+  },
+  {
+   "id": "pathology-73-58",
+   "question": "What is the diagnosis for an individual whose serum alkaline phosphatase is normal, PTH is normal, and vitamin D3 is normal with elevated serum calcium?",
+   "options": {
+    "A": "Vitamin D intoxication",
+    "B": "Hyperparathyroidism",
+    "C": "Multiple myeloma",
+    "D": "Nutritional rickets"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Multiple myeloma can cause elevated serum calcium levels. It is a malignancy of plasma cells and can lead to bone destruction and an increased release of calcium into the bloodstream."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Vitamin D intoxication: Vitamin D intoxication can lead to elevated serum calcium levels."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Hyperparathyroidism: Hyperparathyroidism is characterized by excessive production of parathyroid hormone, which can lead to increased calcium levels."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Nutritional rickets: Nutritional rickets is a condition characterized by vitamin D deficiency, which can lead to low calcium levels."
+    }
+   ]
+  }
+ ]
+}

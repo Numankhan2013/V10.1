@@ -1,0 +1,96 @@
+# PrepLadder Pathology — November 2025 edition (2026-10-17)
+
+Pathology is a new Second Prof subject with one bank, PrepLadder. Source: the
+PrepLadder Pathology QBank generated on 18 November 2025 (nine PDFs,
+`pathoprep11-1-300.pdf` … `pathoprep11-2401-2889.pdf`, 2,889 pages), extracted
+by an external agent into a master JSONL, a manifest and 48 figure archives.
+
+- Build: `tools/build_prepladder_pathology_bank.py import <master.jsonl> <images-dir>`.
+- Text and block rules are Microbiology's (`tools/build_prepladder_microbiology_bank.py`).
+- Data: `data/Prepladder/pathology/`.
+
+## Result
+
+| | |
+|---|---:|
+| Questions | 1,459 |
+| Lessons (topics) | 90, in 4 sections |
+| PYQ lessons | 27 (615 questions), join the PYQ journey |
+| Figures | 1,676 (373 in stems, 1,303 in explanations) |
+
+- **Sections.** General Pathology, Systemic Pathology, Hematology, and Blood
+  Banking and Clinical Pathology.
+- **IDs.** `pathology-<lesson>-<n>`, lessons in source order; each question
+  also carries its PrepLadder QID.
+- **Home.** Pathology joins Microbiology under Second Prof, with the
+  microscope icon and its own accent dot (orange).
+
+## What was checked
+
+- **Counts.** Every lesson's question count matches the manifest; every
+  question has four options and one key, flagged correct in the source.
+- **Figures.** All 1,676 figures arrived, and each matches the manifest's pixel
+  size. Original bytes are kept; `tools/figure_trim.py` removed thin
+  extraction borders from 1,127.
+- **Text.** No ■ placeholder, leaked image markup or "Correct answer" lead
+  reaches the learner (the bank test fails otherwise).
+- **Against the PDF.** The combined `pathoprep11.pdf` was parsed separately
+  and matched by QID. All 1,450 printed "Correct Answer" lines agree with the
+  bank's key, letter and text; the 9 blank ones are the 9 `needs_review`
+  questions. Explanations match the PDF apart from removed debris (data-hash
+  leaks, `{{caption_text}}`, glyph runs). Options match apart from 2 Unicode
+  subscripts (O₂•⁻), 1 restored CBC and the 8 image-only option sets, which
+  the PDF does not print as text.
+- **Browser.** `tools/verify_prepladder_pathology_browser.py` walks Home →
+  bank → lessons → a stem figure → an explanation → a PYQ lesson.
+
+## Fixes made in the build
+
+- **Lesson titles.** The extraction title-cased every word ("Cml And Cll",
+  "Hodgkin'S"). Acronyms (ER, RHD, GIT, IBD, CNS, CML, CLL, WBC, ALL, AML),
+  Roman numerals and "Hodgkin's" are restored and joining words lowercased;
+  nothing else changes.
+- **Reference URLs.** The extraction turned `&source=` into `&source;=`; the
+  stray `;` is removed.
+- **References.** The "References:" line becomes its own block: one line per
+  source (split on ";"), book titles in italics, smaller muted text, and
+  always below the explanation figures (1,262 questions; 1,149 titles).
+- **"P - K - K" read as an ion.** The app's charge formatter turned a spaced
+  "K -" into K⁻. A hyphen now counts as a charge only when attached ("Cl-");
+  this applies to every bank.
+- **Long URLs on phones.** An unbroken reference URL widened the explanation
+  past the screen. The explanation column is now held to the container and
+  long strings wrap (applies to every structured explanation).
+
+## Known gaps
+
+- **17 explanations missing in the source.** The PDF prints only the tail of
+  a sentence ("Explanation: of the correct answer.", "for Assertion."), so
+  there is nothing to recover. The fragment is left out. For 14 nothing else
+  is printed but references: they show "The source PDF prints no explanation
+  for this question." and a review note. The other 3 print a figure, which is
+  the explanation; they carry a review note only.
+- **9 image-only option sets.** The PDF printed the options as images and left
+  the answer line blank; the extraction rebuilt the options and key from the
+  explanation. These stay `needs_review`.
+- **Option rulings stay inline.** About half of the paragraphs with
+  "(Option X ruled out)" markers are tables the PDF flattened into one line,
+  so splitting them into points by script produced nonsense; they need a
+  reader. `docs/EXPLANATION_RESTRUCTURE.md` hands that to outside models in
+  73 batches; `tools/explanation_restructure.py` accepts only answers whose
+  words match the source exactly. Two worked examples are applied
+  (pathology-1-3 list, pathology-6-12 table).
+- **Flat explanations.** As with Microbiology's November 2025 edition, the PDF
+  prints explanations as running text, so they show as paragraphs; option
+  analyses get a bold label.
+- No physical-device review.
+
+## Restructure run (2026-10-17)
+
+Outside agents returned 66 of the 73 batches on `restructure/pathology-all`;
+batches 065 and 068–073 were finished in-session, and the 3 questions batch 062
+had left out (76-8, 76-9, 77-1) were done by hand. All 73 batches are imported.
+Every question passed the word-for-word gate: 1,321 restructured (1,135 with
+points or tables; 343 tables in all), 121 marked unchanged, none rejected.
+Wide tables scroll inside
+their own box on a phone.

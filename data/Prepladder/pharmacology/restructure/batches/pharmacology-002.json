@@ -1,0 +1,529 @@
+{
+ "batch": "pharmacology-002",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pharmacology-002",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pharmacology-2-19",
+   "question": "A 55-year-old male with chronic obstructive pulmonary disease (COPD) is being treated with theophylline. He is prescribed erythromycin for a respiratory tract infection. Which of the following outcomes is most likely due to the interaction between these two drugs?",
+   "options": {
+    "A": "Decreased plasma concentration of theophylline",
+    "B": "Increased risk of theophylline toxicity",
+    "C": "No significant interaction",
+    "D": "Decreased efficacy of erythromycin"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Erythromycin is an inhibitor of the cytochrome P450 enzyme CYP1A2, which metabolises theophylline. Inhibition of this enzyme leads to higher plasma levels of theophylline, increasing the risk of toxicity. Theophylline toxicity: It has a narrow margin of safety, and dose-dependent toxicity starts from the upper half of the therapeutic concentration range. The image below shows the effects of theophylline toxicity."
+    },
+    {
+     "type": "paragraph",
+     "text": "Enzyme inhibitors: (leads to drug toxicity) Drugs (Mnemonic- COKE i n G allon Contain A rtificial P reser v atives): Cimetidine. Grapefruit juice (Furano coumarins). O meprazole. Clarithromycin & Ciprofloxacin. Ketoconazole. Acute alcoholism. E rythromycin. Protease inhibitor (Ritonavir). I soniazid (inhibits all CYP enzymes except CYP2E1). Valproate."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L02_Q019_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-2-20",
+   "question": "A patient with epilepsy is prescribed both Phenytoin and lamotrigine for seizure control. The patient reports worsening seizures despite adhering to the prescribed regimen. Which of the following best explains the potential reason for the failure of the regimen?",
+   "options": {
+    "A": "Increased absorption of lamotrigine",
+    "B": "Toxicity of lamotrigine",
+    "C": "Increased metabolism of lamotrigine",
+    "D": "Inhibition of transport of lamotrigine"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Lamotrigine is primarily metabolized by glucuronidation via the enzyme UGT1A4. Phenytoin is a potent enzyme inducer, especially of UGT and CYP450 enzymes."
+    },
+    {
+     "type": "paragraph",
+     "text": "When given together, phenytoin induces the metabolism of lamotrigine, leading to: Faster clearance of lamotrigine Lower plasma levels Subtherapeutic effect, resulting in worsening seizures despite compliance Enzyme Inducers and Inhibitors Enzyme Inducers: These increase drug metabolism → ↓ Drug effect Mnemonic – GRAASS: Inducer Effect Griseofulvin Antifungal – induces CYP enzymes Rifampicin Strong CYP3A4 inducer Antiepileptics Phenytoin, Carbamazepine, Phenobarbital – all induce metabolism Alcohol (Chronic) Induces CYP2E1 Smoking Induces CYP1A2 St."
+    },
+    {
+     "type": "paragraph",
+     "text": "John’s Wort Induces CYP3A4 and P-gp Enzyme Inhibitors: These decrease metabolism → ↑ Drug levels (toxicity risk) Mnemonic – G-PACMAN: Inhibitor Notes Grapefruit juice Inhibits intestinal CYP3A4 Protease inhibitors e.g., ritonavir – inhibits CYP3A4 Azoles e.g., ketoconazole – potent CYP inhibitors Cimetidine H2 blocker – inhibits multiple CYPs Macrolides e.g., erythromycin – inhibits CYP3A4 Amiodarone Inhibits CYP2C9, CYP3A4 Non-DHP CCBs Verapamil, Diltiazem – inhibit CYP3A4 Increased absorption of lamotrigine (Option A): Phenytoin does not affect lamotrigine's absorption significantly."
+    },
+    {
+     "type": "paragraph",
+     "text": "The issue lies in its metabolism, not uptake."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Toxicity of lamotrigine (Option B):** Toxicity occurs when metabolism is inhibited (e.g., by valproate), not when induced. Here, levels drop."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Inhibition of transport of lamotrigine (Option D):** There’s no major known effect of phenytoin on lamotrigine transporters."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-3-1",
+   "question": "Which of the following agents inhibits the action of an agonist on a receptor or the subsequent response but does not have any effect of its own?",
+   "options": {
+    "A": "Drug A",
+    "B": "Drug B",
+    "C": "Drug C",
+    "D": "Drug D"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "**Drug C (Option C):** Antagonist It prevents the action of an agonist on a receptor or the subsequent response but does not have any effect of its own. Naloxone, an opioid receptor antagonist, is commonly used to reverse opioid overdose."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Drug A (Option A):** Agonist It activates a receptor to produce an effect similar to the physiological signal molecule (e.g., morphine at opioid receptors)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Drug D (Option D):** Inverse Agonist It activates a receptor to produce an effect opposite to that of an agonist (e.g., Rimonabant at cannabinoid receptors)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Drug B (Option B):** Partial Agonist It activates a receptor to produce a submaximal effect and can block the action of a full agonist (e.g., Buprenorphine at opioid receptors). Super Agonist Not directly relevant to opioid overdose treatment but produces a maximum response greater than that of the endogenous agonist (e.g., BMS-986121 at GLP-1 receptors)."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L03_Q001_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-3-2",
+   "question": "A patient with an overdose of a toxic substance is treated with a drug that directly binds to and inactivates the toxic substance. Which type of antagonist is being used in this treatment?",
+   "options": {
+    "A": "Physical Antagonist",
+    "B": "Physiological Antagonist",
+    "C": "Chemical Antagonist",
+    "D": "Pharmacological Antagonist"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "**Correct answer- C) Chemical Antagonist Type of Antagonists Examples Chemical Antagonist (Option C):** Direct interaction between two drugs to form an inactive product. KMnO4 and Alkaloids: Potassium permanganate oxidises alkaloids and is used in gastric lavage for poisoning. Tannins and Alkaloids: Tannins react with alkaloids to form insoluble alkaloidal tannate. Chelating Agents (BAL, Calcium Disodium EDTA): These agents are complex with toxic metals like arsenic (As) and lead (Pb). Nitrites and Cyanide: Nitrites form methemoglobin, which reacts with cyanide radicals. Physical Antagonist (Option A) Physical methods are used to counteract the effects of a substance, often not involving receptor interactions. Activated charcoal is used to physically adsorb toxins in the gastrointestinal tract to prevent their absorption. Physiological Antagonist (Option B) Involves two agents that produce opposite effects on the same physiological function without interacting directly with each other or the same receptor. Insulin and glucagon are physiological antagonists. Insulin lowers blood glucose levels, while glucagon raises them. Histamine and adrenaline on bronchial muscles and blood pressure. Hydrochlorothiazide and amiloride on urinary potassium excretion. Pharmacological Antagonist(Option D) Drugs acting on the same receptor as the agonist but producing 0 overall effects and preventing the action of agonist on receptor. Morphine and naloxone Acetylcholine and atropine"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-3-3",
+   "question": "Which type of antagonist acts on different receptors or mechanisms to produce opposite effects on the same physiological function?",
+   "options": {
+    "A": "Competitive antagonist",
+    "B": "Non-competitive antagonist",
+    "C": "Physiological antagonist",
+    "D": "Inverse agonist"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "**Type of Antagonist Description Mechanism Example Competitive Antagonist (Option A):** Competes with agonists for the same binding site, reducing the potency of the agonist. Reversible binding to the same receptor site as the agonist. Propranolol (β-blocker) binds to β-adrenergic receptors, reducing the effect of adrenaline(β-agonist) Non-Competitive Antagonist (Option B) Prevents the action of an agonist without competing with it for the binding site. Irreversible binding to the receptor reduces the maximum effect of the agonist. Phenoxybenzamine binds to α-adrenergic receptors, reducing the effect of adrenaline."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Physiological Antagonist (Option C):** Acts on different receptors or mechanisms to produce opposite effects on the same physiological function. Does not directly interact with the same receptor or signaling pathway as the agonist. Calcium channel blocker reduces the effect of adrenaline on the heart."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Inverse Agonist (Option D):** Selectively binds to the inactive conformation of a constitutively active receptor, reducing the basal activity of the receptor. Binds to the inactive conformation of the receptor, reducing the basal activity. Propranolol (β-blocker) can act as an inverse agonist on β-adrenergic receptors, reducing the basal activity of the receptor."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-3-4",
+   "question": "In a pharmacology experiment, you observe that adding a competitive antagonist increases the EC50 without changing the maximum response. Adding a non-competitive antagonist decreases the maximum response without changing the EC50. Which of the following best describes the dose-response curve changes for these scenarios?",
+   "options": {
+    "A": "Competitive antagonist shifts left, non-competitive antagonist shifts down.",
+    "B": "Competitive antagonist shifts right, and non-competitive antagonist shifts down.",
+    "C": "Competitive antagonist shifts down, and non-competitive antagonist shifts right.",
+    "D": "Competitive antagonist shifts right, non-competitive antagonist shifts left."
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Competitive Antagonism Non-Competitive Antagonism Description Competes with agonists for the same receptor site Binds to a different site on the receptor, alters receptor function Effect on Dose-Response Curve Shifts to the right, no change in maximal response Flattens the curve, reduces the maximal response Reversibility Reversible Irreversible Maximal Response Unaffected Reduced Effective Concentration for 50% of population/ EC50 (Km) Decreased Unchanged"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L03_Q004_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-3-5",
+   "question": "Identify the correct statement based on the following Michaelis-Menten graph showing the effect of different types of inhibitors on a reaction.",
+   "options": {
+    "A": "B denotes competitive inhibition",
+    "B": "C denotes non-competitive inhibition",
+    "C": "Vmax is directly proportional to the enzyme concentration",
+    "D": "All of the above"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "All of the above. According to Michaelis Menten kinetics: V= (Vmax * [S]) / (Km + [S]) where Vmax – maximum velocity of a reaction Km - Concentration of substrate at which velocity is ½ of Vmax Vmax is directly proportional to the enzyme concentration (Option C) Km is inversely proportional to the affinity of the enzyme for its substrate."
+    },
+    {
+     "type": "paragraph",
+     "text": "COMPETITIVE INHIBITOR NON-COMPETITIVE INHIBITOR Uncompetitive inhibitior Substrate resemblance Resembles substrate. It does not resemble the substrate. It does not resemble the substrate. Effect on increasing [S] Inhibition can be reversed. Inhibition cannot be reversed. Inhibition can be reversed. Binding site Active site. Allosteric site."
+    },
+    {
+     "type": "paragraph",
+     "text": "Enzyme substrate complex Vmax Unchanged. (Option A) Decreases (as active enzyme decreases). (Option B) Decreases (as active enzyme decreases). Km Increases (more substrate needed to overcome inhibited enzyme). Unchanged (increasing substrate does not overcome the inhibition). Increases (more substrate needed to overcome inhibited enzyme)."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-3-6",
+   "question": "A clinical trial of 4 new drugs was conducted, and the following graph was obtained. Based on this graph, which of the following statements is/are correct? a) Drug A has the highest efficacy as well as the highest potency. b) Drug A has the highest efficacy but the lowest potency. c) Drug D has the highest efficacy as well as the highest potency. d) Drug B is more potent than drug C.",
+   "options": {
+    "A": "Statements a and d are correct",
+    "B": "Statements b and d are correct",
+    "C": "Only statement b is correct",
+    "D": "None of the statements are correct"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Drug A has the highest efficacy with the highest potency. Drug B is more potent than drug C. Efficacy is the maximal effect a drug can produce, represented by the Vmax /y-axis value. The higher the Vmax, the higher the efficacy. Potency is the amount of drug required to produce a given effect. The lower the drug dose needed, the higher the potency. Both are independent of each other; efficacious drugs can have high or low potency and vice versa."
+    },
+    {
+     "type": "paragraph",
+     "text": "The first graph helps us estimate the efficacy of the drugs (the higher the Vmax, the higher the efficacy, Thus Drug A > B >C >D. The second graph helps us estimate the drugs' potency (The lower the drug dose needed, the higher the potency). The left shift of the graph indicates an increase in potency. Thus Drug D > B > C > A."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-3-7",
+   "question": "Which of the following statements is true about dose-response curves (DRCs)?",
+   "options": {
+    "A": "Graded DRCs measure the all-or-none response to different drug doses within a population.",
+    "B": "Quantal DRCs plot the response to a drug continuously within an individual.",
+    "C": "U-shaped DRCs are rare and can indicate toxicity at both low and high doses.",
+    "D": "Graded DRCs are used to calculate the median effective dose (ED50) and the median lethal dose (LD50) in a population."
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Very few drugs form a U-shaped DRC; it has 3 parts 1st part: Less dose gives Adverse effect (deficiency) 2nd part: Therapeutic response (optimum dose) 3rd part: High dose gives Adverse effect (excess) Examples: Drug /hormone/vitamin Deficiency Excess Insulin Diabetes Hypoglycemia Iron Anemia Hemochromatosis Vitamin A Night blindness Liver damage, blurred vision."
+    },
+    {
+     "type": "paragraph",
+     "text": "Graded DRCs measure the all-or-none response to different drug doses within a population ( Option A) and graded DRCs are used to calculate the median effective dose (ED50) and the median lethal dose (LD50) in a population (Option D): Graded DRC is used for the determination of response in 1 individual. It measures the continuous response to different drug concentrations within an individual."
+    },
+    {
+     "type": "paragraph",
+     "text": "When the dose is increased gradually, the response also increases Example: Antihypertensives Helpful in finding out efficacy and potency."
+    },
+    {
+     "type": "paragraph",
+     "text": "Quantal DRCs plot the response to a drug continuously within an individual ( Option B): Quantal DRC is used to determine the response in a population (%). It measures an all-or-none response within a population, plotting the cumulative percentage of subjects that respond at each dose. They are used to Calculate ED50 and LD50. Therapeutic index of a drug."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L03_Q007_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L03_Q007_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-3-8",
+   "question": "Lithium was prescribed to a newly diagnosed patient with bipolar disorder. Frequent monitoring is needed while using Lithium as it has a lower therapeutic index. How is the therapeutic index of a drug calculated?",
+   "options": {
+    "A": "The ratio between the median toxic dose and median effective dose of lithium in the population.",
+    "B": "The ratio between the median effective dose and median toxic dose of lithium in the population.",
+    "C": "Product of median effective dose and median toxic dose of lithium.",
+    "D": "Average of the sum of the median effective dose and median toxic dose of lithium."
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The Therapeutic Index (TI) is a measure used to assess a drug's safety. It is defined as the ratio of the dose that produces toxicity to the dose that produces a therapeutic effect. TI= median toxic dose /median effective dose; (TD50/ED50) The therapeutic window is the range of drug concentrations that can safely and effectively treat the disease. If the TI window for a drug is narrow, it requires frequent monitoring."
+    },
+    {
+     "type": "paragraph",
+     "text": "E.g., W arfarin, T heophylline, D igoxin, L ithium ( W arning T hese D rugs are L ethal)"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L03_Q008_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-3-9",
+   "question": "A 35-year-old man with a history of epilepsy presents for a medication review. He has been taking phenytoin for the past year and wants to ensure his medication dosage is appropriate. Which of the following is the therapeutic range of phenytoin?",
+   "options": {
+    "A": "10-20 mcg/ml",
+    "B": "40-50 mcg/ml",
+    "C": "50-100 mcg/ml",
+    "D": "100-120 mcg/ml"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "10-20 mcg/ml The median effective dose (ED50) refers to the dose of a drug or biologic that produces a specific beneficial therapeutic response in 50% of the population that takes that dose. LD stands for \"Lethal Dose\". LD 50 is the amount of a material, given all at once, which causes the death of 50% (one-half) of a group of test animals."
+    },
+    {
+     "type": "paragraph",
+     "text": "The Therapeutic Range is the range between the minimal therapeutic effect and the maximal acceptable adverse effect (i.e., the range between ED50 and TD50). The drug doesn't work below ED50 (Area A) and is lethal above TD50. 10-20 mcg/ml is the therapeutic range of phenytoin, which implies that the drug doesn't work below 10 mcg/ml and is lethal above 20 mcg/ml."
+    },
+    {
+     "type": "paragraph",
+     "text": "The aim is to maintain the plasma concentration between this range for maximal therapeutic efficacy and safety. Therapeutic ranges of other drugs: Valproate: 50-100 mcg/ml (Option C) Phenobarbitone: 15-40 mcg/ml Digoxin: 0.6-2.0 ng/ml Theophylline: 10-20 mcg/ml Lithium: 0.5-1.5 meq/ml Vancomycin: 5-15 mcg/ml"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L03_Q009_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-3-10",
+   "question": "A 65-year-old man with a history of chronic heart failure presents for a follow-up appointment. He has been on digoxin therapy for several years. During the consultation, the cardiologist discusses the importance of therapeutic drug monitoring (TDM) to ensure optimal digoxin levels for effective treatment. TDM is NOT done in which of the following?",
+   "options": {
+    "A": "Detect drug levels in case of poisoning levels.",
+    "B": "Use of aminoglycosides in patients with renal failure.",
+    "C": "Drugs with a narrow therapeutic index.",
+    "D": "Drugs with irreversible action."
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Therapeutic drug monitoring (TDM) is the measurement of plasma drug concentration. It is expensive and is only done in: Drugs with low safety margin, e.g., Digoxin, Anticonvulsants, Antiarrhythmics, theophylline, aminoglycoside antibiotics, lithium, and tricyclic antidepressants. (Option C) If individual variations are large, e.g., Antidepressants, Lithium."
+    },
+    {
+     "type": "paragraph",
+     "text": "Nephrotoxic drugs used in renal failure, e.g., Aminoglycoside antibiotics and vancomycin. (Option B) In case of poisoning, detect drug levels and initiate treatment. (Option A) In case of failure of response, e.g., Antimicrobials. To check patient compliance, e.g., Phenytoin. TDM is not done in Drugs whose response is easily measurable, e.g., Antihypertensives, hypoglycemics, diuretics, oral anticoagulants, and inhalational general anaesthetics."
+    },
+    {
+     "type": "paragraph",
+     "text": "Drugs activated in the body, e.g., Levodopa. 'Hit and run drugs' (whose effect lasts much longer than the drug itself), e.g., reserpine, guanethidine, MAO inhibitors, omeprazole. Drugs with irreversible action, e.g., Organophosphate anticholinesterases, phenoxybenzamine."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-3-11",
+   "question": "Which of the following types of receptors is the fastest acting?",
+   "options": {
+    "A": "Enzyme-linked receptors",
+    "B": "G-protein coupled receptors",
+    "C": "Intracellular receptors",
+    "D": "Ligand-gated ion channel receptors"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Ligand-gated ion channels are cell surface receptors that enclose ion-selective channels (for Na+, K+, Ca2+, or Cl-) within their molecules. Agonist binding opens the channel and causes depolarisation/hyperpolarisation. Examples: Na: Excitatory Cl: Inhibitory Nicotinic receptor (acetylcholine) 5HT3 receptor (serotonin) NMDA receptor (glutamate) GABA - Cl Channel Glycine - Cl Channel The receptor is a pentameric protein with 5 subunits."
+    },
+    {
+     "type": "paragraph",
+     "text": "The agonist directly operates ion channels in these receptors without any coupling protein or second messenger intervention. The onset and offset or responses are the fastest (in milliseconds)."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L03_Q011_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-3-12",
+   "question": "Which is the active subunit of G-protein coupled receptors (GPCR)?",
+   "options": {
+    "A": "Alpha subunit (α)",
+    "B": "Beta subunit (β)",
+    "C": "Gamma subunit (γ)",
+    "D": "Delta subunit (δ)"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Alpha subunit (α) Alpha subunit (α) is the active subunit of G-protein coupled receptors (GPCR). G-protein coupled receptors (GPCR) are cell membrane receptors The molecule has 7 α -7-helical domains, which run in a serpentine manner into 3 extracellular and 3 intracellular loops."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L03_Q012_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L03_Q012_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-3-13",
+   "question": "Which second messenger is associated with phospholipase C (PLC) activation by Gq protein?",
+   "options": {
+    "A": "Cyclic AMP (cAMP)",
+    "B": "Inositol trisphosphate (IP3) and diacylglycerol (DAG)",
+    "C": "Cyclic GMP (cGMP)",
+    "D": "Nitric oxide (NO)"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "When ligand-bound G protein-coupled receptors (GPCRs) are activated, Gq protein stimulates phospholipase C (PLC). PLC hydrolyses phosphatidylinositol 4,5-bisphosphate (PIP2) into inositol trisphosphate (IP3) and diacylglycerol (DAG) which act as second messengers. IP3 binds to receptors on the endoplasmic reticulum, releasing calcium ions (Ca2+), which activate calcium-dependent enzymes and protein kinases."
+    },
+    {
+     "type": "paragraph",
+     "text": "DAG remains in the plasma membrane, activating protein kinase C (PKC) to phosphorylate target proteins, initiating cellular responses like gene expression and cell growth G Protein Type Effector Second Messenger(s) Pathway Gs Adenylyl cyclase Cyclic AMP (cAMP) Increases cAMP, activates protein kinase A (PKA) Gi Adenylyl cyclase Reduces cyclic AMP (cAMP) Decreases cAMP, inhibits protein kinase A (PKA) Gq Phospholipase C (PLC) Inositol trisphosphate (IP3) and DAG IP3 releases Ca2+ from ER; DAG activates protein kinase C (PKC)"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L03_Q013_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-3-14",
+   "question": "When bound to its receptor, which ligand activates Gs proteins, leading to increased adenylyl cyclase activity and elevated cAMP levels?",
+   "options": {
+    "A": "Serotonin at 5-HT1 receptors",
+    "B": "Glucagon",
+    "C": "Somatostatin",
+    "D": "Thromboxane"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Glucagon binds to glucagon receptors, which are Gs protein-coupled receptors. Activation of Gs leads to stimulation of adenylyl cyclase, increasing intracellular cyclic AMP (cAMP) levels. This mechanism underlies glucagon’s key metabolic effects such as glycogenolysis and gluconeogenesis in the liver."
+    },
+    {
+     "type": "paragraph",
+     "text": "G-Protein Subtypes, Ligands, and Receptors: Protein Ligands Receptors Gs Glucagon Glucagon receptor Epinephrine β-adrenergic receptors (β1, β2, β3) Histamine H₂ receptors Gi Acetylcholine Muscarinic M2 receptors Dopamine D₂ receptors Serotonin 5-HT₁ receptors Gq Serotonin 5-HT₂ receptors Acetylcholine Muscarinic M1 receptors Histamine H₁ receptors Thromboxane TP receptors Mechanisms of Ligands and Their G-protein Coupling: Ligand Receptor G-protein Type Effect on cAMP Glucagon Glucagon receptor Gs ↑ Activates adenylyl cyclase ↑ Serotonin (Option A ruled out) 5-HT₁ receptor Gi ↓ Inhibits adenylyl cyclase Somatostatin (Option C ruled out) Somatostatin receptor Gi ↓ Inhibits adenylyl cyclase Thromboxane (Option D ruled out) TP receptor Gq (mainly) Activates phospholipase C (↑IP₃/DAG), not cAMP"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-3-15",
+   "question": "Which of the following acts on enzyme-linked receptors?",
+   "options": {
+    "A": "Epinephrine",
+    "B": "Insulin",
+    "C": "Acetylcholine",
+    "D": "Dopamine"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Insulin primarily acts on enzyme-linked receptors, specifically receptor tyrosine kinases (RTKs), to regulate glucose metabolism and other cellular processes. Enzyme-linked receptors consist of a large extracellular ligand-binding domain connected through a single transmembrane helical peptide chain to an intracellular subunit with enzymatic properties."
+    },
+    {
+     "type": "paragraph",
+     "text": "Type of Kinase Receptor Ligands Receptor Tyrosine Kinases (RTKs) Receptor Serine/Threonine Kinases Cytokine Receptors (JAK-STAT pathway) Insulin, Epidermal Growth Factor (EGF) Transforming Growth Factor-beta (TGF-β) Growth Hormone, Erythropoietin (EPO) Epinephrine primarily acts on G protein-coupled receptors (GPCRs) and ligand-gated ion channels."
+    },
+    {
+     "type": "paragraph",
+     "text": "Acetylcholine primarily acts on muscarinic and nicotinic receptors, which are G protein-coupled (GPCRs) and ligand-gated ion channels. Dopamine primarily acts on dopamine receptors, which belong to the G protein-coupled receptor (GPCR)"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-3-16",
+   "question": "Which statement is not true about intracellular receptors?",
+   "options": {
+    "A": "Intracytoplasmic receptors are attached to heat shock proteins (HSP) when inactive.",
+    "B": "Intracellular receptors interact with lipid-soluble ligands that can pass through the cell membrane.",
+    "C": "Intracellular receptors typically require second messengers to relay the signal inside the cell.",
+    "D": "They interact with co-activators or co-repressors in the nucleus"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Intracellular receptors: They do not typically require second messengers to relay the signal inside the cell. Instead, these receptors, upon binding with their ligands, influence gene transcription, and protein synthesis directly through DNA. They directly act through DNA, influencing gene transcription."
+    },
+    {
+     "type": "paragraph",
+     "text": "These receptors can increase or decrease gene transcription through coactivators and corepressors and are known for their slow and sustained effects. Based on their location, intracellular receptors are classified into intranuclear receptors, which are already inside the nucleus, and intracytoplasmic receptors, which translocate to the nucleus after ligand binding."
+    },
+    {
+     "type": "paragraph",
+     "text": "Intranuclear Receptors Intracytoplasmic Receptors Thyroid Receptors Retinoic Acid Receptors PPAR Estrogen Receptors Glucocorticoid Receptors Mineralocorticoid Receptors Androgen Receptors Progesterone Receptors Calcitriol Receptors"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-4-1",
+   "question": "Which of the following is the recommended temperature for drugs which need to be stored in a refrigerator but not in the freezer?",
+   "options": {
+    "A": "1-7°C",
+    "B": "2-8°C",
+    "C": "4-12°C",
+    "D": "7-15°C"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The recommended temperature for drugs which need to be stored in a refrigerator but not in the freezer is 2-8°C. The United States Pharmacopeia recommends appropriate storage temperatures for drugs based on criteria that should not affect their efficacy."
+    },
+    {
+     "type": "paragraph",
+     "text": "Room temperature (controlled): 20 to 25°C. Cool storage: 8 to 15°C. Refrigerator storage: 2 to 8°C. Freezer storage: -25 to -10°C. Apart from temperature regulations, other recommendations like “store in a cool, dry place or protect from light” should also be followed because those drugs can be susceptible to damage by humidity or light, respectively."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-4-2",
+   "question": "Arrange the following steps in the correct order as they occur in the process of drug development: Filing of an Investigational New Drug (IND) application. Start toxicity and safety testing based on GLP guidelines. Approval from Central Drugs Standard Control Organization (CDSCO). Start pharmacokinetics and pharmacodynamics testing based on GCP guidelines. Filing of an NDA application to CDSCO. Approval from the Committee for Control and Supervision of Experiments on Animals (CPCSEA)",
+   "options": {
+    "A": "6, 2, 1, 4, 3, 5",
+    "B": "6, 2, 4, 1, 3, 5",
+    "C": "3, 2, 6, 1, 4, 5",
+    "D": "6, 2, 1, 4, 5, 3"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Steps in drug development: Pre-clinical study CPCSEA approval: ensuring the ethical treatment of animals in research. Initiate preclinical testing: Using GLP (Good Laboratory Practices) guidelines, animal studies are conducted to assess the safety and toxicity of drugs. IND application filing: Submit a new experimental drug application to CDSCO for a human clinical trial."
+    },
+    {
+     "type": "paragraph",
+     "text": "Begin clinical trials: Conducted in four stages to evaluate the drug's efficacy and safety using the GCP guidelines (Good Clinical Practice). Approval from the Central Drugs Standard Control Organisation (CDSCO): To perform clinical studies and market the drug in India. NDA application filing: A new drug application is submitted to CDSCO for marketing (Options B, C, and D ruled out)."
+    }
+   ]
+  }
+ ]
+}

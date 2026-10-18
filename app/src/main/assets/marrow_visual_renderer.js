@@ -25,7 +25,7 @@ function mount(){
       item.append(button,caption);box.append(item);
     });
     if(role==='question')node.after(box);else{
-      const tail=node.querySelector('.nk-gold-wrong,.nk-marrow-provenance');
+      const tail=node.querySelector('.nk-explain-refs,.nk-gold-wrong,.nk-marrow-provenance');
       if(tail)tail.before(box);else node.append(box);
     }
   });

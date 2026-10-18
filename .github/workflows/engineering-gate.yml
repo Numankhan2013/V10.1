@@ -100,6 +100,8 @@ jobs:
           python3 tools/test_microbiology_marrow_bank.py
           python3 tools/test_microbiology_marrow_emphasis.py
           python3 tools/test_prepladder_microbiology_bank.py
+          python3 tools/test_prepladder_pathology_bank.py
+          python3 tools/test_prepladder_pharmacology_bank.py
       - name: Validate Marrow explanation inventory
         run: python3 tools/test_marrow_explanation_inventory.py
       - name: Validate reviewed parallel explanation batches

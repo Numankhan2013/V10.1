@@ -1,0 +1,545 @@
+{
+ "batch": "pharmacology-004",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pharmacology-004",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pharmacology-5-10",
+   "question": "Which of the following drugs should not be combined with rosuvastatin?",
+   "options": {
+    "A": "Oxycodone",
+    "B": "Clarithromycin",
+    "C": "Adalimumab",
+    "D": "Rivaroxaban"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "There is no significant interaction between rosuvastatin and oxycodone. These medications can generally be used together without the need for special precautions or dosage adjustments."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Adalimumab (Option C):** , used to treat inflammatory conditions such as rheumatoid arthritis and Crohn's disease, does not have a known significant interaction with rosuvastatin. These medications can be used together safely."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Rivaroxaban (Option D):** , an anticoagulant, does not interact significantly with rosuvastatin. These medications can be taken together without any specific concerns."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-11",
+   "question": "Loading dose of drug is dependent on:",
+   "options": {
+    "A": "Clearance",
+    "B": "Route of administration",
+    "C": "Volume of distribution",
+    "D": "Bioavailability"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The loading dose of a drug is calculated to rapidly achieve the desired plasma concentration of the drug. It is primarily dependent on the volume of distribution (Vd), which reflects the extent to which a drug is distributed in the body tissues relative to the plasma. The formula for loading dose is: This equation shows that the loading dose is directly proportional to the volume of distribution."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Clearance: Clearance is related to the maintenance dose rather than the loading dose. It represents the rate at which the drug is removed from the body and is important for determining the dosing rate needed to maintain a steady-state concentration, not for calculating the loading dose."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Route of administration: The route of administration can affect the bioavailability of a drug, but it does not directly determine the loading dose. The loading dose is based on the volume of distribution and desired plasma concentration, though the bioavailability factor must be considered if the drug is not administered intravenously."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Bioavailability: Bioavailability (F) does play a role in the calculation of the loading dose, particularly for non-intravenous routes where F is less than 1. However, the loading dose is fundamentally based on the volume of distribution, with bioavailability adjusting the dose for non-IV routes."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L05_Q011_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-12",
+   "question": "Which statement is accurate regarding a patient receiving a high dosage of both penicillin and gentamicin?",
+   "options": {
+    "A": "TDM is done for penicillin because of the narrow therapeutic index",
+    "B": "TDM is done for gentamicin",
+    "C": "TDM is done with both because of dangerous side effects",
+    "D": "Both drugs do not need monitoring"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Drugs with erratic pharmacokinetics and low safety margins, such as digoxin, anticonvulsants, antiarrhythmics, theophylline, aminoglycoside antibiotics, lithium, and tricyclic antidepressants. Drugs with high individual variability, including antidepressants and lithium. Toxic drugs in renal failure, such as aminoglycosides and vancomycin. Cases of poisoning, where TDM is essential to assess and manage drug levels."
+    },
+    {
+     "type": "paragraph",
+     "text": "Unexplained therapeutic failure, such as with antimicrobials. Patient compliance monitoring, particularly with psychotropic drugs. Drugs Not Requiring Therapeutic Drug Monitoring (TDM): Drugs with easily measurable responses, including antihypertensives, hypoglycemics, diuretics, oral anticoagulants, and inhalational general anesthetics."
+    },
+    {
+     "type": "paragraph",
+     "text": "Drugs activated in the body, such as levodopa. 'Hit and run' drugs with prolonged effects, including MAO inhibitors, reserpine, guanethidine, and omeprazole. Drugs with irreversible actions, such as organophosphates and phenoxybenzamine."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-13",
+   "question": "Which of the following should not be prescribed with theophylline?",
+   "options": {
+    "A": "Erythromycin",
+    "B": "Cefotaxime",
+    "C": "Cotrimoxazole",
+    "D": "Amoxicillin"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Erythromycin should not be prescribed with theophylline as • erythromycin inhibits the metabolism of theophylline by blocking the activity of an enzyme called cytochrome P450 3A4 (CYP3A4) which can lead to theophylline toxicity."
+    },
+    {
+     "type": "paragraph",
+     "text": "Symptoms of theophylline toxicity: Nausea, vomiting, Tachycardia Tremors Seizures Factors affecting the clearance of theophylline are: • Drugs: Erythromycin, Cimetidine, Ciprofloxacin, Allopurinol, Zafirlukast • Congestive heart failure • Liver disease • Pneumonia • Viral infection and vaccination • High-carbohydrate diet • Old age Cefotaxime (Option B), Cotrimoxazole (Option C) and Amoxicillin (Option D) do not have significant interactions with theophylline and can be prescribed concurrently without causing toxicity or reduced efficacy of each other."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-14",
+   "question": "Based on the graph given below shows the relationship between the log dose and the response of Drugs A, B and C. Which of the following has the highest potency?",
+   "options": {
+    "A": "A",
+    "B": "B",
+    "C": "Both A and B",
+    "D": "C"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Drug A has the maximum potency of the three drugs. Potency is the amount of drug required to produce a given effect. The lower the drug dose needed, the higher the potency. Efficacy is the maximal effect a drug can produce, represented by the Vmax /y-axis value. The higher the Vmax, the higher the efficacy. Both are independent of each other."
+    },
+    {
+     "type": "paragraph",
+     "text": "Efficacious drugs can have high or low potency Potent drugs can have high or low efficacy The lower the drug dose needed, the higher the potency. Thus, order of potency: Drug A > B > C The left shift of the graph indicates an increase in potency. The higher the Vmax, the higher the efficacy Thus, order of efficacy: Drug A = B > C"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-15",
+   "question": "In a clinical trial evaluating the efficacy of a new drug, a normal efficacy potecy graph is used. Which of the following statements regarding the graph is true?",
+   "options": {
+    "A": "The graph shows the relationship between drug potency and its efficacy",
+    "B": "The graph demonstrates that higher potency always leads to higher efficacy",
+    "C": "The graph represents the dose-response curve for the drug",
+    "D": "The graph indicates that drugs with low potency can never be effective"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The graph represents the dose-response curve for the drug, showing the relationship between drug dose and its observed response or effects. Efficacy is the maximal effect a drug can produce, represented by the Vmax /y-axis value. The higher the Vmax, the higher the efficacy. Potency is the amount of drug required to produce a given effect. The lower the drug dose needed, the higher the potency."
+    },
+    {
+     "type": "paragraph",
+     "text": "Both are independent of each other Efficacious drugs can have high or low potency and vice versa."
+    },
+    {
+     "type": "paragraph",
+     "text": "The graph helps us estimate the efficacy of the drugs (the higher the Vmax, the higher the efficacy Thus, order of efficacy: Drug A > B Incorrect Options The graph shows the relationship between drug potency and its efficacy (Option A): The graph does not specifically represent the relationship between drug potency and efficacy; its primary focus is on illustrating the dose-response curve."
+    },
+    {
+     "type": "paragraph",
+     "text": "**The graph demonstrates that higher potency always leads to higher efficacy (Option B):** The graph does not necessarily indicate that higher potency always leads to higher efficacy; efficacy depends on various factors beyond potency alone."
+    },
+    {
+     "type": "paragraph",
+     "text": "**The graph indicates that drugs with low potency can never be effective (Option D):** The graph does not suggest that drugs with low potency can never be effective; efficacy can still be achieved with lower potency drugs if administered appropriately within the therapeutic range."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-16",
+   "question": "Adrenaline acting via beta 2 receptors causes bronchodilation, whereas histamine acts through H1 receptors to cause bronchoconstriction. Which type of antagonism is it?",
+   "options": {
+    "A": "Physiological antagonism",
+    "B": "Chemical antagonism",
+    "C": "Non-Competitive Antagonist",
+    "D": "Competitive antagonism"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Physiological antagonism refers to the interaction between two substances or pathways that have opposing physiological effects. In this case, adrenaline (also known as epinephrine) acting through beta 2 receptors causes bronchodilation, while histamine acting through H1 receptors causes bronchoconstriction."
+    },
+    {
+     "type": "paragraph",
+     "text": "Type of Antagonist Description Example Physiological Antagonist Involves two agents that produce opposite effects on the same physiological function without interacting directly with each other or the same receptor."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Histamine causes bronchoconstriction, while adrenaline causes bronchodilatation Chemical Antagonist (Option B):** Direct interaction between two drugs to form an inactive product. Heparin works by enhancing the activity of antithrombin III, which inhibits blood clotting. Protamine sulfate binds to the negatively charged heparin, neutralizing its anticoagulant effect."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Non-Competitive Antagonist (Option C):** Prevents the action of an agonist without competing with it for the binding site. Irreversible binding to the receptor reduces the maximum effect of the agonist. Phenoxybenzamine binds to α-adrenergic receptors, reducing the effect of adrenaline."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Competitive Antagonist (Option D):** Competes with agonists for the same binding site, reducing the potency of the agonist. Reversible binding to the same receptor site as the agonist. Propranolol (β-blocker) binds to β-adrenergic receptors, reducing the effect of adrenaline."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-17",
+   "question": "The normality of 2M HCl when compared to 1M H₂SO₄ is:",
+   "options": {
+    "A": "Half",
+    "B": "Twice",
+    "C": "Same",
+    "D": "4 times"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "l: Normality = 2M × 1 = 2 N 1M H₂SO₄: Normality = 1M × 2 = 2 N Thus, the normality of 2M HCl is the same as that of 1M H₂SO₄, both being 2N."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-18",
+   "question": "Which of the following drugs is not metabolized by acetylation?",
+   "options": {
+    "A": "Isoniazid",
+    "B": "Hydralazine",
+    "C": "Phenytoin",
+    "D": "Procainamide"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Phenytoin is not metabolized by acetylation. It is primarily metabolized by hepatic cytochrome P450 enzymes, particularly CYP2C9 and CYP2C19, via glucuronidation. The main metabolic pathway involves the conversion of phenytoin to its inactive metabolite hydroxy phenytoin (p-HPPH). p-HPPH undergoes further glucuronidation before excretion in the urine."
+    },
+    {
+     "type": "paragraph",
+     "text": "Options Reaction Examples Acetylation Acetylation: N-acetyltransferase (NAT), adds an acetyl group to drugs and compounds Isoniazid (Option A) Hydralazine (Option B) Phenelzine Dapsone Procainamide (Option D) Glycination Glycination: The drugs are conjugated with glycine. Salicylates. Nicotinic acid. Sulfation Sulfation: The phenolic compounds and steroids are sulfated by sulfotransferases. Chloramphenicol. Methyldopa. Adrenal & sex steroids."
+    },
+    {
+     "type": "paragraph",
+     "text": "Methylation Methylation: The amines and phenols are methylated by methyl transferases. Chloramphenicol. Methyldopa. Captopril. Mercaptopurine."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-19",
+   "question": "Pharmacodynamics deals with?",
+   "options": {
+    "A": "Mode of excretion of drug",
+    "B": "Mechanism of action of a drug",
+    "C": "Transport of drugs across the biological membrane",
+    "D": "Latency of onset"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Pharmacodynamics deals with the mechanism of action of a drug. The primary focus of pharmacodynamics is the study of how a drug produces its therapeutic effects at the molecular or cellular level. It refers to the specific biochemical and physiological interactions between a drug and its target molecules in the body."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Mode of excretion of a drug (Option A) refers to the process by which a drug is eliminated from the body. It involves the removal of drugs or their metabolites from the bloodstream through various routes, such as renal excretion (via urine), hepatic excretion (via bile), or pulmonary excretion (via breath). This process is part of pharmacokinetics. Transport of drugs across the biological membranes (Option C) is related to pharmacokinetics, which deals with the absorption, distribution, metabolism, and excretion of drugs (often referred to as ADME). The latency of onset (Option D) refers to the time a drug takes to produce its pharmacological effect after administration. This is influenced by factors such as drug formulation, route, absorption rate, and distribution. While pharmacodynamics can indirectly affect the onset, the primary focus of this discipline is on the drug's mechanism of action."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-20",
+   "question": "A new drug is introduced into the market after which phase of the clinical trials?",
+   "options": {
+    "A": "Phase I",
+    "B": "Phase II",
+    "C": "Phase III",
+    "D": "Phase IV"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "After phase III of the clinical trials, a new drug can be introduced into the market."
+    },
+    {
+     "type": "paragraph",
+     "text": "Clinical trials Phases Description Phase 0 Design: An open-label trial Purpose: Check the target binding of a drug Check the pharmacokinetics of the drug Called a micro-dosing trial (100 micrograms dose) Non-mandatory clinical trial Phase I (Option A) Design: An open-label trial Purpose: Evaluate drug safety- the most important Evaluate MTD (maximum tolerable dose), loading dose, and drug half-life."
+    },
+    {
+     "type": "paragraph",
+     "text": "Evaluate drug pharmacokinetics (absorption, distribution, metabolism and excretion) Called the first human trial Phase II (Option B) Design: Randomized clinical trial (RCT) Purpose: Explore drug efficacy Called a therapeutic exploratory trial or proof of concept trial Phase III Design: Double-blinded RCT Purpose: Find the optimal drug dose Confirm efficacy Safety is priority Called a therapeutic confirmatory trial Called multi-site trial (done on a heterogeneous population) Drugs get market approval Phase IV (Option D) Design: Open-label Purpose: Find hidden/missed/rare adverse effects."
+    },
+    {
+     "type": "paragraph",
+     "text": "Evaluate compliance: long-term side effects Drug interactions Food interactions Called post-marketing surveillance"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-21",
+   "question": "Which of the following statements is true regarding the dose-response curve shown in the image below?",
+   "options": {
+    "A": "C is competitive antagonist",
+    "B": "C is more potent than A",
+    "C": "B is more potent than A",
+    "D": "B is competitive antagonist"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "In competitive antagonism, as also seen above in the graph that the D RC is shifted to the right whereas in non-competitive antagonism the DRC is flattened. Thus in the above image Drug B is the Competitive antagonis t while drug C is the non-competitive antagonist."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - C is competitive antagonist: As explained above C is a non competitive antagonist and not competitive antagonist Option B - C is more potent than A: A is more potent than C which can be seen the DRC given above as A is more towards left in the DRC making it more potent."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - B is more potent than A: A and B are both equally potent as the maximum effect produced by them is the same."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-22",
+   "question": "Which drug's action is prolonged by the administration of cilastatin?",
+   "options": {
+    "A": "Meropenem",
+    "B": "Imipenem",
+    "C": "Cefazolin",
+    "D": "Piperacillin"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Cilastatin inhibits renal enzyme dehydropeptidase I, preventing breakdown of imipenem in renal tubules. This inhibition increases imipenem's half-life and plasma levels, enhancing its effectiveness."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Meropenem: Meropenem is similar to imipenem but not typically co-administered with cilastatin."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Cefazolin: Cefazolin is unrelated to imipenem and not affected by cilastatin."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Piperacillin: Piperacillin's action is not extended by cilastatin administration."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-23",
+   "question": "Identify the drug categorized as schedule X from the options provided.",
+   "options": {
+    "A": "Halothane",
+    "B": "Thalidomide",
+    "C": "Ketamine",
+    "D": "Colistin"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Ketamine is classified as a Schedule X drug in some countries. Schedule X is a category used to regulate drugs with a high potential for abuse and dependence. These drugs are subject to stricter controls and regulations due to their potential risks and misuse."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A: Halothane: Halothane is a volatile inhalation anaesthetic and is not classified as a Schedule X drug. It is commonly used for general anaesthesia in surgical procedures."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B: Thalidomide: Thalidomide is not classified as a Schedule X drug. It is a medication with various uses, including treating certain cancers and skin conditions, but it is also known for its historical association with birth defects when used during pregnancy."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D: Colistin: Colistin is an antibiotic primarily used for the treatment of multidrug-resistant bacterial infections. It is not classified as a Schedule X drug."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-24",
+   "question": "Which of the following causes an increase in ACh release from the presynaptic neuron?",
+   "options": {
+    "A": "Potassium channel blocker",
+    "B": "Sodium channel blocker",
+    "C": "Calcium channel blocker",
+    "D": "Chlorine channel blocker"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Potassium channel blockers inhibit potassium efflux, prolonging action potential duration. This increases calcium influx, enhancing acetylcholine (ACh) release."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B, C & D: Sodium channel blocker, Calcium channel blocker & Chlorine channel blocker: Sodium and Chlorine channel blockers, don't directly affect ACh release. Calcium channel blockers reduce calcium influx, potentially decreasing ACh release."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-25",
+   "question": "What is the extent of drug absorption when it is given intravenously?",
+   "options": {
+    "A": "10%",
+    "B": "b. 100%",
+    "C": "50%",
+    "D": "Variable"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "100%: Bioavailability of 100% indicates that the entire administered dose reaches systemic circulation unchanged after intravenous administration, bypassing the absorption process."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A, C & D are incorrect."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-26",
+   "question": "A 35-year-old patient with a history of epilepsy is prescribed a combination of carbamazepine and valproate for seizure control. Several weeks into the treatment, the patient presents with abdominal pain, jaundice, and elevated liver enzymes. What is the most likely adverse effect associated with this medication combination?",
+   "options": {
+    "A": "Pancreatitis",
+    "B": "Thrombocytopenia",
+    "C": "Hepatotoxicity",
+    "D": "Hyperammonemia"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Liver damage or dysfunction is termed hepatotoxicity. Combining carbamazepine and valproate increases hepatotoxicity risk. Both drugs are metabolized in the liver, potentially producing toxic metabolites. Regular liver function monitoring is vital for prompt detection and management."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Pancreatitis: Valproate use is associated with rare pancreatitis occurrences. Elevated liver enzymes suggest liver-related issues rather than pancreatitis. The addition of carbamazepine does not significantly increase pancreatitis risk."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Thrombocytopenia: Carbamazepine can rarely cause thrombocytopenia. Valproate typically does not lead to thrombocytopenia. Combined use doesn't substantially elevate thrombocytopenia risk."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Hyperammonemia: Valproate carries a higher risk of hyperammonemia, especially in metabolic disorders. Carbamazepine usage is not typically linked to hyperammonemia. The combination does not significantly increase hyperammonemia risk over valproate alone."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-27",
+   "question": "What is the mechanism of action of dapsone, considering that it is used in the treatment of leprosy, and fungal infections and, also for immunomodulatory actions?",
+   "options": {
+    "A": "Cell wall synthesis inhibitor",
+    "B": "Folic acid synthesis inhibitor",
+    "C": "Protein synthesis inhibitor",
+    "D": "Cell membrane inhibitor"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Dapsone inhibits dihydropteroate synthetase, disrupting dihydrofolic acid synthesis. Without folic acid production, microbial growth and survival are impaired."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Cell wall synthesis inhibitor: Dapsone doesn't target cell wall synthesis, unlike beta-lactam antibiotics."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Protein synthesis inhibitor: Dapsone doesn't interfere with protein synthesis like macrolides or aminoglycosides."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Cell membrane inhibitor: Dapsone doesn't act on the cell membrane like polymyxins or polyenes."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-28",
+   "question": "A drug label suggests storage in a ‘cool’ place. What is the temperature at which this drug is to be stored?",
+   "options": {
+    "A": "-2 degree Celsius",
+    "B": "0 degree Celsius",
+    "C": "2-8 degree Celsius",
+    "D": "8-15 degrees Celsius"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "2-8 degrees Celsius: 'Cool' storage typically refers to a temperature range of 2-8 degrees Celsius (36-46 degrees Fahrenheit). This range is recommended for medications requiring refrigeration to maintain stability and effectiveness. Storing medications within this range prevents degradation, maintains potency, and ensures safety."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A: -2 degrees Celsius: Too cold, risking freezing and medication damage."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B: 0 degrees Celsius: Freezing point of water, still too cold for most medications."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D: 8-15 degrees Celsius: Considered \"cool\" but might be warmer than ideal, closer to room temperature."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-29",
+   "question": "Which of the following is an example of a GPCR?",
+   "options": {
+    "A": "Muscarinic",
+    "B": "Nicotinic",
+    "C": "GABA-A",
+    "D": "Insulin"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Receptors: Muscarinic receptors are a type of acetylcholine receptor that are GPCRs. They mediate parasympathetic nervous system effects and are involved in various physiological functions. They regulate heart rate, smooth muscle contraction, and glandular secretion."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Nicotinic: Nicotinic receptors are ligand-gated ion channels, not GPCRs. They are also acetylcholine receptors but function differently by allowing ion flow across the membrane."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - GABA-A: GABA-A receptors are ligand-gated ion channels that mediate the effects of the neurotransmitter GABA by allowing chloride ions to flow into the neuron, leading to hyperpolarization."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Insulin: The insulin receptor is a receptor tyrosine kinase, not a GPCR. It is involved in the regulation of glucose metabolism."
+    }
+   ]
+  }
+ ]
+}

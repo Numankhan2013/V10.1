@@ -1,0 +1,557 @@
+{
+ "batch": "pathology-010",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pathology-010",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pathology-11-11",
+   "question": "A 2-year-old boy is brought to the pediatrician by his parents for delayed milestones. Upon examination, the pediatrician notices several physical features, including upward-slanting eyes, a flat facial profile, a protruding tongue, and a single palmar crease. Which type of inheritance is definitely not present in this child?",
+   "options": {
+    "A": "Meiotic nondisjunction of chromosome 21.",
+    "B": "Robertsonian translocation",
+    "C": "Mitotic non-disjunction",
+    "D": "Autosomal recessive inheritance"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical features are indicative of Down syndrome (Trisomy 21), which is not inherited in an autosomal recessive pattern."
+    },
+    {
+     "type": "paragraph",
+     "text": "Features: Mongoloid facies: Upward slanting of eyes (because of oblique palpebral fissure) and flat facial profile (because of nasal hypoplasia) Macroglossia (Protruding tongue) Simian crease (single palmar crease) Modes of inheritance of Down syndrome are as follows: Meiotic Nondisjunction of chromosome 21 (95%) (Option A): The nondisjunction occurs in the Ovum or in mother's germ cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Robertsonian Translocation (4%) (Option B):** t(22,14) in mother."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mitotic Nondisjunction (1%) (Option C ): This leads to mosaicism."
+    }
+   ]
+  },
+  {
+   "id": "pathology-11-12",
+   "question": "A 6-month-old child has recently passed away after a long ICU stay. Examination reveals microphthalmia and microcephaly. Other known diagnoses included ventricular septal defect, polycystic kidney disease, and omphalocele at birth. What is the chromosome involved?",
+   "options": {
+    "A": "Chromosome 21",
+    "B": "Chromosome 18",
+    "C": "Chromosome 13",
+    "D": "Chromosome Y"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The given scenario describes Patau syndrome or Trisomy 13."
+    },
+    {
+     "type": "paragraph",
+     "text": "Clinical features and associations include Rocker-bottom feet (Seen in both trisomy 13 and trisomy 18) Severe intellectual disability Keyhole/ Coloboma (eyes) Microphthalmia, microcephaly, holoprosencephaly Cleft lip/palate Polydactyly Congenital heart disease: PDA (Patent Ductus Arteriosus) or VSD (Ventricular Septal Defect) Renal defects-Polycystic kidney disease Umbilical hernia,Omphalocele Trisomy 18 is Edward syndrome: Clinical features include a prominent occiput ( Strawberry skull ) and rocker-bottom feet (Option B ruled out)"
+    }
+   ]
+  },
+  {
+   "id": "pathology-11-13",
+   "question": "A 30-year-old tall male patient presents to the clinic for fertility treatment. He undergoes testing and is found to have low sperm counts. He has a history of diabetes, and a physical examination reveals gynecomastia, small testes, and minimal facial and body hair. What chromosomal abnormality is most likely causing this condition in the patient?",
+   "options": {
+    "A": "45,X",
+    "B": "47,XXY",
+    "C": "47,XXX",
+    "D": "47,XYY"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Klinefelter syndrome (47, XXY) is male hypogonadism with an extra X chromosome. Clinical features: Initially, the gonads are testes, but because of an extraX chromosome, the testes stay underdeveloped and small ( hypogonadism ). Low sperm counts Secondary sexual characteristics also not developed, like no facial hair. Gynecomastia due to an extra X chromosome. Hormonal profile: Low serum testosterone levels leading to high LH and FSH levels."
+    },
+    {
+     "type": "paragraph",
+     "text": "Most common cancer risk: Male breast cancer"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L11_Q013_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-11-14",
+   "question": "An 18-year-old girl presents to the clinic due to the concern that she hasn't started menstruating yet. The girl has a short stature and a webbed neck. Physical examination reveals a broad chest with widely spaced nipples. What is the most likely diagnosis for this patient?",
+   "options": {
+    "A": "Turner syndrome",
+    "B": "Mullerian agenesis",
+    "C": "Congenital adrenal hyperplasia",
+    "D": "47, XXX syndrome"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The scenario is diagnosed as Turner syndrome. Genotype: 45 XO Phenotype: Female Improper breast development leading to widely spaced nipples Improper ovarian development: Female presents with streak ovaries and primary amenorrhea (patient will not attain menarche). Physical symptoms: Short stature and webbed neck Cardiac anomalies: Bicuspid aortic valve and Coarctation of aorta. Usually, IQ is normal."
+    },
+    {
+     "type": "paragraph",
+     "text": "The image below shows karyotyping in Turner syndrome."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L11_Q014_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L11_Q014_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pathology-11-15",
+   "question": "A 15-year-old boy presents to the clinic with tall stature and long limbs, along with a history of frequent joint dislocations. Upon physical examination, he exhibits long fingers,sunken chest, and an echocardiogram shows a dilated aortic root. Considering these clinical features, which of the following genes are commonly mutated in this condition?",
+   "options": {
+    "A": "FBN 1",
+    "B": "FBN 2",
+    "C": "FBN 3",
+    "D": "FBN 4"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "A 15-year-old boy presents with tall stature, long limbs, joint dislocations, long fingers, a sunken chest, and a dilated aortic root on echocardiogram; these features are consistent with Marfan syndrome, which is commonly caused by mutations in the FBN1 gene An autosomal dominant disorder due to a mutation in the Fibrillin (FBN) 1 Gene on chromosome 15."
+    },
+    {
+     "type": "paragraph",
+     "text": "Clinical Features: Marfan Disease The most common Clinical Manifestation is Skeletal Abnormalities."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mitral Valve Prolapse (Most common Cardiac abnormality) Aortic Dissection (Most common cause of death) Retinal Detachment (eye problem) F reely movable Joint (most common Thumb joint) Arachnodactyly (long fingers, spider fingers), High A rched Palate N ine Feet Tall, Pigeon chest (defect in sternum) Dislocation of the lens (Ectopia Lentis- Direction of dislocation is Supero Temporal) Steinberg Sign - Positive if the thumb tip extends beyond the palm when folded into a closed fist Walker Sign- Positive if the thumb and fifth finger overlap when you grip your wrist with the opposite hand"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L11_Q015_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-12-1",
+   "question": "In a community where consanguineous marriages are prevalent, a distant relative couple decide to get married. They later have a child who presents with symptoms of anaemia and requires regular blood transfusions. Further investigation reveals that the child has beta-thalassemia, a genetic disorder prevalent in the region. Which of the following symbols can be anticipated in this couple, which is a risk factor for this disease?",
+   "options": {
+    "A": "A",
+    "B": "B",
+    "C": "C",
+    "D": "D"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Consanguineous marriages (marriages between relatives) increase the risk of their children developing genetic (autosomal recessive) disorders. This symbol represents this risk in the pedigree chart. The symbols used in the pedigree chart:"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L12_Q001_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L12_Q001_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pathology-12-2",
+   "question": "A couple seeks medical advice after their daughter presents with frequent nosebleeds and easy bruising. Lab investigations reveal prolonged bleeding time, prolonged aPTT, and a normal PT. A detailed history and a pedigree analysis were obtained, suspecting a genetic disorder. Based on the pedigree chart, what is this condition's most likely inheritance pattern?",
+   "options": {
+    "A": "Autosomal recessive",
+    "B": "Autosomal dominant",
+    "C": "X linked recessive",
+    "D": "X linked dominant"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical presentation of a female with frequent nosebleeds, easy bruising, prolonged bleeding time & aPTT, and normal PT is suggestive of Von Willebrand disease."
+    },
+    {
+     "type": "paragraph",
+     "text": "Platelet Function & Factor VIII – 1-Molybdenum Deficiency Platelet Adhesion: Factor VIII is part of the intrinsic coagulation pathway 1-Molybdenum deficiency → defective platelet adhesion → bleeding time ↑ Coagulation Defect: Factor VIII cannot function normally → factor VIII activity ↓ Leads to prolonged APTT (activated partial thromboplastin time) The pedigree chart shows a vertical transmission pattern with no skipping of generations and is suggestive of autosomal dominant inheritance."
+    },
+    {
+     "type": "paragraph",
+     "text": "Autosomal dominant inheritance pattern: The mode of transmission is vertical. An affected person has an affected parent. There is a 50% chance of the dominant trait being transmitted to offspring. Both males and females are equally affected."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L12_Q002_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-12-3",
+   "question": "A 10-year-old boy presents to the clinic with complaints of unsteady gait and frequent falls. Upon further inquiry, it is revealed that he has experienced progressive difficulty with coordination and balance over the past few years. His parents report a similar history in his older sister, who is now 15 years old. Interestingly, the parents are both asymptomatic, but the boy's maternal uncle was diagnosed with a similar condition in his late 20s. What is the most likely inheritance pattern seen in this condition?",
+   "options": {
+    "A": "Autosomal Dominant",
+    "B": "X linked dominant",
+    "C": "X linked recessive",
+    "D": "Autosomal Recessive"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The progressive difficulty with coordination and balance in both siblings, along with the maternal uncle's being affected, suggests Friedreich's ataxia (A repeat expansion of the trinucleotide GAA (guanine-adenine-adenine), typically in the gene's first intron, is the leading cause of this disease) a pattern consistent with autosomal recessive inheritance."
+    },
+    {
+     "type": "paragraph",
+     "text": "In this scenario, both parents are likely carriers of a defective gene responsible for Friedreich's ataxia, and each sibling has inherited two copies of the defective gene, resulting in the development of this disorder."
+    },
+    {
+     "type": "paragraph",
+     "text": "Examples of autosomal recessive disorders: Mnemonic Disease Pasta Phenylketonuria Alkaptonuria S ickle cell anemia T halassemi a Fried F riedrich’s ataxia: Chawal Cystic fibrosis, Congenital adrenal hyperplasia Hemophilia C, Homocystinuria, Hemochromatosis A lpha-1-antitrypsin deficiency W ilson’s disease Albinism Lysosomal storage disorders, g l ycogen storage disorders DNA repair defects Big Bloom syndrome Fax Fanconi’s anemia Ataxia telangiectasia Xeroderma pigmentosum X-linked recessive (Option C) is less likely because the sister is affected (females are usually carriers)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**X-linked dominant (Option B):** and autosomal dominant (Option A) are unlikely since parents are asymptomatic, and dominant conditions usually show up in at least one parent."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L12_Q003_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-12-4",
+   "question": "A 6-year-old boy presents to the clinic with complaints of muscle weakness and difficulty walking. His parents report a family history of similar symptoms. A detailed history was obtained, and a pedigree analysis was done, which is shown below. What is the most likely diagnosis and the inheritance pattern seen in this condition?",
+   "options": {
+    "A": "Dystonia myotonica, autosomal dominant",
+    "B": "Dystonia myotonica, X-linked recessive",
+    "C": "Duchenne muscular dystrophy, autosomal recessive",
+    "D": "Duchenne muscular dystrophy, X-linked recessive"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Duchenne muscular dystrophy is an X-linked recessive disease. X-linked recessive disorders: Females (XX) are carriers. Males are affected by the disease."
+    },
+    {
+     "type": "paragraph",
+     "text": "Examples of X-linked recessive disorders: Mnemonic Diseases Wise Wiskott-Aldrich syndrome AB Hemophilia A, B Ocular albinism B Bruton’s agammaglobulinemia Becker muscular dystrophy C Chronic granulomatous disease Color blindness (Red-green) D Duchenne Muscular dystrophy E Lesch Nyhan syndrome F Fabry disease Fragile-X syndrome (X-linked recessive > X-linked recessive) G G-6-PD deficiency H Hunter’s disease"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L12_Q004_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-12-5",
+   "question": "In which of the following conditions can you see this pedigree chart?",
+   "options": {
+    "A": "Fabry disease",
+    "B": "Albinism",
+    "C": "Reye syndrome",
+    "D": "Alport syndrome"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "An affected male will transmit the disease to all his daughters but not sons. An affected female can transmit the disease to both daughters and sons. Conditions with X-linked dominant inheritance: Rett syndrome. Alport syndrome (M/C inheritance pattern is X-linked dominant). Vitamin D-resistant rickets. Incontinentia pigmenti."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Fabry’s disease (Option A):** is X-linked recessive in inheritance."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Albinism (Option B):** is autosomal recessive in inheritance (ocular albinism: X-linked recessive) Reye syndrome (Option C) is a rare but serious condition primarily affecting children and teenagers, characterized by acute encephalopathy and liver dysfunction, often following a viral infection such as influenza or chickenpox, and strongly associated with the use of aspirin during these infections."
+    }
+   ]
+  },
+  {
+   "id": "pathology-12-6",
+   "question": "Hairy pinna is associated with which type of Mendelian inheritance?",
+   "options": {
+    "A": "Autosomal dominant",
+    "B": "X-linked recessive",
+    "C": "Mitochondrial inheritance",
+    "D": "Y-linked inheritance"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Hairy pinna (hypertrichosis of pinna) is associated with Y-linked inheritance/ Holandric inheritance. Other examples: Webbed toes Porcupine man The image below shows a pedigree chart of Y-linked inheritance. Only males are affected, and transmission occurs only to the sons."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L12_Q006_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-12-7",
+   "question": "A 25-year-old male has been complaining of painless, progressive central vision loss in both eyes over the past few months. He reports a family history of similar visual problems, with his maternal grandfather and maternal uncle experiencing sudden vision loss in their 20s. On examination, the ophthalmologist notes bilateral optic disc pallor and central scotomas on visual field testing. The patient denies any systemic symptoms or significant medical history. What is the inheritance pattern seen in this condition?",
+   "options": {
+    "A": "[Pedigree chart: Autosomal dominant inheritance]",
+    "B": "[Pedigree chart: X-linked dominant inheritance]",
+    "C": "[Pedigree chart: X-linked recessive inheritance]",
+    "D": "[Pedigree chart: Mitochondrial / Maternal inheritance]"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical presentation, along with the family history of sudden vision loss in multiple maternal relatives, is highly suggestive of Leber hereditary optic neuropathy (LHON), a maternally inherited mitochondrial disorder affecting the optic nerves. Mitochondrial inheritance: A unique feature of mitochondrial DNA (mtDNA) is maternal inheritance."
+    },
+    {
+     "type": "paragraph",
+     "text": "This peculiarity exists because ova contain numerous mitochondria within their abundant cytoplasm, whereas spermatozoa contain few, if any. Hence the mtDNA complement of the zygote is derived entirely from the ovum. Thus, mothers transmit mtDNA to all their offspring, male and female. Father does not transmit mitochondrial DNA → none of his children affected Daughters transmit the DNA to their further progeny."
+    },
+    {
+     "type": "paragraph",
+     "text": "Most common mitochondrial disease: MELAS, Leber hereditary optic neuropathy (LHON) All generations of the family are affected in a vertical pattern with equal male and female involvement. Hence it shows autosomal dominant inheritance.(OPTION A) The mother has transmitted the defective gene to both her son and daughter. But, in the second generation, the father has transmitted the disease only to females."
+    },
+    {
+     "type": "paragraph",
+     "text": "Hence it shows an X-linked dominant inheritance pattern.(OPTION B) The females are carriers in all generations, and only the males are affected by the disease. Hence, it shows an X-linked recessive inheritance pattern.(OPTION C)"
+    }
+   ]
+  },
+  {
+   "id": "pathology-12-8",
+   "question": "Which of the following statements regarding gonadal mosaicism is true?",
+   "options": {
+    "A": "It is associated with autosomal recessive disorders.",
+    "B": "It occurs due to a pre-zygotic mutation during early embryonic development.",
+    "C": "It can be associated with osteogenesis imperfecta.",
+    "D": "It follows the laws of Mendelian inheritance."
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The true statement regarding gonadal mosaicism is that it can be associated with osteogenesis imperfecta. GONADAL MOSAICISM/GERMLINE MOSAICISM The parent's sperm and ova are genotypically normal. On the fusion of normal sperm and normal ova, a normal zygote isformed. Post Zygotic mutation results in the disease. Gonadal mosaicism can be seen in: Osteogenesis imperfecta. Tuberous sclerosis. Achondroplasia"
+    }
+   ]
+  },
+  {
+   "id": "pathology-12-9",
+   "question": "A 45-year-old woman has been newly diagnosed with breast cancer. Histopathological analysis of the tumour reveals invasive ductal carcinoma. Given the aggressive nature of her tumour, the oncologist wants to determine if the patient's cancer is HER2-positive. Which diagnostic method is most appropriate for detecting HER2/neu amplification in this patient?",
+   "options": {
+    "A": "Immunohistochemistry (IHC)",
+    "B": "Fluorescence In Situ Hybridization (FISH)",
+    "C": "Polymerase Chain Reaction (PCR)",
+    "D": "Western Blotting"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "FISH uses DNA probes that recognize sequences specific to particular chromosomal regions. In the case of HER2 testing, FISH directly visualizes HER2 gene amplification by labelling the HER2 gene with a fluorescent probe. HER2 protein overexpression is virtually always caused by amplification of the region of chromosome 17q that contains the HER2 gene."
+    },
+    {
+     "type": "paragraph",
+     "text": "The increase in HER2 gene copy number is detected by fluorescence in situ hybridization using a HER2-specific probe (red signal), which is typically co-hybridized to tumour cell nuclei with a second probe specific for the centromeric region of chromosome 17 (green signal), allowing the chromosome 17 copy number to be determined."
+    },
+    {
+     "type": "paragraph",
+     "text": "Scoring / Interpretation: Positive (+1 / +2 / +3 or equivocal): HER2/CEP17 ratio >2.0 → HER2 amplified → positive HER2/CEP17 ratio 1.8–2.0 → equivocal → repeat testing or IHC correlation HER2/CEP17 ratio <2.0 → negative FISH can be used for testing: Chromosomal translocations Deletions Amplifications FISH cannot detect point mutations."
+    },
+    {
+     "type": "paragraph",
+     "text": "Immunohistochemistry (IHC): (Option A) IHC involves staining tissue samples with antibodies specific to HER2/neu protein. While widely used for HER2 testing, it does not directly measure gene amplification Polymerase Chain Reaction (PCR) (Option C ) PCR amplifies DNA sequences, including the HER2 gene, from tumour samples. It can detect gene amplification but It is not commonly used for HER2 testing in breast cancer patients."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Western Blotting (Option D):** Western blotting detects specific proteins in a sample but does not directly measure gene amplification. It is not commonly used for HER2 testing in breast cancer patients."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L12_Q009_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-12-10",
+   "question": "A 35-year-old pregnant woman presents for prenatal screening due to advanced maternal age. She undergoes amniocentesis, and chromosome analysis is performed on the fetal cells to assess for chromosomal abnormalities. The results indicate Down syndrome. From the below chromosomal analysis, which of the following results is most likely associated with this case?",
+   "options": {
+    "A": "[Karyotype image: Normal karyotype]",
+    "B": "[Karyotype image: Trisomy 21 (Down syndrome)]",
+    "C": "[Karyotype image: Trisomy 18 (Edwards syndrome)]",
+    "D": "[Karyotype image: 47,XXY (Klinefelter syndrome)]"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "B demonstrates the result as trisomy of chromosome 21, as along with two normal chromosomes, one extra chromosome is present, indicating trisomy 21 or Down’s syndrome as a diagnosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "TRISOMY 21: DOWN SYNDROME Karyotypes: Trisomy 21 type: 47,XX, +21 Translocation type: 46,XX,der(14;21)(q10;q10),+21 Mosaic type: 46,XX/47,XX, +21 The given image represents a normal karyotype. (Option A): The given image represents trisomy 18 – Edward syndrome (Option C) The given image represents two X chromosomes and one Y chromosome – Klinefelter’s syndrome (Option D)"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L12_Q010_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L12_Q010_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L12_Q010_explanation_3"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L12_Q010_explanation_4"
+    }
+   ]
+  },
+  {
+   "id": "pathology-12-11",
+   "question": "In a cytogenetics laboratory, a technician is tasked with preparing chromosomes obtained from a patient's blood sample for analysis under a light microscope. The patient has been experiencing unexplained developmental delays, and the physician suspects a potential chromosomal abnormality. To aid in the identification and analysis of individual chromosomes, which technique will the technician employ to produce distinct banding patterns?",
+   "options": {
+    "A": "G-banding",
+    "B": "C-banding",
+    "C": "Q-banding",
+    "D": "R-banding"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "G-banding involves staining chromosomes with Giemsa dye, which results in characteristic dark and light bands along the length of each chromosome. G-banding is the most widely used cytogenetic technique to visualize distinct banding patterns on chromosomes."
+    },
+    {
+     "type": "paragraph",
+     "text": "It helps in: Identifying individual chromosomes Detecting structural abnormalities (e.g., deletions, duplications, translocations) Diagnosing chromosomal disorders linked to developmental delays It allows karyotyping with high accuracy."
+    },
+    {
+     "type": "paragraph",
+     "text": "Each chromosome has a unique banding pattern, making it easier to detect abnormalities like trisomy, deletions, or rearrangements C-banding (Option B) selectively stains the centromeric regions Q-banding (Option C) also known as quinacrine staining, involves staining chromosomes with quinacrine mustard, which fluoresces under ultraviolet light R-banding (Option D) or reverse banding, is the reverse of G-banding. it produces light bands where G-banding shows dark, and vice versa."
+    }
+   ]
+  },
+  {
+   "id": "pathology-12-12",
+   "question": "Which steps are NOT involved in the Polymerase Chain Reaction (PCR) process?",
+   "options": {
+    "A": "Denaturation",
+    "B": "Annealing",
+    "C": "Amplification",
+    "D": "Ligation"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Polymerase Chain Reaction (PCR) involves three main steps: Denaturation, where the DNA double-strand separates into two single strands at 94 degrees Celsius. Annealing, where primers bind to the target DNA sequence at 54 degrees Celsius. Amplification, where DNA polymerase extends the primers to replicate the target sequence at 72 degrees Celsius."
+    },
+    {
+     "type": "paragraph",
+     "text": "Ligation, which is the process of joining DNA fragments together, is not a step in PCR. Multiplex Ligation-dependent Probe Amplification in which ligation is done"
+    }
+   ]
+  },
+  {
+   "id": "pathology-12-13",
+   "question": "A 35-year-old female undergoes genetic testing due to a family history of Cystic Fibrosis. The test reveals a suspected deletion in the CFTR gene. Which technique is most suitable for confirming large deletions or duplications in the CFTR gene?",
+   "options": {
+    "A": "Polymerase Chain Reaction (PCR)",
+    "B": "Comparative Genomic Hybridization (CGH)",
+    "C": "Multiplex Ligation Dependent Probe Amplification (MLPA)",
+    "D": "Sanger sequencing"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Multiplex Ligation Dependent Probe Amplification (MLPA) is a molecular technique specifically designed for detecting copy number variations (CNVs), including large deletions or duplications in genes such as CFTR. It involves using multiple probes to target specific genomic regions, followed by ligation and amplification, allowing for the quantification and identification of CNVs."
+    }
+   ]
+  },
+  {
+   "id": "pathology-12-14",
+   "question": "A researcher wants to analyze gene expression levels in a sample using a PCR technique that quantifies the amount of DNA produced after each amplification cycle. Which type of PCR is most suitable for this purpose?",
+   "options": {
+    "A": "Real-time PCR",
+    "B": "Nested PCR",
+    "C": "Reverse Transcription PCR (RT-PCR)",
+    "D": "Multiplex PCR"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Types of PCR: Type of PCR Characteristics Real-time PCR (qPCR) (Option A) Quantitative measurement of DNA amplification in real-time. Allows for gene expression analysis, viral load determination, and quantitative DNA/RNA analysis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Nested PCR (Option B):** Two rounds of PCR amplification using two sets of primers. Improves specificity and sensitivity compared to conventional PCR. PCR (RT-PCR) (Option C) Enables gene expression analysis by amplifying RNA targets."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Multiplex PCR (Option D):** Simultaneous amplification of multiple DNA targets in a single reaction. Reduces time and cost by amplifying multiple targets together. Highly accurate for determining gene expression levels, viral load, and copy number variations. Digital PCR Divides the sample into thousands of individual reactions, allowing for absolute quantification of DNA targets. Provides high precision and sensitivity for rare target detection. Used in rare allele detection, copy number variation analysis, and precise quantification of nucleic acids. Hot Start PCR Minimizes non-specific amplification and primer-dimer formation by activating the DNA polymerase after an initial denaturation step. Prevents background noise and false-positive results."
+    }
+   ]
+  },
+  {
+   "id": "pathology-12-15",
+   "question": "Arrange the following steps of karyotyping in the correct sequence: Staining/Banding Sample collection Fixative Arrangement of chromosomes Arrest Interpretation",
+   "options": {
+    "A": "2, 5, 3, 1, 4, 6",
+    "B": "2, 3, 5, 1, 4, 6",
+    "C": "1, 2, 3, 5, 4, 6",
+    "D": "3, 5, 2, 4, 1, 6"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Karyotyping is the study of chromosomes."
+    },
+    {
+     "type": "paragraph",
+     "text": "Sample collection: Patient type Sample type Pregnant woman Amniocentesis Chorionic villous sampling 10 year old boy Lymphocyte blood sample (preferred) Fibroblast skin sample 2.Arrest: It is carried out in metaphase using colchicine. 3.Fixative: Using Carnoy fixative (Methanol: Glacial acetic acid in 3:1 ratio ) 4.Staining/ Banding: Chromosome has dark (AT nucleotides rich) and light (CG nucleotides rich) bands. 5.Arrangement of Chromosomes: According to length in descending order."
+    },
+    {
+     "type": "paragraph",
+     "text": "Shortest chromosome is chromosome 21. 6. Interpretations: Trisomy 21 (Down’s syndrome) Trisomy 18 (Edwards syndrome) 47 XXY (Klinefelter syndrome)"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L12_Q015_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L12_Q015_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L12_Q015_explanation_3"
+    }
+   ]
+  }
+ ]
+}

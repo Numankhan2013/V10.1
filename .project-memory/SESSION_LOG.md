@@ -2739,6 +2739,62 @@ User asked for a thorough functional audit, especially whether FSRS is as good a
 - New permanent suite `tools/test_fsrs_audit_v1.py` (52 adversarial scenarios; `verify_local.py` now `LOCAL_CHECKS_OK checks=96`). Browser audit final marker `FSRS_BROWSER_AUDIT_OK cap: due=53 learning=40 rollover=13 session=40 | travel: pending->commit->step30m->graduate->undo->next-day-overdue`, plus real-clock dock probes for a review card and a relearning card. Findings ledger: `docs/FSRS_AUDIT_2026-10-16.md` (F1-F5).
 - Shipped: product commit `056046a0` pushed to main; main push CI green (Engineering Gate `38889903337`, PWA `38889903319`); promote dispatch `38919155135` published `https://5f78b822.nk-qbank.pages.dev` — verified live (HTTP 200; the 834,682-byte page contains `retrOf`, the cache-heal and the conditional `fsrsPreferencesAt` payload markers; the previous deployment `4e8fe836` lacks them). Physical-device checks remain open.
 
+## 2026-10-17 — PrepLadder Microbiology November 2025 edition merged
+
+- Branch `feature/micro-prepladder-v2` from main `4063eca8` (FSRS daily-cap fix, PR #117).
+- New edition (4 PDFs, 2,303 pages, 1,100 Q) reconciled onto Version X by
+  `tools/prepladder_microbiology_edition.py`: 811 unchanged, 114 edited, 13 answer
+  changes, 162 new; 102 Version X-only kept, 2 repeats dropped. Bank 1,202 Q / 42 topics.
+- Missing Part 2–4 figures were taken from the PDFs (original embedded JPEG bytes);
+  ■ glyph losses restored or dropped; bank test fails on any leftover ■.
+- Local: bank test, `verify_local.py` (95), unit suite (4 known local-only failures).
+
+## 2026-10-17 — PrepLadder Pathology added (new Second Prof subject)
+
+- Branch `feature/prepladder-pathology` from main `a996e775` (Microbiology edition merge, PR #120).
+- Source: Drive folder `PrepLadder_Pathology_Qbank_v2` (master JSONL 1,459 Q, manifest, 48 figure zips, 1,676 figures).
+- New builder/test/browser verifier; Pathology identity (microscope icon, orange accent, Second Prof);
+  global count pins updated (PYQ journey 60 topics · 2,343 Q; 5 subject cards).
+- Fixed: lesson-title casing, `&x;=` URL leaks, long URLs widening structured explanations on phones.
+- Gaps: 17 lost explanations (marked), 9 image-only option sets (`needs_review`), no PDF answer check.
+
+## 2026-10-17 — PrepLadder Pharmacology added (Second Prof)
+
+- Branch `feature/prepladder-pharmacology` from main `27536cb3` (PR #122).
+- Source: Drive folder of the Pharmacology extraction (master JSONL 1,321 Q, manifest, 6 figure zips, 272 figures, `pharmaprep11.pdf`).
+- The Pathology builder became a shared `tools/prepladder_text_bank.py` (Pathology shards byte-identical before the rule changes below).
+- Checked against the PDF: all 1,321 keys match; 16 PYQ lessons (report said 17); 4 five-option questions.
+- Rule fixes for every text bank: references-only explanations marked; a fragment followed by text is dropped
+  (3 Pathology questions now show their figure without the "no explanation" note, 17 → 14); text after the
+  references joins them; "Correct Option. C" lead removed; the app keeps an opening note when only references follow.
+- Pins: PYQ journey 76 topics · 2,993 Q; 6 subject cards; builder bank count 10 + UWorld.
+
+## 2026-10-17 — Pathology restructure imported (66/73 batches)
+
+- Branch `feature/pathology-restructure-import` from main `c2833fb3`; result files taken from `restructure/pathology-all`.
+- `tools/explanation_restructure.py check`: 1,218 passed, 99 unchanged, 0 rejected; imported into `restructured.json`.
+- Pathology test now pins overlay 1,218 / 1,041 with points or tables / 312 tables; browser width checks ignore a table scrolling in its own box.
+- Pending: batches 065, 068–073.
+
+## 2026-10-17 — Pathology restructure complete (73/73 batches)
+
+- Batches 065 and 068–073 restructured by in-session agents; batch 062's 3 skipped questions (76-8, 76-9, 77-1) done by hand.
+- Import: 1,321 passed, 121 unchanged, 0 rejected. Test pins: overlay 1,321 / 1,135 with points or tables / 343 tables.
+- Pathology and Pharmacology browser verifiers pass locally.
+
+## 2026-10-17 — PrepLadder matching questions keep their options
+
+- User report: Pharmacology "Clinical Trials and Miscellaneous" Q4/Q5 showed "Answer choices unavailable".
+- Cause: `nkQuestionPresentationFor` blocks any "match" stem whose table parse fails; 34 PrepLadder text-bank questions (Pharma 11, Patho 18, Micro 5) hit it despite complete options.
+- Fix: text banks (`bank=PrepLadder`, `explanationFormat=structured`) fall back to the plain stem; other banks unchanged. Pharmacology browser verifier checks Clinical Trials Q4 shows 4 options.
+
+## 2026-10-17 — Pharmacology restructure pack + cut-off openings
+
+- `tools/explanation_restructure.py` now covers any text bank (`--bank`, or read from the result file's name or folder); 66 Pharmacology batches exported; examples in `data/Prepladder/pharmacology/restructure/examples/`.
+- `docs/EXPLANATION_RESTRUCTURE.md` prompts now target Pharmacology: rulings written "Incorrect options: Option B. …" become bold-label bullets; clean "**Drug (Option B):**" paragraphs stay unchanged; cut-off openings are left as they are.
+- `TextBank.repair_opening`: 74 Pharmacology first words restored, 38 lost labels noted (leading punctuation dropped). Pathology 25-19's overlay entry got a new hash (only its leading comma changed). Microbiology (own builder) has 5 such openings, untouched.
+- Per the user, the 38 lost openings are not left as they are: written by hand in `data/Prepladder/pharmacology/openings.json` (36 new openings, 2 already complete; 5-7, 5-43, 42-32 also explain the key), plus Pathology 25-19. `TextBank.reopen` applies them after the overlay; `overlay=False` (the restructure source) skips them, so the 66 exported batches are byte-identical and running agents are unaffected.
+
 ## 2026-10-17 — Builder dock pin, Prof-band press flash, plus-button press — measured, fixed, probed
 
 - The user reported two interactions in the Home / Test Builder flow: the Home "Prof 1/2" expanders grey-flash on touch ("the entire region gets the shading color ... it should have a smooth interaction"), and in the builder the plus-icon press "does not feel very good but it's still okay" plus "the Continue to Questions dock ... appears later. It has a significant delay compared to the screen itself." All three were reproduced and measured with Playwright/CDP probes against the locally rebuilt dist before any edit (probe scripts and timestamped JSON evidence under `/tmp/opencode/`: full-flow displacement sampler, press sampler, DOM-API phase timeline, per-frame pin-debug dump).

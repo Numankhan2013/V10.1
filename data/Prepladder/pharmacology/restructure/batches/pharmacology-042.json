@@ -1,0 +1,529 @@
+{
+ "batch": "pharmacology-042",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pharmacology-042",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pharmacology-36-2",
+   "question": "A 30-year-old man presents to the clinic with a history of abdominal pain and loose stools for the past two weeks but no h/o fever. He has recently returned from a vacation to Nepal. Physical examination reveals tenderness in the right lower quadrant of the abdomen. Stool testing shows mucoid stool with elevated white cell counts. What is the drug of choice for treating this condition?",
+   "options": {
+    "A": "Ciprofloxacin",
+    "B": "Metronidazole",
+    "C": "Albendazole",
+    "D": "Doxycycline"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient presents with symptoms (abdominal pain, diarrhoea, and abdominal tenderness) consistent with amoebiasis, a parasitic infection caused by E. histolytica. Metronidazole is the drug of choice. The history of travel to a region with poor sanitation (Nepal), mucoid stools, and elevated white cell counts supports this diagnosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Metronidazole Coverage Broad spectrum anaerobes (Bacteroides, Clostridium, Fusobacterium, Peptococcus, etc.) Uses Giardiasis (in HIV-positive patients) Entamoeba histolytica → Amebic dysentery & amebic liver abscess Trichomonas vaginalis Bacterial Vaginosis Dracunculus (guinea worm) Gardenella / bacterial vaginosis Empiric intra-abdomina and soft tissue anaerobic infections H. pylori gastritis (combined with proton pump inhibitor) Prophylaxis for colorectal surgery Fulminant C.difficile infection (IV metronidazole + oral vancomycin) Mild to moderate Crohn's disease"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-36-3",
+   "question": "A 25-year-old man presented to the clinic with foul-smelling diarrhoea and abdominal cramps for the past week. A stool examination revealed giardia cysts. After starting appropriate treatment, she returned a few days later, complaining of severe nausea, vomiting, headaches, and flushing after the farewell party. Which of the following is not a side effect associated with the medication?",
+   "options": {
+    "A": "Urine discolouration",
+    "B": "Metallic taste",
+    "C": "Peripheral neuropathy",
+    "D": "Tendon rupture"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical findings of the patient (foul-smelling stool, abdominal cramps), along with the stool examination, indicate giardiasis which is most likely treated with metronidazole experienced a disulfiram-like reaction after drinking alcohol during the party. Common side effects include a metallic taste, neurotoxicity (peripheral neuropathy), and dark urine, while tendon rupture is a side effect of fluoroquinolones (e.g., ciprofloxacin)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Adverse effects of Metronidazole Side effects Metallic taste, intensely bitter (Option B):** Headache, nausea, dry mouth (most common) Vomiting, diarrhoea, and abdominal distress Dysuria, cystitis, and a sense of pelvic pressure Dizziness, vertigo, Neurotoxicity: Peripheral neuropathy, numbness, paresthesias, ataxia (Option C) Brown color urine (Option A) Urticaria, flushing, and pruritus ( rare cause of Stevens-Johnson syndrome) Drug Interaction Inhibitor of CYP enzymes Disulfiram-like effect: abdominal distress, vomiting, flushing, headache or psychosis with alcoholic beverages during or within 3 days of therapy. Precipitate lithium toxicity Prothrombin time prolongation with warfarin (anticoagulant). Contraindications CNS diseases Severe hepatic disease First trimester of pregnancy"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-36-4",
+   "question": "A 35-year-old HIV-positive male presents to the clinic with a two-week history of profuse, watery diarrhoea and weight loss. His CD4 count is 150 cells/mm³, and stool examination reveals oocysts. What is the drug of choice used for treating this patient's condition?",
+   "options": {
+    "A": "Benznidazole",
+    "B": "Nifurtimox",
+    "C": "Nitazoxanide",
+    "D": "Paromomycin"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient has HIV with CD4 <200 and presents with chronic watery diarrhoea and oocysts in stool, suggestive of Cryptosporidium parvum infection. Nitazoxanide is the drug of choice for cryptosporidiosis in immunocompetent individuals, and it is also used in immunocompromised patients, though its effectiveness may be reduced. ART (antiretroviral therapy) is essential for immune reconstitution in such patients for optimal recovery."
+    },
+    {
+     "type": "paragraph",
+     "text": "Cryptosporidiosis in HIV Patients Feature Details Causative Agent Cryptosporidium parvum (protozoan parasite) Common Symptoms Profuse watery diarrhoea, weight loss, abdominal cramps Stool Findings Acid-fast oocysts Risk Factors CD4 count <200 cells/mm³ Treatment of Choice Nitazoxanide Adjunctive Measures ART initiation/improvement, hydration, nutritional support Benznidazole (Option A): Incorrect."
+    },
+    {
+     "type": "paragraph",
+     "text": "Used for Chagas disease ( Trypanosoma cruzi ), not for cryptosporidiosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Nifurtimox (Option B):** Incorrect. Also used for Chagas disease, not for Cryptosporidium infections."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Paromomycin (Option D):** Incorrect. An aminoglycoside with some activity against Cryptosporidium but less effective than nitazoxanide. Sometimes used in refractory cases or as adjunct."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-36-5",
+   "question": "Which of the following statements is true regarding bacterial resistance against nitroimidazoles?",
+   "options": {
+    "A": "Increase efflux pump activity to remove nitroimidazoles from the cell.",
+    "B": "Alter the structure of ribosomal subunits to prevent nitroimidazole binding.",
+    "C": "Produce enzymes that inactivate nitroimidazoles before they can enter the cell.",
+    "D": "Reduce the expression of nitroreductase enzymes needed to activate nitroimidazoles."
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Bacteria reduces the expression of nitroreductase enzyme to resist nitroimidazole Resistance in Nitroimidazoles 1."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Reduced nitroreductase enzyme expression (Option D):** ↓ Nitroimidazoles (such as metronidazole) cannot activate in their active form. ↓ It prevents drug activation and stops the formation of the reactive nitroso group within the bacterial cell. 2. Lower levels of PFOR and ferredoxin. (less common)"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-36-6",
+   "question": "Rearrange the following steps in the correct sequence based on the mechanism of action of fluoroquinolones: 1. Inhibits DNA gyrase and topoisomerase IV. 2. DNA replication and transcription are hindered. 3. Bacterial cell division is disrupted. 4. Bacterial DNA supercoiling and strand separation are affected. 5. Bacterial cell death occurs.",
+   "options": {
+    "A": "1, 4, 2, 3, 5",
+    "B": "2, 4, 1, 3, 5",
+    "C": "1, 2, 4, 3, 5",
+    "D": "1, 4, 3, 2, 5"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Mechanism of action of fluoroquinolones: Mechanism of Action of Fluoroquinolones Step Detail Inhibition of DNA Gyrase and Topoisomerase IV Fluoroquinolones specifically inhibit DNA gyrase and topoisomerase IV, which are critical for the maintenance of DNA structure."
+    },
+    {
+     "type": "paragraph",
+     "text": "DNA gyrase alleviates DNA supercoiling ahead of the replication fork, while topoisomerase IV is involved in decatenation, which is the separation of replicated DNA. Disruption of DNA Supercoiling and Strand Separation The inhibition of these enzymes results in an accumulation of positive supercoils ahead of the replication fork and strand breaks in the DNA. This disrupts DNA replication and transcription processes by preventing the unwinding of DNA for these processes to occur."
+    },
+    {
+     "type": "paragraph",
+     "text": "Hindrance of DNA Replication and Transcription With disrupted DNA replication and transcription, bacterial cells cannot synthesize new RNA or proteins, leading to a halt in growth and reproduction. Without proper DNA replication, the cell cannot reproduce, and without proper transcription, protein synthesis is blocked. Disruption of Bacterial Cell Division Due to the halted DNA replication and transcription, bacterial cell division is impaired."
+    },
+    {
+     "type": "paragraph",
+     "text": "As bacteria need to replicate their DNA to divide, the inability to do so leads to cell cycle arrest. Bacterial Cell Death The failure in replication and transcription eventually causes bacterial cell death due to accumulated DNA damage and the inability to produce essential cellular components, including proteins."
+    },
+    {
+     "type": "paragraph",
+     "text": "Fluoroquinolones work primarily by interfering with bacterial DNA replication through inhibition of DNA gyrase and topoisomerase IV. These drugs are bactericidal, meaning they directly kill bacteria, unlike bacteriostatic antibiotics that only inhibit bacterial growth. Their broad spectrum makes them effective against a variety of gram-positive and gram-negative bacteria, including those that cause respiratory and urinary tract infections."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L36_Q006_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-36-7",
+   "question": "Which of the following statements about second-generation fluoroquinolones is false?",
+   "options": {
+    "A": "They have a broader spectrum of activity compared to first-generation fluoroquinolones.",
+    "B": "They inhibit bacterial DNA gyrase and topoisomerase IV.",
+    "C": "They have a shorter half-life compared to first-generation fluoroquinolones.",
+    "D": "They can cause QT prolongation as a side effect."
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Second-generation fluoroquinolones typically have a longer half-life than first-generation fluoroquinolones and require less frequent dosing."
+    },
+    {
+     "type": "paragraph",
+     "text": "First Generation Second Generation Drugs Mnemonic: N ew COP has Small L ite M achine G un Norfloxacin Ciprofloxacin Ofloxacin Pefloxacin Sparfloxacin Levofloxacin Moxifloxacin Gemifloxacin Pharmacokinetics Good oral absorption Moderate half-life Good oral absorption Longer half-life(Option C is the false statement) Better tissue penetration Mechanism of Action Inhibit bacterial DNA gyrase Inhibit bacterial DNA gyrase and topoisomerase IV(Option B) Spectrum Effective against Gram-negative bacteria Broader spectrum, including Gram (+ve), Gram (-ve) and Atypical pathogens.(Option A) Uses Urinary tract infections Prostatitis Respiratory infections (e.g.Pneumonia) Skin infections Complicated UTIs Side Effects Nausea and Vomiting Diarrhea Dizziness QT prolongation(Option D) Tendonitis CNS effects Phototoxicity Peripheral neuropathy Contraindications Pregnancy Children Myasthenia gravis Same as first generation Patients with cardiac arrhythmias"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-36-8",
+   "question": "A 35-year-old male presents with flu-like symptoms, including fever, malaise, and cough. Upon further questioning, he reports recent contact with animal hides during his work at a tannery. Chest X-ray revealed a widened mediastinum. Blood cultures are drawn, and the patient is to be started on antibiotics. Which of the following is the most appropriate treatment choice for this patient?",
+   "options": {
+    "A": "Ciprofloxacin",
+    "B": "Amoxicillin",
+    "C": "Doxycycline",
+    "D": "Vancomycin"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The given clinical vignette suggests anthrax and ciprofloxacin, which is a first-generation fluoroquinolone that is effective against it. It is the first-line treatment for anthrax, particularly in cases of inhalational anthrax or systemic dissemination."
+    },
+    {
+     "type": "paragraph",
+     "text": "Ciprofloxacin Pharmacokinetics Good oral absorption Bioavailability ~70%,Moderate half-life (~4-5 hours) Widely distributed in tissues and body fluids Renal excretion Uses Urinary tract infections Prostatitis Pseudomonas aeruginosa (DOC) Anthrax (Bacillus anthracis) (DOC) Gastrointestinal infections (e.g., traveller's diarrhoea) Bone and joint infections Side Effects Gastrointestinal disturbances (nausea, diarrhoea)."
+    },
+    {
+     "type": "paragraph",
+     "text": "CNS effects (headache, dizziness). Tendonitis and tendon rupture. Photosensitivity. Contraindications Pregnancy Children (due to potential for cartilage damage) Myasthenia gravis (can exacerbate muscle weakness)"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-36-9",
+   "question": "A 65-year-old male presents to the emergency department with a 3-day history of productive cough, fever, and shortness of breath. Chest X-ray reveals consolidation in the right lower lobe consistent with community-acquired pneumonia. What is the most appropriate initial antibiotic therapy for this patient?",
+   "options": {
+    "A": "Vancomycin",
+    "B": "Streptomycin",
+    "C": "Levofloxacin",
+    "D": "Cefazolin"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Levofloxacin is a Second Generation Fluoroquinolone Antibiotic with excellent coverage against typical and atypical pathogens commonly associated with community-acquired pneumonia. It is recommended as initial therapy for patients with moderate to severe pneumonia who require hospitalisation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Levofloxacin Pharmacokinetics Good oral absorption Bioavailability ~99% Longer half-life (~6-8 hours) Widely distributed in tissues and body fluids Renal excretion."
+    },
+    {
+     "type": "paragraph",
+     "text": "Uses Community-acquired pneumonia (DOC) Acute bacterial sinusitis Chronic bronchitis exacerbation Second-line drug for TB Urinary tract infections Prostatitis Skin and soft tissue infections Effective against atypical pathogens (e.g., Mycoplasma, Chlamydia, Legionella Side Effects Gastrointestinal disturbances (nausea, diarrhoea) CNS effects (headache, dizziness) Tendonitis and Tendon rupture."
+    },
+    {
+     "type": "paragraph",
+     "text": "QT interval prolongation Photosensitivity Contraindications Pregnancy and lactation. Children and adolescents (due to potential for cartilage damage) Myasthenia gravis (can exacerbate muscle weakness) Patients with a history of tendon disorders Cardiac arrhythmias (due to risk of QT prolongation)"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-36-10",
+   "question": "Which of the following is the longest-acting fluoroquinolone?",
+   "options": {
+    "A": "Sparfloxacin",
+    "B": "Pefloxacin",
+    "C": "Moxifloxacin",
+    "D": "Delafloxacin"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Sparfloxacin is considered the longest-acting fluoroquinolone (Half-life: 19 Hours), but it is not used due to safety concerns, particularly related to cardiac arrhythmias."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-36-11",
+   "question": "Which of the side effects is not associated with fluoroquinolones?",
+   "options": {
+    "A": "Tendon rupture",
+    "B": "QT interval prolongation",
+    "C": "Photosensitivity",
+    "D": "Alopecia"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Alopecia is not an adverse effect of fluoroquinolones Adverse effects of fluoroquinolones: Gastrointestinal disturbances (nausea, diarrhoea). CNS effects (headache, dizziness). Tendonitis and tendon rupture.(Option A) QT interval prolongation.(Option B) Photosensitivity.(Option C) Potential for exacerbation of myasthenia gravis."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-36-12",
+   "question": "A 25-year-old female has been complaining of dysuria, increased frequency of urination, and mild lower abdominal discomfort for the past three days. She reports no fever, chills, or flank pain, and she has no known drug allergies. A urine dipstick test in the clinic shows positive nitrites and leukocyte esterase, indicating a possible mild, uncomplicated UTI. What is the most appropriate initial antibiotic treatment for this patient?",
+   "options": {
+    "A": "Amoxicillin",
+    "B": "Ciprofloxacin",
+    "C": "Nitrofurantoin",
+    "D": "Cotrimoxazole"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Cotrimoxazole, a combination of trimethoprim and sulfamethoxazole, is an effective and commonly used treatment for uncomplicated UTIs. It is effective against a broad range of uropathogens, including many strains of E. coli. Cotrimoxazole is generally well-tolerated and has a favourable resistance profile, making it an appropriate choice for this patient."
+    },
+    {
+     "type": "paragraph",
+     "text": "Cotrimoxazole Type Competitive Inhibitor of DHPS (PABA analogues) Mechanism of Action Trimethoprim-sulfamethoxazole (cotrimoxazole) → Inhibit Dihydrofolate Reductase and Dihydropteroate Synthase → Disruption of Folate Synthesis → Inhibition of DNA, RNA, and Protein Synthesis → Impaired Bacterial Cell Growth and Division → Accumulation of Cellular Damage → Bacterial Death."
+    },
+    {
+     "type": "paragraph",
+     "text": "Uses Urinary tract infections (DOC for mild cases) Respiratory tract infections GIT Infections Prevention and treatment of Pneumocystis jirovecii pneumonia in immunocompromised patients Side Effects Nausea and Vomiting Diarrhoea Rash Hypersensitivity reactions (including Stevens-Johnson syndrome and toxic epidermal necrolysis) Blood dyscrasias (e.g., neutropenia, thrombocytopenia) Special Points Contraindicated in patients with folate deficiency Use with caution in pregnant women, infants, and individuals with G6PD deficiency Increased risk of hyperkalemia with potassium-sparing diuretics"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-36-13",
+   "question": "Choose the correct statements regarding nitrofurantoin: Is primarily used for the treatment of systemic infections. Works by damaging bacterial DNA and ribosomal proteins. Is well absorbed from the gastrointestinal tract and reaches high concentrations in urine. Is safe for use in patients with significant renal impairment.",
+   "options": {
+    "A": "1 and 3",
+    "B": "2 and 4",
+    "C": "2 and 3",
+    "D": "1 and 4"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Nitrofurantoin Type Urinary Antiseptic Pharmacokinetics Absorption: Rapidly absorbed from the GI tract (Food Increases Absorption)(Statement 3) Distribution: High concentration in urine(Statement 3) Metabolism: Minimal hepatic metabolism Excretion: Excreted unchanged in urine, not recommended for use in patients with significant renal impairment (CrCl < 60 mL/min)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mechanism of Action Nitrofurantoin → Bacterial Reduction to Reactive Intermediates → Damage to Bacterial DNA and Ribosomal Proteins (Statement 2) → Disruption of DNA Replication, Transcription, and Translation → Inhibition of Bacterial Cell Growth and Division → Bacterial Death Uses Treatment of uncomplicated urinary tract infections (UTIs) Prophylaxis for recurrent UTIs Not effective for pyelonephritis or prostatitis Side Effects Pulmonary reactions (acute and chronic) Brown Urine Hemolysis in G6PD deficiency Hepatotoxicity Peripheral neuropathy"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-37-1",
+   "question": "A 45-year-old male patient presents to the clinic with fatigue, jaundice, and abdominal discomfort. Laboratory tests reveal elevated liver enzymes and positive Hepatitis B surface antigen (HBsAg). Further evaluation shows HBsAg +ve, Anti- HBC IgG +ve, HBeAg +ve and evidence of liver inflammation on biopsy. What should be the drug of choice for the treatment of this patient?",
+   "options": {
+    "A": "Lamivudine",
+    "B": "Interferon-alpha",
+    "C": "Tenofovir",
+    "D": "Adefovir"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Tenofovir is a potent antiviral agent with a high barrier to resistance, making it a preferred first-line treatment for chronic Hepatitis B. It suppresses viral replication, reduces liver inflammation, and has a favourable safety profile. TDF is widely recommended due to its efficacy and low rate of resistance."
+    },
+    {
+     "type": "paragraph",
+     "text": "First-Line Treatments: Tenofovir Entecavir These drugs are preferred because they have a high genetic barrier to resistance, potent antiviral activity, and are generally well-tolerated. They effectively suppress the hepatitis B virus and are less likely to result in drug resistance."
+    },
+    {
+     "type": "paragraph",
+     "text": "Second-Line Treatments: Pegylated interferon alfa-2a Lamivudine Adefovir Telbivudine Lamivudine (Option A) is used to treat Hepatitis B. Its long-term use is associated with a high rate of viral resistance."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Interferon-alpha (Option B):** can be used to treat chronic Hepatitis B. However, its use is limited by significant side effects and lower efficacy. It is often reserved for select cases where oral antiviral agents are contraindicated or not preferred."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Adefovir (Option D):** is an antiviral medication that can be used to treat chronic Hepatitis B. It is generally considered a second-line agent because it is less potent than TDF and entecavir and has a higher risk of nephrotoxicity."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-37-2",
+   "question": "A 65-year-old male patient with a history of hypertension and type 2 DM presents with significant shortness of breath, a persistent cough, and a high fever. His oxygen saturation is 85% on room air. After a thorough examination and necessary tests, he is diagnosed with COVID-19 pneumonia. Which of the following treatment measures has been shown to offer the maximum reduction in mortality for this patient?",
+   "options": {
+    "A": "Hydroxychloroquine",
+    "B": "Convalescent Plasma",
+    "C": "Dexamethasone",
+    "D": "Remdesivir"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The given clinical vignette suggests severe COVID-19 and dexamethasone has been shown to reduce mortality in moderate to severe cases. Severe COVID-19 (Rx- admission in ICU/HDU): Respiratory rate >30/min. Breathlessness (+ve). SpO 2 <90% on room air."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Dexamethasone (Option C):** has been shown to reduce mortality in patients with severe COVID-19 who require supplemental oxygen or mechanical ventilation. This is likely due to its anti-inflammatory effects, which help reduce the cytokine storm and lung damage associated with severe COVID-19. Drugs used to treat COVID-19: Remdesevir (Option D) Inhibits RNA-dependent RNA polymerase Favipiravir Molnupiravir Causes errors in the viral RNA during replication Nirmatrelvir Protease inhibitor Bebtelovimab Monoclonal antibodies against spike protein of SARS-CoV2 Bamlanivimab Sotrovimab Tocilizumab IL-6 inhibitor Baricitinib Janus kinase inhibitor Corticosteroids Methylprednisolone/dexamethasone. Reduction of mortality and inflammation. Heparin Anti-coagulation and prevention of thrombotic complications."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Hydroxychloroquine and convalescent plasma therapy (Option A&B):** are no longer used for the treatment of COVID-19, as per revised guidelines."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-37-3",
+   "question": "Which of the following drugs is generally not used for topical HSV infections?",
+   "options": {
+    "A": "Acyclovir",
+    "B": "Trifluridine",
+    "C": "Ganciclovir",
+    "D": "Docosanol"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Drugs used for topical HSV infection: Mnemonic- VITACD. Drug MOA Use Nucleoside analogues V idarabine Viral DNA polymerase Inhibition. Topical treatment of HSV infections I doxuridine Inhibits viral DNA synthesis by competing with thymidine triphosphate."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Trifluridine (OptionB) Herpes simplex keratitis Acyclovir (DOC) (Option A):** Viral DNA polymerase Inhibition. Genital herpes, cold sores (HSV-1, HSV-2) Cidofovir Viral DNA polymerase Inhibition."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Off-label topical use for certain HSV infections Alcohol Docosanol (Option D):** Inhibits fusion between the plasma membrane and the herpes simplex virus Cold sores (HSV-1) Common side effects: Local irritation, burning sensation, and stinging."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-37-4",
+   "question": "Choose the correct statements regarding cidofovir. 1. It is primarily used in the treatment of CMV retinitis. 2. It can be administered orally. 3. It is commonly used as a first-line treatment for influenza infections. 4. Requires probenecid co-administration.",
+   "options": {
+    "A": "1 and 4",
+    "B": "2 and 3",
+    "C": "1 and 2",
+    "D": "1 and 3"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Cidofovir It is a monophosphate nucleotide analogue of cytidine. Pharmacokinetics Administered intravenously (Statement 2- Ruled Out) Excreted unchanged by kidneys A long half-life allows for once-weekly dosing Mechanism of Action Penetrates into infected cells → Converted to active form → Inhibits viral DNA polymerase → Incorporation into viral DNA → Terminates DNA chain elongation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Uses Treatment of cytomegalovirus (CMV) retinitis in immunocompromised patients (Statement 1). Off-label use in treating other viral infections, such as adenovirus, herpesviruses (HSV, VZV), and papillomavirus infections (Statement 3- Ruled Out) Side Effects Nephrotoxicity (Administer with Probenecid to reduce toxicity) (Statement 4). Neutropenia. Hypotension. Ocular effects (including uveitis and iritis)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Gastrointestinal disturbances (nausea, diarrhoea)."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-37-5",
+   "question": "A 60-year-old male with a history of HIV infection presents to the clinic with complaints of blurred vision, floaters, and pain in his left eye. On fundus examination, following appearance is seen. Which of the following drugs is most appropriate to manage this condition?",
+   "options": {
+    "A": "Acyclovir",
+    "B": "Valganciclovir",
+    "C": "Oseltamivir",
+    "D": "Ribavirin"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The fundoscopy image shows Pizza Pie appearance, characteristic of CMV Retinitis. Valganciclovir is an oral prodrug of ganciclovir specifically used to treat CMV infections. It effectively manages CMV retinitis and other CMV-related conditions, making it the appropriate choice for this patient. Valganciclovir Class Nucleoside analogue Pharmacokinetics Oral administration. Converted to ganciclovir (Prodrug). Renal clearance."
+    },
+    {
+     "type": "paragraph",
+     "text": "MOA Conversion to Ganciclovir → Incorporation into Viral DNA → Inhibition of Viral DNA Polymerase → Prevention of Viral DNA Synthesis → Decreased Viral Replication Uses CMV retinitis CMV prophylaxis in transplant patients Side Effects Neutropenia Thrombocytopenia Anemia Fever"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-37-6",
+   "question": "A 45-year-old male presents with painful vesicular lesions on his lips and genital area. He has been on acyclovir therapy for HSV infection, but there has been no improvement in his symptoms. Given the concern for acyclovir-resistant HSV, which of the following drugs is most appropriate to manage this condition?",
+   "options": {
+    "A": "Valacyclovir",
+    "B": "Famciclovir",
+    "C": "Foscarnet",
+    "D": "Oseltamivir"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Foscarnet is an antiviral drug that does not require activation by viral thymidine kinase (as Acyclovir) and works by directly inhibiting viral DNA polymerase. This makes it effective against Acyclovir-resistant HSV infections."
+    },
+    {
+     "type": "paragraph",
+     "text": "Drugs used in Acyclovir-resistant herpes Infection: Foscarnet Cidofovir Class Antiviral Antiviral Pharmacokinetics IV administration Renal clearance IV administration Renal clearance MOA Inhibits viral DNA polymerase directly Inhibits viral DNA polymerase Incorporates into viral DNA Uses HSV infections resistant to acyclovir CMV retinitis Acyclovir-resistant HSV infections CMV retinitis Respiratory papillomatosis Side Effects Nephrotoxicity Electrolyte imbalances Seizures Anemia Nephrotoxicity Ocular hypotony Neutropenia Valacyclovir (Option A) is a prodrug of acyclovir, and it shares the exact mechanism of action."
+    },
+    {
+     "type": "paragraph",
+     "text": "Therefore, it would not be effective in managing acyclovir-resistant HSV infections."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Famciclovir (Option C):** is another antiviral medication used to treat herpesvirus infections. It is a prodrug of penciclovir and shares a similar action mechanism with acyclovir. Hence, it is generally not effective against acyclovir-resistant HSV. Oseltamivir (Option D) is an antiviral medication that treats and prevents influenza A & B. It is ineffective against herpes simplex virus."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-37-7",
+   "question": "A 22-year-old male presents to the physician with painful ulcers and a burning sensation over his genital area. Physical examination reveals a fluid-filled vesicular lesion with a red erythematous base (image). All of the following are true regarding the drug of choice (DOC) for this condition, except?",
+   "options": {
+    "A": "It is an antiviral drug that works as a nucleotide analogue, preventing viral replication.",
+    "B": "It is applied topically, intravenously, or orally.",
+    "C": "It should be taken with plenty of water.",
+    "D": "It is also used to treat Ebstein Barr virus (EBV) and varicella-zoster virus (VZV)"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Acyclovir is the drug of choice for treating genital herpes simplex virus presented with painful fluid-filled vesicles with a red erythematous base associated with burning and itchy sensation. Acyclovir: Uses: (Option D) Herpes simplex virus-1 and 2 Genital herpes. Mucocutaneous herpes simplex (use IV). Herpes labialis, Keratoconjunctivitis (use topical). HSV encephalitis (use IV). Varicella zoster virus (VZV). Ebstein Barr virus."
+    },
+    {
+     "type": "paragraph",
+     "text": "Route: Oral, IV, topical (Option B) Congeners: Valaciclovir: most effective for VZV. Famciclovir. Resistance: Associated with viral thymidine kinase mutation and AIDS. Foscarnet and Cidofovir (do not require thymidine kinase activation). Side effects: Neurotoxicity: seizures, confusion, hallucinations. Nephrotoxicity: Obstructive renal failure (crystalluria). Contraindicated with cyclosporine and probenecid."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Administer plenty of IV fluid and water (Option C):** . Thrombocytopenia."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L37_Q007_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-37-8",
+   "question": "A 30-year-old woman arrives at the clinic with a high-grade fever, myalgia, and a dry cough that has persisted for the last 36 hours. Her family doctor diagnosed her with a flu infection and recommended baloxavir. Which of the following correctly describes the drug's mechanism of action?",
+   "options": {
+    "A": "Inhibits neuraminidase, preventing the release of new viral particles",
+    "B": "Inhibits viral RNA polymerase, preventing viral replication",
+    "C": "Inhibits M2 ion channels, preventing viral uncoating",
+    "D": "Inhibits viral protease, preventing viral maturation"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Baloxavir marboxil targets the influenza virus cap-dependent endonuclease, a component of the PA subunit of the viral RNA polymerase complex. This inhibits cap-snatching, a process by which the virus hijacks host mRNA caps to initiate viral mRNA synthesis. Blocking this step halts viral replication early in the life cycle. Baloxavir is effective against both Influenza A and B, and is typically used within 48 hours of symptom onset."
+    },
+    {
+     "type": "paragraph",
+     "text": "Influenza Antiviral Agents – Mechanisms Drug Target/Mechanism Virus Baloxavir Inhibits RNA polymerase (endonuclease activity) Influenza A & B Oseltamivir/Zanamivir Inhibits neuraminidase → prevents viral release Influenza A & B Amantadine/Rimantadine Inhibits M2 ion channel → blocks uncoating Influenza A only Protease Inhibitors (e.g."
+    },
+    {
+     "type": "paragraph",
+     "text": "Ritonavir) Inhibit viral protease → prevent maturation HIV, HCV Inhibits neuraminidase, preventing the release of new viral particles (Option A): Incorrect because this is the mechanism of neuraminidase inhibitors like oseltamivir and zanamivir, not baloxavir."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Inhibits M2 ion channels, preventing viral uncoating (Option C):** Incorrect because this is the mechanism of amantadine and rimantadine, which are used against influenza A only and are rarely used now due to resistance."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Inhibits viral protease, preventing viral maturation (Option D):** Incorrect because this mechanism applies to HIV and HCV protease inhibitors (like ritonavir or simeprevir), and has no role in influenza treatment."
+    }
+   ]
+  }
+ ]
+}

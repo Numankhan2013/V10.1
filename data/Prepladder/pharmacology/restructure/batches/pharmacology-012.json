@@ -1,0 +1,641 @@
+{
+ "batch": "pharmacology-012",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pharmacology-012",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pharmacology-10-23",
+   "question": "A 10-year-old child is diagnosed with Attention Deficit Hyperactivity Disorder (ADHD) and is started on medication to increase norepinephrine levels as part of the treatment plan. Which of the following drugs is used for this purpose, and what is its mechanism of action?",
+   "options": {
+    "A": "Methylphenidate",
+    "B": "Reboxetine",
+    "C": "Amitriptyline",
+    "D": "Fluoxetine"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Methylphenidate is a central nervous system stimulant commonly used in the treatment of ADHD. It works by inhibiting the reuptake of both norepinephrine and dopamine, increasing their levels in the brain."
+    },
+    {
+     "type": "paragraph",
+     "text": "This helps improve attention, focus, and impulse control in individuals with ADHD. Although Methylphenidate acts on both norepinephrine and dopamine, it is the increased norepinephrine that contributes significantly to its therapeutic effects in managing ADHD symptoms."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Reboxetine: Reboxetine is a selective norepinephrine reuptake inhibitor (NRI) that increases norepinephrine levels by inhibiting its reuptake. While it does increase norepinephrine levels and could theoretically be used in ADHD, it is not commonly used for this purpose. Methylphenidate is preferred due to its established efficacy in ADHD treatment."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Amitriptyline: Amitriptyline is a tricyclic antidepressant that inhibits the reuptake of both norepinephrine and serotonin. It is not typically used to treat ADHD, particularly in children, due to its side effect profile and the availability of more targeted medications like Methylphenidate."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Fluoxetine: Fluoxetine is a selective serotonin reuptake inhibitor (SSRI) that primarily increases serotonin levels. It does not significantly affect norepinephrine levels and is not used to treat ADHD. Fluoxetine is mainly used to treat depression, anxiety, and other mood disorders."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-10-24",
+   "question": "A 45-year-old patient has just undergone surgery and required a drug to reverse the muscle relaxation induced during the procedure. Which of the following drugs is used for this purpose?",
+   "options": {
+    "A": "Bethanechol",
+    "B": "Atropine",
+    "C": "Neostigmine",
+    "D": "Edrophonium"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Neostigmine is a cholinesterase inhibitor that is commonly used to reverse non-depolarizing muscle relaxants used during surgery. It works by inhibiting acetylcholinesterase at the neuromuscular junction, prolonging the action of acetylcholine and improving muscle strength. Uses of Neostigmine: Treatment of myasthenia gravis as it increases the availability of acetylcholine at neuromuscular junctions, thereby improving muscle strength."
+    },
+    {
+     "type": "paragraph",
+     "text": "To reverse the effects of non-depolarizing neuromuscular blocking agents after surgical procedures. In managing urinary retention due to its ability to stimulate bladder muscle contractions. Cobra bites because cobra toxin disrupts the neuromuscular junction, resulting in respiratory paralysis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Bethanechol (Option A):** is a cholinergic agonist that stimulates muscarinic receptors, which are found primarily in the urinary and gastrointestinal tracts. It is not used to reverse muscle relaxation after surgery because it does not affect the neuromuscular junction."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Atropine (Option B):** is a direct-acting anticholinergic (muscarinic antagonist), blocking the action of acetylcholine at muscarinic receptors. It is used to treat bradycardia and to prevent the effects of excessive acetylcholine release. However, it does not reverse muscle relaxation."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Edrophonium (Option D):** is a short-acting acetylcholinesterase inhibitor and is used as a diagnostic tool in suspected cases of myasthenia gravis (Tensilon test). It is administered intravenously to individuals suspected of myasthenia gravis. It temporarily improves muscle strength, confirming the diagnosis by demonstrating impaired neuromuscular transmission due to acetylcholine receptor deficiency."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-10-25",
+   "question": "A female patient with a history of bronchial asthma has developed an acute attack of migraine. Which drug should be avoided?",
+   "options": {
+    "A": "Sumatriptan",
+    "B": "Propranolol",
+    "C": "Ergotamine",
+    "D": "Lasmiditan"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Propranolol is a non-selective beta-blocker that blocks both beta-1 (found in the heart) and beta-2 receptors (found in the bronchial smooth muscle). Blocking beta-2 receptors can lead to bronchoconstriction, which can exacerbate symptoms in patients with bronchial asthma or lead to severe bronchospasm. Propranolol is contraindicated in patients with asthma due to its potential to worsen asthma symptoms, making it a poor choice in this scenario."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Sumatriptan (Option A) is a 5HT1B/1D receptor agonist. It is used in patients who fail to respond to analgesics. It can cause coronary vasoconstriction, but it does not cause significant bronchoconstriction and is generally safe for use in asthma patients. Ergotamine (Option C) is an ergot alkaloid that is used to treat migraines by causing vasoconstriction. It does not directly cause bronchoconstriction like propranolol. Lasmiditan (Option D) is a 5-HT1F receptor agonist used as an alternative to triptans, especially for those with cardiovascular diseases, and it is not contraindicated for asthma."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-10-26",
+   "question": "Which drug is used to test for Myasthenia Gravis?",
+   "options": {
+    "A": "Pyridostigmine",
+    "B": "Neostigmine",
+    "C": "Edrophonium",
+    "D": "Atropine"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "A myasthenic crisis is characterized by severe muscle weakness that responds to edrophonium administration, while a cholinergic crisis does not improve with this drug. Edrophonium Test: Used to diagnose Myasthenia Gravis (MG) Principle: Edrophonium inhibits the enzyme acetylcholinesterase (AChE), which normally breaks down acetylcholine (ACh) at the neuromuscular junction."
+    },
+    {
+     "type": "paragraph",
+     "text": "By inhibiting AChE, edrophonium increases acetylcholine levels, allowing it to interact more with the available acetylcholine receptors (AChRs) in the muscle, temporarily improving neuromuscular transmission and muscle strength in MG. Test Procedure: Initial Dose: Administer 2 mg IV of edrophonium. Evaluation: After 30 seconds, observe for improvement in muscle strength (e.g., in extraocular muscles, speech, or arm strength)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Positive Test: If the patient shows improvement in muscle strength, the test is considered positive for MG and is terminated. Additional Dose: If no response occurs, give an additional 8 mg IV and observe again."
+    },
+    {
+     "type": "paragraph",
+     "text": "Negative Result: If there is no improvement, MG is unlikely, but further testing may be needed to confirm the diagnosis Incorrect Options: Pyridostigmine (Option A) is an acetylcholinesterase inhibitor that is specifically used to increase acetylcholine activity at the neuromuscular junction and is used for the long-term treatment of Myasthenia Gravis rather than for diagnosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Neostigmine (Option B):** is also an acetylcholinesterase inhibitor and is used for the long-term treatment of Myasthenia Gravis rather than for diagnosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Atropine (Option D):** is a muscarinic antagonist used to treat bradycardia (low heart rate), and it is not involved in the diagnosis of Myasthenia Gravis."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-10-27",
+   "question": "Match the following: a. Beta 1. Indacaterol b. Beta 1 2. Mirabegron c. Beta 2 3. Isoproterenol d. Beta 3 4. Betaxolol",
+   "options": {
+    "A": "a-2, b-3, c-1, d-4",
+    "B": "a-3, b-2, c-4, d-1",
+    "C": "a-3, b-4, c-1, d-2",
+    "D": "a-4, b-3, c-2, d-1"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "- a-3, b-4, c-1, d-2 The correct matching is as follows: Receptors Drugs Beta Isoproterenol Beta 1 Betaxolol Beta 2 Indacaterol Beta 3 Mirabegron Mirabegron is a selective beta-3 adrenergic receptor agonist used primarily for the treatment of overactive bladder. The beta-3 adrenergic receptors are found primarily in the bladder smooth muscle. Betaxolol is a selective beta-1 adrenergic receptor antagonist."
+    },
+    {
+     "type": "paragraph",
+     "text": "It is commonly used as an anti-hypertensive agent and also for the treatment of glaucoma. Beta-1 adrenergic receptors are found mainly in the heart. Isoprenaline (also known as isoproterenol) is a non-selective beta-adrenergic receptor agonist. It acts on both beta-1 and beta-2 adrenergic receptors. It is primarily used in emergencies to increase heart rate and cardiac output."
+    },
+    {
+     "type": "paragraph",
+     "text": "Indacaterol, the first once-daily VLABA (Very Long-Acting β2 Adrenergic Agonist) approved for COPD, is a potent β2 agonist with high intrinsic efficacy. It has a fast onset of action, appears well tolerated, and is effective in COPD with little tachyphylaxis on continued use."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-10-28",
+   "question": "A chronic smoker was taking nicotine therapy and clonidine tablets for smoking de-addiction. He stopped taking clonidine tablets and developed a headache. What is the reason behind this?",
+   "options": {
+    "A": "Postural hypotension",
+    "B": "Receptor downregulation",
+    "C": "Rebound hypertension",
+    "D": "Receptor hypersensitivity"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Clonidine: It is a centrally acting alpha-2 adrenergic receptor agonist commonly used to manage hypertension, opioid withdrawal, and smoking cessation. When used for smoking cessation, it helps to reduce the withdrawal symptoms associated with nicotine addiction, such as cravings, anxiety, and irritability."
+    },
+    {
+     "type": "paragraph",
+     "text": "One of the side effects of clonidine therapy is rebound hypertension, which can occur when the drug is abruptly discontinued as alpha 1 receptors are upregulated. Rebound hypertension is characterized by a sudden and significant increase in blood pressure, which can cause symptoms such as headache, dizziness, and confusion."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Postural hypotension (Option A):** is characterized by a sudden drop in blood pressure upon standing up, which can cause dizziness and fainting. This is not the cause of the headache in this scenario, as per the patient’s symptoms."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Receptor downregulation (Option B):** is a phenomenon in which the number of receptors on the cell surface decreases in response to an increase in the stimulation of receptors. This is not the cause of the headache in this scenario, as the upregulation of receptors leads to rebound hypertension."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Receptor hypersensitivity (Option D):** is a condition in which the receptors on the cell surface become more sensitive to the ligand, which can result in an exaggerated response to the drug. This is not the cause of the headache in this scenario, as hypersensitivity of the receptors would not result in rebound hypertension or headache."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-10-29",
+   "question": "A patient comes to the casualty with consumption of OPC pesticide. He was started on IV atropine infusion and pralidoxime. After 2 hours, the patient had a sudden rise in temperature. What is the cause of the fever?",
+   "options": {
+    "A": "Atropine toxicity",
+    "B": "A side effect of pralidoxime",
+    "C": "Due to organophosphate poisoning",
+    "D": "Idiopathic"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Pralidoxime, on the other hand, is used to reactivate acetylcholinesterase, the enzyme that is inhibited by organophosphate poisoning. It can cause side effects such as headache, dizziness, and blurred vision, but it is unlikely to cause fever."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Due to organophosphate poisoning (Option C):** Organophosphate poisoning can cause a range of symptoms such as muscle weakness, respiratory distress, and seizures, but it is not typically associated with fever."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Idiopathic (Option D):** Idiopathic fever refers to a fever of unknown cause, which is not the case in this scenario as the cause of the fever is likely related to atropine toxicity. Therefore, option d is also incorrect."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-10-30",
+   "question": "A young male patient presents with ptosis and muscle weakness, which reportedly worsens in the evening and improves in the morning. This is relieved by neostigmine. What is the likely diagnosis?",
+   "options": {
+    "A": "Myasthenia gravis",
+    "B": "Huntington chorea",
+    "C": "Amyotrophic lateral sclerosis",
+    "D": "External ophthalmoplegia"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "- Myasthenia gravis: Myasthenia Gravis is a neuromuscular junction disease characterized by ptosis and muscle weakness that worsens in the evening and improves in the morning. Symptoms are relieved by anti-choline esterase, such as neostigmine. Pathophysiology Autoimmune disease is caused by antibodies targeting acetylcholine receptors at the neuromuscular junction."
+    },
+    {
+     "type": "paragraph",
+     "text": "Disruption in neuromuscular transmission occurs through: Blockage of acetylcholine receptors. Complement-mediated inflammation leads to: Reduced receptor count. Damage to the end plate. Clinical features Fatigable muscle weakness: Muscle strength decreases with continued use, especially: Later in the day After exercise No sensory or CNS involvement, distinguishing it from other neurological disorders."
+    },
+    {
+     "type": "paragraph",
+     "text": "Common Initial Symptoms: Ptosis (drooping eyelid) Diplopia (double vision) Weakness can spread to: Chewing, swallowing, and speaking muscles Limb muscles Diagnosis Tensilon (edrophonium) Test This involves the injection of Edrophonium (a short-acting anticholinesterase agent) into individuals with a deficiency of acetylcholine receptors at the neuromuscular junction. Steps: 2 mg i.v."
+    },
+    {
+     "type": "paragraph",
+     "text": "Edrophonium → Observe for any adverse reactions → If no adverse reactions occur after 30–60 seconds, the remaining 8 mg is injected. If muscle strength improves after the administration of edrophonium, it indicates the presence of Myasthenia Gravis. Management Anticholinesterase agents (inhibit the breakdown of ACh by acetylcholinesterase and increase presynaptic levels of ACh, allowing for muscle contraction)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Pyridostigmine (drug of choice) Neostigmine Ambenonium Huntington's chorea (Option B):** is characterised by involuntary jerking movements and a decline in cognitive and psychiatric function. No ptosis or improvement with neostigmine."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Amyotrophic lateral sclerosis (Option C):** is characterised by progressive muscle weakness and atrophy. It has a mix of upper neuron and lower neuron signs in its presentation. Though ptosis may be seen, No improvement with neostigmine is seen."
+    },
+    {
+     "type": "paragraph",
+     "text": "**External ophthalmoplegia (Option D):** is characterised by paralysis or weakness of the muscles that control eye movement, resulting in diplopia. No improvement with neostigmine is seen."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-10-31",
+   "question": "Unknown fruit consumption by a child, odd behaviour, fever and low urine output. Causative fruit and treatment is:",
+   "options": {
+    "A": "Datura - PAM",
+    "B": "Datura - Physostigmine",
+    "C": "Yellow oleander - Digibind",
+    "D": "Yellow oleander - Physostigmine"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Action: Initially, it stimulates the higher centers of the brain and then activates the motor centers. Later, it leads to depression of the vital centers in the medulla, resulting in paralysis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Clinical features: Dryness of mouth and throat Dysphagia Difficulty in talking Hoarseness of voice Flushed face Pupil dilatation Photophobia + Diplopia Agitation and restlessness Delirium Urinary retention Dry and hot skin Exfoliation of skin may occur Patients can end up in a coma, or death can occur due to respiratory paralysis. Treatment Gastrointestinal decontamination: Administer activated charcoal to absorb toxins."
+    },
+    {
+     "type": "paragraph",
+     "text": "Use a cathartic if indicated. Antidote: Administer Physostigmine 1-2 mg IV slowl y, repeating as necessary based on symptom response. Symptomatic treatment: Consider Pilocarpine 5 mg subcutaneously for severe anticholinergic effects. Supportive care: Monitor vital signs and address any respiratory or cardiovascular issues."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L10_Q031_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-10-32",
+   "question": "What treatment can be administered to a patient brought to the emergency department with symptoms of diarrhea, sweating, excessive lacrimation, salivation, a garlicky odor, a pulse rate of 55/min, and a plasma cholinesterase level of 50 U/mL?",
+   "options": {
+    "A": "Neostigmine",
+    "B": "Atropine",
+    "C": "Epinephrine",
+    "D": "Benztropine"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Common exposures Pesticide: Farmer/field worker, pediatric ingestion, suicide attempt Nerve agent: Multiple patients presenting with similar symptoms Manifestations Muscarinic (DUMBBELSS): D- Diarrhea U- Urination M- Miosis B- Bronchospasms, bronchorrhea, bradycardia E- Excitation, Emesis L- Lacrimation S- Salivation, sweating Nicotinic: Muscle weakness, paralysis, fasciculations."
+    },
+    {
+     "type": "paragraph",
+     "text": "Management Decontamination Atropine reverses muscarinic symptoms Pralidoxime reverses nicotinic and muscarinic symptoms (reactivates cholinesterase) Neostigmine (Option A) is an acetylcholinesterase inhibitor, which would worsen cholinergic toxicity by increasing acetylcholine levels. It is used in the treatment of myasthenia gravis, not poisoning."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Epinephrine (Option C):** While epinephrine may be used in certain acute allergic or anaphylactic reactions, it is not appropriate for cholinergic toxicity, where atropine is needed to block the effects of excessive acetylcholine. Benztropine (Option D) is an anticholinergic drug used primarily to treat Parkinson’s disease or drug-induced extrapyramidal symptoms, but it is not suitable for treating cholinergic toxicity."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-10-33",
+   "question": "A man was brought to the emergency room after poisoning with an unknown substance. Muscarinic poisoning was suspected, and he was treated for the same. What is the possible presenting feature that led to the diagnosis?",
+   "options": {
+    "A": "Mydriasis",
+    "B": "Diuresis",
+    "C": "Muscle fasciculations",
+    "D": "Bradycardia"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The most likely presenting feature of muscarinic poisoning in this scenario is bradycardia, which occurs due to the parasympathetic stimulation of the heart's muscarinic receptors."
+    },
+    {
+     "type": "paragraph",
+     "text": "The most common causes of muscarinic poisoning are organophosphate insecticides, carbamate insecticides or nerve agents, which inhibit acetylcholinesteras.e Muscarinic receptors are a type of acetylcholine receptor that are found in various organs of the body, including the heart, lungs, and digestive system."
+    },
+    {
+     "type": "paragraph",
+     "text": "Muscarinic poisoning leads to the accumulation of acetylcholine in the synaptic cleft, which can cause excessive stimulation of muscarinic receptors."
+    },
+    {
+     "type": "paragraph",
+     "text": "Manifestations of Muscarinic poisoning (DUMBBELSS): D- Diarrhea U- Urination M- Miosis B- Bronchospasms, bronchorrhea, bradycardia E- Excitation, Emesis L- Lacrimation S- Salivation, sweating Mydriasis (Option A) is typically seen in sympathomimetic toxicity or anticholinergic poisoning, not muscarinic poisoning. In muscarinic poisoning (parasympathetic nervous system), the pupils typically constrict (miosis)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Diuresis (Option B):** is not typically associated with muscarinic poisoning. However, it generally leads to symptoms like increased salivation and sweating, rather than diuresis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Muscle fasciculations (Option C):** can occur in cases of acetylcholinesterase inhibitor poisoning, but they are not specific to muscarinic receptors and can also be seen with nicotinic receptor activation."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-10-34",
+   "question": "A patient with erectile dysfunction is given sildenafil. The penile erectile function is found to be improved after the therapy. Which of the following mediates the action of sildenafil?",
+   "options": {
+    "A": "cAMP",
+    "B": "cGMP",
+    "C": "Calcium",
+    "D": "Phosphatidyl glycerol and inositol phosphate"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Sildenafil is a phosphodiesterase type 5 (PDE5) inhibitor. Its action is mediated through the cGMP (cyclic guanosine monophosphate) pathway."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mechanism of action: Sildenafil ↓ Inhibits phosphodiesterase-5 (PDE-5) enzyme ↓ Prevents cGMP degradation ↓ Increases cytosolic cGMP levels ↓ Prolongs activation of GMP-dependent protein kinase ↓ Inhibits myosin light chain kinase dephosphorylation ↓ Smooth muscle relaxation in the corpus cavernosum ↓ Increased blood flow ↓ Sustained penile erection cAMP (Option A) plays a role in other pathways related to vasodilation, especially in adrenergic pathways (e.g., beta-adrenergic agonists like adrenaline), but it is not the primary mediator in sildenafil’s mechanism."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Calcium (Option C):** Drugs that influence calcium signalling are often involved in muscle contraction, vasoconstriction, or other processes requiring calcium influx. Some examples include calcium channel blockers. Sildenafil's action is not mediated through calcium. Phosphatidyl glycerol and inositol phosphate (Option D) are involved in the phosphoinositide signalling pathway. This signalling pathway involves the activation of G-protein-coupled receptors (GPCRs), which activate phospholipase C to produce inositol trisphosphate (IP₃) and diacylglycerol (DAG). These molecules mediate calcium release and other cellular responses. They do not mediate sildenafil’s action."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-10-35",
+   "question": "Which of the following drugs is a β2 agonist? Dopexamine Dipivefrine Fenoldopam Mirabegron",
+   "options": {
+    "A": "1,2,3",
+    "B": "4,3,2,1",
+    "C": "1,2",
+    "D": "3,4"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Drugs that act as β2 agonists from given options are Dopexamine and Dipivefrine, hence the correct answer is 1,2. β2 agonists are drugs that specifically stimulate β2 adrenergic receptors, they are primarily found in the smooth muscles of the bronchi (lungs), blood vessels, and other tissues. Activation of β2 receptors typically leads to bronchodilation, vasodilation, and other effects like muscle relaxation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Dopexamine: It is a synthetic catecholamine structurally related to dopamine and has a strong β2 agonist activity, moderate activity at DA1 and DA2 receptors, and β1 agonist activity. It is used in shock and heart failure to improve heart function and renal perfusion. Dipivefrine: It is a prodrug of epinephrine (adrenaline), primarily used in the treatment of glaucoma."
+    },
+    {
+     "type": "paragraph",
+     "text": "It metabolizes into epinephrine, and activates α and β receptors, leading to increased aqueous humor outflow in the eye and decreases the production of aqueous humor by vasoconstriction, thus lowering intraocular pressure. It has β2 agonist activity but is mainly used for its effect on the eye."
+    },
+    {
+     "type": "paragraph",
+     "text": "Fenoldopam: (Option A, B and D ruled out) It is a D1 receptor agonist, it has a moderate affinity for α2 receptors, but no significant affinity for D2, α1, or β adrenergic receptors."
+    },
+    {
+     "type": "paragraph",
+     "text": "It is used as a rapidly acting vasodilator for short-term control in severe hypertension e.g., malignant hypertension with end-organ damage. (usually <48 hours), Mirabegron: (Option B and D ruled out) It is a β3 adrenergic receptor agonist, which activates β3 receptors in the detrusor muscle of the bladder, leading to detrusor muscle relaxation, increasing the bladder capacity and reducing the urgency to urinate."
+    },
+    {
+     "type": "paragraph",
+     "text": "It is used to manage overactive bladder. It is a moderate CYP2D6 inhibitor, so care must be taken with drugs metabolized by CYP2D6 (e.g., digoxin, metoprolol)."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-10-36",
+   "question": "What is the mechanism by which acetylcholine causes a decrease in the heart rate?",
+   "options": {
+    "A": "Delayed diastolic depolarization",
+    "B": "Increase in plateau",
+    "C": "Decrease in preload",
+    "D": "Increase in afterload"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "This mechanism refers to the delayed depolarization of the sinoatrial (SA) node during the relaxation phase of the cardiac cycle (diastole). The gradual depolarization of the SA node is responsible for initiating each heartbeat. When acetylcholine binds to muscarinic receptors in the SA node, it activates a signaling pathway that increases potassium efflux from the cells, hyperpolarizing the cell membrane."
+    },
+    {
+     "type": "paragraph",
+     "text": "This hyperpolarization delays the diastolic depolarization, leading to a decrease in heart rate."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Increase in plateau: Acetylcholine does not cause an increase in the plateau phase. Instead, it primarily affects the pacemaker activity of the SA node and the conduction through the atrioventricular (AV) node, leading to a decrease in heart rate."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Decrease in preload: Acetylcholine does not directly cause a decrease in preload. Instead, it primarily affects heart rate through its influence on the SA node and AV node. However, a decrease in heart rate may indirectly lead to a decrease in preload over time due to a longer diastolic filling period."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Increase in afterload: Acetylcholine does not directly cause an increase in afterload. Its primary effect on heart rate is related to its action on the SA node and AV node. Changes in afterload are more influenced by factors such as arterial resistance, vascular tone, and conditions like hypertension."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-10-37",
+   "question": "Which of the following cannot be used to decrease intraocular pressure in glaucoma?",
+   "options": {
+    "A": "Dexamethasone",
+    "B": "Acetazolamide",
+    "C": "Apraclonidine",
+    "D": "Mannitol"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Dexamethasone is a corticosteroid medication that is not typically used to decrease intraocular pressure in glaucoma. While corticosteroids can have anti-inflammatory effects and may be used in certain ocular conditions, they are not commonly prescribed as primary treatments for reducing intraocular pressure in glaucoma."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Acetazolamide: Acetazolamide is a carbonic anhydrase inhibitor that can effectively lower intraocular pressure in glaucoma. It reduces the production of aqueous humour, thereby decreasing the pressure inside the eye."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Apraclonidine: Apraclonidine is an alpha-adrenergic agonist that can be used to reduce intraocular pressure in glaucoma. It works by decreasing the production of aqueous humour and increasing the outflow of fluid from the eye."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Mannitol: Mannitol is an osmotic diuretic that is sometimes used in acute glaucoma episodes to rapidly reduce intraocular pressure. It works by drawing fluid out of the eye, thereby lowering the pressure."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-10-38",
+   "question": "Pilocarpine produces:",
+   "options": {
+    "A": "Active miosis",
+    "B": "Active mydriasis",
+    "C": "Passive miosis",
+    "D": "Passive mydriasis"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Pilocarpine is a cholinergic agonist that acts on the muscarinic receptors in the eye. When applied topically to the eye, pilocarpine causes the contraction of the iris sphincter muscle, leading to active miosis, which is the constriction of the pupil."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Active mydriasis: Mydriasis refers to the dilation of the pupil. Pilocarpine actually has the opposite effect of mydriasis. It causes miosis, not mydriasis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Passive miosis: The term \"passive miosis\" is not commonly used in medical terminology. Miosis itself refers to the constriction of the pupil, which can be actively induced by pilocarpine."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Passive mydriasis: Similar to option B, \"passive mydriasis\" is not a recognized term in medical practice. Mydriasis refers to the dilation of the pupil, which is not produced by pilocarpine."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-10-39",
+   "question": "A 5-year-old male child is brought to the ophthalmology clinic by his mother with complaints of blurring of vision for one week. The patient further explains that he only has blurring of the far vision and has no problem in his near vision. The patient gives a history of no other abnormalities. For a detailed examination of the eye, the doctor uses a short-acting topical medication which also has a cycloplegic effect. Which of the following drug was used by the doctor in this case?",
+   "options": {
+    "A": "Atropine oral",
+    "B": "Atropine eye ointment",
+    "C": "Tropicamide eye drops",
+    "D": "Phenylephrine eye drops"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "In this case, the doctor used a short-acting topical medication with cycloplegic effect for a detailed examination of the child's eyes. Tropicamide is a commonly used cycloplegic and mydriatic agent that is often employed in ophthalmology clinics for diagnostic purposes. Tropicamide eye drops cause temporary paralysis of the ciliary muscle of the eye, resulting in cycloplegia (loss of accommodation) and mydriasis (pupil dilation)."
+    },
+    {
+     "type": "paragraph",
+     "text": "These effects allow for a more accurate examination of the patient's refractive error and the posterior segment of the eye."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Atropine oral: Atropine is a potent anticholinergic medication with cycloplegic and mydriatic effects. However, in this case, the doctor used a topical medication for examination, not an oral formulation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Atropine eye ointment: Atropine eye ointment can be used as a topical cycloplegic agent, but it has a slower onset of action compared to eye drops. It is typically used for prolonged dilation and cycloplegia, such as in cases of uveitis or amblyopia treatment. In this case, where a detailed examination is needed, a short-acting eye drop would be more appropriate."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Phenylephrine eye drops: Phenylephrine is a sympathomimetic medication that acts as a mydriatic (pupil dilation agent) by stimulating alpha-adrenergic receptors in the iris dilator muscle. While it can be used for pupillary dilation, it does not have cycloplegic effects. In this case, where cycloplegia is desired for a detailed examination, tropicamide eye drops would be a more suitable choice."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-10-40",
+   "question": "Intravenous mannitol is used in ____________?",
+   "options": {
+    "A": "Pulmonary edema",
+    "B": "Congestive cardiac failure",
+    "C": "Acute kidney injury with anuria",
+    "D": "Glaucoma"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Intravenous mannitol is commonly used as an osmotic diuretic in the treatment of acute episodes of increased intraocular pressure associated with glaucoma. It works by reducing the intraocular fluid volume and lowering intraocular pressure, providing temporary relief and protecting the optic nerve."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Pulmonary edema: While mannitol may be used in the management of certain types of pulmonary edema, such as in cases of increased intracranial pressure or cerebral edema. Other interventions, such as diuretics and vasodilators, are typically used in the management of pulmonary edema."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Congestive cardiac failure: Mannitol is not a standard treatment for congestive heart failure. The primary treatment for congestive heart failure involves medications that help improve cardiac function, reduce fluid retention, and manage symptoms."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Acute kidney injury with anuria: Mannitol may be used in some cases of acute kidney injury to promote diuresis and maintain urine flow. However, its use in anuric kidney injury is limited, as there is no urine output to enhance. Other interventions, such as fluid management, hemodialysis, or other renal replacement therapies, are typically employed in the treatment of anuric kidney injury."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-10-41",
+   "question": "What is the drug used to differentiate myasthenia gravis from cholinergic crisis?",
+   "options": {
+    "A": "Obidoxime",
+    "B": "Edrophonium",
+    "C": "Donepezil",
+    "D": "Atropine"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Edrophonium is a short-acting reversible acetylcholinesterase inhibitor used in the diagnosis of myasthenia gravis (MG) and to differentiate between MG and cholinergic crisis. In myasthenia gravis, there is a deficiency or dysfunction of acetylcholine receptors at the neuromuscular junction, leading to muscle weakness and fatigue."
+    },
+    {
+     "type": "paragraph",
+     "text": "Edrophonium temporarily increases the concentration of acetylcholine in the synaptic cleft by inhibiting acetylcholinesterase, the enzyme responsible for its breakdown. If a patient with myasthenia gravis receives edrophonium and experiences a temporary improvement in muscle strength, it suggests a diagnosis of myasthenia gravis."
+    },
+    {
+     "type": "paragraph",
+     "text": "On the other hand, in cholinergic crisis, there is an excess of acetylcholine due to overstimulation of cholinergic receptors. Administering edrophonium in cholinergic crisis can worsen symptoms and lead to further muscle weakness and respiratory compromise."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Option: Option A - Obidoxime: Obidoxime is an antidote used for the treatment of organophosphate poisoning, not for differentiating myasthenia gravis from cholinergic crisis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Donepezil: Donepezil is a long-acting acetylcholinesterase inhibitor used in the treatment of Alzheimer's disease and is not specifically used to differentiate myasthenia gravis from cholinergic crisis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Atropine: Atropine is an anticholinergic medication that blocks the effects of acetylcholine. It is used for the treatment of cholinergic crisis but does not help differentiate myasthenia gravis from cholinergic crisis"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-10-42",
+   "question": "Which of the following antiglaucoma medications is unsafe in infants?",
+   "options": {
+    "A": "Timolol",
+    "B": "Brimonidine",
+    "C": "Latanoprost",
+    "D": "Dorzolamide"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Brimonidine is an alpha-2 adrenergic agonist used in the treatment of glaucoma. However, it has been associated with serious adverse effects, such as central nervous system depression, hypotension, and apnea in infants. Due to these risks, brimonidine is generally considered unsafe in infants."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Timolol: Timolol is a beta-blocker commonly used in the treatment of glaucoma. While it is generally considered safe and effective for adults and older children, it can be used with caution in infants."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Latanoprost: Latanoprost is a prostaglandin analog commonly used in the treatment of glaucoma. While it is generally safe and well-tolerated, it is important to use caution and follow appropriate dosage adjustments in infants. However, compared to brimonidine, latanoprost is considered safer in infants."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Dorzolamide: Dorzolamide is a carbonic anhydrase inhibitor used in the treatment of glaucoma. It is generally well-tolerated and safe for use in infants."
+    }
+   ]
+  }
+ ]
+}

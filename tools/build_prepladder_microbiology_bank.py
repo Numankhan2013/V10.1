@@ -1,19 +1,26 @@
 #!/usr/bin/env python3
-"""Build the PrepLadder Microbiology bank from the extracted Version X QBank.
+"""Build the PrepLadder Microbiology bank from its two extracted editions.
 
 PrepLadder's other subjects show each explanation as the original PDF page.
 Microbiology arrives as a structured extraction instead (ordered text, list,
 table and image blocks), so its explanations render through the same ordered
 text renderer as the Marrow banks while the bank stays labelled PrepLadder.
 
+The bank is the November 2025 edition merged onto Version X, the edition
+learners first studied: tools/prepladder_microbiology_edition.py decides, per
+question, which edition supplies what, and keeps Version X app IDs.
+
 Layout (data/Prepladder/microbiology/):
-  source/prepladder_microbiology_qbank.jsonl.gz   slim copy of the extraction
-  visuals/<image_id>.jpg                          figures, extraction borders trimmed
+  source/prepladder_microbiology_qbank.jsonl.gz   slim Version X extraction
+  source/prepladder_microbiology_v2.jsonl.gz      slim November 2025 extraction
+  source/edition_map.json                         per-question merge decisions
+  visuals/<image_id>.jpg                          figures in use, extraction borders trimmed
   visuals.json                                    figure inventory (hash, size, trim box)
   prepladder_microbiology_qbank.zlib.b64.partNN   built bank (hash-pinned shards)
   prepladder_microbiology_qbank_manifest.json
 
-  python3 tools/build_prepladder_microbiology_bank.py import <master.jsonl> <images-dir>
+  python3 tools/build_prepladder_microbiology_bank.py import <master.jsonl> <images-dir>     # Version X
+  python3 tools/build_prepladder_microbiology_bank.py import-v2 <master.jsonl> <images-dir>  # Nov 2025
   python3 tools/build_prepladder_microbiology_bank.py           # rebuild the shards
   python3 tools/build_prepladder_microbiology_bank.py --check   # fail if shards are stale
   python3 tools/build_prepladder_microbiology_bank.py release   # copy figures into the app
@@ -36,8 +43,11 @@ from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA = ROOT / "data/Prepladder/microbiology"
+sys.path.insert(0, str(ROOT / "tools"))
+DATA =ROOT / "data/Prepladder/microbiology"
 SOURCE = DATA / "source/prepladder_microbiology_qbank.jsonl.gz"
+V2_SOURCE = DATA / "source/prepladder_microbiology_v2.jsonl.gz"
+EDITION_MAP_PATH = DATA / "source/edition_map.json"
 VISUALS = DATA / "visuals"
 INVENTORY = DATA / "visuals.json"
 PREFIX = "prepladder_microbiology_qbank"
@@ -45,9 +55,10 @@ SHARD_CHARS = 60000
 SUBJECT = "Microbiology"
 SOURCE_PDF = "data/Prepladder/SourcePDFs/compressed_microprep (1).pdf"
 SOURCE_LABEL = "PrepLadder Version X"
+V2_PDFS = "MicroPrep1.pdf, Microprep-02.pdf, Microprep-03.pdf, Microprep-04.pdf"
 ASSETS = ROOT / "app/src/main/assets"
 RUNTIME = ASSETS / "prepladder_microbiology_visual_metadata.js"
-EXPECTED = {"questions": 1042, "topics": 42}
+EXPECTED = {"questions": 1202, "topics": 42}
 
 
 def fail(message: str) -> None:
@@ -88,34 +99,96 @@ def slim(q: dict) -> dict:
     }
 
 
-def import_source(master: Path, images: Path) -> None:
-    sys.path.insert(0, str(ROOT / "tools"))
-    from figure_trim import trim_file
+def slim_v2(q: dict) -> dict:
+    """The November 2025 record: its PrepLadder QID, and figure IDs prefixed so
+    they never collide with Version X figures of the same lesson number."""
+    from prepladder_microbiology_edition import V2_PREFIX
 
-    rows = [slim(json.loads(line)) for line in master.read_text(encoding="utf-8").splitlines() if line.strip()]
-    SOURCE.parent.mkdir(parents=True, exist_ok=True)
+    row = slim(q)
+    row["prepladder_qid"] = q["prepladder_qid"]
+    for image in row["images"]:
+        image["image_id"] = V2_PREFIX + image["image_id"]
+    for block in row["explanation_blocks"]:
+        if block["type"] == "image":
+            block["image_id"] = V2_PREFIX + block["image_id"]
+    return row
+
+
+def write_source(path: Path, rows: list[dict]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
     buffer = io.BytesIO()
     with gzip.GzipFile(fileobj=buffer, mode="wb", mtime=0, compresslevel=9) as handle:
         handle.write("".join(json.dumps(r, ensure_ascii=False, sort_keys=True) + "\n" for r in rows).encode("utf-8"))
-    SOURCE.write_bytes(buffer.getvalue())
+    path.write_bytes(buffer.getvalue())
+
+
+def sync_figures(images: Path, prefix: str = "") -> None:
+    """Trim the figures the merged bank uses into visuals/ and drop the rest.
+    `images` holds the extraction's files, named without `prefix`."""
+    from figure_trim import trim_file
+
+    _, figures = normalize(load_source(), load_v2_source(), load_edition_map())
+    used = {f["imageId"] for f in figures}
     VISUALS.mkdir(parents=True, exist_ok=True)
     trims = {}
-    for q in rows:
-        for image in q["images"]:
-            src = images / f"{image['image_id']}.jpg"
-            if not src.exists():
-                fail(f"missing figure {src}")
-            box = trim_file(src, VISUALS / src.name)
-            if box:
-                trims[image["image_id"]] = list(box)
+    for image_id in sorted(used):
+        target = VISUALS / f"{image_id}.jpg"
+        if target.exists() or not image_id.startswith(prefix) or (prefix == "" and image_id.startswith("PLV2_")):
+            continue
+        src = images / f"{image_id[len(prefix):]}.jpg"
+        if not src.exists():
+            fail(f"missing figure {src}")
+        box = trim_file(src, target)
+        if box:
+            trims[image_id] = list(box)
+    removed = 0
+    for path in VISUALS.glob("*.jpg"):
+        if path.stem not in used:
+            path.unlink()
+            removed += 1
+    missing = [i for i in used if not (VISUALS / f"{i}.jpg").exists()]
+    if missing:
+        fail(f"{len(missing)} figures in use have no file, e.g. {missing[0]}")
     inventory(trims)
-    print(f"PREPLADDER_MICROBIOLOGY_IMPORT_OK questions={len(rows)} figures={sum(len(q['images']) for q in rows)} trimmed={len(trims)}")
+    print(f"PREPLADDER_MICROBIOLOGY_FIGURES_OK in_use={len(used)} trimmed_now={len(trims)} removed={removed}")
+
+
+def import_source(master: Path, images: Path) -> None:
+    rows = [slim(json.loads(line)) for line in master.read_text(encoding="utf-8").splitlines() if line.strip()]
+    write_source(SOURCE, rows)
+    sync_figures(images)
+    print(f"PREPLADDER_MICROBIOLOGY_IMPORT_OK questions={len(rows)}")
+
+
+def import_v2(master: Path, images: Path) -> None:
+    from prepladder_microbiology_edition import EDITION_MAP, V2_PREFIX, build_map
+
+    rows = [slim_v2(json.loads(line)) for line in master.read_text(encoding="utf-8").splitlines() if line.strip()]
+    write_source(V2_SOURCE, rows)
+    value = build_map(load_source(), rows)
+    EDITION_MAP.write_text(json.dumps(value, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    sync_figures(images, V2_PREFIX)
+    print(f"PREPLADDER_MICROBIOLOGY_IMPORT_V2_OK questions={len(rows)} {value['counts']}")
+
+
+def read_source(path: Path) -> list[dict]:
+    if not path.exists():
+        fail(f"source missing: {path.relative_to(ROOT)}")
+    return [json.loads(line) for line in gzip.decompress(path.read_bytes()).decode("utf-8").splitlines() if line.strip()]
 
 
 def load_source() -> list[dict]:
-    if not SOURCE.exists():
-        fail(f"source missing: {SOURCE.relative_to(ROOT)}")
-    return [json.loads(line) for line in gzip.decompress(SOURCE.read_bytes()).decode("utf-8").splitlines() if line.strip()]
+    return read_source(SOURCE)
+
+
+def load_v2_source() -> list[dict]:
+    return read_source(V2_SOURCE)
+
+
+def load_edition_map() -> dict:
+    from prepladder_microbiology_edition import EDITION_MAP
+
+    return json.loads(EDITION_MAP.read_text(encoding="utf-8"))
 
 
 # --- text cleanup -------------------------------------------------------------
@@ -199,21 +272,69 @@ def clean(text: str, keep_breaks: bool = False) -> str:
 
 OPTION_ANALYSIS = re.compile(r"^(.{1,160}?\(Options? [A-E](?:[,/ &and]+[A-E])*\))\s*:\s*(.+)$", re.S)
 ANSWER_LINE = re.compile(r"^\s*(?:Correct\s+)?Answer\s*(?::|[A-E]\))", re.I)
+# The November 2025 PDF prints each explanation as one run of text, sometimes
+# opening "correct answer (D) <option>." again.
+ANSWER_LEAD = re.compile(r"^\s*(?:correct\s+)?(?:answer|ans|naswer|options?)\s*[:\-–.]?\s*(?:is\s+)?(?:option\s+)?[:\-–]?\s*"
+                         r"\(?([A-E])\)?(?:\s*[A-E]\))?\s*[:\-–.]?\s*", re.I)
+SENTENCE_END = re.compile(r"(?<=[a-z0-9)\]][.!?]) (?=[A-Z])")
+PARAGRAPH_CHARS = 450
 
 
-def build_blocks(q: dict) -> tuple[list[dict], list[dict]]:
+OPTION_LEAD = re.compile(r"^([^.:]{1,100}?\(Options? [A-E](?:(?:,|/|&| and | or )\s*[A-E])*(?: ruled out)?\))\s*[:\-–]?\s*(.*)$", re.S)
+
+
+def paragraphs(text: str) -> list[str]:
+    """Break a flattened explanation into readable paragraphs at sentence ends.
+    A sentence that opens "Name (Option B) ..." starts its own paragraph with
+    the label in bold, as the Version X option analyses read."""
+    out: list[str] = []
+    option = False
+    for sentence in SENTENCE_END.split(text):
+        lead = OPTION_LEAD.match(sentence)
+        if lead and lead.group(2):
+            out.append(f"**{lead.group(1).strip()}:** {lead.group(2).strip()}")
+            option = True
+        elif out and (option or len(out[-1]) + len(sentence) < PARAGRAPH_CHARS):
+            out[-1] += " " + sentence
+        else:
+            out.append(sentence)
+    return out
+
+
+def drop_answer_lead(text: str, options: list[dict]) -> str:
+    match = ANSWER_LEAD.match(text)
+    if not match or not re.match(r"\s*correct", text, re.I):
+        return text
+    rest = text[match.end():]
+    for option in options:
+        label = option["text"].strip()
+        if label and rest.lower().startswith(label.lower()):
+            rest = rest[len(label):]
+            break
+    rest = re.sub(r"^[\s.:\-–]*(?:B is the correct answer:|This is correct\.)?\s*", "", rest)
+    return rest[:1].upper() + rest[1:]
+
+
+def build_blocks(q: dict, flattened: bool = False) -> tuple[list[dict], list[dict]]:
     blocks: list[dict] = []
     tables: list[dict] = []
     source = list(q["explanation_blocks"])
     # The answer line repeats what the app already marks; a leading
     # "Explanation:" heading repeats the section header.
-    if source and source[0]["type"] in ("text", "heading") and ANSWER_LINE.match(source[0]["content"]):
+    # (A flattened explanation runs on after that line; only the line goes.)
+    if not flattened and source and source[0]["type"] in ("text", "heading") and ANSWER_LINE.match(source[0]["content"]):
         source.pop(0)
     if source and source[0]["type"] == "heading" and source[0]["content"].strip().rstrip(":").lower() == "explanation":
         source.pop(0)
     for block in source:
         kind = block["type"]
-        if kind == "text":
+        if kind == "text" and flattened:
+            text = clean(block["content"])
+            if not any(b["type"] == "paragraph" for b in blocks):
+                text = drop_answer_lead(text, q["options"])
+            if re.search("[A-Za-z]{2}", text):
+                blocks += [{"type": "paragraph", "text": p} for p in paragraphs(text)]
+        elif kind == "text":
             text = clean(block["content"])
             if text:
                 blocks.append({"type": "paragraph", "text": text})
@@ -279,91 +400,141 @@ def topic_id(module: int) -> str:
     return f"microbiology-{module}"
 
 
-def normalize(rows: list[dict]) -> dict:
-    count_words(rows)
+def x_app_id(q: dict) -> str:
+    return f"{topic_id(int(q['module_index']))}-{int(q['question_number'])}"
+
+
+def stem_parts(q: dict) -> tuple[str, list[dict], list[dict]]:
+    stem = clean(q["question"])
+    tables = [{"columns": [clean(c, keep_breaks=True) for c in t["headers"]],
+               "rows": [[clean(c, keep_breaks=True) for c in r] for r in t["rows"]]} for t in q["stem_tables"]]
+    images = [i for i in q["images"] if i["location"].startswith("question_stem")]
+    return stem, tables, images
+
+
+def explanation_parts(q: dict, flattened: bool) -> tuple[list[dict], list[dict], list[dict]]:
+    blocks, tables = build_blocks(q, flattened)
+    images = [i for i in q["images"] if not i["location"].startswith("question_stem")]
+    ids = {i["image_id"] for i in images}
+    for block in blocks:
+        if block["type"] == "figure" and block["figure_id"] not in ids:
+            fail(f"{q['id']}: figure block {block['figure_id']} has no image")
+    return blocks, tables, images
+
+
+def answer_parts(q: dict) -> tuple[list[str], list[str], int, list[int]]:
+    options = q["options"]
+    letters = [o["id"].strip().upper() for o in options]
+    if letters != [chr(65 + i) for i in range(len(options))] or len(options) not in (4, 5):
+        fail(f"{q['id']}: options must run A-D or A-E, got {letters}")
+    # One record keys two options ("B, C"); the app scores one, the first.
+    key = letters.index(q["correct_options_list"][0].strip().upper()) + 1
+    flagged = [i for i, o in enumerate(options, 1) if o["is_correct"]]
+    if key not in flagged:
+        fail(f"{q['id']}: correct_option {q['correct_option']} is not flagged correct")
+    texts = [clean(o["text"]) for o in options]
+    return letters, texts, key, flagged
+
+
+def normalize(x_rows: list[dict], v2_rows: list[dict], edition: dict) -> tuple[dict, list[dict]]:
+    """Merge the two editions per edition_map.json; also return the figures in use."""
+    from prepladder_microbiology_edition import V2_LABEL, fix_record
+
+    count_words(x_rows + v2_rows)
+    x_by_id = {q["id"]: fix_record(q) for q in x_rows}
+    v2_by_id = {q["id"]: fix_record(q) for q in v2_rows}
+    # Topic k is Version X lesson k; its title and section now come from the
+    # November 2025 lesson that continues it (lesson 7 folded into 6).
+    lessons = {}
+    for q in v2_by_id.values():
+        lessons.setdefault(int(q["module_index"]), q)
     topics: dict[int, dict] = {}
-    questions = []
-    for q in rows:
-        module = int(q["module_index"])
-        topic = topics.setdefault(module, {
-            "id": topic_id(module), "subject": SUBJECT, "bank": "PrepLadder", "title": q["module_name"].strip(),
-            "section": q["section_category"], "pyq": bool(q["is_pyq_lesson"]),
-            "sourceQuestionTotal": int(q["module_total_questions_in_app"]), "numbers": [], "startPage": None,
-        })
-        if topic["title"] != q["module_name"].strip():
-            fail(f"{q['id']}: lesson title drift")
-        number = int(q["question_number"])
-        topic["numbers"].append(number)
-        options = q["options"]
-        letters = [o["id"].strip().upper() for o in options]
-        if letters != [chr(65 + i) for i in range(len(options))] or len(options) not in (4, 5):
-            fail(f"{q['id']}: options must run A-D or A-E, got {letters}")
-        # One record keys two options ("B, C"); the app scores one, the first.
-        key = letters.index(q["correct_options_list"][0].strip().upper()) + 1
-        flagged = [i for i, o in enumerate(options, 1) if o["is_correct"]]
-        if key not in flagged:
-            fail(f"{q['id']}: correct_option {q['correct_option']} is not flagged correct")
-        stem = clean(q["question"])
-        texts = [clean(o["text"]) for o in options]
-        if not stem or not all(texts):
-            fail(f"{q['id']}: blank stem or option")
-        blocks, tables = build_blocks(q)
-        image_ids = {i["image_id"] for i in q["images"]}
-        for block in blocks:
-            if block["type"] == "figure" and block["figure_id"] not in image_ids:
-                fail(f"{q['id']}: figure block {block['figure_id']} has no image")
-        pages = q["pages"]
-        if topic["startPage"] is None and pages["question_pages"]:
-            topic["startPage"] = pages["question_pages"][0]
-        notes = list(q["quality_flags"])
-        if len(flagged) > 1:
-            notes.append(f"source key lists {len(flagged)} correct options; scored on {letters[key - 1]}")
-        record = {
-            "id": f"{topic['id']}-{number}",
-            "sourceQuestionId": q["id"],
-            "subject": SUBJECT,
-            "bank": "PrepLadder",
-            "explanationFormat": "structured",
-            "chapterId": topic["id"],
-            "chapter": topic["title"],
-            "topic": topic["title"],
-            "topicIndex": module,
-            "questionNumber": number,
-            "question": stem,
-            "options": [{"letter": letters[i], "text": texts[i]} for i in range(len(options))],
-            "correctOption": key,
-            "correctAnswerText": texts[key - 1],
-            "explanation": plain_text(blocks),
-            "structuredExplanation": {"layout": "ordered-blocks", "blocks": blocks,
-                                      "tables": tables, "figures": sorted(image_ids)},
-            "provenance": {"sourceFile": SOURCE_PDF, "sourceLabel": SOURCE_LABEL,
-                           "questionPages": pages["question_pages"], "explanationPages": pages["explanation_pages"]},
-            "sourcePage": (pages["question_pages"] or [None])[0],
-            "reviewStatus": q["review_status"],
-        }
-        if q["stem_tables"]:
-            record["stemTables"] = [{"columns": [clean(c, keep_breaks=True) for c in t["headers"]],
-                                     "rows": [[clean(c, keep_breaks=True) for c in r] for r in t["rows"]]}
-                                    for t in q["stem_tables"]]
-        if notes:
-            record["reviewNotes"] = notes
-        questions.append(record)
-    out_topics = []
-    for module in sorted(topics):
-        topic = topics[module]
-        numbers = topic.pop("numbers")
-        if numbers != list(range(1, len(numbers) + 1)):
-            fail(f"lesson {module}: question numbers are not contiguous from 1")
-        topic["questionCount"] = len(numbers)
-        topic["complete"] = len(numbers) == topic["sourceQuestionTotal"]
-        out_topics.append(topic)
-    if [t["id"] for t in out_topics] != [topic_id(n) for n in range(1, len(out_topics) + 1)]:
-        fail("lessons are not contiguous from 1")
+    for k in range(1, EXPECTED["topics"] + 1):
+        lesson = lessons[k if k <= 6 else k + 1]
+        topics[k] = {"id": topic_id(k), "subject": SUBJECT, "bank": "PrepLadder", "title": lesson["module_name"].strip(),
+                     "section": lesson["section_category"], "pyq": bool(lesson["is_pyq_lesson"]), "startPage": None,
+                     "questions": []}
+
+    plan = [(e, v2_by_id[e["v2Id"]], x_by_id.get(e["xId"])) for e in edition["questions"]]
+    plan += [(None, None, x_by_id[xid]) for xid in edition["xOnlyKept"]]
+    for entry, new, old in plan:
+        # Version X questions follow the new edition's order; questions it dropped come last.
+        order = (0, int(new["module_index"]), int(new["question_number"])) if new else (1, int(old["module_index"]), int(old["question_number"]))
+        topics[entry["topic"] if entry else int(old["module_index"])]["questions"].append((order, entry, new, old))
+
+    questions, figures = [], []
+    for k, topic in topics.items():
+        for number, (_, entry, new, old) in enumerate(sorted(topic.pop("questions"), key=lambda r: r[0]), 1):
+            answer_from = new or old
+            stem_from = old if not new or entry["stem"] == "x" else new
+            explain_from = old if not new or entry["explanation"] == "x" else new
+            letters, texts, key, flagged = answer_parts(answer_from)
+            stem, stem_tables, stem_images = stem_parts(stem_from)
+            blocks, tables, explain_images = explanation_parts(explain_from, flattened=explain_from is new)
+            if not stem or not all(texts):
+                fail(f"{answer_from['id']}: blank stem or option")
+            app_id = x_app_id(old) if old else f"microbiology-q{new['prepladder_qid'].lstrip('Q')}"
+            pages = explain_from["pages"]
+            if topic["startPage"] is None and new and new["pages"]["question_pages"]:
+                topic["startPage"] = new["pages"]["question_pages"][0]
+            notes = list(answer_from["quality_flags"])
+            if len(flagged) > 1:
+                notes.append(f"source key lists {len(flagged)} correct options; scored on {letters[key - 1]}")
+            if entry and entry["status"] in ("answer_changed", "edited_answer_changed"):
+                was = old["correct_options_list"][0]
+                notes.append(f"answer key changed in the November 2025 edition (Version X keyed {was})")
+            if entry and entry["explanation"] == "x" and entry["v2ExplanationBlank"]:
+                notes.append("November 2025 PDF has no explanation; Version X explanation kept")
+            edition_label = V2_LABEL if explain_from is new else SOURCE_LABEL
+            record = {
+                "id": app_id,
+                "sourceQuestionId": answer_from["id"],
+                "subject": SUBJECT,
+                "bank": "PrepLadder",
+                "explanationFormat": "structured",
+                "chapterId": topic["id"],
+                "chapter": topic["title"],
+                "topic": topic["title"],
+                "topicIndex": k,
+                "questionNumber": number,
+                "question": stem,
+                "options": [{"letter": letters[i], "text": texts[i]} for i in range(len(texts))],
+                "correctOption": key,
+                "correctAnswerText": texts[key - 1],
+                "explanation": plain_text(blocks),
+                "structuredExplanation": {"layout": "ordered-blocks", "blocks": blocks, "tables": tables,
+                                          "figures": sorted(i["image_id"] for i in stem_images + explain_images)},
+                "provenance": {"sourceFile": V2_PDFS if explain_from is new else SOURCE_PDF, "sourceLabel": edition_label,
+                               "questionPages": (new or old)["pages"]["question_pages"],
+                               "explanationPages": pages["explanation_pages"]},
+                "sourcePage": ((new or old)["pages"]["question_pages"] or [None])[0],
+                "reviewStatus": answer_from["review_status"],
+            }
+            if new:
+                record["prepladderQid"] = new["prepladder_qid"]
+                record["edition"] = "v2" if not old else "v2+x"
+            else:
+                record["edition"] = "x"
+            if stem_tables:
+                record["stemTables"] = stem_tables
+            if notes:
+                record["reviewNotes"] = notes
+            questions.append(record)
+            for role, images in (("question", stem_images), ("explanation", explain_images)):
+                for n, image in enumerate(images, 1):
+                    figures.append({"imageId": image["image_id"], "questionId": app_id, "role": role, "order": n,
+                                    "caption": image.get("caption"), "sourcePage": image.get("source_page")})
+        topic["questionCount"] = number
+        topic["sourceQuestionTotal"] = number
+        topic["complete"] = True
     ids = [q["id"] for q in questions]
     if len(ids) != len(set(ids)):
         fail("duplicate question IDs")
-    return {"schema_version": "prepladder-text-bank-1.0", "subject": SUBJECT, "bank": "PrepLadder",
-            "explanationFormat": "structured", "topics": out_topics, "questions": questions}
+    if len(figures) != len({f["imageId"] for f in figures}):
+        fail("a figure is used twice")
+    record = {"schema_version": "prepladder-text-bank-1.0", "subject": SUBJECT, "bank": "PrepLadder",
+              "explanationFormat": "structured", "topics": list(topics.values()), "questions": questions}
+    return record, figures
 
 
 def shard(record: dict) -> tuple[list[str], dict]:
@@ -374,7 +545,9 @@ def shard(record: dict) -> tuple[list[str], dict]:
     manifest = {
         "schema_version": "1.0", "subject": SUBJECT, "bank": "PrepLadder",
         "source": SOURCE.relative_to(ROOT).as_posix(), "source_sha256": sha256(SOURCE.read_bytes()),
-        "sourcePdf": SOURCE_PDF, "builder": "tools/build_prepladder_microbiology_bank.py",
+        "sourceV2": V2_SOURCE.relative_to(ROOT).as_posix(), "sourceV2_sha256": sha256(V2_SOURCE.read_bytes()),
+        "editionMap_sha256": sha256(EDITION_MAP_PATH.read_bytes()),
+        "sourcePdf": SOURCE_PDF, "sourcePdfsV2": V2_PDFS, "builder": "tools/build_prepladder_microbiology_bank.py",
         "topics": len(record["topics"]), "questions": len(record["questions"]), "parts": len(parts),
         "base64_chars": len(encoded), "compressed_sha256": sha256(compressed), "raw_sha256": sha256(raw),
         "topicCounts": {t["id"]: t["questionCount"] for t in record["topics"]},
@@ -405,41 +578,39 @@ def app_record() -> dict:
 # --- figures ---------------------------------------------------------------------
 
 def jpeg_size(data: bytes) -> tuple[int, int]:
-    sys.path.insert(0, str(ROOT / "tools"))
     from microbiology_visuals import jpeg_size as size
     return size(data)
 
 
 def alt_text(image: dict, n: int, role: str) -> str:
     caption = re.sub(r"^\s*Description:\s*-\s*", "", clean(image.get("caption") or "")).strip()
+    caption = re.sub(r"^(?:Question|Explanation)\b.*?\bFigure\s*\d+$", "", caption, flags=re.I)
     if len(caption) < 3 or re.fullmatch(r"(?:Question|Image|Figure)\s*\d+.*", caption, re.I):
         return f"{'Question' if role == 'question' else 'Explanation'} figure {n}"
     return caption
 
 
 def inventory(trims: dict | None = None) -> None:
+    """Record every figure the merged bank uses. `trims` holds crops taken just
+    now; other figures keep the crop recorded when they were imported."""
     previous = {}
     if INVENTORY.exists():
-        previous = {f["imageId"]: f for f in json.loads(INVENTORY.read_text(encoding="utf-8"))["figures"]}
+        previous = {f["imageId"]: f.get("trimBox") for f in json.loads(INVENTORY.read_text(encoding="utf-8"))["figures"]}
+    previous.update(trims or {})
+    _, used = normalize(load_source(), load_v2_source(), load_edition_map())
     figures = []
-    for q in load_source():
-        app_id = f"{topic_id(int(q['module_index']))}-{int(q['question_number'])}"
-        order: dict[str, int] = {}
-        for image in q["images"]:
-            role = "question" if image["location"].startswith("question_stem") else "explanation"
-            order[role] = order.get(role, 0) + 1
-            path = VISUALS / f"{image['image_id']}.jpg"
-            data = path.read_bytes()
-            width, height = jpeg_size(data)
-            trim = (trims or {}).get(image["image_id"]) if trims is not None else previous.get(image["image_id"], {}).get("trimBox")
-            figures.append({
-                "imageId": image["image_id"], "questionId": app_id, "role": role, "order": order[role],
-                "alt": alt_text(image, order[role], role), "file": path.relative_to(ROOT).as_posix(),
-                "sha256": sha256(data), "width": width, "height": height, "sourcePage": image.get("source_page"),
-                "trimBox": trim,
-            })
+    for figure in used:
+        path = VISUALS / f"{figure['imageId']}.jpg"
+        data = path.read_bytes()
+        width, height = jpeg_size(data)
+        figures.append({
+            "imageId": figure["imageId"], "questionId": figure["questionId"], "role": figure["role"],
+            "order": figure["order"], "alt": alt_text(figure, figure["order"], figure["role"]),
+            "file": path.relative_to(ROOT).as_posix(), "sha256": sha256(data), "width": width, "height": height,
+            "sourcePage": figure["sourcePage"], "trimBox": previous.get(figure["imageId"]),
+        })
     INVENTORY.write_text(json.dumps({
-        "schemaVersion": 1, "subject": SUBJECT, "bank": "PrepLadder", "sourcePdf": SOURCE_PDF,
+        "schemaVersion": 1, "subject": SUBJECT, "bank": "PrepLadder", "sourcePdf": SOURCE_PDF, "sourcePdfsV2": V2_PDFS,
         "note": "trimBox is the crop tools/figure_trim.py took from the extracted figure (null: untouched).",
         "figures": figures,
     }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -471,16 +642,18 @@ def release() -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("command", nargs="?", choices=["build", "import", "release"], default="build")
+    parser.add_argument("command", nargs="?", choices=["build", "import", "import-v2", "release"], default="build")
     parser.add_argument("paths", nargs="*")
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
     if args.command == "import":
         import_source(Path(args.paths[0]), Path(args.paths[1]))
+    elif args.command == "import-v2":
+        import_v2(Path(args.paths[0]), Path(args.paths[1]))
     elif args.command == "release":
         release()
         return
-    record = normalize(load_source())
+    record, _ = normalize(load_source(), load_v2_source(), load_edition_map())
     parts, manifest = shard(record)
     manifest_path = DATA / f"{PREFIX}_manifest.json"
     manifest_text = json.dumps(manifest, ensure_ascii=False, indent=2) + "\n"

@@ -1,0 +1,637 @@
+{
+ "batch": "pharmacology-056",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pharmacology-056",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pharmacology-48-2",
+   "question": "A patient presents with the following lesions with a burning sensation on eating spicy food. Which of the following drugs is most likely responsible?",
+   "options": {
+    "A": "Lithium",
+    "B": "Beta blockers",
+    "C": "Fluconazole",
+    "D": "Ciprofloxacin"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Given the presentation, oral lesions with burning sensation, especially on eating spicy food, the most likely diagnosis is oral lichenoid reaction or lichenoid stomatitis, which is a known adverse effect of lithium. Adverse effect: Chronic lithium therapy can cause lichenoid mucosal lesions (white, lacy, reticular patches) often with burning on spicy or acidic foods."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mechanism: Hypersensitivity reaction to the drug, producing lesions clinically and histologically similar to oral lichen planus. Common sites: Buccal mucosa, tongue, gingiva."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Beta blockers: Can cause lichenoid drug eruptions, but these are more commonly cutaneous rather than mucosal. Oral involvement is rare."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Fluconazole: Antifungal; does not cause oral lichenoid reactions. In fact, it’s used to treat oral candidiasis, not cause it."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Ciprofloxacin: Can cause photosensitivity, tendon injury, CNS effects — oral lichenoid lesions are not a typical side effect."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-48-3",
+   "question": "A 42-year-old man presents with heartburn, regurgitation, and post-meal bloating for the past 3 months. He is diagnosed with gastroesophageal reflux disease (GERD). In addition to acid suppression, the physician decides to prescribe a drug that will enhance gastric emptying and esophageal motility to help relieve his symptoms. Which of the following drugs best serves this purpose?",
+   "options": {
+    "A": "Metoclopramide",
+    "B": "Pantoprazole",
+    "C": "Vonoprazan",
+    "D": "Sodium alginate"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Metoclopramide is a prokinetic agent that acts as a dopamine D₂ receptor antagonist and a 5-HT → receptor agonist. ↑ LES tone: D₂ blockade increases acetylcholine release in the myenteric plexus → stronger contraction of the lower esophageal sphincter (LES) → reduces reflux. ↑ Gastric emptying: Enhances gastric peristalsis and relaxes the pyloric sphincter → less gastric stasis. ↑ Upper GI motility: Improves coordination between stomach and duodenum without stimulating gastric acid secretion."
+    },
+    {
+     "type": "paragraph",
+     "text": "This makes it useful in GERD, gastroparesis (especially diabetic), and as an antiemetic in chemotherapy."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Pantoprazole: This is a proton pump inhibitor (PPI) that potently suppresses gastric acid secretion by blocking the H+/K+ ATPase pump in gastric parietal cells. It is effective for acid suppression in GERD but does not enhance gastric emptying or esophageal motility."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Vonoprazan: A potassium-competitive acid blocker (P-CAB); like PPIs, it lowers acid production but has no prokinetic action."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Sodium alginate: Forms a viscous “raft” layer on gastric contents, reducing reflux episodes; purely a mechanical/physical barrier, not a motility enhancer."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-48-4",
+   "question": "A patient with a history of peptic ulcer disease presents with arthritis and develops carditis. Which of the following is the most appropriate anti-inflammatory drug?",
+   "options": {
+    "A": "Ibuprofen",
+    "B": "Diclofenac",
+    "C": "Naloxone",
+    "D": "Celecoxib"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "In patients with rheumatic fever or other inflammatory conditions requiring NSAID therapy, a history of peptic ulcer disease (PUD) significantly increases the risk of gastrointestinal bleeding and ulcer recurrence with traditional nonselective NSAIDs. Celecoxib is a COX-2 selective inhibitor that provides effective anti-inflammatory action while sparing COX-1–mediated gastric mucosal protection, thus reducing (but not eliminating) GI injury risk."
+    },
+    {
+     "type": "paragraph",
+     "text": "It is therefore the preferred NSAID in patients with high GI risk who still require anti-inflammatory therapy."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Incorrect Options: Ibuprofen (Option A) and Diclofenac (Option B):** Nonselective NSAIDs that inhibit both COX-1 and COX-2, leading to increased gastric acid secretion and reduced mucosal protection - dangerous in patients with PUD."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Naloxone (Option C):** An opioid antagonist used for opioid overdose reversal; has no role as an anti-inflammatory agent."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-48-5",
+   "question": "What is the treatment of Zollinger-Ellison syndrome?",
+   "options": {
+    "A": "Cimetidine",
+    "B": "Omeprazole",
+    "C": "Misoprostol",
+    "D": "Aluminium hydroxide"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Omeprazole is a proton pump inhibitor that can be used to treat Zollinger-Ellison syndrome, a condition characterised by excessive gastric acid secretion due to gastrin-secreting tumours (gastrinomas). Its treatment is aimed at controlling acid hypersecretion to prevent complications such as peptic ulcers. Omeprazole helps alleviate the symptoms and complications associated with Zollinger-Ellison syndrome."
+    },
+    {
+     "type": "paragraph",
+     "text": "Other PPls such as pantoprazole, lansoprazole, and esomeprazole may also be used."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Cimetidine (Option A) is an H2 receptor antagonist, reduces stomach acid production and can provide symptomatic relief for GERD and peptic ulcers. However, it is not the first-line treatment for Zollinger-Ellison syndrome, which requires more potent acid-suppressing medications due to excessive gastrin-induced acid secretion. Misoprostol (Option C) is a prostaglandin analogue that has cytoprotective properties and can help prevent gastric ulcers caused by nonsteroidal anti-inflammatory drugs (NSAIDs). While it may be used for certain conditions involving gastric ulcers, it is not typically considered a primary treatment for Zollinger-Ellison syndrome. Aluminium hydroxide (Option D) is an antacid that neutralizes stomach acid, providing temporary relief from symptoms like heartburn and indigestion. However, it does not address the underlying cause of Zollinger-Ellison syndrome and can cause constipation with excessive use."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-48-6",
+   "question": "Proton pump inhibitor suppresses gastric acid secretion by acting on?",
+   "options": {
+    "A": "H+/Cl- ATPase pump",
+    "B": "H+/K+ ATPase pump",
+    "C": "Na+/K+ ATPase pump",
+    "D": "Na+/K+/Cl- ATPase pump"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Proton pump inhibitor suppresses gastric acid secretion by inhibiting the H+/K+ ATPase pump located in the parietal cells of the stomach. Proton pump inhibitor MOA It inhibits the H+/K+ ATPase pump located in the parietal cells of the stomach, thus reducing acid secretion in the stomach. Potency of PPI Rabeprazole > Lansoprazole > Rabeprazole > Omeprazole > Pantoprazole All PPIs have equal efficacy."
+    },
+    {
+     "type": "paragraph",
+     "text": "Properties Acid production reduction persists for 2 to 4 days even after stopping the drug and resumes later. Duration of action is typically 2 to 4 days. Omeprazole is the fastest acting PPI. PPIs are acid labile; Enteric coating can protect from acid degradation."
+    },
+    {
+     "type": "paragraph",
+     "text": "They should be taken on an empty stomach when only ~I0% of proton pumps are active, followed 1 hour later by a meal to activate the H+/K+/ATPase at a time when plasma concentration of the PPI is maximal."
+    },
+    {
+     "type": "paragraph",
+     "text": "Side effects Chronic use of PPIs can lead to hypergastrinemia, which can further result in: ECL hyperplasia Fundic gland polyposis Atrophic gastritis Gastrointestinal upset (nausea, constipation, diarrhoea) Increased microbial growth leads to a higher risk of bacterial infection Increased risk of bone fractures due to hypocalcemia (reduced absorption of calcium)"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-48-7",
+   "question": "A 25-year-old woman presents to the emergency department 6 hours after ingesting a large quantity of paracetamol tablets. What is the most likely progression of paracetamol poisoning in this case?",
+   "options": {
+    "A": "Increase in liver enzymes within 24 hours",
+    "B": "Liver failure within 24 hours",
+    "C": "Paracetamol achieves peak concentration within 4 hours",
+    "D": "Recovery within 72 hours"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Paracetamol ( acetaminophen ) poisoning follows a predictable progression based on the time since ingestion. The first 24 hours are usually asymptomatic or present with mild symptoms, but a rise in liver enzymes (AST, ALT) occurs as hepatotoxicity begins. Metabolism of Acetaminophen Acetaminophen is mainly metabolized via phase II reactions into harmless sulfate and glucuronide metabolites."
+    },
+    {
+     "type": "paragraph",
+     "text": "A small portion undergoes phase I metabolism by CYP2E1, forming the hepatotoxic metabolite N-acetyl-p-benzoquinone-imine (NAPQI). Detoxification of NAPQI NAPQI is neutralized by binding to glutathione, forming water-soluble mercapturic acid, which is excreted via the kidneys."
+    },
+    {
+     "type": "paragraph",
+     "text": "Glutathione Depletion When excessive NAPQI is produced, or glutathione is depleted, NAPQI binds to hepatocyte macromolecules, forming acetaminophen-protein adducts, causing hepatocyte necrosis. Risk Factors Chronic alcohol use (induces CYP2E1, depletes glutathione). Starvation. Prior use of mixed-function oxidase-inducing drugs (e.g., phenobarbital, INH ). Hepatitis C infection increases the risk of liver injury in overdose."
+    },
+    {
+     "type": "paragraph",
+     "text": "Clinical features Early Symptoms (4-12 hrs): Nausea, vomiting, diarrhea, abdominal pain, shock. Delayed Symptoms (24-48 hrs): Hepatic injury becomes apparent. Coagulopathy and encephalopathy. Maximal damage seen 3–5 days post-ingestion with aminotransferase levels >10,000 IU/L. Renal failure and myocardial injury may occur. Stages of acute acetaminophen poisoning Stage Time Post-Ingestion Description I 0–24 hours Nausea, vomiting, and anorexia."
+    },
+    {
+     "type": "paragraph",
+     "text": "II 24–72 hours Right upper quadrant abdominal pain; elevated liver enzymes (AST, ALT), and sometimes increased bilirubin and INR if poisoning is severe. III 72–96 hours Vomiting, signs of liver failure; peak levels of AST, ALT, bilirubin, and INR. Possible renal failure and pancreatitis. IV > 5 days Recovery of liver function or progression to multiple organ failure."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Liver failure within 24 hours (Option B):** is incorrect because severe liver failure typically occurs at 72–96 hours, not within the first 24 hours."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Paracetamol achieves peak concentration within 4 hours (Option C):** is incorrect because while paracetamol reaches peak plasma levels in 30 minutes to 2 hours, this does not define the course of toxicity."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Recovery within 72 hours (Option D):** is incorrect because severe toxicity peaks at 72–96 hours, with either recovery or progression to liver failure afterward."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-48-8",
+   "question": "Which of the following drugs is used for the treatment of motion sickness?",
+   "options": {
+    "A": "Cetirizine",
+    "B": "Promethazine",
+    "C": "Misolastin",
+    "D": "Loratidine"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Promethazine is an antihistamine drug with antiemetic properties; thus, it can be used for motion sickness. Mechanism of action of Promethazine: M1 receptor and H1 receptors are present in the inner ear labyrinth, and they get activated when there is movement (during journeys) in the semi-circular canal ➞ activate the vestibular nerve ➞ stimulate CTZ in the brain ➞ nausea and vomiting."
+    },
+    {
+     "type": "paragraph",
+     "text": "M1 and H1 receptor blockers block this effect ➞ ↓ stimulation of the CTZ ➞ Anti-emetic action."
+    },
+    {
+     "type": "paragraph",
+     "text": "Drug MOA Side effects Promethazine Antihistamine with antiemetic action Drowsiness, dry mouth, blurred vision Dimenhydrinate An antihistamine with anticholinergic properties Drowsiness, dry mouth, blurred vision, constipation Meclizine Scopolamine Anticholinergic with antiemetic action Drowsiness, dry mouth, blurred vision Cetirizine (Option A) is a second-generation antihistamine mainly used for allergies (e.g., rhinitis, urticaria)."
+    },
+    {
+     "type": "paragraph",
+     "text": "It does not have significant antiemetic or vestibular suppressant activity and is not used for motion sickness. Mizolastine (Option C ) is second-generation antihistamine for allergies like rhinitis and urticaria. It lacks central nervous system effects, and it is not used to treat motion sickness."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Loratadine (Option D):** is a non-sedating antihistamine for treating allergic conditions. It does not effectively block vestibular pathways and is not indicated for motion sickness."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L48_Q008_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-48-9",
+   "question": "What is the most frequently observed adverse effect of orlistat among the options provided?",
+   "options": {
+    "A": "Acute kidney injury",
+    "B": "Osteoporosis",
+    "C": "Steatorrhea",
+    "D": "Colorectal cancer"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "There is no direct evidence linking orlistat use with colorectal cancer. In fact, orlistat may have a potential role in reducing the risk of colorectal cancer due to its effects on weight loss and fat absorption."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-48-10",
+   "question": "A tourist with a travel history to India presents with complaints of abdominal pain and multiple episodes of watery diarrhea. He reports having food at a local restaurant the previous night. Which of the following antidiarrheal agents is used in this condition?",
+   "options": {
+    "A": "Octreotide",
+    "B": "Loperamide",
+    "C": "Rifaximin",
+    "D": "Bismuth subsalicylate"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient has acute watery diarrhea after eating at a restaurant in India → most likely traveler’s diarrhea, commonly caused by enterotoxigenic E. coli (ETEC). Rifaximin is a non-absorbable antibiotic effective for traveler’s diarrhea due to noninvasive E. coli. It is the recommended treatment."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Octreotide (Option A):** It is used for secretory diarrhea (e.g., carcinoid syndrome, VIPoma), not traveler’s diarrhea."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Loperamide (Option B):** It can reduce stool frequency but is not preferred alone in infectious diarrhea; risk of worsening disease if invasive pathogen is present."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Bismuth subsalicylate (Option D):** can be used for prevention and mild symptoms, but not the main treatment once diarrhea is established."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-48-11",
+   "question": "A colonoscopy of an elderly patient revealed brownish-pigmented lesions. The patient admitted to chronic laxative abuse. Which of the following laxatives is most likely to cause this condition?",
+   "options": {
+    "A": "Bran",
+    "B": "Psyllium",
+    "C": "Senna",
+    "D": "Methylcellulose"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Cascara: Herbal Laxatives, which are a type of Stimulant laxatives. It causes low-grade inflammation in the small and large bowel, stimulating intestinal motility and promoting the accumulation of water and electrolytes. Other side effects of Senna/Cascara besides Melanosis Coli are nausea, vomiting and abdominal cramping."
+    },
+    {
+     "type": "paragraph",
+     "text": "Contraindications: Pregnancy (Increased the risk of abortion due to contractions) Intestinal Obstruction (can cause rupture of the intestine) Before Colonoscopy (can interfere with colonoscopy findings) Bran (Option A) is a high-fibre substance obtained from the outer layer of cereal grains, commonly used as a natural laxative. It is not typically associated with melanosis coli, which manifests as brownish pigmentation in the colon."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Psyllium (Option B):** is a soluble fibre used as a bulk-forming laxative. It absorbs water and increases stool bulk to aid in bowel movements. It is not known to cause melanosis coli."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Methylcellulose (Option D):** is a bulk-forming laxative that absorbs water and forms a gel-like substance to add bulk to the stool. It is not usually associated with melanosis coli. Therefore, it is unlikely to be the cause of this condition."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-48-12",
+   "question": "In paracetamol poisoning, N-acetylcysteine is administered as an antidote. How does it act to prevent toxicity?",
+   "options": {
+    "A": "Inhibits the toxin",
+    "B": "Removes the toxin",
+    "C": "Restores glutathione levels",
+    "D": "Neutralizes liver enzymes"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "N-acetylcysteine (NAC) is the antidote for paracetamol (acetaminophen) poisoning and primarily works by restoring glutathione levels to prevent liver damage. Mechanism of Paracetamol Toxicity: Paracetamol is metabolized by the liver into: Non-toxic metabolites (via sulfation & glucuronidation). A toxic metabolite, NAPQI (N-acetyl-p-benzoquinone imine), via CYP450. Normally, NAPQI is detoxified by glutathione (GSH)."
+    },
+    {
+     "type": "paragraph",
+     "text": "In overdose, glutathione is depleted, allowing NAPQI to accumulate → hepatic necrosis. How NAC Works: Acts as a glutathione precursor, replenishing GSH stores. Enhances non-toxic sulfation pathway for paracetamol metabolism. Directly binds NAPQI in high doses, reducing toxicity."
+    },
+    {
+     "type": "paragraph",
+     "text": "Management of Paracetamol poisoning Management Aspect Details Initial Treatment Gastric Lavage Administer activated charcoal or cholestyramine (effective within 30 minutes of ingestion) N-acetylcysteine (NAC) Therapy Initiate within 8 hours of ingestion; may be partially effective up to 24–36 hours post-overdose. Administration: IV: 140 mg/kg loading dose over 1 hour, followed by 70 mg/kg every 4 hours for 15–20 doses."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mechanism of Action NAC acts as a sulfhydryl donor, replenishing glutathione. Neutralizes toxic metabolites and prevents binding to cell proteins, reducing the severity of hepatic necrosis. Liver Transplantation Considered in cases of hepatic failure (jaundice, coagulopathy, confusion)."
+    },
+    {
+     "type": "paragraph",
+     "text": "King's College Criteria is used to predict the need for a liver transplant in patients with paracetamol-induced acute liver failure: Arterial blood pH < 7.30 Or all of the following: Prothrombin time (PT) > 100 seconds (INR > 6.5) Serum creatinine > 300 μmol/L Grade III or IV hepatic encephalopathy."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Inhibits the toxin (Option A):** is incorrect because NAC does not inhibit NAPQI formation, it helps detoxify it."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Removes the toxin (Option B):** is incorrect because NAC does not directly remove paracetamol or NAPQI from the body."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Neutralizes liver enzymes (Option D):** is incorrect because NAC does not neutralize liver enzymes, it restores glutathione to prevent hepatic injury."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-48-13",
+   "question": "Diphenoxylate is used to treat secretory diarrhea, and it is often combined with atropine. What is the primary reason for this combination therapy?",
+   "options": {
+    "A": "To correct the side effects of diphenoxylate",
+    "B": "To enhance the antidiarrheal efficacy of diphenoxylate",
+    "C": "To provide an additional antidiarrheal effect",
+    "D": "To reduce the potential for abuse of diphenoxylate"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Diphenoxylate is an opioid derivative with antidiarrheal properties. It can potentially be abused due to its opioid-like effects, especially at higher doses. To mitigate the risk of abuse, diphenoxylate is combined with atropine, an anticholinergic agent. The addition of atropine causes unpleasant side effects (such as dry mouth, blurred vision, and tachycardia) at higher doses, which discourages abuse of the medication."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - To correct the side effects of diphenoxylate: Atropine is not added to correct side effects of diphenoxylate. In fact, atropine can add its own set of side effects. The primary purpose of atropine in this combination is to deter abuse, not to alleviate side effects of diphenoxylate."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - To enhance the antidiarrheal efficacy of diphenoxylate: While atropine has some anticholinergic effects that might contribute to reducing diarrhea, its primary role in this combination is not to enhance diphenoxylate’s antidiarrheal efficacy, but rather to deter abuse."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - To provide an additional antidiarrheal effect: Although atropine may provide some additional antidiarrheal effects due to its anticholinergic properties, this is not the main reason for its combination with diphenoxylate. The primary reason is to reduce the potential for abuse of diphenoxylate."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-48-14",
+   "question": "What is the most appropriate treatment for a patient presenting with diarrhea and a flask-shaped ulcer on a colonoscopy?",
+   "options": {
+    "A": "Metronidazole",
+    "B": "Ciprofloxacin",
+    "C": "Vancomycin",
+    "D": "Ampicillin"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Flask-shaped ulcers on colonoscopy are a hallmark of amebic dysentery caused by the protozoan Entamoeba histolytica, reflecting tissue necrosis from the invasive trophozoites in the colon. The first-line treatment for amebic dysentery is Metronidazole. The standard regimen is 400 mg three times a day for a week."
+    },
+    {
+     "type": "paragraph",
+     "text": "Tissue Amebicidal Drugs Metronidazole DOC for all forms of amebiasis Treats amebic colitis and liver abscess Penetrates well into body tissues and fluids, including vaginal secretions, seminal fluid, saliva, breast milk, and cerebrospinal fluid. Effective against Entamoeba histolytica trophozoites but less effective against cysts."
+    },
+    {
+     "type": "paragraph",
+     "text": "Inhibits protein synthesis in Entamoeba Treats giardiasis, trichomoniasis, and anaerobic infections Used in combination therapy for H. pylori infection Tinidazole Amebic colitis and liver abscess Also used to treat Trichomoniasis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Ornidazole Acute amoebic dysentery Secnidazole Emetine Acute amoebic dysentery or amoebic liver abscess in patients not tolerating metronidazole Directly acting amoebicide that kills trophozoites but has no effect on cysts. Side effects include vomiting and cardiotoxicity."
+    },
+    {
+     "type": "paragraph",
+     "text": "Chloroquine Amoebic liver abscess Kills the liver stage of Entamoeba histolytica Luminal Amebicidal Drugs Drug Uses Additional points & S/E Paromomycin (DOC) An Aminoglycoside Luminal agent for amebiasis."
+    },
+    {
+     "type": "paragraph",
+     "text": "An alternative drug for Giardiasis, especially in the first trimester of pregnancy where metronidazole is C/I. Diloxanide furoate Mild intestinal amebiasis Furoate is the active moiety that kills Entamoeba Quiniodochlor Rarely used due to dangerous side effects such as SMON (Subacute myelo-optico-neuropathy) Iodoquinol Contains iodine and can cause thyroid abnormalities and allergy Incorrect Options: Ciprofloxacin (Option B) is a fluoroquinolone used to treat bacterial infections, but it is not effective against Entamoeba histolytica and would not be suitable for treating amebic dysentery."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Vancomycin (Option C):** is the treatment of choice for Clostridium difficile infection (often presenting with pseudomembranous colitis), not for amebic dysentery. It would not target Entamoeba histolytica."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Ampicillin (Option D):** is a penicillin antibiotic that does not have activity against the Entamoeba histolytica parasite and is not appropriate for treating amebic dysentery."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-48-15",
+   "question": "A patient underwent gastrointestinal surgery and had her jejunum resected. Which of the following drugs should be added to her treatment?",
+   "options": {
+    "A": "Liraglutide",
+    "B": "Teduglutide",
+    "C": "Exenatide",
+    "D": "Semaglutide"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Teduglutide is a GLP-2 analogue that causes the growth of intestinal cells. It increases the absorptive power of the intestine and is approved for short-bowel syndrome treatment. It reduces the need for parenteral nutrition in patients with short bowel syndrome."
+    },
+    {
+     "type": "paragraph",
+     "text": "Teduglutide Type Peptide hormone (GLP-2 analogue ) Mechanism of Action Teduglutide → Binds to GLP-2 Receptors on Intestinal epithelial cells → Activation of Guanylate Cyclase → Increased production of cGMP → Activation of Protein Kinase G → Regulation of Tight Junctions and Epithelial transporters → Enhanced intestinal absorption of fluid and nutrients → Improved glycemic control."
+    },
+    {
+     "type": "paragraph",
+     "text": "Uses Treatment of short bowel syndrome (SBS) in adult patients who are dependent on parenteral support."
+    },
+    {
+     "type": "paragraph",
+     "text": "Benefits Reduces dependence on parenteral nutrition Improves intestinal absorption and transit time Increases nutrient absorption and fluid balance Side Effects Nausea and Vomiting Headache Upper respiratory tract infection Contraindications Gastrointestinal obstruction or perforation Gastrointestinal cancer Special Points Requires subcutaneous injection Dosing and adjustment should be based on individual patient responses."
+    },
+    {
+     "type": "paragraph",
+     "text": "Regular monitoring of nutritional status and fluid balance is essential."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Liraglutide (Option A) is a GLP-1 agonist primarily used for the treatment of type 2 diabetes and obesity. While it stimulates insulin release and slows gastric emptying, it does not have a specific role in managing short bowel syndrome. Exenatide (Option C) is another GLP-1 agonist used in the treatment of type 2 diabetes. Like liraglutide, it primarily works by enhancing insulin secretion and delaying gastric emptying but does not directly address the needs of a patient with short bowel syndrome. Semaglutide (Option D) is also a GLP-1 agonist, similar to liraglutide and exenatide. While it is effective for diabetes and weight loss, it does not address the specific needs of short bowel syndrome."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-48-16",
+   "question": "Which of the following drugs is used in GERD?",
+   "options": {
+    "A": "Ondansetron",
+    "B": "Domperidone",
+    "C": "Loperamide",
+    "D": "Diphenoxylate"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The primary treatment of GERD includes proton pump inhibitors and prokinetic agents. Domperidone is a prokinetic agent used in the treatment of GERD. It helps to close the lower esophageal sphincter (LES), thereby reducing the reflux of stomach contents into the esophagus."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Ondansetron (Option A) is a 5-HT3 receptor antagonist, primarily used to prevent nausea and vomiting, especially in chemotherapy or post-surgical patients. It does not treat GERD. Loperamide (Option C) is an antidiarrheal agent used to treat diarrhea, but it does not treat GERD. Diphenoxylate (Option D) is also an antidiarrheal agent and does not have any direct role in managing GERD."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-48-17",
+   "question": "Which of the following is the drug of choice (DOC) for treating morning sickness in pregnant women?",
+   "options": {
+    "A": "Pyridoxine (Vitamin B6)",
+    "B": "Domperidone",
+    "C": "Ondansetron",
+    "D": "Metoclopramide"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The first-line treatment for morning sickness is Pyridoxine (Vitamin B6), either alone or in combination with doxylamine (an antihistamine) Morning sickness, or nausea and vomiting during pregnancy, is a common condition that affects many pregnant women, particularly in the first trimester."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Domperidone (Option B) is a prokinetic drug that can help with nausea and vomiting, but it is not the first-line treatment for morning sickness. Ondansetron (Option C) is a serotonin 5-HT3 receptor antagonist and is used to treat nausea and vomiting, particularly in chemotherapy-induced nausea. However, it is generally not recommended as the first-line treatment for morning sickness during pregnancy. Metoclopramide (Option D ) is another antiemetic and prokinetic drug used to treat nausea and vomiting. It can be used for morning sickness in pregnancy, but it is not considered first line in the management of morning sickness."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-48-18",
+   "question": "A patient was started on antitubercular therapy. After 10 days, investigations were done. AST and ALT levels were within normal limits but serum creatinine is 0.9 mg/dL and serum uric acid was 10 mg/dL. The patient also complains of diffuse joint pains. What is the next best step in management?",
+   "options": {
+    "A": "Stop pyrazinamide and continue isoniazid, rifampicin, and ethambutol.",
+    "B": "Add allopurinol and stop isoniazid, continuing other ATT drugs with monitoring.",
+    "C": "Continue all ATT drugs and start high-dose corticosteroids for joint pains.",
+    "D": "Stop ethambutol and continue other ATT drugs with uric acid monitoring."
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient’s elevated serum uric acid (10 mg/dL) and diffuse joint pains are likely due to pyrazinamide, a first-line ATT drug known to cause hyperuricemia by inhibiting renal uric acid excretion, leading to arthralgia or, rarely, gout."
+    },
+    {
+     "type": "paragraph",
+     "text": "Normal AST, ALT, and creatinine (0.9 mg/dL) indicate no hepatotoxicity or renal impairment, and the standard ATT regimen likely includes isoniazid, rifampicin, pyrazinamide, and ethambutol for drug-sensitive tuberculosis. Management of Pyrazinamide-Induced Hyperuricemia and Arthralgia: Mild symptoms: Use NSAIDs (e.g., ibuprofen) for pain relief and monitor uric acid, liver function tests (LFTs), and kidney function tests (KFTs)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Hyperuricemia often resolves after the intensive phase (2 months) when pyrazinamide is discontinued."
+    },
+    {
+     "type": "paragraph",
+     "text": "Significant symptoms: Stop pyrazinamide if arthralgia is persistent or severe, continuing isoniazid, rifampicin, and ethambutol, with a possible 9-month regimen to ensure treatment efficacy, per WHO/ATS/CDC guidelines Add allopurinol and stop rifampicin, continuing other ATT drugs (Option B): Allopurinol is reserved for confirmed gout, which is not indicated by the patient’s diffuse joint pains."
+    },
+    {
+     "type": "paragraph",
+     "text": "Stopping rifampicin, a critical first-line drug, compromises the ATT regimen and risks treatment failure or resistance, making this option inappropriate."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Continue all ATT drugs and start colchicine for joint pains (Option C):** Colchicine is used for acute gout, but the patient’s diffuse joint pains do not confirm gout. Continuing pyrazinamide without addressing the hyperuricemia risks worsening symptoms or complications (e.g., gout). NSAIDs are preferred for arthralgia, and colchicine is not standard in this context."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Stop isoniazid and monitor uric acid levels (Option D):** Isoniazid is not associated with hyperuricemia or arthralgia, so stopping it does not address the patient’s symptoms. Isoniazid is a cornerstone of ATT, and its discontinuation weakens the regimen. Monitoring alone does not resolve the joint pains."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-48-19",
+   "question": "A 12-year-old boy presents with complaints of profuse, watery stools and an elevated WBC count of 16000 cells/mm3. He has been on treatment with amoxicillin for the past 1 week. What is the treatment of choice for his condition?",
+   "options": {
+    "A": "Metronidazole",
+    "B": "Fidaxomicin",
+    "C": "Ciprofloxacin",
+    "D": "Bezlotoxumab"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Fidaxomicin The above scenario is diagnosed as pseudomembranous colitis. The drug of choice is fidaxomicin, which is highly effective for treating severe pseudomembranous enterocolitis caused by Clostridioides difficile. It specifically targets C. difficile, minimising disruption to the gut microbiome and reducing recurrence risk compared to broad-spectrum antibiotics like metronidazole or vancomycin."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mechanism of action: Fidaxomicin ↓ Binds to the sigma subunit of bacterial RNA polymerase ↓ Disrupts RNA synthesis in C. difficile ↓ Inhibits bacterial protein production ↓ Stops growth and reproduction of C. difficile Metronidazole (Option A) can be used for severe diarrhea associated with C. difficile but it is not the drug of choice. It is used only if vancomycin or fidaxomicin is not readily accessible."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Ciprofloxacin (Option C):** Fluoroquinolones such as ciprofloxacin can potentially cause pseudomembranous colitis. Bezlotoxumab (Option D) is a monoclonal antibody used in recurrent pseudomembranous colitis. It is not the first-line treatment for this condition."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-48-20",
+   "question": "Which of the following drugs is most appropriate to be used for the treatment of diarrhea in a patient who was treated for colorectal carcinoma with 5-fluorouracil?",
+   "options": {
+    "A": "Ciprofloxacin",
+    "B": "Loperamide",
+    "C": "Atropine",
+    "D": "Ornidazole"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "is an antimicrobial drug used to treat protozoal and anaerobic bacterial infections. However, in this given case, the cause is most likely due to the GI toxic effects of 5-FU. Therefor, thee use of an antibiotic would be inappropriate."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-48-21",
+   "question": "Prucalopride is a ___________:",
+   "options": {
+    "A": "5HT2a agonist",
+    "B": "5HT2b agonist",
+    "C": "5HT4 antagonist",
+    "D": "5HT4 agonist"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Prucalopride is a 5HT4 agonist. It selectively activates the 5HT4 receptors in the gastrointestinal tract. By binding to and stimulating these receptors, prucalopride promotes increased gut motility and enhances the movement of stool. This helps to alleviate chronic constipation and improve bowel function."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - 5HT2a agonist: Prucalopride does not primarily target the 5HT2a receptors. Activation of the 5HT2a receptors is associated with various effects, including vasoconstriction, hallucinations, and changes in mood and cognition. Prucalopride's mechanism of action is primarily through 5HT4 receptor activation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - 5HT2b agonist: Prucalopride does not primarily target the 5HT2b receptors. Activation of the 5HT2b receptors is associated with effects such as cardiac valve fibrosis. Prucalopride's therapeutic action is not mediated through 5HT2b receptor activation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - 5HT4 antagonist: Prucalopride is a 5HT4 agonist, not an antagonist. As mentioned earlier, prucalopride stimulates the 5HT4 receptors, leading to enhanced gastrointestinal motility and improved bowel function."
+    }
+   ]
+  }
+ ]
+}

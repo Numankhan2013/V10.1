@@ -1,0 +1,593 @@
+{
+ "batch": "pharmacology-007",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pharmacology-007",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pharmacology-5-70",
+   "question": "Which drugs are subjected to therapeutic drug monitoring?",
+   "options": {
+    "A": "Phenytoin",
+    "B": "Heparin",
+    "C": "Aspirin",
+    "D": "Metformin"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Phenytoin, an antiepileptic drug, requires therapeutic drug monitoring (TDM) due to its narrow therapeutic range. TDM helps ensure its blood levels stay within the therapeutic range for optimal seizure control and to avoid adverse effects."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Heparin: TDM is generally unnecessary for heparin because its effects can be evaluated using other tests like aPTT or anti-Xa activity."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Aspirin: Aspirin's effects are well understood, so TDM is not typically required."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Metformin: TDM is not commonly used for metformin as its therapeutic effects relate more to glucose metabolism than precise blood levels."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-71",
+   "question": "Apparent volume of distribution of a drug is very high (6L/kg). Which of the following is true regarding the distribution of that drug?",
+   "options": {
+    "A": "Highly bound to plasma proteins",
+    "B": "Confined to vascular compartment",
+    "C": "Sequestered in body tissues",
+    "D": "Both A and B"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "A high apparent volume of distribution suggests that the drug is extensively distributed beyond the vascular compartment and is sequestered in body tissues. It indicates that the drug has a tendency to distribute widely throughout the body, beyond the plasma and blood vessels."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Highly bound to plasma proteins: If a drug is highly bound to plasma proteins, it tends to remain in the bloodstream and has a low apparent volume of distribution. This means that the drug is confined to the vascular compartment and has limited distribution to body tissues."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Confined to vascular compartment: If a drug is confined to the vascular compartment, it has limited distribution to body tissues. This implies a low apparent volume of distribution rather than a high one."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Both A and B: As explained above, neither option A nor option B is correct."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-72",
+   "question": "All of the following can result in gynaecomastia except?",
+   "options": {
+    "A": "Liver failure",
+    "B": "Spironolactone",
+    "C": "Digoxin",
+    "D": "Aromatase inhibitors"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Aromatase inhibitors are medications used to treat hormone receptor-positive breast cancer in postmenopausal women. They work by reducing estrogen levels in the body through inhibition of the enzyme aromatase, which converts androgens to estrogens. Aromatase inhibitors are not typically associated with gynecomastia."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Liver failure: Liver failure can disrupt hormone metabolism, leading to hormonal imbalances such as increased estrogen levels, which may contribute to gynecomastia."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Spironolactone: Spironolactone, an aldosterone receptor antagonist, can interfere with androgen activity, potentially leading to gynecomastia."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Digoxin: While the mechanism is not well understood, digoxin, a cardiac medication, has been associated with gynecomastia in some cases."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-73",
+   "question": "The loading dose of a drug is governed primarily by:",
+   "options": {
+    "A": "Clearance",
+    "B": "Volume of distribution",
+    "C": "Plasma half-life",
+    "D": "Bioavailability"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The volume of distribution (Vd) is a pharmacokinetic parameter that represents the apparent space in the body available to contain the drug. It is a theoretical volume that indicates how extensively a drug is distributed throughout the body relative to its concentration in the plasma."
+    },
+    {
+     "type": "paragraph",
+     "text": "A higher volume of distribution suggests that the drug is extensively distributed in the tissues, while a lower volume of distribution indicates more confinement to the plasma. The volume of distribution influences the loading dose of a drug, as it helps determine the initial dose required to achieve a desired concentration in the body."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Clearance: Clearance refers to the rate at which a drug is eliminated from the body. It is a pharmacokinetic parameter that measures how efficiently the body removes a drug from the systemic circulation. Clearance is influenced by various factors, including liver function, kidney function, and metabolic processes. A higher clearance indicates faster elimination of the drug from the body, while a lower clearance means slower elimination. Clearance plays a role in determining the dosing frequency and adjustment of a drug."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Plasma half-life: The plasma half-life is the time it takes for the concentration of a drug in the plasma to decrease by half. It is a pharmacokinetic parameter that reflects the rate of elimination of the drug from the systemic circulation. The half-life is influenced by factors such as clearance, metabolism, and excretion. A longer half-life means the drug remains in the body for a longer duration, while a shorter half-life indicates faster elimination. The plasma half-life is used to determine the dosing interval for a drug, as it indicates how frequently the drug needs to be administered to maintain a therapeutic concentration."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Bioavailability: Bioavailability is the fraction or percentage of an administered drug that reaches systemic circulation in an unchanged form. It represents the extent and rate at which the drug is absorbed and becomes available at the site of action. Bioavailability is influenced by various factors, including the route of administration, drug formulation, and first-pass metabolism. A high bioavailability indicates efficient absorption and availability of the drug, while a low bioavailability means that a significant portion of the drug is lost or metabolized before reaching the systemic circulation. Bioavailability affects the dose adjustment and selection of the appropriate route of administration for a drug."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-76",
+   "question": "You, being an ardent researcher in the field of vaccine production, are the in-charge of preparing samples to make a vaccine against the new variant of SARS-CoV 2. After getting satisfactory results in preclinical studies, you seek approval to do clinical studies, which requires healthy volunteers. Which of the following phases does this refer to?",
+   "options": {
+    "A": "Phase 1",
+    "B": "Phase 2",
+    "C": "Phase 3",
+    "D": "Phase 4"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Seeking approval for clinical studies with healthy volunteers refers to Phase 1 of vaccine development, which involves initial safety and dosage evaluations."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Phase 2: Phase 2 involves expanded safety studies and further evaluation of the vaccine in a larger group of people including patients."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Phase 3: Phase 3 involves large-scale efficacy studies in a broader population and comparing effect in patients when compared to current standard of treatment/placebo."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Phase 4: Phase 4 refers to post-marketing surveillance and monitoring of the vaccine after it has been approved and released to the market."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-77",
+   "question": "When the pH = pKa of a drug, which of the following statements is true?",
+   "options": {
+    "A": "Concentration of the drug is 50% ionic and 50% non-ionic",
+    "B": "Concentration of the drug is 90% ionic and 10% non-ionic",
+    "C": "Concentration of the drug is 75% ionic and 25% non-ionic",
+    "D": "Concentration of the drug is 25% ionic and 75% non-ionic"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The pKa of a drug is the pH at which the drug exists in equal concentrations of its ionized (ionic) and non-ionized (non-ionic) forms. There for when pH = pKa, the drug is at its half-ionization point, meaning that it is 50% ionized and 50% non-ionized."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Options B, C & D are incorrect."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-78",
+   "question": "Please determine the therapeutic index of a medication based on the depicted dose-response curves.:",
+   "options": {
+    "A": "1",
+    "B": "2",
+    "C": "4",
+    "D": "8"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "This option is correct because the calculated TI is indeed 4. To calculate the therapeutic index (TI) of a drug, you need to divide the median lethal dose (LD50) by the median effective dose (ED50). Given that LD50 is 400 and ED50 is 100, we can calculate the TI as follows: TI = LD50 / ED50 = 400 / 100 = 4 Incorrect Options: Option A - 1: The calculated TI is 4, not 1."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - 2: the calculated TI is 4, not 2."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - 8: The calculated TI is 4, not 8."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-79",
+   "question": "A dermatologist wants to prescribe acitretin to a patient with psoriasis. Which of the following statements is false regarding the drug?",
+   "options": {
+    "A": "Contraindicated in persons with hyperlipidemia",
+    "B": "It can cause increased sensitivity to sunlight",
+    "C": "Female patients should avoid getting pregnant for 6 months after therapy",
+    "D": "Acitretin has a half life of about 50 hours"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Female patients of childbearing potential should avoid pregnancy for at least 3 years after stopping acitretin therapy due to its teratogenic effects. Effective contraception should be used during treatment and for an extended period after discontinuation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Contraindicated in persons with hyperlipidemia: Acitretin is contraindicated in those with hyperlipidemia due to its potential to exacerbate lipid levels, requiring close lipid monitoring during therapy."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - It can cause increased sensitivity to sunlight: Acitretin increases skin sensitivity to sunlight, necessitating sun protection measures like sunscreen and protective clothing to prevent sunburn."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Acitretin has a half life of about 50 hours: Acitretin has a long half-life of approximately 50 hours, emphasizing the need for extended contraceptive use and pregnancy avoidance post-therapy."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-5-80",
+   "question": "Which phase of a clinical trial is primarily focused on assessing the preliminary efficacy and determining the optimal dose of a drug?",
+   "options": {
+    "A": "Phase 1",
+    "B": "Phase 2",
+    "C": "Phase 3",
+    "D": "Phase 4"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Phases of Clinical Trials: Phase 1: Safety and dosage (Option A) Evaluate the safety, tolerability, pharmacokinetics, and pharmacodynamics Typically a small group (20-100) of healthy volunteers or patients Outcome: Data on safe dosage ranges and initial information on how the drug is metabolized and excreted."
+    },
+    {
+     "type": "paragraph",
+     "text": "Phase 2: Efficacy and side effects (Option B) Assess the preliminary efficacy of the drug and further evaluate its safety A larger group (100-300) of patients who have the condition the drug is intended to treat Outcome: Information on the drug’s efficacy, optimal dosing, and short-term side effects Phase 3: Confirmatory efficacy and monitoring of adverse reactions (Option C) Confirm the drug’s efficacy and monitor adverse reactions in a larger and more diverse patient population A large group (several hundred to several thousand) of patients Outcome: Definitive evidence of the drug’s efficacy and safety, which is critical for regulatory approval Data from phase 3 trials are submitted to regulatory agencies like the FDA for drug approval Phase 4: Post market surveillance (Option D) Monitor the long-term effectiveness and safety of the drug after it has been approved for use The general population (anyone using the drug as prescribed) Outcome: Ongoing data collection to ensure the drug’s continued safety and efficacy"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-6-1",
+   "question": "A 62-year-old woman is brought to the emergency department because of acute chest pain with complaints of diaphoresis and lightheadedness. An ECG reveals ST-segment elevation in the inferior leads. Her blood pressure is 90/60 mm Hg, and her pulse is 42/min. The appropriate therapy is initiated, including medication to treat her bradycardia. The medication improved her vitals, but she now complains of severe right eye pain. Which of the following drugs can be used to treat this patient?",
+   "options": {
+    "A": "Phenylephrine",
+    "B": "Pyridostigmine",
+    "C": "Pilocarpine",
+    "D": "Bethanechol"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Given the clinical scenario, this patient had an inferior wall MI associated with bradycardia. Atropine, an antimuscarinic drug, blocks vagal effects on the nodes of the heart, effectively increasing heart rate. In the eye, it induces mydriasis, which narrows the anterior chamber angle and reduces aqueous humor outflow, potentially triggering acute angle-closure glaucoma. The drug of choice for this condition is pilocarpine."
+    },
+    {
+     "type": "paragraph",
+     "text": "When applied topically to the eye, pilocarpine rapidly penetrates the cornea, causing miosis, ciliary muscle contraction, and reduced intraocular pressure. Therapeutic uses of pilocarpine: Third-line treatment for open-angle glaucoma, either alone or in combination with other medications. Counteracting the effects of mydriatics and preventing or breaking adhesions of the iris with the lens or cornea."
+    },
+    {
+     "type": "paragraph",
+     "text": "Treating xerostomia (dry mouth) associated with Sjögren's syndrome or following head and neck radiation therapy. Side effects: Topical use: Stinging, accommodation spasm, and systemic effects such as nausea, diarrhea, and bronchospasm at higher doses. Pilocarpine is associated with cataract formation after chronic use. Systemic use: Cholinergic effects like sweating, nausea, and diarrhea."
+    },
+    {
+     "type": "paragraph",
+     "text": "Phenylephrine ( Option A) is used as a mydriatic and nasal decongestant."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Pyridostigmine (Option B):** is used to treat myasthenia gravis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Bethanechol (Option D):** is used to treat urinary retention and stimulate bladder function."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-6-2",
+   "question": "A 68 y/o man with a history of Parkinson’s disease is scheduled for a laparoscopic cholecystectomy. He is experiencing excessive salivation and drooling due to his Parkinson's disease. Which of the following medications would be most appropriate to administer before surgery to reduce his salivary secretions?",
+   "options": {
+    "A": "Glycopyrrolate",
+    "B": "Neostigmine",
+    "C": "Pilocarpine",
+    "D": "Bethanechol"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Glycopyrrolate is a muscarinic antagonist that reduces salivary secretions. Glycopyrrolate is frequently used in pre-anesthetic medication and during surgery. Glycopyrrolate: Glycopyrrolate is a potent and rapidly acting antimuscarinic drug that lacks central effects. MOA: Works by blocking muscarinic receptors and inhibits the effects of acetylcholine."
+    },
+    {
+     "type": "paragraph",
+     "text": "Uses: Pre-anesthetic medication and during anesthesia - to reduce salivary and tracheobronchial secretions. Reduce drooling - Parkinson’s disease. Reduce GI tone and motility. Treat primary axillary hyperhidrosis. Treat obstructive airway disease. Adverse Effects: Dry mouth, Constipation, Blurred vision, Gastrointestinal discomfort, Cognitive impairment."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Neostigmine (Option B):** is a cholinergic agonist that increases salivary secretions, worsening the patient’s drooling."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Pilocarpine (Option C):** is a cholinergic agonist that increases salivary secretions."
+    },
+    {
+     "type": "paragraph",
+     "text": "**It is used to treat xerostomia (dry mouth) Bethanechol (Option D):** is a cholinergic agonist that increases salivary secretions. It is primarily used to treat urinary retention."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-6-3",
+   "question": "A 30 y/o woman presents to the emergency department with acute angle-closure glaucoma. Her intraocular pressure is markedly elevated. Which of the following medications is most appropriate for lowering her intraocular pressure?",
+   "options": {
+    "A": "Ipratropium",
+    "B": "Atropine",
+    "C": "Carbachol",
+    "D": "Scopolamine"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Carbachol is a cholinergic agonist that acts on both muscarinic and nicotinic receptors. When applied topically to the eye, carbachol produces miosis (pupillary constriction) and facilitates aqueous outflow, reducing intraocular pressure. Carbachol: Carbachol is a cholinergic agonist, that acts by directly stimulating cholinergic receptors."
+    },
+    {
+     "type": "paragraph",
+     "text": "It is a long-acting drug that is resistant to degradation by acetylcholinesterase and butyrylcholinesterase. Uses: Glaucoma, causes the ciliary muscle to contract, reducing intraocular pressure. Side effects: DUMBBELSS = Diarrhea, Urination, Miosis, Bronchospasm, Bradycardia, Excitation/seizures, Lacrimation, Salivation, and Sweating."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Ipratropium (Option A):** is a muscarinic antagonist that acts selectively on bronchial muscles. Atropine and scopolamine (Options B & D): are muscarinic receptor antagonists. They produce mydriasis (pupillary dilation), which can worsen angle closure and increase intraocular pressure."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-6-4",
+   "question": "A 68 y/o woman with a long history of diabetes presents with complaints of frequent urinary tract infections and difficulty emptying her bladder. She reports feeling like she needs to urinate urgently, but when she tries to go, very little urine comes out. After ruling out a urinary tract obstruction, which medication would be most appropriate to address her symptoms?",
+   "options": {
+    "A": "Bethanechol",
+    "B": "Pilocarpine",
+    "C": "Atropine",
+    "D": "Edrophonium"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "This patient, with a long history of diabetes and urinary symptoms, is most likely to have a neurogenic bladder, causing inadequate bladder emptying. Bethanechol is the most appropriate medication for this patient's neurogenic bladder. Bethanechol: Bethanechol is a cholinergic agonist that stimulates muscarinic receptors, which are found primarily in the urinary and gastrointestinal tracts."
+    },
+    {
+     "type": "paragraph",
+     "text": "MOA: Mimics the effects of acetylcholine, which plays a crucial role in the parasympathetic nervous system, at muscarinic receptors. Upon stimulating muscarinic receptors, it promotes bladder muscle contraction, aiding in urine expulsion and reducing urinary retention. Clinical Usage: Postoperative and Postpartum urinary retention with no actual obstruction. Neurogenic bladder. Symptomatic relief in congenital megacolon."
+    },
+    {
+     "type": "paragraph",
+     "text": "Gastroesophageal reflux (Rare, due to its side effects). Side Effects: Gastrointestinal: Belching, involuntary defecation. Urinary: Involuntary urination. Other: Flushing, sweating, hypotension. Contraindications: Mechanical obstruction of the gastrointestinal or urinary tract. Asthma. Hypotension."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Pilocarpine (Option B):** While pilocarpine is a muscarinic agonist, it's clinically used in topical applications for glaucoma and xerostomia (dry mouth)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Atropine (Option C):** is a muscarinic receptor antagonist, working in direct opposition to bethanechol."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Edrophonium (Option D):** short-acting cholinesterase inhibitor, is primarily utilized in diagnosing myasthenia gravis."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-6-5",
+   "question": "Which of the following would possibly confirm the diagnosis of myasthenia gravis following an Edrophonium test?",
+   "options": {
+    "A": "No change in muscle strength after administration of edrophonium",
+    "B": "Worsening of muscle weakness after administration of edrophonium",
+    "C": "Temporary improvement in muscle strength after administration of edrophonium",
+    "D": "Development of severe muscle cramps after administration of edrophonium"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The edrophonium (Tensilon) test helps differentiate between myasthenic and cholinergic crises, which present with similar symptoms but require opposite treatments. Myasthenic crisis arises from inadequate acetylcholine at the neuromuscular junction. The cholinergic crisis results from excessive acetylcholine stimulation due to anticholinesterase medication overdose. The tensilon test involves the injection of 10 mg i.v."
+    },
+    {
+     "type": "paragraph",
+     "text": "Edrophonium, a short-acting anticholinesterase agent. Steps: 2 mg i.v. Edrophonium → Observe for any adverse reactions → If no adverse reactions occur after 30–60 seconds, the remaining 8 mg is injected. Results: Myasthenia Gravis: Short-lasting improvement in muscle strength."
+    },
+    {
+     "type": "paragraph",
+     "text": "Other Muscular Dystrophies: No improvement. (Option A ruled out) Cholinergic crisis: No improvement or a worsening of their condition. (Option B ruled out) Alternative Test: If edrophonium is unavailable,1.5 mg of i.v. Neostigmine can be used alternatively. Atropine pretreatment can be administered to counteract the muscarinic effects of neostigmine."
+    },
+    {
+     "type": "paragraph",
+     "text": "Provocative test (d-Tubocurarine test): Myasthenia gravis patients are highly sensitive to d-tubocurarine (a non-depolarising muscle blocker ); a 0.5 mg IV dose causes significant weakness in them but does not affect non-myasthenic individuals. However, this test is hazardous and not commonly performed."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-6-6",
+   "question": "A 45-year-old woman presents with generalised weakness, ptosis, diplopia, and difficulty swallowing. She reports that her symptoms worsen with exertion and improve with rest. After a thorough evaluation, the physician suspects a neuromuscular junction disorder and prescribes a medication to enhance neuromuscular transmission. Which of the following medications is most appropriate for managing the patient's symptoms?",
+   "options": {
+    "A": "Edrophonium",
+    "B": "Pyridostigmine",
+    "C": "IV-Ig",
+    "D": "Atropine"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Based on the scenario, the likely diagnosis is Myasthenia gravis, which is managed with Pyridostigmine, neostigmine, and ambenonium. They are anti-cholinesterase agents that inhibit the breakdown of ACh by acetylcholinesterase and increase presynaptic levels of ACh, allowing for muscle contraction."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Edrophonium (Option A):** short-acting acetylcholinesterase inhibitor, is used as a diagnostic tool in suspected cases of myasthenia gravis. This involves intravenous administration to individuals with a deficiency of acetylcholine receptors at the neuromuscular junction. The test typically results in a temporary improvement in muscle strength, confirming the diagnosis of myasthenia gravis by demonstrating the underlying defect in neuromuscular transmission."
+    },
+    {
+     "type": "paragraph",
+     "text": "**IV- Ig (Option C):** or intravenous immunoglobulins are used for exacerbations known as myasthenic crisis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Atropine ( Option D): is an anticholinergic drug given along with pyridostigmine to counteract the cholinergic side effects of pyridostigmine."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-6-7",
+   "question": "Neostigmine is commonly used in clinical practice for several medical conditions. Which of the following is NOT an appropriate use of Neostigmine?",
+   "options": {
+    "A": "Treatment of myasthenia gravis",
+    "B": "Reversal of non-depolarizing neuromuscular blockade after surgery",
+    "C": "Management of urinary retention",
+    "D": "Treatment of Alzheimer's disease"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "**Neostigmine is a cholinesterase inhibitor that is commonly used for Treatment of myasthenia gravis, (Option A):** as it increases the availability of acetylcholine at neuromuscular junctions, thereby improving muscle strength. To reverse the effects of non-depolarizing neuromuscular blocking agents after surgical procedures and (Option B) In managing urinary retention due to its ability to stimulate bladder muscle contractions. (Option C) Cobra bites because cobra toxin disrupts the neuromuscular junction, resulting in respiratory paralysis. However, Neostigmine is not used for the treatment of Alzheimer's disease because it does not cross the blood-brain barrier and thus cannot affect the central nervous system."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-6-8",
+   "question": "A 65-year-old patient is being treated for myasthenia gravis and requires a medication that acts peripherally without affecting the central nervous system. Which of the following carbamate drugs cannot cross the blood-brain barrier and is appropriate for this patient?",
+   "options": {
+    "A": "Physostigmine",
+    "B": "Neostigmine",
+    "C": "Donezpezil",
+    "D": "Rivastigmine"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Neostigmine is a carbamate drug that cannot cross the blood-brain barrier because it is a quaternary amine, which makes it more polar and less able to penetrate the lipid-rich environment of the BBB. On the other hand, Physostigmine, donepezil and Rivastigmine (Options A, C & D) are tertiary amines, allowing them to cross the BBB and exert their effects within the central nervous system."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L06_Q008_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-6-9",
+   "question": "Which of the following is the first-line drug of choice for managing mild to moderate symptoms of Alzheimer's disease?",
+   "options": {
+    "A": "Memantine",
+    "B": "Donepezil",
+    "C": "Rivastigmine",
+    "D": "Galantamine"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Donepezil is a cholinesterase inhibitor commonly used as a first-line treatment for managing symptoms of mild to moderate Alzheimer's disease. It works by increasing the levels of acetylcholine in the brain, which can help improve cognitive function and slow the progression of symptoms. Side effects: Nasopharyngitis, diarrhoea, nausea, and vomiting, which are linked to an overabundance of peripheral cholinergic stimulation."
+    },
+    {
+     "type": "paragraph",
+     "text": "In rare cases, rhabdomyolysis has been reported, necessitating discontinuation of the medication."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Rivastigmine (Options C):** and Galantamine (Options D) are also cholinesterase inhibitors and can be used, but Donepezil is often preferred due to its once-daily dosing and favourable side-effect profile. Memantine ( Option A), on the other hand, is typically used for moderate to severe Alzheimer's disease and works differently as an NMDA receptor antagonist."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-6-10",
+   "question": "Which of the following is a reversible anticholinesterase?",
+   "options": {
+    "A": "Sarin",
+    "B": "Malathion",
+    "C": "Tabun",
+    "D": "Tacrine"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Tacrine is a reversible acetylcholinesterase (AChE) inhibitor used primarily in the symptomatic treatment of Alzheimer's disease. It functions by binding reversibly to the active site of AChE, thereby inhibiting the enzyme's ability to hydrolyze acetylcholine (ACh). This increases ACh levels in the synaptic cleft, enhancing cholinergic neurotransmission in the central nervous system, which is deficient in Alzheimer’s disease."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mechanism of Reversible Anticholinesterases: Reversible AChE inhibitors, such as tacrine, bind non-covalently to AChE, allowing their effects to dissipate as the drug is metabolized or cleared from the body. These agents are categorized as short-acting (e.g., edrophonium) or intermediate-acting (e.g., tacrine, donepezil)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Tacrine’s reversible inhibition enhances cholinergic function in the brain, temporarily improving cognitive symptoms in Alzheimer’s disease. In contrast, irreversible inhibitors like organophosphates (e.g., sarin, tabun, malathion) form stable, covalent bonds with AChE, leading to prolonged enzyme inactivation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Therapeutic Applications: Alzheimer’s Disease: Tacrine enhances cholinergic transmission in the central nervous system, improving cognitive function in early-to-moderate Alzheimer’s disease. However, its use is limited by hepatotoxicity and the need for frequent dosing due to its short half-life."
+    },
+    {
+     "type": "paragraph",
+     "text": "Myasthenia Gravis: Other reversible AChE inhibitors (e.g., pyridostigmine, neostigmine) are used to increase ACh availability at the neuromuscular junction, improving muscle strength. Tacrine is not typically used for this condition. Side Effects: Gastrointestinal: Nausea, vomiting, diarrhea, and abdominal cramps due to increased parasympathetic activity."
+    },
+    {
+     "type": "paragraph",
+     "text": "Cardiovascular: Bradycardia Sarin (Option A) and Tabun (Option C) are organophosphate nerve agents that act as irreversible AChE inhibitors. They form a covalent bond with the enzyme, leading to prolonged inhibition that requires new enzyme synthesis for recovery."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Malathion (Option B):** is an organophosphate pesticide that also irreversibly inhibits AChE, primarily used in agricultural settings, not for therapeutic purposes."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L06_Q010_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-6-11",
+   "question": "A 30-year-old woman presents with severe nausea, vomiting, abdominal pain, and diarrhea. She reports foraging for wild mushrooms earlier in the day and consuming them in a meal. Upon further questioning, it is discovered that she is experiencing visual disturbances and confusion. Physical examination reveals jaundice and signs of dehydration. Which of the following toxins is the likely culprit?",
+   "options": {
+    "A": "Amatoxin",
+    "B": "Bungarotoxin",
+    "C": "Muscarine",
+    "D": "Muscimol"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical scenario shows a patient with a history of consuming wild mushrooms, confusion, visual disturbance, and jaundice, which is a sign of hepatotoxicity. Amatoxin from Amanita phalloides mushroom can cause hepatotoxicity when ingested."
+    },
+    {
+     "type": "paragraph",
+     "text": "Early mushroom poisoning Late mushroom poisoning Hallucinogenic mushroom poisoning Species Inocybe Amanita phalloides Amanita muscaria Toxin Muscarine (Option C) Amatoxin (Option A) Muscimol Symptoms Cholinergic symptoms (DUMBBELLS) Hepatotoxicity Hallucinations, seizures Treatment Atropine Thioctic acid Silibinin (hepatoprotective) Supportive treatment ATROPINE CONTRAINDICATED Atropine's anticholinergic properties can worsen hallucinations and increase agitation, confusion, and delirium."
+    },
+    {
+     "type": "paragraph",
+     "text": "It can also elevate heart rate and blood pressure, potentially exacerbating cardiovascular symptoms from hallucinogenic mushroom ingestion."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Bungarotoxin (Option B):** is a toxin produced by venomous snakes that can lead to bleeding and paralysis."
+    }
+   ]
+  }
+ ]
+}

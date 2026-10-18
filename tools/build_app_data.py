@@ -9,7 +9,8 @@ embeds is generated from data/ and replaced here, each at a
 
   SUBJECT_QBANK_DATA, QBANK_DATA   assets/subjects_qbank_data.js, qbank_data.js
   MARROW_DATA                      data/marrow expanded banks + reviewed overrides,
-                                   plus the Marrow-only Microbiology bank
+                                   plus the PrepLadder Microbiology, Pathology and
+                                   Pharmacology text banks
   MARROW_EXPLANATION_GOLD          data/marrow approved explanation batches
   MARROW_TOPIC_TAXONOMY            data/marrow/topic_index_taxonomy.json
   MARROW_VISIBLE_TOPIC_ORDER       the same taxonomy, in learner order
@@ -51,10 +52,13 @@ def marrow_data() -> str:
     from marrow_bank_data import app_marrow_records, validate_biochemistry_batches
     records = app_marrow_records()
     validate_biochemistry_batches(records[1])
-    # PrepLadder Microbiology has structured text explanations, so it travels
-    # with the Marrow records; the app files it under PrepLadder by its bank.
+    # PrepLadder Microbiology, Pathology and Pharmacology have structured text
+    # explanations, so they travel with the Marrow records; the app files them
+    # under PrepLadder by their bank.
     from build_prepladder_microbiology_bank import app_record
-    return js_json({"records": records + [app_record()]})
+    from build_prepladder_pathology_bank import app_record as pathology_record
+    from build_prepladder_pharmacology_bank import app_record as pharmacology_record
+    return js_json({"records": records + [app_record(), pathology_record(), pharmacology_record()]})
 
 
 def marrow_explanation_gold() -> str:
@@ -97,6 +101,10 @@ def release_marrow_figures() -> None:
     release_microbiology()
     from build_prepladder_microbiology_bank import release as release_prepladder_microbiology
     release_prepladder_microbiology()
+    from build_prepladder_pathology_bank import release as release_prepladder_pathology
+    release_prepladder_pathology()
+    from build_prepladder_pharmacology_bank import release as release_prepladder_pharmacology
+    release_prepladder_pharmacology()
 
 
 BUILDERS = {

@@ -1,0 +1,577 @@
+{
+ "batch": "pathology-070",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pathology-070",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pathology-83-5",
+   "question": "Based on the agglutination test shown below, what is the blood group?",
+   "options": {
+    "A": "B Positive",
+    "B": "B negative",
+    "C": "A positive",
+    "D": "AB positive"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The image shows a slide agglutination test to determine a person's blood group. It shows clotting with anti-A and anti-D, indicating the person has an A (+ve) blood group. Slide agglutination test for blood group determination: On a glass side, 2-3 drops of blood are added. A drop of antibody solution is added. Antigen-antibody reaction is observed. Agglutination (clumps) is looked for. Interpretation of results:"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L83_Q005_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-83-6",
+   "question": "Match the following: Blood Products Shelf Life A Packed Red Blood Cells (PRBCs) in CPD-A i 1 year B Fresh Frozen Plasma (FFP) ii 35 days C Platelets iii 42 days D PRBC in SAGM iv 5 days",
+   "options": {
+    "A": "A-iii, B-i, C-iv, D-ii",
+    "B": "A-i, B-iii, C-iv, D-ii",
+    "C": "A-ii, B-i, C-iv, D-iii",
+    "D": "A-ii, B-iii, C-i, D-iv"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The blood products and their corresponding shelf life are: Blood Products Shelf Life Storage temperature Packed Red Blood Cells (PRBCs) in CPD-A 35 days 1-6 °C Fresh Frozen Plasma (FFP) 1 year -30°C or colder Platelets 5 days 20–24°C (with continuous agitation) PRBC in SAGM 42 days 1–6°C"
+    }
+   ]
+  },
+  {
+   "id": "pathology-83-7",
+   "question": "What is the recommended time frame for administering a unit of red blood cells once it has been removed from refrigeration?",
+   "options": {
+    "A": "1 hour",
+    "B": "4 hour",
+    "C": "8 hour",
+    "D": "24 hour"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The recommended time frame for administering a unit of red blood cells (RBCs) once it has been removed from refrigeration is within 4 hours. The unit must be removed from the refrigeration and the temperature must be brought up to the room temperature before transfusion Once a unit of RBCs is removed from the refrigerator, it should be transfused as soon as possible, ideally starting within 30 minutes."
+    },
+    {
+     "type": "paragraph",
+     "text": "The entire unit should be infused within 4 hours as hemolysis occurs after 4 hours which can lead to fatal hyperkalemia Duration times for transfusion of blood and blood products: Blood product Start time End time Whole blood/PRBC Within 30 minutes of removing it from the refrigerator ≤ 4 hours Discard if this period is exceeded Platelets Immediately Within 30 minutes FFP Immediately Within 30 minutes Cryoprecipitate Immediately Within 30 minutes"
+    }
+   ]
+  },
+  {
+   "id": "pathology-83-8",
+   "question": "Which of the following is the most common complication of blood transfusion?",
+   "options": {
+    "A": "TRALI",
+    "B": "TACO",
+    "C": "Delayed Hemolytic Reaction",
+    "D": "Febrile Non-hemolytic reaction"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Febrile non-hemolytic transfusion reactions (FNHTRs) are the most common complication of blood transfusions. These reactions typically occur when the recipient's immune system responds to the transfused blood product's white blood cells or cytokines. FNHTRs are characterised by fever and chills during or shortly after a transfusion."
+    },
+    {
+     "type": "paragraph",
+     "text": "Pathophysiology: FNHTRs are typically caused by: Recipient Immune Response: The recipient's immune system reacts to leukocytes (white blood cells) or cytokines (inflammatory mediators) in the donor blood product. Accumulation of Cytokines: Cytokines accumulate in blood products during storage. When these cytokine-rich products are transfused, they can induce an inflammatory response in the recipient. Management: Stop the Transfusion."
+    },
+    {
+     "type": "paragraph",
+     "text": "Supportive Care. Antipyretics. Prevention: Using leukoreduced blood products (where leukocytes are removed before storage) can significantly reduce the incidence of FNHTRs. Pre-storage Leukoreduction: This technique is more effective in reducing FNHTRs than bedside filtration. Use of Leukoreduction filter filters out white blood cells (WBCs) from blood products to reduce adverse transfusion reactions."
+    },
+    {
+     "type": "paragraph",
+     "text": "Lowers the risk of alloimmunization to human leukocyte antigens (HLAs). Minimizes immune responses caused by donor leukocytes. Reduces cytomegalovirus transmission since the virus resides in WBCs."
+    },
+    {
+     "type": "paragraph",
+     "text": "**TRALI (Transfusion-related acute lung injury) (Option A):** is a serious transfusion reaction characterised by acute respiratory distress and non-cardiogenic pulmonary edema. It typically occurs within 6 hours of transfusion and is caused by an immune response to donor antibodies or bioactive substances in the transfused blood."
+    },
+    {
+     "type": "paragraph",
+     "text": "**TACO (Transfusion-associated circulatory overload) (Option B):** occurs when a transfusion is administered too quickly or when the volume of transfused blood exceeds the recipient's circulatory capacity. It leads to volume overload and pulmonary edema due to increased hydrostatic pressure in the pulmonary vasculature."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Delayed hemolytic reactions (Option C):** occur days to weeks after a transfusion and are caused by an immune response to minor antigens on transfused red blood cells. Symptoms may include mild fever, jaundice, and a gradual decline in hemoglobin levels due to hemolysis."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L83_Q008_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-83-9",
+   "question": "Which of the following is defined as a massive blood transfusion?",
+   "options": {
+    "A": "Replacement of whole blood volume within 12 hours",
+    "B": "Replacement of whole blood volume within 48 hours",
+    "C": "Replacement of whole blood volume within 24 hours",
+    "D": "Replacement of whole blood volume within 4 hours"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Massive blood transfusion replaces a patient’s total blood volume within 24 hours. This is usually around 10 units of red blood cells (RBCs) in adults."
+    }
+   ]
+  },
+  {
+   "id": "pathology-83-10",
+   "question": "All of the following are complications of massive blood transfusion except?",
+   "options": {
+    "A": "Metabolic Alkalosis",
+    "B": "Metabolic Acidosis",
+    "C": "Hyperkalemia",
+    "D": "Hypocalcemia"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Metabolic acidosis can occur in the setting of shock and hypoperfusion rather than directly from the transfusion itself, so it is not likely seen in massive blood transfusion. Due to the large volume of blood and blood products administered, massive blood transfusion can lead to various complications."
+    },
+    {
+     "type": "paragraph",
+     "text": "Complications of massive blood transfusion: Hypocalcemia (Option D): Packed red blood cells (PRBCs) and other blood products are preserved with citrate, an anticoagulant. Citrate binds to ionized calcium (Ca²⁺) in the recipient's blood, reducing the free calcium level - hypocalcemia Presents as muscle spasms, cardiac arrhythmias, and decreased myocardial contractility."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Metabolic Alkalosis (Option A):** Citrate is metabolized in the liver to bicarbonate (HCO₃⁻). Rapid transfusion of citrate-containing blood products can overwhelm the liver’s ability to metabolize citrate, leading to an increase in bicarbonate levels."
+    },
+    {
+     "type": "paragraph",
+     "text": "**This results in metabolic alkalosis Hyperkalemia (Option C):** Stored blood undergoes hemolysis over time, releasing potassium from red blood cells into the plasma. Transfusion of large volumes of stored blood can introduce a significant potassium load, causing hyperkalemia. Presents with cardiac arrhythmias, especially in patients with pre-existing kidney dysfunction. Hypothermia: Rapid transfusion of cold-stored blood products (typically kept at 1–6°C) can lower the patient’s core body temperature.. Coagulopathy: Massive transfusion dilutes clotting factors and platelets, leading to dilutional coagulopathy. Hypothermia and hypocalcemia exacerbate this by impairing the function of coagulation enzymes and platelets. Hypokalemia: Post-transfusion, potassium that had leaked out of stored red blood cells can re-enter the cells in vivo. This shift can lead to hypokalemia, especially if the patient has a strong cellular uptake of potassium."
+    }
+   ]
+  },
+  {
+   "id": "pathology-83-11",
+   "question": "Which of the following is a characteristic feature of Transfusion-Related Acute Lung Injury (TRALI)?",
+   "options": {
+    "A": "Non-cardiogenic pulmonary edema within 6 hours of transfusion",
+    "B": "Cardiogenic pulmonary edema within 24 hours of transfusion",
+    "C": "Acute onset of fever and chills without respiratory symptoms",
+    "D": "Gradual onset of jaundice and anemia several days after transfusion"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "TRALI is characterised by acute onset of respiratory distress and non-cardiogenic pulmonary edema occurring within 6 hours of a blood transfusion. It is caused by an immune reaction to donor antibodies or bioactive substances in the transfused blood. Characteristics: Onset: TRALI typically occurs within 6 hours of transfusion. Symptoms: Sudden onset of dyspnea (shortness of breath). Hypoxemia (low blood oxygen levels) Fever. Hypotension."
+    },
+    {
+     "type": "paragraph",
+     "text": "Bilateral pulmonary infiltrates on a chest X-ray, indicating fluid accumulation in the lungs without cardiac cause. Causes: Immune-mediated Reaction: TRALI is often triggered by donor antibodies reacting with the recipient's white blood cells, releasing inflammatory mediators that increase pulmonary capillary permeability."
+    },
+    {
+     "type": "paragraph",
+     "text": "Non-immune Factors: Biological response modifiers like cytokines and lipids that accumulate during blood product storage can also contribute."
+    },
+    {
+     "type": "paragraph",
+     "text": "Prevention: Using plasma from male or female donors who have never been pregnant (nulliparous) can reduce the risk, as they are less likely to have antibodies that can cause TRALI. Blood banks may screen donors for antibodies known to cause TRALI. TACO is characterised by a gradual onset of respiratory distress and cardiogenic pulmonary edema within 24 hours of transfusion(Option B)."
+    },
+    {
+     "type": "paragraph",
+     "text": "It occurs when a patient receives a transfusion volume that exceeds their circulatory capacity, leading to fluid overload and cardiac dysfunction."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Acute onset of fever and chills without respiratory symptoms (Option C):** is seen in febrile non-hemolytic transfusion reactions (FNHTR), which are characterised by fever and chills without respiratory distress."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Gradual onset of jaundice and anemia several days after transfusion (Option D):** is more indicative of delayed hemolytic transfusion reactions, which occur days to weeks after transfusion."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L83_Q011_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pathology-84-1",
+   "question": "A 28-year-old woman with a known history of beta-thalassemia undergoes a blood transfusion. During the transfusion, she develops symptoms of anxiety, hypotension, and fever. What is the next appropriate step in the management of this patient?",
+   "options": {
+    "A": "Stop the blood transfusion and restart after stabilization",
+    "B": "Continue the blood transfusion and perform an ECG",
+    "C": "Investigate for clerical errors in the blood transfusion process",
+    "D": "Administer corticosteroids and monitor vital signs"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "In a woman with beta-thalassemia experiencing anxiety, hypotension, and fever during transfusion, the immediate step is to stop the transfusion and ensure stabilization. Transfusion Reactions: It refers to an adverse response to blood components, which can be Immunologically mediated (via WBC) Related to infections. It can either be immediate or delayed."
+    },
+    {
+     "type": "paragraph",
+     "text": "Aspect Immediate Transfusion Reactions Delayed Transfusion Reactions Onset Time Within hours of transfusion Days to weeks after transfusion Cause Immunologic reactions, hemolytic or non-hemolytic Immune-mediated, often involving minor antigen sensitization Presentation Fever, chills, Dyspnea (TRALI, TACO), Acute respiratory distress (TRALI), Pulmonary oedema (TACO), hypothermia, electrolyte abnormalities, coagulopathy, acid-base disorders and hyperkalemia Fever, jaundice, Gradual decline in haemoglobin levels (hemolysis) Severity Can range from mild to life-threatening Generally less severe than immediate reactions Examples Febrile non-hemolytic reaction (FNHTR) Transfusion-related acute lung injury (TRALI) Transfusion-associated circulatory overload (TACO) Delayed hemolytic reaction Management Stop the blood transfusion."
+    },
+    {
+     "type": "paragraph",
+     "text": "Supportive care. Three samples are to be collected Blood 1st sample: For BG/CM (blood grouping - cross matching) (EDTA vial) 2nd sample: Biochemical test for hemolysis (plain red vial) Urine Test for hemoglobinuria (hemolysis)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Continue the blood transfusion and perform an ECG (Option B):** Continuing the transfusion could worsen the reaction. The first step in managing a suspected transfusion reaction is stopping the transfusion."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Investigate for clerical errors in the blood transfusion process (Option C):** While clerical errors (e.g., blood type mismatch) are important to rule out, the immediate priority is to stop the transfusion and stabilize the patient before investigating further."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Administer corticosteroids and monitor vital signs (Option D):** Corticosteroids may be used in certain reactions (such as allergic reactions), but the first step should be stopping the transfusion and addressing any immediate complications (e.g., hypotension, fever). Corticosteroids are not the first-line treatment for most transfusion reactions."
+    }
+   ]
+  },
+  {
+   "id": "pathology-84-2",
+   "question": "Blood transfusion requires screening of donor blood for all of the following infections except:",
+   "options": {
+    "A": "Hepatitis C virus",
+    "B": "Dengue virus",
+    "C": "HIV virus",
+    "D": "Hepatitis B virus"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Dengue fever is a viral illness transmitted by Aedes mosquitoes. Unlike some other diseases listed, routine screening for dengue in donated blood is not typically performed. This is because mosquitoes primarily transmit dengue rather than through blood transfusions. Screening for transfusion-transmitted infections: The following infections can be transmitted by blood transfusion."
+    },
+    {
+     "type": "paragraph",
+     "text": "Viral Bacterial Parasites Others Hepatitis (A, B, C, G) HIV (I & II) HTLV (I & II) CMV EBV Parvovirus B19 Syphilis Malaria Babesiosis Trypanosoma cruzi Creutzfeldt- Jakob disease Plasma processing methods have been shown to inactivate most recognized infectious organisms, except for non-lipid-enveloped viruses and prions. All clinically relevant blood components transmit prion disease following a single blood transfusion."
+    },
+    {
+     "type": "paragraph",
+     "text": "Malaria can also be transmitted by most blood components (red cells, platelets, white-cell concentrates, cryoprecipitates, and frozen red cells after thawing and washing). Transmission from single-donor FFP has not been reported."
+    },
+    {
+     "type": "paragraph",
+     "text": "In India, the following five diseases are screened: HBV (Option D) HCV (Option A) HIV (Option C) Malaria Syphilis Screening for the diseases mentioned above is mandatory, and transfusing unscreened blood is a medical offence."
+    }
+   ]
+  },
+  {
+   "id": "pathology-84-3",
+   "question": "A patient has been brought with severe bleeding to your ER. His blood group is unknown. Fresh frozen plasma from which of the following blood groups can be given?",
+   "options": {
+    "A": "O",
+    "B": "AB",
+    "C": "B",
+    "D": "A"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "In the given scenario where the blood group is unknown, fresh frozen plasma from blood group AB can be safely administered to the patient. Blood group AB individuals are considered universal plasma donors because their plasma lacks both A and B antibodies, making it compatible with recipients of any ABO blood type without causing an ABO incompatibility reaction."
+    },
+    {
+     "type": "paragraph",
+     "text": "The differences between Rh Blood Group and ABO Blood Group: Properties ABO system Rh system Blood groups A, B, AB, and O Rh-positive & negative Genetic loci On chromosome 9 On chromosome 1 Ag and Ab Group Antigen Antibody C, c, D, E, & e antigens. ‘d’ indicates the absence of D. Most important: Anti-D antibody."
+    },
+    {
+     "type": "paragraph",
+     "text": "O H Anti-A & anti-B A A Anti-B B B Anti-A AB A & B None Antigens also seen on/in Endothelial & epithelial cells, plasma, saliva, and semen (not seen in CSF) No other cells Type of Ab IgM (naturally occurring). IgG (does not occur naturally). Clinical significance Anti-A & anti-B can cause severe intravascular haemolysis after incompatible transfusion. ABO-matching is required before the transplantation of solid organs."
+    },
+    {
+     "type": "paragraph",
+     "text": "Rh -ve individuals make anti-D Ab if: Transfused with Rh +ve blood. Rh -ve pregnant women are exposed to Rh +ve fetal RBCs that have crossed the placenta."
+    }
+   ]
+  },
+  {
+   "id": "pathology-84-4",
+   "question": "Which of the following can be prevented by transfusing irradiated RBCs?",
+   "options": {
+    "A": "Graft versus host disease",
+    "B": "HLA alloimmunization",
+    "C": "Immunomodulation",
+    "D": "Nonhemolytic Febrile Transfusion Reactions"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Transfusion of irradiated red blood cells (RBCs) can prevent graft versus host disease (GVHD). Steps for Production of Red Blood Cell Concentrates (RBCC) from Whole Blood 1 Whole Blood Collection Blood is drawn into sterile bags with anticoagulants to prevent clotting."
+    },
+    {
+     "type": "paragraph",
+     "text": "Each unit contains 450-500 mL. (First 20-30 ml is discarded due to skin flora contamination) 2 Slow Speed Centrifugation (Soft Spin) Separates Red Blood Cell Concentrate (RBCC) at the bottom and Platelet-Rich Plasma (PRP) at the top, with the buffy coat (white blood cells) in between. 3 RBCC Processing and Additive Solutions After removing plasma and buffy coat, additive solutions like SAGM (Saline, Adenine, Glucose, Mannitol) or CPD are added to preserve cell viability and extend shelf life. 4 Leukoreduction/ Deleucocytation Achieved by filtering RBCC to remove >99.9% of white blood cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "Purpose: Nonhemolytic Febrile Transfusion Reactions (NHFTRs). (Option D ruled out) Alloimmunization and platelet transfusion refractoriness. (Option B ruled out) Transfusion-transmitted infections, such as cytomegalovirus (CMV)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Immunomodulation risks from transfusions (Option C ruled out):** Post-reduction leukocyte content: <1–5 x 10⁶ leukocytes/unit. 5 Irradiation (Optional) RBCC is irradiated with X-rays or gamma rays (25–35 Gy). Purpose: Prevents graft-versus-host disease (GVHD) by inactivating donor lymphocytes. (Option A) Use: RBCC must be transfused within 24 hours post-irradiation. 6 Plasma Reduction (Optional) Plasma proteins are removed to prevent allergic or anaphylactic reactions. Purpose: Useful for patients with a history of allergic transfusion reactions, reducing post-transfusion anaphylaxis risk. 7 Cryopreservation (Optional) RBCC is cryopreserved at -80°C, mainly for rare blood types. Purpose: Extends shelf life up to 30 years, increasing availability of rare blood groups."
+    }
+   ]
+  },
+  {
+   "id": "pathology-84-5",
+   "question": "A 24-year-old man, after being involved in a road traffic accident (RTA), was brought to the casualty 6 hours later. His B.P. was 90/60 mm Hg, heart rate was 110/min, and SpO2 was 92%. A blood transfusion was administered. A few hours later, the patient becomes febrile and tachypneic and starts bleeding from the IV and NG tube sites. His SpO2 levels begin to drop. What is the likely cause?",
+   "options": {
+    "A": "Transfusion reaction",
+    "B": "Acute adrenal crisis",
+    "C": "Fat embolism",
+    "D": "Hemorrhagic shock"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient's fever, tachypnea, bleeding from IV and NG tube sites, and declining SpO2 after transfusion suggest an acute transfusion reaction, likely due to an immune response causing hemolysis, shock, and DIC. Types of Transfusion reactions Aspect Immediate Transfusion Reactions Delayed Transfusion Reactions Onset Within hours of transfusion Days to weeks after transfusion Cause Immunologic reactions, hemolytic or non-hemolytic Immune-mediated, often involving minor antigen sensitization Presentation Fever, chills, dyspnea (TRALI, TACO), Acute respiratory distress (TRALI), Pulmonary oedema (TACO), hypothermia, electrolyte abnormalities, coagulopathy, acid-base disorders and hyperkalemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "Fever, jaundice, gradual decline in haemoglobin levels (hemolysis). Severity Can range from mild to life-threatening. Generally less severe than immediate reactions. Examples Febrile non-hemolytic reaction (FNHTR) Transfusion-related acute lung injury (TRALI) Transfusion-associated circulatory overload (TACO) Delayed hemolytic reaction Management Stop transfusion and manage symptoms. Supportive care (e.g., antipyretics, oxygen)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Monitor for worsening anaemia and hemolysis. Consider further transfusion support if indicated."
+    }
+   ]
+  },
+  {
+   "id": "pathology-84-6",
+   "question": "Why is blood stored in citrate-phosphate-dextrose (CPD) preferred over acid-citrate-dextrose (ACD) for hypoxic patients?",
+   "options": {
+    "A": "It has less P50",
+    "B": "It is less acidic",
+    "C": "The fall in 2,3-DPG is less",
+    "D": "None of the above"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "2,3-DPG (2,3-diphosphoglycerate) is important for facilitating oxygen release from haemoglobin to tissues. CPD helps maintain higher levels of 2,3-DPG during blood storage compared to ACD, which is crucial for better oxygen delivery to tissues. 2,3-DPG is a molecule that binds to haemoglobin, promoting the release of oxygen to tissues. During blood storage, 2,3-DPG levels gradually decrease."
+    },
+    {
+     "type": "paragraph",
+     "text": "A reduction in 2,3-DPG leads to a leftward shift in the oxygen dissociation curve, which decreases oxygen release to tissues. This can be harmful to hypoxic patients, as they already have compromised oxygen delivery"
+    }
+   ]
+  },
+  {
+   "id": "pathology-85-1",
+   "question": "A smoker presents with an oral lesion, as shown in the image below. Which stain is used to identify this pathology?",
+   "options": {
+    "A": "Supravital stain",
+    "B": "Congo red",
+    "C": "Hematoxylin and eosin (H&E;)",
+    "D": "Oil red O"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The given image shows a laryngeal mass, for which toluidine blue is used for identification, and it is a supravital stain."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Options B, C, and D are not used to identify laryngeal mass."
+    }
+   ]
+  },
+  {
+   "id": "pathology-85-2",
+   "question": "Which among the following is the least radiosensitive cell?",
+   "options": {
+    "A": "Monocytes",
+    "B": "Platelets",
+    "C": "Lymphocytes",
+    "D": "Neutrophils"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Among the given options, platelets are the least radiosensitive cells. Radiosensitivity refers to the susceptibility of cells or tissues to the effects of radiation. Cells with higher rates of proliferation and less differentiation tend to be more radiosensitive because they are actively dividing and thus more vulnerable to the damaging effects of radiation. Platelets are the least radiosensitive as they do not divide actively."
+    },
+    {
+     "type": "paragraph",
+     "text": "Order of Radiosensitivity: Lymphocytes > neutrophils ~ monocytes > platelets"
+    }
+   ]
+  },
+  {
+   "id": "pathology-85-3",
+   "question": "Which of the following instruments is not used in the colorimetric method for the estimation of hemoglobin?",
+   "options": {
+    "A": "[Image: Sahli's comparator]",
+    "B": "[Image: Sahli's hemoglobin tube]",
+    "C": "[Image: Stirrer]",
+    "D": "[Image: RBC pipette]"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The instrument shown in the image is an RBC pipette and it is not used in the colorimetric method for the estimation of hemoglobin, it is designed for manual blood cell counting."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: The images in Options A, B, and C show a comparator, hemoglobin tube, and a stirrer respectively. They are components of Sahli's hemoglobinometer set. Sahli's method of hemoglobin estimation is a colorimetric method. Parts of Sahli’s hemoglobinometer set: Comparator Hemoglobin Tube Hemoglobin Pipette Stirrer"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L85_Q003_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L85_Q003_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pathology-85-4",
+   "question": "Which of the following is not a part of the criteria for diagnosis of Kawasaki disease?",
+   "options": {
+    "A": "Strawberry tongue",
+    "B": "Polymorphic rash",
+    "C": "Purulent conjunctivitis",
+    "D": "Cervical lymphadenopathy"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The diagnostic criteria for Kawasaki disease include non-purulent conjunctivitis rather than purulent conjunctivitis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Options A, B & D: Strawberry tongue, Polymorphic rash, and Cervical lymphadenopathy are all features of Kawasaki disease."
+    }
+   ]
+  },
+  {
+   "id": "pathology-85-5",
+   "question": "Which of the following disorders presents with repeated catalase-positive infections?",
+   "options": {
+    "A": "X linked hypogammaglobinemia",
+    "B": "SCID",
+    "C": "Chronic granulomatous disease",
+    "D": "Chediak Higashi Syndrome"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Chronic Granulomatous Disease is characterized by a defect in the NADPH oxidase enzyme complex. Without a functional NADPH oxidase, the patient is susceptible to recurrent infections caused by catalase-positive organisms."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Options A, B, and D are not associated with recurrent catalase-positive infections."
+    }
+   ]
+  },
+  {
+   "id": "pathology-85-6",
+   "question": "A Diabetic patient's blood sample is kept in the given container. What will be added to the blood sample?",
+   "options": {
+    "A": "Na fluoride",
+    "B": "EDTA",
+    "C": "Na citrate",
+    "D": "Heparin"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Grey top containers, used for glucose estimation, contain potassium oxalate as an anticoagulant and sodium fluoride to inhibit glycolysis by blocking enolase."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Colour Anti-coagulants Uses Purple/Lavender EDTA (Ca2+ chelating anticoagulant) (Option B ruled out):** CBC, Peripheral Smear, ESR, HbA1c Light Blue Trisodium Citrate (Ca2+ chelating anticoagulant) (Option C ruled out) ESR, PT, aPTT Red No anti-coagulant is added. Clot activator without gel Serum studies (Proteins, enzymes, hormones) Yellow Clot activator/Gel separator Serum studies (Proteins, enzymes, hormones) Grey Sodium Fluoride (Option A) Blood Glucose Green Heparin (Option D ruled out) ABG, Osmotic fragility, flow cytometry, immunophenotyping"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L85_Q006_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L85_Q006_explanation_2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L85_Q006_explanation_3"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L85_Q006_explanation_4"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L85_Q006_explanation_5"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PATHO_L85_Q006_explanation_6"
+    }
+   ]
+  },
+  {
+   "id": "pathology-85-7",
+   "question": "Which amino acid is necessary for the production of nitric oxide in the blood vessels?",
+   "options": {
+    "A": "Citrulline",
+    "B": "Arginine",
+    "C": "Histidine",
+    "D": "Tryptophan"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Nitric oxide (NO) is a vital signalling molecule involved in vasodilation and various other physiological processes. Nitric oxide synthesis in blood vessels requires the amino acid arginine, which serves as its precursor. Steps in Nitric Oxide Synthesis: Enzyme Involved: Nitric oxide synthase (NOS) converts L-arginine to nitric oxide (NO) and L-citrulline in the presence of oxygen and cofactors like NADPH and tetrahydrobiopterin (BH4)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Physiological Role of NO: NO is a potent vasodilator that relaxes vascular smooth muscle cells, thus regulating blood pressure and improving blood flow. It also has roles in neurotransmission and immune response."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Citrulline (Option A):** is a byproduct of nitric oxide synthesis and can be recycled back into arginine via the urea cycle, but it is not directly used in NO production."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Histidine (Option C):** is a precursor for histamine and is involved in immune responses, but it does not play a role in NO synthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Tryptophan (Option D):** is a precursor for serotonin and melatonin but is not involved in nitric oxide production."
+    }
+   ]
+  }
+ ]
+}

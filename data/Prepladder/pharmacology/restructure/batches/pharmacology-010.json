@@ -1,0 +1,525 @@
+{
+ "batch": "pharmacology-010",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "pharmacology-010",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "pharmacology-8-17",
+   "question": "A 60-year-old male patient is brought to the emergency department after a car accident. He presents with hypotension, bradycardia, and signs of shock. The medical team decides to administer norepinephrine (NE) to stabilize his blood pressure. You are an intern monitoring the patient's blood pressure and heart rate continuously. Which of the following tracings most accurately represents the effect of norepinephrine on this patient's cardiovascular system?",
+   "options": {
+    "A": "Increased systolic blood pressure with minimal change in diastolic blood pressure.",
+    "B": "Increased systolic and diastolic blood pressure with increased heart rate.",
+    "C": "Increased systolic and diastolic blood pressure with decreased heart rate.",
+    "D": "Decreased systolic and diastolic blood pressure with increased heart rate."
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Norepinephrine (NE) is a sympathomimetic drug that acts on both α1 and β1 adrenergic receptors. α1 receptors: NE induces vasoconstriction by binding to α1 receptors on vascular smooth muscle, increasing systemic vascular resistance (SVR), leading to elevated diastolic and systolic blood pressure. β1 receptors: NE also has some effect on β1 receptors in the heart, which increases cardiac contractility and can raise systolic pressure."
+    },
+    {
+     "type": "paragraph",
+     "text": "The rise in blood pressure due to increased SVR and enhanced myocardial contractility activates the baroreceptor reflex. This reflex leads to parasympathetic activation (via vagal stimulation) and bradycardia to counterbalance the elevated blood pressure, causing the heart rate to decrease."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mechanism of Action: Receptor Effect α1 adrenergic receptors Vasoconstriction of arterioles and venules → increased systemic vascular resistance and diastolic blood pressure. β1 adrenergic receptors Increased heart rate (chronotropy) and increased contractility (inotropy), contributing to increased systolic blood pressure."
+    },
+    {
+     "type": "paragraph",
+     "text": "Baroreceptor reflex Increased blood pressure triggers baroreceptor reflex leading to vagal stimulation and reflex bradycardia to reduce heart rate."
+    },
+    {
+     "type": "paragraph",
+     "text": "Norepinephrine effects on cardiovascular system: Parameter Effect of Norepinephrine Systolic BP Increased (due to β1 → ↑ contractility & α1 → ↑ afterload) Diastolic BP Increased (due to α1 → ↑ peripheral resistance) Heart rate Decreased (reflex bradycardia via baroreceptor stimulation) Total Peripheral Resistance Increased (due to vasoconstriction) Pulse pressure May slightly increase or stay the same Increased systolic BP with minimal change in diastolic BP (Option A): Incorrect because NE increases both systolic and diastolic BP significantly through vasoconstriction."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Increased systolic and diastolic BP with increased heart rate (Option B):** Incorrect because the baroreceptor reflex induces bradycardia (decreased heart rate), not tachycardia."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Decreased systolic and diastolic BP with increased heart rate (Option D):** Incorrect because NE causes vasoconstriction, leading to increased blood pressure, not decreased."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-8-18",
+   "question": "Match the following conditions with the most appropriate drug of choice. Condition Drug of choice 1 Septic shock i Epinephrine 2 Malignant hypertension with end-organ damage ii Dopamine 3 Acute decompensated heart failure with oliguria iii Fenodolpam 4 Cardiac arrest iv Norepinephrine",
+   "options": {
+    "A": "1-iv, 2-iii, 3-ii, 4-i",
+    "B": "1-iv, 2-iii, 3-i, 4-ii",
+    "C": "1-iii, 2-i, 3-iv, 4-ii",
+    "D": "1-i, 2-ii, 3-iii, 4-iv"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Condition Drug of choice Septic shock Norepinephrine Malignant hypertension with end-organ damage Fenodolpam Acute renal failure Dopamine Cardiac arrest Epinephrine Uses: Norepinephrine acts on alpha1, alpha2, beta1 Epinephrine acts on alpha1, alpha2, beta1, beta2 Norepinephrine Fenodolpam It acts on both alpha and beta receptors. DOC for cardiogenic shock with hypotension."
+    },
+    {
+     "type": "paragraph",
+     "text": "Stimulates → 1 receptors and increases the force of contraction of the heart. Stimulates α₁ receptors and causes vasoconstriction (increase in BP). It is a partial D 1 agonist. It is a rapidly acting vasodilator that should not be used for >48 hours. It can be given for control of severe hypertension (malignant hypertension with end-organ damage). Dopamine Epinephrine It acts on D 1 and D 2 receptors."
+    },
+    {
+     "type": "paragraph",
+     "text": "It acts on both alpha and beta receptors except β₂. Dose-dependent action. Acute decompensated heart failure with oliguria. Cardiogenic and septic shock. It acts on all receptors with a weak action on → 3 receptors. Uses: Anaphylactic shock. Brittle asthma. Cardiac arrest. Along with local anesthetics. Dopamine exhibits dose-dependent actions, its effects vary based on the concentration administered."
+    },
+    {
+     "type": "paragraph",
+     "text": "Low Doses: At this range, dopamine primarily stimulates dopaminergic receptors. This leads to renal vasodilation, which can enhance renal blood flow and promote diuresis. It may also cause vasodilation in other vascular beds. Moderate Doses: At this dosage, dopamine starts to activate beta-1 adrenergic receptors in addition to dopaminergic receptors."
+    },
+    {
+     "type": "paragraph",
+     "text": "This results in increased heart rate and myocardial contractility, which can improve cardiac output. High Doses: At higher doses, dopamine predominantly stimulates alpha-adrenergic receptors, leading to vasoconstriction. This can increase systemic vascular resistance and blood pressure."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-8-19",
+   "question": "β2 receptors are present in all of the following organs except?",
+   "options": {
+    "A": "Blood vessels.",
+    "B": "Uterus.",
+    "C": "Urinary bladder.",
+    "D": "Bronchi."
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The Urinary bladder has β3 receptors. β-receptors: They are Gs-type G-protein-coupled receptors that activate adenylyl cyclase, increasing the levels of cyclic AMP. The table below shows the various types of receptors. β1 β2 β3 Location Heart and JG cells. Bronchi, blood vessels, uterus, liver, GIT, urinary tract, and eye. Adipose tissue and detrusor muscle of the urinary bladder."
+    },
+    {
+     "type": "paragraph",
+     "text": "Effects on stimulation ↑ Heart rate. ↑ Conduction rate. ↑ Force of contraction. ↑ Renin release (↑ BP). Tremors. Hyperglycemia. Bronchodilation. Vasodilation. Tocolysis. Lipolysis. Relaxation of the detrusor muscle."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-8-20",
+   "question": "A patient is diagnosed with pheochromocytoma. Which drug can help improve the patient’s symptoms by inhibiting tyrosine hydroxylase?",
+   "options": {
+    "A": "Methyldopa",
+    "B": "Clonidine",
+    "C": "Metyrosine",
+    "D": "Phenoxybenzamine"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Metyrosine inhibits tyrosine hydroxylase, the rate-limiting enzyme in synthesizing catecholamines. Synthesis of catecholamines: Methyldopa (Option A): Methyl DOPA is a centrally acting sympatholytic and alpha 2 agonist. It acts by inhibiting DOPA decarboxylase, which reduces dopamine synthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Clonidine (Option B):** acts by stimulating the presynaptic alpha-2 adrenergic receptors thus inhibiting the release of catecholamines."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Phenoxybenzamine (Option D):** Phenoxybenzamine is an irreversible non-selective alpha blocker, Phentolamine and Tolazoline are reversible non-selective alpha-blockers. They inhibit the alpha-adrenergic receptors by acting on the postsynaptic terminals in smooth muscles."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L08_Q020_explanation_1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L08_Q020_explanation_2"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-8-21",
+   "question": "A patient is diagnosed with benign prostatic hyperplasia (BPH). He is prescribed tamsulosin. Which of the following receptors does this drug act on?",
+   "options": {
+    "A": "α 1A",
+    "B": "α 1B",
+    "C": "α 2A",
+    "D": "α 2C"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Tamsulosin is an α 1A blocker used in the treatment of BPH. Tamsulosin addresses the dynamic component of BPH, whereas finasteride, a 5- alpha reductase inhibitor addresses the static component of the disease. α-blockers can be classified as: Non-selective blockers (used in the treatment of pheochromocytoma)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Selective α1 blockers: DOC in BPH with hypertension. α 1A blockers: DOC in BPH without hypertension. α 1B blockers: Used in the treatment of hypertension. Selective α 2 blockers."
+    },
+    {
+     "type": "paragraph",
+     "text": "Alpha receptors: They are a type of adrenergic receptor (membrane-bound G-protein coupled receptors) that function primarily by increasing or decreasing the production of second messengers cAMP or IP 3 /DAG. They are present in various locations, and the table below describes them. α 1 (G q type of GPCR) α 1A α 1B (Option B) Present in the iris and internal urethral sphincter (IUS). Effects: Mydriasis & smooth muscle contraction."
+    },
+    {
+     "type": "paragraph",
+     "text": "Present in the blood vessels. Causes vasoconstriction (increased BP). α 2 (G i type of GPCR) α 2A (Presynaptic autoreceptor) (Option C) α 2B (Postsynaptic receptor) α 2C (Extrasynaptic receptor) (Option D) Presynaptic autoreceptor (It is an inhibitory autoreceptor stimulated by norepinephrine and inhibits its own release). Postsynaptic receptor. Similar functions like α 1 receptors. Present in platelets and duodenum."
+    },
+    {
+     "type": "paragraph",
+     "text": "Effects: Decrease in insulin and platelet attachment. Mnemonic: A-C(ALPHA1-VASOCONSTRICTION) B-D(BETA2-VASODILATATION)"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-9-1",
+   "question": "A 45-year-old hypertensive patient presents to the emergency department with severe chest pain and a rapid heartbeat. His blood pressure is 180/120mmHg. To manage his condition, a Phentolamine is administered. Later, he experiences an allergic reaction, and epinephrine is given to treat this condition. Which of the following best describes the Vasomotor reversal of Dale?",
+   "options": {
+    "A": "Epinephrine administration after phentolamine causes an increased blood pressure.",
+    "B": "Epinephrine administration after phentolamine causes decreased blood pressure.",
+    "C": "Epinephrine administration after phentolamine causes an increased heart rate.",
+    "D": "Epinephrine administration after phentolamine causes decrease in heart rate."
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Phentolamine is a non-selective alpha-adrenergic blocker that blocks alpha-1 and alpha-2 receptors, causing vasodilation and decreased peripheral resistance. When epinephrine (which acts on both alpha and beta receptors) is administered after phentolamine blockade, alpha receptors are blocked, so epinephrine’s alpha-mediated vasoconstriction is blocked."
+    },
+    {
+     "type": "paragraph",
+     "text": "Therefore, epinephrine’s beta-2 mediated vasodilation predominates, causing vasodilation and a decrease in blood pressure (paradoxical hypotension). This phenomenon is called the Vasomotor reversal of Dale or the \"epinephrine reversal\" phenomenon. The heart rate usually increases due to beta-1 stimulation by epinephrine and reflex tachycardia secondary to decreased blood pressure."
+    },
+    {
+     "type": "paragraph",
+     "text": "Vasomotor reversal of Dale (Epinephrine reversal) Aspect Details Definition Paradoxical decrease in blood pressure when epinephrine is administered after alpha-blockade Mechanism Alpha blockade by drugs like phentolamine blocks vasoconstrictive alpha-1 receptors; epinephrine’s beta-2 vasodilation dominates Clinical significance Important to recognize during treatment involving alpha blockers and catecholamines Effect on blood pressure Decrease due to unopposed beta-2 vasodilation Effect on heart rate Increased due to beta-1 stimulation and reflex tachycardia Historical note Described by Dale, illustrating receptor interplay in vascular tone regulation Epinephrine administration after phentolamine causes an increased blood pressure (Option A): Incorrect because alpha receptors are blocked, so vasoconstriction is prevented and BP decreases."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Epinephrine administration after phentolamine causes an increased heart rate (Option C):** Incorrect as a description of vasomotor reversal; HR does increase but the key feature is BP decrease."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Epinephrine administration after phentolamine causes decrease in heart rate (Option D):** Incorrect because heart rate increases due to beta-1 stimulation and reflex tachycardia."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-9-2",
+   "question": "A 58-year-old patient presents with poorly controlled hypertension despite being on multiple antihypertensive medications. The physician initiates Clonidine therapy to help manage the patient's blood pressure. Which of the following is TRUE regarding the mechanism of action of Clonidine?",
+   "options": {
+    "A": "Antagonises α2-adrenergic receptors.",
+    "B": "Stimulates α1-adrenergic receptors.",
+    "C": "Inhibits RAAS.",
+    "D": "Stimulates α2-adrenergic receptors."
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Clonidine reduces sympathetic outflow from the CNS by agonising α2-adrenergic receptors. Mechanism of action Uses Hypertension Diabetic diarrhoea Addiction withdrawal Menopausal hot flashes Diagnosing hypertension Suspected pheochromocytoma Atrial fibrillation ADHD Tourette syndrome Hyperhidrosis"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PREPLADDER_PHARMA_L09_Q002_explanation_1"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-9-3",
+   "question": "What is the preferred medication for managing a hypertensive crisis caused by the sudden withdrawal of Clonidine?",
+   "options": {
+    "A": "Intravenous labetalol",
+    "B": "Phentolamine",
+    "C": "Nitroglycerin",
+    "D": "Amlodipine"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Clonidine is commonly used to manage hypertension Sudden discontinuation of clonidine can lead to a withdrawal syndrome characterized by various symptoms, including headache, apprehension, tremors, abdominal pain, sweating, and tachycardia This syndrome typically occurs 18 to 36 hours after stopping the medication and is associated with increased sympathetic discharge, as evidenced by elevated plasma and urine concentrations of catecholamines and metabolites In the management of a hypertensive crisis, promptly resume Clonidine administration, and Phentolamine is considered the drug of choice for a hypertensive crisis Common side effects include dry eyes and mouth due to its antimuscarinic properties, sedation, hypotension, and erectile dysfunction"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-9-4",
+   "question": "A 32-year-old pregnant woman with chronic hypertension presents to her obstetrician's office for a routine prenatal visit. She has been managed with methyldopa for hypertension control. Which adverse effect should the physician monitor for during her treatment?",
+   "options": {
+    "A": "Hyperkalemia",
+    "B": "Hypertensive crisis",
+    "C": "Hyperglycemia",
+    "D": "Hemolytic anemia"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Methyldopa, a centrally acting sympatholytic agent, is utilized in hypertension management, particularly during pregnancy and in patients with renal insufficiency Damage to red blood cells (Warm Antibody Hemolytic Anemia) occurs when alpha-methyldopa attaches to the RBC surface, rendering the RBC antigenic This attachment triggers the production of antibodies (IgG), which target and destroy the RBCs and is classified as a Type II Hypersensitivity reaction Regular monitoring, including Coombs' test for hemolytic anemia and liver function tests, is imperative for the early detection of adverse events Category Details Mechanism of Action Centrally converted to methyl norepinephrine, exerting alpha-2 agonistic action in the CNS, reducing adrenergic outflow."
+    },
+    {
+     "type": "paragraph",
+     "text": "Uses Management of hypertension, particularly in pregnant women or those with renal insufficiency. Side Effects Nausea, Diarrhea, Headache, Dizziness, Sedation, Dry mouth, Rash. Rare complications include Coombs-positive hemolytic anaemia, lupus-like syndrome, myocarditis, pancreatitis, hepatotoxicity, and immune thrombocytopenia."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-9-5",
+   "question": "A 52-year-old male with severe episodic hypertension, headaches, palpitations, and elevated urinary metanephrines is diagnosed with pheochromocytoma. What is the drug of choice to manage hypertension and symptoms before surgery?",
+   "options": {
+    "A": "Propranolol",
+    "B": "Phenoxybenzamine",
+    "C": "Metoprolol",
+    "D": "Prazosin"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Phenoxybenzamine is utilized to manage paroxysmal hypertension and sweating caused by conditions like pheochromocytoma. Class Mechanism of Action Side Effects Nonselective, irreversible alpha-adrenergic receptor antagonists Forms covalent bonds, likely with cysteine residues, within alpha-adrenergic receptors, reducing sympathetic effects induced by catecholamines. Results in decreased vasoconstriction and systemic vascular resistance."
+    },
+    {
+     "type": "paragraph",
+     "text": "Postural hypotension, palpitations, nasal congestion, miosis, inhibition of ejaculation. Prazosin can be used as an alternative, but the drug of choice for pheochromocytoma is Phenoxybenzamine."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-9-6",
+   "question": "During the surgical excision of a pheochromocytoma, a continuous IV infusion of an alpha blocker was used to prevent the intraoperative rise of blood pressure due to catecholamine spillage into the bloodstream from the tumor. Match the alpha-blockers with their appropriate class. a. Phenoxybenzamine 1. Alpha 1 selective b. Prazosin 2. Alpha Non-selective and reversible c. Phentolamine 3. Alpha 2 selective d. Yohimbine 4. Alpha Non-selective and irreversible",
+   "options": {
+    "A": "a-2, b-3, c-1, d-4",
+    "B": "a-4, b-1, c-2, d-3",
+    "C": "a-1, b-3, c-2, d-4",
+    "D": "a-3, b-2, c-4, d-1"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Classification of Alpha-blockers based on their receptor binding: TYPES DRUGS Non-competitive + irreversible type Phenoxybenzamine Competitive + reversible type Non-selective Phentolamine Ergotamine Ergotoxine Chlorpromazine Alpha 1 selective Drugs LOCATION EFFECTS Alpha 1 a Tamsulosin Silodosin Internal Urethral Sphincter Iris Ejaculation failure/retrograde ejaculation, miosis, increased urine outflow Alpha 1 b Alfuzosin Doxazosin Prazosin Terazosin Vascular Smooth Muscle Vasodilatation, reflex tachycardia, reduced GFR (thus leading to RAAS activation) Alpha 2 selective Yohimbine Idoxazon Central Nervous System Penile erection (used in depression with sexual dysfunction)"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-9-7",
+   "question": "A 58-year-old man with benign prostate hypertrophy was recently prescribed Prazosin. Which side effects should the patient be informed about before starting the medication? Postural hypotension Retrograde ejaculation Floppy iris syndrome Reflex bradycardia",
+   "options": {
+    "A": "1 and 2",
+    "B": "1 and 3",
+    "C": "1, 2 and 4",
+    "D": "1, 2 and 3"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Postural hypotension (1): Due to α1B receptor blockade in vascular smooth muscle → vasodilation → sudden drop in BP on standing (first-dose effect). Retrograde ejaculation (2): α1A blockade at the internal urethral sphincter → sphincter fails to close during ejaculation → semen flows backward into the bladder."
+    },
+    {
+     "type": "paragraph",
+     "text": "Floppy iris syndrome (3): α1 receptor blockade in iris dilator muscle → leads to poor pupil dilation and billowing of the iris during eye surgery (noted especially in patients undergoing cataract surgery). Reflex bradycardia (4): Incorrect: Prazosin typically causes reflex tachycardia, not bradycardia. When vasodilation causes a fall in BP, baroreceptor reflexes increase sympathetic output → tachycardia."
+    },
+    {
+     "type": "paragraph",
+     "text": "Bradycardia is more common with drugs that increase vagal tone (e.g., clonidine, β-blockers)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Prazosin in BPH and Related Side Effects: Aspect Details Drug Class Selective α1-adrenergic receptor blocker Mechanism α1A blockade → relaxes bladder neck/prostate smooth muscle α1B blockade → vasodilation Uses BPH Hypertension Raynaud’s disease Scorpion bite Bladder/Prostate Effect ↓ Outlet resistance → better urine flow Vascular Effect ↓ Peripheral resistance → ↓ BP Adverse Effects Postural hypotension Common; occurs with first dose Reflex tachycardia Compensatory response to hypotension Retrograde ejaculation Due to relaxation of internal urethral sphincter Floppy iris syndrome Seen during eye surgery; risk increases with chronic use"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-9-8",
+   "question": "A 40-year-old man with a recent history of myocardial infarction was started on Beta blocker as a secondary prophylaxis of MI. Which of the following beta blockers is most cardioselective?",
+   "options": {
+    "A": "Metoprolol",
+    "B": "Propranolol",
+    "C": "Labetalol",
+    "D": "Tilisolol."
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Metoprolol is a second-generation/cardioselective β-blocker used as a secondary prophylaxis for myocardial infarction. It helps prevent reinfarction and arrhythmias. It is more potent in blocking β₁-receptor (cardiac muscle) than β₂-receptor (bronchial muscles)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Classification of β-blockers: First generation(Older / non selective) Second generation (Cardioselective) Third generation Propranolol (Option B) Sotalol Pindolol (100% bioavailability) Timolol Nadolol (Maximum t1/2) Metoprolol (Option A) Esmolol (Minimum t1/2) Atenolol Bisoprolol Acebutolol With alpha-blocking activity Labetalol (Option C) Celiprolol Nebivolol (NO-releasing property) Betaxolol With calcium channel blockade Carvedilol (maximum plasma protein binding ) With beta 2 agonism Bopindolol With K+ channel opening action Tilisolol (Option D)"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-9-9",
+   "question": "A 38-year-old female patient who was on propranolol developed bradycardia and was admitted to the cardiac ICU. On discharge, her medication was changed from propranolol to another beta-blocker, which has intrinsic sympathomimetic activity and membrane-stabilizing properties.Which of the following drugs was most likely prescribed?",
+   "options": {
+    "A": "Carvedilol",
+    "B": "Metoprolol",
+    "C": "Pindolol",
+    "D": "Propranolol"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Pindolol is a potent, non-selective beta blocker with Intrinsic sympathomimetic activity Membrane stabilizing property Lower risk for rebound hypertension when medication is stopped As it has a sympathetic activity, it does not cause bradycardia; thus, it is safe for cardiovascular conditions It also blocks sodium channels on the heart muscle’s membrane, hence exhibiting a membrane stabilizing action, and thus, it can be used in Atrial fibrillation Ventricular fibrillation It also blocks sodium channels in neurons, leading to decreased nerve conduction."
+    },
+    {
+     "type": "paragraph",
+     "text": "Non selective β₁ + β₂ blocker Cardioselective β₁ blocker Without ISA With ISA With → blocking activity Metoprolol (Option B) Esmolol Atenolol Bisoprolol Acebutolol Betaxolol Nebivolol Propranolol (Option D) Sotalol Timolol Pindolol Celiprolol Oxprenolol Penbutolol Pindolol Bopindolol Labetalol Carvedilol (Option A) ISA: intrinsic sympathomimetic action Beta-blockers with membrane stabilizing activity (MSA) are: Propranolol (Maximum MSA) Metoprolol Sotalol Labetalol Acebutolol Pindolol Carvedilol (Option A): It has multiple mechanisms of action, namely, β₁ + β₂ + α₁ blockade and Calcium channel blocker."
+    },
+    {
+     "type": "paragraph",
+     "text": "It is used as a cardioprotective agent in congestive cardiac failure."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Metoprolol (Option B):** It is the prototype cardioselective → 1 blocker, which may be used in diabetic patients receiving oral hypoglycemia (beta blockers are usually contraindicated). It is also used in people intolerant to propranolol, which causes cold hands and feet."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Propranolol (Option D):** It is a non-selective beta blocker without intrinsic sympathomimetic activity, and membrane stabilizing property is present only at high doses."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-9-10",
+   "question": "A 63-year-old male has complained of tremors in his hands for the past two years. Physical examination reveals bilateral symmetric tremors predominantly in his hands, which worsen with intentional movements and are relieved by rest. Which of the following is the drug of choice in essential tremors?",
+   "options": {
+    "A": "Propranolol",
+    "B": "Levodopa",
+    "C": "Diazepam",
+    "D": "Gabapentin"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Essential tremor is seen in the hands and arms bilaterally and is symmetric. It can be elicited with the arms suspended against gravity in a fixed posture and during goal-directed activity. It is relieved by alcohol. Propranolol(beta-blocker) is the drug of choice."
+    },
+    {
+     "type": "paragraph",
+     "text": "Uses of beta-blockers: Drug of choice Migraine prophylaxis Essential tremors Aortic dissection if they also have hypertension Other Uses Hypertension-second-line drugs Stable angina: Decrease the frequency of attacks and increase exercise tolerance. Cardiac arrhythmias: Used in both supraventricular and ventricular arrhythmias. Congestive heart failure: Decreases mortality."
+    },
+    {
+     "type": "paragraph",
+     "text": "Thyrotoxicosis: Propranolol controls the sympathetic symptoms Glaucoma: Timolol and Betaxolol are used. Hypertrophic Cardiomyopathy (Improve cardiac output). Myocardial infarction (Ml): Secondary prophylaxis of Ml and myocardial salvage during evolution of Ml (decreases mortality)."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-9-11",
+   "question": "A 45-year-old female with a history of hypertension on metoprolol presents for a routine follow-up. She mentions experiencing fatigue and occasional dizziness. She also notes episodes of constipation. Which of the following is NOT an adverse effect of beta blockers?",
+   "options": {
+    "A": "Hyperkalemia",
+    "B": "Hyperglycemia",
+    "C": "Bronchospasm",
+    "D": "Retrograde ejaculation"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Retrograde ejaculation is a side effect of alpha-blockers The cardiac side effects of beta blockers include Beta-blocker withdrawal can lead to the precipitation of an acute MI. Negative chronotropic effects include the development of sinus bradycardia and heart block. Heart failure may exacerbate symptoms in patients with decompensated heart failure or preexisting myocardial dysfunction."
+    },
+    {
+     "type": "paragraph",
+     "text": "The extracardiac side effects include Increased airway resistance; hence, they are contraindicated in patients with asthma due to bronchospasm. Exacerbation of peripheral artery disease and worsen claudication and precipitate Raynaud's disease. In Hypoglycemia, Beta-blockers mask the signs seen in a hypoglycemic patient, such as tachycardia. Hyperkalemia Depression, fatigue, and sexual dysfunction such as erectile dysfunction. Weight gain"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-9-12",
+   "question": "Which of the following calcium channel blockers can cause heart blockage when combined with beta-blockers in patients with heart failure?",
+   "options": {
+    "A": "Nimodipine",
+    "B": "Nifedipine",
+    "C": "Amlodipine",
+    "D": "Diltiazem"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Diltiazem, which is a non-dihydropyridine calcium channel blocker, can cause bradycardia and heart block when used in combination with beta-blockers in patients with heart failure. A non-dihydropyridine calcium channel blocker (i.e., diltiazem, verapamil ) should not be simultaneously prescribed with a beta blocker since both classes have negative inotropic and chronotropic effects and can lead to bradycardia and heart block."
+    },
+    {
+     "type": "paragraph",
+     "text": "Dihydropyridine calcium channel blockers (e.g., Nifedipine, Nimodipine, and Amlodipine), when added to beta-blockers, increase heart rate and decrease blood pressure, resulting in an augmented symptom benefit compared with either drug class alone."
+    },
+    {
+     "type": "paragraph",
+     "text": "Feature DHP Calcium Channel Blockers Non-DHP Calcium Channel Blockers Examples Amlodipine, Nifedipine, Felodipine Diltiazem, Verapamil Mechanism of Action Primarily block L-type calcium channels in vascular smooth muscle Block L-type calcium channels in the heart Uses Hypertension Angina, rate control in arrhythmias Side Effects Peripheral edema, flushing, headache Bradycardia, heart block, dizziness"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-9-13",
+   "question": "Which of the following symptoms of hypoglycemia is NOT masked by propranolol?",
+   "options": {
+    "A": "Tremors",
+    "B": "Palpitations",
+    "C": "Tachycardia",
+    "D": "Sweating"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Sweating, a symptom of hypoglycemia, is caused by cholinergic receptors and is not inhibited by beta blockers. Prolonged propranolol therapy may impair carbohydrate tolerance in prediabetics by decreasing insulin release, leading to hyperglycemia and diabetes."
+    },
+    {
+     "type": "paragraph",
+     "text": "In diabetics, propranolol is avoided because of the risk of hypoglycemic episodes, as glycogenolysis in the heart, skeletal muscles, and liver that occurs due to sympathetic stimulation is attenuated. In diabetic patients, beta blockers mask the signs of hypoglycemia mediated through sympathetic stimulation (tachycardia, tremor, palpitations) (Option A, B, C ruled out)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Patients fail to recognise key symptoms of a hypoglycemic state and neglect getting appropriate treatment."
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-10-1",
+   "question": "Which of the following drugs exacerbates myasthenia and is usually avoided in a patient with myasthenia gravis? Lidocaine Digene Meropenem Phenytoin",
+   "options": {
+    "A": "1 & 2",
+    "B": "2 & 3",
+    "C": "1 & 3",
+    "D": "1 only"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Drugs aggravating myasthenia gravis: Local Anaesthetics Magnesium Antibiotics: Aminoglycosides, Quinolones, Macrolides Beta-blockers Botulinum toxin Penicillamine Quinine derivatives NDMR"
+    }
+   ]
+  },
+  {
+   "id": "pharmacology-10-2",
+   "question": "Dopamine at low doses causes:",
+   "options": {
+    "A": "Increases in cardiac contractility",
+    "B": "Vasoconstriction",
+    "C": "Tachycardia",
+    "D": "Increases renal blood flow"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Dopamine Dose Receptor Activation Effects < 2 µg/kg/min D1 receptors Increases renal blood flow; vasodilation in renal and mesenteric vessels 2-10 µg/kg/min β1 receptors (heart) Increases heart rate (positive chronotropic) and contractility (positive inotropy) > 10 µg/kg/min α1 receptors Vasoconstriction (increased systemic vascular resistance) and increased blood pressure"
+    }
+   ]
+  }
+ ]
+}

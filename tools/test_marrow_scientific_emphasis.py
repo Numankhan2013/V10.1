@@ -76,6 +76,9 @@ const q18=JSON.parse(__Q18__);
 const q18html=nkRenderMarrowGoldText(q18.displayText,q18);
 assert(q18html.includes('<strong class="nk-gold-em">The stimulus to ventilation after strenuous exercise is increased mean arterial H<sup class="nk-sci-sup">+</sup></strong>'),
   'PHYSIO_CH23_Q018 emphasis anchor must survive H+ scientific markup');
+// A spaced hyphen is a dash, not an ionic charge; attached charges still lift.
+assert.strictEqual(nkScientificMarkup('Order: P - K - K'),'Order: P - K - K','spaced hyphen after K must stay a dash');
+assert(nkScientificMarkup('Cl- and K+ and Ca2-').split('nk-sci-sup').length===4,'attached ionic charges must stay superscripts');
 const source='<img src=x onerror="alert(1)"> A < B & C';
 const safe=nkGoldText(source,['A < B & C']);
 assert(safe.includes('&lt;img src=x onerror="alert(1)"&gt;'), 'plain text HTML must stay escaped');

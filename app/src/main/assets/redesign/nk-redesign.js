@@ -173,6 +173,8 @@
     if (/^marrow__PHYS|^physiology-/i.test(id)) return 'Physiology';
     if (/^marrow__BIOCHEM|^\d+-\d+$/i.test(id)) return 'Biochemistry';
     if (/^marrow__MICRO|^microbiology-/i.test(id)) return 'Microbiology';
+    if (/^pathology-/i.test(id)) return 'Pathology';
+    if (/^pharmacology-/i.test(id)) return 'Pharmacology';
     if (/^UWORLD_/i.test(id)) return 'My UWorld';
     return 'Other';
   }
@@ -364,7 +366,7 @@
     var stat = function (label, value, sub) {
       return '<div class="nkg-stat"><span class="nkg-stat-label">' + label + '</span><strong class="nkg-num">' + value + '</strong>' + (sub ? '<small>' + sub + '</small>' : '') + '</div>';
     };
-    var order = ['Anatomy', 'Physiology', 'Biochemistry', 'Microbiology', 'My UWorld', 'Other'];
+    var order = ['Anatomy', 'Physiology', 'Biochemistry', 'Microbiology', 'Pathology', 'Pharmacology', 'My UWorld', 'Other'];
     var subjRows = order.filter(function (k) { return m.subjects[k]; }).map(function (k) {
       var r = m.subjects[k], acc = r.answered ? Math.round(r.correct / r.answered * 100) : 0;
       var key = k.toLowerCase().replace(/[^a-z]/g, '');
