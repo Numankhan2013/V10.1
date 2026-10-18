@@ -36,14 +36,15 @@ def strip(doc, n):
         return None
     s = DPI / 72
     pad = 30
-    x, y = int(q[0] * s) - 4, int((q[1] + doc.yoff) * s) - pad
-    W, H = int(110 * s), int((q[3] - q[1]) * s) + 2 * pad
+    # the whole bar above the body: the text layer can place "Question" on the wrong header line
+    x, y = int(q[0] * s) - 4, max(0, int(doc.yoff * s))
+    W, H = int(95 * s), int((max(q[3], 50) + doc.yoff) * s) + pad - y
     png = subprocess.run(['pdftoppm', '-f', str(n), '-l', str(n), '-r', str(DPI), '-x', str(x), '-y', str(y),
                           '-W', str(W), '-H', str(H), '-gray', '-png', doc.path], capture_output=True).stdout
     a = np.asarray(Image.open(io.BytesIO(png)).convert('L')).astype(float)
-    bg = np.median(a[:, :int(W * .9)])
+    bg = np.median(a[:int(20 * s), :int(W * .9)])   # the bar, not the light body below it
     b = np.clip((a - bg) / (255 - bg + 1e-6), 0, 1)
-    b[np.median(a, 1) > bg + 60] = 0          # light body below the bar
+    b[(a > bg + 60).mean(1) > 0.9] = 0          # light body below the bar
     on = (b > 0.45).sum(1) > 2
     bands, i = [], 0
     while i < H:
@@ -81,10 +82,14 @@ def is_colon(b, r):
 
 def cells(doc, n):
     for b, runs in strip(doc, n) or []:
-        ci = next((i for i, x in enumerate(runs) if is_colon(b, x)), None)
-        if ci is not None: break
-    else:
-        return None
+        out = band_cells(b, runs)
+        if out: return out
+    return None
+
+
+def band_cells(b, runs):
+    ci = next((i for i, x in enumerate(runs) if is_colon(b, x)), None)
+    if ci is None: return None
     dig = []
     for x in runs[ci + 1:]:
         if dig and x[0] - dig[-1][1] > 12: break

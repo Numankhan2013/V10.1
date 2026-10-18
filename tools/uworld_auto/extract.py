@@ -102,12 +102,15 @@ def group_pages(pages):
         counts = {}
         for r in run:
             if r.qid:
-                counts[r.qid] = counts.get(r.qid, 0) + (3 if getattr(r, 'main', False) else 1)
+                counts[r.qid] = counts.get(r.qid, 0) + (3 if getattr(r, 'main', False) else 1) + \
+                    (10 if getattr(r, 'seen', False) else 0)
         main = max(counts, key=counts.get, default=None)
         last = max((i for i, r in enumerate(run) if r.item), default=-1)
         for i, r in enumerate(run):
             if not main:
                 break
+            if getattr(r, 'seen', False):   # read from the header image: trusted as is
+                continue
             if r.qid is None:
                 if i <= last:   # trailing pages with no header are left to the smoothing below
                     r.qid = main
@@ -121,6 +124,8 @@ def group_pages(pages):
     for i, p in enumerate(pages):
         prev = next((ids[j] for j in range(i - 1, -1, -1) if ids[j]), None)
         nxt = next((ids[j] for j in range(i + 1, len(ids)) if ids[j]), None)
+        if getattr(p, 'seen', False):
+            continue
         if (p.qid is None or (prev == nxt and p.qid != prev)) and prev and (prev == nxt or p.qid is None):
             p.qid = prev
     groups = []
@@ -623,7 +628,8 @@ class Stub:
         m = QID_RE.search(head)
         self.qid = m.group(1) if m else None
         seen, score = header_id.read(doc, n)
-        if seen and score >= header_id.CONFIDENT:
+        self.seen = bool(seen) and score >= header_id.CONFIDENT
+        if self.seen:
             self.qid = seen
         self.main = 'Mark' in head
         m = ITEM_RE.search(head)
