@@ -14,8 +14,9 @@ import numpy as np
 from difflib import SequenceMatcher
 from regions import exhibit_figure, boxes, images
 
-QID_RE = re.compile(r'Question\s*[Il1|]\s*[dD]\W{0,3}(\d{2,6})')
-ITEM_RE = re.compile(r'[Il1|]tem[\W_]{0,3}(\d{1,3})\s*[o0]\s*[rfl1]\s*(\d{1,3})')
+# Header OCR can be lowercase and drop letters ("question l: 19972", "item 3 or40").
+QID_RE = re.compile(r'Question\s*(?:[Il1|]\s*d?|d)\W{0,3}(\d{2,6})', re.I)
+ITEM_RE = re.compile(r'[Il1|]tem[\W_]{0,3}(\d{1,3})\s*[o0]\s*[rfl1]\s*(\d{1,3})', re.I)
 OPT_RE = re.compile(r'(?:^|\s)([A-J8])\s*[.,]\s+(.*)$')
 PCT_RE = re.compile(r'\(\s*(\d{1,3})\s*%\s*\)?\s*$')
 JUNK_RE = re.compile(r'[»«{}\\~^¥§¤©®|]|(?:\s[^\sA-Za-z0-9(\[\-–—•"“‘\'<>=≥≤±%/+.,]{2,}\s)|\b(?:[b-hj-z]\s){3,}')
@@ -57,6 +58,7 @@ class Page:
         for l in self.lines:
             l['text'] = re.sub(r'\s?[°º0o]\s?/\s?[o0]\b|%[o0]\b', '%', l['text'])
             l['text'] = re.sub(r'(\d)\s*%\s*[>)\]}]+', r'\1%)', l['text'])
+            l['text'] = re.sub(r'\{(?=[^{}()]*\))', '(', l['text'])   # "{67%)", "{taste)"
         body = [l for l in self.lines if self.top <= l['y0'] and l['y1'] <= self.bottom + 2]
         self.body = body
         text = ' '.join(l['text'] for l in body)
@@ -237,6 +239,17 @@ def split_options(lines):
         else:
             split.append(l)
     lines = split
+    # A right-aligned "(24%)" can sort just above its own choice; join it to that row.
+    alone = [l for l in lines if re.fullmatch(r'\(\s*\d{1,3}\s*%\s*\)?', l['text'].strip())]
+    rows = [dict(l) for l in lines if l not in alone]
+    for p in alone:
+        overlap = lambda r: min(r['y1'], p['y1']) - max(r['y0'], p['y0'])
+        row = max((r for r in rows if len(r['text'].strip()) > 3), key=overlap, default=None)   # not a radio "0"
+        if row is not None and overlap(row) > 0 and row['x1'] < p['x0'] and not PCT_RE.search(row['text']):
+            row['text'] = row['text'].rstrip() + ' ' + p['text'].strip()
+        else:
+            rows.append(p)
+    lines = sorted(rows, key=lambda l: l['y0'])
     chunks, cur = [], []
     has_pct = sum(bool(PCT_RE.search(l['text'])) for l in lines) >= 2
     for l in lines:
@@ -244,6 +257,21 @@ def split_options(lines):
         if not t or re.fullmatch(r'[XVvx✓✗]', t):
             continue
         starts = OPT_RE.search(t)
+        if (has_pct and not cur and chunks and not (starts and starts.start() < 8) and len(t) > 2
+                and not PCT_RE.search(t) and l['y0'] - chunks[-1][-1]['y1'] < 16
+                and l['x0'] >= chunks[-1][0]['x0'] + 15):
+            # A wrapped choice whose percentage sits on its first line: the tail belongs
+            # to that choice, and the percentage moves to the end.
+            prev = chunks[-1]
+            k = max(i for i, c in enumerate(prev) if PCT_RE.search(c['text']))
+            pct = PCT_RE.search(prev[k]['text'])
+            rest = prev[k]['text'][:pct.start()].strip()
+            if rest:
+                prev[k] = {**prev[k], 'text': rest}
+            else:
+                prev.pop(k)
+            prev.append({**l, 'text': t + ' ' + pct.group(0).strip()})
+            continue
         if cur and not has_pct and starts and l['y0'] - cur[-1]['y1'] > 6:
             chunks.append(cur); cur = []
         cur.append(l)
