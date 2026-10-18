@@ -58,7 +58,7 @@ def check(folder, answer):
             if UI.search(str(t)): errs.append(f'{name} contains screen chrome ({UI.search(str(t)).group(0)!r})')
     fp = r.get('question_figure_page')
     if fp is not None:
-        pages = {int(m.group(1)) for p in folder.glob('page-*.png') if (m := re.match(r'page-(\d+)', p.name))}
+        pages = {int(m.group(1)) for p in folder.glob('page-*.*') if (m := re.match(r'page-(\d+)', p.name))}
         if not (isinstance(fp, int) and fp in pages): errs.append(f'question_figure_page {fp!r} is not one of this folder\'s pages')
     return errs
 
