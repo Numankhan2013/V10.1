@@ -1,0 +1,201 @@
+{
+ "batch": "pharmacology-045",
+ "results": [
+  {"id": "pharmacology-39-5", "unchanged": true},
+  {"id": "pharmacology-39-6", "blocks": [
+   {"type": "table", "title": "", "columns": ["Disease", "Preferred antifungals", "Mechanism of Action"], "rows": [
+    ["Fungal Keratitis", "Natamycin", "Disrupts fungal cell membrane integrity."],
+    ["Seborrheic Dermatitis", "Ketoconazole (topical and oral)", "Inhibits fungal cytochrome P450-dependent enzyme."],
+    ["Mucormycosis", "Amphotericin B", "Disrupts fungal cell membrane integrity."],
+    ["Eumycetoma", "Itraconazole", "Inhibits ergosterol synthesis, essential for fungal membranes."],
+    ["Sporotrichosis", "Amphotericin B (Initiation)\nItraconazole (Maintainence)", ""]
+   ]}
+  ]},
+  {"id": "pharmacology-39-7", "blocks": [
+   {"type": "paragraph", "text": "Ketoconazole is a strong CYP3A4 inhibitor. Cyclosporine is metabolized by CYP3A4. When ketoconazole is co-administered, it inhibits cyclosporine metabolism, leading to elevated blood levels. This significantly increases the risk of cyclosporine-induced toxicity, especially nephrotoxicity and neurotoxicity."},
+   {"type": "table", "title": "Drug Interactions:", "columns": ["Drug", "Mechanism", "Impact on Cyclosporine"], "rows": [
+    ["Cyclosporine", "Immunosuppressant; CYP3A4 substrate", "Narrow therapeutic index; toxic if elevated"],
+    ["Ketoconazole", "CYP3A4 inhibitor", "Reduces metabolism → ↑ cyclosporine levels"]
+   ]},
+   {"type": "table", "title": "Adverse Effects of Ketoconazole:", "columns": ["System", "Adverse Effects"], "rows": [
+    ["Hepatic", "Hepatotoxicity (boxed warning); can be severe or fatal"],
+    ["Endocrine", "Inhibits steroidogenesis → ↓ cortisol/testosterone → gynecomastia, impotence"],
+    ["GI", "Nausea, vomiting, abdominal discomfort"],
+    ["Skin", "Pruritus, rash"],
+    ["QT Prolongation", "Risk of torsades de pointes when combined with other QT-prolonging drugs"]
+   ]},
+   {"type": "paragraph", "text": "**Decreased effectiveness of cyclosporine (Option A):** Incorrect. Ketoconazole increases, not decreases, cyclosporine levels by inhibiting its metabolism."},
+   {"type": "paragraph", "text": "**No significant interaction between ketoconazole and cyclosporine (Option C):** Incorrect. The interaction is clinically significant; it mandates dose adjustment and close monitoring."},
+   {"type": "paragraph", "text": "**Enhanced elimination of cyclosporine (Option D):** Incorrect. Ketoconazole slows elimination by inhibiting CYP3A4, leading to drug accumulation."}
+  ]},
+  {"id": "pharmacology-39-8", "unchanged": true},
+  {"id": "pharmacology-39-9", "blocks": [
+   {"type": "table", "title": "", "columns": ["Aspects", "Terbinafine"], "rows": [
+    ["Mechanism of action", "Competitive inhibition of squalene epoxidase (Option C)\n↓ Accumulation of squalene within fungal cells\n↓ Inhibition of ergosterol synthesis\n↓ Disruption of fungal cell membrane integrity\n↓ Fungicidal action"],
+    ["Features", "It has a high affinity for sebum and thus accumulates in sebum, stratum corneum and nails."],
+    ["Uses", "Topical: Used for treating tinea infections (ringworm) and pityriasis versicolor (fungal skin infection).\nOral: DOC for onychomycosis (fungal infection of the nails), tinea capitis (scalp ringworm), and extensive fungal lesions. It is also used in oromucosal candidiasis as an alternative to fluconazole."],
+    ["Side effects", "Taste disturbance and rash; topical application causes dryness, itching and irritation."]
+   ]},
+   {"type": "paragraph", "text": "**Inhibition of thymidylate synthase (Option A):** Flucytosine (5-FC) converts into 5-fluorodeoxyuridylic acid within the fungal cell and acts as an inhibitor of thymidylate synthase. It is a narrow-spectrum fungistatic agent active towards Cryptococcus neoformans and chromoblastomyces."},
+   {"type": "paragraph", "text": "**Inhibition of lanosterol 14-methylase (Option B):** Azoles inhibit fungal cytochrome P450 enzyme - lanosterol 15-methylase, which results in abnormal membrane formation.\\ It is a broad-spectrum antifungal agent that is active against dermatophytes, candida and other deep fungal infections (except mucormycosis)"},
+   {"type": "paragraph", "text": "**Formation of pore in ergosterol membrane (Option D):** Amphotericin B has lipophilic and lipophobic sides, forming micropores in the ergosterol membrane of the fungal wall. It is a broad-spectrum fungicidal agent effective against Candida, Histoplasma, Sporothrix, Blastomycosis, and Leishmania."}
+  ]},
+  {"id": "pharmacology-39-10", "blocks": [
+   {"type": "table", "title": "", "columns": ["Aspects", "Griseofulvin"], "rows": [
+    ["MOA", "Inhibition of microtubules within the fungal cells, thus inhibiting mitosis. It results in the formation of multi-nucleated and stunted fungal hyphae."],
+    ["Features", "Keratinophilic thus gets deposited in high concentration in Stratum corneum, hair and nails\nPlasma half-life is 24 hours"],
+    ["Uses", "DOC in Superficial fungal infections such as Tinea. (T. capitis- most effective; T.curis, T.unguium, T.corporis- less effective; T. versicolor – it is not effective)"],
+    ["Side effects", "Headache\nNeuritis\nHepatitis\nPhotosensitivity\nDisulfiram like reaction"]
+   ]}
+  ]},
+  {"id": "pharmacology-39-11", "blocks": [
+   {"type": "paragraph", "text": "The treatment of choice for cryptococcal meningitis combines IV Amphotericin B and IV Flucytosine."},
+   {"type": "table", "title": "", "columns": ["", "Mechanism of action", "Uses", "Side effects"], "rows": [
+    ["Amphotericin B (Polyene antibiotic molecule)", "Forms micropores in the ergosterol membrane.", "Cryptococcus neoformans\nLeishmania", "Nephrotoxicity\nAllergic reaction\nArachnoiditis\nAnemia"],
+    ["Flucytosine (pyrimidine antimetabolite)", "Inhibitor of thymidylate synthase", "Cryptococcus neoformans\nChromoblastomyces.", "Dose-dependent marrow suppression\nEnteritis."]
+   ]},
+   {"type": "paragraph", "text": "**Caspofungin + Flucytosine (Option A):** is used in the treatment of systemic candidiasis in an immunocompromised patient"},
+   {"type": "paragraph", "text": "**Voriconazole + Caspofungin (Option C):** is used to treat invasive aspergillosis."},
+   {"type": "paragraph", "text": "**Amphotericin B + Posaconazole (Option D):** is used in the treatment of mucormycosis"}
+  ]},
+  {"id": "pharmacology-39-12", "blocks": [
+   {"type": "table", "title": "Topical antifungals:", "columns": ["Drug", "Mechanism of action", "Topical Uses"], "rows": [
+    ["Imidazole\nOxiconazole\nClotrimazole\nMiconazole\nSertaconazole\nKetoconazole", "Inhibition of lanosterol 14-methylase", "Vulvovaginal candidiasis (Clotrimazole)\nTinea infections\nTinea versicolor (Miconazole)\nOnychomycosis\nDandruff- Seborrheic dermatitis caused by Malassezia furfur (ketoconazole)"],
+    ["Triazole\nFluconazole\nItraconazole", "", ""],
+    ["Griseofulvin", "Inhibition of microtubules within the fungal cells, thus inhibiting mitosis.", "Cases covering large area\nOnychomycosis\nTinea capitis\nAthletes foot\nPityriasis versicolor - not effective"],
+    ["Allylamine\nTerbinafine (topical and oral)\nButenafine", "Competitive inhibition of squalene epoxidase results in squalene accumulation within the cells.", "Tinea infection and pityriasis versicolor"]
+   ]},
+   {"type": "paragraph", "text": "Other topical agents: Ciclopirox olamine, Undecylenic acid, Benzoic acid"}
+  ]},
+  {"id": "pharmacology-40-1", "blocks": [
+   {"type": "paragraph", "text": "Among the listed antibiotics, azithromycin, a macrolide, is generally considered safe for patients with G6PD deficiency."},
+   {"type": "table", "title": "", "columns": ["Safe in G6PD deficiency", "Unsafe in G6PD deficiency"], "rows": [
+    ["Mnemonic: PCM\nP enicillins\nC ephalosporins\nM acrolides (Option B)\nM efloquine", "Mnemonic: MAD FAN Can\nM etronidazole (Option C ruled out)\nAntimalarials- except mefloquine\nD apsone\nF luoroquinolones (Option A ruled out)\nA spirin\nNitro drugs- Nitrofurantoin (Option D ruled out)\nChloramphenicol"]
+   ]}
+  ]},
+  {"id": "pharmacology-40-2", "blocks": [
+   {"type": "paragraph", "text": "Ciprofloxacin (fluoroquinolone) is contraindicated in pregnancy due to its association with potential adverse effects on fetal bone and cartilage. Erythromycin, Cephalexin, and Amoxicillin are generally considered safe to use in pregnancy and are commonly prescribed for the treatment of UTIs during pregnancy, with appropriate consideration of maternal and fetal factors."},
+   {"type": "table", "title": "", "columns": ["Safe in pregnancy", "Unsafe in pregnancy"], "rows": [
+    ["Mnemonic: PCM\nP enicillins (Option C ruled out)\nC ephalosporins ( Option B ruled out)\nM acrolides (Option A ruled out)\nM efloquine", "Mnemonic: FATS\nF luoroquinolones: Fetal bone and cartilage damage due to chelating effect (Option D)\nAminoglycosides: Ototoxic to the fetus\nTetracycline\nS ulphonamides: Fetal bone and cartilage damage due to chelating effect, kernicterus in 3rd trimester"]
+   ]}
+  ]},
+  {"id": "pharmacology-40-3", "blocks": [
+   {"type": "paragraph", "text": "Tobramycin (aminoglycoside) can pose risks in individuals with kidney disease due to its potential for nephrotoxicity. In people with compromised kidney function, tobramycin may not be effectively cleared from the body, leading to its accumulation and increased toxicity."},
+   {"type": "heading", "text": "Renal safe antibiotics"},
+   {"type": "paragraph", "text": "Drugs that are excreted in bile are safe to use in renal disease (No dose reduction required) Mnemonic: Totally Contraindicated In RENAL Failure Disease"},
+   {"type": "bullets", "items": [
+    {"text": "Tigecycline"},
+    {"text": "Cefoperazone (Option D ruled out)"},
+    {"text": "I soniazid"},
+    {"text": "Rifampicin (Option B ruled out)"},
+    {"text": "E rythromycin"},
+    {"text": "Nafcillin"},
+    {"text": "Azithromycin"},
+    {"text": "Linezolid (Option A ruled out)"},
+    {"text": "F luoroquinolones- Pefloxacin, Moxifloxacin, Trovafloxacin"},
+    {"text": "D oxycycline"}
+   ]}
+  ]},
+  {"id": "pharmacology-40-4", "blocks": [
+   {"type": "paragraph", "text": "Bactericidal drugs often have a smaller difference between the MIC (the concentration required to inhibit bacterial growth) and MBC (the concentration required to kill bacteria) than bacteriostatic drugs. This indicates a more potent killing effect at concentrations close to those needed to inhibit growth."},
+   {"type": "paragraph", "text": "Bacteriostatic agents inhibit bacterial growth, typically measured by the Minimum Inhibitory Concentration (MIC), while bactericidal agents kill bacteria, usually measured by the Minimum Bactericidal Concentration (MBC). In other words, bacteriostatic prevents further growth, while bactericidal directly eliminates bacteria."},
+   {"type": "table", "title": "", "columns": ["Bacteriostatic", "Bactericidal"], "rows": [
+    ["MIC<<<MBC\nBacterial growth is restricted but not killed\nThe remaining bacteria are killed by the immunity of the body\nExamples- Tetracyclines, macrolides", "MIC = MBC\nBacteria are completely killed\nExamples- Beta-lactams, Fluoroquinolones, aminoglycosides"]
+   ]}
+  ]},
+  {"id": "pharmacology-40-5", "blocks": [
+   {"type": "paragraph", "text": "The Post-Antibiotic Effect (PAE) refers to the continued suppression of bacterial growth or a delay in bacterial regrowth after a period of exposure to antibiotics, even after the drugs have been eliminated from the body."},
+   {"type": "bullets", "items": [
+    {"text": "**Concentration-dependent killing (CDK)**", "items": [
+     {"text": "Represents the dose of antimicrobials above MIC that can kill the microbe"},
+     {"text": "It is a single high-dose"},
+     {"text": "Examples- Aminoglycosides and metronidazole"}
+    ]},
+    {"text": "**Time-dependent killing (TDK)**", "items": [
+     {"text": "Represents the duration over a longer period of time for antimicrobials to kill the bacteria"},
+     {"text": "It is multiple daily doses."},
+     {"text": "Examples- Penicillin, Azithromycin"}
+    ]},
+    {"text": "**CTDK (combination of CDK &TDK)**", "items": [
+     {"text": "CTDK is also known as area-dependent killing."},
+     {"text": "Examples- Vancomycin, Fluoroquinolones"}
+    ]},
+    {"text": "**Post Antibiotic Effect (PAE)**", "items": [
+     {"text": "Prolonged suppression of bacterial growth after antibiotic exposure, even when drug levels fall below MIC, due to the body's immune response."},
+     {"text": "Advantage: Duration of therapy can be reduced."},
+     {"text": "E.g. In TB, Rifampicin is given once a day due to its CDK property, but in leprosy, it is given once a month to utilise its PAE effectively."}
+    ]}
+   ]},
+   {"type": "figure", "figure_id": "PREPLADDER_PHARMA_L40_Q005_explanation_1"}
+  ]},
+  {"id": "pharmacology-40-6", "blocks": [
+   {"type": "paragraph", "text": "Resistance is the unresponsiveness of a microorganism to an antimicrobial agent (AMA). It depends on both the microorganism and the drug."},
+   {"type": "paragraph", "text": "There are 2 types:"},
+   {"type": "table", "title": "", "columns": ["Natural resistance", "Acquired resistance"], "rows": [
+    ["Some microbes lack the metabolic process or target site the particular drug affects", "Development of resistance by an organism (sensitive before) due to the use of an AMA over a period of time"],
+    ["e.g. gram-negative bacilli are unaffected by penicillin G\naerobic organisms are not affected by metronidazole\nanaerobic bacteria are not inhibited by aminoglycoside antibiotics", "The development of resistance is dependent on the microorganism as well as on the drug.\nSome bacteria rapidly acquire resistance, e.g. staphylococci, coliforms, tubercle bacilli, gonococci"],
+    ["This does not pose a significant clinical problem", "This can happen with any microbe and is a major clinical problem"],
+    ["", "They are of 2 types\nMutation\nGene transfer"]
+   ]}
+  ]},
+  {"id": "pharmacology-40-7", "blocks": [
+   {"type": "paragraph", "text": "Transduction is the transfer of a gene carrying antimicrobial resistance through the agency of a bacteriophage. It is a type of gene transfer."},
+   {"type": "table", "title": "", "columns": ["Mutation", "Gene transfer"], "rows": [
+    ["It is a stable and heritable genetic change that occurs spontaneously and randomly among microorganisms", "The gene that causes resistance is passed from one organism to another"],
+    ["Vertical transfer of resistance; relatively slow and usually of lower grade", "Horizontal transfer of resistance; rapid spread; high-level resistance to several antibiotics"],
+    ["There are 2 types\nSingle step: A single gene mutation confers high resistance, emerging rapidly (e.g., enterococci to streptomycin)\nMultistep: Several gene modifications are involved; sensitivity decreases gradually stepwise. (e.g., resistance to erythromycin, tetracyclines and chloramphenicol) (Option D)", "There are 3 types\nConjugation: One bacteria acquires a resistance gene from another bacteria via plasmid (e.g., MDR TB, typhoid) (Option A)\nTransduction: Bacteria acquire resistance genes from a bacteriophage (e.g., MRSA)\nTransformation -Bacteria acquire genes directly from the environment (e.g., pneumococci, gonococci) (Option C)"]
+   ]},
+   {"type": "paragraph", "text": "TRANSDUCTION"},
+   {"type": "figure", "figure_id": "PREPLADDER_PHARMA_L40_Q007_explanation_1"},
+   {"type": "figure", "figure_id": "PREPLADDER_PHARMA_L40_Q007_explanation_2"}
+  ]},
+  {"id": "pharmacology-40-8", "blocks": [
+   {"type": "paragraph", "text": "Mycoplasma species, lacking a cell wall, resist antibiotics primarily by preventing the uptake of antimicrobial agents (AMAs) into the cell (Drug influx) There are 4 main causes of antimicrobial resistance."},
+   {"type": "table", "title": "", "columns": ["", "Description", "Examples"], "rows": [
+    ["Drug Efflux (Option A)", "Bacteria possess efflux pumps to expel toxic substances and antimicrobial agents (AMAs)", "Antimalarials (chloroquine), Tetracyclines, Tigecycline"],
+    ["Drug Influx (Option B)", "Natural mechanisms in bacteria prevent the uptake of AMAs", "Mycoplasma (resistant to β-lactams and glycopeptides due to lack of cell wall)"],
+    ["Enzyme inactivation (Option C)", "Bacterial enzymes like β-lactamases inactivate β-lactam drugs by hydrolysing a specific site in their ring structure", "β-lactams (penicillins, cephalosporins), Aminoglycosides, Chloramphenicol"],
+    ["Mutation in target (Option D)", "Bacteria modify components of their cell to resist AMAs", "β-lactam resistance in gram-positive bacteria via altered penicillin-binding proteins (PBPs), Fluoroquinolones (DNA gyrase mutation), Vancomycin (van genes altering peptidoglycan precursors)"]
+   ]}
+  ]},
+  {"id": "pharmacology-40-9", "blocks": [
+   {"type": "table", "title": "", "columns": ["Drug synergism (Option B)", "Drug antagonism (Option A)"], "rows": [
+    ["Supra-additive effect when different antimicrobial agents (AMAs) are combined, enhancing efficacy beyond individual effects.\nSequential enzyme block: E.g.,Sulfonamide + trimethoprim: Sequentially blocks bacterial folate metabolism, leading to cidal action together compared to static effects individually.\nBlock drug inactivating enzyme: E.g., Ampicillin + Sulbactam: β-lactamases block ampicillin but sulbactam blocks β-lactamases.\nIncrease entry of the drug into microbes: E.g., Cell wall synthesis inhibitors increase the entry of aminoglycosides (Ceftazidime enhances gentamicin penetration against Pseudomonas).", "When two AMAs belonging to different classes are used together, they sometimes have a negative effect on each other.\nBactericidal + Bacteriostatic: Combining them may diminish the effect of bacteriostatic drugs. E.g., penicillin + tetracycline/chloramphenicol against pneumococci can increase mortality rates compared to penicillin alone.\nPenicillin can deactivate aminoglycosides when both are present together.\nBacteria can produce beta-lactamases that degrade other beta-lactam antibiotics when used in combination."]
+   ]}
+  ]},
+  {"id": "pharmacology-41-1", "blocks": [
+   {"type": "paragraph", "text": "Bedaquiline Inhibits mycobacterial ATP synthase, a crucial enzyme involved in the energy production of Mycobacterium tuberculosis. By disrupting this process, bedaquiline effectively kills the bacteria. Cross-resistance is seen with clofazimine. It is metabolised by CYP3A4. Hence, rifampicin, a CYP3A4 inducer, reduces its efficacy."},
+   {"type": "paragraph", "text": "Side effects:"},
+   {"type": "bullets", "items": [
+    {"text": "Nausea and diarrhea (common side effects)"},
+    {"text": "QT prolongation"}
+   ]},
+   {"type": "paragraph", "text": "The BPaL regimen is a combination of drugs used to treat drug-resistant tuberculosis (TB):"},
+   {"type": "bullets", "items": [
+    {"text": "Bedaquiline (B)"},
+    {"text": "Pretomanid (Pa)"},
+    {"text": "Linezolid (L)"}
+   ]},
+   {"type": "paragraph", "text": "**Levofloxacin ( Option B)** is a fluoroquinolone antibiotic that inhibits DNA gyrase and topoisomerase IV enzymes in bacteria. It is safe to use in liver failure, unlike moxifloxacin."},
+   {"type": "paragraph", "text": "**Linezolid ( Option C)** inhibits bacteria's protein synthesis by binding to 23S ribosomal RNA of the 50S subunit. Side effects include chorioretinitis, optic neuritis, MAO inhibition, and bone marrow suppression."},
+   {"type": "paragraph", "text": "**Thiacetazone ( Option D)** acts by inhibiting mycolic acid synthesis in the cell wall of Mycobacterium tuberculosis."}
+  ]},
+  {"id": "pharmacology-41-2", "blocks": [
+   {"type": "paragraph", "text": "PncA gene mutation is associated with resistance to pyrazinamide (PZA), not rifampin or isoniazid. PncA encodes pyrazinamidase, which converts pyrazinamide (a prodrug) to its active form, pyrazinoic acid. Mutations in PncA result in PZA resistance, not INH resistance."},
+   {"type": "heading", "text": "Mechanism of resistance"},
+   {"type": "paragraph", "text": "**KatG gene mutation (Option A):** Encodes catalase-peroxidase, which activates isoniazid. Mutation leads to failure of drug activation."},
+   {"type": "paragraph", "text": "**KasA gene mutation (Option B):** KasA is involved in mycolic acid elongation and can contribute to INH resistance, though it's a less common mechanism."},
+   {"type": "paragraph", "text": "**InhA gene overexpression (Option C):** InhA is the target enzyme (enoyl-ACP reductase) involved in mycolic acid synthesis. Overexpression leads to reduced drug binding."},
+   {"type": "figure", "figure_id": "PREPLADDER_PHARMA_L41_Q002_explanation_1"}
+  ]},
+  {"id": "pharmacology-41-3", "blocks": [
+   {"type": "paragraph", "text": "The patient is most likely to have a type 2 lepra reaction, which is a type 3 hypersensitivity reaction"},
+   {"type": "table", "title": "", "columns": ["Type 1 lepra reaction", "Type 2 lepra reaction"], "rows": [
+    ["aka Reversal reaction", "aka Erythema nodosum leprosum"],
+    ["Delayed type 4 hypersensitivity reaction", "Type 3 hypersensitivity reaction involving immune complex deposition"],
+    ["Cutaneous ulceration, multiple nerve involvement with swollen, painful, and tender nerves occur suddenly", "Abrupt onset; existing lesions enlarge, become red, swollen, and painful. Several new lesions may appear."],
+    ["Treatment: Don't stop MDT\nClofazimine or DOC: Corticosteroids (Prednisone)\nIn mild hypersensitivity: Chloroquine", "Treatment: Don't stop MDT\nClofazimine or DOC: Corticosteroids (Prednisone) or Thalidomide (corticosteroid resistant cases)\nIn mild hypersensitivity: Chloroquine"]
+   ]}
+  ]}
+ ]
+}

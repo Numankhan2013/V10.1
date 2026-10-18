@@ -10,7 +10,7 @@ the model can only rearrange.
 | Bank | Batches | Status |
 |---|---|---|
 | Pathology | `data/Prepladder/pathology/restructure/batches/pathology-001` … `073` (1,442 questions) | done: 1,321 restructured, 121 unchanged |
-| Pharmacology | `data/Prepladder/pharmacology/restructure/batches/pharmacology-001` … `066` (1,315 questions) | open |
+| Pharmacology | `data/Prepladder/pharmacology/restructure/batches/pharmacology-001` … `066` (1,315 questions) | done: 1,155 restructured, 160 unchanged |
 
 - Worked examples (they pass the check):
   `data/Prepladder/<bank>/restructure/examples/example-result.json`.
@@ -23,7 +23,7 @@ the model can only rearrange.
   those are answered `{"id": "...", "unchanged": true}`. A batch with many
   "unchanged" answers is fine when those questions really read well.
 
-The prompts below are written for Pharmacology, the open bank.
+The prompts below were written for Pharmacology, the last bank run.
 
 ## How to run it: coding agents on GitHub (Termux)
 
