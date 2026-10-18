@@ -1143,12 +1143,74 @@
     if (at >= 0) { navStack = navStack.slice(0, at + 1); return 'pop'; }
     navStack.push(key); return 'push';
   }
+  /* Enter motion transforms the page, which then becomes the containing block
+     for fixed descendants: a bottom action bar would resolve against the page
+     box (its own bottom edge, far below the fold) and leave the screen for the
+     whole slide. A constant companion translate of the same duration keeps a
+     fixed bottom bar visibly pinned; the individual translate property composes
+     with the bar's own transform centering, its clock is aligned to the page
+     motion, and it is dropped the moment that motion ends. */
+  var DOCK_PIN_SELECTOR = '.nk-cbt-main-actions, .nk-module-topic-actions, .nk-module-builder-actions';
+  var ENTER_EASING = 'cubic-bezier(.16, 1, .3, 1)';
+  function collectEnterDocks(node) {
+    var bars = [];
+    if (!node.getBoundingClientRect) return bars;
+    each(node.querySelectorAll(DOCK_PIN_SELECTOR), function (bar) {
+      if (getComputedStyle(bar).position !== 'fixed') return;
+      var r = bar.getBoundingClientRect();
+      if (!r.height || r.top < window.innerHeight * 0.5) return;
+      bars.push(bar);
+    });
+    return bars;
+  }
+  function pinDocksForEnter(node, bars, enter, dy, duration) {
+    var pins = [];
+    each(bars, function (bar) {
+      if (bar.__nkgDockPin) bar.__nkgDockPin.cancel();
+      var pin = bar.animate([{ translate: '0 ' + dy + 'px' }, { translate: '0 ' + dy + 'px' }], { duration: duration, easing: ENTER_EASING });
+      bar.__nkgDockPin = pin;
+      pins.push({ bar: bar, pin: pin });
+    });
+    /* The page box can settle to a different height in the first frames (a fixed
+       dock's reservation is measured off while a transform is on the page), so
+       re-point the pin at the box it is actually riding before it matters. */
+    var settle = function (n) {
+      window.requestAnimationFrame(function () {
+        if (node.isConnected) {
+          var next = Math.round(window.innerHeight - node.getBoundingClientRect().bottom);
+          if (next !== dy) {
+            dy = next;
+            each(pins, function (p) {
+              if (p.bar.__nkgDockPin === p.pin) p.pin.effect.setKeyframes([{ translate: '0 ' + dy + 'px' }, { translate: '0 ' + dy + 'px' }]);
+            });
+          }
+        }
+        if (n < 2) settle(n + 1);
+      });
+    };
+    settle(0);
+    var drop = function () {
+      each(pins, function (p) {
+        if (p.bar.__nkgDockPin === p.pin) { p.pin.cancel(); p.bar.__nkgDockPin = null; }
+      });
+    };
+    enter.ready.then(function () {
+      each(pins, function (p) {
+        try { if (enter.startTime != null) p.pin.startTime = enter.startTime; } catch (e) { /* parallel clocks already cover it */ }
+      });
+    }, drop);
+    enter.onfinish = drop;
+    enter.oncancel = drop;
+  }
   function slideIn(node, dir) {
     if (!node) return;
     if (!motionOK() || !node.animate) return;
     /* The individual translate property: legacy rules pin transform with !important on some pages. */
     var x = dir === 'pop' ? -22 : 22;
-    node.animate([{ opacity: 0, translate: x + 'px 0' }, { opacity: 1, translate: '0 0' }], { duration: 340, easing: 'cubic-bezier(.16, 1, .3, 1)' });
+    var bars = collectEnterDocks(node);
+    var dy = Math.round(window.innerHeight - node.getBoundingClientRect().bottom);
+    var enter = node.animate([{ opacity: 0, translate: x + 'px 0' }, { opacity: 1, translate: '0 0' }], { duration: 340, easing: ENTER_EASING });
+    if (bars.length && dy) pinDocksForEnter(node, bars, enter, dy, 340);
   }
   function pageEnter(app, page, session) {
     var key = page + (session ? ':s' : '');
