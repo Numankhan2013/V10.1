@@ -245,7 +245,7 @@ def split_options(lines):
     for p in alone:
         overlap = lambda r: min(r['y1'], p['y1']) - max(r['y0'], p['y0'])
         row = max((r for r in rows if len(r['text'].strip()) > 3), key=overlap, default=None)   # not a radio "0"
-        if row is not None and overlap(row) > 0 and row['x1'] < p['x0'] and not PCT_RE.search(row['text']):
+        if row is not None and overlap(row) > 0 and 0 < p['x0'] - row['x1'] < 80 and not PCT_RE.search(row['text']):
             row['text'] = row['text'].rstrip() + ' ' + p['text'].strip()
         else:
             rows.append(p)

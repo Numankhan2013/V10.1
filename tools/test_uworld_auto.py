@@ -40,6 +40,17 @@ def main():
     opts = split_options(lines)
     assert [o['letter'] for o in opts] == list('ABCD'), opts
     assert PCT_RE.sub('', opts[1]['text']).strip().endswith('endometrial cancer')
+    # Long choices wrap with the percentage on their first line, or sorted just above the text.
+    box = lambda t, x0, x1, y0, y1: {'text': t, 'x0': x0, 'x1': x1, 'y0': y0, 'y1': y1}
+    lines = [box('0 A . "I believe that ensuring safety is our', 50, 740, 249, 270), box('(57%)', 762, 803, 254, 268),
+             box('shared goal."', 100, 190, 279, 293), box('® 8 . "We should proceed with vaccination', 50, 730, 307, 328),
+             box('(0%)', 771, 803, 312, 326), box('today."', 100, 147, 337, 351), box('0', 50, 63, 364, 385),
+             box('(16%)', 762, 803, 369, 383), box('C. "I would like to provide resources', 79, 743, 370, 384)]
+    opts = split_options(lines)
+    assert [(o['letter'], o['text']) for o in opts] == [
+        ('A', '"I believe that ensuring safety is our shared goal." (57%)'),
+        ('B', '"We should proceed with vaccination today." (0%)'),
+        ('C', '"I would like to provide resources (16%)')], opts
     print(f'UWORLD_AUTO_OK collections={len(autos)} questions={total} verified={verified}')
 
 
