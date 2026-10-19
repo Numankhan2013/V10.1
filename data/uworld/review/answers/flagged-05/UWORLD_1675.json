@@ -1,0 +1,28 @@
+{
+  "id": "UWORLD_1675",
+  "question": "Researchers analyze the HIV viral structure and replication cycle for new drug targets. They find the virus encodes a large glycoprotein, which gets cleaved into 2 subunits, the surface and transmembrane subunits. These subunits remain noncovalently bound to each other in the virion. Upon activation of the surface protein, conformational changes occur in the transmembrane subunit exposing the functional inner core. A novel drug is developed that selectively binds and prevents normal functioning of the transmembrane subunit, interfering with the normal viral replication cycle. This agent most likely directly inhibits which of the following viral processes?",
+  "options": [
+    {"letter": "A", "text": "Attachment of the virus to target cell surface", "selection_percent": 20},
+    {"letter": "B", "text": "Budding and release of a new virus particle", "selection_percent": 4},
+    {"letter": "C", "text": "Cleavage of polyproteins by viral encoded enzyme", "selection_percent": 4},
+    {"letter": "D", "text": "Entry of the viral core into host cytoplasm", "selection_percent": 57},
+    {"letter": "E", "text": "Integration of the viral DNA into host genome", "selection_percent": 7},
+    {"letter": "F", "text": "Synthesis of DNA from viral RNA template", "selection_percent": 3},
+    {"letter": "G", "text": "Transcription of mRNA from proviral DNA", "selection_percent": 1}
+  ],
+  "correct_label": "D",
+  "answered_correctly_percent": 57,
+  "explanation_paragraphs": [
+    "The HIV genome encodes several enzymes and structural proteins in polycistronic mRNAs that are then translated into polyproteins and cleaved by proteases into the individual proteins that compose the virus. The env gene encodes the polyprotein gp160, which is extensively glycosylated in the endoplasmic reticulum and Golgi body and subsequently cleaved into the mature envelope proteins gp120 and gp41. These envelope proteins remain associated by noncovalent attachments and form the glycoprotein spikes that pepper the surface of the HIV virus.",
+    "gp120 forms the outside surface of the glycoprotein spike and mediates viral attachment to the host cell by binding with the CD4 receptor and a chemokine coreceptor (CXCR4, CCR5) (Choice A). Binding of gp120 to these host receptors induces a conformational change in the structure of the glycoprotein spike that exposes the underlying transmembrane glycoprotein gp41. gp41 mediates fusion of the viral cell membrane with the host cell membrane, thereby allowing the viral core to enter the cell.",
+    "Drugs that selectively bind gp41 (eg, enfuvirtide) are known as fusion inhibitors because they prevent gp41 from undergoing the conformational changes necessary for viral fusion, which prevents the HIV genome from entering uninfected cells.",
+    "(Choice B) Viral assembly and budding occur at the cell surface. The envelope proteins (gp120, gp41) are expressed on the cell surface and then a complex of the nucleocapsid, viral RNA, and viral proteins (gag and pol polyproteins) bud from the surface. Further assembly then occurs when the virus is free from the host cell. The transmembrane gp41 does not catalyze the budding or assembly process.",
+    "(Choice C) Protease is an HIV enzyme that mediates the cleavage of HIV polyproteins into the individual proteins that compose the HIV virus. Protease inhibitors (eg, atazanavir, darunavir) block the action of this enzyme.",
+    "(Choice E) Integrase inserts the viral double-stranded DNA into the host genome. Integrase inhibitors (eg, raltegravir, dolutegravir) are often part of first-line therapy for HIV.",
+    "(Choice F) Reverse transcriptase converts viral single-stranded RNA into complementary double-stranded DNA. Reverse transcriptase inhibitors terminate viral DNA elongation by competitive or allosteric inhibition.",
+    "(Choice G) Host RNA polymerase II transcribes proviral DNA into mRNA, which is then translated in the rough endoplasmic reticulum."
+  ],
+  "educational_objective": "Fusion inhibitors (eg, enfuvirtide) bind the HIV transmembrane glycoprotein gp41 and prevent it from approximating the viral and host cellular membranes, which prevents HIV penetration into new host cells.",
+  "status": "verified",
+  "notes": "Fixed OCR errors ('fin'->'find', '{gag and pol'->'(gag and pol', 'enfuvirtide'); split the explanation into its three visual paragraphs; excluded the HIV virion figure and the Exhibit Display popup; 57% answered correctly; green tick on D."
+}

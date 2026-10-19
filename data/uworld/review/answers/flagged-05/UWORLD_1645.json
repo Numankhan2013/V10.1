@@ -1,0 +1,22 @@
+{
+  "id": "UWORLD_1645",
+  "question": "The antiviral activity of a guanosine derivative is tested by examining cells infected with different viruses for characteristic abnormal changes in cell morphology due to the viruses. These structural changes in host cells are known as cytopathic effects (CPE). In the presence of significant antiviral activity, CPE will be inhibited. The following results are obtained from the study:\nHerpes simplex virus 1 · CPE without antiviral agent: +++ · CPE with antiviral agent: none\nHerpes simplex virus 2 · CPE without antiviral agent: +++ · CPE with antiviral agent: none\nEpstein-Barr virus · CPE without antiviral agent: +++ · CPE with antiviral agent: ++\nVaricella zoster virus · CPE without antiviral agent: +++ · CPE with antiviral agent: none\nCytomegalovirus · CPE without antiviral agent: +++ · CPE with antiviral agent: ++\nA difference in which of the following best explains the variation in susceptibility of the various viruses to this specific antiviral agent?",
+  "options": [
+    {"letter": "A", "text": "DNA polymerase structure", "selection_percent": null},
+    {"letter": "B", "text": "Drug degradation rate", "selection_percent": null},
+    {"letter": "C", "text": "Viral phosphorylating enzyme", "selection_percent": null},
+    {"letter": "D", "text": "Viral capsid protein composition", "selection_percent": null},
+    {"letter": "E", "text": "Viral protease activity", "selection_percent": null}
+  ],
+  "correct_label": "C",
+  "answered_correctly_percent": null,
+  "explanation_paragraphs": [
+    "The drug described in this study demonstrates significant antiviral activity (thereby reducing cytopathic effects) against herpes simplex virus type 1 (HSV 1), HSV 2, and varicella zoster virus (VZV) but has weak activity against Epstein-Barr virus (EBV) and cytomegalovirus (CMV). This agent is most likely acyclovir, a guanosine analog. Once acyclovir enters the HSV-infected host cell, it is phosphorylated to acyclovir monophosphate, principally via a viral-encoded thymidine kinase. This is the rate-limiting step in acyclovir activation. Acyclovir monophosphate is then phosphorylated by cellular enzymes into the active triphosphate form, which then impairs viral DNA polymerase-mediated replication.",
+    "EBV and CMV do not produce the same thymidine kinase as HSV and VZV. As a result, EBV- or CMV-infected cells cannot easily convert acyclovir into its pharmacologically active form. At very high intracellular concentrations of acyclovir, a small amount of the drug is activated by unidentified cellular phosphorylating enzymes, which may explain the partial susceptibility of EBV and CMV to high acyclovir doses.",
+    "(Choices A, B, and E) Mutations in viral DNA polymerase can lead to acyclovir resistance, but differences in thymidine kinase are the best explanation for the observed results. Drug degradation rate and viral protease activity are not responsible for differences in viral susceptibility to acyclovir.",
+    "(Choice D) Thymidine kinase is an enzyme produced in infected cells, but it is not present in the viral capsid."
+  ],
+  "educational_objective": "Monophosphorylation of acyclovir by a viral thymidine kinase is the first (and rate-limiting) step in conversion of acyclovir to its active triphosphate form. Acyclovir and related drugs (eg, famciclovir, valaciclovir) are more effective against herpes simplex virus and varicella zoster virus than cytomegalovirus and Epstein-Barr virus.",
+  "status": "verified",
+  "notes": "Rewrote garbled stem: transcribed the study results table as text rows and fixed options to A-E as on screen (Viral phosphorylating enzyme is C); corrected objective; no percentages shown (Collecting Statistics); green tick on C."
+}
