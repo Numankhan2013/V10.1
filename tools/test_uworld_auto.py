@@ -6,6 +6,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent / 'uworld_auto'))
 from uworld_collections import COLLECTIONS
 from uworld_reviewed_document import figures
 from extract import rejoin, split_options, PCT_RE
+from fix_ocr_text import clean_doc, clean
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -26,10 +27,14 @@ def main():
             if doc['status'] == 'verified':
                 assert not doc['issues'] and doc['educational_objective'] and doc['correct_label']
                 verified += 1
+            # Reviewed OCR misreads and the image watermark stay corrected.
+            assert not clean_doc(doc), (doc['id'], list(clean_doc(doc)))
         qa = json.loads((m.OWNER.SOURCE / 'qa_report.json').read_text())
         assert {f['id'] for f in qa['flagged']} == {d['id'] for d in docs.values() if d['status'] != 'verified'}
         total += len(rows)
     # OCR repair helpers
+    assert clean('@UWO<ld lmmunosuppressed patients with dusters') == 'Immunosuppressed patients with clusters'
+    assert clean('Obtain a court order; bed rails') == 'Obtain a court order; bed rails'
     vocab = {'interna': 5, 'strongly': 9, 'last': 30, 'the': 900, 'a': 500, 'is': 400, 'typical': 10, 'atypical': 3}
     assert rejoin('Theca intern a', vocab) == 'Theca interna'
     assert rejoin('are s t rongly related', vocab) == 'are strongly related'
