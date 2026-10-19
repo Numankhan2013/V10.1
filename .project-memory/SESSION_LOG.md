@@ -2860,3 +2860,17 @@ User asked for a thorough functional audit, especially whether FSRS is as good a
 ## PrepLadder flattened stems now real tables — promoted — 2026-10-18
 
 - 90 questions whose source PDF flattened match-the-following / statement lists into one run of text now render as tables (Pathology 41, Pharmacology 35, Microbiology 14). Hand-checked data `data/Prepladder/<bank>/stem_tables.json` (stem + columns + rows, lists in printed order so the table never gives the key away; every key label must head a cell or the build fails), applied by `tools/prepladder_stem_tables.py` in all three builders; `option_text.json` replaces 4 picture-choice sets whose descriptions gave the answer away and splits pharmacology-14-3's glued choice. App: a `stemTables` entry wins over the parser (`question_presentation.js`). Bank tests pin counts (49/41/35 stemTables) and rows. PRs #131 (`80952f25`) and #132 (`25fa6b66`, the Pharmacology browser verifier now asserts the tables; CSS uppercases headers so text needles must not use header words). Promote run `39137199204`, deployment `https://da47464c.nk-qbank.pages.dev`; live check at 390 px: pathology-13-5 and pharmacology-14-3 show 4-row tables, microbiology-33-17 shows its neutral choices, no page errors.
+
+## 2026-10-19 — Pre-pause release v1.0.0 (PR #137, merge 03e8d9b7)
+
+Moved from STATE.md at the pause:
+
+### Press language v3 — instant press acknowledgment, zero movement — 2026-10-18 (merged with the 2026-10-19 bug-hunt release)
+
+- `feature/press-ack-v3` (PR #130): on touch-down a control fills with `box-shadow: inset 0 0 0 9999px color-mix(in srgb, currentcolor 5%, transparent)` riding the `.nk-pressed` class (never raw `:active`, which sticks on real touch); completed taps melt it off over 180 ms (`.nk-pressed-out`, `interaction_polish.js`); slop/cancel/blur clear instantly; backdrops and sheets never dip. Contracts: `tools/test_interaction_polish_v1.py`, `tools/verify_interaction_polish_browser.py`. Detail in `SESSION_LOG.md`. The user chose to ship it with the bug-hunt fixes.
+
+### Rarity tiers + Tests button + nav pill fixes — promoted — 2026-10-19
+
+- PR #135 (`fix/ux-bughunt`, merge `233fdb90`) carries `feature/rarity-tiers` (on top of `feature/no-answer-banner`: Correct/Incorrect banner is screen-reader only in every bank). `question_rarity.js` gives Legendary/Great/Rare/Easy/Low signal from per-source percentile cutoffs (UWorld 38/46/62, Marrow 26/37/58; recompute with `tools/compute_rarity_cutoffs.py`, unchanged on 2,320 UWorld). UWorld and Marrow cohort chips carry `data-nk-tier`; foil/glint/glow only via CSS `:has(> .nk-answer-outcome.is-correct)`, a miss shows the tier in muted type. Browser-checked right vs wrong for every tier.
+- Tests "Build a test" button renders after `shell()` (outside `main.page`): page-enter transforms on main had re-anchored the fixed button (65 px jump for ~300 ms). `nk-redesign.js` measures `--nkg-dock-h` synchronously on render (stale builder value gave a one-frame 92 px jump). `nk-feel.js` `navGlide` starts a rebuilt nav's pill lit at its old spot, so same-route re-renders (Home progress range, Insights filters) no longer blink the active tab.
+- Full build on the branch (run 1740) and on main green; promote run `39268244561` → `https://1e2a3bbd.nk-qbank.pages.dev`; live `verify_uworld_biochemistry_browser.py --url` passed at 390 px.
