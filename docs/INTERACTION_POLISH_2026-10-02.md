@@ -153,3 +153,58 @@ border change and no residue for 14 controls. The interaction-polish browser
 contract passes at 320/390/820/1194 + reduced motion; visual refinement passes
 at 4 widths; `verify_local.py` reports 99 checks green. Physical-device feel
 remains user-verified, not CI-proven.
+## 2026-10-18 press language v3 — instant acknowledgment, still zero movement
+
+The user phone-tested v2: the fragility was gone, but the press no longer said
+anything — "After clicking, for basically a millisecond, I'm not even sure
+which button I clicked." v3 keeps the zero-movement contract and answers the
+touch.
+
+The recipe is the state layer every modern kit ships (Material's overlay;
+shadcn issue #8960 recommends `brightness-95`/inset shadow and its comments
+reject the scale addition) minus the movement: on touch-down the control fills
+with a soft layer of its own ink —
+`box-shadow: inset 0 0 0 9999px color-mix(in srgb, currentcolor 5%, transparent)`.
+On white that lands on the builder toggles' liked #f2f2f2 tone; on inverse
+surfaces (dark pills, dark theme) it lightens, exactly like Material's
+on-color overlay. Nothing moves, sizes or translates.
+
+- The layer rides the polish class (`.nk-pressed`), never raw `:active`: a
+  real-touch tap makes Chromium keep `:active` sticky on the element, which
+  shaded the just-tapped control and masked the committed exam ring (found by
+  that contract failing). The JS lifecycle — pointerdown, 9px slop cancel,
+  pointercancel, blur — models presses precisely for touch and mouse alike.
+- A completed tap lets the layer melt off over 180ms (`.nk-pressed-out`), so
+  the eye keeps the target through the action (open, navigate, commit);
+  scroll intents and cancellations clear it instantly, and reduced motion
+  keeps the instant exit through the existing media block (the dip itself has
+  no motion, so it shows for reduced-motion users too).
+- Overlay backdrops and sheets are surfaces, not controls: the dip selector
+  excludes them and the sheets neutralizer now also sets
+  `box-shadow: none !important`.
+- The ten ad-hoc per-family `:active` fills (builder tools/group actions,
+  bank-list subjects, module topics, group toggle, pool grid, session-head
+  icon buttons, topic options, mock rows, note bar, note dots/back) are
+  retired — the universal layer reproduces the same tone, one language.
+- The option press ring never actually applied in Geist (two `!important`
+  cleanup rules with ID specificity beat it), so options now carry the
+  universal layer like every other control and the committed exam ring still
+  flips on its own frame (its contract is unchanged). The auth-submit-only and
+  reduced-motion-only `brightness(0.96)` press dims are retired with it.
+- Two specificity traps were solved: geist rules with `!important` transitions
+  (`.nav-item` at `(1,3,1)`) and `!important` shadow resets beat a flat
+  `(0,2,3)` layer — the geist dip/melt variants carry a double
+  `:is(body,#nkg-root)` boost `(2,3,2)`, and the reduced-motion block got the
+  matching suppressor so the melt stays suppressed there.
+
+Verification (local Chromium against `build/web`): the interaction-polish
+browser contract now asserts the dip on press, instant cancel clearing, the
+180ms melt (and its absence under reduced motion), options carrying the layer
+and `transform:none` throughout, at 320/390/820/1194 + reduced motion. The
+app-wide press-ack probe (16 controls incl. subject card, prof head, nav,
+focus CTA, icon button, streak card, topic row, filter chip, bank card,
+builder group toggle, module topic) shows layer present, zero geometry
+change, melt and clean release everywhere, with pixel deltas ≈7–12/255:
+darkening on light surfaces, lightening on inverse/dark ones (dark theme
++9). `verify_local.py` reports 99 checks green; visual refinement passes at 4
+widths. Physical press-feel check on the phone remains the acceptance step.

@@ -117,7 +117,7 @@ console.log('QUESTION_CONTENT_HYGIENE_BEHAVIOR_OK');
         overrides = json.loads(path.read_text(encoding="utf-8"))
         override_questions = overrides.get("questions", {})
         ranges = override_ranges.get(path.name)
-        expected_count = sum(end - start + 1 for _, start, end in ranges) if ranges else 63
+        expected_count = sum(end - start + 1 for _, start, end in ranges) if ranges else 65
         if len(override_questions) != expected_count or not set(override_questions).issubset(source_by_id):
             raise SystemExit(f"Expected {expected_count} source-backed Physiology overrides in {path.name}")
         if ranges:
@@ -148,7 +148,7 @@ console.log('QUESTION_CONTENT_HYGIENE_BEHAVIOR_OK');
                 raise SystemExit(f"Physiology source PDF changed: {path.name}")
         for qid, override in override_questions.items():
             source_question = source_by_id[qid]
-            allowed_chapters = {str(chapter) for chapter, _, _ in ranges} if ranges else {"5", "7"}
+            allowed_chapters = {str(chapter) for chapter, _, _ in ranges} if ranges else {"5", "7", "8"}
             if source_question.get("subject") != "Physiology" or str(source_question.get("chapterId")) not in allowed_chapters:
                 raise SystemExit(f"Content override escaped reviewed scope: {qid}")
             values = [override.get("question"), *(override.get("options") or [])]

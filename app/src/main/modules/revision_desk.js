@@ -141,7 +141,7 @@
     const kind=['wrong','bookmarks'].includes(route.id)?route.id:null,previous=state.activeSession?.id;
     if(typeof openBank==='function'&&q.subject&&q.bank)openBank(q.subject,q.bank);
     BY_ID={...BY_ID,[id]:q};
-    startSession([id],'practice',`Question ${q.questionNumber||''}`,kind==='wrong'?'wrong':kind==='bookmarks'?'bookmarked':'normal');
+    startSession([id],'practice',q.questionNumber!=null?`Question ${q.questionNumber}`:'Question',kind==='wrong'?'wrong':kind==='bookmarks'?'bookmarked':'normal');
     if(state.activeSession?.id!==previous&&state.activeSession?.questionIds?.[0]===id){
       state.activeSession.originRoute=kind?'revision-browse/'+kind:'quick-revision';saveState();
     }

@@ -955,7 +955,7 @@ function dashboard(){
 
   function libraryRow(q,kind) {
     const last=latestAttempt(q.id), review=state.reviews[q.id];
-    return `<div class="library-row"><div class="main"><div class="title">Q${q.questionNumber}. ${esc(q.question)}</div><div class="meta"><span class="badge">${esc(q.chapter)}</span>${last?`<span class="badge ${last.correct?'success':'danger'}">Last: ${last.correct?'Correct':'Incorrect'}</span>`:''}${review&&review.nextReviewAt?`<span class="badge warning">${review.nextReviewAt<=Date.now()?'Due now':'Review '+fmtDate(review.nextReviewAt,false)}</span>`:''}</div></div><button class="ghost-btn" onclick="window.QB.practiceOne('${q.id}')">Practice</button></div>`;
+    return `<div class="library-row"><div class="main"><div class="title">${q.questionNumber!=null?`Q${q.questionNumber}. `:''}${esc(q.question)}</div><div class="meta"><span class="badge">${esc(q.chapter)}</span>${last?`<span class="badge ${last.correct?'success':'danger'}">Last: ${last.correct?'Correct':'Incorrect'}</span>`:''}${review&&review.nextReviewAt?`<span class="badge warning">${review.nextReviewAt<=Date.now()?'Due now':'Review '+fmtDate(review.nextReviewAt,false)}</span>`:''}</div></div><button class="ghost-btn" onclick="window.QB.practiceOne('${q.id}')">Practice</button></div>`;
   }
 
   
@@ -1038,7 +1038,7 @@ function dashboard(){
       :`<span><b>${fmtNum(s.attempted)}</b> of ${fmtNum(total)} answered</span> · <span><b>${fmtPct(s.accuracy)}</b> correct</span>${left?` · <span>${fmtNum(left)} to go</span>`:''}`;
     const label={c:'correct',w:'wrong',k:'skipped',u:'not attempted'};
     // The map is the question index: one numbered tile per question in source order, coloured by its latest answer.
-    const map=`<div class="nk-topic-map">${rows.map(({q,st,b})=>`<button class="nk-library-row nk-topic-cell is-${st}${b?' is-b':''}" data-s="${st}" aria-label="Question ${q.questionNumber}, ${label[st]}${b?', saved':''}" onclick="window.QB.practiceOne('${q.id}')">${q.questionNumber}</button>`).join('')}</div>`;
+    const map=`<div class="nk-topic-map">${rows.map(({q,st,b},i)=>`<button class="nk-library-row nk-topic-cell is-${st}${b?' is-b':''}" data-s="${st}" aria-label="Question ${i+1}, ${label[st]}${b?', saved':''}" onclick="window.QB.practiceOne('${q.id}')">${i+1}</button>`).join('')}</div>`;
     const legend=`<ul class="nk-topic-legend"><li class="is-c"><b>${fmtNum(correct)}</b> correct</li><li class="is-w"><b>${fmtNum(wrong)}</b> wrong</li>${skipped?`<li class="is-k"><b>${fmtNum(skipped)}</b> skipped</li>`:''}<li class="is-u"><b>${fmtNum(fresh)}</b> not attempted</li>${marked?`<li class="is-b"><b>${fmtNum(marked)}</b> saved</li>`:''}</ul>`;
     const primary=phase==='new'?['Start practice',`${fmtNum(total)} questions`]:phase==='done'?['Practice again',`All ${fmtNum(total)}`]:phase==='paused'?['Start a new practice session',`${fmtNum(total)} questions`]:['Continue practice',`${fmtNum(left)} of ${fmtNum(total)} left`];
     const resumeBtn=resume?`<button class="nk-topic-resume" onclick="window.QB.nkResumePracticeById(${esc(JSON.stringify(String(resume.sessionId)))})"><span><strong>Resume where you left off</strong><small>Question ${fmtNum(resume.index+1)} of ${fmtNum(resume.total)} · ${fmtNum(resume.answered)} answered</small></span>${navIcon('chevron',18)}</button>`:'';
@@ -1092,7 +1092,7 @@ function dashboard(){
   }
   function openModeBuilder() { openSessionBuilder(route.id,'practice'); }
 
-  function practiceOne(qid) { startSession([qid],'practice',`Question ${BY_ID[qid]?.questionNumber || ''}`); }
+  function practiceOne(qid) { startSession([qid],'practice',BY_ID[qid]?.questionNumber!=null?`Question ${BY_ID[qid].questionNumber}`:'Question'); }
   function startLibrary(kind) { const list=kind==='bookmarks'?bookmarkedQuestions():kind==='wrong'?wrongQuestions():dueQuestions(); const context=kind==='wrong'?'wrong':kind==='review'?'spaced-review':'normal'; startSession(list.map(q=>q.id),'practice',kind==='bookmarks'?'Bookmarked Questions':kind==='wrong'?'Wrong Questions':'Due Review',context); }
   function startAllPractice() { startSession(QUESTIONS.slice().sort(()=>Math.random()-.5).slice(0, Math.min(20,QUESTIONS.length)).map(q=>q.id),'practice','Mixed Biochemistry Practice'); }
 

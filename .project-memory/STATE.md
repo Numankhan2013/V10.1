@@ -2,6 +2,10 @@
 
 > Operational state only. Resolve the live branch/commit and CI from Git before acting. Historical detail belongs in `SESSION_LOG.md` and dedicated handoffs.
 
+## Press language v3 — instant press acknowledgment, zero movement — 2026-10-18 (merged with the 2026-10-19 bug-hunt release)
+
+- `feature/press-ack-v3` (PR #130): on touch-down a control fills with `box-shadow: inset 0 0 0 9999px color-mix(in srgb, currentcolor 5%, transparent)` riding the `.nk-pressed` class (never raw `:active`, which sticks on real touch); completed taps melt it off over 180 ms (`.nk-pressed-out`, `interaction_polish.js`); slop/cancel/blur clear instantly; backdrops and sheets never dip. Contracts: `tools/test_interaction_polish_v1.py`, `tools/verify_interaction_polish_browser.py`. Detail in `SESSION_LOG.md`. The user chose to ship it with the bug-hunt fixes.
+
 ## Rarity tiers + Tests button + nav pill fixes — promoted — 2026-10-19
 
 - PR #135 (`fix/ux-bughunt`, merge `233fdb90`) carries `feature/rarity-tiers` (on top of `feature/no-answer-banner`: Correct/Incorrect banner is screen-reader only in every bank). `question_rarity.js` gives Legendary/Great/Rare/Easy/Low signal from per-source percentile cutoffs (UWorld 38/46/62, Marrow 26/37/58; recompute with `tools/compute_rarity_cutoffs.py`, unchanged on 2,320 UWorld). UWorld and Marrow cohort chips carry `data-nk-tier`; foil/glint/glow only via CSS `:has(> .nk-answer-outcome.is-correct)`, a miss shows the tier in muted type. Browser-checked right vs wrong for every tier.
@@ -15,10 +19,6 @@
 - Flagged (108) and unassembled (40) questions were transcribed by outside agents from `uworld-review` batches (`data/uworld/review/`, checker `tools/uworld_auto/review/check_review.py`; branch names are `uworld-review-<range>`, a slash would clash with the base branch) and applied with `apply_reviews.py --careful` / `rescue.py adopt`. Reviewers fixed wrong answer keys and choice counts; 11 packets cannot be read from the screenshots and stay unowned (Microbiology 16 pages, Immunology 5, Ethics 2, Dermatology 1).
 - Figures upscaled with `upscale_figures.py` (line art only). Details: `docs/UWORLD_AUTO_PIPELINE.md`.
 - PR #133 merged as `8b50a490` (CI green on the PR and on main); promoted by run `39237606258` (`build-apk.yml`, `promote_production=true`, `release_sha=8b50a490`) to `https://e52dc0b2.nk-qbank.pages.dev`; `verify_uworld_biochemistry_browser.py --url` passed live at 390 px (the hosted site 403s Python's default user agent: send a browser one).
-
-## PrepLadder flattened stems now real tables — promoted — 2026-10-18
-
-- 90 questions whose source PDF flattened match-the-following / statement lists into one run of text now render as tables (Pathology 41, Pharmacology 35, Microbiology 14). Hand-checked data `data/Prepladder/<bank>/stem_tables.json` (stem + columns + rows, lists in printed order so the table never gives the key away; every key label must head a cell or the build fails), applied by `tools/prepladder_stem_tables.py` in all three builders; `option_text.json` replaces 4 picture-choice sets whose descriptions gave the answer away and splits pharmacology-14-3's glued choice. App: a `stemTables` entry wins over the parser (`question_presentation.js`). Bank tests pin counts (49/41/35 stemTables) and rows. PRs #131 (`80952f25`) and #132 (`25fa6b66`, the Pharmacology browser verifier now asserts the tables; CSS uppercases headers so text needles must not use header words). Promote run `39137199204`, deployment `https://da47464c.nk-qbank.pages.dev`; live check at 390 px: pathology-13-5 and pharmacology-14-3 show 4-row tables, microbiology-33-17 shows its neutral choices, no page errors.
 
 ## PrepLadder text banks — Microbiology (1,202 Q / 42), Pathology (1,459 Q / 90), Pharmacology (1,321 Q / 59) — 2026-10-17
 

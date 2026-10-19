@@ -74,6 +74,13 @@
     const isMarrow=String(question.id||'').startsWith('marrow__');
     if(!isMarrow){
       question.question=nkCleanQuestionStem(question.question);
+      // A PDF page header can also fall inside the choice that straddles the page break.
+      if(Array.isArray(question.options))question.options.forEach((option,index)=>{
+        const text=typeof option==='string'?option:option&&option.text;
+        if(typeof text!=='string'||!/\bPrep\s*ladder\s*X\s*Qbank\b/i.test(text))return;
+        if(typeof option==='string')question.options[index]=nkCleanQuestionStem(text);
+        else option.text=nkCleanQuestionStem(text);
+      });
       return question;
     }
 
