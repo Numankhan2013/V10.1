@@ -1291,9 +1291,18 @@
     var c = app.querySelector('.nk-uworld-cohort:not(.nkg-cohort)'); if (!c) return;
     var st = c.querySelector('strong'); var m = st && st.textContent.match(/(\d+)\s*%/); if (!m) return;
     var n = Math.max(0, Math.min(100, +m[1]));
-    c.classList.add('nkg-cohort', n >= 70 ? 'is-easy' : n < 40 ? 'is-hard' : 'is-mid');
+    /* Rarity tier comes from the source module (percentile cutoffs per bank); it only
+       exists once the question is answered, because this chip is post-answer UI. */
+    var tier = c.getAttribute('data-nk-tier');
+    var labels = { legendary: 'Legendary', great: 'Great', rare: 'Rare', easy: 'Easy', review: 'Low signal' };
+    if (!labels[tier]) tier = '';
+    var trap = tier && c.getAttribute('data-nk-trap') === '1';
+    c.classList.add('nkg-cohort', tier ? 'is-' + tier : (n >= 70 ? 'is-easy' : n < 40 ? 'is-hard' : 'is-mid'));
+    if (trap) c.classList.add('is-trap');
     c.setAttribute('aria-label', n + '% of ' + (c.getAttribute('data-nk-source') || 'UWorld') + ' users answered correctly');
-    st.innerHTML = '<b>' + n + '%</b><small>got it right</small>';
+    if (tier) c.setAttribute('aria-description', labels[tier] + ' question' + (trap ? '; most misses chose the same wrong option' : ''));
+    st.innerHTML = '<b>' + n + '%</b><small>got it right</small>' +
+      (tier ? '<em class="nkr-tags" aria-hidden="true">' + (trap ? '<i class="nkr-trap">Trap</i>' : '') + '<i class="nkr-tier">' + labels[tier] + '</i></em>' : '');
     var bar = el('span', 'nkg-cohort-bar', '<i></i>'); bar.setAttribute('aria-hidden', 'true'); bar.style.setProperty('--nkg-p', String(n));
     c.appendChild(bar);
   }
@@ -1404,10 +1413,17 @@
     var act = nav.querySelector('.nav-item.active .nav-icon-wrap');
     var g = nav.querySelector(':scope > .nkg-nav-glide');
     if (!act) { if (g) g.classList.remove('is-on'); return; }
-    if (!g) { g = el('span', 'nkg-nav-glide'); g.setAttribute('aria-hidden', 'true'); nav.insertBefore(g, nav.firstChild); }
+    var fresh = !g;
+    if (fresh) { g = el('span', 'nkg-nav-glide'); g.setAttribute('aria-hidden', 'true'); nav.insertBefore(g, nav.firstChild); }
     var nr = nav.getBoundingClientRect(), ar = act.getBoundingClientRect();
     var x = ar.left + ar.width / 2 - nr.left, y = ar.top + ar.height / 2 - nr.top;
     g.style.top = y + 'px';
+    /* Every render rebuilds the nav: a new glide starts lit where the old one was, so
+       re-rendering the same tab (a filter, a toggle) never blinks the active pill. */
+    if (fresh && navX != null) {
+      g.style.transition = 'none'; g.style.transform = 'translate(' + navX + 'px, -50%)'; g.classList.add('is-on');
+      void g.offsetWidth; g.style.transition = ''; g.__placed = Math.abs(navX - x) <= 1;
+    }
     if (navX != null && !g.__placed && Math.abs(navX - x) > 1 && motionOK()) {
       g.style.transition = 'none'; g.style.transform = 'translate(' + navX + 'px, -50%)'; void g.offsetWidth; g.style.transition = '';
     }
