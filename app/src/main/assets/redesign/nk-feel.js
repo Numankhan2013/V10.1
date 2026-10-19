@@ -1291,9 +1291,18 @@
     var c = app.querySelector('.nk-uworld-cohort:not(.nkg-cohort)'); if (!c) return;
     var st = c.querySelector('strong'); var m = st && st.textContent.match(/(\d+)\s*%/); if (!m) return;
     var n = Math.max(0, Math.min(100, +m[1]));
-    c.classList.add('nkg-cohort', n >= 70 ? 'is-easy' : n < 40 ? 'is-hard' : 'is-mid');
+    /* Rarity tier comes from the source module (percentile cutoffs per bank); it only
+       exists once the question is answered, because this chip is post-answer UI. */
+    var tier = c.getAttribute('data-nk-tier');
+    var labels = { legendary: 'Legendary', great: 'Great', rare: 'Rare', easy: 'Easy', review: 'Low signal' };
+    if (!labels[tier]) tier = '';
+    var trap = tier && c.getAttribute('data-nk-trap') === '1';
+    c.classList.add('nkg-cohort', tier ? 'is-' + tier : (n >= 70 ? 'is-easy' : n < 40 ? 'is-hard' : 'is-mid'));
+    if (trap) c.classList.add('is-trap');
     c.setAttribute('aria-label', n + '% of ' + (c.getAttribute('data-nk-source') || 'UWorld') + ' users answered correctly');
-    st.innerHTML = '<b>' + n + '%</b><small>got it right</small>';
+    if (tier) c.setAttribute('aria-description', labels[tier] + ' question' + (trap ? '; most misses chose the same wrong option' : ''));
+    st.innerHTML = '<b>' + n + '%</b><small>got it right</small>' +
+      (tier ? '<em class="nkr-tags" aria-hidden="true">' + (trap ? '<i class="nkr-trap">Trap</i>' : '') + '<i class="nkr-tier">' + labels[tier] + '</i></em>' : '');
     var bar = el('span', 'nkg-cohort-bar', '<i></i>'); bar.setAttribute('aria-hidden', 'true'); bar.style.setProperty('--nkg-p', String(n));
     c.appendChild(bar);
   }
