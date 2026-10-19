@@ -492,21 +492,26 @@
    "options": [
     {
      "letter": "A",
-     "text": "Face the patient directly when talking to him (7 1%) @ 8 . Give the patient a pen and paper to write on",
-     "selection_percent": 9
+     "text": "Face the patient directly when talking to him",
+     "selection_percent": 71
     },
     {
      "letter": "B",
+     "text": "Give the patient a pen and paper to write on",
+     "selection_percent": 9
+    },
+    {
+     "letter": "C",
      "text": "Obtain essential history from the wife",
      "selection_percent": 1
     },
     {
-     "letter": "C",
+     "letter": "D",
      "text": "Speak loudly and slowly in one ear",
      "selection_percent": 8
     },
     {
-     "letter": "D",
+     "letter": "E",
      "text": "Use a qualified sign language interpreter",
      "selection_percent": 10
     }
@@ -516,7 +521,7 @@
    "explanation": [
     {
      "type": "paragraph",
-     "text": "Hearing loss is common, impacting almost 20% of US adults; the prevalence increases with age. Hearing loss is associated with increased rates of misdiagnosis, longer lengths of hospitalizations, and increased readmission rates. As such, physicians should employ strategies to improve communication, which include: • Decreasing background noise • Facing the patient directly when speaking and refraining from touching the face or mouth • Speaking clearly and loudly (ie, natural amplification) without shouting or shrieking, which distorts the sound of speech • Speaking at a normal pace because speaking too slowly can decrease contextual clues and make it hard for patients to understand • Using short and simple sentences and addressing one topic at a time • Using facial expressions, gestures, and visual aids when appropriate • Asking the patient to repeat back specific instructions to ensure understanding"
+     "text": "Hearing loss is common, impacting almost 20% of US adults; the prevalence increases with age. Hearing loss is associated with increased rates of misdiagnosis, longer lengths of hospitalizations, and increased readmission rates. As such, physicians should employ strategies to improve communication, which include:\n• Decreasing background noise\n• Facing the patient directly when speaking and refraining from touching the face or mouth\n• Speaking clearly and loudly (ie, natural amplification) without shouting or shrieking, which distorts the sound of speech\n• Speaking at a normal pace because speaking too slowly can decrease contextual clues and make it hard for patients to understand\n• Using short and simple sentences and addressing one topic at a time\n• Using facial expressions, gestures, and visual aids when appropriate\n• Asking the patient to repeat back specific instructions to ensure understanding"
     },
     {
      "type": "paragraph",
@@ -543,19 +548,16 @@
    "statistics": {
     "answered_correctly_percent": 71,
     "selection_percent": {
-     "A": 9,
-     "B": 1,
-     "C": 8,
-     "D": 10
+     "A": 71,
+     "B": 9,
+     "C": 1,
+     "D": 8,
+     "E": 10
     }
    },
-   "status": "blocked",
-   "issues": [
-    "choice letters disagree with order: B,C,D",
-    "choice percents sum 28",
-    "answered% differs from correct choice%"
-   ],
-   "source_record_sha256": "cbd0003a02997932912cd65a5a90d0168eaf4d587efb018b9f2165a699ca3366"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "17dfa48d3753d130cc42a564eb3dc57769388ff730173676adbd73e3a7e4c9a2"
   },
   {
    "id": "UWORLD_18808",
@@ -666,8 +668,8 @@
     },
     {
      "letter": "E",
-     "text": "Randomized controlled trial examining the relationship between primary care weight counseling (2°-\"<>) and obesity incidence",
-     "selection_percent": null
+     "text": "Randomized controlled trial examining the relationship between primary care weight counseling and obesity incidence",
+     "selection_percent": 2
     }
    ],
    "correct_label": "A",
@@ -675,7 +677,27 @@
    "explanation": [
     {
      "type": "paragraph",
-     "text": "Obesity is a multifactorial condition with genetic, environmental, and behavioral causes. In this community, obesity prevalence is significantly higher in specific ZIP codes, indicating a possible health disparity (ie, preventable health differences associated with social, environmental, or economic disadvantage). Obesity-related health disparities represent a major public health concern with increased prevalence, severity, and complications affecting vulnerable communities. Such disparities involve factors relating to health care (eg, provider screening and treatment, access to care), patients (eg , diet and activity, health knowledge), and neighborhood (eg, density of grocery stores, which influences dietary patterns; crime rate, which influences physical activity). Given the multifactorial nature of obesity and related disparities, the first step in researching this community's trend is to generate hypotheses. This is best achieved through cross-sectional analysis of demographic and behavioral data, which is relatively easy to perform and can depict multiple risk factors at one point in time (a \"snapshot\") to: • reveal differences in distribution (prevalence) of demographic factors (eg, poverty, ethnicity, insurance status) across ZIP codes. • identify variables correlated (associated) with obesity risk (eg, poverty is more prevalent in high-obesity ZIP codes). • generate hypotheses (eg, poverty increases obesity risk by decreasing ability to consume foods promoting optimal weight)."
+     "text": "Obesity is a multifactorial condition with genetic, environmental, and behavioral causes. In this community, obesity prevalence is significantly higher in specific ZIP codes, indicating a possible health disparity (ie, preventable health differences associated with social, environmental, or economic disadvantage)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Obesity-related health disparities represent a major public health concern with increased prevalence, severity, and complications affecting vulnerable communities. Such disparities involve factors relating to health care (eg, provider screening and treatment, access to care), patients (eg, diet and activity, health knowledge), and neighborhood (eg, density of grocery stores, which influences dietary patterns; crime rate, which influences physical activity)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Given the multifactorial nature of obesity and related disparities, the first step in researching this community's trend is to generate hypotheses. This is best achieved through cross-sectional analysis of demographic and behavioral data, which is relatively easy to perform and can depict multiple risk factors at one point in time (a \"snapshot\") to:"
+    },
+    {
+     "type": "paragraph",
+     "text": "• reveal differences in distribution (prevalence) of demographic factors (eg, poverty, ethnicity, insurance status) across ZIP codes."
+    },
+    {
+     "type": "paragraph",
+     "text": "• identify variables correlated (associated) with obesity risk (eg, poverty is more prevalent in high-obesity ZIP codes)."
+    },
+    {
+     "type": "paragraph",
+     "text": "• generate hypotheses (eg, poverty increases obesity risk by decreasing ability to consume foods promoting optimal weight)."
     },
     {
      "type": "paragraph",
@@ -683,7 +705,7 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choices Band D) Like cross-sectional analysis, cohort studies and qualitative surveys offer observational data for generating hypotheses. However, each of these approaches focuses on a single, patient-related hypothesis (eg, leptin, patient knowledge and attitudes) for obesity differences. Cross-sectional analysis involving this community's demographic factors is a better first step, as it can analyze multiple potential influences and tailor hypotheses to this setting."
+     "text": "(Choices B and D) Like cross-sectional analysis, cohort studies and qualitative surveys offer observational data for generating hypotheses. However, each of these approaches focuses on a single, patient-related hypothesis (eg, leptin, patient knowledge and attitudes) for obesity differences. Cross-sectional analysis involving this community's demographic factors is a better first step, as it can analyze multiple potential influences and tailor hypotheses to this setting."
     },
     {
      "type": "paragraph",
@@ -702,14 +724,12 @@
      "B": 1,
      "C": 4,
      "D": 20,
-     "E": null
+     "E": 2
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent"
-   ],
-   "source_record_sha256": "075125c2f69545fb825cec184fa3682864553e93b9d5a0c026d137567ca31a6c"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "8d68f1b3fc36febc6d344bddb843ef949ad2aee59e4afdab39a09ac2573c53e1"
   },
   {
    "id": "UWORLD_1124",
@@ -1178,7 +1198,7 @@
     },
     {
      "letter": "B",
-     "text": "\"Although you feel alcohol helps you to relax, I am concerned that you are using it to self- medicate your depression.\"",
+     "text": "\"Although you feel alcohol helps you to relax, I am concerned that you are using it to self-medicate your depression.\"",
      "selection_percent": 1
     },
     {
@@ -1213,7 +1233,11 @@
     },
     {
      "type": "paragraph",
-     "text": "This patient believes that alcohol plays a beneficial role in his life (helping with relaxation, sleep, and socialization) and explicitly states that he does not want to quit. Motivational interviewing is a patient-centered approach to help change maladaptive behaviors; it matches strategies to the patient's stage of readiness to make a change. The goal is to develop the patient's own intrinsic motivation to change, rather than using pressure to motivate change. This patient should be educated about the link between mood and alcohol to help him see the discrepancy between continued alcohol use and his goal of not being depressed. However, direct confrontation of his resistance to change (eg, advising the patient not to drink, dwelling on adverse consequences of alcohol use) is likely to make him feel misunderstood, attacked, or criticized and may lead to conflict or defensiveness. It is more productive to acknowledge the patient's resistance to change as a starting point. This involves reflecting the patient's view that alcohol helps him relax and then encouraging discussion of any downsides to drinking from his perspective. In this way, the patient is encouraged to identify ambivalent feelings about drinking that can help him begin to make his own arguments for change."
+     "text": "This patient believes that alcohol plays a beneficial role in his life (helping with relaxation, sleep, and socialization) and explicitly states that he does not want to quit. Motivational interviewing is a patient-centered approach to help change maladaptive behaviors; it matches strategies to the patient's stage of readiness to make a change. The goal is to develop the patient's own intrinsic motivation to change, rather than using pressure to motivate change."
+    },
+    {
+     "type": "paragraph",
+     "text": "This patient should be educated about the link between mood and alcohol to help him see the discrepancy between continued alcohol use and his goal of not being depressed. However, direct confrontation of his resistance to change (eg, advising the patient not to drink, dwelling on adverse consequences of alcohol use) is likely to make him feel misunderstood, attacked, or criticized and may lead to conflict or defensiveness. It is more productive to acknowledge the patient's resistance to change as a starting point. This involves reflecting the patient's view that alcohol helps him relax and then encouraging discussion of any downsides to drinking from his perspective. In this way, the patient is encouraged to identify ambivalent feelings about drinking that can help him begin to make his own arguments for change."
     },
     {
      "type": "paragraph",
@@ -1245,9 +1269,9 @@
    },
    "status": "blocked",
    "issues": [
-    "no educational objective"
+    "review: Educational objective and end of (Choice E) are not visible in any screenshot (page 158 ends mid-sentence at the block-time bar), so objective left empty; everything else transcribed exactly; answer C confirmed (green tick, page 156)"
    ],
-   "source_record_sha256": "9a33852b0e689565f56315da7ea9caa28a8ac22b4a309e30d070b07286c5820e"
+   "source_record_sha256": "dfd4bc02fd3f97a7029bd7cb96d253fc5e3bc260a9c2eddb12c43d7d140b93c6"
   },
   {
    "id": "UWORLD_2057",
@@ -1266,7 +1290,7 @@
     },
     {
      "letter": "B",
-     "text": "\"I don't need to inform your parents that you are sexually active, but I will need their consent to prescribe antibiotic treatment. \"",
+     "text": "\"I don't need to inform your parents that you are sexually active, but I will need their consent to prescribe antibiotic treatment.\"",
      "selection_percent": 5
     },
     {
@@ -1276,13 +1300,13 @@
     },
     {
      "letter": "D",
-     "text": "\"I will not notify your parents because you can consent to testing and treatment for sexually transmitted infections on your own. \"",
+     "text": "\"I will not notify your parents because you can consent to testing and treatment for sexually transmitted infections on your own.\"",
      "selection_percent": 81
     },
     {
      "letter": "E",
-     "text": "\"You can consent to treatment of gonorrhea, but because you are a minor, I am obligated to notify (2°-\"<>) your parents.\"",
-     "selection_percent": null
+     "text": "\"You can consent to treatment of gonorrhea, but because you are a minor, I am obligated to notify your parents.\"",
+     "selection_percent": 2
     }
    ],
    "correct_label": "D",
@@ -1301,11 +1325,23 @@
     },
     {
      "type": "paragraph",
-     "text": "Minors (age <18) usually require parental consent for medical treatment; however, consent is generally not required in the following situations: • Legal or situational emancipation (eg , parent, married) • Emergency care in which delay of care could result in significant harm to life or limb • Specific conditions (eg , sexually transmitted infection [STI], pregnancy, substance abuse) that are potentially serious, sensitive, or stigmatizing"
+     "text": "Minors (age <18) usually require parental consent for medical treatment; however, consent is generally not required in the following situations:"
     },
     {
      "type": "paragraph",
-     "text": "Allowing minors to consent for treatment of certain potentially serious medical conditions (eg , STI) encourages them to seek services without concern of parental involvement, as in this patient's situation. In most states, minors can also consent to substance abuse and mental health treatment as well as reproductive services, although there may be variations among states (eg, requiring minors to be a minimum age). Some, but not all states, also exclude information about sensitive services from insurance documentation that is sent to the parent (policyholder)."
+     "text": "• Legal or situational emancipation (eg, parent, married)"
+    },
+    {
+     "type": "paragraph",
+     "text": "• Emergency care in which delay of care could result in significant harm to life or limb"
+    },
+    {
+     "type": "paragraph",
+     "text": "• Specific conditions (eg, sexually transmitted infection [STI], pregnancy, substance abuse) that are potentially serious, sensitive, or stigmatizing"
+    },
+    {
+     "type": "paragraph",
+     "text": "Allowing minors to consent for treatment of certain potentially serious medical conditions (eg, STI) encourages them to seek services without concern of parental involvement, as in this patient's situation. In most states, minors can also consent to substance abuse and mental health treatment as well as reproductive services, although there may be variations among states (eg, requiring minors to be a minimum age). Some, but not all states, also exclude information about sensitive services from insurance documentation that is sent to the parent (policyholder)."
     },
     {
      "type": "paragraph",
@@ -1313,7 +1349,7 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choices Band E) The patient can obtain evaluation and treatment for STIs, including antibiotics, without parental notification or consent."
+     "text": "(Choices B and E) The patient can obtain evaluation and treatment for STIs, including antibiotics, without parental notification or consent."
     },
     {
      "type": "paragraph",
@@ -1328,14 +1364,12 @@
      "B": 5,
      "C": 8,
      "D": 81,
-     "E": null
+     "E": 2
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent"
-   ],
-   "source_record_sha256": "0385456cd94588d3d6552449db135ed28ae83bbac149dd4d90062a82a14c3894"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "5961aefd4e2b2d6b1a993095d74c6448741489c0329fa45b3af0a3b83471f58b"
   },
   {
    "id": "UWORLD_21423",

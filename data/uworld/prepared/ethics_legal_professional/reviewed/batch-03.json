@@ -103,12 +103,12 @@
     },
     {
      "letter": "D",
-     "text": "Patient has a prognosis of ::;;5 months",
+     "text": "Patient has a prognosis of ≤6 months",
      "selection_percent": 54
     },
     {
      "letter": "E",
-     "text": "Patient has a prognosis of ::;;3 months",
+     "text": "Patient has a prognosis of ≤3 months",
      "selection_percent": 12
     }
    ],
@@ -128,11 +128,15 @@
     },
     {
      "type": "paragraph",
-     "text": "Hospice care is usually provided to terminally ill patients with a prognosis of <6 months, when aggressive, curative treatments are no longer beneficial or desired. The largest population receiving hospice care consists of cancer patients, but also includes those with other terminal medical conditions (eg, end-stage cardiomyopathy, end-stage chronic obstructive pulmonary disease, pulmonary fibrosis). The physician must substantiate a prognosis of ~6 months with documentation of irreversible decline in clinical and functional status. Hospice care is based on the principle of providing compassionate care that focuses on comfort and quality of life. It is provided by a multidisciplinary team that includes nurses, social workers, chaplains, and a hospice physician who closely coordinates with the patient's attending physician. It can be provided in the patient's own home (home hospice care), a nursing home, or dedicated hospice facility. Hospice services include comfort measures (eg , control of pain and dyspnea) and psychological, spiritual, and bereavement counseling for patients and families."
+     "text": "Hospice care is usually provided to terminally ill patients with a prognosis of ≤6 months, when aggressive, curative treatments are no longer beneficial or desired. The largest population receiving hospice care consists of cancer patients, but also includes those with other terminal medical conditions (eg, end-stage cardiomyopathy, end-stage chronic obstructive pulmonary disease, pulmonary fibrosis). The physician must substantiate a prognosis of ≤6 months with documentation of irreversible decline in clinical and functional status."
     },
     {
      "type": "paragraph",
-     "text": "(Choices A and E) Hospice care is appropriate for patients with any terminal illness provided they have a prognosis of ~6 months."
+     "text": "Hospice care is based on the principle of providing compassionate care that focuses on comfort and quality of life. It is provided by a multidisciplinary team that includes nurses, social workers, chaplains, and a hospice physician who closely coordinates with the patient's attending physician. It can be provided in the patient's own home (home hospice care), a nursing home, or dedicated hospice facility. Hospice services include comfort measures (eg, control of pain and dyspnea) and psychological, spiritual, and bereavement counseling for patients and families."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choices A and E) Hospice care is appropriate for patients with any terminal illness provided they have a prognosis of ≤6 months."
     },
     {
      "type": "paragraph",
@@ -143,7 +147,7 @@
      "text": "(Choice C) Patients who still possess decision-making capacity should participate in decisions regarding hospice care. However, advance directives or surrogate decision makers may handle issues related to hospice care for patients who lack capacity."
     }
    ],
-   "educational_objective": "Patients with advanced metastatic cancers or other terminal illnesses and a life expectancy of ~6 months should be evaluated for hospice care.",
+   "educational_objective": "Patients with advanced metastatic cancers or other terminal illnesses and a life expectancy of ≤6 months should be evaluated for hospice care.",
    "statistics": {
     "answered_correctly_percent": 54,
     "selection_percent": {
@@ -154,11 +158,9 @@
      "E": 12
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …ician must substantiate a prognosis of ~6 months with documen…"
-   ],
-   "source_record_sha256": "b2c44376f4ce8aca3f4abe91feac8ea1c21517e71f064bf675e5dd0377598088"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "3926b0532d497422b980b5cbfd4a0b42fac300e2af120e5c11327a341ff25459"
   },
   {
    "id": "UWORLD_21176",
@@ -619,18 +621,18 @@
     },
     {
      "letter": "C",
-     "text": "18%)",
-     "selection_percent": null
+     "text": "\"I understand your concerns about medication side effects, but antibiotic treatment is necessary.\"",
+     "selection_percent": 18
     },
     {
      "letter": "D",
-     "text": "\"I understand your concerns about medication side effects, but antibiotic treatment is necessary.\" 0 D. \"If we don't give your child antibiotics, she could get a brain abscess and die.\"",
+     "text": "\"If we don't give your child antibiotics, she could get a brain abscess and die.\"",
      "selection_percent": 2
     },
     {
      "letter": "E",
      "text": "\"We can try natural techniques briefly, but if she doesn't get better, we will have to use antibiotics.\"",
-     "selection_percent": null
+     "selection_percent": 2
     }
    ],
    "correct_label": "A",
@@ -638,7 +640,15 @@
    "explanation": [
     {
      "type": "paragraph",
-     "text": "This child with a history of recurrent otitis media now has acute mastoiditis, a purulent infection of the mastoid air cells. Untreated mastoiditis can lead to serious complications, including brain abscess and death, and requires aggressive management. Initial treatment includes parenteral antibiotics, and patients often require surgical intervention. Patients and surrogate decision-makers (eg, parents, guardians) often have limited understanding of serious but uncommon conditions, such as mastoiditis. They also may have misconceptions regarding the potential risks and benefits of medical treatment. Decision-making can be further complicated by the urgency to make life-or-death decisions quickly in unfamiliar environments (eg, emergency department). The initial step in counseling patients and surrogate decision-makers regarding refusal of treatment is to calmly probe their understanding of the disease process. This can be followed by counseling and education tailored to the decision-maker's level of understanding and health literacy and an objective assessment of treatment options. Although a court order may be necessary to compel the parents to allow life-saving treatment, legal action can be distressing to all involved. Often, once the disease process and treatment options are better understood, decision-makers become less resistant to treatment."
+     "text": "This child with a history of recurrent otitis media now has acute mastoiditis, a purulent infection of the mastoid air cells. Untreated mastoiditis can lead to serious complications, including brain abscess and death, and requires aggressive management. Initial treatment includes parenteral antibiotics, and patients often require surgical intervention."
+    },
+    {
+     "type": "paragraph",
+     "text": "Patients and surrogate decision-makers (eg, parents, guardians) often have limited understanding of serious but uncommon conditions, such as mastoiditis. They also may have misconceptions regarding the potential risks and benefits of medical treatment. Decision-making can be further complicated by the urgency to make life-or-death decisions quickly in unfamiliar environments (eg, emergency department)."
+    },
+    {
+     "type": "paragraph",
+     "text": "The initial step in counseling patients and surrogate decision-makers regarding refusal of treatment is to calmly probe their understanding of the disease process. This can be followed by counseling and education tailored to the decision-maker's level of understanding and health literacy and an objective assessment of treatment options. Although a court order may be necessary to compel the parents to allow life-saving treatment, legal action can be distressing to all involved. Often, once the disease process and treatment options are better understood, decision-makers become less resistant to treatment."
     },
     {
      "type": "paragraph",
@@ -650,7 +660,7 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice D) Although discussion with this child's family should include the risks of untreated mastoiditis, presenting scare tactics and worst-case scenarios is likely only to further distress the family and inhibit rational decisionmaking."
+     "text": "(Choice D) Although discussion with this child's family should include the risks of untreated mastoiditis, presenting scare tactics and worst-case scenarios is likely only to further distress the family and inhibit rational decision-making."
     },
     {
      "type": "paragraph",
@@ -663,18 +673,14 @@
     "selection_percent": {
      "A": 58,
      "B": 17,
-     "C": null,
+     "C": 18,
      "D": 2,
-     "E": null
+     "E": 2
     }
    },
-   "status": "blocked",
-   "issues": [
-    "choice letters disagree with order: D",
-    "missing choice percent",
-    "choices look like pictures or a table"
-   ],
-   "source_record_sha256": "c211b28cffcf8b679b6d378322572b31a0aa02843c461cb305c56febf79aafb0"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "8adbbe4749af061df05998eb4d84dfab084a7c1f77ef688d47356395f3b9d0e7"
   },
   {
    "id": "UWORLD_21977",
@@ -685,7 +691,7 @@
     232,
     233
    ],
-   "question": "A 52-year-old man comes to the office for a routine follow-up appointment. The patient has a history of wellcontrolled hypertension and hyperlipidemia. He has a 35-pack-year smoking history and reports that he continues to smoke about 10-15 cigarettes daily. Family history is significant for lung cancer in his mother. His father died following a stroke at age 65. When asked about whether he has considered quitting, the patient replies that he is not ready to stop smoking. He says, \"I know I probably should, but I'm just too stressed at work to give up my cigarettes right now. To be honest, I'm probably smoking closer to a pack a day.\" Which of the following is the most appropriate response to the patient?",
+   "question": "A 52-year-old man comes to the office for a routine follow-up appointment. The patient has a history of well-controlled hypertension and hyperlipidemia. He has a 35-pack-year smoking history and reports that he continues to smoke about 10-15 cigarettes daily. Family history is significant for lung cancer in his mother. His father died following a stroke at age 65. When asked about whether he has considered quitting, the patient replies that he is not ready to stop smoking. He says, \"I know I probably should, but I'm just too stressed at work to give up my cigarettes right now. To be honest, I'm probably smoking closer to a pack a day.\" Which of the following is the most appropriate response to the patient?",
    "options": [
     {
      "letter": "A",
@@ -704,7 +710,12 @@
     },
     {
      "letter": "D",
-     "text": "\"What is your understanding of how smoking relates to lung cancer and stroke?\" (2 1%) O E. \"With all the smoking cessation treatment options available, quitting is a lot more manageable.\"",
+     "text": "\"What is your understanding of how smoking relates to lung cancer and stroke?\"",
+     "selection_percent": 21
+    },
+    {
+     "letter": "E",
+     "text": "\"With all the smoking cessation treatment options available, quitting is a lot more manageable.\"",
      "selection_percent": 6
     }
    ],
@@ -713,7 +724,11 @@
    "explanation": [
     {
      "type": "paragraph",
-     "text": "This patient has a family history of lung cancer and multiple risk factors for cardiovascular illness, including smoking, hypertension, hyperlipidemia, and family history of stroke. Although he states that he is not ready to quit smoking, he is ambivalent and aware that he probably should. An effective approach to patients who are not ready to quit is to explore their ambivalence (eg, worries about quitting vs not quitting), with the goal of enhancing the patient's internal motivation to make a change. Based on principles of motivational interviewing, the physician should acknowledge resistance to change and help the patient identify discrepancies between habits and long-term goals. Issues relevant to the patient's situation (eg, concern about his ability to manage work stress without smoking) and other possible barriers (eg , fear of nicotine withdrawal, failure, or gaining weight; enjoyment of tobacco) should be explored in a nonjudgmental way. Concerns about not quitting, such as fear of long-term health risks, can then be elicited to highlight ambivalence. Once the patient has identified the potential benefits and barriers to quitting, the physician can target these specific issues (eg, education, counseling, medication)."
+     "text": "This patient has a family history of lung cancer and multiple risk factors for cardiovascular illness, including smoking, hypertension, hyperlipidemia, and family history of stroke. Although he states that he is not ready to quit smoking, he is ambivalent and aware that he probably should. An effective approach to patients who are not ready to quit is to explore their ambivalence (eg, worries about quitting vs not quitting), with the goal of enhancing the patient's internal motivation to make a change."
+    },
+    {
+     "type": "paragraph",
+     "text": "Based on principles of motivational interviewing, the physician should acknowledge resistance to change and help the patient identify discrepancies between habits and long-term goals. Issues relevant to the patient's situation (eg, concern about his ability to manage work stress without smoking) and other possible barriers (eg, fear of nicotine withdrawal, failure, or gaining weight; enjoyment of tobacco) should be explored in a nonjudgmental way. Concerns about not quitting, such as fear of long-term health risks, can then be elicited to highlight ambivalence. Once the patient has identified the potential benefits and barriers to quitting, the physician can target these specific issues (eg, education, counseling, medication)."
     },
     {
      "type": "paragraph",
@@ -739,14 +754,13 @@
      "A": 1,
      "B": 17,
      "C": 53,
-     "D": 6
+     "D": 21,
+     "E": 6
     }
    },
-   "status": "blocked",
-   "issues": [
-    "choice percents sum 77"
-   ],
-   "source_record_sha256": "a23d6b40514e431aa8ba1cbac60c82bf3a85af69c1a16666817b271dc572a7c3"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "8710f1b05117eb8035d4c4c505a6dd565518296da4be6b9bf650438d025c9434"
   },
   {
    "id": "UWORLD_11550",
@@ -1147,7 +1161,7 @@
     261,
     262
    ],
-   "question": "A 34-year-old man comes to the office with a 5-day history of nasal congestion and cough. He says that he occasionally coughs up thick, yellow sputum and is worried about the lack of improvement. The patient mentions that he has received antibiotics for similar symptoms in the past and says, \"Antibiotics always seem to help me feel better fast.\" Temperature is 37.2 C (99 F), blood pressure is 120/70 mm Hg, pulse is 76/min, and respirations are 18/min. Physical examination shows pharyngeal erythema; the remainder of the exami nation, including cardiopulmonary evaluation, is normal. Which of the following responses by the physician is most appropriate?",
+   "question": "A 34-year-old man comes to the office with a 5-day history of nasal congestion and cough. He says that he occasionally coughs up thick, yellow sputum and is worried about the lack of improvement. The patient mentions that he has received antibiotics for similar symptoms in the past and says, \"Antibiotics always seem to help me feel better fast.\" Temperature is 37.2 C (99 F), blood pressure is 120/70 mm Hg, pulse is 76/min, and respirations are 18/min. Physical examination shows pharyngeal erythema; the remainder of the examination, including cardiopulmonary evaluation, is normal. Which of the following responses by the physician is most appropriate?",
    "options": [
     {
      "letter": "A",
@@ -1171,8 +1185,8 @@
     },
     {
      "letter": "E",
-     "text": "\"Many patients think antibiotics can help treat colds; unfortunately, there are no quick fixes for (2°-\"<>) viral infections.\"",
-     "selection_percent": null
+     "text": "\"Many patients think antibiotics can help treat colds; unfortunately, there are no quick fixes for viral infections.\"",
+     "selection_percent": 2
     }
    ],
    "correct_label": "C",
@@ -1180,7 +1194,11 @@
    "explanation": [
     {
      "type": "paragraph",
-     "text": "physician is faced with the common clinical issue of responding to a request for an unnecessary antibiotic prescription. Although many patients receive antibiotics for upper respiratory infections, antibiotic use in uncomplicated upper respiratory infections is associated with increased risk of adverse effects, no improvement compared to placebo, and a rise in antibiotic resistance. The most appropriate response is a patient-centered approach that validates the patient's concerns, educates the patient about the adverse effects of antibiotics and their lack of efficacy in treating viral infections, and provides options to treat the patient symptomatically. This must be done in an empathic and nonjudgmental fashion that helps build, not undermine, the physician-patient relationship. The physician should refrain from prescribing antibiotics and advise the patient to return if symptoms persist or worsen."
+     "text": "This afebrile patient with a normal lung examination most likely has a viral upper respiratory infection. The physician is faced with the common clinical issue of responding to a request for an unnecessary antibiotic prescription. Although many patients receive antibiotics for upper respiratory infections, antibiotic use in uncomplicated upper respiratory infections is associated with increased risk of adverse effects, no improvement compared to placebo, and a rise in antibiotic resistance."
+    },
+    {
+     "type": "paragraph",
+     "text": "The most appropriate response is a patient-centered approach that validates the patient's concerns, educates the patient about the adverse effects of antibiotics and their lack of efficacy in treating viral infections, and provides options to treat the patient symptomatically. This must be done in an empathic and nonjudgmental fashion that helps build, not undermine, the physician-patient relationship. The physician should refrain from prescribing antibiotics and advise the patient to return if symptoms persist or worsen."
     },
     {
      "type": "paragraph",
@@ -1207,14 +1225,12 @@
      "B": 2,
      "C": 87,
      "D": 2,
-     "E": null
+     "E": 2
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent"
-   ],
-   "source_record_sha256": "ee009c758d4271c09b53e7441a05772e2be1d6169577cbab1b55314d3336a21f"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "7a6dd2c0d00609034576b1124e7a94c19f57edcb159d1d9ef1ccc78bc676ead5"
   },
   {
    "id": "UWORLD_13968",
@@ -1547,12 +1563,12 @@
     },
     {
      "letter": "D",
-     "text": "4%)",
-     "selection_percent": null
+     "text": "\"That would make things much easier; could you start by asking your father what his understanding of the situation is?\"",
+     "selection_percent": 4
     },
     {
      "letter": "E",
-     "text": "\"That would make things much easier; could you start by asking your father what his understanding of the situation is?\" O E. \"That's a kind offer, but I wouldn't be able to have a direct and obj ective discussion with your father if you interpret it.\"",
+     "text": "\"That's a kind offer, but I wouldn't be able to have a direct and objective discussion with your father if you interpret it.\"",
      "selection_percent": 12
     }
    ],
@@ -1561,7 +1577,11 @@
    "explanation": [
     {
      "type": "paragraph",
-     "text": "This patient requires surgical intervention and must give appropriate consent before proceeding. However, he has limited English proficiency (LEP) and will require language assistance to make informed decisions about his health care. Best practices for medical communication with a patient who has LEP is to use an interpreter (or provider) trained in medical translation in the patient's primary language. Using a trained medical interpreter can help avoid potentially dangerous miscommunication, and leads to fewer clinical errors, higher patient satisfaction, and better clinical outcomes. However, using an interpreter or other personnel to provide care is subject to consent by the patient. If a face-to-face interpreter is unavailable, video or telephonic remote translation services should be offered. If the situation is urgent and there is no time to wait for interpretation services, communication should be facilitated by any tools available (eg, friends/family, writing/drawing instruments, bilingual hospital staff); however, these options should not be considered standard procedure in nonemergency situations."
+     "text": "This patient requires surgical intervention and must give appropriate consent before proceeding. However, he has limited English proficiency (LEP) and will require language assistance to make informed decisions about his health care. Best practices for medical communication with a patient who has LEP is to use an interpreter (or provider) trained in medical translation in the patient's primary language. Using a trained medical interpreter can help avoid potentially dangerous miscommunication, and leads to fewer clinical errors, higher patient satisfaction, and better clinical outcomes. However, using an interpreter or other personnel to provide care is subject to consent by the patient."
+    },
+    {
+     "type": "paragraph",
+     "text": "If a face-to-face interpreter is unavailable, video or telephonic remote translation services should be offered. If the situation is urgent and there is no time to wait for interpretation services, communication should be facilitated by any tools available (eg, friends/family, writing/drawing instruments, bilingual hospital staff); however, these options should not be considered standard procedure in nonemergency situations."
     },
     {
      "type": "paragraph",
@@ -1583,17 +1603,13 @@
      "A": 78,
      "B": 3,
      "C": 1,
-     "D": null,
+     "D": 4,
      "E": 12
     }
    },
-   "status": "blocked",
-   "issues": [
-    "choice letters disagree with order: E",
-    "missing choice percent",
-    "choices look like pictures or a table"
-   ],
-   "source_record_sha256": "74b100be748b6ea47b781c298ed9cbbd987173f1222a2e72c2f810f5f050baae"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "38ce9063e5080aadde5b397c9ccbfc0ffca411edb7a85aff99b08e01a7a61f15"
   },
   {
    "id": "UWORLD_10659",

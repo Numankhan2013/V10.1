@@ -4,28 +4,16 @@
  "source_sha256": "9864e5e78d4aa38485f2c07ecb52f4ecbd9c28e2659d4aef8c410cd37c0679a7",
  "source_pdf": "data/uworld/Source_pdfs/dermatology/UW 2024 - Dermatology - 3 blocks - OCR.pdf",
  "page_count": 917,
- "record_count": 99,
+ "record_count": 100,
  "jsonl_file": "normalized.jsonl",
- "jsonl_sha256": "b97bf7c904eb235bc4a42abc0febf81a8f88673d565835f2c568f4041dd52150",
+ "jsonl_sha256": "950c09374ac92605f8945abcfde77922db53152f3f12186f89b9412cace4d3c9",
  "source_extraction_method": "uworld-auto-extract",
  "blocks": {
   "1": 40,
-  "2": 41,
+  "2": 42,
   "3": 18
  },
  "unowned_pages": [
-  {
-   "pages": [
-    570,
-    571,
-    572,
-    573,
-    574,
-    575,
-    576
-   ],
-   "reason": "empty stem"
-  },
   {
    "pages": [
     735,
@@ -38,10 +26,11 @@
     742,
     743
    ],
-   "reason": "no answered page"
+   "reason": "no answered page; rescue: reviewer held it: no answered screenshot; folder holds only explanation pages (735-743, incl. explanation-figure popups)"
   }
  ],
  "figures_dir": "data/uworld/prepared/dermatology/figures",
- "verified": 84,
- "blocked": 15
+ "verified": 100,
+ "blocked": 0,
+ "reviewed_by": "claude-haiku (flagged questions only)"
 }

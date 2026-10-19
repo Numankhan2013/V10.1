@@ -175,23 +175,23 @@
     },
     {
      "letter": "B",
-     "text": "\"I wish I could help you, but your psychiatric history is too complex for me to feel comfortable prescribing medication for you .\"",
+     "text": "\"I wish I could help you, but your psychiatric history is too complex for me to feel comfortable prescribing medication for you.\"",
      "selection_percent": 0
     },
     {
      "letter": "C",
-     "text": "\"Let's schedule a time for you to come in for a full evaluation so that I can make sure sertraline is the most appropriate option. \"",
+     "text": "\"Let's schedule a time for you to come in for a full evaluation so that I can make sure sertraline is the most appropriate option.\"",
      "selection_percent": 28
     },
     {
      "letter": "D",
-     "text": "\"Unfortunately, I'm unable to prescribe medication for you since our relationship prevents me from providing obj ective treatment.\"",
+     "text": "\"Unfortunately, I'm unable to prescribe medication for you since our relationship prevents me from providing objective treatment.\"",
      "selection_percent": 64
     },
     {
      "letter": "E",
-     "text": "\"Your doctor should be able to prescribe a refill without an appointment since you've taken this (4°-\"<>) medication before.\"",
-     "selection_percent": null
+     "text": "\"Your doctor should be able to prescribe a refill without an appointment since you've taken this medication before.\"",
+     "selection_percent": 4
     }
    ],
    "correct_label": "D",
@@ -210,7 +210,15 @@
     },
     {
      "type": "paragraph",
-     "text": "Physicians are commonly approached by friends and family for informal medical care ranging from prescriptions for antibiotics to treatment of complex medical issues. However, the wish to be helpful must be balanced with ethical considerations related to the risks of compromising objectivity and clinical judgment when treating a friend. Potential problems that could result in patient harm (maleficence) include failure to perform an adequate assessment of sensitive issues related to depression (eg, suicide risk), the possibility that the patient will not be completely forthcoming due to the friendship, treating conditions that may be outside of the physician's expertise, and lack of appropriate documentation and follow-up. In addition, from a medico-legal perspective, writing a prescription establishes a physician-patient relationship and may be problematic in the event of an adverse outcome. Professional medical organizations with published ethics guidelines consistently recommend that treatment of friends and family be limited to emergency situations when no other physician is available. The most appropriate response is for the physician to decline to write the prescription, explaining that the nature of their relationship prevents objective treatment."
+     "text": "Physicians are commonly approached by friends and family for informal medical care ranging from prescriptions for antibiotics to treatment of complex medical issues. However, the wish to be helpful must be balanced with ethical considerations related to the risks of compromising objectivity and clinical judgment when treating a friend."
+    },
+    {
+     "type": "paragraph",
+     "text": "Potential problems that could result in patient harm (maleficence) include failure to perform an adequate assessment of sensitive issues related to depression (eg, suicide risk), the possibility that the patient will not be completely forthcoming due to the friendship, treating conditions that may be outside of the physician's expertise, and lack of appropriate documentation and follow-up. In addition, from a medico-legal perspective, writing a prescription establishes a physician-patient relationship and may be problematic in the event of an adverse outcome."
+    },
+    {
+     "type": "paragraph",
+     "text": "Professional medical organizations with published ethics guidelines consistently recommend that treatment of friends and family be limited to emergency situations when no other physician is available. The most appropriate response is for the physician to decline to write the prescription, explaining that the nature of their relationship prevents objective treatment."
     },
     {
      "type": "paragraph",
@@ -237,14 +245,12 @@
      "B": 0,
      "C": 28,
      "D": 64,
-     "E": null
+     "E": 4
     }
    },
-   "status": "blocked",
-   "issues": [
-    "missing choice percent"
-   ],
-   "source_record_sha256": "393bafca85bd49fe7d8273a511402baa18f793bf8b99c1d50172f97c2397a39e"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "ec6aad27f81263d2ea9856940f69f5eb038d26a1ddb181e1c2c9f18cbc6f2c78"
   },
   {
    "id": "UWORLD_10534",
@@ -557,7 +563,7 @@
     426,
     427
    ],
-   "question": "A 46-year-old woman is hospitalized due to severe depression and fatigue. She has no other medical problems. Routine laboratory tests are ordered and the patient is started on antidepressant medication. After a week, her depression improves slightly and she is discharged home to continue with outpatient care. However, the patient remains severely fatigued and is unable to return to her job, forcing her to take a leave of absence. At her followup appointment 2 weeks later, review of the hospital record by the outpatient physician reveals a TSH level of 15.2 µU/ml that was never addressed by the inpatient physician. Subsequent evaluation and treatment with thyroid hormone result in rapid improvement of her depression and fatigue. Which of the following is the appropriate categorization for this type of medical error?",
+   "question": "A 46-year-old woman is hospitalized due to severe depression and fatigue. She has no other medical problems. Routine laboratory tests are ordered and the patient is started on antidepressant medication. After a week, her depression improves slightly and she is discharged home to continue with outpatient care. However, the patient remains severely fatigued and is unable to return to her job, forcing her to take a leave of absence. At her follow-up appointment 2 weeks later, review of the hospital record by the outpatient physician reveals a TSH level of 15.2 µU/mL that was never addressed by the inpatient physician. Subsequent evaluation and treatment with thyroid hormone result in rapid improvement of her depression and fatigue. Which of the following is the appropriate categorization for this type of medical error?",
    "options": [
     {
      "letter": "A",
@@ -576,7 +582,12 @@
     },
     {
      "letter": "D",
-     "text": "Preventable adverse event (6 1%) 0 E. Sentinel event",
+     "text": "Preventable adverse event",
+     "selection_percent": 61
+    },
+    {
+     "letter": "E",
+     "text": "Sentinel event",
      "selection_percent": 6
     }
    ],
@@ -585,7 +596,7 @@
    "explanation": [
     {
      "type": "paragraph",
-     "text": "Hypothyroidism is a known cause of depression and is routinely screened for with a TSH level. This patient's elevated level (normal: 0.5-5.0 µU/ml) should have been detected during hospitalization and prompted further workup. The inpatient physician's failure to note and address the abnormality is a preventable medical error that resulted in delayed diagnosis. Preventable medical errors involve harm to the patient by an act of commission or omission rather than from the underlying disease and are the result of failure to follow evidence-based best practice guidelines."
+     "text": "Hypothyroidism is a known cause of depression and is routinely screened for with a TSH level. This patient's elevated level (normal: 0.5-5.0 µU/mL) should have been detected during hospitalization and prompted further workup. The inpatient physician's failure to note and address the abnormality is a preventable medical error that resulted in delayed diagnosis. Preventable medical errors involve harm to the patient by an act of commission or omission rather than from the underlying disease and are the result of failure to follow evidence-based best practice guidelines."
     },
     {
      "type": "paragraph",
@@ -597,11 +608,11 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice C) This error would have been prevented if the physician had adhered to the standard of care. A nonpreventable adverse event is a complication that cannot be prevented given the current state of medical knowledge (eg, an allergic reaction to a medication in a patient with no known history of drug allergies)."
+     "text": "(Choice C) This error would have been prevented if the physician had adhered to the standard of care. A non-preventable adverse event is a complication that cannot be prevented given the current state of medical knowledge (eg, an allergic reaction to a medication in a patient with no known history of drug allergies)."
     },
     {
      "type": "paragraph",
-     "text": "(Choice E) A sentinel event is an unexpected occurrence involving death or serious physical or psychological injury (eg , inpatient suicide, death of a full-term infant, retained object after surgery) that requires immediate investigation."
+     "text": "(Choice E) A sentinel event is an unexpected occurrence involving death or serious physical or psychological injury (eg, inpatient suicide, death of a full-term infant, retained object after surgery) that requires immediate investigation."
     }
    ],
    "educational_objective": "A preventable adverse event is defined as injury to a patient due to failure to follow evidence-based best practice guidelines.",
@@ -611,15 +622,13 @@
      "A": 18,
      "B": 13,
      "C": 0,
-     "D": 6
+     "D": 61,
+     "E": 6
     }
    },
-   "status": "blocked",
-   "issues": [
-    "choice percents sum 37",
-    "answered% differs from correct choice%"
-   ],
-   "source_record_sha256": "06a55a507811b0463ae6a08654e947edd1cf27f9d6bedda6114a51a142486580"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "88164390b168efdcbe21d58bd31528c9df7e993e84f4ba479e9125cd3c659706"
   },
   {
    "id": "UWORLD_1123",
@@ -1012,7 +1021,7 @@
     449,
     450
    ],
-   "question": "A 25-year-old woman comes to the office to follow up type 1 diabetes mellitus. She takes long- and short- acting insulin with good glycemic control and has no diabetes-related complications. She also has a history of hypothyroidism for which she takes levothyroxine. The patient has been covered under her parent's medical insurance for the last several years, but she recently started working full time for a company that provides a broad variety of employee insurance choices. She requests advice in choosing a health insurance plan. The patient has no disability and says that her main priority is low monthly payments. Which of the following insurance options would be most appropriate for this patient?",
+   "question": "A 25-year-old woman comes to the office to follow up type 1 diabetes mellitus. She takes long- and short-acting insulin with good glycemic control and has no diabetes-related complications. She also has a history of hypothyroidism for which she takes levothyroxine. The patient has been covered under her parent's medical insurance for the last several years, but she recently started working full time for a company that provides a broad variety of employee insurance choices. She requests advice in choosing a health insurance plan. The patient has no disability and says that her main priority is low monthly payments. Which of the following insurance options would be most appropriate for this patient?",
    "options": [
     {
      "letter": "A",
@@ -1056,7 +1065,15 @@
     },
     {
      "type": "paragraph",
-     "text": "To keep expenditures below the total income from premiums, health insurance plans must limit total expenses (utilization) by enrolled patients. The 2 main strategies include increasing the patient's share of cost for the services they receive (eg, copayments, deductibles) and limiting the range of services patients may receive. A health maintenance organization (HMO) insurance plan has low monthly premiums, low copayments and deductibles, and low total cost for the patient. HMOs reduce utilization by confi ning patients to a limited panel of providers, requiring referrals from a primary care provider prior to specialist consultations, and denying payment for services that do not meet established evidence-based guidelines. This patient's chronic conditions require daily medications, regular physician visits, and serial laboratory testing. In addition, diabetes can increase the risk of additional complications, increase utilization, and require specialty consultation. As a result, an HMO plan may provide this patient with the lowest monthly cost as long as she is willing to see only providers within the limited panel approved by the plan."
+     "text": "To keep expenditures below the total income from premiums, health insurance plans must limit total expenses (utilization) by enrolled patients. The 2 main strategies include increasing the patient's share of cost for the services they receive (eg, copayments, deductibles) and limiting the range of services patients may receive."
+    },
+    {
+     "type": "paragraph",
+     "text": "A health maintenance organization (HMO) insurance plan has low monthly premiums, low copayments and deductibles, and low total cost for the patient. HMOs reduce utilization by confining patients to a limited panel of providers, requiring referrals from a primary care provider prior to specialist consultations, and denying payment for services that do not meet established evidence-based guidelines."
+    },
+    {
+     "type": "paragraph",
+     "text": "This patient's chronic conditions require daily medications, regular physician visits, and serial laboratory testing. In addition, diabetes can increase the risk of additional complications, increase utilization, and require specialty consultation. As a result, an HMO plan may provide this patient with the lowest monthly cost as long as she is willing to see only providers within the limited panel approved by the plan."
     },
     {
      "type": "paragraph",
@@ -1064,11 +1081,11 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice C) Medicare is a federal health insurance program for patients who are age ~65, disabled, or have endstage renal disease."
+     "text": "(Choice C) Medicare is a federal health insurance program for patients who are age ≥65, disabled, or have end-stage renal disease."
     },
     {
      "type": "paragraph",
-     "text": "(Choice D) Point-of-service (POS) plans are similar to HMOs in that they require patients to have a primary care provider and obtain referrals for specialty consultations. However, unlike an HMO, patients may also see out-ofnetwork providers. POS plans typically have higher premiums than HMOs and significant costs if patients choose to see out-of-network specialists."
+     "text": "(Choice D) Point-of-service (POS) plans are similar to HMOs in that they require patients to have a primary care provider and obtain referrals for specialty consultations. However, unlike an HMO, patients may also see out-of-network providers. POS plans typically have higher premiums than HMOs and significant costs if patients choose to see out-of-network specialists."
     },
     {
      "type": "paragraph",
@@ -1086,11 +1103,9 @@
      "E": 13
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …rance program for patients who are age ~65, disabled , or hav…"
-   ],
-   "source_record_sha256": "b17f75aeb9cd9d3a355e0e997ba369d9edcc82421e656a47a2929f5c7f32b160"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "aa970a704d5487ebedfe5ba1a38327344485754ca985d24c32956b32f8a71360"
   },
   {
    "id": "UWORLD_10468",

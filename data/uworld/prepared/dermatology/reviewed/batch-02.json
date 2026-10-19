@@ -24,7 +24,7 @@
     },
     {
      "letter": "C",
-     "text": "c Sturge-Weber syndrome",
+     "text": "Sturge-Weber syndrome",
      "selection_percent": 15
     },
     {
@@ -63,7 +63,7 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice A) Von Recklinghausen's disease, or neurofibromatosis type 1 (NF1 ), is an inherited peripheral nervous system tumor syndrome. Patients develop neurofibromas, optic nerve gliomas, Lisch nodules (pigmented nodules of the iris), and caf~ au lait spots (hyperpigmented cutaneous macules)."
+     "text": "(Choice A) Von Recklinghausen's disease, or neurofibromatosis type 1 (NF1), is an inherited peripheral nervous system tumor syndrome. Patients develop neurofibromas, optic nerve gliomas, Lisch nodules (pigmented nodules of the iris), and café au lait spots (hyperpigmented cutaneous macules)."
     },
     {
      "type": "paragraph",
@@ -94,11 +94,9 @@
      "F": 60
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …pigmented nodules of the iris), and caf~ au lait spots (hyper…"
-   ],
-   "source_record_sha256": "4546ebef4f160eadceee2fa8ece22506bc702c13accbc9c084ee02b05174478d"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "b87538632d76711f81c86e2407d7c92e5906a40024afe8ffe916b840ade47d17"
   },
   {
    "id": "UWORLD_22599",
@@ -370,7 +368,7 @@
     319,
     320
    ],
-   "question": "A 60-year-old woman comes to the office due to 10 days of diffuse itching. A rash began on her hands and quickly spread to involve her wrists, arms, and axillae. The patient has difficulty sleeping and complains of intense itching in these areas. She works in a day care center and primarily cares for children age 2-5. The patient has no other medical conditions and takes no medications. Vital signs are normal. BMI is 24 kg/m. Skin examination shows small, erythematous papules on the palms with excoriations, scattered vesicles, and pustules on the finger webs, palms, and wrist creases, as seen in the image below. She has similar lesions in the axillary skin folds bilaterally. The remainder of the examination is within normal limits. Which of the following is the most likely finding on skin sampling of this patient's lesions?",
+   "question": "A 60-year-old woman comes to the office due to 10 days of diffuse itching. A rash began on her hands and quickly spread to involve her wrists, arms, and axillae. The patient has difficulty sleeping and complains of intense itching in these areas. She works in a day care center and primarily cares for children age 2-5. The patient has no other medical conditions and takes no medications. Vital signs are normal. BMI is 24 kg/m². Skin examination shows small, erythematous papules on the palms with excoriations, scattered vesicles, and pustules on the finger webs, palms, and wrist creases, as seen in the image below. She has similar lesions in the axillary skin folds bilaterally. The remainder of the examination is within normal limits. Which of the following is the most likely finding on skin sampling of this patient's lesions?",
    "options": [
     {
      "letter": "A",
@@ -384,16 +382,21 @@
     },
     {
      "letter": "C",
-     "text": "Multinucleated giant cells 0 D Necrotic keratinocytes in the epidermis",
+     "text": "Multinucleated giant cells",
      "selection_percent": null
     },
     {
      "letter": "D",
+     "text": "Necrotic keratinocytes in the epidermis",
+     "selection_percent": null
+    },
+    {
+     "letter": "E",
      "text": "Sarcoptes scabiei mite and mite eggs",
      "selection_percent": null
     }
    ],
-   "correct_label": "D",
+   "correct_label": "E",
    "question_blocks": [
     {
      "type": "figure",
@@ -520,7 +523,15 @@
     },
     {
      "type": "paragraph",
-     "text": "This patient's rapidly spreading pruritic rash with erythematous papules and excoriations is suggestive of scabies, or infestation by the Sarcoptes scabiei mite. The mite spreads through direct person-to-person contact and burrows into the skin. A history of working in a setting with close interpersonal contact (eg, day care center) is common. The manifestations of scabies are due to a delayed type IV hypersensitivity reaction to the mite, mite feces, and mite eggs. Patients have an intensely pruritic rash that is often worse at night. The characteristic distribution includes the flexor surfaces of the wrist, lateral surfaces of the fingers, and finger webs; it also commonly involves the axillae and extensor elbow surfaces. Skin examination usually shows excoriations with small, crusted, red papules scattered around the affected areas; vesicles, pustules, or wheals may also be present. Linear burrows are the most specific finding but are often obscured by excoriations. Diagnosis is usually clinical but can be confirmed by skin scrapings showing mites, ova, and feces under light microscopy."
+     "text": "This patient's rapidly spreading pruritic rash with erythematous papules and excoriations is suggestive of scabies, or infestation by the Sarcoptes scabiei mite. The mite spreads through direct person-to-person contact and burrows into the skin. A history of working in a setting with close interpersonal contact (eg, day care center) is common."
+    },
+    {
+     "type": "paragraph",
+     "text": "The manifestations of scabies are due to a delayed type IV hypersensitivity reaction to the mite, mite feces, and mite eggs. Patients have an intensely pruritic rash that is often worse at night. The characteristic distribution includes the flexor surfaces of the wrist, lateral surfaces of the fingers, and finger webs; it also commonly involves the axillae and extensor elbow surfaces. Skin examination usually shows excoriations with small, crusted, red papules scattered around the affected areas; vesicles, pustules, or wheals may also be present. Linear burrows are the most specific finding but are often obscured by excoriations."
+    },
+    {
+     "type": "paragraph",
+     "text": "Diagnosis is usually clinical but can be confirmed by skin scrapings showing mites, ova, and feces under light microscopy."
     },
     {
      "type": "paragraph",
@@ -546,14 +557,13 @@
      "A": null,
      "B": null,
      "C": null,
-     "D": null
+     "D": null,
+     "E": null
     }
    },
-   "status": "blocked",
-   "issues": [
-    "choice letters disagree with order: D"
-   ],
-   "source_record_sha256": "08d8f3fb45de1cbe69dc0668b5791fa7ede12c2a94e14eee91fc1356876d4263"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "5901115322668bcf8b72c97ffac03ca55dd0187e875a76f07589baa0379b2722"
   },
   {
    "id": "UWORLD_11852",
@@ -2171,7 +2181,7 @@
     332,
     333
    ],
-   "question": "A67-year-old man comes to the office after he noticed several nodules in his left axilla. He has a history of malignant melanoma on his upper back, which was treated with wide surgical excision 4 years ago. The patient undergoes biopsy of an axillary lesion, and histopathology reveals melanoma recurrence. Subsequent whole-body positron emission scan shows diffuse metastatic disease involving the lungs, liver, and left axillary nodes. Checkpoint inhibitor therapy with pembrolizumab is initiated, which leads to significant reduction in the size of the axillary nodules and metastatic lesions. Which of the following best correlates with the treatment response in this patient?",
+   "question": "A 67-year-old man comes to the office after he noticed several nodules in his left axilla. He has a history of malignant melanoma on his upper back, which was treated with wide surgical excision 4 years ago. The patient undergoes biopsy of an axillary lesion, and histopathology reveals melanoma recurrence. Subsequent whole-body positron emission scan shows diffuse metastatic disease involving the lungs, liver, and left axillary nodes. Checkpoint inhibitor therapy with pembrolizumab is initiated, which leads to significant reduction in the size of the axillary nodules and metastatic lesions. Which of the following best correlates with the treatment response in this patient?",
    "options": [
     {
      "letter": "A",
@@ -2185,7 +2195,7 @@
     },
     {
      "letter": "C",
-     "text": "lschemic tumor necrosis",
+     "text": "Ischemic tumor necrosis",
      "selection_percent": 16
     },
     {
@@ -2215,7 +2225,11 @@
     },
     {
      "type": "paragraph",
-     "text": "Neoplastic cells produce proteins not found in healthy cells. Pieces of these proteins (neoantigens) are displayed on MHC class I molecules on the cell surface and are subsequently recognized by cytotoxic T cells as \"nonself\" (leading to cellular apoptosis). However, neoplastic cells generally accumulate genetic mutations that allow them to thwart the cytotoxic T-cell response and evade detection/destruction. One common mechanism is the overexpression of programmed death-ligand 1 (PD-L 1) on the cancer cell surface; this ligand binds to the PD-1 receptor on cytotoxic T cells and suppresses their ability to induce apoptosis (T-cell exhaustion). Treatment with monoclonal antibodies that block PD-1 such as pembrolizumab have shown promise in cancers that overexpress PD-L1 (eg, melanoma, renal cell carcinoma). Blockade of PD-1 restores the cytotoxic T-cell response (disinhibition), which promotes tumor cell apoptosis. Patients with advanced melanoma and other susceptible malignancies often have a drastic clinical response (eg, tumor regression, long-term remission) to PD- 1 antagonists."
+     "text": "Neoplastic cells produce proteins not found in healthy cells. Pieces of these proteins (neoantigens) are displayed on MHC class I molecules on the cell surface and are subsequently recognized by cytotoxic T cells as \"nonself\" (leading to cellular apoptosis). However, neoplastic cells generally accumulate genetic mutations that allow them to thwart the cytotoxic T-cell response and evade detection/destruction. One common mechanism is the overexpression of programmed death-ligand 1 (PD-L1) on the cancer cell surface; this ligand binds to the PD-1 receptor on cytotoxic T cells and suppresses their ability to induce apoptosis (T-cell exhaustion)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Treatment with monoclonal antibodies that block PD-1 such as pembrolizumab have shown promise in cancers that overexpress PD-L1 (eg, melanoma, renal cell carcinoma). Blockade of PD-1 restores the cytotoxic T-cell response (disinhibition), which promotes tumor cell apoptosis. Patients with advanced melanoma and other susceptible malignancies often have a drastic clinical response (eg, tumor regression, long-term remission) to PD-1 antagonists."
     },
     {
      "type": "paragraph",
@@ -2230,7 +2244,7 @@
      "text": "(Choice C) Angiogenesis inhibitors (eg, bevacizumab) are used to prevent neovascularization of growing tumors, leading to ischemia and tumor necrosis. PD-1 inhibitors cause cytotoxic T-cell activation, leading to increased apoptosis of tumor cells; they do not induce ischemic necrosis."
     }
    ],
-   "educational_objective": "Programmed-death receptor 1 (PD-1) is a checkpoint inhibitor that downregulates the cytotoxic T-cell response. Neoplastic cells often exploit this receptor via the overexpression of PD-1 ligand. PD-1 receptor inhibitors {eg, Pembrolizumab) restore the T-cell response, allowing cytotoxic T cells to invade the tumor and induce apoptosis of neoplastic cells.",
+   "educational_objective": "Programmed-death receptor 1 (PD-1) is a checkpoint inhibitor that downregulates the cytotoxic T-cell response. Neoplastic cells often exploit this receptor via the overexpression of PD-1 ligand. PD-1 receptor inhibitors (eg, Pembrolizumab) restore the T-cell response, allowing cytotoxic T cells to invade the tumor and induce apoptosis of neoplastic cells.",
    "statistics": {
     "answered_correctly_percent": 57,
     "selection_percent": {
@@ -2241,11 +2255,9 @@
      "E": 5
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: … PD-1 ligand. PD-1 receptor inhibitors {eg, Pembrolizumab) re…"
-   ],
-   "source_record_sha256": "b0417616e10e455e9c55269b76bf162ad017c6962b72533911684fd4ff29ea88"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "1c67bd827660d33d4ece7ac71dbca5b3f062c4d0c7a572ee5f8635a0995d273e"
   },
   {
    "id": "UWORLD_22600",
@@ -2397,11 +2409,19 @@
     },
     {
      "type": "paragraph",
-     "text": "This patient's pearly nodule with telangiectasias on the inner canthus is most consistent with basal cell carcinoma (BCC), a common form of skin cancer that most often occurs on the face; risk factors include fair skin and a history of heavy sun exposure (eg, while constructing homes). BCCs arise from keratinocytes in the basal layer of the epidermis or hair follicle, most commonly as a result of ultraviolet radiation-induced mutations in the hedgehog signaling pathway (causing hyperactivation and uncontrolled cell proliferation) or the TP53 tumor suppressor gene (causing inactivation). Microscopically, the malignant basaloid cells characteristically form nests or strands in the dermis, with cells at the periphery often displaying parallel alignment (ie, peripheral palisading). As in this patient, BCC frequently appears as a pink or skin-colored papule, often with a pearly or translucent quality and/or central telangiectatic vessels. Some lesions may develop a raised border and central ulceration. BCCs rarely metastasize but may grow locally and invade nearby tissues and structures."
+     "text": "This patient's pearly nodule with telangiectasias on the inner canthus is most consistent with basal cell carcinoma (BCC), a common form of skin cancer that most often occurs on the face; risk factors include fair skin and a history of heavy sun exposure (eg, while constructing homes)."
     },
     {
      "type": "paragraph",
-     "text": "(Choice A) Dermatofibromas (ie, benign fibrous histiocytomas) represent a benign proliferation of dermal fibroblasts and histiocytes. They commonly appear as small, firm, hyperpigmented, solitary papules/nodules that characteristically dimple when pinched. In contrast to BCC, they typically appear on the lower extremities {vs the face) and lack central telangiectasias."
+     "text": "BCCs arise from keratinocytes in the basal layer of the epidermis or hair follicle, most commonly as a result of ultraviolet radiation-induced mutations in the hedgehog signaling pathway (causing hyperactivation and uncontrolled cell proliferation) or the TP53 tumor suppressor gene (causing inactivation). Microscopically, the malignant basaloid cells characteristically form nests or strands in the dermis, with cells at the periphery often displaying parallel alignment (ie, peripheral palisading)."
+    },
+    {
+     "type": "paragraph",
+     "text": "As in this patient, BCC frequently appears as a pink or skin-colored papule, often with a pearly or translucent quality and/or central telangiectatic vessels. Some lesions may develop a raised border and central ulceration. BCCs rarely metastasize but may grow locally and invade nearby tissues and structures."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice A) Dermatofibromas (ie, benign fibrous histiocytomas) represent a benign proliferation of dermal fibroblasts and histiocytes. They commonly appear as small, firm, hyperpigmented, solitary papules/nodules that characteristically dimple when pinched. In contrast to BCC, they typically appear on the lower extremities (vs the face) and lack central telangiectasias."
     },
     {
      "type": "paragraph",
@@ -2418,7 +2438,7 @@
    ],
    "educational_objective": "Basal cell carcinomas arise from keratinocytes in the basal layer of the epidermis or hair follicle. They most commonly occur on the face and often appear as pearly or translucent, pink or skin-colored papules with central telangiectatic vessels.",
    "statistics": {
-    "answered_correctly_percent": null,
+    "answered_correctly_percent": 48,
     "selection_percent": {
      "A": 16,
      "B": 21,
@@ -2427,11 +2447,9 @@
      "E": 10
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …ically appear on the lower extremities {vs the face) and lack…"
-   ],
-   "source_record_sha256": "e657cdaac8dcc736721b85bfc4f898d43ae1bd0039a5db7b431e94567dc87387"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "fd1011d7f6b4b6ae23c832c05a51963cfdb1a61a4280a51ef73ef8e963cfba5a"
   },
   {
    "id": "UWORLD_1761",
@@ -2967,7 +2985,7 @@
    "options": [
     {
      "letter": "A",
-     "text": "CDS· lymphocyte-mediated melanocyte apoptosis",
+     "text": "CD8+ lymphocyte–mediated melanocyte apoptosis",
      "selection_percent": 4
     },
     {
@@ -2977,7 +2995,7 @@
     },
     {
      "letter": "C",
-     "text": "c Disrupted keratinocyte melanin uptake",
+     "text": "Disrupted keratinocyte melanin uptake",
      "selection_percent": 5
     },
     {
@@ -3044,11 +3062,15 @@
     },
     {
      "type": "paragraph",
-     "text": "This patient with diffuse lack of pigmentation and light sensitivity likely has oculocutaneous albinism (OCA), a condition characterized by impaired production or distribution of melanin, particularly eumelanin. Isolated OCA is most often caused by autosomal recessive mutations causing dysfunctional melanin synthesis within melanosomes (most commonly tyrosinase or P protein [regulates melanosome pH]), resulting in low or often completely absent melanin production. Characteristic findings of OCA include diffuse white hair and skin and light irides. Photophobia is common because translucent irides allow in excess light. Because eumelanin protects against ultraviolet damage, patients with OCA are predisposed to sunburns, as in this boy. Patients are also at increased risk for skin cancer, particularly squamous cell carcinoma."
+     "text": "This patient with diffuse lack of pigmentation and light sensitivity likely has oculocutaneous albinism (OCA), a condition characterized by impaired production or distribution of melanin, particularly eumelanin. Isolated OCA is most often caused by autosomal recessive mutations causing dysfunctional melanin synthesis within melanosomes (most commonly tyrosinase or P protein [regulates melanosome pH]), resulting in low or often completely absent melanin production."
     },
     {
      "type": "paragraph",
-     "text": "(Choice A) The pathogenesis of vitiligo is multifactorial but likely involves COB· lymphocyte-mediated melanocyte apoptosis. Patches of depigmentation are characteristic; although the patches can coalesce to cause universal depigmentation, the process is gradual, chronic, and highly unlikely by age 10."
+     "text": "Characteristic findings of OCA include diffuse white hair and skin and light irides. Photophobia is common because translucent irides allow in excess light. Because eumelanin protects against ultraviolet damage, patients with OCA are predisposed to sunburns, as in this boy. Patients are also at increased risk for skin cancer, particularly squamous cell carcinoma."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice A) The pathogenesis of vitiligo is multifactorial but likely involves CD8+ lymphocyte–mediated melanocyte apoptosis. Patches of depigmentation are characteristic; although the patches can coalesce to cause universal depigmentation, the process is gradual, chronic, and highly unlikely by age 10."
     },
     {
      "type": "paragraph",
@@ -3056,7 +3078,7 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice C) Uptake of melanin by keratinocytes is disrupted in Ch~diak-Higashi syndrome due to a defect in organelle trafficking. Patients have OCA, but recurrent pyogenic infections and coagulopathy would also be expected in early childhood."
+     "text": "(Choice C) Uptake of melanin by keratinocytes is disrupted in Chédiak-Higashi syndrome due to a defect in organelle trafficking. Patients have OCA, but recurrent pyogenic infections and coagulopathy would also be expected in early childhood."
     },
     {
      "type": "paragraph",
@@ -3074,11 +3096,9 @@
      "E": 12
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …nin by keratinocytes is disrupted in Ch~diak-Higashi syndrome…"
-   ],
-   "source_record_sha256": "26f5c98622d7200c88e4369acbc6e8a794ce560c136229f5fed921cbc82194f8"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "daebadca941d216b8026c075d959a56d73aa1982155d6f1f9ca858ca9863f3d4"
   },
   {
    "id": "UWORLD_16865",

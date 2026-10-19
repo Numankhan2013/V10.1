@@ -293,7 +293,7 @@
     40,
     41
    ],
-   "question": "A 29-year-old woman comes to the office with a 2-month history of right lower quadrant pain and intermittent diarrhea. Vital signs are normal. The examination is unremarkable except for right lower quadrant tenderness. After confirmatory testing, the patient is given a delayed ileal-release medication that works by binding to a cytosolic receptor, translocating to the nucleus, and inhibiting nuclear factor-kappa-B (NF-KB). The patient is most likely being treated with which of the following medications?",
+   "question": "A 29-year-old woman comes to the office with a 2-month history of right lower quadrant pain and intermittent diarrhea. Vital signs are normal. The examination is unremarkable except for right lower quadrant tenderness. After confirmatory testing, the patient is given a delayed ileal-release medication that works by binding to a cytosolic receptor, translocating to the nucleus, and inhibiting nuclear factor-kappa-B (NF-κB). The patient is most likely being treated with which of the following medications?",
    "options": [
     {
      "letter": "A",
@@ -307,7 +307,7 @@
     },
     {
      "letter": "C",
-     "text": "lnfliximab",
+     "text": "Infliximab",
      "selection_percent": 17
     },
     {
@@ -337,22 +337,30 @@
     },
     {
      "type": "paragraph",
-     "text": "This patient has chronic right lower abdominal pain with tenderness and intermittent diarrhea, symptoms that raise suspicion for Crohn disease with ongoing active inflammation. Patients with mild Crohn disease (eg, limited area of inflammation, no evidence of systemic involvement) are often treated with a targeted-release glucocorticoid such as budesonide to reduce infl ammation and induce disease remission. Glucocorticoids, like many other lipid-derived hormones (eg, progesterone, estrogen), bind to a cytosolic receptor rather than a cell surface receptor. The glucocorticoid-receptor complex can then translocate into the nucleus, bind to the relevant DNA regions, and cause a tissue-specifi c alteration in transcription. In immune cells, the effects of glucocorticoids include inhibition of proinflammatory transcription factors such as nuclear factorkappa-8 (NF-KB), which results in reduced expression of cytokines and inflammatory mediators (eg, TNF-alpha) along with decreased immune cell survival and propagation. Oral budesonide (often given in a delayed-release preparation that targets the ileum) is especially useful in Crohn disease because it has high topical potency and less systemic adverse effects than other glucocorticoids (eg, prednisone) due to high first-pass metabolism."
+     "text": "This patient has chronic right lower abdominal pain with tenderness and intermittent diarrhea, symptoms that raise suspicion for Crohn disease with ongoing active inflammation. Patients with mild Crohn disease (eg, limited area of inflammation, no evidence of systemic involvement) are often treated with a targeted-release glucocorticoid such as budesonide to reduce inflammation and induce disease remission."
     },
     {
      "type": "paragraph",
-     "text": "(Choices A and E) Azathioprine and mycophenolate can be used to reduce infl ammation in patients with moderate-severe Crohn disease by inhibition of de novo purine synthesis, which immune cells (eg, Band T cells) are especially dependent on during proliferation. Both agents inhibit key enzymes in the purine synthesis pathway (which occurs in the cytosol) rather than inhibiting transcription factors."
+     "text": "Glucocorticoids, like many other lipid-derived hormones (eg, progesterone, estrogen), bind to a cytosolic receptor rather than a cell surface receptor. The glucocorticoid-receptor complex can then translocate into the nucleus, bind to the relevant DNA regions, and cause a tissue-specific alteration in transcription. In immune cells, the effects of glucocorticoids include inhibition of proinflammatory transcription factors such as nuclear factor-kappa-B (NF-κB), which results in reduced expression of cytokines and inflammatory mediators (eg, TNF-alpha) along with decreased immune cell survival and propagation."
     },
     {
      "type": "paragraph",
-     "text": "(Choice C) Although infli ximab can be used to induce remission in patients with moderate-severe Crohn disease, it is a monoclonal antibody that reduces inflammation by binding to and inhibiting the proinflammatory effects of tumor necrosis factor-alpha (TNF-alpha), a cytokine that is primarily found extracellularly."
+     "text": "Oral budesonide (often given in a delayed-release preparation that targets the ileum) is especially useful in Crohn disease because it has high topical potency and less systemic adverse effects than other glucocorticoids (eg, prednisone) due to high first-pass metabolism."
     },
     {
      "type": "paragraph",
-     "text": "(Choice D) Methotrexate and its breakdown products are fo lic acid analogues that can reduce inflammation by competitively inhibiting multiple fo late-dependent enzymes rather than inhibiting transcription factors."
+     "text": "(Choices A and E) Azathioprine and mycophenolate can be used to reduce inflammation in patients with moderate-severe Crohn disease by inhibition of de novo purine synthesis, which immune cells (eg, B and T cells) are especially dependent on during proliferation. Both agents inhibit key enzymes in the purine synthesis pathway (which occurs in the cytosol) rather than inhibiting transcription factors."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice C) Although infliximab can be used to induce remission in patients with moderate-severe Crohn disease, it is a monoclonal antibody that reduces inflammation by binding to and inhibiting the proinflammatory effects of tumor necrosis factor-alpha (TNF-alpha), a cytokine that is primarily found extracellularly."
+    },
+    {
+     "type": "paragraph",
+     "text": "(Choice D) Methotrexate and its breakdown products are folic acid analogues that can reduce inflammation by competitively inhibiting multiple folate-dependent enzymes rather than inhibiting transcription factors."
     }
    ],
-   "educational_objective": "Budesonide, like other glucocorticoids, reduces inflammation by binding to a cytosolic receptor, translocating into the nucleus, and inhibiting proinflammatory transcription factors such as nuclear factor-kappa-B (NF-KB). It is especially useful in reducing transmural bowel inflammation in patients with Crohn disease because it has high",
+   "educational_objective": "Budesonide, like other glucocorticoids, reduces inflammation by binding to a cytosolic receptor, translocating into the nucleus, and inhibiting proinflammatory transcription factors such as nuclear factor-kappa-B (NF-κB). It is especially useful in reducing transmural bowel inflammation in patients with Crohn disease because it has high topical potency and limited systemic adverse effects due to high first-pass metabolism.",
    "statistics": {
     "answered_correctly_percent": 67,
     "selection_percent": {
@@ -363,13 +371,9 @@
      "E": 8
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …©UWortd This patient h…",
-    "UWorld screenshot text leaked: UWORLD_18802 explanation 1",
-    "screenshot chrome removed automatically"
-   ],
-   "source_record_sha256": "086f0109ade57aec9a037acc7ef50850e1e246f2ddf14d486852ebd6d66a14a4"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "34ab0497575d495bc1b3be80be36cadf34603c3f274200b33232dd38ffb1d8d2"
   },
   {
    "id": "UWORLD_20767",
@@ -1843,7 +1847,15 @@
     },
     {
      "type": "paragraph",
-     "text": "Low serum levels of C1 esterase inhibitor (and its substrate C4) are diagnostic of hereditary angioedema, an inherited autosomal dominant condition that causes episodes of painless, non-pitting, well-circumscribed edema. The face, neck, lips, and tongue are most commonly affected, but internal organs may also be involved. Angioedema affecting the tracheobronchial tree can cause respiratory obstruction and is potentially fatal. Angioedema of the gastrointestinal tract manifests with abdominal pain, vomiting, and diarrhea. Normally, C1 esterase inhibitor suppresses activation of the C1 complement component and therefore the rest of the classic complement pathway. It also inactivates kallikrein, which catalyzes the conversion of kininogen to bradykinin. In hereditary angioedema, low C1 esterase inhibitor activity leads to an increase in active kallikrein and bradykinin levels. Bradykinin (along with C3a and C5a) mediate angioedema by increasing vasodilation and vascular permeability. Angioedema may also occur as a side effect of angiotensin-converting enzyme (ACE) inhibitor medications. ACE normally catalyzes the conversion of angiotensin I into angiotensin II. ACE also converts bradykinin into inactive metabolites. ACE inhibitors can therefore lead to bradykinin accumulation. These medications should not be used in patients with hereditary angioedema as they may precipitate disease episodes."
+     "text": "Low serum levels of C1 esterase inhibitor (and its substrate C4) are diagnostic of hereditary angioedema, an inherited autosomal dominant condition that causes episodes of painless, non-pitting, well-circumscribed edema. The face, neck, lips, and tongue are most commonly affected, but internal organs may also be involved. Angioedema affecting the tracheobronchial tree can cause respiratory obstruction and is potentially fatal. Angioedema of the gastrointestinal tract manifests with abdominal pain, vomiting, and diarrhea."
+    },
+    {
+     "type": "paragraph",
+     "text": "Normally, C1 esterase inhibitor suppresses activation of the C1 complement component and therefore the rest of the classic complement pathway. It also inactivates kallikrein, which catalyzes the conversion of kininogen to bradykinin. In hereditary angioedema, low C1 esterase inhibitor activity leads to an increase in active kallikrein and bradykinin levels. Bradykinin (along with C3a and C5a) mediate angioedema by increasing vasodilation and vascular permeability."
+    },
+    {
+     "type": "paragraph",
+     "text": "Angioedema may also occur as a side effect of angiotensin-converting enzyme (ACE) inhibitor medications. ACE normally catalyzes the conversion of angiotensin I into angiotensin II. ACE also converts bradykinin into inactive metabolites. ACE inhibitors can therefore lead to bradykinin accumulation. These medications should not be used in patients with hereditary angioedema as they may precipitate disease episodes."
     },
     {
      "type": "paragraph",
@@ -1855,7 +1867,7 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice D) Metoprolol is a selective ~1 -adrenergic blocker with few side effects. It may cause heart block in patients with conduction system disease and bronchoconstriction in asthmatic patients (rare due to ~1 selectivity but can still occur)."
+     "text": "(Choice D) Metoprolol is a selective β1-adrenergic blocker with few side effects. It may cause heart block in patients with conduction system disease and bronchoconstriction in asthmatic patients (rare due to β1 selectivity but can still occur)."
     },
     {
      "type": "paragraph",
@@ -1864,7 +1876,7 @@
    ],
    "educational_objective": "Angioedema can be hereditary (autosomal dominant) or acquired (associated with angiotensin-converting enzyme [ACE] inhibitor treatment). In hereditary angioedema, low C1 esterase inhibitor activity leads to increases in bradykinin activity. ACE inhibitors should not be used in these patients.",
    "statistics": {
-    "answered_correctly_percent": null,
+    "answered_correctly_percent": 62,
     "selection_percent": {
      "A": 62,
      "B": 4,
@@ -1873,11 +1885,9 @@
      "E": 9
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …(Choice D) Metoprolol is a selective ~1 -adrenergic blocker…"
-   ],
-   "source_record_sha256": "d6eb592eaaa8dde391e985ff0b8c049f6f7058b5f81a33e10af4f3e3b8563d71"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "0471837e53b7da1a190890e86343d54ed0810241d2730c7140d99b66553967c4"
   },
   {
    "id": "UWORLD_19115",
@@ -1888,7 +1898,7 @@
     133,
     134
    ],
-   "question": "A 42-year-old woman is hospitalized due to fever and chills after a hemodialysis session. The patient has a history of end-stage kidney disease due to lgA nephropathy and recently began intermittent dialysis through a tunneled catheter. Medical history includes depression, for which she takes citalopram. Temperature is 38.4 C (101 .1 F), blood pressure is 130/80 mmHg, and pulse is 94/min. There is no erythema or tenderness at the catheter site, and the remainder of the physical examination shows no abnormalities. Blood cultures are obtained, and empiric vancomycin and ceftazidime are initiated. While receiving the intravenous vancomycin infusion, the patient reports a burning, itching sensation. Vital signs are unchanged, but repeat examination shows an erythematous rash involving the face and neck. She reports no history of drug allergy but has never received these antibiotics. Which of the following is the most likely underlying cause of this patient's current condition?",
+   "question": "A 42-year-old woman is hospitalized due to fever and chills after a hemodialysis session. The patient has a history of end-stage kidney disease due to IgA nephropathy and recently began intermittent dialysis through a tunneled catheter. Medical history includes depression, for which she takes citalopram. Temperature is 38.4 C (101.1 F), blood pressure is 130/80 mmHg, and pulse is 94/min. There is no erythema or tenderness at the catheter site, and the remainder of the physical examination shows no abnormalities. Blood cultures are obtained, and empiric vancomycin and ceftazidime are initiated. While receiving the intravenous vancomycin infusion, the patient reports a burning, itching sensation. Vital signs are unchanged, but repeat examination shows an erythematous rash involving the face and neck. She reports no history of drug allergy but has never received these antibiotics. Which of the following is the most likely underlying cause of this patient's current condition?",
    "options": [
     {
      "letter": "A",
@@ -1907,7 +1917,7 @@
     },
     {
      "letter": "D",
-     "text": "Drug-specifi c antibodies",
+     "text": "Drug-specific antibodies",
      "selection_percent": 3
     },
     {
@@ -1932,7 +1942,11 @@
     },
     {
      "type": "paragraph",
-     "text": "This patient was given vancomycin and shortly thereafter developed burning, itching, and an erythematous rash on the face and neck, raising strong suspicion for vancomycin infusion reaction (VIR). VIR is a nonallergic reaction that occurs when vancomycin is infused too rapidly; rapid vancomycin infusion can directly activate mast cells, leading to the release of potent vasoactive mediators (eg, histamine). Manifestations of VIR include flushing, pruritus, and an erythematous rash, which is usually seen on the upper torso, neck, and face. Myalgias and hypotension can occasionally occur. Discontinuation of the vancomycin and administration of diphenhydramine are usually curative. Because VIR is not lgE mediated, it is not a true allergic reaction, so vancomycin infusion can be resumed at a slower rate once symptoms resolve."
+     "text": "This patient was given vancomycin and shortly thereafter developed burning, itching, and an erythematous rash on the face and neck, raising strong suspicion for vancomycin infusion reaction (VIR). VIR is a nonallergic reaction that occurs when vancomycin is infused too rapidly; rapid vancomycin infusion can directly activate mast cells, leading to the release of potent vasoactive mediators (eg, histamine)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Manifestations of VIR include flushing, pruritus, and an erythematous rash, which is usually seen on the upper torso, neck, and face. Myalgias and hypotension can occasionally occur. Discontinuation of the vancomycin and administration of diphenhydramine are usually curative. Because VIR is not IgE mediated, it is not a true allergic reaction, so vancomycin infusion can be resumed at a slower rate once symptoms resolve."
     },
     {
      "type": "paragraph",
@@ -1940,14 +1954,14 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choices Band D) Antibody-mediated drug reactions generally require previous exposure (sensitization) to the medication. This patient who has never received vancomycin is unlikely to have an antibody-mediated reaction; furthermore, such reactions are rare with vancomycin and are usually marked by urticaria, pruritus, hypotension, and angioedema."
+     "text": "(Choices B and D) Antibody-mediated drug reactions generally require previous exposure (sensitization) to the medication. This patient who has never received vancomycin is unlikely to have an antibody-mediated reaction; furthermore, such reactions are rare with vancomycin and are usually marked by urticaria, pruritus, hypotension, and angioedema."
     },
     {
      "type": "paragraph",
      "text": "(Choice E) Serotonergic drug interactions are most common with drugs that affect the serotonin system such as selective serotonin reuptake inhibitors, tricyclic antidepressants, and certain antiemetics (eg, ondansetron). However, most cases are marked by alterations in autonomic function (eg, hypertension, tachycardia, hyperthermia), and rash is unusual."
     }
    ],
-   "educational_objective": "Vancomycin infusion reaction (flushing, pruritus, erythematous rash) is the most common adverse reaction to vancomycin. It occurs due to rapid vancomycin infusion, which leads to the direct activation of mast cells (non-lgE mediated) and the subsequent release of vasoactive mediators.",
+   "educational_objective": "Vancomycin infusion reaction (flushing, pruritus, erythematous rash) is the most common adverse reaction to vancomycin. It occurs due to rapid vancomycin infusion, which leads to the direct activation of mast cells (non-IgE mediated) and the subsequent release of vasoactive mediators.",
    "statistics": {
     "answered_correctly_percent": 85,
     "selection_percent": {
@@ -1958,13 +1972,9 @@
      "E": 3
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …©uworkf This patient w…",
-    "UWorld screenshot text leaked: UWORLD_19115 explanation 1",
-    "screenshot chrome removed automatically"
-   ],
-   "source_record_sha256": "264745068f9f1fcdfa54ca4c42b207845c95d8c32c53c8506639522bcd2e24f0"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "332f99f2a0a25a36c7acb14ebf1fad3cf86014ad60b9f1c0dca18b7d3a6cdf02"
   },
   {
    "id": "UWORLD_18764",
@@ -2225,7 +2235,15 @@
     },
     {
      "type": "paragraph",
-     "text": "Uric acid Adenosine deaminase (ADA) is a highly conserved enzyme that plays a crucial role in purine metabolism. ADA removes the amino group from adenosine/deoxyadenosine and replaces it with a keto group, leading to the formation of inosine/deoxyinosine. These compounds are subsequently converted into nontoxic waste products (hypoxanthine and uric acid) and are excreted. ADA inhibition results in the metabolism of deoxyadenosine through an alternate pathway, whereby it is phosphorylated into the toxic metabolite deoxyadenosine triphosphate. Elevated intracellular levels of deoxyadenosine triphosphate activate the caspase system and also inhibit ribonucleotide reductase from converting ribonucleotides to deoxyribonucleotides, which depletes cells of DNA precursors. This ultimately results in the inhibition of DNA synthesis/repair and subsequent apoptosis. Although all human cells contain ADA, developing lymphocytes are among the most mitotically active cells; the inhibition/absence of ADA is highly lymphocytotoxic. Therefore, ADA inhibitors ( eg, cladribine) can be used to treat lymphocyte-derived cancers such as hairy cell leukemia. Similarly, children born with mutations to both ADA genes have dramatic 8 - and T-lymphocyte impairment, leading to the most severe form of severe combined immunodeficiency."
+     "text": "Adenosine deaminase (ADA) is a highly conserved enzyme that plays a crucial role in purine metabolism. ADA removes the amino group from adenosine/deoxyadenosine and replaces it with a keto group, leading to the formation of inosine/deoxyinosine. These compounds are subsequently converted into nontoxic waste products (hypoxanthine and uric acid) and are excreted."
+    },
+    {
+     "type": "paragraph",
+     "text": "ADA inhibition results in the metabolism of deoxyadenosine through an alternate pathway, whereby it is phosphorylated into the toxic metabolite deoxyadenosine triphosphate. Elevated intracellular levels of deoxyadenosine triphosphate activate the caspase system and also inhibit ribonucleotide reductase from converting ribonucleotides to deoxyribonucleotides, which depletes cells of DNA precursors. This ultimately results in the inhibition of DNA synthesis/repair and subsequent apoptosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Although all human cells contain ADA, developing lymphocytes are among the most mitotically active cells; the inhibition/absence of ADA is highly lymphocytotoxic. Therefore, ADA inhibitors (eg, cladribine) can be used to treat lymphocyte-derived cancers such as hairy cell leukemia. Similarly, children born with mutations to both ADA genes have dramatic B- and T-lymphocyte impairment, leading to the most severe form of severe combined immunodeficiency."
     },
     {
      "type": "paragraph",
@@ -2233,7 +2251,7 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice D) Small cell lung cancer is a fast-growing neuroendocrine tumor that is most common in smokers. Fastgrowing tumors are more likely to express elevated levels of ADA; however, ADA inhibition is primarily cytotoxic to lymphocyte-derived tumors and has not been shown to be of significant benefit to other cancer types."
+     "text": "(Choice D) Small cell lung cancer is a fast-growing neuroendocrine tumor that is most common in smokers. Fast-growing tumors are more likely to express elevated levels of ADA; however, ADA inhibition is primarily cytotoxic to lymphocyte-derived tumors and has not been shown to be of significant benefit to other cancer types."
     }
    ],
    "educational_objective": "Adenosine deaminase (ADA) inhibition/absence is highly lymphocytotoxic. Medications that block ADA are used to treat lymphocyte-derived cancers. Inherited gene mutations in ADA lead to the autosomal recessive disease of severe combined immunodeficiency.",
@@ -2247,13 +2265,9 @@
      "E": 5
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …Uric ac id ©UWorld Adenosine deam…",
-    "UWorld screenshot text leaked: UWORLD_15293 explanation 1",
-    "screenshot chrome removed automatically"
-   ],
-   "source_record_sha256": "52f3129d3de6e479ba7c9384be9403ff7badf6a6fe1fadd5ac9e54483ee592fe"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "034c7f0183c1f74f0c6fc32671f409be5e450fb672cb768666ee6f19ef3bf6a0"
   },
   {
    "id": "UWORLD_8384",
@@ -2282,7 +2296,7 @@
     },
     {
      "letter": "D",
-     "text": "lsotype switching",
+     "text": "Isotype switching",
      "selection_percent": 3
     },
     {
@@ -2307,26 +2321,26 @@
     },
     {
      "type": "paragraph",
-     "text": "© UWorld Host defense against mycobacterial infections depends on the ability of macrophages to sequester mycobacteria in granulomas and directly kill the bacteria in phagosomes. Infected macrophages produce IL-12, which stimulates T cells and natural killer cells to produce interferon-y (IFN-y). Binding of IFN-y to its receptor on a macrophage causes transcription of IFN-y-regulated genes through activation of the JAK-STAT signaling pathway. The result is upregulation of IL-12 production, enhanced mycobacterial intracellular killing in phagolysosomes, and production of tumor necrosis factor-a (TNF-a) which promotes formation of granulomas. Autosomal recessive defi ciencies of the IFN-y receptor (or other elements of this pathway) result in disseminated mycobacterial disease (or BCG infection if the vaccine is administered) in infancy or early childhood. These patients require lifelong treatment with continuous antimycobacterial antibiotics."
+     "text": "Host defense against mycobacterial infections depends on the ability of macrophages to sequester mycobacteria in granulomas and directly kill the bacteria in phagosomes. Infected macrophages produce IL-12, which stimulates T cells and natural killer cells to produce interferon-γ (IFN-γ). Binding of IFN-γ to its receptor on a macrophage causes transcription of IFN-γ-regulated genes through activation of the JAK-STAT signaling pathway. The result is upregulation of IL-12 production, enhanced mycobacterial intracellular killing in phagolysosomes, and production of tumor necrosis factor-α (TNF-α) which promotes formation of granulomas. Autosomal recessive deficiencies of the IFN-γ receptor (or other elements of this pathway) result in disseminated mycobacterial disease (or BCG infection if the vaccine is administered) in infancy or early childhood. These patients require lifelong treatment with continuous antimycobacterial antibiotics."
     },
     {
      "type": "paragraph",
-     "text": "(Choice A) X-linked agammaglobulinemia (XLA) is an immunodeficiency disorder characterized by significantly reduced mature Bcell production. These patients are deficient in all types of immunoglobulins; predisposing them to recurrent lower respiratory tract infections due to encapsulated bacteria (eg, S. pneumoniae, H. influenzae)."
+     "text": "(Choice A) X-linked agammaglobulinemia (XLA) is an immunodeficiency disorder characterized by significantly reduced mature B cell production. These patients are deficient in all types of immunoglobulins; predisposing them to recurrent lower respiratory tract infections due to encapsulated bacteria (eg, S. pneumoniae, H. influenzae)."
     },
     {
      "type": "paragraph",
-     "text": "(Choice B) Deficiencies of C5-C9, the components of the complement membrane attack complex, can lead to recurrent infections with Neisseria meningifidis or gonorrhoeae."
+     "text": "(Choice B) Deficiencies of C5-C9, the components of the complement membrane attack complex, can lead to recurrent infections with Neisseria meningitidis or gonorrhoeae."
     },
     {
      "type": "paragraph",
-     "text": "(Choice D) lsotype switching is a process that occurs in narve B lymphocytes on initial exposure to antigen. It is dependent on the interaction of CO40 with its ligand and cytokines including IL-4 and IL-5, which promote lgE and lgA class switching, respectively."
+     "text": "(Choice D) Isotype switching is a process that occurs in naive B lymphocytes on initial exposure to antigen. It is dependent on the interaction of CD40 with its ligand and cytokines including IL-4 and IL-5, which promote IgE and IgA class switching, respectively."
     },
     {
      "type": "paragraph",
      "text": "(Choice E) Leukocyte adhesion deficiency is a rare immunodeficiency resulting from a defect in CD18, an integrin component that allows for leukocyte adherence and transmigration through endothelial walls. These patients present with delayed separation of the umbilical cord, poor wound healing, and recurrent cutaneous infections without pus formation."
     }
    ],
-   "educational_objective": "Inherited defects involving the interferon-y signaling pathway result in disseminated mycobacterial disease in infancy or early childhood. Patients require lifelong treatment with antimycobacterial agents.",
+   "educational_objective": "Inherited defects involving the interferon-γ signaling pathway result in disseminated mycobacterial disease in infancy or early childhood. Patients require lifelong treatment with antimycobacterial agents.",
    "statistics": {
     "answered_correctly_percent": 75,
     "selection_percent": {
@@ -2337,11 +2351,9 @@
      "E": 7
     }
    },
-   "status": "blocked",
-   "issues": [
-    "suspicious OCR: …© UWorld Host defense …"
-   ],
-   "source_record_sha256": "c14dc7897e32731617fce6412a94dcd27818258b4cf887d86f205adb2aa23dfe"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "06ecdcf3219bb0947c6a265cedb7022672c23e8449b02874f319539c76ea95cc"
   }
  ]
 }

@@ -4,43 +4,16 @@
  "source_sha256": "e4e1218e96beced952c77a630c01734121f5ef297d2afb6f743902195441d16c",
  "source_pdf": "data/uworld/Source_pdfs/ent/Ear, Nose & Throat (ENT) - 1 block.pdf",
  "page_count": 261,
- "record_count": 38,
+ "record_count": 40,
  "jsonl_file": "normalized.jsonl",
- "jsonl_sha256": "861fde321eebc21bc1965c76a5bb1eed72d6a3ea3f54b18a4ff7ed226cd942b2",
+ "jsonl_sha256": "a9ddecabee59ab05507f1d25d992a21f5e5994225355cf0dfa403e8d5afe844c",
  "source_extraction_method": "uworld-auto-extract",
  "blocks": {
-  "1": 38
+  "1": 40
  },
- "unowned_pages": [
-  {
-   "pages": [
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    11,
-    12,
-    13
-   ],
-   "reason": "choices look like pictures or a table; empty choice text (image option?)"
-  },
-  {
-   "pages": [
-    236,
-    237,
-    238,
-    239,
-    240,
-    241,
-    242
-   ],
-   "reason": "no answered page"
-  }
- ],
+ "unowned_pages": [],
  "figures_dir": "data/uworld/prepared/ent/figures",
- "verified": 29,
- "blocked": 9
+ "verified": 40,
+ "blocked": 0,
+ "reviewed_by": "claude-haiku (flagged questions only)"
 }

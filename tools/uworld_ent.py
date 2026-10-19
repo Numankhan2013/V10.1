@@ -4,7 +4,7 @@ from uworld_auto_collection import AutoCollection
 OWNER = AutoCollection(
     'ent', 'Ear, Nose & Throat',
     'data/uworld/Source_pdfs/ent/Ear, Nose & Throat (ENT) - 1 block.pdf',
-    'e4e1218e96beced952c77a630c01734121f5ef297d2afb6f743902195441d16c', 38, 261, {1: 38})
+    'e4e1218e96beced952c77a630c01734121f5ef297d2afb6f743902195441d16c', 40, 261, {1: 40})
 PDF, PDF_SHA, PAGE_SIZE = OWNER.PDF, OWNER.PDF_SHA, OWNER.PAGE_SIZE
 load_source = OWNER.load_source
 reviewed_documents = OWNER.reviewed_documents

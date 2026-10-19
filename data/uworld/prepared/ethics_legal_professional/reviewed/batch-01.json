@@ -1660,26 +1660,31 @@
    "options": [
     {
      "letter": "A",
-     "text": "Confirm the correct site with the patient (2 1%) @ 8 . Have the anesthesiologist and surgeon verify the surgical site together",
-     "selection_percent": 12
+     "text": "Confirm the correct site with the patient",
+     "selection_percent": 21
     },
     {
      "letter": "B",
+     "text": "Have the anesthesiologist and surgeon verify the surgical site together",
+     "selection_percent": 12
+    },
+    {
+     "letter": "C",
      "text": "Have the head nurse verify the surgical site",
      "selection_percent": 1
     },
     {
-     "letter": "C",
+     "letter": "D",
      "text": "Have the nurse and surgeon verify the surgical site independently",
      "selection_percent": 52
     },
     {
-     "letter": "D",
+     "letter": "E",
      "text": "Have the operating physician verify the surgical site",
      "selection_percent": 11
     }
    ],
-   "correct_label": "C",
+   "correct_label": "D",
    "question_blocks": [],
    "explanation": [
     {
@@ -1703,19 +1708,16 @@
    "statistics": {
     "answered_correctly_percent": 52,
     "selection_percent": {
-     "A": 12,
-     "B": 1,
-     "C": 52,
-     "D": 11
+     "A": 21,
+     "B": 12,
+     "C": 1,
+     "D": 52,
+     "E": 11
     }
    },
-   "status": "blocked",
-   "issues": [
-    "choice letters disagree with order: B,C,D",
-    "correct answer signals disagree: tick C, percent C, text D",
-    "choice percents sum 76"
-   ],
-   "source_record_sha256": "54e1bf8a6de5c7293182a29560a71e0f195319a7ddfb3fd3d0b351b41676d670"
+   "status": "verified",
+   "issues": [],
+   "source_record_sha256": "c237135bef6ae478b4c251a93eb89c6776142fdbc6754a9feec50b6637237747"
   },
   {
    "id": "UWORLD_7733",
