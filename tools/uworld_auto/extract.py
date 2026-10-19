@@ -13,9 +13,11 @@ import re
 import numpy as np
 from difflib import SequenceMatcher
 from regions import exhibit_figure, boxes, images
+import header_id
 
-QID_RE = re.compile(r'Question\s*[Il1|]\s*[dD]\W{0,3}(\d{2,6})')
-ITEM_RE = re.compile(r'[Il1|]tem[\W_]{0,3}(\d{1,3})\s*[o0]\s*[rfl1]\s*(\d{1,3})')
+# Header OCR can be lowercase and drop letters ("question l: 19972", "item 3 or40").
+QID_RE = re.compile(r'Question\s*(?:[Il1|]\s*d?|d)\W{0,3}(\d{2,6})', re.I)
+ITEM_RE = re.compile(r'[Il1|]tem[\W_]{0,3}(\d{1,3})\s*[o0]\s*[rfl1]\s*(\d{1,3})', re.I)
 OPT_RE = re.compile(r'(?:^|\s)([A-J8])\s*[.,]\s+(.*)$')
 PCT_RE = re.compile(r'\(\s*(\d{1,3})\s*%\s*\)?\s*$')
 JUNK_RE = re.compile(r'[»«{}\\~^¥§¤©®|]|(?:\s[^\sA-Za-z0-9(\[\-–—•"“‘\'<>=≥≤±%/+.,]{2,}\s)|\b(?:[b-hj-z]\s){3,}')
@@ -42,6 +44,24 @@ def bands(a):
     return top + 2, bottom - 2
 
 
+STATUS_RE = re.compile(r'Correct\s*answer|\b[Aa]\w{3}ered\s*correct|^\s*(?i:(In)?correct)\s*$')
+
+
+def status_band(body):
+    """(top, bottom) of the answered view's status panel ("Correct", "Answered correctly"), or None if unanswered.
+    OCR can garble the whole panel ("Aaswered", "\ufffdrroo"); then three or more choices printed with
+    their percentages and the "Explanation" heading below them still mark an answered view."""
+    lines = sorted(body, key=lambda l: (l['y0'], l['x0']))
+    hit = next((l for l in lines if STATUS_RE.search(l['text'])), None)
+    if hit:
+        return hit['y0'], hit['y0'] + 60
+    pct = [l for l in lines if PCT_RE.search(l['text'])]
+    expl = next((l for l in lines if re.fullmatch(r'\s*Explanation\s*', l['text'])), None)
+    if len(pct) >= 3 and expl and expl['y0'] > pct[-1]['y1']:
+        return pct[-1]['y1'], expl['y0']
+    return None
+
+
 class Page:
     def __init__(self, doc, n):
         self.n = n
@@ -57,19 +77,55 @@ class Page:
         for l in self.lines:
             l['text'] = re.sub(r'\s?[°º0o]\s?/\s?[o0]\b|%[o0]\b', '%', l['text'])
             l['text'] = re.sub(r'(\d)\s*%\s*[>)\]}]+', r'\1%)', l['text'])
+            l['text'] = re.sub(r'\{(?=[^{}()]*\))', '(', l['text'])   # "{67%)", "{taste)"
         body = [l for l in self.lines if self.top <= l['y0'] and l['y1'] <= self.bottom + 2]
         self.body = body
         text = ' '.join(l['text'] for l in body)
-        self.answered = bool(re.search(r'Answered\s*correct', text)) or bool(re.search(r'Correct\s*answer', text))
+        self.status = status_band(body)
+        self.answered = self.status is not None
         self.unanswered = not self.answered and any(l['text'].strip().lower() == 'submit' for l in body)
 
 
 def group_pages(pages):
+    # Pages of one item are one question: a digit misread or dropped ("874"/"2299" for "814"/"22599"),
+    # a header with no readable id, or a popup ("Exhibit Display", no "Mark" in its header) whose
+    # header OCR is worse than the main screen's.
+    def near(a, b):
+        if len(a) == len(b):
+            return sum(x != y for x, y in zip(a, b)) <= 1
+        s, t = sorted((a, b), key=len)
+        return len(t) - len(s) == 1 and any(t[:i] + t[i + 1:] == s for i in range(len(t)))
+    run = []
+    for p in pages + [None]:
+        if p is not None and run and (not p.item or p.item == run[0].item):
+            run.append(p); continue
+        counts = {}
+        for r in run:
+            if r.qid:
+                counts[r.qid] = counts.get(r.qid, 0) + (3 if getattr(r, 'main', False) else 1) + \
+                    (10 if getattr(r, 'seen', False) else 0)
+        main = max(counts, key=counts.get, default=None)
+        last = max((i for i, r in enumerate(run) if r.item), default=-1)
+        for i, r in enumerate(run):
+            if not main:
+                break
+            if getattr(r, 'seen', False):   # read from the header image: trusted as is
+                continue
+            if r.qid is None:
+                if i <= last:   # trailing pages with no header are left to the smoothing below
+                    r.qid = main
+            # Without an item header a changed digit may be the next question (2057, 2058): only a dropped digit counts.
+            elif r.item and (not getattr(r, 'main', True) or near(r.qid, main)) or \
+                    not r.item and near(r.qid, main) and len(r.qid) != len(main):
+                r.qid = main
+        run = [p] if p is not None and p.item else []
     # Smooth isolated OCR misreads of the question id.
     ids = [p.qid for p in pages]
     for i, p in enumerate(pages):
         prev = next((ids[j] for j in range(i - 1, -1, -1) if ids[j]), None)
         nxt = next((ids[j] for j in range(i + 1, len(ids)) if ids[j]), None)
+        if getattr(p, 'seen', False):
+            continue
         if (p.qid is None or (prev == nxt and p.qid != prev)) and prev and (prev == nxt or p.qid is None):
             p.qid = prev
     groups = []
@@ -237,6 +293,17 @@ def split_options(lines):
         else:
             split.append(l)
     lines = split
+    # A right-aligned "(24%)" can sort just above its own choice; join it to that row.
+    alone = [l for l in lines if re.fullmatch(r'\(\s*\d{1,3}\s*%\s*\)?', l['text'].strip())]
+    rows = [dict(l) for l in lines if l not in alone]
+    for p in alone:
+        overlap = lambda r: min(r['y1'], p['y1']) - max(r['y0'], p['y0'])
+        row = max((r for r in rows if len(r['text'].strip()) > 3), key=overlap, default=None)   # not a radio "0"
+        if row is not None and overlap(row) > 0 and 0 < p['x0'] - row['x1'] < 80 and not PCT_RE.search(row['text']):
+            row['text'] = row['text'].rstrip() + ' ' + p['text'].strip()
+        else:
+            rows.append(p)
+    lines = sorted(rows, key=lambda l: l['y0'])
     chunks, cur = [], []
     has_pct = sum(bool(PCT_RE.search(l['text'])) for l in lines) >= 2
     for l in lines:
@@ -244,6 +311,21 @@ def split_options(lines):
         if not t or re.fullmatch(r'[XVvx✓✗]', t):
             continue
         starts = OPT_RE.search(t)
+        if (has_pct and not cur and chunks and not (starts and starts.start() < 8) and len(t) > 2
+                and not PCT_RE.search(t) and l['y0'] - chunks[-1][-1]['y1'] < 16
+                and l['x0'] >= chunks[-1][0]['x0'] + 15):
+            # A wrapped choice whose percentage sits on its first line: the tail belongs
+            # to that choice, and the percentage moves to the end.
+            prev = chunks[-1]
+            k = max(i for i, c in enumerate(prev) if PCT_RE.search(c['text']))
+            pct = PCT_RE.search(prev[k]['text'])
+            rest = prev[k]['text'][:pct.start()].strip()
+            if rest:
+                prev[k] = {**prev[k], 'text': rest}
+            else:
+                prev.pop(k)
+            prev.append({**l, 'text': t + ' ' + pct.group(0).strip()})
+            continue
         if cur and not has_pct and starts and l['y0'] - cur[-1]['y1'] > 6:
             chunks.append(cur); cur = []
         cur.append(l)
@@ -284,10 +366,7 @@ def extract_question(views_all, pdf_sha):
         scroll = [v for v in scroll if offsets.get(v.n) is not None]
     # ---- question, options, statistics from the answered view
     lines = sorted(ans.body, key=lambda l: (l['y0'], l['x0']))
-    status_i = next((i for i, l in enumerate(lines) if re.search(r'Correct\s*answer|Answered\s*correct|^\s*(In)?correct\s*$', l['text'])), None)
-    if status_i is None:
-        return None, ['status panel not found']
-    opt_box = option_box(ans, lines, lines[status_i]['y0'])
+    opt_box = option_box(ans, lines, ans.status[0])
     if opt_box is None:
         return None, ['options panel not found']
     opt_lines = [l for l in lines if inside(l, opt_box, 0, pad=2) and l['x0'] > opt_box[0] + 4]
@@ -330,7 +409,7 @@ def extract_question(views_all, pdf_sha):
         issues.append('choice letters disagree with order: ' + ','.join(misread))
     for o in options:
         o.pop('y'); o.pop('y1'); o.pop('read_letter')
-    stat_text = ' '.join(l['text'] for l in lines[status_i:status_i + 14] if l['y0'] < lines[status_i]['y0'] + 60)
+    stat_text = ' '.join(l['text'] for l in lines if ans.status[0] - 1 <= l['y0'] < ans.status[1])
     correct = None
     ca = next((i for i, l in enumerate(lines) if re.search(r'Correct\s*answer', l['text'])), None)
     if ca is not None:
@@ -373,7 +452,7 @@ def extract_question(views_all, pdf_sha):
     expl_start = next((l['y0'] for l in ans.body if re.match(r'^\W*Explanation\W*$', l['text'])), None)
     if expl_start is None:
         notes = ['explanation heading not found']
-        expl_start = lines[status_i]['y1'] + 30
+        expl_start = ans.status[0] + 45   # the status line's bottom plus the old 30 px
     kept = collect(scroll, offsets, zones, expl_start + offsets[ans.n] + 8, 1e9)
     # Subject / system / topic labels follow the objective as one spaced-out row.
     meta_i = next((i for i, k in enumerate(kept) if k.get('pieces', 1) >= 2 and k.get('gap', 0) > 60 and k.get('longest', 99) < 45 and
@@ -548,6 +627,11 @@ class Stub:
         head = ' '.join(l['text'] for l in self.lines if l['y0'] < 50)
         m = QID_RE.search(head)
         self.qid = m.group(1) if m else None
+        seen, score = header_id.read(doc, n)
+        self.seen = bool(seen) and score >= header_id.CONFIDENT
+        if self.seen:
+            self.qid = seen
+        self.main = 'Mark' in head
         m = ITEM_RE.search(head)
         self.item = (int(m.group(1)), int(m.group(2))) if m else None
 

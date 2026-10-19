@@ -31,14 +31,15 @@ def lfs_path(pointer):
 
 
 def blocks_from_items(docs):
-    """A block restarts when an item number repeats or its 'of N' total changes (page order may run either way)."""
-    block, seen, total = 1, set(), None
+    """A block restarts when an item number repeats or its 'of N' total changes (page order may run either way).
+    A repeat next to the previous item is an OCR misread of a neighbour ("16" for "15"), not a new block."""
+    block, seen, total, last = 1, set(), None, None
     for d in docs:
         item = d['_meta']['item']
         if item:
-            if (total is not None and item[1] != total) or item[0] in seen:
+            if (total is not None and item[1] != total) or (item[0] in seen and abs(item[0] - last) > 1):
                 block += 1; seen = set()
-            seen.add(item[0]); total = item[1]
+            seen.add(item[0]); total, last = item[1], item[0]
         d['_meta']['block'] = block
         d['_meta']['number'] = item[0] if item else None
 

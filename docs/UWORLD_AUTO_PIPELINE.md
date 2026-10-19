@@ -83,3 +83,25 @@ no longer downloads the multi-GB PDFs for these collections.
   under `unowned_pages`.
 - This PDF is an older, lower-resolution capture with reversed page order. Block
   labels are approximate, because "Item N of M" OCR is unreliable there.
+
+## Header question IDs (2026-10-19)
+
+The OCR layer misreads the small header, so the extractor reads the "Question Id" digits
+from the screenshot (`header_id.py`: the digits after "Id:" are equal-width cells matched
+to templates in `header_digits.npz`, cut from cleanly OCR-read headers; confidence at
+least 0.85 or the OCR value is kept). Image-read IDs are trusted in `group_pages`. Run
+`fix_leaks.py` then `sanitize.py` after every re-extraction; delete `reviewed/fixes.json`
+first when a re-extraction changes question IDs, because fixes are keyed by ID.
+
+## Review and rescue by outside agents
+
+`review_packet.py <slug>` (flagged) and `rescue.py <slug> packets <dir>` (unassembled)
+build packets; convert the page PNGs to JPEG and publish them as batches on a branch
+that holds only review material (`uworld-review`, files under `data/uworld/review/`).
+Agents follow `review/INSTRUCTIONS.md` (+ `INSTRUCTIONS_RESCUE.md`), write
+`answers/<batch>/UWORLD_<id>.json` and run `review/check_review.py <batch>`. Their
+branches must not be named `uworld-review/...` (a branch cannot sit under another
+branch's name). Apply with `apply_reviews.py <slug> <dir> --careful` and
+`rescue.py <slug> adopt <packets> <answers>`. Result for the five 2026-10 collections:
+148 answers, 134 verified at review, all applied; agents held back packets with no
+answered screenshot instead of guessing.
