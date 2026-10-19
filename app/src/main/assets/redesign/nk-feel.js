@@ -1404,10 +1404,17 @@
     var act = nav.querySelector('.nav-item.active .nav-icon-wrap');
     var g = nav.querySelector(':scope > .nkg-nav-glide');
     if (!act) { if (g) g.classList.remove('is-on'); return; }
-    if (!g) { g = el('span', 'nkg-nav-glide'); g.setAttribute('aria-hidden', 'true'); nav.insertBefore(g, nav.firstChild); }
+    var fresh = !g;
+    if (fresh) { g = el('span', 'nkg-nav-glide'); g.setAttribute('aria-hidden', 'true'); nav.insertBefore(g, nav.firstChild); }
     var nr = nav.getBoundingClientRect(), ar = act.getBoundingClientRect();
     var x = ar.left + ar.width / 2 - nr.left, y = ar.top + ar.height / 2 - nr.top;
     g.style.top = y + 'px';
+    /* Every render rebuilds the nav: a new glide starts lit where the old one was, so
+       re-rendering the same tab (a filter, a toggle) never blinks the active pill. */
+    if (fresh && navX != null) {
+      g.style.transition = 'none'; g.style.transform = 'translate(' + navX + 'px, -50%)'; g.classList.add('is-on');
+      void g.offsetWidth; g.style.transition = ''; g.__placed = Math.abs(navX - x) <= 1;
+    }
     if (navX != null && !g.__placed && Math.abs(navX - x) > 1 && motionOK()) {
       g.style.transition = 'none'; g.style.transform = 'translate(' + navX + 'px, -50%)'; void g.offsetWidth; g.style.transition = '';
     }
