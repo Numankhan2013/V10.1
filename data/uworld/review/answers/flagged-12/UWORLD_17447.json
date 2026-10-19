@@ -1,0 +1,23 @@
+{
+  "id": "UWORLD_17447",
+  "question": "A 10-month-old boy is hospitalized for respiratory distress due to Pneumocystis jiroveci pneumonia. The patient has had repeated episodes of otitis media and thrush; weight is below the 5th percentile. Laboratory evaluation reveals normal levels of circulating B and T cells with low levels of all immunoglobulins. Genetic testing reveals a rare autosomal recessive mutation resulting in a defect in the regulation of human leukocyte antigen gene transcription. Flow cytometry of the patient's peripheral blood compared with a healthy control is shown in the illustration below: Which of the following processes is most likely to be impaired by this patient's mutation?",
+  "options": [
+    {"letter": "A", "text": "Development of pharyngeal pouches", "selection_percent": 2},
+    {"letter": "B", "text": "Capability of activated CD4+ T cells to express CD40L", "selection_percent": 25},
+    {"letter": "C", "text": "Maturation of pro-B cells into pre-B cells", "selection_percent": 18},
+    {"letter": "D", "text": "Presentation of antigens processed in lysosomes", "selection_percent": 49},
+    {"letter": "E", "text": "Transport of cytosolic proteins into the endoplasmic reticulum", "selection_percent": 4}
+  ],
+  "correct_label": "D",
+  "answered_correctly_percent": 49,
+  "explanation_paragraphs": [
+    "This patient's flow cytometry shows normal numbers of CD3+ cells (reflecting circulating T cells) and CD19+ cells (reflecting circulating B cells). However, an absence of HLA-DR+ cells indicates defective expression of major histocompatibility complex (MHC) class II molecules. The human leukocyte antigen (HLA) genes encode MHC molecules expressed on the cell surface for antigen presentation. There are 6 major HLA loci: • HLA-DP, HLA-DQ, and HLA-DR genes encode MHC class II molecules, which are expressed on antigen-presenting cells (eg, B cells, macrophages) after an extracellular antigen has been loaded onto the MHC class II molecule in an acidified lysosome. • HLA-A, HLA-B, and HLA-C genes encode MHC class I molecules, which are expressed on nucleated cells after a cytosolic antigen has been transported into the endoplasmic reticulum and loaded onto the MHC class I molecule (Choice E).",
+    "Because expression of the MHC class II-peptide complex is necessary for activation of B and T cells, its absence (eg, bare lymphocyte syndrome type II) causes a form of severe combined immunodeficiency.",
+    "(Choice A) DiGeorge syndrome is an autosomal dominant disorder caused by the deletion of a segment of chromosome 22 (22q11.2). Failed development of the thymus results in T cell deficiency, which would be evident by a reduction in CD3+ cells on flow cytometry.",
+    "(Choice B) CD40 ligand (CD40L) is expressed on activated T helper cells and interacts with CD40 on B cells to promote immunoglobulin class-switching. Impaired CD40L expression can result in hyperimmunoglobulin M syndrome (ie, high IgM levels and low/absent circulating IgG, IgA, and IgE). Although this patient's mutation impairs activation of T cells, his CD4+ T cells would still be capable of expressing CD40L upon activation.",
+    "(Choice C) Maturation of pro-B cells into pre-B cells with resulting expression of B cell-specific surface markers (eg, CD19, CD40) is dependent on signal transduction by Bruton tyrosine kinases. A mutation in the BTK gene causes X-linked agammaglobulinemia, which is characterized by hypogammaglobulinemia and recurrent infections after maternal IgG is depleted (~3 months of age). Flow cytometry would show a marked decrease in CD19+ cells."
+  ],
+  "educational_objective": "Major histocompatibility complex (MHC) class II molecules are encoded by the HLA-DP, HLA-DQ, and HLA-DR genes and present extracellular antigens processed in acidified lysosomes by antigen-presenting cells (eg, B cells, macrophages). Absence of MHC class II expression impairs activation of B and T cells, resulting in a form of severe combined immunodeficiency.",
+  "status": "verified",
+  "notes": "answer changed C->D (green tick on page 287); added missing option E and repaired mangled options C/D; fixed OCR 'CD4·'/'CD3·' to 'CD4+'/'CD3+', 'HLA-8' to 'HLA-B'."
+}
