@@ -570,6 +570,7 @@
     ['modal', 'nk-practice-sessions', 'nk-mock-sheet'].forEach(function (id) { var m = document.getElementById(id); if (m) swapIcons(m); });
     updateTopbar(page, session);
     syncThemeControls();
+    measureDockNow();
     measureDock();
     /* Re-measure once page-enter motion has settled (a transformed page offsets fixed docks). */
     window.clearTimeout(dockSettle); dockSettle = window.setTimeout(measureDock, 480);
@@ -635,8 +636,11 @@
   var dockFrame = 0, dockSettle = 0;
   function measureDock() {
     if (dockFrame) return;
-    dockFrame = window.requestAnimationFrame(function () {
-      dockFrame = 0;
+    dockFrame = window.requestAnimationFrame(function () { dockFrame = 0; measureDockNow(); });
+  }
+  /* Also run straight after a render, before its first paint: a value left over from the
+     previous page (a builder's taller action bar) would place fixed buttons wrongly for a frame. */
+  function measureDockNow() {
       var app = document.getElementById('app');
       if (!app) return;
       var H = window.innerHeight, top = H;
@@ -653,7 +657,6 @@
       var h = Math.max(0, Math.round(H - top));
       if (h) { doc.style.setProperty('--nkg-dock-h', h + 'px'); doc.setAttribute('data-nkg-dock', ''); }
       else { doc.style.removeProperty('--nkg-dock-h'); doc.removeAttribute('data-nkg-dock'); }
-    });
   }
   window.addEventListener('resize', measureDock);
   function schedule(records) {
