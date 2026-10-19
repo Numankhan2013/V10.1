@@ -88,11 +88,11 @@ WORDS = {
 }
 PHRASES = [
     (r'\boverl oad', 'overload'), (r'\brefl ecting', 'reflecting'), (r'\bpulsa tile\b', 'pulsatile'),
-    (r'\bcombina ion t\b', 'combination'), (r'\bShige/la\b', 'Shigella'), (r'\bScleral!', 'Scleral'),
+    (r'\bcombina ion t\b', 'combination'), (r'\bShige/la\b', 'Shigella'), (r'\bScleral!', 'Scleral'), (r'\bschizo@affective\b', 'schizoaffective'),
 ]
 WORD = re.compile(r'\b(' + '|'.join(map(re.escape, WORDS)) + r')\b')
 # "@UWorld", "@ UWO<ld", "e uworld", "uwend", "@l/Wortd": no English word starts with "uw".
-WATERMARK = re.compile(r'(?:(?<=\s)|^)(?:[@©�®]\s?|e\s)?(?:[Uu][Ww][^\s"]*|l/W[^\s"]*)(?=\s|$)')
+WATERMARK = re.compile(r'(?:(?<=\s)|^)(?:[@©�®]\s?Q?|e\s)?(?:[Uu][Ww][^\s"]*|l/W[^\s"]*)(?=\s|$)')
 
 
 def clean(text):
