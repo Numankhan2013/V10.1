@@ -1,0 +1,24 @@
+{
+  "id": "UWORLD_1592",
+  "question": "A 26-year-old man is being screened as a potential kidney donor for his mother, who has end-stage renal disease. The patient has no history of diabetes, hypertension, or kidney disease and is up to date with all recommended vaccinations. Physical examination is unremarkable. Blood type and crossmatch testing demonstrate biological compatibility. As part of the evaluation, screening for transmissible diseases is performed and is notable for the following results:\n\nHIV-1 antibody  negative\nHepatitis B core antibody, IgM  negative\nHepatitis B core antibody, IgG  negative\nHepatitis B surface antigen  negative\nHepatitis B surface antibody  positive\nHepatitis C virus antibody  negative\nCytomegalovirus antibody, IgM  negative\nCytomegalovirus antibody, IgG  positive\n\nBased on these data, the patient most likely has had which of the following conditions in the past?",
+  "options": [
+    {"letter": "A", "text": "Esophageal ulcer", "selection_percent": 1},
+    {"letter": "B", "text": "Hepatitis", "selection_percent": 6},
+    {"letter": "C", "text": "Mononucleosis-like illness", "selection_percent": 81},
+    {"letter": "D", "text": "Retinitis", "selection_percent": 7},
+    {"letter": "E", "text": "Vesicular skin rash", "selection_percent": 1},
+    {"letter": "F", "text": "Viral pneumonia", "selection_percent": 2}
+  ],
+  "correct_label": "C",
+  "answered_correctly_percent": 81,
+  "explanation_paragraphs": [
+    "This patient, who is HIV negative, has a positive titer for cytomegalovirus (CMV) IgG, suggesting prior CMV infection. CMV is a rare cause of disease in the immunocompetent, with the virus more typically responsible for subclinical infection. When primary CMV infection does result in clinically evident illness, affected individuals appear to have a systemic mononucleosis-like syndrome characterized by fever, malaise, myalgia, atypical lymphocytosis, and elevated liver transaminases. In contrast to Epstein-Barr virus mononucleosis (most common), heterophile antibodies are not usually present in patients with CMV mononucleosis (negative Monospot test).",
+    "(Choices A and D) Odynophagia (painful swallowing) associated with linear esophageal ulcers due to CMV infection is seen in patients with HIV. Retinitis is one of the most common manifestations of CMV infection in patients with HIV.",
+    "(Choice B) Disseminated CMV can cause diarrhea and hepatitis in the immunocompromised. In this patient, the combination of a positive hepatitis B surface antibody with a negative hepatitis B surface antigen and a negative hepatitis B core antibody reflects immunization against hepatitis B, not prior hepatitis B infection.",
+    "(Choice E) A vesicular skin rash is seen in association with herpes simplex or herpes zoster virus infection.",
+    "(Choice F) CMV pneumonitis typically occurs after organ transplantation."
+  ],
+  "educational_objective": "Cytomegalovirus (CMV) is typically associated with subclinical infection in the immunocompetent, with the occasional individual developing a mononucleosis-like syndrome that is heterophile antibody (Monospot) negative. In the immunocompromised, primary or reactivated CMV infection can result in severe retinitis, pneumonia, esophagitis, colitis, or hepatitis.",
+  "status": "verified",
+  "notes": "correct_label was null in current.json; answer C per green tick on page 1375 (81% answered correctly); rebuilt all six options (extractor dropped 'Mononucleosis-like illness' and mis-lettered the rest) and transcribed the serology table from page 1373 as text lines"
+}
