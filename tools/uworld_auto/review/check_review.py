@@ -12,7 +12,7 @@ from pathlib import Path
 
 KEYS = {'id', 'question', 'options', 'correct_label', 'answered_correctly_percent',
         'explanation_paragraphs', 'educational_objective', 'status', 'notes'}
-UI = re.compile(r'Correct answer|Answered correctly|Time Spent|Question Id|Exhibit Display|Previous|Next\b.*Mark', re.I)
+UI = re.compile(r'Correct answer|Answered correctly|Time Spent|Question Id|Exhibit Display|\bPrevious\s+Next\b|\bNext\s+Mark\b', re.I)
 
 
 def pct(v):
