@@ -1511,8 +1511,11 @@ function dashboard(){
     return value==null?'<span class="nk-uworld-percent-space" aria-hidden="true"></span>':`<span class="nk-uworld-option-percent" aria-label="${esc(value)} percent of ${esc(q.bank)} users chose option ${esc(o.letter)}">${esc(value)}%</span>`;
   }
   function nkSourceCohort(q){
-    const value=nkSourceStats(q)?.peerAccuracyPercent;
-    return value==null?'':`<p class="nk-uworld-cohort" data-nk-source="${esc(q.bank)}"><strong>${esc(value)}% got this right</strong><span>Reported in the ${esc(q.bank)} source</span></p>`;
+    const stats=nkSourceStats(q),value=stats?.peerAccuracyPercent;
+    if(value==null)return '';
+    const rarity=typeof nkQuestionRarity==='function'?nkQuestionRarity({source:q.bank,percent:value,selection:stats.optionPollPercent||{},correct:(q.options||[])[(q.correctOption||0)-1]?.letter,optionCount:(q.options||[]).length}):null;
+    const attrs=rarity?` data-nk-tier="${rarity.tier}"${rarity.trap?' data-nk-trap="1"':''}`:'';
+    return `<p class="nk-uworld-cohort" data-nk-source="${esc(q.bank)}"${attrs}><strong>${esc(value)}% got this right</strong><span>Reported in the ${esc(q.bank)} source</span></p>`;
   }
   function nkMarrowRich(text){return richText(String(text||''));}
   function nkRenderMarrowText(text){
