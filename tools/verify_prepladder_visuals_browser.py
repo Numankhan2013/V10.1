@@ -20,6 +20,9 @@ CATEGORIES = {
 
 
 def choose_representatives(items):
+    # PrepLadder Biochemistry renders its 2025-edition figures through the text-bank
+    # renderer (tools/verify_prepladder_biochemistry_browser.py), not source visuals.
+    items = [item for item in items if item.get("subject") != "Biochemistry"]
     selected = {}
     for label, flag in CATEGORIES.items():
         match = next((item for item in items if flag in item.get("riskFlags", [])), None)

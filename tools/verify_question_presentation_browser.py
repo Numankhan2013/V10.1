@@ -230,237 +230,70 @@ def main() -> None:
             page.evaluate("window.QB.nkOpenSubjectLibrary('Biochemistry')")
             page.locator("button.nk-bank-card").filter(has_text="PrepLadder").click()
             page.locator("button.nk-topic-row").first.wait_for(state="visible")
-            open_practice("4-3")
-            glucose_prompt = "Which of the following tissues is unable to transport glucose independently of insulin?"
-            glucose_choices = ["Hepatocytes", "Cardiac muscle", "RBC", "Neurons"]
-            glucose_canonical = page.evaluate("""() => {
-                const s = window.QB.getState().activeSession;
-                const q = window.QB.__presentationQuestion(s.questionIds[s.index]);
-                return {mode: s.mode, id: q.id, question: q.question, correctOption: q.correctOption,
-                    sourcePage: q.sourcePage, sourcePageEnd: q.sourcePageEnd,
-                    letters: q.options.map(option => option.letter), choices: q.options.map(option => option.text)};
-            }""")
-            if glucose_canonical != {"mode": "practice", "id": "4-3",
-                                    "question": "GLUT3 c) Erythrocytes\n4.GLUT4 d) Skeletal Muscle",
-                                    "correctOption": 2, "sourcePage": 82, "sourcePageEnd": 82,
-                                    "letters": ["A", "B", "C", "D"], "choices": glucose_choices}:
-                raise SystemExit(f"Biochemistry 4-3 canonical record changed: {glucose_canonical!r}")
-            glucose_stem = page.locator(".question-text .nk-question-prompt")
-            glucose_stem.wait_for(state="visible")
-            if glucose_stem.count() != 1 or glucose_stem.inner_text() != glucose_prompt:
-                raise SystemExit(f"Biochemistry 4-3 source prompt missing: {glucose_stem.all_inner_texts()!r}")
-            if page.locator(".question-text table, .question-text .nk-question-unavailable").count():
-                raise SystemExit("Biochemistry 4-3 invented a table or disabled valid choices")
-            if any(fragment in page.locator(".question-text").inner_text() for fragment in
-                   ("GLUT3", "Erythrocytes", "GLUT4", "Skeletal Muscle")):
-                raise SystemExit("Biochemistry 4-3 leaked the preceding question fragment")
-            glucose_options = page.locator(".option-list button")
-            if glucose_options.count() != 4 or glucose_options.locator(".option-text").all_inner_texts() != glucose_choices or glucose_options.locator(".option-letter").all_inner_texts() != ["A", "B", "C", "D"]:
-                raise SystemExit("Biochemistry 4-3 lost its four ordered canonical choices")
-            if any(not glucose_options.nth(index).is_enabled() for index in range(4)):
-                raise SystemExit("Biochemistry 4-3 choices are not enabled")
-            if page.locator(".option-list .correct, .option-list .wrong").count():
-                raise SystemExit("Biochemistry 4-3 leaked correctness before answering")
-            glucose_options.nth(1).click()
-            page.locator(".option-list .correct").wait_for(state="visible")
-            glucose_answer = page.evaluate("""() => {
-                const s = window.QB.getState().activeSession;
-                const id = s.questionIds[s.index];
-                return {id, answer: s.answers[id], submitted: s.submitted[id],
-                    correctOption: window.QB.__presentationQuestion(id).correctOption};
-            }""")
-            if glucose_answer != {"id": "4-3", "answer": 2, "submitted": True, "correctOption": 2}:
-                raise SystemExit(f"Biochemistry 4-3 answer contract changed: {glucose_answer!r}")
-            correct_indices = page.locator(".option-list .option").evaluate_all(
-                "nodes => nodes.flatMap((node, index) => node.classList.contains('correct') ? [index + 1] : [])")
-            if correct_indices != [2] or page.locator(".option-list .wrong").count() or page.locator(".option-list .option-text").all_inner_texts() != glucose_choices or glucose_stem.inner_text() != glucose_prompt:
-                raise SystemExit("Biochemistry 4-3 post-answer presentation changed")
-            page.screenshot(path=str(output / "prepladder-biochemistry-4-3-stem.png"), full_page=True)
-            print("BIOCHEM_4_3_BROWSER_OK exact_prompt=true choices=4 canonical_answer=2")
-
-            open_practice("5-10")
-            glycogen_raw = ("Which of the following statements is true on the structure of glycogen?\n"
-                            "Arranged in 12 concentric layers Glucose residues are connected by ■-1,4 linkage\n"
-                            "Branching points formed by α-1,6 linkage")
-            glycogen_prompt = "Which of the following statements is true on the structure of glycogen?"
-            glycogen_rows = [["1", "Arranged in 12 concentric layers"],
-                             ["2", "Glucose residues are connected by α-1,4 linkage"],
-                             ["3", "Branching points formed by α-1,6 linkage"]]
-            glycogen_choices = ["1,2", "2,3", "1,2,3", "1,3"]
-            glycogen_canonical = page.evaluate("""() => {
-                const s = window.QB.getState().activeSession;
-                const q = window.QB.__presentationQuestion(s.questionIds[s.index]);
-                return {mode: s.mode, id: q.id, question: q.question, correctOption: q.correctOption,
-                    sourcePage: q.sourcePage, sourcePageEnd: q.sourcePageEnd,
-                    letters: q.options.map(option => option.letter), choices: q.options.map(option => option.text)};
-            }""")
-            if glycogen_canonical != {"mode": "practice", "id": "5-10", "question": glycogen_raw,
-                                     "correctOption": 3, "sourcePage": 101, "sourcePageEnd": 101,
-                                     "letters": ["A", "B", "C", "D"], "choices": glycogen_choices}:
-                raise SystemExit(f"Biochemistry 5-10 canonical record changed: {glycogen_canonical!r}")
-            glycogen_stem = page.locator(".question-text .nk-question-prompt")
-            glycogen_stem.wait_for(state="visible")
-            if glycogen_stem.count() != 1 or glycogen_stem.text_content() != glycogen_prompt:
-                raise SystemExit(f"Biochemistry 5-10 linkage repair missing: {glycogen_stem.all_text_contents()!r}")
-            glycogen_table = page.locator(".question-text table.nk-match-table")
-            glycogen_table.wait_for(state="visible")
-            glycogen_actual_rows = glycogen_table.locator("tbody tr").evaluate_all("""rows => rows.map(row =>
-                [...row.querySelectorAll('td')].flatMap(cell =>
-                    [cell.querySelector('b')?.innerText || '', cell.querySelector('span')?.innerText || '']))""")
-            if glycogen_table.count() != 1 or glycogen_actual_rows != glycogen_rows:
-                raise SystemExit(f"Biochemistry 5-10 reconstructed numbered table changed: {glycogen_actual_rows!r}")
-            if "Glucose residues are connected by α-1,4 linkage" not in glycogen_table.inner_text() or "\u25a0" in glycogen_table.inner_text():
-                raise SystemExit("Biochemistry 5-10 restored linkage is not learner-visible")
-            if page.locator(".question-text .nk-question-unavailable").count():
-                raise SystemExit("Biochemistry 5-10 disabled valid choices")
-            glycogen_options = page.locator(".option-list button")
-            if glycogen_options.count() != 4 or glycogen_options.locator(".option-text").all_inner_texts() != glycogen_choices or glycogen_options.locator(".option-letter").all_inner_texts() != ["A", "B", "C", "D"]:
-                raise SystemExit("Biochemistry 5-10 lost its four ordered canonical choices")
-            if any(not glycogen_options.nth(index).is_enabled() for index in range(4)):
-                raise SystemExit("Biochemistry 5-10 choices are not enabled")
-            if page.locator(".option-list .correct, .option-list .wrong").count():
-                raise SystemExit("Biochemistry 5-10 leaked correctness before answering")
-            glycogen_options.nth(2).click()
-            page.locator(".option-list .correct").wait_for(state="visible")
-            glycogen_answer = page.evaluate("""() => {
-                const s = window.QB.getState().activeSession;
-                const id = s.questionIds[s.index];
-                return {id, answer: s.answers[id], submitted: s.submitted[id],
-                    correctOption: window.QB.__presentationQuestion(id).correctOption};
-            }""")
-            if glycogen_answer != {"id": "5-10", "answer": 3, "submitted": True, "correctOption": 3}:
-                raise SystemExit(f"Biochemistry 5-10 answer contract changed: {glycogen_answer!r}")
-            correct_indices = page.locator(".option-list .option").evaluate_all(
-                "nodes => nodes.flatMap((node, index) => node.classList.contains('correct') ? [index + 1] : [])")
-            if correct_indices != [3] or page.locator(".option-list .wrong").count() or page.locator(".option-list .option-text").all_inner_texts() != glycogen_choices or glycogen_stem.text_content() != glycogen_prompt or "\u25a0" in glycogen_table.inner_text() or glycogen_table.locator("tbody tr").evaluate_all("rows => rows.map(row => [...row.querySelectorAll('td')].flatMap(cell => [cell.querySelector('b')?.innerText || '', cell.querySelector('span')?.innerText || '']))") != glycogen_rows:
-                raise SystemExit("Biochemistry 5-10 post-answer presentation changed")
-            page.screenshot(path=str(output / "prepladder-biochemistry-5-10-stem.png"), full_page=True)
-            print("BIOCHEM_5_10_BROWSER_OK exact_prompt=true numbered_items=3 no_square=true choices=4 canonical_answer=3")
-
-            open_practice("5-14")
-            phosphorylase_raw = "Glycogen phosphorylase cleaves ■-1,4 linkages"
-            phosphorylase_fixed = "Glycogen phosphorylase cleaves α-1,4 linkages"
-            phosphorylase_choices = ["Glucose-6-phosphatase acts in liver", phosphorylase_fixed,
-                                     "Phosphoglucomutase converts glucose-1-phosphate into glucose-6-phosphate",
-                                     "Glycogenolysis is the reverse process of glycogenesis."]
-            phosphorylase_stem = page.locator(".question-text .nk-question-prompt")
-            phosphorylase_stem.wait_for(state="visible")
-            if phosphorylase_stem.count() != 1 or "false regarding glycogenolysis" not in phosphorylase_stem.inner_text():
-                raise SystemExit(f"Biochemistry 5-14 stem missing: {phosphorylase_stem.all_text_contents()!r}")
-            if page.locator(".question-text table, .question-text .nk-question-unavailable").count():
-                raise SystemExit("Biochemistry 5-14 invented a table or disabled valid choices")
-            phosphorylase_options = page.locator(".option-list button")
-            if phosphorylase_options.count() != 4 or phosphorylase_options.locator(".option-text").all_inner_texts() != phosphorylase_choices or phosphorylase_options.locator(".option-letter").all_inner_texts() != ["A", "B", "C", "D"]:
-                raise SystemExit(f"Biochemistry 5-14 option repair missing: {phosphorylase_options.locator('.option-text').all_inner_texts()!r}")
-            if "\u25a0" in page.locator(".option-list").inner_text():
-                raise SystemExit("Biochemistry 5-14 dark-block placeholder remains learner-visible")
-            if any(not phosphorylase_options.nth(index).is_enabled() for index in range(4)):
-                raise SystemExit("Biochemistry 5-14 choices are not enabled")
-            if page.locator(".option-list .correct, .option-list .wrong").count():
-                raise SystemExit("Biochemistry 5-14 leaked correctness before answering")
-            phosphorylase_options.nth(3).click()
-            page.locator(".option-list .correct").wait_for(state="visible")
-            phosphorylase_answer = page.evaluate("""() => {
-                const s = window.QB.getState().activeSession;
-                const id = s.questionIds[s.index];
-                return {id, answer: s.answers[id], submitted: s.submitted[id],
-                    correctOption: window.QB.__presentationQuestion(id).correctOption};
-            }""")
-            if phosphorylase_answer != {"id": "5-14", "answer": 4, "submitted": True, "correctOption": 4}:
-                raise SystemExit(f"Biochemistry 5-14 answer contract changed: {phosphorylase_answer!r}")
-            phosphorylase_correct = page.locator(".option-list .option").evaluate_all(
-                "nodes => nodes.flatMap((node, index) => node.classList.contains('correct') ? [index + 1] : [])")
-            if phosphorylase_correct != [4] or page.locator(".option-list .wrong").count() or page.locator(".option-list .option-text").all_inner_texts() != phosphorylase_choices:
-                raise SystemExit("Biochemistry 5-14 post-answer presentation changed")
-            page.screenshot(path=str(output / "prepladder-biochemistry-5-14-option.png"), full_page=True)
-            print("BIOCHEM_5_14_BROWSER_OK exact_alpha=true no_square=true choices=4 canonical_answer=4")
-
-            open_practice("4-12")
-            regulator_choices = ["ATP", "Citrate", "Fructose-2,6-bisphosphate", "Acetyl-CoA"]
-            regulator_stem = page.locator(".question-text .nk-question-prompt")
-            regulator_stem.wait_for(state="visible")
-            if regulator_stem.count() != 1 or "positive regulator" not in regulator_stem.inner_text():
-                raise SystemExit(f"Biochemistry 4-12 stem missing: {regulator_stem.all_text_contents()!r}")
-            if page.locator(".question-text table, .question-text .nk-question-unavailable").count():
-                raise SystemExit("Biochemistry 4-12 invented a table or disabled valid choices")
-            regulator_options = page.locator(".option-list button")
-            if regulator_options.count() != 4 or regulator_options.locator(".option-text").all_inner_texts() != regulator_choices:
-                raise SystemExit(f"Biochemistry 4-12 choices changed: {regulator_options.locator('.option-text').all_inner_texts()!r}")
-            regulator_options.nth(2).click()
-            page.locator(".option-list .correct").wait_for(state="visible")
-            regulator_feedback = page.locator(".feedback-body")
-            regulator_feedback.wait_for(state="visible")
-            # Practice renders Biochemistry explanations from original source-PDF
-            # solution images (repair_source_solution_renderer), not explanation
-            # text, so the text repair below serves Review/takeaway surfaces.
-            # Here assert the PDF-image surface is intact and no dark block is
-            # learner-visible on the Practice surface.
-            if page.locator(".feedback-body .source-pdf-explanation").count() != 1:
-                raise SystemExit("Biochemistry 4-12 source-PDF explanation surface missing")
-            if "\u25a0" in (page.locator(".question-text").inner_text() + regulator_feedback.inner_text()):
-                raise SystemExit("Biochemistry 4-12 dark-block placeholder remains on Practice surface")
-            regulator_live = page.evaluate("""() => {
-                const q = window.QB.__presentationQuestion('4-12');
-                return {id: q.id, correctOption: q.correctOption, sourcePage: q.sourcePage,
-                    explanation: q.explanation};
-            }""")
-            if regulator_live["id"] != "4-12" or regulator_live["correctOption"] != 3 or regulator_live["sourcePage"] != 85:
-                raise SystemExit(f"Biochemistry 4-12 live record changed: {regulator_live!r}")
-            regulator_exp = regulator_live["explanation"] or ""
-            if "connected by \u03b1-1,4 linkage" not in regulator_exp or "cleaves \u03b1-1,4 linkages" not in regulator_exp:
-                raise SystemExit("Biochemistry 4-12 explanation alpha repair missing from live display copy")
-            if "\u25a0-1,4" in regulator_exp:
-                raise SystemExit("Biochemistry 4-12 dark-block placeholder remains in live display copy")
-            page.screenshot(path=str(output / "prepladder-biochemistry-4-12-explanation.png"), full_page=True)
-            print("BIOCHEM_4_12_BROWSER_OK exact_alpha=true no_square=true choices=4 canonical_answer=3")
-
-            complete_sources = {
-                "10-10": (1, [
-                    ["1", "Apolipoprotein A-I", "a", "Enhances lipoprotein lipase activity, facilitating triglyceride hydrolysis."],
-                    ["2", "Apolipoprotein B-100", "b", "Involved in the transport of dietary lipids from the intestine to other tissues."],
-                    ["3", "Apolipoprotein C-II", "c", "Helps in reverse cholesterol transport, removing excess cholesterol from tissue back to liver."],
-                    ["4", "Apolipoprotein E", "d", "Essential for binding to LDL receptors on various tissues."],
-                ]),
-                "10-4": (1, [
-                    ["A", "Choline Deficiency", "1", "Increases NADH, hindering fatty acid oxidation and promoting triacylglycerol accumulation."],
-                    ["B", "Orotic Acid Interference", "2", "Impairs VLDL secretion, resulting in triacylglycerol accumulation and a fatty liver."],
-                    ["C", "Vitamin E and Selenium", "3", "Involved in pyrimidine synthesis. Disrupts VLDL glycosylation, hindering release."],
-                    ["D", "Ethanol Consumption", "4", "Protect against liver damage from lipid peroxidation"],
-                ]),
-                "13-21": (2, [
-                    ["1", "Ninhydrin test", "a", "Detects compouds containing 2 or more peptide bonds"],
-                    ["2", "Xanthoproteic test", "b", "Detects aromatic amino acids"],
-                    ["3", "Sakaguchi test", "c", "Detects arginine"],
-                    ["4", "Biuret test", "d", "Detects alpha-amino acids"],
-                ]),
-            }
-            for question_id, (correct_option, expected_rows) in complete_sources.items():
+            # PrepLadder Biochemistry is the 2025 edition (text bank): the IDs the
+            # earlier bank repaired by hand now hold the 2025 questions, whose stems,
+            # choices and lists come clean from the PDF; the earlier repairs no longer
+            # apply to them (nkQuestionPageBank).
+            def answer_canonical(question_id, prompt, choices, correct, rows=None):
                 open_practice(question_id)
                 canonical = page.evaluate("""() => {
                     const s = window.QB.getState().activeSession;
                     const q = window.QB.__presentationQuestion(s.questionIds[s.index]);
-                    return {id: q.id, correctOption: q.correctOption,
-                        choices: q.options.map(option => option.text)};
+                    return {mode: s.mode, id: q.id, correctOption: q.correctOption,
+                        letters: q.options.map(option => option.letter), choices: q.options.map(option => option.text)};
                 }""")
-                if canonical["id"] != question_id or canonical["correctOption"] != correct_option:
-                    raise SystemExit(f"Complete-source question identity/answer changed: {canonical!r}")
-                source_table = page.locator(".question-text table.nk-match-table")
-                source_table.wait_for(state="visible")
-                actual_rows = source_table.locator("tbody tr").evaluate_all("""rows => rows.map(row =>
-                    [...row.querySelectorAll('td')].flatMap(cell =>
-                        [cell.querySelector('b')?.innerText || '', cell.querySelector('span')?.innerText || '']))""")
-                if actual_rows != expected_rows or "—" in source_table.inner_text():
-                    raise SystemExit(f"Complete-source rows changed for {question_id}: {actual_rows!r}")
-                source_options = page.locator(".option-list button")
-                if source_options.count() != 4 or source_options.locator(".option-text").all_inner_texts() != canonical["choices"]:
-                    raise SystemExit(f"Complete-source choices changed for {question_id}")
-                source_options.nth(correct_option - 1).click()
+                if canonical != {"mode": "practice", "id": question_id, "correctOption": correct,
+                                 "letters": list("ABCD"), "choices": choices}:
+                    raise SystemExit(f"Biochemistry {question_id} canonical record changed: {canonical!r}")
+                stem = page.locator(".question-text")
+                if not stem.inner_text().startswith(prompt) or "\u25a0" in stem.inner_text():
+                    raise SystemExit(f"Biochemistry {question_id} prompt wrong: {stem.inner_text()[:160]!r}")
+                table_rows = stem.locator("table tbody tr").all_inner_texts()
+                if rows is None and table_rows or rows is not None and [" ".join(r.split()) for r in table_rows] != rows:
+                    raise SystemExit(f"Biochemistry {question_id} statement table changed: {table_rows!r}")
+                if page.locator(".question-text .nk-question-unavailable").count():
+                    raise SystemExit(f"Biochemistry {question_id} disabled valid choices")
+                options = page.locator(".option-list button")
+                if options.locator(".option-text").all_inner_texts() != choices or any(not options.nth(i).is_enabled() for i in range(4)):
+                    raise SystemExit(f"Biochemistry {question_id} lost its four ordered choices")
+                if page.locator(".option-list .correct, .option-list .wrong").count():
+                    raise SystemExit(f"Biochemistry {question_id} leaked correctness before answering")
+                options.nth(correct - 1).click()
                 page.locator(".option-list .correct").wait_for(state="visible")
                 correct_indices = page.locator(".option-list .option").evaluate_all(
                     "nodes => nodes.flatMap((node, index) => node.classList.contains('correct') ? [index + 1] : [])")
-                if correct_indices != [correct_option]:
-                    raise SystemExit(f"Complete-source correctness changed for {question_id}: {correct_indices!r}")
-                page.screenshot(path=str(output / f"prepladder-complete-source-{question_id}.png"), full_page=True)
+                if correct_indices != [correct] or page.locator(".option-list .wrong").count():
+                    raise SystemExit(f"Biochemistry {question_id} post-answer presentation changed")
+                page.locator(".nk-marrow-ordered").wait_for(state="visible")
+                if "\u25a0" in page.locator(".nk-marrow-ordered").inner_text():
+                    raise SystemExit(f"Biochemistry {question_id} explanation shows a placeholder block")
+                page.screenshot(path=str(output / f"prepladder-biochemistry-{question_id}.png"), full_page=True)
+
+            answer_canonical("4-3", "Which of the following tissues is unable to transport glucose independently of insulin?",
+                             ["Hepatocytes", "Cardiac muscle", "RBC", "Neurons"], 2)
+            answer_canonical("5-10", "Which of the following statements is true on the structure of glycogen?",
+                             ["1,2", "2,3", "1,2,3", "1,3"], 3,
+                             ["1. Arranged in 12 concentric layers", "2. Glucose residues are connected by α-1,4 linkage",
+                              "3. Branching points formed by α-1,6 linkage"])
+            answer_canonical("5-14", "Which of the following statements is false regarding glycogenolysis?",
+                             ["Glucose-6-phosphatase acts in liver", "Glycogen phosphorylase cleaves α-1,4 linkages",
+                              "Phosphoglucomutase converts glucose-1-phosphate into glucose-6-phosphate",
+                              "Glycogenolysis is the reverse process of glycogenesis."], 4)
+            answer_canonical("4-12", "Which of the following is a key positive regulator",
+                             ["ATP", "Citrate", "Fructose-2,6-bisphosphate", "Acetyl-CoA"], 3)
+            answer_canonical("10-10", "Match the apolipoproteins with their respective functions in lipid metabolism:",
+                             ["1-c, 2-d, 3-a, 4-b", "1-b, 2-c, 3-d, 4-a", "1-c, 2-d, 3-d, 4-a", "1-d, 2-a, 3-c, 4-b"], 1,
+                             ["1) Apolipoprotein A-I a. Enhances lipoprotein lipase activity, facilitating triglyceride hydrolysis.",
+                              "2) Apolipoprotein B-100 b. Involved in the transport of dietary lipids from the intestine to other tissues.",
+                              "3) Apolipoprotein C-II c. Helps in reverse cholesterol transport, removing excess cholesterol from tissue back to liver.",
+                              "4) Apolipoprotein E d. Essential for binding to LDL receptors on various tissues."])
+            answer_canonical("10-4", "Match the following contributing factors with their corresponding effects on fatty liver:",
+                             ["A-2, B-3, C-4, D-1", "A-3, B-4, C-2, D-1", "A-4, B-1, C-3, D-2", "A-1, B-2, C-4, D-3"], 1,
+                             ["A) Choline Deficiency 1) Increases NADH, hindering fatty acid oxidation and promoting triacylglycerol accumulation.",
+                              "B) Orotic Acid Interference 2) Impairs VLDL secretion, resulting in triacylglycerol accumulation and a fatty liver.",
+                              "C) Vitamin E and Selenium 3) Involved in pyrimidine synthesis. Disrupts VLDL glycosylation, hindering release.",
+                              "D) Ethanol Consumption 4) Protect against liver damage from lipid peroxidation"])
+            print("BIOCHEM_2025_PRESENTATION_BROWSER_OK ids=4-3,5-10,5-14,4-12,10-10,10-4 statement_tables=3 no_square=true")
 
             open_practice("22-8")
             exponent_text = page.locator(".question-text sup.nk-sci-sup").all_inner_texts()

@@ -115,7 +115,7 @@ def main() -> None:
     assert opening("9-7").startswith("Regulation of Ketogenesis: Hormonal Regulation")
     assert opening("21-13").startswith("Base Excision Repair (Option A): Removes")
     # Statements the PDF ran together, laid out as numbered tables.
-    assert sum(1 for q in questions if q.get("stemTables")) == 13
+    assert sum(1 for q in questions if q.get("stemTables")) == 15
     assert by_id["5-10"]["stemTables"][0]["rows"][1] == ["2. Glucose residues are connected by α-1,4 linkage"]
     # Characters the PDF drew as ZapfDingbats glyphs, restored from context.
     assert fix(f"CO{PLACEHOLDER} and HCO{PLACEHOLDER}{PLACEHOLDER}") == "CO₂ and HCO₃⁻"
