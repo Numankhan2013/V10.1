@@ -27,6 +27,23 @@ BANK = TextBank(
     source_pdfs="pharmaprep11.pdf",
     expected={"questions": 1321, "topics": 59},
     acronyms={"ans": "ANS", "hpa": "HPA", "git": "GIT"},
+    # The owner's study index (2026-10-20). Lesson 57 (antidotes) stays with Anaesthesia, as in
+    # the source; the index's "Recent updates" has no lessons in this edition.
+    index=[
+        ("General Pharmacology", [1, 2, 3, 4, 5]),
+        ("ANS Pharmacology", [6, 7, 8, 9, 10]),
+        ("CVS Pharmacology", [17, 18, 19, 20, 21]),
+        ("Renal Pharmacology", [15, 16]),
+        ("CNS Pharmacology", [22, 23, 24, 25, 26, 27]),
+        ("Antimicrobials", [34, 35, 36, 37, 38, 39, 40, 41, 42]),
+        ("Endocrine Pharmacology", [28, 29, 30, 31, 32, 33]),
+        ("Autacoids", [11, 12, 13, 14]),
+        ("Drugs Affecting Blood and Blood Formation", [49, 50, 51, 52]),
+        ("Respiratory Pharmacology", [43, 44]),
+        ("GIT Pharmacology", [45, 46, 47, 48]),
+        ("Anticancer Drugs", [53, 54, 55, 56]),
+        ("Anaesthesia", [57, 58, 59]),
+    ],
 )
 
 INVENTORY, RUNTIME, OVERLAY = BANK.inventory_path, BANK.runtime, BANK.overlay

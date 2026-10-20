@@ -17,7 +17,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 
 from build_app_data import assemble  # noqa: E402
 from build_prepladder_pathology_bank import (  # noqa: E402
-    INVENTORY, NO_EXPLANATION, RUNTIME, app_record, lesson_title)
+    BANK, INVENTORY, NO_EXPLANATION, RUNTIME, app_record, lesson_title)
 from build_prepladder_microbiology_bank import jpeg_size, sha256  # noqa: E402
 
 PYQ_LESSONS = (5, 9, 13, 18, 25, 31, 36, 38, 43, 47, 51, 55, 58, 60, 63, 64, 66, 67, 73, 80, 82, 84, 85, 87, 88, 89, 90)
@@ -30,14 +30,18 @@ def main() -> None:
     assert record["bank"] == "PrepLadder" and record["subject"] == "Pathology"
     assert record["explanationFormat"] == "structured"
     assert len(topics) == 90 and len(questions) == 1459
-    assert [t["id"] for t in topics] == [f"pathology-{n}" for n in range(1, 91)]
+    # Lessons follow the owner's study index; ids keep the extraction's lesson numbers.
+    order = [n for _, lessons in BANK.index for n in lessons]
+    assert sorted(order) == list(range(1, 91))
+    assert [t["id"] for t in topics] == [f"pathology-{n}" for n in order]
+    assert [t["section"] for t in topics] == [s for s, lessons in BANK.index for _ in lessons]
+    assert [t["title"] for t in topics[:2]] == ["Cell Injury, Free Radical Injury, and ER Stress Related", "Cell Death"]
+    assert next(t["section"] for t in topics if t["id"] == "pathology-86") == "Skin and Musculoskeletal"
     pyq = [t for t in topics if t["pyq"]]
-    assert [t["id"] for t in pyq] == [f"pathology-{n}" for n in PYQ_LESSONS]
+    assert sorted(int(t["id"].split("-")[1]) for t in pyq) == list(PYQ_LESSONS)
     # The app tags a PYQ lesson by this exact title.
     assert all(t["title"] == "Previous Year Questions" for t in pyq)
     assert sum(t["questionCount"] for t in pyq) == 615
-    assert {t["section"] for t in topics} == {"General Pathology", "Systemic Pathology", "Hematology",
-                                              "Blood Banking and Clinical Pathology"}
     assert lesson_title("Cml And Cll") == "CML and CLL"
     assert lesson_title("Hodgkin'S And Non-Hodgkin'S Lymphoma") == "Hodgkin's and Non-Hodgkin's Lymphoma"
     assert lesson_title("Pathology Of Female Genital Tract-Ii") == "Pathology of Female Genital Tract-II"

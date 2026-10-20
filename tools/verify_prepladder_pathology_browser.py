@@ -2,7 +2,7 @@
 """Learner path for PrepLadder Pathology in a real browser.
 
 Home: Pathology sits in Second Prof beside Microbiology -> Pathology ->
-PrepLadder bank ("Text explanations") -> 90 lessons in four sections, 27 PYQ
+PrepLadder bank ("Text explanations") -> 90 lessons in the 22 sections of the study index, 27 PYQ
 lessons -> Cell Death Q3: stem figure -> Acute Inflammation Q3: answer, ordered
 text explanation with option analysis in bold and an explanation figure -> a
 PYQ question the source PDF prints no explanation for shows the plain note.
@@ -14,10 +14,14 @@ from __future__ import annotations
 import argparse
 import http.server
 import socketserver
+import sys
 import threading
 from pathlib import Path
 
 from playwright.sync_api import sync_playwright
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from build_prepladder_pathology_bank import BANK  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "build" / "marrow-ui-checks"
@@ -81,9 +85,9 @@ def main() -> None:
             bank.click()
             page.wait_for_function("() => document.querySelectorAll('button.nk-topic-row').length===90", timeout=8000)
             body = page.locator("body").inner_text()
-            for section in ("General Pathology", "Systemic Pathology", "Hematology", "Blood Banking and Clinical Pathology"):
-                if section not in body:
-                    fail(f"section {section!r} missing")
+            headings = page.locator(".nk-topic-group > h2").all_inner_texts()
+            if headings != [section for section, _ in BANK.index]:
+                fail(f"sections not in study-index order: {headings!r}")
             if page.locator("button.nk-topic-row").filter(has_text="Previous Year Questions").count() != 27:
                 fail("expected 27 Previous Year Questions lessons")
             if page.locator("button.nk-topic-row").filter(has_text="CML and CLL").count() != 1:
@@ -142,7 +146,7 @@ def main() -> None:
 
             open_lesson(page, "Previous Year Questions")
             if page.locator("button.nk-library-row").count() != 34:
-                fail("the first General Pathology PYQ lesson should list 34 questions")
+                fail("the first Cell Injury PYQ lesson should list 34 questions")
             open_question(page, 30, "calcification")
             page.locator(".option-list button").first.click()
             page.wait_for_selector(".nk-marrow-ordered", timeout=8000)
@@ -152,7 +156,7 @@ def main() -> None:
             if errors:
                 fail("page errors: " + " | ".join(errors[:5]))
             browser.close()
-    print("PREPLADDER_PATHOLOGY_BROWSER_OK bank=PrepLadder topics=90 sections=4 second_prof=on stem_figure=on "
+    print(f"PREPLADDER_PATHOLOGY_BROWSER_OK bank=PrepLadder topics=90 sections={len(BANK.index)} second_prof=on stem_figure=on "
           "ordered_explanation=on references=on pyq=27 lost_note=on")
 
 

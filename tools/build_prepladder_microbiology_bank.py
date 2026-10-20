@@ -60,6 +60,16 @@ V2_PDFS = "MicroPrep1.pdf, Microprep-02.pdf, Microprep-03.pdf, Microprep-04.pdf"
 ASSETS = ROOT / "app/src/main/assets"
 RUNTIME = ASSETS / "prepladder_microbiology_visual_metadata.js"
 EXPECTED = {"questions": 1202, "topics": 42}
+# The owner's study index (2026-10-20): (section, lesson numbers) in the order the app lists
+# them. Lesson ids are unchanged, so progress carries over.
+INDEX = [
+    ("General Microbiology", [1, 2, 3, 4, 5, 6]),
+    ("Systematic Bacteriology", [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]),
+    ("Virology", [18, 19, 20, 21, 22, 23, 24, 25, 26]),
+    ("Mycology", [27, 28, 29, 30]),
+    ("Parasitology", [31, 32, 33, 34, 35, 36, 37]),
+    ("Immunology", [38, 41, 39, 40, 42]),
+]
 
 
 def fail(message: str) -> None:
@@ -534,8 +544,19 @@ def normalize(x_rows: list[dict], v2_rows: list[dict], edition: dict) -> tuple[d
     if len(figures) != len({f["imageId"] for f in figures}):
         fail("a figure is used twice")
     record = {"schema_version": "prepladder-text-bank-1.0", "subject": SUBJECT, "bank": "PrepLadder",
-              "explanationFormat": "structured", "topics": list(topics.values()), "questions": questions}
+              "explanationFormat": "structured", "topics": indexed(topics), "questions": questions}
     return record, figures
+
+
+def indexed(topics: dict[int, dict]) -> list[dict]:
+    """Topics in study-index order, with the index's section titles."""
+    order = [k for _, lessons in INDEX for k in lessons]
+    if sorted(order) != sorted(topics):
+        fail("the study index must list every lesson once")
+    for section, lessons in INDEX:
+        for k in lessons:
+            topics[k]["section"] = section
+    return [topics[k] for k in order]
 
 
 def shard(record: dict) -> tuple[list[str], dict]:

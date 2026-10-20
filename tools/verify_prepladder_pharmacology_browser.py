@@ -16,10 +16,14 @@ from __future__ import annotations
 import argparse
 import http.server
 import socketserver
+import sys
 import threading
 from pathlib import Path
 
 from playwright.sync_api import sync_playwright
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from build_prepladder_pharmacology_bank import BANK  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "build" / "marrow-ui-checks"
@@ -83,10 +87,9 @@ def main() -> None:
             bank.click()
             page.wait_for_function("() => document.querySelectorAll('button.nk-topic-row').length===59", timeout=8000)
             body = page.locator("body").inner_text()
-            for section in ("General Pharmacology", "Autonomic Nervous System", "Antimicrobials and Chemotherapy",
-                            "Anaesthetics and Miscellaneous Pharmacology"):
-                if section not in body:
-                    fail(f"section {section!r} missing")
+            headings = page.locator(".nk-topic-group > h2").all_inner_texts()
+            if headings != [section for section, _ in BANK.index]:
+                fail(f"sections not in study-index order: {headings!r}")
             if page.locator("button.nk-topic-row").filter(has_text="Previous Year Questions").count() != 16:
                 fail("expected 16 Previous Year Questions lessons")
             if page.locator("button.nk-topic-row").filter(has_text="ANS Introduction and Cholinergic Drugs").count() != 1:
@@ -128,8 +131,9 @@ def main() -> None:
                 fail("the explanation widens the page past the phone width")
             page.screenshot(path=str(OUT / "plpharma-03-explanation.png"), full_page=True)
 
-            # Antimicrobials PYQs (the ninth PYQ lesson): Q30 prints options A-E.
-            open_lesson(page, "Previous Year Questions", 8)
+            # Antimicrobials PYQs (lesson 42): Q30 prints options A-E.
+            pyq_order = [n for _, lessons in BANK.index for n in lessons if n in (1, 5, 10, 14, 16, 21, 27, 33, 42, 44, 48, 52, 55, 56, 57, 59)]
+            open_lesson(page, "Previous Year Questions", pyq_order.index(42))
             if page.locator("button.nk-library-row").count() != 100:
                 fail("the Antimicrobials PYQ lesson should list 100 questions")
             open_question(page, 29, "foscarnet")
@@ -148,8 +152,8 @@ def main() -> None:
             if page.locator(".question-text .nk-match-table tbody tr").count() < 4:
                 fail("drug-trial phases are not laid out as a table")
 
-            # Renal PYQs (the fifth PYQ lesson): Q13 prints only references.
-            open_lesson(page, "Previous Year Questions", 4)
+            # Renal PYQs (lesson 16): Q13 prints only references.
+            open_lesson(page, "Previous Year Questions", pyq_order.index(16))
             open_question(page, 12, "road traffic accident")
             page.locator(".option-list button").first.click()
             page.wait_for_selector(".nk-marrow-ordered", timeout=8000)
