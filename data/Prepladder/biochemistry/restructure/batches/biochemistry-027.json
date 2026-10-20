@@ -1,0 +1,613 @@
+{
+ "batch": "biochemistry-027",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "biochemistry-027",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "biochemistry-q844235",
+   "question": "A patient presents with dermatitis, dementia, and cognitive decline. Which micronutrient deficiency is most likely responsible?",
+   "options": {
+    "A": "Niacin",
+    "B": "Thiamine",
+    "C": "Tryptophan",
+    "D": "Riboflavin"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The Clinical scenario of Dermatitis, Dementia and Cognitive decline suggests Niacin deficiency (Pellagra) Pellagra is characterized by the classic triad of symptoms: Dermatitis Bright red erythema- in sun-exposed areas (face, ankles, feet) Casal’s necklace- ↑pigmentation around the neck Diarrhoea Dementia."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Thiamine (Option B):** (Vitamin B1) deficiency typically presents with symptoms related to the nervous system, such as peripheral neuropathy, cardiovascular abnormalities, and Wernicke-Korsakoff syndrome."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Tryptophan (Option C):** plays a crucial role in various metabolic processes. It serves as a precursor for Niacin (Vitamin B3) and Serotonin. Thus symptoms like mood alteration, decreased/increased appetite is also present."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Riboflavin (Option D):** deficiency causes cheilosis, glossitis, seborrheic dermatitis and proliferation of bulbar conjunctival capillaries."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L21_Q002_E1"
+    }
+   ]
+  },
+  {
+   "id": "21-8",
+   "question": "Which of the following post-translational modifications is common to collagen, hemoglobin, and immunoglobulins?",
+   "options": {
+    "A": "Hydroxylation",
+    "B": "Subunit aggregation",
+    "C": "Poly A tail addition",
+    "D": "DNA mismatch repair"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Subunit aggregation refers to the assembly of protein subunits into a functional multimeric structure. This process is seen in hemoglobin, collagen, and immunoglobulins."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Hydroxylation (Option A):** This is a post-translational modification involving the addition of hydroxyl groups to amino acids. While hydroxylation is important in collagen synthesis, it is not a common modification for hemoglobin and immunoglobulins."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Poly A tail addition (Option C):** This is a post-transcriptional modification that involves adding a polyadenine tail to the 3' end of mRNA. It helps in mRNA stability and translation efficiency but does not pertain to the protein structures in question."
+    },
+    {
+     "type": "paragraph",
+     "text": "**DNA mismatch repair (Option D):** DNA mismatch repair is a genomic maintenance process that corrects errors in DNA replication. It is unrelated to protein post-translational modifications."
+    }
+   ]
+  },
+  {
+   "id": "21-2",
+   "question": "What is true about the Hayflick limit?",
+   "options": {
+    "A": "Human cells can divide a finite number of times only",
+    "B": "Free radical oxidation level is unrestricted",
+    "C": "Telomerase activity is unrestricted",
+    "D": "RNA polymerase can function for a finite number of time only"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "- Human cells can divide a finite number of times only.: The hayflick limit, discovered by Dr. Leonard Hayflick, states that normal human cells have a finite capacity for replication. Telomeres, protective caps at chromosome ends, shorten with each cell division due to incomplete DNA replication. Shortened telomeres eventually lead to cellular senescence, preventing uncontrolled cell division and potential cancer."
+    },
+    {
+     "type": "paragraph",
+     "text": "Some cells, like stem cells and certain cancers, express telomerase, extending telomeres and bypassing the Hayflick limit. In normal human cells, telomerase activity is limited, leading to replicative senescence. The Hayflick limit, the maximum times cells can divide, is influenced by several factors: Telomere Length: Shortening telomeres indicate reduced division capacity."
+    },
+    {
+     "type": "paragraph",
+     "text": "Telomerase Activity: Higher activity extends telomeres, bypassing the limit. DNA"
+    },
+    {
+     "type": "paragraph",
+     "text": "Damage: Accumulated damage triggers senescence, limiting division. Cellular Stress: Various stressors accelerate senescence, reducing the limit. Genetic Factors: Variations affect telomere maintenance and DNA repair. Environmental Factors: Lifestyle, pollutants, and stress impact cellular health, affecting the limit."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Free radical oxidation level is unrestricted (Option B):** The Hayflick limit is not directly related to free radical oxidation levels."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Telomerase activity is unrestricted (Option C):** Telomerase activity is typically restricted in normal human cells, unlike stem cells and certain cancers."
+    },
+    {
+     "type": "paragraph",
+     "text": "**RNA polymerase can function for a finite number of times only (Option D):** The Hayflick limit primarily involves telomere shortening, not RNA polymerase function."
+    }
+   ]
+  },
+  {
+   "id": "16-53",
+   "question": "A female patient presented with pain and redness in the great toe. The serum uric acid level is 9.4mg/dl. The physician prescribed a drug for the treatment. Which of the following enzyme is likely to be inhibited by this drug?",
+   "options": {
+    "A": "Phosphoribosyl transferase",
+    "B": "Thymidylate synthase",
+    "C": "Xanthine oxidase",
+    "D": "Dihydrofolate reductase"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical scenario describes a female patient with pain and redness in the great toe, which suggests gout, a condition caused by elevated uric acid levels. The patient's serum uric acid level of 9.4 mg/dl is above the normal range, indicating hyperuricemia, which can lead to the formation of uric acid crystals in the joints, causing pain and inflammation. The physician has prescribed a drug that helps manage gout by reducing uric acid levels."
+    },
+    {
+     "type": "paragraph",
+     "text": "The drug prescribed is allopurinol, which is known to inhibit xanthine oxidase, the enzyme responsible for converting hypoxanthine to xanthine and xanthine to uric acid. By inhibiting xanthine oxidase, allopurinol decreases the production of uric acid, effectively managing gout by lowering uric acid levels in the body. Incorrect Options: Phosphoribosyl transferase (Option A): Involved in purine metabolism, but not the target of allopurinol."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Thymidylate synthase (Option B):** Involved in DNA synthesis, not related to gout treatment."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Dihydrofolate reductase (Option D):** Involved in folate metabolism, and inhibited by drugs like methotrexate, not relevant to gout treatment."
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q866671",
+   "question": "A 2-month-old infant presents with poor feeding, vomiting, and lethargy. Laboratory studies show hyperammonemia and elevated levels of orotic acid in the urine. Which of the following is the most likely enzyme deficiency?",
+   "options": {
+    "A": "Carbamoyl phosphate synthetase I deficiency",
+    "B": "Ornithine transcarbamylase (OTC) deficiency",
+    "C": "Orotidine 5'-phosphate decarboxylase deficiency",
+    "D": "Argininosuccinate lyase deficiency"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The infant's symptoms and laboratory findings are highly suggestive of Type 2 Hyperammonemia, or Ornithine Transcarbamylase (OTC) Deficiency. Hyperammonemia type 2 is an X-linked deficiency caused by a defect in ornithine transcarbamoylase (this reaction occurs in mitochondria), which forms citrulline in the Krebs cycle. Mothers with this condition may have hyperammonemia and avoid high-protein foods."
+    },
+    {
+     "type": "paragraph",
+     "text": "Elevated blood, cerebrospinal fluid, and urine glutamine levels are due to increased glutamine synthesis in response to high ammonia levels. Orotic aciduria - Due to the channelling of carbamoyl phosphate into pyrimidine synthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Feature Type 1 Hyperammonemia Type 2 Hyperammonemia Defective Enzyme Carbamoyl Phosphate Synthetase I (CPS1) (Option A) Ornithine Transcarbamylase (OTC) Inheritance Autosomal recessive X-linked recessive Mechanism The inability to synthesize carbamoyl phosphate blocks the urea cycle. Accumulation of carbamoyl phosphate in the mitochondria, which then spills over into the cytoplasm."
+    },
+    {
+     "type": "paragraph",
+     "text": "Metabolic Consequences Elevated ammonia and glutamate Normal orotic acid and uracil Low citrulline. Elevated ammonia, glutamate, and glutamine. High uracil and/or orotic acid (excess carbamoyl phosphate enters pyrimidine synthesis). Normal citrulline. Clinical Presentation Symptoms coincide with increased protein intake. CNS: Lethargy, drowsiness, coma, Convulsions, vomiting, respiratory stimulation, hyperventilation. Similar to Type 1."
+    },
+    {
+     "type": "paragraph",
+     "text": "Hepatomegaly."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Orotidine 5'-phosphate decarboxylase deficiency (Option C):** this is orotic aciduria (megaloblastic anaemia, growth retardation), but ammonia is normal."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Argininosuccinate lyase deficiency (Option D):** causes hyperammonemia but with elevated citrulline/argininosuccinate, not orotic acid."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L21_Q006_E1"
+    },
+    {
+     "type": "paragraph",
+     "text": "22.Dna And Chromosome Biochemistry Structure, Replication, And Repair"
+    },
+    {
+     "type": "paragraph",
+     "text": "22.Dna And Chromosome Biochemistry Structure, Replication, And Repair — Part B"
+    }
+   ]
+  },
+  {
+   "id": "11-29",
+   "question": "Liver produces ketones but cannot use it due to the deficiency of which of the following?",
+   "options": {
+    "A": "Thiophorase",
+    "B": "Alkaline phosphatase",
+    "C": "Alanine transaminase",
+    "D": "Thoiolase"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Liver cannot use ketone bodies due to the deficiency of Thiphorase KETOSIS Ketone Bodies Produced in the liver Utilized by extrahepatic tissues due to the absence of Thiophorase enzyme in the liver Tissues that use Ketone Bodies Almost all tissues except: Liver Red blood cells (RBCs) Tissues that prefer ketone bodies: Heart muscle Renal cortex Placenta Tissues that use ketone bodies only in the absence of glucose: Skeletal muscle Brain Additional Tissues Using Ketone Bodies Intestinal mucosal cells Adipocytes Enzyme Involved Thiophorase: Converts acetoacetate to acetoacetyl CoA Fatty Acids as Primary Energy Source During Starvation Skeletal muscles Heart Liver Energy Production Pathway Acetoacetyl CoA enters the beta-oxidation pathway to produce energy"
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q866323",
+   "question": "A neonate presents with seizures and is found to have a cherry red spot on fundus examination. Enzyme assay reveals deficiency of hexosaminidase A. Which of the following substances is most likely to be accumulated in this patient?",
+   "options": {
+    "A": "GM1 ganglioside",
+    "B": "GM2 ganglioside",
+    "C": "Sphingomyelin",
+    "D": "Glucocerebroside"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "A neonate presenting with seizures and a cherry red spot likely has Tay-Sachs Disease, a lysosomal storage disorder caused by hexosaminidase A deficiency, leading to the accumulation of GM2 ganglioside in neurons."
+    },
+    {
+     "type": "paragraph",
+     "text": "Tay-Sachs Disease Inheritance Autosomal recessive Cause Deficiency of hexosaminidase A enzyme Accumulation GM2 ganglioside in ganglion cells and neurons Clinical Manifestations Initial symptoms include loss of head control, inability to sit, exaggerated startle response to sound, and a disproportionately large head. Progressive features include spasticity, deafness, and blindness. Not associated with organomegaly."
+    },
+    {
+     "type": "paragraph",
+     "text": "Fundus Finding Cherry-red spot is caused by GM2 ganglioside accumulation in the ganglion cells of the retina, creating a contrast with the normal red fovea. Incorrect Options: GM1 ganglioside (Option A): Accumulates in GM1 gangliosidosis, caused by β-galactosidase deficiency."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Sphingomyelin (Option C):** Accumulates in Niemann-Pick disease, caused by sphingomyelinase deficiency."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Glucocerebroside (Option D):** Accumulates in Gaucher disease, caused by glucocerebrosidase deficiency."
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q866675",
+   "question": "A child presents with abdominal distension and an enlarged liver by 8 cm below the costal margin. The liver is smooth on palpation. Which of the following is the most likely diagnosis?",
+   "options": {
+    "A": "Glycogen Storage Disease (GSD)",
+    "B": "Lysosomal Storage Disease (LSD)",
+    "C": "Hepatocellular Carcinoma (HCC)",
+    "D": "Autoimmune Hepatitis"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "A child with abdominal distension and massive hepatomegaly (8 cm below the costal margin) points to a metabolic or infiltrative cause. Smooth liver suggests uniform enlargement without focal mass or nodularity. In GSD (e.g., Von Gierke disease, Pompe, Cori, Anderson), hepatomegaly results from excessive glycogen accumulation in hepatocytes."
+    },
+    {
+     "type": "paragraph",
+     "text": "Often presents in infancy/early childhood with hypoglycemia, lactic acidosis, hyperlipidemia (depending on subtype), but in some types, the main clue is a large smooth liver. Incorrect Options: Lysosomal Storage Disease (LSD) (Option B): Also causes hepatomegaly, but often with coexisting splenomegaly, coarse facial features, and developmental regression (e.g., Gaucher, Niemann–Pick)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Hepatocellular carcinoma (HCC) (Option C):** Rare in a young child without pre-existing liver disease; typically causes a firm, irregular nodular liver."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Autoimmune hepatitis (Option D):** Usually causes mild to moderate hepatomegaly with jaundice, fatigue, elevated transaminases; not massive smooth enlargement."
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q866656",
+   "question": "A patient presents with fatigue, anemia, and hepatomegaly. Hemoglobin electrophoresis reveals the presence of HbS. What will be the appropriate treatment?",
+   "options": {
+    "A": "Hydroxyurea",
+    "B": "Blood transfusion",
+    "C": "Iron supplementation",
+    "D": "Vitamin B12 supplementation"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The presence of HbS confirms Sickle Cell Anemia, and hydroxyurea is the primary treatment as it boosts fetal hemoglobin (HbF) levels, reducing red blood cell sickling and related complications. Cause: Mutation in β-globin gene → production of abnormal hemoglobin S (HbS). Pathophysiology: HbS polymerizes under low oxygen → sickling of RBCs → vaso-occlusion and hemolysis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Symptoms: Anemia, fatigue, pain crises, splenomegaly/hepatomegaly, increased infection risk. Diagnosis: Hemoglobin electrophoresis showing HbS. Treatment: Hydroxyurea: Increases fetal hemoglobin (HbF), reducing sickling episodes. Blood transfusions for severe anemia/crisis. Supportive care: pain management, infection prevention. Incorrect Options: Blood transfusion (Option B) may be used in severe cases but are not the first-line chronic therapy."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Iron supplementation (Option C):** and Vitamin B12 supplementation (Option D) are not specific treatments for sickle cell anemia."
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q865446",
+   "question": "In uncontrolled diabetes, in which of the following cells there is decreased glucose uptake due to insulin deficiency:",
+   "options": {
+    "A": "RBC",
+    "B": "Skeletal muscle",
+    "C": "Liver",
+    "D": "Brain"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "In uncontrolled diabetes, insulin deficiency leads to decreased glucose uptake in cells that rely on insulin for glucose transport. Skeletal muscle cells are insulin-dependent, meaning they require insulin to facilitate the uptake of glucose via glucose transporters (e.g., GLUT4). In the absence of sufficient insulin, glucose uptake in skeletal muscle decreases, leading to elevated blood glucose levels."
+    },
+    {
+     "type": "paragraph",
+     "text": "**RBC (Option A):** RBCs do not depend on insulin for glucose uptake. They use GLUT1 transporters, which allow glucose to enter the cells independently of insulin levels. Therefore, their glucose uptake is not significantly affected by insulin deficiency."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Liver (Option C):** The liver can take up glucose independently of insulin to some extent, especially under the influence of other hormones like glucagon. While insulin does regulate hepatic glucose uptake and production, the primary effect of insulin deficiency in the liver is increased glucose output (e.g., gluconeogenesis), not a significant decrease in uptake."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Brain (Option D):** Brain cells primarily use GLUT3 and GLUT1 transporters, which are insulin-independent. The brain can continue to take up glucose even in the absence of insulin."
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q865405",
+   "question": "For mycobacterium species differentiation, technique used is/are? Line probe assay MIRU (Mycobacterium Interspersed Rapatitive Units) Spoligotyping RFLP",
+   "options": {
+    "A": "1, 2, 3",
+    "B": "2, 3, 4",
+    "C": "1, 2, 4",
+    "D": "1, 2, 3, 4"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "All of the listed techniques can be used for Mycobacterium species differentiation, particularly for Mycobacterium tuberculosis complex (MTBC) and non-tuberculous mycobacteria (NTM). TB lab investigations: Investigations Purpose Advantages Limitations Sputum smear Initial screening for pulmonary TB. Samples are stained using the Ziehl-Neelsen method or Auramine-O stain to visualize acid-fast bacilli (AFB) under a microscope."
+    },
+    {
+     "type": "paragraph",
+     "text": "Quick and inexpensive. Can provide results within a few hours. Low sensitivity, especially in cases of extrapulmonary TB or in patients with HIV. Cannot differentiate between Mycobacterium tuberculosis and non-tuberculous mycobacteria (NTM). Culture Methods Confirm the diagnosis of TB and assess drug susceptibility. Solid Media: Sputum is inoculated onto solid culture media like Löwenstein-Jensen or Middlebrook agar."
+    },
+    {
+     "type": "paragraph",
+     "text": "Liquid Media: Automated systems like BACTEC or MGIT are used to detect growth faster. The gold standard for TB diagnosis. Allows for drug susceptibility testing. Time-consuming; results can take weeks. Requires specialized laboratory facilities. Xpert MTB/RIF Detects Mycobacterium tuberculosis and rifampicin resistance. Method: A cartridge-based system that performs nucleic acid amplification (NAAT)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Sputum or other specimens are processed directly in the cartridge. Rapid results (within 2 hours). High sensitivity and specificity. Simultaneously detects rifampicin resistance. More expensive than smear microscopy. Does not provide full drug susceptibility testing. LAMP (Loop-Mediated Isothermal Amplification) Detects DNA of Mycobacterium tuberculosis. Method: Amplifies DNA at a constant temperature without the need for thermal cycling."
+    },
+    {
+     "type": "paragraph",
+     "text": "Sputum or other specimens are used. Rapid results (within 1-2 hours). High specificity and sensitivity. Can be performed at the point of care. Used for patients with HIV with CD4+ counts of less than 100 cells/µL irrespective of signs and symptoms of TB. Less widely available than PCR-based tests. Cannot detect drug resistance directly. TrueNat Point-of-care test for TB detection."
+    },
+    {
+     "type": "paragraph",
+     "text": "Method: Uses a micro-PCR technology to amplify DNA. Results are available within 60 minutes. Portable and easy to use in peripheral health facilities. Provides results quickly, facilitating immediate treatment decisions. Line Probe Assay (LPA) (Option 1) Detects TB and drug resistance (rifampicin and isoniazid). Method: Sputum samples are processed, and DNA is extracted. Amplified DNA is hybridized to specific probes on a membrane strip."
+    },
+    {
+     "type": "paragraph",
+     "text": "Rapid results (within 1-2 days). Can detect multiple mutations associated with drug resistance. Requires a laboratory setup and trained personnel. Not suitable for all strains of TB. RFLP (Option 4) IS6110 restriction fragment length polymorphism (RFLP) analysis is widely used for molecular epidemiological studies of tuberculosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Restriction enzymes Nru I, EcoN I, Pst I, and Pvu II were used to analyze IS6110 fingerprints in Mycobacterium tuberculosis strains H37Rv (virulent) and H37Ra (avirulent). MIRU (Mycobacterial Interspersed Repetitive Units) (Option 2) is a genotyping method based on variable-number tandem repeats (VNTRs) found at specific loci in the Mycobacterium genome."
+    },
+    {
+     "type": "paragraph",
+     "text": "By analyzing the number of repeat units at these loci, MIRU provides a unique fingerprint for different strains. Spoligotyping (Option 3) is a molecular technique that targets the direct repeat (DR) region of the Mycobacterium tuberculosis complex (MTBC) genome. This region consists of short, conserved repeats interspersed with unique spacer sequences."
+    },
+    {
+     "type": "paragraph",
+     "text": "By detecting the presence or absence of these spacers, spoligotyping can differentiate among various strains of MTBC."
+    }
+   ]
+  },
+  {
+   "id": "16-21",
+   "question": "On centrifugation of a cell, LDH will get deposited in:",
+   "options": {
+    "A": "Mitochondria",
+    "B": "Lysosome",
+    "C": "Cytoplasm",
+    "D": "Golgi complex"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Lactate dehydrogenase (LDH) is primarily located in the cytoplasm. The enzyme exists in various isoforms, with LDH-5 being the most abundant in the cytoplasm. About 99% of LDH activity is found in the cytoplasm, where it plays a critical role in the conversion of lactate to pyruvate and vice versa, part of the cell's metabolic processes."
+    },
+    {
+     "type": "paragraph",
+     "text": "While a small fraction of LDH can be found in the nucleus (involved in DNA binding and transcription), the vast majority of LDH activity occurs in the cytoplasm. Incorrect Options: Mitochondria (Option A): LDH is not primarily located in the mitochondria."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mitochondria contain enzymes like pyruvate dehydrogenase and enzymes involved in the citric acid cycle, but LDH, which is involved in anaerobic metabolism, is predominantly found in the cytoplasm."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Lysosome (Option B):** LDH is not found in significant amounts in the lysosome. Lysosomes are involved in cellular digestion and degradation processes, and while some enzymes may be active there, LDH is not typically one of them."
+    },
+    {
+     "type": "paragraph",
+     "text": "**It is primarily cytoplasmic Golgi complex (Option D):** is responsible for modifying, sorting, and packaging proteins for secretion or use within the cell, but it is not a location where LDH is predominantly found. LDH is mainly active in the cytoplasm and plays its role in energy metabolism rather than processing or transporting cellular components like the Golgi."
+    }
+   ]
+  },
+  {
+   "id": "11-30",
+   "question": "Identify the test:",
+   "options": {
+    "A": "Rothera’s test",
+    "B": "Benedict’s test",
+    "C": "Fehling’s test",
+    "D": "Barfoed’s test"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Rothera's test: The presence of ketosis can be established by the detection of ketone bodies in urine by Rothera's test. Method-Saturate 5 mL of urine with solid ammonium sulfate. Add a few drops of freshly prepared sodium nitroprusside followed by 2 mL of liquor ammonia along the sides of the test tube. Development of a purple ring indicates the presence of ketone bodies in urine."
+    }
+   ]
+  },
+  {
+   "id": "21-36",
+   "question": "What happens to chloride levels in sweat and pancreatic secretions in cystic fibrosis?",
+   "options": {
+    "A": "Chloride is raised in sweat",
+    "B": "Chloride is decreased in sweat",
+    "C": "Chloride is decreased in pancreatic secretions",
+    "D": "None of the above"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Cystic fibrosis: Inheritance Autosomal recessive disorder. Genetic Cause Mutations in the CFTR gene (cystic fibrosis transmembrane regulator). CFTR Function Cyclic AMP-regulated chloride (Cl − ) transporter. Symptoms Chronic bacterial infections in airways and sinuses. Fat maldigestion due to pancreatic exocrine insufficiency. Infertility in males due to abnormal development of the vas deferens."
+    },
+    {
+     "type": "paragraph",
+     "text": "Diagnostic Feature Elevated chloride levels in sweat (>60 mmol/L)."
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q854606",
+   "question": "Calculate the anion gap: Na- 145mmol/L K- 4mmol/L Cl- 90mmol/L HCO 3 - 15mmol/L",
+   "options": {
+    "A": "35",
+    "B": "44",
+    "C": "28",
+    "D": "12"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Anion Gap = (Na⁺ + K⁺) – (Cl⁻ + HCO₃⁻) = (145+4) - (90+15) = 44 Anion gap: Definition The difference between the measured cations and the measured anions in the extracellular fluid (ECF). Cations (Measured) Sodium (Na⁺) and Potassium (K⁺) Anions (Measured) Chloride (Cl⁻) and Bicarbonate (HCO₃⁻) Unmeasured Anions Protein anions, sulfate, phosphate, and organic acids."
+    },
+    {
+     "type": "paragraph",
+     "text": "Reason for Anion Gap The unmeasured anions cause the difference between the measured cations and anions. Formula Anion Gap = (Na⁺ + K⁺) – (Cl⁻ + HCO₃⁻) Normal Value ~12 mmol/L"
+    }
+   ]
+  },
+  {
+   "id": "7-39",
+   "question": "Which of the following enzyme defects leads to Pompe’s disease?",
+   "options": {
+    "A": "Lysosomal alpha glucosidase",
+    "B": "β-hexosaminidase -A",
+    "C": "β-galactocerebrosidase",
+    "D": "β-glucocerebrosidase"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Pompe’s Disease (Glycogen storage disease Type II) Enzyme Deficiency Lysosomal α1→4 and α1→6 glucosidase (acid maltase) Affected Gene GAA Clinical Features Muscle hypotonia, death due to heart failure within 2 years of age (seen in juvenile) Muscle dystrophy (seen in adults) Mode of Inheritance Autosomal recessive Management Supportive care Enzyme replacement therapy Chest x-ray at regular intervals Obtain an initial echocardiogram to evaluate the extent of cardiomyopathy Medical management may be useful based on the stage of cardiomyopathy."
+    },
+    {
+     "type": "paragraph",
+     "text": "Avoid drastic changes in fluid status, either through dehydration or fluid overload."
+    }
+   ]
+  },
+  {
+   "id": "27-37",
+   "question": "Xanthurenic aciduria may be treated with high doses of which vitamin?",
+   "options": {
+    "A": "Vitamin B6",
+    "B": "Vitamin B12",
+    "C": "Vitamin B5",
+    "D": "Vitamin B7"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The metabolic disorders which respond to vitamin B6 therapy are: Xanthurenic aciduria Homocystinuria Vitamin B6 (Pyridoxal Phosphate - PLP): Amino Acid Metabolism PLP acts as a coenzyme for many reactions in amino acid metabolism. Transamination Catalyzed by amino transferases (e.g., Alanine transaminase), converting amino acids to keto acids."
+    },
+    {
+     "type": "paragraph",
+     "text": "Decarboxylation Required for decarboxylation of amino acids, forming important neurotransmitters and metabolites. Neurotransmitter Synthesis GABA from glutamate (important for inhibitory neurotransmission). Histamine from histidine (mediator of allergy). Serotonin from 5-hydroxy tryptophan (mood regulation). Taurine from cysteine. Sulfur Containing Amino Acids Involved in methionine and cysteine metabolism."
+    },
+    {
+     "type": "paragraph",
+     "text": "Homocysteine Metabolism Converts homocysteine to cystathionine; deficiency leads to increased homocysteine, associated with myocardial infarction risk. Heme Synthesis Required for ALA synthase, the rate-limiting enzyme in heme biosynthesis. Niacin Production Required for the conversion of tryptophan to niacin (via kynurenine). Glycogenolysis PLP is a coenzyme for phosphorylase, which converts glycogen to glucose-1-phosphate."
+    }
+   ]
+  },
+  {
+   "id": "11-19",
+   "question": "Deficiency of which of the following causes Barth’s syndrome?",
+   "options": {
+    "A": "Cardiolipin",
+    "B": "Sphingomyelin",
+    "C": "Glycolipids",
+    "D": "Cerebroside"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Barth’s syndrome: Cause Mutations affecting cardiolipin metabolism (decreased or altered cardiolipin levels), causing defects in mitochondrial function. Clinical Features Cardioskeletal myopathy (affects both heart and muscle). Mitochondrial dysfunction in aging and pathologic conditions."
+    }
+   ]
+  },
+  {
+   "id": "21-9",
+   "question": "A 7-year-old child of short stature presents with skin patches and learning difficulties. Diagnostic workup indicates a defect in DNA repair specifically related to double-strand breaks. What is the most likely diagnosis?",
+   "options": {
+    "A": "Bloom Syndrome",
+    "B": "Xeroderma Pigmentosum",
+    "C": "Cockayne Syndrome",
+    "D": "Lynch Syndrome"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Bloom Syndrome Bloom syndrome is caused by a defect in the BLM gene, which encodes a RecQ helicase essential for DNA repair, particularly double-strand break repair. Clinical Features: Physical: Short stature, narrow face, small jaw, large ears, and high-pitched voice. Skin: Red rash on sun-exposed areas (face, arms, hands) with dilated blood vessels; patches of lighter/darker skin."
+    },
+    {
+     "type": "paragraph",
+     "text": "Development: Fertility and learning difficulties; growth and developmental delays. Infections: Frequent ear and lung infections. Comorbidities: Increased risk of diabetes and chronic obstructive pulmonary disease (COPD). Cancer Risk: Early-onset cancers, especially squamous cell skin cancer, leukemia, lymphoma, and gastrointestinal cancers."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Xeroderma pigmentosum (Option B):** It is an autosomal recessive disorder characterized by sun sensitivity, with approximately 50% of patients having acute burning on minimal sun exposure. UV radiation causes the cross-linking of pyrimidine residues, preventing normal DNA replication. Nucleotide excision repair (NER) prevents this DNA damage. Inherited loss-of-function mutations in any of these genes give rise to xeroderma pigmentosum. The onset of freckling (lentigines) on sun-exposed skin before age two years in most patients. At an early age, there is a significantly increased risk of sunlight-induced cutaneous neoplasms (basal cell carcinoma, squamous cell carcinoma, melanoma)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Cockayne Syndrome (Option C):** Cockayne syndrome is associated with defective transcription-coupled nucleotide excision repair, resulting in photosensitivity, growth failure, and neurodevelopmental abnormalities. Double-strand break repair is not affected."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Lynch Syndrome (Option D):** Lynch syndrome, also known as hereditary non-polyposis colorectal cancer (HNPCC), involves a defect in mismatch repair genes (MLH1, MSH2, MSH6, PMS2). It is not associated with childhood growth failure or learning difficulties."
+    }
+   ]
+  },
+  {
+   "id": "27-9",
+   "question": "A 16-year-old patient presents with pellagra-like skin eruptions during the spring season for the past 5 years. Laboratory tests reveal normal levels of 5-Hydroxyindoleacetic Acid (HIAA), high aminoaciduria, and normal urinary indole levels. What is the most likely diagnosis?",
+   "options": {
+    "A": "Carcinoid tumor",
+    "B": "Nutritional pellagra",
+    "C": "Hartnup disorder",
+    "D": "Essential fructosuria"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient's presentation is consistent with Hartnup disease (Pellagra-like dermatosis), a rare inborn error of metabolism. This condition is associated with impaired transport of monoamine monocarboxylic amino acids across the brush border epithelium of the intestine and renal tubules."
+    },
+    {
+     "type": "paragraph",
+     "text": "Hartnup disorder Inheritance Autosomal recessive Pathogenesis Mutation in SLC6A19 gene; Impaired transport of neutral amino acids across intestinal and kidney brush border epithelium Clinical features Photosensitivity Pellagra-like rash (Decreased Niacin due to tryptophan deficiency) Neurologic symptoms (ataxia, emotional instability) - Decreased serotonin due to tryptophan deficiency Biochemical defect Deficiency of nicotinamide synthesis Diagnosis Aminoaciduria (neutral amino acids) in urine and plasma Demonstrate SLC6A19 defect Treatment Administration of nicotinamide/nicotinic acid Protection from sunlight Carcinoid tumor (Option A): Carcinoid tumors cause increased serotonin production, which is metabolized to 5-HIAA and excreted in urine."
+    },
+    {
+     "type": "paragraph",
+     "text": "The normal 5-HIAA levels in this patient rule out carcinoid syndrome."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Nutritional pellagra (Option B):** Nutritional pellagra is caused by niacin (vitamin B3) deficiency and is characterized by the \"4 Ds\": diarrhea, dermatitis, dementia, and death. However, this patient has high aminoaciduria, which is not typical of nutritional pellagra."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Essential fructosuria (Option D):** It is caused by a deficiency of fructokinase, leading to the excretion of unmetabolized fructose in the urine. It does not cause pellagra-like symptoms or high aminoaciduria."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,609 @@
+{
+ "batch": "physiology-027",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "physiology-027",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "physiology-21-13",
+   "question": "A 65-year-old man presents with muscle cramps and tetany for the past 2 days. Investigations reveal hypocalcemia and elevated phosphate levels. If the hypocalcemia is caused by damage to the part of the nephron responsible for the maximum reabsorption of calcium, which part of the nephron is likely affected?",
+   "options": {
+    "A": "Loop of Henle",
+    "B": "Distal convoluted tubule",
+    "C": "Proximal tubule",
+    "D": "Collecting duct"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Almost 65% of filtered calcium is reabsorbed in the PCT, mostly via the paracellular (passive) pathway. 99% of the filtered calcium is reabsorbed, and only 1% is excreted."
+    },
+    {
+     "type": "paragraph",
+     "text": "Sites of reabsorption PCT: 65% of filtered calcium is reabsorbed via a paracellular/passive pathway, and it parallels sodium and water reabsorption (Option C) Loop of Henle (Option A): Thick ascending limb reabsorbs 25-30% of filtered calcium. 50% via the paracellular route due to a positive lumen charge. 50% via the transcellular pathway, stimulated by PTH. Distal and Collecting Tubules: (Option B and D) Reabsorbs 4-9% of filtered calcium."
+    },
+    {
+     "type": "paragraph",
+     "text": "Almost entirely by active transport. Calcium enters cells via apical channels and exits via basolateral calcium-ATPase pumps and sodium-calcium"
+    },
+    {
+     "type": "paragraph",
+     "text": "exchangers. Hormonal Regulation of calcium excretion Parathyroid Hormone (PTH): Primary regulator. Increases calcium reabsorption in the thick ascending limb and distal tubules. Reduces urinary calcium excretion. Vitamin D (Calcitriol): Enhances calcium reabsorption in the distal tubule and thick ascending limb. Calcitonin: Stimulates calcium reabsorption in the thick ascending limb and distal tubule."
+    },
+    {
+     "type": "paragraph",
+     "text": "Calcium is passively absorbed in PCT and TAL (50% is passive), and magnesium is also absorbed similarly."
+    }
+   ]
+  },
+  {
+   "id": "physiology-21-14",
+   "question": "Which of the following statements regarding potassium homeostasis by the renal tubule is NOT True?",
+   "options": {
+    "A": "Maximum K+ reabsorption occurs in the PCT.",
+    "B": "Principal cells are the major site for K+ secretion.",
+    "C": "Reabsorption of K+ in the PCT depends on the daily changes in potassium intake.",
+    "D": "Type B intercalated cells secrete potassium into the tubule when there is excess K+."
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Reabsorption of K+ in the PCT is relatively constant and not influenced by daily changes in potassium intake. Mechanism of Potassium reabsorption and secretion at different levels: Site Potassium reabsorption and secretion PCT Maximum potassium reabsorption (65%). Does not depend on daily K+ intake. Loop of Henle About 30% of K+ is reabsorbed. Potassium is cotransported with sodium and chloride."
+    },
+    {
+     "type": "paragraph",
+     "text": "DCT and Collecting duct Principal cells Major site for potassium secretion Na+-K+ ATPase pump moves K+ into the cell from the interstitium. Passive diffusion of K+ from the cell into the tubular lumen through ROMK and BK channels. Type A intercalated cells. Reabsorbs potassium during potassium depletion."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mechanism: Hydrogen-potassium ATPase transporter in the luminal membrane exchanges hydrogen ions for potassium Type B intercalated cells Secrete potassium when there is an excess. Mechanism: Hydrogen-potassium ATPase transporter on the basolateral membrane pumps potassium into the cell, which then diffuses into the tubular lumen."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L28_Q014_E1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L28_Q014_E2"
+    }
+   ]
+  },
+  {
+   "id": "physiology-21-15",
+   "question": "At which part of the renal tubule does the maximum reabsorption of sodium occur?",
+   "options": {
+    "A": "Proximal convoluted tubule",
+    "B": "Thick Ascending loop of Henle",
+    "C": "Distal convoluted tubule",
+    "D": "Collecting duct"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "About 65-70% of sodium reabsorption occurs in the proximal convoluted tubule (PCT) Sodium is only filtered and reabsorbed by the renal tubules, and no secretion occurs. Only the thin descending segment of the nephron cannot reabsorb sodium as it is impermeable to all solutes, but all the other parts can reabsorb sodium."
+    },
+    {
+     "type": "paragraph",
+     "text": "All segments of the nephron play a role in active and passive sodium reabsorption except for the ascending thin segment (near the JG apparatus), where only passive reabsorption occurs. Reabsorption of sodium at respective levels are Proximal convoluted tubule (PCT): 65-70 % Thick Ascending loop of Henle (TAL): 25-30 % (Option B) Distal Convoluted tubule (DCT): 5-7 % (Option C) Collecting Duct (CD): 2-3 % (Option D)"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L28_Q015_E1"
+    }
+   ]
+  },
+  {
+   "id": "physiology-21-16",
+   "question": "Where is the sodium-glucose-linked transporter (SGLT) located in the renal tubule?",
+   "options": {
+    "A": "Early part of the Proximal convoluted tubule",
+    "B": "Ascending Loop of Henle",
+    "C": "Distal convoluted tubule",
+    "D": "Later part of the Proximal convoluted tubule"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Sodium-glucose linked transporter (SGLT1 and 2), both are located on the brush border of the proximal convoluted tubule (Early PCT). It helps carry glucose against a concentration gradient. SGLT2 resorbs 90% of filtered glucose in the early proximal convoluted tubule (PCT), while SGLT1 reabsorbs 10% in the latter half. The reabsorbed glucose exits the cell via the basolateral membrane through GLUT2 and GLUT1 transporters, respectively."
+    },
+    {
+     "type": "paragraph",
+     "text": "Types of transporters in the different parts of the tubule: PART of TUBULE TRANSPORTERS Proximal tubule Early PCT (Option A) Sodium-Glucose Co-transporter (SGLT) Sodium-Amino Acid Cotransporter Sodium-Hydrogen Exchanger (NHE) Na+/K+ ATPase Pump Late PCT (Option D) Sodium-Chloride Cotransporter Chloride Channels Thin descending loop of Henle Freely permeable to water and some solutes such as urea and sodium No specific transporter Thick ascending loop of Henle (Option B) Na+-K+-2Cl− Co-transporter (NKCC2) Sodium-Hydrogen Exchanger Na+/K+ ATPase Pump Distal convoluted tubule (Option C) Early DCT Sodium-chloride cotransporter (NCC) Na+/K+ ATPase Pump Chloride Channels Late DCT Principal Cells: Epithelial Sodium Channels (ENaC) Potassium Channels Na+/K+ ATPase Pump Type A Intercalated Cells: Hydrogen-ATPase Hydrogen-Potassium ATPase Chloride-Bicarbonate Exchanger Type B Intercalated Cells: Hydrogen-ATPase (Basolateral) Chloride-Bicarbonate Exchanger (Pendrin)"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L28_Q016_E1"
+    }
+   ]
+  },
+  {
+   "id": "physiology-21-17",
+   "question": "A 60-year-old male with chronic kidney disease presents with electrolyte abnormalities. He undergoes renal function tests revealing impaired reabsorption in his proximal convoluted tubule (PCT). All the following ions are reabsorbed in the proximal convoluted tubule (PCT) except?",
+   "options": {
+    "A": "Amino Acids",
+    "B": "Phosphate",
+    "C": "Bicarbonate",
+    "D": "Hydrogen Ions"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Hydrogen Ions Hydrogen ions (H+) are actively secreted into the tubular lumen in the PCT (Not Reabsorbed) Proximal Convoluted Tubule: PCT plays a crucial role in renal function by reabsorbing approximately 65% of filtered sodium, chloride, potassium and bicarbonate, along with almost all filtered glucose and amino acids."
+    },
+    {
+     "type": "paragraph",
+     "text": "Isotonic Absorption Passive reabsorption of Calcium (65%) Sodium Resorption: Occurs through various Carrier Proteins SGLT (5%): Secondary Active Transporter of Sodium and Glucose Co-Transporters (45%): It reabsorbs sodium along with other substances like Amino acids (Sodium-amino acid co-transporter) Phosphate (Sodium-phosphate co-transporter) Citric acid (Sodium-citric acid co-transporter) Sodium Hydrogen Exchanger (45%) Antiporter."
+    },
+    {
+     "type": "paragraph",
+     "text": "It provides H+ ions and aids in the absorption of Bicarbonate Na/K ATPase is present on the Basolateral side, which creates the gradient for Sodium. Sodium Bi-Carbonate Co-transporter (NBC): Helps in Na reabsorption in the basolateral membrane. Proximal Tubule has two parts: Proximal Convoluted Tubule (PCT): It is a little impermeable for chloride reabsorption, leading to a higher concentration of chloride in the Proximal convoluted tubule."
+    },
+    {
+     "type": "paragraph",
+     "text": "Proximal Straight Tubule (PST): Na+ is reabsorbed along with chloride."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L28_Q017_E1"
+    }
+   ]
+  },
+  {
+   "id": "physiology-21-18",
+   "question": "A 45-year-old male patient with chronic hypertension undergoes renal function tests. His glomerular filtration rate (GFR) fluctuates due to his condition, but the percentage of sodium reabsorption at the proximal tubule remains constant. This renal phenomenon ensures stable sodium reabsorption relative to GFR changes and is primarily mediated by?",
+   "options": {
+    "A": "Renal Autoregulation",
+    "B": "Modulating GFR based on feedback from sodium concentrations.",
+    "C": "Glomerulo-tubular balance",
+    "D": "Renin-angiotensin-aldosterone system (RAAS) regulating sodium reabsorption"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Glomerulo-tubular balance Glomerulo-tubular balance is the process by which the proximal tubule adjusts sodium reabsorption in response to changes in glomerular filtration rate (GFR). This ensures a constant percentage of sodium is reabsorbed despite variations in GFR. Peritubular capillaries play a crucial role in reabsorbing substances from the renal tubules back into the bloodstream."
+    },
+    {
+     "type": "paragraph",
+     "text": "These capillaries will proportionately reabsorb whatever is reabsorbed at the proximal tubule, thus depleting the Sodium in the interstitium. This process is governed by Starling forces, which involve hydrostatic pressure (P) and oncotic pressure (π). Hydrostatic Pressure (P): This is the pressure exerted by fluid within the capillary."
+    },
+    {
+     "type": "paragraph",
+     "text": "In peritubular capillaries, a low hydrostatic pressure helps facilitate the reabsorption of water and solutes (like sodium) from the tubular lumen into the capillary. Oncotic Pressure (π): This is the osmotic pressure exerted by proteins, mainly albumin, in the blood plasma. High oncotic pressure in the peritubular capillaries helps retain water and solutes within the capillary, preventing excessive loss into the interstitial space."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Renal Autoregulation(Option A):** refers to the kidney’s ability to maintain stable renal blood flow and GFR despite changes in systemic blood pressure."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Modulating GFR based on feedback from sodium concentrations(Option B):** Tubuloglomerular feedback is a mechanism where the macula densa cells in the distal tubule monitor sodium chloride levels and regulate afferent arteriolar resistance to control GFR. Renin-angiotensin-aldosterone system (RAAS) regulating sodium reabsorption(Option D) The RAAS system is vital for regulating sodium and water balance in response to changes in blood pressure and blood volume by acting on distal nephron segments (e.g., distal convoluted tubule, collecting duct) to enhance sodium reabsorption."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L28_Q018_E1"
+    }
+   ]
+  },
+  {
+   "id": "physiology-21-19",
+   "question": "A 45-year-old woman presents with complaints of excessive thirst and frequent urination. Laboratory tests reveal hypernatremia (elevated serum sodium levels) and low urine osmolality. Further investigation shows undetectable levels of antidiuretic hormone (ADH). What is the location of minimum urine tonicity expected in this patient?",
+   "options": {
+    "A": "Distal convoluted tubule (DCT)",
+    "B": "End of the collecting duct",
+    "C": "Descending thin limb of the loop of Henle",
+    "D": "Ascending limb of the loop of Henle"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Without ADH, the collecting ducts cannot effectively reabsorb water, resulting in diluted urine with low osmolality despite high plasma osmolality."
+    },
+    {
+     "type": "paragraph",
+     "text": "Therefore, the minimum urine tonicity is at the end of the collecting duct, where water reabsorption is impaired due to the lack of ADH. The Graph explains the osmolarity of Tubular Fluid with respect to plasma in the presence and absence of ADH: RED: Presence of ADH GREEN: Absence of ADH Condition Maximum Urine Tonicity Minimum Urine Tonicity In the Presence of ADH End of the Collecting Duct(CD) / Tip of Loop of Henle (LOH) Distal Convoluted Tubule (DCT) In the Absence of ADH Tip of Loop of Henle (LOH) End of Collecting Duct (CD)"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L28_Q019_E1"
+    }
+   ]
+  },
+  {
+   "id": "physiology-21-20",
+   "question": "A 40-year-old woman presents to the clinic with complaints of excessive thirst and polyuria. Further investigation reveals a diagnosis of central diabetes insipidus. What is the approximate tubular fluid-to-plasma osmolality ratio expected in this patient's collecting duct?",
+   "options": {
+    "A": "Less than 1",
+    "B": "Equal to 1",
+    "C": "Greater than 1",
+    "D": "Between 1 and 2"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Less than 1 In central diabetes insipidus, antidiuretic hormone (ADH) is deficient, which leads to impaired water reabsorption in the kidneys' collecting ducts. As a result, urine osmolality is typically much lower than plasma osmolality."
+    },
+    {
+     "type": "paragraph",
+     "text": "Tubular Fluid Plasma Ratio: The graph below plots the length of the nephron and the ratio where TF is the tubular fluid osmolality and P is the plasma osmolality. 1 on the y-axis indicates the isotonic nature of urine The highest point of the graph is at the tip of the Loop of Henle (LOH) The red curve goes upwards in the presence of ADH due to Antidiuresis.TF/P >1 The Blue curve goes downwards in the absence of ADH, causing water diuresis TF/P <1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L28_Q020_E1"
+    }
+   ]
+  },
+  {
+   "id": "physiology-22-1",
+   "question": "What is the approximate daily production of non-volatile (metabolic) acids in an adult human body?",
+   "options": {
+    "A": "12,000 to 24,000 mmol",
+    "B": "70 to 100 mmol",
+    "C": "1,000 to 1,500 mmol",
+    "D": "450 to 550 mmol"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Non-volatile (Metabolic) or fixed acids are produced from incomplete metabolism of carbohydrates (e.g. lactate), fats (e.g. ketones), and proteins (e.g. sulfate, phosphate). In a typical diet, the body excretes about 40% of nonvolatile acids (around 30 mEq/day) through phosphate systems and 60% (approximately 50 mEq/day) through NH4+ excretion. The net production of these fixed acids is about 70 to 100 mmol of H+ per day in an adult."
+    },
+    {
+     "type": "paragraph",
+     "text": "This excludes lactate, as most of the lactate produced is metabolized and not excreted 12,000 to 24,000 mmol: Volatile (Respiratory) Acids(option A) The main volatile acid is carbonic acid (H2CO3), which is more correctly referred to as carbon dioxide (CO2). CO2 is the end-product of the complete oxidation of carbohydrates and fatty acids. Basal CO2 production is typically 12,000 to 13,000 mmol/day."
+    },
+    {
+     "type": "paragraph",
+     "text": "However, actual daily CO2 production is usually higher, often in the range of 12,000 to 24,000 mmol/day, depending on metabolic activity levels. Options C) and D) are incorrect values"
+    }
+   ]
+  },
+  {
+   "id": "physiology-22-2",
+   "question": "How does the excretion of ammonium (NH4+) contribute to bicarbonate (HCO₃⁻) regulation in the kidneys?",
+   "options": {
+    "A": "It directly increases the concentration of HCO₃⁻ in the urine.",
+    "B": "It generates HCO₃⁻, which is released into the bloodstream.",
+    "C": "It decreases the overall HCO₃⁻ reabsorption in the kidneys.",
+    "D": "It prevents the secretion of H+ in the renal tubules."
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The kidneys filter bicarbonate (HCO₃⁻) from the blood. Approximately 85% to 90% of bicarbonate is reabsorbed in the proximal tubule, while only about 10% is reabsorbed in the distal tubules and collecting ducts. When NH4+ is excreted, it is produced from the deamination of amino acids. For each NH4+ ion excreted, one HCO₃⁻ ion is generated and released into the bloodstream, helping to maintain acid-base balance."
+    },
+    {
+     "type": "paragraph",
+     "text": "It directly increases the concentration of HCO₃⁻ in the urine: While NH4+ is excreted in the urine, it does not directly increase the concentration of HCO3- in the urine."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Instead, NH4+ excretion is linked to HCO₃⁻ generation in the bloodstream (Option A):** It decreases the overall HCO₃⁻ reabsorption in the kidneys: The excretion of NH4+ does not decrease HCO₃⁻ reabsorption; rather, it is part of the mechanism that helps maintain HCO₃⁻ levels in the blood (Option C). It prevents the secretion of H+ in the renal tubules: The presence of NH4+ does not prevent the secretion of H+ ions."
+    },
+    {
+     "type": "paragraph",
+     "text": "**In fact, H+ ions are secreted into the tubular fluid, which is critical for HCO₃⁻ reabsorption (Option D):** Factors Influencing Bicarbonate Excretion"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L29_Q002_E1"
+    }
+   ]
+  },
+  {
+   "id": "physiology-22-3",
+   "question": "Which transport mechanism is primarily responsible for bicarbonate (HCO₃⁻) reabsorption in the proximal convoluted tubule (PCT)?",
+   "options": {
+    "A": "Na⁺-K⁺ ATPase pump",
+    "B": "Na⁺-H⁺ antiporter",
+    "C": "Cl⁻-HCO₃⁻ antiporter",
+    "D": "H⁺-ATPase pump"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Mechanism of Bicarbonate Reabsorption Proximal Convoluted Tubule (PCT): Na⁺-H⁺ Antiporter: The primary mechanism for bicarbonate reabsorption involves the Na⁺-H⁺ antiporter located on the apical surface of epithelial cells. Carbonic Anhydrase: CA-4 catalyzes the hydration of CO2 to form carbonic acid (H2CO3), which dissociates into H⁺ and HCO3-.This reaction occurs at the brush border of proximal tubular"
+    },
+    {
+     "type": "paragraph",
+     "text": "cells. CA Traps CO2 in the tubular fluid, preventing its complete removal. Facilitates the secretion of H⁺ into the tubular lumen while retaining bicarbonate within the cell. Higher permeability to H⁺ and HCO₃⁻ leads to a tubular fluid pH of approximately 6.5. Bicarbonate ions diffuse into the interstitium, similar to K⁺ ions. Na+ and K+ Exchange: Na⁺-K⁺ ATPase pump is located in the basolateral membrane."
+    },
+    {
+     "type": "paragraph",
+     "text": "Na⁺ enters the interstitium in exchange for K⁺ via the Na⁺-K⁺ ATPase, maintaining K⁺ concentration while decreasing Na⁺ concentration. (Option A) Regulation of Acid-Base Balance Urine acidification in the PCT is dependent on Na⁺ concentration."
+    },
+    {
+     "type": "paragraph",
+     "text": "Parathyroid Hormone (PTH): PTH inhibits the Na⁺-H⁺ exchanger in the PCT, affecting urine pH. Carbonic Anhydrase Inhibitors: Drugs that inhibit carbonic anhydrase decrease urine acidification by impairing bicarbonate reabsorption. Cl⁻-HCO₃⁻ antiporter, also known as Band 3 protein is a Chloride-bicarbonate exchanger at the basolateral membrane of the distal tubules and collecting ducts aids bicarbonate retention and urine acidification (Option C)."
+    },
+    {
+     "type": "paragraph",
+     "text": "The H⁺-ATPase pump is located at the apical surface of the tubular cells of distal tubules and collecting ducts and facilitates ATP-driven transport of H⁺ into the tubular lumen (Option D)."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L29_Q003_E1"
+    }
+   ]
+  },
+  {
+   "id": "physiology-22-4",
+   "question": "What effect does aldosterone have on acid secretion in the distal convoluted tubule (DCT) and collecting duct (CD)?",
+   "options": {
+    "A": "Decreases the activity of H⁺-ATPase.",
+    "B": "Inhibits the secretion of H⁺.",
+    "C": "Increases the activity of H⁺-ATPase",
+    "D": "No effect on acid secretion."
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Acid Secretion at the DCT and CD Mechanism: Intercalated Cells: Produce H⁺ and HCO3- from CO2, facilitated by carbonic anhydrase. H+ Secretion: Via H⁺-ATPase or K⁺-H⁺ ATPase into tubular fluid. HCO3- Transport: Into interstitium via Cl⁻-HCO₃⁻ antiporter. Acidification of Tubular Fluid: Low H+ permeability results in more acidic fluid (pH ~4.5), crucial for urinary buffer excretion. H+ secretion is independent of Na+ concentration."
+    },
+    {
+     "type": "paragraph",
+     "text": "Role of Aldosterone: Enhances acid secretion by increasing proton pump activity. (Option C) Band 3 Protein (Anion Exchanger 1 or AE1): Chloride-bicarbonate exchanger at basolateral membrane aids bicarbonate retention and urine acidification. NH4+ Excretion: H⁺ combines with NH3 to form NH₄⁺, which is excreted, and essential for acid-base balance."
+    },
+    {
+     "type": "paragraph",
+     "text": "Clinical Implications: Reduced H⁺ secretion decreases net acid excretion and affects HCO₃⁻ buffering of non-volatile acids."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Decreases the activity of H⁺-ATPase (Option A):** Aldosterone increases the activity of H⁺-ATPase but does not decrease it."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Inhibits the secretion of H⁺ (Option B):** Aldosterone enhances the secretion of H⁺, not inhibits it."
+    }
+   ]
+  },
+  {
+   "id": "physiology-22-5",
+   "question": "What triggers the formation of ammonium ions (NH₄⁺ ) and bicarbonate (HCO₃⁻) in the ammonia buffer system?",
+   "options": {
+    "A": "Increased sodium concentration",
+    "B": "Alkalosis",
+    "C": "Acidosis",
+    "D": "Dehydration"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Acidosis stimulates the formation of ammonium ions (NH₄⁺ ) and bicarbonate (HCO₃⁻) in the ammonia buffer system. This process helps the body excrete excess acid and maintain acid-base balance. BUFFERS DESCRIPTION Bicarbonate Buffer Most powerful extracellular buffer system. Composed of H2CO3 and NaHCO3 Buffers strong acids by forming H2CO3 and strong bases by reacting with H+ to form H2O and CO2. Effective due to regulation by kidneys and lungs."
+    },
+    {
+     "type": "paragraph",
+     "text": "Phosphate Buffer Composed of H₂PO₄⁻ and HPO4. pK of 6.8, effective in slightly acidic urine. Phosphate concentration increases in tubular fluid due to water reabsorption. Ammonia Buffer Composed of ammonia (NH3) and ammonium ion (NH₄⁺ ). In the liver, Glutamine metabolized to 2NH₄⁺ and 2HCO3−. NH₄⁺ is secreted into the tubular lumen HCO3− reabsorbed into blood. Acidosis stimulates NH₄⁺ and HCO₃⁻ formation; alkalosis decreases their formation."
+    },
+    {
+     "type": "paragraph",
+     "text": "The rate of NH₄⁺ excretion can increase significantly with chronic acidosis. Others (less significant) Urate Buffer Citrate Buffer A) Increased sodium concentration: Sodium concentration does not directly trigger the formation of ammonium ions (NH₄⁺) and bicarbonate (HCO₃⁻) in the ammonia buffer system. Instead, sodium balance is primarily related to the regulation of fluid volume and blood pressure."
+    },
+    {
+     "type": "paragraph",
+     "text": "B) Alkalosis: In contrast, alkalosis decreases the formation of NH₄⁺ and HCO₃⁻. D) Dehydration: Dehydration primarily affects fluid balance and can lead to an increase in blood osmolarity. While severe dehydration can lead to metabolic disturbances, it does not specifically trigger the formation of NH₄⁺ and HCO₃⁻ in the ammonia buffer system."
+    }
+   ]
+  },
+  {
+   "id": "physiology-22-7",
+   "question": "Which of the following is not a prerequisite for a functional counter-current mechanism in the body?",
+   "options": {
+    "A": "Parallel and opposite flow of fluids",
+    "B": "Close proximity",
+    "C": "Active transport of solutes across all segments",
+    "D": "Selective permeability of pathways"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "This is NOT a prerequisite for a functional counter-current mechanism. While active transport is essential in some segments, such as the thick ascending limb of the loop of Henle, which actively transports Na+ and Cl−, it is not required across all segments of the system. Passive transport and selective permeability are critical components. Parallel and opposite flow of fluids: This is a fundamental requirement for a counter-current mechanism."
+    },
+    {
+     "type": "paragraph",
+     "text": "In the kidneys, the descending and ascending limbs of the loop of Henle and the vasa recta have fluid flows in opposite directions, which maximizes the efficiency of exchange processes (Option A) Close proximity and selective permeability of pathways: This selective permeability is crucial for the system's function."
+    },
+    {
+     "type": "paragraph",
+     "text": "In the loop of Henle, the descending limb is permeable to water but not solutes, while the ascending limb is impermeable to water but actively transports solutes (Option B) A concentration gradient between inflow and outflow pathways: In the kidneys, the active transport of Na+ and Cl− from the ascending limb of the loop of Henle into the medullary interstitium creates the osmotic gradient that is essential for the counter-current mechanism to function effectively."
+    },
+    {
+     "type": "paragraph",
+     "text": "The vasa recta helps maintain this gradient (Option D)"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L29_Q006_E1"
+    }
+   ]
+  },
+  {
+   "id": "physiology-22-8",
+   "question": "What is the primary aim of the counter-current mechanism in the kidneys?",
+   "options": {
+    "A": "To dilute urine for better excretion of waste products",
+    "B": "To conserve sodium and chloride ions in the body",
+    "C": "To concentrate urine and maintain fluid and electrolyte balance",
+    "D": "To increase blood flow to the renal cortex"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The counter-current mechanism concentrates urine by creating a hyperosmotic environment in the renal medulla. This allows the kidneys to excrete waste products with minimal water loss, conserving water and maintaining fluid and electrolyte balance. A) To dilute urine for better excretion of waste products: The counter-current mechanism aims to concentrate, not dilute, the urine."
+    },
+    {
+     "type": "paragraph",
+     "text": "Dilution would result in a loss of excess water, which could lead to dehydration. B) To conserve sodium and chloride ions in the body: While sodium and chloride reabsorption occurs during the process, the primary goal is not to conserve these ions but to create an osmotic gradient that facilitates water reabsorption."
+    },
+    {
+     "type": "paragraph",
+     "text": "D) To increase blood flow to the renal cortex: The counter-current mechanism primarily operates in the renal medulla and focuses on concentrating urine rather than regulating blood flow to the renal cortex."
+    }
+   ]
+  },
+  {
+   "id": "physiology-22-9",
+   "question": "Which of the following is NOT a component of the counter-current multiplier system in the kidneys?",
+   "options": {
+    "A": "Cortical Collecting Duct (CCD)",
+    "B": "Thick Ascending Limb (TAL) of the Loop of Henle",
+    "C": "Thin Ascending Segment (ATS) of the Loop of Henle",
+    "D": "Medullary Collecting Duct (MCD)"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The CCD is involved in the reabsorption of water and electrolytes under the influence of hormones such as aldosterone and antidiuretic hormone (ADH). However, it is not directly part of the counter-current multiplier system. The counter-current multiplier specifically refers to the mechanisms occurring within the loop of Henle and associated structures in the medulla, not the cortical regions."
+    },
+    {
+     "type": "paragraph",
+     "text": "COUNTERCURRENT MULTIPLIER Site Function Proximal Tubule Delivers an isosmotic filtrate to the loop of Henle, with approximately 65% of filtered electrolytes and water reabsorbed. The osmolarity here is around 300 mOsm/L, similar to plasma. Thin Descending Limb of the Loop of Henle Highly permeable to water due to the presence of aquaporin-1 (AQP-1)"
+    },
+    {
+     "type": "paragraph",
+     "text": "channels and mildly permeable to solutes like urea and sodium chloride. As the filtrate moves deeper into the hyperosmotic medulla, water exits by osmosis, concentrating the tubular fluid. Thin Ascending Limb of the Loop of Henle Impermeable to water but permeable to solutes."
+    },
+    {
+     "type": "paragraph",
+     "text": "NaCl passively diffuses out, and some urea enters, contributing to medullary hyperosmolarity. (Option C) Thick Ascending Limb of the Loop of Henle (TAL) Impermeable to water and urea, actively transports NaCl, K⁺ out of the tubule into the interstitium using the Na+-K+-2Cl- cotransporter."
+    },
+    {
+     "type": "paragraph",
+     "text": "This action increases interstitial osmolarity and delivers hypotonic fluid to the distal tubule. (Option B) Medullary Collecting Duct (MCD) Under the influence of ADH, becomes permeable to water. Water is reabsorbed from the MCD into the hyperosmotic medullary interstitium, concentrating the urine. The MCD operates within the hyperosmotic environment established by the counter-current multiplier. (Option D)"
+    }
+   ]
+  },
+  {
+   "id": "physiology-22-10",
+   "question": "A 45 y/o patient presents with polyuria and polydipsia. Lab tests reveal a low urine osmolarity and a high plasma osmolarity. After administration of desmopressin (a synthetic analog of ADH), the patient's urine osmolarity increases significantly. Which of the following best explains the mechanism by which ADH improved the patient's condition?",
+   "options": {
+    "A": "ADH increases the permeability of the ascending limb of the loop of Henle to water.",
+    "B": "ADH decreases the active transport of sodium chloride in the thick ascending limb of the loop of Henle.",
+    "C": "ADH increases the permeability of the collecting ducts to water.",
+    "D": "ADH causes the osmolarity of the medullary interstitium to decrease rapidly."
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "ADH increases the permeability of the collecting ducts to water by promoting the insertion of aquaporin-2 water channels into the apical membranes of collecting duct cells. This allows water to be reabsorbed from the tubular fluid into the hyperosmotic medullary interstitium, concentrating the urine and reducing urine volume."
+    },
+    {
+     "type": "paragraph",
+     "text": "A) The ascending limb of the loop of Henle is impermeable to water, a characteristic that is essential for the creation of a hyperosmotic medullary interstitium. ADH does not alter this permeability. B) ADH does not affect the active transport of sodium chloride in the thick ascending limb. The active transport in this segment is necessary for establishing the osmotic gradient but is not regulated by desmopressin. D) ADH does not decrease"
+    },
+    {
+     "type": "paragraph",
+     "text": "the osmolarity of the medullary interstitium. Instead, it facilitates water reabsorption in the collecting ducts, leveraging the existing high osmolarity of the medullary interstitium to concentrate the urine."
+    }
+   ]
+  },
+  {
+   "id": "physiology-22-11",
+   "question": "Which of the following statements about urea transport in the kidneys is correct?",
+   "options": {
+    "A": "UT-A1 and UT-A3 in the cortical collecting duct are regulated by aldosterone",
+    "B": "Urea helps establish the osmotic gradient in the medullary pyramids but is not involved in urine concentration.",
+    "C": "A high-protein diet reduces the kidneys' ability to concentrate urine.",
+    "D": "UT-B is found in erythrocytes and the descending limbs of the vasa recta."
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "UT-B is indeed found in erythrocytes and the descending limbs of the vasa recta. Role of Urea in Kidney Function: Functions: Osmotic Gradient: Urea helps establish the osmotic gradient in the medullary pyramids. Concentrated Urine: Contributes to forming concentrated urine in the collecting ducts. (Option B) Urea Transport: Mediated by: Urea transporters (UT-A isoforms). Types: UT-A1 to UT-A4: Found in kidneys."
+    },
+    {
+     "type": "paragraph",
+     "text": "UT-B: Found in erythrocytes and descending limbs of the vasa recta. Key Transporters in Collecting Duct: UT-A1 and UT-A3: Found in the medullary collecting ducts. Regulated by vasopressin. (Option A) Regulation: Vasopressin (ADH): Increases during antidiuresis, raising urea levels in the medullary interstitium, and enhancing the kidney’s urine concentrating capacity."
+    },
+    {
+     "type": "paragraph",
+     "text": "Impact of Diet: High-Protein Diet: Increases urea filtration, enhancing urine concentration ability. (Option C) Low-Protein Diet: Decreases urea filtration, reducing urine concentration ability."
+    }
+   ]
+  },
+  {
+   "id": "physiology-22-12",
+   "question": "Which of the following substances plays the most crucial role in establishing and maintaining the hyperosmotic medullary interstitium?",
+   "options": {
+    "A": "Sodium",
+    "B": "Potassium",
+    "C": "Urea",
+    "D": "Chloride"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Urea is the most important substance for establishing and maintaining the hyperosmotic medullary interstitium. It significantly contributes to the osmotic gradient and urine concentration by: Urea recycling: Urea is reabsorbed in the collecting ducts and secreted into the loop of Henle. This recycling helps to maintain a high concentration of urea in the medulla."
+    },
+    {
+     "type": "paragraph",
+     "text": "Osmotic Gradient: The high concentration of urea in the medullary interstitium creates an osmotic gradient. This gradient allows for the reabsorption of water from the collecting ducts, concentrating the urine. Water Reabsorption: The osmotic gradient established by urea, along with sodium and other solutes, helps in reabsorbing water from the filtrate, making the medullary interstitium hyperosmotic."
+    },
+    {
+     "type": "paragraph",
+     "text": "A) Sodium is involved in creating the osmotic gradient but is not the most crucial substance for maintaining it. B) Potassium plays a role in ionic transport esp. In the thick ascending limb of the loop of Henle, but is not the primary substance for the hyperosmotic gradient. D) Chloride is involved in the osmotic gradient but is not as critical as urea for maintaining the hyperosmotic medullary interstitium."
+    }
+   ]
+  },
+  {
+   "id": "physiology-22-13",
+   "question": "Which of the following structures is responsible for maintaining the counter-current exchange mechanism in the kidney?",
+   "options": {
+    "A": "Loops of Henle",
+    "B": "Collecting Ducts",
+    "C": "Vasa Recta",
+    "D": "Glomerulus"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The vasa recta maintains the osmotic gradient through countercurrent exchange. A) The loops of Henle are responsible for creating the osmotic gradient (countercurrent multiplier system) but not for maintaining it. B) The collecting ducts use the osmotic gradient to concentrate urine but do not maintain the gradient. D) The glomerulus is involved in the filtration of blood to form urine but does not maintain the osmotic gradient in the medulla."
+    },
+    {
+     "type": "paragraph",
+     "text": "Counter-Current Exchange Mechanism in the Vasa Recta Aspect of Vasa Recta Details Function Maintains the osmotic gradient established by the loops of Henle, crucial for concentrated urine production. Structure Hairpin-loop blood vessels that descend and ascend alongside the loops of Henle. Descending Limb Solutes (NaCl and urea) diffuse from the interstitium into the vasa recta."
+    },
+    {
+     "type": "paragraph",
+     "text": "Water moves out of the vasa recta into the interstitium due to the osmotic gradient. Result: Blood becomes more concentrated as it descends. Ascending Limb Solutes diffuse from the vasa recta into the interstitium. Water moves from the interstitium into the vasa recta. The ascending vasa recta are fenestrated to facilitate this exchange. Net Effect Role: Prevents dissipation of the osmotic gradient."
+    },
+    {
+     "type": "paragraph",
+     "text": "Outcome: Maintains the hypertonicity of the medulla, essential for water reabsorption and concentrated urine production. Conclusion: Works with the loops of Henle to establish and maintain medullary osmotic gradient"
+    }
+   ]
+  }
+ ]
+}

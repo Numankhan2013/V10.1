@@ -1,0 +1,617 @@
+{
+ "batch": "physiology-012",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "physiology-012",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "physiology-8-37",
+   "question": "In ORS, sodium is given along with glucose to facilitate?",
+   "options": {
+    "A": "Co-transport",
+    "B": "Osmosis",
+    "C": "Facilitated diffusion",
+    "D": "Primary active transport"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "In Oral Rehydration Solution (ORS), sodium is given along with glucose because sodium-glucose co-transport helps in the absorption of both sodium and glucose across the intestinal epithelium. The presence of glucose enhances the active transport of sodium through the sodium-glucose transporter (SGLT1) in the intestinal cells. This, in turn, increases the absorption of both sodium and water."
+    },
+    {
+     "type": "paragraph",
+     "text": "Oral Rehydration Solution (ORS) absorption: The absorption of Oral Rehydration Solution (ORS) occurs primarily in the small intestine and is facilitated by the co-transport of sodium and glucose. Here's a brief"
+    }
+   ]
+  },
+  {
+   "id": "physiology-8-17",
+   "question": "Lysosomal enzymes are present ?",
+   "options": {
+    "A": "Cytosol",
+    "B": "Mitochondria",
+    "C": "Endoplasmic reticulum",
+    "D": "Nucleus"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Lysosomal enzymes are primarily found within the lysosomes, which are membrane-bound organelles in the cytosol. These enzymes are responsible for breaking down a variety of biological polymers, such as proteins, nucleic acids, lipids, and carbohydrates, into their constituent monomers. Lysosomes contain around 50 types of hydrolytic enzymes, including proteases, lipases, nucleases, and glycosidases."
+    },
+    {
+     "type": "paragraph",
+     "text": "These enzymes function in an acidic environment (pH 4.5 to 5.0) and are crucial for intracellular digestion, autophagy, and the degradation of cellular waste."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Mitochondria (Option B):** Mitochondria are involved in energy production (ATP synthesis) and not in the storage of lysosomal enzymes."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Endoplasmic reticulum (ER) (Option C):** The ER is involved in the synthesis of proteins, lipids, and the detoxification of harmful substances, but it is not the location of lysosomal enzymes."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Nucleus (Option D):** The nucleus houses genetic material (DNA) and is involved in transcription and RNA processing, but it does not store lysosomal enzymes."
+    }
+   ]
+  },
+  {
+   "id": "physiology-q865273",
+   "question": "Tight junctions are primarily located at which part of the cell?",
+   "options": {
+    "A": "Apical",
+    "B": "Apicolateral",
+    "C": "Basal",
+    "D": "Basolateral"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Correct answers- a) Apical Tight Junctions (Zonula Occludens): Structure: Sealing strands of transmembrane adhesion proteins (Occludin, Claudins, JAMs) that directly join to occlude intercellular space. Location: Primarily at the apical (Option A) margins of epithelial and endothelial cells, forming a continuous belt. NOT in connective tissue."
+    },
+    {
+     "type": "paragraph",
+     "text": "Function: Limit/regulate permeability of epithelial cells to ions and solutes (prevent leakage via paracellular pathway). Essential for endothelial barrier function and vasodilation. Contribute to cell polarity by limiting protein movement within the membrane. Permeability: While primarily seals, they can permit selective passage of some ions/small molecules via controlled paracellular channels, not free passage."
+    }
+   ]
+  },
+  {
+   "id": "physiology-q866356",
+   "question": "Across a capillary, there is no fluid movement. Pressure values are given below. Capillary hydrostatic pressure is 18 mmHg Capillary oncotic pressure is 27 mmHg Interstitial fluid oncotic pressure is 7 mmHg Calculate the interstitial fluid hydrostatic pressure.",
+   "options": {
+    "A": "-2 mmHg",
+    "B": "+2 mmHg",
+    "C": "0 mmHg",
+    "D": "+1 mmHg"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The interstitial fluid hydrostatic pressure in the given scenario is determined to be -2 mmHg. As per Starling equation, which governs fluid movement across capillaries: In the above ques: Where: Pc = Capillary hydrostatic pressure = 18 mmHg Pi = Interstitial fluid hydrostatic pressure = ? πc = Capillary oncotic pressure ="
+    },
+    {
+     "type": "paragraph",
+     "text": "27 mmHg πi = Interstitial oncotic pressure = 7 mmHg Since no fluid movement is occurring, the net filtration pressure (NFP) is 0: 0 = (18-Pi) - (27-7) 0 = (18-Pi) - 20 0 = -Pi - 2 Pi = -2 mmHg This negative value reflects a slightly subatmospheric interstitial pressure, which helps pull fluid into capillaries and maintain balance."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L14_Q021_E1"
+    }
+   ]
+  },
+  {
+   "id": "physiology-8-2",
+   "question": "What is the mechanism of action of botulinum toxin?",
+   "options": {
+    "A": "Inhibits acetylcholine release from the presynaptic terminal",
+    "B": "Inhibits acetylcholine reuptake",
+    "C": "Blocks the postsynaptic acetylcholine receptor",
+    "D": "Inhibits acetylcholinesterase"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Botulinum toxin prevents acetylcholine (ACh) release at the neuromuscular junction, leading to flaccid paralysis. Mechanism of Action: Botulinum toxin cleaves SNARE proteins (SNAP-25, synaptobrevin, syntaxin), which are essential for vesicular fusion with the presynaptic membrane. This prevents ACh-containing vesicles from being released into the synaptic cleft."
+    },
+    {
+     "type": "paragraph",
+     "text": "Result: Muscle paralysis due to the lack of ACh stimulation at the nicotinic receptors. Clinical Uses: Botox (cosmetic use): Reduces wrinkles by relaxing muscles. Dystonias (e.g., cervical dystonia, blepharospasm) Spasticity (e.g., cerebral palsy, stroke-related spasticity) Hyperhidrosis (excessive sweating) Toxicity: Causes botulism, presenting with flaccid paralysis, ptosis, diplopia, dysphagia, and respiratory failure."
+    },
+    {
+     "type": "paragraph",
+     "text": "Common sources: Improperly canned foods, honey (infant botulism). Botulinum toxins: These are potent neurotoxins produced by Clostridium botulinum bacteria. There are several types, with types A, B, and E being toxic to humans."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mechanism: Botulinum toxins A and E cleave SNAP-25 (synaptosome-associated protein-25), and B cleave Synaptobrevin, which are presynaptic membrane proteins essential for releasing acetylcholine at the neuromuscular junction leading to Flaccid paralysis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Inhibits acetylcholine reuptake (Option B):** is incorrect because ACh is not reuptaken; it is degraded by acetylcholinesterase in the synapse."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Blocks the postsynaptic acetylcholine receptor (Option C):** is incorrect because this describes the action of curare and neuromuscular blockers (e.g., pancuronium, rocuronium)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Inhibits acetylcholinesterase (Option D):** is incorrect because this describes the action of acetylcholinesterase inhibitors (e.g., neostigmine, organophosphates), which increase ACh levels rather than decrease them."
+    }
+   ]
+  },
+  {
+   "id": "physiology-8-4",
+   "question": "Which electrolyte abnormality will lead to cardiac arrhythmia in patients with severe vomiting?",
+   "options": {
+    "A": "Hypokalemia",
+    "B": "Hyponatremia",
+    "C": "Hyperkalemia",
+    "D": "Hypocalcemia"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Severe vomiting leads to hypokalaemia, which is a major risk factor for cardiac arrhythmias due to its effect on cardiac membrane potential and conduction."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mechanism: Vomiting causes loss of gastric acid (HCl) → metabolic alkalosis Alkalosis shifts potassium into cells → worsens hypokalaemia Renal compensation increases potassium excretion (due to increased bicarbonate delivery to the distal tubule) Low serum potassium disrupts cardiac repolarisation, leading to arrhythmias ECG changes in hypokalaemia: Flattened T waves U waves Prolonged QT interval → risk of ventricular arrhythmias (e.g., Torsades de Pointes, ventricular tachycardia) Hyponatraemia (Option B) is incorrect because although vomiting can lead to hyponatraemia (due to volume loss and ADH secretion), it is less likely to cause direct cardiac arrhythmias."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Hyperkalaemia (Option C):** is incorrect because vomiting typically leads to potassium loss, not hyperkalaemia. Hyperkalaemia is more commonly associated with renal failure, acidosis, or tissue breakdown."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Hypocalcaemia (Option D):** is incorrect because hypocalcaemia causes neuromuscular symptoms (tetany, Chvostek’s sign, Trousseau’s sign) and QT prolongation, but it is not the primary electrolyte abnormality seen in vomiting-induced arrhythmias."
+    }
+   ]
+  },
+  {
+   "id": "physiology-8-3",
+   "question": "A patient presents with high blood pressure accompanied by a decrease in heart rate. What is the most likely physiological mechanism responsible for this response?",
+   "options": {
+    "A": "Stimulation of baroreceptors",
+    "B": "Inhibition of baroreceptors",
+    "C": "Bezold-Jarisch reflex (J reflex)",
+    "D": "Stimulation of chemoreceptors"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The combination of high blood pressure (hypertension) and bradycardia (low heart rate) suggests activation of the baroreceptor reflex, a homeostatic mechanism that regulates blood pressure. Mechanism: Increased blood pressure stretches baroreceptors in the carotid sinus (CN IX) and aortic arch (CN X). Increased baroreceptor firing signals the medulla (nucleus tractus solitarius)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Response: Inhibition of sympathetic outflow → ↓ heart rate (bradycardia) and ↓ vasoconstriction Activation of parasympathetic (vagal) tone → further ↓ heart rate Baroreceptor Reflex Aspect Details Mechanism Baroreceptors in the carotid sinus and the aortic arch detect BP changes Increased BP stretches receptors, sending signals to medulla via glossopharyngeal and vagus nerves Medulla inhibits vasoconstrictor center and stimulates vagal parasympathetic center Actions Vasodilation of blood vessels Decreased heart rate and contraction strength Reduced BP due to lower peripheral resistance and cardiac output Importance Maintains BP stability during activities like standing Fastest acting Tends to reset within 1-2 days for long-term regulation This helps counteract hypertension and maintain homeostasis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Inhibition of Baroreceptors (Option B):** is incorrect because inhibition of baroreceptors occurs in hypotension, leading to tachycardia and vasoconstriction to restore blood pressure."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Bezold-Jarisch Reflex (Option C):** is incorrect because this reflex causes bradycardia and hypotension, typically triggered by ventricular ischemia or excessive vagal stimulation, not hypertension."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Stimulation of Chemoreceptors (Option D):** is incorrect because chemoreceptors (in the carotid bodies and medulla) primarily respond to hypoxia, hypercapnia, or acidosis, leading to increased respiratory drive and sympathetic activation (tachycardia), not bradycardia."
+    }
+   ]
+  },
+  {
+   "id": "physiology-8-27",
+   "question": "The signaling sequence in a type 2 membrane protein with N-terminal facing cytoplasm is located in?",
+   "options": {
+    "A": "Inside the membrane",
+    "B": "At the C-terminal",
+    "C": "At the N-terminal",
+    "D": "Both inside the membrane and at C-terminal"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "In Type II membrane proteins, the signal-anchor sequence is a hydrophobic transmembrane domain that integrates into the lipid bilayer. This non-cleavable sequence directs the protein to the membrane, anchoring it in place, with the N-terminal in the cytoplasm and the C-terminal facing the extracellular space or lumen."
+    },
+    {
+     "type": "paragraph",
+     "text": "Type II Membrane Proteins Overview Signal-Anchor Sequence: Contains a non-cleavable signal-anchor sequence that anchors the protein to the membrane, unlike type I proteins. Functions as both a signal and membrane anchor during protein synthesis. Orientation: N-terminal is directed towards the cytoplasm. C-terminal faces the extracellular space or the lumen of organelles (e.g., ER, Golgi)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Insertion Mechanism: Insertion occurs cotranslationally into the ER. The signal-anchor sequence directs the polypeptide to the translocon. Positively charged amino acids before the transmembrane domain ensure proper orientation. Examples: Transferrin receptor and glycosyltransferases."
+    },
+    {
+     "type": "paragraph",
+     "text": "**At the C-terminal (Option B):** : The signal-anchor sequence is not at the C-terminal; it is near the N-terminal, which faces the cytoplasm."
+    },
+    {
+     "type": "paragraph",
+     "text": "**At the N-terminal (Option C):** The N-terminal faces the cytoplasm but does not contain the signal-anchor sequence, which is located near it."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Both inside the membrane and at the C-terminal (Option D):** The signal-anchor sequence is inside the membrane but not at the C-terminal; it functions as a transmembrane domain."
+    }
+   ]
+  },
+  {
+   "id": "physiology-8-1",
+   "question": "Dehydration is more severe in infants compared to adults. Which of the following is a true statement about infants?",
+   "options": {
+    "A": "Extracellular fluid (ECF) is more than intracellular fluid (ICF)",
+    "B": "Intracellular fluid (ICF) is more than extracellular fluid (ECF)",
+    "C": "Total body water in infants is more than in adults",
+    "D": "Extracellular fluid equals intracellular fluid"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Infants have a higher total body water (TBW) percentage compared to adults, making them more susceptible to dehydration. Total body water (TBW) composition: Infants: ~ 75-80% of body weight Adults: ~ 55-60% of body weight Higher water turnover: Infants lose water more rapidly due to higher metabolic rates, increased insensible losses, and immature renal function."
+    },
+    {
+     "type": "paragraph",
+     "text": "Total Body Water (TBW) Composition: 90% of body weight in early fetal life. 75% of body weight at birth. 60% of body weight by the end of the first year, remaining consistent until puberty. After puberty, males have slightly more TBW compared to females. Preterm vs. Term Neonates: Preterm neonates have a higher TBW compared to term neonates."
+    },
+    {
+     "type": "paragraph",
+     "text": "TBW Distribution: TBW is divided into: Extracellular Fluid (ECF) Intracellular Fluid (ICF) The equation is: TBW = ECF + ICF ECF = plasma +"
+    },
+    {
+     "type": "paragraph",
+     "text": "interstitial fluid ECF and ICF Changes: In fetuses and newborns, ECF > ICF volume. After birth, ECF volume decreases and ICF volume increases."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Extracellular fluid (ECF) is more than intracellular fluid (ICF) (Option A):** is incorrect because, while infants have a higher ECF proportion at birth (~40%), ICF eventually exceeds ECF as they grow."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Intracellular fluid (ICF) is more than extracellular fluid (ECF) (Option B):** is incorrect at birth, but becomes true after the first year. In neonates, ECF is initially greater than ICF. Extracellular fluid equals intracellular fluid (Option D) is incorrect because ECF and ICF are not equal at any stage; there is always a shift, with ICF becoming dominant after infancy."
+    }
+   ]
+  },
+  {
+   "id": "physiology-8-5",
+   "question": "Which ion is most responsible for the resting membrane potential (RMP)?",
+   "options": {
+    "A": "Potassium (K + )",
+    "B": "Calcium (Ca 2+ )",
+    "C": "Sodium (Na + )",
+    "D": "Chloride (Cl - )"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Correct A - Potassium (K + ): Potassium ions are the primary contributors to the resting membrane potential. The RMP is mainly determined by the K + gradient across the cell membrane, as potassium ions move out of the cell through potassium leak channels. The loss of positively charged K + ions from the cell creates a negative charge inside the cell relative to the outside, establishing the RMP, which is typically around -70 mV in neurons."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Calcium (Ca 2+ ): Calcium ions play a crucial role in various cellular processes, including muscle contraction and neurotransmitter release. However, their influence on the RMP is relatively minimal compared to potassium."
+    },
+    {
+     "type": "paragraph",
+     "text": "The primary role of calcium in relation to membrane potential is more related to action potentials and signal transduction rather than establishing the RMP. Option C - Sodium (Na + ): Sodium ions also contribute to the membrane potential, but they are less influential than potassium in establishing the resting membrane potential."
+    },
+    {
+     "type": "paragraph",
+     "text": "The sodium-potassium pump (Na + /K + ATPase) maintains the gradient by actively transporting 3 Na + ions out of the cell and 2 K + ions into the cell, which helps in stabilizing the RMP. However, the resting membrane potential is primarily determined by the K + gradient. Option D - Chloride (Cl-): Chloride ions contribute to the membrane potential by balancing the charge, but they are not the primary determinant of the resting membrane potential."
+    },
+    {
+     "type": "paragraph",
+     "text": "Chloride ions typically follow the electrochemical gradients established by other ions like potassium and sodium."
+    }
+   ]
+  },
+  {
+   "id": "physiology-33-30",
+   "question": "Which of the following regulates body temperature?",
+   "options": {
+    "A": "Hypothalamus",
+    "B": "Basal ganglia",
+    "C": "Thalamus",
+    "D": "Limbic system"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The hypothalamus is the part of the brain that regulates body temperature, acting as the body's thermostat."
+    },
+    {
+     "type": "paragraph",
+     "text": "Hypothalamic Nucleus Secretion/Function Ventromedial Nucleus Lesion produce obesity Lateral Hypothalamic Lesion produce aphagia Anterior Hypothalamic Heat dissipation, lesion leads to hyperthermia Posterior Hypothalamic Heat conservation, lesion leads to poikilothermy Arcuate Nucleus Dopamine and GHRH Paraventricular TRH Paraventricular & Supraoptic ADH and Oxytocin Suprachiasmatic Circadian rhythm and CRH Preoptic area GnRH Basal Ganglia (Option B): primarily involved in the regulation of voluntary motor movements, procedural learning, routine behaviors or \"habits,\" eye movements, cognition, and emotion."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Thalamus (Option C):** acts as the brain's relay station, channeling sensory and motor signals to the cerebral cortex, and is also involved in the regulation of consciousness, sleep, and alertness."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Limbic System (Option D):** is associated with emotions, memory, and arousal (or stimulation). It includes structures like the hippocampus and amygdala, which are crucial for emotional responses and memory formation"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L14_Q028_E1"
+    }
+   ]
+  },
+  {
+   "id": "physiology-12-11",
+   "question": "Dynein protein is an example of?",
+   "options": {
+    "A": "Transport protein",
+    "B": "Cell membrane protein",
+    "C": "Cell organelle adherent protein",
+    "D": "Intracellular junctional protein"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Dynein is best classified as a transport protein. It is a motor protein that moves along microtubules in cells, transporting cellular cargo toward the minus end of these structures. This function is essential for various intracellular transport processes, including the movement of organelles, vesicles, and other cellular components."
+    },
+    {
+     "type": "paragraph",
+     "text": "Dynein also plays a role in cell motility, such as the movement of cilia and flagella Cell membrane protein (Option B): These proteins are involved in forming channels, receptors, and anchors in the cell membrane, but dynein operates within the cytoplasm, not at the membrane."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Cell organelle adherent protein (Option C):** Dynein’s primary role is transport rather than adherence."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Intracellular junctional protein (Option D):** These proteins are involved in cell-cell adhesion and communication (e.g., cadherins, connexins), whereas dynein's function is intracellular transport along the cytoskeleton."
+    }
+   ]
+  },
+  {
+   "id": "physiology-8-6",
+   "question": "Which of the following best explains the role of a second messenger in cellular signaling?",
+   "options": {
+    "A": "Act on extracellular receptors",
+    "B": "Modulate extracellular hormone response",
+    "C": "Modulate intracellular hormone response",
+    "D": "Directly interacts with the cell's DNA"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Second messengers are molecules that relay signals received at cell surface receptors to target molecules inside the cell, leading to a physiological response. They play a crucial role in modulating intracellular processes after a signal (such as a hormone or neurotransmitter) binds to a cell surface receptor."
+    },
+    {
+     "type": "paragraph",
+     "text": "These messengers help amplify and propagate the signal within the cell, triggering responses such as gene expression, enzyme activation, or changes in cell metabolism. Examples of second messengers include cyclic AMP (cAMP), inositol trisphosphate (IP3), and calcium ions (Ca²⁺)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Pathway Activation Key Enzymes Key Second Messengers Cellular Effects Adenylyl Cyclase GPCR-Gs binding Adenylyl Cyclase cAMP Protein phosphorylation, e.g., thyroid hormones, adrenocortical steroids Phospholipase C GPCR binding Phospholipase C IP3, DAG Calcium mobilization, smooth muscle contraction, protein phosphorylation Act on extracellular receptors (Option A): Second messengers do not act directly on extracellular receptors."
+    },
+    {
+     "type": "paragraph",
+     "text": "Instead, they work intracellularly after a receptor on the cell surface has been activated."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Modulate extracellular hormone response (Option B):** Second messengers do not affect the extracellular hormone response; their function is to relay and amplify the signal inside the cell after the hormone binds to its receptor."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Directly interacts with the cell’s DNA (Option D):** Second messengers do not directly interact with DNA. Instead, they influence cellular processes through various pathways, such as activating kinases or other signaling molecules, which then affect DNA indirectly."
+    }
+   ]
+  },
+  {
+   "id": "physiology-8-7",
+   "question": "What physiological response is most likely to occur in a person exposed to high temperatures while exercising vigorously to maintain internal body temperature within a narrow range?",
+   "options": {
+    "A": "Sweating and vasodilation in the skin",
+    "B": "Shivering and vasoconstriction in the skin",
+    "C": "Increased production of heat by the liver",
+    "D": "Decreased heart rate (HR) and respiratory rate (RR)"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "When exercising vigorously in high temperatures, the body needs to dissipate heat to maintain a stable internal temperature. Sweating helps cool the body through evaporative cooling, while vasodilation (widening of blood vessels) in the skin increases blood flow to the surface, allowing more heat to be released into the environment."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Shivering and vasoconstriction in the skin (Option B):** are responses typically seen in cold"
+    },
+    {
+     "type": "paragraph",
+     "text": "environments. Shivering generates heat through muscle contractions, and vasoconstriction (narrowing of blood vessels) helps to retain heat. These mechanisms are not relevant in hot conditions."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Increased production of heat by the liver (Option C):** The liver produces heat as a byproduct of metabolic processes, but this is not a primary response to high temperatures during vigorous exercise. The body focuses on cooling mechanisms rather than increasing heat production in such conditions."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Decreased heart rate (HR) and respiratory rate (RR) (Option D):** During vigorous exercise, both heart rate and respiratory rate typically increase to meet the higher oxygen demands of the muscles. A decrease in HR and RR would not be expected under these conditions; instead, they would rise to support increased physical activity."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L14_Q031_E1"
+    }
+   ]
+  },
+  {
+   "id": "physiology-8-26",
+   "question": "Identify the type of transport across the cell membrane given below.",
+   "options": {
+    "A": "Simple diffusion",
+    "B": "Facilitated diffusion",
+    "C": "Primary active transport",
+    "D": "Secondary active transport"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The image represents facilitated diffusion, a passive transport that moves substances down their concentration gradient without using cellular energy but requires the assistance of specific carrier proteins embedded in the cell membrane. This process is essential for transporting large or polar molecules that cannot cross the cell membrane's lipid bilayer by simple diffusion."
+    },
+    {
+     "type": "paragraph",
+     "text": "Types of diffusion: Simple diffusion (Option A ruled out) Facilitated diffusion (Option B) Move from high to low solute concentration (downhill transport) It does not require energy. Not require carrier protein (channel protein may or may not be present) No saturation: more concentration leads to a higher rate of transport. Fick's law: Rate (J) = D.A.∆C/x D: Diffusion constant. A: Surface area of diffusion."
+    },
+    {
+     "type": "paragraph",
+     "text": "X: Thickness of the membrane. ∆C: Concentration difference between membranes (most important determinant). Movement of molecules across a membrane via carrier protein. No expenditure of energy. For example, glucose is transported by all types of GLUT. Saturation is achieved after a certain point called the plateau. The maximum transport rate occurs at the plateau or saturation point, called maximum (Tm)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Primary active transport (Option C):** This active transport uses cellular energy (ATP) to transport substances against their concentration gradient. This process often involves specific carrier proteins, such as the Na+/K+ ATPase pump."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Secondary active transport (Option D):** This type of active transport uses the energy stored in the form of ion concentration gradients, established by primary active transport, to drive the transport of other substances against their concentration gradient."
+    }
+   ]
+  },
+  {
+   "id": "physiology-8-28",
+   "question": "What is the normal insensible water loss?",
+   "options": {
+    "A": "100 mL/hour",
+    "B": "150 mL/hour",
+    "C": "50 mL/hour",
+    "D": "200 mL/hour"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Insensible water loss is the amount of water lost from the body through evaporation, such as through the skin or respiratory tract that cannot be easily measured. Normal insensible water loss is generally considered to be around 30-50 mL/hour in adults. Insensible Water Loss Definition: Unconscious water loss through skin diffusion and respiration, distinct from sensible losses (urine and feces)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Typical Values: Total loss: 600 to 800 mL/day. (~35ml-50ml/hour) Skin diffusion: 300 to 400 mL/day. Respiratory loss: 250 to 350 mL/day. Represents 30% to 50% of total daily water loss. Factors Influencing Loss: Environmental conditions: Higher temperatures and lower humidity increase evaporative loss. Physical activity: Increases respiratory rate, enhancing water loss."
+    },
+    {
+     "type": "paragraph",
+     "text": "Clinical Importance: Key in managing fluid balance in patients, especially during surgery or in conditions affecting hydration. Category Value Total Insensible Loss 600-800 mL/day Skin Diffusion 300-400 mL/day Respiratory Loss 250-350 mL/day Percentage of Total Loss 30%-50%"
+    }
+   ]
+  },
+  {
+   "id": "physiology-32-25",
+   "question": "Transport of iron into enterocytes is done by which of the following proteins:",
+   "options": {
+    "A": "Transferrin",
+    "B": "Ferroportin",
+    "C": "Hepcidin",
+    "D": "Divalent metal transporter – 1"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Divalent metal transporter-1 (DMT1) is a transmembrane protein located in the apical membrane of enterocytes. It is responsible for transporting ferrous forms of iron from the intestinal lumen into the enterocyte. DMT1 is expressed in the duodenum, the first part of the small intestine where iron is absorbed from the diet."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Transferrin (Option A):** It binds and transports iron in the bloodstream, but not into enterocytes. Ferroportin"
+    },
+    {
+     "type": "paragraph",
+     "text": "(Option B): This protein transports iron out of enterocytes into the bloodstream, not into the enterocyte Hepcidin (Option C): It regulates iron homeostasis by inhibiting ferroportin, thus reducing iron export, but it does not transport iron into enterocytes."
+    }
+   ]
+  },
+  {
+   "id": "physiology-8-29",
+   "question": "Vessel A has a length of L and a diameter of D, and vessel B has 2L and 2D. Considering the flow is laminar through both cylinders, the flow through B is how many times as much as the flow through A?",
+   "options": {
+    "A": "4 times",
+    "B": "8 times",
+    "C": "16 times",
+    "D": "32 times"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Flow is equal to the pressure difference divided by resistance. So, flow is inversely proportional to the resistance of the vessel. According to the Hagen–Poiseuille equation, resistance can be directly measured by the following formula. R = 8hL/pr 4 Where, R = resistance. h = viscosity. L = length. r = radius of the vessel."
+    },
+    {
+     "type": "paragraph",
+     "text": "From this equation, the resistance of a vessel is inversely proportional to the fourth power of radius and directly proportional to the length of the vessel.. So, if the radius and length are doubled, the original and other parameters remain constant, then the resistance will be: R = L/(r) 4. R = 2/(2) 4 R = 2/16 = 8. So, the resistance will decrease by 8 times, and flow will increase by 8 times."
+    }
+   ]
+  },
+  {
+   "id": "physiology-12-23",
+   "question": "A and B in the graph below represent which of the following ions, in terms of permeability for action potential generation?",
+   "options": {
+    "A": "A is Na+, B is K+",
+    "B": "A is Na+, B is Ca2+",
+    "C": "A is K+, B is Ca2+",
+    "D": "A is Ca2+, B is K+"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Resting Membrane Potential (Point A on graph): At rest, the neuron's membrane potential is around -70 mV. K+ permeability is higher than Na+ permeability due to the presence of K+ leak channels. However, the overall permeability to both ions is relatively low. Depolarization Phase (Between Points A and C): Voltage-gated Na+ channels open faster than K+ channels."
+    },
+    {
+     "type": "paragraph",
+     "text": "Rapid influx of Na+ ions, causing a rapid rise in membrane potential, causing a steep slope. Peak of Action Potential (Point C): Na+ permeability is at its maximum. K+ channels are also opening at this stage but have not reached their peak. Early Repolarization Phase (Point D): Early phase of repolarization. Voltage-gated K+ channels are fully open, resulting in the highest permeability. Na+ channels are rapidly inactivated during this phase."
+    },
+    {
+     "type": "paragraph",
+     "text": "Late Repolarization and After-hyperpolarization (Points E and F): K+ permeability starts to decline as the membrane potential moves towards its resting state. Slow closure of K+ channels results in a period of hyperpolarization, where the membrane potential falls slightly below the resting potential (Point F)."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L14_Q036_E1"
+    }
+   ]
+  },
+  {
+   "id": "physiology-8-24",
+   "question": "Which of the following is the principal constituent of serum osmolality?",
+   "options": {
+    "A": "Potassium",
+    "B": "Sodium",
+    "C": "Bicarbonate",
+    "D": "Hydrogen ions"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The combined presence of sodium and chloride accounts for approximately 90% of plasma osmolality. Out of a total of 295 mOsm/kg H2O, sodium chloride contributes around 270 mOsm, while the remaining 20 mOsm is attributed to urea, glucose, protein, and other ions such as potassium and calcium. Whenever Na+ moves from one compartment to the other, Cl- also moves to maintain electroneutrality, mainly contributing to osmolality."
+    }
+   ]
+  }
+ ]
+}

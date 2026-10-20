@@ -1,0 +1,613 @@
+{
+ "batch": "biochemistry-030",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "biochemistry-030",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "17-13",
+   "question": "Which of the following statements about DNA polymerases in E. coli is true?",
+   "options": {
+    "A": "DNA Polymerase I is the primary enzyme for DNA synthesis at the replication fork.",
+    "B": "DNA Polymerase II is primarily responsible for gap filling following DNA replication",
+    "C": "DNA Polymerase III has the highest rate of chain elongation and is involved in both leading and lagging strand synthesis.",
+    "D": "All three DNA polymerases perform identical functions in DNA synthesis."
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "DNA Polymerase III is the main replicative enzyme in E. coli. DNA Polymerases in E. coli: DNA Polymerase I (pol I): (Option A ruled out) Involved in proofreading and DNA repair. Plays a role in gap-filling after DNA replication and recombination. DNA Polymerase II (pol II): (Option B ruled out) Primarily functions in proofreading and DNA repair. DNA Polymerase III (pol III): Main enzyme for DNA synthesis at the replication fork."
+    },
+    {
+     "type": "paragraph",
+     "text": "Exhibits the highest chain elongation rate and processivity. Participates in both leading and lagging strand synthesis. High processivity due to association with β subunits of the sliding clamp, enabling it to add a large number of nucleotides (100 to >50,000) before detaching."
+    },
+    {
+     "type": "paragraph",
+     "text": "**All three DNA polymerases perform identical functions in DNA synthesis (Option D):** They have distinct roles, with pol III being the main replicative polymerase while pol I and II focus on proofreading and repair."
+    }
+   ]
+  },
+  {
+   "id": "17-14",
+   "question": "Which of the following is not a requirement for DNA replication in eukaryotes?",
+   "options": {
+    "A": "Origin of replication (ori)",
+    "B": "DNA helicase",
+    "C": "RNA primer",
+    "D": "RNA polymerase"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Origin of replication (ori): Required to initiate replication. Eukaryotic DNA has multiple origins of replication to ensure efficient duplication. DNA helicase: Unwinds the DNA double helix to allow access for replication machinery. RNA primer: Required because DNA polymerase cannot initiate synthesis de novo; RNA primase lays down short RNA primers for DNA polymerase to extend."
+    },
+    {
+     "type": "paragraph",
+     "text": "**RNA polymerase (Option D):** Incorrect because RNA polymerase is involved in transcription, not DNA replication. It synthesizes RNA from a DNA template but does not play a role in DNA synthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**DNA Replication Requirements in Eukaryotes Component Function Origin of Replication (ori) (Option A ruled out):** Specific DNA sequences where replication starts DNA Helicase (Option B ruled out) Unwinds the DNA double helix Single-Strand Binding Proteins (SSBPs) Stabilize unwound DNA strands Primase (RNA polymerase type) Synthesizes short RNA primers DNA Polymerase α, δ, and ε Synthesizes new DNA strands Sliding Clamp (PCNA) Enhances DNA polymerase processivity Topoisomerase Relieves supercoiling ahead of the replication fork DNA Ligase Seals Okazaki fragments on the lagging strand RNA polymerase (Option D): Incorrect because it is involved in transcription, not DNA replication."
+    }
+   ]
+  },
+  {
+   "id": "17-15",
+   "question": "Which of the following disorders are not caused due to defect in the Non homologous End Joining?",
+   "options": {
+    "A": "Fanconi's anaemia",
+    "B": "Ataxia telengectasia",
+    "C": "Blooms syndrome",
+    "D": "Severe combined immunodeficiency disorder (SCID)"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Fanconi’s anemia is caused due to a defect in Homologous recombination and not Non homologous end joining. Double-Strand DNA Break Repair Definition: Double-strand DNA breaks (DSBs) are severe forms of DNA damage that can lead to mutations if not properly repaired. They involve the breakage of both DNA strands. Mechanisms: Cells employ specific pathways to repair these breaks, ensuring genetic stability and preventing mutations."
+    },
+    {
+     "type": "paragraph",
+     "text": "Sources of DSBs: These can be caused by ionizing radiation, chemotherapeutic agents, X-rays, and natural genetic recombination processes. Types of Repair: Nonhomologous End Joining (NHEJ) Homologous Recombination (HR) Nonhomologous End Joining (NHEJ) Definition: NHEJ is a DNA repair mechanism that"
+    },
+    {
+     "type": "paragraph",
+     "text": "fixes double-strand breaks (DSBs) by directly joining the broken ends without requiring a homologous template. Cell Cycle Phase: Active throughout the entire cell cycle, including G0/G1 phases. Process: Involves a group of proteins that recognize, process, and ligate the ends of the broken DNA. Some DNA may be lost during the process, making it error-prone and potentially mutagenic."
+    },
+    {
+     "type": "paragraph",
+     "text": "Key Proteins: DNA-dependent protein kinase (DNA-PK) and Ku70/80 complex are crucial for recognizing and binding to DNA ends. Clinical Relevance: Defects in NHEJ are associated with an increased risk of cancer and immunodeficiency syndromes due to improper repair and accumulation of mutations Ataxia telangiectasia (Option B) Bloom's syndrome (Option C) Severe Combined Immunodeficiency (SCID) (Option D)"
+    }
+   ]
+  },
+  {
+   "id": "17-16",
+   "question": "A 45 y/o woman presents with visual disturbances, including gradual vision loss and difficulty seeing in low light, along with muscle weakness and fatigue. She has a history of early-onset cardiac conduction issues and worsening symptoms over the years. Her family history shows similar symptoms in her mother. What genetic condition best explains her symptoms?",
+   "options": {
+    "A": "Leber’s Hereditary Optic Neuropathy (LHON)",
+    "B": "Myoclonic Epilepsy with Ragged Red Fibers (MERRF)",
+    "C": "Mitochondrial Encephalopathy, Lactic Acidosis, and Stroke-like Episodes (MELAS)",
+    "D": "Leigh’s Syndrome."
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Visual Disturbances: Gradual vision loss and difficulty seeing in low light are characteristic of LHON, a mitochondrial disorder affecting the optic nerve. Muscle Weakness and Fatigue: Mitochondrial dysfunction commonly leads to neuromuscular symptoms. Cardiac Conduction Issues: Some cases of LHON involve cardiac arrhythmias, particularly pre-excitation syndromes."
+    },
+    {
+     "type": "paragraph",
+     "text": "Maternal Inheritance: Mitochondrial diseases, including LHON, follow maternal inheritance, consistent with the family history in her mother."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mitochondrial Syndromes and Their Features Syndrome Genetic Defect Key Clinical Features Leber’s Hereditary Optic Neuropathy (LHON) mtDNA mutations in ND1, ND4, ND6 (Complex I subunits) Painless, progressive vision loss, optic atrophy, cardiac conduction defects, maternal inheritance Myoclonic Epilepsy with Ragged Red Fibers (MERRF) (Option B ruled out) mtDNA mutations in MT-TK (tRNA-Lys gene) Myoclonic epilepsy, muscle weakness, ataxia, hearing loss, ragged red fibers on muscle biopsy Mitochondrial Encephalopathy, Lactic Acidosis, and Stroke-like Episodes (MELAS) (Option C ruled out) mtDNA mutations in MT-TL1 (tRNA-Leu"
+    },
+    {
+     "type": "paragraph",
+     "text": "gene) Stroke-like episodes, lactic acidosis, seizures, progressive dementia, diabetes, muscle weakness Leigh’s Syndrome (Option D ruled out) mtDNA or nuclear DNA mutations (Complex I or IV defects, NDUFS genes) Neurodegeneration in infancy, hypotonia, brainstem dysfunction, ataxia, respiratory failure Kearns-Sayre Syndrome (KSS) Large-scale mtDNA deletions Progressive external ophthalmoplegia, pigmentary retinopathy, cardiac conduction defects, muscle weakness"
+    }
+   ]
+  },
+  {
+   "id": "17-17",
+   "question": "Which of the following is a characteristic of mitochondrial DNA (mtDNA)?",
+   "options": {
+    "A": "It is linear and single-stranded",
+    "B": "It has very few non-coding regions and a higher mutation rate compared to nuclear DNA.",
+    "C": "It uses the standard genetic code, including AGA and AGG as codons for arginine (Arg).",
+    "D": "It is composed of linear strands and encodes for all 67 subunits of the respiratory chain."
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Mitochondrial DNA is characteristic of having very few non-coding regions and a higher mutation rate of 5-10 times compared to nuclear DNA. Feature Description Structure Circular, double-stranded; composed of heavy (H) and light (L) chains. (Option A ruled out) Length 16,569 base pairs (bp)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Protein-Encoding Subunits Most respiratory chain proteins are encoded by nuclear DNA and imported into mitochondria (Option D ruled out) Ribosomal RNAs Encodes 16S (large) and 12S (small) mitochondrial rRNAs. tRNAs Encodes 22 mitochondrial tRNA molecules."
+    },
+    {
+     "type": "paragraph",
+     "text": "Genetic Code Differences UGA typically a stop codon is read as tryptophan (Trp) AGA and AGG: normally arginine (Arg) codons are read as stop codons (Option C ruled out) Untranslated Sequences Very few non-coding regions. Mutation Rate 5-10 times higher than nuclear DNA. Evolutionary Studies Comparisons of mtDNA sequences provide insights into the evolutionary history of primates and other species."
+    }
+   ]
+  },
+  {
+   "id": "17-18",
+   "question": "Which histone is least tightly bound to chromatin and can be easily removed with a salt solution?",
+   "options": {
+    "A": "H2A",
+    "B": "H1",
+    "C": "H3",
+    "D": "H4"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "H1 is a linker histone, not part of the core histone octamer. It binds to DNA at nucleosome entry and exit sites, helping in higher-order chromatin organization. Least tightly bound to chromatin and can be easily removed with a salt solution, increasing chromatin solubility."
+    },
+    {
+     "type": "paragraph",
+     "text": "Histone Classification and Role Histone Type Function Binding to DNA H1 (Linker Histone) Stabilizes nucleosomes, promotes chromatin compaction Least tightly bound, removable with salt solutions H2A, H2B (Core Histones) (Option A ruled out) Form histone octamer, aid in nucleosome structure Tightly bound H3, H4 (Core Histones) (Options C & D ruled out) Critical for nucleosome stability and gene regulation Tightly bound"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L22_Q018_E1"
+    }
+   ]
+  },
+  {
+   "id": "17-19",
+   "question": "Which of the following factors can cause the denaturation of DNA? a) Increasing temperature b) Increasing salt concentration c) Decreasing temperature d) DNA with a high A-T base composition e) DNA with a high G-C base composition f) Adding Urea g) Adding Formamide h) Decreasing salt concentration",
+   "options": {
+    "A": "b, c, e, g, h",
+    "B": "c, d, e, h",
+    "C": "a, d, f, g, h",
+    "D": "a, b, e, g"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Increasing temperature, Decreasing salt concentration, DNA with a high A-T base composition, and Adding Chaotropic agents like Urea and Formamide cause denaturation of DNA. Factors Influencing Denaturation of DNA Increasing Temperature: Higher temperatures cause the double-stranded DNA to separate into single strands."
+    },
+    {
+     "type": "paragraph",
+     "text": "Decreasing Solution Salt Concentrations: Lower salt concentrations reduce the stability of the double-stranded DNA, promoting denaturation. Adding Chaotropic Agents: Agents like urea and formamide form competing hydrogen bonds with nucleotide bases, destabilizing the hydrogen bonding between complementary bases and lowering the melting temperature (T m)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Base Composition: DNA rich in G-C pairs melts at a higher temperature than DNA rich in A-T pairs due to stronger hydrogen bonding and base stacking interactions in G-C pairs. Denaturation: In Vivo Denaturation: In living cells, DNA denaturation and renaturation occur naturally during DNA replication, recombination, repair, and transcription."
+    },
+    {
+     "type": "paragraph",
+     "text": "These processes are mediated by nucleic acid binding proteins, enzymes, and thermal or chemical energy from ATP hydrolysis. Experimental Denaturation: In the laboratory, a combination of increasing temperature, decreasing salt concentration, and adding chaotropic agents is often used to denature DNA, ensuring the strands separate efficiently without causing significant damage to the nucleotides."
+    }
+   ]
+  },
+  {
+   "id": "17-20",
+   "question": "Which of the following statements about the different types of DNA is TRUE?",
+   "options": {
+    "A": "B-DNA has a left-handed helix and a full turn with 12 bases.",
+    "B": "A-DNA forms during dehydration and has grooves of the same dimensions.",
+    "C": "Z-DNA forms under normal physiological conditions and has a right-handed helix",
+    "D": "A-DNA is the predominant form found in physiological conditions and has 11 bases per full turn."
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "of DNA Types: Type of DNA Helical Direction Base Pairs per Turn Grooves Conditions B-DNA Right-handed 10.5 Major groove is wide and deep, minor groove is narrow Physiological conditions A-DNA Right-handed 11 Grooves are of nearly equal dimensions Forms during dehydration Z-DNA Left-handed 12 Major groove is shallow, minor groove is deep Forms under high salt or supercoiling B-DNA has a left-handed helix and a full turn with 12 bases (Option A): Incorrect because B-DNA is right-handed and has 10.5 bases per turn, not 12."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Z-DNA forms under normal physiological conditions and has a right-handed helix (Option C):** Incorrect because Z-DNA is left-handed and forms under high salt or supercoiling, not in normal conditions."
+    },
+    {
+     "type": "paragraph",
+     "text": "**A-DNA is the predominant form found in physiological conditions and has 11 bases per full turn (Option D):** Incorrect because B-DNA, not A-DNA, is the predominant form under physiological conditions."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L22_Q020_E1"
+    }
+   ]
+  },
+  {
+   "id": "17-21",
+   "question": "In the analogy of the DNA double helix to a spiral staircase, what do the \"handrails\" and \"steps\" represent?",
+   "options": {
+    "A": "Handrails are nitrogenous bases; steps are phosphodiester bonds",
+    "B": "Handrails are nitrogenous bases; steps are the sugar-phosphate backbone",
+    "C": "Handrails are the sugar-phosphate backbone; steps are nitrogenous bases",
+    "D": "Handrails are hydrogen bonds; steps are deoxyribose sugars"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Handrails (Sugar-Phosphate Backbone): The sugar-phosphate backbone forms the structural framework of the DNA double helix. It consists of deoxyribose sugars connected by phosphodiester bonds. Steps (Nitrogenous Bases): The nitrogenous bases (adenine, thymine, cytosine, guanine) form the \"steps\" of the staircase. They pair via hydrogen bonds (A-T with two bonds, G-C with three bonds), connecting the two strands."
+    },
+    {
+     "type": "paragraph",
+     "text": "Structural Features of the DNA Molecule: The DNA molecule consists of two antiparallel strands: one runs 5' to 3', while the complementary strand runs 3' to 5'. It resembles a spiral staircase, where two polynucleotide chains twist together in a right-handed helix. The DNA helix has distinct major (2.2 nm) and minor (1.2 nm) grooves, providing protein-binding sites."
+    },
+    {
+     "type": "paragraph",
+     "text": "The double helix is stabilized by base stacking, involving hydrophobic interactions and the specific arrangement of base ring systems. Each complete turn of the helix spans 3.4 nm and includes ~10.5 base pairs. The helical diameter of B-DNA is 2 nm (20 Å)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Handrails are nitrogenous bases; steps are phosphodiester bonds (Option A):** Incorrect because phosphodiester bonds form the backbone, not the steps."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Handrails are nitrogenous bases; steps are the sugar-phosphate backbone (Option B):** Incorrect because nitrogenous bases form the steps, not the handrails."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Handrails are hydrogen bonds; steps are deoxyribose sugars (Option D):** Incorrect because hydrogen bonds connect bases, and deoxyribose is part of the backbone, not the steps."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L22_Q021_E1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L22_Q021_E2"
+    }
+   ]
+  },
+  {
+   "id": "17-22",
+   "question": "In the structure of nucleotides, where does the esterification of the phosphate group typically occur?",
+   "options": {
+    "A": "On the 1' carbon of the pentose sugar",
+    "B": "On the 2' hydroxyl group of the pentose sugar",
+    "C": "On the 5' or 3' hydroxyl group of the pentose sugar",
+    "D": "On the N1 position of the nitrogenous base"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Phosphate groups in nucleotides are most commonly esterified to the 5' hydroxyl group of the pentose sugar, forming 5'-nucleotides. The 3' hydroxyl group can also participate in forming phosphodiester bonds, linking nucleotides together in nucleic acids."
+    },
+    {
+     "type": "paragraph",
+     "text": "**The 1' carbon of the pentose sugar (Option A):** It is involved in forming the β-N-glycosidic bond with the nitrogenous base, not in esterification with the phosphate group. 2' hydroxyl group is present in ribose (in RNA) (Option B): it is not typically the site for phosphate esterification. The 2' position plays a role in distinguishing RNA from DNA, as deoxyribose lacks a hydroxyl group at this position."
+    },
+    {
+     "type": "paragraph",
+     "text": "**The N1 position (Option D):** It is involved in attaching the base to the pentose sugar in pyrimidines, not in phosphate esterification. In purines, the corresponding attachment occurs at the N9 position."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L22_Q022_E1"
+    }
+   ]
+  },
+  {
+   "id": "17-23",
+   "question": "What is the primary role of inosine monophosphate (IMP) in cellular metabolism?",
+   "options": {
+    "A": "Directly involved in energy transfer like ATP",
+    "B": "Acts as a precursor for both adenosine monophosphate (AMP) and guanosine monophosphate (GMP)",
+    "C": "Inhibits the de novo synthesis of purine nucleotides",
+    "D": "Serves as an end product of the salvage pathway for purine nucleotides"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "IMP is a central molecule in purine metabolism, serving as a precursor for AMP and GMP, which are crucial for various cellular processes, including nucleic acid synthesis and energy transfer. Conversion of IMP to AMP and GMP: Structure Of IMP: Directly involved in energy transfer like ATP (Option A): While ATP is essential for energy transfer, IMP does not serve this function directly."
+    },
+    {
+     "type": "paragraph",
+     "text": "IMP's primary role is as an intermediate in purine metabolism."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Inhibits the de novo synthesis of purine nucleotides (Option C):** IMP does not inhibit the de novo synthesis pathway. However, AMP and GMP, derived from IMP, can provide feedback inhibition to regulate their synthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Serves as an end product of the salvage pathway for purine nucleotides (Option D):** Incorrect because IMP is an intermediate in the salvage pathway, not the final product."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L22_Q023_E1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L22_Q023_E2"
+    }
+   ]
+  },
+  {
+   "id": "17-24",
+   "question": "What type of bond forms between a nitrogenous base and a pentose sugar in a nucleoside?",
+   "options": {
+    "A": "α-N-glycosidic bond",
+    "B": "β-N-glycosidic bond",
+    "C": "Phosphodiester bond",
+    "D": "Hydrogen bond"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "β-N-glycosidic bond is the bond that connects the nitrogenous base to the pentose sugar in nucleosides. It links the 1' carbon of the sugar (ribose or deoxyribose) to the nitrogen atom of the base- N9 of purines or N1 of pyrimidines. It is called a β linkage because the OH group at the 1' position of ribose or deoxyribose is above the plane of the sugar ring."
+    },
+    {
+     "type": "paragraph",
+     "text": "This orientation determines the β configuration of the glycosidic bond. α-N-glycosidic bond (Option A): This bond is not found between nitrogenous bases and pentose sugars in nucleosides."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Phosphodiester bond (Option C):** This bond links nucleotides together to form the backbone of nucleic acids (DNA and RNA). It connects the 5' phosphate group of one nucleotide to the 3' hydroxyl group of the next nucleotide."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Hydrogen bond (Option D):** Hydrogen bonds are responsible for the base pairing between complementary nitrogenous bases in DNA or RNA. They do not connect the base to the sugar in a nucleoside."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L22_Q024_E1"
+    }
+   ]
+  },
+  {
+   "id": "17-25",
+   "question": "Which of the following is a pyrimidine base found in nucleic acids?",
+   "options": {
+    "A": "Uracil",
+    "B": "Hypoxanthine",
+    "C": "Xanthine",
+    "D": "Guanosine"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Uracil is a pyrimidine base found in RNA, where it replaces thymine as a complementary base to adenine. It is a single-ring nitrogenous base, characteristic of pyrimidines."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Classification of Nitrogenous Bases Hypoxanthine (Option B):** It is a purine derivative, not a primary component of DNA or RNA. It appears in tRNA and purine metabolism as an intermediate."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Xanthine (Option C):** It is a purine base involved in purine degradation but not directly incorporated into nucleic acids. It is also a precursor for caffeine, theophylline, and theobromine."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Guanosine (Option D):** It is a nucleoside, consisting of guanine (a purine) attached to ribose."
+    },
+    {
+     "type": "paragraph",
+     "text": "While guanine is found in DNA and RNA, guanosine itself is not a base but a nucleoside."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L22_Q025_E1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L22_Q025_E2"
+    }
+   ]
+  },
+  {
+   "id": "17-26",
+   "question": "Which of the following is not caused by a defect of ds DNA repair?",
+   "options": {
+    "A": "Cockayne syndrome (CS)",
+    "B": "Fanconi’s anemia",
+    "C": "Severe Combined Immunodeficiency (SCID)",
+    "D": "Bloom's syndrome"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Cockayne syndrome (CS) is caused by a defect in Transcription-Coupled Nucleotide Excision Repair (TC-NER), which is a type of Nucleotide Excision Repair (NER). It does not involve defects in double-strand DNA (dsDNA) repair mechanisms like Homologous Recombination (HR) or Non-Homologous End Joining (NHEJ)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Disorders Associated with dsDNA Repair Defects Disorder Defective Repair Mechanism Ataxia telangiectasia Non-Homologous End Joining (NHEJ) Bloom’s syndrome (Option D ruled out) Homologous DNA Repair (HDR) Severe Combined Immunodeficiency (SCID) (Option C ruled out) Non-Homologous End Joining (NHEJ) Fanconi’s anemia (Option B ruled out) Fanconi Anemia Repair Pathway (Interacts with HDR) HBOC (Human Breast and Ovarian Cancer Syndrome) Homologous DNA Repair (HDR) (BRCA1/BRCA2 mutation)"
+    }
+   ]
+  },
+  {
+   "id": "17-27",
+   "question": "Which of the following statements about Homologous DNA Repair (HR) is correct?",
+   "options": {
+    "A": "HR is active during G0/G1 phases of the cell cycle.",
+    "B": "HR is an error-prone process compared to nonhomologous end joining (NHEJ).",
+    "C": "HR uses a homologous DNA template for repair, making it highly accurate.",
+    "D": "Defects in HR-related proteins decrease Ovarian and breast cancers"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "HR uses enzymes involved in genetic recombination between homologous chromosomes and uses a homologous DNA template for repair, making it highly accurate. Homologous DNA Repair (HR) Definition: HR is a type of Double-strand DNA break repair mechanism used to fix double-strand breaks (DSBs) by utilizing a homologous DNA template for error-free repair."
+    },
+    {
+     "type": "paragraph",
+     "text": "Cell Cycle Phase: HR is active during the S and G2 phases of the cell cycle. (Option A ruled out) Process: Uses enzymes involved in genetic recombination between homologous chromosomes during meiosis. DNA damage is recognized, and the homologous sequence is used as a template for repair."
+    },
+    {
+     "type": "paragraph",
+     "text": "Accuracy: HR is less error-prone compared to nonhomologous end joining (NHEJ), making it an \"error-free\" repair process. (Option B ruled out) Clinical Relevance: Mutations in HR-related proteins (e.g., BRCA1/BRCA2) increase the risk for breast and ovarian cancers. (Option D ruled out) Fanconi's anemia HBOC (Human Breast and Ovarian Cancer Syndrome) Advantages: Ensures high fidelity in DNA repair by accurately restoring the original DNA sequence using a homologous template."
+    },
+    {
+     "type": "paragraph",
+     "text": "Holliday junction is a -cross-shaped structure formed during the process of genetic recombination when two double-stranded DNA molecules become separated into four strands to exchange segments of genetic information."
+    }
+   ]
+  },
+  {
+   "id": "18-1",
+   "question": "Original DNA sequence: 5'-ATG GCA TCG GAA UAC-3'. Mutated sequence: 5'-ATG GCA TCG GAA UAA-3'. Identify the mutation.",
+   "options": {
+    "A": "Frameshift mutation",
+    "B": "Nonsense mutation",
+    "C": "Silent mutation",
+    "D": "Missense mutation"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "UAC mutates to a termination codon (UAA or UAG), leading to premature termination of the protein and destroying the functional activity. This is called Nonsense mutation."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Based on the Effects on Amino acid sequence Silent Mutation (Option C ruled out):** Missense Mutation (Option D ruled out) Nonsense Mutation (Option B) Mutation may change the codon for one amino acid to a synonym for the same amino acid. It has no effect on the phenotype. Degeneracy of the code. Different amino acid is incorporated due to change in the nucleotide sequence. It can be acceptable, partially acceptable, and unacceptable. Codon for an amino acid is mutated to a termination codon (UAA or UAG) causing premature termination of translation."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Frameshift mutation (Option A):** is the deletion or insertion of nucleotides leading to altered reading of frame in the mRNA."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L23_Q001_E1"
+    }
+   ]
+  },
+  {
+   "id": "18-2",
+   "question": "Identify the type of mutation illustrated in the following DNA sequences? Starting sequence: Mutated sequence:",
+   "options": {
+    "A": "Point mutation",
+    "B": "Frameshift mutation",
+    "C": "Deletion mutation",
+    "D": "Insertion mutation"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "There is substitution of guanine by adenine and cytosine by thymine from the starting sequence (one nucleotide is substituted by the other), which is a point mutation. A mutation is defined as a change in nucleotide sequence of DNA. Based on the Effects on Nucleotide sequence Point mutation (Option A) Frameshift mutation (Option B ruled out) Substitution of one nucleotide by another."
+    },
+    {
+     "type": "paragraph",
+     "text": "Transition: Purine is replaced by a purine and a pyrimidine is replaced by a pyrimidine. Transversion: Purine is replaced by a pyrimidine and vice versa."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Deletion (Option C ruled out):** or insertion (Option D ruled out) of nucleotides leading to altered reading frame in the mRNA."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L23_Q002_E1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L23_Q002_E2"
+    }
+   ]
+  },
+  {
+   "id": "18-3",
+   "question": "Which technique is commonly used for DNA sequencing to identify mutations by determining the precise order of nucleotides in a DNA sample?",
+   "options": {
+    "A": "Fluorescence in situ hybridization (FISH)",
+    "B": "Multiplex ligation-dependent probe amplification (MLPA)",
+    "C": "Sanger technique",
+    "D": "Single Strand Conformational Polymorphism (SSCP)"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The Sanger technique is a DNA sequencing method that uses modified nucleotides to stop DNA synthesis, allowing the sequence of DNA to be read by analyzing fragment lengths. There are cytogenetics and molecular methods for detection of mutations."
+    },
+    {
+     "type": "paragraph",
+     "text": "Methods Uses Advantages/ disadvantages Cytogenetics Karyotype Detecting numerical and gross structural aberrations Low-resolution Time consuming FISH (Fluorescence in situ hybridization) (Option A ruled out) Detects copy number variations, structural alterations like translocations and microdeletion Detects Limitation: Can be used only for known defects CGH (Comparative genomic hybridization) Detects copy number variations of genetic material Can be used to detect unknown chromosomal aberrations Used only for losses and gains Molecular RFLP (Restriction fragment length polymorphism) Restriction fragments are separated by electrophoresis Requires availability of enzyme with restriction site at the mutation site DNA Sequencing Sanger technique (Option C) is the most widely used."
+    },
+    {
+     "type": "paragraph",
+     "text": "Directly determines the nucleotide sequence of a DNA fragment. Detects point mutations, small deletions and insertions. DNA microarray Microscopic DNA spots attached to a solid surface Multiple mutations can be detected."
+    },
+    {
+     "type": "paragraph",
+     "text": "ARMS PCR (Amplification refractory mutation system) Allele-specific amplification of mutant and normal allele, determination of the genotype of an individual Highly sensitive May increase time and costs Multiplex PCR (Polymerase chain reaction) Amplification of more than one target simultaneously Reduces time and labour requirements Lower sensitivity and specificity Real-time PCR Amplification, detection, and quantification of target Increased specificity Eliminates post-amplification analyses More expensive MLPA (Multiplex ligation-dependent probe amplification) (Option B ruled out) Deletions and duplications Identifies very small single gene aberrations (50-70 nt) DGGE (Denaturing Gradient Gel Electrophoresis) Based on migration within gradient gel electrophoresis Detects close to 100% of point mutations SSCP (Single Strand Conformational Polymorphism) (Option D ruled out) Based on migration of single-stranded conformation on gel electrophoresis Detects about 80–90% of point mutations Hetero-duplex analysis Based on homoduplices and heteroduplices motilities in gel electrophoresis Detects nearly 80% of mutations OLA (Oligonucleotide ligation assay) It is based on the ligation of two flanked primers annealed with target sequences Detects all base exchanges PTT (Protein truncation test) It is based on a combination of PCR, transcription, and translation Detects translation-terminating mutations."
+    },
+    {
+     "type": "paragraph",
+     "text": "Missense mutations are not detected."
+    }
+   ]
+  },
+  {
+   "id": "18-4",
+   "question": "Which class of antibiotics inhibits bacterial protein synthesis by blocking the attachment of aminoacyl-tRNA to the ribosomal A site?",
+   "options": {
+    "A": "Tetracyclines",
+    "B": "Chloramphenicol",
+    "C": "Macrolides",
+    "D": "Puromycin"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Tetracyclines inhibit the EF1A(prokaryotic elongation factor 1A) and also the attachment of aminoacyl tRNA to the A site. Inhibitors of Protein Synthesis Mechanism of action Reversible Inhibitors in Bacteria (bacteriostatic) Tetracyclines (Option A) Binds to the 30S ribosome of bacteria and inhibit attachment of aminoacyl tRNA to the A site."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Chloramphenicol (Option B ruled out):** Inhibits the peptidyl transferase activity of bacterial ribosomes Erythromycin (macrolides) (Option C ruled out) and clindamycin Inhibits the translocation process. Irreversible Inhibitors in Bacteria (bactericidal) Aminoglycoside Bind to 30S subunit of bacterial ribosomes. Misreading of mRNA. Inhibit the initiation complex formation and totally inhibit protein synthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Inhibitors of Protein Synthesis in Mammals Puromycin (Option D ruled out):** Analogue of tyrosine tRNA and attaches to the “A” site of the ribosome causing premature termination. Cycloheximide Inhibits peptidyl transferase in 60S subunit Diphtheria toxin Inactivation of EF-2 by attachment of ADP to EF-2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L23_Q004_E1"
+    }
+   ]
+  },
+  {
+   "id": "18-5",
+   "question": "What is the total number of ATPs required for activating amino acids by aminoacyl tRNA synthetase?",
+   "options": {
+    "A": "3",
+    "B": "2",
+    "C": "4",
+    "D": "1"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Energetics of translocation of Amino acids: Steps Number of ATPs needed Activating amino acids by aminoacyl tRNA synthetase (Option B) 2 Activating of eEF1 (A attaches amino acyl tRNA to A site) 1 Activating eEF2 (helps in translocation of ribosomes) 1 Total 4"
+    }
+   ]
+  }
+ ]
+}

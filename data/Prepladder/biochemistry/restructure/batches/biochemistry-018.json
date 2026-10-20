@@ -1,0 +1,589 @@
+{
+ "batch": "biochemistry-018",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "biochemistry-018",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "15-11",
+   "question": "Which of the following statements about the metabolism of phenylalanine is incorrect?",
+   "options": {
+    "A": "Phenylalanine is converted to tyrosine catalyzed by phenylalanine hydroxylase.",
+    "B": "Phenylalanine on transamination gets converted to phenylpyruvate",
+    "C": "Phenylpyruvate on oxidation yields phenyl lactate",
+    "D": "Phenylpyruvate on oxidative decarboxylation forms phenylacetate."
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Phenylpyruvate on reduction, not oxidation, yields phenyl lactate. Phenylalanine has 2 metabolic fates in the body: Major Fate Phenylalanine is converted into tyrosine by the enzyme phenylalanine hydroxylase. Deficiency of phenylalanine hydroxylase results in Phenylketonuria. It requires tetrahydrobiopterin (BH4) as a cofactor Minor Fate Phenylalanine is converted into phenylpyruvate by transamination."
+    },
+    {
+     "type": "paragraph",
+     "text": "Phenylpyruvate can further undergo different pathways: Phenylpyruvate can be reduced to phenyl lactate Phenylpyruvate undergoes oxidative decarboxylation, forming phenylacetate Phenylacetate combines with glutamine to form phenylacetylglutamine, which is excreted in the urine."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L18_Q011_E1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L18_Q011_E2"
+    }
+   ]
+  },
+  {
+   "id": "15-12",
+   "question": "Which of the following TCA intermediates is not formed by glucogenic amino acids?",
+   "options": {
+    "A": "Alpha Ketoglutarate",
+    "B": "Isocitrate",
+    "C": "Fumarate",
+    "D": "Oxaloacetate"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Glucogenic amino acids give rise to 4 intermediates of TCA Alpha Ketoglutarate Succinyl CoA Fumarate Oxaloacetate Amino acids give rise to: Alpha-ketoglutarate (on Transamination) Glutamate Glutamine Histidine Proline Arginine Succinyl CoA V- Valine I- Isoleucine M- Methionine (Mnemonic- VIM) Fumarate Phenylalanine Tyrosine Oxaloacetate (on Transamination) Aspartate Asparagine"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L18_Q012_E1"
+    }
+   ]
+  },
+  {
+   "id": "15-13",
+   "question": "Which of the following amino acids are both glucogenic and ketogenic?",
+   "options": {
+    "A": "Leucine",
+    "B": "Tryptophan",
+    "C": "Lysine",
+    "D": "Alanine"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Tryptophan is both glucogenic and ketogenic."
+    },
+    {
+     "type": "paragraph",
+     "text": "Tryptophan on catabolism gives one of the glycolytic intermediate - Pyruvate or TCA cycle intermediate other than Acetyl CoA. Classification of Amino Acid Catabolism Purely Ketogenic Purely Glucogenic Both Ketogenic and Glucogenic On catabolism gives only acetyl CoA On catabolism gives only pyruvate Substance on catabolism gives one of the glycolytic intermediate -Pyruvate or TCA cycle intermediate other than Acetyl CoA Amino acids are: Leucine Lysine Amino acids are: Alanine: On transamination yields pyruvate."
+    },
+    {
+     "type": "paragraph",
+     "text": "Glycine: Simplest amino acid. 3-hydroxyl group- containing amino acids Serine Threonine Hydroxyproline Sulphur-containing amino acid Cysteine Amino acids are: Aromatic amino acids Phenylalanine Tyrosine Tryptophan Branched-chain amino acid Isoleucine Threonine"
+    }
+   ]
+  },
+  {
+   "id": "15-14",
+   "question": "A 6-month-old infant has been having developmental delays. Further examination reveals a defect in the enzyme called phenylalanine hydroxylase. Which of the following urine odor is seen in this infant?",
+   "options": {
+    "A": "Fruity odour",
+    "B": "Musty odour",
+    "C": "Cabbage odour",
+    "D": "Burnt sugar"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical scenario is a case of phenylketonuria which causes 3 main clinical features: Mental retardation Hypopigmentation Mousy odour Phenylketonuria (PKU): Phenylketonuria (PKU) is an autosomal recessive inborn error of metabolism caused by a deficiency of phenylalanine hydroxylase or its cofactor tetrahydrobiopterin (BH4). This deficiency leads to an accumulation of phenylalanine and its metabolites, including phenylpyruvic acid."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mental Retardation: Cause: Mental retardation in phenylketonuria (PKU) is due to the accumulation of phenylketones, which compete with other neutral amino acids for transport across the blood-brain barrier. Management: To prevent mental retardation, a phenylalanine-restricted diet should be followed, along with tyrosine supplements."
+    },
+    {
+     "type": "paragraph",
+     "text": "Hypopigmentation: Cause: Reduced melanin production in PKU results from a deficiency in tyrosine, a crucial component for melanin synthesis. This leads to lighter skin and hair color compared to individuals without PKU. Musty/ Mousy urine odor: Cause: Due to the accumulation of phenylpyruvic acid (a metabolite of excess phenylalanine) in the urine. ODOUR DISORDERS Musty/ Mousy"
+    },
+    {
+     "type": "paragraph",
+     "text": "odour PKU Fruity odour DKA (diabetic ketoacidosis) Cabbage odour Type 1 Tyrosinemia Burnt sugar Maple syrup urine disease Oast house or beer baby syndrome Hypermethioninemia Swimming pool odour Hawkinsinuria Tom-cat urine odour Multiple carboxylase deficiency Sweaty feet odour Isovaleric acidemia Fish odour Trimethylaminuria"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L18_Q014_E1"
+    }
+   ]
+  },
+  {
+   "id": "15-15",
+   "question": "A 6-month-old infant presents with a lack of pigmentation in their skin, hair, and eyes. The parents are concerned about the child's sensitivity to sunlight and the involuntary back-and-forth eye movements that the child exhibits. A significant decrease in melanin pigmentation is present. Which of the following enzymes is absent or deficient in this condition?",
+   "options": {
+    "A": "Alanine aminotransferase (ALT)",
+    "B": "Tyrosinase",
+    "C": "Phenylalanine hydroxylase",
+    "D": "S-adenosylmethionine"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Melanin is a pigment produced by cells called melanocytes, and it plays a critical role in determining the colour of our skin, hair, and eyes. Tyrosinase catalyzes the first two steps in the conversion of the amino acid tyrosine to melanin. Tyrosine → L-Dopa → Dopaquinone Without enough functional tyrosinase, melanin production is reduced or completely absent, leading to the characteristic features of albinism."
+    },
+    {
+     "type": "paragraph",
+     "text": "Reaction Enzyme Tyrosine to DOPA Tyrosine hydroxylase/ Tyrosinase DOPA to Melanin Non-enzyme catalyzed chemical reaction Alanine aminotransferase (ALT) (Option A) is a liver enzyme that is released into the bloodstream when the liver is damaged."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Phenylalanine hydroxylase (Option C):** is an enzyme that converts phenylalanine to tyrosine. A deficiency in this enzyme leads to phenylketonuria (PKU)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**S-adenosylmethionine (Option D):** required for: Norepinephrine to Epinephrine: Enzyme: Phenylethanolamine N-methyltransferase (PNMT). Conversion of Homocysteine to Methionine: Enzyme: Methionine synthase, using methylcobalamin as a cofactor. Methylation of DNA: SAM donates methyl groups to cytosine residues, affecting gene expression. Synthesis of Creatine: SAM is involved in the methylation of guanidinoacetate to form creatine. Methylation of Neurotransmitters: SAM is also involved in the methylation of other neurotransmitters, including serotonin to melatonin. Lipid Metabolism: Involved in the synthesis of phosphatidylcholine from phosphatidylethanolamine."
+    }
+   ]
+  },
+  {
+   "id": "15-16",
+   "question": "Tyrosine is involved in the synthesis of multiple neurotransmitters. Match the following neurotransmitters with the corresponding enzymes involved in their synthesis? Neurotransmitter Enzyme 1. Dihydroxy phenylalanine (DOPA) a. Dopamine beta-hydroxylase 2. Dopamine b. N-methyl transferase 3. Norepinephrine c. Tyrosine hydroxylase 4. Epinephrine d. DOPA Decarboxylase",
+   "options": {
+    "A": "1-d, 2-c, 3-b, 4-a",
+    "B": "1-c, 2-b, 3-a, 4-d",
+    "C": "1-d, 2-b, 3-c, 4-a",
+    "D": "1-c, 2-d, 3-a, 4-b"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Reaction Enzyme Tyrosine to dihydroxy phenylalanine (DOPA) Tyrosine hydroxylase DOPA to Dopamine DOPA Decarboxylase (uses PLP as a coenzyme) Dopamine to Norepinephrine Dopamine beta-hydroxylase (depends on Vitamin C) Norepinephrine to epinephrine N-methyl transferase (S-adenosylmethionine (SAM) is the methyl donor) Synthesis of Neurotransmitters from Tyrosine- Dopamine, Norepinephrine and Epinephrine"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L18_Q016_E1"
+    }
+   ]
+  },
+  {
+   "id": "15-17",
+   "question": "A 5-month-old infant is brought to the pediatrician due to poor weight gain, vomiting, and yellowing of the skin and eyes. Genetic testing confirms a deficiency in fumarylacetoacetate hydrolase. The physician recommends a low-protein diet and the drug Nitisinone. Which of the following is not an indication of Nitisinone?",
+   "options": {
+    "A": "Tyrosinemia type I",
+    "B": "Alkaptonuria",
+    "C": "Hawkinsinuria",
+    "D": "Tyrosinemia type II"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Nitisinone is not indicated for Tyrosinemia type II, which is caused by a deficiency in Tyrosine aminotransferase. Nitisinone acts by inhibiting the enzyme parahydroxy-phenylpyruvate dioxygenase, thereby inhibiting tyrosine metabolism upstream and prevents the accumulation of toxic metabolites of the tyrosine degradation pathway. Nitisinone should be administered with a diet strictly low in phenylalanine and tyrosine."
+    },
+    {
+     "type": "paragraph",
+     "text": "The main indications of Nitisinone are: Tyrosinemia type I (Option A) Nitisinone inhibits the enzyme Parahydroxy phenylpyruvate dioxygenase, preventing the tyrosine metabolism upstream and reducing the accumulation of toxic maleylacetoacetate and fumarylacetoacetate."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Alkaptonuria(Option B):** Nitisinone is used in the treatment of Alkaptonuria by inhibiting the formation of Homogentisic acid."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Hawkinsinuria (Option C):** Nitisinone is used to treat Hawkinsinuria, which is caused by a mutation in 4-hydroxyphenylpyruvate dioxygenase."
+    }
+   ]
+  },
+  {
+   "id": "15-18",
+   "question": "A 4-month-old infant presents with jaundice, hepatomegaly, and failure to thrive. The parents also report that the infant has episodes of vomiting and lethargy. Laboratory tests reveal elevated levels of tyrosine and succinylacetone in the blood and urine, along with signs of coagulopathy and renal tubular dysfunction. What is the most likely underlying metabolic disorder?",
+   "options": {
+    "A": "Phenylketonuria",
+    "B": "Tyrosinemia type II",
+    "C": "Tyrosinemia type I",
+    "D": "Alkaptonuria"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical scenario described, including jaundice, hepatomegaly, failure to thrive, and elevated levels of tyrosine and succinylacetone, is characteristic of Tyrosinemia type I, which is caused by a deficiency in fumarylacetoacetate hydrolase."
+    },
+    {
+     "type": "paragraph",
+     "text": "Disorders of Tyrosine Metabolism: Disorder Deficient Enzyme Key Clinical Features Tyrosinemia type I Fumarylacetoacetate hydrolase Jaundice, hepatomegaly, hypoglycemia, HCC, liver cirrhosis Often presents with Fanconi syndrome and renal failure Elevated tyrosine and succinylacetone (pathognomonic) Tyrosinemia type II Tyrosine aminotransferase Painful corneal erosions, palmoplantar hyperkeratosis Also known as oculocutaneous tyrosinemia Elevated tyrosine Tyrosinemia type III p-Hydroxyphenylpyruvate dioxygenase Recurrent seizures, intermittent ataxia Elevated tyrosine and 4-hydroxyphenylpyruvate Alkaptonuria (Black urine disease) Homogentisate 1,2-dioxygenase Dark urine, ochronosis, arthritis Black or brown pigmentation of sclera (Ochronosis) and ear cartilage Elevated homogentisic acid"
+    }
+   ]
+  },
+  {
+   "id": "15-19",
+   "question": "A 2-year-old child is brought to the clinic by his parents due to darkening of urine upon standing and brownish discolouration of the sclera and ear cartilage. The parents also report that their child has been experiencing joint pain. Upon further investigation, the physician suspects a tyrosine metabolic disorder and orders urine tests. Which of the following enzymes is most likely deficient in this patient?",
+   "options": {
+    "A": "Parahydroxy phenylpyruvate dioxygenase",
+    "B": "Tyrosine transaminase",
+    "C": "Homogentisate oxidase",
+    "D": "Fumarylacetoacetate hydrolase"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical scenario described, including darkening of urine upon standing, brownish discolouration of the sclera and ear cartilage, and joint pain, is characteristic of Alkaptonuria, which is caused by a deficiency of the enzyme homogentisate 1,2-dioxygenase. Garrod's tetrad in alkaptonuria 1. Homogentisic Aciduria Presence of homogentisic acid in the urine, which turns dark upon standing or when exposed to air. 2. Ochronosis Deposition"
+    },
+    {
+     "type": "paragraph",
+     "text": "of dark pigment in connective tissues, particularly in the ear cartilage, sclera, and other connective tissues, leading to bluish-black discolouration. 3. Arthropathy Degenerative joint disease, especially affecting the spine and large joints, leading to chronic pain and stiffness. 4. Cardiac Involvement Includes heart valve calcification and atherosclerosis due to the deposition of pigment in cardiac tissues."
+    },
+    {
+     "type": "paragraph",
+     "text": "Reaction Enzyme Associated Disorder Tyrosine → p-Hydroxyphenylpyruvate Tyrosine transaminase Tyrosinemia type II p-Hydroxyphenylpyruvate → Homogentisate p-Hydroxyphenylpyruvate dioxygenase Tyrosinemia type III Homogentisate → Maleylacetoacetate Homogentisate 1,2-dioxygenase Alkaptonuria Maleylacetoacetate → Fumarylacetoacetate Maleylacetoacetate isomerase - Fumarylacetoacetate → Fumarate + Acetoacetate Fumarylacetoacetate hydrolase Tyrosinemia type I Loss-of-function mutation of p-Hydroxyphenylpyruvate dioxygenase (pHPPD) causes tyrosinemia type III, while a gain-of-function mutation causes Hawkinsinuria"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L18_Q019_E1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L18_Q019_E2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L18_Q019_E3"
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q853005",
+   "question": "Which amino acid donates nitrogen to sodium benzoate when given for urea cycle disorders?",
+   "options": {
+    "A": "Glutamine",
+    "B": "Glutamate",
+    "C": "Glycine",
+    "D": "Arginine"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Sodium benzoate: It reacts with glycine in the liver to form hippuric acid, which is then excreted in the urine, reducing the availability of glycine. Reducing the availability of glycine shifts the equilibrium to favour glycine formation. Ammonia is used to produce glycine, therefore reducing blood ammonia levels."
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q866320",
+   "question": "A patient has elevated phenylalanine levels (40 mg/dL), but phenylalanine hydroxylase enzyme levels are normal. Which cofactor deficiency is most likely responsible for this condition?",
+   "options": {
+    "A": "Tetrahydrofolate",
+    "B": "Tetrahydrobiopterin (BH4)",
+    "C": "Thiamine",
+    "D": "Pyridoxine"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The elevated phenylalanine levels despite normal phenylalanine hydroxylase indicate a deficiency of its cofactor, Tetrahydrobiopterin (BH₄), which renders the enzyme phenylalanine hydroxylase (PAH) nonfunctional and leads to hyperphenylalaninemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "Phenylalanine has 2 metabolic fates in the body Major Phenylalanine gets converted into tyrosine with the help of enzyme phenylalanine hydroxylase Deficiency of phenylalanine hydroxylase results in Phenylketonuria."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Requires tetrahydrobiopterin (BH4) as a cofactor (Option B):** Minor Phenylalanine gets converted into Phenylpyruvate by transamination. Phenylpyruvate can further undergo different pathways: Phenylpyruvate can get reduced to phenyl lactate Phenylpyruvate undergoes oxidative decarboxylation to form phenylacetate Phenylacetate combines with glutamine to form phenylacetylglutamine, which is excreted in urine. Incorrect Options: Tetrahydrofolate (Option A) is used in 1-carbon transfers, particularly in nucleotide and amino acid metabolism — not involved in phenylalanine metabolism."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Thiamine (Option C):** is a cofactor for enzymes like pyruvate dehydrogenase and α-ketoglutarate dehydrogenase, not related to phenylalanine."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Pyridoxine (Option D):** is a cofactor for transamination reactions and neurotransmitter synthesis — not involved in the PAH reaction."
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q866657",
+   "question": "Tau protein inclusions are involved in:",
+   "options": {
+    "A": "Alzheimer’s disease",
+    "B": "Huntington's disease",
+    "C": "Amyotrophic lateral sclerosis",
+    "D": "CNS lymphoma"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The fundamental abnormality in Alzheimer’s disease is the accumulation of two proteins (Aβ and tau) in specific brain regions in the form of plaques and tangles. Morphology of Alzheimer’s disease: Gross: Cortical atrophy (narrowed gyri and widened sulci) is predominant in the frontal, temporal, and parietal lobes. Histology: Plaques Deposits of Aβ peptides in the neuropil. They are of two types: Diffuse and neuritic (senile)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Neuritic plaques contain both Aβ 40 and Aβ 42. Diffuse plaques are predominantly made up of Aβ 42 and seen in trisomy 21 patients. Tangles Aggregates of the microtubule-binding protein tau. Demonstrated by silver (Bielschowsky) staining. Commonly found in cortical neurons, especially in the entorhinal cortex, and in other sites such as pyramidal cells of the hippocampus, amygdala, basal forebrain, and raphe nuclei."
+    },
+    {
+     "type": "paragraph",
+     "text": "Hirano bodies Intracellular eosinophilic inclusions are typically found in conditions like Alzheimer's disease and Creutzfeldt–Jakob disease. Granulovacuolar degeneration Formation of small, clear vacuoles within the neurons."
+    },
+    {
+     "type": "paragraph",
+     "text": "Plaques Neurofibrillary tangles Hirano bodies Granulovacuolar degeneration Incorrect Options: Huntington's Disease (Option B) is characterised by toxic gain-of-function of mutant huntingtin protein and neuronal loss in the striatum."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Amyotrophic Lateral Sclerosis (ALS) (Option C):** involves the degeneration of motor neurons, often linked to superoxide dismutase 1 (SOD1) mutations or TDP-43 protein inclusions."
+    },
+    {
+     "type": "paragraph",
+     "text": "**CNS Lymphoma (Option D):** is a type of brain tumour originating from lymphocytes (B cells) and is unrelated to tau protein."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L19_Q003_E1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L19_Q003_E2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L19_Q003_E3"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L19_Q003_E4"
+    }
+   ]
+  },
+  {
+   "id": "16-5",
+   "question": "What do chaperones assist in?",
+   "options": {
+    "A": "Ubiquitination of proteins",
+    "B": "Protein modification",
+    "C": "Protein folding",
+    "D": "Protein cleavage"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Chaperones assist other proteins in folding properly during and after synthesis. Folding of over half of mammalian proteins is done by chaperones which can be divided into two types: The hsp70 (70-kDa heat shock protein) family of chaperones mainly binds short sequences of hydrophobic amino acids to shield them from solvents in newly synthesized polypeptides. These are produced in response to stress conditions."
+    },
+    {
+     "type": "paragraph",
+     "text": "Chaperonins are another type of chaperone that form large protein complexes that provide a protective environment for the folding of the newly synthesized protein. Chaperones provide an opportunity to form appropriate secondary structural elements and their subsequent coalescence into a molten globule, thus"
+    },
+    {
+     "type": "paragraph",
+     "text": "preventing aggregation. Incorrect Options Option A: Ubiquitination of proteins happens through ubiquitin-activated enzymes. Option B: Non-enzymatic pathways result in protein modification. Option D: Proteases assist in protein cleavage."
+    }
+   ]
+  },
+  {
+   "id": "16-8",
+   "question": "Nitric oxide is derived from:",
+   "options": {
+    "A": "Arginine",
+    "B": "Histidine",
+    "C": "Glycine",
+    "D": "Aspartate"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Nitric oxide (NO) is derived from the amino acid arginine. Nitric oxide is a signaling molecule and a potent vasodilator involved in various physiological processes such as regulation of blood pressure, immune response, and neurotransmission. It is synthesized in the body by the enzyme nitric oxide synthase (NOS), which converts arginine into nitric oxide and citrulline."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect options: Option B. Histidine: Histidine is an essential amino acid involved in various biological processes, but it is not directly involved in the synthesis of nitric oxide. Option C. Glycine: Glycine is an amino acid that plays a crucial role in collagen structure and various other biological functions. However, it is not the precursor for nitric oxide synthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D. Aspartate: Aspartate is an amino acid involved in protein synthesis and various metabolic pathways, but it is not directly involved in the synthesis of nitric oxide."
+    }
+   ]
+  },
+  {
+   "id": "16-60",
+   "question": "The biochemical form of amyloid in hemodialysis-associated amyloidosis is:",
+   "options": {
+    "A": "AL",
+    "B": "AA",
+    "C": "Aß2m",
+    "D": "ATTR"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Hemodialysis-associated amyloidosis is caused by the accumulation of β2-microglobulin (Aβ2M) in tissues, particularly in osteoarticular tissue, the gastrointestinal tract, and the circulatory system. β2-microglobulin is a small protein that accumulates in the blood during long-term hemodialysis, as it is not easily filtered by conventional dialysis membranes."
+    },
+    {
+     "type": "paragraph",
+     "text": "Over time, this leads to the formation of amyloid deposits, which can cause joint pain, stiffness, and other complications in patients undergoing long-term dialysis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Type of Amyloidosis Responsible Protein Organs Affected Primary (AL) (Option A ruled out):** Monoclonal light chains Heart, kidneys, liver, peripheral and autonomic nervous system, GI tract Senile systemic (ATTR) (Option D ruled out) Wild-type transthyretin Heart Hereditary (ATTR) Mutant transthyretin Heart Hereditary (AApoA1) Apolipoprotein A1 Heart, kidneys, liver, peripheral nervous system, skin Hereditary (AFib) Mutant fibrinogen A alpha Kidneys, liver Hereditary (ALys) Lysozyme Kidneys, liver Isolated atrial (AANF) Atrial natriuretic factor Heart Secondary (AA) (Option B ruled out) Serum amyloid A Kidneys, GI tract, heart Dialysis-related (Aβ2M) β2-microglobulin Osteoarticular tissue, GI tract, circulatory system Finnish-type (AGel) Gelsolin Lattice dystrophy of cornea, corneal neuropathy"
+    }
+   ]
+  },
+  {
+   "id": "16-52",
+   "question": "What do chaperones assist in?",
+   "options": {
+    "A": "Ubiquitinization of proteins",
+    "B": "Protein modification",
+    "C": "Protein folding",
+    "D": "Protein cleavage"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Chaperones are proteins that assist in the correct folding of other proteins. When a protein is synthesized, it may adopt various three-dimensional structures, and only one of these structures will have biological activity. Chaperones prevent the incorrect folding of proteins and ensure they achieve the correct structure necessary for proper function. They are crucial in the assembly of tertiary and quaternary protein structures."
+    },
+    {
+     "type": "paragraph",
+     "text": "Chaperones, such as heat shock proteins (HSPs), are also produced in response to stress, including heat, toxins, or radiation, and help in maintaining protein integrity under these conditions. Misfolded proteins can lead to diseases, including prion diseases and chaperonopathies."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Ubiquitinization of proteins (Option A): Ubiquitinization refers to the process where a small protein called ubiquitin is attached to other proteins, typically marking them for degradation by the proteasome. This is unrelated to the function of chaperones, which focus on helping proteins fold correctly, not tagging them for destruction. Protein modification (Option B)"
+    },
+    {
+     "type": "paragraph",
+     "text": "involves chemical changes to a protein after its synthesis, such as phosphorylation, glycosylation, or acetylation. While chaperones help proteins fold correctly, they do not directly modify them in terms of adding chemical groups or altering their structure after they are fully folded."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Protein cleavage (Option D):** is the process of breaking down proteins into smaller peptides, often by enzymes like proteases. This process is not related to the role of chaperones, which help proteins fold into their correct structures rather than breaking them down or cleaving them into smaller parts."
+    }
+   ]
+  },
+  {
+   "id": "16-43",
+   "question": "Which of the following is true about the structural organization of proteins?",
+   "options": {
+    "A": "Tertiary structure is three-dimensional",
+    "B": "The secondary structure is stabilized by disulfide bonds.",
+    "C": "Primary, secondary, and tertiary structures are destroyed by denaturation.",
+    "D": "The secondary and tertiary structure depends upon amino acid sequence."
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The tertiary structure represents the overall three-dimensional folding of a single polypeptide chain. It is stabilized by interactions like hydrogen bonds, ionic bonds, hydrophobic interactions, and disulfide bridges. Functionality: The tertiary structure is crucial for the biological activity of the protein, as it determines the placement of active sites, binding sites, and interaction regions."
+    },
+    {
+     "type": "paragraph",
+     "text": "This makes the three-dimensional nature of tertiary structure a key feature in protein organization. Incorrect Options: Primary, secondary, and tertiary structures are destroyed by denaturation (Option B): Denaturation affects only the secondary, tertiary, and quaternary structures, leaving the primary structure (amino acid sequence) intact."
+    },
+    {
+     "type": "paragraph",
+     "text": "**The secondary structure is stabilized by disulfide bonds (Option C):** The secondary structure (e.g., α-helices and β-sheets) is primarily stabilized by hydrogen bonds between the carbonyl oxygen and amide hydrogen of the polypeptide backbone."
+    },
+    {
+     "type": "paragraph",
+     "text": "**The secondary and tertiary structure depends upon amino acid sequence (Option D):** The amino acid sequence (primary structure) dictates how the protein folds into its secondary and tertiary structures, but this does not directly address the structural organization."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L19_Q008_E1"
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q858454",
+   "question": "What is the function of proteasomes?",
+   "options": {
+    "A": "Protein folding",
+    "B": "Post-translation modification",
+    "C": "Protein degradation",
+    "D": "Protein sorting"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Proteasomes are large protein complexes that degrade damaged, misfolded, or unneeded proteins tagged with ubiquitin, maintaining cellular protein quality and regulating various biological processes. Proteasomes are large protein complexes found in cells that are responsible for protein degradation. They play a vital role in maintaining cellular homeostasis by selectively breaking down proteins that are damaged, misfolded,"
+    },
+    {
+     "type": "paragraph",
+     "text": "or no longer needed. Proteasomes consist of multiple subunits that work together to recognize and degrade target proteins. The main function of proteasomes is to break down proteins into smaller peptide fragments, which can then be further processed and recycled by the cell."
+    },
+    {
+     "type": "paragraph",
+     "text": "The degradation of proteins by proteasomes is essential for various cellular processes, including the regulation of cell cycle progression, removal of misfolded or damaged proteins, antigen presentation in the immune system and control of protein levels and turnover."
+    }
+   ]
+  },
+  {
+   "id": "16-42",
+   "question": "Replacing alanine by which amino acid, will increase the UV absorbance of protein at 280nm wavelength?",
+   "options": {
+    "A": "Leucine",
+    "B": "Proline",
+    "C": "Arginine",
+    "D": "Tryptophan"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Tryptophan has a strong UV absorbance at 280 nm due to its aromatic side chain. Replacing alanine (which has low absorbance at 280 nm) with tryptophan will significantly increase the protein’s UV absorbance at this wavelength. Tryptophan is non polar, hydrophobic and aromatic amino acid. Involved in protein synthesis and neurotransmitter synthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Absorption of UV light at different wavelengths: At 280nm: Aromatic amino acids like tryptophan and phenylalanine At 260nm: Purines and pyrimidines Incorrect Options: Leucine (Option A): Leucine is also a non-aromatic amino acid and does not significantly contribute to UV absorbance at 280nm."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Proline (Option B):** Proline is an imino acid and absorbs UV light at 260nm. Therefore, it would not increase the UV absorbance at 280nm wavelength."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Arginine (Option C):** Arginine is a positively charged amino acid and does not possess an aromatic ring.It does not contribute significantly to UV absorbance at 280nm."
+    }
+   ]
+  },
+  {
+   "id": "16-47",
+   "question": "Which of the following methods cannot be used to precipitate proteins?",
+   "options": {
+    "A": "Add alcohol and acetone",
+    "B": "Using heavy metal ions",
+    "C": "Moving pH away from isoelectric pH",
+    "D": "Adding trichloroacetic acid"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "At the isoelectric pH, proteins are least soluble because they have no net charge. This results in minimal repulsion between molecules, causing them to aggregate and precipitate. Hence, high solubility is not a characteristic of the isoelectric pH. Add alcohol and acetone (Option A) Alkaloidal reagents are negatively charged. In an acidic medium, proteins are positively charged. So, by neutralization of charges, negative ion precipitates out."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Using heavy metals and ion (Option B):** Neutralisation of charges occur which lead to precipitation of positive ion as heavy metals are positively charged."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Adding trichloroacetic acid (Option D):** It is negatively charged. In an acidic medium, proteins are positively charged. So, neutralization of charges occurs and the negative ion is separated."
+    }
+   ]
+  }
+ ]
+}

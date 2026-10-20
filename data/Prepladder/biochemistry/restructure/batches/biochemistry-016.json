@@ -1,0 +1,601 @@
+{
+ "batch": "biochemistry-016",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "biochemistry-016",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "13-21",
+   "question": "Match the following protein tests with their primary purpose or detection target: 1.Ninhydrin test a. Detects compouds containing 2 or more peptide bonds 2.Xanthoproteic test b. Detects aromatic amino acids 3.Sakaguchi test c. Detects arginine 4.Biuret test d. Detects alpha-amino acids",
+   "options": {
+    "A": "1-b, 2-c, 3-d, 4-a",
+    "B": "1-d, 2-b, 3-c, 4-a",
+    "C": "1-a, 2-d, 3-b, 4-c",
+    "D": "1-c, 2-a, 3-d, 4-b"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Ninhydrin test (d) → Detects α-amino acids by reacting with free amino groups to produce a purple/blue color. Xanthoproteic test (b) → Detects aromatic amino acids (tyrosine, tryptophan, phenylalanine)"
+    },
+    {
+     "type": "paragraph",
+     "text": "through nitration, producing a yellow color. Sakaguchi test (c) → Detects arginine due to the presence of the guanidino group, producing a red color. Biuret test (a) → Detects peptide bonds, giving a violet color in the presence of proteins."
+    },
+    {
+     "type": "paragraph",
+     "text": "Types of Tests for the Detection of Proteins Test Principle Detection Target Positive Result Biuret Test Peptide bonds react with Cu²⁺ in an alkaline medium Peptide bonds (proteins and polypeptides) Violet color Ninhydrin Test Ninhydrin reacts with free α-amino groups Free amino acids and proteins with free NH₂ Blue/Purple color Xanthoproteic Test Nitration of aromatic rings with HNO₂ Aromatic amino acids (tyrosine, tryptophan, phenylalanine) Yellow color Sakaguchi Test Reaction of α-naphthol with guanidino group in the presence of NaOBr Arginine Red color Lead Acetate Test Reaction of sulfur-containing amino acids with lead acetate Sulfur-containing amino acids (cysteine, methionine) Black precipitate Hopkins-Cole Test Reaction of tryptophan with glyoxylic acid in a strong acid medium Tryptophan Violet ring Millon's Test Reaction of phenol groups with mercuric nitrate in acidic medium Tyrosine Red color Folin-Ciocalteu Test Phenolic groups react with phosphomolybdic-phosphotungstic acid Tyrosine & Tryptophan Blue color Nitroprusside Test Reaction of cysteine with sodium nitroprusside Cysteine Red color Heller’s Test Proteins get precipitated by strong acids Proteins (albumins and globulins) White precipitate Test for Casein Acid precipitation of casein Casein (milk protein) White precipitate"
+    }
+   ]
+  },
+  {
+   "id": "13-22",
+   "question": "Which of the following is true regarding the properties of glycine?",
+   "options": {
+    "A": "Has asymmetric carbon atoms",
+    "B": "Doesn't exhibit stereoisomerism",
+    "C": "Optically active",
+    "D": "Complex amino acid"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Glycine is the only amino acid that lacks a chiral center because its side chain is a hydrogen atom (-H), making both groups attached to the α-carbon identical. Due to the absence of a chiral center, glycine does not exhibit stereoisomerism and does not exist in D- or L-forms."
+    },
+    {
+     "type": "paragraph",
+     "text": "Amino Acid Chirality and Stereoisomerism: Property Glycine Other Amino Acids Chirality Achiral Chiral (except glycine) Stereoisomerism Absent Present (D & L forms) Optical Activity None Optically active Asymmetrical Carbon No Yes Properties of Glycine: Property Description Simplest Amino Acid Has two hydrogen atoms attached to the α-carbon. Polarity Non-polar; fits into both hydrophilic and hydrophobic environments due to its small size."
+    },
+    {
+     "type": "paragraph",
+     "text": "Chirality Lacks a chiral center, making it optically inactive and incapable of stereoisomerism. Glycine Cleavage System Produces ammonia (NH₃), carbon dioxide (CO₂), and N,N-methylene tetrahydrofolate. Biosynthetic Role Precursor for porphyrins, creatine,"
+    },
+    {
+     "type": "paragraph",
+     "text": "glutathione, serine, purines, and heme."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Has symmetrical carbon atoms (Option A):** Incorrect because glycine has only one carbon bonded to two identical hydrogen atoms, making it symmetrical."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Optically active (Option C):** Incorrect because glycine is achiral and does not rotate plane-polarized light."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Complex amino acid (Option D):** Incorrect because glycine is a simple nonpolar amino acid with the smallest side chain (-H)."
+    }
+   ]
+  },
+  {
+   "id": "13-23",
+   "question": "A 22-year-old woman presents with complaints of chronic fatigue and frequent infections. She follows a strict vegetarian diet and consumes less protein-rich food. Laboratory tests reveal a decreased level of a particular amino acid. Which of the following amino acids is likely deficient in this patient?",
+   "options": {
+    "A": "Threonine and Lysine",
+    "B": "Tyrosine and Tryptophan",
+    "C": "Alanine and Glycine",
+    "D": "Cysteine and Methionine"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Threonine and Lysine are essential amino acids, meaning they must be obtained from the diet. A strict vegetarian diet, especially one low in protein-rich foods like legumes, dairy, and soy, can lead to deficiencies in essential amino acids. Lysine deficiency can result in fatigue, impaired immune function, and decreased protein synthesis, which explains the patient’s symptoms."
+    },
+    {
+     "type": "paragraph",
+     "text": "Threonine deficiency affects immune function and protein metabolism, further contributing to fatigue and increased susceptibility to infections. Classification of Amino Acids: Essential vs. Non-Essential vs."
+    },
+    {
+     "type": "paragraph",
+     "text": "Conditionally Essential Essential Amino Acids (Must be obtained from the diet) Amino Acid Function Dietary Sources Deficiency Effects Threonine Immune function, collagen formation, protein synthesis Meat, dairy, eggs, legumes Impaired immune response, fatigue Lysine Protein synthesis, enzyme function, calcium absorption Meat, fish, dairy, legumes Poor wound healing, frequent infections, fatigue Tryptophan (Option B) Precursor for serotonin and niacin (B3) Dairy, turkey, nuts, seeds Mood disturbances, pellagra (niacin deficiency) Methionine (Option D) Precursor for S-adenosylmethionine (SAM), involved in methylation reactions Meat, eggs, dairy Fatty liver, slow growth Phenylalanine Precursor for tyrosine, neurotransmitters (dopamine, norepinephrine) Meat, dairy, soy, fish Growth retardation, mental impairment Leucine Muscle protein synthesis, energy production Meat, dairy, eggs, soybeans Muscle wasting, hypoglycemia Isoleucine Muscle metabolism, hemoglobin formation Meat, fish, eggs, soy Muscle weakness, dizziness Valine Muscle growth, tissue repair Meat, dairy, legumes Neurological symptoms,"
+    },
+    {
+     "type": "paragraph",
+     "text": "muscle weakness Histidine Precursor for histamine, important in immune function Meat, poultry, fish, dairy Anemia, impaired immunity Non-Essential Amino Acids (Synthesized by the body) Amino Acid Function Synthesized From Deficiency Effects Tyrosine (Option B ruled out) Precursor for neurotransmitters, thyroid hormones Phenylalanine Rare deficiency, linked to metabolic disorders Cysteine (Option D ruled out) Antioxidant defense (glutathione synthesis) Methionine Rare deficiency, oxidative stress Alanine (Option C ruled out) Gluconeogenesis, nitrogen transport Pyruvate No significant deficiency Glycine (Option C ruled out) Collagen synthesis, neurotransmission Serine No significant deficiency Serine Phospholipid synthesis, neurotransmission 3-Phosphoglycerate No significant deficiency Aspartate Urea cycle, TCA cycle Oxaloacetate No significant deficiency Asparagine Protein synthesis, nitrogen metabolism Aspartate No significant deficiency Glutamate Neurotransmitter, precursor for GABA α-Ketoglutarate No significant deficiency Proline Collagen synthesis, wound healing Glutamate No significant deficiency Conditionally Essential Amino Acids (Essential during stress, illness, or rapid growth) Amino Acid Function Synthesized From Deficiency Effects Arginine Nitric oxide production, wound healing Glutamate Poor wound healing, immune dysfunction Glutamine Nitrogen transport, immune function Glutamate Muscle wasting, immune dysfunction"
+    }
+   ]
+  },
+  {
+   "id": "13-24",
+   "question": "Which of the following amino acids contains a hydroxyl group (OH) in its side chain?",
+   "options": {
+    "A": "Phenylalanine",
+    "B": "Serine",
+    "C": "Cysteine",
+    "D": "Glutamine"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Serine contains a hydroxyl (-OH) group in its side chain, making it a polar, uncharged amino acid. This hydroxyl group participates in hydrogen bonding and is a target for phosphorylation in protein regulation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Structure of serine: COO - | CH-NH 3 + | CH 2 -OH Classification of Amino Acids Based on Functional Groups Amino acids are classified based on the chemical nature of their R (side chain) groups, which determine their biochemical properties."
+    },
+    {
+     "type": "paragraph",
+     "text": "Below is a classification based on their functional groups: Category Amino Acids Functional Group Properties Hydroxyl (-OH) group Serine, Threonine, Tyrosine Hydroxyl (-OH) Polar, involved in hydrogen bonding and phosphorylation."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Sulfur-containing Cysteine (Option B ruled out):** Methionine Thiol (-SH), Thioether (-S-) Cysteine forms disulfide bonds; Methionine is involved in methyl transfer reactions."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Aromatic Phenylalanine (Option A ruled out):** Tyrosine, Tryptophan Benzene or Indole rings Hydrophobic, absorb"
+    },
+    {
+     "type": "paragraph",
+     "text": "UV light, involved in protein-protein interactions."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Amide (-CONH₂) group Asparagine, Glutamine (Option D ruled out):** Amide (-CONH₂) Polar, involved in hydrogen bonding. Carboxyl (-COOH) group (Acidic) Aspartic acid, Glutamic acid Carboxyl (-COOH) Negatively charged at physiological pH, important in enzyme active sites. Amino (-NH₃⁺) group (Basic) Lysine, Arginine, Histidine Amine (-NH₂, -C=NH, -NH₂) Positively charged at physiological pH, involved in salt bridge formation. Aliphatic (Non-polar hydrocarbon chains) Glycine, Alanine, Valine, Leucine, Isoleucine, Proline Hydrocarbon (-CH, -CH₂, -CH₃) Hydrophobic, contribute to protein stability. Serine, Threonine, and Tyrosine contain hydroxyl (-OH) groups and play a role in phosphorylation. Cysteine and Methionine contain sulfur and contribute to protein stability (disulfide bonds) and methyl group transfer. Aspartic acid and Glutamic acid are acidic due to their carboxyl (-COOH) groups. Lysine, Arginine, and Histidine are basic due to their amine (-NH₂) groups. Aromatic amino acids (Phenylalanine, Tyrosine, Tryptophan) are hydrophobic and absorb UV light. Aliphatic amino acids contribute to protein folding and hydrophobic interactions."
+    }
+   ]
+  },
+  {
+   "id": "13-25",
+   "question": "Which of the following is not a characteristic of the isoelectric pH (pI) of a protein?",
+   "options": {
+    "A": "High solubility",
+    "B": "Low buffering capacity",
+    "C": "No net charge",
+    "D": "Minimal mobility"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "No net charge At pI, the total positive and negative charges on the protein cancel each other out. Minimal mobility Since the protein has no net charge, it does not migrate in an electric field. Low buffering capacity Buffers work best when pH ≠ pI; at pI, there is minimal change in charge per unit of pH change. Low solubility Electrostatic repulsion is minimal at pI, promoting aggregation and precipitation."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Low buffering capacity (Option B):** Correct, because buffering capacity is strongest at pKa values and weakest at pI. No net charge (Option C): Correct, as proteins do not carry a net charge at pI. Minimal mobility (Option D): Correct, since proteins do not move in an electric field at pI."
+    }
+   ]
+  },
+  {
+   "id": "14-1",
+   "question": "A one-year-old boy presents with lethargy, poor muscle tone, and developmental delays. Blood tests reveal elevated levels of glycine. The physician suspects a defect in the glycine cleavage system. Which of the following metabolites, if found LOW, would support the diagnosis of a defective glycine cleavage system?",
+   "options": {
+    "A": "Serine",
+    "B": "N5,N10 methylene tetrahydrofolate",
+    "C": "Threonine",
+    "D": "Succinyl CoA"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The glycine cleavage system directly produces N5,N10-methylene tetrahydrofolate when it breaks down glycine. A defect in this system would lead to a decreased production of this metabolite. Glycine Cleavage System Location Liver mitochondria Function Splits glycine into carbon dioxide, and ammonia, and forms N⁵, N¹⁰-methylenetetrahydrofolate (THFA). Glycine Cleavage Complex Composed of three enzymes and an H-protein."
+    },
+    {
+     "type": "paragraph",
+     "text": "Subunits T: Tetrahydrofolate-dependent aminotransferase P: Pyridoxal phosphate-dependent glycine decarboxylase L: Lipoamide-dependent dehydrogenase H: Hydrogen or electron transport system Co-enzymes Tetrahydrofolate (THF) Pyridoxal phosphate (PLP) Lipoamide Reaction Mechanism Glycine is broken down into CO₂, NH₄⁺, and a methylene group (–CH₂–). The methylene group is transferred to THF, forming N⁵,N¹⁰-methylenetetrahydrofolate."
+    },
+    {
+     "type": "paragraph",
+     "text": "Reaction Glycine + H₄-folate + NAD⁺ → CO₂ + NH₃ + 5,10-CH₂-H₄-folate + NADH + H⁺ Major Catabolic Pathway The glycine cleavage system is the major catabolic route for glycine. Associated Disorders Nonketotic Hyperglycinemia: Accumulation of glycine in body tissues and CNS. Primary Hyperoxaluria: Failure to break down glyoxylate leads to oxalate formation, kidney"
+    },
+    {
+     "type": "paragraph",
+     "text": "stones, and possible renal failure or hypertension. Glycinuria: A defect in kidney reabsorption causes excessive glycine in urine."
+    },
+    {
+     "type": "paragraph",
+     "text": "Serine levels might even increase as the body tries to compensate for the glycine deficiency. (Option A) A defective glycine cleavage system is unlikely to directly impact threonine levels. (Option C) Succinyl CoA is involved in heme synthesis; defects in glycine breakdown wouldn't impact succinyl CoA levels. (Option D)"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L17_Q001_E1"
+    }
+   ]
+  },
+  {
+   "id": "14-2",
+   "question": "A patient with a urea cycle disorder is being evaluated. Which urea cycle intermediate serves as the link between the urea cycle and the TCA cycle?",
+   "options": {
+    "A": "Argininosuccinate",
+    "B": "Fumarate",
+    "C": "Oxaloacetate",
+    "D": "Succinate"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Argininosuccinate lyase cleaves argininosuccinate to arginine and fumarate. Fumarate is converted to malate and then to oxaloacetate in the TCA cycle, which is transaminated to aspartate. This links the urea cycle with the TCA cycle. The reaction can be summarised as Citrulline + aspartate → Arginine + fumarate."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L17_Q002_E1"
+    }
+   ]
+  },
+  {
+   "id": "14-3",
+   "question": "A 3-week-old infant presents with poor feeding, lethargy, and vomiting. Lab results show elevated ammonia levels, increased glutamine and increased orotic acid in the blood, with no evidence of megaloblastic anaemia. Which enzyme deficiency is likely responsible for this condition?",
+   "options": {
+    "A": "Ornithine transcarbamylase (OTC)",
+    "B": "Ornithine aminotransferase",
+    "C": "Uridine monophosphate (UMP) synthase",
+    "D": "Hypoxanthine guanine phosphoribosyltransferase (HGPRT)"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Hyperammonemia type 2 is an X-linked deficiency caused by a defect in ornithine transcarbamoylase (this reaction occurs in mitochondria), which forms citrulline in the Krebs cycle. Mothers with this condition may have hyperammonemia and avoid high-protein foods. Elevated blood, cerebrospinal fluid, and urine glutamine levels are due to increased glutamine synthesis in response to high ammonia levels."
+    },
+    {
+     "type": "paragraph",
+     "text": "Orotic aciduria - Due to the channelling of carbamoyl phosphate into pyrimidine synthesis."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L17_Q003_E1"
+    }
+   ]
+  },
+  {
+   "id": "14-4",
+   "question": "Which enzyme in the histidine catabolism pathway facilitates incorporating the formimino group into the one-carbon pool, forming N5-formimino tetrahydrofolate?",
+   "options": {
+    "A": "Histidase",
+    "B": "Urocanase",
+    "C": "Glutamate formimino transferase",
+    "D": "Glutamate dehydrogenase"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Glutamate Formimino transferase catalyzes the transfer of the formimino group from formiminoglutamate (FIGLU) to THFA, forming N5-formimino THFA. Catabolism of Histidine to α-ketoglutarate: Reaction Substrate Enzyme Product 1."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Histidine Histidase (Option A):** Urocanate 2."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Urocanate Urocanase (Option B):** Imidazole propionic acid 3. Imidazole propionic acid Hydrolase Formiminoglutamate (FIGLU) 4."
+    },
+    {
+     "type": "paragraph",
+     "text": "**FIGLU Glutamate Formimino transferase (Option C):** L-Glutamate 5."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Glutamate Glutamate dehydrogenase (Option D):** α-Ketoglutarate Histidine to α-Ketoglutarate Pathway: Role of Tetrahydrofolate (THF) Histidine is metabolised to α-ketoglutarate, which subsequently enters the TCA cycle. Role of Tetrahydrofolate (THF): Histidine is broken down into formiminoglutamate (FIGLU). THF plays a critical role in converting FIGLU to glutamate. THF Function: THF accepts the formimino group (FIG) from FIGLU to become 5-formimino tetrahydrofolate (FITHFA). As a result of losing formimino group (FIG), FIGLU becomes glutamate. Folate Deficiency Consequences: Without sufficient THF, FIGLU cannot transfer its formimino group. FIGLU builds up and is excreted in urine, especially after a histidine load. Histidine Load Test: Used to diagnose folate deficiency by detecting elevated levels of FIGLU in urine after a histidine load."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L17_Q004_E1"
+    }
+   ]
+  },
+  {
+   "id": "14-5",
+   "question": "In the kynurenine pathway of tryptophan catabolism, which of the following compounds directly contributes to the formation of N10-formyl tetrahydrofolate in the one-carbon pool?",
+   "options": {
+    "A": "Formyl kynurenine",
+    "B": "Kynurenine",
+    "C": "3- Hydroxy kynurenine",
+    "D": "THFA"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Formyl kynurenine is a key intermediate in the kynurenine pathway. It is directly involved in transferring a formyl group, which leads to the production of N10-formyl THFA, an important one-carbon donor in nucleotide biosynthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Tryptophan Catabolism and One-Carbon Pool Contributions Compound Role in Tryptophan Catabolism Contribution Formylkynurenine (Option A) Intermediate; releases formate for N10-formyl THFA Directly contributes to the formation of N10-formyl THFA Kynurenine (Option B) Intermediate; precursor for other metabolites Participates in the synthesis of other metabolites like quinolinic acid and nicotinic acid. 3- Hydroxy kynurenine (Option C) Intermediate; precursor for other metabolites The product formed from formate derived from formylkynurenine THFA (Option D) Carrier of one-carbon units Not directly derived from tryptophan catabolism"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L17_Q005_E1"
+    }
+   ]
+  },
+  {
+   "id": "14-6",
+   "question": "A 62-year-old female patient presents with fatigue, pallor, and glossitis. Laboratory tests indicate macrocytic anaemia, and elevated homocysteine and methylmalonic acid levels. Given these findings, what is the most likely metabolic pathway disrupted by this patient's condition, leading to the observed anaemia?",
+   "options": {
+    "A": "Conversion of homocysteine to methionine",
+    "B": "Reduction of folic acid to dihydrofolate",
+    "C": "Deamination of histidine to formimino glutamate",
+    "D": "Conversion of Phenylalanine to Tyrosine"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Macrocytic anaemia, elevated homocysteine and methylmalonic acid levels are consistent with Vitamin B12 deficiency. Conversion of homocysteine to methionine is disrupted in vitamin B12 deficiency. Vitamin B12 is a cofactor for methionine synthase, the enzyme responsible for converting homocysteine to methionine."
+    },
+    {
+     "type": "paragraph",
+     "text": "This, in turn, forms S-adenosylmethionine, which is necessary for the synthesis of nitrogenous bases in DNA and RNA. In the absence of vitamin B12, the N5-methyltetrahydrofolate (N5-methyl THF) is trapped, leading to a functional folate deficiency and, consequently, macrocytic anaemia. This \" methyl folate trap \" hypothesis explains why folate becomes metabolically inactive."
+    },
+    {
+     "type": "paragraph",
+     "text": "Folate Trap: Reduction of folic acid to dihydrofolate (Option B) is catalyzed by dihydrofolate reductase and is unrelated to the vitamin B12-dependent processes. It is involved in the conversion of folic acid (the synthetic form) into its active form."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Deamination of histidine to formimino glutamate (Option C):** is related to folate metabolism but is more directly associated with diagnosing folate deficiency by the presence of FIGLU in the urine."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Conversion of Phenylalanine to Tyrosine (Option D):** is catalyzed by Phenylalanine hydroxylase, which does not require vitamin B12 as a cofactor."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L17_Q006_E1"
+    }
+   ]
+  },
+  {
+   "id": "14-7",
+   "question": "Which of the following statements regarding one-carbon derivatives of tetrahydrofolic acid (THFA) and their associated enzymes and reactions is incorrect?",
+   "options": {
+    "A": "N5-formimino-THFA converts formiminoglutamate (FIGLU) to glutamate.",
+    "B": "N5-methyl-THFA carries the methyl group for converting homocysteine to methionine.",
+    "C": "N5N10-methylene-THFA is required to synthesise thymidylate (dTMP) from deoxyuridylate (dUMP).",
+    "D": "N10-formyl-THFA transfers formyl groups in pyrimidine synthesis."
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "N10-formyl-THFA transfers formyl groups in purine synthesis, forming C2 of the purine ring. One-Carbon Compounds: One-Carbon Derivatives of THFA Description Source Utilization N5-formyl-THFA and N10-formyl-THFA (Option D) Carry a formyl group (-CHO) Tryptophan Synthesis of purine nucleotides, forming C2 of the purine ring."
+    },
+    {
+     "type": "paragraph",
+     "text": "**N5-formimino-THFA (Option A):** Carries a formimino group (-CH=NH) Histidine via FIGLU Involved in the conversion of formiminoglutamate (FIGLU) to glutamate, a step in histidine catabolism; Enzyme: Formiminoglutamate hydrolase N10-hydroxymethyl-THFA Carries a hydroxymethyl group (-CH2OH) Choline and betaine N5, N10-methylene-THFA (Option C) Carries a methylene group (-CH2-) Serine via serine hydroxymethyl transferase, glycine Glycine synthesis (conversion of serine to glycine), Thymidine synthesis (conversion of dUMP to dTMP); Enzyme: Thymidylate synthase N5-methyl-THFA (Option B) Carries a methyl group (-CH3) All one-carbon units ultimately form N5-methyl-THFA. Methionine synthesis (conversion of homocysteine to methionine); Enzyme: Methionine synthase Precursor for S-adenosylmethionine (SAM) for various transmethylation reactions."
+    }
+   ]
+  },
+  {
+   "id": "14-8",
+   "question": "In the following figure, identify the sources of the marked components.",
+   "options": {
+    "A": "a- aspartate, b- glycine",
+    "B": "a- glycine, b-aspartate",
+    "C": "a- methionine, b-alanine",
+    "D": "a- alanine, b- methionine"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The above-marked nitrogen atom is derived from the amino acid aspartate and the carbon atoms from glycine. The major site is the liver. Requires three amino acids - Glycine, Aspartate, Glutamine and the cofactor N10-formyl tetrahydrofolate (N10- formyl THF) for purine ring formation. The sources of each atom in a purine were found by feeding isotopic precursors of uric acid to pigeons."
+    },
+    {
+     "type": "paragraph",
+     "text": "The C-2 atom is from formyl THF The C-8 atom is from N5N10 methenyl THF The C-6 atom is from respiratory CO2. N1 is from aspartate N3 and N9 are from Glutamine C4, C5 and N7 are from Glycine Methionine and alanine have no relation to purine synthesis."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L17_Q008_E1"
+    }
+   ]
+  },
+  {
+   "id": "14-9",
+   "question": "Which of the following diseases is caused by the deficiency of the enzyme δ-ALA synthase?",
+   "options": {
+    "A": "Porphyria cutanea tarda",
+    "B": "X linked sideroblastic anaemia",
+    "C": "Acute intermittent porphyria",
+    "D": "Congenital erythropoietic porphyria"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The deficiency of ALA synthase causes X-linked sideroblastic anaemia. Heme synthesis occurs in the bone marrow (85%) and hepatocytes. It starts with the condensation of succinyl-CoA and glycine. First step: Reaction takes place in mitochondria. Substrates used: Glycine. Glycine reacts with succinyl CoA (intermediate of the citric acid cycle) in the presence of δ-ALA synthase to form dALA. It is a decarboxylation reaction."
+    },
+    {
+     "type": "paragraph",
+     "text": "Coenzyme: Pyridoxal phosphate. Prerequisite: Glycine should enter into mitochondria."
+    },
+    {
+     "type": "paragraph",
+     "text": "Transporter: SLC25A38 Enzyme Defect Name of the Disorder ALA synthase II X linked sideroblastic anaemia (Option B) ALA Dehydratase ALA dehydratase deficient porphyria (ADP) Porphobilinogen deaminase (Hydroxymethylbilane synthase) Acute intermittent porphyria (AIP) (Option C) Uroporphyrinogen III synthase Congenital erythropoietic porphyria (most severe) (Option D) Uroporphyrinogen decarboxylase defect Porphyria cutanea tarda (PCT) (Option A) Coproporphyrinogen oxidase Hereditary coproporphyria Protoporphyrinogen oxidase Variegate porphyria Ferrochelatase Erythropoietic protoporphyria (EPP)"
+    }
+   ]
+  },
+  {
+   "id": "14-10",
+   "question": "Based on the image given below, what are the sites at which the marked steps of creatinine synthesis occur?",
+   "options": {
+    "A": "a- brain, b- liver, c- kidney",
+    "B": "a- kidney, b- liver, c- muscle",
+    "C": "a- liver, b- kidney, c- muscle",
+    "D": "a- muscle, b- liver, c-kidney"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Creatinine synthesis requires the enzyme creatine kinase which is found in the liver, kidney and muscle. Steps Enzyme Site 1. The Amidino group of arginine is transferred to glycine to form guanidinoacetic acid. Amidotransferase Kidney (a) and pancreas 2. Guanidoacetic acid is Methylated by S-adenosyl methionine to form creatine. Methyl transferase Liver (b) 3. Creatine is phosphorylated to creatine phosphate."
+    },
+    {
+     "type": "paragraph",
+     "text": "Creatine kinase Muscle, brain and liver. 4. Creatine phosphate may be converted to its anhydride, creatinine Non- enzymatic Muscle (c)"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L17_Q010_E1"
+    }
+   ]
+  },
+  {
+   "id": "14-11",
+   "question": "Which of the following is not a known use of glycine in humans?",
+   "options": {
+    "A": "Precursor for metabolites like creatine, glutathione, and heme.",
+    "B": "Enhances the quality of sleep and supports neurological functions.",
+    "C": "Inhibits synthesis of bile acid, reducing lipid absorption.",
+    "D": "Provide structural integrity for collagen structure."
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Uses of Glycine 1) Metabolic Functions: Precursor for metabolites such as creatine, glutathione, heme, purines, and porphyrins. (Option A) Vital for protein synthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Plays a crucial role in collagen structure by occupying every third position in the collagen triple helix. (Option D) 2) Health and Disease Prevention: Dietary supplementation can prevent or treat metabolic disorders in patients with cardiovascular diseases, inflammatory diseases, obesity, cancers, and diabetes."
+    },
+    {
+     "type": "paragraph",
+     "text": "Supports overall health, growth, and well-being in humans. 3) Neurological and Sleep Benefits: Acts as a neurotransmitter in the central nervous system, influencing food intake, behaviour, and body homeostasis. Enhances sleep quality and neurological functions. (Option B) 4) Immune Function: Regulates immune responses by altering intracellular calcium levels."
+    },
+    {
+     "type": "paragraph",
+     "text": "Modulates the production of superoxide and cytokines. 5) Digestive Health: Facilitates the conjugation of bile acids. Aid in the absorption and digestion of lipid-soluble vitamins and lipids. (Option C)"
+    }
+   ]
+  },
+  {
+   "id": "14-12",
+   "question": "The glycine cleavage system in the body produces CO2, ammonia and a one-carbon molecule. Which of the following is a subunit in the system?",
+   "options": {
+    "A": "Tetrahydrofolate",
+    "B": "Lipoamide",
+    "C": "Tetrahydrofolate-dependent aminomethyltransferase (THFAAMT)",
+    "D": "Pyridoxal phosphate"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The subunit of the glycine cleavage system here is THFAAMT, and the others are the coenzymes that participate in the system. The glycine cleavage system takes place in the liver mitochondria. In this system, the simple amino acid glycine is split into ammonia and CO2, and the remaining methylene group (–CH2–) is transferred by Tetrahydrofolate and converted into N5N10 methylene tetrahydrofolate."
+    },
+    {
+     "type": "paragraph",
+     "text": "Subunits of the glycine cleavage system Co-enzymes of glycine cleavage system Tetrahydrofolate dependant aminotransferase (THFAAMT) (Option C) THF (Option A) Pyridoxal phosphate-dependant (PLP) glycine decarboxylase Pyridoxal phosphate (PLP) (Option D) Lipoamide dependent dehydrogenase Lipoamide (Option B) Hydrogen or electron transport system"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L17_Q012_E1"
+    }
+   ]
+  },
+  {
+   "id": "14-13",
+   "question": "A 6-month-old infant presented with lethargy, vomiting, and irritability. Blood tests revealed elevated ammonia levels. The infant was diagnosed with a urea cycle disorder. Which of the following medications, acting as ammonia-scavenging agents, would be most effective in reducing the infant's blood ammonia levels?",
+   "options": {
+    "A": "Phenylacetate",
+    "B": "N-acetyl glutamate",
+    "C": "Lactulose",
+    "D": "Neomycin"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Reducing blood ammonia levels: Ammonia-Scavenging Agent: Sodium benzoate: It reacts with glycine in the liver to form hippuric acid, which is then excreted in the urine, reducing the availability of glycine. Reducing the availability of glycine shifts the equilibrium to favour glycine formation. Ammonia is used to produce glycine, therefore reducing blood ammonia levels."
+    },
+    {
+     "type": "paragraph",
+     "text": "Phenylacetate: Conjugates with glutamine to form phenylacetylglutamine (PGA), which is then excreted in the urine, depleting glutamine levels. Glutamate production from ammonia and alpha-ketoglutarate increases to compensate for depletion. Each molecule of phenyl acetate utilises two molecules of ammonia: one for the initial glutamine conjugation and one for subsequent glutamate-to-glutamine conversion."
+    },
+    {
+     "type": "paragraph",
+     "text": "Phenylbutyrate is a prodrug metabolised into phenylacetate. This binds with"
+    },
+    {
+     "type": "paragraph",
+     "text": "glutamine to form phenylacetylglutamine and is excreted by the kidneys, removing excess nitrogen and ammonia. Protein degradation: Adequate caloric intake can help prevent protein breakdown and, subsequently, ammonia production. Urease-producing microorganisms: Certain bacteria in the gut produce urease, an enzyme that breaks down urea into ammonia."
+    },
+    {
+     "type": "paragraph",
+     "text": "To prevent this, Low-dose neomycin: Helps suppress the growth of urease-producing bacteria. (Option D) Lactulose: Converts ammonia into ammonium ions, which cannot be easily absorbed, thus reducing the amount of ammonia. (Option C) N-acetyl glutamate is used to treat hyperammonemia but does not directly scavenge ammonia. (Option B)"
+    }
+   ]
+  },
+  {
+   "id": "14-14",
+   "question": "A 45-year-old man presents to the clinic with complaints of fatigue and abdominal discomfort. Blood tests reveal elevated levels of alanine aminotransferase (ALT) and aspartate aminotransferase (AST). The physician suspects liver disease. Which of the following statements best describes the role of transamination reactions in amino acid metabolism?",
+   "options": {
+    "A": "Transfer an amino group to one keto acid, producing new amino and keto acids.",
+    "B": "Specific to lysine, threonine, and proline.",
+    "C": "Elevated AST and ALT indicate myocardial infarction.",
+    "D": "Occur exclusively in the liver mitochondria."
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Transamination reactions transfer an amino group from an amino acid to a keto acid, catalysed by aminotransferases with Pyridoxal Phosphate (PLP) as a coenzyme. Transamination Process Transfer of an α-amino group from an amino acid to one keto acid, producing a new α-keto acid and a new amino acid. (Option A) The first step is the catabolism of most amino acids."
+    },
+    {
+     "type": "paragraph",
+     "text": "All amino acids, except Proline, hydroxyproline, threonine, and lysine, participate in transamination. (Option B) Biological Importance Amino Acid Interconversion: Maintains balance of non-essential amino acids by transferring amino groups to synthesise needed amino acids. Ammonia Disposal: Detoxifies ammonia by funnelling amino groups into glutamate, which is deaminated in the liver for excretion."
+    },
+    {
+     "type": "paragraph",
+     "text": "Glutamate's Role α-Ketoglutarate: Acts as an acceptor of amino groups from most amino acids, converting to glutamate. Transamination occurs in the cytoplasm; the amino group is transported to the liver as glutamate. (Option D) Oxidative Deamination: Glutamate undergoes rapid oxidative"
+    },
+    {
+     "type": "paragraph",
+     "text": "deamination in the mitochondria to form α-ketoglutarate, which can accept another amino group. Enzymes Aminotransferases (Transaminases): Catalyse the transfer of amino groups between carbon skeletons. They are not coenzymes. (Option C) Alanine Aminotransferase (ALT): Transfers amino group from alanine to α-ketoglutarate, forming pyruvate and glutamate."
+    },
+    {
+     "type": "paragraph",
+     "text": "Aspartate Aminotransferase (AST): Transfers amino groups from glutamate to oxaloacetate, forming aspartate used in the urea cycle. Coenzyme Pyridoxal Phosphate (PLP): Required by all aminotransferases, derived from vitamin B6. Reversibility Transamination reactions are reversible, with equilibrium constants near 1."
+    }
+   ]
+  },
+  {
+   "id": "14-15",
+   "question": "Which of the following is not a source of glycine?",
+   "options": {
+    "A": "Serine",
+    "B": "Threonine",
+    "C": "choline",
+    "D": "Lysine"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Serine, Threonine and Alanine are sources of Glycine, whereas Lysine is not. Glycine Simple, non-essential amino acid. Acts as a precursor for metabolites like creatine, glutathione, heme, purines, and porphyrins. Vital for protein synthesis, collagen structure, neurotransmission, immune response, and lipid digestion."
+    },
+    {
+     "type": "paragraph",
+     "text": "Sources of Glycine: Serine: Converted to glycine via serine hydroxymethyltransferase (SMT), present in mitochondria and cytoplasm. (Option A) Threonine: Converted to glycine by threonine aldolase. (Option B) Choline: Converted to glycine via sarcosine and betaine pathways. Glycine Synthase: Synthesises glycine from CO₂, NH₄⁺, and a one-carbon unit. This multi-enzyme complex requires NAD, lipoamide, tetrahydrofolic acid, and pyridoxal phosphate."
+    },
+    {
+     "type": "paragraph",
+     "text": "This is a reversal of the glycine cleavage system. Glycine Aminotransferase: Catalyses glycine synthesis from glyoxylate and glutamate or alanine. (Option C)"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,641 @@
+{
+ "batch": "biochemistry-005",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "biochemistry-005",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "5-5",
+   "question": "A 6-month-old infant presents with muscle hypotonia and heart failure. Laboratory tests reveal an accumulation of glycogen in lysosomes. Which of the following is the most likely diagnosis?",
+   "options": {
+    "A": "McArdle Disease",
+    "B": "Pompe Disease",
+    "C": "Von Gierke Disease",
+    "D": "Cori Disease"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Pompe Disease (Glycogen Storage Disease Type II) is caused by a deficiency of lysosomal acid maltase (α-1,4 and α-1-6 glucosidase), leading to glycogen accumulation in lysosomes. Clinical presentation: Infantile-onset form presents with muscle hypotonia (floppy baby syndrome), cardiomegaly, and heart failure. Death occurs early due to cardiorespiratory failure if untreated."
+    },
+    {
+     "type": "paragraph",
+     "text": "Laboratory findings: Accumulation of glycogen within lysosomes, confirmed on muscle biopsy. Elevated creatine kinase (CK), lactate dehydrogenase (LDH), and transaminases and lactate levels."
+    },
+    {
+     "type": "paragraph",
+     "text": "Pompe’s Disease (Glycogen storage disease Type II) Enzyme Deficiency Lysosomal α-1-4 and α-1-6 glucosidase (acid maltase) Affected Gene GAA Clinical Features Muscle hypotonia, death due to heart failure within 2 years of age (seen in juvenile) Muscle dystrophy (seen in adults) Mode of Inheritance Autosomal recessive Management Supportive care Enzyme replacement therapy Chest x-ray at regular intervals Obtain an initial echocardiogram to evaluate the extent of cardiomyopathy Medical management may be useful based on the stage of cardiomyopathy."
+    },
+    {
+     "type": "paragraph",
+     "text": "Avoid drastic changes in fluid status, either through dehydration or fluid overload."
+    },
+    {
+     "type": "paragraph",
+     "text": "Glycogen Storage Disorders Disorder Enzyme Deficiency Key Clinical Features Pompe Disease (GSD II) Lysosomal acid maltase Hypotonia, cardiomegaly, glycogen in lysosomes McArdle Disease (GSD V) (Option A ruled out) Muscle phosphorylase Exercise intolerance, muscle cramps, myoglobinuria Von Gierke Disease (GSD I) (Option C ruled out) Glucose-6-phosphatase Severe fasting hypoglycemia, hepatomegaly, lactic acidosis Cori Disease (GSD III) (Option D ruled out) Debranching enzyme Hepatomegaly, muscle weakness, limit dextrin accumulation"
+    }
+   ]
+  },
+  {
+   "id": "5-6",
+   "question": "A 5-year-old child presents with muscle weakness and mild hepatomegaly. On physical examination, the child has mild cardiomegaly. Blood tests reveal mild hypoglycemia and elevated serum creatine kinase levels. Which enzyme deficiency is associated with this glycogen storage disease?",
+   "options": {
+    "A": "Glycogen synthase",
+    "B": "Glucose-6-phosphatase",
+    "C": "Debranching enzyme",
+    "D": "Muscle phosphorylase"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Cori disease is caused by a deficiency in the debranching enzyme, leading to the accumulation of branched glycogen (limit dextrin), hypoglycemia, hepatomegaly, and muscle weakness."
+    },
+    {
+     "type": "paragraph",
+     "text": "Cori’s Disease (Glycogen storage disease Type III) Enzyme Deficiency Liver and muscle debranching enzyme Affected Gene AGL Mode of Inheritance Autosomal Recessive Inheritance Clinical Features Hypoglycemia Hepatomegaly seen at infancy Limit dextrin accumulation Muscle weakness Management Dietary Management: A diet high in protein and low in carbohydrates is often recommended to manage the disease."
+    },
+    {
+     "type": "paragraph",
+     "text": "Enzyme Replacement Therapy: In some cases, enzyme replacement therapy may be used to supplement the deficient enzyme."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Glycogen synthase (Option A):** This enzyme is involved in glycogen synthesis, and its deficiency causes a Type 0 glycogen storage disease and it does not present with hepatomegaly or cardiomegaly Glucose-6-phosphatase (Option B): This enzyme deficiency is associated with von Gierke disease (Type I Glycogen Storage Disease) does not present with muscle weakness Muscle phosphorylase (Option D): Deficiency in this enzyme causes McArdle disease (Type V Glycogen Storage Disease), and it does not present with hepatomegaly or hypoglycemia."
+    }
+   ]
+  },
+  {
+   "id": "5-7",
+   "question": "A 6-month-old infant presents with severe hypoglycemia, hepatomegaly, growth retardation, irritability, and lethargy between feedings. Laboratory tests reveal elevated lactate, triglycerides, and uric acid. The child frequently feeds to manage hypoglycemia. Based on these findings, which condition is most likely responsible for the symptoms?",
+   "options": {
+    "A": "Von Gierke's disease",
+    "B": "McArdle's disease",
+    "C": "Tarui's Disease",
+    "D": "Hers' Disease"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Von Gierke's Disease (Glycogen Storage Disease Type I) is caused by a deficiency of glucose-6-phosphatase, impairing glycogen breakdown and gluconeogenesis. The key clinical features in this infant, such as severe hypoglycemia, hepatomegaly, growth retardation, irritability, and lethargy between feedings, strongly suggest impaired glucose release from the liver."
+    },
+    {
+     "type": "paragraph",
+     "text": "Laboratory findings of elevated lactate, triglycerides, and uric acid further support Von Gierke’s disease due to defective glucose metabolism. Frequent feedings are characteristic, as affected infants need continuous glucose intake to prevent hypoglycemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "Von Gierke's Disease (Glycogen Storage Disease Type I) Cause Deficiency of glucose-6-phosphatase enzyme Pathophysiology Inability to convert glucose-6-phosphate to glucose; leads to accumulation of glycogen, lactate, and triglycerides Symptoms Severe hypoglycemia Hepatomegaly and Renomegaly Growth retardation Lactic acidosis Hyperuricemia and Hyperlipidemia Diagnosis Biochemical tests (hypoglycemia, lactic acidosis, hyperuricemia, hyperlipidemia) Genetic testing Management Frequent feedings with slow-release carbohydrates Blood glucose monitoring Medications for associated conditions Liver transplantation (in severe cases) Glycogen Storage Disorders (GSDs) GSD Type Name Enzyme Deficiency Affected Organs Key Features Type I Von Gierke's Disease Glucose-6-phosphatase Liver, Kidney Severe fasting hypoglycemia, hepatomegaly, lactic acidosis, hyperuricemia, hyperlipidemia Type V McArdle's Disease (Option B ruled out) Muscle phosphorylase Skeletal Muscle Exercise intolerance, muscle cramps, myoglobinuria after exertion Type VII Tarui's Disease (Option C ruled out) Muscle phosphofructokinase Muscle, RBCs Exercise intolerance, muscle cramps, hemolytic anemia Type VI Hers' Disease (Option D ruled out) Liver phosphorylase Liver Hepatomegaly, mild hypoglycemia, milder symptoms than Von Gierke's McArdle's Disease (Option B): Incorrect because it primarily affects muscle, leading to exercise intolerance and myoglobinuria rather than hypoglycemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Tarui's Disease (Option C):** Incorrect because it affects muscle and red blood cells, leading to exercise intolerance and hemolytic anemia, not hypoglycemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Hers' Disease (Option D):** Incorrect because it causes mild hypoglycemia without lactic acidosis, whereas this case presents with severe hypoglycemia and metabolic abnormalities."
+    }
+   ]
+  },
+  {
+   "id": "5-8",
+   "question": "Match the glycogen storage disorders with their respective enzyme defects. Glycogen Storage Disorders: Enzyme Defects: 1. Pompe Disease a. Debranching enzyme 2. McArdle Disease b. Acid maltase 3. Von Gierke Disease c. Glucose-6-phosphatase 4. Cori Disease d. Myophosphorylase",
+   "options": {
+    "A": "1-b, 2-d, 3-c, 4-a",
+    "B": "1-a, 2-c, 3-b, 4-d",
+    "C": "1-d, 2-b, 3-a, 4-c",
+    "D": "1-c, 2-a, 3-d, 4-b"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Glycogen Storage Disorder Enzyme Defect Pathophysiology Pompe Disease (Type II) Acid maltase (Lysosomal α-1,4-glucosidase) Accumulation of glycogen in lysosomes due to defective degradation McArdle Disease (Type V) Myophosphorylase (Muscle glycogen phosphorylase) Impaired glycogen breakdown in muscle, causing exercise intolerance Von Gierke Disease (Type I) Glucose-6-phosphatase Defective glycogenolysis and gluconeogenesis, leading to severe hypoglycemia Cori Disease (Type III) Debranching enzyme (α-1,6-glucosidase) Abnormal glycogen with short outer chains, leading to mild hypoglycemia and hepatomegaly Glycogen Storage Disorders (GSDs) Glycogen storage disorders are a group of inherited metabolic diseases characterized by enzyme deficiencies affecting glycogen metabolism."
+    },
+    {
+     "type": "paragraph",
+     "text": "These disorders cause abnormal glycogen accumulation or impaired glycogen utilization in various tissues."
+    },
+    {
+     "type": "paragraph",
+     "text": "GSD Type Name Enzyme Defect Affected Organs Key Features Type I Von Gierke Disease Glucose-6-phosphatase Liver, Kidney Severe fasting hypoglycemia, hepatomegaly, lactic acidosis Type II Pompe Disease Acid maltase (Lysosomal α-1,4-glucosidase) Muscle, Heart Cardiomegaly, hypotonia, early death in infantile form Type III Cori Disease Debranching enzyme (α-1,6-glucosidase) Liver, Muscle Mild hypoglycemia, hepatomegaly, muscle weakness Type V McArdle Disease Myophosphorylase (Muscle glycogen phosphorylase) Skeletal Muscle Exercise intolerance, muscle cramps, myoglobinuria"
+    }
+   ]
+  },
+  {
+   "id": "5-9",
+   "question": "A 32-year-old woman is admitted to the hospital for a routine check-up. During the visit, her diet is discussed, and it is noted that she has been consuming a high carbohydrate diet. You are asked to explain the impact of her dietary habits on glycogen metabolism. Which of the following statements best describes glycogen metabolism?",
+   "options": {
+    "A": "Increased Gluconeogenesis",
+    "B": "Reduced peripheral lipolysis",
+    "C": "Low rate of glycogen synthesis",
+    "D": "High rate of glycogenolysis"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "A high-carbohydrate diet increases blood glucose levels, leading to insulin secretion, which promotes glycogen synthesis and suppresses glycogen breakdown. The body enters the fed state, characterized by active glycogenesis and glucose utilization. High glucose levels → Insulin release Insulin stimulates glycogen synthase → Increased glycogen synthesis Inhibits glycogen phosphorylase → Decreased glycogen breakdown."
+    },
+    {
+     "type": "paragraph",
+     "text": "Glycogen Metabolism in Different Metabolic States Glycogen metabolism is regulated by the body's metabolic state, primarily influenced by insulin, glucagon, and epinephrine. The balance between glycogenesis (glycogen synthesis) and glycogenolysis (glycogen breakdown) ensures glucose homeostasis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Metabolic State Primary Hormone Glycogen Metabolism Key Enzymes Involved Fed State (Option B ruled out):** Insulin ↑ Glycogenesis, ↓ Glycogenolysis Glycogen synthase (activated), Glycogen phosphorylase (inhibited) Fasted State (Option A ruled out) Glucagon ↑ Glycogenolysis, ↓ Glycogenesis Glycogen phosphorylase (activated), Glycogen synthase (inhibited) Starvation State (Option C ruled out) Glucagon, Cortisol Glycogen nearly depleted, ↑ Gluconeogenesis Gluconeogenic enzymes (e.g., PEPCK, F-1,6-BPase) Post-Exercise State (Option D ruled out) Epinephrine, Insulin (during recovery) ↑ Glycogenolysis during exercise, ↑ Glycogenesis during recovery Glycogen phosphorylase (exercise), Glycogen synthase (recovery) Fed State and Glycogenesis (Option B ruled out) After a high-carbohydrate meal, blood glucose levels increase, stimulating insulin secretion from the pancreas. Insulin activates glycogen synthase, promoting the conversion of glucose into glycogen in the liver and muscle. Glycogenolysis is inhibited to store excess glucose."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Fasted State and Glycogenolysis (Option A ruled out):** Low blood glucose stimulates glucagon release, which activates glycogen phosphorylase, breaking down glycogen into glucose-1-phosphate. This provides energy for vital functions, primarily in the liver to maintain blood glucose levels."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Starvation State and Gluconeogenesis (Option C ruled out):** Glycogen stores are depleted after prolonged fasting. The body shifts to gluconeogenesis, converting amino acids and glycerol into glucose. Cortisol and glucagon drive this process."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Post-Exercise State and Glycogen Replenishment (Option D ruled out):** After intense exercise, muscle glycogen is depleted, and the body prioritizes glycogen resynthesis. Insulin sensitivity is high, allowing rapid glucose uptake for glycogenesis in muscle cells."
+    }
+   ]
+  },
+  {
+   "id": "5-10",
+   "question": "Which of the following statements is true on the structure of glycogen? Arranged in 12 concentric layers Glucose residues are connected by α-1,4 linkage Branching points formed by α-1,6 linkage",
+   "options": {
+    "A": "1,2",
+    "B": "2,3",
+    "C": "1,2,3",
+    "D": "1,3"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "A spherical molecule, approximately 21 nm in diameter, observable under electron micrographs Arranged in 12 concentric layers (Statement 1) The glycogenin protein is present at the center Composed of polysaccharide chains, each containing approximately 13 glucose residues Branched chains in the inner layers and unbranched chains in the outermost layer Short chains of glucose residues are linked by α-1,4 glycosidic bonds (Statement 2) Branch points are formed by α-1,6 glycosidic bonds (Statement 3) Heavily branched and compact, it can store a large amount of energy in a limited space due to its compact structure"
+    }
+   ]
+  },
+  {
+   "id": "5-11",
+   "question": "A 25-year-old male athlete presents to the emergency department after completing a high-intensity interval training session. He reports feeling extremely fatigued and experiencing muscle cramps. Blood tests indicate elevated levels of lactic acid. What is the net ATP yield when one molecule of muscle glycogen is converted to lactic acid during strenuous exercise?",
+   "options": {
+    "A": "1 ATP",
+    "B": "2 ATP",
+    "C": "3 ATP",
+    "D": "4 ATP"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "When one molecule of muscle glycogen undergoes anaerobic glycolysis (glycogen → lactate), the net ATP yield differs from glucose metabolism because glycogen breakdown bypasses the hexokinase step, which normally consumes ATP. Here’s a stepwise"
+    }
+   ]
+  },
+  {
+   "id": "5-12",
+   "question": "Which of the following statements correctly differentiates liver glycogen phosphorylase (LGP) and muscle glycogen phosphorylase (MGP)?",
+   "options": {
+    "A": "LGP is activated by glucagon, while MGP is activated by epinephrine.",
+    "B": "LGP releases glucose-6-phosphate into the bloodstream, while MGP releases free glucose into the muscle.",
+    "C": "LGP activity is regulated by AMP, while MGP is regulated by glucagon and epinephrine.",
+    "D": "MGP is highly active during fasting compared to LGP."
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Glycogen phosphorylase is an enzyme crucial for glycogen metabolism. It catalyzes the breakdown of glycogen into glucose-1-phosphate. There are two main isoforms of glycogen phosphorylase: Glycogen Phosphorylase A (Liver isoform) and Glycogen Phosphorylase B (Muscle isoform) Liver Glycogen Phosphorylase (LGP) is primarily regulated by glucagon and epinephrine, which promote glycogen breakdown to maintain blood glucose levels during fasting."
+    },
+    {
+     "type": "paragraph",
+     "text": "Muscle Glycogen Phosphorylase (MGP) is activated by epinephrine and allosterically regulated by AMP, which signals low energy and promotes glycogenolysis for ATP production in muscle cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "Aspect Liver Glycogen Phosphorylase (Liver-specific isoform) Muscle Glycogen Phosphorylase (Muscle-specific isoform) Primary Role Maintains blood glucose levels by breaking down glycogen during fasting Provides glucose for ATP production during muscle contraction. Function Converts glycogen to"
+    },
+    {
+     "type": "paragraph",
+     "text": "glucose-1-phosphate, then to glucose-6-phosphate, which is converted to free glucose by glucose-6-phosphatase and released into the bloodstream Converts glycogen to glucose-1-phosphate, then to glucose-6-phosphate for energy production within muscle cells (muscle lacks glucose-6-phosphatase) Hormonal Activation Activated by glucagon (during fasting) and epinephrine (during stress) Activated by epinephrine and AMP Allosteric Regulation Inhibited by glucose Activated by AMP, inhibited by ATP and glucose-6-phosphate Response to Fasting Increased activity Not significantly affected Response to Feeding Decreased activity Not significantly affected Response to Exercise No significant change Increased activity LGP releases glucose-6-phosphate into the bloodstream, while MGP releases free glucose into the muscle (Option B): Incorrect because LGP converts glucose-1-phosphate to glucose-6-phosphate, which is then converted to free glucose by glucose-6-phosphatase and released into the bloodstream."
+    },
+    {
+     "type": "paragraph",
+     "text": "MGP does not release free glucose since muscle lacks glucose-6-phosphatase. Instead, glucose-6-phosphate enters glycolysis for ATP production within muscle cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "**LGP activity is regulated by AMP, while MGP is regulated by glucagon and epinephrine (Option C):** Incorrect because AMP primarily regulates MGP, not LGP. AMP increases MGP activity when energy levels are low. LGP is regulated by glucagon and epinephrine, not AMP. MGP is highly active during fasting compared to LGP (Option D): Incorrect because LGP is highly active during fasting to maintain blood glucose levels. MGP is more active during exercise, when ATP demand is high, not necessarily during fasting."
+    }
+   ]
+  },
+  {
+   "id": "5-13",
+   "question": "Which of the following enzymes catalyzes the rate-limiting step of glycogenolysis",
+   "options": {
+    "A": "Phosphoglucomutase",
+    "B": "Glucose-6-phosphatase",
+    "C": "Glucan transferase",
+    "D": "Glycogen phosphorylase"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Glycogen phosphorylase is the rate-limiting enzyme of glycogenolysis. It catalyzes the phosphorolytic cleavage of α-1,4 glycosidic bonds in glycogen, releasing glucose-1-phosphate. It is regulated by phosphorylation: Activated by phosphorylase kinase and inhibited by phosphoprotein phosphatase. Different isoforms exist in the liver, muscle, and brain. Requires pyridoxal phosphate (PLP) as a coenzyme."
+    },
+    {
+     "type": "paragraph",
+     "text": "Glycogenolysis Feature Details Definition Breakdown of glycogen to release glucose Location Primarily in liver and muscle"
+    },
+    {
+     "type": "paragraph",
+     "text": "Purpose Provides glucose for energy during fasting (liver) and muscle contraction (muscle) Rate-Limiting Enzyme Glycogen phosphorylase End Products Glucose-1-phosphate (converted to glucose-6-phosphate, then to glucose in liver) Steps of Glycogenolysis Glycogen phosphorylase: Cleaves α-1,4 glycosidic bonds and releases glucose-1-phosphate. Rate-limiting enzyme, activated by phosphorylation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Debranching enzyme (Glucan transferase & α-1,6-glucosidase): Transfers trisaccharide units to the main chain (glucan transferase). Hydrolyzes α-1,6 glycosidic bonds to release free glucose. Phosphoglucomutase: Converts glucose-1-phosphate to glucose-6-phosphate. Glucose-6-phosphatase (Liver only): Converts glucose-6-phosphate to free glucose, which is released into the blood."
+    },
+    {
+     "type": "paragraph",
+     "text": "Regulation of Glycogenolysis Factor Effect on Glycogenolysis Glucagon (Liver) Stimulates Epinephrine (Muscle & Liver) Stimulates Insulin Inhibits AMP (Muscle) Stimulates ATP, Glucose-6-P Inhibits Glycogenolysis in muscle provides glucose-6-phosphate for glycolysis, not free glucose. Glycogenolysis in liver maintains blood glucose levels during fasting."
+    },
+    {
+     "type": "paragraph",
+     "text": "Rate-Limiting Enzymes in Carbohydrate Metabolism Pathway Rate-Limiting Enzyme Key Regulation Glycolysis Phosphofructokinase-1 (PFK-1) Activated by AMP, fructose-2,6-bisphosphate; Inhibited by ATP, citrate Gluconeogenesis Fructose-1,6-bisphosphatase Activated by ATP, inhibited by AMP, fructose-2,6-bisphosphate Glycogenesis Glycogen synthase Activated by insulin, glucose-6-phosphate; Inhibited by glucagon, epinephrine Glycogenolysis Glycogen phosphorylase Activated by glucagon, epinephrine, AMP; Inhibited by insulin, ATP, glucose-6-phosphate Pentose Phosphate Pathway (HMP Shunt) Glucose-6-phosphate dehydrogenase (G6PD) Activated by NADP⁺; Inhibited by NADPH TCA Cycle Isocitrate dehydrogenase Activated by ADP, Ca²⁺; Inhibited by ATP, NADH These rate-limiting enzymes regulate carbohydrate metabolism by controlling the flux of substrates through their respective pathways based on energy demands and hormonal signals."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Phosphoglucomutase (Option A):** Incorrect because it converts glucose-1-phosphate to glucose-6-phosphate, which is not the rate-limiting step."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Glucose-6-phosphatase (Option B):** Incorrect because it converts glucose-6-phosphate to free glucose in the liver but is not involved in the rate-limiting step of glycogenolysis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Glucan transferase (Option C):** Incorrect because it helps in debranching glycogen by transferring trisaccharide units but does not control the rate of glycogen breakdown."
+    }
+   ]
+  },
+  {
+   "id": "5-14",
+   "question": "Which of the following statements is false regarding glycogenolysis?",
+   "options": {
+    "A": "Glucose-6-phosphatase acts in liver",
+    "B": "Glycogen phosphorylase cleaves α-1,4 linkages",
+    "C": "Phosphoglucomutase converts glucose-1-phosphate into glucose-6-phosphate",
+    "D": "Glycogenolysis is the reverse process of glycogenesis."
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Glycogenolysis and glycogenesis are distinct pathways with different enzymes and mechanisms. Glycogenolysis involves breaking down glycogen into glucose-1-phosphate, whereas glycogenesis involves synthesizing glycogen from glucose-1-phosphate."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Glucose-6-phosphatase acts in the liver (Option A):** This enzyme functions in glycogenolysis by converting glucose-6-phosphate into free glucose, which is then released into the bloodstream."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Glycogen phosphorylase cleaves α-1,4 linkages (Option B):** Glycogen phosphorylase cleaves α-1,4 glycosidic bonds in glycogen during glycogenolysis, releasing glucose-1-phosphate from glycogen."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Phosphoglucomutase converts glucose-1-phosphate into glucose-6-phosphate (Option C):** Phosphoglucomutase catalyzes the reversible conversion of glucose-1-phosphate into glucose-6-phosphate.Glucose-6-phosphate can enter glycolysis for energy production or be converted into free glucose in the liver by glucose-6-phosphatase."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L06_Q014_E1"
+    }
+   ]
+  },
+  {
+   "id": "5-15",
+   "question": "Which of the following enzymes is activated by phosphorylation?",
+   "options": {
+    "A": "Acetyl-CoA carboxylase",
+    "B": "Glycogen synthase",
+    "C": "Pyruvate dehydrogenase",
+    "D": "Glycogen phosphorylase"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Enzymes that increase blood glucose are stimulated by phosphorylation, whereas enzymes that decrease blood glucose are stimulated by dephosphorylation. Activated by phosphorylation Deactivated by phosphorylation Glycogen phosphorylase Debranching enzyme Pyruvate carboxylase PEPCK (Phosphoenolpyruvate carboxykinase)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Acetyl-CoA carboxylase (Option A ruled out):** Glycogen synthase (Option B ruled out) Pyruvate dehydrogenase (Option C ruled out) HMG-CoA reductase"
+    }
+   ]
+  },
+  {
+   "id": "5-16",
+   "question": "What is the correct order of enzymes that act in glycogenesis?",
+   "options": {
+    "A": "Hexokinase→ Phosphoglucomutase → UDP-glucose pyrophosphorylase",
+    "B": "Phosphoglucomutase → UDP-glucose pyrophosphorylase → Hexokinase",
+    "C": "Hexokinase→ UDP-glucose pyrophosphorylase → Phosphoglucomutase",
+    "D": "UDP-glucose pyrophosphorylase → Phosphoglucomutase → Hexokinase"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Glycogenesis Process of glycogen synthesis. Occurs in liver and muscle, with liver playing a major role in maintaining blood glucose levels"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L06_Q016_E1"
+    }
+   ]
+  },
+  {
+   "id": "5-17",
+   "question": "Assertion (A): Glycogen and amylopectin are both branched polysaccharides composed of glucose units. Reason (R): The branch points in glycogen occur every 8-12 glucose residues, while in amylopectin, they occur every 20-30 glucose residues.",
+   "options": {
+    "A": "Both the assertion and the reason are correct, and the reason is the correct explanation for the assertion.",
+    "B": "Both the assertion and the reason are correct, but the reason is not the correct explanation for the assertion.",
+    "C": "The assertion is correct, but the reason is incorrect.",
+    "D": "The assertion is incorrect, but the reason is correct."
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Glycogen and amylopectin are indeed both branched polysaccharides made up of glucose units. Branch points occur every 8-12 glucose residues in glycogen, whereas in amylopectin, they occur every 20-30 glucose residues. This difference in branching frequency affects to the structural and functional properties of the two polysaccharides."
+    },
+    {
+     "type": "paragraph",
+     "text": "Feature Amylopectin Glycogen Source Plants Animals Structure Moderately branched, larger molecules Highly branched, compact molecules."
+    },
+    {
+     "type": "paragraph",
+     "text": "Branching Less frequent (every 20-30 glucose units) More frequent (every 8-12 glucose units) Glucose Linkages α-1,4 and α-1,6 glycosidic bonds α-1,4 and α-1,6 glycosidic bonds Solubility Less soluble More soluble Granule Shape Larger, spherical Smaller, irregular Hydrolysis Enzyme Amylase and limit dextrinase Glycogen phosphorylase and debranching enzyme Function Energy storage in plants Rapid energy mobilization in animals"
+    }
+   ]
+  },
+  {
+   "id": "6-1",
+   "question": "Which enzyme is the rate-limiting enzyme of gluconeogenesis?",
+   "options": {
+    "A": "PEP Carboxykinase",
+    "B": "Pyruvate Carboxylase",
+    "C": "Glucose-6-phosphatase",
+    "D": "Fructose 1,6-bisphosphatase"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The rate-limiting enzyme of gluconeogenesis is Fructose 1,6-bisphosphatase, which plays a crucial role in the regulation of gluconeogenesis, catalysing the conversion of fructose 1,6-bisphosphate to fructose 6-phosphate."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L07_Q001_E1"
+    }
+   ]
+  },
+  {
+   "id": "6-2",
+   "question": "In patients with uncontrolled diabetes, which of the following intermediates is depleted, suppressing the TCA cycle?",
+   "options": {
+    "A": "Acetyl CoA",
+    "B": "Oxaloacetate",
+    "C": "Succinyl-CoA",
+    "D": "Malate"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "In uncontrolled diabetes, gluconeogenesis is upregulated due to low insulin and high glucagon levels, leading to excessive oxaloacetate (OAA) utilization for glucose production. This depletes oxaloacetate, a key intermediate in the TCA cycle, causing suppression of the cycle despite an abundance of acetyl-CoA. Excess acetyl-CoA is then diverted to ketogenesis, leading to ketoacidosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Role of Oxaloacetate in the TCA Cycle Function Effect in Uncontrolled Diabetes Combines with acetyl-CoA to form citrate Depleted due to increased gluconeogenesis Essential for TCA cycle continuation Suppression of the TCA cycle Deficiency leads to ketone body formation Ketogenesis → Ketoacidosis Acetyl-CoA (Option A): Incorrect because acetyl-CoA accumulates due to β-oxidation but cannot enter the TCA cycle without oxaloacetate."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Succinyl-CoA (Option C):** Incorrect because its levels are not significantly affected in diabetes; it plays a role in the TCA cycle but is not a primary regulator."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Malate (Option D):** Incorrect because malate can be converted to oxaloacetate, but oxaloacetate is preferentially diverted to gluconeogenesis, leading to depletion."
+    }
+   ]
+  },
+  {
+   "id": "6-3",
+   "question": "Which of the following factors regulates the expression of PEPCK in liver cells?",
+   "options": {
+    "A": "Glucagon",
+    "B": "Insulin",
+    "C": "Citrate",
+    "D": "Acetyl-CoA"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Phosphoenolpyruvate carboxykinase (PEPCK) is a key enzyme in gluconeogenesis that converts oxaloacetate to phosphoenolpyruvate (PEP). Glucagon stimulates gluconeogenesis by increasing cAMP levels, activating protein kinase A (PKA), and enhancing PEPCK gene transcription. This ensures glucose production during fasting states to maintain blood glucose levels."
+    },
+    {
+     "type": "paragraph",
+     "text": "Regulation of PEPCK Expression Regulator Effect on PEPCK Mechanism Glucagon Increases ↑ cAMP → ↑ PKA → ↑ PEPCK transcription Insulin Decreases ↓ cAMP → ↓ PKA → ↓ PEPCK transcription Cortisol Increases Activates PEPCK gene transcription Glucose Decreases Inhibits gluconeogenic enzymes Acetyl-CoA Activates pyruvate carboxylase Does not directly regulate PEPCK Insulin (Option B): Incorrect because insulin inhibits PEPCK expression by reducing cAMP and promoting glycolysis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Citrate (Option C):** Incorrect because citrate mainly activates gluconeogenesis by inhibiting PFK-1 but does not regulate PEPCK expression."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Acetyl-CoA (Option D):** Incorrect because it activates pyruvate carboxylase, not PEPCK."
+    }
+   ]
+  },
+  {
+   "id": "6-4",
+   "question": "A 45-year-old woman presents with fatigue and muscle weakness. Laboratory tests reveal hypoglycemia and elevated lactate levels. The physician suspects a deficiency in a coenzyme essential for gluconeogenesis. Which coenzyme is most likely deficient in this patient?",
+   "options": {
+    "A": "Magnesium",
+    "B": "Thiamine Pyrophosphate",
+    "C": "Biotin",
+    "D": "Fluoride"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Biotin is a crucial coenzyme for pyruvate carboxylase, which catalyzes the conversion of pyruvate to oxaloacetate, the first regulatory step of gluconeogenesis. This reaction occurs in mitochondria and is essential for maintaining blood glucose levels during fasting. Biotin also functions as a coenzyme for propionyl-CoA carboxylase, which is involved in odd-chain fatty acid metabolism."
+    },
+    {
+     "type": "paragraph",
+     "text": "Biotin deficiency leads to decreased gluconeogenesis, causing hypoglycemia and elevated lactate levels due to impaired conversion of pyruvate to glucose."
+    },
+    {
+     "type": "paragraph",
+     "text": "Causes of biotin deficiency include: Severe malnutrition Consumption of raw eggs (contain avidin, which binds biotin and prevents its absorption) Inherited metabolic disorders (e.g., autosomal recessive biotinidase deficiency or holo-carboxylase synthetase deficiency) Gluconeogenesis & Coenzymes Step Enzyme Required Coenzyme Location Pyruvate → Oxaloacetate Pyruvate carboxylase Biotin Mitochondria Oxaloacetate → PEP PEPCK GTP Cytoplasm/Mitochondria F-1,6-BP → F-6-P Fructose-1,6-bisphosphatase Mg²⁺ Cytoplasm G-6-P → Glucose Glucose-6-phosphatase Mg²⁺ Endoplasmic Reticulum Magnesium (Option A): Required for ATP-dependent reactions but does not function as a coenzyme for pyruvate carboxylase."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Thiamine Pyrophosphate (Option B):** Cofactor for pyruvate dehydrogenase, not for gluconeogenesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Fluoride (Option D):** Inhibits enolase in glycolysis but has no role in gluconeogenesis."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L07_Q004_E1"
+    }
+   ]
+  },
+  {
+   "id": "6-5",
+   "question": "Which of the following enzymes in gluconeogenesis is considered a \"tandem enzyme\" with fructose-2,6-bisphosphatase, functioning in the opposite direction?",
+   "options": {
+    "A": "Pyruvate carboxylase",
+    "B": "Phosphoenolpyruvate carboxykinase",
+    "C": "Phosphofructokinase I",
+    "D": "Phosphofructokinase-2"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Tandem enzymes refer specifically to a single bifunctional enzyme with both kinase and phosphatase activity, such as PFK-2/Fructose-2,6-bisphosphatase, rather than two separate enzymes working in opposing pathways. Phosphofructokinase-2 (PFK-2) and Fructose-2,6-bisphosphatase (FBPase-2) are two opposing activities within a single bifunctional enzyme, making it a tandem enzyme."
+    },
+    {
+     "type": "paragraph",
+     "text": "PFK-2 activity: Converts fructose-6-phosphate to fructose-2,6-bisphosphate, which stimulates glycolysis by activating PFK-1. FBPase-2 activity: Converts fructose-2,6-bisphosphate back to fructose-6-phosphate, reducing glycolysis and promoting gluconeogenesis. This regulation allows for reciprocal control of glycolysis and gluconeogenesis in response to insulin and glucagon."
+    },
+    {
+     "type": "paragraph",
+     "text": "Tandem Enzymes in Glucose Metabolism Tandem enzymes are pairs of enzymes that"
+    },
+    {
+     "type": "paragraph",
+     "text": "catalyze opposite reactions in glycolysis and gluconeogenesis, ensuring precise regulation of glucose metabolism. These enzyme pairs prevent futile cycling and allow metabolic control in response to hormonal signals."
+    },
+    {
+     "type": "paragraph",
+     "text": "Tandem Enzyme Pairs Tandem Enzyme Pair Glycolysis Enzyme Gluconeogenesis Enzyme Function & Regulation PFK-2 / FBPase-2 Phosphofructokinase-2 (PFK-2) Fructose-2,6-bisphosphatase (FBPase-2) Regulates fructose-2,6-bisphosphate levels, controlling glycolysis & gluconeogenesis. Hexokinase / Glucose-6-phosphatase Hexokinase/Glucokinase Glucose-6-phosphatase Controls phosphorylation and dephosphorylation of glucose."
+    },
+    {
+     "type": "paragraph",
+     "text": "Pyruvate kinase / PEPCK Pyruvate kinase Phosphoenolpyruvate carboxykinase (PEPCK) Controls conversion between PEP and pyruvate, linking glycolysis and gluconeogenesis. PFK-2 / FBPase-2: The Classic Tandem Enzyme PFK-2 and FBPase-2 are two opposing activities within a single bifunctional enzyme, which regulates glycolysis and gluconeogenesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Condition PFK-2 Activity FBPase-2 Activity Metabolic Effect Fed state (Insulin ↑) Active Inhibited ↑ Fructose-2,6-bisphosphate → ↑ Glycolysis Fasting state (Glucagon ↑, cAMP ↑, PKA ↑) Inhibited Active ↓ Fructose-2,6-bisphosphate → ↑ Gluconeogenesis PFK-2 Activity: Converts fructose-6-phosphate into fructose-2,6-bisphosphate, which activates PFK-1, promoting glycolysis."
+    },
+    {
+     "type": "paragraph",
+     "text": "FBPase-2 Activity: Converts fructose-2,6-bisphosphate back to fructose-6-phosphate, inhibiting glycolysis and promoting gluconeogenesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Regulation of Tandem Enzymes Regulatory Factor Effect on PFK-2/FBPase-2 Metabolic Outcome Insulin (Fed State) Activates PFK-2 ↑ Glycolysis, ↓ Gluconeogenesis Glucagon (Fasting State) Activates FBPase-2 ↓ Glycolysis, ↑ Gluconeogenesis Fructose-2,6-bisphosphate Stimulates PFK-1, inhibits FBPase-1 ↑ Glycolysis, ↓ Gluconeogenesis cAMP / PKA Activation Phosphorylates enzyme → Activates FBPase-2 Promotes gluconeogenesis"
+    }
+   ]
+  },
+  {
+   "id": "6-6",
+   "question": "A patient presents with symptoms of hypoglycemia shortly after consuming a high-carbohydrate meal. Laboratory tests reveal elevated insulin levels. Which of the following enzymes in the gluconeogenesis pathway is most likely to be strongly inhibited in this scenario?",
+   "options": {
+    "A": "Pyruvate carboxylase",
+    "B": "Phosphoenolpyruvate carboxykinase (PEPCK)",
+    "C": "Fructose-1,6-bisphosphatase",
+    "D": "Glucose-6-phosphatase"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Fructose-1,6-bisphosphatase is a key enzyme in gluconeogenesis that converts fructose-1,6-bisphosphate to fructose-6-phosphate. Elevated insulin levels after a high-carbohydrate meal lead to increased fructose-2,6-bisphosphate, which strongly inhibits fructose-1,6-bisphosphatase, suppressing gluconeogenesis and contributing to hypoglycemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "Regulation of Gluconeogenesis Regulatory Mechanism Effect on Gluconeogenesis Key Enzymes Affected Hormonal Regulation Insulin (Fed State) Inhibits gluconeogenesis by increasing fructose-2,6-bisphosphate, which inhibits fructose-1,6-bisphosphatase. Fructose-1,6-bisphosphatase, PEPCK, Glucose-6-phosphatase Glucagon (Fasting State) Stimulates gluconeogenesis by decreasing fructose-2,6-bisphosphate."
+    },
+    {
+     "type": "paragraph",
+     "text": "Fructose-1,6-bisphosphatase, PEPCK, Glucose-6-phosphatase Allosteric Regulation Fructose-2,6-bisphosphate Strongly inhibits fructose-1,6-bisphosphatase, suppressing gluconeogenesis. Fructose-1,6-bisphosphatase AMP (Low Energy State) Inhibits gluconeogenesis, signaling low ATP levels. Fructose-1,6-bisphosphatase Acetyl-CoA (High Energy State) Activates pyruvate carboxylase, promoting gluconeogenesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Pyruvate carboxylase Substrate Availability Lactate Enters gluconeogenesis via pyruvate. Pyruvate carboxylase, PEPCK Glycerol Converted to DHAP, feeding into gluconeogenesis. Glycerol kinase, G3P dehydrogenase Alanine Converted to pyruvate for gluconeogenesis. Alanine aminotransferase, PEPCK Energy Status High ATP/Low AMP Promotes gluconeogenesis. Fructose-1,6-bisphosphatase, PEPCK Low ATP/High AMP Inhibits gluconeogenesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Fructose-1,6-bisphosphatase Pyruvate carboxylase (Option A):** Incorrect because insulin does not directly inhibit this enzyme; it is activated by acetyl-CoA during fasting."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Phosphoenolpyruvate carboxykinase (PEPCK) (Option B):** Incorrect because insulin suppresses its gene transcription, but it is not the most strongly inhibited enzyme in this acute setting."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Glucose-6-phosphatase (Option D):** Incorrect because it is regulated at the transcriptional level by insulin but is not directly inhibited by fructose-2,6-bisphosphate."
+    }
+   ]
+  },
+  {
+   "id": "6-7",
+   "question": "Which of the following statements about the malate shuttle in gluconeogenesis is not true?",
+   "options": {
+    "A": "Helps transfer reducing equivalents from the cytoplasm to mitochondria",
+    "B": "Involves the interconversion of oxaloacetate and malate",
+    "C": "Requires the enzyme malate dehydrogenase in both mitochondria and cytosol",
+    "D": "Directly transports NADH across the mitochondrial membrane"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The malate shuttle does not directly transport NADH across the mitochondrial membrane. Instead, it indirectly transfers reducing equivalents by converting oxaloacetate to malate in the cytoplasm, allowing malate to"
+    },
+    {
+     "type": "paragraph",
+     "text": "cross the membrane, and then converting malate back to oxaloacetate in the mitochondria. This is necessary because the inner mitochondrial membrane is impermeable to NADH, preventing its direct transport. Malate Shuttle: The malate shuttle, or malate-aspartate shuttle, is a biochemical system that facilitates the transport of electrons from the cytosol to the mitochondria."
+    },
+    {
+     "type": "paragraph",
+     "text": "It is crucial for oxidative phosphorylation, as the mitochondrial inner membrane is impermeable to NADH, the primary reducing equivalent of the electron transport chain."
+    },
+    {
+     "type": "paragraph",
+     "text": "Malate Shuttle in Gluconeogenesis Step Process Cytosol Oxaloacetate → Malate (via cytosolic malate dehydrogenase, using NADH) Transport Malate crosses mitochondrial membrane via malate-α-ketoglutarate antiporter Mitochondria Malate → Oxaloacetate (via mitochondrial malate dehydrogenase, regenerating NADH) Return Pathway Oxaloacetate → Aspartate (via transamination), which exits mitochondria via the glutamate-aspartate antiporter In mitochondria: Oxaloacetate return: The malate shuttle is important in both gluconeogenesis and glycolysis"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L07_Q007_E1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L07_Q007_E2"
+    }
+   ]
+  }
+ ]
+}

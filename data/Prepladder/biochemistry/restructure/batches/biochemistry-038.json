@@ -1,0 +1,669 @@
+{
+ "batch": "biochemistry-038",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "biochemistry-038",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "26-11",
+   "question": "A 50-year-old patient presents with symptoms of fatigue and pallor. The physician suspects a vitamin B12 absorption issue and decides to perform the Schilling test. Which of the following statements about the Schilling test is correct?",
+   "options": {
+    "A": "The Schilling test involves administering one dose of vitamin B12 to assess absorption.",
+    "B": "An abnormal result in stage 1 and a normal result in Stage 2 of the Schilling test typically suggests a lack of intrinsic factor.",
+    "C": "Radioactive vitamin B12 injection is given to saturate body stores.",
+    "D": "Abnormal Stage 2 suggests intrinsic factor deficiency."
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The Schilling test assesses vitamin B12 absorption by measuring urinary excretion of radioactive vitamin B12. It consists of four stages, each designed to pinpoint different causes of B12 malabsorption. If stage 1 is abnormal but stage 2 is normal, the issue is due to intrinsic factor deficiency, commonly seen in pernicious anemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "Schilling Test Stages and Interpretations: Stage Procedure Normal Interpretation Abnormal Interpretation Possible Cause of Abnormal Result Stage 1 Oral radioactive vitamin B12 + 24-hour urine collection ≥8% excretion of B12 in urine (Normal absorption) <8% excretion of B12 in urine (Malabsorption) General B12 malabsorption (cause unknown) Stage 2 Oral radioactive vitamin B12 + intrinsic factor Excretion normalizes (suggests absorption issue due to IF deficiency) Still abnormal (no improvement) Intrinsic factor deficiency (pernicious anemia) Stage 3 Oral radioactive vitamin B12 after antibiotics Excretion normalizes Still abnormal Bacterial overgrowth syndrome Stage 4 Oral radioactive vitamin B12 after pancreatic enzymes Excretion normalizes Still abnormal Pancreatic insufficiency The Schilling test involves administering one dose of vitamin B12 to assess absorption (Option A): The test consists of multiple stages to evaluate different causes of B12 malabsorption."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Radioactive vitamin B12 injection is given to saturate body stores (Option C):** The intramuscular"
+    },
+    {
+     "type": "paragraph",
+     "text": "injection of non-radioactive B12 is given only to prevent liver uptake, not for saturation."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Abnormal Stage 2 suggests intrinsic factor deficiency (Option D):** A normal result in Stage 2 suggests intrinsic factor deficiency (pernicious anemia), whereas an abnormal result in Stage 2 suggests another cause (e.g., bacterial overgrowth or pancreatic insufficiency)."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L33_Q011_E1"
+    }
+   ]
+  },
+  {
+   "id": "26-12",
+   "question": "A 35 year old woman presents with severe breathlessness, palpitations, and swelling in her legs and face. She primarily eats white rice and lacks fruits and vegetables in her diet. On examination and investigations she has distended neck veins, peripheral edema, and elevated lactate and pyruvate levels. Thiamine deficiency is suspected. What is the most likely diagnosis, and which enzyme activity should be tested to confirm it?",
+   "options": {
+    "A": "Dry beriberi; pyruvate dehydrogenase",
+    "B": "Maple Syrup Urine Disease (MSUD); branched-chain ketoacid dehydrogenase",
+    "C": "Wet beriberi; transketolase",
+    "D": "Lactic acidosis; lactate dehydrogenase"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Thiamine Deficiency Aleurone layer of cereals (food grains) is a rich source of thiamine. Whole wheat flour and unpolished hand-pound rice have better nutritive value than completely polished refined foods. Polishing grains removes the aleurone layer, reducing thiamine content."
+    },
+    {
+     "type": "paragraph",
+     "text": "Deficiency Manifestations Dry Beriberi More common CNS manifestations Pain, paresthesia, and loss of reflexes Peripheral neuritis with sensory disturbances (Option A ruled out) Wet Beriberi Cardiovascular symptoms: breathlessness, palpitations, and peripheral edema Distended neck veins observed High-output cardiac failure due to vasodilation (Option C) Biochemical Parameters Thiamine deficiency affects transketolase, an enzyme in the pentose phosphate pathway."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Measuring erythrocyte transketolase activity is a specific diagnostic test for thiamine deficiency (Option C):** Earliest biochemical change: Reduced erythrocyte transketolase activity, even before clinical symptoms appear. Recommended Daily Allowance: 1–1.5 mg/day Condition-Wise Role of Thiamine and Deficiency Effects Condition Biochemical Role of Thiamine Deficiency Manifestations Dry Beriberi (Option A ruled out) Essential for carbohydrate metabolism and nerve function Peripheral neuritis, sensory disturbances, difficulty walking, paralysis due to CNS involvement. Wet Beriberi Thiamine is required for pyruvate dehydrogenase (PDH) complex; deficiency leads to lactic acidosis, causing vasodilation and cardiovascular symptoms Edema, palpitations, breathlessness, heart failure Maple Syrup Urine Disease (Option B ruled out) Cofactor for decarboxylation of branched-chain keto acids Accumulation of branched-chain keto acids, causing convulsions, mental retardation, vomiting, acidosis, coma, and death Lactic Acidosis (Option D ruled out) Cofactor for pyruvate dehydrogenase, which converts pyruvate to acetyl-CoA Impaired pyruvate metabolism, leading to increased lactate and pyruvate, causing lactic acidosis"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L33_Q012_E1"
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q843176",
+   "question": "Match the following vitamins with their respective functional assessment tests: 1. Vitamin B1 (Thiamine) a) Measure urinary methylmalonic acid 2. Vitamin B2 (Riboflavin) b) Measure transketolase activity in red blood cells 3. Vitamin B6 (Pyridoxine) c) Measure glutathione reductase activity in red blood cells 4. Vitamin B12 (Cobalamin) d) Measure activation of red blood cell transaminases with pyridoxal phosphate",
+   "options": {
+    "A": "1-b, 2-c, 3-d, 4-a",
+    "B": "1-a, 2-b, 3-c, 4-d",
+    "C": "1-b, 2-d, 3-c, 4-a",
+    "D": "1-a, 2-c, 3-b, 4-d"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Vitamin B1 (Thiamin) → Transketolase Activity (b) Thiamin acts as a coenzyme for transketolase in the pentose phosphate pathway. Measuring transketolase activity in red blood cells after adding thiamin pyrophosphate helps assess thiamin status. Vitamin B2 (Riboflavin) → Glutathione Reductase Activity (c) Riboflavin functions as a coenzyme for glutathione reductase (FAD-dependent)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Measuring glutathione reductase activity in RBCs helps assess riboflavin status. Vitamin B6 (Pyridoxine) → Activation of RBC Transaminases (d) Pyridoxal phosphate (PLP) is a coenzyme for transaminases in amino acid metabolism. Measuring activation of RBC transaminases after PLP supplementation assesses B6 status."
+    },
+    {
+     "type": "paragraph",
+     "text": "Vitamin B12 (Cobalamin) → Urinary Methylmalonic Acid (a) B12 is required for methylmalonyl-CoA mutase, which converts methylmalonyl-CoA to succinyl-CoA. B12 deficiency leads to increased urinary methylmalonic acid, making it a reliable marker."
+    },
+    {
+     "type": "paragraph",
+     "text": "Topic Discussion: Functional Assessment Tests of Vitamins Vitamin Functional Assessment Test Key Enzyme/Process Assessed Clinical Relevance Vitamin B1 (Thiamin) Transketolase activity in RBCs Transketolase (Pentose Phosphate Pathway) Reduced activity indicates thiamin deficiency (e.g., Beriberi, Wernicke-Korsakoff syndrome) Vitamin B2 (Riboflavin) Glutathione reductase activity in RBCs Glutathione Reductase (FAD-dependent) Low activity suggests riboflavin deficiency, leading to oxidative stress disorders Vitamin B6 (Pyridoxine) RBC transaminase activity (after PLP addition) Aminotransferases (ALT, AST) Decreased enzyme activity suggests B6 deficiency, leading to neuropathy and anemia Vitamin B12 (Cobalamin) Urinary methylmalonic acid measurement Methylmalonyl-CoA Mutase Elevated levels indicate B12 deficiency, which can cause megaloblastic anemia and neuropathy"
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q843173",
+   "question": "Match the following deficiencies with their respective impacts: 1) Adenosylcobalamin Deficiency a) Elevated homocysteine levels 2) Methylcobalamin Deficiency b) Impaired energy production and chronic fatigue 3) Methyl malonyl-CoA Mutase Deficiency c) Accumulation of methyl malonyl-CoA 4) Methionine Synthase Deficiency d) Pernicious anaemia with immature red blood cells",
+   "options": {
+    "A": "1-b, 2-a, 3-c, 4-d",
+    "B": "1-a, 2-d, 3-b, 4-c",
+    "C": "1-b, 2-d, 3-a, 4-c",
+    "D": "1-c, 2-b, 3-d, 4-a"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Vitamin B12-Dependent Enzymes: 1. Methyl-malonyl-CoA Mutase: Function: Converts methylmalonyl-CoA to succinyl-CoA. Methyl-malonyl CoA is an intermediate in the breakdown of valine, cholesterol, odd-chain fatty acids, propionate, and carboxylation of propionyl-CoA. Deficiency Impact: Leads to accumulation of methylmalonyl-CoA and increased urinary methylmalonic acid, indicating B12 deficiency status."
+    },
+    {
+     "type": "paragraph",
+     "text": "Methylmalonic acid will be normal in megaloblastic anaemia caused by folate deficiency. 2. Methionine Synthase: Function: Converts homocysteine to methionine. Role: Impairment affects folic acid metabolism, leading to functional folate deficiency. Deficiency Impact: Causes pernicious anaemia and spinal cord degeneration due to failed methylation of arginine in myelin basic protein."
+    },
+    {
+     "type": "paragraph",
+     "text": "This is a result of methionine deficiency in the CNS. Folate trap: The 2 Co-enzyme forms of vitamin B-12 are: 1. Adenosylcobalamin Deficiency: Function: Coenzyme form of vitamin B12 essential for energy metabolism in mitochondria. Deficiency Impact: Impaired Energy Production: Reduces ATP production, causing chronic fatigue, muscle weakness, and weight loss."
+    },
+    {
+     "type": "paragraph",
+     "text": "Neurological Damage: Accumulation of neurotoxic methylmalonic acid impairs fatty acid synthesis for myelin sheath maintenance, resulting in nerve degeneration and neurological disorders. Disrupts amino acid and hormone metabolism, leading to systemic metabolic disorders. 2. Methylcobalamin Deficiency: Function: The bioactive form of vitamin B12 is crucial for the methylation cycle and methionine synthesis from homocysteine."
+    },
+    {
+     "type": "paragraph",
+     "text": "Deficiency Impact: Elevated Homocysteine Levels: Impairs conversion of homocysteine to methionine, raising homocysteine levels and cardiovascular risk. Neurological Issues: Leads to neuropathy, cognitive decline, and other neurological disorders. Anaemia: Causes megaloblastic anaemia with large, ineffective red blood cells."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L33_Q014_E1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L33_Q014_E2"
+    }
+   ]
+  },
+  {
+   "id": "26-15",
+   "question": "Which of the following consequences of vitamin B6 deficiency directly contributes to an increased risk of seizures in a neonate with refractory seizures?",
+   "options": {
+    "A": "Decreased GABA synthesis",
+    "B": "Elevated glutamate levels",
+    "C": "Increased serotonin production",
+    "D": "Enhanced myelin formation"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Vitamin B6 (Pyridoxal Phosphate, PLP) is a coenzyme for glutamate decarboxylase, which converts glutamate to GABA (an inhibitory neurotransmitter). Deficiency of vitamin B6 impairs GABA synthesis, leading to an imbalance between excitatory (glutamate) and inhibitory (GABA) signals, resulting in seizures, particularly in neonates with refractory seizures."
+    },
+    {
+     "type": "paragraph",
+     "text": "Pyridoxine-dependent epilepsy (PDE) is a rare condition where B6 supplementation is required to control seizures."
+    },
+    {
+     "type": "paragraph",
+     "text": "Vitamin B6 Deficiency and Neurological Consequences Effect of Vitamin B6 Deficiency Mechanism Clinical Manifestation Decreased GABA synthesis Impaired glutamate decarboxylase activity Increased excitability, leading to seizures Elevated glutamate levels Reduced conversion of glutamate to GABA Excitotoxicity, neuronal damage Impaired serotonin synthesis PLP is required for serotonin production Mood disturbances, depression Disrupted myelin formation Impaired sphingolipid metabolism Neuropathy, cognitive deficits Elevated glutamate levels (Option B): Incorrect because while B6 deficiency can lead to increased glutamate, the primary cause of seizures is GABA deficiency, not glutamate excess."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Increased serotonin production (Option C):** Incorrect because vitamin B6 deficiency reduces serotonin synthesis due to impaired decarboxylation of 5-hydroxytryptophan."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Enhanced myelin formation (Option D):** Incorrect because vitamin B6 deficiency impairs, rather than enhances, myelin synthesis by disrupting sphingolipid metabolism."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L33_Q015_E1"
+    }
+   ]
+  },
+  {
+   "id": "26-16",
+   "question": "Which of the following metabolic processes is not directly supported by vitamin B6 in its active form, pyridoxal 5'-phosphate (PLP)?",
+   "options": {
+    "A": "Transamination of amino acids",
+    "B": "Decarboxylation of amino acids",
+    "C": "Breakdown of glycogen to glucose-1-phosphate",
+    "D": "Conversion of glucose to glycogen"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Vitamin B6 (Pyridoxal phosphate, PLP) is a coenzyme involved in amino acid metabolism and glycogen breakdown, but not in glycogen synthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "PLP supports: Transamination (e.g., ALT, AST) Decarboxylation (e.g., neurotransmitter synthesis) Glycogenolysis (via glycogen phosphorylase) Glycogen synthesis (glycogenesis) is catalyzed by glycogen synthase, which does not require PLP. Vitamin B6- Coenzyme Roles Metabolic Process Enzyme Involved Role of Vitamin B6 (PLP) Transamination (Option A ruled out) ALT, AST Transfers amino groups between amino acids and keto acids Decarboxylation (Option B ruled out) Glutamate decarboxylase Produces neurotransmitters (e.g., GABA, serotonin, dopamine) Glycogenolysis (Option C ruled out) Glycogen phosphorylase PLP is a coenzyme for glycogen phosphorylase, aiding glycogen breakdown Heme synthesis δ-aminolevulinate synthase Required for the first step in heme production Niacin synthesis Kynureninase Converts tryptophan to niacin Sphingolipid synthesis Serine palmitoyltransferase Involved in sphingomyelin metabolism Homocysteine metabolism Cystathionine β-synthase Helps convert homocysteine to cystathionine"
+    }
+   ]
+  },
+  {
+   "id": "26-17",
+   "question": "A 15 year old child presents with skin rashes, gastrointestinal issues, aminoaciduria and cognitive disturbances. Which of the following mechanisms explains the symptoms observed?",
+   "options": {
+    "A": "Hartnup disease causes a direct deficiency in niacin, leading to pellagra symptoms.",
+    "B": "Impaired tryptophan absorption → ↓production of niacin → pellagra-like symptoms.",
+    "C": "Tryptophan excess → disrupts niacin metabolism → pellagra-like symptoms",
+    "D": "Increases the metabolism of tryptophan to serotonin, depleting niacin stores"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Hartnup’s disease is a disorder of amino acid transport, particularly affecting tryptophan absorption in the intestines and kidneys. Tryptophan is a precursor for niacin synthesis, and its deficiency results in pellagra-like symptoms, including dermatitis, diarrhoea, and cognitive disturbances. Aminoaciduria (loss of amino acids in urine) occurs due to defective renal reabsorption."
+    },
+    {
+     "type": "paragraph",
+     "text": "Hartnup’s Disease and Tryptophan Metabolism Aspect Details Cause Mutation in SLC6A19 gene, affecting neutral amino acid transporter in intestines and kidneys. Deficiency Tryptophan (precursor for niacin) leading to niacin deficiency. Clinical Features Pellagra-like symptoms (Dermatitis, Diarrhoea, Dementia) Aminoaciduria (loss of neutral amino acids in urine) Ataxia, mood changes due to CNS involvement."
+    },
+    {
+     "type": "paragraph",
+     "text": "Diagnosis Increased neutral amino acids in urine Decreased tryptophan and"
+    },
+    {
+     "type": "paragraph",
+     "text": "niacin levels Treatment Niacin supplementation High-protein diet to compensate for amino acid losses Hartnup’s disease causes a direct deficiency in niacin, leading to pellagra symptoms (Option A): Incorrect because Hartnup’s disease primarily affects tryptophan absorption, not niacin itself. Niacin deficiency is secondary to tryptophan deficiency."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Tryptophan excess → disrupts niacin metabolism → pellagra-like symptoms (Option C):** Incorrect because excess tryptophan does not disrupt niacin metabolism; instead, it increases niacin synthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Increases the metabolism of tryptophan to serotonin, depleting niacin stores (Option D):** Incorrect because this mechanism occurs in carcinoid syndrome, where tryptophan is preferentially converted to serotonin, leading to niacin deficiency. However, this is not the mechanism in Hartnup’s disease."
+    }
+   ]
+  },
+  {
+   "id": "26-18",
+   "question": "A 45 year old woman from a rural area presents with a bright red rash on her feet, ankles, and face that worsens with sun exposure. She also reports frequent diarrhea and recent episodes of irritability and difficulty concentrating. Her diet consists mainly of maize and sorghum. Based on these symptoms and dietary habits, which condition is most likely causing her symptoms?",
+   "options": {
+    "A": "Vitamin B12 deficiency",
+    "B": "Pellagra",
+    "C": "Rickets",
+    "D": "Iron deficiency anemia"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Pellagra is characterized by the classic triad of symptoms: Dermatitis Bright red erythema- in sun-exposed areas (face, ankles, feet) Casal’s necklace - ↑pigmentation around the neck Diarrhoea, and Dementia. The patient's symptoms, combined with a diet high in maize and sorghum, both known to contribute to niacin and tryptophan deficiencies suggest pellagra as the most likely diagnosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Sorghum has a high leucine content, which inhibits the QPRTase enzyme required for the synthesis of niacin from tryptophan. Additionally, maize is low in tryptophan. Causes of pellagra: Dietary Deficiency- Maize and Sorghum based diet Impaired Tryptophan Metabolism Factors Affecting Tryptophan to Niacin Conversion: Vitamin B6 Deficiency Medications: Isoniazid (INH), OCPs Hormonal Influences: Estrogen metabolites hinder tryptophan metabolism."
+    },
+    {
+     "type": "paragraph",
+     "text": "Genetic Disorders: Inherited conditions like Hartnup disease can impede tryptophan absorption in the intestines and reabsorption in the kidneys Carcinoid Syndrome Other Contributing Factors: Alcoholism: Interferes with nutrient absorption,"
+    },
+    {
+     "type": "paragraph",
+     "text": "including niacin and tryptophan."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Malabsorption Syndromes Vitamin B12 deficiency (Option A):** causes fatigue, neurological issues, and anaemia but is not typically associated with the combination of dermatitis, diarrhoea, and cognitive disturbances seen in this case."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Rickets (Option C):** resulting from a deficiency in vitamin D, calcium, or phosphate, present with bone deformities and growth retardation. It is not associated with dermatitis, diarrhoea, and neurological symptoms characteristic of pellagra."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Iron deficiency anaemia (Option D):** can cause fatigue, pallor, and shortness of breath but does not typically present with skin rash, gastrointestinal symptoms, or cognitive issues associated with pellagra."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L33_Q018_E1"
+    }
+   ]
+  },
+  {
+   "id": "26-19",
+   "question": "Which of the following is the earliest sign of riboflavin (Vitamin B2) deficiency?",
+   "options": {
+    "A": "Cheilosis",
+    "B": "Glossitis",
+    "C": "Seborrheic dermatitis",
+    "D": "Proliferation of the bulbar conjunctival capillaries"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The proliferation of bulbar conjunctival capillaries, which refers to the visible dilation of blood vessels in the eyes, is often the earliest clinical sign of riboflavin deficiency. This sign appears before more obvious symptoms like cheilosis or glossitis develop."
+    },
+    {
+     "type": "paragraph",
+     "text": "Riboflavin Deficiency Symptom Feature Image Cheilosis Cracks and inflammation at the corners of the mouth (Option A ruled out) Glossitis Inflammation and changes in the appearance of the tongue."
+    },
+    {
+     "type": "paragraph",
+     "text": "**It becomes smooth and glossy It may appear purplish red (Option B ruled out):** Seborrheic dermatitis Skin condition with scaly patches, redness and dandruff (Option C ruled out) Proliferation of bulbar conjunctival capillaries Earliest sign. It is the visible dilation of blood vessels in the eyes. VITAMINS ASSAYS TO DETECT DEFICIENCY Vitamin B1 Transketolase Vitamin B2 Glutathione reductase Vitamin B3 Xanthurenic acid/ Tryptophan load test Vitamin B6 FIGLU/ Histidine load test Vitamin B12 Methylmalonate"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L33_Q019_E1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L33_Q019_E2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L33_Q019_E3"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L33_Q019_E4"
+    }
+   ]
+  },
+  {
+   "id": "26-20",
+   "question": "Which of the following enzymes does not utilize FAD as a coenzyme?",
+   "options": {
+    "A": "Succinate Dehydrogenase",
+    "B": "NADH Dehydrogenase",
+    "C": "Xanthine Oxidase",
+    "D": "Pyruvate Dehydrogenase"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "NADH Dehydrogenase (Complex I of the Electron Transport Chain) does not use FAD as a coenzyme; instead, it primarily relies on FMN (Flavin Mononucleotide) as its prosthetic group. It transfers electrons from NADH to Coenzyme Q (Ubiquinone) through a series of iron-sulfur clusters. Unlike FAD-containing enzymes, Complex I utilizes FMN for its redox reactions. FMN-Dependent vs."
+    },
+    {
+     "type": "paragraph",
+     "text": "FAD-Dependent Enzymes Category FMN-Dependent Enzymes FAD-Dependent Enzymes Derived from Riboflavin Yes Yes Coenzyme Form Flavin Mononucleotide (FMN) Flavin Adenine Dinucleotide (FAD) Electron Transport Accepts two electrons and donates them one at a time Accepts and donates two electrons and two protons Role in Metabolism Electron transport in oxidative phosphorylation Redox reactions in various metabolic pathways Location Mitochondrial ETC (Complex I) Mitochondrial matrix, peroxisomes, cytoplasm Examples NADH Dehydrogenase (Complex I) – Transfers electrons from NADH to ubiquinone L-Amino Acid Oxidase – Used in amino acid metabolism Succinate Dehydrogenase – Converts succinate to fumarate (TCA cycle) Acyl CoA Dehydrogenase – Converts Acyl-CoA to α,β-unsaturated acyl-CoA (Lipid metabolism) Xanthine Oxidase – Converts xanthine to uric acid Pyruvate Dehydrogenase – Converts pyruvate to acetyl-CoA (Carbohydrate metabolism) Alpha-Ketoglutarate Dehydrogenase – Converts alpha-ketoglutarate to succinyl-CoA Mitochondrial Glycerol-3-Phosphate Dehydrogenase – Converts glycerol-3-phosphate to dihydroxyacetone phosphate"
+    }
+   ]
+  },
+  {
+   "id": "26-21",
+   "question": "A 52 year old chronic alcoholic presents to the ED with confusion, difficulty walking, and abnormal eye movements. He reports having consumed large amounts of alcohol daily for many years and has had poor dietary intake. On examination, he has nystagmus and an unsteady gait. What is the most likely diagnosis for this patient?",
+   "options": {
+    "A": "Wernicke encephalopathy",
+    "B": "Korsakoff psychosis",
+    "C": "Lactic acidosis",
+    "D": "Dry beri-beri"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient's symptoms of confusion, difficulty walking (cerebellar ataxia), and abnormal eye movements (nystagmus) are classic signs of Wernicke encephalopathy, which is caused by thiamine deficiency often seen in chronic alcoholics. Wernicke-Korsakoff Syndrome (Cerebral Beriberi) Clinical Manifestations Wernicke Encephalopathy: Symptoms: Ophthalmoplegia, nystagmus, cerebellar ataxia, global confusion."
+    },
+    {
+     "type": "paragraph",
+     "text": "Korsakoff Psychosis: Symptoms: Anterograde and retrograde amnesia, sensory agnosia, and confabulation. (Option B ruled out) Causes of Thiamine Deficiency in Alcoholics Increased thiamine requirements due to alcohol consumption. Impaired intestinal absorption of thiamine due to alcohol. Increased thiamine utilization and inadequate dietary intake. Inhibition of intestinal thiamine absorption by alcohol."
+    },
+    {
+     "type": "paragraph",
+     "text": "Metabolic Implications Impaired conversion of pyruvate to acetyl-CoA. Accumulation of pyruvate and lactate in the blood. Potential for life-threatening lactic acidosis. Progression and Risk Factors Progression from Wernicke encephalopathy to Korsakoff psychosis if untreated. Associated with severely compromised nutritional status, often due to chronic alcoholism."
+    },
+    {
+     "type": "paragraph",
+     "text": "MRI findings Symmetrical T2/FLAIR hyperintensities in the mammillary bodies, dorsomedial thalami, periaqueductal gray matter, and around the third ventricle."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Lactic acidosis (Option C):** While thiamine deficiency can lead to an accumulation of pyruvate and lactate, resulting in lactic acidosis, the clinical presentation of confusion, ataxia, and nystagmus is more indicative of Wernicke encephalopathy. Lactic acidosis might be present but is not the primary diagnosis based on the symptoms described."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Dry beriberi (Option D):** primarily affects the peripheral nervous system, causing peripheral neuritis, paresthesia, foot drop, muscle weakness, and distal sensory loss."
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q854888",
+   "question": "A 34-year-old male was on maize as a staple diet for a prolonged period. He presented with diarrhea and lesion over his neck as shown in the image below. The condition occurs due to deficiency of:",
+   "options": {
+    "A": "Niacin",
+    "B": "Vitamin B12",
+    "C": "Vitamin D",
+    "D": "Iron"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Pellagra is characterized by the classic triad of symptoms: Dermatitis: Bright red erythema- in sun-exposed areas (face, ankles, feet). Casal’s necklace - ↑pigmentation around the neck Diarrhoea Dementia."
+    },
+    {
+     "type": "paragraph",
+     "text": "Causes of pellagra: Dietary Deficiency- Maize and Sorghum based diet Factors Affecting Tryptophan to Niacin Conversion: Vitamin B6 Deficiency Medications: Isoniazid (INH), OCPs Hormonal Influences: Estrogen metabolites hinder tryptophan metabolism."
+    },
+    {
+     "type": "paragraph",
+     "text": "Genetic Disorders: Inherited conditions like Hartnup disease can impede tryptophan absorption in the intestines and reabsorption in the kidneys Carcinoid Syndrome Other Contributing Factors: Alcoholism: Interferes with nutrient absorption, including niacin and tryptophan. Malabsorption Syndromes Incorrect Options: Vitamin B12 deficiency (Option B) can lead to symptoms such as fatigue, neurological issues, and anaemia."
+    },
+    {
+     "type": "paragraph",
+     "text": "However, it is not typically associated with the specific combination of dermatitis, diarrhoea, and cognitive disturbances seen in this case."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Rickets (Option C):** resulting from a deficiency in vitamin D, calcium, or phosphate, present with bone deformities and growth retardation. It is not associated with dermatitis, diarrhoea, and neurological symptoms characteristic of pellagra."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Iron deficiency anaemia (Option D):** can cause fatigue, pallor, and shortness of breath but does not typically present with skin rash, gastrointestinal symptoms, or cognitive issues associated with pellagra."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L34_Q001_E1"
+    }
+   ]
+  },
+  {
+   "id": "27-58",
+   "question": "Which of the subsequent stages in the vitamin D metabolism necessitates exposure to sunlight?",
+   "options": {
+    "A": "1,25 dihydroxy cholecalciferol to 7-dehydrocholesterol",
+    "B": "Cholecalciferol to 25-hydroxycholecalciferol",
+    "C": "7-dehydrocholesterol to cholecalciferol",
+    "D": "25-hydroxycholecalciferol to 1,25 dihydroxycholecalciferol"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The conversion of 7-dehydrocholesterol to cholecalciferol (vitamin D3) is the stage in vitamin D metabolism that requires exposure to sunlight. This reaction occurs in the skin under the influence of UVB radiation from sunlight. 7-dehydrocholesterol is a compound found in the skin, and when exposed to UVB light, it is converted to cholecalciferol (vitamin D3)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Vitamin D Metabolism: Skin (sunlight exposure): 7-dehydrocholesterol is converted to cholecalciferol (vitamin D3) under UVB light. Liver: Cholecalciferol is then converted to 25-hydroxycholecalciferol (calcidiol), the major circulating form of vitamin D. Kidneys: 25-hydroxycholecalciferol is further hydroxylated to form the active metabolite, 1,25-dihydroxycholecalciferol (calcitriol)."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L34_Q002_E1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L34_Q002_E2"
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q857479",
+   "question": "Which of the following substance, facilitate the absorption of dietary iron?",
+   "options": {
+    "A": "Calcium",
+    "B": "Vitamin C",
+    "C": "Vitamin D",
+    "D": "Vitamin K"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Vitamin C enhances dietary iron absorption by: Reducing Ferric to Ferrous Iron: Converts ferric iron (Fe³⁺) to the more absorbable ferrous form (Fe²⁺) in the acidic stomach environment. Chelation: Forms a soluble"
+    },
+    {
+     "type": "paragraph",
+     "text": "complex with iron, preventing it from binding to inhibitors like phytates and tannins. Enhanced Transport: Improves iron uptake by intestinal mucosal cells."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L34_Q003_E1"
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q857487",
+   "question": "A young boy presented with fissured tongue, lips, and lesions in the angle of the mouth.On investigation, he had low RBC glutathione reductase activity. Which vitamin is deficient here?",
+   "options": {
+    "A": "Vitamin B12",
+    "B": "Vitamin B3",
+    "C": "Biotin",
+    "D": "Riboflavin"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Riboflavin or Vitamin B2 acts as the coenzyme flavin mononucleotide (FMN) and flavin adenine dinucleotide (FAD) in oxidation and reduction reactions. Lesions of the corner of mouth, lips, and prosthetic group of flavoproteins. The main dietary sources of riboflavin are milk and dairy products. In addition, because of its intense yellow color, riboflavin is widely used as a food additive."
+    },
+    {
+     "type": "paragraph",
+     "text": "Riboflavin deficiency leads to following signs and symptoms: Cheilosis: It is pallor in the angle of mouth and fissuring of lips. Glossitis: Loss of papilla and increased smoothness of tongue Eyes: Keratitis, conjunctivitis, subcorneal congestion(ist sign) • Seborrheic dermatitis Anemia For Vitamin B2 deficiency - RBC or erythrocyte glutathione reductase activity should be checked."
+    }
+   ]
+  },
+  {
+   "id": "27-66",
+   "question": "What is the underlying cause of the presenting symptoms in a 21-year-old individual with chronic alcoholism who is admitted to the emergency department with confusion, tremors, ataxia, and ophthalmoplegia?",
+   "options": {
+    "A": "Vitamin B12",
+    "B": "Vitamin B9",
+    "C": "Vitamin B1",
+    "D": "Vitamin B3"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Thiamine deficiency is the first seen micronutrient deficiency in chronic alcoholism, as alcohol interferes with thiamine absorption. The patient's symptoms of confusion, difficulty walking (cerebellar ataxia), and abnormal eye movements (nystagmus) are classic signs of Wernicke encephalopathy, which is caused by thiamine deficiency often seen in chronic alcoholics."
+    },
+    {
+     "type": "paragraph",
+     "text": "WERNICKE-KORSAKOFF SYNDROME (CEREBRAL BERI-BERI) Clinical Manifestations Wernicke Encephalopathy: Symptoms: Ophthalmoplegia, nystagmus, cerebellar ataxia, global confusion. Korsakoff Psychosis: Symptoms: Anterograde and retrograde amnesia, sensory agnosia, and confabulation. Causes of Thiamine Deficiency in Alcoholics Increased thiamine requirements due to alcohol consumption. Alcohol is a source of empty calories."
+    },
+    {
+     "type": "paragraph",
+     "text": "Inhibition of intestinal thiamine absorption by alcohol. Metabolic Implications Impaired conversion of pyruvate to acetyl-CoA. Accumulation of pyruvate and lactate in the blood. Potential for life-threatening lactic acidosis. Progression and Risk Factors Progression from Wernicke encephalopathy to Korsakoff psychosis if untreated. Associated with severely compromised nutritional status, often due to chronic alcoholism."
+    },
+    {
+     "type": "paragraph",
+     "text": "MRI findings Symmetrical T2/FLAIR signal increase in the mammillary bodies, dorsomedial thalami, tectal plate, periaqueductal area, and around the third ventricle."
+    }
+   ]
+  },
+  {
+   "id": "27-13",
+   "question": "A baby presents with the clinical features shown in the image, including characteristic perioral and perianal rash along with a history of diarrhea. Which of the following is the most likely deficiency responsible for this condition?",
+   "options": {
+    "A": "Zinc Deficiency",
+    "B": "Niacin Deficiency",
+    "C": "Selenium Deficiency",
+    "D": "Magnesium Deficiency"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Characteristic rash: The image likely shows acrodermatitis enteropathica, which presents with perioral, perianal, and acral dermatitis —a hallmark of zinc deficiency. History of diarrhea: Zinc plays a crucial role in intestinal function and immunity; its deficiency leads to chronic diarrhea. Other symptoms of zinc deficiency: Growth retardation, poor wound healing, alopecia, and immune dysfunction."
+    },
+    {
+     "type": "paragraph",
+     "text": "Zinc Deficiency & Acrodermatitis Enteropathica Feature Zinc Deficiency Cause Congenital (SLC39A4 mutation) or acquired (malnutrition, chronic diarrhea) Key Skin Features Perioral, perianal, and acral dermatitis with erythematous, scaly plaques Other Symptoms Growth retardation, diarrhea, alopecia, immune dysfunction Diagnosis Low serum zinc levels Treatment Zinc supplementation Niacin Deficiency (Option B) is incorrect because niacin deficiency leads to pellagra, characterized by the \"3 Ds\"— dermatitis, diarrhoea, and dementia —but the rash is photosensitive and occurs in sun-exposed areas, not perioral/perianal."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Selenium Deficiency (Option C):** is incorrect because selenium deficiency primarily affects the cardiovascular system (e.g., Keshan disease, causing cardiomyopathy) and does not cause a perioral/perianal rash."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Magnesium Deficiency (Option D):** is incorrect because magnesium deficiency presents with neuromuscular symptoms (tetany, muscle cramps, seizures) rather than a characteristic rash."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L34_Q006_E1"
+    }
+   ]
+  },
+  {
+   "id": "27-61",
+   "question": "To evaluate a deficiency of vitamin B2 (riboflavin), one can assess the activity of:",
+   "options": {
+    "A": "Transketolase",
+    "B": "Pyruvate dehydrogenase",
+    "C": "Glutathione reductase",
+    "D": "Isocitrate dehydrogenase"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Laboratory Tests for Vitamin Deficiencies: Vitamin B1 (Thiamin): Test: Measure transketolase activity in red blood cells with and without thiamin diphosphate. Indicator: Increased activity with thiamin diphosphate indicates deficiency. Vitamin B2 (Riboflavin): Test: Measure glutathione reductase activity in red blood cells with and without flavin adenine dinucleotide (FAD). Indicator: Increased activity with FAD indicates deficiency."
+    },
+    {
+     "type": "paragraph",
+     "text": "Vitamin B6 (Pyridoxine): Test: Measure activation of red blood cell transaminases with pyridoxal phosphate. Xanthurenic acid in urine Indicator: Increased activity indicates deficiency. The metabolic disorders that respond to vitamin B6 therapy include xanthurenic aciduria and homocystinuria. Vitamin B12 (Cobalamin): Tests: Urinary methylmalonic acid: Elevated levels indicate impaired conversion of methylmalonyl-CoA to"
+    },
+    {
+     "type": "paragraph",
+     "text": "succinyl-CoA, suggesting deficiency. Megaloblastic anaemia assessment: Detects anaemia caused by disrupted folate metabolism due to B12 deficiency. Folate: Test: Assess for megaloblastic anaemia. Indicator: The presence of this type of anaemia suggests folate deficiency. When folic acid is deficient, FIGLU is excreted in urine. Histidine can be transaminated with pyruvate to form imidazole pyruvate and alanine."
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q855948",
+   "question": "A patient presented with symptoms of delayed adaptation to vision in dark places, gritty sensation in the eyes, dry eyes, and softening of the cornea. What is the likely deficiency in this case?",
+   "options": {
+    "A": "Retinoic acid",
+    "B": "Riboflavin",
+    "C": "Niacin",
+    "D": "Pantothenic acid"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Vitamin A Deficiency Manifestations: 1. Ocular manifestations: Vitamin A deficiency is the most significant preventable cause of blindness, especially in children below 5 in developing countries. Early Signs: Loss of sensitivity to green light. Difficulty adapting to dark places. Night blindness. Prolonged Deficiency: Xerophthalmia: Dry, thick, keratinized conjunctiva and cornea."
+    },
+    {
+     "type": "paragraph",
+     "text": "If untreated, it leads to corneal ulceration and ultimately results in blindness due to the formation of opaque scar tissue. WHO grading of xerophthalmia: XN Night blindness. X1 X1A: Conjunctival xerosis. X1B: Bitot spots. X2 Corneal xerosis. X3 X3A: Corneal ulceration, less than one-third. X3B: Corneal ulceration, more than one-third. XS Corneal scar. XF Xerophthalmic fundus."
+    },
+    {
+     "type": "paragraph",
+     "text": "Bitot's Spots: Grayish-white triangular plaques firmly adherent to the conjunctiva. Keratomalacia: When xerophthalmia persists for a longer time, it progresses to keratomalacia (corneal softening). 2. Immune Function: Deficiency increases susceptibility to infections. Infection reduces retinol-binding protein synthesis, lowering vitamin A levels and impairing immune responses. 3."
+    },
+    {
+     "type": "paragraph",
+     "text": "Skin and Mucous Membrane Lesions: Follicular Hyperkeratosis (Phrynoderma): Causes rough skin due to hyperkeratinization of the follicular epithelium. Keratinizing Metaplasia: Affects respiratory, gastrointestinal, and genitourinary tracts. Epithelium is atrophied. 4. Other General Manifestation: Growth retardation due to defective synthesis of chondroitin sulfate. Decreased protein synthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B) Riboflavin: Riboflavin deficiency typically manifests as oral and ocular symptoms, such as cracked lips, inflamed tongue, and sensitivity to light (photophobia). Option C) Niacin: Niacin deficiency, also known as pellagra, primarily presents with dermatitis, diarrhea, and dementia. Option D)"
+    },
+    {
+     "type": "paragraph",
+     "text": "Pantothenic acid: Pantothenic acid, or vitamin B5, deficiency is rare and not commonly associated with eye-related symptoms. It is involved in energy production and plays a role in various physiological processes."
+    }
+   ]
+  },
+  {
+   "id": "27-4",
+   "question": "A farmer presented with loose stools and rashes over the sun-exposed areas. Careful diet history reveals a diet rich in maize. Which of the following deficiencies would you suspect?",
+   "options": {
+    "A": "Niacin",
+    "B": "Pyridoxine",
+    "C": "Thiamine",
+    "D": "Biotin"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The Clinical scenario of Diarrhoea, rashes over sun exposed areas (Dermatitis) and a history of maize based diet indicates Pellagra, seen in niacin deficiency Pellagra is characterized by the classic triad of symptoms: Dermatitis Bright red erythema- in sun-exposed areas (face, ankles, feet) Casal’s necklace- ↑pigmentation around the neck Diarrhoea Dementia The patient's symptoms, combined with a diet high in maize and sorghum, both known to contribute to niacin and tryptophan deficiencies suggest pellagra as the most likely diagnosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Sorghum has high leucine content which inhibits the QPRTase enzyme required for synthesis of Niacin from tryptophan. Additionally, Maize is low in tryptophan. Incorrect Options: Option B) Pyridoxine (Vitamin B6) deficiency can lead to various neurological symptoms such as peripheral neuropathy, but it is not associated with specific skin rashes or gastrointestinal symptoms like loose stools."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C) Thiamine (Vitamin B1) deficiency typically presents with symptoms related to the nervous system, such as peripheral neuropathy, cardiovascular abnormalities, and Wernicke-Korsakoff syndrome. Option D) Biotin deficiency is rare and usually occurs in individuals with a genetic disorder or those consuming large quantities of raw egg whites, which contain a protein called avidin that binds to biotin and impairs its absorption."
+    },
+    {
+     "type": "paragraph",
+     "text": "Biotin deficiency can lead to symptoms such as hair loss, skin rash, and neurological abnormalities."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L34_Q009_E1"
+    }
+   ]
+  }
+ ]
+}

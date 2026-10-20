@@ -1,0 +1,577 @@
+{
+ "batch": "biochemistry-017",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "biochemistry-017",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "14-16",
+   "question": "A 45-year-old male with microcytic anaemia is found to have a deficiency of a vitamin essential for the rate-limiting step of heme synthesis. Which vitamin is most likely deficient?",
+   "options": {
+    "A": "Vitamin B6",
+    "B": "Vitamin B12",
+    "C": "Vitamin C",
+    "D": "Vitamin D"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Heme biosynthesis begins in mitochondria with the condensation of succinyl Co-A and glycine. This reaction produces 5'-aminolevulinic acid (ALA), a key heme intermediate. The enzyme aminolevulinic acid synthase (ALAS) requires pyridoxal phosphate (Vitamin B6) to catalyze this step. This reaction is the rate-limiting step in heme synthesis."
+    }
+   ]
+  },
+  {
+   "id": "14-17",
+   "question": "A 5-month-old boy presents with failure to thrive, developmental delay, and intermittent episodes of vomiting and lethargy. The episodes coincide with the introduction of solid foods. Blood tests reveal elevated ammonia levels and high levels of ornithine in blood. Urine analysis shows increased excretion of homocitrulline. What is the most likely diagnosis for this patient?",
+   "options": {
+    "A": "Citrullinemia",
+    "B": "Argininosuccinate aciduria",
+    "C": "HHH Syndrome",
+    "D": "Argininemia"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "This child with hyperammonemia triggered after solid food introduction is most likely to have HHH syndrome. Hyperornithinemia-Hyperammonemia-Homocitrullinuria Syndrome Inheritance Autosomal recessive Defective Gene ORC1 Defective Protein Mitochondrial Ornithine Transporter: This transporter moves ornithine into the mitochondria and citrulline out of the mitochondria."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mechanism Prevents ornithine from entering the mitochondria, which is necessary for the urea cycle. The buildup of ammonia in the blood (hyperammonemia). Ornithine also accumulates in the cytoplasm (hyperornithinemia). Carbamoyl phosphate reacts with lysine to form homocitrulline. Symptoms Failure to thrive. Developmental delay. Intermittent episodes of vomiting and lethargy (triggered by protein intake). Seizures. Intellectual disability."
+    },
+    {
+     "type": "paragraph",
+     "text": "Diagnosis Elevated blood ammonia Elevated blood ornithine Elevated urinary homocitrulline. Treatment Low-protein diet Nitrogen scavenger medications Liver transplant in severe cases."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Citrullinemia (Option A):** leads to the accumulation of citrulline, which would be elevated in blood tests, unlike in this scenario."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Argininosuccinate aciduria (Option B):** causes the characteristic symptom of trichorrhexis nodosa (brittle, easily broken hair), which is not mentioned in this scenario."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Argininemia (Option D):** involves hyperammonemia. Compared to other urea cycle disorders, its presentation is typically delayed, appearing around 2 years of age, not at 5 months."
+    }
+   ]
+  },
+  {
+   "id": "14-18",
+   "question": "A 5-month-old male infant with a history of vomiting, irritability, and developmental delay. The onset of symptoms coincided with the introduction of formula feed. Physical examination revealed hepatomegaly and signs of encephalopathy. Blood tests revealed elevated ammonia levels and high glutamine, uracil, and orotic acid concentrations. Citrulline levels were normal. What is the most likely diagnosis?",
+   "options": {
+    "A": "Type 1 Hyperammonemia",
+    "B": "Type 2 Hyperammonemia",
+    "C": "Citrullinemia",
+    "D": "Argininosuccinate aciduria"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The infant's symptoms and laboratory findings with the timing of symptom onset after the introduction of the formula are highly suggestive of Type 2 Hyperammonemia. Feature Type 1 Hyperammonemia Type 2 Hyperammonemia Defective Enzyme Carbamoyl Phosphate Synthetase I (CPS1) Ornithine Transcarbamylase (OTC) Inheritance Autosomal recessive X-linked recessive Mechanism The inability to synthesize carbamoyl phosphate blocks the urea cycle."
+    },
+    {
+     "type": "paragraph",
+     "text": "Accumulation of carbamoyl phosphate in the mitochondria, which then spills over into the cytoplasm. Metabolic Consequences Elevated ammonia and glutamate Normal orotic acid and uracil Low citrulline. (Option A) Elevated ammonia, glutamate, and glutamine. High uracil and orotic acid (excess carbamoyl phosphate enters pyrimidine synthesis). Normal citrulline. Clinical Presentation Symptoms coincide with increased protein intake."
+    },
+    {
+     "type": "paragraph",
+     "text": "CNS: Lethargy, drowsiness, coma, Convulsions, vomiting, respiratory stimulation, hyperventilation. Similar to Type 1. Hepatomegaly."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Citrullinemia and Argininosuccinate aciduria (Option C and D):** would result in elevated citrulline levels, contradicting the normal citrulline finding in this scenario."
+    }
+   ]
+  },
+  {
+   "id": "14-19",
+   "question": "Which of the following statements about carbamoyl phosphate synthetases is correct?",
+   "options": {
+    "A": "CPS-I is activated by PRPP, and CPS-II is inhibited by UTP.",
+    "B": "CPS-I is located in cytosol, and CPS-II in mitochondria.",
+    "C": "CPS-I is involved in urea cycle, and CPS-II in pyrimidine synthesis.",
+    "D": "Source of nitrogen for CPS-I is glutamine, and CPS-II is ammonia."
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "CPS-I is involved in the urea cycle, whereas CPS-II is involved in pyrimidine synthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Aspect Carbamoyl Phosphate Synthetase-I (CPS-I) Carbamoyl Phosphate Synthetase-II (CPS-II) Site (Option B):** Mitochondria Cytosol Pathway involved (Option C) Urea cycle Pyrimidine synthesis Source of Nitrogen (Option D) Ammonia; Amide group of glutamine Positive effector (Option A) N-acetyl glutamate Phosphoribosyl pyrophosphate (PRPP) Inhibitor Nil Uridine triphosphate(UTP)"
+    }
+   ]
+  },
+  {
+   "id": "14-20",
+   "question": "Which of the following is true about the rate-limiting step of the urea cycle?",
+   "options": {
+    "A": "It involves the formation of citrulline from ornithine.",
+    "B": "It is catalysed by carbamoyl phosphate synthetase I (CPS I).",
+    "C": "It is regulated by argininosuccinate synthetase.",
+    "D": "It is controlled by the enzyme argininosuccinate lyase."
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The carbamoyl phosphate synthetase I (CPS I) reaction is the rate-limiting step in the urea cycle. The urea cycle is a cycle of biochemical reactions that produce urea from ammonia. It is also known as the Krebs-Henseleit urea cycle or the Ornithine cycle. It starts in the mitochondria of hepatocytes and ends in the cytoplasm."
+    },
+    {
+     "type": "paragraph",
+     "text": "Reactions in the Urea Cycle Step Reaction Details Enzyme Involved and Location Key Points Carbamoyl Phosphate Formation Formation of carbamoyl phosphate from ammonia and CO₂ using ATP. Carbamoyl Phosphate Synthetase I (CPS I) Mitochondria The rate-limiting step of the urea cycle. Irreversible and allosterically regulated by N-acetyl glutamate (NAG)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Citrulline Formation (Option A):** Transfer of carbamoyl phosphate to ornithine to form citrulline. Ornithine Transcarbamylase (OTC) Mitochondria Citrulline moves from mitochondria to cytosol for further processing in the urea cycle."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Argininosuccinate Formation (Option C):** Citrulline combines with aspartate to form argininosuccinate. Argininosuccinate Synthetase Cytoplasm Requires ATP. Links the urea cycle with the TCA cycle via aspartate."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Argininosuccinate Cleavage (Option D):** Cleavage of argininosuccinate into arginine and fumarate. Argininosuccinate Lyase Cytoplasm Fumarate enters the TCA cycle, providing a connection between the urea cycle and other metabolic pathways. Arginine Cleavage to Ornithine and Urea Hydrolysis of arginine to produce ornithine and urea. Arginase Cytoplasm Ornithine is recycled back into the urea cycle. Urea is excreted by the kidneys, with some urea also entering the intestine. Fate of Urea Urea is transported to the kidneys, filtered, and excreted in urine. Kidneys/ Intestine Urea excretion is the final step, removing excess nitrogen from the body."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L17_Q020_E1"
+    }
+   ]
+  },
+  {
+   "id": "14-21",
+   "question": "Which of the following statements about ammonia transport is correct?",
+   "options": {
+    "A": "Glutamine moves ammonia from liver to brain.",
+    "B": "Alanine transports ammonia from liver to muscles.",
+    "C": "Glutamine and alanine transport ammonia to the liver.",
+    "D": "Alanine does not participate in ammonia transport."
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Ammonia is transported in a non-toxic form in the circulation as glutamine or alanine. Glutamine is formed from glutamate and ammonia by glutamine synthetase, primarily in skeletal muscle, liver, and CNS. Glutamine transports ammonia from the brain and intestine to the liver. (Option A) Glutamine is transported in the blood to the liver, where it is cleaved by glutaminase to glutamate and ammonia."
+    },
+    {
+     "type": "paragraph",
+     "text": "The glutamate is oxidatively deaminated to ammonia and α-ketoglutarate by glutamate dehydrogenase (GDH), and the ammonia is converted to urea. Alanine is the transport form of ammonia from muscle to the liver. (Option B) Alanine transports ammonia to the liver via the glucose-alanine cycle. (Option D) Alanine is transported in the blood to the liver, where it is transaminated by alanine transaminase(ALT) to pyruvate."
+    },
+    {
+     "type": "paragraph",
+     "text": "The pyruvate is used to synthesise glucose, which can enter the blood and be used by muscles. The glutamate product of ALT can be deaminated by GDH, generating ammonia. Thus, both alanine and glutamine carry ammonia to the liver. Transporter Formation Process Source Destination Mechanism/Role Glutamine Formed from glutamate and ammonia by glutamine synthetase."
+    },
+    {
+     "type": "paragraph",
+     "text": "Skeletal muscle, liver, CNS Liver, kidneys Transports ammonia from the brain and intestine to the liver. In the liver, glutamine is cleaved by glutaminase to release ammonia and glutamate. Glutamate is then deaminated by glutamate dehydrogenase (GDH), releasing additional ammonia, which enters the urea cycle for detoxification. Alanine Formed from pyruvate and ammonia in muscles during the glucose-alanine cycle."
+    },
+    {
+     "type": "paragraph",
+     "text": "Muscles Liver Transports ammonia from muscle to the liver. In the liver, alanine is transaminated by alanine transaminase (ALT) to form pyruvate and glutamate. The pyruvate is used to synthesize glucose, and the glutamate can be deaminated by GDH to release ammonia for the urea cycle."
+    }
+   ]
+  },
+  {
+   "id": "14-22",
+   "question": "A 45-year-old man with elevated ammonia levels presents with confusion and disorientation. Which of the following is not a typical symptom of ammonia toxicity?",
+   "options": {
+    "A": "Slurred speech",
+    "B": "Tremors",
+    "C": "Muscle rigidity",
+    "D": "Blurred vision"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Neurotoxic effects of hyperammonemia include tremors, slurred speech, drowsiness, vomiting, cerebral oedema, blurred vision, potential coma and death. Muscle rigidity is not a symptom of ammonia toxicity. Hyperammonemia Occurs in advanced liver disease and certain genetic disorders of amino acid metabolism. It can lead to loss of consciousness, coma, convulsions and may be fatal."
+    },
+    {
+     "type": "paragraph",
+     "text": "This is due to: Depletion of α-ketoglutarate from the citric acid cycle to form glutamate and glutamine. Reduced ATP production. Inhibition of α-ketoglutarate and pyruvate dehydrogenases by elevated ammonia levels."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Neurotoxic effects of hyperammonemia Tremors (Option B):** Slurred speech (Option A) Drowsiness Vomiting Cerebral edema Blurred vision (Option D) Potential coma and death Causes Genetic causes: Urea cycle disorders and organic acidurias Hepatic encephalopathy Cor pulmonale Pulmonary emphysema Renal failure Management Low-protein/high-calorie diet Antibiotics to reduce bacterial load (↓ urease-producing bacteria) Lactulose to decrease intestinal ammonia production"
+    }
+   ]
+  },
+  {
+   "id": "14-23",
+   "question": "Which of the following pathways is primarily involved in the detoxification of ammonia in the brain?",
+   "options": {
+    "A": "Conversion of ammonia to urea in neurons",
+    "B": "Direct excretion of ammonia through the blood-brain barrier",
+    "C": "Conversion of ammonia to glutamine via glutamine synthetase in astrocytes",
+    "D": "Storage of ammonia in neurons as glutamate"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Glutamine synthetase in astrocytes converts glutamate and ammonia to glutamine, effectively detoxifying ammonia in the brain. Ammonia Management in Neurons: Ammonia can be neurotoxic if accumulated. Glutamine Synthesis: Produced in neurons as a byproduct of amino acid metabolism and neurotransmitter turnover."
+    },
+    {
+     "type": "paragraph",
+     "text": "Ammonia reacts with α-ketoglutarate and NADH to form glutamate, catalyzed by glutamate dehydrogenase. α-ketoglutarate + NH₃ + NADH → Glutamate + NAD + + H₂O Glutamate is converted to glutamine by glutamine synthetase, adding another ammonia molecule. Glutamine synthetase is predominantly found in astrocytes. Glutamate + NH₃ + ATP → Glutamine + ADP + Pi This conversion reduces ammonia toxicity by storing it in a non-toxic form."
+    },
+    {
+     "type": "paragraph",
+     "text": "The fate of glutamine: Release into the Bloodstream: Glutamine is released into the extracellular space and enters the bloodstream. This transport helps maintain"
+    },
+    {
+     "type": "paragraph",
+     "text": "nitrogen balance and prevents ammonia accumulation. Transport to the Liver: Glutamine carries ammonia from the brain to the liver, where it is deaminated to release ammonia. Ammonia enters the urea cycle in the liver for detoxification. Importance of Glutamine in Neuronal Health: Acts as a non-toxic ammonia carrier, preventing neurotoxicity. Serves as a precursor for neurotransmitters like GABA, maintaining neurotransmitter balance."
+    }
+   ]
+  },
+  {
+   "id": "14-24",
+   "question": "Which of the following reactions is not catalysed by glutamate dehydrogenase (GDH)?",
+   "options": {
+    "A": "Conversion of α-ketoglutarate and ammonia to glutamate",
+    "B": "Oxidative deamination of glutamate",
+    "C": "Formation of aspartate from oxaloacetate and ammonia",
+    "D": "None of the above"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The formation of aspartate from oxaloacetate and ammonia is catalyzed by aspartate transaminase, not GDH. In the liver, ammonia transforms into the less toxic form, urea, using glutamate and the enzyme glutamate dehydrogenase. Location: Found exclusively in liver mitochondria."
+    },
+    {
+     "type": "paragraph",
+     "text": "Reactions Catalyzed by Glutamate Dehydrogenase: Oxidative Deamination (Conversion of Glutamate to α-Ketoglutarate) L-Glutamate + NAD + → α-Ketoglutarate + NH₃ + NADH + H + Catalyzed by: GDH (Option A) Coenzyme: NAD⁺ Reductive Amination (Synthesis of Glutamate from α-Ketoglutarate) α-Ketoglutarate + NH₃ + NADPH + H + → L-Glutamate + NADP + Catalyzed by: GDH (Option B) Coenzyme: NAD⁺ Regulation: Activation: ADP activates GDH. Inhibition: GTP, ATP, and NADH allosterically inhibit GDH."
+    }
+   ]
+  },
+  {
+   "id": "14-25",
+   "question": "Which of the following pairs of amino acids do not undergo transamination reactions?",
+   "options": {
+    "A": "Serine and threonine",
+    "B": "Lysine and threonine",
+    "C": "Proline and alanine",
+    "D": "Hydroxyproline and asparagine"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Lysine and Threonine: These amino acids do not undergo typical transamination. Lysine has an epsilon-amino group that can interfere with the transamination mechanism, and threonine undergoes deamination rather than transamination. Transamination is essential for amino acid catabolism and urea formation. Most amino acids participate in transamination reactions."
+    },
+    {
+     "type": "paragraph",
+     "text": "Exceptions: Amino Acid Reason Proline Has a secondary amino group within its pyrrolidine ring structure. It cannot participate in standard transamination due to its structural characteristics. Hydroxyproline Derived from proline through post-translational modification; shares the same structural limitation. Lysine Has an epsilon-amino group in its side chain, which can form Schiff bases, potentially interfering with transamination."
+    },
+    {
+     "type": "paragraph",
+     "text": "Threonine Loses its α-amino group through deamination rather than transamination. Direct transamination does not occur; instead, it is converted to alpha-ketobutyric acid."
+    }
+   ]
+  },
+  {
+   "id": "14-26",
+   "question": "A 50-year-old woman presents with confusion and lethargy. Blood tests show elevated levels of ammonia, suggesting hyperammonemia. Further tests indicate liver dysfunction. Which of the following best describes the process of oxidative deamination in amino acid metabolism?",
+   "options": {
+    "A": "Removal of an amino group from an amino acid, resulting in the corresponding keto acid and ammonia.",
+    "B": "Involves only transamination reactions in the cytoplasm.",
+    "C": "Generates ammonia, which is directly excreted by the kidneys.",
+    "D": "Predominantly occurs in the liver cytoplasm, producing glutamine."
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Oxidative deamination removes the alpha-amino group from an amino acid, producing a keto acid and ammonia. This reaction, catalysed by glutamate dehydrogenase in liver mitochondria, is essential for ammonia detoxification and nitrogen balance. The ammonia formed is detoxified in the form of glutamate."
+    },
+    {
+     "type": "paragraph",
+     "text": "The ammonia generated is processed through the urea cycle for excretion. (Option C) Oxidative Deamination: Process: Removes alpha-amino group from an amino acid, producing a keto acid and ammonia. Common Amino Acid: Glutamic acid. Enzyme: Glutamate dehydrogenase (GDH)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Transdeamination: Step 1: Transamination (all organs) in cytoplasm forms glutamate. (Option D) Step 2 (Oxidative decarboxylation): In liver mitochondria, GDH removes the amino group from glutamate, producing alpha-ketoglutarate and ammonia. (Option B) Significance: It ensures efficient ammonia disposal, funnelling ammonia into the liver for detoxification via the urea cycle."
+    },
+    {
+     "type": "paragraph",
+     "text": "Minor deamination Pathways: Involve enzymes like L-amino acid oxidase and D-amino acid oxidase. Non-oxidative deamination targets specific amino acids, releasing ammonia. L-Amino Acid Oxidase: It deaminates L-amino acids in the kidney. It generates hydrogen peroxide (H2O2) and ammonia as by-products. H2O2, a reactive oxygen species (ROS), is broken down into O2 and H2O by catalase to mitigate damage from ROS."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L17_Q026_E1"
+    }
+   ]
+  },
+  {
+   "id": "15-1",
+   "question": "Which of the following statements is true?",
+   "options": {
+    "A": "Tyrosine is the amino acid forming Serotonin",
+    "B": "Niacin deficiency is seen in Carcinoid syndrome",
+    "C": "Tryptophan hydroxylase is required for Niacin synthesis",
+    "D": "Decarboxylation of 5 hydroxy tryptophan forms niacin."
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Tryptophan forms both niacin and serotonin. (Option A) Carcinoid syndrome causes excess production of serotonin by carcinoid tumors and tryptophan is deficient for the synthesis of niacin causing niacin deficiency."
+    },
+    {
+     "type": "paragraph",
+     "text": "Synthesis of Serotonin Other causes of niacin deficiency include Hartnup's disease, in maize eaters, and drugs like Isoniazid Tryptophan hydroxylase is required for Niacin synthesis (Option C): Tryptophan hydroxylase is required for the synthesis of serotonin Decarboxylation of 5 hydroxy tryptophan forms niacin (Option D): Decarboxylation of 5 hydroxy tryptophan forms serotonin"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L18_Q001_E1"
+    }
+   ]
+  },
+  {
+   "id": "15-3",
+   "question": "A 45-year-old patient presents with episodes of palpitations, sweating, and severe headaches. These episodes occur intermittently and are associated with hypertension. Laboratory tests reveal elevated levels of plasma free metanephrines and urinary Vanillyl Mandelic Acid. Which of the following enzymes are directly involved in the synthesis of these metabolites?",
+   "options": {
+    "A": "Monoamine oxidase, Catechol-O-methyltransferase",
+    "B": "Glutamate decarboxylase, Tyrosine hydroxylase",
+    "C": "Tyrosine hydroxylase, Catechol-O-methyltransferase",
+    "D": "Tyrosine hydroxylase, Monoamine oxidase"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Monoamine oxidase & Catechol-O-methyltransferase are directly involved in the metabolism of catecholamines, leading to the formation of metanephrines and vanillylmandelic acid (VMA). In Pheochromocytoma, there is elevation of catecholamines leading to increased breakdown of epinephrine and norepinephrine, consequently increased levels of metabolites such as metanephrines and vanillylmandelic acid."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L18_Q003_E1"
+    }
+   ]
+  },
+  {
+   "id": "15-4",
+   "question": "Which of the following statements about Segawa syndrome is incorrect?",
+   "options": {
+    "A": "Segawa syndrome is autosomal dominant.",
+    "B": "Patients have a defect in the GTP cyclohydrolase enzyme.",
+    "C": "CSF Biopterin levels are elevated.",
+    "D": "Females are more commonly affected than males."
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "In Segawa syndrome, blood phenylalanine levels are high. The syndrome is characterized by a defect in the GTP cyclohydrolase enzyme, which leads to reduced levels of tetrahydrobiopterin (BH4)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Segawa Syndrome / Dopa-responsive dystonia (DRD) Inheritance Pattern Autosomal dominant (Option A):** Clinical Features Dystonia with diurnal variation (worsens in the afternoon and evening) Incidence based on sex More common in females than males (Option D) Genetic Mutation Defect in the GTP cyclohydrolase enzyme (Option B) Biochemical Findings Reduced tetrahydrobiopterin (BH4) levels Normal or high blood phenylalanine levels CSF Biopterin levels are low Diagnosis Clinical observation of dystonia patterns Genetic testing for GTP cyclohydrolase enzyme mutation"
+    }
+   ]
+  },
+  {
+   "id": "15-5",
+   "question": "A newborn screening test reveals elevated phenylalanine levels, prompting further investigation. Genetic testing indicates a defect in dihydrobiopterin reductase. Based on this information, Which type of phenylketonuria does the patient most likely have?",
+   "options": {
+    "A": "Classic phenylketonuria",
+    "B": "Non-classic phenylketonuria Type II",
+    "C": "Non-classic phenylketonuria Type IV",
+    "D": "Non-classic phenylketonuria Type V"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Non-classic phenylketonuria Type II is characterized by a defect in dihydrobiopterin reductase."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Type Enzyme Defect Description Classic PKU (Option A):** Phenylalanine hydroxylase (PAH) Defect in PAH leads to elevated phenylalanine levels and symptoms such as developmental delays and musty odor. Non-classical PKU Type II & III Dihydrobiopterin reductase Defect in dihydrobiopterin reductase, leading to elevated phenylalanine levels. Non-classical PKU Type IV & V (Option C & D) Tetrahydrobiopterin (BH4) formation Defect in the formation of tetrahydrobiopterin, a cofactor needed for phenylalanine hydroxylase, leading to hyperphenylalaninemia."
+    }
+   ]
+  },
+  {
+   "id": "15-6",
+   "question": "A 12-year-old boy is brought to the ophthalmologist by his parents due to progressive vision loss, particularly at night. Fundoscopic examination reveals circular areas of chorioretinal atrophy and peripheral retinal degeneration. Laboratory tests indicate markedly elevated plasma ornithine levels. What is the primary biochemical defect in this patient's condition?",
+   "options": {
+    "A": "Deficiency of ornithine transcarbamylase",
+    "B": "Deficiency of ornithine aminotransferase",
+    "C": "Deficiency of ornithine decarboxylase",
+    "D": "Deficiency of ornithine cyclodeaminase"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Gyrate atrophy of the retina is caused by a deficiency in the enzyme ornithine aminotransferase (OAT), which leads to the accumulation of ornithine in the plasma. Ornithine is toxic to the retinal pigment epithelium and causes gyrate atrophy of the retina. This condition manifests with progressive vision loss, especially night blindness, and characteristic fundoscopic findings of chorioretinal atrophy."
+    },
+    {
+     "type": "paragraph",
+     "text": "Management includes a Arginine restricted diet and vitamin B6 supplementation, as OAT activity can be B6-dependent in some patients."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Ornithine transcarbamylase (Option A):** is involved in the urea cycle, not directly related to gyrate atrophy."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Ornithine decarboxylase (Option C):** is involved in polyamine synthesis, not related to ornithine accumulation or retinal degeneration."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Ornithine cyclodeaminase (Option D):** is not related to the metabolic pathway implicated in gyrate atrophy."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L18_Q006_E1"
+    }
+   ]
+  },
+  {
+   "id": "15-7",
+   "question": "A 5-year-old boy is brought to recurrent kidney stones and abdominal pain. Urinalysis reveals hexagonal crystals, and a 24-hour urine test shows elevated levels of cystine. Which condition is the most likely diagnosis?",
+   "options": {
+    "A": "Cystinuria",
+    "B": "Cystinosis",
+    "C": "Hyperoxaluria",
+    "D": "Nephrocalcinosis"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "**Cystinuria (Option A):** is correct because it is caused by the defect of a transporter that reabsorbs cysteine, ornithine, lysine and arginine in PCT and it causes recurrent kidney stones and hexagonal cystine crystals Cystinosis (Option B) is incorrect is a lysosomal storage disorder caused by a defect in the transport protein cystinosin, leading to cystine accumulation within cells and formation of crystals in various tissues, including the cornea, causing photophobia. This condition also results in kidney damage, causing symptoms like polyuria and polydipsia, and recurrent kidney stones. The presence of characteristic crystals in the cornea on slit-lamp examination and hexagonal crystals in the urine supports the diagnosis of cystinosis. Hyperoxaluria"
+    },
+    {
+     "type": "paragraph",
+     "text": "(Option C) is incorrect because it leads to calcium oxalate stones (not cystine stones) and does not cause corneal deposits or Fanconi syndrome."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Nephrocalcinosis (Option D):** is incorrect because it refers to calcium deposition in the kidney and does not explain cystine crystals, Fanconi syndrome, or corneal involvement."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L18_Q007_E1"
+    }
+   ]
+  },
+  {
+   "id": "15-8",
+   "question": "A 10-year-old girl is evaluated for developmental delay. Physical examination reveals a tall, thin build, scoliosis, and ectopia lentis. Laboratory tests show elevated levels of homocysteine and methionine in the plasma. Treatment is initiated with vitamin B6 (pyridoxine) and folate. Homocysteine levels improve, but methionine levels remain elevated. Based on this scenario, what type of defect does the patient most likely have?",
+   "options": {
+    "A": "Type 1 Homocystinuria",
+    "B": "Type 2 Homocystinuria",
+    "C": "Type 3 Homocystinuria",
+    "D": "Marfan Syndrome"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Type 1 vs Type 2 Homocystinuria: Feature Type - I Homocystinuria Type - II Homocystinuria Enzyme Deficiency Cystathionine beta-synthase Methionine synthase Metabolic Pathway Affected Homocysteine to cystathionine Homocysteine to methionine Elevated Metabolites Homocysteine and methionine Homocysteine and elevated levels of methionine Biochemical Diagnosis Low levels of cysteine. High levels of methionine. High levels of cysteine."
+    },
+    {
+     "type": "paragraph",
+     "text": "Low levels of methionine. Treatment Vitamin B6 (pyridoxine) supplementation; low-methionine diet; cysteine supplementation Vitamin B12 and folate supplementation; low-methionine diet Type 3 Homocystinuria (Option C) is a rare form not commonly linked with elevated methionine and does not match the patient's response to treatment."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Marfan Syndrome (Option D):** shares some physical traits (tall stature, scoliosis) but it does not include elevated homocysteine levels or vitamin B6 response."
+    }
+   ]
+  },
+  {
+   "id": "15-9",
+   "question": "A 7-year-old boy is brought with recurrent episodes of a red, scaly rash that worsens with sun exposure, as well as intermittent episodes of diarrhea and mood changes. A urine sample reveals an abnormal presence of neutral amino acids. The patient's diet is balanced, and there is no history of similar symptoms in the family. Laboratory tests indicate a deficiency in niacin despite adequate dietary intake. What is the underlying cause of the patient's condition?",
+   "options": {
+    "A": "Deficiency in tryptophan hydroxylase",
+    "B": "Deficiency in the neutral amino acid transporter",
+    "C": "Overactivity of serotonin decarboxylase",
+    "D": "Excessive dietary leucine"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Hartnup’s disease: It is caused by a defect in the neutral amino acid transporter in the kidneys and intestines, leading to poor absorption and increased excretion of neutral amino acids like tryptophan. This results in decreased availability of tryptophan for niacin synthesis, leading to symptoms similar to pellagra despite adequate dietary intake. The characteristic skin rash, diarrhea, and mood changes are consistent with this diagnosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Tryptophan hydroxylase (Option A):** is involved in serotonin synthesis, not amino acid transport."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Overactivity of serotonin decarboxylase (Option C):** would affect serotonin levels, not amino acid transport."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Excessive dietary leucine (Option D):** can interfere with tryptophan metabolism, but it is not the primary cause of Hartnup's disease."
+    }
+   ]
+  },
+  {
+   "id": "15-10",
+   "question": "A 45-year-old man presents with symptoms of diarrhea, dermatitis, and dementia. On further investigation, his diet is found to be predominantly corn-based, and he has a history of alcohol use disorder. Laboratory tests reveal low levels of tryptophan and niacin in his blood. Which enzyme deficiency is most likely contributing to the patient's condition?",
+   "options": {
+    "A": "Tryptophan hydroxylase",
+    "B": "Kynureninase",
+    "C": "Serotonin decarboxylase",
+    "D": "Niacinamide adenine dinucleotide synthetase"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Pellagra is a condition that results from a deficiency of niacin (vitamin B3) or tryptophan. It is characterized by three main symptoms: dermatitis, diarrhea, and dementia. Kynureninase is an enzyme in the kynurenine pathway, responsible for converting tryptophan to niacin. A low activity of this enzyme is observed in B6 deficiency, which is caused by alcoholism. This can exacerbate pellagra caused by maize or corn intake."
+    },
+    {
+     "type": "paragraph",
+     "text": "Causes of Pellagra: Diet with Niacin deficiency. Tryptophan (60 mg Tryptophan = 1 mg Niacin) deficiency in the maize-based diet. Tryptophan malabsorption - Hartnup's disease. Carcinoid Syndrome - Tryptophan is used to form Serotonin leading to niacin deficiency Vitamin B6 deficiency - inactivates Kynenurinase. Leucine pellagra - Quinolinate phosphoribosyltransferase (QPRTASE) enzyme is inhibited in a leucine-rich diet."
+    },
+    {
+     "type": "paragraph",
+     "text": "Example: sorghum diet which is rich in leucine."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Tryptophan hydroxylase (Option A):** converts tryptophan to 5-hydroxytryptophan in the serotonin synthesis pathway, not involved in niacin synthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Serotonin decarboxylase (Option C):** converts 5-hydroxytryptophan to serotonin, not in niacin synthesis. Niacinamide adenine dinucleotide synthetase (Option"
+    },
+    {
+     "type": "paragraph",
+     "text": "D) converts niacinamide to NAD (nicotinamide adenine dinucleotide), a form of niacin. It is not directly related to the metabolism of tryptophan into niacin."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L18_Q010_E1"
+    }
+   ]
+  }
+ ]
+}
