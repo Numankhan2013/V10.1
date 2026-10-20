@@ -4,6 +4,7 @@ from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 import json
 from pathlib import Path
+import sys
 import threading
 
 from playwright.sync_api import sync_playwright
@@ -19,10 +20,20 @@ CATEGORIES = {
 }
 
 
+def page_era_physiology():
+    """Physiology IDs still explained by source-PDF pages (kept from the earlier edition)."""
+    sys.path.insert(0, str(ROOT / "tools"))
+    from build_prepladder_physiology_bank import app_record
+    return {q["id"] for q in app_record()["questions"] if q["edition"] == "earlier"}
+
+
 def choose_representatives(items):
-    # PrepLadder Biochemistry renders its 2025-edition figures through the text-bank
-    # renderer (tools/verify_prepladder_biochemistry_browser.py), not source visuals.
-    items = [item for item in items if item.get("subject") != "Biochemistry"]
+    # PrepLadder Biochemistry and Physiology render their 2025-edition figures through
+    # the text-bank renderer (tools/verify_prepladder_<subject>_browser.py), not source
+    # visuals; only Physiology questions kept from the earlier edition still use them.
+    earlier = page_era_physiology()
+    items = [item for item in items if item.get("subject") != "Biochemistry"
+             and (item.get("subject") != "Physiology" or item.get("questionId") in earlier)]
     selected = {}
     for label, flag in CATEGORIES.items():
         match = next((item for item in items if flag in item.get("riskFlags", [])), None)
