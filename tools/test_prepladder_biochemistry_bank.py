@@ -140,7 +140,7 @@ def main() -> None:
     page = assemble((ROOT / "app/src/main/assets/index.html").read_text(encoding="utf-8"))
     for marker in (
         '<script defer src="prepladder_biochemistry_visual_metadata.js"></script>',
-        "const TEXT_BIOCHEMISTRY = ",
+        "const TEXT_EDITION = ",
     ):
         assert page.count(marker) == 1, marker
     print(f"PREPLADDER_BIOCHEMISTRY_TEST_OK questions={len(questions)} topics={len(topics)} pyq={len(pyq)} "

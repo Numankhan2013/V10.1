@@ -74,6 +74,7 @@
 <script defer src="prepladder_pathology_visual_metadata.js"></script>
 <script defer src="prepladder_pharmacology_visual_metadata.js"></script>
 <script defer src="prepladder_biochemistry_visual_metadata.js"></script>
+<script defer src="prepladder_physiology_visual_metadata.js"></script>
 <script defer src="marrow_visual_renderer.js"></script>
 </head>
 <body>
@@ -98,13 +99,13 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
 
   /* NK_MARROW_BANK_PILOT_V1_START */
   const MARROW_DATA = __NK_DATA_MARROW_DATA__;
-  // PrepLadder Biochemistry's 2025 edition is a text bank (with the Marrow
-  // records) and replaces the PDF-page bank in qbank_data.js in its place;
-  // the questions it continues keep their IDs.
-  const TEXT_BIOCHEMISTRY = (Array.isArray(MARROW_DATA.records)?MARROW_DATA.records:[]).find(record=>record&&record.bank==='PrepLadder'&&record.subject==='Biochemistry');
+  // The 2025 PrepLadder editions of Biochemistry and Physiology are text banks
+  // (with the Marrow records) and replace the PDF-page banks in qbank_data.js and
+  // subjects_qbank_data.js in their place; the questions they continue keep their IDs.
+  const TEXT_EDITION = subject=>(Array.isArray(MARROW_DATA.records)?MARROW_DATA.records:[]).find(record=>record&&record.bank==='PrepLadder'&&record.subject===subject);
   const SUBJECTS = [
-    TEXT_BIOCHEMISTRY||{subject:'Biochemistry', topics:BASE_DATA.chapters.map(c=>({id:String(c.id),subject:'Biochemistry',title:c.title,questionCount:c.questionCount,startPage:c.startPage})), questions:BASE_DATA.questions.map(q=>({...q,subject:'Biochemistry',bank:'PrepLadder'}))},
-    ...(Array.isArray(SUBJECT_DATA.subjects)?SUBJECT_DATA.subjects:[]).map(record=>({...record,questions:(record.questions||[]).map(q=>({...q,bank:q.bank||'PrepLadder'}))}))
+    TEXT_EDITION('Biochemistry')||{subject:'Biochemistry', topics:BASE_DATA.chapters.map(c=>({id:String(c.id),subject:'Biochemistry',title:c.title,questionCount:c.questionCount,startPage:c.startPage})), questions:BASE_DATA.questions.map(q=>({...q,subject:'Biochemistry',bank:'PrepLadder'}))},
+    ...(Array.isArray(SUBJECT_DATA.subjects)?SUBJECT_DATA.subjects:[]).map(record=>record.subject==='Physiology'&&TEXT_EDITION('Physiology')||({...record,questions:(record.questions||[]).map(q=>({...q,bank:q.bank||'PrepLadder'}))}))
   ];
 /* @module question_content_hygiene.js */
   const SUBJECT_BY_NAME = Object.fromEntries(SUBJECTS.map(x=>[x.subject,x]));

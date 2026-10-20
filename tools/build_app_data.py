@@ -52,15 +52,16 @@ def marrow_data() -> str:
     from marrow_bank_data import app_marrow_records, validate_biochemistry_batches
     records = app_marrow_records()
     validate_biochemistry_batches(records[1])
-    # PrepLadder Microbiology, Pathology, Pharmacology and Biochemistry (2025
-    # edition) have structured text explanations, so they travel with the Marrow
+    # PrepLadder Microbiology, Pathology, Pharmacology, Biochemistry and Physiology
+    # (2025 editions) have structured text explanations, so they travel with the Marrow
     # records; the app files them under PrepLadder by their bank.
     from build_prepladder_microbiology_bank import app_record
     from build_prepladder_pathology_bank import app_record as pathology_record
     from build_prepladder_pharmacology_bank import app_record as pharmacology_record
     from build_prepladder_biochemistry_bank import app_record as biochemistry_record
+    from build_prepladder_physiology_bank import app_record as physiology_record
     return js_json({"records": records + [app_record(), pathology_record(), pharmacology_record(),
-                                          biochemistry_record()]})
+                                          biochemistry_record(), physiology_record()]})
 
 
 def marrow_explanation_gold() -> str:
@@ -109,6 +110,8 @@ def release_marrow_figures() -> None:
     release_prepladder_pharmacology()
     from build_prepladder_biochemistry_bank import release as release_prepladder_biochemistry
     release_prepladder_biochemistry()
+    from build_prepladder_physiology_bank import release as release_prepladder_physiology
+    release_prepladder_physiology()
 
 
 BUILDERS = {
