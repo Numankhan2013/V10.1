@@ -31,7 +31,8 @@ BANK = TextBank(
               "wbc": "WBC", "all": "ALL", "aml": "AML", "i": "I", "ii": "II"},
     # The owner's study index (2026-10-20). Mixed PYQ sets are placed by their content:
     # 64 (molluscum, connective tissue) with Skin; 66-67 (bone, soft-tissue tumors) with Bone;
-    # 87 (inherited coagulopathy) with Platelets; 85 and 88-90 (lab methods, mixed) Miscellaneous.
+    # 87 (inherited coagulopathy) with Platelets; 90 (transfusion, bleeding disorders) with Blood Banking;
+    # 85, 88 and 89 (lab methods, stains, vacutainers) Miscellaneous.
     index=[
         ("Cell Injury", [1, 2, 3, 4, 5]),
         ("Inflammation", [6, 7, 8, 9]),
@@ -52,9 +53,9 @@ BANK = TextBank(
         ("Hematology: Red Blood Cells", [68, 69, 70, 71, 72, 73]),
         ("Hematology: White Blood Cells", [74, 75, 76, 77, 78, 79, 80]),
         ("Hematology: Platelets and Bleeding Disorders", [81, 82, 87]),
-        ("Blood Banking and Transfusion Medicine", [83, 84]),
+        ("Blood Banking and Transfusion Medicine", [83, 84, 90]),
         ("Bone Disorders", [65, 66, 67]),
-        ("Miscellaneous", [85, 88, 89, 90]),
+        ("Miscellaneous", [85, 88, 89]),
     ],
 )
 
