@@ -32,12 +32,17 @@ def choose_representatives(items):
     # the text-bank renderer (tools/verify_prepladder_<subject>_browser.py), not source
     # visuals; only Physiology questions kept from the earlier edition still use them.
     earlier = page_era_physiology()
-    items = [item for item in items if item.get("subject") != "Biochemistry"
-             and (item.get("subject") != "Physiology" or item.get("questionId") in earlier)]
+    page_era = [item for item in items if item.get("subject") != "Biochemistry"
+                and (item.get("subject") != "Physiology" or item.get("questionId") in earlier)]
     selected = {}
     for label, flag in CATEGORIES.items():
-        match = next((item for item in items if flag in item.get("riskFlags", [])), None)
+        match = next((item for item in page_era if flag in item.get("riskFlags", [])), None)
         if match is None:
+            # A kind of figure only the 2025 text banks still carry is covered by their
+            # own verifiers; one missing from the audit altogether is a regression.
+            if any(flag in item.get("riskFlags", []) for item in items):
+                print(f"PREPLADDER_VISUALS_SKIP {label}: only in 2025 text banks")
+                continue
             raise SystemExit(f"PrepLadder visual audit has no representative {label} candidate ({flag})")
         selected[label] = match
     return selected
