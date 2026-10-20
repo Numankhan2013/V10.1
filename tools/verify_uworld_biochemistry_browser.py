@@ -338,7 +338,7 @@ def main():
                 # My Subjects opens collapsed; enter the subject through the app entry point.
                 page.evaluate('QB.nkOpenSubjectLibrary("Biochemistry")')
                 page.locator('button.nk-bank-card').filter(has_text='PrepLadder').click()
-                expect(page.locator('button.nk-topic-row')).to_have_count(28)
+                expect(page.locator('button.nk-topic-row')).to_have_count(39)
                 assert not page.evaluate('document.documentElement.scrollWidth>innerWidth')
                 if width<=820:
                     # Execute a real scheduled-review failure; it changes FSRS only.
