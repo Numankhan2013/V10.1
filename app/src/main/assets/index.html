@@ -73,6 +73,7 @@
 <script defer src="prepladder_microbiology_visual_metadata.js"></script>
 <script defer src="prepladder_pathology_visual_metadata.js"></script>
 <script defer src="prepladder_pharmacology_visual_metadata.js"></script>
+<script defer src="prepladder_biochemistry_visual_metadata.js"></script>
 <script defer src="marrow_visual_renderer.js"></script>
 </head>
 <body>
@@ -96,17 +97,22 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
   }
 
   /* NK_MARROW_BANK_PILOT_V1_START */
+  const MARROW_DATA = __NK_DATA_MARROW_DATA__;
+  // PrepLadder Biochemistry's 2025 edition is a text bank (with the Marrow
+  // records) and replaces the PDF-page bank in qbank_data.js in its place;
+  // the questions it continues keep their IDs.
+  const TEXT_BIOCHEMISTRY = (Array.isArray(MARROW_DATA.records)?MARROW_DATA.records:[]).find(record=>record&&record.bank==='PrepLadder'&&record.subject==='Biochemistry');
   const SUBJECTS = [
-    {subject:'Biochemistry', topics:BASE_DATA.chapters.map(c=>({id:String(c.id),subject:'Biochemistry',title:c.title,questionCount:c.questionCount,startPage:c.startPage})), questions:BASE_DATA.questions.map(q=>({...q,subject:'Biochemistry',bank:'PrepLadder'}))},
+    TEXT_BIOCHEMISTRY||{subject:'Biochemistry', topics:BASE_DATA.chapters.map(c=>({id:String(c.id),subject:'Biochemistry',title:c.title,questionCount:c.questionCount,startPage:c.startPage})), questions:BASE_DATA.questions.map(q=>({...q,subject:'Biochemistry',bank:'PrepLadder'}))},
     ...(Array.isArray(SUBJECT_DATA.subjects)?SUBJECT_DATA.subjects:[]).map(record=>({...record,questions:(record.questions||[]).map(q=>({...q,bank:q.bank||'PrepLadder'}))}))
   ];
 /* @module question_content_hygiene.js */
   const SUBJECT_BY_NAME = Object.fromEntries(SUBJECTS.map(x=>[x.subject,x]));
   SUBJECTS.forEach(record=>(record.questions||[]).forEach(question=>nkSanitizeMarrowQuestion(question)));
-  const MARROW_DATA = __NK_DATA_MARROW_DATA__;
   const MARROW_RECORDS = (Array.isArray(MARROW_DATA.records) ? MARROW_DATA.records : [MARROW_DATA]).filter(record=>record&&record.bank!=='PrepLadder');
-  // PrepLadder Microbiology was extracted as structured text, not PDF pages, so
-  // it ships with the Marrow records and joins the PrepLadder subjects here.
+  // The PrepLadder text banks (Microbiology, Pathology, Pharmacology) were extracted
+  // as structured text, not PDF pages, so they ship with the Marrow records and
+  // join the PrepLadder subjects here.
   (Array.isArray(MARROW_DATA.records)?MARROW_DATA.records:[]).filter(record=>record&&record.bank==='PrepLadder'&&record.subject&&!SUBJECT_BY_NAME[record.subject]).forEach(record=>{
     SUBJECTS.push(record);
     SUBJECT_BY_NAME[record.subject]=record;
