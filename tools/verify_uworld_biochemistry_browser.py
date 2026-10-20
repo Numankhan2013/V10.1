@@ -69,7 +69,7 @@ def main():
                 page.goto(origin, wait_until='domcontentloaded')
                 page.wait_for_function('window.QB && window.__uworldTest')
                 records = page.evaluate('__uworldTest.records()')
-                expected = {('Anatomy', 'PrepLadder'): 1068, ('Physiology', 'PrepLadder'): 899, ('Biochemistry', 'PrepLadder'): 719,
+                expected = {('Anatomy', 'PrepLadder'): 1068, ('Physiology', 'PrepLadder'): 899, ('Biochemistry', 'PrepLadder'): 867,
                             ('Anatomy', 'Marrow'): 1115, ('Physiology', 'Marrow'): 1014, ('Biochemistry', 'Marrow'): 582,
                             ('Microbiology', 'PrepLadder'): 1202, ('Pathology', 'PrepLadder'): 1459,
                             ('Pharmacology', 'PrepLadder'): 1321,
@@ -338,7 +338,7 @@ def main():
                 # My Subjects opens collapsed; enter the subject through the app entry point.
                 page.evaluate('QB.nkOpenSubjectLibrary("Biochemistry")')
                 page.locator('button.nk-bank-card').filter(has_text='PrepLadder').click()
-                expect(page.locator('button.nk-topic-row')).to_have_count(28)
+                expect(page.locator('button.nk-topic-row')).to_have_count(39)
                 assert not page.evaluate('document.documentElement.scrollWidth>innerWidth')
                 if width<=820:
                     # Execute a real scheduled-review failure; it changes FSRS only.

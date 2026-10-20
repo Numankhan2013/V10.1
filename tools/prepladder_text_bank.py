@@ -45,8 +45,8 @@ SOURCE_LABEL = "PrepLadder November 2025 edition"
 SMALL = {"and", "of", "to", "in", "the", "with", "for", "or", "on", "at", "by", "vs"}
 
 # For some questions the source PDF itself prints only a sentence tail as the
-# explanation ("Explanation: of the correct answer.", "for Assertion."). The
-# fragment goes; the question says so instead of showing it.
+# explanation ("Explanation: of the correct answer.", "for Assertion.", "of Option D").
+# The fragment goes; the question says so instead of showing it.
 FRAGMENT = re.compile(r"^[a-z][^.]{0,40}\.$")
 NO_EXPLANATION = "The source PDF prints no explanation for this question."
 
@@ -138,6 +138,10 @@ class TextBank:
 
     def topic_id(self, module: int) -> str:
         return f"{self.slug}-{module}"
+
+    def question_id(self, topic: dict, number: int, q: dict) -> str:
+        """The app ID progress is keyed by; a bank that replaces an earlier edition keeps its IDs."""
+        return f"{topic['id']}-{number}"
 
     def ordered_topics(self, topics: dict[int, dict]) -> list[dict]:
         """Topics in index order with the index's section titles. Lesson ids are unchanged,
@@ -338,7 +342,7 @@ class TextBank:
                 if bare:
                     blocks.insert(0, {"type": "paragraph", "text": NO_EXPLANATION})
                 blocks = self.join_reference_tail(blocks)
-                app_id = f"{topic['id']}-{number}"
+                app_id = self.question_id(topic, number, q)
                 reopened = openings.pop(app_id, None)
                 if reopened and not opening and not reopened.get("lead"):
                     self.fail(f"{app_id}: hand-written opening for an explanation that opens whole")

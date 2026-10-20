@@ -381,8 +381,9 @@ def main():
             page.evaluate("window.QB.nav('topics')");page.wait_for_timeout(100)
             page.screenshot(path=str(OUT/'07c-topics-tablet.png'))
             page.set_viewport_size({'width':390,'height':844})
-            # Exercise authoritative source PDFs in real question explanations.
-            for subject in ('Biochemistry','Physiology','Anatomy'):
+            # Exercise authoritative source PDFs in real question explanations (PrepLadder
+            # Biochemistry explains in text since the 2025 edition).
+            for subject in ('Physiology','Anatomy'):
                 page.evaluate('(subject)=>window.QB.nav(\'banks\',subject)',subject);page.wait_for_timeout(100)
                 page.locator('button.nk-bank-card').filter(has_text='PrepLadder').click();page.wait_for_timeout(100)
                 page.locator('button.nk-topic-row').first.click();page.wait_for_timeout(100)
