@@ -110,7 +110,7 @@ def main() -> None:
                 assert page.locator('.option-list .correct').count() == 0
                 first = session['questionIds'][0]
                 wrong = page.evaluate('''id=>{
-                  const q=[...(window.QBANK_DATA?.questions||[]),...(window.SUBJECT_QBANK_DATA.subjects||[]).flatMap(r=>r.questions||[]),...(window.NK_DATA_MARROW_DATA?.records||[]).flatMap(r=>r.questions||[])].find(q=>String(q.id)===String(id));
+                  const q=[...(window.NK_DATA_MARROW_DATA?.records||[]).flatMap(r=>r.questions||[]),...(window.QBANK_DATA?.questions||[]),...(window.SUBJECT_QBANK_DATA.subjects||[]).flatMap(r=>r.questions||[])].find(q=>String(q.id)===String(id));
                   return Number(q.correctOption)%4+1;
                 }''', first)
                 page.locator('.option-list button').nth(wrong - 1).click()

@@ -62,7 +62,7 @@ def main():
                 def answer(number, wrong=False):
                     page.evaluate('i=>window.QB.goIndex(i)', number)
                     settle(page)
-                    correct = page.evaluate('''id=>[...(window.QBANK_DATA?.questions||[]),...(window.SUBJECT_QBANK_DATA?.subjects||[]).flatMap(s=>s.questions||[])].find(q=>q.id===id).correctOption''', ids[number])
+                    correct = page.evaluate('''id=>[...((window.NK_DATA_MARROW_DATA?.records||[]).flatMap(r=>r.questions||[])),...(window.QBANK_DATA?.questions||[]),...(window.SUBJECT_QBANK_DATA?.subjects||[]).flatMap(s=>s.questions||[])].find(q=>q.id===id).correctOption''', ids[number])
                     choice = correct % 4 + 1 if wrong else correct
                     page.locator('.option-list button').nth(choice - 1).click()
                     page.wait_for_function('id=>window.QB.getState().activeSession.submitted[id]', arg=ids[number])

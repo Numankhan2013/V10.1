@@ -301,10 +301,12 @@ def main() -> None:
                 raise SystemExit(f"Caret exponents did not render semantically in the question stem: {exponent_text!r}")
 
             open_practice("17-1")
+            # The 2025 edition prints the charge (Mg²⁺); either form must read as Mg²⁺.
             magnesium = page.locator(".option-text").nth(3)
-            magnesium.locator("sup.nk-sci-sup").wait_for(state="visible")
-            if magnesium.locator("sup.nk-sci-sup").inner_text() != "2+" or "■" in magnesium.inner_text():
-                raise SystemExit(f"Safe ionic OCR notation was not repaired in an answer choice: {magnesium.inner_text()!r}")
+            magnesium.wait_for(state="visible")
+            sups = magnesium.locator("sup.nk-sci-sup").all_inner_texts()
+            if not ("Mg²⁺" in magnesium.inner_text() or sups == ["2+"]) or "■" in magnesium.inner_text():
+                raise SystemExit(f"Ionic notation does not read as Mg²⁺ in an answer choice: {magnesium.inner_text()!r}")
             # PrepLadder explanations deliberately use original source-PDF pages;
             # exercise the native enhanced-text explanation path with Marrow.
             page.evaluate("window.QB.nkOpenSubjectLibrary('Physiology')")
@@ -333,7 +335,9 @@ def main() -> None:
             acid_base = page.locator(".question-text")
             acid_base_subscripts = acid_base.locator("sub.nk-sci-sub").all_inner_texts()
             acid_base_superscripts = acid_base.locator("sup.nk-sci-sup").all_inner_texts()
-            if acid_base_subscripts != ["2", "3"] or acid_base_superscripts != ["−"]:
+            stem = acid_base.inner_text()
+            # The 2025 edition prints pCO₂ / HCO₃⁻ as characters; the earlier one needed markup.
+            if not ("pCO₂" in stem and "HCO₃⁻" in stem) and (acid_base_subscripts != ["2", "3"] or acid_base_superscripts != ["−"]):
                 raise SystemExit(
                     "Blood-gas notation did not render as pCO₂ / HCO₃⁻: "
                     f"sub={acid_base_subscripts!r} sup={acid_base_superscripts!r}"
