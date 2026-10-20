@@ -52,10 +52,11 @@ def main() -> None:
     for old_id in old:
         assert old_id in by_id or edition["duplicates"].get(old_id) in by_id, old_id
     editions = {e: sum(1 for q in questions if q["edition"] == e) for e in ("2025+earlier", "2025", "earlier")}
-    assert editions == {"2025+earlier": 669, "2025": 149, "earlier": 49}, editions
+    assert editions == {"2025+earlier": 668, "2025": 149, "earlier": 50}, editions
     # Where the 2025 edition has no usable explanation, the earlier question (same keyed
     # answer) stays with its PDF-page explanation.
-    for qid in ("21-29", "21-58", "27-5"):
+    # 15-2 prints only a figure and its references.
+    for qid in ("21-29", "21-58", "27-5", "15-2"):
         assert by_id[qid]["edition"] == "earlier" and "no usable explanation" in by_id[qid]["reviewNotes"][0], qid
     # A 2025 key its own explanation contradicts is corrected.
     assert by_id["11-33"]["correctOption"] == 1 and by_id["11-33"]["correctAnswerText"] == "17-hydroxylase deficiency"
@@ -96,7 +97,7 @@ def main() -> None:
         refs += kinds.count("references")
     # "given above" is all the PDF prints for one new question.
     assert lost == 1, lost
-    assert refs == 637, refs
+    assert refs == 636, refs
     assert [q["id"] for q in questions if q.get("reviewStatus") == "needs_review"] == ["biochemistry-q839906"]
 
     def opening(qid: str) -> str:
@@ -123,7 +124,7 @@ def main() -> None:
     assert "α-1,4" in by_id["5-10"]["stemTables"][0]["rows"][1][0]
 
     figures = json.loads(INVENTORY.read_text(encoding="utf-8"))["figures"]
-    assert len(figures) == 349 and len({f["imageId"] for f in figures}) == 349
+    assert len(figures) == 348 and len({f["imageId"] for f in figures}) == 348
     for figure in figures:
         assert figure["questionId"] in by_id, figure["imageId"]
         data = (ROOT / figure["file"]).read_bytes()
@@ -131,7 +132,7 @@ def main() -> None:
         assert jpeg_size(data) == (figure["width"], figure["height"]), figure["imageId"]
     runtime = RUNTIME.read_text(encoding="utf-8")
     payload = json.loads(runtime[runtime.index("{", runtime.index("Object.assign")):].split(",", 1)[1].rsplit(");", 1)[0])
-    assert sum(len(v) for v in payload.values()) == 349
+    assert sum(len(v) for v in payload.values()) == 348
     for rows in payload.values():
         for row in rows:
             assert (ROOT / "app/src/main/assets" / row["src"]).exists(), row["src"]

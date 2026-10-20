@@ -33,7 +33,9 @@ from pathlib import Path
 
 PLACEHOLDER = ""
 SKIP = re.compile(r"^(@Neet_pg_bot|See Answer in Part B → Q\d+|↑ Back to this question in Part A|Q\d+ \(p\. \d+\)|Part [AB] — .*)$")
-LESSON_HEAD = re.compile(r"(— Part [AB] Quick Jump|^Quick Jump|^Jump)$")
+# Audio and contact links the later PDFs print under a question, behind an icon glyph.
+LINKS = re.compile(r"^" + PLACEHOLDER + r"?\s*(Listen \((?:English|Hindi)\)|Listen to Audio \d*|Click here to contact the creator of this PDF|For queries & support: .*)$")
+LESSON_HEAD = re.compile(r"(— Part [AB] Quick Jump|^(?:[AB] )?Quick Jump|^Jump)$")
 # The PDF's own <img> tags leaked into a few explanations, after the image's alt text.
 HTML = re.compile(r'(?:\s*[A-Za-z][\w-]*(?: [\w-]+)?)?\s*"\s*data-author="[^>]*/>')
 CAPTION = re.compile(r"\s*(?:\(image\)\s*)?\{\{caption_text\}\}\s*")
@@ -126,7 +128,7 @@ def parse(q: dict) -> dict:
             figures[where].append({**tok[2], "para": len(paragraphs(expl))})
             continue
         text = tok[2].strip()
-        if not text or SKIP.match(text):
+        if not text or SKIP.match(text) or LINKS.match(text):
             continue
         m = re.match(r"^#?\s*([A-F])\. (.*)$", text)  # "#" marks the keyed option
         if stage in ("stem", "options") and m and (stage == "options" or m.group(1) == "A"):
@@ -134,7 +136,9 @@ def parse(q: dict) -> dict:
             opts[cur] = m.group(2)
             continue
         if text.startswith("Correct Answer:"):
-            stage, answer = "answer", re.match(r"Correct Answer:\s*([A-F])", text).group(1)
+            # A few print no key ("Correct Answer:" blank or "Unknown"); the extraction's,
+            # read from the explanation, stands in and the question is flagged.
+            stage, answer = "answer", (re.match(r"Correct Answer:\s*([A-F])\b", text) or [None, ""])[1]
             continue
         if text.startswith("Explanation:"):
             stage, text = "explanation", text[len("Explanation:"):].strip()
@@ -165,7 +169,7 @@ def read_pdf(path: Path) -> dict:
     for (part, lesson), stream in lesson_streams(pymupdf.open(path)).items():
         for number, q in cut_questions(stream).items():
             records.setdefault(f"{lesson}-{number}", {})[part] = parse(q)
-    broken = [k for k, r in records.items() if set(r) != {"A", "B"} or not r["B"]["answer"]]
+    broken = [k for k, r in records.items() if set(r) != {"A", "B"} or r["B"]["answer"] is None]
     if broken:
         fail(f"questions missing a part or key: {broken[:5]}")
     return records
@@ -213,9 +217,32 @@ def drop_key_tail(text: str, key_text: str) -> str:
     return text
 
 
-def to_rows(records: dict, gemini: dict, fix, prefix: str, images: Path, pdf_name: str) -> list[dict]:
+def extraction_text(row: dict) -> str:
+    parts = [row["question_stem_structured"]["text"]] + [o["text"] for o in row["options"]]
+    return "\n".join(parts + [json.dumps(block, ensure_ascii=False) for block in row["explanation_blocks"]])
+
+
+def restore_from(text: str, reference: str) -> str:
+    """Each placeholder run the subject's rules left, taken from the extraction's text of
+    the same question where the same words (up to 14 before, 10 after) surround it."""
+    def loose(part: str) -> str:
+        return r"\s*".join(re.escape(c) for c in part if not c.isspace())
+
+    for run in reversed(list(re.finditer(PLACEHOLDER + "+", text))):
+        left = text[:run.start()].split(PLACEHOLDER)[-1][-14:]
+        right = text[run.end():].split(PLACEHOLDER)[0][:10]
+        if len(re.sub(r"\s", "", left + right)) < 6:
+            continue
+        if hit := re.search(loose(left) + r"\s*(.{0,3}?)\s*" + loose(right), reference):
+            text = text[:run.start()] + hit.group(1) + text[run.end():]
+    return text
+
+
+def to_rows(records: dict, gemini: dict, fix, prefix: str, images: Path, pdf_name: str,
+            align: bool = False) -> list[dict]:
     def clean(text: str) -> str:
-        text = CAPTION.sub(" ", HTML.sub("", fix(text)))
+        restored = fix(text, lambda t: restore_from(t, reference)) if align else fix(text)
+        text = CAPTION.sub(" ", HTML.sub("", restored))
         # Bold runs end in a space before the punctuation that follows ("carboxylase , which").
         text = re.sub(r"\(\s+", "(", re.sub(r"(?<=[\w)])\s+(?=[,;)]|\.(?:\s|$))", "", text))
         return re.sub(r"\s+", " ", text).strip()
@@ -226,9 +253,18 @@ def to_rows(records: dict, gemini: dict, fix, prefix: str, images: Path, pdf_nam
     rows = []
     for key in sorted(records, key=lambda k: tuple(map(int, k.split("-")))):
         a, b, g = records[key]["A"], records[key]["B"], gemini[key]
+        reference = extraction_text(g)
         lesson, number = map(int, key.split("-"))
-        if not a["qid"] == b["qid"] == g["prepladder_qid"] or b["answer"] != g["correct_option"]:
+        if not a["qid"] == b["qid"] == g["prepladder_qid"] or b["answer"] not in ("", g["correct_option"]):
             fail(f"{key}: QID or key differs from the extraction")
+        unkeyed = not b["answer"]
+        if unkeyed:
+            b["answer"] = g["correct_option"]
+        # Options the PDF prints only inside a figure (or not at all) come from the
+        # extraction, and the question is flagged.
+        unprinted = sorted(b["options"]) != sorted(o["id"] for o in g["options"])
+        if unprinted:
+            b["options"] = {o["id"]: o["text"] for o in g["options"]}
         base = f"{prefix}_L{lesson:02d}_Q{number:03d}"
         imgs, placed = [], {}
         for n, fig in enumerate(a["figures"]["stem"], 1):
@@ -255,6 +291,10 @@ def to_rows(records: dict, gemini: dict, fix, prefix: str, images: Path, pdf_nam
         if refs := clean(b["references"]).strip(" ,."):
             blocks.append({"type": "text", "content": "References: " + refs})
         flags = [f for f in g["quality_flags"] if f.startswith(KEEP_FLAGS)]
+        if unkeyed:
+            flags.append("source_pdf_answer_key_missing: key taken from the explanation")
+        if unprinted:
+            flags.append("source_pdf_options_missing: options taken from the extraction")
         rows.append({
             "id": g["id"], "prepladder_qid": b["qid"], "module_index": lesson, "module_name": g["module_name"],
             "section_category": g["section_category"], "is_pyq_lesson": g["is_pyq_lesson"],
@@ -286,7 +326,7 @@ def main() -> None:
     gemini = {f"{r['module_index']}-{r['question_number']}": r
               for r in map(json.loads, filter(str.strip, args.gemini.read_text(encoding="utf-8").splitlines()))}
     records = read_pdf(args.pdf)
-    rows = to_rows(records, gemini, rules.fix, rules.PREFIX, args.images, args.pdf.name)
+    rows = to_rows(records, gemini, rules.fix, rules.PREFIX, args.images, args.pdf.name, getattr(rules, "ALIGN", False))
     args.out.write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in rows), encoding="utf-8")
     figures = sum(len(r["images"]) for r in rows)
     print(f"PREP11_PDF_OK questions={len(rows)} figures={figures} "
