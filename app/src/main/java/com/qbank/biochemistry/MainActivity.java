@@ -49,6 +49,9 @@ public class MainActivity extends Activity {
     private static final Uri APP_URL = Uri.parse(BuildConfig.APP_URL);
     // Production sits behind Cloudflare Access; its one-time-PIN login runs in the WebView.
     private static final String ACCESS_DOMAIN = ".cloudflareaccess.com";
+    // Access's "Sign in with Cloudflare" runs on the Cloudflare dashboard; it must stay
+    // in the WebView too, or the login completes in the browser and the app is left blank.
+    private static final String CLOUDFLARE_DOMAIN = "cloudflare.com";
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override protected void onCreate(Bundle savedInstanceState) {
@@ -196,7 +199,8 @@ public class MainActivity extends Activity {
         String host = url.getHost();
         if (host == null) return false;
         boolean app = host.equals(APP_URL.getHost()) && APP_URL.getScheme().equals(url.getScheme()) && url.getPort() == APP_URL.getPort();
-        return app || ("https".equals(url.getScheme()) && host.endsWith(ACCESS_DOMAIN));
+        boolean login = host.endsWith(ACCESS_DOMAIN) || host.equals(CLOUDFLARE_DOMAIN) || host.endsWith("." + CLOUDFLARE_DOMAIN);
+        return app || ("https".equals(url.getScheme()) && login);
     }
 
     private final class ShellBridge {

@@ -13,10 +13,14 @@ from __future__ import annotations
 import argparse
 import http.server
 import socketserver
+import sys
 import threading
 from pathlib import Path
 
 from playwright.sync_api import sync_playwright
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from build_prepladder_microbiology_bank import INDEX  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "build" / "marrow-ui-checks"
@@ -66,9 +70,9 @@ def main() -> None:
             card.click()
             page.wait_for_function("() => document.querySelectorAll('button.nk-topic-row').length===42", timeout=8000)
             body = page.locator("body").inner_text()
-            for section in ("General Microbiology", "Bacteriology", "Virology", "Mycology", "Parasitology", "Immunology"):
-                if section not in body:
-                    fail(f"section {section!r} missing")
+            headings = page.locator(".nk-topic-group > h2").all_inner_texts()
+            if headings != [section for section, _ in INDEX]:
+                fail(f"sections not in study-index order: {headings!r}")
             if page.locator("button.nk-topic-row").filter(has_text="Previous Year Questions").count() != 6:
                 fail("expected six Previous Year Questions lessons")
             page.screenshot(path=str(OUT / "plmicro-01-topics.png"), full_page=True)

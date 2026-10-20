@@ -17,17 +17,12 @@ sys.path.insert(0, str(ROOT / "tools"))
 
 from build_app_data import assemble  # noqa: E402
 from build_prepladder_pharmacology_bank import (  # noqa: E402
-    INVENTORY, NO_EXPLANATION, RUNTIME, app_record, lesson_title)
+    BANK, INVENTORY, NO_EXPLANATION, RUNTIME, app_record, lesson_title)
 from build_prepladder_microbiology_bank import jpeg_size, sha256  # noqa: E402
 
 PYQ_LESSONS = (1, 5, 10, 14, 16, 21, 27, 33, 42, 44, 48, 52, 55, 56, 57, 59)
 # The source prints five options (A-E) for these.
 FIVE_OPTIONS = {"pharmacology-42-2", "pharmacology-42-30", "pharmacology-42-31", "pharmacology-42-99"}
-SECTIONS = {"General Pharmacology", "Autonomic Nervous System", "Autacoids, NSAIDs, and Rheumatology",
-            "Renal Pharmacology", "Cardiovascular Pharmacology", "Central Nervous System Pharmacology",
-            "Endocrine Pharmacology", "Antimicrobials and Chemotherapy", "Respiratory Pharmacology",
-            "Gastrointestinal Pharmacology", "Hematological Pharmacology",
-            "Anticancer and Immunomodulator Pharmacology", "Anaesthetics and Miscellaneous Pharmacology"}
 
 
 def main() -> None:
@@ -37,13 +32,15 @@ def main() -> None:
     assert record["bank"] == "PrepLadder" and record["subject"] == "Pharmacology"
     assert record["explanationFormat"] == "structured"
     assert len(topics) == 59 and len(questions) == 1321
-    assert [t["id"] for t in topics] == [f"pharmacology-{n}" for n in range(1, 60)]
+    # Lessons follow the owner's study index; ids keep the extraction's lesson numbers.
+    order = [n for _, lessons in BANK.index for n in lessons]
+    assert sorted(order) == list(range(1, 60))
+    assert [(t["section"], t["id"]) for t in topics] == [(s, f"pharmacology-{n}") for s, lessons in BANK.index for n in lessons]
     pyq = [t for t in topics if t["pyq"]]
-    assert [t["id"] for t in pyq] == [f"pharmacology-{n}" for n in PYQ_LESSONS]
+    assert sorted(int(t["id"].split("-")[1]) for t in pyq) == list(PYQ_LESSONS)
     # The app tags a PYQ lesson by this exact title.
     assert all(t["title"] == "Previous Year Questions" for t in pyq)
     assert sum(t["questionCount"] for t in pyq) == 650
-    assert {t["section"] for t in topics} == SECTIONS
     assert lesson_title("Ans Introduction And Cholinergic Drugs") == "ANS Introduction and Cholinergic Drugs"
     assert lesson_title("Hpa Axis And Drugs Acting On Bone And Osteoporosis") == \
         "HPA Axis and Drugs Acting on Bone and Osteoporosis"

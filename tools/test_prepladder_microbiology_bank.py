@@ -16,7 +16,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 
 from build_app_data import assemble  # noqa: E402
 from build_prepladder_microbiology_bank import (  # noqa: E402
-    INVENTORY, RUNTIME, app_record, jpeg_size, load_edition_map, load_source, sha256, x_app_id)
+    INDEX, INVENTORY, RUNTIME, app_record, jpeg_size, load_edition_map, load_source, sha256, x_app_id)
 
 
 def main() -> None:
@@ -29,8 +29,9 @@ def main() -> None:
     assert [t["id"] for t in pyq] == [f"microbiology-{n}" for n in (6, 17, 26, 30, 37, 42)]
     assert all(t["title"] == "Previous Year Questions" for t in pyq)
     assert sum(t["questionCount"] for t in pyq) == 610
-    assert {t["section"] for t in topics} == {"General Microbiology", "Bacteriology", "Virology", "Mycology",
-                                              "Parasitology", "Immunology"}
+    # Lessons follow the owner's study index (build_prepladder_microbiology_bank.INDEX).
+    assert [(t["section"], t["id"]) for t in topics] == [(s, f"microbiology-{n}") for s, lessons in INDEX for n in lessons]
+    assert [t["title"] for t in topics if t["section"] == "Immunology"][:2] == ["Immunity", "Antigen, Antibody and Their Reactions"]
 
     ids = set()
     for q in questions:

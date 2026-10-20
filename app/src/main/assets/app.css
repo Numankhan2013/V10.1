@@ -922,6 +922,10 @@ html[data-nk-ui="geist"] .nk-topics-v114 .nk-filter-tabs button{border-top-color
 html[data-nk-ui="geist"] .nk-topics-v114 .nk-filter-tabs button.is-active{background-image:initial;background-color:var(--nkg-inverse-bg);color:var(--nkg-inverse-fg);border-top-color:var(--nkg-fg);border-right-color:var(--nkg-fg);border-bottom-color:var(--nkg-fg);border-left-color:var(--nkg-fg);box-shadow:none}
 html[data-nk-ui="geist"] .nk-topics-v114 .nk-topic-summary{color:var(--nkg-fg-3)}
 html[data-nk-ui="geist"] .nk-topic-group > h2{font-weight:600;color:var(--nkg-fg-2)}
+/* PrepLadder study-index groups: a faint label on the group's top rule, never a heading that competes with the lessons. */
+html[data-nk-ui="geist"] .nk-topic-group.is-index > h2{display:flex;align-items:center;gap:10px;margin:0 0 12px 2px;font-size:12px;line-height:16px;font-weight:500;color:var(--nkg-fg-3)}
+html[data-nk-ui="geist"] .nk-topic-group.is-index > h2::after{content:"";flex:1;height:1px;background:var(--nkg-border)}
+html[data-nk-ui="geist"] :is(body, #nkg-root) main.page .nk-topic-group.is-index > h2{font-weight:500 !important}
 html[data-nk-ui="geist"] .nk-topic-group .nk-topic-row{border-top-color:var(--nkg-border);border-right-color:var(--nkg-border);border-bottom-color:var(--nkg-border);border-left-color:var(--nkg-border);border-top-left-radius:12px;border-top-right-radius:12px;border-bottom-right-radius:12px;border-bottom-left-radius:12px;background-image:initial;background-color:color-mix(in srgb, var(--nkg-surface) 93%, transparent);box-shadow:none}
 html[data-nk-ui="geist"] .nk-topic-group .nk-topic-index{font-weight:600;color:var(--nkg-fg);background-image:initial;background-color:var(--nkg-surface-2);border-top-color:var(--nkg-border);border-right-color:var(--nkg-border);border-bottom-color:var(--nkg-border);border-left-color:var(--nkg-border);box-shadow:var(--nkg-border) 0px 0px 10px inset}
 html[data-nk-ui="geist"] .nk-topic-row.is-inprogress .nk-topic-index{background-image:initial;background-color:var(--nkg-surface-2);color:var(--nkg-fg);box-shadow:var(--nkg-border) 0px 0px 10px inset}

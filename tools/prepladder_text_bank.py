@@ -98,8 +98,12 @@ def source_hash(body: list[dict]) -> str:
 
 
 class TextBank:
-    def __init__(self, slug: str, subject: str, source_pdfs: str, expected: dict, acronyms: dict[str, str]):
+    def __init__(self, slug: str, subject: str, source_pdfs: str, expected: dict, acronyms: dict[str, str],
+                 index: list[tuple[str, list[int]]] | None = None):
         self.slug, self.subject, self.source_pdfs, self.expected = slug, subject, source_pdfs, expected
+        # The learner's study index: (section, lesson numbers) in the order the app lists them.
+        # Without it, lessons keep the extraction's order and section labels.
+        self.index = index
         # The extraction title-cases every word ("Cml And Cll", "Hodgkin'S").
         self.acronyms = acronyms
         self.tag = f"PREPLADDER_{slug.upper()}"
@@ -134,6 +138,20 @@ class TextBank:
 
     def topic_id(self, module: int) -> str:
         return f"{self.slug}-{module}"
+
+    def ordered_topics(self, topics: dict[int, dict]) -> list[dict]:
+        """Topics in index order with the index's section titles. Lesson ids are unchanged,
+        so progress keyed by lesson or question id carries over."""
+        if not self.index:
+            return [topics[k] for k in sorted(topics)]
+        order = [k for _, lessons in self.index for k in lessons]
+        if sorted(order) != sorted(topics):
+            self.fail(f"the study index must list every lesson once: {sorted(set(topics) ^ set(order))} "
+                      f"or repeats {sorted(k for k in set(order) if order.count(k) > 1)}")
+        for section, lessons in self.index:
+            for k in lessons:
+                topics[k]["section"] = section
+        return [topics[k] for k in order]
 
     # --- import -------------------------------------------------------------------
 
@@ -390,7 +408,7 @@ class TextBank:
         if openings:
             self.fail(f"hand-written openings for unknown questions: {sorted(openings)}")
         record = {"schema_version": "prepladder-text-bank-1.0", "subject": self.subject, "bank": "PrepLadder",
-                  "explanationFormat": "structured", "topics": [topics[k] for k in sorted(topics)],
+                  "explanationFormat": "structured", "topics": self.ordered_topics(topics),
                   "questions": questions}
         return record, figures
 
