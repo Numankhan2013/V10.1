@@ -245,7 +245,7 @@ def main():
             page.screenshot(path=str(OUT/'00e-physiology-q5-diffusion-repeat.png'),full_page=True)
             page.evaluate("window.QB.nav('banks','Physiology')");page.wait_for_timeout(80)
             page.locator('button.nk-bank-card').filter(has_text='PrepLadder').click();page.wait_for_timeout(100)
-            if page.locator('button.nk-topic-row').count()!=38: raise SystemExit('PrepLadder Physiology topics regressed')
+            if page.locator('button.nk-topic-row').count()!=49: raise SystemExit('PrepLadder Physiology topics regressed')
             page.evaluate("window.QB.nav('dashboard')");page.wait_for_timeout(80)
 
             page.locator('button.nk-subject-row').filter(has_text='Anatomy').click()
@@ -382,8 +382,8 @@ def main():
             page.screenshot(path=str(OUT/'07c-topics-tablet.png'))
             page.set_viewport_size({'width':390,'height':844})
             # Exercise authoritative source PDFs in real question explanations (PrepLadder
-            # Biochemistry explains in text since the 2025 edition).
-            for subject in ('Physiology','Anatomy'):
+            # Biochemistry and Physiology explain in text since their 2025 editions).
+            for subject in ('Anatomy',):
                 page.evaluate('(subject)=>window.QB.nav(\'banks\',subject)',subject);page.wait_for_timeout(100)
                 page.locator('button.nk-bank-card').filter(has_text='PrepLadder').click();page.wait_for_timeout(100)
                 page.locator('button.nk-topic-row').first.click();page.wait_for_timeout(100)

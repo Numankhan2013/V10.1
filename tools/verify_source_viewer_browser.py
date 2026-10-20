@@ -11,7 +11,8 @@ from app_page import built_page
 
 
 ROOT = Path(__file__).resolve().parents[1]
-QUESTION_ID = "physiology-9-6"
+# Kept from the earlier edition, so it still explains with its source-PDF pages.
+QUESTION_ID = "physiology-23-23"
 
 
 class Quiet(SimpleHTTPRequestHandler):
