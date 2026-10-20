@@ -31,7 +31,7 @@ def main():
     marker = 'getState:()=>state,'
     require(html.count(marker) == 1, 'Expected one QB read-only probe insertion point')
     require('NK_QUESTION_COMPLETENESS_REVIEWS_START' in html, 'Generated completeness compiler block missing')
-    probe = """__completeness:id=>{const q=BY_ID[id];if(!q)return null;const p=nkQuestionPresentationFor(q);return {id:q.id,valid:p.valid,decision:p.completenessDecision,stem:p.stem,table:p.table,options:p.options,correctOption:q.correctOption};},"""
+    probe = """__completeness:id=>{const q=BY_ID[id];if(!q)return null;const p=nkQuestionPresentationFor(q);return {id:q.id,valid:p.valid,decision:p.completenessDecision,stem:p.stem,table:p.table,options:p.options,correctOption:q.correctOption,structured:q.bank==='PrepLadder'&&q.explanationFormat==='structured'};},"""
     html = html.replace(marker, marker + probe, 1)
     output = ROOT / 'build/ui-checks/question-completeness'
     output.mkdir(parents=True, exist_ok=True)
@@ -100,6 +100,11 @@ def main():
                     # Every accepted review is checked against actual runtime objects;
                     # DOM checks below cover every blocked item and representative repairs.
                     runtime = page.evaluate('ids=>ids.map(id=>window.QB.__completeness(id))', [e['id'] for e in group])
+                    # A PrepLadder question rebuilt from a newer edition carries its own
+                    # structured text; page-era reviews do not apply to it (nkQuestionPageBank).
+                    kept = [(e, a) for e, a in zip(group, runtime) if not (a and a.get('structured'))]
+                    group = [e for e, _ in kept]
+                    runtime = [a for _, a in kept]
                     for entry, actual in zip(group, runtime):
                         qid, display = entry['id'], entry['display']
                         require(actual and actual['id'] == qid, f'{qid} missing from active bank runtime')
