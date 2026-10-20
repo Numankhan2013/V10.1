@@ -52,7 +52,13 @@ def main() -> None:
     for old_id in old:
         assert old_id in by_id or edition["duplicates"].get(old_id) in by_id, old_id
     editions = {e: sum(1 for q in questions if q["edition"] == e) for e in ("2025+earlier", "2025", "earlier")}
-    assert editions == {"2025+earlier": 672, "2025": 149, "earlier": 46}, editions
+    assert editions == {"2025+earlier": 669, "2025": 149, "earlier": 49}, editions
+    # Where the 2025 edition has no usable explanation, the earlier question (same keyed
+    # answer) stays with its PDF-page explanation.
+    for qid in ("21-29", "21-58", "27-5"):
+        assert by_id[qid]["edition"] == "earlier" and "no usable explanation" in by_id[qid]["reviewNotes"][0], qid
+    # A 2025 key its own explanation contradicts is corrected.
+    assert by_id["11-33"]["correctOption"] == 1 and by_id["11-33"]["correctAnswerText"] == "17-hydroxylase deficiency"
 
     ids = set()
     lost = refs = 0
@@ -70,7 +76,7 @@ def main() -> None:
         assert q["explanationFormat"] == "structured", q["id"]
         assert (q["edition"] == "2025") == q["id"].startswith("biochemistry-q"), q["id"]
         assert q["id"] == f"biochemistry-q{q['prepladderQid'][1:]}" or edition["continues"][q["prepladderQid"]] == q["id"]
-        assert len(q["options"]) == (5 if q["id"] == "21-29" else 4), q["id"]
+        assert len(q["options"]) == 4, q["id"]
         assert [o["letter"] for o in q["options"]] == list("ABCDE"[:len(q["options"])]), q["id"]
         blocks = q["structuredExplanation"]["blocks"]
         assert q["structuredExplanation"]["layout"] == "ordered-blocks" and blocks, q["id"]
@@ -88,11 +94,10 @@ def main() -> None:
         kinds = [b["type"] for b in blocks if b["type"] != "figure"]
         assert kinds.count("references") <= 1 and ("references" not in kinds or kinds[-1] == "references"), q["id"]
         refs += kinds.count("references")
-    # "given above" and "of Option D" are all the PDF prints for two questions.
-    assert lost == 2, lost
-    assert refs == 638, refs
-    assert sorted(q["id"] for q in questions if q.get("reviewStatus") == "needs_review") == \
-        ["21-29", "21-58", "27-5", "biochemistry-q839906"]
+    # "given above" is all the PDF prints for one new question.
+    assert lost == 1, lost
+    assert refs == 637, refs
+    assert [q["id"] for q in questions if q.get("reviewStatus") == "needs_review"] == ["biochemistry-q839906"]
 
     def opening(qid: str) -> str:
         first = by_id[qid]["structuredExplanation"]["blocks"][0]
@@ -103,14 +108,14 @@ def main() -> None:
     assert opening("biochemistry-q799706").startswith("Hyaluronic acid is a type of glycosaminoglycan")
     assert opening("6-4").startswith("Biotin is a crucial coenzyme for pyruvate carboxylase, which")
     # A label the PDF cut mid-word ("replication: Mismatch repair: …") goes too.
-    assert opening("21-58").startswith("Mismatch repair: DNA methylation")
+    assert opening("21-30").startswith("This option is correct. The assertion")
     assert drop_key_tail("replication: Mismatch repair: x", "DNA replication") == "Mismatch repair: x"
     assert drop_answer_lead("Correct Option D - Phenylketonuria (PKU): PKU is", {"D": "Phenylketonuria"}) == "PKU is"
     # Openings written by hand (openings.json).
     assert opening("9-7").startswith("Regulation of Ketogenesis: Hormonal Regulation")
     assert opening("21-13").startswith("Base Excision Repair (Option A): Removes")
     # Statements the PDF ran together, laid out as numbered tables.
-    assert sum(1 for q in questions if q.get("stemTables")) == 14
+    assert sum(1 for q in questions if q.get("stemTables")) == 13
     assert by_id["5-10"]["stemTables"][0]["rows"][1] == ["2. Glucose residues are connected by α-1,4 linkage"]
     # Characters the PDF drew as ZapfDingbats glyphs, restored from context.
     assert fix(f"CO{PLACEHOLDER} and HCO{PLACEHOLDER}{PLACEHOLDER}") == "CO₂ and HCO₃⁻"

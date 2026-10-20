@@ -39,7 +39,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import build_prepladder_microbiology_bank as micro  # noqa: E402
-from prepladder_text_bank import ROOT, TextBank  # noqa: E402
+from prepladder_text_bank import NO_EXPLANATION, ROOT, TextBank  # noqa: E402
 
 OLD_BANK = ROOT / "app/src/main/assets/qbank_data.js"
 OLD_PDF = "Biochemistry_QBank_Source.pdf"
@@ -49,6 +49,11 @@ MATCH, STEM, OPTIONS = 0.80, 0.55, 0.999
 # "Dermatan sulfate (Option C). However…" reads "**… (Option C):** . However…" once its
 # label is bolded; the stray stop or comma goes.
 LABEL_PUNCT = re.compile(r"(\):(?:\*\*)?) [.,] ")
+# 2025 keys checked against the question and the 2025 explanation itself. 11-33 asks
+# for the least likely cause of virilisation in a girl; the explanation describes
+# 17-hydroxylase deficiency (no androgens), but the key prints 21-hydroxylase.
+KEY_FIXES = {"11-33": (1, "2025 key prints B (21-hydroxylase deficiency); its own explanation and the "
+                          "earlier edition give A (17-hydroxylase deficiency causes no virilisation)")}
 
 
 def load_old() -> list[dict]:
@@ -163,22 +168,43 @@ class BiochemistryBank(TextBank):
                         holder["text"] = LABEL_PUNCT.sub(r"\1 ", holder["text"])
         topics = {t["id"]: t for t in record["topics"]}
         old = {q["id"]: q for q in load_old()}
-        by_topic = collections.defaultdict(list)
-        for q in record["questions"]:
+
+        def earlier(q: dict, topic: dict, lesson: int, number: int, note: str) -> dict:
+            return {**q, "subject": self.subject, "bank": "PrepLadder", "chapterId": topic["id"],
+                    "chapter": topic["title"], "topic": topic["title"], "topicIndex": lesson,
+                    "questionNumber": number, "edition": "earlier",
+                    "provenance": {"sourceFile": OLD_PDF, "sourceLabel": "PrepLadder earlier edition"},
+                    "reviewNotes": [note]}
+
+        by_topic, replaced = collections.defaultdict(list), set()
+        for i, q in enumerate(record["questions"]):
             q["edition"] = "2025+earlier" if not q["id"].startswith("biochemistry-q") else "2025"
+            if q["id"] in KEY_FIXES:
+                key, note = KEY_FIXES[q["id"]]
+                q["correctOption"], q["correctAnswerText"] = key, q["options"][key - 1]["text"]
+                q["reviewNotes"] = q.get("reviewNotes", []) + [note]
+            # Where the 2025 edition prints no usable explanation (none, a fragment, or one
+            # flagged for review), the earlier question it continues, keyed to the same
+            # answer, stays as it was with its PDF-page explanation.
+            blocks = q["structuredExplanation"]["blocks"]
+            weak = q["reviewStatus"] == "needs_review" or blocks[0].get("text") == NO_EXPLANATION
+            prev = old.get(q["id"])
+            if weak and prev and norm(prev["options"][prev["correctOption"] - 1]["text"]) == norm(q["correctAnswerText"]):
+                q = record["questions"][i] = earlier(
+                    prev, topics[q["chapterId"]], q["topicIndex"], q["questionNumber"],
+                    f"the 2025 edition ({q['prepladderQid']}) prints no usable explanation; the earlier question "
+                    "is kept with its PDF-page explanation")
+                replaced.add(q["id"])
             by_topic[q["chapterId"]].append(q)
         for old_id, lesson in sorted(self.edition()["kept"].items(), key=lambda kv: tuple(map(int, kv[0].split("-")))):
             topic = topics[self.topic_id(lesson)]
             number = topic["questionCount"] + 1
-            q = old[old_id]
-            by_topic[topic["id"]].append({
-                **q, "subject": self.subject, "bank": "PrepLadder", "chapterId": topic["id"], "chapter": topic["title"],
-                "topic": topic["title"], "topicIndex": lesson, "questionNumber": number, "edition": "earlier",
-                "provenance": {"sourceFile": OLD_PDF, "sourceLabel": "PrepLadder earlier edition"},
-                "reviewNotes": ["not in the 2025 edition; kept from the earlier edition with its PDF-page explanation"],
-            })
+            by_topic[topic["id"]].append(earlier(
+                old[old_id], topic, lesson, number,
+                "not in the 2025 edition; kept from the earlier edition with its PDF-page explanation"))
             topic["questionCount"] = topic["sourceQuestionTotal"] = number
         record["questions"] = [q for t in record["topics"] for q in by_topic[t["id"]]]
+        figures = [f for f in figures if f["questionId"] not in replaced]
         ids = [q["id"] for q in record["questions"]]
         if len(ids) != len(set(ids)):
             self.fail("duplicate question IDs")
