@@ -218,18 +218,20 @@ BANK = BiochemistryBank(
     expected={"questions": 867, "topics": 39},
     acronyms={"hmp": "HMP", "pdh": "PDH", "glut": "GLUT", "epp": "EPP", "dna": "DNA", "rna": "RNA", "pcr": "PCR",
               "crispr": "CRISPR"},
-    # The owner's study index. Previous-year lessons sit with the section whose topics
-    # they ask about; 27 (heme, iron, 2,3-BPG) joins Heme Metabolism; the mixed sets
-    # 1, 21, 35, 37 and 39 are Miscellaneous.
+    # The owner's study index (PrepLadder app sections). Previous-year lessons sit with
+    # the section whose topics they ask about: 27 (heme, iron, 2,3-BPG) joins Heme
+    # Synthesis; 37 and 38 (free radicals, minerals) and the mixed sets 21, 35 and 39
+    # close the Free Radicals, Trace Elements and Miscellaneous section.
     index=[
-        ("Carbohydrate Chemistry and Metabolism", [2, 3, 4, 5, 6, 7, 8, 9, 10]),
-        ("Lipid Chemistry and Metabolism", [11, 12, 13, 14, 15]),
-        ("Proteins and Amino Acid Metabolism", [16, 17, 18, 19, 20]),
-        ("Molecular Biology and Genetics", [22, 23, 24, 25, 26, 36]),
+        ("Introduction", [1]),
+        ("Carbohydrate Chemistry", [2, 3, 4, 5, 6, 7, 8, 9, 10]),
+        ("Lipid Chemistry", [11, 12, 13, 14, 15]),
+        ("Amino Acid and Protein Chemistry", [16, 17, 18, 19, 20]),
+        ("Heme Synthesis", [30, 31, 27]),
         ("Enzymes", [28, 29]),
-        ("Heme Metabolism and Porphyrias", [30, 31, 27]),
-        ("Vitamins, Minerals and Nutrition", [32, 33, 34, 38]),
-        ("Miscellaneous", [1, 21, 35, 37, 39]),
+        ("Free Radicals, Antioxidants, Trace Elements and Miscellaneous", [37, 38, 21, 35, 39]),
+        ("Genetics", [22, 23, 24, 25, 26, 36]),
+        ("Vitamins", [32, 33, 34]),
     ],
 )
 
