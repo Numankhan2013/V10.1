@@ -201,8 +201,12 @@ class TextBank:
 
     # --- bank ---------------------------------------------------------------------
 
+    def overlay_body(self, blocks: list[dict]) -> list[dict]:
+        """The source blocks a restructure hash is taken over (references excluded)."""
+        return [b for b in blocks if not (b["type"] == "paragraph" and REFERENCES.match(b["text"]))]
+
     def apply_overlay(self, app_id: str, blocks: list[dict], tables: list[dict], entry: dict) -> list[dict]:
-        body = [b for b in blocks if not (b["type"] == "paragraph" and REFERENCES.match(b["text"]))]
+        body = self.overlay_body(blocks)
         if source_hash(body) != entry["sourceHash"]:
             self.fail(f"{app_id}: restructured explanation was made from a different source; re-run it")
         out = []

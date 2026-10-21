@@ -166,6 +166,18 @@ class EditionBank(TextBank):
     def question_id(self, topic: dict, number: int, q: dict) -> str:
         return self.edition()["continues"].get(q["prepladder_qid"]) or f"{self.slug}-q{q['prepladder_qid'].lstrip('Q')}"
 
+    def overlay_body(self, blocks: list[dict]) -> list[dict]:
+        # The batches are exported after LABEL_PUNCT tidies "(Option C):** . However";
+        # hash the same tidied body here so those entries are not called stale.
+        def tidy(holder: dict) -> dict:
+            holder = {**holder}
+            if "text" in holder:
+                holder["text"] = LABEL_PUNCT.sub(r"\1 ", holder["text"])
+            if holder.get("items"):
+                holder["items"] = [tidy(item) for item in holder["items"]]
+            return holder
+        return [tidy(b) for b in super().overlay_body(blocks)]
+
     def normalize(self, rows: list[dict], overlay: bool = True) -> tuple[dict, list[dict]]:
         record, figures = super().normalize(rows, overlay)
         for q in record["questions"]:
