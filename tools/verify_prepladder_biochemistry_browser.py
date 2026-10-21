@@ -81,6 +81,26 @@ def main() -> None:
                 fail("expected 19 Previous Year Questions lessons")
             page.screenshot(path=str(OUT / "plbiochem-01-topics.png"), full_page=True)
 
+            # A long topic must stay a readable question map. The 62-question
+            # mixed PYQ set previously rendered 19px cells with the numbers
+            # hidden, so the whole map looked like a field of blank dots.
+            page.evaluate("window.QB.openChapter('biochemistry-19')")
+            page.wait_for_function("() => document.querySelectorAll('.nk-topic-map .nk-topic-cell').length === 62", timeout=8000)
+            cells = page.locator(".nk-topic-map .nk-topic-cell")
+            if cells.first.inner_text().strip() != "1" or cells.last.inner_text().strip() != "62":
+                fail("the 62-question topic map is missing its question numbers")
+            first_cell = cells.first.bounding_box()
+            if not first_cell or first_cell["width"] < 40 or first_cell["height"] < 40:
+                fail(f"the 62-question topic map cells are too small: {first_cell!r}")
+            cell_type = page.evaluate("""() => {
+                const el = document.querySelector('.nk-topic-map .nk-topic-cell');
+                const style = getComputedStyle(el);
+                return {fontSize: style.fontSize, color: style.color};
+            }""")
+            if cell_type["fontSize"] == "0px" or cell_type["color"] in ("rgba(0, 0, 0, 0)", "transparent"):
+                fail(f"the 62-question topic map hides its question numbers: {cell_type!r}")
+            page.screenshot(path=str(OUT / "plbiochem-01b-topic-map.png"), full_page=True)
+
             # A continued question explains in text, without the PDF's answer lead.
             open_practice(page, "6-4")
             answer(page)
