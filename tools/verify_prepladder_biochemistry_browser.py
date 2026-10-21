@@ -4,8 +4,9 @@
 Biochemistry -> PrepLadder bank -> 39 lessons in the study-index sections, 19
 PYQ lessons -> a 2025 question that continues an earlier one (6-4): answer, the
 ordered text explanation without its "Correct answer C)" lead, references last
--> a statement list the PDF ran together (5-10) shows as a numbered table -> an
-earlier question the 2025 edition dropped (7-8) and one whose 2025 explanation
+-> a statement list the PDF ran together (5-10) shows as a numbered table -> the
+2025 visual-table solution for 15-2 renders instead of an empty explanation ->
+an earlier question the 2025 edition dropped (7-8) and one whose 2025 explanation
 is unusable (21-29) keep their PDF-page explanations.
 
   python3 tools/verify_prepladder_biochemistry_browser.py [--web build/web]
@@ -127,6 +128,27 @@ def main() -> None:
                 fail("statement-table question cannot be answered")
             page.screenshot(path=str(OUT / "plbiochem-03-statements.png"), full_page=True)
 
+            # 15-2's 2025 solution is a table image, not an empty explanation.
+            open_practice(page, "15-2")
+            answer(page)
+            figure = page.locator(".nk-marrow-ordered .nk-marrow-figures img").first
+            figure.wait_for(timeout=15000)
+            page.wait_for_function("""() => {
+                const img = document.querySelector('.nk-marrow-ordered .nk-marrow-figures img');
+                return img && img.complete && img.naturalWidth > 0;
+            }""", timeout=15000)
+            if page.locator(".nk-source-empty").count():
+                fail("15-2 fell back to an empty explanation")
+            support = page.locator(".nk-study-support").inner_text()
+            if "No source explanation was provided" in support:
+                fail("15-2 says the source explanation is missing")
+            size = figure.evaluate("img => ({width: img.naturalWidth, height: img.naturalHeight})")
+            if size != {"width": 1000, "height": 736}:
+                fail(f"15-2 table image is the wrong asset: {size!r}")
+            figure.scroll_into_view_if_needed()
+            page.wait_for_timeout(600)
+            page.screenshot(path=str(OUT / "plbiochem-04-table-explanation.png"))
+
             # Earlier questions keep their PDF-page explanations.
             for qid in ("7-8", "21-29"):
                 open_practice(page, qid)
@@ -140,7 +162,7 @@ def main() -> None:
                 fail("page errors: " + " | ".join(errors[:5]))
             browser.close()
     print("PREPLADDER_BIOCHEMISTRY_BROWSER_OK bank=PrepLadder questions=867 topics=39 pyq=19 text_explanation=on "
-          "answer_lead=stripped statement_table=on earlier_pdf=on")
+          "answer_lead=stripped statement_table=on table_explanation=on earlier_pdf=on")
 
 
 if __name__ == "__main__":

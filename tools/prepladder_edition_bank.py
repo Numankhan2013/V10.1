@@ -18,6 +18,8 @@ earlier question it continues, if any:
 - Where the new edition prints no usable explanation (none, a fragment, or one
   flagged for review) and the earlier question it continues is keyed to the same
   answer, the earlier question stays as it was, with its PDF-page explanation.
+- A figure-only explanation is kept when the earlier question has no explanation
+  text; a source table is better than an empty solution (15-2).
 """
 from __future__ import annotations
 
@@ -214,11 +216,15 @@ class EditionBank(TextBank):
                 by_topic[q["chapterId"]].append(q)
                 continue
             blocks = q["structuredExplanation"]["blocks"]
-            # A figure with no words (often only a diagram and the references) is no
-            # explanation either.
-            weak = q["reviewStatus"] == "needs_review" or blocks[0].get("text") == NO_EXPLANATION or \
-                all(b["type"] in ("figure", "references") for b in blocks)
             prev = old.get(q["id"])
+            # A source table can be a figure and can be the whole explanation (15-2).
+            # Prefer the earlier text only when the earlier question actually has
+            # text; a figure is better than falling back to an empty explanation.
+            figure_only = any(b["type"] == "figure" for b in blocks) and \
+                all(b["type"] in ("figure", "references") for b in blocks)
+            earlier_has_text = bool(prev and (prev.get("explanation") or "").strip())
+            weak = q["reviewStatus"] == "needs_review" or blocks[0].get("text") == NO_EXPLANATION or \
+                (figure_only and earlier_has_text)
             if weak and prev and prev["correctOption"] and \
                     self.norm(prev["options"][prev["correctOption"] - 1]["text"]) == self.norm(q["correctAnswerText"]):
                 q = record["questions"][i] = earlier(
