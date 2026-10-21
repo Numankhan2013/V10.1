@@ -218,7 +218,9 @@ class TextBank:
                 out.append({"type": "table", "table_id": table_id})
             else:
                 out.append(block)
-        return out + [b for b in blocks if b not in body]
+        tail = [b for b in blocks
+                if b["type"] == "references" or (b["type"] == "paragraph" and REFERENCES.match(b["text"]))]
+        return out + tail
 
     @staticmethod
     def vocabulary(rows: list[dict]) -> Counter:
