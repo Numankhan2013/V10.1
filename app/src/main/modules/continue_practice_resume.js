@@ -199,7 +199,10 @@
     }
     if(state.activeSession!==s)state.activeSession=s;
     const identity=nkPracticePrepareSession(s),base=nkPracticeSessionIds(s);
-    if(!base.length){navigate('study-library');return false;}
+    if(!base.length){
+      state.activeSession=previous||null;
+      saveState();navigate('study-library');return false;
+    }
     const oldIndex=Math.max(0,Number(s.index)||0),current=String(s.questionIds?.[oldIndex]||'');
     const mappedIndex=base.indexOf(current),savedIndex=Math.max(0,Math.min(base.length-1,Number(s.pausedIndex)||0));
     const targetIndex=mappedIndex>=0?mappedIndex:savedIndex;
@@ -417,7 +420,7 @@
       else{route={page:'exam',id:null};try{history.replaceState(null,'','#exam');}catch(_){}}
     }
     if(typeof nkStorageBootNotice!=='undefined'&&nkStorageBootNotice)setTimeout(()=>nkStorageError(nkStorageBootNotice),0);
-    document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'&&typeof nkFlushLifecycleState==='function')nkFlushLifecycleState();});
+    document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'){if(typeof nkFsrsRecoverPending==='function')nkFsrsRecoverPending();if(typeof nkFlushLifecycleState==='function')nkFlushLifecycleState();}});
     window.addEventListener('pagehide',()=>{if(typeof nkFlushLifecycleState==='function')nkFlushLifecycleState();});
     nkPracticeCheckpoints(true).forEach(saved=>{if(!state.activeSession&&saved.lifecycle==='active'){nkPracticeStoreCheckpoint({...saved,lifecycle:'paused',updatedAt:Date.now()});changed=true;}});
     if(changed)saveState();

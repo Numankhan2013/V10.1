@@ -21,8 +21,9 @@ def run_node_behavior() -> None:
     runtime = r'''
 const assert=require('assert');
 const esc=value=>String(value??'').replace(/[&<>\"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[c]));
-global.window={QB:{}};
-global.document={getElementById:()=>null};
+global.window={QB:{},addEventListener:()=>{}};
+const documentEvents={};
+global.document={getElementById:()=>null,visibilityState:'visible',addEventListener:(name,fn)=>{documentEvents[name]=fn}};
 global.setTimeout=fn=>fn();
 
 let route={page:'practice'},saved=0,failSaves=false,oldContinueCalls=0,legacyHomeContinueCalls=0,opened=null,started=null;
@@ -298,6 +299,26 @@ assert.equal(practiceActionBar().includes('nk-practice-session-controls'),false)
 state.activeSession={mode:'practice',context:'normal',originRoute:'topics',title:'Bookmarked Questions',questionIds:['q1'],index:0,answers:{},submitted:{}};
 assert.equal(nkPracticeResumeEligible(state.activeSession),false,'normal context cannot hide the Bookmarks identity');
 assert.equal(nkPausePractice(),false);
+
+// A hidden tab must commit its pending FSRS rating: the browser can discard a
+// hidden tab without ever firing pagehide.
+let recovered=0;
+global.nkFsrsRecoverPending=()=>{recovered++;};
+nkReliabilityInit();
+assert.equal(typeof documentEvents.visibilitychange,'function','the app must register a visibilitychange handler');
+state.activeSession={mode:'practice',questionIds:['q1'],index:0,answers:{},submitted:{},questionTimes:{},pendingRating:{q1:{rating:3}}};
+global.document.visibilityState='hidden';
+documentEvents.visibilitychange();
+global.document.visibilityState='visible';
+assert.equal(recovered,1,'hiding the tab must commit the pending FSRS rating');
+
+// A session with no question ids at all must not stay the active session:
+// the learner would keep targeting a session that cannot be resumed.
+state.activeSession={id:'live-practice',mode:'practice',title:'Topic One',questionIds:['q1','q2'],index:0,answers:{},submitted:{},questionTimes:{},lifecycle:'active'};
+const lostSession={id:'lost-session',mode:'practice',title:'Topic Two',index:0,answers:{},submitted:{},questionTimes:{},lifecycle:'paused'};
+const resumeResult=nkResumePracticeSession(lostSession);
+assert.equal(resumeResult,false,'a session with no recoverable questions cannot be resumed');
+assert.equal(state.activeSession.id,'live-practice','the previous session must remain active when a resume fails');
 
 console.log('CONTINUE_PRACTICE_BEHAVIOR_OK single_grid=true footer=previous_next durable_pause=true home_continue=true full_session=20 saved_index=4');
 '''
