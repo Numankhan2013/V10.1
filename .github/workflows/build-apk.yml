@@ -241,6 +241,7 @@ jobs:
       - name: Validate Microbiology Marrow bank and figures
         run: |
           python3 tools/test_microbiology_marrow_bank.py
+          python3 tools/test_marrow_withdrawn_questions_v1.py
           python3 tools/test_microbiology_marrow_emphasis.py
           python3 tools/test_prepladder_microbiology_bank.py
           python3 tools/test_prepladder_pathology_bank.py
