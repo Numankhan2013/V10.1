@@ -35,7 +35,9 @@ with tempfile.TemporaryDirectory() as directory:
     for anatomy_url in ("https://source.example/anatomy.pdf", ""):
         (assets / "qbank-config.js").write_text("window.NK_QBANK_FIREBASE_CONFIG = " + json.dumps({"anatomyPdfUrl": anatomy_url}) + ";\n")
         out = base / ("with-worker" if anatomy_url else "without-worker")
-        with patch.object(builder, "ASSETS", assets), patch.object(sys, "argv", ["build_web_dist.py", "--out", str(out), "--version", "fixture"]), contextlib.redirect_stdout(io.StringIO()):
+        # The real filled page may exist in build/app from the data step; this
+        # fixture must exercise the fixture page, not the developer's build.
+        with patch.object(builder, "ASSETS", assets), patch.object(builder, "BUILT_PAGE", base / "missing-filled-page.html"), patch.object(sys, "argv", ["build_web_dist.py", "--out", str(out), "--version", "fixture"]), contextlib.redirect_stdout(io.StringIO()):
             builder.main()
         page = (out / "index.html").read_text()
         assert page.count('name="robots"') == 1 and f'content="{DIRECTIVES}"' in page

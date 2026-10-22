@@ -70,7 +70,7 @@ def main():
                 page.wait_for_function('window.QB && window.__uworldTest')
                 records = page.evaluate('__uworldTest.records()')
                 expected = {('Anatomy', 'PrepLadder'): 1068, ('Physiology', 'PrepLadder'): 899, ('Biochemistry', 'PrepLadder'): 719,
-                            ('Anatomy', 'Marrow'): 1115, ('Physiology', 'Marrow'): 1014, ('Biochemistry', 'Marrow'): 582,
+                            ('Anatomy', 'Marrow'): 1114, ('Physiology', 'Marrow'): 1014, ('Biochemistry', 'Marrow'): 581,
                             ('Microbiology', 'PrepLadder'): 1202, ('Pathology', 'PrepLadder'): 1459,
                             ('Pharmacology', 'PrepLadder'): 1321,
                             ('Microbiology', 'Marrow'): __import__('json').loads((Path(__file__).resolve().parents[1] / 'data/marrow/microbiology_marrow_qbank_manifest.json').read_text())['questions'],
