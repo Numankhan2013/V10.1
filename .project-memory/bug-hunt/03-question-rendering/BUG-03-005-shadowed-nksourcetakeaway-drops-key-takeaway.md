@@ -3,7 +3,7 @@
 - **Area:** 03 question rendering
 - **Severity:** medium
 - **Confidence:** high
-- **Status:** open — proposed fix, not applied
+- **Status:** fix applied — commit 304b4531
 - **Files:** `app/src/main/assets/index.html:1443`, `app/src/main/modules/question_content_hygiene.js:153`, `app/src/main/modules/question_content_hygiene.js:129`, `app/src/main/assets/index.html:1759`, `app/src/main/assets/index.html:1733`, `tools/test_question_content_hygiene_v1.py:35`, `tools/test_app_source_parity.py:17`
 - **Introduced by:** `975c0457` "Move feature modules beside the page and include them, not copy them" (the duplicate predates it: `index.html` already held two copies of `nkSourceTakeaway` before the module was extracted, and the extraction left the older one behind)
 

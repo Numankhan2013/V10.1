@@ -3,7 +3,7 @@
 - **Area:** 01 persistence & sync
 - **Severity:** high
 - **Confidence:** high
-- **Status:** open — proposed fix, not applied
+- **Status:** fix applied — commit 1b76e5e9
 - **Files:** `app/src/main/modules/durable_persistence.js:150`, `app/src/main/modules/durable_persistence.js:163`, `app/src/main/modules/durable_persistence.js:169`
 - **Introduced by:** unknown
 

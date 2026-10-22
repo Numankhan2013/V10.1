@@ -30,17 +30,17 @@ Ground rules used by all reviewers:
 
 ## Result
 
-31 findings, all reviewed by the lead. 30 approved, 1 needs-work.
+31 findings, all reviewed by the lead. 29 approved, 1 flagged (rejected), 1 needs-work.
 
-| Area | Findings | high | medium | low | Approved | needs-work |
+| Area | Findings | high | medium | low | Approved | Flagged / needs-work |
 | --- | --- | --- | --- | --- | --- | --- |
 | 01 persistence & sync | 6 | 1 | 3 | 2 | 6 | 0 |
 | 02 study engines | 5 | 1 | 4 | 0 | 5 | 0 |
-| 03 question rendering | 5 | 1 | 4 | 0 | 5 | 0 |
+| 03 question rendering | 5 | 0 | 4 | 1 | 4 | 1 |
 | 04 navigation & UI | 6 | 0 | 3 | 3 | 6 | 0 |
 | 05 Android / PWA / security | 6 | 1 | 5 | 0 | 6 | 0 |
 | 06 build, data & content | 3 | 0 | 3 | 0 | 2 | 1 |
-| **Total** | **31** | **4** | **22** | **5** | **30** | **1** |
+| **Total** | **31** | **3** | **22** | **6** | **29** | **2** |
 
 Every proposed diff in every file was checked with `git apply --check` against
 this checkout and applies cleanly (41 diff blocks across the 31 files).
@@ -55,6 +55,18 @@ wrong and 1,940 of them render no takeaway at all — the learner loses the card
 on roughly one question in five. The fix is to delete the stale copy, and
 `tools/test_app_source_parity.py` should then refuse to let a module and the
 page declare the same function again.
+
+### Flagged and rejected
+
+`BUG-03-001` — UWorld question-block figures were reported to render
+non-essential, which would make 496 figure-bearing questions permanently
+unanswerable. The premise is false: every question-block figure carries
+`role: 'question'`, and the build refuses a figure whose role does not
+match its slot (`tools/uworld_reviewed_document.py:47`). The shipped
+expression already marks them essential. The proposed patch would have
+made it worse, because it added a flag that the function never read.
+The finding is withdrawn; the file records why, and the one real
+observation behind it, with a corrected patch.
 
 ### Needs-work
 

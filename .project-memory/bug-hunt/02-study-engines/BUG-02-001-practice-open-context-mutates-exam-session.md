@@ -3,7 +3,7 @@
 - **Area:** 02 study engines
 - **Severity:** high
 - **Confidence:** high
-- **Status:** open — proposed fix, not applied
+- **Status:** fix applied — commit 4c3ae32f
 - **Files:** `app/src/main/modules/continue_practice_resume.js:172-184`
 - **Introduced by:** unknown
 
