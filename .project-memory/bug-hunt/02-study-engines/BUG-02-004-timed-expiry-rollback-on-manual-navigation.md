@@ -3,7 +3,7 @@
 - **Area:** 02 study engines
 - **Severity:** medium
 - **Confidence:** medium
-- **Status:** open — proposed fix, not applied
+- **Status:** fix applied — commit pending (this commit)
 - **Files:** `app/src/main/assets/index.html:873`
 - **Introduced by:** unknown
 
@@ -38,7 +38,7 @@ Expiry side effects are executed synchronously inside a transaction that reverts
 ```diff
 --- a/app/src/main/assets/index.html
 +++ b/app/src/main/assets/index.html
-@@ -870,6 +870,6 @@
+@@ -870,7 +870,7 @@
      if(remaining<0){saveState();submitExam(true);return true;}
      s.index=remaining;s.questionEnteredAt=Date.now();s.strictQuestionStartedAt=s.questionEnteredAt;saveState();render();return true;
    }
@@ -46,7 +46,37 @@ Expiry side effects are executed synchronously inside a transaction that reverts
 +  function nkStrictBeforeNavigation(){const s=state.activeSession;if(s?.mode!=='exam'||s.timerMode!=='per-question')return true;if(nkStrictSpent(s,String(s.questionIds[s.index]))>=60000){setTimeout(()=>nkExpireTopicQuestion(),0);return false;}nkStrictCommitCurrent();return true;}
    const nkHomeNextQ=nextQ;nextQ=function(){if(!nkStrictBeforeNavigation())return false;const out=nkHomeNextQ.apply(this,arguments);nkStrictResetClock();return out;};
    const nkHomePrevQ=prevQ;prevQ=function(){if(!nkStrictBeforeNavigation())return false;const out=nkHomePrevQ.apply(this,arguments);nkStrictResetClock();return out;};
-   const nkHomeGoIndex=goIndex;goIndex=function(){if(!nkStrictBeforeNavigation())return false;const out=nkHomeGoIndex.apply(this,arguments);nkStrictResetClock();return out;};```
+   const nkHomeGoIndex=goIndex;goIndex=function(){if(!nkStrictBeforeNavigation())return false;const out=nkHomeGoIndex.apply(this,arguments);nkStrictResetClock();return out;};
+--- a/tools/test_topic_timer_v1.py
++++ b/tools/test_topic_timer_v1.py
+@@ -50,7 +50,25 @@
+ assert.equal(submitted.session.strictQuestionTime.p3,60000);
+ assert.equal(submitted.session.questionTimes.p3,60000);
+ assert(saves>3&&renders>3);
+-console.log('TOPIC_TIMER_OK cumulative=true reload=true lock=true final=true');
++// A manual navigation at expiry must not lose the expiry. The interaction
++// transaction restores the state when the action returns false, so the expiry
++// has to run after that restore, not before it.
++const timers=[];
++const realSetTimeout=globalThis.setTimeout;
++globalThis.setTimeout=(fn,ms)=>{timers.push(fn);return timers.length;};
++const nkInnerNextQ=nextQ;
++nextQ=function(){const before=JSON.parse(JSON.stringify(state));const out=nkInnerNextQ.apply(this,arguments);if(out===false)state=before;return out;};
++state.activeSession={id:'topic-test',questionIds:[...ids],mode:'exam',title:'Topic Test',index:0,answers:{},questionTimes:{},startedAt:now,questionEnteredAt:now,timerMode:'per-question',strictExpired:{},strictQuestionTime:{}};
++now+=60000;
++const navResult=nextQ();
++assert.equal(navResult,false,'navigation at expiry must be refused');
++assert.equal(timers.length,1,'the expiry must be deferred past the transaction restore');
++timers.forEach(fn=>fn());
++assert.equal(state.activeSession.strictExpired.p1,true,'the expiry must survive the navigation transaction');
++assert.equal(state.activeSession.index,1,'the expired question must be left behind');
++globalThis.setTimeout=realSetTimeout;
++
++console.log('TOPIC_TIMER_OK cumulative=true reload=true lock=true final=true expiry_survives_navigation=true');
+ '''
+     subprocess.run(['node', '-e', script], check=True, cwd=ROOT)
+ 
+```
 
 ## Verification
 
@@ -62,4 +92,16 @@ Removing the transaction wrapper from strict navigation would also fix the rever
 - **Verdict:** approved
 - **Checked evidence:** yes
 - **Checked patch:** yes
-- **Notes:** The mechanism is real and correctly identified: nkStrictBeforeNavigation (index.html:873) calls nkExpireTopicQuestion() and returns false, and the three wrappers that call it (index.html:874-876) are each wrapped by nkQuestionAction in question_interaction.js:122-124, so the expiry runs inside nkQuestionTransaction, whose if(result===false){state=before;return false;} at question_interaction.js:88 discards the expiry's state changes. The patch was reworked during review to name the exact call site and to state that the automatic ticker path (index.html:1948) and the other three expiry call sites are outside a transaction and unaffected; the setTimeout containment moves the expiry past the transaction restore. Approved. Severity medium and confidence medium are right: the window is a single tap at the 60-second boundary and the automatic expiry still works.
+- **Notes:** The finding is correct and the proposed patch is right.
+
+`nkStrictBeforeNavigation` (index.html:873) calls `nkExpireTopicQuestion()` and then returns `false`. The strict `nextQ`/`prevQ`/`goIndex` wrappers run inside `nkQuestionTransaction` (question_interaction.js:82), and a `false` result makes the transaction restore the state to its pre-action clone (line 88). The expiry's in-memory changes — the expired flag, the 60-second time and the move to the next question — are therefore thrown away, and the subsequent render shows the un-expired question. The learner clicks Next at expiry and nothing happens.
+
+The applied patch defers the expiry by one task, so it runs after the transaction has restored the state:
+
+```js
+if(nkStrictSpent(s,String(s.questionIds[s.index]))>=60000){setTimeout(()=>nkExpireTopicQuestion(),0);return false;}
+```
+
+The expiry then does its own save and render on the restored state, which is the state the learner should be in.
+
+`tools/test_topic_timer_v1.py` now models the transaction: it wraps the timer's `nextQ` so that a `false` result restores a pre-action clone, makes the question's 60 seconds elapse, and asserts that the navigation is refused, that the expiry was deferred rather than run inline, and that the expired question is left behind once the deferred expiry runs. On the pre-fix page the assertion "the expiry must be deferred past the transaction restore" fails.

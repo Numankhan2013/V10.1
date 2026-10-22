@@ -422,6 +422,18 @@ async function testRequests(){
   assert(state.fsrsPreferences.desiredRetention===0.9&&state.fsrsPreferences.dailyCap===200,'legacy payload must keep the whole-block merge');
   console.log('CROSS_DEVICE_SYNC_BEHAVIOR_OK');
 }
+// Restoring an account snapshot must not adopt the other device's identity:
+// this device keeps stamping its own envelopes, or per-device conflict
+// resolution and tombstones are attributed to the wrong device.
+nkSyncMeta=nkNormalizeSyncMeta({deviceId:'this-device',boundUid:'account-b'});
+const foreignSnapshot={uid:'account-b',activeSubject:'Biochemistry',
+  state:{attempts:{},bookmarks:{},reviews:{},tests:[],studyModules:[],activeSession:null,questionNotes:{},fsrsReviewEligible:{}},
+  syncMeta:{deviceId:'other-device',boundUid:'account-b',outbox:{},localHashes:{},known:{},winners:{},cursors:{}}};
+nkRestoreAccountSnapshot(foreignSnapshot);
+assert(nkSyncMeta.deviceId==='this-device','restoring a snapshot must not adopt the other device identity');
+assert(nkEnvelope('bookmarks','q1',{active:true},1).ownerDevice==='this-device','this device must stamp its own envelopes');
+assert(nkSyncMeta.boundUid==='account-b','the restored account binding must be kept');
+
 testRequests().catch(error=>{console.error(error);process.exitCode=1;});
 '''
     prelude = r'''
