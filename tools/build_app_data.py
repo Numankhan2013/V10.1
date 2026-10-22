@@ -54,9 +54,11 @@ def asset_script(name: str) -> str:
 
 
 def marrow_data() -> str:
-    from marrow_bank_data import app_marrow_records, validate_biochemistry_batches
+    from marrow_bank_data import app_marrow_records, load_expanded_bank, validate_biochemistry_batches
     records = app_marrow_records()
-    validate_biochemistry_batches(records[1])
+    # Explanation batches are keyed to the canonical source, which keeps the
+    # withdrawn questions; validate against that record, not the filtered app one.
+    validate_biochemistry_batches(load_expanded_bank("biochemistry_ch001_028", "Biochemistry")[0])
     # PrepLadder Microbiology, Pathology and Pharmacology have structured text
     # explanations, so they travel with the Marrow records; the app files them
     # under PrepLadder by their bank.

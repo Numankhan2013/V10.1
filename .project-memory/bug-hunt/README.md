@@ -87,16 +87,20 @@ observation behind it, with a corrected patch.
 
 ### Still open after the hunt
 
-`BUG-06-003` installed the builder gate that stops a new figure-less question
-from shipping, but the 15 questions that already ship it (13 Microbiology, 1
-Anatomy, 1 Biochemistry) still ask about a picture the app never shows. Each
-needs its source figure released with a question role, or the question
-withdrawn. `.project-memory/ROADMAP.md` lists them; the 13 Microbiology ones
-are also named in `PENDING_QUESTION_FIGURES` in
-`tools/build_microbiology_marrow_bank.py` and must leave that list as they
-are fixed. Widening `tools/marrow_image_coverage.py` and
-`tools/audit_question_structure.py` to the Microbiology bank follows the
-content work, because it needs the two figure registries reconciled first.
+`BUG-06-003` is resolved (2026-10-22). The "15 figure-less questions"
+measurement was mostly a cue false positive: 13 Microbiology stems used "shown
+by" verbally ("Tumbling motility is shown by ___") and are answerable without a
+picture, so they stay shipped. The builder cue now matches only real visual
+deixis, `PENDING_QUESTION_FIGURES` is empty, and `BUG-06-003` records the whole
+breakdown. Three genuinely unanswerable questions are withheld from the app via
+`data/marrow/withdrawn_questions_v1.json` (source shards untouched):
+`marrow__ANAT_CH45_Q004`, `marrow__BIOCHEM_CH17_Q014` and
+`marrow__MICRO_CH18_Q013`. `marrow__PHYSIO_CH35_Q020`'s released bar chart was
+mis-bound as explanation and is now its question figure. Regression:
+`tools/test_marrow_withdrawn_questions_v1.py`. The app ships 3,434 Marrow
+questions. Widening `tools/marrow_image_coverage.py` and
+`tools/audit_question_structure.py` to the Microbiology bank is still open,
+because it needs the two figure registries reconciled first.
 
 ### Reworked during review
 

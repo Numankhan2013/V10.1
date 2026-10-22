@@ -3,7 +3,7 @@
 - **Area:** 06 build, data & content
 - **Severity:** medium
 - **Confidence:** high
-- **Status:** builder gate applied — commit 5a2d2fae; the 15 questions still need their figures or withdrawal (see Learner impact)
+- **Status:** resolved 2026-10-22 — 13 cue false positives kept in the bank, 3 questions withdrawn at the app boundary, 1 mis-bound figure repaired (see Resolution)
 - **Files:** `tools/marrow_image_coverage.py:27`, `tools/audit_question_structure.py:131`, `tools/queue_question_completeness.py:31`, `app/src/main/assets/marrow_visual_renderer.js:11`, `app/src/main/assets/marrow_visual_renderer.js:5`, `tools/microbiology_visuals.py:122`
 - **Introduced by:** unknown (the Microbiology Marrow bank landed on 2026-10-14; the coverage tool was written for the three ED8 banks)
 
@@ -326,3 +326,15 @@ The applied change:
 **The learner-facing defect is not fixed by this change.** The 15 questions still ship with a stem that refers to a picture that is not there. Releasing the source figures with a question role, or withdrawing the questions, is content work that needs the source PDFs and the image registry, and it is recorded as the next step rather than done here. The widening of `tools/marrow_image_coverage.py` and `tools/audit_question_structure.py` to cover Microbiology is also left for after that, because it depends on reconciling the two figure registries.
 
 So this change installs the gate that stops the class of defect from growing and names the 15 that still need attention; it does not make those 15 answerable.
+
+
+## Resolution — 2026-10-22
+
+The reported count of 15 was a cue problem plus two genuine gaps, not 15 unanswerable questions.
+
+- **13 Microbiology stems were false positives.** "Tumbling motility is shown by ___", "Kanagawa phenomenon is shown by ___" and the rest use "shown by" as ordinary question wording, not as an image reference. The original cue matched the bare verb `shown`. The builder cue now requires visual deixis (`shown below`, `the image shows`, `the region marked`, `in the figure`, ...). All 13 questions are answerable without a figure and still ship. `PENDING_QUESTION_FIGURES` is empty and `tools/test_microbiology_marrow_bank.py` asserts both that the gate rejects a real visual stem without a figure and that a verbal "shown by" stem passes.
+- **Three questions are genuinely unanswerable and are withheld.** `marrow__ANAT_CH45_Q004` (only the unreleased unmarked page-816 candidate exists), `marrow__BIOCHEM_CH17_Q014` (source review confirms no teeth image was ever printed) and `marrow__MICRO_CH18_Q013` (the cited chest X-ray was never extracted; only the GMS stain exists). The authoritative ledger is `data/marrow/withdrawn_questions_v1.json`; `tools/marrow_bank_data.py` removes those IDs from `app_marrow_records()` and recomputes topic counts, while the canonical shards and audits keep the records.
+- **One released figure was in the wrong slot, not missing.** `marrow__PHYSIO_CH35_Q020` ("The following picture shows the composition of solute in the urine and plasma sample of 3 patients") had its bar chart released as `physiology-region-ff76eff3b68bd593` but bound with role `explanation`. The registry binding is now role `question` and the runtime metadata was regenerated.
+- **Counts:** the app now ships 3,434 Marrow questions (Anatomy 1,114 / Biochemistry 581 / Physiology 1,014 / Microbiology 725). The canonical ED8 source remains 2,711.
+- **Regression:** `tools/test_marrow_withdrawn_questions_v1.py` asserts the ledger entries, their absence from the app, untouched source records, exact topic counts, that the 13 false positives still ship, and that the Physiology asset is mounted as a question figure. `tools/build_app_data.py` validates Biochemistry explanation batches against the canonical source, not the filtered app record.
+- **Not done here:** the shared coverage/structural tooling still enumerates only the three ED8 subjects. Widening it to Microbiology still needs the two figure registries reconciled, as the original finding says.

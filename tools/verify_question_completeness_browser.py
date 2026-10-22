@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 REPRESENTATIVES = {
     'marrow__ANAT_CH10_Q004', 'marrow__ANAT_CH13_Q005', 'marrow__ANAT_CH43_Q005',
     'anatomy-9-1', 'anatomy-47-2', '7-53', 'physiology-23-38', 'physiology-33-33',
-    'marrow__BIOCHEM_CH14_Q013', 'marrow__ANAT_CH45_Q004', 'marrow__BIOCHEM_CH17_Q014',
+    'marrow__BIOCHEM_CH14_Q013',
 }
 
 
@@ -26,7 +26,9 @@ def main():
     web = ROOT / 'build/web'
     ledger = json.loads((ROOT / 'data/question_completeness_reviews_v1.json').read_text())
     discoveries = json.loads((ROOT / 'data/marrow/images/source_visual_discoveries.json').read_text())['entries']
-    entries = ledger['entries']
+    from marrow_bank_data import withdrawn_questions
+    withdrawn = set(withdrawn_questions())
+    entries = [entry for entry in ledger['entries'] if entry['id'] not in withdrawn]
     html = built_page(web)
     marker = 'getState:()=>state,'
     require(html.count(marker) == 1, 'Expected one QB read-only probe insertion point')
