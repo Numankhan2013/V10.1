@@ -3,7 +3,7 @@
 - **Area:** 03 question rendering
 - **Severity:** medium
 - **Confidence:** medium
-- **Status:** fix applied — commit pending (this commit)
+- **Status:** fix applied — commit 8b961133
 - **Files:** `app/src/main/modules/uworld_biochemistry.js:84`, `app/src/main/modules/uworld_biochemistry.js:88`
 - **Introduced by:** unknown
 

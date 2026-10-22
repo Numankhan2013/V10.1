@@ -3,7 +3,7 @@
 - **Area:** 02 study engines
 - **Severity:** medium
 - **Confidence:** high
-- **Status:** fix applied — commit pending (this commit)
+- **Status:** fix applied — commit 2891559b
 - **Files:** `app/src/main/modules/fsrs_scheduler.js:195-205`, `app/src/main/modules/question_interaction.js:128`
 - **Introduced by:** unknown
 

@@ -3,7 +3,7 @@
 - **Area:** 05 android-pwa-security
 - **Severity:** medium
 - **Confidence:** high
-- **Status:** fix applied — commit pending (this commit)
+- **Status:** fix applied — commit 8c06c1a6
 - **Files:** `tools/build_web_dist.py:139-151`, `tools/build_web_dist.py:203-210`
 - **Introduced by:** unknown
 

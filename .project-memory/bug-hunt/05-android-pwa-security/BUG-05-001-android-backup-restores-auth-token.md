@@ -3,7 +3,7 @@
 - **Area:** 05 android-pwa-security
 - **Severity:** high
 - **Confidence:** medium
-- **Status:** fix applied — commit pending (this commit)
+- **Status:** fix applied — commit 8c06c1a6
 - **Files:** `app/src/main/AndroidManifest.xml:7`, `app/src/main/res/xml/nk_data_extraction_rules.xml`
 - **Introduced by:** unknown
 

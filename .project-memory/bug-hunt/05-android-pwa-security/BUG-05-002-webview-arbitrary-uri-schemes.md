@@ -3,7 +3,7 @@
 - **Area:** 05 android-pwa-security
 - **Severity:** medium
 - **Confidence:** high
-- **Status:** fix applied — commit pending (this commit)
+- **Status:** fix applied — commit 8c06c1a6
 - **Files:** `app/src/main/java/com/qbank/biochemistry/MainActivity.java:71-77`, `app/src/main/java/com/qbank/biochemistry/MainActivity.java:195-200`
 - **Introduced by:** unknown
 

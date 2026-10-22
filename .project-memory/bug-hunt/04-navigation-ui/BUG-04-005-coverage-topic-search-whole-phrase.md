@@ -3,7 +3,7 @@
 - **Area:** 04 navigation & UI
 - **Severity:** low
 - **Confidence:** high
-- **Status:** fix applied — commit pending (this commit)
+- **Status:** fix applied — commit 012ebc72
 - **Files:** `app/src/main/modules/qbank_coverage.js:53-58`
 - **Introduced by:** unknown
 

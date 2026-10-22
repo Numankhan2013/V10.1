@@ -3,7 +3,7 @@
 - **Area:** 06 build, data & content
 - **Severity:** medium
 - **Confidence:** high
-- **Status:** fix applied — commit pending (this commit)
+- **Status:** fix applied — commit 5a2d2fae
 - **Files:** `tools/build_app_data.py:138`, `tools/build_app_data.py:24`, `tools/app_page.py:38`, `.github/workflows/build-apk.yml:140`, `.github/workflows/build-apk.yml:353`
 - **Introduced by:** unknown
 

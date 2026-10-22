@@ -3,7 +3,7 @@
 - **Area:** 04 navigation & UI
 - **Severity:** medium
 - **Confidence:** medium
-- **Status:** fix applied — commit pending (this commit)
+- **Status:** fix applied — commit 012ebc72
 - **Files:** `app/src/main/assets/index.html:653-657`
 - **Introduced by:** unknown
 

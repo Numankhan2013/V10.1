@@ -3,7 +3,7 @@
 - **Area:** 04 navigation & UI
 - **Severity:** medium
 - **Confidence:** high
-- **Status:** fix applied — commit pending (this commit)
+- **Status:** fix applied — commit 012ebc72
 - **Files:** `app/src/main/modules/revision_desk.js:118`, `app/src/main/modules/revision_desk.js:124`, `app/src/main/modules/revision_desk.js:130-135`
 - **Introduced by:** unknown
 

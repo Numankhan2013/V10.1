@@ -3,7 +3,7 @@
 - **Area:** 02 study engines
 - **Severity:** medium
 - **Confidence:** high
-- **Status:** fix applied — commit pending (this commit)
+- **Status:** fix applied — commit 2891559b
 - **Files:** `app/src/main/modules/continue_practice_resume.js:419`
 - **Introduced by:** unknown
 

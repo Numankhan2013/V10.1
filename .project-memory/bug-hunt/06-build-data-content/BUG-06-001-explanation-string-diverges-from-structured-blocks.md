@@ -3,7 +3,7 @@
 - **Area:** 06 build, data & content
 - **Severity:** medium
 - **Confidence:** high
-- **Status:** fix applied — commit pending (this commit)
+- **Status:** fix applied — commit 5a2d2fae
 - **Files:** `tools/prepladder_text_bank.py:327`, `tools/prepladder_text_bank.py:367`, `tools/build_prepladder_microbiology_bank.py:388`, `tools/build_prepladder_microbiology_bank.py:505`, `tools/build_prepladder_microbiology_bank.py:507`, `data/Prepladder/*/prepladder_*_qbank.zlib.b64.part*`, `app/src/main/assets/index.html:1448`
 - **Introduced by:** unknown (the `explanation` field predates the restructure overlay)
 

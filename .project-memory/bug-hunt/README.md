@@ -24,13 +24,30 @@ Ground rules used by all reviewers:
 - No style, naming, or speculative performance findings.
 - Known issues already recorded in `.project-memory/STATE.md` or `docs/` were
   not re-reported unless the recorded state is wrong.
-- Proposed fixes are minimal diffs, not applied to the app in this branch.
-  Nothing here is build-verified or device-verified until CI and a real device
-  run it.
+- Proposed fixes are minimal diffs. They were applied on this branch after
+  review, one narrow change at a time, each with a regression that fails when
+  the fix is reverted. Nothing here is build-verified or device-verified until
+  CI and a real device run it.
 
 ## Result
 
 31 findings, all reviewed by the lead. 30 approved, 1 flagged (rejected).
+All 30 approved fixes are applied on this branch, each with a regression test
+that fails when the fix is reverted.
+
+| Commit | Fixes |
+| --- | --- |
+| `304b4531` | BUG-03-005 — the shadowed `nkSourceTakeaway` |
+| `4c3ae32f` | BUG-02-001 — a Practice start corrupting a timed test |
+| `1b76e5e9` | BUG-01-002 — the durable-save rollback |
+| `2d59ea51` | BUG-03-001 — withdrawn, no fix |
+| `986cad56` | BUG-01-001, BUG-01-004, BUG-01-005, BUG-01-006 — the progress store |
+| `2891559b` | BUG-02-002, BUG-02-003, BUG-02-005 — the study engines |
+| `8b961133` | BUG-03-002, BUG-03-003, BUG-03-004 — question rendering |
+| `012ebc72` | BUG-04-001 … BUG-04-006 — navigation and UI |
+| `8c06c1a6` | BUG-05-001 … BUG-05-006 — Android, PWA and security |
+| `5a2d2fae` | BUG-06-001, BUG-06-002, BUG-06-003 — build, data and content |
+| `bdd5d0c3` | BUG-01-003, BUG-02-004 — the sync identity and the timed expiry |
 
 | Area | Findings | high | medium | low | Approved | Flagged / needs-work |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -67,6 +84,19 @@ expression already marks them essential. The proposed patch would have
 made it worse, because it added a flag that the function never read.
 The finding is withdrawn; the file records why, and the one real
 observation behind it, with a corrected patch.
+
+### Still open after the hunt
+
+`BUG-06-003` installed the builder gate that stops a new figure-less question
+from shipping, but the 15 questions that already ship it (13 Microbiology, 1
+Anatomy, 1 Biochemistry) still ask about a picture the app never shows. Each
+needs its source figure released with a question role, or the question
+withdrawn. `.project-memory/ROADMAP.md` lists them; the 13 Microbiology ones
+are also named in `PENDING_QUESTION_FIGURES` in
+`tools/build_microbiology_marrow_bank.py` and must leave that list as they
+are fixed. Widening `tools/marrow_image_coverage.py` and
+`tools/audit_question_structure.py` to the Microbiology bank follows the
+content work, because it needs the two figure registries reconciled first.
 
 ### Reworked during review
 

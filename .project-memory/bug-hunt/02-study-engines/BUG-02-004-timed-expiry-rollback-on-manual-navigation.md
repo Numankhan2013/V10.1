@@ -3,7 +3,7 @@
 - **Area:** 02 study engines
 - **Severity:** medium
 - **Confidence:** medium
-- **Status:** fix applied — commit pending (this commit)
+- **Status:** fix applied — commit bdd5d0c3
 - **Files:** `app/src/main/assets/index.html:873`
 - **Introduced by:** unknown
 

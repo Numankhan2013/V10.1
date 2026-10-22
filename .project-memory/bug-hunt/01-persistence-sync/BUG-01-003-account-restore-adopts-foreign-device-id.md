@@ -3,7 +3,7 @@
 - **Area:** 01 persistence & sync
 - **Severity:** medium
 - **Confidence:** high
-- **Status:** fix applied — commit pending (this commit)
+- **Status:** fix applied — commit bdd5d0c3
 - **Files:** `app/src/main/modules/cross_device_sync.js:62`, `app/src/main/modules/cross_device_sync.js:66`
 - **Introduced by:** unknown
 

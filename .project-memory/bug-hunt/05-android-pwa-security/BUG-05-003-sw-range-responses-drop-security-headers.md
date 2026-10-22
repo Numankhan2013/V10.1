@@ -3,7 +3,7 @@
 - **Area:** 05 android-pwa-security
 - **Severity:** medium
 - **Confidence:** high
-- **Status:** fix applied — commit pending (this commit)
+- **Status:** fix applied — commit 8c06c1a6
 - **Files:** `app/src/main/assets/sw.js:72-83`
 - **Introduced by:** cdd9cc7f (quota-abuse hardening)
 

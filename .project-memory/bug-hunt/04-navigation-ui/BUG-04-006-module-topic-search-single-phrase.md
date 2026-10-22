@@ -3,7 +3,7 @@
 - **Area:** 04 navigation & UI
 - **Severity:** low
 - **Confidence:** medium
-- **Status:** fix applied — commit pending (this commit)
+- **Status:** fix applied — commit 012ebc72
 - **Files:** `app/src/main/modules/study_modules.js:279-294`
 - **Introduced by:** unknown
 

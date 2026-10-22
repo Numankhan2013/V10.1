@@ -3,7 +3,7 @@
 - **Area:** 01 persistence & sync
 - **Severity:** low
 - **Confidence:** high
-- **Status:** fix applied — commit pending (this commit)
+- **Status:** fix applied — commit 986cad56
 - **Files:** `app/src/main/assets/nk-store.js:203`, `app/src/main/assets/nk-store.js:205`
 - **Introduced by:** unknown
 

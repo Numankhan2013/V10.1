@@ -3,7 +3,7 @@
 - **Area:** 03 question rendering
 - **Severity:** medium
 - **Confidence:** high
-- **Status:** fix applied — commit pending (this commit)
+- **Status:** fix applied — commit 8b961133
 - **Files:** `app/src/main/assets/source_visual_renderer.js:10`, `app/src/main/assets/source_visual_renderer.js:19`, `app/src/main/assets/index.html:1389`
 - **Introduced by:** unknown
 

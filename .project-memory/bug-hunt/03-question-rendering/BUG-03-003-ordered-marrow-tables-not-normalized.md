@@ -3,7 +3,7 @@
 - **Area:** 03 question rendering
 - **Severity:** low — the defect is real in code but does not manifest in the shipped banks (see Learner impact)
 - **Confidence:** high
-- **Status:** fix applied — commit pending (this commit)
+- **Status:** fix applied — commit 8b961133
 - **Files:** `app/src/main/assets/index.html:1533`, `app/src/main/assets/index.html:1587`
 - **Introduced by:** unknown
 

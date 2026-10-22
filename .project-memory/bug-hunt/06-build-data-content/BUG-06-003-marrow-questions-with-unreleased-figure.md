@@ -3,7 +3,7 @@
 - **Area:** 06 build, data & content
 - **Severity:** medium
 - **Confidence:** high
-- **Status:** builder gate applied — commit pending (this commit); the 15 questions still need their figures or withdrawal (see Learner impact)
+- **Status:** builder gate applied — commit 5a2d2fae; the 15 questions still need their figures or withdrawal (see Learner impact)
 - **Files:** `tools/marrow_image_coverage.py:27`, `tools/audit_question_structure.py:131`, `tools/queue_question_completeness.py:31`, `app/src/main/assets/marrow_visual_renderer.js:11`, `app/src/main/assets/marrow_visual_renderer.js:5`, `tools/microbiology_visuals.py:122`
 - **Introduced by:** unknown (the Microbiology Marrow bank landed on 2026-10-14; the coverage tool was written for the three ED8 banks)
 
