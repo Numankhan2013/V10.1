@@ -3,7 +3,7 @@
 - **Area:** 05 android-pwa-security
 - **Severity:** medium
 - **Confidence:** high
-- **Status:** open — proposed fix, not applied
+- **Status:** fix applied — commit pending (this commit)
 - **Files:** `tools/build_web_dist.py:139-151`, `tools/build_web_dist.py:203-210`
 - **Introduced by:** unknown
 
@@ -66,7 +66,7 @@ The packaging step treats missing generated assets as optional: it copies files 
 ```diff
 --- a/tools/build_web_dist.py
 +++ b/tools/build_web_dist.py
-@@ -202,5 +202,9 @@
+@@ -202,6 +202,10 @@
      # as rules for legacy screens Geist replaced. The browser suite runs on this output.
      pruned = prune_build(out)
      print(f"UNREACHABLE_CSS_PRUNED rules={pruned.removed_rules} trimmed={pruned.trimmed_rules} kb={pruned.removed_bytes / 1024:.1f}")
@@ -76,7 +76,8 @@ The packaging step treats missing generated assets as optional: it copies files 
 +        raise SystemExit(f"Required generated web assets are missing: {', '.join(missing)}")
      if "Anatomy_QBank_Source.pdf" not in skipped:
          raise SystemExit("Expected oversized Anatomy PDF to be excluded from Pages output")
-     oversize = [p.relative_to(out).as_posix() for p in out.rglob("*") if p.is_file() and p.stat().st_size > PAGES_FILE_LIMIT]```
+     oversize = [p.relative_to(out).as_posix() for p in out.rglob("*") if p.is_file() and p.stat().st_size > PAGES_FILE_LIMIT]
+```
 
 ## Verification
 
@@ -94,3 +95,10 @@ Adding the two files to the service worker's required-precage list would surface
 - **Checked evidence:** yes
 - **Checked patch:** yes
 - **Notes:** Verified build_web_dist.py: the copy loop skips files over the size limit and the guard at the end only fails on files that landed in the output, so a required generated asset missing from the source tree passes silently. Medium/high is right: the build succeeds and ships an app that cannot load the data it needs. The fix asserts the required assets exist.
+
+
+The finding is correct and the patch is right: the web build copied the assets and never checked that the two source-solution maps the page loads as scripts were actually in the output, so a missing generated file would ship a page whose script tags 404.
+
+`tools/test_android_shell_contract_v1.py` is new and checks that the build fails when a required asset is missing. It fails on the pre-fix build with "the web build must fail when a required asset is missing".
+
+The two required files are the generated ones the page loads as scripts (`tools/build_biochem_solution_map.py` and `tools/final_hardening.py`); the build pipeline runs both before `build_web_dist.py`, so the check holds in CI. `tools/test_crawler_exclusion.py` drives the builder against a fixture asset directory, and that fixture now carries the two files.

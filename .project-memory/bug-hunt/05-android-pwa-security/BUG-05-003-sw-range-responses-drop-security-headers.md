@@ -3,7 +3,7 @@
 - **Area:** 05 android-pwa-security
 - **Severity:** medium
 - **Confidence:** high
-- **Status:** open — proposed fix, not applied
+- **Status:** fix applied — commit pending (this commit)
 - **Files:** `app/src/main/assets/sw.js:72-83`
 - **Introduced by:** cdd9cc7f (quota-abuse hardening)
 
@@ -45,7 +45,7 @@ Security-header inconsistency on the offline/PWA path: cached PDF ranges lack th
 ```diff
 --- a/app/src/main/assets/sw.js
 +++ b/app/src/main/assets/sw.js
-@@ -77,8 +77,11 @@
+@@ -77,9 +77,12 @@
    const start=m[1]?Number(m[1]):Math.max(0,size-Number(m[2]));
    const end=m[1]&&m[2]?Math.min(Number(m[2]),size-1):size-1;
    if(start>end)return new Response(null,{status:416,headers:{'Content-Range':`bytes */${size}`}});
@@ -60,7 +60,8 @@ Security-header inconsistency on the offline/PWA path: cached PDF ranges lack th
 +  return new Response(blob.slice(start,end+1),{status:206,statusText:'Partial Content',headers});
  }
  self.addEventListener('fetch',event=>{
-   if(event.request.method!=='GET')return;```
+   if(event.request.method!=='GET')return;
+```
 
 ## Verification
 
@@ -77,3 +78,8 @@ Keeping a hard-coded header list and adding the missing security headers by name
 - **Checked evidence:** yes
 - **Checked patch:** yes
 - **Notes:** Verified sw.js: the rangeResponse helper builds its own Response with only Content-Type/Content-Range/Content-Length/Accept-Ranges, dropping the security headers the origin serves. Medium severity, high confidence: the dropped headers are the ones _headers defines for the affected paths. Approved.
+
+
+The finding is correct and the patch is right: the range responder rebuilt the headers from a hard-coded list instead of starting from the cached response's headers.
+
+`tools/test_android_shell_contract_v1.py` is new and drives the shipped `rangeResponse` from `sw.js` for real, against a cached PDF that carries the hosted response's security headers, and asserts that the content security policy, the MIME protection, the frame protection and the referrer policy all survive the range response. On the pre-fix service worker the assertion fails with "the cached CSP must survive".

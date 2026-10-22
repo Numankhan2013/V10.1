@@ -3,8 +3,8 @@
 - **Area:** 05 android-pwa-security
 - **Severity:** high
 - **Confidence:** medium
-- **Status:** open — proposed fix, not applied
-- **Files:** `app/src/main/AndroidManifest.xml:7`
+- **Status:** fix applied — commit pending (this commit)
+- **Files:** `app/src/main/AndroidManifest.xml:7`, `app/src/main/res/xml/nk_data_extraction_rules.xml`
 - **Introduced by:** unknown
 
 ## What happens
@@ -36,15 +36,17 @@ The thin-shell Android app delegates all identity and state to the web origin, b
 ```diff
 --- a/app/src/main/AndroidManifest.xml
 +++ b/app/src/main/AndroidManifest.xml
-@@ -4,6 +4,6 @@
+@@ -4,7 +4,8 @@
      <uses-permission android:name="android.permission.INTERNET" />
  
      <application
 -        android:allowBackup="true"
 +        android:allowBackup="false"
++        android:dataExtractionRules="@xml/nk_data_extraction_rules"
          android:icon="@drawable/nk_qbank_icon"
          android:label="NK QBank"
-         android:resizeableActivity="true"```
+         android:resizeableActivity="true"
+```
 
 ## Verification
 
@@ -62,3 +64,14 @@ Adding `android:dataExtractionRules` to exclude only WebView storage would prese
 - **Checked evidence:** yes
 - **Checked patch:** yes
 - **Notes:** Verified against AndroidManifest.xml and MainActivity.java: the app sets no android:allowBackup="false" and ships no dataExtractionRules or fullBackupContent, so android:autoBackup includes the app data directory, which holds the Firebase auth token and the progress store. Severity high is right because a restored backup can sign the learner into a previous account on a new device and merge two accounts of progress. Confidence medium is honest: the exact backup payload depends on the Android version and the backup transport. The fix must keep allowBackup=false consistent with the app own data rules.
+
+
+The finding is correct, and the fix was strengthened during review.
+
+`android:allowBackup="false"` on its own is not enough for this app. The app targets SDK 35, and the platform documentation says that for apps targeting Android 12 (API 31) or higher the behaviour varies: on some manufacturers `allowBackup="false"` disables cloud backup but not device-to-device transfer, and a `<device-transfer>` section that is missing leaves that mode "fully enabled for all content". The WebView origin lives in the app data directory, so a device-to-device transfer would still carry the refresh token and the progress store.
+
+The applied fix therefore does both: `android:allowBackup="false"` and `android:dataExtractionRules="@xml/nk_data_extraction_rules"`, with a new `app/src/main/res/xml/nk_data_extraction_rules.xml` that excludes every domain (`root`, `file`, `database`, `sharedpref`, `external` and the four `device_*` domains) from both `<cloud-backup>` and `<device-transfer>`. The `root` domain is what covers the WebView data directory.
+
+`tools/test_android_shell_contract_v1.py` is new and checks the manifest, the rules file and the Android build's own data rules. It fails on the pre-fix manifest with "the app must not be eligible for backup".
+
+The Android build itself cannot be compiled in this environment, so the manifest and the new resource file must be confirmed by a passing GitHub Actions run before the fix is called verified.

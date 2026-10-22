@@ -21,6 +21,8 @@ import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowInsetsController;
 import android.webkit.JavascriptInterface;
+import android.webkit.JsPromptResult;
+import android.webkit.JsResult;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceError;
@@ -29,6 +31,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -71,6 +74,13 @@ public class MainActivity extends Activity {
             @Override public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
                 Uri url = request.getUrl();
                 if (inApp(url)) return false;
+                // Only the schemes the app means to open leave the WebView.
+                // Anything else (intent:, file:, javascript:, market:) is dropped.
+                String scheme = url.getScheme();
+                if (scheme == null || !(scheme.equals("http") || scheme.equals("https")
+                        || scheme.equals("mailto") || scheme.equals("tel"))) {
+                    return true;
+                }
                 // Anything else (source links, mail) opens outside the app.
                 try { startActivity(new Intent(Intent.ACTION_VIEW, url)); } catch (Exception ignored) {}
                 return true;
@@ -192,17 +202,31 @@ public class MainActivity extends Activity {
 
     @Override protected void onSaveInstanceState(Bundle outState) { super.onSaveInstanceState(outState); if (webView != null) webView.saveState(outState); }
 
+    private static boolean appOrigin(Uri url) {
+        String host = url.getHost();
+        if (host == null) return false;
+        return host.equals(APP_URL.getHost()) && APP_URL.getScheme().equals(url.getScheme()) && url.getPort() == APP_URL.getPort();
+    }
+
     private static boolean inApp(Uri url) {
         String host = url.getHost();
         if (host == null) return false;
-        boolean app = host.equals(APP_URL.getHost()) && APP_URL.getScheme().equals(url.getScheme()) && url.getPort() == APP_URL.getPort();
-        return app || ("https".equals(url.getScheme()) && host.endsWith(ACCESS_DOMAIN));
+        return appOrigin(url) || ("https".equals(url.getScheme()) && host.endsWith(ACCESS_DOMAIN));
+    }
+
+    // The bridges are injected into every document the WebView loads, so a call
+    // is only honoured when the page in front of the learner is the app itself.
+    private boolean onAppOrigin() {
+        if (webView == null) return false;
+        String current = webView.getUrl();
+        return current != null && appOrigin(Uri.parse(current));
     }
 
     private final class ShellBridge {
-        @JavascriptInterface public String platform() { return "android"; }
-        @JavascriptInterface public void theme(boolean isDark) { runOnUiThread(() -> applySystemBars(isDark)); }
+        @JavascriptInterface public String platform() { return onAppOrigin() ? "android" : ""; }
+        @JavascriptInterface public void theme(boolean isDark) { if (!onAppOrigin()) return; runOnUiThread(() -> applySystemBars(isDark)); }
         @JavascriptInterface public void toast(String message) {
+            if (!onAppOrigin()) return;
             if (message == null || message.isEmpty()) return;
             runOnUiThread(() -> Toast.makeText(MainActivity.this, message, message.length() > 60 ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT).show());
         }
@@ -211,6 +235,7 @@ public class MainActivity extends Activity {
     // NATIVE_ACTION_HAPTICS_V1: framework effects honor the user's touch setting.
     private final class HapticsBridge {
         @JavascriptInterface public void play(String kind) {
+            if (!onAppOrigin()) return;
             if (kind == null) return;
             final int effect;
             switch (kind) {
@@ -269,6 +294,32 @@ public class MainActivity extends Activity {
     private ValueCallback<Uri[]> noteFileCallback;
 
     private final class NoteFileChooserClient extends WebChromeClient {
+        // The default WebChromeClient swallows confirm() and prompt(): the page
+        // gets no answer at all, so a confirmation dialog can never be answered.
+        // Native dialogs keep the app readable and give the page a real answer.
+        @Override public boolean onJsConfirm(WebView view, String url, String message, JsResult result) {
+            new AlertDialog.Builder(MainActivity.this)
+                .setMessage(message)
+                .setPositiveButton("OK", (dialog, which) -> result.confirm())
+                .setNegativeButton("Cancel", (dialog, which) -> result.cancel())
+                .setOnCancelListener(dialog -> result.cancel())
+                .show();
+            return true;
+        }
+
+        @Override public boolean onJsPrompt(WebView view, String url, String message, String defaultValue, JsPromptResult result) {
+            EditText input = new EditText(MainActivity.this);
+            input.setText(defaultValue == null ? "" : defaultValue);
+            new AlertDialog.Builder(MainActivity.this)
+                .setMessage(message)
+                .setView(input)
+                .setPositiveButton("OK", (dialog, which) -> result.confirm(input.getText().toString()))
+                .setNegativeButton("Cancel", (dialog, which) -> result.cancel())
+                .setOnCancelListener(dialog -> result.cancel())
+                .show();
+            return true;
+        }
+
         @Override public boolean onShowFileChooser(WebView view, ValueCallback<Uri[]> callback, FileChooserParams params) {
             if (noteFileCallback != null) noteFileCallback.onReceiveValue(null);
             noteFileCallback = callback;

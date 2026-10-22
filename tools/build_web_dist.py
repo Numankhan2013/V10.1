@@ -202,6 +202,10 @@ def main() -> None:
     # as rules for legacy screens Geist replaced. The browser suite runs on this output.
     pruned = prune_build(out)
     print(f"UNREACHABLE_CSS_PRUNED rules={pruned.removed_rules} trimmed={pruned.trimmed_rules} kb={pruned.removed_bytes / 1024:.1f}")
+    required = ("biochemistry_source_solution_map.js", "subject_source_solution_maps.js")
+    missing = [name for name in required if not (out / name).is_file()]
+    if missing:
+        raise SystemExit(f"Required generated web assets are missing: {', '.join(missing)}")
     if "Anatomy_QBank_Source.pdf" not in skipped:
         raise SystemExit("Expected oversized Anatomy PDF to be excluded from Pages output")
     oversize = [p.relative_to(out).as_posix() for p in out.rglob("*") if p.is_file() and p.stat().st_size > PAGES_FILE_LIMIT]
