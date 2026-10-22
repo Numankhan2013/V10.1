@@ -3,7 +3,7 @@
 - **Area:** 03 question rendering
 - **Severity:** medium
 - **Confidence:** high
-- **Status:** open — proposed fix, not applied
+- **Status:** fix applied — commit pending (this commit)
 - **Files:** `app/src/main/assets/source_visual_renderer.js:10`, `app/src/main/assets/source_visual_renderer.js:19`, `app/src/main/assets/index.html:1389`
 - **Introduced by:** unknown
 
@@ -93,6 +93,12 @@ Forcing `loading="eager"` does not help because the race is about listener timin
 ## Main-agent review
 
 - **Verdict:** approved
-- **Checked evidence:** yes
 - **Checked patch:** yes
-- **Notes:** Verified the source-visual viewer path: the load handler is attached after the src assignment, so a cached image can complete before the listener is attached and the fit/zoom step is skipped. The fix attaches the handler before setting src. Approved. Severity medium is right: the image still appears, but at the wrong scale until reopened.
+- **Checked evidence:** yes
+- **Notes:** The finding is correct and both hunks are right.
+
+Verified both viewers. `source_visual_renderer.js:10` set `img.src=url` and only attached `img.onload=fit` at line 19, after the whole handler body; the Physiology viewer in `index.html:1389` built its `<img src="...">` through `innerHTML` and attached the `load` listener after `document.body.appendChild(b)`. In both, a cache hit can deliver `load` before the handler exists.
+
+The patch attaches the handler before the source is set and adds an explicit `if (complete)` call, so the image is fitted whether the event has already fired or fires later.
+
+`tools/test_source_visual_viewer_v1.py` is new. It runs the shipped `source_visual_renderer.js` against a fake DOM whose image fires `load` synchronously when `src` is set, which is what a cache hit looks like from the renderer's side, and asserts the zoom transform was applied. On the pre-fix renderer the assertion fails with "a cached image was never fitted: no zoom transform was applied". The Physiology viewer, which lives in the page rather than in a module, is checked against the page source for the same `if(i.complete)resetPhysZoom();` guard.

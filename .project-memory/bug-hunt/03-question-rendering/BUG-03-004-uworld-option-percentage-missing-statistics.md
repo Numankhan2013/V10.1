@@ -3,7 +3,7 @@
 - **Area:** 03 question rendering
 - **Severity:** medium
 - **Confidence:** medium
-- **Status:** open — proposed fix, not applied
+- **Status:** fix applied — commit pending (this commit)
 - **Files:** `app/src/main/modules/uworld_biochemistry.js:84`, `app/src/main/modules/uworld_biochemistry.js:88`
 - **Introduced by:** unknown
 
@@ -70,4 +70,10 @@ Returning `''` entirely when statistics are missing would collapse the reserved 
 - **Verdict:** approved
 - **Checked evidence:** yes
 - **Checked patch:** yes
-- **Notes:** Verified uworld_biochemistry.js: the option-percentage renderer dereferences statistics.selection_percent without the guard its sibling renderers apply. The evidence and the fix are consistent with the surrounding code. Approved as medium/medium: it needs a UWorld collection whose statistics block is missing, which is why confidence is medium rather than high.
+- **Notes:** The finding is correct and the patch is right.
+
+Verified `nkUworldOptionPercentage` (app/src/main/modules/uworld_biochemistry.js:86) against its sibling `nkUworldStatistics` (line 96), which already chains through `?.`. The reviewed-document branch dereferenced `q.uworldDocument.statistics.selection_percent` with no guard, and `statistics` is optional on a reviewed document: `nkUworldStatistics` reads the same object defensively, and `nkUworldOptionPercentage` is called while mapping over the options, so one throw aborts the whole question render.
+
+The patch is minimal and keeps the existing behaviour: `statistics?.selection_percent||{}` plus a `!values` guard. The percentage is still shown when the source carries one.
+
+`tools/test_uworld_option_percentage_v1.py` is new and drives the shipped function with three documents: one with no `statistics` at all, one whose `statistics` carry no `selection_percent`, and one that carries percentages and must still show them. The first two throw `TypeError: Cannot read properties of undefined (reading 'selection_percent')` on the pre-fix module.
