@@ -174,8 +174,9 @@
     if(start){
       const ids=[...(context.questionIds||[])];if(!ids.length)return navigate('study-library');
       if(typeof openBank==='function'&&context.bank)openBank(context.subject,context.bank);else if(typeof openSubjectTopics==='function')openSubjectTopics(context.subject);
-      startSession(ids,'practice',context.title||`${context.subject} Practice`);
-      const s=state.activeSession;if(s){s.lifecycle='active';s.sessionQuestionIds=[...ids];s.practiceContext={subject:context.subject,bank:context.bank,topicId:context.topicId,title:context.title,questionIds:[...ids]};saveState();}
+      const started=startSession(ids,'practice',context.title||`${context.subject} Practice`);
+      if(started===false)return false;
+      const s=state.activeSession;if(s&&s.mode==='practice'){s.lifecycle='active';s.sessionQuestionIds=[...ids];s.practiceContext={subject:context.subject,bank:context.bank,topicId:context.topicId,title:context.title,questionIds:[...ids]};if(saveState()===false)return false;}
       return;
     }
     if(typeof nkOpenSubjectChapter==='function')return nkOpenSubjectChapter(context.subject,context.bank,context.topicId);
