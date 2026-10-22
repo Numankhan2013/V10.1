@@ -1440,37 +1440,6 @@ function dashboard(){
     return navIcon(key==='physiology'?'heart':key==='anatomy'?'body':'dna',20);
   }
 
-  function nkSourceTakeaway(q) {
-    const reviewed=String(q?.keyTakeaway||q?.takeaway||'').replace(/\s+/g,' ').trim();
-    if(reviewed.length>=24) return reviewed;
-    const option=Array.isArray(q?.options)?q.options[Number(q.correctOption)-1]:null;
-    const answer=String(option?.text||'').replace(/\s+/g,' ').trim();
-    let source=String(q?.explanation||'').replace(/\r/g,'\n');
-    if(!answer || !source) return '';
-    source=source
-      .replace(/^\s*Correct\s+(?:Answer|answer|Option)\s*:?\s*[A-E]\)?[^\n]*\n?/i,'')
-      .replace(/^\s*Explanation\s*:?\s*/i,'')
-      .replace(/[•▪◦]\s*/g,' ')
-      .replace(/\s+/g,' ')
-      .trim();
-    const stop=new Set(['this','that','with','from','into','than','then','which','what','when','where','have','has','were','been','being','their','there','about','answer','option','correct']);
-    const tokens=answer.toLowerCase().replace(/[^a-z0-9+]+/g,' ').split(/\s+/).filter(x=>x.length>=4&&!stop.has(x));
-    if(!tokens.length) return '';
-    const sentences=(source.match(/[^.!?]+[.!?]+|[^.!?]+$/g)||[])
-      .map(x=>x.replace(/^[-–—:\s]+/,'').replace(/\s*\(Option\s+[A-E]\)\s*/ig,' ').replace(/\s+/g,' ').trim())
-      .filter(x=>x.length>=35&&x.length<=300&&/^[A-Z0-9]/.test(x));
-    let best='',bestScore=0;
-    sentences.forEach(sentence=>{
-      const lower=sentence.toLowerCase();
-      const overlap=tokens.reduce((n,t)=>n+(lower.includes(t)?1:0),0);
-      const exact=answer.length>=5&&lower.includes(answer.toLowerCase())?3:0;
-      const score=overlap+exact-(sentence.length>240?1:0);
-      if(score>bestScore){best=sentence;bestScore=score;}
-    });
-    const needed=tokens.length===1?1:2;
-    return best&&bestScore>=needed?best:'';
-  }
-
   function nkSessionHeader(q,s,mode,timerHtml='',gridAttrs='id="cr-grid" title="Question Navigator" onclick="window.QB.openQuestionNavigator()"',headerClass='practice-focus-head nk-session-head') {
     const total=Math.max(1,s.questionIds.length),position=s.index+1;
     const progress=Math.max(0,Math.min(100,Math.round(position/total*100)));
