@@ -105,7 +105,7 @@
   }
   function flush() {
     flushQueued = false;
-    if (!db || !dirty.size) return Promise.resolve();
+    if (frozen || !db || !dirty.size) return Promise.resolve();
     var batch = dirty; dirty = new Map();
     var tx = db.transaction(['kv', 'snapshotMeta', 'snapshotData'], 'readwrite'), kv = tx.objectStore('kv');
     batch.forEach(function (value, key) { if (value === null) kv.delete(key); else kv.put(value, key); });
@@ -128,9 +128,9 @@
     catch (_) { try { nativeRemove.call(local, PRIMARY); } catch (__) {} }
   }
   function announce(raw) {
-    try { if (channel) channel.postMessage({ type: 'state', revision: revisionOf(raw) }); } catch (_) {}
+    try { var revision = revisionOf(raw); if (channel && revision >= 0) channel.postMessage({ type: 'state', revision: revision }); } catch (_) {}
   }
-  function flushNow() { if (dirty.size) flush(); }
+  function flushNow() { if (frozen || !dirty.size) return; flush(); }
   window.addEventListener('pagehide', flushNow);
   document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'hidden') flushNow(); });
 
@@ -160,7 +160,7 @@
       var dayAgo = Date.now() - 864e5, recent = 0, marked = 0;
       all.forEach(function (item) {
         // Points taken before a reset, restore or migration stay for two weeks.
-        if (item.reason !== 'auto') { if (item.at > Date.now() - DAILY_KEEP * 864e5 && marked < RECENT_KEEP) { marked++; keep.add(item.id); } return; }
+        if (item.reason !== 'auto') { if (item.at > Date.now() - DAILY_KEEP * 864e5) keep.add(item.id); return; }
         if (item.at > dayAgo && recent < RECENT_KEEP) { recent++; keep.add(item.id); return; }
         var day = new Date(item.at).toDateString();
         if (!days.has(day) && days.size < DAILY_KEEP) { days.add(day); keep.add(item.id); }
@@ -202,7 +202,7 @@
   }
   function usage() {
     var bytes = 0;
-    mem.forEach(function (value) { bytes += value.length; });
+    mem.forEach(function (value) { bytes += String(value == null ? '' : value).length; });
     var estimate = navigator.storage && navigator.storage.estimate ? navigator.storage.estimate() : Promise.resolve({});
     return estimate.then(function (e) { return { progressBytes: bytes, usage: e.usage || 0, quota: e.quota || 0 }; }, function () { return { progressBytes: bytes }; });
   }

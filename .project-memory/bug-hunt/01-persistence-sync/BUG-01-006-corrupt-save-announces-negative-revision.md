@@ -3,7 +3,7 @@
 - **Area:** 01 persistence & sync
 - **Severity:** low
 - **Confidence:** high
-- **Status:** open — proposed fix, not applied
+- **Status:** fix applied — commit pending (this commit)
 - **Files:** `app/src/main/assets/nk-store.js:35`, `app/src/main/assets/nk-store.js:130`, `app/src/main/assets/nk-store.js:131`
 - **Introduced by:** unknown
 
@@ -57,7 +57,7 @@ Tabs can be told to reload for a save that never produced valid progress.
 -    try { if (channel) channel.postMessage({ type: 'state', revision: revisionOf(raw) }); } catch (_) {}
 +    try { var revision = revisionOf(raw); if (channel && revision >= 0) channel.postMessage({ type: 'state', revision: revision }); } catch (_) {}
    }
-   function flushNow() { if (dirty.size) flush(); }
+   function flushNow() { if (frozen || !dirty.size) return; flush(); }
    window.addEventListener('pagehide', flushNow);
 ```
 
