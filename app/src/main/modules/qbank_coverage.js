@@ -50,11 +50,12 @@
   function nkCoverageListMarkup(data){
     const bank=nkCoverageSelected(data);
     if(!bank)return '<p class="nk-coverage-empty">No question banks are available yet.</p>';
-    const query=nkCoverageSearch.trim().toLocaleLowerCase();
+    const query=nkCoverageSearch.trim().toLocaleLowerCase(),terms=query.split(/\s+/).filter(Boolean);
     const rows=bank.topics.filter(topic=>{
       const status=topic.attempted===topic.total?'complete':topic.attempted?'progress':'new';
+      const title=topic.title.toLocaleLowerCase();
       return (nkCoverageStatus==='all'||nkCoverageStatus===status)
-        &&(!query||topic.title.toLocaleLowerCase().includes(query));
+        &&(!terms.length||terms.every(word=>title.includes(word)));
     });
     const visible=nkCoverageExpanded?rows:rows.slice(0,8);
     const list=visible.map(topic=>{

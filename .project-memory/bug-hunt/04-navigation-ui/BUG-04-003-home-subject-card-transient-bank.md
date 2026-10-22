@@ -3,7 +3,7 @@
 - **Area:** 04 navigation & UI
 - **Severity:** medium
 - **Confidence:** medium
-- **Status:** open — proposed fix, not applied
+- **Status:** fix applied — commit pending (this commit)
 - **Files:** `app/src/main/assets/index.html:644-652`
 - **Introduced by:** unknown
 
@@ -66,4 +66,8 @@ Passing a preferred bank to `applySubject` would still load data the chooser doe
 - **Checked evidence:** yes
 - **Checked patch:** yes
 - **Notes:** Verified the Home subject-card path opens the bank before the learner has chosen one, so the bank selector shows a transient default. Confidence medium is right: it depends on which subject card is tapped and on the bank registry order. The fix keeps the card action to subject selection and defers the bank choice. Approved.
-/root/bug-hunt/base/.project-memory/bug-hunt/04-navigation-ui/BUG-04-004-topic-chapter-without-bank-stale-data.md
+
+
+The finding is correct and the patch is right. `applySubject` persists `qbank_active_bank_v1` and schedules a cloud sync, and the bank chooser page does not need `DATA` at all. The patch mirrors `openSubjectTopics` (index.html:313), which sets only the active subject.
+
+`tools/test_subject_navigation_v1.py` is new. It takes `nkOpenSubjectLibrary` out of the assembled page and asserts that tapping a subject card applies no bank, remembers the subject, does not remember a bank, and schedules no cloud sync. On the pre-fix page it fails with "tapping a subject card must not load a bank".

@@ -3,7 +3,7 @@
 - **Area:** 04 navigation & UI
 - **Severity:** medium
 - **Confidence:** medium
-- **Status:** open — proposed fix, not applied
+- **Status:** fix applied — commit pending (this commit)
 - **Files:** `app/src/main/assets/index.html:653-657`
 - **Introduced by:** unknown
 
@@ -65,4 +65,8 @@ Always calling `openBank(subject, bank||'PrepLadder')` would apply a possibly no
 - **Checked evidence:** yes
 - **Checked patch:** yes
 - **Notes:** Verified the chapter path falls back to the currently cached chapter data when no bank is supplied, so a stale chapter can be shown. Confidence medium is appropriate: the trigger depends on the entry point into a chapter. The diff requires an explicit bank. Approved.
-/root/bug-hunt/base/.project-memory/bug-hunt/04-navigation-ui/BUG-04-005-coverage-open-no-bank-stale.md
+
+
+The finding is correct and the patch is right: without a bank the function fell back to the cached chapter data, so a chapter could be opened from the previously active bank. The patch resolves the subject's own record first and only opens the chapter once a bank is known.
+
+`tools/test_subject_navigation_v1.py` also drives `nkOpenSubjectChapter`: a bankless chapter must open the subject's bank first and then the chapter, and a subject with no resolvable bank must not open a chapter at all. On the pre-fix page it fails with "a bankless chapter must open the subject bank first".

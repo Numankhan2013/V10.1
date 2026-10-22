@@ -3,7 +3,7 @@
 - **Area:** 04 navigation & UI
 - **Severity:** low
 - **Confidence:** high
-- **Status:** open — proposed fix, not applied
+- **Status:** fix applied — commit pending (this commit)
 - **Files:** `app/src/main/modules/qbank_coverage.js:53-58`
 - **Introduced by:** unknown
 
@@ -68,4 +68,8 @@ Filtering on the full topic metadata would require storing more search text; tit
 - **Checked evidence:** yes
 - **Checked patch:** yes
 - **Notes:** Verified qbank_coverage.js applies the same whole-phrase containment as the other two browse filters, so the coverage topic search is the third instance of the same inconsistency. The diff tokenises. Approved as low: same class as BUG-04-001 and BUG-04-002.
-/root/bug-hunt/base/.project-memory/bug-hunt/04-navigation-ui/BUG-04-006-question-search-cache-stale.md
+
+
+The finding is correct and the patch is right: the coverage topic search was the third instance of the same whole-phrase containment.
+
+`tools/test_search_filters_v1.py` also drives `nkCoverageListMarkup` from the shipped module. On the pre-fix module the assertion fails with "the coverage search must match words that are not adjacent".

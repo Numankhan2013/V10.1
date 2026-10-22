@@ -23,6 +23,7 @@ import tempfile
 from pathlib import Path
 
 from app_page import app_source
+from js_extract import extract_function
 from marrow_bank_data import load_sharded
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -38,74 +39,7 @@ def fragment(page: str, name: str) -> str:
     template and regex literals, so a brace inside a literal cannot end the
     scan early and a following declaration cannot be pulled in.
     """
-    needle = f"  function {name}("
-    start = page.rindex(needle)
-    index = start + len(needle) - 1
-    depth = 0
-    previous = ""
-    while index < len(page):
-        char = page[index]
-        if char in "'\"":
-            quote = char
-            index += 1
-            while index < len(page) and page[index] != quote:
-                index += 2 if page[index] == "\\" else 1
-            index += 1
-            previous = "x"
-            continue
-        if char == "`":
-            index += 1
-            while index < len(page):
-                if page[index] == "\\":
-                    index += 2
-                    continue
-                if page[index] == "`":
-                    index += 1
-                    break
-                index += 1
-            previous = "x"
-            continue
-        if char == "/" and index + 1 < len(page):
-            following = page[index + 1]
-            if following == "/":
-                while index < len(page) and page[index] != "\n":
-                    index += 1
-                continue
-            if following == "*":
-                index += 2
-                while index + 1 < len(page) and not (page[index] == "*" and page[index + 1] == "/"):
-                    index += 1
-                index += 2
-                continue
-            if previous in "(,=:[!&|?{};+-*%~^" or previous == "":
-                index += 1
-                in_class = False
-                while index < len(page):
-                    if page[index] == "\\":
-                        index += 2
-                        continue
-                    if page[index] == "[":
-                        in_class = True
-                    elif page[index] == "]":
-                        in_class = False
-                    elif page[index] == "/" and not in_class:
-                        index += 1
-                        break
-                    index += 1
-                while index < len(page) and page[index].isalpha():
-                    index += 1
-                previous = "x"
-                continue
-        if char == "{":
-            depth += 1
-        elif char == "}":
-            depth -= 1
-            if depth == 0:
-                return page[start:index + 1]
-        if not char.isspace():
-            previous = char
-        index += 1
-    raise AssertionError(f"function {name} is not closed in the page")
+    return extract_function(page, name)
 
 
 def main() -> None:

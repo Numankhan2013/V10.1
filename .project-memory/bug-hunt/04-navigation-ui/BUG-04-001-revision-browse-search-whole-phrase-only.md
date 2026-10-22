@@ -3,7 +3,7 @@
 - **Area:** 04 navigation & UI
 - **Severity:** medium
 - **Confidence:** high
-- **Status:** open — proposed fix, not applied
+- **Status:** fix applied — commit pending (this commit)
 - **Files:** `app/src/main/modules/revision_desk.js:118`, `app/src/main/modules/revision_desk.js:124`, `app/src/main/modules/revision_desk.js:130-135`
 - **Introduced by:** unknown
 
@@ -88,4 +88,8 @@ Splitting only in the live filter would leave the initial server-rendered `hidde
 - **Checked evidence:** yes
 - **Checked patch:** yes
 - **Notes:** Verified revision_desk.js: the browse page and nkFilterRevisionBrowse both test raw.includes(term) with the whole trimmed query, while question_search.js tokenises and requires every word. The diff tokenises both paths. Approved.
-/root/bug-hunt/base/.project-memory/bug-hunt/04-navigation-ui/BUG-04-002-notes-search-whole-phrase-only.md
+
+
+The finding is correct and the patch is right. `revision_desk.js` tested the whole trimmed query with `includes` in both the browse page and the live filter, while `question_search.js` tokenises and requires every word.
+
+`tools/test_search_filters_v1.py` is new. It takes `nkRevisionBrowsePage` and `nkFilterRevisionBrowse` out of the shipped module and drives both: the rendered page must not hide a row whose query words are not adjacent, and the live filter must behave the same as the learner types. On the pre-fix module the page assertion fails with "the rendered page must not hide a row whose query words are not adjacent".

@@ -18,16 +18,18 @@ with the table shapes the shipped banks actually use:
 from __future__ import annotations
 
 import subprocess
+import sys
 import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "tools"))
 
 RUNTIME = r"""
 const assert=require('assert'),fs=require('fs');
 const page=fs.readFileSync(process.argv[2],'utf8');
 // Take the shipped functions out of the assembled page.
-function grab(name){
+const grab=name=>{
   const needle='  function '+name+'(';
   const start=page.indexOf(needle);
   if(start<0)throw new Error('missing '+name);
@@ -38,7 +40,7 @@ function grab(name){
     else if(c==='}'){depth--;if(depth===0)break;}
   }
   return page.slice(start,i+1);
-}
+};
 const esc=x=>String(x??'');
 const nkMarrowRich=x=>String(x??'');
 eval(grab('nkMarrowTableCellText'));

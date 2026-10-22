@@ -645,14 +645,14 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
     const records=typeof nkBankRecords==='function'?nkBankRecords(subject):[];
     const fallback=(SUBJECTS||[]).find(r=>r.subject===subject)||null;
     if(!records.length&&!fallback){showToast('This subject is not available.','bad');return;}
-    if(typeof applySubject==='function') applySubject(subject);
-    else activeSubject=subject;
+    activeSubject=subject;
     localStorage.setItem('qbank_active_subject_v1',subject);
     navigate('banks',subject);
   }
   function nkOpenSubjectChapter(subject,bank,topicId){
+    if(!bank&&typeof nkPreferredRecord==='function')bank=nkPreferredRecord(subject)?.bank;
     if(typeof openBank==='function'&&bank)openBank(subject,bank);else if(typeof openSubjectTopics==='function')openSubjectTopics(subject);
-    setTimeout(()=>{if(typeof openChapter==='function')openChapter(topicId);},0);
+    if(bank)setTimeout(()=>{if(typeof openChapter==='function')openChapter(topicId);},0);
   }
   function nkSubjectCardV3(name){
     const s=nkSubjectStatsV3(name),m=nkAppSubjectMeta(name);

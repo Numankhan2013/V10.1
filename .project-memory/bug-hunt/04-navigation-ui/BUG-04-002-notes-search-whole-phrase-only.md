@@ -3,7 +3,7 @@
 - **Area:** 04 navigation & UI
 - **Severity:** low
 - **Confidence:** high
-- **Status:** open — proposed fix, not applied
+- **Status:** fix applied — commit pending (this commit)
 - **Files:** `app/src/main/modules/question_notes.js:92-102`
 - **Introduced by:** unknown
 
@@ -69,4 +69,8 @@ Keeping the phrase test and adding a separate "advanced" mode would leave the de
 - **Checked evidence:** yes
 - **Checked patch:** yes
 - **Notes:** Verified the notes filter applies the same whole-phrase containment as the revision browse filter. The diff tokenises. Approved as low severity: a search-filter convenience issue with a one-word workaround.
-/root/bug-hunt/base/.project-memory/bug-hunt/04-navigation-ui/BUG-04-003-home-subject-card-transient-bank.md
+
+
+The finding is correct and the patch is right: the notes filter applied the same whole-phrase containment as the revision browse filter.
+
+`tools/test_search_filters_v1.py` also drives `nkFilterNotes` from the shipped module. On the pre-fix module the multi-word assertion fails.

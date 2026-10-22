@@ -91,10 +91,11 @@
 
   function nkFilterNotes(value){
     nkNotesQuery=String(value||'');
-    const term=nkNotesQuery.trim().toLowerCase();
+    const term=nkNotesQuery.trim().toLowerCase(),terms=term.split(/\s+/).filter(Boolean);
     let shown=0;
     document.querySelectorAll('.nk-notes-item').forEach(item=>{
-      item.hidden=Boolean(term)&&!item.dataset.noteSearch.includes(term);
+      const haystack=item.dataset.noteSearch||'';
+      item.hidden=Boolean(terms.length)&&!terms.every(word=>haystack.includes(word));
       if(!item.hidden)shown++;
     });
     const empty=document.querySelector('.nk-notes-no-match');

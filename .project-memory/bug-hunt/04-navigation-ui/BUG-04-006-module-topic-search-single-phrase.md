@@ -3,7 +3,7 @@
 - **Area:** 04 navigation & UI
 - **Severity:** low
 - **Confidence:** medium
-- **Status:** open — proposed fix, not applied
+- **Status:** fix applied — commit pending (this commit)
 - **Files:** `app/src/main/modules/study_modules.js:279-294`
 - **Introduced by:** unknown
 
@@ -73,4 +73,8 @@ Searching only topic titles would drop the useful bank-name matches; combining s
 - **Checked evidence:** yes
 - **Checked patch:** yes
 - **Notes:** Verified study_modules.js matches only one contiguous phrase against the topic pool while the sibling builders tokenise. Approved as low/medium: the module builder is a power-user surface and the search is a convenience filter.
-/root/bug-hunt/base/.project-memory/bug-hunt/04-navigation-ui/BUG-04-006-module-topic-search-single-phrase.md
+
+
+The finding is correct and the patch is right: the module builder matched one contiguous phrase against the topic pool while the sibling builders tokenise. The patch matches every query word against the group scope and the topic title together, so a word may come from either.
+
+`tools/test_search_filters_v1.py` also drives `nkFilterModuleTopics` from the shipped module. On the pre-fix module the assertion fails with "the module topic picker must match a multi-word query".
