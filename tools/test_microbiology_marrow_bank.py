@@ -20,7 +20,9 @@ def main() -> None:
     subprocess.run([sys.executable, str(ROOT / "tools/build_microbiology_marrow_bank.py"), "--check"], check=True)
     manifest = json.loads((ROOT / f"data/marrow/{MICROBIOLOGY_PREFIX}_manifest.json").read_text(encoding="utf-8"))
     # Every JSONL part, mapped onto the full PDF pages and app modules (PART_LAYOUT).
-    from build_microbiology_marrow_bank import load_source, MODULE_OVERRIDES
+    from build_microbiology_marrow_bank import (
+        load_source, MODULE_OVERRIDES, QUESTION_FIGURE_CUE, PENDING_QUESTION_FIGURES, check_question_figure,
+    )
     raw_rows = load_source()[0]
 
     record = microbiology_record()
@@ -85,6 +87,45 @@ def main() -> None:
         '<script defer src="microbiology_visual_metadata.js"></script>',
     ):
         assert page.count(marker) == 1, marker
+    # A stem that points at a picture must have a released question figure, so
+    # the learner is never asked about an image that is not there.
+    for q, raw in zip(questions, raw_rows):
+        stem = raw["question_stem"].strip()
+        if not QUESTION_FIGURE_CUE.search(stem):
+            continue
+        figures = (q.get("structuredExplanation") or {}).get("figures") or []
+        has_question_figure = any(f.get("location") == "question_stem" for f in figures)
+        if not has_question_figure:
+            assert q["sourceQuestionId"] in PENDING_QUESTION_FIGURES, (
+                f"{q['id']} points at a picture the bank does not bind and is not a known pending question"
+            )
+    # The builder must run the gate over every question it ships.
+    import build_microbiology_marrow_bank as builder
+    checked: list[str] = []
+    original_gate = builder.check_question_figure
+    builder.check_question_figure = lambda qid, stem, images: checked.append(qid)
+    try:
+        builder.normalize(raw_rows)
+    finally:
+        builder.check_question_figure = original_gate
+    assert len(checked) == len(questions), "the builder must check every question for a figure cue"
+    assert all(q["sourceQuestionId"] in checked for q in questions), "the gate must run for every question"
+
+    # The gate must fire for a question that is not on the pending list.
+    try:
+        check_question_figure("MICRO_CH99_Q999", "Tumbling motility is shown by _______.", [])
+    except SystemExit as error:
+        assert "stem refers to a figure the bank does not bind" in str(error), error
+    else:
+        raise AssertionError("the figure gate must reject a stem that points at an unbound picture")
+    # A stem with a released question figure passes, and a stem without a cue is not checked.
+    check_question_figure("MICRO_CH99_Q999", "Tumbling motility is shown by _______.",
+                          [{"image_id": "x", "location": "question_stem"}])
+    check_question_figure("MICRO_CH99_Q999", "Which organism causes cholera?", [])
+    # A pending question is reported, not blocked.
+    for qid in PENDING_QUESTION_FIGURES:
+        check_question_figure(qid, "Tumbling motility is shown by _______.", [])
+
     print(f"MICROBIOLOGY_MARROW_TEST_OK questions={len(questions)} topics={len(record['topics'])} "
           f"figures={len(visuals['figures'])} incomplete={manifest['incompleteTopics']}")
 

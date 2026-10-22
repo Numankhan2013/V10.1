@@ -30,7 +30,7 @@ Ground rules used by all reviewers:
 
 ## Result
 
-31 findings, all reviewed by the lead. 29 approved, 1 flagged (rejected), 1 needs-work.
+31 findings, all reviewed by the lead. 30 approved, 1 flagged (rejected).
 
 | Area | Findings | high | medium | low | Approved | Flagged / needs-work |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -39,8 +39,8 @@ Ground rules used by all reviewers:
 | 03 question rendering | 5 | 0 | 4 | 1 | 4 | 1 |
 | 04 navigation & UI | 6 | 0 | 3 | 3 | 6 | 0 |
 | 05 Android / PWA / security | 6 | 1 | 5 | 0 | 6 | 0 |
-| 06 build, data & content | 3 | 0 | 3 | 0 | 2 | 1 |
-| **Total** | **31** | **3** | **22** | **6** | **29** | **2** |
+| 06 build, data & content | 3 | 0 | 3 | 0 | 3 | 0 |
+| **Total** | **31** | **3** | **22** | **6** | **30** | **1** |
 
 Every proposed diff in every file was checked with `git apply --check` against
 this checkout and applies cleanly (41 diff blocks across the 31 files).
@@ -68,13 +68,18 @@ made it worse, because it added a flag that the function never read.
 The finding is withdrawn; the file records why, and the one real
 observation behind it, with a corrected patch.
 
-### Needs-work
+### Reworked during review
 
-`BUG-06-001` — the PrepLadder text banks ship a flat `explanation` string that
-is captured before the restructure overlay, so it no longer matches the
-structured blocks the app renders (1,416 of 1,459 Pathology questions, 1,309 of
-1,321 Pharmacology questions). The diagnosis and the measured impact are
-accepted; the patch needs rework before it can be applied.
+`BUG-06-001` — the PrepLadder text banks shipped a flat `explanation` string
+captured before the restructure overlay, so it no longer matched the structured
+blocks the app renders: 2,668 of the 3,982 questions were affected, and 8
+Microbiology questions had an empty flat copy although the learner saw a table.
+The patch needed rework before it could be applied, and was reworked: the flat
+copy is now computed from the same blocks the app renders, and the table
+flattening format was decided and stated (the table's title, then one line per
+row with the cells joined by two spaces, which is what the app's own
+table-aware takeaway picker splits a row on). The three banks were rebuilt, and
+357 Key takeaways changed — none lost its card.
 
 ## Reproducing the measurements
 
@@ -91,25 +96,23 @@ PY
 
 # BUG-06-001: the flat copy against the shipped structured blocks
 python3 - <<'PY'
-import base64, json, zlib
+import base64, json, zlib, sys
 from pathlib import Path
+sys.path.insert(0, 'tools')
+from build_prepladder_microbiology_bank import plain_text
 R = Path('.')
 def load(slug, prefix):
     parts = sorted((R/'data/Prepladder'/slug).glob(f'{prefix}.zlib.b64.part*'))
     raw = ''.join(p.read_text().strip() for p in parts)
     return json.loads(zlib.decompress(base64.b64decode(raw)))
-def plain(blocks):
-    out = []
-    for b in blocks:
-        if b.get('type') in ('paragraph', 'heading'): out.append(b.get('text', ''))
-        elif b.get('type') == 'bullets':
-            out.append('\n'.join('• ' + i.get('text', '') for i in b.get('items') or []))
-    return '\n\n'.join(out)
-for slug, prefix in [('pathology', 'prepladder_pathology_qbank'),
+for slug, prefix in [('microbiology', 'prepladder_microbiology_qbank'),
+                     ('pathology', 'prepladder_pathology_qbank'),
                      ('pharmacology', 'prepladder_pharmacology_qbank')]:
     bank = load(slug, prefix)
-    bad = sum(1 for q in bank['questions']
-              if plain(q['structuredExplanation']['blocks']).strip() != (q.get('explanation') or '').strip())
+    bad = 0
+    for q in bank['questions']:
+        se = q['structuredExplanation']
+        if plain_text(se['blocks'], se.get('tables')) != (q.get('explanation') or ''): bad += 1
     print(slug, bad, 'of', len(bank['questions']))
 PY
 ```

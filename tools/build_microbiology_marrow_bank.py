@@ -29,6 +29,29 @@ import zlib
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+# A stem that points at a picture is unanswerable without one: the figure must
+# be bound as a question figure, not only as an explanation figure, which the
+# renderer deliberately hides until after the answer. The cue is the one the
+# completeness queue already applies (tools/queue_question_completeness.py).
+QUESTION_FIGURE_CUE = re.compile(
+    r"\b(?:shown|depicted|illustrated)\b"
+    r"|\b(?:structure|area|region|organ|part|nerve)\s+(?:marked|labelled|labeled)\b"
+    r"|\b(?:marked|labelled|labeled)\s+(?:structure|area|region)\b"
+    r"|\b(?:image|figure|diagram|graph|photograph)\s+(?:below|above|given)\b",
+    re.I,
+)
+# These questions still ship a stem that refers to a picture the bank does not
+# release. Each one needs either the source figure released with a question
+# role or the question withdrawn from the bank; until that content work is
+# done the gate must not block the build for them. A question outside this list
+# that trips the gate fails the build.
+PENDING_QUESTION_FIGURES = {
+    "MICRO_CH05_Q004", "MICRO_CH05_Q005", "MICRO_CH06_Q022", "MICRO_CH07_Q005",
+    "MICRO_CH07_Q033", "MICRO_CH09_Q035", "MICRO_CH10_Q002", "MICRO_CH10_Q017",
+    "MICRO_CH10_Q022", "MICRO_CH10_Q038", "MICRO_CH12_Q004", "MICRO_CH22_Q021",
+    "MICRO_CH24_Q011",
+}
+
 DATA = ROOT / "data/marrow"
 SOURCE_DIR = DATA / "microbiology/source"
 PREFIX = "microbiology_marrow_qbank"
@@ -658,6 +681,22 @@ def plain_text(blocks: list[dict], tables: dict[str, dict]) -> str:
     return "\n\n".join(x for x in out if x.strip())
 
 
+def check_question_figure(qid: str, stem: str, images: list[dict]) -> None:
+    """A stem that points at a picture must have a released question figure.
+
+    The figure has to be bound as a question figure, not only as an
+    explanation figure: the renderer hides explanation figures until after
+    the answer, so an explanation-only figure leaves the question unreadable.
+    """
+    if not QUESTION_FIGURE_CUE.search(stem):
+        return
+    if any(image.get("location") == "question_stem" for image in images or []):
+        return
+    if qid in PENDING_QUESTION_FIGURES:
+        return
+    fail(f"{qid}: stem refers to a figure the bank does not bind")
+
+
 def normalize(rows: list[dict]) -> dict:
     modules: dict[int, dict] = {}
     questions: list[dict] = []
@@ -700,6 +739,8 @@ def normalize(rows: list[dict]) -> dict:
         stem = str(q.get("question_stem") or "").strip()
         if not stem or any(not str(o.get("text", "")).strip() for o in options):
             fail(f"{mcq}: blank stem or option")
+        qid = f"MICRO_CH{module_index:02d}_Q{number:03d}"
+        check_question_figure(qid, stem, q.get("images") or [])
         hygiene = Hygiene()
         blocks, tables = parse_v2(q, hygiene) if q.get("_schema") == 2 else parse_markdown(q, hygiene)
         table_map = {t["table_id"]: t for t in tables}
@@ -712,7 +753,6 @@ def normalize(rows: list[dict]) -> dict:
         for img in q.get("images") or []:
             figures.append({k: img.get(k) for k in ("image_id", "location", "type", "caption", "source_page", "bounding_box", "in_pearl", "pearl_id")})
         flags = list((q.get("provenance") or {}).get("quality_flags") or [])
-        qid = f"MICRO_CH{module_index:02d}_Q{number:03d}"
         record = {
             "id": f"marrow__{qid}",
             "sourceQuestionId": qid,

@@ -385,13 +385,29 @@ def build_blocks(q: dict, flattened: bool = False) -> tuple[list[dict], list[dic
     return blocks, tables
 
 
-def plain_text(blocks: list[dict]) -> str:
+def plain_text(blocks: list[dict], tables: list[dict] | None = None) -> str:
+    """The flat copy of an explanation: what the learner reads, as text.
+
+    A table contributes its title and then one line per row, with the cells
+    joined by two spaces. Two spaces are what the app's own table-aware
+    takeaway picker splits a row on, so a table-only explanation still yields
+    a summary instead of an empty string.
+    """
+    by_id = {t.get("table_id"): t for t in (tables or [])}
     out = []
     for block in blocks:
-        if block["type"] in ("paragraph", "heading"):
+        if block["type"] in ("paragraph", "heading", "references"):
             out.append(block["text"])
         elif block["type"] == "bullets":
             out.append("\n".join("• " + item["text"] for item in block["items"]))
+        elif block["type"] == "table":
+            table = by_id.get(block.get("table_id"))
+            if not table:
+                continue
+            if table.get("title"):
+                out.append(str(table["title"]))
+            for row in table.get("rows") or []:
+                out.append("  ".join(str(cell) for cell in row))
     return "\n\n".join(out)
 
 
@@ -502,7 +518,7 @@ def normalize(x_rows: list[dict], v2_rows: list[dict], edition: dict) -> tuple[d
                 "options": [{"letter": letters[i], "text": texts[i]} for i in range(len(texts))],
                 "correctOption": key,
                 "correctAnswerText": texts[key - 1],
-                "explanation": plain_text(blocks),
+                "explanation": plain_text(blocks, tables),
                 "structuredExplanation": {"layout": "ordered-blocks", "blocks": blocks, "tables": tables,
                                           "figures": sorted(i["image_id"] for i in stem_images + explain_images)},
                 "provenance": {"sourceFile": V2_PDFS if explain_from is new else SOURCE_PDF, "sourceLabel": edition_label,

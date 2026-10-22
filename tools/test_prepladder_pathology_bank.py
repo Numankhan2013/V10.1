@@ -18,6 +18,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 from build_app_data import assemble  # noqa: E402
 from build_prepladder_pathology_bank import (  # noqa: E402
     INVENTORY, NO_EXPLANATION, RUNTIME, app_record, lesson_title)
+from build_prepladder_microbiology_bank import plain_text  # noqa: E402
 from build_prepladder_microbiology_bank import jpeg_size, sha256  # noqa: E402
 
 PYQ_LESSONS = (5, 9, 13, 18, 25, 31, 36, 38, 43, 47, 51, 55, 58, 60, 63, 64, 66, 67, 73, 80, 82, 84, 85, 87, 88, 89, 90)
@@ -27,6 +28,29 @@ def main() -> None:
     subprocess.run([sys.executable, str(ROOT / "tools/build_prepladder_pathology_bank.py"), "--check"], check=True)
     record = app_record()
     topics, questions = record["topics"], record["questions"]
+    # The flat explanation must be the flat rendering of the blocks the learner
+    # sees, so the Key takeaway is computed from the same document.
+    for q in questions:
+        structured = q.get("structuredExplanation") or {}
+        blocks = structured.get("blocks") or []
+        tables = structured.get("tables") or []
+        assert q["explanation"] == plain_text(blocks, tables), q["id"]
+        # A table is part of the explanation the learner reads, so the flat copy
+        # must carry its cells and not just its title.
+        by_id = {t.get("table_id"): t for t in tables}
+        for block in blocks:
+            if block.get("type") != "table":
+                continue
+            table = by_id.get(block.get("table_id")) or {}
+            for row in table.get("rows") or []:
+                for cell in row:
+                    if str(cell).strip():
+                        assert str(cell) in q["explanation"], f"{q['id']} lost the table cell {cell!r}"
+                        break
+                else:
+                    continue
+                break
+
     assert record["bank"] == "PrepLadder" and record["subject"] == "Pathology"
     assert record["explanationFormat"] == "structured"
     assert len(topics) == 90 and len(questions) == 1459

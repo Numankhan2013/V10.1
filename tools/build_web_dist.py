@@ -17,6 +17,9 @@ from web_security_policy import HEADERS, worker_source
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "app/src/main/assets"
 DEFAULT_OUT = ROOT / "build/web"
+# The page the app ships is the one build_app_data.py filled; the source page is
+# only a template with data tokens.
+BUILT_PAGE = ROOT / "build/app/index.html"
 PAGES_FILE_LIMIT = 25 * 1024 * 1024
 ROBOTS_DIRECTIVES = "noindex, nofollow, noarchive, nosnippet, noimageindex"
 
@@ -131,7 +134,12 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--out", type=Path, default=DEFAULT_OUT)
     parser.add_argument("--version", default="dev")
+    parser.add_argument("--page", type=Path, default=None,
+                        help="the filled app page to ship; defaults to build/app/index.html when it exists")
     args = parser.parse_args()
+    page_source = args.page if args.page else (BUILT_PAGE if BUILT_PAGE.is_file() else ASSETS / "index.html")
+    if not Path(page_source).is_file():
+        raise SystemExit(f"the app page to ship is missing: {page_source}")
     out = args.out if args.out.is_absolute() else ROOT / args.out
     if out.exists():
         shutil.rmtree(out)
@@ -140,15 +148,19 @@ def main() -> None:
     for source in ASSETS.rglob("*"):
         if not source.is_file():
             continue
+        if source == ASSETS / "index.html":
+            # The filled page ships instead of the source template.
+            continue
         relative = source.relative_to(ASSETS)
-        # index.html carries the inline question data until externalize_data
-        # moves it out; the output check below covers what it leaves behind.
-        if source.stat().st_size > PAGES_FILE_LIMIT and source.name != "index.html":
+        if source.stat().st_size > PAGES_FILE_LIMIT:
             skipped.append(str(relative))
             continue
         target = out / relative
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(source, target)
+    # The filled page carries the inline question data until externalize_data
+    # moves it out; the output check below covers what it leaves behind.
+    shutil.copy2(page_source, out / "index.html")
     config_path=out / "qbank-config.js"
     config=json.loads(re.search(r"=\s*(\{.*\})\s*;",config_path.read_text()).group(1))
     anatomy_url=config.get("anatomyPdfUrl", "")

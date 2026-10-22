@@ -3,7 +3,7 @@
 - **Area:** 06 build, data & content
 - **Severity:** medium
 - **Confidence:** high
-- **Status:** open — proposed fix, not applied
+- **Status:** builder gate applied — commit pending (this commit); the 15 questions still need their figures or withdrawal (see Learner impact)
 - **Files:** `tools/marrow_image_coverage.py:27`, `tools/audit_question_structure.py:131`, `tools/queue_question_completeness.py:31`, `app/src/main/assets/marrow_visual_renderer.js:11`, `app/src/main/assets/marrow_visual_renderer.js:5`, `tools/microbiology_visuals.py:122`
 - **Introduced by:** unknown (the Microbiology Marrow bank landed on 2026-10-14; the coverage tool was written for the three ED8 banks)
 
@@ -151,65 +151,135 @@ The builder-side gate is the important one. `tools/build_microbiology_marrow_ban
 ```diff
 --- a/tools/build_microbiology_marrow_bank.py
 +++ b/tools/build_microbiology_marrow_bank.py
-@@ -699,6 +699,12 @@
-             fail(f"{mcq}: correct_answer_text differs from the keyed option text")
+@@ -29,6 +29,29 @@
+ from pathlib import Path
+ 
+ ROOT = Path(__file__).resolve().parents[1]
++# A stem that points at a picture is unanswerable without one: the figure must
++# be bound as a question figure, not only as an explanation figure, which the
++# renderer deliberately hides until after the answer. The cue is the one the
++# completeness queue already applies (tools/queue_question_completeness.py).
++QUESTION_FIGURE_CUE = re.compile(
++    r"\b(?:shown|depicted|illustrated)\b"
++    r"|\b(?:structure|area|region|organ|part|nerve)\s+(?:marked|labelled|labeled)\b"
++    r"|\b(?:marked|labelled|labeled)\s+(?:structure|area|region)\b"
++    r"|\b(?:image|figure|diagram|graph|photograph)\s+(?:below|above|given)\b",
++    re.I,
++)
++# These questions still ship a stem that refers to a picture the bank does not
++# release. Each one needs either the source figure released with a question
++# role or the question withdrawn from the bank; until that content work is
++# done the gate must not block the build for them. A question outside this list
++# that trips the gate fails the build.
++PENDING_QUESTION_FIGURES = {
++    "MICRO_CH05_Q004", "MICRO_CH05_Q005", "MICRO_CH06_Q022", "MICRO_CH07_Q005",
++    "MICRO_CH07_Q033", "MICRO_CH09_Q035", "MICRO_CH10_Q002", "MICRO_CH10_Q017",
++    "MICRO_CH10_Q022", "MICRO_CH10_Q038", "MICRO_CH12_Q004", "MICRO_CH22_Q021",
++    "MICRO_CH24_Q011",
++}
++
+ DATA = ROOT / "data/marrow"
+ SOURCE_DIR = DATA / "microbiology/source"
+ PREFIX = "microbiology_marrow_qbank"
+@@ -658,6 +681,22 @@
+     return "\n\n".join(x for x in out if x.strip())
+ 
+ 
++def check_question_figure(qid: str, stem: str, images: list[dict]) -> None:
++    """A stem that points at a picture must have a released question figure.
++
++    The figure has to be bound as a question figure, not only as an
++    explanation figure: the renderer hides explanation figures until after
++    the answer, so an explanation-only figure leaves the question unreadable.
++    """
++    if not QUESTION_FIGURE_CUE.search(stem):
++        return
++    if any(image.get("location") == "question_stem" for image in images or []):
++        return
++    if qid in PENDING_QUESTION_FIGURES:
++        return
++    fail(f"{qid}: stem refers to a figure the bank does not bind")
++
++
+ def normalize(rows: list[dict]) -> dict:
+     modules: dict[int, dict] = {}
+     questions: list[dict] = []
+@@ -700,6 +739,8 @@
          stem = str(q.get("question_stem") or "").strip()
          if not stem or any(not str(o.get("text", "")).strip() for o in options):
-+            # A stem that points at a picture ("shown below", "the region marked")
-+            # is unanswerable without one: the figure must be bound as a question
-+            # figure, not only as an explanation figure.
-+            if QUESTION_FIGURE_CUE.search(stem) and not any(
-+                    f.get("location") == "question_stem" for f in q.get("images") or []):
-+                fail(f"{mcq}: stem refers to a figure the bank does not bind")
              fail(f"{mcq}: blank stem or option")
++        qid = f"MICRO_CH{module_index:02d}_Q{number:03d}"
++        check_question_figure(qid, stem, q.get("images") or [])
          hygiene = Hygiene()
          blocks, tables = parse_v2(q, hygiene) if q.get("_schema") == 2 else parse_markdown(q, hygiene)
-```
-
-with the cue and the lookup defined next to the builder's other helpers:
-
-```python
-QUESTION_FIGURE_CUE = re.compile(
-    r"\b(?:shown|depicted|illustrated)\b"
-    r"|\b(?:structure|area|region|organ|part|nerve)\s+(?:marked|labelled|labeled)\b"
-    r"|\b(?:marked|labelled|labeled)\s+(?:structure|area|region)\b"
-    r"|\b(?:image|figure|diagram|graph|photograph)\s+(?:below|above|given)\b",
-    re.I,
-)
-```
-
-This reuses the same cue the repository already applies in `tools/queue_question_completeness.py:43`, so the two agree on what "points at a picture" means.
-
-Then extend the coverage tool so the Microbiology bank is audited like the others:
-
-```diff
---- a/tools/marrow_image_coverage.py
-+++ b/tools/marrow_image_coverage.py
-@@ -24,7 +24,7 @@
- DEFAULT_PAGE_REVIEWS = DATA / 'images/source_reference_page_reviews.json'
- DEFAULT_CUE_REVIEWS = DATA / 'images/source_text_cue_reviews.json'
- DEFAULT_DISCOVERY_REVIEWS = DATA / 'images/source_visual_discoveries.json'
--SUBJECTS = ('Anatomy', 'Biochemistry', 'Physiology')
-+SUBJECTS = ('Anatomy', 'Biochemistry', 'Physiology', 'Microbiology')
- ADJUDICATION_STATUS = 'SOURCE_METADATA_INVALID'
+         table_map = {t["table_id"]: t for t in tables}
+@@ -712,7 +753,6 @@
+         for img in q.get("images") or []:
+             figures.append({k: img.get(k) for k in ("image_id", "location", "type", "caption", "source_page", "bounding_box", "in_pearl", "pearl_id")})
+         flags = list((q.get("provenance") or {}).get("quality_flags") or [])
+-        qid = f"MICRO_CH{module_index:02d}_Q{number:03d}"
+         record = {
+             "id": f"marrow__{qid}",
+             "sourceQuestionId": qid,
+--- a/tools/test_microbiology_marrow_bank.py
++++ b/tools/test_microbiology_marrow_bank.py
+@@ -20,7 +20,9 @@
+     subprocess.run([sys.executable, str(ROOT / "tools/build_microbiology_marrow_bank.py"), "--check"], check=True)
+     manifest = json.loads((ROOT / f"data/marrow/{MICROBIOLOGY_PREFIX}_manifest.json").read_text(encoding="utf-8"))
+     # Every JSONL part, mapped onto the full PDF pages and app modules (PART_LAYOUT).
+-    from build_microbiology_marrow_bank import load_source, MODULE_OVERRIDES
++    from build_microbiology_marrow_bank import (
++        load_source, MODULE_OVERRIDES, QUESTION_FIGURE_CUE, PENDING_QUESTION_FIGURES, check_question_figure,
++    )
+     raw_rows = load_source()[0]
  
+     record = microbiology_record()
+@@ -85,6 +87,45 @@
+         '<script defer src="microbiology_visual_metadata.js"></script>',
+     ):
+         assert page.count(marker) == 1, marker
++    # A stem that points at a picture must have a released question figure, so
++    # the learner is never asked about an image that is not there.
++    for q, raw in zip(questions, raw_rows):
++        stem = raw["question_stem"].strip()
++        if not QUESTION_FIGURE_CUE.search(stem):
++            continue
++        figures = (q.get("structuredExplanation") or {}).get("figures") or []
++        has_question_figure = any(f.get("location") == "question_stem" for f in figures)
++        if not has_question_figure:
++            assert q["sourceQuestionId"] in PENDING_QUESTION_FIGURES, (
++                f"{q['id']} points at a picture the bank does not bind and is not a known pending question"
++            )
++    # The builder must run the gate over every question it ships.
++    import build_microbiology_marrow_bank as builder
++    checked: list[str] = []
++    original_gate = builder.check_question_figure
++    builder.check_question_figure = lambda qid, stem, images: checked.append(qid)
++    try:
++        builder.normalize(raw_rows)
++    finally:
++        builder.check_question_figure = original_gate
++    assert len(checked) == len(questions), "the builder must check every question for a figure cue"
++    assert all(q["sourceQuestionId"] in checked for q in questions), "the gate must run for every question"
++
++    # The gate must fire for a question that is not on the pending list.
++    try:
++        check_question_figure("MICRO_CH99_Q999", "Tumbling motility is shown by _______.", [])
++    except SystemExit as error:
++        assert "stem refers to a figure the bank does not bind" in str(error), error
++    else:
++        raise AssertionError("the figure gate must reject a stem that points at an unbound picture")
++    # A stem with a released question figure passes, and a stem without a cue is not checked.
++    check_question_figure("MICRO_CH99_Q999", "Tumbling motility is shown by _______.",
++                          [{"image_id": "x", "location": "question_stem"}])
++    check_question_figure("MICRO_CH99_Q999", "Which organism causes cholera?", [])
++    # A pending question is reported, not blocked.
++    for qid in PENDING_QUESTION_FIGURES:
++        check_question_figure(qid, "Tumbling motility is shown by _______.", [])
++
+     print(f"MICROBIOLOGY_MARROW_TEST_OK questions={len(questions)} topics={len(record['topics'])} "
+           f"figures={len(visuals['figures'])} incomplete={manifest['incompleteTopics']}")
  
-```
-
-and widen the audit's bank list so the queue can see Microbiology:
-
-```diff
---- a/tools/audit_question_structure.py
-+++ b/tools/audit_question_structure.py
-@@ -128,7 +128,7 @@
- 
- def load_marrow() -> tuple[list, dict]:
-     records, hashes = [], {}
--    for prefix in ("anatomy_ch001_063", "biochemistry_ch001_028", "physiology_ch001_043"):
-+    for prefix in ("anatomy_ch001_063", "biochemistry_ch001_028", "physiology_ch001_043", "microbiology_marrow_qbank"):
-         parent = ROOT / "data/marrow"
-         manifest = json.loads((parent / f"{prefix}_manifest.json").read_text())
-         parts = sorted(parent.glob(f"{prefix}.zlib.b64.part*"))
 ```
 
 **Before applying the coverage-tool change, note that it is a larger change than the builder gate.** `tools/marrow_image_coverage.py` asserts every registry entry's subject is one of `SUBJECTS` (lines 92 and 114), but the registry holds no Microbiology assets at all — the Microbiology figures live in `data/marrow/images/` under a separate manifest and are released by `tools/microbiology_visuals.py`. Wiring Microbiology into the shared coverage tool therefore requires reconciling two registries, which is a bigger piece of work than this bug needs. The safe sequence is:
@@ -241,4 +311,18 @@ Renaming the six explanation-role figures to `role: "question"` would fix six of
 - **Verdict:** approved
 - **Checked evidence:** yes
 - **Checked patch:** yes
-- **Notes:** Verified marrow_visual_renderer.js:10-11 (figures are filtered by role and the function returns silently when the list is empty) and the shipped runtime metadata: 15 Marrow questions have a stem that points at a picture but no question-role figure, 9 with no figure binding at all and 6 whose only figure is explanation-role, which the renderer deliberately hides until after the answer. Verified that the completeness tooling cannot see them: marrow_image_coverage.py:27 fixes SUBJECTS to the three ED8 subjects, audit_question_structure.py:131 hard-codes the same three shard prefixes, and the Microbiology figures live in a separate registry (the marrow registry holds 1,308 assets and zero Microbiology ones), so none of the 15 appear in the review queue. The builder-side cue gate is the right primary fix; the diff now uses the builder own location vocabulary (question_stem). Approved, with the sequencing note in the file kept: the coverage-tool widening depends on reconciling two registries and should follow the builder gate, not replace it.
+- **Notes:** The finding is correct and was measured again during review. The proposed patch was wrong in two ways and was reworked before being applied; the coverage-tool widening was deliberately left out of this change.
+
+The evidence checks out. Merging `marrow_visual_metadata.js` with `microbiology_visual_metadata.js` and testing the cue against the shipped Marrow banks gives exactly 15 questions: 1 Anatomy, 1 Biochemistry and 13 Microbiology, with no Physiology question affected. The cue also matches 153 Anatomy, 21 Biochemistry and 20 Physiology stems that DO have a released question figure, so the cue alone is not a defect signal — what matters is the cue together with a missing question-role figure, and the builder must look at the figures it binds.
+
+The proposed patch had two problems. Its cue check was nested inside the `if not stem or any(blank option)` branch, so it could only ever run for a question that was already failing for another reason. And it introduced `QUESTION_FIGURE_CUE` in the prose without adding it to the file, so the diff did not compile.
+
+The applied change:
+
+- `tools/build_microbiology_marrow_bank.py` gains `QUESTION_FIGURE_CUE` and `check_question_figure(qid, stem, images)`, which fails the build when a stem that points at a picture has no image bound with `location: "question_stem"`. The check is called for every question the builder normalizes, outside the blank-stem branch.
+- The 13 Microbiology questions that ship today are listed in `PENDING_QUESTION_FIGURES` with a comment saying what has to happen to each of them. Without that list the gate would fail the build on the 13 questions that are already shipped, which would break `tools/test_microbiology_marrow_bank.py` and therefore CI, so the gate cannot simply be switched on. The list keeps the build green while making the debt explicit and bounded: any question outside the list that trips the gate fails the build.
+- `tools/test_microbiology_marrow_bank.py` checks the bank for cue-without-figure questions, asserts the builder runs the gate over every question, asserts the gate rejects an unknown question, and asserts a pending question is reported rather than blocked.
+
+**The learner-facing defect is not fixed by this change.** The 15 questions still ship with a stem that refers to a picture that is not there. Releasing the source figures with a question role, or withdrawing the questions, is content work that needs the source PDFs and the image registry, and it is recorded as the next step rather than done here. The widening of `tools/marrow_image_coverage.py` and `tools/audit_question_structure.py` to cover Microbiology is also left for after that, because it depends on reconciling the two figure registries.
+
+So this change installs the gate that stops the class of defect from growing and names the 15 that still need attention; it does not make those 15 answerable.
