@@ -73,8 +73,8 @@ def marrow_data() -> str:
 
 
 def marrow_explanation_gold() -> str:
-    from marrow_bank_data import canonical_source_questions, merged_explanations
-    return js_json(merged_explanations(canonical_source_questions()))
+    from marrow_bank_data import apply_explanation_source_cleanup, canonical_source_questions, merged_explanations
+    return js_json(apply_explanation_source_cleanup(merged_explanations(canonical_source_questions())))
 
 
 def marrow_taxonomy() -> dict:

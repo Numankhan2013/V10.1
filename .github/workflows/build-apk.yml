@@ -214,6 +214,8 @@ jobs:
         run: python3 tools/test_continue_practice_resume_v1.py
       - name: Test question content hygiene
         run: python3 tools/test_question_content_hygiene_v1.py
+      - name: Test shipped explanations carry no OCR debris
+        run: python3 tools/test_explanation_source_cleanup_v1.py
       - name: Verify native action haptics
         run: python3 tools/test_android_haptics_v1.py
       - name: Verify Android note file chooser
