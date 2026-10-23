@@ -85,8 +85,8 @@
     if(discussion)out.push('</section>');return out.join('');
   }
   function nkUworldOptionPercentage(q,o,revealed=true){
-    const values=q.uworldDocument?q.uworldDocument.statistics.selection_percent:Object.fromEntries((q.uworldSource?.options||[]).map(item=>[item.label,item.selection_percent]));
-    if(!Object.values(values).some(value=>value!=null))return '';
+    const values=q.uworldDocument?(q.uworldDocument.statistics?.selection_percent||{}):Object.fromEntries((q.uworldSource?.options||[]).map(item=>[item.label,item.selection_percent]));
+    if(!values||!Object.values(values).some(value=>value!=null))return '';
     // Reserve the same quiet column before/after answering; text never rewraps
     // just because source percentages become visible.
     if(!revealed)return '<span class="nk-uworld-percent-space" aria-hidden="true"></span>';

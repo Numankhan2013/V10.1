@@ -193,6 +193,7 @@
   function nkFsrsTopicOptions(subject){const item=SUBJECTS.find(s=>s.subject===subject),select=document.getElementById('nk-fsrs-topic');if(!select)return;select.innerHTML='<option value="">All topics</option>'+((item?.topics||[]).map(t=>`<option value="${esc(t.id)}">${esc(t.title||t.name)}</option>`).join(''));}
   function nkFsrsQueueDialog(){navigate('fsrs');}
   function nkFsrsUndo(){
+    nkFsrsRecoverPending();
     let hit=null,qid=null;Object.keys(state.attempts||{}).forEach(id=>{
       const active=nkFsrsActiveAttempts(id),ids=new Set(active.map(a=>String(a.id))),edits=state.fsrsRatingRevisions?.[id]||[],undone=new Set(edits.filter(a=>a.isUndo).map(a=>String(a.undoOf)));
       [...active,...edits.filter(a=>!a.isUndo&&!undone.has(String(a.id))&&ids.has(String(a.ratingOf)))].forEach(a=>{if(!hit||Number(a.at)>Number(hit.at)||(Number(a.at)===Number(hit.at)&&String(a.id)>String(hit.id))){hit=a;qid=id;}});

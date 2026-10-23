@@ -21,8 +21,12 @@ It also writes the generated data files those tokens point at (UWorld
 collections, Marrow figures). Every token must be replaced; any token left over
 fails the build.
 
-  python3 tools/build_app_data.py            # assemble and fill index.html in place
+  python3 tools/build_app_data.py            # assemble and fill the page into build/app/
   python3 tools/build_app_data.py --check    # list the tokens without writing
+  python3 tools/build_app_data.py --out PATH # write the filled page somewhere else
+
+The source page is never overwritten: it is a template with data tokens, and
+the filled page is what ships.
 """
 from __future__ import annotations
 
@@ -36,6 +40,7 @@ from app_page import assemble
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "app/src/main/assets"
 HTML = ASSETS / "index.html"
+BUILT = ROOT / "build/app/index.html"
 TOKEN = re.compile(r"__NK_DATA_([A-Z_]+?)__")
 
 
@@ -49,9 +54,11 @@ def asset_script(name: str) -> str:
 
 
 def marrow_data() -> str:
-    from marrow_bank_data import app_marrow_records, validate_biochemistry_batches
+    from marrow_bank_data import app_marrow_records, load_expanded_bank, validate_biochemistry_batches
     records = app_marrow_records()
-    validate_biochemistry_batches(records[1])
+    # Explanation batches are keyed to the canonical source, which keeps the
+    # withdrawn questions; validate against that record, not the filtered app one.
+    validate_biochemistry_batches(load_expanded_bank("biochemistry_ch001_028", "Biochemistry")[0])
     # PrepLadder Microbiology, Pathology, Pharmacology, Biochemistry and Physiology
     # (2025 editions) have structured text explanations, so they travel with the Marrow
     # records; the app files them under PrepLadder by their bank.
@@ -129,6 +136,8 @@ BUILDERS = {
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--check", action="store_true", help="report the tokens in index.html without writing")
+    parser.add_argument("--out", type=Path, default=BUILT,
+                        help="where to write the filled page; the source page is never overwritten")
     args = parser.parse_args()
     page = assemble(HTML.read_text(encoding="utf-8"))
     found = TOKEN.findall(page)
@@ -142,8 +151,10 @@ def main() -> None:
     release_marrow_figures()
     values = {name: build() for name, build in BUILDERS.items()}
     page = TOKEN.sub(lambda m: values[m.group(1)], page)
-    HTML.write_text(page, encoding="utf-8")
-    print(f"APP_DATA_OK tokens={len(found)} kb={len(page.encode()) / 1024:.0f}")
+    out = args.out if args.out.is_absolute() else ROOT / args.out
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(page, encoding="utf-8")
+    print(f"APP_DATA_OK tokens={len(found)} kb={len(page.encode()) / 1024:.0f} out={out}")
 
 
 if __name__ == "__main__":

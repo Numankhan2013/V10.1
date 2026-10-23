@@ -61,9 +61,15 @@
   }
   function nkRestoreAccountSnapshot(snapshot){
     const nextState=nkNormalizeState(snapshot.state),nextMeta=nkNormalizeSyncMeta(snapshot.syncMeta);
+    // This device keeps its own sync identity. A snapshot taken on another
+    // device must not make this device upload envelopes stamped with that
+    // device's ID, or per-device conflict resolution and tombstones are
+    // attributed to the wrong device.
+    const localDeviceId=(nkSyncMeta&&nkSyncMeta.deviceId)||nextMeta.deviceId;
     state=nextState;
     if(nkDurablePersist(state,'account switch')===false)throw new Error('Account progress could not be saved on this device.');
     nkSyncMeta=nextMeta;
+    nkSyncMeta.deviceId=localDeviceId;
     if(!nkSaveSyncMeta())throw new Error('Account sync history could not be saved on this device.');
     applySubject(SUBJECT_BY_NAME[snapshot.activeSubject]?snapshot.activeSubject:'Biochemistry');
     localStorage.removeItem(NK_PRE_CLOUD_BACKUP);

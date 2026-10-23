@@ -137,7 +137,9 @@ jobs:
       - name: Check the app page against its tested modules
         run: python3 tools/test_app_source_parity.py
       - name: Write question data into the app page
-        run: python3 tools/build_app_data.py
+        run: |
+          python3 tools/build_app_data.py --out build/app/index.html
+          cp app/src/main/assets/app.css build/app/app.css
       - name: Install PDF mapping dependency
         run: python3 -m pip install --disable-pip-version-check PyMuPDF Pillow
       - name: Render claimed Biochemistry batch regions on Ubuntu
@@ -239,6 +241,7 @@ jobs:
       - name: Validate Microbiology Marrow bank and figures
         run: |
           python3 tools/test_microbiology_marrow_bank.py
+          python3 tools/test_marrow_withdrawn_questions_v1.py
           python3 tools/test_microbiology_marrow_emphasis.py
           python3 tools/test_prepladder_microbiology_bank.py
           python3 tools/test_prepladder_pathology_bank.py
@@ -334,7 +337,7 @@ jobs:
           python3 - <<'PY'
           from pathlib import Path
           import re, subprocess, tempfile
-          s=Path('app/src/main/assets/index.html').read_text(encoding='utf-8')
+          s=Path('build/app/index.html').read_text(encoding='utf-8')
           scripts=re.findall(r'<script(?:[^>]*)>(.*?)</script>', s, re.S|re.I)
           with tempfile.TemporaryDirectory() as td:
               checked=0
@@ -347,68 +350,68 @@ jobs:
           print(f'INLINE_JS_SYNTAX_OK={checked}')
           PY
       - name: Verify generated product contract
-        run: python3 tools/verify_product_contract.py --stage generated
+        run: python3 tools/verify_product_contract.py --stage generated --html build/app/index.html
       - name: Enforce CBT regression guardrails
         run: python3 tools/verify_cbt_invariants.py
       - name: Verify final generated app
         run: |
-          grep -q 'NK_QUESTION_PRESENTATION_V1_START' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'SOURCE_PDF_EXPLANATION_V18' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'BIOCHEM_SOURCE_SOLUTIONS' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'SUBJECT_SOURCE_SOLUTIONS' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'anatomy-' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'NK_QUESTION_PRESENTATION_V1_START' build/app/index.html app/src/main/assets/app.css
+          grep -q 'SOURCE_PDF_EXPLANATION_V18' build/app/index.html app/src/main/assets/app.css
+          grep -q 'BIOCHEM_SOURCE_SOLUTIONS' build/app/index.html app/src/main/assets/app.css
+          grep -q 'SUBJECT_SOURCE_SOLUTIONS' build/app/index.html app/src/main/assets/app.css
+          grep -q 'anatomy-' build/app/index.html app/src/main/assets/app.css
           grep -q 'NK_THIN_SHELL_V1' app/src/main/java/com/qbank/biochemistry/MainActivity.java
-          grep -q 'qbank-question-ui-v2' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'qbank-practice-analysis-v1' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'qbank-ui-polish-v1' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'qbank-ui-polish-v2' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'qbank-home-insights-polish-v1' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'qbank-option-feedback-polish-v1' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'qbank-practice-cleanup-v1' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'qbank-option-hole-cleanup-v1' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'nk-home-v4' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'nk-home-v4-style' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'NK_HOME_V5_FIXES' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'nk-topics-v2' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'openSubjectTopics' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'resetScrollPosition' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'requestAnimationFrame(() => window.scrollTo(0,0)' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'nk-home-streak-header-v1' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'nk-home-streak' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'currentStreak()' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'body:has(.nk-home-v4) .topbar' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'nk-home-actions-v1' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'Continue Practice' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'Build a test' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'Quick test' app/src/main/assets/index.html app/src/main/assets/app.css
-          ! grep -q 'id="v102-streak-layer-script"' app/src/main/assets/index.html app/src/main/assets/app.css
-          ! grep -q 'id="v102-streak-layer"' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'qbank-question-ui-v2' build/app/index.html app/src/main/assets/app.css
+          grep -q 'qbank-practice-analysis-v1' build/app/index.html app/src/main/assets/app.css
+          grep -q 'qbank-ui-polish-v1' build/app/index.html app/src/main/assets/app.css
+          grep -q 'qbank-ui-polish-v2' build/app/index.html app/src/main/assets/app.css
+          grep -q 'qbank-home-insights-polish-v1' build/app/index.html app/src/main/assets/app.css
+          grep -q 'qbank-option-feedback-polish-v1' build/app/index.html app/src/main/assets/app.css
+          grep -q 'qbank-practice-cleanup-v1' build/app/index.html app/src/main/assets/app.css
+          grep -q 'qbank-option-hole-cleanup-v1' build/app/index.html app/src/main/assets/app.css
+          grep -q 'nk-home-v4' build/app/index.html app/src/main/assets/app.css
+          grep -q 'nk-home-v4-style' build/app/index.html app/src/main/assets/app.css
+          grep -q 'NK_HOME_V5_FIXES' build/app/index.html app/src/main/assets/app.css
+          grep -q 'nk-topics-v2' build/app/index.html app/src/main/assets/app.css
+          grep -q 'openSubjectTopics' build/app/index.html app/src/main/assets/app.css
+          grep -q 'resetScrollPosition' build/app/index.html app/src/main/assets/app.css
+          grep -q 'requestAnimationFrame(() => window.scrollTo(0,0)' build/app/index.html app/src/main/assets/app.css
+          grep -q 'nk-home-streak-header-v1' build/app/index.html app/src/main/assets/app.css
+          grep -q 'nk-home-streak' build/app/index.html app/src/main/assets/app.css
+          grep -q 'currentStreak()' build/app/index.html app/src/main/assets/app.css
+          grep -q 'body:has(.nk-home-v4) .topbar' build/app/index.html app/src/main/assets/app.css
+          grep -q 'nk-home-actions-v1' build/app/index.html app/src/main/assets/app.css
+          grep -q 'Continue Practice' build/app/index.html app/src/main/assets/app.css
+          grep -q 'Build a test' build/app/index.html app/src/main/assets/app.css
+          grep -q 'Quick test' build/app/index.html app/src/main/assets/app.css
+          ! grep -q 'id="v102-streak-layer-script"' build/app/index.html app/src/main/assets/app.css
+          ! grep -q 'id="v102-streak-layer"' build/app/index.html app/src/main/assets/app.css
           ! grep -q 'home_polish_v3.js' app/src/main/java/com/qbank/biochemistry/MainActivity.java
-          grep -q 'NK_SOURCE_VISUALS_V11' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'closeQuestionNavigator();' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'sessionShell' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'qb-nav-submit' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q "s.mode==='practice'" app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'nk-session-review' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'nk-cbt-review-footer-v1' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'review-fixed-actions' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'nk-review-solution-grid-style' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'nk-session-experience-v114' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'nk-whole-app-vision-v114' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'startAllSubjectPractice' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'openMultiSubjectTestBuilder' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'aria-label="NK QBank"' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'nk-flame-svg' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'nk-custom-study-modules-v1' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'openStudyModuleBuilder' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'nkSelectModuleQuestionIds' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q "route.page==='module-builder'" app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q '&scale=4' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'id="cr-grid"' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'window.QB.openQuestionNavigator()' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'showToast(msg,type' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'root.innerHTML=' app/src/main/assets/index.html app/src/main/assets/app.css
-          grep -q 'NK_MARROW_STRUCTURED_TABLE_RENDERER_V1' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'NK_SOURCE_VISUALS_V11' build/app/index.html app/src/main/assets/app.css
+          grep -q 'closeQuestionNavigator();' build/app/index.html app/src/main/assets/app.css
+          grep -q 'sessionShell' build/app/index.html app/src/main/assets/app.css
+          grep -q 'qb-nav-submit' build/app/index.html app/src/main/assets/app.css
+          grep -q "s.mode==='practice'" build/app/index.html app/src/main/assets/app.css
+          grep -q 'nk-session-review' build/app/index.html app/src/main/assets/app.css
+          grep -q 'nk-cbt-review-footer-v1' build/app/index.html app/src/main/assets/app.css
+          grep -q 'review-fixed-actions' build/app/index.html app/src/main/assets/app.css
+          grep -q 'nk-review-solution-grid-style' build/app/index.html app/src/main/assets/app.css
+          grep -q 'nk-session-experience-v114' build/app/index.html app/src/main/assets/app.css
+          grep -q 'nk-whole-app-vision-v114' build/app/index.html app/src/main/assets/app.css
+          grep -q 'startAllSubjectPractice' build/app/index.html app/src/main/assets/app.css
+          grep -q 'openMultiSubjectTestBuilder' build/app/index.html app/src/main/assets/app.css
+          grep -q 'aria-label="NK QBank"' build/app/index.html app/src/main/assets/app.css
+          grep -q 'nk-flame-svg' build/app/index.html app/src/main/assets/app.css
+          grep -q 'nk-custom-study-modules-v1' build/app/index.html app/src/main/assets/app.css
+          grep -q 'openStudyModuleBuilder' build/app/index.html app/src/main/assets/app.css
+          grep -q 'nkSelectModuleQuestionIds' build/app/index.html app/src/main/assets/app.css
+          grep -q "route.page==='module-builder'" build/app/index.html app/src/main/assets/app.css
+          grep -q '&scale=4' build/app/index.html app/src/main/assets/app.css
+          grep -q 'id="cr-grid"' build/app/index.html app/src/main/assets/app.css
+          grep -q 'window.QB.openQuestionNavigator()' build/app/index.html app/src/main/assets/app.css
+          grep -q 'showToast(msg,type' build/app/index.html app/src/main/assets/app.css
+          grep -q 'root.innerHTML=' build/app/index.html app/src/main/assets/app.css
+          grep -q 'NK_MARROW_STRUCTURED_TABLE_RENDERER_V1' build/app/index.html app/src/main/assets/app.css
           test -s app/src/main/assets/biochemistry_source_solution_map.js
           test -s app/src/main/assets/subject_source_solution_maps.js
           test -s app/src/main/assets/source_visual_metadata.js
@@ -421,11 +424,11 @@ jobs:
           test -f app/src/main/assets/Anatomy_QBank_Source.pdf
           test -s app/src/main/assets/vendor/ts-fsrs/ts-fsrs-5.4.2.umd.js
           test -s app/src/main/assets/vendor/ts-fsrs/LICENSE
-          grep -q 'NK_FSRS_V6_START' app/src/main/assets/index.html app/src/main/assets/app.css
+          grep -q 'NK_FSRS_V6_START' build/app/index.html app/src/main/assets/app.css
       - name: Test unreachable CSS pruning
         run: python3 tools/test_prune_unreachable_css.py
       - name: Build Cloudflare Pages PWA artifact
-        run: python3 tools/build_web_dist.py --version ${{ github.sha }}
+        run: python3 tools/build_web_dist.py --version ${{ github.sha }} --page build/app/index.html
       - name: Verify Marrow image bytes and offline cache
         run: python3 tools/check_marrow_image_package.py
       - name: Verify focused UWorld exhibit bytes and offline cache

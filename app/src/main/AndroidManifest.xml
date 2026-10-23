@@ -4,7 +4,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/nk_data_extraction_rules"
         android:icon="@drawable/nk_qbank_icon"
         android:label="NK QBank"
         android:resizeableActivity="true"

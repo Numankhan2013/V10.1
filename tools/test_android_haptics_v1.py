@@ -8,6 +8,7 @@ JAVA = ROOT / 'app/src/main/java/com/qbank/biochemistry/MainActivity.java'
 BRIDGE = '''    // NATIVE_ACTION_HAPTICS_V1: framework effects honor the user's touch setting.
     private final class HapticsBridge {
         @JavascriptInterface public void play(String kind) {
+            if (!onAppOrigin()) return;
             if (kind == null) return;
             final int effect;
             switch (kind) {
@@ -37,6 +38,10 @@ def main():
                      'webView.setHapticFeedbackEnabled(true)'):
         assert current.count(contract) == 1, contract
     assert 'FLAG_IGNORE_GLOBAL_SETTING' not in current
+    # The bridge is injected into every document the WebView loads, so it must
+    # only answer while the app origin is in front of the learner.
+    assert 'private boolean onAppOrigin()' in current
+    assert current.count('if (!onAppOrigin()) return;') == 3, 'every native bridge call must check the origin'
     assert 'case "error": effect = HapticFeedbackConstants.CLOCK_TICK' not in current, 'answer haptics must not be flattened'
     print('ANDROID_ACTION_HAPTICS_TEST_OK bridge=true prior_answers=true current=true')
 

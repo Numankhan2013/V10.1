@@ -68,6 +68,19 @@ assert(nkDurablePersist(state,'interrupted snapshot')===false,'interrupted snaps
 assert(data[LS_KEY]===primaryBeforeInterrupted&&!data[NK_STATE_PENDING_KEY],'failed transaction must restore the old primary and remove its journal');
 failKey='';
 assert.throws(()=>nkNormalizeState({...valid,stateSchemaVersion:99}),/unsupported state schema/);
+// A journal removal that fails must not abort the rest of the rollback, and the
+// last-known-good copy must be restored too: otherwise the failed revision
+// survives as durable progress and the next load resurrects it.
+const adapterRemoveThrows=adapter.removeItem;
+adapter.removeItem=key=>{if(key===NK_STATE_PENDING_KEY)throw new Error('journal removal failed');return adapterRemoveThrows(key);};
+const primaryBeforeThrow=data[LS_KEY],lkgBeforeThrow=data[NK_STATE_LKG_KEY];
+state.bookmarks.q5={addedAt:5};
+assert(nkDurablePersist(state,'journal removal failure')===false,'a failed journal removal must be reported as a failed save');
+assert(data[LS_KEY]===primaryBeforeThrow,'a failed journal removal must still restore the previous primary');
+assert(data[NK_STATE_LKG_KEY]===lkgBeforeThrow,'a failed save must restore the previous last-known-good copy');
+adapter.removeItem=adapterRemoveThrows;
+state.bookmarks.q6={addedAt:6};
+assert(nkDurablePersist(state,'recovered save'),'the store must save again after a failed rollback');
 state.activeSession={id:'exam',mode:'exam',questionIds:['q1'],startedAt:100};assert(nkDurablePersist(state,'suspend normal Practice'));
 assert(state.normalPracticeCheckpoint.lifecycle==='suspended','special session must suspend, not replace, normal Practice');
 for(const title of ['Bookmarked Questions','Wrong Questions','FSRS Review']){
@@ -409,6 +422,18 @@ async function testRequests(){
   assert(state.fsrsPreferences.desiredRetention===0.9&&state.fsrsPreferences.dailyCap===200,'legacy payload must keep the whole-block merge');
   console.log('CROSS_DEVICE_SYNC_BEHAVIOR_OK');
 }
+// Restoring an account snapshot must not adopt the other device's identity:
+// this device keeps stamping its own envelopes, or per-device conflict
+// resolution and tombstones are attributed to the wrong device.
+nkSyncMeta=nkNormalizeSyncMeta({deviceId:'this-device',boundUid:'account-b'});
+const foreignSnapshot={uid:'account-b',activeSubject:'Biochemistry',
+  state:{attempts:{},bookmarks:{},reviews:{},tests:[],studyModules:[],activeSession:null,questionNotes:{},fsrsReviewEligible:{}},
+  syncMeta:{deviceId:'other-device',boundUid:'account-b',outbox:{},localHashes:{},known:{},winners:{},cursors:{}}};
+nkRestoreAccountSnapshot(foreignSnapshot);
+assert(nkSyncMeta.deviceId==='this-device','restoring a snapshot must not adopt the other device identity');
+assert(nkEnvelope('bookmarks','q1',{active:true},1).ownerDevice==='this-device','this device must stamp its own envelopes');
+assert(nkSyncMeta.boundUid==='account-b','the restored account binding must be kept');
+
 testRequests().catch(error=>{console.error(error);process.exitCode=1;});
 '''
     prelude = r'''

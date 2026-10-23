@@ -77,9 +77,12 @@ async function rangeResponse(request){
   const start=m[1]?Number(m[1]):Math.max(0,size-Number(m[2]));
   const end=m[1]&&m[2]?Math.min(Number(m[2]),size-1):size-1;
   if(start>end)return new Response(null,{status:416,headers:{'Content-Range':`bytes */${size}`}});
-  return new Response(blob.slice(start,end+1),{status:206,headers:{
-    'Content-Type':cached.headers.get('content-type')||'application/octet-stream',
-    'Content-Range':`bytes ${start}-${end}/${size}`,'Content-Length':String(end-start+1),'Accept-Ranges':'bytes'}});
+  const headers=new Headers(cached.headers);
+  headers.set('Content-Type',cached.headers.get('content-type')||'application/octet-stream');
+  headers.set('Content-Range',`bytes ${start}-${end}/${size}`);
+  headers.set('Content-Length',String(end-start+1));
+  headers.set('Accept-Ranges','bytes');
+  return new Response(blob.slice(start,end+1),{status:206,statusText:'Partial Content',headers});
 }
 self.addEventListener('fetch',event=>{
   if(event.request.method!=='GET')return;

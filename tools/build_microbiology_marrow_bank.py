@@ -29,6 +29,42 @@ import zlib
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+# A stem that points at a picture is unanswerable without one: the figure must
+# be bound as a question figure, not only as an explanation figure, which the
+# renderer deliberately hides until after the answer.
+#
+# The cue must mean visual deixis ("the image shown below", "the region marked"),
+# not the bare verb "shown": "Tumbling motility is shown by ___" asks for the
+# organism, not for a picture. The original cue matched bare "shown"/"depicted"
+# and falsely flagged 13 answerable Microbiology questions; see
+# .project-memory/bug-hunt/06-build-data-content/BUG-06-003-marrow-questions-with-unreleased-figure.md.
+QUESTION_FIGURE_CUE = re.compile(
+    r"\b(?:shown|depicted|illustrated)\s+(?:below|above|here)\b"
+    r"|\b(?:image|figure|diagram|graph|photograph|picture|slide|smear|radiograph|scan)\s+(?:below|above|given|shown)\b"
+    r"|\b(?:diagram|figure|image|photograph|picture)\s+shows?\b"
+    r"|\b(?:structure|area|region|organ|part|nerve|vessel|muscle|bone|lesion|arrow)\s+(?:marked|labelled|labeled)\b"
+    r"|\b(?:marked|labelled|labeled)\s+(?:structure|area|region|arrow|lesion)\b"
+    r"|\bin\s+(?:the|this)\s+(?:image|figure|diagram|photograph|picture)\b",
+    re.I,
+)
+# Kept as the explicit escape hatch for a future question that is already
+# shipped and still needs a source figure released. It is empty on purpose: the
+# 13 questions once listed here used "shown by" verbally and are answerable.
+PENDING_QUESTION_FIGURES: set[str] = set()
+
+# A question already withdrawn from the app (data/marrow/withdrawn_questions_v1.json)
+# may still be built into the source shards; the gate skips it because no learner
+# can open it. Removing the withdrawal record makes the gate fail again.
+def _withdrawn_microbiology_ids() -> set[str]:
+    payload = json.loads((ROOT / "data/marrow/withdrawn_questions_v1.json").read_text(encoding="utf-8"))
+    return {
+        str(entry["id"]).removeprefix("marrow__")
+        for entry in payload.get("questions", [])
+        if entry.get("subject") == "Microbiology"
+    }
+
+WITHDRAWN_QUESTION_FIGURES = _withdrawn_microbiology_ids()
+
 DATA = ROOT / "data/marrow"
 SOURCE_DIR = DATA / "microbiology/source"
 PREFIX = "microbiology_marrow_qbank"
@@ -658,6 +694,22 @@ def plain_text(blocks: list[dict], tables: dict[str, dict]) -> str:
     return "\n\n".join(x for x in out if x.strip())
 
 
+def check_question_figure(qid: str, stem: str, images: list[dict]) -> None:
+    """A stem that points at a picture must have a released question figure.
+
+    The figure has to be bound as a question figure, not only as an
+    explanation figure: the renderer hides explanation figures until after
+    the answer, so an explanation-only figure leaves the question unreadable.
+    """
+    if not QUESTION_FIGURE_CUE.search(stem):
+        return
+    if any(image.get("location") == "question_stem" for image in images or []):
+        return
+    if qid in PENDING_QUESTION_FIGURES or qid in WITHDRAWN_QUESTION_FIGURES:
+        return
+    fail(f"{qid}: stem refers to a figure the bank does not bind")
+
+
 def normalize(rows: list[dict]) -> dict:
     modules: dict[int, dict] = {}
     questions: list[dict] = []
@@ -700,6 +752,8 @@ def normalize(rows: list[dict]) -> dict:
         stem = str(q.get("question_stem") or "").strip()
         if not stem or any(not str(o.get("text", "")).strip() for o in options):
             fail(f"{mcq}: blank stem or option")
+        qid = f"MICRO_CH{module_index:02d}_Q{number:03d}"
+        check_question_figure(qid, stem, q.get("images") or [])
         hygiene = Hygiene()
         blocks, tables = parse_v2(q, hygiene) if q.get("_schema") == 2 else parse_markdown(q, hygiene)
         table_map = {t["table_id"]: t for t in tables}
@@ -712,7 +766,6 @@ def normalize(rows: list[dict]) -> dict:
         for img in q.get("images") or []:
             figures.append({k: img.get(k) for k in ("image_id", "location", "type", "caption", "source_page", "bounding_box", "in_pearl", "pearl_id")})
         flags = list((q.get("provenance") or {}).get("quality_flags") or [])
-        qid = f"MICRO_CH{module_index:02d}_Q{number:03d}"
         record = {
             "id": f"marrow__{qid}",
             "sourceQuestionId": qid,

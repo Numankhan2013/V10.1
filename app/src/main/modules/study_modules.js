@@ -277,13 +277,15 @@
   }
 
   function nkFilterModuleTopics(value){
-    const query=String(value||'').trim().toLocaleLowerCase();
+    const query=String(value||'').trim().toLocaleLowerCase(),terms=query.split(/\s+/).filter(Boolean);
     let visible=0;
     document.querySelectorAll('.nk-module-topic-group[data-subject-index]').forEach(group=>{
       const scope=group.querySelector('.nk-module-group-title')?.textContent.toLocaleLowerCase()||'';
       let groupVisible=0;
       group.querySelectorAll('.nk-module-topic').forEach(button=>{
-        const match=!query||scope.includes(query)||button.querySelector('strong')?.textContent.toLocaleLowerCase().includes(query);
+        const title=button.querySelector('strong')?.textContent.toLocaleLowerCase()||'';
+        const haystack=scope+' '+title;
+        const match=!terms.length||terms.every(word=>haystack.includes(word));
         button.hidden=!match;if(match)groupVisible++;
       });
       group.hidden=!groupVisible;visible+=groupVisible;

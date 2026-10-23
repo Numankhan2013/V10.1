@@ -8,9 +8,11 @@ here edits the app; tools/build_app_data.py writes the results into index.html.
 from __future__ import annotations
 
 import base64
+import copy
 import hashlib
 import json
 import zlib
+from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -49,6 +51,35 @@ def load_sharded(prefix: str) -> dict:
     if hashlib.sha256(raw).hexdigest() != manifest.get("raw_sha256"):
         fail(f"{prefix} raw SHA-256 mismatch")
     return json.loads(raw.decode("utf-8"))
+
+
+def withdrawn_questions() -> dict[str, dict]:
+    """Questions kept in the source shards but withheld from the learner app.
+
+    Withdrawal is a shipping decision, not a source edit: the canonical record
+    stays intact and auditable, while the app records omit the question and the
+    topic count reflects what the learner can actually open. Every entry must
+    say why it is unanswerable and what would restore it.
+    """
+    path = DATA / "withdrawn_questions_v1.json"
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    if payload.get("schemaVersion") != 1:
+        fail(f"{path.name}: unsupported schemaVersion")
+    entries = payload.get("questions")
+    if not isinstance(entries, list):
+        fail(f"{path.name}: questions must be a list")
+    by_id: dict[str, dict] = {}
+    for entry in entries:
+        qid = str(entry.get("id") or "")
+        if not qid.startswith("marrow__") or qid in by_id:
+            fail(f"{path.name}: blank, duplicate or unnamespaced ID {qid!r}")
+        for field in ("reason", "evidence", "restoreWhen"):
+            if not str(entry.get(field) or "").strip():
+                fail(f"{path.name}: {qid} is missing {field}")
+        if entry.get("status") != "withdrawn":
+            fail(f"{path.name}: {qid} status must be 'withdrawn'")
+        by_id[qid] = entry
+    return by_id
 
 
 def canonical_source_questions() -> dict[str, dict]:
@@ -401,8 +432,42 @@ def microbiology_record() -> dict:
 
 
 def app_marrow_records() -> list[dict]:
-    """Every Marrow bank the app embeds: the canonical ED8 three, then Microbiology."""
-    return expanded_marrow_records() + [microbiology_record()]
+    """Every Marrow bank the app embeds: the canonical ED8 three, then Microbiology.
+
+    Withdrawn questions are removed here, at the shipping boundary, so the
+    source shards and their audits stay untouched. Topic counts are recomputed
+    from the remaining questions so a topic card cannot promise a question the
+    learner cannot open.
+    """
+    records = expanded_marrow_records() + [microbiology_record()]
+    withdrawn = withdrawn_questions()
+    if not withdrawn:
+        return records
+    shipped = {q["id"]: q for record in records for q in record["questions"]}
+    unknown = sorted(set(withdrawn) - set(shipped))
+    if unknown:
+        fail(f"withdrawn question(s) missing from the canonical banks: {unknown}")
+    for qid, entry in withdrawn.items():
+        question = shipped[qid]
+        for field in ("subject", "chapterId", "questionNumber"):
+            if entry.get(field) != question.get(field):
+                fail(f"withdrawn {qid}: ledger {field} disagrees with the canonical bank")
+    filtered: list[dict] = []
+    for record in records:
+        if not any(q["id"] in withdrawn for q in record["questions"]):
+            filtered.append(record)
+            continue
+        clone = copy.deepcopy(record)
+        clone["questions"] = [q for q in clone["questions"] if q["id"] not in withdrawn]
+        counts = Counter(str(q.get("chapterId")) for q in clone["questions"])
+        for topic in clone.get("topics", []):
+            topic["questionCount"] = counts.get(str(topic.get("id")), 0)
+        filtered.append(clone)
+    remaining = sum(len(record["questions"]) for record in filtered)
+    if remaining != len(shipped) - len(withdrawn):
+        fail(f"withdrawal removed the wrong number of questions: {remaining}")
+    print(f"MARROW_WITHDRAWN_QUESTIONS_OK withdrawn={len(withdrawn)} shipped={remaining}")
+    return filtered
 
 
 def validate_biochemistry_batches(expanded_biochemistry: dict) -> dict:

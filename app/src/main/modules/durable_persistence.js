@@ -150,6 +150,7 @@
   function nkDurablePersist(candidate,reason='state save'){
     if(nkOtherTabNewer){nkStorageStaleTab();return false;}
     const store=nkStorageAdapter(),previousPrimary=store.getItem(LS_KEY);
+    const previousLkg=store.getItem(NK_STATE_LKG_KEY);
     try{
       nkMirrorNormalPracticeCheckpoint(candidate);nkPrepareTimedSession(candidate);
       // Normalize makes a new root object and never mutates its input. Avoid a
@@ -166,7 +167,9 @@
       candidate.stateSchemaVersion=next.stateSchemaVersion;candidate.stateRevision=next.stateRevision;candidate.normalPracticeCheckpoints=next.normalPracticeCheckpoints;candidate.normalPracticeCheckpoint=next.normalPracticeCheckpoint;
       nkStorageClearError();return true;
     }catch(error){
-      try{store.removeItem(NK_STATE_PENDING_KEY);if(previousPrimary==null)store.removeItem(LS_KEY);else store.setItem(LS_KEY,previousPrimary);}catch(_){}
+      try{store.removeItem(NK_STATE_PENDING_KEY);}catch(_){}
+      try{if(previousPrimary==null)store.removeItem(LS_KEY);else store.setItem(LS_KEY,previousPrimary);}catch(_){}
+      try{if(previousLkg==null)store.removeItem(NK_STATE_LKG_KEY);else store.setItem(NK_STATE_LKG_KEY,previousLkg);}catch(_){}
       nkStorageError(`Progress was not saved during ${reason}. Nothing destructive was completed`,error);return false;
     }
   }

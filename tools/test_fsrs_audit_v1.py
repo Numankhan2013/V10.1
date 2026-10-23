@@ -188,6 +188,34 @@ CHECK('S7 recover commits pending as Good with same id',()=>{const a=state.attem
 CHECK('S7 commit again no-op',()=>{const n=nkFsrsCommitPending('q22',3);assert.equal(n,false);assert.equal(state.attempts.q22.length,1);});
 }
 
+// ---------- S7b undo with a pending rating ----------
+{
+const t1=T-DAY;
+freshState({'q27':[mkAttempt('B1',t1,true,'practice',3)]});
+nkFsrsReplay('q27',false);
+// A correct answer that has not been committed yet: the rating is pending.
+// The question has an older committed rating, so undo must target the pending
+// one rather than the older one.
+state.activeSession={id:'s2',mode:'practice',questionIds:['q27'],index:0,answers:{},submitted:{},questionTimes:{},
+  pendingRating:{q27:{id:'pending-27',selected:1,timeSpent:100,source:'practice',reviewedAt:T}}};
+nkFsrsUndo();
+CHECK('S7b undo commits the pending rating first',()=>{assert.equal(state.activeSession.pendingRating.q27,undefined,'undo must not leave the pending rating behind');});
+CHECK('S7b undo then removes the rating it just committed',()=>{assert.equal(nkFsrsActiveAttempts('q27').length,1,'undo must target the pending rating, not an older one');});
+CHECK('S7b the older rating survives',()=>{assert.equal(nkFsrsActiveAttempts('q27')[0].rating,3);});
+}
+
+// ---------- S7c undo with a pending rating on a question with no prior attempt ----------
+{
+freshState();
+// The learner's very first correct answer: nothing has been committed yet, so
+// state.attempts is empty and the pending rating is the only rating there is.
+state.activeSession={id:'s3',mode:'practice',questionIds:['q28'],index:0,answers:{},submitted:{},questionTimes:{},
+  pendingRating:{q28:{id:'pending-28',selected:1,timeSpent:100,source:'practice',reviewedAt:T}}};
+nkFsrsUndo();
+CHECK('S7c undo commits a pending rating on a question with no prior attempt',()=>{assert.equal(state.activeSession.pendingRating.q28,undefined,'undo must not leave the pending rating behind');});
+CHECK('S7c undo removes the rating it just committed',()=>{assert.equal(nkFsrsActiveAttempts('q28').length,0,'undo must remove the pending rating it just committed');});
+}
+
 // ---------- S8 preview == record (fuzz determinism) ----------
 {
 freshState();
