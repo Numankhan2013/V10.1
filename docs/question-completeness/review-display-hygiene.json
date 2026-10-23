@@ -1,0 +1,46 @@
+{
+ "schemaVersion": 1,
+ "summary": {
+  "COMPLETE/FALSE_POSITIVE": 2
+ },
+ "questions": [
+  {
+   "id": "marrow__PHYS_CH13_Q010",
+   "questionId": "marrow__PHYS_CH13_Q010",
+   "bank": "Marrow",
+   "subject": "Physiology",
+   "decision": "COMPLETE/FALSE_POSITIVE",
+   "outcome": "COMPLETE/FALSE_POSITIVE",
+   "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+   "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+   "canonicalSourceFingerprint": "a8ac57e652e0a444af8318ded79ca6bff7fbb1e565618e01f75a58fca758cf81",
+   "sourcePagesReviewed": [
+    243
+   ],
+   "sourceReviewMethod": "Rendered page image compared with the cleaned learner stem and options",
+   "evidence": [
+    "Watermark OCR in the stem is replaced by data/marrow/content_hygiene_phys_watermark_v1.json, transcribed from the page image (p. 243). The stem is a complete single-best-answer question with its own released figure; no table or list is missing."
+   ],
+   "affectedFields": []
+  },
+  {
+   "id": "marrow__PHYSIO_CH28_Q005",
+   "questionId": "marrow__PHYSIO_CH28_Q005",
+   "bank": "Marrow",
+   "subject": "Physiology",
+   "decision": "COMPLETE/FALSE_POSITIVE",
+   "outcome": "COMPLETE/FALSE_POSITIVE",
+   "sourcePdf": "data/marrow/source_pdfs/physiologyed8.pdf",
+   "sourcePdfSha256": "03834d3e9ec9723484387cd828a6f68cd999ec5187d167213f0bab9b967e0cfe",
+   "canonicalSourceFingerprint": "c107fdaca614d427b4255ad0300d304bec91c83fafb26c3f20c7d013ad0e829c",
+   "sourcePagesReviewed": [
+    499
+   ],
+   "sourceReviewMethod": "Rendered page image compared with the cleaned learner stem and options",
+   "evidence": [
+    "A complete numeric stem (cardiac output 5 L/min, body surface area 1.7 m²; cardiac index asked) checked against the page image (p. 499). The display override only removes watermark text; no table or row set is missing."
+   ],
+   "affectedFields": []
+  }
+ ]
+}
