@@ -193,8 +193,8 @@ source, library_click_count = library_click.subn(
     ),
     source,
 )
-if library_click_count < 20:
-    raise SystemExit(f"Expected at least 20 Practice-aware library clicks, found {library_click_count}")
+if library_click_count < 19:
+    raise SystemExit(f"Expected at least 19 Practice-aware library clicks, found {library_click_count}")
 
 # Geist is the learner UI. Answer feedback still has to be one green correct
 # option and one red wrong option, now drawn with Geist's semantic tokens

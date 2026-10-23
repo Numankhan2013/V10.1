@@ -31,7 +31,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 
 from prepladder_text_bank import NO_EXPLANATION, source_hash  # noqa: E402
 
-BANKS = ("pathology", "pharmacology", "biochemistry", "physiology")
+BANKS = ("pathology", "pharmacology", "biochemistry", "physiology", "anatomy")
 BATCH_SIZE = 20
 INSTRUCTIONS = "docs/EXPLANATION_RESTRUCTURE.md"
 

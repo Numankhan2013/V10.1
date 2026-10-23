@@ -118,7 +118,7 @@ def main() -> None:
     page = assemble((ROOT / "app/src/main/assets/index.html").read_text(encoding="utf-8"))
     for marker in (
         '<script defer src="prepladder_physiology_visual_metadata.js"></script>',
-        "record.subject==='Physiology'&&TEXT_EDITION('Physiology')",
+        "(record.subject==='Physiology'||record.subject==='Anatomy')&&TEXT_EDITION(record.subject)",
     ):
         assert page.count(marker) == 1, marker
     print(f"PREPLADDER_PHYSIOLOGY_TEST_OK questions={len(questions)} topics={len(topics)} pyq={len(pyq)} "

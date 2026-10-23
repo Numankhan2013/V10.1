@@ -84,7 +84,7 @@ def main() -> None:
             micro = page.locator(".nk-home-subjects button.nk-v3-subject-card").filter(has_text="Microbiology")
             if micro.count() != 1:
                 fail(f"Microbiology subject card missing; cards={names}")
-            if "1,928" not in micro.inner_text() or "Marrow" not in micro.inner_text() or "PrepLadder" not in micro.inner_text():
+            if "1,927" not in micro.inner_text() or "Marrow" not in micro.inner_text() or "PrepLadder" not in micro.inner_text():
                 fail(f"Microbiology card counts wrong: {micro.inner_text()!r}")
 
             # My Subjects groups the subjects by professional year and both groups
@@ -149,7 +149,7 @@ def main() -> None:
             micro.click()
             page.wait_for_function("() => document.querySelectorAll('button.nk-bank-card').length===2", timeout=8000)
             bank = page.locator("button.nk-bank-card").filter(has_text="Marrow")
-            if "Marrow" not in bank.inner_text() or "726 questions" not in bank.inner_text():
+            if "Marrow" not in bank.inner_text() or "725 questions" not in bank.inner_text():
                 fail(f"Microbiology bank card wrong: {bank.inner_text()!r}")
             bank.click()
             page.wait_for_function("() => document.querySelectorAll('button.nk-topic-row').length===25", timeout=8000)
@@ -281,7 +281,7 @@ def main() -> None:
             if errors:
                 fail("page errors: " + " | ".join(errors[:5]))
             browser.close()
-    print("MICROBIOLOGY_BROWSER_OK subject=Microbiology bank=Marrow topics=25 sections=6 questions=726 peer_stats=on part02=on ordered_explanation=on emphasis=on stem_figure=on part07=on banks=2 prof_groups=on")
+    print("MICROBIOLOGY_BROWSER_OK subject=Microbiology bank=Marrow topics=25 sections=6 questions=725 peer_stats=on part02=on ordered_explanation=on emphasis=on stem_figure=on part07=on banks=2 prof_groups=on")
 
 
 if __name__ == "__main__":

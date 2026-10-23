@@ -59,7 +59,7 @@ def marrow_data() -> str:
     # Explanation batches are keyed to the canonical source, which keeps the
     # withdrawn questions; validate against that record, not the filtered app one.
     validate_biochemistry_batches(load_expanded_bank("biochemistry_ch001_028", "Biochemistry")[0])
-    # PrepLadder Microbiology, Pathology, Pharmacology, Biochemistry and Physiology
+    # PrepLadder Microbiology, Pathology, Pharmacology, Biochemistry, Physiology and Anatomy
     # (2025 editions) have structured text explanations, so they travel with the Marrow
     # records; the app files them under PrepLadder by their bank.
     from build_prepladder_microbiology_bank import app_record
@@ -67,8 +67,9 @@ def marrow_data() -> str:
     from build_prepladder_pharmacology_bank import app_record as pharmacology_record
     from build_prepladder_biochemistry_bank import app_record as biochemistry_record
     from build_prepladder_physiology_bank import app_record as physiology_record
+    from build_prepladder_anatomy_bank import app_record as anatomy_record
     return js_json({"records": records + [app_record(), pathology_record(), pharmacology_record(),
-                                          biochemistry_record(), physiology_record()]})
+                                          biochemistry_record(), physiology_record(), anatomy_record()]})
 
 
 def marrow_explanation_gold() -> str:
@@ -119,6 +120,8 @@ def release_marrow_figures() -> None:
     release_prepladder_biochemistry()
     from build_prepladder_physiology_bank import release as release_prepladder_physiology
     release_prepladder_physiology()
+    from build_prepladder_anatomy_bank import release as release_prepladder_anatomy
+    release_prepladder_anatomy()
 
 
 BUILDERS = {

@@ -35,6 +35,12 @@ Explanation:
 const takeaway=nkSourceTakeaway(q);
 if(takeaway!=='Soluble fibre helps lower LDL cholesterol. This occurs by increasing bile acid excretion and interfering with bile acid reabsorption.')throw new Error(takeaway);
 if(/adds bulk|bowel movements/i.test(takeaway))throw new Error('Opposite table column leaked into takeaway');
+// A negatively worded stem keys the false statement: it must never become the takeaway.
+const except={question:'Choose the incorrect statement regarding spontaneous gas gangrene :',correctOption:3,
+  options:[{text:'It is also known as nontraumatic gas gangrene'},{text:'It is often a mixed infection'},{text:'It is a clinical diagnosis & hematological investigations play little role'},{text:'Mortality approaches 100%'}],
+  explanation:'When spontaneous gas gangrene is suspected, blood should be cultured as bacteremia usually precedes cutaneous manifestations by several hours.'};
+if(nkSourceTakeaway(except)!=='')throw new Error('Negative stem restated its false keyed choice: '+nkSourceTakeaway(except));
+if(nkSourceTakeaway({...except,question:'Which is true regarding spontaneous gas gangrene?'})!=='It is a clinical diagnosis & hematological investigations play little role.')throw new Error('Positive stem lost its answer fallback');
 const dirty='Which statement is accurate?\nPrepladder X Qbank • Biochemistry       Page 12 of 966';
 if(nkCleanQuestionStem(dirty)!=='Which statement is accurate?')throw new Error(nkCleanQuestionStem(dirty));
 

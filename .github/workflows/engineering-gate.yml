@@ -104,6 +104,7 @@ jobs:
           python3 tools/test_prepladder_pharmacology_bank.py
           python3 tools/test_prepladder_biochemistry_bank.py
           python3 tools/test_prepladder_physiology_bank.py
+          python3 tools/test_prepladder_anatomy_bank.py
       - name: Validate Marrow explanation inventory
         run: python3 tools/test_marrow_explanation_inventory.py
       - name: Validate reviewed parallel explanation batches

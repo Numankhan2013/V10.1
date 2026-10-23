@@ -20,23 +20,24 @@ CATEGORIES = {
 }
 
 
-def page_era_physiology():
-    """Physiology IDs still explained by source-PDF pages (kept from the earlier edition)."""
+def page_era():
+    """Physiology and Anatomy IDs still explained by source-PDF pages (kept from the earlier edition)."""
     sys.path.insert(0, str(ROOT / "tools"))
-    from build_prepladder_physiology_bank import app_record
-    return {q["id"] for q in app_record()["questions"] if q["edition"] == "earlier"}
+    from build_prepladder_anatomy_bank import app_record as anatomy
+    from build_prepladder_physiology_bank import app_record as physiology
+    return {q["id"] for record in (physiology(), anatomy()) for q in record["questions"] if q["edition"] == "earlier"}
 
 
 def choose_representatives(items):
-    # PrepLadder Biochemistry and Physiology render their 2025-edition figures through
-    # the text-bank renderer (tools/verify_prepladder_<subject>_browser.py), not source
-    # visuals; only Physiology questions kept from the earlier edition still use them.
-    earlier = page_era_physiology()
-    page_era = [item for item in items if item.get("subject") != "Biochemistry"
-                and (item.get("subject") != "Physiology" or item.get("questionId") in earlier)]
+    # PrepLadder Biochemistry, Physiology and Anatomy render their 2025-edition figures
+    # through the text-bank renderer (tools/verify_prepladder_<subject>_browser.py), not
+    # source visuals; only questions kept from the earlier editions still use them.
+    earlier = page_era()
+    page_era_items = [item for item in items if item.get("subject") != "Biochemistry"
+                      and (item.get("subject") not in ("Physiology", "Anatomy") or item.get("questionId") in earlier)]
     selected = {}
     for label, flag in CATEGORIES.items():
-        match = next((item for item in page_era if flag in item.get("riskFlags", [])), None)
+        match = next((item for item in page_era_items if flag in item.get("riskFlags", [])), None)
         if match is None:
             # A kind of figure only the 2025 text banks still carry is covered by their
             # own verifiers; one missing from the audit altogether is a regression.

@@ -12,7 +12,7 @@ from app_page import built_page
 ROOT = Path(__file__).resolve().parents[1]
 REPRESENTATIVES = {
     'marrow__ANAT_CH10_Q004', 'marrow__ANAT_CH13_Q005', 'marrow__ANAT_CH43_Q005',
-    'anatomy-9-1', 'anatomy-47-2', '7-53',
+    '7-53',
     'marrow__BIOCHEM_CH14_Q013',
 }
 

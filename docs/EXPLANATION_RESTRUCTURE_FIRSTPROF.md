@@ -1,19 +1,21 @@
-# Restructure run: First Prof Biochemistry and Physiology (2025 editions)
+# Restructure run: First Prof Biochemistry, Physiology and Anatomy (2025 editions)
 
 Same job and checker as `docs/EXPLANATION_RESTRUCTURE.md` (read its section "The
 prompt"; the formatting rules are the same for every bank). Batches are on branch
-`restructure/firstprof-base`:
+`integration/v12` (Biochemistry and Physiology were also on `restructure/firstprof-base`;
+both are done and imported):
 
 | Bank | Batches (20 questions each) | Result files go in |
 |---|---|---|
 | Biochemistry | `data/Prepladder/biochemistry/restructure/batches/biochemistry-001` … `041` (816 Q) | `data/Prepladder/biochemistry/restructure/results/` |
 | Physiology | `data/Prepladder/physiology/restructure/batches/physiology-001` … `047` (932 Q) | `data/Prepladder/physiology/restructure/results/` |
+| Anatomy | `data/Prepladder/anatomy/restructure/batches/anatomy-001` … `055` (1,097 Q) | `data/Prepladder/anatomy/restructure/results/` |
 
 Questions kept from the earlier edition (PDF-page explanations) are not in the batches.
 Worked examples (generic formatting; ids are Pharmacology's):
 `data/Prepladder/pharmacology/restructure/examples/example-result.json`.
 
-## Lead-agent prompt (fill in BANK = biochemistry or physiology, LAST = 041 or 047)
+## Lead-agent prompt (fill in BANK = anatomy, LAST = 055; earlier runs: biochemistry 041, physiology 047)
 
 ```text
 You are the lead agent for a formatting job in the GitHub repo
@@ -21,7 +23,7 @@ Numankhan2013/V10.1. You run subagents in parallel. Correctness matters more
 than speed. Bank: BANK. Batches: BANK-001 to BANK-LAST.
 
 SETUP (once; small checkout)
-  git clone --depth 1 --filter=blob:none --sparse --branch restructure/firstprof-base https://github.com/Numankhan2013/V10.1.git v10
+  git clone --depth 1 --filter=blob:none --sparse --branch integration/v12 https://github.com/Numankhan2013/V10.1.git v10
   cd v10
   git sparse-checkout set tools data/Prepladder/BANK/source data/Prepladder/BANK/restructure data/Prepladder/pharmacology/restructure/examples docs
   git fetch --depth 1 origin restructure/BANK-all:restructure/BANK-all && git checkout restructure/BANK-all \

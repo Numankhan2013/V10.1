@@ -69,11 +69,13 @@ def main():
                 page.goto(origin, wait_until='domcontentloaded')
                 page.wait_for_function('window.QB && window.__uworldTest')
                 records = page.evaluate('__uworldTest.records()')
-                expected = {('Anatomy', 'PrepLadder'): 1068, ('Physiology', 'PrepLadder'): 988, ('Biochemistry', 'PrepLadder'): 867,
+                expected = {('Anatomy', 'PrepLadder'): 1135, ('Physiology', 'PrepLadder'): 988, ('Biochemistry', 'PrepLadder'): 867,
                             ('Anatomy', 'Marrow'): 1114, ('Physiology', 'Marrow'): 1014, ('Biochemistry', 'Marrow'): 581,
                             ('Microbiology', 'PrepLadder'): 1202, ('Pathology', 'PrepLadder'): 1459,
                             ('Pharmacology', 'PrepLadder'): 1321,
-                            ('Microbiology', 'Marrow'): __import__('json').loads((Path(__file__).resolve().parents[1] / 'data/marrow/microbiology_marrow_qbank_manifest.json').read_text())['questions'],
+                            # The canonical bank less the questions withheld from the app.
+                            ('Microbiology', 'Marrow'): __import__('json').loads((Path(__file__).resolve().parents[1] / 'data/marrow/microbiology_marrow_qbank_manifest.json').read_text())['questions']
+                            - sum(q['subject'] == 'Microbiology' for q in __import__('json').loads((Path(__file__).resolve().parents[1] / 'data/marrow/withdrawn_questions_v1.json').read_text())['questions']),
                             ('UWorld · Biochemistry', 'UWorld'): 132,
                             ('UWorld · Poisoning & Environmental Exposure', 'UWorld'): 33,
                             ('UWorld · Ophthalmology', 'UWorld'): 30,

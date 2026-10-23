@@ -47,6 +47,10 @@ def table_cells(table):
 
 def main():
     manifest, sources, wave = load_wave()
+    # Questions withheld from the app (data/marrow/withdrawn_questions_v1.json) keep their
+    # reviewed explanations in the canonical source but have no active-bank record.
+    withdrawn = {q['id'] for q in json.loads((ROOT / 'data/marrow/withdrawn_questions_v1.json').read_text(encoding='utf-8'))['questions']}
+    wave = {qid: cfg for qid, cfg in wave.items() if qid not in withdrawn}
     web = ROOT / 'build/web'
     html = built_page(web)
     marker = 'getState:()=>state,'

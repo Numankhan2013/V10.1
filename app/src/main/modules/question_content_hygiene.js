@@ -170,8 +170,11 @@
       .replace(/[•▪◦]\s*/g,' ');
     const tokens=nkTakeawayWords(answer);
     if(!tokens.length)return '';
+    // "Choose the incorrect statement", "all are true except": the keyed choice is the
+    // false one, so it is never restated as the takeaway.
+    const negative=/\b(?:except|not|false|incorrect|untrue|wrong|least)\b/i.test(String(q?.question||''));
     const lines=source.split('\n');
-    const tableTakeaway=nkTableTakeaway(lines,tokens,answer);
+    const tableTakeaway=negative?'':nkTableTakeaway(lines,tokens,answer);
     if(tableTakeaway&&tableTakeaway!==nkFinishTakeaway(answer))return tableTakeaway;
     const prose=lines.filter(line=>!/^\s*\S.*\s{2,}\S/.test(line)).join(' ').replace(/\s+/g,' ').trim();
     const sentences=(prose.match(/[^.!?]+[.!?]+|[^.!?]+$/g)||[])
@@ -183,6 +186,6 @@
       if(score>bestScore){best=sentence;bestScore=score;}
     });
     const needed=tokens.length===1?1:2;
-    return best&&bestScore>=needed?nkFinishTakeaway(best):nkFinishTakeaway(answer);
+    return best&&bestScore>=needed?nkFinishTakeaway(best):negative?'':nkFinishTakeaway(answer);
   }
 /* NK_QUESTION_CONTENT_HYGIENE_V1_END */
