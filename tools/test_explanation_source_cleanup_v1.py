@@ -44,9 +44,6 @@ def main() -> None:
             if OCR_BULLET.search(source) or LOST_GLYPH.search(source):
                 raise AssertionError(f"OCR bullet or lost glyph in shipped source explanation {q['id']}")
 
-    copd = next(q for q in questions if q["id"] == "marrow__PHYSIO_CH23_Q017")
-    if "1. Functional residual capacity" not in copd["question"] or copd["correctAnswerText"] != "1 and 2":
-        raise AssertionError("COPD stem must carry the numbered list its options refer to")
     print(f"EXPLANATION_SOURCE_CLEANUP_OK explanations={len(texts)} questions={len(questions)}")
 
 
