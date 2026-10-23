@@ -323,6 +323,7 @@ CONTENT_OVERRIDE_PATHS=(
     DATA/"content_hygiene_nerve_ch6_q18_34_v1.json",
     DATA/"content_hygiene_phys_ch09_10_v1.json",
     DATA/"content_hygiene_phys_ch11_12_v1.json",
+    DATA/"content_hygiene_phys_watermark_v1.json",
 )
 CONTENT_OVERRIDE_RANGES={
     "content_hygiene_nerve_ch6_q01_17_v1.json":((6,1,17),),
