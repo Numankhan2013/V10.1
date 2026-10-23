@@ -69,7 +69,7 @@ def main() -> None:
             page.evaluate("window.QB.nkOpenSubjectLibrary('Anatomy')")
             page.wait_for_function("() => document.querySelectorAll('button.nk-bank-card').length>0", timeout=8000)
             bank = page.locator("button.nk-bank-card").filter(has_text="PrepLadder")
-            if "1,135 questions" not in bank.inner_text():
+            if "1,134 questions" not in bank.inner_text():
                 fail(f"PrepLadder card wrong: {bank.inner_text()!r}")
             bank.click()
             page.wait_for_function("() => document.querySelectorAll('button.nk-topic-row').length===54", timeout=8000)
@@ -109,7 +109,7 @@ def main() -> None:
             if errors:
                 fail("page errors: " + " | ".join(errors[:5]))
             browser.close()
-    print("PREPLADDER_ANATOMY_BROWSER_OK bank=PrepLadder questions=1135 topics=54 pyq=14 text_explanation=on "
+    print("PREPLADDER_ANATOMY_BROWSER_OK bank=PrepLadder questions=1134 topics=54 pyq=14 text_explanation=on "
           "earlier_pdf=on")
 
 

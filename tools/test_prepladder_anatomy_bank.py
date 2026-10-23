@@ -29,7 +29,7 @@ def main() -> None:
     record = app_record()
     topics, questions = record["topics"], record["questions"]
     assert record["bank"] == "PrepLadder" and record["subject"] == "Anatomy"
-    assert len(topics) == 54 and len(questions) == 1135
+    assert len(topics) == 54 and len(questions) == 1134
     order = [n for _, lessons in BANK.index for n in lessons]
     assert sorted(order) == list(range(1, 55))
     assert [(t["section"], t["id"]) for t in topics] == [(s, f"anatomy-{n}") for s, lessons in BANK.index for n in lessons]
@@ -41,20 +41,20 @@ def main() -> None:
     # Every earlier question keeps its ID: continued by a 2025 question, kept as it
     # was, or (exact repeats) left out for the question it repeats.
     edition = json.loads((ROOT / "data/Prepladder/anatomy/source/edition_map.json").read_text(encoding="utf-8"))
-    assert edition["counts"] == {"new": 1102, "continued": 1035, "kept": 33, "duplicates": 0}, edition["counts"]
+    assert edition["counts"] == {"new": 1102, "continued": 1036, "kept": 32, "duplicates": 0}, edition["counts"]
     by_id = {q["id"]: q for q in questions}
     old = {q["id"]: q for q in load_old()}
     assert len(old) == 1068
     for old_id in old:
         assert old_id in by_id or edition["duplicates"].get(old_id) in by_id, old_id
     editions = {e: sum(1 for q in questions if q["edition"] == e) for e in ("2025+earlier", "2025", "earlier")}
-    assert editions == {"2025+earlier": 1030, "2025": 67, "earlier": 38}, editions
+    assert editions == {"2025+earlier": 1031, "2025": 66, "earlier": 37}, editions
     # Where the 2025 edition has no usable explanation, the earlier question (same keyed
     # answer) stays with its PDF-page explanation.
     replaced = [q["id"] for q in questions if q["edition"] == "earlier" and "no usable explanation" in q["reviewNotes"][0]]
     assert len(replaced) == 5 and "anatomy-29-7" in replaced, replaced
     # A key the 2025 PDF leaves out, checked by hand; two it prints against its own explanation.
-    assert by_id["anatomy-q848227"]["correctAnswerText"] == "Image b (Short head of biceps femoris)"
+    assert by_id["anatomy-22-4"]["correctAnswerText"] == "Image b (Short head of biceps femoris)"
     assert by_id["anatomy-15-52"]["correctAnswerText"] == "Thyroid"
     assert by_id["anatomy-45-16"]["correctAnswerText"] == "Spleen"
     assert [q["id"] for q in questions if q.get("reviewStatus") not in ("pass", None)] == []

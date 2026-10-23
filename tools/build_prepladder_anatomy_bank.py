@@ -49,11 +49,14 @@ BANK = EditionBank(
         "anatomy-45-16": (2, "2025 PDF keys Falciform ligament; its explanation says the spleen develops from the "
                              "dorsal mesogastrium, as the earlier edition keyed"),
     },
+    # The 2025 PDF prints this question's choices only as figure labels, so the
+    # matcher cannot see that it continues the earlier one.
+    links={"Q848227": "anatomy-22-4"},
     reviewed={
-        "anatomy-q848227": "2025 PDF prints no key or choice text; the choices are the labelled heads a-d in the "
+        "anatomy-22-4": "2025 PDF prints no key or choice text; the choices are the labelled heads a-d in the "
                            "question figure, and B (short head of biceps femoris) is the one its explanation names",
     },
-    expected={"questions": 1135, "topics": 54},
+    expected={"questions": 1134, "topics": 54},
     acronyms={"ivf": "IVF"},
     # The PDF's own regions, in its order; each previous-year lesson closes its region.
     index=[
