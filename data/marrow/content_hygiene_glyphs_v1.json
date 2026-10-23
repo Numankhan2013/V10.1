@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Learner question and option display cleanup for Marrow questions whose printed text carries a lost glyph (a black square for Δ, '@' for 'in the'), and for Physiology Ch23 Q17, whose printed stem omits the numbered list its options refer to. That list is restored from the source explanation (p. 432), which names FRC and total lung capacity as the two that increase and FEV1 and FEV1/FVC as the ones that fall. Immutable source bundles remain unchanged.",
+  "sourceFingerprint": "c4ff2465b1c81d63253639b0e95d7f37a17a331b9feac9c105821683238ba7a8",
+  "questions": {
+    "marrow__BIOCHEM_CH14_Q013": {
+      "question": "Stearic acid is converted into which of the following fatty acids by the enzyme Δ9 desaturase?",
+      "options": [
+        "Linoleic acid",
+        "Oleic acid",
+        "Linolenic acid",
+        "Arachidonic acid"
+      ]
+    },
+    "marrow__BIOCHEM_CH17_Q008": {
+      "question": "What is the by-product of the reaction catalyzed by cytosolic hydroxymethylbilane synthase in heme synthesis?",
+      "options": [
+        "H₂O",
+        "NH₃",
+        "CO₂",
+        "CoA-SH"
+      ]
+    },
+    "marrow__PHYSIO_CH23_Q017": {
+      "question": "Which of the following increase in COPD?\n\n1. Functional residual capacity\n2. Total lung capacity\n3. FEV1/FVC ratio\n4. FEV1",
+      "options": [
+        "1 only",
+        "1 and 4",
+        "1 and 3",
+        "1 and 2"
+      ]
+    },
+    "marrow__PHYSIO_CH36_Q016": {
+      "question": "Choose the option that gives the correct site of conversion.",
+      "options": [
+        "Cholecalciferol → 25-hydroxyvitamin D3 in the skin",
+        "Cholecalciferol → 25-hydroxyvitamin D3 in the kidney",
+        "Angiotensin I → angiotensin II in the liver",
+        "Angiotensin I → angiotensin II in the lungs"
+      ]
+    }
+  }
+}

@@ -8,6 +8,7 @@ import threading
 
 from playwright.sync_api import sync_playwright
 from test_marrow_explanation_refinement_wave import load_wave
+from marrow_bank_data import apply_explanation_source_cleanup, canonical_source_questions, merged_explanations
 from app_page import built_page
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -51,6 +52,10 @@ def main():
     # reviewed explanations in the canonical source but have no active-bank record.
     withdrawn = {q['id'] for q in json.loads((ROOT / 'data/marrow/withdrawn_questions_v1.json').read_text(encoding='utf-8'))['questions']}
     wave = {qid: cfg for qid, cfg in wave.items() if qid not in withdrawn}
+    # The app ships the reviewed configs with the source-text cleanup applied
+    # (data/marrow/explanation_source_cleanup_v1.json); compare against that.
+    cleaned = apply_explanation_source_cleanup(merged_explanations(canonical_source_questions()))
+    wave = {qid: cleaned[qid] for qid in wave}
     web = ROOT / 'build/web'
     html = built_page(web)
     marker = 'getState:()=>state,'

@@ -13,6 +13,7 @@ from app_page import app_source
 ROOT = Path(__file__).resolve().parents[1]
 HTML = ROOT / "app/src/main/assets/index.html"
 PHYSIO_Q18 = ROOT / "data/marrow/explanation_physio_ch23_q018_q018_v1.json"
+CLEANUP = ROOT / "data/marrow/explanation_source_cleanup_v1.json"
 PRESENTATION_START = "  /* NK_QUESTION_PRESENTATION_V1_START"
 PRESENTATION_END = "  /* NK_QUESTION_PRESENTATION_V1_END */"
 
@@ -28,6 +29,8 @@ def function_fragment(source: str, start: str, end: str) -> str:
 def load_configs() -> dict[str, dict]:
     configs: dict[str, dict] = {}
     for path in sorted((ROOT / "data/marrow").glob("explanation_*_v1.json")):
+        if path.name == CLEANUP.name:
+            continue
         document = json.loads(path.read_text(encoding="utf-8"))
         questions = document.get("questions", {})
         if not isinstance(questions, dict):
@@ -39,6 +42,11 @@ def load_configs() -> dict[str, dict]:
                 configs[qid] = config
     if not configs:
         raise AssertionError("No explanation configs with displayText were found")
+    # The source cleanup replaces shipped text, so its anchors are checked as shipped.
+    for qid, entry in json.loads(CLEANUP.read_text(encoding="utf-8"))["questions"].items():
+        if qid in configs:
+            configs[qid] = dict(configs[qid], displayText=entry["displayText"],
+                                emphasis=entry.get("emphasis", configs[qid].get("emphasis", [])))
     return configs
 
 
