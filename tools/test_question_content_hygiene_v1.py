@@ -106,7 +106,13 @@ console.log('QUESTION_CONTENT_HYGIENE_BEHAVIOR_OK');
         ROOT / "data/marrow/content_hygiene_nerve_ch6_q18_34_v1.json",
         ROOT / "data/marrow/content_hygiene_phys_ch09_10_v1.json",
         ROOT / "data/marrow/content_hygiene_phys_ch11_12_v1.json",
+        ROOT / "data/marrow/content_hygiene_phys_watermark_v1.json",
     )
+    # Unranged manifests: how many questions each holds, and the chapters it may touch.
+    override_scopes = {
+        "content_hygiene_overrides_v1.json": (65, {"5", "7", "8"}),
+        "content_hygiene_phys_watermark_v1.json": (38, {"8", "13", "28"}),
+    }
     override_ranges = {
         "content_hygiene_nerve_ch6_q01_17_v1.json": ((6, 1, 17),),
         "content_hygiene_nerve_ch6_q18_34_v1.json": ((6, 18, 34),),
@@ -123,7 +129,7 @@ console.log('QUESTION_CONTENT_HYGIENE_BEHAVIOR_OK');
         overrides = json.loads(path.read_text(encoding="utf-8"))
         override_questions = overrides.get("questions", {})
         ranges = override_ranges.get(path.name)
-        expected_count = sum(end - start + 1 for _, start, end in ranges) if ranges else 65
+        expected_count = sum(end - start + 1 for _, start, end in ranges) if ranges else override_scopes[path.name][0]
         if len(override_questions) != expected_count or not set(override_questions).issubset(source_by_id):
             raise SystemExit(f"Expected {expected_count} source-backed Physiology overrides in {path.name}")
         if ranges:
@@ -154,7 +160,7 @@ console.log('QUESTION_CONTENT_HYGIENE_BEHAVIOR_OK');
                 raise SystemExit(f"Physiology source PDF changed: {path.name}")
         for qid, override in override_questions.items():
             source_question = source_by_id[qid]
-            allowed_chapters = {str(chapter) for chapter, _, _ in ranges} if ranges else {"5", "7", "8"}
+            allowed_chapters = {str(chapter) for chapter, _, _ in ranges} if ranges else override_scopes[path.name][1]
             if source_question.get("subject") != "Physiology" or str(source_question.get("chapterId")) not in allowed_chapters:
                 raise SystemExit(f"Content override escaped reviewed scope: {qid}")
             values = [override.get("question"), *(override.get("options") or [])]
