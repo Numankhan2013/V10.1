@@ -121,7 +121,7 @@
         ['ocr-unverified','source-reviewed'].includes(q.uworldPilot?.status)&&q.uworldPilot.requiresVisual===false&&
         (q.uworldPilot.status!=='source-reviewed'||q.uworldDocument?.status==='verified');
       const presentation={options,supporting:[],valid,repaired:false,originalOptionCount:options.length};
-      if(q.uworldPilot?.requiresVisual)presentation.unavailableTitle='Diagram needed · reference only';
+      if(q.uworldPilot?.requiresVisual)presentation.unavailableTitle='Source incomplete · reference only';
       try{Object.defineProperty(q,'__nkQuestionPresentation',{value:presentation,configurable:true});}catch(_){q.__nkQuestionPresentation=presentation;}
       return presentation;
     }

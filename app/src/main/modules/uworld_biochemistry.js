@@ -181,14 +181,14 @@
   startSession=function(ids){
     const questions=new Map(nkAllStudyQuestions().map(q=>[String(q.id),q]));
     const eligible=(ids||[]).filter(id=>nkUworldEligible(questions.get(String(id))));
-    if(!eligible.length&&ids?.length){showToast('These questions need source diagrams. Open them individually to read the available explanation.','bad');return false;}
+    if(!eligible.length&&ids?.length){showToast('These questions are missing part of their source. Open them individually to read the available explanation.','bad');return false;}
     const args=[...arguments];args[0]=eligible;return nkUworldStartSession.apply(this,args);
   };
   function nkUworldReference(id){
     const q=nkFindStudyQuestion(id);if(q?.bank!=='UWorld'||nkUworldEligible(q))return false;
     if(state.activeSession?.mode==='exam'){showToast('Finish or leave your timed test before opening another question.','bad');return false;}
     closeModal();
-    document.body.insertAdjacentHTML('beforeend',`<div class="modal-backdrop nk-modal-v114" id="modal"><section class="modal nk-uworld-reference" role="dialog" aria-modal="true" aria-labelledby="nk-uworld-reference-title"><button type="button" class="nk-modal-close" aria-label="Close" onclick="window.QB.closeModal()">${navIcon('close',20)}</button><h2 id="nk-uworld-reference-title">Diagram needed</h2><p class="nk-uworld-source-note">This question is reference only until its source diagram is added. Reading it does not record an answer or affect your score.</p><div class="nk-uworld-reference-question">${nkScientificMarkup(q.question)}</div><details class="nk-uworld-reference-explanation"><summary>Read explanation</summary>${nkUworldReading(q)}</details></section></div>`);
+    document.body.insertAdjacentHTML('beforeend',`<div class="modal-backdrop nk-modal-v114" id="modal"><section class="modal nk-uworld-reference" role="dialog" aria-modal="true" aria-labelledby="nk-uworld-reference-title"><button type="button" class="nk-modal-close" aria-label="Close" onclick="window.QB.closeModal()">${navIcon('close',20)}</button><h2 id="nk-uworld-reference-title">Reference only</h2><p class="nk-uworld-source-note">Part of this question's source, such as a diagram or audio clip, is missing. Reading it does not record an answer or affect your score.</p><div class="nk-uworld-reference-question">${nkScientificMarkup(q.question)}</div><details class="nk-uworld-reference-explanation"><summary>Read explanation</summary>${nkUworldReading(q)}</details></section></div>`);
     return true;
   }
   const nkUworldPracticeOne=practiceOne;

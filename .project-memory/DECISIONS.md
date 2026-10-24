@@ -500,3 +500,18 @@ controls, and never dip. Geist rules use `!important` transitions and shadow
 resets with ID specificity, so every layer rule needs the double
 `:is(body,#nkg-root)` boost `(2,3,2)`, and the reduced-motion suppressor must
 match it.
+
+## Async buttons report their result in place (2026-10-24)
+
+Buttons that start network work (cloud sync, sign-in, create account) use
+`nkButtonState(button, 'loading'|'success'|'error'|'idle', label)` in
+`interaction_polish.js`, adapted from beUI's StatefulButton (MIT). The button
+locks its width, shows a spinner while busy (`disabled`, `aria-busy`), then
+draws a check or cross with the result label and returns to idle after
+1.8s. This replaces the separate "Progress is up to date" toast: the answer
+appears where the user tapped. beUI's spring press scale was not adopted
+because press feedback must not move the control (see the press-acknowledgment
+decision above). `cross_device_sync.js` calls it through `nkSyncButton`, which
+falls back to plain `disabled` when the polish module is absent, as it is in
+the module's isolated test. Reduced motion drops the spin and blur and keeps
+the static state.
