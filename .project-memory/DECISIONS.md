@@ -543,3 +543,14 @@ anatomy (new file), biochemistry, microbiology, pathology, pharmacology and
 physiology. Questions whose options are self-contained or image-owned, and
 ordinary uses of "match" (HLA matching, injuries during a match), stay as
 plain MCQs.
+
+## Anatomy ships with PDF explanations; unrestructured questions are held back (2026-10-24)
+
+Until every Anatomy restructure batch (`anatomy-001…055`) is imported and
+checked, a push to `main` shows Anatomy explanations as the PDF pages, and the
+text explanations stay unpublished as the agents' restructuring input.
+Questions with no matching old PDF explanation (new in the 2025 edition, or
+whose explanation changed from the old QBank) are held back from learners until
+their batch is restructured, not shipped with unstructured text or with no
+explanation. Exact counts must be measured when this is implemented. The
+owner decided this; do not ship unstructured Anatomy text without asking.
