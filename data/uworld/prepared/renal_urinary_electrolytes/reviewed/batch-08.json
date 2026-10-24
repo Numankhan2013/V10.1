@@ -11,7 +11,7 @@
     1396,
     1397
    ],
-   "question": "A 16-year-old girl is brought to the emergency department from home due to altered mental status. Her parents note that she was in her usual state of health at lunch, which was about 6 hours ago. Temperature is 38.3 C (100.9 F), blood pressure is 120/70 mmHg, pulse is 104/min, and respirations are 30/min. Pulse oximetry is 97% on room air. The girl is disoriented and drowsy. Physical examination shows normal-sized reactive pupils and clear lungs. There is tenderness over the epigastric area. Laboratory studies are as follows: Serum chemistry Sodium 140 mEq/L Potassium 3.5 mEq/L Chloride 104 mEq/L Bicarbonate 14 mEq/L Glucose Lactic acid, venous blood 7.5 mmol/L Which of the following is the most likely cause of this patient's findings?",
+   "question": "A 16-year-old girl is brought to the emergency department from home due to altered mental status. Her parents note that she was in her usual state of health at lunch, which was about 6 hours ago. Temperature is 38.3 C (100.9 F), blood pressure is 120/70 mmHg, pulse is 104/min, and respirations are 30/min. Pulse oximetry is 97% on room air. The girl is disoriented and drowsy. Physical examination shows normal-sized reactive pupils and clear lungs. There is tenderness over the epigastric area. Laboratory studies are as follows:",
    "options": [
     {
      "letter": "A",
@@ -40,7 +40,53 @@
     }
    ],
    "correct_label": "B",
-   "question_blocks": [],
+   "question_blocks": [
+    {
+     "type": "table",
+     "caption": "Laboratory results",
+     "columns": [
+      "Group",
+      "Test",
+      "Result"
+     ],
+     "rows": [
+      [
+       "Serum chemistry",
+       "Sodium",
+       "140 mEq/L"
+      ],
+      [
+       "Serum chemistry",
+       "Potassium",
+       "3.5 mEq/L"
+      ],
+      [
+       "Serum chemistry",
+       "Chloride",
+       "104 mEq/L"
+      ],
+      [
+       "Serum chemistry",
+       "Bicarbonate",
+       "14 mEq/L"
+      ],
+      [
+       "Serum chemistry",
+       "Glucose",
+       "78 mg/dL"
+      ],
+      [
+       "Serum chemistry",
+       "Lactic acid, venous blood",
+       "7.5 mmol/L"
+      ]
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "Which of the following is the most likely cause of this patient's findings?"
+    }
+   ],
    "explanation": [
     {
      "type": "figure",
@@ -965,7 +1011,7 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice E) lschemic tubular necrosis usually occurs acutely after a prolonged period of hypotension (eg, sepsis, major surgery); muddy brown casts would be expected on urinalysis."
+     "text": "(Choice E) Ischemic tubular necrosis usually occurs acutely after a prolonged period of hypotension (eg, sepsis, major surgery); muddy brown casts would be expected on urinalysis."
     },
     {
      "type": "paragraph",

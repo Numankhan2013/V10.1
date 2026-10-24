@@ -496,7 +496,7 @@
     1415,
     1416
    ],
-   "question": "A 6-month-old girl is brought to the office for her first visit after being adopted from another country a week ago. The parents note that she often seems to breathe hard and fast, particularly after feeding or crying. Her lips also sometimes turn blue. On examination, height and weight are at the 15th and 2nd percentiles, respectively. The patient has a 4/6, harsh systolic, crescendo-decrescendo murmur best heard at the left upper sternal border. The results of a complete blood count are as follows: Hematocrit Platelets Leukocytes Which of the following processes is most likely contributing to this patient's elevated hematocrit?",
+   "question": "A 6-month-old girl is brought to the office for her first visit after being adopted from another country a week ago. The parents note that she often seems to breathe hard and fast, particularly after feeding or crying. Her lips also sometimes turn blue. On examination, height and weight are at the 15th and 2nd percentiles, respectively. The patient has a 4/6, harsh systolic, crescendo-decrescendo murmur best heard at the left upper sternal border. The results of a complete blood count are as follows:",
    "options": [
     {
      "letter": "A",
@@ -525,7 +525,34 @@
     }
    ],
    "correct_label": "E",
-   "question_blocks": [],
+   "question_blocks": [
+    {
+     "type": "table",
+     "caption": "Laboratory results",
+     "columns": [
+      "Test",
+      "Result"
+     ],
+     "rows": [
+      [
+       "Hematocrit",
+       "52%"
+      ],
+      [
+       "Platelets",
+       "240,000/mm³"
+      ],
+      [
+       "Leukocytes",
+       "11,000/mm³"
+      ]
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "Which of the following processes is most likely contributing to this patient's elevated hematocrit?"
+    }
+   ],
    "explanation": [
     {
      "type": "figure",
@@ -729,7 +756,7 @@
     1431,
     1432
    ],
-   "question": "A 64-year-old man comes to the office for follow-up of hypertension. At the last 2 visits, his blood pressure was persistently elevated. The patient has been treated with lisinopril for the past 5 years, but his other blood pressure medications have been changed several times due to various adverse effects. Medical history is significant for type 2 diabetes mellitus, coronary artery disease with stable angina, and moderately increased albuminuria. Blood pressure is 145/87 mmHg and pulse is 70/min. BMI is 31 kg/m 2 • Physical examination shows trace bilateral lower extremity edema. ECG is unremarkable. Serum laboratory results are as follows: Sodium 138 mEq/L Potassium 5.3 mEq/L Chloride 104 mEq/L Bicarbonate 24 mEq/L Calcium Creatinine Review of the patient's medical records shows similar serum laboratory results 6 months ago. Which of the following medications should be avoided in this patient?",
+   "question": "A 64-year-old man comes to the office for follow-up of hypertension. At the last 2 visits, his blood pressure was persistently elevated. The patient has been treated with lisinopril for the past 5 years, but his other blood pressure medications have been changed several times due to various adverse effects. Medical history is significant for type 2 diabetes mellitus, coronary artery disease with stable angina, and moderately increased albuminuria. Blood pressure is 145/87 mmHg and pulse is 70/min. BMI is 31 kg/m². Physical examination shows trace bilateral lower extremity edema. ECG is unremarkable. Serum laboratory results are as follows:",
    "options": [
     {
      "letter": "A",
@@ -763,7 +790,46 @@
     }
    ],
    "correct_label": "D",
-   "question_blocks": [],
+   "question_blocks": [
+    {
+     "type": "table",
+     "caption": "Laboratory results",
+     "columns": [
+      "Test",
+      "Result"
+     ],
+     "rows": [
+      [
+       "Sodium",
+       "138 mEq/L"
+      ],
+      [
+       "Potassium",
+       "5.3 mEq/L"
+      ],
+      [
+       "Chloride",
+       "104 mEq/L"
+      ],
+      [
+       "Bicarbonate",
+       "24 mEq/L"
+      ],
+      [
+       "Calcium",
+       "9.5 mg/dL"
+      ],
+      [
+       "Creatinine",
+       "1.0 mg/dL"
+      ]
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "Review of the patient's medical records shows similar serum laboratory results 6 months ago. Which of the following medications should be avoided in this patient?"
+    }
+   ],
    "explanation": [
     {
      "type": "paragraph",
@@ -771,7 +837,7 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choices A and C) Dihydropyridine calcium channel blockers (eg, amlodipine, nifedipine) inhibit the L-type calcium channel on vascular smooth muscle, leading to arterial vasodilation. Nondihydropyridine calcium channel blockers (eg, verapamil) reduce heart rate and contractility. Diltiazem causes both vasodilation and decreased heart rate and contractility. Calcium channel blockers do not cause signifi cant electrolyte abnormalities and may be used in patients at risk for hyperkalemia. Although dihydropyridine calcium channel blockers may cause lower extremity edema, trace pedal edema is extremely common and not a contraindication for use."
+     "text": "(Choices A and C) Dihydropyridine calcium channel blockers (eg, amlodipine, nifedipine) inhibit the L-type calcium channel on vascular smooth muscle, leading to arterial vasodilation. Nondihydropyridine calcium channel blockers (eg, verapamil) reduce heart rate and contractility. Diltiazem causes both vasodilation and decreased heart rate and contractility. Calcium channel blockers do not cause significant electrolyte abnormalities and may be used in patients at risk for hyperkalemia. Although dihydropyridine calcium channel blockers may cause lower extremity edema, trace pedal edema is extremely common and not a contraindication for use."
     },
     {
      "type": "paragraph",
@@ -1270,7 +1336,7 @@
     1471,
     1472
    ],
-   "question": "A 22-year-old man comes to the office due to a 6-month history of difficulty breathing and chest discomfort on exertion. He also reports intermittent palpitations. The patient's only other medical condition is major depression. Temperature is 37 C (98.6 F), blood pressure is 120/80 mmHg, pulse is 82/min, and respirations are 15/min. Pulse oximetry on room air shows an oxygen saturation of 98%. BMI is 24 kg/m 2 . The lungs are clear on auscultation. Cardiac examination reveals a prominent left ventricular impulse on palpation, an S4, and a faint systolic murmur at the left sternal border that accentuates during the strain phase of the Valsalva maneuver. Verapamil therapy would most likely improve this patient's dyspnea through which of the following mechanisms?",
+   "question": "A 22-year-old man comes to the office due to a 6-month history of difficulty breathing and chest discomfort on exertion. He also reports intermittent palpitations. The patient's only other medical condition is major depression. Temperature is 37 C (98.6 F), blood pressure is 120/80 mmHg, pulse is 82/min, and respirations are 15/min. Pulse oximetry on room air shows an oxygen saturation of 98%. BMI is 24 kg/m². The lungs are clear on auscultation. Cardiac examination reveals a prominent left ventricular impulse on palpation, an S4, and a faint systolic murmur at the left sternal border that accentuates during the strain phase of the Valsalva maneuver. Verapamil therapy would most likely improve this patient's dyspnea through which of the following mechanisms?",
    "options": [
     {
      "letter": "A",
@@ -2190,19 +2256,7 @@
     }
    ],
    "correct_label": "A",
-   "question_blocks": [
-    {
-     "type": "figure",
-     "page": 1543,
-     "bbox": [
-      728,
-      57,
-      1352,
-      121
-     ],
-     "role": "question"
-    }
-   ],
+   "question_blocks": [],
    "explanation": [
     {
      "type": "figure",
@@ -2262,8 +2316,10 @@
      "E": 20
     }
    },
-   "status": "verified",
-   "issues": [],
+   "status": "blocked",
+   "issues": [
+    "review: this item is answered from an auscultation audio clip ('Play Media') that is not in the source PDF, so it is reference-only."
+   ],
    "source_record_sha256": "00f0eecca248ceb0dea832d09a8f22e661da619aa6083219bcf091318a9f037f"
   },
   {

@@ -260,7 +260,7 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice C) Staphylococcus aureus produces protein A, which binds the Fe portion of lgG. This inhibits opsonization and complement-mediated killing of the bacteria."
+     "text": "(Choice C) Staphylococcus aureus produces protein A, which binds the Fc portion of IgG. This inhibits opsonization and complement-mediated killing of the bacteria."
     },
     {
      "type": "paragraph",
@@ -455,7 +455,7 @@
      "text": "(Choice E) Syphilis, caused by the gram-negative spirochete Treponema pallidum, is initially characterized by a painless lesion (chancre) that heals without treatment within weeks. It does not typically develop into buboes and is not characterized by cytoplasmic inclusion bodies."
     }
    ],
-   "educational_objective": "Chlamydia trachomatis serotypes L1 through L3 cause lymphogranuloma venereum, a sexually transmitted disease characterized initially by painless ulcers with later progression to painful inguinal lymphadenopathy (\"buboes\") and ulceration. Chlamydia! inclusion bodies are seen in host cell cytoplasm.",
+   "educational_objective": "Chlamydia trachomatis serotypes L1 through L3 cause lymphogranuloma venereum, a sexually transmitted disease characterized initially by painless ulcers with later progression to painful inguinal lymphadenopathy (\"buboes\") and ulceration. Chlamydial inclusion bodies are seen in host cell cytoplasm.",
    "statistics": {
     "answered_correctly_percent": null,
     "selection_percent": {
@@ -1180,7 +1180,7 @@
     701,
     702
    ],
-   "question": "A 32-year-old man comes to the office due to an acute febrile illness that developed after a deer-hunting trip in Arkansas. The patient recalls getting tick bites in the woods but initially had no symptoms. He began experiencing fever, chills, malaise, headache, and myalgia a week after his return. Physical examination shows a diffuse, maculopapular rash; clear or0pharynx; normal lung and heart sounds; and mild, diffuse abdominal tenderness. Laboratory testing reveals leukopenia, thrombocytopenia, and elevated aminotransferase levels. Microscopic evaluation of the blood demonstrates mulberry-shaped, intracytoplasmic inclusions in monocytes. Which of the following is the most likely pathogen responsible for this patient's condition?",
+   "question": "A 32-year-old man comes to the office due to an acute febrile illness that developed after a deer-hunting trip in Arkansas. The patient recalls getting tick bites in the woods but initially had no symptoms. He began experiencing fever, chills, malaise, headache, and myalgia a week after his return. Physical examination shows a diffuse, maculopapular rash; clear oropharynx; normal lung and heart sounds; and mild, diffuse abdominal tenderness. Laboratory testing reveals leukopenia, thrombocytopenia, and elevated aminotransferase levels. Microscopic evaluation of the blood demonstrates mulberry-shaped, intracytoplasmic inclusions in monocytes. Which of the following is the most likely pathogen responsible for this patient's condition?",
    "options": [
     {
      "letter": "A",
@@ -1431,7 +1431,7 @@
     713,
     714
    ],
-   "question": "A 30-year-old man is brought to the emergency department due to high fever, chills, and rigors for 4 hours. He has no other symptoms. He was recently diagnosed with Hodgkin lymphoma and received his first cycle of chemotherapy 10 days ago. Temperature is 39.2 C (102.6 F), blood pressure is 90/40 mm Hg, pulse is 125/min, and respirations are 22/min. There is no evidence of skin rash or mucositis. The chest is clear to auscultation. The abdomen is soft and nontender. Perianal area is normal. Laboratory results are as follows: Hemoglobin White blood cells 700/mm with 20% neutrophils and 10% band forms Platelets Chest radiograph is normal. Urinalysis is normal. Which of the following is the most likely cause of this patient's current condition?",
+   "question": "A 30-year-old man is brought to the emergency department due to high fever, chills, and rigors for 4 hours. He has no other symptoms. He was recently diagnosed with Hodgkin lymphoma and received his first cycle of chemotherapy 10 days ago. Temperature is 39.2 C (102.6 F), blood pressure is 90/40 mm Hg, pulse is 125/min, and respirations are 22/min. There is no evidence of skin rash or mucositis. The chest is clear to auscultation. The abdomen is soft and nontender. Perianal area is normal. Laboratory results are as follows:",
    "options": [
     {
      "letter": "A",
@@ -1460,11 +1460,38 @@
     }
    ],
    "correct_label": "D",
-   "question_blocks": [],
+   "question_blocks": [
+    {
+     "type": "table",
+     "caption": "Laboratory results",
+     "columns": [
+      "Test",
+      "Result"
+     ],
+     "rows": [
+      [
+       "Hemoglobin",
+       "11.1 g/dL"
+      ],
+      [
+       "White blood cells",
+       "700/mm³ with 20% neutrophils and 10% band forms"
+      ],
+      [
+       "Platelets",
+       "90,000/mm³"
+      ]
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "Chest radiograph is normal. Urinalysis is normal. Which of the following is the most likely cause of this patient's current condition?"
+    }
+   ],
    "explanation": [
     {
      "type": "paragraph",
-     "text": "This patient undergoing chemotherapy has neutropenic fever, defined as a temperature >38.3C (>101 F) and an absolute neutrophil count <500/mm (eg, 700 leukocytes x [20% neutrophils +10% bands] = 210 neutrophils/mm?). Neutropenic fever without an identifiable source (eg, normal chest x-ray, normal urine culture, normal examination) is believed to be caused by translocation of endogenous bacteria into the bloodstream from mucositis, which results from chemotherapy-induced disruption of the gastrointestinal epithelium. Patients with severe neutropenia are at higher risk for overwhelming bacterial infection due to a blunted neutrophil-mediated inflammatory response. This patient's very rapid onset (eg, 4 hours) of fever and signs of septic shock (eg, hypotension, tachycardia) is most consistent with a gram-negative bacterial infection (eg, Pseudomonas aeruginosa). Gram-negative infections are frequently identified as the causative pathogen of neutropenic fever and are associated with a rapid clinical deterioration due to the production of endotoxins, which stimulate the widespread release of proinflammatory mediators (eg, tumor necrosis factor) that results in hemodynamic decompensation. Grampositive infections (eg, from indwelling catheters) also occur but tend to be less virulent with a slower onset and less severe course."
+     "text": "This patient undergoing chemotherapy has neutropenic fever, defined as a temperature >38.3C (>101 F) and an absolute neutrophil count <500/mm³ (eg, 700 leukocytes x [20% neutrophils +10% bands] = 210 neutrophils/mm³). Neutropenic fever without an identifiable source (eg, normal chest x-ray, normal urine culture, normal examination) is believed to be caused by translocation of endogenous bacteria into the bloodstream from mucositis, which results from chemotherapy-induced disruption of the gastrointestinal epithelium. Patients with severe neutropenia are at higher risk for overwhelming bacterial infection due to a blunted neutrophil-mediated inflammatory response. This patient's very rapid onset (eg, 4 hours) of fever and signs of septic shock (eg, hypotension, tachycardia) is most consistent with a gram-negative bacterial infection (eg, Pseudomonas aeruginosa). Gram-negative infections are frequently identified as the causative pathogen of neutropenic fever and are associated with a rapid clinical deterioration due to the production of endotoxins, which stimulate the widespread release of proinflammatory mediators (eg, tumor necrosis factor) that results in hemodynamic decompensation. Grampositive infections (eg, from indwelling catheters) also occur but tend to be less virulent with a slower onset and less severe course."
     },
     {
      "type": "paragraph",
@@ -1483,7 +1510,7 @@
      "text": "(Choice E) Invasive fungal infections can occur in neutropenic patients. However, they are typically slower growing (vs 4 hours) and are rarely the cause of an initial presentation of neutropenic fever. Instead, they are more commonly found in patients with persistent (eg, 7 days) or recurrent neutropenic fever who are at high risk (eg, increased number of chemotherapy cycles)."
     }
    ],
-   "educational_objective": "Patients with neutropenic fever (ie, temperature >38.3 C [>101 F] and absolute neutrophil count <500/mm?) are at risk for overwhelming bacterial infections. The majority of severe infections that cause rapid clinical deterioration (eg, 4 hours) are caused by gram-negative organisms that produce endotoxins.",
+   "educational_objective": "Patients with neutropenic fever (ie, temperature >38.3 C [>101 F] and absolute neutrophil count <500/mm³) are at risk for overwhelming bacterial infections. The majority of severe infections that cause rapid clinical deterioration (eg, 4 hours) are caused by gram-negative organisms that produce endotoxins.",
    "statistics": {
     "answered_correctly_percent": null,
     "selection_percent": {
@@ -1520,7 +1547,7 @@
     },
     {
      "letter": "C",
-     "text": "Markedly elevated direct bi1irubin",
+     "text": "Markedly elevated direct bilirubin",
      "selection_percent": 0
     },
     {
@@ -1665,7 +1692,7 @@
      "text": "(Choice E) Scarlet fever is caused by the body's response to an erythrogenic (pyrogenic) toxin released by group A Streptococcus. It presents with a diffuse, erythematous, \"sandpaper\"-textured rash most notable in the skin folds (eg, inguinal, axillary, antecubital areas). Scarlet fever can occur with pharyngitis and can lead to acute rheumatic fever if untreated."
     }
    ],
-   "educational_objective": "Acute rheumatic fever is an autoimmune reaction following an untreated group A streptococcal pharyngitis. Anti- group A Streptococcus antibodies (eg, anti-M protein, anti-N-acetyl-beta-D-glucosamine) cross-react and attack cardiac and central nervous system antigens.",
+   "educational_objective": "Acute rheumatic fever is an autoimmune reaction following an untreated group A streptococcal pharyngitis. Anti-group A Streptococcus antibodies (eg, anti-M protein, anti-N-acetyl-beta-D-glucosamine) cross-react and attack cardiac and central nervous system antigens.",
    "statistics": {
     "answered_correctly_percent": null,
     "selection_percent": {
@@ -1997,7 +2024,7 @@
     },
     {
      "letter": "B",
-     "text": "lsoniazid",
+     "text": "Isoniazid",
      "selection_percent": 63
     },
     {
@@ -2017,19 +2044,7 @@
     }
    ],
    "correct_label": "B",
-   "question_blocks": [
-    {
-     "type": "figure",
-     "page": 756,
-     "bbox": [
-      16,
-      121,
-      416,
-      169
-     ],
-     "role": "question"
-    }
-   ],
+   "question_blocks": [],
    "explanation": [
     {
      "type": "figure",
@@ -2063,7 +2078,7 @@
      "text": "(Choice E) Vancomycin binds to D-alanyl-D-alanine residues, inhibiting polymerization and cross-linking of the glycopeptides forming the cell wall of gram-positive bacteria (not mycobacteria)."
     }
    ],
-   "educational_objective": "lsoniazid is an antimycobacterial agent that specifically inhibits the synthesis of mycolic acids, which are essential components of the mycobacterial peptidoglycan cell wall. Without mycolic acids, the mycobacteria lose their acid- fastness and become unable to synthesize new cell walls or multiply. Infectious Diseases Tuberculosis",
+   "educational_objective": "Isoniazid is an antimycobacterial agent that specifically inhibits the synthesis of mycolic acids, which are essential components of the mycobacterial peptidoglycan cell wall. Without mycolic acids, the mycobacteria lose their acid- fastness and become unable to synthesize new cell walls or multiply. Infectious Diseases Tuberculosis",
    "statistics": {
     "answered_correctly_percent": null,
     "selection_percent": {

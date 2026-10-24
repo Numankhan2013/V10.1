@@ -11,7 +11,7 @@
     498,
     499
    ],
-   "question": "The following vignette applies to the next 2 items. The items in the set must be answered in sequential order. Once you click Proceed to Next ltem, you will not be able to add or change an answer. A 54-year-old previously healthy man comes to the office due to several weeks of leg swelling. He has had no fever, chest pain, or dyspnea. The patient has a 40-pack-year smoking history but does not use alcohol or illicit drugs. He is afebrile and vital signs are within normal limits. On physical examination, there is symmetric pitting edema of the lower extremities bilaterally. The abdomen is soft and nondistended. A mobile left flank mass can be palpated. There are several vertically oriented tortuous veins on the lower abdominal wall. ltem 1 of 2 Which of the following structures is most likely obstructed in this patient? ltem 2 of 2 Further evaluation of the patient reveals microscopic hematuria. Laboratory results are as follows: Leukocytes Hemoglobin Platelets Which of the following is the most likely cause of this patient's hematologic findings?",
+   "question": "The following vignette applies to the next 2 items. The items in the set must be answered in sequential order. Once you click Proceed to Next Item, you will not be able to add or change an answer. A 54-year-old previously healthy man comes to the office due to several weeks of leg swelling. He has had no fever, chest pain, or dyspnea. The patient has a 40-pack-year smoking history but does not use alcohol or illicit drugs. He is afebrile and vital signs are within normal limits. On physical examination, there is symmetric pitting edema of the lower extremities bilaterally. The abdomen is soft and nondistended. A mobile left flank mass can be palpated. There are several vertically oriented tortuous veins on the lower abdominal wall. Item 1 of 2 Which of the following structures is most likely obstructed in this patient?",
    "options": [
     {
      "letter": "A",
@@ -87,7 +87,7 @@
     500,
     501
    ],
-   "question": "ltem 2 of 2 Further evaluation of the patient reveals microscopic hematuria. Laboratory results are as follows: Leukocytes Hemoglobin Platelets Which of the following is the most likely cause of this patient's hematologic findings?",
+   "question": "A 54-year-old previously healthy man comes to the office due to several weeks of leg swelling. He has had no fever, chest pain, or dyspnea. The patient has a 40-pack-year smoking history but does not use alcohol or illicit drugs. He is afebrile and vital signs are within normal limits. On physical examination, there is symmetric pitting edema of the lower extremities bilaterally. The abdomen is soft and nondistended. A mobile left flank mass can be palpated. There are several vertically oriented tortuous veins on the lower abdominal wall. Item 2 of 2 Further evaluation of the patient reveals microscopic hematuria. Laboratory results are as follows:",
    "options": [
     {
      "letter": "A",
@@ -116,7 +116,34 @@
     }
    ],
    "correct_label": "B",
-   "question_blocks": [],
+   "question_blocks": [
+    {
+     "type": "table",
+     "caption": "Laboratory results",
+     "columns": [
+      "Test",
+      "Result"
+     ],
+     "rows": [
+      [
+       "Leukocytes",
+       "9,000/mm³"
+      ],
+      [
+       "Hemoglobin",
+       "19.2 g/dL"
+      ],
+      [
+       "Platelets",
+       "230,000/mm³"
+      ]
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "Which of the following is the most likely cause of this patient's hematologic findings?"
+    }
+   ],
    "explanation": [
     {
      "type": "paragraph",
@@ -264,7 +291,7 @@
     531,
     532
    ],
-   "question": "A 44-year-old woman comes to the emergency department due to acute-onset, severe, right lower quadrant abdominal pain, nausea, vomiting, and hematuria over the last 4 hours. She had a similar episode of acute pain a year ago, but it resolved in a few hours and she did not seek medical intervention. The patient has no other medical conditions and takes no medication. She smokes a pack of cigarettes daily. She is sexually active and has never been pregnant. Temperature is 36.9 C (98.4 F), blood pressure is 140/90 mmHg, and pulse is 102/min. There is mild tenderness to deep palpation in the right lower quadrant. Laboratory results are as follows: Serum chemistry Urea nitrogen Creatinine Glucose Calcium Phosphorus Which of the following is the most likely cause of this patient's current condition?",
+   "question": "A 44-year-old woman comes to the emergency department due to acute-onset, severe, right lower quadrant abdominal pain, nausea, vomiting, and hematuria over the last 4 hours. She had a similar episode of acute pain a year ago, but it resolved in a few hours and she did not seek medical intervention. The patient has no other medical conditions and takes no medication. She smokes a pack of cigarettes daily. She is sexually active and has never been pregnant. Temperature is 36.9 C (98.4 F), blood pressure is 140/90 mmHg, and pulse is 102/min. There is mild tenderness to deep palpation in the right lower quadrant. Laboratory results are as follows:",
    "options": [
     {
      "letter": "A",
@@ -288,7 +315,7 @@
     },
     {
      "letter": "E",
-     "text": "Renal eel I carcinoma",
+     "text": "Renal cell carcinoma",
      "selection_percent": 9
     },
     {
@@ -303,7 +330,48 @@
     }
    ],
    "correct_label": "G",
-   "question_blocks": [],
+   "question_blocks": [
+    {
+     "type": "table",
+     "caption": "Laboratory results",
+     "columns": [
+      "Group",
+      "Test",
+      "Result"
+     ],
+     "rows": [
+      [
+       "Serum chemistry",
+       "Urea nitrogen",
+       "15 mg/dL"
+      ],
+      [
+       "Serum chemistry",
+       "Creatinine",
+       "1.0 mg/dL"
+      ],
+      [
+       "Serum chemistry",
+       "Glucose",
+       "90 mg/dL"
+      ],
+      [
+       "Serum chemistry",
+       "Calcium",
+       "11 mg/dL"
+      ],
+      [
+       "Serum chemistry",
+       "Phosphorus",
+       "2.5 mg/dL"
+      ]
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "Which of the following is the most likely cause of this patient's current condition?"
+    }
+   ],
    "explanation": [
     {
      "type": "figure",
@@ -389,7 +457,7 @@
     536,
     537
    ],
-   "question": "A 50-year-old man is seen in the office for new-onset constipation. Family history is unremarkable. Vital signs are within normal limits. Physical examination reveals normal findings. Serum laboratory results are as follows: Creatinine Calcium Phosphorus, inorganic Parathyroid hormone 98 pg/mL (normal: 10-65) Which of the following is the most likely mechanism causing this patient's low serum phosphate?",
+   "question": "A 50-year-old man is seen in the office for new-onset constipation. Family history is unremarkable. Vital signs are within normal limits. Physical examination reveals normal findings. Serum laboratory results are as follows:",
    "options": [
     {
      "letter": "A",
@@ -418,7 +486,38 @@
     }
    ],
    "correct_label": "A",
-   "question_blocks": [],
+   "question_blocks": [
+    {
+     "type": "table",
+     "caption": "Laboratory results",
+     "columns": [
+      "Test",
+      "Result"
+     ],
+     "rows": [
+      [
+       "Creatinine",
+       "1.1 mg/dL"
+      ],
+      [
+       "Calcium",
+       "11.3 mg/dL"
+      ],
+      [
+       "Phosphorus, inorganic",
+       "1.9 mg/dL"
+      ],
+      [
+       "Parathyroid hormone",
+       "98 pg/mL (normal: 10-65)"
+      ]
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "Which of the following is the most likely mechanism causing this patient's low serum phosphate?"
+    }
+   ],
    "explanation": [
     {
      "type": "figure",
@@ -732,7 +831,7 @@
     583,
     584
    ],
-   "question": "A 41-year-old woman is being evaluated for peripheral edema. The patient has gained 6.8 kg (15 lb) over the past 8 weeks. Her urine is \"frothy.\" She has no other medical problems and takes no medications. The patient does not use tobacco, alcohol, or illicit drugs. Blood pressure is 140/90 mmHg and pulse is 80/min. Examination shows generalized edema. Heart sounds are normal. The abdomen is soft and nontender. Serum creatinine is 1.1 mg/dL. Urinalysis shows 4+ protein, 0-3 leukocytes/hpf, and oval fat bodies. Serum contains lgG4 antibodies to the phospholipase A2 receptor (PLA2R), a transmembrane protein abundant on podocytes. Which of the following is the most likely diagnosis?",
+   "question": "A 41-year-old woman is being evaluated for peripheral edema. The patient has gained 6.8 kg (15 lb) over the past 8 weeks. Her urine is \"frothy.\" She has no other medical problems and takes no medications. The patient does not use tobacco, alcohol, or illicit drugs. Blood pressure is 140/90 mmHg and pulse is 80/min. Examination shows generalized edema. Heart sounds are normal. The abdomen is soft and nontender. Serum creatinine is 1.1 mg/dL. Urinalysis shows 4+ protein, 0-3 leukocytes/hpf, and oval fat bodies. Serum contains IgG4 antibodies to the phospholipase A2 receptor (PLA2R), a transmembrane protein abundant on podocytes. Which of the following is the most likely diagnosis?",
    "options": [
     {
      "letter": "A",
@@ -765,7 +864,7 @@
    "explanation": [
     {
      "type": "paragraph",
-     "text": "This patient with weight gain and edema with 4+ protein and oval fat bodies on urinalysis has nephrotic syndrome. The presence of phospholipase A2 receptor (PLA2R) antibodies suggests a diagnosis of membranous nephropathy. Antibodies against PLA2R, primarily lgG4, can lead to immune deposition in the glomerulus and are thought to be a major factor in the pathogenesis of primary (idiopathic) membranous nephropathy, a common cause of nephrotic syndrome in adults. Anti-PLA2R antibodies are highly specific for membranous nephropathy; positive titers effectively rule out other causes of nephrotic syndrome (eg, focal segmental glomerulosclerosis) and may eliminate the need for invasive renal biopsy. In addition, titers correlate with disease activity, and serial measurements can be used to determine the efficacy of immunosuppressive therapy."
+     "text": "This patient with weight gain and edema with 4+ protein and oval fat bodies on urinalysis has nephrotic syndrome. The presence of phospholipase A2 receptor (PLA2R) antibodies suggests a diagnosis of membranous nephropathy. Antibodies against PLA2R, primarily IgG4, can lead to immune deposition in the glomerulus and are thought to be a major factor in the pathogenesis of primary (idiopathic) membranous nephropathy, a common cause of nephrotic syndrome in adults. Anti-PLA2R antibodies are highly specific for membranous nephropathy; positive titers effectively rule out other causes of nephrotic syndrome (eg, focal segmental glomerulosclerosis) and may eliminate the need for invasive renal biopsy. In addition, titers correlate with disease activity, and serial measurements can be used to determine the efficacy of immunosuppressive therapy."
     },
     {
      "type": "paragraph",
@@ -784,7 +883,7 @@
      "text": "(Choice E) Renal disease in multiple myeloma is due to deposition of light chains (ie, cast nephropathy) and is not associated with anti-PLA2R antibodies."
     }
    ],
-   "educational_objective": "Primary (idiopathic) membranous nephropathy is associated with lgG4 antibodies to the phospholipase A2 receptor, which might play a role in development of the disease. Antibody titers are useful for diagnosis and correlate with disease activity.",
+   "educational_objective": "Primary (idiopathic) membranous nephropathy is associated with IgG4 antibodies to the phospholipase A2 receptor, which might play a role in development of the disease. Antibody titers are useful for diagnosis and correlate with disease activity.",
    "statistics": {
     "answered_correctly_percent": null,
     "selection_percent": {
