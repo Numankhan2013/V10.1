@@ -12,7 +12,7 @@
     if(!nkPress)return;
     const node=nkPress.node;nkPress=null;node.classList.remove('nk-pressed');
     nkClearFade();node.classList.add('nk-pressed-out');
-    nkPressFade={node,timer:setTimeout(()=>{node.classList.remove('nk-pressed-out');nkPressFade=null;},220)};
+    nkPressFade={node,timer:setTimeout(()=>{node.classList.remove('nk-pressed-out');nkPressFade=null;},320)};
   }
   function nkCancelPress(){
     if(nkPress){nkPress.node.classList.remove('nk-pressed');nkPress=null;}

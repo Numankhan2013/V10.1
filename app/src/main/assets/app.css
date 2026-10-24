@@ -4162,7 +4162,7 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) :is(#nk-practice-sessions, #nk-mock
 /* The app's press feedback (interaction_polish: [onclick]:active, and on touch the
    .nk-pressed class its script adds) scales by .98 and dims. It also matched these
    screens' backdrops, so any tap made the whole page flinch. A page never presses. */
-html[data-nk-ui="geist"] body :is(#nk-practice-sessions, #nk-mock-sheet, #nk-restore-sheet, .modal-backdrop):is(:active, .nk-pressed) { transform: none !important; filter: none !important; box-shadow: none !important; transition: none !important; }
+html[data-nk-ui="geist"] body :is(#nk-practice-sessions, #nk-mock-sheet, #nk-restore-sheet, .modal-backdrop):is(:active, .nk-pressed) { transform: none !important; scale: none !important; filter: none !important; box-shadow: none !important; transition: none !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) :is(#nk-practice-sessions, #nk-mock-sheet, #nk-restore-sheet).modal-backdrop {
   align-items: stretch !important; justify-content: stretch !important; padding: 0 !important;
   background: var(--nkg-bg) !important;
@@ -6332,6 +6332,14 @@ html[data-nk-ui="geist"] :is(body,#nkg-root):is(body,#nkg-root) :is(button:not(:
    the melt through the media block below. */
 html body :is(button:not(:disabled),[role="button"],summary,a[href],[onclick]):not(:where(.option,.option-item)).nk-pressed-out{transition:box-shadow 180ms var(--nkg-ease,ease)!important}
 html[data-nk-ui="geist"] :is(body,#nkg-root):is(body,#nkg-root) :is(button:not(:disabled),[role="button"],summary,a[href],[onclick]):not(:where(.option,.option-item)).nk-pressed-out{transition:box-shadow 180ms var(--nkg-ease,ease)!important}
+/* Press spring (2026-10-24, beUI's button feel, MIT): buttons settle to 97% while
+   held and spring back on release. Uses the individual `scale` property so a
+   button already positioned with `transform` keeps its place. Links, cards
+   without a button role, answer options and backdrops never move. */
+html body :is(button:not(:disabled),[role="button"]):not(:where(.option,.option-item,.modal-backdrop,.nk-qs-backdrop,.qb-nav-backdrop,.phys-zoom-backdrop,.nk-session-review-backdrop,.v102-topic-modal,#nk-practice-sessions,#nk-mock-sheet,#nk-restore-sheet,#nk-quick-sheet)).nk-pressed{scale:.97;transition:scale 120ms cubic-bezier(.2,0,0,1)!important}
+html[data-nk-ui="geist"] :is(body,#nkg-root):is(body,#nkg-root) :is(button:not(:disabled),[role="button"]):not(:where(.option,.option-item,.modal-backdrop,.nk-qs-backdrop,.qb-nav-backdrop,.phys-zoom-backdrop,.nk-session-review-backdrop,.v102-topic-modal,#nk-practice-sessions,#nk-mock-sheet,#nk-restore-sheet,#nk-quick-sheet)).nk-pressed{scale:.97;transition:scale 120ms cubic-bezier(.2,0,0,1)!important}
+html body :is(button:not(:disabled),[role="button"]):not(:where(.option,.option-item,.modal-backdrop,.nk-qs-backdrop,.qb-nav-backdrop,.phys-zoom-backdrop,.nk-session-review-backdrop,.v102-topic-modal,#nk-practice-sessions,#nk-mock-sheet,#nk-restore-sheet,#nk-quick-sheet)).nk-pressed-out{transition:box-shadow 180ms var(--nkg-ease,ease),scale 300ms cubic-bezier(.34,1.56,.64,1)!important}
+html[data-nk-ui="geist"] :is(body,#nkg-root):is(body,#nkg-root) :is(button:not(:disabled),[role="button"]):not(:where(.option,.option-item,.modal-backdrop,.nk-qs-backdrop,.qb-nav-backdrop,.phys-zoom-backdrop,.nk-session-review-backdrop,.v102-topic-modal,#nk-practice-sessions,#nk-mock-sheet,#nk-restore-sheet,#nk-quick-sheet)).nk-pressed-out{transition:box-shadow 180ms var(--nkg-ease,ease),scale 300ms cubic-bezier(.34,1.56,.64,1)!important}
 button:focus-visible,[role="button"]:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--primary,#6951ec)!important;outline-offset:3px}
 button:disabled,[aria-disabled="true"]{cursor:default}
 .nk-session-back,.nk-grid-trigger,.bookmark-toggle{min-width:44px!important;min-height:44px!important}
@@ -6358,6 +6366,7 @@ html body :is(.nk-v114-session,.page,.modal,.qb-nav-panel,.nk-session-review-car
  html body .nav-item:active{transform:none!important;transition:none!important;}
  html body .bookmark-toggle:active svg{transform:none!important;transition:none!important}
  html[data-nk-ui="geist"] :is(body,#nkg-root):is(body,#nkg-root) :is(button:not(:disabled),[role="button"],summary,a[href],[onclick]).nk-pressed-out{transition:none!important}
+ html body :is(button,[role="button"]).nk-pressed,html[data-nk-ui="geist"] :is(body,#nkg-root):is(body,#nkg-root) :is(button,[role="button"]):is(.nk-pressed,.nk-pressed-out){scale:none!important}
 }
 
 /* ── nk-uworld-biochemistry-v1 ── */

@@ -515,3 +515,14 @@ decision above). `cross_device_sync.js` calls it through `nkSyncButton`, which
 falls back to plain `disabled` when the polish module is absent, as it is in
 the module's isolated test. Reduced motion drops the spin and blur and keeps
 the static state.
+
+## Buttons spring on press (2026-10-24, supersedes the no-movement rule for buttons)
+
+The owner reviewed beUI's buttons and approved the press shrink. `button` and
+`[role="button"]` settle to `scale: .97` while `.nk-pressed` (120ms ease-out)
+and spring back on release through `.nk-pressed-out` (300ms
+`cubic-bezier(.34,1.56,.64,1)`, peaking near 1.003); the class now lives 320ms
+so the spring finishes. The ink layer stays. It uses the individual `scale`
+property, never `transform`, so controls positioned with `transform` keep their
+place. Links, clickable cards without a button role, answer options and
+overlay backdrops still never move. Reduced motion sets `scale: none`.
