@@ -128,7 +128,7 @@ def main() -> None:
     assert opening("pharmacology-55-3").startswith("Epirubicin (Option B) is an anthracycline")
     assert by_id["pharmacology-55-3"]["structuredExplanation"]["blocks"][1]["items"][0]["text"] == "Cardiomyopathy"
     # Flattened lists laid out as tables, printed order kept (tools/prepladder_stem_tables.py).
-    assert sum(1 for q in questions if q.get("stemTables")) == 35
+    assert sum(1 for q in questions if q.get("stemTables")) == 38
     assert [o["text"] for o in by_id["pharmacology-14-3"]["options"]][3] == "C & D"
     assert by_id["pharmacology-14-3"]["stemTables"][0]["rows"][3] == ["D. Aspirin is used as it is the most powerful NSAID"]
     # Restructured explanations (66 batches): most gain points or tables; the

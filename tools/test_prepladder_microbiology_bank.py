@@ -77,8 +77,10 @@ def main() -> None:
         first = (q["structuredExplanation"]["blocks"] or [{}])[0]
         assert not str(first.get("text", "")).lower().startswith(("correct answer", "answer:")), q["id"]
         assert q["structuredExplanation"]["blocks"], q["id"]
-    assert sum(1 for q in questions if q.get("stemTables")) == 49  # 35 printed + 14 hand-checked (stem_tables.json)
+    assert sum(1 for q in questions if q.get("stemTables")) == 49  # 33 printed + 16 hand-checked (2 replace empty extractions)
+    assert all(t["rows"] for q in questions for t in q.get("stemTables", [])), "an extracted table came out with no rows"
     by_qid = {q["id"]: q for q in questions}
+    assert by_qid["microbiology-37-26"]["stemTables"][0]["rows"][0] == ["1. Diphyllobothrium", "a. Sheep"]
     assert by_qid["microbiology-33-17"]["options"][1]["text"] == "Cryptosporidium parvum"
     assert not any(o["text"].startswith("[Image") for q in questions for o in q["options"])
 

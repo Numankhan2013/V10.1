@@ -57,6 +57,9 @@ def main() -> None:
     assert by_id["anatomy-22-4"]["correctAnswerText"] == "Image b (Short head of biceps femoris)"
     assert by_id["anatomy-15-52"]["correctAnswerText"] == "Thyroid"
     assert by_id["anatomy-45-16"]["correctAnswerText"] == "Spleen"
+    # Flattened matching lists laid out as tables, printed order kept (stem_tables.json).
+    assert sum(1 for q in questions if q.get("stemTables")) == 8
+    assert by_id["anatomy-30-4"]["stemTables"][0]["rows"][1] == ["B. Umbilicus", "2) L5"]
     assert [q["id"] for q in questions if q.get("reviewStatus") not in ("pass", None)] == []
 
     lost = refs = 0

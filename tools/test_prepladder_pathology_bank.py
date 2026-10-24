@@ -146,7 +146,7 @@ def main() -> None:
     # A lost opening written by hand applies on top of the restructure.
     assert by_id["pathology-25-19"]["structuredExplanation"]["blocks"][0]["text"].startswith("Castleman disease, also known")
     # Flattened lists laid out as tables, printed order kept (tools/prepladder_stem_tables.py).
-    assert sum(1 for q in questions if q.get("stemTables")) == 41
+    assert sum(1 for q in questions if q.get("stemTables")) == 46
     t = by_id["pathology-13-5"]["stemTables"][0]
     assert by_id["pathology-13-5"]["question"] == "Match the following with the appropriate disorder."
     assert t["rows"][0] == ["A. Autosomal recessive", "1. Kennedy disease"], t

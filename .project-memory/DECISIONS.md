@@ -526,3 +526,20 @@ so the spring finishes. The ink layer stays. It uses the individual `scale`
 property, never `transform`, so controls positioned with `transform` keep their
 place. Links, clickable cards without a button role, answer options and
 overlay backdrops still never move. Reduced motion sets `scale: none`.
+
+## Printed stem tables are data for structured PrepLadder banks (2026-10-24)
+
+The source-fingerprinted matching overrides in `question_presentation.js`
+(see `MATCHING_TABLE_ARCHITECTURE_HANDOFF_2026-09-14.md`) never reach the
+structured PrepLadder banks: `nkQuestionPageBank(q)` is false for
+`explanationFormat === 'structured'`, which renders `stemTables` from the
+shard instead. Matching and list questions whose table was lost in extraction
+are therefore fixed in `data/Prepladder/<bank>/stem_tables.json`, copied by
+hand from the printed question and applied at shard build by
+`tools/prepladder_stem_tables.py`. A printed table may replace an extracted one
+only when the extracted one has no rows (its lists landed in the headers);
+any table with rows still fails the build. 2026-10-24 adds 21 entries across
+anatomy (new file), biochemistry, microbiology, pathology, pharmacology and
+physiology. Questions whose options are self-contained or image-owned, and
+ordinary uses of "match" (HLA matching, injuries during a match), stay as
+plain MCQs.

@@ -104,6 +104,7 @@ Any change touching Home, Practice, session persistence, sync, question navigati
   is user-preview verified. Axonal transport `physiology-9-22` and source-backed
   residuals passed full run `34855852211`; physical acceptance remains separate.
 - Full details and residual identities: `.project-memory/MATCHING_TABLE_ARCHITECTURE_HANDOFF_2026-09-14.md`.
+- Structured PrepLadder banks render shard `stemTables`, not those overrides: fix lost tables in `data/Prepladder/<bank>/stem_tables.json` (DECISIONS "Printed stem tables are data").
 
 ## Learner-content hygiene
 
