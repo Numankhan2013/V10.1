@@ -35,6 +35,12 @@ Explanation:
 const takeaway=nkSourceTakeaway(q);
 if(takeaway!=='Soluble fibre helps lower LDL cholesterol. This occurs by increasing bile acid excretion and interfering with bile acid reabsorption.')throw new Error(takeaway);
 if(/adds bulk|bowel movements/i.test(takeaway))throw new Error('Opposite table column leaked into takeaway');
+// A negatively worded stem keys the false statement: it must never become the takeaway.
+const except={question:'Choose the incorrect statement regarding spontaneous gas gangrene :',correctOption:3,
+  options:[{text:'It is also known as nontraumatic gas gangrene'},{text:'It is often a mixed infection'},{text:'It is a clinical diagnosis & hematological investigations play little role'},{text:'Mortality approaches 100%'}],
+  explanation:'When spontaneous gas gangrene is suspected, blood should be cultured as bacteremia usually precedes cutaneous manifestations by several hours.'};
+if(nkSourceTakeaway(except)!=='')throw new Error('Negative stem restated its false keyed choice: '+nkSourceTakeaway(except));
+if(nkSourceTakeaway({...except,question:'Which is true regarding spontaneous gas gangrene?'})!=='It is a clinical diagnosis & hematological investigations play little role.')throw new Error('Positive stem lost its answer fallback');
 const dirty='Which statement is accurate?\nPrepladder X Qbank • Biochemistry       Page 12 of 966';
 if(nkCleanQuestionStem(dirty)!=='Which statement is accurate?')throw new Error(nkCleanQuestionStem(dirty));
 
@@ -100,7 +106,13 @@ console.log('QUESTION_CONTENT_HYGIENE_BEHAVIOR_OK');
         ROOT / "data/marrow/content_hygiene_nerve_ch6_q18_34_v1.json",
         ROOT / "data/marrow/content_hygiene_phys_ch09_10_v1.json",
         ROOT / "data/marrow/content_hygiene_phys_ch11_12_v1.json",
+        ROOT / "data/marrow/content_hygiene_phys_watermark_v1.json",
     )
+    # Unranged manifests: how many questions each holds, and the chapters it may touch.
+    override_scopes = {
+        "content_hygiene_overrides_v1.json": (65, {"5", "7", "8"}),
+        "content_hygiene_phys_watermark_v1.json": (38, {"8", "13", "28"}),
+    }
     override_ranges = {
         "content_hygiene_nerve_ch6_q01_17_v1.json": ((6, 1, 17),),
         "content_hygiene_nerve_ch6_q18_34_v1.json": ((6, 18, 34),),
@@ -117,7 +129,7 @@ console.log('QUESTION_CONTENT_HYGIENE_BEHAVIOR_OK');
         overrides = json.loads(path.read_text(encoding="utf-8"))
         override_questions = overrides.get("questions", {})
         ranges = override_ranges.get(path.name)
-        expected_count = sum(end - start + 1 for _, start, end in ranges) if ranges else 65
+        expected_count = sum(end - start + 1 for _, start, end in ranges) if ranges else override_scopes[path.name][0]
         if len(override_questions) != expected_count or not set(override_questions).issubset(source_by_id):
             raise SystemExit(f"Expected {expected_count} source-backed Physiology overrides in {path.name}")
         if ranges:
@@ -148,7 +160,7 @@ console.log('QUESTION_CONTENT_HYGIENE_BEHAVIOR_OK');
                 raise SystemExit(f"Physiology source PDF changed: {path.name}")
         for qid, override in override_questions.items():
             source_question = source_by_id[qid]
-            allowed_chapters = {str(chapter) for chapter, _, _ in ranges} if ranges else {"5", "7", "8"}
+            allowed_chapters = {str(chapter) for chapter, _, _ in ranges} if ranges else override_scopes[path.name][1]
             if source_question.get("subject") != "Physiology" or str(source_question.get("chapterId")) not in allowed_chapters:
                 raise SystemExit(f"Content override escaped reviewed scope: {qid}")
             values = [override.get("question"), *(override.get("options") or [])]

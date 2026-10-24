@@ -12,7 +12,7 @@
     if(!nkPress)return;
     const node=nkPress.node;nkPress=null;node.classList.remove('nk-pressed');
     nkClearFade();node.classList.add('nk-pressed-out');
-    nkPressFade={node,timer:setTimeout(()=>{node.classList.remove('nk-pressed-out');nkPressFade=null;},220)};
+    nkPressFade={node,timer:setTimeout(()=>{node.classList.remove('nk-pressed-out');nkPressFade=null;},320)};
   }
   function nkCancelPress(){
     if(nkPress){nkPress.node.classList.remove('nk-pressed');nkPress=null;}
@@ -187,5 +187,26 @@
       }
       return result;
     };
+  }
+  // Async actions report in place (pattern from beUI's StatefulButton, MIT):
+  // the control keeps its width, swaps its label for a spinner while the work
+  // runs, then draws a check or a cross and returns to its own label.
+  const NK_BUTTON_ICONS={success:'<svg viewBox="0 0 16 16"><path d="M3.5 8.5l3 3 6-7"/></svg>',error:'<svg viewBox="0 0 16 16"><path d="M4.5 4.5l7 7m0-7l-7 7"/></svg>',loading:''};
+  function nkButtonState(button,next,label){
+    if(!button?.isConnected)return;
+    if(!button.dataset.nkLabel)button.dataset.nkLabel=button.textContent.trim();
+    clearTimeout(button.nkStateTimer);
+    if(next==='idle'){
+      delete button.dataset.nkState;button.removeAttribute('aria-busy');button.disabled=false;button.style.minWidth='';
+      button.textContent=button.dataset.nkLabel;return;
+    }
+    if(!button.dataset.nkState)button.style.minWidth=`${button.getBoundingClientRect().width}px`;
+    button.dataset.nkState=next;button.disabled=next==='loading';
+    if(next==='loading')button.setAttribute('aria-busy','true');else button.removeAttribute('aria-busy');
+    const icon=document.createElement('span'),text=document.createElement('span');
+    icon.className='nk-sb-icon';icon.setAttribute('aria-hidden','true');icon.innerHTML=NK_BUTTON_ICONS[next]||'';
+    text.className='nk-sb-label';text.textContent=label||(next==='success'?'Done':next==='error'?'Try again':button.dataset.nkLabel);
+    button.replaceChildren(icon,text);
+    if(next!=='loading')button.nkStateTimer=setTimeout(()=>nkButtonState(button,'idle'),1800);
   }
   /* NK_INTERACTION_POLISH_V1_END */

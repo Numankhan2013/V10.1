@@ -129,12 +129,19 @@
     if (!cr.width || !br.width) return;
     var left = br.left - cr.left - container.clientLeft, w = br.width;
     var prev = pillMemo[key];
+    var to = 'translateX(' + left + 'px)', from = prev ? 'translateX(' + prev.left + 'px)' : to;
+    var move = animate !== false && prev && (Math.abs(prev.left - left) > 0.5 || Math.abs(prev.w - w) > 0.5);
     pill.style.opacity = '1';
     pill.style.width = w + 'px';
-    pill.style.transform = 'translateX(' + left + 'px)';
-    if (animate !== false && prev && (Math.abs(prev.left - left) > 0.5 || Math.abs(prev.w - w) > 0.5)) {
+    /* The animation attaches a frame after this call: until it owns the pill, hold it at the
+       start so a frame painted in that gap never flashes the destination before the slide. */
+    pill.style.transform = move ? from : to;
+    pill.__nkgTo = to;
+    if (move) {
       /* Transform-only so the slide runs on the compositor, even while the page recomputes. */
-      anim(pill, { transform: ['translateX(' + prev.left + 'px)', 'translateX(' + left + 'px)'] }, Object.assign({ keep: true }, SPRING_PILL));
+      var a = anim(pill, { transform: [from, to] }, Object.assign({ keep: true }, SPRING_PILL));
+      var land = function () { if (pill.__nkgTo === to) pill.style.transform = to; };
+      if (a && a.finished) a.finished.then(land, land); else land();
     }
     pillMemo[key] = { left: left, w: w };
   }

@@ -1,0 +1,729 @@
+{
+ "batch": "biochemistry-015",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "biochemistry-015",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "13-1",
+   "question": "Which of the following statements about selenocysteine and Pyrrolysine is correct?",
+   "options": {
+    "A": "Pyrrolysine is incorporated into proteins at UGA codons with the help of a specific tRNA.",
+    "B": "The incorporation of selenocysteine requires a special mRNA structure known as the selenocysteine insertion sequence (SECIS).",
+    "C": "Selenocysteine is synthesized from cysteine during protein translation.",
+    "D": "Pyrrolysine is only found in eukaryotic organisms and not in prokaryotes."
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Selenocysteine: Classification: Selenocysteine is an L-α-amino acid known as the \"21st amino acid.\" Presence: Found in proteins across all domains of life, including approximately 25 selenoproteins in humans (e.g., certain peroxidases, reductases, and selenoprotein P)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Synthesis: Selenocysteine is synthesized from serine through a series of enzymatic modifications that incorporate selenium and convert it into selenocysteinyl-tRNA, facilitating its incorporation into proteins. tRNA: Selenocysteine is incorporated into proteins via a specialized tRNA known as tRNASec."
+    },
+    {
+     "type": "paragraph",
+     "text": "Codon: It is uniquely coded by the UGA codon, which typically signals a stop in translation. (Option A) SECIS Element: Its incorporation requires a specific mRNA structure called the Selenocysteine Insertion Sequence (SECIS), allowing the ribosome to recognize UGA as coding for selenocysteine rather than as a stop signal."
+    },
+    {
+     "type": "paragraph",
+     "text": "Function: Essential for various biological processes, including the conversion of thyroxine (T4) to triiodothyronine (T3) by iodothyronine deiodinases."
+    },
+    {
+     "type": "paragraph",
+     "text": "Pyrrolysine: Classification: Pyrrolysine is often referred to as the 22nd genetically encoded amino acid. Presence: It is primarily found in certain archaea and bacteria, specifically in some methanogenic organisms. Synthesis: Pyrrolysine is synthesized from lysine through a series of enzymatic modifications that form a pyrroline-carboxylate ring.\" tRNA: Pyrrolysine is incorporated into proteins using a specific tRNA known as tRNAPyl."
+    },
+    {
+     "type": "paragraph",
+     "text": "Codon: It is uniquely encoded by the UAG codon, which usually signals a stop in protein synthesis. In the context of pyrrolysine, UAG serves as a sense codon when recognized by tRNAPyl. (Option A) Role: Pyrrolysine plays a crucial role in specific enzymes involved in methane production, aiding in the metabolism of methylamines."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L16_Q001_E1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L16_Q001_E2"
+    }
+   ]
+  },
+  {
+   "id": "13-2",
+   "question": "Which of the following statements correctly describes the metabolic fate of specific amino acids?",
+   "options": {
+    "A": "All amino acids can be classified as either glucogenic or ketogenic without exceptions.",
+    "B": "Aspartate is a purely ketogenic amino acid.",
+    "C": "Phenylalanine can be converted to both glucose and ketone bodies.",
+    "D": "Lysine is exclusively glucogenic."
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Phenylalanine is classified as both glucogenic and ketogenic because its catabolism produces: Fumarate → Enters the TCA cycle, contributing to gluconeogenesis (glucose production). Acetoacetate → A precursor for ketone bodies. This dual fate allows phenylalanine to contribute to both energy sources. Metabolism of Amino Acids: Glucogenic vs."
+    },
+    {
+     "type": "paragraph",
+     "text": "Ketogenic Classification of Amino Acids Amino acids are classified based on their metabolic fate: Type Definition Examples: Purely Glucogenic Amino acids that are converted into pyruvate or TCA cycle intermediates (e.g., oxaloacetate, α-ketoglutarate) and contribute to glucose synthesis via gluconeogenesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Aspartate, Alanine, Glycine, Serine, Cysteine Purely Ketogenic Amino acids that yield only acetyl-CoA or acetoacetate, leading to the formation of ketone bodies. Leucine, Lysine Both Glucogenic & Ketogenic Amino acids that can be converted into both glucose and ketone bodies, contributing to energy metabolism through multiple pathways."
+    },
+    {
+     "type": "paragraph",
+     "text": "Phenylalanine, Tyrosine, Tryptophan, Isoleucine, Threonine All amino acids can be classified as either glucogenic or ketogenic without exceptions. (Option A): Incorrect because some amino acids (e.g., ornithine and citrulline) are involved in the urea cycle rather than energy metabolism."
+    },
+    {
+     "type": "paragraph",
+     "text": "Aspartate is a purely ketogenic amino acid. (Option B): Incorrect because aspartate is purely glucogenic, converting into oxaloacetate, which enters the gluconeogenic pathway. Lysine is exclusively glucogenic. (Option D): Incorrect because lysine is purely ketogenic, forming acetoacetate, which is used for ketone body synthesis, and does not contribute to glucose production."
+    }
+   ]
+  },
+  {
+   "id": "13-3",
+   "question": "An athlete undergoing high-altitude training adapts to decreased oxygen availability by altering haemoglobin to enhance oxygen delivery. Which structural form of haemoglobin is predominantly favoured to enhance oxygen release to tissues?",
+   "options": {
+    "A": "Taut structure",
+    "B": "Relaxed structure",
+    "C": "Globular structure",
+    "D": "Tertiary structure"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Taut form of hemoglobin has a lower affinity for oxygen, facilitating oxygen release to tissues under conditions of low oxygen and high CO₂/H⁺ (Bohr effect). Structure of Haemoglobin: Hemoglobin consists of four globin chains, each with an associated heme group containing Fe²⁺. Strong polypeptide chain interaction: Taut structure favours deoxygenation. Weak polypeptide chain interaction: Relaxed structure favours oxygenation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Haemoglobin Structure and Oxygen Binding Structural Form Description Effect on Oxygen Binding Taut (T) form Low oxygen affinity, stabilized by CO₂, H⁺, and 2,3-BPG Favours oxygen release to tissues Relaxed (R) form High oxygen affinity, stabilized by oxygen binding Favours oxygen uptake in lungs At the Tissue site: Chloride Shift: Bicarbonate (HCO - ) is exchanged for chloride (Cl - ) via the antiporter, causing RBCs to swell due to increased chloride and water."
+    },
+    {
+     "type": "paragraph",
+     "text": "In the Lung: Haldane Effect: Reciprocal binding of oxygen and carbon dioxide is Haldane effect."
+    },
+    {
+     "type": "paragraph",
+     "text": "**It is observed in the lung side Relaxed structure (Option B):** Incorrect because the R form has a high affinity for oxygen and is favored in oxygen-rich environments (lungs), not in tissues needing oxygen."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Globular structure (Option C):** Incorrect because hemoglobin’s globular nature does not directly impact oxygen release. The T and R states determine its function."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Tertiary structure (Option D):** Incorrect because oxygen binding and release are determined by quaternary structural changes (T ↔ R), not just tertiary folding."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L16_Q003_E1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L16_Q003_E2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L16_Q003_E3"
+    }
+   ]
+  },
+  {
+   "id": "13-4",
+   "question": "Which of the following techniques is most widely used to estimate a patient's HbA1c level for monitoring long-term glucose control?",
+   "options": {
+    "A": "Cation exchange chromatography",
+    "B": "Anion exchange chromatography",
+    "C": "Gel filtration chromatography",
+    "D": "Paper chromatography"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Chromatography is a separation technique that distinguishes solutes based on their distribution between a stationary and a mobile phase. Solutes with a higher affinity for the mobile phase move faster, while those with a higher affinity for the stationary phase move slower or not at all. Multiple solutes can be separated using this method."
+    },
+    {
+     "type": "paragraph",
+     "text": "Types of Chromatography: Types of Chromatography Description Cation exchange chromatography (Option A) Carboxymethyl sepharose is a widely used example of cation exchange chromatography, which is commonly employed for HbA1c estimation. This technique separates positively charged (cationic) molecules using an anionic stationary phase. Initially, the protein mixture is held in the stationary phase to allow impurities to be removed."
+    },
+    {
+     "type": "paragraph",
+     "text": "Once all the impurities are removed, a technique known as elution is used upon the stationary phase to derive the desired result. In this, positively charged proteins bind to the negatively charged stationary phase."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Anion exchange chromatography (Option B):** It is used to separate proteins with a negative charge. The stationary phase consists of cationic groups, such as quaternary ammonium groups. This method retains anions while allowing other components to pass through."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Gel filtration chromatography (Option C):** Also known as size exclusion chromatography, this technique separates proteins based on their size. Smaller proteins get trapped in the pores of the gel matrix, slowing their movement, while larger proteins move quickly through the column."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Paper chromatography (Option D):** It is a type of planar chromatography conducted on a flat surface. This method separates amino acids based on their polarity. Nonpolar amino acids move faster, while polar amino acids stay closer to the application point. Cation exchange chromatography"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L16_Q004_E1"
+    }
+   ]
+  },
+  {
+   "id": "13-5",
+   "question": "Based on which characteristic the technique SDS-PAGE is used to separate proteins?",
+   "options": {
+    "A": "Charge",
+    "B": "Molecular Weight",
+    "C": "Size",
+    "D": "Shape"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The SDS-PAGE technique (Sodium Dodecyl Sulfate Polyacrylamide Gel Electrophoresis) separates proteins based on their molecular weight. In this technique, proteins are denatured and bound by SDS (Sodium"
+    },
+    {
+     "type": "paragraph",
+     "text": "Dodecyl Sulfate), which is an anionic detergent. SDS binds to proteins and imparts a uniform negative charge proportional to the protein's mass, effectively masking the protein's original charge and shape. (Option A and D ruled out) The denatured proteins are then subjected to an electric field within a polyacrylamide gel matrix."
+    },
+    {
+     "type": "paragraph",
+     "text": "Since SDS provides a uniform charge-to-mass ratio, proteins move through the gel based on molecular weight, with smaller proteins migrating faster than larger ones. Molecular Weight vs. Size: (Option C ruled out) Molecular weight refers to the mass of a molecule. Size refers to the physical dimensions of a molecule."
+    },
+    {
+     "type": "paragraph",
+     "text": "While larger molecules generally have higher molecular weights, factors like protein shape and conformation can influence their size. SDS coating of the protein removes the influence that shape has on the migration of the protein. SDS-PAGE Separation: SDS-PAGE eliminates the influence of protein shape and charge, ensuring that separation is primarily determined by molecular weight."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L16_Q005_E1"
+    }
+   ]
+  },
+  {
+   "id": "13-6",
+   "question": "The electrophoresis pattern in the image shows a prominent alpha-2 band. Which disease is most likely associated with this finding?",
+   "options": {
+    "A": "Nephrotic syndrome",
+    "B": "Multiple myeloma",
+    "C": "Decompensated chronic liver disease",
+    "D": "Nephritic syndrome"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "A prominent alpha-2 band on serum protein electrophoresis (SPEP) is a characteristic finding in nephrotic syndrome. In nephrotic syndrome: Albumin is lost in the urine due to increased glomerular permeability. Alpha-2 macroglobulin remains elevated because it is too large to be filtered out, leading to an enhanced alpha-2 band."
+    },
+    {
+     "type": "paragraph",
+     "text": "Other small proteins are lost, leading to a relative increase in alpha-2 globulins (alpha-2 macroglobulin, haptoglobin, and ceruloplasmin)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Disorder EPP Pattern Multiple Myeloma (Option B):** It is characterised by a narrow and intense band in the gamma region, the M band. This band indicates the presence of a monoclonal protein (M protein), which is a hallmark of multiple myeloma."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Nephrotic syndrome (Option A):** It shows a relative prominence of the alpha-2 band. This pattern results from the selective loss of smaller proteins, such as albumin, in the urine while larger proteins, such as alpha-2 macroglobulin, remain in the blood."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Decompensated chronic liver disease (DCLD) (Option C):** It exhibits beta-gamma bridging. This occurs due to polyclonal immunoglobulin production, leading to a continuous smear between the beta and gamma regions."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Nephritic Syndrome (Option D):** involves glomerular inflammation leading to hematuria, proteinuria, and decreased kidney function. It may show increased alpha-1 and alpha-2 globulins due to acute phase reactants but not a prominent alpha-2 band."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L16_Q006_E1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L16_Q006_E2"
+    }
+   ]
+  },
+  {
+   "id": "13-7",
+   "question": "A laboratory technician prepares samples for electrophoresis as the person is suspected to auffer from multiple myeloma. Which sample type is preferred for this test to ensure accurate results?",
+   "options": {
+    "A": "Serum",
+    "B": "Plasma",
+    "C": "Whole blood",
+    "D": "CSF"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The preferred sample for electrophoresis is Serum due to the absence of fibrinogen. Serum (obtained after clotting) lacks clotting factors and fibrinogen. When a blood sample is collected in a tube with an anticoagulant, it separates into plasma at the top and blood cells below. Conversely, in a tube without an anticoagulant, blood clots due to the coagulation cascade, resulting in serum separation."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Plasma (Option B):** Fibrinogen present in plasma can migrate to the beta-gamma region, potentially masking monoclonal bands in multiple myeloma."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Whole blood (Option C):** contains cellular components (like red and white blood cells) that can interfere with the separation and analysis of proteins. Free of these cells, Serum provides a clearer and more accurate representation of the proteins in the blood."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Urine (Option D):** The protein concentration in urine is much lower compared to blood, which can lead to less reliable results. Additionally, urine proteins may vary based on hydration status and can include different proteins not present in serum."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L16_Q007_E1"
+    }
+   ]
+  },
+  {
+   "id": "13-8",
+   "question": "A 39-year-old male complains of unexplained fatigue and joint pain and visits his physician. The physician suspects chronic inflammatory disease and advises serum protein electrophoresis, which shows an increase in alpha 2 bands. Which of the following proteins shows an increase in alpha 2 bands?",
+   "options": {
+    "A": "Albumin",
+    "B": "Macroglobulin",
+    "C": "Gamma globulin",
+    "D": "Transferrin"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Macroglobulin is the protein that increases the alpha 2 band during inflammatory diseases. Serum protein electrophoresis: It is a diagnostic technique used to separate and analyse proteins in the blood based on their size, shape, and charge, helping to identify abnormalities in protein levels."
+    },
+    {
+     "type": "paragraph",
+     "text": "It is commonly used to diagnose and monitor conditions like chronic inflammatory diseases, multiple myeloma, liver diseases, and nephrotic syndrome by evaluating specific protein bands."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Electrophoresis band Proteins Albumin band Albumin (Option A ruled out):** Alpha 1 band Alpha 1 antitrypsin,alpha-fetoprotein, transthyretin Alpha 2 band Macroglobulin (Option B), haptoglobin, ceruloplasmin Beta band Transferrin (Option D), low-density lipoproteins Gamma band Gamma immunoglobulin (Option C),fibrinogen"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L16_Q008_E1"
+    }
+   ]
+  },
+  {
+   "id": "13-9",
+   "question": "Which protein migrates the farthest from the application point towards the anode in serum protein electrophoresis?",
+   "options": {
+    "A": "Albumin",
+    "B": "Gamma globulin",
+    "C": "Alpha-1 globulin",
+    "D": "Beta globulin"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Albumin has the highest net negative charge at physiological pH (pH ~8.6 in electrophoresis). It has a low molecular weight and is the smallest major serum protein, allowing it to migrate the farthest toward the anode (positive electrode) in serum protein electrophoresis (SPEP). Other globulin fractions (α, β, and γ) migrate slower due to lower net charge and larger size."
+    },
+    {
+     "type": "paragraph",
+     "text": "Protein separation on Electrophoresis: Serum Protein Electrophoresis Migration Pattern Protein Fraction Charge Migration Distance (From Cathode to Anode) Albumin Most negative Farthest migration Alpha-1 globulin (Option C ruled out) Less negative Closer to origin Alpha-2 globulin Less negative Closer to origin Beta globulin (Option D ruled out) Intermediate Closer to albumin Gamma globulin (Option B ruled out) Least negative Closest to the cathode"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L16_Q009_E1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L16_Q009_E2"
+    }
+   ]
+  },
+  {
+   "id": "13-10",
+   "question": "All the following factors determine the mobility of proteins in electrophoresis except?",
+   "options": {
+    "A": "Charge",
+    "B": "Isoelectric pH",
+    "C": "Molecular weight",
+    "D": "Shape"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The isoelectric pH is the point at which molecules have no net charge and, therefore, do not migrate during electrophoresis."
+    },
+    {
+     "type": "paragraph",
+     "text": "The mobility of proteins in electrophoresis depends on Charge: Positively charged particles move towards negative electrodes and vice versa. (Option A ruled out) Molecular weight: Heavier particles move slowly when compared to lighter particles. (Option C ruled out) Shape of the particles: Globular proteins, being more compact, move faster than fibrous proteins, which are elongated and encounter resistance. (Option D ruled"
+    },
+    {
+     "type": "paragraph",
+     "text": "out) Strength of electric field: A stronger electric field enhances the movement of molecules. Properties of the supporting medium: Denser gel decreases the mobility of large molecules. Temperature: Higher temperature increases the rate of movement."
+    }
+   ]
+  },
+  {
+   "id": "13-11",
+   "question": "What is the most likely cause of the rightward shift of the oxyhemoglobin dissociation curve?",
+   "options": {
+    "A": "Decreased 2,3 -BPG",
+    "B": "Decreased CO2",
+    "C": "Increased pH",
+    "D": "Increased temperature"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "At higher temperatures, the oxyhemoglobin dissociation curve shifts towards the right, indicating decreased haemoglobin affinity for oxygen and facilitating the release of oxygen to tissues. The shape of oxyhemoglobin dissociation is sigmoid due to positive cooperativity."
+    },
+    {
+     "type": "paragraph",
+     "text": "Oxyhemoglobin Dissociation Curve Shifts Factor Shifts Curve to the Right (↓ O2 Affinity, ↑ O2 Release) Shifts Curve to the Left (↑ O2 Affinity, ↓ O2 Release) pH (Bohr Effect) Decreased pH (Acidosis) Increased pH (Alkalosis) (Option C ruled out) Carbon Dioxide (CO₂) Increased CO₂ (Hypercapnia) Decreased CO₂ (Hypocapnia) (Option B ruled out) Temperature Increased temperature (e.g., fever, exercise) Decreased temperature (e.g., hypothermia) 2,3-Bisphosphoglycerate (2,3-BPG) Increased 2,3-BPG (e.g., chronic hypoxia, anemia) Decreased 2,3-BPG (Option A ruled out) Carbon Monoxide (CO) - Presence of CO (Increased oxygen affinity, prevents release) Fetal Hemoglobin (HbF) - Presence of HbF (Higher oxygen affinity) Exercise Increased exercise - Altitude Acclimatization to high altitude - Growth Hormone Increases O₂ release (Shifts right) - Thyroxine (T₄) Increases O₂ release (Shifts right) - `"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L16_Q011_E1"
+    }
+   ]
+  },
+  {
+   "id": "13-12",
+   "question": "A newborn is diagnosed with a condition where their haemoglobin has an unusually high affinity for oxygen. What is the physiological basis for the increased oxygen affinity of fetal haemoglobin compared to adult haemoglobin?",
+   "options": {
+    "A": "Binds more 2,3-BPG, increasing oxygen affinity.",
+    "B": "HbF contains serine that reduces the positive charge of the globin side chain.",
+    "C": "Higher histidine content, reducing oxygen affinity.",
+    "D": "Binds oxygen more loosely than adult Hb"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Fetal haemoglobin (HbF) contains α₂ and γ₂ globin chains, where γ chains have serine instead of histidine. (Beta chains have more of histidine and lysine). This reduces the positive charge in the heme’s central cavity, leading to decreased binding of 2,3-Bisphosphoglycerate (2,3-BPG)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Difference between Adult Hemoglobin and Fetal Hemoglobin” Feature Adult Hemoglobin (HbA) Fetal Hemoglobin (HbF) Globin Side Chains α₂β₂ α₂γ₂ Oxygen Affinity Lower Higher 2,3-BPG Binding Higher Lower Physiological Role Tissue oxygen delivery Oxygen extraction from maternal blood Charge in Central Cavity More positive Less positive pH Sensitivity More sensitive Less sensitive Binds more 2,3-BPG, increasing oxygen affinity (Option A): Incorrect- More 2,3-BPG binding decreases oxygen affinity, stabilizing the taut form."
+    },
+    {
+     "type": "paragraph",
+     "text": "HbF binds less 2,3-BPG, increasing its affinity for oxygen."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Higher histidine content, reducing oxygen affinity (Option C):** Incorrect- HbF has serine instead of histidine in its γ-chain, which actually increases oxygen affinity."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Binds oxygen more loosely than adult Hb (Option D):** Incorrect - HbF binds oxygen more tightly than HbA to facilitate oxygen transfer from maternal blood."
+    }
+   ]
+  },
+  {
+   "id": "13-13",
+   "question": "A patient with anaemia has elevated levels of 2,3-Bisphosphoglycerate (2,3-BPG) in their red blood cells. How does this increased 2,3-BPG level affect the patient’s haemoglobin in terms of oxygen delivery?",
+   "options": {
+    "A": "Forms salt bridges with positively charged residues forming a relaxed structure",
+    "B": "Disrupts salt bridges formed in the taut structure, decreasing oxygen affinity",
+    "C": "Forms salt bridges with positively charged residues stabilising taut structure",
+    "D": "Binds to the heme directly, decreasing the oxygen affinity"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Increased levels of 2,3-BPG stabilise the taut (T) structure of haemoglobin by forming salt bridges with positively charged residues. This stabilisation lowers haemoglobin's affinity for oxygen, promoting oxygen release to tissues, which can be beneficial in conditions like anaemia. Effect of 2,3 BPG on Hb: Reduces the affinity of Hb for oxygen and helps unload oxygen to tissues."
+    },
+    {
+     "type": "paragraph",
+     "text": "A by-product of glycolysis. (Rapaport Leubering Cycle) Mechanism: 2,3-Bisphosphoglycerate (2,3-BPG) binds with a pocket formed by the β chains in the deoxygenated state of hemoglobin."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Forms salt bridges with positively charged residues forming a relaxed structure (Option A):** Incorrect because salt bridges stabilize the T form, not the R form."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Disrupts salt bridges formed in the taut structure, decreasing oxygen affinity (Option B):** Incorrect because 2,3-BPG forms rather than disrupts salt bridges, stabilizing the T form."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Binds to the heme directly, decreasing the oxygen affinity (Option D):** Incorrect because 2,3-BPG does not bind to heme; it binds between β-chains in deoxygenated Hb."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L16_Q013_E1"
+    }
+   ]
+  },
+  {
+   "id": "13-14",
+   "question": "Which of the following statements is TRUE regarding pKa and its implications in biochemistry?",
+   "options": {
+    "A": "The lower the pKa of the amino group, the weaker the acid.",
+    "B": "pKa remains constant and does not change with the medium.",
+    "C": "The net charge of a protein does not depend on the pKa value of the functional group.",
+    "D": "When pH =pKa +/- 1, substances act as buffers."
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Definition pKa is the pH at which 50% of a molecule is ionized. Buffering Capacity Maximum when pH ≈ pKa ±1. Amino Acids & Proteins Ionization of functional groups depends on pKa, affecting protein charge and structure."
+    },
+    {
+     "type": "paragraph",
+     "text": "**The lower the pKa of the amino group, the weaker the acid (Option A):** Incorrect because lower pKa indicates a stronger acid, not a weaker one. pKa remains constant and does not change with the medium (Option B): Incorrect because pKa is influenced by the environment, including ionic strength, polarity, and solvent."
+    },
+    {
+     "type": "paragraph",
+     "text": "**The net charge of a protein does not depend on the pKa value of the functional group (Option C):** Incorrect because protein charge depends on pKa and the surrounding pH, which affects ionization of amino acid residues."
+    }
+   ]
+  },
+  {
+   "id": "13-15",
+   "question": "Which of the following correctly describes the role of histidine residues in myoglobin in relation to carbon monoxide (CO) binding?",
+   "options": {
+    "A": "Prevent CO binding by increasing the heme's affinity for oxygen.",
+    "B": "Enhance CO binding, similar to oxygen.",
+    "C": "Inhibit CO binding by sterically hindering the heme iron.",
+    "D": "It does not influence the binding of CO to the heme."
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Histidines E7 and F8 in myoglobin are crucial in regulating CO binding. Histidine E7 (distal histidine) particularly creates steric hindrance, which reduces CO's ability to bind effectively to the heme iron. Structure of Myoglobin: Heme Group contains one iron (Fe²⁺) surrounded by four pyrrole rings. The Fe²⁺ is located slightly below the plane of the heme ring."
+    },
+    {
+     "type": "paragraph",
+     "text": "Globin chain comprises a single polypeptide chain of about 150 amino acids (AA), arranged in eight α-helices (labelled A to H). Histidine F8: Fe²⁺ is covalently attached to the proximal histidine F8 of the globin chain. Histidine E7: Positioned on the opposite side of the heme, it helps create a hindered environment, reducing the risk of carbon monoxide (CO) binding."
+    },
+    {
+     "type": "paragraph",
+     "text": "Heme and CO: Carbon monoxide binds to Fe²⁺ in the heme with 2000 times higher affinity than oxygen (O₂). CO displaces O₂ from haemoglobin, reducing oxygen-carrying capacity and leading to anaemic hypoxia. The globin chain, with histidine E7, provides a sterically hindered environment around the heme, which reduces CO binding and helps mitigate CO poisoning."
+    },
+    {
+     "type": "paragraph",
+     "text": "In Oxygen, the second atom is inclined, so it is easily accommodated, whereas in CO, it is straight, which is hindered by E7."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Prevent CO binding by increasing the heme's affinity for oxygen (Option A):** Histidine does not directly increase oxygen affinity but stabilizes O₂ binding via hydrogen bonding."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Enhance CO binding, similar to oxygen (Option B):** CO has higher intrinsic affinity for heme than O₂, but histidine hinders CO binding, not enhances it."
+    },
+    {
+     "type": "paragraph",
+     "text": "**It does not influence the binding of CO to the heme (Option D):** Incorrect, as distal histidine (His E7) significantly reduces CO binding affinity by enforcing an angled binding geometry."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L16_Q015_E1"
+    }
+   ]
+  },
+  {
+   "id": "13-16",
+   "question": "Which cellular component is primarily responsible for degrading intracellular proteins tagged with ubiquitin?",
+   "options": {
+    "A": "Lysosomes",
+    "B": "Proteasomes",
+    "C": "Cathepsins",
+    "D": "Endosomes"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Proteasomes are large protein complexes that degrade ubiquitin-tagged intracellular proteins through a process called ubiquitin-proteasome pathway (UPP). This system is ATP-dependent and ensures regulated protein degradation to maintain cellular homeostasis. The 26S proteasome consists of: 20S core particle (catalytic chamber for protein degradation). 19S regulatory particle (recognizes ubiquitinated proteins and unfolds them for degradation)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Ubiquitin-proteasome pathway: Major pathway for degrading misfolded, damaged, and regulatory"
+    },
+    {
+     "type": "paragraph",
+     "text": "proteins. Ubiquitination: Proteins are tagged with ubiquitin molecules by enzymes (E1, E2, E3). Proteasome Degradation: Ubiquitin-tagged proteins are transported to the proteasome, a cylindrical structure with proteolytic activity, where they are degraded into small peptides."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Lysosomes (Option A):** Degrade extracellular and some intracellular proteins via autophagy, but not ubiquitin-tagged proteins. Function mainly in bulk degradation rather than targeted proteolysis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Cathepsins (Option C):** A group of lysosomal proteases involved in protein degradation inside lysosomes. They do not participate in ubiquitin-proteasome degradation."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Endosomes (Option D):** Involved in vesicular transport, sorting proteins to lysosomes, plasma membrane recycling, or exocytosis. They do not degrade ubiquitinated proteins directly."
+    }
+   ]
+  },
+  {
+   "id": "13-17",
+   "question": "Which protein assists in proper folding by binding to hydrophobic regions of other proteins during the folding process?",
+   "options": {
+    "A": "Proteases",
+    "B": "Chaperonins",
+    "C": "Ubiquitin",
+    "D": "Prions"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Protein folding is the process by which a protein structure assumes its functional three-dimensional shape from a linear chain of amino acids. Chaperonins are a class of molecular chaperones that assist in protein folding. They form large barrel-shaped complexes that can encapsulate unfolded or partially folded proteins, providing an isolated environment for proper folding."
+    },
+    {
+     "type": "paragraph",
+     "text": "Chaperonins bind to hydrophobic regions of unfolded proteins, preventing inappropriate interactions and aggregation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Role of Chaperonins in Protein Folding Function Chaperonin Action Prevents misfolding Shields hydrophobic regions to avoid aggregation Assists refolding Helps denatured proteins regain functional shape Provides an isolated chamber Forms a cavity where proteins fold properly ATP-dependent process Uses ATP to facilitate conformational changes Proteases (Option A): These are enzymes that degrade proteins by hydrolyzing peptide bonds."
+    },
+    {
+     "type": "paragraph",
+     "text": "They do not assist in proper folding; instead, they help degrade misfolded proteins."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Ubiquitin (Option C):** A small regulatory protein that tags damaged or misfolded proteins for proteasomal degradation. It does not assist in protein folding."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Prions (Option D):** Misfolded proteins that induce abnormal folding in other proteins, leading to neurodegenerative diseases (e.g., Creutzfeldt-Jakob"
+    },
+    {
+     "type": "paragraph",
+     "text": "disease). Instead of aiding folding, they promote misfolding."
+    }
+   ]
+  },
+  {
+   "id": "13-18",
+   "question": "Which of the following techniques provides the highest resolution for determining the primary structure of proteins?",
+   "options": {
+    "A": "Nuclear Magnetic Resonance (NMR) spectroscopy",
+    "B": "X-ray crystallography",
+    "C": "Sanger’s sequencing",
+    "D": "Optical rotatory dispersion"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Sanger sequencing is typically used for DNA, but it can be adapted for protein sequencing in the form of Edman degradation, which determines the primary structure of proteins. This method provides the exact sequence of amino acids, giving the highest resolution of the primary structure."
+    },
+    {
+     "type": "paragraph",
+     "text": "Protein Structure and Methods of Determination Structure Methods of Determination Primary Edman sequencing Sanger’s sequencing (Option C) Reverse sequencing Secondary Optical rotatory dispersion (Option D) Ocular dichroism Tertiary X-ray crystallography (Option B) UV Spectroscopy NMR spectroscopy (Option A) Quaternary SDS PAGE (Sodium Dodecyl Sulfate-Polyacrylamide Gel Electrophoresis)"
+    }
+   ]
+  },
+  {
+   "id": "13-19",
+   "question": "What type of bond is primarily responsible for stabilising the structure in proteins as shown in the image?",
+   "options": {
+    "A": "Covalent bonds between side chains",
+    "B": "Ionic bonds between charged amino acids",
+    "C": "Hydrogen bonds between backbone atoms",
+    "D": "Disulfide bridges between cysteine residues"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The alpha-helix is stabilized primarily by hydrogen bonds between the carbonyl oxygen (C=O) of one amino acid and the amide hydrogen (N-H) of another amino acid, located four residues ahead in the chain. This forms a regular helical structure with 3.6 amino acids per turn."
+    },
+    {
+     "type": "paragraph",
+     "text": "Secondary structure of Protein: Characteristic Alpha Helix Beta-Pleated Sheet Shape Spiral or coiled structure Extended, zigzag structure, pleated Hydrogen bonding Within the same strand (intrastrand) Between different strands (interstrand) Compactness More compact Less compact, more extended Stability Stabilised by internal H-bonds Stabilised by H-bonds between strands Flexibility More flexible Less flexible, more rigid Examples Keratin, Myoglobin Silk fibroin, immunoglobulins Super secondary Structures: These are the segments of polypeptide chains linked to adjacent secondary structures."
+    },
+    {
+     "type": "paragraph",
+     "text": "There are 2 types: Turn / Bend: If limited numbers of amino acids are used to link the adjacent structure. Loop: If more numbers of amino acids are used to link the adjacent structure. They have hydrogen bond linkages. Proline and glycine are found in a super secondary structure."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Covalent bonds between side chains (Option A):** Incorrect because covalent (peptide) bonds link amino acids but do not stabilize secondary structures."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Ionic bonds between charged amino acids (Option B):** Incorrect because ionic bonds contribute to tertiary and quaternary structures, not the stabilization of an alpha-helix."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Disulfide bridges between cysteine residues (Option D):** Incorrect because disulfide bonds stabilize tertiary and quaternary structures but are not responsible for alpha-helix formation."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L16_Q019_E1"
+    }
+   ]
+  },
+  {
+   "id": "13-20",
+   "question": "Which of the following interactions is primarily responsible for maintaining the structure of proteins, as shown in the image?",
+   "options": {
+    "A": "Peptide bonds",
+    "B": "Hydrogen bonds",
+    "C": "Disulfide bridges",
+    "D": "Van der Waals interactions"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The linear sequence of amino acids in a polypeptide chain represents the Primary structure of the protein. Peptide bonds are covalent bonds formed between the carboxyl group (-COOH) of one amino acid and the amino group (-NH2) of the next amino acid."
+    },
+    {
+     "type": "paragraph",
+     "text": "These bonds are responsible for linking amino acids together in a specific sequence Protein Structure Linkage Primary Structure: Linear sequence of amino acids encoded by mRNA. Peptide bonds (Covalent, via dehydration reaction) (Option A) Secondary structure: Local folding into α-helices & β-sheets due to backbone interactions and is of two types: Alpha-helix Beta-pleated sheet Hydrogen bonds (Between carbonyl and amide groups) (Option B) Tertiary structure: Three-dimensional structure of a single polypeptide due to side-chain interactions."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Disulfide bonds (Option C):** (Covalent), Hydrophobic interactions, Hydrogen bonds, Ionic bonds, Van der Waals forces Quaternary structure: Assembly of multiple polypeptide subunits into a functional protein Non-covalent interactions (Hydrogen bonds, Ionic bonds, Hydrophobic interactions, Van der Waals forces); Rarely Disulfide bonds Van der Waals interactions (Option D) These weak interactions contribute to overall protein stability and folding in tertiary and quaternary structures but do not determine the primary structure."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L16_Q020_E1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L16_Q020_E2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L16_Q020_E3"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L16_Q020_E4"
+    }
+   ]
+  }
+ ]
+}

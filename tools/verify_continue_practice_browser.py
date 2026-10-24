@@ -457,7 +457,7 @@ def main() -> None:
             page.evaluate("id => window.QB.toggleBookmark(id)", answered[0])
             for index, qid in enumerate(answered):
                 correct = page.evaluate("""qid => {
-                  const all=[...(window.QBANK_DATA?.questions||[]),...((window.SUBJECT_QBANK_DATA?.subjects||[]).flatMap(x=>x.questions||[]))];
+                  const all=[...((window.NK_DATA_MARROW_DATA?.records||[]).flatMap(r=>r.questions||[])),...(window.QBANK_DATA?.questions||[]),...((window.SUBJECT_QBANK_DATA?.subjects||[]).flatMap(x=>x.questions||[]))];
                   return Number(all.find(q=>String(q.id)===String(qid))?.correctOption||0);
                 }""", qid)
                 if not correct:
@@ -507,7 +507,7 @@ def main() -> None:
             # before it (indexes 4 and 5) may enter FSRS; everything after it was never reached.
             late_id = lifecycle_ids[6]
             late_correct = page.evaluate("""qid => {
-              const all=[...(window.QBANK_DATA?.questions||[]),...((window.SUBJECT_QBANK_DATA?.subjects||[]).flatMap(x=>x.questions||[]))];
+              const all=[...((window.NK_DATA_MARROW_DATA?.records||[]).flatMap(r=>r.questions||[])),...(window.QBANK_DATA?.questions||[]),...((window.SUBJECT_QBANK_DATA?.subjects||[]).flatMap(x=>x.questions||[]))];
               return Number(all.find(q=>String(q.id)===String(qid))?.correctOption||0);
             }""", late_id)
             page.evaluate("i => window.QB.goIndex(i)", 6)

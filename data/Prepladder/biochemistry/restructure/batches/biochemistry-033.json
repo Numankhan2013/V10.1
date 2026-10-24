@@ -1,0 +1,569 @@
+{
+ "batch": "biochemistry-033",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "biochemistry-033",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "20-15",
+   "question": "Which of the following vectors is most suitable for cloning large DNA fragments up to 300 kb in size?",
+   "options": {
+    "A": "Plasmids",
+    "B": "Bacteriophages",
+    "C": "Bacterial Artificial Chromosomes (BACs)",
+    "D": "Yeast Artificial Chromosomes (YACs)"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "**Vector Size Description Plasmids (Option A):** Up to 10 kb Plasmids are small, circular DNA molecules commonly used in recombinant DNA technology. They are easy to manipulate and introduce into bacterial cells. However, they typically can only accommodate small to medium-sized DNA inserts. They are not suitable for very large DNA fragments."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Bacteriophages (Option B):** 10-20 kb Bacteriophages, particularly lambda phage vectors, are used for cloning DNA fragments. While larger than plasmids, they are still not suitable for very large DNA fragments of 300 kb."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Bacterial Artificial Chromosomes (BACs) (Option C):** 50-250 kb BACs are vectors based on the F-plasmid of E. coli. They can accommodate large DNA inserts and are widely used for constructing genomic libraries."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Yeast Artificial Chromosomes (YACs) (Option D):** >500 YACs are vectors that can accommodate very large DNA inserts, even larger than BACs. While they can certainly handle 300 kb inserts, they are more prone to chimerism and instability compared to BACs."
+    }
+   ]
+  },
+  {
+   "id": "20-16",
+   "question": "Which type of blotting technique is used to detect specific RNA sequences within a sample?",
+   "options": {
+    "A": "Southern Blotting",
+    "B": "Northern Blotting",
+    "C": "Western Blotting",
+    "D": "Eastern blotting"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "**Types Target Features Southern blotting (Option A):** DNA sequences It involves separating DNA fragments by gel electrophoresis, transferring them to a membrane, and then using labelled probes to identify"
+    },
+    {
+     "type": "paragraph",
+     "text": "**specific sequences Northern blotting (Option B):** RNA sequences The process is similar to DNA blotting but focuses on RNA. Western blotting (Option C) Proteins This technique specifically detects and analyses proteins in a complex mixture. It involves separating proteins by gel electrophoresis, transferring them to a membrane, and then using specific antibodies to detect the proteins."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Eastern blotting (Option D):** Post-translational modifications It refers to specialised Western blotting techniques that detect specific post-translational modifications of proteins, such as phosphorylation or glycosylation."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L25_Q016_E1"
+    }
+   ]
+  },
+  {
+   "id": "20-17",
+   "question": "Which type of restriction endonuclease creates staggered cuts in the DNA, producing \"sticky ends\"?",
+   "options": {
+    "A": "Type I restriction enzymes",
+    "B": "Type II restriction enzymes",
+    "C": "Type III restriction enzymes",
+    "D": "Type IV restriction enzymes"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Restriction endonucleases are enzymes that cut DNA at specific recognition sequences. Characteristic Type I Type II Subunit structure Complex (3 subunits) Simple (1-2 subunits) ATP requirement Yes No Cleavage site Random, far from recognition site At or near the recognition site Recognition sequence Asymmetric Usually symmetric Type II Restriction Enzyme Subtypes: Sticky End Blunt End Cuts both the DNA strands at two different sites."
+    },
+    {
+     "type": "paragraph",
+     "text": "Cuts both the strands at the same site. Forms two complexes with overhanging ends. Forms two complexes with blunt ends."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Type III restriction enzymes(Option C):** Recognise specific DNA sequences but cut at a short distance from the recognition site. They do not produce sticky ends and also require ATP. Type IV restriction enzymes(Option D): Target modified DNA, such as methylated DNA, rather than specific sequences. They do not produce sticky ends and are involved in the recognition of modified bases rather than sequence-specific cleavage."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L25_Q017_E1"
+    }
+   ]
+  },
+  {
+   "id": "20-18",
+   "question": "Which of the following represents the correct sequence of steps in recombinant DNA technology?",
+   "options": {
+    "A": "Isolation of DNA → Insertion of recombinant DNA into host → Ligation → Cutting of DNA with restriction enzymes → Selection and screening.",
+    "B": "Cutting of DNA with restriction enzymes → Ligation → Isolation of DNA → Insertion of recombinant DNA into host → Selection and screening.",
+    "C": "Isolation of DNA → Cutting of DNA with restriction enzymes → Ligation → Insertion of recombinant DNA into host → Selection and screening.",
+    "D": "Ligation → Isolation of DNA → Cutting of DNA with restriction enzymes → Insertion of recombinant DNA into host → Selection and screening."
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Isolation of DNA → Cutting of DNA with restriction enzymes → Ligation → Insertion of recombinant DNA into host → Selection and screening Steps of recombinant DNA Technology"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L25_Q018_E1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L25_Q018_E2"
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q865401",
+   "question": "Which of the following techniques are correctly matched with their uses:",
+   "options": {
+    "A": "Southern blot - RNA Identification, Northern blot - DNA Identification, Western blot - Protein Identification",
+    "B": "Southern blot - DNA Identification, Northern blot - Protein Identification, Western blot - RNA Identification",
+    "C": "Southern blot - Protein Identification, Northern blot - RNA Identification, Western blot - DNA Identification",
+    "D": "Southern blot - DNA Identification, Northern blot - RNA Identification, Western blot - Protein Identification"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Correct match is Southern blot - DNA Identification, Northern blot - RNA Identification, Western blot - Protein Identification."
+    },
+    {
+     "type": "paragraph",
+     "text": "Types of blotting: Types Target Features Southern blotting DNA sequences It involves separating DNA fragments by gel electrophoresis, transferring them to a membrane, and then using labelled probes to identify specific sequences Northern blotting RNA sequences The process is similar to DNA blotting but focuses on RNA. Western blotting Proteins This technique specifically detects and analyses proteins in a complex mixture."
+    },
+    {
+     "type": "paragraph",
+     "text": "It involves separating proteins by gel electrophoresis, transferring them to a membrane, and then using specific antibodies to detect the proteins. Eastern blotting Post-translational modifications It refers to specialised Western blotting techniques that detect specific post-translational modifications of proteins, such as phosphorylation or glycosylation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Southwestern blotting DNA-binding proteins Combines Southern and Western blotting elements to identify proteins that bind to specific DNA sequences."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L26_Q001_E1"
+    }
+   ]
+  },
+  {
+   "id": "21-41",
+   "question": "Wobble hypothesis explains which of the following concepts of the genetic code?",
+   "options": {
+    "A": "Universal",
+    "B": "Unambiguous",
+    "C": "Degeneracy",
+    "D": "Non-punctuated"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The wobble phenomenon is due to inosine's ability to form non-standard base pairs (with U, C, and A) at the third position of the codon, allowing a single tRNA to recognize multiple codons. Wobble Phenomenon Definition: Flexible/non-standard base-pairing between the third nucleotide of a codon (mRNA) and the corresponding nucleotide of the tRNA anticodon."
+    },
+    {
+     "type": "paragraph",
+     "text": "Function: Allows one tRNA molecule to bind to multiple codons coding for the same amino acid (Degenerate). Inosine (I): A modified nucleotide in some tRNA anticodons, pairs with U, C, and A. Non-standard pairing is more flexible than Watson-Crick base pairing, which is strict for the first two codon nucleotides."
+    },
+    {
+     "type": "paragraph",
+     "text": "Codon Position Standard Base Pairing Wobble Pairing Example 1st and 2nd Watson-Crick rules Strict AG A and AG G code for Arginine. 3rd Non-standard pairing Flexible AGA/AGG with UCU, GGU/GGC/GGA with CCI"
+    }
+   ]
+  },
+  {
+   "id": "21-46",
+   "question": "A patient who has been diagnosed with multiple gastrointestinal polyps and carcinoma, with a positive family history/history of hereditary non-polyposis colon carcinoma has a defect in which of the following?",
+   "options": {
+    "A": "Mismatch repair",
+    "B": "Nucleotide excision repair",
+    "C": "Base excision repair",
+    "D": "Point mutation"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Mismatch repair defects are primarily associated with HNPCC (Lynch syndrome), leading to an increased risk of colorectal and other cancers. Hereditary Nonpolyposis Colon Cancer (HNPCC), also known as Lynch syndrome: Characterized by microsatellite instability. The most common gene mutation associated with Lynch syndrome is in the human MutS homolog 2 (hMSH2) gene."
+    },
+    {
+     "type": "paragraph",
+     "text": "Defects in mismatch repair genes, particularly hMSH1 and hMSH2, lead to ineffective repair of DNA replication errors. These gene defects are located on chromosome 2. The inability to correct mismatches during DNA replication increases the risk of mutations, contributing to the development of colon cancer."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Nucleotide excision repair (Option B) associated with xeroderma pigmentosum (XP),Cockayne syndrome (CS) and Trichothiodystrophy (TTD)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Base excision repair (Option C):** associated with genetic disorders like some forms of inherited breast and ovarian cancer, Alzheimers and Parkinson disease."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Point mutation (Option D):** While they can contribute to cancer, hereditary non-polyposis colon carcinoma is related to mismatch repair pathway dysfunction, not general point mutations."
+    }
+   ]
+  },
+  {
+   "id": "21-63",
+   "question": "DNA methylation is not involved in:",
+   "options": {
+    "A": "Chromatin remodelling",
+    "B": "RNA splicing",
+    "C": "Gene silencing",
+    "D": "DNA replication"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "RNA Splicing: This is not directly regulated by DNA methylation. RNA splicing is carried out by the spliceosome, a ribonucleoprotein complex that recognises specific RNA sequences. Although histone modifications and transcriptional elongation rates may influence alternative splicing, DNA methylation does not play a direct role in this process."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Chromatin remodelling (Option A):** DNA methylation contributes to chromatin remodelling by recruiting methyl-CpG-binding proteins (e.g., MeCP2), which interact with histone deacetylases (HDACs) and other chromatin-modifying complexes to create a compact, transcriptionally inactive chromatin structure."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Gene silencing (Option C):** Methylation of CpG islands in gene promoters blocks transcription factor binding, leading to long-term gene repression. It is a primary mechanism of epigenetic gene silencing. DNA"
+    },
+    {
+     "type": "paragraph",
+     "text": "**replication (Option D):** DNA methylation patterns are preserved during DNA replication by maintenance methyltransferase (DNMT1), which ensures that methylation is faithfully copied to daughter strands."
+    }
+   ]
+  },
+  {
+   "id": "21-22",
+   "question": "Klenow fragment lacks the activity of?",
+   "options": {
+    "A": "3’→5’ Exonuclease",
+    "B": "5’→3’ Exonuclease",
+    "C": "5’→3’ DNA polymerase",
+    "D": "3’→5’ DNA polymerase"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Klenow fragment: Origin Derived from DNA Polymerase I (Kornberg's enzyme) after removal of the 5′ to 3′ exonuclease domain Functions Retained Polymerization and 3′ to 5′ exonuclease (proofreading) activities Exonuclease Removed 5′ to 3′ exonuclease activity Applications Widely used in recombinant DNA technology Source Isolated from Escherichia coli"
+    }
+   ]
+  },
+  {
+   "id": "21-66",
+   "question": "The correct order of steps in polymerase chain reaction (PCR) is:-",
+   "options": {
+    "A": "Hybridization, annealing, elongation, denaturation",
+    "B": "Elongation, denaturation, Hybridization, annealing,",
+    "C": "Denaturation, annealing, extension.",
+    "D": "Annealing, extension, denaturation"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "R: Step 1: Denaturation unwinding the two strands of double-stranded DNA to form 2 single strands. It is carried out at 94/95 degrees (at this temperature, the hydrogen bonds will be broken). Step 2: Annealing Adding primer which will anneal to the flanking sequences of the desired fragments (the temperature should neither be too high nor too low- it should be optimal) It should be 5 degrees < melting temperature of the primers."
+    },
+    {
+     "type": "paragraph",
+     "text": "Step 3: Elongation It should be done by the DNA polymerase, which is thermostable. The enzyme that is used in elongation is Taq. (Thermus aquaticus) DNA polymerase."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L26_Q007_E1"
+    }
+   ]
+  },
+  {
+   "id": "21-13",
+   "question": "Which type of DNA repair mechanism involves the removal and replacement of a damaged DNA strand with the help of an undamaged complementary strand as a template?",
+   "options": {
+    "A": "Base Excision Repair",
+    "B": "Nucleotide Excision Repair",
+    "C": "Mismatch Repair",
+    "D": "Homologous Recombination"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Removes and replaces damaged bases by excising a single base and filling the gap using the original strand as a template."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Nucleotide Excision Repair (Option B):** Removes bulky lesions (e.g., thymine dimers) by excising a short DNA segment and filling the gap using the original strand as a template."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Mismatch Repair (Option C):** Fixes base mismatches that occur during replication using the parental strand as a template, not homologous DNA."
+    }
+   ]
+  },
+  {
+   "id": "21-44",
+   "question": "If the percentage of thymine residues in DNA is 28%. What is the % of cytosine?",
+   "options": {
+    "A": "28%",
+    "B": "44%",
+    "C": "36%",
+    "D": "22%"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Chargaff's rule, which states that in DNA, the amount of adenine (A) is equal to the amount of thymine (T), and the amount of guanine (G) is equal to the amount of cytosine (C). DNA consists of four deoxyribonucleotides: deoxyadenylate (A), deoxyguanylate (G), deoxycytidylate (C), and thymidylate (T). The two strands of DNA are complementary, meaning adenine pairs with thymine, and guanine pairs with cytosine."
+    },
+    {
+     "type": "paragraph",
+     "text": "Since the total percentage of nucleotides should add up to 100%, and 28% + 28% is already accounted for by thymine and adenine, the remaining percentage for guanine and cytosine is 44%. Since guanine and cytosine are present in equal amounts, the percentage of cytosine would be half of the remaining percentage, which is 22%."
+    }
+   ]
+  },
+  {
+   "id": "21-3",
+   "question": "Mental retardation is a clinical feature of:",
+   "options": {
+    "A": "Alkaptonuria",
+    "B": "Albinism",
+    "C": "Hawkinsuria",
+    "D": "Phenylketonuria"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "PKU is a metabolic disorder caused by a deficiency of the enzyme phenylalanine hydroxylase, leading to the accumulation of phenylalanine. If untreated, elevated phenylalanine levels can lead to intellectual disability and other neurological problems. Incorrect Options: Option A - Alkaptonuria: Alkaptonuria is characterized by the accumulation of homogentisic acid, leading to dark urine and connective tissue pigmentation."
+    },
+    {
+     "type": "paragraph",
+     "text": "It is not typically associated with mental retardation. Option B - Albinism: Albinism is a genetic condition characterized by a lack of melanin production, resulting in a lack of pigmentation in the skin, hair, and eyes. While it affects vision, it is not primarily associated with mental retardation. Option C - Hawkinsuria: Hawkinsuria is a rare metabolic disorder characterized by an abnormal excretion of 4-hydroxybutyric acid."
+    },
+    {
+     "type": "paragraph",
+     "text": "It is not typically associated with mental retardation."
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q865400",
+   "question": "A woman with a strong family history of breast and ovarian cancer is being evaluated for BRCA1/BRCA2 mutations. Which of the following is the most appropriate test to detect multiple mutations at different codons in these genes?",
+   "options": {
+    "A": "qPCR - Measures BRCA1/2 expression levels",
+    "B": "RT-PCR - Detects RNA-level mutations",
+    "C": "Northern blot - Analyzes RNA expression",
+    "D": "Next-generation sequencing (NGS)"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The most appropriate test to detect multiple mutations at different codons in BRCA1/BRCA2 genes is Next-generation sequencing (NGS) or Digital Droplet PCR. It is a revolutionary method for rapid, high-throughput DNA and RNA sequencing. Enables massive parallel sequencing of hundreds to thousands of genes or whole genomes. Significantly faster and more comprehensive than traditional methods like Sanger sequencing."
+    },
+    {
+     "type": "paragraph",
+     "text": "Integrates: Advanced sequencing chemistries Diverse sequencing platforms Robust bioinformatics tools Widely used for: Disease diagnosis and prognosis Therapy selection Patient monitoring qPCR (Option A) measures gene expression levels, not specific DNA mutations."
+    },
+    {
+     "type": "paragraph",
+     "text": "**RT-PCR (Option B):** detects RNA-level changes,"
+    },
+    {
+     "type": "paragraph",
+     "text": "limited for comprehensive mutation scanning."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Northern blot (Option C):** analyzes RNA expression, not DNA mutations."
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q853001",
+   "question": "Enzymes used in recombinant DNA technology are: 1. Isomerase 2. Phosphatase 3. Terminal transferase. 4. CRISPR CASS",
+   "options": {
+    "A": "1,2,3,4",
+    "B": "1,2,3",
+    "C": "2,3,4",
+    "D": "1,3,4"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Phosphatase, terminal transferase, and CRISPR CASS are used in rDNA technology Phosphatase Removes phosphate groups from the 5' ends of DNA to prevent self-ligation of vectors during cloning. Terminal Transferase Adds nucleotides to the 3' ends of DNA molecules, enabling the creation of sticky or blunt ends for cloning. CRISPR-CASS Precisely cuts DNA at specific sequences using a guide RNA, enabling targeted genome editing and manipulation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Steps of recombinant DNA Technology"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L26_Q012_E1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L26_Q012_E2"
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q865403",
+   "question": "After how many cycles of PCR, are we expected to have half the number of copies as found after 26 cycles?",
+   "options": {
+    "A": "27",
+    "B": "13",
+    "C": "25",
+    "D": "35"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "If PCR goes through ‘n’ number of cycles, Number of products formed: 2 n Half the number of copies compared to after 26 cycles will be: 25 Steps of PCR: Step 1- Denaturation The double-stranded DNA is heated to around 95°C to separate into 2 single strands. Step 2- Annealing Addition of two primers, which anneals the flanking sequence of the desired fragments."
+    },
+    {
+     "type": "paragraph",
+     "text": "An optimal temperature (5 degrees less than the average melting temperature of the primers) should be maintained to avoid non-specific amplification. Step 3- Elongation The enzyme used is thermostable Taq (Thermus Aquaticus) DNA polymerase. DNA polymerase elongates new strands in 5’3’ direction and the optimal temperature required for elongation is 72°C. If PCR goes through ‘n’ number of cycles, then ‘2 n ’ number of products are formed."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L26_Q013_E1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L26_Q013_E2"
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q865442",
+   "question": "Cancer cells consume more glucose by which of the following process:",
+   "options": {
+    "A": "Increased GLUT-2 transporters, oxidative phosphorylation",
+    "B": "Increased conversion of pyruvate to Acetyl CoA",
+    "C": "Increased lactate is produced even in the presence of oxygen",
+    "D": "Increased fatty acid oxidation"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Cancer cells exhibit a phenomenon known as the Warburg effect, where they consume more glucose and convert it to lactate even when oxygen is plentiful (aerobic glycolysis). This process allows cancer cells to generate energy and biosynthetic precursors rapidly to support their uncontrolled growth, despite the inefficiency of producing only 2 ATPs per glucose molecule compared to the 36-38 ATPs from oxidative phosphorylation in normal cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Increased GLUT-2 transporters, oxidative phosphorylation (Option A):** While increased glucose uptake via GLUT transporters is a feature of cancer cells, oxidative phosphorylation is reduced in cancer cells due to the Warburg effect. They rely more on glycolysis and lactate production rather than oxidative phosphorylation."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Increased conversion of pyruvate to Acetyl CoA (Option B):** In normal cells, pyruvate is converted to Acetyl CoA for entry into the citric acid cycle under aerobic conditions. However, in cancer cells, pyruvate is preferentially converted to lactate due to the Warburg effect, not to Acetyl CoA. Increased fatty acid oxidation (Option D) - Fatty"
+    },
+    {
+     "type": "paragraph",
+     "text": "acid oxidation is more characteristic of normal cells or certain cancer types under specific conditions, but it is not the primary process for increased glucose consumption in cancer cells."
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q865448",
+   "question": "Gene pool refers to all the alleles in a:",
+   "options": {
+    "A": "Family",
+    "B": "Individual",
+    "C": "Population",
+    "D": "Tissue"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The gene pool consists of all copies of every type of allele at every locus in all members of the population. This definition emphasizes that the gene pool encompasses genetic variation across an entire population, not just an individual or family."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Family (Option A):** A family represents only a small subset of a population and does not encompass all genetic diversity."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Individual (Option B):** An individual has only two alleles per gene (diploid), not the entire pool of alleles."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Tissue (Option D):** Tissue is a group of cells that have similar structure and that function together as a unit."
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q866643",
+   "question": "A patient presents with multiple colonic polyps and has been diagnosed with colorectal carcinoma. There is a strong family history of Hereditary Non-Polyposis Colorectal Cancer (HNPCC). Which DNA repair mechanism is most likely defective in this condition ?",
+   "options": {
+    "A": "Nucleotide excision repair",
+    "B": "Mismatch repair",
+    "C": "Base excision repair",
+    "D": "Double-strand break repair"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "A patient with multiple colonic polyps, colorectal carcinoma, and a family history of HNPCC most likely has a defect in the DNA mismatch repair mechanism. Hereditary Nonpolyposis Colon Cancer (HNPCC), also known as Lynch syndrome: Characterized by microsatellite instability. The most common gene mutation associated with Lynch syndrome is in the human MutS homolog 2 (hMSH2) gene."
+    },
+    {
+     "type": "paragraph",
+     "text": "Defects in mismatch repair genes, particularly hMSH1 and hMSH2, lead to ineffective repair of DNA replication errors. These gene defects are located on chromosome 2. The inability to correct mismatches during DNA replication increases the risk of mutations, contributing to the development of colon cancer."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Nucleotide excision repair (Option A) fixes bulky DNA damage like thymine dimers and is defective in xeroderma pigmentosum, not HNPCC. Base excision repair (Option C) corrects small base lesions from oxidative damage and is not involved in HNPCC. Double-strand break repair (Option D) handles major DNA breaks and is linked to BRCA mutations, not mismatch repair defects seen in HNPCC."
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q866654",
+   "question": "Which of the following enzymes is responsible for the immortality of cancer cells?",
+   "options": {
+    "A": "Telomerase",
+    "B": "Topoisomerase",
+    "C": "Helicase",
+    "D": "RNA polymerase"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Telomerase maintains telomere length, preventing chromosome degradation. Telomere shortening occurs with each cell division, contributing to cellular ageing and death. However, telomerase extends telomeres, enabling indefinite division. In cancer cells, its overexpression promotes uncontrolled proliferation and immortality."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Topoisomerase (Option B) is responsible for manipulating the structure of DNA by inducing and resolving DNA strand breaks."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Helicase (Option C):** unwinds the DNA double helix, allowing other enzymes to access and replicate the DNA. RNA polymerase (Option D) synthesises RNA from a DNA template during transcription, essential for gene expression and protein synthesis. While its dysregulation can occur in"
+    },
+    {
+     "type": "paragraph",
+     "text": "cancer, it is not directly linked to cancer cell immortality."
+    }
+   ]
+  }
+ ]
+}

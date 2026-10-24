@@ -73,6 +73,9 @@
 <script defer src="prepladder_microbiology_visual_metadata.js"></script>
 <script defer src="prepladder_pathology_visual_metadata.js"></script>
 <script defer src="prepladder_pharmacology_visual_metadata.js"></script>
+<script defer src="prepladder_biochemistry_visual_metadata.js"></script>
+<script defer src="prepladder_physiology_visual_metadata.js"></script>
+<script defer src="prepladder_anatomy_visual_metadata.js"></script>
 <script defer src="marrow_visual_renderer.js"></script>
 </head>
 <body>
@@ -96,17 +99,22 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
   }
 
   /* NK_MARROW_BANK_PILOT_V1_START */
+  const MARROW_DATA = __NK_DATA_MARROW_DATA__;
+  // The 2025 PrepLadder editions of Biochemistry, Physiology and Anatomy are text banks
+  // (with the Marrow records) and replace the PDF-page banks in qbank_data.js and
+  // subjects_qbank_data.js in their place; the questions they continue keep their IDs.
+  const TEXT_EDITION = subject=>(Array.isArray(MARROW_DATA.records)?MARROW_DATA.records:[]).find(record=>record&&record.bank==='PrepLadder'&&record.subject===subject);
   const SUBJECTS = [
-    {subject:'Biochemistry', topics:BASE_DATA.chapters.map(c=>({id:String(c.id),subject:'Biochemistry',title:c.title,questionCount:c.questionCount,startPage:c.startPage})), questions:BASE_DATA.questions.map(q=>({...q,subject:'Biochemistry',bank:'PrepLadder'}))},
-    ...(Array.isArray(SUBJECT_DATA.subjects)?SUBJECT_DATA.subjects:[]).map(record=>({...record,questions:(record.questions||[]).map(q=>({...q,bank:q.bank||'PrepLadder'}))}))
+    TEXT_EDITION('Biochemistry')||{subject:'Biochemistry', topics:BASE_DATA.chapters.map(c=>({id:String(c.id),subject:'Biochemistry',title:c.title,questionCount:c.questionCount,startPage:c.startPage})), questions:BASE_DATA.questions.map(q=>({...q,subject:'Biochemistry',bank:'PrepLadder'}))},
+    ...(Array.isArray(SUBJECT_DATA.subjects)?SUBJECT_DATA.subjects:[]).map(record=>(record.subject==='Physiology'||record.subject==='Anatomy')&&TEXT_EDITION(record.subject)||({...record,questions:(record.questions||[]).map(q=>({...q,bank:q.bank||'PrepLadder'}))}))
   ];
 /* @module question_content_hygiene.js */
   const SUBJECT_BY_NAME = Object.fromEntries(SUBJECTS.map(x=>[x.subject,x]));
   SUBJECTS.forEach(record=>(record.questions||[]).forEach(question=>nkSanitizeMarrowQuestion(question)));
-  const MARROW_DATA = __NK_DATA_MARROW_DATA__;
   const MARROW_RECORDS = (Array.isArray(MARROW_DATA.records) ? MARROW_DATA.records : [MARROW_DATA]).filter(record=>record&&record.bank!=='PrepLadder');
-  // PrepLadder Microbiology was extracted as structured text, not PDF pages, so
-  // it ships with the Marrow records and joins the PrepLadder subjects here.
+  // The PrepLadder text banks (Microbiology, Pathology, Pharmacology) were extracted
+  // as structured text, not PDF pages, so they ship with the Marrow records and
+  // join the PrepLadder subjects here.
   (Array.isArray(MARROW_DATA.records)?MARROW_DATA.records:[]).filter(record=>record&&record.bank==='PrepLadder'&&record.subject&&!SUBJECT_BY_NAME[record.subject]).forEach(record=>{
     SUBJECTS.push(record);
     SUBJECT_BY_NAME[record.subject]=record;
@@ -645,14 +653,14 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
     const records=typeof nkBankRecords==='function'?nkBankRecords(subject):[];
     const fallback=(SUBJECTS||[]).find(r=>r.subject===subject)||null;
     if(!records.length&&!fallback){showToast('This subject is not available.','bad');return;}
-    if(typeof applySubject==='function') applySubject(subject);
-    else activeSubject=subject;
+    activeSubject=subject;
     localStorage.setItem('qbank_active_subject_v1',subject);
     navigate('banks',subject);
   }
   function nkOpenSubjectChapter(subject,bank,topicId){
+    if(!bank&&typeof nkPreferredRecord==='function')bank=nkPreferredRecord(subject)?.bank;
     if(typeof openBank==='function'&&bank)openBank(subject,bank);else if(typeof openSubjectTopics==='function')openSubjectTopics(subject);
-    setTimeout(()=>{if(typeof openChapter==='function')openChapter(topicId);},0);
+    if(bank)setTimeout(()=>{if(typeof openChapter==='function')openChapter(topicId);},0);
   }
   function nkSubjectCardV3(name){
     const s=nkSubjectStatsV3(name),m=nkAppSubjectMeta(name);
@@ -870,7 +878,7 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
     if(remaining<0){saveState();submitExam(true);return true;}
     s.index=remaining;s.questionEnteredAt=Date.now();s.strictQuestionStartedAt=s.questionEnteredAt;saveState();render();return true;
   }
-  function nkStrictBeforeNavigation(){const s=state.activeSession;if(s?.mode!=='exam'||s.timerMode!=='per-question')return true;if(nkStrictSpent(s,String(s.questionIds[s.index]))>=60000){nkExpireTopicQuestion();return false;}nkStrictCommitCurrent();return true;}
+  function nkStrictBeforeNavigation(){const s=state.activeSession;if(s?.mode!=='exam'||s.timerMode!=='per-question')return true;if(nkStrictSpent(s,String(s.questionIds[s.index]))>=60000){setTimeout(()=>nkExpireTopicQuestion(),0);return false;}nkStrictCommitCurrent();return true;}
   const nkHomeNextQ=nextQ;nextQ=function(){if(!nkStrictBeforeNavigation())return false;const out=nkHomeNextQ.apply(this,arguments);nkStrictResetClock();return out;};
   const nkHomePrevQ=prevQ;prevQ=function(){if(!nkStrictBeforeNavigation())return false;const out=nkHomePrevQ.apply(this,arguments);nkStrictResetClock();return out;};
   const nkHomeGoIndex=goIndex;goIndex=function(){if(!nkStrictBeforeNavigation())return false;const out=nkHomeGoIndex.apply(this,arguments);nkStrictResetClock();return out;};
@@ -1389,7 +1397,7 @@ function dashboard(){
   let physZoom={scale:1,x:0,y:0,img:null,pointers:new Map(),startDist:0,startScale:1,startX:0,startY:0,baseX:0,baseY:0};
   function applyPhysZoom(){if(physZoom.img)physZoom.img.style.transform=`translate(${physZoom.x}px,${physZoom.y}px) scale(${physZoom.scale})`;}
   function resetPhysZoom(){const i=physZoom.img;if(!i)return;const st=i.parentElement,sx=st.clientWidth/i.naturalWidth,sy=st.clientHeight/i.naturalHeight;physZoom.scale=Math.min(1,Math.min(sx,sy));physZoom.x=(st.clientWidth-i.naturalWidth*physZoom.scale)/2;physZoom.y=(st.clientHeight-i.naturalHeight*physZoom.scale)/2;applyPhysZoom();}
-  function openPhysSourceImage(img){if(!img)return;closePhysSourceImage();const b=document.createElement('div');b.id='phys-zoom-backdrop';b.className='phys-zoom-backdrop';b.innerHTML=`<div class="phys-zoom-toolbar"><div class="phys-zoom-title">Original source · PDF page ${esc(img.getAttribute('data-source-page')||'')}</div><div class="phys-zoom-tools"><button id="pz-minus">−</button><button id="pz-reset">1×</button><button id="pz-plus">+</button><button id="pz-close">×</button></div></div><div class="phys-zoom-stage"><img class="phys-zoom-image" src="${img.src}" alt="${esc(img.alt||'Original source')}"></div>`;document.body.appendChild(b);const st=b.querySelector('.phys-zoom-stage'),i=b.querySelector('.phys-zoom-image');physZoom={scale:1,x:0,y:0,img:i,pointers:new Map(),startDist:0,startScale:1,startX:0,startY:0,baseX:0,baseY:0};i.addEventListener('load',()=>resetPhysZoom());b.querySelector('#pz-close').onclick=closePhysSourceImage;b.querySelector('#pz-reset').onclick=resetPhysZoom;b.querySelector('#pz-plus').onclick=()=>{physZoom.scale=Math.min(5,physZoom.scale*1.35);applyPhysZoom();};b.querySelector('#pz-minus').onclick=()=>{physZoom.scale=Math.max(.5,physZoom.scale/1.35);applyPhysZoom();};st.addEventListener('pointerdown',e=>{st.setPointerCapture?.(e.pointerId);physZoom.pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});if(physZoom.pointers.size===1){physZoom.startX=e.clientX;physZoom.startY=e.clientY;physZoom.baseX=physZoom.x;physZoom.baseY=physZoom.y;}else{const ps=[...physZoom.pointers.values()];physZoom.startDist=Math.hypot(ps[0].x-ps[1].x,ps[0].y-ps[1].y);physZoom.startScale=physZoom.scale;}});st.addEventListener('pointermove',e=>{if(!physZoom.pointers.has(e.pointerId))return;physZoom.pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});const ps=[...physZoom.pointers.values()];if(ps.length===1){physZoom.x=physZoom.baseX+e.clientX-physZoom.startX;physZoom.y=physZoom.baseY+e.clientY-physZoom.startY;applyPhysZoom();}else if(ps.length===2&&physZoom.startDist){const d=Math.hypot(ps[0].x-ps[1].x,ps[0].y-ps[1].y);physZoom.scale=Math.max(.5,Math.min(5,physZoom.startScale*d/physZoom.startDist));applyPhysZoom();}});['pointerup','pointercancel','pointerleave'].forEach(ev=>st.addEventListener(ev,e=>physZoom.pointers.delete(e.pointerId)));b.addEventListener('click',e=>{if(e.target===b)closePhysSourceImage();});}
+  function openPhysSourceImage(img){if(!img)return;closePhysSourceImage();const b=document.createElement('div');b.id='phys-zoom-backdrop';b.className='phys-zoom-backdrop';b.innerHTML=`<div class="phys-zoom-toolbar"><div class="phys-zoom-title">Original source · PDF page ${esc(img.getAttribute('data-source-page')||'')}</div><div class="phys-zoom-tools"><button id="pz-minus">−</button><button id="pz-reset">1×</button><button id="pz-plus">+</button><button id="pz-close">×</button></div></div><div class="phys-zoom-stage"><img class="phys-zoom-image" src="${img.src}" alt="${esc(img.alt||'Original source')}"></div>`;document.body.appendChild(b);const st=b.querySelector('.phys-zoom-stage'),i=b.querySelector('.phys-zoom-image');physZoom={scale:1,x:0,y:0,img:i,pointers:new Map(),startDist:0,startScale:1,startX:0,startY:0,baseX:0,baseY:0};i.addEventListener('load',()=>resetPhysZoom());if(i.complete)resetPhysZoom();b.querySelector('#pz-close').onclick=closePhysSourceImage;b.querySelector('#pz-reset').onclick=resetPhysZoom;b.querySelector('#pz-plus').onclick=()=>{physZoom.scale=Math.min(5,physZoom.scale*1.35);applyPhysZoom();};b.querySelector('#pz-minus').onclick=()=>{physZoom.scale=Math.max(.5,physZoom.scale/1.35);applyPhysZoom();};st.addEventListener('pointerdown',e=>{st.setPointerCapture?.(e.pointerId);physZoom.pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});if(physZoom.pointers.size===1){physZoom.startX=e.clientX;physZoom.startY=e.clientY;physZoom.baseX=physZoom.x;physZoom.baseY=physZoom.y;}else{const ps=[...physZoom.pointers.values()];physZoom.startDist=Math.hypot(ps[0].x-ps[1].x,ps[0].y-ps[1].y);physZoom.startScale=physZoom.scale;}});st.addEventListener('pointermove',e=>{if(!physZoom.pointers.has(e.pointerId))return;physZoom.pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});const ps=[...physZoom.pointers.values()];if(ps.length===1){physZoom.x=physZoom.baseX+e.clientX-physZoom.startX;physZoom.y=physZoom.baseY+e.clientY-physZoom.startY;applyPhysZoom();}else if(ps.length===2&&physZoom.startDist){const d=Math.hypot(ps[0].x-ps[1].x,ps[0].y-ps[1].y);physZoom.scale=Math.max(.5,Math.min(5,physZoom.startScale*d/physZoom.startDist));applyPhysZoom();}});['pointerup','pointercancel','pointerleave'].forEach(ev=>st.addEventListener(ev,e=>physZoom.pointers.delete(e.pointerId)));b.addEventListener('click',e=>{if(e.target===b)closePhysSourceImage();});}
   function closePhysSourceImage(){document.getElementById('phys-zoom-backdrop')?.remove();physZoom={scale:1,x:0,y:0,img:null,pointers:new Map(),startDist:0,startScale:1,startX:0,startY:0,baseX:0,baseY:0};}
   window.openPhysSourceImage=openPhysSourceImage;window.closePhysSourceImage=closePhysSourceImage;
 
@@ -1441,37 +1449,6 @@ function dashboard(){
     const key=nkSessionSubjectKey(q);
     if(key==='microbiology'||key==='pathology'||key==='pharmacology')return nkSubjectGraphic(key,20);
     return navIcon(key==='physiology'?'heart':key==='anatomy'?'body':'dna',20);
-  }
-
-  function nkSourceTakeaway(q) {
-    const reviewed=String(q?.keyTakeaway||q?.takeaway||'').replace(/\s+/g,' ').trim();
-    if(reviewed.length>=24) return reviewed;
-    const option=Array.isArray(q?.options)?q.options[Number(q.correctOption)-1]:null;
-    const answer=String(option?.text||'').replace(/\s+/g,' ').trim();
-    let source=String(q?.explanation||'').replace(/\r/g,'\n');
-    if(!answer || !source) return '';
-    source=source
-      .replace(/^\s*Correct\s+(?:Answer|answer|Option)\s*:?\s*[A-E]\)?[^\n]*\n?/i,'')
-      .replace(/^\s*Explanation\s*:?\s*/i,'')
-      .replace(/[•▪◦]\s*/g,' ')
-      .replace(/\s+/g,' ')
-      .trim();
-    const stop=new Set(['this','that','with','from','into','than','then','which','what','when','where','have','has','were','been','being','their','there','about','answer','option','correct']);
-    const tokens=answer.toLowerCase().replace(/[^a-z0-9+]+/g,' ').split(/\s+/).filter(x=>x.length>=4&&!stop.has(x));
-    if(!tokens.length) return '';
-    const sentences=(source.match(/[^.!?]+[.!?]+|[^.!?]+$/g)||[])
-      .map(x=>x.replace(/^[-–—:\s]+/,'').replace(/\s*\(Option\s+[A-E]\)\s*/ig,' ').replace(/\s+/g,' ').trim())
-      .filter(x=>x.length>=35&&x.length<=300&&/^[A-Z0-9]/.test(x));
-    let best='',bestScore=0;
-    sentences.forEach(sentence=>{
-      const lower=sentence.toLowerCase();
-      const overlap=tokens.reduce((n,t)=>n+(lower.includes(t)?1:0),0);
-      const exact=answer.length>=5&&lower.includes(answer.toLowerCase())?3:0;
-      const score=overlap+exact-(sentence.length>240?1:0);
-      if(score>bestScore){best=sentence;bestScore=score;}
-    });
-    const needed=tokens.length===1?1:2;
-    return best&&bestScore>=needed?best:'';
   }
 
   function nkSessionHeader(q,s,mode,timerHtml='',gridAttrs='id="cr-grid" title="Question Navigator" onclick="window.QB.openQuestionNavigator()"',headerClass='practice-focus-head nk-session-head') {
@@ -1537,6 +1514,7 @@ function dashboard(){
   // through MARROW_VISUALS; source wording is rendered unchanged.
   function nkMarrowOrderedCell(value){return String(value??'').split('\n').map(part=>nkMarrowRich(part.trim())).filter(Boolean).join('<br>');}
   function nkRenderMarrowOrderedTable(table){
+    table=nkNormalizeMarrowStructuredTable(table);
     const cols=Array.isArray(table?.columns)?table.columns:[],rows=Array.isArray(table?.rows)?table.rows:[];if(!cols.length||!rows.length)return'';
     return `<div class="nk-marrow-table"><table>${table.title?`<caption>${nkMarrowRich(table.title)}</caption>`:''}<thead><tr>${cols.map(c=>`<th>${nkMarrowOrderedCell(c)}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${cols.map((_,i)=>`<td>${nkMarrowOrderedCell((r||[])[i]||'')}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
   }

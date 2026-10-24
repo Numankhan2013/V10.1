@@ -14,6 +14,11 @@ import sys
 from app_page import HTML, MARKER, MODULES, ROOT, assemble
 
 
+def top_level_functions(text: str) -> set[str]:
+    """Functions the page declares at the top level of its script scope."""
+    return set(re.findall(r"^  function ([A-Za-z_$][\w$]*)\s*\(", text, re.M))
+
+
 def main() -> None:
     page = HTML.read_text(encoding="utf-8")
     named = Counter(MARKER.findall(page))
@@ -23,6 +28,11 @@ def main() -> None:
     if unused or repeated:
         raise SystemExit(f"each module belongs in index.html once: unused={unused} repeated={repeated}")
     assemble(page)
+    page_functions = top_level_functions(page)
+    for path in sorted(MODULES.glob("*.js")):
+        shadowed = top_level_functions(path.read_text(encoding="utf-8")) & page_functions
+        if shadowed:
+            raise SystemExit(f"{path.name} is shadowed by the page's own copy of: {sorted(shadowed)}")
     if len(page.encode()) > 1024 * 1024:
         raise SystemExit("index.html must not embed question data or module code; use a token or a module")
     subprocess.run([sys.executable, str(ROOT / "tools/build_app_data.py"), "--check"], check=True)

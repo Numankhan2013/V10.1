@@ -15,7 +15,7 @@
     46,
     47
    ],
-   "question": "Which of the following contributed most to this patient's current condition?",
+   "question": "A 48-year-old woman comes to the emergency department due to back pain after minor trauma. She has no leg weakness or numbness. Review of systems is positive for recent-onset hot flashes and irregular menses; her most recent menstruation was 2 weeks ago. The patient has a long history of hypothyroidism treated with levothyroxine and rheumatoid arthritis treated with methotrexate. She has also taken oral prednisone for frequent symptom flares. The patient does not use tobacco, alcohol, or illicit drugs, and she consumes a balanced diet. Physical examination shows point tenderness over the midthoracic spine. The straight-leg raising test is negative, and neurologic examination of the lower extremities shows no abnormalities. Spine imaging is shown below:",
    "options": [
     {
      "letter": "A",
@@ -55,6 +55,10 @@
       618
      ],
      "role": "question"
+    },
+    {
+     "type": "paragraph",
+     "text": "Which of the following contributed most to this patient's current condition?"
     }
    ],
    "explanation": [
@@ -634,7 +638,7 @@
     101,
     102
    ],
-   "question": "A 55-year-old man comes to the office 3 weeks after starting multidrug therapy for pulmonary tuberculosis. He has been experiencing muscle aches and severe joint pain in his elbows, wrists, and knees over the last several days. The patient also has had fatigue and low-grade fever. He has no current respiratory symptoms other than pleuritic chest pain. The patient has no other significant medical or family history. Examination is unremarkable. Laboratory results are as follows: Hemoglobin Platelets Leukocytes Blood urea nitrogen Creatinine Antihistone antibody positive Antinuclear antibody positive An abnormality in which of the following metabolic processes most likely contributed to this patient's current con di+",
+   "question": "A 55-year-old man comes to the office 3 weeks after starting multidrug therapy for pulmonary tuberculosis. He has been experiencing muscle aches and severe joint pain in his elbows, wrists, and knees over the last several days. The patient also has had fatigue and low-grade fever. He has no current respiratory symptoms other than pleuritic chest pain. The patient has no other significant medical or family history. Examination is unremarkable. Laboratory results are as follows:",
    "options": [
     {
      "letter": "A",
@@ -668,7 +672,50 @@
     }
    ],
    "correct_label": "A",
-   "question_blocks": [],
+   "question_blocks": [
+    {
+     "type": "table",
+     "caption": "Laboratory results",
+     "columns": [
+      "Test",
+      "Result"
+     ],
+     "rows": [
+      [
+       "Hemoglobin",
+       "12.6 g/dL"
+      ],
+      [
+       "Platelets",
+       "120,000/mm³"
+      ],
+      [
+       "Leukocytes",
+       "11,000/mm³"
+      ],
+      [
+       "Blood urea nitrogen",
+       "18 mg/dL"
+      ],
+      [
+       "Creatinine",
+       "0.8 mg/dL"
+      ],
+      [
+       "Antihistone antibody",
+       "positive"
+      ],
+      [
+       "Antinuclear antibody",
+       "positive"
+      ]
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "An abnormality in which of the following metabolic processes most likely contributed to this patient's current condition?"
+    }
+   ],
    "explanation": [
     {
      "type": "figure",
@@ -1092,7 +1139,7 @@
     128,
     129
    ],
-   "question": "The disease process responsible for the radiographic findings would most likely affect which of the following?",
+   "question": "A 61-year-old woman who recently immigrated to the United States has a long history of \"joint problems.\" She began to have pain in her hands at age 30, and her symptoms have been intermittent but progressive since then. The symptoms were treated with nonsteroidal anti-inflammatory drugs when the pain was most severe. The patient also has a history of hypertension and chronic anemia. She does not smoke cigarettes or use illicit drugs. Family history is insignificant. On examination, there is gross deformity of multiple joints in both hands. X-ray findings are shown in the image below.",
    "options": [
     {
      "letter": "A",
@@ -1127,6 +1174,10 @@
       618
      ],
      "role": "question"
+    },
+    {
+     "type": "paragraph",
+     "text": "The disease process responsible for the radiographic findings would most likely affect which of the following?"
     }
    ],
    "explanation": [
@@ -2261,7 +2312,7 @@
     205,
     206
    ],
-   "question": "The cells described above are most likely to represent which of the following?",
+   "question": "A 65-year-old postmenopausal woman comes to the office for an annual visit. The patient feels well and has no symptoms. She has no chronic medical conditions, and her only medication is a daily multivitamin. Physical examination shows no abnormalities. Screening DXA scan reveals mild osteopenia. The patient is advised regarding appropriate lifestyle measures to limit bone loss, including weight-bearing exercise. In response to increased mechanical load, cells located within bone lacunae (indicated by the arrow) communicate with each other via gap junctions to increase bone remodeling within regions experiencing excessive strain.",
    "options": [
     {
      "letter": "A",
@@ -2306,6 +2357,10 @@
       542
      ],
      "role": "question"
+    },
+    {
+     "type": "paragraph",
+     "text": "The cells described above are most likely to represent which of the following?"
     }
    ],
    "explanation": [
@@ -2656,7 +2711,7 @@
     },
     {
      "type": "paragraph",
-     "text": "This patient's clinical findings of intermittent diplopia, difficulty chewing, and speech problems (especially at the end of the day) suggest a diagnosis of myasthenia gravis (MG). MG is caused by impaired functioning of nicotinic cholinergic receptors at the neuromuscular junction due to interference by lgG autoantibodies. First-line treatment is an anticholinesterase agent (eg, pyridostigmine), which increases the amount of acetylcholine at the neuromuscular junction. Acety/cholinesterase activity decreases at lower temperatures, so application of an ice pack can also improve symptoms caused by weakness of superficial muscles (eg, ptosis). MG is a form of type II hypersensitivity, which is characterized by IgM and/or IgG autoantibodies that bind to cell surface antigens and/or extracellular matrix components. Among the available options, only Goodpasture syndrome is due to the production of autoantibodies (directed against type IV collagen in the alveolar/glomerular basement membrane); these antibodies cause inflammatory destruction of the lung alveoli and renal glomeruli."
+     "text": "This patient's clinical findings of intermittent diplopia, difficulty chewing, and speech problems (especially at the end of the day) suggest a diagnosis of myasthenia gravis (MG). MG is caused by impaired functioning of nicotinic cholinergic receptors at the neuromuscular junction due to interference by IgG autoantibodies. First-line treatment is an anticholinesterase agent (eg, pyridostigmine), which increases the amount of acetylcholine at the neuromuscular junction. Acety/cholinesterase activity decreases at lower temperatures, so application of an ice pack can also improve symptoms caused by weakness of superficial muscles (eg, ptosis). MG is a form of type II hypersensitivity, which is characterized by IgM and/or IgG autoantibodies that bind to cell surface antigens and/or extracellular matrix components. Among the available options, only Goodpasture syndrome is due to the production of autoantibodies (directed against type IV collagen in the alveolar/glomerular basement membrane); these antibodies cause inflammatory destruction of the lung alveoli and renal glomeruli."
     },
     {
      "type": "paragraph",
@@ -2672,7 +2727,7 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice E) The pathogenesis of poststreptococcal glomerulonephritis involves granular deposition of immune complexes containing group A Streptococcus antigens, lgG, and C3 in the glomerular basement membrane and mesangium. It is a type Ill, immune complex--mediated, hypersensitivity response."
+     "text": "(Choice E) The pathogenesis of poststreptococcal glomerulonephritis involves granular deposition of immune complexes containing group A Streptococcus antigens, IgG, and C3 in the glomerular basement membrane and mesangium. It is a type Ill, immune complex--mediated, hypersensitivity response."
     }
    ],
    "educational_objective": "Myasthenia gravis results from an autoimmune type II (antibody-mediated) hypersensitivity reaction against skeletal myocyte surface acetylcholine receptors. Goodpasture syndrome similarly involves autoantibodies against basement membrane collagen in the renal glomeruli and lung alveoli.",

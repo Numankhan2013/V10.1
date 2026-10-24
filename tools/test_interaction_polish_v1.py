@@ -23,8 +23,15 @@ def main():
     assert 'nk-pressed-out' in core,'the melt lifecycle lives in the polish module'
     assert 'brightness(0.96)' not in app_css(),'press feedback never dims by filter alone'
     assert 'node.animate(' not in core, 'shared polish must not animate route/question publication'
-    assert 'transition:transform' not in css,'press must not ease movement'
+    assert 'transition:transform' not in css,'press never animates transform; positioned controls must keep their place'
     assert re.search(r':active[^{]*\{[^}]*transform:(?!none)',css) is None,'active states must not transform'
+    assert '.nk-pressed{scale:.97;' in css,'buttons settle to 97% while held (individual scale property)'
+    assert 'scale 300ms cubic-bezier(.34,1.56,.64,1)' in css,'release springs back'
+    assert re.search(r'prefers-reduced-motion:reduce\)\{[^@]*scale:none!important',css),'reduced motion keeps buttons still'
+    assert re.search(r'\{[^}]*scale:(?!none)[^}]*\}',css.split('Press spring')[0]) is None,'only the press spring scales'
+    feel=(ROOT/'app/src/main/assets/redesign/nk-feel.js').read_text()
+    assert "pill.style.transform = move ? from : to;" in feel,'the segment pill must wait at its start until the slide owns it'
+    assert "pill.style.transform = 'translateX(' + left + 'px)';" not in feel,'never paint the pill at its destination before the slide starts'
     assert 'background-color 110ms' not in css
     assert 'border-color 110ms' not in css
     assert 'box-shadow 110ms' not in css

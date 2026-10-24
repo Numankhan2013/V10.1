@@ -1,0 +1,481 @@
+{
+ "batch": "physiology-001",
+ "results": [
+  {
+   "id": "physiology-1-1",
+   "blocks": [
+    {
+     "type": "paragraph",
+     "text": "Glutamate is an amino acid that acts as a neuroexcitatory molecule by stimulating NMDA receptors in the CNS, which results in an influx of calcium ions."
+    },
+    {
+     "type": "table",
+     "title": "",
+     "columns": ["Type", "Subtype", "Features", "Functions"],
+     "rows": [
+      ["Ionotropic receptors", "AMPA (Alpha-amino-3-hydroxy-5-methylisoxazole-4-propionate) (Option C)", "Influx of Na+ and efflux of K+. It has a low permeability for Ca2+.", "Produces fast excitatory postsynaptic potential."],
+      ["", "Kainate receptor (Option D)", "Influx of Na+ and Ca2+", "Aids in excitatory neurotransmission"],
+      ["", "NMDA receptor (N-methyl-D-aspartate) (Option B)", "Allows large influx of Ca2+ and Na+ Unique Features: Glycine Binding: Essential for receptor response to glutamate. Mg²⁺ Block: At normal membrane potentials, the channel is blocked by extracellular Mg²⁺. This block is removed during depolarisation by adjacent AMPA and kainate receptors. EPSP: Slower than AMPA/kainate receptors-induced EPSP.", "Involved in synaptic plasticity, memory, and learning and can cause excitotoxicity in excess."],
+      ["Metabotropic receptors (Option A)", "Presynaptic (mGluR2-4,6-8)", "Involved in limiting glutamate release. Activation leads to changes in second messengers: IP3 and DAG: Increased intracellular levels. cAMP: Decreased intracellular levels.", "Modulate synaptic plasticity and neurotransmission indirectly through second messengers."],
+      ["", "Postsynaptic (mGluR1,5)", "", "Involved in synaptic plasticity."]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "physiology-1-2",
+   "blocks": [
+    {
+     "type": "paragraph",
+     "text": "Dashed lines the records obtained during inhibition. Presynaptic Inhibition occurs when a neuron reduces neurotransmitter release at the axon terminal."
+    },
+    {
+     "type": "paragraph",
+     "text": "Key mechanisms include:"
+    },
+    {
+     "type": "bullets",
+     "items": [
+      {"text": "**Opening of Voltage-Gated K⁺ Channels (Option A):** When K⁺ channels open, K⁺ exits the neuron, causing hyperpolarization. This makes it harder for the neuron to reach the threshold for action potentials, reducing overall activity."},
+      {"text": "**Reduced Ca²⁺ Entry (Option B):** During presynaptic inhibition, mediated by GABA (Option C), hyperpolarization leads to decreased opening of voltage-gated Ca²⁺ channels during action potentials. This results in less Ca²⁺ entering the presynaptic neuron."},
+      {"text": "**Increased Cl⁻ Conductance (Option D):** GABA binding opens Cl⁻ channels, allowing Cl⁻ to enter and further hyperpolarize the neuron, reinforcing the inhibitory effect."}
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "Where as Presynaptic Facilitation effectively boosts synaptic transmission by increasing Ca²⁺ levels in the presynaptic neuron, resulting in enhanced neurotransmitter release and a stronger response in the postsynaptic neuron."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L01_Q002_E1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L01_Q002_E2"
+    }
+   ]
+  },
+  {
+   "id": "physiology-1-3",
+   "blocks": [
+    {
+     "type": "paragraph",
+     "text": "Feedforward inhibition is a mechanism where an excitatory neuron activates an inhibitory neuron, which then inhibits a downstream neuron to prevent excessive excitation. This is commonly observed in the cerebellum, which helps regulate motor control and coordination."
+    },
+    {
+     "type": "table",
+     "title": "",
+     "columns": ["Feature", "Feedback Inhibition", "Feedforward Inhibition"],
+     "rows": [
+      ["Definition", "Inhibition where the output of a process inhibits its own production.", "Inhibition where an excitatory neuron directly inhibits another neuron in response to input."],
+      ["Mechanism", "The end product of a metabolic pathway inhibits an enzyme involved in the pathway.", "An excitatory neuron activates an inhibitory neuron and then inhibits a downstream neuron."],
+      ["Function", "It helps maintain homeostasis by regulating the production of substances.", "Anticipates and prevents excessive excitation in neural circuits."],
+      ["Example", "The inhibition of an enzyme in a metabolic pathway by its end product (e.g., ATP inhibiting phosphofructokinase).", "In the cerebellum, excitatory inputs inhibit output neurons to prevent overexcitation."]
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "**Renshaw cells (Option A):** are involved in feedback inhibition rather than feedforward inhibition."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Basal ganglia (Option C):** is involved in complex inhibitory circuits, but they are more commonly associated with feedback inhibition and disinhibition mechanisms rather than feedforward inhibition."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Hippocampus (Option D):** is more associated with memory and learning processes rather than direct feedforward inhibition"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L01_Q003_E1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L01_Q003_E2"
+    }
+   ]
+  },
+  {
+   "id": "physiology-1-4",
+   "blocks": [
+    {
+     "type": "paragraph",
+     "text": "GABA mediates presynaptic inhibition/Indirect Inhibition via a G-protein that causes an increase in K+ conductance. GABA is released onto the outer surfaces of presynaptic nerve terminals. Mechanism of action: GABA opens anion channels, allowing chloride ions to diffuse into the terminal fibril. The negative charges of chloride ions cancel out much of the excitatory effect of incoming sodium ions."
+    },
+    {
+     "type": "paragraph",
+     "text": "Functions of presynaptic inhibition:"
+    },
+    {
+     "type": "bullets",
+     "items": [
+      {"text": "It occurs before the signal reaches the synapse"},
+      {"text": "It's common in sensory pathways and helps minimise sideways spread and mixing of signals"}
+     ]
+    },
+    {
+     "type": "table",
+     "title": "",
+     "columns": ["Features", "Indirect Inhibition", "Direct Inhibition"],
+     "rows": [
+      ["Site of action", "Presynaptic terminal", "Postsynaptic neuron"],
+      ["Primary mechanism", "Reduces neurotransmitter release.", "Hyperpolarises or shunts postsynaptic neurons.."],
+      ["Main neurotransmitter", "GABA (primarily)", "GABA, Glycine (Option D)"],
+      ["Receptor types involved", "Mainly GABA-B receptors", "GABA-A, Glycine receptors"],
+      ["Spatial effect", "It can affect multiple synapses from the same axon", "Localized to specific synapses"],
+      ["Onset and duration", "Can be longer-lasting", "Usually, rapid onset and offset"]
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "**Glutamate (Option A):** It is typically an excitatory neurotransmitter that facilitates synaptic transmission rather than inhibiting it."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Serotonin (Option B):** It can modulate neurotransmitter release and has complex effects on synaptic transmission but is not the primary neurotransmitter for presynaptic inhibition."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Glycine (Option D):** It acts as an inhibitory neurotransmitter in the spinal cord rather than functioning through presynaptic inhibition in other areas of the central nervous system."
+    }
+   ]
+  },
+  {
+   "id": "physiology-1-5",
+   "blocks": [
+    {
+     "type": "paragraph",
+     "text": "This scenario describes the classic presentation and diagnostic findings of myasthenia gravis in which functional acetylcholine receptors on the postsynaptic membrane are reduced."
+    },
+    {
+     "type": "paragraph",
+     "text": "Disorders related to Neuromuscular junction:"
+    },
+    {
+     "type": "table",
+     "title": "",
+     "columns": ["Feature", "Myasthenia Gravis", "Lambert-Eaton Myasthenic Syndrome (LEMS)"],
+     "rows": [
+      ["Primary autoantibody target", "Acetylcholine receptors", "Voltage-gated calcium channels (Option C)"],
+      ["Pathophysiology", "Reduced postsynaptic acetylcholine receptors (Option B)", "Decreased presynaptic acetylcholine release (Options A and D)"],
+      ["Fatigue pattern", "Worsens with activity", "Improves with brief exercise."],
+      ["Reflexes", "Normal or mildly reduced", "Reduced or absent may improve after exercise."],
+      ["Repetitive nerve stimulation", "Decremental response.", "Incremental response."],
+      ["Response to edrophonium", "Improves symptoms.", "Little to no improvement."]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "physiology-1-6",
+   "unchanged": true
+  },
+  {
+   "id": "physiology-1-7",
+   "blocks": [
+    {
+     "type": "paragraph",
+     "text": "Slow inhibitory postsynaptic potential (IPSP) is mediated by the opening of K+ channels, which allow potassium ions to flow out of the cell, resulting in hyperpolarisation of the neuron, moving its membrane potential further from the threshold for firing an action potential."
+    },
+    {
+     "type": "table",
+     "title": "",
+     "columns": ["IPSP Type", "Channel", "Region"],
+     "rows": [
+      ["Slow IPSP", "Opening of K+ Channel (Option A)", "Autonomic ganglia, smooth muscles, cardiac muscles."],
+      ["Fast IPSP", "Entry of Cl- Channel (Option C)", "All parts of the CNS."]
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "Closing of K+ channels (Option B) would typically cause depolarisation, not hyperpolarisation."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Opening of Na+ channels (Option D):** generates late Slow Excitatory postsynaptic potential"
+    }
+   ]
+  },
+  {
+   "id": "physiology-1-8",
+   "blocks": [
+    {
+     "type": "paragraph",
+     "text": "IPSPs (Inhibitory Postsynaptic Potentials) are hyperpolarizations that occur when certain neurotransmitters activate Cl− channels on the postsynaptic membrane, allowing Cl− to enter the cell. This causes the neuron to hyperpolarize, peaking 1–1.5 ms after the stimulus and then declining exponentially."
+    },
+    {
+     "type": "paragraph",
+     "text": "This hyperpolarisation shifts the membrane potential further from the firing threshold, reducing the neuron's excitability and necessitating greater excitatory input to reach the threshold (Option C)."
+    },
+    {
+     "type": "paragraph",
+     "text": "IPSPs can also occur through mechanisms such as:"
+    },
+    {
+     "type": "bullets",
+     "items": [
+      {"text": "Opening of K+ channels, allowing K+ to exit the cell"},
+      {"text": "Closure of Na+ channels"},
+      {"text": "Closure of Ca2+ channels"}
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "**Increases the rate of neurotransmitter release (Option A):** IPSPs do not influence neurotransmitter release; they affect the neuron's membrane potential."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Decreases membrane potential, closer to firing threshold (Option B):** IPSPs cause hyperpolarisation, which makes the membrane potential more negative and farther from the firing threshold."
+    },
+    {
+     "type": "paragraph",
+     "text": "**No effect on membrane potential (Option D):** IPSPs affect the membrane potential by making it more negative, moving it further from the threshold."
+    }
+   ]
+  },
+  {
+   "id": "physiology-1-9",
+   "unchanged": true
+  },
+  {
+   "id": "physiology-1-10",
+   "unchanged": true
+  },
+  {
+   "id": "physiology-1-11",
+   "blocks": [
+    {
+     "type": "paragraph",
+     "text": "GABA-A and GABA-C are the two subtypes of GABA receptors associated with mediating fast inhibitory postsynaptic potential through the entry of Cl—ions into the neurons."
+    },
+    {
+     "type": "table",
+     "title": "",
+     "columns": ["Type", "Receptor subtype", "Subunit", "Distribution", "Mechanism"],
+     "rows": [
+      ["Inotropic receptor", "GABA- A", "Pentamers of various combinations: 6 α, 4 β, 4 γ, 1 δ, 1 ε", "CNS", "Activation allows Cl– entry into neurons, mediating fast inhibitory postsynaptic potentials (IPSP)"],
+      ["", "GABA- C", "Pentamers of three ρ subunits in various combinations", "Almost exclusively in the retina.", ""],
+      ["G-protein coupled receptor", "GABA- B", "No specific subunit composition", "CNS", "Linked via G-proteins: Gi inhibits adenylyl cyclase to open the K+ channel, Go inhibits or delays Ca2+ influx."]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "physiology-1-12",
+   "blocks": [
+    {
+     "type": "paragraph",
+     "text": "Astrocytes are glial cells that play an important role in regulating glutamate levels. They maintain glutamate levels by absorbing excess glutamate and preventing excitotoxicity."
+    },
+    {
+     "type": "paragraph",
+     "text": "Types of Glial Cells:"
+    },
+    {
+     "type": "bullets",
+     "items": [
+      {"text": "**Microglia:** Scavenger cells that remove debris from injury, infections or diseases."},
+      {"text": "**Macroglia:** 3 types", "items": [
+       {"text": "**Oligodendrocytes (Option D):** Form myelin sheath in CNS neurons."},
+       {"text": "**Astrocytes (Option B):** Support and protect neurons, provide nutrition, and control levels of glutamate. It is of 2 types: Fibrous astrocytes (found in white matter) Protoplasmic astrocytes (found in grey matter)"},
+       {"text": "**Schwann cells (Option A):** Form myelin sheath in PNS neurons."}
+      ]},
+      {"text": "**Ependymal cells (Option C):** These cells line the ventricles and the central canal of the Spinal cord and play a key role in the production and circulation of CSF."}
+     ]
+    }
+   ]
+  },
+  {
+   "id": "physiology-1-13",
+   "blocks": [
+    {
+     "type": "paragraph",
+     "text": "The sites of production of neurotransmitters are as follows:"
+    },
+    {
+     "type": "table",
+     "title": "",
+     "columns": ["Neurotransmitters", "Source", "Description"],
+     "rows": [
+      ["Acetylcholine (ACh)", "Nucleus basalis of Meynert", "Associated with Muscle contraction, Memory and REM sleep\nNT* for Sweat glands"],
+      ["Norepinephrine (NE)", "Locus ceruleus", "Regulates wakefulness and alertness."],
+      ["Dopamine", "Substantia nigra", "Destruction causes Parkinson’s disease.\nNT* of reward and addiction."],
+      ["Serotonin", "Raphe nuclei", "Regulation of mood, sleep, and appetite. The highest concentration is in Platelets, enterochromaffin cells, and myenteric plexus."]
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "*NT: Neurotransmitter"
+    }
+   ]
+  },
+  {
+   "id": "physiology-1-14",
+   "unchanged": true
+  },
+  {
+   "id": "physiology-1-15",
+   "blocks": [
+    {
+     "type": "paragraph",
+     "text": "Gamma-aminobutyric acid (GABA), an inhibitory neurotransmitter, plays a pivotal role in reducing neuronal excitability and promoting relaxation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Classification of Neurotransmitters based on Functions:"
+    },
+    {
+     "type": "table",
+     "title": "",
+     "columns": ["Excitatory", "Inhibitory"],
+     "rows": [
+      ["Glutamate (Major excitatory NT)\nAspartate (Less common)", "GABA (Brain)\nGlycine (Spinal cord)"],
+      ["Produces Excitatory Post Synaptic Potential (EPSP)\nFast EPSP: Due to Na or Ca Influx\nSlow EPSP: Due to K+ channel closure", "Produces Inhibitory Post Synaptic Potential (IPSP)\nFast IPSP: Due to Cl-Entry\nSlow IPSP: Due to K+ channel opening"]
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "Both Excitatory and Inhibitory: Acetylcholine (ACh) has excitatory effects in certain areas of the nervous system (e.g., neuromuscular junction) and inhibitory effects (e.g., cardiac autonomic neurons)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Glycine has Inhibitory effects in the spinal cord and facilitates NMDA receptors in the CNS, indirectly causing Excitatory effects."
+    },
+    {
+     "type": "paragraph",
+     "text": "Classification Based on Chemical Structure:"
+    },
+    {
+     "type": "bullets",
+     "items": [
+      {"text": "**Class 1 Choline & Acetyl CoA:** Acetylcholine (ACh)"},
+      {"text": "**Class 2 Biogenic Amines:** Norepinephrine, Dopamine, Serotonin, Histamine"},
+      {"text": "**Class 3 Amino Acid Neurotransmitters:** Glutamate, GABA, Aspartate, Glycine"},
+      {"text": "**Class 4 Purines and Gases:** ATP, NO, CO"},
+      {"text": "**Peptide Neurotransmitters:** Substance P, Neuropeptide Y"}
+     ]
+    }
+   ]
+  },
+  {
+   "id": "physiology-1-16",
+   "blocks": [
+    {
+     "type": "paragraph",
+     "text": "The clinical presentation of severe muscle stiffness, trismus, and muscle spasms following an injury with a rusty nail suggests tetanus, caused by the tetanus toxin (tetanospasmin). Tetanus toxin is produced by Clostridium tetani bacteria in soil and enters the body through wounds."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mechanism of Tetanus Toxin at the synapse: Tetanus neurotoxin (TeNT) binds to the presynaptic membrane of the neuromuscular junction, is internalised, and then transported retroaxonally to the spinal cord. It induces Spastic paralysis due to the blockade of neurotransmitter releases such as GABA and glycine from presynaptic terminals of spinal inhibitory interneurons, leading to unopposed excitation of motor neurons and muscle rigidity."
+    },
+    {
+     "type": "paragraph",
+     "text": "The toxin breaks down synaptobrevin protein through its endopeptidase activity."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Botulinum toxins (Option A):** These are potent neurotoxins produced by Clostridium botulinum bacteria. There are several types, with types A, B, and E being toxic to humans. Mechanism: Botulinum toxins A and E cleave SNAP-25 (synaptosome-associated protein-25), and B cleave Synaptobrevin, which are presynaptic membrane proteins essential for releasing acetylcholine at the neuromuscular junction leading to Flaccid paralysis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Strychnine (Option C):** Strychnine is a naturally occurring alkaloid found in the seeds of plant Strychnos nux-vomica. It acts by blocking glycine receptors in the spinal cord, resulting in exaggerated muscle contractions (spasms) and potentially severe muscle rigidity."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Curare (Option D):** Curare is a neuromuscular blocking agent that competitively blocks acetylcholine receptors at the neuromuscular junction, leading to muscle paralysis."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L01_Q016_E1"
+    }
+   ]
+  },
+  {
+   "id": "physiology-1-17",
+   "blocks": [
+    {
+     "type": "paragraph",
+     "text": "In the presynaptic membrane mechanism, complexin binds to the SNARE complex, preventing premature fusion of synaptic vesicles with the presynaptic membrane until calcium influx triggers its dissociation. This regulatory function ensures that neurotransmitter release occurs at the appropriate time and in response to neuronal activity."
+    },
+    {
+     "type": "paragraph",
+     "text": "Pre synaptic membrane Mechanism:"
+    },
+    {
+     "type": "bullets",
+     "items": [
+      {"text": "**Docking stage:** Synaptobrevin (V-SNARE) on synaptic vesicles binds to syntaxin and SNAP-25 (t-SNARE) on the presynaptic membrane. (Option A, B, C)"},
+      {"text": "**ATP and SM protein:** ATP hydrolysis provides energy for protein coiling. SM proteins (Sec1/MUNC 18) regulate SNARE protein interactions."},
+      {"text": "**Priming stages:**", "items": [
+       {"text": "**Primary priming:** Protein coils bring vesicles closer to the presynaptic membrane."},
+       {"text": "**Secondary priming:** Complexin stabilises the SNARE complex, preventing premature fusion."}
+      ]},
+      {"text": "**Calcium regulation:** P/Q and N-type calcium channels open upon stimulation, allowing calcium influx, which removes complexin."},
+      {"text": "**Fusion stage:** Synaptobrevin and syntaxin further coil with SNAP-25, facilitating the fusion of vesicular and presynaptic membranes."},
+      {"text": "**Release:** Fusion leads to neurotransmitter release into the synaptic cleft."}
+     ]
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L01_Q017_E1"
+    }
+   ]
+  },
+  {
+   "id": "physiology-1-18",
+   "blocks": [
+    {
+     "type": "paragraph",
+     "text": "Small clear vesicles contain glutamate along with other neurotransmitters. The vesicles and proteins within them are mostly synthesised in the neuronal cell body and transported by fast axoplasmic transport. Small vesicles are located near the synaptic cleft and discharge their contents into active zones."
+    },
+    {
+     "type": "table",
+     "title": "",
+     "columns": ["Types of vesicles", "Neurotransmitters"],
+     "rows": [
+      ["Small clear vesicles", "Acetylcholine, GABA, glutamate"],
+      ["Small dense core vesicles (Option C)", "Catecholamines(eg:dopamine,epinephrine and norepinephrine)"],
+      ["Large dense core vesicles (Option B)", "Neuropeptides"],
+      ["Endosomes (Option D)", "It plays an important role in endocytosis but has No role in neurotransmitter release."]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "physiology-1-19",
+   "unchanged": true
+  },
+  {
+   "id": "physiology-1-20",
+   "blocks": [
+    {
+     "type": "paragraph",
+     "text": "Electrical synapses are rapid and bidirectional due to ‘Gap junctions’."
+    },
+    {
+     "type": "paragraph",
+     "text": "Types of Synapses:"
+    },
+    {
+     "type": "table",
+     "title": "",
+     "columns": ["Aspects", "Electrical synapse", "Chemical synapse (Option A)"],
+     "rows": [
+      ["Occurrence", "Rare", "Most common"],
+      ["Width of synaptic cleft", "Narrow", "Wide"],
+      ["Neurotransmitters", "Absent", "Present"],
+      ["Gap junctions", "Present", "Absent"],
+      ["Synaptic transmission", "No time delay", "Time delay is present"],
+      ["Transmission direction", "Bidirectional", "Unidirectional"],
+      ["Component", "Pre-synaptic and Post-synaptic membranes (connected by gap junctions)", "Pre-synaptic cleft and post-synaptic cleft"],
+      ["Types", "", "- 3 types: Axodendritic (Option C) Axoaxonal (Option B) Axosomatic"]
+     ]
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L01_Q020_E1"
+    }
+   ]
+  }
+ ]
+}

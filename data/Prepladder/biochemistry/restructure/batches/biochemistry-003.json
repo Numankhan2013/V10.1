@@ -1,0 +1,765 @@
+{
+ "batch": "biochemistry-003",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "biochemistry-003",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "2-3",
+   "question": "A child is diagnosed with essential fructosuria during a routine health check. Name the enzyme A responsible for this condition",
+   "options": {
+    "A": "Aldolase B",
+    "B": "Hexokinase",
+    "C": "Fructokinase",
+    "D": "Glucokinase"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Essential fructosuria is a benign metabolic disorder caused by fructokinase deficiency. Fructose Metabolism: Dietary Source Found in fruits, honey, and high-fructose corn syrup Structure Ketohexose Metabolism Site Primarily metabolized by the liver Fructose Metabolism: 1) Phosphorylation: Fructokinase is the primary enzyme for fructose phosphorylation. It has a high affinity (low Km) and a high Vmax for fructose."
+    },
+    {
+     "type": "paragraph",
+     "text": "It converts fructose to fructose-1-phosphate using ATP. It is found in the liver, kidneys, and small intestine. 2) Fructose 1-Phosphate Cleavage: Aldolase B c leaves fructose 1-phosphate to dihydroxyacetone phosphate (DHAP) and glyceraldehyde. It is present in the liver, kidneys, and small intestine. DHAP enters glycolysis or gluconeogenesis. Glyceraldehyde is metabolized through various pathways."
+    },
+    {
+     "type": "paragraph",
+     "text": "Disorders of Fructose Metabolism 1) Essential Fructosuria: Benign metabolic disorder Caused by fructokinase deficiency Excretion of fructose in urine Low risk of cataracts as aldose reductase does not act on fructose, and sorbitol dehydrogenase has low affinity for it. 2) Hereditary Fructose Intolerance (HFI): Caused by aldolase B deficiency. (Option A ruled out) Symptoms appear when infants consume sucrose or fructose."
+    },
+    {
+     "type": "paragraph",
+     "text": "Effects are due to accumulation of fructose 1-phosphate. Symptoms: Vomiting, appetite loss, failure to thrive, hepatomegaly, jaundice, potential liver damage and death Diagnosis: Detection of fructose in urine, enzyme assay using liver cells or DNA-based testing. Treatment: Remove sucrose, sorbitol and fructose from the diet."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Hexokinase (Option B):** This enzyme is involved in the initial phosphorylation of glucose, not fructose. Hexokinase can phosphorylate fructose to fructose-6-phosphate, but it does not cause the specific symptoms seen in essential fructosuria. Therefor Hexokinase is not the enzyme responsible for essential fructosuria."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Glucokinase (Option D):** This enzyme is involved in glucose metabolism"
+    },
+    {
+     "type": "paragraph",
+     "text": "and is primarily found in the liver and pancreas. It is not involved in the metabolism of fructose. Therefore, Glucokinase is not relevant to essential fructosuria."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L03_Q003_E1"
+    }
+   ]
+  },
+  {
+   "id": "2-4",
+   "question": "Which of the following statements is true regarding Hereditary Fructose Intolerance (HFI) and Classical Galactosemia?",
+   "options": {
+    "A": "Both present with hyperglycemia.",
+    "B": "Both require lifelong avoidance of lactose.",
+    "C": "Both present with hypophosphatemia.",
+    "D": "Both have symptoms that appear at birth."
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Hereditary Fructose Intolerance (HFI): In HFI, the enzyme aldolase B is deficient. This leads to the accumulation of fructose-1-phosphate in the liver, kidneys, and intestines. The buildup of fructose-1-phosphate interferes with phosphate metabolism, leading to a decrease in available phosphate, resulting in hypophosphatemia. Classical Galactosemia: In Classical Galactosemia, the enzyme galactose-1-phosphate uridyltransferase (GALT) is deficient."
+    },
+    {
+     "type": "paragraph",
+     "text": "This leads to the accumulation of galactose-1-phosphate. Similar to HFI, the accumulated galactose-1-phosphate also interferes with phosphate metabolism, causing hypophosphatemia. Feature Hereditary Fructose Intolerance Classical Galactosemia Enzyme Deficiency Aldolase B"
+    },
+    {
+     "type": "paragraph",
+     "text": "**Galactose-1-phosphate uridyltransferase (GALT) Onset (Option D ruled out):** Symptoms appear when sucrose/ fructose is introduced into the diet (around 6 months of age) Initial signs usually present in the first few weeks of life Accumulated Metabolite Fructose-1-phosphate Galactose-1-phosphate and galactose Symptoms (Option A ruled out) (Option C) Hypoglycemia, hypophosphatemia, hyperuricemia, lactic acidosis Hepatomegaly, jaundice, Vomiting, Loss of appetite, Failure to thrive. Aldose reductase cannot act on fructose (very low risk of cataract) Hypoglycemia, hypophosphatemia, hyperuricemia, lactic acidosis, Hepatomegaly, jaundice, Severe mental retardation, Galactosuria, Cataracts Diagnosis Presence of fructose in urine, enzyme assay or by DNA-based testing Clinical manifestations, elevated blood galactose levels; amniocentesis for prenatal diagnosis Urinary Findings Positive Benedict’s test for fructose Positive Benedict’s test for galactose Dietary Management (Option B ruled out) Sucrose, sorbitol and fructose must be removed from the diet Galactose and lactose must be removed from the diet Complication in untreated cases Renal failure, Hepatic failure, Seizures, Progressive coma E. coli sepsis, Feeding problems, Failure to thrive, Hepatocellular damage. Note: Benedict’s test is positive for reducing sugars. Seliwanoff’s test/ Rapid furfural test is specific for Fructose."
+    }
+   ]
+  },
+  {
+   "id": "2-5",
+   "question": "A 45-year-old male presents with fatigue and pallor. Blood tests reveal hemolytic anemia. On further investigation, it is found that his erythrocytes are susceptible to oxidative damage. What is the primary role of the pentose phosphate pathway (PPP) that is deficient in this patient’s RBCs?",
+   "options": {
+    "A": "To produce ATP for energy metabolism",
+    "B": "To generate ribose-5-phosphate for nucleotide synthesis",
+    "C": "To provide NADPH for maintaining reduced glutathione levels",
+    "D": "To synthesize hemoglobin"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The pentose phosphate pathway (PPP) is essential in erythrocytes because it generates NADPH. NADPH is crucial for maintaining glutathione in its reduced form, which is necessary for the activity of glutathione peroxidase. This enzyme removes harmful hydrogen peroxide (H₂O₂), protecting red blood cells from oxidative damage and preventing hemolysis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Pentose Phosphate Pathway (PPP) The Pentose Phosphate Pathway (PPP), also known as the hexose monophosphate shunt (HMP shunt), is an alternative metabolic pathway"
+    },
+    {
+     "type": "paragraph",
+     "text": "for glucose that doesn't generate ATP. Location: Cytosol It serves two primary functions: NADPH Production The PPP is a major source of NADPH, vital for biosynthesis (fatty acids and steroids). NADPH Production: RBCs rely on glycolysis for ATP due to the lack of mitochondria and depend solely on the PPP for NADPH, as they lack mitochondrial dehydrogenases."
+    },
+    {
+     "type": "paragraph",
+     "text": "Glutathione Maintenance: NADPH keeps glutathione reduced, enabling glutathione peroxidase to neutralise hydrogen peroxide and prevent oxidative damage. Impact of NADPH Deficiency: Low NADPH impairs glutathione peroxidase, increases oxidative damage, and leads to hemolysis. Ribose-5-Phosphate (R-5-P) Synthesis Ribose-5-phosphate is essential for nucleotide synthesis needed for RNA and DNA. Homeostasis between NADPH and R-5-P production."
+    },
+    {
+     "type": "paragraph",
+     "text": "When NADPH demand exceeds R-5-P's need, the non-oxidative phase converts R-5-P to glycolytic intermediates (fructose-6-phosphate and glyceraldehyde-3-phosphate). If the demand for R-5-P is higher than for NADPH, the non-oxidative phase generates R-5-P from fructose-6-phosphate and glyceraldehyde-3-phosphate, bypassing the oxidative steps."
+    },
+    {
+     "type": "paragraph",
+     "text": "Differences from Glycolysis Uses NADP+ instead of NAD+ and generates CO2, not ATP. To produce ATP for energy metabolism (Option A): While RBCs do require ATP, their primary energy source is glycolysis. The PPP is not a major ATP-producing pathway."
+    },
+    {
+     "type": "paragraph",
+     "text": "**To generate ribose-5-phosphate for nucleotide synthesis (Option B):** Ribose-5-phosphate is a product of the PPP and is essential for nucleotide synthesis. However, mature RBCs lack a nucleus and do not synthesize nucleotides. Therefore this is not the primary function in mature RBCs."
+    },
+    {
+     "type": "paragraph",
+     "text": "**To synthesize haemoglobin (Option D):** Haemoglobin synthesis occurs during RBC development in the bone marrow, not through the PPP."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L03_Q005_E1"
+    }
+   ]
+  },
+  {
+   "id": "2-6",
+   "question": "Which sequence correctly represents the steps of the oxidative phase of the pentose phosphate pathway (PPP)?",
+   "options": {
+    "A": "6-Phosphogluconolactone → Glucose-6-phosphate → 6-Phosphogluconate → Ribulose-5-phosphate",
+    "B": "Glucose-6-phosphate → 6-Phosphogluconate → 6-Phosphogluconolactone → Ribulose-5-phosphate",
+    "C": "Glucose-6-phosphate → 6-Phosphogluconolactone → 6-Phosphogluconate → Ribulose-5-phosphate",
+    "D": "6-Phosphogluconate → 6-Phosphogluconolactone → Glucose-6-phosphate → Ribulose-5-phosphate"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Oxidative Phase of the Pentose Phosphate Pathway (PPP): Irreversible process producing NADPH and converting glucose-6-phosphate to ribulose-5-phosphate."
+    },
+    {
+     "type": "paragraph",
+     "text": "Step Substrates Enzyme Products 1 Glucose-6-phosphate + NADP+ Glucose-6-phosphate dehydrogenase 6-Phosphogluconolactone + NADPH 2 6-Phosphogluconolactone Gluconolactone hydrolase 6-Phosphogluconate 3 6-Phosphogluconate + NADP+ 6-Phosphogluconate dehydrogenase Ribulose-5-phosphate + NADPH + CO2 Overall Reaction: Glucose-6-phosphate + 2 NADP+ + H₂O → Ribulose-5-phosphate + 2 NADPH + 2 H⁺ + CO₂ Fate of products: NADPH: The two molecules of NADPH produced in this phase are essential for various biosynthetic pathways, such as fatty acid synthesis and steroid synthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Ribulose-5-Phosphate: Used for nucleotide synthesis or converted to other sugars for glycolysis or gluconeogenesis."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L03_Q006_E1"
+    }
+   ]
+  },
+  {
+   "id": "2-7",
+   "question": "Which statement is true regarding NADH and NADPH?",
+   "options": {
+    "A": "Both are produced in the Pentose Phosphate Pathway.",
+    "B": "NADH is used in lipid biosynthesis, while NADPH is not.",
+    "C": "NADPH is used for anabolic reactions, while NADH is primarily for catabolic reactions.",
+    "D": "Both serve the same functions in the cell."
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "NADH and NADPH Functions: NADH: Primarily involved in catabolic reactions such as cellular respiration where it functions as an electron carrier, transferring electrons to the electron transport chain to produce ATP. NADPH: Primarily involved in anabolic reactions, such as fatty acid and nucleotide synthesis, and in maintaining the reducing environment of the cell by donating electrons."
+    },
+    {
+     "type": "paragraph",
+     "text": "NADPH Role and Function: Feature NADH NADPH Full Name Nicotinamide Adenine Dinucleotide (reduced). Nicotinamide Adenine Dinucleotide Phosphate (reduced). Primary Role Energy production, electron transport. Reductive biosynthesis, maintaining reduced states. Pathways Primarily generated in catabolic pathways: Citric Acid Cycle, Glycolysis, Fatty Acid oxidation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Primarily generated in anabolic pathways: Pentose Phosphate Pathway, Malic Enzyme Reaction, Oxidative Decarboxylation - Isoforms of Isocitrate Dehydrogenase. Key Functions Donates electrons to the Electron Transport Chain (ETC) for ATP production. The ETC uses NADH for ATP production, yielding 2.5 ATPs. Donates electrons & provides reducing power for biosynthetic reactions (reductive biosynthesis) like lipid and nucleotide synthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Maintains reduced glutathione (G-SH) in RBCs, preventing oxidative damage. Regenerates reduced glutathione (G-SH) from its oxidized form. It is not involved in ATP generation via the ETC. Production Site Mitochondria (mainly), Cytosol Cytosol (mainly), some in mitochondria and plastids Both are produced in the Pentose Phosphate Pathway (Option A): This is only partially true. NADPH is a key product of the pentose phosphate pathway."
+    },
+    {
+     "type": "paragraph",
+     "text": "NADH is produced in other metabolic pathways, like glycolysis and the citric acid cycle. NADH is used in lipid biosynthesis, while NADPH is not. (Option B): This is incorrect. NADPH is essential for lipid biosynthesis, providing the necessary reducing power.NADH has a minimal role in that process. Both serve the same functions in the cell. (Option D): This is incorrect."
+    },
+    {
+     "type": "paragraph",
+     "text": "While both are electron carriers, their main purposes and locations of work within the cell, differ greatly."
+    }
+   ]
+  },
+  {
+   "id": "2-8",
+   "question": "All the following enzymes catalyze oxidative decarboxylation reactions except?",
+   "options": {
+    "A": "α-Ketoglutarate dehydrogenase",
+    "B": "Malate dehydrogenase",
+    "C": "6-Phosphogluconate dehydrogenase",
+    "D": "Isocitrate dehydrogenase"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Malate Dehydrogenase: Catalyzes the oxidation of malate to oxaloacetate in the citric acid cycle, producing NADH but not releasing CO2. This is an oxidation reaction, not an oxidative decarboxylation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Malate + NAD + → Oxaloacetate + NADH + H + Enzymes that catalyse oxidative decarboxylation reaction: Enzyme Reaction (Oxidative decarboxylation of) Cofactors Details Pyruvate Dehydrogenase (PDH) Pyruvate to acetyl-CoA Thiamin diphosphate, lipoate, NAD+, FAD, CoA Converts pyruvate to acetyl-CoA in mitochondria Similar to the α-ketoglutarate dehydrogenase complex Regulated by end-product inhibition and covalent modification. α-Ketoglutarate Dehydrogenase (αKGDH) (Option A ruled out) α-ketoglutarate to succinyl-CoA Similar to the PDH complex; Equilibrium favors succinyl-CoA formation; Inhibited by arsenite."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Isocitrate Dehydrogenase (IDH) (Option D ruled out):** Isocitrate to α-ketoglutarate Mg 2+ or Mn 2+ ions Forms oxalosuccinate, which then decarboxylates; Part of the citric acid cycle. 6-Phosphogluconate Dehydrogenase (6-PGDH) (Option C ruled out) 6-phosphogluconate to ribulose-5-phosphate NADP + Catalyzes a reaction in the pentose phosphate pathway. Branched-Chain Ketoacid Dehydrogenase (BCKADH) Decarboxylation of branched-chain keto acids Thiamin pyrophosphate (TPP), lipoate, NAD +, FAD, CoA Similar to the PDH complex; Defects cause maple syrup urine disease (MSUD)."
+    }
+   ]
+  },
+  {
+   "id": "2-9",
+   "question": "Which of the following enzymes is not involved in the reversible phase of the pentose phosphate pathway?",
+   "options": {
+    "A": "Epimerase",
+    "B": "Transketolase",
+    "C": "6-phosphogluconate dehydrogenase",
+    "D": "Transaldolase"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The oxidative phase of the pentose phosphate pathway (PPP) is referred to as the irreversible phase, while the nonoxidative phase is known as the reversible phase. 6-phosphogluconate dehydrogenase is part of the oxidative phase and catalyzes the conversion of 6-phosphogluconate to Ribulose-5-phosphate."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Substrate Enzyme Products Ribulose-5-phosphate Ribulose-5-phosphate 3- Epimerase (Option A ruled out):** Xylulose-5-phosphate Ribulose-5-phosphate Ribose-5-phosphate ketoisomerase Ribose-5-phosphate Xylulose-5-phosphate + Ribose-5-phosphate Transketolase (Option B ruled out) Cofactor: Mg²⁺, Thiamin diphosphate (Vitamin B1) Sedoheptulose-7-phosphate + Glyceraldehyde-3-phosphate Sedoheptulose-7-phosphate + Glyceraldehyde-3-phosphate Transaldolase (Option A ruled out) Fructose-6-phosphate + Erythrose-4-phosphate Xylulose-5-phosphate + Erythrose-4-phosphate Transketolase (second reaction) Fructose-6-phosphate + Glyceraldehyde-3-phosphate Regenerating Glucose-6-Phosphate: Two glyceraldehyde-3-phosphate molecules combine to form one fructose-6-phosphate (reversing step 4 of glycolysis). Fructose-6-phosphate is then converted back to glucose-6-phosphate (reversing step 2 of glycolysis). Thiamine deficiency: Transketolase requires thiamine pyrophosphate (TPP) as a coenzyme. Thiamine deficiency impairs transketolase activity. RBCs rely on the pentose phosphate pathway for NADPH. Low RBC transketolase activity can indicate thiamine deficiency."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L03_Q009_E1"
+    }
+   ]
+  },
+  {
+   "id": "2-10",
+   "question": "A 30-year-old woman with glucose-6-phosphate dehydrogenase (G6PD) deficiency, living in a malaria-prone area, presents with fatigue, jaundice, dark urine, and recent consumption of fava beans. Lab tests show hemolytic anemia. How does glucose-6-phosphate dehydrogenase (G6PD) deficiency lead to the observed symptoms?",
+   "options": {
+    "A": "Reduced NADPH impairs glutathione regeneration, causing hemolytic anemia.",
+    "B": "Increased ribulose-5-phosphate overloads nucleotides, leading to renal failure.",
+    "C": "Impaired glucose-6-phosphate conversion disrupts glycolysis, causing hypoglycemia.",
+    "D": "Decreased ATP production affects muscle function, causing myopathy."
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "In this patient with G6PD deficiency, the consumption of fava beans triggered oxidative stress. Glucose-6-phosphate dehydrogenase (G6PD) is an enzyme involved in the pentose phosphate pathway, which is crucial for producing NADPH. NADPH is necessary to regenerate glutathione, a potent antioxidant that helps protect red blood cells (RBCs) from oxidative damage. In individuals with G6PD deficiency, there is insufficient NADPH production."
+    },
+    {
+     "type": "paragraph",
+     "text": "This makes the RBCs more vulnerable to oxidative stress, such as that caused by fava beans, which contain compounds that can trigger oxidative damage. Without enough NADPH to counteract this stress, RBCs are damaged, leading to hemolysis (destruction of red blood cells)."
+    },
+    {
+     "type": "paragraph",
+     "text": "As a result of hemolysis, the patient may experience fatigue, jaundice (due to the release of bilirubin from the breakdown of red blood cells), and dark urine (from the presence of hemoglobin or bilirubin in the urine)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Increased ribulose-5-phosphate overloads nucleotides, leading to renal failure (Option B):** While ribulose-5-phosphate is a product of the PPP, its accumulation does not directly lead to renal failure. The primary issue in G6PD deficiency is the lack of NADPH and the resulting oxidative damage."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Impaired glucose-6-phosphate conversion disrupts glycolysis, causing hypoglycemia (Option C):** While G6PD deficiency affects glucose-6-phosphate, it does not significantly disrupt glycolysis to cause hypoglycemia. The primary issue is oxidative stress, not energy deficiency."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Decreased ATP production affects muscle function, causing myopathy (Option D):** While ATP is important, the PPP is not a major ATP-producing pathway in RBCs. The primary problem is the lack of NADPH and the resulting oxidative damage to the red blood cells."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L03_Q010_E1"
+    }
+   ]
+  },
+  {
+   "id": "2-11",
+   "question": "What is the role of inosine monophosphate in stored blood?",
+   "options": {
+    "A": "It increases plasma Na and K levels.",
+    "B": "It stimulates 2,3-DPG synthesis.",
+    "C": "It prevents lactic acid buildup.",
+    "D": "It stabilizes hemoglobin concentration."
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "2,3-DPG and Oxygen Delivery: 2,3-diphosphoglycerate (2,3-DPG) is a molecule found in red blood cells that affects hemoglobin's affinity for oxygen. It binds to hemoglobin, decreasing its affinity for oxygen, which means oxygen is more readily released to tissues. In stored blood, 2,3-DPG levels decline over time. This results in increased hemoglobin affinity for oxygen and impaired oxygen delivery to tissues."
+    },
+    {
+     "type": "paragraph",
+     "text": "Inosine Monophosphate (IMP): IMP is a purine nucleotide. In stored blood, IMP can be metabolized by red blood cells to regenerate 2,3-DPG. This helps to maintain adequate 2,3-DPG levels, ensuring that transfused red blood cells can effectively deliver oxygen to tissues."
+    },
+    {
+     "type": "paragraph",
+     "text": "Inosine Monophosphate (IMP) is Hypoxanthine + Ribose Inosine in Stored Blood: Inosine stimulates 2,3-DPG synthesis, by getting converted to ribose-1-phosphate and hypoxanthine. (Option B) Ribose-1-phosphate is isomerized to ribose-5-phosphate and enters the pentose phosphate pathway, and is recycled back to fructose-6-phosphate or glyceraldehyde-3-phosphate (GA3P)."
+    },
+    {
+     "type": "paragraph",
+     "text": "GA3P is converted to 1,3-diphosphoglycerate (1,3-DPG) in the presence of GA3P dehydrogenase and NAD. 1,3-DPG is converted to"
+    },
+    {
+     "type": "paragraph",
+     "text": "either 2,3-diphosphoglycerate (2,3-DPG) or 3-phosphoglycerate 2,3 DPG enhances oxygen delivery to tissues. Blood low in 2,3-DPG shifts the oxygen-hemoglobin dissociation curve left, reducing oxygen delivery. Reconstitution of 2,3-DPG is rapid, but normalization takes days. Inosine does not retard changes in plasma Na, K, Hb, lactic acid, dextrose, or pH during storage."
+    },
+    {
+     "type": "paragraph",
+     "text": "**It increases plasma Na and K levels (Option A):** IMP's primary function is related to red blood cell metabolism, specifically 2,3-DPG. It does not directly influence plasma sodium or potassium levels. Electrolyte balance is maintained by other mechanisms, and IMP is not involved in that."
+    },
+    {
+     "type": "paragraph",
+     "text": "**It prevents lactic acid buildup (Option C):** Lactic acid buildup in stored blood is a consequence of anaerobic glycolysis due to glucose metabolism. While IMP plays a role in red blood cell metabolism, it does not directly prevent lactic acid accumulation. Other additives in stored blood, like citrate, help to mitigate this by preventing coagulation and slightly altering pH. It stabilizes hemoglobin concentration (Option D): Hemoglobin concentration in stored blood is primarily determined by the initial blood collection and processing. IMP's role is to improve the functional capacity of hemoglobin (oxygen delivery), not to stabilize its concentration."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L03_Q011_E1"
+    }
+   ]
+  },
+  {
+   "id": "2-12",
+   "question": "A patient with diabetes presents with vision impairment. Upon examination, snowflake cataracts are observed. The absence of which enzyme in certain tissues leads to sorbitol accumulation, resulting in conditions such as snowflake cataracts?",
+   "options": {
+    "A": "Aldose Reductase",
+    "B": "Glucose-6-Phosphate Dehydrogenase",
+    "C": "Sorbitol Dehydrogenase",
+    "D": "Hexokinase"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Sorbitol Dehydrogenase is the enzyme responsible for converting sorbitol to fructose. Its absence in tissues like the retina and lens leads to sorbitol accumulation, causing osmotic stress and cellular swelling, resulting in snowflake cataracts in diabetic patients. Hyperglycemia and Sorbitol Accumulation: Occurs in diabetes due to chronic high blood sugar."
+    },
+    {
+     "type": "paragraph",
+     "text": "Excess glucose enters insulin-independent cells (retina, lens, kidneys, peripheral nerves). Aldose reductase activity increases, leading to more sorbitol production. Sorbitol dehydrogenase enzyme is absent in the eye hence sorbitol cannot be broken down further. Consequences of Sorbitol Accumulation: Osmotic Stress: Sorbitol gets trapped inside cells, causing water influx and cell swelling and cataract Formation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Tissue-Specific Enzyme Presence: Present: Liver: Sorbitol to fructose conversion, enters glycolysis. Ovaries: Sorbitol dehydrogenase present. Seminal Vesicles: Sorbitol dehydrogenase provides energy (fructose) for sperm cells. Absent: Retina, Lens, Kidneys, Peripheral Nerves: Have aldose reductase but lack sorbitol dehydrogenase, leading to sorbitol accumulation."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Aldose Reductase (Option A):** converts glucose to sorbitol."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Glucose-6-phosphate dehydrogenase (Option B):** is a part of the pentose phosphate pathway and does not play a direct role in the sorbitol pathway."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Hexokinase (Option D):** Catalyses the first step of glycolysis and is not involved in the sorbitol pathway."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L03_Q012_E1"
+    }
+   ]
+  },
+  {
+   "id": "2-13",
+   "question": "A newborn presents with bilateral lens opacities and decreased visual acuity. On examination, the characteristic \"oil droplet\" appearance is noted in the lens on retro illumination. Which metabolic disorder is primarily associated with developing oil-drop cataracts in newborns?",
+   "options": {
+    "A": "Phenylketonuria",
+    "B": "Galactosemia",
+    "C": "Maple Syrup Urine Disease",
+    "D": "Homocystinuria"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Galactosemia is a genetic disorder that impairs the body's ability to metabolise galactose due to a defect in the enzyme galactose-1-phosphate uridyltransferase. This leads to the accumulation of galactitol, which causes osmotic stress and the characteristic “oil drop’’ cataracts."
+    },
+    {
+     "type": "paragraph",
+     "text": "Oil Drop Cataracts and Galactosemia: Galactosemia is an autosomal recessive genetic disorder caused by a deficiency in the enzyme galactose-1-phosphate uridyltransferase, impairing galactose metabolism. Characteristics Appearance: Distinct \"oil droplet\" look on retro illumination due to dulcitol accumulation. Symptoms: Decreased visual acuity, lenticular myopia, potential total lens opacification."
+    },
+    {
+     "type": "paragraph",
+     "text": "Pathophysiology The inability to convert galactose to glucose leads to the buildup of galactitol. Affects lens transparency, causing cataracts shortly after birth. Management and Treatment Dietary Restrictions: Eliminate all sources of galactose (milk, dairy) to prevent progression. Surgical Intervention: Cataract removal may be necessary if vision is significantly impaired."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Phenylketonuria (Option A):** is a metabolic disorder affecting phenylalanine metabolism, leading to intellectual disability if untreated."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Maple Syrup Urine Disease (Option C):** is a metabolic disorder affecting branched-chain amino acids, characterized by sweet-smelling urine."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Homocystinuria (Option D):** is a disorder affecting methionine metabolism, leading to symptoms such as skeletal abnormalities and lens dislocation."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L03_Q013_E1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L03_Q013_E2"
+    }
+   ]
+  },
+  {
+   "id": "3-1",
+   "question": "In red blood cells under low energy states, which of the following best describes the fate of pyruvate?",
+   "options": {
+    "A": "Converted to acetyl-CoA to enter the citric acid cycle.",
+    "B": "Converted to oxaloacetate to replenish the citric acid cycle.",
+    "C": "Converted to lactate by lactate dehydrogenase to regenerate NAD +.",
+    "D": "Converted to alanine via transamination."
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Pyruvate can become lactate, acetyl CoA, alanine and oxaloacetate based on the energy state of the cell. In low energy state: In a low-energy state, the fate of pyruvate depends on the oxygenation of the cell: In aerobic conditions: In anaerobic conditions: In the presence of oxygen, aerobic respiration will continue. In the absence of oxygen, anaerobic glycolysis takes place."
+    },
+    {
+     "type": "paragraph",
+     "text": "Pyruvate, which is produced at the end of glycolysis, is transported to mitochondria. It takes place in mitochondria deficit cells such as RBCs and neurons and also in muscle cells during exercise (Option C) In mitochondria, pyruvate combines with coenzyme A to produce Acetyl CoA, which enters the citric acid pathway (Option A ruled out)."
+    },
+    {
+     "type": "paragraph",
+     "text": "In these cells, pyruvate is converted to lactate by lactate dehydrogenase, using NADH to regenerate NAD +, which is necessary for ATP production."
+    },
+    {
+     "type": "paragraph",
+     "text": "The byproducts of this reaction include CO2 and NADH The byproduct is NAD+. Converted to oxaloacetate to replenish the citric acid cycle (Option B): Oxaloacetate conversion by pyruvate carboxylase mainly occurs in liver and kidney cells, replenishing the citric acid cycle under in high energy state (not in anaerobic conditions). However, RBCs lack mitochondria and do not undergo this conversion."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Converted to alanine via transamination (Option D):** Pyruvate can be converted to alanine via transamination, which is seen in the high-energy state of cells."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L04_Q001_E1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L04_Q001_E2"
+    }
+   ]
+  },
+  {
+   "id": "3-2",
+   "question": "Which of the following metabolic disturbances is most likely to be seen in a patient with pyruvate dehydrogenase deficiency?",
+   "options": {
+    "A": "Hypoglycemia due to impaired gluconeogenesis.",
+    "B": "Hyperglycemia due to increased gluconeogenesis.",
+    "C": "Ketoacidosis due to excessive fatty acid oxidation.",
+    "D": "Lactic acidosis due to impaired conversion of pyruvate to acetyl-CoA."
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Pyruvate dehydrogenase deficiency: The most common cause is a mutation in the PDHA1 gene, which is inherited in an X-linked pattern. PDH deficiency leads to impaired conversion of pyruvate to acetyl CoA. As a result, pyruvate accumulates in the tissues and is shunted towards lactate production, leading to lactic acidosis, particularly after glucose load, a hallmark of PDH deficiency (Option D)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Glucose levels are normal (Options A&B ruled out):** Clinical features include nausea, vomiting, neurologic problems such as ataxia, intellectual disability, seizures, hypotonia, and poor coordination. Treatment is based on stimulating PDH with cofactor supplementation such as thiamine, and lipoic acid."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Ketoacidosis due to excessive fatty acid oxidation (Option C):** Ketoacidosis is more commonly associated with conditions like diabetic ketoacidosis or inborn errors of metabolism involving fatty acid oxidation, not PDH deficiency. PDH deficiency also presents with ketoacidosis, but the most likely presentation is lactic acidosis"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L04_Q002_E1"
+    }
+   ]
+  },
+  {
+   "id": "3-3",
+   "question": "During fasting, after how many hours does gluconeogenesis become the primary source of blood glucose?",
+   "options": {
+    "A": "8 to 12 hours",
+    "B": "12 to 24 hours",
+    "C": "16 to 48 hours",
+    "D": "48 to 72 hours"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Gluconeogenesis becomes the primary source of blood glucose after liver glycogen stores are depleted. Glycogenolysis maintains blood glucose for the first 12 to 24 hours. After 16 hours, gluconeogenesis gradually increases and becomes the dominant source by 24 to 48 hours. Major substrates include lactate, alanine, and glycerol."
+    },
+    {
+     "type": "paragraph",
+     "text": "During fasting: After 4-16 hrs, the primary source of glucose is glycogenolysis After 16-48 hrs, the primary source of glucose is gluconeogenesis. Gluconeogenesis: It is a process in which glucose is synthesized by non-carbohydrate sources such as amino acids, lactate, glycerol, and propionyl CoA. The major site of gluconeogenesis the liver > kidney."
+    },
+    {
+     "type": "paragraph",
+     "text": "Regulation of gluconeogenesis: Glucagon activates fructose 1,6-bisphosphatase and inhibits PFK-1, favoring gluconeogenesis and inhibiting glycolysis The availability of substrates such as alanine, lactate, and glycerol favors gluconeogenesis Acetyl CoA is an allosteric activator of 1st regulatory step of gluconeogenesis (pyruvate carboxylase) 8 to 12 hours (Option A): Incorrect because glycogenolysis is still the primary source of glucose at this stage. 12 to 24 hours (Option B): Incorrect because gluconeogenesis is only starting to rise, but glycogenolysis is still significant. 48 to 72 hours (Option D): Incorrect because gluconeogenesis has already been the dominant glucose source for a long time by this point."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L04_Q003_E1"
+    }
+   ]
+  },
+  {
+   "id": "3-4",
+   "question": "Which of the following is the primary site for peripheral lipolysis?",
+   "options": {
+    "A": "Liver",
+    "B": "Skeletal muscle",
+    "C": "Adipose tissue",
+    "D": "Pancreas"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Peripheral lipolysis: It is a process in which triacylglycerols are hydrolyzed into free fatty acids (FFA) and glycerol. This process is mediated by hormone-sensitive lipase (HSL)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**This process occurs in adipose tissue (Option C):** The lipase acts on triacylglycerols and converts them into diacylglycerol, the preferred substrate for HSL. The glycerol released from the adipose tissue is transported to the liver and participates in glycolysis or gluconeogenesis. Free fatty acids bind to albumin and are transported to muscles, where they are activated into their CoA derivatives and oxidized in mitochondria for ATP. Regulation: HSL is activated when phosphorylated with protein kinase A, which in turn is dependent on cAMP produced in the adipocyte when catecholamines activate adenylyl cyclase. Insulin dephosphorylates HSL and inactivates it. The counter-regulatory hormones of insulin, such as glucagon, epinephrine, and cortisol, stimulate the activity of HSL. Liver (Option A): Incorrect because the liver processes fatty acids but is not the primary site for peripheral lipolysis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Skeletal muscle (Option B):** Incorrect because muscle utilizes fatty acids but does not primarily break down triglycerides."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Pancreas (Option D):** Incorrect because the pancreas regulates metabolism via insulin and glucagon but does not carry out lipolysis."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L04_Q004_E1"
+    }
+   ]
+  },
+  {
+   "id": "3-5",
+   "question": "A 5-year-old boy presents with severe lethargy, vomiting and ataxia for 24 hours. Lab tests show metabolic acidosis, elevated lactate, and pyruvate. Genetic testing confirms pyruvate dehydrogenase complex deficiency. What is the underlying mechanism for his metabolic derangements?",
+   "options": {
+    "A": "Impaired conversion of pyruvate to acetyl-CoA.",
+    "B": "Increased conversion of pyruvate to ribose-5-phosphate.",
+    "C": "Reduced activity of the electron transport chain.",
+    "D": "Inhibition of gluconeogenesis in the liver."
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The pyruvate dehydrogenase complex is responsible for the irreversible conversion of pyruvate to acetyl-CoA, a crucial step in aerobic glucose metabolism. A deficiency in this complex leads to the accumulation of pyruvate, which is then shunted towards lactate production, resulting in lactic acidosis. Pyruvate dehydrogenase (PDH) complex: Catalyzes the irreversible conversion of pyruvate to acetyl-CoA in mitochondria."
+    },
+    {
+     "type": "paragraph",
+     "text": "A critical step in aerobic glucose metabolism, as it links glycolysis to the citric acid cycle. Structure: 5 Coenzymes - thiamine pyrophosphate (TPP), lipoic acid, CoA, FAD, and NAD +. 3 products: NADH, CO2, Acetyl-CoA. 3 substrates: Pyruvate, NAD, CoA. 3 subunits: E1 (PDH / PDC), E2 (dihydrolipoyl transacetylase), and E3 (dihydrolipoyl dehydrogenase)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Irreversible reaction: Pyruvate to acetyl-CoA is highly exergonic and irreversible, preventing direct synthesis of glucose from acetyl-CoA. Regulation: Inhibition: Acetyl-CoA, NADH, and ATP inhibit PDH to conserve glucose. Phosphorylation: Kinase inactivates, and phosphatase activates PDH based on energy status. Hormonal Control: Insulin activates PDH for fat synthesis Calcium: Activates PDH during muscle contraction."
+    },
+    {
+     "type": "paragraph",
+     "text": "Clinical significance: PDH complex deficiencies are rare but serious genetic disorders causing lactic acidosis, neurological issues, and developmental delays. Thiamine deficiency, common in alcoholics, impairs PDH complex activity, leading to pyruvate accumulation and lactic acidosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Increased conversion of pyruvate to ribose-5-phosphate (Option B):** Pyruvate does not convert to ribose-5-phosphate (R-5-P), which is produced through the pentose phosphate pathway, and it does not involve the PDH complex. The issue is the impaired conversion of pyruvate to acetyl-CoA, not R-5-P production."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Reduced activity of the electron transport chain (Option C):** is a potential cause of metabolic acidosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Inhibition of gluconeogenesis in the liver (Option D):** would result in hypoglycemia but would not explain the accumulation of lactate and pyruvate."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L04_Q005_E1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L04_Q005_E2"
+    }
+   ]
+  },
+  {
+   "id": "3-6",
+   "question": "Which of the following regulatory effects best explains the anti-neoplastic effect of the ketogenic diet?",
+   "options": {
+    "A": "Acetyl CoA stimulates pyruvate carboxylase.",
+    "B": "Malonyl CoA inhibits carnitine acyltransferase-1.",
+    "C": "Citrate inhibits PFK1.",
+    "D": "Acyl CoA stimulates carnitine acyltransferase-1."
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The ketogenic diet's antineoplastic effect is explained by the Pasteur effect. The ketogenic diet is high fat low carbohydrate diet. his helps in restricting neoplastic growth, as neoplastic cells are dependent on glucose through aerobic glycolysis (Warburg effect). Effect Definition Clinical Significance Glucose-Sparing Effect The inhibition of glucose oxidation by fatty acid oxidation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Neurons and red blood cells exclusively use glucose for fuel. Red and cardiac muscle fibers can utilize glucose or fatty acids. The glucose-sparing effect ensures cardiac muscle prioritizes fatty acids, preserving glucose for neurons and red blood cells. Pasteur Effect he inhibition of anaerobic glycolysis by aerobic oxidation products. The ketogenic diet limits carbohydrate intake, thereby reducing glucose availability and glycolysis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Lower pyruvate reduces citric acid cycle activity. Increased fatty acid oxidation raises acetyl-CoA, forming citrate. Citrate inhibits PFK-1, suppressing glycolysis and limiting glucose use by neoplasia. Warburg Effect The phenomenon in cancer cells where, even in the presence of oxygen, glucose is primarily converted to lactate through aerobic glycolysis."
+    },
+    {
+     "type": "paragraph",
+     "text": "This allows faster ATP production and provides intermediates for neoplastic cell growth and multiplication. It increases NADPH production, protecting neoplastic cells from oxidative stress."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Acetyl-CoA stimulates pyruvate carboxylase (Option A):** While acetyl- CoA does stimulate pyruvate carboxylase, this process increases glucose levels, which is counterproductive for someone with neoplasia."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Malonyl-CoA inhibits carnitine acyltransferase-1 (Option B):** This is related to fatty acid oxidation but is not directly involved in the antineoplastic effect of a ketogenic diet."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Acyl CoA stimulates carnitine acyltransferase-1 (Option D):** This is related to fatty acid oxidation but is not directly involved in the antineoplastic effect of a ketogenic diet."
+    }
+   ]
+  },
+  {
+   "id": "3-7",
+   "question": "A 25-year-old athlete presents with exercise intolerance and muscle fatigue, particularly during high-intensity training. Genetic testing reveals a deficiency in the enzyme that facilitates the transfer of electrons from cytosolic NADH to mitochondrial FADH 2 in skeletal muscle. Which shuttle system is likely impaired in this athlete?",
+   "options": {
+    "A": "Malate shuttle",
+    "B": "Glycerol phosphate shuttle",
+    "C": "Citrate shuttle",
+    "D": "Aspartate shuttle"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The glycerol phosphate shuttle, present in white muscle fibers and neurons, specifically transfers electrons from cytosolic NADH to mitochondrial FADH 2 Electron Transport Chain (ETC): Location: Inner mitochondrial membrane. The ADP-ATP translocase in the inner mitochondrial membrane exports ATP to the cytosol and imports ADP into the mitochondria.. Atractyloside inhibits this transport process."
+    },
+    {
+     "type": "paragraph",
+     "text": "Function: It plays a crucial role in oxidative phosphorylation. Oxidation, which involves the loss of electrons, is central to this process and drives ATP synthesis Shuttles: NADH Shuttles: Glycolysis, which occurs in the cytoplasm, generates 2 NADH molecules per glucose molecule. NADH cannot directly cross the mitochondrial membrane; it requires shuttles for transport."
+    },
+    {
+     "type": "paragraph",
+     "text": "There are two main shuttle systems: the malate-aspartate shuttle (Image 1) and the glycerol phosphate shuttle (Image 2), which facilitate NADH transport across the mitochondrial membrane Property Malate Shuttle (Option A ruled out) Glycerol Phosphate Shuttle Location Present in most cells except white muscle fibers and neurons. White muscle fibers and neurons Energy \"No net ATP loss\" → Consumes 2 ATP per glucose molecule."
+    },
+    {
+     "type": "paragraph",
+     "text": "Loss of 2 ATPs per glucose molecule Electron Carrier Electron Carrier: Transfers electrons to mitochondrial NADH, maintaining cytosolic NAD+/NADH balance. Transfers electrons to mitochondrial FADH2 Enzymes Cytoplasmic and mitochondrial glycerol-3-phosphate dehydrogenase."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Cytoplasmic & mitochondrial glycerol-3-phosphate dehydrogenase Citrate shuttle (Option C):** transports acetyl-CoA from the mitochondria to the cytosol for fatty acid synthesis, not for transferring electrons from NADH to FADH2."
+    },
+    {
+     "type": "paragraph",
+     "text": "**The aspartate shuttle (Option D):** also known as the malate-aspartate shuttle, is involved in transferring electrons from cytosolic NADH to mitochondrial NADH."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L04_Q007_E1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L04_Q007_E2"
+    }
+   ]
+  },
+  {
+   "id": "3-8",
+   "question": "Which of the following statements regarding the electron transport chain (ETC) is incorrect?",
+   "options": {
+    "A": "Electrons from NADH enter the ETC through Complex I",
+    "B": "Complex II is the only complex that does not pump protons.",
+    "C": "Coenzyme Q and cytochrome c transfer electrons between complexes",
+    "D": "Complex IV is the only complex that contains iron-sulfur proteins."
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "All electron transport chain complexes contain iron-sulfur proteins, except Complex IV (cytochrome c oxidase), which contains copper instead. Complex Name Electron Donor Electron Acceptor Protons Pumped Complex I NADH dehydrogenase NADH Coenzyme Q (or Ubiquinone) 4 Complex II Succinate dehydrogenase"
+    },
+    {
+     "type": "paragraph",
+     "text": "Succinate (FADH2) Coenzyme Q 0 Complex III (Cytochrome b & c1) Q-cytochrome c oxidoreductase Coenzyme Q (QH2) Cytochrome C 4 Complex IV (Cytochrome a & a3) Cytochrome c oxidase Cytochrome C Oxygen 2 Complex V ATP Synthase Complex V consists of two main parts: The F₀ portion, which is embedded in the membrane and transports protons, and the F₁ portion, which catalyzes ATP formation from ADP and Pi."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Electrons from NADH enter the ETC through Complex I (Option A):** Correct because NADH transfers electrons to Complex I, initiating the electron transport chain."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Complex II is the only complex that does not pump protons (Option B):** Correct because Complex II transfers electrons to Coenzyme Q but does not contribute to proton pumping."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Coenzyme Q and cytochrome c transfer electrons between complexes (Option C):** Correct because these mobile carriers shuttle electrons between different complexes."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L04_Q008_E1"
+    }
+   ]
+  },
+  {
+   "id": "3-9",
+   "question": "A patient, with a history of attempting weight loss, presents with fatigue, muscle weakness, and vision problems. Genetic testing confirms MELAS (mitochondrial encephalopathy, lactic acidosis, and stroke). Which electron transport chain complex is most likely affected in this patient",
+   "options": {
+    "A": "Complex I",
+    "B": "Complex II",
+    "C": "Complex III",
+    "D": "Complex V"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "MELAS (Mitochondrial Encephalopathy, Lactic Acidosis, and Stroke-like episodes) is caused by mutations in mitochondrial DNA, primarily affecting Complex I of the electron transport chain. Complex I (NADH dehydrogenase) is responsible for transferring electrons from NADH to Coenzyme Q, initiating the ETC and contributing to ATP production."
+    },
+    {
+     "type": "paragraph",
+     "text": "Dysfunction in Complex I leads to impaired oxidative phosphorylation, decreased ATP generation, and increased lactic acid levels, contributing to the metabolic abnormalities seen in MELAS. Symptoms such as fatigue, muscle weakness, and neurological issues (including vision problems and stroke-like episodes) result from energy deficiency in high-demand tissues like muscles and the brain."
+    },
+    {
+     "type": "paragraph",
+     "text": "Electron Transport Chain Defects in Mitochondrial Disorders Complex Role in ETC Association with Disease Complex I (NADH dehydrogenase) Transfers electrons from NADH to Coenzyme Q MELAS, Leber's Hereditary Optic Neuropathy (LHON) Complex II (Succinate dehydrogenase) Transfers electrons from FADH₂ to Coenzyme Q Rarely affected in mitochondrial diseases Complex III (Cytochrome bc₁ complex) Transfers electrons from Coenzyme Q to cytochrome c Rare disorders (e.g., Mitochondrial Complex III deficiency) Complex IV (Cytochrome c oxidase) Transfers electrons from cytochrome c to oxygen Mitochondrial disorders like Leigh syndrome Complex V (ATP synthase) Synthesizes ATP from proton gradient Neuromuscular disorders, Leigh syndrome Complex II (Option B): Incorrect because Complex II mutations are not a major cause of MELAS. It primarily functions in the Krebs cycle and does not contribute significantly to mitochondrial DNA-related disorders."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Complex III (Option C):** Incorrect because MELAS is not typically caused by defects in Complex III. Mutations here are rare and usually cause other mitochondrial myopathies."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Complex V (Option D):** Incorrect because Complex V (ATP synthase) is responsible for ATP production but is not directly linked to MELAS, which primarily affects electron transport."
+    }
+   ]
+  }
+ ]
+}

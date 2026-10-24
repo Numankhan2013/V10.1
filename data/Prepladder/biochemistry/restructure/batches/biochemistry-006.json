@@ -1,0 +1,601 @@
+{
+ "batch": "biochemistry-006",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "biochemistry-006",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "6-8",
+   "question": "Which of the following enzymes involved in gluconeogenesis is located in the endoplasmic reticulum?",
+   "options": {
+    "A": "Pyruvate carboxylase",
+    "B": "Phosphoenolpyruvate carboxykinase (PEPCK)",
+    "C": "Fructose-1,6-bisphosphatase",
+    "D": "Glucose-6-phosphatase"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Glucose-6-phosphatase is the only gluconeogenic enzyme located in the endoplasmic reticulum (ER). It catalyzes the final step of gluconeogenesis: Glucose-6-phosphate→Glucose+P i This reaction occurs in the ER lumen, and glucose is then transported into the cytoplasm and released into the bloodstream."
+    },
+    {
+     "type": "paragraph",
+     "text": "Enzymes of Gluconeogenesis, Their Locations, and Cofactors Enzyme Location Function Cofactors Pyruvate Carboxylase (Option A ruled out) Mitochondria Converts pyruvate to oxaloacetate Biotin, ATP, CO₂ Phosphoenolpyruvate Carboxykinase (PEPCK) (Option B ruled out) Cytoplasm & Mitochondria Converts oxaloacetate to PEP GTP (as a phosphate donor) Fructose-1,6-bisphosphatase (Option C ruled out) Cytoplasm Converts F-1,6-BP to F-6-P Mg²⁺ Glucose-6-phosphatase Endoplasmic Reticulum Converts G-6-P to free glucose Mg²"
+    }
+   ]
+  },
+  {
+   "id": "6-9",
+   "question": "Which of the following is NOT a substrate for gluconeogenesis?",
+   "options": {
+    "A": "Lactate",
+    "B": "Glycerol",
+    "C": "Alanine",
+    "D": "Acetyl-CoA"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Acetyl-CoA is not a substrate for gluconeogenesis. Although acetyl-CoA is an important metabolic intermediate, it cannot be converted to glucose because the reaction catalysed by pyruvate dehydrogenase is irreversible."
+    },
+    {
+     "type": "paragraph",
+     "text": "Substrates for Gluconeogenesis Substrate Source Entry Point in Gluconeogenesis Lactate Anaerobic glycolysis (muscles, RBCs) Converted to pyruvate via the Cori cycle Glycerol Lipolysis (adipose tissue) Converted to DHAP Alanine Muscle protein breakdown Converted to pyruvate via transamination Propionate Odd-chain fatty acid oxidation Converted to succinyl-CoA (TCA cycle) Alanine is converted to pyruvate, which enters the gluconeogenesis pathway as part of the glucose-alanine (Cahill) cycle."
+    },
+    {
+     "type": "paragraph",
+     "text": "Propionate: Obtained from the metabolism of odd-chain fatty acids."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Cori’s cycle/ Glucose Lactate cycle and Cahill cycle/Glucose Alanine cycle Lactate (Option A):** Incorrect because it is a major gluconeogenic substrate via the Cori cycle."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Glycerol (Option B):** Incorrect because it enters gluconeogenesis via DHAP formation."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Alanine (Option C):** Incorrect because it contributes to gluconeogenesis via pyruvate formation."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L07_Q009_E1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L07_Q009_E2"
+    }
+   ]
+  },
+  {
+   "id": "6-10",
+   "question": "All of the following metabolic pathways occur in the cytoplasm except?",
+   "options": {
+    "A": "Glycolysis",
+    "B": "Pentose Phosphate Pathway",
+    "C": "Fatty Acid Synthesis",
+    "D": "Citric Acid Cycle"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The Krebs Cycle, also known as the Citric Acid Cycle, primarily occurs in the mitochondria, not the cytoplasm. The other pathways listed (Glycolysis, Pentose Phosphate Pathway, and Fatty Acid Synthesis) primarily occur in the cytoplasm. Krebs Cycle: It’s a mitochondrial pathway and a common pathway for carbohydrates, lipids, and protein."
+    },
+    {
+     "type": "paragraph",
+     "text": "Strictly aerobic and produces 10 ATP per cycle It is an Amphibolic pathway and consists of Anaplerotic reactions that replenish intermediates of the Krebs cycle."
+    },
+    {
+     "type": "paragraph",
+     "text": "Cellular Metabolism Pathways based on their locations: Cytoplasm Mitochondria Glycolysis (Option A ruled out) Pentose Phosphate Pathway (Option B ruled out) Fatty Acid Synthesis (Option C ruled out) Urea Cycle (partial- Cytoplasm & Mitochondria) HMP Shunt Krebs Cycle (Citric Acid Cycle) Electron Transport Chain Fatty Acid Oxidation Ketogenesis Gluconeogenesis occurs in the cytoplasm, mitochondria, and endoplasmic reticulum."
+    }
+   ]
+  },
+  {
+   "id": "6-11",
+   "question": "Which of the following best describes the amphibolic nature of the citric acid cycle?",
+   "options": {
+    "A": "It generates ATP and produces citrate for fatty acid synthesis.",
+    "B": "It exclusively produces NADH for oxidative phosphorylation.",
+    "C": "It breaks down fatty acids and synthesises only cholesterol.",
+    "D": "It provides intermediates solely for glucose synthesis."
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The citric acid cycle is amphibolic because it both produces energy (catabolic function) and provides intermediates for biosynthesis, such as amino acids, glucose, and fatty acids (anabolic function). Amphibolic nature of TCA cycle: 1."
+    },
+    {
+     "type": "paragraph",
+     "text": "Catabolic Role (Energy Production) Oxidation of Acetyl-CoA: Acetyl-CoA, derived from the breakdown of carbohydrates, fats, and proteins, enters the TCA cycle and is oxidized to produce NADH, FADH₂, and GTP (converted to ATP).. Generation of Reducing Equivalents: The cycle generates NADH and FADH2, which are essential for the electron transport chain and subsequent ATP production. 2."
+    },
+    {
+     "type": "paragraph",
+     "text": "Anabolic Role (Biosynthesis) Citrate for Fatty Acid Synthesis: Citrate from the TCA cycle is exported to the cytoplasm and cleaved to provide acetyl-CoA for fatty acid synthesis. α-Ketoglutarate for Amino Acid Synthesis: α-Ketoglutarate is transaminated to form glutamate, which can be converted to glutamine, proline, and arginine."
+    },
+    {
+     "type": "paragraph",
+     "text": "Succinyl-CoA for Heme Synthesis: Succinyl-CoA and glycine participate in the synthesis of δ-aminolevulinic acid (ALA), the first step in heme biosynthesis. Oxaloacetate for Gluconeogenesis: Oxaloacetate can be converted to phosphoenolpyruvate (PEP), which is a key intermediate in gluconeogenesis, the pathway that produces glucose from non-carbohydrate sources."
+    },
+    {
+     "type": "paragraph",
+     "text": "**It exclusively produces NADH for oxidative phosphorylation (Option B):** While the citric acid cycle produces NADH, its amphibolic nature also involves generating intermediates for biosynthesis, not just ATP production."
+    },
+    {
+     "type": "paragraph",
+     "text": "**It directly synthesises fatty acids within the cycle (Option C):** The citric acid cycle does not directly synthesise fatty acids. Instead, it produces citrate, which can be transported out of the mitochondria and used in the cytoplasm for fatty acid synthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**It provides intermediates solely for glucose synthesis (Option D):** The citric acid cycle provides intermediates for various biosynthetic pathways, not just glucose synthesis."
+    }
+   ]
+  },
+  {
+   "id": "6-12",
+   "question": "Which of the following is correct regarding anaplerotic reactions?",
+   "options": {
+    "A": "Produce ATP",
+    "B": "Replenish TCA intermediates",
+    "C": "Reduction of NAD+ to NADH",
+    "D": "Breakdown of fatty acids"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Anaplerotic reactions are biochemical pathways that replenish intermediates of the TCA cycle, ensuring its continuous function. These reactions compensate for the loss of intermediates used in biosynthetic pathways (e.g., amino acid synthesis, gluconeogenesis). Anaplerotic Reactions Reaction Enzyme Intermediate Replenished Source Pyruvate → Oxaloacetate Pyruvate carboxylase Oxaloacetate Pyruvate (from glycolysis)"
+    },
+    {
+     "type": "paragraph",
+     "text": "Glutamate → α-Ketoglutarate Glutamate dehydrogenase α-Ketoglutarate Glutamate (from amino acid metabolism) Propionyl-CoA → Succinyl-CoA Propionyl-CoA carboxylase Succinyl-CoA Odd-chain fatty acids, Valine, Isoleucine, Methionine Aspartate → Oxaloacetate Aspartate transaminase Oxaloacetate Aspartate (from protein metabolism) Produce ATP (Option A): Incorrect because anaplerotic reactions do not generate ATP directly."
+    },
+    {
+     "type": "paragraph",
+     "text": "ATP is primarily produced through substrate-level phosphorylation and oxidative phosphorylation in the TCA cycle."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Reduction of NAD+ to NADH (Option C):** Incorrect because anaplerotic reactions do not involve NADH production. NADH is generated during oxidative pathways like glycolysis and the TCA cycle."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Break down fatty acids (Option D):** Incorrect because fatty acid β-oxidation generates acetyl-CoA, which enters the TCA cycle but does not serve as an anaplerotic reaction."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L07_Q012_E1"
+    }
+   ]
+  },
+  {
+   "id": "6-13",
+   "question": "ATP inhibits all of the following enzymes in the citric acid cycle except:",
+   "options": {
+    "A": "Citrate synthase",
+    "B": "Isocitrate dehydrogenase",
+    "C": "α-Ketoglutarate dehydrogenase",
+    "D": "Succinate dehydrogenase"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Succinate dehydrogenase is not regulated by ATP. Its regulation is primarily by the availability of its substrate (succinate) and competitive inhibition by oxaloacetate."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Regulation of Enzymes in the TCA Cycle Enzyme Activators Inhibitors Citrate Synthase (Option A ruled out):** ADP ATP, Citrate, NADH, Succinyl-CoA Isocitrate Dehydrogenase (Option B ruled out) ADP, NAD+, Ca²⁺ ATP, NADH α-Ketoglutarate Dehydrogenase (Option C ruled out) ADP, Ca²⁺ ATP, NADH, Succinyl-CoA Succinate Dehydrogenase Succinate availability Oxaloacetate"
+    }
+   ]
+  },
+  {
+   "id": "6-14",
+   "question": "Which of the following toxins directly inhibits the activity of the enzyme aconitase in the Citric Acid Cycle?",
+   "options": {
+    "A": "Cyanide",
+    "B": "Fluoroacetate",
+    "C": "Rotenone",
+    "D": "Antimycin A"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Fluoroacetate itself does not directly inhibit aconitase. Instead, fluoroacetate is converted to fluoroacetyl-CoA, which then forms fluorocitrate. Fluorocitrate inhibits aconitase, leading to citrate accumulation. Fluoroacetyl-CoA condenses with oxaloacetate to form fluorocitrate, which inhibits the aconitase enzyme, causing citrate accumulation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Inhibitors of enzymes involved in the citric acid cycle: Inhibitor Enzyme Result Fluoroacetate Aconitase Accumulation of citrate Arsenite Alpha-ketoglutarate dehydrogenase complex Accumulation of alpha-ketoglutarate Malonate Succinate dehydrogenase Accumulation of succinate Cyanide (Option A) is a very toxic chemical that inhibits cytochrome c oxidase (Complex IV) in the electron transport chain, leading to the failure of aerobic respiration and histotoxic hypoxia."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Rotenone (Option C):** is an inhibitor of"
+    },
+    {
+     "type": "paragraph",
+     "text": "Complex I (NADH dehydrogenase) of the electron transport chain, and it is not directly associated with the inhibition of the TCA cycle Antimycin A (Option D) is a direct inhibitor of Complex III (cytochrome bc1 complex) of the electron transport chain, and it is not directly associated with the inhibition of the TCA cycle"
+    }
+   ]
+  },
+  {
+   "id": "6-15",
+   "question": "Calculate the total amount of ATP produced from the Citric Acid Cycle alone for one glucose molecule.",
+   "options": {
+    "A": "30 ATP",
+    "B": "9 ATP",
+    "C": "18 ATP",
+    "D": "20 ATP"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Each glucose molecule produces 2 Acetyl-CoA, and each Acetyl-CoA completes one turn of the TCA cycle. Molecule Produced ATP Yield per Molecule Total ATP for 2 Cycles NADH (3 per cycle) 2.5 ATP 3 × 2.5 × 2 = 15 ATP FADH₂ (1 per cycle) 1.5 ATP 1 × 1.5 × 2 = 3 ATP GTP (Direct ATP) (1 per cycle) 1 ATP 1 × 2 = 2 ATP Total ATP 20 ATP Each Acetyl-CoA generates 3 NADH, 1 FADH₂, and 1 ATP. Since one glucose produces 2 Acetyl-CoA, we double the ATP yield."
+    },
+    {
+     "type": "paragraph",
+     "text": "Total ATP from Citric Acid Cycle per glucose = 20 ATP. Citric Acid Cycle (Krebs Cycle) The Citric Acid Cycle (TCA cycle, Krebs cycle) is a central metabolic pathway that occurs in the mitochondria and plays a crucial role in energy production, biosynthesis, and metabolic regulation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Feature Details Location Mitochondrial matrix Purpose Oxidation of Acetyl-CoA to generate ATP, NADH, and FADH₂ Entry Molecule Acetyl-CoA (from glycolysis, fatty acid oxidation, or amino acid metabolism) End Products per Cycle 3 NADH (Produces 7.5 ATP) 1 FADH₂ (Produces 1.5 ATP) 1 ATP (GTP) 2 CO₂ (Byproduct) ATP Yield per Glucose 20 ATP (from 2 Acetyl-CoA) Regulatory Enzymes Citrate Synthase (Inhibited by ATP, NADH, and Succinyl-CoA) Isocitrate Dehydrogenase (Rate-limiting step, inhibited by ATP and NADH) α-Ketoglutarate Dehydrogenase (Inhibited by ATP, NADH, and Succinyl-CoA) Significance Provides intermediates for biosynthesis (e.g., amino acids, heme, fatty acids) Generates reducing equivalents (NADH, FADH₂) for the electron transport chain Integrates carbohydrate, lipid, and protein metabolism Steps in the Citric Acid Cycle: Step Reaction Enzyme ATP/NADH/FADH₂ Produced 1 Acetyl-CoA + Oxaloacetate → Citrate Citrate Synthase - 2 Citrate → Isocitrate Aconitase - 3 Isocitrate → α-Ketoglutarate + CO₂ Isocitrate Dehydrogenase 1 NADH (2.5 ATP) 4 α-Ketoglutarate → Succinyl-CoA + CO₂ α-Ketoglutarate Dehydrogenase 1 NADH (2.5 ATP) 5 Succinyl-CoA → Succinate Succinyl-CoA Synthetase 1 ATP (GTP) 6 Succinate → Fumarate Succinate Dehydrogenase 1 FADH₂ (1.5 ATP) 7 Fumarate → Malate Fumarase - 8 Malate →"
+    },
+    {
+     "type": "paragraph",
+     "text": "Oxaloacetate Malate Dehydrogenase 1 NADH (2.5 ATP) Regulation of the Citric Acid Cycle: Regulator Effect on TCA Cycle Mechanism ATP Inhibits High energy status NADH Inhibits High reducing equivalents ADP Activates Low energy status Ca²⁺ Activates Stimulates muscle contraction and energy demand Integration with Other Pathways: Gluconeogenesis: Oxaloacetate is a precursor. Fatty Acid Synthesis: Citrate provides acetyl-CoA for lipogenesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Amino Acid Metabolism: Intermediates serve as precursors for non-essential amino acids. Urea Cycle: Fumarate and Aspartate link TCA with nitrogen metabolism. The TCA cycle is a central hub for metabolism, connecting multiple biochemical pathways and ensuring efficient ATP production."
+    }
+   ]
+  },
+  {
+   "id": "6-16",
+   "question": "Which of the following by-products from the Krebs Cycle is involved in heme synthesis?",
+   "options": {
+    "A": "Citrate",
+    "B": "α-Ketoglutarate",
+    "C": "Succinyl-CoA",
+    "D": "Malate"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Succinyl-CoA and glycine are precursors for δ-aminolevulinic acid (ALA), the first step in heme synthesis. In the heme synthesis, succinyl-CoA combines with glycine to form δ-aminolevulinic acid (ALA), the first step."
+    },
+    {
+     "type": "paragraph",
+     "text": "Succinyl-CoA is replenished via anaplerotic reactions involving amino acids like Valine, Isoleucine, and Methionine, which are converted to Propionyl-CoA before forming Succinyl-CoA. Propionyl CoA from odd fatty acid breakdown enters the pathway by converting to Succinyl CoA. Citrate (Option A) is a 6-carbon molecule formed from acetyl-CoA and oxaloacetate."
+    },
+    {
+     "type": "paragraph",
+     "text": "Citrate serves as an intermediate in the TCA cycle and plays a key role in fatty acid and cholesterol synthesis by transporting acetyl-CoA from the mitochondria to the cytoplasm. α-Ketoglutarate (Option B) is a 5-carbon molecule involved in amino acid metabolism and serves as an intermediate in the Krebs Cycle."
+    },
+    {
+     "type": "paragraph",
+     "text": "It undergoes a Transamination Reaction to form Glutamate, which is a Reversible reaction.(α-Ketoglutarate ↔ Glutamate) Glutamate is derived from α-ketoglutarate and can be synthesized from Histidine, Proline, Arginine, and Glutamine via transamination and deamination reactions."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Malate (Option D):** Malate is an intermediate in the Krebs Cycle, formed from fumarate and converted into oxaloacetate. Malate can be converted to pyruvate by Malic Enzyme, generating NADPH, which is crucial for fatty acid synthesis. It is crucial as pyruvate can yield both Acetyl CoA (Pyruvate dehydrogenase) and Oxaloacetate (Pyruvate carboxylase), enabling their entry into the Citric cycle."
+    }
+   ]
+  },
+  {
+   "id": "6-17",
+   "question": "Which of the following steps in the Citric acid cycle involves oxidative phosphorylation and decarboxylation? Isocitrate → α-Ketoglutarate Succinate → Fumarate Malate → Oxaloacetate α-Ketoglutarate → Succinyl-CoA",
+   "options": {
+    "A": "1 and 4 are correct",
+    "B": "2 and 3 are correct",
+    "C": "1, 3, and 4 are correct",
+    "D": "All are correct"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The enzymes involved in both reactions are Isocitrate Dehydrogenase (Step 1) and α-Ketoglutarate Dehydrogenase (Step 4). Both involve oxidation and removal of CO₂ and produce NADH, which is later used in oxidative phosphorylation. Steps 3 and 4 are catalysed by Succinate dehydrogenase, and Malate Dehydrogenase catalyzes the oxidation of malate to oxaloacetate, producing NADH, which enters oxidative phosphorylation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Krebs cycle: Reactions in Krebs cycle: Reaction Type Enzyme Reaction Product Formed Oxidative Decarboxylation Isocitrate Dehydrogenase Isocitrate → α-Ketoglutarate CO₂ + NADH α-Ketoglutarate Dehydrogenase α-Ketoglutarate → Succinyl-CoA CO₂ + NADH Oxidation (Production of NADH/FADH₂) Isocitrate Dehydrogenase Isocitrate → α-Ketoglutarate NADH α-Ketoglutarate Dehydrogenase α-Ketoglutarate → Succinyl-CoA NADH Succinate Dehydrogenase Succinate → Fumarate FADH₂ Malate Dehydrogenase Malate → Oxaloacetate NADH Substrate-Level Phosphorylation Succinyl-CoA Synthetase Succinyl-CoA → Succinate GTP (or ATP) Hydration Fumarase Fumarate → Malate H₂O Addition Oxidative Decarboxylation removes CO₂ and generates NADH. Oxidation reactions contribute to the Electron Transport Chain by generating NADH/FADH₂. Substrate-level phosphorylation occurs at the Succinyl-CoA to Succinate step."
+    },
+    {
+     "type": "paragraph",
+     "text": "Hydration reaction occurs when Fumarase converts Fumarate to Malate."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L07_Q017_E1"
+    }
+   ]
+  },
+  {
+   "id": "6-18",
+   "question": "Which of the following is not a cofactor for the enzyme catalysing α-Ketoglutarate → Succinyl-CoA?",
+   "options": {
+    "A": "Fe2+",
+    "B": "Thiamine",
+    "C": "Lipoic Acid",
+    "D": "Pantothenic acid"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The enzyme responsible for the reaction α-Ketoglutarate → Succinyl-CoA is α-Ketoglutarate Dehydrogenase, in which Fe2+ is not a cofactor."
+    },
+    {
+     "type": "paragraph",
+     "text": "Iron (Fe²⁺) is a cofactor for Aconitase, which catalyzes the isomerization of citrate to isocitrate. α-Ketoglutarate Dehydrogenase: It is a Multienzyme complex involving 3 subunits and requires 5 Cofactors: Thiamine pyrophosphate (Vit B1) (Option B ruled out) Riboflavin (Vit B2 / FAD) Niacin (Vit B3 / NAD) Lipoic Acid (Option C ruled out) Pantothenic Acid / CoA / Vit B5 (Option D ruled out) It is involved in oxidative decarboxylation in the Krebs cycle but does not participate in oxidative phosphorylation."
+    },
+    {
+     "type": "paragraph",
+     "text": "It catalyses the oxidative decarboxylation of α-ketoglutarate to form succinyl-CoA. α-Ketoglutarate + CoA + NAD⁺ → Succinyl-CoA + CO₂ + NADH (Irreversible) It is Inhibited by Arsenite (Non-Competitive Inhibition)."
+    }
+   ]
+  },
+  {
+   "id": "7-2",
+   "question": "What is the composition of lactulose?",
+   "options": {
+    "A": "Glucose + Galactose",
+    "B": "Glucose + Fructose",
+    "C": "Galactose + Fructose",
+    "D": "Fructose + Ribulose"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Lactulose is a synthetic disaccharide composed of galactose and fructose. It is commonly used as a laxative and to treat hepatic encephalopathy."
+    },
+    {
+     "type": "paragraph",
+     "text": "Disaccharide Sugars present Linkage Maltose (Basic thumb rule) 2 glucose residues - glucose + glucose alpha(1,4) Isomaltose (Six atoms) 2 glucose residues - glucose + glucose a(1,6) Trehalose 2 glucose residues - glucose + glucose a(1,1) Sucrose Glucose + fructose (Option B ruled out) a(1,2) Lactose Galactose + glucose (Option A ruled out) beta(1,4) Fructose + Ribulose (Option D): This composition does not correspond to any common disaccharide or sugar."
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q807672",
+   "question": "Which of the following does NOT inhibit oxidative phosphorylation?",
+   "options": {
+    "A": "CO",
+    "B": "Antimycin A",
+    "C": "Malonate",
+    "D": "Thermogenin"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Thermogenin, also known as uncoupling protein 1 (UCP1), is a protein found in brown adipose tissue. Unlike the other options, thermogenin does not inhibit oxidative phosphorylation. Instead, it creates a channel that allows the flow of protons (H+) across the inner mitochondrial membrane, bypassing ATP synthase."
+    },
+    {
+     "type": "paragraph",
+     "text": "This uncoupling of proton gradient and ATP synthesis generates heat instead of ATP production Incorrect options: Option A. CO (Carbon Monoxide): Carbon monoxide is a potent inhibitor of oxidative phosphorylation. It binds to cytochrome c oxidase, a component of the electron transport chain, and prevents the transfer of electrons, thus inhibiting ATP synthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B. Antimycin A: Antimycin A is an antibiotic that specifically inhibits complex III of the electron transport chain. By blocking electron transfer from coenzyme Q to cytochrome c, it disrupts oxidative phosphorylation and ATP synthesis. Option C. Malonate: Malonate is a competitive inhibitor of succinate dehydrogenase, which is a key enzyme in the citric acid cycle (also known as the Krebs cycle)."
+    },
+    {
+     "type": "paragraph",
+     "text": "By inhibiting succinate dehydrogenase, malonate indirectly affects oxidative phosphorylation by reducing the availability of electron carriers in the electron transport chain."
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q807370",
+   "question": "Which glycogen storage disease is associated with the alkaline pH of skeletal muscle after strenuous exercise?",
+   "options": {
+    "A": "Mc Ardle's disease",
+    "B": "Von — Gierke's disease",
+    "C": "Her's disease",
+    "D": "Pompe's disease"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "After strenuous exercise, the alkaline pH of skeletal muscle is observed in Mc Ardle's disease, also known as glycogen storage disease type V. Mc Ardle's disease is caused by a deficiency of the enzyme myophosphorylase, which is responsible for breaking down glycogen into glucose-1-phosphate in muscle tissue. Without this enzyme, glycogen cannot be efficiently broken down, leading to impaired energy production during exercise."
+    },
+    {
+     "type": "paragraph",
+     "text": "As a result, the muscle relies on anaerobic glycolysis, leading to the accumulation of lactic acid and subsequent alkaline pH. Incorrect options: Option B. Von Gierke's disease: Von Gierke's disease, also known as glycogen storage disease type I, is caused by a deficiency of the enzyme glucose-6-phosphatase. This enzyme is involved in the final step of gluconeogenesis and glycogenolysis, converting glucose-6-phosphate to glucose."
+    },
+    {
+     "type": "paragraph",
+     "text": "However, Von Gierke's disease does not result in an alkaline pH of skeletal muscle after strenuous exercise. Option C. Her's disease: Her's disease, or glycogen storage disease type VI, is caused by a deficiency of the enzyme liver glycogen phosphorylase. This enzyme is responsible for breaking down glycogen into glucose in the liver. However, Her's disease does not lead to an alkaline pH in skeletal muscle after strenuous exercise."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D. Pompe's disease: Pompe's disease, or glycogen storage disease type II, is caused by a deficiency of the enzyme acid alpha-glucosidase (GAA), which is responsible for breaking down glycogen into glucose in lysosomes. Pompe's disease primarily affects cardiac and skeletal muscles. While Pompe's disease can result in exercise intolerance and muscle weakness, it does not cause an alkaline pH in skeletal muscle after strenuous exercise."
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q799722",
+   "question": "What is the substance that inhibits Complex 4 in the electron transport chain?",
+   "options": {
+    "A": "Cyanide",
+    "B": "Phenformin",
+    "C": "Rotenone",
+    "D": "Carboxin"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Cyanide inhibits Complex IV (cytochrome c oxidase) in the electron transport chain by binding to the heme group of cytochrome c oxidase. This prevents the transfer of electrons from cytochrome c to oxygen, halting the final step of ATP synthesis. Incorrect options: Option B. Phenformin: Phenformin is an antidiabetic drug that does not directly inhibit Complex IV. It primarily acts by"
+    },
+    {
+     "type": "paragraph",
+     "text": "inhibiting mitochondrial ATP synthesis through a different mechanism, involving the inhibition of ATP synthase. Option C. Rotenone: Rotenone is a pesticide and a specific inhibitor of Complex I (NADH dehydrogenase) in the electron transport chain. It blocks the transfer of electrons from NADH to coenzyme Q, disrupting the normal flow of electrons through the chain."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D. Carboxin: Carboxin is a fungicide that inhibits succinate dehydrogenase, an enzyme involved in the Krebs cycle (also known as the citric acid cycle or TCA cycle). It does not directly inhibit Complex IV in the electron transport chain."
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q799712",
+   "question": "Which of the following GAG has anticoagulant activity",
+   "options": {
+    "A": "Heparin",
+    "B": "Keratan sulfate",
+    "C": "Chondroitin sulfate",
+    "D": "Hyaluronic acid"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Heparin is a glycosaminoglycan (GAG) that possesses anticoagulant activity. It acts as a natural anticoagulant by inhibiting the activity of various clotting factors in the blood, particularly thrombin and factor Xa. Heparin is primarily synthesized and stored in mast cells, and it is released into the bloodstream when needed to prevent the formation of blood clots."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B. Keratan sulfate: Keratan sulfate is a GAG that is mainly found in connective tissues such as cartilage and cornea. It does not possess anticoagulant properties. Option C. Chondroitin sulfate: Chondroitin sulfate is another GAG that is abundant in various connective tissues, including cartilage and tendons. It does not have anticoagulant activity."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D. Hyaluronic acid: Hyaluronic acid is a GAG that is widely distributed throughout the body, including in synovial fluid, skin, and connective tissues. It does not have anticoagulant properties."
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q799706",
+   "question": "Which glycosaminoglycan (GAG) is present in synovial fluid?",
+   "options": {
+    "A": "Heparin",
+    "B": "Keratan sulfate",
+    "C": "Chondroitin sulfate",
+    "D": "Hyaluronic acid"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Hyaluronic acid is a type of glycosaminoglycan (GAG) that is found in high concentrations in synovial fluid, which is the fluid that lubricates and cushions the joints. It is a major component of the synovial fluid and plays a crucial role in maintaining the viscoelastic properties of the fluid, allowing for smooth joint movement. Incorrect options: Option a."
+    },
+    {
+     "type": "paragraph",
+     "text": "Heparin: Heparin is a GAG primarily found in mast cells and is an important anticoagulant in the bloodstream. It is not typically found in significant amounts in synovial fluid. Heparin functions by inhibiting blood clotting factors and preventing the formation of blood clots. Option b. Keratan sulfate: Keratan sulfate is a GAG that is commonly found in various connective tissues, including cartilage, cornea, and bone."
+    },
+    {
+     "type": "paragraph",
+     "text": "It contributes to the structural integrity of these tissues. While it may be present in trace amounts in synovial fluid, it is not the main GAG found in this fluid. Option c. Chondroitin sulfate: Chondroitin sulfate is another GAG that is widely distributed in connective tissues, including cartilage, bone, and skin. It provides structural support and helps maintain tissue hydration."
+    },
+    {
+     "type": "paragraph",
+     "text": "Although chondroitin sulfate may be present in small quantities in synovial fluid, it is not the primary GAG found in significant concentrations in this fluid."
+    }
+   ]
+  },
+  {
+   "id": "7-12",
+   "question": "Which among the following absorbs the least water?",
+   "options": {
+    "A": "Mucilage",
+    "B": "Cellulose",
+    "C": "Gums",
+    "D": "Pectin"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Cellulose absorbs the least water because it is a highly crystalline and rigid polysaccharide. It is composed of long chains of β-glucose units connected by β-1,4-glycosidic bonds, forming strong hydrogen bonds within and between the chains. These extensive hydrogen bonds create a stable, insoluble structure that resists water absorption. Incorrect Options: Mucilage (Option A): Highly hydrophilic and absorbs large amounts of water."
+    },
+    {
+     "type": "paragraph",
+     "text": "Common in plants for water storage and seed germination."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Gums (Option C):** Hydrophilic polysaccharides that swell and absorb water to form gels.Found in plant exudates."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Pectin (Option D):** Highly hydrophilic and forms gels by trapping water molecules. Used in food products like jams and jellies for its water-absorbing properties."
+    }
+   ]
+  },
+  {
+   "id": "7-46",
+   "question": "Which is the enzyme activated by a decrease in insulin: glucagon ratio?",
+   "options": {
+    "A": "Glucokinase",
+    "B": "Hexokinase",
+    "C": "Phosphoructokinase",
+    "D": "Glucose 6-phosphatase"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Glucose 6-phosphatase activated by decrease in insulin: glucagon ratio. A decrease in the insulin-to-glucagon ratio shifts the body from an anabolic state (storing energy) to a catabolic state (releasing energy). This leads to activation of enzymes involved in pathways like gluconeogenesis and glycogenolysis, while suppressing enzymes in glycolysis and glycogen synthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Glucose 6-phosphatase: Catalyzes the hydrolysis of glucose-6-phosphate to free glucose, the final step in gluconeogenesis and glycogenolysis. Regulation: Activated when the insulin-to-glucagon ratio decreases to release glucose into the bloodstream for energy. It is crucial for maintaining blood glucose levels during fasting or catabolic states."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Glucokinase (Option A): The gluckinase activity decreases with a decrease in the insulin: glucagon ratio."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Hexokinase (Option B):** The hexokinase activity decreases with a decrease in the insulin: glucagon ratio."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Phosphofructokinase (Option C):** A decrease in the insulin: glucagon ratio decreases its activity. Phosphoructokinase activity is regulated by various factors, including ATP, ADP, and citrate concentration."
+    }
+   ]
+  },
+  {
+   "id": "7-7",
+   "question": "Which of the following enzymes are involved in gluconeogenesis? Pyruvate carboxylase Phosphoenol pyruvate kinase Hexokinase Pyruvate kinase Glucose 6 phosphatase",
+   "options": {
+    "A": "a, b and e only",
+    "B": "b and c only",
+    "C": "a and e only",
+    "D": "a, b and c only"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Pyruvate carboxylase is involved in gluconeogenesis. It catalyzes the conversion of pyruvate to oxaloacetate, which is an important intermediate in the gluconeogenic pathway. Glucose 6 phosphatase is also involved in gluconeogenesis.It catalyzes the final step of gluconeogenesis, which is the hydrolysis of glucose 6-phosphate to glucose."
+    },
+    {
+     "type": "paragraph",
+     "text": "Phosphoenol pyruvate kinase, Pyruvate kinase, and hexokinase are involved in glycolysis pathway Enzymes involved in gluconeogenesis: Enzyme Location Pyruvate carboxylase Mitochondria Cytoplasm Fructose- 1, 6-bisphosphatese Cytoplasm Glucose-6-phosphatase Endoplasmic reticulum"
+    }
+   ]
+  }
+ ]
+}

@@ -17856,9 +17856,9 @@
       "bindings": [
         {
           "questionId": "marrow__PHYSIO_CH35_Q020",
-          "role": "explanation",
+          "role": "question",
           "order": 1,
-          "alt": "Source diagram",
+          "alt": "Bar chart comparing plasma and urine solute composition in three patients",
           "status": "PASS",
           "reviewBatch": "manual-wave2-biochem-physiology",
           "source": {
@@ -17876,7 +17876,7 @@
           },
           "qa": {
             "sourceCompared": true,
-            "notes": "Bar figure compares plasma and urine solute concentrations for three patients, matching the identification task. Original source-render pixels retained unchanged.",
+            "notes": "Re-bound as the question figure on 2026-10-22: the stem opens with 'The following picture shows the composition of solute in the urine and plasma sample of 3 patients', and this bar chart is exactly that identification task. Original source-render pixels retained unchanged.",
             "evidence": "Ubuntu run 36437795978, marrow-wave2-regions crop/manifest; source PDF SHA verified."
           }
         }

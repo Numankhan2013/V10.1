@@ -1,0 +1,577 @@
+{
+ "batch": "biochemistry-024",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "biochemistry-024",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "22-10",
+   "question": "In enzyme kinetics, a double reciprocal plot (Lineweaver-Burk plot) is used to determine kinetic parameters. What do the x-intercept and y-intercept of a double reciprocal plot represent?",
+   "options": {
+    "A": "x-intercept: -1/Km; y-intercept: 1/Vmax",
+    "B": "x-intercept: 1/Km; y-intercept: 1/Vmax",
+    "C": "x-intercept:1/Vmax; y-intercept: -1/Km",
+    "D": "x-intercept: -1/Km; y-intercept: -1/Vmax"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Double reciprocal plots typically are used both to distinguish between competitive and non-competitive inhibitors and to simplify evaluation of inhibition constants. The Lineweaver-Burk plot is a double reciprocal plot used to linearize the Michaelis-Menten equation."
+    },
+    {
+     "type": "paragraph",
+     "text": "The Michaelis-Menten equation is: V = Vmax[S]/Km + [S] Taking the reciprocal of both sides, we get the Lineweaver-Burk equation: 1/V = Km/Vmax[S] + 1/Vmax In this linear form, plotting 1/V(y-axis) against 1/[S] (x-axis) yields a straight line. The x-intercept of this plot is -1/Km and the y-intercept is 1/Vmax."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L28_Q010_E1"
+    }
+   ]
+  },
+  {
+   "id": "22-11",
+   "question": "Which of the following statements regarding Michaelis Menten equation is true?",
+   "options": {
+    "A": "Used to calculate the rate of reaction",
+    "B": "Substrate concentration is required to calculate the rate using Michaelis Menten equation",
+    "C": "Michaelis constant is the substrate concentration at which the velocity of the reaction is half the maximal velocity",
+    "D": "All are true"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Michalis Menten equation: V = Vmax x S / (Km + S) Where, V = Velocity of reaction Vmax = Maximum velocity of the reaction S = Substrate concentration Km = Michaelis constant = Substrate concentration at which the velocity of the reaction is half the maximal velocity (Vmax/2)"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L28_Q011_E1"
+    }
+   ]
+  },
+  {
+   "id": "22-12",
+   "question": "What is the correct equation to calculate the catalytic efficiency of an enzyme?",
+   "options": {
+    "A": "Kcat / Km",
+    "B": "Km / Kcat",
+    "C": "Vmax / St",
+    "D": "Vmax / Km"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The catalytic efficiency of an enzyme is the ratio of Kcat to Km Catalytic Efficiency = Kcat / Km Where, Kcat = Catalytic constant = The catalytic activity of homogeneous enzyme = Ratio of the maximum velocity of the reaction to the number of active sites on the enzymes Kcat=Vmax / St Km = Michalis constant = Substrate concentration at which the velocity of the reaction is half the maximal velocity (Vmax / 2)"
+    }
+   ]
+  },
+  {
+   "id": "22-13",
+   "question": "Which of the following statements is false Increase in enzyme concentration increases the rate of reaction Increase in substrate concentration increases the rate of reaction Increase in product concentration increases the rate of reaction",
+   "options": {
+    "A": "1, 3",
+    "B": "3",
+    "C": "1, 2, 3",
+    "D": "None"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Increased product concentration slows, stops, or reverses the reaction Factor Effect on Reaction Rate Enzyme Concentration Rate of reaction increases with an increase in enzyme concentration Substrate Concentration Initial phases: Velocity increases with increasing substrate concentration Vmax: Maximum velocity attainable at substrate saturation level Once Vmax is attained, changes in substrate concentration will not affect the rate of reaction Product Concentration Increased product concentration slows, stops, or reverses the reaction Temperature Increasing temperature increases reaction velocity Velocity reaches a maximum at an optimum temperature and then falls with further increase pH Each enzyme has an optimum pH pH value is nearer to optimum→reaction rate increases"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L28_Q013_E1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L28_Q013_E2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L28_Q013_E3"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L28_Q013_E4"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L28_Q013_E5"
+    }
+   ]
+  },
+  {
+   "id": "22-14",
+   "question": "Which of the following statements is/are true regarding the mechanisms of action of enzymes? Enzymes that act by altering the strain of substrates catalyze lytic reactions Enzymes forming covalent bonds are seen commonly in group transfer reactions When the functional groups of aminoacyl side chains of enzymes act as an acid or base, the rate of reaction increases",
+   "options": {
+    "A": "1, 2",
+    "B": "2, 3",
+    "C": "1, 3",
+    "D": "1, 2, 3"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Different enzymes have different mechanisms to catalyze a reaction Mechanism Description Catalysis by Proximity Substrates come in bond-forming proximity to enzymes→Enzymes bind substrate molecules at their active site→region of high local substrate concentration created→substates are ideally positioned to chemically interact→reaction is catalyzed Acid-Base Catalysis Ionizable functional groups of aminoacyl side chains and prosthetic groups of enzymes act as acids or bases causing catalysis (Statement 3) Catalysis by Strain Enzymes bind substrates in a conformation that weakens the bond targeted for cleavage→ catalyses lytic reactions (Statement 1) Covalent Catalysis Formation of a covalent bond between the enzyme and one or more substrates catalyzes the reaction Common among enzymes that catalyze group transfer reactions (Statement 2)"
+    }
+   ]
+  },
+  {
+   "id": "22-15",
+   "question": "A 35-year-old female with chronic diarrhea, weight loss, and fatty stools complains that her symptoms worsen after a high-fat meal. Reduced activity of pancreatic lipase is suspected. Which of the following ions is most likely to be low in this patient?",
+   "options": {
+    "A": "Calcium",
+    "B": "Copper",
+    "C": "Iron",
+    "D": "Zinc"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Pancreatic lipase is an ion-activated enzyme. Its activity is enhanced by adding calcium ions, which is its cofactor."
+    },
+    {
+     "type": "paragraph",
+     "text": "A cofactor is a collective term that includes coenzymes and metal ions Enzymes that require certain metal ions for their activity are called metalloenzymes Metal-ion (cofactor) Enzymes Calcium (Option A) Lecithinase, lipase Copper (Option B) Tyrosinase, cytochrome oxidase, superoxide dismutase Iron (Option C) Cytochrome oxidase, catalase, peroxidase, xanthine oxidase Zinc (Option D) Carbonic anhydrase, carboxypeptidase, alcohol dehydrogenase Magnesium Hexokinase, enolase, glucose-6-phosphatase Manganese Phosphoglucomutase, glycosyl transferases Molybdenum Xanthine oxidase"
+    }
+   ]
+  },
+  {
+   "id": "22-16",
+   "question": "A patient presents with symptoms of fatigue and muscle weakness. Laboratory tests indicate a deficiency in riboflavin. Which coenzyme's function is most likely affected?",
+   "options": {
+    "A": "NAD",
+    "B": "FAD",
+    "C": "Coenzyme A",
+    "D": "Folic acid"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "FAD is derived from riboflavin and is essential for redox reactions in the electron transport chain."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Coenzyme Type Source (Vitamin) Function Example Reaction NAD/NADP (Option A):** Nicotinamide (B3) Redox reactions Cellular respiration FAD / FM (Option B) Riboflavin (B2) Redox reactions Electron transport chain Coenzyme A (Option C) Pantothenic acid (B5) Acyl group transfer Fatty acid metabolism Folic acid/ Cobamide (Option D) Folate (B9), B12 One-carbon metabolism DNA synthesis"
+    }
+   ]
+  },
+  {
+   "id": "22-17",
+   "question": "Which of the following is not a function of prosthetic groups?",
+   "options": {
+    "A": "Substrate binding and orientation",
+    "B": "Formation of covalent bonds",
+    "C": "Electron transfer",
+    "D": "Protein degradation"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Prosthetic groups Definition Non-protein molecules tightly bound to proteins via covalent or non-covalent bonds. Essential for enzyme catalytic activity. Examples Pyridoxal Phosphate (PLP): Amino acid metabolism. Flavin Mononucleotide (FMN) and Flavin Adenine Dinucleotide (FAD): Redox reactions. Thiamin Pyrophosphate (TPP): Decarboxylation reactions."
+    },
+    {
+     "type": "paragraph",
+     "text": "Functions Substrate Binding and Orientation: Proper orientation of substrates for catalytic reaction. (Option A) Formation of Covalent Bonds: Covalent bonds with reaction intermediates. (Option B) Electron Transfer: Facilitates electron transfer in redox reactions. (Option C) Activation of Substrates: Acts as Lewis acids or bases to enhance substrate reactivity."
+    },
+    {
+     "type": "paragraph",
+     "text": "Characteristics Stable Incorporation: Tightly bound to enzymes, unlike transient cofactors. Role in Catalysis: Enhance enzyme capabilities beyond amino acid side chains. Versatility: Involved in various reactions like oxidation-reduction, group transfer, covalent bond formation."
+    }
+   ]
+  },
+  {
+   "id": "22-18",
+   "question": "Match the enzyme class with its corresponding example: Enzyme Class Example A) Oxidoreductases 1) Hexokinase B) Transferases 2) Lactate dehydrogenase C) Hydrolases 3) DNA ligase D) Lyases 4) Trypsin E) Isomerases 5) Aldolase F) Ligases 6) Triosephosphate isomerase",
+   "options": {
+    "A": "A-2, B-1, C-4, D-5, E-6, F-3",
+    "B": "A-1, B-2, C-4, D-5, E-3, F-6",
+    "C": "A-2, B-4, C-5, D-1, E-6, F-3",
+    "D": "A-3, B-2, C-4, D-5, E-6, F-1"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Class Function Examples Oxidoreductases Catalyze oxidation-reduction reactions Lactate dehydrogenase, glucose-6-phosphate dehydrogenase Transferases Transfer functional groups Hexokinase, aminotransferase Hydrolases Catalyze hydrolytic cleavage of bonds Trypsin, acetylcholine esterase Lyases Cleave bonds by means other than hydrolysis/oxidation Aldolase, decarboxylases Isomerases Catalyze rearrangement of atoms Triosephosphate isomerase, racemases Ligases Join two molecules, using ATP DNA ligase, acetyl-CoA synthetase"
+    }
+   ]
+  },
+  {
+   "id": "22-19",
+   "question": "What is the role of activation energy in a chemical reaction, and how do enzymes influence it?",
+   "options": {
+    "A": "Activation energy converts molecules from transition to ground state; enzymes increase it.",
+    "B": "Activation energy converts molecules from ground state to transition state; enzymes lower it.",
+    "C": "Activation energy is released during product formation; enzymes do not affect it.",
+    "D": "Activation energy breaks bonds in products; enzymes increase it."
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Activation energy Definition Activation energy is the energy required to convert molecules from the ground state to the transition state (An unstable intermediate with partially formed and broken bonds. Activation energy is a barrier that must be overcome for a reaction to proceed; typically positive, indicating an energy requirement. Role of Enzymes Enzymes lower activation energy, making it easier for reactions to occur."
+    },
+    {
+     "type": "paragraph",
+     "text": "Reaction Rate Factors Reaction rate increases as activation energy decreases; temperature increases kinetic energy, leading to more frequent and energetic collisions. Visualization Transition state visualized as neither free substrate nor product, with partial bonds forming and rupturing. Substrate Binding Enzymes optimize weak interactions with substrates, providing the driving force for catalysis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Influencing Factors Enzyme activity is affected by pH, temperature, and presence of inhibitors or activators. Example Acid hydrolysis of sucrose: Activation energy with enzyme (sucrase) is 9,000 cal/mol while without enzyme is around 26,000 cal/mol."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Activation energy converts molecules from transition to ground state; enzymes increase it (Option A):** This reverses the direction of the energy process. Activation energy is required to reach the transition state, not to return to the ground state. Also, enzymes do not increase activation energy, they lower it to speed up the reaction. So this statement is incorrect in both concept and mechanism."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Activation energy is released during product formation; enzymes do not affect it (Option C):** Activation energy is absorbed, not released, it’s the energy needed to start the reaction, not something that comes out of it. Energy may be released or absorbed during product formation, depending on whether the reaction is exergonic or endergonic, but that’s not the same as activation energy. Moreover, enzymes do affect activation energy, they lower it, which is a key feature of catalysis. So this option is wrong in both defining activation energy and the role of enzymes."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Activation energy breaks bonds in products; enzymes increase it (Option D):** Activation energy is needed to break bonds in the reactants to allow them to form the products, not the other way around. Also, enzymes do not increase activation energy, their purpose is to lower it, making reactions faster and more efficient. So this option incorrectly identifies both the target of activation energy and the role of enzymes."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L28_Q019_E1"
+    }
+   ]
+  },
+  {
+   "id": "22-20",
+   "question": "Which of the following statements about suicide inhibition is incorrect?",
+   "options": {
+    "A": "The inhibitor covalently binds to the enzyme after being converted to a reactive intermediate.",
+    "B": "Suicide inhibition is a reversible form of enzyme inhibition.",
+    "C": "Suicide inhibitors resemble the enzyme's natural substrate.",
+    "D": "Allopurinol acts as a suicide inhibitor of xanthine oxidase to manage gout."
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Suicide inhibition, is a special type of irreversible enzyme inhibition. Process of Suicide Inhibition: Examples of Suicide Inhibition: Enzyme Inhibitor Mechanism Clinical Application Ornithine Decarboxylase"
+    },
+    {
+     "type": "paragraph",
+     "text": "(ODC) Difluoromethylornithine (DFMO) DFMO binds to ODC, is converted to a reactive form, and irreversibly inactivates the enzyme. Treats trypanosomiasis by stopping polyamine synthesis in Trypanosoma parasites."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Xanthine Oxidase (Option D):** Allopurinol Allopurinol is oxidized to alloxanthine, which forms an irreversible complex with xanthine oxidase. Manages gout by reducing uric acid levels. Cyclo-oxygenase (COX) Aspirin Aspirin acetylates a serine residue in COX, irreversibly inhibiting the enzyme. Reduces inflammation and pain, and prevents heart attacks and strokes."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L28_Q020_E1"
+    }
+   ]
+  },
+  {
+   "id": "22-21",
+   "question": "Which of the following biochemical reactions is not regulated by allosteric regulation?",
+   "options": {
+    "A": "Phosphofructokinase-1 in glycolysis",
+    "B": "Aspartate transcarbamoylase in pyrimidine biosynthesis",
+    "C": "Glycogen phosphorylase in glycogenolysis",
+    "D": "Glucokinase in glycolysis"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Glucokinase catalyzes the first step of glycolysis, converting glucose to glucose-6-phosphate. Unlike some other enzymes, glucokinase is primarily regulated by product inhibition (glucose-6-phosphate) rather than allosteric regulation. Allosteric regulation is a mechanism where an enzyme's activity is modified by the binding of an effector molecule at a site other than the active site, known as the allosteric site."
+    },
+    {
+     "type": "paragraph",
+     "text": "Allosteric Site: A specific location on an enzyme distinct from the active site where effector molecules bind, inducing conformational changes that influence enzyme activity. Effectors: Molecules that bind to the allosteric site and modify enzyme activity."
+    },
+    {
+     "type": "paragraph",
+     "text": "Conformational Changes: Binding of an effector to the allosteric site causes a conformational change in the enzyme, which can alter the enzyme's affinity for its substrate and modify the enzyme's catalytic efficiency."
+    },
+    {
+     "type": "paragraph",
+     "text": "Examples of Allosteric Regulation Enzyme Allosteric Inhibitor Allosteric Activator Notes Phosphofructokinase (Option A) ATP, citrate AMP, F-2,6-P Key regulatory enzyme in glycolysis Aspartate transcarbamoylase (Option B) CTP ATP Important in pyrimidine synthesis Glycogen phosphorylase (Option C) ATP, glucose-6-P AMP Regulates glycogen breakdown Pyruvate kinase ATP, alanine F-1,6-BP Regulates glycolysis"
+    }
+   ]
+  },
+  {
+   "id": "22-22",
+   "question": "Which of the following shapes of the Michaelis-Menten plot is observed for allosteric regulation?",
+   "options": {
+    "A": "Hyperbolic curve",
+    "B": "Sigmoidal curve",
+    "C": "Linear increase",
+    "D": "Parabolic curve"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "A sigmoidal curve, typical of allosteric enzymes, shows cooperative binding. Initially, reaction velocity rises slowly due to low substrate affinity. As more substrates bind, conformational changes enhance"
+    },
+    {
+     "type": "paragraph",
+     "text": "enzyme affinity, causing a sharp increase in velocity before saturation. In enzyme kinetics, a hyperbolic curve in Michaelis-Menten plots represents enzymes with simple kinetics, where reaction velocity increases rapidly at low substrate concentrations and levels off as the enzyme becomes saturated."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L28_Q022_E1"
+    }
+   ]
+  },
+  {
+   "id": "22-23",
+   "question": "Match the following regulation mechanisms with their respective enzymatic reactions: Regulation mechanisms Enzymatic reactions 1. Compartmentation a. Phosphorylation of glycogen phosphorylase 2. Feedback inhibition b. Negative regulation of phosphofructokinase by ATP 3. Covalent modification c. Segregation of glycolytic enzymes in the cytosol 4. Proteolytic activation d. Activation of pepsinogen to pepsin",
+   "options": {
+    "A": "1 - c, 2 - d, 3 - a, 4 - b",
+    "B": "1 - b, 2 - c, 3 - d, 4 - a",
+    "C": "1 - c, 2 - b, 3 - a, 4 - d",
+    "D": "1 - d, 2 - a, 3 - b, 4 - c"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Regulation mechanisms Enzymatic reactions 1. Compartmentation c. Segregation of glycolytic enzymes in the cytosol 2. Feedback inhibition b. Negative regulation of phosphofructokinase by ATP 3. Covalent modification a. Phosphorylation of glycogen phosphorylase 4. Proteolytic activation d."
+    },
+    {
+     "type": "paragraph",
+     "text": "Activation of pepsinogen to pepsin Regulatory Mechanism Description Examples Compartmentation Separating metabolic processes into different cellular compartments to regulate their activity. Segregation of glycolytic enzymes in the cytosol. Separation of fatty acid oxidation in the mitochondria from fatty acid synthesis in the cytosol. Feedback Inhibition A molecule decreases the activity of an enzyme."
+    },
+    {
+     "type": "paragraph",
+     "text": "Negative regulation of phosphofructokinase by ATP. Inhibition of acetyl-CoA carboxylase by palmitoyl-CoA in fatty acid synthesis. Covalent Modification Addition or removal of a covalent bond of a chemical group to alter an enzyme's activity. Phosphorylation of glycogen phosphorylase. Acetylation of histones affecting gene expression. Proteolytic Activation Converting an inactive enzyme precursor into its active form through proteolytic cleavage."
+    },
+    {
+     "type": "paragraph",
+     "text": "Activation of pepsinogen to pepsin. Activation of trypsinogen to trypsin."
+    }
+   ]
+  },
+  {
+   "id": "22-24",
+   "question": "Which of the following statements about isoenzymes is incorrect?",
+   "options": {
+    "A": "Isoenzymes can be distinguished by their different amino acid sequences or structural properties",
+    "B": "Allozymes are produced by different genes and can have distinct Km values or substrate affinities",
+    "C": "Isoforms result from post-translational modifications, such as changes in sialic acid content in alkaline phosphatase (ALP)",
+    "D": "Electrophoresis is a technique used to separate isoenzymes based on their mobility."
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Allozymes are variants of the same gene, not produced by different genes. They do exhibit differences in Km values or substrate affinities."
+    },
+    {
+     "type": "paragraph",
+     "text": "Isoenzymes Isoenzymes or isozymes, are distinct forms of the same enzyme that catalyze the same chemical reaction but differ in their amino acid sequences, structural properties, or regulatory mechanisms (Option A) These variations allow isoenzymes to be tissue-specific or associated with different developmental stages, reflecting their adaptation to specific physiological needs or conditions while performing the same fundamental biochemical function."
+    },
+    {
+     "type": "paragraph",
+     "text": "Variants: True Isoenzymes: Produced by different genes, e.g., salivary vs. pancreatic amylase. Allozymes: Variants of the same gene, e.g., glucose-6-phosphate dehydrogenase Isoforms: Result from post-translational modifications, e.g., sialic acid"
+    },
+    {
+     "type": "paragraph",
+     "text": "**content in ALP (Option C):** Identification Techniques: Electrophoresis: Isoenzymes can be separated based on mobility (Option D) Heat Stability: Some isoenzymes are more heat-sensitive. Inhibitors: Sensitivity to specific inhibitors can help differentiate isoenzymes. Km Value/Substrate Specificity: Different isoenzymes may have distinct Km values or substrate affinities. Cofactor Requirements: Isoenzymes might differ in their cofactor needs. Tissue Localization: Isoenzymes are often found in specific tissues. Examples: Lactate Dehydrogenase (LDH): 5 isoforms (LDH-1 to LDH-5) Creatine Kinase (CK): 3 isoforms (CK-MM, CK-BB, CK-MB) Alkaline Phosphatase (ALP): 3 isoforms (Bone, Liver, Placental)"
+    }
+   ]
+  },
+  {
+   "id": "22-25",
+   "question": "A 45-year-old male presents with severe pain and swelling in his right calf following an intense workout session two days ago. Laboratory tests, including measurements of lactate dehydrogenase (LDH) isoenzymes, are ordered. Which LDH isoenzyme is most indicative of the patient's condition?",
+   "options": {
+    "A": "LDH-1",
+    "B": "LDH-2",
+    "C": "LDH-3",
+    "D": "LDH-5"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Lactate dehydrogenase (LDH) is an enzyme involved in converting lactate to pyruvate during anaerobic glycolysis. It consists of four subunits, forming five different isoenzymes that vary in tissue distribution. LDH-5, primarily found in skeletal muscle and liver, serves as a biomarker and typically indicates skeletal muscle damage, seen in muscle injury, rhabdomyolysis, or intense physical exertion."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Isoenzyme Tissue/Organ Clinical Use LDH-1 (Option A):** Heart Elevated levels can indicate myocardial infarction or other tissue damage."
+    },
+    {
+     "type": "paragraph",
+     "text": "**LDH-2 (Option B):** Reticuloendothelial system Elevated levels can suggest tissue damage or disease."
+    },
+    {
+     "type": "paragraph",
+     "text": "**LDH-3 (Option C):** Lungs Elevated levels can be associated with lung conditions. LDH-4 Kidneys and placenta Elevated levels may indicate kidney or placental issues. LDH-5 Liver and skeletal muscle Elevated levels can be related to liver or muscle damage."
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q859421",
+   "question": "What is the likely diagnosis for a 36-year-old man who has been experiencing bluish-black discoloration of the sclera and pinna for the past 6 months, along with a history of black urine upon standing since childhood?",
+   "options": {
+    "A": "Phenylketonuria",
+    "B": "Alkaptonuria",
+    "C": "Tyrosinemia",
+    "D": "Maple syrup urine disease"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical scenario described, including darkening of urine upon standing, bluish-black discoloration of the sclera and ear cartilage, and joint pain, is characteristic of Alkaptonuria, which is caused by a deficiency in the enzyme homogentisate oxidase. Garrod's tetrad in alkaptonuria 1. Homogentisic Aciduria Presence of homogentisic acid in the urine, which turns dark upon standing or when exposed to air. 2."
+    },
+    {
+     "type": "paragraph",
+     "text": "Ochronosis Deposition of dark pigment in connective tissues, particularly noticeable in the ear cartilage, sclera, and other connective tissues, leading to a bluish-black discoloration.The image shows Osler’s sign. 3. Arthropathy Degenerative joint disease, especially affecting the spine and large joints, leading to chronic pain and stiffness. 4."
+    },
+    {
+     "type": "paragraph",
+     "text": "Cardiac Involvement Includes heart valve calcification and atherosclerosis due to the deposition of pigment in cardiac tissues."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Phenylketonuria (Option A):** PKU causes mental retardation, hypopigmentation, and a mousy odor due to phenylalanine accumulation. However, it does not cause bluish-black discoloration of the sclera or black urine upon standing."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Tyrosinemia (Option C):** This disorder involves the accumulation of tyrosine or its metabolites, causing liver and kidney damage, but does not lead to bluish-black discoloration of the sclera or pinna or black urine upon standing. Maple Syrup Urine Disease (Option"
+    },
+    {
+     "type": "paragraph",
+     "text": "D): This is a metabolic disorder caused by the inability to break down branched-chain amino acids, leading to a sweet, maple syrup odor in the urine. It does not cause black urine or scleral discoloration."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L29_Q001_E1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L29_Q001_E2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L29_Q001_E3"
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q866659",
+   "question": "Which of the following acts as a major intracellular antioxidant and helps in detoxifying reactive oxygen species?",
+   "options": {
+    "A": "Glutathione",
+    "B": "Catalase",
+    "C": "Superoxide dismutase",
+    "D": "Peroxidase"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Glutathione is the primary intracellular antioxidant that neutralizes reactive oxygen species by donating electrons, detoxifying them, regenerating other antioxidants, and maintaining cellular redox balance."
+    },
+    {
+     "type": "paragraph",
+     "text": "Major intracellular antioxidant composed of glutamate, cysteine, and glycine. (Option A) Function: Neutralizes reactive oxygen species (ROS) by donating electrons, converting ROS to less harmful compounds. (Option A) Regeneration: Helps regenerate other antioxidants like vitamins C and E. Role: Maintains cellular redox balance and protects against oxidative stress."
+    },
+    {
+     "type": "paragraph",
+     "text": "Other antioxidants: Superoxide dismutase (SOD): Converts superoxide radicals to hydrogen peroxide. (Option C ruled out) Catalase: Converts hydrogen peroxide to water and oxygen. (Option B ruled out) Peroxidase: Breaks down peroxides using reducing agents like glutathione. (Option D ruled out)."
+    }
+   ]
+  },
+  {
+   "id": "23-2",
+   "question": "In a given reaction, the concentration of the substrate is 1000 times greater than the Km value of the enzyme. After 9 minutes, only 1% of the substrate (12 microgram/ml) has been converted into product. If the enzyme concentration is reduced to 1/3 and the substrate concentration is doubled, what is the new time required to convert the substrate into the same amount of product, i.e., 12 microgram/ml?",
+   "options": {
+    "A": "9 minutes",
+    "B": "4.5 minutes",
+    "C": "27 minutes",
+    "D": "13.5 minutes"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The Michaelis-Menten equation describes the relationship between the reaction rate, substrate concentration, and the kinetic parameters Km (Michaelis constant) and Vmax (maximum reaction rate) of an enzyme. According to the given information, the substrate concentration is 1000 times the Km value of the enzyme."
+    },
+    {
+     "type": "paragraph",
+     "text": "This implies that the substrate concentration is at a high level compared to the Km, indicating that the enzyme is operating under conditions of substrate excess. In this scenario, the initial rate of the reaction can be considered as approximately Vmax. After 9 minutes of reaction, 1% of the substrate is converted to product, which corresponds to 12 microgram/ml."
+    },
+    {
+     "type": "paragraph",
+     "text": "From this information, we can calculate the initial concentration of the substrate (S0) using the equation: S0 = (100 / conversion percentage) * product concentration = (100 / 1) * 12 microgram/ml = 1200 microgram/ml the changes in enzyme and substrate concentrations in the modified scenario: The concentration of the enzyme is changed to 1/3 of its initial value. The concentration of the substrate is doubled."
+    },
+    {
+     "type": "paragraph",
+     "text": "Given that the initial substrate concentration (S0) is 1200 microgram/ml, after doubling, it becomes 2400 microgram/ml. The new enzyme concentration (E1) is 1/3 of the initial enzyme concentration. To determine the time taken to convert the substrate into the same amount of product (12 microgram/ml), we can use the formula: t"
+    },
+    {
+     "type": "paragraph",
+     "text": "= (1 / k) * ln((S0 - S) / S0) Where: t = time taken k = reaction rate constant S0 = initial substrate concentration S = final substrate concentration Since the initial rate of the reaction is approximately Vmax, we can assume that the reaction rate constant (k) remains constant in both scenarios."
+    },
+    {
+     "type": "paragraph",
+     "text": "Using the given data, the time taken to convert the substrate into the same amount of product can be calculated as follows: t = (1 / k) * ln((1200 - 12) / 1200) = (1 / k) * ln(1188 / 1200) 27 minutes: This is the correct answer for the modified scenario. It represents the time taken to convert the substrate into the same amount of product (12 microgram/ml) with the modified enzyme and substrate concentrations."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect options: Option A: 9 minutes: This is the time taken in the initial scenario, but it's not the correct answer for the modified scenario. Option B: 4.5 minutes: This option is not correct. Option D: 13.5 minutes: This option is not correct."
+    }
+   ]
+  },
+  {
+   "id": "21-12",
+   "question": "A 13-year-old with acute flaccid paralysis, the pediatric resident orders an RT-PCR on a CSF sample to identify the causative virus. Which of the following described the enzyme correctly?",
+   "options": {
+    "A": "DNA-dependent RNA polymerase",
+    "B": "RNA-dependent DNA polymerase",
+    "C": "DNA-dependent DNA polymerase",
+    "D": "RNA-dependent RNA polymerase"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "RNA-dependent DNA polymerase enzyme is used by RNA viruses (like poliovirus, which can cause acute flaccid paralysis) to replicate their RNA genome. In these viruses, RNA-dependent RNA polymerase synthesizes RNA from an RNA template, which is critical for viral replication and transcription."
+    },
+    {
+     "type": "paragraph",
+     "text": "In RT-PCR (Reverse Transcription Polymerase Chain Reaction), the key enzyme responsible for converting RNA into complementary DNA (cDNA) is RNA-dependent DNA polymerase, also known as reverse transcriptase. This enzyme synthesizes DNA from an RNA template, which is a critical step in RT-PCR to amplify RNA sequences for further analysis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: DNA-dependent RNA polymerase (Option A): This enzyme synthesizes RNA from a DNA template but is not involved in RT-PCR. RNA-dependent DNA polymerase (Option B): This term typically refers to reverse transcriptase, which synthesizes DNA from an RNA template, making it a potential candidate. However, it is more commonly described as reverse transcriptase rather than RNA-dependent DNA polymerase."
+    },
+    {
+     "type": "paragraph",
+     "text": "**DNA-dependent DNA polymerase (Option C):** This enzyme replicates DNA from a DNA template and does not play a role in RT-PCR."
+    }
+   ]
+  }
+ ]
+}

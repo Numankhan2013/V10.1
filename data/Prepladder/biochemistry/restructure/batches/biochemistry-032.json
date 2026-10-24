@@ -1,0 +1,597 @@
+{
+ "batch": "biochemistry-032",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "biochemistry-032",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "19-6",
+   "question": "Which of the following best describes the main principle behind Sanger sequencing?",
+   "options": {
+    "A": "Amplification of DNA segments to facilitate sequencing.",
+    "B": "Incorporation of dideoxynucleotides to terminate DNA synthesis at specific bases.",
+    "C": "High-throughput sequencing of millions of DNA fragments simultaneously.",
+    "D": "Insertion of a DNA fragment into a plasmid vector for replication and sequencing."
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Sanger sequencing is a method based on the principle of chain termination, where dideoxynucleotides (ddNTPs) are used to terminate DNA synthesis at specific points, allowing for the determination of the DNA sequence. Sanger sequencing was developed by Frederick Sanger in 1977. The technique is based on the principle of chain termination and involves several key steps: 1."
+    },
+    {
+     "type": "paragraph",
+     "text": "Preparation: The DNA of interest is first amplified to produce a large enough quantity for sequencing. 2. Reaction Mix: The DNA is then mixed with DNA polymerase, a primer, and a mixture of deoxynucleotides (dNTPs) and dideoxynucleotides (ddNTPs). The ddNTPs are fluorescently labeled and act as chain terminators. Each ddNTP corresponds to one of the four DNA bases (A, T, C, G). 3."
+    },
+    {
+     "type": "paragraph",
+     "text": "Chain Termination: As the DNA polymerase extends the DNA strand, it occasionally incorporates a ddNTP instead of a dNTP. This incorporation causes the chain to terminate because ddNTPs lack the 3' hydroxyl group needed for further DNA elongation. 4. Separation: The resulting mixture of terminated DNA fragments of varying lengths is then separated by size using capillary electrophoresis. 5."
+    },
+    {
+     "type": "paragraph",
+     "text": "Detection and Analysis: The fragments are detected as they pass through a laser, and the fluorescent labels indicate the identity of the terminating ddNTP. This information is used to reconstruct the DNA sequence. Sanger sequencing is known for its accuracy and was historically used for the Human Genome Project. However, next-generation sequencing techniques for high-throughput sequencing have largely supplanted it."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Amplification of DNA segments to facilitate sequencing (Option A):** is done by Polymerase Chain Reaction (PCR)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**High-throughput sequencing of millions of DNA fragments simultaneously (Option C):** is done by Next-Generation Sequencing."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Insertion of a DNA fragment into a plasmid vector for replication and sequencing (Option D):** is done by Gene Cloning."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L24_Q006_E1"
+    }
+   ]
+  },
+  {
+   "id": "19-7",
+   "question": "A 45-year-old patient diagnosed with COVID-19 has a real-time PCR test result showing a cycle threshold (Ct) value of 35. How should this Ct value be interpreted in the context of their infectivity and clinical management?",
+   "options": {
+    "A": "The patient has a high viral load and is highly infectious.",
+    "B": "The patient has a low viral load and is less likely to be infectious.",
+    "C": "The patient’s Ct value indicates they should be immediately admitted to the ICU.",
+    "D": "The Ct value alone is sufficient to determine the patient’s disease severity and infectivity."
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Higher Ct values (>30) suggest a lower viral load, indicating reduced infectivity. Cycle Threshold (Ct) Value Definition The number of cycles required for the fluorescent signal to exceed a threshold, indicating detectable target nucleic acid (e.g., viral RNA)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Significance of Ct Values Viral Load Estimation Lower Ct values (≤30) indicate higher viral loads Higher Ct values (>30) suggest lower viral loads (Option B,A) Helps infer potential transmission risk and infection stage. Infectivity Correlation Ct values >24 are linked to reduced infectivity Ct values >34 typically do not yield infectious virus. Clinical Management: Ct values aid in patient management decisions, such as isolation duration."
+    },
+    {
+     "type": "paragraph",
+     "text": "Systematic reporting improves result interpretation and impacts treatment and quarantine measures. Limitations and Considerations Variability Across Tests Different PCR platforms may produce varying Ct values due to differences in reagents, protocols, and target genes. Laboratories must establish their own reference ranges and interpretive criteria."
+    },
+    {
+     "type": "paragraph",
+     "text": "Sample Quality Influence Factors like sample collection technique, timing, and storage conditions affect Ct values. Discrepancies can occur between different sample types (e.g., nasal vs. oropharyngeal)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Interpretation Challenges (Option C,D):** Ct values should not be used alone to determine infectivity or disease severity. Other clinical factors, such as symptoms and exposure context, must also be considered. Option A: Incorrect. A Ct value of 35 indicates a lower viral load, not a high one. Option C: Incorrect. A Ct value alone does not necessitate ICU admission without considering other clinical factors. Option D: Incorrect. Ct values should be interpreted alongside other clinical factors, not in isolation."
+    }
+   ]
+  },
+  {
+   "id": "19-8",
+   "question": "A forensic scientist is analyzing a DNA sample from a crime scene. The DNA is digested with restriction enzymes, separated by gel electrophoresis, and transferred to a nitrocellulose membrane. Labeled DNA probes are then used to detect specific fragments. Which technique is the scientist most likely using?",
+   "options": {
+    "A": "Restriction Fragment Length Polymorphism (RFLP)",
+    "B": "Polymerase Chain Reaction (PCR)",
+    "C": "Single-Strand Conformation Polymorphism (SSCP)",
+    "D": "DNA Sequencing"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "RFLP involves DNA digestion with restriction enzymes, gel electrophoresis, transfer to a nitrocellulose membrane, hybridization with labeled probes, and visualization of fragments. Restriction Fragment Length Polymorphism (RFLP) Variation in DNA fragment lengths due to differences in DNA sequences when digested with restriction enzymes are used as genetic markers."
+    },
+    {
+     "type": "paragraph",
+     "text": "Applications: Parenthood Disputes, Population Genetics, Genetic Disease Diagnosis, Genetic Mapping, Cloning, Forensic Medicine. Sequential Steps involved using RFLP technique 1. DNA Digestion DNA is cut by restriction enzymes at specific sites. 2. Electrophoresis DNA fragments are separated by size using gel electrophoresis. 3. Denaturation To enable probe binding, the separated fragments are denatured 4."
+    },
+    {
+     "type": "paragraph",
+     "text": "Southern Blotting Fragments are transferred from the gel to a nitrocellulose membrane. 5. Hybridization DNA fragments hybridize with labeled DNA probes. 6. Visualization Hybridized fragments are visualized to reveal the presence or absence of restriction sites. Option B: PCR is used to amplify DNA, not to analyze fragment length variations."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C: SSCP is used to detect variations in single-stranded DNA based on their conformational differences, not the length of restriction fragments. Option D: DNA sequencing determines the nucleotide order, not the length variation of fragments after restriction enzyme digestion."
+    }
+   ]
+  },
+  {
+   "id": "19-9",
+   "question": "Which of the following statements about Denaturing Gradient Gel Electrophoresis (DGGE) is false?",
+   "options": {
+    "A": "DGGE can separate DNA fragments based on their melting characteristics.",
+    "B": "DGGE is effective for analyzing DNA segments of 200-300 base pairs.",
+    "C": "DGGE requires the use of a denaturant gradient within a polyacrylamide gel.",
+    "D": "DGGE is commonly used for detecting translocations."
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "DGGE is not used used for detecting translocations. Denaturing Gradient Gel Electrophoresis (DGGE) Purpose: Separates DNA fragments based on their melting characteristics. (Option A) Effective Range: Analyzes DNA segments of 200-300 base pairs, such as bacterial 16S rRNA genes. (Option B) Mechanism and Process: Uses a polyacrylamide gel with a gradient of denaturants (urea or formamide)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Migration: DNA fragments migrate through the gel and encounter increasing denaturant concentrations. Denaturation: Sequence and structure influence melting behavior, causing fragments to denature at different points. Separation: Differential denaturation results in fragment separation, visible after electrophoresis. Applications SNP Detection: Identifies single-nucleotide polymorphisms cost-effectively without sequencing."
+    },
+    {
+     "type": "paragraph",
+     "text": "Molecular Fingerprinting: Analyzes microbial communities in environmental microbiology. Clinical Diagnostics: Identifies pathogenic organisms and studies genetic variations related to diseases. Sequential Steps in Denaturing Gradient Gel Electrophoresis (DGGE) 1. DNA Extraction Isolate DNA from the sample. 2. PCR Amplification Amplify the target DNA region with specific primers. 3."
+    },
+    {
+     "type": "paragraph",
+     "text": "Gel Preparation Create a polyacrylamide gel with a denaturant gradient. (Option C) 4. Electrophoresis Load DNA samples into the gel and apply an electric field for separation. 5. Visualization Stain the gel and visualize bands under UV light."
+    }
+   ]
+  },
+  {
+   "id": "19-10",
+   "question": "Which of the following methods is specifically designed to detect differences in DNA sequences based on variations in the electrophoretic mobility of single-stranded DNA fragments?",
+   "options": {
+    "A": "RFLP (Restriction Fragment Length Polymorphism)",
+    "B": "SSCP (Single-Strand Conformational Polymorphism)",
+    "C": "Sequencing",
+    "D": "All of the above methods are equally effective for detecting DNA sequence variations."
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "SSCP (Single-Strand Conformational Polymorphism) is the method that directly addresses variations in electrophoretic mobility of single-stranded DNA fragments."
+    },
+    {
+     "type": "paragraph",
+     "text": "This technique is specifically designed to detect sequence variations by analyzing the conformational changes of single-stranded DNA. When DNA is denatured into single strands and then subjected to electrophoresis, differences in the DNA sequence can cause different folding patterns or conformations."
+    },
+    {
+     "type": "paragraph",
+     "text": "These conformational changes affect the migration of the DNA through a non-denaturing gel, making SSCP highly effective for detecting small mutations or variations in DNA sequences."
+    },
+    {
+     "type": "paragraph",
+     "text": "**RFLP (Restriction Fragment Length Polymorphism) (Option A):** RFLP detects variations in DNA sequences by analyzing the pattern of DNA fragments produced after digestion with restriction enzymes. This method identifies differences in DNA sequence by comparing the lengths of the resulting fragments on a gel. However, it does not specifically address the electrophoretic mobility of single-stranded DNA. Sequencing (Option C): Directly determines DNA sequence but is not based on electrophoretic mobility changes of single-stranded DNA."
+    }
+   ]
+  },
+  {
+   "id": "19-11",
+   "question": "A researcher is experiencing issues with the accuracy and efficiency of DNA amplification during a PCR experiment. They suspect the problem might be related to magnesium ion concentration. What role does magnesium play in PCR, and how might its concentration affect the experiment?",
+   "options": {
+    "A": "Magnesium ions serve only to stabilize the DNA template and do not affect enzyme activity.",
+    "B": "Excessive magnesium concentration enhances DNA polymerase activity, reducing the likelihood of errors.",
+    "C": "Insufficient magnesium concentration can lead to decreased enzyme activity and lower DNA amplification efficiency.",
+    "D": "Magnesium ions are not essential for the nucleophilic attack of the primer's 3' hydroxyl group during DNA synthesis."
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Magnesium ions (Mg²⁺) are critical in PCR, acting as essential cofactors for DNA polymerases and insufficient concentration can decrease enzyme activity and amplification efficiency. Role of Magnesium in PCR 1. Enzymatic Function Cofactor for DNA Polymerases: Binding of Nucleotides: Magnesium ions facilitate the correct positioning of nucleotides and stabilize the negative charges that develop during the polymerization process."
+    },
+    {
+     "type": "paragraph",
+     "text": "Stabilization of Charges: This stabilization is crucial for maintaining the proper geometry for the nucleophilic attack of the primer's 3' hydroxyl group on the alpha phosphate of the incoming nucleotide. Formation of Catalytic Complexes: Coordination of Substrates: Mg²⁺ ions are involved in the coordination of substrates within the active site of the enzyme, essential for effective catalysis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Active Site Geometry: Magnesium maintains the correct geometry of the DNA polymerase active site, positioning the 3' hydroxyl group for efficient catalysis. Stabilization of Transition State: Magnesium stabilizes the penta-coordinated transition state during the nucleotidyl transfer reaction, reducing errors during replication. 2."
+    },
+    {
+     "type": "paragraph",
+     "text": "Stability and Fidelity: DNA Structure Stability: Magnesium helps maintain the integrity of DNA strands during PCR. Error Minimization: Proper magnesium concentration minimizes errors in DNA replication. Optimization: Both insufficient and excessive magnesium can lead to decreased efficiency and accuracy in DNA amplification. Option A: Incorrect. Magnesium ions are essential for enzyme activity, not just DNA template stabilization."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B: Incorrect. Excessive magnesium concentration can lead to non-specific amplification and errors. Option D: Incorrect. Magnesium ions are necessary for the nucleophilic attack of the primer's 3' hydroxyl group on the incoming nucleotide during DNA synthesis."
+    }
+   ]
+  },
+  {
+   "id": "20-1",
+   "question": "Which of the following best describes a mechanism involved in epigenetic changes that lead to heterochromatin formation?",
+   "options": {
+    "A": "Histone acetylation and DNA methylation of adenine residues",
+    "B": "Histone deacetylation and methylation in CG islands",
+    "C": "DNA replication",
+    "D": "Histone phosphorylation"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Epigenetic changes that lead to heterochromatin formation are primarily driven by histone deacetylation and methylation of cytidine residues in CG islands. Epigenetic changes involve stable alterations in gene expression that do not involve changes in the nucleotide sequence. Epigenetic Modifications: DNA Methylation: Represses gene expression by methylation of CpG islands."
+    },
+    {
+     "type": "paragraph",
+     "text": "Involved in ageing, cancer, genomic imprinting, X chromosome inactivation, and dysregulation linked to diseases like Fragile X syndrome. Histone Methylation: Suppress or activate transcription depending on the location of methyl groups. Methylation of lysine and arginine residues on histones. Histone Acetylation: Activates transcription (Option A) The addition of acetyl groups neutralises histone charges, relaxing DNA coiling."
+    },
+    {
+     "type": "paragraph",
+     "text": "Generally increases gene expression; affects processes like thyroid hormone synthesis. Histone Deacetylation: Represses transcription. Removal of acetyl groups tightens DNA coiling. Typically, it decreases gene expression and is linked to diseases such as Huntington's disease. DNA replication and Histone phosphorylation(Option C & D): Not associated with Epigenetic modification."
+    }
+   ]
+  },
+  {
+   "id": "20-2",
+   "question": "Which of the following statements about the lac operon is/are correct? Lac I is constitutively expressed. Lac Y is responsible for lactose transport into the cell. The structural genes are expressed when the CAP site is free. The ZYA genes are expressed when the operator site is free.",
+   "options": {
+    "A": "1 and 2",
+    "B": "1, 2, and 3",
+    "C": "1, 2, and 4",
+    "D": "1, 2, 3, and 4"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The structural genes are expressed when the CAP site is Occupied. Lac Operon: The lac operon enables E. coli to metabolise lactose by producing enzymes necessary for lactose uptake and breakdown in the absence of glucose."
+    },
+    {
+     "type": "paragraph",
+     "text": "Components: Structural Genes: lacZ: Encodes β-galactosidase (Breaks down lactose into glucose and galactose) lacY: Encodes lactose permease (Helps lactose enter the cell) (Statement 2) lacA: Encodes thiogalactoside transacetylase Regulatory Elements: lacI Gene: Encodes the LacI repressor, which binds to the operator to block transcription when lactose is absent. (Lactose unbinds repressor from Operator site) Constitutively Expressed (Statement 1) Promoter (P): The binding site for RNA polymerase, which initiates transcription of the lac genes."
+    },
+    {
+     "type": "paragraph",
+     "text": "Operator (O): A DNA sequence that the lac repressor protein binds to, blocking transcription when lactose is absent. CAP (Catabolite Activator Protein): Bind to the CAP binding site near the promoter and enhance transcription (Statement 3)."
+    },
+    {
+     "type": "paragraph",
+     "text": "This requires requires cAMP (Glucose inhibits Adenylate cyclase which converts ATP to cAMP) Mechanism: Lactose unbinds repressor from Operator site → Operator site becomes free → Increases Transcription (Statement 4)"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L25_Q002_E1"
+    }
+   ]
+  },
+  {
+   "id": "20-3",
+   "question": "Which of the following statements about cloning vectors is correct? Plasmids can carry DNA inserts up to 10 kilobases in size. Phage vectors can carry DNA inserts up to approximately 50 kilobases. Cosmids are hybrid vectors that combine features of plasmids and phages. Artificial chromosomes are used to clone very large DNA fragments.",
+   "options": {
+    "A": "1, 2, and 3",
+    "B": "1 and 4",
+    "C": "All of the above",
+    "D": "1, 3, and 4"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Phage vectors can carry DNA inserts up to approximately 20 kilobases, not 50 kilobases. Cloning Vectors are DNA molecules that carry and replicate foreign DNA segments within host cells. They are useful in molecular biology for gene cloning and manipulation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Vector Size (Kb) Features Plasmids <10 Small, circular DNA molecules found in Bacteria Commonly used for cloning and expressing small DNA fragments Replicate independently of the bacterial chromosome."
+    },
+    {
+     "type": "paragraph",
+     "text": "Bacteriophages 10-20 Bacterial viruses with linear DNA genomes Useful for cloning slightly larger DNA fragments Infect bacterial cells to propagate the cloned DNA Bacterial Artificial Chromosomes (BACs) 50-250 BACs are vectors based on the F-plasmid of E. coli."
+    },
+    {
+     "type": "paragraph",
+     "text": "They can accommodate large DNA inserts Used for constructing genomic libraries Yeast Artificial Chromosomes (YACs) >500 YACs are vectors that can accommodate very large DNA inserts, even larger than BACs More prone to chimerism and instability compared to BACs Cosmids 35 - 50 Hybrid vectors combining plasmid and phage features Viral Vectors Derived from viruses that infect mammalian cells Include adenoviral, adenovirus-associated viral (AAV), and retroviral vectors."
+    }
+   ]
+  },
+  {
+   "id": "20-4",
+   "question": "In their CRISPR-Cas9 experiment with a mammalian cell line, the research team observes the repair of DNA double-strand breaks. Which repair mechanisms are they most likely observing? Non-Homologous End Joining (NHEJ) Homologous End Joining (HEJ) Nucleotide Excision Repair (NER) Base Excision Repair (BER)",
+   "options": {
+    "A": "1 and 2",
+    "B": "1, 2, 3",
+    "C": "1 and 4",
+    "D": "All of the above"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "In a CRISPR-Cas9 experiment, the Cas9 enzyme introduces double-strand breaks (DSBs) in DNA. The cell then uses two primary repair mechanisms for these DSBs: Non-Homologous End Joining (NHEJ): A quick, error-prone repair mechanism that directly ligates the broken DNA ends without a template. Commonly results in insertions or deletions (indels), making it useful for gene knockouts."
+    },
+    {
+     "type": "paragraph",
+     "text": "Homologous Recombination / Homologous End Joining (HEJ): A high-fidelity repair mechanism that uses a homologous DNA template (often supplied by the experimenter) to repair the break accurately. Used in gene knock-in strategies. DNA Repair"
+    },
+    {
+     "type": "paragraph",
+     "text": "Mechanisms in CRISPR Context Mechanism Role in CRISPR Repair DNA Damage Type Handled Non-Homologous End Joining Yes Double-strand breaks (DSBs) Homologous End Joining (HR) Yes Double-strand breaks (DSBs) Nucleotide Excision Repair No Bulky lesions (e.g."
+    },
+    {
+     "type": "paragraph",
+     "text": "UV damage) Base Excision Repair No Small base damage or single-strand breaks 1, 2, 3 (NHEJ, HEJ, NER) (Option B): Incorrect because NER does not participate in double-strand break repair. 1 and 4 (NHEJ and BER) (Option C): Incorrect because BER handles single-strand lesions, not DSBs."
+    },
+    {
+     "type": "paragraph",
+     "text": "**All of the above (Option D):** Incorrect because NER and BER are not involved in repairing Cas9-induced DSBs."
+    }
+   ]
+  },
+  {
+   "id": "20-5",
+   "question": "Which of the following is the feature of the ‘M’ phase in the image of the Cell cycle?",
+   "options": {
+    "A": "DNA replication occurs to duplicate the genome.",
+    "B": "Chromosomes are highly condensed to facilitate segregation.",
+    "C": "Cell growth and preparation for DNA synthesis take place.",
+    "D": "Proofreading and repair of DNA replication errors are conducted."
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "This is a key feature of the M phase, where chromosomes become highly condensed to ensure proper segregation during mitosis. They are compressed to about 8000 fold during metaphase in M-Phase. Cell Cycle: The cell cycle is a series of stages that a cell goes through to divide and produce two daughter cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "Phases of the Cell Cycle: Phases Chromosome State Features Gap 1 (G1) Phase Pre-synthetic phase Uncondensed Cell growth and synthesis of proteins and organelles. (Option C) DNA proofreading and repair."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Synthesis (S) Phase DNA replication occurs (Option A):** Uncondensed Replication of the entire genome and formation of sister chromatids. Increase in the levels of DNA polymerases and other replication enzymes. Gap 2 (G2) Phase Post-synthetic or pre-mitotic phase Uncondensed Final proofreading and repair. (Option D) Mitosis (M) Phase Division of the nucleus and cytoplasm to produce two daughter cells. Condensed (ensure proper segregation). Chromosome condensation, alignment, and segregation. Cytokinesis, where the cytoplasm divides, resulting in two separate cells. Interphase The combined phases of G1, S, and G2 are where the cell grows, duplicates its DNA and prepares for division. Gap 0 (G0) Phase (Resting phase) Condensed Permanent or Temporary phase based on Cell type."
+    }
+   ]
+  },
+  {
+   "id": "20-6",
+   "question": "A 32-year-old patient presents with a family history of progressive muscle weakness, cognitive decline, and involuntary movements. Genetic testing reveals a specific type of microsatellite instability disorder. Which of the following trinucleotide repeat sequences is most likely associated?",
+   "options": {
+    "A": "CAG",
+    "B": "CTG",
+    "C": "CGG",
+    "D": "GAA"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical presentation is consistent with Huntington's Disease, which is characterised by progressive muscle weakness, cognitive decline, and involuntary movements (chorea)."
+    },
+    {
+     "type": "paragraph",
+     "text": "The specific trinucleotide repeat expansion associated with this condition is CAG. Microsatellite instability (MSI) Disorders: Genetic conditions are characterised by the accumulation of mutations in microsatellite regions of DNA due to failure in the DNA mismatch repair system."
+    },
+    {
+     "type": "paragraph",
+     "text": "Anticipation is seen (Disease severity increases in successive generations) Trinucleotide Repeat Sequences and Associated Disorders: Trinucleotide repeat sequences are short DNA sequences in which a specific set of three nucleotides is repeated multiple times in tandem beyond a normal range, resulting in instability and dysfunction. Disease Trinucleotide Repeats Mode of Inheritance Huntington’s Disease"
+    },
+    {
+     "type": "paragraph",
+     "text": "**CAG AD Myotonic Dystrophy CTG (Option B):** AD Fragile X Syndrome CGG (Option C) XLD Friedreich’s Ataxia GAA (Option D) AR Note: AD: Autosomal Dominant; AR: Autosomal Recessive; XLD: X-Linked Dominant"
+    }
+   ]
+  },
+  {
+   "id": "20-7",
+   "question": "A 5-year-old boy presents with frequent falls, difficulty climbing stairs, and an unusual way of getting up from the floor. Genetic testing reveals a mutation in a gene associated with a severe muscle disorder. Which of the following statements about the involved gene is true?",
+   "options": {
+    "A": "Located on chromosome 7",
+    "B": "Largest in the human genome.",
+    "C": "Associated with a condition that primarily affects females",
+    "D": "The Gene’s product is a component of the sarcomere."
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The clinical presentation with frequent falls, difficulty climbing stairs and unusual way of getting up (Gower sign) points towards Duchenne muscular Dystrophy."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Inherited in X-linked Recessive pattern - Primarily affects males (Option C):** The gene affected is Dystrophin, which is the largest gene in the human genome, located on the X chromosome (Option A). Dystrophin is a crucial protein found in muscle cells that helps maintain the muscle fibre's structural integrity. It acts as a bridge between sarcolemma and the internal cytoskeleton, which helps in stabilization. Option D: Dystrophin is not a component of the sarcomere but is crucial for anchoring the cytoskeleton to the muscle cell membrane. Sarcomere components involved in contraction include actin and myosin."
+    }
+   ]
+  },
+  {
+   "id": "20-8",
+   "question": "Satellite DNA has various applications due to its unique repetitive sequences. Which of the following is not an application of satellite DNA?",
+   "options": {
+    "A": "Forensic identification and criminal investigations",
+    "B": "Determining genetic susceptibility to cardiovascular diseases",
+    "C": "Resolving paternal dispute cases",
+    "D": "Studying evolutionary relationships and genetic diversity"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Satellite DNA is not used to identify susceptibility to cardiovascular diseases, as it mainly provides information about repetitive DNA sequences rather than disease susceptibility. Satellite DNA refers to repetitive DNA sequences that are found in specific regions of the genome, notably in centromeric and telomeric regions. Types: Highly Repetitive Sequences (HRS): These sequences repeats >1,000,000 times."
+    },
+    {
+     "type": "paragraph",
+     "text": "Simple Sequence Repeats (SSR): Also known as microsatellites, these are short, repetitive sequences. Minisatellite Repeats: Known as Variable Number Tandem Repeats (VNTR), these are longer repetitive sequences compared to microsatellites. Applications: Forensic Identification (Option A ruled out): Satellite DNA is used in forensic science to identify individuals due to its high variability between people uniquely."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Paternal Dispute Resolution (Option C ruled out):** It helps resolve paternal disputes by matching genetic profiles through repetitive DNA sequences. Genetic Studies: To study evolutionary relationships and genetic diversity among different species. (Option D ruled out)"
+    }
+   ]
+  },
+  {
+   "id": "20-9",
+   "question": "Which of the following statements is not accurate regarding post-transcriptional modifications of eukaryotic RNA?",
+   "options": {
+    "A": "The addition of a poly-A tail at the 3′ end.",
+    "B": "The 5′ capping involves a 5′ to 5′ triphosphate bridge.",
+    "C": "Methylation of the N6 position of adenine.",
+    "D": "Introns are removed, and exons are spliced within the cytoplasm."
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Introns are removed, and exons are spliced together in the nucleus, not the cytoplasm. Post-Transcriptional Modification of Eukaryotic RNA: Primary Transcript (hnRNA): Newly synthesised mRNA directly from DNA; includes both coding (exons) and non-coding (introns) regions. Key Modifications: Poly-A Tailing (3′ End) Addition of a poly-A tail (20-250 nucleotides) in the nucleoplasm."
+    },
+    {
+     "type": "paragraph",
+     "text": "Protects mRNA from degradation. 5′ Capping Addition of a 7-methyl guanosine cap at the 5′ end. Involves a 5′ to 5′ triphosphate bridge. Enhances mRNA stability and translation initiation. Splicing Introns (non-coding regions) are removed, and exons (coding regions) are joined together. This splicing occurs in the nucleus and requires energy. Methylation Methylation of adenine residues and ribose 2′-hydroxyl groups."
+    },
+    {
+     "type": "paragraph",
+     "text": "Primarily occurs in the cytoplasm for tRNA and rRNA. Bacterial mRNA: Not subject to extensive post-transcriptional modifications. Translation can begin before transcription is complete."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L25_Q009_E1"
+    }
+   ]
+  },
+  {
+   "id": "20-10",
+   "question": "A researcher aims to clone a large eukaryotic gene fragment (~600 kb) for use in functional genomics studies. Which of the following cloning vectors is the most appropriate for this purpose?",
+   "options": {
+    "A": "Plasmid",
+    "B": "Bacteriophage λ",
+    "C": "Yeast Artificial Chromosome (YAC)",
+    "D": "Cosmid"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Yeast Artificial Chromosomes (YACs) are ideal for cloning large DNA fragments (100–1000 kb), making them suitable for large eukaryotic gene fragments (~600 kb) Cloning Type Key Features Insert Size Applications Plasmid-Based Cloning (Option A) Small, circular DNA in bacteria, independent replication, antibiotic resistance genes ~10 kb Gene cloning, bacterial expression Phage-Based Cloning (Option B) Uses bacteriophage (e.g., λ phage), foreign DNA inserted into phage genome ~20 kb High-efficiency cloning, phage display Cosmid-Based Cloning (Option D) Hybrid of plasmid & phage λ, contains cos sites for efficient packaging ~100-300 kb Genome sequencing, gene mapping Yeast Artificial Chromosome (YAC) Functions as a eukaryotic chromosome, contains centromere & telomere ~100-1000 kb Cloning large eukaryotic DNA fragments Mammalian Viral Vectors Used in gene therapy, adenoviral (DNA-based), retroviral (RNA-based) Varies Gene expression in mammalian cells, stable integration"
+    }
+   ]
+  },
+  {
+   "id": "20-11",
+   "question": "In human somatic cells, which of the following statements accurately describes the chromatin and its characteristics?",
+   "options": {
+    "A": "Constitutive heterochromatin is always active",
+    "B": "Facultative heterochromatin includes the Barr body",
+    "C": "Euchromatin is found in centromeric regions",
+    "D": "Heterochromatin is active and less stained"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Facultative heterochromatin includes the Barr body. In somatic cells of females, one of the two X-chromosomes is transcriptionally active while the other is transcriptionally inactive and highly condensed, known as a Barr body. Chromatin is a complex of DNA and proteins found in the nucleus of eukaryotic cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "It plays a crucial role in packaging DNA into a more compact, dense structure, allowing it to fit within the cell nucleus and regulating gene expression. Types of Chromatin: Euchromatin (Transcriptionally Active) Heterochromatin (Transcriptionally Inactive)"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L25_Q011_E1"
+    }
+   ]
+  },
+  {
+   "id": "20-12",
+   "question": "In a laboratory setting, E. coli bacteria are cultured in a medium where glucose and lactose is available. To increase the expression of the lac operon, which levels of lactose and cAMP would you expect to be present?",
+   "options": {
+    "A": "High lactose and low cAMP",
+    "B": "Low lactose and high cAMP",
+    "C": "High lactose and high cAMP",
+    "D": "Low lactose and low cAMP"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "In a laboratory setting aiming to maximise the expression of the lac operon, optimal transcription would be expected under conditions with high lactose and high cAMP. Lac Operon: The lac operon enables E. coli to metabolise lactose by producing enzymes necessary for lactose uptake and breakdown in the absence of glucose."
+    },
+    {
+     "type": "paragraph",
+     "text": "Basic components: lacZ: Encodes β-galactosidase, which breaks down lactose into glucose and galactose. lacY: Encodes lactose permease, which helps lactose enter the cell. lacA: Encodes thiogalactoside transacetylase. lacI: Encodes the LacI repressor, which binds to the operator to block transcription when lactose is not present. (Lactose unbinds repressor from Operator site) CAP (Catabolite Activator Protein): Requires cAMP to bind to the CAP binding site (CRE) near the promoter and enhance transcription. (Glucose inhibits Adenylate cyclase, which converts ATP - - - - > cAMP) Regulation:"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L25_Q012_E1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L25_Q012_E2"
+    }
+   ]
+  },
+  {
+   "id": "20-13",
+   "question": "Which of the following techniques is specifically designed to introduce specific genetic modifications, such as gene knock-ins or knock-outs, into the genome of an organism?",
+   "options": {
+    "A": "FISH (Fluorescence In Situ Hybridization)",
+    "B": "CRISPR-Cas",
+    "C": "Recombinant DNA Technology",
+    "D": "Comparative Genomic Hybridization"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "CRISPR-Cas is a genome-editing tool that can be used to introduce specific genetic modifications, including gene knock-ins (adding new genetic material) and gene knock-outs (disrupting or deleting existing genes). CRISPR-Cas Mechanism: Guide RNA: Directs the Cas enzyme to the specific DNA sequence. Cas Enzyme: Cuts the DNA at the target location."
+    },
+    {
+     "type": "paragraph",
+     "text": "DNA Repair: NHEJ (Non-Homologous End Joining): Repairs the break by directly ligating the DNA ends, often leading to gene knockout. HDR (Homologous Directed Repair): Uses a template to repair the break accurately, allowing for gene knock-in. FISH (Fluorescence In Situ Hybridization) is used for detecting and visualizing specific nucleic acid sequences in cells but does not modify genes (Option A)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Recombinant DNA Technology involves creating new DNA combinations but is not as precise as CRISPR-Cas for making specific gene knock-ins or knock-outs (Option C). Comparative Genomic Hybridization (CGH) is used to detect chromosomal abnormalities and does not involve gene editing (Option D)."
+    }
+   ]
+  },
+  {
+   "id": "20-14",
+   "question": "Which of the following is true about the significance of technology in the following image?",
+   "options": {
+    "A": "Used to study multiple gene expressions simultaneously",
+    "B": "Not used to deciding the course of treatment",
+    "C": "They have been completely replaced by next-generation sequencing.",
+    "D": "Not used in proteomics and genotyping."
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The given image represents Microarray Technique which can analyze thousands of genes at once facilitating multiple gene expression studies. Microarray consist of thousands of microscopic DNA spots (probes) on a slide, used for hybridizing cDNA or cRNA samples."
+    },
+    {
+     "type": "paragraph",
+     "text": "Each spot on the microarray chip represents a specific gene, and by measuring the intensity of the signal at each spot, researchers can determine how much of each gene is expressed in the sample."
+    },
+    {
+     "type": "paragraph",
+     "text": "Microarrays are crucial for gene expression profiling and can assist in making treatment decisions by helping us to understand the pathogenesis of a disorder (Option B) Types: DNA Microarray cDNA Microarray Protein Microarray Array comparative genomic hybridisation (CGH) Applications of Microarray Technique: Genotyping Gene sequencing Gene Expression Profiling: Used for cancer treatment decisions (e.g., identifying need for chemotherapy)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Protein Detection by monoclonal antibody or aptamer microarrays, useful in personalised medicine and Proteomics (Option D) Clinical Uses: Diagnosing cancer, infectious diseases, and allergies."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Microarrays are still being used alongside next-generation sequencing (Option C):** ."
+    }
+   ]
+  }
+ ]
+}

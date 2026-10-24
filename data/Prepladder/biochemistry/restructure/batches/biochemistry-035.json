@@ -1,0 +1,517 @@
+{
+ "batch": "biochemistry-035",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "biochemistry-035",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "21-74",
+   "question": "Which of the following statements are true regarding mitochondrial DNA? Higher rate of mutations as compared to the nuclear genome Double-stranded circular DNA with about 16,000 base pairs A slight change in nucleotide sequence as compared to cellular DNA Encodes all electron transport chain proteins",
+   "options": {
+    "A": "1 and 3",
+    "B": "1 and 2",
+    "C": "2 and 4",
+    "D": "2 and 3"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The mitochondrial DNA is circular ds DNA containing about 16,000 base pairs and 37 genes. Mitochondrial DNA has a high rate of mutations as compared to nuclear DNA due to no introns (introns prevent mutation). There is no DNA repair mechanism in mitochondria. Thus, 1 and 2 are correct. Mitochondria DNA: 1. Circular ds DNA contains around 16,000 bp, 37 genes (1% of total cellular DNA) 2."
+    },
+    {
+     "type": "paragraph",
+     "text": "ETC requires 67 proteins. 13/67 = 19% of proteins are derived from mitochondrial DNA 3. Mitochondrial DNA is present only in eukaryotes and resembles prokaryotic DNA 4. mtDNA has a high rate of mutation as compared to nuclear DNA due to no introns (introns prevent mutation),No DNA repair enzyme in mitochondria and high OFR production from ETC operation 5. Mitochondria have their own ribosomes to synthesize their proteins"
+    }
+   ]
+  },
+  {
+   "id": "21-75",
+   "question": "Which of the following is the best test for quantitative analysis of an RNA sample? PCR: polymerase chain reaction RT PCR: Reverse transcriptase polymerase chain reaction",
+   "options": {
+    "A": "Real-time PCR",
+    "B": "Reverse transcriptase PCR",
+    "C": "PCR-restriction fragment length polymorphism",
+    "D": "RTPCR followed by real-time PCR"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "RT-PCR is used to convert RNA into cDNA, and then real-time PCR is performed to quantify the cDNA. Hence, this approach can be suitable for quantitative analysis of RNA. Real-time PCR (Option A) can analyze DNA as it is getting synthesized, enabling us to know if there is a problem in the amplification process."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Reverse transcriptase PCR (Option B):** is a technique used to amplify RNA by first converting it into complementary DNA (cDNA) using reverse transcriptase enzyme. While RT-PCR is useful for detecting and amplifying RNA, it does not provide direct quantitative analysis. Additional steps, such as gel electrophoresis or hybridization, would be required for quantification."
+    },
+    {
+     "type": "paragraph",
+     "text": "**PCR-restriction fragment length polymorphism (PCR-RFLP) (Option C):** is a technique used to detect genetic variations by analyzing the length differences in PCR-amplified DNA fragments after digestion with specific restriction enzymes."
+    }
+   ]
+  },
+  {
+   "id": "21-42",
+   "question": "Which of the following molecular analysis methods is used to detect RNA?",
+   "options": {
+    "A": "Sanger’s method",
+    "B": "G banding",
+    "C": "Western blot",
+    "D": "RT-PCR"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Reverse transcriptase PCR is used to study RNA as well as DNA. It is a quick, automated, and highly sensitive method to study RNA and also detect mutations. RNA with the help of reverse transcriptase enzyme forms complementary DNA (cDNA). This cDNA is amplified using the polymerase enzyme so that multiple copies can be made and studied."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Sanger's method (Option A):** is a DNA sequencing technique also called the dideoxy nucleotide method. It is the process of selective incorporation of chain-terminating dideoxynucleotide by DNA polymerase during in vitro DNA replication."
+    },
+    {
+     "type": "paragraph",
+     "text": "**G banding (Option B):** is the karyotype technique best for detecting monosomy and trisomy. With this technique, Cells are arrested in the metaphase stage using colchicine. In metaphase, all the chromosomes lie at the equator so that they can be easily analyzed under the microscope for any change in their number Chromosomes are stained with Giemsa stain to observe a G -banding."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Western blot (Option C):** is the antigen-antibody reaction (immunoblotting), used for the detection of protein antigen."
+    }
+   ]
+  },
+  {
+   "id": "21-43",
+   "question": "Which of the following enzymes is deficient in the autosomal recessive type of severe combined immunodeficiency?",
+   "options": {
+    "A": "Ornithine transcarbamylase",
+    "B": "Phosphomannose isomerase",
+    "C": "Adenosine deaminase",
+    "D": "Hypoxanthine-guanine phosphoribosyl transferase"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "ADA deficiency cause Severe Combined Immunodeficiency (SCID) SCID is a group of genetic disorders characterized by profound immunodeficiency due to defective T-cell and B-cell function. Autosomal recessive SCID is commonly caused by a deficiency in adenosine deaminase (ADA), accounting for about 15-20% of SCID cases. Adenosine Deaminase (ADA) Function: ADA is an enzyme in the purine salvage pathway."
+    },
+    {
+     "type": "paragraph",
+     "text": "Converts adenosine and deoxyadenosine into inosine and deoxyinosine. Important for maintaining the balance of nucleotide pools in cells. Pathophysiology of ADA Deficiency: Deficiency of ADA → Accumulation of deoxyadenosine and dATP. Deoxyadenosine toxicity Directly toxic to developing T-cells and B-cells. Inhibits ribonucleotide reductase, blocking DNA synthesis and cell division."
+    },
+    {
+     "type": "paragraph",
+     "text": "Lymphocyte apoptosis: Lymphocyte precursors (especially T-cells) undergo apoptosis due to DNA damage and lack of nucleotide availability. Clinical Features of ADA-SCID: Onset: Neonatal period (within the first few months of life). Severe recurrent infections: Fungal, bacterial, and viral infections. Persistent diarrhea. Failure to thrive. Chronic candidiasis. Absent lymphoid tissue: No tonsils or palpable lymph nodes."
+    },
+    {
+     "type": "paragraph",
+     "text": "Severe lymphopenia: Low T-cells, B-cells, and NK cells (T⁻B⁻NK⁻ phenotype). Diagnosis: Lymphopenia on CBC. Flow cytometry: Absent T-cells, B-cells, and NK cells. Low ADA activity in leukocytes. Genetic testing: Mutation in the ADA gene. Treatment: Enzyme Replacement Therapy (ERT): Pegylated ADA (PEG-ADA). Hematopoietic Stem Cell Transplantation (HSCT)."
+    }
+   ]
+  },
+  {
+   "id": "21-15",
+   "question": "Identify the phenomenon shown below.",
+   "options": {
+    "A": "Translation",
+    "B": "Transformation",
+    "C": "Complementation",
+    "D": "Conjugation"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "In the given image showing the schematic of a blue-white assay used in screening recombinant vectors for inserted DNA fragments, the correct choice would be \"Complementation\" The blue-white assay determines recombinant vector screening based on complementation, where an inserted DNA fragment restores the function of a disrupted lacZ gene. This gene encodes β-galactosidase."
+    },
+    {
+     "type": "paragraph",
+     "text": "If the DNA fragment restores lacZ function, active β-galactosidase cleaves a colorless substrate (X-gal), resulting in blue colonies. Complementation indicates successful restoration of lacZ function, observed as blue coloration in the assay. Incorrect Options: Option A - Translation: Incorrect. Translation is the process of protein synthesis and is not directly related to the blue-white assay or screening recombinant vectors."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Transformation: Incorrect. Transformation is the introduction of foreign DNA into a host organism, but it does not specifically relate to the blue-white assay. Option D - Conjugation: Incorrect. Conjugation involves genetic material transfer between bacteria through direct contact and is not directly related to the blue-white assay or screening recombinant vectors."
+    }
+   ]
+  },
+  {
+   "id": "21-25",
+   "question": "Which of the following processes does not occur in the direction from 5' to 3'?",
+   "options": {
+    "A": "Transcription",
+    "B": "DNA replication",
+    "C": "DNA repair",
+    "D": "RNA editing"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "RNA editing is a process that can modify the nucleotide sequence of RNA molecules after transcription. It can involve changes in bases, the addition or removal of nucleotides, or other modifications. While RNA editing can occur in different directions depending on the specific mechanism, it is not universally restricted to the 5' to 3' direction."
+    },
+    {
+     "type": "paragraph",
+     "text": "RNA polymerase begins moving down the DNA template strand in the 3' to 5' direction Incorrect Option: Option A - Transcription: Transcription is the process of synthesizing RNA from a DNA template. It occurs in the 5' to 3' direction, meaning that the RNA molecule is synthesized in the same direction as the template DNA strand."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - DNA replication: DNA replication is the process of copying the DNA molecule to produce two identical DNA molecules. It also occurs in the 5' to 3' direction, where the new DNA strand is synthesized in the same direction as the template DNA strand."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - DNA repair: DNA repair mechanisms are responsible for fixing damaged DNA. Many DNA repair processes involve the removal and replacement of damaged nucleotides, which generally occur in the 5' to 3' direction. Therefore, DNA repair also occurs in the 5' to 3' direction."
+    }
+   ]
+  },
+  {
+   "id": "21-26",
+   "question": "What is the specific type of genetic mutation observed in sickle cell anemia?",
+   "options": {
+    "A": "Insertion",
+    "B": "Deletion",
+    "C": "Point mutation",
+    "D": "Frameshift mutations"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Point mutation: A point mutation involves the substitution of a single nucleotide with another nucleotide. This can lead to a change in the corresponding amino acid in the protein sequence. In the case of sickle cell anemia, the point mutation is the substitution of Adenine with Thymine, resulting in the replacement of glutamic acid with valine, in the beta globin chain of hemoglobin."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Option: Option A - Insertion: An insertion mutation involves the addition of extra nucleotides into the DNA sequence. This leads to a shift in the reading frame and often results in a frameshift mutation, which can have significant effects on the resulting protein. However, this is not the type of mutation seen in sickle cell anemia. Option B - Deletion: A deletion mutation involves the removal of nucleotides from the DNA sequence."
+    },
+    {
+     "type": "paragraph",
+     "text": "Similar to an insertion mutation, it can cause a frameshift mutation and alter the resulting protein. However, this is not the type of mutation seen in sickle cell anemia. Option D - Frameshift mutations: Frameshift mutations occur due to insertions or deletions of nucleotides that cause a shift in the reading frame. This leads to significant changes in the resulting protein sequence."
+    },
+    {
+     "type": "paragraph",
+     "text": "While frameshift mutations can occur in various genetic disorders, it is not the specific type of mutation seen in sickle cell anemia."
+    }
+   ]
+  },
+  {
+   "id": "21-27",
+   "question": "On which of the following will restriction endonucleases act?",
+   "options": {
+    "A": "AAGAAG",
+    "B": "GAGAGG",
+    "C": "AAGCTT",
+    "D": "TACGAG"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "AAGCTT- This sequence is recognized by the restriction endonuclease EcoRI. EcoRI recognizes the palindromic sequence 5'-GAATTC-3' and cleaves the DNA between the G and the A bases on both strands, resulting in fragments with sticky ends. Therefore, option C is the correct answer. Incorrect Option: Option A - AAGAAG This sequence is not a recognized target for any commonly known restriction endonuclease."
+    },
+    {
+     "type": "paragraph",
+     "text": "It does not contain a known recognition site for cleavage. Therefore, option A is incorrect. Option B - GAGAGG Similar to option A, this sequence does not contain a known recognition site for restriction endonucleases. It does not match the specific sequence required for cleavage. Therefore, option B is incorrect. Option D - TACGAG This sequence does not contain a known recognition site for restriction endonucleases."
+    },
+    {
+     "type": "paragraph",
+     "text": "It does not match any commonly recognized sequences required for cleavage. Therefore, option D is incorrect."
+    }
+   ]
+  },
+  {
+   "id": "21-24",
+   "question": "Which of the following does not favor euchromatin formation due to changes occurring at cytosine residues at CpG islands in DNA?",
+   "options": {
+    "A": "Methylation",
+    "B": "Phosphorylation",
+    "C": "Alkylation",
+    "D": "Sumoylation"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Euchromatin refers to the less condensed and transcriptionally active form of chromatin. Changes in cytosine residues at CpG islands, which are regions with a high frequency of cytosine-guanine dinucleotides, can influence chromatin structure and gene expression. Incorrect Options: Option B - Phosphorylation: Incorrect."
+    },
+    {
+     "type": "paragraph",
+     "text": "While phosphorylation regulates protein activity and can impact chromatin remodeling, it doesn't directly hinder euchromatin formation. Option C - Alkylation: Incorrect. Alkylation can alter DNA structure and gene expression, but its effect on euchromatin formation depends on various factors and isn't a consistent rule. Option D - Sumoylation: Incorrect."
+    },
+    {
+     "type": "paragraph",
+     "text": "Sumoylation affects transcriptional regulation and chromatin organization but isn't specifically linked to hindering euchromatin formation."
+    }
+   ]
+  },
+  {
+   "id": "21-60",
+   "question": "In the context of wound healing, which of the subsequent types of collagens are implicated?",
+   "options": {
+    "A": "Type II",
+    "B": "Type III",
+    "C": "Type IV",
+    "D": "Type V"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Collagens are vital for tissue structure, including skin and connective tissues. Type III collagen, crucial for wound healing, aids in early-stage healing and granulation tissue formation. This tissue serves as a scaffold for new blood vessels and fibroblasts. Fibroblasts synthesize Type III collagen during the inflammatory phase, providing strength and support for tissue repair."
+    },
+    {
+     "type": "paragraph",
+     "text": "Eventually, Type III collagen is replaced by Type I collagen, forming mature scar tissue. Incorrect Options: Option A - Type II collagen: Found in cartilage, maintaining its structure; not directly involved in wound healing. Option C - Type IV collagen: Predominantly in basement membranes, crucial for tissue organization but not directly involved in wound healing."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Type V collagen: Present in various tissues, contributing to structural integrity but not having a prominent role in wound healing compared to Type I and Type III collagens."
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q806207",
+   "question": "Klenow fragment lacks the activity of",
+   "options": {
+    "A": "3’→5’ Exonuclease",
+    "B": "5’→3’ Exonuclease",
+    "C": "5’→3’ DNA polymerase",
+    "D": "3’→5’ DNA polymerase"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Klenow fragment is a truncated form of DNA polymerase I that lacks the N-terminal region of the enzyme. It retains the DNA polymerase activity and the 3'→5' exonuclease activity, but it lacks the 5'→3' exonuclease activity. Incorrect Options: Option A - 3'→5' Exonuclease: Klenow fragment retains the 3'→5' exonuclease activity."
+    },
+    {
+     "type": "paragraph",
+     "text": "This activity allows the enzyme to proofread and remove mismatched nucleotides from the growing DNA chain during DNA synthesis. Option C - 5'→3' DNA polymerase: Klenow fragment retains the 5'→3' DNA polymerase activity. This activity allows the enzyme to synthesize a new DNA strand using a DNA template. Option D - 3'→5' DNA polymerase: DNA polymerase I, including its Klenow fragment, does not possess 3'→5' DNA polymerase activity."
+    },
+    {
+     "type": "paragraph",
+     "text": "The DNA synthesis activity of DNA polymerases occurs exclusively in the 5'→3' direction."
+    }
+   ]
+  },
+  {
+   "id": "21-23",
+   "question": "Which of the subsequent methods relies on RNA?",
+   "options": {
+    "A": "RT PCR",
+    "B": "Sanger’s technique",
+    "C": "Next generation sequencing",
+    "D": "Western blot"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "RT-PCR is a technique that involves the reverse transcription of RNA into complementary DNA (cDNA), followed by PCR amplification of the cDNA. It is commonly used to study"
+    },
+    {
+     "type": "paragraph",
+     "text": "gene expression by quantifying RNA levels. The process begins with the reverse transcription step, where the RNA template is converted into cDNA using the enzyme reverse transcriptase. The resulting cDNA is then amplified through PCR to obtain multiple copies of the target DNA sequence."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Sanger's technique: Sanger sequencing, or chain termination sequencing, is a method for DNA sequencing that doesn't directly involve RNA. Option C - Next-generation sequencing: NGS is a high-throughput DNA sequencing method used for various DNA-based applications, although it can also sequence RNA molecules.Although NGS can be used to study RNA by sequencing RNA molecules, the technique itself is not solely based on RNA. Option D - Western blot: Western blotting detects and quantifies specific proteins in a sample, but it's not directly based on RNA, even though it can be used to analyze proteins encoded by RNA."
+    }
+   ]
+  },
+  {
+   "id": "21-45",
+   "question": "All of the following are found in DNA structures except",
+   "options": {
+    "A": "Guanine",
+    "B": "Adenine",
+    "C": "Cytosine",
+    "D": "Uracil"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Uracil is not found in DNA structures; it is one of the four nitrogenous bases found in RNA instead. DNA contains the nitrogenous bases Guanine, Adenine, Cytosine, and Thymine. Thymine replaces uracil in DNA and forms base pairs specifically with adenine. Incorrect Options: Option A - Guanine: It is one of the four nitrogenous bases found in DNA and forms base pairs with Cytosine."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Adenine: It is another nitrogenous base found in DNA and forms base pairs with Thymine. Option C - Cytosine: It is one of the four nitrogenous bases found in DNA and forms base pairs with Guanine."
+    }
+   ]
+  },
+  {
+   "id": "21-67",
+   "question": "Which of the following processes does not necessitate 5' capping?",
+   "options": {
+    "A": "tRNA of alanine",
+    "B": "U6 snRNA",
+    "C": "mRNA for Histone",
+    "D": "siRNA"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "5' capping is a post-transcriptional modification that involves the addition of a modified guanine nucleotide (7-methylguanosine) to the 5' end of RNA molecules. This modification is important for the stability, processing, and translation of the RNA molecule. Incorrect Options: Option B - U6 snRNA: U6 snRNA participates in splicing processes in eukaryotic cells. Its 5' capping ensures stability and proper function during splicing."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - mRNA for Histone: Histone mRNA encodes proteins crucial for DNA packaging. 5' capping of histone mRNA ensures stability and efficient translation into histone proteins. Option D - siRNA: siRNA molecules are involved in gene silencing. Their 5' capping protects them from degradation and aids in their incorporation into the RNA-induced silencing complex (RISC) for target gene suppression."
+    }
+   ]
+  },
+  {
+   "id": "21-14",
+   "question": "The attachment of Eukaryotic mRNA to the ribosome is mediated through",
+   "options": {
+    "A": "Poly A tail",
+    "B": "tRNA",
+    "C": "Guanyl Cap",
+    "D": "Shine-Dalgarno Sequence"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The guanyl cap, also known as the 5' cap, is a modified nucleotide structure added to the 5' end of eukaryotic mRNA molecules. It consists of a guanine nucleotide linked to the mRNA through a unique 5' to 5' triphosphate bond. The guanyl cap plays a crucial role in the attachment of mRNA"
+    },
+    {
+     "type": "paragraph",
+     "text": "to the ribosome during translation initiation. It helps in recognition by the ribosome and initiation factors, facilitating the binding of mRNA to the ribosome for protein synthesis. Incorrect Option: Option A - Poly A tail The poly A tail is a stretch of adenine nucleotides added to the 3' end of eukaryotic mRNA molecules. It plays a role in mRNA stability and regulation but is not directly involved in the attachment of mRNA to the ribosome."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - tRNA Transfer RNA (tRNA) molecules are involved in protein synthesis but not in the direct attachment of mRNA to the ribosome. Option D - Shine-Dalgarno Sequence The Shine-Dalgarno sequence is a specific nucleotide sequence found in prokaryotic mRNA molecules. It plays a role in the initiation of translation in prokaryotes by interacting with the complementary sequence in the small subunit of the ribosome."
+    }
+   ]
+  },
+  {
+   "id": "21-16",
+   "question": "What is the mechanism through which gene repair occurs when CRISPR-Cas9 is utilized?",
+   "options": {
+    "A": "Base excision",
+    "B": "Non-Homologous End joining",
+    "C": "Homologous End joining",
+    "D": "Mismatch repair"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "This is the correct option. NHEJ is a DNA repair pathway that repairs double-strand breaks (DSBs) by directly ligating the broken DNA ends without requiring a homologous template. CRISPR-Cas9 can induce targeted DSBs at specific sites in the genome, and NHEJ is often utilized to repair these breaks. However, NHEJ can introduce small insertions or deletions (indels) during the repair process, which may result in gene disruptions or mutations."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Option: Option A - Base excision: Base excision repair (BER) is a DNA repair mechanism that primarily corrects small base lesions, such as single base changes or small chemical modifications. Option C - Homologous End Joining (HEJ) or Homology-Directed Repair (HDR): HDR is a DNA repair pathway that uses a homologous DNA template to repair DSBs, resulting in precise DNA sequence changes."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Mismatch repair: Mismatch repair is a DNA repair mechanism that corrects errors in DNA replication, such as mismatches or small insertion/deletion loops."
+    }
+   ]
+  },
+  {
+   "id": "21-17",
+   "question": "What is chimeric DNA used for?",
+   "options": {
+    "A": "Paternity test",
+    "B": "Maternity test",
+    "C": "Personal identification",
+    "D": "Organ transplantation"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Chimeric DNA can be used in organ transplantation to analyze compatibility between the donor and recipient. By comparing certain genetic markers, such as human leukocyte antigen (HLA) compatibility, chimeric DNA analysis helps determine the likelihood of a successful organ transplant."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Paternity test: Paternity tests typically involve analyzing DNA samples from the alleged father, child, and mother (if available) to determine biological parentage. Chimeric DNA is not specifically used for paternity testing. Option B - Maternity test: Similar to paternity tests, maternity tests involve analyzing DNA samples to determine biological parentage."
+    },
+    {
+     "type": "paragraph",
+     "text": "Chimeric DNA is not specifically used for maternity testing. Option C- Personal identification: Personal identification can be done using DNA analysis techniques such as DNA fingerprinting or forensic DNA profiling. Chimeric DNA is not specifically used for personal identification."
+    }
+   ]
+  },
+  {
+   "id": "21-18",
+   "question": "Steps of PCR in sequence are?",
+   "options": {
+    "A": "Extend DNA, anneal primers, Denture DNA",
+    "B": "Anneal primers, extend DNA, Denature DNA",
+    "C": "Denature DNA, anneal primers, Extends DNA",
+    "D": "Denature DNA, Extend DNA, Anneal primers"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Denature DNA, anneal primers, extend DNA: This is the correct sequence of steps in PCR. The first step is denaturation, which involves heating the DNA sample to separate the double-stranded DNA into single strands. Next, the temperature is lowered to allow the primers to anneal or bind to the complementary regions of the single-stranded DNA templates."
+    },
+    {
+     "type": "paragraph",
+     "text": "Finally, the temperature is raised, and a DNA polymerase extends the primers by adding nucleotides to synthesize new DNA strands. Incorrect Options: Option A - Extend DNA, anneal primers, denature DNA: This sequence is incorrect. In PCR, the denaturation step usually comes first to separate the DNA strands. Then, primers are annealed to the single-stranded DNA templates, and finally, DNA extension occurs."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Anneal primers, extend DNA, denature DNA: This sequence is also incorrect. The denaturation step typically precedes primer annealing. Option D - Denature DNA, extend DNA, anneal primers: This sequence is incorrect. The annealing of primers typically occurs after the denaturation step but before DNA extension."
+    }
+   ]
+  },
+  {
+   "id": "21-19",
+   "question": "Which of the following is a start codon?",
+   "options": {
+    "A": "UAA",
+    "B": "UAG",
+    "C": "UGA",
+    "D": "AUG"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "AUG is the start codon. It codes for the amino acid methionine and also serves as the initiation signal for protein synthesis. It is recognized by the ribosome as the site to begin translation. Incorrect options: Option A - UAA: UAA is not a start codon. It is a stop codon that signals the termination of protein synthesis. Option B - UAG: UAG is also a stop codon and not a start codon. Like UAA, it signals the end of protein synthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - UGA: UGA is yet another stop codon and does not serve as a start codon. It indicates the termination of protein synthesis"
+    }
+   ]
+  },
+  {
+   "id": "21-61",
+   "question": "Which of the following mechanisms can modify gene expression through methylation and acetylation without altering the gene sequence?",
+   "options": {
+    "A": "Mutation",
+    "B": "Epigenetics",
+    "C": "Translocation",
+    "D": "Inversion"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Epigenetics means a DNA change but not the DNA code or sequence. It can alter gene expression by methylation and acetylation (chemical DNA modification). The changes are reversible and can be transmitted to the next generation. It can lead to gene activation or gene inhibition. Incorrect Options: Option A - Mutation is of many types and the DNA sequence changes in mutation. In point mutation, only one base is changed."
+    },
+    {
+     "type": "paragraph",
+     "text": "Transition, Transversion, silent mutation, missense mutation, and non-sense mutation are all point mutations. Option B - Translocation occurs when genetic material is exchanged between two different chromosomes. Option D - Inversion is the alteration in the position of genes within the same chromosome."
+    }
+   ]
+  }
+ ]
+}

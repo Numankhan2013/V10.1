@@ -26,7 +26,9 @@ def apply(record: dict, path: Path, fail) -> int:
             fail(f"{path.name}: {qid} needs a stem and 1-6 column headers")
         if len(rows) < 2 or any(len(r) != len(cols) for r in rows) or any(not str(r[0]).strip() for r in rows[:2]):
             fail(f"{path.name}: {qid} rows must match the columns")
-        if q.get("stemTables"):
+        # A printed table may replace only an extracted one that came out empty
+        # (its lists landed in the headers with no rows).
+        if any(t.get("rows") for t in q.get("stemTables") or []):
             fail(f"{path.name}: {qid} already has a stem table")
         # Every label the key pairs ("1-iii", "A-4") must head a cell of the table.
         labels = {m.group(1).lower() for r in rows for c in r if (m := LABEL.match(str(c)))}

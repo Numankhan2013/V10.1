@@ -54,7 +54,7 @@ def main() -> None:
                     bank_row('PrepLadder', subject).click()
                     page.get_by_role('button', name='Continue to topics').click()
 
-                for subject, topics, questions in (('Anatomy', 10, 410), ('Physiology', 9, 362), ('Biochemistry', 8, 346), ('Microbiology', 6, 610), ('Pathology', 27, 615), ('Pharmacology', 16, 650)):
+                for subject, topics, questions in (('Anatomy', 14, 475), ('Physiology', 20, 451), ('Biochemistry', 19, 492), ('Microbiology', 6, 610), ('Pathology', 27, 615), ('Pharmacology', 16, 650)):
                     open_builder()
                     choose_prep(subject)
                     toggle = page.locator('#nk-cbt-pyq-toggle')
@@ -96,10 +96,10 @@ def main() -> None:
 
                 open_builder()
                 page.get_by_role('button', name='Continue to topics').click()
-                expect(page.locator('#nk-cbt-pyq-toggle small')).to_have_text('76 topics · 2,993 Q')
+                expect(page.locator('#nk-cbt-pyq-toggle small')).to_have_text('102 topics · 3,293 Q')
                 page.locator('#nk-cbt-pyq-toggle').click()
                 expect(page.locator('#nk-cbt-pyq-toggle')).to_have_attribute('aria-pressed', 'true')
-                expect(page.locator('#nk-cbt-footer-count')).to_have_text('76 topics · 2,993 questions')
+                expect(page.locator('#nk-cbt-footer-count')).to_have_text('102 topics · 3,293 questions')
                 page.screenshot(path=str(output / f'pyq-topics-{width}.png'), full_page=True)
                 page.get_by_role('button', name='Continue to questions').click()
                 page.locator('#nk-cbt-custom-count').fill('2')
@@ -110,7 +110,7 @@ def main() -> None:
                 assert page.locator('.option-list .correct').count() == 0
                 first = session['questionIds'][0]
                 wrong = page.evaluate('''id=>{
-                  const q=[...(window.QBANK_DATA?.questions||[]),...(window.SUBJECT_QBANK_DATA.subjects||[]).flatMap(r=>r.questions||[]),...(window.NK_DATA_MARROW_DATA?.records||[]).flatMap(r=>r.questions||[])].find(q=>String(q.id)===String(id));
+                  const q=[...(window.NK_DATA_MARROW_DATA?.records||[]).flatMap(r=>r.questions||[]),...(window.QBANK_DATA?.questions||[]),...(window.SUBJECT_QBANK_DATA.subjects||[]).flatMap(r=>r.questions||[])].find(q=>String(q.id)===String(id));
                   return Number(q.correctOption)%4+1;
                 }''', first)
                 page.locator('.option-list button').nth(wrong - 1).click()
@@ -146,7 +146,7 @@ def main() -> None:
                 regular = page.locator('.nk-cbt-topic-group .nk-cbt-topic').filter(has_not_text='· PYQs').first
                 regular.click()
                 selected_count = int(page.locator('#nk-cbt-footer-count').inner_text().split(' topics')[0])
-                assert selected_count == 11
+                assert selected_count == 15
                 expect(page.locator('#nk-cbt-pyq-toggle')).to_have_attribute('aria-pressed', 'true')
                 page.get_by_role('button', name='Continue to questions').click()
                 pool = int(page.locator('.nk-cbt-summary > div').nth(1).locator('strong').inner_text().split()[0].replace(',', ''))
@@ -196,7 +196,7 @@ def main() -> None:
             browser.close()
     finally:
         server.shutdown()
-    print('PYQ_EXAM_JOURNEY_BROWSER_OK verified=2993/76 subsets=true pyq=true mixed=true history=true review=true followup=true phone_tablet=true')
+    print('PYQ_EXAM_JOURNEY_BROWSER_OK verified=3293/102 subsets=true pyq=true mixed=true history=true review=true followup=true phone_tablet=true')
 
 
 if __name__ == '__main__':

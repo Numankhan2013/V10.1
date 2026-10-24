@@ -500,3 +500,57 @@ controls, and never dip. Geist rules use `!important` transitions and shadow
 resets with ID specificity, so every layer rule needs the double
 `:is(body,#nkg-root)` boost `(2,3,2)`, and the reduced-motion suppressor must
 match it.
+
+## Async buttons report their result in place (2026-10-24)
+
+Buttons that start network work (cloud sync, sign-in, create account) use
+`nkButtonState(button, 'loading'|'success'|'error'|'idle', label)` in
+`interaction_polish.js`, adapted from beUI's StatefulButton (MIT). The button
+locks its width, shows a spinner while busy (`disabled`, `aria-busy`), then
+draws a check or cross with the result label and returns to idle after
+1.8s. This replaces the separate "Progress is up to date" toast: the answer
+appears where the user tapped. beUI's spring press scale was not adopted
+because press feedback must not move the control (see the press-acknowledgment
+decision above). `cross_device_sync.js` calls it through `nkSyncButton`, which
+falls back to plain `disabled` when the polish module is absent, as it is in
+the module's isolated test. Reduced motion drops the spin and blur and keeps
+the static state.
+
+## Buttons spring on press (2026-10-24, supersedes the no-movement rule for buttons)
+
+The owner reviewed beUI's buttons and approved the press shrink. `button` and
+`[role="button"]` settle to `scale: .97` while `.nk-pressed` (120ms ease-out)
+and spring back on release through `.nk-pressed-out` (300ms
+`cubic-bezier(.34,1.56,.64,1)`, peaking near 1.003); the class now lives 320ms
+so the spring finishes. The ink layer stays. It uses the individual `scale`
+property, never `transform`, so controls positioned with `transform` keep their
+place. Links, clickable cards without a button role, answer options and
+overlay backdrops still never move. Reduced motion sets `scale: none`.
+
+## Printed stem tables are data for structured PrepLadder banks (2026-10-24)
+
+The source-fingerprinted matching overrides in `question_presentation.js`
+(see `MATCHING_TABLE_ARCHITECTURE_HANDOFF_2026-09-14.md`) never reach the
+structured PrepLadder banks: `nkQuestionPageBank(q)` is false for
+`explanationFormat === 'structured'`, which renders `stemTables` from the
+shard instead. Matching and list questions whose table was lost in extraction
+are therefore fixed in `data/Prepladder/<bank>/stem_tables.json`, copied by
+hand from the printed question and applied at shard build by
+`tools/prepladder_stem_tables.py`. A printed table may replace an extracted one
+only when the extracted one has no rows (its lists landed in the headers);
+any table with rows still fails the build. 2026-10-24 adds 21 entries across
+anatomy (new file), biochemistry, microbiology, pathology, pharmacology and
+physiology. Questions whose options are self-contained or image-owned, and
+ordinary uses of "match" (HLA matching, injuries during a match), stay as
+plain MCQs.
+
+## Anatomy ships with PDF explanations; unrestructured questions are held back (2026-10-24)
+
+Until every Anatomy restructure batch (`anatomy-001…055`) is imported and
+checked, a push to `main` shows Anatomy explanations as the PDF pages, and the
+text explanations stay unpublished as the agents' restructuring input.
+Questions with no matching old PDF explanation (new in the 2025 edition, or
+whose explanation changed from the old QBank) are held back from learners until
+their batch is restructured, not shipped with unstructured text or with no
+explanation. Exact counts must be measured when this is implemented. The
+owner decided this; do not ship unstructured Anatomy text without asking.

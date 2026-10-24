@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "note": "Questions withdrawn from the learner app because their stem refers to a source picture the bank cannot release. The canonical shards keep the records untouched; tools/marrow_bank_data.py filters these IDs out of the app records and adjusts topic counts. Remove an entry only after the named figure is released with a question role or the source gap is corrected.",
+  "recordedAt": "2026-10-22",
+  "questions": [
+    {
+      "id": "marrow__ANAT_CH45_Q004",
+      "sourceQuestionId": "ANAT_CH45_Q004",
+      "subject": "Anatomy",
+      "bank": "Marrow",
+      "chapterId": "45",
+      "chapter": "Heart",
+      "questionNumber": 4,
+      "status": "withdrawn",
+      "reason": "The stem asks about a region marked on a picture, but no released question-role image exists. The only candidate is the tracked, unreleased unmarked page-816 source crop (anatomy-ch45-q004-question-unmarked-source, REVIEW_REQUIRED), which does not show the marking the stem refers to.",
+      "evidence": "data/marrow/images/coverage.json marks marrow__ANAT_CH45_Q004:figure:1 as UNRELEASED_TRACKED with assetId anatomy-ch45-q004-question-unmarked-source and bindingStatus REVIEW_REQUIRED; data/marrow/images/registry.json has no asset with that ID; app/src/main/assets/marrow_visual_metadata.js binds only the explanation figure.",
+      "restoreWhen": "A reviewed question-role crop that visibly contains the marked region is released for ANAT_CH45_Q004, or the source image is confirmed absent and the stem is reworded."
+    },
+    {
+      "id": "marrow__BIOCHEM_CH17_Q014",
+      "sourceQuestionId": "BIOCHEM_CH17_Q014",
+      "subject": "Biochemistry",
+      "bank": "Marrow",
+      "chapterId": "17",
+      "chapter": "Porphyrins and bile pigments",
+      "questionNumber": 14,
+      "status": "withdrawn",
+      "reason": "The stem says an image of the infant's teeth is shown, but the source has no such image: neither the question page nor the explanation page prints one, and no figure metadata or asset exists.",
+      "evidence": "data/marrow/images/coverage.json records marrow__BIOCHEM_CH17_Q014:unmapped as SOURCE_REVIEWED_NO_VISUAL: 'Confirmed source omission: no teeth image appears on the cited question or explanation pages' (question page 265, explanation page 277). The canonical record has no structuredExplanation.figures, and the visual registry has no entry.",
+      "restoreWhen": "A verified image of the infant's teeth is obtained from an authoritative source and released with a question role, or the stem is reworded so it no longer refers to an image."
+    },
+    {
+      "id": "marrow__MICRO_CH18_Q013",
+      "sourceQuestionId": "MICRO_CH18_Q013",
+      "subject": "Microbiology",
+      "bank": "Marrow",
+      "chapterId": "18",
+      "chapter": "Retroviruses & HIV / AIDS",
+      "questionNumber": 13,
+      "status": "withdrawn",
+      "reason": "The stem says 'The chest X-ray image shows bilateral interstitial pneumonia', but the bank binds no chest radiograph for this question. The only extracted figure is the Gomori methenamine silver stain in the explanation.",
+      "evidence": "The source JSONL record MA7849 lists one image with location 'explanation' (MA7849_exp_img_1, the GMS stain on page 133); data/marrow/microbiology/visuals.json has no question-role or radiograph entry for marrow__MICRO_CH18_Q013, and no MA7849 CXR file exists under data/marrow/microbiology/visuals.",
+      "restoreWhen": "The chest radiograph from source page 133 is cropped, reviewed and released with a question role, or the stem is reworded so it does not refer to an image."
+    }
+  ]
+}

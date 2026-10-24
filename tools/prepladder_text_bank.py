@@ -45,8 +45,8 @@ SOURCE_LABEL = "PrepLadder November 2025 edition"
 SMALL = {"and", "of", "to", "in", "the", "with", "for", "or", "on", "at", "by", "vs"}
 
 # For some questions the source PDF itself prints only a sentence tail as the
-# explanation ("Explanation: of the correct answer.", "for Assertion."). The
-# fragment goes; the question says so instead of showing it.
+# explanation ("Explanation: of the correct answer.", "for Assertion.", "of Option D").
+# The fragment goes; the question says so instead of showing it.
 FRAGMENT = re.compile(r"^[a-z][^.]{0,40}\.$")
 NO_EXPLANATION = "The source PDF prints no explanation for this question."
 
@@ -139,6 +139,10 @@ class TextBank:
     def topic_id(self, module: int) -> str:
         return f"{self.slug}-{module}"
 
+    def question_id(self, topic: dict, number: int, q: dict) -> str:
+        """The app ID progress is keyed by; a bank that replaces an earlier edition keeps its IDs."""
+        return f"{topic['id']}-{number}"
+
     def ordered_topics(self, topics: dict[int, dict]) -> list[dict]:
         """Topics in index order with the index's section titles. Lesson ids are unchanged,
         so progress keyed by lesson or question id carries over."""
@@ -197,8 +201,12 @@ class TextBank:
 
     # --- bank ---------------------------------------------------------------------
 
+    def overlay_body(self, blocks: list[dict]) -> list[dict]:
+        """The source blocks a restructure hash is taken over (references excluded)."""
+        return [b for b in blocks if not (b["type"] == "paragraph" and REFERENCES.match(b["text"]))]
+
     def apply_overlay(self, app_id: str, blocks: list[dict], tables: list[dict], entry: dict) -> list[dict]:
-        body = [b for b in blocks if not (b["type"] == "paragraph" and REFERENCES.match(b["text"]))]
+        body = self.overlay_body(blocks)
         if source_hash(body) != entry["sourceHash"]:
             self.fail(f"{app_id}: restructured explanation was made from a different source; re-run it")
         out = []
@@ -210,7 +218,9 @@ class TextBank:
                 out.append({"type": "table", "table_id": table_id})
             else:
                 out.append(block)
-        return out + [b for b in blocks if b not in body]
+        tail = [b for b in blocks
+                if b["type"] == "references" or (b["type"] == "paragraph" and REFERENCES.match(b["text"]))]
+        return out + tail
 
     @staticmethod
     def vocabulary(rows: list[dict]) -> Counter:
@@ -338,11 +348,10 @@ class TextBank:
                 if bare:
                     blocks.insert(0, {"type": "paragraph", "text": NO_EXPLANATION})
                 blocks = self.join_reference_tail(blocks)
-                app_id = f"{topic['id']}-{number}"
+                app_id = self.question_id(topic, number, q)
                 reopened = openings.pop(app_id, None)
                 if reopened and not opening and not reopened.get("lead"):
                     self.fail(f"{app_id}: hand-written opening for an explanation that opens whole")
-                explanation = micro.plain_text(self.reopen(app_id, blocks, reopened) if reopened else blocks)
                 if app_id in restructured:
                     blocks = self.apply_overlay(app_id, blocks, tables, restructured[app_id])
                 if reopened:
@@ -350,6 +359,10 @@ class TextBank:
                     opening = ("source PDF explanation starts after lost words; the opening is written from the "
                                "question, its answer and the rest of the explanation" if reopened["to"] else
                                "source PDF explanation starts after lost words; what remains reads complete")
+                # The flat copy must describe the blocks the learner sees, not the
+                # pre-restructure prose: take it after the overlay and the opening,
+                # from the same blocks the app renders.
+                explanation = micro.plain_text([references_block(b) for b in blocks], tables)
                 if not stem or not all(texts):
                     self.fail(f"{q['id']}: blank stem or option")
                 if topic["startPage"] is None and q["pages"]["question_pages"]:

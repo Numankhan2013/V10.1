@@ -12,9 +12,13 @@ from app_page import built_page
 ROOT = Path(__file__).resolve().parents[1]
 REPRESENTATIVES = {
     'marrow__ANAT_CH10_Q004', 'marrow__ANAT_CH13_Q005', 'marrow__ANAT_CH43_Q005',
-    'anatomy-9-1', 'anatomy-47-2', '7-53', 'physiology-23-38', 'physiology-33-33',
-    'marrow__BIOCHEM_CH14_Q013', 'marrow__ANAT_CH45_Q004', 'marrow__BIOCHEM_CH17_Q014',
+    '7-53',
+    'marrow__BIOCHEM_CH14_Q013',
 }
+
+# Earlier PrepLadder questions a 2025 edition left out as exact repeats of a kept one.
+DROPPED_REPEATS = {qid for path in ROOT.glob('data/Prepladder/*/source/edition_map.json')
+                   for qid in json.loads(path.read_text(encoding='utf-8')).get('duplicates', {})}
 
 
 def require(condition, message):
@@ -26,12 +30,14 @@ def main():
     web = ROOT / 'build/web'
     ledger = json.loads((ROOT / 'data/question_completeness_reviews_v1.json').read_text())
     discoveries = json.loads((ROOT / 'data/marrow/images/source_visual_discoveries.json').read_text())['entries']
-    entries = ledger['entries']
+    from marrow_bank_data import withdrawn_questions
+    withdrawn = set(withdrawn_questions())
+    entries = [entry for entry in ledger['entries'] if entry['id'] not in withdrawn]
     html = built_page(web)
     marker = 'getState:()=>state,'
     require(html.count(marker) == 1, 'Expected one QB read-only probe insertion point')
     require('NK_QUESTION_COMPLETENESS_REVIEWS_START' in html, 'Generated completeness compiler block missing')
-    probe = """__completeness:id=>{const q=BY_ID[id];if(!q)return null;const p=nkQuestionPresentationFor(q);return {id:q.id,valid:p.valid,decision:p.completenessDecision,stem:p.stem,table:p.table,options:p.options,correctOption:q.correctOption};},"""
+    probe = """__completeness:id=>{const q=BY_ID[id];if(!q)return null;const p=nkQuestionPresentationFor(q);return {id:q.id,valid:p.valid,decision:p.completenessDecision,stem:p.stem,table:p.table,options:p.options,correctOption:q.correctOption,structured:q.bank==='PrepLadder'&&q.explanationFormat==='structured'};},"""
     html = html.replace(marker, marker + probe, 1)
     output = ROOT / 'build/ui-checks/question-completeness'
     output.mkdir(parents=True, exist_ok=True)
@@ -100,6 +106,13 @@ def main():
                     # Every accepted review is checked against actual runtime objects;
                     # DOM checks below cover every blocked item and representative repairs.
                     runtime = page.evaluate('ids=>ids.map(id=>window.QB.__completeness(id))', [e['id'] for e in group])
+                    # A PrepLadder question rebuilt from a newer edition carries its own
+                    # structured text; page-era reviews do not apply to it (nkQuestionPageBank),
+                    # nor to an earlier question the newer edition left out as an exact repeat.
+                    kept = [(e, a) for e, a in zip(group, runtime)
+                            if not (a and a.get('structured')) and e['id'] not in DROPPED_REPEATS]
+                    group = [e for e, _ in kept]
+                    runtime = [a for _, a in kept]
                     for entry, actual in zip(group, runtime):
                         qid, display = entry['id'], entry['display']
                         require(actual and actual['id'] == qid, f'{qid} missing from active bank runtime')

@@ -50,7 +50,25 @@ assert.equal(submitted.session.strictExpired.p3,true);
 assert.equal(submitted.session.strictQuestionTime.p3,60000);
 assert.equal(submitted.session.questionTimes.p3,60000);
 assert(saves>3&&renders>3);
-console.log('TOPIC_TIMER_OK cumulative=true reload=true lock=true final=true');
+// A manual navigation at expiry must not lose the expiry. The interaction
+// transaction restores the state when the action returns false, so the expiry
+// has to run after that restore, not before it.
+const timers=[];
+const realSetTimeout=globalThis.setTimeout;
+globalThis.setTimeout=(fn,ms)=>{timers.push(fn);return timers.length;};
+const nkInnerNextQ=nextQ;
+nextQ=function(){const before=JSON.parse(JSON.stringify(state));const out=nkInnerNextQ.apply(this,arguments);if(out===false)state=before;return out;};
+state.activeSession={id:'topic-test',questionIds:[...ids],mode:'exam',title:'Topic Test',index:0,answers:{},questionTimes:{},startedAt:now,questionEnteredAt:now,timerMode:'per-question',strictExpired:{},strictQuestionTime:{}};
+now+=60000;
+const navResult=nextQ();
+assert.equal(navResult,false,'navigation at expiry must be refused');
+assert.equal(timers.length,1,'the expiry must be deferred past the transaction restore');
+timers.forEach(fn=>fn());
+assert.equal(state.activeSession.strictExpired.p1,true,'the expiry must survive the navigation transaction');
+assert.equal(state.activeSession.index,1,'the expired question must be left behind');
+globalThis.setTimeout=realSetTimeout;
+
+console.log('TOPIC_TIMER_OK cumulative=true reload=true lock=true final=true expiry_survives_navigation=true');
 '''
     subprocess.run(['node', '-e', script], check=True, cwd=ROOT)
 

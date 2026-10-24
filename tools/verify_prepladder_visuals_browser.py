@@ -4,6 +4,7 @@ from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 import json
 from pathlib import Path
+import sys
 import threading
 
 from playwright.sync_api import sync_playwright
@@ -19,11 +20,30 @@ CATEGORIES = {
 }
 
 
+def page_era():
+    """Physiology and Anatomy IDs still explained by source-PDF pages (kept from the earlier edition)."""
+    sys.path.insert(0, str(ROOT / "tools"))
+    from build_prepladder_anatomy_bank import app_record as anatomy
+    from build_prepladder_physiology_bank import app_record as physiology
+    return {q["id"] for record in (physiology(), anatomy()) for q in record["questions"] if q["edition"] == "earlier"}
+
+
 def choose_representatives(items):
+    # PrepLadder Biochemistry, Physiology and Anatomy render their 2025-edition figures
+    # through the text-bank renderer (tools/verify_prepladder_<subject>_browser.py), not
+    # source visuals; only questions kept from the earlier editions still use them.
+    earlier = page_era()
+    page_era_items = [item for item in items if item.get("subject") != "Biochemistry"
+                      and (item.get("subject") not in ("Physiology", "Anatomy") or item.get("questionId") in earlier)]
     selected = {}
     for label, flag in CATEGORIES.items():
-        match = next((item for item in items if flag in item.get("riskFlags", [])), None)
+        match = next((item for item in page_era_items if flag in item.get("riskFlags", [])), None)
         if match is None:
+            # A kind of figure only the 2025 text banks still carry is covered by their
+            # own verifiers; one missing from the audit altogether is a regression.
+            if any(flag in item.get("riskFlags", []) for item in items):
+                print(f"PREPLADDER_VISUALS_SKIP {label}: only in 2025 text banks")
+                continue
             raise SystemExit(f"PrepLadder visual audit has no representative {label} candidate ({flag})")
         selected[label] = match
     return selected

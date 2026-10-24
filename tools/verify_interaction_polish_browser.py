@@ -45,8 +45,8 @@ def main():
                 nav.dispatch_event('pointerup',{'pointerId':1,'isPrimary':True,'button':0,'clientX':20,'clientY':20})
                 nav_melt=nav.evaluate("el=>getComputedStyle(el).transitionProperty")
                 assert (('box-shadow' not in nav_melt) if reduced else ('box-shadow' in nav_melt)),'the melt must follow the motion preference'
-                page.wait_for_timeout(300)
-                assert not nav.evaluate("el=>el.classList.contains('nk-pressed-out')"),'the melt must end'
+                # The press-out class lives 320ms so the release spring can finish.
+                page.wait_for_function("el=>!el.classList.contains('nk-pressed-out')",arg=nav.element_handle(),timeout=1000)
                 assert '9999px' not in nav.evaluate("el=>getComputedStyle(el).boxShadow"),'the layer must be gone after the melt'
                 page.evaluate("QB.practiceOne('1-1')");page.wait_for_selector('.option-list button');question=page.evaluate('__nkInteractionProbe.question()');option=page.locator('.option-list button').nth(int(question['correctOption'])-1)
                 option.dispatch_event('pointerdown',{'pointerId':1,'isPrimary':True,'pointerType':'touch','button':0,'clientX':30,'clientY':30})

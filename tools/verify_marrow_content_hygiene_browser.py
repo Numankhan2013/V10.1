@@ -23,6 +23,7 @@ OVERRIDE_PATHS = (
     ROOT / "data/marrow/content_hygiene_nerve_ch6_q18_34_v1.json",
     ROOT / "data/marrow/content_hygiene_phys_ch09_10_v1.json",
     ROOT / "data/marrow/content_hygiene_phys_ch11_12_v1.json",
+    ROOT / "data/marrow/content_hygiene_phys_watermark_v1.json",
 )
 LEAK_MARKERS = (
     "[object Object]",

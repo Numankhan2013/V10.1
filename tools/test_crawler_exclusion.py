@@ -22,6 +22,10 @@ with tempfile.TemporaryDirectory() as directory:
     assets = base / "assets"
     assets.mkdir()
     (assets / "index.html").write_text('<html><head><meta name="robots" content="index"></head><body>Study</body></html>')
+    # The build checks that the generated files the page loads are in the
+    # output, so the fixture must carry them too.
+    (assets / "biochemistry_source_solution_map.js").write_text("window.NK_BIOCHEM_SOURCE_SOLUTION_MAP={};\n")
+    (assets / "subject_source_solution_maps.js").write_text("window.NK_SUBJECT_SOURCE_SOLUTION_MAPS={};\n")
     (assets / "sw.js").write_text("const BUILD_VERSION='dev';\nconst SHELL=['./index.html'];\n")
     (assets / "source_visuals").mkdir()
     (assets / "source_visuals/example.png").write_bytes(b"fixture-image")
@@ -31,7 +35,9 @@ with tempfile.TemporaryDirectory() as directory:
     for anatomy_url in ("https://source.example/anatomy.pdf", ""):
         (assets / "qbank-config.js").write_text("window.NK_QBANK_FIREBASE_CONFIG = " + json.dumps({"anatomyPdfUrl": anatomy_url}) + ";\n")
         out = base / ("with-worker" if anatomy_url else "without-worker")
-        with patch.object(builder, "ASSETS", assets), patch.object(sys, "argv", ["build_web_dist.py", "--out", str(out), "--version", "fixture"]), contextlib.redirect_stdout(io.StringIO()):
+        # The real filled page may exist in build/app from the data step; this
+        # fixture must exercise the fixture page, not the developer's build.
+        with patch.object(builder, "ASSETS", assets), patch.object(builder, "BUILT_PAGE", base / "missing-filled-page.html"), patch.object(sys, "argv", ["build_web_dist.py", "--out", str(out), "--version", "fixture"]), contextlib.redirect_stdout(io.StringIO()):
             builder.main()
         page = (out / "index.html").read_text()
         assert page.count('name="robots"') == 1 and f'content="{DIRECTIVES}"' in page

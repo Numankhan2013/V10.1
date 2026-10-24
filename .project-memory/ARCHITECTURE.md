@@ -425,6 +425,12 @@ generated-app/package checks remain mandatory there. See `docs/LOCAL_DEVELOPMENT
   - Biochemistry: 582 / 28.
   - Physiology: 1,014 / 43.
   - Combined: 2,711 unique questions / 134 topics.
+- The app shipping boundary (`app_marrow_records()`) withholds the IDs in
+  `data/marrow/withdrawn_questions_v1.json` and recomputes each topic's
+  `questionCount`; the canonical expanded records above and their audits keep
+  every question. Microbiology adds 725 shipped questions. Current app total:
+  Anatomy 1,114 / Biochemistry 581 / Physiology 1,014 / Microbiology 725 =
+  3,434.
 - Expanded transport is manifest-verified compressed/base64 data:
   `data/marrow/anatomy_ch001_063.zlib.b64.part*` +
   `anatomy_ch001_063_manifest.json`;

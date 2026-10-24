@@ -16,13 +16,36 @@ sys.path.insert(0, str(ROOT / "tools"))
 
 from build_app_data import assemble  # noqa: E402
 from build_prepladder_microbiology_bank import (  # noqa: E402
-    INDEX, INVENTORY, RUNTIME, app_record, jpeg_size, load_edition_map, load_source, sha256, x_app_id)
+    INDEX, INVENTORY, RUNTIME, app_record, jpeg_size, load_edition_map, load_source, plain_text, sha256, x_app_id)
 
 
 def main() -> None:
     subprocess.run([sys.executable, str(ROOT / "tools/build_prepladder_microbiology_bank.py"), "--check"], check=True)
     record = app_record()
     topics, questions = record["topics"], record["questions"]
+    # The flat explanation must be the flat rendering of the blocks the learner
+    # sees, so the Key takeaway is computed from the same document.
+    for q in questions:
+        structured = q.get("structuredExplanation") or {}
+        blocks = structured.get("blocks") or []
+        tables = structured.get("tables") or []
+        assert q["explanation"] == plain_text(blocks, tables), q["id"]
+        # A table is part of the explanation the learner reads, so the flat copy
+        # must carry its cells and not just its title.
+        by_id = {t.get("table_id"): t for t in tables}
+        for block in blocks:
+            if block.get("type") != "table":
+                continue
+            table = by_id.get(block.get("table_id")) or {}
+            for row in table.get("rows") or []:
+                for cell in row:
+                    if str(cell).strip():
+                        assert str(cell) in q["explanation"], f"{q['id']} lost the table cell {cell!r}"
+                        break
+                else:
+                    continue
+                break
+
     assert record["bank"] == "PrepLadder" and record["explanationFormat"] == "structured"
     assert len(topics) == 42 and len(questions) == 1202
     pyq = [t for t in topics if t["pyq"]]
@@ -54,8 +77,10 @@ def main() -> None:
         first = (q["structuredExplanation"]["blocks"] or [{}])[0]
         assert not str(first.get("text", "")).lower().startswith(("correct answer", "answer:")), q["id"]
         assert q["structuredExplanation"]["blocks"], q["id"]
-    assert sum(1 for q in questions if q.get("stemTables")) == 49  # 35 printed + 14 hand-checked (stem_tables.json)
+    assert sum(1 for q in questions if q.get("stemTables")) == 49  # 33 printed + 16 hand-checked (2 replace empty extractions)
+    assert all(t["rows"] for q in questions for t in q.get("stemTables", [])), "an extracted table came out with no rows"
     by_qid = {q["id"]: q for q in questions}
+    assert by_qid["microbiology-37-26"]["stemTables"][0]["rows"][0] == ["1. Diphyllobothrium", "a. Sheep"]
     assert by_qid["microbiology-33-17"]["options"][1]["text"] == "Cryptosporidium parvum"
     assert not any(o["text"].startswith("[Image") for q in questions for o in q["options"])
 

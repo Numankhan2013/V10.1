@@ -29,9 +29,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 
-from prepladder_text_bank import source_hash  # noqa: E402
+from prepladder_text_bank import NO_EXPLANATION, source_hash  # noqa: E402
 
-BANKS = ("pathology", "pharmacology")
+BANKS = ("pathology", "pharmacology", "biochemistry", "physiology", "anatomy")
 BATCH_SIZE = 20
 INSTRUCTIONS = "docs/EXPLANATION_RESTRUCTURE.md"
 
@@ -130,8 +130,11 @@ def bank_bodies(bank: str) -> dict[str, dict]:
 
     out = {}
     for q in builder.normalize(builder.load_source(), overlay=False)[0]["questions"]:
+        # Earlier-edition questions keep their PDF-page explanations: nothing to format.
+        if "structuredExplanation" not in q or not q["options"]:
+            continue
         body = [b for b in q["structuredExplanation"]["blocks"] if b["type"] != "references"]
-        if not body or body[0].get("text") == builder.NO_EXPLANATION:
+        if not body or body[0].get("text") == NO_EXPLANATION:
             continue
         out[q["id"]] = {"q": q, "body": body}
     return out

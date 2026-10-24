@@ -11,6 +11,8 @@ the model can only rearrange.
 |---|---|---|
 | Pathology | `data/Prepladder/pathology/restructure/batches/pathology-001` … `073` (1,442 questions) | done: 1,321 restructured, 121 unchanged |
 | Pharmacology | `data/Prepladder/pharmacology/restructure/batches/pharmacology-001` … `066` (1,315 questions) | done: 1,155 restructured, 160 unchanged |
+| Biochemistry (First Prof 2025) | `data/Prepladder/biochemistry/restructure/batches/biochemistry-NNN` | to do |
+| Physiology (First Prof 2025) | `data/Prepladder/physiology/restructure/batches/physiology-NNN` | to do (after PR #142 merges) |
 
 - Worked examples (they pass the check):
   `data/Prepladder/<bank>/restructure/examples/example-result.json`.
@@ -156,7 +158,7 @@ way.
 ## The prompt (paste all of this)
 
 ```text
-You are formatting medical explanations from a pharmacology question bank. The
+You are formatting medical explanations from a medical question bank. The
 source PDF printed each explanation as one run of text, so its points, option
 rulings and tables were squashed together. Your job is to lay the SAME text
 out so a student can read it on a phone. You are a typesetter, not an editor.

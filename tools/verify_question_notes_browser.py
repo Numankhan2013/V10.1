@@ -79,7 +79,7 @@ def main() -> None:
             page.locator(".nk-notes-item").wait_for(state="visible", timeout=10000)
             assert page.locator(".nk-notes-item").count() == 1, "More should open the saved-note index"
             assert page.locator(".nk-notes-item-text").inner_text() == "My recall cue: compare the two fibres."
-            page.locator(".nk-notes-search input").fill("no match")
+            page.locator(".nk-notes-search input").fill("zebra crossing")
             assert page.locator(".nk-notes-item:visible").count() == 0
             page.locator(".nk-notes-search input").fill("fibres")
             assert page.locator(".nk-notes-item:visible").count() == 1

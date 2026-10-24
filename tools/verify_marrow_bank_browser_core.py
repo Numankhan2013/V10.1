@@ -245,7 +245,7 @@ def main():
             page.screenshot(path=str(OUT/'00e-physiology-q5-diffusion-repeat.png'),full_page=True)
             page.evaluate("window.QB.nav('banks','Physiology')");page.wait_for_timeout(80)
             page.locator('button.nk-bank-card').filter(has_text='PrepLadder').click();page.wait_for_timeout(100)
-            if page.locator('button.nk-topic-row').count()!=38: raise SystemExit('PrepLadder Physiology topics regressed')
+            if page.locator('button.nk-topic-row').count()!=49: raise SystemExit('PrepLadder Physiology topics regressed')
             page.evaluate("window.QB.nav('dashboard')");page.wait_for_timeout(80)
 
             page.locator('button.nk-subject-row').filter(has_text='Anatomy').click()
@@ -325,7 +325,7 @@ def main():
 
             page.evaluate("window.QB.nav('banks','Anatomy')");page.wait_for_timeout(80)
             page.locator('button.nk-bank-card').filter(has_text='PrepLadder').click();page.wait_for_timeout(100)
-            if page.locator('button.nk-topic-row').count()!=50: raise SystemExit('PrepLadder Anatomy topics regressed')
+            if page.locator('button.nk-topic-row').count()!=54: raise SystemExit('PrepLadder Anatomy topics regressed')
             if page.locator('body').get_by_text('Gametogenesis',exact=True).count(): raise SystemExit('Marrow topic leaked into PrepLadder')
             # Candidate regression: Topics hierarchy, completion Back, and explicit settings save.
             assert page.locator('.nk-topic-group').count() >= 8
@@ -381,12 +381,12 @@ def main():
             page.evaluate("window.QB.nav('topics')");page.wait_for_timeout(100)
             page.screenshot(path=str(OUT/'07c-topics-tablet.png'))
             page.set_viewport_size({'width':390,'height':844})
-            # Exercise authoritative source PDFs in real question explanations.
-            for subject in ('Biochemistry','Physiology','Anatomy'):
-                page.evaluate('(subject)=>window.QB.nav(\'banks\',subject)',subject);page.wait_for_timeout(100)
-                page.locator('button.nk-bank-card').filter(has_text='PrepLadder').click();page.wait_for_timeout(100)
-                page.locator('button.nk-topic-row').first.click();page.wait_for_timeout(100)
-                page.locator('button.nk-library-row').first.click();page.wait_for_timeout(100)
+            # Exercise authoritative source PDFs in real question explanations. PrepLadder's
+            # First Prof banks explain in text since their 2025 editions; anatomy-29-7 is kept
+            # from the earlier edition, so it still explains with its source-PDF pages.
+            for subject, question_id in (('Anatomy', 'anatomy-29-7'),):
+                page.evaluate("()=>{const s=window.QB.getState();s.activeSession=null;s.normalPracticeCheckpoints=[];s.normalPracticeCheckpoint=null;}")
+                page.evaluate('(id)=>window.QB.practiceOne(id)',question_id);page.wait_for_timeout(100)
                 page.locator('.option-list button').first.click();page.wait_for_timeout(100)
                 print('PDF_CHECK',subject,flush=True)
                 segment=page.locator('.nk-web-pdf-segment').first

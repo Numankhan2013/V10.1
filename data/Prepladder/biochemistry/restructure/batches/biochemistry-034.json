@@ -1,0 +1,585 @@
+{
+ "batch": "biochemistry-034",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "biochemistry-034",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "biochemistry-q866660",
+   "question": "Which of the following genetic mutations is most commonly associated with familial cases of Amyotrophic Lateral Sclerosis (ALS)?",
+   "options": {
+    "A": "CFTR gene mutation",
+    "B": "SOD1 gene mutation",
+    "C": "HTT gene mutation",
+    "D": "FMR1 gene mutation"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Familial Amyotrophic Lateral Sclerosis (ALS) is primarily associated with mutations in the SOD1 gene, which cause a toxic gain-of-function leading to motor neuron degeneration. Definition: Progressive neurodegenerative disorder affecting motor neurons. Genetics: Most commonly caused by mutations in the SOD1 (superoxide dismutase 1) gene. Pathophysiology: SOD1 mutation leads to toxic gain-of-function, causing motor neuron death."
+    },
+    {
+     "type": "paragraph",
+     "text": "Clinical features: Muscle weakness, atrophy, fasciculations, spasticity, and eventual paralysis. Inheritance: Autosomal dominant pattern in familial cases. Diagnosis: Clinical signs plus genetic testing for SOD1 mutation. Treatment: Mainly supportive; no cure currently available. Incorrect Options: The CFTR gene mutation (Option A) causes cystic fibrosis. CFTR encodes a chloride/bicarbonate channel in epithelial cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "Impaired chloride secretion → dehydrated, thick mucus → chronic pulmonary infection/inflammation, bronchiectasis; pancreatic exocrine insufficiency (steatorrhea, failure to thrive); male infertility from congenital bilateral absence of the vas deferens; salty sweat (↑ Cl⁻)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**The HTT gene mutation (Option C):** causes Huntington’s disease. Expansion of CAG trinucleotide repeats in the HTT gene → polyglutamine (polyQ) toxic gain-of-function."
+    },
+    {
+     "type": "paragraph",
+     "text": "**The FMR1 gene mutation (Option D):** causes Fragile X syndrome, which has CGG repeat expansion in the FMR1 gene. The most common inherited cause of intellectual disability; autistic traits, developmental delay, long face, large ears, macroorchidism, and connective-tissue laxity."
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q866327",
+   "question": "A frameshift mutation occurs due to the insertion of a new nucleotide at the 4th position of an mRNA sequence with 900 nucleotides. What is the most likely outcome of this mutation?",
+   "options": {
+    "A": "No change in the final protein",
+    "B": "Partial protein production",
+    "C": "Complete change in protein production",
+    "D": "No change due to RNA editing"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The insertion of a nucleotide at the 4th position of a 900-nucleotide mRNA sequence causes Frameshift Mutation, most likely resulting in a complete alteration of the protein produced. It occur when nucleotides are inserted into or deleted from the DNA or mRNA sequence, causing a shift in the reading frame of the genetic code. This usually results in: A completely different sequence of amino acids from the mutation site onward."
+    },
+    {
+     "type": "paragraph",
+     "text": "Potential introduction of premature stop codons, leading to truncated proteins. Loss of the original protein function. Incorrect Options: No change in the final protein (Option A): Unlikely, because an insertion at position 4 shifts the reading frame early, changing most of the protein."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Partial protein production (Option B):** Possible if a premature stop codon is introduced, but the question emphasizes the insertion at the 4th position, so the frame shift affects nearly the entire protein."
+    },
+    {
+     "type": "paragraph",
+     "text": "**No change due to RNA editing (Option D):** RNA editing is rare and usually doesn't correct frameshift mutations, so unlikely."
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q866329",
+   "question": "A patient presents with skin cancer and hyperpigmentation that worsens with sunlight exposure. Which of the following DNA repair mechanisms is most likely defective in this condition?",
+   "options": {
+    "A": "Nucleotide excision repair",
+    "B": "Base excision repair",
+    "C": "Non-homologous end joining (NHEJ)",
+    "D": "Mismatch repair"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Skin cancer and hyperpigmentation that worsen with sun exposure strongly indicate a defect in the Nucleotide Excision Repair (NER) Pathway, which normally repairs UV-induced bulky DNA lesions like thymine dimers; such defects are seen in conditions like xeroderma pigmentosum (XP), marked by extreme UV sensitivity, pigmentation abnormalities, and a high risk of skin cancer. This repair is required when, Chemical damage to a segment occurs."
+    },
+    {
+     "type": "paragraph",
+     "text": "UV mediated Pyr Pyr dimerization is observed in a segment. 30 bases are removed and then the correct bases are added. A related nucleotide excision repair (NER) pathway exists in humans, addressing UV-induced damage encountered during DNA synthesis. Transcription-coupled repair, a type of NER,"
+    },
+    {
+     "type": "paragraph",
+     "text": "specifically targets lesions that obstruct RNA synthesis. Clinical application: Pyrimidine dimers can form in human skin cells exposed to unfiltered sunlight. In xeroderma pigmentosum (XP), a genetic disorder, the inability to repair UV-induced DNA damage leads to the accumulation of mutations and a heightened risk of developing early and multiple skin cancers."
+    },
+    {
+     "type": "paragraph",
+     "text": "XP results from defects in genes coding for proteins necessary for NER of UV damage Incorrect Options: Base excision repair (Option B) fixes small, non-bulky base lesions (e.g., oxidative damage)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Non-homologous end joining (NHEJ) (Option C):** repairs double-strand breaks, unrelated to UV damage."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Mismatch repair (Option D):** corrects replication errors, not UV-induced damage."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L26_Q020_E1"
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q866331",
+   "question": "A 22-year-old tall male presents with long limbs, increased arm span, hypermobile joints, and a high-arched palate. On examination, he has lens subluxation and a diastolic murmur suggestive of aortic root dilation. Which of the following genes is most likely mutated in this condition?",
+   "options": {
+    "A": "Fibrillin-1 (FBN1)",
+    "B": "COL4A5",
+    "C": "COL1A1",
+    "D": "Elastin"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The combination of tall stature, long limbs, increased arm span, hypermobile joints, high-arched palate, lens subluxation, and aortic root dilation strongly suggests Marfan Syndrome, a connective tissue disorder caused by mutations in the Fibrillin-1 (FBN1) gene affecting the cardiovascular, ocular, and skeletal systems. Marfan Disease The most common Clinical Manifestation is Skeletal Abnormalities."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mitral Valve Prolapse (Most common Cardiac abnormality) Aortic Dissection (Most common cause of death) Retinal Detachment (eye problem) Freely moveable Joint (most common Thumb joint) Arachnodactyly (long fingers, spider fingers), High Arched Palate Nine Feet Tall, Pigeon chest (defect in sternum) Dislocation of the lens (Ectopia Lentis- Direction of dislocation is Supero Temporal) Steinberg Sign: Positive if the thumb tip extends beyond the palm when folded into a closed fist."
+    },
+    {
+     "type": "paragraph",
+     "text": "Walker Sign: Positive if the thumb and fifth finger overlap when you grip your wrist with the opposite hand. Incorrect Options: COL4A5 (Option B) is associated with Alport syndrome (kidney disease, hearing loss, and eye abnormalities)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**COL1A1 (Option C):** is linked to osteogenesis imperfecta (brittle bones)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Elastin (Option D):** mutations cause supravalvular aortic stenosis, not typical Marfan features."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L26_Q021_E1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L26_Q021_E2"
+    }
+   ]
+  },
+  {
+   "id": "21-73",
+   "question": "miRNA binds to which part of the mRNA to inhibit translation?",
+   "options": {
+    "A": "Gene body",
+    "B": "3'UTR",
+    "C": "Gene promoter",
+    "D": "5'UTR"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The miRNA along with the proteins forms the RNA-induced silencing complex (RISC complex) and binds to the 3’ end of the target mRNA to be degraded. Thus, miRNA is synthesized from DNA and it binds to 3’ UTR. Gene body (Option A) gene has regulatory regions such as the promoter where the enzymes bind that initiate the transcription. Furthermore, a gene has a start and a stop site, In between the start and stop site is the region that"
+    },
+    {
+     "type": "paragraph",
+     "text": "is transcribed into mRNA. This includes exons and introns. Introns and exons together are called the transcriptional region, or the gene body."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Gene promoter(Option B):** It is present upstream to the operator site and serves as the initiation site where RNA polymerase binds to and initiates the transcription of certain genes. 5’ UTR(Option D) is the region of a messenger RNA (mRNA) that is directly upstream from the initiation codon. This region is important for the regulation of the translation of a transcript by differing mechanisms in viruses, prokaryotes, and eukaryotes. Also known as the operator gene."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L26_Q022_E1"
+    }
+   ]
+  },
+  {
+   "id": "biochemistry-q853000",
+   "question": "Which of the following is used in diagnosing aneuploidy? 1. FISH 2. Cytogenetics 3. Sangers 4. PCR",
+   "options": {
+    "A": "1,2",
+    "B": "1,2,3",
+    "C": "2,3",
+    "D": "1,2,3,4"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "All of these methods can be used to detect aneuploidy FISH Fluorescence In Situ Hybridization: uses fluorescent probes to bind specific DNA regions. Cytogenetics (Karyotyping) Visual examination of chromosomes under a microscope. Sanger Sequencing Sequencing of DNA to detect mutations at the nucleotide level. PCR Amplification of DNA regions; includes variants like qPCR and MLPA."
+    }
+   ]
+  },
+  {
+   "id": "21-1",
+   "question": "A child presents with micrognathia and low-set ears. These clinical features are commonly associated with which type of genetic abnormality?",
+   "options": {
+    "A": "Deletion",
+    "B": "Translocation",
+    "C": "Amplification",
+    "D": "Inversion"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Deletion is the most common genetic abnormality associated with micrognathia (small jaw) and low-set ears."
+    },
+    {
+     "type": "paragraph",
+     "text": "These features are commonly seen in chromosomal deletion syndromes, such as: Cri-du-chat syndrome (5p deletion) Micrognathia, low-set ears, high-pitched cry (\"cat-like cry\") Intellectual disability and growth delay DiGeorge syndrome (22q11.2 deletion) Micrognathia, low-set ears, conotruncal heart defects (e.g., TOF) Thymic hypoplasia → immunodeficiency Treacher Collins syndrome (TCOF1 gene mutation, chromosomal microdeletion) Micrognathia, low-set ears, facial hypoplasia Conductive hearing loss Translocation (Option B) is incorrect because translocations usually cause genetic disorders by gene fusion or misregulation, often leading to cancers (e.g., CML t(9;22)), rather than micrognathia and low-set ears."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Amplification (Option C):** is incorrect because gene amplification is associated with oncogenesis (e.g., HER2 in breast cancer, N-MYC in neuroblastoma), not structural anomalies."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Inversion (Option D):** is incorrect because chromosomal inversions rarely lead to major congenital anomalies, unless a critical gene is disrupted."
+    }
+   ]
+  },
+  {
+   "id": "21-11",
+   "question": "A mother brings her 14-year-old mentally retarded son to the clinic, complaining of joint pain and an irresistible urge for the boy to bite his fingers and lips. Serum uric acid is elevated. What is the most likely diagnosis?",
+   "options": {
+    "A": "Lesch-Nyhan syndrome",
+    "B": "Gout",
+    "C": "Hyperuricemia",
+    "D": "Juvenile arthritis"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Lesch-Nyhan syndrome is caused by a deficiency of the enzyme hypoxanthine-guanine phosphoribosyltransferase (HGPRT). This enzyme is essential for the salvage pathway of purines, and its deficiency leads to the accumulation of uric acid in the body, causing hyperuricemia. The patient also presents with self-mutilating behaviour. Incorrect Options: Options B, C, and D do not show the given findings."
+    }
+   ]
+  },
+  {
+   "id": "21-4",
+   "question": "Which of the following is not associated with post-transcriptional modification?",
+   "options": {
+    "A": "Methylation",
+    "B": "Endonuclease cleavage",
+    "C": "5' capping",
+    "D": "Glycosylation"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Glycosylation is a post-translational modification that occurs after translation, not during post-transcriptional modification. Incorrect Options: Option A – Methylation: Methylation can occur as a post-transcriptional modification, particularly in eukaryotic mRNA. It can affect gene expression and mRNA stability."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Endonuclease cleavage: Endonuclease cleavage typically occurs during RNA processing, where introns are removed from the pre-mRNA to produce mature mRNA. So, it is indeed associated with post-transcriptional modification. Option C - 5' capping: 5' capping is a crucial post-transcriptional modification in eukaryotic mRNA, where a 7-methylguanosine cap is added to the 5' end."
+    },
+    {
+     "type": "paragraph",
+     "text": "This modification protects the mRNA from degradation and aids in translation initiation."
+    }
+   ]
+  },
+  {
+   "id": "21-5",
+   "question": "Which type of mutation results in the reversal to the wild type of phenotype when the mutant gene is suppressed?",
+   "options": {
+    "A": "Frameshift of the mutatedgene",
+    "B": "Addition of another normal gene",
+    "C": "Deletion of mutanted gene",
+    "D": "Mutation in tRNA"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "This refers to a suppressor mutation, where a second mutation occurs in a tRNA gene. The mutant tRNA can recognize the mutant codon and insert the correct amino acid, thus restoring the wild-type phenotype despite the presence of the original mutation in the coding gene. This type of mutation effectively suppresses the impact of the original mutation."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Frameshift of the mutated gene: A frameshift mutation involves inserting or deleting a number of nucleotides that are not divisible by three. This shifts the reading frame of the codons in the mRNA, often resulting in a completely nonfunctional protein. This type of mutation usually cannot be easily reversed by a single mutation and thus is unlikely to lead to a reversion to the wild-type phenotype."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Addition of another normal gene: This would introduce a normal copy of the gene into the genome, which could potentially compensate for the mutant gene. This process is often referred to as gene therapy. While this can restore the wild-type phenotype, it is not a mutation but rather an addition of genetic material. Therefore, it does not fit the question's criteria of a mutation leading to reversion."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Deletion of the mutated gene: Deleting a mutant gene would remove its effects but would not necessarily result in a wild-type phenotype unless there is a compensatory mechanism in place. Deletion does not count as a mutation that causes reversion to the wild-type phenotype."
+    }
+   ]
+  },
+  {
+   "id": "21-6",
+   "question": "FISH technique helps to identify all except??",
+   "options": {
+    "A": "Point mutation",
+    "B": "Translocation",
+    "C": "Deletion",
+    "D": "Gene amplification"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "FISH (Fluorescence In Situ Hybridization) is not useful for detecting point mutations. FISH is designed to detect larger genetic changes such as deletions, duplications,"
+    },
+    {
+     "type": "paragraph",
+     "text": "translocations, and amplifications. Point mutations involve a single nucleotide change, which is too small for FISH to detect. Incorrect Options: Option B - Translocation: FISH is useful for detecting translocations because it can identify specific chromosome rearrangements by using probes that bind to the translocated segments. Option C - Deletion FISH can detect deletions by using probes that bind to the region where the deletion occurs."
+    },
+    {
+     "type": "paragraph",
+     "text": "If the probe does not bind, it indicates a deletion in that area. Option D - Amplification FISH can detect gene amplifications by showing an increased number of signals from the probe, indicating that there are multiple copies of a particular gene or chromosomal region."
+    }
+   ]
+  },
+  {
+   "id": "21-55",
+   "question": "Which of the following is true about p43?",
+   "options": {
+    "A": "It increases telomere length in the liver",
+    "B": "It synthesizes RNA",
+    "C": "It stabilizes RNA",
+    "D": "It retains the telomerase enzyme in the nucleus"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Telomerase is an enzyme that adds DNA repeats (nucleotides) to the ends of chromosomes, preventing them from shortening during DNA replication. p43 has been shown to play a role in regulating telomerase activity. It helps retain telomerase in the nucleus, which can act on telomeres, thus maintaining their length and contributing to cellular lifespan."
+    },
+    {
+     "type": "paragraph",
+     "text": "By retaining telomerase in the nucleus, p43 helps regulate the balance between cell proliferation and senescence or cell cycle arrest."
+    },
+    {
+     "type": "paragraph",
+     "text": "**It increases telomere length in the liver (Option A):** Telomere lengthening in the liver is not attributed to p43. Telomeres shorten with cell division, and telomerase, not p43, maintains or lengthens them in specific cells, including stem cells and some cancer cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "**It synthesizes RNA (Option B):** While p43 regulates gene expression, it is not directly involved in RNA synthesis. RNA polymerases primarily carry out RNA synthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**It stabilizes RNA (Option C):** p43 can indirectly affect RNA levels through gene regulation, p43 does not stabilize RNA molecules."
+    }
+   ]
+  },
+  {
+   "id": "21-54",
+   "question": "Which is the correct sequence of steps in isolating desirable protein using recombinant DNA technology? 1. Expression of protein and lysis of the bacterial cell 2. Incorporation of genes into bacteria 3. SDS PAGE 4. Protein elution 5. Hybridization",
+   "options": {
+    "A": "2, 1, 3, 5, 4",
+    "B": "1, 2, 4, 3, 5",
+    "C": "1, 5, 2, 4, 3",
+    "D": "2, 4, 5, 3, 1"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The sequence of steps in the isolation of desirable protein using recombinant DNA technology are as follows: Gene incorporation: Desired genes are inserted into bacterial cells using plasmid vectors containing promoter sequences for transcription into mRNA. Protein expression and bacterial cell lysis: Chemical induction activates gene expression, leading to protein synthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Bacterial cells are lysed to release proteins, achieved through methods like sonication or enzymatic digestion. SDS-PAGE: Proteins are separated from cellular components using SDS-PAGE, where samples are denatured with SDS, loaded onto a gel, and separated by size via electrophoresis. Hybridization: Protein identity confirmation is conducted using techniques such as Western blotting, mass spectrometry, or hybridization."
+    },
+    {
+     "type": "paragraph",
+     "text": "Protein elution: Proteins of interest are eluted from the gel, typically through methods like electrolution or diffusion."
+    }
+   ]
+  },
+  {
+   "id": "21-53",
+   "question": "Affinity maturation of antibodies is because of",
+   "options": {
+    "A": "Somatic hypermutation",
+    "B": "Differential mRNA processing",
+    "C": "CD40",
+    "D": "Gene rearrangements"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Affinity maturation of antibodies is the process by which B cells produce antibodies with increasingly higher affinity for their specific antigen during an immune response. This is primarily driven by somatic hypermutation (SHM). Somatic Hypermutation: Occurs in the germinal centers of lymphoid tissues."
+    },
+    {
+     "type": "paragraph",
+     "text": "The enzyme Activation-Induced Cytidine Deaminase (AID) introduces random point mutations in the variable (V) regions of immunoglobulin genes, particularly in the complementarity-determining regions (CDRs), which determine antigen binding. Selection for High Affinity: B cells with mutated antibodies are tested for their ability to bind the antigen presented on follicular dendritic cells."
+    },
+    {
+     "type": "paragraph",
+     "text": "High-affinity B cells receive survival signals and proliferate. Low-affinity or non-functional B cells undergo apoptosis. Over successive rounds of SHM and selection, the antibody pool shifts towards higher affinity for the antigen, enhancing the effectiveness of the immune response."
+    }
+   ]
+  },
+  {
+   "id": "21-50",
+   "question": "Which of the following techniques is used to detect DNA protein interaction?",
+   "options": {
+    "A": "DNA footprinting",
+    "B": "DNA fingerprinting",
+    "C": "ELISA",
+    "D": "Northern Blotting"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "DNA foot printing: This technique is used to detect DNA-protein interactions. It involves binding DNA with a protein and then using a nuclease to selectively cleave it at sites not bound by the protein. This creates a pattern of DNA fragments, which can be analyzed to determine the binding sites of the protein. Identify DNA binding protein sites like pinpointing both the protein and bound sequence."
+    },
+    {
+     "type": "paragraph",
+     "text": "**DNA finger printing (Option B):** DNA fingerprinting identifies individuals based on their unique DNA profiles.It utilizes PCR and gel electrophoresis to generate a pattern of DNA fragments for comparison with known samples."
+    },
+    {
+     "type": "paragraph",
+     "text": "**ELISA (Option C):** ELISA detects specific proteins or antigens in samples using antibodies linked to enzymes that produce a signal upon interaction with the target."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Northern blotting (Option D):** Northern blotting detects RNA molecules by separating them via gel electrophoresis, transferring them to a membrane, and probing with labeled DNA or RNA probes complementary to the target RNA."
+    },
+    {
+     "type": "figure",
+     "figure_id": "BIO11_L26_Q032_E1"
+    }
+   ]
+  },
+  {
+   "id": "21-47",
+   "question": "Misincorporation of uracil into DNA is seen in deficiency of",
+   "options": {
+    "A": "Vitamin B12",
+    "B": "Folate",
+    "C": "Vitamin B6",
+    "D": "Vitamin E"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Misincorporation of uracil into DNA is seen in folate deficiency due to impaired thymidine synthesis. Role of Folate in DNA Synthesis: Folate (in its active form, tetrahydrofolate) is crucial for the synthesis of thymidine, one of the four nucleotide bases in DNA. Folate acts as a methyl donor in the conversion of dUMP (deoxyuridine monophosphate) to dTMP (deoxythymidine monophosphate), which is required for DNA synthesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Effect of Folate Deficiency: In the absence of adequate folate, the conversion of dUMP to dTMP is impaired. dUMP is a precursor to thymidine, but without sufficient folate, it accumulates and can be misincorporated into DNA instead of dTMP (which contains thymine). Uracil (which normally appears in RNA) can then be incorporated into DNA, because uracil can pair with adenine, unlike thymine (which normally pairs with adenine)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Massive incorporation of uracil into DNA(4million per cell). Consequences of Uracil Misincorporation: This uracil misincorporation leads to DNA instability. The presence of uracil in the DNA can result in mutations or the activation of repair mechanisms, which may cause strand breaks or chromosomal abnormalities."
+    }
+   ]
+  },
+  {
+   "id": "27-28",
+   "question": "What is the pattern of inheritance for hemophilia A?",
+   "options": {
+    "A": "X linked recessive",
+    "B": "X linked Dominant",
+    "C": "Autosomal dominant",
+    "D": "Autosomal recessive"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Hemophilia A is X linked recessive inheritance. Definition Hemophilia A is a genetic bleeding disorder that affects the blood's ability to clot properly due to a deficiency of clotting factor VIII. Inheritance Hemophilia A is an X-linked recessive disorder, which means it primarily affects males. Females can be carriers of the condition. Symptoms Excessive or prolonged bleeding after injuries or surgeries. Frequent nosebleeds. Easy bruising."
+    },
+    {
+     "type": "paragraph",
+     "text": "Bleeding into joints, leading to pain and swelling. Diagnosis Blood tests to measure the level of clotting factor VIII. Genetic testing to identify the specific mutation. Treatment Replacement therapy: Regular infusion of clotting factor VIll concentrates. Desmopressin DDAVP): Stimulates the release of stored clotting factor VIII. Gene therapy: Emerging treatment option to introduce the missing clotting factor gene."
+    },
+    {
+     "type": "paragraph",
+     "text": "Complications Joint damage: Repeated bleeding into the joints can cause permanent damage and limited mobility. Intracranial bleeding: Severe cases may result in bleeding inside the skull, which can be life-threatening."
+    }
+   ]
+  },
+  {
+   "id": "21-40",
+   "question": "What is the repair mechanism associated with CRISPR-cas9?",
+   "options": {
+    "A": "Non-homologous end joining",
+    "B": "Base excision repair",
+    "C": "Nucleotide excision repair",
+    "D": "Mismatch repair"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "CRISPR-Cas is a genome-editing tool that can be used to introduce specific genetic modifications, including gene knock-ins (adding new genetic material) and gene knock-outs (disrupting or deleting existing genes). CRISPR-Cas Mechanism: Guide RNA: Directs the Cas enzyme to the specific DNA sequence. Cas Enzyme: Cuts the DNA at the target location."
+    },
+    {
+     "type": "paragraph",
+     "text": "DNA Repair: NHEJ (Non-Homologous End Joining) (Option A): Repairs the break by directly ligating the DNA ends, often leading to gene knockout. HDR (Homologous Directed Repair): Uses a template to repair the break accurately, allowing for gene knock-in."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Base excision repair (Option B):** is a DNA repair mechanism that primarily deals with the repair of damaged or abnormal bases in the DNA molecule."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Nucleotide excision repair (Option C):** is a DNA repair pathway that primarily deals with the removal and repair of bulky DNA lesions, such as UV-induced thymine dimers or certain chemical adducts."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Mismatch repair (Option D):** is a DNA repair system that corrects errors that occur during DNA replication, such as mismatches or small insertions or deletions that can result in DNA loops."
+    }
+   ]
+  },
+  {
+   "id": "21-49",
+   "question": "How does RNAi impact gene expression?",
+   "options": {
+    "A": "Knock out",
+    "B": "Knockdown",
+    "C": "Knock up",
+    "D": "Knock in"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "RNAi primarily functions through mRNA degradation and inhibiting protein synthesis, with applications in gene manipulation and therapy. RNA Interference (RNAi) Definition: Biological process where double-stranded RNA (dsRNA) silences specific gene expressions. Mechanisms: Degradation of messenger RNA (mRNA) molecules corresponding to the target gene. Reduction of expression levels of the target gene."
+    },
+    {
+     "type": "paragraph",
+     "text": "Applications: Tool in genetic research and biotechnology for gene knockdown. Understanding gene function. Developing therapeutic strategies."
+    }
+   ]
+  },
+  {
+   "id": "21-72",
+   "question": "Identify the type of marked chromosome in the given karyotype.",
+   "options": {
+    "A": "Acrocentric",
+    "B": "Submetacentric",
+    "C": "Metacentric",
+    "D": "Telocentric"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "An acrocentric chromosome has the centromere located near one end, resulting in a long arm and a very short (or almost nonexistent) short arm. Human chromosomes 13, 14, 15, 21, and 22 are acrocentric. Acrocentric chromosomes are characterized by having satellites or small structures called stalks attached to their short arms, which contain multiple copies of ribosomal RNA genes."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Metacentric (Option B):** chromosome has the centromere located approximately in the middle, resulting in two arms of roughly equal length. Human chromosomes 1, 3, 16, 19, and 20 are metacentric."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Submetacentric (Option C):** chromosome has the centromere slightly off-center, resulting in one arm being longer than the other."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Human chromosomes 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 17, and 18 are submetacentric Telocentric(Option D):** A telocentric chromosome has the centromere at one end, resulting in a chromosome that has only one arm. Humans do not have telocentric chromosomes, but they are found in some species such as mice."
+    }
+   ]
+  }
+ ]
+}

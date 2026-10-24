@@ -1,0 +1,565 @@
+{
+ "batch": "physiology-008",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "physiology-008",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "physiology-q866653",
+   "question": "Which among the following best describes ‘Neuropraxia’?",
+   "options": {
+    "A": "Intact axon; Damaged nerve sheath",
+    "B": "Damaged axon; Intact nerve sheath",
+    "C": "Damaged axon and nerve sheath",
+    "D": "None of the above"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Neuropraxia is the mildest nerve injury, involving temporary conduction block with intact axon and reversible damage to the myelin sheath. Seddon’s classification of nerve injuries: Type Description Prognosis Neurapraxia (Grade I) (Option A) Temporary conduction block, myelin damage only. No neuroma and no degeneration. Recovery is complete within 6 weeks."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Axonotmesis (Grade II) (Option B ruled out):** Axonal damage, connective tissue intact. Neuroma in continuity. Degeneration: Proximally+distally. Recovery can take up to months Complete recovery may not occur."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Motor march present Neurotmesis (Grade III) (Option C ruled out):** Complete nerve disruption. End or side neuroma. Degeneration: Proximally+distally. Spontaneous recovery never occurs. Repair is required (poor recovery)"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L41_Q020_E1"
+    }
+   ]
+  },
+  {
+   "id": "physiology-q866655",
+   "question": "A subject was brought to the Casualty with a history of RTA and head injury. On examination, he was conscious. When the doctor asked questions about the incident, his answers were irrelevant to the questions, but his speech was fluent. What could be the possible site of injury?",
+   "options": {
+    "A": "Pre-central gyrus",
+    "B": "Inferior frontal gyrus",
+    "C": "Superior temporal gyrus",
+    "D": "Brain stem"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The Patient is conscious (rules out severe brainstem damage affecting consciousness), and has fluent speech (rules out Broca’s area lesion, which causes non-fluent speech). Since he gives Irrelevant answers, it indicates impaired comprehension rather than impaired production, pointing to Wernicke’s Aphasia located in the superior temporal gyrus (usually in the dominant hemisphere, left side)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Function of Wernicke’s area: Language comprehension (both spoken and written). Lesion effect: Speech is fluent (normal rate, rhythm, and articulation) but meaningless or irrelevant because the person cannot understand what’s being said. This is called receptive aphasia (Wernicke’s aphasia). Patients are often unaware of their speech mistakes. Incorrect Options: Precentral gyrus (Option A): Location: Frontal lobe (primary motor cortex)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Function: Voluntary motor control of the contralateral body. Lesion: Causes weakness or paralysis, not language comprehension problems."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Inferior frontal gyrus (Option B):** Contains Broca’s area in the dominant hemisphere. Function: Speech production (motor aspect of language). Lesion: Non-fluent aphasia – patient has slow, effortful speech, but comprehension is relatively preserved."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Brain stem (Option D):** Controls basic life functions, cranial nerve nuclei, and motor/sensory tracts. Lesions cause severe motor/sensory deficits, cranial nerve palsies, or altered consciousness,not isolated fluent aphasia."
+    }
+   ]
+  },
+  {
+   "id": "physiology-q866658",
+   "question": "As a neuron’s diameter increases, what effect manifests?",
+   "options": {
+    "A": "Conduction velocity increases",
+    "B": "Conduction velocity decreases",
+    "C": "Membrane resistance increases",
+    "D": "Action potential amplitude increases"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "In neurons, the diameter of the axon strongly influences how quickly action potentials travel. Larger diameter → lower internal (axial) resistance to current flow. Lower resistance allows local currents to spread more rapidly along the axon, enabling faster depolarization of adjacent segments of membrane. This leads to a higher conduction velocity."
+    },
+    {
+     "type": "paragraph",
+     "text": "This is particularly important in: Myelinated fibers: Large diameter + myelin = very high speeds (e.g., motor neurons). Unmyelinated fibres: Speed still increases with diameter, though less dramatically than in myelinated ones. Incorrect Options: Conduction velocity decreases (Option B): Larger the diameter, faster is the conduction."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Membrane resistance increases (Option C):** Larger diameter actually decreases membrane resistance per unit length (more surface area = more ion channels), but this effect is outweighed by the drop in axial resistance for speed."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Action potential amplitude increases (Option D):** The Amplitude of an action potential is determined mainly by ion channel properties and equilibrium potentials, not axon diameter. Diameter affects speed, not height of the AP."
+    }
+   ]
+  },
+  {
+   "id": "physiology-q866354",
+   "question": "A young female patient presents with weakness of hand motor activities like kneading the dough. On examination, muscle wasting, reduced tone and sluggish DTR is observed. Which of the following structure is most likely involved?",
+   "options": {
+    "A": "Left medulla",
+    "B": "Internal capsule",
+    "C": "Anterior horn cells of cervical cord",
+    "D": "Corticospinal tract in cervical cord"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The patient's symptoms—weakness in fine motor hand activities, muscle wasting, reduced tone, and sluggish deep tendon reflexes—are characteristic of a lower motor neuron lesion involving structures such as the anterior horn cells, peripheral nerves, or neuromuscular junction. Upper motor neurons (UMN) Lower motor neurons (LMN) Neurons in the cortex and brainstem → Activate lower motor neurons."
+    },
+    {
+     "type": "paragraph",
+     "text": "Pyramidal tract and extrapyramidal tract are UMN (influence alpha motor neurons). All neurons above the alpha motor neuron are upper motor neurons. Spinal and cranial motor neurons → Directly innervate skeletal muscles. Alpha motor neuron is considered the lower motor neuron. It is the final common pathway for both UMN and the stretch reflex. Regulation: Corticospinal tract → Excitatory Extrapyramidal tract → Inhibitory."
+    },
+    {
+     "type": "paragraph",
+     "text": "UMN vs LMN Lesion Feature UMN Lesion LMN Lesion Atrophy None Severe (loss of trophic factor) Fasciculation None Present Tone Hypertonia (spasticity & rigidity) Hypotonia (Decreased) Deep tendon reflex Hyperactive Hypoactive or absent"
+    },
+    {
+     "type": "paragraph",
+     "text": "Muscle group affected Regional Segmental/distal Babinski sign Positive Absent Incorrect Options: Option A: Left medulla involvement might cause cranial nerve issues or pyramidal tract signs (UMN signs), but would not cause isolated LMN signs in the hand. Option B: Internal capsule lesions cause upper motor neuron (UMN) signs (e.g. spasticity, hyperreflexia) and typically involve more widespread motor deficits, not just the hand."
+    },
+    {
+     "type": "paragraph",
+     "text": "No muscle wasting early on. Option D: Corticospinal tract in cervical cord would cause UMN signs below the lesion (e.g. spasticity, increased tone, brisk reflexes), not LMN signs."
+    }
+   ]
+  },
+  {
+   "id": "physiology-q856860",
+   "question": "In case a small pain stimulus causes more pain, it is called?",
+   "options": {
+    "A": "Hypersensitivity",
+    "B": "Causalgia",
+    "C": "Hyperalgesia",
+    "D": "Allodynia"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Hyperalgesia is a condition where there is an increased sensitivity to painful stimuli, resulting in an exaggerated pain response. It can occur in response to various factors, including tissue injury, inflammation, nerve damage, or certain medical conditions."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Criteria Hyperalgesia (Option C):** Allodynia (Option D ruled out) Definition Severe pain from a stimulus that normally causes pain Pain from a stimulus that normally wouldn't cause pain, Sensitivity Both increases sensitivity of nociceptive afferent fibers Cause Primary hyperalgesia: Excessive sensitivity of the pain receptors. Eg: Extreme sensitivity of sunburned skin (results from sensitization of pain receptors due to local tissue products like histamine, prostaglandins) Secondary hyperalgesia: It is the facilitation of sensory transmission. Eg: Lesions in the spinal cord or thalamus The exact cause is unknown. Likely involves error in neuronal conduction. Eg:Painful sensation from a light touch which is never painful Association Both types of pain is seen in neuropathic pain and causalgia (severe burning pain in a specific part of the body) (Option B ruled out) Hypersensitivity (Option A): It refers to an exaggerated or abnormal response of the immune system to a normally harmless substance, resulting in an allergic or autoimmune reaction. This option is incorrect."
+    }
+   ]
+  },
+  {
+   "id": "physiology-q852766",
+   "question": "Choose the correct options from the given statements of the enteric nervous system? 1. Vagus is the only afferent from gut 2. Functions independent of brain and SC 3. Myenteric plexus in the lamina propria 4. Exclusively under the influence of nerves 5. Parasympathetic connects enteric to CNS",
+   "options": {
+    "A": "1,2,3",
+    "B": "1,4",
+    "C": "1,3",
+    "D": "2"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The enteric nervous system (ENS) is a self-regulating system that can function independently of the brain and spinal cord (SC), controlling gut motility, secretion, and blood flow. Vagus is not the only afferent from the gut; the gut also has spinal afferents that carry pain and reflex information. The myenteric plexus (Auerbach's plexus) is located between the circular and longitudinal muscle layers, not in the lamina propria."
+    },
+    {
+     "type": "paragraph",
+     "text": "Auerbach plexus between two sets of muscles The ENS is influenced by hormones and local factors, not exclusively by nerves. The parasympathetic nervous system (via vagus and pelvic nerves) connects the ENS to the CNS, modulating its activity."
+    },
+    {
+     "type": "paragraph",
+     "text": "Components of the Enteric Nervous System Component Function Location Myenteric Plexus (Auerbach) Controls motility and peristalsis Between muscle layers Submucosal Plexus (Meissner) Regulates secretion and blood flow In submucosa Autonomy Functions independently but modulated by CNS Entire gut wall 1,2,3 (Option A): Incorrect because the vagus is not the only afferent, and the myenteric plexus is not in the lamina propria. 1,4 (Option B): Incorrect because ENS is not exclusively under neural influence; hormones and local factors also regulate it. 1,3 (Option C): Incorrect because both vagus-only afferent and myenteric plexus location statements are wrong."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L41_Q025_E1"
+    }
+   ]
+  },
+  {
+   "id": "physiology-q852769",
+   "question": "Which receptor contributes to static 2 point discrimination?",
+   "options": {
+    "A": "Merkel cell",
+    "B": "Meissner corpuscle",
+    "C": "Pacinian corpuscle",
+    "D": "All of them"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Merkel cells are responsible for static two-point discrimination due to their slowly adapting nature and high spatial resolution. Meissner corpuscles are rapidly adapting receptors that detect light touch and dynamic changes rather than static discrimination. Pacinian corpuscles are specialized for vibration and deep pressure, not fine touch discrimination."
+    },
+    {
+     "type": "paragraph",
+     "text": "All of them is incorrect because only Merkel cells contribute to static two-point discrimination."
+    },
+    {
+     "type": "paragraph",
+     "text": "Anatomy of Cutaneous Mechanoreceptors Receptor Adaptation Function Location Merkel cells Slow-adapting Static touch, two-point discrimination Fingertips, lips, hair follicles Meissner corpuscles Rapid-adapting Light touch, dynamic touch Fingertips, palms, soles Pacinian corpuscles Rapid-adapting Vibration, deep pressure Deep dermis, joints, ligaments Meissner corpuscle (Option B): Incorrect because it responds to dynamic touch rather than static discrimination."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Pacinian corpuscle (Option C):** Incorrect because it detects vibration and not fine touch resolution."
+    },
+    {
+     "type": "paragraph",
+     "text": "**All of them (Option D):** Incorrect because only Merkel cells contribute to static two-point discrimination, not the others."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L41_Q026_E1"
+    }
+   ]
+  },
+  {
+   "id": "physiology-33-16",
+   "question": "A patient is experiencing phantom limb pain after amputation of right limb.What is observed on a PET scan in a patient with phantom limb pain?",
+   "options": {
+    "A": "Expansion of right somatosensory fibers for the hand into neighboring areas",
+    "B": "Neighboring fibers of the right somatosensory area extending into the right-hand area",
+    "C": "Expansion of right sensory cortex",
+    "D": "Expansion of Left sensory cortex"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "After amputation, the brain undergoes cortical reorganization. In this case, the neighboring somatosensory"
+    },
+    {
+     "type": "paragraph",
+     "text": "fibers that previously represented adjacent body parts extend into the region that formerly represented the right hand. This reorganization is associated with the perception of phantom limb pain. Incorrect Options: Option A - Expansion of right somatosensory fibers for the hand into neighboring areas: This option suggests that the somatosensory fibers specifically responsible for the right hand expand into neighboring regions."
+    },
+    {
+     "type": "paragraph",
+     "text": "However, it is not the fibers themselves that expand; rather, it is the cortical representation that changes. Option C - Expansion of right sensory cortex: This option implies a general enlargement of the right sensory cortex. However, the expansion is not global; rather, it involves the neighboring cortical areas invading the region corresponding to the amputated limb."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Expansion of left sensory cortex: The left sensory cortex is responsible for processing sensory input from the right side of the body, but this option inaccurately describes the phenomenon. The reorganization occurs in the sensory cortex corresponding to the amputated limb (in this case, the right cortex, which processes left-sided sensations)."
+    }
+   ]
+  },
+  {
+   "id": "physiology-33-1",
+   "question": "Caffeine impairs with sleep by which of the following:",
+   "options": {
+    "A": "Blocks adenosine action and wakefulness",
+    "B": "Activate locus coeruleus and wakefulness",
+    "C": "No role in maintaining wakefulness",
+    "D": "Activates histamine release and prevent sleep."
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Correct A - Blocks adenosine action and wakefulness: Caffeine works by blocking adenosine receptors. Adenosine is a neurotransmitter that promotes sleep by slowing down nerve activity. By blocking adenosine, caffeine prevents the brain from sensing sleepiness, thereby promoting wakefulness."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - Activates locus coeruleus and wakefulness: The locus coeruleus is a nucleus in the brainstem involved in arousal and wakefulness. While it does play a role in promoting wakefulness, caffeine’s primary mechanism of action is not through direct activation of the locus coeruleus."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - No role in maintaining wakefulness: Caffeine is well-known for its role in maintaining wakefulness by counteracting sleep-promoting mechanisms in the brain. Option D - Activates histamine release and prevents sleep: Histamine is involved in promoting wakefulness, but caffeine does not directly cause histamine release. Its effect on sleep is primarily through adenosine receptor blockade rather than histamine pathways."
+    }
+   ]
+  },
+  {
+   "id": "physiology-33-22",
+   "question": "Spinal nucleus of trigeminal is associated with which sensation?",
+   "options": {
+    "A": "Vibration",
+    "B": "Conscious proprioception",
+    "C": "Pain",
+    "D": "Two point discrimination"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The spinal nucleus of the trigeminal nerve is primarily associated with the sensation of pain and temperature. Incorrect Options: Option A - Vibration: Vibration sensation is primarily transmitted through the dorsal column-medial lemniscus pathway, not the spinal nucleus of the trigeminal nerve."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - Conscious proprioception: Conscious proprioception is also transmitted through the dorsal column-medial lemniscus pathway, not the trigeminal nerve. Option D - Two-point discrimination: Two-point discrimination is mediated by the dorsal column-medial lemniscus pathway and the dorsal root ganglia, not the trigeminal nerve."
+    }
+   ]
+  },
+  {
+   "id": "physiology-33-25",
+   "question": "Which of the following are typically associated with Lower Motor Neuron (LMN) lesions? Select all that apply. Atrophy Fasciculations DTR increased Rigidity",
+   "options": {
+    "A": "1 and 2",
+    "B": "2 and 3",
+    "C": "1, 2 and 3",
+    "D": "2, 3 and 4"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "When lower motor neurons are disrupted, the muscle loses its innervation, resulting in significant muscle atrophy due to the cessation of nerve growth factor secretion and loss of muscle function. Denervation potentials such as fibrillation or fascicular twitches are observed in EMG recordings as a result of muscle denervation. Incorrect Options: Options B, C & D:"
+    }
+   ]
+  },
+  {
+   "id": "physiology-q840007",
+   "question": "In response to increased blood pressure which of the following is released at the level SA node?",
+   "options": {
+    "A": "Epinephrine",
+    "B": "NE",
+    "C": "Dopamine",
+    "D": "Ach"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "When there is an increase in blood pressure it stimulates the baroreceptor reflex which then stimulates the nucleus tractus solitarius (NTS) which in turn stimulates the Cardiac inhibitory center (CIC), the center for parasympathetic activity. This causes release Acetycholine at the level of nodal tissue. Incorrect Options: Options A, B & C are incorrect"
+    }
+   ]
+  },
+  {
+   "id": "physiology-33-12",
+   "question": "A 40-year-old patient presented to the hospital with a complaint of chronic headache. Upon further investigation, a tumor was identified in the hypothalamus region, which was exerting pressure on the supraoptic nucleus. This structural alteration was found to be affecting hormonal regulation. Which hormone imbalance is most likely associated with this condition?",
+   "options": {
+    "A": "ACTH",
+    "B": "GH",
+    "C": "ADH",
+    "D": "TSH"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "ADH, also known as vasopressin, is produced in the supraoptic nucleus of the hypothalamus and released by the posterior pituitary gland. It plays a key role in regulating water balance by controlling water reabsorption in the kidneys. A tumor in the hypothalamus region that exerts pressure on the supraoptic nucleus can disrupt the production and release of ADH, leading to a condition called diabetes insipidus."
+    },
+    {
+     "type": "paragraph",
+     "text": "In diabetes insipidus, there is an inability to concentrate urine, resulting in excessive thirst and urination. Incorrect Options: Option A - ACTH (Adrenocorticotropic Hormone): ACTH is produced by the anterior pituitary gland and regulates the release of cortisol from the adrenal cortex. It plays a role in the body's response to stress and helps maintain proper immune and metabolic functions."
+    },
+    {
+     "type": "paragraph",
+     "text": "A tumor in the hypothalamus region affecting the supraoptic nucleus is unlikely to directly influence ACTH secretion. Option B - GH (Growth Hormone): GH is also produced by the anterior pituitary gland and is responsible for promoting growth and cell reproduction. While hypothalamic tumors can sometimes cause hormonal imbalances, a tumor affecting the supraoptic nucleus is not likely to have a direct impact on GH secretion."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - TSH (Thyroid Stimulating Hormone): TSH is produced by the anterior pituitary gland and controls the release of thyroid hormones (T3 and T4) from the thyroid gland. It is responsible for regulating the body's metabolism. A tumor in the hypothalamus region affecting the supraoptic nucleus is unlikely to directly influence TSH secretion."
+    }
+   ]
+  },
+  {
+   "id": "physiology-33-14",
+   "question": "A 55-year-old man presents with a peculiar speech. On further evaluation, a defect in the Wernicke's area of his brain is identified. Which of the following condition is associated with the given defect?",
+   "options": {
+    "A": "He can make the decision what he speaks",
+    "B": "Senseless continuous speaking",
+    "C": "He is able to understand words and speak properly",
+    "D": "He is understanding language but unable to speak"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "A defect in the Wernicke's area, which is located in the left hemisphere of the brain's temporal lobe, can result in a condition known as Wernicke's aphasia. Wernicke's aphasia is characterized by fluent speech that lacks meaningful content. The person may produce sentences that are grammatically correct but don't make much sense. This is often referred to as \"word salad\" and is a hallmark of damage to the Wernicke's area."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - He can make the decision what he speaks: This option refers to intact executive function and conscious decision-making in speech. If this were the case, the person would have control over their speech and would be able to choose their words appropriately. This is not associated with a defect in the Wernicke's area."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - He is able to understand words and speak properly: This option describes intact language comprehension and production abilities. If this were the case, the individual would be able to understand words and their meanings, as well as communicate their thoughts effectively. Wernicke's area is involved in language comprehension, so a defect in this area would likely impact"
+    },
+    {
+     "type": "paragraph",
+     "text": "the ability to understand words properly. Option D - He is understanding language but unable to speak: This option describes a condition known as Broca's aphasia. Broca's aphasia is characterized by difficulty in producing speech despite relatively preserved language comprehension. Individuals with Broca's aphasia often struggle to form grammatically correct sentences and may speak in short, telegraphic phrases."
+    },
+    {
+     "type": "paragraph",
+     "text": "This condition is associated with damage to the Broca's area, which is located in the left frontal lobe of the brain, typically in the left hemisphere."
+    }
+   ]
+  },
+  {
+   "id": "physiology-8-25",
+   "question": "A man was brought to the emergency after suddenly becoming unconscious while working in the field. On examination, his temperature was 105 degrees fahrenheit and his skin turgor was decreased. Which of the following would not be seen in the patient?",
+   "options": {
+    "A": "Tachypnea",
+    "B": "Hypotension",
+    "C": "Sweating",
+    "D": "Red hot skin"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Physiological Changes in Heat Stroke Heat stroke is a life-threatening condition marked by a core temperature >40°C, leading to CNS dysfunction and multi-organ failure. Key Physiological Changes Hyperthermia: Core temperature rises above 40°C; cellular necrosis occurs at 49°C-50°C, red hot skin. (Option D ruled out) CNS Dysfunction: Symptoms: Confusion, agitation, seizures, coma."
+    },
+    {
+     "type": "paragraph",
+     "text": "Causes: Cerebral hypoperfusion, increased intracranial pressure, and systemic inflammation. Cardiovascular Changes: Tachycardia, hypotension, widened pulse pressure. (Option B ruled out) Distributive shock due to vasodilation and vascular permeability. Metabolic Disturbances: Metabolic acidosis from anaerobic metabolism. Electrolyte imbalances (hyperkalemia, hyponatremia)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Inflammatory Response: Cytokine release (e.g., IL-6) causing endothelial damage, microthrombosis, and DIC. Acute Kidney Injury (AKI): Causes: Rhabdomyolysis, dehydration, reduced renal perfusion. Respiratory Changes: Tachypnea compensates for metabolic acidosis. (Option A ruled out) Kussmaul breathing reflects severe acidosis, indicating critical metabolic derangement."
+    }
+   ]
+  },
+  {
+   "id": "physiology-33-38",
+   "question": "What findings would be observed in a patient who has suffered a cervical spine injury due to a road traffic accident, whereby the fracture fragment has penetrated the lateral aspect of the dorsal column tract?",
+   "options": {
+    "A": "Absence of ipsilateral lower limb proprioception",
+    "B": "Absence of fine motor movement of fingers",
+    "C": "Absence of ipsilateral arm proprioception",
+    "D": "Absence of contralateral lower limb proprioception"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The dorsal column tract of the spinal cord is responsible for proprioception, vibration sensation, and fine touch. Pathway Sensory Modalities Dorsal Column-Medial Lemniscal System Touch: Provides precise localization and fine gradations of intensity. Vibration: Detects rapid changes in stimulus through phasic sensations. Proprioception: Contributes to the sense of body position and movement."
+    },
+    {
+     "type": "paragraph",
+     "text": "Pressure: Allows for the perception of fine degrees of pressure intensity."
+    },
+    {
+     "type": "paragraph",
+     "text": "Dorsal column-medial lemniscal pathway: Pathway Sensory receptors → Spinal cord (dorsal roots) → Brain (somatosensory cortex) Neurons First-order neurons Originate in mechanoreceptors, and enter spinal cord via dorsal roots Pseudo-unipolar neurons with cell bodies in the dorsal root ganglion Split into medial and lateral branches: Medial branch: Travels up dorsal column to brain Lateral branch: Synapses in dorsal horn, forming local reflexes, spinocerebellar tracts Fibers from lower thoracic, sacral, and lumbar regions (T7-T12, L, S) ascend to medulla without synapsing, forming the fasciculus gracilis Fibers from cervical and upper thoracic regions (C, T1-T6) ascend to medulla without synapsing, forming the fasciculus cuneatus (Option C) Second-order neurons Synapse in dorsal medulla (cuneate nucleus for upper body, gracile nucleus for lower body) Cross to opposite brain stem side, travel to thalamus (medial lemniscus) Third-order neurons Synapse in thalamus (ventrobasal complex) Project to somatosensory cortex (postcentral gyrus, lateral parietal cortex)"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L41_Q035_E1"
+    }
+   ]
+  },
+  {
+   "id": "physiology-33-42",
+   "question": "The patient exhibits symptoms depicted in the image provided below. Shows the site of the lesion Experiences decreased proprioception, vibration, and discriminative touch on the affected side. Has loss of pain and temperature beginning one or two segments below the side of the lesion on the contralateral side. What is the most likely diagnosis?",
+   "options": {
+    "A": "Weber’s syndrome",
+    "B": "Dejerine syndrome",
+    "C": "Brown Sequard syndrome",
+    "D": "Wallenberg syndrome"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Brown-Séquard syndrome is a condition resulting from a hemisection (or lesion) of the spinal cord. The symptoms described align with the clinical presentation of this syndrome: Decreased proprioception, vibration, and discriminative touch on the same side as the lesion (due to damage to the dorsal column-medial lemniscal pathway, which crosses at the medulla)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Loss of pain and temperature sensation beginning one or two segments below the lesion on the contralateral side (due to damage to the spinothalamic tract, which crosses immediately at the level of the spinal cord). Weber’s syndrome (option A): This syndrome occurs due to a lesion of the midbrain, typically affecting the oculomotor nerve (cranial nerve III) and causing pupillary abnormalities and contralateral hemiparesis."
+    },
+    {
+     "type": "paragraph",
+     "text": "It does not match the described sensory deficits. Dejerine syndrome (option B): Also known as medullary infarction, this syndrome involves damage to the medial part of the medulla, which affects the medial lemniscus and pyramidal tract, resulting in sensory and motor deficits, but it does not present with the typical cross pattern of symptoms seen in Brown-Séquard syndrome."
+    },
+    {
+     "type": "paragraph",
+     "text": "Wallenberg syndrome (option D): This syndrome is associated with lateral medullary infarction, involving the spinothalamic tract, dorsal column, and nucleus ambiguus, but typically causes ipsilateral loss of pain and temperature sensation on the face (due to involvement of the trigeminal nerve), and contralateral loss of pain and temperature sensation from the body, not the specific pattern described."
+    }
+   ]
+  },
+  {
+   "id": "physiology-q858487",
+   "question": "Where is the location of the lesion in Wernicke's hemianopic pupil?",
+   "options": {
+    "A": "Optic nerve",
+    "B": "Optic tract",
+    "C": "Optic radiation",
+    "D": "Optic chiasma"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "**Lesion Location Visual Field Defect Pupillary Reflex Congruity Optic Tract (Option B):** Homonymous hemianopia RAPD Incongruous (defect may not match) Lateral Geniculate Body (LGB) Homonymous hemianopia Normal Incongruous (less congruous) Optic Radiation (Option C ruled out) Inferior or superior homonymous quadrantanopia or hemianopia Normal Incongruous Visual Cortex Homonymous hemianopia, often with macular sparing Normal Congruous (more consistent) Pupillary reflexes are normal beyond the optic tract because pupillary fibres leave the optic tract before reaching LGB. Wernicke's pupil is a type of RAPD where the abnormal pupillary response is associated with homonymous hemianopia."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Visual Pathway Lesions and Defects Site of Lesion Fibers Affected Field Defect Optic Nerve (Option A ruled out):** Ipsilateral Temporal + Nasal Fibers Anopia Optic Chiasma (Option D ruled out) Bilateral Nasal Fibers Bitemporal Hemianopia (Heteronymous Hemianopia)"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L41_Q037_E1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L41_Q037_E2"
+    }
+   ]
+  },
+  {
+   "id": "physiology-33-4",
+   "question": "What specific region of the thalamus is associated with the regulation of motor control?",
+   "options": {
+    "A": "Ventrolateral thalamus",
+    "B": "Ventral posteromedial",
+    "C": "Ventral posterolateral",
+    "D": "Superior and inferior colliculi"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The ventrolateral thalamus (VL) is a region of the thalamus that is closely associated with motor control. It is involved in the transmission of motor signals from the basal ganglia and cerebellum to the motor cortex."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Thalamic Nucleus Function Ventral Posterolateral (VPL) (Option C ruled out):** Relays somatosensory information from the body to the primary somatosensory cortex Ventral Posteromedial (VPM) (Option B ruled out) Relays somatosensory information from the face to the primary somatosensory cortex Lateral Geniculate (LGN) Relays visual information from the optic tracts to the primary visual cortex Medial Geniculate (MGN) Relays auditory information from the inferior colliculus to the primary auditory cortex Ventral Anterior (VA) Contributes to motor control by receiving input from the basal ganglia Ventral Lateral (VL) (Option A) Contributes to motor control by receiving input from the cerebellum Anterior (AN) Involved in memory, emotion, and regulation of the limbic system Intralaminar Nuclei Involved in arousal, attention, and modulation of pain perception Superior and inferior colliculi (Option D): They are structures located in the midbrain and are involved in visual and auditory processing, respectively. They play important roles in orienting responses to visual and auditory stimuli but are not directly related to motor control."
+    }
+   ]
+  },
+  {
+   "id": "physiology-q854830",
+   "question": "Which functional area is most likely to be impacted by the vascular injury to the inferior frontal gyrus in this female patient?",
+   "options": {
+    "A": "Motor speech area",
+    "B": "Wernicke's area",
+    "C": "Auditory area",
+    "D": "Visual area"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Brodmann’s numbers Function Location BA 1, 2, 3 Primary Somatosensory Cortex Processes tactile information from the body. Postcentral gyrus. BA 4 Primary Motor Cortex Controls voluntary movements via corticospinal and cortico-nuclear tracts. Precentral gyrus. BA 8 Prefrontal Cortex Involved in planning and decision-making. The anterior part of the frontal lobe."
+    },
+    {
+     "type": "paragraph",
+     "text": "BA 17 Primary Visual Cortex (V1) Processes visual information from the lateral geniculate nucleus. (Option D ruled out) Occipital lobe (calcarine sulcus, cuneus, and lingual gyrus)."
+    },
+    {
+     "type": "paragraph",
+     "text": "**BA 22 Language comprehension (Wernicke’s area) (Option B ruled out):** Superior temporal gyrus BA 41 Primary auditory cortex (Option C ruled out) Superior temporal gyrus BA 42 Secondary auditory cortex Adjacent to BA 41 BA 44 and 45 Broca’s area Speech production. (Motor speech) (Option A) BA 44 (Opercular part): Syntactic processing (grammar). BA 45 (Triangular part): Semantic processing (meaning). Left BA 44 is typically larger, reflecting language dominance. Inferior frontal gyrus of the frontal lobe."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L41_Q039_E1"
+    }
+   ]
+  }
+ ]
+}

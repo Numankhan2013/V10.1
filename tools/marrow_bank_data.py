@@ -8,9 +8,11 @@ here edits the app; tools/build_app_data.py writes the results into index.html.
 from __future__ import annotations
 
 import base64
+import copy
 import hashlib
 import json
 import zlib
+from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -49,6 +51,35 @@ def load_sharded(prefix: str) -> dict:
     if hashlib.sha256(raw).hexdigest() != manifest.get("raw_sha256"):
         fail(f"{prefix} raw SHA-256 mismatch")
     return json.loads(raw.decode("utf-8"))
+
+
+def withdrawn_questions() -> dict[str, dict]:
+    """Questions kept in the source shards but withheld from the learner app.
+
+    Withdrawal is a shipping decision, not a source edit: the canonical record
+    stays intact and auditable, while the app records omit the question and the
+    topic count reflects what the learner can actually open. Every entry must
+    say why it is unanswerable and what would restore it.
+    """
+    path = DATA / "withdrawn_questions_v1.json"
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    if payload.get("schemaVersion") != 1:
+        fail(f"{path.name}: unsupported schemaVersion")
+    entries = payload.get("questions")
+    if not isinstance(entries, list):
+        fail(f"{path.name}: questions must be a list")
+    by_id: dict[str, dict] = {}
+    for entry in entries:
+        qid = str(entry.get("id") or "")
+        if not qid.startswith("marrow__") or qid in by_id:
+            fail(f"{path.name}: blank, duplicate or unnamespaced ID {qid!r}")
+        for field in ("reason", "evidence", "restoreWhen"):
+            if not str(entry.get(field) or "").strip():
+                fail(f"{path.name}: {qid} is missing {field}")
+        if entry.get("status") != "withdrawn":
+            fail(f"{path.name}: {qid} status must be 'withdrawn'")
+        by_id[qid] = entry
+    return by_id
 
 
 def canonical_source_questions() -> dict[str, dict]:
@@ -233,6 +264,85 @@ def merged_explanations(source_by_id: dict[str, dict]) -> dict[str, dict]:
     return merged
 
 
+EXPLANATION_SOURCE_CLEANUP_PATH = DATA / "explanation_source_cleanup_v1.json"
+SOURCE_DEBRIS_MARKERS = ("===== PDF PAGE", "Solution to Question", "&gt", "&lt", "&amp;", "■", "©MARROW")
+
+
+def apply_explanation_source_cleanup(merged: dict[str, dict]) -> dict[str, dict]:
+    """Swap in clean source-detail text for explanations whose OCR carried debris.
+
+    The approved batch files stay byte-identical (their digests are audited), so
+    the cleanup is a separate reviewed file. Each entry names the exact display
+    text it replaces; an upstream change to that text fails the build instead of
+    silently keeping a stale transcription.
+    """
+    record = json.loads(EXPLANATION_SOURCE_CLEANUP_PATH.read_text(encoding="utf-8"))
+    questions = record.get("questions", {})
+    if record.get("schemaVersion") != 1 or not questions:
+        fail("explanation source cleanup identity mismatch")
+    cleaned = dict(merged)
+    for qid, entry in questions.items():
+        cfg = merged.get(qid)
+        if not cfg:
+            fail(f"explanation source cleanup targets unknown ID {qid}")
+        old = str(cfg.get("displayText", ""))
+        if hashlib.sha256(old.encode("utf-8")).hexdigest() != entry.get("replacesDisplayTextSha256"):
+            fail(f"explanation source cleanup is stale for {qid}")
+        text = str(entry.get("displayText", "")).strip()
+        # replacesWhole marks a text the OCR broke mid-sentence: it has no takeaway paragraph to keep.
+        if "\n\n" in old and not entry.get("replacesWhole") and text.split("\n\n", 1)[0] != old.split("\n\n", 1)[0]:
+            fail(f"explanation source cleanup changed the reviewed takeaway for {qid}")
+        # An entry may restate the emphasis when an anchor quoted an OCR typo; it keeps the same number of phrases.
+        emphasis = entry.get("emphasis", cfg.get("emphasis", []))
+        if len(emphasis) != len(cfg.get("emphasis", [])) or any(str(p) not in text for p in emphasis):
+            fail(f"explanation source cleanup dropped an emphasis anchor for {qid}")
+        if any(marker in text for marker in SOURCE_DEBRIS_MARKERS):
+            fail(f"explanation source cleanup still carries OCR debris for {qid}")
+        clone = dict(cfg, displayText=text, emphasis=emphasis) if "emphasis" in entry else dict(cfg, displayText=text)
+        if "displayTables" in entry:
+            tables = entry["displayTables"]
+            if cfg.get("displayTables") or not isinstance(tables, list) or not tables:
+                fail(f"explanation source cleanup table conflict for {qid}")
+            for table in tables:
+                columns = table.get("columns") or []
+                if not table.get("title") or not columns or any(len(row) != len(columns) for row in table.get("rows") or [[]]):
+                    fail(f"explanation source cleanup table shape for {qid}")
+            clone["displayTables"] = tables
+        cleaned[qid] = clone
+    print(f"MARROW_EXPLANATION_SOURCE_CLEANUP_OK questions={len(questions)}")
+    return cleaned
+
+
+def apply_source_record_cleanup(records: list[dict]) -> None:
+    """Clean the few explanations that render straight from the source record.
+
+    These have no reviewed augmentation, so the shipped record itself carries the
+    clean text or table. Each entry is pinned to the exact source it replaces.
+    """
+    record = json.loads(EXPLANATION_SOURCE_CLEANUP_PATH.read_text(encoding="utf-8"))
+    by_id = {q["id"]: q for rec in records for q in rec["questions"]}
+    digest = lambda value: hashlib.sha256(value.encode("utf-8")).hexdigest()
+    for qid, entry in record.get("sourceExplanations", {}).items():
+        structured = (by_id.get(qid) or {}).get("structuredExplanation")
+        if not structured or digest(str(structured.get("text", ""))) != entry.get("replacesTextSha256"):
+            fail(f"source explanation cleanup is stale for {qid}")
+        if any(marker in entry["text"] for marker in SOURCE_DEBRIS_MARKERS):
+            fail(f"source explanation cleanup still carries OCR debris for {qid}")
+        structured["text"] = entry["text"]
+    for qid, entry in record.get("sourceTables", {}).items():
+        tables = ((by_id.get(qid) or {}).get("structuredExplanation") or {}).get("tables") or []
+        table = next((t for t in tables if t.get("table_id") == entry.get("tableId")), None)
+        if not table or digest(json.dumps(table.get("rows"), ensure_ascii=False, sort_keys=True)) != entry.get("replacesRowsSha256"):
+            fail(f"source table cleanup is stale for {qid}")
+        if [row[0] for row in entry["rows"]] != [row[0] for row in table["rows"]]:
+            fail(f"source table cleanup changed row labels for {qid}")
+        table["rows"] = entry["rows"]
+    print(
+        "MARROW_SOURCE_RECORD_CLEANUP_OK "
+        f"explanations={len(record.get('sourceExplanations', {}))} tables={len(record.get('sourceTables', {}))}"
+    )
+
+
 def load_expanded_bank(prefix: str, expected_subject: str):
     manifest_path=DATA/f"{prefix}_manifest.json"
     if not manifest_path.exists():
@@ -292,6 +402,8 @@ CONTENT_OVERRIDE_PATHS=(
     DATA/"content_hygiene_nerve_ch6_q18_34_v1.json",
     DATA/"content_hygiene_phys_ch09_10_v1.json",
     DATA/"content_hygiene_phys_ch11_12_v1.json",
+    DATA/"content_hygiene_phys_watermark_v1.json",
+    DATA/"content_hygiene_glyphs_v1.json",
 )
 CONTENT_OVERRIDE_RANGES={
     "content_hygiene_nerve_ch6_q01_17_v1.json":((6,1,17),),
@@ -401,8 +513,43 @@ def microbiology_record() -> dict:
 
 
 def app_marrow_records() -> list[dict]:
-    """Every Marrow bank the app embeds: the canonical ED8 three, then Microbiology."""
-    return expanded_marrow_records() + [microbiology_record()]
+    """Every Marrow bank the app embeds: the canonical ED8 three, then Microbiology.
+
+    Withdrawn questions are removed here, at the shipping boundary, so the
+    source shards and their audits stay untouched. Topic counts are recomputed
+    from the remaining questions so a topic card cannot promise a question the
+    learner cannot open.
+    """
+    records = expanded_marrow_records() + [microbiology_record()]
+    apply_source_record_cleanup(records)
+    withdrawn = withdrawn_questions()
+    if not withdrawn:
+        return records
+    shipped = {q["id"]: q for record in records for q in record["questions"]}
+    unknown = sorted(set(withdrawn) - set(shipped))
+    if unknown:
+        fail(f"withdrawn question(s) missing from the canonical banks: {unknown}")
+    for qid, entry in withdrawn.items():
+        question = shipped[qid]
+        for field in ("subject", "chapterId", "questionNumber"):
+            if entry.get(field) != question.get(field):
+                fail(f"withdrawn {qid}: ledger {field} disagrees with the canonical bank")
+    filtered: list[dict] = []
+    for record in records:
+        if not any(q["id"] in withdrawn for q in record["questions"]):
+            filtered.append(record)
+            continue
+        clone = copy.deepcopy(record)
+        clone["questions"] = [q for q in clone["questions"] if q["id"] not in withdrawn]
+        counts = Counter(str(q.get("chapterId")) for q in clone["questions"])
+        for topic in clone.get("topics", []):
+            topic["questionCount"] = counts.get(str(topic.get("id")), 0)
+        filtered.append(clone)
+    remaining = sum(len(record["questions"]) for record in filtered)
+    if remaining != len(shipped) - len(withdrawn):
+        fail(f"withdrawal removed the wrong number of questions: {remaining}")
+    print(f"MARROW_WITHDRAWN_QUESTIONS_OK withdrawn={len(withdrawn)} shipped={remaining}")
+    return filtered
 
 
 def validate_biochemistry_batches(expanded_biochemistry: dict) -> dict:

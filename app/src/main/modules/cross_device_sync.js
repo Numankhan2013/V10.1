@@ -61,9 +61,15 @@
   }
   function nkRestoreAccountSnapshot(snapshot){
     const nextState=nkNormalizeState(snapshot.state),nextMeta=nkNormalizeSyncMeta(snapshot.syncMeta);
+    // This device keeps its own sync identity. A snapshot taken on another
+    // device must not make this device upload envelopes stamped with that
+    // device's ID, or per-device conflict resolution and tombstones are
+    // attributed to the wrong device.
+    const localDeviceId=(nkSyncMeta&&nkSyncMeta.deviceId)||nextMeta.deviceId;
     state=nextState;
     if(nkDurablePersist(state,'account switch')===false)throw new Error('Account progress could not be saved on this device.');
     nkSyncMeta=nextMeta;
+    nkSyncMeta.deviceId=localDeviceId;
     if(!nkSaveSyncMeta())throw new Error('Account sync history could not be saved on this device.');
     applySubject(SUBJECT_BY_NAME[snapshot.activeSubject]?snapshot.activeSubject:'Biochemistry');
     localStorage.removeItem(NK_PRE_CLOUD_BACKUP);
@@ -156,7 +162,7 @@
     if(creating&&password!==confirmPassword){showToast('The passwords do not match.','bad');document.getElementById('nk-cloud-confirm-password')?.focus?.();return;}
     let activeButton=null;
     try{
-      const c=nkFirebaseConfig(),action=creating?'signUp':'signInWithPassword';activeButton=document.querySelector('.nk-auth-submit');if(activeButton){activeButton.disabled=true;activeButton.textContent=creating?'Creating account…':'Signing in…';}
+      const c=nkFirebaseConfig(),action=creating?'signUp':'signInWithPassword';activeButton=document.querySelector('.nk-auth-submit');nkSyncButton(activeButton,'loading',creating?'Creating account':'Signing in');
       const data=await nkFetchJson(`https://identitytoolkit.googleapis.com/v1/accounts:${action}?key=${encodeURIComponent(c.apiKey)}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,password,returnSecureToken:true})});
       if(creating){nkAuthView='signin';nkSignInEmail=String(data.email||email);nkPendingCreateEmail='';showToast('Account created. Sign in to start syncing.','good');render();nkFocusAuthInput('nk-cloud-password');return;}
       if(nkAccountRecoveryError)throw new Error(nkAccountRecoveryError);
@@ -176,7 +182,7 @@
       if(nkAuth){nkCloudReady=true;showToast(`Signed in, but sync is paused: ${String(error.message||error)}`,'bad');render();}
       else showToast(nkAuthMessage(error.message),'bad');
     }
-    finally{if(activeButton){activeButton.disabled=false;activeButton.textContent=creating?'Create account':'Sign in';}}
+    finally{nkSyncButton(activeButton,'idle');}
   }
   async function nkCloudSignOut(){
     if(nkCloudResetting){showToast('Wait for the account reset to finish before signing out.','bad');return;}
@@ -553,7 +559,16 @@
     }
     finally{nkCloudBusy=false;nkSaveSyncMeta();nkCloudRenderStatus();if(nkSyncMeta.status==='synced'&&Object.keys(nkSyncMeta.outbox).length)nkScheduleCloudFlush();}
   }
-  async function nkCloudSyncNow(){if(!nkAuth){showToast('Sign in to synchronize.','bad');return;}await nkCloudSync(false);if(nkSyncMeta.status==='synced')showToast('Progress is up to date.','good');}
+  // The shared stateful-button helper lives in interaction_polish.js; isolated harnesses run without it.
+  function nkSyncButton(button,next,label){if(typeof nkButtonState==='function')nkButtonState(button,next,label);else if(button)button.disabled=next==='loading';}
+  async function nkCloudSyncNow(){
+    if(!nkAuth){showToast('Sign in to synchronize.','bad');return;}
+    const button=()=>document.querySelector('.nk-cloud-sync-btn');
+    nkSyncButton(button(),'loading','Syncing');
+    const result=await nkCloudSync(false);
+    if(result)nkSyncButton(button(),'success','Synced');
+    else nkSyncButton(button(),nkSyncMeta.status==='synced'?'idle':'error');
+  }
   function nkCloudStatusCopy(){if(state.normalPracticeConflict)return 'Practice conflict · resume or discard on this device';if(!navigator.onLine)return 'Offline · changes stay on this device';if(nkCloudBusy||nkSyncMeta.status==='syncing')return 'Synchronizing…';if(nkSyncMeta.status==='error')return `Sync paused · ${String(nkSyncMeta.lastError||'tap Sync now').slice(0,140)}`;if(nkSyncMeta.lastSyncAt)return `Synced ${fmtDate(nkSyncMeta.lastSyncAt)}`;return 'Ready to synchronize';}
   function nkCloudAccountCard(){
     const pwa=location.hostname==='qbank.local'||window.QBankShell?'Android app':'Install from Safari with Share → Add to Home Screen.';
@@ -564,7 +579,7 @@
         `<form class="nk-auth-step" onsubmit="window.QB.nkCloudAuthenticate('signin');return false"><div class="nk-auth-step-label">CROSS-DEVICE SYNC</div><h3>Sign in to QBank</h3><p class="small-muted">Use the same account on Android and iPad. Your existing progress is backed up before its first merge.</p><label>Email<input id="nk-cloud-email" type="email" autocomplete="username" inputmode="email" value="${esc(nkSignInEmail)}" placeholder="you@example.com" required></label><label>Password<input id="nk-cloud-password" type="password" autocomplete="current-password" minlength="6" placeholder="Your password" required></label><button class="primary-btn nk-auth-submit" type="submit">Sign in</button><div class="nk-auth-create-prompt"><span>New to QBank Sync?</span><button class="nk-auth-link" type="button" onclick="window.QB.nkCloudAuthStartCreate()">Create account</button></div></form>`;
       return `<section class="nk-settings-group"><div class="nk-kicker">CROSS-DEVICE</div><div class="card pad nk-cloud-card"><div class="section-title"><span>QBank Sync</span><span class="sub">Private account</span></div>${form}<div class="nk-cloud-pwa">${esc(pwa)}</div></div></section>`;
     }
-    return `<section class="nk-settings-group"><div class="nk-kicker">CROSS-DEVICE</div><div class="card pad nk-cloud-card"><div class="nk-cloud-user"><span class="nk-cloud-dot ${nkSyncMeta.status==='error'?'is-error':navigator.onLine?'is-online':''}"></span><div><strong>${esc(nkAuth.email||'QBank account')}</strong><small data-nk-cloud-status>${esc(nkCloudStatusCopy())}</small></div></div><details class="nk-cloud-error" ${nkSyncMeta.lastError?'':'hidden'}><summary>Sync error details</summary><p>${esc(nkSyncMeta.lastError||'')}</p></details><p class="small-muted">Attempts, bookmarks, tests, modules, active sessions, review eligibility and study preferences merge without replacing newer device data.</p><div class="nk-cloud-actions"><button class="primary-btn" onclick="window.QB.nkCloudSyncNow()">Sync now</button><button onclick="window.QB.nkCloudSignOut()">Sign out</button><button class="nk-reset-account-btn" onclick="window.QB.resetProgress()">Reset account progress</button></div><div class="nk-cloud-pwa">${esc(pwa)}</div></div></section>`;
+    return `<section class="nk-settings-group"><div class="nk-kicker">CROSS-DEVICE</div><div class="card pad nk-cloud-card"><div class="nk-cloud-user"><span class="nk-cloud-dot ${nkSyncMeta.status==='error'?'is-error':navigator.onLine?'is-online':''}"></span><div><strong>${esc(nkAuth.email||'QBank account')}</strong><small data-nk-cloud-status>${esc(nkCloudStatusCopy())}</small></div></div><details class="nk-cloud-error" ${nkSyncMeta.lastError?'':'hidden'}><summary>Sync error details</summary><p>${esc(nkSyncMeta.lastError||'')}</p></details><p class="small-muted">Attempts, bookmarks, tests, modules, active sessions, review eligibility and study preferences merge without replacing newer device data.</p><div class="nk-cloud-actions">${nkCloudBusy?'<button class="primary-btn nk-cloud-sync-btn" onclick="window.QB.nkCloudSyncNow()" data-nk-label="Sync now" data-nk-state="loading" aria-busy="true" disabled><span class="nk-sb-icon" aria-hidden="true"></span><span class="nk-sb-label">Syncing</span></button>':'<button class="primary-btn nk-cloud-sync-btn" onclick="window.QB.nkCloudSyncNow()">Sync now</button>'}<button onclick="window.QB.nkCloudSignOut()">Sign out</button><button class="nk-reset-account-btn" onclick="window.QB.resetProgress()">Reset account progress</button></div><div class="nk-cloud-pwa">${esc(pwa)}</div></div></section>`;
   }
   function nkCloudAutoSync(){
     if(!nkAuth||!nkCloudConfigured()||!navigator.onLine||nkCloudBusy||nkCloudResetting)return;

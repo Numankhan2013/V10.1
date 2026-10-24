@@ -1,0 +1,541 @@
+{
+ "batch": "physiology-013",
+ "instructions": "docs/EXPLANATION_RESTRUCTURE.md",
+ "reply_with": {
+  "batch": "physiology-013",
+  "results": [
+   {
+    "id": "<question id>",
+    "blocks": [
+     "..."
+    ]
+   },
+   {
+    "id": "<question id>",
+    "unchanged": true
+   }
+  ]
+ },
+ "questions": [
+  {
+   "id": "physiology-23-10",
+   "question": "A patient arrives at the emergency department unconscious. An arterial blood gas (ABG) analysis reveals the following results: pH: 7.1 PCO2: 23 mmHg PO2: 98 mmHg HCO3: 16 mEq/L What do these ABG results indicate about the patient's condition?",
+   "options": {
+    "A": "Metabolic acidosis",
+    "B": "Metabolic alkalosis",
+    "C": "Respiratory acidosis",
+    "D": "Respiratory alkalosis"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "To determine the type of acid-base disturbance, let's break down the ABG results: pH: A pH of 7.1 indicates acidemia (a lower-than-normal pH) HCO3 (Bicarbonate): The bicarbonate level is 16 mEq/L, which is lower than the normal range (22-26 mEq/L). Low bicarbonate levels typically indicate a primary metabolic problem. PCO2 (Partial Pressure of Carbon Dioxide): The PCO2 level is 23 mmHg, which is lower than the normal range (35-45 mmHg)."
+    },
+    {
+     "type": "paragraph",
+     "text": "This indicates that the body is compensating for the primary metabolic disturbance by increasing respiratory rate to blow off CO2. Metabolic Acidosis: The low pH (acidosis) combined with low HCO3 suggests a primary metabolic acidosis. The decreased HCO3 is consistent with metabolic acidosis. The low"
+    },
+    {
+     "type": "paragraph",
+     "text": "PCO2 is a compensatory response to metabolic acidosis, where the body is trying to reduce CO2 to help counteract the acidosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Metabolic Alkalosis (Option B):** This would be characterized by a high pH and high HCO3. This is not the case here, as the pH is low and HCO3 is low."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Respiratory Acidosis (Option C):** This would be characterized by a low pH and high PCO2, not a low PCO2. The bicarbonate level would not be as low in a primary respiratory acidosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Respiratory Alkalosis (Option D):** This would show a high pH and low PCO2, but the bicarbonate level would be normal or compensatory high. In this case, the pH is low, and HCO3 is also low."
+    }
+   ]
+  },
+  {
+   "id": "physiology-q857933",
+   "question": "Which co-transporter is primarily responsible for facilitating glucose absorption across the basolateral membrane of an enterocyte?",
+   "options": {
+    "A": "SGLT1",
+    "B": "GLUT2",
+    "C": "GLUT5",
+    "D": "SGLT2"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Glucose Transporter Type 2 (GLUT2) is a protein that helps with glucose transport across cell membranes. In the small intestine, GLUT2 is found on the basolateral membrane of enterocytes (intestinal cells), where it facilitates the transport of glucose from these cells into the bloodstream."
+    },
+    {
+     "type": "paragraph",
+     "text": "Transporter Tissue Location Functions GLUT 1 Brain, kidney, colon, placenta, erythrocytes Facilitates glucose uptake GLUT 2 (Option B) Liver, pancreatic β cells, small intestine, kidney Enables rapid glucose uptake or release GLUT 3 Brain, kidney, placenta Assists in glucose uptake GLUT 4 Heart and skeletal muscle, adipose tissue Mediates insulin-stimulated glucose uptake GLUT 5 Small intestine Facilitates fructose absorption SGLT 1 Small intestine and kidney Actively transports glucose against a concentration gradient"
+    }
+   ]
+  },
+  {
+   "id": "physiology-23-27",
+   "question": "Which of the following statements is accurate regarding creatinine clearance?",
+   "options": {
+    "A": "Equal to inulin clearance",
+    "B": "Less than inulin clearance",
+    "C": "Greater than inulin clearance",
+    "D": "Equal to renal plasma flow"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Creatinine clearance is greater than inulin clearance because of the tubular secretion of creatinine in addition to filtration. This makes creatinine clearance a practical but slightly imprecise measure of GFR. Creatinine is partially secreted and never reabsorbed by the renal tubules, which can result in an overestimation of GFR. Inulin is a freely filterable substance, neither endogenously secreted by the body nor reabsorbed by the nephron."
+    },
+    {
+     "type": "paragraph",
+     "text": "Types of Clearance Measurements: Inulin Clearance Used to measure Glomerular Filtration Rate (GFR) as it is freely filtered but not reabsorbed or secreted. Not ideal for routine use due to intravenous administration. Creatinine Clearance Estimates GFR using creatinine, which is primarily filtered by the glomeruli. Slightly inaccurate due to tubular secretion, but practical for clinical settings. PAH Clearance Estimates Renal Plasma Flow (RPF)."
+    },
+    {
+     "type": "paragraph",
+     "text": "PAH is cleared through both glomerular filtration and tubular secretion. Correction for PAH extraction ratio improves accuracy."
+    }
+   ]
+  },
+  {
+   "id": "physiology-q857955",
+   "question": "Kartagener syndrome is associated with defects in which of the following structures?",
+   "options": {
+    "A": "Microvilli",
+    "B": "Microtubules",
+    "C": "Cilia",
+    "D": "Microfilaments"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Kartagener Syndrome, also known as Primary Ciliary Dyskinesia (PCD), is an autosomal recessive disorder that affects the cilia. It is characterized by chronic productive cough and recurrent infections of upper and lower respiratory tract. Aspects Details Triad Chronic sinusitis Bronchiectasis Situs inversus Pathophysiology Impaired mucociliary clearance → recurrent infections. Embryonic nodal cilia dysfunction → situs inversus."
+    },
+    {
+     "type": "paragraph",
+     "text": "Clinical Features Recurrent sinus and respiratory tract infections Chronic productive cough Nasal polyps Otitis media with hearing loss Male infertility (immotile sperm) Female subfertility (impaired fallopian tube cilia) Neonatal respiratory distress"
+    }
+   ]
+  },
+  {
+   "id": "physiology-8-41",
+   "question": "Nuclear signalling pathways are all except",
+   "options": {
+    "A": "Caveolins",
+    "B": "NF-kB",
+    "C": "Importins",
+    "D": "Rat proteins"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "These are not nuclear signalling pathways. Recombinant rat IFN is a bioactive protein, it is used in cell culture applications. Incorrect Options: Option A - Caveolins: Caveolins are a family of proteins that are involved in the formation of caveolae, which are specialised lipid rafts in the plasma membrane. They are involved in receptor independent endocytosis."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option B - NF-kB: NF-kB (nuclear factor kappa-light-chain-enhancer of activated B cells) is a transcription factor that plays a central role in the regulation of immune and inflammatory responses. It is involved in various nuclear signaling pathways and is activated in response to diverse stimuli, such as cytokines, pathogens, and stress signals."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option C - Importins: Importins are proteins that facilitate the transport of molecules into the nucleus. They are responsible for importing various molecules, including transcription factors, into the nucleus to regulate gene expression and participate in nuclear signaling pathways."
+    }
+   ]
+  },
+  {
+   "id": "physiology-8-21",
+   "question": "Which indicator is suitable for measuring the total amount of body water?",
+   "options": {
+    "A": "Evan’s blue",
+    "B": "Tritium oxide",
+    "C": "Mannitol",
+    "D": "Sucrose"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Tritium: Tritium oxide, also known as hydrogen-3, is a radioactive isotope of hydrogen. It can be used as an indicator to measure total body water because it is freely permeable to capillary and cell membrane. When tritiated water (water containing tritium) is ingested or injected into the body, it distributes uniformly throughout the total body water compartment."
+    },
+    {
+     "type": "paragraph",
+     "text": "By measuring the concentration of tritium in body fluids, researchers can estimate the total body water content. Other indicators used for measuring TBW deuterium oxide and aminopyrine, Incorrect Options: Option A - Evans blue: Evans blue is a dye that is commonly used to measure plasma volume. Option C and D: Mannitol and sucrose are used to measure extracellular fluid volume."
+    }
+   ]
+  },
+  {
+   "id": "physiology-8-20",
+   "question": "What is the most accurate method to measure the temperature of a soldier brought to the ER from Siachen, in order to rule out hypothermia in a limited resource setting ?",
+   "options": {
+    "A": "Oral",
+    "B": "Rectal",
+    "C": "Infrared tympanic thermometer",
+    "D": "Axillary"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "The rectal temperature is representative of the temperature at the core of the body and varies least with changes in environmental temperature. Incorrect Options: Options A, C, and D are incorrect. Variations of temperature in these areas are usually associated with extreme environment."
+    }
+   ]
+  },
+  {
+   "id": "physiology-8-19",
+   "question": "Which of the following organelle has DNA?",
+   "options": {
+    "A": "Mitochondria",
+    "B": "Golgi complex",
+    "C": "SER",
+    "D": "RER"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Mitochondria are organelles found in eukaryotic cells that have their own DNA. They are often referred to as the \"powerhouses\" of the cell because they are responsible for generating most of the cell's energy through a process called cellular respiration. Mitochondria have a double membrane structure, and within their inner membrane, they house their own DNA, known as mitochondrial DNA (mtDNA)."
+    },
+    {
+     "type": "paragraph",
+     "text": "Mitochondrial DNA is separate from the nuclear DNA found in the cell's nucleus. It contains genes that encode for some of the proteins, RNA molecules, and other components needed for mitochondrial function and energy production. Incorrect Options: Option B. The Golgi complex, or Golgi apparatus, is involved in processing, modifying, and packaging proteins and lipids for transport to their specific destinations within the cell or for secretion."
+    },
+    {
+     "type": "paragraph",
+     "text": "It does not have its own DNA. Option C. The SER is involved in various functions, including lipid metabolism, detoxification of drugs and toxins, and calcium storage. It does not contain DNA. Option D. The RER is responsible for the synthesis and processing of proteins. It is called \"rough\" because it is studded with ribosomes involved in protein synthesis. However, it does not contain its own DNA."
+    }
+   ]
+  },
+  {
+   "id": "physiology-37-56",
+   "question": "Histamine is secreted by?",
+   "options": {
+    "A": "Enterochromaffin cell",
+    "B": "Parietal cell",
+    "C": "Oxyntic cell",
+    "D": "Chief cell"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Histamine is primarily secreted by enterochromaffin cells, which are a type of neuroendocrine cells found in the gastrointestinal tract. These cells release histamine in response to gastrin and acetylcholine. Histamine has diverse physiological functions and plays a significant role in various processes in the body. In the gastrointestinal tract, histamine acts as a paracrine and neurotransmitter molecule."
+    },
+    {
+     "type": "paragraph",
+     "text": "It can stimulate gastric acid secretion, increase blood flow to the gastric mucosa, and regulate smooth muscle contraction in the gut. Incorrect Options: Option B - Parietal cell: Parietal cells are responsible for producing and secreting gastric acid (hydrochloric acid) in the stomach. Option C - Oxyntic cell: Oxyntic cells, or parietal cells, are another name for the cells that produce gastric acid."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Chief cell: Chief cells are responsible for secreting pepsinogen, the inactive precursor of the enzyme pepsin, which is involved in protein digestion."
+    }
+   ]
+  },
+  {
+   "id": "physiology-8-18",
+   "question": "Which of the following options has the lowest concentration in intracellular fluid (ICF)compared to extracellular fluid ?",
+   "options": {
+    "A": "Calcium",
+    "B": "Magnesium",
+    "C": "Potassium",
+    "D": "Protein"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Calcium is present in the least concentration in intracellular fluid (ICF). Inside the cell, calcium ions are tightly regulated to maintain proper cellular function. The intracellular concentration of calcium is relatively low (0.0001 mEq/L) compared to the concentration in extracellular fluid.. Incorrect Options: Options B, C, and D are incorrect. Their concentration is relatively higher in intracellular fluid compared to extracellular fluid."
+    }
+   ]
+  },
+  {
+   "id": "physiology-8-11",
+   "question": "Which of the options below does not exemplify a feed-forward control mechanism?",
+   "options": {
+    "A": "Temperature regulation",
+    "B": "Cephalic phase of gastric secretion",
+    "C": "Cerebellar action in motor coordination",
+    "D": "Exercise resulting in heart rate increase"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Exercise-induced heart rate increase, illustrates feedback, not feedforward control. The heart rate elevates in response to immediate exercise demands, rather than anticipatorily preparing for changes. Incorrect Options: Option A - Temperature regulation: This is an"
+    },
+    {
+     "type": "paragraph",
+     "text": "example of a feedforward control mechanism. For instance, when the body anticipates exposure to cold temperatures, it may initiate processes like vasoconstriction and shivering to maintain or raise body temperature before it actually drops significantly. Option B - Cephalic phase of gastric secretion: The cephalic phase of gastric secretion is indeed a feedforward control mechanism."
+    },
+    {
+     "type": "paragraph",
+     "text": "It occurs before food reaches the stomach, and sensory stimuli such as the sight and smell of food can trigger the release of gastric juices in anticipation of digestion. Option C - Cerebellar action in motor coordination: The cerebellum plays a significant role in motor coordination and is involved in feedforward control. It helps anticipate and make adjustments to muscle activities to coordinate movements effectively."
+    }
+   ]
+  },
+  {
+   "id": "physiology-8-40",
+   "question": "What is the transporter molecule responsible for transporting Fe2+ into the enterocytes ?",
+   "options": {
+    "A": "Ferroportin",
+    "B": "Hephaestin",
+    "C": "Divalent metal Transporter 1",
+    "D": "Divalent Metal Transporter 2"
+   },
+   "answer": "C",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Divalent metal transporter-1 (DMT1) is a transmembrane protein located in the apical membrane of enterocytes. It is responsible for transporting ferrous forms of iron from the intestinal lumen into the enterocyte. DMT1 is expressed in the duodenum, the first part of the small intestine, where iron is absorbed from the diet."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option A - Ferroportin: Ferroportin is a transmembrane protein located on the basolateral membrane of enterocytes. It functions as the main exporter of intracellular iron, allowing iron to be released into the bloodstream for systemic distribution. Option B - Hephaestin: Hephaestin is a copper-dependent ferroxidase enzyme found on the basolateral membrane of enterocytes."
+    },
+    {
+     "type": "paragraph",
+     "text": "It plays a role in oxidizing Fe2+ to Fe3+, which enables the transfer of iron to transferrin for transport in the bloodstream. Option D - Divalent Metal Transporter 2 (DMT2): DMT2 is a transporter primarily involved in the transport of manganese (Mn2+) rather than iron."
+    }
+   ]
+  },
+  {
+   "id": "physiology-8-39",
+   "question": "What is the most effective stimulus for increasing aldosterone secretion ?",
+   "options": {
+    "A": "Hyperkalemia",
+    "B": "ACTH",
+    "C": "Hypernatremia",
+    "D": "Hyponatremia"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Aldosterone secretion is maximally stimulated by hyperkalemia, which refers to an elevated level of potassium in the blood. High levels of potassium act directly on the adrenal cortex, specifically the zona glomerulosa, to increase aldosterone production and release. Aldosterone acts on the kidneys to promote potassium excretion and sodium reabsorption, helping to regulate electrolyte balance."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Option B - ACTH: While ACTH (adrenocorticotropic hormone) does stimulate the secretion of aldosterone to some extent, it is not the primary factor that maximally stimulates aldosterone secretion. ACTH primarily stimulates the secretion of cortisol from the adrenal cortex. Option C - Hypernatremia: Hypernatremia decreases the aldosterone secretion."
+    },
+    {
+     "type": "paragraph",
+     "text": "Option D - Hyponatremia: It also increases the secretion of aldosterone, nut is not the most potent stimulus."
+    }
+   ]
+  },
+  {
+   "id": "physiology-8-23",
+   "question": "Which of the following is not a dietary fiber ?",
+   "options": {
+    "A": "Cellulose",
+    "B": "Inulin",
+    "C": "Pectin",
+    "D": "Gums"
+   },
+   "answer": "D",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Gums like guar gum, locust bean gum, and xanthan gum are hydrocolloids derived from plants and used as food additives for thickening, stabilizing, and emulsifying. While they may"
+    },
+    {
+     "type": "paragraph",
+     "text": "contribute to dietary fiber content, they lack the same health benefits as natural dietary fibers. Incorrect Options: Option A - Cellulose: Insoluble fiber found in plant cell walls, adds bulk to stool. Option B - Inulin: Soluble fiber found in chicory root, acts as a prebiotic. Option C - Pectin: Soluble fiber found in fruits, used as a thickening agent, promotes satiety."
+    }
+   ]
+  },
+  {
+   "id": "physiology-8-43",
+   "question": "What is the effect on blood flow when the radius of a vessel is doubled?",
+   "options": {
+    "A": "8 times",
+    "B": "16 times",
+    "C": "32 times",
+    "D": "256 times"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Flow is equal to the pressure difference divided by resistance. So, flow is inversely proportional to the resistance of the vessel. According to the Hagen–Poiseuille equation, resistance can be directly measured by the following formula. R = 8hL/pr4 Where, R = resistance. h = viscosity. L = length. r = radius of the vessel. From this equation, the resistance of a vessel is inversely proportional to the fourth power of radius."
+    },
+    {
+     "type": "paragraph",
+     "text": "So, if the radius is doubled the original and other parameters remain constant, then the resistance will be: R = 1/(r)4. R = 1/(2) 4. R = 1/16 = 16. So, the resistance will decrease by 16 times, and flow will increase by 16 times. Incorrect Options: Options A, C, and D are incorrect."
+    }
+   ]
+  },
+  {
+   "id": "physiology-8-13",
+   "question": "When calculating the quantity of IV fluids required for a patient, what amount of daily transient loss/insensible loss would you consider ?",
+   "options": {
+    "A": "150-200 ml",
+    "B": "500-600 ml",
+    "C": "200-350 ml 350-400 ml",
+    "D": "350-400 ml"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Constant water evaporation occurs in our body during respiration or directly from the skin's surface, which is normal, is referred to as insensible water loss. Normally, 700 ml of water evaporates from our body daily. 350 ml of water is evaporated from the skin's surface and 350 ml from the respiratory tract. Incorrect Options: Options A, C and D are incorrect."
+    }
+   ]
+  },
+  {
+   "id": "physiology-8-12",
+   "question": "I-125 labeled albumin is used for measurement of:",
+   "options": {
+    "A": "Plasma volume",
+    "B": "Interstitial fluid volume",
+    "C": "ICF",
+    "D": "ECF"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "I-125 labeled albumin is commonly used to measure plasma volume. I-125 is a iodine labeled albumin that is injected into the bloodstream. It is impermeable to capillaries and does not dissociate into interstitial fluid and intracellular fluid. So, by measuring the dilution of the labeled albumin in the plasma, the total volume of plasma can be determined. Evan’s blue is another substance that can be used for determining plasma volume."
+    },
+    {
+     "type": "paragraph",
+     "text": "Incorrect Options: Options B, C, and D are incorrect. I-125 labeled iodine is used to measure the plasma volume."
+    }
+   ]
+  },
+  {
+   "id": "physiology-9-1",
+   "question": "Which of the following best describes the difference between temporal summation and spatial summation in neurons?",
+   "options": {
+    "A": "There is no difference between Temporal summation and Spatial summation.",
+    "B": "Temporal summation requires signals to occur close in time, spatial summation requires simultaneous signals at different synapses.",
+    "C": "Temporal summation is not limited by the refractory period, spatial summation is.",
+    "D": "Temporal summation combines signals from different synapses, spatial summation combines signals from the same synapse."
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Temporal summation occurs when multiple excitatory signals at the same synapse happen close in time to reach the threshold and trigger an action potential. Spatial summation involves excitatory signals arriving simultaneously at different synapses, summating to reach the threshold."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Feature Temporal Summation Spatial Summation Definition (Option B):** Multiple subthreshold excitatory signals at the same synapse occurring close in time. Excitatory signals arriving at different synapses simultaneously or within a short timeframe."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Threshold for Excitation (Option D):** Summation of signals to reach the threshold potential for triggering an action potential. Combined effect of excitatory signals at multiple synapses to reach the threshold."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Signal Source (Option A):** Same synapse Different synapses Current Flow Local depolarizing current spreads from the same synapse. Local"
+    },
+    {
+     "type": "paragraph",
+     "text": "depolarizing currents from different synapses overlap. Role in Action Potentials Can trigger an action potential if signals are close enough in time to summate and reach threshold. Can trigger an action potential if multiple signals from different locations summate to reach threshold."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Impact of Refractory Period (Option C):** Limited by the refractory period; if signals are too far apart, they won't summate. Not directly limited by the refractory period; depends on spatial proximity of signals. Examples Neurons receiving frequent, rapid signals at a single synapse. Neurons receiving simultaneous input from multiple presynaptic neurons. The longer the time constant, the greater is the chance for two potentials to summate to induce an action potential (Temporal summation) Longer the length constant, greater the chance of Spatial summation."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L15_Q001_E1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L15_Q001_E2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L15_Q001_E3"
+    }
+   ]
+  },
+  {
+   "id": "physiology-9-2",
+   "question": "Feedback control in voltage-gated ion channels in the membrane of neuron during action potential has been shown here. The phenomenon shown at point A is:",
+   "options": {
+    "A": "Positive feedback",
+    "B": "Negative feedback",
+    "C": "Feedforward",
+    "D": "Voltage dependent opening"
+   },
+   "answer": "B",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "K+ channels exert Negative feedback. K⁺ channels provide negative feedback during an action potential by promoting repolarization. Their delayed opening after depolarization allows K⁺ ions to exit the cell, reducing the positive membrane potential and stabilizing the neuron's electrical activity. This feedback mechanism"
+    },
+    {
+     "type": "paragraph",
+     "text": "is essential for the proper functioning of neurons and for the propagation of action potentials."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Positive Feedback (Option A):** Increases the activity or response, leading to a greater output. For example, during the rapid depolarization phase of an action potential, when sodium channels open and more sodium enters, it leads to further depolarization."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Feedforward (Option C):** Anticipates changes and adjusts the response accordingly, but this is not the main focus in the context of ion channel behavior."
+    },
+    {
+     "type": "paragraph",
+     "text": "**Voltage-Dependent Opening (Option D):** Refers to the way ion channels open in response to changes in membrane potential, but does not describe the feedback mechanism."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L15_Q002_E1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L15_Q002_E2"
+    }
+   ]
+  },
+  {
+   "id": "physiology-9-3",
+   "question": "Neurologists decide to assess the excitability of different tissues by plotting the strength-duration relationship parameters on a graph. Which of the following tissues show the highest excitability?",
+   "options": {
+    "A": "Nerve",
+    "B": "Muscle",
+    "C": "Skin",
+    "D": "Heart"
+   },
+   "answer": "A",
+   "explanation": [
+    {
+     "type": "paragraph",
+     "text": "Neuron exhibits the highest chronaxie value. Strength-Duration Relationship Parameters The strength-duration curve graphically depicts the relationship between the intensity of an electrical stimulus applied at a muscle's motor point and the duration required to produce a minimal muscle contraction. Rheobase: Minimum electrical current (or voltage) needed to induce an action potential when applied indefinitely."
+    },
+    {
+     "type": "paragraph",
+     "text": "Typical Values: 2 to 18 mA (or 5 to 35 volts) for healthy muscle tissue. Clinical Insight: Higher values in denervated muscles indicate reduced excitability. Chronaxie: Minimum time required for a current that is double the rheobase intensity to stimulate the muscle. Normal Value: Generally below 1 ms. Clinical Insight: Longer chronaxie indicates lower excitability."
+    },
+    {
+     "type": "paragraph",
+     "text": "Utilization Time: Duration needed for a stimulus of rheobasic strength to excite the nerve and produce muscle contraction. Clinical Insight: Crucial for understanding nerve activation dynamics and stimulus efficiency. Clinical Significance: Assessment: Parameters assess nerve function and excitability. The order of excitability among different tissues is generally: Neurons > skeletal muscles > myocardium > smooth muscles."
+    },
+    {
+     "type": "paragraph",
+     "text": "Additionally, A fibers are the most excitable, followed by B and C fibers. Diagnostic Use: Evaluate nerve damage, monitor recovery, and guide rehabilitation. Strength-Duration Curve: Plots these parameters to reveal nerve injury extent and recovery potential."
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L15_Q003_E1"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L15_Q003_E2"
+    },
+    {
+     "type": "figure",
+     "figure_id": "PHY11_L15_Q003_E3"
+    }
+   ]
+  }
+ ]
+}

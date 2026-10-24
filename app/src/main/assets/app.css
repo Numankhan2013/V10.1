@@ -3607,12 +3607,12 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-topic-legend li.is-c::before { 
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-topic-legend li.is-w::before { background: var(--nkg-danger, #d64b58); box-shadow: none; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-topic-legend li.is-b::before { background: transparent; box-shadow: inset 0 0 0 2px var(--nkg-fg); }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-topic-legend b { color: var(--nkg-fg-2); font-weight: 650; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-topic-map { display: grid; grid-template-columns: repeat(auto-fill, minmax(18px, 1fr)); gap: 5px; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-topic-map .nk-topic-cell { display: block !important; aspect-ratio: 1; min-height: 0 !important; height: auto !important; padding: 0 !important; margin: 0 !important; border: 1px solid var(--nkg-border-strong) !important; border-radius: 4px !important; background: var(--nkg-surface) !important; color: transparent !important; box-shadow: none !important; font: 0/0 a !important; overflow: hidden;  cursor: pointer; transition: transform 120ms var(--nkg-ease), background-color var(--nkg-dur) var(--nkg-ease); }
-html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-topic-map .nk-topic-cell.is-c { background: var(--nkg-success, #159a68) !important; border-color: var(--nkg-success, #159a68) !important; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-topic-map .nk-topic-cell.is-w { background: var(--nkg-danger, #d64b58) !important; border-color: var(--nkg-danger, #d64b58) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-topic-map { display: grid; grid-template-columns: repeat(auto-fill, minmax(40px, 1fr)); gap: 6px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-topic-map .nk-topic-cell { display: grid !important; place-items: center !important; aspect-ratio: 1; min-height: 40px !important; height: auto !important; padding: 0 !important; margin: 0 !important; border: 1px solid var(--nkg-border-strong) !important; border-radius: 9px !important; background: var(--nkg-surface) !important; color: var(--nkg-fg-2) !important; box-shadow: none !important; font: 600 12px/1 var(--nkg-font-sans) !important; font-variant-numeric: tabular-nums !important; overflow: hidden; cursor: pointer; transition: transform 120ms var(--nkg-ease), background-color var(--nkg-dur) var(--nkg-ease); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-topic-map .nk-topic-cell.is-c { background: var(--nkg-success, #159a68) !important; border-color: var(--nkg-success, #159a68) !important; color: #fff !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-topic-map .nk-topic-cell.is-w { background: var(--nkg-danger, #d64b58) !important; border-color: var(--nkg-danger, #d64b58) !important; color: #fff !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-topic-map .nk-topic-cell.is-b { box-shadow: 0 0 0 1.5px var(--nkg-canvas, var(--nkg-bg)), 0 0 0 3px var(--nkg-fg) !important; }
-@media (hover: hover) and (pointer: fine) { html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-topic-map .nk-topic-cell:hover { transform: scale(1.25); } }
+@media (hover: hover) and (pointer: fine) { html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-topic-map .nk-topic-cell:hover { transform: scale(1.06); } }
 @media (hover: hover) and (pointer: fine) { html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-topic-map .nk-topic-cell.is-u:hover { background: var(--nkg-hover) !important; } }
 html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-topic-map .nk-topic-cell:focus-visible { outline: 2px solid var(--nkg-focus); outline-offset: 2px; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-topic-options .nk-topic-option.is-primary { background: transparent !important; color: var(--nkg-fg) !important; }
@@ -3661,7 +3661,7 @@ html[data-nk-ui="geist"] .is-bad.nkg-toast { animation: nkg-toast-in 420ms cubic
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-chapter-title > .nk-topic-library { order: 3; margin: 2px 0 0; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-chapter-title > .nk-topic-library .nk-topic-legend { margin: 12px 0 0; }
 /* Skipped (left unanswered in a submitted session) reads amber; never-reached stays plain. */
-html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-topic-map .nk-topic-cell.is-k { background: var(--nkg-warning, #d98b16) !important; border-color: var(--nkg-warning, #d98b16) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-topic-map .nk-topic-cell.is-k { background: var(--nkg-warning, #d98b16) !important; border-color: var(--nkg-warning, #d98b16) !important; color: #fff !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-topic-legend li.is-k::before { background: var(--nkg-warning, #d98b16); box-shadow: none; }
 
 /* ======================================================= Marrow explanation emphasis
@@ -4162,7 +4162,7 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) :is(#nk-practice-sessions, #nk-mock
 /* The app's press feedback (interaction_polish: [onclick]:active, and on touch the
    .nk-pressed class its script adds) scales by .98 and dims. It also matched these
    screens' backdrops, so any tap made the whole page flinch. A page never presses. */
-html[data-nk-ui="geist"] body :is(#nk-practice-sessions, #nk-mock-sheet, #nk-restore-sheet, .modal-backdrop):is(:active, .nk-pressed) { transform: none !important; filter: none !important; box-shadow: none !important; transition: none !important; }
+html[data-nk-ui="geist"] body :is(#nk-practice-sessions, #nk-mock-sheet, #nk-restore-sheet, .modal-backdrop):is(:active, .nk-pressed) { transform: none !important; scale: none !important; filter: none !important; box-shadow: none !important; transition: none !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) :is(#nk-practice-sessions, #nk-mock-sheet, #nk-restore-sheet).modal-backdrop {
   align-items: stretch !important; justify-content: stretch !important; padding: 0 !important;
   background: var(--nkg-bg) !important;
@@ -6332,6 +6332,14 @@ html[data-nk-ui="geist"] :is(body,#nkg-root):is(body,#nkg-root) :is(button:not(:
    the melt through the media block below. */
 html body :is(button:not(:disabled),[role="button"],summary,a[href],[onclick]):not(:where(.option,.option-item)).nk-pressed-out{transition:box-shadow 180ms var(--nkg-ease,ease)!important}
 html[data-nk-ui="geist"] :is(body,#nkg-root):is(body,#nkg-root) :is(button:not(:disabled),[role="button"],summary,a[href],[onclick]):not(:where(.option,.option-item)).nk-pressed-out{transition:box-shadow 180ms var(--nkg-ease,ease)!important}
+/* Press spring (2026-10-24, beUI's button feel, MIT): buttons settle to 97% while
+   held and spring back on release. Uses the individual `scale` property so a
+   button already positioned with `transform` keeps its place. Links, cards
+   without a button role, answer options and backdrops never move. */
+html body :is(button:not(:disabled),[role="button"]):not(:where(.option,.option-item,.modal-backdrop,.nk-qs-backdrop,.qb-nav-backdrop,.phys-zoom-backdrop,.nk-session-review-backdrop,.v102-topic-modal,#nk-practice-sessions,#nk-mock-sheet,#nk-restore-sheet,#nk-quick-sheet)).nk-pressed{scale:.97;transition:scale 120ms cubic-bezier(.2,0,0,1)!important}
+html[data-nk-ui="geist"] :is(body,#nkg-root):is(body,#nkg-root) :is(button:not(:disabled),[role="button"]):not(:where(.option,.option-item,.modal-backdrop,.nk-qs-backdrop,.qb-nav-backdrop,.phys-zoom-backdrop,.nk-session-review-backdrop,.v102-topic-modal,#nk-practice-sessions,#nk-mock-sheet,#nk-restore-sheet,#nk-quick-sheet)).nk-pressed{scale:.97;transition:scale 120ms cubic-bezier(.2,0,0,1)!important}
+html body :is(button:not(:disabled),[role="button"]):not(:where(.option,.option-item,.modal-backdrop,.nk-qs-backdrop,.qb-nav-backdrop,.phys-zoom-backdrop,.nk-session-review-backdrop,.v102-topic-modal,#nk-practice-sessions,#nk-mock-sheet,#nk-restore-sheet,#nk-quick-sheet)).nk-pressed-out{transition:box-shadow 180ms var(--nkg-ease,ease),scale 300ms cubic-bezier(.34,1.56,.64,1)!important}
+html[data-nk-ui="geist"] :is(body,#nkg-root):is(body,#nkg-root) :is(button:not(:disabled),[role="button"]):not(:where(.option,.option-item,.modal-backdrop,.nk-qs-backdrop,.qb-nav-backdrop,.phys-zoom-backdrop,.nk-session-review-backdrop,.v102-topic-modal,#nk-practice-sessions,#nk-mock-sheet,#nk-restore-sheet,#nk-quick-sheet)).nk-pressed-out{transition:box-shadow 180ms var(--nkg-ease,ease),scale 300ms cubic-bezier(.34,1.56,.64,1)!important}
 button:focus-visible,[role="button"]:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--primary,#6951ec)!important;outline-offset:3px}
 button:disabled,[aria-disabled="true"]{cursor:default}
 .nk-session-back,.nk-grid-trigger,.bookmark-toggle{min-width:44px!important;min-height:44px!important}
@@ -6358,6 +6366,7 @@ html body :is(.nk-v114-session,.page,.modal,.qb-nav-panel,.nk-session-review-car
  html body .nav-item:active{transform:none!important;transition:none!important;}
  html body .bookmark-toggle:active svg{transform:none!important;transition:none!important}
  html[data-nk-ui="geist"] :is(body,#nkg-root):is(body,#nkg-root) :is(button:not(:disabled),[role="button"],summary,a[href],[onclick]).nk-pressed-out{transition:none!important}
+ html body :is(button,[role="button"]).nk-pressed,html[data-nk-ui="geist"] :is(body,#nkg-root):is(body,#nkg-root) :is(button,[role="button"]):is(.nk-pressed,.nk-pressed-out){scale:none!important}
 }
 
 /* ── nk-uworld-biochemistry-v1 ── */
@@ -6619,6 +6628,23 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-group.nkg-prof-live .nk-pr
   html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-chevron{transition:none}
 }
 
+/* ── nk-stateful-button-v1 ── */
+/* Async buttons report in place (pattern from beUI's StatefulButton, MIT): spinner while
+   the work runs, then a drawn check or cross, then the button's own label again. */
+html :is(body,#nkg-root) button[data-nk-state] { display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+html :is(body,#nkg-root) button[data-nk-state][disabled] { opacity: 1 !important; cursor: progress; }
+html :is(body,#nkg-root) button[data-nk-state] .nk-sb-icon { position: relative; display: inline-block; flex: none; width: 14px; height: 14px; }
+html :is(body,#nkg-root) button[data-nk-state="loading"] .nk-sb-icon::before { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid currentcolor; border-right-color: transparent; animation: nkSbSpin 700ms linear infinite; }
+html :is(body,#nkg-root) button[data-nk-state] .nk-sb-icon svg { display: block; width: 14px; height: 14px; fill: none; stroke: currentcolor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 20; stroke-dashoffset: 20; animation: nkgDraw 320ms 40ms cubic-bezier(.23, 1, .32, 1) forwards; }
+html :is(body,#nkg-root) button[data-nk-state] .nk-sb-label { animation: nkSbIn 260ms cubic-bezier(.16, 1, .3, 1) both; }
+@keyframes nkSbSpin { to { transform: rotate(360deg); } }
+@keyframes nkSbIn { from { opacity: 0; filter: blur(3px); transform: translateY(3px); } to { opacity: 1; filter: none; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  html :is(body,#nkg-root) button[data-nk-state] .nk-sb-label { animation: none !important; }
+  html :is(body,#nkg-root) button[data-nk-state="loading"] .nk-sb-icon::before { animation-duration: 1.6s !important; animation-iteration-count: infinite !important; }
+  html :is(body,#nkg-root) button[data-nk-state] .nk-sb-icon svg { animation: none !important; stroke-dashoffset: 0; }
+}
+
 /* ── nk-visual-refinement-v1 ── */
 /* NK QBank: the incumbent violet identity, composed for long study sessions. */
 :root{
@@ -6858,4 +6884,3 @@ html[data-nk-ui][data-nk-theme="dark"] :is(body,#nkg-root) .nk-study-support:has
 @media (prefers-reduced-motion: reduce) {
   html[data-nk-ui] :is(body,#nkg-root) .nk-study-support > .nk-uworld-cohort.nk-uworld-cohort :is(b,.nkr-tier) { animation: none !important; background-position: 50% 0 !important; }
 }
-

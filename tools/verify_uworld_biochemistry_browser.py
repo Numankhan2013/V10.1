@@ -69,11 +69,13 @@ def main():
                 page.goto(origin, wait_until='domcontentloaded')
                 page.wait_for_function('window.QB && window.__uworldTest')
                 records = page.evaluate('__uworldTest.records()')
-                expected = {('Anatomy', 'PrepLadder'): 1068, ('Physiology', 'PrepLadder'): 899, ('Biochemistry', 'PrepLadder'): 719,
-                            ('Anatomy', 'Marrow'): 1115, ('Physiology', 'Marrow'): 1014, ('Biochemistry', 'Marrow'): 582,
+                expected = {('Anatomy', 'PrepLadder'): 1134, ('Physiology', 'PrepLadder'): 988, ('Biochemistry', 'PrepLadder'): 867,
+                            ('Anatomy', 'Marrow'): 1114, ('Physiology', 'Marrow'): 1014, ('Biochemistry', 'Marrow'): 581,
                             ('Microbiology', 'PrepLadder'): 1202, ('Pathology', 'PrepLadder'): 1459,
                             ('Pharmacology', 'PrepLadder'): 1321,
-                            ('Microbiology', 'Marrow'): __import__('json').loads((Path(__file__).resolve().parents[1] / 'data/marrow/microbiology_marrow_qbank_manifest.json').read_text())['questions'],
+                            # The canonical bank less the questions withheld from the app.
+                            ('Microbiology', 'Marrow'): __import__('json').loads((Path(__file__).resolve().parents[1] / 'data/marrow/microbiology_marrow_qbank_manifest.json').read_text())['questions']
+                            - sum(q['subject'] == 'Microbiology' for q in __import__('json').loads((Path(__file__).resolve().parents[1] / 'data/marrow/withdrawn_questions_v1.json').read_text())['questions']),
                             ('UWorld · Biochemistry', 'UWorld'): 132,
                             ('UWorld · Poisoning & Environmental Exposure', 'UWorld'): 33,
                             ('UWorld · Ophthalmology', 'UWorld'): 30,
@@ -338,7 +340,7 @@ def main():
                 # My Subjects opens collapsed; enter the subject through the app entry point.
                 page.evaluate('QB.nkOpenSubjectLibrary("Biochemistry")')
                 page.locator('button.nk-bank-card').filter(has_text='PrepLadder').click()
-                expect(page.locator('button.nk-topic-row')).to_have_count(28)
+                expect(page.locator('button.nk-topic-row')).to_have_count(39)
                 assert not page.evaluate('document.documentElement.scrollWidth>innerWidth')
                 if width<=820:
                     # Execute a real scheduled-review failure; it changes FSRS only.

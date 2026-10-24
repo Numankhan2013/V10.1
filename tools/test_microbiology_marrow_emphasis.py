@@ -23,6 +23,7 @@ import tempfile
 from pathlib import Path
 
 from app_page import app_source
+from js_extract import extract_function
 from marrow_bank_data import load_sharded
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -31,10 +32,14 @@ PREFIX = "microbiology_marrow_qbank"
 
 
 def fragment(page: str, name: str) -> str:
-    needle = f"  function {name}("
-    start = page.rindex(needle)
-    end = page.index("\n  function ", start + len(needle))
-    return page[start:end]
+    """The last declaration of `name` in the page, with its body.
+
+    The page is assembled, so a function may live in the page body or in an
+    inlined module. Its end is found by matching braces while ignoring string,
+    template and regex literals, so a brace inside a literal cannot end the
+    scan early and a following declaration cannot be pulled in.
+    """
+    return extract_function(page, name)
 
 
 def main() -> None:
@@ -62,6 +67,14 @@ global.window=globalThis;let SUBJECTS=[];
         + fragment(page, "nkEmphasisHtml")
         + "\n\n"
         + fragment(page, "richText")
+        + "\n\n"
+        + fragment(page, "nkTakeawayWords")
+        + "\n\n"
+        + fragment(page, "nkTakeawayScore")
+        + "\n\n"
+        + fragment(page, "nkFinishTakeaway")
+        + "\n\n"
+        + fragment(page, "nkTableTakeaway")
         + "\n\n"
         + fragment(page, "nkSourceTakeaway")
         + "\n\n"

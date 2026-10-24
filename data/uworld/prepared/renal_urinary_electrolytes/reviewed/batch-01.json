@@ -12,7 +12,7 @@
     10,
     11
    ],
-   "question": "A 7-year-old boy is brought to the clinic by his parents after he developed red urine earlier in the day. The patient has a history of atopic dermatitis. He had a skin infection one month ago that was treated with a short course of antibiotics. Blood pressure is 140/90 mmHg. On physical examination, there is periorbital edema, as well as pitting edema on both feet. Laboratory results are as follows: Serum chemistry Blood urea nitrogen Creatinine Which of the following is most likely responsible for this patient's renal injury?",
+   "question": "A 7-year-old boy is brought to the clinic by his parents after he developed red urine earlier in the day. The patient has a history of atopic dermatitis. He had a skin infection one month ago that was treated with a short course of antibiotics. Blood pressure is 140/90 mmHg. On physical examination, there is periorbital edema, as well as pitting edema on both feet. Laboratory results are as follows:",
    "options": [
     {
      "letter": "A",
@@ -41,7 +41,33 @@
     }
    ],
    "correct_label": "D",
-   "question_blocks": [],
+   "question_blocks": [
+    {
+     "type": "table",
+     "caption": "Laboratory results",
+     "columns": [
+      "Group",
+      "Test",
+      "Result"
+     ],
+     "rows": [
+      [
+       "Serum chemistry",
+       "Blood urea nitrogen",
+       "14 mg/dL"
+      ],
+      [
+       "Serum chemistry",
+       "Creatinine",
+       "1.4 mg/dL"
+      ]
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "Which of the following is most likely responsible for this patient's renal injury?"
+    }
+   ],
    "explanation": [
     {
      "type": "figure",
@@ -78,7 +104,7 @@
     },
     {
      "type": "paragraph",
-     "text": "This patient with atopic dermatitis is predisposed to secondary skin infections (eg, impetigo, cellulitis). His antecedent skin infection, along with overt nephritic syndrome (eg, hypertension, generalized edema, gross hematuria [cola- or red-colored urine]) is suggestive of poststreptococcal glomerulonephritis (PSGN). This disease is the most common cause of acute nephritis in children and typically manifests 2-4 weeks after a skin infection. During infection, lgG antibodies form against nephritogenic antigens expressed by certain strains of group A Streptococcus. These antibodies complex with streptococcal antigens to form immune complexes that are deposited along the glomerular basement membrane (type Ill hypersensitivity). Subsequent activation of the complement cascade leads to neutrophil recruitment and inflammatory damage to the glomeruli."
+     "text": "This patient with atopic dermatitis is predisposed to secondary skin infections (eg, impetigo, cellulitis). His antecedent skin infection, along with overt nephritic syndrome (eg, hypertension, generalized edema, gross hematuria [cola- or red-colored urine]) is suggestive of poststreptococcal glomerulonephritis (PSGN). This disease is the most common cause of acute nephritis in children and typically manifests 2-4 weeks after a skin infection. During infection, IgG antibodies form against nephritogenic antigens expressed by certain strains of group A Streptococcus. These antibodies complex with streptococcal antigens to form immune complexes that are deposited along the glomerular basement membrane (type Ill hypersensitivity). Subsequent activation of the complement cascade leads to neutrophil recruitment and inflammatory damage to the glomeruli."
     },
     {
      "type": "paragraph",
@@ -117,7 +143,7 @@
     15,
     16
    ],
-   "question": "A 68-year-old man comes to the emergency department due to abdominal pain and nausea for the past 2 days. He has a history of atherosclerotic cardiovascular disease and underwent coronary artery bypass surgery 2 years ago. Blood pressure is 105/65 mmHg and heart rate is 120/min and irregular. Abdominal examination reveals mild diffuse tenderness and decreased bowel sounds. Laboratory studies are as follows: Serum chemistry Sodium 142 mEq/L Chloride 104 mEq/L Bicarbonate 12 mEq/L Creatinine 0.8 rng/dl Arterial blood gases Paco, Lactic acid, venous blood 5.6 mmollL (normal: 0.5- 2.0 mmoll/L) ECG shows absent P waves and an irregular rate and rhythm. CT scan of the abdomen reveals colonic wall thickening and no enhancement with intravenous contrast. Urinalysis shows acidic urine. Renal metabolism of which of the following amino acids is most important for maximizing acid excretion in this patient?",
+   "question": "A 68-year-old man comes to the emergency department due to abdominal pain and nausea for the past 2 days. He has a history of atherosclerotic cardiovascular disease and underwent coronary artery bypass surgery 2 years ago. Blood pressure is 105/65 mmHg and heart rate is 120/min and irregular. Abdominal examination reveals mild diffuse tenderness and decreased bowel sounds. Laboratory studies are as follows:",
    "options": [
     {
      "letter": "A",
@@ -146,7 +172,58 @@
     }
    ],
    "correct_label": "D",
-   "question_blocks": [],
+   "question_blocks": [
+    {
+     "type": "table",
+     "caption": "Laboratory results",
+     "columns": [
+      "Group",
+      "Test",
+      "Result"
+     ],
+     "rows": [
+      [
+       "Serum chemistry",
+       "Sodium",
+       "142 mEq/L"
+      ],
+      [
+       "Serum chemistry",
+       "Chloride",
+       "104 mEq/L"
+      ],
+      [
+       "Serum chemistry",
+       "Bicarbonate",
+       "12 mEq/L"
+      ],
+      [
+       "Serum chemistry",
+       "Creatinine",
+       "0.8 mg/dL"
+      ],
+      [
+       "Arterial blood gases",
+       "pH",
+       "7.25"
+      ],
+      [
+       "Arterial blood gases",
+       "PaCO₂",
+       "29 mm Hg"
+      ],
+      [
+       "Venous blood",
+       "Lactic acid",
+       "5.6 mmol/L (normal: 0.5-2.0 mmol/L)"
+      ]
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "ECG shows absent P waves and an irregular rate and rhythm. CT scan of the abdomen reveals colonic wall thickening and no enhancement with intravenous contrast. Urinalysis shows acidic urine. Renal metabolism of which of the following amino acids is most important for maximizing acid excretion in this patient?"
+    }
+   ],
    "explanation": [
     {
      "type": "figure",
@@ -449,7 +526,7 @@
     29,
     30
    ],
-   "question": "A 70-year-old man is brought to the hospital by his son for evaluation of worsening fatigue. The patient has not seen a physician in the past 15 years. He takes naproxen occasionally for knee arthritis. Physical examination of the prostate shows no abnormalities. Laboratory results are as follows: Complete blood count Hemoglobin Leukocytes Platelets Serum chemistry Sodium 135 mEq/L Potassium 5.1 mEq/L Blood urea nitrogen Creatinine Urine sediment is unremarkable. Ultrasound examination shows bilateral small kidneys and no hydronephrosis. Kidney biopsy shows intimal thickening and luminal narrowing of the renal arterioles with evidence of glomerular sclerosis. Which of the following is most likely responsible for this patient's kidney disease?",
+   "question": "A 70-year-old man is brought to the hospital by his son for evaluation of worsening fatigue. The patient has not seen a physician in the past 15 years. He takes naproxen occasionally for knee arthritis. Physical examination of the prostate shows no abnormalities. Laboratory results are as follows:",
    "options": [
     {
      "letter": "A",
@@ -478,7 +555,58 @@
     }
    ],
    "correct_label": "D",
-   "question_blocks": [],
+   "question_blocks": [
+    {
+     "type": "table",
+     "caption": "Laboratory results",
+     "columns": [
+      "Group",
+      "Test",
+      "Result"
+     ],
+     "rows": [
+      [
+       "Complete blood count",
+       "Hemoglobin",
+       "10.5 g/dL"
+      ],
+      [
+       "Complete blood count",
+       "Leukocytes",
+       "7,100/mm³"
+      ],
+      [
+       "Complete blood count",
+       "Platelets",
+       "150,000/mm³"
+      ],
+      [
+       "Serum chemistry",
+       "Sodium",
+       "135 mEq/L"
+      ],
+      [
+       "Serum chemistry",
+       "Potassium",
+       "5.1 mEq/L"
+      ],
+      [
+       "Serum chemistry",
+       "Blood urea nitrogen",
+       "45 mg/dL"
+      ],
+      [
+       "Serum chemistry",
+       "Creatinine",
+       "3.0 mg/dL"
+      ]
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "Urine sediment is unremarkable. Ultrasound examination shows bilateral small kidneys and no hydronephrosis. Kidney biopsy shows intimal thickening and luminal narrowing of the renal arterioles with evidence of glomerular sclerosis. Which of the following is most likely responsible for this patient's kidney disease?"
+    }
+   ],
    "explanation": [
     {
      "type": "paragraph",
@@ -1697,7 +1825,7 @@
     121,
     122
    ],
-   "question": "A 36-year-old man is brought to the emergency department due to confusion, nausea, and decreased arousal. He is unable to answer questions and no other history is available. Temperature is 36.7 C (98.1 F), pulse is 86/min, and respirations are 22/min. Arterial blood gas and serum chemistry results are as follows: Pao, Paco, Sodium 136 mEq/L Potassium 3.6 mEq/L Chloride 90 mEq/L Bicarbonate 12 mEq/L Blood urea nitrogen Creatinine Which of the following is the most likely primary acid-base disorder in this patient?",
+   "question": "A 36-year-old man is brought to the emergency department due to confusion, nausea, and decreased arousal. He is unable to answer questions and no other history is available. Temperature is 36.7 C (98.1 F), pulse is 86/min, and respirations are 22/min. Arterial blood gas and serum chemistry results are as follows:",
    "options": [
     {
      "letter": "A",
@@ -1726,7 +1854,58 @@
     }
    ],
    "correct_label": "A",
-   "question_blocks": [],
+   "question_blocks": [
+    {
+     "type": "table",
+     "caption": "Laboratory results",
+     "columns": [
+      "Test",
+      "Result"
+     ],
+     "rows": [
+      [
+       "pH",
+       "7.25"
+      ],
+      [
+       "PaO₂",
+       "96 mm Hg"
+      ],
+      [
+       "PaCO₂",
+       "28 mm Hg"
+      ],
+      [
+       "Sodium",
+       "136 mEq/L"
+      ],
+      [
+       "Potassium",
+       "3.6 mEq/L"
+      ],
+      [
+       "Chloride",
+       "90 mEq/L"
+      ],
+      [
+       "Bicarbonate",
+       "12 mEq/L"
+      ],
+      [
+       "Blood urea nitrogen",
+       "30 mg/dL"
+      ],
+      [
+       "Creatinine",
+       "1.2 mg/dL"
+      ]
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "Which of the following is the most likely primary acid-base disorder in this patient?"
+    }
+   ],
    "explanation": [
     {
      "type": "figure",
@@ -1877,7 +2056,7 @@
      "text": "(Choices B, C, D, and E) Hypercalciuria (eg, sarcoidosis), hyperoxaluria (eg, Crohn disease), and hypocitraturia (eg, distal renal tubular acidosis) are risk factors for recurrent calcium stone formation; high concentrations of calcium or oxalate promote precipitation into stones, while citrate inhibits stone formation by complexing, with calcium in the urine, preventing spontaneous nucleation and crystal growth. Hyperuricosuria (eg, gout) is a risk factor for recurrent uric acid stones, particularly in the setting of low urine pH."
     }
    ],
-   "educational_objective": "Cystinuria results from defective cystine reabsorption by proximal renal tubular epithelial cells. It most often presents with recurrent stone formation at a young age. Urinalysis shows path0gnomonic hexagonal cystine crystals, and the sodium cyanide-nitroprusside test can be used to detect excess cystine in the urine.",
+   "educational_objective": "Cystinuria results from defective cystine reabsorption by proximal renal tubular epithelial cells. It most often presents with recurrent stone formation at a young age. Urinalysis shows pathognomonic hexagonal cystine crystals, and the sodium cyanide-nitroprusside test can be used to detect excess cystine in the urine.",
    "statistics": {
     "answered_correctly_percent": 50,
     "selection_percent": {
@@ -2205,7 +2384,7 @@
     },
     {
      "type": "paragraph",
-     "text": "This patient has nephrotic syndrome (ie, generalized edema, marked proteinuria). In conjunction with the characteristic biopsy findings, this presentation suggests membranous nephropathy (MN). MN is caused by immune-complex deposition in the subepithelial portion of the glomerular capillary wall. Light microscopy shows diffuse thickening of the glomerular basement membrane (GBM) without an increase in glomerular cellularity. Immunofluorescence reveals granular deposits of lgG and C3 along the GBM. Electron microscopy demonstrates irregular, electron-dense immune deposits located between the GBM and epithelial cells. Protrusion of the GBM through the deposits resemble spikes and domes when stained with a silver stain. MN is a common cause of nephrotic syndrome in adults. Most cases are idiopathic, with the remainder due to chronic infection (eg, viral hepatitis, syphilis), solid tumors (eg, lung, colon), or systemic lupus erythematosus (SLE). This patient with inflammatory arthritis, oral ulcers, and antinuclear antibodies likely has MN secondary to SLE (with anti--double-stranded DNA immune-complex deposition)."
+     "text": "This patient has nephrotic syndrome (ie, generalized edema, marked proteinuria). In conjunction with the characteristic biopsy findings, this presentation suggests membranous nephropathy (MN). MN is caused by immune-complex deposition in the subepithelial portion of the glomerular capillary wall. Light microscopy shows diffuse thickening of the glomerular basement membrane (GBM) without an increase in glomerular cellularity. Immunofluorescence reveals granular deposits of IgG and C3 along the GBM. Electron microscopy demonstrates irregular, electron-dense immune deposits located between the GBM and epithelial cells. Protrusion of the GBM through the deposits resemble spikes and domes when stained with a silver stain. MN is a common cause of nephrotic syndrome in adults. Most cases are idiopathic, with the remainder due to chronic infection (eg, viral hepatitis, syphilis), solid tumors (eg, lung, colon), or systemic lupus erythematosus (SLE). This patient with inflammatory arthritis, oral ulcers, and antinuclear antibodies likely has MN secondary to SLE (with anti--double-stranded DNA immune-complex deposition)."
     },
     {
      "type": "paragraph",

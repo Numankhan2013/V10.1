@@ -18,6 +18,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 from build_app_data import assemble  # noqa: E402
 from build_prepladder_pharmacology_bank import (  # noqa: E402
     BANK, INVENTORY, NO_EXPLANATION, RUNTIME, app_record, lesson_title)
+from build_prepladder_microbiology_bank import plain_text  # noqa: E402
 from build_prepladder_microbiology_bank import jpeg_size, sha256  # noqa: E402
 
 PYQ_LESSONS = (1, 5, 10, 14, 16, 21, 27, 33, 42, 44, 48, 52, 55, 56, 57, 59)
@@ -29,6 +30,29 @@ def main() -> None:
     subprocess.run([sys.executable, str(ROOT / "tools/build_prepladder_pharmacology_bank.py"), "--check"], check=True)
     record = app_record()
     topics, questions = record["topics"], record["questions"]
+    # The flat explanation must be the flat rendering of the blocks the learner
+    # sees, so the Key takeaway is computed from the same document.
+    for q in questions:
+        structured = q.get("structuredExplanation") or {}
+        blocks = structured.get("blocks") or []
+        tables = structured.get("tables") or []
+        assert q["explanation"] == plain_text(blocks, tables), q["id"]
+        # A table is part of the explanation the learner reads, so the flat copy
+        # must carry its cells and not just its title.
+        by_id = {t.get("table_id"): t for t in tables}
+        for block in blocks:
+            if block.get("type") != "table":
+                continue
+            table = by_id.get(block.get("table_id")) or {}
+            for row in table.get("rows") or []:
+                for cell in row:
+                    if str(cell).strip():
+                        assert str(cell) in q["explanation"], f"{q['id']} lost the table cell {cell!r}"
+                        break
+                else:
+                    continue
+                break
+
     assert record["bank"] == "PrepLadder" and record["subject"] == "Pharmacology"
     assert record["explanationFormat"] == "structured"
     assert len(topics) == 59 and len(questions) == 1321
@@ -104,7 +128,7 @@ def main() -> None:
     assert opening("pharmacology-55-3").startswith("Epirubicin (Option B) is an anthracycline")
     assert by_id["pharmacology-55-3"]["structuredExplanation"]["blocks"][1]["items"][0]["text"] == "Cardiomyopathy"
     # Flattened lists laid out as tables, printed order kept (tools/prepladder_stem_tables.py).
-    assert sum(1 for q in questions if q.get("stemTables")) == 35
+    assert sum(1 for q in questions if q.get("stemTables")) == 38
     assert [o["text"] for o in by_id["pharmacology-14-3"]["options"]][3] == "C & D"
     assert by_id["pharmacology-14-3"]["stemTables"][0]["rows"][3] == ["D. Aspirin is used as it is the most powerful NSAID"]
     # Restructured explanations (66 batches): most gain points or tables; the
