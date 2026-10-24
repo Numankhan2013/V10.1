@@ -516,7 +516,7 @@
     94,
     95
    ],
-   "question": "A 21-year-old woman comes to the office due to constipation and vague abdominal pain. She says, \"For the last few months I have felt bloated and my stomach doesn't feel right.\" Review of systems is notable for irregular menses and occasional fatigue. Medical history is significant for a broken femur at age 6 but is otherwise noncontributory. Family history is significant for Graves disease in her father and primary myelofibrosis in her paternal grandmother. The patient smokes a pack of cigarettes daily and drinks wine when relaxing with friends. She does not use illicit drugs. Temperature is 37.2 C (99 F), blood pressure is 90/60 mm Hg, pulse is 118/min, and respirations are 16/min. BMI is 25.6 kg/m. Physical examination shows eroded enamel of the teeth. Laboratory results are as follows: Serum chemistry Sodium 134 mEq/L Potassium 3.2 mEq/L Chloride 92 mEq/l Bicarbonate 30 mEq/l Liver function studies Aspartate aminotransferase (SGOT) Alanine aminotransferase (SGPT) Amylase Lipase 32 U/L (normal: 12-61) Which of the following is the most likely cause of this patient's condition?",
+   "question": "A 21-year-old woman comes to the office due to constipation and vague abdominal pain. She says, \"For the last few months I have felt bloated and my stomach doesn't feel right.\" Review of systems is notable for irregular menses and occasional fatigue. Medical history is significant for a broken femur at age 6 but is otherwise noncontributory. Family history is significant for Graves disease in her father and primary myelofibrosis in her paternal grandmother. The patient smokes a pack of cigarettes daily and drinks wine when relaxing with friends. She does not use illicit drugs. Temperature is 37.2 C (99 F), blood pressure is 90/60 mm Hg, pulse is 118/min, and respirations are 16/min. BMI is 25.6 kg/m. Physical examination shows eroded enamel of the teeth. Laboratory results are as follows:",
    "options": [
     {
      "letter": "A",
@@ -550,7 +550,63 @@
     }
    ],
    "correct_label": "C",
-   "question_blocks": [],
+   "question_blocks": [
+    {
+     "type": "table",
+     "caption": "Laboratory results",
+     "columns": [
+      "Group",
+      "Test",
+      "Result"
+     ],
+     "rows": [
+      [
+       "Serum chemistry",
+       "Sodium",
+       "134 mEq/L"
+      ],
+      [
+       "Serum chemistry",
+       "Potassium",
+       "3.2 mEq/L"
+      ],
+      [
+       "Serum chemistry",
+       "Chloride",
+       "92 mEq/L"
+      ],
+      [
+       "Serum chemistry",
+       "Bicarbonate",
+       "30 mEq/L"
+      ],
+      [
+       "Liver function studies",
+       "Aspartate aminotransferase (SGOT)",
+       "20 U/L"
+      ],
+      [
+       "Liver function studies",
+       "Alanine aminotransferase (SGPT)",
+       "24 U/L"
+      ],
+      [
+       "Liver function studies",
+       "Amylase",
+       "161 U/L"
+      ],
+      [
+       "Liver function studies",
+       "Lipase",
+       "32 U/L (normal: 12-61)"
+      ]
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "Which of the following is the most likely cause of this patient's condition?"
+    }
+   ],
    "explanation": [
     {
      "type": "figure",
@@ -1943,7 +1999,7 @@
     },
     {
      "type": "paragraph",
-     "text": "The second-generation antipsychotic clozapine is the only antipsychotic that has consistently shown superior efficacy in treatment-resistant schizophrenia and schizophrenia associated with persistent suicidality. Clozapine has affinity for multiple dopamine and serotonin receptors, but the precise pharmacological mechanism responsible for its superior efficacy is unknown. Clozapine binds loosely and transiently to dopamine D2 receptors, causing significantly fewer extrapyramidal symptoms compared to first-generation antipsychotics. Neutropenia (<1000 cells/mm?) and the potential for life-threatening agranulocytosis are the major adverse effects of clozapine. The risk of agranulocytosis is approximately 1%; therefore, treatment requires regular monitoring of the patient's absolute neutrophil count. Treatment should be stopped if neutropenia occurs. Seizures and myocarditis are other important adverse effects that require provider vigilance."
+     "text": "The second-generation antipsychotic clozapine is the only antipsychotic that has consistently shown superior efficacy in treatment-resistant schizophrenia and schizophrenia associated with persistent suicidality. Clozapine has affinity for multiple dopamine and serotonin receptors, but the precise pharmacological mechanism responsible for its superior efficacy is unknown. Clozapine binds loosely and transiently to dopamine D2 receptors, causing significantly fewer extrapyramidal symptoms compared to first-generation antipsychotics. Neutropenia (<1000 cells/mm³) and the potential for life-threatening agranulocytosis are the major adverse effects of clozapine. The risk of agranulocytosis is approximately 1%; therefore, treatment requires regular monitoring of the patient's absolute neutrophil count. Treatment should be stopped if neutropenia occurs. Seizures and myocarditis are other important adverse effects that require provider vigilance."
     },
     {
      "type": "paragraph",

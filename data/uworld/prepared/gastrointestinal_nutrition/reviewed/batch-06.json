@@ -11,7 +11,7 @@
     871,
     872
    ],
-   "question": "A 6-year-old boy is brought to the emergency department due to abrupt-onset vomiting, lethargy, and altered mental status. For 4 days, the patient has had a fever, cough, and rhinorrhea, which were treated symptomatically with aspirin. He has no prior medical conditions, and his family history is unremarkable. Vital signs are normal. The patient is stuporous and does not respond to verbal commands. Hepatomegaly is present. There is no jaundice. Laboratory results are as follows: Liver function studies Total bilirubin Alkaline phosphatase Coagulation studies 30 sec Activated PTT 68 sec Blood, plasma, and serum Ammonia Which of the following is the most likely cause of this patient's presentation?",
+   "question": "A 6-year-old boy is brought to the emergency department due to abrupt-onset vomiting, lethargy, and altered mental status. For 4 days, the patient has had a fever, cough, and rhinorrhea, which were treated symptomatically with aspirin. He has no prior medical conditions, and his family history is unremarkable. Vital signs are normal. The patient is stuporous and does not respond to verbal commands. Hepatomegaly is present. There is no jaundice. Laboratory results are as follows:",
    "options": [
     {
      "letter": "A",
@@ -42,15 +42,54 @@
    "correct_label": "E",
    "question_blocks": [
     {
-     "type": "figure",
-     "page": 869,
-     "bbox": [
-      232,
-      209,
-      464,
-      265
+     "type": "table",
+     "caption": "Laboratory results",
+     "columns": [
+      "Group",
+      "Test",
+      "Result"
      ],
-     "role": "question"
+     "rows": [
+      [
+       "Liver function studies",
+       "Total bilirubin",
+       "1.2 mg/dL"
+      ],
+      [
+       "Liver function studies",
+       "Alkaline phosphatase",
+       "150 U/L"
+      ],
+      [
+       "Liver function studies",
+       "Aspartate aminotransferase (SGOT)",
+       "2,431 U/L"
+      ],
+      [
+       "Liver function studies",
+       "Alanine aminotransferase (SGPT)",
+       "3,402 U/L"
+      ],
+      [
+       "Coagulation studies",
+       "PT",
+       "30 sec"
+      ],
+      [
+       "Coagulation studies",
+       "Activated PTT",
+       "68 sec"
+      ],
+      [
+       "Blood, plasma, and serum",
+       "Ammonia",
+       "462 µg/dL"
+      ]
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "Which of the following is the most likely cause of this patient's presentation?"
     }
    ],
    "explanation": [
@@ -210,7 +249,7 @@
     883,
     884
    ],
-   "question": "A 50-year-old woman comes to the office for a preventive examination. She feels well and has no ongoing symptoms. Medical and family histories are unremarkable. The patient does not use tobacco or alcohol. Blood pressure is 132/76 mmHg and pulse is 72/min. BMI is 25 kg/m 2 • Physical examination is normal. The patient is up to date on breast and cervical screenings but has not undergone colon cancer screening. She is referred for colonoscopy, during which a single colon polyp is discovered. The polyp is removed and sent for microscopic examination. Which of the following pathologic findings would be associated with the greatest risk of malignant transformation?",
+   "question": "A 50-year-old woman comes to the office for a preventive examination. She feels well and has no ongoing symptoms. Medical and family histories are unremarkable. The patient does not use tobacco or alcohol. Blood pressure is 132/76 mmHg and pulse is 72/min. BMI is 25 kg/m². Physical examination is normal. The patient is up to date on breast and cervical screenings but has not undergone colon cancer screening. She is referred for colonoscopy, during which a single colon polyp is discovered. The polyp is removed and sent for microscopic examination. Which of the following pathologic findings would be associated with the greatest risk of malignant transformation?",
    "options": [
     {
      "letter": "A",
@@ -591,7 +630,7 @@
     900,
     901
    ],
-   "question": "The following vignette applies to the next 2 items. The items in the set must be answered in sequential order. Once you click Proceed to Next Item, you will not be able to add or change an answer. A 54-year-old man comes to the emergency department after an episode of bloody vomiting. He has had no fever, chills, abdominal pain, diarrhea, or constipation. The patient has a history of alcohol abuse with multiple previous hospital admissions due to alcohol withdrawal and generalized tonic-clonic seizures. He also has a history of intravenous drug abuse and is currently enrolled in a methadone maintenance program. Blood pressure is 96/62 mmHg and pulse is 102/min. On examination, the patient appears comfortable but develops dizziness when asked to sit up. There is no jugular venous distension. The abdomen is distended with dullness to percussion at both flanks. The liver is enlarged on palpation, and the tip of the spleen is also palpable. There is trace pedal edema. Laboratory studies show: Hemoglobin Mean corpuscular volume Leukocytes Platelets Item 1 of 2 Histopathologic examination of this patient's spleen is most likely to show which of the following? Item 2 of 2 After initial stabilization with intravenous fluids and blood products, the patient develops another bout of bloody emesis. Urgent upper gastrointestinal endoscopy confirms esophageal varices. Which of the following peptides is most likely to immediately decrease the portal venous pressure in this patient?",
+   "question": "The following vignette applies to the next 2 items. The items in the set must be answered in sequential order. Once you click Proceed to Next Item, you will not be able to add or change an answer. A 54-year-old man comes to the emergency department after an episode of bloody vomiting. He has had no fever, chills, abdominal pain, diarrhea, or constipation. The patient has a history of alcohol abuse with multiple previous hospital admissions due to alcohol withdrawal and generalized tonic-clonic seizures. He also has a history of intravenous drug abuse and is currently enrolled in a methadone maintenance program. Blood pressure is 96/62 mmHg and pulse is 102/min. On examination, the patient appears comfortable but develops dizziness when asked to sit up. There is no jugular venous distension. The abdomen is distended with dullness to percussion at both flanks. The liver is enlarged on palpation, and the tip of the spleen is also palpable. There is trace pedal edema. Laboratory studies show:",
    "options": [
     {
      "letter": "A",
@@ -620,11 +659,42 @@
     }
    ],
    "correct_label": "E",
-   "question_blocks": [],
+   "question_blocks": [
+    {
+     "type": "table",
+     "caption": "Laboratory results",
+     "columns": [
+      "Test",
+      "Result"
+     ],
+     "rows": [
+      [
+       "Hemoglobin",
+       "9.7 g/dL"
+      ],
+      [
+       "Mean corpuscular volume",
+       "98 fL"
+      ],
+      [
+       "Leukocytes",
+       "5,000/mm³"
+      ],
+      [
+       "Platelets",
+       "78,000/mm³"
+      ]
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "Item 1 of 2 Histopathologic examination of this patient's spleen is most likely to show which of the following?"
+    }
+   ],
    "explanation": [
     {
      "type": "paragraph",
-     "text": "This patient with a history of significant alcohol and intravenous drug abuse has evidence of alcoholic liver disease (ALO). His hematemesis, orthostatic symptoms, and normocytic anemia are likely due to acute bleeding from esophageal varices. Although chronic gastrointestinal blood loss can cause microcytic anemia due to depletion of iron stores and reduced hemoglobin synthesis, acute hemorrhage (as in this patient) is usually associated with normal mean corpuscular volume. ALO also causes thrombocytopenia due to decreased platelet production, increased destruction, and splenic sequestration. Fibrosis and distortion of intrahepatic vasculature in ALO obstructs blood flow through the liver, leading to portal hypertension. Because the splenic vein is part of the portal circulation, any condition that causes portal hypertension can lead to splenomegaly with congestive hypersplenism. Venous congestion causes apparent expansion of the red pulp of the spleen, which is composed of blood-fi lled sinuses and cords lined by reticuloendothelial-type cells."
+     "text": "This patient with a history of significant alcohol and intravenous drug abuse has evidence of alcoholic liver disease (ALO). His hematemesis, orthostatic symptoms, and normocytic anemia are likely due to acute bleeding from esophageal varices. Although chronic gastrointestinal blood loss can cause microcytic anemia due to depletion of iron stores and reduced hemoglobin synthesis, acute hemorrhage (as in this patient) is usually associated with normal mean corpuscular volume. ALO also causes thrombocytopenia due to decreased platelet production, increased destruction, and splenic sequestration. Fibrosis and distortion of intrahepatic vasculature in ALO obstructs blood flow through the liver, leading to portal hypertension. Because the splenic vein is part of the portal circulation, any condition that causes portal hypertension can lead to splenomegaly with congestive hypersplenism. Venous congestion causes apparent expansion of the red pulp of the spleen, which is composed of blood-filled sinuses and cords lined by reticuloendothelial-type cells."
     },
     {
      "type": "paragraph",
@@ -660,7 +730,7 @@
     902,
     903
    ],
-   "question": "Item 2 of 2 After initial stabilization with intravenous fluids and blood products, the patient develops another bout of bloody emesis. Urgent upper gastrointestinal endoscopy confirms esophageal varices. Which of the following peptides is most likely to immediately decrease the portal venous pressure in this patient?",
+   "question": "A 54-year-old man comes to the emergency department after an episode of bloody vomiting. He has had no fever, chills, abdominal pain, diarrhea, or constipation. The patient has a history of alcohol abuse with multiple previous hospital admissions due to alcohol withdrawal and generalized tonic-clonic seizures. He also has a history of intravenous drug abuse and is currently enrolled in a methadone maintenance program. Blood pressure is 96/62 mmHg and pulse is 102/min. On examination, the patient appears comfortable but develops dizziness when asked to sit up. There is no jugular venous distension. The abdomen is distended with dullness to percussion at both flanks. The liver is enlarged on palpation, and the tip of the spleen is also palpable. There is trace pedal edema. Laboratory studies show:",
    "options": [
     {
      "letter": "A",
@@ -689,7 +759,38 @@
     }
    ],
    "correct_label": "E",
-   "question_blocks": [],
+   "question_blocks": [
+    {
+     "type": "table",
+     "caption": "Laboratory results",
+     "columns": [
+      "Test",
+      "Result"
+     ],
+     "rows": [
+      [
+       "Hemoglobin",
+       "9.7 g/dL"
+      ],
+      [
+       "Mean corpuscular volume",
+       "98 fL"
+      ],
+      [
+       "Leukocytes",
+       "5,000/mm³"
+      ],
+      [
+       "Platelets",
+       "78,000/mm³"
+      ]
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "Item 2 of 2 After initial stabilization with intravenous fluids and blood products, the patient develops another bout of bloody emesis. Urgent upper gastrointestinal endoscopy confirms esophageal varices. Which of the following peptides is most likely to immediately decrease the portal venous pressure in this patient?"
+    }
+   ],
    "explanation": [
     {
      "type": "figure",
@@ -712,7 +813,7 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice C) Pentagastrin is a synthetic gastrin analog that stimulates secretion of gastric acid. Its primary clinical use is as a diagnostic agent; pentagastrin induces a signifi cant rise in calcitonin secretion in patients with medullary carcinoma of the thyroid and serotonin secretion in patients with carcinoid tumors."
+     "text": "(Choice C) Pentagastrin is a synthetic gastrin analog that stimulates secretion of gastric acid. Its primary clinical use is as a diagnostic agent; pentagastrin induces a significant rise in calcitonin secretion in patients with medullary carcinoma of the thyroid and serotonin secretion in patients with carcinoid tumors."
     }
    ],
    "educational_objective": "Acute management of variceal hemorrhage requires rapid lowering of portal pressure. Somatostatin and octreotide (a long-acting somatostatin analog) inhibit the release of hormones that induce splanchnic vasodilation, indirectly causing splanchnic vasoconstriction and reduced portal blood flow.",
@@ -1343,7 +1444,7 @@
      "text": "(Choice D) Travel to a resource-limited country increases the risk of H pylori infection; however, H pylori was ruled out in this patient."
     }
    ],
-   "educational_objective": "Peptic ulcers are most commonly caused by Helicobacter pylori infection or nonsteroidal anti-infl ammatory drug (NSAID) use. NSAIDs inhibit cyclo-oxygenase-1, leading to increased gastric acid formation, decreased mucosal bicarbonate production, and decreased mucosal blood flow, which promote mucosal injury and ulcer formation.",
+   "educational_objective": "Peptic ulcers are most commonly caused by Helicobacter pylori infection or nonsteroidal anti-inflammatory drug (NSAID) use. NSAIDs inhibit cyclo-oxygenase-1, leading to increased gastric acid formation, decreased mucosal bicarbonate production, and decreased mucosal blood flow, which promote mucosal injury and ulcer formation.",
    "statistics": {
     "answered_correctly_percent": 76,
     "selection_percent": {
@@ -1575,7 +1676,7 @@
     962,
     963
    ],
-   "question": "A 45-year-old woman comes to the office for progressive itchiness and fatigue. She also notes yellowing of the eyes and skin. Physical examination shows scleral icterus, multiple excoriations on both the upper and the lower extremities, and hepatomegaly. Laboratory results are as follows: Liver function studies Total bilirubin Alkaline phosphatase Aspartate aminotransferase (SGOT) Alanine aminotransferase (SGPT) Gamma-glutamyl transpeptidase 450 U/L (normal: 10-60 U/L) Liver biopsy reveals dense lymphocytic infiltration of the portal triads, as well as granulomatous destruction of interlobular bile ducts. Which of the following is the most likely diagnosis?",
+   "question": "A 45-year-old woman comes to the office for progressive itchiness and fatigue. She also notes yellowing of the eyes and skin. Physical examination shows scleral icterus, multiple excoriations on both the upper and the lower extremities, and hepatomegaly. Laboratory results are as follows:",
    "options": [
     {
      "letter": "A",
@@ -1604,7 +1705,48 @@
     }
    ],
    "correct_label": "C",
-   "question_blocks": [],
+   "question_blocks": [
+    {
+     "type": "table",
+     "caption": "Laboratory results",
+     "columns": [
+      "Group",
+      "Test",
+      "Result"
+     ],
+     "rows": [
+      [
+       "Liver function studies",
+       "Total bilirubin",
+       "5.3 mg/dL"
+      ],
+      [
+       "Liver function studies",
+       "Alkaline phosphatase",
+       "982 U/L"
+      ],
+      [
+       "Liver function studies",
+       "Aspartate aminotransferase (SGOT)",
+       "89 U/L"
+      ],
+      [
+       "Liver function studies",
+       "Alanine aminotransferase (SGPT)",
+       "67 U/L"
+      ],
+      [
+       "Liver function studies",
+       "Gamma-glutamyl transpeptidase",
+       "450 U/L (normal: 10-60 U/L)"
+      ]
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "Liver biopsy reveals dense lymphocytic infiltration of the portal triads, as well as granulomatous destruction of interlobular bile ducts. Which of the following is the most likely diagnosis?"
+    }
+   ],
    "explanation": [
     {
      "type": "figure",
@@ -1833,7 +1975,7 @@
     976,
     977
    ],
-   "question": "Researchers studying gastrointestinal pathophysiology analyze hundreds of gastric mucosa! biopsy specimens taken from patients who underwent endoscopy at a local tertiary care center. They notice that colonization of the gastric antrum with $ -shaped, gram-negative bacteria is associated with a decreased number of somatostatinproducing antral cells. Depletion of these cells from the gastric antrum is most likely to cause which of the following conditions?",
+   "question": "Researchers studying gastrointestinal pathophysiology analyze hundreds of gastric mucosal biopsy specimens taken from patients who underwent endoscopy at a local tertiary care center. They notice that colonization of the gastric antrum with $ -shaped, gram-negative bacteria is associated with a decreased number of somatostatinproducing antral cells. Depletion of these cells from the gastric antrum is most likely to cause which of the following conditions?",
    "options": [
     {
      "letter": "A",
@@ -1888,7 +2030,7 @@
     },
     {
      "type": "paragraph",
-     "text": "He/icobacter pylori is a motile, spiral-shaped, gram-negative bacteria found attached to the gastric mucosa or deep in the mucus layer overlying the gastric epithelium. It is protected from gastric acid by endogenous urease production: urease converts urea to ammonia, which alkalinizes the surrounding pH but injures gastric epithelial cells. Damage to the gastric mucosa is compounded by localized infl ammation due to the immunologic response against H pylori. Chronic infl ammation due to H pylori colonization in the gastric antrum leads to depletion of somatostatinproducing cells (delta cells), which are located mostly in the antrum. Somatostatin inhibits gastrin release from G-cells. In its absence, elevated gastrin levels act directly (via cholecystokinin B receptors) and indirectly (via histamine release by enterochromaffin-like cells) to increase acid secretion by parietal cells. In addition, H pylori releases cytotoxins that inhibit duodenal production of bicarbonate. The resultant increased acid load is emptied into the under-protected duodenum, leading to duodenal ulcer formation. In contrast, gastric ulcers occur when H pylori colonizes the gastric body (corpus) (Choice D). Chronic inflammation leads to multifocal atrophic gastritis and a reduction in the number of acid-producing parietal cells, which are located mostly in the gastric body. Delta cells in the antrum are not markedly reduced, therefore acid secretion is often low to normal. Gastric ulcer formation results from direct mucosal damage caused by bacterial products (eg, ammonia, cytotoxins) and the resultant inflammatory response. Unlike antral-predominant disease, corpus-predominant disease is associated with metaplasia and malignancies (eg, gastric lymphoma, adenocarcinoma) (Choice C)."
+     "text": "He/icobacter pylori is a motile, spiral-shaped, gram-negative bacteria found attached to the gastric mucosa or deep in the mucus layer overlying the gastric epithelium. It is protected from gastric acid by endogenous urease production: urease converts urea to ammonia, which alkalinizes the surrounding pH but injures gastric epithelial cells. Damage to the gastric mucosa is compounded by localized inflammation due to the immunologic response against H pylori. Chronic inflammation due to H pylori colonization in the gastric antrum leads to depletion of somatostatinproducing cells (delta cells), which are located mostly in the antrum. Somatostatin inhibits gastrin release from G-cells. In its absence, elevated gastrin levels act directly (via cholecystokinin B receptors) and indirectly (via histamine release by enterochromaffin-like cells) to increase acid secretion by parietal cells. In addition, H pylori releases cytotoxins that inhibit duodenal production of bicarbonate. The resultant increased acid load is emptied into the under-protected duodenum, leading to duodenal ulcer formation. In contrast, gastric ulcers occur when H pylori colonizes the gastric body (corpus) (Choice D). Chronic inflammation leads to multifocal atrophic gastritis and a reduction in the number of acid-producing parietal cells, which are located mostly in the gastric body. Delta cells in the antrum are not markedly reduced, therefore acid secretion is often low to normal. Gastric ulcer formation results from direct mucosal damage caused by bacterial products (eg, ammonia, cytotoxins) and the resultant inflammatory response. Unlike antral-predominant disease, corpus-predominant disease is associated with metaplasia and malignancies (eg, gastric lymphoma, adenocarcinoma) (Choice C)."
     },
     {
      "type": "paragraph",
@@ -1896,7 +2038,7 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice E) Vitamin 8 , 2 defi ciency can result from autoimmune gastritis. Autoimmune gastritis is characterized by autoantibodies against gastric parietal cells leading to inflammation of the gastric mucosa, parietal cell destruction, and achlorhydria. Its etiology is at least partially genetic."
+     "text": "(Choice E) Vitamin 8 , 2 deficiency can result from autoimmune gastritis. Autoimmune gastritis is characterized by autoantibodies against gastric parietal cells leading to inflammation of the gastric mucosa, parietal cell destruction, and achlorhydria. Its etiology is at least partially genetic."
     }
    ],
    "educational_objective": "Helicobacter pylori antral gastritis is associated with the formation of duodenal ulcers due to increased gastric acid production. This increase in acidity is caused by unchecked gastrin production due to the destruction of somatostatin-secreting cells in the gastric antrum.",
@@ -1979,7 +2121,7 @@
     },
     {
      "type": "paragraph",
-     "text": "This patient's impaired driving at night and coarse, thickened skin are suggestive of vitamin A deficiency. Vitamin A is a lipid-soluble vitamin necessary for vision (phototransduction, retinal and conjunctiva! development) and keratinocyte differentiation. Deficiency is characterized by night blindness and xerophthalmia (conjunctiva! and corneal dryness). In some patients, abnormal conjunctiva! keratinization may lead to Bitot spots, or foamy white plaques in the eye. Nonspecific dermatologic findings are also common and may include hyperkeratosis (thickened skin), as seen here. Dietary intake of vitamin A comes from a combination of beta-carotene, a provitamin found in plants ( eg, green leafy vegetables, carrots), and preformed vitamin A from animal sources (eg, eggs, liver, kidney). In resource-rich regions, most individuals have adequate dietary intake of vitamin A, but patients may develop deficiency due to fat malabsorption related to biliary obstruction, exocrine pancreatic insufficiency (eg, cystic fibrosis), or small-bowel resection (eg, Crohn disease, bariatric surgery). This patient with generalized pruritus and signs of vitamin A deficiency should be evaluated for primary biliary cholangitis (PBC), an autoimmune disease most common in middle-aged women and characterized by destruction of small intrahepatic bile ducts. Because bile acids are important for solubilization and absorption of fats, patients with chronic biliary obstru ction due to PBC may develop defi ciency of fat-soluble vitamins (A, D, E, and K). Generalized pruritus is common due to bile acid accumulation in the skin; jaundice is often not apparent until later in the disease course."
+     "text": "This patient's impaired driving at night and coarse, thickened skin are suggestive of vitamin A deficiency. Vitamin A is a lipid-soluble vitamin necessary for vision (phototransduction, retinal and conjunctival development) and keratinocyte differentiation. Deficiency is characterized by night blindness and xerophthalmia (conjunctival and corneal dryness). In some patients, abnormal conjunctival keratinization may lead to Bitot spots, or foamy white plaques in the eye. Nonspecific dermatologic findings are also common and may include hyperkeratosis (thickened skin), as seen here. Dietary intake of vitamin A comes from a combination of beta-carotene, a provitamin found in plants ( eg, green leafy vegetables, carrots), and preformed vitamin A from animal sources (eg, eggs, liver, kidney). In resource-rich regions, most individuals have adequate dietary intake of vitamin A, but patients may develop deficiency due to fat malabsorption related to biliary obstruction, exocrine pancreatic insufficiency (eg, cystic fibrosis), or small-bowel resection (eg, Crohn disease, bariatric surgery). This patient with generalized pruritus and signs of vitamin A deficiency should be evaluated for primary biliary cholangitis (PBC), an autoimmune disease most common in middle-aged women and characterized by destruction of small intrahepatic bile ducts. Because bile acids are important for solubilization and absorption of fats, patients with chronic biliary obstru ction due to PBC may develop deficiency of fat-soluble vitamins (A, D, E, and K). Generalized pruritus is common due to bile acid accumulation in the skin; jaundice is often not apparent until later in the disease course."
     },
     {
      "type": "paragraph",
@@ -1991,7 +2133,7 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice E) A strict vegan diet is a risk factor for vitamin B,2 ( cobalamin), not vitamin A, deficiency. Vitamin B,2 deficiency presents with megaloblastic anemia (eg, fatigue, pallor) and neurologic defi cits (eg, tingling, numbness)."
+     "text": "(Choice E) A strict vegan diet is a risk factor for vitamin B,2 ( cobalamin), not vitamin A, deficiency. Vitamin B,2 deficiency presents with megaloblastic anemia (eg, fatigue, pallor) and neurologic deficits (eg, tingling, numbness)."
     }
    ],
    "educational_objective": "Vitamin A deficiency causes night blindness and hyperkeratosis. Deficiency of this lipid-soluble vitamin can develop in patients with fat malabsorption due to chronic biliary obstruction, exocrine pancreatic insufficiency, or small-bowel resection.",
@@ -2024,7 +2166,7 @@
     993,
     994
    ],
-   "question": "A 46-year-old man comes to the office due to intermittent, bloody diarrhea and abdominal pain for the past month. The patient has lost 12 lb (5.4 kg) during this period. He was diagnosed with HIV 5 years ago but has been inconsistent with his antiretroviral medications. Current CD4 count is 50/mm 3 and plasma HIV viral load is 650,000 copies/ml. Colonoscopy reveals multiple hemorrhagic, polypoidal lesions. Biopsy of these lesions reveals a proliferation of spindle-shaped cells and small blood vessels. Which of the following is the most likely cause of this patient's diarrhea?",
+   "question": "A 46-year-old man comes to the office due to intermittent, bloody diarrhea and abdominal pain for the past month. The patient has lost 12 lb (5.4 kg) during this period. He was diagnosed with HIV 5 years ago but has been inconsistent with his antiretroviral medications. Current CD4 count is 50/mm³ and plasma HIV viral load is 650,000 copies/ml. Colonoscopy reveals multiple hemorrhagic, polypoidal lesions. Biopsy of these lesions reveals a proliferation of spindle-shaped cells and small blood vessels. Which of the following is the most likely cause of this patient's diarrhea?",
    "options": [
     {
      "letter": "A",
@@ -2147,7 +2289,7 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice B) Cryptosporidiosis can cause profuse, watery, nonbloody diarrhea, particularly in patients with AIDS. Endoscopy shows infl ammation without ulcers, and microscopy shows basophilic organisms on the surface of intestinal epithelial cells."
+     "text": "(Choice B) Cryptosporidiosis can cause profuse, watery, nonbloody diarrhea, particularly in patients with AIDS. Endoscopy shows inflammation without ulcers, and microscopy shows basophilic organisms on the surface of intestinal epithelial cells."
     },
     {
      "type": "paragraph",
@@ -2155,11 +2297,11 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice D) Entamoeba histolytica can cause bloody diarrhea and abdominal pain. However, colonoscopy shows fl ask-shaped ulcers, and histopathology often shows trophozoites."
+     "text": "(Choice D) Entamoeba histolytica can cause bloody diarrhea and abdominal pain. However, colonoscopy shows flask-shaped ulcers, and histopathology often shows trophozoites."
     },
     {
      "type": "paragraph",
-     "text": "(Choice F) Although ulcerative colitis may present with bloody diarrhea and abdominal pain, colonoscopy typically shows erythematous, friable, granular mucosa and possibly pseudopolyps (isolated areas of regenerative mucosa). Histopathology often shows an infl ammatory infiltrate involving the mucosa and submucosa with crypt abscesses."
+     "text": "(Choice F) Although ulcerative colitis may present with bloody diarrhea and abdominal pain, colonoscopy typically shows erythematous, friable, granular mucosa and possibly pseudopolyps (isolated areas of regenerative mucosa). Histopathology often shows an inflammatory infiltrate involving the mucosa and submucosa with crypt abscesses."
     }
    ],
    "educational_objective": "Kaposi sarcoma, a vascular neoplasm that often presents in HIV-positive individuals, may involve the gastrointestinal tract, causing bloody diarrhea, weight loss, and abdominal pain. Endoscopy characteristically reveals red -violet maculopapular lesions, raised hemorrhagic nodules, or polypoid masses. Histopathology often shows spindle-shaped endothelial cells, slit-like vascular spaces, and extravasated red blood cells.",
@@ -2457,18 +2599,18 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice B) Excessive liver hepcidin, which occurs with chronic inflammation/infection, down-regulates gastrointestinal iron absorption. Patients can have fatigue and weakness due to iron defi ciency, but the associated anemia is microcytic, not normocytic or hemolytic. In addition, this patient's neurologic findings would not be expected."
+     "text": "(Choice B) Excessive liver hepcidin, which occurs with chronic inflammation/infection, down-regulates gastrointestinal iron absorption. Patients can have fatigue and weakness due to iron deficiency, but the associated anemia is microcytic, not normocytic or hemolytic. In addition, this patient's neurologic findings would not be expected."
     },
     {
      "type": "paragraph",
-     "text": "(Choice D) Vitamin B, 2 (cobalamin) deficiency can present with anemia and neurologic findings. However, gastric intrinsic factor is required for absorption of vitamin B, 2, and lack of (not excessive) intrinsic factor causes defi ciency (pernicious anemia). Moreover, erythrocytes would be macrocytic, and neutrophils would be hypersegmented."
+     "text": "(Choice D) Vitamin B, 2 (cobalamin) deficiency can present with anemia and neurologic findings. However, gastric intrinsic factor is required for absorption of vitamin B, 2, and lack of (not excessive) intrinsic factor causes deficiency (pernicious anemia). Moreover, erythrocytes would be macrocytic, and neutrophils would be hypersegmented."
     },
     {
      "type": "paragraph",
      "text": "(Choice E) Renal hydroxylation converts 25-hydroxyvitamin D into the active form, 1,25-dihydroxyvitamin D. Reduced renal hydroxylation (eg, chronic kidney disease) predisposes to bone pain and fractures due to vitamin D deficiency."
     }
    ],
-   "educational_objective": "Fat-soluble vitamins (A, D, E, K) require micelle formation for absorption, and risk factors for defi ciency include disorders affecting bile production (eg, primary biliary cholangitis). Vitamin E deficiency is characterized by hemolytic anemia and neurologic deficits (eg, ataxia, loss of vibratory sensation, hyporeflexia).",
+   "educational_objective": "Fat-soluble vitamins (A, D, E, K) require micelle formation for absorption, and risk factors for deficiency include disorders affecting bile production (eg, primary biliary cholangitis). Vitamin E deficiency is characterized by hemolytic anemia and neurologic deficits (eg, ataxia, loss of vibratory sensation, hyporeflexia).",
    "statistics": {
     "answered_correctly_percent": 42,
     "selection_percent": {

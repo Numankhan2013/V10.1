@@ -19,7 +19,7 @@
     },
     {
      "letter": "B",
-     "text": "Complement-fixing lgM",
+     "text": "Complement-fixing IgM",
      "selection_percent": 5
     },
     {
@@ -29,12 +29,12 @@
     },
     {
      "letter": "D",
-     "text": "lgG against circulating proteins",
+     "text": "IgG against circulating proteins",
      "selection_percent": 68
     },
     {
      "letter": "E",
-     "text": "lgM from T-cell-independent response",
+     "text": "IgM from T-cell-independent response",
      "selection_percent": 5
     }
    ],
@@ -73,14 +73,14 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choices Band E) lgM opsonization and complement fixation are important mechanisms for combating extracellular infections, particularly with encapsulated organisms. Although vaccination may stimulate an lgM response, long-term protection is primarily mediated by lgG antibodies."
+     "text": "(Choices Band E) IgM opsonization and complement fixation are important mechanisms for combating extracellular infections, particularly with encapsulated organisms. Although vaccination may stimulate an IgM response, long-term protection is primarily mediated by IgG antibodies."
     },
     {
      "type": "paragraph",
-     "text": "(Choice C) lgA is the primary immunoglobulin found on mucosal surfaces and in secretions. It does not have significant opsonizing or complement-activating properties. Instead, it prevents infection by inhibiting bacterial interaction with epithelial cells (eg, attachment, invasion). lgA antibodies may help prevent diphtheria colonization. However, C diphtheriae does not have a polysaccharide capsule."
+     "text": "(Choice C) IgA is the primary immunoglobulin found on mucosal surfaces and in secretions. It does not have significant opsonizing or complement-activating properties. Instead, it prevents infection by inhibiting bacterial interaction with epithelial cells (eg, attachment, invasion). IgA antibodies may help prevent diphtheria colonization. However, C diphtheriae does not have a polysaccharide capsule."
     }
    ],
-   "educational_objective": "Toxigenic strains of Corynebacterium diphtheriae produce diphtheria toxin, which irreversibly inhibits host protein synthesis due to ADP-ribosylation of elongation factor-2. Local effects include pseudomembranous pharyngitis; systemic effects include potentially life-threatening myocarditis and neuritis. Immunization with diphtheria toxoid generates protective circulating lgG against the exotoxin B subunit.",
+   "educational_objective": "Toxigenic strains of Corynebacterium diphtheriae produce diphtheria toxin, which irreversibly inhibits host protein synthesis due to ADP-ribosylation of elongation factor-2. Local effects include pseudomembranous pharyngitis; systemic effects include potentially life-threatening myocarditis and neuritis. Immunization with diphtheria toxoid generates protective circulating IgG against the exotoxin B subunit.",
    "statistics": {
     "answered_correctly_percent": null,
     "selection_percent": {
@@ -666,7 +666,7 @@
      "text": "(Choices C and D) Mutations in DNA gyrase cause resistance to quinolone antibiotics. Mutations in RNA polymerase cause resistance to rifampin."
     }
    ],
-   "educational_objective": "Methicillin-resistant Staphylococcus aureus is resistant to all 13-lactam antibiotics, including beta-lactamase- resistant antibiotics, as it has an altered penicillin-binding protein that does not bind 13-lactams effectively. Infectious Diseases Antimicrobial resistance",
+   "educational_objective": "Methicillin-resistant Staphylococcus aureus is resistant to all β-lactam antibiotics, including beta-lactamase- resistant antibiotics, as it has an altered penicillin-binding protein that does not bind β-lactams effectively. Infectious Diseases Antimicrobial resistance",
    "statistics": {
     "answered_correctly_percent": null,
     "selection_percent": {
@@ -725,7 +725,7 @@
     },
     {
      "type": "paragraph",
-     "text": "(Choice A) Contact precautions involve wearing nonsterile gloves for all patient contact and gowns during substantial contact with infective material. These precautions are indicated when caring for patients with specific multidrug-resistant bacteria (eg, methicillin-resistant Staphylococcus aureus, vancomycin-resistant enter0cocci) or with certain parasitic or viral pathogens. This patient's methicillin-sensitive Staphylococcus aureus infection does not require use of contact precautions."
+     "text": "(Choice A) Contact precautions involve wearing nonsterile gloves for all patient contact and gowns during substantial contact with infective material. These precautions are indicated when caring for patients with specific multidrug-resistant bacteria (eg, methicillin-resistant Staphylococcus aureus, vancomycin-resistant enterococci) or with certain parasitic or viral pathogens. This patient's methicillin-sensitive Staphylococcus aureus infection does not require use of contact precautions."
     },
     {
      "type": "paragraph",
@@ -953,7 +953,7 @@
     1281,
     1282
    ],
-   "question": "A 3-month-old boy is brought to the emergency department due to 2 days of fever and irritation that progressed to lethargy. Temperature is 38.6 C (101.5 F). Alumbar puncture is performed, and the results of cerebrospinal fluid (CSF) analysis are as follows: Glucose Protein Leukocytes Gram-negative coccobacilli are isolated from the CSF, These organisms demonstrate little growth on 5% sheep blood agar but grow well when incubated on the same media alongside colonies of Staphylococcus aureus. Staphylococci promote the growth of these bacteria by supplementing which of the following substances?",
+   "question": "A 3-month-old boy is brought to the emergency department due to 2 days of fever and irritation that progressed to lethargy. Temperature is 38.6 C (101.5 F). Alumbar puncture is performed, and the results of cerebrospinal fluid (CSF) analysis are as follows:",
    "options": [
     {
      "letter": "A",
@@ -987,7 +987,34 @@
     }
    ],
    "correct_label": "E",
-   "question_blocks": [],
+   "question_blocks": [
+    {
+     "type": "table",
+     "caption": "Laboratory results",
+     "columns": [
+      "Test",
+      "Result"
+     ],
+     "rows": [
+      [
+       "Glucose",
+       "30 mg/dL"
+      ],
+      [
+       "Protein",
+       "180 mg/dL"
+      ],
+      [
+       "Leukocytes",
+       "1,000/mm³"
+      ]
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "Gram-negative coccobacilli are isolated from the CSF. These organisms demonstrate little growth on 5% sheep blood agar but grow well when incubated on the same media alongside colonies of Staphylococcus aureus. Staphylococci promote the growth of these bacteria by supplementing which of the following substances?"
+    }
+   ],
    "explanation": [
     {
      "type": "paragraph",
@@ -1014,7 +1041,7 @@
      "text": "(Choice D) The use of lactose fermentation as a source of energy is best known in Escherichia coli with the well studied lac operon, an inducible and repressible genetic sequence coding for the enzymes necessary for lactose fermentation in the absence of glucose. It is activated by a sensed glucose deficit and repressed when glucose is available again."
     }
    ],
-   "educational_objective": "Haemophilus influenzae is a \"blood-loving\" organism that requires X (hematin) and V(NAD+) factors for growth. This can be accomplished by growing H influenzae in the presence of Staphylococcus aureus and demonstrating the \"satellite phenomenon,\" whereby H influenzae grow only near the 13-hemolytic Saureus colonies that produce the needed X and V factors.",
+   "educational_objective": "Haemophilus influenzae is a \"blood-loving\" organism that requires X (hematin) and V(NAD+) factors for growth. This can be accomplished by growing H influenzae in the presence of Staphylococcus aureus and demonstrating the \"satellite phenomenon,\" whereby H influenzae grow only near the β-hemolytic Saureus colonies that produce the needed X and V factors.",
    "statistics": {
     "answered_correctly_percent": null,
     "selection_percent": {
@@ -1358,7 +1385,7 @@
     1305,
     1306
    ],
-   "question": "A 56-year-old woman comes to the emergency department due to 1 day of fever. She has a history of a hematologic malignancy and recently completed a cycle of chemotherapy through an indwelling central venous catheter. Temperature is 38.3 C (100.9 F). Laboratory studies are notable for neutropenia, with an absolute neutrophil count of 380/mm, The patient is started on broad-spectrum antibiotics. Three days later, she continues to be febrile. Fungal cultures grow a species of Candida with a mutation in a gene coding an enzyme responsible for synthesizing a fungal cell wall polysaccharide. The organism is most likely to be resistant to which of the following antifungal agents as a result of this mutation?",
+   "question": "A 56-year-old woman comes to the emergency department due to 1 day of fever. She has a history of a hematologic malignancy and recently completed a cycle of chemotherapy through an indwelling central venous catheter. Temperature is 38.3 C (100.9 F). Laboratory studies are notable for neutropenia, with an absolute neutrophil count of 380/mm³, The patient is started on broad-spectrum antibiotics. Three days later, she continues to be febrile. Fungal cultures grow a species of Candida with a mutation in a gene coding an enzyme responsible for synthesizing a fungal cell wall polysaccharide. The organism is most likely to be resistant to which of the following antifungal agents as a result of this mutation?",
    "options": [
     {
      "letter": "A",
@@ -1596,7 +1623,7 @@
     },
     {
      "type": "paragraph",
-     "text": "Enramoeba hisrolyrica is an amoeba that infects the gastrointestinal tract of humans and is transmitted via the fecal-oral route when cysts are ingested from contaminated food or water. Cases are most common in developing regions where sanitation is poor. Most infected patients have no symptoms, but a minority (-10%) develop clinically significant colitis with subacute bloody, mucoid diarrhea, abdominal pain, and fever. The diagnosis is confirmed when cysts and trophozoites are seen on stool studies and/or colonic biopsy demonstrates flaskshaped ulcers (with trophozoites). Although most infections stay localized to the colon, a small minority (-1%) disseminate through the bloodstream to the liver, lungs, and/or brain. The most common extraintestinal manifestation is a single amebic liver abscess in the right lobe of the liver. Invasive strains are more likely to have amebic proteases that degrade host extracellular matrix components and secretory lgA. Most invasive strains also demonstrate contact-dependent cytotoxicity, which is facilitated by an amebic lectin that binds to host cells."
+     "text": "Enramoeba hisrolyrica is an amoeba that infects the gastrointestinal tract of humans and is transmitted via the fecal-oral route when cysts are ingested from contaminated food or water. Cases are most common in developing regions where sanitation is poor. Most infected patients have no symptoms, but a minority (-10%) develop clinically significant colitis with subacute bloody, mucoid diarrhea, abdominal pain, and fever. The diagnosis is confirmed when cysts and trophozoites are seen on stool studies and/or colonic biopsy demonstrates flaskshaped ulcers (with trophozoites). Although most infections stay localized to the colon, a small minority (-1%) disseminate through the bloodstream to the liver, lungs, and/or brain. The most common extraintestinal manifestation is a single amebic liver abscess in the right lobe of the liver. Invasive strains are more likely to have amebic proteases that degrade host extracellular matrix components and secretory IgA. Most invasive strains also demonstrate contact-dependent cytotoxicity, which is facilitated by an amebic lectin that binds to host cells."
     },
     {
      "type": "paragraph",
@@ -1647,7 +1674,7 @@
     1324,
     1325
    ],
-   "question": "A 28-year-old woman comes to the office due to several months of progressive abdominal pain and intermittent diarrhea. She denies fever or chills but has lost weight due to poor appetite. The patient works for an organization that installs wood pellet cookstoves in rural villages in Central Africa and has spent much time in the region over the last 5 years. Temperature is 37.8 C (100 F), blood pressure is 126/72, and pulse is 86. BMI is 19 kg/m. Physical examination is normal. Laboratory results are as follows: Complete blood count Hemoglobin Platelets Leukocytes Neutrophils Eosinophils lymphocytes An intestinal biopsy sample is shown in the exhibit. Which of the following is the most appropriate treatment for this patient?",
+   "question": "A 28-year-old woman comes to the office due to several months of progressive abdominal pain and intermittent diarrhea. She denies fever or chills but has lost weight due to poor appetite. The patient works for an organization that installs wood pellet cookstoves in rural villages in Central Africa and has spent much time in the region over the last 5 years. Temperature is 37.8 C (100 F), blood pressure is 126/72, and pulse is 86. BMI is 19 kg/m². Physical examination is normal. Laboratory results are as follows:",
    "options": [
     {
      "letter": "A",
@@ -1676,7 +1703,53 @@
     }
    ],
    "correct_label": "E",
-   "question_blocks": [],
+   "question_blocks": [
+    {
+     "type": "table",
+     "caption": "Laboratory results",
+     "columns": [
+      "Group",
+      "Test",
+      "Result"
+     ],
+     "rows": [
+      [
+       "Complete blood count",
+       "Hemoglobin",
+       "9.5 g/dL"
+      ],
+      [
+       "Complete blood count",
+       "Platelets",
+       "195,000/mm³"
+      ],
+      [
+       "Complete blood count",
+       "Leukocytes",
+       "8,800/mm³"
+      ],
+      [
+       "Complete blood count",
+       "Neutrophils",
+       "54%"
+      ],
+      [
+       "Complete blood count",
+       "Eosinophils",
+       "14%"
+      ],
+      [
+       "Complete blood count",
+       "Lymphocytes",
+       "32%"
+      ]
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "An intestinal biopsy sample is shown in the exhibit. Which of the following is the most appropriate treatment for this patient?"
+    }
+   ],
    "explanation": [
     {
      "type": "figure",
@@ -1743,7 +1816,7 @@
      "text": "(Choice D) Metronidazole plus paromomycin is used to treat Entamoeba histolytica, which is a common cause of dysentery (eg, diarrhea, fever, abdominal pain) in travelers. However, the presence of several months of symptoms, eosinophilia, and eggs on biopsy make this diagnosis unlikely."
     }
    ],
-   "educational_objective": "Schistosomiasis is a blood fluke infection that occurs when humans bathe or swim in freshwater Iha! contains contaminated snails. Adult worms mature in the liver, lodge in the mesenteric venules or vesicular venous plexus, and secrete eggs into feces or urine. Eggs can trigger granulomatous inflammation, leading to symptoms in the gastrointestinal, urinary, or periportal tract. Diagnosis is typically made when round or oval eggs with a terminal or lateral spine are identified in urine, feces, or biopsy. Infectious Diseases Schistosomiasis",
+   "educational_objective": "Schistosomiasis is a blood fluke infection that occurs when humans bathe or swim in freshwater Ihal contains contaminated snails. Adult worms mature in the liver, lodge in the mesenteric venules or vesicular venous plexus, and secrete eggs into feces or urine. Eggs can trigger granulomatous inflammation, leading to symptoms in the gastrointestinal, urinary, or periportal tract. Diagnosis is typically made when round or oval eggs with a terminal or lateral spine are identified in urine, feces, or biopsy. Infectious Diseases Schistosomiasis",
    "statistics": {
     "answered_correctly_percent": null,
     "selection_percent": {
@@ -1767,7 +1840,7 @@
     1329,
     1330
    ],
-   "question": "A 5-year-old child is brought to the emergency department due to difficulty breathing and a low-grade fever. The patient's family recently moved to the United States from rural Nepal. Temperature is 38.1 C (10.6 F). Physical examination shows a grayish pharyngeal exudate, enlarged cervical lymph nodes, and partial soft palate paralysis. A sample of the pharyngeal exudate is obtained by or0pharyngeal swab. Bacteria isolated from the exudate demonstrate exotoxin production in the laboratory. Which of the following best describes the mechanism of action of the exotoxin?",
+   "question": "A 5-year-old child is brought to the emergency department due to difficulty breathing and a low-grade fever. The patient's family recently moved to the United States from rural Nepal. Temperature is 38.1 C (10.6 F). Physical examination shows a grayish pharyngeal exudate, enlarged cervical lymph nodes, and partial soft palate paralysis. A sample of the pharyngeal exudate is obtained by oropharyngeal swab. Bacteria isolated from the exudate demonstrate exotoxin production in the laboratory. Which of the following best describes the mechanism of action of the exotoxin?",
    "options": [
     {
      "letter": "A",
@@ -2049,7 +2122,7 @@
     1353,
     1354
    ],
-   "question": "A 30-year-old man is brought to the emergency department due to erratic behavior, progressive right-sided weakness, and difficulty walking for the last month. The patient was diagnosed with HIV several years ago and is not compliant with antiretroviral treatment. Physical examination shows a cachectic and disheveled man. Funduscopic examination shows no abnormalities. Motor strength in the right upper and lower extremities is decreased, and his gait is ataxic. Brain MRI reveals several discrete areas of demyelination in the subcortical and periventricular white matter with no surrounding edema or mass effect. CD4 cell count is 30/mm. Reactivation of which of the following pathogens is most likely responsible for this patient's current symptoms?",
+   "question": "A 30-year-old man is brought to the emergency department due to erratic behavior, progressive right-sided weakness, and difficulty walking for the last month. The patient was diagnosed with HIV several years ago and is not compliant with antiretroviral treatment. Physical examination shows a cachectic and disheveled man. Funduscopic examination shows no abnormalities. Motor strength in the right upper and lower extremities is decreased, and his gait is ataxic. Brain MRI reveals several discrete areas of demyelination in the subcortical and periventricular white matter with no surrounding edema or mass effect. CD4 cell count is 30/mm³. Reactivation of which of the following pathogens is most likely responsible for this patient's current symptoms?",
    "options": [
     {
      "letter": "A",
@@ -2297,7 +2370,7 @@
     },
     {
      "type": "paragraph",
-     "text": "Haemophilus influenzae is a gram-negative coccobacillus that can be either encapsulated (serotypes a-f) or unencapsulated (nontypeable). H influenzae type b (Hib) is the most invasive strain due to its polyribosylribitol phosphate (PRP) capsule, which inhibits complement-mediated phagocytosis and allows it to invade tissues and survive in the bloodstream. During the first months of life, transient immunity to Hib is accomplished by lgG antibodies acquired transplacentally from the mother while in utero. The Hib vaccine is administered beginning at age 2 months to provide continued immunity. The immunization is composed of PRP conjugated with a protein toxoid (eg, tetanus, diphtheria), which induces aT cell-dependent immune response. The production of opsonizing anticapsular antibodies by B-lymphocytes allows for efficient phagocytosis of the bacterium. Without the protection from the vaccine, this child is at risk for invasive disease caused by Hib, such as meningitis, bacteremia, pneumonia, and epiglottitis."
+     "text": "Haemophilus influenzae is a gram-negative coccobacillus that can be either encapsulated (serotypes a-f) or unencapsulated (nontypeable). H influenzae type b (Hib) is the most invasive strain due to its polyribosylribitol phosphate (PRP) capsule, which inhibits complement-mediated phagocytosis and allows it to invade tissues and survive in the bloodstream. During the first months of life, transient immunity to Hib is accomplished by IgG antibodies acquired transplacentally from the mother while in utero. The Hib vaccine is administered beginning at age 2 months to provide continued immunity. The immunization is composed of PRP conjugated with a protein toxoid (eg, tetanus, diphtheria), which induces aT cell-dependent immune response. The production of opsonizing anticapsular antibodies by B-lymphocytes allows for efficient phagocytosis of the bacterium. Without the protection from the vaccine, this child is at risk for invasive disease caused by Hib, such as meningitis, bacteremia, pneumonia, and epiglottitis."
     },
     {
      "type": "paragraph",
