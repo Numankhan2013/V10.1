@@ -360,7 +360,7 @@
     887,
     888
    ],
-   "question": "A 45-year-old woman recently diagnosed with Sjögren's syndrome complains of severe pruritus that slowly progressed over the last year. She says that pruritus is especially prominent over palms and soles and is unbearable during the night. Laboratory testing shows: Total bilirubin Direct bilirubin Alkaline phosphatase Aspartate aminotransferase (SGOT) Alanine aminotransferase (SGPT) This patient most likely has which of the following conditions?",
+   "question": "A 45-year-old woman recently diagnosed with Sjögren's syndrome complains of severe pruritus that slowly progressed over the last year. She says that pruritus is especially prominent over palms and soles and is unbearable during the night. Laboratory testing shows:",
    "options": [
     {
      "letter": "A",
@@ -399,7 +399,42 @@
     }
    ],
    "correct_label": "E",
-   "question_blocks": [],
+   "question_blocks": [
+    {
+     "type": "table",
+     "caption": "Laboratory results",
+     "columns": [
+      "Test",
+      "Result"
+     ],
+     "rows": [
+      [
+       "Total bilirubin",
+       "1.0 mg/dL"
+      ],
+      [
+       "Direct bilirubin",
+       "0.8 mg/dL"
+      ],
+      [
+       "Alkaline phosphatase",
+       "720 U/L"
+      ],
+      [
+       "Aspartate aminotransferase (SGOT)",
+       "48 U/L"
+      ],
+      [
+       "Alanine aminotransferase (SGPT)",
+       "40 U/L"
+      ]
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "This patient most likely has which of the following conditions?"
+    }
+   ],
    "explanation": [
     {
      "type": "figure",

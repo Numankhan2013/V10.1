@@ -360,7 +360,7 @@
     241,
     242
    ],
-   "question": "A 54-year-old man comes to the office for evaluation of hypertension. He was diagnosed with hypertension 2 years ago but has had inconsistent follow-up and has not seen a physician in the last 6 months. The patient is not currently taking any medications but feels well and has good exercise tolerance. He has a family history of hypertension and ischemic stroke. His BMI is 26 kg/m². Physical examination is unremarkable. Serum creatinine level is normal. The patient is started on valsartan and hydrochlorothiazide, and the following values were measured at baseline (before starting treatment) and after 3 weeks of therapy: Blood Plasma renin activity, morning P-ressure 2.5 ng/ml per hour (normal: 1-4 ng/ml per Baseline hour) After3 2.4 ng/ml per hour weeks Which of the following best explains the observed findings in this patient?",
+   "question": "A 54-year-old man comes to the office for evaluation of hypertension. He was diagnosed with hypertension 2 years ago but has had inconsistent follow-up and has not seen a physician in the last 6 months. The patient is not currently taking any medications but feels well and has good exercise tolerance. He has a family history of hypertension and ischemic stroke. His BMI is 26 kg/m². Physical examination is unremarkable. Serum creatinine level is normal. The patient is started on valsartan and hydrochlorothiazide, and the following values were measured at baseline (before starting treatment) and after 3 weeks of therapy:",
    "options": [
     {
      "letter": "A",
@@ -389,7 +389,33 @@
     }
    ],
    "correct_label": "B",
-   "question_blocks": [],
+   "question_blocks": [
+    {
+     "type": "table",
+     "caption": "Laboratory results",
+     "columns": [
+      "Time point",
+      "Blood pressure",
+      "Plasma renin activity, morning"
+     ],
+     "rows": [
+      [
+       "Baseline",
+       "165/95 mm Hg",
+       "2.5 ng/mL per hour (normal: 1-4 ng/mL per hour)"
+      ],
+      [
+       "After 3 weeks",
+       "162/96 mm Hg",
+       "2.4 ng/mL per hour"
+      ]
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "Which of the following best explains the observed findings in this patient?"
+    }
+   ],
    "explanation": [
     {
      "type": "figure",

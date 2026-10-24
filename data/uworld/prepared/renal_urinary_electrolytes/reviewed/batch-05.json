@@ -335,7 +335,7 @@
     763,
     764
    ],
-   "question": "A43-year-old woman with borderline personality disorder is brought to the emergency department after taking an undetermined number of pills. She is lethargic but arousable. She refuses to answer questions. Blood pressure is 110/60 mmHg and heart rate is 120/min and regular. Laboratory results are as follows: Serum chemistry Sodium 139 mEq/L Potassium 3.3 mEq/L Chloride 98 mEq/L Bicarbonate 13 mEq/L Arterial blood gases on room air Paco, Pao, Oxygen saturation Which of the following best describes this patient's acid-base disturbance?",
+   "question": "A43-year-old woman with borderline personality disorder is brought to the emergency department after taking an undetermined number of pills. She is lethargic but arousable. She refuses to answer questions. Blood pressure is 110/60 mmHg and heart rate is 120/min and regular. Laboratory results are as follows:",
    "options": [
     {
      "letter": "A",
@@ -364,7 +364,63 @@
     }
    ],
    "correct_label": "C",
-   "question_blocks": [],
+   "question_blocks": [
+    {
+     "type": "table",
+     "caption": "Laboratory results",
+     "columns": [
+      "Group",
+      "Test",
+      "Result"
+     ],
+     "rows": [
+      [
+       "Serum chemistry",
+       "Sodium",
+       "139 mEq/L"
+      ],
+      [
+       "Serum chemistry",
+       "Potassium",
+       "3.3 mEq/L"
+      ],
+      [
+       "Serum chemistry",
+       "Chloride",
+       "98 mEq/L"
+      ],
+      [
+       "Serum chemistry",
+       "Bicarbonate",
+       "13 mEq/L"
+      ],
+      [
+       "Arterial blood gases on room air",
+       "pH",
+       "7.46"
+      ],
+      [
+       "Arterial blood gases on room air",
+       "PaCO₂",
+       "19 mm Hg"
+      ],
+      [
+       "Arterial blood gases on room air",
+       "PaO₂",
+       "96 mm Hg"
+      ],
+      [
+       "Arterial blood gases on room air",
+       "Oxygen saturation",
+       "99%"
+      ]
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "Which of the following best describes this patient's acid-base disturbance?"
+    }
+   ],
    "explanation": [
     {
      "type": "figure",
