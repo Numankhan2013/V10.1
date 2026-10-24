@@ -435,7 +435,7 @@
     599,
     600
    ],
-   "question": "A 34-year-old man is being evaluated for acute hypoxemic respiratory failure. Two days ago, the patient was brought to the emergency department due to opioid and alcohol intoxication. While unconscious, he vomited profusely and then rapidly developed hypoxia and shortness of breath that has continued to worsen. Today, temperature is 38.4 C (101 .1 F), blood pressure is 108/74 mm Hg, pulse is 120/min, and respirations are 26/min. Diffuse crackles are heard on auscultation. The extremities are warm, well perfused, and without edema. Chest xray reveals bilateral alveolar opacities. The results of arterial blood gas analysis on room air are as follows: Partial pressure of carbon dioxide in arterial blood Partial pressure of oxygen in arterial blood Which of the following pathologic processes is the primary contributor to this patient's lung findings?",
+   "question": "A 34-year-old man is being evaluated for acute hypoxemic respiratory failure. Two days ago, the patient was brought to the emergency department due to opioid and alcohol intoxication. While unconscious, he vomited profusely and then rapidly developed hypoxia and shortness of breath that has continued to worsen. Today, temperature is 38.4 C (101 .1 F), blood pressure is 108/74 mm Hg, pulse is 120/min, and respirations are 26/min. Diffuse crackles are heard on auscultation. The extremities are warm, well perfused, and without edema. Chest xray reveals bilateral alveolar opacities. The results of arterial blood gas analysis on room air are as follows:",
    "options": [
     {
      "letter": "A",
@@ -459,7 +459,34 @@
     }
    ],
    "correct_label": "D",
-   "question_blocks": [],
+   "question_blocks": [
+    {
+     "type": "table",
+     "caption": "Laboratory results",
+     "columns": [
+      "Test",
+      "Result"
+     ],
+     "rows": [
+      [
+       "pH",
+       "7.25"
+      ],
+      [
+       "Partial pressure of carbon dioxide in arterial blood",
+       "28 mm Hg"
+      ],
+      [
+       "Partial pressure of oxygen in arterial blood",
+       "52 mm Hg"
+      ]
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "Which of the following pathologic processes is the primary contributor to this patient's lung findings?"
+    }
+   ],
    "explanation": [
     {
      "type": "figure",
@@ -2274,7 +2301,7 @@
     727,
     728
    ],
-   "question": "A 53-year-old woman is admitted to the hospital due to a 3-day history of worsening dyspnea. On examination, the patient is tachypneic; diffuse, wet, inspiratory crackles are present on pulmonary auscultation. Chest x-ray reveals bilateral patchy opacities. Arterial blood gas analysis shows that the patient's alveolar-arterial gradient (PAO 2 - P.O 2) is markedly increased. Although the patient receives 100% oxygen via a face mask, she has persistent hypoxemia and respiratory distress. Consequently, she is intubated and placed on mechanical ventilation with 100% oxygen and positive end-expiratory pressure (PEEP). Results of arterial oxygen measurements are as follows: Arterial partial pressure 0 2 saturation of oxygen (mm Hg) Room air 100% oxygen via face mask 100% oxygen & PEEP The patient's improved oxygenation following PEEP application is most likely due to a decrease in which of the following?",
+   "question": "A 53-year-old woman is admitted to the hospital due to a 3-day history of worsening dyspnea. On examination, the patient is tachypneic; diffuse, wet, inspiratory crackles are present on pulmonary auscultation. Chest x-ray reveals bilateral patchy opacities. Arterial blood gas analysis shows that the patient's alveolar-arterial gradient (PAO 2 - P.O 2) is markedly increased. Although the patient receives 100% oxygen via a face mask, she has persistent hypoxemia and respiratory distress. Consequently, she is intubated and placed on mechanical ventilation with 100% oxygen and positive end-expiratory pressure (PEEP). Results of arterial oxygen measurements are as follows:",
    "options": [
     {
      "letter": "A",
@@ -2303,7 +2330,38 @@
     }
    ],
    "correct_label": "B",
-   "question_blocks": [],
+   "question_blocks": [
+    {
+     "type": "table",
+     "caption": "Laboratory results",
+     "columns": [
+      "Setting",
+      "Arterial partial pressure of oxygen (mm Hg)",
+      "O₂ saturation"
+     ],
+     "rows": [
+      [
+       "Room air",
+       "40",
+       "75%"
+      ],
+      [
+       "100% oxygen via face mask",
+       "43",
+       "78%"
+      ],
+      [
+       "100% oxygen & PEEP",
+       "80",
+       "96%"
+      ]
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "The patient's improved oxygenation following PEEP application is most likely due to a decrease in which of the following?"
+    }
+   ],
    "explanation": [
     {
      "type": "figure",

@@ -1237,7 +1237,7 @@
     634,
     635
    ],
-   "question": "A 55-year-old woman comes to the emergency department with fever and chills. She has a history of acute myeloid leukemia for which she is receiving chemotherapy. Her temperature is 38.3 C(101 F), blood pressure is 90/50 mm Hg, pulse is 124/min, and respirations are 22/min. Physical examination is notable for multiple skin patches with necrotic centers and occasional ulcerations, as shown in the image below. Laboratory results are as follows: Complete blood count Platelets Leukocytes Neutrophils Serum chemistry Creatinine Coagulation studies Prothrombin time 12 sec Activated partial thromboplastin time 33 sec Blood cultures are drawn. Which of the following organisms is most likely responsible for this patient's symptoms?",
+   "question": "A 55-year-old woman comes to the emergency department with fever and chills. She has a history of acute myeloid leukemia for which she is receiving chemotherapy. Her temperature is 38.3 C(101 F), blood pressure is 90/50 mm Hg, pulse is 124/min, and respirations are 22/min. Physical examination is notable for multiple skin patches with necrotic centers and occasional ulcerations, as shown in the image below.",
    "options": [
     {
      "letter": "A",
@@ -1274,17 +1274,6 @@
    "question_blocks": [
     {
      "type": "figure",
-     "page": 627,
-     "bbox": [
-      345,
-      128,
-      916,
-      572
-     ],
-     "role": "question"
-    },
-    {
-     "type": "figure",
      "page": 626,
      "bbox": [
       128,
@@ -1293,6 +1282,55 @@
       613
      ],
      "role": "question"
+    },
+    {
+     "type": "paragraph",
+     "text": "Laboratory results are as follows:"
+    },
+    {
+     "type": "table",
+     "caption": "Laboratory results",
+     "columns": [
+      "Group",
+      "Test",
+      "Result"
+     ],
+     "rows": [
+      [
+       "Complete blood count",
+       "Platelets",
+       "240,000/mm³"
+      ],
+      [
+       "Complete blood count",
+       "Leukocytes",
+       "800/mm³"
+      ],
+      [
+       "Complete blood count",
+       "Neutrophils",
+       "60%"
+      ],
+      [
+       "Serum chemistry",
+       "Creatinine",
+       "0.9 mg/dL"
+      ],
+      [
+       "Coagulation studies",
+       "Prothrombin time",
+       "12 sec"
+      ],
+      [
+       "Coagulation studies",
+       "Activated partial thromboplastin time",
+       "33 sec"
+      ]
+     ]
+    },
+    {
+     "type": "paragraph",
+     "text": "Blood cultures are drawn. Which of the following organisms is most likely responsible for this patient's symptoms?"
     }
    ],
    "explanation": [
