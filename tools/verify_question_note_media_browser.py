@@ -285,7 +285,7 @@ def sync_flow(browser, origin: str, screenshot: Path, output: Path) -> None:
         page.on("pageerror", lambda error: errors.append(str(error)))
         page.on("dialog", lambda dialog: dialog.accept())
         page.route("**/*", lambda route: route.continue_() if route.request.url.startswith(origin) else route.abort())
-        page.route("**/qbank-config.js", lambda route: route.fulfill(status=200, content_type="application/javascript", body=config))
+        page.route("**/qbank-config.js*", lambda route: route.fulfill(status=200, content_type="application/javascript", body=config))
         page.route("https://firestore.googleapis.com/**", store.handle)
         page.goto(origin + "/#dashboard", wait_until="domcontentloaded")
         page.wait_for_function("window.QB && window.QB.getState")
