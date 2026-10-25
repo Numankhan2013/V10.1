@@ -30,8 +30,12 @@ def main():
     assert re.search(r'prefers-reduced-motion:reduce\)\{[^@]*scale:none!important',css),'reduced motion keeps buttons still'
     assert re.search(r'\{[^}]*scale:(?!none)[^}]*\}',css.split('Press spring')[0]) is None,'only the press spring scales'
     feel=(ROOT/'app/src/main/assets/redesign/nk-feel.js').read_text()
-    assert "pill.style.transform = move ? from : to;" in feel,'the segment pill must wait at its start until the slide owns it'
-    assert "pill.style.transform = 'translateX(' + left + 'px)';" not in feel,'never paint the pill at its destination before the slide starts'
+    # The slide is a native (compositor) animation, so page work after the change cannot
+    # freeze it mid-slide, and a rebuilt control continues the slide still in flight.
+    assert "pill.animate([{ transform: from }, { transform: to }]" in feel,'the segment pill must slide on the compositor'
+    assert "slidePill(pill, live.from, to, now - live.t0)" in feel,'a rebuilt segment must continue the slide in flight'
+    assert "M.animate(pill" not in feel and "SPRING_PILL" not in feel,'no script-driven pill spring (it stalls while the page recomputes)'
+    assert "slide.ready.then(function () { window.requestAnimationFrame(commit); }, commit);" in feel,'recompute only after the compositor owns the slide'
     assert 'background-color 110ms' not in css
     assert 'border-color 110ms' not in css
     assert 'box-shadow 110ms' not in css

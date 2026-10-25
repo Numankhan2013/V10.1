@@ -44,6 +44,7 @@ for marker in ("runs-on: ubuntu-latest", "actions/setup-python@", "PyMuPDF Pillo
                "tools/verify_app_clarity_browser.py",
                "tools/verify_refined_analysis_browser.py",
                "tools/verify_interaction_polish_browser.py",
+               "tools/verify_segment_slider_browser.py",
                "tools/verify_visual_refinement_browser.py",
                "tools/verify_bank_aware_cbt_builder_browser.py",
                "tools/verify_pyq_exam_journey_browser.py",
