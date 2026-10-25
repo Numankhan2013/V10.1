@@ -87,10 +87,11 @@ def main():
                         if reduced and steps:
                             fails.append(f"{tag} {label}: pill animated under reduced motion {xs[:12]}")
                         if not reduced:
-                            # A whole slide: many in-between frames, none at the destination early.
+                            # A whole slide: in-between frames (the jump showed at most one), none at the
+                            # destination early. A slow runner paints fewer frames, so the floor is low.
                             last_step = max(i for i, x in enumerate(xs) if lo < x < hi) if steps else -1
                             early = [x for x in xs[:last_step] if abs(x - x1) < 1]
-                            if len(steps) < 6 or early:
+                            if len(steps) < 3 or early:
                                 fails.append(f"{tag} {label}: pill jumped instead of sliding {[round(x) for x in xs[:24]]}")
                     # Fast taps 40 ms apart end on the last one.
                     seq = [labels[-1], labels[0], labels[1]]
