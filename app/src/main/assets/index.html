@@ -1516,6 +1516,15 @@ function dashboard(){
   function nkRenderMarrowOrderedTable(table){
     table=nkNormalizeMarrowStructuredTable(table);
     const cols=Array.isArray(table?.columns)?table.columns:[],rows=Array.isArray(table?.rows)?table.rows:[];if(!cols.length||!rows.length)return'';
+    // A flattened source can leave a staircase: each column filled on its own
+    // rows, nothing side by side. No row compares anything, so draw one headed
+    // list per column (a cell's 'Label:' first line leads its other lines).
+    const filled=v=>String(v??'').trim()!=='';
+    if(cols.length>1&&rows.length>1&&rows.every(r=>(r||[]).filter(filled).length<=1)){
+      const li=s=>`<li>${nkMarrowRich(s)}</li>`;
+      const cell=v=>{const [lead,...rest]=String(v).split('\n').map(s=>s.trim()).filter(Boolean);return rest.length&&lead.endsWith(':')?`<li>${nkMarrowRich(lead)}<ul>${rest.map(li).join('')}</ul></li>`:[lead,...rest].map(li).join('');};
+      return `<div class="nk-marrow-split">${table.title?`<div class="nk-marrow-heading">${nkMarrowRich(table.title)}</div>`:''}${cols.map((c,i)=>{const cells=rows.map(r=>(r||[])[i]).filter(filled);return cells.length?`<div class="nk-marrow-heading">${nkMarrowOrderedCell(c)}</div><ul>${cells.map(cell).join('')}</ul>`:'';}).join('')}</div>`;
+    }
     return `<div class="nk-marrow-table"><table>${table.title?`<caption>${nkMarrowRich(table.title)}</caption>`:''}<thead><tr>${cols.map(c=>`<th>${nkMarrowOrderedCell(c)}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${cols.map((_,i)=>`<td>${nkMarrowOrderedCell((r||[])[i]||'')}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
   }
   function nkMarrowOrderedSame(a,b){const n=x=>String(x||'').replace(/\*\*/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();return Boolean(n(a))&&n(a)===n(b);}

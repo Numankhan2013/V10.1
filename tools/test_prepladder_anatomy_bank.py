@@ -112,6 +112,8 @@ def main() -> None:
     for marker in (
         '<script defer src="prepladder_anatomy_visual_metadata.js"></script>',
         "(record.subject==='Physiology'||record.subject==='Anatomy')&&TEXT_EDITION(record.subject)",
+        # Staircase tables (27-6 lung impressions, 22-6 sciatic foramina) read as headed lists.
+        "rows.every(r=>(r||[]).filter(filled).length<=1)",
     ):
         assert page.count(marker) == 1, marker
     print(f"PREPLADDER_ANATOMY_TEST_OK questions={len(questions)} topics={len(topics)} pyq={len(pyq)} "
