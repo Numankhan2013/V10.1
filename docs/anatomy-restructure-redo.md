@@ -1,10 +1,14 @@
 # Anatomy explanations still left as one run of text
 
 Written 2026-10-25. All 55 Anatomy restructure batches pass `tools/explanation_restructure.py check`;
-1,033 of 1,097 questions are restructured. The first agent pass returned `unchanged` for 107, of which 75
+1,034 of 1,097 questions are restructured. The first agent pass returned `unchanged` for 107, of which 75
 were over 700 characters and still read as one run of text. A second pass (8 Haiku agents) restructured 43
-of those 75; the 32 below are still unchanged. Some are flattened tables whose cell boundaries are not
+of those 75; the 31 below are still unchanged. Some are flattened tables whose cell boundaries are not
 recoverable without the figure, so `unchanged` follows the rule "a plain paragraph is fine; a wrong table is not".
+
+A third pass (3 Haiku agents, 2026-10-25) restructured the 25 explanations that still held a paragraph
+over 100 words (24 restructured ones plus `anatomy-q860263`); none of the 31 below has a paragraph over
+100 words, so each reads as short paragraphs or option rulings.
 
 To redo: replace the question's `{"id": ..., "unchanged": true}` in its result file with `blocks`, then run
 `tools/explanation_restructure.py import --bank anatomy` and rebuild the bank.
@@ -35,4 +39,4 @@ To redo: replace the question's `{"id": ..., "unchanged": true}` in its result f
 | anatomy-049 | `anatomy-44-21` (1891/4) |
 | anatomy-051 | `anatomy-46-1` (729/2) |
 | anatomy-053 | `anatomy-48-19` (1055/3), `anatomy-48-14` (1326/3) |
-| anatomy-054 | `anatomy-q860263` (1445/3), `anatomy-q859522` (933/3), `anatomy-49-4` (1549/0) |
+| anatomy-054 | `anatomy-q859522` (933/3), `anatomy-49-4` (1549/0) |

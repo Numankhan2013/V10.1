@@ -546,6 +546,8 @@ plain MCQs.
 
 ## Anatomy ships with PDF explanations; unrestructured questions are held back (2026-10-24)
 
+**Superseded (2026-10-24):** after reviewing the preview the owner chose to ship Anatomy with its text explanations, and all 55 restructure batches were then imported (PR #145).
+
 Until every Anatomy restructure batch (`anatomy-001…055`) is imported and
 checked, a push to `main` shows Anatomy explanations as the PDF pages, and the
 text explanations stay unpublished as the agents' restructuring input.
