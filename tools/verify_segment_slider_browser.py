@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-"""Home progress range and Insights period sliders: the pill never flashes to its
-destination, lands on the chosen button, commits the period, survives rapid taps
-and works with reduced motion, also on a 4x slower CPU (a mid-range phone)."""
+"""Home progress range and Insights period sliders, tapped on a touch phone: every tap
+slides the pill the whole way (no flash, no jump when the period recompute rebuilds the
+control), it lands on the chosen button, the period commits, rapid taps end on the last
+one, and reduced motion moves it at once. Also on a 4x slower CPU (a mid-range phone)."""
 from pathlib import Path
 from functools import partial
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
@@ -17,10 +18,14 @@ STATE = """([s,nat,l])=>{const seg=document.querySelector(s),p=seg.querySelector
   sr=seg.getBoundingClientRect(),x=new DOMMatrixReadOnly(getComputedStyle(p).transform).m41,sel=document.querySelector(nat);
   return {pressed:btn.getAttribute('aria-pressed'),off:Math.abs(pr.left-sr.left-seg.clientLeft-x),
     w:Math.abs(parseFloat(p.style.width)-pr.width),val:sel.value,segs:document.querySelectorAll(s).length}}"""
-TAP = """([s,l])=>{const seg=document.querySelector(s),p=seg.querySelector('.nkg-seg-pill'),
-  x=()=>new DOMMatrixReadOnly(getComputedStyle(p).transform).m41,x0=x(),
-  btn=[...seg.querySelectorAll('button')].find(b=>b.textContent.trim()===l),was=btn.getAttribute('aria-pressed')==='true';
-  btn.click();return {was,x0,x1:x()}}"""
+# Samples the pill (re-queried, the control is rebuilt) on every frame from the tap on.
+SAMPLE = """s=>{const log=window.__nkSlide=[];(function f(){if(window.__nkSlide!==log)return;
+  const p=document.querySelector(s+' > .nkg-seg-pill');if(p)log.push(new DOMMatrixReadOnly(getComputedStyle(p).transform).m41);
+  requestAnimationFrame(f)})()}"""
+BOX = """([s,l])=>{const b=[...document.querySelector(s).querySelectorAll('button')].find(b=>b.textContent.trim()===l),
+  r=b.getBoundingClientRect(),p=document.querySelector(s+' > .nkg-seg-pill');
+  return {x:r.x+r.width/2,y:r.y+r.height/2,was:b.getAttribute('aria-pressed')==='true',
+    x0:new DOMMatrixReadOnly(getComputedStyle(p).transform).m41}}"""
 
 
 def main():
@@ -46,6 +51,7 @@ def main():
             browser = pw.chromium.launch()
             for cpu, reduced in ((4, False), (1, True)):
                 context = browser.new_context(viewport={"width": 390, "height": 844}, service_workers="block",
+                                              is_mobile=True, has_touch=True,
                                               reduced_motion="reduce" if reduced else "no-preference")
                 page = context.new_page(); errors = []
                 page.on("pageerror", lambda e: errors.append(str(e)))
@@ -57,13 +63,15 @@ def main():
                     page.goto(origin + "/" + route)
                     page.wait_for_selector(seg + " > .nkg-seg-pill", state="attached", timeout=60000)
                     page.wait_for_timeout(1200)
+                    page.evaluate("s=>document.querySelector(s).scrollIntoView({block:'center'})", seg)
+                    page.wait_for_timeout(300)
                     labels = page.evaluate("s=>[...document.querySelectorAll(s+' button')].map(b=>b.textContent.trim())", seg)
                     for label in labels[::-1] + labels:
-                        tap = page.evaluate(TAP, [seg, label]); runs += 1
-                        # The slide owns the pill from the tap's own frame: no flash to the destination.
-                        if not tap["was"] and not reduced and abs(tap["x1"] - tap["x0"]) >= 1:
-                            fails.append(f"{tag} {label}: pill jumped in the tap frame {tap}")
+                        box = page.evaluate(BOX, [seg, label]); runs += 1
+                        page.evaluate(SAMPLE, seg)
+                        page.touchscreen.tap(box["x"], box["y"])
                         page.wait_for_timeout(settle)
+                        xs = page.evaluate("()=>{const l=window.__nkSlide;window.__nkSlide=null;return l}")
                         st = page.evaluate(STATE, [seg, native, label])
                         if st["pressed"] != "true" or st["off"] >= 1.5 or st["w"] >= 1.5:
                             fails.append(f"{tag} {label}: pill not on the chosen button {st}")
@@ -71,6 +79,19 @@ def main():
                             fails.append(f"{tag} {label}: period not committed {st}")
                         if st["segs"] != 1:
                             fails.append(f"{tag}: {st['segs']} sliders")
+                        x0, x1 = box["x0"], xs[-1] if xs else box["x0"]
+                        lo, hi = min(x0, x1) + 2, max(x0, x1) - 2
+                        steps = [x for x in xs if lo < x < hi]
+                        if box["was"] or abs(x1 - x0) < 8:
+                            continue
+                        if reduced and steps:
+                            fails.append(f"{tag} {label}: pill animated under reduced motion {xs[:12]}")
+                        if not reduced:
+                            # A whole slide: many in-between frames, none at the destination early.
+                            last_step = max(i for i, x in enumerate(xs) if lo < x < hi) if steps else -1
+                            early = [x for x in xs[:last_step] if abs(x - x1) < 1]
+                            if len(steps) < 6 or early:
+                                fails.append(f"{tag} {label}: pill jumped instead of sliding {[round(x) for x in xs[:24]]}")
                     # Fast taps 40 ms apart end on the last one.
                     seq = [labels[-1], labels[0], labels[1]]
                     for label in seq:

@@ -116,20 +116,17 @@
   var ro = window.ResizeObserver ? new ResizeObserver(function (entries) {
     each(entries, function (e) { var c = e.target; if (c.__nkgPill) placePill(c, c.__nkgPill.sel(), c.__nkgPill.key, false); });
   }) : null;
-  /* The slide is a native transform animation, so the compositor runs it even while the
-     page recomputes after the change (that work blocks the main thread for a few hundred
-     ms on a phone, which froze the old script-driven spring mid-slide). */
-  var SLIDE_MS = 320, SLIDE_EASE = 'cubic-bezier(0.23, 1, 0.32, 1)';
-  function slidePill(pill, from, to, elapsed) {
+  /* The slide is a native transform animation. The period change it leads to rebuilds the
+     control and blocks the main thread for a few hundred ms on a phone, so the change lands
+     only once the slide has finished (see segFromSelect): nothing interrupts it. */
+  var SLIDE_MS = 280, SLIDE_EASE = 'cubic-bezier(0.23, 1, 0.32, 1)';
+  function slidePill(pill, from, to) {
     if (RM.matches || typeof pill.animate !== 'function') return null;
-    try {
-      var a = pill.animate([{ transform: from }, { transform: to }], { duration: SLIDE_MS, easing: SLIDE_EASE });
-      if (elapsed > 0) a.currentTime = elapsed;
-      return a;
-    } catch (e) { return null; }
+    try { return pill.animate([{ transform: from }, { transform: to }], { duration: SLIDE_MS, easing: SLIDE_EASE }); }
+    catch (e) { return null; }
   }
   function placePill(container, btn, key, animate) {
-    var pill = container.querySelector(':scope > .nkg-seg-pill'), fresh = !pill;
+    var pill = container.querySelector(':scope > .nkg-seg-pill');
     if (!pill) {
       pill = el('span', 'nkg-seg-pill'); pill.setAttribute('aria-hidden', 'true');
       container.insertBefore(pill, container.firstChild);
@@ -139,7 +136,7 @@
     var cr = container.getBoundingClientRect(), br = btn.getBoundingClientRect();
     if (!cr.width || !br.width) return;
     var left = br.left - cr.left - container.clientLeft, w = br.width;
-    var prev = pillMemo[key], now = performance.now(), startX = prev ? prev.left : left;
+    var prev = pillMemo[key], startX = prev ? prev.left : left;
     var move = animate !== false && prev && (Math.abs(prev.left - left) > 0.5 || Math.abs(prev.w - w) > 0.5);
     /* A tap during a slide starts the next one from where the pill is now. */
     var running = typeof pill.getAnimations === 'function' ? pill.getAnimations() : [];
@@ -148,19 +145,13 @@
       each(running, function (a) { a.cancel(); });
     }
     var to = 'translateX(' + left + 'px)', from = 'translateX(' + startX + 'px)';
-    /* The app rebuilds the control when the change lands; a rebuilt pill picks up the slide
-       still in flight instead of appearing at the destination. */
-    var live = prev && prev.slide && Math.abs(prev.slide.left - left) < 0.5 && now - prev.slide.t0 < SLIDE_MS ? prev.slide : null;
     pill.style.opacity = '1';
     pill.style.width = w + 'px';
     /* The resting value is the destination; a running animation overrides it from the same
        frame it is created, so the destination never flashes before the slide. */
     pill.style.transform = to;
-    var slide = null, a = move ? slidePill(pill, from, to, 0) : null;
-    if (a) slide = { from: from, left: left, t0: now };
-    else if (live && fresh && slidePill(pill, live.from, to, now - live.t0)) slide = live;
-    pillMemo[key] = { left: left, w: w, slide: slide };
-    return a;
+    pillMemo[key] = { left: left, w: w };
+    return move ? slidePill(pill, from, to) : null;
   }
   function trackPill(container, key, selectorFn) {
     container.__nkgPill = { key: key, sel: selectorFn };
@@ -201,9 +192,9 @@
       if (!b || b.getAttribute('aria-pressed') === 'true') return;
       haptic('selection');
       each(seg.querySelectorAll('button'), function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
-      /* Start the slide, then recompute once the compositor has taken it over (`ready`):
-         rebuilding the control before that hand-off leaves the slide on the main thread,
-         where the page's work freezes it. */
+      /* Slide first, change the period when the slide ends: the recompute rebuilds the
+         control, and starting it mid-slide cut the slide short (the pill jumped). A tap
+         during the slide supersedes this one (token). */
       var slide = placePill(seg, b, key, true);
       var value = b.dataset.value, token = seg.__nkgCommit = {};
       var commit = function () {
@@ -212,10 +203,10 @@
         select.value = value;
         select.dispatchEvent(new Event('change', { bubbles: true }));
       };
-      if (RM.matches || !slide || !slide.ready) commit();
+      if (!slide || !slide.finished) commit();
       else {
-        slide.ready.then(function () { window.requestAnimationFrame(commit); }, commit);
-        window.setTimeout(commit, 400); /* frames (and so `ready`) pause in a background tab */
+        slide.finished.then(commit, commit);
+        window.setTimeout(commit, SLIDE_MS + 120); /* frames (and so `finished`) pause in a background tab */
       }
     });
     select.classList.add('nkg-hidden-native');
