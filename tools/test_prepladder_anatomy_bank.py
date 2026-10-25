@@ -114,6 +114,8 @@ def main() -> None:
         "(record.subject==='Physiology'||record.subject==='Anatomy')&&TEXT_EDITION(record.subject)",
         # Staircase tables (27-6 lung impressions, 22-6 sciatic foramina) read as headed lists.
         "rows.every(r=>(r||[]).filter(filled).length<=1)",
+        # A heading that opens onto another heading names a section (27-3 pleura).
+        "if(shown[i+1]?.type==='heading'){inSection=true;return' is-section';}",
     ):
         assert page.count(marker) == 1, marker
     print(f"PREPLADDER_ANATOMY_TEST_OK questions={len(questions)} topics={len(topics)} pyq={len(pyq)} "

@@ -1536,12 +1536,16 @@ function dashboard(){
     const start=blocks[0]?.type==='paragraph'&&blocks.slice(1).some(b=>b.type!=='references')&&nkMarrowOrderedSame(blocks[0].text,nkMarrowTakeaway(q))?1:0;
     const item=it=>`<li>${nkMarrowRich(it?.text||'')}${Array.isArray(it?.items)&&it.items.length?`<ul>${it.items.map(c=>`<li>${nkMarrowRich(c?.text||'')}</li>`).join('')}</ul>`:''}</li>`;
     let pearlTitle='';
-    const html=blocks.slice(start).map(b=>{
+    // Heading levels from position: a heading that opens straight onto another
+    // heading names a section, and the headings after it read as its parts.
+    const shown=blocks.slice(start);let inSection=false;
+    const level=shown.map((b,i)=>{if(b.type!=='heading')return'';if(shown[i+1]?.type==='heading'){inSection=true;return' is-section';}return inSection?' is-sub':'';});
+    const html=shown.map((b,i)=>{
       if(b.type!=='table'&&b.type!=='pearl')pearlTitle='';
       if(b.type==='pearl')pearlTitle=String(b.title||'');
       if(b.type==='table'&&tables.has(String(b.table_id))){const t=tables.get(String(b.table_id));return nkRenderMarrowOrderedTable(pearlTitle&&nkMarrowOrderedSame(t.title,pearlTitle)?{...t,title:''}:t);}
       if(b.type==='paragraph')return `<p>${nkMarrowRich(b.text)}</p>`;
-      if(b.type==='heading')return `<div class="nk-marrow-heading">${nkMarrowRich(b.text)}</div>`;
+      if(b.type==='heading')return `<div class="nk-marrow-heading${level[i]}">${nkMarrowRich(b.text)}</div>`;
       if(b.type==='bullets'){const tag=b.ordered?'ol':'ul',start=b.ordered&&Number(b.start)>1?` start="${Number(b.start)}"`:'';return `<${tag}${start}>${(b.items||[]).map(item).join('')}</${tag}>`;}
       if(b.type==='table')return tables.has(String(b.table_id))?nkRenderMarrowOrderedTable(tables.get(String(b.table_id))):'';
       if(b.type==='pearl')return `<div class="nk-marrow-heading nk-marrow-pearl">${nkMarrowRich('Marrow Pearl · '+String(b.title||''))}</div>`;

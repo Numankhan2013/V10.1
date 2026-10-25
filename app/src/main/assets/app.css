@@ -6819,6 +6819,21 @@ html body #app .nk-fsrs-page-v3 .nk-v3-primary:disabled{opacity:.55;cursor:defau
   .nk-source-section.is-marrow .nk-marrow-ordered>p{font-size:16px;line-height:1.65}
   .nk-source-section.is-marrow .nk-marrow-ordered>ul li,.nk-source-section.is-marrow .nk-marrow-ordered>ol li{font-size:15.5px}
 }
+/* Ordered explanations: the block grid's 12px gap is the base rhythm, so
+   margins only add what separates a new heading from the text before it. A
+   heading sits close to the text it labels; a section heading (one that opens
+   onto other headings) is a small ruled label so its parts read as one group. */
+html .nk-source-section .nk-marrow-native.nk-marrow-ordered>p{margin:0 0 6px}
+html .nk-source-section .nk-marrow-native.nk-marrow-ordered>:is(ul,ol){margin:0 0 6px}
+html .nk-source-section .nk-marrow-native.nk-marrow-ordered>.nk-marrow-heading,html .nk-source-section .nk-marrow-native.nk-marrow-ordered>.nk-marrow-split>.nk-marrow-heading{margin:14px 0 0;font-size:16.5px;font-weight:600;line-height:1.35;letter-spacing:-.15px;color:var(--nkg-fg,#171717)}
+html .nk-source-section .nk-marrow-native.nk-marrow-ordered>.nk-marrow-split{display:grid;gap:12px}
+html .nk-source-section .nk-marrow-native.nk-marrow-ordered>.nk-marrow-split>ul{margin:0;padding-left:26px;display:grid;gap:9px}
+html .nk-source-section .nk-marrow-native.nk-marrow-ordered>.nk-marrow-split>ul li{padding-left:2px;font-size:16px;line-height:1.58}
+html .nk-source-section .nk-marrow-native.nk-marrow-ordered>.nk-marrow-split li>ul{margin:6px 0 0 20px;display:grid;gap:6px}
+html .nk-source-section .nk-marrow-native.nk-marrow-ordered>.nk-marrow-heading.is-section{margin:22px 0 0;padding-top:16px;border-top:1px solid var(--nkg-border,#e5e5e5);font-size:13.5px;letter-spacing:0;color:var(--nkg-fg-3,#666)}
+html .nk-source-section .nk-marrow-native.nk-marrow-ordered>.nk-marrow-heading.is-section+.nk-marrow-heading{margin-top:0}
+html .nk-source-section .nk-marrow-native.nk-marrow-ordered>.nk-marrow-heading:first-child,html .nk-source-section .nk-marrow-native.nk-marrow-ordered>.nk-marrow-split:first-child>.nk-marrow-heading:first-child{margin-top:0}
+html .nk-source-section .nk-marrow-native.nk-marrow-ordered>.nk-marrow-heading.is-section:first-child{padding-top:0;border-top:0}
 /* Android app shell: no text selection, link previews or image drags outside editable fields. */
 html.nk-android-shell{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 html.nk-android-shell :is(input,textarea,select,[contenteditable]),html.nk-android-shell [contenteditable] *{-webkit-user-select:text;user-select:text}
