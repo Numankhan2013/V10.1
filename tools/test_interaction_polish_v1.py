@@ -30,8 +30,12 @@ def main():
     assert re.search(r'prefers-reduced-motion:reduce\)\{[^@]*scale:none!important',css),'reduced motion keeps buttons still'
     assert re.search(r'\{[^}]*scale:(?!none)[^}]*\}',css.split('Press spring')[0]) is None,'only the press spring scales'
     feel=(ROOT/'app/src/main/assets/redesign/nk-feel.js').read_text()
-    assert "pill.style.transform = move ? from : to;" in feel,'the segment pill must wait at its start until the slide owns it'
-    assert "pill.style.transform = 'translateX(' + left + 'px)';" not in feel,'never paint the pill at its destination before the slide starts'
+    # The slide is a native animation and the period changes only when it has finished:
+    # the recompute rebuilds the control, and starting it mid-slide made the pill jump.
+    assert "pill.animate([{ transform: from }, { transform: to }]" in feel,'the segment pill must slide natively'
+    assert "M.animate(pill" not in feel and "SPRING_PILL" not in feel,'no script-driven pill spring (it stalls while the page recomputes)'
+    assert "slide.finished.then(commit, commit);" in feel,'change the period only after the slide'
+    assert "slide.ready" not in feel and "live.from" not in feel,'no mid-slide recompute'
     assert 'background-color 110ms' not in css
     assert 'border-color 110ms' not in css
     assert 'box-shadow 110ms' not in css

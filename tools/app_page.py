@@ -64,7 +64,8 @@ def built_page(web: Path) -> str:
     web = Path(web)
     page = (web / "index.html").read_text(encoding="utf-8")
     sheet = web / "app.css"
-    link = '<link rel="stylesheet" href="app.css">'
-    if sheet.is_file() and link in page:
-        page = page.replace(link, "<style>\n" + sheet.read_text(encoding="utf-8") + "\n</style>", 1)
+    # The web build stamps the link with the build (app.css?v=...).
+    link = re.search(r'<link rel="stylesheet" href="app\.css(?:\?v=[0-9A-Za-z]+)?">', page)
+    if sheet.is_file() and link:
+        page = page.replace(link.group(), "<style>\n" + sheet.read_text(encoding="utf-8") + "\n</style>", 1)
     return page

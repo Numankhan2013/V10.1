@@ -67,7 +67,8 @@ def main() -> None:
         assets = base / "assets"
         assets.mkdir()
         (assets / "index.html").write_text("<html><body>source template</body></html>")
-        (assets / "sw.js").write_text("const BUILD_VERSION='dev';\nconst SHELL=['./index.html'];\n")
+        (assets / "sw.js").write_text("const BUILD_VERSION='dev';\nconst SHELL=['./index.html','./nk-app.js'];\n")
+        (assets / "nk-app.js").write_text("window.NK_APP=1;\n")
         # The build checks that the generated files the page loads are present.
         (assets / "biochemistry_source_solution_map.js").write_text("window.NK_BIOCHEM_SOURCE_SOLUTION_MAP={};\n")
         (assets / "subject_source_solution_maps.js").write_text("window.NK_SUBJECT_SOURCE_SOLUTION_MAPS={};\n")
@@ -79,7 +80,7 @@ def main() -> None:
             oversized.truncate(web.PAGES_FILE_LIMIT + 1)
         filled = base / "build" / "app" / "index.html"
         filled.parent.mkdir(parents=True)
-        filled.write_text("<html><body>filled page with the question data</body></html>")
+        filled.write_text('<html><head></head><body>filled page with the question data<script src="nk-app.js"></script></body></html>')
         out = base / "web"
         with patch.object(web, "ASSETS", assets), patch.object(
             sys, "argv", ["build_web_dist.py", "--out", str(out), "--page", str(filled)]
@@ -90,6 +91,10 @@ def main() -> None:
             "the web build must ship the filled page, not the source template"
         )
         assert "source template" not in shipped, "the web build must not ship the source template"
+        # The page's own scripts get a per-build URL, precached under that URL: a new
+        # page never runs the previous build's scripts out of the worker's cache.
+        assert '<script src="nk-app.js?v=dev"></script>' in shipped, "the page's scripts must carry the build"
+        assert "'./nk-app.js?v=dev'" in (out / "sw.js").read_text(encoding="utf-8"), "the worker must precache the stamped URL"
 
         # Without --page the builder takes the filled page when it is there.
         out2 = base / "web2"

@@ -1515,7 +1515,20 @@ function dashboard(){
   function nkMarrowOrderedCell(value){return String(value??'').split('\n').map(part=>nkMarrowRich(part.trim())).filter(Boolean).join('<br>');}
   function nkRenderMarrowOrderedTable(table){
     table=nkNormalizeMarrowStructuredTable(table);
-    const cols=Array.isArray(table?.columns)?table.columns:[],rows=Array.isArray(table?.rows)?table.rows:[];if(!cols.length||!rows.length)return'';
+    let cols=Array.isArray(table?.columns)?table.columns:[],rows=Array.isArray(table?.rows)?table.rows:[];if(!cols.length||!rows.length)return'';
+    const filled=v=>String(v??'').trim()!=='';
+    // A column with no body text held a picture or a group label in the PDF
+    // ('Image', 'Luminal transporters'); it only takes width, so it is dropped.
+    const keep=cols.map((_,i)=>i).filter(i=>rows.some(r=>filled((r||[])[i])));
+    if(keep.length&&keep.length<cols.length){cols=keep.map(i=>cols[i]);rows=rows.map(r=>keep.map(i=>(r||[])[i]));}
+    // A flattened source can leave a staircase: each column filled on its own
+    // rows, nothing side by side. No row compares anything, so draw one headed
+    // list per column (a cell's 'Label:' first line leads its other lines).
+    if(cols.length===1||(rows.length>1&&rows.every(r=>(r||[]).filter(filled).length<=1))){
+      const li=s=>`<li>${nkMarrowRich(s)}</li>`;
+      const cell=v=>{const [lead,...rest]=String(v).split('\n').map(s=>s.trim()).filter(Boolean);return rest.length&&lead.endsWith(':')?`<li>${nkMarrowRich(lead)}<ul>${rest.map(li).join('')}</ul></li>`:[lead,...rest].map(li).join('');};
+      return `<div class="nk-marrow-split">${table.title?`<div class="nk-marrow-heading">${nkMarrowRich(table.title)}</div>`:''}${cols.map((c,i)=>{const cells=rows.map(r=>(r||[])[i]).filter(filled);return cells.length?`<div class="nk-marrow-heading">${nkMarrowOrderedCell(c)}</div><ul>${cells.map(cell).join('')}</ul>`:'';}).join('')}</div>`;
+    }
     return `<div class="nk-marrow-table"><table>${table.title?`<caption>${nkMarrowRich(table.title)}</caption>`:''}<thead><tr>${cols.map(c=>`<th>${nkMarrowOrderedCell(c)}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${cols.map((_,i)=>`<td>${nkMarrowOrderedCell((r||[])[i]||'')}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
   }
   function nkMarrowOrderedSame(a,b){const n=x=>String(x||'').replace(/\*\*/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();return Boolean(n(a))&&n(a)===n(b);}
@@ -1527,12 +1540,16 @@ function dashboard(){
     const start=blocks[0]?.type==='paragraph'&&blocks.slice(1).some(b=>b.type!=='references')&&nkMarrowOrderedSame(blocks[0].text,nkMarrowTakeaway(q))?1:0;
     const item=it=>`<li>${nkMarrowRich(it?.text||'')}${Array.isArray(it?.items)&&it.items.length?`<ul>${it.items.map(c=>`<li>${nkMarrowRich(c?.text||'')}</li>`).join('')}</ul>`:''}</li>`;
     let pearlTitle='';
-    const html=blocks.slice(start).map(b=>{
+    // Heading levels from position: a heading that opens straight onto another
+    // heading names a section, and the headings after it read as its parts.
+    const shown=blocks.slice(start);let inSection=false;
+    const level=shown.map((b,i)=>{if(b.type!=='heading')return'';if(shown[i+1]?.type==='heading'){inSection=true;return' is-section';}return inSection?' is-sub':'';});
+    const html=shown.map((b,i)=>{
       if(b.type!=='table'&&b.type!=='pearl')pearlTitle='';
       if(b.type==='pearl')pearlTitle=String(b.title||'');
       if(b.type==='table'&&tables.has(String(b.table_id))){const t=tables.get(String(b.table_id));return nkRenderMarrowOrderedTable(pearlTitle&&nkMarrowOrderedSame(t.title,pearlTitle)?{...t,title:''}:t);}
       if(b.type==='paragraph')return `<p>${nkMarrowRich(b.text)}</p>`;
-      if(b.type==='heading')return `<div class="nk-marrow-heading">${nkMarrowRich(b.text)}</div>`;
+      if(b.type==='heading')return `<div class="nk-marrow-heading${level[i]}">${nkMarrowRich(b.text)}</div>`;
       if(b.type==='bullets'){const tag=b.ordered?'ol':'ul',start=b.ordered&&Number(b.start)>1?` start="${Number(b.start)}"`:'';return `<${tag}${start}>${(b.items||[]).map(item).join('')}</${tag}>`;}
       if(b.type==='table')return tables.has(String(b.table_id))?nkRenderMarrowOrderedTable(tables.get(String(b.table_id))):'';
       if(b.type==='pearl')return `<div class="nk-marrow-heading nk-marrow-pearl">${nkMarrowRich('Marrow Pearl · '+String(b.title||''))}</div>`;

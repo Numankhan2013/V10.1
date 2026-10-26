@@ -130,6 +130,39 @@ def externalize_data(page: str, out: Path, packs: DetailPacks | None = None) -> 
     return page, files
 
 
+ASSET_TAG = re.compile(r'(<(?:script|link)\b[^>]*?\b(?:src|href)=")([^"?#:]+\.(?:js|css))(")')
+CONTENT_HASHED = re.compile(r"\.[0-9a-f]{10}\.(?:js|css)$")
+
+
+def stamp_assets(page: str, out: Path, version: str) -> tuple[str, dict[str, str]]:
+    """Give the page's own scripts and stylesheet a per-build URL.
+
+    The service worker answers these from its cache, and a deploy's page arrives
+    network-first, so with plain URLs a new page ran last build's scripts until
+    the update was applied. Content-hashed data files already change name."""
+    tag = re.sub(r"[^0-9A-Za-z]", "", version)[:12] or "dev"
+    stamped: dict[str, str] = {}
+
+    def stamp(match: re.Match) -> str:
+        path = match.group(2)
+        if CONTENT_HASHED.search(path) or not (out / path).is_file():
+            return match.group(0)
+        stamped[path] = f"{path}?v={tag}"
+        return match.group(1) + stamped[path] + match.group(3)
+    return ASSET_TAG.sub(stamp, page), stamped
+
+
+def stamp_shell(worker: str, stamped: dict[str, str]) -> str:
+    """Precache the stamped URLs the page asks for, not the plain ones."""
+    start = worker.index("const SHELL=[")
+    end = worker.index("];", start)
+    shell = worker[start:end]
+    for path, url in stamped.items():
+        for quote in ("'", '"'):
+            shell = shell.replace(f"{quote}./{path}{quote}", f"{quote}./{url}{quote}")
+    return worker[:start] + shell + worker[end:]
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--out", type=Path, default=DEFAULT_OUT)
@@ -180,7 +213,8 @@ def main() -> None:
     packs = DetailPacks(out)
     page, data_files = externalize_data(page, out, packs)
     page = page.replace('</head>', '<script>window.NK_DETAIL_PACKS='+json.dumps(packs.write())+';</script>\n</head>', 1)
-    html.write_text(page.replace('</head>', '<meta name="robots" content="'+ROBOTS_DIRECTIVES+'">\n</head>', 1), encoding="utf-8")
+    page, stamped = stamp_assets(page.replace('</head>', '<meta name="robots" content="'+ROBOTS_DIRECTIVES+'">\n</head>', 1), out, args.version)
+    html.write_text(page, encoding="utf-8")
     sw = out / "sw.js"
     sw_text=sw.read_text(encoding="utf-8").replace("const BUILD_VERSION='dev';", f"const BUILD_VERSION={args.version!r};", 1)
     data_shell=(
@@ -195,6 +229,7 @@ def main() -> None:
     )
     sw_text=sw_text.replace("const SHELL=[",'const SHELL='+json.dumps(data_shell)[:-1]+',',1)
     sw_text=sw_text.replace("const MEDIA=[];",'const MEDIA='+json.dumps(media)+';',1)
+    sw_text=stamp_shell(sw_text, stamped)
     sw.write_text(sw_text, encoding="utf-8")
     (out / "_headers").write_text(
         "/*\n  X-Robots-Tag: "+ROBOTS_DIRECTIVES+"\n"+
