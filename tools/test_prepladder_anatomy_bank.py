@@ -26,6 +26,12 @@ PYQ_LESSONS = (6, 15, 21, 25, 29, 36, 41, 45, 46, 49, 50, 51, 52, 54)
 
 def main() -> None:
     subprocess.run([sys.executable, str(ROOT / "tools/build_prepladder_anatomy_bank.py"), "--check"], check=True)
+    # Figures PrepLadder prints bare carry the markers their question names.
+    subprocess.run([sys.executable, str(ROOT / "tools/draw_figure_markers.py"), "anatomy", "--check"], check=True)
+    runtime = (ROOT / "app/src/main/assets/prepladder_anatomy_visual_metadata.js").read_text(encoding="utf-8")
+    inventory = json.loads((ROOT / "data/Prepladder/anatomy/visuals.json").read_text(encoding="utf-8"))["figures"]
+    stale = [f["imageId"] for f in inventory if f"marrow_visuals/{f['sha256']}.jpg" not in runtime]
+    assert not stale, f"figure metadata is stale; run build_prepladder_anatomy_bank.py release: {stale[:5]}"
     record = app_record()
     topics, questions = record["topics"], record["questions"]
     assert record["bank"] == "PrepLadder" and record["subject"] == "Anatomy"
