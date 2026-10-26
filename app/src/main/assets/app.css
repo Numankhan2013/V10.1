@@ -3665,11 +3665,13 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-topic-map .nk-topic-cell.i
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-topic-legend li.is-k::before { background: var(--nkg-warning, #d98b16); box-shadow: none; }
 
 /* ======================================================= Marrow explanation emphasis
-   Highlighted terms (strong.nk-gold-em) were weight 600 in the same ink as the body, so
-   they barely stood out in Geist. Body prose steps down one tone and the highlighted
-   words go heavier in full ink, as before the redesign. */
-html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-source-section.is-marrow :is(p, div, li, td):has(> .nk-gold-em) { color: var(--nkg-fg-2) !important; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-source-section.is-marrow .nk-gold-em { font-weight: 720 !important; color: var(--nkg-fg) !important; letter-spacing: -0.005em; }
+   Every line of prose takes one readable tone, just short of full ink, whether or not it
+   holds a highlighted term (dimming only the lines with one left the page patchy and
+   faded). Highlighted terms (strong.nk-gold-em) stand out by weight in full ink. The
+   other options' rulings sit a step quieter, still easy to read. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-source-section.is-marrow :is(p, li, td) { color: color-mix(in srgb, var(--nkg-fg) 88%, var(--nkg-bg)) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-source-section.is-marrow .nk-gold-wrong-row > p { color: color-mix(in srgb, var(--nkg-fg) 76%, var(--nkg-bg)) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) #app .nk-source-section.is-marrow .nk-gold-em { font-weight: 760 !important; color: var(--nkg-fg) !important; letter-spacing: -0.005em; }
 
 /* ======================================================= Audit 2026-10-11 */
 /* Bookmark: outline when not saved, filled when saved (both shapes ship in the svg). */
