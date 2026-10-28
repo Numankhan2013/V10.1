@@ -187,7 +187,7 @@ SUBJECTS: dict[str, dict] = {
     },
 }
 
-PROF_TITLES = {"second": "Second Prof", "third": "Third Prof", "final": "Final Prof"}
+PROF_TITLES = {"second": "Second Prof", "third": "Final Prof Part 1", "final": "Final Prof Part 2"}
 
 
 def fail(message: str) -> None:
