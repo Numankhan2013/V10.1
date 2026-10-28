@@ -5,7 +5,7 @@ from playwright.sync_api import expect
 def verify_ophthalmology(page, output, width, reset_practice, open_question):
     collection = 'Ophthalmology'
     page.evaluate('QB.nav("uworld")')
-    page.locator('.nk-uworld-collection').filter(has_text=collection).click()
+    page.locator('.nk-uworld-collection').filter(has_text=f'UWorld · {collection}').click()
     expect(page.locator('button.nk-topic-row')).to_have_count(1)
     assert page.locator('.nk-topic-group>h2').all_inner_texts() == ['Blocks']
     page.locator('button.nk-topic-row').click()
@@ -75,7 +75,7 @@ def verify_ophthalmology(page, output, width, reset_practice, open_question):
     page.evaluate('QB.nav("tests")')
     page.get_by_role('button', name='Build a test').click()
     page.get_by_role('button', name='Clear all', exact=True).click()
-    page.locator('.nk-cbt-builder .nk-module-subject').filter(has_text=collection).click()
+    page.locator('.nk-cbt-builder .nk-module-subject').filter(has_text=f'UWorld · {collection}').click()
     page.get_by_role('button', name='Continue to topics', exact=True).click()
     expect(page.locator('.nk-cbt-topic')).to_have_count(1)
     page.get_by_role('button', name='Continue to questions', exact=True).click()
@@ -99,10 +99,10 @@ def verify_ophthalmology(page, output, width, reset_practice, open_question):
 
     reset_practice()
     page.evaluate('QB.openStudyModuleBuilder()')
-    chosen = page.locator('.nk-module-subject').filter(has_text=collection)
+    chosen = page.locator('.nk-module-subject').filter(has_text=f'UWorld · {collection}')
     if 'is-selected' not in (chosen.get_attribute('class') or ''):
         chosen.click()
-    others = page.locator('.nk-module-subject.is-selected').filter(has_not_text=collection)
+    others = page.locator('.nk-module-subject.is-selected').filter(has_not_text=f'UWorld · {collection}')
     while others.count():
         others.first.click()
     page.get_by_role('button', name='Continue', exact=True).click()

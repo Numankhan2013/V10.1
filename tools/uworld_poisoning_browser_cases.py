@@ -5,7 +5,7 @@ from playwright.sync_api import expect
 def verify_poisoning(page, output, width, reset_practice, open_question):
     collection = 'Poisoning & Environmental Exposure'
     page.evaluate('QB.nav("uworld")')
-    page.locator('.nk-uworld-collection').filter(has_text=collection).click()
+    page.locator('.nk-uworld-collection').filter(has_text=f'UWorld · {collection}').click()
     expect(page.locator('button.nk-topic-row')).to_have_count(1)
     assert collection in page.locator('h1').first.inner_text()
     assert page.locator('.nk-topic-group>h2').all_inner_texts()==['Blocks']
@@ -98,7 +98,7 @@ def verify_poisoning(page, output, width, reset_practice, open_question):
     page.evaluate('QB.nav("tests")')
     page.get_by_role('button', name='Build a test').click()
     page.get_by_role('button', name='Clear all', exact=True).click()
-    page.locator('.nk-cbt-builder .nk-module-subject').filter(has_text=collection).click()
+    page.locator('.nk-cbt-builder .nk-module-subject').filter(has_text=f'UWorld · {collection}').click()
     page.get_by_role('button', name='Continue to topics', exact=True).click()
     expect(page.locator('.nk-cbt-topic')).to_have_count(1)
     assert '33 questions' in page.locator('#nk-cbt-footer-count').inner_text()
@@ -123,10 +123,10 @@ def verify_poisoning(page, output, width, reset_practice, open_question):
     # A frozen module uses this namespace without disturbing the earlier Biochemistry module.
     reset_practice()
     page.evaluate('QB.openStudyModuleBuilder()')
-    chosen = page.locator('.nk-module-subject').filter(has_text=collection)
+    chosen = page.locator('.nk-module-subject').filter(has_text=f'UWorld · {collection}')
     if 'is-selected' not in (chosen.get_attribute('class') or ''):
         chosen.click()
-    others = page.locator('.nk-module-subject.is-selected').filter(has_not_text=collection)
+    others = page.locator('.nk-module-subject.is-selected').filter(has_not_text=f'UWorld · {collection}')
     while others.count():
         others.first.click()
     page.get_by_role('button', name='Continue', exact=True).click()
