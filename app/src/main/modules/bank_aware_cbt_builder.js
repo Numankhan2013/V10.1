@@ -3,15 +3,22 @@
   // Bank records are immutable after boot. Index each record once so rapid
   // topic toggles do not scan the whole question bank for every painted row.
   const nkCbtTopicIndex=new WeakMap();
+  // Which questions a test may draw. A bank module can narrow it (UWorld drops questions
+  // whose exhibit is missing); the index, the counts and the pool all go through it.
+  function nkCbtEligible(){return true;}
   function nkCbtQuestionsByTopic(record){
     if(!record)return new Map();
+    // Keyed by the record, checked against its question list: a bank that is filtered
+    // or extended in place is indexed again.
     let index=nkCbtTopicIndex.get(record);
-    if(!index){
+    if(!index||index.source!==record.questions||index.size0!==(record.questions||[]).length){
       index=new Map();
       (record.questions||[]).forEach(q=>{
+        if(!nkCbtEligible(q))return;
         const key=String(q.chapterId),list=index.get(key)||[];
         list.push(q);index.set(key,list);
       });
+      index.source=record.questions;index.size0=(record.questions||[]).length;
       nkCbtTopicIndex.set(record,index);
     }
     return index;
@@ -22,9 +29,10 @@
   const nkCbtRecordInfoCache=new WeakMap();
   function nkCbtRecordInfo(record){
     let info=nkCbtRecordInfoCache.get(record);
-    if(!info){
-      const byTopic=nkCbtQuestionsByTopic(record),topics=nkModuleTopics(record);
-      info={topics,keys:[],counts:[],pyq:[],verifiedPyq:[]};
+    const byTopic=nkCbtQuestionsByTopic(record);
+    if(!info||info.index!==byTopic){
+      const topics=nkModuleTopics(record);
+      info={topics,keys:[],counts:[],pyq:[],verifiedPyq:[],index:byTopic};
       topics.forEach((topic,i)=>{
         const questions=byTopic.get(String(topic.id))||[],pyq=questions.filter(q=>Array.isArray(q.studyCollections)&&q.studyCollections.includes('pyq')).length;
         info.keys[i]=nkCbtTopicKey(record,topic);info.counts[i]=questions.length;
