@@ -8,7 +8,8 @@
   // The reviews and ID-keyed repairs below were made against the PDF-page banks.
   // A text bank that keeps a reviewed question's ID (PrepLadder Biochemistry's
   // 2025 edition) carries its own complete source, so they do not apply to it.
-  function nkQuestionPageBank(q){return !(q?.bank==='PrepLadder'&&q?.explanationFormat==='structured');}
+  function nkStructuredTextBank(q){return (q?.bank==='PrepLadder'||q?.bank==='Marrow')&&q?.explanationFormat==='structured';}
+  function nkQuestionPageBank(q){return !nkStructuredTextBank(q);}
 
   function nkQuestionCompletenessReview(q){
     const spec=nkQuestionPageBank(q)?NK_QUESTION_COMPLETENESS_REVIEWS_V1[q?.id]:null;
@@ -145,10 +146,10 @@
     const selected=nkQuestionCompleteSourceOverride(q,presentation);
     const generic=selected===null?nkQuestionMatchingTable(matching||continuation,Boolean(continuation)):selected;
     presentation.table=(generic?.valid!==false?generic:null)||nkQuestionMatchingOverride(q);
-    // PrepLadder text banks carry complete, key-checked options: a matching stem
+    // Text banks (PrepLadder, Marrow web export) carry complete, key-checked options: a matching stem
     // the parser cannot lay out stays plain text instead of blocking the answer.
     // A hand-checked stem table (stemTables) always wins over the parser.
-    const textBank=q?.bank==='PrepLadder'&&q?.explanationFormat==='structured';
+    const textBank=nkStructuredTextBank(q);
     if(textBank&&Array.isArray(q.stemTables)&&q.stemTables.length)presentation.table=null;
     if(generic?.valid===false&&!presentation.table&&!textBank)presentation.valid=false;
     const stem=nkQuestionStemOverride(q);

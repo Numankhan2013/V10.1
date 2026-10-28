@@ -68,8 +68,12 @@ def marrow_data() -> str:
     from build_prepladder_biochemistry_bank import app_record as biochemistry_record
     from build_prepladder_physiology_bank import app_record as physiology_record
     from build_prepladder_anatomy_bank import app_record as anatomy_record
+    # Marrow QBank subjects from the Marrow web export (Second Prof Pathology and
+    # Pharmacology, Third and Final Prof): Marrow banks beside any PrepLadder one.
+    from marrow_qbank_bank import app_records as marrow_qbank_records
     return js_json({"records": records + [app_record(), pathology_record(), pharmacology_record(),
-                                          biochemistry_record(), physiology_record(), anatomy_record()]})
+                                          biochemistry_record(), physiology_record(), anatomy_record()]
+                    + marrow_qbank_records()})
 
 
 def marrow_explanation_gold() -> str:
@@ -122,6 +126,8 @@ def release_marrow_figures() -> None:
     release_prepladder_physiology()
     from build_prepladder_anatomy_bank import release as release_prepladder_anatomy
     release_prepladder_anatomy()
+    from marrow_qbank_bank import release as release_marrow_qbank
+    release_marrow_qbank()
 
 
 BUILDERS = {

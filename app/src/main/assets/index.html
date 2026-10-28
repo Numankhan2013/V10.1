@@ -76,6 +76,7 @@
 <script defer src="prepladder_biochemistry_visual_metadata.js"></script>
 <script defer src="prepladder_physiology_visual_metadata.js"></script>
 <script defer src="prepladder_anatomy_visual_metadata.js"></script>
+<script defer src="marrow_qbank_visual_metadata.js"></script>
 <script defer src="marrow_visual_renderer.js"></script>
 </head>
 <body>
@@ -553,6 +554,9 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
     if(key.includes('microbiology')) return {key:'microbiology',icon:'virus',tone:'green'};
     if(key.includes('pathology')) return {key:'pathology',icon:'microscope',tone:'amber'};
     if(key.includes('pharmacology')) return {key:'pharmacology',icon:'pill',tone:'amber'};
+    // Third and Final Prof (Marrow QBank).
+    const clinical={'community medicine':['community','users','green'],'forensic medicine':['forensic','fingerprint','blue'],ophthalmology:['ophthalmology','eye','blue'],ent:['ent','ear','amber'],medicine:['medicine','stethoscope','red'],surgery:['surgery','cut','red'],'obstetrics & gynaecology':['pregnancy','pregnancy','magenta'],paediatrics:['paediatrics','baby','green'],orthopaedics:['orthopaedics','walk','blue'],dermatology:['dermatology','hand','amber'],psychiatry:['psychiatry','brain','magenta'],radiology:['radiology','radioactive','amber'],anaesthesia:['anaesthesia','syringe','blue']}[key];
+    if(clinical) return {key:clinical[0],icon:clinical[1],tone:clinical[2]};
     return {key:'biochemistry',icon:'dna',tone:'magenta'};
   }
 
@@ -578,6 +582,17 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
       microbiology:'<circle cx="12" cy="12" r="5"/><path d="M12 7V3M11 3h2M15.536 8.464l2.828-2.828M17.657 4.929l1.414 1.414M17 12h4M21 11v2M15.535 15.536l2.829 2.828M19.071 17.657l-1.414 1.414M12 17v4M13 21h-2M8.465 15.536l-2.829 2.828M6.343 19.071l-1.413-1.414M7 12H3M3 13v-2M8.464 8.464 5.636 5.636M4.929 6.343l1.414-1.413"/>',
       pathology:'<path d="M5 21h14M6 18h2M7 18v3M9 11l3 3l6 -6l-3 -3zM10.5 12.5l-1.5 1.5M17 3l3 3M12 21a6 6 0 0 0 3.715 -10.712"/>',
       pharmacology:'<path d="M4.5 12.5l8 -8a4.95 4.95 0 0 1 7 7l-8 8a4.95 4.95 0 0 1 -7 -7"/><path d="M8.5 8.5l7 7"/>',
+      community:'<path d="M5 7a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M21 21v-2a4 4 0 0 0 -3 -3.85"/>',
+      forensic:'<path d="M18.9 7a8 8 0 0 1 1.1 5v1a6 6 0 0 0 .8 3"/><path d="M8 11a4 4 0 0 1 8 0v1a10.05 10.05 0 0 0 2 6"/><path d="M12 11v2a14 14 0 0 0 2.5 8"/><path d="M8 15a18 18 0 0 0 1.8 6"/><path d="M4.9 19a22 22 0 0 1 -.9 -7v-1a8 8 0 0 1 12 -6.95"/>',
+      ent:'<path d="M6 10a7 7 0 1 1 13 3.6a10 10 0 0 1 -2 2a8 8 0 0 0 -2 3a4.5 4.5 0 0 1 -6.8 1.4"/><path d="M10 10a3 3 0 1 1 5 2.2"/>',
+      medicine:'<path d="M6 4h-1a2 2 0 0 0 -2 2v3.5a5.5 5.5 0 0 0 11 0v-3.5a2 2 0 0 0 -2 -2h-1"/><path d="M8 15a6 6 0 1 0 12 0v-3"/><path d="M11 3v2M6 3v2"/><path d="M18 10a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/>',
+      surgery:'<path d="M4 17a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M14 17a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M9.15 14.85l8.85 -10.85"/><path d="M6 4l8.85 10.85"/>',
+      paediatrics:'<path d="M6 19a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M16 19a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M2 5h2.5l1.632 4.897a6 6 0 0 0 5.693 4.103h2.675a5.5 5.5 0 0 0 0 -11h-.5v6"/><path d="M6 9h14M9 17l1 -3M16 14l1 3"/>',
+      orthopaedics:'<path d="M12 4a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M7 21l3 -4"/><path d="M16 21l-2 -4l-3 -3l1 -6"/><path d="M6 12l2 -3l4 -1l3 3l3 1"/>',
+      dermatology:'<path d="M8 13v-7.5a1.5 1.5 0 0 1 3 0v6.5"/><path d="M11 5.5v-2a1.5 1.5 0 1 1 3 0v8.5"/><path d="M14 5.5a1.5 1.5 0 0 1 3 0v6.5"/><path d="M17 7.5a1.5 1.5 0 0 1 3 0v8.5a6 6 0 0 1 -6 6h-2h.208a6 6 0 0 1 -5.012 -2.7l-.196 -.3c-.312 -.479 -1.407 -2.388 -3.286 -5.728a1.5 1.5 0 0 1 .536 -2.022a1.867 1.867 0 0 1 2.28 .28l1.47 1.47"/>',
+      psychiatry:'<path d="M15.5 13a3.5 3.5 0 0 0 -3.5 3.5v1a3.5 3.5 0 0 0 7 0v-1.8"/><path d="M8.5 13a3.5 3.5 0 0 1 3.5 3.5v1a3.5 3.5 0 0 1 -7 0v-1.8"/><path d="M17.5 16a3.5 3.5 0 0 0 0 -7h-.5"/><path d="M19 9.3v-2.8a3.5 3.5 0 0 0 -7 0"/><path d="M6.5 16a3.5 3.5 0 0 1 0 -7h.5"/><path d="M5 9.3v-2.8a3.5 3.5 0 0 1 7 0v10"/>',
+      radiology:'<path d="M13.5 14.6l3 5.19a9 9 0 0 0 4.5 -7.79h-6a3 3 0 0 1 -1.5 2.6"/><path d="M13.5 9.4l3 -5.19a9 9 0 0 0 -9 0l3 5.19a3 3 0 0 1 3 0"/><path d="M10.5 14.6l-3 5.19a9 9 0 0 1 -4.5 -7.79h6a3 3 0 0 0 1.5 2.6"/>',
+      anaesthesia:'<path d="M17 3l4 4M19 5l-4.5 4.5M11.5 6.5l6 6"/><path d="M16.5 11.5l-6.5 6.5h-4v-4l6.5 -6.5"/><path d="M7.5 12.5l1.5 1.5M10.5 9.5l1.5 1.5M3 21l3 -3"/>',
       anatomy:'<path d="M15 3a3 3 0 0 1 3 3a3 3 0 1 1 -2.12 5.122l-4.758 4.758a3 3 0 1 1 -5.117 2.297v-.177h-.176a3 3 0 1 1 2.298 -5.115l4.758 -4.758a3 3 0 0 1 2.12 -5.122z"/>'
     };
     return `<svg class="nk-subject-svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[key]}</svg>`;
@@ -675,8 +690,8 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
      "Other", so a new bank can never disappear from Home. A group is a
      presentation wrapper only - the subject cards themselves are unchanged -
      and it opens collapsed until the reader taps it. */
-  const NK_PROF_GROUP_BY_SUBJECT={Anatomy:'first',Physiology:'first',Biochemistry:'first',Microbiology:'second',Pathology:'second',Pharmacology:'second'};
-  const NK_PROF_GROUPS=[{id:'first',title:'First Prof'},{id:'second',title:'Second Prof'},{id:'other',title:'Other'}];
+  const NK_PROF_GROUP_BY_SUBJECT={Anatomy:'first',Physiology:'first',Biochemistry:'first',Microbiology:'second',Pathology:'second',Pharmacology:'second','Community Medicine':'third','Forensic Medicine':'third',Ophthalmology:'third',ENT:'third',Medicine:'final',Surgery:'final','Obstetrics & Gynaecology':'final',Paediatrics:'final',Orthopaedics:'final',Dermatology:'final',Psychiatry:'final',Radiology:'final',Anaesthesia:'final'};
+  const NK_PROF_GROUPS=[{id:'first',title:'First Prof'},{id:'second',title:'Second Prof'},{id:'third',title:'Third Prof'},{id:'final',title:'Final Prof'},{id:'other',title:'Other'}];
   const NK_PROF_GROUPS_KEY='qbank_prof_groups_v1';
   let nkProfGroupOpenState=(()=>{try{const stored=JSON.parse(localStorage.getItem(NK_PROF_GROUPS_KEY)||'{}');return stored&&typeof stored==='object'&&!Array.isArray(stored)?stored:{};}catch(_error){return{};}})();
   function nkProfGroupSubjects(id){return (SUBJECTS||[]).map(record=>String(record.subject||'')).filter(name=>name&&(NK_PROF_GROUP_BY_SUBJECT[name]||'other')===id);}
@@ -917,8 +932,9 @@ function dashboard(){
     const n=Number((String(chapter?.id||'').match(/(\d+)$/)||[])[1]||0),subject=String(activeSubject||'').toLowerCase();
     const sections=__NK_DATA_TOPIC_SECTIONS__;
     if(typeof activeBank!=='undefined'&&activeBank==='Marrow'){
+      // Marrow QBank subjects without a taxonomy entry carry their section on the topic.
       const config=__NK_DATA_MARROW_TOPIC_TAXONOMY__,key=config[activeSubject]?activeSubject:subject.includes('anatomy')?'Anatomy':subject.includes('physiology')?'Physiology':'Biochemistry';
-      return config[key]?.topics?.[String(chapter?.id||'')]?.section||'Needs classification review';
+      if(!(chapter?.section&&!config[activeSubject]))return config[key]?.topics?.[String(chapter?.id||'')]?.section||'Needs classification review';
     }
     if(chapter?.section)return chapter.section;
     const key=subject.includes('anatomy')?'anatomy':subject.includes('physiology')?'physiology':'biochemistry';
@@ -935,8 +951,9 @@ function dashboard(){
     const term=searchTerm.trim().toLowerCase(),all=CHAPTERS.filter(c=>!term||c.title.toLowerCase().includes(term)||chapterQuestions(c.id).some(q=>q.question.toLowerCase().includes(term)));
     const chapters=all.filter(c=>{const x=chapterStats(c.id);return topicFilter==='completed'?x.total&&x.attempted===x.total:topicFilter==='unattempted'?x.attempted===0:topicFilter==='inprogress'?x.attempted>0&&x.attempted<x.total:true;});
     let groups=[];
-    if(typeof activeBank!=='undefined'&&activeBank==='Marrow'){
-      const taxonomy=__NK_DATA_MARROW_TOPIC_TAXONOMY__,config=taxonomy[activeSubject],bySection=new Map();
+    const taxonomy=__NK_DATA_MARROW_TOPIC_TAXONOMY__,marrowIndexed=typeof activeBank!=='undefined'&&activeBank==='Marrow'&&!taxonomy[activeSubject];
+    if(typeof activeBank!=='undefined'&&activeBank==='Marrow'&&!marrowIndexed){
+      const config=taxonomy[activeSubject],bySection=new Map();
       chapters.forEach(c=>{const title=nkTopicSection(c);if(!bySection.has(title))bySection.set(title,[]);bySection.get(title).push(c);});
       const order=[...(config?.sectionOrder||[]),'Needs classification review'];
       groups=order.filter(title=>bySection.has(title)).map(title=>({title,items:bySection.get(title)}));
@@ -946,7 +963,7 @@ function dashboard(){
     }
     const continuation=nkTopicPracticeContinuation(activeSubject,activeBank),resume=continuation?CHAPTER_BY_ID[continuation.topicId]:null;
     const matches=term?QUESTIONS.filter(q=>chapters.some(c=>String(c.id)===String(q.chapterId))&&q.question.toLowerCase().includes(term)).slice(0,30):[];
-    const indexed=typeof activeBank!=='undefined'&&activeBank==='PrepLadder';
+    const indexed=marrowIndexed||typeof activeBank!=='undefined'&&activeBank==='PrepLadder';
     const cards=groups.map(g=>`<section class="nk-topic-group${indexed?' is-index':''}"><h2>${esc(g.title)}</h2><div class="nk-topic-list">${g.items.map(c=>{const x=chapterStats(c.id),pct=x.total?Math.round(x.attempted/x.total*100):0,status=x.total&&x.attempted===x.total?'completed':x.attempted?'inprogress':'notstarted',serial=(typeof activeBank!=='undefined'&&activeBank==='Marrow')?nkMarrowVisibleTopicSerial(c):CHAPTERS.findIndex(v=>String(v.id)===String(c.id))+1;return `<button class="nk-topic-row is-${status}" onclick="window.QB.openChapter('${c.id}')"><svg class="nk-topic-path" viewBox="0 0 60 120" preserveAspectRatio="none" aria-hidden="true"><path d="M30 0 C60 30 0 30 30 60 S60 90 30 120"/></svg><span class="nk-topic-index">${serial}</span><span class="nk-topic-copy"><strong>${esc(c.title.replace(/^Lesson\s+\d+\s*-\s*/i,''))}</strong><small>${status==='completed'?`${fmtPct(x.accuracy)} accuracy`:status==='inprogress'?`${fmtNum(x.total-x.attempted)} questions left`:`${fmtNum(x.total)} questions`}</small></span>${status==='completed'?`<span class="nk-topic-state complete" aria-label="Completed">${navIcon('check',17)}</span>`:status==='inprogress'?`<span class="nk-topic-state progress" aria-label="In progress, ${pct}% answered"><svg class="nk-topic-ring" viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="15" pathLength="100"/><circle cx="18" cy="18" r="15" pathLength="100" stroke-dasharray="${Math.max(4,pct)} 100"/></svg></span>`:''}</button>`}).join('')}</div></section>`).join('');
     return shell(`<div class="nk-app-v114 nk-topics-v114"><div class="nk-journey-heading"><button aria-label="Back to question banks" onclick="window.QB.nav('banks',${esc(JSON.stringify(String(activeSubject)))})">${navIcon('back',22)}</button><h1>${esc(activeSubject)}<small>${typeof activeBank!=='undefined'?esc(activeBank):'Question bank'}</small></h1><button aria-label="Search topics" onclick="document.querySelector('.nk-search').classList.add('is-searching');document.querySelector('.nk-search input').focus()">${navIcon('search',22)}</button><button aria-label="Topic index" onclick="document.getElementById('nk-topic-index-menu').showModal()">${navIcon('grid',22)}</button></div>${nkAppPageHead(`${activeSubject} · ${activeBank} · Study map`,'Topics','Choose a chapter and move directly into focused recall.',`<button class="nk-head-action" onclick="window.QB.startAllPractice()">Mixed Practice ${navIcon('chevron',16)}</button>`)}<div class="nk-subject-switch" aria-label="Choose subject">${SUBJECTS.map(x=>`<button class="${x.subject===activeSubject?'is-active':''}" onclick="window.QB.nkOpenSubjectLibrary(${esc(JSON.stringify(String(x.subject)))})">${nkAppSubjectIcon(x.subject,17)}<span>${esc(x.subject)}</span></button>`).join('')}</div><div class="nk-topic-tools"><label class="nk-search ${searchTerm?'is-searching':''}">${navIcon('search',18)}<input aria-label="Search chapters or questions" placeholder="Search chapters or questions" value="${esc(searchTerm)}" oninput="window.QB.setSearch(this.value)"></label><div class="nk-filter-tabs">${[['all','All'],['inprogress','In Progress'],['completed','Completed'],['unattempted','Not Started']].map(([v,l])=>`<button class="${topicFilter===v?'is-active':''}" aria-pressed="${topicFilter===v}" onclick="window.QB.setTopicFilter('${v}')">${l}</button>`).join('')}</div></div><div class="nk-topic-summary"><span><b>${CHAPTERS.length}</b> topics</span><span aria-hidden="true"> · </span><span><b>${CHAPTERS.filter(c=>chapterStats(c.id).attempted===chapterStats(c.id).total).length}</b> completed</span></div><dialog id="nk-topic-index-menu"><form method="dialog"><button class="ghost-btn">Close index</button></form><h2>Topic index</h2><button class="nk-index-link" onclick="document.getElementById('nk-topic-index-menu').close();window.QB.startAllPractice()">Mixed practice <small>Practice across this question bank</small></button>${groups.map((g,i)=>`<button class="nk-index-link" onclick="document.getElementById('nk-topic-index-menu').close();document.querySelectorAll('.nk-topic-group')[${i}].scrollIntoView({block:'start'})">${esc(g.title)} <small>${g.items.length} topics</small></button>`).join('')}</dialog><div class="nk-topic-search-results">${matches.length?`<h2>Matching questions</h2>${matches.map(q=>`<button class="nk-index-link" onclick="window.QB.practiceOne('${q.id}')">${esc(q.question.slice(0,150))}<small>${esc(q.chapter||'')}</small></button>`).join('')}`:''}</div><div class="nk-topic-journey">${cards||nkAppEmpty('search','No matching topics','Try another search or progress filter.')}</div>${resume?`<aside class="nk-continue-learning"><span class="nk-continue-icon">${navIcon('book',22)}</span><span><small>${continuation.sessionId?'RESUME PRACTICE':chapterStats(resume.id).attempted?'CONTINUE LEARNING':'START HERE'}</small><strong>${esc(resume.title.replace(/^Lesson\s+\d+\s*-\s*/i,''))}</strong><em>${continuation.sessionId?`Question ${continuation.index+1} of ${continuation.total} · ${continuation.answered} answered`:chapterStats(resume.id).attempted?`${continuation.remaining} questions left`:`${continuation.remaining} questions`}</em></span><button aria-label="Continue learning" onclick="${continuation.sessionId?`window.QB.nkResumePracticeById(${esc(JSON.stringify(String(continuation.sessionId)))})`:`window.QB.openChapter('${resume.id}')`}">${navIcon('chevron',20)}</button></aside>`:''}</div>`,'topics');
   }
@@ -1413,7 +1430,7 @@ function dashboard(){
 
   function nkPracticeSubject(q) {
     const raw=String(q?.subject||activeSubject||'').trim();
-    if(raw) return raw.charAt(0).toUpperCase()+raw.slice(1).toLowerCase();
+    if(raw) return /[A-Z]/.test(raw.slice(1))?raw:raw.charAt(0).toUpperCase()+raw.slice(1).toLowerCase();
     const id=String(q?.id||'').toLowerCase();
     return id.startsWith('physiology-')?'Physiology':id.startsWith('anatomy-')?'Anatomy':'Biochemistry';
   }
@@ -1422,7 +1439,7 @@ function dashboard(){
 
   function nkPracticeSubjectIcon(q) {
     const key=nkPracticeSubjectKey(q);
-    if(key==='microbiology'||key==='pathology'||key==='pharmacology')return nkSubjectGraphic(key,20);
+    if(!['physiology','anatomy','biochemistry'].includes(key))return nkSubjectGraphic(key,20);
     return navIcon(key==='physiology'?'heart':key==='anatomy'?'body':'molecule',20);
   }
 
@@ -1437,7 +1454,7 @@ function dashboard(){
 
   function nkSessionSubject(q) {
     const raw=String(q?.subject||activeSubject||'').trim();
-    if(raw) return raw.charAt(0).toUpperCase()+raw.slice(1).toLowerCase();
+    if(raw) return /[A-Z]/.test(raw.slice(1))?raw:raw.charAt(0).toUpperCase()+raw.slice(1).toLowerCase();
     const id=String(q?.id||'').toLowerCase();
     return id.startsWith('physiology-')?'Physiology':id.startsWith('anatomy-')?'Anatomy':'Biochemistry';
   }
@@ -1447,7 +1464,7 @@ function dashboard(){
   function nkSessionSubjectIcon(q) {
     if(String(q?.subject||activeSubject||'').toLowerCase().startsWith('uworld · '))return nkSubjectGraphic(q?.subject||activeSubject,20);
     const key=nkSessionSubjectKey(q);
-    if(key==='microbiology'||key==='pathology'||key==='pharmacology')return nkSubjectGraphic(key,20);
+    if(!['physiology','anatomy','biochemistry'].includes(key))return nkSubjectGraphic(key,20);
     return navIcon(key==='physiology'?'heart':key==='anatomy'?'body':'dna',20);
   }
 
