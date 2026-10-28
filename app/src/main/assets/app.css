@@ -1933,7 +1933,9 @@ html[data-nk-ui="geist"] body #app .nk-learning-insights :is(select, .nk-li-tabs
 html[data-nk-ui="geist"] body #app .nk-learning-insights .nk-li-tabs button[aria-pressed="true"], html[data-nk-ui="geist"] body #app .nk-refined-analysis .nk-na-tabs button[aria-pressed="true"]{color:var(--nkg-inverse-fg) !important;box-shadow:none !important}
 html[data-nk-ui="geist"] body #app .nk-refined-analysis{--na-ink:var(--nk-ink);--na-muted:var(--nk-secondary);--na-line:var(--nk-divider)}
 html[data-nk-ui="geist"] body .nk-fsrs-medallion svg path:first-child{fill:currentcolor}
-html[data-nk-ui="geist"] body #app :is(.nk-app-v114, .nk-home-command-center, .nk-v114-session) ::selection{background-image:initial;background-color:var(--nkg-surface-2);color:var(--nk-ink)}
+/* Selection, scrollbar and tap rules would match every element. Selection sits on body
+   alone (descendants inherit highlight styles); a per-element rule doubled every restyle. */
+html[data-nk-ui="geist"] body::selection{background-image:initial;background-color:var(--nkg-surface-2);color:var(--nk-ink)}
 html[data-nk-ui="geist"] body #app :is(.nk-app-v114, .nk-home-command-center, .nk-v114-session) :is(button, select, input, summary):focus-visible{outline-color:var(--nk-action) !important}
 html[data-nk-ui="geist"] .nk-question-note .nk-note-save{background-image:initial;background-color:var(--nkg-inverse-bg);color:var(--nkg-inverse-fg)}
 html[data-nk-ui="geist"] .nk-question-note textarea{background-image:initial;background-color:var(--nkg-surface);border-top-color:var(--nkg-border);border-right-color:var(--nkg-border);border-bottom-color:var(--nkg-border);border-left-color:var(--nkg-border)}
@@ -1976,13 +1978,12 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) button,
 html[data-nk-ui="geist"] :is(body,#nkg-root) input,
 html[data-nk-ui="geist"] :is(body,#nkg-root) select,
 html[data-nk-ui="geist"] :is(body,#nkg-root) textarea { font-family: var(--nkg-font-sans) !important; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) ::selection { background: color-mix(in srgb, var(--nkg-fg) 16%, transparent); color: inherit; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) input, html[data-nk-ui="geist"] :is(body,#nkg-root) textarea { caret-color: var(--nkg-fg); }
 html[data-nk-ui="geist"] :is(body,#nkg-root) :focus-visible { outline: 2px solid var(--nkg-focus) !important; outline-offset: 2px; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) * { -webkit-tap-highlight-color: transparent; scrollbar-color: var(--nkg-border-strong) transparent; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) ::-webkit-scrollbar { width: 10px; height: 10px; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) ::-webkit-scrollbar-thumb { background: var(--nkg-border-strong); border-radius: 10px; border: 3px solid transparent; background-clip: content-box; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) ::-webkit-scrollbar-track { background: transparent; }
+html[data-nk-ui="geist"] body { -webkit-tap-highlight-color: transparent; scrollbar-color: var(--nkg-border-strong) transparent; }
+html[data-nk-ui="geist"] ::-webkit-scrollbar { width: 10px; height: 10px; }
+html[data-nk-ui="geist"] ::-webkit-scrollbar-thumb { background: var(--nkg-border-strong); border-radius: 10px; border: 3px solid transparent; background-clip: content-box; }
+html[data-nk-ui="geist"] ::-webkit-scrollbar-track { background: transparent; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) a { color: inherit; text-underline-offset: 3px; text-decoration-thickness: 1px; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) h1, html[data-nk-ui="geist"] :is(body,#nkg-root) h2, html[data-nk-ui="geist"] :is(body,#nkg-root) h3 { letter-spacing: -0.02em; text-wrap: balance; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .app-shell { min-width: 0; }
@@ -6863,7 +6864,7 @@ html body #app .nk-refined-analysis .nk-na-tabs button[aria-pressed="true"]{back
 html body .bottom-nav .nav-item.active .nk-icon-tone,
 html body .bookmark-toggle.bookmarked .nk-icon-tone{opacity:.32}
 html body .nk-fsrs-medallion svg path:first-child{fill-opacity:.16;stroke-width:1.9}
-html body #app :is(.nk-app-v114,.nk-home-command-center,.nk-v114-session) ::selection{background:#e4d9f6;}
+html:not([data-nk-ui="geist"]) body::selection{background:#e4d9f6;}
 
 @media(min-width:768px) and (min-height:600px){
  html body #app .qbank-session-page:has(.nk-v114-session){padding-inline:32px!important}

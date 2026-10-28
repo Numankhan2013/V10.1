@@ -1057,7 +1057,8 @@
     /* Step 2 · groups collapse to their header so 260+ topics stay scannable; search opens them. */
     each(root.querySelectorAll('.nk-module-topic-group'), function (g) {
       var head = g.querySelector(':scope > header'), title = txt(g.querySelector('.nk-module-group-title'));
-      if (!head || head.__nkg) return;
+      /* The CBT builder draws its own toggle and fills a group's rows only when it opens. */
+      if (!head || head.__nkg || head.querySelector('.nkg-group-toggle')) return;
       head.__nkg = true;
       if (!(title in builderOpen)) builderOpen[title] = root.querySelectorAll('.nk-module-topic-group').length === 1;
       g.classList.toggle('is-collapsed', !builderOpen[title]);
@@ -1428,34 +1429,46 @@
       if (now) burst(r);
     }); });
   }, true);
-  /* Bottom bar: one pill glides to the active tab. */
-  var navX = null;
+  /* Bottom bar: one pill glides to the active tab. Its spot is remembered per tab and
+     session state (a session hides the bar) until a resize, so a render reads no layout.
+     Even window.innerWidth would force one here, while the new page is still unstyled. */
+  var navX = null, navSpots = {}, NAV_SPRING = 'linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.723 12.9%, 0.938 16.7%, 1.017 19.4%, 1.067, 1.077 24.8%, 1.073 27.4%, 1.019 34.7%, 0.994 41.3%, 0.998 54.5%, 1)';
   function navGlide() {
     var nav = document.querySelector('.bottom-nav');
-    if (!nav || !nav.getClientRects().length || getComputedStyle(nav).display === 'none') return;
-    var act = nav.querySelector('.nav-item.active .nav-icon-wrap');
+    if (!nav) return;
+    var items = nav.querySelectorAll('.nav-item'), idx = -1, doc = document.documentElement;
+    for (var i = 0; i < items.length; i++) if (items[i].classList.contains('active')) { idx = i; break; }
+    var key = idx + '|' + items.length + '|' + doc.hasAttribute('data-nkg-session') + '|' + !!document.querySelector('.nk-v114-session');
+    var spot = navSpots[key];
+    if (!spot) {
+      var act = idx < 0 ? null : items[idx].querySelector('.nav-icon-wrap');
+      if (!nav.getClientRects().length || getComputedStyle(nav).display === 'none') spot = { hidden: true };
+      else if (!act) spot = { none: true };
+      else {
+        var nr = nav.getBoundingClientRect(), ar = act.getBoundingClientRect();
+        spot = { x: ar.left + ar.width / 2 - nr.left, y: ar.top + ar.height / 2 - nr.top };
+      }
+      navSpots[key] = spot;
+    }
+    if (spot.hidden) return;
     var g = nav.querySelector(':scope > .nkg-nav-glide');
-    if (!act) { if (g) g.classList.remove('is-on'); return; }
-    var fresh = !g;
-    if (fresh) { g = el('span', 'nkg-nav-glide'); g.setAttribute('aria-hidden', 'true'); nav.insertBefore(g, nav.firstChild); }
-    var nr = nav.getBoundingClientRect(), ar = act.getBoundingClientRect();
-    var x = ar.left + ar.width / 2 - nr.left, y = ar.top + ar.height / 2 - nr.top;
-    g.style.top = y + 'px';
+    if (spot.none) { if (g) g.classList.remove('is-on'); return; }
+    var x = spot.x, fresh = !g;
     /* Every render rebuilds the nav: a new glide starts lit where the old one was, so
-       re-rendering the same tab (a filter, a toggle) never blinks the active pill. */
-    if (fresh && navX != null) {
-      g.style.transition = 'none'; g.style.transform = 'translate(' + navX + 'px, -50%)'; g.classList.add('is-on');
-      void g.offsetWidth; g.style.transition = ''; g.__placed = Math.abs(navX - x) <= 1;
-    }
-    if (navX != null && !g.__placed && Math.abs(navX - x) > 1 && motionOK()) {
-      g.style.transition = 'none'; g.style.transform = 'translate(' + navX + 'px, -50%)'; void g.offsetWidth; g.style.transition = '';
-    }
-    g.__placed = true;
-    g.style.transform = 'translate(' + x + 'px, -50%)';
+       re-rendering the same tab (a filter, a toggle) never blinks the active pill. A new
+       node has no style to transition from, so the move is a one-off animation. */
+    if (!g) { g = el('span', 'nkg-nav-glide is-on'); g.setAttribute('aria-hidden', 'true'); nav.insertBefore(g, nav.firstChild); }
+    g.style.top = spot.y + 'px';
+    var to = 'translate(' + x + 'px, -50%)';
+    if (fresh && navX != null && Math.abs(navX - x) > 1 && motionOK() && g.animate)
+      try { g.animate([{ transform: 'translate(' + navX + 'px, -50%)' }, { transform: to }], { duration: 460, easing: NAV_SPRING }); }
+      catch (e) { g.animate([{ transform: 'translate(' + navX + 'px, -50%)' }, { transform: to }], { duration: 360, easing: 'ease-out' }); }
+    g.style.transform = to;
     g.classList.add('is-on');
     navX = x;
   }
-  window.addEventListener('resize', function () { var g = document.querySelector('.bottom-nav > .nkg-nav-glide'); if (g) { g.__placed = false; navX = null; navGlide(); } });
+  window.addEventListener('resize', function () { navSpots = {}; navGlide(); });
+  if (document.fonts && document.fonts.addEventListener) document.fonts.addEventListener('loadingdone', function () { navSpots = {}; });
   /* Route entrance: the page's sections rise in sequence instead of fading as one block. */
   function staggerPage(main) {
     var secs = [].slice.call(main.querySelectorAll(':scope > section, :scope > div > section, :scope > div > header, :scope > header')).filter(function (n) { var r = n.getBoundingClientRect(); return r.height && r.top < window.innerHeight; }).slice(0, 7);

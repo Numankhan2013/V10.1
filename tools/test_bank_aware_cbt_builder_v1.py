@@ -81,6 +81,19 @@ call('nkCbtSetCount(10)');call('nkCbtStart()');
 assert.deepEqual(Array.from(started.ids),['marrow1']);assert.equal(started.mode,'exam');
 assert.equal(started.title,'Anatomy · Marrow CBT');assert.equal(context.state.activeSession.originRoute,'tests');
 assert(context.BY_ID.marrow1);assert(saved>0);
+// The cheap pool size agrees with the deduplicated pool, with unique and with shared ids.
+call('openTestBuilder()');assert.equal(call('nkCbtPoolSize()'),ids().length);
+call('nkCbtToggleTopic(0,1)');assert.equal(call('nkCbtPoolSize()'),ids().length);
+const physOnly=context.BANKS_BY_SUBJECT.Physiology;
+context.BANKS_BY_SUBJECT.Physiology=[{...phys,questions:[...phys.questions,{id:'prep1',chapterId:'1'}]}];call('nkCbtSetBanks(true)');
+assert.equal(ids().length,5,'a question shared by two banks counts once');assert.equal(call('nkCbtPoolSize()'),5);
+call('nkCbtToggleTopic(0,0)');assert.equal(call('nkCbtPoolSize()'),ids().length);
+context.BANKS_BY_SUBJECT.Physiology=physOnly;call('nkCbtSetBanks(true)');
+// Collapsed groups draw no rows; opening one draws its topics.
+assert(!call('nkCbtTopicGroupsMarkup()').includes('Prep first'),'several banks start collapsed');
+call('nkCbtDraft.openGroups={0:true}');assert(call('nkCbtTopicGroupsMarkup()').includes('Prep first'));
+call('nkCbtFilterTopics("marrow second")');assert(call('nkCbtTopicGroupsMarkup()').includes('Marrow second'));
+assert(!call('nkCbtTopicGroupsMarkup()').includes('Prep first'),'search draws only matching topics');
 call('openTestBuilder()');context.startSession=()=>false;
 call('nkCbtStart()');assert.notEqual(call('nkCbtDraft'),null,'blocked start keeps the builder draft');
 console.log('BANK_AWARE_CBT_BEHAVIOR_OK exactBank=true exactTopic=true session=true');

@@ -551,17 +551,19 @@
   });
 
   /* ------------------------------------------------------------ observer */
-  var scheduled = false, observers = [];
+  var scheduled = false, observers = [], decoratedRoute = null;
   function onRender() {
     scheduled = false;
     var app = document.getElementById('app');
     if (!app) return;
     buildTopbar();
     var page = route();
+    decoratedRoute = page;
     var session = !!app.querySelector('.qbank-session-page, .nk-session-footer, .review-fixed-actions') ||
       page === 'practice' || page === 'exam' || page === 'review-test';
-    doc.setAttribute('data-nkg-route', page);
-    if (session) doc.setAttribute('data-nkg-session', ''); else doc.removeAttribute('data-nkg-session');
+    /* Root attributes restyle the whole page: write them only when they change. */
+    if (doc.getAttribute('data-nkg-route') !== page) doc.setAttribute('data-nkg-route', page);
+    if (session !== doc.hasAttribute('data-nkg-session')) { if (session) doc.setAttribute('data-nkg-session', ''); else doc.removeAttribute('data-nkg-session'); }
     if (page === 'profile') renderProfile(app);
     else if (page === 'more') decorateMore(app);
     if (page === 'dashboard') decorateHome(app);
@@ -570,8 +572,6 @@
     ['modal', 'nk-practice-sessions', 'nk-mock-sheet'].forEach(function (id) { var m = document.getElementById(id); if (m) swapIcons(m); });
     updateTopbar(page, session);
     syncThemeControls();
-    measureDockNow();
-    measureDock();
     /* Re-measure once page-enter motion has settled (a transformed page offsets fixed docks). */
     window.clearTimeout(dockSettle); dockSettle = window.setTimeout(measureDock, 480);
     neutralizeInlineTracks(app);
@@ -581,6 +581,10 @@
       var b = zero[z].querySelector('b');
       zero[z].classList.toggle('nkg-zero', !!b && b.textContent.trim() === '0');
     }
+    /* Measured last, after every decoration has written, so the page pays one style
+       and layout pass for this render instead of one per reader. */
+    measureDockNow();
+    measureDock();
     /* Drop the mutations this pass made itself (icon swaps, decorations) so one app
        render costs one decoration pass instead of re-triggering itself. */
     for (var o = 0; o < observers.length; o++) observers[o].takeRecords();
@@ -655,7 +659,10 @@
         if (rc.top < top) top = rc.top;
       }
       var h = Math.max(0, Math.round(H - top));
-      if (h) { doc.style.setProperty('--nkg-dock-h', h + 'px'); doc.setAttribute('data-nkg-dock', ''); }
+      /* A root custom property restyles every element: only write a changed value. */
+      var want = h ? h + 'px' : '';
+      if (doc.style.getPropertyValue('--nkg-dock-h') === want && doc.hasAttribute('data-nkg-dock') === !!h) return;
+      if (h) { doc.style.setProperty('--nkg-dock-h', want); doc.setAttribute('data-nkg-dock', ''); }
       else { doc.style.removeProperty('--nkg-dock-h'); doc.removeAttribute('data-nkg-dock'); }
   }
   window.addEventListener('resize', measureDock);
@@ -674,7 +681,9 @@
     observers = [new MutationObserver(schedule), new MutationObserver(schedule)];
     observers[0].observe(app, { childList: true, subtree: true });
     observers[1].observe(document.body, { childList: true });
-    window.addEventListener('hashchange', function () { window.setTimeout(onRender, 0); });
+    /* A route change normally re-renders (the observer decorates it); only a hash change
+       that left the page as it was still needs a pass of its own. */
+    window.addEventListener('hashchange', function () { window.setTimeout(function () { if (decoratedRoute !== route()) onRender(); }, 0); });
     onRender();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
