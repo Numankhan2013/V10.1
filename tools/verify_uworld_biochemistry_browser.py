@@ -73,6 +73,13 @@ def main():
                             ('Anatomy', 'Marrow'): 1114, ('Physiology', 'Marrow'): 1014, ('Biochemistry', 'Marrow'): 581,
                             ('Microbiology', 'PrepLadder'): 1202, ('Pathology', 'PrepLadder'): 1459,
                             ('Pharmacology', 'PrepLadder'): 1321,
+                            ('Pathology', 'Marrow'): 1367, ('Pharmacology', 'Marrow'): 1275,
+                            ('Community Medicine', 'Marrow'): 1319, ('Forensic Medicine', 'Marrow'): 436,
+                            ('Ophthalmology', 'Marrow'): 633, ('ENT', 'Marrow'): 583, ('Medicine', 'Marrow'): 1870,
+                            ('Surgery', 'Marrow'): 1253, ('Obstetrics & Gynaecology', 'Marrow'): 988,
+                            ('Paediatrics', 'Marrow'): 800, ('Orthopaedics', 'Marrow'): 501,
+                            ('Dermatology', 'Marrow'): 507, ('Psychiatry', 'Marrow'): 432,
+                            ('Radiology', 'Marrow'): 342, ('Anaesthesia', 'Marrow'): 549,
                             # The canonical bank less the questions withheld from the app.
                             ('Microbiology', 'Marrow'): __import__('json').loads((Path(__file__).resolve().parents[1] / 'data/marrow/microbiology_marrow_qbank_manifest.json').read_text())['questions']
                             - sum(q['subject'] == 'Microbiology' for q in __import__('json').loads((Path(__file__).resolve().parents[1] / 'data/marrow/withdrawn_questions_v1.json').read_text())['questions']),
@@ -105,9 +112,9 @@ def main():
                     page.evaluate('QB.nav("practice")')
                     page.locator('.option-list button').first.wait_for()
 
-                # Incumbent subjects (four PrepLadder+Marrow, PrepLadder Pathology and
-                # Pharmacology) remain separate from UWorld collections.
-                expect(page.locator('.nk-home-subjects button.nk-v3-subject-card')).to_have_count(6)
+                # The six PrepLadder+Marrow subjects and the 13 Marrow-only Third and
+                # Final Prof subjects remain separate from UWorld collections.
+                expect(page.locator('.nk-home-subjects button.nk-v3-subject-card')).to_have_count(19)
                 # My Subjects opens collapsed; enter the subject through the app entry point.
                 page.evaluate('QB.nkOpenSubjectLibrary("Biochemistry")')
                 expect(page.locator('button.nk-bank-card')).to_have_count(2)

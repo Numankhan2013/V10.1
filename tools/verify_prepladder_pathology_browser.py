@@ -38,7 +38,7 @@ def fail(message: str) -> None:
 
 def open_lesson(page, title: str, nth: int = 0) -> None:
     page.evaluate("window.QB.nkOpenSubjectLibrary('Pathology')")
-    page.wait_for_function("() => document.querySelectorAll('button.nk-bank-card').length===1", timeout=8000)
+    page.wait_for_function("() => document.querySelectorAll('button.nk-bank-card').length===2", timeout=8000)
     page.locator("button.nk-bank-card").filter(has_text="PrepLadder").click()
     page.wait_for_function("() => document.querySelectorAll('button.nk-topic-row').length===90", timeout=8000)
     page.locator("button.nk-topic-row").filter(has_text=title).nth(nth).click()
@@ -69,7 +69,7 @@ def main() -> None:
             page.goto(f"http://127.0.0.1:{port}/index.html", wait_until="networkidle")
 
             card = page.locator(".nk-home-subjects button.nk-v3-subject-card").filter(has_text="Pathology")
-            if card.count() != 1 or "1,459" not in card.inner_text():
+            if card.count() != 1 or "2,826" not in card.inner_text() or "Marrow" not in card.inner_text():
                 fail(f"Pathology subject card missing or wrong: {card.all_inner_texts()!r}")
             if "is-pathology" not in (card.get_attribute("class") or ""):
                 fail("Pathology card has no subject identity class")
@@ -78,8 +78,9 @@ def main() -> None:
                 fail(f"Second Prof should hold Microbiology and Pathology: {second.inner_text()!r}")
 
             page.evaluate("window.QB.nkOpenSubjectLibrary('Pathology')")
-            page.wait_for_function("() => document.querySelectorAll('button.nk-bank-card').length===1", timeout=8000)
-            bank = page.locator("button.nk-bank-card")
+            # PrepLadder and Marrow sit side by side; this verifier walks PrepLadder.
+            page.wait_for_function("() => document.querySelectorAll('button.nk-bank-card').length===2", timeout=8000)
+            bank = page.locator("button.nk-bank-card").filter(has_text="PrepLadder")
             if "1,459 questions" not in bank.inner_text() or "Text explanations" not in bank.inner_text():
                 fail(f"PrepLadder card wrong: {bank.inner_text()!r}")
             bank.click()
