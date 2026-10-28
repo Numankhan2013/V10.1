@@ -42,6 +42,8 @@
     }
     return info;
   }
+  // Questions a test can draw from the bank: the card agrees with the topic step.
+  function nkCbtRecordSize(record){return nkCbtRecordInfo(record).counts.reduce((sum,n)=>sum+n,0);}
   // Every change to the selection drops the cached pool.
   function nkCbtTouch(){if(nkCbtDraft)nkCbtDraft.poolCache=null;}
 
@@ -283,7 +285,7 @@
   }
   function nkCbtBanksMarkup(){
     const selected=new Set(nkCbtDraft.bankKeys),records=nkCbtRecords();
-    return `<div class="nk-cbt-bank-intro"><strong>Choose the sources for this test</strong><span id="nk-cbt-bank-count">${selected.size} of ${records.length} banks selected</span></div><div class="nk-module-select-tools nk-cbt-bank-tools"><button type="button" onclick="window.QB.nkCbtSetBanks(true)">Select all</button><button type="button" onclick="window.QB.nkCbtSetBanks(false)">Clear all</button></div><div class="nk-module-choice-grid">${records.map((record,index)=>{const picked=selected.has(nkCbtRecordKey(record)),meta=nkAppSubjectMeta(record.subject);return `<button type="button" class="nk-module-subject is-${meta.key} ${picked?'is-selected':''}" data-bank-index="${index}" aria-pressed="${picked}" onclick="window.QB.nkCbtToggleBank(${index})"><span>${nkAppSubjectIcon(record.subject,23)}</span><strong>${esc(record.subject)}</strong><small>${esc(record.bank)} · ${fmtNum(record.questions.length)} questions · ${fmtNum(nkModuleTopics(record).length)} topics</small><i>${picked?navIcon('check',15):''}</i></button>`;}).join('')}</div>`;
+    return `<div class="nk-cbt-bank-intro"><strong>Choose the sources for this test</strong><span id="nk-cbt-bank-count">${selected.size} of ${records.length} banks selected</span></div><div class="nk-module-select-tools nk-cbt-bank-tools"><button type="button" onclick="window.QB.nkCbtSetBanks(true)">Select all</button><button type="button" onclick="window.QB.nkCbtSetBanks(false)">Clear all</button></div><div class="nk-module-choice-grid">${records.map((record,index)=>{const picked=selected.has(nkCbtRecordKey(record)),meta=nkAppSubjectMeta(record.subject);return `<button type="button" class="nk-module-subject is-${meta.key} ${picked?'is-selected':''}" data-bank-index="${index}" aria-pressed="${picked}" onclick="window.QB.nkCbtToggleBank(${index})"><span>${nkAppSubjectIcon(record.subject,23)}</span><strong>${esc(record.subject)}</strong><small>${esc(record.bank)} · ${fmtNum(nkCbtRecordSize(record))} questions · ${fmtNum(nkModuleTopics(record).length)} topics</small><i>${picked?navIcon('check',15):''}</i></button>`;}).join('')}</div>`;
   }
   function nkCbtTopicRowsMarkup(record,recordIndex){
     const info=nkCbtRecordInfo(record),selected=new Set(nkCbtDraft.topicKeys),check=navIcon('check',16);
