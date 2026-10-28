@@ -31,6 +31,7 @@ the filled page is what ships.
 from __future__ import annotations
 
 import argparse
+import collections
 import json
 import re
 from pathlib import Path
@@ -76,8 +77,33 @@ def marrow_data() -> str:
     from prepladder_qbank_bank import app_records as prepladder_qbank_records, merged_record
     banks = {"microbiology": app_record(), "pathology": pathology_record(), "pharmacology": pharmacology_record(),
              "biochemistry": biochemistry_record(), "physiology": physiology_record(), "anatomy": anatomy_record()}
-    return js_json({"records": records + [merged_record(slug, base) for slug, base in banks.items()]
-                    + marrow_qbank_records() + prepladder_qbank_records()})
+    return js_json({"records": records + [titled(merged_record(slug, base)) for slug, base in banks.items()]
+                    + marrow_qbank_records() + [titled(r) for r in prepladder_qbank_records()]})
+
+
+ROMAN = re.compile(r"\b(?:Ii|Iii|Iv|Vi|Vii|Viii|Ix)\b")
+
+
+def titled(record: dict) -> dict:
+    """PrepLadder lesson titles a learner can tell apart: "Part II" not "Part Ii", and a section's repeated
+    "Previous Year Questions" lessons numbered ", Part 1", ", Part 2" in their order."""
+    topics = record.get("topics") or []
+    before = {str(t["id"]): t["title"] for t in topics}
+    names = {str(t["id"]): ROMAN.sub(lambda m: m.group(0).upper(), t["title"]) for t in topics}
+    seen = collections.Counter((t.get("section"), names[str(t["id"])]) for t in topics)
+    part: collections.Counter = collections.Counter()
+    for t in topics:
+        key = (t.get("section"), names[str(t["id"])])
+        if seen[key] > 1:
+            part[key] += 1
+            names[str(t["id"])] = f"{key[1]}, Part {part[key]}"
+        t["title"] = names[str(t["id"])]
+    for q in record.get("questions") or []:
+        cid = str(q.get("chapterId"))
+        for field in ("chapter", "topic"):
+            if cid in names and q.get(field) == before[cid]:
+                q[field] = names[cid]
+    return record
 
 
 def marrow_explanation_gold() -> str:

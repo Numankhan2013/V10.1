@@ -312,6 +312,27 @@ class Tree(HTMLParser):
         self.cur.children.append(data)
 
 
+TEX_SYMBOL = {"times": "×", "rightarrow": "→", "leftarrow": "←", "alpha": "α", "beta": "β", "gamma": "γ",
+              "mu": "μ", "pm": "±", "le": "≤", "ge": "≥", "circ": "°", "cdot": "·"}
+TEX_COMMAND = re.compile(r"\\(" + "|".join(TEX_SYMBOL) + r")(?![A-Za-z])")
+TEX_MATH = re.compile(r"\$((?:[^$<|\"\n]|&[lg]t;){1,40})\$")
+
+
+def detex(html: str) -> str:
+    """The few spots where an author typed LaTeX ($2 \\text{ Hz}$, 0.25 \\times 0.01) as the text it means.
+
+    Only a $…$ span holding a TeX command or a leading comparison counts as maths, so prices stay as they are;
+    a stray "&amp;nbsp;" becomes a space."""
+    def maths(m: re.Match) -> str:
+        inner = m.group(1)
+        if "\\" not in inner and not re.match(r"\s*(?:&[lg]t;|[<>])", inner):
+            return m.group(0)
+        return re.sub(r"\\text\{([^{}]*)\}", r"\1", inner).strip()
+    html = TEX_MATH.sub(maths, html.replace("&amp;nbsp;", " "))
+    html = re.sub(r"\\text\{([^{}]*)\}", r"\1", html)
+    return TEX_COMMAND.sub(lambda m: TEX_SYMBOL[m.group(1)], html)
+
+
 LABEL = re.compile(r"(?:Other|Incorrect) options?\s*:|Explanation\s*:|Extra edge\s*:", re.I)
 SCRIPT_TEXT = re.compile(r"^[A-Za-z0-9+\-−–,.()/]{1,8}$")
 
@@ -397,7 +418,7 @@ class Converter:
     def convert(self, html: str, qid: str) -> tuple[list[dict], list[dict]]:
         self.tables, self.qid = [], qid
         tree = Tree()
-        tree.feed(html)
+        tree.feed(detex(html))
         tree.close()
         blocks: list[dict] = []
         self.walk(tree.root, blocks)
@@ -634,7 +655,9 @@ def place_figures(blocks: list[dict], tables: list[dict], images: list[dict]) ->
             if table.get("title"):
                 table["title"] = take(table["title"], found)
             table["columns"] = [take(c, found) for c in table["columns"]]
-            table["rows"] = [[take(c, found) for c in row] for row in table["rows"]]
+            # A cell that held only a figure points to it (it follows the table).
+            table["rows"] = [[take(c, found) or ("Figure below" if FIGURE_MARK.fullmatch(c.strip()) else "")
+                              for c in row] for row in table["rows"]]
         if block["type"] not in ("paragraph", "heading") or block["text"]:
             out.append(block)
         for spot in found:

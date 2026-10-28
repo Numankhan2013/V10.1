@@ -5501,7 +5501,7 @@ body:has(.nk-topics-v114) .page{padding-top:22px!important;padding-bottom:210px!
 .nk-topics-v114 .nk-filter-tabs button.is-active{background:#a194ed;}
 .nk-topics-v114 .nk-topic-summary{font-size:11px;margin-bottom:20px}
 .nk-topic-journey{gap:28px}
-.nk-topic-group{scroll-margin-top:20px}
+.nk-topic-group{scroll-margin-top:calc(var(--nkg-topbar-h,56px) + env(safe-area-inset-top,0px) + 12px)}
 .nk-topic-group>h2{font-size:18px;margin:0 0 16px 2px}
 .nk-topic-group .nk-topic-list{gap:14px}
 .nk-topic-group .nk-topic-list:before{display:none}

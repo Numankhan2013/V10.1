@@ -176,9 +176,10 @@
     const lines=source.split('\n');
     const tableTakeaway=negative?'':nkTableTakeaway(lines,tokens,answer);
     if(tableTakeaway&&tableTakeaway!==nkFinishTakeaway(answer))return tableTakeaway;
-    const prose=lines.filter(line=>!/^\s*\S.*\s{2,}\S/.test(line)).join(' ').replace(/\s+/g,' ').trim();
-    const sentences=(prose.match(/[^.!?]+[.!?]+|[^.!?]+$/g)||[])
-      .map(sentence=>sentence.replace(/^[-–—:\s]+/,'').replace(/\s*\(Option\s+[A-E]\)\s*/ig,' ').replace(/\s+/g,' ').trim())
+    // Table rows (wide gaps or " | " cells) are not prose; "6p12.2" or "0.5" does not end a sentence.
+    const prose=lines.filter(line=>!/^\s*\S.*\s{2,}\S/.test(line)&&!/\s\|\s/.test(line)).join(' ').replace(/\s+/g,' ').trim();
+    const sentences=(prose.match(/(?:[^.!?]|[.!?](?=\S))+(?:[.!?]+|$)/g)||[])
+      .map(sentence=>sentence.replace(/^[-–—:\s]+/,'').replace(/\s*\(Option\s+[A-E]\)\s*/ig,' ').replace(/\*\*\s*\*\*/g,' ').replace(/\s+/g,' ').trim())
       .filter(sentence=>sentence.length>=35&&sentence.length<=300&&/^[A-Z0-9]/.test(sentence));
     let best='',bestScore=0;
     sentences.forEach(sentence=>{

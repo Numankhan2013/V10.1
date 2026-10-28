@@ -31,7 +31,7 @@ Per-subject numbers are pinned in `data/Prepladder/qbank/expected.json`.
 - 14,015 figures, loaded **at original quality from `image.prepladder.com`**; nothing is recompressed.
 - Every figure is probed once (type, width, height, bytes; `figures.json`) so the app reserves its space and nothing jumps.
 - Figures over 8 MB (large animated GIFs) show a "Tap to load · N MB" card instead of downloading on their own.
-- **Placement.** The export moved every explanation figure to the very end (after the references) and left an empty `<figure>` with `{{caption_text}}`, or an empty paragraph, where it was. The importer marks those spots (`mark_figure_spots`) and the bank turns them into figure blocks, so each figure shows where the author put it (about 92% of PrepLadder figures; the rest, whose spot the export lost, sit just above the references). A few figures the export left in place as broken `<img>` text are recovered too.
+- **Placement.** The export moved every explanation figure to the very end (after the references) and left an empty `<figure>` with `{{caption_text}}`, or an empty paragraph, where it was. The importer marks those spots (`mark_figure_spots`) and the bank turns them into figure blocks, so each figure shows where the author put it (9,092 of 10,426 PrepLadder explanation figures, 87%; the rest, whose spot the export lost, sit just above the references). A figure lifted out of a table cell follows its table and the emptied cell reads "Figure below"; a few figures the export left in place as broken `<img>` text are recovered too. A handful of typed LaTeX spans ($2 \text{ Hz}$, \times) read as plain text.
 - The audio-explanation block, the caption template and "Explanation:" / answer lines are removed; "Reference(s):" become the app's references block.
 - Ten URLs the server answers empty (HTTP 416) are dropped; SVG URLs are PrepLadder interface icons and are skipped.
 - Planned: move figures to Cloudflare R2 as lossless WebP (pixel-identical, about 57% of the size) once the owner sets up a bucket and token.
@@ -43,4 +43,5 @@ Per-subject numbers are pinned in `data/Prepladder/qbank/expected.json`.
 - Forensic Medicine: Torture Types and Entomology have no QBank tests in the export.
 - O&G: "RIS" has no topic in the index.
 - Option letters: in about 90 explanations PrepLadder names the wrong letter for an option ("Option B" for what is option C). Left as the source has it.
+- Repeated "Previous Year Questions" lessons within one section are numbered ", Part 1", ", Part 2" at build time (`build_app_data.titled`), which also writes roman numerals as "Part II".
 - Duplicates: about 120 questions repeat within their subject with different wording kept by both exports; 19 supplement questions repeat a PDF-bank question in different words. Not removed.

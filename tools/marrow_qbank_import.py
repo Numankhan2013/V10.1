@@ -71,6 +71,9 @@ def is_figure(url: str) -> bool:
     return not any(h in url for h in NOT_FIGURES) and not url.split("?")[0].lower().endswith(".svg")
 
 
+EMPTY_CELL = re.compile(r"<td([^>]*)>(?:[ \t\n]|&nbsp;|<br\s*/?>|<p>(?:[ \t\n]|&nbsp;)*</p>)*</td>", re.I)
+
+
 def mark_figure_spots(body: str, figures: int) -> str:
     """Mark the spot of each explanation figure, in order, where the export's empty spots match them one to one.
 
@@ -81,7 +84,17 @@ def mark_figure_spots(body: str, figures: int) -> str:
     chosen = next((tier for tier in tiers if len(tier) == figures), [])
     marks = {s.start(): FIGURE_MARK.format(n) for n, s in enumerate(chosen, 1)}
     # Unmatched captioned spots are dropped (their caption is only the template); empty paragraphs stay as spacing.
-    return FIGURE_SPOT.sub(lambda s: marks.get(s.start(), "" if s.group("caption") else s.group(0)), body)
+    body = FIGURE_SPOT.sub(lambda s: marks.get(s.start(), "" if s.group("caption") else s.group(0)), body)
+    if figures and not chosen:
+        # Last resort: a figure the export lifted out of a table left its cell empty. Tried only when nothing
+        # above matched, so a figure placed by the surer spots never moves.
+        cells = list(EMPTY_CELL.finditer(body))
+        for kept in (cells, [c for c in cells if "center" in c.group(1)]):
+            if len(kept) == figures:
+                at = {c.start(): n for n, c in enumerate(kept, 1)}
+                return EMPTY_CELL.sub(lambda c: f"<td{c.group(1)}>[[figure-{at[c.start()]}]]</td>"
+                                      if c.start() in at else c.group(0), body)
+    return body
 
 
 def explanation_html(raw: str, figures: int = 0) -> str:
