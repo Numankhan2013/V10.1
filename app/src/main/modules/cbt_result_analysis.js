@@ -1,6 +1,6 @@
   /* NK_CBT_RESULT_ANALYSIS_V1_START */
   function nkCbtQuestionLookup(){
-    if(typeof nkBankQuestionById==='function')return {get:key=>nkBankQuestionById(key)};
+    if(typeof nkBankQuestionById==='function')return {get:key=>nkBankQuestionById(key),has:key=>!!nkBankQuestionById(key)};
     return new Map(nkAllStudyQuestions().map(q=>[String(q.id),q]));
   }
   function nkCbtResultAnalysis(test){
