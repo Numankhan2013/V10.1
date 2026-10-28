@@ -27,7 +27,8 @@ import re
 import zlib
 from pathlib import Path
 
-from marrow_qbank_bank import Converter, STEM_HTML, fail, plain_text, sha256, stem, unescape
+from marrow_qbank_bank import (Converter, STEM_HTML, fail, place_figures, plain_text, sha256, stem,
+                               tidy_explanation, unescape)
 
 ROOT = Path(__file__).resolve().parents[1]
 QBANK = ROOT / "data/Prepladder/qbank"
@@ -61,7 +62,6 @@ SUBJECTS: dict[str, dict] = {
 }
 EXPECTED_PATH = QBANK / "expected.json"
 RUNTIME = ROOT / "app/src/main/assets/prepladder_qbank_visual_metadata.js"
-ANSWER_LEAD = re.compile(r"^\W*Correct answer\s*:", re.I)
 
 
 def existing_bank(slug: str) -> dict:
@@ -101,10 +101,8 @@ def question(slug: str, q: dict, converter: Converter, chapter: dict) -> dict:
     if not text or any(not o["text"] or STEM_HTML.search(o["text"]) for o in options):
         fail(f"{slug} {qid}: blank stem or option, or markup left in an option")
     blocks, tables = converter.convert(q["explanationHtml"], f"{code}_{qid}")
-    # A leading "Correct answer: Option B) …" line in a form the importer's patterns miss;
-    # the app shows the key itself.
-    while blocks and blocks[0]["type"] in ("paragraph", "heading") and ANSWER_LEAD.match(blocks[0]["text"]):
-        blocks = blocks[1:]
+    # Figures where the source had them; no opening "Explanation:" or answer line (the app shows the key).
+    blocks = tidy_explanation(place_figures(blocks, tables, q["images"]))
     if not blocks:
         blocks = [{"type": "paragraph", "text": "No explanation is given for this question in the source."}]
     flat = plain_text(blocks, {t["table_id"]: t for t in tables})

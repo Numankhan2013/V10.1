@@ -1553,7 +1553,8 @@ function dashboard(){
       const cell=v=>{const [lead,...rest]=String(v).split('\n').map(s=>s.trim()).filter(Boolean);return rest.length&&lead.endsWith(':')?`<li>${nkMarrowRich(lead)}<ul>${rest.map(li).join('')}</ul></li>`:[lead,...rest].map(li).join('');};
       return `<div class="nk-marrow-split">${table.title?`<div class="nk-marrow-heading">${nkMarrowRich(table.title)}</div>`:''}${cols.map((c,i)=>{const cells=rows.map(r=>(r||[])[i]).filter(filled);return cells.length?`<div class="nk-marrow-heading">${nkMarrowOrderedCell(c)}</div><ul>${cells.map(cell).join('')}</ul>`:'';}).join('')}</div>`;
     }
-    return `<div class="nk-marrow-table"><table>${table.title?`<caption>${nkMarrowRich(table.title)}</caption>`:''}<thead><tr>${cols.map(c=>`<th>${nkMarrowOrderedCell(c)}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${cols.map((_,i)=>`<td>${nkMarrowOrderedCell((r||[])[i]||'')}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+    // A table without column labels gets no empty header bar.
+    return `<div class="nk-marrow-table"><table>${table.title?`<caption>${nkMarrowRich(table.title)}</caption>`:''}${cols.some(filled)?`<thead><tr>${cols.map(c=>`<th>${nkMarrowOrderedCell(c)}</th>`).join('')}</tr></thead>`:''}<tbody>${rows.map(r=>`<tr>${cols.map((_,i)=>`<td>${nkMarrowOrderedCell((r||[])[i]||'')}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
   }
   function nkMarrowOrderedSame(a,b){const n=x=>String(x||'').replace(/\*\*/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();return Boolean(n(a))&&n(a)===n(b);}
   function nkRenderMarrowOrdered(q){
@@ -1578,6 +1579,8 @@ function dashboard(){
       if(b.type==='table')return tables.has(String(b.table_id))?nkRenderMarrowOrderedTable(tables.get(String(b.table_id))):'';
       if(b.type==='pearl')return `<div class="nk-marrow-heading nk-marrow-pearl">${nkMarrowRich('Marrow Pearl · '+String(b.title||''))}</div>`;
       if(b.type==='note')return `<p class="nk-marrow-note">${nkMarrowRich(b.text)}</p>`;
+      // Where the source had a figure; marrow_visual_renderer.js mounts it here.
+      if(b.type==='figure')return `<div class="nk-marrow-figure-slot" data-marrow-figure="${Number(b.order)||0}"></div>`;
       // Book titles in italics; explanation figures mount above this block.
       if(b.type==='references')return `<div class="nk-explain-refs"><div class="nk-explain-refs-label">References</div>${(b.items||[]).map(it=>`<p>${it.title?`<cite>${nkMarrowRich(it.title)}</cite>`:''}${nkMarrowRich(it.rest||'')}</p>`).join('')}</div>`;
       return '';

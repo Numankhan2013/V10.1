@@ -14,6 +14,8 @@ function mount(){
     const figures=(window.MARROW_VISUALS?.[id]||[]).filter(f=>f.role===role);
     if(!figures.length)return;
     const box=document.createElement('div');box.className='nk-marrow-figures';
+    /* An explanation that marks where its figures sat (a figure block) gets each one in place. */
+    const slotOf=figure=>role==='explanation'&&figure.order!=null?node.querySelector('[data-marrow-figure="'+Number(figure.order)+'"]'):null;
     figures.forEach((figure,index)=>{
       const item=document.createElement('figure');
       const button=document.createElement('button');button.type='button';button.className='nk-marrow-figure-button';
@@ -36,8 +38,12 @@ function mount(){
         if(held){held=false;button.classList.remove('is-held');button.style.aspectRatio='';button.textContent='';button.setAttribute('aria-label','Expand '+figure.alt);img.loading='eager';img.src=url(figure.src);button.append(img);caption.textContent=label;return;}
         window.NKSourceVisualViewer?.({type:'asset',source:figure.src},'Source figure '+(index+1));
       });
-      item.append(button,caption);box.append(item);
+      item.append(button,caption);
+      const slot=slotOf(figure);
+      if(slot){const own=document.createElement('div');own.className='nk-marrow-figures';own.append(item);slot.replaceChildren(own);}
+      else box.append(item);
     });
+    if(!box.childElementCount)return;
     if(role==='question')node.after(box);else{
       const tail=node.querySelector('.nk-explain-refs,.nk-gold-wrong,.nk-marrow-provenance');
       if(tail)tail.before(box);else node.append(box);

@@ -2,6 +2,7 @@
 """PrepLadder QBank (web export): shards current, structure and content clean, figures listed, app wired."""
 from __future__ import annotations
 
+import collections
 import json
 import re
 import subprocess
@@ -21,7 +22,7 @@ PROF = {"Forensic Medicine": "third", "Community Medicine": "third", "ENT": "thi
         "Psychiatry": "final-minor", "Dermatology": "final-minor"}
 
 
-def check_question(q: dict, slug: str, topic_ids: set[str]) -> None:
+def check_question(q: dict, slug: str, topic_ids: set[str], explanation_figures: int) -> None:
     assert q["chapterId"] in topic_ids and q["bank"] == "PrepLadder", q["id"]
     assert q["subject"] == bank.SUBJECTS[slug]["subject"], q["id"]
     assert len(q["options"]) == 4 and q["correctOption"] in (1, 2, 3, 4), q["id"]
@@ -30,16 +31,23 @@ def check_question(q: dict, slug: str, topic_ids: set[str]) -> None:
     data = q["structuredExplanation"]
     assert data["layout"] == "ordered-blocks" and data["blocks"], q["id"]
     table_ids = {t["table_id"] for t in data["tables"]}
+    placed = []
     for b in data["blocks"]:
-        assert b["type"] in ("paragraph", "heading", "bullets", "table"), (q["id"], b["type"])
+        assert b["type"] in ("paragraph", "heading", "bullets", "table", "figure", "references"), (q["id"], b["type"])
         if b["type"] == "table":
             assert b["table_id"] in table_ids, q["id"]
+        if b["type"] == "figure":
+            placed.append(b["order"])
+    # Every explanation figure sits once in the explanation, where the source had it.
+    assert sorted(placed) == list(range(1, explanation_figures + 1)), (q["id"], placed)
     for t in data["tables"]:
         assert len(t["columns"]) >= 2 and all(len(r) == len(t["columns"]) for r in t["rows"]), q["id"]
     for text in texts(q):
         assert not ZERO_WIDTH.search(text), f"{q['id']}: watermark character left in {text[:60]!r}"
         assert not TAG.search(text), f"{q['id']}: raw HTML left in {text[:80]!r}"
         assert "@neet" not in text and "Correct answer:" not in text, f"{q['id']}: export chrome left"
+        # The player's template, audio block and broken image tags never reach the text.
+        assert not re.search(r"\{\{|\[\[figure|Audio Explanation|data-author=", text), f"{q['id']}: {text[:80]!r}"
         assert text.count("**") % 2 == 0, f"{q['id']}: unbalanced bold in {text[:80]!r}"
 
 
@@ -79,11 +87,12 @@ def main() -> None:
                 assert t["questionCount"] == sum(1 for q in record["questions"] if q["chapterId"] == t["id"]) > 0
             topic_ids = {t["id"] for t in record["topics"]}
             totals["bank"] += len(record["questions"])
+        inventory = json.loads((bank.QBANK / slug / "visuals.json").read_text(encoding="utf-8"))["figures"]
+        explained = collections.Counter(f["questionId"] for f in inventory if f["role"] == "explanation")
         for q in record["questions"]:
             assert q["id"] not in ids, q["id"]
             ids.add(q["id"])
-            check_question(q, slug, topic_ids)
-        inventory = json.loads((bank.QBANK / slug / "visuals.json").read_text(encoding="utf-8"))["figures"]
+            check_question(q, slug, topic_ids, explained[q["id"]])
         own = {q["id"] for q in record["questions"]}
         for f in inventory:
             assert f["questionId"] in own and f["url"].startswith("https://image.prepladder.com/"), f

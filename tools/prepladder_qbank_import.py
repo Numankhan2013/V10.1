@@ -51,7 +51,8 @@ sys.path.insert(0, str(ROOT / "tools"))
 
 from PIL import Image, ImageFile  # noqa: E402
 
-from marrow_qbank_import import AGENT, NOT_FIGURES, ZERO_WIDTH, clean, sniff, tests_list  # noqa: E402
+from marrow_qbank_import import (AGENT, ZERO_WIDTH, clean, is_figure, mark_figure_spots, sniff,  # noqa: E402
+                                 tests_list)
 from prepladder_qbank_bank import QBANK, SUBJECTS, existing_bank  # noqa: E402
 
 HEAD = re.compile(r"^(?:\s*<p>\s*<strong>\s*Correct answer\s*:.*?</strong>\s*</p>)+", re.S | re.I)
@@ -63,10 +64,15 @@ IMG_P = re.compile(r"<p>\s*(?:<img\b[^>]*>\s*)+</p>|<img\b[^>]*>", re.I)
 # One blank paragraph or break at the very end; trimmed in a loop (a repeated group backtracks badly).
 EMPTY_TAIL = re.compile(r"(?:<p>(?:&nbsp;|\s|<br\s*/?>)*</p>|<br\s*/?>)$", re.I)
 IMG_SRC = re.compile(r"<img\b[^>]*\bsrc=\"([^\"]+)\"", re.I)
+# The player's audio block (English and Hindi recordings) closes many Elite explanations.
+AUDIO = re.compile(r"<div class=\"audio-explanation\".*$", re.S | re.I)
 INDEXES = QBANK / "indexes.json"
 FIGURES = QBANK / "figures.json"
+# An <img> tag the export broke: its opening lost and its end escaped, so its attributes show as text.
+BROKEN_IMG = re.compile(r"[^<>\"]*\"\s+data-author=\"[^\"]*\"[^<>]*?\bsrc=\"(https?://[^\"]+)\"[^<>]*?/&gt;", re.I)
 # Questions left out because the export lost their option images, by subject.
 HELD = QBANK / "held_blank_options.json"
+MERGED_OPTIONS = re.compile(r"\sB\)\s.*\sC\)\s", re.S)
 ROMAN = {"i", "ii", "iii", "iv", "v", "vi"}
 SMALL_WORDS = {"a", "an", "and", "as", "at", "by", "for", "in", "of", "on", "or", "the", "to", "vs", "with"}
 ACRONYMS = set("""abg aids aki all aml ards asd asom aub bcg bns ckd cin cll cml cns copd cpa cpcr csf csom ct dic dsd
@@ -75,13 +81,14 @@ npcds nrega ntep nvbdcp obg ocd ocp pac pbc pcos pda pph psc ptsd rds rhd rmncha
 tof ttp usg uti vbac vsd vte esi htn chf bbb dka pkd g6pd eeg sah icp ali abg puo bcls acls aha als pacg poag
 nrega ncd ncds ppiud iucd dmpa mtp ctg nst bpp pcpndt hsg ivf icsi iui ohss pid tvs lh fsh hcg afp ldh psa bph
 turp pcnl eswl rcc tcc mcdk pud gist fap hnpcc ercp mrcp ptc fna fnac mibg ptsd adhd asd mr cbt ect ssri snri
-tca maoi gad ocd bpad mdd ptsd nmda gaba ct mri pet spect usg xray kub ivu mcu hrct dexa""".split())
+tca maoi gad ocd bpad mdd ptsd nmda gaba ct mri pet spect usg xray kub ivu mcu hrct dexa git""".split())
 # The export's own misspellings and lost punctuation, fixed in lesson titles.
 TITLE_FIXES = {"Covid 19": "COVID-19", "M N Trier": "Ménétrier", "Protienosis": "Proteinosis",
                "Guillian Barre": "Guillain-Barré", "Syringomelia": "Syringomyelia", "Hepatitits": "Hepatitis",
                "Epidemology": "Epidemiology", "HIV AIDS": "HIV/AIDS", "Non Hodgkin's": "Non-Hodgkin's",
                "Anti Phospholipid": "Antiphospholipid", "Pneumocystis Jirovecii": "Pneumocystis jirovecii",
-               "Sjogren": "Sjögren", "Ali I": "ALI I", "Ali II": "ALI II"}
+               "Sjogren": "Sjögren", "Ali I": "ALI I", "Ali II": "ALI II",
+               "Pituitary & Di": "Pituitary & DI"}
 EXAM = {"neet pg": "NEET PG", "ini cet": "INI-CET", "fmge": "FMGE", "aiims": "AIIMS"}
 
 
@@ -95,12 +102,30 @@ def norm(text: str) -> str:
     return re.sub(r"\W+", " ", plain).lower().strip()
 
 
-def explanation_html(raw: str) -> str:
-    body = ZERO_WIDTH.sub("", str(raw or "")).replace(" ", " ")
+def explanation(raw: str, moved: list[str]) -> tuple[str, list[str]]:
+    """The explanation HTML with each figure's spot marked, and the figures in it.
+
+    `moved` are the figures the export put at the end. A few figures stayed in place as an <img> tag the export
+    broke (its opening lost, its end escaped: 'name" data-author=… src="…" /&gt;'); they follow the moved ones."""
+    inline: list[str] = []
+
+    def keep(tag: re.Match) -> str:
+        inline.append(tag.group(1))
+        return f"[[figure-{len(moved) + len(inline)}]]"
+
+    body = BROKEN_IMG.sub(keep, ZERO_WIDTH.sub("", str(raw or "")))
+    return explanation_html(body, len(moved)), moved + inline
+
+
+def explanation_html(raw: str, figures: int = 0) -> str:
+    body = ZERO_WIDTH.sub("", str(raw or "")).replace("\xa0", " ")
+    body = AUDIO.sub("", body)
     body = HEAD.sub("", body, count=1)
     body = HEAD2.sub("", body, count=1)
     body = LEAD_LABEL.sub("", body, count=1)
     body = IMG_P.sub("", body)
+    body = mark_figure_spots(body, figures)
+    body = body.replace("{{caption_text}}", "")
     body = BOT.sub("", body)
     body = body.strip()
     while (tail := EMPTY_TAIL.search(body)):
@@ -117,21 +142,58 @@ def elite_data(html: Path) -> list[dict]:
     return value["questions"]
 
 
+def stem(text: str) -> str:
+    """The question text without the player's empty caption template."""
+    return clean(str(text or "").replace("{{caption_text}}", ""))
+
+
 def from_qbank(q: dict) -> dict:
     options = [{"letter": clean(o["label"]).upper(), "text": clean(o["text"]), "correct": bool(o["correct"])}
                for o in q["options"]]
-    return {"question": clean(q.get("raw_text") or q.get("text")), "options": options,
-            "explanationHtml": explanation_html(q.get("explanation")),
-            "images": [("question", u) for u in q.get("question_images") or []]
-            + [("explanation", u) for u in q.get("explanation_images") or []]}
+    body, shown = explanation(q.get("explanation"), [u for u in q.get("explanation_images") or [] if is_figure(u)])
+    return {"question": stem(q.get("raw_text") or q.get("text")), "options": options, "explanationHtml": body,
+            "images": [("question", u, None) for u in q.get("question_images") or [] if is_figure(u)]
+            + [("explanation", u, n) for n, u in enumerate(shown, 1)]}
 
 
 def from_elite(q: dict) -> dict:
     options = [{"letter": k, "text": clean(v), "correct": k == q["ans"]} for k, v in sorted(q["options"].items())]
-    images = [("question", q["img"])] if q.get("img") else []
-    images += [("explanation", u) for u in IMG_SRC.findall(q.get("expl") or "")]
-    return {"question": clean(q.get("text")), "options": options,
-            "explanationHtml": explanation_html(q.get("expl")), "images": images}
+    images = [("question", q["img"], None)] if q.get("img") and is_figure(q["img"]) else []
+    body, shown = explanation(q.get("expl"), [u for u in IMG_SRC.findall(AUDIO.sub("", q.get("expl") or ""))
+                                              if is_figure(u)])
+    images += [("explanation", u, n) for n, u in enumerate(shown, 1)]
+    return {"question": stem(q.get("text")), "options": options, "explanationHtml": body, "images": images}
+
+
+def plain(html: str) -> str:
+    return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", html or "")).strip()
+
+
+def broken_options(options: list[dict]) -> bool:
+    """Options the Elite export garbled: all four run into one, a key line pasted in, or two the same."""
+    texts = [norm(o["text"]) for o in options]
+    return (len(set(texts)) < len(texts) or len(options) != 4
+            or any(MERGED_OPTIONS.search(o["text"]) or o["text"].lower().startswith("correct answer")
+                   for o in options))
+
+
+def mended(new: dict, old: dict) -> tuple[dict, list[str]]:
+    """Elite's revision of a question, with what the Elite export lost taken from the QBank copy of it."""
+    row, fixes = dict(new), []
+    roles = lambda images, role: [i for i in images if i[0] == role]
+    long_old = len(plain(old["explanationHtml"]))
+    if long_old >= 300 and len(plain(new["explanationHtml"])) < 0.6 * long_old:
+        row["explanationHtml"] = old["explanationHtml"]
+        row["images"] = roles(new["images"], "question") + roles(old["images"], "explanation")
+        fixes.append("eliteExplanationShort")
+    if len(roles(old["images"], "question")) > len(roles(row["images"], "question")):
+        row["images"] = roles(old["images"], "question") + roles(row["images"], "explanation")
+        fixes.append("eliteStemFiguresLost")
+    if broken_options(new["options"]) and not broken_options(old["options"]) \
+            and sum(o["correct"] for o in old["options"]) == 1:
+        row["options"] = old["options"]
+        fixes.append("eliteOptionsGarbled")
+    return row, fixes
 
 
 def exam_label(title: str) -> str:
@@ -203,14 +265,18 @@ def merge(slug: str, qbank: list[dict], elite: list[dict], pyq: list[dict]) -> t
             old = from_qbank(q)
             if qid in elite_by:
                 new = from_elite(elite_by[qid])
-                lesson["rows"].append({"qid": qid, "origin": "elite", **new})
-                stats["elite"] += 1
+                ratio = 1.0
                 if norm(new["question"]) != norm(old["question"]):
                     stats["eliteRevisedStem"] += 1
                     ratio = difflib.SequenceMatcher(None, norm(old["question"]), norm(new["question"])).ratio()
-                    if ratio < 0.6:
-                        lesson["rows"].append({"qid": f"{qid}-v1", "origin": "qbank-earlier", **old})
-                        stats["earlierKept"] += 1
+                if ratio >= 0.6:  # the same question: the QBank copy fills what the Elite export lost
+                    new, fixes = mended(new, old)
+                    stats.update(fixes)
+                lesson["rows"].append({"qid": qid, "origin": "elite", **new})
+                stats["elite"] += 1
+                if ratio < 0.6:
+                    lesson["rows"].append({"qid": f"{qid}-v1", "origin": "qbank-earlier", **old})
+                    stats["earlierKept"] += 1
             else:
                 lesson["rows"].append({"qid": qid, "origin": "qbank", **old})
                 stats["qbank"] += 1
@@ -237,13 +303,10 @@ def merge(slug: str, qbank: list[dict], elite: list[dict], pyq: list[dict]) -> t
         for number, row in enumerate(part["rows"], 1):
             row.pop("_lesson", None)
             images, count = [], collections.Counter()
-            for role, url in row.pop("images"):
-                # SVGs in the export are PrepLadder's own interface icons (24 px "expand" arrows).
-                if any(h in url for h in NOT_FIGURES) or url.split("?")[0].lower().endswith(".svg"):
-                    continue
+            for role, url, spot in row.pop("images"):
                 count[role] += 1
                 images.append({"role": role, "order": count[role], "url": url,
-                               "name": f"{row['qid']}_{role[0]}{count[role]}"})
+                               "name": f"{row['qid']}_{role[0]}{count[role]}"} | ({"spot": spot} if spot else {}))
             key = [o for o in row["options"] if o["correct"]]
             out.append({**row, "lesson": part["key"], "topicOrder": part["order"], "lessonTitle": part["title"],
                         "pyq": lesson["pyq"], "section": part["section"], "sourceNumber": lesson["sourceNumber"],

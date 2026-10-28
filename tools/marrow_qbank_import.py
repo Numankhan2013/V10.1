@@ -34,16 +34,28 @@ sys.path.insert(0, str(ROOT / "tools"))
 
 from marrow_qbank_bank import QBANK, SUBJECTS  # noqa: E402
 
+CONTROL = re.compile("[\x00-\x08\x0b\x0c\x0e-\x1f\x7f\u2028\u2029]")
 ZERO_WIDTH = re.compile("[​‌‍⁠﻿­]")
 HEAD = re.compile(r"^\s*<p>\s*<strong>\s*Correct answer:.*?</strong>\s*</p>", re.S | re.I)
 TAIL = re.compile(r"(?:\s*<p>\s*(?:@neet_pg_bot|&nbsp;|\s)*</p>)+\s*$", re.I)
 # Analytics beacons pasted into a few explanations are not figures.
 NOT_FIGURES = ("datapro.website",)
+# The export moved every explanation figure to the end. Where one sat it left an empty captioned
+# figure (its caption a "{{caption_text}}" template), a paragraph with nothing at all in it, or an
+# empty centred paragraph; a paragraph holding only a space is the author's spacing.
+FIGURE_SPOT = re.compile(
+    r"(?P<caption>(?P<wrap><div style=\"text-align:\s*center;?\">\s*)?<figure class=\"caption_element\"[^>]*>(?:(?!\[\[figure-).)*?</figure>"
+    r"(?(wrap)\s*</div>))|(?P<bare><p(?:\s+style=\"[^\"]*\")?></p>)"
+    r"|(?P<centre><p style=\"text-align:\s*center;?\">(?:[ \t\n]|&nbsp;|<br\s*/?>)*</p>)", re.S | re.I)
+# Where a figure goes in the explanation; marrow_qbank_bank.place_figures turns it into a figure block.
+FIGURE_MARK = "<p>[[figure-{}]]</p>"
 AGENT = "Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Mobile Safari/537.36"
 
 
 def clean(text: str) -> str:
-    return ZERO_WIDTH.sub("", str(text or "")).replace(" ", " ").strip()
+    text = ZERO_WIDTH.sub("", str(text or "")).replace("\xa0", " ")
+    # Control characters (NUL padding, a stray \x02) and line separators the export carries.
+    return CONTROL.sub(lambda m: " " if m.group(0) in "\u2028\u2029" else "", text).strip()
 
 
 def tests_list(html: Path) -> list[dict]:
@@ -54,9 +66,28 @@ def tests_list(html: Path) -> list[dict]:
     return value
 
 
-def explanation_html(raw: str) -> str:
+def is_figure(url: str) -> bool:
+    # SVGs in the export are PrepLadder's own interface icons (24 px "expand" arrows).
+    return not any(h in url for h in NOT_FIGURES) and not url.split("?")[0].lower().endswith(".svg")
+
+
+def mark_figure_spots(body: str, figures: int) -> str:
+    """Mark the spot of each explanation figure, in order, where the export's empty spots match them one to one.
+
+    Captioned spots are the surest sign and centred paragraphs the weakest: when the surer kinds alone match
+    the figures, the others are only spacing. Figures without a matched spot are placed by the builder (before the references)."""
+    spots = list(FIGURE_SPOT.finditer(body))
+    tiers = (spots, [s for s in spots if not s.group("centre")], [s for s in spots if s.group("caption")])
+    chosen = next((tier for tier in tiers if len(tier) == figures), [])
+    marks = {s.start(): FIGURE_MARK.format(n) for n, s in enumerate(chosen, 1)}
+    # Unmatched captioned spots are dropped (their caption is only the template); empty paragraphs stay as spacing.
+    return FIGURE_SPOT.sub(lambda s: marks.get(s.start(), "" if s.group("caption") else s.group(0)), body)
+
+
+def explanation_html(raw: str, figures: int = 0) -> str:
     body = clean(raw)
     body = HEAD.sub("", body, count=1)
+    body = mark_figure_spots(body, figures).replace("{{caption_text}}", "")
     body = TAIL.sub("", body)
     return body.strip()
 
@@ -124,16 +155,17 @@ def import_subject(slug: str, tests: list[dict]) -> None:
                 urls = [u for u in q.get(key) or [] if not any(host in u for host in NOT_FIGURES)]
                 for n, url in enumerate(urls, 1):
                     images.append({"role": "question" if role == "q" else "explanation", "order": n,
-                                   "url": url, "name": f"{qid}_{role}{n}"})
+                                   "url": url, "name": f"{qid}_{role}{n}"} | ({"spot": n} if role == "e" else {}))
                     jobs.append((url, visuals, f"{qid}_{role}{n}"))
             rows.append({
-                "qid": qid, "lesson": lesson_index, "lessonTitle": re.sub(r"\s+", " ", title).strip(),
+                "qid": qid, "lesson": lesson_index, "lessonTitle": title.strip(),  # lesson_title reads its spacing
                 "testId": test["id"], "number": number,
                 "question": clean(q.get("raw_text") or q.get("text")),
                 "options": [{"letter": clean(o["label"]).upper(), "text": clean(o["text"]), "correct": bool(o["correct"])}
                             for o in q["options"]],
                 "correctAnswer": clean(q.get("correct_answer")),
-                "explanationHtml": explanation_html(q.get("explanation") or ""),
+                "explanationHtml": explanation_html(q.get("explanation") or "",
+                                                    sum(1 for i in images if i["role"] == "explanation")),
                 "images": images,
             })
     existing = {p.stem: p for p in visuals.iterdir()}

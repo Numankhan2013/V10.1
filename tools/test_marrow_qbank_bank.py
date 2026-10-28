@@ -25,6 +25,9 @@ def texts(q: dict):
     for b in data["blocks"]:
         if b["type"] in ("paragraph", "heading"):
             yield b["text"]
+        elif b["type"] == "references":
+            for item in b["items"]:
+                yield item["rest"]
         elif b["type"] == "bullets":
             for item in b["items"]:
                 yield item["text"]
@@ -67,10 +70,17 @@ def main() -> None:
             data = q["structuredExplanation"]
             assert data["layout"] == "ordered-blocks" and data["blocks"], q["id"]
             table_ids = {t["table_id"] for t in data["tables"]}
+            explanation_figures = sum(1 for f in data["figures"] if "_e" in Path(f).stem)
+            placed = []
             for b in data["blocks"]:
-                assert b["type"] in ("paragraph", "heading", "bullets", "table"), (q["id"], b["type"])
+                assert b["type"] in ("paragraph", "heading", "bullets", "table", "figure", "references"), \
+                    (q["id"], b["type"])
                 if b["type"] == "table":
                     assert b["table_id"] in table_ids, q["id"]
+                if b["type"] == "figure":
+                    placed.append(b["order"])
+            # Every explanation figure sits once in the explanation, where the source had it.
+            assert sorted(placed) == list(range(1, explanation_figures + 1)), (q["id"], placed)
             for t in data["tables"]:
                 assert len(t["columns"]) >= 2 and all(len(r) == len(t["columns"]) for r in t["rows"]), q["id"]
             for text in texts(q):

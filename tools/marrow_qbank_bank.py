@@ -313,7 +313,7 @@ class Tree(HTMLParser):
 
 
 LABEL = re.compile(r"(?:Other|Incorrect) options?\s*:|Explanation\s*:|Extra edge\s*:", re.I)
-SCRIPT_TEXT = re.compile(r"^[A-Za-z0-9+\-−–,.()]{1,8}$")
+SCRIPT_TEXT = re.compile(r"^[A-Za-z0-9+\-−–,.()/]{1,8}$")
 
 
 def tidy(text: str) -> str:
@@ -351,6 +351,14 @@ def tidy(text: str) -> str:
     return "\n".join(line.strip() for line in text.split("\n")).strip()
 
 
+def label_row(cells: list[str]) -> bool:
+    """A first row written as plain cells that reads as column labels: every cell a short, one-line name."""
+    names = [c.replace("**", "").strip() for c in cells]
+    return len(names) > 1 and all(
+        n and "\n" not in n and len(n) <= 32 and len(n.split()) <= 4 and not re.search(r"[.;:]$|^\d|^\w{1,3}[.)]\s", n)
+        for n in names)
+
+
 class Converter:
     def __init__(self):
         self.tables: list[dict] = []
@@ -372,7 +380,7 @@ class Converter:
         if tag in ("em", "i"):
             return inner
         if tag in ("sub", "sup"):
-            core = inner.strip()
+            core = inner.replace("**", "").strip()
             if SCRIPT_TEXT.match(core):
                 return ("_{" if tag == "sub" else "^{") + core.replace("–", "-") + "}"
             return inner
@@ -408,8 +416,8 @@ class Converter:
             if LABEL.fullmatch(plain):
                 blocks.append({"type": "heading", "text": plain})
                 continue
-            # A short line that is one bold run is a section label.
-            if (line.startswith("**") and line.endswith("**") and line.count("**") == 2
+            # A short line that is one bold run is a section label (the colon may sit outside the run).
+            if (line.startswith("**") and re.search(r"\*\*\s*:?$", line) and line.count("**") == 2
                     and len(re.findall(r"[^\W_]+", plain)) <= 8 and len(plain) <= 70):
                 blocks.append({"type": "heading", "text": plain})
             else:
@@ -498,6 +506,9 @@ class Converter:
     def table(self, node: Node, blocks: list[dict]) -> None:
         rows: list[list[str]] = []
         heads: list[bool] = []
+        spans: list[int] = []  # each kept row's first-cell colspan
+
+        carried: dict[int, int] = {}  # column -> rows a merged cell above still covers
 
         def collect(n: Node):
             for c in n.children:
@@ -505,9 +516,22 @@ class Converter:
                     continue
                 if c.tag == "tr":
                     cells, header = [], True
+
+                    def skip_merged():
+                        # A cell merged down from a row above keeps this row's later cells in their columns.
+                        while len(cells) in carried:
+                            column = len(cells)
+                            carried[column] -= 1
+                            if not carried[column]:
+                                del carried[column]
+                            cells.append("")
+
                     for cell in c.children:
                         if isinstance(cell, str) or cell.tag not in ("td", "th"):
                             continue
+                        skip_merged()
+                        down = cell.attrs.get("rowspan") or "1"
+                        down = int(down) if down.isdigit() and 0 < int(down) <= 40 else 1
                         text = self.text(cell, "cell")
                         text = "\n".join(l.strip() for l in text.split("\n") if l.strip())
                         bare = text.replace("**", "").strip()
@@ -515,11 +539,17 @@ class Converter:
                                              re.fullmatch(r"(\*\*[^*]+\*\*\s*)+", text) is not None)
                         span = cell.attrs.get("colspan") or "1"
                         span = int(span) if span.isdigit() and 0 < int(span) <= 12 else 1
+                        if down > 1:
+                            carried.update({len(cells) + k: down - 1 for k in range(span)})
                         cells.append(bare if (cell.tag == "th") else text)
                         cells.extend([""] * (span - 1))
+                    skip_merged()
                     if any(x.strip() for x in cells):
                         rows.append(cells)
                         heads.append(header)
+                        first = next((x for x in c.children if not isinstance(x, str) and x.tag in ("td", "th")), None)
+                        wide = (first.attrs.get("colspan") or "1") if first is not None else "1"
+                        spans.append(int(wide) if wide.isdigit() else 1)
                 elif c.tag in ("thead", "tbody", "tfoot"):
                     collect(c)
                 elif c.tag == "table":  # nested table: read it as its own table
@@ -531,7 +561,8 @@ class Converter:
         rows = [r + [""] * (width - len(r)) for r in rows]
         title = ""
         # A first row that is one spanning cell over a wider table is the title.
-        if width > 1 and len(rows) > 1 and sum(1 for x in rows[0] if x.strip()) == 1 and rows[0][0].strip():
+        if (width > 1 and len(rows) > 1 and sum(1 for x in rows[0] if x.strip()) == 1 and rows[0][0].strip()
+                and spans[0] > 1):
             title = rows[0][0].replace("**", "").replace("\n", " ").strip()
             rows, heads = rows[1:], heads[1:]
         if width == 1:
@@ -542,7 +573,7 @@ class Converter:
             for line in lines:
                 self.paragraphs([line], blocks)
             return
-        if len(rows) > 1 and heads[0]:
+        if len(rows) > 1 and (heads[0] or label_row(rows[0])):
             columns, body = [c.replace("**", "") for c in rows[0]], rows[1:]
         else:
             columns, body = [""] * width, rows
@@ -570,6 +601,98 @@ def plain_text(blocks: list[dict], tables: dict[str, dict]) -> str:
             lines.extend(" | ".join(c.replace("\n", "; ") for c in row) for row in t["rows"])
             out.append("\n".join(lines))
     return "\n\n".join(x for x in out if x.strip())
+
+
+FIGURE_MARK = re.compile(r"\[\[figure-(\d+)\]\]")
+REFERENCE_LEAD = re.compile(r"^\s*References?\s*(?::|$)", re.I)
+
+
+def place_figures(blocks: list[dict], tables: list[dict], images: list[dict]) -> list[dict]:
+    """Explanation figures as blocks where the source had them (the importer's [[figure-N]] marks).
+
+    A mark inside a list or table puts its figure after that block. A figure without a mark (or whose mark
+    the converter lost) goes before the references, else at the end; a mark whose figure was dropped
+    (an empty file on the server) is removed."""
+    order_of = {i["spot"]: i["order"] for i in images if i["role"] == "explanation" and i.get("spot")}
+    cells = {t["table_id"]: t for t in tables}
+    out, placed = [], []
+
+    def take(text: str, found: list[int]) -> str:
+        found.extend(int(n) for n in FIGURE_MARK.findall(text))
+        return re.sub(r"[ \t]{2,}", " ", FIGURE_MARK.sub("", text)).strip()
+
+    for block in blocks:
+        found: list[int] = []
+        if "text" in block:
+            block["text"] = take(block["text"], found)
+        for item in block.get("items", []):
+            item["text"] = take(item["text"], found)
+            for sub in item.get("items", []):
+                sub["text"] = take(sub["text"], found)
+        if block["type"] == "table" and block.get("table_id") in cells:
+            table = cells[block["table_id"]]
+            if table.get("title"):
+                table["title"] = take(table["title"], found)
+            table["columns"] = [take(c, found) for c in table["columns"]]
+            table["rows"] = [[take(c, found) for c in row] for row in table["rows"]]
+        if block["type"] not in ("paragraph", "heading") or block["text"]:
+            out.append(block)
+        for spot in found:
+            if spot in order_of and order_of[spot] not in placed:
+                out.append({"type": "figure", "order": order_of[spot]})
+                placed.append(order_of[spot])
+    rest = [{"type": "figure", "order": n}
+            for n in sorted(i["order"] for i in images if i["role"] == "explanation") if n not in placed]
+    if rest:
+        refs = next((n for n, b in enumerate(out) if b["type"] in ("heading", "paragraph")
+                     and REFERENCE_LEAD.match(b["text"].replace("**", ""))), len(out))
+        out[refs:refs] = rest
+    return out
+
+
+EXPLANATION_LABEL = re.compile(r"^\W*ex\w{0,2}pl\w*n\w*s?\W*$", re.I)
+EXPLANATION_LEAD = re.compile(r"^(?:\*\*\s*Ex\w{0,2}pl\w*n\w*\s*:\s*\*\*|Ex\w{0,2}pl\w*n\w*\s*:)\s*", re.I)
+ANSWER_LINE = re.compile(r"^\W*(?:correct\s+(?:answer|option|choice)|ans(?:wer)?)\b\s*(?:is\b)?\s*[:.\-–)]", re.I)
+
+
+def tidy_explanation(blocks: list[dict]) -> list[dict]:
+    """The explanation without the source's opening labels and with its references gathered.
+
+    The app shows the key and labels the explanation itself, so a leading "Explanation:" label and a short
+    "Correct option: B) …" line go. From a "Reference(s):" heading to the end, plain paragraphs and lists
+    become one references block; an empty or repeated heading goes."""
+    out = list(blocks)
+    for _ in range(4):
+        first = out[0] if out else None
+        if not first or first["type"] not in ("paragraph", "heading"):
+            break
+        text = first["text"].replace("**", "").strip()
+        if EXPLANATION_LABEL.match(text) or (ANSWER_LINE.match(text) and len(text) <= 160):
+            out.pop(0)
+        elif first["type"] == "paragraph" and EXPLANATION_LEAD.match(first["text"]):
+            out[0] = {**first, "text": EXPLANATION_LEAD.sub("", first["text"], count=1)}
+        else:
+            break
+    heads = [n for n, b in enumerate(out) if b["type"] in ("heading", "paragraph")
+             and REFERENCE_LEAD.match(b["text"].replace("**", ""))]
+    if heads:
+        start = heads[0]
+        tail = out[start:]
+        if all(b["type"] in ("heading", "paragraph", "bullets") for b in tail):
+            items: list[str] = []
+            for b in tail:
+                if b["type"] == "bullets":
+                    lines = [i["text"] for i in b["items"]] + [s["text"] for i in b["items"] for s in i.get("items", [])]
+                else:
+                    lines = [re.sub(r"^\W*References?\s*:?\**\s*", "", b["text"], flags=re.I)
+                             if REFERENCE_LEAD.match(b["text"].replace("**", "")) else b["text"]]
+                for line in lines:
+                    line = line.strip()
+                    if re.search(r"[^\W_]", line.replace("**", "")) and line not in items:
+                        items.append(line)
+            out = out[:start] + ([{"type": "references", "items": [{"title": "", "rest": i} for i in items]}]
+                                 if items else [])
+    return out
 
 
 STEM_HTML = re.compile(r"</?(?:p|div|span|ul|ol|li|table|tr|td|th|br|strong|b|em|i|sub|sup)\b[^>]*>", re.I)
@@ -608,7 +731,11 @@ def stem(raw: str, converter: Converter, table_prefix: str) -> tuple[str, list[d
             t = by_id[b["table_id"]]
             columns, rows = [flat(c) for c in t["columns"]], [[flat(c) for c in r] for r in t["rows"]]
             if not any(columns) and len(rows) > 1:
-                columns, rows = rows[0], rows[1:]
+                # A first row that is item 1 of the lists ("1. Primary prevention" | "a. …") stays a row.
+                if any(re.match(r"\(?\w{1,3}[.)]\s*\S", c) for c in rows[0]):
+                    columns = [f"List {'I' * (n + 1) if n < 3 else n + 1}" for n in range(len(rows[0]))]
+                else:
+                    columns, rows = rows[0], rows[1:]
             # Match lists come as label/text column pairs ("1." | "Coal dust" | "a." | "Byssinosis"),
             # with the header on either column: each pair is one column.
             label = lambda v: not v or re.fullmatch(r"\w{1,3}[.)]?", v) is not None
@@ -712,6 +839,7 @@ def normalize(slug: str, rows: list[dict] | None = None) -> dict:
         if not question or any(not o["text"] or STEM_HTML.search(o["text"]) for o in options):
             fail(f"{qid}: blank stem or option, or markup left in an option")
         blocks, tables = converter.convert(q["explanationHtml"], f"{code}_{qid}")
+        blocks = tidy_explanation(place_figures(blocks, tables, q["images"]))
         if not blocks:
             blocks = [{"type": "paragraph", "text": "No explanation is given for this question in the source."}]
         table_map = {t["table_id"]: t for t in tables}
