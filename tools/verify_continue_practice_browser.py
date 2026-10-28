@@ -275,8 +275,11 @@ def main() -> None:
             page.goto(origin + "/#dashboard", wait_until="domcontentloaded")
             page.wait_for_function("window.QB && window.QB.getState")
             chapters = page.evaluate("""() => {
+              // The PrepLadder bank the app studies (MARROW_DATA, with the web-export
+              // questions merged in); the legacy subject file is only the fallback.
               const records=window.SUBJECT_QBANK_DATA?.subjects||[];
-              const record=records.find(r=>r.subject==='Physiology');
+              const record=(window.NK_DATA_MARROW_DATA?.records||[]).find(r=>r.subject==='Physiology'&&r.bank==='PrepLadder')
+                ||records.find(r=>r.subject==='Physiology');
               if(!record)return [];
               const groups=new Map();
               for(const q of record.questions||[]){

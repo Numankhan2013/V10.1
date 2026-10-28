@@ -31,6 +31,12 @@ class Quiet(http.server.SimpleHTTPRequestHandler):
         pass
 
 
+def merged():
+    """The bank as the app ships it: the PDF bank plus the questions the web export added (prepladder_qbank_bank)."""
+    import prepladder_qbank_bank as web  # noqa: PLC0415
+    return web.merged_record("microbiology", web.existing_bank("microbiology"))
+
+
 def fail(message: str) -> None:
     raise SystemExit("PREPLADDER_MICROBIOLOGY_BROWSER_FAIL: " + message)
 
@@ -65,7 +71,9 @@ def main() -> None:
             page.evaluate("window.QB.nkOpenSubjectLibrary('Microbiology')")
             page.wait_for_function("() => document.querySelectorAll('button.nk-bank-card').length===2", timeout=8000)
             card = page.locator("button.nk-bank-card").filter(has_text="PrepLadder")
-            if "1,202 questions" not in card.inner_text() or "Text explanations" not in card.inner_text():
+            bank = merged()
+            pyq = next(t["questionCount"] for t in bank["topics"] if t["id"] == "microbiology-6")
+            if f"{len(bank['questions']):,} questions" not in card.inner_text() or "Text explanations" not in card.inner_text():
                 fail(f"PrepLadder card wrong: {card.inner_text()!r}")
             card.click()
             page.wait_for_function("() => document.querySelectorAll('button.nk-topic-row').length===42", timeout=8000)
@@ -109,8 +117,8 @@ def main() -> None:
             page.screenshot(path=str(OUT / "plmicro-03-stem-table.png"), full_page=True)
 
             open_lesson(page, "Previous Year Questions")
-            if page.locator("button.nk-library-row").count() != 61:
-                fail("General Microbiology PYQ lesson should list 61 questions")
+            if page.locator("button.nk-library-row").count() != pyq:
+                fail(f"General Microbiology PYQ lesson should list {pyq} questions")
 
             if errors:
                 fail("page errors: " + " | ".join(errors[:5]))

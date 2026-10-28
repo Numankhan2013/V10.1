@@ -106,6 +106,10 @@
     const open=same?[...document.querySelectorAll('.question-card details[open]')].map((node)=>node.id||node.className):[];
     const builder=document.querySelector('.nk-module-builder'),builderTitle=builder?.querySelector('h1')?.textContent;
     const builderAction=builder?.contains(document.activeElement)?document.activeElement?.getAttribute('onclick'):null;
+    // A repaint of the same question (its explanation arriving late) keeps the
+    // keyboard on the control it was on, e.g. the default rating after an answer.
+    const focused=same&&document.activeElement?.matches?.('#app button')?document.activeElement:null;
+    const focusKey=focused?[focused.getAttribute('onclick'),focused.className,focused.textContent.trim()]:null;
     nkPolishRender.apply(this,arguments);
     const nextBuilder=document.querySelector('.nk-module-builder');
     if(builderAction&&builderTitle===nextBuilder?.querySelector('h1')?.textContent){
@@ -122,6 +126,8 @@
       window.scrollTo(x,y);
       if(submitted&&!nkPolishSubmitted){
         if(keyboardAnswer)document.querySelector('.nk-fsrs-pill,.nk-session-footer .primary-btn')?.focus({preventScroll:true});
+      }else if(focusKey&&!focused.isConnected){
+        [...document.querySelectorAll('#app button')].find(n=>n.getAttribute('onclick')===focusKey[0]&&n.className===focusKey[1]&&n.textContent.trim()===focusKey[2])?.focus({preventScroll:true});
       }
     }else if(identity){
       window.scrollTo(0,0);

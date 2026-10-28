@@ -32,13 +32,20 @@ class Quiet(http.server.SimpleHTTPRequestHandler):
         pass
 
 
+def lesson_count(slug: str, topic_id: str) -> int:
+    """Questions a lesson lists: the PDF bank's plus those the web export added (prepladder_qbank_bank)."""
+    import prepladder_qbank_bank as web  # noqa: PLC0415
+    merged = web.merged_record(slug, web.existing_bank(slug))
+    return next(t["questionCount"] for t in merged["topics"] if t["id"] == topic_id)
+
+
 def fail(message: str) -> None:
     raise SystemExit("PREPLADDER_PATHOLOGY_BROWSER_FAIL: " + message)
 
 
 def open_lesson(page, title: str, nth: int = 0) -> None:
     page.evaluate("window.QB.nkOpenSubjectLibrary('Pathology')")
-    page.wait_for_function("() => document.querySelectorAll('button.nk-bank-card').length===1", timeout=8000)
+    page.wait_for_function("() => document.querySelectorAll('button.nk-bank-card').length===2", timeout=8000)
     page.locator("button.nk-bank-card").filter(has_text="PrepLadder").click()
     page.wait_for_function("() => document.querySelectorAll('button.nk-topic-row').length===90", timeout=8000)
     page.locator("button.nk-topic-row").filter(has_text=title).nth(nth).click()
@@ -69,7 +76,7 @@ def main() -> None:
             page.goto(f"http://127.0.0.1:{port}/index.html", wait_until="networkidle")
 
             card = page.locator(".nk-home-subjects button.nk-v3-subject-card").filter(has_text="Pathology")
-            if card.count() != 1 or "1,459" not in card.inner_text():
+            if card.count() != 1 or "3,306" not in card.inner_text() or "Marrow" not in card.inner_text():
                 fail(f"Pathology subject card missing or wrong: {card.all_inner_texts()!r}")
             if "is-pathology" not in (card.get_attribute("class") or ""):
                 fail("Pathology card has no subject identity class")
@@ -78,9 +85,10 @@ def main() -> None:
                 fail(f"Second Prof should hold Microbiology and Pathology: {second.inner_text()!r}")
 
             page.evaluate("window.QB.nkOpenSubjectLibrary('Pathology')")
-            page.wait_for_function("() => document.querySelectorAll('button.nk-bank-card').length===1", timeout=8000)
-            bank = page.locator("button.nk-bank-card")
-            if "1,459 questions" not in bank.inner_text() or "Text explanations" not in bank.inner_text():
+            # PrepLadder and Marrow sit side by side; this verifier walks PrepLadder.
+            page.wait_for_function("() => document.querySelectorAll('button.nk-bank-card').length===2", timeout=8000)
+            bank = page.locator("button.nk-bank-card").filter(has_text="PrepLadder")
+            if "1,939 questions" not in bank.inner_text() or "Text explanations" not in bank.inner_text():
                 fail(f"PrepLadder card wrong: {bank.inner_text()!r}")
             bank.click()
             page.wait_for_function("() => document.querySelectorAll('button.nk-topic-row').length===90", timeout=8000)
@@ -145,8 +153,8 @@ def main() -> None:
             page.screenshot(path=str(OUT / "plpatho-03-explanation.png"), full_page=True)
 
             open_lesson(page, "Previous Year Questions")
-            if page.locator("button.nk-library-row").count() != 34:
-                fail("the first Cell Injury PYQ lesson should list 34 questions")
+            if page.locator("button.nk-library-row").count() != lesson_count("pathology", "pathology-5"):
+                fail(f"the first Cell Injury PYQ lesson should list {lesson_count('pathology', 'pathology-5')} questions")
             open_question(page, 30, "calcification")
             page.locator(".option-list button").first.click()
             page.wait_for_selector(".nk-marrow-ordered", timeout=8000)

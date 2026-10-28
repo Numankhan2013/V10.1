@@ -11,7 +11,7 @@ const esc=value=>String(value??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').re
 let SUBJECTS=[],calls=0,lastIds=null;
 let nkStudySupport=q=>'INCUMBENT:'+q.id;
 const nkFormatQuestionTime=ms=>String(ms),navIcon=()=>'<svg></svg>';
-let nkCbtPool=()=>RECORD.questions,nkQuestionsForModuleDraft=()=>RECORD.questions,nkRevisionDeskData=()=>({wrong:RECORD.questions,bookmarked:RECORD.questions,unseen:RECORD.questions,due:RECORD.questions,dueCards:RECORD.questions});
+let nkCbtEligible=()=>true,nkQuestionsForModuleDraft=()=>RECORD.questions,nkRevisionDeskData=()=>({wrong:RECORD.questions,bookmarked:RECORD.questions,unseen:RECORD.questions,due:RECORD.questions,dueCards:RECORD.questions});
 let startSession=ids=>{calls++;lastIds=ids;return true;},practiceOne=id=>startSession([id]);
 const nkAllStudyQuestions=()=>RECORD.questions;
 const nkFindStudyQuestion=id=>RECORD.questions.find(q=>q.id===id),showToast=()=>{};
@@ -56,7 +56,7 @@ const hostile={...native,uworldSource:{explanation:{text:'<img src=x onerror=ale
 assert(!nkStudySupport(hostile,0).includes('<script>'));assert(!nkUworldOptionMarkup(native,{text:'<img src=x onerror=alert(1)>'}).includes('<img src=x'));
 assert(nkUworldParagraph('(Choice A) Original reasoning.').includes('<strong>(Choice A)</strong>'));
 const eligible=RECORD.questions.filter(q=>!q.uworldPilot.requiresVisual).length;
-assert.equal(nkCbtPool().length,eligible);assert.equal(nkQuestionsForModuleDraft().length,eligible);
+assert.equal(RECORD.questions.filter(nkCbtEligible).length,eligible);assert.equal(nkQuestionsForModuleDraft().length,eligible);
 assert(Object.values(nkRevisionDeskData()).every(rows=>rows.length===eligible));
 assert(startSession(RECORD.questions.map(q=>q.id)));assert.equal(lastIds.length,eligible);
 const gated=RECORD.questions.find(q=>q.uworldPilot.requiresVisual);if(gated){const count=calls;assert.equal(startSession([gated.id]),false);assert.equal(calls,count);}

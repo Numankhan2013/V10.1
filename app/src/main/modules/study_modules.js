@@ -58,8 +58,22 @@
     return Array.isArray(record?.topics)?record.topics:(Array.isArray(record?.chapters)?record.chapters:[]);
   }
 
+  // Topic → collections, built once per bank record: asked once per topic row, a scan of
+  // every question each time made the builders quadratic in bank size.
+  const nkModuleTopicCollections=new WeakMap();
   function nkModuleTopicHasCollection(record,topicId,collection){
-    return (record?.questions||[]).some(question=>String(question.chapterId)===String(topicId)&&Array.isArray(question.studyCollections)&&question.studyCollections.includes(collection));
+    if(!record||typeof record!=='object')return false;
+    let index=nkModuleTopicCollections.get(record);
+    if(!index||index.count!==(record.questions||[]).length){
+      index=new Map();index.count=(record.questions||[]).length;
+      (record.questions||[]).forEach(question=>{
+        if(!Array.isArray(question.studyCollections)||!question.studyCollections.length)return;
+        const key=String(question.chapterId),set=index.get(key)||new Set();
+        question.studyCollections.forEach(name=>set.add(name));index.set(key,set);
+      });
+      nkModuleTopicCollections.set(record,index);
+    }
+    return Boolean(index.get(String(topicId))?.has(collection));
   }
 
   function nkModuleValidQuestionIds(module){

@@ -8,6 +8,15 @@ import threading
 
 from playwright.sync_api import expect, sync_playwright
 from app_page import built_page
+import prepladder_qbank_bank as web_export
+
+# PYQ lessons of the PDF banks, with the web-export questions merged into them.
+PDF_BANKS = (('Anatomy', 14), ('Physiology', 20), ('Biochemistry', 19), ('Microbiology', 6), ('Pathology', 27), ('Pharmacology', 16))
+PYQ = {subject: web_export.shipped_counts(subject.lower())['pyq'] for subject, _ in PDF_BANKS}
+# The web-export subjects bring their own PYQ lessons.
+NEW_PYQ = [t for r in web_export.app_records() for t in r['topics'] if t.get('pyq')]
+ALL_TOPICS = 102 + len(NEW_PYQ)
+ALL_PYQ = 3293 + sum(PYQ.values()) - (475 + 451 + 492 + 610 + 615 + 650) + sum(t['questionCount'] for t in NEW_PYQ)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -54,7 +63,7 @@ def main() -> None:
                     bank_row('PrepLadder', subject).click()
                     page.get_by_role('button', name='Continue to topics').click()
 
-                for subject, topics, questions in (('Anatomy', 14, 475), ('Physiology', 20, 451), ('Biochemistry', 19, 492), ('Microbiology', 6, 610), ('Pathology', 27, 615), ('Pharmacology', 16, 650)):
+                for subject, topics, questions in ((subject, topics, PYQ[subject]) for subject, topics in PDF_BANKS):
                     open_builder()
                     choose_prep(subject)
                     toggle = page.locator('#nk-cbt-pyq-toggle')
@@ -77,10 +86,10 @@ def main() -> None:
                     assert len(rows) <= 2 and all(abs(t['top'] - row[0]['top']) < 3 for row in rows for t in row), tools
                     if width >= 768:
                         assert len(rows) == 1, ('tablet keeps the topic tools on one row', tools)
-                    expect(toggle.locator('small')).to_have_text(f'{topics} topics · {questions} Q')
+                    expect(toggle.locator('small')).to_have_text(f'{topics} topics · {questions:,} Q')
                     toggle.click()
                     expect(toggle).to_have_attribute('aria-pressed', 'true')
-                    expect(page.locator('#nk-cbt-footer-count')).to_have_text(f'{topics} topics · {questions} questions')
+                    expect(page.locator('#nk-cbt-footer-count')).to_have_text(f'{topics} topics · {questions:,} questions')
                     toggle.click()
                     expect(toggle).to_have_attribute('aria-pressed', 'false')
                     expect(page.locator('#nk-cbt-footer-count')).to_have_text('0 topics · 0 questions')
@@ -96,10 +105,10 @@ def main() -> None:
 
                 open_builder()
                 page.get_by_role('button', name='Continue to topics').click()
-                expect(page.locator('#nk-cbt-pyq-toggle small')).to_have_text('102 topics · 3,293 Q')
+                expect(page.locator('#nk-cbt-pyq-toggle small')).to_have_text(f'{ALL_TOPICS} topics · {ALL_PYQ:,} Q')
                 page.locator('#nk-cbt-pyq-toggle').click()
                 expect(page.locator('#nk-cbt-pyq-toggle')).to_have_attribute('aria-pressed', 'true')
-                expect(page.locator('#nk-cbt-footer-count')).to_have_text('102 topics · 3,293 questions')
+                expect(page.locator('#nk-cbt-footer-count')).to_have_text(f'{ALL_TOPICS} topics · {ALL_PYQ:,} questions')
                 page.screenshot(path=str(output / f'pyq-topics-{width}.png'), full_page=True)
                 page.get_by_role('button', name='Continue to questions').click()
                 page.locator('#nk-cbt-custom-count').fill('2')
@@ -196,7 +205,7 @@ def main() -> None:
             browser.close()
     finally:
         server.shutdown()
-    print('PYQ_EXAM_JOURNEY_BROWSER_OK verified=3293/102 subsets=true pyq=true mixed=true history=true review=true followup=true phone_tablet=true')
+    print(f'PYQ_EXAM_JOURNEY_BROWSER_OK verified={ALL_PYQ}/{ALL_TOPICS} subsets=true pyq=true mixed=true history=true review=true followup=true phone_tablet=true')
 
 
 if __name__ == '__main__':

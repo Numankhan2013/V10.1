@@ -39,7 +39,8 @@
     (box.querySelectorAll?.('.nk-session-review-q')||[]).forEach((cell,i)=>{
       const id=s.questionIds[i];if(id==null)return;
       const last=(state.attempts?.[id]||[]).at(-1);
-      const outcome=s.answers?.[id]&&s.submitted?.[id]&&last?(last.correct?'correct':'wrong'):(!s.answers?.[id]&&i!==s.index&&Number(s.questionTimes?.[id]||0)>0?'skipped':'');
+      // A correct answer waits for its recall rating (pendingRating) before it is an attempt.
+      const outcome=s.answers?.[id]&&s.submitted?.[id]&&s.pendingRating?.[id]?'correct':s.answers?.[id]&&s.submitted?.[id]&&last?(last.correct?'correct':'wrong'):(!s.answers?.[id]&&i!==s.index&&Number(s.questionTimes?.[id]||0)>0?'skipped':'');
       if(!outcome)return;
       shown[outcome]++;cell.classList.add('is-'+outcome);
       cell.setAttribute('aria-label',`Question ${i+1} ${outcome}`);

@@ -8,7 +8,8 @@
   // The reviews and ID-keyed repairs below were made against the PDF-page banks.
   // A text bank that keeps a reviewed question's ID (PrepLadder Biochemistry's
   // 2025 edition) carries its own complete source, so they do not apply to it.
-  function nkQuestionPageBank(q){return !(q?.bank==='PrepLadder'&&q?.explanationFormat==='structured');}
+  function nkStructuredTextBank(q){return (q?.bank==='PrepLadder'||q?.bank==='Marrow')&&q?.explanationFormat==='structured';}
+  function nkQuestionPageBank(q){return !nkStructuredTextBank(q);}
 
   function nkQuestionCompletenessReview(q){
     const spec=nkQuestionPageBank(q)?NK_QUESTION_COMPLETENESS_REVIEWS_V1[q?.id]:null;
@@ -68,6 +69,15 @@
     html=html.replace(/([A-Za-z0-9)\]])\s*\^\s*\{\s*([+−-]?\d+[+−-]?|[+−-])\s*\}/g,(_,base,power)=>base+stash('sup',power.replace(/-/g,'−')));
     html=html.replace(/([A-Za-z0-9)\]])\s*\^\s*([+−-]?\d+[+−-]?|[+−-])/g,(_,base,power)=>base+stash('sup',power.replace(/-/g,'−')));
     html=html.replace(/([A-Za-z0-9)\]])\s*_\s*\{\s*([A-Za-z0-9,+−-]+)\s*\}/g,(_,base,index)=>base+stash('sub',index));
+    // The braced form is explicit wherever it sits: after a Greek letter
+    // (α_{1A}), a bold marker (**^{131}I**), or with letters (5^{th}, 90^{o}).
+    // Punctuation the source caught inside the script stays on the line (CO_{2.}).
+    html=html.replace(/([_^])\s*\{\s*([^{}<>\s](?:[^{}<>]{0,14}[^{}<>\s])?)\s*\}/g,(_,mark,value)=>{
+      const [,core,tail]=value.match(value.includes('(')?/^(.*?)([.,;:]*)$/:/^(.*?)([.,;:)]*)$/);
+      if(!core)return value;
+      const kind=mark==='^'?'sup':'sub';
+      return stash(kind,kind==='sup'&&/^[+−-]?\d*[+−-]?$/.test(core)?core.replace(/-/g,'−'):core)+tail;
+    });
 
     // Ionic charge is a superscript. For monatomic ions the numeral is charge
     // magnitude (Ca2+), not an atom count; molecular ions are handled below.
@@ -145,10 +155,10 @@
     const selected=nkQuestionCompleteSourceOverride(q,presentation);
     const generic=selected===null?nkQuestionMatchingTable(matching||continuation,Boolean(continuation)):selected;
     presentation.table=(generic?.valid!==false?generic:null)||nkQuestionMatchingOverride(q);
-    // PrepLadder text banks carry complete, key-checked options: a matching stem
+    // Text banks (PrepLadder, Marrow web export) carry complete, key-checked options: a matching stem
     // the parser cannot lay out stays plain text instead of blocking the answer.
     // A hand-checked stem table (stemTables) always wins over the parser.
-    const textBank=q?.bank==='PrepLadder'&&q?.explanationFormat==='structured';
+    const textBank=nkStructuredTextBank(q);
     if(textBank&&Array.isArray(q.stemTables)&&q.stemTables.length)presentation.table=null;
     if(generic?.valid===false&&!presentation.table&&!textBank)presentation.valid=false;
     const stem=nkQuestionStemOverride(q);

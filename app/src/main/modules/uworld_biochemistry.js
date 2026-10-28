@@ -167,8 +167,7 @@
     const correct=attempts.filter(a=>a.correct).length,incorrect=attempts.filter(a=>!a.correct).length;
     return {total:qs.length,attempted:qs.filter(q=>qAttempts(q.id).length).length,correct,incorrect,accuracy:correct+incorrect?correct/(correct+incorrect)*100:0};
   };
-  const nkUworldCbtPool=nkCbtPool;
-  nkCbtPool=function(){return nkUworldCbtPool.apply(this,arguments).filter(nkUworldEligible);};
+  nkCbtEligible=nkUworldEligible;
   const nkUworldModulePool=nkQuestionsForModuleDraft;
   nkQuestionsForModuleDraft=function(){return nkUworldModulePool(nkUworldLegacyScope(arguments[0]===undefined?studyModuleDraft:arguments[0])).filter(nkUworldEligible);};
   const nkUworldRevisionData=nkRevisionDeskData;

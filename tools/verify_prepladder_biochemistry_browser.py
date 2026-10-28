@@ -34,6 +34,12 @@ class Quiet(http.server.SimpleHTTPRequestHandler):
         pass
 
 
+def shipped(slug: str) -> dict:
+    """Counts as shipped: the PDF bank plus the web-export questions merged into it (prepladder_qbank_bank)."""
+    import prepladder_qbank_bank as web  # noqa: PLC0415
+    return web.shipped_counts(slug)
+
+
 def fail(message: str) -> None:
     raise SystemExit("PREPLADDER_BIOCHEMISTRY_BROWSER_FAIL: " + message)
 
@@ -71,7 +77,7 @@ def main() -> None:
             page.evaluate("window.QB.nkOpenSubjectLibrary('Biochemistry')")
             page.wait_for_function("() => document.querySelectorAll('button.nk-bank-card').length>0", timeout=8000)
             bank = page.locator("button.nk-bank-card").filter(has_text="PrepLadder")
-            if "867 questions" not in bank.inner_text():
+            if f"{shipped('biochemistry')['questions']:,} questions" not in bank.inner_text():
                 fail(f"PrepLadder card wrong: {bank.inner_text()!r}")
             bank.click()
             page.wait_for_function("() => document.querySelectorAll('button.nk-topic-row').length===39", timeout=8000)
@@ -85,21 +91,23 @@ def main() -> None:
             # A long topic must stay a readable question map. The 62-question
             # mixed PYQ set previously rendered 19px cells with the numbers
             # hidden, so the whole map looked like a field of blank dots.
+            import prepladder_qbank_bank as web_export  # noqa: PLC0415
+            long_topic = next(x["questionCount"] for x in web_export.merged_record("biochemistry", web_export.existing_bank("biochemistry"))["topics"] if x["id"] == "biochemistry-19")
             page.evaluate("window.QB.openChapter('biochemistry-19')")
-            page.wait_for_function("() => document.querySelectorAll('.nk-topic-map .nk-topic-cell').length === 62", timeout=8000)
+            page.wait_for_function(f"() => document.querySelectorAll('.nk-topic-map .nk-topic-cell').length === {long_topic}", timeout=8000)
             cells = page.locator(".nk-topic-map .nk-topic-cell")
-            if cells.first.inner_text().strip() != "1" or cells.last.inner_text().strip() != "62":
-                fail("the 62-question topic map is missing its question numbers")
+            if cells.first.inner_text().strip() != "1" or cells.last.inner_text().strip() != str(long_topic):
+                fail(f"the {long_topic}-question topic map is missing its question numbers")
             first_cell = cells.first.bounding_box()
             if not first_cell or first_cell["width"] < 40 or first_cell["height"] < 40:
-                fail(f"the 62-question topic map cells are too small: {first_cell!r}")
+                fail(f"the {long_topic}-question topic map cells are too small: {first_cell!r}")
             cell_type = page.evaluate("""() => {
                 const el = document.querySelector('.nk-topic-map .nk-topic-cell');
                 const style = getComputedStyle(el);
                 return {fontSize: style.fontSize, color: style.color};
             }""")
             if cell_type["fontSize"] == "0px" or cell_type["color"] in ("rgba(0, 0, 0, 0)", "transparent"):
-                fail(f"the 62-question topic map hides its question numbers: {cell_type!r}")
+                fail(f"the {long_topic}-question topic map hides its question numbers: {cell_type!r}")
             page.screenshot(path=str(OUT / "plbiochem-01b-topic-map.png"), full_page=True)
 
             # A continued question explains in text, without the PDF's answer lead.

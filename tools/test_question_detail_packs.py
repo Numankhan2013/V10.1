@@ -55,7 +55,21 @@ def main() -> None:
         assert physiology["q"] == {"physiology-1-1": {"explanation": "Because."}}, physiology
         assert anatomy["q"]["marrow__A1"] == {"explanation": "E", "structuredExplanation": {"text": "E"}, "provenance": {"explanationPages": [3]}}
         assert anatomy["gold"] == {"marrow__A1": {"emphasis": ["x"]}}
-    print("QUESTION_DETAIL_PACKS_OK split=true pinned_inline=true gold=true hashed=true")
+    chunks()
+    print("QUESTION_DETAIL_PACKS_OK split=true pinned_inline=true gold=true hashed=true chunked=true")
+
+
+def chunks() -> None:
+    """Question data over the per-file limit ships as scripts that rebuild the same object in order."""
+    data = {"schema": 1, "records": [{"subject": f"S{n}", "questions": [{"id": f"q{n}-{i}", "question": "é" * 40}
+                                                                       for i in range(8)]} for n in range(6)]}
+    with patch.object(builder, "DATA_SCRIPT_BYTES", 3000):
+        bodies = builder.record_chunks("MARROW_DATA", data)
+    assert len(bodies) > 2 and all(len(b.encode()) < 3000 + 200 for b in bodies), [len(b) for b in bodies]
+    script = "const window={};" + "".join(bodies) + "process.stdout.write(JSON.stringify(window.NK_DATA_MARROW_DATA));"
+    import subprocess  # noqa: PLC0415
+    rebuilt = json.loads(subprocess.run(["node", "-e", script], check=True, capture_output=True, text=True).stdout)
+    assert rebuilt == data, "chunked scripts must rebuild the data exactly"
 
 
 if __name__ == "__main__":

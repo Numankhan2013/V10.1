@@ -16,10 +16,17 @@ from __future__ import annotations
 import argparse
 import http.server
 import socketserver
+import sys
 import threading
 from pathlib import Path
 
 from playwright.sync_api import sync_playwright
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import prepladder_qbank_bank as web_export  # noqa: E402
+
+# Marrow and the PrepLadder PDF bank, plus the questions the PrepLadder web export added.
+MICRO_TOTAL = 1927 + len(web_export.stored_record("microbiology")["questions"])
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "build" / "marrow-ui-checks"
@@ -84,7 +91,7 @@ def main() -> None:
             micro = page.locator(".nk-home-subjects button.nk-v3-subject-card").filter(has_text="Microbiology")
             if micro.count() != 1:
                 fail(f"Microbiology subject card missing; cards={names}")
-            if "1,927" not in micro.inner_text() or "Marrow" not in micro.inner_text() or "PrepLadder" not in micro.inner_text():
+            if f"{MICRO_TOTAL:,}" not in micro.inner_text() or "Marrow" not in micro.inner_text() or "PrepLadder" not in micro.inner_text():
                 fail(f"Microbiology card counts wrong: {micro.inner_text()!r}")
 
             # My Subjects groups the subjects by professional year and both groups

@@ -3,12 +3,30 @@
   // demand (tools/build_web_dist.py DetailPacks) and marks each question with
   // its pack. Questions without a mark (and local, unsplit builds) carry them inline.
   const nkDetailPacks=new Map();
+  // A pack can be 12 MB, so a slow download is fine; one that stops receiving
+  // bytes for 25 s is abandoned so the screen shows its retry message.
+  function nkFetchJsonUnlessStalled(url,stallMs=25000){
+    const control=typeof AbortController==='function'?new AbortController():null;
+    let timer=0;
+    const arm=()=>{clearTimeout(timer);if(control)timer=setTimeout(()=>control.abort(),stallMs);};
+    arm();
+    return fetch(url,control?{signal:control.signal}:undefined).then(response=>{
+      if(!response.ok)throw new Error(`HTTP ${response.status}`);
+      if(!response.body?.getReader){arm();return response.json();}
+      const reader=response.body.getReader(),parts=[];
+      const pump=()=>reader.read().then(({done,value})=>{
+        if(done)return new Blob(parts).text().then(JSON.parse);
+        parts.push(value);arm();return pump();
+      });
+      return pump();
+    }).finally(()=>clearTimeout(timer));
+  }
   function nkDetailsReady(q){return !q||!Number.isInteger(q.detailPack);}
   function nkDetailPack(index){
     const files=Array.isArray(window.NK_DETAIL_PACKS)?window.NK_DETAIL_PACKS:[];
     if(!files[index])return Promise.reject(new Error('Unknown explanation pack'));
     if(!nkDetailPacks.has(index)){
-      const load=fetch(files[index]).then(response=>{if(!response.ok)throw new Error(`HTTP ${response.status}`);return response.json();});
+      const load=nkFetchJsonUnlessStalled(files[index]);
       // A failed download is retried by the next screen that needs it.
       nkDetailPacks.set(index,load.catch(error=>{nkDetailPacks.delete(index);throw error;}));
     }

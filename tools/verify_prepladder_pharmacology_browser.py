@@ -34,13 +34,20 @@ class Quiet(http.server.SimpleHTTPRequestHandler):
         pass
 
 
+def lesson_count(slug: str, topic_id: str) -> int:
+    """Questions a lesson lists: the PDF bank's plus those the web export added (prepladder_qbank_bank)."""
+    import prepladder_qbank_bank as web  # noqa: PLC0415
+    merged = web.merged_record(slug, web.existing_bank(slug))
+    return next(t["questionCount"] for t in merged["topics"] if t["id"] == topic_id)
+
+
 def fail(message: str) -> None:
     raise SystemExit("PREPLADDER_PHARMACOLOGY_BROWSER_FAIL: " + message)
 
 
 def open_lesson(page, title: str, nth: int = 0) -> None:
     page.evaluate("window.QB.nkOpenSubjectLibrary('Pharmacology')")
-    page.wait_for_function("() => document.querySelectorAll('button.nk-bank-card').length===1", timeout=8000)
+    page.wait_for_function("() => document.querySelectorAll('button.nk-bank-card').length===2", timeout=8000)
     page.locator("button.nk-bank-card").filter(has_text="PrepLadder").click()
     page.wait_for_function("() => document.querySelectorAll('button.nk-topic-row').length===59", timeout=8000)
     page.locator("button.nk-topic-row").filter(has_text=title).nth(nth).click()
@@ -71,7 +78,7 @@ def main() -> None:
             page.goto(f"http://127.0.0.1:{port}/index.html", wait_until="networkidle")
 
             card = page.locator(".nk-home-subjects button.nk-v3-subject-card").filter(has_text="Pharmacology")
-            if card.count() != 1 or "1,321" not in card.inner_text():
+            if card.count() != 1 or "3,100" not in card.inner_text() or "Marrow" not in card.inner_text():
                 fail(f"Pharmacology subject card missing or wrong: {card.all_inner_texts()!r}")
             if "is-pharmacology" not in (card.get_attribute("class") or ""):
                 fail("Pharmacology card has no subject identity class")
@@ -80,9 +87,10 @@ def main() -> None:
                 fail(f"Second Prof should hold Microbiology, Pathology and Pharmacology: {second.inner_text()!r}")
 
             page.evaluate("window.QB.nkOpenSubjectLibrary('Pharmacology')")
-            page.wait_for_function("() => document.querySelectorAll('button.nk-bank-card').length===1", timeout=8000)
-            bank = page.locator("button.nk-bank-card")
-            if "1,321 questions" not in bank.inner_text() or "Text explanations" not in bank.inner_text():
+            # PrepLadder and Marrow sit side by side; this verifier walks PrepLadder.
+            page.wait_for_function("() => document.querySelectorAll('button.nk-bank-card').length===2", timeout=8000)
+            bank = page.locator("button.nk-bank-card").filter(has_text="PrepLadder")
+            if "1,825 questions" not in bank.inner_text() or "Text explanations" not in bank.inner_text():
                 fail(f"PrepLadder card wrong: {bank.inner_text()!r}")
             bank.click()
             page.wait_for_function("() => document.querySelectorAll('button.nk-topic-row').length===59", timeout=8000)
@@ -134,8 +142,8 @@ def main() -> None:
             # Antimicrobials PYQs (lesson 42): Q30 prints options A-E.
             pyq_order = [n for _, lessons in BANK.index for n in lessons if n in (1, 5, 10, 14, 16, 21, 27, 33, 42, 44, 48, 52, 55, 56, 57, 59)]
             open_lesson(page, "Previous Year Questions", pyq_order.index(42))
-            if page.locator("button.nk-library-row").count() != 100:
-                fail("the Antimicrobials PYQ lesson should list 100 questions")
+            if page.locator("button.nk-library-row").count() != lesson_count("pharmacology", "pharmacology-42"):
+                fail(f"the Antimicrobials PYQ lesson should list {lesson_count('pharmacology', 'pharmacology-42')} questions")
             open_question(page, 29, "foscarnet")
             if page.locator(".option-list button").count() != 5:
                 fail("five-option question does not show options A-E")

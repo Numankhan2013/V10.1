@@ -53,6 +53,19 @@ html[data-nk-ui="geist"] {
   --nkg-subj-microbiology: #4d7c0f;
   --nkg-subj-pathology: #c2410c;
   --nkg-subj-pharmacology: #a16207;
+  --nkg-subj-community: #047857;
+  --nkg-subj-forensic: #4338ca;
+  --nkg-subj-ent: #b45309;
+  --nkg-subj-ophthalmology: #0369a1;
+  --nkg-subj-pregnancy: #be185d;
+  --nkg-subj-paediatrics: #6d28d9;
+  --nkg-subj-surgery: #b91c1c;
+  --nkg-subj-medicine: #0e7490;
+  --nkg-subj-radiology: #a16207;
+  --nkg-subj-anaesthesia: #0f766e;
+  --nkg-subj-orthopaedics: #475569;
+  --nkg-subj-psychiatry: #a21caf;
+  --nkg-subj-dermatology: #9a3412;
   --nkg-subj-uworld: #737373;
 
   --nkg-shadow-sm: 0 1px 2px rgba(0, 0, 0, .05);
@@ -96,6 +109,19 @@ html[data-nk-ui="geist"][data-nk-theme="dark"] {
   --nkg-subj-microbiology: #a3e635;
   --nkg-subj-pathology: #fb923c;
   --nkg-subj-pharmacology: #facc15;
+  --nkg-subj-community: #34d399;
+  --nkg-subj-forensic: #818cf8;
+  --nkg-subj-ent: #fbbf24;
+  --nkg-subj-ophthalmology: #38bdf8;
+  --nkg-subj-pregnancy: #f472b6;
+  --nkg-subj-paediatrics: #a78bfa;
+  --nkg-subj-surgery: #f87171;
+  --nkg-subj-medicine: #22d3ee;
+  --nkg-subj-radiology: #fde047;
+  --nkg-subj-anaesthesia: #5eead4;
+  --nkg-subj-orthopaedics: #94a3b8;
+  --nkg-subj-psychiatry: #e879f9;
+  --nkg-subj-dermatology: #fdba74;
   --nkg-subj-uworld: #a3a3a3;
 
   --nkg-shadow-sm: 0 0 0 1px rgba(255, 255, 255, .04);
@@ -1907,7 +1933,10 @@ html[data-nk-ui="geist"] body #app .nk-learning-insights :is(select, .nk-li-tabs
 html[data-nk-ui="geist"] body #app .nk-learning-insights .nk-li-tabs button[aria-pressed="true"], html[data-nk-ui="geist"] body #app .nk-refined-analysis .nk-na-tabs button[aria-pressed="true"]{color:var(--nkg-inverse-fg) !important;box-shadow:none !important}
 html[data-nk-ui="geist"] body #app .nk-refined-analysis{--na-ink:var(--nk-ink);--na-muted:var(--nk-secondary);--na-line:var(--nk-divider)}
 html[data-nk-ui="geist"] body .nk-fsrs-medallion svg path:first-child{fill:currentcolor}
-html[data-nk-ui="geist"] body #app :is(.nk-app-v114, .nk-home-command-center, .nk-v114-session) ::selection{background-image:initial;background-color:var(--nkg-surface-2);color:var(--nk-ink)}
+/* Selection, scrollbar and tap rules would match every element. Selection sits on body
+   alone (descendants inherit highlight styles); a per-element rule doubled every restyle. */
+html[data-nk-ui="geist"] body::selection{background:color-mix(in srgb,var(--nkg-fg) 16%,transparent);color:inherit}
+html[data-nk-ui="geist"] :is(.nk-app-v114,.nk-home-command-center,.nk-v114-session)::selection{background-image:initial;background-color:var(--nkg-surface-2);color:var(--nk-ink)}
 html[data-nk-ui="geist"] body #app :is(.nk-app-v114, .nk-home-command-center, .nk-v114-session) :is(button, select, input, summary):focus-visible{outline-color:var(--nk-action) !important}
 html[data-nk-ui="geist"] .nk-question-note .nk-note-save{background-image:initial;background-color:var(--nkg-inverse-bg);color:var(--nkg-inverse-fg)}
 html[data-nk-ui="geist"] .nk-question-note textarea{background-image:initial;background-color:var(--nkg-surface);border-top-color:var(--nkg-border);border-right-color:var(--nkg-border);border-bottom-color:var(--nkg-border);border-left-color:var(--nkg-border)}
@@ -1950,13 +1979,12 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) button,
 html[data-nk-ui="geist"] :is(body,#nkg-root) input,
 html[data-nk-ui="geist"] :is(body,#nkg-root) select,
 html[data-nk-ui="geist"] :is(body,#nkg-root) textarea { font-family: var(--nkg-font-sans) !important; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) ::selection { background: color-mix(in srgb, var(--nkg-fg) 16%, transparent); color: inherit; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) input, html[data-nk-ui="geist"] :is(body,#nkg-root) textarea { caret-color: var(--nkg-fg); }
 html[data-nk-ui="geist"] :is(body,#nkg-root) :focus-visible { outline: 2px solid var(--nkg-focus) !important; outline-offset: 2px; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) * { -webkit-tap-highlight-color: transparent; scrollbar-color: var(--nkg-border-strong) transparent; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) ::-webkit-scrollbar { width: 10px; height: 10px; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) ::-webkit-scrollbar-thumb { background: var(--nkg-border-strong); border-radius: 10px; border: 3px solid transparent; background-clip: content-box; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) ::-webkit-scrollbar-track { background: transparent; }
+html[data-nk-ui="geist"] body { -webkit-tap-highlight-color: transparent; scrollbar-color: var(--nkg-border-strong) transparent; }
+html[data-nk-ui="geist"] ::-webkit-scrollbar { width: 10px; height: 10px; }
+html[data-nk-ui="geist"] ::-webkit-scrollbar-thumb { background: var(--nkg-border-strong); border-radius: 10px; border: 3px solid transparent; background-clip: content-box; }
+html[data-nk-ui="geist"] ::-webkit-scrollbar-track { background: transparent; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) a { color: inherit; text-underline-offset: 3px; text-decoration-thickness: 1px; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) h1, html[data-nk-ui="geist"] :is(body,#nkg-root) h2, html[data-nk-ui="geist"] :is(body,#nkg-root) h3 { letter-spacing: -0.02em; text-wrap: balance; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .app-shell { min-width: 0; }
@@ -4015,7 +4043,6 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-ring.nkg-ring-in { position:
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-ring.nkg-ring-in > span { position: relative; z-index: 1; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-ring.nkg-ring-in::after { content: ""; position: absolute; inset: -1px; border-radius: 50%; pointer-events: none; background: conic-gradient(transparent var(--nkg-sw), var(--nkg-surface) 0); animation: nkgRing 1.1s .1s cubic-bezier(.23, 1, .32, 1) both; }
 @keyframes nkgRing { from { --nkg-sw: 0deg; } to { --nkg-sw: 360deg; } }
-html[data-nk-ui="geist"] .nkg-confetti { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 9998; pointer-events: none; }
 /* Theme switch: the new theme spreads in a circle from the toggle. */
 html.nkg-vt-theme::view-transition-old(root), html.nkg-vt-theme::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
 html.nkg-vt-theme::view-transition-old(root) { z-index: 1; }
@@ -4142,16 +4169,33 @@ html[data-nk-ui="geist"] .nk-nb-menu.nkg-goo.is-ghost :is(.nkg-goo-svg, .nkg-goo
   html[data-nk-ui="geist"] .nkg-goo.is-anticipating :is(.nkg-goo-svg, .nk-np-add-btn) { animation: none !important; }
 }
 /* Busy submit: the label steps back, three dots wave in its place. */
-html[data-nk-ui="geist"] :is(body,#nkg-root) button.nkg-busy { position: relative; color: transparent !important; pointer-events: none; }
+/* Submit: the label turns to "Scoring…" at once (a static label: scoring blocks the main thread, so an animated
+   spinner would freeze anyway). The button keeps its size and reads as pressed. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) button.nkg-busy { position: relative; color: transparent !important; pointer-events: none; transform: scale(.985); }
 html[data-nk-ui="geist"] :is(body,#nkg-root) button.nkg-busy > * { opacity: 0; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) button.nkg-busy::after { content: ""; position: absolute; left: 50%; top: 50%; width: 6px; height: 6px; margin: -3px 0 0 -3px; border-radius: 50%; color: var(--nkg-inverse-fg); background: currentColor; box-shadow: -12px 0 0 currentColor, 12px 0 0 currentColor; animation: nkgDots .9s ease-in-out infinite; }
-@keyframes nkgDots { 0%, 100% { box-shadow: -12px 0 0 currentColor, 12px 0 0 color-mix(in srgb, currentColor 35%, transparent); background: color-mix(in srgb, currentColor 65%, transparent); } 50% { box-shadow: -12px 0 0 color-mix(in srgb, currentColor 35%, transparent), 12px 0 0 currentColor; background: currentColor; } }
+html[data-nk-ui="geist"] :is(body,#nkg-root) button.nkg-busy::after { content: attr(data-nkg-busy); position: absolute; inset: 0; display: grid; place-items: center; color: var(--nkg-inverse-fg); font-weight: 600; letter-spacing: -0.01em; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) button.nkg-busy:not([data-nkg-busy])::after { content: "…"; }
+/* Submit → result view transition: the session sinks back and blurs, the result rises; the Submit button grows into
+   the score card (shared name nkg-result), its label fading out as the card's content fades in. */
+html.nkg-reveal[data-nk-ui="geist"] .nk-na-summary { view-transition-name: nkg-result; }
+html.nkg-reveal::view-transition-old(root) { animation: nkgRevealOut 260ms cubic-bezier(.4, 0, 1, 1) both; }
+html.nkg-reveal::view-transition-new(root) { animation: nkgRevealIn 420ms 60ms cubic-bezier(.16, 1, .3, 1) both; }
+html.nkg-reveal::view-transition-group(nkg-result) { animation-duration: 520ms; animation-timing-function: cubic-bezier(.2, .9, .1, 1); z-index: 10; }
+html.nkg-reveal::view-transition-old(nkg-result) { animation: nkgRevealFade 160ms ease-out both; height: 100%; object-fit: cover; }
+html.nkg-reveal::view-transition-new(nkg-result) { animation: nkgRevealFade 300ms 140ms ease-in reverse both; height: 100%; object-fit: cover; }
+@keyframes nkgRevealOut { to { opacity: 0; transform: scale(.965); filter: blur(3px); } }
+@keyframes nkgRevealIn { from { opacity: 0; transform: translateY(14px); } }
+@keyframes nkgRevealFade { to { opacity: 0; } }
+/* A strong score: one ring of light leaves the score ring and fades. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-ring.nkg-ring-bloom { position: relative; isolation: isolate; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-ring.nkg-ring-bloom::before { content: ""; position: absolute; inset: -2px; border-radius: 50%; border: 2px solid var(--nkg-green, currentColor); pointer-events: none; animation: nkgBloom 900ms cubic-bezier(.16, 1, .3, 1) both; z-index: -1; }
+@keyframes nkgBloom { from { opacity: .7; transform: scale(1); } to { opacity: 0; transform: scale(1.32); } }
 /* Images: shimmer placeholder until loaded, then a short fade. */
 html[data-nk-ui="geist"] :is(body,#nkg-root) img.nkg-img-wait { min-height: 120px; min-width: 60%; border-radius: var(--nkg-r-md); color: transparent; background: linear-gradient(100deg, var(--nkg-surface-2) 40%, var(--nkg-hover) 50%, var(--nkg-surface-2) 60%) 0 0 / 300% 100%; animation: nkgShimmer 1.3s linear infinite; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) img.nkg-img-in { animation: nkgImgIn .35s var(--nkg-ease); }
 @keyframes nkgShimmer { from { background-position: 100% 0; } to { background-position: 0 0; } }
 @keyframes nkgImgIn { from { opacity: 0; } }
-@media (prefers-reduced-motion: reduce) { html[data-nk-ui="geist"] :is(body,#nkg-root) img.nkg-img-wait { animation: none; } html[data-nk-ui="geist"] :is(body,#nkg-root) button.nkg-busy::after { animation-duration: 2.4s; } }
+@media (prefers-reduced-motion: reduce) { html[data-nk-ui="geist"] :is(body,#nkg-root) img.nkg-img-wait { animation: none; } html.nkg-reveal::view-transition-group(*), html.nkg-reveal::view-transition-old(*), html.nkg-reveal::view-transition-new(*) { animation: none !important; } html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-ring.nkg-ring-bloom::before { animation: none; opacity: 0; } }
 html[data-nk-ui="geist"] .nk-nb.is-text .nk-nb-text { background: transparent !important; }
 
 /* ===================================================== Pages, not sheets (2026-10-11 b)
@@ -5475,7 +5519,7 @@ body:has(.nk-topics-v114) .page{padding-top:22px!important;padding-bottom:210px!
 .nk-topics-v114 .nk-filter-tabs button.is-active{background:#a194ed;}
 .nk-topics-v114 .nk-topic-summary{font-size:11px;margin-bottom:20px}
 .nk-topic-journey{gap:28px}
-.nk-topic-group{scroll-margin-top:20px}
+.nk-topic-group{scroll-margin-top:calc(var(--nkg-topbar-h,56px) + env(safe-area-inset-top,0px) + 12px)}
 .nk-topic-group>h2{font-size:18px;margin:0 0 16px 2px}
 .nk-topic-group .nk-topic-list{gap:14px}
 .nk-topic-group .nk-topic-list:before{display:none}
@@ -6569,6 +6613,87 @@ html[data-nk-ui="geist"] .nk-module-subject.is-pharmacology > span{background-im
 html[data-nk-ui="geist"] .nk-v3-subject-card.is-pharmacology .nk-v3-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-fg)}
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.is-pharmacology .nk-v3-subject-icon { color: var(--nkg-subj-pharmacology) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot.is-pharmacology { background: var(--nkg-subj-pharmacology); }
+
+/* ── Third and Final Prof subjects ── */
+/* Each keeps the same identity treatment as the First and Second Prof subjects, with its own accent; no two in one professional group share a hue. */
+html[data-nk-ui="geist"] .nk-multi-subject-card.is-community .nk-multi-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-community)}
+html[data-nk-ui="geist"] .nk-multi-topic-group > header .is-community{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-community)}
+html[data-nk-ui="geist"] .nk-module-subject.is-community > span{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-community)}
+html[data-nk-ui="geist"] .nk-v3-subject-card.is-community .nk-v3-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-fg)}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.is-community .nk-v3-subject-icon { color: var(--nkg-subj-community) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot.is-community { background: var(--nkg-subj-community); }
+html[data-nk-ui="geist"] .nk-multi-subject-card.is-forensic .nk-multi-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-forensic)}
+html[data-nk-ui="geist"] .nk-multi-topic-group > header .is-forensic{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-forensic)}
+html[data-nk-ui="geist"] .nk-module-subject.is-forensic > span{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-forensic)}
+html[data-nk-ui="geist"] .nk-v3-subject-card.is-forensic .nk-v3-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-fg)}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.is-forensic .nk-v3-subject-icon { color: var(--nkg-subj-forensic) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot.is-forensic { background: var(--nkg-subj-forensic); }
+html[data-nk-ui="geist"] .nk-multi-subject-card.is-ent .nk-multi-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-ent)}
+html[data-nk-ui="geist"] .nk-multi-topic-group > header .is-ent{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-ent)}
+html[data-nk-ui="geist"] .nk-module-subject.is-ent > span{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-ent)}
+html[data-nk-ui="geist"] .nk-v3-subject-card.is-ent .nk-v3-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-fg)}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.is-ent .nk-v3-subject-icon { color: var(--nkg-subj-ent) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot.is-ent { background: var(--nkg-subj-ent); }
+html[data-nk-ui="geist"] .nk-multi-subject-card.is-ophthalmology .nk-multi-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-ophthalmology)}
+html[data-nk-ui="geist"] .nk-multi-topic-group > header .is-ophthalmology{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-ophthalmology)}
+html[data-nk-ui="geist"] .nk-module-subject.is-ophthalmology > span{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-ophthalmology)}
+html[data-nk-ui="geist"] .nk-v3-subject-card.is-ophthalmology .nk-v3-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-fg)}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.is-ophthalmology .nk-v3-subject-icon { color: var(--nkg-subj-ophthalmology) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot.is-ophthalmology { background: var(--nkg-subj-ophthalmology); }
+html[data-nk-ui="geist"] .nk-multi-subject-card.is-pregnancy .nk-multi-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-pregnancy)}
+html[data-nk-ui="geist"] .nk-multi-topic-group > header .is-pregnancy{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-pregnancy)}
+html[data-nk-ui="geist"] .nk-module-subject.is-pregnancy > span{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-pregnancy)}
+html[data-nk-ui="geist"] .nk-v3-subject-card.is-pregnancy .nk-v3-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-fg)}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.is-pregnancy .nk-v3-subject-icon { color: var(--nkg-subj-pregnancy) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot.is-pregnancy { background: var(--nkg-subj-pregnancy); }
+html[data-nk-ui="geist"] .nk-multi-subject-card.is-paediatrics .nk-multi-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-paediatrics)}
+html[data-nk-ui="geist"] .nk-multi-topic-group > header .is-paediatrics{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-paediatrics)}
+html[data-nk-ui="geist"] .nk-module-subject.is-paediatrics > span{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-paediatrics)}
+html[data-nk-ui="geist"] .nk-v3-subject-card.is-paediatrics .nk-v3-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-fg)}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.is-paediatrics .nk-v3-subject-icon { color: var(--nkg-subj-paediatrics) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot.is-paediatrics { background: var(--nkg-subj-paediatrics); }
+html[data-nk-ui="geist"] .nk-multi-subject-card.is-surgery .nk-multi-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-surgery)}
+html[data-nk-ui="geist"] .nk-multi-topic-group > header .is-surgery{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-surgery)}
+html[data-nk-ui="geist"] .nk-module-subject.is-surgery > span{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-surgery)}
+html[data-nk-ui="geist"] .nk-v3-subject-card.is-surgery .nk-v3-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-fg)}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.is-surgery .nk-v3-subject-icon { color: var(--nkg-subj-surgery) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot.is-surgery { background: var(--nkg-subj-surgery); }
+html[data-nk-ui="geist"] .nk-multi-subject-card.is-medicine .nk-multi-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-medicine)}
+html[data-nk-ui="geist"] .nk-multi-topic-group > header .is-medicine{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-medicine)}
+html[data-nk-ui="geist"] .nk-module-subject.is-medicine > span{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-medicine)}
+html[data-nk-ui="geist"] .nk-v3-subject-card.is-medicine .nk-v3-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-fg)}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.is-medicine .nk-v3-subject-icon { color: var(--nkg-subj-medicine) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot.is-medicine { background: var(--nkg-subj-medicine); }
+html[data-nk-ui="geist"] .nk-multi-subject-card.is-radiology .nk-multi-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-radiology)}
+html[data-nk-ui="geist"] .nk-multi-topic-group > header .is-radiology{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-radiology)}
+html[data-nk-ui="geist"] .nk-module-subject.is-radiology > span{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-radiology)}
+html[data-nk-ui="geist"] .nk-v3-subject-card.is-radiology .nk-v3-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-fg)}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.is-radiology .nk-v3-subject-icon { color: var(--nkg-subj-radiology) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot.is-radiology { background: var(--nkg-subj-radiology); }
+html[data-nk-ui="geist"] .nk-multi-subject-card.is-anaesthesia .nk-multi-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-anaesthesia)}
+html[data-nk-ui="geist"] .nk-multi-topic-group > header .is-anaesthesia{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-anaesthesia)}
+html[data-nk-ui="geist"] .nk-module-subject.is-anaesthesia > span{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-anaesthesia)}
+html[data-nk-ui="geist"] .nk-v3-subject-card.is-anaesthesia .nk-v3-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-fg)}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.is-anaesthesia .nk-v3-subject-icon { color: var(--nkg-subj-anaesthesia) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot.is-anaesthesia { background: var(--nkg-subj-anaesthesia); }
+html[data-nk-ui="geist"] .nk-multi-subject-card.is-orthopaedics .nk-multi-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-orthopaedics)}
+html[data-nk-ui="geist"] .nk-multi-topic-group > header .is-orthopaedics{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-orthopaedics)}
+html[data-nk-ui="geist"] .nk-module-subject.is-orthopaedics > span{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-orthopaedics)}
+html[data-nk-ui="geist"] .nk-v3-subject-card.is-orthopaedics .nk-v3-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-fg)}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.is-orthopaedics .nk-v3-subject-icon { color: var(--nkg-subj-orthopaedics) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot.is-orthopaedics { background: var(--nkg-subj-orthopaedics); }
+html[data-nk-ui="geist"] .nk-multi-subject-card.is-psychiatry .nk-multi-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-psychiatry)}
+html[data-nk-ui="geist"] .nk-multi-topic-group > header .is-psychiatry{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-psychiatry)}
+html[data-nk-ui="geist"] .nk-module-subject.is-psychiatry > span{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-psychiatry)}
+html[data-nk-ui="geist"] .nk-v3-subject-card.is-psychiatry .nk-v3-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-fg)}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.is-psychiatry .nk-v3-subject-icon { color: var(--nkg-subj-psychiatry) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot.is-psychiatry { background: var(--nkg-subj-psychiatry); }
+html[data-nk-ui="geist"] .nk-multi-subject-card.is-dermatology .nk-multi-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-dermatology)}
+html[data-nk-ui="geist"] .nk-multi-topic-group > header .is-dermatology{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-dermatology)}
+html[data-nk-ui="geist"] .nk-module-subject.is-dermatology > span{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-dermatology)}
+html[data-nk-ui="geist"] .nk-v3-subject-card.is-dermatology .nk-v3-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-fg)}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.is-dermatology .nk-v3-subject-icon { color: var(--nkg-subj-dermatology) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot.is-dermatology { background: var(--nkg-subj-dermatology); }
 .nk-marrow-ordered .nk-marrow-pearl{margin-top:22px}
 /* Source references carry long unbroken URLs. The ordered explanation is a
    grid, whose one column would grow to the longest unbreakable string and
@@ -6581,6 +6706,7 @@ html .nk-marrow-ordered>.nk-explain-refs{margin:8px 0 0;padding-top:12px;border-
 html .nk-marrow-ordered>.nk-explain-refs .nk-explain-refs-label{font-size:12px;font-weight:600;color:var(--nkg-fg-3,#666)}
 html .nk-source-section .nk-marrow-ordered>.nk-explain-refs p{margin:0;font-size:13px;line-height:1.5;font-weight:400;letter-spacing:0;color:var(--nkg-fg-2,#4d4d4d)}
 html .nk-marrow-ordered>.nk-explain-refs cite{font-style:italic}
+html .nk-marrow-ordered :is(p,li){overflow-wrap:break-word}
 .nk-marrow-ordered .nk-marrow-note{padding:10px 12px;border-left:3px solid var(--nkg-border,#d4d4d8);background:var(--nkg-bg-subtle,#f6f6f7);border-radius:0 8px 8px 0}
 
 /* ── nk-professional-groups-v1 ── */
@@ -6593,7 +6719,7 @@ html .nk-marrow-ordered>.nk-explain-refs cite{font-style:italic}
    through its own grid row. */
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-groups{display:flex !important;flex-direction:column !important;gap:10px !important;margin-top:2px}
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-group{display:flex !important;flex-direction:column !important}
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-head{display:grid !important;grid-template-columns:auto minmax(0,1fr) auto 28px !important;align-items:center !important;gap:12px !important;width:100% !important;min-height:60px;padding:10px 12px;border:1px solid var(--nkg-border) !important;border-radius:12px !important;background:var(--nkg-bg-subtle) !important;color:var(--nkg-fg) !important;font-family:inherit;font-size:inherit;font-weight:400;text-align:left;cursor:pointer;box-shadow:none !important;transition:transform 260ms var(--nkg-spring),background-color var(--nkg-dur) var(--nkg-ease),border-color var(--nkg-dur) var(--nkg-ease)}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-head{display:grid !important;grid-template-columns:auto minmax(0,1fr) 28px !important;align-items:center !important;gap:12px !important;width:100% !important;min-height:60px;padding:10px 12px;border:1px solid var(--nkg-border) !important;border-radius:12px !important;background:var(--nkg-bg-subtle) !important;color:var(--nkg-fg) !important;font-family:inherit;font-size:inherit;font-weight:400;text-align:left;cursor:pointer;box-shadow:none !important;transition:transform 260ms var(--nkg-spring),background-color var(--nkg-dur) var(--nkg-ease),border-color var(--nkg-dur) var(--nkg-ease)}
 @media(hover:hover){
   html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-head:hover{background:var(--nkg-hover) !important;border-color:var(--nkg-border-strong) !important}
 }
@@ -6603,13 +6729,13 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-group.is-open .nk-prof-hea
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-tile{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid var(--nkg-border);border-radius:10px;background:var(--nkg-surface);color:var(--nkg-fg-2);font-size:13.5px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1;box-shadow:var(--nkg-shadow-sm)}
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-copy{display:grid;gap:3px;min-width:0}
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-copy strong{font-size:16px;font-weight:600;letter-spacing:-.011em;line-height:1.2}
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-meta{display:flex;align-items:center;gap:8px;min-width:0}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-meta{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;min-width:0}
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-strip{display:flex;align-items:center;flex:0 0 auto}
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-strip-chip{position:relative;display:flex;align-items:center;justify-content:center;width:22px;height:22px;border:1px solid var(--nkg-border);border-radius:8px;background:var(--nkg-surface)}
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-strip-chip+.nk-prof-strip-chip{margin-left:-7px}
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-strip-chip.is-extra{font-size:10px;font-weight:600;color:var(--nkg-fg-3)}
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-questions{font-size:var(--nkg-t-xs,12px);color:var(--nkg-fg-3);line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-count{border:1px solid var(--nkg-border);border-radius:999px;background:var(--nkg-surface);color:var(--nkg-fg-3);font-size:11.5px;font-weight:500;font-variant-numeric:tabular-nums;line-height:1;padding:4px 9px;white-space:nowrap}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-count{font-variant-numeric:tabular-nums}
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-chevron{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border:1px solid var(--nkg-border);border-radius:999px;background:var(--nkg-surface);color:var(--nkg-fg-3);box-shadow:var(--nkg-shadow-sm);transform:rotate(90deg);transition:transform var(--nkg-dur-med,240ms) var(--nkg-ease,ease)}
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-group.is-open .nk-prof-chevron{transform:rotate(-90deg)}
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-prof-group.is-open :is(.nk-prof-tile,.nk-prof-chevron){border-color:var(--nkg-border-strong)}
@@ -6739,7 +6865,7 @@ html body #app .nk-refined-analysis .nk-na-tabs button[aria-pressed="true"]{back
 html body .bottom-nav .nav-item.active .nk-icon-tone,
 html body .bookmark-toggle.bookmarked .nk-icon-tone{opacity:.32}
 html body .nk-fsrs-medallion svg path:first-child{fill-opacity:.16;stroke-width:1.9}
-html body #app :is(.nk-app-v114,.nk-home-command-center,.nk-v114-session) ::selection{background:#e4d9f6;}
+html:not([data-nk-ui="geist"]) body::selection{background:#e4d9f6;}
 
 @media(min-width:768px) and (min-height:600px){
  html body #app .qbank-session-page:has(.nk-v114-session){padding-inline:32px!important}

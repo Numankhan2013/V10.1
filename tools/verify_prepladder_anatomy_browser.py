@@ -32,6 +32,12 @@ class Quiet(http.server.SimpleHTTPRequestHandler):
         pass
 
 
+def shipped(slug: str) -> dict:
+    """Counts as shipped: the PDF bank plus the web-export questions merged into it (prepladder_qbank_bank)."""
+    import prepladder_qbank_bank as web  # noqa: PLC0415
+    return web.shipped_counts(slug)
+
+
 def fail(message: str) -> None:
     raise SystemExit("PREPLADDER_ANATOMY_BROWSER_FAIL: " + message)
 
@@ -69,7 +75,7 @@ def main() -> None:
             page.evaluate("window.QB.nkOpenSubjectLibrary('Anatomy')")
             page.wait_for_function("() => document.querySelectorAll('button.nk-bank-card').length>0", timeout=8000)
             bank = page.locator("button.nk-bank-card").filter(has_text="PrepLadder")
-            if "1,134 questions" not in bank.inner_text():
+            if f"{shipped('anatomy')['questions']:,} questions" not in bank.inner_text():
                 fail(f"PrepLadder card wrong: {bank.inner_text()!r}")
             bank.click()
             page.wait_for_function("() => document.querySelectorAll('button.nk-topic-row').length===54", timeout=8000)

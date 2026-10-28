@@ -181,6 +181,7 @@
     const cards=due.filter(q=>repeatIds.has(String(q.id))||admittedIds.has(String(q.id)));
     return {cards,due,totalDue:due.length,rolledOver:Math.max(0,firstToday.length-admittedIds.size)};
   }
+  if(typeof nkMemoByState==='function')nkFsrsQueue=nkMemoByState(nkFsrsQueue,(filters={})=>JSON.stringify(filters||{}),queue=>({...queue,cards:queue.cards.slice(),due:queue.due.slice()}));
   function nkFsrsCounts(now=Date.now()){
     const counts={eligible:0,due:0,learning:0,relearning:0,young:0,mature:0,overdue:0,attention:0};
     nkFsrsAllQuestions().forEach(q=>{if(!nkFsrsEligibility(q))return;counts.eligible++;const r=state.reviews[q.id],at=Number(r?.due||r?.nextReviewAt||0);if(nkFsrsIsDue(r,now)){counts.due++;if(r&&now-at>=NK_FSRS_DAY)counts.overdue++;}if(Number(r?.state)===1)counts.learning++;else if(Number(r?.state)===3)counts.relearning++;else if(r&&Number(r.stability)>=21)counts.mature++;else if(r)counts.young++;if(r?.needsAttention)counts.attention++;});return counts;

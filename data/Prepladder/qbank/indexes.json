@@ -1,0 +1,555 @@
+{
+ "forensic-medicine": {
+  "order": [
+   "Forensic Identification",
+   "IPC Sections",
+   "Forensic Thanatology",
+   "Postmortem Techniques",
+   "Forensic Traumatology",
+   "Ballistics",
+   "Asphyxial Deaths",
+   "Sexual Offences",
+   "Sexual Jurisprudence",
+   "Infanticide",
+   "General Toxicology",
+   "Forensic Toxicology",
+   "Forensic Psychiatry",
+   "Court of Law",
+   "Indian Legal System",
+   "Medical Jurisprudence"
+  ],
+  "rename": {
+   "Post Mortem Techniques": "Postmortem Techniques",
+   "Indian Legal System Medical Jurisprudence": "Indian Legal System"
+  },
+  "tests": {
+   "030": "IPC Sections"
+  },
+  "split": [
+   "035"
+  ],
+  "titles": {
+   "011": "Thermal Injuries I (incl. RTA)",
+   "013": "Forensic Ballistics I"
+  }
+ },
+ "ent": {
+  "order": [
+   "Ear",
+   "Nose and Paranasal Sinuses",
+   "Pharynx",
+   "Larynx",
+   "Miscellaneous"
+  ],
+  "tests": {
+   "039": "Miscellaneous"
+  },
+  "titles": {
+   "005": "Vestibular System: Physiology, Assessment, and Associated Diseases",
+   "006": "Middle Ear Diseases: ASOM and SOM",
+   "008": "ASOM and CSOM Complications",
+   "032": "Ludwig's Angina, Pharyngeal Pouch and Abscesses Related to Pharynx"
+  }
+ },
+ "anaesthesia": {
+  "order": [
+   "Pre-Anaesthetic Evaluation",
+   "Local Anaesthetics",
+   "Regional Anaesthesia",
+   "Neuromuscular Blockade",
+   "Intravenous Anaesthetic Agents",
+   "Inhalational Anaesthetic Agents",
+   "General Anaesthesia",
+   "Anaesthesia for Co-existing Medical Conditions",
+   "Monitoring in Anaesthesia",
+   "Cardiopulmonary Cerebral Resuscitation",
+   "Anaesthesia Machine and Workstation",
+   "Oxygen Therapy",
+   "Mechanical Ventilation and Airway",
+   "Pain Management",
+   "Brain Death",
+   "Miscellaneous",
+   "Emergency Medicine",
+   "Recent Updates"
+  ],
+  "rename": {
+   "Anaesthesia for Co-existing Medical Conditons": "Anaesthesia for Co-existing Medical Conditions",
+   "Anaesthesia Machine Workstation": "Anaesthesia Machine and Workstation"
+  },
+  "tests": {
+   "008": "Neuromuscular Blockade",
+   "009": "Neuromuscular Blockade",
+   "010": "General Anaesthesia",
+   "019": "Oxygen Therapy",
+   "020": "Mechanical Ventilation and Airway",
+   "021": "Mechanical Ventilation and Airway",
+   "024": "Emergency Medicine",
+   "029": "Miscellaneous",
+   "030": "Recent Updates"
+  },
+  "titles": {
+   "005": "Regional Anaesthesia: Spinal, Epidural and Caudal"
+  }
+ },
+ "ophthalmology": {
+  "order": [
+   "Orbit",
+   "Diseases of Lens",
+   "Uveitis",
+   "Glaucoma",
+   "Retina",
+   "Neuro-Ophthalmology",
+   "Squint/Strabismus",
+   "Cornea",
+   "Conjunctiva",
+   "Ocular Adnexa",
+   "Optics",
+   "Basics of Ophthalmology",
+   "Sclera",
+   "Lacrimal Drainage System",
+   "Community Ophthalmology",
+   "Ocular Injuries"
+  ],
+  "rename": {
+   "Neuro Ophthalmology": "Neuro-Ophthalmology",
+   "Squint Strabismus": "Squint/Strabismus"
+  },
+  "tests": {
+   "045": "Community Ophthalmology"
+  },
+  "titles": {
+   "010": "Glaucoma: PACG, Treatment, Congenital Glaucoma",
+   "011": "Glaucoma: POAG, Tonometry, Perimetry",
+   "024": "Cornea I",
+   "016": "Macular and Fundus Disorders, Retinal Detachment and Retinoblastoma"
+  },
+  "split": [
+   "040"
+  ]
+ },
+ "community-medicine": {
+  "order": [
+   "Concepts of Health and Disease",
+   "Epidemiology",
+   "Vaccines and Cold Chain",
+   "Screening of Diseases",
+   "Communicable and Non-Communicable Diseases",
+   "National Health Programs",
+   "Demography and Health",
+   "Family Planning and Contraceptives",
+   "Preventive Medicine in Obstetrics, Pediatrics and Geriatrics",
+   "Nutritional Health",
+   "Social Sciences and Health",
+   "Environmental Health",
+   "Allied Health Disciplines",
+   "Health Education and Communication",
+   "Health Planning and Management",
+   "Health Care of the Community in India",
+   "International Health",
+   "Biostatistics",
+   "Biomedical Waste Management",
+   "Recent Updates",
+   "Miscellaneous"
+  ],
+  "rename": {
+   "Concept of Health and Disease": "Concepts of Health and Disease",
+   "Communicable and Non-communicable Diseases": "Communicable and Non-Communicable Diseases",
+   "Preventive Medicine in Obstetrics Pediatrics and Geriatrics": "Preventive Medicine in Obstetrics, Pediatrics and Geriatrics",
+   "Nutrition and Health": "Nutritional Health",
+   "Environment and Health": "Environmental Health",
+   "Health Care of The Community in India": "Health Care of the Community in India"
+  },
+  "tests": {
+   "079": "Recent Updates",
+   "080": "Recent Updates",
+   "081": "Miscellaneous"
+  },
+  "titles": {
+   "001": "Concept of Disease and Well-Being",
+   "006": "Study Designs in Epidemiology I",
+   "007": "Study Designs in Epidemiology II",
+   "009": "Systematic Review, Meta-Analysis, and Evidence-Based Studies",
+   "011": "National Immunization Schedule, Delayed Immunization, Cold Chain",
+   "028": "National Health Mission, RMNCH+A, Maternal Initiatives, Child and Adolescent Health",
+   "029": "NACP and Global Initiatives",
+   "030": "National TB Elimination Program (NTEP)",
+   "032": "Endgame Strategy and National Polio Surveillance Program",
+   "033": "NCDs and NPCDS",
+   "034": "Blindness Control Program, NLEP, Health Programs (Misc)",
+   "035": "National Programs: TB, Leprosy and HIV/AIDS",
+   "026": "Plague, Tetanus, HIV/AIDS, Rickettsial Disease, Ebola, Nipah and Zika",
+   "060": "ESI Act, Factory Act, NREGA Act and Disaster Management",
+   "070": "Descriptive Statistics: Data Types, Probability and Central Tendency",
+   "072": "Descriptive Statistics: Distribution, Dispersion and Z-Scores",
+   "075": "Biostatistics: Correlation, Regression and Statistical Tests",
+   "076": "Biostatistics: Sampling Methods and Data Presentation"
+  }
+ },
+ "medicine": {
+  "order": [
+   "Cardiology",
+   "Emergency Medicine",
+   "Endocrinology",
+   "Nephrology",
+   "Gastrointestinal System",
+   "Hematology",
+   "Neurology",
+   "Rheumatology",
+   "Hepatobiliary System",
+   "Pulmonology",
+   "Infections",
+   "General Medicine",
+   "Miscellaneous Topics",
+   "Recent Updates"
+  ],
+  "tests": {
+   "114": "General Medicine",
+   "115": "Miscellaneous Topics",
+   "116": "Recent Updates",
+   "117": "Recent Updates"
+  },
+  "titles": {
+   "011": "Emergency Cardiovascular Care Protocols: BCLS, ACLS, Mechanical Ventilation and Causes of Pulseless Electrical Activity",
+   "012": "Massive Transfusion Protocol, ARDS, Snakebite, AHA Updates, Altitude Sickness",
+   "032": "Ciliopathies, PKD, TTP",
+   "066": "Peripheral Neuropathy: Types, Causes & Management",
+   "070": "Multiple Sclerosis, Neuromyelitis Optica Spectrum Disorder and ALS",
+   "111": "COVID-19: Diagnosis, Testing & Severity Assessment",
+   "112": "COVID-19: Management, Prevention & Complications",
+   "102": "Interstitial Lung Disease, Pulmonary Alveolar Proteinosis & Pneumoconiosis"
+  },
+  "split": [
+   "029"
+  ]
+ },
+ "surgery": {
+  "order": [
+   "Neurosurgery",
+   "Head and Neck",
+   "Cardiothoracic and Vascular Surgery",
+   "Hepatobiliary Pancreatic Surgery",
+   "Gastrointestinal Surgery",
+   "Urology",
+   "Endocrine Surgery",
+   "Plastic Surgery",
+   "Oncology",
+   "Miscellaneous and Reconstructive",
+   "Recent Updates"
+  ],
+  "rename": {
+   "Head And Neck": "Head and Neck",
+   "Cardiothoracic Vascular Surgery": "Cardiothoracic and Vascular Surgery",
+   "Miscellaneous": "Miscellaneous and Reconstructive"
+  },
+  "tests": {
+   "081": "Recent Updates",
+   "082": "Recent Updates"
+  },
+  "titles": {
+   "068": "Trauma: ATLS Protocol",
+   "069": "General Surgery: Robotic, Laparoscopic and Bariatric Surgeries",
+   "045": "Renal Stones, Infective Disorders of Kidney, Hydronephrosis and Genitourinary Tuberculosis",
+   "078": "Previous Year Questions, Part 1",
+   "079": "Previous Year Questions, Part 2",
+   "080": "Previous Year Questions, Part 3",
+   "006": "Neck, Facial Injuries & Abnormalities",
+   "018": "Liver Disorders: Portal Hypertension, Vascular & Infections",
+   "066": "Skin Tumors: Benign & Malignant"
+  }
+ },
+ "obstetrics-gynaecology": {
+  "order": [
+   "Relevant Clinical Anatomy",
+   "Reproductive Physiology",
+   "Genital Infections",
+   "Pathology of Reproductive Age Group",
+   "Clinical Approaches to Conditions in Reproductive Age Group",
+   "Relevant Embryology and Associated Disorders",
+   "Disorders of Puberty and Amenorrhea",
+   "Infertility",
+   "Gynecology Oncology",
+   "Urogynecology",
+   "Contraception",
+   "Basics of Obstetrics",
+   "Early Pregnancy Complications",
+   "Molar Pregnancy and GTN",
+   "Normal Labor",
+   "Abnormalities of Labor",
+   "Obstetric Hemorrhage and Obstetric Emergencies",
+   "High-Risk Pregnancy",
+   "Puerperium",
+   "Special Topics",
+   "Obstetrics",
+   "Instruments",
+   "Recent Updates"
+  ],
+  "tests": {
+   "001": "Relevant Clinical Anatomy",
+   "002": "Relevant Clinical Anatomy",
+   "003": "Relevant Clinical Anatomy",
+   "004": "Relevant Clinical Anatomy",
+   "005": "Reproductive Physiology",
+   "006": "Reproductive Physiology",
+   "007": "Reproductive Physiology",
+   "008": "Reproductive Physiology",
+   "009": "Genital Infections",
+   "010": "Genital Infections",
+   "011": "Genital Infections",
+   "012": "Genital Infections",
+   "013": "Pathology of Reproductive Age Group",
+   "014": "Pathology of Reproductive Age Group",
+   "015": "Pathology of Reproductive Age Group",
+   "016": "Pathology of Reproductive Age Group",
+   "017": "Clinical Approaches to Conditions in Reproductive Age Group",
+   "018": "Relevant Embryology and Associated Disorders",
+   "019": "Relevant Embryology and Associated Disorders",
+   "020": "Relevant Embryology and Associated Disorders",
+   "021": "Disorders of Puberty and Amenorrhea",
+   "022": "Disorders of Puberty and Amenorrhea",
+   "023": "Infertility",
+   "024": "Infertility",
+   "025": "Infertility",
+   "026": "Gynecology Oncology",
+   "027": "Gynecology Oncology",
+   "028": "Gynecology Oncology",
+   "029": "Gynecology Oncology",
+   "030": "Gynecology Oncology",
+   "031": "Gynecology Oncology",
+   "032": "Urogynecology",
+   "033": "Urogynecology",
+   "034": "Urogynecology",
+   "035": "Contraception",
+   "036": "Contraception",
+   "037": "Basics of Obstetrics",
+   "038": "Basics of Obstetrics",
+   "039": "Basics of Obstetrics",
+   "040": "Basics of Obstetrics",
+   "041": "Basics of Obstetrics",
+   "042": "Early Pregnancy Complications",
+   "043": "Early Pregnancy Complications",
+   "044": "Early Pregnancy Complications",
+   "045": "Molar Pregnancy and GTN",
+   "046": "Molar Pregnancy and GTN",
+   "047": "Normal Labor",
+   "048": "Normal Labor",
+   "049": "Abnormalities of Labor",
+   "050": "Abnormalities of Labor",
+   "051": "Abnormalities of Labor",
+   "052": "Obstetric Hemorrhage and Obstetric Emergencies",
+   "053": "Obstetric Hemorrhage and Obstetric Emergencies",
+   "054": "Obstetric Hemorrhage and Obstetric Emergencies",
+   "055": "Obstetric Hemorrhage and Obstetric Emergencies",
+   "056": "High-Risk Pregnancy",
+   "057": "High-Risk Pregnancy",
+   "058": "High-Risk Pregnancy",
+   "059": "High-Risk Pregnancy",
+   "060": "High-Risk Pregnancy",
+   "061": "High-Risk Pregnancy",
+   "062": "High-Risk Pregnancy",
+   "063": "High-Risk Pregnancy",
+   "064": "High-Risk Pregnancy",
+   "065": "High-Risk Pregnancy",
+   "066": "High-Risk Pregnancy",
+   "067": "Puerperium",
+   "068": "Puerperium",
+   "069": "Special Topics",
+   "070": "Pathology of Reproductive Age Group",
+   "071": "Pathology of Reproductive Age Group",
+   "072": "Obstetrics",
+   "073": "Instruments",
+   "074": "Recent Updates",
+   "075": "Recent Updates"
+  },
+  "titles": {
+   "026": "Cervical Carcinoma I",
+   "027": "Cervical Carcinoma II",
+   "070": "AUB, Postmenopausal and Postcoital Bleeding",
+   "072": "Previous Year Questions (Obstetrics)",
+   "071": "Previous Year Questions (Gynecology)",
+   "054": "Postpartum Hemorrhage II",
+   "052": "Postpartum Hemorrhage I"
+  }
+ },
+ "paediatrics": {
+  "order": [
+   "Neonatology",
+   "Growth, Developmental and Behavioral Disorders",
+   "Immunization",
+   "Nutrition and Malnutrition",
+   "Puberty and Adolescence",
+   "Fluid and Electrolyte Disturbances",
+   "Genetic Disorders",
+   "Inborn Errors of Metabolism",
+   "Diseases of the Immune System",
+   "Infectious Diseases",
+   "Pediatric Respiratory Disorders",
+   "Pediatric Cardiology",
+   "Pediatric Gastroenterology",
+   "Pediatric Nephrology",
+   "Pediatric Endocrinology",
+   "Pediatric Neurology",
+   "Musculoskeletal Disorders in Children",
+   "Pediatric Hematology and Oncology",
+   "Miscellaneous and Recent Updates"
+  ],
+  "rename": {
+   "Growth": "Growth, Developmental and Behavioral Disorders",
+   "Genetics and Genetic Disorders": "Genetic Disorders",
+   "Diseases of Immune System": "Diseases of the Immune System",
+   "Developmental and Behavioural Disorders": "Growth, Developmental and Behavioral Disorders",
+   "Normal Development": "Growth, Developmental and Behavioral Disorders"
+  },
+  "tests": {
+   "008": "Growth, Developmental and Behavioral Disorders",
+   "016": "Puberty and Adolescence",
+   "057": "Growth, Developmental and Behavioral Disorders",
+   "058": "Growth, Developmental and Behavioral Disorders",
+   "059": "Growth, Developmental and Behavioral Disorders",
+   "060": "Miscellaneous and Recent Updates",
+   "061": "Miscellaneous and Recent Updates",
+   "062": "Miscellaneous and Recent Updates"
+  },
+  "titles": {
+   "023": "Amino Acid Inborn Errors of Metabolism",
+   "024": "Non-Amino Acid Inborn Errors of Metabolism",
+   "030": "Viral Diseases & COVID-19 in Children"
+  }
+ },
+ "orthopaedics": {
+  "order": [
+   "Principles of Fractures, Part 1",
+   "Fractures, Part 2",
+   "Upper Limb Traumatology",
+   "Lower Limb Traumatology",
+   "Injuries of Spine and Pelvis",
+   "Bone Infections",
+   "Tuberculosis of Bone and Joints",
+   "Metabolic Bone Diseases",
+   "Pediatric Orthopedics",
+   "Arthritis",
+   "Nerve Injuries",
+   "Bone Tumors",
+   "Imaging and Instruments",
+   "Sports Injuries",
+   "Bone and Imaging"
+  ],
+  "rename": {
+   "Spine": "Injuries of Spine and Pelvis",
+   "Images and Instruments": "Imaging and Instruments",
+   "Fracture Principles": "Fractures, Part 2",
+   "Miscellaneous Topics in Orthopedics": "Principles of Fractures, Part 1"
+  },
+  "tests": {
+   "001": "Fractures, Part 2",
+   "031": "Principles of Fractures, Part 1",
+   "032": "Principles of Fractures, Part 1",
+   "033": "Injuries of Spine and Pelvis",
+   "034": "Injuries of Spine and Pelvis"
+  },
+  "split": [
+   "011"
+  ],
+  "titles": {
+   "035": "TB of Bone",
+   "027": "Malignant Bone Tumours"
+  }
+ },
+ "dermatology": {
+  "order": [
+   "Introduction to Dermatology",
+   "Skin Appendages and Their Disorders",
+   "Pigmentary Disorders",
+   "Dermatitis and Eczema",
+   "Papulosquamous Disorders",
+   "Immunobullous Disorders",
+   "Mycobacterial Infections",
+   "Bacterial Infections",
+   "Viral Infections",
+   "Fungal Infections",
+   "Parasitic Infections",
+   "Sexually Transmitted Infections",
+   "Connective Tissue Disorders",
+   "Systemic Diseases and Skin",
+   "Miscellaneous Disorders and Skin Tumors"
+  ],
+  "rename": {
+   "Skin Appendages and their Disorders": "Skin Appendages and Their Disorders",
+   "Dermatitis Eczema": "Dermatitis and Eczema",
+   "Parasitic Infection": "Parasitic Infections",
+   "Miscellaneous Disorders": "Miscellaneous Disorders and Skin Tumors",
+   "Skin Tumours": "Miscellaneous Disorders and Skin Tumors"
+  },
+  "tests": {
+   "032": "Miscellaneous Disorders and Skin Tumors",
+   "037": "Miscellaneous Disorders and Skin Tumors",
+   "047": "Miscellaneous Disorders and Skin Tumors",
+   "048": "Miscellaneous Disorders and Skin Tumors"
+  },
+  "join": {
+   "032": "048"
+  },
+  "titles": {
+   "027": "Non-Syphilitic STD I",
+   "028": "Non-Syphilitic STD II",
+   "035": "Adverse Drug Reactions, Pediatric Dermatoses, Urticaria and Angioedema",
+   "036": "Genodermatoses, Vector-Borne Diseases, Bedside Tests in Dermatology"
+  }
+ },
+ "psychiatry": {
+  "order": [
+   "Organic Psychiatric Disorders",
+   "Basics of Psychiatry",
+   "Schizophrenia Spectrum and Other Psychotic Disorders",
+   "Mood Disorders",
+   "Anxiety, OCD and Stress-Related Disorders",
+   "Substance-Related and Addictive Disorders",
+   "Child Psychiatry",
+   "Neurocognitive Disorders",
+   "Sleep Disorders",
+   "Sexual Disorders",
+   "Eating Disorders",
+   "Personality and Impulse-Control Disorders",
+   "Forensic Psychiatry",
+   "Psychology",
+   "Somatic, Dissociative and Conversion Disorders"
+  ],
+  "rename": {
+   "Anxiety OCD Stress-Related Disorders": "Anxiety, OCD and Stress-Related Disorders",
+   "Neurocognitive disorders": "Neurocognitive Disorders",
+   "Personality Impulse-Control Disorders": "Personality and Impulse-Control Disorders",
+   "Somatic Dissociative Conversion Disorders": "Somatic, Dissociative and Conversion Disorders"
+  },
+  "tests": {
+   "039": "Organic Psychiatric Disorders"
+  },
+  "titles": {
+   "002": "Psychopathology: Thought, Perception & Cognition",
+   "013": "Neurotic, Stress-Related, Obsessive-Compulsive and Related Disorders"
+  }
+ },
+ "radiology": {
+  "order": [
+   "Basics of Radiology",
+   "Musculoskeletal Radiology",
+   "Thoracic Radiology",
+   "Cardiovascular Radiology",
+   "Neuroradiology",
+   "Gastrointestinal Radiology",
+   "Hepatobiliary Radiology",
+   "OB/GY Imaging",
+   "Nuclear Medicine",
+   "Head and Neck Imaging",
+   "Genitourinary Radiology"
+  ],
+  "rename": {
+   "OBGy Imaging": "OB/GY Imaging",
+   "Head Neck Imaging": "Head and Neck Imaging",
+   "Neuro Radiology": "Neuroradiology"
+  },
+  "titles": {
+   "004": "Basics of X-Ray and CT",
+   "025": "CVS Radiology",
+   "003": "Radiation Exposure, Hazards, Protection Guidelines and Contrast Media"
+  }
+ }
+}
