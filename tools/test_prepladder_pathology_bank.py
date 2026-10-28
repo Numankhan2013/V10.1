@@ -157,7 +157,7 @@ def main() -> None:
     page = assemble((ROOT / "app/src/main/assets/index.html").read_text(encoding="utf-8"))
     for marker in (
         '<script defer src="prepladder_pathology_visual_metadata.js"></script>',
-        "Microbiology:'second',Pathology:'second',Pharmacology:'second'}",
+        "Microbiology:'second',Pathology:'second',Pharmacology:'second',",
         "if(key.includes('pathology')) return {key:'pathology',icon:'microscope',tone:'amber'};",
     ):
         assert page.count(marker) == 1, marker
