@@ -1468,7 +1468,7 @@
     navX = x;
   }
   window.addEventListener('resize', function () { navSpots = {}; navGlide(); });
-  if (document.fonts && document.fonts.addEventListener) document.fonts.addEventListener('loadingdone', function () { navSpots = {}; });
+  if (document.fonts && document.fonts.addEventListener) document.fonts.addEventListener('loadingdone', function () { navSpots = {}; navGlide(); });
   /* Route entrance: the page's sections rise in sequence instead of fading as one block. */
   function staggerPage(main) {
     var secs = [].slice.call(main.querySelectorAll(':scope > section, :scope > div > section, :scope > div > header, :scope > header')).filter(function (n) { var r = n.getBoundingClientRect(); return r.height && r.top < window.innerHeight; }).slice(0, 7);

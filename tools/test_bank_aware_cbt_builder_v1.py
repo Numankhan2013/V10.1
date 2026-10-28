@@ -94,6 +94,9 @@ assert(!call('nkCbtTopicGroupsMarkup()').includes('Prep first'),'several banks s
 call('nkCbtDraft.openGroups={0:true}');assert(call('nkCbtTopicGroupsMarkup()').includes('Prep first'));
 call('nkCbtFilterTopics("marrow second")');assert(call('nkCbtTopicGroupsMarkup()').includes('Marrow second'));
 assert(!call('nkCbtTopicGroupsMarkup()').includes('Prep first'),'search draws only matching topics');
+call('nkCbtDraft.openGroups={}');call('nkCbtToggleOpen(0)');assert.equal(JSON.stringify(call('nkCbtDraft.openGroups')),'{}','a toggle during a search keeps the open state');
+call('nkCbtFilterTopics("Zz no match")');{const page=call('nkCbtTopicsMarkup()');assert(page.includes('value="Zz no match"'),'a full render keeps the search text');assert(page.includes('0 matching topics')&&!/nk-cbt-search-empty[^>]*hidden/.test(page),'a full render keeps the no-match note');}
+call('nkCbtFilterTopics("")');
 call('openTestBuilder()');context.startSession=()=>false;
 call('nkCbtStart()');assert.notEqual(call('nkCbtDraft'),null,'blocked start keeps the builder draft');
 console.log('BANK_AWARE_CBT_BEHAVIOR_OK exactBank=true exactTopic=true session=true');

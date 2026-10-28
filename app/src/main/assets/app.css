@@ -1935,7 +1935,8 @@ html[data-nk-ui="geist"] body #app .nk-refined-analysis{--na-ink:var(--nk-ink);-
 html[data-nk-ui="geist"] body .nk-fsrs-medallion svg path:first-child{fill:currentcolor}
 /* Selection, scrollbar and tap rules would match every element. Selection sits on body
    alone (descendants inherit highlight styles); a per-element rule doubled every restyle. */
-html[data-nk-ui="geist"] body::selection{background-image:initial;background-color:var(--nkg-surface-2);color:var(--nk-ink)}
+html[data-nk-ui="geist"] body::selection{background:color-mix(in srgb,var(--nkg-fg) 16%,transparent);color:inherit}
+html[data-nk-ui="geist"] :is(.nk-app-v114,.nk-home-command-center,.nk-v114-session)::selection{background-image:initial;background-color:var(--nkg-surface-2);color:var(--nk-ink)}
 html[data-nk-ui="geist"] body #app :is(.nk-app-v114, .nk-home-command-center, .nk-v114-session) :is(button, select, input, summary):focus-visible{outline-color:var(--nk-action) !important}
 html[data-nk-ui="geist"] .nk-question-note .nk-note-save{background-image:initial;background-color:var(--nkg-inverse-bg);color:var(--nkg-inverse-fg)}
 html[data-nk-ui="geist"] .nk-question-note textarea{background-image:initial;background-color:var(--nkg-surface);border-top-color:var(--nkg-border);border-right-color:var(--nkg-border);border-bottom-color:var(--nkg-border);border-left-color:var(--nkg-border)}

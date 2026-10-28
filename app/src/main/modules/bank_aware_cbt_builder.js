@@ -109,7 +109,7 @@
   }
   function nkCbtFreshDraft(){
     const records=nkCbtRecords();
-    return {step:1,bankKeys:records.map(nkCbtRecordKey),topicKeys:records.flatMap(record=>nkCbtRecordInfo(record).keys),pyqSelected:false,count:20,openGroups:{},query:''};
+    return {step:1,bankKeys:records.map(nkCbtRecordKey),topicKeys:records.flatMap(record=>nkCbtRecordInfo(record).keys),pyqSelected:false,count:20,openGroups:{},query:'',queryText:''};
   }
   function nkCbtOpenBuilder(){
     nkCbtDraft=nkCbtFreshDraft();
@@ -161,7 +161,7 @@
       if(!nkCbtDraft.bankKeys.length){showToast('Choose at least one question bank.','bad');return;}
       if(step>2&&!nkCbtPoolSize()){showToast('Choose a topic with questions.','bad');return;}
     }
-    nkCbtDraft.step=Math.max(1,Math.min(3,Number(step)));nkCbtDraft.query='';
+    nkCbtDraft.step=Math.max(1,Math.min(3,Number(step)));nkCbtDraft.query='';nkCbtDraft.queryText='';
     if(nkCbtDraft.step===3)nkCbtDraft.count=Math.min(nkCbtDraft.count,nkCbtPoolSize());
     render();resetScrollPosition();
   }
@@ -214,14 +214,19 @@
   // Search filters the data and redraws only the matching rows, never every topic of every bank.
   function nkCbtFilterTopics(value){
     if(!nkCbtDraft)return;
-    const query=String(value||'').trim().toLocaleLowerCase();nkCbtDraft.query=query;
+    nkCbtDraft.queryText=String(value||'');nkCbtDraft.query=nkCbtDraft.queryText.trim().toLocaleLowerCase();
     const box=document.querySelector?.('.nk-cbt-builder .nk-module-topic-groups');
     if(box)box.innerHTML=nkCbtTopicGroupsMarkup();
+    const search=nkCbtSearchStatus(),status=document.getElementById('nk-cbt-search-status'),empty=document.getElementById('nk-cbt-search-empty');
+    if(status)status.textContent=search.label;
+    if(empty)empty.hidden=!search.empty;
+  }
+  // The search line and the no-match note, drawn the same by a search and a full render.
+  function nkCbtSearchStatus(){
+    const query=nkCbtDraft?.query||'';if(!query)return {label:'',empty:false};
     let visible=0;
-    if(query)nkCbtRecords().forEach(record=>{if(nkCbtDraft.bankKeys.includes(nkCbtRecordKey(record)))visible+=nkCbtMatchingTopics(record).length;});
-    const status=document.getElementById('nk-cbt-search-status'),empty=document.getElementById('nk-cbt-search-empty');
-    if(status)status.textContent=query?`${visible} matching topic${visible===1?'':'s'}`:'';
-    if(empty)empty.hidden=!query||visible>0;
+    nkCbtRecords().forEach(record=>{if(nkCbtDraft.bankKeys.includes(nkCbtRecordKey(record)))visible+=nkCbtMatchingTopics(record).length;});
+    return {label:`${visible} matching topic${visible===1?'':'s'}`,empty:!visible};
   }
   function nkCbtMatchingTopics(record){
     const info=nkCbtRecordInfo(record),query=nkCbtDraft?.query||'',all=info.topics.map((_topic,i)=>i);
@@ -235,7 +240,8 @@
   }
   // Collapsed groups hold no rows: opening one draws its topics in place.
   function nkCbtToggleOpen(recordIndex){
-    if(!nkCbtDraft)return;
+    // A search shows every matching group open; its toggles change nothing until it clears.
+    if(!nkCbtDraft||nkCbtDraft.query)return;
     nkCbtDraft.openGroups={...(nkCbtDraft.openGroups||{}),[recordIndex]:!nkCbtGroupOpen(recordIndex)};
     const group=document.querySelector?.(`.nk-cbt-topic-group[data-record-index="${recordIndex}"]`),record=nkCbtRecords()[recordIndex];
     if(!group||!record){render();return;}
@@ -295,8 +301,8 @@
   function nkCbtTopicsMarkup(poolLength){
     const selected=new Set(nkCbtDraft.topicKeys),active=nkCbtSelectedRecords();
     const total=active.reduce((sum,record)=>sum+nkCbtRecordInfo(record).topics.length,0),pool=poolLength===undefined?nkCbtPoolSize():poolLength;
-    const pyqTopics=nkCbtVerifiedPyqTopics(),pyqQuestions=pyqTopics.reduce((sum,{record,topic})=>sum+nkCbtTopicCount(record,topic),0);
-    return `<div class="nk-module-topic-intro"><strong>${fmtNum(total)} topics in ${active.length} selected bank${active.length===1?'':'s'}</strong><span id="nk-cbt-selected-count">${selected.size} topics · ${fmtNum(pool)} questions</span></div><label class="nk-module-topic-search"><span>Search topics</span><input type="search" placeholder="Search by chapter or topic name" autocomplete="off" oninput="window.QB.nkCbtFilterTopics(this.value)"></label><div class="nk-module-select-tools nk-cbt-topic-tools"><button type="button" onclick="window.QB.nkCbtSetTopics(true)">Select all</button><button type="button" onclick="window.QB.nkCbtSetTopics(false)">Clear all</button><button type="button" id="nk-cbt-pyq-toggle" class="nk-cbt-pyq-toggle ${nkCbtDraft.pyqSelected?'is-selected':''}" aria-pressed="${Boolean(nkCbtDraft.pyqSelected)}" aria-label="Only verified PYQ topics, ${pyqTopics.length} eligible topics, ${fmtNum(pyqQuestions)} questions" ${pyqTopics.length?'':'disabled'} onclick="window.QB.nkCbtSelectVerifiedPyqs()"><span>Only PYQ</span><small>${fmtNum(pyqTopics.length)} topics · ${fmtNum(pyqQuestions)} Q</small></button></div>${pyqTopics.length?'':'<p class="nk-cbt-pyq-empty" role="status">No verified PYQ topics in the selected banks. Your draft is unchanged.</p>'}<div id="nk-cbt-search-status" class="nk-module-search-status" role="status"></div><div class="nk-module-topic-groups">${nkCbtTopicGroupsMarkup()}</div><div id="nk-cbt-search-empty" class="nk-module-search-empty" hidden>No topics match your search.</div>`;
+    const search=nkCbtSearchStatus(),pyqTopics=nkCbtVerifiedPyqTopics(),pyqQuestions=pyqTopics.reduce((sum,{record,topic})=>sum+nkCbtTopicCount(record,topic),0);
+    return `<div class="nk-module-topic-intro"><strong>${fmtNum(total)} topics in ${active.length} selected bank${active.length===1?'':'s'}</strong><span id="nk-cbt-selected-count">${selected.size} topics · ${fmtNum(pool)} questions</span></div><label class="nk-module-topic-search"><span>Search topics</span><input type="search" placeholder="Search by chapter or topic name" autocomplete="off" value="${esc(nkCbtDraft.queryText||'')}" oninput="window.QB.nkCbtFilterTopics(this.value)"></label><div class="nk-module-select-tools nk-cbt-topic-tools"><button type="button" onclick="window.QB.nkCbtSetTopics(true)">Select all</button><button type="button" onclick="window.QB.nkCbtSetTopics(false)">Clear all</button><button type="button" id="nk-cbt-pyq-toggle" class="nk-cbt-pyq-toggle ${nkCbtDraft.pyqSelected?'is-selected':''}" aria-pressed="${Boolean(nkCbtDraft.pyqSelected)}" aria-label="Only verified PYQ topics, ${pyqTopics.length} eligible topics, ${fmtNum(pyqQuestions)} questions" ${pyqTopics.length?'':'disabled'} onclick="window.QB.nkCbtSelectVerifiedPyqs()"><span>Only PYQ</span><small>${fmtNum(pyqTopics.length)} topics · ${fmtNum(pyqQuestions)} Q</small></button></div>${pyqTopics.length?'':'<p class="nk-cbt-pyq-empty" role="status">No verified PYQ topics in the selected banks. Your draft is unchanged.</p>'}<div id="nk-cbt-search-status" class="nk-module-search-status" role="status">${esc(search.label)}</div><div class="nk-module-topic-groups">${nkCbtTopicGroupsMarkup()}</div><div id="nk-cbt-search-empty" class="nk-module-search-empty" ${search.empty?'':'hidden'}>No topics match your search.</div>`;
   }
   function nkCbtQuestionsMarkup(poolLength){
     const pool=poolLength===undefined?nkCbtPoolSize():poolLength,actual=Math.min(nkCbtDraft.count,pool),records=nkCbtSelectedRecords();
