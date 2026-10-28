@@ -233,6 +233,13 @@ def app_records() -> list[dict]:
     return [stored_record(slug) for slug, cfg in SUBJECTS.items() if not cfg.get("supplement")]
 
 
+def shipped_counts(slug: str) -> dict:
+    """What a PDF bank shows once merged: questions, and questions in its Previous Year Questions lessons."""
+    record = merged_record(slug, existing_bank(slug))
+    pyq = sum(t["questionCount"] for t in record["topics"] if "Previous Year" in t["title"])
+    return {"questions": len(record["questions"]), "pyq": pyq}
+
+
 def merged_record(slug: str, base: dict) -> dict:
     """A PDF bank's record with the web-export questions it lacked filed under its lessons."""
     extra = stored_record(slug)["questions"]

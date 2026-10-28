@@ -53,6 +53,19 @@ html[data-nk-ui="geist"] {
   --nkg-subj-microbiology: #4d7c0f;
   --nkg-subj-pathology: #c2410c;
   --nkg-subj-pharmacology: #a16207;
+  --nkg-subj-community: #047857;
+  --nkg-subj-forensic: #4338ca;
+  --nkg-subj-ent: #b45309;
+  --nkg-subj-ophthalmology: #0369a1;
+  --nkg-subj-pregnancy: #be185d;
+  --nkg-subj-paediatrics: #6d28d9;
+  --nkg-subj-surgery: #b91c1c;
+  --nkg-subj-medicine: #0e7490;
+  --nkg-subj-radiology: #a16207;
+  --nkg-subj-anaesthesia: #0f766e;
+  --nkg-subj-orthopaedics: #475569;
+  --nkg-subj-psychiatry: #a21caf;
+  --nkg-subj-dermatology: #9a3412;
   --nkg-subj-uworld: #737373;
 
   --nkg-shadow-sm: 0 1px 2px rgba(0, 0, 0, .05);
@@ -96,6 +109,19 @@ html[data-nk-ui="geist"][data-nk-theme="dark"] {
   --nkg-subj-microbiology: #a3e635;
   --nkg-subj-pathology: #fb923c;
   --nkg-subj-pharmacology: #facc15;
+  --nkg-subj-community: #34d399;
+  --nkg-subj-forensic: #818cf8;
+  --nkg-subj-ent: #fbbf24;
+  --nkg-subj-ophthalmology: #38bdf8;
+  --nkg-subj-pregnancy: #f472b6;
+  --nkg-subj-paediatrics: #a78bfa;
+  --nkg-subj-surgery: #f87171;
+  --nkg-subj-medicine: #22d3ee;
+  --nkg-subj-radiology: #fde047;
+  --nkg-subj-anaesthesia: #5eead4;
+  --nkg-subj-orthopaedics: #94a3b8;
+  --nkg-subj-psychiatry: #e879f9;
+  --nkg-subj-dermatology: #fdba74;
   --nkg-subj-uworld: #a3a3a3;
 
   --nkg-shadow-sm: 0 0 0 1px rgba(255, 255, 255, .04);
@@ -6569,6 +6595,87 @@ html[data-nk-ui="geist"] .nk-module-subject.is-pharmacology > span{background-im
 html[data-nk-ui="geist"] .nk-v3-subject-card.is-pharmacology .nk-v3-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-fg)}
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.is-pharmacology .nk-v3-subject-icon { color: var(--nkg-subj-pharmacology) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot.is-pharmacology { background: var(--nkg-subj-pharmacology); }
+
+/* ── Third and Final Prof subjects ── */
+/* Each keeps the same identity treatment as the First and Second Prof subjects, with its own accent; no two in one professional group share a hue. */
+html[data-nk-ui="geist"] .nk-multi-subject-card.is-community .nk-multi-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-community)}
+html[data-nk-ui="geist"] .nk-multi-topic-group > header .is-community{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-community)}
+html[data-nk-ui="geist"] .nk-module-subject.is-community > span{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-community)}
+html[data-nk-ui="geist"] .nk-v3-subject-card.is-community .nk-v3-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-fg)}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.is-community .nk-v3-subject-icon { color: var(--nkg-subj-community) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot.is-community { background: var(--nkg-subj-community); }
+html[data-nk-ui="geist"] .nk-multi-subject-card.is-forensic .nk-multi-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-forensic)}
+html[data-nk-ui="geist"] .nk-multi-topic-group > header .is-forensic{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-forensic)}
+html[data-nk-ui="geist"] .nk-module-subject.is-forensic > span{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-forensic)}
+html[data-nk-ui="geist"] .nk-v3-subject-card.is-forensic .nk-v3-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-fg)}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.is-forensic .nk-v3-subject-icon { color: var(--nkg-subj-forensic) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot.is-forensic { background: var(--nkg-subj-forensic); }
+html[data-nk-ui="geist"] .nk-multi-subject-card.is-ent .nk-multi-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-ent)}
+html[data-nk-ui="geist"] .nk-multi-topic-group > header .is-ent{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-ent)}
+html[data-nk-ui="geist"] .nk-module-subject.is-ent > span{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-ent)}
+html[data-nk-ui="geist"] .nk-v3-subject-card.is-ent .nk-v3-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-fg)}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.is-ent .nk-v3-subject-icon { color: var(--nkg-subj-ent) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot.is-ent { background: var(--nkg-subj-ent); }
+html[data-nk-ui="geist"] .nk-multi-subject-card.is-ophthalmology .nk-multi-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-ophthalmology)}
+html[data-nk-ui="geist"] .nk-multi-topic-group > header .is-ophthalmology{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-ophthalmology)}
+html[data-nk-ui="geist"] .nk-module-subject.is-ophthalmology > span{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-ophthalmology)}
+html[data-nk-ui="geist"] .nk-v3-subject-card.is-ophthalmology .nk-v3-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-fg)}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.is-ophthalmology .nk-v3-subject-icon { color: var(--nkg-subj-ophthalmology) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot.is-ophthalmology { background: var(--nkg-subj-ophthalmology); }
+html[data-nk-ui="geist"] .nk-multi-subject-card.is-pregnancy .nk-multi-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-pregnancy)}
+html[data-nk-ui="geist"] .nk-multi-topic-group > header .is-pregnancy{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-pregnancy)}
+html[data-nk-ui="geist"] .nk-module-subject.is-pregnancy > span{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-pregnancy)}
+html[data-nk-ui="geist"] .nk-v3-subject-card.is-pregnancy .nk-v3-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-fg)}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.is-pregnancy .nk-v3-subject-icon { color: var(--nkg-subj-pregnancy) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot.is-pregnancy { background: var(--nkg-subj-pregnancy); }
+html[data-nk-ui="geist"] .nk-multi-subject-card.is-paediatrics .nk-multi-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-paediatrics)}
+html[data-nk-ui="geist"] .nk-multi-topic-group > header .is-paediatrics{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-paediatrics)}
+html[data-nk-ui="geist"] .nk-module-subject.is-paediatrics > span{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-paediatrics)}
+html[data-nk-ui="geist"] .nk-v3-subject-card.is-paediatrics .nk-v3-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-fg)}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.is-paediatrics .nk-v3-subject-icon { color: var(--nkg-subj-paediatrics) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot.is-paediatrics { background: var(--nkg-subj-paediatrics); }
+html[data-nk-ui="geist"] .nk-multi-subject-card.is-surgery .nk-multi-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-surgery)}
+html[data-nk-ui="geist"] .nk-multi-topic-group > header .is-surgery{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-surgery)}
+html[data-nk-ui="geist"] .nk-module-subject.is-surgery > span{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-surgery)}
+html[data-nk-ui="geist"] .nk-v3-subject-card.is-surgery .nk-v3-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-fg)}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.is-surgery .nk-v3-subject-icon { color: var(--nkg-subj-surgery) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot.is-surgery { background: var(--nkg-subj-surgery); }
+html[data-nk-ui="geist"] .nk-multi-subject-card.is-medicine .nk-multi-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-medicine)}
+html[data-nk-ui="geist"] .nk-multi-topic-group > header .is-medicine{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-medicine)}
+html[data-nk-ui="geist"] .nk-module-subject.is-medicine > span{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-medicine)}
+html[data-nk-ui="geist"] .nk-v3-subject-card.is-medicine .nk-v3-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-fg)}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.is-medicine .nk-v3-subject-icon { color: var(--nkg-subj-medicine) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot.is-medicine { background: var(--nkg-subj-medicine); }
+html[data-nk-ui="geist"] .nk-multi-subject-card.is-radiology .nk-multi-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-radiology)}
+html[data-nk-ui="geist"] .nk-multi-topic-group > header .is-radiology{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-radiology)}
+html[data-nk-ui="geist"] .nk-module-subject.is-radiology > span{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-radiology)}
+html[data-nk-ui="geist"] .nk-v3-subject-card.is-radiology .nk-v3-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-fg)}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.is-radiology .nk-v3-subject-icon { color: var(--nkg-subj-radiology) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot.is-radiology { background: var(--nkg-subj-radiology); }
+html[data-nk-ui="geist"] .nk-multi-subject-card.is-anaesthesia .nk-multi-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-anaesthesia)}
+html[data-nk-ui="geist"] .nk-multi-topic-group > header .is-anaesthesia{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-anaesthesia)}
+html[data-nk-ui="geist"] .nk-module-subject.is-anaesthesia > span{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-anaesthesia)}
+html[data-nk-ui="geist"] .nk-v3-subject-card.is-anaesthesia .nk-v3-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-fg)}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.is-anaesthesia .nk-v3-subject-icon { color: var(--nkg-subj-anaesthesia) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot.is-anaesthesia { background: var(--nkg-subj-anaesthesia); }
+html[data-nk-ui="geist"] .nk-multi-subject-card.is-orthopaedics .nk-multi-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-orthopaedics)}
+html[data-nk-ui="geist"] .nk-multi-topic-group > header .is-orthopaedics{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-orthopaedics)}
+html[data-nk-ui="geist"] .nk-module-subject.is-orthopaedics > span{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-orthopaedics)}
+html[data-nk-ui="geist"] .nk-v3-subject-card.is-orthopaedics .nk-v3-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-fg)}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.is-orthopaedics .nk-v3-subject-icon { color: var(--nkg-subj-orthopaedics) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot.is-orthopaedics { background: var(--nkg-subj-orthopaedics); }
+html[data-nk-ui="geist"] .nk-multi-subject-card.is-psychiatry .nk-multi-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-psychiatry)}
+html[data-nk-ui="geist"] .nk-multi-topic-group > header .is-psychiatry{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-psychiatry)}
+html[data-nk-ui="geist"] .nk-module-subject.is-psychiatry > span{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-psychiatry)}
+html[data-nk-ui="geist"] .nk-v3-subject-card.is-psychiatry .nk-v3-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-fg)}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.is-psychiatry .nk-v3-subject-icon { color: var(--nkg-subj-psychiatry) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot.is-psychiatry { background: var(--nkg-subj-psychiatry); }
+html[data-nk-ui="geist"] .nk-multi-subject-card.is-dermatology .nk-multi-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-dermatology)}
+html[data-nk-ui="geist"] .nk-multi-topic-group > header .is-dermatology{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-dermatology)}
+html[data-nk-ui="geist"] .nk-module-subject.is-dermatology > span{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-subj-dermatology)}
+html[data-nk-ui="geist"] .nk-v3-subject-card.is-dermatology .nk-v3-subject-icon{background-image:initial;background-color:var(--nkg-bg-subtle);color:var(--nkg-fg)}
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v3-subject-card.is-dermatology .nk-v3-subject-icon { color: var(--nkg-subj-dermatology) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-dot.is-dermatology { background: var(--nkg-subj-dermatology); }
 .nk-marrow-ordered .nk-marrow-pearl{margin-top:22px}
 /* Source references carry long unbroken URLs. The ordered explanation is a
    grid, whose one column would grow to the longest unbreakable string and

@@ -102,6 +102,14 @@ same("'*Giardia lamblia*' cysts",'&#39;<em>Giardia lamblia</em>&#39; cysts','ent
 same('start **blood should be cultured.','start blood should be cultured.','dangling bold opener');
 same('growth was seen.**','growth was seen.','dangling bold closer');
 same('***Corynebacterium diphtheria*.','<em>Corynebacterium diphtheria</em>.','dangling bold kept italic');
+// Mid-word bold (mnemonic letters) and spans opened after a symbol render, not as raw stars.
+same('Un**E**mployment level','Un<strong>E</strong>mployment level','mid-word mnemonic bold');
+same('methemoglobin ≥**1.5 gm%** and','methemoglobin ≥<strong>1.5 gm%</strong> and','bold opened after a symbol');
+same('Patients with l**ate PTS** may','Patients with l<strong>ate PTS</strong> may','bold opened mid-word');
+// Explicit braced scripts render after Greek letters, bold markers and with letters.
+same('**α_{1A}** over α_{1B}','<strong>α<sub class="nk-sci-sub">1A</sub></strong> over α<sub class="nk-sci-sub">1B</sub>','Greek subscript');
+same('the 5^{th} nerve, EtCO_{2.}','the 5<sup class="nk-sci-sup">th</sup> nerve, EtCO<sub class="nk-sci-sub">2</sub>.','letter superscript and caught punctuation');
+same('**^{131}I**','<strong><sup class="nk-sci-sup">131</sup>I</strong>','isotope after a bold marker');
 // Multiplication and allele notation must stay literal.
 for(const keep of ['900 mg * 100 ml','15 g/dL *1.34 mL','HLA-B*27:05 carriers','CYP2D6*4 poor metabolizer']){
   assert(richText(keep)===keep,'marker change for '+JSON.stringify(keep)+' -> '+JSON.stringify(richText(keep)));

@@ -69,6 +69,15 @@
     html=html.replace(/([A-Za-z0-9)\]])\s*\^\s*\{\s*([+−-]?\d+[+−-]?|[+−-])\s*\}/g,(_,base,power)=>base+stash('sup',power.replace(/-/g,'−')));
     html=html.replace(/([A-Za-z0-9)\]])\s*\^\s*([+−-]?\d+[+−-]?|[+−-])/g,(_,base,power)=>base+stash('sup',power.replace(/-/g,'−')));
     html=html.replace(/([A-Za-z0-9)\]])\s*_\s*\{\s*([A-Za-z0-9,+−-]+)\s*\}/g,(_,base,index)=>base+stash('sub',index));
+    // The braced form is explicit wherever it sits: after a Greek letter
+    // (α_{1A}), a bold marker (**^{131}I**), or with letters (5^{th}, 90^{o}).
+    // Punctuation the source caught inside the script stays on the line (CO_{2.}).
+    html=html.replace(/([_^])\s*\{\s*([^{}<>\s](?:[^{}<>]{0,14}[^{}<>\s])?)\s*\}/g,(_,mark,value)=>{
+      const [,core,tail]=value.match(value.includes('(')?/^(.*?)([.,;:]*)$/:/^(.*?)([.,;:)]*)$/);
+      if(!core)return value;
+      const kind=mark==='^'?'sup':'sub';
+      return stash(kind,kind==='sup'&&/^[+−-]?\d*[+−-]?$/.test(core)?core.replace(/-/g,'−'):core)+tail;
+    });
 
     // Ionic charge is a superscript. For monatomic ions the numeral is charge
     // magnitude (Ca2+), not an atom count; molecular ions are handled below.
