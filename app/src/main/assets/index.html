@@ -575,7 +575,7 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
     }
     function bottomNav(active){
     if(['fsrs','fsrs-settings','revision-browse','wrong','bookmarks','review'].includes(route.page)||['fsrs','fsrs-settings','revision-browse'].includes(active))active='quick-revision';
-    const due=nkNavDueCount();
+    const due=typeof nkNavDueCount==='function'?nkNavDueCount():nkRevisionDeskData({}).due.length;
     const items=[['dashboard','Home','home'],['quick-revision','Revision','refresh'],['tests','Tests','test'],['analytics','Insights','chart'],['more','More','more']];
     return '<nav class="bottom-nav nk-bottom-nav-v114" aria-label="Primary navigation">'+items.map(([id,label,icon])=>'<button class="nav-item '+(active===id?'active':'')+'" onclick="'+(id==='quick-revision'?'window.QB.nkOpenRevisionHub()':"window.QB.nav('"+id+"')")+'" aria-current="'+(active===id?'page':'false')+'"><span class="nav-icon-wrap">'+navIcon(icon,21)+'</span><span class="nav-label">'+label+(id==='quick-revision'&&due?'<span class="nk-nav-due" aria-label="'+due+' due reviews">'+fmtNum(due)+'</span>':'')+'</span></button>').join('')+'</nav>';
   }
