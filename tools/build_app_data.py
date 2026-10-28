@@ -71,9 +71,13 @@ def marrow_data() -> str:
     # Marrow QBank subjects from the Marrow web export (Second Prof Pathology and
     # Pharmacology, Third and Final Prof): Marrow banks beside any PrepLadder one.
     from marrow_qbank_bank import app_records as marrow_qbank_records
-    return js_json({"records": records + [app_record(), pathology_record(), pharmacology_record(),
-                                          biochemistry_record(), physiology_record(), anatomy_record()]
-                    + marrow_qbank_records()})
+    # PrepLadder Version XI from the web exports: the questions the six PDF banks lack join
+    # their lessons, and the Third and Final Prof subjects are PrepLadder banks of their own.
+    from prepladder_qbank_bank import app_records as prepladder_qbank_records, merged_record
+    banks = {"microbiology": app_record(), "pathology": pathology_record(), "pharmacology": pharmacology_record(),
+             "biochemistry": biochemistry_record(), "physiology": physiology_record(), "anatomy": anatomy_record()}
+    return js_json({"records": records + [merged_record(slug, base) for slug, base in banks.items()]
+                    + marrow_qbank_records() + prepladder_qbank_records()})
 
 
 def marrow_explanation_gold() -> str:
@@ -128,6 +132,8 @@ def release_marrow_figures() -> None:
     release_prepladder_anatomy()
     from marrow_qbank_bank import release as release_marrow_qbank
     release_marrow_qbank()
+    from prepladder_qbank_bank import release as release_prepladder_qbank
+    release_prepladder_qbank()
 
 
 BUILDERS = {

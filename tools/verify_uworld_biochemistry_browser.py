@@ -89,6 +89,15 @@ def main():
                             ('UWorld · Male Reproductive System', 'UWorld'): 52,
                             ('UWorld · Female Reproductive System & Breast', 'UWorld'): 81,
                             ('UWorld · Biostatistics & Epidemiology', 'UWorld'): 60}
+                # PrepLadder Version XI web export (tools/prepladder_qbank_bank.py): the questions the six
+                # PrepLadder banks lacked join them; Third and Final Prof subjects get a PrepLadder bank.
+                import sys as _sys
+                _sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
+                import prepladder_qbank_bank as _pq
+                _pinned = __import__('json').loads(_pq.EXPECTED_PATH.read_text())
+                for _slug, _cfg in _pq.SUBJECTS.items():
+                    _key = (_cfg['subject'], 'PrepLadder')
+                    expected[_key] = expected.get(_key, 0) + _pinned[_slug]['questions']
                 # Auto-extracted collections (tools/uworld_auto) carry their own pinned counts.
                 import glob as _glob, json as _json
                 for _m in _glob.glob(str(Path(__file__).resolve().parents[1] / 'data/uworld/prepared/*/manifest.json')):

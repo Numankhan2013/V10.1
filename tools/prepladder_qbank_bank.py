@@ -5,7 +5,7 @@ tools/prepladder_qbank_import.py merges the three exports into
 data/Prepladder/qbank/<slug>/source.jsonl plus the original figures. This builder
 turns each subject into a `prepladder-qbank-1.0` record with ordered-block
 explanations (tools/marrow_qbank_bank.py's HTML converter), writes its hash-pinned
-shards and inventories the figures.
+shards and lists the figures, which the app loads from PrepLadder's image server.
 
 Two kinds of subject:
 
@@ -23,10 +23,10 @@ import argparse
 import base64
 import importlib
 import json
+import re
 import zlib
 from pathlib import Path
 
-import marrow_qbank_bank as mq
 from marrow_qbank_bank import Converter, STEM_HTML, fail, plain_text, sha256, stem, unescape
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -60,6 +60,8 @@ SUBJECTS: dict[str, dict] = {
     "pharmacology": {"folder": "Pharmacology", "subject": "Pharmacology", "prof": "second", "supplement": "build_prepladder_pharmacology_bank"},
 }
 EXPECTED_PATH = QBANK / "expected.json"
+RUNTIME = ROOT / "app/src/main/assets/prepladder_qbank_visual_metadata.js"
+ANSWER_LEAD = re.compile(r"^\W*Correct answer\s*:", re.I)
 
 
 def existing_bank(slug: str) -> dict:
@@ -94,9 +96,15 @@ def question(slug: str, q: dict, converter: Converter, chapter: dict) -> dict:
     code = slug.replace("-", "_").upper()
     text, stem_tables = stem(q["question"], converter, f"{code}_{qid}_S")
     options = [{"letter": o["letter"], "text": unescape(o["text"]).strip()} for o in q["options"]]
+    if not text and stem_tables:  # a matching question whose stem is only the table
+        text = "Match the following:"
     if not text or any(not o["text"] or STEM_HTML.search(o["text"]) for o in options):
         fail(f"{slug} {qid}: blank stem or option, or markup left in an option")
     blocks, tables = converter.convert(q["explanationHtml"], f"{code}_{qid}")
+    # A leading "Correct answer: Option B) …" line in a form the importer's patterns miss;
+    # the app shows the key itself.
+    while blocks and blocks[0]["type"] in ("paragraph", "heading") and ANSWER_LEAD.match(blocks[0]["text"]):
+        blocks = blocks[1:]
     if not blocks:
         blocks = [{"type": "paragraph", "text": "No explanation is given for this question in the source."}]
     flat = plain_text(blocks, {t["table_id"]: t for t in tables})
@@ -108,7 +116,7 @@ def question(slug: str, q: dict, converter: Converter, chapter: dict) -> dict:
         "question": text, "options": options, "correctOption": key, "correctAnswerText": options[key - 1]["text"],
         "explanation": flat, "explanationFormat": "structured",
         "structuredExplanation": {"layout": "ordered-blocks", "text": flat, "blocks": blocks, "tables": tables,
-                                  "figures": [i["file"] for i in q["images"]]},
+                                  "figures": [i["url"] for i in q["images"]]},
         "provenance": {"sourceFile": SOURCE_FILES[q["origin"]], "sourceLabel": SOURCE_LABEL,
                        "origin": q["origin"], "sourceTestId": q["testId"]},
         "reviewStatus": "pass", "imageDependent": any(i["role"] == "question" for i in q["images"]),
@@ -261,42 +269,43 @@ def merged_record(slug: str, base: dict) -> dict:
 
 
 def inventory(slug: str, record: dict) -> dict:
-    folder = QBANK / slug
-    path = folder / "visuals.json"
-    previous = {}
-    if path.exists():
-        previous = {f["file"]: f for f in json.loads(path.read_text(encoding="utf-8"))["figures"]}
+    """Every figure the subject uses: PrepLadder's link plus the type and size the importer probed."""
     images_of = {f"PREPLADDER_QBANK_{row['qid']}": row["images"] for row in load_source(slug)}
     figures = []
     for q in record["questions"]:
         for image in images_of[q["sourceQuestionId"]]:
-            rel = f"data/Prepladder/qbank/{slug}/visuals/{image['file']}"
-            file = ROOT / rel
-            if not file.exists():
-                fail(f"{q['id']}: figure {rel} is missing")
-            data = file.read_bytes()
-            digest = sha256(data)
-            old = previous.get(rel)
-            width, height = (old["width"], old["height"]) if old and old["sha256"] == digest else mq.image_size(data)
-            figures.append({"questionId": q["id"], "role": image["role"], "order": image["order"], "file": rel,
-                            "sha256": digest, "bytes": len(data), "width": width, "height": height,
-                            "sourceUrl": image["url"]})
-    used = {Path(f["file"]).name for f in figures}
-    visuals = folder / "visuals"
-    stray = sorted(p.name for p in visuals.iterdir() if p.name not in used) if visuals.exists() else []
-    if stray:
-        fail(f"{slug}: figure files no question uses: {stray[:5]}")
-    return {"schemaVersion": 1, "subject": record["subject"], "bank": "PrepLadder",
-            "note": "Original files as served by the PrepLadder web export; never re-encoded.", "figures": figures}
+            if not image.get("width") or not image.get("height") or not image.get("type"):
+                fail(f"{q['id']}: figure {image['url']} was never probed; rerun tools/prepladder_qbank_import.py")
+            if not image["url"].startswith("https://image.prepladder.com/"):
+                fail(f"{q['id']}: figure link outside PrepLadder's image server: {image['url']}")
+            figures.append({"questionId": q["id"], "role": image["role"], "order": image["order"],
+                            "url": image["url"], "type": image["type"], "bytes": image["bytes"],
+                            "width": image["width"], "height": image["height"]})
+    return {"schemaVersion": 2, "subject": record["subject"], "bank": "PrepLadder",
+            "note": "Originals on PrepLadder's image server, shown in place (owner's choice, 2026-10-28).",
+            "figures": figures}
 
 
-def figures() -> list[dict]:
-    """Every figure of every subject, for the figure packs (tools/figure_packs.py)."""
-    out = []
+def runtime_visuals() -> dict[str, list[dict]]:
+    """window.MARROW_VISUALS entries (marrow_visual_renderer.js) for every subject."""
+    runtime: dict[str, list[dict]] = {}
     for slug, cfg in SUBJECTS.items():
         for f in json.loads((QBANK / slug / "visuals.json").read_text(encoding="utf-8"))["figures"]:
-            out.append({**f, "subject": cfg["subject"], "id": f"prepladder-qbank-{Path(f['file']).stem}"})
-    return out
+            n = f["order"]
+            runtime.setdefault(f["questionId"], []).append({
+                "id": f"prepladder-qbank-{f['questionId']}-{f['role'][0]}{n}", "role": f["role"], "order": n,
+                "src": f["url"], "alt": f"{cfg['subject']} {f['role']} figure {n}", "status": "PASS",
+                "width": f["width"], "height": f["height"], "bytes": f["bytes"]})
+    return runtime
+
+
+def release() -> None:
+    """Write the runtime figure metadata (the figures themselves stay on PrepLadder's server)."""
+    runtime = runtime_visuals()
+    payload = json.dumps(runtime, ensure_ascii=False, separators=(",", ":"), sort_keys=True).replace("</", "<\\/")
+    RUNTIME.write_text("/* PrepLadder QBank figures (generated by tools/prepladder_qbank_bank.py). */\n"
+                       f"window.MARROW_VISUALS=Object.assign(window.MARROW_VISUALS||{{}},{payload});\n", encoding="utf-8")
+    print(f"PREPLADDER_QBANK_VISUALS_OK questions={len(runtime)} figures={sum(map(len, runtime.values()))}")
 
 
 def main() -> None:

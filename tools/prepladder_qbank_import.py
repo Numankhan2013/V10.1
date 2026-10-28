@@ -24,25 +24,34 @@ Pathology, Pharmacology) keep their banks; only questions they lack are written,
 the existing lesson that the matched questions of its test sit in.
 
   data/Prepladder/qbank/<slug>/source.jsonl     one question per line
-  data/Prepladder/qbank/<slug>/visuals/<QID>_<q|e><n>.<ext>   original figures, never re-encoded
+  data/Prepladder/qbank/figures.json            each figure's link, type, pixel size and bytes
 
-  python3 -I tools/prepladder_qbank_import.py <qbank.html> <elite.html> <pyq.html> [slug ...] [--no-download]
+Figures are not copied: the app loads the originals from PrepLadder's image server (the owner's
+choice, 2026-10-28) until they move to the owner's own storage.
+
+  python3 -I tools/prepladder_qbank_import.py <qbank.html> <elite.html> <pyq.html> [slug ...]
 """
 from __future__ import annotations
 
 import argparse
 import collections
 import concurrent.futures
+import io
 import difflib
 import json
 import re
 import sys
+import time
+import urllib.error
+import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 
-from marrow_qbank_import import NOT_FIGURES, ZERO_WIDTH, clean, fetch, sniff, tests_list  # noqa: E402
+from PIL import Image, ImageFile  # noqa: E402
+
+from marrow_qbank_import import AGENT, NOT_FIGURES, ZERO_WIDTH, clean, sniff, tests_list  # noqa: E402
 from prepladder_qbank_bank import QBANK, SUBJECTS, existing_bank  # noqa: E402
 
 HEAD = re.compile(r"^(?:\s*<p>\s*<strong>\s*Correct answer\s*:.*?</strong>\s*</p>)+", re.S | re.I)
@@ -55,6 +64,9 @@ IMG_P = re.compile(r"<p>\s*(?:<img\b[^>]*>\s*)+</p>|<img\b[^>]*>", re.I)
 EMPTY_TAIL = re.compile(r"(?:<p>(?:&nbsp;|\s|<br\s*/?>)*</p>|<br\s*/?>)$", re.I)
 IMG_SRC = re.compile(r"<img\b[^>]*\bsrc=\"([^\"]+)\"", re.I)
 INDEXES = QBANK / "indexes.json"
+FIGURES = QBANK / "figures.json"
+# Questions left out because the export lost their option images, by subject.
+HELD = QBANK / "held_blank_options.json"
 ROMAN = {"i", "ii", "iii", "iv", "v", "vi"}
 SMALL_WORDS = {"a", "an", "and", "as", "at", "by", "for", "in", "of", "on", "or", "the", "to", "vs", "with"}
 ACRONYMS = set("""abg aids aki all aml ards asd asom aub bcg bns ckd cin cll cml cns copd cpa cpcr csf csom ct dic dsd
@@ -226,7 +238,8 @@ def merge(slug: str, qbank: list[dict], elite: list[dict], pyq: list[dict]) -> t
             row.pop("_lesson", None)
             images, count = [], collections.Counter()
             for role, url in row.pop("images"):
-                if any(h in url for h in NOT_FIGURES):
+                # SVGs in the export are PrepLadder's own interface icons (24 px "expand" arrows).
+                if any(h in url for h in NOT_FIGURES) or url.split("?")[0].lower().endswith(".svg"):
                     continue
                 count[role] += 1
                 images.append({"role": role, "order": count[role], "url": url,
@@ -403,38 +416,79 @@ def supplement(slug: str, rows: list[dict]) -> tuple[list[dict], dict]:
     return out, dict(stats)
 
 
-def download(slug: str, rows: list[dict]) -> None:
-    visuals = QBANK / slug / "visuals"
-    visuals.mkdir(parents=True, exist_ok=True)
-    existing = {p.stem: p for p in visuals.iterdir()}
-    jobs = [(i["url"], i["name"]) for r in rows for i in r["images"]]
+def probe_one(url: str) -> dict:
+    """Type, pixel size and byte size from the first bytes of the file (a Range request)."""
+    for span in (65535, 1048575, None):
+        headers = {"User-Agent": AGENT} | ({"Range": f"bytes=0-{span}"} if span else {})
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=60) as response:
+                data, total = response.read(), response.headers.get("Content-Range", "")
+        except urllib.error.HTTPError as error:
+            if error.code != 416:  # 416: an empty file has no byte 0; the plain request below confirms it
+                raise
+            data, total = b"", ""
+        if not data and span:
+            continue
+        if not data:
+            return {"empty": True}  # an empty file on PrepLadder's server: nothing to show
+        size = int(total.rsplit("/", 1)[1]) if "/" in total else len(data)
+        parser = ImageFile.Parser()
+        try:
+            parser.feed(data)
+        except Exception:  # truncated chunk; the header may still be readable
+            pass
+        if parser.image:
+            return {"type": sniff(data), "width": parser.image.width, "height": parser.image.height, "bytes": size}
+    raise ValueError(f"no image header in {url}")
+
+
+def probe(slug: str, rows: list[dict]) -> None:
+    """Record each figure's link, type and size; the app shows it from PrepLadder's image server."""
+    cache = json.loads(FIGURES.read_text(encoding="utf-8")) if FIGURES.exists() else {}
+    local = QBANK / slug / "visuals"  # files kept from the earlier full download, if any
+    local_of = {p.stem: p for p in local.iterdir()} if local.exists() else {}
+    jobs = sorted({i["url"]: i["name"] for r in rows for i in r["images"] if i["url"] not in cache}.items())
 
     def get(job):
         url, name = job
-        if name in existing:
-            return name, existing[name].suffix[1:], False
         try:
-            data = fetch(url)
-        except Exception as error:  # reported; the builder refuses a missing file
-            return name, None, error
-        ext = sniff(data)
-        (visuals / f"{name}.{ext}").write_bytes(data)
-        return name, ext, True
+            if name in local_of:
+                data = local_of[name].read_bytes()
+                with Image.open(io.BytesIO(data)) as im:
+                    return url, {"type": sniff(data), "width": im.width, "height": im.height, "bytes": len(data)}
+            for attempt in range(5):
+                try:
+                    return url, probe_one(url)
+                except Exception:
+                    if attempt == 4:
+                        raise
+                    time.sleep(2 ** attempt)
+        except Exception as error:  # reported; the builder refuses a figure without a size
+            return url, error
 
-    ext_of, missing, fetched = {}, [], 0
+    missing = []
     with concurrent.futures.ThreadPoolExecutor(max_workers=12) as pool:
-        for (url, _), (name, ext, new) in zip(jobs, pool.map(get, jobs)):
-            if ext is None:
-                missing.append(f"{name} {url} ({new})")
-                continue
-            ext_of[name] = ext
-            fetched += new is True
+        for url, info in pool.map(get, jobs):
+            if isinstance(info, dict):
+                cache[url] = info
+            else:
+                missing.append(f"{url} ({info})")
+    FIGURES.write_text(json.dumps(cache, indent=0, sort_keys=True) + "\n", encoding="utf-8")
+    empty = 0
     for r in rows:
+        kept, count = [], collections.Counter()
         for image in r["images"]:
-            name = image.pop("name")
-            guess = Path(image["url"].split("?")[0]).suffix.lower().lstrip(".").replace("jpeg", "jpg") or "jpg"
-            image["file"] = f"{name}.{ext_of.get(name, guess)}"
-    print(f"  figures={len(jobs)} downloaded={fetched} pending={len(missing)}")
+            image.pop("name")
+            info = cache.get(image["url"], {})
+            if info.get("empty"):
+                empty += 1
+                continue
+            count[image["role"]] += 1
+            kept.append({**image, **info, "order": count[image["role"]]})
+        r["images"] = kept
+    if empty:
+        print(f"  dropped {empty} figure(s) that are empty files in the source")
+    print(f"  figures={sum(len(r['images']) for r in rows)} probed={len(jobs) - len(missing)} pending={len(missing)}")
     for line in missing:
         print("  PENDING", line)
 
@@ -445,26 +499,28 @@ def main() -> None:
     parser.add_argument("elite", type=Path)
     parser.add_argument("pyq", type=Path)
     parser.add_argument("slugs", nargs="*")
-    parser.add_argument("--no-download", action="store_true")
     args = parser.parse_args()
     qbank, elite, pyq = tests_list(args.qbank), elite_data(args.elite), tests_list(args.pyq)
+    held_log = json.loads(HELD.read_text(encoding="utf-8")) if HELD.exists() else {}
     for slug in args.slugs or list(SUBJECTS):
         rows, stats = merge(slug, qbank, elite, pyq)
         if SUBJECTS[slug].get("supplement"):
             rows, extra = supplement(slug, rows)
             stats.update(extra)
-        if args.no_download:
-            for r in rows:
-                for image in r["images"]:
-                    image["file"] = image.pop("name") + ".jpg"
-        else:
-            download(slug, rows)
+        # The export lost the option images of a few picture-choice questions ("" options).
+        held = [r for r in rows if any(not o["text"].strip() for o in r["options"])]
+        rows = [r for r in rows if r not in held]
+        held_log[slug] = sorted(r["qid"] for r in held)
+        if held:
+            stats["heldBlankOptions"] = len(held)
+        probe(slug, rows)
         folder = QBANK / slug
         folder.mkdir(parents=True, exist_ok=True)
         with (folder / "source.jsonl").open("w", encoding="utf-8") as handle:
             for r in rows:
                 handle.write(json.dumps(r, ensure_ascii=False, sort_keys=True) + "\n")
         print(f"PREPLADDER_QBANK_IMPORT_OK {slug} questions={len(rows)} {json.dumps(stats, sort_keys=True)}")
+    HELD.write_text(json.dumps({k: v for k, v in sorted(held_log.items()) if v}, indent=1) + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":

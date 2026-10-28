@@ -252,6 +252,7 @@ jobs:
           python3 tools/test_prepladder_physiology_bank.py
           python3 tools/test_prepladder_anatomy_bank.py
           python3 tools/test_marrow_qbank_bank.py
+          python3 tools/test_prepladder_qbank_bank.py
       - name: Validate Marrow explanation inventory
         run: python3 tools/test_marrow_explanation_inventory.py
       - name: Validate reviewed parallel explanation batches
@@ -476,6 +477,7 @@ jobs:
           tools/verify_prepladder_biochemistry_browser.py
           tools/verify_prepladder_physiology_browser.py
           tools/verify_prepladder_anatomy_browser.py
+          tools/verify_prepladder_qbank_browser.py
           tools/verify_question_presentation_browser.py
           tools/verify_question_completeness_browser.py
           tools/verify_continue_practice_browser.py
@@ -539,6 +541,7 @@ jobs:
             build/prepladder-visual-audit/*.png
             build/prepladder-visual-audit/*.json
             build/prepladder-visual-browser/*.png
+            build/prepladder-qbank-checks/*.png
           retention-days: 3
           if-no-files-found: warn
       - name: Verify packaged PWA product contract

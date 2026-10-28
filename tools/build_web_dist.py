@@ -85,6 +85,33 @@ def split_script_data(path: Path, packs: DetailPacks) -> None:
     path.write_text(match.group(1) + "=" + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + ";\n", encoding="utf-8")
 
 
+# Question data larger than this goes out as several scripts, each well under the
+# Cloudflare Pages per-file limit: the first sets the global, the rest append records.
+DATA_SCRIPT_BYTES = 16 * 1024 * 1024
+
+
+def record_chunks(const: str, data: dict) -> list[str]:
+    records, rest = data["records"], {k: v for k, v in data.items() if k != "records"}
+    groups, current, size = [], [], 0
+    for record in records:
+        # Measured as shipped: the JSON text again escaped as a string literal.
+        n = len(json.dumps(json.dumps(record, ensure_ascii=False, separators=(",", ":"))))
+        if n > DATA_SCRIPT_BYTES:
+            raise SystemExit(f"{record.get('bank')} {record.get('subject')}: one record is {n} bytes, over the script size")
+        if current and size + n > DATA_SCRIPT_BYTES:
+            groups.append(current)
+            current, size = [], 0
+        current.append(record)
+        size += n
+    groups.append(current)
+    first = json.dumps({**rest, "records": groups[0]}, ensure_ascii=False, separators=(",", ":"))
+    bodies = ["window.NK_DATA_" + const + "=JSON.parse(" + json.dumps(first) + ");\n"]
+    for group in groups[1:]:
+        literal = json.dumps(group, ensure_ascii=False, separators=(",", ":"))
+        bodies.append("window.NK_DATA_" + const + ".records.push(...JSON.parse(" + json.dumps(literal) + "));\n")
+    return bodies
+
+
 def externalize_data(page: str, out: Path, packs: DetailPacks | None = None) -> tuple[str, list[str]]:
     """Move the large question data out of index.html into cacheable scripts.
 
@@ -116,12 +143,15 @@ def externalize_data(page: str, out: Path, packs: DetailPacks | None = None) -> 
         elif packs:
             packs.split_gold(data)
             literal = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
-        body = "window.NK_DATA_" + const + "=JSON.parse(" + json.dumps(literal) + ");\n"
-        name = f"data/{const.lower()}.{hashlib.sha256(body.encode()).hexdigest()[:10]}.js"
+        bodies = ["window.NK_DATA_" + const + "=JSON.parse(" + json.dumps(literal) + ");\n"]
+        if const == "MARROW_DATA" and len(bodies[0].encode()) > DATA_SCRIPT_BYTES:
+            bodies = record_chunks(const, data)
         (out / "data").mkdir(exist_ok=True)
-        (out / name).write_text(body, encoding="utf-8")
-        files.append(name)
-        loaders.append(f'<script src="{name}"></script>')
+        for body in bodies:
+            name = f"data/{const.lower()}.{hashlib.sha256(body.encode()).hexdigest()[:10]}.js"
+            (out / name).write_text(body, encoding="utf-8")
+            files.append(name)
+            loaders.append(f'<script src="{name}"></script>')
         page = page[:match.start()] + "\n" + match.group(1) + f"const {const} = window.NK_DATA_{const};\n" + page[match.end():]
     if loaders:
         anchor = page.index("const MARROW_DATA = window.NK_DATA_MARROW_DATA;") if "NK_DATA_MARROW_DATA" in page else None
@@ -218,7 +248,7 @@ def main() -> None:
     sw = out / "sw.js"
     sw_text=sw.read_text(encoding="utf-8").replace("const BUILD_VERSION='dev';", f"const BUILD_VERSION={args.version!r};", 1)
     data_shell=(
-        ['./marrow_visual_metadata.js','./microbiology_visual_metadata.js','./prepladder_microbiology_visual_metadata.js','./prepladder_pathology_visual_metadata.js','./prepladder_pharmacology_visual_metadata.js','./prepladder_biochemistry_visual_metadata.js','./prepladder_physiology_visual_metadata.js','./prepladder_anatomy_visual_metadata.js','./marrow_qbank_visual_metadata.js','./marrow_visual_renderer.js','./source_visual_inventory.json']
+        ['./marrow_visual_metadata.js','./microbiology_visual_metadata.js','./prepladder_microbiology_visual_metadata.js','./prepladder_pathology_visual_metadata.js','./prepladder_pharmacology_visual_metadata.js','./prepladder_biochemistry_visual_metadata.js','./prepladder_physiology_visual_metadata.js','./prepladder_anatomy_visual_metadata.js','./marrow_qbank_visual_metadata.js','./prepladder_qbank_visual_metadata.js','./marrow_visual_renderer.js','./source_visual_inventory.json']
         + ['./'+name for name in data_files]
     )
     # Figures are content-hashed: the worker fills them into a persistent cache
