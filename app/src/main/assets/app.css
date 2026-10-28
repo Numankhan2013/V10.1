@@ -4041,7 +4041,6 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-ring.nkg-ring-in { position:
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-ring.nkg-ring-in > span { position: relative; z-index: 1; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-ring.nkg-ring-in::after { content: ""; position: absolute; inset: -1px; border-radius: 50%; pointer-events: none; background: conic-gradient(transparent var(--nkg-sw), var(--nkg-surface) 0); animation: nkgRing 1.1s .1s cubic-bezier(.23, 1, .32, 1) both; }
 @keyframes nkgRing { from { --nkg-sw: 0deg; } to { --nkg-sw: 360deg; } }
-html[data-nk-ui="geist"] .nkg-confetti { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 9998; pointer-events: none; }
 /* Theme switch: the new theme spreads in a circle from the toggle. */
 html.nkg-vt-theme::view-transition-old(root), html.nkg-vt-theme::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
 html.nkg-vt-theme::view-transition-old(root) { z-index: 1; }
@@ -4168,16 +4167,33 @@ html[data-nk-ui="geist"] .nk-nb-menu.nkg-goo.is-ghost :is(.nkg-goo-svg, .nkg-goo
   html[data-nk-ui="geist"] .nkg-goo.is-anticipating :is(.nkg-goo-svg, .nk-np-add-btn) { animation: none !important; }
 }
 /* Busy submit: the label steps back, three dots wave in its place. */
-html[data-nk-ui="geist"] :is(body,#nkg-root) button.nkg-busy { position: relative; color: transparent !important; pointer-events: none; }
+/* Submit: the label turns to "Scoring…" at once (a static label: scoring blocks the main thread, so an animated
+   spinner would freeze anyway). The button keeps its size and reads as pressed. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) button.nkg-busy { position: relative; color: transparent !important; pointer-events: none; transform: scale(.985); }
 html[data-nk-ui="geist"] :is(body,#nkg-root) button.nkg-busy > * { opacity: 0; }
-html[data-nk-ui="geist"] :is(body,#nkg-root) button.nkg-busy::after { content: ""; position: absolute; left: 50%; top: 50%; width: 6px; height: 6px; margin: -3px 0 0 -3px; border-radius: 50%; color: var(--nkg-inverse-fg); background: currentColor; box-shadow: -12px 0 0 currentColor, 12px 0 0 currentColor; animation: nkgDots .9s ease-in-out infinite; }
-@keyframes nkgDots { 0%, 100% { box-shadow: -12px 0 0 currentColor, 12px 0 0 color-mix(in srgb, currentColor 35%, transparent); background: color-mix(in srgb, currentColor 65%, transparent); } 50% { box-shadow: -12px 0 0 color-mix(in srgb, currentColor 35%, transparent), 12px 0 0 currentColor; background: currentColor; } }
+html[data-nk-ui="geist"] :is(body,#nkg-root) button.nkg-busy::after { content: attr(data-nkg-busy); position: absolute; inset: 0; display: grid; place-items: center; color: var(--nkg-inverse-fg); font-weight: 600; letter-spacing: -0.01em; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) button.nkg-busy:not([data-nkg-busy])::after { content: "…"; }
+/* Submit → result view transition: the session sinks back and blurs, the result rises; the Submit button grows into
+   the score card (shared name nkg-result), its label fading out as the card's content fades in. */
+html.nkg-reveal[data-nk-ui="geist"] .nk-na-summary { view-transition-name: nkg-result; }
+html.nkg-reveal::view-transition-old(root) { animation: nkgRevealOut 260ms cubic-bezier(.4, 0, 1, 1) both; }
+html.nkg-reveal::view-transition-new(root) { animation: nkgRevealIn 420ms 60ms cubic-bezier(.16, 1, .3, 1) both; }
+html.nkg-reveal::view-transition-group(nkg-result) { animation-duration: 520ms; animation-timing-function: cubic-bezier(.2, .9, .1, 1); z-index: 10; }
+html.nkg-reveal::view-transition-old(nkg-result) { animation: nkgRevealFade 160ms ease-out both; height: 100%; object-fit: cover; }
+html.nkg-reveal::view-transition-new(nkg-result) { animation: nkgRevealFade 300ms 140ms ease-in reverse both; height: 100%; object-fit: cover; }
+@keyframes nkgRevealOut { to { opacity: 0; transform: scale(.965); filter: blur(3px); } }
+@keyframes nkgRevealIn { from { opacity: 0; transform: translateY(14px); } }
+@keyframes nkgRevealFade { to { opacity: 0; } }
+/* A strong score: one ring of light leaves the score ring and fades. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-ring.nkg-ring-bloom { position: relative; isolation: isolate; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-ring.nkg-ring-bloom::before { content: ""; position: absolute; inset: -2px; border-radius: 50%; border: 2px solid var(--nkg-green, currentColor); pointer-events: none; animation: nkgBloom 900ms cubic-bezier(.16, 1, .3, 1) both; z-index: -1; }
+@keyframes nkgBloom { from { opacity: .7; transform: scale(1); } to { opacity: 0; transform: scale(1.32); } }
 /* Images: shimmer placeholder until loaded, then a short fade. */
 html[data-nk-ui="geist"] :is(body,#nkg-root) img.nkg-img-wait { min-height: 120px; min-width: 60%; border-radius: var(--nkg-r-md); color: transparent; background: linear-gradient(100deg, var(--nkg-surface-2) 40%, var(--nkg-hover) 50%, var(--nkg-surface-2) 60%) 0 0 / 300% 100%; animation: nkgShimmer 1.3s linear infinite; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) img.nkg-img-in { animation: nkgImgIn .35s var(--nkg-ease); }
 @keyframes nkgShimmer { from { background-position: 100% 0; } to { background-position: 0 0; } }
 @keyframes nkgImgIn { from { opacity: 0; } }
-@media (prefers-reduced-motion: reduce) { html[data-nk-ui="geist"] :is(body,#nkg-root) img.nkg-img-wait { animation: none; } html[data-nk-ui="geist"] :is(body,#nkg-root) button.nkg-busy::after { animation-duration: 2.4s; } }
+@media (prefers-reduced-motion: reduce) { html[data-nk-ui="geist"] :is(body,#nkg-root) img.nkg-img-wait { animation: none; } html.nkg-reveal::view-transition-group(*), html.nkg-reveal::view-transition-old(*), html.nkg-reveal::view-transition-new(*) { animation: none !important; } html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-ring.nkg-ring-bloom::before { animation: none; opacity: 0; } }
 html[data-nk-ui="geist"] .nk-nb.is-text .nk-nb-text { background: transparent !important; }
 
 /* ===================================================== Pages, not sheets (2026-10-11 b)

@@ -22,7 +22,7 @@
     const target='#'+args[0]+(args[1]?'/'+encodeURIComponent(args[1]):'');
     if(location.hash!==target)nkAppNavigationTarget=target;
   }
-  saveState=function(){if(nkInteractionTransaction){nkInteractionTransaction.dirty=true;return true;}return nkInteractionSave.apply(this,arguments);};
+  saveState=function(){if(nkInteractionTransaction){if(typeof nkStateChanged==='function')nkStateChanged();nkInteractionTransaction.dirty=true;return true;}return nkInteractionSave.apply(this,arguments);};
   render=function(){if(nkInteractionTransaction){nkInteractionTransaction.render=true;return;}return nkInteractionRender.apply(this,arguments);};
   navigate=function(){
     if(nkInteractionTransaction){
@@ -88,7 +88,7 @@
       if(result===false){state=before;return false;}
       if(tx.dirty&&nkInteractionSave()===false){state=before;return false;}
     }catch(error){state=before;nkStorageError('Question action was not saved. Try the action again',error);return false;}
-    finally{nkInteractionTransaction=null;}
+    finally{nkInteractionTransaction=null;if(typeof nkStateChanged==='function')nkStateChanged();}
     if(tx.navigation){
       if(!['practice','exam','review-test'].includes(tx.navigation[0])){
         document.getElementById('nk-session-review')?.remove();document.getElementById('qb-question-navigator')?.remove();

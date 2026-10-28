@@ -77,8 +77,12 @@ def marrow_data() -> str:
     from prepladder_qbank_bank import app_records as prepladder_qbank_records, merged_record
     banks = {"microbiology": app_record(), "pathology": pathology_record(), "pharmacology": pharmacology_record(),
              "biochemistry": biochemistry_record(), "physiology": physiology_record(), "anatomy": anatomy_record()}
-    return js_json({"records": records + [titled(merged_record(slug, base)) for slug, base in banks.items()]
-                    + marrow_qbank_records() + [titled(r) for r in prepladder_qbank_records()]})
+    shipped = (records + [titled(merged_record(slug, base)) for slug, base in banks.items()]
+               + marrow_qbank_records() + [titled(r) for r in prepladder_qbank_records()])
+    # Where a source would teach something wrong, the reviewed ledger corrects it.
+    from source_corrections import apply_corrections
+    print("SOURCE_CORRECTIONS_OK " + " ".join(f"{k}={v}" for k, v in apply_corrections(shipped).items()))
+    return js_json({"records": shipped})
 
 
 ROMAN = re.compile(r"\b(?:Ii|Iii|Iv|Vi|Vii|Viii|Ix)\b")

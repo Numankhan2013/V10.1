@@ -42,6 +42,6 @@ Per-subject numbers are pinned in `data/Prepladder/qbank/expected.json`.
 - Medicine Miscellaneous Topics: 22 vs 23.
 - Forensic Medicine: Torture Types and Entomology have no QBank tests in the export.
 - O&G: "RIS" has no topic in the index.
-- Option letters: in about 90 explanations PrepLadder names the wrong letter for an option ("Option B" for what is option C). Left as the source has it.
+- Source errors are corrected, never left: wrong option letters in explanations (156 questions), false statements and explanations written against other options (17), and 2 wrong keys (microbiology-q887239 → transduction, prepladder-radiology-q885220 → pneumomediastinum). Each fix is one reviewed entry in `data/source_corrections.json`, applied by `tools/source_corrections.py` during `build_app_data.py` (a stale entry fails the build); the same pass mends bold opened mid-word ("p**ale" → "**pale"). Test `tools/test_source_corrections.py`.
 - Repeated "Previous Year Questions" lessons within one section are numbered ", Part 1", ", Part 2" at build time (`build_app_data.titled`), which also writes roman numerals as "Part II".
 - Duplicates: about 120 questions repeat within their subject with different wording kept by both exports; 19 supplement questions repeat a PDF-bank question in different words. Not removed.

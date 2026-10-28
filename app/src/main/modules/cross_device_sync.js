@@ -66,7 +66,7 @@
     // device's ID, or per-device conflict resolution and tombstones are
     // attributed to the wrong device.
     const localDeviceId=(nkSyncMeta&&nkSyncMeta.deviceId)||nextMeta.deviceId;
-    state=nextState;
+    state=nextState;if(typeof nkStateChanged==='function')nkStateChanged();
     if(nkDurablePersist(state,'account switch')===false)throw new Error('Account progress could not be saved on this device.');
     nkSyncMeta=nextMeta;
     nkSyncMeta.deviceId=localDeviceId;

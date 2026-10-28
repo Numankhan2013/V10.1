@@ -1,6 +1,7 @@
   /* NK_CBT_RESULT_ANALYSIS_V1_START */
   function nkCbtResultAnalysis(test){
-    const questions=new Map(nkAllStudyQuestions().map(q=>[String(q.id),q]));
+    // Indexed lookup: a result screen reads only its own questions, never the whole bank.
+    const questions={get:key=>nkBankQuestionById(key)};
     const rows=new Map(),missedIds=[];let unavailable=0;
     (test.questionIds||[]).forEach(id=>{
       const key=String(id),q=questions.get(key)||BY_ID[key];
@@ -86,7 +87,8 @@
       showToast('This timed CBT is unavailable for a retake.','bad');return false;
     }
     if(Number(clickEvent?.detail)>1)return false;
-    const questions=new Map(nkAllStudyQuestions().map(q=>[String(q.id),q]));
+    // Indexed lookup: a result screen reads only its own questions, never the whole bank.
+    const questions={get:key=>nkBankQuestionById(key)};
     const ids=test.questionIds.map(String);
     if(new Set(ids).size!==ids.length||ids.some(id=>!questions.has(id))){
       showToast('Some saved questions are unavailable, so this exact test cannot be retaken.','bad');return false;
@@ -114,7 +116,8 @@
     const original=nkCbtResultAnalysis(test).missedIds;
     const ids=typeof nkFsrsUnresolvedResultMisses==='function'?nkFsrsUnresolvedResultMisses(test,original):original;
     if(!ids.length){showToast('There are no missed questions in this test.');return false;}
-    const questions=new Map(nkAllStudyQuestions().map(q=>[String(q.id),q]));
+    // Indexed lookup: a result screen reads only its own questions, never the whole bank.
+    const questions={get:key=>nkBankQuestionById(key)};
     BY_ID={...BY_ID,...Object.fromEntries(ids.map(id=>[id,questions.get(id)||BY_ID[id]]).filter(([,q])=>q))};
     return startSession(ids,'practice',`CBT follow-up · ${test.title||'Timed CBT'}`,'cbt-followup');
   }

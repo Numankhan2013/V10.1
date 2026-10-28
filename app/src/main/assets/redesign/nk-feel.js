@@ -1244,6 +1244,8 @@
     }
     lastRoute = key;
     var dir = navDirection(key, page);
+    /* The submit reveal (a view transition) carries the result in; a slide on top would fight it. */
+    if (reveal.on) return;
     /* The app can render a route several times in one go; animate the final main,
        still before the first paint. */
     window.cancelAnimationFrame(pageEnter.raf);
@@ -1463,7 +1465,9 @@
     if (cta && motionOK()) { cta.classList.remove('nkg-shine'); void cta.offsetWidth; cta.classList.add('nkg-shine'); window.setTimeout(function () { cta.classList.remove('nkg-shine'); }, 1800); }
     return true;
   }
-  /* Result: the score ring sweeps round, the number counts up, a strong score gets confetti. */
+  /* Result: the score card arrives first (grown from the Submit button), then its ring sweeps
+     while the number counts up, then the outcome counts, timings and actions settle in one
+     short cascade. A strong score closes with a single ring bloom instead of confetti. */
   var ringMemo = null;
   function resultMotion(app) {
     var ring = app.querySelector('.nk-na-summary .nk-na-ring, .nk-na-ring');
@@ -1472,31 +1476,23 @@
     if (sig === ringMemo) return;
     ringMemo = sig;
     if (!motionOK()) return;
-    ring.classList.remove('nkg-ring-in'); void ring.offsetWidth; ring.classList.add('nkg-ring-in');
     var b = ring.querySelector('b');
     var m = /Score/.test(ring.getAttribute('aria-label') || '') && b && /^(\d+)%$/.exec(b.textContent.trim());
     var pct = m ? +m[1] : (function () { var x = /(\d+) correct, (\d+) incorrect, (\d+) omitted/.exec(ring.getAttribute('aria-label') || ''); if (!x) return 0; var t = +x[1] + +x[2] + +x[3]; return t ? x[1] / t * 100 : 0; })();
+    var rest = [].slice.call(app.querySelectorAll('.nk-na-outcome-counts > div, .nk-na-metrics > article, .nk-na-actions, .nk-na-followup, .nk-na-save-mock, .nk-na-analysis-grid > section'))
+      .filter(function (n) { var r = n.getBoundingClientRect(); return r.height && r.top < window.innerHeight; });
+    /* Held at their start pose until the card has landed, so nothing pops in early. */
+    each(rest, function (n) { n.style.opacity = '0'; });
+    /* The ring sweeps from the first frame (it rides the morph); the rest waits for the card to land. */
+    ring.classList.remove('nkg-ring-in'); void ring.offsetWidth; ring.classList.add('nkg-ring-in');
     if (b) countUp(b, 'ring-' + sig, true);
-    if (pct >= 80) window.setTimeout(function () { confetti(ring.getBoundingClientRect()); }, 450);
-  }
-  function confetti(r) {
-    if (!motionOK()) return;
-    var cv = el('canvas', 'nkg-confetti'); cv.setAttribute('aria-hidden', 'true');
-    var dpr = Math.min(2, window.devicePixelRatio || 1), W = window.innerWidth, H = window.innerHeight;
-    cv.width = W * dpr; cv.height = H * dpr; document.body.appendChild(cv);
-    var ctx = cv.getContext('2d'); if (!ctx) { cv.remove(); return; }
-    ctx.scale(dpr, dpr);
-    var cs = getComputedStyle(document.documentElement);
-    var cols = ['--nkg-green', '--nkg-blue', '--nkg-amber', '--nkg-orange', '--nkg-fg'].map(function (v) { return cs.getPropertyValue(v).trim() || '#888'; });
-    var ox = r.left + r.width / 2, oy = r.top + r.height / 2, P = [];
-    for (var i = 0; i < 90; i++) { var a = -Math.PI / 2 + (Math.random() - 0.5) * Math.PI * 1.1, v = 6 + Math.random() * 7; P.push({ x: ox, y: oy, vx: Math.cos(a) * v, vy: Math.sin(a) * v, w: 4 + Math.random() * 5, h: 6 + Math.random() * 6, r: Math.random() * 6, vr: (Math.random() - 0.5) * 0.4, c: cols[i % cols.length] }); }
-    var t0 = performance.now();
-    (function frame(t) {
-      var k = (t - t0) / 1600; ctx.clearRect(0, 0, W, H);
-      P.forEach(function (p) { p.vy += 0.28; p.vx *= 0.985; p.vy *= 0.985; p.x += p.vx; p.y += p.vy; p.r += p.vr;
-        ctx.save(); ctx.globalAlpha = Math.max(0, 1 - k * k); ctx.translate(p.x, p.y); ctx.rotate(p.r); ctx.fillStyle = p.c; ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h * Math.abs(Math.cos(p.r * 2))); ctx.restore(); });
-      if (k < 1) window.requestAnimationFrame(frame); else cv.remove();
-    })(t0);
+    var start = function () {
+      anim(rest, { opacity: [0, 1], transform: ['translateY(8px)', 'none'] }, { duration: 0.32, delay: M.stagger ? M.stagger(0.035, { startDelay: 0.12 }) : 0.12 });
+      window.setTimeout(function () { each(rest, function (n) { n.style.opacity = ''; }); }, 900);
+      if (pct >= 80) window.setTimeout(function () { ring.classList.remove('nkg-ring-bloom'); void ring.offsetWidth; ring.classList.add('nkg-ring-bloom'); }, 500);
+    };
+    if (reveal.on) { var wait = function () { if (reveal.on && performance.now() - reveal.at < 1500) window.requestAnimationFrame(wait); else start(); }; window.requestAnimationFrame(wait); }
+    else start();
   }
 
   /* ========================================================== Notes page
@@ -1741,20 +1737,42 @@
   }).observe(document.body, { childList: true }); }
   if (document.body) watchNotes(); else document.addEventListener('DOMContentLoaded', watchNotes);
 
-  /* ======================================================= Waiting states
-     Submitting a session is heavy synchronous work. The tap first paints a
-     busy state on the button (two frames), then runs the app's own handler,
-     so the wait reads as "working" instead of a frozen screen. */
+  /* ======================================================= Submit → result
+     The tap answers at once: the button reads "Scoring…" in the next frame.
+     Scoring then runs inside a view transition, so the screen never shows a
+     half-built page: the session recedes, the Submit button grows into the
+     score card of the result, and the result's figures settle in after it
+     (resultMotion). Without view transitions, or with reduced motion, the
+     busy label paints first and the result appears directly. */
+  var reveal = { on: false, at: 0 };
+  function revealEnd() { reveal.on = false; doc.classList.remove('nkg-reveal'); }
   document.addEventListener('click', function (e) {
     var b = e.target.closest && e.target.closest('button.nk-practice-submit, button.qb-nav-submit');
     if (!b || b.__nkgGo || document.documentElement.getAttribute('data-nk-ui') !== 'geist') return;
     if (!/submit|finish/i.test(b.getAttribute('onclick') || '') || b.disabled || b.classList.contains('nkg-busy')) return;
     e.preventDefault(); e.stopImmediatePropagation();
-    b.classList.add('nkg-busy'); b.setAttribute('aria-busy', 'true');
-    window.requestAnimationFrame(function () { window.requestAnimationFrame(function () {
+    b.classList.add('nkg-busy'); b.setAttribute('aria-busy', 'true'); b.setAttribute('data-nkg-busy', 'Scoring…');
+    var go = function () {
       b.__nkgGo = true;
-      try { b.click(); } finally { b.__nkgGo = false; if (b.isConnected) { b.classList.remove('nkg-busy'); b.removeAttribute('aria-busy'); } }
-    }); });
+      try { b.click(); } finally { b.__nkgGo = false; if (b.isConnected) { b.classList.remove('nkg-busy'); b.removeAttribute('aria-busy'); b.removeAttribute('data-nkg-busy'); } }
+    };
+    /* Only a real submit ends on the result page; "Review or Finish" opens a review list. */
+    var toResult = /submitExam|nkSubmitPracticeSession/.test(b.getAttribute('onclick') || '');
+    if (toResult && document.startViewTransition && motionOK()) {
+      reveal.on = true; reveal.at = performance.now();
+      doc.classList.add('nkg-reveal');
+      b.style.viewTransitionName = 'nkg-result';
+      try {
+        var vt = document.startViewTransition(function () {
+          go();
+          /* Nothing to grow into (a blocked submit), or the button is still on screen: it simply fades. */
+          if (b.isConnected || !document.querySelector('.nk-na-summary')) b.style.viewTransitionName = '';
+        });
+        vt.finished.then(revealEnd, revealEnd);
+        return;
+      } catch (err) { revealEnd(); b.style.viewTransitionName = ''; }
+    }
+    window.requestAnimationFrame(function () { window.setTimeout(go, 0); });
   }, true);
   /* Images shimmer until their bytes arrive, then fade in. */
   function imageWaits(app) {
@@ -1940,5 +1958,5 @@
   watchToasts();
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', watchToasts);
 
-  window.NKFeel = { render: render, haptic: haptic, toast: toastShow, confetti: confetti };
+  window.NKFeel = { render: render, haptic: haptic, toast: toastShow };
 })();

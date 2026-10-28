@@ -118,6 +118,8 @@ jobs:
         run: python3 tools/verify_project_memory.py
       - name: Test study metrics behavior
         run: python3 tools/test_study_metrics.py
+      - name: Test source corrections ledger
+        run: python3 tools/test_source_corrections.py
       - name: Verify source product contract
         run: python3 tools/verify_product_contract.py --stage source
       - name: Verify deterministic build pipeline

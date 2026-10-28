@@ -253,7 +253,44 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
 
   function loadState() { return nkDurableLoadState(); }
 
+  // Learner-state version: screens cache counts derived from all ~45k questions
+  // (due reviews, mistakes, subject progress) until state is saved or replaced.
+  let nkStateVersion=0;
+  // After a change, idle time recomputes the caches the last screens used, so the next tap
+  // reads them instead of rescanning. Not during a session: a tap there must never wait.
+  let nkMemoWarmTimer=0;
+  function nkStateChanged(){
+    nkStateVersion++;
+    clearTimeout(nkMemoWarmTimer);
+    nkMemoWarmTimer=setTimeout(()=>{if(!document.hidden&&!state?.activeSession)nkMemoRefreshIdle();},1500);
+  }
+  function nkMemoRefreshIdle(){const run=()=>nkMemoRefreshers.forEach(refresh=>{try{refresh();}catch(_error){}});typeof requestIdleCallback==='function'?requestIdleCallback(run,{timeout:10000}):run();}
+  // Due reviews move with the clock, so a cached value lives at most five minutes;
+  // at each boundary the last call of every cache is redone while the app is idle,
+  // so the next tap does not pay for it.
+  const NK_MEMO_WINDOW_MS=5*60000,nkMemoRefreshers=[];
+  function nkMemoByState(fn,keyOf,copy=value=>value){
+    let cache=new Map(),last=null;
+    const keyFor=args=>nkStateVersion+'|'+Math.floor(Date.now()/NK_MEMO_WINDOW_MS)+'|'+keyOf(...args);
+    const memo=function(...args){
+      const key=keyFor(args);
+      last={self:this,args};
+      if(!cache.has(key)){if(cache.size>48)cache=new Map();cache.set(key,fn.apply(this,args));}
+      return copy(cache.get(key));
+    };
+    // The current value if it is already known, else undefined (never computes).
+    memo.peek=(...args)=>{const key=keyFor(args);return cache.has(key)?copy(cache.get(key)):undefined;};
+    nkMemoRefreshers.push(()=>{if(last)memo.apply(last.self,last.args);});
+    return memo;
+  }
+  (function nkMemoRefreshAtWindow(){
+    setTimeout(()=>{
+      if(!document.hidden&&!state?.activeSession)nkMemoRefreshIdle();
+      nkMemoRefreshAtWindow();
+    },NK_MEMO_WINDOW_MS-Date.now()%NK_MEMO_WINDOW_MS+1000);
+  })();
   function saveState() {
+    nkStateChanged();
     if(typeof nkSyncModuleFromSession==='function')nkSyncModuleFromSession();
     const ok=nkDurablePersist(state,'state update');
     if(ok&&typeof nkScheduleCloudSync==='function')nkScheduleCloudSync();
@@ -386,7 +423,13 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
   function overallAccuracy() {
     const n = totalAttempts(); return n ? totalCorrectAttempts()/n*100 : 0;
   }
-  function chapterQuestions(cid) { return QUESTIONS.filter(q => String(q.chapterId) === String(cid)); }
+  // QUESTIONS is replaced, never edited, when the bank changes: index each array once.
+  const nkChapterIndex=new WeakMap();
+  function chapterQuestions(cid) {
+    let index=nkChapterIndex.get(QUESTIONS);
+    if(!index){index=new Map();QUESTIONS.forEach(q=>{const key=String(q.chapterId);if(!index.has(key))index.set(key,[]);index.get(key).push(q);});nkChapterIndex.set(QUESTIONS,index);}
+    return (index.get(String(cid))||[]).slice();
+  }
   function chapterStats(cid) {
     // Completion counts only questions that accept an answer; accuracy counts
     // only active answers (undo events and undone answers are not misses).
@@ -397,6 +440,8 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
     const incorrect = at.filter(a=>!a.correct).length;
     return {total:qs.length, attempted, correct, incorrect, accuracy: (correct+incorrect)?correct/(correct+incorrect)*100:0};
   }
+  // Keyed by bank too: chapter ids are only unique inside one bank.
+  if(typeof nkMemoByState==='function')chapterStats=nkMemoByState(chapterStats,cid=>`${typeof activeBank!=='undefined'?activeBank:''}|${activeSubject}|${cid}`,stats=>({...stats}));
   function wrongQuestions() { return QUESTIONS.filter(q => qAttempts(q.id).some(a=>!a.correct)); }
   function dueQuestions() { return QUESTIONS.filter(q => { const r=state.reviews[q.id]; return r && r.nextReviewAt && r.nextReviewAt <= Date.now(); }); }
   function bookmarkedQuestions() { return QUESTIONS.filter(q => state.bookmarks[q.id]); }
@@ -512,9 +557,25 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
     if(route.page!=='dashboard')return '';
     return `<header class="nk-global-header-v114"><div class="nk-global-inner"><div class="nk-global-brand" aria-label="NK QBank"><strong>NK</strong><span>QBank</span></div></div></header>`;
   }
+    // The Revision badge must not hold up a tap: right after an answer or a submit the
+    // count is shown as it was and refreshed in place once the app is idle.
+    let nkNavDueLast=null,nkNavDueTimer=0;
+    function nkNavDueCount(){
+      const fresh=nkRevisionDeskData.peek?nkRevisionDeskData.peek({}):undefined;
+      if(fresh||nkNavDueLast===null){nkNavDueLast=(fresh||nkRevisionDeskData({})).due.length;return nkNavDueLast;}
+      clearTimeout(nkNavDueTimer);
+      nkNavDueTimer=setTimeout(()=>{const run=()=>{
+        const due=nkRevisionDeskData({}).due.length;nkNavDueLast=due;
+        document.querySelectorAll('.bottom-nav .nav-item[onclick*="nkOpenRevisionHub"] .nav-label').forEach(label=>{
+          label.querySelector('.nk-nav-due')?.remove();
+          if(due)label.insertAdjacentHTML('beforeend','<span class="nk-nav-due" aria-label="'+due+' due reviews">'+fmtNum(due)+'</span>');
+        });
+      };typeof requestIdleCallback==='function'?requestIdleCallback(run,{timeout:4000}):run();},1200);
+      return nkNavDueLast;
+    }
     function bottomNav(active){
     if(['fsrs','fsrs-settings','revision-browse','wrong','bookmarks','review'].includes(route.page)||['fsrs','fsrs-settings','revision-browse'].includes(active))active='quick-revision';
-    const due=nkRevisionDeskData({}).due.length;
+    const due=nkNavDueCount();
     const items=[['dashboard','Home','home'],['quick-revision','Revision','refresh'],['tests','Tests','test'],['analytics','Insights','chart'],['more','More','more']];
     return '<nav class="bottom-nav nk-bottom-nav-v114" aria-label="Primary navigation">'+items.map(([id,label,icon])=>'<button class="nav-item '+(active===id?'active':'')+'" onclick="'+(id==='quick-revision'?'window.QB.nkOpenRevisionHub()':"window.QB.nav('"+id+"')")+'" aria-current="'+(active===id?'page':'false')+'"><span class="nav-icon-wrap">'+navIcon(icon,21)+'</span><span class="nav-label">'+label+(id==='quick-revision'&&due?'<span class="nk-nav-due" aria-label="'+due+' due reviews">'+fmtNum(due)+'</span>':'')+'</span></button>').join('')+'</nav>';
   }
@@ -665,6 +726,7 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
     const pct=questions.length?Math.round(attempted/questions.length*100):0;
     return {record:nkPreferredRecord(subject),records:scoped,questions:questions.length,topics,attempted,pct};
   }
+  if(typeof nkMemoByState==='function')nkSubjectStatsV3=nkMemoByState(nkSubjectStatsV3,subject=>String(subject),stats=>({...stats}));
   function nkOpenSubjectLibrary(subject){
     const records=typeof nkBankRecords==='function'?nkBankRecords(subject):[];
     const fallback=(SUBJECTS||[]).find(r=>r.subject===subject)||null;
@@ -683,6 +745,7 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
     const banks=(typeof nkBankRecords==='function'?nkBankRecords(name):[]).filter(b=>b&&b.bank&&Array.isArray(b.questions)).map(b=>[b.bank,b.questions.filter(q=>qAttempts(q.id).length>0).length,b.questions.length]);
     return `<button class="nk-v3-subject-card is-${m.key}" data-nk-banks="${esc(JSON.stringify(banks))}" onclick="window.QB.nkOpenSubjectLibrary(${esc(JSON.stringify(String(name)))})"><span class="nk-v3-subject-icon">${nkAppSubjectIcon(name,24)}</span><span class="nk-v3-subject-copy"><strong>${esc(name)}</strong><small>${fmtNum(s.topics)} topics · ${fmtNum(s.questions)} questions</small><span class="nk-v3-subject-progress"><i style="width:${s.pct}%"></i></span></span><b>${s.pct}%</b>${navIcon('chevron',18)}</button>`;
   }
+  if(typeof nkMemoByState==='function')nkSubjectCardV3=nkMemoByState(nkSubjectCardV3,name=>String(name));
   function nkSubjectCardsV3(){return (SUBJECTS||[]).map(r=>nkSubjectCardV3(r.subject)).join('');}
 
   /* NK_PROF_GROUPS_V1_START */

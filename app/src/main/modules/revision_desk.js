@@ -68,6 +68,8 @@
     return {wrong,bookmarked,unseen,due:due.due||[],dueCards:due.cards||[],rolledOver:Number(due.rolledOver||0)};
   }
 
+  if(typeof nkMemoByState==='function')nkRevisionDeskData=nkMemoByState(nkRevisionDeskData,(scope=nkRevisionScope)=>JSON.stringify(scope||{}),
+    data=>({...data,wrong:data.wrong.slice(),bookmarked:data.bookmarked.slice(),unseen:data.unseen.slice(),due:data.due.slice(),dueCards:data.dueCards.slice()}));
   function nkHomeRevisionSummary(){
     const data=nkRevisionDeskData({}),due=data.due.length,missed=data.wrong.length;
     return '<section class="nk-home-revision" aria-label="Revision overview"><div class="nk-home-revision-head"><h2>Ready to revisit</h2><button type="button" onclick="window.QB.nkOpenRevisionHub()">Revision '+navIcon('chevron',16)+'</button></div><div class="nk-home-revision-counts"><button type="button" onclick="window.QB.nkOpenRevisionHub()" aria-label="'+fmtNum(due)+' due reviews. Open Revision"><strong class="nk-count-due">'+fmtNum(due)+'</strong><span>Due review</span><small>'+(due?'Scheduled for now':'You’re up to date')+'</small></button><button type="button" onclick="window.QB.nkOpenRevisionHub()" aria-label="'+fmtNum(missed)+' missed questions. Open Revision"><strong class="nk-count-missed">'+fmtNum(missed)+'</strong><span>Mistakes</span><small>'+(missed?'Ready for another pass':'No mistakes to revisit')+'</small></button></div></section>';
