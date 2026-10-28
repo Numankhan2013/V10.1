@@ -48,7 +48,9 @@ def main() -> None:
     ids, totals, figures = set(), {"questions": 0, "topics": 0}, 0
     for slug, cfg in bank.SUBJECTS.items():
         record = bank.app_record(slug)
-        assert f"'{cfg['subject']}':'{cfg['prof']}'" in groups or f"{cfg['subject']}:'{cfg['prof']}'" in groups, \
+        # Final Prof Part 2 shows its minor subjects as a group of their own ('final-minor').
+        filed = re.search(rf"(?:'{re.escape(cfg['subject'])}'|\b{re.escape(cfg['subject'])}):'([a-z-]+)'", groups)
+        assert filed and filed.group(1) in (cfg["prof"], f"{cfg['prof']}-minor"), \
             f"{cfg['subject']} is not filed under {cfg['prof']} prof"
         sections = [t["section"] for t in record["topics"]]
         assert all(sections), f"{slug}: a topic has no section"

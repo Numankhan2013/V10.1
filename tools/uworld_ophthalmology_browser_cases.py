@@ -5,7 +5,7 @@ from playwright.sync_api import expect
 def verify_ophthalmology(page, output, width, reset_practice, open_question):
     collection = 'Ophthalmology'
     page.evaluate('QB.nav("uworld")')
-    page.locator('.nk-uworld-collection').filter(has_text=f'UWorld · {collection}').click()
+    page.locator('.nk-uworld-collection').filter(has_text=collection).click()
     expect(page.locator('button.nk-topic-row')).to_have_count(1)
     assert page.locator('.nk-topic-group>h2').all_inner_texts() == ['Blocks']
     page.locator('button.nk-topic-row').click()
