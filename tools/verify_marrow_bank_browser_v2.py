@@ -14,9 +14,9 @@ compat = r'''
 import re as _re
 
 _EXPECTED_MARROW_COUNTS={
-    'Biochemistry':'581',
-    'Physiology':'1,014',
-    'Anatomy':'1,114',
+    'Biochemistry':'571',
+    'Physiology':'1,008',
+    'Anatomy':'1,101',
 }
 
 
@@ -115,15 +115,16 @@ for old,new in (
 ):
     source = source.replace(old,new)
 
-# Two canonical questions are withheld from the app, so the learner-facing
-# counts are 1,114 Anatomy and 581 Biochemistry. The source corpus stays 2,711.
+# Two canonical questions are withheld from the app, and bank cards count only
+# answerable questions (as the topic rows do), so the learner-facing counts are
+# 1,101 Anatomy, 571 Biochemistry and 1,008 Physiology. The source corpus stays 2,711.
 source = source.replace(
     "for marker in ('PrepLadder','Marrow','582')",
-    "for marker in ('PrepLadder','Marrow','581')",
+    "for marker in ('PrepLadder','Marrow','571')",
 )
 source = source.replace(
     "for marker in ('PrepLadder','Marrow','1,068','1,115')",
-    "for marker in ('PrepLadder','Marrow','1,068','1,114')",
+    "for marker in ('PrepLadder','Marrow','1,068','1,101')",
 )
 
 source = source.replace(

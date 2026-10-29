@@ -87,12 +87,14 @@ def main() -> None:
                     if width >= 768:
                         assert len(rows) == 1, ('tablet keeps the topic tools on one row', tools)
                     expect(toggle.locator('small')).to_have_text(f'{topics} topics · {questions:,} Q')
+                    before = page.locator('#nk-cbt-footer-count').inner_text()
                     toggle.click()
                     expect(toggle).to_have_attribute('aria-pressed', 'true')
                     expect(page.locator('#nk-cbt-footer-count')).to_have_text(f'{topics} topics · {questions:,} questions')
                     toggle.click()
                     expect(toggle).to_have_attribute('aria-pressed', 'false')
-                    expect(page.locator('#nk-cbt-footer-count')).to_have_text('0 topics · 0 questions')
+                    # Turning PYQs off returns to the selection made before turning them on.
+                    expect(page.locator('#nk-cbt-footer-count')).to_have_text(before)
 
                 open_builder()
                 page.get_by_role('button', name='Clear all').click()

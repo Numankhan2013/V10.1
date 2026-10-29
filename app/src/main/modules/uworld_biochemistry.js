@@ -161,7 +161,7 @@
   const nkUworldOriginalRender=render;
   render=function(){const out=nkUworldOriginalRender.apply(this,arguments);nkUworldRefreshMedia();return out;};
   if(typeof document!=='undefined')for(const event of ['load','error'])document.addEventListener(event,e=>{if(e.target?.matches?.('img[data-uworld-qid]')){if(event==='error')e.target.dataset.uworldFailed='true';else delete e.target.dataset.uworldFailed;nkUworldRefreshMedia();}},true);
-  function nkUworldEligible(q){return q?.bank!=='UWorld'?typeof nkCountable!=='function'||nkCountable(q):nkQuestionPresentationFor(q).valid;}
+  function nkUworldEligible(q){return q?.bank!=='UWorld'||nkQuestionPresentationFor(q).valid;}
   // Filter before sampling, so new tests/modules have accurate counts and full sets.
   const nkUworldOriginalChapterStats=chapterStats;
   chapterStats=function(cid){
@@ -170,7 +170,8 @@
     const correct=attempts.filter(a=>a.correct).length,incorrect=attempts.filter(a=>!a.correct).length;
     return {total:qs.length,attempted:qs.filter(q=>qAttempts(q.id).length).length,correct,incorrect,accuracy:correct+incorrect?correct/(correct+incorrect)*100:0};
   };
-  nkCbtEligible=nkUworldEligible;
+  // Tests draw only answerable questions, so the builder's counts match the topic rows.
+  nkCbtEligible=q=>nkUworldEligible(q)&&(typeof nkCountable!=='function'||nkCountable(q));
   const nkUworldModulePool=nkQuestionsForModuleDraft;
   nkQuestionsForModuleDraft=function(){return nkUworldModulePool(nkUworldLegacyScope(arguments[0]===undefined?studyModuleDraft:arguments[0])).filter(nkUworldEligible);};
   const nkUworldRevisionData=nkRevisionDeskData;
