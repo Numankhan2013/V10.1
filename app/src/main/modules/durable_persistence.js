@@ -147,6 +147,15 @@
   // Ask the browser not to evict progress under storage pressure (Safari tabs especially).
   try{navigator.storage?.persisted?.().then(done=>{if(!done)navigator.storage.persist?.();}).catch(()=>{});}catch(_){}
   try{window.addEventListener('storage',event=>{if(event.key===LS_KEY&&event.newValue){nkOtherTabNewer=true;nkStorageStaleTab();}});}catch(_){}
+  // Progress outgrew the localStorage mirror, so this boot started from an empty
+  // state; NKStore has now read the real progress from IndexedDB. Adopt it in place.
+  try{window.addEventListener('nk-store-recovered',()=>{
+    nkStorageBootNotice='';state=nkDurableLoadState();
+    if(typeof nkNormalizeStudyModules==='function')nkNormalizeStudyModules();
+    nkStateChanged();if(typeof nkReliabilityInit==='function')nkReliabilityInit(true);
+    if(!state.fsrsMigratedAt&&typeof nkFsrsInit==='function')try{nkFsrsInit();}catch(_){}
+    render();
+  });}catch(_){}
   function nkDurablePersist(candidate,reason='state save'){
     if(nkOtherTabNewer){nkStorageStaleTab();return false;}
     const store=nkStorageAdapter(),previousPrimary=store.getItem(LS_KEY);

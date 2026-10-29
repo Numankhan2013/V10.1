@@ -23,8 +23,14 @@
   var proto = Storage.prototype, nativeGet = proto.getItem, nativeSet = proto.setItem, nativeRemove = proto.removeItem;
   var local = null;
   try { local = window.localStorage; } catch (_) {}
+  // Set while progress is too large for the localStorage mirror. A boot that
+  // then finds no mirror runs on an empty state until IndexedDB answers: its
+  // writes stay in memory and are discarded, and the stored progress is
+  // handed to the app in place (a reload would boot without a mirror again).
+  var UNMIRRORED = 'nk.store.unmirrored', unmirrored = false;
+  try { unmirrored = !!local && nativeGet.call(local, PRIMARY) == null && nativeGet.call(local, UNMIRRORED) != null; } catch (_) {}
 
-  var mem = new Map(), dirty = new Map(), ready = false, failed = false, db = null, bootRead = false;
+  var mem = new Map(), dirty = new Map(), ready = false, failed = false, db = null, bootRead = false, recovered = false;
   // Set once a restore commits: the page is about to reload and its in-memory
   // state is older than the restored copy, so its unload save must not land.
   var frozen = false;
@@ -85,7 +91,7 @@
     if (!heavy(this, key)) return nativeSet.call(this, key, value);
     if (frozen) return;
     key = String(key); value = String(value);
-    if (!ready) { nativeSet.call(this, key, value); mem.set(key, value); return; }
+    if (!ready) { if (!unmirrored) nativeSet.call(this, key, value); mem.set(key, value); return; }
     mem.set(key, value); dirty.set(key, value); schedule();
     if (key === PRIMARY) journal(value);
   };
@@ -93,7 +99,7 @@
     if (!heavy(this, key)) return nativeRemove.call(this, key);
     if (frozen) return;
     key = String(key);
-    if (!ready) { nativeRemove.call(this, key); mem.delete(key); return; }
+    if (!ready) { if (!unmirrored) nativeRemove.call(this, key); mem.delete(key); return; }
     mem.delete(key); dirty.set(key, null); schedule();
   };
 
@@ -124,8 +130,8 @@
   // Over quota the stale copy is dropped rather than left behind; IndexedDB still has the save.
   function journal(raw) {
     if (!local) return;
-    try { nativeSet.call(local, PRIMARY, raw); }
-    catch (_) { try { nativeRemove.call(local, PRIMARY); } catch (__) {} }
+    try { nativeSet.call(local, PRIMARY, raw); nativeRemove.call(local, UNMIRRORED); }
+    catch (_) { try { nativeRemove.call(local, PRIMARY); nativeSet.call(local, UNMIRRORED, '1'); } catch (__) {} }
   }
   function announce(raw) {
     try { var revision = revisionOf(raw); if (channel && revision >= 0) channel.postMessage({ type: 'state', revision: revision }); } catch (_) {}
@@ -220,8 +226,11 @@
       var keys = Object.keys(stored);
       if (!keys.length) return migrateFromLocal();
       var early = mem.get(PRIMARY) != null ? mem.get(PRIMARY) : nativeGet.call(local, PRIMARY);
+      // Heavy keys written to localStorage before this point are already superseded by IndexedDB.
+      if (local) for (var i = local.length - 1; i >= 0; i--) { var key = local.key(i); if (HEAVY.test(key) && key !== PRIMARY) try { nativeRemove.call(local, key); } catch (_) {} }
       mem.clear();
       keys.forEach(function (key) { mem.set(key, stored[key]); });
+      if (unmirrored) { if (stored[PRIMARY] != null) recovered = true; return; }
       // The app booted from the localStorage mirror before IndexedDB answered
       // and IndexedDB holds newer progress: reload once to show it.
       if (bootRead && early !== stored[PRIMARY] && revisionOf(stored[PRIMARY]) > revisionOf(early || '{}')) {
@@ -232,7 +241,8 @@
         return;
       }
       // Writes made from the mirror before hydration finished but newer than IndexedDB still count.
-      if (early != null && revisionOf(early) > revisionOf(stored[PRIMARY] || '{}')) { mem.set(PRIMARY, early); dirty.set(PRIMARY, early); }
+      if (early != null && (stored[PRIMARY] == null || revisionOf(early) > revisionOf(stored[PRIMARY]))) { mem.set(PRIMARY, early); dirty.set(PRIMARY, early); }
+      try { sessionStorage.removeItem('nk.store.reloaded'); } catch (_) {}
     }).then(function () {
       return req(db.transaction('snapshotMeta').objectStore('snapshotMeta').index('at').openCursor(null, 'prev')).then(function (cursor) {
         lastSnapshotAt = cursor ? cursor.value.at : 0;
@@ -258,6 +268,8 @@
     ready: null,
     get backend() { return failed ? 'localStorage' : (ready ? 'indexeddb' : 'starting'); },
     get lastError() { return lastError; },
+    // True while the app runs on its empty boot state, before the stored progress arrives.
+    get recovering() { return unmirrored && !ready && !failed; },
     snapshot: snapshot,
     snapshots: snapshots,
     restore: restore,
@@ -268,6 +280,7 @@
   api.ready = hydrate().then(function () {
     ready = true;
     if (dirty.size) schedule();
+    if (recovered) try { window.dispatchEvent(new CustomEvent('nk-store-recovered')); } catch (_) {}
     try {
       channel = new BroadcastChannel('nk-qbank-store');
       channel.onmessage = function (event) {

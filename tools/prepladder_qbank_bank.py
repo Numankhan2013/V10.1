@@ -62,6 +62,8 @@ SUBJECTS: dict[str, dict] = {
 }
 EXPECTED_PATH = QBANK / "expected.json"
 RUNTIME = ROOT / "app/src/main/assets/prepladder_qbank_visual_metadata.js"
+# Typos in the export's stems, fixed by exact match so a changed source fails the build.
+STEM_FIXES = {("biochemistry", "879291"): ("A A 6-year-old", "A 6-year-old")}
 
 
 def existing_bank(slug: str) -> dict:
@@ -94,7 +96,13 @@ def question(slug: str, q: dict, converter: Converter, chapter: dict) -> dict:
         fail(f"{slug} {qid}: {len(keyed)} options are keyed correct")
     key = keyed[0]
     code = slug.replace("-", "_").upper()
-    text, stem_tables = stem(q["question"], converter, f"{code}_{qid}_S")
+    source = q["question"]
+    if (slug, qid) in STEM_FIXES:
+        wrong, right = STEM_FIXES[slug, qid]
+        if wrong not in source:
+            fail(f"{slug} {qid}: stem fix no longer matches the source")
+        source = source.replace(wrong, right, 1)
+    text, stem_tables = stem(source, converter, f"{code}_{qid}_S")
     options = [{"letter": o["letter"], "text": unescape(o["text"]).strip()} for o in q["options"]]
     if not text and stem_tables:  # a matching question whose stem is only the table
         text = "Match the following:"

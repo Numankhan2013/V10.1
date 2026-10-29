@@ -99,7 +99,8 @@
   function nkFsrsInit(){
     const ids=nkFsrsAllQuestions().map(q=>String(q.id)),unique=new Set(ids);if(ids.length!==unique.size)throw new Error('Today’s Review requires globally unique question IDs.');
     nkFsrsPreferences();
-    if(!localStorage.getItem(NK_FSRS_BACKUP_KEY)){const raw=localStorage.getItem(LS_KEY);if(raw)localStorage.setItem(NK_FSRS_BACKUP_KEY,raw);nkFsrsRebuildAll(true);state.fsrsMigratedAt=Date.now();saveState();}
+    // Before IndexedDB answers the backup key reads empty, so a migrated state never takes it again.
+    if(!state.fsrsMigratedAt&&!localStorage.getItem(NK_FSRS_BACKUP_KEY)){const raw=localStorage.getItem(LS_KEY);if(raw)localStorage.setItem(NK_FSRS_BACKUP_KEY,raw);nkFsrsRebuildAll(true);state.fsrsMigratedAt=Date.now();saveState();}
     else if(!state.fsrsMigratedAt){nkFsrsRebuildAll(true);state.fsrsMigratedAt=Date.now();saveState();}
     nkFsrsRecoverPending();
   }

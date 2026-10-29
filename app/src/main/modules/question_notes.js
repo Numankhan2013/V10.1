@@ -45,7 +45,7 @@
     const updatedAt=Math.max(Date.now(),Number(previous?.updatedAt||0)+1),deleted=!blocks.length;
     const next={text:nkNoteSummary(blocks),updatedAt,deleted};
     // Once a note has parts it keeps writing them, so another device cannot resurrect removed images.
-    if(blocks.some(nkNoteMediaBlock)||Array.isArray(previous?.blocks)){next.blocks=blocks;next.blocksAt=updatedAt;}
+    if(blocks.some(nkNoteMediaBlock)||blocks.length>1||Array.isArray(previous?.blocks)){next.blocks=blocks;next.blocksAt=updatedAt;}
     notes[qid]=next;
     if(!saveState()){
       if(previous===undefined)delete notes[qid];else notes[qid]=previous;
@@ -272,7 +272,8 @@
       if(event.key!=='Escape')return;
       if(menu){closeMenu();return;}
       const list=sheet.querySelector('.nk-np-add-menu');if(list&&!list.hidden){toggleAdd(false);return;}
-      if(editing){cancelEdit();render();return;}
+      // Escape keeps typed text, as closing the sheet does.
+      if(editing){if(!editing.text.trim()){cancelEdit();render();}else if(saveEdit())render();return;}
       close();
     }
     function onOutside(event){

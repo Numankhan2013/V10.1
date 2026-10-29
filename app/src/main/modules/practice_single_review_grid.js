@@ -44,6 +44,7 @@
       if(!outcome)return;
       shown[outcome]++;cell.classList.add('is-'+outcome);
       cell.setAttribute('aria-label',`Question ${i+1} ${outcome}`);
+      const small=cell.querySelector('small');if(small)small.textContent=outcome[0].toUpperCase()+outcome.slice(1);
     });
     const legend=box.querySelector('.nk-session-review-legend');
     if(legend&&(shown.correct||shown.wrong||shown.skipped)){

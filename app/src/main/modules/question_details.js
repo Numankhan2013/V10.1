@@ -69,7 +69,12 @@
         nkDetailsArrived(id);
       },()=>{
         nkDetailsWaiting.delete(id);
-        document.querySelectorAll(`[data-nk-details-pending="${CSS.escape(id)}"] .nk-source-empty`).forEach(el=>{el.textContent='The explanation could not be downloaded. Reopen this question when you are online.';});
+        const retry=()=>{if(document.querySelector(`[data-nk-details-pending="${CSS.escape(id)}"]`)&&!nkDetailsWaiting.has(id)){document.querySelectorAll(`[data-nk-details-pending="${CSS.escape(id)}"] .nk-source-empty`).forEach(el=>{el.textContent='Loading explanation…';});nkDetailsPending(q);}};
+        document.querySelectorAll(`[data-nk-details-pending="${CSS.escape(id)}"] .nk-source-empty`).forEach(el=>{
+          el.innerHTML='<span>The explanation could not be loaded.</span> <button type="button" class="nk-details-retry">Try again</button>';
+          el.querySelector('button').addEventListener('click',retry);
+        });
+        window.addEventListener('online',retry,{once:true});
       });
     }
     return `<div class="nk-study-support" data-nk-details-pending="${esc(id)}"><section class="nk-source-section"><header><div>${navIcon('book',19)}<strong>Explanation</strong></div></header><div class="nk-source-empty" role="status">Loading explanation…</div></section></div>`;

@@ -403,25 +403,33 @@
     }catch(error){state=before;if(typeof nkStorageError==='function')nkStorageError('Practice submission could not be completed',error);else showToast('Practice submission could not be saved. Try again.','bad');return false;}
   };
 
-  function nkReliabilityInit(){
-    if(nkReliabilityInit.done)return;nkReliabilityInit.done=true;
+  // again: progress replaced the boot state in place; check it without adding listeners twice.
+  function nkReliabilityInit(again){
+    if(nkReliabilityInit.done&&!again)return;const first=!nkReliabilityInit.done;nkReliabilityInit.done=true;
     const checkpoint=nkPracticeCheckpoint(),live=state.activeSession;let changed=false;
     if(live&&nkPracticeResumeEligible(live)){
       const saved=nkPracticeFindCheckpoint(live.id),terminal=saved&&['submitted','completed','discarded'].includes(String(saved.lifecycle));
       if(terminal){state.activeSession=null;changed=true;}
       else{
         const ids=nkPracticeSessionIds(live),valid=ids.length&&ids.every(id=>nkPracticeResumeQuestion(id));
-        if(valid){live.sessionQuestionIds=[...ids];if(live.questionIds?.length!==ids.length)live.questionIds=[...ids];if(!live.lifecycle)live.lifecycle='paused';changed=true;}
+        // Save only what this changes: a startup save would mark other open tabs stale.
+        if(valid){if(String(live.sessionQuestionIds||'')!==String(ids)){live.sessionQuestionIds=[...ids];changed=true;}if(live.questionIds?.length!==ids.length){live.questionIds=[...ids];changed=true;}if(!live.lifecycle){live.lifecycle='paused';changed=true;}}
         else{state.normalPracticeConflict={type:'missing-questions',sessionId:String(live.id||''),missingQuestionIds:ids.filter(id=>!nkPracticeResumeQuestion(id)),detectedAt:Date.now()};route={page:'dashboard',id:null};changed=true;}
       }
-    }else if(live?.mode==='review'){state.activeSession=null;changed=true;}
+    }else if(live?.mode==='review'){
+      // A reload on Review Solutions keeps its place; anywhere else the review ends.
+      let routeId=String(route.id||'');try{routeId=decodeURIComponent(routeId);}catch(_){}
+      if(route.page!=='review-test'||String(live.sourceTestId)!==routeId){state.activeSession=null;changed=true;}
+    }
     if(state.activeSession?.mode==='exam'){
       if(nkTimedSessionExpired(state.activeSession))setTimeout(()=>{if(state.activeSession?.timerMode==='per-question')nkExpireTopicQuestion();else submitExam(true);},0);
       else{route={page:'exam',id:null};try{history.replaceState(null,'','#exam');}catch(_){}}
     }
     if(typeof nkStorageBootNotice!=='undefined'&&nkStorageBootNotice)setTimeout(()=>nkStorageError(nkStorageBootNotice),0);
-    document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'){if(typeof nkFsrsRecoverPending==='function')nkFsrsRecoverPending();if(typeof nkFlushLifecycleState==='function')nkFlushLifecycleState();}});
-    window.addEventListener('pagehide',()=>{if(typeof nkFlushLifecycleState==='function')nkFlushLifecycleState();});
+    if(first){
+      document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'){if(typeof nkFsrsRecoverPending==='function')nkFsrsRecoverPending();if(typeof nkFlushLifecycleState==='function')nkFlushLifecycleState();}});
+      window.addEventListener('pagehide',()=>{if(typeof nkFlushLifecycleState==='function')nkFlushLifecycleState();});
+    }
     nkPracticeCheckpoints(true).forEach(saved=>{if(!state.activeSession&&saved.lifecycle==='active'){nkPracticeStoreCheckpoint({...saved,lifecycle:'paused',updatedAt:Date.now()});changed=true;}});
     if(changed)saveState();
   }

@@ -97,9 +97,9 @@
   }
   function nkMockPick(){const pool=nkCbtPool().filter(q=>nkQuestionPresentationFor(q).valid),ids=pool.map(q=>String(q.id));for(let i=ids.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[ids[i],ids[j]]=[ids[j],ids[i]];}return ids.slice(0,Math.min(Math.max(1,Number(nkCbtDraft.count||20)),ids.length));}
   function nkMockName(value){if(nkCbtDraft)nkCbtDraft.name=String(value).slice(0,80);}
-  function nkMockSaveDraft(){if(!nkCbtDraft)return;const ids=nkMockPick();if(!ids.length)return;const mock=nkMockStore(nkCbtDraft.name||nkCbtTitle(),ids);if(mock){nkCbtDraft=null;showToast('Mock saved.','good');navigate('tests');}}
+  function nkMockSaveDraft(){if(!nkCbtDraft)return;const ids=nkMockPick();if(!ids.length){showToast('No questions in this selection can be saved as a mock.','bad');return;}const mock=nkMockStore(nkCbtDraft.name||nkCbtTitle(),ids);if(mock){nkCbtDraft=null;showToast('Mock saved.','good');navigate('tests');}}
   const nkAnalysisOriginalCbtStart=nkCbtStart;
-  nkCbtStart=function(){if(!nkCbtDraft?.name?.trim())return nkAnalysisOriginalCbtStart();const mock=nkMockList().find(m=>m.id===nkCbtDraft.savedMockId)||nkMockStore(nkCbtDraft.name,nkMockPick());if(mock){nkCbtDraft.savedMockId=mock.id;if(nkMockStart(mock.id)!==false)nkCbtDraft=null;}};
+  nkCbtStart=function(){if(!nkCbtDraft?.name?.trim())return nkAnalysisOriginalCbtStart();let mock=nkMockList().find(m=>m.id===nkCbtDraft.savedMockId);if(!mock){const ids=nkMockPick();if(!ids.length)return nkAnalysisOriginalCbtStart();mock=nkMockStore(nkCbtDraft.name,ids);}if(mock){nkCbtDraft.savedMockId=mock.id;if(nkMockStart(mock.id)!==false)nkCbtDraft=null;}};
   function nkMockStart(id){
     const mock=nkMockList().find(m=>String(m.id)===String(id));if(!mock)return false;
     const map=new Map(nkAllStudyQuestions().map(q=>[String(q.id),q])),ids=mock.questionIds||[];

@@ -169,6 +169,8 @@
    * a streak day is any day with a recorded answer. */
   function subjectOf(id) {
     id = String(id);
+    // The question record knows its subject; the ID patterns cover older builds.
+    try { var known = window.QB && window.QB.questionSubject && window.QB.questionSubject(id); if (known) return known; } catch (e) {}
     if (/^marrow__ANAT|^anatomy-/i.test(id)) return 'Anatomy';
     if (/^marrow__PHYS|^physiology-/i.test(id)) return 'Physiology';
     if (/^marrow__BIOCHEM|^\d+-\d+$/i.test(id)) return 'Biochemistry';
@@ -367,6 +369,9 @@
       return '<div class="nkg-stat"><span class="nkg-stat-label">' + label + '</span><strong class="nkg-num">' + value + '</strong>' + (sub ? '<small>' + sub + '</small>' : '') + '</div>';
     };
     var order = ['Anatomy', 'Physiology', 'Biochemistry', 'Microbiology', 'Pathology', 'Pharmacology', 'My UWorld', 'Other'];
+    var rest = Object.keys(m.subjects).filter(function (k) { return order.indexOf(k) < 0; }).sort();
+    order.splice(order.length - 2, 0, rest);
+    order = [].concat.apply([], order);
     var subjRows = order.filter(function (k) { return m.subjects[k]; }).map(function (k) {
       var r = m.subjects[k], acc = r.answered ? Math.round(r.correct / r.answered * 100) : 0;
       var key = k.toLowerCase().replace(/[^a-z]/g, '');
@@ -525,7 +530,7 @@
     var act = t.getAttribute('data-nkg-act');
     if (act === 'home') go('dashboard');
     else if (act === 'search') go('question-search');
-    else if (act === 'profile') { if (route() !== 'profile') location.hash = 'profile'; }
+    else if (act === 'profile') { if (route() !== 'profile') go('profile'); }
     else if (act === 'theme') { setTheme(resolvedTheme() === 'dark' ? 'light' : 'dark'); haptic(); }
     else if (act === 'restore') openRestore();
     else if (act === 'restore-close') closeRestore();
