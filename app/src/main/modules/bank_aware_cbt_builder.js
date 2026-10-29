@@ -71,9 +71,16 @@
     const topics=nkCbtVerifiedPyqTopics();
     if(!topics.length)return;
     const keys=new Set(topics.map(({record,topic})=>nkCbtTopicKey(record,topic)));
-    nkCbtDraft.topicKeys=nkCbtDraft.pyqSelected
-      ?nkCbtDraft.topicKeys.filter(key=>!keys.has(key))
-      :[...keys];
+    // Turning PYQs off returns to the selection the user had before turning them on.
+    if(nkCbtDraft.pyqSelected){
+      const prior=nkCbtDraft.prePyqTopicKeys;
+      const added=nkCbtDraft.topicKeys.filter(key=>!keys.has(key));
+      nkCbtDraft.topicKeys=Array.isArray(prior)?[...new Set([...prior,...added])]:added;
+      nkCbtDraft.prePyqTopicKeys=null;
+    }else{
+      nkCbtDraft.prePyqTopicKeys=nkCbtDraft.topicKeys.slice();
+      nkCbtDraft.topicKeys=[...keys];
+    }
     nkCbtDraft.pyqSelected=!nkCbtDraft.pyqSelected;
     nkCbtTouch();nkCbtSyncTopics();
   }
@@ -164,7 +171,8 @@
       if(step>2&&!nkCbtPoolSize()){showToast('Choose a topic with questions.','bad');return;}
     }
     nkCbtDraft.step=Math.max(1,Math.min(3,Number(step)));nkCbtDraft.query='';nkCbtDraft.queryText='';
-    if(nkCbtDraft.step===3)nkCbtDraft.count=Math.min(nkCbtDraft.count,nkCbtPoolSize());
+    // The pool caps what is shown; widening the topics later restores the count the user asked for.
+    if(nkCbtDraft.step===3){if(nkCbtDraft.requestedCount==null)nkCbtDraft.requestedCount=nkCbtDraft.count;nkCbtDraft.count=Math.min(nkCbtDraft.requestedCount,nkCbtPoolSize());}
     render();resetScrollPosition();
   }
   function nkCbtSetTopics(select,recordIndex=null){
@@ -258,7 +266,7 @@
     const number=Number(value);if(!Number.isFinite(number))return;
     const pool=nkCbtPoolSize();
     nkCbtDraft.count=Math.max(1,Math.min(pool,Math.floor(number)));
-    const actual=nkCbtDraft.count;
+    const actual=nkCbtDraft.count;nkCbtDraft.requestedCount=actual;
     const input=document.getElementById('nk-cbt-custom-count');if(input)input.value=String(nkCbtDraft.count);
     document.querySelectorAll('.nk-cbt-count-preset').forEach(button=>button.classList.toggle('is-selected',Number(button.dataset.count)===nkCbtDraft.count));
     const result=document.getElementById('nk-cbt-count-result');

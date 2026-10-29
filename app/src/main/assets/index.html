@@ -928,7 +928,8 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
   function nkStartConfiguredIds(ids,title){
     const list=[...new Set((ids||[]).map(String))];if(!list.length){showToast('No questions available for this selection.','bad');return;}for(let i=list.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[list[i],list[j]]=[list[j],list[i]];}
     const count=Math.min(nkTestSetup.count,list.length),mode=nkTestSetup.mode==='exam'?'exam':'practice';BY_ID={...BY_ID,...Object.fromEntries(nkAllStudyQuestions().map(q=>[String(q.id),q]))};startSession(list.slice(0,count),mode,title);
-    if(mode==='exam'&&state.activeSession){state.activeSession.timerEnabled=true;state.activeSession.timerMode='global';saveState();render();}
+    // Quick tests are launched from Tests; their result returns there, not to Revision.
+    if(mode==='exam'&&state.activeSession){state.activeSession.timerEnabled=true;state.activeSession.timerMode='global';state.activeSession.originRoute='tests';saveState();render();}
   }
   function nkStartConfiguredTest(){
     if(nkTestSetup.source==='all'){if(nkTestSetup.mode==='exam')openMultiSubjectTestBuilder();else navigate('study-library');return;}
@@ -1085,6 +1086,16 @@ function dashboard(){
     const tab=(k,label)=>`<button type="button" role="radio" aria-checked="${source===k}" class="${source===k?'active':''}" ${counts[k]?'':'disabled'} onclick="window.QB.nkQuickTestSet('${k}')"><span>${label}</span><b>${fmtNum(counts[k])}</b></button>`;
     return `<section class="nk-qs" role="dialog" aria-modal="true" aria-labelledby="nk-qs-title"><span class="nk-qs-grip" aria-hidden="true"></span><header class="nk-qs-head"><div><h2 id="nk-qs-title">Quick test</h2><p>Timed, one minute per question</p></div><button type="button" class="nk-qs-close" aria-label="Close" onclick="window.QB.nkQuickTestClose()">${navIcon('close',20)}</button></header><h3>Questions from</h3><div class="nk-qs-source" role="radiogroup" aria-label="Questions from">${tab('wrong','Wrong')}${tab('bookmarks','Bookmarked')}</div><h3>Number of questions</h3><div class="nk-qs-count" role="radiogroup" aria-label="Number of questions">${opts.map(n=>`<button type="button" role="radio" aria-checked="${count===n}" class="${count===n?'active':''}" onclick="window.QB.nkQuickTestSet(null,${n})">${n===available&&n!==100?`All ${n}`:n}</button>`).join('')}</div><button type="button" class="nk-qs-start" ${available?'':'disabled'} onclick="window.QB.nkQuickTestStart()">Start ${fmtNum(count)}-question test</button></section>`;
   }
+  // The quick test and saved mock sheets are modal: Tab cycles inside them.
+  if(typeof document!=='undefined'&&document.addEventListener)document.addEventListener('keydown',event=>{
+    if(event.key!=='Tab')return;
+    const sheet=document.querySelector('#nk-quick-sheet [role="dialog"],#nk-mock-sheet [role="dialog"]');if(!sheet)return;
+    const items=[...sheet.querySelectorAll('button:not([disabled]),input:not([disabled]),select,textarea,a[href],[tabindex]:not([tabindex="-1"])')].filter(n=>n.offsetParent!==null||n===document.activeElement);
+    if(!items.length)return;
+    const first=items[0],last=items[items.length-1],inside=sheet.contains(document.activeElement);
+    const target=!inside?(event.shiftKey?last:first):event.shiftKey&&document.activeElement===first?last:!event.shiftKey&&document.activeElement===last?first:null;
+    if(target){event.preventDefault();target.focus();}
+  });
   function nkQuickTestOpen(source){
     if(typeof document==='undefined'||!document.body?.insertAdjacentHTML)return false;
     nkQuickTestClose();nkTestSetup.mode='exam';nkTestSetup.source=source==='bookmarks'?'bookmarks':'wrong';
@@ -1951,7 +1962,10 @@ function dashboard(){
       ? '<span><i class="qb-legend-dot current"></i>Current</span><span><i class="qb-legend-dot answered"></i>Answered</span><span><i class="qb-legend-dot unanswered"></i>Unanswered</span>'
       : '<span><i class="qb-legend-dot current"></i>Current</span><span><i class="qb-legend-dot correct"></i>Correct</span><span><i class="qb-legend-dot incorrect"></i>Incorrect</span><span><i class="qb-legend-dot unanswered"></i>Unanswered</span>';
     const action=exam
-      ? '<button type="button" class="primary-btn qb-nav-submit" onclick="window.QB.submitExam(false)">Submit Test</button>'
+      ? (s.questionIds.some(id=>!s.answers[id])
+        // Unanswered questions go through the review sheet, which counts them before submitting.
+        ? '<button type="button" class="primary-btn qb-nav-submit" onclick="window.QB.closeQuestionNavigator();window.QB.openSessionReview()">Submit Test</button>'
+        : '<button type="button" class="primary-btn qb-nav-submit" onclick="window.QB.submitExam(false)">Submit Test</button>')
       : practice
         ? '<button type="button" class="primary-btn qb-nav-submit" onclick="window.QB.closeQuestionNavigator();window.QB.openSessionReview()">Review or Finish Session</button>'
         : review?'<button type="button" class="primary-btn qb-nav-submit" onclick="window.QB.endReview()">End Review</button>':'';
