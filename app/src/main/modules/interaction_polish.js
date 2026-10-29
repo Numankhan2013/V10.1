@@ -84,6 +84,22 @@
     status.setAttribute('role','status');status.textContent=`${correct?'Correct · Answer':selected?'Incorrect · Correct answer':'Unattempted · Correct answer'} ${letter}`;
     support.prepend(status);
   }
+  // A late explanation for the answered practice question replaces only its
+  // placeholder, so the question, footer and keyboard focus stay put.
+  const nkPolishDetailsArrived=nkDetailsArrived;
+  nkDetailsArrived=id=>{
+    const s=state.activeSession,q=nkCurrentQuestion();
+    const pending=document.querySelector(`.is-practice .question-card [data-nk-details-pending="${CSS.escape(id)}"]`);
+    if(route.page!=='practice'||!pending||!q||String(q.id)!==id||!s?.submitted?.[q.id]||!nkDetailsReady(q))return nkPolishDetailsArrived(id);
+    const template=document.createElement('template'),x=window.scrollX,y=window.scrollY;
+    template.innerHTML=nkStudySupport(q,s.questionTimes?.[q.id]||0,false);
+    const next=template.content.firstElementChild;
+    if(!next)return nkPolishDetailsArrived(id);
+    const note=pending.querySelector('.nk-question-note');
+    pending.replaceWith(next);
+    if(note){const source=next.querySelector('.nk-source-section');if(source)source.before(note);else next.append(note);}
+    nkPolishOutcome();window.scrollTo(x,y);
+  };
   // Local mode switches keep the keyboard on its control and retain the reading
   // position. No timer or animation gates the replacement.
   function nkPolishReplaceSurface(node,markup){
