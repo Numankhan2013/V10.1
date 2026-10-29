@@ -204,6 +204,8 @@
   function nkEntityTimestamp(value,fallback=0){return Math.max(Number(value?.updatedAt||0),Number(value?.lastOpenedAt||0),Number(value?.completedAt||0),Number(value?.createdAt||0),Number(value?.questionEnteredAt||0),Number(value?.lastTick||0),Number(value?.startedAt||0),Number(fallback||0));}
   function nkCaptureCloudChanges(){
     if(!nkAuth||nkCloudApplying||nkCloudResetting)return;
+    // The empty boot state would read as deletions of everything synced before.
+    if(window.NKStore?.recovering)return;
     const revision=nkCloudRevision;
     const current={bookmarks:new Set(),modules:new Set(),savedMocks:new Set()};
     Object.entries(state.attempts||{}).forEach(([qid,list])=>(Array.isArray(list)?list:[]).forEach(attempt=>{if(attempt?.id)nkQueueEnvelope(nkEnvelope('attempts',attempt.id,{qid:String(qid),attempt},Number(attempt.at||0)));}));
@@ -522,6 +524,7 @@
   let nkCloudAutoAt=0,nkCloudAutoFailures=0;
   async function nkCloudSync(initial=false,silent=false,pushOnly=false){
     if(nkCloudBusy||nkCloudResetting||!nkAuth||!nkCloudConfigured())return false;
+    if(window.NKStore?.recovering)return false;
     if(pushOnly&&(initial||nkSyncMeta.needsInitialPull))pushOnly=false;
     if(!pushOnly)nkCloudAutoAt=Date.now();
     clearTimeout(nkCloudTimer);nkCloudBusy=true;nkSyncMeta.status='syncing';nkCloudRenderStatus();
@@ -602,6 +605,8 @@
     nkStartCloudAutoSync();
     if(nkAccountRecoveryError){showToast(nkAccountRecoveryError,'bad');return;}
     if(!nkAuth||!nkCloudConfigured())return;
+    // Merge into the stored progress, not a boot state that is about to be replaced.
+    if(window.NKStore?.recovering)try{await window.NKStore.ready;}catch(_){}
     try{await nkInitialCloudSync();}catch(_){nkCloudReady=true;}
   }
 /* NK_CROSS_DEVICE_SYNC_V1_END */

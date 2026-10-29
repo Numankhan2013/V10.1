@@ -7027,3 +7027,20 @@ html[data-nk-ui][data-nk-theme="dark"] :is(body,#nkg-root) .nk-study-support:has
 @media (prefers-reduced-motion: reduce) {
   html[data-nk-ui] :is(body,#nkg-root) .nk-study-support > .nk-uworld-cohort.nk-uworld-cohort :is(b,.nkr-tier) { animation: none !important; background-position: 50% 0 !important; }
 }
+/* Final sweep: narrow-phone layout and contrast. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-li-year-activity header p { white-space: normal; overflow-wrap: anywhere; }
+@media (max-width: 380px) {
+  html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-bank-card { grid-template-columns: auto minmax(0,1fr); }
+  html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-bank-card .nk-bank-tag { grid-column: 2; justify-self: start; }
+}
+/* Only the subject name is clamped; the bank label under it always shows. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-journey-heading h1 { display: flex !important; flex-direction: column; min-width: 0; overflow: visible !important; -webkit-line-clamp: unset; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-journey-heading h1 .nk-journey-title { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-journey-heading h1 small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 360px) { html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-journey-heading h1 { font-size: 20px !important; } }
+html[data-nk-ui="geist"][data-nk-theme="dark"] :is(body,#nkg-root) .nk-home-focus-card .nk-home-focus-label { color: var(--nkg-fg-2) !important; }
+html[data-nk-ui="geist"]:not([data-nk-theme="dark"]) :is(body,#nkg-root) .nkg-reset-row { color: #b8333f; }
+/* A figure that failed to load shows a quiet placeholder, not the browser's broken-image icon. */
+.nk-uworld-figure-missing { display: none; }
+:is(.nk-uworld-figure,.nk-uworld-option-figure) img[data-uworld-failed] { display: none !important; }
+:is(.nk-uworld-figure,.nk-uworld-option-figure) img[data-uworld-failed] + .nk-uworld-figure-missing { display: grid; place-items: center; min-height: 96px; padding: 12px; border: 1px dashed var(--nkg-border, #d4d4d4); border-radius: 8px; color: var(--nkg-fg-3, #6b6b6b); font: 500 13px/1.3 var(--nkg-font-sans, system-ui); }

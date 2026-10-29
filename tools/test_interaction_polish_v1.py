@@ -11,7 +11,9 @@ def main():
     assert result.count(core)==1 and result.count('NK_INTERACTION_POLISH_V1_START')==1
     assert result.index('NK_REFINED_ANALYSIS_V1_START')<result.index(core)<result.index('  window.QB={')
     assert "window.addEventListener('hashchange', () => { route = parseHash(); render(); });" not in result
-    assert result.count("window.addEventListener('hashchange', () => {\n    route = parseHash();\n    render();\n    resetScrollPosition();\n  });")==1,'one canonical route listener'
+    assert result.count("window.addEventListener('hashchange', () => {")==1,'one canonical route listener'
+    listener=result[result.index("window.addEventListener('hashchange'"):][:900]
+    assert 'route = parseHash();\n    render();' in listener and 'resetScrollPosition()' in listener,'the route listener renders and resets scroll for new screens'
     assert 'nkInteractionRender=render;' in core
     for marker in ['pointercancel','pointermove','prefers-reduced-motion','preventScroll','nkPolishSubmitted','nkPolishPanels']:
         assert marker in core+css,marker

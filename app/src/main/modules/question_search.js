@@ -3,20 +3,44 @@
   let nkQuestionSearchCache=null;
 
   function nkQuestionSearchFold(value){
-    return String(value||'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/\s+/g,' ').trim();
+    const text=String(value||'');
+    // Accent folding is the costly step; plain ASCII text has nothing to fold.
+    return (/^[\x00-\x7f]*$/.test(text)?text:text.normalize('NFKD').replace(/[\u0300-\u036f]/g,'')).toLowerCase().replace(/\s+/g,' ').trim();
   }
+  function nkQuestionSearchEntry(q){
+    const id=String(q.id),topic=String(q.chapter||q.topic||'');
+    const options=Array.isArray(q.options)?q.options.map(option=>typeof option==='string'?option:option?.text||'').join(' '):'';
+    const foldedId=nkQuestionSearchFold(id),foldedQuestion=nkQuestionSearchFold(q.question);
+    return {q,id,foldedId,foldedQuestion,text:[foldedId,foldedQuestion,nkQuestionSearchFold([options,topic,q.subject,q.bank].join(' '))].filter(Boolean).join(' ')};
+  }
+  function nkQuestionSearchList(){
+    const seen=new Set();
+    return nkAllStudyQuestions().filter(q=>{
+      const id=String(q?.id||'');if(!id||seen.has(id))return false;seen.add(id);return true;
+    });
+  }
+  // The index covers every question, so it is built in idle slices after boot; opening
+  // search before it is done finishes the rest at once.
+  let nkQuestionSearchWarm=null;
   function nkQuestionSearchIndex(){
     if(nkQuestionSearchCache)return nkQuestionSearchCache;
-    const seen=new Set();
-    nkQuestionSearchCache=nkAllStudyQuestions().filter(q=>{
-      const id=String(q?.id||'');if(!id||seen.has(id))return false;seen.add(id);return true;
-    }).map(q=>{
-      const id=String(q.id),topic=String(q.chapter||q.topic||'');
-      const options=Array.isArray(q.options)?q.options.map(option=>typeof option==='string'?option:option?.text||'').join(' '):'';
-      return {q,id,foldedId:nkQuestionSearchFold(id),foldedQuestion:nkQuestionSearchFold(q.question),text:nkQuestionSearchFold([id,q.question,options,topic,q.subject,q.bank].join(' '))};
-    });
+    const warm=nkQuestionSearchWarm||{list:nkQuestionSearchList(),out:[]};
+    for(let i=warm.out.length;i<warm.list.length;i++)warm.out.push(nkQuestionSearchEntry(warm.list[i]));
+    nkQuestionSearchWarm=null;nkQuestionSearchCache=warm.out;
     return nkQuestionSearchCache;
   }
+  function nkQuestionSearchPrewarm(){
+    if(typeof requestIdleCallback!=='function'||nkQuestionSearchCache||nkQuestionSearchWarm)return;
+    const warm=nkQuestionSearchWarm={list:nkQuestionSearchList(),out:[]};
+    const step=deadline=>{
+      if(nkQuestionSearchWarm!==warm)return;
+      while(warm.out.length<warm.list.length&&deadline.timeRemaining()>2)warm.out.push(nkQuestionSearchEntry(warm.list[warm.out.length]));
+      if(warm.out.length<warm.list.length)requestIdleCallback(step);
+      else{nkQuestionSearchCache=warm.out;nkQuestionSearchWarm=null;}
+    };
+    requestIdleCallback(step);
+  }
+  if(typeof window!=='undefined'&&typeof requestIdleCallback==='function')setTimeout(nkQuestionSearchPrewarm,4000);
   function nkQuestionSearchStatus(id){
     const attempts=typeof nkFsrsActiveAttempts==='function'?nkFsrsActiveAttempts(id):(qAttempts(id)||[]).filter(a=>a&&!a.isUndo);
     return {unattempted:attempts.length===0,missed:attempts.some(a=>a.correct===false),bookmarked:Boolean(state.bookmarks?.[id])};

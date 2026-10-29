@@ -64,6 +64,8 @@
     const ids=nkMarkedTestIds(test).filter(id=>questions.has(id)||BY_ID[id]);
     if(!ids.length){showToast('Marked questions are unavailable in the current banks.','bad');return false;}
     BY_ID={...BY_ID,...Object.fromEntries(ids.map(id=>[id,questions.get(id)||BY_ID[id]]))};
-    return startSession(ids,'practice',`Marked follow-up · ${test.title||'Timed CBT'}`,'cbt-marked-followup');
+    const started=startSession(ids,'practice',`Marked follow-up · ${test.title||'Timed CBT'}`,'cbt-marked-followup');
+    if(started!==false&&state.activeSession){state.activeSession.originRoute='tests';saveState();}
+    return started;
   }
   /* NK_EXAM_REVIEW_FLAGS_V1_END */

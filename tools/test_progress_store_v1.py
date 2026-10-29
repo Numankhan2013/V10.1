@@ -9,7 +9,10 @@ harness with a small in-memory IndexedDB:
   full two-week window, not only the first twelve,
 - storage usage is reportable when a heavy value is null,
 - a restore freezes the store, so a later flush commits nothing,
-- a corrupt save announces no revision to other tabs.
+- a corrupt save announces no revision to other tabs,
+- progress too large for the localStorage mirror survives a boot without
+  one: the empty boot state never reaches either store, and the stored
+  progress is handed to the app in place.
 """
 
 from __future__ import annotations
@@ -157,10 +160,52 @@ console.log('PROGRESS_STORE_BEHAVIOR_OK checks=4');
 })().catch(error=>{console.error('PROGRESS_STORE_BEHAVIOR_FAIL:',error&&error.message);process.exit(1);});
 """
 
+# The previous boot could not fit progress in localStorage, so the mirror is
+# gone and the marker says so. IndexedDB holds the real progress.
+UNMIRRORED = r"""
+const events=[];
+global.CustomEvent=function(type){this.type=type;};global.StorageEvent=function(type){this.type=type;};
+global.dispatchEvent=event=>events.push(event.type);
+const real=JSON.stringify({stateRevision:50,attempts:{q1:[{}]}});
+db.stores.kv.set('qbank_state_v1',real);
+localData['nk.store.unmirrored']='1';
+eval(SOURCE);
+const Store=global.window.NKStore,KEY='qbank_state_v1';
+(async()=>{
+// The app boots before IndexedDB answers and saves its empty state.
+assert(localStorage.getItem(KEY)===null,'the boot read sees no mirror');
+const empty=JSON.stringify({stateRevision:1,attempts:{}});
+localStorage.setItem(KEY,empty);localStorage.setItem('qbank_state_lkg_v2',empty);
+assert(!Object.hasOwn(localData,KEY),'an empty boot state must not become the localStorage mirror');
+assert(localStorage.getItem(KEY)===empty,'the app reads back its own boot write');
+assert(Store.recovering===true,'cloud sync is told the boot state is not real progress');
+await Store.ready;
+await new Promise(r=>setTimeout(r,40));
+assert(localStorage.getItem(KEY)===real,'the stored progress replaces the empty boot state');
+assert(db.stores.kv.get(KEY)===real,'the empty boot state must never reach IndexedDB');
+assert(Store.recovering===false,'recovery ends once the stored progress is handed over');
+assert(events.includes('nk-store-recovered'),'the app is told to adopt the stored progress: '+JSON.stringify(events));
+assert(!events.includes('storage'),'a boot without a mirror is not another tab');
+// A save that fits the mirror again clears the marker.
+const next=JSON.stringify({stateRevision:51,attempts:{q1:[{}]}});
+localStorage.setItem(KEY,next);
+assert(localData[KEY]===next&&!Object.hasOwn(localData,'nk.store.unmirrored'),'a save that fits restores the mirror and clears the marker');
+console.log('PROGRESS_STORE_UNMIRRORED_OK');
+})().catch(error=>{console.error('PROGRESS_STORE_UNMIRRORED_FAIL:',error&&error.message);process.exit(1);});
+"""
+
 
 def main() -> None:
     with tempfile.NamedTemporaryFile("w", suffix=".js", encoding="utf-8", delete=False) as handle:
         handle.write(HARNESS)
+        script = Path(handle.name)
+    try:
+            subprocess.run(["node", str(script), str(STORE)], check=True)
+    finally:
+        script.unlink(missing_ok=True)
+    prefix = HARNESS.split("// --- the store's own starting point")[0]
+    with tempfile.NamedTemporaryFile("w", suffix=".js", encoding="utf-8", delete=False) as handle:
+        handle.write(prefix + UNMIRRORED)
         script = Path(handle.name)
     try:
         subprocess.run(["node", str(script), str(STORE)], check=True)

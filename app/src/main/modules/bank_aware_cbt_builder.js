@@ -5,7 +5,7 @@
   const nkCbtTopicIndex=new WeakMap();
   // Which questions a test may draw. A bank module can narrow it (UWorld drops questions
   // whose exhibit is missing); the index, the counts and the pool all go through it.
-  function nkCbtEligible(){return true;}
+  function nkCbtEligible(q){return typeof nkCountable!=='function'||nkCountable(q);}
   function nkCbtQuestionsByTopic(record){
     if(!record)return new Map();
     // Keyed by the record, checked against its question list: a bank that is filtered
@@ -71,9 +71,16 @@
     const topics=nkCbtVerifiedPyqTopics();
     if(!topics.length)return;
     const keys=new Set(topics.map(({record,topic})=>nkCbtTopicKey(record,topic)));
-    nkCbtDraft.topicKeys=nkCbtDraft.pyqSelected
-      ?nkCbtDraft.topicKeys.filter(key=>!keys.has(key))
-      :[...keys];
+    // Turning PYQs off returns to the selection the user had before turning them on.
+    if(nkCbtDraft.pyqSelected){
+      const prior=nkCbtDraft.prePyqTopicKeys;
+      const added=nkCbtDraft.topicKeys.filter(key=>!keys.has(key));
+      nkCbtDraft.topicKeys=Array.isArray(prior)?[...new Set([...prior,...added])]:added;
+      nkCbtDraft.prePyqTopicKeys=null;
+    }else{
+      nkCbtDraft.prePyqTopicKeys=nkCbtDraft.topicKeys.slice();
+      nkCbtDraft.topicKeys=[...keys];
+    }
     nkCbtDraft.pyqSelected=!nkCbtDraft.pyqSelected;
     nkCbtTouch();nkCbtSyncTopics();
   }
@@ -112,6 +119,19 @@
   function nkCbtFreshDraft(){
     const records=nkCbtRecords();
     return {step:1,bankKeys:records.map(nkCbtRecordKey),topicKeys:records.flatMap(record=>nkCbtRecordInfo(record).keys),pyqSelected:false,count:20,openGroups:{},query:'',queryText:''};
+  }
+  // A reload keeps the draft for this tab only (sessionStorage), never across visits.
+  const NK_CBT_DRAFT_KEY='nk.cbt.draft';
+  function nkCbtRememberDraft(){
+    try{if(nkCbtDraft){const {poolCache,...draft}=nkCbtDraft;sessionStorage.setItem(NK_CBT_DRAFT_KEY,JSON.stringify(draft));}else sessionStorage.removeItem(NK_CBT_DRAFT_KEY);}catch(_){}
+  }
+  function nkCbtRestoredDraft(){
+    try{const draft=JSON.parse(sessionStorage.getItem(NK_CBT_DRAFT_KEY)||'null');if(draft&&Array.isArray(draft.bankKeys)&&Array.isArray(draft.topicKeys)&&[1,2,3].includes(draft.step))return draft;}catch(_){}
+    return null;
+  }
+  if(typeof window!=='undefined'){
+    window.addEventListener('pagehide',nkCbtRememberDraft);
+    document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')nkCbtRememberDraft();});
   }
   function nkCbtOpenBuilder(){
     nkCbtDraft=nkCbtFreshDraft();
@@ -164,7 +184,8 @@
       if(step>2&&!nkCbtPoolSize()){showToast('Choose a topic with questions.','bad');return;}
     }
     nkCbtDraft.step=Math.max(1,Math.min(3,Number(step)));nkCbtDraft.query='';nkCbtDraft.queryText='';
-    if(nkCbtDraft.step===3)nkCbtDraft.count=Math.min(nkCbtDraft.count,nkCbtPoolSize());
+    // The pool caps what is shown; widening the topics later restores the count the user asked for.
+    if(nkCbtDraft.step===3){if(nkCbtDraft.requestedCount==null)nkCbtDraft.requestedCount=nkCbtDraft.count;nkCbtDraft.count=Math.min(nkCbtDraft.requestedCount,nkCbtPoolSize());}
     render();resetScrollPosition();
   }
   function nkCbtSetTopics(select,recordIndex=null){
@@ -252,14 +273,15 @@
     if(list)list.innerHTML=isOpen?nkCbtTopicRowsMarkup(record,recordIndex):'';
     if(toggle){toggle.setAttribute('aria-expanded',String(isOpen));toggle.setAttribute('aria-label',`${isOpen?'Hide':'Show'} ${record.subject} · ${record.bank} topics`);}
   }
-  function nkCbtSetCount(value){
+  // typing: the field keeps what is typed; the value is tidied when the field changes.
+  function nkCbtSetCount(value,typing){
     if(!nkCbtDraft)return;
     if(value==='')return;
     const number=Number(value);if(!Number.isFinite(number))return;
     const pool=nkCbtPoolSize();
     nkCbtDraft.count=Math.max(1,Math.min(pool,Math.floor(number)));
-    const actual=nkCbtDraft.count;
-    const input=document.getElementById('nk-cbt-custom-count');if(input)input.value=String(nkCbtDraft.count);
+    const actual=nkCbtDraft.count;nkCbtDraft.requestedCount=actual;
+    const input=document.getElementById('nk-cbt-custom-count');if(input&&!typing)input.value=String(nkCbtDraft.count);
     document.querySelectorAll('.nk-cbt-count-preset').forEach(button=>button.classList.toggle('is-selected',Number(button.dataset.count)===nkCbtDraft.count));
     const result=document.getElementById('nk-cbt-count-result');
     if(result)result.textContent=`${fmtNum(actual)} question${actual===1?'':'s'} · ${fmtNum(actual)} minute${actual===1?'':'s'} total`;
@@ -313,10 +335,11 @@
     });
     const bankSummary=[...banksBySubject].map(([subject,banks])=>`${esc(subject)} · ${banks.map(esc).join(' + ')}`).join('<br>');
     const presets=[10,20,50,100].filter(number=>number<=pool);if(!presets.length)presets.push(pool);
-    return `<div class="nk-cbt-summary"><div><small>Question banks</small><strong>${bankSummary}</strong></div><div><small>Available pool</small><strong>${fmtNum(pool)} questions</strong><p>${nkCbtDraft.topicKeys.length} selected topics</p></div></div><div class="nk-cbt-count"><h2>How many questions?</h2><p>Questions are randomly drawn from the topics you selected.</p><div class="nk-cbt-count-grid">${presets.map(number=>`<button type="button" class="nk-cbt-count-preset ${nkCbtDraft.count===number?'is-selected':''}" data-count="${number}" onclick="window.QB.nkCbtSetCount(${number})">${number}</button>`).join('')}</div><label for="nk-cbt-custom-count">Custom amount</label><input id="nk-cbt-custom-count" type="number" inputmode="numeric" min="1" max="${pool}" value="${nkCbtDraft.count}" oninput="window.QB.nkCbtSetCount(this.value)"></div><div class="nk-cbt-timing"><span>${navIcon('clock',20)}</span><div><strong id="nk-cbt-count-result">${fmtNum(actual)} questions · ${fmtNum(actual)} minutes total</strong><p>One minute per question. Answers and explanations appear after submission.</p></div></div>`;
+    return `<div class="nk-cbt-summary"><div><small>Question banks</small><strong>${bankSummary}</strong></div><div><small>Available pool</small><strong>${fmtNum(pool)} questions</strong><p>${nkCbtDraft.topicKeys.length} selected topics</p></div></div><div class="nk-cbt-count"><h2>How many questions?</h2><p>Questions are randomly drawn from the topics you selected.</p><div class="nk-cbt-count-grid">${presets.map(number=>`<button type="button" class="nk-cbt-count-preset ${nkCbtDraft.count===number?'is-selected':''}" data-count="${number}" onclick="window.QB.nkCbtSetCount(${number})">${number}</button>`).join('')}</div><label for="nk-cbt-custom-count">Custom amount</label><input id="nk-cbt-custom-count" type="number" inputmode="numeric" min="1" max="${pool}" value="${nkCbtDraft.count}" oninput="window.QB.nkCbtSetCount(this.value,true)" onchange="window.QB.nkCbtSetCount(this.value)"></div><div class="nk-cbt-timing"><span>${navIcon('clock',20)}</span><div><strong id="nk-cbt-count-result">${fmtNum(actual)} questions · ${fmtNum(actual)} minutes total</strong><p>One minute per question. Answers and explanations appear after submission.</p></div></div>`;
   }
   function nkCbtBuilderPage(){
-    if(!nkCbtDraft)nkCbtDraft=nkCbtFreshDraft();
+    if(!nkCbtDraft)nkCbtDraft=nkCbtRestoredDraft()||nkCbtFreshDraft();
+    nkCbtRememberDraft();
     const step=nkCbtDraft.step,titles=['Choose question banks','Choose topics','Set question count'];
     /* One pool scan per render: the topic and count screens share it instead of
        re-walking every selected question's topic. */

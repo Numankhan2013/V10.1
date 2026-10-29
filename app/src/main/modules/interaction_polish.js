@@ -173,6 +173,12 @@
   }
   new MutationObserver(nkPolishPanels).observe(document.body,{childList:true,subtree:true});
   document.addEventListener('keydown',event=>{
+    // Escape closes the sheet the same way its close button does.
+    if(event.key==='Escape'&&nkPolishOverlay&&!event.defaultPrevented){
+      const close=nkPolishOverlay.querySelector('.nk-session-review-close,.qb-nav-close,.nk-modal-close');
+      if(close){event.preventDefault();close.click();}
+      return;
+    }
     if(event.key!=='Tab'||!nkPolishOverlay)return;
     const nodes=[...nkPolishOverlay.querySelectorAll('button:not(:disabled),a[href],input:not(:disabled),select:not(:disabled),textarea:not(:disabled),summary,[tabindex="0"]')].filter(node=>{
       if(!node.getClientRects().length)return false;

@@ -76,7 +76,9 @@ def main() -> None:
             page.evaluate("window.QB.nkOpenSubjectLibrary('Physiology')")
             page.wait_for_function("() => document.querySelectorAll('button.nk-bank-card').length>0", timeout=8000)
             bank = page.locator("button.nk-bank-card").filter(has_text="PrepLadder")
-            if f"{shipped('physiology')['questions']:,} questions" not in bank.inner_text():
+            # Bank cards count answerable questions, like the topic rows; physiology-24-6
+            # is the one reviewed PrepLadder question without a usable answer.
+            if f"{shipped('physiology')['questions'] - 1:,} questions" not in bank.inner_text():
                 fail(f"PrepLadder card wrong: {bank.inner_text()!r}")
             bank.click()
             page.wait_for_function("() => document.querySelectorAll('button.nk-topic-row').length===49", timeout=8000)

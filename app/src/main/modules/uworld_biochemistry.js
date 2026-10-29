@@ -1,13 +1,16 @@
   /* NK_UWORLD_BIOCHEMISTRY_V1_START */
+  // Questions that can be shown: the counts match the builder and sessions, and 100% is reachable.
+  const nkUworldAvailableCache=new Map();
+  function nkUworldAvailable(r){if(!nkUworldAvailableCache.has(r))nkUworldAvailableCache.set(r,r.questions.filter(nkUworldEligible));return nkUworldAvailableCache.get(r);}
   function nkUworldLibraryCards(){
     return NK_UWORLD_COLLECTIONS.map(r=>{
-    const available=r.questions.filter(nkUworldEligible),answered=available.filter(q=>qAttempts(q.id).length).length;
+    const available=nkUworldAvailable(r),answered=available.filter(q=>qAttempts(q.id).length).length;
     const ready=available.length,pct=ready?Math.round(answered/ready*100):0;
-    return `<button class="nk-v3-subject-card nk-uworld-collection" onclick="window.QB.openBank(${esc(JSON.stringify(String(r.subject)))},'UWorld')"><span class="nk-v3-subject-icon">${nkSubjectGraphic(r.subject,24)}</span><span class="nk-v3-subject-copy"><strong>${esc(r.collection)}</strong><small>${fmtNum(r.topics.length)} ${r.topics.length===1?'block':'blocks'} · ${fmtNum(r.questions.length)} questions</small><span class="nk-v3-subject-progress"><i style="width:${pct}%"></i></span></span><b>${pct}%</b>${navIcon('chevron',18)}</button>`;
+    return `<button class="nk-v3-subject-card nk-uworld-collection" onclick="window.QB.openBank(${esc(JSON.stringify(String(r.subject)))},'UWorld')"><span class="nk-v3-subject-icon">${nkSubjectGraphic(r.subject,24)}</span><span class="nk-v3-subject-copy"><strong>${esc(r.collection)}</strong><small>${fmtNum(r.topics.length)} ${r.topics.length===1?'block':'blocks'} · ${fmtNum(ready)} questions</small><span class="nk-v3-subject-progress"><i style="width:${pct}%"></i></span></span><b>${pct}%</b>${navIcon('chevron',18)}</button>`;
     }).join('');
   }
   function nkUworldHomeSection(){
-    const collections=NK_UWORLD_COLLECTIONS.length,questions=NK_UWORLD_COLLECTIONS.reduce((total,r)=>total+r.questions.length,0);
+    const collections=NK_UWORLD_COLLECTIONS.length,questions=NK_UWORLD_COLLECTIONS.reduce((total,r)=>total+nkUworldAvailable(r).length,0);
     return `<section class="nk-v3-section nk-home-uworld" aria-label="My UWorld"><button class="nk-v3-subject-card nk-uworld-entry" aria-label="Open My UWorld" onclick="window.QB.nav('uworld')"><span class="nk-v3-subject-icon" aria-hidden="true">${navIcon('book',24)}</span><span class="nk-v3-subject-copy"><strong>My UWorld</strong><small>${fmtNum(collections)} ${collections===1?'collection':'collections'} · ${fmtNum(questions)} questions</small></span><span class="nk-uworld-entry-action" aria-hidden="true">Open</span>${navIcon('chevron',18)}</button></section>`;
   }
   function nkUworldLibraryPage(){return shell(`<main class="nk-app-v114 nk-uworld-library"><button class="nk-back-link" onclick="window.QB.nav('dashboard')">${navIcon('back',18)} Home</button><header class="nk-v3-page-hero"><h1>My UWorld</h1><p>Choose a collection, then open its original question blocks.</p></header><div class="nk-v3-subject-list">${nkUworldLibraryCards()}</div></main>`,'dashboard');}
@@ -46,7 +49,7 @@
   function nkUworldAssetUrl(asset){return (location.hostname==='qbank.local'?'/app/':'./')+asset;}
   function nkUworldFigureMarkup(node,q,option=false){
     const caption=node.caption||'Source figure';
-    const img=`<img src="${esc(nkUworldAssetUrl(node.asset))}" alt="${esc(caption)}" loading="eager" decoding="async" data-uworld-essential="${option||node.role==='question'?'true':'false'}" data-uworld-qid="${esc(q.id)}">`;
+    const img=`<img src="${esc(nkUworldAssetUrl(node.asset))}" alt="${esc(caption)}" loading="eager" decoding="async" data-uworld-essential="${option||node.role==='question'?'true':'false'}" data-uworld-qid="${esc(q.id)}"><span class="nk-uworld-figure-missing" aria-hidden="true">Figure unavailable</span>`;
     if(option)return `<span class="nk-uworld-option-figure">${img}</span>`;
     return `<figure class="nk-uworld-figure"><button type="button" aria-label="Enlarge source figure" onclick="window.QB.uworldFigure(${esc(JSON.stringify(String(node.asset)))})">${img}<span>${navIcon('search',16)} Enlarge</span></button>${node.caption||node.source_note?`<figcaption>${nkScientificMarkup(node.caption||'')}${node.source_note?`<span class="nk-uworld-source-note">${nkScientificMarkup(node.source_note)}</span>`:''}</figcaption>`:''}</figure>`;
   }
@@ -157,7 +160,7 @@
   };
   const nkUworldOriginalRender=render;
   render=function(){const out=nkUworldOriginalRender.apply(this,arguments);nkUworldRefreshMedia();return out;};
-  if(typeof document!=='undefined')for(const event of ['load','error'])document.addEventListener(event,e=>{if(e.target?.matches?.('img[data-uworld-qid]'))nkUworldRefreshMedia();},true);
+  if(typeof document!=='undefined')for(const event of ['load','error'])document.addEventListener(event,e=>{if(e.target?.matches?.('img[data-uworld-qid]')){if(event==='error')e.target.dataset.uworldFailed='true';else delete e.target.dataset.uworldFailed;nkUworldRefreshMedia();}},true);
   function nkUworldEligible(q){return q?.bank!=='UWorld'||nkQuestionPresentationFor(q).valid;}
   // Filter before sampling, so new tests/modules have accurate counts and full sets.
   const nkUworldOriginalChapterStats=chapterStats;
@@ -167,7 +170,8 @@
     const correct=attempts.filter(a=>a.correct).length,incorrect=attempts.filter(a=>!a.correct).length;
     return {total:qs.length,attempted:qs.filter(q=>qAttempts(q.id).length).length,correct,incorrect,accuracy:correct+incorrect?correct/(correct+incorrect)*100:0};
   };
-  nkCbtEligible=nkUworldEligible;
+  // Tests draw only answerable questions, so the builder's counts match the topic rows.
+  nkCbtEligible=q=>nkUworldEligible(q)&&(typeof nkCountable!=='function'||nkCountable(q));
   const nkUworldModulePool=nkQuestionsForModuleDraft;
   nkQuestionsForModuleDraft=function(){return nkUworldModulePool(nkUworldLegacyScope(arguments[0]===undefined?studyModuleDraft:arguments[0])).filter(nkUworldEligible);};
   const nkUworldRevisionData=nkRevisionDeskData;

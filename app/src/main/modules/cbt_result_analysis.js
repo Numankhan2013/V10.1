@@ -123,6 +123,9 @@
     // Indexed lookup: a result screen reads only its own questions, never the whole bank.
     const questions=nkCbtQuestionLookup();
     BY_ID={...BY_ID,...Object.fromEntries(ids.map(id=>[id,questions.get(id)||BY_ID[id]]).filter(([,q])=>q))};
-    return startSession(ids,'practice',`CBT follow-up · ${test.title||'Timed CBT'}`,'cbt-followup');
+    const started=startSession(ids,'practice',`CBT follow-up · ${test.title||'Timed CBT'}`,'cbt-followup');
+    // A follow-up of a timed test returns to Tests, where its result lives.
+    if(started!==false&&state.activeSession){state.activeSession.originRoute='tests';saveState();}
+    return started;
   }
   /* NK_CBT_RESULT_ANALYSIS_V1_END */

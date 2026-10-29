@@ -133,7 +133,10 @@ def main():
                 expect(entry).to_have_count(1)
                 expect(page.locator('.nk-home-uworld .nk-uworld-collection')).to_have_count(0)
                 uw = {k: v for k, v in expected.items() if k[1] == 'UWorld'}
-                assert f"{len(uw)} collections · {sum(uw.values()):,} questions" in entry.inner_text(), entry.inner_text()
+                # The entry counts what can be answered: questions with a missing exhibit stay out.
+                shown = page.evaluate('__uworldTest.questions().filter(q=>q.bank==="UWorld"&&__uworldTest.presentation(q.id).valid).length')
+                assert 0 < sum(uw.values()) - shown < 30, (sum(uw.values()), shown)
+                assert f"{len(uw)} collections · {shown:,} questions" in entry.inner_text(), entry.inner_text()
                 assert entry.bounding_box()['height'] >= 44
                 # The entry chevron belongs on the row's right edge. Hiding the
                 # "Open" action must not pull it back into the meta column.
