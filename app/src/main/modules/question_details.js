@@ -58,13 +58,15 @@
   // Screens that may reveal an answer start the download while the question is read.
   function nkPrefetchDetails(q){if(!nkDetailsReady(q))nkLoadDetails(q).catch(()=>{});}
   const nkDetailsWaiting=new Set();
+  // Screens that can swap the placeholder in place override this.
+  let nkDetailsArrived=id=>{if(document.querySelector(`[data-nk-details-pending="${CSS.escape(id)}"]`))render();};
   function nkDetailsPending(q){
     const id=String(q.id);
     if(!nkDetailsWaiting.has(id)){
       nkDetailsWaiting.add(id);
       nkLoadDetails(q).then(()=>{
         nkDetailsWaiting.delete(id);
-        if(document.querySelector(`[data-nk-details-pending="${CSS.escape(id)}"]`))render();
+        nkDetailsArrived(id);
       },()=>{
         nkDetailsWaiting.delete(id);
         document.querySelectorAll(`[data-nk-details-pending="${CSS.escape(id)}"] .nk-source-empty`).forEach(el=>{el.textContent='The explanation could not be downloaded. Reopen this question when you are online.';});
