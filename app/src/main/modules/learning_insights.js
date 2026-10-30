@@ -98,7 +98,7 @@
   function nkLearningSubjectGroup(q){const subject=String(q?.subject||'');return q?.bank==='UWorld'||/^UWorld\b/.test(subject)?'UWorld':subject||'Other';}
   function nkLearningSubjectColor(subject){const key=subject==='UWorld'?'uworld':nkAppSubjectMeta(subject).key;return `var(--nkg-subj-${key},var(--nkg-subj-uworld,#8a8a8a))`;}
   function nkLearningSubjectSplit(events){const rows=new Map();events.forEach(a=>{const subject=nkLearningSubjectGroup(a.q),row=rows.get(subject)||{subject,total:0,correct:0};row.total++;if(a.correct)row.correct++;rows.set(subject,row);});return [...rows.values()].sort((a,b)=>b.total-a.total||a.subject.localeCompare(b.subject));}
-  function nkLearningSplitRows(rows,total){return `<ul class="nk-li-split">${rows.map(r=>`<li class="${nkLearningFocusSubject===r.subject?'is-focus':''}"><i style="background:${nkLearningSubjectColor(r.subject)}"></i><span>${esc(r.subject)}</span><b>${fmtNum(r.total)}</b><small>${total?Math.round(r.total/total*100):0}% · ${nkLearningPct(r.correct/r.total*100)} correct</small></li>`).join('')}</ul>`;}
+  function nkLearningSplitRows(rows,total){return `<ul class="nk-li-split">${rows.map(r=>`<li class="${nkLearningFocusSubject===r.subject?'is-focus':''}"><i style="background:${nkLearningSubjectColor(r.subject)}"></i><span>${esc(r.subject)}</span><b>${fmtNum(r.total)}</b><small>${total?Math.round(r.total/total*100):0}% of answers · ${nkLearningPct(r.correct/r.total*100)} correct</small></li>`).join('')}</ul>`;}
   function nkLearningBarChart(model){
     const max=Math.max(1,...model.bins.flatMap(b=>[b.current.attempts,b.previous.attempts]));
     const order=nkLearningSubjectSplit(model.current.events);
@@ -116,8 +116,8 @@
       const peak=model.bins.map(x=>({x,n:x.current.events.filter(a=>nkLearningSubjectGroup(a.q)===focus.subject).length})).sort((a,c)=>c.n-a.n)[0];
       return `<strong><i style="background:${nkLearningSubjectColor(focus.subject)}"></i>${esc(focus.subject)} · ${esc(labels.current)}</strong><span>${fmtNum(focus.total)} answers · ${model.current.attempts?Math.round(focus.total/model.current.attempts*100):0}% of your practice · ${nkLearningPct(focus.correct/focus.total*100)} correct</span>${peak?.n?`<small>Busiest: ${esc(peak.x.label)} (${fmtNum(peak.n)})</small>`:''}`;
     }
-    const rows=nkLearningSubjectSplit(b.current.events),focus=rows.find(r=>r.subject===nkLearningFocusSubject);
-    return `<strong>${esc([...new Set([nkLearningDate(+b.start),nkLearningDate(Math.min(+b.end,model.range.cut)-1)])].join(' – '))}</strong><span>${b.current.attempts} answers · ${nkLearningPct(b.current.accuracy)} accuracy · ${nkLearningTime(b.current.time)}</span>${focus?`<p class="nk-li-split-focus"><i style="background:${nkLearningSubjectColor(focus.subject)}"></i><b>${esc(focus.subject)}</b> ${fmtNum(focus.total)} of ${fmtNum(b.current.attempts)} answers · ${nkLearningPct(focus.correct/focus.total*100)} correct</p>`:''}${rows.length>1||!focus?nkLearningSplitRows(rows,b.current.attempts):''}<small>${esc(labels.previous)}: ${b.previous.attempts} answers · ${nkLearningPct(b.previous.accuracy)} · ${nkLearningTime(b.previous.time)}</small>`;
+    const rows=nkLearningSubjectSplit(b.current.events);
+    return `<strong>${esc([...new Set([nkLearningDate(+b.start),nkLearningDate(Math.min(+b.end,model.range.cut)-1)])].join(' – '))}</strong><span>${b.current.attempts} answers · ${nkLearningPct(b.current.accuracy)} accuracy · ${nkLearningTime(b.current.time)}</span>${nkLearningSplitRows(rows,b.current.attempts)}<small>${esc(labels.previous)}: ${b.previous.attempts} answers · ${nkLearningPct(b.previous.accuracy)} · ${nkLearningTime(b.previous.time)}</small>`;
   }
   function nkLearningTrend(model){
     const bins=model.bins,max=Math.max(1,...bins.flatMap(b=>[b.current.time/3600000,b.previous.time/3600000])),w=400,h=200,x=i=>35+i*345/Math.max(1,bins.length-1),y=ms=>172-ms/3600000/max*138;
