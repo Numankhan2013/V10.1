@@ -42,6 +42,7 @@ def main():
                     errors = []
                     page.on('pageerror', lambda error: errors.append(str(error)))
                     page.goto(f'http://127.0.0.1:{server.server_address[1]}/index.html', wait_until='networkidle')
+                    page.wait_for_function("() => typeof window.QB?.nkOpenSubjectLibrary === 'function'", polling=200, timeout=30000)
                     page.evaluate("window.QB.nkOpenSubjectLibrary('Physiology')")
                     page.locator('button.nk-bank-card').filter(has_text='Marrow').click()
                     # Exact chapter identity avoids the I / II title prefix collision.
