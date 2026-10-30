@@ -77,6 +77,7 @@ def main() -> None:
             errors: list[str] = []
             page.on("pageerror", lambda e: errors.append(str(e)))
             page.goto(f"http://127.0.0.1:{port}/index.html", wait_until="networkidle")
+            page.wait_for_function("() => typeof window.QB?.nkOpenSubjectLibrary === 'function'", polling=200, timeout=30000)
 
             open_ch11(page)
             check_question(

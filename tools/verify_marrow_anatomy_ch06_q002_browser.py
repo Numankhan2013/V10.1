@@ -41,6 +41,7 @@ def main() -> None:
             errors: list[str] = []
             page.on("pageerror", lambda e: errors.append(str(e)))
             page.goto(f"http://127.0.0.1:{port}/index.html", wait_until="networkidle")
+            page.wait_for_function("() => typeof window.QB?.nkOpenSubjectLibrary === 'function'", polling=200, timeout=30000)
 
             page.evaluate("window.QB.nkOpenSubjectLibrary('Anatomy')")
             page.wait_for_function("() => document.querySelectorAll('button.nk-bank-card').length===2", timeout=5000)
