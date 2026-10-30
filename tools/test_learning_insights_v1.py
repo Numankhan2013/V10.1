@@ -45,7 +45,7 @@ studyModules:[{id:'m1',questionIds:['a'],isCompleted:true,completedAt:at(2026,9,
 const ctx={state,Date,Math,JSON,Set,Map,Number,Intl,encodeURIComponent,decodeURIComponent,nkAllStudyQuestions:()=>qs,nkModuleBankRecords:()=>[
  {subject:'Anatomy',bank:'Marrow',topics:[{id:'1',title:'Marrow topic'}]},
  {subject:'Anatomy',bank:'PrepLadder',topics:[{id:'1',title:'Prep topic'}]},
- {subject:'Physiology',bank:'Marrow',topics:[{id:'1',title:'Phys topic'}]}],nkModuleBankName:r=>r.bank,nkModuleTopics:r=>r.topics,nkFsrsEligibility:()=>true,dayKey:n=>{const d=new Date(n);return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;},fmtNum:String,esc:String,navIcon:()=>'',render:()=>{},document:{querySelector:()=>null},nkOpenSubjectChapter:()=>{}};
+ {subject:'Physiology',bank:'Marrow',topics:[{id:'1',title:'Phys topic'}]}],nkModuleBankName:r=>r.bank,nkModuleTopics:r=>r.topics,nkFsrsEligibility:()=>true,dayKey:n=>{const d=new Date(n);return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;},fmtNum:String,esc:String,navIcon:()=>'',render:()=>{},document:{querySelector:()=>null},nkOpenSubjectChapter:()=>{},nkFocusSection:()=>"<section class=\"nk-li-focus\"></section>"};
 vm.createContext(ctx);vm.runInContext(ACTIVE+'\n'+CORE,ctx);const run=s=>vm.runInContext(s,ctx);ctx.now=now;
 const before=JSON.stringify(state),model=run('nkLearningModel(now)');
 assert.equal(model.current.attempts,4);assert.equal(model.current.correct,2);assert.equal(model.current.incorrect,2);assert.equal(model.current.skipped,1);assert.equal(model.current.accuracy,50);

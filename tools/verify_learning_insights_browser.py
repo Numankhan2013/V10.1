@@ -100,6 +100,8 @@ def main():
                 assert model['current']['reviews'] < model['current']['attempts']
                 assert not page.evaluate('document.documentElement.scrollWidth>innerWidth'), f'Horizontal overflow at {width}'
                 assert page.locator('.nk-li-card').count() == 8
+                expect(page.get_by_role('heading', name='Subject focus', exact=True)).to_be_visible()
+                assert page.locator('.nk-li-focus').bounding_box()['y'] < page.locator('.nk-li-grid').bounding_box()['y']
                 assert page.get_by_role('heading', name='Missed-question revision').count() == 0
                 assert page.get_by_role('button', name='Practise missed questions', exact=False).count() == 0
                 assert page.locator('.nk-li-year-activity').bounding_box()['y'] < page.locator('.nk-li-stats').bounding_box()['y']
@@ -140,8 +142,18 @@ def main():
                 page.locator('.nk-li-topic').first.click()
                 page.wait_for_function("location.hash.startsWith('#chapter/')")
                 page.evaluate("window.QB.nav('analytics')")
-                page.get_by_role('button', name='Explore FSRS', exact=False).click()
+                page.locator('.nk-li-link', has_text='FSRS insights').click()
+                expect(page.get_by_role('heading', name='FSRS insights', exact=True)).to_be_visible()
+                assert page.locator('.nk-mi-grid .nk-mi-card').count() >= 5
+                assert not page.evaluate('document.documentElement.scrollWidth>innerWidth'), f'FSRS insights overflow at {width}'
+                assert 'NaN' not in page.locator('.nk-memory-insights').inner_text()
+                page.locator('.nk-mi-forecast button').nth(1).click()
+                assert 'Tomorrow' in page.locator('.nk-mi-readout').inner_text()
+                page.screenshot(path=str(output / f'fsrs-insights-{width}.png'), full_page=True)
+                page.evaluate("window.QB.nav('fsrs')")
                 expect(page.get_by_role('heading', name='FSRS Review', exact=True)).to_be_visible()
+                page.locator('.nk-mi-entry').click()
+                expect(page.get_by_role('heading', name='FSRS insights', exact=True)).to_be_visible()
                 page.evaluate("window.QB.nav('analytics')")
                 geist_choose(page, 'Insights subject', '')
                 page.reload(wait_until='domcontentloaded')
@@ -153,7 +165,7 @@ def main():
             browser.close()
     finally:
         server.shutdown()
-    print('LEARNING_INSIGHTS_BROWSER_OK viewports=320,390,820,1194 periods=true comparisons=true scopes=true charts=true drilldowns=true reload=true empty=true no_overflow=true full_year=true relative_intensity=true')
+    print('LEARNING_INSIGHTS_BROWSER_OK viewports=320,390,820,1194 periods=true comparisons=true scopes=true charts=true drilldowns=true reload=true empty=true no_overflow=true full_year=true relative_intensity=true subject_focus=true fsrs_insights=true')
 
 
 if __name__ == '__main__':

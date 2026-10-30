@@ -282,3 +282,18 @@ absent-exhibit unscored reference. See the protected behavior above and
 ## Compact My UWorld and moderate source continuation — 2026-10-05
 
 Home and the study library expose one My UWorld entry opening the full collection library. Collection names, blocks and progress remain there. Biostatistics includes40 Block1 questions plus20 Block2 questions, explicitly titled “Block 2 · Questions 1–20”; subsequent source items remain queued. Registry:388 UWorld questions across6 collections.
+
+## Insights subject focus and FSRS insights — 2026-10-30
+
+The owner asked for practise-mistakes per subject, neglected subjects and FSRS
+stage balance, integrated so it feels native rather than bolted on.
+`memory_insights.js` adds a **Subject focus** card between the stat row and the
+charts: the weakest subject (lowest 30-day accuracy, 10+ answers, only when two
+or more subjects qualify) in its subject colour with one "Redo N mistakes"
+action, plus "Gone quiet" subjects (14+ idle days) whose row reviews due cards,
+redoes mistakes or opens the subject. All actions run the shared Quick Revision
+queues (daily cap, pause/resume, routing). The FSRS card links to a separate
+**FSRS insights** page (`#fsrs-insights`, also linked from FSRS Review):
+retention vs target (by subject), comeback rate, stage balance, memory strength,
+30-day forecast, hardest questions. Bank coverage and speed vs accuracy were
+declined by the owner. Unit test `tools/test_memory_insights_v1.py`.
