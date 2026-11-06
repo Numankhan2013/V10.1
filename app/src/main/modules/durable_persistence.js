@@ -194,7 +194,7 @@
   function nkRetryPersistence(){const ok=saveState();if(ok){nkStorageClearError();if(typeof nkScheduleCloudSync==='function')nkScheduleCloudSync();}return ok;}
   function nkFlushLifecycleState(){
     // Only the tab showing the session charges the time; another tab on Home leaves it alone.
-    const s=route?.page===state?.activeSession?.mode?state.activeSession:null;
+    const live=state?.activeSession,s=typeof route==='undefined'||route?.page===live?.mode?live:null;
     if(s?.mode==='practice'&&s.lifecycle!=='paused'&&s.lifecycle!=='suspended'&&typeof savePracticeElapsed==='function')savePracticeElapsed();
     else if(s?.mode==='exam'&&typeof saveExamElapsed==='function')saveExamElapsed();
     const ok=saveState();if(typeof nkCaptureCloudChanges==='function')nkCaptureCloudChanges();return ok;
