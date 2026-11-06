@@ -1133,7 +1133,10 @@ function dashboard(){
   }
 
   function chapterPage(cid) {
-    const c=CHAPTER_BY_ID[String(cid)];if(!c)return topics();
+    let c=CHAPTER_BY_ID[String(cid)];
+    // A reload or link can name a topic of another bank (another tab switched subject): open its bank when the id is unambiguous.
+    if(!c&&typeof nkModuleBankRecords==='function'){const owners=nkModuleBankRecords().filter(r=>nkModuleTopics(r).some(t=>String(t.id)===String(cid)));if(owners.length===1){applySubject(owners[0].subject,nkModuleBankName(owners[0]));c=CHAPTER_BY_ID[String(cid)];}}
+    if(!c)return topics();
     const qs=chapterQuestions(c.id),s=chapterStats(c.id),total=s.total,now=Date.now();
     // Per-question status from the latest answer; the overview never reports accuracy before an answer exists.
     // Skipped = left unanswered in a submitted session (moved past it, or worked on it 15 s+); unattempted = never reached.
