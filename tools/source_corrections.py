@@ -11,7 +11,9 @@ data/source_corrections.json:
    "edits": [{"find": "<exact text>", "replace": "<corrected text>"}],
    "stemEdits": [the same, for the question text],
    "optionText": {"<1-based option>": "<corrected option text>"},
-   "correctOption": <1-based key, only when the key itself is wrong>}
+   "correctOption": <1-based key, only when the key itself is wrong>,
+   "stemTables": [{"columns": [...], "rows": [[...]]}] (statements the export ran
+                 together or dropped, shown as a table under the stem)}
 
 build_app_data.py applies the ledger to every record it ships. An entry whose
 question or text is no longer in the banks fails the build, so a re-import can
@@ -88,7 +90,7 @@ def load_ledger() -> list[dict]:
     entries = json.loads(LEDGER.read_text(encoding="utf-8"))
     seen = set()
     for e in entries:
-        if not e.get("id") or not e.get("reason") or not (e.get("edits") or e.get("stemEdits") or e.get("optionText") or "correctOption" in e):
+        if not e.get("id") or not e.get("reason") or not (e.get("edits") or e.get("stemEdits") or e.get("optionText") or "correctOption" in e or e.get("stemTables")):
             raise CorrectionError(f"incomplete correction entry: {e}")
         if e["id"] in seen:
             raise CorrectionError(f"two correction entries for {e['id']}")
@@ -109,6 +111,11 @@ def correct_question(q: dict, entry: dict) -> None:
         if edit["find"] not in str(q.get("question") or ""):
             raise CorrectionError(f"{q['id']}: question text not found: {edit['find'][:80]!r}")
         q["question"] = q["question"].replace(edit["find"], edit["replace"])
+    tables = entry.get("stemTables")
+    if tables is not None:
+        if not isinstance(tables, list) or not all(isinstance(t, dict) and isinstance(t.get("rows"), list) and t["rows"] for t in tables):
+            raise CorrectionError(f"{q['id']}: stemTables must be a list of tables with rows")
+        q["stemTables"] = tables
     for number, text in (entry.get("optionText") or {}).items():
         options = q.get("options") or []
         if not 1 <= int(number) <= len(options) or not isinstance(options[int(number) - 1], dict):

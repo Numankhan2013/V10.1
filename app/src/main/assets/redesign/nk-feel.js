@@ -939,6 +939,9 @@
   }
   function hideHeatTip() { if (heatTip) heatTip.classList.remove('is-on'); }
   window.addEventListener('scroll', hideHeatTip, { passive: true, capture: true });
+  // The grid is replaced when the page changes, so no pointerout ever reaches it.
+  window.addEventListener('hashchange', hideHeatTip);
+  document.addEventListener('pointerdown', function (e) { if (!(e.target.closest && e.target.closest('.nk-li-year-grid'))) hideHeatTip(); }, true);
   function enhanceHeatmap(card) {
     if (!card || card.__nkg) return; card.__nkg = true;
     var body = card.querySelector('.nk-li-year-body'), scroller = card.querySelector('.nk-li-year-scroll'), grid = card.querySelector('.nk-li-year-grid');

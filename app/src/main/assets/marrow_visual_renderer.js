@@ -23,7 +23,11 @@ function mount(){
       const img=document.createElement('img');
       img.alt=figure.alt;img.width=figure.width;img.height=figure.height;
       img.loading=role==='question'?'eager':'lazy';img.decoding='async';
-      img.addEventListener('error',()=>{button.disabled=true;caption.textContent='Image unavailable. Reconnect to download this figure.';});
+      /* A figure that failed offline retries when the connection returns, or on a tap. */
+      let failed=false;
+      const retry=()=>{if(!failed||!img.isConnected)return;caption.textContent='Loading figure…';img.src=url(figure.src);};
+      img.addEventListener('error',()=>{failed=true;button.classList.add('is-failed');caption.textContent='Image unavailable. Tap to retry once you are online.';window.addEventListener('online',retry,{once:true});});
+      img.addEventListener('load',()=>{if(failed){failed=false;button.classList.remove('is-failed');caption.textContent=label;}});
       const label=(figures.length>1?'Figure '+(index+1)+' · ':'')+'Tap to expand'+(figure.status==='SOURCE_LIMITED'?' · Source image has limited detail':'');
       const caption=document.createElement('figcaption');caption.textContent=label;
       /* Very large originals (long animations) wait for a tap instead of downloading on their own. */
@@ -35,6 +39,7 @@ function mount(){
         caption.textContent=(figures.length>1?'Figure '+(index+1)+' · ':'')+'Large figure';
       }else{img.src=url(figure.src);button.append(img);}
       button.addEventListener('click',()=>{
+        if(failed){retry();return;}
         if(held){held=false;button.classList.remove('is-held');button.style.aspectRatio='';button.textContent='';button.setAttribute('aria-label','Expand '+figure.alt);img.loading='eager';img.src=url(figure.src);button.append(img);caption.textContent=label;return;}
         window.NKSourceVisualViewer?.({type:'asset',source:figure.src},'Source figure '+(index+1));
       });

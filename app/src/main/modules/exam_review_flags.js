@@ -38,9 +38,12 @@
   const nkMarkedOriginalNavigator=openQuestionNavigator;
   openQuestionNavigator=function(){
     const result=nkMarkedOriginalNavigator.apply(this,arguments),s=state.activeSession;
-    if(s?.mode!=='exam')return result;
+    if(s?.mode!=='exam'&&s?.mode!=='review')return result;
     const root=document.getElementById('qb-question-navigator');if(!root)return result;
-    const flags=s.markedForReview||{};
+    // Review Solutions shows the flags the test was submitted with.
+    let flags=s.markedForReview||{};
+    if(s.mode==='review'){const test=(state.tests||[]).find(item=>String(item.id)===String(s.sourceTestId));flags=Object.fromEntries((test?nkMarkedTestIds(test):[]).map(id=>[String(id),true]));}
+    if(s.mode==='review'&&!Object.keys(flags).length)return result;
     root.querySelectorAll('.qb-nav-q').forEach((button,i)=>{
       if(flags[String(s.questionIds[i])]!==true)return;
       button.classList.add('is-marked');

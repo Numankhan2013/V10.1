@@ -66,12 +66,17 @@
     });
     return {rows};
   }
+  // Result rows show the stem as plain text: no bold markers, template tags or entities.
+  function nkQuestionSearchPlain(text){
+    const plain=String(text||'').replace(/\{\{[^}]*\}\}/g,'').replace(/\*\*|__/g,'').replace(/&(amp|lt|gt|quot|#39|nbsp);/g,(m,k)=>({amp:'&',lt:'<',gt:'>',quot:'"','#39':"'",nbsp:' '})[k]).replace(/\s+/g,' ').trim();
+    return plain.length>320?plain.slice(0,317).replace(/\s+\S*$/,'')+'…':plain;
+  }
   function nkQuestionSearchRow(entry){
     const q=entry.q,id=entry.id,progress=nkQuestionSearchStatus(id),topic=q.chapter||q.topic||'Topic unavailable',reference=nkQuestionSearchReferenceOnly(q);
     const badges=[reference?'Reference only':progress.unattempted?'Unattempted':progress.missed?'Missed before':'Attempted'];
     if(progress.bookmarked)badges.push('Bookmarked');
     if(Array.isArray(q.studyCollections)&&q.studyCollections.includes('pyq'))badges.push('PYQ');
-    return `<article class="nk-question-search-item"><div class="nk-question-search-meta">${esc(q.subject||'Subject')} · ${esc(q.bank||'Question bank')} · ${esc(topic)}</div><p>${esc(q.question||'Question text unavailable')}</p><div class="nk-question-search-bottom"><span class="nk-question-search-id">${esc(id)} · ${badges.map(esc).join(' · ')}</span><button type="button" onclick="window.QB.nkQuestionSearchOpen('${encodeURIComponent(id)}')">${reference?'Read reference':'Practice'} ${navIcon('chevron',16)}</button></div></article>`;
+    return `<article class="nk-question-search-item"><div class="nk-question-search-meta">${esc(q.subject||'Subject')} · ${esc(q.bank||'Question bank')} · ${esc(topic)}</div><p>${esc(nkQuestionSearchPlain(q.question)||'Question text unavailable')}</p><div class="nk-question-search-bottom"><span class="nk-question-search-id">${esc(id)} · ${badges.map(esc).join(' · ')}</span><button type="button" onclick="window.QB.nkQuestionSearchOpen('${encodeURIComponent(id)}')">${reference?'Read reference':'Practice'} ${navIcon('chevron',16)}</button></div></article>`;
   }
   function nkQuestionSearchResultsMarkup(){
     const {rows,idle,short}=nkQuestionSearchMatches();

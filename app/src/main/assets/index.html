@@ -310,7 +310,7 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
   function navigate(page, id = '') {
     const target=id?page+'/'+encodeURIComponent(id):page;
     if((page==='practice'||page==='exam')&&state.activeSession&&!state.activeSession.originRoute){
-      state.activeSession.originRoute=['chapter','topics','banks'].includes(route.page)?'topics':['tests','dashboard','bookmarks','wrong','review','modules'].includes(route.page)?route.page:'topics';
+      state.activeSession.originRoute=['chapter','topics','banks'].includes(route.page)?'topics':['tests','dashboard','bookmarks','wrong','review','modules','fsrs-insights','analytics'].includes(route.page)?route.page:'topics';
       saveState();
     }
     if(page==='result'&&(route.page==='practice'||route.page==='exam')){
@@ -987,7 +987,7 @@ function dashboard(){
 
   // Test records can arrive from cloud sync or a restored backup; coerce every
   // field that is interpolated into markup so a crafted record cannot inject HTML.
-  const NK_TEST_ORIGINS=['topics','tests','dashboard','bookmarks','wrong','review','modules'];
+  const NK_TEST_ORIGINS=['topics','tests','dashboard','bookmarks','wrong','review','modules','fsrs-insights','analytics'];
   function nkSafeTest(t) {
     if(!t||typeof t!=='object')return t;
     const n=v=>{const x=Number(v);return Number.isFinite(x)?x:0;};
@@ -1897,7 +1897,7 @@ function dashboard(){
     const t=nkSafeTest(state.tests.find(x=>x.id===testId));if(!t)return testsPage();
     const isPractice=t.kind==='practice',studyModule=t.studyModuleId?nkFindStudyModule(t.studyModuleId):null,score=t.total?t.correct/t.total*100:0,attempted=t.correct+t.incorrect,accuracy=attempted?fmtPct(t.correct/attempted*100):'—';
     const totalQuestionTime=Object.values(t.questionTimes||{}).reduce((a,b)=>a+(b||0),0),attemptedQuestionTime=Object.keys(t.answers||{}).reduce((a,id)=>a+((t.questionTimes||{})[id]||0),0);
-    return shell(`<div class="nk-app-v114 nk-result-v114"><button class="nk-back-link" onclick="window.QB.nav('${t.originRoute||(isPractice?'topics':'tests')}')">${navIcon('back',18)} ${{topics:'Topics',tests:'Tests',dashboard:'Home',bookmarks:'Bookmarks',wrong:'Wrong questions',review:'Review',modules:'Modules'}[t.originRoute]||(isPractice?'Topics':'Tests')}</button>${nkAppPageHead(`${isPractice?'Practice':'Timed CBT'} · ${fmtDate(t.createdAt)}`,studyModule?'Module analysis':isPractice?'Practice analysis':'Test analysis',t.title,`<button class="nk-head-action v102-review-action" type="button" data-v102-review-cta="1" data-review-test-id="${esc(t.id)}" onclick="return window.__QB_OPEN_REVIEW(this.getAttribute('data-review-test-id'))">Review Solutions ${navIcon('chevron',16)}</button>`)}
+    return shell(`<div class="nk-app-v114 nk-result-v114"><button class="nk-back-link" onclick="window.QB.nav('${t.originRoute||(isPractice?'topics':'tests')}')">${navIcon('back',18)} ${{topics:'Topics',tests:'Tests',dashboard:'Home',bookmarks:'Bookmarks',wrong:'Wrong questions',review:'Review',modules:'Modules','fsrs-insights':'FSRS insights',analytics:'Insights'}[t.originRoute]||(isPractice?'Topics':'Tests')}</button>${nkAppPageHead(`${isPractice?'Practice':'Timed CBT'} · ${fmtDate(t.createdAt)}`,studyModule?'Module analysis':isPractice?'Practice analysis':'Test analysis',t.title,`<button class="nk-head-action v102-review-action" type="button" data-v102-review-cta="1" data-review-test-id="${esc(t.id)}" onclick="return window.__QB_OPEN_REVIEW(this.getAttribute('data-review-test-id'))">Review Solutions ${navIcon('chevron',16)}</button>`)}
       <section class="nk-result-overview"><div><div class="nk-result-percentages"><div><span>Score: all questions</span><b>${fmtPct(score)}</b><small>${t.correct} / ${t.total} correct</small></div><div><span>Accuracy: answered questions</span><b>${accuracy}</b><small>${attempted} answered</small></div></div><p>${score>=75?'Strong retrieval. Review the misses and keep the pattern.':score>=50?'A useful baseline. Review the incorrect answers while they are fresh.':'This set has identified exactly what needs another pass.'}</p></div>${donut(score,142)}</section>
       <div class="nk-result-counts"><div class="is-correct"><b>${t.correct}</b><span>Correct</span></div><div class="is-wrong"><b>${t.incorrect}</b><span>Incorrect</span></div><div class="is-missed"><b>${t.unattempted}</b><span>Unattempted</span></div></div>
       <div class="nk-insight-grid nk-result-stats"><article class="is-blue"><span>${navIcon('clock',18)}</span><small>Time taken</small><b>${formatDuration(t.totalTimeMs)}</b><p>${fmtNum(t.questionIds.length)} question${t.questionIds.length===1?'':'s'}</p></article><article class="is-violet"><span>${navIcon('chart',18)}</span><small>Avg. time / attempted</small><b>${formatDuration(t.attempted?attemptedQuestionTime/t.attempted:0)}</b><p>selected answers only</p></article><article class="is-amber"><span>${navIcon('book',18)}</span><small>Avg. time / question</small><b>${formatDuration(t.total?totalQuestionTime/t.total:0)}</b><p>includes skips</p></article><article class="is-green"><span>${navIcon('check',18)}</span><small>Completion</small><b>${fmtPct(t.total?attempted/t.total*100:0)}</b><p>${attempted} attempted</p></article></div>
@@ -1906,7 +1906,7 @@ function dashboard(){
       ${studyModule?nkModuleResultExtras(t,studyModule):''}
       ${nkCorrectionResultSection(t)}
       <section class="nk-section"><div class="nk-section-head"><div><div class="nk-kicker">QUESTION REVIEW</div><h2>Every answer</h2></div></div><div class="nk-result-questions">${t.questionIds.map((id,i)=>{const q=BY_ID[id],sel=t.answers[id],corr=Number(q.correctOption)===Number(sel);return `<div><span class="nk-question-index">${i+1}</span><span><strong>${nkScientificMarkup(q.question.slice(0,125))}${q.question.length>125?'…':''}</strong><small><i class="nk-status ${sel?(corr?'is-correct':'is-wrong'):'is-unattempted'}">${sel?(corr?'Correct':'Incorrect'):'Unattempted'}</i>${esc(q.chapter)}</small></span></div>`}).join('')}</div></section>
-    </div>`,'tests');
+    </div>`,!isPractice?'tests':({wrong:'quick-revision',bookmarks:'quick-revision',review:'quick-revision',fsrs:'quick-revision','fsrs-insights':'analytics',analytics:'analytics',tests:'tests'})[t.originRoute]||'dashboard');
   }
 
   function buildReviewSession(t) {
