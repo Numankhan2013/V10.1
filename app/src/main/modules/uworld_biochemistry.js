@@ -49,7 +49,7 @@
   function nkUworldAssetUrl(asset){return (location.hostname==='qbank.local'?'/app/':'./')+asset;}
   function nkUworldFigureMarkup(node,q,option=false){
     const caption=node.caption||'Source figure';
-    const img=`<img src="${esc(nkUworldAssetUrl(node.asset))}" alt="${esc(caption)}" loading="eager" decoding="async" data-uworld-essential="${option||node.role==='question'?'true':'false'}" data-uworld-qid="${esc(q.id)}"><span class="nk-uworld-figure-missing" aria-hidden="true">Figure unavailable</span>`;
+    const img=`<img src="${esc(nkUworldAssetUrl(node.asset))}" alt="${esc(caption)}" loading="eager" decoding="async" data-uworld-essential="${option||node.role==='question'?'true':'false'}" data-uworld-qid="${esc(q.id)}" onerror="this.setAttribute('data-uworld-failed','')"><span class="nk-uworld-figure-missing" aria-hidden="true">Figure unavailable</span>`;
     if(option)return `<span class="nk-uworld-option-figure">${img}</span>`;
     return `<figure class="nk-uworld-figure"><button type="button" aria-label="Enlarge source figure" onclick="window.QB.uworldFigure(${esc(JSON.stringify(String(node.asset)))})">${img}<span>${navIcon('search',16)} Enlarge</span></button>${node.caption||node.source_note?`<figcaption>${nkScientificMarkup(node.caption||'')}${node.source_note?`<span class="nk-uworld-source-note">${nkScientificMarkup(node.source_note)}</span>`:''}</figcaption>`:''}</figure>`;
   }

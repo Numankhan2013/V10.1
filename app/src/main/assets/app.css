@@ -7197,3 +7197,11 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mi-secondary { display: flex; a
 .nk-mi-empty { margin: 0; font: 400 13px/1.45 var(--nkg-font-sans, inherit); color: var(--nkg-fg-3, #666); }
 .nk-mi-methods { margin-top: 20px; }
 @media (max-width: 699px) { .nk-mi-card { padding: 16px; } .nk-mi-hero > b { font-size: 30px; } }
+/* The exam clock stays in view while a long question scrolls. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v114-session.is-exam .nk-exam-strip { position: sticky; top: calc(53px + env(safe-area-inset-top, 0px)); z-index: 6; background: var(--nkg-bg, #fff) !important; box-shadow: 0 1px 0 var(--nkg-border, #e5e5e5); }
+/* A figure that failed to download collapses to its caption until it loads. */
+.nk-marrow-figure-button.is-failed img { display: none; }
+.nk-marrow-figure-button.is-failed { min-height: 56px; border: 1px dashed var(--nkg-border, #d4d4d4); }
+/* Navigator legend dots match the tiles they describe. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .qb-legend-dot.correct { border: 1px solid var(--nkg-green) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .qb-legend-dot.incorrect { border: 1px solid var(--nkg-red-border) !important; }

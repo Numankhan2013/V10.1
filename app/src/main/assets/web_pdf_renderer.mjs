@@ -92,7 +92,7 @@ if (location.hostname !== 'qbank.local') {
 
   function loadDocument(subject) {
     const url = urls[subject];
-    if (!url) return Promise.reject(new Error('Anatomy source PDF needs the configured R2 URL.'));
+    if (!url) return Promise.reject(Object.assign(new Error('The source page for this explanation is not available on the web yet.'),{friendly:true}));
     if (!documents.has(subject)) documents.set(subject, pdfjs.getDocument({url}).promise);
     return documents.get(subject);
   }
@@ -189,7 +189,7 @@ if (location.hostname !== 'qbank.local') {
     } catch(error) {
       node.dataset.rendered='error';
       const status=node.querySelector('.nk-web-pdf-status');
-      if(status)status.textContent=String(error.message||'Source page unavailable. Tap to retry.');
+      if(status)status.textContent=error?.friendly?error.message:'Source page unavailable. Tap to retry.';
       node.onclick=()=>{delete node.dataset.rendered;renderQueue=renderQueue.then(()=>renderSegment(node));};
     }
   }

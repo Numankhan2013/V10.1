@@ -72,6 +72,12 @@ def main() -> None:
             return
         raise AssertionError(why)
 
+    table = [{"columns": ["Statements"], "rows": [["1. One"], ["2. Two"]]}]
+    tabled = {"questions": [question()]}
+    apply_corrections([tabled], [{"id": "q1", "reason": "statements", "stemTables": table}])
+    assert tabled["questions"][0]["stemTables"] == table
+    fails([{"questions": [question()]}], [{"id": "q1", "reason": "x", "stemTables": [{"rows": []}]}],
+          "a statement table without rows must fail")
     fails([{"questions": [question()]}], [{**entry, "id": "gone"}], "an entry for a missing question must fail")
     fails([{"questions": [question()]}], [{**entry, "edits": [{"find": "not there", "replace": "x"}]}],
           "text that is not in the question must fail")

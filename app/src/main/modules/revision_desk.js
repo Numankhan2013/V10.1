@@ -98,14 +98,14 @@
     const icon={wrong:'refresh',bookmarks:'bookmark',unseen:'search',due:'clock'}[kind]||'book';
     const tone={wrong:'is-red',bookmarks:'is-violet',unseen:'is-blue',due:'is-green'}[kind]||'is-indigo';
     const browse=!disabled&&['wrong','bookmarks'].includes(kind)?'<button type="button" class="nk-revision-view-all" aria-label="View all '+esc(title.toLowerCase())+'" onclick="window.QB.nav(\'revision-browse\',\''+kind+'\')">View all</button>':'';
-    return '<article class="nk-revision-card '+tone+(count?'':' is-empty')+'"><div class="nk-revision-card-head"><span class="nk-revision-icon">'+navIcon(icon,20)+'</span><span class="nk-revision-card-copy"><strong>'+esc(title)+'</strong><small>'+esc(copy)+'</small></span><b>'+fmtNum(count)+'</b></div>'+(detail?'<p class="nk-revision-detail">'+esc(detail)+'</p>':'')+'<div class="nk-revision-actions"><button type="button" '+(disabled?'disabled':'')+' onclick="window.QB.nkStartRevisionQueue(\''+kind+'\')">'+esc(disabled?'Nothing to review':actionLabel)+' '+(disabled?'':navIcon('chevron',16))+'</button>'+browse+'</div></article>';
+    return '<article class="nk-revision-card '+tone+(count?'':' is-empty')+'"><div class="nk-revision-card-head"><span class="nk-revision-icon">'+navIcon(icon,20)+'</span><span class="nk-revision-card-copy"><strong>'+esc(title)+'</strong><small>'+esc(copy)+'</small></span><b>'+fmtNum(count)+'</b></div>'+(detail?'<p class="nk-revision-detail">'+esc(detail)+'</p>':'')+'<div class="nk-revision-actions"><button type="button" '+(disabled?'disabled':'')+' onclick="window.QB.nkStartRevisionQueue(\''+kind+'\')">'+esc(disabled?(kind==='due'&&count?'Daily limit reached':'Nothing to review'):actionLabel)+' '+(disabled?'':navIcon('chevron',16))+'</button>'+browse+'</div></article>';
   }
 
   function nkRevisionCards(data){
     return nkRevisionCard('wrong','Mistakes','Questions you have answered incorrectly.',data.wrong.length,'Practice mistakes',!data.wrong.length,'A question leaves this list once you get it right.')
       +nkRevisionCard('bookmarks','Bookmarks','Questions you saved while studying.',data.bookmarked.length,'Practice bookmarks',!data.bookmarked.length,'Questions you saved while studying.')
       +nkRevisionCard('unseen','Unseen','Questions you have not attempted yet.',data.unseen.length,'Practice '+fmtNum(Math.min(20,data.unseen.length))+' unseen',!data.unseen.length,data.unseen.length>20?'20 questions per session · sampled from this focus':'')
-      +nkRevisionCard('due','Due review','Questions scheduled by spaced repetition.',data.due.length,'Review due',!data.dueCards.length,(data.rolledOver?fmtNum(data.dueCards.length)+' available today · '+fmtNum(data.rolledOver)+' roll forward under the daily limit.':'Daily review limit applies.'));
+      +nkRevisionCard('due','Due review',data.due.length&&!data.dueCards.length?'Today\'s review limit is done. The rest roll to tomorrow.':data.rolledOver?fmtNum(data.dueCards.length)+' left today under your daily limit.':'Questions scheduled by spaced repetition.',data.due.length,'Review due',!data.dueCards.length,(data.rolledOver?fmtNum(data.dueCards.length)+' available today · '+fmtNum(data.rolledOver)+' roll forward under the daily limit.':'Daily review limit applies.'));
   }
   function nkRevisionDeskPage(){
     const data=nkRevisionDeskData();

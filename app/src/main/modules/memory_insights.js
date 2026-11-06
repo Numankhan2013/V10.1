@@ -158,6 +158,8 @@
     const rows=ids.map(id=>nkFindStudyQuestion(id)).filter(Boolean);if(!rows.length){showToast('These questions are unavailable.','bad');return false;}
     BY_ID={...BY_ID,...Object.fromEntries(rows.map(q=>[String(q.id),q]))};
     startSession(rows.map(q=>String(q.id)),'practice',title,'normal');
+    // The result's back link returns here, not to Topics.
+    if(state.activeSession){state.activeSession.originRoute='fsrs-insights';saveState();}
     return true;
   }
   function nkMemoryOpenQuestion(encoded){let id;try{id=decodeURIComponent(encoded);}catch{return false;}if(!nkMemoryData(nkMemoryGroup).hardest.some(h=>String(h.q.id)===id))return false;return nkMemoryStart([id],'Hardest question');}

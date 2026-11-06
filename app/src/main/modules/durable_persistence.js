@@ -122,7 +122,9 @@
       if(current&&NK_PRACTICE_TERMINAL.has(current.lifecycle)){target.activeSession=null;target.normalPracticeCheckpoints=checkpoints;target.normalPracticeCheckpoint=nkLatestPracticeCheckpoint(checkpoints);return target.normalPracticeCheckpoint;}
       if(current&&(session.lifecycle==='paused'||session.lifecycle==='suspended')){target.normalPracticeCheckpoints=checkpoints;target.normalPracticeCheckpoint=nkLatestPracticeCheckpoint(checkpoints);return current;}
       const next=nkCheckpointFromSession(session,current,String(session.lifecycle||'active')),index=checkpoints.findIndex(item=>String(item.sessionId)===String(session.id));
-      next.updatedAt=Math.max(Number(next.updatedAt||0),...checkpoints.map(item=>Number(item.updatedAt||0)+1));
+      // An unchanged checkpoint keeps its time, so a save that changes nothing stays a no-op.
+      if(current&&JSON.stringify({...next,updatedAt:0})===JSON.stringify({...current,updatedAt:0}))next.updatedAt=current.updatedAt;
+      next.updatedAt=Math.max(Number(next.updatedAt||0),...checkpoints.filter(item=>String(item.sessionId)!==String(session.id)).map(item=>Number(item.updatedAt||0)+1));
       if(index<0)checkpoints.push(next);else checkpoints[index]=next;
       target.normalPracticeCheckpoints=checkpoints;target.normalPracticeCheckpoint=nkLatestPracticeCheckpoint(checkpoints);return next;
     }
@@ -168,6 +170,9 @@
       const next=nkNormalizeState(candidate);
       let storedRevision=0;
       if(previousPrimary){try{storedRevision=nkStateRevision(JSON.parse(previousPrimary));}catch(_){}}
+      // A save that changes nothing (a tab closed or hidden without studying) writes
+      // nothing, so other open tabs are not told their copy is stale.
+      if(previousPrimary&&nkStateRevision(candidate)===storedRevision){next.stateRevision=storedRevision;if(JSON.stringify(next)===previousPrimary){nkStorageClearError();return true;}}
       next.stateRevision=Math.max(nkStateRevision(candidate),storedRevision)+1;
       const raw=JSON.stringify(next);
       store.setItem(NK_STATE_PENDING_KEY,raw);store.setItem(LS_KEY,raw);
@@ -188,7 +193,8 @@
   }
   function nkRetryPersistence(){const ok=saveState();if(ok){nkStorageClearError();if(typeof nkScheduleCloudSync==='function')nkScheduleCloudSync();}return ok;}
   function nkFlushLifecycleState(){
-    const s=state?.activeSession;
+    // Only the tab showing the session charges the time; another tab on Home leaves it alone.
+    const live=state?.activeSession,s=typeof route==='undefined'||route?.page===live?.mode?live:null;
     if(s?.mode==='practice'&&s.lifecycle!=='paused'&&s.lifecycle!=='suspended'&&typeof savePracticeElapsed==='function')savePracticeElapsed();
     else if(s?.mode==='exam'&&typeof saveExamElapsed==='function')saveExamElapsed();
     const ok=saveState();if(typeof nkCaptureCloudChanges==='function')nkCaptureCloudChanges();return ok;
