@@ -75,7 +75,14 @@ def main():
                 # Geist commits the save after its ~560 ms check animation; wait for the real save.
                 sheet.locator('textarea').wait_for(state='detached',timeout=5000)
                 assert sheet.locator('.nk-note-readonly').inner_text()==draft
-                sheet.locator('.nk-nb[data-i="0"] .nk-nb-dots').click();page.locator('.nk-nb-menu').get_by_role('menuitem',name='Edit',exact=True).click()
+                # The block menu opens with a short morph; retry the Edit tap until the editor opens.
+                for _ in range(3):
+                    if sheet.locator('textarea').count():break
+                    if not page.locator('.nk-nb-menu').get_by_role('menuitem',name='Edit',exact=True).is_visible():
+                        sheet.locator('.nk-nb[data-i="0"] .nk-nb-dots').click()
+                    page.locator('.nk-nb-menu').get_by_role('menuitem',name='Edit',exact=True).click()
+                    try:sheet.locator('textarea').wait_for(timeout=3000)
+                    except Exception:pass
                 sheet.locator('textarea').fill('Failed save: keep my recall cue')
                 page.evaluate('__studyFailSave()');sheet.get_by_role('button',name='Save',exact=True).click()
                 sheet.locator('.nk-nb-edit-actions [role="status"]').filter(has_text='Save failed').wait_for(timeout=5000)

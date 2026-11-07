@@ -260,7 +260,14 @@
     if(nkLearningYearMemo.key!==key)nkLearningYearMemo={key,html:nkLearningYearActivityRaw(model,now)};
     return nkLearningYearMemo.html;
   };
-  function nkLearningSetPeriod(value){if(!['week','month','year'].includes(value))return;nkLearningPeriod=value;nkLearningOffset=0;nkLearningBin=-1;nkLearningRefresh();}
+  // The period pill slides on the compositor; re-render the report a frame later so the slide starts first.
+  let nkLearningRefreshQueued=false;
+  function nkLearningRefreshSoon(){
+    if(typeof requestAnimationFrame!=='function'){nkLearningRefresh();return;}
+    if(nkLearningRefreshQueued)return;nkLearningRefreshQueued=true;
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{nkLearningRefreshQueued=false;nkLearningRefresh();}));
+  }
+  function nkLearningSetPeriod(value){if(!['week','month','year'].includes(value))return;nkLearningPeriod=value;nkLearningOffset=0;nkLearningBin=-1;nkLearningRefreshSoon();}
   function nkLearningMove(n){if(![-1,0,1].includes(n))return;nkLearningOffset=n===0?0:Math.min(0,nkLearningOffset+n);nkLearningBin=-1;nkLearningRefresh();}
   // Subject and bank narrow each other: a bank only offers the subjects it contains
   // (UWorld offers its collections, PrepLadder/Marrow offer the three core subjects)
