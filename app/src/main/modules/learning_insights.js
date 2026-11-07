@@ -149,10 +149,11 @@
       const active=model.bins.filter(x=>x.active&&x.current.attempts),unit=model.range.period==='year'?'month':model.range.period==='month'?'week':'day';
       const values=model.bins.filter(x=>x.active).map(x=>({x,v:m.value(x.current)})).filter(r=>r.v!==null&&r.v!==undefined&&(m.points?r.x.current.attempts:r.v));
       const best=values.sort((a,c)=>c.v-a.v)[0],avg=values.length?(m.points?m.value(model.current):values.reduce((n,r)=>n+r.v,0)/model.bins.filter(x=>x.active).length):null;
-      return `<ul class="nk-li-chips"><li><small>${m.points?'Overall':`Avg per ${unit}`}</small><b>${fmt(avg)}</b></li><li><small>Best ${unit}</small><b>${best?`${esc(best.x.label)} · ${fmt(best.v)}`:'—'}</b></li><li><small>Active ${unit}s</small><b>${fmtNum(active.length)} of ${fmtNum(model.bins.filter(x=>x.active).length)}</b></li></ul>`;
+      const worst=m.points?values.slice().sort((a,c)=>a.v-c.v)[0]:null;
+      return `<ul class="nk-li-chips"><li><small>${m.points?`Weakest ${unit}`:`Avg per ${unit}`}</small><b>${m.points?(worst?`${esc(worst.x.label)} · ${fmt(worst.v)}`:'—'):fmt(avg)}</b></li><li><small>Best ${unit}</small><b>${best?`${esc(best.x.label)} · ${fmt(best.v)}`:'—'}</b></li><li><small>Active ${unit}s</small><b>${fmtNum(active.length)} of ${fmtNum(model.bins.filter(x=>x.active).length)}</b></li></ul>`;
     }
     const rows=nkLearningSubjectSplit(b.current.events);
-    return `<strong>${esc([...new Set([nkLearningDate(+b.start),nkLearningDate(Math.min(+b.end,model.range.cut)-1)])].join(' – '))}</strong><span><b>${fmt(m.value(b.current))}</b> ${esc(m.label.toLowerCase())} · ${b.current.attempts} answers · ${nkLearningPct(b.current.accuracy)} correct · ${nkLearningTime(b.current.time)}</span>${rows.length?nkLearningSplitRows(rows,b.current.attempts):''}<small>${esc(labels.previous)}: ${fmt(m.value(b.previous))} ${esc(m.label.toLowerCase())} · ${b.previous.attempts} answers</small>`;
+    return `<strong>${esc([...new Set([nkLearningDate(+b.start),nkLearningDate(Math.min(+b.end,model.range.cut)-1)])].join(' – '))}</strong><span>${[nkLearningMetric==='attempts'?'':`<b>${fmt(m.value(b.current))}</b> ${esc(m.label.toLowerCase())}`,`${fmtNum(b.current.attempts)} answer${b.current.attempts===1?'':'s'}`,nkLearningMetric==='accuracy'?'':`${nkLearningPct(b.current.accuracy)} correct`,b.current.time&&nkLearningMetric!=='time'?nkLearningTime(b.current.time):''].filter(Boolean).join(' · ')}</span>${rows.length?nkLearningSplitRows(rows,b.current.attempts):''}<small>${esc(labels.previous)}: ${fmt(m.value(b.previous))} ${esc(m.label.toLowerCase())} · ${b.previous.attempts} answers</small>`;
   }
   function nkLearningAccuracyBar(row){
     return `<i class="nk-li-progress nk-li-accuracy-bar" role="img" aria-label="${row.correct} of ${row.total} recorded answers correct${row.accuracy===null?'':`: ${nkLearningPct(row.accuracy)}`}" ><i style="width:${row.accuracy||0}%"></i></i>`;
@@ -207,7 +208,8 @@
   // interactive chart; what needs attention follows; breakdowns, memory and the year come after.
   function nkLearningContent(model){
     const m=NK_LI_METRICS[nkLearningMetric],labels=nkLearningPeriodLabels(model),v=m.value(model.current);
-    const main=`<section class="nk-li-main" aria-labelledby="nk-li-main-title"><header><small id="nk-li-main-title">${esc(m.label)} · ${esc(labels.current)}</small><strong>${v===null?'—':m.format(v)}</strong>${nkLearningVs(nkLearningMetric,model.current,model.previous,labels.previous)}</header>${nkLearningBarChart(model)}</section>`;
+    // The selected tile above already states the total and its change; the chart only names what it plots.
+    void v;const main=`<section class="nk-li-main" aria-labelledby="nk-li-main-title"><header><small id="nk-li-main-title">${esc(m.label)} · ${esc(labels.current)}</small></header>${nkLearningBarChart(model)}</section>`;
     return `<section class="nk-li-overview">${nkLearningKpis(model)}${main}</section>${nkFocusSection(model)}<div class="nk-li-grid">${nkLearningCard('Topics',nkLearningTopics(model))}${nkLearningCard('Subjects',nkLearningSubjects(model))}${nkLearningCard('Memory',nkLearningFsrs(model))}${nkLearningCard('Study modules',nkLearningModules(model))}</div>${nkLearningYearActivity(model)}`;
   }
   function analytics(){
