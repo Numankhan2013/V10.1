@@ -884,7 +884,12 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
     },0);
     return {attempted:qids.size,accuracy:attempts.length?correct/attempts.length*100:null,studyMs:practiceMs+testMs};
   }
-  function nkSetHomeProgressRange(v){if(['today','week','month','year'].includes(v)){nkHomeProgressRange=v;render();}}
+  // The range pill slides first; Home re-renders a frame later so the slide is never stalled by the render.
+  let nkHomeRangeQueued=false;
+  function nkSetHomeProgressRange(v){if(!['today','week','month','year'].includes(v))return;nkHomeProgressRange=v;
+    if(typeof requestAnimationFrame!=='function'){render();return;}
+    if(nkHomeRangeQueued)return;nkHomeRangeQueued=true;
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{nkHomeRangeQueued=false;if(route?.page==='dashboard')render();}));}
   function nkHomePreferredTotal(){return (SUBJECTS||[]).reduce((n,r)=>n+nkSubjectStatsV3(r.subject).questions,0);}
   function nkStrongestChaptersV3(){
     const rows=[];(SUBJECTS||[]).forEach(s=>{const r=nkPreferredRecord(s.subject);if(!r)return;(r.topics||[]).forEach(t=>{const qs=(r.questions||[]).filter(q=>String(q.chapterId)===String(t.id)),attempts=qs.flatMap(q=>qAttempts(q.id));if(!attempts.length)return;const correct=attempts.filter(a=>a.correct).length;rows.push({subject:s.subject,bank:r.bank||'',topicId:String(t.id),title:t.title||t.name||'Topic',attempted:new Set(qs.filter(q=>qAttempts(q.id).length).map(q=>q.id)).size,total:qs.length,accuracy:correct/attempts.length*100});});});
