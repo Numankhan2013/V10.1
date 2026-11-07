@@ -7008,6 +7008,58 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-sched-save.is-saved { color: va
 .nk-mock-in-empty button { display: inline-flex; align-items: center; gap: 4px; min-height: 36px; padding: 0 14px; border: 1px solid var(--nkg-border-strong, #d4d4d4); border-radius: 10px; background: var(--nkg-bg, #fff); color: var(--nkg-fg, #0a0a0a); font: 500 13px/1 var(--nkg-font-sans, inherit); cursor: pointer; }
 @media (max-width: 480px) { .nk-mock-in-stats { grid-template-columns: repeat(2, minmax(0,1fr)); row-gap: 12px; } .nk-mock-in-chart { height: 190px; } }
 @media (prefers-reduced-motion: reduce) { .nk-mock-in-line { animation: none; stroke-dashoffset: 0; } .nk-mock-in-area, .nk-mock-in-dots i, .nk-sched-attend-dots i { animation: none; } .nk-sched-ticket.is-soon .nk-sched-lock { animation: none; } }
+/* ── nk-today-hero-v2: focus band on top of Today's plan, and the New questions sheet ── */
+.nk-today.has-focus { padding: 0; overflow: hidden; }
+.nk-today.has-focus .nk-today-body { padding: 14px 18px 8px; }
+.nk-today.has-focus .nk-today-head h2 { font-size: 17px; }
+html[data-nk-ui="geist"] body #app .nk-home-command-center .nk-today > .nk-home-focus-card { margin: 0 !important; border: 0 !important; border-radius: 0 !important; padding: 18px !important; }
+html[data-nk-ui="geist"] body #app .nk-home-command-center .nk-today > .nk-home-focus-card h2 { font-size: 19px !important; line-height: 1.25 !important; margin: 4px 0 14px !important; }
+html[data-nk-ui="geist"] body #app .nk-home-command-center .nk-today > .nk-home-focus-card .nk-home-focus-action { min-height: 46px !important; }
+html[data-nk-ui="geist"][data-nk-theme="dark"] body #app .nk-home-command-center .nk-today > .nk-home-focus-card { border-bottom: 1px solid var(--nkg-border-strong) !important; }
+.nk-today-step.is-new .nk-today-bar { max-width: 200px; }
+.nk-sr { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-progress p { margin: 6px 0 0 !important; font-size: 13px; line-height: 1.35; color: var(--nkg-fg-2) !important; font-variant-numeric: tabular-nums; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-progress b { color: var(--nkg-fg); font-weight: 600; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-progress .nk-today-bar { max-width: none; height: 4px; margin-top: 10px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-progress .nk-today-bar i { background: var(--nkg-fg); transition: width .5s cubic-bezier(.16,1,.3,1); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-goal-own { display: inline-flex; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-goal-own input { width: 72px; min-height: 34px; padding: 0 10px; border: 1px solid var(--nkg-border); border-radius: 999px; background: var(--nkg-bg); color: var(--nkg-fg); font: inherit; font-size: 13px; text-align: center; font-variant-numeric: tabular-nums; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-goal-own.is-selected input { border-color: var(--nkg-fg); box-shadow: inset 0 0 0 1px var(--nkg-fg); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-goal-own input:focus { outline: 2px solid var(--nkg-fg); outline-offset: 2px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-search { display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 12px; border: 1px solid var(--nkg-border); border-radius: 12px; background: var(--nkg-bg); color: var(--nkg-fg-3); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-search:focus-within { border-color: var(--nkg-fg); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-search input { flex: 1; min-width: 0; height: 40px; border: 0 !important; outline: 0; background: transparent !important; color: var(--nkg-fg); font: inherit; font-size: 15px; box-shadow: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-list { margin-top: 10px; border: 1px solid var(--nkg-border); border-radius: 12px; overflow: hidden; background: var(--nkg-bg); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-subj + .nk-learn-subj { border-top: 1px solid var(--nkg-border); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-subj-row { display: flex; align-items: stretch; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-learn-subj-pick, .nk-learn-bank, .nk-learn-topic, .nk-learn-expand) { display: flex; align-items: center; gap: 12px; margin: 0; border: 0 !important; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; color: var(--nkg-fg) !important; text-align: left; font: inherit; cursor: pointer; transform: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-subj-pick { flex: 1; min-width: 0; min-height: 58px; padding: 8px 4px 8px 14px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-subj-pick > span:last-child { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-subj-pick strong { font-size: 15px; font-weight: 600; line-height: 1.25; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-learn-subj-pick, .nk-learn-bank, .nk-learn-topic) small { font-size: 12.5px; color: var(--nkg-fg-3) !important; font-variant-numeric: tabular-nums; white-space: nowrap; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-expand { justify-content: center; flex: none; width: 52px; color: var(--nkg-fg-3) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-expand svg { transition: transform .22s cubic-bezier(.16,1,.3,1); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-subj.is-open .nk-learn-expand svg { transform: rotate(90deg); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-topics { padding: 2px 0 8px; border-top: 1px solid var(--nkg-border); background: var(--nkg-surface, #fafafa); animation: nk-learn-open .24s cubic-bezier(.16,1,.3,1); }
+@keyframes nk-learn-open { from { opacity: 0; transform: translateY(-4px); } }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-bank { width: 100%; min-height: 40px; padding: 10px 14px 4px; font-size: 12px; font-weight: 600; letter-spacing: .02em; color: var(--nkg-fg-2) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-bank > span:not(.nk-learn-check), html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-topic > span:not(.nk-learn-check) { flex: 1; min-width: 0; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-topic { width: 100%; min-height: 44px; padding: 6px 14px 6px 46px; font-size: 14px; line-height: 1.3; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-check { flex: none; display: grid; place-items: center; width: 20px; height: 20px; border: 1.5px solid var(--nkg-border-strong, #d4d4d4); border-radius: 6px; background: var(--nkg-bg); color: var(--nkg-bg); transition: background-color .15s ease, border-color .15s ease; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-check.is-on { background: var(--nkg-fg); border-color: var(--nkg-fg); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-check.is-mixed { border-color: var(--nkg-fg); background: linear-gradient(var(--nkg-fg), var(--nkg-fg)) center / 10px 2px no-repeat, var(--nkg-bg); }
+@media (hover: hover) { html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-learn-subj-pick, .nk-learn-bank, .nk-learn-topic, .nk-learn-expand):hover { background: var(--nkg-hover, #f5f5f5) !important; } }
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nk-learn-subj-pick, .nk-learn-bank, .nk-learn-topic, .nk-learn-expand):focus-visible { outline: 2px solid var(--nkg-fg) !important; outline-offset: -2px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-none { margin: 0 !important; padding: 18px 14px; font-size: 14px; color: var(--nkg-fg-3) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-order { display: inline-flex; margin-top: 14px; padding: 3px; border-radius: 10px; background: var(--nkg-surface-2, #ededed); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-order button { min-height: 32px; padding: 0 14px; border: 0 !important; border-radius: 8px !important; background: transparent !important; box-shadow: none !important; color: var(--nkg-fg-2) !important; font: inherit; font-size: 13px; font-weight: 500; cursor: pointer; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-order button.is-selected { background: var(--nkg-bg) !important; color: var(--nkg-fg) !important; box-shadow: 0 1px 2px rgba(0,0,0,.1) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-foot { position: sticky; bottom: 0; z-index: 2; margin: 16px -16px 0; padding: 12px 16px 4px; border-top: 1px solid var(--nkg-border); background: var(--nkg-bg); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-foot .nk-qs-start { margin-top: 10px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-scope { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 24px; font-size: 13px; color: var(--nkg-fg-2); font-variant-numeric: tabular-nums; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-scope button { padding: 2px 0; border: 0 !important; background: transparent !important; box-shadow: none !important; color: var(--nkg-fg) !important; font: inherit; font-size: 13px; font-weight: 500; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+@media (prefers-reduced-motion: reduce) { html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-topics { animation: none; } html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-learn-expand svg { transition: none; } }
+
 /* ── nk-visual-refinement-v1 ── */
 /* NK QBank: the incumbent violet identity, composed for long study sessions. */
 :root{

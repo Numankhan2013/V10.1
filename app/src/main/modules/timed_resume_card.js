@@ -11,7 +11,7 @@
     if(!s||s.mode!=='exam'||s.lifecycle==='submitted')return '';
     const {total,answered,marked,expired,kind}=nkTimedResumeDetails(s);
     if(!total)return '';
-    return `<section class="nk-home-focus-card nk-home-timed-focus" aria-label="Today's Focus: timed test in progress"><div class="nk-home-focus-label">TODAY'S FOCUS · ${expired?'TIME LIMIT REACHED':'TEST IN PROGRESS'}</div><h2>${esc(s.title||kind)}</h2><p>${answered} of ${total} answered · ${marked} marked for review</p><p>${expired?'Finish the timed test to see your result.':'The timer keeps running while you are away.'}</p><button type="button" class="nk-focus-primary nk-home-focus-action" onclick="window.QB.nkResumeTimedTest()"><span>${expired?'Finish timed test':'Resume timed test'}</span><span aria-hidden="true">→</span></button></section>`;
+    return `<section class="nk-home-focus-card nk-home-timed-focus" aria-label="Today's Focus: timed test in progress"><div class="nk-home-focus-label">${expired?'Timed test · time is up':'Timed test in progress'}</div><h2>${esc(s.title||kind)}</h2><p>${answered} of ${total} answered · ${marked} marked for review</p><p>${expired?'Finish the timed test to see your result.':'The timer keeps running while you are away.'}</p><button type="button" class="nk-focus-primary nk-home-focus-action" onclick="window.QB.nkResumeTimedTest()"><span>${expired?'Finish timed test':'Resume timed test'}</span><span aria-hidden="true">→</span></button></section>`;
   }
   function nkTimedResumeCard(place){
     const s=state.activeSession;

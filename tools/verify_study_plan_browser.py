@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Study plan release: Today on Home, exam settings, scheduled mocks (doors, missed = 0, make-up,
+"""Study plan release: Today on Home (focus band, daily new-question goal, topic picker), exam settings, scheduled mocks (doors, missed = 0, make-up,
 attendance, schedule a saved mock), the result question strip, mock insights, and the submit skeleton."""
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
@@ -130,6 +130,57 @@ def main():
             page.wait_for_function("!document.getElementById('nkg-result-skel')")
             assert page.locator('button[data-nkg-busy]').count() == 0
             context.close()
+            # Today: one card. A fresh start offers the topic picker; the daily goal is yours to set,
+            # and every new question answered anywhere counts toward it.
+            for width, height in [(390, 844), (1194, 834)]:
+                context = browser.new_context(viewport={'width': width, 'height': height}, service_workers='block', reduced_motion='reduce')
+                page = context.new_page(); errors = []
+                page.on('pageerror', lambda e: errors.append(str(e)))
+                page.goto(origin + '/index.html#dashboard', wait_until='domcontentloaded')
+                page.wait_for_function('window.QB && window.__nkPlan')
+                today = page.locator('.nk-today')
+                expect(today).to_have_count(1)
+                expect(page.locator('.nk-home-focus-card')).to_have_count(1)
+                expect(today.locator('.nk-home-focus-card')).to_have_count(1)
+                expect(today.locator('.nk-today-step.is-new')).to_contain_text('0 of 20 today')
+                today.get_by_role('button', name='Choose a subject').click()
+                sheet = page.locator('#nk-learn-sheet')
+                expect(sheet).to_be_visible()
+                sheet.locator('.nk-learn-goal button', has_text='50').click()
+                assert page.evaluate('window.QB.getState().studyGoals.newPerDay') == 50
+                expect(sheet.locator('.nk-learn-head')).to_contain_text('0 of 50 new today')
+                sheet.locator('.nk-learn-search input').fill('Physiology')
+                physiology = sheet.locator('.nk-learn-subj', has=page.locator('strong', has_text='Physiology')).first
+                physiology.locator('.nk-learn-subj-pick').click()
+                expect(physiology.locator('.nk-learn-subj-pick')).to_have_attribute('aria-checked', 'true')
+                expect(sheet.locator('#nk-learn-start')).to_have_text('Start 50 new questions')
+                sheet.locator('#nk-learn-start').click()
+                page.wait_for_function("window.QB.getState().activeSession?.mode==='practice'")
+                started = page.evaluate("(()=>{const s=window.QB.getState().activeSession;return {n:s.questionIds.length,subjects:[...new Set(s.questionIds.map(id=>(window.__nkPlan.questions().find(q=>String(q.id)===String(id))||{}).subject))]}})()")
+                assert started == {'n': 50, 'subjects': ['Physiology']}, started
+                answer = "(()=>{const s=window.QB.getState().activeSession,id=s.questionIds[s.index];window.QB.selectPractice(id,1);window.QB.nextQ();})()"
+                for _ in range(3):
+                    page.evaluate(answer)
+                page.evaluate("window.QB.nav('dashboard')")
+                expect(page.locator('.nk-today-step.is-new')).to_contain_text('3 of 50 today')
+                expect(page.locator('.nk-today .nk-home-focus-card')).to_contain_text('In progress')
+                # A new question from another path still counts, and crossing the goal says so once.
+                page.evaluate("window.QB.nkLearnSetGoal(4)")
+                page.evaluate("window.QB.nkTodayGo('unseen',true)")
+                page.wait_for_function("window.QB.getState().activeSession?.title==='Quick Revision · Unseen'")
+                page.evaluate(answer)
+                expect(page.get_by_text('Daily goal reached')).to_be_visible()
+                page.evaluate("window.QB.nav('dashboard')")
+                expect(page.locator('.nk-today-step.is-new')).to_contain_text('goal of 4 met')
+                page.locator('.nk-today-learn').click()
+                expect(sheet.locator('.nk-learn-subj-pick[aria-checked="true"]')).to_have_count(1)
+                expect(sheet.locator('#nk-learn-start')).to_have_text('Learn 20 new questions')
+                assert not page.evaluate('document.querySelector(".nk-learn-sheet").scrollWidth>document.querySelector(".nk-learn-sheet").clientWidth'), f'sheet overflow at {width}'
+                page.keyboard.press('Escape')
+                expect(sheet).to_have_count(0)
+                assert not page.evaluate('document.documentElement.scrollWidth>innerWidth'), f'overflow at {width}'
+                assert not errors, errors
+                context.close()
             browser.close()
     finally:
         server.shutdown()

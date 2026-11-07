@@ -213,7 +213,7 @@
   }
   if(typeof dashboard==='function'){
     const original=dashboard;
-    dashboard=function(){nkSchedRecordMisses();const html=original.apply(this,arguments),sched=nkSchedMakeupCard()+nkSchedHomeMarkup();return sched?html.replace('<section class="nk-home-revision nk-today',sched+'<section class="nk-home-revision nk-today'):html;};
+    dashboard=function(){nkSchedRecordMisses();const html=original.apply(this,arguments),sched=nkSchedMakeupCard()+nkSchedHomeMarkup();if(!sched)return html;const at=html.indexOf('<section class="nk-section nk-study-sets">');return at>=0?html.slice(0,at)+sched+html.slice(at):html.replace('<section class="nk-home-revision nk-today',sched+'<section class="nk-home-revision nk-today');};
   }
   if(typeof nkCbtBuilderPage==='function'){
     const original=nkCbtBuilderPage;

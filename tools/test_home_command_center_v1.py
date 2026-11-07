@@ -19,7 +19,7 @@ def main():
     subprocess.run(['node','--check'],input=script,text=True,check=True)
 
     required=(
-        FLOW_MARKER,STYLE_ID,'nk-home-approved-v1',"TODAY'S FOCUS",'Continue Practice','Choose a subject',
+        FLOW_MARKER,STYLE_ID,'nk-home-approved-v1','Pick up where you left off','Continue Practice','Choose a subject',
         'body:has(.nk-home-approved-v1) .nk-global-header-v114{display:none!important}',
         'nkHomeFocusSection(focus,focusModule)','nkStudySetsSection(focusModule?.id)',
         'FSRS','My Subjects','nkSubjectStatsV3','nkOpenSubjectLibrary',
