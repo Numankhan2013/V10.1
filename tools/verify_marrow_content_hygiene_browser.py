@@ -74,10 +74,9 @@ def main() -> None:
                 expected_overrides.update(questions)
             ledger = json.loads((ROOT / "data/question_completeness_reviews_v1.json").read_text())
             blocked_ids = {entry["id"] for entry in ledger["entries"] if entry["display"].get("blocked")}
-            expected_blocked = {
-                "marrow__PHYS_CH07_Q034", "marrow__PHYS_CH07_Q035",
-                "marrow__PHYS_CH06_Q010", "marrow__PHYS_CH09_Q001",
-            }
+            rebuilt = {entry["id"] for entry in ledger["entries"] if entry["display"].get("question") and not entry["display"].get("blocked")}
+            # The four hygiene questions that were blocked for missing statements are rebuilt and answerable.
+            expected_blocked = set()
             if set(expected_overrides) & blocked_ids != expected_blocked:
                 raise SystemExit("Reviewed hygiene/source-omission overlap changed")
 
@@ -136,9 +135,14 @@ def main() -> None:
                         for value in page.locator(".option-text").all_inner_texts()
                     ],
                 }
-                if rendered != expected_display:
+                # Rebuilt questions keep the reviewed stem and show their restored statements or table below it.
+                stem_kept = rendered["question"] == expected_display["question"] or (
+                    rendered["question"].startswith(expected_display["question"] + "\n")
+                    and qid in rebuilt
+                )
+                if not stem_kept or rendered["options"] != expected_display["options"]:
                     raise SystemExit(
-                        f"{qid} learner rendering differs from reviewed cleanup: {rendered!r}"
+                        f"{qid} learner rendering differs from reviewed cleanup: {rendered!r} expected {expected_display!r}"
                     )
 
             def open_tuned_question(

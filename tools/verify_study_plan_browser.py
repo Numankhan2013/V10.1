@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Study plan release: Today on Home (focus band, daily new-question goal, topic picker), exam settings, scheduled mocks (doors, missed = 0, make-up,
+"""Study plan release: Today on Home (focus band, inline daily new-question goal), exam settings, scheduled mocks (doors, missed = 0, make-up,
 attendance, schedule a saved mock), the result question strip, mock insights, and the submit skeleton."""
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
@@ -91,17 +91,28 @@ def main():
                 page.wait_for_function("window.QB.getState().activeSession?.mode==='review'")
                 assert page.evaluate("(()=>{const s=window.QB.getState().activeSession;return String(s.questionIds[s.index])})()") == ids[4]
                 page.evaluate("window.QB.endReview?window.QB.endReview():window.QB.nav('tests')")
-                # Mock insights: a point per timed test (missed ones included), readable by keyboard.
+                # Mock insights: a point per timed test (missed ones included), readable by keyboard, four readings.
                 page.evaluate("window.QB.nav('analytics')")
-                chart = page.locator('.nk-mock-in-chart')
+                chart = page.locator('.nk-mt-plot')
                 expect(chart).to_be_visible()
-                n = page.evaluate("document.querySelectorAll('.nk-mock-in-dots i').length")
+                n = page.evaluate("document.querySelectorAll('.nk-mt-dots i').length")
                 assert n == page.evaluate("window.QB.getState().tests.filter(t=>t.kind!=='practice'&&t.total>0).length"), n
-                assert page.locator('.nk-mock-in-dots i.is-missed').count() == 2
+                assert page.locator('.nk-mt-dots i.is-missed').count() == 2
+                expect(page.locator('.nk-mt-readout')).to_contain_text('Average score')
                 chart.focus(); page.keyboard.press('ArrowLeft')
-                expect(page.locator('.nk-mock-in-tip')).to_contain_text('%')
-                page.locator('.nk-mock-in-toggle button', has_text='Marks').click()
-                expect(page.locator('.nk-mock-in-toggle button[aria-pressed="true"]')).to_have_text('Marks')
+                expect(page.locator('.nk-mt-readout.is-pinned')).to_contain_text('%')
+                expect(page.locator('.nk-mt-open')).to_be_visible()
+                expect(page.locator('.nk-mt-bar i.is-correct')).to_have_count(1)
+                expect(page.locator('.nk-mt-subjects li').first).to_be_visible()
+                page.get_by_role('radio', name='Pace', exact=True).click()
+                expect(page.get_by_role('radio', name='Pace', exact=True)).to_have_attribute('aria-checked', 'true')
+                expect(page.locator('.nk-mt-readout')).to_contain_text('seconds per answer')
+                assert page.locator('.nk-mt-dots i.is-missed').count() == 0
+                # The Tests page keeps one summary row that opens this section instead of a second chart.
+                page.evaluate("window.QB.nav('tests')")
+                page.locator('.nk-tests-insight').click()
+                page.wait_for_function("location.hash==='#analytics'")
+                expect(page.locator('.nk-mt-metrics [aria-checked="true"]')).to_have_text('Score')
                 # Schedule a saved mock from its details sheet.
                 page.evaluate("window.QB.nav('tests')")
                 page.evaluate("window.QB.nkMockOpen(window.QB.getState().savedMocks[0].id)")
@@ -143,41 +154,39 @@ def main():
                 expect(page.locator('.nk-home-focus-card')).to_have_count(1)
                 expect(today.locator('.nk-home-focus-card')).to_have_count(1)
                 expect(today.locator('.nk-today-step.is-new')).to_contain_text('0 of 20 today')
-                today.get_by_role('button', name='Choose a subject').click()
-                sheet = page.locator('#nk-learn-sheet')
-                expect(sheet).to_be_visible()
-                sheet.locator('.nk-learn-goal button', has_text='50').click()
+                expect(today.get_by_role('button', name='Choose a subject')).to_be_visible()
+                # The goal is set inline on the card, not in another layer.
+                today.locator('.nk-today-goal-edit').click()
+                expect(page.locator('#nk-today-goal')).to_be_visible()
+                page.locator('#nk-today-goal').get_by_role('radio', name='50', exact=True).click()
                 assert page.evaluate('window.QB.getState().studyGoals.newPerDay') == 50
-                expect(sheet.locator('.nk-learn-head')).to_contain_text('0 of 50 new today')
-                sheet.locator('.nk-learn-search input').fill('Physiology')
-                physiology = sheet.locator('.nk-learn-subj', has=page.locator('strong', has_text='Physiology')).first
-                physiology.locator('.nk-learn-subj-pick').click()
-                expect(physiology.locator('.nk-learn-subj-pick')).to_have_attribute('aria-checked', 'true')
-                expect(sheet.locator('#nk-learn-start')).to_have_text('Start 50 new questions')
-                sheet.locator('#nk-learn-start').click()
+                expect(page.locator('.nk-today-step.is-new')).to_contain_text('0 of 50 today')
+                # Choosing what to learn takes you down to My Subjects on the same page.
+                page.locator('.nk-today-learn').click()
+                page.wait_for_function("Math.abs(document.querySelector('.nk-home-subjects').getBoundingClientRect().top)<160")
+                assert page.locator('#nk-learn-sheet').count() == 0
+                assert page.evaluate("location.hash") in ('', '#dashboard')
+                # Any practice of unseen questions counts toward the goal.
+                page.evaluate("window.QB.startAllPractice()")
                 page.wait_for_function("window.QB.getState().activeSession?.mode==='practice'")
-                started = page.evaluate("(()=>{const s=window.QB.getState().activeSession;return {n:s.questionIds.length,subjects:[...new Set(s.questionIds.map(id=>(window.__nkPlan.questions().find(q=>String(q.id)===String(id))||{}).subject))]}})()")
-                assert started == {'n': 50, 'subjects': ['Physiology']}, started
                 answer = "(()=>{const s=window.QB.getState().activeSession,id=s.questionIds[s.index];window.QB.selectPractice(id,1);window.QB.nextQ();})()"
-                for _ in range(3):
+                fresh = "(()=>{const s=window.QB.getState().activeSession,id=s.questionIds[s.index];return !(window.QB.getState().attempts[id]||[]).length})()"
+                answered = 0
+                while answered < 3:
+                    if page.evaluate(fresh): answered += 1
                     page.evaluate(answer)
                 page.evaluate("window.QB.nav('dashboard')")
                 expect(page.locator('.nk-today-step.is-new')).to_contain_text('3 of 50 today')
                 expect(page.locator('.nk-today .nk-home-focus-card')).to_contain_text('In progress')
-                # A new question from another path still counts, and crossing the goal says so once.
+                # Crossing the goal says so once.
                 page.evaluate("window.QB.nkLearnSetGoal(4)")
                 page.evaluate("window.QB.nkTodayGo('unseen',true)")
                 page.wait_for_function("window.QB.getState().activeSession?.title==='Quick Revision · Unseen'")
                 page.evaluate(answer)
-                expect(page.get_by_text('Daily goal reached')).to_be_visible()
+                expect(page.get_by_text('Daily goal reached').first).to_be_attached()
                 page.evaluate("window.QB.nav('dashboard')")
                 expect(page.locator('.nk-today-step.is-new')).to_contain_text('goal of 4 met')
-                page.locator('.nk-today-learn').click()
-                expect(sheet.locator('.nk-learn-subj-pick[aria-checked="true"]')).to_have_count(1)
-                expect(sheet.locator('#nk-learn-start')).to_have_text('Learn 20 new questions')
-                assert not page.evaluate('document.querySelector(".nk-learn-sheet").scrollWidth>document.querySelector(".nk-learn-sheet").clientWidth'), f'sheet overflow at {width}'
-                page.keyboard.press('Escape')
-                expect(sheet).to_have_count(0)
+                expect(page.locator('.nk-today-learn')).to_contain_text('More')
                 assert not page.evaluate('document.documentElement.scrollWidth>innerWidth'), f'overflow at {width}'
                 assert not errors, errors
                 context.close()

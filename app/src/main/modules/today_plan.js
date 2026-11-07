@@ -2,7 +2,7 @@
   // Today on Home: one card. What you were doing sits on top (a paused practice, a study set, a timed test),
   // then the day's path: due reviews, mistakes, and new questions toward your own daily goal.
   // Progress is read from today's answers, so any new question answered anywhere counts toward the goal.
-  const NK_TODAY_MISTAKES=20,NK_TODAY_NEW=20,NK_GOAL_CHOICES=[20,50,100,150,200,300];
+  const NK_TODAY_MISTAKES=20,NK_TODAY_NEW=20,NK_GOAL_CHOICES=[20,50,100,150,200];
   function nkTodayGoal(){
     const n=Math.round(Number(state.studyGoals?.newPerDay));
     return Number.isFinite(n)&&n>=1?Math.min(2000,n):NK_TODAY_NEW;
@@ -55,12 +55,13 @@
     const progress=step.total?`<span class="nk-today-bar" aria-hidden="true"><i style="--nk-today-fill:${Math.round(Math.min(step.done,step.total)/step.total*100)}%"></i></span>`:'';
     const meta=isNew?(finished&&plan.unseen?`${fmtNum(step.done)} today · goal of ${fmtNum(step.goal)} met`:finished?step.empty:step.note(step.left))
       :finished?(step.done?`${fmtNum(step.done)} done · ${step.empty}`:step.empty):`${step.note(step.left)}${step.done?` · ${fmtNum(step.done)} done`:''}`;
-    const label=step.kind==='due'?`${fmtNum(step.left)} due reviews`:step.kind==='wrong'?`${fmtNum(plan.missed)} missed questions, ${fmtNum(step.left)} in today's plan`:`${fmtNum(step.left)} new questions left today. Choose topics`;
+    const label=step.kind==='due'?`${fmtNum(step.left)} due reviews`:step.kind==='wrong'?`${fmtNum(plan.missed)} missed questions, ${fmtNum(step.left)} in today's plan`:`${fmtNum(step.left)} new questions left today. Pick a subject`;
     const primary=isNext&&!quiet;
     // New questions always open the topic picker, even after the goal is met, so you can keep going.
-    const action=isNew&&plan.unseen?`<button type="button" class="nk-today-go nk-today-learn${primary?' is-primary':''}" onclick="window.QB.nkLearnOpen()" aria-label="${esc(step.title)}: ${esc(finished?'goal met. Learn more':label)}">${finished?'More':primary?`Choose ${count}`:count}${navIcon('chevron',16)}</button>`
+    const action=isNew&&plan.unseen?`<button type="button" class="nk-today-go nk-today-learn${primary?' is-primary':''}" onclick="window.QB.nkLearnOpen()" aria-label="${esc(step.title)}: ${esc(finished?'goal met. Pick a subject to keep going':label)}">${finished?'More':primary?`Choose ${count}`:count}${navIcon('chevron',16)}</button>`
       :finished?'':`<button type="button" class="nk-today-go${primary?' is-primary':''}" onclick="window.QB.nkTodayGo('${step.kind}')" aria-label="${esc(step.title)}: ${esc(label)}">${primary?`Start ${count}`:count}${navIcon('chevron',16)}</button>`;
-    return `<li class="nk-today-step is-${stateName}${isNew?' is-new':''}" style="--nk-i:${i}">${nkTodayMarker(step,stateName)}<div class="nk-today-copy"><strong>${esc(step.title)}</strong><small>${esc(meta)}</small>${progress}</div>${action}</li>`;
+    const goal=isNew?`<button type="button" class="nk-today-goal-edit" aria-expanded="false" aria-controls="nk-today-goal" onclick="window.QB.nkTodayGoalToggle(this)">Goal ${fmtNum(step.goal)}</button>`:'';
+    return `<li class="nk-today-step is-${stateName}${isNew?' is-new':''}" style="--nk-i:${i}">${nkTodayMarker(step,stateName)}<div class="nk-today-copy"><strong>${esc(step.title)}</strong><small>${esc(meta)}${goal?' · ':''}${goal}</small>${progress}</div>${action}${isNew?nkTodayGoalMarkup():''}</li>`;
   }
   // The focus band is the old Today's focus card, now the head of this card.
   const nkTodayFocusBand=nkHomeFocusSection;
@@ -89,137 +90,33 @@
   }
   nkHomeRevisionSummary=nkHomeTodayPlan;
 
-  // New questions: a sheet with the daily goal and every subject, bank and topic that still has unseen questions.
-  // Nothing ticked means everything. The session holds exactly what is left of today's goal.
-  let nkLearn=null; // {tree, picked:Set, open:Set, query, order, dirty}
-  const NK_LEARN_SEP='\u001f';
-  function nkLearnTree(){
-    const subjects=new Map();
-    nkRevisionDeskData({}).unseen.forEach((q,at)=>{
-      const sName=String(q.subject||'Other'),bName=String(q.bank||''),tId=String(q.chapterId??'');
-      let s=subjects.get(sName);if(!s){s={name:sName,count:0,banks:new Map()};subjects.set(sName,s);}
-      let b=s.banks.get(bName);if(!b){b={name:bName,count:0,topics:new Map(),record:typeof nkBankRecord==='function'&&bName?nkBankRecord(sName,bName):null};s.banks.set(bName,b);}
-      let t=b.topics.get(tId);
-      if(!t){
-        const list=b.record?.bank===bName?(b.record.topics||[]):[],order=list.findIndex(x=>String(x.id)===tId);
-        const title=order>=0?(list[order].title||list[order].name):(typeof nkTopicTitleForQuestion==='function'?nkTopicTitleForQuestion(q):'')||q.topic||q.chapter||'Other';
-        t={id:tId,key:[sName,bName,tId].join(NK_LEARN_SEP),title:String(title),order:order>=0?order:1e6+at,ids:[]};b.topics.set(tId,t);
-      }
-      t.ids.push(String(q.id));b.count++;s.count++;
-    });
-    return [...subjects.values()].sort((a,b)=>a.name.localeCompare(b.name)).map(s=>({name:s.name,count:s.count,
-      banks:[...s.banks.values()].sort((a,b)=>a.name.localeCompare(b.name)).map(b=>({name:b.name,count:b.count,topics:[...b.topics.values()].sort((x,y)=>x.order-y.order)}))}));
-  }
-  function nkLearnKeys(s,b){return (b?[b]:s.banks).flatMap(bank=>bank.topics.map(t=>t.key));}
-  function nkLearnPickState(keys){const on=keys.filter(k=>nkLearn.picked.has(k)).length;return on===0?'off':on===keys.length?'on':'mixed';}
-  function nkLearnCheck(st){return `<span class="nk-learn-check is-${st}" aria-hidden="true">${st==='on'?navIcon('check',13):''}</span>`;}
-  function nkLearnPool(){
-    const ids=[];
-    nkLearn.tree.forEach(s=>s.banks.forEach(b=>b.topics.forEach(t=>{if(!nkLearn.picked.size||nkLearn.picked.has(t.key))ids.push(...t.ids);})));
-    return ids;
-  }
-  function nkLearnTarget(){const plan=nkTodayPlanData();return {plan,left:plan.steps[2].left,extra:plan.steps[2].left===0};}
-  function nkLearnListMarkup(){
-    const q=nkLearn.query.trim().toLowerCase();
-    const rows=nkLearn.tree.map((s,si)=>{
-      const keys=nkLearnKeys(s),open=q||nkLearn.open.has(s.name);
-      const banks=s.banks.map((b,bi)=>{
-        const topics=b.topics.map((t,ti)=>({t,ti})).filter(({t})=>!q||t.title.toLowerCase().includes(q)||s.name.toLowerCase().includes(q));
-        if(!topics.length)return '';
-        const bankHead=s.banks.length>1||b.name?`<button type="button" class="nk-learn-bank" role="checkbox" aria-checked="${{on:'true',off:'false',mixed:'mixed'}[nkLearnPickState(nkLearnKeys(s,b))]}" onclick="window.QB.nkLearnToggle(${si},${bi})">${nkLearnCheck(nkLearnPickState(nkLearnKeys(s,b)))}<span>${esc(b.name||'Questions')}</span><small>${fmtNum(b.count)} new</small></button>`:'';
-        return bankHead+topics.map(({t,ti})=>{const st=nkLearn.picked.has(t.key)?'on':'off';return `<button type="button" class="nk-learn-topic" role="checkbox" aria-checked="${st==='on'}" onclick="window.QB.nkLearnToggle(${si},${bi},${ti})">${nkLearnCheck(st)}<span>${esc(t.title)}</span><small>${fmtNum(t.ids.length)}</small></button>`;}).join('');
-      }).join('');
-      if(q&&!banks)return '';
-      const st=nkLearnPickState(keys);
-      return `<div class="nk-learn-subj${open?' is-open':''}"><div class="nk-learn-subj-row"><button type="button" class="nk-learn-subj-pick" role="checkbox" aria-checked="${{on:'true',off:'false',mixed:'mixed'}[st]}" onclick="window.QB.nkLearnToggle(${si})">${nkLearnCheck(st)}<span><strong>${esc(s.name)}</strong><small>${fmtNum(s.count)} new${st==='mixed'?` · ${fmtNum(keys.filter(k=>nkLearn.picked.has(k)).length)} topics picked`:''}</small></span></button><button type="button" class="nk-learn-expand" aria-expanded="${Boolean(open)}" aria-label="${open?'Hide':'Show'} ${esc(s.name)} topics" onclick="window.QB.nkLearnExpand(${si})">${navIcon('chevron',18)}</button></div>${open?`<div class="nk-learn-topics">${banks}</div>`:''}</div>`;
-    }).join('');
-    return rows||`<p class="nk-learn-none">No topic matches “${esc(nkLearn.query)}”.</p>`;
-  }
-  function nkLearnHeadMarkup(){
-    const {plan,left,extra}=nkLearnTarget(),fill=Math.min(100,Math.round(plan.fresh/Math.max(1,plan.goal)*100));
-    return `<div class="nk-learn-progress"><p><b>${fmtNum(plan.fresh)}</b> of ${fmtNum(plan.goal)} new today${extra?' · goal met':` · ${fmtNum(left)} to go`}</p><span class="nk-today-bar" aria-hidden="true"><i style="--nk-today-fill:${fill}%"></i></span></div>`;
-  }
-  function nkLearnGoalMarkup(){
-    const goal=nkTodayGoal(),custom=!NK_GOAL_CHOICES.includes(goal);
-    return `<div class="nk-exam-chips nk-learn-goal" role="radiogroup" aria-label="Daily goal">${NK_GOAL_CHOICES.map(n=>`<button type="button" role="radio" aria-checked="${goal===n}" class="${goal===n?'is-selected':''}" onclick="window.QB.nkLearnSetGoal(${n})">${n}</button>`).join('')}<label class="nk-learn-goal-own${custom?' is-selected':''}"><span class="nk-sr">Your own daily goal</span><input type="number" inputmode="numeric" min="1" max="2000" step="1" placeholder="Own" value="${custom?goal:''}" onchange="window.QB.nkLearnSetGoal(this.value)"></label></div>`;
-  }
-  function nkLearnFootMarkup(){
-    const {left,extra}=nkLearnTarget(),pool=nkLearnPool().length,want=extra?NK_TODAY_NEW:left,n=Math.min(want,pool);
-    const scope=nkLearn.picked.size?`${fmtNum(nkLearn.picked.size)} topic${nkLearn.picked.size===1?'':'s'} · ${fmtNum(pool)} new`:`Every subject · ${fmtNum(pool)} new`;
-    return `<div class="nk-learn-scope"><span>${esc(scope)}</span>${nkLearn.picked.size?`<button type="button" onclick="window.QB.nkLearnClear()">Clear</button>`:''}</div>
-      <button type="button" class="nk-qs-start nk-learn-start" id="nk-learn-start" onclick="window.QB.nkLearnStart()"${n?'':' disabled'}>${n?`${extra?'Learn':'Start'} ${fmtNum(n)} new question${n===1?'':'s'}`:'No new questions here'}</button>`;
-  }
-  function nkLearnPaint(part){
-    const sheet=document.getElementById('nk-learn-sheet');if(!sheet||!nkLearn)return;
-    const put=(sel,html)=>{const node=sheet.querySelector(sel);if(node)node.innerHTML=html;};
-    if(!part||part==='head'){put('.nk-learn-head',nkLearnHeadMarkup());put('.nk-learn-goal-wrap',nkLearnGoalMarkup());}
-    if(!part||part==='list')put('.nk-learn-list',nkLearnListMarkup());
-    put('.nk-learn-foot',nkLearnFootMarkup());
-    sheet.querySelectorAll('.nk-learn-order button').forEach(b=>{const on=b.dataset.order===nkLearn.order;b.classList.toggle('is-selected',on);b.setAttribute('aria-checked',String(on));});
-  }
+  // New questions: no extra layer. The button takes you down to My Subjects, where every bank and topic
+  // already lives; whatever new questions you answer there count toward the goal. The goal itself is set inline.
   function nkLearnOpen(){
     if(state.activeSession?.mode==='exam'){showToast('Finish or leave your timed test first.','bad');return false;}
-    const saved=state.todayLearn||{},tree=nkLearnTree();
-    const valid=new Set(tree.flatMap(s=>nkLearnKeys(s)));
-    nkLearn={tree,picked:new Set((saved.keys||[]).filter(k=>valid.has(k))),open:new Set(),query:'',order:saved.order==='shuffle'?'shuffle':'order',dirty:false};
-    nkLearn.picked.forEach(k=>nkLearn.open.add(k.split(NK_LEARN_SEP)[0]));
-    document.getElementById('nk-learn-sheet')?.remove();
-    document.body.insertAdjacentHTML('beforeend',`<div class="nk-qs-backdrop nk-learn-backdrop" id="nk-learn-sheet" onclick="if(event.target===this)window.QB.nkLearnClose()" onkeydown="if(event.key==='Escape'){event.stopPropagation();window.QB.nkLearnClose()}">
-      <section class="nk-qs nk-learn-sheet" role="dialog" aria-modal="true" aria-labelledby="nk-learn-title">
-        <span class="nk-qs-grip" aria-hidden="true"></span>
-        <div class="nk-qs-head"><div><h2 id="nk-learn-title">New questions</h2><div class="nk-learn-head">${nkLearnHeadMarkup()}</div></div><button type="button" class="nk-qs-close nk-modal-close" aria-label="Close" onclick="window.QB.nkLearnClose()">${navIcon('close',20)}</button></div>
-        <h3>Daily goal</h3>
-        <div class="nk-learn-goal-wrap">${nkLearnGoalMarkup()}</div>
-        <h3>What to learn</h3>
-        <label class="nk-learn-search">${navIcon('search',16)}<span class="nk-sr">Find a topic</span><input type="search" placeholder="Find a subject or topic" autocomplete="off" oninput="window.QB.nkLearnSearch(this.value)"></label>
-        <div class="nk-learn-list">${nkLearnListMarkup()}</div>
-        <div class="nk-learn-order" role="radiogroup" aria-label="Question order">${[['order','In order'],['shuffle','Shuffled']].map(([k,l])=>`<button type="button" role="radio" data-order="${k}" aria-checked="${nkLearn.order===k}" class="${nkLearn.order===k?'is-selected':''}" onclick="window.QB.nkLearnSetOrder('${k}')">${l}</button>`).join('')}</div>
-        <div class="nk-learn-foot">${nkLearnFootMarkup()}</div>
-      </section></div>`);
-    document.querySelector('#nk-learn-sheet .nk-qs-close')?.focus({preventScroll:true});
+    if(route?.page!=='dashboard'){navigate('dashboard');}
+    requestAnimationFrame(()=>{
+      const target=document.querySelector('.nk-home-subjects');if(!target)return;
+      const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+      target.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+      target.classList.remove('is-pointed');void target.offsetWidth;target.classList.add('is-pointed');
+      setTimeout(()=>target.classList.remove('is-pointed'),1800);
+    });
     return true;
   }
-  function nkLearnClose(){
-    const dirty=nkLearn?.dirty;document.getElementById('nk-learn-sheet')?.remove();nkLearn=null;
-    if(dirty&&route?.page==='dashboard'&&typeof render==='function')render();
-    document.querySelector('.nk-today-learn')?.focus?.({preventScroll:true});
+  function nkTodayGoalMarkup(){
+    const goal=nkTodayGoal(),custom=!NK_GOAL_CHOICES.includes(goal);
+    return `<div class="nk-today-goal" id="nk-today-goal" hidden><span>New questions a day</span><div class="nk-exam-chips" role="radiogroup" aria-label="Daily goal for new questions">${NK_GOAL_CHOICES.map(n=>`<button type="button" role="radio" aria-checked="${goal===n}" class="${goal===n?'is-selected':''}" onclick="window.QB.nkLearnSetGoal(${n})">${n}</button>`).join('')}<label class="nk-today-goal-own${custom?' is-selected':''}"><span class="nk-sr">Your own daily goal</span><input type="number" inputmode="numeric" min="1" max="2000" step="1" placeholder="Own" value="${custom?goal:''}" onchange="window.QB.nkLearnSetGoal(this.value)"></label></div></div>`;
   }
-  function nkLearnToggle(si,bi,ti){
-    if(!nkLearn)return;const s=nkLearn.tree[si];if(!s)return;
-    const keys=ti!==undefined?[s.banks[bi]?.topics[ti]?.key].filter(Boolean):nkLearnKeys(s,bi!==undefined?s.banks[bi]:null);
-    const on=keys.every(k=>nkLearn.picked.has(k));
-    keys.forEach(k=>on?nkLearn.picked.delete(k):nkLearn.picked.add(k));
-    nkLearnPaint('list');
+  function nkTodayGoalToggle(button){
+    const panel=document.getElementById('nk-today-goal');if(!panel)return;
+    const open=panel.hidden;panel.hidden=!open;if(button)button.setAttribute('aria-expanded',String(open));
   }
-  function nkLearnExpand(si){
-    if(!nkLearn)return;const s=nkLearn.tree[si];if(!s)return;
-    nkLearn.open.has(s.name)?nkLearn.open.delete(s.name):nkLearn.open.add(s.name);nkLearnPaint('list');
-  }
-  function nkLearnSearch(value){if(!nkLearn)return;nkLearn.query=String(value||'');nkLearnPaint('list');}
-  function nkLearnClear(){if(!nkLearn)return;nkLearn.picked.clear();nkLearnPaint('list');}
-  function nkLearnSetOrder(order){if(!nkLearn)return;nkLearn.order=order==='shuffle'?'shuffle':'order';nkLearnPaint('foot');}
   function nkLearnSetGoal(value){
     const n=Math.round(Number(value));
-    if(!Number.isFinite(n)||n<1){showToast('Set a goal of at least 1 question.','bad');if(nkLearn)nkLearnPaint('head');return false;}
+    if(!Number.isFinite(n)||n<1){showToast('Set a goal of at least 1 question.','bad');return false;}
     state.studyGoals={...(state.studyGoals||{}),newPerDay:Math.min(2000,n)};saveState();
-    if(nkLearn){nkLearn.dirty=true;nkLearnPaint('head');}
-    else if(route?.page==='dashboard'&&typeof render==='function')render();
-    return true;
-  }
-  function nkLearnStart(){
-    if(!nkLearn)return false;
-    if(state.activeSession?.mode==='exam'){showToast('Finish or leave your timed test first.','bad');return false;}
-    const {left,extra}=nkLearnTarget(),pool=nkLearnPool(),want=extra?NK_TODAY_NEW:left;
-    if(!pool.length||!want){showToast('No new questions here.');return false;}
-    if(nkLearn.order==='shuffle')for(let i=pool.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]];}
-    const ids=pool.slice(0,want),picked=[...nkLearn.picked];
-    const subjects=[...new Set(picked.map(k=>k.split(NK_LEARN_SEP)[0]))];
-    const title=!picked.length?'New questions':picked.length===1?`New · ${nkLearn.tree.flatMap(s=>s.banks.flatMap(b=>b.topics)).find(t=>t.key===picked[0])?.title||subjects[0]}`:subjects.length===1?`New · ${subjects[0]}`:`New · ${fmtNum(picked.length)} topics`;
-    state.todayLearn={keys:picked,order:nkLearn.order};
-    const rows=ids.map(id=>nkFindStudyQuestion(id)).filter(Boolean);
-    document.getElementById('nk-learn-sheet')?.remove();nkLearn=null;
-    BY_ID={...BY_ID,...Object.fromEntries(rows.map(q=>[String(q.id),q]))};
-    startSession(rows.map(q=>String(q.id)),'practice',title,'normal');
+    if(route?.page==='dashboard'&&typeof render==='function'){render();const panel=document.getElementById('nk-today-goal');if(panel){panel.hidden=false;document.querySelector('.nk-today-goal-edit')?.setAttribute('aria-expanded','true');}}
     return true;
   }
   // A quiet word when today's goal is reached, wherever the new question was answered.
