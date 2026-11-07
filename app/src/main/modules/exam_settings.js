@@ -59,6 +59,8 @@
     if(typeof nkCbtDraft!=='undefined'&&nkCbtDraft&&typeof nkCbtSetCount==='function')nkCbtSetCount(nkCbtDraft.count);
   }
   function nkExamSet(field,value){
+    // An emptied field keeps the current setting instead of becoming 0.
+    if(String(value??'').trim()===''||!Number.isFinite(Number(value))){if(typeof nkExamRefresh==='function')nkExamRefresh();return;}
     const x=nkExamSettings();
     if(field==='seconds')x.seconds=Math.round(nkExamNum(value,60,10,600));
     else if(field==='correct')x.correct=nkExamNum(value,x.correct,0.25,100);

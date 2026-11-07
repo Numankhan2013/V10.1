@@ -7608,7 +7608,7 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-metrics article { grid-templ
 /* Not attempted is absence, not a warning: neutral instead of amber in the topic bars. */
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-refined-analysis i.is-omitted { background: var(--nkg-border-strong) !important; }
 /* One primary per screen: Retry is the secondary action next to Review Solutions. */
-html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-refined-analysis .nk-na-actions > button:nth-child(2) { background: var(--nkg-surface) !important; color: var(--nkg-fg) !important; border: 1px solid var(--nkg-border-strong) !important; box-shadow: none !important; }
+html[data-nk-ui="geist"] body #app .nk-refined-analysis .nk-na-actions > button.is-secondary, html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-refined-analysis .nk-na-actions > button.is-secondary { background: var(--nkg-surface) !important; background-image: none !important; color: var(--nkg-fg) !important; -webkit-text-fill-color: var(--nkg-fg) !important; border: 1px solid var(--nkg-border-strong) !important; box-shadow: none !important; }
 /* Icon tiles take the neutral surface; the icon keeps the text role. */
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-action :is(.nkg-action-icon) { background: var(--nkg-bg-subtle) !important; color: var(--nkg-fg-2) !important; }
 /* No looping decoration: the drifting dot-grid spotlight on the continue card goes. */

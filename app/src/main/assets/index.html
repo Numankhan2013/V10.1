@@ -1015,7 +1015,7 @@ function dashboard(){
 
   function testRow(t) {
     t=nkSafeTest(t);
-    const score=t.total?t.correct/t.total*100:0,isPractice=t.kind==='practice';
+    const score=typeof nkMockScore==='function'?nkMockScore(t):t.total?t.correct/t.total*100:0,isPractice=t.kind==='practice';
     return `<button class="nk-test-row" onclick="window.QB.openTest(${esc(JSON.stringify(String(t.id)))})"><span class="nk-test-icon ${isPractice?'is-practice':'is-cbt'}">${navIcon(isPractice?'book':'test',18)}</span><span class="nk-test-main"><strong>${esc(t.title||(isPractice?'Practice Session':'Timed CBT'))}</strong><small>${t.correct}/${t.total} correct · ${fmtDate(t.createdAt,false)}</small></span><span class="nk-test-score ${score>=75?'success':score>=50?'warning':'danger'}">${fmtPct(score)}</span>${navIcon('chevron',17)}</button>`;
   }
 
