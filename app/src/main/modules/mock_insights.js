@@ -23,7 +23,8 @@
         const missed=Boolean(t.missed);
         return {t,total,correct,incorrect,answered,blank,timeup,marks,missed,makeup:Boolean(t.makeupFor),booked:Boolean(t.scheduledMockId),
           limit:Number(t.secondsPerQuestion)||60,
-          score:Math.round(correct/total*100),accuracy:answered?Math.round(correct/answered*100):null,
+          // With negative marking the score is marks earned out of the paper's maximum, as in the exam.
+          score:marks&&Number(marks.max)>0?Math.max(0,Math.round(Number(marks.score)/Number(marks.max)*100)):Math.round(correct/total*100),accuracy:answered?Math.round(correct/answered*100):null,
           answeredPct:Math.round(answered/total*100),pace:pace&&Number.isFinite(pace)?Math.round(pace):null};
       });
   }
@@ -52,7 +53,7 @@
     if(metric==='accuracy')return `${fmtNum(r.correct)} right of ${fmtNum(r.answered)} answered`;
     if(metric==='answered')return `${fmtNum(r.answered)} of ${fmtNum(r.total)} answered${r.timeup?` · ${fmtNum(r.timeup)} timed out`:''}`;
     if(metric==='pace')return `Limit ${fmtNum(r.limit)} s a question`;
-    return `${fmtNum(r.correct)} / ${fmtNum(r.total)} correct${r.marks?` · ${fmtNum(r.marks.score)} of ${fmtNum(r.marks.max)} marks`:''}`;
+    return `${fmtNum(r.correct)} / ${fmtNum(r.total)} correct${r.marks?` · ${(typeof fmtMarks==='function'?fmtMarks:fmtNum)(r.marks.score)} of ${(typeof fmtMarks==='function'?fmtMarks:fmtNum)(r.marks.max)} marks`:''}`;
   }
   function nkMiSummary(rows,metric){
     const vals=rows.map(r=>nkMiValue(r,metric)).filter(v=>v!=null),avg=nkMiMean(vals);
@@ -106,7 +107,7 @@
     const share=v=>Math.round(v/total*100);
     const marked=sat.filter(r=>r.marks&&Number(r.t.marking?.wrong)<0);
     const lost=marked.reduce((n,r)=>n+r.incorrect*Math.abs(Number(r.t.marking.wrong)),0),max=marked.reduce((n,r)=>n+(Number(r.marks.max)||0),0);
-    const cost=marked.length&&lost?`<p class="nk-mt-cost">${navIcon('close',14)}<span>Wrong answers cost <b>${fmtNum(Math.round(lost*100)/100)} marks</b>${max?` (${fmtNum(Math.round(lost/max*100))}% of the paper)`:''} across ${fmtNum(marked.length)} negatively marked test${marked.length===1?'':'s'}.</span></p>`:'';
+    const cost=marked.length&&lost?`<p class="nk-mt-cost">${navIcon('close',14)}<span>Wrong answers cost <b>${(typeof fmtMarks==='function'?fmtMarks:fmtNum)(lost)} mark${lost===1?'':'s'}</b>${max?` (${fmtNum(Math.round(lost/max*100))}% of the paper)`:''} across ${fmtNum(marked.length)} negatively marked test${marked.length===1?'':'s'}.</span></p>`:'';
     return `<section class="nk-mt-block" aria-labelledby="nk-mt-split-h"><h3 id="nk-mt-split-h">Where the marks went</h3>
       <div class="nk-mt-bar" role="img" aria-label="${esc(parts.map(([,l,v])=>`${l} ${fmtNum(v)} (${share(v)}%)`).join(', '))}">${parts.map(([k,,v])=>`<i class="${k}" style="flex:${v} 1 0"></i>`).join('')}</div>
       <ul class="nk-mt-key">${parts.map(([k,l,v])=>`<li><i class="${k}" aria-hidden="true"></i><span>${l}</span><b>${fmtNum(v)}</b><small>${share(v)}%</small></li>`).join('')}</ul>${cost}</section>`;
@@ -219,7 +220,11 @@
   }
   function nkMockInsightsOpen(){
     nkMi={metric:'score',pinned:null};navigate('analytics');
-    requestAnimationFrame(()=>document.querySelector('.nk-mock-in')?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'}));
+    // The route renders on hashchange and then resets scroll, so wait for the section before scrolling to it.
+    let tries=0;const go=()=>{const el=route?.page==='analytics'&&document.querySelector('.nk-mock-in');
+      if(el){el.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});return;}
+      if(++tries<40)setTimeout(go,50);};
+    setTimeout(go,60);
   }
   if(typeof analytics==='function'){
     const original=analytics;

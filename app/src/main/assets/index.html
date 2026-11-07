@@ -350,6 +350,8 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
     return String(value ?? '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
   }
   function fmtNum(n) { return new Intl.NumberFormat('en-IN').format(Math.round(n || 0)); }
+  // Marks can be fractional (−1.25, −⅓): keep up to two decimals instead of rounding to whole marks.
+  function fmtMarks(n) { return new Intl.NumberFormat('en-IN',{maximumFractionDigits:2}).format(Math.round((Number(n)||0)*100)/100); }
   function fmtPct(n) { return `${Math.round(Number(n || 0))}%`; }
   function subjectIcon(name,size=46){
     const n=String(name||'').toLowerCase();

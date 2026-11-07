@@ -7110,10 +7110,10 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-today-later { margin: 14px 0 0;
 .nk-rd-legend{display:flex;gap:16px;margin:4px 0 -4px;font-size:12px;color:var(--nkg-sec)}
 .nk-rd-legend span{display:inline-flex;align-items:center;gap:6px}
 .nk-rd-legend i{width:8px;height:8px;border-radius:2px;display:inline-block}
-.nk-rd-legend i.is-due,.nk-rd-bar i.is-young{background:var(--nkg-green)}
+.nk-rd-legend i.is-due{background:var(--nkg-green)}
+.nk-rd-bar i.is-young{background:var(--nkg-border-strong)}
 .nk-rd-legend i.is-learn,.nk-rd-bar i.is-learn{background:var(--nkg-red)}
 .nk-rd-legend i.is-mature,.nk-rd-bar i.is-mature{background:var(--nkg-blue)}
-.nk-rd-bar i.is-young{opacity:.35}
 .nk-rd-list{list-style:none;margin:0;padding:0;border:1px solid var(--nkg-border);border-radius:var(--nkg-r-lg);background:var(--nkg-surface);overflow:hidden}
 .nk-rd-row{display:flex;align-items:center;gap:12px;padding:0 12px 0 0;min-height:64px}
 .nk-rd-row+.nk-rd-row{border-top:1px solid var(--nkg-border)}

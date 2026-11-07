@@ -110,8 +110,11 @@
     const out=[],at=(days,hour)=>{const d=new Date();d.setDate(d.getDate()+days);d.setHours(hour,0,0,0);return d.getTime();};
     const now=Date.now();
     [[0,20,'Tonight 8 pm'],[1,9,'Tomorrow 9 am'],[1,18,'Tomorrow 6 pm']].forEach(([days,hour,label])=>{const t=at(days,hour);if(t>now+10*60000)out.push([label,t]);});
-    const sat=new Date();sat.setDate(sat.getDate()+((6-sat.getDay()+7)%7||7));sat.setHours(10,0,0,0);out.push(['Saturday 10 am',sat.getTime()]);
-    return out.slice(0,4);
+    // On a Friday, Saturday is already "Tomorrow": offer it only when it is further out.
+    const sat=new Date();sat.setDate(sat.getDate()+((6-sat.getDay()+7)%7||7));sat.setHours(10,0,0,0);
+    const tomorrow=new Date();tomorrow.setDate(tomorrow.getDate()+1);
+    if(sat.toDateString()!==tomorrow.toDateString())out.push(['Saturday 10 am',sat.getTime()]);
+    return out.sort((a,b)=>a[1]-b[1]).slice(0,4);
   }
   let nkSchedSource=null; // a saved mock being booked, or null for the builder's draft
   function nkSchedOpen(mockId){
