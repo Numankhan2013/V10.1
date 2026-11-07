@@ -24,7 +24,7 @@
   }
   function nkSchedIn(ms){
     const m=Math.max(0,Math.round(ms/60000)),d=Math.floor(m/1440),h=Math.floor(m%1440/60),min=m%60;
-    return d?`${d} d ${h} h`:h?`${h} h ${min} min`:`${Math.max(1,min)} min`;
+    return d?`${d} d ${h} h`:h?(min?`${h} h ${min} min`:`${h} h`):`${Math.max(1,min)} min`;
   }
   function nkSchedFacts(m){
     const minutes=Math.round(nkSchedDurationMs(m)/60000);
@@ -46,7 +46,7 @@
       :status==='upcoming'?`<span class="nk-sched-lock">${navIcon('clock',15)} Locked</span>`:'';
     return `<article class="nk-sched-ticket is-${status}${place==='home'?' is-home':''}" aria-label="${esc(m.name)}, ${esc(line)}">
       <div class="nk-sched-date" aria-hidden="true"><small>${esc(month)}</small><b>${day}</b><span>${esc(nkSchedWhen(m.at,false))}</span></div>
-      <div class="nk-sched-copy"><strong>${esc(m.name)}</strong><small>${esc(nkSchedFacts(m))}</small><em>${esc(line)}</em></div>
+      <div class="nk-sched-copy"><strong>${esc(m.name)}</strong><small>${esc(nkSchedFacts(m))}</small><em>${esc(line).replace(/ · (in [^·]*)$/,' · <span class="nk-sched-in">$1</span>')}</em></div>
       ${action}
     </article>`;
   }
@@ -149,6 +149,6 @@
   }
   if(typeof nkCbtBuilderPage==='function'){
     const original=nkCbtBuilderPage;
-    nkCbtBuilderPage=function(){const html=original.apply(this,arguments);return nkCbtDraft?.step===3?html.replace('<div class="nk-cbt-main-actions">',`<div class="nk-cbt-main-actions"><button type="button" class="nk-sched-open" onclick="window.QB.nkSchedOpen()">${navIcon('clock',17)} Schedule</button>`):html;};
+    nkCbtBuilderPage=function(){const html=original.apply(this,arguments);return nkCbtDraft?.step===3?html.replace('<div class="nk-cbt-main-actions">',`<div class="nk-cbt-main-actions"><button type="button" class="nk-sched-open" aria-label="Schedule this mock" onclick="window.QB.nkSchedOpen()">${navIcon('clock',17)} Schedule</button>`):html;};
   }
   /* NK_SCHEDULED_MOCKS_V1_END */

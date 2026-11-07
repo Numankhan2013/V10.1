@@ -15,8 +15,10 @@ def main() -> None:
     source_questions = {q["id"]: q for q in bank["questions"]}
     pilot_ids = set(pilot["questions"])
     ledger = json.loads((DATA.parent / 'question_completeness_reviews_v1.json').read_text())
+    # Questions withheld from explanation batches: still blocked, or rebuilt later from context.
     deferred = {entry['id'] for entry in ledger['entries']
-                if entry['display'].get('blocked')} - enhanced_ids()
+                if entry['display'].get('blocked')
+                or entry.get('evidenceFile') == 'docs/question-completeness/reconstruction-2026-11.json'} - enhanced_ids()
     assert len(pilot_ids) == 80
     assert source_sha == inventory["sourceRawSha256"]["Physiology"]
     assert len(source_questions) == 1014
