@@ -62,7 +62,14 @@ def main():
                 assert not page.evaluate('Object.values(QB.getState().questionNotes||{}).some(n=>n.text?.includes("Recall cue"))'),'draft persisted without Save'
                 sheet.locator('.nk-note-cancel').click()
                 assert sheet.locator('textarea').count()==0 and not page.evaluate('Object.values(QB.getState().questionNotes||{}).some(n=>n.text?.includes("Recall cue"))'),'Cancel must discard'
-                sheet.locator('.nk-np-add-btn').click();sheet.locator('.nk-np-add-menu').get_by_role('menuitem',name='Text',exact=True).click()
+                # The add menu morphs open; a tap during the morph can miss, so retry until the editor opens.
+                for _ in range(3):
+                    if sheet.locator('textarea').count():break
+                    if not sheet.locator('.nk-np-add-menu').get_by_role('menuitem',name='Text',exact=True).is_visible():
+                        sheet.locator('.nk-np-add-btn').click()
+                    sheet.locator('.nk-np-add-menu').get_by_role('menuitem',name='Text',exact=True).click()
+                    try:sheet.locator('textarea').wait_for(timeout=3000)
+                    except Exception:pass
                 assert sheet.locator('textarea').input_value()==''
                 sheet.locator('textarea').fill(draft);save.click()
                 # Geist commits the save after its ~560 ms check animation; wait for the real save.
