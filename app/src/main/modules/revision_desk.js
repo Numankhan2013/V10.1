@@ -149,7 +149,7 @@
     }
   }
 
-  function nkStartRevisionQueue(kind){
+  function nkStartRevisionQueue(kind,limit=0){
     if(state.activeSession?.mode==='exam'){showToast('Finish or leave your timed test before starting revision.','bad');return false;}
     const previous=state.activeSession?.id;
     const data=nkRevisionDeskData();
@@ -166,7 +166,7 @@
     if(!rows.length){showToast('No questions are available in this revision group.');return;}
     const pool=rows.slice();
     for(let i=pool.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]];}
-    const selected=kind==='unseen'?pool.slice(0,20):pool,ids=selected.map(q=>String(q.id));
+    const selected=limit>0?pool.slice(0,limit):kind==='unseen'?pool.slice(0,20):pool,ids=selected.map(q=>String(q.id));
     BY_ID={...BY_ID,...Object.fromEntries(selected.map(q=>[String(q.id),q]))};
     const title=kind==='wrong'?'Quick Revision · Mistakes':kind==='bookmarks'?'Quick Revision · Bookmarks':'Quick Revision · Unseen';
     startSession(ids,'practice',title,kind==='wrong'?'wrong':kind==='bookmarks'?'bookmarked':'normal');
