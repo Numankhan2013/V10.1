@@ -168,7 +168,8 @@ def main() -> None:
                     replacement.get_by_role(
                         "button", name="Discard and start new", exact=True
                     ).click()
-                if question_index == 34 and topic == "Muscle Physiology I":
+                # Rebuilt questions are answerable now; only a still-blocked one must hold the source gate.
+                if question_index == 34 and topic == "Muscle Physiology I" and "marrow__PHYS_CH07_Q035" in blocked_ids:
                     qid = "marrow__PHYS_CH07_Q035"
                     require_incomplete(qid)
                     before = page.evaluate("()=>{const s=window.QB.getState().activeSession;return JSON.stringify({answers:s.answers,submitted:s.submitted});}")
