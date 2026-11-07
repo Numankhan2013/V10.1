@@ -8,6 +8,11 @@ if ('serviceWorker' in navigator && location.hostname !== 'qbank.local') {
         if(updateRequested&&!refreshing){refreshing=true;location.reload();}
       });
       const registration=await navigator.serviceWorker.register('./sw.js');
+      // A home-screen app can stay open for days without a navigation, so look for a new build when it comes back to the foreground and hourly.
+      let lastCheck=Date.now();
+      const checkForUpdate=()=>{if(Date.now()-lastCheck<5*60000)return;lastCheck=Date.now();registration.update().catch(()=>{});};
+      document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')checkForUpdate();});
+      setInterval(checkForUpdate,60*60000);
       // Figures are cached as they are viewed (about 600 MB if all were
       // downloaded); ask the browser not to evict what this device has kept.
       navigator.serviceWorker.addEventListener('message',event=>{

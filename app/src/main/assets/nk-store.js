@@ -112,8 +112,16 @@
   function flush() {
     flushQueued = false;
     if (frozen || !db || !dirty.size) return Promise.resolve();
-    var batch = dirty; dirty = new Map();
-    var tx = db.transaction(['kv', 'snapshotMeta', 'snapshotData'], 'readwrite'), kv = tx.objectStore('kv');
+    var batch = dirty, tx;
+    // A closed connection (another tab upgraded the database) throws here; keep the batch for the next save.
+    try { tx = db.transaction(['kv', 'snapshotMeta', 'snapshotData'], 'readwrite'); }
+    catch (error) {
+      note('Progress could not be written to on-device storage', error);
+      try { window.dispatchEvent(new CustomEvent('nk-store-error', { detail: lastError })); } catch (_) {}
+      return Promise.resolve();
+    }
+    dirty = new Map();
+    var kv = tx.objectStore('kv');
     batch.forEach(function (value, key) { if (value === null) kv.delete(key); else kv.put(value, key); });
     var primary = batch.get(PRIMARY);
     if (primary && Date.now() - lastSnapshotAt >= SNAPSHOT_EVERY) addSnapshot(tx, primary, 'auto');

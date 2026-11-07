@@ -100,11 +100,16 @@
   }
   function nkTodayGo(kind,extra=false){
     if(state.activeSession?.mode==='exam'){showToast('Finish or leave your timed test first.','bad');return false;}
-    const carried=nkTodayCarried();
-    if(kind==='due')return nkStartRevisionQueue('due',0,carried.due);
-    const step=nkTodayPlanData().steps.find(s=>s.kind===kind),limit=extra?NK_TODAY_NEW:step?.left;
-    if(!limit){showToast(kind==='wrong'?'Today’s mistakes are done.':'Today’s new questions are done.');return false;}
-    return nkStartRevisionQueue(kind,limit,kind==='wrong'?carried.wrong:null);
+    // Today's plan covers every subject, whatever focus the Revision page was last left on.
+    const scope=typeof nkRevisionScope==='object'?nkRevisionScope:null;
+    if(scope)nkRevisionScope={subject:'',bank:'',topic:''};
+    try{
+      const carried=nkTodayCarried();
+      if(kind==='due')return nkStartRevisionQueue('due',0,carried.due);
+      const step=nkTodayPlanData().steps.find(s=>s.kind===kind),limit=extra?NK_TODAY_NEW:step?.left;
+      if(!limit){showToast(kind==='wrong'?'Today’s mistakes are done.':'Today’s new questions are done.');return false;}
+      return nkStartRevisionQueue(kind,limit,kind==='wrong'?carried.wrong:null);
+    }finally{if(scope)nkRevisionScope=scope;}
   }
   nkHomeRevisionSummary=nkHomeTodayPlan;
 

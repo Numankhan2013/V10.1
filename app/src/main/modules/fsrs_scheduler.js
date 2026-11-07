@@ -187,7 +187,7 @@
     const counts={eligible:0,due:0,learning:0,relearning:0,young:0,mature:0,overdue:0,attention:0};
     nkFsrsAllQuestions().forEach(q=>{if(!nkFsrsEligibility(q))return;counts.eligible++;const r=state.reviews[q.id],at=Number(r?.due||r?.nextReviewAt||0);if(nkFsrsIsDue(r,now)){counts.due++;if(r&&now-at>=NK_FSRS_DAY)counts.overdue++;}if(Number(r?.state)===1)counts.learning++;else if(Number(r?.state)===3)counts.relearning++;else if(r&&Number(r.stability)>=21)counts.mature++;else if(r)counts.young++;if(r?.needsAttention)counts.attention++;});return counts;
   }
-  function nkFsrsForecast(){const out=Array(7).fill(0),start=new Date();start.setHours(0,0,0,0);nkFsrsAllQuestions().forEach(q=>{if(!nkFsrsEligibility(q))return;const r=state.reviews[q.id],at=Number(r?.due||r?.nextReviewAt||0);if(!at){out[0]++;return;}const day=Math.floor((at-start.getTime())/NK_FSRS_DAY);if(day<0)out[0]++;else if(day<7)out[day]++;});return out;}
+  function nkFsrsForecast(){const out=Array(7).fill(0),edges=[];for(let i=1;i<=7;i++){const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()+i);edges.push(d.getTime());}nkFsrsAllQuestions().forEach(q=>{if(!nkFsrsEligibility(q))return;const r=state.reviews[q.id],at=Number(r?.due||r?.nextReviewAt||0);if(!at){out[0]++;return;}const day=edges.findIndex(edge=>at<edge);if(day>=0)out[day]++;});return out;}
   function nkStartTodaysReview(subject='',topic=''){
     const queue=nkFsrsQueue({subject,topic});if(!queue.cards.length){showToast('No attempted or submitted-as-skipped questions are due for this selection.');return;}
     BY_ID=nkFsrsAllById();startSession(queue.cards.map(q=>q.id),'practice',"Today's Review",'spaced-review');if(queue.rolledOver)showToast(`${queue.rolledOver} due cards roll forward.`);

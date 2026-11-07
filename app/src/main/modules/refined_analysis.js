@@ -230,7 +230,7 @@
     document.body.insertAdjacentHTML('beforeend',`<div class="modal-backdrop nk-mock-sheet-backdrop" id="nk-mock-sheet" onclick="if(event.target===this)window.QB.nkMockClose()" onkeydown="if(event.key==='Escape'){event.stopPropagation();window.QB.nkMockClose()}"><section class="modal card nk-mock-sheet" role="dialog" aria-modal="true" aria-labelledby="nk-mock-sheet-title" data-mock-id="${esc(m.id)}">
       <header class="nk-mock-sheet-head"><span class="nk-mock-sheet-icon" aria-hidden="true">${nkMockGraphic(sum.subjects[0]?.[0]||'',22)}</span><div class="nk-mock-sheet-title"><h2 id="nk-mock-sheet-title">${esc(m.name)}</h2><small>Saved ${esc(nkMockDay(m.createdAt))}</small></div><button type="button" class="nk-modal-close" aria-label="Close" onclick="window.QB.nkMockClose()">${navIcon('close',20)}</button></header>
       <div class="nk-mock-sheet-body">
-        <dl class="nk-mock-facts"><div><dt>Questions</dt><dd>${sum.total}</dd></div><div><dt>Time limit</dt><dd>${sum.total} min</dd></div><div><dt>${sum.attempts.length?'Best score':'Attempts'}</dt><dd>${sum.attempts.length?Math.max(...sum.attempts.map(nkMockScore))+'%':'None yet'}</dd></div></dl>
+        <dl class="nk-mock-facts"><div><dt>Questions</dt><dd>${sum.total}</dd></div><div><dt>Time limit</dt><dd>${fmtNum(Math.round(sum.total*(typeof nkExamSettings==='function'?Number(nkExamSettings().seconds)||60:60)/60))} min</dd></div><div><dt>${sum.attempts.length?'Best score':'Attempts'}</dt><dd>${sum.attempts.length?Math.max(...sum.attempts.map(nkMockScore))+'%':'None yet'}</dd></div></dl>
         ${blocked?`<p class="nk-mock-warning" role="alert">${sum.missing} of ${sum.total} questions are no longer in the bank, so this mock cannot start.</p>`:''}
         ${sum.subjects.length?`<section class="nk-mock-block"><h3>Subjects</h3><div class="nk-mock-stack" aria-hidden="true">${stack}</div><ul class="nk-mock-legend">${legend}</ul></section>`:''}
         ${sum.topics.length?`<section class="nk-mock-block"><h3>Topics <span>${sum.topics.length}</span></h3><ul class="nk-mock-topics">${first.map(topic).join('')}</ul>${rest.length?`<details class="nk-mock-more"><summary>${rest.length} more ${rest.length===1?'topic':'topics'}</summary><ul class="nk-mock-topics">${rest.map(topic).join('')}</ul></details>`:''}</section>`:''}
@@ -264,6 +264,8 @@
     if(typeof window!=='undefined')window.scrollTo?.(x,y);
     const root=document.getElementById?.('toast-root');
     if(!root?.appendChild||typeof document.createElement!=='function'){showToast('Saved mock deleted.','good');return;}
+    // Stop an earlier toast's timer from clearing this one before Undo's seven seconds are up.
+    if(typeof toastTimer!=='undefined'&&typeof clearTimeout==='function')clearTimeout(toastTimer);
     root.innerHTML='';const el=document.createElement('div');el.className='toast good nk-undo-toast';el.setAttribute('role','status');
     el.innerHTML=`<span>Mock deleted</span><button type="button" onclick="window.QB.nkMockUndo()">Undo</button>`;root.appendChild(el);
     if(typeof clearTimeout==='function'){clearTimeout(nkMockUndoTimer);nkMockUndoTimer=setTimeout(()=>{el.remove();nkMockLastRemoved=null;},7000);}
