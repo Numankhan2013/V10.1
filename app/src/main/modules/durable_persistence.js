@@ -133,7 +133,7 @@
   }
   function nkPrepareTimedSession(target){
     const s=target.activeSession;if(!s||s.mode!=='exam')return;
-    if(!Number(s.deadlineAt))s.deadlineAt=Number(s.startedAt||Date.now())+Math.max(1,(s.questionIds||[]).length)*60000;
+    if(!Number(s.deadlineAt))s.deadlineAt=Number(s.startedAt||Date.now())+(typeof nkExamTotalSeconds==='function'?nkExamTotalSeconds(s):Math.max(1,(s.questionIds||[]).length)*60)*1000;
     s.updatedAt=Date.now();
   }
   // Another tab or window saved progress: this copy is stale, so it stops writing

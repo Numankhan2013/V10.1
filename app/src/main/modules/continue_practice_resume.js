@@ -288,7 +288,7 @@
     if(s.timerMode==='per-question')return Boolean(s.strictExpired?.[String(s.questionIds?.[s.index])])||
       Math.max(0,Number(s.strictQuestionTime?.[String(s.questionIds?.[s.index])]||0))+
       Math.max(0,now-Number(s.strictQuestionStartedAt||s.questionEnteredAt||s.startedAt||now))>=60000;
-    const deadline=Number(s.deadlineAt||(Number(s.startedAt||now)+Math.max(1,(s.questionIds||[]).length)*60000));
+    const deadline=Number(s.deadlineAt||(Number(s.startedAt||now)+(typeof nkExamTotalSeconds==='function'?nkExamTotalSeconds(s):Math.max(1,(s.questionIds||[]).length)*60)*1000));
     return deadline<=now;
   }
   function nkOfferTimedSessionDecision(pending=null){
@@ -342,9 +342,9 @@
       if(strict)s.questionIds.forEach(id=>{qt[id]=Math.min(60000,Math.max(0,Number(qt[id]||0),Number(s.strictQuestionTime?.[id]||0)));});
       Object.entries(s.answers||{}).forEach(([id,selected])=>{if(!selected)return;attempted++;const q=nkPracticeResumeQuestion(id),ok=q&&Number(q.correctOption)===Number(selected);if(ok)correct++;else incorrect++;recordAttempt(id,selected,qt[id]||0,'exam',undefined,now,`exam_${String(s.id)}_${String(id)}`);});
       const unattempted=Math.max(0,s.questionIds.length-attempted);if(typeof nkMarkSkippedFromSession==='function')nkMarkSkippedFromSession(s);
-      const raw=now-Number(s.startedAt||now),totalTimeMs=strict?s.questionIds.reduce((total,id)=>total+Math.min(60000,Math.max(Number(qt[id]||0),Number(s.strictQuestionTime?.[id]||0))),0):Math.min(raw,s.questionIds.length*60000);
+      const raw=now-Number(s.startedAt||now),totalTimeMs=strict?s.questionIds.reduce((total,id)=>total+Math.min(60000,Math.max(Number(qt[id]||0),Number(s.strictQuestionTime?.[id]||0))),0):Math.min(raw,(typeof nkExamTotalSeconds==='function'?nkExamTotalSeconds(s):Math.max(1,(s.questionIds||[]).length)*60)*1000);
       const testId=`exam_${String(s.id)}`;let test=(state.tests||[]).find(item=>String(item.id)===testId);
-      if(!test){test={id:testId,title:s.title,questionIds:[...s.questionIds],answers:{...(s.answers||{})},questionTimes:qt,markedForReview:{...(s.markedForReview||{})},correct,incorrect,unattempted,total:s.questionIds.length,attempted,totalTimeMs,createdAt:now,autoSubmitted:Boolean(auto),timerEnabled:true,timerMode:s.timerMode||'global',originRoute:s.originRoute};if(typeof s.context==='string'&&s.context.startsWith('cbt-retake:'))test.retakeOf=s.context.slice('cbt-retake:'.length);state.tests.push(test);state.tests=state.tests.slice(-100);}
+      if(!test){test={id:testId,title:s.title,questionIds:[...s.questionIds],answers:{...(s.answers||{})},questionTimes:qt,markedForReview:{...(s.markedForReview||{})},correct,incorrect,unattempted,total:s.questionIds.length,attempted,totalTimeMs,createdAt:now,autoSubmitted:Boolean(auto),timerEnabled:true,timerMode:s.timerMode||'global',originRoute:s.originRoute,...(s.marking?{marking:{...s.marking}}:{}),...(s.secondsPerQuestion?{secondsPerQuestion:nkExamSecondsPer(s)}:{}),...(s.scheduledMockId?{scheduledMockId:s.scheduledMockId}:{}),...(s.makeupFor?{makeupFor:String(s.makeupFor)}:{}),...(strict?{expired:Object.fromEntries(Object.keys(s.strictExpired||{}).filter(id=>!s.answers?.[id]).map(id=>[id,true]))}:{})};if(typeof s.context==='string'&&s.context.startsWith('cbt-retake:'))test.retakeOf=s.context.slice('cbt-retake:'.length);state.tests.push(test);state.tests=state.tests.slice(-100);}
       s.lifecycle='submitted';s.submittedAt=now;state.activeSession=null;
       if(saveState()===false){state=before;return false;}
       document.querySelectorAll?.('#toast-root .toast').forEach(node=>node.remove());navigate('result',test.id);return true;

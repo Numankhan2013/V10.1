@@ -40,7 +40,7 @@ state.activeSession=active;
 const home=vm.runInContext('nkTimedResumeCard("home")',context);
 assert(home.includes('1 of 3 answered')&&home.includes('1 marked for review')&&home.includes('timer keeps running'));
 const focus=vm.runInContext('nkTimedFocusCard()',context);
-assert(focus.includes("TODAY'S FOCUS")&&focus.includes('PYQ CBT')&&focus.includes('1 of 3 answered · 1 marked for review'));
+assert(focus.includes('Timed test in progress')&&focus.includes('PYQ CBT')&&focus.includes('1 of 3 answered · 1 marked for review'));
 assert(focus.includes('Resume timed test')&&!focus.includes('nk-timed-resume is-home'));
 assert.equal(vm.runInContext('nkResumeTimedTest()',context),true);assert.equal(route,'exam');assert.equal(state.activeSession,active);
 active.expired=true;route='';

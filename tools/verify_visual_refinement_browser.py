@@ -89,6 +89,11 @@ def main():
                 assert page.evaluate('JSON.stringify(QB.getState())') == saved,'visual navigation changed study data'
                 page.evaluate('QB.startAllPractice()');page.wait_for_selector('.option-list button')
                 page.wait_for_function(SETTLED,arg='.question-text')
+                # The question card and the fixed footer enter on different frames; measure once both have landed.
+                try:
+                    page.wait_for_function("(()=>{const q=document.querySelector('.question-text')?.getBoundingClientRect(),f=document.querySelector('.fixed-actions-inner')?.getBoundingClientRect();return q&&f&&Math.abs(q.x-f.x)<=1})()",timeout=5000)
+                except Exception:
+                    pass
                 geometry=page.evaluate('''()=>{
                   const q=document.querySelector('.question-text').getBoundingClientRect(),f=document.querySelector('.fixed-actions-inner').getBoundingClientRect();
                   return {q:{x:q.x,w:q.width},f:{x:f.x,w:f.width},background:getComputedStyle(document.body).backgroundColor};

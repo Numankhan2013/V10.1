@@ -109,7 +109,7 @@
   function nkMemoryComeback(d){
     const c=d.comeback,total=c.recovered+c.again+c.pending;
     if(!total)return nkMemoryCard('Comeback rate','','<p class="nk-mi-empty">No missed questions yet. When you miss one, this tracks whether you win it back.</p>');
-    const parts=[{n:c.recovered,label:'Won back',note:'Latest answer correct',cls:'nk-mi-is-mature'},{n:c.again,label:'Missed again',note:'Retried, still wrong',cls:'nk-mi-is-relearning'},{n:c.pending,label:'Not retried yet',note:'Waiting in Mistakes',cls:'nk-mi-is-new'}];
+    const parts=[{n:c.recovered,label:'Won back',note:'Latest answer correct',cls:'nk-mi-is-mature'},{n:c.again,label:'Missed again',note:'Retried, still wrong',cls:'nk-mi-is-relearning'},{n:c.pending,label:'Not retried yet',note:'Not answered again yet',cls:'nk-mi-is-new'}];
     const head=c.rate===null?`<div class="nk-mi-hero"><b>—</b><span><strong>Retry a missed question to start</strong><small>${fmtNum(total)} missed questions</small></span></div>`:`<div class="nk-mi-hero"><b>${nkLearningPct(c.rate)}</b><span><strong>of retried misses won back</strong><small>${c.median===null?`${fmtNum(c.retried)} retried`:`Usually within ${c.median<1?'a day':`${fmtNum(Math.round(c.median))} day${Math.round(c.median)===1?'':'s'}`}`}</small></span></div>`;
     return nkMemoryCard('Comeback rate',`${fmtNum(total)} missed`,`${head}${nkMemoryStack(parts,parts.map(p=>`${p.label}: ${p.n}`).join(', '))}${nkMemoryLegend(parts)}`);
   }

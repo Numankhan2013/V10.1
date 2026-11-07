@@ -294,7 +294,8 @@ def main():
                 assert snapshot(page) == before
                 assert page.locator('#nk-session-review').is_visible()
                 fail_storage(page, False)
-                page.locator('#nk-session-review').get_by_role('button', name='Submit Test', exact=True).dblclick()
+                # Two taps in one frame: the first closes the review at once, the second must not submit again.
+                page.evaluate("(()=>{const b=[...document.querySelectorAll('#nk-session-review button')].find(n=>n.textContent.trim()==='Submit Test');b.click();b.click();})()")
                 page.wait_for_function('!window.QB.getState().activeSession')
                 assert page.evaluate('id=>window.QB.getState().tests.filter(t=>t.id===`exam_${id}`).length', cbt['id']) == 1
                 assert page.evaluate('id=>window.QB.getState().attempts[id].at(-1).source', cbt_qid) == 'exam'

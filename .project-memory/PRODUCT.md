@@ -50,8 +50,10 @@ Prefer building over narrating.
 - **Final source/image integration:** preserve source-native question and
   explanation image roles, fullscreen zoom, offline image bytes, and stable
   question ownership. Source-backed question recovery uses pinned evidence;
-  demonstrated underdetermined source omissions show an incomplete-source
-  state and accept no scored answer. Two archival missing-image references
+  questions whose source omitted statements, match lists or labels are
+  reconstructed from their own explanation and source key (marked as a
+  contextual reconstruction); the one still underdetermined shows an
+  incomplete-source state and accepts no scored answer. Two archival missing-image references
   remain documented instead of substituting unsupported images.
 - **Approved refinements (2026-09-30):** account-wide reset clears progress
   across devices using the existing sync boundary; switching accounts isolates

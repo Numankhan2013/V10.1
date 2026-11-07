@@ -307,16 +307,26 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
     requestAnimationFrame(() => window.scrollTo(0,0));
     requestAnimationFrame(() => { document.documentElement.scrollTop=0; document.body.scrollTop=0; });
   }
+  // The page a session was opened from, so Results can sit in its place and Back lands there.
+  let nkSessionEntry=null,nkResultBackable=null;
+  // Results opened straight from a session step back through history, so the origin page is not stacked twice.
+  function nkResultBack(page,id=''){const t=nkResultBackable;nkResultBackable=null;if(t&&route.page==='result'&&String(route.id)===t){history.back();return;}navigate(page,id);}
   function navigate(page, id = '') {
     const target=id?page+'/'+encodeURIComponent(id):page;
+    if((page==='practice'||page==='exam')&&route.page!=='practice'&&route.page!=='exam')nkSessionEntry={from:location.hash.slice(1)||'dashboard'};
     if((page==='practice'||page==='exam')&&state.activeSession&&!state.activeSession.originRoute){
       state.activeSession.originRoute=['chapter','topics','banks'].includes(route.page)?'topics':['tests','dashboard','bookmarks','wrong','review','modules','fsrs-insights','analytics'].includes(route.page)?route.page:'topics';
       saveState();
     }
     if(page==='result'&&(route.page==='practice'||route.page==='exam')){
       const t=state.tests.find(t=>String(t.id)===String(id)),parent=t?.originRoute||(route.page==='exam'?'tests':'topics');
-      history.replaceState(null,'','#'+parent);
-      history.pushState(null,'','#'+target);
+      const entry=nkSessionEntry;nkSessionEntry=null;
+      if(entry&&t&&/^chapter\//.test(entry.from)&&!t.originHash){t.originHash=entry.from;saveState();}
+      // Opened from a page in this visit: the session entry becomes Results, so Back returns to that page once.
+      // Only when the session really started on that page: openers that pass through a bank page first keep their own parent.
+      const home=entry&&(entry.from===parent||entry.from.split('/')[0]===parent.split('/')[0]&&!parent.includes('/')||parent==='topics'&&/^banks(\/|$)/.test(entry.from));
+      if(home){history.replaceState(null,'','#'+target);nkResultBackable=String(id);}
+      else{history.replaceState(null,'','#'+parent);history.pushState(null,'','#'+target);}
       route=parseHash();render();resetScrollPosition();return;
     }
     if(location.hash==='#'+target){route=parseHash();render();resetScrollPosition();return;}
@@ -828,12 +838,13 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
   }
   function nkHomeFocusSection(focus,module){
     if(state.activeSession?.mode==='exam'&&typeof nkTimedFocusCard==='function')return nkTimedFocusCard();
-    const title=module?module.name:focus?.topic||'Choose your next topic';
+    const title=module?module.name:focus?.topic||'Choose what to learn today';
     const total=Number(focus?.total||0),index=Math.min(total,Math.max(1,Number(focus?.position||0)+1));
     const copy=module?`${nkModuleProgress(module).remaining} questions remain in this study set.`:focus?.savedCount?`${focus.savedCount} saved sessions. Choose the one you want to resume.`:focus?.live&&total?`Question ${index} of ${total}. Pick up where you left off.`:focus?.live?'Pick up exactly where you left off.':focus?.nextTopic?'Your previous topic is complete. Open the next topic when you’re ready.':focus?'Continue with the questions you haven’t answered in this topic.':'Pick a subject below and make today’s study session yours.';
-    const action=module?`window.QB.startStudyModule(${esc(JSON.stringify(String(module.id)))})`:focus?'window.QB.nkContinueRecentPractice()':"document.querySelector('.nk-home-subjects')?.scrollIntoView({behavior:'smooth',block:'start'})";
+    const action=module?`window.QB.startStudyModule(${esc(JSON.stringify(String(module.id)))})`:focus?'window.QB.nkContinueRecentPractice()':"window.QB.nkLearnOpen()";
     const label=module?'Continue module':focus?.savedCount?'Choose saved Practice':focus?.live?'Continue Practice':focus?.nextTopic?'Open next topic':focus?'Practice remaining questions':'Choose a subject';
-    return `<section class="nk-home-focus-card"><div class="nk-home-focus-label">TODAY'S FOCUS</div><h2>${esc(title)}</h2><p>${esc(copy)}</p><span class="nk-home-focus-heart" aria-hidden="true">♡</span><button class="nk-focus-primary nk-home-focus-action" onclick="${action}"><span>${label}</span><span>→</span></button></section>`;
+    const kicker=module?'Study set':focus?.savedCount?'Saved practice':focus?.live?'In progress':focus?.nextTopic?'Up next':focus?'Pick up where you left off':'Start here';
+    return `<section class="nk-home-focus-card"><div class="nk-home-focus-label">${kicker}</div><h2>${esc(title)}</h2><p>${esc(copy)}</p><span class="nk-home-focus-heart" aria-hidden="true">♡</span><button class="nk-focus-primary nk-home-focus-action" onclick="${action}"><span>${label}</span><span>→</span></button></section>`;
   }
   /* NK_HOME_STREAK_MILESTONES_V1 */
   function nkHomeStreakPresentation(streak){
@@ -971,8 +982,10 @@ __NK_DATA_UWORLD_SCRIPTS__<script>(() => {
   }
   function nkStrictBeforeNavigation(){const s=state.activeSession;if(s?.mode!=='exam'||s.timerMode!=='per-question')return true;if(nkStrictSpent(s,String(s.questionIds[s.index]))>=60000){setTimeout(()=>nkExpireTopicQuestion(),0);return false;}nkStrictCommitCurrent();return true;}
   const nkHomeNextQ=nextQ;nextQ=function(){if(!nkStrictBeforeNavigation())return false;const out=nkHomeNextQ.apply(this,arguments);nkStrictResetClock();return out;};
-  const nkHomePrevQ=prevQ;prevQ=function(){if(!nkStrictBeforeNavigation())return false;const out=nkHomePrevQ.apply(this,arguments);nkStrictResetClock();return out;};
-  const nkHomeGoIndex=goIndex;goIndex=function(){if(!nkStrictBeforeNavigation())return false;const out=nkHomeGoIndex.apply(this,arguments);nkStrictResetClock();return out;};
+  function nkStrictLocked(s,id){return Boolean(s?.mode==='exam'&&s.timerMode==='per-question'&&s.strictExpired?.[String(id)]);}
+  function nkStrictPrevIndex(s){for(let i=s.index-1;i>=0;i--)if(!nkStrictLocked(s,s.questionIds[i]))return i;return -1;}
+  const nkHomePrevQ=prevQ;prevQ=function(){const s=state.activeSession;if(s?.mode==='exam'&&s.timerMode==='per-question'&&nkStrictPrevIndex(s)<0){showToast('Earlier questions are locked. Their minute is up.');return false;}if(!nkStrictBeforeNavigation())return false;if(s?.mode==='exam'&&s.timerMode==='per-question')s.index=nkStrictPrevIndex(s)+1;const out=nkHomePrevQ.apply(this,arguments);nkStrictResetClock();return out;};
+  const nkHomeGoIndex=goIndex;goIndex=function(i){if(nkStrictLocked(state.activeSession,state.activeSession?.questionIds?.[i])){showToast('That question is locked. Its minute is up.');return false;}if(!nkStrictBeforeNavigation())return false;const out=nkHomeGoIndex.apply(this,arguments);nkStrictResetClock();return out;};
   /* NK_HOME_FLOW_V3_END */
 /* @module continue_practice_resume.js */
 /* @module practice_single_review_grid.js */
@@ -1077,9 +1090,8 @@ function dashboard(){
       return `<div class="nk-na-mock-row${i>=5?' is-extra':''}" data-mock-search="${esc(search)}"><button type="button" data-mock-id="${esc(m.id)}" aria-haspopup="dialog" onclick="window.QB.nkMockOpen(this.getAttribute('data-mock-id'))"><span class="nk-na-mock-icon">${nkMockGraphic(names[0]||'',20)}</span><span class="nk-na-mock-copy"><strong>${esc(m.name)}</strong><small>${[`${sum.total} Qs`,`${sum.total} min`,subjects].filter(Boolean).map(esc).join(' · ')}</small></span><span class="nk-na-mock-state${last?'':' is-new'}">${last?`<b>${nkMockScore(last)}%</b> last`:'New'}</span>${sum.attempts.length?`<span class="nk-na-mock-tries">${sum.attempts.length} ${sum.attempts.length===1?'attempt':'attempts'}</span>`:''}</button></div>`;
     }).join('');
     const shelf=`<section class="nk-v3-section nk-na-saved-mocks${mocks.length?'':' is-empty'}"><div class="nk-v3-section-head"><h2>Saved mocks</h2>${many?`<button type="button" class="nk-na-mock-more" onclick="window.QB.nkMockShowAll()">See all ${mocks.length}</button>`:mocks.length?`<span>${mocks.length}</span>`:''}</div>${mocks.length?`${many?`<label class="nk-na-mock-search">${navIcon('search',18)}<input type="search" placeholder="Search name, subject or topic" aria-label="Search saved mocks" oninput="window.QB.nkMockFilter(this.value)"></label>`:''}<div class="nk-tests-shelf" role="list">${cards}</div><p class="nk-na-mock-none" hidden>No saved mocks match.</p>`:`<p class="nk-tests-hint">Tests you save in the builder appear here, ready to retake.</p>`}</section>`;
-    // Score trend: the last ten timed results, oldest first.
-    const trend=recent.slice(0,10).reverse(),avg=trend.length?Math.round(trend.reduce((n,t)=>n+pct(t),0)/trend.length):0;
-    const bars=trend.length>=2?`<section class="nk-v3-section nk-tests-trend" aria-label="Score trend"><div class="nk-v3-section-head"><h2>Score trend</h2><span>Average <b>${avg}%</b></span></div><div class="nk-tests-bars" role="img" aria-label="${esc(trend.map(t=>pct(t)+'%').join(', '))}">${trend.map((t,i)=>`<span class="${i===trend.length-1?'is-latest':''}" style="--nk-h:${Math.max(4,pct(t))}%;--nk-i:${i};grid-column:${10-trend.length+i+1}"><b>${pct(t)}</b></span>`).join('')}</div></section>`:'';
+    // Score trend lives on Insights now; the Tests page keeps a one-line summary that opens it.
+    const bars=typeof nkMockInsightsLink==='function'?nkMockInsightsLink():'';
     const quick=`<section class="nk-v3-section nk-tests-quick"><div class="nk-v3-section-head"><h2>Quick test</h2></div><div class="nk-tests-quick-row"><button type="button" ${wrong?'':'disabled'} onclick="window.QB.nkQuickTestOpen('wrong')">${navIcon('refresh',19)}<span><strong>Wrong questions</strong><small>${fmtNum(wrong)} to retry</small></span></button><button type="button" ${bookmarks?'':'disabled'} onclick="window.QB.nkQuickTestOpen('bookmarks')">${navIcon('bookmark',19)}<span><strong>Bookmarked</strong><small>${fmtNum(bookmarks)} saved</small></span></button></div></section>`;
     const history=`<section class="nk-v3-section nk-test-history"><div class="nk-v3-section-head"><h2>Recent</h2><span>${fmtNum(recent.length)} total</span></div>${recent.length?`<div class="nk-v3-session-list">${recent.slice(0,5).map(testRow).join('')}</div>${recent.length>5?`<details class="nk-test-older"><summary>Show ${fmtNum(recent.length-5)} older tests</summary><div class="nk-v3-session-list">${recent.slice(5).map(testRow).join('')}</div></details>`:''}`:`<div class="nk-v3-empty">Your completed timed tests will appear here.</div>`}</section>`;
     return shell(`<main class="nk-new-test-v2 nk-tests-focused nk-tests-shelf-page" aria-label="Timed tests"><header class="nk-v3-page-hero"><h1>Timed tests</h1></header>${nkTimedResumeCard('tests')}${shelf}${bars}${quick}${history}</main>`,'tests')+
@@ -1142,7 +1154,7 @@ function dashboard(){
     // Skipped = left unanswered in a submitted session (moved past it, or worked on it 15 s+); unattempted = never reached.
     const skippedIds=state.fsrsReviewEligible||{};
     const rows=qs.map(q=>{const a=latestAttempt(q.id);return {q,st:a?(a.correct?'c':'w'):skippedIds[q.id]?.reason==='skipped'?'k':'u',b:Boolean(state.bookmarks&&state.bookmarks[q.id])};});
-    const correct=rows.filter(r=>r.st==='c').length,wrong=rows.filter(r=>r.st==='w').length,skipped=rows.filter(r=>r.st==='k').length,left=Math.max(0,total-s.attempted),fresh=Math.max(0,left-skipped),marked=rows.filter(r=>r.b).length;
+    const correct=rows.filter(r=>r.st==='c').length,wrong=rows.filter(r=>r.st==='w').length,skipped=rows.filter(r=>r.st==='k').length,left=Math.max(0,total-s.attempted),fresh=Math.max(0,left-skipped),marked=rows.filter(r=>r.b).length,mistakes=rows.filter(r=>nkIsMistake(r.q.id)).length;
     const due=qs.filter(q=>{const r=state.reviews&&state.reviews[q.id];return r&&r.nextReviewAt&&r.nextReviewAt<=now;}).length;
     const cont=typeof nkTopicPracticeContinuation==='function'?nkTopicPracticeContinuation(activeSubject,activeBank):null,resume=cont&&cont.sessionId&&cont.total>1&&String(cont.topicId)===String(c.id)?cont:null;
     const phase=resume?'paused':!s.attempted?'new':s.attempted>=total?'done':'progress';
@@ -1161,16 +1173,18 @@ function dashboard(){
     const options=[
       phase==='paused'?row(`window.QB.openSessionBuilder('${c.id}','practice')`,'book','New practice session',`${fmtNum(total)} questions`,' is-primary nk-topic-new'):'',
       `<button class="nk-topic-option" onclick="window.QB.nkStartTopicTimedTest('${c.id}')">${navIcon('clock',18)}<span>Timed test</span><small>${fmtNum(total)} min</small>${navIcon('chevron',16)}</button>`,
-      wrong?row(`window.QB.nkTopicPracticeSet('${c.id}','wrong')`,'refresh','Redo mistakes',fmtNum(wrong),' is-wrong'):'',
+      mistakes?row(`window.QB.nkTopicPracticeSet('${c.id}','wrong')`,'refresh','Redo mistakes',fmtNum(mistakes),' is-wrong'):'',
       s.attempted&&left?row(`window.QB.nkTopicPracticeSet('${c.id}','new')`,'book','Only unanswered',fmtNum(left)):'',
       marked?row(`window.QB.nkTopicPracticeSet('${c.id}','saved')`,'bookmark','Saved questions',fmtNum(marked)):''
     ].filter(Boolean).join('');
     return shell(`<div class="nk-app-v114 nk-chapter-v114" data-phase="${phase}"><button class="nk-back-link" onclick="window.QB.nav('topics')">${navIcon('back',18)} Topics</button><section class="nk-chapter-hero"><div class="nk-chapter-title"><h1>${esc(c.title)}</h1><div class="nk-kicker">${esc(activeSubject)} · ${esc(activeBank)} · CHAPTER ${String(c.id).padStart(2,'0')}</div><p class="nk-topic-source">${esc(activeSubject)}${typeof activeBank!=='undefined'&&activeBank&&!String(activeSubject).startsWith(activeBank)?` · ${esc(activeBank)}`:''}${pageSpan?` · ${pageSpan}`:''}</p><p class="nk-topic-summary"><span class="nk-topic-status is-${phase}">${status}</span>${summary}</p><div class="nk-topic-library">${map}${s.attempted||marked||skipped?legend:''}</div></div>${resumeBtn}<div class="nk-chapter-actions">${phase==='paused'?'':`<button class="is-primary" onclick="window.QB.openSessionBuilder('${c.id}','practice')"><strong>${primary[0]}</strong><small>${primary[1]}</small></button>`}<div class="nk-topic-options">${options}</div></div></section>
     </div>`,'topics');
   }
+  // One definition of a mistake everywhere: a practice or test miss not yet answered correctly since.
+  function nkIsMistake(id){if(typeof nkFsrsPracticeMistake==='function')return nkFsrsPracticeMistake(String(id));const a=latestAttempt(id);return Boolean(a&&!a.correct);}
   function nkTopicPracticeSet(cid,kind){
     const c=CHAPTER_BY_ID[String(cid)],qs=chapterQuestions(cid);
-    const ids=qs.filter(q=>{const a=latestAttempt(q.id);return kind==='wrong'?Boolean(a&&!a.correct):kind==='new'?!qAttempts(q.id).length:Boolean(state.bookmarks&&state.bookmarks[q.id]);}).map(q=>String(q.id));
+    const ids=qs.filter(q=>{const a=latestAttempt(q.id);return kind==='wrong'?nkIsMistake(q.id):kind==='new'?!qAttempts(q.id).length:Boolean(state.bookmarks&&state.bookmarks[q.id]);}).map(q=>String(q.id));
     if(!ids.length){showToast('No questions match.','bad');return;}
     startSession(ids,'practice',`${c?.title||'Topic'} · ${kind==='wrong'?'Retry wrong':kind==='new'?'Unanswered':'Saved'}`);
   }
@@ -1874,7 +1888,7 @@ function dashboard(){
   }
 
   function nkSessionActionBar(s,mode) {
-    const prevDisabled=s.index===0?'disabled':'';
+    const prevDisabled=s.index===0||(s.mode==='exam'&&s.timerMode==='per-question'&&nkStrictPrevIndex(s)<0)?'disabled':'';
     return `<div class="fixed-actions nk-session-footer" role="toolbar" aria-label="Question navigation"><div class="fixed-actions-inner"><button class="ghost-btn" onclick="window.QB.prevQ()" ${prevDisabled}>${navIcon('back',20)} Previous</button><button class="primary-btn" onclick="window.QB.nextQ()">Next ${navIcon('chevron',20)}</button></div></div>`;
   }
 
@@ -1891,7 +1905,12 @@ function dashboard(){
     return nkSessionActionBar(s,'practice');
   }
 
-  function examPage(){const s=state.activeSession;if(!s||s.mode!=='exam')return dashboard();const q=BY_ID[s.questionIds[s.index]]||nkFindStudyQuestion(s.questionIds[s.index]);if(!q)return dashboard();const selected=s.answers[q.id]||null,strict=s.timerMode==='per-question',locked=Boolean(s.strictExpired?.[String(q.id)]);let remaining;if(strict){remaining=Math.max(0,60-Math.floor(nkStrictSpent(s,String(q.id))/1000));}else{remaining=Math.max(0,s.questionIds.length*60-Math.floor((Date.now()-s.startedAt)/1000));}const timer=strict?`<div class="nk-exam-strip"><span>Topic Test · 60 sec this question</span><strong id="exam-timer" class="timer ${remaining<15?'danger':remaining<30?'warn':''}">${locked?'Time expired':formatTimer(remaining)}</strong></div>`:`<div class="nk-exam-strip"><span>Timed Test · ${s.questionIds.length} min total</span><strong id="exam-timer" class="timer ${remaining<120?'danger':remaining<300?'warn':''}">${formatTimer(remaining)}</strong></div>`;const options=locked?q.options.map(o=>{const n=o.letter.charCodeAt(0)-64,chosen=Number(selected)===n;return `<div class="option ${chosen?'selected':''}"><span class="option-letter">${o.letter}</span><span class="option-text">${q.bank==='UWorld'?nkUworldOptionMarkup(q,o):nkScientificMarkup(o.text)}</span></div>`;}).join(''):nkSessionOptions(q,selected,'exam',false);return sessionShell(`<div class="nk-v114-session is-exam">${nkSessionHeader(q,s,'exam',timer)}<div class="question-shell"><section class="question-card">${nkQuestionContext(q)}<div class="question-text" data-marrow-question="${q.bank!=='PrepLadder'||nkTextExplained(q)?esc(String(q.id)):''}">${nkQuestionStemMarkup(q)}</div><div class="option-list">${options}</div>${nkExamReviewButton(q,s)}</section></div></div>`,'tests')+nkSessionActionBar(s,'exam');}
+  // Exam length and marking come from the session (test builder settings); older sessions keep 60 s per question.
+  function nkExamSecondsPer(s){const n=Number(s?.secondsPerQuestion);return n>=10&&n<=600?Math.round(n):60;}
+  function nkExamTotalSeconds(s){return Math.max(1,(s?.questionIds||[]).length)*nkExamSecondsPer(s);}
+  function nkExamMarks(t){const m=t?.marking;if(!m)return null;const c=Number(m.correct),w=Number(m.wrong),b=Number(m.blank)||0;if(!Number.isFinite(c)||!Number.isFinite(w))return null;const total=Number(t.total)||(t.questionIds||[]).length,score=(Number(t.correct)||0)*c+(Number(t.incorrect)||0)*w+(Number(t.unattempted)||0)*b;return {score:Math.round(score*100)/100,max:Math.round(total*c*100)/100,correct:c,wrong:w,blank:b};}
+  function nkMarkingLabel(m){const f=n=>{const v=Math.round(Number(n)*100)/100;return (v>0?'+':v<0?'−':'')+Math.abs(v);};return m?`${f(m.correct)} / ${f(m.wrong)}${Number(m.blank)?` / blank ${f(m.blank)}`:''}`:'';}
+  function examPage(){const s=state.activeSession;if(!s||s.mode!=='exam')return dashboard();const q=BY_ID[s.questionIds[s.index]]||nkFindStudyQuestion(s.questionIds[s.index]);if(!q)return dashboard();const selected=s.answers[q.id]||null,strict=s.timerMode==='per-question',locked=Boolean(s.strictExpired?.[String(q.id)]);let remaining;if(strict){remaining=Math.max(0,60-Math.floor(nkStrictSpent(s,String(q.id))/1000));}else{remaining=Math.max(0,nkExamTotalSeconds(s)-Math.floor((Date.now()-s.startedAt)/1000));}const timer=strict?`<div class="nk-exam-strip"><span>Topic Test · 60 sec this question</span><strong id="exam-timer" class="timer ${remaining<15?'danger':remaining<30?'warn':''}">${locked?'Time expired':formatTimer(remaining)}</strong></div>`:`<div class="nk-exam-strip"><span>${s.scheduledMockId?'Scheduled mock':'Timed Test'} · ${fmtNum(Math.round(nkExamTotalSeconds(s)/60))} min total${s.marking?` · ${nkMarkingLabel(s.marking)}`:''}</span><strong id="exam-timer" class="timer ${remaining<120?'danger':remaining<300?'warn':''}">${formatTimer(remaining)}</strong></div>`;const options=locked?q.options.map(o=>{const n=o.letter.charCodeAt(0)-64,chosen=Number(selected)===n;return `<div class="option ${chosen?'selected':''}"><span class="option-letter">${o.letter}</span><span class="option-text">${q.bank==='UWorld'?nkUworldOptionMarkup(q,o):nkScientificMarkup(o.text)}</span></div>`;}).join(''):nkSessionOptions(q,selected,'exam',false);return sessionShell(`<div class="nk-v114-session is-exam">${nkSessionHeader(q,s,'exam',timer)}<div class="question-shell"><section class="question-card">${nkQuestionContext(q)}<div class="question-text" data-marrow-question="${q.bank!=='PrepLadder'||nkTextExplained(q)?esc(String(q.id)):''}">${nkQuestionStemMarkup(q)}</div><div class="option-list">${options}</div>${nkExamReviewButton(q,s)}</section></div></div>`,'tests')+nkSessionActionBar(s,'exam');}
 
   function resultPage(testId) {
     const t=nkSafeTest(state.tests.find(x=>x.id===testId));if(!t)return testsPage();
@@ -2063,7 +2082,7 @@ function dashboard(){
   }
 
   let ticker=null;
-  function startExamTicker(){clearInterval(ticker);const current=state.activeSession;if(!current||current.mode!=='exam')return;ticker=setInterval(()=>{const s=state.activeSession;if(!s||s.mode!=='exam'){clearInterval(ticker);return;}let remaining;if(s.timerMode==='per-question'){const id=String(s.questionIds[s.index]);remaining=60-Math.floor(nkStrictSpent(s,id)/1000);const el=document.getElementById('exam-timer');if(el){el.textContent=remaining<=0?'Time expired':formatTimer(Math.max(0,remaining));el.className='timer '+(remaining<15?'danger':remaining<30?'warn':'');}if(remaining<=0){clearInterval(ticker);nkExpireTopicQuestion();}}else{remaining=s.questionIds.length*60-Math.floor((Date.now()-s.startedAt)/1000);const el=document.getElementById('exam-timer');if(el){el.textContent=formatTimer(Math.max(0,remaining));el.className='timer '+(remaining<120?'danger':remaining<300?'warn':'');}if(remaining<=0){clearInterval(ticker);submitExam(true);}}},250);}
+  function startExamTicker(){clearInterval(ticker);const current=state.activeSession;if(!current||current.mode!=='exam')return;ticker=setInterval(()=>{const s=state.activeSession;if(!s||s.mode!=='exam'){clearInterval(ticker);return;}let remaining;if(s.timerMode==='per-question'){const id=String(s.questionIds[s.index]);remaining=60-Math.floor(nkStrictSpent(s,id)/1000);const el=document.getElementById('exam-timer');if(el){el.textContent=remaining<=0?'Time expired':formatTimer(Math.max(0,remaining));el.className='timer '+(remaining<15?'danger':remaining<30?'warn':'');}if(remaining<=0){clearInterval(ticker);nkExpireTopicQuestion();}}else{remaining=nkExamTotalSeconds(s)-Math.floor((Date.now()-s.startedAt)/1000);const el=document.getElementById('exam-timer');if(el){el.textContent=formatTimer(Math.max(0,remaining));el.className='timer '+(remaining<120?'danger':remaining<300?'warn':'');}if(remaining<=0){clearInterval(ticker);submitExam(true);}}},250);}
 
   function toggleMenu(){ showToast('Use the bottom navigation to switch sections.'); }
   function notify(){ showToast('QBank is running offline on this device.'); }
@@ -2134,17 +2153,19 @@ function dashboard(){
     const moduleSession=Boolean(s.studyModuleId);
     const total=s.questionIds.length;
     const answered=s.questionIds.reduce((n,id)=>n+(s.answers[id]?1:0),0);
-    const unanswered=total-answered;
+    const timeUp=s.questionIds.reduce((n,id)=>n+(!s.answers[id]&&nkStrictLocked(s,id)?1:0),0);
+    const unanswered=total-answered-timeUp;
     const heading=s.mode==='exam'?'Review before submitting':moduleSession?'Module progress':'Review before finishing';
     const sub=s.mode==='exam'
-      ? 'Check answered, skipped, and unanswered questions. You can jump back to any question before submitting the test.'
+      ? (s.timerMode==='per-question'?'Questions whose minute ran out are locked. You can still return to any open question.':'Check answered, skipped, and unanswered questions. You can jump back to any question before submitting the test.')
       : moduleSession?'Your progress is saved after every answer. Continue later, or complete the module when you are ready.':'Check the questions you answered and jump back to any unanswered question before finishing the session.';
     const actionLabel=s.mode==='exam'?'Submit Test':moduleSession?(unanswered?'Save & exit':'Complete module'):'Finish Session';
-    const statusText=unanswered?
+    const statusText=(unanswered?
       `${answered} answered · ${unanswered} unanswered`:
-      `${answered} answered · all questions covered`;
+      `${answered} answered · all questions covered`)+(timeUp?` · ${timeUp} time up`:'');
     const cells=s.questionIds.map((id,i)=>{
-      const answeredQ=Boolean(s.answers[id]);
+      const answeredQ=Boolean(s.answers[id]),locked=nkStrictLocked(s,id);
+      if(locked)return `<button type="button" class="nk-session-review-q ${answeredQ?'answered':'expired'}" disabled aria-label="Question ${i+1}, locked, time up${answeredQ?', answered':''}"><span>${i+1}</span><small>Time up</small></button>`;
       return `<button type="button" class="nk-session-review-q ${sessionReviewClass(answeredQ)} ${i===s.index?'active':''}" onclick="window.QB.__sessionReviewGo(${i})" aria-label="Question ${i+1}${answeredQ?' answered':' unanswered'}"><span>${i+1}</span><small>${answeredQ?'Answered':'Unanswered'}</small></button>`;
     }).join('');
     const unansweredBtn=unanswered
@@ -2161,15 +2182,15 @@ function dashboard(){
       <div class="nk-session-review-head"><div><div class="mode-pill">${s.mode==='exam'?'Exam':'Practice'} · Session Review</div><h2>${heading}</h2><p>${sub}</p></div><button type="button" class="icon-btn nk-session-review-close" aria-label="Close" onclick="window.QB.__sessionReviewClose()">×</button></div>
       <div class="nk-session-review-summary"><strong>${statusText}</strong><span>${total} questions</span></div>
       <div class="nk-session-review-grid">${cells}</div>
-      <div class="nk-session-review-legend"><span><i class="nk-review-dot answered"></i>Answered</span><span><i class="nk-review-dot unanswered"></i>Unanswered</span><span><i class="nk-review-dot active"></i>Current</span></div>
+      <div class="nk-session-review-legend"><span><i class="nk-review-dot answered"></i>Answered</span><span><i class="nk-review-dot unanswered"></i>Unanswered</span><span><i class="nk-review-dot active"></i>Current</span>${timeUp?'<span><i class="nk-review-dot expired"></i>Time up</span>':''}</div>
       <div class="nk-session-review-actions${unanswered?'':' two'}">${backBtn}${unansweredBtn}${moduleFinish}<button type="button" class="primary-btn" onclick="window.QB.__sessionReviewSubmit()">${actionLabel}</button></div>
       ${unanswered?`<div class="nk-session-review-warning">${unanswered} question${unanswered===1?'':'s'} ${unanswered===1?'is':'are'} still unanswered. Go back to them, or submit and leave them blank.</div>`:`<div class="nk-session-review-ready">Every question is answered. Submit when you are ready.</div>`}
     </section>`;
     document.body.appendChild(box);
   }
   function closeSessionReview(){document.getElementById('nk-session-review')?.remove();}
-  function sessionReviewGo(i){const s=state.activeSession;if(!s||i<0||i>=s.questionIds.length)return;s.index=i;s.questionEnteredAt=Date.now();saveState();closeSessionReview();render();}
-  function sessionReviewFirstUnanswered(){const s=state.activeSession;if(!s)return;const i=s.questionIds.findIndex(id=>!s.answers[id]);if(i>=0)sessionReviewGo(i);}
+  function sessionReviewGo(i){const s=state.activeSession;if(!s||i<0||i>=s.questionIds.length||nkStrictLocked(s,s.questionIds[i]))return;if(s.mode==='exam'&&s.timerMode==='per-question'){if(!nkStrictBeforeNavigation())return;}s.index=i;s.questionEnteredAt=Date.now();saveState();closeSessionReview();render();if(s.mode==='exam'&&s.timerMode==='per-question')nkStrictResetClock();}
+  function sessionReviewFirstUnanswered(){const s=state.activeSession;if(!s)return;const i=s.questionIds.findIndex(id=>!s.answers[id]&&!nkStrictLocked(s,id));if(i>=0)sessionReviewGo(i);}
   function sessionReviewSubmit(){const s=state.activeSession;if(!s)return;closeSessionReview();if(s.mode==='exam')submitExam(false);else if(s.studyModuleId&&s.questionIds.some(id=>!s.submitted?.[id]))exitStudyModule();else endSession();}
   function endReview(){
     const s=state.activeSession;
@@ -2185,7 +2206,7 @@ function dashboard(){
   function prevQ(){ const s=state.activeSession;if(!s)return;if(s.mode==='practice')savePracticeElapsed();else if(s.mode==='exam')saveExamElapsed();if(s.index>0){s.index--;s.questionEnteredAt=Date.now();saveState();render();}}
   function selectExam(n){const s=state.activeSession;if(!s||s.mode!=='exam')return;const q=s.questionIds[s.index];s.answers[q]=n;haptic(7);saveState();render();}
   function toggleBookmark(qid){if(state.bookmarks[qid]){delete state.bookmarks[qid];showToast('Bookmark removed.');}else{state.bookmarks[qid]={addedAt:Date.now()};showToast('Bookmarked for later.','good');}saveState();render();}
-  function submitExam(auto=false){closeQuestionNavigator();const s=state.activeSession;if(!s||s.mode!=='exam')return;if(s.timerMode==='per-question')nkStrictCommitCurrent();saveExamElapsed();const qt=s.questionTimes||{},strict=s.timerMode==='per-question';let correct=0,incorrect=0,attempted=0;Object.entries(s.answers||{}).forEach(([id,sel])=>{if(!sel)return;attempted++;const q=BY_ID[id]||nkFindStudyQuestion(id),ok=q&&Number(q.correctOption)===Number(sel);if(ok)correct++;else incorrect++;recordAttempt(id,sel,qt[id]||0,'exam');});const unattempted=s.questionIds.length-attempted;nkMarkSkippedFromSession(s);const raw=Date.now()-s.startedAt,totalTimeMs=strict?s.questionIds.reduce((n,id)=>n+Math.min(60000,Math.max(Number(qt[id]||0),Number(s.strictQuestionTime?.[id]||0))),0):Math.min(raw,s.questionIds.length*60000);const test={id:`t_${Date.now()}_${Math.random().toString(16).slice(2)}`,title:s.title,sessionId:s.id,questionIds:[...s.questionIds],answers:{...s.answers},questionTimes:{...qt},correct,incorrect,unattempted,total:s.questionIds.length,attempted,totalTimeMs,createdAt:Date.now(),autoSubmitted:auto,timerEnabled:true,timerMode:s.timerMode||'global',originRoute:s.originRoute};state.tests.push(test);state.tests=state.tests.slice(-100);state.activeSession=null;saveState();document.querySelectorAll('#toast-root .toast').forEach(e=>e.remove());navigate('result',test.id);}
+  function submitExam(auto=false){closeQuestionNavigator();const s=state.activeSession;if(!s||s.mode!=='exam')return;if(s.timerMode==='per-question')nkStrictCommitCurrent();saveExamElapsed();const qt=s.questionTimes||{},strict=s.timerMode==='per-question';let correct=0,incorrect=0,attempted=0;Object.entries(s.answers||{}).forEach(([id,sel])=>{if(!sel)return;attempted++;const q=BY_ID[id]||nkFindStudyQuestion(id),ok=q&&Number(q.correctOption)===Number(sel);if(ok)correct++;else incorrect++;recordAttempt(id,sel,qt[id]||0,'exam');});const unattempted=s.questionIds.length-attempted;nkMarkSkippedFromSession(s);const raw=Date.now()-s.startedAt,totalTimeMs=strict?s.questionIds.reduce((n,id)=>n+Math.min(60000,Math.max(Number(qt[id]||0),Number(s.strictQuestionTime?.[id]||0))),0):Math.min(raw,nkExamTotalSeconds(s)*1000);const test={id:`t_${Date.now()}_${Math.random().toString(16).slice(2)}`,title:s.title,sessionId:s.id,questionIds:[...s.questionIds],answers:{...s.answers},questionTimes:{...qt},correct,incorrect,unattempted,total:s.questionIds.length,attempted,totalTimeMs,createdAt:Date.now(),autoSubmitted:auto,timerEnabled:true,timerMode:s.timerMode||'global',originRoute:s.originRoute,...(s.marking?{marking:{...s.marking}}:{}),...(s.secondsPerQuestion?{secondsPerQuestion:nkExamSecondsPer(s)}:{}),...(s.scheduledMockId?{scheduledMockId:s.scheduledMockId}:{}),...(s.makeupFor?{makeupFor:String(s.makeupFor)}:{}),...(strict?{expired:Object.fromEntries(Object.keys(s.strictExpired||{}).filter(id=>!s.answers?.[id]).map(id=>[id,true]))}:{})};state.tests.push(test);state.tests=state.tests.slice(-100);state.activeSession=null;saveState();document.querySelectorAll('#toast-root .toast').forEach(e=>e.remove());navigate('result',test.id);}
 
   function resetProgress(){return nkResetProgress();}
   function openTest(id){ navigate('result',id); }
@@ -2209,6 +2230,7 @@ function dashboard(){
 
   /* @module revision_desk.js */
   /* @module revision_session.js */
+  /* @module today_plan.js */
 
   /* @module insights_focus.js */
 
@@ -2225,6 +2247,7 @@ function dashboard(){
   /* @module qbank_coverage.js */
 
   /* @module question_search.js */
+  /* @module search_scopes.js */
 
   /* @module practice_correction.js */
 
@@ -2235,6 +2258,10 @@ function dashboard(){
   /* @module app_clarity.js */
 
   /* @module refined_analysis.js */
+  /* @module exam_settings.js */
+  /* @module session_controls.js */
+  /* @module scheduled_mocks.js */
+  /* @module mock_insights.js */
 
   /* @module interaction_polish.js */
 
@@ -2242,7 +2269,7 @@ function dashboard(){
 
   /* @module question_rarity.js */
   /* @module uworld_biochemistry.js */
-  window.QB={questionSubject:id=>{const q=BY_ID[String(id)];return q?(q.bank==='UWorld'?'My UWorld':String(q.subject||'')):'';},uworldFigure:nkUworldFigure,uworldRetryFigures:nkUworldRetryFigures,uworldReference:nkUworldReference,nkAnalysisSetTab,nkAnalysisSetTime,nkAnalysisRename,nkMockName,nkMockSaveDraft,nkMockStart,nkMockSaveResult,nkMockRemove,nkMockRenameInline,nkMockRename,nkMockOpen,nkMockClose,nkMockLaunch,nkMockSheetRename,nkMockAskDelete,nkMockUndo,nkMockFilter,nkMockShowAll,nkLearningSetPeriod,nkLearningMove,nkLearningSetScope,nkLearningSelectBin,nkLearningSetTopics,nkLearningOpenTopic,nkLearningSetHeatYear,nkLearningYearDetail,nkLearningFocus,nkFocusRevise,nkFocusOpen,nkMemorySetGroup,nkMemorySelectDay,nkMemoryReview,nkMemoryOpenQuestion,nkMemoryPractiseHardest,nkCorrectionStart,nkQuestionSearchQuery,nkQuestionSearchSetFilter,nkQuestionSearchMore,nkQuestionSearchOpen,nkQuestionSearchPracticeMatches,nkCoverageSelectBank,nkCoverageSetSearch,nkCoverageSetStatus,nkCoverageShowMore,nkCoverageOpen,nkResumeTimedTest,nkAbandonTimedTest,nkToggleExamReviewFlag,nkCbtPracticeMarked,nkCbtRetake,nkCbtPracticeMisses,nkCbtSetBanks,nkCbtToggleBank,nkCbtSetStep,nkCbtSetTopics,nkCbtSelectVerifiedPyqs,nkCbtToggleGroup,nkCbtToggleTopic,nkCbtFilterTopics,nkCbtSetCount,nkCbtStart,nkCbtToggleOpen,nkPracticeInsightFocus,nkFinishRevisionSession,nkFilterNotes,nkOpenNotedQuestion,nkStartRevisionQueue,nkFilterRevisionBrowse,nkOpenRevisionQuestion,nkToggleRevisionFocus,nkSetRevisionScope,nkOpenRevisionHub,nkRateCurrent,nkStartTodaysReview,nkFsrsQueueDialog,nkFsrsTopicOptions,nkFsrsSetPreference,nkFsrsSaveSettings,nkFsrsUndo,nkFsrsEditSetting,nkFsrsCancelSettings,nkFsrsLeaveSettings,saveState,nkRetryPersistence,nkCloudAuthenticate,nkCloudAuthNext,nkCloudAuthStartCreate,nkCloudAuthBack,nkCloudSignOut,nkCloudSyncNow,nkPausePractice,nkSubmitPracticeSession,nkDiscardNormalPractice,nkPracticeConfirmDiscard,nkResumePracticeById,nkPracticeSavedSessionsDialog,nkResolvePracticeReplacement,nkResolveTimedSession,nkOpenSubjectLibrary,nkToggleProfGroup,nkOpenSubjectChapter,nkContinueRecentPractice,nkSetHomeProgressRange,nkSetFsrsSubject,nkStartReviewOnly,nkOpenNewTest,nkSetTestMode,nkSetTestSource,nkSetTestCount,nkQuickTestOpen,nkQuickTestClose,nkQuickTestSet,nkQuickTestStart,nkOpenCustomSource,nkStartConfiguredTest,nkStartTopicTimedTest,nkExpireTopicQuestion,openStudyModuleBuilder,nkOpenQuickStudy,nkToggleModuleSubject,nkToggleModuleTopic,nkFilterModuleTopics,nkSetModuleBankTopics,nkSetAllModuleTopics,nkSelectModulePyqTopics,nkSetModulePool,nkSetModuleCount,nkSetCustomModuleCount,nkSetModuleName,nkModuleBuilderStep,nkCreateStudyModule,startStudyModule,exitStudyModule,finishStudyModuleEarly,restartStudyModule,renameStudyModule,deleteStudyModule,getState:()=>state,startAllSubjectPractice,nkTopicPracticeSet,openMultiSubjectTestBuilder,nkSetMultiExamScope,nkUpdateMultiExamPool,nkSelectAllMultiTopics,nkConfirmMultiSubjectExam,nav:navigate,setSubject,openSubjectTopics,openBank,toggleMenu,notify,openQuestionNavigator,closeQuestionNavigator,jumpFromNavigator,closeModal,confirmSession,openSessionBuilder,openTestBuilder,openModeBuilder,setExamScope,selectAllExamTopics,updateExamPoolCount,practiceOne,startLibrary,startAllPractice,continuePractice,goIndex,selectPractice,submitPractice,retryCurrent,nextQ,prevQ,selectExam,toggleBookmark,submitExam,endSession,resetProgress,openTest,setSearch,setTopicFilter,openChapter,reviewTest,__sessionReviewGo:sessionReviewGo,__sessionReviewFirstUnanswered:sessionReviewFirstUnanswered,__sessionReviewClose:closeSessionReview,__sessionReviewSubmit:sessionReviewSubmit,openSessionReview:openSessionReview,endReview:endReview};
+  window.QB={nkLearnOpen,nkTodayGoalToggle,nkLearnSetGoal,nkMockInsightsOpen,nkMockInsightSet,nkResultReviewAt,nkSchedMakeupStart,nkSchedSaveMock,nkSearchSetScope,nkSearchRetry,nkSchedOpen,nkSchedClose,nkSchedPick,nkSchedConfirm,nkSchedStart,nkResultBack,nkTodayGo,nkExamSet,nkExamPreset,nkExamToggle,questionSubject:id=>{const q=BY_ID[String(id)];return q?(q.bank==='UWorld'?'My UWorld':String(q.subject||'')):'';},uworldFigure:nkUworldFigure,uworldRetryFigures:nkUworldRetryFigures,uworldReference:nkUworldReference,nkAnalysisSetTab,nkAnalysisSetTime,nkAnalysisRename,nkMockName,nkMockSaveDraft,nkMockStart,nkMockSaveResult,nkMockRemove,nkMockRenameInline,nkMockRename,nkMockOpen,nkMockClose,nkMockLaunch,nkMockSheetRename,nkMockAskDelete,nkMockUndo,nkMockFilter,nkMockShowAll,nkLearningSetPeriod,nkLearningMove,nkLearningSetScope,nkLearningSelectBin,nkLearningSetTopics,nkLearningOpenTopic,nkLearningSetHeatYear,nkLearningYearDetail,nkLearningFocus,nkFocusRevise,nkFocusOpen,nkMemorySetGroup,nkMemorySelectDay,nkMemoryReview,nkMemoryOpenQuestion,nkMemoryPractiseHardest,nkCorrectionStart,nkQuestionSearchQuery,nkQuestionSearchSetFilter,nkQuestionSearchMore,nkQuestionSearchOpen,nkQuestionSearchPracticeMatches,nkCoverageSelectBank,nkCoverageSetSearch,nkCoverageSetStatus,nkCoverageShowMore,nkCoverageOpen,nkResumeTimedTest,nkAbandonTimedTest,nkToggleExamReviewFlag,nkCbtPracticeMarked,nkCbtRetake,nkCbtPracticeMisses,nkCbtSetBanks,nkCbtToggleBank,nkCbtSetStep,nkCbtSetTopics,nkCbtSelectVerifiedPyqs,nkCbtToggleGroup,nkCbtToggleTopic,nkCbtFilterTopics,nkCbtSetCount,nkCbtStart,nkCbtToggleOpen,nkPracticeInsightFocus,nkFinishRevisionSession,nkFilterNotes,nkOpenNotedQuestion,nkStartRevisionQueue,nkFilterRevisionBrowse,nkOpenRevisionQuestion,nkToggleRevisionFocus,nkSetRevisionScope,nkOpenRevisionHub,nkRateCurrent,nkStartTodaysReview,nkFsrsQueueDialog,nkFsrsTopicOptions,nkFsrsSetPreference,nkFsrsSaveSettings,nkFsrsUndo,nkFsrsEditSetting,nkFsrsCancelSettings,nkFsrsLeaveSettings,saveState,nkRetryPersistence,nkCloudAuthenticate,nkCloudAuthNext,nkCloudAuthStartCreate,nkCloudAuthBack,nkCloudSignOut,nkCloudSyncNow,nkPausePractice,nkSubmitPracticeSession,nkDiscardNormalPractice,nkPracticeConfirmDiscard,nkResumePracticeById,nkPracticeSavedSessionsDialog,nkResolvePracticeReplacement,nkResolveTimedSession,nkOpenSubjectLibrary,nkToggleProfGroup,nkOpenSubjectChapter,nkContinueRecentPractice,nkSetHomeProgressRange,nkSetFsrsSubject,nkStartReviewOnly,nkOpenNewTest,nkSetTestMode,nkSetTestSource,nkSetTestCount,nkQuickTestOpen,nkQuickTestClose,nkQuickTestSet,nkQuickTestStart,nkOpenCustomSource,nkStartConfiguredTest,nkStartTopicTimedTest,nkExpireTopicQuestion,openStudyModuleBuilder,nkOpenQuickStudy,nkToggleModuleSubject,nkToggleModuleTopic,nkFilterModuleTopics,nkSetModuleBankTopics,nkSetAllModuleTopics,nkSelectModulePyqTopics,nkSetModulePool,nkSetModuleCount,nkSetCustomModuleCount,nkSetModuleName,nkModuleBuilderStep,nkCreateStudyModule,startStudyModule,exitStudyModule,finishStudyModuleEarly,restartStudyModule,renameStudyModule,deleteStudyModule,getState:()=>state,startAllSubjectPractice,nkTopicPracticeSet,openMultiSubjectTestBuilder,nkSetMultiExamScope,nkUpdateMultiExamPool,nkSelectAllMultiTopics,nkConfirmMultiSubjectExam,nav:navigate,setSubject,openSubjectTopics,openBank,toggleMenu,notify,openQuestionNavigator,closeQuestionNavigator,jumpFromNavigator,closeModal,confirmSession,openSessionBuilder,openTestBuilder,openModeBuilder,setExamScope,selectAllExamTopics,updateExamPoolCount,practiceOne,startLibrary,startAllPractice,continuePractice,goIndex,selectPractice,submitPractice,retryCurrent,nextQ,prevQ,selectExam,toggleBookmark,submitExam,endSession,resetProgress,openTest,setSearch,setTopicFilter,openChapter,reviewTest,__sessionReviewGo:sessionReviewGo,__sessionReviewFirstUnanswered:sessionReviewFirstUnanswered,__sessionReviewClose:closeSessionReview,__sessionReviewSubmit:sessionReviewSubmit,openSessionReview:openSessionReview,endReview:endReview};
 
   nkFsrsInit();
   nkReliabilityInit();
