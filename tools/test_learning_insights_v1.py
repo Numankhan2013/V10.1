@@ -59,7 +59,7 @@ assert.equal(model.bins.reduce((n,b)=>n+b.current.attempts,0),4);assert.equal(mo
 assert.equal(JSON.stringify(state),before,'dashboard reads must never mutate learner state');
 // Continuous comparative color: 40/60 differs, and a new high lightens old days.
 const shade=(n,max)=>run(`nkLearningHeatStyle(${n},${max})`);
-const light=style=>Number(style.match(/--heat-fill:hsl\(258 [\d.]+% ([\d.]+)%\)/)[1]);
+const light=style=>Number(style.match(/--heat-fill:hsl\(146 [\d.]+% ([\d.]+)%\)/)[1]);
 assert.notEqual(shade(40,60),shade(60,60));
 assert(light(shade(40,120))>light(shade(40,60)));
 assert.equal(shade(40,60),shade(80,120),'relative intensity scales with actual workload');

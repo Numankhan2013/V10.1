@@ -30,7 +30,7 @@
     const empty=hasEnoughHistory
       ?'<div class="nk-insights-focus-empty"><strong>No topic needs a targeted retry right now.</strong><p>Keep practising; this list updates when your latest answers change.</p></div>'
       :'<div class="nk-insights-focus-empty"><strong>Keep studying to reveal your focus areas.</strong><p>Answer at least 3 questions in a topic. Topics with 2 or more current misses can appear here.</p></div>';
-    return '<section class="nk-section nk-insights-focus"><div class="nk-section-head"><div><div class="nk-kicker">STUDY NEXT</div><h2>Topics to revisit</h2></div><span>All subjects · all banks</span></div><p class="nk-insights-focus-explain">Based on the latest answer to each question. A topic needs at least 3 answered questions and 2 current misses to appear.</p>'+(rows||empty)+'</section>';
+    return '<section class="nk-section nk-insights-focus"><div class="nk-section-head"><div><div class="nk-kicker">Study next</div><h2>Topics to revisit</h2></div><span>All subjects · all banks</span></div><p class="nk-insights-focus-explain">Based on the latest answer to each question. A topic needs at least 3 answered questions and 2 current misses to appear.</p>'+(rows||empty)+'</section>';
   }
   function nkPracticeInsightFocus(encodedKey){
     let key;try{key=decodeURIComponent(encodedKey)}catch{return;}

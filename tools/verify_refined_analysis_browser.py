@@ -55,8 +55,7 @@ def main():
                 if baseline:
                     page.screenshot(path=str(output/f'analysis-before-{width}.png'),full_page=True)
                     page.evaluate("window.QB.nav('analytics')")
-                    page.locator('.nk-li-donut-pair').screenshot(path=str(output/f'donuts-before-{width}.png'))
-                    page.locator('.nk-li-bars').screenshot(path=str(output/f'bars-before-{width}.png'))
+                    page.locator('.nk-li-overview').screenshot(path=str(output/f'overview-before-{width}.png'))
                     context.close();continue
                 expect(page.get_by_role('heading',name='Test analysis',exact=True)).to_be_visible()
                 assert not page.evaluate('document.documentElement.scrollWidth>innerWidth'),f'Result overflow at {width}'
@@ -68,9 +67,9 @@ def main():
                 page.screenshot(path=str(output/f'analysis-refined-top-{width}.png'))
                 totals=page.evaluate("[...document.querySelectorAll('.nk-na-row header b')].map(n=>n.innerText)")
                 assert totals
-                # Geist keeps colour for meaning only: outcomes use its green/red/amber tokens.
+                # Geist keeps colour for meaning only: right and wrong are green and red; not attempted is neutral.
                 token=lambda name: page.evaluate("n=>{const d=document.createElement('i');d.style.color='var('+n+')';document.body.appendChild(d);const c=getComputedStyle(d).color;d.remove();return c}",name)
-                outcome_colors={'is-correct':token('--nkg-green'),'is-incorrect':token('--nkg-red'),'is-omitted':token('--nkg-amber')}
+                outcome_colors={'is-correct':token('--nkg-green'),'is-incorrect':token('--nkg-red'),'is-omitted':token('--nkg-border-strong')}
                 assert len(set(outcome_colors.values()))==3,outcome_colors
                 for tone,color in outcome_colors.items():
                     for segment in page.locator(f'.nk-na-row-bar .{tone}').all():
@@ -108,29 +107,25 @@ def main():
                 def choose_period(period):
                     # Geist replaces the native period <select> with a segmented control.
                     page.locator('.nk-li-period-nav .nkg-seg').get_by_role('button',name=period.capitalize(),exact=True).click()
-                    page.wait_for_function("p=>document.querySelector('#nk-li-period')?.value===p&&document.querySelector('.nk-li-outcomes h3')?.textContent==='This '+p",arg=period)
+                    page.wait_for_function("p=>document.querySelector('#nk-li-period')?.value===p&&(document.querySelector('#nk-li-main-title')?.textContent||'').endsWith('This '+p)",arg=period)
                     assert page.locator('.nk-li-period-nav .nkg-seg [aria-pressed="true"]').inner_text()==period.capitalize()
                 for period in ['week','month','year']:
                     choose_period(period)
-                    assert page.locator('.nk-li-outcomes h3').all_text_contents()==[f'This {period}',f'Previous {period}']
+                    assert page.locator('#nk-li-main-title').inner_text().endswith(f'This {period}')
                     for key in page.locator('.nk-li-key').all_text_contents():
                         assert f'This {period}' in key and f'Previous {period}' in key
-                    a,b=page.locator('.nk-li-donut').all()
-                    assert abs(a.bounding_box()['y']-b.bounding_box()['y'])<1,'Donuts must align, including an empty prior period'
-                    for button in page.locator('.nk-li-bars button').all():
-                        pair=button.locator('.nk-li-bar-pair');bars=pair.locator('i:not([hidden])').all()
+                    for button in page.locator('.nk-li-plotbars button').all():
+                        pair=button.locator('.nk-li-col');bars=pair.locator('i').all()
                         if not bars:continue
                         left=min(x.bounding_box()['x'] for x in bars);right=max(x.bounding_box()['x']+x.bounding_box()['width'] for x in bars)
                         label=button.locator('small').bounding_box()
                         assert abs((left+right)/2-(label['x']+label['width']/2))<1,'Visible bars must centre on labels'
                 choose_period('week')
-                page.locator('.nk-li-donut-pair').evaluate("n=>n.scrollIntoView({block:'center'})")
-                page.locator('.nk-li-donut-pair').screenshot(path=str(output/f'donuts-refined-{width}.png'))
-                page.locator('.nk-li-bars').evaluate("n=>n.scrollIntoView({block:'center'})")
-                page.locator('.nk-li-bars').screenshot(path=str(output/f'bars-refined-{width}.png'))
+                page.locator('.nk-li-overview').evaluate("n=>n.scrollIntoView({block:'center'})")
+                page.locator('.nk-li-overview').screenshot(path=str(output/f'overview-refined-{width}.png'))
                 page.get_by_label('Previous week',exact=True).click()
-                assert 'This week' not in page.locator('.nk-li-outcomes h3').first.inner_text()
-                assert page.locator('.nk-li-outcomes h3').all_text_contents()==list(page.evaluate('window.__nkAnalysisTest.labels()').values())
+                assert 'This week' not in page.locator('#nk-li-main-title').inner_text()
+                assert page.locator('#nk-li-main-title').inner_text().endswith(page.evaluate('window.__nkAnalysisTest.labels()')['current'])
                 page.evaluate("window.QB.nav('result','analysis-fixture')")
                 page.get_by_label('Rename test',exact=True).click();page.get_by_label('Test name',exact=True).fill('Biochemistry mock 01')
                 page.get_by_role('button',name='Save name',exact=True).click()

@@ -12,7 +12,7 @@
   const nkAbandonOriginalNavigator=openQuestionNavigator;
   openQuestionNavigator=function(){
     const result=nkAbandonOriginalNavigator.apply(this,arguments);
-    if(state.activeSession?.mode!=='exam')return result;
+    if(state.activeSession?.mode!=='exam'||state.activeSession?.scheduledMockId)return result;
     const root=document.getElementById('qb-question-navigator'),submit=root?.querySelector('.qb-nav-submit');
     if(submit&&!root.querySelector('.nk-abandon-test')){
       root.classList.add('nk-timed-abandon-grid');
@@ -23,7 +23,7 @@
   const nkAbandonOriginalReview=openSessionReview;
   openSessionReview=function(){
     const result=nkAbandonOriginalReview.apply(this,arguments);
-    if(state.activeSession?.mode!=='exam')return result;
+    if(state.activeSession?.mode!=='exam'||state.activeSession?.scheduledMockId)return result;
     const root=document.getElementById('nk-session-review'),actions=root?.querySelector('.nk-session-review-actions');
     if(actions&&!actions.querySelector('.nk-abandon-test')){
       root.classList.add('nk-timed-abandon-grid');

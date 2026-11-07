@@ -8,14 +8,17 @@
   function nkAnalysisDuration(ms){
     if(!Number.isFinite(ms)||ms<0)return '—';
     const seconds=Math.round(ms/1000),minutes=Math.floor(seconds/60);
-    return minutes>=60?`${Math.floor(minutes/60)}h ${minutes%60}m`:`${minutes}m ${seconds%60}s`;
+    // One format: "43s" under a minute, "2m 10s" above it, "1h 5m" past an hour.
+    return minutes>=60?`${Math.floor(minutes/60)}h ${minutes%60}m`:minutes?`${minutes}m ${seconds%60}s`:`${seconds}s`;
   }
   function nkAnalysisOutcomes(t){
     const timeUp=(t.questionIds||[]).filter(id=>t.expired?.[id]&&!t.answers?.[id]).length,omitted=Math.max(0,(Number(t.unattempted)||0)-timeUp);
     return [['Correct',Number(t.correct)||0,'correct','check'],['Incorrect',Number(t.incorrect)||0,'incorrect','close'],...(timeUp?[['Time up',timeUp,'timeup','clock']]:[]),['Omitted',omitted,'omitted','minus']];
   }
-  function nkAnalysisRing(t,scoreOnly=false){
-    const total=Number(t.total)||0,c=total?t.correct/total*100:0,w=total?t.incorrect/total*100:0;
+  // marks: with negative marking the headline score is marks earned out of the maximum, as in the exam.
+  function nkAnalysisRing(t,scoreOnly=false,marks=null){
+    const total=Number(t.total)||0,w=total?t.incorrect/total*100:0;
+    const c=scoreOnly&&marks&&Number(marks.max)>0?Math.max(0,Math.min(100,Number(marks.score)/Number(marks.max)*100)):total?t.correct/total*100:0;
     const fill=!total?'#edeaf5':scoreOnly?`conic-gradient(var(--na-green) 0 ${c}%,#eceaf4 ${c}% 100%)`:`conic-gradient(var(--na-green) 0 ${c}%,var(--na-red) ${c}% ${c+w}%,var(--na-amber) ${c+w}% 100%)`;
     return `<div class="nk-na-ring" style="--na-ring:${fill}" role="img" aria-label="${scoreOnly?'Score':'Question performance'}: ${t.correct||0} correct, ${t.incorrect||0} incorrect, ${t.unattempted||0} omitted"><span><b>${scoreOnly?fmtPct(c):fmtNum(total)}</b><small>${scoreOnly?'Score':'questions'}</small></span></div>`;
   }
@@ -49,14 +52,16 @@
     const timed=rows.filter(r=>r.s!=null);
     if(!timed.length)return `<section class="nk-na-card nk-na-time nk-pace"><header><h2>Time per question</h2></header><p class="nk-na-note">Question timing was not recorded.</p></section>`;
     const fmt=s=>s<60?`${Math.round(s)} s`:`${Math.floor(s/60)}m ${String(Math.round(s%60)).padStart(2,'0')}s`;
-    const sorted=timed.map(r=>r.s).sort((a,b)=>a-b),median=sorted[Math.floor((sorted.length-1)/2)];
-    const within=timed.filter(r=>r.s<=limit).length,over=timed.length-within;
+    // Facts count only questions that were opened: a never-visited question's zero is not "within time".
+    const seen=timed.filter(r=>r.s>0),sorted=(seen.length?seen:timed).map(r=>r.s).sort((a,b)=>a-b),mid=sorted.length>>1;
+    const median=sorted.length%2?sorted[mid]:(sorted[mid-1]+sorted[mid])/2;
+    const within=seen.filter(r=>r.s<=limit).length,over=seen.length-within;
     const rushed=timed.filter(r=>r.tone==='incorrect'&&r.s<Math.min(15,limit/3)).length;
     const top=Math.max(limit*1.5,Math.min(limit*3,sorted[sorted.length-1])),h=s=>Math.max(3,Math.min(1,s/top)*100);
     const label={correct:'Correct',incorrect:'Wrong',timeup:'Time up',omitted:'Not answered'};
     const bars=rows.map(r=>r.s==null?`<i class="is-none" aria-hidden="true"></i>`:`<button type="button" class="is-${r.tone}${r.s>top?' is-clipped':''}" style="--h:${h(r.s).toFixed(1)}%;--k:${Math.min(r.i,80)}" aria-label="Question ${r.i+1}: ${fmt(r.s)}, ${label[r.tone]}" title="Q${r.i+1} · ${fmt(r.s)} · ${label[r.tone]}" onclick="window.QB.nkResultReviewAt(${esc(JSON.stringify(String(t.id)))},${esc(JSON.stringify(String(r.id)))})"></button>`).join('');
     const tones=['correct','incorrect','timeup','omitted'].filter(k=>timed.some(r=>r.tone===k));
-    const facts=[`<span><b>${fmtNum(within)}</b> of ${fmtNum(timed.length)} within ${fmt(limit)}</span>`,`<span>Median <b>${fmt(median)}</b></span>`,rushed?`<span><b>${fmtNum(rushed)}</b> wrong in under ${fmt(Math.min(15,limit/3))}</span>`:over?`<span><b>${fmtNum(over)}</b> over the line</span>`:''].filter(Boolean).join('');
+    const facts=[`<span><b>${fmtNum(within)}</b> of ${fmtNum(seen.length)} within ${fmt(limit)}</span>`,`<span>Median <b>${fmt(median)}</b></span>`,rushed?`<span><b>${fmtNum(rushed)}</b> wrong in under ${fmt(Math.min(15,limit/3))}</span>`:over?`<span><b>${fmtNum(over)}</b> over the line</span>`:''].filter(Boolean).join('');
     const missing=rows.length-timed.length;
     return `<section class="nk-na-card nk-na-time nk-pace"><header><h2>Time per question</h2></header>
       <p class="nk-pace-facts">${facts}</p>
@@ -123,10 +128,10 @@
     const module=t.studyModuleId&&nkFindStudyModule(t.studyModuleId);
     const marks=!practice&&t.marking&&!nkExamIsPlain(t.marking)?nkExamMarks(t):null;
     return shell(`<main class="nk-app-v114 nk-result-v114 nk-refined-analysis"><header class="nk-na-head"><button class="nk-na-back" aria-label="Back to ${esc(backLabel)}" onclick="${backAction}">${navIcon('back',22)}</button><h1>${practice?'Practice':'Test'} analysis</h1></header><div class="nk-na-name"><span>${navIcon(practice?'book':'test',19)}</span><div><strong>${esc(t.title||'Untitled test')}</strong><small>${fmtDate(t.createdAt)}</small></div>${!practice?`<button aria-label="Rename test" onclick="document.getElementById('nk-na-rename').hidden=false;document.getElementById('nk-na-title').focus()">${nkAnalysisIcon('edit',18)}</button>`:''}</div>${!practice?`<form id="nk-na-rename" hidden novalidate onsubmit="event.preventDefault();window.QB.nkAnalysisRename(${esc(JSON.stringify(String(t.id)))})"><label for="nk-na-title">Test name</label><input id="nk-na-title" required maxlength="80" aria-describedby="nk-na-rename-status" oninput="if(this.value.trim()){this.removeAttribute('aria-invalid');document.getElementById('nk-na-rename-status').textContent='';}" value="${esc(t.title||'')}"><button type="submit">Save name</button><small id="nk-na-rename-status" role="status"></small></form>`:''}
-      <section class="nk-na-card nk-na-summary nk-result-overview">${nkAnalysisRing(t,true)}<div><div class="nk-result-percentages"><strong>${t.correct} / ${t.total}</strong><span>Correct answers</span><span class="nk-na-accuracy">Accuracy <b>${accuracy}</b></span><em class="nk-rs-verdict">${esc(nkResultVerdict(t))}</em><span class="nk-na-sr">Score: all questions ${score}. Accuracy: answered questions ${accuracy}. ${attempted} answered.</span></div><div class="nk-na-outcome-counts nk-result-counts">${nkAnalysisOutcomes(t).map(([label,n,tone,icon])=>`<div class="is-${tone}"><span>${icon==='minus'?nkAnalysisIcon('minus',14):navIcon(icon,14)}</span><b>${n}</b><small>${label}</small></div>`).join('')}</div></div></section>
-      <div class="nk-na-metrics${marks?' has-marks':''}">${[...(marks?[['star','Marks',`${fmtNum(marks.score)} / ${fmtNum(marks.max)}`,nkMarkingLabel(marks)]]:[]),['clock','Time taken',nkAnalysisDuration(totalTime)],['stopwatch','Avg. time / Q',nkAnalysisDuration(nkAnalysisAnsweredAverage(t,totalTime))]].map(([icon,label,value,note])=>`<article><span>${icon==='stopwatch'?nkAnalysisIcon('stopwatch',21):navIcon(icon,21)}</span><div><small>${label}</small><b>${value}</b>${note?`<em>${esc(note)}</em>`:''}</div></article>`).join('')}</div>
+      <section class="nk-na-card nk-na-summary nk-result-overview">${nkAnalysisRing(t,true,marks)}<div><div class="nk-result-percentages"><strong>${t.correct} / ${t.total}</strong><span>Correct answers</span><span class="nk-na-accuracy">Accuracy <b>${accuracy}</b></span><em class="nk-rs-verdict">${esc(nkResultVerdict(t))}</em><span class="nk-na-sr">Score: ${marks&&Number(marks.max)>0?`${fmtPct(Math.max(0,Number(marks.score)/Number(marks.max)*100))} of marks`:`all questions ${score}`}. Accuracy: answered questions ${accuracy}. ${attempted} answered.</span></div><div class="nk-na-outcome-counts nk-result-counts">${nkAnalysisOutcomes(t).map(([label,n,tone,icon])=>`<div class="is-${tone}"><span>${icon==='minus'?nkAnalysisIcon('minus',14):navIcon(icon,14)}</span><b>${n}</b><small>${label}</small></div>`).join('')}</div></div></section>
+      <div class="nk-na-metrics${marks?' has-marks':''}">${[...(marks?[['star','Marks',`${(typeof fmtMarks==='function'?fmtMarks:fmtNum)(marks.score)} / ${(typeof fmtMarks==='function'?fmtMarks:fmtNum)(marks.max)}`,nkMarkingLabel(marks)]]:[]),['clock','Time taken',nkAnalysisDuration(totalTime)],['stopwatch','Avg. time / Q',nkAnalysisDuration(nkAnalysisAnsweredAverage(t,totalTime))]].map(([icon,label,value,note])=>`<article><span>${icon==='stopwatch'?nkAnalysisIcon('stopwatch',21):navIcon(icon,21)}</span><div><small>${label}</small><b>${value}</b>${note?`<em>${esc(note)}</em>`:''}</div></article>`).join('')}</div>
       ${nkResultStrip(t)}<div class="nk-na-analysis-grid">${!practice?nkAnalysisBreakdown(t):nkResultPracticeTopics(t)}<section class="nk-na-card nk-na-performance"><header><h2>Question performance</h2></header><div>${nkAnalysisRing(t)}<dl>${nkAnalysisOutcomes(t).map(([label,n,tone])=>`<div><dt><i class="is-${tone}"></i>${label}</dt><dd>${n}<small>${t.total?Math.round(n/t.total*100):0}%</small></dd></div>`).join('')}</dl></div></section>${nkAnalysisTimeChart(t)}</div>
-      <div class="nk-na-actions"><button class="v102-review-action" data-v102-review-cta="1" data-review-test-id="${esc(t.id)}" onclick="return window.__QB_OPEN_REVIEW(this.getAttribute('data-review-test-id'))">Review Solutions</button>${!practice&&t.timerMode!=='per-question'?`<button class="is-primary" data-test-id="${esc(t.id)}" onclick="window.QB.nkCbtRetake(this.getAttribute('data-test-id'),event)">Retry Test</button>`:''}</div>
+      <div class="nk-na-actions"><button class="v102-review-action" data-v102-review-cta="1" data-review-test-id="${esc(t.id)}" onclick="return window.__QB_OPEN_REVIEW(this.getAttribute('data-review-test-id'))">Review Solutions</button>${!practice&&t.timerMode!=='per-question'?`<button class="is-secondary" data-test-id="${esc(t.id)}" onclick="window.QB.nkCbtRetake(this.getAttribute('data-test-id'),event)">Retry Test</button>`:''}</div>
       ${practice?nkCorrectionResultSection(t):nkAnalysisFollowup(t)+nkAnalysisMarked(t)}${!practice?nkCbtComparisonSection(t):''}${!practice?(nkMockFor(t)?nkMockSavedMarkup(nkMockFor(t)):`<button type="button" class="nk-na-save-mock" data-test-id="${esc(t.id)}" onclick="window.QB.nkMockSaveResult(this.getAttribute('data-test-id'))">${navIcon('bookmark',17)}<span>Save as mock</span></button>`):''}${module?`<section class="nk-na-card nk-module-result"><header><h2>${esc(module.name)}</h2></header><div class="nk-module-result-actions"><button onclick="window.QB.restartStudyModule(this.getAttribute('data-module-id'))" data-module-id="${esc(module.id)}">Restart module</button><button onclick="window.QB.nav('dashboard')">Return Home</button></div></section>`:''}
       <details class="nk-na-card nk-na-answers"><summary>Every answer</summary><div class="nk-result-questions">${(t.questionIds||[]).map((id,i)=>{const q=questionMap.get(String(id)),sel=t.answers?.[id],correct=q&&Number(q.correctOption)===Number(sel);return `<div><span class="nk-question-index">${i+1}</span><span><strong>${q?esc(q.question.slice(0,125)):esc('Saved question unavailable')}</strong><small><i class="nk-status ${sel?(correct?'is-correct':'is-wrong'):'is-unattempted'}">${sel?(correct?'Correct':'Incorrect'):t.expired?.[id]?'Time up':'Omitted'}</i>${q?esc(q.chapter||''):''}</small></span></div>`;}).join('')}</div></details></main>`,'tests');
   };
@@ -205,7 +210,13 @@
     const attempts=(state.tests||[]).filter(t=>t.kind!=='practice'&&nkCbtSameQuestions(t,m)).sort((a,b)=>Number(b.createdAt)-Number(a.createdAt));
     return {total:ids.length,missing,subjects:sort(subjects),banks:sort(banks),topics:[...topics.values()].sort((a,b)=>b.count-a.count||a.title.localeCompare(b.title)),attempts};
   }
-  function nkMockScore(t){return t&&t.total?Math.round(Number(t.correct||0)/Number(t.total)*100):0;}
+  // The same score as the result ring: with negative marking, marks earned out of the maximum.
+  function nkMockScore(t){
+    if(!t||!t.total)return 0;
+    const marks=t.marking&&typeof nkExamIsPlain==='function'&&!nkExamIsPlain(t.marking)&&typeof nkExamMarks==='function'?nkExamMarks(t):null;
+    if(marks&&Number(marks.max)>0)return Math.max(0,Math.round(Number(marks.score)/Number(marks.max)*100));
+    return Math.round(Number(t.correct||0)/Number(t.total)*100);
+  }
   function nkMockDay(ts){const d=new Date(Number(ts||0));return Number.isNaN(d.getTime())?'':d.toLocaleDateString(undefined,{day:'numeric',month:'short',year:d.getFullYear()===new Date().getFullYear()?undefined:'numeric'});}
   function nkMockGraphic(subject,size){return typeof nkSubjectGraphic==='function'?nkSubjectGraphic(subject,size):navIcon('test',size);}
   let nkMockOpener=null;
@@ -230,7 +241,7 @@
     document.body.insertAdjacentHTML('beforeend',`<div class="modal-backdrop nk-mock-sheet-backdrop" id="nk-mock-sheet" onclick="if(event.target===this)window.QB.nkMockClose()" onkeydown="if(event.key==='Escape'){event.stopPropagation();window.QB.nkMockClose()}"><section class="modal card nk-mock-sheet" role="dialog" aria-modal="true" aria-labelledby="nk-mock-sheet-title" data-mock-id="${esc(m.id)}">
       <header class="nk-mock-sheet-head"><span class="nk-mock-sheet-icon" aria-hidden="true">${nkMockGraphic(sum.subjects[0]?.[0]||'',22)}</span><div class="nk-mock-sheet-title"><h2 id="nk-mock-sheet-title">${esc(m.name)}</h2><small>Saved ${esc(nkMockDay(m.createdAt))}</small></div><button type="button" class="nk-modal-close" aria-label="Close" onclick="window.QB.nkMockClose()">${navIcon('close',20)}</button></header>
       <div class="nk-mock-sheet-body">
-        <dl class="nk-mock-facts"><div><dt>Questions</dt><dd>${sum.total}</dd></div><div><dt>Time limit</dt><dd>${sum.total} min</dd></div><div><dt>${sum.attempts.length?'Best score':'Attempts'}</dt><dd>${sum.attempts.length?Math.max(...sum.attempts.map(nkMockScore))+'%':'None yet'}</dd></div></dl>
+        <dl class="nk-mock-facts"><div><dt>Questions</dt><dd>${sum.total}</dd></div><div><dt>Time limit</dt><dd>${fmtNum(Math.round(sum.total*(typeof nkExamSettings==='function'?Number(nkExamSettings().seconds)||60:60)/60))} min</dd></div><div><dt>${sum.attempts.length?'Best score':'Attempts'}</dt><dd>${sum.attempts.length?Math.max(...sum.attempts.map(nkMockScore))+'%':'None yet'}</dd></div></dl>
         ${blocked?`<p class="nk-mock-warning" role="alert">${sum.missing} of ${sum.total} questions are no longer in the bank, so this mock cannot start.</p>`:''}
         ${sum.subjects.length?`<section class="nk-mock-block"><h3>Subjects</h3><div class="nk-mock-stack" aria-hidden="true">${stack}</div><ul class="nk-mock-legend">${legend}</ul></section>`:''}
         ${sum.topics.length?`<section class="nk-mock-block"><h3>Topics <span>${sum.topics.length}</span></h3><ul class="nk-mock-topics">${first.map(topic).join('')}</ul>${rest.length?`<details class="nk-mock-more"><summary>${rest.length} more ${rest.length===1?'topic':'topics'}</summary><ul class="nk-mock-topics">${rest.map(topic).join('')}</ul></details>`:''}</section>`:''}
@@ -264,6 +275,8 @@
     if(typeof window!=='undefined')window.scrollTo?.(x,y);
     const root=document.getElementById?.('toast-root');
     if(!root?.appendChild||typeof document.createElement!=='function'){showToast('Saved mock deleted.','good');return;}
+    // Stop an earlier toast's timer from clearing this one before Undo's seven seconds are up.
+    if(typeof toastTimer!=='undefined'&&typeof clearTimeout==='function')clearTimeout(toastTimer);
     root.innerHTML='';const el=document.createElement('div');el.className='toast good nk-undo-toast';el.setAttribute('role','status');
     el.innerHTML=`<span>Mock deleted</span><button type="button" onclick="window.QB.nkMockUndo()">Undo</button>`;root.appendChild(el);
     if(typeof clearTimeout==='function'){clearTimeout(nkMockUndoTimer);nkMockUndoTimer=setTimeout(()=>{el.remove();nkMockLastRemoved=null;},7000);}

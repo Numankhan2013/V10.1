@@ -11,7 +11,15 @@
   function nkSchedDoorMs(m){return Math.min(NK_SCHED_DOOR_MS,nkSchedDurationMs(m));}
   function nkSchedTest(m){return (state.tests||[]).find(t=>String(t.scheduledMockId||'')===String(m.id))||null;}
   function nkSchedMakeup(m){return (state.tests||[]).find(t=>String(t.makeupFor||'')===String(m.id))||null;}
+  // The outcome is also stamped on the booking, because the test list keeps only the latest 100 results.
+  function nkSchedNoteTaken(session,test){
+    const id=String(session?.scheduledMockId||session?.makeupFor||'');if(!id)return;
+    const m=nkSchedList().find(item=>String(item.id)===id);if(!m)return;
+    if(session.scheduledMockId)m.takenTestId=String(test.id);else m.makeupTestId=String(test.id);
+  }
   function nkSchedStatus(m,now=Date.now()){
+    if(m.takenTestId)return 'taken';
+    if(m.missedAt)return 'missed';
     const test=nkSchedTest(m);
     if(test)return test.missed?'missed':'taken';
     if(String(state.activeSession?.scheduledMockId||'')===String(m.id))return 'live';
@@ -23,7 +31,8 @@
   function nkSchedRecordMisses(){
     const now=Date.now(),tests=Array.isArray(state.tests)?state.tests:[];let added=0;
     for(const m of nkSchedList()){
-      if(nkSchedTest(m)||nkSchedStatus(m,now)!=='missed')continue;
+      if(m.takenTestId||m.missedAt||nkSchedTest(m)||nkSchedStatus(m,now)!=='missed')continue;
+      m.missedAt=Number(m.at)+nkSchedDoorMs(m);
       const n=m.questionIds.length,marking=m.marking||{correct:1,wrong:0,blank:0};
       tests.push({id:`missed_${m.id}`,title:m.name,questionIds:[...m.questionIds],answers:{},questionTimes:{},markedForReview:{},correct:0,incorrect:0,unattempted:n,total:n,attempted:0,totalTimeMs:0,createdAt:Number(m.at)+nkSchedDoorMs(m),autoSubmitted:true,timerEnabled:true,timerMode:'global',originRoute:'tests',marking:{...marking},secondsPerQuestion:Number(m.seconds)||60,scheduledMockId:m.id,missed:true});
       added++;
@@ -36,7 +45,7 @@
     const now=Date.now(),past=nkSchedList().map(m=>({m,st:nkSchedStatus(m,now)})).filter(x=>x.st==='taken'||x.st==='missed').sort((a,b)=>b.m.at-a.m.at);
     const kept=past.filter(x=>x.st==='taken').length;let streak=0;for(const x of past){if(x.st!=='taken')break;streak++;}
     let best=0,run=0;for(const x of past.slice().reverse()){run=x.st==='taken'?run+1:0;best=Math.max(best,run);}
-    return {booked:past.length,kept,missed:past.length-kept,streak,best,pending:nkSchedList().filter(m=>nkSchedStatus(m,now)==='missed'&&!nkSchedMakeup(m))};
+    return {booked:past.length,kept,missed:past.length-kept,streak,best,pending:nkSchedList().filter(m=>nkSchedStatus(m,now)==='missed'&&!m.makeupTestId&&!nkSchedMakeup(m))};
   }
   function nkSchedWhen(at,withDay=true){
     const d=new Date(Number(at)),today=new Date(),tomorrow=new Date();tomorrow.setDate(today.getDate()+1);
@@ -101,8 +110,11 @@
     const out=[],at=(days,hour)=>{const d=new Date();d.setDate(d.getDate()+days);d.setHours(hour,0,0,0);return d.getTime();};
     const now=Date.now();
     [[0,20,'Tonight 8 pm'],[1,9,'Tomorrow 9 am'],[1,18,'Tomorrow 6 pm']].forEach(([days,hour,label])=>{const t=at(days,hour);if(t>now+10*60000)out.push([label,t]);});
-    const sat=new Date();sat.setDate(sat.getDate()+((6-sat.getDay()+7)%7||7));sat.setHours(10,0,0,0);out.push(['Saturday 10 am',sat.getTime()]);
-    return out.slice(0,4);
+    // On a Friday, Saturday is already "Tomorrow": offer it only when it is further out.
+    const sat=new Date();sat.setDate(sat.getDate()+((6-sat.getDay()+7)%7||7));sat.setHours(10,0,0,0);
+    const tomorrow=new Date();tomorrow.setDate(tomorrow.getDate()+1);
+    if(sat.toDateString()!==tomorrow.toDateString())out.push(['Saturday 10 am',sat.getTime()]);
+    return out.sort((a,b)=>a[1]-b[1]).slice(0,4);
   }
   let nkSchedSource=null; // a saved mock being booked, or null for the builder's draft
   function nkSchedOpen(mockId){
@@ -179,7 +191,7 @@
   function nkSchedMakeupStart(id){
     const m=nkSchedList().find(item=>String(item.id)===String(id));if(!m)return false;
     if(nkSchedStatus(m)!=='missed'){showToast('Only a missed mock can be made up.');return false;}
-    if(nkSchedMakeup(m)){showToast('You already made this one up.');return false;}
+    if(m.makeupTestId||nkSchedMakeup(m)){showToast('You already made this one up.');return false;}
     if(state.activeSession?.mode==='exam'){showToast('Finish or leave your current timed test first.','bad');return false;}
     const map=new Map(nkAllStudyQuestions().map(q=>[String(q.id),q])),ids=m.questionIds.map(String).filter(qid=>map.has(qid));
     if(!ids.length){showToast('This mock’s questions are unavailable.','bad');return false;}

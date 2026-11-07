@@ -100,11 +100,16 @@
   }
   function nkTodayGo(kind,extra=false){
     if(state.activeSession?.mode==='exam'){showToast('Finish or leave your timed test first.','bad');return false;}
-    const carried=nkTodayCarried();
-    if(kind==='due')return nkStartRevisionQueue('due',0,carried.due);
-    const step=nkTodayPlanData().steps.find(s=>s.kind===kind),limit=extra?NK_TODAY_NEW:step?.left;
-    if(!limit){showToast(kind==='wrong'?'Today’s mistakes are done.':'Today’s new questions are done.');return false;}
-    return nkStartRevisionQueue(kind,limit,kind==='wrong'?carried.wrong:null);
+    // Today's plan covers every subject, whatever focus the Revision page was last left on.
+    const scope=typeof nkRevisionScope==='object'?nkRevisionScope:null;
+    if(scope)nkRevisionScope={subject:'',bank:'',topic:''};
+    try{
+      const carried=nkTodayCarried();
+      if(kind==='due')return nkStartRevisionQueue('due',0,carried.due);
+      const step=nkTodayPlanData().steps.find(s=>s.kind===kind),limit=extra?NK_TODAY_NEW:step?.left;
+      if(!limit){showToast(kind==='wrong'?'Today’s mistakes are done.':'Today’s new questions are done.');return false;}
+      return nkStartRevisionQueue(kind,limit,kind==='wrong'?carried.wrong:null);
+    }finally{if(scope)nkRevisionScope=scope;}
   }
   nkHomeRevisionSummary=nkHomeTodayPlan;
 
@@ -157,5 +162,17 @@
       nkTodayGoalCheck();setTimeout(nkTodayGoalCheck,0);setTimeout(nkTodayGoalCheck,250);
       return out;
     };
+  }
+  // A new day starts a new plan. When the app stays open across midnight (or comes back the next morning),
+  // redraw Home so it does not keep showing yesterday's plan; never while the user is typing.
+  let nkTodayShownDay=nkTodayStart();
+  function nkTodayRollover(){
+    const day=nkTodayStart();if(day===nkTodayShownDay)return;nkTodayShownDay=day;
+    const typing=document.activeElement&&/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName);
+    if(route?.page==='dashboard'&&!typing&&typeof render==='function')render();
+  }
+  if(typeof document!=='undefined'&&document.addEventListener){
+    document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')nkTodayRollover();});
+    setInterval(nkTodayRollover,60000);
   }
   /* NK_TODAY_PLAN_V1_END */

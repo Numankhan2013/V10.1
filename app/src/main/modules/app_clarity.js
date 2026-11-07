@@ -31,7 +31,7 @@
     ];
     for(const copy of redundant)markup=markup.split('<p>'+copy+'</p>').join('');
     markup=markup.replace(/<p class="nk-v3-page-note">(?:Each subject opens its question-bank chooser before Topics\.|Subjects open the full Topics page\. No popup topic picker is used\.)<\/p>/g,'');
-    markup=markup.replace(/<div class="nk-kicker">(?:REVISION|EXAM PRACTICE|STUDY LIBRARY|SPACED REPETITION|INTENTIONAL STUDY|SAVED QUESTIONS|APP &amp; SOURCE|APP & SOURCE|QUESTION BANK|PERSONAL REVISION|MAKE IT YOURS|FROM YOUR HISTORY|HISTORY|IN THIS PERIOD|PERFORMANCE|RECENT|CROSS-DEVICE|CROSS-DEVICE SYNC)<\/div>/g,'');
+    markup=markup.replace(/<div class="nk-kicker">(?:REVISION|EXAM PRACTICE|STUDY LIBRARY|SPACED REPETITION|INTENTIONAL STUDY|SAVED QUESTIONS|APP &amp; SOURCE|APP & SOURCE|QUESTION BANK|PERSONAL REVISION|MAKE IT YOURS|FROM YOUR HISTORY|HISTORY|IN THIS PERIOD|PERFORMANCE|RECENT|CROSS-DEVICE|CROSS-DEVICE SYNC)<\/div>/gi,'');
     markup=markup.replace(/<small>(?:STUDY LIBRARY|FROM YOUR HISTORY|HISTORY|PERFORMANCE|RECENT|CROSS-DEVICE|CROSS-DEVICE SYNC)<\/small>/g,'');
     markup=markup.replace(/<small>Questions you (?:have answered incorrectly|saved while studying|have not attempted yet)\.<\/small>|<small>Questions scheduled by spaced repetition\.<\/small>/g,'');
     markup=markup.replace(/<p class="nk-revision-detail">(?:20 questions per session · sampled from this focus|(?:20 questions per session · )?FSRS priority order and daily limit apply\.)<\/p>/g,'');

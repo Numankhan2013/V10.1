@@ -73,6 +73,8 @@
   }
 
   let nkNotesQuery="";
+  // Same folding as question search: accents, curly quotes and dashes match their plain forms.
+  function nkNoteFold(value){return typeof nkQuestionSearchFold==='function'?nkQuestionSearchFold(value):String(value||'').toLowerCase().trim();}
   function nkNotesPage(){
     const entries=nkSavedQuestionNotes();
     return shell(`<div class="nk-app-v114 nk-notes-page">${nkAppPageHead('PERSONAL REVISION','My notes','Recall cues saved while reviewing questions.')}
@@ -81,7 +83,7 @@
       <div class="nk-notes-list">${entries.map(({id,note,q})=>{
         const subject=q?.subject||'Question unavailable',bank=q?.bank||'',topic=q?.chapter||q?.topic||'';
         const blocks=nkNoteBlocks(note),text=blocks.filter(block=>block.type==='text').map(block=>block.text).join('\n\n'),media=blocks.filter(nkNoteMediaBlock);
-        const key=encodeURIComponent(id),search=esc(`${subject} ${bank} ${topic} ${q?.question||''} ${text}`.toLowerCase());
+        const key=encodeURIComponent(id),search=esc(nkNoteFold(`${subject} ${bank} ${topic} ${q?.question||''} ${text}`));
         const strip=media.length&&typeof nkNoteMediaFrame==='function'?`<div class="nk-notes-item-media" aria-label="${media.length} image${media.length===1?'':'s'} in this note">${media.slice(0,4).map(block=>nkNoteMediaFrame(block,'thumb')).join('')}${media.length>4?`<span class="nk-notes-item-more">+${media.length-4}</span>`:''}</div>`:'';
         return `<article class="nk-notes-item" data-note-search="${search}"><div class="nk-notes-item-meta">${esc(subject)}${bank?` · ${esc(bank)}`:''}${topic?` · ${esc(topic)}`:''}</div><p class="nk-notes-item-question">${q?esc(q.question):'This question is not in the current banks.'}</p>${text?`<div class="nk-notes-item-text">${esc(text)}</div>`:''}${strip}${q?`<button type="button" onclick="window.QB.nkOpenNotedQuestion('${key}')">Practice question ${navIcon('chevron',16)}</button>`:''}</article>`;
       }).join('')}</div><p class="nk-notes-no-match" role="status" hidden>No notes match your search.</p>`:
@@ -91,7 +93,7 @@
 
   function nkFilterNotes(value){
     nkNotesQuery=String(value||'');
-    const term=nkNotesQuery.trim().toLowerCase(),terms=term.split(/\s+/).filter(Boolean);
+    const term=nkNoteFold(nkNotesQuery),terms=term.split(/\s+/).filter(Boolean);
     let shown=0;
     document.querySelectorAll('.nk-notes-item').forEach(item=>{
       const haystack=item.dataset.noteSearch||'';
