@@ -7205,3 +7205,8 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-v114-session.is-exam .nk-exam-s
 /* Navigator legend dots match the tiles they describe. */
 html[data-nk-ui="geist"] :is(body,#nkg-root) .qb-legend-dot.correct { border: 1px solid var(--nkg-green) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .qb-legend-dot.incorrect { border: 1px solid var(--nkg-red-border) !important; }
+/* Strict timed tests: questions whose minute ran out are locked in review and in results. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-review-q.expired { background: var(--nkg-surface) !important; border-style: dashed; color: var(--nkg-fg-3) !important; opacity: .72; cursor: not-allowed; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-review-q.expired small { color: var(--nkg-fg-3) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-review-dot.expired { background: transparent !important; border: 1px dashed var(--nkg-border-strong) !important; }
+html[data-nk-ui="geist"] .nk-refined-analysis .is-timeup { color: var(--nkg-fg-3, #737373); }

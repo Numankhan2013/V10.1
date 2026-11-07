@@ -11,7 +11,8 @@
     return minutes>=60?`${Math.floor(minutes/60)}h ${minutes%60}m`:`${minutes}m ${seconds%60}s`;
   }
   function nkAnalysisOutcomes(t){
-    return [['Correct',Number(t.correct)||0,'correct','check'],['Incorrect',Number(t.incorrect)||0,'incorrect','close'],['Omitted',Number(t.unattempted)||0,'omitted','minus']];
+    const timeUp=(t.questionIds||[]).filter(id=>t.expired?.[id]&&!t.answers?.[id]).length,omitted=Math.max(0,(Number(t.unattempted)||0)-timeUp);
+    return [['Correct',Number(t.correct)||0,'correct','check'],['Incorrect',Number(t.incorrect)||0,'incorrect','close'],...(timeUp?[['Time up',timeUp,'timeup','clock']]:[]),['Omitted',omitted,'omitted','minus']];
   }
   function nkAnalysisRing(t,scoreOnly=false){
     const total=Number(t.total)||0,c=total?t.correct/total*100:0,w=total?t.incorrect/total*100:0;
@@ -66,9 +67,11 @@
   resultPage=function(testId){
     const t=nkAnalysisTest(testId);if(!t)return testsPage();
     const practice=t.kind==='practice',attempted=Number(t.correct||0)+Number(t.incorrect||0),accuracy=attempted?fmtPct(t.correct/attempted*100):'—',score=t.total?fmtPct(t.correct/t.total*100):'0%',totalTime=typeof t.totalTimeMs==='number'?t.totalTimeMs:null;
+    const chapterId=/^chapter\/(.+)$/.exec(String(t.originHash||''))?.[1];
     const origin=t.originRoute||(practice?'topics':'tests'),browse=/^revision-browse\/(wrong|bookmarks)$/.exec(origin);
-    const backLabel=browse?(browse[1]==='wrong'?'Mistakes':'Bookmarks'):origin;
-    const backAction=browse?`window.QB.nav('revision-browse','${browse[1]}')`:`window.QB.nav(${esc(JSON.stringify(String(origin)))})`;
+    const backLabel=browse?(browse[1]==='wrong'?'Mistakes':'Bookmarks'):chapterId?'topic':origin;
+    const [backPage,backId]=browse?['revision-browse',browse[1]]:chapterId?['chapter',decodeURIComponent(chapterId)]:[String(origin),''];
+    const backAction=`window.QB.nkResultBack(${esc(JSON.stringify(backPage))},${esc(JSON.stringify(backId))})`;
     const questionMap=new Map();(t.questionIds||[]).forEach(id=>{const q=nkBankQuestionById(id);if(q){questionMap.set(String(id),q);BY_ID[id]=q;}});
     const module=t.studyModuleId&&nkFindStudyModule(t.studyModuleId);
     return shell(`<main class="nk-app-v114 nk-result-v114 nk-refined-analysis"><header class="nk-na-head"><button class="nk-na-back" aria-label="Back to ${esc(backLabel)}" onclick="${backAction}">${navIcon('back',22)}</button><h1>${practice?'Practice':'Test'} analysis</h1></header><div class="nk-na-name"><span>${navIcon(practice?'book':'test',19)}</span><div><strong>${esc(t.title||'Untitled test')}</strong><small>${fmtDate(t.createdAt)}</small></div>${!practice?`<button aria-label="Rename test" onclick="document.getElementById('nk-na-rename').hidden=false;document.getElementById('nk-na-title').focus()">${nkAnalysisIcon('edit',18)}</button>`:''}</div>${!practice?`<form id="nk-na-rename" hidden novalidate onsubmit="event.preventDefault();window.QB.nkAnalysisRename(${esc(JSON.stringify(String(t.id)))})"><label for="nk-na-title">Test name</label><input id="nk-na-title" required maxlength="80" aria-describedby="nk-na-rename-status" oninput="if(this.value.trim()){this.removeAttribute('aria-invalid');document.getElementById('nk-na-rename-status').textContent='';}" value="${esc(t.title||'')}"><button type="submit">Save name</button><small id="nk-na-rename-status" role="status"></small></form>`:''}
@@ -77,7 +80,7 @@
       <div class="nk-na-analysis-grid">${!practice?nkAnalysisBreakdown(t):''}<section class="nk-na-card nk-na-performance"><header><h2>Question performance</h2></header><div>${nkAnalysisRing(t)}<dl>${nkAnalysisOutcomes(t).map(([label,n,tone])=>`<div><dt><i class="is-${tone}"></i>${label}</dt><dd>${n}<small>${t.total?Math.round(n/t.total*100):0}%</small></dd></div>`).join('')}</dl></div></section>${nkAnalysisTimeChart(t)}</div>
       <div class="nk-na-actions"><button class="v102-review-action" data-v102-review-cta="1" data-review-test-id="${esc(t.id)}" onclick="return window.__QB_OPEN_REVIEW(this.getAttribute('data-review-test-id'))">Review Solutions</button>${!practice&&t.timerMode!=='per-question'?`<button class="is-primary" data-test-id="${esc(t.id)}" onclick="window.QB.nkCbtRetake(this.getAttribute('data-test-id'),event)">Retry Test</button>`:''}</div>
       ${practice?nkCorrectionResultSection(t):nkAnalysisFollowup(t)+nkAnalysisMarked(t)}${!practice?nkCbtComparisonSection(t):''}${!practice?(nkMockFor(t)?nkMockSavedMarkup(nkMockFor(t)):`<button type="button" class="nk-na-save-mock" data-test-id="${esc(t.id)}" onclick="window.QB.nkMockSaveResult(this.getAttribute('data-test-id'))">${navIcon('bookmark',17)}<span>Save as mock</span></button>`):''}${module?`<section class="nk-na-card nk-module-result"><header><h2>${esc(module.name)}</h2></header><div class="nk-module-result-actions"><button onclick="window.QB.restartStudyModule(this.getAttribute('data-module-id'))" data-module-id="${esc(module.id)}">Restart module</button><button onclick="window.QB.nav('dashboard')">Return Home</button></div></section>`:''}
-      <details class="nk-na-card nk-na-answers"><summary>Every answer</summary><div class="nk-result-questions">${(t.questionIds||[]).map((id,i)=>{const q=questionMap.get(String(id)),sel=t.answers?.[id],correct=q&&Number(q.correctOption)===Number(sel);return `<div><span class="nk-question-index">${i+1}</span><span><strong>${q?esc(q.question.slice(0,125)):esc('Saved question unavailable')}</strong><small><i class="nk-status ${sel?(correct?'is-correct':'is-wrong'):'is-unattempted'}">${sel?(correct?'Correct':'Incorrect'):'Omitted'}</i>${q?esc(q.chapter||''):''}</small></span></div>`;}).join('')}</div></details></main>`,'tests');
+      <details class="nk-na-card nk-na-answers"><summary>Every answer</summary><div class="nk-result-questions">${(t.questionIds||[]).map((id,i)=>{const q=questionMap.get(String(id)),sel=t.answers?.[id],correct=q&&Number(q.correctOption)===Number(sel);return `<div><span class="nk-question-index">${i+1}</span><span><strong>${q?esc(q.question.slice(0,125)):esc('Saved question unavailable')}</strong><small><i class="nk-status ${sel?(correct?'is-correct':'is-wrong'):'is-unattempted'}">${sel?(correct?'Correct':'Incorrect'):t.expired?.[id]?'Time up':'Omitted'}</i>${q?esc(q.chapter||''):''}</small></span></div>`;}).join('')}</div></details></main>`,'tests');
   };
   function nkAnalysisRename(id){
     const t=nkAnalysisTest(id),input=document.getElementById('nk-na-title'),status=document.getElementById('nk-na-rename-status'),value=input?.value.trim().slice(0,80);
