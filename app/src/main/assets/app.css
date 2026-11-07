@@ -6879,7 +6879,7 @@ html :is(body,#nkg-root) button[data-nk-state] .nk-sb-label { animation: nkSbIn 
 .nk-sched-rules li { display: grid; grid-template-columns: 18px minmax(0,1fr); gap: 10px; align-items: start; font-size: 13px; line-height: 1.45; color: var(--nkg-fg-2, #525252); }
 .nk-sched-rules li svg { margin-top: 1px; color: var(--nkg-fg, #0a0a0a); }
 .nk-cbt-main-actions .nk-sched-open { display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
-@media (max-width: 380px) { .nk-sched-ticket { grid-template-columns: 56px minmax(0,1fr); } .nk-sched-ticket > :is(.nk-sched-go,.nk-sched-link,.nk-sched-lock) { grid-column: 2; justify-self: start; } }
+@media (max-width: 380px) { .nk-sched-ticket { grid-template-columns: 56px minmax(0,1fr); } .nk-sched-ticket > .nk-sched-actions { grid-column: 2; justify-self: start; } }
 /* ── Find a question: search questions, explanations, or your notes ── */
 .nk-search-scope { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 2px; margin: 12px 0 4px; padding: 3px; border-radius: 12px; background: var(--nkg-surface-2, #ededed); }
 .nk-search-scope button { min-height: 36px; padding: 0 8px; border: 0; border-radius: 9px; background: transparent; color: var(--nkg-fg-2, #525252); font: 500 13px/1.1 var(--nkg-font-sans, inherit); cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: background-color .15s ease, color .15s ease; }
@@ -6893,6 +6893,121 @@ html :is(body,#nkg-root) button[data-nk-state] .nk-sb-label { animation: nkSbIn 
 .nk-search-loading i { display: block; height: 3px; border-radius: 99px; background: linear-gradient(90deg, var(--nkg-fg, #0a0a0a) var(--nk-search-fill, 0%), var(--nkg-surface-2, #ededed) var(--nk-search-fill, 0%)); transition: background .3s ease; }
 .nk-search-loading button { justify-self: start; min-height: 32px; padding: 0 12px; border: 1px solid var(--nkg-border, #e5e5e5); border-radius: 999px; background: var(--nkg-bg, #fff); color: var(--nkg-fg, #0a0a0a); font: 500 13px/1 var(--nkg-font-sans, inherit); cursor: pointer; }
 ::selection { background: color-mix(in srgb, var(--nkg-fg, #0a0a0a) 16%, transparent); }
+/* ── Result page: verdict, question strip, practice topics, and the submit skeleton ── */
+.nk-rs-verdict { display: block; margin-top: 6px; font: 500 13px/1.35 var(--nkg-font-sans, inherit); font-style: normal; color: var(--nkg-fg-2, #525252); }
+.nk-rs-strip-card > header { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.nk-rs-strip-card > header h2 { margin: 0; font: 600 16px/1.3 var(--nkg-font-sans, inherit); letter-spacing: -0.01em; }
+.nk-rs-strip-card > header small { font: 400 12px/1.3 var(--nkg-font-sans, inherit); color: var(--nkg-fg-3, #737373); }
+.nk-rs-strip { display: grid; grid-template-columns: repeat(auto-fill, minmax(22px, 1fr)); gap: 5px; }
+.nk-rs-strip.is-dense { grid-template-columns: repeat(auto-fill, minmax(14px, 1fr)); gap: 3px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-rs-strip > button { display: block !important; width: 100% !important; height: auto !important; min-height: 0 !important; aspect-ratio: 1 !important; min-width: 0 !important; padding: 0 !important; margin: 0 !important; border: 0 !important; border-radius: 5px !important; cursor: pointer; background: var(--nkg-border, #e5e5e5); transition: transform .16s cubic-bezier(.2,.9,.1,1), box-shadow .16s; animation: nkRsCell .42s cubic-bezier(.2,.9,.1,1) both; animation-delay: calc(var(--i, 0) * 12ms + 120ms); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-rs-strip.is-dense > button { border-radius: 3px !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-rs-strip > button.is-correct { background: var(--nkg-green, #16a34a) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-rs-strip > button.is-incorrect { background: var(--nkg-red, #dc2626) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-rs-strip > button.is-omitted { background: transparent !important; box-shadow: inset 0 0 0 1.5px var(--nkg-amber, #d97706); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-rs-strip > button.is-timeup { background: transparent !important; box-shadow: inset 0 0 0 1.5px var(--nkg-border-strong, #a3a3a3); }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-rs-strip > button:hover { transform: scale(1.18); }
+.nk-rs-strip button:focus-visible { outline: 2px solid var(--nkg-fg, #0a0a0a); outline-offset: 2px; }
+@keyframes nkRsCell { from { opacity: 0; transform: scale(.4); } to { opacity: 1; transform: none; } }
+.nk-rs-topics > header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 4px; }
+.nk-rs-topics > header h2 { margin: 0; font: 600 16px/1.3 var(--nkg-font-sans, inherit); }
+.nk-rs-topics > header small { font: 400 12px/1.3 var(--nkg-font-sans, inherit); color: var(--nkg-fg-3, #737373); }
+.nk-refined-analysis .nk-na-row-bar i { transform-origin: left center; animation: nkRsBar .6s cubic-bezier(.2,.9,.1,1) both .15s; }
+@keyframes nkRsBar { from { transform: scaleX(0); } to { transform: none; } }
+.nk-refined-analysis .nk-na-time-bars i { transform-origin: bottom center; animation: nkRsRise .6s cubic-bezier(.2,.9,.1,1) both .2s; }
+@keyframes nkRsRise { from { transform: scaleY(0); } to { transform: none; } }
+.nkg-result-skel { position: fixed; inset: 0; z-index: 2147483000; overflow: hidden; background: var(--nkg-bg-subtle, var(--nkg-bg, #fafafa)); padding: calc(84px + env(safe-area-inset-top, 0px)) 16px 0; transition: opacity .2s ease; }
+.nkg-result-skel.is-out { opacity: 0; }
+.nkg-rs-in { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+.nkg-result-skel i { display: block; border-radius: 10px; background: linear-gradient(90deg, var(--nkg-border, #ececec) 0 40%, var(--nkg-bg-subtle, #f6f6f6) 50%, var(--nkg-border, #ececec) 60% 100%); background-size: 300% 100%; animation: nkRsShimmer 1.2s linear infinite; }
+.nkg-rs-line { height: 12px; width: 46%; } .nkg-rs-line.is-title { height: 30px; width: 58%; } .nkg-rs-line.is-sub { width: 34%; margin-bottom: 10px; } .nkg-rs-line.is-big { height: 30px; width: 60%; margin-bottom: 10px; }
+.nkg-rs-card { display: block; min-height: 72px; border-radius: 16px; border: 1px solid var(--nkg-border, #e5e5e5); background: var(--nkg-bg, #fff) !important; animation: none !important; padding: 18px; }
+.nkg-rs-card.is-hero { display: grid; grid-template-columns: 108px 1fr; gap: 18px; align-items: center; }
+.nkg-rs-card.is-tall { min-height: 220px; }
+.nkg-rs-ring { width: 108px; height: 108px; border-radius: 50% !important; }
+.nkg-rs-pills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; } .nkg-rs-pills i { height: 44px; }
+.nkg-rs-strip { display: grid; grid-template-columns: repeat(auto-fill, minmax(22px, 1fr)); gap: 5px; padding: 18px; border-radius: 16px; border: 1px solid var(--nkg-border, #e5e5e5); background: var(--nkg-bg, #fff); }
+.nkg-rs-strip i { aspect-ratio: 1; border-radius: 5px; }
+.nkg-rs-two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@keyframes nkRsShimmer { from { background-position: 100% 0; } to { background-position: 0 0; } }
+@media (prefers-reduced-motion: reduce) { .nk-rs-strip button, .nk-refined-analysis .nk-na-row-bar i, .nk-refined-analysis .nk-na-time-bars i, .nkg-result-skel i { animation: none !important; } }
+/* ── Scheduled mocks v2: attendance, make-up, ticket actions ── */
+.nk-sched-actions { display: flex; align-items: center; gap: 6px; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-sched-save { display: inline-flex !important; align-items: center; gap: 4px; align-self: flex-start; width: auto !important; min-height: 28px !important; margin-top: 4px; padding: 0 !important; border: 0 !important; background: none !important; color: var(--nkg-fg-2, #525252) !important; font: 500 12px/1 var(--nkg-font-sans, inherit) !important; box-shadow: none !important; cursor: pointer; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-sched-save.is-saved { color: var(--nkg-fg-3, #737373) !important; cursor: default; }
+.nk-sched-go.is-makeup { background: var(--nkg-red, #dc2626) !important; color: #fff !important; border-color: transparent !important; }
+.nk-sched-ticket.is-soon { border-color: var(--nkg-fg, #0a0a0a); }
+.nk-sched-ticket.is-soon .nk-sched-lock { color: var(--nkg-fg, #0a0a0a); animation: nkSchedSoon 1.6s ease-in-out infinite; }
+@keyframes nkSchedSoon { 50% { opacity: .45; } }
+.nk-sched-attend { display: grid; grid-template-columns: auto minmax(0,1fr); grid-template-areas: "ring copy" "dots dots"; align-items: center; gap: 10px 14px; margin: 0 0 12px; padding: 14px 16px; border: 1px solid var(--nkg-border, #e5e5e5); border-radius: 16px; background: var(--nkg-bg, #fff); }
+.nk-sched-attend-ring { grid-area: ring; display: grid; place-items: center; width: 48px; height: 48px; position: relative; }
+.nk-sched-attend-ring::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(var(--nkg-green, #16a34a) var(--p), var(--nkg-border, #e5e5e5) 0); -webkit-mask: radial-gradient(circle, transparent 18px, #000 19px); mask: radial-gradient(circle, transparent 18px, #000 19px); }
+.nk-sched-attend-ring b { position: absolute; font: 600 11px/1 var(--nkg-font-sans, inherit); }
+.nk-sched-attend > div:not(.nk-sched-attend-ring) { grid-area: copy; display: flex; flex-direction: column; gap: 2px; }
+.nk-sched-attend strong { font: 600 15px/1.3 var(--nkg-font-sans, inherit); }
+.nk-sched-attend small { font: 400 13px/1.3 var(--nkg-font-sans, inherit); color: var(--nkg-fg-3, #737373); }
+.nk-sched-attend > .nk-sched-attend-dots { grid-area: dots; }
+.nk-sched-attend-dots { display: flex; flex-wrap: wrap; gap: 5px; }
+.nk-sched-attend-dots i { width: 14px; height: 14px; border-radius: 4px; background: var(--nkg-green, #16a34a); animation: nkRsCell .4s cubic-bezier(.2,.9,.1,1) both; }
+.nk-sched-attend-dots i.is-missed { background: transparent; box-shadow: inset 0 0 0 2px var(--nkg-red, #dc2626); }
+.nk-sched-makeup { display: grid; grid-template-columns: auto minmax(0,1fr) auto; align-items: center; gap: 12px; margin: 0 0 16px; padding: 14px 14px 14px 16px; border: 1px solid var(--nkg-red-border, #fecaca); border-radius: 16px; background: var(--nkg-red-bg, #fef2f2); }
+.nk-sched-makeup-icon { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; background: var(--nkg-bg, #fff); color: var(--nkg-red, #dc2626); }
+.nk-sched-makeup > div { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.nk-sched-makeup small { font: 600 11px/1.2 var(--nkg-font-sans, inherit); letter-spacing: .04em; text-transform: uppercase; color: var(--nkg-red, #dc2626); }
+.nk-sched-makeup strong { font: 600 15px/1.3 var(--nkg-font-sans, inherit); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.nk-sched-makeup em { font: 400 12px/1.35 var(--nkg-font-sans, inherit); font-style: normal; color: var(--nkg-fg-2, #525252); }
+@media (max-width: 380px) { .nk-sched-makeup { grid-template-columns: auto minmax(0,1fr); } .nk-sched-makeup > button { grid-column: 1 / -1; } }
+/* ── Mock tests on Insights: a living score line ── */
+.nk-mock-in .nk-section-head { align-items: flex-end; }
+.nk-mock-in-toggle { display: inline-flex; padding: 3px; border-radius: 10px; background: var(--nkg-bg-subtle, #f5f5f5); border: 1px solid var(--nkg-border, #e5e5e5); }
+.nk-mock-in-toggle button { min-height: 30px; padding: 0 12px; border: 0; border-radius: 7px; background: transparent; color: var(--nkg-fg-2, #525252); font: 500 13px/1 var(--nkg-font-sans, inherit); cursor: pointer; }
+.nk-mock-in-toggle button[aria-pressed="true"] { background: var(--nkg-bg, #fff); color: var(--nkg-fg, #0a0a0a); box-shadow: 0 1px 2px rgba(0,0,0,.08); }
+.nk-mock-in-card { padding: 16px; border: 1px solid var(--nkg-border, #e5e5e5); border-radius: 16px; background: var(--nkg-bg, #fff); }
+.nk-mock-in-stats { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 8px; margin-bottom: 14px; }
+.nk-mock-in-stats div { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.nk-mock-in-stats small { font: 400 12px/1.2 var(--nkg-font-sans, inherit); color: var(--nkg-fg-3, #737373); }
+.nk-mock-in-stats b { font: 600 18px/1.15 var(--nkg-font-sans, inherit); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.nk-mock-in-stats .is-up b { color: var(--nkg-green, #16a34a); } .nk-mock-in-stats .is-down b { color: var(--nkg-red, #dc2626); }
+.nk-mock-in-chart { position: relative; height: 220px; color: var(--nkg-fg, #0a0a0a); touch-action: pan-y; cursor: crosshair; outline: none; border-radius: 10px; }
+.nk-mock-in-chart:focus-visible { box-shadow: 0 0 0 2px var(--nkg-fg, #0a0a0a); }
+.nk-mock-in-chart svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.nk-mock-in-grid line { stroke: var(--nkg-border, #e5e5e5); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.nk-mock-in-avg { stroke: var(--nkg-fg-3, #a3a3a3); stroke-dasharray: 4 4; stroke-width: 1; vector-effect: non-scaling-stroke; }
+.nk-mock-in-area { fill: url(#nk-mock-in-fill); animation: nkMockArea .9s ease both .35s; }
+.nk-mock-in-line { fill: none; stroke: currentColor; stroke-width: 2.25; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; stroke-dasharray: 1; stroke-dashoffset: 1; animation: nkMockDraw 1.1s cubic-bezier(.6,.05,.2,1) forwards; }
+.nk-mock-in-labels span { position: absolute; right: 0; transform: translateY(-100%); padding-bottom: 2px; font: 400 10px/1 var(--nkg-font-mono, monospace); color: var(--nkg-fg-3, #a3a3a3); pointer-events: none; }
+.nk-mock-in-dots i { position: absolute; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: var(--nkg-bg, #fff); box-shadow: inset 0 0 0 2px currentColor; pointer-events: none; animation: nkMockDot .38s cubic-bezier(.2,1.4,.4,1) both; animation-delay: var(--d, 500ms); transition: transform .15s; }
+.nk-mock-in-dots i.is-booked { background: currentColor; }
+.nk-mock-in-dots i.is-missed { background: var(--nkg-red, #dc2626); box-shadow: none; }
+.nk-mock-in-dots i.is-makeup { box-shadow: inset 0 0 0 2px var(--nkg-fg-2, #525252); background: var(--nkg-bg-subtle, #f5f5f5); }
+.nk-mock-in-dots i.is-active { transform: scale(1.5); }
+@keyframes nkMockDraw { to { stroke-dashoffset: 0; } }
+@keyframes nkMockArea { from { opacity: 0; } to { opacity: 1; } }
+@keyframes nkMockDot { from { transform: scale(0); } to { transform: none; } }
+.nk-mock-in-cursor { position: absolute; top: 0; bottom: 28px; left: var(--x, 0); width: 1px; background: var(--nkg-fg-3, #a3a3a3); opacity: 0; transition: left .12s ease-out, opacity .15s; pointer-events: none; }
+.nk-mock-in-cursor.is-on { opacity: 1; }
+.nk-mock-in-tip { position: absolute; top: -6px; left: var(--x, 100%); transform: translateX(10px); display: grid; grid-template-columns: 1fr auto; gap: 1px 10px; min-width: 150px; max-width: 220px; padding: 8px 10px; border-radius: 10px; background: var(--nkg-inverse-bg, #0a0a0a); color: var(--nkg-inverse-fg, #fff); pointer-events: none; opacity: 0; transition: left .12s ease-out, opacity .15s; box-shadow: 0 6px 20px rgba(0,0,0,.18); }
+.nk-mock-in-tip.is-live { opacity: 1; }
+.nk-mock-in-tip.is-left { transform: translateX(calc(-100% - 10px)); }
+.nk-mock-in-tip strong { grid-column: 1; font: 600 12px/1.3 var(--nkg-font-sans, inherit); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.nk-mock-in-tip small { grid-column: 1; font: 400 11px/1.3 var(--nkg-font-sans, inherit); opacity: .7; }
+.nk-mock-in-tip b { grid-column: 2; grid-row: 1 / span 2; align-self: center; font: 600 18px/1 var(--nkg-font-sans, inherit); font-variant-numeric: tabular-nums; }
+.nk-mock-in-tip em { grid-column: 1 / -1; font: 400 11px/1.3 var(--nkg-font-sans, inherit); font-style: normal; opacity: .8; }
+.nk-mock-in-legend { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 10px; font: 400 12px/1.2 var(--nkg-font-sans, inherit); color: var(--nkg-fg-3, #737373); }
+.nk-mock-in-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.nk-mock-in-legend i { width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--nkg-fg, #0a0a0a); }
+.nk-mock-in-legend i.is-booked { background: var(--nkg-fg, #0a0a0a); }
+.nk-mock-in-legend i.is-missed { background: var(--nkg-red, #dc2626); border-color: var(--nkg-red, #dc2626); }
+.nk-mock-in-legend i.is-avg { width: 14px; height: 0; border-radius: 0; border-width: 1px 0 0; border-style: dashed; border-color: var(--nkg-fg-3, #a3a3a3); }
+.nk-mock-in-attend { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--nkg-border, #e5e5e5); }
+.nk-mock-in-attend strong { font: 600 14px/1.3 var(--nkg-font-sans, inherit); }
+.nk-mock-in-attend > span:not(.nk-sched-attend-dots) { font: 400 13px/1.3 var(--nkg-font-sans, inherit); color: var(--nkg-fg-3, #737373); }
+.nk-mock-in-attend .nk-sched-attend-dots { flex-basis: 100%; }
+.nk-mock-in-empty { padding: 24px 16px; border: 1px dashed var(--nkg-border-strong, #d4d4d4); border-radius: 16px; text-align: center; }
+.nk-mock-in-empty p { margin: 0 0 12px; color: var(--nkg-fg-2, #525252); font: 400 14px/1.45 var(--nkg-font-sans, inherit); }
+.nk-mock-in-empty button { display: inline-flex; align-items: center; gap: 4px; min-height: 36px; padding: 0 14px; border: 1px solid var(--nkg-border-strong, #d4d4d4); border-radius: 10px; background: var(--nkg-bg, #fff); color: var(--nkg-fg, #0a0a0a); font: 500 13px/1 var(--nkg-font-sans, inherit); cursor: pointer; }
+@media (max-width: 480px) { .nk-mock-in-stats { grid-template-columns: repeat(2, minmax(0,1fr)); row-gap: 12px; } .nk-mock-in-chart { height: 190px; } }
+@media (prefers-reduced-motion: reduce) { .nk-mock-in-line { animation: none; stroke-dashoffset: 0; } .nk-mock-in-area, .nk-mock-in-dots i, .nk-sched-attend-dots i { animation: none; } .nk-sched-ticket.is-soon .nk-sched-lock { animation: none; } }
 /* ── nk-visual-refinement-v1 ── */
 /* NK QBank: the incumbent violet identity, composed for long study sessions. */
 :root{

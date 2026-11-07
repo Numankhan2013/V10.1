@@ -1495,7 +1495,7 @@
     var b = ring.querySelector('b');
     var m = /Score/.test(ring.getAttribute('aria-label') || '') && b && /^(\d+)%$/.exec(b.textContent.trim());
     var pct = m ? +m[1] : (function () { var x = /(\d+) correct, (\d+) incorrect, (\d+) omitted/.exec(ring.getAttribute('aria-label') || ''); if (!x) return 0; var t = +x[1] + +x[2] + +x[3]; return t ? x[1] / t * 100 : 0; })();
-    var rest = [].slice.call(app.querySelectorAll('.nk-na-outcome-counts > div, .nk-na-metrics > article, .nk-na-actions, .nk-na-followup, .nk-na-save-mock, .nk-na-analysis-grid > section'))
+    var rest = [].slice.call(app.querySelectorAll('.nk-na-outcome-counts > div, .nk-na-metrics > article, .nk-na-actions, .nk-na-followup, .nk-na-save-mock, .nk-rs-strip-card, .nk-na-analysis-grid > section'))
       .filter(function (n) { var r = n.getBoundingClientRect(); return r.height && r.top < window.innerHeight; });
     /* Held at their start pose until the card has landed, so nothing pops in early. */
     each(rest, function (n) { n.style.opacity = '0'; });
@@ -1754,41 +1754,42 @@
   if (document.body) watchNotes(); else document.addEventListener('DOMContentLoaded', watchNotes);
 
   /* ======================================================= Submit → result
-     The tap answers at once: the button reads "Scoring…" in the next frame.
-     Scoring then runs inside a view transition, so the screen never shows a
-     half-built page: the session recedes, the Submit button grows into the
-     score card of the result, and the result's figures settle in after it
-     (resultMotion). Without view transitions, or with reduced motion, the
-     busy label paints first and the result appears directly. */
+     The tap answers at once: the session gives way to a skeleton of the result in the
+     next frame, scoring runs behind it, and the real result replaces the skeleton
+     (its figures then settle in through resultMotion). No busy label on the button. */
   var reveal = { on: false, at: 0 };
-  function revealEnd() { reveal.on = false; doc.classList.remove('nkg-reveal'); }
+  function resultSkeleton() {
+    var old = document.getElementById('nkg-result-skel'); if (old) old.remove();
+    var sk = el('div', 'nkg-result-skel'); sk.id = 'nkg-result-skel'; sk.setAttribute('aria-hidden', 'true');
+    sk.innerHTML = '<div class="nkg-rs-in"><i class="nkg-rs-line is-title"></i><i class="nkg-rs-line is-sub"></i>' +
+      '<div class="nkg-rs-card is-hero"><i class="nkg-rs-ring"></i><div><i class="nkg-rs-line is-big"></i><i class="nkg-rs-line"></i><div class="nkg-rs-pills"><i></i><i></i><i></i></div></div></div>' +
+      '<div class="nkg-rs-strip">' + new Array(30).join('<i></i>') + '</div>' +
+      '<div class="nkg-rs-two"><i class="nkg-rs-card"></i><i class="nkg-rs-card"></i></div><i class="nkg-rs-card is-tall"></i></div>';
+    document.body.appendChild(sk);
+    return sk;
+  }
+  function skeletonOut(sk) {
+    if (!sk || !sk.isConnected) return;
+    if (!motionOK()) { sk.remove(); return; }
+    sk.classList.add('is-out'); window.setTimeout(function () { sk.remove(); }, 220);
+  }
   document.addEventListener('click', function (e) {
-    var b = e.target.closest && e.target.closest('button.nk-practice-submit, button.qb-nav-submit');
-    if (!b || b.__nkgGo || document.documentElement.getAttribute('data-nk-ui') !== 'geist') return;
-    if (!/submit|finish/i.test(b.getAttribute('onclick') || '') || b.disabled || b.classList.contains('nkg-busy')) return;
+    var b = e.target.closest && e.target.closest('button[onclick]');
+    if (!b || b.__nkgGo || b.disabled || document.documentElement.getAttribute('data-nk-ui') !== 'geist') return;
+    /* Only a real submit ends on the result page; "Review or Finish" opens a review list. */
+    if (!/submitExam|nkSubmitPracticeSession|__sessionReviewSubmit/.test(b.getAttribute('onclick') || '')) return;
     e.preventDefault(); e.stopImmediatePropagation();
-    b.classList.add('nkg-busy'); b.setAttribute('aria-busy', 'true'); b.setAttribute('data-nkg-busy', 'Scoring…');
+    var sk = resultSkeleton();
     var go = function () {
       b.__nkgGo = true;
-      try { b.click(); } finally { b.__nkgGo = false; if (b.isConnected) { b.classList.remove('nkg-busy'); b.removeAttribute('aria-busy'); b.removeAttribute('data-nkg-busy'); } }
+      try { b.click(); } finally { b.__nkgGo = false; }
+      /* A blocked submit (a confirm sheet, a failed save) leaves the session on screen: drop the skeleton at once. */
+      if (!document.querySelector('.nk-na-summary')) { sk.remove(); return; }
+      window.scrollTo(0, 0);
+      window.requestAnimationFrame(function () { skeletonOut(sk); });
     };
-    /* Only a real submit ends on the result page; "Review or Finish" opens a review list. */
-    var toResult = /submitExam|nkSubmitPracticeSession/.test(b.getAttribute('onclick') || '');
-    if (toResult && document.startViewTransition && motionOK()) {
-      reveal.on = true; reveal.at = performance.now();
-      doc.classList.add('nkg-reveal');
-      b.style.viewTransitionName = 'nkg-result';
-      try {
-        var vt = document.startViewTransition(function () {
-          go();
-          /* Nothing to grow into (a blocked submit), or the button is still on screen: it simply fades. */
-          if (b.isConnected || !document.querySelector('.nk-na-summary')) b.style.viewTransitionName = '';
-        });
-        vt.finished.then(revealEnd, revealEnd);
-        return;
-      } catch (err) { revealEnd(); b.style.viewTransitionName = ''; }
-    }
-    window.requestAnimationFrame(function () { window.setTimeout(go, 0); });
+    /* Two frames: the skeleton is painted before scoring starts. */
+    window.requestAnimationFrame(function () { window.requestAnimationFrame(go); });
   }, true);
   /* Images shimmer until their bytes arrive, then fade in. */
   function imageWaits(app) {

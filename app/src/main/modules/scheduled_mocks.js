@@ -6,13 +6,37 @@
   const NK_SCHED_EARLY_MS=0;
   function nkSchedList(){return Array.isArray(state.scheduledMocks)?state.scheduledMocks.filter(m=>m&&m.id&&Number(m.at)>0&&Array.isArray(m.questionIds)&&m.questionIds.length):[];}
   function nkSchedDurationMs(m){return Math.max(1,m.questionIds.length)*(Number(m.seconds)||60)*1000;}
+  // Doors: a mock can be started up to 15 minutes after its time (less for a shorter mock); then it is missed.
+  const NK_SCHED_DOOR_MS=15*60000;
+  function nkSchedDoorMs(m){return Math.min(NK_SCHED_DOOR_MS,nkSchedDurationMs(m));}
   function nkSchedTest(m){return (state.tests||[]).find(t=>String(t.scheduledMockId||'')===String(m.id))||null;}
+  function nkSchedMakeup(m){return (state.tests||[]).find(t=>String(t.makeupFor||'')===String(m.id))||null;}
   function nkSchedStatus(m,now=Date.now()){
-    if(nkSchedTest(m))return 'taken';
+    const test=nkSchedTest(m);
+    if(test)return test.missed?'missed':'taken';
     if(String(state.activeSession?.scheduledMockId||'')===String(m.id))return 'live';
     if(now<Number(m.at)-NK_SCHED_EARLY_MS)return 'upcoming';
-    if(now<Number(m.at)+nkSchedDurationMs(m))return 'open';
+    if(now<Number(m.at)+nkSchedDoorMs(m))return 'open';
     return 'missed';
+  }
+  // A missed mock is written into your test history as a zero: it counts, like a skipped exam would.
+  function nkSchedRecordMisses(){
+    const now=Date.now(),tests=Array.isArray(state.tests)?state.tests:[];let added=0;
+    for(const m of nkSchedList()){
+      if(nkSchedTest(m)||nkSchedStatus(m,now)!=='missed')continue;
+      const n=m.questionIds.length,marking=m.marking||{correct:1,wrong:0,blank:0};
+      tests.push({id:`missed_${m.id}`,title:m.name,questionIds:[...m.questionIds],answers:{},questionTimes:{},markedForReview:{},correct:0,incorrect:0,unattempted:n,total:n,attempted:0,totalTimeMs:0,createdAt:Number(m.at)+nkSchedDoorMs(m),autoSubmitted:true,timerEnabled:true,timerMode:'global',originRoute:'tests',marking:{...marking},secondsPerQuestion:Number(m.seconds)||60,scheduledMockId:m.id,missed:true});
+      added++;
+    }
+    if(added){state.tests=tests;saveState();}
+    return added;
+  }
+  // Attendance: booked mocks whose time has passed, newest first; the streak counts the kept ones in a row.
+  function nkSchedAttendance(){
+    const now=Date.now(),past=nkSchedList().map(m=>({m,st:nkSchedStatus(m,now)})).filter(x=>x.st==='taken'||x.st==='missed').sort((a,b)=>b.m.at-a.m.at);
+    const kept=past.filter(x=>x.st==='taken').length;let streak=0;for(const x of past){if(x.st!=='taken')break;streak++;}
+    let best=0,run=0;for(const x of past.slice().reverse()){run=x.st==='taken'?run+1:0;best=Math.max(best,run);}
+    return {booked:past.length,kept,missed:past.length-kept,streak,best,pending:nkSchedList().filter(m=>nkSchedStatus(m,now)==='missed'&&!nkSchedMakeup(m))};
   }
   function nkSchedWhen(at,withDay=true){
     const d=new Date(Number(at)),today=new Date(),tomorrow=new Date();tomorrow.setDate(today.getDate()+1);
@@ -35,19 +59,26 @@
     const month=d.toLocaleDateString([], {month:'short'}).toUpperCase(),day=d.getDate();
     const test=status==='taken'?nkSchedTest(m):null;
     const closes=Number(m.at)+nkSchedDurationMs(m);
+    const doors=Number(m.at)+nkSchedDoorMs(m),makeup=status==='missed'?nkSchedMakeup(m):null;
     const line=status==='upcoming'?`Opens ${nkSchedWhen(m.at)} · in ${nkSchedIn(Number(m.at)-now)}`
-      :status==='open'?`Open now · closes ${nkSchedWhen(closes,false)}, ${nkSchedIn(closes-now)} left`
+      :status==='open'?`Doors close ${nkSchedWhen(doors,false)} · ${nkSchedIn(doors-now)} to start`
       :status==='live'?`In progress · ends ${nkSchedWhen(closes,false)}`
       :status==='taken'?`Taken ${nkSchedWhen(m.at)}${test?.total?` · ${Math.round(Number(test.correct||0)/Number(test.total)*100)}%`:''}`
-      :`Missed ${nkSchedWhen(m.at)}`;
+      :makeup?`Missed · scored 0 · made up ${makeup.total?Math.round(Number(makeup.correct||0)/Number(makeup.total)*100):0}%`:`Missed ${nkSchedWhen(m.at)} · scored 0`;
+    const arg=esc(JSON.stringify(String(m.id)));
     const action=status==='open'?`<button type="button" class="nk-sched-go" data-sched-id="${esc(m.id)}" onclick="window.QB.nkSchedStart(this.getAttribute('data-sched-id'))">Start ${navIcon('chevron',16)}</button>`
       :status==='live'?`<button type="button" class="nk-sched-go" onclick="window.QB.nav('exam')">Resume ${navIcon('chevron',16)}</button>`
       :status==='taken'&&test?`<button type="button" class="nk-sched-link" data-test-id="${esc(test.id)}" onclick="window.QB.nav('result',this.getAttribute('data-test-id'))">Result ${navIcon('chevron',15)}</button>`
+      :status==='missed'&&!makeup?`<button type="button" class="nk-sched-go is-makeup" onclick="window.QB.nkSchedMakeupStart(${arg})">Make up ${navIcon('chevron',16)}</button>`
+      :status==='missed'&&makeup?`<button type="button" class="nk-sched-link" data-test-id="${esc(makeup.id)}" onclick="window.QB.nav('result',this.getAttribute('data-test-id'))">Result ${navIcon('chevron',15)}</button>`
       :status==='upcoming'?`<span class="nk-sched-lock">${navIcon('clock',15)} Locked</span>`:'';
-    return `<article class="nk-sched-ticket is-${status}${place==='home'?' is-home':''}" aria-label="${esc(m.name)}, ${esc(line)}">
+    const saved=typeof nkMockList==='function'&&nkMockList().some(x=>x.questionIds.length===m.questionIds.length&&x.questionIds.every((id,i)=>String(id)===String(m.questionIds[i])));
+    const save=place==='tests'&&status!=='live'?`<button type="button" class="nk-sched-save${saved?' is-saved':''}" ${saved?'disabled':''} onclick="window.QB.nkSchedSaveMock(${arg})">${navIcon(saved?'check':'bookmark',13)}${saved?'Saved as mock':'Save as mock'}</button>`:'';
+    const soon=status==='upcoming'&&Number(m.at)-now<15*60000?' is-soon':'';
+    return `<article class="nk-sched-ticket is-${status}${soon}${place==='home'?' is-home':''}" aria-label="${esc(m.name)}, ${esc(line)}">
       <div class="nk-sched-date" aria-hidden="true"><small>${esc(month)}</small><b>${day}</b><span>${esc(nkSchedWhen(m.at,false))}</span></div>
-      <div class="nk-sched-copy"><strong>${esc(m.name)}</strong><small>${esc(nkSchedFacts(m))}</small><em>${esc(line).replace(/ · (in [^·]*)$/,' · <span class="nk-sched-in">$1</span>')}</em></div>
-      ${action}
+      <div class="nk-sched-copy"><strong>${esc(m.name)}</strong><small>${esc(nkSchedFacts(m))}</small><em>${esc(line).replace(/ · (in [^·]*)$/,' · <span class="nk-sched-in">$1</span>')}</em>${save}</div>
+      <div class="nk-sched-actions">${action}</div>
     </article>`;
   }
   // Home shows a booked mock from the day before until it closes; Tests lists every booking.
@@ -59,7 +90,7 @@
     const list=nkSchedList(),now=Date.now();if(!list.length)return '';
     const live=list.filter(m=>['open','live','upcoming'].includes(nkSchedStatus(m,now))).sort((a,b)=>a.at-b.at);
     const past=list.filter(m=>!live.includes(m)).sort((a,b)=>b.at-a.at);
-    return `<section class="nk-v3-section nk-sched-section"><div class="nk-v3-section-head"><h2>Scheduled mocks</h2><span>${fmtNum(live.length)} upcoming</span></div>
+    return `<section class="nk-v3-section nk-sched-section"><div class="nk-v3-section-head"><h2>Scheduled mocks</h2><span>${fmtNum(live.length)} upcoming</span></div>${nkSchedAttendanceMarkup()}
       <div class="nk-sched-list">${live.map(m=>nkSchedTicket(m,'tests')).join('')}${past.slice(0,3).map(m=>nkSchedTicket(m,'tests')).join('')}</div>
       ${past.length>3?`<details class="nk-test-older"><summary>Show ${fmtNum(past.length-3)} older</summary><div class="nk-sched-list">${past.slice(3).map(m=>nkSchedTicket(m,'tests')).join('')}</div></details>`:''}
     </section>`;
@@ -73,12 +104,17 @@
     const sat=new Date();sat.setDate(sat.getDate()+((6-sat.getDay()+7)%7||7));sat.setHours(10,0,0,0);out.push(['Saturday 10 am',sat.getTime()]);
     return out.slice(0,4);
   }
-  function nkSchedOpen(){
-    if(typeof nkCbtDraft==='undefined'||!nkCbtDraft){showToast('Build a test first.','bad');return;}
-    const count=Math.min(Number(nkCbtDraft.count)||20,nkCbtPoolSize());if(!count){showToast('Choose topics with questions first.','bad');return;}
+  let nkSchedSource=null; // a saved mock being booked, or null for the builder's draft
+  function nkSchedOpen(mockId){
+    const saved=mockId&&typeof nkMockList==='function'?nkMockList().find(x=>String(x.id)===String(mockId)):null;
+    if(mockId&&!saved){showToast('That saved mock is gone.','bad');return;}
+    nkSchedSource=saved||null;
+    if(!saved&&(typeof nkCbtDraft==='undefined'||!nkCbtDraft)){showToast('Build a test first.','bad');return;}
+    if(saved&&typeof nkMockClose==='function')nkMockClose();
+    const count=saved?saved.questionIds.length:Math.min(Number(nkCbtDraft.count)||20,nkCbtPoolSize());if(!count){showToast('Choose topics with questions first.','bad');return;}
     document.getElementById('nk-sched-sheet')?.remove();
     const x=nkExamSettings(),minutes=Math.round(count*x.seconds/60),first=nkSchedSuggestions()[0]?.[1]||Date.now()+3600000;
-    const name=(nkCbtDraft.name||'').trim()||nkCbtTitle();
+    const name=saved?saved.name:((nkCbtDraft.name||'').trim()||nkCbtTitle());
     document.body.insertAdjacentHTML('beforeend',`<div class="nk-qs-backdrop nk-sched-backdrop" id="nk-sched-sheet" onclick="if(event.target===this)window.QB.nkSchedClose()" onkeydown="if(event.key==='Escape'){event.stopPropagation();window.QB.nkSchedClose()}">
       <section class="nk-qs nk-sched-sheet" role="dialog" aria-modal="true" aria-labelledby="nk-sched-title">
         <span class="nk-qs-grip" aria-hidden="true"></span>
@@ -87,9 +123,9 @@
         <div class="nk-exam-chips nk-sched-chips" role="radiogroup" aria-label="Suggested times">${nkSchedSuggestions().map(([label,t],i)=>`<button type="button" role="radio" aria-checked="${i===0}" class="${i===0?'is-selected':''}" data-at="${t}" onclick="window.QB.nkSchedPick(${t})">${esc(label)}</button>`).join('')}</div>
         <label class="nk-sched-field" for="nk-sched-at"><span>Date and time</span><input id="nk-sched-at" type="datetime-local" min="${nkSchedLocalValue(Date.now()+5*60000)}" value="${nkSchedLocalValue(first)}" oninput="window.QB.nkSchedPick(null)"></label>
         <ul class="nk-sched-rules">
-          <li>${navIcon('clock',16)}<span>The clock starts at this time, whether you have started or not.</span></li>
-          <li>${navIcon('close',16)}<span>It can’t be moved or cancelled. If you don’t sit it in time, it’s recorded as missed.</span></li>
-          <li>${navIcon('test',16)}<span>The questions are drawn now and stay hidden until it opens.</span></li>
+          <li>${navIcon('clock',16)}<span>The clock starts at this time, whether you have started or not. Doors close 15 minutes later.</span></li>
+          <li>${navIcon('close',16)}<span>It can’t be moved or cancelled. Miss it and it scores 0, breaks your attendance streak, and waits on Home as a make-up.</span></li>
+          ${saved?'':`<li>${navIcon('test',16)}<span>The questions are drawn now and stay hidden until it opens.</span></li>`}
         </ul>
         <button type="button" class="nk-qs-start nk-sched-confirm" id="nk-sched-confirm" onclick="window.QB.nkSchedConfirm()">Lock in ${esc(nkSchedWhen(first))}</button>
       </section></div>`);
@@ -107,12 +143,12 @@
   function nkSchedConfirm(){
     const input=document.getElementById('nk-sched-at'),at=new Date(input?.value||'').getTime();
     if(!Number.isFinite(at)||at<=Date.now()+60000){showToast('Pick a time in the future.','bad');return;}
-    const ids=typeof nkMockPick==='function'?nkMockPick():[];if(!ids.length){showToast('No questions in this selection can be scheduled.','bad');return;}
-    const x=nkExamSettings(),name=((nkCbtDraft?.name||'').trim()||nkCbtTitle()).slice(0,80);
+    const ids=nkSchedSource?nkSchedSource.questionIds.map(String):typeof nkMockPick==='function'?nkMockPick():[];if(!ids.length){showToast('No questions in this selection can be scheduled.','bad');return;}
+    const x=nkExamSettings(),name=(nkSchedSource?nkSchedSource.name:((nkCbtDraft?.name||'').trim()||nkCbtTitle())).slice(0,80);
     const mock={id:`sm_${Date.now()}_${Math.random().toString(16).slice(2,8)}`,name,questionIds:ids,at,createdAt:Date.now(),marking:{correct:x.correct,wrong:x.wrong,blank:x.blank},seconds:x.seconds};
     state.scheduledMocks=[...nkSchedList(),mock];
     if(saveState()===false){showToast('The schedule could not be saved. Try again.','bad');return;}
-    document.getElementById('nk-sched-sheet')?.remove();nkCbtDraft=null;
+    document.getElementById('nk-sched-sheet')?.remove();if(!nkSchedSource)nkCbtDraft=null;nkSchedSource=null;
     showToast(`Scheduled for ${nkSchedWhen(at)}.`,'good');navigate('tests');
   }
   function nkSchedStart(id){
@@ -134,6 +170,38 @@
     if(typeof startExamTicker==='function')startExamTicker();
     render();return true;
   }
+  function nkSchedAttendanceMarkup(){
+    const a=nkSchedAttendance();if(!a.booked)return '';
+    const pct=Math.round(a.kept/a.booked*100);
+    return `<div class="nk-sched-attend" role="group" aria-label="Attendance: kept ${a.kept} of ${a.booked} booked mocks"><div class="nk-sched-attend-ring" style="--p:${pct}%"><b>${pct}%</b></div><div><strong>Kept ${fmtNum(a.kept)} of ${fmtNum(a.booked)}</strong><small>${a.streak?`${fmtNum(a.streak)} in a row`:'Streak broken'}${a.best>1?` · best ${fmtNum(a.best)}`:''}</small></div><span class="nk-sched-attend-dots" aria-hidden="true">${nkSchedList().map(m=>({m,st:nkSchedStatus(m)})).filter(x=>x.st==='taken'||x.st==='missed').sort((x,y)=>x.m.at-y.m.at).slice(-12).map(x=>`<i class="is-${x.st}"></i>`).join('')}</span></div>`;
+  }
+  // A make-up sits the same paper, full length, from now. It never erases the miss.
+  function nkSchedMakeupStart(id){
+    const m=nkSchedList().find(item=>String(item.id)===String(id));if(!m)return false;
+    if(nkSchedStatus(m)!=='missed'){showToast('Only a missed mock can be made up.');return false;}
+    if(nkSchedMakeup(m)){showToast('You already made this one up.');return false;}
+    if(state.activeSession?.mode==='exam'){showToast('Finish or leave your current timed test first.','bad');return false;}
+    const map=new Map(nkAllStudyQuestions().map(q=>[String(q.id),q])),ids=m.questionIds.map(String).filter(qid=>map.has(qid));
+    if(!ids.length){showToast('This mock’s questions are unavailable.','bad');return false;}
+    BY_ID={...BY_ID,...Object.fromEntries(ids.map(qid=>[qid,map.get(qid)]))};
+    const started=startSession(ids,'exam',`Make-up · ${m.name}`.slice(0,80),`makeup-mock:${m.id}`);
+    const s=state.activeSession;if(started===false||s?.mode!=='exam')return false;
+    s.makeupFor=m.id;s.originRoute='tests';
+    nkExamApply({...m.marking,seconds:m.seconds},true);saveState();
+    if(typeof startExamTicker==='function')startExamTicker();
+    navigate('exam');return true;
+  }
+  function nkSchedSaveMock(id){
+    const m=nkSchedList().find(item=>String(item.id)===String(id));if(!m||typeof nkMockStore!=='function')return;
+    const mock=nkMockStore(m.name,m.questionIds);if(!mock)return;
+    showToast(`Saved “${m.name}” to your mocks.`,'good');render();
+  }
+  // The make-up waits at the top of Today until it is done.
+  function nkSchedMakeupCard(){
+    const m=nkSchedAttendance().pending.sort((a,b)=>b.at-a.at)[0];if(!m)return '';
+    const minutes=Math.round(nkSchedDurationMs(m)/60000),arg=esc(JSON.stringify(String(m.id)));
+    return `<section class="nk-sched-makeup" aria-label="Make-up mock"><span class="nk-sched-makeup-icon">${navIcon('refresh',20)}</span><div><small>Make-up owed</small><strong>${esc(m.name)}</strong><em>Missed ${esc(nkSchedWhen(m.at))} · ${fmtNum(m.questionIds.length)} Qs · ${fmtNum(minutes)} min</em></div><button type="button" class="nk-sched-go is-makeup" onclick="window.QB.nkSchedMakeupStart(${arg})">Sit it ${navIcon('chevron',16)}</button></section>`;
+  }
   // Abandoning a scheduled mock would let it be retaken at leisure; the grid's Abandon stays for ordinary tests only.
   if(typeof nkAbandonTimedTest==='function'){
     const original=nkAbandonTimedTest;
@@ -141,14 +209,22 @@
   }
   if(typeof testsPage==='function'){
     const original=testsPage;
-    testsPage=function(){const html=original.apply(this,arguments),sched=nkSchedTestsMarkup();return sched?html.replace('<section class="nk-v3-section nk-na-saved-mocks',sched+'<section class="nk-v3-section nk-na-saved-mocks'):html;};
+    testsPage=function(){nkSchedRecordMisses();const html=original.apply(this,arguments),sched=nkSchedTestsMarkup();return sched?html.replace('<section class="nk-v3-section nk-na-saved-mocks',sched+'<section class="nk-v3-section nk-na-saved-mocks'):html;};
   }
   if(typeof dashboard==='function'){
     const original=dashboard;
-    dashboard=function(){const html=original.apply(this,arguments),sched=nkSchedHomeMarkup();return sched?html.replace('<section class="nk-home-revision nk-today',sched+'<section class="nk-home-revision nk-today'):html;};
+    dashboard=function(){nkSchedRecordMisses();const html=original.apply(this,arguments),sched=nkSchedMakeupCard()+nkSchedHomeMarkup();return sched?html.replace('<section class="nk-home-revision nk-today',sched+'<section class="nk-home-revision nk-today'):html;};
   }
   if(typeof nkCbtBuilderPage==='function'){
     const original=nkCbtBuilderPage;
     nkCbtBuilderPage=function(){const html=original.apply(this,arguments);return nkCbtDraft?.step===3?html.replace('<div class="nk-cbt-main-actions">',`<div class="nk-cbt-main-actions"><button type="button" class="nk-sched-open" aria-label="Schedule this mock" onclick="window.QB.nkSchedOpen()">${navIcon('clock',17)} Schedule</button>`):html;};
+  }
+  if(typeof nkMockOpen==='function'){
+    const original=nkMockOpen;
+    nkMockOpen=function(id){
+      const out=original.apply(this,arguments),foot=document.querySelector('#nk-mock-sheet .nk-mock-sheet-foot');
+      if(foot&&!foot.querySelector('.nk-sched-open'))foot.querySelector('.nk-mock-start')?.insertAdjacentHTML('beforebegin',`<button type="button" class="nk-mock-icon-btn nk-sched-open" aria-label="Schedule this mock" data-mock-id="${esc(id)}" onclick="window.QB.nkSchedOpen(this.getAttribute('data-mock-id'))">${navIcon('clock',18)}</button>`);
+      return out;
+    };
   }
   /* NK_SCHEDULED_MOCKS_V1_END */
