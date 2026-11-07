@@ -383,7 +383,7 @@
     var d, label;
     if (kind === 'pp') { d = cur - prev; if (Math.abs(d) < 0.05) return ['No change', 'is-neutral']; label = Math.abs(d).toFixed(1) + ' pp'; }
     else { if (!prev) return cur ? ['New', 'is-neutral'] : null; d = (cur - prev) / prev * 100; if (Math.abs(d) < 0.5) return ['No change', 'is-neutral']; label = Math.round(Math.abs(d)) + '%'; }
-    return [(d > 0 ? '↑ ' : '↓ ') + label, d > 0 ? 'is-up' : 'is-down'];
+    return [(d > 0 ? '+' : '−') + label, d > 0 ? 'is-up' : 'is-down'];
   }
   function enhanceHome(app) {
     var head = app.querySelector('.nk-home-progress-head');
@@ -404,7 +404,7 @@
         if (i === 2 && parseFigure(shown) && Math.abs(parseFigure(shown).v - Math.round(cur.mins)) <= 1) chip = deltaChip(cur.mins, prev.mins, '%');
         var wrap = el('span', 'nkg-val');
         b.parentNode.insertBefore(wrap, b); wrap.appendChild(b);
-        if (chip) { var c = el('span', 'nkg-delta ' + chip[1]); c.textContent = chip[0]; c.title = 'Compared with the same point of the previous ' + (range === 'today' ? 'day' : range); wrap.appendChild(c); }
+        if (chip) { var c = el('span', 'nkg-delta ' + chip[1]); c.textContent = chip[0] + (chip[1] === 'is-neutral' ? '' : ' vs ' + ({ today: 'yesterday', week: 'last week', month: 'last month', year: 'last year' }[range] || 'before')); c.title = 'Compared with the same point of the previous ' + (range === 'today' ? 'day' : range); wrap.appendChild(c); }
         countUp(b, 'home-' + range + '-' + i, false);
       });
     }

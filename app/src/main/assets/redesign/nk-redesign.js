@@ -279,7 +279,9 @@
     try { date = new Date().toLocaleDateString('en-IN', { weekday: 'long', day: 'numeric', month: 'long' }); } catch (e) { date = new Date().toDateString(); }
     var head = document.createElement('section');
     head.className = 'nkg-home-head';
-    head.innerHTML = '<p class="nkg-date">' + esc(date) + '</p><h1>' + esc(hello) + (name ? ', ' + esc(name) : '') + '</h1>';
+    // The title names the day, not a greeting (unslop: the heading says where you are).
+    void hello; void name;
+    head.innerHTML = '<h1>' + esc(date) + '</h1>';
     greet.parentNode.insertBefore(head, greet);
     var label = app.querySelector('.nk-home-focus-label');
     if (label && /^TODAY.S FOCUS$/.test(label.textContent.trim())) label.textContent = 'Today\u2019s focus';

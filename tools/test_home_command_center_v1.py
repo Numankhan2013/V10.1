@@ -23,7 +23,7 @@ def main():
         'body:has(.nk-home-approved-v1) .nk-global-header-v114{display:none!important}',
         'nkHomeFocusSection(focus,focusModule)','nkStudySetsSection(focusModule?.id)',
         'FSRS','My Subjects','nkSubjectStatsV3','nkOpenSubjectLibrary',
-        'STUDY LIBRARY','study-library','complete topic journey','My Progress','Today','This Week','This Month','This Year',
+        'Study library','study-library','complete topic journey','My Progress','Today','This Week','This Month','This Year',
         'FSRS Review','Choose subject','All Subjects','Every answered question is scheduled here','pausing keeps untouched questions out',
         "['quick-revision','Revision','refresh']",'window.QB.nkOpenRevisionHub()','Timed tests','Build a test','Quick test','Wrong questions','Bookmarked','Saved mocks','Score trend',
         'openMultiSubjectTestBuilder','Number of questions','[10,20,50,100]',

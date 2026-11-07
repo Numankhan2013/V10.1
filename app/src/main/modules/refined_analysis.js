@@ -8,7 +8,8 @@
   function nkAnalysisDuration(ms){
     if(!Number.isFinite(ms)||ms<0)return '—';
     const seconds=Math.round(ms/1000),minutes=Math.floor(seconds/60);
-    return minutes>=60?`${Math.floor(minutes/60)}h ${minutes%60}m`:`${minutes}m ${seconds%60}s`;
+    // One format: "43s" under a minute, "2m 10s" above it, "1h 5m" past an hour.
+    return minutes>=60?`${Math.floor(minutes/60)}h ${minutes%60}m`:minutes?`${minutes}m ${seconds%60}s`:`${seconds}s`;
   }
   function nkAnalysisOutcomes(t){
     const timeUp=(t.questionIds||[]).filter(id=>t.expired?.[id]&&!t.answers?.[id]).length,omitted=Math.max(0,(Number(t.unattempted)||0)-timeUp);

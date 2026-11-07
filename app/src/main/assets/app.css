@@ -7581,3 +7581,36 @@ html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-review-q.expired { back
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-session-review-q.expired small { color: var(--nkg-fg-3) !important; }
 html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-review-dot.expired { background: transparent !important; border: 1px dashed var(--nkg-border-strong) !important; }
 html[data-nk-ui="geist"] .nk-refined-analysis .is-timeup { color: var(--nkg-fg-3, #737373); }
+
+/* ── unslop polish v1 ──────────────────────────────────────────────────────
+   Polish pass after an unslop audit (unslop by Damir Sokolovsky, @heydamir, CC BY 4.0).
+   Keeps the Geist identity; removes the remaining tells: heavy weights, negative tracking on
+   small text, tinted chrome tiles, decorative motion, two equal primaries. Color stays in the
+   two moments: the marked answer sheet (score ring, question grid) and memory maturity. */
+/* Type: hierarchy from size and color; 600 at most, body copy in lists at 500. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-refined-analysis :is(b,strong,small,h1,h2,h3),
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-ring b,
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-mock-in :is(b,strong,th),
+html[data-nk-ui="geist"] :is(body,#nkg-root) table th { font-weight: 600 !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-refined-analysis :is(.nk-na-answer-list,.nk-na-answers,details) li strong { font-weight: 500 !important; }
+/* Small text never gets negative tracking. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) :is(.nkg-topbar-wordmark,.nkg-delta,.nk-li-delta,.nk-nav-due,.option-text,.nkg-group-title,.nk-na-card h2,.nk-home-streak-copy strong,.nk-revision-card b) { letter-spacing: 0 !important; }
+/* The question eyebrow repeats the counter in the top bar: quiet sentence case, not a tracked mono label. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-q-eyebrow { text-transform: none !important; letter-spacing: 0 !important; font-family: var(--nkg-font-sans) !important; font-size: 13px !important; color: var(--nkg-fg-3) !important; }
+/* Changes are quiet text with what they compare to, not tinted pills. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-delta { height: auto !important; padding: 0 !important; border: 0 !important; background: none !important; font: 500 12px/16px var(--nkg-font-sans) !important; font-variant-numeric: tabular-nums; }
+/* Result: the outcome counts sit on neutral tiles; only the number carries its color. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-refined-analysis .nk-na-outcome-counts > div { background: var(--nkg-bg-subtle) !important; border-color: var(--nkg-border) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-refined-analysis .nk-na-outcome-counts > div small { color: var(--nkg-fg-3) !important; }
+/* Stat cards are numbers: no decorative icon tiles. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-metrics article > span:first-child:has(svg) { display: none !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-na-metrics article { grid-template-columns: minmax(0,1fr) !important; }
+/* Not attempted is absence, not a warning: neutral instead of amber in the topic bars. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-refined-analysis i.is-omitted { background: var(--nkg-border-strong) !important; }
+/* One primary per screen: Retry is the secondary action next to Review Solutions. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-refined-analysis .nk-na-actions > button:nth-child(2) { background: var(--nkg-surface) !important; color: var(--nkg-fg) !important; border: 1px solid var(--nkg-border-strong) !important; box-shadow: none !important; }
+/* Icon tiles take the neutral surface; the icon keeps the text role. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nkg-action :is(.nkg-action-icon) { background: var(--nkg-bg-subtle) !important; color: var(--nkg-fg-2) !important; }
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-streak-card .nk-home-streak-flame { background: var(--nkg-bg-subtle) !important; border-color: var(--nkg-border) !important; box-shadow: none !important; }
+/* No looping decoration: the drifting dot-grid spotlight on the continue card goes. */
+html[data-nk-ui="geist"] :is(body,#nkg-root) .nk-home-command-center .nk-home-focus-card::before { display: none !important; animation: none !important; }

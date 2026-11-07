@@ -26,7 +26,7 @@ const grouped=run("nkAnalysisRows({},'subject')");assert.equal(grouped.rows.leng
 ctx.t={questionIds:['a','b','c','d','e','f','g'],questionTimes:{a:0,b:29999,c:30000,d:60000,e:120000,f:180001}};
 let time=run('nkAnalysisTimeData(t)');assert.deepEqual(Array.from(time.counts),[2,1,1,1,1]);assert.equal(time.missing,1);assert.equal(time.recorded,6);
 run("nkAnalysisTimeMode='cumulative'");assert.deepEqual(Array.from(run('nkAnalysisTimeData(t)').counts),[2,3,4,5,6]);
-assert.equal(run('nkAnalysisDuration(null)'), '—');assert.equal(run('nkAnalysisDuration(0)'), '0m 0s');
+assert.equal(run('nkAnalysisDuration(null)'), '—');assert.equal(run('nkAnalysisDuration(0)'), '0s');assert.equal(run('nkAnalysisDuration(43000)'), '43s');assert.equal(run('nkAnalysisDuration(130000)'), '2m 10s');
 ctx.row={title:'Zero',subject:'Anatomy',bank:'Marrow',total:2,correct:0,incorrect:2,unattempted:0};assert.match(run('nkAnalysisRow(row)'),/is-incorrect.*width:100%/);
 ctx.row.incorrect=0;ctx.row.unattempted=2;assert.match(run('nkAnalysisRow(row)'),/is-omitted.*width:100%/);
 ctx.row={title:'Mixed',subject:'Anatomy',bank:'Marrow',total:2,correct:1,incorrect:0,unattempted:1};
